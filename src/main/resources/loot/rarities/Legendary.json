@@ -1,0 +1,14 @@
+{
+  "QualityValue": 5,
+  "Color": "#bb8a2c",
+  "DisplayName": "server.nat20.rarity.legendary",
+  "BaseWeight": 10,
+  "MaxAffixes": 5,
+  "MaxSockets": 3,
+  "StatRequirement": 18,
+  "LootRules": [
+    { "Type": "STAT", "Count": 3, "Probability": 1.0 },
+    { "Type": "EFFECT", "Count": 1, "Probability": 1.0 },
+    { "Type": "ABILITY", "Count": 1, "Probability": 0.5 }
+  ]
+}

@@ -1,0 +1,257 @@
+{
+  "npcId": "ArtisanBlacksmith",
+  "defaultDisposition": 50,
+  "greetingNodeId": "greeting",
+  "returnGreetingNodeId": "return_greeting",
+
+  "topics": [
+    {
+      "id": "repair",
+      "label": "Repair",
+      "entryNodeId": "repair_greeting",
+      "scope": "LOCAL",
+      "startLearned": true,
+      "sortOrder": 1
+    },
+    {
+      "id": "the_forge",
+      "label": "The Forge",
+      "entryNodeId": "forge_greeting",
+      "scope": "LOCAL",
+      "startLearned": true,
+      "sortOrder": 2,
+      "recapText": "I already told you about the forge. Three generations of honest steel."
+    },
+    {
+      "id": "flattery",
+      "label": "Flattery",
+      "entryNodeId": "flattery_check",
+      "scope": "LOCAL",
+      "startLearned": true,
+      "statPrefix": "CHA",
+      "sortOrder": 3
+    },
+    {
+      "id": "rumors",
+      "label": "Rumors",
+      "entryNodeId": "rumors_greeting",
+      "scope": "LOCAL",
+      "startLearned": true,
+      "sortOrder": 10,
+      "recapText": "I already told you about the bandits on the north road. Nasty business."
+    },
+    {
+      "id": "bandit_camp",
+      "label": "Bandit Camp",
+      "entryNodeId": "bandit_camp_response",
+      "scope": "GLOBAL",
+      "startLearned": false,
+      "condition": { "type": "TOPIC_LEARNED", "topicId": "bandit_camp" },
+      "sortOrder": 11
+    }
+  ],
+
+  "nodes": {
+
+    "greeting": {
+      "type": "DIALOGUE",
+      "speakerText": "Aye, what brings you to my forge? I've got blades that need sharpening and orders backing up.",
+      "responses": []
+    },
+
+    "return_greeting": {
+      "type": "DIALOGUE",
+      "speakerText": "Back again, are you? Well, I'm still here. What do you need?",
+      "responses": []
+    },
+
+    "repair_greeting": {
+      "type": "DIALOGUE",
+      "speakerText": "Repairs? Aye, I can fix up most blades. Bring me the weapon and 50 gold.",
+      "responses": [
+        {
+          "id": "repair_too_expensive",
+          "displayText": "That's too expensive.",
+          "targetNodeId": "repair_haggle",
+          "mode": "EXPLORATORY"
+        },
+        {
+          "id": "repair_persuade",
+          "displayText": "Surely you can do better for a fellow adventurer?",
+          "targetNodeId": "repair_persuade_pass",
+          "mode": "DECISIVE",
+          "statPrefix": "CHA",
+          "skillCheckRef": "repair_persuasion_check"
+        },
+        {
+          "id": "repair_accept",
+          "displayText": "Deal. Here's my sword.",
+          "targetNodeId": "repair_accepted",
+          "mode": "DECISIVE"
+        }
+      ]
+    },
+
+    "repair_haggle": {
+      "type": "DIALOGUE",
+      "speakerText": "I've got to eat too, friend. 50 gold is fair for the work. Take it or leave it.",
+      "responses": [
+        {
+          "id": "haggle_accept",
+          "displayText": "Fine. 50 gold it is.",
+          "targetNodeId": "repair_accepted",
+          "mode": "DECISIVE"
+        },
+        {
+          "id": "haggle_persuade",
+          "displayText": "What if I bring you materials too?",
+          "targetNodeId": "repair_materials_pass",
+          "mode": "DECISIVE",
+          "statPrefix": "CHA",
+          "skillCheckRef": "repair_materials_check"
+        },
+        {
+          "id": "haggle_refuse",
+          "displayText": "Forget it.",
+          "targetNodeId": "repair_refused",
+          "mode": "DECISIVE"
+        }
+      ]
+    },
+
+    "repair_persuasion_check": {
+      "type": "SKILL_CHECK",
+      "skill": "PERSUASION",
+      "stat": "CHA",
+      "baseDC": 12,
+      "dispositionScaling": true,
+      "passNodeId": "repair_persuade_pass",
+      "failNodeId": "repair_persuade_fail"
+    },
+
+    "repair_persuade_pass": {
+      "type": "DIALOGUE",
+      "speakerText": "Ha! You've got a silver tongue. Fine — 30 gold, but don't tell anyone I gave you a deal.",
+      "responses": [],
+      "onEnter": [
+        { "type": "MODIFY_DISPOSITION", "amount": 5 }
+      ]
+    },
+
+    "repair_persuade_fail": {
+      "type": "DIALOGUE",
+      "speakerText": "Save your honeyed words, friend. 50 gold or nothing. That's my final offer.",
+      "responses": [
+        {
+          "id": "fail_accept",
+          "displayText": "Fine. 50 gold.",
+          "targetNodeId": "repair_accepted",
+          "mode": "DECISIVE"
+        },
+        {
+          "id": "fail_refuse",
+          "displayText": "Forget it.",
+          "targetNodeId": "repair_refused",
+          "mode": "DECISIVE"
+        }
+      ],
+      "onEnter": [
+        { "type": "MODIFY_DISPOSITION", "amount": -3 }
+      ]
+    },
+
+    "repair_accepted": {
+      "type": "ACTION",
+      "actions": [
+        { "type": "REMOVE_ITEM", "itemId": "gold", "quantity": 50 },
+        { "type": "SET_FLAG", "flagId": "repair_in_progress", "value": true }
+      ],
+      "next": "repair_accepted_dialogue"
+    },
+
+    "repair_accepted_dialogue": {
+      "type": "DIALOGUE",
+      "speakerText": "Good. I'll have it ready by morning. Come back tomorrow.",
+      "responses": []
+    },
+
+    "repair_refused": {
+      "type": "TERMINAL"
+    },
+
+    "rumors_greeting": {
+      "type": "DIALOGUE",
+      "speakerText": "Rumors? Well, I don't usually gossip, but... I've heard there's trouble on the north road. Bandits set up camp near the old watchtower. Merchants are afraid to travel.",
+      "responses": [
+        {
+          "id": "rumors_bandits_more",
+          "displayText": "Tell me more about these bandits.",
+          "targetNodeId": "rumors_bandits_detail",
+          "mode": "EXPLORATORY"
+        },
+        {
+          "id": "rumors_watchtower",
+          "displayText": "Where exactly is this watchtower?",
+          "targetNodeId": "rumors_watchtower_detail",
+          "mode": "EXPLORATORY"
+        }
+      ],
+      "onEnter": [
+        { "type": "UNLOCK_TOPIC", "topicId": "bandit_camp", "scope": "GLOBAL" }
+      ]
+    },
+
+    "rumors_bandits_detail": {
+      "type": "DIALOGUE",
+      "speakerText": "A dozen at least, from what the traders say. Led by some scarred woman with a two-handed axe. They're not just robbing folk — they're organized.",
+      "responses": []
+    },
+
+    "rumors_watchtower_detail": {
+      "type": "DIALOGUE",
+      "speakerText": "Half a day's ride north, past the split in the road. You'll see it on the hill. Used to be a guard post before the garrison pulled out.",
+      "responses": []
+    },
+
+    "bandit_camp_response": {
+      "type": "DIALOGUE",
+      "speakerText": "The bandit camp? Aye, I've heard the same as everyone else. Bad business on the north road. If you're thinking of doing something about it, you're braver than most.",
+      "responses": []
+    },
+
+    "forge_greeting": {
+      "type": "DIALOGUE",
+      "speakerText": "This forge has been in my family three generations. My grandfather built the original bellows — still works, too. We make honest steel here, nothing fancy, but it'll keep you alive.",
+      "responses": []
+    },
+
+    "flattery_check": {
+      "type": "SKILL_CHECK",
+      "skill": "PERSUASION",
+      "stat": "CHA",
+      "baseDC": 14,
+      "dispositionScaling": true,
+      "passNodeId": "flattery_pass",
+      "failNodeId": "flattery_fail"
+    },
+
+    "flattery_pass": {
+      "type": "DIALOGUE",
+      "speakerText": "Ha! Flattery will get you everywhere, friend. Tell you what — I've got a piece I've been working on. Not for sale normally, but for someone with taste... let me show you.",
+      "responses": [],
+      "onEnter": [
+        { "type": "MODIFY_DISPOSITION", "amount": 10 },
+        { "type": "SET_FLAG", "flagId": "blacksmith_special_unlocked", "value": true }
+      ]
+    },
+
+    "flattery_fail": {
+      "type": "DIALOGUE",
+      "speakerText": "I appreciate the kind words, but I've heard better from traveling merchants trying to lowball me. You want something, speak plain.",
+      "responses": [],
+      "onEnter": [
+        { "type": "MODIFY_DISPOSITION", "amount": -5 }
+      ]
+    }
+  }
+}

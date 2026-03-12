@@ -1,0 +1,221 @@
+$C = "../Common.ui";
+
+$C.@PageOverlay {}
+
+$C.@Container {
+  Anchor: (Width: 850, Height: 550);
+
+  #Content {
+    LayoutMode: Top;
+    Padding: (Left: 16, Right: 16, Top: 14, Bottom: 14);
+
+    // Title bar: NPC name centered, bright gold, bold, largest text
+    Group {
+      LayoutMode: Left;
+      Anchor: (Height: 36);
+      Padding: (Bottom: 6);
+
+      Label { FlexWeight: 1; }
+      Label #NPCName {
+        Text: "NPC Name";
+        Style: (
+          TextColor: #ffd700(1),
+          FontSize: 24,
+          RenderBold: true
+        );
+      }
+      Label { FlexWeight: 1; }
+    }
+
+    // Two-panel body
+    Group {
+      LayoutMode: Left;
+      FlexWeight: 1;
+
+      // ── Left panel: topics + footer ──
+      Group {
+        LayoutMode: Top;
+        FlexWeight: 3;
+        Padding: (Right: 6);
+
+        // Scrollable topic list
+        Group {
+          LayoutMode: TopScrolling;
+          FlexWeight: 1;
+          ScrollbarStyle: $C.@DefaultScrollbarStyle;
+          Padding: (Left: 6, Right: 6, Top: 6);
+
+          $C.@SmallSecondaryTextButton #Topic1 {
+            Text: "";
+            Anchor: (Height: 32);
+            Visible: false;
+          }
+
+          $C.@SmallSecondaryTextButton #Topic2 {
+            Text: "";
+            Anchor: (Height: 32, Top: 5);
+            Visible: false;
+          }
+
+          $C.@SmallSecondaryTextButton #Topic3 {
+            Text: "";
+            Anchor: (Height: 32, Top: 5);
+            Visible: false;
+          }
+
+          $C.@SmallSecondaryTextButton #Topic4 {
+            Text: "";
+            Anchor: (Height: 32, Top: 5);
+            Visible: false;
+          }
+
+          $C.@SmallSecondaryTextButton #Topic5 {
+            Text: "";
+            Anchor: (Height: 32, Top: 5);
+            Visible: false;
+          }
+
+          $C.@SmallSecondaryTextButton #Topic6 {
+            Text: "";
+            Anchor: (Height: 32, Top: 5);
+            Visible: false;
+          }
+
+          $C.@SmallSecondaryTextButton #Topic7 {
+            Text: "";
+            Anchor: (Height: 32, Top: 5);
+            Visible: false;
+          }
+
+          $C.@SmallSecondaryTextButton #Topic8 {
+            Text: "";
+            Anchor: (Height: 32, Top: 5);
+            Visible: false;
+          }
+
+          $C.@SmallSecondaryTextButton #Topic9 {
+            Text: "";
+            Anchor: (Height: 32, Top: 5);
+            Visible: false;
+          }
+
+          $C.@SmallSecondaryTextButton #Topic10 {
+            Text: "";
+            Anchor: (Height: 32, Top: 5);
+            Visible: false;
+          }
+        }
+
+        // Pinned footer: disposition + goodbye
+        Group {
+          LayoutMode: Top;
+          Padding: (Top: 6, Left: 6, Right: 6, Bottom: 6);
+
+          Label #DispositionLabel {
+            Text: "";
+            Style: (
+              TextColor: #999999(1),
+              FontSize: 11
+            );
+            Anchor: (Top: 2);
+            Visible: false;
+          }
+
+          $C.@CancelTextButton #GoodbyeButton {
+            Text: "Goodbye.";
+            FlexWeight: 1;
+            Anchor: (Height: 33, Top: 4);
+          }
+        }
+      }
+
+      // Vertical divider
+      Group {
+        Anchor: (Width: 1);
+        Background: (Color: #3a4a5a(1));
+      }
+
+      // ── Right panel: conversation log + follow-ups ──
+      Group {
+        LayoutMode: Top;
+        FlexWeight: 7;
+        Padding: (Left: 12);
+
+        // Scrollable conversation log (20 pre-defined labels, set from Java)
+        Group {
+          LayoutMode: TopScrolling;
+          FlexWeight: 1;
+          ScrollbarStyle: $C.@DefaultScrollbarStyle;
+          AutoScrollDown: true;
+          Padding: (Left: 8, Right: 8, Top: 6);
+
+          Label #Log1 { Text: ""; Style: (Wrap: true); Anchor: (Top: 2); Visible: false; }
+          Label #Log2 { Text: ""; Style: (Wrap: true); Anchor: (Top: 2); Visible: false; }
+          Label #Log3 { Text: ""; Style: (Wrap: true); Anchor: (Top: 2); Visible: false; }
+          Label #Log4 { Text: ""; Style: (Wrap: true); Anchor: (Top: 2); Visible: false; }
+          Label #Log5 { Text: ""; Style: (Wrap: true); Anchor: (Top: 2); Visible: false; }
+          Label #Log6 { Text: ""; Style: (Wrap: true); Anchor: (Top: 2); Visible: false; }
+          Label #Log7 { Text: ""; Style: (Wrap: true); Anchor: (Top: 2); Visible: false; }
+          Label #Log8 { Text: ""; Style: (Wrap: true); Anchor: (Top: 2); Visible: false; }
+          Label #Log9 { Text: ""; Style: (Wrap: true); Anchor: (Top: 2); Visible: false; }
+          Label #Log10 { Text: ""; Style: (Wrap: true); Anchor: (Top: 2); Visible: false; }
+          Label #Log11 { Text: ""; Style: (Wrap: true); Anchor: (Top: 2); Visible: false; }
+          Label #Log12 { Text: ""; Style: (Wrap: true); Anchor: (Top: 2); Visible: false; }
+          Label #Log13 { Text: ""; Style: (Wrap: true); Anchor: (Top: 2); Visible: false; }
+          Label #Log14 { Text: ""; Style: (Wrap: true); Anchor: (Top: 2); Visible: false; }
+          Label #Log15 { Text: ""; Style: (Wrap: true); Anchor: (Top: 2); Visible: false; }
+          Label #Log16 { Text: ""; Style: (Wrap: true); Anchor: (Top: 2); Visible: false; }
+          Label #Log17 { Text: ""; Style: (Wrap: true); Anchor: (Top: 2); Visible: false; }
+          Label #Log18 { Text: ""; Style: (Wrap: true); Anchor: (Top: 2); Visible: false; }
+          Label #Log19 { Text: ""; Style: (Wrap: true); Anchor: (Top: 2); Visible: false; }
+          Label #Log20 { Text: ""; Style: (Wrap: true); Anchor: (Top: 2); Visible: false; }
+        }
+
+        // Follow-up area (hidden by default)
+        Group #FollowUpArea {
+          LayoutMode: Top;
+          Padding: (Top: 6, Left: 8, Right: 8, Bottom: 6);
+          Visible: false;
+
+          $C.@SmallSecondaryTextButton #FollowUp1 {
+            Text: "";
+            Anchor: (Height: 32);
+            Visible: false;
+          }
+
+          $C.@SmallSecondaryTextButton #FollowUp2 {
+            Text: "";
+            Anchor: (Height: 32, Top: 5);
+            Visible: false;
+          }
+
+          $C.@SmallSecondaryTextButton #FollowUp3 {
+            Text: "";
+            Anchor: (Height: 32, Top: 5);
+            Visible: false;
+          }
+
+          $C.@SmallSecondaryTextButton #FollowUp4 {
+            Text: "";
+            Anchor: (Height: 32, Top: 5);
+            Visible: false;
+          }
+
+          $C.@SmallSecondaryTextButton #FollowUp5 {
+            Text: "";
+            Anchor: (Height: 32, Top: 5);
+            Visible: false;
+          }
+
+          $C.@SmallSecondaryTextButton #FollowUp6 {
+            Text: "";
+            Anchor: (Height: 32, Top: 5);
+            Visible: false;
+          }
+        }
+      }
+    }
+  }
+}
+
+$C.@BackButton {}

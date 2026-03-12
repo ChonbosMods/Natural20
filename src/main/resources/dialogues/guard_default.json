@@ -1,0 +1,267 @@
+{
+  "npcId": "Guard",
+  "defaultDisposition": 40,
+  "greetingNodeId": "greeting",
+  "returnGreetingNodeId": "return_greeting",
+
+  "topics": [
+    {
+      "id": "duties",
+      "label": "Duties",
+      "entryNodeId": "duties_greeting",
+      "scope": "LOCAL",
+      "startLearned": true,
+      "sortOrder": 1
+    },
+    {
+      "id": "prisoner",
+      "label": "Prisoner",
+      "entryNodeId": "prisoner_greeting",
+      "scope": "LOCAL",
+      "startLearned": true,
+      "sortOrder": 2
+    },
+    {
+      "id": "bribe",
+      "label": "Bribe",
+      "entryNodeId": "bribe_check",
+      "scope": "LOCAL",
+      "startLearned": true,
+      "statPrefix": "CHA",
+      "sortOrder": 3
+    },
+    {
+      "id": "town_curfew",
+      "label": "Town Curfew",
+      "entryNodeId": "curfew_greeting",
+      "scope": "LOCAL",
+      "startLearned": true,
+      "sortOrder": 4,
+      "recapText": "I already told you about curfew. Sundown to sunrise, no exceptions."
+    }
+  ],
+
+  "nodes": {
+
+    "greeting": {
+      "type": "DIALOGUE",
+      "speakerText": "State your business. I haven't got all day.",
+      "responses": []
+    },
+
+    "return_greeting": {
+      "type": "DIALOGUE",
+      "speakerText": "You again. Make it quick.",
+      "responses": []
+    },
+
+    "duties_greeting": {
+      "type": "DIALOGUE",
+      "speakerText": "My duties? I patrol the walls, keep the peace, and make sure nobody causes trouble. That's the short version.",
+      "responses": [
+        {
+          "id": "duties_north_gate",
+          "displayText": "What's the situation at the north gate?",
+          "targetNodeId": "duties_north_gate_response",
+          "mode": "EXPLORATORY"
+        },
+        {
+          "id": "duties_south_wall",
+          "displayText": "Tell me about the south wall.",
+          "targetNodeId": "duties_south_wall_response",
+          "mode": "EXPLORATORY"
+        },
+        {
+          "id": "duties_restricted",
+          "displayText": "Can you let me into the restricted area?",
+          "targetNodeId": "duties_restricted_pass",
+          "mode": "DECISIVE",
+          "statPrefix": "CHA",
+          "skillCheckRef": "duties_restricted_check"
+        }
+      ]
+    },
+
+    "duties_north_gate_response": {
+      "type": "DIALOGUE",
+      "speakerText": "North gate sees most of the merchant traffic. We run two shifts there: dawn watch and dusk watch. Lately we've been doubling up. Too many strangers coming through without papers.",
+      "responses": []
+    },
+
+    "duties_south_wall_response": {
+      "type": "DIALOGUE",
+      "speakerText": "South wall's quieter, but that's where the trouble sneaks in. Smugglers like the blind spots near the old drainage grate. We've patched it twice. They keep finding new ways through.",
+      "responses": []
+    },
+
+    "duties_restricted_check": {
+      "type": "SKILL_CHECK",
+      "skill": "PERSUASION",
+      "stat": "CHA",
+      "baseDC": 14,
+      "dispositionScaling": true,
+      "passNodeId": "duties_restricted_pass",
+      "failNodeId": "duties_restricted_fail"
+    },
+
+    "duties_restricted_pass": {
+      "type": "DIALOGUE",
+      "speakerText": "You seem like someone who can handle themselves. Fine: I'll look the other way at the east checkpoint for the next hour. Don't make me regret it.",
+      "responses": [],
+      "onEnter": [
+        { "type": "SET_FLAG", "flagId": "guard_restricted_access", "value": true }
+      ]
+    },
+
+    "duties_restricted_fail": {
+      "type": "DIALOGUE",
+      "speakerText": "Restricted means restricted. I don't care how nicely you ask. Try that again and I'll have you escorted out of the district.",
+      "responses": [],
+      "onEnter": [
+        { "type": "MODIFY_DISPOSITION", "amount": -5 }
+      ]
+    },
+
+    "prisoner_greeting": {
+      "type": "DIALOGUE",
+      "speakerText": "We've got a man in the stockade. Been there three days waiting for the magistrate. Whole situation's a mess.",
+      "responses": [
+        {
+          "id": "prisoner_what_did_he_do",
+          "displayText": "What did he do?",
+          "targetNodeId": "prisoner_crime_response",
+          "mode": "EXPLORATORY"
+        },
+        {
+          "id": "prisoner_release",
+          "displayText": "Release the prisoner. Now.",
+          "targetNodeId": "prisoner_release_pass",
+          "mode": "DECISIVE",
+          "statPrefix": "STR",
+          "skillCheckRef": "prisoner_release_check",
+          "linkedResponses": ["prisoner_justice"]
+        },
+        {
+          "id": "prisoner_justice",
+          "displayText": "Let justice take its course.",
+          "targetNodeId": "prisoner_justice_response",
+          "mode": "DECISIVE",
+          "linkedResponses": ["prisoner_release"]
+        }
+      ]
+    },
+
+    "prisoner_crime_response": {
+      "type": "DIALOGUE",
+      "speakerText": "Stole bread from the quartermaster's stores. Third offense. Normally that's a fine, but three times? Magistrate might push for hard labor. The man's got a family, though. Two young ones.",
+      "responses": []
+    },
+
+    "prisoner_release_check": {
+      "type": "SKILL_CHECK",
+      "skill": "INTIMIDATION",
+      "stat": "CHA",
+      "baseDC": 15,
+      "dispositionScaling": false,
+      "passNodeId": "prisoner_release_pass",
+      "failNodeId": "prisoner_release_fail"
+    },
+
+    "prisoner_release_pass": {
+      "type": "DIALOGUE",
+      "speakerText": "You've got a dangerous look about you, and frankly I don't get paid enough for this. Fine. The keys are on the hook. I was on break when it happened. Understood?",
+      "responses": [],
+      "onEnter": [
+        { "type": "SET_FLAG", "flagId": "prisoner_released", "value": true },
+        { "type": "EXHAUST_TOPIC", "topicId": "prisoner" }
+      ]
+    },
+
+    "prisoner_release_fail": {
+      "type": "DIALOGUE",
+      "speakerText": "You think you can walk in here and bark orders at me? I've stared down worse than you before breakfast. The prisoner stays. Now back off before I add you to the stockade.",
+      "responses": [],
+      "onEnter": [
+        { "type": "MODIFY_DISPOSITION", "amount": -10 }
+      ]
+    },
+
+    "prisoner_justice_response": {
+      "type": "DIALOGUE",
+      "speakerText": "Sensible. The magistrate will sort it out. That's what the law's for. Not my place to judge, not yours either.",
+      "responses": [
+        {
+          "id": "prisoner_justice_agree",
+          "displayText": "You're right. The law is the law.",
+          "targetNodeId": "prisoner_justice_terminal",
+          "mode": "DECISIVE"
+        }
+      ]
+    },
+
+    "prisoner_justice_terminal": {
+      "type": "TERMINAL"
+    },
+
+    "bribe_check": {
+      "type": "SKILL_CHECK",
+      "skill": "DECEPTION",
+      "stat": "CHA",
+      "baseDC": 16,
+      "dispositionScaling": true,
+      "passNodeId": "bribe_pass",
+      "failNodeId": "bribe_fail"
+    },
+
+    "bribe_pass": {
+      "type": "DIALOGUE",
+      "speakerText": "I... suppose a man's got to look after himself. You didn't see me, I didn't see you. We clear?",
+      "responses": [],
+      "onEnter": [
+        { "type": "SET_FLAG", "flagId": "guard_bribed", "value": true },
+        { "type": "MODIFY_DISPOSITION", "amount": 15 },
+        { "type": "EXHAUST_TOPIC", "topicId": "bribe" }
+      ]
+    },
+
+    "bribe_fail": {
+      "type": "DIALOGUE",
+      "speakerText": "Are you trying to bribe me? I ought to haul you in right now. Get out of my sight before I change my mind about being lenient.",
+      "responses": [],
+      "onEnter": [
+        { "type": "MODIFY_DISPOSITION", "amount": -10 }
+      ]
+    },
+
+    "curfew_greeting": {
+      "type": "DIALOGUE",
+      "speakerText": "Curfew's in effect every night, sundown to sunrise. Captain's orders after the incidents last month. Anyone caught on the streets without a writ gets a night in holding.",
+      "responses": [
+        {
+          "id": "curfew_incidents",
+          "displayText": "What incidents?",
+          "targetNodeId": "curfew_incidents_response",
+          "mode": "EXPLORATORY"
+        },
+        {
+          "id": "curfew_writ",
+          "displayText": "How do I get a writ?",
+          "targetNodeId": "curfew_writ_response",
+          "mode": "EXPLORATORY"
+        }
+      ]
+    },
+
+    "curfew_incidents_response": {
+      "type": "DIALOGUE",
+      "speakerText": "Three break-ins in one week. Someone ransacked the apothecary, hit the guild hall records room, and tried the treasury. Didn't get into the treasury, thank the gods, but the captain's not taking chances.",
+      "responses": []
+    },
+
+    "curfew_writ_response": {
+      "type": "DIALOGUE",
+      "speakerText": "Talk to the clerk at the garrison hall during daylight hours. Bring identification and a reason. Merchants and healers get priority. Everyone else waits.",
+      "responses": []
+    }
+  }
+}

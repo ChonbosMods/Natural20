@@ -1,0 +1,12 @@
+{
+  "QualityValue": 1,
+  "Color": "#c9d2dd",
+  "DisplayName": "server.nat20.rarity.common",
+  "BaseWeight": 1000,
+  "MaxAffixes": 1,
+  "MaxSockets": 0,
+  "StatRequirement": 0,
+  "LootRules": [
+    { "Type": "STAT", "Count": 1, "Probability": 0.5 }
+  ]
+}

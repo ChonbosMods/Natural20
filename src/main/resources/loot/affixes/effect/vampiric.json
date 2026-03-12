@@ -1,0 +1,14 @@
+{
+  "Type": "EFFECT",
+  "DisplayName": "server.nat20.affix.vampiric",
+  "NamePosition": "SUFFIX",
+  "Categories": ["melee_weapon"],
+  "StatScaling": { "Primary": "CON", "Factor": 0.05 },
+  "TargetStat": "LifeSteal",
+  "ModifierType": "ADDITIVE",
+  "ValuesPerRarity": {
+    "Rare":      { "Min": 1.0, "Max": 2.0 },
+    "Epic":      { "Min": 2.0, "Max": 3.5 },
+    "Legendary": { "Min": 3.0, "Max": 5.0 }
+  }
+}

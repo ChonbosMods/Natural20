@@ -1,0 +1,21 @@
+{
+    "Group": "chonbosmods",
+    "Name": "Natural20",
+    "Version": "0.1.0",
+    "Description": "Tabletop RPG Encounters for Hytale",
+    "Authors": [
+        {
+            "Name": "Chonbo",
+            "Url": "https://github.com/ChonbosMods"
+        }
+    ],
+    "Website": "https://github.com/ChonbosMods/Natural20",
+    "DisabledByDefault": false,
+    "IncludesAssetPack": true,
+    "Dependencies": {
+        "Hytale:NPC": "*"
+    },
+    "OptionalDependencies": {},
+    "ServerVersion": "2026.02.19-1a311a592",
+    "Main": "com.chonbosmods.Natural20"
+}

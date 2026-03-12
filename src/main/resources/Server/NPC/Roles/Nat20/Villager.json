@@ -1,0 +1,81 @@
+{
+  "Type": "Generic",
+  "StartState": "Idle",
+  "NameTranslationKey": "nat20.npc.villager",
+  "DisplayNames": [
+    "Villager"
+  ],
+  "DefaultNPCAttitude": "Ignore",
+  "DefaultPlayerAttitude": "Neutral",
+  "Appearance": "NPC_Elf",
+  "MaxHealth": 20,
+  "Invulnerable": true,
+  "KnockbackScale": 0.5,
+  "MotionControllerList": [
+    {
+      "Type": "Walk",
+      "MaxWalkSpeed": 5,
+      "Gravity": 10,
+      "RunThreshold": 0.3,
+      "MaxFallSpeed": 15,
+      "MaxRotationSpeed": 360,
+      "Acceleration": 10
+    }
+  ],
+  "Instructions": [
+    {
+      "Instructions": [
+        {
+          "$Comment": "Idle: wander slowly in a circle, pause, repeat",
+          "Sensor": {
+            "Type": "State",
+            "State": "Idle"
+          },
+          "Instructions": [
+            {
+              "Continue": true,
+              "Sensor": {
+                "Type": "Player",
+                "Range": 8
+              },
+              "HeadMotion": {
+                "Type": "Watch"
+              }
+            },
+            {
+              "Sensor": {
+                "Type": "Any"
+              },
+              "BodyMotion": {
+                "Type": "Sequence",
+                "Looped": true,
+                "Motions": [
+                  {
+                    "Type": "Timer",
+                    "Time": [3, 6],
+                    "Motion": {
+                      "Type": "Nothing"
+                    }
+                  },
+                  {
+                    "Type": "Timer",
+                    "Time": [2, 4],
+                    "Motion": {
+                      "Type": "WanderInCircle",
+                      "Radius": 6,
+                      "MaxHeadingChange": 60,
+                      "RelativeSpeed": 0.15
+                    }
+                  }
+                ]
+              }
+            }
+          ]
+        }
+      ]
+    }
+  ],
+  "InteractionVars": {
+    "nat20_role": "villager"
+  }
+}

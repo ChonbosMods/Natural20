@@ -1,0 +1,17 @@
+{
+  "Type": "STAT",
+  "DisplayName": "server.nat20.affix.swift",
+  "NamePosition": "SUFFIX",
+  "Categories": ["melee_weapon", "ranged_weapon", "tool"],
+  "StatRequirement": { "DEX": 12 },
+  "StatScaling": { "Primary": "DEX", "Factor": 0.1 },
+  "TargetStat": "AttackSpeed",
+  "ModifierType": "MULTIPLICATIVE",
+  "ValuesPerRarity": {
+    "Common":    { "Min": 0.02, "Max": 0.05 },
+    "Uncommon":  { "Min": 0.04, "Max": 0.08 },
+    "Rare":      { "Min": 0.06, "Max": 0.12 },
+    "Epic":      { "Min": 0.10, "Max": 0.18 },
+    "Legendary": { "Min": 0.15, "Max": 0.25 }
+  }
+}

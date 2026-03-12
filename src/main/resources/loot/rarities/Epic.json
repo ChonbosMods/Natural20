@@ -1,0 +1,14 @@
+{
+  "QualityValue": 4,
+  "Color": "#8b339e",
+  "DisplayName": "server.nat20.rarity.epic",
+  "BaseWeight": 50,
+  "MaxAffixes": 4,
+  "MaxSockets": 2,
+  "StatRequirement": 16,
+  "LootRules": [
+    { "Type": "STAT", "Count": 2, "Probability": 1.0 },
+    { "Type": "EFFECT", "Count": 1, "Probability": 1.0 },
+    { "Type": "ABILITY", "Count": 1, "Probability": 0.3 }
+  ]
+}

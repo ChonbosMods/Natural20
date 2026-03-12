@@ -1,0 +1,218 @@
+$C = "../Common.ui";
+
+$C.@PageOverlay {}
+
+$C.@Container {
+  Anchor: (Width: 420, Height: 520);
+
+  #Content {
+    LayoutMode: Top;
+    Padding: (Left: 24, Right: 24, Top: 18, Bottom: 16);
+
+    // Title bar: centered
+    Group {
+      LayoutMode: Left;
+      Anchor: (Height: 30);
+      Padding: (Bottom: 2);
+
+      Label { FlexWeight: 1; }
+      Label #SCTitle {
+        Text: "Skill Check";
+        Style: (TextColor: #ffd700(1), FontSize: 20, RenderBold: true);
+      }
+      Label { FlexWeight: 1; }
+    }
+
+    // DC line: "Difficulty Class 14" (under title, above dice)
+    Group {
+      LayoutMode: Left;
+      Anchor: (Height: 22);
+      Padding: (Top: 2);
+
+      Label { FlexWeight: 1; }
+      Label #DCInfo {
+        Text: "";
+        Style: (TextColor: #ffffff(1), FontSize: 14, RenderBold: true);
+      }
+      Label { FlexWeight: 1; }
+    }
+
+    // Dice image container: stacked frames, only one visible at a time
+    Group {
+      LayoutMode: Left;
+      Anchor: (Height: 132);
+      Padding: (Top: 6, Bottom: 4);
+
+      Label { FlexWeight: 1; }
+      Group {
+        Anchor: (Width: 122, Height: 122);
+
+        // Tumble frames (10)
+        Group #T01 { Anchor: (Left: 0, Top: 0, Right: 0, Bottom: 0); Background: (TexturePath: "d20_tumble_01.png"); Visible: false; }
+        Group #T02 { Anchor: (Left: 0, Top: 0, Right: 0, Bottom: 0); Background: (TexturePath: "d20_tumble_02.png"); Visible: false; }
+        Group #T03 { Anchor: (Left: 0, Top: 0, Right: 0, Bottom: 0); Background: (TexturePath: "d20_tumble_03.png"); Visible: false; }
+        Group #T04 { Anchor: (Left: 0, Top: 0, Right: 0, Bottom: 0); Background: (TexturePath: "d20_tumble_04.png"); Visible: false; }
+        Group #T05 { Anchor: (Left: 0, Top: 0, Right: 0, Bottom: 0); Background: (TexturePath: "d20_tumble_05.png"); Visible: false; }
+        Group #T06 { Anchor: (Left: 0, Top: 0, Right: 0, Bottom: 0); Background: (TexturePath: "d20_tumble_06.png"); Visible: false; }
+        Group #T07 { Anchor: (Left: 0, Top: 0, Right: 0, Bottom: 0); Background: (TexturePath: "d20_tumble_07.png"); Visible: false; }
+        Group #T08 { Anchor: (Left: 0, Top: 0, Right: 0, Bottom: 0); Background: (TexturePath: "d20_tumble_08.png"); Visible: false; }
+        Group #T09 { Anchor: (Left: 0, Top: 0, Right: 0, Bottom: 0); Background: (TexturePath: "d20_tumble_09.png"); Visible: false; }
+        Group #T10 { Anchor: (Left: 0, Top: 0, Right: 0, Bottom: 0); Background: (TexturePath: "d20_tumble_10.png"); Visible: false; }
+
+        // Result frames (20)
+        Group #R01 { Anchor: (Left: 0, Top: 0, Right: 0, Bottom: 0); Background: (TexturePath: "d20_result_01.png"); Visible: false; }
+        Group #R02 { Anchor: (Left: 0, Top: 0, Right: 0, Bottom: 0); Background: (TexturePath: "d20_result_02.png"); Visible: false; }
+        Group #R03 { Anchor: (Left: 0, Top: 0, Right: 0, Bottom: 0); Background: (TexturePath: "d20_result_03.png"); Visible: false; }
+        Group #R04 { Anchor: (Left: 0, Top: 0, Right: 0, Bottom: 0); Background: (TexturePath: "d20_result_04.png"); Visible: false; }
+        Group #R05 { Anchor: (Left: 0, Top: 0, Right: 0, Bottom: 0); Background: (TexturePath: "d20_result_05.png"); Visible: false; }
+        Group #R06 { Anchor: (Left: 0, Top: 0, Right: 0, Bottom: 0); Background: (TexturePath: "d20_result_06.png"); Visible: false; }
+        Group #R07 { Anchor: (Left: 0, Top: 0, Right: 0, Bottom: 0); Background: (TexturePath: "d20_result_07.png"); Visible: false; }
+        Group #R08 { Anchor: (Left: 0, Top: 0, Right: 0, Bottom: 0); Background: (TexturePath: "d20_result_08.png"); Visible: false; }
+        Group #R09 { Anchor: (Left: 0, Top: 0, Right: 0, Bottom: 0); Background: (TexturePath: "d20_result_09.png"); Visible: false; }
+        Group #R10 { Anchor: (Left: 0, Top: 0, Right: 0, Bottom: 0); Background: (TexturePath: "d20_result_10.png"); Visible: false; }
+        Group #R11 { Anchor: (Left: 0, Top: 0, Right: 0, Bottom: 0); Background: (TexturePath: "d20_result_11.png"); Visible: false; }
+        Group #R12 { Anchor: (Left: 0, Top: 0, Right: 0, Bottom: 0); Background: (TexturePath: "d20_result_12.png"); Visible: false; }
+        Group #R13 { Anchor: (Left: 0, Top: 0, Right: 0, Bottom: 0); Background: (TexturePath: "d20_result_13.png"); Visible: false; }
+        Group #R14 { Anchor: (Left: 0, Top: 0, Right: 0, Bottom: 0); Background: (TexturePath: "d20_result_14.png"); Visible: false; }
+        Group #R15 { Anchor: (Left: 0, Top: 0, Right: 0, Bottom: 0); Background: (TexturePath: "d20_result_15.png"); Visible: false; }
+        Group #R16 { Anchor: (Left: 0, Top: 0, Right: 0, Bottom: 0); Background: (TexturePath: "d20_result_16.png"); Visible: false; }
+        Group #R17 { Anchor: (Left: 0, Top: 0, Right: 0, Bottom: 0); Background: (TexturePath: "d20_result_17.png"); Visible: false; }
+        Group #R18 { Anchor: (Left: 0, Top: 0, Right: 0, Bottom: 0); Background: (TexturePath: "d20_result_18.png"); Visible: false; }
+        Group #R19 { Anchor: (Left: 0, Top: 0, Right: 0, Bottom: 0); Background: (TexturePath: "d20_result_19.png"); Visible: false; }
+        Group #R20 { Anchor: (Left: 0, Top: 0, Right: 0, Bottom: 0); Background: (TexturePath: "d20_result_20.png"); Visible: false; }
+      }
+      Label { FlexWeight: 1; }
+    }
+
+    // Dice result text (shown after roll settles): large number, colored
+    Group {
+      LayoutMode: Left;
+      Anchor: (Height: 28);
+
+      Label { FlexWeight: 1; }
+      Label #DiceResultText {
+        Text: "";
+        Style: (TextColor: #ffcc00(1), FontSize: 22, RenderBold: true);
+        Visible: false;
+      }
+      Label { FlexWeight: 1; }
+    }
+
+    // Skill name: "PERSUASION" (bold, white, prominent)
+    Group {
+      LayoutMode: Left;
+      Anchor: (Height: 24);
+      Padding: (Top: 2);
+
+      Label { FlexWeight: 1; }
+      Label #SkillName {
+        Text: "";
+        Style: (TextColor: #ffffff(1), FontSize: 16, RenderBold: true);
+      }
+      Label { FlexWeight: 1; }
+    }
+
+    // Stat line: "[CHA] Charisma" (smaller, muted)
+    Group {
+      LayoutMode: Left;
+      Anchor: (Height: 18);
+
+      Label { FlexWeight: 1; }
+      Label #StatInfo {
+        Text: "";
+        Style: (TextColor: #aaaaaa(1), FontSize: 12);
+      }
+      Label { FlexWeight: 1; }
+    }
+
+    // Modifier line: "Charisma +0     Proficiency +0"
+    Group {
+      LayoutMode: Left;
+      Anchor: (Height: 18);
+      Padding: (Top: 2);
+
+      Label { FlexWeight: 1; }
+      Label #ModInfo {
+        Text: "";
+        Style: (TextColor: #aaaaaa(1), FontSize: 12);
+      }
+      Label { FlexWeight: 1; }
+    }
+
+    // Roll button (shown pre-roll): directly after modifiers
+    Group {
+      LayoutMode: Left;
+      Anchor: (Height: 44);
+      Padding: (Top: 10);
+
+      Label { FlexWeight: 2; }
+      $C.@SecondaryTextButton #RollButton {
+        Text: "Roll!";
+        FlexWeight: 3;
+      }
+      Label { FlexWeight: 2; }
+    }
+
+    // Comparison line: "11 vs 14" (shown post-roll, colored total vs plain number)
+    Group {
+      LayoutMode: Left;
+      Anchor: (Height: 22);
+      Padding: (Top: 6);
+
+      Label { FlexWeight: 1; }
+      Label #ComparisonLine {
+        Text: "";
+        Style: (TextColor: #ffffff(1), FontSize: 15, RenderBold: true);
+        Visible: false;
+      }
+      Label { FlexWeight: 1; }
+    }
+
+    // Verdict line: "SUCCESS" / "FAILURE" (shown post-roll)
+    Group {
+      LayoutMode: Left;
+      Anchor: (Height: 30);
+      Padding: (Top: 4);
+
+      Label { FlexWeight: 1; }
+      Label #Verdict {
+        Text: "";
+        Style: (TextColor: #00cc00(1), FontSize: 22, RenderBold: true);
+        Visible: false;
+      }
+      Label { FlexWeight: 1; }
+    }
+
+    // Verdict sub-line: "CRITICAL SUCCESS" (shown for nat 20/1 only)
+    Group {
+      LayoutMode: Left;
+      Anchor: (Height: 20);
+
+      Label { FlexWeight: 1; }
+      Label #VerdictSub {
+        Text: "";
+        Style: (TextColor: #00cc00(1), FontSize: 14, RenderBold: true);
+        Visible: false;
+      }
+      Label { FlexWeight: 1; }
+    }
+
+    // Spacer (pushes Continue to bottom)
+    Label { FlexWeight: 1; }
+
+    // Continue button (shown post-roll, pinned to bottom)
+    Group {
+      LayoutMode: Left;
+      Anchor: (Height: 44);
+      Padding: (Top: 4);
+
+      Label { FlexWeight: 2; }
+      $C.@SecondaryTextButton #ContinueButton {
+        Text: "Continue";
+        FlexWeight: 3;
+        Visible: false;
+      }
+      Label { FlexWeight: 2; }
+    }
+  }
+}

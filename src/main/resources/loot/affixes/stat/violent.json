@@ -1,0 +1,17 @@
+{
+  "Type": "STAT",
+  "DisplayName": "server.nat20.affix.violent",
+  "NamePosition": "PREFIX",
+  "Categories": ["melee_weapon"],
+  "StatRequirement": { "STR": 14 },
+  "StatScaling": { "Primary": "STR", "Factor": 0.15 },
+  "TargetStat": "AttackDamage",
+  "ModifierType": "ADDITIVE",
+  "ValuesPerRarity": {
+    "Common":    { "Min": 1.0, "Max": 2.0 },
+    "Uncommon":  { "Min": 2.0, "Max": 4.0 },
+    "Rare":      { "Min": 3.0, "Max": 6.0 },
+    "Epic":      { "Min": 5.0, "Max": 9.0 },
+    "Legendary": { "Min": 7.0, "Max": 12.0 }
+  }
+}
