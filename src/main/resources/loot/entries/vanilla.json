@@ -1,15 +1,26 @@
 {
   "Items": {
-    "Hytale:IronSword": { "Category": "melee_weapon" },
-    "Hytale:WoodenSword": { "Category": "melee_weapon" },
-    "Hytale:IronAxe": { "Category": "melee_weapon" },
-    "Hytale:IronPickaxe": { "Category": "tool" },
-    "Hytale:WoodenPickaxe": { "Category": "tool" },
-    "Hytale:IronShovel": { "Category": "tool" },
-    "Hytale:IronChestplate": { "Category": "armor" },
-    "Hytale:IronHelmet": { "Category": "armor" },
-    "Hytale:IronLeggings": { "Category": "armor" },
-    "Hytale:IronBoots": { "Category": "armor" },
-    "Hytale:Bow": { "Category": "ranged_weapon" }
+    "Weapon_Sword_Iron": { "Category": "melee_weapon" },
+    "Weapon_Sword_Crude": { "Category": "melee_weapon" },
+    "Weapon_Axe_Iron": { "Category": "melee_weapon" },
+    "Weapon_Axe_Crude": { "Category": "melee_weapon" },
+    "Weapon_Longsword_Iron": { "Category": "melee_weapon" },
+    "Weapon_Mace_Iron": { "Category": "melee_weapon" },
+    "Weapon_Daggers_Iron": { "Category": "melee_weapon" },
+    "Weapon_Spear_Iron": { "Category": "melee_weapon" },
+    "Weapon_Shortbow_Iron": { "Category": "ranged_weapon" },
+    "Weapon_Shortbow_Crude": { "Category": "ranged_weapon" },
+    "Weapon_Crossbow_Iron": { "Category": "ranged_weapon" },
+    "Tool_Pickaxe_Iron": { "Category": "tool" },
+    "Tool_Pickaxe_Crude": { "Category": "tool" },
+    "Tool_Shovel_Iron": { "Category": "tool" },
+    "Tool_Hatchet_Iron": { "Category": "tool" },
+    "Tool_Hammer_Iron": { "Category": "tool" },
+    "Tool_Hoe_Iron": { "Category": "tool" },
+    "Armor_Iron_Head": { "Category": "armor" },
+    "Armor_Iron_Chest": { "Category": "armor" },
+    "Armor_Iron_Legs": { "Category": "armor" },
+    "Armor_Iron_Hands": { "Category": "armor" },
+    "Weapon_Shield_Iron": { "Category": "utility" }
   }
 }

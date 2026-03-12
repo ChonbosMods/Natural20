@@ -284,7 +284,6 @@ public class ConversationSession {
                 }
             }
             grayedExploratories.add(selectedId);
-            pendingFollowUpIds.remove(selectedId);
         } else {
             Set<String> toConsume = new HashSet<>();
             toConsume.add(selectedId);
@@ -307,8 +306,16 @@ public class ConversationSession {
                     playerData.addConsumedDecisive(npcId, activeTopicId, id);
                 }
             }
-            pendingFollowUpIds.removeAll(toConsume);
         }
+
+        // Clear all remaining displayed follow-ups: we're navigating away from this set
+        for (int i = 0; i < conversationLog.size(); i++) {
+            if (conversationLog.get(i) instanceof LogEntry.FollowUp fu
+                    && (fu.state() == FollowUpState.AVAILABLE || fu.state() == FollowUpState.GRAYED)) {
+                conversationLog.set(i, fu.withState(FollowUpState.ELIMINATED));
+            }
+        }
+        pendingFollowUpIds.clear();
     }
 
     private void returnCheck() {
@@ -332,6 +339,8 @@ public class ConversationSession {
         String entryNodeId = resolveEntryNodeId(topic);
         DialogueNode entryNode = graph.getNode(entryNodeId);
         if (!(entryNode instanceof DialogueNode.DialogueTextNode textNode)) {
+            // Entry node is a skill check or other non-dialogue node: auto-exhaust
+            playerData.setTopicExhaustion(npcId, activeTopicId, ExhaustionState.GRAYED);
             topicsLocked = false;
             return;
         }
@@ -351,6 +360,7 @@ public class ConversationSession {
 
         // Step 3: Return to entry or auto-exhaust
         if (hasFreshExploratories || hasRemainingDecisives) {
+            activeNodeId = entryNodeId;
             redisplayEntryNodeOptions(textNode);
             topicsLocked = true;
         } else {

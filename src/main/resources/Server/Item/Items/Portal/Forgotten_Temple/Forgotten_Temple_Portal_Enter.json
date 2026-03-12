@@ -1,0 +1,22 @@
+{
+  "TranslationProperties": {
+    "Name": "server.items.Forgotten_Temple_Portal_Enter.name",
+    "Description": "server.items.Forgotten_Temple_Portal_Enter.description"
+  },
+  "Icon": "Icons/ItemsGenerated/Portal_Return.png",
+  "Categories": [
+    "Blocks.Portals"
+  ],
+  "BlockType": {
+    "DrawType": "None",
+    "Material": "NonSolid",
+    "Opacity": "Transparent",
+    "HitboxType": "None",
+    "Gathering": {
+      "Breaking": {
+        "GatherType": "Unbreakable"
+      }
+    }
+  },
+  "Quality": "Technical"
+}

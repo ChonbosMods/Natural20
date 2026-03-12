@@ -15,7 +15,6 @@ import com.hypixel.hytale.server.core.universe.PlayerRef;
 import com.hypixel.hytale.server.core.universe.world.World;
 import com.hypixel.hytale.server.core.universe.world.storage.EntityStore;
 import com.hypixel.hytale.server.core.inventory.ItemStack;
-import com.hypixel.hytale.server.core.inventory.Inventory;
 import com.hypixel.hytale.server.core.entity.entities.Player;
 import com.hypixel.hytale.server.core.asset.type.item.config.Item;
 
@@ -24,8 +23,8 @@ import java.util.Random;
 
 public class LootCommand extends AbstractPlayerCommand {
 
-    private final RequiredArg<String> itemIdArg =
-        withRequiredArg("item", "Hytale item ID (e.g., Hytale:IronSword)", ArgTypes.STRING);
+    private final RequiredArg<Item> itemArg =
+        withRequiredArg("item", "Hytale item (e.g., IronSword)", ArgTypes.ITEM_ASSET);
 
     public LootCommand() {
         super("loot", "Generate a loot item and add to inventory");
@@ -37,7 +36,8 @@ public class LootCommand extends AbstractPlayerCommand {
                            @Nonnull Ref<EntityStore> ref,
                            @Nonnull PlayerRef playerRef,
                            @Nonnull World world) {
-        String itemId = itemIdArg.get(context);
+        Item item = itemArg.get(context);
+        String itemId = item.getId();
         Nat20LootSystem lootSystem = Natural20.getInstance().getLootSystem();
 
         // Resolve equipment category
@@ -46,7 +46,7 @@ public class LootCommand extends AbstractPlayerCommand {
         if (category != null) {
             categoryKey = category.key();
         } else {
-            categoryKey = autoDetectCategory(itemId);
+            categoryKey = autoDetectCategory(item);
             if (categoryKey == null) {
                 context.sendMessage(Message.raw("Cannot determine equipment category for: " + itemId));
                 return;
@@ -55,8 +55,7 @@ public class LootCommand extends AbstractPlayerCommand {
 
         // Generate loot
         Random random = new Random();
-        String baseName = itemId.contains(":") ? itemId.substring(itemId.indexOf(':') + 1) : itemId;
-        baseName = baseName.replaceAll("([a-z])([A-Z])", "$1 $2");
+        String baseName = deriveBaseName(itemId);
 
         Nat20LootData lootData = lootSystem.getPipeline().generate(itemId, baseName, categoryKey, random);
         if (lootData == null) {
@@ -64,19 +63,18 @@ public class LootCommand extends AbstractPlayerCommand {
             return;
         }
 
-        // Create ItemStack with loot metadata
+        // Create ItemStack with loot metadata (use canonical item.getId() for correct resolution)
         ItemStack stack = new ItemStack(itemId, 1);
         stack = stack.withMetadata(Nat20LootData.METADATA_KEY, lootData);
 
-        // Add to player inventory
+        // Add to player inventory via proper giveItem API
         Player player = store.getComponent(ref, Player.getComponentType());
         if (player == null) {
             context.sendMessage(Message.raw("Could not access player entity."));
             return;
         }
 
-        Inventory inv = player.getInventory();
-        inv.getHotbar().addItemStack(stack);
+        player.giveItem(stack, ref, store);
 
         context.sendMessage(Message.raw("Generated: " + lootData.getGeneratedName() +
             " [" + lootData.getRarity() + "] (" + lootData.getAffixes().size() + " affixes, " +
@@ -88,16 +86,42 @@ public class LootCommand extends AbstractPlayerCommand {
         }
     }
 
-    private String autoDetectCategory(String itemId) {
+    /**
+     * Derive a human-readable base name from a canonical item ID.
+     * "Weapon_Sword_Iron" → "Iron Sword", "Armor_Iron_Chest" → "Iron Chest"
+     */
+    private String deriveBaseName(String itemId) {
+        // Strip type prefix (Weapon_, Tool_, Armor_)
+        String name = itemId;
+        for (String prefix : new String[]{"Weapon_", "Tool_", "Armor_"}) {
+            if (name.startsWith(prefix)) {
+                name = name.substring(prefix.length());
+                break;
+            }
+        }
+        // Replace underscores with spaces
+        name = name.replace('_', ' ');
+        // Reverse word order so material comes first: "Sword Iron" → "Iron Sword"
+        String[] words = name.split(" ");
+        if (words.length >= 2) {
+            String last = words[words.length - 1];
+            StringBuilder sb = new StringBuilder(last);
+            for (int i = 0; i < words.length - 1; i++) {
+                sb.append(' ').append(words[i]);
+            }
+            return sb.toString();
+        }
+        return name;
+    }
+
+    private String autoDetectCategory(Item item) {
         try {
-            var item = Item.getAssetMap().getAsset(itemId);
-            if (item == null) return null;
             if (item.getWeapon() != null) return "melee_weapon";
             if (item.getArmor() != null) return "armor";
             if (item.getTool() != null) return "tool";
             if (item.getUtility() != null) return "utility";
         } catch (Exception e) {
-            // Asset not found
+            // Property access failed
         }
         return null;
     }

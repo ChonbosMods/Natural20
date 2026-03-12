@@ -19,25 +19,13 @@ import com.hypixel.hytale.math.vector.Vector3i;
 import com.hypixel.hytale.server.core.event.events.player.PlayerDisconnectEvent;
 import com.hypixel.hytale.server.core.plugin.JavaPlugin;
 import com.hypixel.hytale.server.core.plugin.JavaPluginInit;
-import com.hypixel.hytale.server.core.universe.Universe;
-import com.hypixel.hytale.server.core.universe.world.World;
-import com.hypixel.hytale.server.core.universe.world.WorldConfig;
-import com.hypixel.hytale.server.core.universe.world.meta.state.BlockMapMarkersResource;
-import com.hypixel.hytale.server.core.universe.world.spawn.GlobalSpawnProvider;
 import com.hypixel.hytale.server.npc.NPCPlugin;
 import com.hypixel.hytale.server.core.universe.world.storage.EntityStore;
 import com.hypixel.hytale.server.core.util.Config;
-import com.hypixel.hytale.server.spawning.suppression.SpawnSuppressorEntry;
-import com.hypixel.hytale.server.spawning.suppression.component.SpawnSuppressionController;
 
 import javax.annotation.Nonnull;
-import java.util.UUID;
 
 public class Natural20 extends JavaPlugin {
-
-    // Fixed UUID for our gateway suppression zone: deterministic so we never duplicate
-    private static final UUID GATEWAY_SUPPRESSION_UUID =
-            UUID.fromString("00000a20-0000-4000-a000-000000000001");
 
     private static Natural20 instance;
 
@@ -138,86 +126,7 @@ public class Natural20 extends JavaPlugin {
         // Load loot system configs
         lootSystem.loadAll(getDataDirectory().resolve("loot"));
 
-        // Set world spawn to the gateway portal area
-        configureGatewaySpawn();
-
         getLogger().atInfo().log("Natural 20 v" + getManifest().getVersion() + " started!");
-    }
-
-    /**
-     * Finds the Forgotten Temple portal in the default world via BlockMapMarkers,
-     * sets the world spawn near it, and places a spawn suppression zone to keep
-     * the gateway area clear of vanilla NPCs.
-     */
-    private void configureGatewaySpawn() {
-        try {
-            World world = Universe.get().getDefaultWorld();
-            if (world == null) {
-                getLogger().atWarning().log("No default world found, skipping gateway spawn setup");
-                return;
-            }
-
-            // Read BlockMapMarkers from the world's chunk store to find the portal
-            BlockMapMarkersResource markers = world.getChunkStore().getStore().getResource(
-                    BlockMapMarkersResource.getResourceType());
-            if (markers == null) {
-                getLogger().atWarning().log("No BlockMapMarkers resource, skipping gateway spawn");
-                return;
-            }
-
-            Vector3i portalPos = null;
-            for (BlockMapMarkersResource.BlockMapMarkerData marker : markers.getMarkers().values()) {
-                if (marker.getName() != null &&
-                        marker.getName().contains("Forgotten_Temple_Portal_Enter")) {
-                    portalPos = marker.getPosition();
-                    break;
-                }
-            }
-
-            if (portalPos == null) {
-                getLogger().atWarning().log("Forgotten Temple portal not found in world markers");
-                return;
-            }
-
-            final Vector3i portal = portalPos;
-
-            // Set spawn a few blocks east of the portal, facing west toward it
-            WorldConfig config = world.getWorldConfig();
-            Transform spawn = new Transform(
-                    portal.getX() + 5.0, portal.getY(), portal.getZ() + 0.5,
-                    0.0f, -90.0f, 0.0f);
-            config.setSpawnProvider(new GlobalSpawnProvider(spawn));
-            config.markChanged();
-
-            getLogger().atInfo().log("Gateway spawn set near portal at (%d, %d, %d)",
-                    portal.getX(), portal.getY(), portal.getZ());
-
-            // Place spawn suppression zone around the portal to clear vanilla NPCs
-            world.execute(() -> {
-                try {
-                    SpawnSuppressionController controller = world.getEntityStore().getStore().getResource(
-                            SpawnSuppressionController.getResourceType());
-                    if (controller == null) {
-                        getLogger().atWarning().log("No SpawnSuppressionController, skipping");
-                        return;
-                    }
-
-                    if (!controller.getSpawnSuppressorMap().containsKey(GATEWAY_SUPPRESSION_UUID)) {
-                        Vector3d suppressionPos = new Vector3d(
-                                portal.getX(), portal.getY(), portal.getZ());
-                        controller.getSpawnSuppressorMap().put(
-                                GATEWAY_SUPPRESSION_UUID,
-                                new SpawnSuppressorEntry("Nat20_Gateway", suppressionPos));
-                        getLogger().atInfo().log("Gateway suppression zone placed");
-                    }
-                } catch (Exception e) {
-                    getLogger().atSevere().withCause(e).log("Failed to place gateway suppression");
-                }
-            });
-
-        } catch (Exception e) {
-            getLogger().atSevere().withCause(e).log("Failed to configure gateway spawn");
-        }
     }
 
     @Override

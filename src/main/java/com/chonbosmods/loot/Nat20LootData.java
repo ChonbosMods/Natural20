@@ -77,14 +77,14 @@ public class Nat20LootData {
     public void setNameSuffixSource(String nameSuffixSource) { this.nameSuffixSource = nameSuffixSource; }
 
     // --- Codec adapters ---
-    // Affixes serialized as "id:level,id:level"
+    // Affixes serialized as "id=level,id=level" (= separator avoids clash with namespace colons in IDs)
 
     String getAffixDataRaw() {
         if (affixes.isEmpty()) return "";
         StringBuilder sb = new StringBuilder();
         for (var affix : affixes) {
             if (!sb.isEmpty()) sb.append(",");
-            sb.append(affix.id()).append(":").append(affix.level());
+            sb.append(affix.id()).append("=").append(affix.level());
         }
         return sb.toString();
     }
@@ -93,10 +93,12 @@ public class Nat20LootData {
         affixes = new ArrayList<>();
         if (raw == null || raw.isEmpty()) return;
         for (String pair : raw.split(",")) {
-            String[] parts = pair.trim().split(":", 2);
-            if (parts.length == 2) {
+            int eq = pair.lastIndexOf('=');
+            if (eq > 0 && eq < pair.length() - 1) {
                 try {
-                    affixes.add(new RolledAffix(parts[0].trim(), Double.parseDouble(parts[1].trim())));
+                    String id = pair.substring(0, eq).trim();
+                    double level = Double.parseDouble(pair.substring(eq + 1).trim());
+                    affixes.add(new RolledAffix(id, level));
                 } catch (NumberFormatException e) {
                     // Skip malformed entries
                 }
@@ -104,14 +106,14 @@ public class Nat20LootData {
         }
     }
 
-    // Gems serialized as "id:purity,id:purity"
+    // Gems serialized as "id=purity,id=purity"
 
     String getGemDataRaw() {
         if (gems.isEmpty()) return "";
         StringBuilder sb = new StringBuilder();
         for (var gem : gems) {
             if (!sb.isEmpty()) sb.append(",");
-            sb.append(gem.id()).append(":").append(gem.purity().key());
+            sb.append(gem.id()).append("=").append(gem.purity().key());
         }
         return sb.toString();
     }
@@ -120,9 +122,11 @@ public class Nat20LootData {
         gems = new ArrayList<>();
         if (raw == null || raw.isEmpty()) return;
         for (String pair : raw.split(",")) {
-            String[] parts = pair.trim().split(":", 2);
-            if (parts.length == 2) {
-                gems.add(new SocketedGem(parts[0].trim(), GemPurity.fromKey(parts[1].trim())));
+            int eq = pair.lastIndexOf('=');
+            if (eq > 0 && eq < pair.length() - 1) {
+                String id = pair.substring(0, eq).trim();
+                String purity = pair.substring(eq + 1).trim();
+                gems.add(new SocketedGem(id, GemPurity.fromKey(purity)));
             }
         }
     }
