@@ -8,10 +8,10 @@
     "Blocks.Portals"
   ],
   "BlockType": {
-    "DrawType": "None",
-    "Material": "NonSolid",
+    "DrawType": "Empty",
+    "Material": "Empty",
     "Opacity": "Transparent",
-    "HitboxType": "None",
+    "HitboxType": "Pad_Portal",
     "Gathering": {
       "Breaking": {
         "GatherType": "Unbreakable"
