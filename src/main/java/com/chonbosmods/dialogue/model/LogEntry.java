@@ -8,16 +8,11 @@ public sealed interface LogEntry {
 
     record NpcSpeech(String text) implements LogEntry {}
 
-    record FollowUp(
+    record SelectedResponse(
         String responseId,
         String displayText,
-        @Nullable String statPrefix,
-        FollowUpState state
-    ) implements LogEntry {
-        public FollowUp withState(FollowUpState newState) {
-            return new FollowUp(responseId, displayText, statPrefix, newState);
-        }
-    }
+        @Nullable String statPrefix
+    ) implements LogEntry {}
 
     record SystemText(String text) implements LogEntry {}
 

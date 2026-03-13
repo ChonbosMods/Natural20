@@ -5,6 +5,7 @@ import com.chonbosmods.action.DialogueActionRegistry;
 import com.chonbosmods.data.Nat20NpcData;
 import com.chonbosmods.data.Nat20PlayerData;
 import com.chonbosmods.dialogue.model.*;
+import com.chonbosmods.dialogue.model.ActiveFollowUp;
 import com.chonbosmods.dice.SkillCheckResult;
 import com.chonbosmods.stats.PlayerStats;
 import com.google.common.flogger.FluentLogger;
@@ -39,6 +40,7 @@ public class ConversationSession {
 
     // State
     private final List<LogEntry> conversationLog = new ArrayList<>();
+    private List<ActiveFollowUp> activeFollowUps = new ArrayList<>();
     private String activeNodeId;
     private final List<String> pendingFollowUpIds = new ArrayList<>();
     private final Set<String> grayedExploratories = new HashSet<>();
@@ -105,9 +107,25 @@ public class ConversationSession {
             pendingFollowUpIds.addAll(savedPendingFollowUps);
             activeNodeId = savedActiveNodeId;
             topicsLocked = true;
+
+            DialogueNode node = graph.getNode(savedActiveNodeId);
+            if (node instanceof DialogueNode.DialogueTextNode textNode) {
+                Set<String> pendingSet = new HashSet<>(pendingFollowUpIds);
+                for (ResponseOption opt : textNode.responses()) {
+                    if (pendingSet.contains(opt.id())) {
+                        activeFollowUps.add(new ActiveFollowUp(
+                            opt.id(), opt.displayText(), opt.statPrefix(), false));
+                    } else if (opt.mode() == ResponseMode.EXPLORATORY
+                            && savedGrayedExploratories.contains(opt.id())) {
+                        activeFollowUps.add(new ActiveFollowUp(
+                            opt.id(), opt.displayText(), opt.statPrefix(), true));
+                    }
+                }
+            }
         }
 
         presenter.refreshLog(conversationLog);
+        presenter.refreshFollowUps(activeFollowUps);
         presenter.refreshTopics(resolveVisibleTopics());
         presenter.refreshDisposition(disposition);
     }
@@ -138,14 +156,18 @@ public class ConversationSession {
             .findFirst().orElse(null);
         if (topic == null) return;
 
-        // Check if this is a recap click (auto-exhausted topic)
+        // Exhausted topic: replay the original NPC speech so the player can reread it
         ExhaustionState exhaustionState = playerData.getTopicExhaustionState(npcId, topicId);
         if (exhaustionState == ExhaustionState.GRAYED) {
-            String recap = topic.recapText() != null
-                ? topic.recapText()
-                : "I've already told you what I know about " + topic.label() + ".";
-            conversationLog.add(new LogEntry.NpcSpeech(recap));
-            presenter.refreshLog(conversationLog);
+            String entryNodeId = resolveEntryNodeId(topic);
+            DialogueNode entryNode = graph.getNode(entryNodeId);
+            String text = (entryNode instanceof DialogueNode.DialogueTextNode textNode)
+                ? textNode.speakerText()
+                : topic.recapText();
+            if (text != null) {
+                conversationLog.add(new LogEntry.NpcSpeech(text));
+                presenter.refreshLog(conversationLog);
+            }
             return;
         }
 
@@ -219,6 +241,7 @@ public class ConversationSession {
                 }
 
                 presenter.refreshLog(conversationLog);
+                presenter.refreshFollowUps(activeFollowUps);
                 presenter.refreshDisposition(disposition);
             }
 
@@ -263,26 +286,24 @@ public class ConversationSession {
             .toList();
 
         pendingFollowUpIds.clear();
+        activeFollowUps = new ArrayList<>();
 
         for (ResponseOption opt : surviving) {
-            FollowUpState state;
-            if (opt.mode() == ResponseMode.EXPLORATORY && grayedExploratories.contains(opt.id())) {
-                state = FollowUpState.GRAYED;
-            } else {
-                state = FollowUpState.AVAILABLE;
+            boolean grayed = opt.mode() == ResponseMode.EXPLORATORY
+                    && grayedExploratories.contains(opt.id());
+            if (!grayed) {
                 pendingFollowUpIds.add(opt.id());
             }
-            conversationLog.add(new LogEntry.FollowUp(opt.id(), opt.displayText(), opt.statPrefix(), state));
+            activeFollowUps.add(new ActiveFollowUp(
+                    opt.id(), opt.displayText(), opt.statPrefix(), grayed));
         }
     }
 
     private void markFollowUpSelected(String selectedId, ResponseOption selected) {
+        // Record the selection in the conversation log (history only)
+        conversationLog.add(new LogEntry.SelectedResponse(selectedId, selected.displayText(), selected.statPrefix()));
+
         if (selected.mode() == ResponseMode.EXPLORATORY) {
-            for (int i = 0; i < conversationLog.size(); i++) {
-                if (conversationLog.get(i) instanceof LogEntry.FollowUp fu && fu.responseId().equals(selectedId)) {
-                    conversationLog.set(i, fu.withState(FollowUpState.SELECTED));
-                }
-            }
             grayedExploratories.add(selectedId);
         } else {
             Set<String> toConsume = new HashSet<>();
@@ -290,17 +311,6 @@ public class ConversationSession {
             if (selected.linkedResponses() != null) {
                 toConsume.addAll(selected.linkedResponses());
             }
-
-            for (int i = 0; i < conversationLog.size(); i++) {
-                if (conversationLog.get(i) instanceof LogEntry.FollowUp fu) {
-                    if (fu.responseId().equals(selectedId)) {
-                        conversationLog.set(i, fu.withState(FollowUpState.SELECTED));
-                    } else if (toConsume.contains(fu.responseId()) && fu.state() == FollowUpState.AVAILABLE) {
-                        conversationLog.set(i, fu.withState(FollowUpState.ELIMINATED));
-                    }
-                }
-            }
-
             if (activeTopicId != null) {
                 for (String id : toConsume) {
                     playerData.addConsumedDecisive(npcId, activeTopicId, id);
@@ -308,13 +318,8 @@ public class ConversationSession {
             }
         }
 
-        // Clear all remaining displayed follow-ups: we're navigating away from this set
-        for (int i = 0; i < conversationLog.size(); i++) {
-            if (conversationLog.get(i) instanceof LogEntry.FollowUp fu
-                    && (fu.state() == FollowUpState.AVAILABLE || fu.state() == FollowUpState.GRAYED)) {
-                conversationLog.set(i, fu.withState(FollowUpState.ELIMINATED));
-            }
-        }
+        // Clear active follow-ups: we're navigating away
+        activeFollowUps = List.of();
         pendingFollowUpIds.clear();
     }
 
@@ -325,6 +330,7 @@ public class ConversationSession {
         if (exhaustTopicFired) {
             topicsLocked = false;
             presenter.refreshLog(conversationLog);
+            presenter.refreshFollowUps(activeFollowUps);
             presenter.refreshTopics(resolveVisibleTopics());
             presenter.refreshDisposition(disposition);
             return;
@@ -369,6 +375,7 @@ public class ConversationSession {
         }
 
         presenter.refreshLog(conversationLog);
+        presenter.refreshFollowUps(activeFollowUps);
         presenter.refreshTopics(resolveVisibleTopics());
         presenter.refreshDisposition(disposition);
     }
@@ -509,6 +516,7 @@ public class ConversationSession {
     public int getDisposition() { return disposition; }
     public boolean isTopicsLocked() { return topicsLocked; }
     public List<LogEntry> getConversationLog() { return Collections.unmodifiableList(conversationLog); }
+    public List<ActiveFollowUp> getActiveFollowUps() { return Collections.unmodifiableList(activeFollowUps); }
     public List<String> getPendingFollowUpIds() { return Collections.unmodifiableList(pendingFollowUpIds); }
     public Set<String> getGrayedExploratories() { return Collections.unmodifiableSet(grayedExploratories); }
     public String getActiveNodeId() { return activeNodeId; }

@@ -1,5 +1,6 @@
 package com.chonbosmods.dialogue;
 
+import com.chonbosmods.dialogue.model.ActiveFollowUp;
 import com.chonbosmods.dialogue.model.DialogueNode;
 import com.chonbosmods.dialogue.model.LogEntry;
 import com.chonbosmods.dialogue.model.ResolvedTopic;
@@ -46,9 +47,9 @@ public class PageDialoguePresenter implements DialoguePresenter {
 
     // Cached state for rebuilding after transitions
     private List<LogEntry> currentLog = List.of();
+    private List<ActiveFollowUp> currentFollowUps = List.of();
     private List<ResolvedTopic> currentTopics = List.of();
     private int currentDisposition;
-    private boolean currentTopicsLocked;
 
     public PageDialoguePresenter(Player player, PlayerRef playerRef,
                                   Ref<EntityStore> entityRef, Store<EntityStore> store,
@@ -67,7 +68,15 @@ public class PageDialoguePresenter implements DialoguePresenter {
     public void refreshLog(List<LogEntry> log) {
         currentLog = log;
         if (dialoguePage != null) {
-            dialoguePage.updateLogAndFollowUps(log, currentTopicsLocked);
+            dialoguePage.updateLog(log);
+        }
+    }
+
+    @Override
+    public void refreshFollowUps(List<ActiveFollowUp> followUps) {
+        currentFollowUps = followUps;
+        if (dialoguePage != null) {
+            dialoguePage.updateFollowUps(followUps);
         }
     }
 
@@ -75,7 +84,7 @@ public class PageDialoguePresenter implements DialoguePresenter {
     public void refreshTopics(List<ResolvedTopic> visibleTopics) {
         currentTopics = visibleTopics;
         if (dialoguePage != null) {
-            dialoguePage.updateTopics(visibleTopics, currentTopicsLocked);
+            dialoguePage.updateTopics(visibleTopics, isSessionTopicsLocked());
         } else if (diceRollPage == null) {
             // Post-dice transition: session calls refreshTopics which triggers reopening
             openDialoguePage();
@@ -134,16 +143,17 @@ public class PageDialoguePresenter implements DialoguePresenter {
     public void openDialoguePage() {
         hideHud();
         dialoguePage = new Nat20DialoguePage(playerRef);
-        dialoguePage.setState(npcName, currentLog, currentTopics,
-                currentDisposition, currentTopicsLocked, this::handleDialogueEvent);
+        dialoguePage.setState(npcName, currentLog, currentFollowUps, currentTopics,
+                currentDisposition, isSessionTopicsLocked(), this::handleDialogueEvent);
         player.getPageManager().openCustomPage(entityRef, store, dialoguePage);
     }
 
-    public void setTopicsLocked(boolean locked) {
-        currentTopicsLocked = locked;
-    }
-
     // --- Private methods ---
+
+    private boolean isSessionTopicsLocked() {
+        ConversationSession session = manager.getSession(playerRef.getUuid());
+        return session != null && session.isTopicsLocked();
+    }
 
     private void handleDialogueEvent(String type, String id) {
         UUID uuid = playerRef.getUuid();
@@ -163,7 +173,6 @@ public class PageDialoguePresenter implements DialoguePresenter {
             UUID uuid = playerRef.getUuid();
             ConversationSession session = manager.getSession(uuid);
             if (session != null) {
-                currentTopicsLocked = session.isTopicsLocked();
                 // This triggers refreshLog + refreshTopics on this presenter, which reopens dialogue page
                 session.handleSkillCheckResult(result, checkNode);
             } else {

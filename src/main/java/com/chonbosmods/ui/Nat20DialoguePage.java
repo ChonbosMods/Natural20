@@ -1,6 +1,6 @@
 package com.chonbosmods.ui;
 
-import com.chonbosmods.dialogue.model.FollowUpState;
+import com.chonbosmods.dialogue.model.ActiveFollowUp;
 import com.chonbosmods.dialogue.model.LogEntry;
 import com.chonbosmods.dialogue.model.ResolvedTopic;
 import com.chonbosmods.dialogue.model.TopicState;
@@ -52,6 +52,7 @@ public class Nat20DialoguePage extends InteractiveCustomUIPage<Nat20DialoguePage
     // State fields: pushed by presenter before opening
     private String npcName;
     private List<LogEntry> log = List.of();
+    private List<ActiveFollowUp> activeFollowUps = List.of();
     private List<ResolvedTopic> topics = List.of();
     private int disposition;
     private boolean topicsLocked;
@@ -61,10 +62,12 @@ public class Nat20DialoguePage extends InteractiveCustomUIPage<Nat20DialoguePage
         super(playerRef, CustomPageLifetime.CanDismiss, EVENT_CODEC);
     }
 
-    public void setState(String npcName, List<LogEntry> log, List<ResolvedTopic> topics,
-                         int disposition, boolean topicsLocked, BiConsumer<String, String> onEvent) {
+    public void setState(String npcName, List<LogEntry> log, List<ActiveFollowUp> followUps,
+                         List<ResolvedTopic> topics, int disposition, boolean topicsLocked,
+                         BiConsumer<String, String> onEvent) {
         this.npcName = npcName;
         this.log = log != null ? log : List.of();
+        this.activeFollowUps = followUps != null ? followUps : List.of();
         this.topics = topics != null ? topics : List.of();
         this.disposition = disposition;
         this.topicsLocked = topicsLocked;
@@ -104,8 +107,7 @@ public class Nat20DialoguePage extends InteractiveCustomUIPage<Nat20DialoguePage
                 cmd.set(selector + ".Visible", true);
 
                 if (grayed) {
-                    cmd.set(selector + ".Text", rt.topic().label());
-                    cmd.set(selector + ".Style.TextColor", "#666666");
+                    cmd.set(selector + ".TextSpans", Message.raw(rt.topic().label()).color("#666666"));
                 } else if (rt.topic().statPrefix() != null) {
                     String statColor = Stat.colorFor(rt.topic().statPrefix());
                     String bracket = "[" + rt.topic().statPrefix().replace("[","").replace("]","").trim().toUpperCase() + "]";
@@ -142,15 +144,13 @@ public class Nat20DialoguePage extends InteractiveCustomUIPage<Nat20DialoguePage
                 }
                 case LogEntry.NpcSpeech s ->
                     lines.add(new LogLine(s.text(), COLOR_NPC_SPEECH));
-                case LogEntry.FollowUp f -> {
-                    if (f.state() == FollowUpState.SELECTED) {
-                        String clean = cleanText(f.displayText());
-                        if (f.statPrefix() != null) {
-                            String bracket = "[" + f.statPrefix().replace("[","").replace("]","").trim().toUpperCase() + "]";
-                            lines.add(new LogLine("> " + bracket + " " + clean, COLOR_SELECTED_FOLLOW_UP));
-                        } else {
-                            lines.add(new LogLine("> " + clean, COLOR_SELECTED_FOLLOW_UP));
-                        }
+                case LogEntry.SelectedResponse s -> {
+                    String clean = cleanText(s.displayText());
+                    if (s.statPrefix() != null) {
+                        String bracket = "[" + s.statPrefix().replace("[","").replace("]","").trim().toUpperCase() + "]";
+                        lines.add(new LogLine("> " + bracket + " " + clean, COLOR_SELECTED_FOLLOW_UP));
+                    } else {
+                        lines.add(new LogLine("> " + clean, COLOR_SELECTED_FOLLOW_UP));
                     }
                 }
                 case LogEntry.SystemText s ->
@@ -188,33 +188,23 @@ public class Nat20DialoguePage extends InteractiveCustomUIPage<Nat20DialoguePage
     }
 
     private void buildFollowUps(UICommandBuilder cmd, UIEventBuilder events) {
-        List<LogEntry.FollowUp> visible = new ArrayList<>();
-        for (LogEntry entry : log) {
-            if (entry instanceof LogEntry.FollowUp f
-                    && (f.state() == FollowUpState.AVAILABLE || f.state() == FollowUpState.GRAYED)) {
-                visible.add(f);
-            }
-        }
+        cmd.set("#FollowUpArea.Visible", !activeFollowUps.isEmpty());
 
-        cmd.set("#FollowUpArea.Visible", !visible.isEmpty());
-
-        if (visible.size() > MAX_FOLLOW_UPS) {
-            LOGGER.atWarning().log("Too many follow-ups: " + visible.size() + " (max " + MAX_FOLLOW_UPS + ")");
+        if (activeFollowUps.size() > MAX_FOLLOW_UPS) {
+            LOGGER.atWarning().log("Too many follow-ups: " + activeFollowUps.size() + " (max " + MAX_FOLLOW_UPS + ")");
         }
 
         for (int i = 0; i < MAX_FOLLOW_UPS; i++) {
             String selector = "#FollowUp" + (i + 1);
-            if (i < visible.size()) {
-                LogEntry.FollowUp f = visible.get(i);
-                boolean grayed = f.state() == FollowUpState.GRAYED;
+            if (i < activeFollowUps.size()) {
+                ActiveFollowUp f = activeFollowUps.get(i);
                 cmd.set(selector + ".Visible", true);
 
-                if (grayed) {
-                    String clean = cleanText(f.displayText());
+                String clean = cleanText(f.displayText());
+                if (f.grayed()) {
                     cmd.set(selector + ".TextSpans", Message.raw("\u25b8 " + clean).color("#666666"));
                     cmd.set(selector + ".Disabled", true);
                 } else {
-                    String clean = cleanText(f.displayText());
                     if (f.statPrefix() != null) {
                         String statColor = Stat.colorFor(f.statPrefix());
                         String bracket = "[" + f.statPrefix().replace("[","").replace("]","").trim().toUpperCase() + "]";
@@ -261,9 +251,13 @@ public class Nat20DialoguePage extends InteractiveCustomUIPage<Nat20DialoguePage
 
     // --- Update methods called by presenter for incremental updates ---
 
-    public void updateLogAndFollowUps(List<LogEntry> log, boolean topicsLocked) {
+    public void updateLog(List<LogEntry> log) {
         this.log = log != null ? log : List.of();
-        this.topicsLocked = topicsLocked;
+        rebuild();
+    }
+
+    public void updateFollowUps(List<ActiveFollowUp> followUps) {
+        this.activeFollowUps = followUps != null ? followUps : List.of();
         rebuild();
     }
 

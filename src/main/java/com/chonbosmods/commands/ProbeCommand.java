@@ -1,6 +1,6 @@
 package com.chonbosmods.commands;
 
-import com.chonbosmods.dialogue.model.FollowUpState;
+import com.chonbosmods.dialogue.model.ActiveFollowUp;
 import com.chonbosmods.dialogue.model.LogEntry;
 import com.chonbosmods.dialogue.model.ResolvedTopic;
 import com.chonbosmods.dialogue.model.TopicDefinition;
@@ -132,10 +132,13 @@ public class ProbeCommand extends AbstractPlayerCommand {
                                 CommandContext context) {
         List<LogEntry> testLog = List.of(
             new LogEntry.TopicHeader("Repair"),
-            new LogEntry.NpcSpeech("Aye, I can fix that blade for ye. But it'll cost ya. Good steel doesn't come cheap around here."),
-            new LogEntry.FollowUp("r1", "How much will it cost?", null, FollowUpState.AVAILABLE),
-            new LogEntry.FollowUp("r2", "I'll find someone cheaper.", "CHA", FollowUpState.AVAILABLE),
-            new LogEntry.FollowUp("r3", "Just do it.", null, FollowUpState.AVAILABLE)
+            new LogEntry.NpcSpeech("Aye, I can fix that blade for ye. But it'll cost ya. Good steel doesn't come cheap around here.")
+        );
+
+        List<ActiveFollowUp> testFollowUps = List.of(
+            new ActiveFollowUp("r1", "How much will it cost?", null, false),
+            new ActiveFollowUp("r2", "I'll find someone cheaper.", "CHA", false),
+            new ActiveFollowUp("r3", "Just do it.", null, false)
         );
 
         List<ResolvedTopic> testTopics = List.of(
@@ -145,7 +148,7 @@ public class ProbeCommand extends AbstractPlayerCommand {
         );
 
         Nat20DialoguePage page = new Nat20DialoguePage(playerRef);
-        page.setState("Roderick the Blacksmith", testLog, testTopics, 55, false,
+        page.setState("Roderick the Blacksmith", testLog, testFollowUps, testTopics, 55, false,
             (type, id) -> player.sendMessage(Message.raw("Probe event: " + type + " / " + id)));
 
         player.getHudManager().hideHudComponents(playerRef, HudComponent.Hotbar, HudComponent.Reticle);
