@@ -1,15 +1,18 @@
 package com.chonbosmods.loot;
 
 import com.chonbosmods.loot.def.AffixValueRange;
+import com.chonbosmods.loot.def.GemBonus;
 import com.chonbosmods.loot.def.Nat20AffixDef;
 import com.chonbosmods.loot.def.Nat20GemDef;
 import com.chonbosmods.loot.def.Nat20RarityDef;
+import com.chonbosmods.loot.display.AffixLine;
+import com.chonbosmods.loot.display.RequirementLine;
+import com.chonbosmods.loot.display.SocketLine;
 import com.chonbosmods.loot.registry.Nat20AffixRegistry;
 import com.chonbosmods.loot.registry.Nat20GemRegistry;
 import com.chonbosmods.loot.registry.Nat20RarityRegistry;
 import com.chonbosmods.stats.PlayerStats;
 import com.chonbosmods.stats.Stat;
-import com.hypixel.hytale.server.core.Message;
 import com.hypixel.hytale.server.core.inventory.ItemStack;
 
 import javax.annotation.Nullable;
@@ -39,14 +42,8 @@ public class Nat20ItemRenderer {
         Nat20RarityDef rarity = rarityRegistry.get(lootData.getRarity());
         if (rarity == null) return null;
 
-        // Name: rarity-colored
-        Message name = Message.raw(lootData.getGeneratedName()).color(rarity.color());
-
-        // Rarity label
-        Message rarityLabel = Message.raw(lootData.getRarity()).color(rarity.color());
-
         // Affix lines
-        List<Message> affixLines = new ArrayList<>();
+        List<AffixLine> affixes = new ArrayList<>();
         for (var rolledAffix : lootData.getAffixes()) {
             Nat20AffixDef affixDef = affixRegistry.get(rolledAffix.id());
             if (affixDef == null) continue;
@@ -61,61 +58,117 @@ public class Nat20ItemRenderer {
                 effectiveValue = baseValue * (1.0 + mod * affixDef.statScaling().factor());
             }
 
+            // Format value and unit separately
+            String value;
+            String unit;
             String sign = effectiveValue >= 0 ? "+" : "";
-            String valueStr;
             if ("MULTIPLICATIVE".equals(affixDef.modifierType())) {
-                valueStr = sign + String.format("%.0f%%", effectiveValue * 100);
+                value = sign + String.format("%.0f", effectiveValue * 100);
+                unit = "%";
             } else {
-                valueStr = sign + String.format("%.1f", effectiveValue);
+                value = sign + String.format("%.1f", effectiveValue);
+                unit = "";
             }
 
             String affixName = extractDisplayWord(affixDef.displayName());
-            Message line = Message.raw(valueStr + " " + affixDef.targetStat() + " (" + affixName + ")")
-                .color("#aaaaaa");
-            affixLines.add(line);
+            String scalingStat = affixDef.statScaling() != null
+                    ? affixDef.statScaling().primary().name()
+                    : null;
+            String type = affixDef.type().name();
+
+            // Per-affix requirement check
+            boolean requirementMet = true;
+            String requirementText = null;
+            if (affixDef.statRequirement() != null && !affixDef.statRequirement().isEmpty()) {
+                requirementText = formatStatRequirement(affixDef.statRequirement());
+                if (playerStats != null) {
+                    for (Map.Entry<Stat, Integer> req : affixDef.statRequirement().entrySet()) {
+                        if (playerStats.stats()[req.getKey().index()] < req.getValue()) {
+                            requirementMet = false;
+                            break;
+                        }
+                    }
+                }
+            }
+
+            affixes.add(new AffixLine(
+                    affixName, value, unit, affixDef.targetStat(),
+                    scalingStat, type, requirementMet, requirementText,
+                    affixDef.description(), affixDef.cooldown(), affixDef.procChance()
+            ));
         }
 
         // Socket lines
-        List<Message> socketLines = new ArrayList<>();
+        List<SocketLine> sockets = new ArrayList<>();
         List<SocketedGem> gems = lootData.getGems();
         for (int i = 0; i < lootData.getSockets(); i++) {
             if (i < gems.size()) {
                 SocketedGem gem = gems.get(i);
                 Nat20GemDef gemDef = gemRegistry.get(gem.id());
                 String gemName = gemDef != null ? extractDisplayWord(gemDef.displayName()) : gem.id();
-                socketLines.add(Message.raw("[" + gem.purity().key() + " " + gemName + "]").color("#ffcc00"));
+                String purity = gem.purity().key();
+                String gemColor = (gemDef != null && gemDef.statAffinity() != null)
+                        ? gemDef.statAffinity().color()
+                        : "#ffcc00";
+
+                // Compute bonus display values if gem def is available
+                String bonusValue = null;
+                String bonusStat = null;
+                if (gemDef != null) {
+                    // Find a matching bonus for this item (use first available category)
+                    for (var category : gemDef.bonusesBySlot().keySet()) {
+                        GemBonus bonus = gemDef.getBonusForCategory(category);
+                        if (bonus != null) {
+                            double raw = bonus.baseValue() * gemDef.getPurityMultiplier(purity);
+                            bonusValue = "+" + String.format("%.1f", raw);
+                            bonusStat = bonus.stat();
+                            break;
+                        }
+                    }
+                }
+
+                sockets.add(new SocketLine(i, true, gemName, purity, gemColor, bonusValue, bonusStat));
             } else {
-                socketLines.add(Message.raw("[ Empty Socket ]").color("#666666"));
+                sockets.add(new SocketLine(i, false, null, null, null, null, null));
             }
         }
 
-        // Requirement line
-        Message requirementLine = null;
+        // Rarity requirement: "Any X+" rule: met if ANY of the player's six stats meets the threshold
+        RequirementLine requirement = null;
         if (rarity.statRequirement() > 0) {
-            boolean met = playerStats == null || meetsRequirement(rarity, lootData, playerStats);
-            String color = met ? "#33cc33" : "#cc3333";
-            requirementLine = Message.raw("Requires: " + rarity.statRequirement() + " in primary stat")
-                .color(color);
+            boolean met = true;
+            if (playerStats != null) {
+                met = false;
+                for (Stat stat : Stat.values()) {
+                    if (playerStats.stats()[stat.index()] >= rarity.statRequirement()) {
+                        met = true;
+                        break;
+                    }
+                }
+            }
+            String text = "Any " + rarity.statRequirement() + "+";
+            requirement = new RequirementLine(text, met);
         }
 
         return new Nat20ItemDisplayData(
-            name, rarityLabel, rarity.color(),
-            affixLines, socketLines, requirementLine,
-            rarity.slotTexture(), rarity.tooltipTexture()
+                lootData.getGeneratedName(),
+                lootData.getRarity(),
+                rarity.color(),
+                rarity.tooltipTexture(),
+                rarity.slotTexture(),
+                affixes,
+                sockets,
+                requirement
         );
     }
 
-    private boolean meetsRequirement(Nat20RarityDef rarity, Nat20LootData lootData, PlayerStats playerStats) {
-        for (var rolledAffix : lootData.getAffixes()) {
-            Nat20AffixDef affixDef = affixRegistry.get(rolledAffix.id());
-            if (affixDef == null || affixDef.statRequirement() == null) continue;
-            for (Map.Entry<Stat, Integer> req : affixDef.statRequirement().entrySet()) {
-                if (playerStats.stats()[req.getKey().index()] < req.getValue()) {
-                    return false;
-                }
-            }
+    private String formatStatRequirement(Map<Stat, Integer> statRequirement) {
+        StringBuilder sb = new StringBuilder();
+        for (Map.Entry<Stat, Integer> entry : statRequirement.entrySet()) {
+            if (!sb.isEmpty()) sb.append(", ");
+            sb.append(entry.getKey().name()).append(" ").append(entry.getValue());
         }
-        return true;
+        return sb.toString();
     }
 
     private String extractDisplayWord(String localizationKey) {

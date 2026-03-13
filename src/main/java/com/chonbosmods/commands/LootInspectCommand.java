@@ -7,6 +7,8 @@ import com.chonbosmods.loot.Nat20ItemRenderer;
 import com.chonbosmods.loot.Nat20LootData;
 import com.chonbosmods.loot.RolledAffix;
 import com.chonbosmods.loot.SocketedGem;
+import com.chonbosmods.loot.display.AffixLine;
+import com.chonbosmods.loot.display.SocketLine;
 import com.chonbosmods.stats.PlayerStats;
 import com.hypixel.hytale.component.Ref;
 import com.hypixel.hytale.component.Store;
@@ -109,17 +111,25 @@ public class LootInspectCommand extends AbstractPlayerCommand {
         }
 
         context.sendMessage(Message.raw("--- Resolved Display ---").color("#ffcc00"));
-        context.sendMessage(display.name());
-        context.sendMessage(display.rarityLabel());
+        context.sendMessage(Message.raw(display.name()).color(display.rarityColor()));
+        context.sendMessage(Message.raw(display.rarity()).color(display.rarityColor()));
 
-        for (Message line : display.affixLines()) {
-            context.sendMessage(line);
+        for (AffixLine affix : display.affixes()) {
+            String line = affix.value() + affix.unit() + " " + affix.statName() + " (" + affix.name() + ")";
+            String color = affix.requirementMet() ? "#aaaaaa" : "#cc3333";
+            context.sendMessage(Message.raw(line).color(color));
         }
-        for (Message line : display.socketLines()) {
-            context.sendMessage(line);
+        for (SocketLine socket : display.sockets()) {
+            if (socket.filled()) {
+                String line = "[" + socket.purity() + " " + socket.gemName() + "]";
+                context.sendMessage(Message.raw(line).color(socket.gemColor()));
+            } else {
+                context.sendMessage(Message.raw("[ Empty Socket ]").color("#666666"));
+            }
         }
-        if (display.requirementLine() != null) {
-            context.sendMessage(display.requirementLine());
+        if (display.requirement() != null) {
+            String color = display.requirement().met() ? "#33cc33" : "#cc3333";
+            context.sendMessage(Message.raw("Requires: " + display.requirement().text()).color(color));
         }
 
         if (playerStats != null) {
