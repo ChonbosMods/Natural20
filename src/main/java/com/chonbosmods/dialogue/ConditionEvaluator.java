@@ -68,13 +68,13 @@ public final class ConditionEvaluator {
         String type = condition.type();
         if (type == null) {
             LOGGER.atWarning().log("Condition has no type and is not composite");
-            return true;
+            return false;
         }
 
         var handler = handlers.get(type);
         if (handler == null) {
             LOGGER.atWarning().log("Unknown condition type: %s", type);
-            return true;
+            return false;
         }
 
         Map<String, String> params = condition.params() != null ? condition.params() : Map.of();
