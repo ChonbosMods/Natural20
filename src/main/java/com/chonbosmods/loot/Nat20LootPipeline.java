@@ -112,11 +112,11 @@ public class Nat20LootPipeline {
                 Nat20AffixDef chosen = pool.remove(idx);
                 usedAffixIds.add(chosen.id());
                 result.add(new RolledAffix(chosen.id(), random.nextDouble()));
-                // Remove affixes that are exclusive with the one just chosen
-                if (chosen.exclusiveWith() != null) {
-                    pool.removeIf(a -> chosen.exclusiveWith().contains(a.id()));
-                }
-                pool.removeIf(a -> a.exclusiveWith() != null && a.exclusiveWith().contains(chosen.id()));
+                // Exclusion is symmetric: choosing A blocks B if either side declares the relationship
+                pool.removeIf(a -> {
+                    if (chosen.exclusiveWith() != null && chosen.exclusiveWith().contains(a.id())) return true;
+                    return a.exclusiveWith() != null && a.exclusiveWith().contains(chosen.id());
+                });
             }
         }
 

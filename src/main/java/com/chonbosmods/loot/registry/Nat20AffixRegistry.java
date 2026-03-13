@@ -123,11 +123,12 @@ public class Nat20AffixRegistry {
         String procChance = obj.has("ProcChance") ? obj.get("ProcChance").getAsString() : null;
 
         Set<String> exclusiveWith = null;
-        if (obj.has("exclusive_with")) {
-            exclusiveWith = new HashSet<>();
-            for (JsonElement el : obj.getAsJsonArray("exclusive_with")) {
-                exclusiveWith.add(el.getAsString());
+        if (obj.has("ExclusiveWith")) {
+            Set<String> excl = new HashSet<>();
+            for (JsonElement el : obj.getAsJsonArray("ExclusiveWith")) {
+                excl.add(el.getAsString());
             }
+            exclusiveWith = Set.copyOf(excl);
         }
 
         return new Nat20AffixDef(
