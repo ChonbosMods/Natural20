@@ -23,6 +23,7 @@ public class Nat20LootEntryRegistry {
     private static final String[] BUILTIN_FILES = {"vanilla.json"};
 
     private final Map<String, String> manualTags = new HashMap<>();
+    private final Map<String, String> displayNames = new HashMap<>();
 
     public void loadAll(@Nullable Path overrideDir) {
         for (String file : BUILTIN_FILES) {
@@ -65,6 +66,9 @@ public class Nat20LootEntryRegistry {
             JsonObject itemObj = entry.getValue().getAsJsonObject();
             String category = itemObj.get("Category").getAsString();
             manualTags.put(itemId, category);
+            if (itemObj.has("DisplayName")) {
+                displayNames.put(itemId, itemObj.get("DisplayName").getAsString());
+            }
         }
     }
 
@@ -77,6 +81,11 @@ public class Nat20LootEntryRegistry {
     @Nullable
     public String getManualCategoryKey(String itemId) {
         return manualTags.get(itemId);
+    }
+
+    @Nullable
+    public String getDisplayName(String itemId) {
+        return displayNames.get(itemId);
     }
 
     public int getLoadedCount() {

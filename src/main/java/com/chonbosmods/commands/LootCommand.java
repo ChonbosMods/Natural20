@@ -55,7 +55,10 @@ public class LootCommand extends AbstractPlayerCommand {
 
         // Generate loot
         Random random = new Random();
-        String baseName = deriveBaseName(itemId);
+        String baseName = lootSystem.getLootEntryRegistry().getDisplayName(itemId);
+        if (baseName == null) {
+            baseName = itemId;
+        }
 
         Nat20LootData lootData = lootSystem.getPipeline().generate(itemId, baseName, categoryKey, random);
         if (lootData == null) {
@@ -84,34 +87,6 @@ public class LootCommand extends AbstractPlayerCommand {
         for (var affix : lootData.getAffixes()) {
             context.sendMessage(Message.raw("  Affix: " + affix.id() + " (level=" + String.format("%.2f", affix.level()) + ")"));
         }
-    }
-
-    /**
-     * Derive a human-readable base name from a canonical item ID.
-     * "Weapon_Sword_Iron" → "Iron Sword", "Armor_Iron_Chest" → "Iron Chest"
-     */
-    private String deriveBaseName(String itemId) {
-        // Strip type prefix (Weapon_, Tool_, Armor_)
-        String name = itemId;
-        for (String prefix : new String[]{"Weapon_", "Tool_", "Armor_"}) {
-            if (name.startsWith(prefix)) {
-                name = name.substring(prefix.length());
-                break;
-            }
-        }
-        // Replace underscores with spaces
-        name = name.replace('_', ' ');
-        // Reverse word order so material comes first: "Sword Iron" → "Iron Sword"
-        String[] words = name.split(" ");
-        if (words.length >= 2) {
-            String last = words[words.length - 1];
-            StringBuilder sb = new StringBuilder(last);
-            for (int i = 0; i < words.length - 1; i++) {
-                sb.append(' ').append(words[i]);
-            }
-            return sb.toString();
-        }
-        return name;
     }
 
     private String autoDetectCategory(Item item) {
