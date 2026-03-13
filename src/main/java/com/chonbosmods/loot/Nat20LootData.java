@@ -23,6 +23,7 @@ public class Nat20LootData {
             .addField(new KeyedCodec<>("NamePrefixSource", Codec.STRING), Nat20LootData::setNamePrefixSource, Nat20LootData::getNamePrefixSource)
             .addField(new KeyedCodec<>("NameSuffixSource", Codec.STRING), Nat20LootData::setNameSuffixSource, Nat20LootData::getNameSuffixSource)
             .addField(new KeyedCodec<>("Description", Codec.STRING), Nat20LootData::setDescription, Nat20LootData::getDescription)
+            .addField(new KeyedCodec<>("VariantItemId", Codec.STRING), Nat20LootData::setVariantItemId, Nat20LootData::getVariantItemId)
             .build();
 
     public static final KeyedCodec<Nat20LootData> METADATA_KEY = new KeyedCodec<>("Nat20Loot", CODEC);
@@ -37,6 +38,7 @@ public class Nat20LootData {
     private String namePrefixSource;
     private String nameSuffixSource;
     private String description = "";
+    private String variantItemId;
 
     public Nat20LootData() {}
 
@@ -81,6 +83,11 @@ public class Nat20LootData {
     // --- Description ---
     public String getDescription() { return description; }
     public void setDescription(String description) { this.description = description != null ? description : ""; }
+
+    // --- VariantItemId ---
+    @Nullable
+    public String getVariantItemId() { return variantItemId; }
+    public void setVariantItemId(String variantItemId) { this.variantItemId = variantItemId; }
 
     // --- Codec adapters ---
     // Affixes serialized as "id=level,id=level" (= separator avoids clash with namespace colons in IDs)

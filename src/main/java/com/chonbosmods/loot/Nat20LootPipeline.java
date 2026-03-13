@@ -76,7 +76,10 @@ public class Nat20LootPipeline {
 
         String generatedName = nameBuilder.toString();
 
-        // Step 6: Assemble Nat20LootData
+        // Step 6: Resolve variant item ID
+        String variantItemId = resolveVariantId(itemId, rarity.id());
+
+        // Step 7: Assemble Nat20LootData
         Nat20LootData data = new Nat20LootData();
         data.setVersion(Nat20LootData.CURRENT_VERSION);
         data.setRarity(rarity.id());
@@ -87,9 +90,10 @@ public class Nat20LootPipeline {
         data.setGeneratedName(generatedName);
         data.setNamePrefixSource(prefixSource);
         data.setNameSuffixSource(suffixSource);
+        data.setVariantItemId(variantItemId);
 
-        LOGGER.atInfo().log("Generated loot: %s [%s] with %d affixes, %d sockets (lootLevel=%.2f)",
-            generatedName, rarity.id(), rolledAffixes.size(), sockets, lootLevel);
+        LOGGER.atInfo().log("Generated loot: %s [%s] variant=%s with %d affixes, %d sockets (lootLevel=%.2f)",
+            generatedName, rarity.id(), variantItemId, rolledAffixes.size(), sockets, lootLevel);
 
         return data;
     }
@@ -151,7 +155,10 @@ public class Nat20LootPipeline {
 
         String generatedName = nameBuilder.toString();
 
-        // Step 6: Assemble Nat20LootData
+        // Step 6: Resolve variant item ID
+        String variantItemId = resolveVariantId(itemId, rarity.id());
+
+        // Step 7: Assemble Nat20LootData
         Nat20LootData data = new Nat20LootData();
         data.setVersion(Nat20LootData.CURRENT_VERSION);
         data.setRarity(rarity.id());
@@ -162,9 +169,10 @@ public class Nat20LootPipeline {
         data.setGeneratedName(generatedName);
         data.setNamePrefixSource(prefixSource);
         data.setNameSuffixSource(suffixSource);
+        data.setVariantItemId(variantItemId);
 
-        LOGGER.atInfo().log("Generated loot: %s [%s] with %d affixes, %d sockets (lootLevel=%.2f, tierRange=[%d,%d])",
-            generatedName, rarity.id(), rolledAffixes.size(), sockets, lootLevel, minRarityTier, maxRarityTier);
+        LOGGER.atInfo().log("Generated loot: %s [%s] variant=%s with %d affixes, %d sockets (lootLevel=%.2f, tierRange=[%d,%d])",
+            generatedName, rarity.id(), variantItemId, rolledAffixes.size(), sockets, lootLevel, minRarityTier, maxRarityTier);
 
         return data;
     }
@@ -210,6 +218,51 @@ public class Nat20LootPipeline {
             if (random.nextDouble() < 0.5) sockets++;
         }
         return sockets;
+    }
+
+    /**
+     * Resolve the variant item ID for a given base item and rarity.
+     *
+     * Converts the base item ID to a nat20-namespaced variant ID using the same
+     * algorithm as the codegen script (generate_variants.py):
+     * 1. Strip namespace: "Hytale:IronSword" -> "IronSword"
+     * 2. PascalCase to snake_case: "IronSword" -> "iron_sword"
+     * 3. Append rarity (lowercased): "iron_sword" + "_" + "rare" = "iron_sword_rare"
+     * 4. Add namespace: "nat20:iron_sword_rare"
+     *
+     * @param itemId the base Hytale item ID (e.g., "Hytale:IronSword")
+     * @param rarityId the rarity ID (e.g., "Rare")
+     * @return the variant item ID (e.g., "nat20:iron_sword_rare")
+     */
+    String resolveVariantId(String itemId, String rarityId) {
+        // Strip namespace
+        String name = itemId;
+        int colon = itemId.indexOf(':');
+        if (colon >= 0) {
+            name = itemId.substring(colon + 1);
+        }
+
+        // Convert PascalCase to snake_case
+        String snakeName = pascalToSnakeCase(name);
+
+        // Build variant ID: nat20:<snake_name>_<rarity_lower>
+        return "nat20:" + snakeName + "_" + rarityId.toLowerCase();
+    }
+
+    /**
+     * Convert a PascalCase string to snake_case.
+     * e.g., "IronSword" -> "iron_sword", "IronPickaxe" -> "iron_pickaxe"
+     */
+    static String pascalToSnakeCase(String input) {
+        StringBuilder result = new StringBuilder(input.length() + 4);
+        for (int i = 0; i < input.length(); i++) {
+            char ch = input.charAt(i);
+            if (Character.isUpperCase(ch) && i > 0) {
+                result.append('_');
+            }
+            result.append(Character.toLowerCase(ch));
+        }
+        return result.toString();
     }
 
     /**
