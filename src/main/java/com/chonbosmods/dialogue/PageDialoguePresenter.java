@@ -119,9 +119,11 @@ public class PageDialoguePresenter implements DialoguePresenter {
         diceRollPage = new Nat20DiceRollPage(
                 playerRef, node.skill(), stat, result, dcModifier,
                 r -> onDiceRollContinue(r, node));
-        SCHEDULER.schedule(() ->
-            player.getPageManager().openCustomPage(entityRef, store, diceRollPage),
-            50, TimeUnit.MILLISECONDS);
+        SCHEDULER.schedule(() -> {
+            synchronized (PageDialoguePresenter.this) {
+                player.getPageManager().openCustomPage(entityRef, store, diceRollPage);
+            }
+        }, 50, TimeUnit.MILLISECONDS);
     }
 
     @Override
@@ -156,11 +158,13 @@ public class PageDialoguePresenter implements DialoguePresenter {
     }
 
     private void handleDialogueEvent(String type, String id) {
-        UUID uuid = playerRef.getUuid();
-        switch (type) {
-            case "topic" -> manager.handleTopicSelected(uuid, id);
-            case "followup" -> manager.handleFollowUpSelected(uuid, id);
-            case "goodbye" -> manager.endSession(uuid);
+        synchronized (this) {
+            UUID uuid = playerRef.getUuid();
+            switch (type) {
+                case "topic" -> manager.handleTopicSelected(uuid, id);
+                case "followup" -> manager.handleFollowUpSelected(uuid, id);
+                case "goodbye" -> manager.endSession(uuid);
+            }
         }
     }
 
@@ -170,14 +174,16 @@ public class PageDialoguePresenter implements DialoguePresenter {
 
         // Defer to avoid opening dialogue page inside dice page's event handler
         SCHEDULER.schedule(() -> {
-            UUID uuid = playerRef.getUuid();
-            ConversationSession session = manager.getSession(uuid);
-            if (session != null) {
-                // This triggers refreshLog + refreshTopics on this presenter, which reopens dialogue page
-                session.handleSkillCheckResult(result, checkNode);
-            } else {
-                LOGGER.atWarning().log("No session found after dice roll for player %s", uuid);
-                close();
+            synchronized (PageDialoguePresenter.this) {
+                UUID uuid = playerRef.getUuid();
+                ConversationSession session = manager.getSession(uuid);
+                if (session != null) {
+                    // This triggers refreshLog + refreshTopics on this presenter, which reopens dialogue page
+                    session.handleSkillCheckResult(result, checkNode);
+                } else {
+                    LOGGER.atWarning().log("No session found after dice roll for player %s", uuid);
+                    close();
+                }
             }
         }, 50, TimeUnit.MILLISECONDS);
     }
