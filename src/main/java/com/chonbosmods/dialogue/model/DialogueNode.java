@@ -30,10 +30,12 @@ public sealed interface DialogueNode {
     record ActionNode(
         List<Map<String, String>> actions,
         @Nullable String nextNodeId,
-        List<Map<String, String>> onEnter
+        List<Map<String, String>> onEnter,
+        boolean exhaustsTopic
     ) implements DialogueNode {}
 
     record TerminalNode(
-        List<Map<String, String>> onEnter
+        List<Map<String, String>> onEnter,
+        boolean exhaustsTopic
     ) implements DialogueNode {}
 }

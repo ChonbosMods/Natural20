@@ -81,13 +81,15 @@
           "targetNodeId": "repair_persuade_pass",
           "mode": "DECISIVE",
           "statPrefix": "CHA",
-          "skillCheckRef": "repair_persuasion_check"
+          "skillCheckRef": "repair_persuasion_check",
+          "linkedResponses": ["repair_accept"]
         },
         {
           "id": "repair_accept",
           "displayText": "Deal. Here's my sword.",
           "targetNodeId": "repair_accepted",
-          "mode": "DECISIVE"
+          "mode": "DECISIVE",
+          "linkedResponses": ["repair_persuade"]
         }
       ]
     },
@@ -134,7 +136,8 @@
       "speakerText": "Ha! You've got a silver tongue. Fine — 30 gold, but don't tell anyone I gave you a deal.",
       "responses": [],
       "onEnter": [
-        { "type": "MODIFY_DISPOSITION", "amount": 5 }
+        { "type": "MODIFY_DISPOSITION", "amount": 5 },
+        { "type": "EXHAUST_TOPIC" }
       ]
     },
 
@@ -166,13 +169,56 @@
         { "type": "REMOVE_ITEM", "itemId": "gold", "quantity": 50 },
         { "type": "SET_FLAG", "flagId": "repair_in_progress", "value": true }
       ],
-      "next": "repair_accepted_dialogue"
+      "next": "repair_accepted_dialogue",
+      "exhaustsTopic": true
     },
 
     "repair_accepted_dialogue": {
       "type": "DIALOGUE",
       "speakerText": "Good. I'll have it ready by morning. Come back tomorrow.",
       "responses": []
+    },
+
+    "repair_materials_check": {
+      "type": "SKILL_CHECK",
+      "skill": "PERSUASION",
+      "stat": "CHA",
+      "baseDC": 10,
+      "dispositionScaling": true,
+      "passNodeId": "repair_materials_pass",
+      "failNodeId": "repair_materials_fail"
+    },
+
+    "repair_materials_pass": {
+      "type": "DIALOGUE",
+      "speakerText": "Hmm... aye, that could work. Bring me the steel and I'll knock it down to 25 gold for the labor. Fair?",
+      "responses": [],
+      "onEnter": [
+        { "type": "MODIFY_DISPOSITION", "amount": 3 },
+        { "type": "EXHAUST_TOPIC" }
+      ]
+    },
+
+    "repair_materials_fail": {
+      "type": "DIALOGUE",
+      "speakerText": "Materials? What materials? You don't even know what grade of steel I use. 50 gold, same as before.",
+      "responses": [
+        {
+          "id": "materials_fail_accept",
+          "displayText": "Fine. 50 gold.",
+          "targetNodeId": "repair_accepted",
+          "mode": "DECISIVE"
+        },
+        {
+          "id": "materials_fail_refuse",
+          "displayText": "Forget it.",
+          "targetNodeId": "repair_refused",
+          "mode": "DECISIVE"
+        }
+      ],
+      "onEnter": [
+        { "type": "MODIFY_DISPOSITION", "amount": -2 }
+      ]
     },
 
     "repair_refused": {

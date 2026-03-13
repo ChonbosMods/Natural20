@@ -151,7 +151,10 @@ public class DialogueLoader {
             case "DIALOGUE" -> parseDialogueNode(obj, onEnter);
             case "SKILL_CHECK" -> parseSkillCheckNode(obj, onEnter);
             case "ACTION" -> parseActionNode(obj, onEnter);
-            case "TERMINAL" -> new DialogueNode.TerminalNode(onEnter);
+            case "TERMINAL" -> {
+                boolean exhaustsTopic = obj.has("exhaustsTopic") && obj.get("exhaustsTopic").getAsBoolean();
+                yield new DialogueNode.TerminalNode(onEnter, exhaustsTopic);
+            }
             default -> {
                 LOGGER.atWarning().log("Unknown node type: %s", type);
                 yield null;
@@ -206,7 +209,8 @@ public class DialogueLoader {
     private DialogueNode.ActionNode parseActionNode(JsonObject obj, List<Map<String, String>> onEnter) {
         List<Map<String, String>> actions = parseActionList(obj.has("actions") ? obj.getAsJsonArray("actions") : null);
         String next = obj.has("next") ? obj.get("next").getAsString() : null;
-        return new DialogueNode.ActionNode(actions, next, onEnter);
+        boolean exhaustsTopic = obj.has("exhaustsTopic") && obj.get("exhaustsTopic").getAsBoolean();
+        return new DialogueNode.ActionNode(actions, next, onEnter, exhaustsTopic);
     }
 
     private List<Map<String, String>> parseActionList(@Nullable JsonArray arr) {

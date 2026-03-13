@@ -254,10 +254,18 @@ public class ConversationSession {
 
             case DialogueNode.ActionNode actionNode -> {
                 executeActions(actionNode.actions());
+                if (actionNode.exhaustsTopic() && activeTopicId != null) {
+                    playerData.setTopicExhaustion(npcId, activeTopicId, ExhaustionState.HIDDEN);
+                    exhaustTopicFired = true;
+                }
                 processNode(actionNode.nextNodeId(), actionDepth + 1);
             }
 
-            case DialogueNode.TerminalNode ignored -> {
+            case DialogueNode.TerminalNode terminalNode -> {
+                if (terminalNode.exhaustsTopic() && activeTopicId != null) {
+                    playerData.setTopicExhaustion(npcId, activeTopicId, ExhaustionState.HIDDEN);
+                    exhaustTopicFired = true;
+                }
                 returnCheck();
             }
         }
