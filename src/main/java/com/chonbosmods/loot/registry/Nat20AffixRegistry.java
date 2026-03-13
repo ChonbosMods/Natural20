@@ -122,6 +122,14 @@ public class Nat20AffixRegistry {
         String cooldown = obj.has("Cooldown") ? obj.get("Cooldown").getAsString() : null;
         String procChance = obj.has("ProcChance") ? obj.get("ProcChance").getAsString() : null;
 
+        Set<String> exclusiveWith = null;
+        if (obj.has("exclusive_with")) {
+            exclusiveWith = new HashSet<>();
+            for (JsonElement el : obj.getAsJsonArray("exclusive_with")) {
+                exclusiveWith.add(el.getAsString());
+            }
+        }
+
         return new Nat20AffixDef(
             id,
             AffixType.valueOf(obj.get("Type").getAsString()),
@@ -135,7 +143,8 @@ public class Nat20AffixRegistry {
             valuesPerRarity,
             description,
             cooldown,
-            procChance
+            procChance,
+            exclusiveWith
         );
     }
 

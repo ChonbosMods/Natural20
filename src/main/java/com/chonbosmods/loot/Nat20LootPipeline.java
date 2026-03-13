@@ -104,12 +104,19 @@ public class Nat20LootPipeline {
             List<Nat20AffixDef> pool = affixRegistry.getPool(rule.type(), categoryKey, rarity.id());
             pool = new ArrayList<>(pool);
             pool.removeIf(a -> usedAffixIds.contains(a.id()));
+            pool.removeIf(a -> a.exclusiveWith() != null
+                && !Collections.disjoint(a.exclusiveWith(), usedAffixIds));
 
             for (int i = 0; i < rule.count() && !pool.isEmpty(); i++) {
                 int idx = random.nextInt(pool.size());
                 Nat20AffixDef chosen = pool.remove(idx);
                 usedAffixIds.add(chosen.id());
                 result.add(new RolledAffix(chosen.id(), random.nextDouble()));
+                // Remove affixes that are exclusive with the one just chosen
+                if (chosen.exclusiveWith() != null) {
+                    pool.removeIf(a -> chosen.exclusiveWith().contains(a.id()));
+                }
+                pool.removeIf(a -> a.exclusiveWith() != null && a.exclusiveWith().contains(chosen.id()));
             }
         }
 
