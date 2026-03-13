@@ -15,14 +15,14 @@ public class Nat20NpcData implements Component<EntityStore> {
     public static final BuilderCodec<Nat20NpcData> CODEC = BuilderCodec.builder(Nat20NpcData.class, Nat20NpcData::new)
             .addField(new KeyedCodec<>("GeneratedName", Codec.STRING), Nat20NpcData::setGeneratedName, Nat20NpcData::getGeneratedName)
             .addField(new KeyedCodec<>("RoleName", Codec.STRING), Nat20NpcData::setRoleName, Nat20NpcData::getRoleName)
-            .addField(new KeyedCodec<>("Disposition", Codec.INTEGER), Nat20NpcData::setDisposition, Nat20NpcData::getDisposition)
+            .addField(new KeyedCodec<>("Disposition", Codec.INTEGER), Nat20NpcData::setDefaultDisposition, Nat20NpcData::getDefaultDisposition)
             .addField(new KeyedCodec<>("DialogueState", Codec.STRING), Nat20NpcData::setDialogueState, Nat20NpcData::getDialogueState)
             .addField(new KeyedCodec<>("Flags", MapCodec.STRING_HASH_MAP_CODEC), Nat20NpcData::setFlags, Nat20NpcData::getFlags)
             .build();
 
     private String generatedName;
     private String roleName;
-    private int disposition;
+    private int defaultDisposition;
     private String dialogueState;
     private Map<String, String> flags = new HashMap<>();
 
@@ -45,12 +45,12 @@ public class Nat20NpcData implements Component<EntityStore> {
         this.roleName = roleName;
     }
 
-    public int getDisposition() {
-        return disposition;
+    public int getDefaultDisposition() {
+        return defaultDisposition;
     }
 
-    public void setDisposition(int disposition) {
-        this.disposition = disposition;
+    public void setDefaultDisposition(int defaultDisposition) {
+        this.defaultDisposition = defaultDisposition;
     }
 
     public String getDialogueState() {
@@ -74,7 +74,7 @@ public class Nat20NpcData implements Component<EntityStore> {
         Nat20NpcData copy = new Nat20NpcData();
         copy.generatedName = this.generatedName;
         copy.roleName = this.roleName;
-        copy.disposition = this.disposition;
+        copy.defaultDisposition = this.defaultDisposition;
         copy.dialogueState = this.dialogueState;
         copy.flags = new HashMap<>(this.flags);
         return copy;

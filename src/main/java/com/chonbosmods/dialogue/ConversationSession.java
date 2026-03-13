@@ -80,7 +80,10 @@ public class ConversationSession {
         this.conditionEvaluator = conditionEvaluator;
         this.presenter = presenter;
         this.onSessionEnd = onSessionEnd;
-        this.disposition = playerData.getDispositionFor(npcId, graph.defaultDisposition());
+        int defaultDisp = npcData.getDefaultDisposition() != 0
+            ? npcData.getDefaultDisposition()
+            : graph.defaultDisposition();
+        this.disposition = playerData.getDispositionFor(npcId, defaultDisp);
     }
 
     // --- Lifecycle ---
