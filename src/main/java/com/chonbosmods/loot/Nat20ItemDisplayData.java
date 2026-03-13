@@ -1,17 +1,19 @@
 package com.chonbosmods.loot;
 
-import com.hypixel.hytale.server.core.Message;
+import com.chonbosmods.loot.display.AffixLine;
+import com.chonbosmods.loot.display.RequirementLine;
+import com.chonbosmods.loot.display.SocketLine;
 
 import javax.annotation.Nullable;
 import java.util.List;
 
 public record Nat20ItemDisplayData(
-    Message name,
-    Message rarityLabel,
+    String name,
+    String rarity,
     String rarityColor,
-    List<Message> affixLines,
-    List<Message> socketLines,
-    @Nullable Message requirementLine,
+    String tooltipTexture,
     String slotTexture,
-    String tooltipTexture
+    List<AffixLine> affixes,
+    List<SocketLine> sockets,
+    @Nullable RequirementLine requirement
 ) {}
