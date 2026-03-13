@@ -6,6 +6,9 @@
   "MaxAffixes": 2,
   "MaxSockets": 0,
   "StatRequirement": 10,
+  "TooltipTexture": "nat20_tooltip_uncommon",
+  "TooltipArrowTexture": "nat20_arrow_uncommon",
+  "SlotTexture": "nat20_slot_uncommon",
   "LootRules": [
     { "Type": "STAT", "Count": 1, "Probability": 1.0 },
     { "Type": "STAT", "Count": 1, "Probability": 0.5 }
