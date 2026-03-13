@@ -94,6 +94,81 @@ public class Nat20LootPipeline {
         return data;
     }
 
+    /**
+     * Generate loot data for an item with rarity tier clamping.
+     * Only rarities whose qualityValue falls within [minRarityTier, maxRarityTier] are eligible.
+     *
+     * @param itemId the Hytale item ID (e.g., "Hytale:IronSword")
+     * @param baseName the base item display name (e.g., "Iron Sword")
+     * @param categoryKey the equipment category key (e.g., "melee_weapon")
+     * @param minRarityTier minimum qualityValue for eligible rarities (inclusive)
+     * @param maxRarityTier maximum qualityValue for eligible rarities (inclusive)
+     * @param random the random source
+     * @return populated Nat20LootData, or null if no rarities are loaded
+     */
+    public Nat20LootData generate(String itemId, String baseName, String categoryKey,
+                                   int minRarityTier, int maxRarityTier, Random random) {
+        // Step 1: Select rarity within tier range
+        Nat20RarityDef rarity = rarityRegistry.selectRandom(random, minRarityTier, maxRarityTier);
+        if (rarity == null) {
+            LOGGER.atWarning().log("No rarity definitions loaded, cannot generate loot for %s", itemId);
+            return null;
+        }
+
+        // Step 2: Roll loot level
+        double lootLevel = random.nextDouble();
+
+        // Step 3: Roll affixes based on rarity loot rules
+        List<RolledAffix> rolledAffixes = rollAffixes(rarity, categoryKey, random);
+
+        // Step 4: Allocate sockets
+        int sockets = rollSockets(rarity, random);
+
+        // Step 5: Generate name
+        String prefixSource = null;
+        String suffixSource = null;
+        StringBuilder nameBuilder = new StringBuilder();
+
+        for (var affix : rolledAffixes) {
+            Nat20AffixDef def = affixRegistry.get(affix.id());
+            if (def != null && def.namePosition() == NamePosition.PREFIX && prefixSource == null) {
+                prefixSource = affix.id();
+                nameBuilder.append(getAffixDisplayWord(def)).append(" ");
+                break;
+            }
+        }
+
+        nameBuilder.append(baseName);
+
+        for (var affix : rolledAffixes) {
+            Nat20AffixDef def = affixRegistry.get(affix.id());
+            if (def != null && def.namePosition() == NamePosition.SUFFIX && suffixSource == null) {
+                suffixSource = affix.id();
+                nameBuilder.append(" of ").append(getAffixDisplayWord(def));
+                break;
+            }
+        }
+
+        String generatedName = nameBuilder.toString();
+
+        // Step 6: Assemble Nat20LootData
+        Nat20LootData data = new Nat20LootData();
+        data.setVersion(Nat20LootData.CURRENT_VERSION);
+        data.setRarity(rarity.id());
+        data.setLootLevel(lootLevel);
+        data.setAffixes(rolledAffixes);
+        data.setSockets(sockets);
+        data.setGems(new ArrayList<>());
+        data.setGeneratedName(generatedName);
+        data.setNamePrefixSource(prefixSource);
+        data.setNameSuffixSource(suffixSource);
+
+        LOGGER.atInfo().log("Generated loot: %s [%s] with %d affixes, %d sockets (lootLevel=%.2f, tierRange=[%d,%d])",
+            generatedName, rarity.id(), rolledAffixes.size(), sockets, lootLevel, minRarityTier, maxRarityTier);
+
+        return data;
+    }
+
     private List<RolledAffix> rollAffixes(Nat20RarityDef rarity, String categoryKey, Random random) {
         List<RolledAffix> result = new ArrayList<>();
         Set<String> usedAffixIds = new HashSet<>();

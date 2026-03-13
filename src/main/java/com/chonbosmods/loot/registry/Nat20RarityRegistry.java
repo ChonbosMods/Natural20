@@ -127,6 +127,34 @@ public class Nat20RarityRegistry {
         return raritiesByValue.getLast();
     }
 
+    /**
+     * Select a random rarity from those whose qualityValue falls within [minTier, maxTier].
+     * Uses base weight for weighted selection among the filtered pool.
+     * Falls back to unclamped selection if no rarities match the tier range.
+     */
+    public Nat20RarityDef selectRandom(Random random, int minTier, int maxTier) {
+        List<Nat20RarityDef> pool = new ArrayList<>();
+        int totalWeight = 0;
+        for (var def : raritiesById.values()) {
+            if (def.qualityValue() >= minTier && def.qualityValue() <= maxTier) {
+                pool.add(def);
+                totalWeight += def.baseWeight();
+            }
+        }
+        if (pool.isEmpty()) {
+            LOGGER.atWarning().log("No rarities match tier range [%d, %d], falling back to unclamped selection",
+                minTier, maxTier);
+            return selectRandom(random);
+        }
+        int roll = random.nextInt(totalWeight);
+        int cumulative = 0;
+        for (var def : pool) {
+            cumulative += def.baseWeight();
+            if (roll < cumulative) return def;
+        }
+        return pool.getLast();
+    }
+
     public int getLoadedCount() {
         return raritiesById.size();
     }
