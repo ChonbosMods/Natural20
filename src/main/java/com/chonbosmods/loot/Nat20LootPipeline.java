@@ -1,5 +1,6 @@
 package com.chonbosmods.loot;
 
+import com.chonbosmods.loot.def.AffixValueRange;
 import com.chonbosmods.loot.def.LootRuleEntry;
 import com.chonbosmods.loot.def.Nat20AffixDef;
 import com.chonbosmods.loot.def.Nat20RarityDef;
@@ -79,7 +80,10 @@ public class Nat20LootPipeline {
         // Step 6: Resolve variant item ID
         String variantItemId = resolveVariantId(itemId, rarity.id());
 
-        // Step 7: Assemble Nat20LootData
+        // Step 7: Build description
+        String description = buildDescription(rolledAffixes, rarity.id(), sockets, rarity);
+
+        // Step 8: Assemble Nat20LootData
         Nat20LootData data = new Nat20LootData();
         data.setVersion(Nat20LootData.CURRENT_VERSION);
         data.setRarity(rarity.id());
@@ -90,6 +94,7 @@ public class Nat20LootPipeline {
         data.setGeneratedName(generatedName);
         data.setNamePrefixSource(prefixSource);
         data.setNameSuffixSource(suffixSource);
+        data.setDescription(description);
         data.setVariantItemId(variantItemId);
 
         LOGGER.atInfo().log("Generated loot: %s [%s] variant=%s with %d affixes, %d sockets (lootLevel=%.2f)",
@@ -158,7 +163,10 @@ public class Nat20LootPipeline {
         // Step 6: Resolve variant item ID
         String variantItemId = resolveVariantId(itemId, rarity.id());
 
-        // Step 7: Assemble Nat20LootData
+        // Step 7: Build description
+        String description = buildDescription(rolledAffixes, rarity.id(), sockets, rarity);
+
+        // Step 8: Assemble Nat20LootData
         Nat20LootData data = new Nat20LootData();
         data.setVersion(Nat20LootData.CURRENT_VERSION);
         data.setRarity(rarity.id());
@@ -169,6 +177,7 @@ public class Nat20LootPipeline {
         data.setGeneratedName(generatedName);
         data.setNamePrefixSource(prefixSource);
         data.setNameSuffixSource(suffixSource);
+        data.setDescription(description);
         data.setVariantItemId(variantItemId);
 
         LOGGER.atInfo().log("Generated loot: %s [%s] variant=%s with %d affixes, %d sockets (lootLevel=%.2f, tierRange=[%d,%d])",
@@ -218,6 +227,52 @@ public class Nat20LootPipeline {
             if (random.nextDouble() < 0.5) sockets++;
         }
         return sockets;
+    }
+
+    /**
+     * Build a plain-text description for the item tooltip (Path 1: stored once at creation).
+     * Includes affix stat lines, socket slots, and stat requirements.
+     */
+    private String buildDescription(List<RolledAffix> affixes, String rarityId, int sockets, Nat20RarityDef rarity) {
+        StringBuilder desc = new StringBuilder();
+
+        // Affix lines
+        for (RolledAffix affix : affixes) {
+            Nat20AffixDef def = affixRegistry.get(affix.id());
+            if (def == null) continue;
+            AffixValueRange range = def.getValuesForRarity(rarityId);
+            if (range == null) continue;
+            double value = range.interpolate(affix.level());
+            if ("MULTIPLICATIVE".equals(def.modifierType())) {
+                desc.append(String.format("%.1f%% %s", value, def.targetStat()));
+            } else {
+                desc.append(String.format("+%.1f %s", value, def.targetStat()));
+            }
+            if (def.statScaling() != null) {
+                desc.append(" (").append(def.statScaling().primary().name()).append(")");
+            }
+            desc.append("\n");
+        }
+
+        // Socket line
+        if (sockets > 0) {
+            desc.append("Sockets:");
+            for (int i = 0; i < sockets; i++) {
+                desc.append(" [Empty]");
+            }
+            desc.append("\n");
+        }
+
+        // Requirement line
+        if (rarity.statRequirement() > 0 && !affixes.isEmpty()) {
+            Nat20AffixDef firstDef = affixRegistry.get(affixes.getFirst().id());
+            if (firstDef != null && firstDef.statScaling() != null) {
+                desc.append("Requires: ").append(firstDef.statScaling().primary().name())
+                    .append(" ").append(rarity.statRequirement()).append("\n");
+            }
+        }
+
+        return desc.toString().stripTrailing();
     }
 
     /**
