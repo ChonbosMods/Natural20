@@ -1,0 +1,12 @@
+{
+  "QualityValue": 102,
+  "ItemTooltipTexture": "UI/ItemQualities/Tooltips/ItemTooltipUncommon.png",
+  "ItemTooltipArrowTexture": "UI/ItemQualities/Tooltips/ItemTooltipUncommonArrow.png",
+  "SlotTexture": "UI/ItemQualities/Slots/SlotUncommon.png",
+  "BlockSlotTexture": "UI/ItemQualities/Slots/SlotUncommon.png",
+  "SpecialSlotTexture": "UI/ItemQualities/Slots/SlotUncommon.png",
+  "TextColor": "#3e9049",
+  "LocalizationKey": "server.nat20.rarity.uncommon",
+  "VisibleQualityLabel": true,
+  "RenderSpecialSlot": false
+}
