@@ -20,11 +20,13 @@ public class Nat20LootSystem {
     private final Nat20LootPipeline pipeline;
     private final Nat20ModifierManager modifierManager;
     private final Nat20ItemRenderer itemRenderer;
+    private final Nat20VanillaDisplayApplier vanillaDisplayApplier;
 
     public Nat20LootSystem() {
         this.pipeline = new Nat20LootPipeline(rarityRegistry, affixRegistry);
         this.modifierManager = new Nat20ModifierManager(rarityRegistry, affixRegistry, gemRegistry);
         this.itemRenderer = new Nat20ItemRenderer(rarityRegistry, affixRegistry, gemRegistry);
+        this.vanillaDisplayApplier = new Nat20VanillaDisplayApplier(rarityRegistry, affixRegistry, gemRegistry);
     }
 
     public void loadAll(@Nullable Path lootDataDir) {
@@ -53,4 +55,5 @@ public class Nat20LootSystem {
     public Nat20LootPipeline getPipeline() { return pipeline; }
     public Nat20ModifierManager getModifierManager() { return modifierManager; }
     public Nat20ItemRenderer getItemRenderer() { return itemRenderer; }
+    public Nat20VanillaDisplayApplier getVanillaDisplayApplier() { return vanillaDisplayApplier; }
 }

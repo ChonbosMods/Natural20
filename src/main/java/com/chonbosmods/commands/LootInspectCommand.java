@@ -71,6 +71,17 @@ public class LootInspectCommand extends AbstractPlayerCommand {
         context.sendMessage(Message.raw("Name Prefix Source: " + (prefix != null ? prefix : "(none)")));
         context.sendMessage(Message.raw("Name Suffix Source: " + (suffix != null ? suffix : "(none)")));
 
+        // Description
+        String desc = lootData.getDescription();
+        if (desc != null && !desc.isEmpty()) {
+            context.sendMessage(Message.raw("Description:"));
+            for (String line : desc.split("\n")) {
+                context.sendMessage(Message.raw("  " + line));
+            }
+        } else {
+            context.sendMessage(Message.raw("Description: (none)"));
+        }
+
         // Affixes
         if (lootData.getAffixes().isEmpty()) {
             context.sendMessage(Message.raw("Affixes: (none)"));
