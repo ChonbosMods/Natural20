@@ -118,6 +118,10 @@ public class Nat20AffixRegistry {
             }
         }
 
+        String description = obj.has("Description") ? obj.get("Description").getAsString() : null;
+        String cooldown = obj.has("Cooldown") ? obj.get("Cooldown").getAsString() : null;
+        String procChance = obj.has("ProcChance") ? obj.get("ProcChance").getAsString() : null;
+
         return new Nat20AffixDef(
             id,
             AffixType.valueOf(obj.get("Type").getAsString()),
@@ -128,7 +132,10 @@ public class Nat20AffixRegistry {
             scaling,
             obj.has("TargetStat") ? obj.get("TargetStat").getAsString() : null,
             obj.has("ModifierType") ? obj.get("ModifierType").getAsString() : "ADDITIVE",
-            valuesPerRarity
+            valuesPerRarity,
+            description,
+            cooldown,
+            procChance
         );
     }
 

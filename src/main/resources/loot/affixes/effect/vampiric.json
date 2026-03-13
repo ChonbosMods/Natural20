@@ -6,6 +6,7 @@
   "StatScaling": { "Primary": "CON", "Factor": 0.05 },
   "TargetStat": "LifeSteal",
   "ModifierType": "ADDITIVE",
+  "Description": "On hit: heals percentage of damage dealt",
   "ValuesPerRarity": {
     "Rare":      { "Min": 1.0, "Max": 2.0 },
     "Epic":      { "Min": 2.0, "Max": 3.5 },
