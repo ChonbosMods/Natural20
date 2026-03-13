@@ -35,7 +35,7 @@ public class Nat20DialoguePage extends InteractiveCustomUIPage<Nat20DialoguePage
 
     private static final int MAX_TOPICS = 10;
     private static final int MAX_FOLLOW_UPS = 6;
-    private static final int MAX_LOG_LABELS = 20;
+    private static final int MAX_LOG_LABELS = 30;
 
     // Log rendering colors (per visual polish guide)
     private static final String COLOR_TOPIC_HEADER = "#666666";
@@ -162,15 +162,24 @@ public class Nat20DialoguePage extends InteractiveCustomUIPage<Nat20DialoguePage
             }
         }
 
-        // Fill pre-defined #Log1..#Log20 labels
+        // Window: show the most recent entries, with overflow indicator if truncated
+        boolean overflowed = lines.size() > MAX_LOG_LABELS;
+        int startIdx = overflowed ? lines.size() - MAX_LOG_LABELS + 1 : 0;
+
         for (int i = 0; i < MAX_LOG_LABELS; i++) {
             String selector = "#Log" + (i + 1);
-            if (i < lines.size()) {
-                LogLine line = lines.get(i);
+            if (i == 0 && overflowed) {
                 cmd.set(selector + ".Visible", true);
-                cmd.set(selector + ".TextSpans", Message.raw(line.text).color(line.color));
+                cmd.set(selector + ".TextSpans", Message.raw("\u2191 earlier conversation \u2191").color("#555555"));
             } else {
-                cmd.set(selector + ".Visible", false);
+                int lineIdx = startIdx + (overflowed ? i - 1 : i);
+                if (lineIdx >= 0 && lineIdx < lines.size()) {
+                    LogLine line = lines.get(lineIdx);
+                    cmd.set(selector + ".Visible", true);
+                    cmd.set(selector + ".TextSpans", Message.raw(line.text).color(line.color));
+                } else {
+                    cmd.set(selector + ".Visible", false);
+                }
             }
         }
     }
