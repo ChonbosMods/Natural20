@@ -57,13 +57,13 @@ def base_item_to_suffix(base_item: str) -> str:
 
 def generate_variant(entry: dict, rarity: dict) -> dict:
     """Generate a single variant Item JSON."""
-    rarity_id = rarity["id"]
+    rarity_id = rarity["Id"]
     rarity_lower = rarity_id.lower()
-    base_name = entry.get("base_name", entry["base_item"].split(":")[-1])
+    base_name = entry.get("BaseName", entry["BaseItem"].split(":")[-1])
     display_name = f"{rarity_id} {base_name}"
 
     return {
-        "Parent": entry["base_item"],
+        "Parent": entry["BaseItem"],
         "Quality": f"nat20_{rarity_lower}",
         "DisplayName": display_name
     }
@@ -99,9 +99,9 @@ def main():
 
     count = 0
     for entry in entries:
-        base_suffix = base_item_to_suffix(entry["base_item"])
+        base_suffix = base_item_to_suffix(entry["BaseItem"])
         for rarity in rarities:
-            rarity_lower = rarity["id"].lower()
+            rarity_lower = rarity["Id"].lower()
             variant_id = f"nat20_{base_suffix}_{rarity_lower}"
             variant = generate_variant(entry, rarity)
 
