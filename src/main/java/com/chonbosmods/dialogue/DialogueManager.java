@@ -5,6 +5,8 @@ import com.chonbosmods.action.DialogueActionRegistry;
 import com.chonbosmods.data.Nat20NpcData;
 import com.chonbosmods.data.Nat20PlayerData;
 import com.chonbosmods.dialogue.model.DialogueGraph;
+import com.chonbosmods.dialogue.model.LogEntry;
+import com.google.gson.JsonParser;
 import com.hypixel.hytale.component.Ref;
 import com.hypixel.hytale.component.Store;
 import com.hypixel.hytale.logger.HytaleLogger;
@@ -12,8 +14,7 @@ import com.hypixel.hytale.server.core.Message;
 import com.hypixel.hytale.server.core.entity.entities.Player;
 import com.hypixel.hytale.server.core.universe.world.storage.EntityStore;
 
-import java.util.Map;
-import java.util.UUID;
+import java.util.*;
 import java.util.concurrent.ConcurrentHashMap;
 
 public class DialogueManager {
@@ -88,13 +89,61 @@ public class DialogueManager {
         // Check for saved session (dirty exit resume)
         String savedJson = playerData.getSavedSession(graph.npcId());
         if (savedJson != null) {
-            // TODO: Deserialize saved session and call session.startFromSaved()
-            playerData.clearSavedSession(graph.npcId());
-            LOGGER.atInfo().log("Found saved session for %s with NPC '%s', resuming (deserialization TODO)", playerUuid, npcId);
-        }
+            try {
+                var savedData = JsonParser.parseString(savedJson).getAsJsonObject();
 
-        LOGGER.atInfo().log("Started dialogue session for %s with NPC '%s' (role: %s)", playerUuid, displayName, npcId);
-        session.start();
+                // Deserialize log
+                List<LogEntry> savedLog = new ArrayList<>();
+                if (savedData.has("log")) {
+                    for (var el : savedData.getAsJsonArray("log")) {
+                        var logObj = el.getAsJsonObject();
+                        String logType = logObj.get("type").getAsString();
+                        LogEntry entry = switch (logType) {
+                            case "TopicHeader" -> new LogEntry.TopicHeader(logObj.get("label").getAsString());
+                            case "NpcSpeech" -> new LogEntry.NpcSpeech(logObj.get("text").getAsString());
+                            case "SelectedResponse" -> new LogEntry.SelectedResponse(
+                                    logObj.get("responseId").getAsString(),
+                                    logObj.get("displayText").getAsString(),
+                                    logObj.has("statPrefix") ? logObj.get("statPrefix").getAsString() : null);
+                            case "SystemText" -> new LogEntry.SystemText(logObj.get("text").getAsString());
+                            case "ReturnGreeting" -> new LogEntry.ReturnGreeting(logObj.get("text").getAsString());
+                            case "ReturnDivider" -> new LogEntry.ReturnDivider();
+                            default -> null;
+                        };
+                        if (entry != null) savedLog.add(entry);
+                    }
+                }
+
+                String savedActiveNodeId = savedData.has("activeNodeId")
+                        ? savedData.get("activeNodeId").getAsString() : null;
+                List<String> savedPendingFollowUps = new ArrayList<>();
+                if (savedData.has("pendingFollowUpIds")) {
+                    for (var el : savedData.getAsJsonArray("pendingFollowUpIds")) {
+                        savedPendingFollowUps.add(el.getAsString());
+                    }
+                }
+                Set<String> savedGrayedExploratories = new HashSet<>();
+                if (savedData.has("grayedExploratories")) {
+                    for (var el : savedData.getAsJsonArray("grayedExploratories")) {
+                        savedGrayedExploratories.add(el.getAsString());
+                    }
+                }
+                boolean savedTopicsLocked = savedData.has("topicsLocked")
+                        && savedData.get("topicsLocked").getAsBoolean();
+
+                playerData.clearSavedSession(graph.npcId());
+                LOGGER.atInfo().log("Resuming saved session for %s with NPC '%s'", playerUuid, npcId);
+                session.startFromSaved(savedLog, savedActiveNodeId,
+                        savedPendingFollowUps, savedGrayedExploratories, savedTopicsLocked);
+            } catch (Exception e) {
+                LOGGER.atWarning().withCause(e).log("Failed to restore saved session for %s, starting fresh", playerUuid);
+                playerData.clearSavedSession(graph.npcId());
+                session.start();
+            }
+        } else {
+            LOGGER.atInfo().log("Started dialogue session for %s with NPC '%s' (role: %s)", playerUuid, displayName, npcId);
+            session.start();
+        }
     }
 
     public void handleTopicSelected(UUID playerUuid, String topicId) {

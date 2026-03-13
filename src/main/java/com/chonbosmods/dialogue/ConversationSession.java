@@ -103,6 +103,7 @@ public class ConversationSession {
 
         DialogueNode returnNode = graph.getNode(graph.returnGreetingNodeId());
         if (returnNode instanceof DialogueNode.DialogueTextNode textNode) {
+            conversationLog.add(new LogEntry.ReturnDivider());
             conversationLog.add(new LogEntry.ReturnGreeting(textNode.speakerText()));
         }
 
@@ -510,11 +511,44 @@ public class ConversationSession {
         for (String id : grayedExploratories) grayed.add(id);
         json.add("grayedExploratories", grayed);
 
-        json.addProperty("logEntryCount", conversationLog.size());
+        // Serialize conversation log
+        var logArray = new JsonArray();
+        for (LogEntry entry : conversationLog) {
+            var logObj = new JsonObject();
+            switch (entry) {
+                case LogEntry.TopicHeader h -> {
+                    logObj.addProperty("type", "TopicHeader");
+                    logObj.addProperty("label", h.label());
+                }
+                case LogEntry.NpcSpeech s -> {
+                    logObj.addProperty("type", "NpcSpeech");
+                    logObj.addProperty("text", s.text());
+                }
+                case LogEntry.SelectedResponse s -> {
+                    logObj.addProperty("type", "SelectedResponse");
+                    logObj.addProperty("responseId", s.responseId());
+                    logObj.addProperty("displayText", s.displayText());
+                    if (s.statPrefix() != null) logObj.addProperty("statPrefix", s.statPrefix());
+                }
+                case LogEntry.SystemText s -> {
+                    logObj.addProperty("type", "SystemText");
+                    logObj.addProperty("text", s.text());
+                }
+                case LogEntry.ReturnGreeting r -> {
+                    logObj.addProperty("type", "ReturnGreeting");
+                    logObj.addProperty("text", r.text());
+                }
+                case LogEntry.ReturnDivider ignored -> {
+                    logObj.addProperty("type", "ReturnDivider");
+                }
+            }
+            logArray.add(logObj);
+        }
+        json.add("log", logArray);
 
         String serialized = json.toString();
         playerData.setSavedSession(npcId, serialized);
-        LOGGER.atInfo().log("Saved session for NPC %s, player %s: %s", npcId, playerId, serialized);
+        LOGGER.atInfo().log("Saved session for NPC %s, player %s", npcId, playerId);
     }
 
     // --- Getters ---
