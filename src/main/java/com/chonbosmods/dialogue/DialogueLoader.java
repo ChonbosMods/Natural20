@@ -13,7 +13,12 @@ import javax.annotation.Nullable;
 import java.io.IOException;
 import java.io.InputStream;
 import java.io.InputStreamReader;
+import java.net.URI;
+import java.net.URISyntaxException;
+import java.net.URL;
 import java.nio.charset.StandardCharsets;
+import java.nio.file.FileSystem;
+import java.nio.file.FileSystems;
 import java.nio.file.Files;
 import java.nio.file.Path;
 import java.util.*;
@@ -37,25 +42,43 @@ public class DialogueLoader {
     }
 
     private void loadFromClasspath() {
-        loadClasspathFile("dialogues/blacksmith_default.json");
-        loadClasspathFile("dialogues/tavern_keeper_default.json");
-        loadClasspathFile("dialogues/guard_default.json");
-        loadClasspathFile("dialogues/traveler_default.json");
-        loadClasspathFile("dialogues/alchemist_default.json");
-        loadClasspathFile("dialogues/cook_default.json");
-    }
+        URL dirUrl = getClass().getClassLoader().getResource("dialogues");
+        if (dirUrl == null) {
+            LOGGER.atWarning().log("No dialogues/ directory found on classpath");
+            return;
+        }
 
-    private void loadClasspathFile(String path) {
-        try (InputStream is = getClass().getClassLoader().getResourceAsStream(path)) {
-            if (is != null) {
-                JsonObject root = JsonParser.parseReader(new InputStreamReader(is, StandardCharsets.UTF_8)).getAsJsonObject();
-                DialogueGraph graph = parseGraph(root);
-                if (graph != null && graph.validate()) {
-                    graphsByNpcId.put(graph.npcId(), graph);
+        try {
+            URI dirUri = dirUrl.toURI();
+            Path dirPath;
+            FileSystem jarFs = null;
+
+            if ("jar".equals(dirUri.getScheme())) {
+                jarFs = FileSystems.newFileSystem(dirUri, Map.of());
+                dirPath = jarFs.getPath("dialogues");
+            } else {
+                dirPath = Path.of(dirUri);
+            }
+
+            try (Stream<Path> files = Files.list(dirPath)) {
+                files.filter(p -> p.toString().endsWith(".json")).forEach(file -> {
+                    try (InputStream is = Files.newInputStream(file)) {
+                        JsonObject root = JsonParser.parseReader(new InputStreamReader(is, StandardCharsets.UTF_8)).getAsJsonObject();
+                        DialogueGraph graph = parseGraph(root);
+                        if (graph != null && graph.validate()) {
+                            graphsByNpcId.put(graph.npcId(), graph);
+                        }
+                    } catch (IOException e) {
+                        LOGGER.atSevere().withCause(e).log("Failed to load classpath dialogue: %s", file);
+                    }
+                });
+            } finally {
+                if (jarFs != null) {
+                    jarFs.close();
                 }
             }
-        } catch (IOException e) {
-            LOGGER.atSevere().withCause(e).log("Failed to load classpath dialogue: %s", path);
+        } catch (IOException | URISyntaxException e) {
+            LOGGER.atWarning().withCause(e).log("Failed to scan classpath dialogues/ directory");
         }
     }
 
