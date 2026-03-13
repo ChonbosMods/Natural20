@@ -1,0 +1,17 @@
+{
+  "Id": "Rare",
+  "QualityValue": 103,
+  "Color": "#2770b7",
+  "DisplayName": "server.nat20.rarity.rare",
+  "BaseWeight": 200,
+  "MaxAffixes": 3,
+  "MaxSockets": 1,
+  "StatRequirement": 14,
+  "TooltipTexture": "UI/ItemQualities/Tooltips/ItemTooltipRare.png",
+  "TooltipArrowTexture": "UI/ItemQualities/Tooltips/ItemTooltipRareArrow.png",
+  "SlotTexture": "UI/ItemQualities/Slots/SlotRare.png",
+  "LootRules": [
+    { "Type": "STAT", "Count": 2, "Probability": 1.0 },
+    { "Type": "EFFECT", "Count": 1, "Probability": 0.5 }
+  ]
+}

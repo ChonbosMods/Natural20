@@ -1,0 +1,6 @@
+{
+  "__comment": "Template for generated rarity variant Item JSONs. Placeholders: {{BASE_ITEM}}, {{RARITY_ID}}, {{RARITY_LOWER}}, {{QUALITY_ID}}, {{DISPLAY_NAME}}",
+  "Parent": "{{BASE_ITEM}}",
+  "Quality": "nat20_{{RARITY_LOWER}}",
+  "DisplayName": "{{DISPLAY_NAME}}"
+}

@@ -1,0 +1,18 @@
+{
+  "Id": "nat20:emerald_of_vitality",
+  "DisplayName": "server.nat20.gem.emerald_of_vitality",
+  "StatAffinity": "CON",
+  "AffinityScalingFactor": 0.10,
+  "PurityMultipliers": {
+    "Flawed": 1.0,
+    "Standard": 1.5,
+    "Pristine": 2.0
+  },
+  "BonusesBySlot": {
+    "melee_weapon": { "Stat": "LifeOnHit", "Type": "ADDITIVE", "BaseValue": 1.0 },
+    "armor_head":   { "Stat": "Health", "Type": "ADDITIVE", "BaseValue": 3.0 },
+    "armor_chest":  { "Stat": "Health", "Type": "ADDITIVE", "BaseValue": 3.0 },
+    "armor_hands":  { "Stat": "Health", "Type": "ADDITIVE", "BaseValue": 3.0 },
+    "armor_legs":   { "Stat": "Health", "Type": "ADDITIVE", "BaseValue": 3.0 }
+  }
+}

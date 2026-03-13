@@ -1,0 +1,16 @@
+{
+  "Id": "nat20:fiery",
+  "DisplayName": "server.nat20.mob_affix.fiery",
+  "Color": "#ff4400",
+  "StatMultipliers": {
+    "AttackDamage": 1.2
+  },
+  "AbilityType": "fiery",
+  "AbilityConfig": {
+    "IgniteDurationTicks": 60,
+    "FireTrail": true,
+    "FireImmunity": true
+  },
+  "LootBonusMultiplier": 1.3,
+  "MinEncounterTier": 1
+}

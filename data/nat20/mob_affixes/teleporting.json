@@ -1,0 +1,16 @@
+{
+  "Id": "nat20:teleporting",
+  "DisplayName": "server.nat20.mob_affix.teleporting",
+  "Color": "#aa44ff",
+  "StatMultipliers": {
+    "MovementSpeed": 1.1
+  },
+  "AbilityType": "teleporting",
+  "AbilityConfig": {
+    "BlinkRadius": 8.0,
+    "CooldownTicks": 100,
+    "TriggerOnHit": true
+  },
+  "LootBonusMultiplier": 1.4,
+  "MinEncounterTier": 2
+}

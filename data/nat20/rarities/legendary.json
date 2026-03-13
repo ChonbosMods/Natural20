@@ -1,0 +1,19 @@
+{
+  "Id": "Legendary",
+  "QualityValue": 105,
+  "Color": "#bb8a2c",
+  "DisplayName": "server.nat20.rarity.legendary",
+  "BaseWeight": 20,
+  "MaxAffixes": 5,
+  "MaxSockets": 3,
+  "StatRequirement": 18,
+  "TooltipTexture": "UI/ItemQualities/Tooltips/ItemTooltipLegendary.png",
+  "TooltipArrowTexture": "UI/ItemQualities/Tooltips/ItemTooltipLegendaryArrow.png",
+  "SlotTexture": "UI/ItemQualities/Slots/SlotLegendary.png",
+  "LootRules": [
+    { "Type": "STAT", "Count": 2, "Probability": 1.0 },
+    { "Type": "EFFECT", "Count": 1, "Probability": 1.0 },
+    { "Type": "ABILITY", "Count": 1, "Probability": 0.5 },
+    { "Type": "STAT", "Count": 1, "Probability": 0.5 }
+  ]
+}

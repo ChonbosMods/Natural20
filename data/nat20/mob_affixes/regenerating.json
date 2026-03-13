@@ -1,0 +1,15 @@
+{
+  "Id": "nat20:regenerating",
+  "DisplayName": "server.nat20.mob_affix.regenerating",
+  "Color": "#44ff44",
+  "StatMultipliers": {
+    "Health": 1.3
+  },
+  "AbilityType": "regenerating",
+  "AbilityConfig": {
+    "HealPercentPerSecond": 0.02,
+    "OutOfCombatDelayTicks": 100
+  },
+  "LootBonusMultiplier": 1.2,
+  "MinEncounterTier": 1
+}

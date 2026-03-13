@@ -70,9 +70,6 @@ public class LootCommand extends AbstractPlayerCommand {
         ItemStack stack = new ItemStack(itemId, 1);
         stack = stack.withMetadata(Nat20LootData.METADATA_KEY, lootData);
 
-        // Apply vanilla display properties (generates description and updates metadata)
-        stack = lootSystem.getVanillaDisplayApplier().apply(stack, lootData);
-
         // Add to player inventory via proper giveItem API
         Player player = store.getComponent(ref, Player.getComponentType());
         if (player == null) {

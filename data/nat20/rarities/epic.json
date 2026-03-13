@@ -1,0 +1,18 @@
+{
+  "Id": "Epic",
+  "QualityValue": 104,
+  "Color": "#8b339e",
+  "DisplayName": "server.nat20.rarity.epic",
+  "BaseWeight": 80,
+  "MaxAffixes": 4,
+  "MaxSockets": 2,
+  "StatRequirement": 16,
+  "TooltipTexture": "UI/ItemQualities/Tooltips/ItemTooltipEpic.png",
+  "TooltipArrowTexture": "UI/ItemQualities/Tooltips/ItemTooltipEpicArrow.png",
+  "SlotTexture": "UI/ItemQualities/Slots/SlotEpic.png",
+  "LootRules": [
+    { "Type": "STAT", "Count": 2, "Probability": 1.0 },
+    { "Type": "EFFECT", "Count": 1, "Probability": 0.75 },
+    { "Type": "ABILITY", "Count": 1, "Probability": 0.25 }
+  ]
+}
