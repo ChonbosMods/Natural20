@@ -170,7 +170,8 @@ public class DialogueLoader {
                 responses.add(parseResponse(el.getAsJsonObject()));
             }
         }
-        return new DialogueNode.DialogueTextNode(speakerText, responses, onEnter);
+        boolean exhaustsTopic = obj.has("exhaustsTopic") && obj.get("exhaustsTopic").getAsBoolean();
+        return new DialogueNode.DialogueTextNode(speakerText, responses, onEnter, exhaustsTopic);
     }
 
     private ResponseOption parseResponse(JsonObject obj) {

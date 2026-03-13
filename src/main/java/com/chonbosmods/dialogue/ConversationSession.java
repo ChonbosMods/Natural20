@@ -237,6 +237,11 @@ public class ConversationSession {
                 conversationLog.add(new LogEntry.NpcSpeech(textNode.speakerText()));
                 filterAndDisplayResponses(textNode);
 
+                if (textNode.exhaustsTopic() && activeTopicId != null) {
+                    playerData.setTopicExhaustion(npcId, activeTopicId, ExhaustionState.HIDDEN);
+                    exhaustTopicFired = true;
+                }
+
                 if (!pendingFollowUpIds.isEmpty()) {
                     topicsLocked = true;
                 } else {

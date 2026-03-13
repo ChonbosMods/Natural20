@@ -14,7 +14,8 @@ public sealed interface DialogueNode {
     record DialogueTextNode(
         String speakerText,
         List<ResponseOption> responses,
-        List<Map<String, String>> onEnter
+        List<Map<String, String>> onEnter,
+        boolean exhaustsTopic
     ) implements DialogueNode {}
 
     record SkillCheckNode(
