@@ -28,6 +28,16 @@ import java.util.concurrent.TimeUnit;
 public class PageDialoguePresenter implements DialoguePresenter {
 
     private static final HytaleLogger LOGGER = HytaleLogger.get("Nat20|Presenter");
+
+    /**
+     * Delay between closing one page and opening another.
+     * Hytale's PageManager crashes if a new page is opened inside
+     * the event handler of the page being dismissed. This delay
+     * ensures the event handler stack unwinds before the new page
+     * opens. 50ms is sufficient for all observed server loads.
+     */
+    private static final long PAGE_TRANSITION_DELAY_MS = 50;
+
     private static final ScheduledExecutorService SCHEDULER = Executors.newSingleThreadScheduledExecutor(r -> {
         Thread t = new Thread(r, "Nat20-PageTransition");
         t.setDaemon(true);
@@ -123,7 +133,7 @@ public class PageDialoguePresenter implements DialoguePresenter {
             synchronized (PageDialoguePresenter.this) {
                 player.getPageManager().openCustomPage(entityRef, store, diceRollPage);
             }
-        }, 50, TimeUnit.MILLISECONDS);
+        }, PAGE_TRANSITION_DELAY_MS, TimeUnit.MILLISECONDS);
     }
 
     @Override
@@ -185,7 +195,7 @@ public class PageDialoguePresenter implements DialoguePresenter {
                     close();
                 }
             }
-        }, 50, TimeUnit.MILLISECONDS);
+        }, PAGE_TRANSITION_DELAY_MS, TimeUnit.MILLISECONDS);
     }
 
     private void hideHud() {
