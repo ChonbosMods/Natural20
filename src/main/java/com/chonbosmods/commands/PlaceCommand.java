@@ -1,6 +1,8 @@
 package com.chonbosmods.commands;
 
 import com.chonbosmods.Natural20;
+import com.chonbosmods.settlement.NpcRecord;
+import com.chonbosmods.settlement.SettlementRecord;
 import com.chonbosmods.settlement.SettlementType;
 import com.hypixel.hytale.component.Ref;
 import com.hypixel.hytale.component.Store;
@@ -18,7 +20,9 @@ import com.hypixel.hytale.server.core.universe.world.World;
 import com.hypixel.hytale.server.core.universe.world.storage.EntityStore;
 
 import javax.annotation.Nonnull;
+import java.util.List;
 import java.util.Random;
+import java.util.UUID;
 
 public class PlaceCommand extends AbstractPlayerCommand {
 
@@ -63,8 +67,20 @@ public class PlaceCommand extends AbstractPlayerCommand {
             );
 
             Vector3d origin = new Vector3d(blockPos.getX(), blockPos.getY(), blockPos.getZ());
-            Natural20.getInstance().getNpcManager()
-                .spawnSettlementNpcs(store, world, type, origin);
+
+            // Generate a cell key for manual placements
+            String cellKey = "manual_" + blockPos.getX() + "_" + blockPos.getZ();
+
+            List<NpcRecord> npcRecords =
+                Natural20.getInstance().getNpcManager()
+                    .spawnSettlementNpcs(store, world, type, origin, cellKey);
+
+            // Register in settlement registry
+            SettlementRecord record = new SettlementRecord(
+                cellKey, UUID.nameUUIDFromBytes(world.getName().getBytes()),
+                blockPos.getX(), blockPos.getY(), blockPos.getZ(), type);
+            record.getNpcs().addAll(npcRecords);
+            Natural20.getInstance().getSettlementRegistry().register(record);
         });
     }
 }

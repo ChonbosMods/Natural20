@@ -11,12 +11,15 @@ import com.chonbosmods.loot.Nat20EquipmentListener;
 import com.chonbosmods.loot.Nat20LootSystem;
 import com.chonbosmods.npc.BuilderActionNat20StartDialogue;
 import com.chonbosmods.npc.Nat20NpcManager;
+import com.chonbosmods.settlement.SettlementNpcDeathSystem;
+import com.chonbosmods.settlement.SettlementNpcRotationTicker;
 import com.chonbosmods.settlement.SettlementPlacer;
+import com.chonbosmods.settlement.SettlementRegistry;
+import com.chonbosmods.settlement.SettlementWorldGenListener;
 import com.hypixel.hytale.component.ComponentType;
-import com.hypixel.hytale.math.vector.Transform;
-import com.hypixel.hytale.math.vector.Vector3d;
-import com.hypixel.hytale.math.vector.Vector3i;
+import com.hypixel.hytale.server.core.HytaleServer;
 import com.hypixel.hytale.server.core.event.events.player.PlayerDisconnectEvent;
+import com.hypixel.hytale.server.core.universe.world.events.ChunkPreLoadProcessEvent;
 import com.hypixel.hytale.server.core.plugin.JavaPlugin;
 import com.hypixel.hytale.server.core.plugin.JavaPluginInit;
 import com.hypixel.hytale.server.npc.NPCPlugin;
@@ -24,6 +27,7 @@ import com.hypixel.hytale.server.core.universe.world.storage.EntityStore;
 import com.hypixel.hytale.server.core.util.Config;
 
 import javax.annotation.Nonnull;
+import java.util.concurrent.TimeUnit;
 
 public class Natural20 extends JavaPlugin {
 
@@ -39,6 +43,7 @@ public class Natural20 extends JavaPlugin {
     private final DialogueManager dialogueManager = new DialogueManager(dialogueLoader, actionRegistry);
     private final Nat20LootSystem lootSystem = new Nat20LootSystem();
     private final Nat20EquipmentListener equipmentListener = new Nat20EquipmentListener(lootSystem);
+    private SettlementRegistry settlementRegistry;
     private Config<Nat20GlobalData> globalConfig;
 
     public Natural20(@Nonnull JavaPluginInit init) {
@@ -75,6 +80,10 @@ public class Natural20 extends JavaPlugin {
         return lootSystem;
     }
 
+    public SettlementRegistry getSettlementRegistry() {
+        return settlementRegistry;
+    }
+
     public static ComponentType<EntityStore, Nat20NpcData> getNpcDataType() {
         return npcDataType;
     }
@@ -109,6 +118,9 @@ public class Natural20 extends JavaPlugin {
         // Register ECS event systems for EFFECT/ABILITY affix processing (damage + block break)
         lootSystem.registerSystems(getEntityStoreRegistry());
 
+        // Register settlement NPC death/respawn system
+        getEntityStoreRegistry().registerSystem(new SettlementNpcDeathSystem());
+
         // Clean up on player disconnect
         getEventRegistry().register(PlayerDisconnectEvent.class, event -> {
             dialogueManager.endSession(event.getPlayerRef().getUuid());
@@ -120,8 +132,26 @@ public class Natural20 extends JavaPlugin {
     protected void start() {
         getLogger().atInfo().log("Natural 20 loading prefabs...");
 
-        // Load prefabs — assets are available by start()
+        // Load prefabs: assets are available by start()
         placer.init();
+
+        // Load settlement registry
+        settlementRegistry = new SettlementRegistry(getDataDirectory());
+        settlementRegistry.load();
+
+        // Register worldgen settlement listener
+        SettlementWorldGenListener worldGenListener = new SettlementWorldGenListener(settlementRegistry, placer);
+        getEventRegistry().registerGlobal(ChunkPreLoadProcessEvent.class, event -> {
+            var chunk = event.getChunk();
+            // WorldChunk.getX()/getZ() return chunk coordinates: multiply by 32 for block coords
+            int chunkBlockX = chunk.getX() * 32;
+            int chunkBlockZ = chunk.getZ() * 32;
+            worldGenListener.onChunkLoad(chunk.getWorld(), chunkBlockX, chunkBlockZ);
+        });
+
+        // Schedule NPC rotation ticker: rotates settlement NPCs toward nearby players
+        SettlementNpcRotationTicker rotationTicker = new SettlementNpcRotationTicker(settlementRegistry);
+        HytaleServer.SCHEDULED_EXECUTOR.scheduleAtFixedRate(rotationTicker, 0L, 100L, TimeUnit.MILLISECONDS);
 
         // Load dialogue files from plugin data directory
         dialogueLoader.loadAll(getDataDirectory().resolve("dialogues"));
@@ -135,5 +165,8 @@ public class Natural20 extends JavaPlugin {
     @Override
     protected void shutdown() {
         getLogger().atInfo().log("Natural 20 shutting down...");
+        if (settlementRegistry != null) {
+            settlementRegistry.saveAsync();
+        }
     }
 }
