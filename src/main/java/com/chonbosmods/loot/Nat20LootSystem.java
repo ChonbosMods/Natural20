@@ -2,6 +2,11 @@ package com.chonbosmods.loot;
 
 import com.chonbosmods.loot.effects.EffectHandlerRegistry;
 import com.chonbosmods.loot.effects.Nat20AffixEventListener;
+import com.chonbosmods.loot.effects.RadialMiningHandler;
+import com.chonbosmods.loot.effects.RevitalizingEffectHandler;
+import com.chonbosmods.loot.effects.TelepathicHandler;
+import com.chonbosmods.loot.effects.ThunderstruckEffectHandler;
+import com.chonbosmods.loot.effects.VampiricEffectHandler;
 import com.chonbosmods.loot.registry.Nat20AffixRegistry;
 import com.chonbosmods.loot.registry.Nat20GemRegistry;
 import com.chonbosmods.loot.registry.Nat20LootEntryRegistry;
@@ -34,6 +39,15 @@ public class Nat20LootSystem {
         this.pipeline = new Nat20LootPipeline(rarityRegistry, affixRegistry);
         this.modifierManager = new Nat20ModifierManager(rarityRegistry, affixRegistry, gemRegistry);
         this.itemRenderer = new Nat20ItemRenderer(rarityRegistry, affixRegistry, gemRegistry);
+        registerEffectHandlers();
+    }
+
+    private void registerEffectHandlers() {
+        effectHandlerRegistry.register("nat20:vampiric", new VampiricEffectHandler());
+        effectHandlerRegistry.register("nat20:thunderstruck", new ThunderstruckEffectHandler());
+        effectHandlerRegistry.register("nat20:revitalizing", new RevitalizingEffectHandler());
+        effectHandlerRegistry.register("nat20:radial", new RadialMiningHandler());
+        effectHandlerRegistry.register("nat20:telepathic", new TelepathicHandler());
     }
 
     /**
