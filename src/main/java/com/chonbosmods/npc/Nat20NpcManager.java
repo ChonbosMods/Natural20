@@ -11,7 +11,11 @@ import com.hypixel.hytale.math.vector.Vector3f;
 import com.hypixel.hytale.logger.HytaleLogger;
 import com.hypixel.hytale.protocol.BlockMaterial;
 import com.hypixel.hytale.server.core.asset.type.blocktype.config.BlockType;
+import com.hypixel.hytale.server.core.asset.type.model.config.Model;
+import com.hypixel.hytale.server.core.cosmetics.CosmeticsModule;
 import com.hypixel.hytale.server.core.entity.nameplate.Nameplate;
+import com.hypixel.hytale.server.core.modules.entity.component.ModelComponent;
+import com.hypixel.hytale.server.core.modules.entity.player.PlayerSkinComponent;
 import com.hypixel.hytale.server.core.universe.world.World;
 import com.hypixel.hytale.server.core.universe.world.storage.EntityStore;
 import com.hypixel.hytale.server.npc.NPCPlugin;
@@ -20,6 +24,7 @@ import it.unimi.dsi.fastutil.Pair;
 
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Random;
 import java.util.UUID;
 import java.util.concurrent.ThreadLocalRandom;
 
@@ -96,6 +101,9 @@ public class Nat20NpcManager {
                 String displayName = formatDisplayName(name, roleName);
                 store.putComponent(npcRef, Nameplate.getComponentType(), new Nameplate(displayName));
 
+                // Apply random skin (deterministic from name so respawns look the same)
+                applyRandomSkin(store, npcRef, name);
+
                 LOGGER.atInfo().log("[Nat20] Spawned " + displayName + " at " +
                     (int) spawnX + ", " + (int) spawnY + ", " + (int) spawnZ);
             } else {
@@ -161,12 +169,33 @@ public class Nat20NpcManager {
         String displayName = formatDisplayName(record.getGeneratedName(), roleName);
         store.putComponent(npcRef, Nameplate.getComponentType(), new Nameplate(displayName));
 
+        // Apply random skin (deterministic from name so respawns look the same)
+        applyRandomSkin(store, npcRef, record.getGeneratedName());
+
         UUID newUUID = npcEntity.getUuid();
         record.setEntityUUID(newUUID);
 
         LOGGER.atInfo().log("Respawned " + displayName + " at " +
             (int) spawnPos.getX() + ", " + (int) spawnPos.getY() + ", " + (int) spawnPos.getZ());
         return newUUID;
+    }
+
+    /**
+     * Apply a randomized player skin to an NPC entity, giving it a unique appearance.
+     * Uses a deterministic seed from the NPC's name so respawned NPCs look the same.
+     */
+    private void applyRandomSkin(Store<EntityStore> store, Ref<EntityStore> npcRef, String generatedName) {
+        Random rng = new Random(generatedName.hashCode());
+        com.hypixel.hytale.protocol.PlayerSkin skin = CosmeticsModule.get().generateRandomSkin(rng);
+
+        store.putComponent(npcRef, PlayerSkinComponent.getComponentType(),
+                new PlayerSkinComponent(skin));
+
+        Model model = CosmeticsModule.get().createModel(skin, 1.0f);
+        if (model != null) {
+            store.putComponent(npcRef, ModelComponent.getComponentType(),
+                    new ModelComponent(model));
+        }
     }
 
     /**

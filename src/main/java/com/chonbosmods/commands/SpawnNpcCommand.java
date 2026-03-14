@@ -12,8 +12,12 @@ import com.hypixel.hytale.server.core.command.system.CommandContext;
 import com.hypixel.hytale.server.core.command.system.arguments.system.RequiredArg;
 import com.hypixel.hytale.server.core.command.system.arguments.types.ArgTypes;
 import com.hypixel.hytale.server.core.command.system.basecommands.AbstractPlayerCommand;
+import com.hypixel.hytale.server.core.asset.type.model.config.Model;
+import com.hypixel.hytale.server.core.cosmetics.CosmeticsModule;
 import com.hypixel.hytale.server.core.entity.nameplate.Nameplate;
+import com.hypixel.hytale.server.core.modules.entity.component.ModelComponent;
 import com.hypixel.hytale.server.core.modules.entity.component.TransformComponent;
+import com.hypixel.hytale.server.core.modules.entity.player.PlayerSkinComponent;
 import com.hypixel.hytale.server.core.universe.PlayerRef;
 import com.hypixel.hytale.server.core.universe.world.World;
 import com.hypixel.hytale.server.core.universe.world.storage.EntityStore;
@@ -23,6 +27,7 @@ import it.unimi.dsi.fastutil.Pair;
 
 import javax.annotation.Nonnull;
 import java.util.Map;
+import java.util.Random;
 
 public class SpawnNpcCommand extends AbstractPlayerCommand {
 
@@ -94,6 +99,17 @@ public class SpawnNpcCommand extends AbstractPlayerCommand {
             // Set nameplate using Nameplate component (overrides role's DisplayNames)
             String displayName = name + " the " + formatDisplayRole(roleName);
             store.putComponent(npcRef, Nameplate.getComponentType(), new Nameplate(displayName));
+
+            // Apply random skin for unique appearance
+            Random rng = new Random(name.hashCode());
+            com.hypixel.hytale.protocol.PlayerSkin skin = CosmeticsModule.get().generateRandomSkin(rng);
+            store.putComponent(npcRef, PlayerSkinComponent.getComponentType(),
+                    new PlayerSkinComponent(skin));
+            Model model = CosmeticsModule.get().createModel(skin, 1.0f);
+            if (model != null) {
+                store.putComponent(npcRef, ModelComponent.getComponentType(),
+                        new ModelComponent(model));
+            }
 
             context.sendMessage(Message.raw("Spawned " + displayName + " at " +
                 (int) spawnPos.getX() + ", " + (int) spawnPos.getY() + ", " + (int) spawnPos.getZ()));
