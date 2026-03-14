@@ -7,6 +7,7 @@ import com.chonbosmods.loot.effects.RevitalizingEffectHandler;
 import com.chonbosmods.loot.effects.TelepathicHandler;
 import com.chonbosmods.loot.effects.ThunderstruckEffectHandler;
 import com.chonbosmods.loot.effects.VampiricEffectHandler;
+import com.chonbosmods.loot.mob.Nat20MobAffixManager;
 import com.chonbosmods.loot.registry.Nat20AffixRegistry;
 import com.chonbosmods.loot.registry.Nat20GemRegistry;
 import com.chonbosmods.loot.registry.Nat20LootEntryRegistry;
@@ -29,12 +30,14 @@ public class Nat20LootSystem {
     private final Nat20LootEntryRegistry lootEntryRegistry = new Nat20LootEntryRegistry();
     private final Nat20MobAffixRegistry mobAffixRegistry = new Nat20MobAffixRegistry();
     private final EffectHandlerRegistry effectHandlerRegistry = new EffectHandlerRegistry();
+    private final Nat20MobAffixManager mobAffixManager;
     private final Nat20AffixEventListener affixEventListener;
     private final Nat20LootPipeline pipeline;
     private final Nat20ModifierManager modifierManager;
     private final Nat20ItemRenderer itemRenderer;
 
     public Nat20LootSystem() {
+        this.mobAffixManager = new Nat20MobAffixManager(mobAffixRegistry);
         this.affixEventListener = new Nat20AffixEventListener(this);
         this.pipeline = new Nat20LootPipeline(rarityRegistry, affixRegistry);
         this.modifierManager = new Nat20ModifierManager(rarityRegistry, affixRegistry, gemRegistry);
@@ -86,6 +89,7 @@ public class Nat20LootSystem {
     public Nat20LootEntryRegistry getLootEntryRegistry() { return lootEntryRegistry; }
     public Nat20MobAffixRegistry getMobAffixRegistry() { return mobAffixRegistry; }
     public EffectHandlerRegistry getEffectHandlerRegistry() { return effectHandlerRegistry; }
+    public Nat20MobAffixManager getMobAffixManager() { return mobAffixManager; }
     public Nat20LootPipeline getPipeline() { return pipeline; }
     public Nat20ModifierManager getModifierManager() { return modifierManager; }
     public Nat20ItemRenderer getItemRenderer() { return itemRenderer; }
