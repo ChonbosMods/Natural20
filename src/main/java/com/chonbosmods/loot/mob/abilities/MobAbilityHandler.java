@@ -25,4 +25,7 @@ public interface MobAbilityHandler {
 
     /** Called when the mob (target) receives damage from another entity. */
     default void onHurt(Ref<EntityStore> mobRef, Store<EntityStore> store, Damage event) {}
+
+    /** Called when a mob is removed (death/despawn) to clean up per-mob state. */
+    default void clearMob(Ref<EntityStore> mobRef) {}
 }

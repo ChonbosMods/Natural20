@@ -7,6 +7,8 @@ import com.hypixel.hytale.component.Store;
 import com.hypixel.hytale.server.core.modules.entity.damage.Damage;
 import com.hypixel.hytale.server.core.universe.world.storage.EntityStore;
 
+import java.util.concurrent.ConcurrentHashMap;
+
 /**
  * Frostborn mob ability: slows attackers on hit and periodically slows nearby players.
  *
@@ -28,8 +30,8 @@ public class FrostbornAbility implements MobAbilityHandler {
     /** Tick interval for the slow aura: fire every N ticks to avoid per-tick overhead. */
     private static final int AURA_TICK_INTERVAL = 20;
 
-    /** Simple tick counter: not per-mob, but handlers are invoked per-mob each tick. */
-    private int tickCounter;
+    /** Per-mob tick counter for aura interval tracking. */
+    private final ConcurrentHashMap<Ref<EntityStore>, Integer> tickCounters = new ConcurrentHashMap<>();
 
     @Override
     public void onSpawn(Ref<EntityStore> mobRef, Store<EntityStore> store, Nat20MobAffixDef def) {
@@ -38,8 +40,8 @@ public class FrostbornAbility implements MobAbilityHandler {
 
     @Override
     public void onTick(Ref<EntityStore> mobRef, Store<EntityStore> store) {
-        tickCounter++;
-        if (tickCounter % AURA_TICK_INTERVAL != 0) return;
+        int tick = tickCounters.merge(mobRef, 1, Integer::sum);
+        if (tick % AURA_TICK_INTERVAL != 0) return;
 
         // TODO: Perform spatial query for players within AURA_RADIUS_BLOCKS of mob position.
         // For each player found, apply a short-duration slowness effect via
@@ -58,5 +60,10 @@ public class FrostbornAbility implements MobAbilityHandler {
         // EntityEffect on the attacker's EffectControllerComponent.
         LOGGER.atInfo().log("Frostborn proc: mob %s was hit for %.2f damage, slowing attacker %s",
                 mobRef, event.getAmount(), entitySource.getRef());
+    }
+
+    @Override
+    public void clearMob(Ref<EntityStore> mobRef) {
+        tickCounters.remove(mobRef);
     }
 }

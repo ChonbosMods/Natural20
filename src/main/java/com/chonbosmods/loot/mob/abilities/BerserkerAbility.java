@@ -50,14 +50,12 @@ public class BerserkerAbility implements MobAbilityHandler {
         LOGGER.atInfo().log("Berserker proc: mob %s took %.2f damage, checking if below %.0f%% HP threshold",
                 mobRef, event.getAmount(), HP_THRESHOLD * 100.0);
 
-        // Mark as pending: the actual buff application will happen once health check is implemented.
-        // When health check is added, move buffApplied.put() inside the threshold-met branch.
+        // TODO: Gate this behind actual health check once SDK health read API is available.
+        // For now, mark as applied to prevent repeated log spam on every hit.
+        buffApplied.put(mobRef, true);
     }
 
-    /**
-     * Clean up per-mob state when a mob is removed.
-     * Should be called from {@link com.chonbosmods.loot.mob.Nat20MobAffixManager#clearMob}.
-     */
+    @Override
     public void clearMob(Ref<EntityStore> mobRef) {
         buffApplied.remove(mobRef);
     }

@@ -52,10 +52,7 @@ public class TeleportingAbility implements MobAbilityHandler {
                 mobRef, TELEPORT_RANGE_BLOCKS, event.getAmount());
     }
 
-    /**
-     * Clean up per-mob state when a mob is removed.
-     * Should be called from {@link com.chonbosmods.loot.mob.Nat20MobAffixManager#clearMob}.
-     */
+    @Override
     public void clearMob(Ref<EntityStore> mobRef) {
         cooldowns.remove(mobRef);
     }

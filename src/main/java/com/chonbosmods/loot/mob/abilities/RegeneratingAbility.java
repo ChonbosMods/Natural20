@@ -32,8 +32,8 @@ public class RegeneratingAbility implements MobAbilityHandler {
     /** Per-mob last-hurt timestamp (millis). */
     private final ConcurrentHashMap<Ref<EntityStore>, Long> lastHurtTime = new ConcurrentHashMap<>();
 
-    /** Simple tick counter for regen interval. */
-    private int tickCounter;
+    /** Per-mob tick counter for regen interval tracking. */
+    private final ConcurrentHashMap<Ref<EntityStore>, Integer> tickCounters = new ConcurrentHashMap<>();
 
     @Override
     public void onSpawn(Ref<EntityStore> mobRef, Store<EntityStore> store, Nat20MobAffixDef def) {
@@ -47,8 +47,8 @@ public class RegeneratingAbility implements MobAbilityHandler {
 
     @Override
     public void onTick(Ref<EntityStore> mobRef, Store<EntityStore> store) {
-        tickCounter++;
-        if (tickCounter % REGEN_TICK_INTERVAL != 0) return;
+        int tick = tickCounters.merge(mobRef, 1, Integer::sum);
+        if (tick % REGEN_TICK_INTERVAL != 0) return;
 
         long now = System.currentTimeMillis();
         Long lastHurt = lastHurtTime.get(mobRef);
@@ -66,11 +66,9 @@ public class RegeneratingAbility implements MobAbilityHandler {
                 lastHurt != null ? (now - lastHurt) : -1L);
     }
 
-    /**
-     * Clean up per-mob state when a mob is removed.
-     * Should be called from {@link com.chonbosmods.loot.mob.Nat20MobAffixManager#clearMob}.
-     */
+    @Override
     public void clearMob(Ref<EntityStore> mobRef) {
         lastHurtTime.remove(mobRef);
+        tickCounters.remove(mobRef);
     }
 }

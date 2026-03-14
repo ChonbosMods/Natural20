@@ -137,9 +137,20 @@ public class Nat20MobAffixManager {
 
     /**
      * Remove tracking data for a mob (call on despawn/death to prevent memory leaks).
+     * Delegates to each ability handler's clearMob() to clean up per-mob state.
      */
     public void clearMob(Ref<EntityStore> mobRef) {
-        appliedAffixes.remove(mobRef);
+        List<Nat20MobAffixDef> affixes = appliedAffixes.remove(mobRef);
+        if (affixes != null) {
+            for (Nat20MobAffixDef affix : affixes) {
+                if (affix.abilityType() != null && !affix.abilityType().isEmpty()) {
+                    MobAbilityHandler handler = abilityHandlers.get(affix.abilityType());
+                    if (handler != null) {
+                        handler.clearMob(mobRef);
+                    }
+                }
+            }
+        }
     }
 
     /**
