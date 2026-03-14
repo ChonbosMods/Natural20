@@ -14,5 +14,6 @@ public class Nat20Command extends AbstractCommandCollection {
         addSubCommand(new ProbeCommand());
         addSubCommand(new LootCommand());
         addSubCommand(new LootInspectCommand());
+        addSubCommand(new TooltipTestCommand());
     }
 }
