@@ -70,7 +70,7 @@ public class Nat20InventoryInterceptor {
                         return;
                     }
 
-                    Nat20EquipmentPage page = new Nat20EquipmentPage(playerRef);
+                    Nat20InventoryPage page = new Nat20InventoryPage(playerRef);
                     player.getPageManager().openCustomPage(ref, store, page);
                     LOGGER.atInfo().log("Opened custom inventory for %s", playerRef.getUsername());
                 } catch (Exception e) {
