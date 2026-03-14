@@ -15,5 +15,6 @@ public record Nat20ItemDisplayData(
     String slotTexture,
     List<AffixLine> affixes,
     List<SocketLine> sockets,
-    @Nullable RequirementLine requirement
+    @Nullable RequirementLine requirement,
+    @Nullable String description
 ) {}

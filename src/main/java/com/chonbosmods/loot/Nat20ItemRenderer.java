@@ -158,7 +158,8 @@ public class Nat20ItemRenderer {
                 rarity.slotTexture(),
                 affixes,
                 sockets,
-                requirement
+                requirement,
+                lootData.getDescription()
         );
     }
 
