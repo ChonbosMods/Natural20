@@ -146,7 +146,13 @@ public class Nat20MobAffixManager {
                 if (affix.abilityType() != null && !affix.abilityType().isEmpty()) {
                     MobAbilityHandler handler = abilityHandlers.get(affix.abilityType());
                     if (handler != null) {
-                        handler.clearMob(mobRef);
+                        try {
+                            handler.clearMob(mobRef);
+                        } catch (Exception e) {
+                            LOGGER.atSevere().withCause(e).log(
+                                    "Ability handler '%s' threw on clearMob for affix '%s'",
+                                    affix.abilityType(), affix.id());
+                        }
                     }
                 }
             }
