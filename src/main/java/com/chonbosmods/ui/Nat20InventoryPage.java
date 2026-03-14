@@ -81,6 +81,9 @@ public class Nat20InventoryPage extends InteractiveCustomUIPage<Nat20InventoryPa
         populateHytaleStats(cmd, ref, store);
         populateDerivedStats(cmd, playerStats, ref, store);
 
+        // Set rich tooltips on inventory and armor grid slots
+        populateInventoryTooltips(cmd, player, playerStats);
+
         // Clear info panel to default state
         clearItemInfo(cmd);
 
@@ -95,6 +98,7 @@ public class Nat20InventoryPage extends InteractiveCustomUIPage<Nat20InventoryPa
                 EventData.of("Action", "hover").append("GridId", "armor"), false);
         events.addEventBinding(CustomUIEventBindingType.SlotMouseExited, "#ArmorGrid",
                 EventData.of("Action", "unhover").append("GridId", "armor"), false);
+
     }
 
     /**
@@ -182,6 +186,46 @@ public class Nat20InventoryPage extends InteractiveCustomUIPage<Nat20InventoryPa
 
         // Damage: placeholder for now
         cmd.set("#DerivedDamage.Text", "—");
+    }
+
+    /**
+     * Set TooltipTextSpans on each inventory and armor grid slot that contains a Nat20 item.
+     */
+    private void populateInventoryTooltips(UICommandBuilder cmd, Player player,
+                                           @Nullable PlayerStats playerStats) {
+        Nat20ItemRenderer renderer = Natural20.getInstance().getLootSystem().getItemRenderer();
+
+        // Storage inventory grid
+        ItemContainer storage = player.getInventory().getStorage();
+        for (int i = 0; i < storage.getCapacity(); i++) {
+            ItemStack stack = storage.getItemStack((short) i);
+            if (stack == null || stack.isEmpty()) continue;
+
+            Nat20LootData lootData = stack.getFromMetadataOrNull(Nat20LootData.METADATA_KEY);
+            if (lootData == null) continue;
+
+            Nat20ItemDisplayData displayData = renderer.resolve(stack, playerStats);
+            if (displayData == null) continue;
+
+            Message tooltip = Nat20TooltipBuilder.build(displayData, null);
+            cmd.set("#InventoryGrid[" + i + "].TooltipTextSpans", tooltip);
+        }
+
+        // Armor grid
+        ItemContainer armor = player.getInventory().getArmor();
+        for (int i = 0; i < armor.getCapacity(); i++) {
+            ItemStack stack = armor.getItemStack((short) i);
+            if (stack == null || stack.isEmpty()) continue;
+
+            Nat20LootData lootData = stack.getFromMetadataOrNull(Nat20LootData.METADATA_KEY);
+            if (lootData == null) continue;
+
+            Nat20ItemDisplayData displayData = renderer.resolve(stack, playerStats);
+            if (displayData == null) continue;
+
+            Message tooltip = Nat20TooltipBuilder.build(displayData, null);
+            cmd.set("#ArmorGrid[" + i + "].TooltipTextSpans", tooltip);
+        }
     }
 
     @Override
