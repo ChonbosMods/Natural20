@@ -11,8 +11,7 @@ import com.hypixel.hytale.math.vector.Vector3f;
 import com.hypixel.hytale.logger.HytaleLogger;
 import com.hypixel.hytale.protocol.BlockMaterial;
 import com.hypixel.hytale.server.core.asset.type.blocktype.config.BlockType;
-import com.hypixel.hytale.server.core.Message;
-import com.hypixel.hytale.server.core.modules.entity.component.DisplayNameComponent;
+import com.hypixel.hytale.server.core.entity.nameplate.Nameplate;
 import com.hypixel.hytale.server.core.universe.world.World;
 import com.hypixel.hytale.server.core.universe.world.storage.EntityStore;
 import com.hypixel.hytale.server.npc.NPCPlugin;
@@ -93,13 +92,9 @@ public class Nat20NpcManager {
                     def.leashRadius(), name);
                 spawned.add(npcRecord);
 
-                // Set nameplate via DisplayNameComponent after a tick delay
-                // (the NPC role's DisplayNames array is applied after spawn, so we must override later)
+                // Set nameplate using Nameplate component (overrides role's DisplayNames)
                 String displayName = formatDisplayName(name, roleName);
-                world.execute(() -> {
-                    store.replaceComponent(npcRef, DisplayNameComponent.getComponentType(),
-                            new DisplayNameComponent(Message.raw(displayName)));
-                });
+                store.putComponent(npcRef, Nameplate.getComponentType(), new Nameplate(displayName));
 
                 LOGGER.atInfo().log("[Nat20] Spawned " + displayName + " at " +
                     (int) spawnX + ", " + (int) spawnY + ", " + (int) spawnZ);
@@ -162,12 +157,9 @@ public class Nat20NpcManager {
         // Set leash
         npcEntity.setLeashPoint(spawnPos);
 
-        // Set display name
+        // Set nameplate using Nameplate component (overrides role's DisplayNames)
         String displayName = formatDisplayName(record.getGeneratedName(), roleName);
-        world.execute(() -> {
-            store.replaceComponent(npcRef, DisplayNameComponent.getComponentType(),
-                    new DisplayNameComponent(Message.raw(displayName)));
-        });
+        store.putComponent(npcRef, Nameplate.getComponentType(), new Nameplate(displayName));
 
         UUID newUUID = npcEntity.getUuid();
         record.setEntityUUID(newUUID);

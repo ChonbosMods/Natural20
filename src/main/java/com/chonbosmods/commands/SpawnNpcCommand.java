@@ -12,7 +12,7 @@ import com.hypixel.hytale.server.core.command.system.CommandContext;
 import com.hypixel.hytale.server.core.command.system.arguments.system.RequiredArg;
 import com.hypixel.hytale.server.core.command.system.arguments.types.ArgTypes;
 import com.hypixel.hytale.server.core.command.system.basecommands.AbstractPlayerCommand;
-import com.hypixel.hytale.server.core.modules.entity.component.DisplayNameComponent;
+import com.hypixel.hytale.server.core.entity.nameplate.Nameplate;
 import com.hypixel.hytale.server.core.modules.entity.component.TransformComponent;
 import com.hypixel.hytale.server.core.universe.PlayerRef;
 import com.hypixel.hytale.server.core.universe.world.World;
@@ -91,12 +91,9 @@ public class SpawnNpcCommand extends AbstractPlayerCommand {
             npcData.setGeneratedName(name);
             npcData.setRoleName(roleName);
 
-            // Set display name
+            // Set nameplate using Nameplate component (overrides role's DisplayNames)
             String displayName = name + " the " + formatDisplayRole(roleName);
-            world.execute(() -> {
-                store.replaceComponent(npcRef, DisplayNameComponent.getComponentType(),
-                        new DisplayNameComponent(Message.raw(displayName)));
-            });
+            store.putComponent(npcRef, Nameplate.getComponentType(), new Nameplate(displayName));
 
             context.sendMessage(Message.raw("Spawned " + displayName + " at " +
                 (int) spawnPos.getX() + ", " + (int) spawnPos.getY() + ", " + (int) spawnPos.getZ()));
