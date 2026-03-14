@@ -13,11 +13,13 @@ import com.chonbosmods.npc.BuilderActionNat20StartDialogue;
 import com.chonbosmods.npc.Nat20NpcManager;
 import com.chonbosmods.settlement.SettlementPlacer;
 import com.chonbosmods.settlement.SettlementRegistry;
+import com.chonbosmods.settlement.SettlementWorldGenListener;
 import com.hypixel.hytale.component.ComponentType;
 import com.hypixel.hytale.math.vector.Transform;
 import com.hypixel.hytale.math.vector.Vector3d;
 import com.hypixel.hytale.math.vector.Vector3i;
 import com.hypixel.hytale.server.core.event.events.player.PlayerDisconnectEvent;
+import com.hypixel.hytale.server.core.universe.world.events.ChunkPreLoadProcessEvent;
 import com.hypixel.hytale.server.core.plugin.JavaPlugin;
 import com.hypixel.hytale.server.core.plugin.JavaPluginInit;
 import com.hypixel.hytale.server.npc.NPCPlugin;
@@ -126,12 +128,22 @@ public class Natural20 extends JavaPlugin {
     protected void start() {
         getLogger().atInfo().log("Natural 20 loading prefabs...");
 
-        // Load prefabs — assets are available by start()
+        // Load prefabs: assets are available by start()
         placer.init();
 
         // Load settlement registry
         settlementRegistry = new SettlementRegistry(getDataDirectory());
         settlementRegistry.load();
+
+        // Register worldgen settlement listener
+        SettlementWorldGenListener worldGenListener = new SettlementWorldGenListener(settlementRegistry, placer);
+        getEventRegistry().registerGlobal(ChunkPreLoadProcessEvent.class, event -> {
+            var chunk = event.getChunk();
+            // WorldChunk.getX()/getZ() return chunk coordinates: multiply by 32 for block coords
+            int chunkBlockX = chunk.getX() * 32;
+            int chunkBlockZ = chunk.getZ() * 32;
+            worldGenListener.onChunkLoad(chunk.getWorld(), chunkBlockX, chunkBlockZ);
+        });
 
         // Load dialogue files from plugin data directory
         dialogueLoader.loadAll(getDataDirectory().resolve("dialogues"));
