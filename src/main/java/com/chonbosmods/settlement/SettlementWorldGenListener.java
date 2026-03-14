@@ -22,7 +22,7 @@ public class SettlementWorldGenListener {
     private static final double JITTER_MAX = 0.75;
     private static final long SEED_OFFSET = 827364510L;
 
-    /** Hytale chunks are 32x32 blocks (not 16). */
+    /** Hytale chunks are 32x32 blocks. */
     private static final int CHUNK_BLOCK_SIZE = 32;
 
     private final SettlementRegistry registry;
@@ -33,17 +33,8 @@ public class SettlementWorldGenListener {
         this.placer = placer;
     }
 
-    /**
-     * Called from ChunkPreLoadProcessEvent handler.
-     * Checks if the chunk contains a settlement center and places it if needed.
-     *
-     * @param world       the world the chunk belongs to
-     * @param chunkBlockX the block-coordinate origin of the chunk (chunkX * 32)
-     * @param chunkBlockZ the block-coordinate origin of the chunk (chunkZ * 32)
-     */
     public void onChunkLoad(World world, int chunkBlockX, int chunkBlockZ) {
-        // Cache world reference so the rotation ticker can resolve worlds
-        // from the name-derived UUIDs stored in settlement records
+        // Cache world reference for the rotation ticker
         UUID worldUUID = UUID.nameUUIDFromBytes(world.getName().getBytes());
         registry.cacheWorld(worldUUID, world);
 
@@ -52,7 +43,9 @@ public class SettlementWorldGenListener {
         int cellZ = Math.floorDiv(chunkBlockZ, CELL_SIZE);
         String cellKey = cellX + "," + cellZ;
 
-        // Skip if already placed
+        // Settlement already placed: nothing to do.
+        // Hytale persists NPC entities in chunk data natively.
+        // Respawning is only handled by SettlementNpcDeathSystem on actual death.
         if (registry.hasCell(cellKey)) {
             return;
         }
@@ -66,9 +59,8 @@ public class SettlementWorldGenListener {
         int settlementX = cellOriginX + (int) (CELL_SIZE * (JITTER_MIN + rng.nextDouble() * (JITTER_MAX - JITTER_MIN)));
         int settlementZ = cellOriginZ + (int) (CELL_SIZE * (JITTER_MIN + rng.nextDouble() * (JITTER_MAX - JITTER_MIN)));
 
-        // Check if THIS chunk (32x32 blocks) contains the settlement center
-        if (chunkBlockX > settlementX || settlementX >= chunkBlockX + CHUNK_BLOCK_SIZE ||
-            chunkBlockZ > settlementZ || settlementZ >= chunkBlockZ + CHUNK_BLOCK_SIZE) {
+        // Only the chunk containing the settlement center triggers placement
+        if (!isChunkContaining(chunkBlockX, chunkBlockZ, settlementX, settlementZ)) {
             return;
         }
 
@@ -98,6 +90,7 @@ public class SettlementWorldGenListener {
                 List<NpcRecord> npcRecords = Natural20.getInstance().getNpcManager()
                     .spawnSettlementNpcs(store, world, SettlementType.TOWN, origin, cellKey);
 
+                record.setPosY(groundY);
                 record.getNpcs().addAll(npcRecords);
                 registry.saveAsync();
 
@@ -109,8 +102,14 @@ public class SettlementWorldGenListener {
         });
     }
 
+    /** Check if a block position falls within the given chunk. */
+    private boolean isChunkContaining(int chunkBlockX, int chunkBlockZ, int blockX, int blockZ) {
+        return chunkBlockX <= blockX && blockX < chunkBlockX + CHUNK_BLOCK_SIZE &&
+               chunkBlockZ <= blockZ && blockZ < chunkBlockZ + CHUNK_BLOCK_SIZE;
+    }
+
     private int findGroundY(World world, int x, int z) {
-        for (int y = 128; y >= 0; y--) {
+        for (int y = 256; y >= 0; y--) {
             BlockType blockType = world.getBlockType(x, y, z);
             if (blockType != null && blockType.getMaterial() == BlockMaterial.Solid) {
                 return y + 1;

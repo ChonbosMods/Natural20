@@ -57,6 +57,7 @@ public class Nat20DialoguePage extends InteractiveCustomUIPage<Nat20DialoguePage
     private int disposition;
     private boolean topicsLocked;
     private BiConsumer<String, String> onEvent;
+    private boolean built;
 
     public Nat20DialoguePage(PlayerRef playerRef) {
         super(playerRef, CustomPageLifetime.CanDismiss, EVENT_CODEC);
@@ -93,6 +94,8 @@ public class Nat20DialoguePage extends InteractiveCustomUIPage<Nat20DialoguePage
                 "#GoodbyeButton",
                 EventData.of("Type", "goodbye").append("Id", ""),
                 false);
+
+        built = true;
     }
 
     private void buildTopics(UICommandBuilder cmd, UIEventBuilder events) {
@@ -263,18 +266,18 @@ public class Nat20DialoguePage extends InteractiveCustomUIPage<Nat20DialoguePage
 
     public void updateLog(List<LogEntry> log) {
         this.log = log != null ? log : List.of();
-        rebuild();
+        if (built) rebuild();
     }
 
     public void updateFollowUps(List<ActiveFollowUp> followUps) {
         this.activeFollowUps = followUps != null ? followUps : List.of();
-        rebuild();
+        if (built) rebuild();
     }
 
     public void updateTopics(List<ResolvedTopic> topics, boolean topicsLocked) {
         this.topics = topics != null ? topics : List.of();
         this.topicsLocked = topicsLocked;
-        rebuild();
+        if (built) rebuild();
     }
 
     public void updateDisposition(int disposition) {

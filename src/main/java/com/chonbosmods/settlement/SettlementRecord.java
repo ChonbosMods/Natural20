@@ -45,6 +45,8 @@ public class SettlementRecord {
 
     public double getPosY() { return posY; }
 
+    public void setPosY(double posY) { this.posY = posY; }
+
     public double getPosZ() { return posZ; }
 
     public String getType() { return type; }
