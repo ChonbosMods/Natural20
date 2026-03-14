@@ -11,6 +11,7 @@ import com.chonbosmods.loot.Nat20EquipmentListener;
 import com.chonbosmods.loot.Nat20LootSystem;
 import com.chonbosmods.npc.BuilderActionNat20StartDialogue;
 import com.chonbosmods.npc.Nat20NpcManager;
+import com.chonbosmods.settlement.SettlementNpcDeathSystem;
 import com.chonbosmods.settlement.SettlementPlacer;
 import com.chonbosmods.settlement.SettlementRegistry;
 import com.chonbosmods.settlement.SettlementWorldGenListener;
@@ -116,6 +117,9 @@ public class Natural20 extends JavaPlugin {
 
         // Register ECS event systems for EFFECT/ABILITY affix processing (damage + block break)
         lootSystem.registerSystems(getEntityStoreRegistry());
+
+        // Register settlement NPC death/respawn system
+        getEntityStoreRegistry().registerSystem(new SettlementNpcDeathSystem());
 
         // Clean up on player disconnect
         getEventRegistry().register(PlayerDisconnectEvent.class, event -> {
