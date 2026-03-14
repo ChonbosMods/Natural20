@@ -87,6 +87,7 @@ public class Nat20DialoguePage extends InteractiveCustomUIPage<Nat20DialoguePage
         buildDisposition(cmd);
 
         // Goodbye button binding
+        cmd.set("#GoodbyeButton.Disabled", topicsLocked);
         events.addEventBinding(
                 CustomUIEventBindingType.Activating,
                 "#GoodbyeButton",
@@ -158,7 +159,7 @@ public class Nat20DialoguePage extends InteractiveCustomUIPage<Nat20DialoguePage
                 case LogEntry.ReturnGreeting r ->
                     lines.add(new LogLine(r.text(), COLOR_RETURN_GREETING));
                 case LogEntry.ReturnDivider ignored ->
-                    lines.add(new LogLine("\u2500\u2500\u2500", "#555555"));
+                    lines.add(new LogLine("---", "#555555"));
             }
         }
 
@@ -170,7 +171,7 @@ public class Nat20DialoguePage extends InteractiveCustomUIPage<Nat20DialoguePage
             String selector = "#Log" + (i + 1);
             if (i == 0 && overflowed) {
                 cmd.set(selector + ".Visible", true);
-                cmd.set(selector + ".TextSpans", Message.raw("\u2191 earlier conversation \u2191").color("#555555"));
+                cmd.set(selector + ".TextSpans", Message.raw("... earlier conversation ...").color("#555555"));
             } else {
                 int lineIdx = startIdx + (overflowed ? i - 1 : i);
                 if (lineIdx >= 0 && lineIdx < lines.size()) {
@@ -190,7 +191,7 @@ public class Nat20DialoguePage extends InteractiveCustomUIPage<Nat20DialoguePage
     private static String cleanText(String text) {
         if (text == null) return "";
         text = text.strip();
-        while (text.startsWith("?") || text.startsWith(">") || text.startsWith("\u25b8")) {
+        while (text.startsWith("?") || text.startsWith(">")) {
             text = text.substring(1).strip();
         }
         return text;
@@ -211,7 +212,7 @@ public class Nat20DialoguePage extends InteractiveCustomUIPage<Nat20DialoguePage
 
                 String clean = cleanText(f.displayText());
                 if (f.grayed()) {
-                    cmd.set(selector + ".TextSpans", Message.raw("\u25b8 " + clean).color("#666666"));
+                    cmd.set(selector + ".TextSpans", Message.raw("> " + clean).color("#666666"));
                     cmd.set(selector + ".Disabled", true);
                 } else {
                     if (f.statPrefix() != null) {
@@ -255,7 +256,7 @@ public class Nat20DialoguePage extends InteractiveCustomUIPage<Nat20DialoguePage
 
         cmd.set("#DispositionLabel.Visible", true);
         cmd.set("#DispositionLabel.TextSpans",
-                Message.raw(disposition + " \u2014 " + bracketName).color(color));
+                Message.raw(disposition + " - " + bracketName).color(color));
     }
 
     // --- Update methods called by presenter for incremental updates ---

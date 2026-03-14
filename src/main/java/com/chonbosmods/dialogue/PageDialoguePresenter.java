@@ -173,7 +173,20 @@ public class PageDialoguePresenter implements DialoguePresenter {
             switch (type) {
                 case "topic" -> manager.handleTopicSelected(uuid, id);
                 case "followup" -> manager.handleFollowUpSelected(uuid, id);
-                case "goodbye" -> manager.endSession(uuid);
+                case "goodbye" -> {
+                    ConversationSession session = manager.getSession(uuid);
+                    if (session != null && session.isTopicsLocked()) {
+                        // Conversation is locked: reopen the page instead of ending
+                        dialoguePage = null;
+                        SCHEDULER.schedule(() -> {
+                            synchronized (PageDialoguePresenter.this) {
+                                openDialoguePage();
+                            }
+                        }, PAGE_TRANSITION_DELAY_MS, TimeUnit.MILLISECONDS);
+                    } else {
+                        manager.endSession(uuid);
+                    }
+                }
             }
         }
     }

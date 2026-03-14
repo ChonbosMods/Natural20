@@ -171,7 +171,8 @@ public class DialogueLoader {
             }
         }
         boolean exhaustsTopic = obj.has("exhaustsTopic") && obj.get("exhaustsTopic").getAsBoolean();
-        return new DialogueNode.DialogueTextNode(speakerText, responses, onEnter, exhaustsTopic);
+        boolean locksConversation = obj.has("locksConversation") && obj.get("locksConversation").getAsBoolean();
+        return new DialogueNode.DialogueTextNode(speakerText, responses, onEnter, exhaustsTopic, locksConversation);
     }
 
     private ResponseOption parseResponse(JsonObject obj) {

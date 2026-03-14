@@ -22,6 +22,8 @@ public class ConversationSession {
 
     private static final FluentLogger LOGGER = FluentLogger.forEnclosingClass();
     private static final int MAX_ACTION_CHAIN = 10;
+    private static final String BACK_TO_TOPICS_ID = "__back__";
+    private static final String BACK_TO_TOPICS_TEXT = "Let's talk about something else.";
 
     // Identity
     private final String npcId;
@@ -95,11 +97,12 @@ public class ConversationSession {
     }
 
     public void startFromSaved(List<LogEntry> savedLog, String savedActiveNodeId,
+                                String savedActiveTopicId,
                                 List<String> savedPendingFollowUps,
-                                Set<String> savedGrayedExploratories, boolean savedTopicsLocked) {
+                                Set<String> savedGrayedExploratories) {
         conversationLog.addAll(savedLog);
         grayedExploratories.addAll(savedGrayedExploratories);
-        topicsLocked = savedTopicsLocked;
+        activeTopicId = savedActiveTopicId;
 
         DialogueNode returnNode = graph.getNode(graph.returnGreetingNodeId());
         if (returnNode instanceof DialogueNode.DialogueTextNode textNode) {
@@ -110,10 +113,10 @@ public class ConversationSession {
         if (!savedPendingFollowUps.isEmpty()) {
             pendingFollowUpIds.addAll(savedPendingFollowUps);
             activeNodeId = savedActiveNodeId;
-            topicsLocked = true;
 
             DialogueNode node = graph.getNode(savedActiveNodeId);
             if (node instanceof DialogueNode.DialogueTextNode textNode) {
+                topicsLocked = textNode.locksConversation();
                 Set<String> pendingSet = new HashSet<>(pendingFollowUpIds);
                 for (ResponseOption opt : textNode.responses()) {
                     if (pendingSet.contains(opt.id())) {
@@ -125,6 +128,7 @@ public class ConversationSession {
                             opt.id(), opt.displayText(), opt.statPrefix(), true));
                     }
                 }
+                addBackOptionIfNeeded();
             }
         }
 
@@ -140,7 +144,7 @@ public class ConversationSession {
 
         playerData.setDispositionFor(npcId, disposition);
 
-        if (topicsLocked && !pendingFollowUpIds.isEmpty()) {
+        if (!pendingFollowUpIds.isEmpty()) {
             saveSession();
         } else {
             playerData.clearSavedSession(npcId);
@@ -190,6 +194,11 @@ public class ConversationSession {
 
     public void handleFollowUpSelected(String responseId) {
         if (ended) return;
+
+        if (BACK_TO_TOPICS_ID.equals(responseId)) {
+            handleBackToTopics();
+            return;
+        }
 
         DialogueNode node = graph.getNode(activeNodeId);
         if (!(node instanceof DialogueNode.DialogueTextNode textNode)) return;
@@ -242,10 +251,9 @@ public class ConversationSession {
                     exhaustTopicFired = true;
                 }
 
-                if (!pendingFollowUpIds.isEmpty()) {
-                    topicsLocked = true;
-                } else {
-                    topicsLocked = false;
+                topicsLocked = textNode.locksConversation();
+
+                if (pendingFollowUpIds.isEmpty()) {
                     returnCheck();
                 }
 
@@ -314,6 +322,30 @@ public class ConversationSession {
             activeFollowUps.add(new ActiveFollowUp(
                     opt.id(), opt.displayText(), opt.statPrefix(), grayed));
         }
+
+        if (!textNode.locksConversation()) {
+            addBackOptionIfNeeded();
+        }
+    }
+
+    private void addBackOptionIfNeeded() {
+        if (activeTopicId != null) {
+            activeFollowUps.add(new ActiveFollowUp(
+                BACK_TO_TOPICS_ID, BACK_TO_TOPICS_TEXT, null, false));
+        }
+    }
+
+    private void handleBackToTopics() {
+        activeFollowUps = List.of();
+        pendingFollowUpIds.clear();
+        activeTopicId = null;
+        exhaustTopicFired = false;
+        topicsLocked = false;
+
+        presenter.refreshLog(conversationLog);
+        presenter.refreshFollowUps(activeFollowUps);
+        presenter.refreshTopics(resolveVisibleTopics());
+        presenter.refreshDisposition(disposition);
     }
 
     private void markFollowUpSelected(String selectedId, ResponseOption selected) {
@@ -345,6 +377,9 @@ public class ConversationSession {
 
         // Step 1: Was EXHAUST_TOPIC fired?
         if (exhaustTopicFired) {
+            activeFollowUps = List.of();
+            pendingFollowUpIds.clear();
+            activeTopicId = null;
             topicsLocked = false;
             presenter.refreshLog(conversationLog);
             presenter.refreshFollowUps(activeFollowUps);
@@ -385,9 +420,12 @@ public class ConversationSession {
         if (hasFreshExploratories || hasRemainingDecisives) {
             activeNodeId = entryNodeId;
             redisplayEntryNodeOptions(textNode);
-            topicsLocked = true;
+            topicsLocked = textNode.locksConversation();
         } else {
             playerData.setTopicExhaustion(npcId, activeTopicId, ExhaustionState.GRAYED);
+            activeFollowUps = List.of();
+            pendingFollowUpIds.clear();
+            activeTopicId = null;
             topicsLocked = false;
         }
 

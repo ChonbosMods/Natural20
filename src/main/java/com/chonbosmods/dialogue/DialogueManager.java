@@ -116,6 +116,8 @@ public class DialogueManager {
 
                 String savedActiveNodeId = savedData.has("activeNodeId")
                         ? savedData.get("activeNodeId").getAsString() : null;
+                String savedActiveTopicId = savedData.has("activeTopicId")
+                        ? savedData.get("activeTopicId").getAsString() : null;
                 List<String> savedPendingFollowUps = new ArrayList<>();
                 if (savedData.has("pendingFollowUpIds")) {
                     for (var el : savedData.getAsJsonArray("pendingFollowUpIds")) {
@@ -128,13 +130,11 @@ public class DialogueManager {
                         savedGrayedExploratories.add(el.getAsString());
                     }
                 }
-                boolean savedTopicsLocked = savedData.has("topicsLocked")
-                        && savedData.get("topicsLocked").getAsBoolean();
 
                 playerData.clearSavedSession(graph.npcId());
                 LOGGER.atInfo().log("Resuming saved session for %s with NPC '%s'", playerUuid, npcId);
-                session.startFromSaved(savedLog, savedActiveNodeId,
-                        savedPendingFollowUps, savedGrayedExploratories, savedTopicsLocked);
+                session.startFromSaved(savedLog, savedActiveNodeId, savedActiveTopicId,
+                        savedPendingFollowUps, savedGrayedExploratories);
             } catch (Exception e) {
                 LOGGER.atWarning().withCause(e).log("Failed to restore saved session for %s, starting fresh", playerUuid);
                 playerData.clearSavedSession(graph.npcId());
