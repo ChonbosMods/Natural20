@@ -2,6 +2,7 @@ package com.chonbosmods.npc;
 
 import com.chonbosmods.Natural20;
 import com.chonbosmods.data.Nat20NpcData;
+import com.chonbosmods.settlement.NpcRecord;
 import com.chonbosmods.settlement.SettlementType;
 import com.hypixel.hytale.component.Ref;
 import com.hypixel.hytale.component.Store;
@@ -20,6 +21,7 @@ import it.unimi.dsi.fastutil.Pair;
 
 import java.util.ArrayList;
 import java.util.List;
+import java.util.UUID;
 import java.util.concurrent.ThreadLocalRandom;
 
 public class Nat20NpcManager {
@@ -36,17 +38,18 @@ public class Nat20NpcManager {
      * Spawn all NPCs defined by the given settlement type at positions relative to origin.
      * Handles RANDOM_ARTISAN deduplication and ground-level scanning.
      *
-     * @param store  the entity store
-     * @param world  the world to scan for ground and spawn into
-     * @param type   the settlement type whose NPC spawn defs to use
-     * @param origin the world-space origin of the settlement
-     * @return list of entity refs for all successfully spawned NPCs
+     * @param store   the entity store
+     * @param world   the world to scan for ground and spawn into
+     * @param type    the settlement type whose NPC spawn defs to use
+     * @param origin  the world-space origin of the settlement
+     * @param cellKey the settlement cell key for persistence
+     * @return list of NpcRecords for all successfully spawned NPCs
      */
-    public List<Ref<EntityStore>> spawnSettlementNpcs(
+    public List<NpcRecord> spawnSettlementNpcs(
             Store<EntityStore> store, World world,
-            SettlementType type, Vector3d origin) {
+            SettlementType type, Vector3d origin, String cellKey) {
 
-        List<Ref<EntityStore>> spawned = new ArrayList<>();
+        List<NpcRecord> spawned = new ArrayList<>();
         List<String> usedArtisans = new ArrayList<>();
 
         for (NpcSpawnDef def : type.getNpcSpawns()) {
@@ -54,7 +57,7 @@ public class Nat20NpcManager {
 
             int roleIndex = NPCPlugin.get().getIndex(roleName);
             if (roleIndex < 0) {
-                LOGGER.atWarning().log( "[Nat20] Role not registered in NPCPlugin: " + roleName);
+                LOGGER.atWarning().log("[Nat20] Role not registered in NPCPlugin: " + roleName);
                 continue;
             }
 
@@ -65,22 +68,30 @@ public class Nat20NpcManager {
 
             Vector3d spawnPos = new Vector3d(spawnX, spawnY, spawnZ);
 
-            // TODO: consider setting leash radius via ValueStore/Blackboard if API supports it
-            // TODO: if NPC is displaced (knockback, combat), wander center won't pull them back. Consider periodic snap-back when combat is implemented.
-
             Pair<Ref<EntityStore>, NPCEntity> result =
                 NPCPlugin.get().spawnEntity(store, roleIndex, spawnPos, def.rotation(), null, null);
 
             if (result != null) {
                 Ref<EntityStore> npcRef = result.first();
                 NPCEntity npcEntity = result.second();
-                spawned.add(npcRef);
 
                 // Attach Nat20NpcData component with generated name
                 String name = Nat20NameGenerator.generate(npcEntity.getUuid().getMostSignificantBits());
                 Nat20NpcData npcData = store.addComponent(npcRef, Natural20.getNpcDataType());
                 npcData.setGeneratedName(name);
                 npcData.setRoleName(roleName);
+                npcData.setSettlementCellKey(cellKey);
+
+                // Set leash point so NPC stays near spawn
+                npcEntity.setLeashPoint(spawnPos);
+
+                // Create NpcRecord for persistence
+                NpcRecord npcRecord = new NpcRecord(
+                    roleName, npcEntity.getUuid(),
+                    spawnX, spawnY, spawnZ,
+                    def.rotation().getX(), def.rotation().getY(), def.rotation().getZ(),
+                    def.leashRadius(), name);
+                spawned.add(npcRecord);
 
                 // Set nameplate via DisplayNameComponent after a tick delay
                 // (the NPC role's DisplayNames array is applied after spawn, so we must override later)
@@ -93,12 +104,12 @@ public class Nat20NpcManager {
                 LOGGER.atInfo().log("[Nat20] Spawned " + displayName + " at " +
                     (int) spawnX + ", " + (int) spawnY + ", " + (int) spawnZ);
             } else {
-                LOGGER.atWarning().log( "[Nat20] Failed to spawn " + roleName + " at " +
+                LOGGER.atWarning().log("[Nat20] Failed to spawn " + roleName + " at " +
                     (int) spawnX + ", " + (int) spawnY + ", " + (int) spawnZ);
             }
         }
 
-        LOGGER.atInfo().log( "[Nat20] Spawned " + spawned.size() + "/" +
+        LOGGER.atInfo().log("[Nat20] Spawned " + spawned.size() + "/" +
             type.getNpcSpawns().size() + " NPCs for " + type);
         return spawned;
     }
@@ -110,6 +121,60 @@ public class Nat20NpcManager {
             displayRole = roleName.substring("Artisan".length());
         }
         return name + " the " + displayRole;
+    }
+
+    /**
+     * Respawn a single NPC from a persisted NpcRecord.
+     * Used by the death/respawn system to restore NPCs after a cooldown.
+     *
+     * @param store  the entity store
+     * @param world  the world to spawn into
+     * @param record the NpcRecord describing the NPC to respawn
+     * @return the new UUID of the respawned entity, or null on failure
+     */
+    public UUID respawnNpc(Store<EntityStore> store, World world, NpcRecord record) {
+        String roleName = record.getRole();
+        int roleIndex = NPCPlugin.get().getIndex(roleName);
+        if (roleIndex < 0) {
+            LOGGER.atWarning().log("Cannot respawn: role not found: " + roleName);
+            return null;
+        }
+
+        Vector3d spawnPos = new Vector3d(record.getSpawnX(), record.getSpawnY(), record.getSpawnZ());
+        Vector3f rotation = new Vector3f(record.getRotX(), record.getRotY(), record.getRotZ());
+
+        Pair<Ref<EntityStore>, NPCEntity> result =
+            NPCPlugin.get().spawnEntity(store, roleIndex, spawnPos, rotation, null, null);
+
+        if (result == null) {
+            LOGGER.atWarning().log("Failed to respawn " + roleName);
+            return null;
+        }
+
+        Ref<EntityStore> npcRef = result.first();
+        NPCEntity npcEntity = result.second();
+
+        // Restore identity
+        Nat20NpcData npcData = store.addComponent(npcRef, Natural20.getNpcDataType());
+        npcData.setGeneratedName(record.getGeneratedName());
+        npcData.setRoleName(roleName);
+
+        // Set leash
+        npcEntity.setLeashPoint(spawnPos);
+
+        // Set display name
+        String displayName = formatDisplayName(record.getGeneratedName(), roleName);
+        world.execute(() -> {
+            store.replaceComponent(npcRef, DisplayNameComponent.getComponentType(),
+                    new DisplayNameComponent(Message.raw(displayName)));
+        });
+
+        UUID newUUID = npcEntity.getUuid();
+        record.setEntityUUID(newUUID);
+
+        LOGGER.atInfo().log("Respawned " + displayName + " at " +
+            (int) spawnPos.getX() + ", " + (int) spawnPos.getY() + ", " + (int) spawnPos.getZ());
+        return newUUID;
     }
 
     /**
