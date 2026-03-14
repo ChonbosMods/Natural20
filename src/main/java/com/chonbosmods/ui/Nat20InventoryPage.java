@@ -99,6 +99,11 @@ public class Nat20InventoryPage extends InteractiveCustomUIPage<Nat20InventoryPa
         events.addEventBinding(CustomUIEventBindingType.SlotMouseExited, "#ArmorGrid",
                 EventData.of("Action", "unhover").append("GridId", "armor"), false);
 
+        // Bind drop events for live stat updates on equipment change
+        events.addEventBinding(CustomUIEventBindingType.Dropped, "#ArmorGrid",
+                EventData.of("Action", "equipChange"), false);
+        events.addEventBinding(CustomUIEventBindingType.Dropped, "#InventoryGrid",
+                EventData.of("Action", "equipChange"), false);
     }
 
     /**
@@ -240,6 +245,8 @@ public class Nat20InventoryPage extends InteractiveCustomUIPage<Nat20InventoryPa
             UICommandBuilder cmd = new UICommandBuilder();
             clearItemInfo(cmd);
             sendUpdate(cmd);
+        } else if ("equipChange".equals(action)) {
+            handleEquipChange(ref, store);
         }
     }
 
@@ -301,6 +308,29 @@ public class Nat20InventoryPage extends InteractiveCustomUIPage<Nat20InventoryPa
             // Non-Nat20 item: show basic item ID
             cmd.set("#InfoItemName.Text", stack.getItemId());
             cmd.set("#InfoTooltipLabel.Text", "");
+        }
+
+        sendUpdate(cmd);
+    }
+
+    /**
+     * Refresh all stat displays when equipment changes via drag-drop.
+     */
+    private void handleEquipChange(Ref<EntityStore> ref, Store<EntityStore> store) {
+        @Nullable Nat20PlayerData playerData =
+                store.getComponent(ref, Natural20.getPlayerDataType());
+        @Nullable PlayerStats playerStats =
+                playerData != null ? PlayerStats.from(playerData) : null;
+
+        UICommandBuilder cmd = new UICommandBuilder();
+        populateAbilityScores(cmd, playerStats);
+        populateHytaleStats(cmd, ref, store);
+        populateDerivedStats(cmd, playerStats, ref, store);
+
+        // Refresh tooltips since items may have moved
+        Player player = store.getComponent(ref, Player.getComponentType());
+        if (player != null) {
+            populateInventoryTooltips(cmd, player, playerStats);
         }
 
         sendUpdate(cmd);
