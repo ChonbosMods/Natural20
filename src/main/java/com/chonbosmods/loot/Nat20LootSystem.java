@@ -1,5 +1,6 @@
 package com.chonbosmods.loot;
 
+import com.chonbosmods.loot.effects.EffectHandlerRegistry;
 import com.chonbosmods.loot.registry.Nat20AffixRegistry;
 import com.chonbosmods.loot.registry.Nat20GemRegistry;
 import com.chonbosmods.loot.registry.Nat20LootEntryRegistry;
@@ -19,6 +20,7 @@ public class Nat20LootSystem {
     private final Nat20GemRegistry gemRegistry = new Nat20GemRegistry();
     private final Nat20LootEntryRegistry lootEntryRegistry = new Nat20LootEntryRegistry();
     private final Nat20MobAffixRegistry mobAffixRegistry = new Nat20MobAffixRegistry();
+    private final EffectHandlerRegistry effectHandlerRegistry = new EffectHandlerRegistry();
     private final Nat20LootPipeline pipeline;
     private final Nat20ModifierManager modifierManager;
     private final Nat20ItemRenderer itemRenderer;
@@ -56,6 +58,7 @@ public class Nat20LootSystem {
     public Nat20GemRegistry getGemRegistry() { return gemRegistry; }
     public Nat20LootEntryRegistry getLootEntryRegistry() { return lootEntryRegistry; }
     public Nat20MobAffixRegistry getMobAffixRegistry() { return mobAffixRegistry; }
+    public EffectHandlerRegistry getEffectHandlerRegistry() { return effectHandlerRegistry; }
     public Nat20LootPipeline getPipeline() { return pipeline; }
     public Nat20ModifierManager getModifierManager() { return modifierManager; }
     public Nat20ItemRenderer getItemRenderer() { return itemRenderer; }
