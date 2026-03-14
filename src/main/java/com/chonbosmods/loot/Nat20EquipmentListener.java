@@ -30,6 +30,8 @@ import java.util.concurrent.ConcurrentHashMap;
  */
 public class Nat20EquipmentListener {
 
+    record EquippedEntry(Nat20LootData lootData, @Nullable Nat20ItemDisplayData displayData) {}
+
     private static final FluentLogger LOGGER = FluentLogger.forEnclosingClass();
 
     private static final String ARMOR_PREFIX = "armor_";
@@ -42,7 +44,7 @@ public class Nat20EquipmentListener {
      * Used to remove old modifiers when a slot changes, since the event fires
      * after the inventory mutation (so the old item is no longer accessible).
      */
-    private final Map<UUID, Map<String, Nat20LootData>> equippedCache = new ConcurrentHashMap<>();
+    private final Map<UUID, Map<String, EquippedEntry>> equippedCache = new ConcurrentHashMap<>();
 
     public Nat20EquipmentListener(Nat20LootSystem lootSystem) {
         this.lootSystem = lootSystem;
@@ -93,7 +95,7 @@ public class Nat20EquipmentListener {
         if (statMap == null) return;
 
         UUID playerId = player.getPlayerRef().getUuid();
-        Map<String, Nat20LootData> playerCache = equippedCache.computeIfAbsent(playerId,
+        Map<String, EquippedEntry> playerCache = equippedCache.computeIfAbsent(playerId,
                 k -> new ConcurrentHashMap<>());
 
         // Resolve player stats for scaling
@@ -110,9 +112,9 @@ public class Nat20EquipmentListener {
             String slotName = slotPrefix + slot;
 
             // Remove old modifiers using cached loot data
-            Nat20LootData oldLootData = playerCache.remove(slotName);
-            if (oldLootData != null) {
-                modifierManager.removeModifiers(statMap, slotName, oldLootData);
+            EquippedEntry oldEntry = playerCache.remove(slotName);
+            if (oldEntry != null) {
+                modifierManager.removeModifiers(statMap, slotName, oldEntry.lootData());
             }
 
             // Apply new modifiers if the new item has loot data
@@ -126,8 +128,24 @@ public class Nat20EquipmentListener {
             if (categoryKey == null) continue;
 
             modifierManager.applyModifiers(statMap, newStack, slotName, categoryKey, playerStats);
-            playerCache.put(slotName, newLootData);
+            Nat20ItemDisplayData displayData = lootSystem.getItemRenderer().resolve(newStack, playerStats);
+            playerCache.put(slotName, new EquippedEntry(newLootData, displayData));
         }
+    }
+
+    /**
+     * Get the cached display data for a player's equipped item in a given slot.
+     *
+     * @param playerId the player's UUID
+     * @param slotName the slot name (e.g., "armor_0", "hotbar_0")
+     * @return the cached display data, or null if no Nat20 item is equipped in that slot
+     */
+    @Nullable
+    public Nat20ItemDisplayData getEquippedDisplayData(UUID playerId, String slotName) {
+        Map<String, EquippedEntry> playerCache = equippedCache.get(playerId);
+        if (playerCache == null) return null;
+        EquippedEntry entry = playerCache.get(slotName);
+        return entry != null ? entry.displayData() : null;
     }
 
     @Nullable
