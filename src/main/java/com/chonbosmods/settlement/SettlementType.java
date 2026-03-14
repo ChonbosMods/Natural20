@@ -6,7 +6,7 @@ import com.hypixel.hytale.math.vector.Vector3f;
 import java.util.List;
 
 public enum SettlementType {
-    TOWN("Nat20/town_basic", 32, List.of(
+    TOWN("Nat20/testHouse", 32, List.of(
         new NpcSpawnDef("Villager",        8,  8,  new Vector3f(0, 0, 0), 6),
         new NpcSpawnDef("Villager",        24, 20, new Vector3f(0, 0, 0), 6),
         new NpcSpawnDef("Guard",           16, 2,  new Vector3f(0, 0, 0), 3),
