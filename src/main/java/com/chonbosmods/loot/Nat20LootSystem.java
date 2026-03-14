@@ -1,12 +1,15 @@
 package com.chonbosmods.loot;
 
 import com.chonbosmods.loot.effects.EffectHandlerRegistry;
+import com.chonbosmods.loot.effects.Nat20AffixEventListener;
 import com.chonbosmods.loot.registry.Nat20AffixRegistry;
 import com.chonbosmods.loot.registry.Nat20GemRegistry;
 import com.chonbosmods.loot.registry.Nat20LootEntryRegistry;
 import com.chonbosmods.loot.registry.Nat20MobAffixRegistry;
 import com.chonbosmods.loot.registry.Nat20RarityRegistry;
 import com.google.common.flogger.FluentLogger;
+import com.hypixel.hytale.component.ComponentRegistryProxy;
+import com.hypixel.hytale.server.core.universe.world.storage.EntityStore;
 
 import javax.annotation.Nullable;
 import java.nio.file.Path;
@@ -21,14 +24,24 @@ public class Nat20LootSystem {
     private final Nat20LootEntryRegistry lootEntryRegistry = new Nat20LootEntryRegistry();
     private final Nat20MobAffixRegistry mobAffixRegistry = new Nat20MobAffixRegistry();
     private final EffectHandlerRegistry effectHandlerRegistry = new EffectHandlerRegistry();
+    private final Nat20AffixEventListener affixEventListener;
     private final Nat20LootPipeline pipeline;
     private final Nat20ModifierManager modifierManager;
     private final Nat20ItemRenderer itemRenderer;
 
     public Nat20LootSystem() {
+        this.affixEventListener = new Nat20AffixEventListener(this);
         this.pipeline = new Nat20LootPipeline(rarityRegistry, affixRegistry);
         this.modifierManager = new Nat20ModifierManager(rarityRegistry, affixRegistry, gemRegistry);
         this.itemRenderer = new Nat20ItemRenderer(rarityRegistry, affixRegistry, gemRegistry);
+    }
+
+    /**
+     * Register ECS event systems for EFFECT/ABILITY affix processing.
+     * Call this during plugin setup.
+     */
+    public void registerSystems(ComponentRegistryProxy<EntityStore> entityStoreRegistry) {
+        affixEventListener.register(entityStoreRegistry);
     }
 
     public void loadAll(@Nullable Path lootDataDir) {

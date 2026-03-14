@@ -106,6 +106,9 @@ public class Natural20 extends JavaPlugin {
         // Register equipment change listener for loot stat modifiers
         equipmentListener.register(getEventRegistry());
 
+        // Register ECS event systems for EFFECT/ABILITY affix processing (damage + block break)
+        lootSystem.registerSystems(getEntityStoreRegistry());
+
         // Clean up on player disconnect
         getEventRegistry().register(PlayerDisconnectEvent.class, event -> {
             dialogueManager.endSession(event.getPlayerRef().getUuid());
