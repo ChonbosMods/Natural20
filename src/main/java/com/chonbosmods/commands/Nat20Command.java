@@ -19,5 +19,6 @@ public class Nat20Command extends AbstractCommandCollection {
         addSubCommand(new EquipmentCommand());
         addSubCommand(new SettlementsCommand());
         addSubCommand(new KillNpcCommand());
+        addSubCommand(new PacketSnifferCommand());
     }
 }

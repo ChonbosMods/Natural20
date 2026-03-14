@@ -38,7 +38,6 @@ $C.@Container {
 
       Group #EqArmorSlot0 {
         Anchor: (Width: 56, Height: 56);
-        TooltipTextSpans: "";
         TextTooltipStyle: $C.@DefaultTextTooltipStyle;
         Background: (Color: #2a2a3e(0.7));
         Padding: (Left: 4, Right: 4, Top: 4, Bottom: 4);
@@ -49,7 +48,6 @@ $C.@Container {
 
       Group #EqArmorSlot1 {
         Anchor: (Width: 56, Height: 56, Left: 4);
-        TooltipTextSpans: "";
         TextTooltipStyle: $C.@DefaultTextTooltipStyle;
         Background: (Color: #2a2a3e(0.7));
         Padding: (Left: 4, Right: 4, Top: 4, Bottom: 4);
@@ -60,7 +58,6 @@ $C.@Container {
 
       Group #EqArmorSlot2 {
         Anchor: (Width: 56, Height: 56, Left: 4);
-        TooltipTextSpans: "";
         TextTooltipStyle: $C.@DefaultTextTooltipStyle;
         Background: (Color: #2a2a3e(0.7));
         Padding: (Left: 4, Right: 4, Top: 4, Bottom: 4);
@@ -71,7 +68,6 @@ $C.@Container {
 
       Group #EqArmorSlot3 {
         Anchor: (Width: 56, Height: 56, Left: 4);
-        TooltipTextSpans: "";
         TextTooltipStyle: $C.@DefaultTextTooltipStyle;
         Background: (Color: #2a2a3e(0.7));
         Padding: (Left: 4, Right: 4, Top: 4, Bottom: 4);
@@ -96,7 +92,6 @@ $C.@Container {
 
       Group #EqHotbarSlot0 {
         Anchor: (Width: 50, Height: 50);
-        TooltipTextSpans: "";
         TextTooltipStyle: $C.@DefaultTextTooltipStyle;
         Background: (Color: #2a2a3e(0.7));
         Padding: (Left: 4, Right: 4, Top: 4, Bottom: 4);
@@ -107,7 +102,6 @@ $C.@Container {
 
       Group #EqHotbarSlot1 {
         Anchor: (Width: 50, Height: 50, Left: 4);
-        TooltipTextSpans: "";
         TextTooltipStyle: $C.@DefaultTextTooltipStyle;
         Background: (Color: #2a2a3e(0.7));
         Padding: (Left: 4, Right: 4, Top: 4, Bottom: 4);
@@ -118,7 +112,6 @@ $C.@Container {
 
       Group #EqHotbarSlot2 {
         Anchor: (Width: 50, Height: 50, Left: 4);
-        TooltipTextSpans: "";
         TextTooltipStyle: $C.@DefaultTextTooltipStyle;
         Background: (Color: #2a2a3e(0.7));
         Padding: (Left: 4, Right: 4, Top: 4, Bottom: 4);
@@ -129,7 +122,6 @@ $C.@Container {
 
       Group #EqHotbarSlot3 {
         Anchor: (Width: 50, Height: 50, Left: 4);
-        TooltipTextSpans: "";
         TextTooltipStyle: $C.@DefaultTextTooltipStyle;
         Background: (Color: #2a2a3e(0.7));
         Padding: (Left: 4, Right: 4, Top: 4, Bottom: 4);
@@ -140,7 +132,6 @@ $C.@Container {
 
       Group #EqHotbarSlot4 {
         Anchor: (Width: 50, Height: 50, Left: 4);
-        TooltipTextSpans: "";
         TextTooltipStyle: $C.@DefaultTextTooltipStyle;
         Background: (Color: #2a2a3e(0.7));
         Padding: (Left: 4, Right: 4, Top: 4, Bottom: 4);
@@ -151,7 +142,6 @@ $C.@Container {
 
       Group #EqHotbarSlot5 {
         Anchor: (Width: 50, Height: 50, Left: 4);
-        TooltipTextSpans: "";
         TextTooltipStyle: $C.@DefaultTextTooltipStyle;
         Background: (Color: #2a2a3e(0.7));
         Padding: (Left: 4, Right: 4, Top: 4, Bottom: 4);
@@ -162,7 +152,6 @@ $C.@Container {
 
       Group #EqHotbarSlot6 {
         Anchor: (Width: 50, Height: 50, Left: 4);
-        TooltipTextSpans: "";
         TextTooltipStyle: $C.@DefaultTextTooltipStyle;
         Background: (Color: #2a2a3e(0.7));
         Padding: (Left: 4, Right: 4, Top: 4, Bottom: 4);
@@ -173,7 +162,6 @@ $C.@Container {
 
       Group #EqHotbarSlot7 {
         Anchor: (Width: 50, Height: 50, Left: 4);
-        TooltipTextSpans: "";
         TextTooltipStyle: $C.@DefaultTextTooltipStyle;
         Background: (Color: #2a2a3e(0.7));
         Padding: (Left: 4, Right: 4, Top: 4, Bottom: 4);
@@ -184,7 +172,6 @@ $C.@Container {
 
       Group #EqHotbarSlot8 {
         Anchor: (Width: 50, Height: 50, Left: 4);
-        TooltipTextSpans: "";
         TextTooltipStyle: $C.@DefaultTextTooltipStyle;
         Background: (Color: #2a2a3e(0.7));
         Padding: (Left: 4, Right: 4, Top: 4, Bottom: 4);

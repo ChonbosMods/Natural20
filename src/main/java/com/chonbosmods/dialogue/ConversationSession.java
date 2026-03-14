@@ -22,8 +22,6 @@ public class ConversationSession {
 
     private static final FluentLogger LOGGER = FluentLogger.forEnclosingClass();
     private static final int MAX_ACTION_CHAIN = 10;
-    private static final String BACK_TO_TOPICS_ID = "__back__";
-    private static final String BACK_TO_TOPICS_TEXT = "Let's talk about something else.";
 
     // Identity
     private final String npcId;
@@ -128,7 +126,6 @@ public class ConversationSession {
                             opt.id(), opt.displayText(), opt.statPrefix(), true));
                     }
                 }
-                addBackOptionIfNeeded();
             }
         }
 
@@ -194,11 +191,6 @@ public class ConversationSession {
 
     public void handleFollowUpSelected(String responseId) {
         if (ended) return;
-
-        if (BACK_TO_TOPICS_ID.equals(responseId)) {
-            handleBackToTopics();
-            return;
-        }
 
         DialogueNode node = graph.getNode(activeNodeId);
         if (!(node instanceof DialogueNode.DialogueTextNode textNode)) return;
@@ -323,29 +315,6 @@ public class ConversationSession {
                     opt.id(), opt.displayText(), opt.statPrefix(), grayed));
         }
 
-        if (!textNode.locksConversation()) {
-            addBackOptionIfNeeded();
-        }
-    }
-
-    private void addBackOptionIfNeeded() {
-        if (activeTopicId != null) {
-            activeFollowUps.add(new ActiveFollowUp(
-                BACK_TO_TOPICS_ID, BACK_TO_TOPICS_TEXT, null, false));
-        }
-    }
-
-    private void handleBackToTopics() {
-        activeFollowUps = List.of();
-        pendingFollowUpIds.clear();
-        activeTopicId = null;
-        exhaustTopicFired = false;
-        topicsLocked = false;
-
-        presenter.refreshLog(conversationLog);
-        presenter.refreshFollowUps(activeFollowUps);
-        presenter.refreshTopics(resolveVisibleTopics());
-        presenter.refreshDisposition(disposition);
     }
 
     private void markFollowUpSelected(String selectedId, ResponseOption selected) {

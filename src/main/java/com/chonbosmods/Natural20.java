@@ -16,6 +16,8 @@ import com.chonbosmods.settlement.SettlementNpcRotationTicker;
 import com.chonbosmods.settlement.SettlementPlacer;
 import com.chonbosmods.settlement.SettlementRegistry;
 import com.chonbosmods.settlement.SettlementWorldGenListener;
+import com.chonbosmods.commands.PacketSnifferCommand;
+import com.chonbosmods.ui.Nat20InventoryInterceptor;
 import com.hypixel.hytale.component.ComponentType;
 import com.hypixel.hytale.server.core.HytaleServer;
 import com.hypixel.hytale.server.core.event.events.player.PlayerDisconnectEvent;
@@ -43,6 +45,7 @@ public class Natural20 extends JavaPlugin {
     private final DialogueManager dialogueManager = new DialogueManager(dialogueLoader, actionRegistry);
     private final Nat20LootSystem lootSystem = new Nat20LootSystem();
     private final Nat20EquipmentListener equipmentListener = new Nat20EquipmentListener(lootSystem);
+    private final Nat20InventoryInterceptor inventoryInterceptor = new Nat20InventoryInterceptor();
     private SettlementRegistry settlementRegistry;
     private Config<Nat20GlobalData> globalConfig;
 
@@ -115,6 +118,9 @@ public class Natural20 extends JavaPlugin {
         // Register equipment change listener for loot stat modifiers
         equipmentListener.register(getEventRegistry());
 
+        // Intercept Tab key to open custom inventory instead of vanilla
+        inventoryInterceptor.register();
+
         // Register ECS event systems for EFFECT/ABILITY affix processing (damage + block break)
         lootSystem.registerSystems(getEntityStoreRegistry());
 
@@ -165,6 +171,8 @@ public class Natural20 extends JavaPlugin {
     @Override
     protected void shutdown() {
         getLogger().atInfo().log("Natural 20 shutting down...");
+        inventoryInterceptor.deregister();
+        PacketSnifferCommand.cleanup();
         if (settlementRegistry != null) {
             settlementRegistry.saveAsync();
         }
