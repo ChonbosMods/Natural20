@@ -8,6 +8,12 @@ import com.chonbosmods.loot.effects.TelepathicHandler;
 import com.chonbosmods.loot.effects.ThunderstruckEffectHandler;
 import com.chonbosmods.loot.effects.VampiricEffectHandler;
 import com.chonbosmods.loot.mob.Nat20MobAffixManager;
+import com.chonbosmods.loot.mob.Nat20MobLootListener;
+import com.chonbosmods.loot.mob.abilities.BerserkerAbility;
+import com.chonbosmods.loot.mob.abilities.FieryAbility;
+import com.chonbosmods.loot.mob.abilities.FrostbornAbility;
+import com.chonbosmods.loot.mob.abilities.RegeneratingAbility;
+import com.chonbosmods.loot.mob.abilities.TeleportingAbility;
 import com.chonbosmods.loot.registry.Nat20AffixRegistry;
 import com.chonbosmods.loot.registry.Nat20GemRegistry;
 import com.chonbosmods.loot.registry.Nat20LootEntryRegistry;
@@ -31,6 +37,7 @@ public class Nat20LootSystem {
     private final Nat20MobAffixRegistry mobAffixRegistry = new Nat20MobAffixRegistry();
     private final EffectHandlerRegistry effectHandlerRegistry = new EffectHandlerRegistry();
     private final Nat20MobAffixManager mobAffixManager;
+    private final Nat20MobLootListener mobLootListener;
     private final Nat20AffixEventListener affixEventListener;
     private final Nat20LootPipeline pipeline;
     private final Nat20ModifierManager modifierManager;
@@ -38,11 +45,22 @@ public class Nat20LootSystem {
 
     public Nat20LootSystem() {
         this.mobAffixManager = new Nat20MobAffixManager(mobAffixRegistry);
+        this.mobLootListener = new Nat20MobLootListener(this);
         this.affixEventListener = new Nat20AffixEventListener(this);
         this.pipeline = new Nat20LootPipeline(rarityRegistry, affixRegistry);
         this.modifierManager = new Nat20ModifierManager(rarityRegistry, affixRegistry, gemRegistry);
         this.itemRenderer = new Nat20ItemRenderer(rarityRegistry, affixRegistry, gemRegistry);
         registerEffectHandlers();
+        registerMobAbilityHandlers();
+    }
+
+    private void registerMobAbilityHandlers() {
+        Nat20MobAffixManager manager = mobAffixManager;
+        manager.registerAbilityHandler("fiery", new FieryAbility());
+        manager.registerAbilityHandler("frostborn", new FrostbornAbility());
+        manager.registerAbilityHandler("regenerating", new RegeneratingAbility());
+        manager.registerAbilityHandler("teleporting", new TeleportingAbility());
+        manager.registerAbilityHandler("berserker", new BerserkerAbility());
     }
 
     private void registerEffectHandlers() {
@@ -90,6 +108,7 @@ public class Nat20LootSystem {
     public Nat20MobAffixRegistry getMobAffixRegistry() { return mobAffixRegistry; }
     public EffectHandlerRegistry getEffectHandlerRegistry() { return effectHandlerRegistry; }
     public Nat20MobAffixManager getMobAffixManager() { return mobAffixManager; }
+    public Nat20MobLootListener getMobLootListener() { return mobLootListener; }
     public Nat20LootPipeline getPipeline() { return pipeline; }
     public Nat20ModifierManager getModifierManager() { return modifierManager; }
     public Nat20ItemRenderer getItemRenderer() { return itemRenderer; }
