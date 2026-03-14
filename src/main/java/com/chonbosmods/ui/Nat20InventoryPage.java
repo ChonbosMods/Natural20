@@ -98,28 +98,27 @@ public class Nat20InventoryPage extends InteractiveCustomUIPage<Nat20InventoryPa
     }
 
     /**
-     * Populate the six D&D ability score labels: base value and modifier bonus.
+     * Populate the six D&D ability score labels: base value and equipment bonus.
+     * Equipment D&D bonus is hardcoded to 0 for now (future feature).
      */
     private void populateAbilityScores(UICommandBuilder cmd, @Nullable PlayerStats playerStats) {
         for (Stat stat : Stat.values()) {
             int baseValue = playerStats != null ? playerStats.getStat(stat) : 10;
-            int modifier = playerStats != null ? playerStats.getModifier(stat) : 0;
+            // Equipment D&D bonus: future feature, hardcode 0 for now
+            int equipBonus = 0;
+            int total = baseValue + equipBonus;
 
-            // Base score: e.g. "14"
-            cmd.set("#StatBase" + stat.name() + ".Text", String.valueOf(baseValue));
+            // Total score: base + equipment bonus
+            cmd.set("#StatBase" + stat.name() + ".Text", String.valueOf(total));
 
-            // Bonus label: e.g. "+2" or "-1", colored green/red
-            String bonusText = formatBonus(modifier);
-            String bonusColor;
-            if (modifier > 0) {
-                bonusColor = "#33CC33";
-            } else if (modifier < 0) {
-                bonusColor = "#CC3333";
-            } else {
-                bonusColor = "#AAAAAA";
+            // Equipment bonus label: colored green if positive, red if negative
+            String bonusText = equipBonus >= 0 ? "(+" + equipBonus + ")" : "(" + equipBonus + ")";
+            if (equipBonus > 0) {
+                cmd.set("#StatBonus" + stat.name() + ".Style.TextColor", "#44dd66");
+            } else if (equipBonus < 0) {
+                cmd.set("#StatBonus" + stat.name() + ".Style.TextColor", "#cc3333");
             }
-            cmd.set("#StatBonus" + stat.name() + ".TextSpans",
-                    Message.raw(bonusText).color(bonusColor));
+            cmd.set("#StatBonus" + stat.name() + ".Text", bonusText);
         }
     }
 
@@ -175,14 +174,14 @@ public class Nat20InventoryPage extends InteractiveCustomUIPage<Nat20InventoryPa
 
         // AC = 10 + DEX modifier + defense
         int ac = 10 + dexMod + (int) defense;
-        cmd.set("#StatsAC.Text", String.valueOf(ac));
+        cmd.set("#DerivedAC.Text", String.valueOf(ac));
 
         // Attack = STR modifier + proficiency bonus
         int attack = strMod + profBonus;
-        cmd.set("#StatsAttack.Text", formatBonus(attack));
+        cmd.set("#DerivedAttack.Text", formatBonus(attack));
 
         // Damage: placeholder for now
-        cmd.set("#StatsDamage.Text", "—");
+        cmd.set("#DerivedDamage.Text", "—");
     }
 
     @Override
@@ -254,12 +253,10 @@ public class Nat20InventoryPage extends InteractiveCustomUIPage<Nat20InventoryPa
             // Full tooltip in the info label
             Message tooltip = Nat20TooltipBuilder.build(displayData, null);
             cmd.set("#InfoTooltipLabel.TextSpans", tooltip);
-            cmd.set("#InfoTooltipLabel.Visible", true);
         } else {
             // Non-Nat20 item: show basic item ID
             cmd.set("#InfoItemName.Text", stack.getItemId());
             cmd.set("#InfoTooltipLabel.Text", "");
-            cmd.set("#InfoTooltipLabel.Visible", false);
         }
 
         sendUpdate(cmd);
@@ -271,8 +268,7 @@ public class Nat20InventoryPage extends InteractiveCustomUIPage<Nat20InventoryPa
     private void clearItemInfo(UICommandBuilder cmd) {
         cmd.set("#InfoItemIcon.Visible", false);
         cmd.set("#InfoItemName.Text", "");
-        cmd.set("#InfoTooltipLabel.Text", "");
-        cmd.set("#InfoTooltipLabel.Visible", false);
+        cmd.set("#InfoTooltipLabel.Text", "Hover over an item to see details.");
     }
 
     @Override
