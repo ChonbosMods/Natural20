@@ -18,6 +18,7 @@ public class Nat20NpcData implements Component<EntityStore> {
             .addField(new KeyedCodec<>("Disposition", Codec.INTEGER), Nat20NpcData::setDefaultDisposition, Nat20NpcData::getDefaultDisposition)
             .addField(new KeyedCodec<>("DialogueState", Codec.STRING), Nat20NpcData::setDialogueState, Nat20NpcData::getDialogueState)
             .addField(new KeyedCodec<>("Flags", MapCodec.STRING_HASH_MAP_CODEC), Nat20NpcData::setFlags, Nat20NpcData::getFlags)
+            .addField(new KeyedCodec<>("SettlementCellKey", Codec.STRING), Nat20NpcData::setSettlementCellKey, Nat20NpcData::getSettlementCellKey)
             .build();
 
     private String generatedName;
@@ -25,6 +26,7 @@ public class Nat20NpcData implements Component<EntityStore> {
     private int defaultDisposition;
     private String dialogueState;
     private Map<String, String> flags = new HashMap<>();
+    private String settlementCellKey;
 
     public Nat20NpcData() {
     }
@@ -69,6 +71,14 @@ public class Nat20NpcData implements Component<EntityStore> {
         this.flags = flags != null ? new HashMap<>(flags) : new HashMap<>();
     }
 
+    public String getSettlementCellKey() {
+        return settlementCellKey;
+    }
+
+    public void setSettlementCellKey(String settlementCellKey) {
+        this.settlementCellKey = settlementCellKey;
+    }
+
     @Override
     public Nat20NpcData clone() {
         Nat20NpcData copy = new Nat20NpcData();
@@ -77,6 +87,7 @@ public class Nat20NpcData implements Component<EntityStore> {
         copy.defaultDisposition = this.defaultDisposition;
         copy.dialogueState = this.dialogueState;
         copy.flags = new HashMap<>(this.flags);
+        copy.settlementCellKey = this.settlementCellKey;
         return copy;
     }
 }
