@@ -16,7 +16,6 @@ import com.chonbosmods.settlement.SettlementNpcRotationTicker;
 import com.chonbosmods.settlement.SettlementPlacer;
 import com.chonbosmods.settlement.SettlementRegistry;
 import com.chonbosmods.settlement.SettlementWorldGenListener;
-import com.chonbosmods.commands.PacketSnifferCommand;
 import com.chonbosmods.ui.Nat20InventoryInterceptor;
 import com.hypixel.hytale.component.ComponentType;
 import com.hypixel.hytale.server.core.HytaleServer;
@@ -172,7 +171,6 @@ public class Natural20 extends JavaPlugin {
     protected void shutdown() {
         getLogger().atInfo().log("Natural 20 shutting down...");
         inventoryInterceptor.deregister();
-        PacketSnifferCommand.cleanup();
         if (settlementRegistry != null) {
             settlementRegistry.saveAsync();
         }
