@@ -89,7 +89,8 @@ public class Nat20EquipmentPage extends CustomUIPage {
                               String slotSelector, String iconSelector) {
         ItemStack stack = container.getItemStack(slot);
         if (stack == null || stack.isEmpty()) {
-            cmd.set(slotSelector + ".Visible", false);
+            // Hide only the icon, keep the slot background visible for grid layout
+            cmd.set(iconSelector + ".Visible", false);
             return;
         }
 
@@ -124,6 +125,5 @@ public class Nat20EquipmentPage extends CustomUIPage {
 
     @Override
     public void onDismiss(Ref<EntityStore> ref, Store<EntityStore> store) {
-        LOGGER.atInfo().log("Equipment page dismissed");
     }
 }
