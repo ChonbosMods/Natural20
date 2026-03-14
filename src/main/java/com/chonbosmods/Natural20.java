@@ -12,13 +12,12 @@ import com.chonbosmods.loot.Nat20LootSystem;
 import com.chonbosmods.npc.BuilderActionNat20StartDialogue;
 import com.chonbosmods.npc.Nat20NpcManager;
 import com.chonbosmods.settlement.SettlementNpcDeathSystem;
+import com.chonbosmods.settlement.SettlementNpcRotationTicker;
 import com.chonbosmods.settlement.SettlementPlacer;
 import com.chonbosmods.settlement.SettlementRegistry;
 import com.chonbosmods.settlement.SettlementWorldGenListener;
 import com.hypixel.hytale.component.ComponentType;
-import com.hypixel.hytale.math.vector.Transform;
-import com.hypixel.hytale.math.vector.Vector3d;
-import com.hypixel.hytale.math.vector.Vector3i;
+import com.hypixel.hytale.server.core.HytaleServer;
 import com.hypixel.hytale.server.core.event.events.player.PlayerDisconnectEvent;
 import com.hypixel.hytale.server.core.universe.world.events.ChunkPreLoadProcessEvent;
 import com.hypixel.hytale.server.core.plugin.JavaPlugin;
@@ -28,6 +27,7 @@ import com.hypixel.hytale.server.core.universe.world.storage.EntityStore;
 import com.hypixel.hytale.server.core.util.Config;
 
 import javax.annotation.Nonnull;
+import java.util.concurrent.TimeUnit;
 
 public class Natural20 extends JavaPlugin {
 
@@ -148,6 +148,10 @@ public class Natural20 extends JavaPlugin {
             int chunkBlockZ = chunk.getZ() * 32;
             worldGenListener.onChunkLoad(chunk.getWorld(), chunkBlockX, chunkBlockZ);
         });
+
+        // Schedule NPC rotation ticker: rotates settlement NPCs toward nearby players
+        SettlementNpcRotationTicker rotationTicker = new SettlementNpcRotationTicker(settlementRegistry);
+        HytaleServer.SCHEDULED_EXECUTOR.scheduleAtFixedRate(rotationTicker, 0L, 100L, TimeUnit.MILLISECONDS);
 
         // Load dialogue files from plugin data directory
         dialogueLoader.loadAll(getDataDirectory().resolve("dialogues"));

@@ -42,6 +42,11 @@ public class SettlementWorldGenListener {
      * @param chunkBlockZ the block-coordinate origin of the chunk (chunkZ * 32)
      */
     public void onChunkLoad(World world, int chunkBlockX, int chunkBlockZ) {
+        // Cache world reference so the rotation ticker can resolve worlds
+        // from the name-derived UUIDs stored in settlement records
+        UUID worldUUID = UUID.nameUUIDFromBytes(world.getName().getBytes());
+        registry.cacheWorld(worldUUID, world);
+
         // Determine which grid cell this chunk falls in
         int cellX = Math.floorDiv(chunkBlockX, CELL_SIZE);
         int cellZ = Math.floorDiv(chunkBlockZ, CELL_SIZE);
@@ -72,7 +77,7 @@ public class SettlementWorldGenListener {
 
         // Mark as placed immediately to prevent double-placement
         SettlementRecord record = new SettlementRecord(
-            cellKey, UUID.nameUUIDFromBytes(world.getName().getBytes()),
+            cellKey, worldUUID,
             settlementX, 0, settlementZ,
             SettlementType.TOWN);
         registry.register(record);

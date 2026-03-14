@@ -5,6 +5,8 @@ import com.google.gson.GsonBuilder;
 import com.google.gson.reflect.TypeToken;
 import com.hypixel.hytale.logger.HytaleLogger;
 
+import com.hypixel.hytale.server.core.universe.world.World;
+
 import java.io.IOException;
 import java.io.Reader;
 import java.io.Writer;
@@ -30,6 +32,7 @@ public class SettlementRegistry {
 
     private final Path savePath;
     private final ConcurrentHashMap<String, SettlementRecord> settlements = new ConcurrentHashMap<>();
+    private final ConcurrentHashMap<UUID, World> worldCache = new ConcurrentHashMap<>();
     private final AtomicBoolean savePending = new AtomicBoolean(false);
 
     public SettlementRegistry(Path pluginDataDir) {
@@ -115,6 +118,23 @@ public class SettlementRegistry {
      */
     public ConcurrentHashMap<String, SettlementRecord> getAll() {
         return settlements;
+    }
+
+    /**
+     * Cache a World reference keyed by its derived UUID
+     * (UUID.nameUUIDFromBytes(world.getName().getBytes())).
+     * Called by SettlementWorldGenListener when a world is first encountered.
+     */
+    public void cacheWorld(UUID derivedUUID, World world) {
+        worldCache.put(derivedUUID, world);
+    }
+
+    /**
+     * Retrieve a cached World reference by its derived UUID.
+     * @return the World, or null if not cached
+     */
+    public World getCachedWorld(UUID derivedUUID) {
+        return worldCache.get(derivedUUID);
     }
 
     /**
