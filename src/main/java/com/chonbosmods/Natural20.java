@@ -12,6 +12,7 @@ import com.chonbosmods.loot.Nat20LootSystem;
 import com.chonbosmods.npc.BuilderActionNat20StartDialogue;
 import com.chonbosmods.npc.Nat20NpcManager;
 import com.chonbosmods.settlement.SettlementPlacer;
+import com.chonbosmods.settlement.SettlementRegistry;
 import com.hypixel.hytale.component.ComponentType;
 import com.hypixel.hytale.math.vector.Transform;
 import com.hypixel.hytale.math.vector.Vector3d;
@@ -39,6 +40,7 @@ public class Natural20 extends JavaPlugin {
     private final DialogueManager dialogueManager = new DialogueManager(dialogueLoader, actionRegistry);
     private final Nat20LootSystem lootSystem = new Nat20LootSystem();
     private final Nat20EquipmentListener equipmentListener = new Nat20EquipmentListener(lootSystem);
+    private SettlementRegistry settlementRegistry;
     private Config<Nat20GlobalData> globalConfig;
 
     public Natural20(@Nonnull JavaPluginInit init) {
@@ -73,6 +75,10 @@ public class Natural20 extends JavaPlugin {
 
     public Nat20LootSystem getLootSystem() {
         return lootSystem;
+    }
+
+    public SettlementRegistry getSettlementRegistry() {
+        return settlementRegistry;
     }
 
     public static ComponentType<EntityStore, Nat20NpcData> getNpcDataType() {
@@ -123,6 +129,10 @@ public class Natural20 extends JavaPlugin {
         // Load prefabs — assets are available by start()
         placer.init();
 
+        // Load settlement registry
+        settlementRegistry = new SettlementRegistry(getDataDirectory());
+        settlementRegistry.load();
+
         // Load dialogue files from plugin data directory
         dialogueLoader.loadAll(getDataDirectory().resolve("dialogues"));
 
@@ -135,5 +145,8 @@ public class Natural20 extends JavaPlugin {
     @Override
     protected void shutdown() {
         getLogger().atInfo().log("Natural 20 shutting down...");
+        if (settlementRegistry != null) {
+            settlementRegistry.saveAsync();
+        }
     }
 }
