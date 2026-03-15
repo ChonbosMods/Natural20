@@ -101,7 +101,8 @@ public class Nat20LootPipeline {
         data.setVariantItemId(variantItemId);
 
         // Register unique item for per-instance tooltip
-        String qualityId = "nat20_" + rarity.id().toLowerCase();
+        // Use vanilla quality ID so the client renders the built-in slot border
+        String qualityId = rarity.id();
         if (itemRegistry != null) {
             String uniqueId = itemRegistry.registerItem(itemId, qualityId, data);
             data.setUniqueItemId(uniqueId);
@@ -191,7 +192,8 @@ public class Nat20LootPipeline {
         data.setVariantItemId(variantItemId);
 
         // Register unique item for per-instance tooltip
-        String qualityId = "nat20_" + rarity.id().toLowerCase();
+        // Use vanilla quality ID so the client renders the built-in slot border
+        String qualityId = rarity.id();
         if (itemRegistry != null) {
             String uniqueId = itemRegistry.registerItem(itemId, qualityId, data);
             data.setUniqueItemId(uniqueId);
