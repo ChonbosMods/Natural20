@@ -3,6 +3,10 @@ package com.chonbosmods.loot.display;
 import com.chonbosmods.loot.Nat20ItemDisplayData;
 import com.chonbosmods.stats.Stat;
 
+/**
+ * Generates tooltip description strings with Hytale color markup for I18n injection.
+ * Uses {@code <color is="#hex">text</color>} syntax supported by the client tooltip renderer.
+ */
 public class Nat20TooltipStringBuilder {
 
     private static final String COLOR_MUTED = "#888888";
@@ -14,27 +18,25 @@ public class Nat20TooltipStringBuilder {
     public static String buildDescription(Nat20ItemDisplayData data) {
         StringBuilder sb = new StringBuilder();
 
-        // Rarity label
-        sb.append(color(data.rarityColor(), data.rarity()));
-
         // STAT affix lines
         for (AffixLine affix : data.affixes()) {
             if (!"STAT".equals(affix.type())) continue;
-            sb.append("\n");
+            if (!sb.isEmpty()) sb.append("\n");
             appendStatLine(sb, affix);
         }
 
         // EFFECT affix lines
         for (AffixLine affix : data.affixes()) {
             if (!"EFFECT".equals(affix.type())) continue;
-            sb.append("\n");
+            if (!sb.isEmpty()) sb.append("\n");
             appendEffectLine(sb, affix);
         }
 
         // Socket lines
         if (!data.sockets().isEmpty()) {
             long filled = data.sockets().stream().filter(SocketLine::filled).count();
-            sb.append("\n").append(color(COLOR_MUTED, "Sockets [" + filled + "/" + data.sockets().size() + "]:"));
+            if (!sb.isEmpty()) sb.append("\n");
+            sb.append(color(COLOR_MUTED, "Sockets [" + filled + "/" + data.sockets().size() + "]:"));
             for (SocketLine socket : data.sockets()) {
                 sb.append("\n");
                 appendSocketLine(sb, socket);
@@ -43,8 +45,9 @@ public class Nat20TooltipStringBuilder {
 
         // Requirement line
         if (data.requirement() != null) {
+            if (!sb.isEmpty()) sb.append("\n");
             String reqColor = data.requirement().met() ? COLOR_MET : COLOR_UNMET;
-            sb.append("\n").append(color(reqColor, "Requires: " + data.requirement().text()));
+            sb.append(color(reqColor, "Requires: " + data.requirement().text()));
         }
 
         return sb.toString();

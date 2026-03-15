@@ -8,8 +8,14 @@ import com.google.common.flogger.FluentLogger;
 import com.google.gson.Gson;
 import com.google.gson.GsonBuilder;
 import com.google.gson.reflect.TypeToken;
+import com.hypixel.hytale.protocol.UpdateType;
+import com.hypixel.hytale.protocol.packets.assets.UpdateTranslations;
 import com.hypixel.hytale.server.core.asset.type.item.config.Item;
+import com.hypixel.hytale.server.core.asset.type.item.config.ItemTranslationProperties;
 import com.hypixel.hytale.server.core.modules.i18n.I18nModule;
+import com.hypixel.hytale.server.core.universe.Universe;
+
+import com.hypixel.hytale.server.core.HytaleServer;
 
 import javax.annotation.Nullable;
 import java.io.IOException;
@@ -35,9 +41,15 @@ public class Nat20ItemRegistry {
     @Nullable
     private Field languagesField;
     @Nullable
+    private Field cachedLanguagesField;
+    @Nullable
     private Field itemIdField;
     @Nullable
     private Field itemQualityIdField;
+    @Nullable
+    private Field itemTranslationPropertiesField;
+    @Nullable
+    private java.lang.reflect.Method processConfigMethod;
 
     public Nat20ItemRegistry(Nat20ItemRenderer itemRenderer) {
         this.itemRenderer = itemRenderer;
@@ -46,6 +58,7 @@ public class Nat20ItemRegistry {
     public void init(Path dataDir) {
         this.registryFile = dataDir.resolve("nat20_items.json");
         initReflection();
+        injectRarityLabels();
         loadFromDisk();
     }
 
@@ -65,33 +78,40 @@ public class Nat20ItemRegistry {
             description = Nat20TooltipStringBuilder.buildDescription(displayData);
         }
 
+        // Name: literal text (client falls back on I18n miss)
+        // Description: I18n key (injected into server map, broadcast to clients via cache invalidation)
+        String itemName = lootData.getGeneratedName();
+        String descKey = "server.nat20.item." + uniqueId + ".description";
+        injectI18n("en-US", descKey, description);
+
         Item variant = new Item(baseItem);
-        if (!setItemFields(variant, uniqueId, rarityQualityId)) {
+        if (!setItemFields(variant, uniqueId, rarityQualityId, itemName, descKey)) {
             LOGGER.atSevere().log("Failed to set fields on item variant: %s", uniqueId);
             return null;
         }
-
-        try {
-            Item.getAssetStore().loadAssets(NAT20_PREFIX, List.of(variant));
-        } catch (Exception e) {
-            LOGGER.atSevere().withCause(e).log("Failed to register item asset: %s", uniqueId);
-            return null;
-        }
-
-        String nameKey = "server.nat20.item." + uniqueId + ".name";
-        String descKey = "server.nat20.item." + uniqueId + ".description";
-        injectI18n("en-US", nameKey, lootData.getGeneratedName());
-        injectI18n("en-US", descKey, description);
 
         RegistryEntry entry = new RegistryEntry(
                 baseItemId, rarityQualityId, lootData.getGeneratedName(),
                 description, System.currentTimeMillis() / 1000L
         );
         registered.put(uniqueId, entry);
-
         saveToDisk();
 
-        LOGGER.atInfo().log("Registered unique item: %s (base=%s)", uniqueId, baseItemId);
+        // Register on a separate thread to avoid deadlock:
+        // loadAssets() acquires AssetRegistry.ASSET_LOCK which conflicts with
+        // the ECS thread context that commands execute on.
+        HytaleServer.SCHEDULED_EXECUTOR.submit(() -> {
+            try {
+                // Broadcast ALL translations (with cache invalidation) so clients get our new key
+                broadcastAllTranslations();
+                // Then register the item asset
+                Item.getAssetStore().loadAssets(uniqueId, List.of(variant));
+                LOGGER.atInfo().log("Registered unique item: %s (base=%s)", uniqueId, baseItemId);
+            } catch (Exception e) {
+                LOGGER.atSevere().withCause(e).log("Failed to register item asset: %s", uniqueId);
+            }
+        });
+
         return uniqueId;
     }
 
@@ -127,23 +147,22 @@ public class Nat20ItemRegistry {
                 continue;
             }
 
+            // Inject I18n BEFORE loadAssets so toPacket() can resolve the key
+            String descKey = "server.nat20.item." + uniqueId + ".description";
+            injectI18n("en-US", descKey, entry.description);
+
             Item variant = new Item(baseItem);
-            if (!setItemFields(variant, uniqueId, entry.qualityId)) {
+            if (!setItemFields(variant, uniqueId, entry.qualityId, entry.generatedName, descKey)) {
                 LOGGER.atWarning().log("Failed to set fields on rehydrated item: %s", uniqueId);
                 continue;
             }
 
             try {
-                Item.getAssetStore().loadAssets(NAT20_PREFIX, List.of(variant));
+                Item.getAssetStore().loadAssets(uniqueId, List.of(variant));
             } catch (Exception ex) {
                 LOGGER.atWarning().withCause(ex).log("Failed to rehydrate item: %s", uniqueId);
                 continue;
             }
-
-            String nameKey = "server.nat20.item." + uniqueId + ".name";
-            String descKey = "server.nat20.item." + uniqueId + ".description";
-            injectI18n("en-US", nameKey, entry.generatedName);
-            injectI18n("en-US", descKey, entry.description);
         }
 
         LOGGER.atInfo().log("Rehydrated %d unique item definitions", registered.size());
@@ -176,14 +195,34 @@ public class Nat20ItemRegistry {
         return registered.size();
     }
 
+    /**
+     * Inject rarity display names into I18n at boot time (before cache is built).
+     */
+    private void injectRarityLabels() {
+        Map<String, String> labels = Map.of(
+                "server.nat20.rarity.common", "Common",
+                "server.nat20.rarity.uncommon", "Uncommon",
+                "server.nat20.rarity.rare", "Rare",
+                "server.nat20.rarity.epic", "Epic",
+                "server.nat20.rarity.legendary", "Legendary"
+        );
+        for (var entry : labels.entrySet()) {
+            injectI18n("en-US", entry.getKey(), entry.getValue());
+        }
+        LOGGER.atInfo().log("Injected %d rarity labels into I18n", labels.size());
+    }
+
     private void initReflection() {
         try {
             languagesField = I18nModule.class.getDeclaredField("languages");
             languagesField.setAccessible(true);
+            cachedLanguagesField = I18nModule.class.getDeclaredField("cachedLanguages");
+            cachedLanguagesField.setAccessible(true);
             LOGGER.atInfo().log("I18n reflection initialized successfully");
         } catch (NoSuchFieldException e) {
-            LOGGER.atSevere().log("Failed to access I18nModule.languages field: I18n tooltip injection disabled");
+            LOGGER.atSevere().log("Failed to access I18nModule reflection: I18n tooltip injection disabled");
             languagesField = null;
+            cachedLanguagesField = null;
         }
 
         try {
@@ -191,21 +230,31 @@ public class Nat20ItemRegistry {
             itemIdField.setAccessible(true);
             itemQualityIdField = Item.class.getDeclaredField("qualityId");
             itemQualityIdField.setAccessible(true);
+            itemTranslationPropertiesField = Item.class.getDeclaredField("translationProperties");
+            itemTranslationPropertiesField.setAccessible(true);
+            processConfigMethod = Item.class.getDeclaredMethod("processConfig");
+            processConfigMethod.setAccessible(true);
             LOGGER.atInfo().log("Item field reflection initialized successfully");
-        } catch (NoSuchFieldException e) {
+        } catch (NoSuchFieldException | NoSuchMethodException e) {
             LOGGER.atSevere().log("Failed to access Item protected fields: item registration disabled");
             itemIdField = null;
             itemQualityIdField = null;
+            itemTranslationPropertiesField = null;
         }
     }
 
-    private boolean setItemFields(Item item, String id, String qualityId) {
-        if (itemIdField == null || itemQualityIdField == null) return false;
+    private boolean setItemFields(Item item, String id, String qualityId, String displayName, String description) {
+        if (itemIdField == null || itemQualityIdField == null || itemTranslationPropertiesField == null) return false;
         try {
             itemIdField.set(item, id);
             itemQualityIdField.set(item, qualityId);
+            itemTranslationPropertiesField.set(item, new ItemTranslationProperties(displayName, description));
+            // processConfig resolves qualityId → qualityIndex for client rendering
+            if (processConfigMethod != null) {
+                processConfigMethod.invoke(item);
+            }
             return true;
-        } catch (IllegalAccessException e) {
+        } catch (Exception e) {
             LOGGER.atSevere().withCause(e).log("Failed to set Item fields via reflection");
             return false;
         }
@@ -235,6 +284,32 @@ public class Nat20ItemRegistry {
         Map<String, String> langMap = languages.get(language);
         if (langMap != null) {
             langMap.remove(key);
+        }
+    }
+
+    /**
+     * Invalidate the cached language snapshot and broadcast all translations to clients.
+     * This ensures clients receive our runtime-injected I18n entries.
+     */
+    @SuppressWarnings("unchecked")
+    private void broadcastAllTranslations() {
+        try {
+            // Clear the cached snapshot so it rebuilds from the raw languages map
+            if (cachedLanguagesField != null) {
+                Map<String, ?> cached = (Map<String, ?>) cachedLanguagesField.get(I18nModule.get());
+                if (cached != null) {
+                    cached.remove("en-US");
+                }
+            }
+
+            // Get the full merged translations (will rebuild from raw map now)
+            Map<String, String> allTranslations = I18nModule.get().getMessages("en-US");
+
+            // Broadcast to all connected clients
+            UpdateTranslations packet = new UpdateTranslations(UpdateType.Init, allTranslations);
+            Universe.get().broadcastPacketNoCache(packet);
+        } catch (Exception e) {
+            LOGGER.atWarning().withCause(e).log("Failed to broadcast translations");
         }
     }
 

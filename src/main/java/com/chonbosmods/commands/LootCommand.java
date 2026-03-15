@@ -66,12 +66,11 @@ public class LootCommand extends AbstractPlayerCommand {
             return;
         }
 
-        // Create ItemStack with loot metadata: use unique item ID if available for per-instance tooltip
+        // Create ItemStack with unique item ID for per-instance tooltip
         String stackItemId = lootData.getUniqueItemId() != null ? lootData.getUniqueItemId() : itemId;
         ItemStack stack = new ItemStack(stackItemId, 1);
         stack = stack.withMetadata(Nat20LootData.METADATA_KEY, lootData);
 
-        // Add to player inventory via proper giveItem API
         Player player = store.getComponent(ref, Player.getComponentType());
         if (player == null) {
             context.sendMessage(Message.raw("Could not access player entity."));
@@ -84,10 +83,6 @@ public class LootCommand extends AbstractPlayerCommand {
             " [" + lootData.getRarity() + "] (" + lootData.getAffixes().size() + " affixes, " +
             lootData.getSockets() + " sockets, lootLevel=" +
             String.format("%.2f", lootData.getLootLevel()) + ")"));
-
-        for (var affix : lootData.getAffixes()) {
-            context.sendMessage(Message.raw("  Affix: " + affix.id() + " (level=" + String.format("%.2f", affix.level()) + ")"));
-        }
     }
 
     private String autoDetectCategory(Item item) {
