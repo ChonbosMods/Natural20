@@ -24,6 +24,15 @@ A grid-based modular prefab system for generating dungeons from composable piece
 
 **Wall ownership:** every piece owns its own walls. Two adjacent pieces' walls overlap at the same block position. A 5-wide piece at origin x=0 spans x=0 through x=4. The next piece east starts at x=4 (not x=5). Formula: `next_origin = prev_origin + piece_block_width - 1`.
 
+> **UNRESOLVED: Vertical unit height.**
+> The table above says the base unit is 5x5x5, but counting actual blocks: floor slab at y=0, air at y=1-4, ceiling at y=5 = 6 blocks tall, not 5. A single-story piece is 5 wide x 6 tall x 5 deep. This means:
+> - Block dimensions would be `gridWidth * 5` x `gridHeight * 6` x `gridDepth * 5`
+> - Horizontal stride remains 4 (5 - 1 wall overlap)
+> - Vertical stride would be 5 (6 - 1 ceiling/floor overlap)
+> - The "all dimensions must be multiples of 5" rule doesn't apply uniformly to height
+>
+> The horizontal spec (5-block units, 1-block wall overlap, stride of 4) is confirmed correct. The vertical axis needs further analysis before locking in. All references to height in this doc should be treated as provisional until resolved.
+
 ---
 
 ## Coordinate System
