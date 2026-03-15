@@ -66,8 +66,9 @@ public class LootCommand extends AbstractPlayerCommand {
             return;
         }
 
-        // Create ItemStack with loot metadata (use canonical item.getId() for correct resolution)
-        ItemStack stack = new ItemStack(itemId, 1);
+        // Create ItemStack with loot metadata: use unique item ID if available for per-instance tooltip
+        String stackItemId = lootData.getUniqueItemId() != null ? lootData.getUniqueItemId() : itemId;
+        ItemStack stack = new ItemStack(stackItemId, 1);
         stack = stack.withMetadata(Nat20LootData.METADATA_KEY, lootData);
 
         // Add to player inventory via proper giveItem API

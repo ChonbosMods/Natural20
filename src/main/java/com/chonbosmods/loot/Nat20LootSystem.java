@@ -16,6 +16,7 @@ import com.chonbosmods.loot.mob.abilities.RegeneratingAbility;
 import com.chonbosmods.loot.mob.abilities.TeleportingAbility;
 import com.chonbosmods.loot.registry.Nat20AffixRegistry;
 import com.chonbosmods.loot.registry.Nat20GemRegistry;
+import com.chonbosmods.loot.registry.Nat20ItemRegistry;
 import com.chonbosmods.loot.registry.Nat20LootEntryRegistry;
 import com.chonbosmods.loot.registry.Nat20MobAffixRegistry;
 import com.chonbosmods.loot.registry.Nat20RarityRegistry;
@@ -42,14 +43,18 @@ public class Nat20LootSystem {
     private final Nat20LootPipeline pipeline;
     private final Nat20ModifierManager modifierManager;
     private final Nat20ItemRenderer itemRenderer;
+    private final Nat20ItemRegistry itemRegistry;
+    private final Nat20ItemGarbageCollector garbageCollector;
 
     public Nat20LootSystem() {
         this.mobAffixManager = new Nat20MobAffixManager(mobAffixRegistry);
         this.mobLootListener = new Nat20MobLootListener(this);
         this.affixEventListener = new Nat20AffixEventListener(this);
-        this.pipeline = new Nat20LootPipeline(rarityRegistry, affixRegistry);
         this.modifierManager = new Nat20ModifierManager(rarityRegistry, affixRegistry, gemRegistry);
         this.itemRenderer = new Nat20ItemRenderer(rarityRegistry, affixRegistry, gemRegistry);
+        this.itemRegistry = new Nat20ItemRegistry(itemRenderer);
+        this.garbageCollector = new Nat20ItemGarbageCollector(itemRegistry);
+        this.pipeline = new Nat20LootPipeline(rarityRegistry, affixRegistry, itemRegistry);
         registerEffectHandlers();
         registerMobAbilityHandlers();
     }
@@ -91,6 +96,7 @@ public class Nat20LootSystem {
         gemRegistry.loadAll(gemsDir);
         lootEntryRegistry.loadAll(entriesDir);
         mobAffixRegistry.loadAll(mobAffixesDir);
+        itemRegistry.init(lootDataDir != null ? lootDataDir.getParent() : null);
 
         LOGGER.atInfo().log("Loot system loaded: %d rarities, %d affixes, %d gems, %d entry tags, %d mob affixes",
             rarityRegistry.getLoadedCount(),
@@ -112,4 +118,6 @@ public class Nat20LootSystem {
     public Nat20LootPipeline getPipeline() { return pipeline; }
     public Nat20ModifierManager getModifierManager() { return modifierManager; }
     public Nat20ItemRenderer getItemRenderer() { return itemRenderer; }
+    public Nat20ItemRegistry getItemRegistry() { return itemRegistry; }
+    public Nat20ItemGarbageCollector getGarbageCollector() { return garbageCollector; }
 }

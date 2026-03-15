@@ -5,6 +5,7 @@ import com.chonbosmods.loot.def.LootRuleEntry;
 import com.chonbosmods.loot.def.Nat20AffixDef;
 import com.chonbosmods.loot.def.Nat20RarityDef;
 import com.chonbosmods.loot.registry.Nat20AffixRegistry;
+import com.chonbosmods.loot.registry.Nat20ItemRegistry;
 import com.chonbosmods.loot.registry.Nat20RarityRegistry;
 import com.google.common.flogger.FluentLogger;
 
@@ -16,10 +17,12 @@ public class Nat20LootPipeline {
 
     private final Nat20RarityRegistry rarityRegistry;
     private final Nat20AffixRegistry affixRegistry;
+    private final Nat20ItemRegistry itemRegistry;
 
-    public Nat20LootPipeline(Nat20RarityRegistry rarityRegistry, Nat20AffixRegistry affixRegistry) {
+    public Nat20LootPipeline(Nat20RarityRegistry rarityRegistry, Nat20AffixRegistry affixRegistry, Nat20ItemRegistry itemRegistry) {
         this.rarityRegistry = rarityRegistry;
         this.affixRegistry = affixRegistry;
+        this.itemRegistry = itemRegistry;
     }
 
     /**
@@ -96,6 +99,13 @@ public class Nat20LootPipeline {
         data.setNameSuffixSource(suffixSource);
         data.setDescription(description);
         data.setVariantItemId(variantItemId);
+
+        // Register unique item for per-instance tooltip
+        String qualityId = "nat20_" + rarity.id().toLowerCase();
+        if (itemRegistry != null) {
+            String uniqueId = itemRegistry.registerItem(itemId, qualityId, data);
+            data.setUniqueItemId(uniqueId);
+        }
 
         LOGGER.atInfo().log("Generated loot: %s [%s] variant=%s with %d affixes, %d sockets (lootLevel=%.2f)",
             generatedName, rarity.id(), variantItemId, rolledAffixes.size(), sockets, lootLevel);
@@ -179,6 +189,13 @@ public class Nat20LootPipeline {
         data.setNameSuffixSource(suffixSource);
         data.setDescription(description);
         data.setVariantItemId(variantItemId);
+
+        // Register unique item for per-instance tooltip
+        String qualityId = "nat20_" + rarity.id().toLowerCase();
+        if (itemRegistry != null) {
+            String uniqueId = itemRegistry.registerItem(itemId, qualityId, data);
+            data.setUniqueItemId(uniqueId);
+        }
 
         LOGGER.atInfo().log("Generated loot: %s [%s] variant=%s with %d affixes, %d sockets (lootLevel=%.2f, tierRange=[%d,%d])",
             generatedName, rarity.id(), variantItemId, rolledAffixes.size(), sockets, lootLevel, minRarityTier, maxRarityTier);
