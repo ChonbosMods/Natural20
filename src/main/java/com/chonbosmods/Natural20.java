@@ -118,6 +118,15 @@ public class Natural20 extends JavaPlugin {
         // Register ECS event systems for EFFECT/ABILITY affix processing (damage + block break)
         lootSystem.registerSystems(getEntityStoreRegistry());
 
+        // Hook MessagesUpdated to re-inject I18n entries after language reload
+        getEventRegistry().registerGlobal(
+                com.hypixel.hytale.server.core.modules.i18n.event.MessagesUpdated.class,
+                event -> lootSystem.getItemRegistry().reinjectAllI18n()
+        );
+
+        // Register GC scheduled task
+        lootSystem.getGarbageCollector().register(getEventRegistry());
+
         // Register settlement NPC death/respawn system
         getEntityStoreRegistry().registerSystem(new SettlementNpcDeathSystem());
 
@@ -158,6 +167,9 @@ public class Natural20 extends JavaPlugin {
 
         // Load loot system configs
         lootSystem.loadAll(getDataDirectory().resolve("loot"));
+
+        // Rehydrate persisted unique items and inject I18n entries
+        lootSystem.getItemRegistry().rehydrateAll();
 
         getLogger().atInfo().log("Natural 20 v" + getManifest().getVersion() + " started!");
     }
