@@ -1,11 +1,11 @@
 {
-  "Id": "nat20:violent",
+  "Id": "nat20:sturdy",
   "Type": "STAT",
-  "DisplayName": "server.nat20.affix.violent",
+  "DisplayName": "server.nat20.affix.sturdy",
   "NamePosition": "PREFIX",
-  "Categories": ["melee_weapon"],
+  "Categories": ["tool"],
   "StatRequirement": null,
-  "StatScaling": { "Primary": "STR", "Factor": 0.15 },
+  "StatScaling": { "Primary": "CON", "Factor": 0.14 },
   "TargetStat": "AttackDamage",
   "ModifierType": "ADDITIVE",
   "ValuesPerRarity": {

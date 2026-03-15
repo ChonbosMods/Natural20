@@ -1,0 +1,21 @@
+{
+  "Id": "nat20:nimble",
+  "Type": "STAT",
+  "DisplayName": "server.nat20.affix.nimble",
+  "NamePosition": "PREFIX",
+  "Categories": ["ranged_weapon"],
+  "StatRequirement": null,
+  "StatScaling": { "Primary": "DEX", "Factor": 0.15 },
+  "TargetStat": "AttackSpeed",
+  "ModifierType": "MULTIPLICATIVE",
+  "ValuesPerRarity": {
+    "Common":    { "Min": 0.03, "Max": 0.05 },
+    "Uncommon":  { "Min": 0.05, "Max": 0.08 },
+    "Rare":      { "Min": 0.07, "Max": 0.11 },
+    "Epic":      { "Min": 0.09, "Max": 0.15 },
+    "Legendary": { "Min": 0.12, "Max": 0.18 }
+  },
+  "Description": null,
+  "Cooldown": null,
+  "ProcChance": null
+}

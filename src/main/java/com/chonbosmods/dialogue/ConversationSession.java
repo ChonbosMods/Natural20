@@ -92,6 +92,7 @@ public class ConversationSession {
         processNode(graph.greetingNodeId());
         presenter.refreshTopics(resolveVisibleTopics());
         presenter.refreshDisposition(disposition);
+        presenter.flushUpdates();
     }
 
     public void startFromSaved(List<LogEntry> savedLog, String savedActiveNodeId,
@@ -133,6 +134,7 @@ public class ConversationSession {
         presenter.refreshFollowUps(activeFollowUps);
         presenter.refreshTopics(resolveVisibleTopics());
         presenter.refreshDisposition(disposition);
+        presenter.flushUpdates();
     }
 
     public void endDialogue() {
@@ -172,19 +174,25 @@ public class ConversationSession {
             if (text != null) {
                 conversationLog.add(new LogEntry.NpcSpeech(text));
                 presenter.refreshLog(conversationLog);
+                presenter.flushUpdates();
             }
             return;
         }
 
-        // Normal topic selection
+        // Normal topic selection: clear stale follow-ups from previous topic
+        activeFollowUps = new ArrayList<>();
+        pendingFollowUpIds.clear();
+        topicsLocked = false;
         exhaustTopicFired = false;
         activeTopicId = topicId;
         conversationLog.add(new LogEntry.TopicHeader(topic.label()));
         presenter.refreshLog(conversationLog);
+        presenter.refreshFollowUps(activeFollowUps);
 
         String entryNodeId = resolveEntryNodeId(topic);
         processNode(entryNodeId);
         presenter.refreshTopics(resolveVisibleTopics());
+        presenter.flushUpdates();
     }
 
     // --- Follow-Up Selection ---
@@ -204,11 +212,13 @@ public class ConversationSession {
 
         if (selected.skillCheckRef() != null) {
             processNode(selected.skillCheckRef());
+            presenter.flushUpdates();
             return;
         }
 
         processNode(selected.targetNodeId());
         presenter.refreshTopics(resolveVisibleTopics());
+        presenter.flushUpdates();
     }
 
     // --- Node Processing ---
@@ -286,6 +296,7 @@ public class ConversationSession {
         String nextNodeId = result.passed() ? checkNode.passNodeId() : checkNode.failNodeId();
         processNode(nextNodeId);
         presenter.refreshTopics(resolveVisibleTopics());
+        presenter.flushUpdates();
     }
 
     // --- Internal Helpers ---
@@ -354,6 +365,7 @@ public class ConversationSession {
             presenter.refreshFollowUps(activeFollowUps);
             presenter.refreshTopics(resolveVisibleTopics());
             presenter.refreshDisposition(disposition);
+            // Note: no flushUpdates() here - caller (handleTopicSelected etc.) flushes after processNode
             return;
         }
 

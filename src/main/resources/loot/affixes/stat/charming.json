@@ -1,19 +1,19 @@
 {
-  "Id": "nat20:violent",
+  "Id": "nat20:charming",
   "Type": "STAT",
-  "DisplayName": "server.nat20.affix.violent",
+  "DisplayName": "server.nat20.affix.charming",
   "NamePosition": "PREFIX",
   "Categories": ["melee_weapon"],
   "StatRequirement": null,
-  "StatScaling": { "Primary": "STR", "Factor": 0.15 },
+  "StatScaling": { "Primary": "CHA", "Factor": 0.12 },
   "TargetStat": "AttackDamage",
   "ModifierType": "ADDITIVE",
   "ValuesPerRarity": {
     "Common":    { "Min": 1.0, "Max": 1.5 },
-    "Uncommon":  { "Min": 1.5, "Max": 2.5 },
-    "Rare":      { "Min": 2.0, "Max": 4.0 },
-    "Epic":      { "Min": 3.0, "Max": 6.0 },
-    "Legendary": { "Min": 4.0, "Max": 10.0 }
+    "Uncommon":  { "Min": 1.5, "Max": 3.0 },
+    "Rare":      { "Min": 2.5, "Max": 5.0 },
+    "Epic":      { "Min": 4.0, "Max": 7.5 },
+    "Legendary": { "Min": 5.5, "Max": 11.0 }
   },
   "Description": null,
   "Cooldown": null,

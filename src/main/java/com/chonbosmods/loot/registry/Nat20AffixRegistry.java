@@ -26,8 +26,18 @@ public class Nat20AffixRegistry {
     private static final FluentLogger LOGGER = FluentLogger.forEnclosingClass();
     private static final String CLASSPATH_DIR = "loot/affixes/";
     private static final Map<String, String[]> BUILTIN_FILES = Map.of(
-        "stat", new String[]{"violent.json", "fortified.json", "swift.json"},
-        "effect", new String[]{"vampiric.json", "thorned.json"}
+        "stat", new String[]{
+            "ancient.json", "arcane.json", "blessed.json", "charming.json",
+            "fortified.json", "fortitude.json", "fury.json", "graceful.json",
+            "hawkeyed.json", "ironforged.json", "keen.json", "mighty.json",
+            "nimble.json", "piercing.json", "precision.json", "resilient.json",
+            "savage.json", "stalwart.json", "sturdy.json", "swift.json",
+            "the_artisan.json", "the_guardian.json", "the_marksman.json",
+            "the_sage.json", "the_titan.json", "violent.json", "warding.json",
+            "wrathful.json"
+        },
+        "effect", new String[]{"revitalizing.json", "thorned.json", "thunderstruck.json", "vampiric.json"},
+        "ability", new String[]{"radial.json", "telepathic.json"}
     );
 
     private final Map<String, Nat20AffixDef> affixesById = new HashMap<>();
@@ -89,7 +99,7 @@ public class Nat20AffixRegistry {
         }
 
         Map<Stat, Integer> statReq = null;
-        if (obj.has("StatRequirement")) {
+        if (obj.has("StatRequirement") && !obj.get("StatRequirement").isJsonNull()) {
             statReq = new HashMap<>();
             JsonObject reqObj = obj.getAsJsonObject("StatRequirement");
             for (var entry : reqObj.entrySet()) {
@@ -98,7 +108,7 @@ public class Nat20AffixRegistry {
         }
 
         StatScaling scaling = null;
-        if (obj.has("StatScaling")) {
+        if (obj.has("StatScaling") && !obj.get("StatScaling").isJsonNull()) {
             JsonObject sc = obj.getAsJsonObject("StatScaling");
             scaling = new StatScaling(
                 Stat.valueOf(sc.get("Primary").getAsString()),
@@ -118,9 +128,9 @@ public class Nat20AffixRegistry {
             }
         }
 
-        String description = obj.has("Description") ? obj.get("Description").getAsString() : null;
-        String cooldown = obj.has("Cooldown") ? obj.get("Cooldown").getAsString() : null;
-        String procChance = obj.has("ProcChance") ? obj.get("ProcChance").getAsString() : null;
+        String description = obj.has("Description") && !obj.get("Description").isJsonNull() ? obj.get("Description").getAsString() : null;
+        String cooldown = obj.has("Cooldown") && !obj.get("Cooldown").isJsonNull() ? obj.get("Cooldown").getAsString() : null;
+        String procChance = obj.has("ProcChance") && !obj.get("ProcChance").isJsonNull() ? obj.get("ProcChance").getAsString() : null;
 
         Set<String> exclusiveWith = null;
         if (obj.has("ExclusiveWith")) {
@@ -139,8 +149,8 @@ public class Nat20AffixRegistry {
             categories,
             statReq,
             scaling,
-            obj.has("TargetStat") ? obj.get("TargetStat").getAsString() : null,
-            obj.has("ModifierType") ? obj.get("ModifierType").getAsString() : "ADDITIVE",
+            obj.has("TargetStat") && !obj.get("TargetStat").isJsonNull() ? obj.get("TargetStat").getAsString() : null,
+            obj.has("ModifierType") && !obj.get("ModifierType").isJsonNull() ? obj.get("ModifierType").getAsString() : "ADDITIVE",
             valuesPerRarity,
             description,
             cooldown,

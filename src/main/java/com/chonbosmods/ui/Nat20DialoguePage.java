@@ -263,20 +263,23 @@ public class Nat20DialoguePage extends InteractiveCustomUIPage<Nat20DialoguePage
     }
 
     // --- Update methods called by presenter for incremental updates ---
+    // These only update state. Call commitUpdates() once after all state changes.
 
     public void updateLog(List<LogEntry> log) {
         this.log = log != null ? log : List.of();
-        if (built) rebuild();
     }
 
     public void updateFollowUps(List<ActiveFollowUp> followUps) {
         this.activeFollowUps = followUps != null ? followUps : List.of();
-        if (built) rebuild();
     }
 
     public void updateTopics(List<ResolvedTopic> topics, boolean topicsLocked) {
         this.topics = topics != null ? topics : List.of();
         this.topicsLocked = topicsLocked;
+    }
+
+    /** Flush all pending state changes with a single rebuild. */
+    public void commitUpdates() {
         if (built) rebuild();
     }
 

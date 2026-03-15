@@ -1,0 +1,20 @@
+{
+  "Id": "nat20:telepathic",
+  "Type": "ABILITY",
+  "DisplayName": "server.nat20.affix.telepathic",
+  "NamePosition": "SUFFIX",
+  "Categories": ["tool"],
+  "StatRequirement": { "INT": 12 },
+  "StatScaling": null,
+  "TargetStat": null,
+  "ModifierType": null,
+  "ValuesPerRarity": {
+    "Uncommon":  { "Min": 1.0, "Max": 1.0 },
+    "Rare":      { "Min": 1.0, "Max": 1.0 },
+    "Epic":      { "Min": 1.0, "Max": 1.0 },
+    "Legendary": { "Min": 1.0, "Max": 1.0 }
+  },
+  "Description": "Mined block drops go directly to the player's inventory. Requires INT 12+.",
+  "Cooldown": null,
+  "ProcChance": null
+}

@@ -347,9 +347,16 @@ public class Nat20LootPipeline {
         String displayName = def.displayName();
         int lastDot = displayName.lastIndexOf('.');
         String word = (lastDot >= 0) ? displayName.substring(lastDot + 1) : displayName;
-        if (!word.isEmpty()) {
-            word = Character.toUpperCase(word.charAt(0)) + word.substring(1);
+        // Handle underscores as word separators: "the_titan" → "The Titan"
+        String[] parts = word.split("_");
+        StringBuilder sb = new StringBuilder();
+        for (int i = 0; i < parts.length; i++) {
+            if (i > 0) sb.append(' ');
+            if (!parts[i].isEmpty()) {
+                sb.append(Character.toUpperCase(parts[i].charAt(0)));
+                sb.append(parts[i].substring(1));
+            }
         }
-        return word;
+        return sb.toString();
     }
 }

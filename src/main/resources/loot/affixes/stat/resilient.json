@@ -1,0 +1,21 @@
+{
+  "Id": "nat20:resilient",
+  "Type": "STAT",
+  "DisplayName": "server.nat20.affix.resilient",
+  "NamePosition": "PREFIX",
+  "Categories": ["armor"],
+  "StatRequirement": null,
+  "StatScaling": { "Primary": "CON", "Factor": 0.17 },
+  "TargetStat": "Health",
+  "ModifierType": "ADDITIVE",
+  "ValuesPerRarity": {
+    "Common":    { "Min": 2.0, "Max": 3.0 },
+    "Uncommon":  { "Min": 3.0, "Max": 5.0 },
+    "Rare":      { "Min": 4.0, "Max": 7.0 },
+    "Epic":      { "Min": 5.5, "Max": 10.0 },
+    "Legendary": { "Min": 7.0, "Max": 15.0 }
+  },
+  "Description": null,
+  "Cooldown": null,
+  "ProcChance": null
+}

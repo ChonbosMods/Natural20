@@ -61,6 +61,10 @@ public class PageDialoguePresenter implements DialoguePresenter {
     private List<ResolvedTopic> currentTopics = List.of();
     private int currentDisposition;
 
+    // Batching flags
+    private boolean dirty;
+    private boolean needsReopen;
+
     public PageDialoguePresenter(Player player, PlayerRef playerRef,
                                   Ref<EntityStore> entityRef, Store<EntityStore> store,
                                   DialogueManager manager, String npcName) {
@@ -79,6 +83,7 @@ public class PageDialoguePresenter implements DialoguePresenter {
         currentLog = log;
         if (dialoguePage != null) {
             dialoguePage.updateLog(log);
+            dirty = true;
         }
     }
 
@@ -87,6 +92,7 @@ public class PageDialoguePresenter implements DialoguePresenter {
         currentFollowUps = followUps;
         if (dialoguePage != null) {
             dialoguePage.updateFollowUps(followUps);
+            dirty = true;
         }
     }
 
@@ -95,9 +101,10 @@ public class PageDialoguePresenter implements DialoguePresenter {
         currentTopics = visibleTopics;
         if (dialoguePage != null) {
             dialoguePage.updateTopics(visibleTopics, isSessionTopicsLocked());
+            dirty = true;
         } else if (diceRollPage == null) {
-            // Post-dice transition: session calls refreshTopics which triggers reopening
-            openDialoguePage();
+            // Post-dice transition: need to reopen dialogue page
+            needsReopen = true;
         }
     }
 
@@ -106,6 +113,27 @@ public class PageDialoguePresenter implements DialoguePresenter {
         currentDisposition = disposition;
         if (dialoguePage != null) {
             dialoguePage.updateDisposition(disposition);
+        }
+    }
+
+    /**
+     * Flush batched state changes. Call once after all refresh methods have been invoked.
+     * If the page needs a rebuild, does a single rebuild. If the page needs reopening
+     * (post-dice-roll), schedules the reopen on the SCHEDULER to avoid opening inside
+     * an event handler.
+     */
+    public void flushUpdates() {
+        if (dirty && dialoguePage != null) {
+            dialoguePage.commitUpdates();
+            dirty = false;
+        }
+        if (needsReopen) {
+            needsReopen = false;
+            SCHEDULER.schedule(() -> {
+                synchronized (PageDialoguePresenter.this) {
+                    openDialoguePage();
+                }
+            }, PAGE_TRANSITION_DELAY_MS, TimeUnit.MILLISECONDS);
         }
     }
 

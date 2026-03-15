@@ -1,0 +1,21 @@
+{
+  "Id": "nat20:mighty",
+  "Type": "STAT",
+  "DisplayName": "server.nat20.affix.mighty",
+  "NamePosition": "PREFIX",
+  "Categories": ["melee_weapon"],
+  "StatRequirement": null,
+  "StatScaling": { "Primary": "STR", "Factor": 0.18 },
+  "TargetStat": "AttackDamage",
+  "ModifierType": "ADDITIVE",
+  "ValuesPerRarity": {
+    "Common":    { "Min": 1.5, "Max": 2.5 },
+    "Uncommon":  { "Min": 2.5, "Max": 4.0 },
+    "Rare":      { "Min": 3.5, "Max": 6.0 },
+    "Epic":      { "Min": 5.0, "Max": 9.0 },
+    "Legendary": { "Min": 7.0, "Max": 14.0 }
+  },
+  "Description": null,
+  "Cooldown": null,
+  "ProcChance": null
+}

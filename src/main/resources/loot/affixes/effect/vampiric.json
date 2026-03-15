@@ -1,15 +1,21 @@
 {
+  "Id": "nat20:vampiric",
   "Type": "EFFECT",
   "DisplayName": "server.nat20.affix.vampiric",
-  "NamePosition": "SUFFIX",
+  "NamePosition": "PREFIX",
   "Categories": ["melee_weapon"],
-  "StatScaling": { "Primary": "CON", "Factor": 0.05 },
+  "StatRequirement": null,
+  "StatScaling": { "Primary": "CON", "Factor": 0.15 },
   "TargetStat": "LifeSteal",
-  "ModifierType": "ADDITIVE",
-  "Description": "On hit: heals percentage of damage dealt",
+  "ModifierType": "MULTIPLICATIVE",
   "ValuesPerRarity": {
-    "Rare":      { "Min": 1.0, "Max": 2.0 },
-    "Epic":      { "Min": 2.0, "Max": 3.5 },
-    "Legendary": { "Min": 3.0, "Max": 5.0 }
-  }
+    "Common":    { "Min": 0.02, "Max": 0.03 },
+    "Uncommon":  { "Min": 0.03, "Max": 0.05 },
+    "Rare":      { "Min": 0.04, "Max": 0.07 },
+    "Epic":      { "Min": 0.05, "Max": 0.10 },
+    "Legendary": { "Min": 0.08, "Max": 0.15 }
+  },
+  "Description": "Heals the wielder for a percentage of damage dealt on each melee hit.",
+  "Cooldown": null,
+  "ProcChance": null
 }
