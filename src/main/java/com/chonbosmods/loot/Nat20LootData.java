@@ -24,6 +24,7 @@ public class Nat20LootData {
             .addField(new KeyedCodec<>("NameSuffixSource", Codec.STRING), Nat20LootData::setNameSuffixSource, Nat20LootData::getNameSuffixSource)
             .addField(new KeyedCodec<>("Description", Codec.STRING), Nat20LootData::setDescription, Nat20LootData::getDescription)
             .addField(new KeyedCodec<>("VariantItemId", Codec.STRING), Nat20LootData::setVariantItemId, Nat20LootData::getVariantItemId)
+            .addField(new KeyedCodec<>("UniqueItemId", Codec.STRING), Nat20LootData::setUniqueItemId, Nat20LootData::getUniqueItemId)
             .build();
 
     public static final KeyedCodec<Nat20LootData> METADATA_KEY = new KeyedCodec<>("Nat20Loot", CODEC);
@@ -39,6 +40,7 @@ public class Nat20LootData {
     private String nameSuffixSource;
     private String description = "";
     private String variantItemId;
+    private String uniqueItemId;
 
     public Nat20LootData() {}
 
@@ -88,6 +90,11 @@ public class Nat20LootData {
     @Nullable
     public String getVariantItemId() { return variantItemId; }
     public void setVariantItemId(String variantItemId) { this.variantItemId = variantItemId; }
+
+    // --- UniqueItemId ---
+    @Nullable
+    public String getUniqueItemId() { return uniqueItemId; }
+    public void setUniqueItemId(String uniqueItemId) { this.uniqueItemId = uniqueItemId; }
 
     // --- Codec adapters ---
     // Affixes serialized as "id=level,id=level" (= separator avoids clash with namespace colons in IDs)
