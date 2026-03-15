@@ -141,6 +141,8 @@ public class Nat20MobLootListener {
     private String resolveDisplayName(Nat20LootEntryRegistry entryRegistry, String itemId,
                                        String fallback) {
         String name = entryRegistry.getDisplayName(itemId);
+        if (name != null) return name;
+        name = lootSystem.getItemRegistry().resolveItemDisplayName(itemId);
         return name != null ? name : fallback;
     }
 

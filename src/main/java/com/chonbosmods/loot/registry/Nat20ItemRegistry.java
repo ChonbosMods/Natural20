@@ -268,6 +268,35 @@ public class Nat20ItemRegistry {
         }
     }
 
+    /**
+     * Resolve an item's display name from its I18n translation key.
+     * Reads the Item's translationProperties.name key and looks it up in the I18n map.
+     */
+    @Nullable
+    public String resolveItemDisplayName(String itemId) {
+        Item item = Item.getAssetMap().getAsset(itemId);
+        if (item == null) return null;
+        try {
+            if (itemTranslationPropertiesField == null) return null;
+            ItemTranslationProperties props =
+                (ItemTranslationProperties) itemTranslationPropertiesField.get(item);
+            if (props == null) return null;
+            // Read the name translation key via reflection
+            Field nameField = ItemTranslationProperties.class.getDeclaredField("name");
+            nameField.setAccessible(true);
+            String nameKey = (String) nameField.get(props);
+            if (nameKey == null || nameKey.isEmpty()) return null;
+            Map<String, Map<String, String>> languages = getLanguagesMap();
+            if (languages == null) return null;
+            Map<String, String> langMap = languages.get("en-US");
+            if (langMap == null) return null;
+            return langMap.get(nameKey);
+        } catch (Exception e) {
+            LOGGER.atWarning().withCause(e).log("Failed to resolve display name for %s", itemId);
+            return null;
+        }
+    }
+
     private void injectI18n(String language, String key, String value) {
         Map<String, Map<String, String>> languages = getLanguagesMap();
         if (languages == null) return;

@@ -8,9 +8,11 @@ import com.hypixel.hytale.component.Ref;
 import com.hypixel.hytale.component.Store;
 import com.hypixel.hytale.server.core.Message;
 import com.hypixel.hytale.server.core.command.system.CommandContext;
+import com.hypixel.hytale.server.core.command.system.arguments.system.OptionalArg;
 import com.hypixel.hytale.server.core.command.system.arguments.system.RequiredArg;
 import com.hypixel.hytale.server.core.command.system.arguments.types.ArgTypes;
 import com.hypixel.hytale.server.core.command.system.basecommands.AbstractPlayerCommand;
+import com.chonbosmods.loot.def.Nat20RarityDef;
 import com.hypixel.hytale.server.core.universe.PlayerRef;
 import com.hypixel.hytale.server.core.universe.world.World;
 import com.hypixel.hytale.server.core.universe.world.storage.EntityStore;
@@ -25,6 +27,8 @@ public class LootCommand extends AbstractPlayerCommand {
 
     private final RequiredArg<Item> itemArg =
         withRequiredArg("item", "Hytale item (e.g., IronSword)", ArgTypes.ITEM_ASSET);
+    private final OptionalArg<String> rarityArg =
+        withOptionalArg("rarity", "Rarity tier (Common, Uncommon, Rare, Epic, Legendary)", ArgTypes.STRING);
 
     public LootCommand() {
         super("loot", "Generate a loot item and add to inventory");
@@ -57,10 +61,26 @@ public class LootCommand extends AbstractPlayerCommand {
         Random random = new Random();
         String baseName = lootSystem.getLootEntryRegistry().getDisplayName(itemId);
         if (baseName == null) {
+            baseName = lootSystem.getItemRegistry().resolveItemDisplayName(itemId);
+        }
+        if (baseName == null) {
             baseName = itemId;
         }
 
-        Nat20LootData lootData = lootSystem.getPipeline().generate(itemId, baseName, categoryKey, random);
+        Nat20LootData lootData;
+        if (context.provided(rarityArg)) {
+            String rarityName = rarityArg.get(context);
+            Nat20RarityDef rarity = lootSystem.getRarityRegistry().get(rarityName);
+            if (rarity == null) {
+                context.sendMessage(Message.raw("Unknown rarity: " + rarityName
+                    + ". Valid: Common, Uncommon, Rare, Epic, Legendary"));
+                return;
+            }
+            int tier = rarity.qualityValue();
+            lootData = lootSystem.getPipeline().generate(itemId, baseName, categoryKey, tier, tier, random);
+        } else {
+            lootData = lootSystem.getPipeline().generate(itemId, baseName, categoryKey, random);
+        }
         if (lootData == null) {
             context.sendMessage(Message.raw("Failed to generate loot for: " + itemId));
             return;
