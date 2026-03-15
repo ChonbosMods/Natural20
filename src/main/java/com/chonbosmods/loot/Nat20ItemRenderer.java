@@ -38,7 +38,11 @@ public class Nat20ItemRenderer {
     public Nat20ItemDisplayData resolve(ItemStack stack, @Nullable PlayerStats playerStats) {
         Nat20LootData lootData = stack.getFromMetadataOrNull(Nat20LootData.METADATA_KEY);
         if (lootData == null) return null;
+        return resolve(lootData, playerStats);
+    }
 
+    @Nullable
+    public Nat20ItemDisplayData resolve(Nat20LootData lootData, @Nullable PlayerStats playerStats) {
         Nat20RarityDef rarity = rarityRegistry.get(lootData.getRarity());
         if (rarity == null) return null;
 
