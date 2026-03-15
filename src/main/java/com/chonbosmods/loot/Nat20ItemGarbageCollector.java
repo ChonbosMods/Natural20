@@ -2,13 +2,18 @@ package com.chonbosmods.loot;
 
 import com.chonbosmods.loot.registry.Nat20ItemRegistry;
 import com.google.common.flogger.FluentLogger;
-import com.hypixel.hytale.event.EventRegistry;
 import com.hypixel.hytale.server.core.HytaleServer;
 
 import java.util.Map;
 import java.util.concurrent.ConcurrentHashMap;
 import java.util.concurrent.TimeUnit;
 
+/**
+ * Garbage collector for dynamically registered Nat20 item definitions.
+ * Polls a debounced cleanup queue: items are scheduled via onItemDestroyed()
+ * and cleaned up after a delay. Currently no events feed into this automatically;
+ * callers must invoke onItemDestroyed() when items are confirmed destroyed.
+ */
 public class Nat20ItemGarbageCollector {
 
     private static final FluentLogger LOGGER = FluentLogger.forEnclosingClass();
@@ -21,10 +26,10 @@ public class Nat20ItemGarbageCollector {
         this.registry = registry;
     }
 
-    public void register(EventRegistry eventRegistry) {
+    public void start() {
         HytaleServer.SCHEDULED_EXECUTOR.scheduleAtFixedRate(
                 this::processCleanupQueue, 10, 5, TimeUnit.SECONDS);
-        LOGGER.atInfo().log("Item GC registered");
+        LOGGER.atInfo().log("Item GC started");
     }
 
     public void onItemDestroyed(String itemId) {

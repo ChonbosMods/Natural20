@@ -125,9 +125,7 @@ public class Nat20ItemRegistry {
             LOGGER.atWarning().withCause(e).log("Failed to remove item asset: %s", uniqueId);
         }
 
-        String nameKey = "server.nat20.item." + uniqueId + ".name";
         String descKey = "server.nat20.item." + uniqueId + ".description";
-        removeI18n("en-US", nameKey);
         removeI18n("en-US", descKey);
 
         saveToDisk();
@@ -172,9 +170,7 @@ public class Nat20ItemRegistry {
         for (Map.Entry<String, RegistryEntry> e : registered.entrySet()) {
             String uniqueId = e.getKey();
             RegistryEntry entry = e.getValue();
-            String nameKey = "server.nat20.item." + uniqueId + ".name";
             String descKey = "server.nat20.item." + uniqueId + ".description";
-            injectI18n("en-US", nameKey, entry.generatedName);
             injectI18n("en-US", descKey, entry.description);
         }
     }

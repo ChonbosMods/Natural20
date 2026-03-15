@@ -124,8 +124,8 @@ public class Natural20 extends JavaPlugin {
                 event -> lootSystem.getItemRegistry().reinjectAllI18n()
         );
 
-        // Register GC scheduled task
-        lootSystem.getGarbageCollector().register(getEventRegistry());
+        // Start GC cleanup polling
+        lootSystem.getGarbageCollector().start();
 
         // Register settlement NPC death/respawn system
         getEntityStoreRegistry().registerSystem(new SettlementNpcDeathSystem());
