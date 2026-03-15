@@ -102,8 +102,8 @@ public class Nat20ItemRegistry {
         // the ECS thread context that commands execute on.
         HytaleServer.SCHEDULED_EXECUTOR.submit(() -> {
             try {
-                // Broadcast ALL translations (with cache invalidation) so clients get our new key
-                broadcastAllTranslations();
+                // Send just our new description key to connected clients
+                broadcastTranslations(Map.of(descKey, entry.description()));
                 // Then register the item asset
                 Item.getAssetStore().loadAssets(uniqueId, List.of(variant));
                 LOGGER.atInfo().log("Registered unique item: %s (base=%s)", uniqueId, baseItemId);
@@ -288,13 +288,13 @@ public class Nat20ItemRegistry {
     }
 
     /**
-     * Invalidate the cached language snapshot and broadcast all translations to clients.
-     * This ensures clients receive our runtime-injected I18n entries.
+     * Invalidate the cached language snapshot (so reconnecting players get our keys)
+     * and send just the new entries to connected clients via AddOrUpdate.
      */
     @SuppressWarnings("unchecked")
-    private void broadcastAllTranslations() {
+    private void broadcastTranslations(Map<String, String> entries) {
         try {
-            // Clear the cached snapshot so it rebuilds from the raw languages map
+            // Clear the cached snapshot so future getMessages/sendTranslations includes our keys
             if (cachedLanguagesField != null) {
                 Map<String, ?> cached = (Map<String, ?>) cachedLanguagesField.get(I18nModule.get());
                 if (cached != null) {
@@ -302,11 +302,8 @@ public class Nat20ItemRegistry {
                 }
             }
 
-            // Get the full merged translations (will rebuild from raw map now)
-            Map<String, String> allTranslations = I18nModule.get().getMessages("en-US");
-
-            // Broadcast to all connected clients
-            UpdateTranslations packet = new UpdateTranslations(UpdateType.Init, allTranslations);
+            // Send ONLY the new entries to connected clients (preserves all existing translations)
+            UpdateTranslations packet = new UpdateTranslations(UpdateType.AddOrUpdate, entries);
             Universe.get().broadcastPacketNoCache(packet);
         } catch (Exception e) {
             LOGGER.atWarning().withCause(e).log("Failed to broadcast translations");
