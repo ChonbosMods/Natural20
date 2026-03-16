@@ -73,9 +73,10 @@ public class GridPrefabPreviewCommand extends AbstractPlayerCommand {
             return;
         }
         Vector3d pos = transform.getPosition();
-        Vector3f rot = transform.getRotation();
-        float yaw = rot.getY();
-        float pitch = rot.getX();
+        // Use head rotation for accurate look direction (includes pitch)
+        Vector3f headRot = playerRef.getHeadRotation();
+        float yaw = headRot.getY();
+        float pitch = headRot.getX();
 
         Face facing = GridPrefabUtil.getCardinalFacing(yaw);
         Vector3d direction = GridPrefabUtil.getDirection(yaw, pitch);
