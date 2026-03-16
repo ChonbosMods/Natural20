@@ -15,6 +15,8 @@ import com.chonbosmods.settlement.SettlementNpcDeathSystem;
 import com.chonbosmods.settlement.SettlementNpcRotationTicker;
 import com.chonbosmods.settlement.SettlementPlacer;
 import com.chonbosmods.settlement.SettlementRegistry;
+import com.chonbosmods.settlement.SettlementThreatClearSystem;
+import com.chonbosmods.settlement.SettlementThreatSystem;
 import com.chonbosmods.settlement.SettlementWorldGenListener;
 import com.hypixel.hytale.component.ComponentType;
 import com.hypixel.hytale.server.core.HytaleServer;
@@ -44,6 +46,7 @@ public class Natural20 extends JavaPlugin {
     private final Nat20LootSystem lootSystem = new Nat20LootSystem();
     private final Nat20EquipmentListener equipmentListener = new Nat20EquipmentListener(lootSystem);
     private SettlementRegistry settlementRegistry;
+    private SettlementThreatClearSystem threatClearSystem;
     private Config<Nat20GlobalData> globalConfig;
 
     public Natural20(@Nonnull JavaPluginInit init) {
@@ -82,6 +85,10 @@ public class Natural20 extends JavaPlugin {
 
     public SettlementRegistry getSettlementRegistry() {
         return settlementRegistry;
+    }
+
+    public SettlementThreatClearSystem getThreatClearSystem() {
+        return threatClearSystem;
     }
 
     public static ComponentType<EntityStore, Nat20NpcData> getNpcDataType() {
@@ -130,6 +137,9 @@ public class Natural20 extends JavaPlugin {
         // Register settlement NPC death/respawn system
         getEntityStoreRegistry().registerSystem(new SettlementNpcDeathSystem());
 
+        // Register settlement threat detection system (marks attackers as hostile)
+        getEntityStoreRegistry().registerSystem(new SettlementThreatSystem());
+
         // Clean up on player disconnect
         getEventRegistry().register(PlayerDisconnectEvent.class, event -> {
             dialogueManager.endSession(event.getPlayerRef().getUuid());
@@ -161,6 +171,10 @@ public class Natural20 extends JavaPlugin {
         // Schedule NPC rotation ticker: rotates settlement NPCs toward nearby players
         SettlementNpcRotationTicker rotationTicker = new SettlementNpcRotationTicker(settlementRegistry);
         HytaleServer.SCHEDULED_EXECUTOR.scheduleAtFixedRate(rotationTicker, 0L, 100L, TimeUnit.MILLISECONDS);
+
+        // Schedule threat clear system: clears hostile marks after 5s cooldown
+        threatClearSystem = new SettlementThreatClearSystem(settlementRegistry);
+        HytaleServer.SCHEDULED_EXECUTOR.scheduleAtFixedRate(threatClearSystem, 0L, 1000L, TimeUnit.MILLISECONDS);
 
         // Load dialogue files from plugin data directory
         dialogueLoader.loadAll(getDataDirectory().resolve("dialogues"));
