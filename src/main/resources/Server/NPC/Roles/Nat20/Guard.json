@@ -96,12 +96,9 @@
               },
               "BodyMotion": {
                 "Type": "Seek",
-                "NPCTarget": true,
-                "PlayerTarget": true,
                 "StopDistance": 2.5,
                 "SlowDownDistance": 4,
-                "RelativeSpeed": 1.0,
-                "UsePathfinder": true
+                "RelativeSpeed": 1.0
               }
             },
             {
@@ -131,24 +128,29 @@
           "Instructions": [
             {
               "Sensor": {
-                "Type": "Any"
+                "Type": "Leash",
+                "Range": 100
               },
               "BodyMotion": {
                 "Type": "Seek",
-                "VectorPosition": true,
                 "StopDistance": 1,
                 "SlowDownDistance": 5,
                 "RelativeSpeed": 0.4,
                 "UsePathfinder": true
+              }
+            },
+            {
+              "Sensor": {
+                "Type": "Not",
+                "Sensor": {
+                  "Type": "Leash",
+                  "Range": 3
+                }
               },
               "Actions": [
                 {
-                  "Type": "Timeout",
-                  "Delay": [5, 8],
-                  "Action": {
-                    "Type": "State",
-                    "State": "Idle"
-                  }
+                  "Type": "State",
+                  "State": "Idle"
                 }
               ]
             }
