@@ -42,6 +42,7 @@ public class GridPrefabSaveCommand extends AbstractPlayerCommand {
 
     private static final int CELL_SIZE = 5;
     private static final String MARKER_BLOCK_KEY = "Ore_Thorium_Mud";
+    private static final String EMPTY_BLOCK_ID = "Empty";
     private static final Gson GSON = new GsonBuilder().setPrettyPrinting().create();
 
     private final RequiredArg<String> nameArg =
@@ -116,7 +117,7 @@ public class GridPrefabSaveCommand extends AbstractPlayerCommand {
                 for (int y = 0; y < blockH; y++) {
                     for (int z = 0; z < blockD; z++) {
                         BlockType bt = world.getBlockType(originX + x, originY + y, originZ + z);
-                        if (bt != null) {
+                        if (bt != null && !EMPTY_BLOCK_ID.equals(bt.getId())) {
                             blocks[x][y][z] = bt.getId();
                         }
                     }

@@ -82,7 +82,7 @@ public class GridPrefabSaveConnectorCommand extends AbstractPlayerCommand {
                 for (int y = 0; y < HEIGHT; y++) {
                     for (int z = 0; z < DEPTH; z++) {
                         BlockType bt = world.getBlockType(originX + x, originY + y, originZ + z);
-                        if (bt != null) {
+                        if (bt != null && !"Empty".equals(bt.getId())) {
                             blocks[x][y][z] = bt.getId();
                         } else {
                             hasAir = true;
