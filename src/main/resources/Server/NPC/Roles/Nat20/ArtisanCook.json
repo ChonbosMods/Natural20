@@ -7,7 +7,7 @@
   ],
   "DefaultNPCAttitude": "Ignore",
   "DefaultPlayerAttitude": "Neutral",
-  "AttitudeId": "Nat20_Settlement",
+  "AttitudeGroup": "Nat20_Settlement",
   "Appearance": "NPC_Elf",
   "MaxHealth": 20,
   "KnockbackScale": 0.5,
@@ -26,24 +26,6 @@
       "Acceleration": 10
     }
   ],
-  "DecisionMaker": {
-    "Type": "StateEvaluator",
-    "Options": [
-      {
-        "State": "Idle",
-        "Conditions": [
-          { "Type": "Randomiser", "Score": 0.1 }
-        ]
-      },
-      {
-        "State": "Fleeing",
-        "Conditions": [
-          { "Type": "HasTarget", "Score": 0.9 },
-          { "Type": "KnownTargetCount", "Attitude": "Hostile", "Min": 1, "Score": 0.85 }
-        ]
-      }
-    ]
-  },
   "Instructions": [
     {
       "Instructions": [
@@ -53,6 +35,18 @@
             "State": "Idle"
           },
           "Instructions": [
+            {
+              "Sensor": {
+                "Type": "Target",
+                "Range": 10
+              },
+              "Actions": [
+                {
+                  "Type": "State",
+                  "State": "Fleeing"
+                }
+              ]
+            },
             {
               "ActionsBlocking": true,
               "Sensor": {
@@ -87,6 +81,18 @@
             "State": "Watching"
           },
           "Instructions": [
+            {
+              "Sensor": {
+                "Type": "Target",
+                "Range": 10
+              },
+              "Actions": [
+                {
+                  "Type": "State",
+                  "State": "Fleeing"
+                }
+              ]
+            },
             {
               "Continue": true,
               "Sensor": {
@@ -192,7 +198,8 @@
           "Instructions": [
             {
               "Sensor": {
-                "Type": "HasTarget"
+                "Type": "Target",
+                "Range": 16
               },
               "BodyMotion": {
                 "Type": "Flee",
@@ -203,7 +210,8 @@
               "Sensor": {
                 "Type": "Not",
                 "Sensor": {
-                  "Type": "HasTarget"
+                  "Type": "Target",
+                  "Range": 16
                 }
               },
               "Actions": [

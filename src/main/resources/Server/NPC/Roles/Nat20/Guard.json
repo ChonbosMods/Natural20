@@ -7,17 +7,12 @@
   ],
   "DefaultNPCAttitude": "Aggressive",
   "DefaultPlayerAttitude": "Neutral",
-  "AttitudeId": "Nat20_Settlement",
+  "AttitudeGroup": "Nat20_Settlement",
   "Appearance": "NPC_Elf",
   "MaxHealth": 30,
   "KnockbackScale": 0.5,
-  "Equipment": {
-    "RightHand": "Hytale:MithrilSword",
-    "Helmet": "Hytale:CobaltHelmet",
-    "Chestplate": "Hytale:CobaltChestplate",
-    "Gauntlets": "Hytale:CobaltGauntlets",
-    "Greaves": "Hytale:CobaltGreaves"
-  },
+  "HotbarItems": ["Weapon_Sword_Mithril"],
+  "HotbarSize": 1,
   "MotionControllerList": [
     {
       "Type": "Walk",
@@ -29,40 +24,20 @@
       "Acceleration": 10
     }
   ],
-  "DecisionMaker": {
-    "Type": "StateEvaluator",
-    "Options": [
-      {
-        "State": "Idle",
-        "Conditions": [
-          { "Type": "Randomiser", "Score": 0.1 }
-        ]
-      },
-      {
-        "State": "Combat",
-        "Conditions": [
-          { "Type": "HasTarget", "Score": 0.9 },
-          { "Type": "KnownTargetCount", "Attitude": "Hostile", "Min": 1, "Score": 0.85 }
-        ]
-      },
-      {
-        "State": "ReturnToPost",
-        "Conditions": [
-          { "Type": "IsInState", "State": "Combat", "Score": 0.3 }
-        ]
-      }
-    ]
-  },
-  "CombatActionEvaluator": {
-    "Actions": [
-      {
-        "Type": "MeleeAttack",
-        "Range": 3.0,
-        "Score": 1.0
-      }
-    ]
-  },
   "Instructions": [
+    {
+      "Continue": true,
+      "Instructions": [{
+        "Continue": true,
+        "Sensor": { "Type": "Any", "Once": true },
+        "Actions": [{
+          "Type": "Inventory",
+          "Operation": "EquipHotbar",
+          "Slot": 0,
+          "UseTarget": false
+        }]
+      }]
+    },
     {
       "Instructions": [
         {
@@ -72,6 +47,18 @@
             "State": "Idle"
           },
           "Instructions": [
+            {
+              "Sensor": {
+                "Type": "Target",
+                "Range": 16
+              },
+              "Actions": [
+                {
+                  "Type": "State",
+                  "State": "Combat"
+                }
+              ]
+            },
             {
               "Continue": true,
               "Sensor": {
@@ -101,14 +88,18 @@
           "Instructions": [
             {
               "Sensor": {
-                "Type": "HasTarget"
+                "Type": "Target",
+                "Range": 20
               },
               "HeadMotion": {
                 "Type": "Watch"
               },
               "BodyMotion": {
-                "Type": "Chase",
-                "RelativeSpeed": 1.0
+                "Type": "Seek",
+                "StopDistance": 2.5,
+                "SlowDownDistance": 4,
+                "RelativeSpeed": 1.0,
+                "UsePathfinder": true
               }
             },
             {
@@ -116,7 +107,8 @@
               "Sensor": {
                 "Type": "Not",
                 "Sensor": {
-                  "Type": "HasTarget"
+                  "Type": "Target",
+                  "Range": 20
                 }
               },
               "Actions": [
@@ -140,8 +132,11 @@
                 "Type": "Any"
               },
               "BodyMotion": {
-                "Type": "ReturnToLeash",
-                "RelativeSpeed": 0.4
+                "Type": "Seek",
+                "StopDistance": 1,
+                "SlowDownDistance": 5,
+                "RelativeSpeed": 0.4,
+                "UsePathfinder": true
               },
               "Actions": [
                 {

@@ -1,8 +1,6 @@
 {
   "Groups": {
-    "Hostile": ["Trork", "Undead", "Saurian"],
-    "Friendly": ["Player", "Kweebec", "Human"]
-  },
-  "DefaultNPCAttitude": "Ignore",
-  "DefaultPlayerAttitude": "Neutral"
+    "Hostile": ["Trork", "Undead", "Goblin", "Outlander", "Void"],
+    "Friendly": ["Player", "Kweebec", "Nat20_Settlement"]
+  }
 }
