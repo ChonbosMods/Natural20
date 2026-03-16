@@ -163,17 +163,51 @@ public class ConversationSession {
             .findFirst().orElse(null);
         if (topic == null) return;
 
-        // Exhausted topic: replay the original NPC speech so the player can reread it
+        // Exhausted topic: show contextual recap
         ExhaustionState exhaustionState = playerData.getTopicExhaustionState(npcId, topicId);
         if (exhaustionState == ExhaustionState.GRAYED) {
+            Set<String> consumed = playerData.getConsumedDecisivesFor(npcId, topicId);
             String entryNodeId = resolveEntryNodeId(topic);
-            DialogueNode entryNode = graph.getNode(entryNodeId);
-            String text = (entryNode instanceof DialogueNode.DialogueTextNode textNode)
-                ? textNode.speakerText()
-                : topic.recapText();
-            if (text != null) {
-                conversationLog.add(new LogEntry.NpcSpeech(text));
+
+            if (!consumed.isEmpty()) {
+                // Decisive path: show NPC response from the last decisive choice
+                String recapNodeId = playerData.getTopicRecapNode(npcId, topicId);
+                DialogueNode recapNode = recapNodeId != null ? graph.getNode(recapNodeId) : null;
+                String text;
+                if (recapNode instanceof DialogueNode.DialogueTextNode recapText) {
+                    text = recapText.speakerText();
+                } else {
+                    // Fallback: recapText or entry node speech
+                    DialogueNode entryNode = graph.getNode(entryNodeId);
+                    text = topic.recapText() != null ? topic.recapText()
+                        : (entryNode instanceof DialogueNode.DialogueTextNode tn ? tn.speakerText() : null);
+                }
+                if (text != null) {
+                    conversationLog.add(new LogEntry.TopicHeader(topic.label()));
+                    conversationLog.add(new LogEntry.NpcSpeech(text));
+                }
+                // Show surviving follow-ups (grayed exploratories) if any exist
+                DialogueNode entryNode = graph.getNode(entryNodeId);
+                if (entryNode instanceof DialogueNode.DialogueTextNode textNode) {
+                    activeTopicId = topicId;
+                    activeNodeId = entryNodeId;
+                    filterAndDisplayResponses(textNode);
+                }
                 presenter.refreshLog(conversationLog);
+                presenter.refreshFollowUps(activeFollowUps);
+                presenter.flushUpdates();
+            } else {
+                // Pure exploratory exhaustion: replay intro with grayed options
+                DialogueNode entryNode = graph.getNode(entryNodeId);
+                if (entryNode instanceof DialogueNode.DialogueTextNode textNode) {
+                    conversationLog.add(new LogEntry.TopicHeader(topic.label()));
+                    conversationLog.add(new LogEntry.NpcSpeech(textNode.speakerText()));
+                    activeTopicId = topicId;
+                    activeNodeId = entryNodeId;
+                    filterAndDisplayResponses(textNode);
+                }
+                presenter.refreshLog(conversationLog);
+                presenter.refreshFollowUps(activeFollowUps);
                 presenter.flushUpdates();
             }
             return;
@@ -404,6 +438,7 @@ public class ConversationSession {
             topicsLocked = textNode.locksConversation();
         } else {
             playerData.setTopicExhaustion(npcId, activeTopicId, ExhaustionState.GRAYED);
+            playerData.setTopicRecapNode(npcId, activeTopicId, activeNodeId);
             activeFollowUps = List.of();
             pendingFollowUpIds.clear();
             activeTopicId = null;

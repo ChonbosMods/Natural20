@@ -40,6 +40,7 @@ public class Nat20PlayerData implements Component<EntityStore> {
             .addField(new KeyedCodec<>("SavedSessions", STRING_MAP_CODEC), Nat20PlayerData::setSavedSessions, Nat20PlayerData::getSavedSessions)
             .addField(new KeyedCodec<>("ConsumedDecisives", STRING_MAP_CODEC), Nat20PlayerData::setConsumedDecisivesRaw, Nat20PlayerData::getConsumedDecisivesRaw)
             .addField(new KeyedCodec<>("TopicEntryOverrides", STRING_MAP_CODEC), Nat20PlayerData::setTopicEntryOverridesRaw, Nat20PlayerData::getTopicEntryOverridesRaw)
+            .addField(new KeyedCodec<>("TopicRecapNodes", STRING_MAP_CODEC), Nat20PlayerData::setTopicRecapNodesRaw, Nat20PlayerData::getTopicRecapNodesRaw)
             .build();
 
     // Index order: STR=0, DEX=1, CON=2, INT=3, WIS=4, CHA=5
@@ -56,6 +57,7 @@ public class Nat20PlayerData implements Component<EntityStore> {
     private Set<String> learnedGlobalTopics = new HashSet<>();                     // global topic IDs learned
     private Map<String, Map<String, Set<String>>> consumedDecisives = new HashMap<>();  // NPC ID -> topic ID -> response IDs
     private Map<String, Map<String, String>> topicEntryOverrides = new HashMap<>();     // NPC ID -> topic ID -> entry node ID
+    private Map<String, Map<String, String>> topicRecapNodes = new HashMap<>();         // NPC ID -> topic ID -> last node ID
 
     // Dirty-exit session save (only when leaving mid-follow-up)
     private Map<String, String> savedSessions = new HashMap<>();          // NPC ID -> serialized JSON
@@ -322,6 +324,55 @@ public class Nat20PlayerData implements Component<EntityStore> {
         topicEntryOverrides.computeIfAbsent(npcId, k -> new HashMap<>()).put(topicId, entryNodeId);
     }
 
+    // --- Topic Recap Nodes ---
+    // Stored as Map<String, String> in codec (topicId:nodeId,topicId:nodeId), exposed as 2-level map
+
+    public Map<String, Map<String, String>> getTopicRecapNodes() { return topicRecapNodes; }
+
+    public void setTopicRecapNodes(Map<String, Map<String, String>> topicRecapNodes) {
+        this.topicRecapNodes = topicRecapNodes != null ? new HashMap<>(topicRecapNodes) : new HashMap<>();
+    }
+
+    public String getTopicRecapNode(String npcId, String topicId) {
+        var npcMap = topicRecapNodes.get(npcId);
+        return npcMap != null ? npcMap.get(topicId) : null;
+    }
+
+    public void setTopicRecapNode(String npcId, String topicId, String nodeId) {
+        topicRecapNodes.computeIfAbsent(npcId, k -> new HashMap<>()).put(topicId, nodeId);
+    }
+
+    Map<String, String> getTopicRecapNodesRaw() {
+        Map<String, String> raw = new HashMap<>();
+        for (var npcEntry : topicRecapNodes.entrySet()) {
+            if (!npcEntry.getValue().isEmpty()) {
+                StringBuilder sb = new StringBuilder();
+                for (var topicEntry : npcEntry.getValue().entrySet()) {
+                    if (sb.length() > 0) sb.append(",");
+                    sb.append(topicEntry.getKey()).append(":").append(topicEntry.getValue());
+                }
+                raw.put(npcEntry.getKey(), sb.toString());
+            }
+        }
+        return raw;
+    }
+
+    void setTopicRecapNodesRaw(Map<String, String> raw) {
+        topicRecapNodes = new HashMap<>();
+        if (raw != null) {
+            for (var entry : raw.entrySet()) {
+                Map<String, String> topics = new HashMap<>();
+                for (String pair : entry.getValue().split(",")) {
+                    String[] parts = pair.trim().split(":", 2);
+                    if (parts.length == 2) {
+                        topics.put(parts[0].trim(), parts[1].trim());
+                    }
+                }
+                if (!topics.isEmpty()) topicRecapNodes.put(entry.getKey(), topics);
+            }
+        }
+    }
+
     Map<String, String> getTopicEntryOverridesRaw() {
         Map<String, String> raw = new HashMap<>();
         for (var npcEntry : topicEntryOverrides.entrySet()) {
@@ -378,6 +429,10 @@ public class Nat20PlayerData implements Component<EntityStore> {
         copy.topicEntryOverrides = new HashMap<>();
         for (var entry : this.topicEntryOverrides.entrySet()) {
             copy.topicEntryOverrides.put(entry.getKey(), new HashMap<>(entry.getValue()));
+        }
+        copy.topicRecapNodes = new HashMap<>();
+        for (var entry : this.topicRecapNodes.entrySet()) {
+            copy.topicRecapNodes.put(entry.getKey(), new HashMap<>(entry.getValue()));
         }
         copy.learnedGlobalTopics = new HashSet<>(this.learnedGlobalTopics);
         copy.savedSessions = new HashMap<>(this.savedSessions);
