@@ -28,25 +28,6 @@
   ],
   "Instructions": [
     {
-      "$Comment": "Damage detection: any state, store attacker in LockedTarget, flee",
-      "Continue": true,
-      "Instructions": [
-        {
-          "Sensor": {
-            "Type": "Damage",
-            "Combat": true,
-            "TargetSlot": "LockedTarget"
-          },
-          "Actions": [
-            {
-              "Type": "State",
-              "State": "Fleeing"
-            }
-          ]
-        }
-      ]
-    },
-    {
       "Instructions": [
         {
           "Sensor": {
@@ -54,6 +35,19 @@
             "State": "Idle"
           },
           "Instructions": [
+            {
+              "Sensor": {
+                "Type": "Damage",
+                "Combat": true,
+                "TargetSlot": "LockedTarget"
+              },
+              "Actions": [
+                {
+                  "Type": "State",
+                  "State": "Fleeing"
+                }
+              ]
+            },
             {
               "Sensor": {
                 "Type": "Target",
@@ -100,6 +94,19 @@
             "State": "Watching"
           },
           "Instructions": [
+            {
+              "Sensor": {
+                "Type": "Damage",
+                "Combat": true,
+                "TargetSlot": "LockedTarget"
+              },
+              "Actions": [
+                {
+                  "Type": "State",
+                  "State": "Fleeing"
+                }
+              ]
+            },
             {
               "Sensor": {
                 "Type": "Target",

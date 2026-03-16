@@ -1,11 +1,9 @@
 {
   "IncludeRoles": [
-    "Guard",
-    "Villager",
-    "ArtisanBlacksmith",
-    "ArtisanAlchemist",
-    "ArtisanCook",
-    "Traveler",
-    "TavernKeeper"
+    "Guard*",
+    "Villager*",
+    "Artisan*",
+    "Traveler*",
+    "TavernKeeper*"
   ]
 }
