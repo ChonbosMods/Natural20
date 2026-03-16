@@ -75,19 +75,21 @@ public class GridPrefabSaveConnectorCommand extends AbstractPlayerCommand {
         context.sendMessage(Message.raw("Scanning " + WIDTH + "x" + HEIGHT + "x" + DEPTH +
             " connector at " + originX + ", " + originY + ", " + originZ + "..."));
 
+        // Step 1: Save prefab using vanilla PrefabSaver pipeline (async, outside world.execute)
+        String prefabKey = "Nat20/dungeon/connectors/" + name;
+        savePrefab(context, world, name, originX, originY, originZ);
+
+        // Step 2: Validation and metadata (needs world thread for block reads)
         world.execute(() -> {
             List<String> warnings = new ArrayList<>();
 
-            // Step 1: Read all blocks and validate at least one air block exists
-            String[][][] blocks = new String[WIDTH][HEIGHT][DEPTH];
+            // Validate at least one air block exists
             boolean hasAir = false;
             for (int x = 0; x < WIDTH; x++) {
                 for (int y = 0; y < HEIGHT; y++) {
                     for (int z = 0; z < DEPTH; z++) {
                         BlockType bt = world.getBlockType(originX + x, originY + y, originZ + z);
-                        if (bt != null && !"Empty".equals(bt.getId())) {
-                            blocks[x][y][z] = bt.getId();
-                        } else {
+                        if (bt == null || "Empty".equals(bt.getId())) {
                             hasAir = true;
                         }
                     }
@@ -95,25 +97,17 @@ public class GridPrefabSaveConnectorCommand extends AbstractPlayerCommand {
             }
 
             if (!hasAir) {
-                warnings.add("Region is entirely solid: connectors should have at least one air block for passability");
+                warnings.add("Region is entirely solid: connectors should have at least one air block");
             }
 
-            // Step 2: Save prefab using vanilla PrefabSaver pipeline
-            String prefabKey = "Nat20/dungeon/connectors/" + name;
-            savePrefab(context, world, name, originX, originY, originZ, warnings);
-
-            // Step 3: Write metadata JSON
+            // Write metadata JSON
             writeMetadata(name, prefabKey, warnings);
 
-            // Step 4: Register in connector registry
+            // Register in connector registry
             ConnectorDef def = new ConnectorDef(name, prefabKey, List.of(), 5.0);
             Natural20.getInstance().getDungeonSystem().getConnectorRegistry().registerDef(def);
 
-            // Step 5: Report results
-            StringBuilder report = new StringBuilder();
-            report.append("Saved connector '").append(name).append("'");
-
-            context.sendMessage(Message.raw(report.toString()));
+            context.sendMessage(Message.raw("Saved connector '" + name + "'"));
 
             if (!warnings.isEmpty()) {
                 for (String warning : warnings) {
@@ -127,18 +121,17 @@ public class GridPrefabSaveConnectorCommand extends AbstractPlayerCommand {
      * Saves the connector block region as a .prefab.json file using the vanilla PrefabSaver pipeline.
      */
     private void savePrefab(CommandContext context, World world, String name,
-                             int originX, int originY, int originZ,
-                             List<String> warnings) {
+                             int originX, int originY, int originZ) {
         Path prefabPath = resolvePrefabPath("dungeon/connectors/" + name);
         if (prefabPath == null) {
-            warnings.add("Could not resolve prefab output path");
+            context.sendMessage(Message.raw("[WARN] Could not resolve prefab output path"));
             return;
         }
 
         try {
             Files.createDirectories(prefabPath.getParent());
         } catch (IOException e) {
-            warnings.add("Failed to create prefab directory: " + e.getMessage());
+            context.sendMessage(Message.raw("[WARN] Failed to create prefab directory: " + e.getMessage()));
             return;
         }
 

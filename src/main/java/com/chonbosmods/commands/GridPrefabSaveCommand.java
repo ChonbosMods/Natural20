@@ -111,10 +111,17 @@ public class GridPrefabSaveCommand extends AbstractPlayerCommand {
         // Capture final values for lambda
         final boolean rotatableFinal = rotatable;
 
+        // Step 1: Save prefab using vanilla PrefabSaver pipeline (async, must be outside world.execute)
+        // PrefabSaver handles its own chunk loading internally.
+        String prefabKey = "Nat20/dungeon/" + name;
+        savePrefab(context, world, name, originX, originY, originZ,
+            blockW, blockH, blockD);
+
+        // Step 2: Socket detection and metadata (needs world thread for block reads)
         world.execute(() -> {
             List<String> warnings = new ArrayList<>();
 
-            // Step 1: Read all blocks
+            // Read all blocks for socket detection
             String[][][] blocks = new String[blockW][blockH][blockD];
             for (int x = 0; x < blockW; x++) {
                 for (int y = 0; y < blockH; y++) {
@@ -127,55 +134,46 @@ public class GridPrefabSaveCommand extends AbstractPlayerCommand {
                 }
             }
 
-            // Step 2: Detect sockets on perimeter cell-faces
+            // Detect sockets on perimeter cell-faces
             List<SocketEntry> sockets = new ArrayList<>();
             for (int cx = 0; cx < gridW; cx++) {
                 for (int cz = 0; cz < gridD; cz++) {
                     int cellBlockX = cx * CELL_SIZE;
                     int cellBlockZ = cz * CELL_SIZE;
 
-                    // North face: only if cell is at z=0
                     if (cz == 0) {
                         sockets.add(detectSocket(blocks, cellBlockX, cellBlockZ, Face.NORTH, blockH));
                     }
-                    // South face: only if cell is at z=gridD-1
                     if (cz == gridD - 1) {
                         sockets.add(detectSocket(blocks, cellBlockX, cellBlockZ, Face.SOUTH, blockH));
                     }
-                    // West face: only if cell is at x=0
                     if (cx == 0) {
                         sockets.add(detectSocket(blocks, cellBlockX, cellBlockZ, Face.WEST, blockH));
                     }
-                    // East face: only if cell is at x=gridW-1
                     if (cx == gridW - 1) {
                         sockets.add(detectSocket(blocks, cellBlockX, cellBlockZ, Face.EAST, blockH));
                     }
                 }
             }
 
-            // Step 3: Replace marker blocks with dominant wall material
+            // Replace marker blocks with dominant wall material
             int markersReplaced = replaceMarkerBlocks(world, blocks, originX, originY, originZ,
                 blockW, blockH, blockD, warnings);
 
-            // Step 4: Validate wall integrity
+            // Validate wall integrity
             validateWalls(blocks, gridW, gridD, blockH, warnings);
 
-            // Step 5: Save prefab using vanilla PrefabSaver pipeline
-            String prefabKey = "Nat20/dungeon/" + name;
-            savePrefab(context, world, name, originX, originY, originZ,
-                blockW, blockH, blockD, warnings);
-
-            // Step 6: Write metadata JSON
+            // Write metadata JSON
             writeMetadata(name, prefabKey, gridW, gridH, gridD, rotatableFinal, sockets, warnings);
 
-            // Step 7: Register in piece registry
+            // Register in piece registry
             DungeonPieceDef def = new DungeonPieceDef(
                 name, prefabKey, gridW, gridH, gridD, rotatableFinal,
                 sockets, List.of(), 1.0
             );
             Natural20.getInstance().getDungeonSystem().getPieceRegistry().registerDef(def);
 
-            // Step 8: Report results
+            // Report results
             long openCount = sockets.stream().filter(SocketEntry::isOpen).count();
             long sealedCount = sockets.size() - openCount;
 
@@ -363,18 +361,17 @@ public class GridPrefabSaveCommand extends AbstractPlayerCommand {
      */
     private void savePrefab(CommandContext context, World world, String name,
                              int originX, int originY, int originZ,
-                             int blockW, int blockH, int blockD,
-                             List<String> warnings) {
+                             int blockW, int blockH, int blockD) {
         Path prefabPath = resolvePrefabPath("dungeon/" + name);
         if (prefabPath == null) {
-            warnings.add("Could not resolve prefab output path");
+            context.sendMessage(Message.raw("[WARN] Could not resolve prefab output path"));
             return;
         }
 
         try {
             Files.createDirectories(prefabPath.getParent());
         } catch (IOException e) {
-            warnings.add("Failed to create prefab directory: " + e.getMessage());
+            context.sendMessage(Message.raw("[WARN] Failed to create prefab directory: " + e.getMessage()));
             return;
         }
 
