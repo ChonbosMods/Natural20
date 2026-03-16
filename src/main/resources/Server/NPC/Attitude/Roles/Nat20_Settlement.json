@@ -1,0 +1,8 @@
+{
+  "Groups": {
+    "Hostile": ["Trork", "Undead", "Saurian"],
+    "Friendly": ["Player", "Kweebec", "Human"]
+  },
+  "DefaultNPCAttitude": "Ignore",
+  "DefaultPlayerAttitude": "Neutral"
+}
