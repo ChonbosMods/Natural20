@@ -3,6 +3,7 @@ package com.chonbosmods.commands;
 import com.chonbosmods.Natural20;
 import com.chonbosmods.dungeon.DungeonPieceDef;
 import com.chonbosmods.dungeon.Face;
+import com.chonbosmods.dungeon.GridPrefabUtil;
 import com.chonbosmods.dungeon.SocketEntry;
 import com.google.gson.Gson;
 import com.google.gson.GsonBuilder;
@@ -11,6 +12,8 @@ import com.google.gson.JsonObject;
 import com.hypixel.hytale.component.Ref;
 import com.hypixel.hytale.component.Store;
 import com.hypixel.hytale.math.vector.Vector3d;
+import com.hypixel.hytale.math.vector.Vector3f;
+import com.hypixel.hytale.math.vector.Vector3i;
 import com.hypixel.hytale.server.core.Message;
 import com.hypixel.hytale.server.core.asset.type.blocktype.config.BlockType;
 import com.hypixel.hytale.server.core.command.system.CommandContext;
@@ -31,18 +34,19 @@ import java.nio.file.Path;
 import java.util.*;
 
 /**
- * Saves the block region at the player's position as a dungeon prefab piece.
+ * Saves the block region based on the player's crosshair target and facing direction.
  * Usage: /gridprefab save <name> <gridW> <gridH> <gridD> [rotatable]
  *
- * Scans blocks in a gridW*5 x gridH*5 x gridD*5 region, detects sockets
- * on perimeter cell-faces, replaces marker blocks with dominant wall material,
- * validates wall integrity, and writes block data + metadata JSON files.
+ * The player looks at a block (crosshair target). The prefab region starts 1 block
+ * above the targeted block, extending forward (player facing) and to the right.
+ * Blocks are stored in canonical south-facing orientation.
  */
 public class GridPrefabSaveCommand extends AbstractPlayerCommand {
 
     private static final int CELL_SIZE = 5;
     private static final String MARKER_BLOCK_KEY = "Ore_Thorium_Mud";
     private static final String EMPTY_BLOCK_KEY = "Empty";
+    private static final double RAYCAST_MAX_DISTANCE = 50.0;
     private static final Gson GSON = new GsonBuilder().setPrettyPrinting().create();
 
     private final RequiredArg<String> nameArg =
@@ -87,23 +91,26 @@ public class GridPrefabSaveCommand extends AbstractPlayerCommand {
             rotatable = Boolean.parseBoolean(rotatableArg.get(context));
         }
 
-        // Get player position as origin
+        // Get player position and rotation
         TransformComponent transform = store.getComponent(ref, TransformComponent.getComponentType());
         if (transform == null) {
             context.sendMessage(Message.raw("Could not get your position."));
             return;
         }
         Vector3d pos = transform.getPosition();
-        int originX = (int) pos.getX();
-        int originY = (int) pos.getY();
-        int originZ = (int) pos.getZ();
+        Vector3f rot = transform.getRotation();
+        float yaw = rot.getY();
+        float pitch = rot.getX();
+
+        Face facing = GridPrefabUtil.getCardinalFacing(yaw);
+        Vector3d direction = GridPrefabUtil.getDirection(yaw, pitch);
+
+        // Eye position is approximately 1.6 blocks above foot position
+        Vector3d eyePos = new Vector3d(pos.getX(), pos.getY() + 1.6, pos.getZ());
 
         int blockW = gridW * CELL_SIZE;
         int blockH = gridH * CELL_SIZE;
         int blockD = gridD * CELL_SIZE;
-
-        context.sendMessage(Message.raw("Scanning " + blockW + "x" + blockH + "x" + blockD +
-            " blocks at " + originX + ", " + originY + ", " + originZ + "..."));
 
         // Capture final values for lambda
         final boolean rotatableFinal = rotatable;
@@ -111,24 +118,44 @@ public class GridPrefabSaveCommand extends AbstractPlayerCommand {
 
         // All block access must happen on the world thread
         world.execute(() -> {
+            // Raycast to find target block
+            Vector3i target = GridPrefabUtil.getTargetBlock(world, eyePos, direction, RAYCAST_MAX_DISTANCE);
+            if (target == null) {
+                context.sendMessage(Message.raw("No block in view (look at a block to set the origin)."));
+                return;
+            }
+
+            Vector3i origin = GridPrefabUtil.computeRegionOrigin(target, facing, blockW, blockD);
+            int[] extents = GridPrefabUtil.getWorldExtents(facing, blockW, blockD);
+            int worldExtX = extents[0];
+            int worldExtZ = extents[1];
+
+            context.sendMessage(Message.raw("Scanning " + blockW + "x" + blockH + "x" + blockD +
+                " from " + origin.getX() + "," + origin.getY() + "," + origin.getZ() +
+                " facing " + facing + " (" + worldExtX + "x" + blockH + "x" + worldExtZ + " world)..."));
+
             List<String> warnings = new ArrayList<>();
 
-            // Read all blocks and rotations for socket detection and block data
+            // Read all blocks and rotations in world space, store in canonical local space
             String[][][] blocks = new String[blockW][blockH][blockD];
             int[][][] rotations = new int[blockW][blockH][blockD];
-            for (int x = 0; x < blockW; x++) {
+            for (int wx = 0; wx < worldExtX; wx++) {
                 for (int y = 0; y < blockH; y++) {
-                    for (int z = 0; z < blockD; z++) {
-                        BlockType bt = world.getBlockType(originX + x, originY + y, originZ + z);
+                    for (int wz = 0; wz < worldExtZ; wz++) {
+                        int worldX = origin.getX() + wx;
+                        int worldY = origin.getY() + y;
+                        int worldZ = origin.getZ() + wz;
+                        BlockType bt = world.getBlockType(worldX, worldY, worldZ);
                         if (bt != null && !EMPTY_BLOCK_KEY.equals(bt.getId())) {
-                            blocks[x][y][z] = bt.getId();
-                            rotations[x][y][z] = world.getBlockRotationIndex(originX + x, originY + y, originZ + z);
+                            int[] local = GridPrefabUtil.worldToLocal(wx, wz, facing, worldExtX, worldExtZ);
+                            blocks[local[0]][y][local[1]] = bt.getId();
+                            rotations[local[0]][y][local[1]] = world.getBlockRotationIndex(worldX, worldY, worldZ);
                         }
                     }
                 }
             }
 
-            // Detect sockets on perimeter cell-faces
+            // Detect sockets on perimeter cell-faces (in canonical local space)
             List<SocketEntry> sockets = new ArrayList<>();
             for (int cx = 0; cx < gridW; cx++) {
                 for (int cz = 0; cz < gridD; cz++) {
@@ -151,8 +178,8 @@ public class GridPrefabSaveCommand extends AbstractPlayerCommand {
             }
 
             // Replace marker blocks with dominant wall material
-            int markersReplaced = replaceMarkerBlocks(world, blocks, originX, originY, originZ,
-                blockW, blockH, blockD, warnings);
+            int markersReplaced = replaceMarkerBlocks(world, blocks, rotations, origin, facing,
+                blockW, blockH, blockD, worldExtX, worldExtZ, warnings);
 
             // Validate wall integrity
             validateWalls(blocks, gridW, gridD, blockH, warnings);
@@ -247,42 +274,47 @@ public class GridPrefabSaveCommand extends AbstractPlayerCommand {
 
     /**
      * Replaces marker blocks with the dominant wall material at each column.
+     * Operates in canonical local space, then writes replacements back to world space.
      * Returns the number of blocks replaced.
      */
-    private int replaceMarkerBlocks(World world, String[][][] blocks,
-                                     int originX, int originY, int originZ,
+    private int replaceMarkerBlocks(World world, String[][][] blocks, int[][][] rotations,
+                                     Vector3i origin, Face facing,
                                      int blockW, int blockH, int blockD,
+                                     int worldExtX, int worldExtZ,
                                      List<String> warnings) {
         int replaced = 0;
-        for (int x = 0; x < blockW; x++) {
-            for (int z = 0; z < blockD; z++) {
+        for (int lx = 0; lx < blockW; lx++) {
+            for (int lz = 0; lz < blockD; lz++) {
                 // Find marker blocks in this column
                 List<Integer> markerYs = new ArrayList<>();
                 for (int y = 0; y < blockH; y++) {
-                    if (MARKER_BLOCK_KEY.equals(blocks[x][y][z])) {
+                    if (MARKER_BLOCK_KEY.equals(blocks[lx][y][lz])) {
                         markerYs.add(y);
                     }
                 }
                 if (markerYs.isEmpty()) continue;
 
                 // Find dominant wall material in this column (non-null, non-marker)
-                String dominant = findDominantMaterial(blocks, x, z, blockH);
+                String dominant = findDominantMaterial(blocks, lx, lz, blockH);
                 if (dominant == null) {
-                    warnings.add("No dominant material at column (" + x + "," + z +
+                    warnings.add("No dominant material at column (" + lx + "," + lz +
                         "): " + markerYs.size() + " marker blocks left unreplaced");
                     continue;
                 }
 
-                // Replace marker blocks with dominant material
+                // Replace marker blocks in local space and update world
+                int[] worldOffset = GridPrefabUtil.localToWorld(lx, lz, facing, blockW, blockD);
                 for (int y : markerYs) {
                     try {
-                        world.setBlock(originX + x, originY + y, originZ + z, dominant);
-                        blocks[x][y][z] = dominant;
+                        int worldX = origin.getX() + worldOffset[0];
+                        int worldY = origin.getY() + y;
+                        int worldZ = origin.getZ() + worldOffset[1];
+                        world.setBlock(worldX, worldY, worldZ, dominant);
+                        blocks[lx][y][lz] = dominant;
                         replaced++;
                     } catch (Exception e) {
-                        warnings.add("Failed to replace block at (" +
-                            (originX + x) + "," + (originY + y) + "," + (originZ + z) + "): " +
-                            e.getMessage());
+                        warnings.add("Failed to replace marker at local (" +
+                            lx + "," + y + "," + lz + "): " + e.getMessage());
                     }
                 }
             }

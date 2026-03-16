@@ -3,13 +3,16 @@ package com.chonbosmods.commands;
 import com.chonbosmods.Natural20;
 import com.chonbosmods.dungeon.BlockData;
 import com.chonbosmods.dungeon.DungeonSystem;
+import com.chonbosmods.dungeon.Face;
+import com.chonbosmods.dungeon.GridPrefabUtil;
 import com.hypixel.hytale.component.Ref;
 import com.hypixel.hytale.component.Store;
 import com.hypixel.hytale.math.vector.Vector3d;
+import com.hypixel.hytale.math.vector.Vector3f;
 import com.hypixel.hytale.math.vector.Vector3i;
 import com.hypixel.hytale.server.core.Message;
-import com.hypixel.hytale.server.core.command.system.CommandContext;
 import com.hypixel.hytale.server.core.asset.type.blocktype.config.BlockType;
+import com.hypixel.hytale.server.core.command.system.CommandContext;
 import com.hypixel.hytale.server.core.command.system.arguments.system.RequiredArg;
 import com.hypixel.hytale.server.core.command.system.arguments.types.ArgTypes;
 import com.hypixel.hytale.server.core.command.system.basecommands.AbstractPlayerCommand;
@@ -21,19 +24,22 @@ import com.hypixel.hytale.server.core.universe.world.storage.EntityStore;
 import javax.annotation.Nonnull;
 
 /**
- * Pastes a registered dungeon prefab at the player's position for preview.
+ * Pastes a registered dungeon prefab based on the player's crosshair target and facing direction.
  * Usage: /gridprefab preview <name>
  *
  * Looks up the name in dungeon_pieces first, then dungeon_connectors.
- * Loads the .blocks.json file and pastes block by block with rotation data.
+ * Loads the .blocks.json file and pastes block by block, transforming canonical
+ * local coordinates to world space based on the player's cardinal facing direction.
  */
 public class GridPrefabPreviewCommand extends AbstractPlayerCommand {
+
+    private static final double RAYCAST_MAX_DISTANCE = 50.0;
 
     private final RequiredArg<String> nameArg =
         withRequiredArg("name", "Piece or connector name", ArgTypes.STRING);
 
     public GridPrefabPreviewCommand() {
-        super("preview", "Paste a registered prefab at your position");
+        super("preview", "Paste a registered prefab at your crosshair target");
     }
 
     @Override
@@ -60,31 +66,56 @@ public class GridPrefabPreviewCommand extends AbstractPlayerCommand {
             return;
         }
 
-        // Get player position
+        // Get player position and rotation
         TransformComponent transform = store.getComponent(ref, TransformComponent.getComponentType());
         if (transform == null) {
             context.sendMessage(Message.raw("Could not get your position."));
             return;
         }
         Vector3d pos = transform.getPosition();
-        Vector3i position = new Vector3i((int) pos.getX(), (int) pos.getY(), (int) pos.getZ());
+        Vector3f rot = transform.getRotation();
+        float yaw = rot.getY();
+        float pitch = rot.getX();
 
-        context.sendMessage(Message.raw("Pasting " + sourceType + " '" + name + "' (" +
-            data.blocks().size() + " blocks) at " +
-            position.getX() + ", " + position.getY() + ", " + position.getZ() + "..."));
+        Face facing = GridPrefabUtil.getCardinalFacing(yaw);
+        Vector3d direction = GridPrefabUtil.getDirection(yaw, pitch);
+
+        // Eye position is approximately 1.6 blocks above foot position
+        Vector3d eyePos = new Vector3d(pos.getX(), pos.getY() + 1.6, pos.getZ());
+
+        int blockW = data.width();
+        int blockD = data.depth();
 
         // Capture for lambda
         final BlockData finalData = data;
         final String finalSourceType = sourceType;
 
         world.execute(() -> {
+            // Raycast to find target block
+            Vector3i target = GridPrefabUtil.getTargetBlock(world, eyePos, direction, RAYCAST_MAX_DISTANCE);
+            if (target == null) {
+                context.sendMessage(Message.raw("No block in view (look at a block to set the origin)."));
+                return;
+            }
+
+            Vector3i origin = GridPrefabUtil.computeRegionOrigin(target, facing, blockW, blockD);
+
+            context.sendMessage(Message.raw("Pasting " + finalSourceType + " '" + name + "' (" +
+                finalData.blocks().size() + " blocks) at " +
+                origin.getX() + "," + origin.getY() + "," + origin.getZ() +
+                " facing " + facing + "..."));
+
             int placed = 0;
             for (BlockData.BlockEntry entry : finalData.blocks()) {
-                int bx = position.getX() + entry.x();
-                int by = position.getY() + entry.y();
-                int bz = position.getZ() + entry.z();
-                // Place block first
+                // Transform canonical local coords to world-space offset
+                int[] worldOffset = GridPrefabUtil.localToWorld(entry.x(), entry.z(), facing, blockW, blockD);
+                int bx = origin.getX() + worldOffset[0];
+                int by = origin.getY() + entry.y();
+                int bz = origin.getZ() + worldOffset[1];
+
+                // Place block
                 world.setBlock(bx, by, bz, entry.id());
+
                 // Apply rotation via chunk's BlockAccessor if needed
                 if (entry.rot() != 0) {
                     long chunkKey = com.hypixel.hytale.math.util.ChunkUtil.indexChunkFromBlock(bx, bz);
