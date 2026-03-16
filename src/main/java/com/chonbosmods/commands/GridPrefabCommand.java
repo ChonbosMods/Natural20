@@ -9,5 +9,7 @@ public class GridPrefabCommand extends AbstractCommandCollection {
         addSubCommand(new GridPrefabSaveCommand());
         addSubCommand(new GridPrefabSaveConnectorCommand());
         addSubCommand(new GridPrefabPreviewCommand());
+        addSubCommand(new GridPrefabListCommand());
+        addSubCommand(new GridPrefabValidateCommand());
     }
 }
