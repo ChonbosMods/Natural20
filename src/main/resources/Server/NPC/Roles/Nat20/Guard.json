@@ -39,6 +39,25 @@
       }]
     },
     {
+      "$Comment": "Damage detection: any state, store attacker in LockedTarget, enter Combat",
+      "Continue": true,
+      "Instructions": [
+        {
+          "Sensor": {
+            "Type": "Damage",
+            "Combat": true,
+            "TargetSlot": "LockedTarget"
+          },
+          "Actions": [
+            {
+              "Type": "State",
+              "State": "Combat"
+            }
+          ]
+        }
+      ]
+    },
+    {
       "Instructions": [
         {
           "$Comment": "Idle: stand guard, watch nearby players",
@@ -48,9 +67,11 @@
           },
           "Instructions": [
             {
+              "$Comment": "If plugin marked a target in LockedTarget, enter Combat",
               "Sensor": {
                 "Type": "Target",
-                "Range": 16
+                "TargetSlot": "LockedTarget",
+                "Range": 20
               },
               "Actions": [
                 {
@@ -89,7 +110,8 @@
             {
               "Sensor": {
                 "Type": "Target",
-                "Range": 20
+                "TargetSlot": "LockedTarget",
+                "Range": 24
               },
               "HeadMotion": {
                 "Type": "Watch"
@@ -102,12 +124,13 @@
               }
             },
             {
-              "$Comment": "No target: transition to return to post",
+              "$Comment": "No target in LockedTarget: return to post",
               "Sensor": {
                 "Type": "Not",
                 "Sensor": {
                   "Type": "Target",
-                  "Range": 20
+                  "TargetSlot": "LockedTarget",
+                  "Range": 24
                 }
               },
               "Actions": [

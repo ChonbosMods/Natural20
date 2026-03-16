@@ -72,7 +72,7 @@ public class SettlementThreatClearSystem implements Runnable {
 
                 NPCEntity npc = store.getComponent(threat.npcRef, NPCEntity.getComponentType());
                 if (npc != null) {
-                    npc.onFlockSetTarget("LockedTargetClose", null);
+                    npc.onFlockSetTarget("LockedTarget", null);
                     LOGGER.atInfo().log("Cleared threat on NPC (ref %s): returning to normal",
                             threat.npcRef);
                 }

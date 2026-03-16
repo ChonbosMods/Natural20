@@ -25,6 +25,25 @@
   ],
   "Instructions": [
     {
+      "$Comment": "Damage detection: any state, store attacker in LockedTarget, flee",
+      "Continue": true,
+      "Instructions": [
+        {
+          "Sensor": {
+            "Type": "Damage",
+            "Combat": true,
+            "TargetSlot": "LockedTarget"
+          },
+          "Actions": [
+            {
+              "Type": "State",
+              "State": "Fleeing"
+            }
+          ]
+        }
+      ]
+    },
+    {
       "Instructions": [
         {
           "$Comment": "Idle: wander slowly in a circle, pause, repeat",
@@ -36,6 +55,7 @@
             {
               "Sensor": {
                 "Type": "Target",
+                "TargetSlot": "LockedTarget",
                 "Range": 10
               },
               "Actions": [
@@ -95,6 +115,7 @@
             {
               "Sensor": {
                 "Type": "Target",
+                "TargetSlot": "LockedTarget",
                 "Range": 16
               },
               "BodyMotion": {
@@ -107,6 +128,7 @@
                 "Type": "Not",
                 "Sensor": {
                   "Type": "Target",
+                  "TargetSlot": "LockedTarget",
                   "Range": 16
                 }
               },

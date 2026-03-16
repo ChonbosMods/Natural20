@@ -66,7 +66,7 @@ public class SettlementThreatSystem extends DamageEventSystem {
         // Mark attacker as target on the damaged NPC
         NPCEntity victimNpc = store.getComponent(victimRef, NPCEntity.getComponentType());
         if (victimNpc != null) {
-            victimNpc.onFlockSetTarget("LockedTargetClose", attackerRef);
+            victimNpc.onFlockSetTarget("LockedTarget", attackerRef);
         }
 
         // Find settlement and mark attacker on all Guards
@@ -90,7 +90,7 @@ public class SettlementThreatSystem extends DamageEventSystem {
                 if (guardRef != null && guardRef.isValid()) {
                     NPCEntity guardNpc = store.getComponent(guardRef, NPCEntity.getComponentType());
                     if (guardNpc != null) {
-                        guardNpc.onFlockSetTarget("LockedTargetClose", attackerRef);
+                        guardNpc.onFlockSetTarget("LockedTarget", attackerRef);
                     }
                 }
             }
