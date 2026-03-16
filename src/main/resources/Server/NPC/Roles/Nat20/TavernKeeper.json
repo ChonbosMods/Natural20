@@ -7,16 +7,18 @@
   ],
   "DefaultNPCAttitude": "Ignore",
   "DefaultPlayerAttitude": "Neutral",
+  "AttitudeId": "Nat20_Settlement",
   "Appearance": "NPC_Elf",
   "MaxHealth": 20,
   "KnockbackScale": 0.5,
   "BusyStates": [
-    "$Interaction"
+    "$Interaction",
+    "Fleeing"
   ],
   "MotionControllerList": [
     {
       "Type": "Walk",
-      "MaxWalkSpeed": 5,
+      "MaxWalkSpeed": 7,
       "Gravity": 10,
       "RunThreshold": 0.3,
       "MaxFallSpeed": 15,
@@ -24,6 +26,24 @@
       "Acceleration": 10
     }
   ],
+  "DecisionMaker": {
+    "Type": "StateEvaluator",
+    "Options": [
+      {
+        "State": "Idle",
+        "Conditions": [
+          { "Type": "Randomiser", "Score": 0.1 }
+        ]
+      },
+      {
+        "State": "Fleeing",
+        "Conditions": [
+          { "Type": "HasTarget", "Score": 0.9 },
+          { "Type": "KnownTargetCount", "Attitude": "Hostile", "Min": 1, "Score": 0.85 }
+        ]
+      }
+    ]
+  },
   "Instructions": [
     {
       "Instructions": [
@@ -163,6 +183,45 @@
                   }
                 }
               ]
+            }
+          ]
+        },
+        {
+          "$Comment": "Fleeing: run away from hostile threat",
+          "Sensor": {
+            "Type": "State",
+            "State": "Fleeing"
+          },
+          "Instructions": [
+            {
+              "Sensor": {
+                "Type": "HasTarget"
+              },
+              "BodyMotion": {
+                "Type": "Flee",
+                "RelativeSpeed": 1.0
+              }
+            },
+            {
+              "Sensor": {
+                "Type": "Not",
+                "Sensor": {
+                  "Type": "HasTarget"
+                }
+              },
+              "Actions": [
+                {
+                  "Type": "Timeout",
+                  "Delay": [5, 5],
+                  "Action": {
+                    "Type": "State",
+                    "State": "Idle"
+                  }
+                }
+              ],
+              "BodyMotion": {
+                "Type": "Nothing"
+              }
             }
           ]
         }
