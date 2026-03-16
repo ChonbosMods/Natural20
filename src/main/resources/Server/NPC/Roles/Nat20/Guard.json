@@ -5,27 +5,68 @@
   "DisplayNames": [
     "Guard"
   ],
-  "DefaultNPCAttitude": "Ignore",
+  "DefaultNPCAttitude": "Aggressive",
   "DefaultPlayerAttitude": "Neutral",
+  "AttitudeId": "Nat20_Settlement",
   "Appearance": "NPC_Elf",
   "MaxHealth": 30,
   "KnockbackScale": 0.5,
+  "Equipment": {
+    "RightHand": "Hytale:MithrilSword",
+    "Helmet": "Hytale:CobaltHelmet",
+    "Chestplate": "Hytale:CobaltChestplate",
+    "Gauntlets": "Hytale:CobaltGauntlets",
+    "Greaves": "Hytale:CobaltGreaves"
+  },
   "MotionControllerList": [
     {
       "Type": "Walk",
-      "MaxWalkSpeed": 7,
+      "MaxWalkSpeed": 8,
       "Gravity": 10,
-      "RunThreshold": 0.3,
+      "RunThreshold": 0.5,
       "MaxFallSpeed": 15,
       "MaxRotationSpeed": 360,
       "Acceleration": 10
     }
   ],
+  "DecisionMaker": {
+    "Type": "StateEvaluator",
+    "Options": [
+      {
+        "State": "Idle",
+        "Conditions": [
+          { "Type": "Randomiser", "Score": 0.1 }
+        ]
+      },
+      {
+        "State": "Combat",
+        "Conditions": [
+          { "Type": "HasTarget", "Score": 0.9 },
+          { "Type": "KnownTargetCount", "Attitude": "Hostile", "Min": 1, "Score": 0.85 }
+        ]
+      },
+      {
+        "State": "ReturnToPost",
+        "Conditions": [
+          { "Type": "IsInState", "State": "Combat", "Score": 0.3 }
+        ]
+      }
+    ]
+  },
+  "CombatActionEvaluator": {
+    "Actions": [
+      {
+        "Type": "MeleeAttack",
+        "Range": 3.0,
+        "Score": 1.0
+      }
+    ]
+  },
   "Instructions": [
     {
       "Instructions": [
         {
-          "$Comment": "Idle: stand still, watch nearby players",
+          "$Comment": "Idle: stand guard, watch nearby players",
           "Sensor": {
             "Type": "State",
             "State": "Idle"
@@ -35,7 +76,7 @@
               "Continue": true,
               "Sensor": {
                 "Type": "Player",
-                "Range": 12
+                "Range": 16
               },
               "HeadMotion": {
                 "Type": "Watch"
@@ -48,6 +89,70 @@
               "BodyMotion": {
                 "Type": "Nothing"
               }
+            }
+          ]
+        },
+        {
+          "$Comment": "Combat: chase and engage hostile target",
+          "Sensor": {
+            "Type": "State",
+            "State": "Combat"
+          },
+          "Instructions": [
+            {
+              "Sensor": {
+                "Type": "HasTarget"
+              },
+              "HeadMotion": {
+                "Type": "Watch"
+              },
+              "BodyMotion": {
+                "Type": "Chase",
+                "RelativeSpeed": 1.0
+              }
+            },
+            {
+              "$Comment": "No target: transition to return to post",
+              "Sensor": {
+                "Type": "Not",
+                "Sensor": {
+                  "Type": "HasTarget"
+                }
+              },
+              "Actions": [
+                {
+                  "Type": "State",
+                  "State": "ReturnToPost"
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "$Comment": "ReturnToPost: walk back to leash point",
+          "Sensor": {
+            "Type": "State",
+            "State": "ReturnToPost"
+          },
+          "Instructions": [
+            {
+              "Sensor": {
+                "Type": "Any"
+              },
+              "BodyMotion": {
+                "Type": "ReturnToLeash",
+                "RelativeSpeed": 0.4
+              },
+              "Actions": [
+                {
+                  "Type": "Timeout",
+                  "Delay": [5, 8],
+                  "Action": {
+                    "Type": "State",
+                    "State": "Idle"
+                  }
+                }
+              ]
             }
           ]
         }
