@@ -8,5 +8,6 @@ public class GridPrefabCommand extends AbstractCommandCollection {
         super("gridprefab", "Dungeon prefab authoring commands");
         addSubCommand(new GridPrefabSaveCommand());
         addSubCommand(new GridPrefabSaveConnectorCommand());
+        addSubCommand(new GridPrefabPreviewCommand());
     }
 }
