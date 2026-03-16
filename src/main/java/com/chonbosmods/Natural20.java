@@ -1,5 +1,6 @@
 package com.chonbosmods;
 
+import com.chonbosmods.commands.GridPrefabCommand;
 import com.chonbosmods.commands.Nat20Command;
 import com.chonbosmods.data.Nat20GlobalData;
 import com.chonbosmods.data.Nat20NpcData;
@@ -8,6 +9,7 @@ import com.chonbosmods.action.DialogueActionRegistry;
 import com.chonbosmods.dialogue.DialogueLoader;
 import com.chonbosmods.dialogue.DialogueManager;
 import com.chonbosmods.loot.Nat20EquipmentListener;
+import com.chonbosmods.dungeon.DungeonSystem;
 import com.chonbosmods.loot.Nat20LootSystem;
 import com.chonbosmods.npc.BuilderActionNat20StartDialogue;
 import com.chonbosmods.npc.Nat20NpcManager;
@@ -42,6 +44,7 @@ public class Natural20 extends JavaPlugin {
     private final DialogueLoader dialogueLoader = new DialogueLoader();
     private final DialogueManager dialogueManager = new DialogueManager(dialogueLoader, actionRegistry);
     private final Nat20LootSystem lootSystem = new Nat20LootSystem();
+    private final DungeonSystem dungeonSystem = new DungeonSystem();
     private final Nat20EquipmentListener equipmentListener = new Nat20EquipmentListener(lootSystem);
     private SettlementRegistry settlementRegistry;
     private Config<Nat20GlobalData> globalConfig;
@@ -80,6 +83,10 @@ public class Natural20 extends JavaPlugin {
         return lootSystem;
     }
 
+    public DungeonSystem getDungeonSystem() {
+        return dungeonSystem;
+    }
+
     public SettlementRegistry getSettlementRegistry() {
         return settlementRegistry;
     }
@@ -111,6 +118,7 @@ public class Natural20 extends JavaPlugin {
 
         // Register commands
         getCommandRegistry().registerCommand(new Nat20Command());
+        getCommandRegistry().registerCommand(new GridPrefabCommand());
 
         // Register equipment change listener for loot stat modifiers
         equipmentListener.register(getEventRegistry());
@@ -167,6 +175,9 @@ public class Natural20 extends JavaPlugin {
 
         // Load loot system configs
         lootSystem.loadAll(getDataDirectory().resolve("loot"));
+
+        // Load dungeon system configs
+        dungeonSystem.loadAll(getDataDirectory());
 
         // Rehydrate persisted unique items and inject I18n entries
         lootSystem.getItemRegistry().rehydrateAll();
