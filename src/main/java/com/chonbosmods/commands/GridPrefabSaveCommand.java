@@ -8,14 +8,14 @@ import com.google.gson.Gson;
 import com.google.gson.GsonBuilder;
 import com.google.gson.JsonArray;
 import com.google.gson.JsonObject;
-import com.hypixel.hytale.builtin.buildertools.prefabeditor.saving.PrefabSaver;
-import com.hypixel.hytale.builtin.buildertools.prefabeditor.saving.PrefabSaverSettings;
 import com.hypixel.hytale.component.Ref;
 import com.hypixel.hytale.component.Store;
 import com.hypixel.hytale.math.vector.Vector3d;
 import com.hypixel.hytale.math.vector.Vector3i;
 import com.hypixel.hytale.server.core.Message;
 import com.hypixel.hytale.server.core.asset.type.blocktype.config.BlockType;
+import com.hypixel.hytale.server.core.prefab.PrefabStore;
+import com.hypixel.hytale.server.core.prefab.selection.standard.BlockSelection;
 import com.hypixel.hytale.server.core.command.system.CommandContext;
 import com.hypixel.hytale.server.core.command.system.arguments.system.OptionalArg;
 import com.hypixel.hytale.server.core.command.system.arguments.system.RequiredArg;
@@ -110,15 +110,14 @@ public class GridPrefabSaveCommand extends AbstractPlayerCommand {
 
         // Capture final values for lambda
         final boolean rotatableFinal = rotatable;
-
-        // Step 1: Save prefab using vanilla PrefabSaver pipeline (async, must be outside world.execute)
-        // PrefabSaver handles its own chunk loading internally.
         String prefabKey = "Nat20/dungeon/" + name;
-        savePrefab(context, world, name, originX, originY, originZ,
-            blockW, blockH, blockD);
 
-        // Step 2: Socket detection and metadata (needs world thread for block reads)
+        // All block access must happen on the world thread
         world.execute(() -> {
+            // Step 1: Save prefab using BlockSelection + PrefabStore
+            savePrefab(context, world, name, originX, originY, originZ,
+                blockW, blockH, blockD);
+
             List<String> warnings = new ArrayList<>();
 
             // Read all blocks for socket detection
@@ -356,8 +355,9 @@ public class GridPrefabSaveCommand extends AbstractPlayerCommand {
     }
 
     /**
-     * Saves the block region as a .prefab.json file using the vanilla PrefabSaver pipeline.
-     * This captures blocks with rotation, filler, multi-block furniture state, and fluids.
+     * Saves the block region as a .prefab.json file by building a BlockSelection
+     * manually from world blocks and writing via PrefabStore.
+     * Must be called from within world.execute() since it reads blocks.
      */
     private void savePrefab(CommandContext context, World world, String name,
                              int originX, int originY, int originZ,
@@ -375,26 +375,36 @@ public class GridPrefabSaveCommand extends AbstractPlayerCommand {
             return;
         }
 
-        Vector3i minPoint = new Vector3i(originX, originY, originZ);
-        Vector3i maxPoint = new Vector3i(originX + blockW - 1, originY + blockH - 1, originZ + blockD - 1);
-        // Anchor at minPoint so blocks are stored relative to the region origin
-        Vector3i anchor = minPoint;
+        // Build BlockSelection from world blocks
+        BlockSelection selection = new BlockSelection();
+        selection.setPosition(originX, originY, originZ);
+        selection.setAnchor(0, 0, 0);
+        selection.setSelectionArea(
+            new Vector3i(originX, originY, originZ),
+            new Vector3i(originX + blockW - 1, originY + blockH - 1, originZ + blockD - 1));
 
-        PrefabSaverSettings settings = new PrefabSaverSettings();
-        settings.setBlocks(true);
-        settings.setEntities(false);
-        settings.setOverwriteExisting(true);
-        settings.setEmpty(true);
-
-        PrefabSaver.savePrefab(context.sender(), world, prefabPath, minPoint, maxPoint,
-                anchor, anchor, anchor, settings)
-            .thenAccept(success -> {
-                if (success) {
-                    context.sendMessage(Message.raw("Prefab saved: " + prefabPath.getFileName()));
-                } else {
-                    context.sendMessage(Message.raw("[WARN] Prefab save may have failed"));
+        int blockCount = 0;
+        for (int x = 0; x < blockW; x++) {
+            for (int y = 0; y < blockH; y++) {
+                for (int z = 0; z < blockD; z++) {
+                    int blockId = world.getBlock(originX + x, originY + y, originZ + z);
+                    if (blockId != 0) {
+                        int rotIndex = world.getBlockRotationIndex(originX + x, originY + y, originZ + z);
+                        selection.addBlockAtWorldPos(originX + x, originY + y, originZ + z,
+                            blockId, rotIndex, 0, 0);
+                        blockCount++;
+                    }
                 }
-            });
+            }
+        }
+
+        // Relativize so blocks are stored relative to origin
+        BlockSelection relativized = selection.relativize();
+
+        // Save to file
+        PrefabStore.get().savePrefab(prefabPath, relativized, true);
+
+        context.sendMessage(Message.raw("Prefab saved: " + blockCount + " blocks -> " + prefabPath.getFileName()));
     }
 
     /**
