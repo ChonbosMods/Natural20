@@ -33,8 +33,8 @@ import java.util.List;
  * Usage: /gridprefab saveconnector <name>
  *
  * Connectors are always 5x4x2 (5 wide, 4 tall, 2 deep). Scans the region,
- * validates that at least one air block exists, and writes both a placeholder
- * prefab file and metadata JSON.
+ * validates that at least one air block exists, and writes block data +
+ * metadata JSON files.
  */
 public class GridPrefabSaveConnectorCommand extends AbstractPlayerCommand {
 
@@ -75,13 +75,16 @@ public class GridPrefabSaveConnectorCommand extends AbstractPlayerCommand {
         world.execute(() -> {
             List<String> warnings = new ArrayList<>();
 
-            // Step 1: Scan blocks and validate at least one air block exists
+            // Step 1: Read all blocks and validate at least one air block exists
+            String[][][] blocks = new String[WIDTH][HEIGHT][DEPTH];
             boolean hasAir = false;
             for (int x = 0; x < WIDTH; x++) {
                 for (int y = 0; y < HEIGHT; y++) {
                     for (int z = 0; z < DEPTH; z++) {
                         BlockType bt = world.getBlockType(originX + x, originY + y, originZ + z);
-                        if (bt == null) {
+                        if (bt != null) {
+                            blocks[x][y][z] = bt.getId();
+                        } else {
                             hasAir = true;
                         }
                     }
@@ -92,11 +95,11 @@ public class GridPrefabSaveConnectorCommand extends AbstractPlayerCommand {
                 warnings.add("Region is entirely solid: connectors should have at least one air block for passability");
             }
 
-            // Step 2: Write placeholder prefab file
-            String prefabKey = "Nat20/dungeon/connectors/" + name;
-            writePlaceholderPrefab(name, prefabKey, warnings);
+            // Step 2: Write block data file
+            writeBlockData(name, blocks, warnings);
 
             // Step 3: Write metadata JSON
+            String prefabKey = "Nat20/dungeon/connectors/" + name;
             writeMetadata(name, prefabKey, warnings);
 
             // Step 4: Register in connector registry
@@ -118,50 +121,46 @@ public class GridPrefabSaveConnectorCommand extends AbstractPlayerCommand {
     }
 
     /**
-     * Writes a placeholder prefab JSON file for the connector.
+     * Writes the block data to a .blocks.json file in the data directory.
+     * Only non-null (non-air) blocks are stored for compactness.
      */
-    private void writePlaceholderPrefab(String name, String prefabKey, List<String> warnings) {
-        Path prefabDir = resolvePrefabDir();
-        if (prefabDir == null) {
-            warnings.add("Could not resolve assets/Server/Prefabs/ directory: prefab file not written");
+    private void writeBlockData(String name, String[][][] blocks, List<String> warnings) {
+        Path dataDir = Natural20.getInstance().getDungeonSystem().getDataDir();
+        if (dataDir == null) {
+            warnings.add("Dungeon data directory not initialized: block data file not written");
             return;
         }
 
-        Path prefabFile = prefabDir.resolve(prefabKey + ".prefab.json");
+        Path blockFile = dataDir.resolve("dungeon_connectors").resolve(name + ".blocks.json");
         try {
-            Files.createDirectories(prefabFile.getParent());
+            Files.createDirectories(blockFile.getParent());
 
             JsonObject obj = new JsonObject();
-            obj.addProperty("_comment", "Placeholder: replace with exported prefab data");
-            obj.addProperty("name", name);
-            obj.addProperty("prefabKey", prefabKey);
+            obj.addProperty("width", WIDTH);
+            obj.addProperty("height", HEIGHT);
+            obj.addProperty("depth", DEPTH);
 
-            Files.writeString(prefabFile, GSON.toJson(obj), StandardCharsets.UTF_8);
-        } catch (IOException e) {
-            warnings.add("Failed to write prefab file: " + e.getMessage());
-        }
-    }
-
-    /**
-     * Resolves the assets/Server/Prefabs/ directory by walking up from the
-     * plugin file path.
-     */
-    private Path resolvePrefabDir() {
-        Path pluginFile = Natural20.getInstance().getFile();
-        if (pluginFile == null) return null;
-
-        Path candidate = pluginFile;
-        for (int i = 0; i < 4; i++) {
-            Path assetsDir = candidate.resolve("assets").resolve("Server").resolve("Prefabs");
-            if (Files.isDirectory(assetsDir) || Files.isDirectory(candidate.resolve("assets"))) {
-                return assetsDir;
+            JsonArray blocksArr = new JsonArray();
+            for (int x = 0; x < WIDTH; x++) {
+                for (int y = 0; y < HEIGHT; y++) {
+                    for (int z = 0; z < DEPTH; z++) {
+                        if (blocks[x][y][z] != null) {
+                            JsonObject entry = new JsonObject();
+                            entry.addProperty("x", x);
+                            entry.addProperty("y", y);
+                            entry.addProperty("z", z);
+                            entry.addProperty("id", blocks[x][y][z]);
+                            blocksArr.add(entry);
+                        }
+                    }
+                }
             }
-            candidate = candidate.getParent();
-            if (candidate == null) break;
-        }
+            obj.add("blocks", blocksArr);
 
-        // Last resort: create relative to plugin file
-        return pluginFile.resolve("assets").resolve("Server").resolve("Prefabs");
+            Files.writeString(blockFile, GSON.toJson(obj), StandardCharsets.UTF_8);
+        } catch (IOException e) {
+            warnings.add("Failed to write block data file: " + e.getMessage());
+        }
     }
 
     /**

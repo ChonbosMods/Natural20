@@ -36,13 +36,12 @@ import java.util.*;
  *
  * Scans blocks in a gridW*5 x gridH*5 x gridD*5 region, detects sockets
  * on perimeter cell-faces, replaces marker blocks with dominant wall material,
- * validates wall integrity, and writes both a placeholder prefab file and
- * metadata JSON.
+ * validates wall integrity, and writes block data + metadata JSON files.
  */
 public class GridPrefabSaveCommand extends AbstractPlayerCommand {
 
     private static final int CELL_SIZE = 5;
-    private static final String MARKER_BLOCK_KEY = "Hytale:ThoriumOreInMud";
+    private static final String MARKER_BLOCK_KEY = "Ore_Thorium_Mud";
     private static final Gson GSON = new GsonBuilder().setPrettyPrinting().create();
 
     private final RequiredArg<String> nameArg =
@@ -157,11 +156,11 @@ public class GridPrefabSaveCommand extends AbstractPlayerCommand {
             // Step 4: Validate wall integrity
             validateWalls(blocks, gridW, gridD, blockH, warnings);
 
-            // Step 5: Write placeholder prefab file
-            String prefabKey = "Nat20/dungeon/" + name;
-            writePlaceholderPrefab(name, prefabKey, warnings);
+            // Step 5: Write block data file
+            writeBlockData(name, blocks, blockW, blockH, blockD, warnings);
 
             // Step 6: Write metadata JSON
+            String prefabKey = "Nat20/dungeon/" + name;
             writeMetadata(name, prefabKey, gridW, gridH, gridD, rotatableFinal, sockets, warnings);
 
             // Step 7: Register in piece registry
@@ -354,52 +353,48 @@ public class GridPrefabSaveCommand extends AbstractPlayerCommand {
     }
 
     /**
-     * Writes a placeholder prefab JSON file. The SDK prefab write API is
-     * unverified, so this writes a minimal JSON that can be replaced later
-     * with a proper prefab export.
+     * Writes the block data to a .blocks.json file in the data directory.
+     * Only non-null (non-air) blocks are stored for compactness.
      */
-    private void writePlaceholderPrefab(String name, String prefabKey, List<String> warnings) {
-        Path prefabDir = resolvePrefabDir();
-        if (prefabDir == null) {
-            warnings.add("Could not resolve assets/Server/Prefabs/ directory: prefab file not written");
+    private void writeBlockData(String name, String[][][] blocks,
+                                 int blockW, int blockH, int blockD,
+                                 List<String> warnings) {
+        Path dataDir = Natural20.getInstance().getDungeonSystem().getDataDir();
+        if (dataDir == null) {
+            warnings.add("Dungeon data directory not initialized: block data file not written");
             return;
         }
 
-        Path prefabFile = prefabDir.resolve(prefabKey + ".prefab.json");
+        Path blockFile = dataDir.resolve("dungeon_pieces").resolve(name + ".blocks.json");
         try {
-            Files.createDirectories(prefabFile.getParent());
+            Files.createDirectories(blockFile.getParent());
 
             JsonObject obj = new JsonObject();
-            obj.addProperty("_comment", "Placeholder: replace with exported prefab data");
-            obj.addProperty("name", name);
-            obj.addProperty("prefabKey", prefabKey);
+            obj.addProperty("width", blockW);
+            obj.addProperty("height", blockH);
+            obj.addProperty("depth", blockD);
 
-            Files.writeString(prefabFile, GSON.toJson(obj), StandardCharsets.UTF_8);
-        } catch (IOException e) {
-            warnings.add("Failed to write prefab file: " + e.getMessage());
-        }
-    }
-
-    /**
-     * Resolves the assets/Server/Prefabs/ directory by walking up from the
-     * plugin file path.
-     */
-    private Path resolvePrefabDir() {
-        Path pluginFile = Natural20.getInstance().getFile();
-        if (pluginFile == null) return null;
-
-        Path candidate = pluginFile;
-        for (int i = 0; i < 4; i++) {
-            Path assetsDir = candidate.resolve("assets").resolve("Server").resolve("Prefabs");
-            if (Files.isDirectory(assetsDir) || Files.isDirectory(candidate.resolve("assets"))) {
-                return assetsDir;
+            JsonArray blocksArr = new JsonArray();
+            for (int x = 0; x < blockW; x++) {
+                for (int y = 0; y < blockH; y++) {
+                    for (int z = 0; z < blockD; z++) {
+                        if (blocks[x][y][z] != null) {
+                            JsonObject entry = new JsonObject();
+                            entry.addProperty("x", x);
+                            entry.addProperty("y", y);
+                            entry.addProperty("z", z);
+                            entry.addProperty("id", blocks[x][y][z]);
+                            blocksArr.add(entry);
+                        }
+                    }
+                }
             }
-            candidate = candidate.getParent();
-            if (candidate == null) break;
-        }
+            obj.add("blocks", blocksArr);
 
-        // Last resort: create relative to plugin file
-        return pluginFile.resolve("assets").resolve("Server").resolve("Prefabs");
+            Files.writeString(blockFile, GSON.toJson(obj), StandardCharsets.UTF_8);
+        } catch (IOException e) {
+            warnings.add("Failed to write block data file: " + e.getMessage());
+        }
     }
 
     /**

@@ -1,35 +1,31 @@
 package com.chonbosmods.commands;
 
 import com.chonbosmods.Natural20;
+import com.chonbosmods.dungeon.BlockData;
 import com.chonbosmods.dungeon.ConnectorDef;
 import com.chonbosmods.dungeon.DungeonPieceDef;
 import com.chonbosmods.dungeon.DungeonSystem;
 import com.hypixel.hytale.component.Ref;
 import com.hypixel.hytale.component.Store;
 import com.hypixel.hytale.math.vector.Vector3d;
-import com.hypixel.hytale.math.vector.Vector3i;
 import com.hypixel.hytale.server.core.Message;
-import com.hypixel.hytale.server.core.asset.type.blocktype.config.Rotation;
 import com.hypixel.hytale.server.core.command.system.CommandContext;
 import com.hypixel.hytale.server.core.command.system.arguments.system.RequiredArg;
 import com.hypixel.hytale.server.core.command.system.arguments.types.ArgTypes;
 import com.hypixel.hytale.server.core.command.system.basecommands.AbstractPlayerCommand;
 import com.hypixel.hytale.server.core.modules.entity.component.TransformComponent;
-import com.hypixel.hytale.server.core.prefab.selection.buffer.impl.IPrefabBuffer;
 import com.hypixel.hytale.server.core.universe.PlayerRef;
 import com.hypixel.hytale.server.core.universe.world.World;
 import com.hypixel.hytale.server.core.universe.world.storage.EntityStore;
-import com.hypixel.hytale.server.core.util.PrefabUtil;
 
 import javax.annotation.Nonnull;
-import java.util.Random;
 
 /**
  * Pastes a registered dungeon prefab at the player's position for preview.
  * Usage: /gridprefab preview <name>
  *
  * Looks up the name in DungeonPieceRegistry first, then ConnectorRegistry.
- * Pastes the prefab using PrefabUtil.paste() with no rotation and force=true.
+ * Loads the .blocks.json file and replays blocks via world.setBlock().
  */
 public class GridPrefabPreviewCommand extends AbstractPlayerCommand {
 
@@ -51,30 +47,30 @@ public class GridPrefabPreviewCommand extends AbstractPlayerCommand {
         DungeonSystem dungeonSystem = Natural20.getInstance().getDungeonSystem();
 
         // Look up in piece registry first, then connector registry
-        String prefabKey = null;
+        String blockDataType = null;
         String sourceType = null;
 
         DungeonPieceDef pieceDef = dungeonSystem.getPieceRegistry().getDef(name);
         if (pieceDef != null) {
-            prefabKey = pieceDef.prefabKey();
+            blockDataType = "dungeon_pieces";
             sourceType = "piece";
         } else {
             ConnectorDef connectorDef = dungeonSystem.getConnectorRegistry().getDef(name);
             if (connectorDef != null) {
-                prefabKey = connectorDef.prefabKey();
+                blockDataType = "dungeon_connectors";
                 sourceType = "connector";
             }
         }
 
-        if (prefabKey == null) {
+        if (sourceType == null) {
             context.sendMessage(Message.raw("No piece or connector found with name: " + name));
             return;
         }
 
-        // Load prefab buffer
-        IPrefabBuffer buffer = dungeonSystem.getPrefabBuffer(prefabKey);
-        if (buffer == null) {
-            context.sendMessage(Message.raw("Failed to load prefab: " + prefabKey));
+        // Load block data
+        BlockData blockData = dungeonSystem.loadBlockData(name, blockDataType);
+        if (blockData == null) {
+            context.sendMessage(Message.raw("Failed to load block data for: " + name));
             return;
         }
 
@@ -85,27 +81,23 @@ public class GridPrefabPreviewCommand extends AbstractPlayerCommand {
             return;
         }
         Vector3d pos = transform.getPosition();
-        Vector3i position = new Vector3i((int) pos.getX(), (int) pos.getY(), (int) pos.getZ());
+        int originX = (int) pos.getX();
+        int originY = (int) pos.getY();
+        int originZ = (int) pos.getZ();
 
         context.sendMessage(Message.raw("Pasting " + sourceType + " '" + name + "' at " +
-            position.getX() + ", " + position.getY() + ", " + position.getZ() + "..."));
+            originX + ", " + originY + ", " + originZ + "..."));
 
         // Capture for lambda
         final String finalSourceType = sourceType;
 
         world.execute(() -> {
-            PrefabUtil.paste(
-                buffer,
-                world,
-                position,
-                Rotation.None,
-                true,
-                new Random(),
-                0,
-                store
-            );
+            for (BlockData.BlockEntry entry : blockData.blocks()) {
+                world.setBlock(originX + entry.x(), originY + entry.y(), originZ + entry.z(), entry.id());
+            }
 
-            context.sendMessage(Message.raw("Pasted " + finalSourceType + " '" + name + "' successfully."));
+            context.sendMessage(Message.raw("Pasted " + finalSourceType + " '" + name +
+                "' successfully (" + blockData.blocks().size() + " blocks)."));
         });
     }
 }
