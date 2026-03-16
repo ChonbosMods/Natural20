@@ -28,14 +28,14 @@ import java.util.concurrent.TimeUnit;
  * <ol>
  *   <li>Marks the NPC as dead in the settlement registry (clears entityUUID)</li>
  *   <li>Saves the registry asynchronously</li>
- *   <li>Schedules a respawn after 30 seconds on the world thread</li>
+ *   <li>Schedules a respawn after 5 minutes on the world thread</li>
  * </ol>
  *
  * <p>Settlement NPCs are identified by having a {@link Nat20NpcData} component with a
  * non-null {@code settlementCellKey}. Non-settlement entities are ignored.
  *
- * <p>Note: NPCs default to invulnerable via role JSON. This system only fires when
- * invulnerability is removed (e.g., via {@code /nat20 killnpc}).
+ * <p>Settlement NPCs are vulnerable and can be killed by hostile mobs or players.
+ * This system handles respawn scheduling when they die.
  */
 public class SettlementNpcDeathSystem extends DamageEventSystem {
 
@@ -43,7 +43,7 @@ public class SettlementNpcDeathSystem extends DamageEventSystem {
 
     private static final Query<EntityStore> QUERY = Query.any();
 
-    private static final int RESPAWN_DELAY_SECONDS = 30;
+    private static final int RESPAWN_DELAY_SECONDS = 300;
 
     private static final ScheduledExecutorService SCHEDULER =
             Executors.newSingleThreadScheduledExecutor(r -> {
