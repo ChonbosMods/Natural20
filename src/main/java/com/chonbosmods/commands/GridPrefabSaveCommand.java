@@ -8,9 +8,12 @@ import com.google.gson.Gson;
 import com.google.gson.GsonBuilder;
 import com.google.gson.JsonArray;
 import com.google.gson.JsonObject;
+import com.hypixel.hytale.builtin.buildertools.prefabeditor.saving.PrefabSaver;
+import com.hypixel.hytale.builtin.buildertools.prefabeditor.saving.PrefabSaverSettings;
 import com.hypixel.hytale.component.Ref;
 import com.hypixel.hytale.component.Store;
 import com.hypixel.hytale.math.vector.Vector3d;
+import com.hypixel.hytale.math.vector.Vector3i;
 import com.hypixel.hytale.server.core.Message;
 import com.hypixel.hytale.server.core.asset.type.blocktype.config.BlockType;
 import com.hypixel.hytale.server.core.command.system.CommandContext;
@@ -42,7 +45,7 @@ public class GridPrefabSaveCommand extends AbstractPlayerCommand {
 
     private static final int CELL_SIZE = 5;
     private static final String MARKER_BLOCK_KEY = "Ore_Thorium_Mud";
-    private static final String EMPTY_BLOCK_ID = "Empty";
+    private static final String EMPTY_BLOCK_KEY = "Empty";
     private static final Gson GSON = new GsonBuilder().setPrettyPrinting().create();
 
     private final RequiredArg<String> nameArg =
@@ -117,7 +120,7 @@ public class GridPrefabSaveCommand extends AbstractPlayerCommand {
                 for (int y = 0; y < blockH; y++) {
                     for (int z = 0; z < blockD; z++) {
                         BlockType bt = world.getBlockType(originX + x, originY + y, originZ + z);
-                        if (bt != null && !EMPTY_BLOCK_ID.equals(bt.getId())) {
+                        if (bt != null && !EMPTY_BLOCK_KEY.equals(bt.getId())) {
                             blocks[x][y][z] = bt.getId();
                         }
                     }
@@ -157,11 +160,12 @@ public class GridPrefabSaveCommand extends AbstractPlayerCommand {
             // Step 4: Validate wall integrity
             validateWalls(blocks, gridW, gridD, blockH, warnings);
 
-            // Step 5: Write block data file
-            writeBlockData(name, blocks, blockW, blockH, blockD, warnings);
+            // Step 5: Save prefab using vanilla PrefabSaver pipeline
+            String prefabKey = "Nat20/dungeon/" + name;
+            savePrefab(context, world, name, originX, originY, originZ,
+                blockW, blockH, blockD, warnings);
 
             // Step 6: Write metadata JSON
-            String prefabKey = "Nat20/dungeon/" + name;
             writeMetadata(name, prefabKey, gridW, gridH, gridD, rotatableFinal, sockets, warnings);
 
             // Step 7: Register in piece registry
@@ -354,48 +358,66 @@ public class GridPrefabSaveCommand extends AbstractPlayerCommand {
     }
 
     /**
-     * Writes the block data to a .blocks.json file in the data directory.
-     * Only non-null (non-air) blocks are stored for compactness.
+     * Saves the block region as a .prefab.json file using the vanilla PrefabSaver pipeline.
+     * This captures blocks with rotation, filler, multi-block furniture state, and fluids.
      */
-    private void writeBlockData(String name, String[][][] blocks,
-                                 int blockW, int blockH, int blockD,
-                                 List<String> warnings) {
-        Path dataDir = Natural20.getInstance().getDungeonSystem().getDataDir();
-        if (dataDir == null) {
-            warnings.add("Dungeon data directory not initialized: block data file not written");
+    private void savePrefab(CommandContext context, World world, String name,
+                             int originX, int originY, int originZ,
+                             int blockW, int blockH, int blockD,
+                             List<String> warnings) {
+        Path prefabPath = resolvePrefabPath("dungeon/" + name);
+        if (prefabPath == null) {
+            warnings.add("Could not resolve prefab output path");
             return;
         }
 
-        Path blockFile = dataDir.resolve("dungeon_pieces").resolve(name + ".blocks.json");
         try {
-            Files.createDirectories(blockFile.getParent());
-
-            JsonObject obj = new JsonObject();
-            obj.addProperty("width", blockW);
-            obj.addProperty("height", blockH);
-            obj.addProperty("depth", blockD);
-
-            JsonArray blocksArr = new JsonArray();
-            for (int x = 0; x < blockW; x++) {
-                for (int y = 0; y < blockH; y++) {
-                    for (int z = 0; z < blockD; z++) {
-                        if (blocks[x][y][z] != null) {
-                            JsonObject entry = new JsonObject();
-                            entry.addProperty("x", x);
-                            entry.addProperty("y", y);
-                            entry.addProperty("z", z);
-                            entry.addProperty("id", blocks[x][y][z]);
-                            blocksArr.add(entry);
-                        }
-                    }
-                }
-            }
-            obj.add("blocks", blocksArr);
-
-            Files.writeString(blockFile, GSON.toJson(obj), StandardCharsets.UTF_8);
+            Files.createDirectories(prefabPath.getParent());
         } catch (IOException e) {
-            warnings.add("Failed to write block data file: " + e.getMessage());
+            warnings.add("Failed to create prefab directory: " + e.getMessage());
+            return;
         }
+
+        Vector3i minPoint = new Vector3i(originX, originY, originZ);
+        Vector3i maxPoint = new Vector3i(originX + blockW - 1, originY + blockH - 1, originZ + blockD - 1);
+        Vector3i anchor = new Vector3i(0, 0, 0);
+
+        PrefabSaverSettings settings = new PrefabSaverSettings();
+        settings.setBlocks(true);
+        settings.setEntities(false);
+        settings.setOverwriteExisting(true);
+
+        PrefabSaver.savePrefab(context.sender(), world, prefabPath, minPoint, maxPoint,
+                anchor, anchor, anchor, settings)
+            .thenAccept(success -> {
+                if (success) {
+                    context.sendMessage(Message.raw("Prefab saved: " + prefabPath.getFileName()));
+                } else {
+                    context.sendMessage(Message.raw("[WARN] Prefab save may have failed"));
+                }
+            });
+    }
+
+    /**
+     * Resolves a prefab key to a file path under assets/Server/Prefabs/Nat20/.
+     * Walks up from the plugin file path to find the assets directory (dev mode).
+     */
+    private Path resolvePrefabPath(String relativePath) {
+        Path pluginFile = Natural20.getInstance().getFile();
+        if (pluginFile == null) return null;
+
+        Path candidate = pluginFile;
+        for (int i = 0; i < 4; i++) {
+            Path assetsDir = candidate.resolve("assets").resolve("Server").resolve("Prefabs")
+                .resolve("Nat20");
+            if (Files.exists(assetsDir) || Files.exists(candidate.resolve("assets"))) {
+                return assetsDir.resolve(relativePath + ".prefab.json");
+            }
+            candidate = candidate.getParent();
+            if (candidate == null) break;
+        }
+
+        return null;
     }
 
     /**

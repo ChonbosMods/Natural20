@@ -6,9 +6,12 @@ import com.google.gson.Gson;
 import com.google.gson.GsonBuilder;
 import com.google.gson.JsonArray;
 import com.google.gson.JsonObject;
+import com.hypixel.hytale.builtin.buildertools.prefabeditor.saving.PrefabSaver;
+import com.hypixel.hytale.builtin.buildertools.prefabeditor.saving.PrefabSaverSettings;
 import com.hypixel.hytale.component.Ref;
 import com.hypixel.hytale.component.Store;
 import com.hypixel.hytale.math.vector.Vector3d;
+import com.hypixel.hytale.math.vector.Vector3i;
 import com.hypixel.hytale.server.core.Message;
 import com.hypixel.hytale.server.core.asset.type.blocktype.config.BlockType;
 import com.hypixel.hytale.server.core.command.system.CommandContext;
@@ -95,11 +98,11 @@ public class GridPrefabSaveConnectorCommand extends AbstractPlayerCommand {
                 warnings.add("Region is entirely solid: connectors should have at least one air block for passability");
             }
 
-            // Step 2: Write block data file
-            writeBlockData(name, blocks, warnings);
+            // Step 2: Save prefab using vanilla PrefabSaver pipeline
+            String prefabKey = "Nat20/dungeon/connectors/" + name;
+            savePrefab(context, world, name, originX, originY, originZ, warnings);
 
             // Step 3: Write metadata JSON
-            String prefabKey = "Nat20/dungeon/connectors/" + name;
             writeMetadata(name, prefabKey, warnings);
 
             // Step 4: Register in connector registry
@@ -121,46 +124,63 @@ public class GridPrefabSaveConnectorCommand extends AbstractPlayerCommand {
     }
 
     /**
-     * Writes the block data to a .blocks.json file in the data directory.
-     * Only non-null (non-air) blocks are stored for compactness.
+     * Saves the connector block region as a .prefab.json file using the vanilla PrefabSaver pipeline.
      */
-    private void writeBlockData(String name, String[][][] blocks, List<String> warnings) {
-        Path dataDir = Natural20.getInstance().getDungeonSystem().getDataDir();
-        if (dataDir == null) {
-            warnings.add("Dungeon data directory not initialized: block data file not written");
+    private void savePrefab(CommandContext context, World world, String name,
+                             int originX, int originY, int originZ,
+                             List<String> warnings) {
+        Path prefabPath = resolvePrefabPath("dungeon/connectors/" + name);
+        if (prefabPath == null) {
+            warnings.add("Could not resolve prefab output path");
             return;
         }
 
-        Path blockFile = dataDir.resolve("dungeon_connectors").resolve(name + ".blocks.json");
         try {
-            Files.createDirectories(blockFile.getParent());
-
-            JsonObject obj = new JsonObject();
-            obj.addProperty("width", WIDTH);
-            obj.addProperty("height", HEIGHT);
-            obj.addProperty("depth", DEPTH);
-
-            JsonArray blocksArr = new JsonArray();
-            for (int x = 0; x < WIDTH; x++) {
-                for (int y = 0; y < HEIGHT; y++) {
-                    for (int z = 0; z < DEPTH; z++) {
-                        if (blocks[x][y][z] != null) {
-                            JsonObject entry = new JsonObject();
-                            entry.addProperty("x", x);
-                            entry.addProperty("y", y);
-                            entry.addProperty("z", z);
-                            entry.addProperty("id", blocks[x][y][z]);
-                            blocksArr.add(entry);
-                        }
-                    }
-                }
-            }
-            obj.add("blocks", blocksArr);
-
-            Files.writeString(blockFile, GSON.toJson(obj), StandardCharsets.UTF_8);
+            Files.createDirectories(prefabPath.getParent());
         } catch (IOException e) {
-            warnings.add("Failed to write block data file: " + e.getMessage());
+            warnings.add("Failed to create prefab directory: " + e.getMessage());
+            return;
         }
+
+        Vector3i minPoint = new Vector3i(originX, originY, originZ);
+        Vector3i maxPoint = new Vector3i(originX + WIDTH - 1, originY + HEIGHT - 1, originZ + DEPTH - 1);
+        Vector3i anchor = new Vector3i(0, 0, 0);
+
+        PrefabSaverSettings settings = new PrefabSaverSettings();
+        settings.setBlocks(true);
+        settings.setEntities(false);
+        settings.setOverwriteExisting(true);
+
+        PrefabSaver.savePrefab(context.sender(), world, prefabPath, minPoint, maxPoint,
+                anchor, anchor, anchor, settings)
+            .thenAccept(success -> {
+                if (success) {
+                    context.sendMessage(Message.raw("Prefab saved: " + prefabPath.getFileName()));
+                } else {
+                    context.sendMessage(Message.raw("[WARN] Prefab save may have failed"));
+                }
+            });
+    }
+
+    /**
+     * Resolves a prefab key to a file path under assets/Server/Prefabs/Nat20/.
+     */
+    private Path resolvePrefabPath(String relativePath) {
+        Path pluginFile = Natural20.getInstance().getFile();
+        if (pluginFile == null) return null;
+
+        Path candidate = pluginFile;
+        for (int i = 0; i < 4; i++) {
+            Path assetsDir = candidate.resolve("assets").resolve("Server").resolve("Prefabs")
+                .resolve("Nat20");
+            if (Files.exists(assetsDir) || Files.exists(candidate.resolve("assets"))) {
+                return assetsDir.resolve(relativePath + ".prefab.json");
+            }
+            candidate = candidate.getParent();
+            if (candidate == null) break;
+        }
+
+        return null;
     }
 
     /**
