@@ -123,7 +123,7 @@ public class DungeonGenerateCommand extends AbstractPlayerCommand {
         // Generate inside world.execute()
         world.execute(() -> {
             DungeonGenerator generator = new DungeonGenerator(dungeonSystem, config, random);
-            generator.generate(world, store);
+            generator.generate(world);
 
             int pieceCount = generator.getPlacedPieces().size();
             int connectionCount = generator.getConnections().size();

@@ -9,11 +9,8 @@ import com.google.gson.JsonObject;
 import com.hypixel.hytale.component.Ref;
 import com.hypixel.hytale.component.Store;
 import com.hypixel.hytale.math.vector.Vector3d;
-import com.hypixel.hytale.math.vector.Vector3i;
 import com.hypixel.hytale.server.core.Message;
 import com.hypixel.hytale.server.core.asset.type.blocktype.config.BlockType;
-import com.hypixel.hytale.server.core.prefab.PrefabStore;
-import com.hypixel.hytale.server.core.prefab.selection.standard.BlockSelection;
 import com.hypixel.hytale.server.core.command.system.CommandContext;
 import com.hypixel.hytale.server.core.command.system.arguments.system.RequiredArg;
 import com.hypixel.hytale.server.core.command.system.arguments.types.ArgTypes;
@@ -44,6 +41,7 @@ public class GridPrefabSaveConnectorCommand extends AbstractPlayerCommand {
     private static final int WIDTH = 5;
     private static final int HEIGHT = 4;
     private static final int DEPTH = 2;
+    private static final String EMPTY_BLOCK_KEY = "Empty";
     private static final Gson GSON = new GsonBuilder().setPrettyPrinting().create();
 
     private final RequiredArg<String> nameArg =
@@ -79,19 +77,22 @@ public class GridPrefabSaveConnectorCommand extends AbstractPlayerCommand {
 
         // All block access must happen on the world thread
         world.execute(() -> {
-            // Step 1: Save prefab using BlockSelection + PrefabStore
-            savePrefab(context, world, name, originX, originY, originZ);
-
             List<String> warnings = new ArrayList<>();
 
-            // Validate at least one air block exists
+            // Read blocks and rotations
+            String[][][] blocks = new String[WIDTH][HEIGHT][DEPTH];
+            int[][][] rotations = new int[WIDTH][HEIGHT][DEPTH];
             boolean hasAir = false;
+
             for (int x = 0; x < WIDTH; x++) {
                 for (int y = 0; y < HEIGHT; y++) {
                     for (int z = 0; z < DEPTH; z++) {
                         BlockType bt = world.getBlockType(originX + x, originY + y, originZ + z);
-                        if (bt == null || "Empty".equals(bt.getId())) {
+                        if (bt == null || EMPTY_BLOCK_KEY.equals(bt.getId())) {
                             hasAir = true;
+                        } else {
+                            blocks[x][y][z] = bt.getId();
+                            rotations[x][y][z] = world.getBlockRotationIndex(originX + x, originY + y, originZ + z);
                         }
                     }
                 }
@@ -100,6 +101,9 @@ public class GridPrefabSaveConnectorCommand extends AbstractPlayerCommand {
             if (!hasAir) {
                 warnings.add("Region is entirely solid: connectors should have at least one air block");
             }
+
+            // Write .blocks.json
+            writeBlockData(name, blocks, rotations, warnings);
 
             // Write metadata JSON
             writeMetadata(name, prefabKey, warnings);
@@ -119,76 +123,51 @@ public class GridPrefabSaveConnectorCommand extends AbstractPlayerCommand {
     }
 
     /**
-     * Saves the connector block region as a .prefab.json file by building a BlockSelection
-     * manually from world blocks and writing via PrefabStore.
-     * Must be called from within world.execute() since it reads blocks.
+     * Writes block data as a .blocks.json file to the dungeon_connectors data directory.
+     * Each non-air block is stored with its position, type ID, and rotation index.
      */
-    private void savePrefab(CommandContext context, World world, String name,
-                             int originX, int originY, int originZ) {
-        Path prefabPath = resolvePrefabPath("dungeon/connectors/" + name);
-        if (prefabPath == null) {
-            context.sendMessage(Message.raw("[WARN] Could not resolve prefab output path"));
+    private void writeBlockData(String name, String[][][] blocks, int[][][] rotations,
+                                 List<String> warnings) {
+        Path dataDir = Natural20.getInstance().getDungeonSystem().getDataDir();
+        if (dataDir == null) {
+            warnings.add("Dungeon data directory not initialized: block data file not written");
             return;
         }
 
+        Path blockFile = dataDir.resolve("dungeon_connectors").resolve(name + ".blocks.json");
         try {
-            Files.createDirectories(prefabPath.getParent());
-        } catch (IOException e) {
-            context.sendMessage(Message.raw("[WARN] Failed to create prefab directory: " + e.getMessage()));
-            return;
-        }
+            Files.createDirectories(blockFile.getParent());
 
-        // Build BlockSelection from world blocks
-        BlockSelection selection = new BlockSelection();
-        selection.setPosition(originX, originY, originZ);
-        selection.setAnchor(0, 0, 0);
-        selection.setSelectionArea(
-            new Vector3i(originX, originY, originZ),
-            new Vector3i(originX + WIDTH - 1, originY + HEIGHT - 1, originZ + DEPTH - 1));
+            JsonObject obj = new JsonObject();
+            obj.addProperty("width", WIDTH);
+            obj.addProperty("height", HEIGHT);
+            obj.addProperty("depth", DEPTH);
 
-        int blockCount = 0;
-        for (int x = 0; x < WIDTH; x++) {
-            for (int y = 0; y < HEIGHT; y++) {
-                for (int z = 0; z < DEPTH; z++) {
-                    int blockId = world.getBlock(originX + x, originY + y, originZ + z);
-                    if (blockId != 0) {
-                        int rotIndex = world.getBlockRotationIndex(originX + x, originY + y, originZ + z);
-                        selection.addBlockAtWorldPos(originX + x, originY + y, originZ + z,
-                            blockId, rotIndex, 0, 0);
-                        blockCount++;
+            JsonArray blocksArr = new JsonArray();
+            int blockCount = 0;
+            for (int x = 0; x < WIDTH; x++) {
+                for (int y = 0; y < HEIGHT; y++) {
+                    for (int z = 0; z < DEPTH; z++) {
+                        if (blocks[x][y][z] != null) {
+                            JsonObject entry = new JsonObject();
+                            entry.addProperty("x", x);
+                            entry.addProperty("y", y);
+                            entry.addProperty("z", z);
+                            entry.addProperty("id", blocks[x][y][z]);
+                            entry.addProperty("rot", rotations[x][y][z]);
+                            blocksArr.add(entry);
+                            blockCount++;
+                        }
                     }
                 }
             }
+            obj.add("blocks", blocksArr);
+
+            Files.writeString(blockFile, GSON.toJson(obj), StandardCharsets.UTF_8);
+            warnings.add("Block data: " + blockCount + " blocks written to " + blockFile.getFileName());
+        } catch (IOException e) {
+            warnings.add("Failed to write block data file: " + e.getMessage());
         }
-
-        // Relativize so blocks are stored relative to origin
-        BlockSelection relativized = selection.relativize();
-
-        // Save to file
-        PrefabStore.get().savePrefab(prefabPath, relativized, true);
-
-        context.sendMessage(Message.raw("Prefab saved: " + blockCount + " blocks -> " + prefabPath.getFileName()));
-    }
-
-    /**
-     * Resolves a prefab key to a file path under assets/Server/Prefabs/Nat20/.
-     */
-    private Path resolvePrefabPath(String relativePath) {
-        Path pluginFile = Natural20.getInstance().getFile();
-        if (pluginFile == null) return null;
-
-        Path candidate = pluginFile;
-        for (int i = 0; i < 4; i++) {
-            Path assetsDir = candidate.resolve("assets").resolve("Server").resolve("Prefabs")
-                .resolve("Nat20");
-            if (Files.exists(assetsDir) || Files.exists(candidate.resolve("assets"))) {
-                return assetsDir.resolve(relativePath + ".prefab.json");
-            }
-            candidate = candidate.getParent();
-            if (candidate == null) break;
-        }
-
-        return null;
     }
 
     /**

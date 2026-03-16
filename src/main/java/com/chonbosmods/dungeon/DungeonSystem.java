@@ -1,15 +1,16 @@
 package com.chonbosmods.dungeon;
 
-import com.chonbosmods.Natural20;
 import com.google.common.flogger.FluentLogger;
-import com.hypixel.hytale.server.core.prefab.PrefabStore;
-import com.hypixel.hytale.server.core.prefab.selection.buffer.PrefabBufferUtil;
-import com.hypixel.hytale.server.core.prefab.selection.buffer.impl.IPrefabBuffer;
+import com.google.gson.JsonArray;
+import com.google.gson.JsonElement;
+import com.google.gson.JsonObject;
+import com.google.gson.JsonParser;
 
+import java.nio.charset.StandardCharsets;
 import java.nio.file.Files;
 import java.nio.file.Path;
-import java.util.HashMap;
-import java.util.Map;
+import java.util.ArrayList;
+import java.util.List;
 
 public class DungeonSystem {
 
@@ -17,7 +18,6 @@ public class DungeonSystem {
 
     private final DungeonPieceRegistry pieceRegistry = new DungeonPieceRegistry();
     private final ConnectorRegistry connectorRegistry = new ConnectorRegistry();
-    private final Map<String, IPrefabBuffer> prefabCache = new HashMap<>();
     private Path dataDir;
 
     public void loadAll(Path dataDir) {
@@ -27,52 +27,48 @@ public class DungeonSystem {
     }
 
     /**
-     * Loads and caches a prefab buffer for the given prefab key.
-     * Tries the asset pack system first, then falls back to resolving
-     * from the plugin file path (needed for dev mode).
+     * Loads a .blocks.json file from the given subdirectory under dataDir.
      *
-     * @param prefabKey the prefab key (e.g. "Nat20/dungeon/room_3x1x3")
-     * @return the loaded prefab buffer, or null if not found
+     * @param name the piece/connector name (without extension)
+     * @param type the subdirectory name (e.g. "dungeon_pieces" or "dungeon_connectors")
+     * @return the parsed BlockData, or null if not found or parse error
      */
-    public IPrefabBuffer getPrefabBuffer(String prefabKey) {
-        return prefabCache.computeIfAbsent(prefabKey, key -> {
-            // Try asset pack lookup first
-            Path path = PrefabStore.get().findAssetPrefabPath(key);
-            if (path == null) {
-                // Fallback: resolve from plugin file path (dev mode)
-                path = findPrefabFallback(key);
-            }
-            if (path == null) {
-                LOGGER.atWarning().log("Prefab not found: %s", key);
-                return null;
-            }
-            try {
-                return PrefabBufferUtil.getCached(path);
-            } catch (Exception e) {
-                LOGGER.atSevere().withCause(e).log("Failed to load prefab: %s", key);
-                return null;
-            }
-        });
-    }
-
-    private Path findPrefabFallback(String key) {
-        Path pluginFile = Natural20.getInstance().getFile();
-        if (pluginFile == null) return null;
-
-        Path candidate = pluginFile;
-        for (int i = 0; i < 4; i++) {
-            Path assetsDir = candidate.resolve("assets").resolve("Server").resolve("Prefabs")
-                .resolve(key + ".prefab.json");
-            if (Files.exists(assetsDir)) return assetsDir;
-            // Also check Server/Prefabs directly (in case plugin root IS the assets dir)
-            Path directDir = candidate.resolve("Server").resolve("Prefabs")
-                .resolve(key + ".prefab.json");
-            if (Files.exists(directDir)) return directDir;
-            candidate = candidate.getParent();
-            if (candidate == null) break;
+    public BlockData loadBlockData(String name, String type) {
+        if (dataDir == null) {
+            LOGGER.atWarning().log("Data directory not initialized");
+            return null;
         }
 
-        return null;
+        Path file = dataDir.resolve(type).resolve(name + ".blocks.json");
+        if (!Files.exists(file)) {
+            return null;
+        }
+
+        try {
+            String json = Files.readString(file, StandardCharsets.UTF_8);
+            JsonObject obj = JsonParser.parseString(json).getAsJsonObject();
+
+            int width = obj.get("width").getAsInt();
+            int height = obj.get("height").getAsInt();
+            int depth = obj.get("depth").getAsInt();
+
+            List<BlockData.BlockEntry> blocks = new ArrayList<>();
+            JsonArray arr = obj.getAsJsonArray("blocks");
+            for (JsonElement el : arr) {
+                JsonObject b = el.getAsJsonObject();
+                int x = b.get("x").getAsInt();
+                int y = b.get("y").getAsInt();
+                int z = b.get("z").getAsInt();
+                String id = b.get("id").getAsString();
+                int rot = b.has("rot") ? b.get("rot").getAsInt() : 0;
+                blocks.add(new BlockData.BlockEntry(x, y, z, id, rot));
+            }
+
+            return new BlockData(width, height, depth, blocks);
+        } catch (Exception e) {
+            LOGGER.atSevere().withCause(e).log("Failed to load block data: %s", file);
+            return null;
+        }
     }
 
     public Path getDataDir() { return dataDir; }

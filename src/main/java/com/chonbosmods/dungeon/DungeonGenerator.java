@@ -1,13 +1,8 @@
 package com.chonbosmods.dungeon;
 
 import com.google.common.flogger.FluentLogger;
-import com.hypixel.hytale.component.ComponentAccessor;
 import com.hypixel.hytale.math.vector.Vector3i;
-import com.hypixel.hytale.server.core.asset.type.blocktype.config.Rotation;
-import com.hypixel.hytale.server.core.prefab.selection.buffer.impl.IPrefabBuffer;
 import com.hypixel.hytale.server.core.universe.world.World;
-import com.hypixel.hytale.server.core.universe.world.storage.EntityStore;
-import com.hypixel.hytale.server.core.util.PrefabUtil;
 
 import java.util.*;
 
@@ -34,7 +29,6 @@ public class DungeonGenerator {
     private final List<ConnectionRecord> connections = new ArrayList<>();
     private final List<OpenSocket> openSockets = new ArrayList<>();
     private final Map<String, OpenSocket> reservedSockets = new LinkedHashMap<>();
-    private ComponentAccessor<EntityStore> accessor;
 
     public DungeonGenerator(DungeonSystem system, DungeonGeneratorConfig config, Random random) {
         this.system = system;
@@ -45,18 +39,17 @@ public class DungeonGenerator {
     /**
      * Run all generation phases. Must be called from within world.execute().
      */
-    public void generate(World world, ComponentAccessor<EntityStore> accessor) {
-        this.accessor = accessor;
+    public void generate(World world) {
         LOGGER.atInfo().log("Starting dungeon generation: min=%d max=%d anchor=(%d,%d,%d) guarantees=%s",
             config.minPieces(), config.maxPieces(),
             config.worldAnchor().getX(), config.worldAnchor().getY(), config.worldAnchor().getZ(),
             config.guaranteeTags());
 
-        placeEntrance(world, accessor);
-        growthLoop(world, accessor);
-        guaranteePlacements(world, accessor);
-        capDeadEnds(world, accessor);
-        connectorPass(world, accessor);
+        placeEntrance(world);
+        growthLoop(world);
+        guaranteePlacements(world);
+        capDeadEnds(world);
+        connectorPass(world);
 
         LOGGER.atInfo().log("Dungeon generation complete: %d pieces placed, %d connections, %d remaining open sockets",
             placedPieces.size(), connections.size(), openSockets.size());
@@ -64,7 +57,7 @@ public class DungeonGenerator {
 
     // ---- Phase 1: Place Entrance ----
 
-    private void placeEntrance(World world, ComponentAccessor<EntityStore> accessor) {
+    private void placeEntrance(World world) {
         List<DungeonPieceVariant> entranceVariants = system.getPieceRegistry().getAllVariants().stream()
             .filter(v -> v.getTags().contains("entrance"))
             .toList();
@@ -93,7 +86,7 @@ public class DungeonGenerator {
 
     // ---- Phase 2: Growth Loop ----
 
-    private void growthLoop(World world, ComponentAccessor<EntityStore> accessor) {
+    private void growthLoop(World world) {
         int stallCount = 0;
 
         while (placedPieces.size() < config.maxPieces()) {
@@ -174,7 +167,7 @@ public class DungeonGenerator {
 
     // ---- Phase 3: Guarantee Placements ----
 
-    private void guaranteePlacements(World world, ComponentAccessor<EntityStore> accessor) {
+    private void guaranteePlacements(World world) {
         for (var entry : new ArrayList<>(reservedSockets.entrySet())) {
             String tag = entry.getKey();
             OpenSocket reserved = entry.getValue();
@@ -227,7 +220,7 @@ public class DungeonGenerator {
 
     // ---- Phase 4: Cap Dead Ends ----
 
-    private void capDeadEnds(World world, ComponentAccessor<EntityStore> accessor) {
+    private void capDeadEnds(World world) {
         for (OpenSocket socket : new ArrayList<>(openSockets)) {
             int targetX = socket.cellX() + socket.piece().gridX() + socket.face().dx();
             int targetZ = socket.cellZ() + socket.piece().gridZ() + socket.face().dz();
@@ -269,7 +262,7 @@ public class DungeonGenerator {
 
     // ---- Phase 5: Connector Pass ----
 
-    private void connectorPass(World world, ComponentAccessor<EntityStore> accessor) {
+    private void connectorPass(World world) {
         ConnectorRegistry connectorRegistry = system.getConnectorRegistry();
         if (connectorRegistry.getDefCount() == 0) {
             LOGGER.atInfo().log("No connectors registered: skipping connector pass");
@@ -278,9 +271,9 @@ public class DungeonGenerator {
 
         for (ConnectionRecord conn : connections) {
             ConnectorDef connector = connectorRegistry.selectRandom(random);
-            IPrefabBuffer buffer = system.getPrefabBuffer(connector.prefabKey());
-            if (buffer == null) {
-                LOGGER.atWarning().log("Failed to load connector prefab: %s", connector.name());
+            BlockData data = system.loadBlockData(connector.name(), "dungeon_connectors");
+            if (data == null) {
+                LOGGER.atWarning().log("Failed to load connector block data: %s", connector.name());
                 continue;
             }
 
@@ -289,9 +282,9 @@ public class DungeonGenerator {
             // Connectors are authored north-south (5 wide on X, 2 deep on Z).
             // For east-west connections, rotate 90 degrees.
             boolean isEastWest = conn.faceA() == Face.EAST || conn.faceA() == Face.WEST;
-            Rotation rotation = isEastWest ? Rotation.Ninety : Rotation.None;
+            int pieceRotation = isEastWest ? 1 : 0;
 
-            PrefabUtil.paste(buffer, world, pos, rotation, true, random, 0, accessor);
+            pasteBlockData(world, data, pos, pieceRotation);
         }
 
         LOGGER.atInfo().log("Placed %d connectors", connections.size());
@@ -301,19 +294,19 @@ public class DungeonGenerator {
 
     /**
      * Place a piece at the given grid coordinates and block origin.
-     * Loads the prefab buffer and pastes via the vanilla PrefabUtil pipeline.
+     * Loads the .blocks.json data and pastes block by block with rotation.
      * Updates the occupancy grid and open socket list.
-     * Returns the PlacedPiece, or null if the prefab could not be loaded.
+     * Returns the PlacedPiece, or null if the block data could not be loaded.
      */
     private PlacedPiece placePiece(DungeonPieceVariant variant, int gridX, int gridY, int gridZ,
                                     Vector3i blockOrigin, World world) {
-        IPrefabBuffer buffer = system.getPrefabBuffer(variant.getPrefabKey());
-        if (buffer == null) {
-            LOGGER.atWarning().log("Failed to load prefab: %s", variant.getPrefabKey());
+        BlockData data = system.loadBlockData(variant.getName(), "dungeon_pieces");
+        if (data == null) {
+            LOGGER.atWarning().log("Failed to load block data: %s", variant.getName());
             return null;
         }
 
-        PrefabUtil.paste(buffer, world, blockOrigin, variant.toSdkRotation(), true, random, 0, accessor);
+        pasteBlockData(world, data, blockOrigin, variant.getRotation());
 
         PlacedPiece placed = new PlacedPiece(variant, gridX, gridY, gridZ, blockOrigin);
         placedPieces.add(placed);
@@ -328,6 +321,52 @@ public class DungeonGenerator {
         }
 
         return placed;
+    }
+
+    /**
+     * Pastes block data into the world, applying piece-level rotation to coordinates.
+     * Block-level rotation (per-block rot value) is preserved as-is.
+     *
+     * @param world the world to paste into
+     * @param data the block data to paste
+     * @param origin the world-space origin to paste at
+     * @param pieceRotation piece-level rotation (0=none, 1=90, 2=180, 3=270)
+     */
+    private void pasteBlockData(World world, BlockData data, Vector3i origin, int pieceRotation) {
+        int w = data.width();
+        int d = data.depth();
+
+        for (BlockData.BlockEntry entry : data.blocks()) {
+            int rx, rz;
+            switch (pieceRotation) {
+                case 1 -> { // 90 degrees CW
+                    rx = (d - 1) - entry.z();
+                    rz = entry.x();
+                }
+                case 2 -> { // 180 degrees
+                    rx = (w - 1) - entry.x();
+                    rz = (d - 1) - entry.z();
+                }
+                case 3 -> { // 270 degrees CW
+                    rx = entry.z();
+                    rz = (w - 1) - entry.x();
+                }
+                default -> { // 0 degrees
+                    rx = entry.x();
+                    rz = entry.z();
+                }
+            }
+
+            int bx = origin.getX() + rx;
+            int by = origin.getY() + entry.y();
+            int bz = origin.getZ() + rz;
+
+            if (entry.rot() != 0) {
+                world.setBlock(bx, by, bz, entry.id(), entry.rot());
+            } else {
+                world.setBlock(bx, by, bz, entry.id());
+            }
+        }
     }
 
     /**
