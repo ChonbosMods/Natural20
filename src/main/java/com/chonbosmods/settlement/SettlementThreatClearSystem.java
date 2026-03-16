@@ -7,8 +7,9 @@ import com.hypixel.hytale.server.core.universe.world.World;
 import com.hypixel.hytale.server.core.universe.world.storage.EntityStore;
 import com.hypixel.hytale.server.npc.entities.NPCEntity;
 
-import java.util.Iterator;
-import java.util.Map;
+import java.util.ArrayList;
+import java.util.List;
+import java.util.UUID;
 import java.util.concurrent.ConcurrentHashMap;
 
 /**
@@ -30,25 +31,29 @@ public class SettlementThreatClearSystem implements Runnable {
         this.registry = registry;
     }
 
-    public void recordThreat(Ref<EntityStore> npcRef, Ref<EntityStore> attackerRef) {
+    public void recordThreat(Ref<EntityStore> npcRef, Ref<EntityStore> attackerRef, UUID worldUUID) {
         String key = npcRef.hashCode() + ":" + attackerRef.hashCode();
-        activeThreats.put(key, new ThreatEntry(npcRef, attackerRef, System.currentTimeMillis()));
+        activeThreats.put(key, new ThreatEntry(npcRef, attackerRef, worldUUID, System.currentTimeMillis()));
     }
 
     @Override
     public void run() {
         try {
             long now = System.currentTimeMillis();
-            Iterator<Map.Entry<String, ThreatEntry>> it = activeThreats.entrySet().iterator();
+            List<ThreatEntry> expired = new ArrayList<>();
 
-            while (it.hasNext()) {
-                Map.Entry<String, ThreatEntry> entry = it.next();
-                ThreatEntry threat = entry.getValue();
-
+            activeThreats.forEach((key, threat) -> {
                 if (now - threat.lastThreatTime >= THREAT_DURATION_MS) {
-                    it.remove();
-                    clearMarkedTarget(threat);
+                    // Atomic conditional remove: only removes if the value hasn't been
+                    // replaced by a newer recordThreat() call since we read it
+                    if (activeThreats.remove(key, threat)) {
+                        expired.add(threat);
+                    }
                 }
+            });
+
+            for (ThreatEntry threat : expired) {
+                clearMarkedTarget(threat);
             }
         } catch (Exception e) {
             LOGGER.atSevere().withCause(e).log("Error in threat clear tick");
@@ -56,33 +61,31 @@ public class SettlementThreatClearSystem implements Runnable {
     }
 
     private void clearMarkedTarget(ThreatEntry threat) {
-        for (SettlementRecord settlement : registry.getAll().values()) {
-            World world = registry.getCachedWorld(settlement.getWorldUUID());
-            if (world == null) continue;
+        World world = registry.getCachedWorld(threat.worldUUID);
+        if (world == null) return;
 
-            world.execute(() -> {
-                try {
-                    Store<EntityStore> store = world.getEntityStore().getStore();
+        world.execute(() -> {
+            try {
+                Store<EntityStore> store = world.getEntityStore().getStore();
 
-                    if (!threat.npcRef.isValid()) return;
+                if (!threat.npcRef.isValid()) return;
 
-                    NPCEntity npc = store.getComponent(threat.npcRef, NPCEntity.getComponentType());
-                    if (npc != null) {
-                        npc.onFlockSetTarget("LockedTargetClose", null);
-                        LOGGER.atInfo().log("Cleared threat on NPC (ref %s): returning to normal",
-                                threat.npcRef);
-                    }
-                } catch (Exception e) {
-                    // NPC may have been removed, ignore
+                NPCEntity npc = store.getComponent(threat.npcRef, NPCEntity.getComponentType());
+                if (npc != null) {
+                    npc.onFlockSetTarget("LockedTargetClose", null);
+                    LOGGER.atInfo().log("Cleared threat on NPC (ref %s): returning to normal",
+                            threat.npcRef);
                 }
-            });
-            return;
-        }
+            } catch (Exception e) {
+                // NPC may have been removed, ignore
+            }
+        });
     }
 
     private record ThreatEntry(
             Ref<EntityStore> npcRef,
             Ref<EntityStore> attackerRef,
+            UUID worldUUID,
             long lastThreatTime
     ) {}
 }

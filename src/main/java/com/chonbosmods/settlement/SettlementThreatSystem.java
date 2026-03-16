@@ -112,25 +112,25 @@ public class SettlementThreatSystem extends DamageEventSystem {
         // Cancel any active dialogue with the attacked NPC
         Natural20.getInstance().getDialogueManager().endSessionForNpc(victimRef);
 
+        // Track threat for the cooldown system (applies to all attacker types)
+        SettlementThreatClearSystem clearSystem = Natural20.getInstance().getThreatClearSystem();
+        if (clearSystem != null) {
+            clearSystem.recordThreat(victimRef, attackerRef, worldUUID);
+            // Also record threat on all guards
+            for (NpcRecord npcRecord : settlement.getNpcs()) {
+                if (npcRecord.getRole().equals("Guard") && npcRecord.getEntityUUID() != null) {
+                    Ref<EntityStore> guardRef = world.getEntityRef(npcRecord.getEntityUUID());
+                    if (guardRef != null && guardRef.isValid()) {
+                        clearSystem.recordThreat(guardRef, attackerRef, worldUUID);
+                    }
+                }
+            }
+        }
+
         if (isPlayerAttacker) {
             UUID playerUuid = attackerPlayer.getPlayerRef().getUuid();
             LOGGER.atInfo().log("Player %s attacked settlement NPC '%s': marked hostile, disposition -%d",
                     playerUuid, victimData.getGeneratedName(), Math.abs(DISPOSITION_PER_HIT));
-
-            // Track this player as a threat for the cooldown system
-            SettlementThreatClearSystem clearSystem = Natural20.getInstance().getThreatClearSystem();
-            if (clearSystem != null) {
-                clearSystem.recordThreat(victimRef, attackerRef);
-                // Also record threat on all guards
-                for (NpcRecord npcRecord : settlement.getNpcs()) {
-                    if (npcRecord.getRole().equals("Guard") && npcRecord.getEntityUUID() != null) {
-                        Ref<EntityStore> guardRef = world.getEntityRef(npcRecord.getEntityUUID());
-                        if (guardRef != null && guardRef.isValid()) {
-                            clearSystem.recordThreat(guardRef, attackerRef);
-                        }
-                    }
-                }
-            }
         } else {
             LOGGER.atInfo().log("Non-hostile entity attacked settlement NPC '%s': marked as threat",
                     victimData.getGeneratedName());
