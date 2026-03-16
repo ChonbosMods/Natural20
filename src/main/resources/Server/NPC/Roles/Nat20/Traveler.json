@@ -57,7 +57,6 @@
             {
               "Sensor": {
                 "Type": "Target",
-                "TargetSlot": "LockedTarget",
                 "Range": 10
               },
               "Actions": [
@@ -104,7 +103,6 @@
             {
               "Sensor": {
                 "Type": "Target",
-                "TargetSlot": "LockedTarget",
                 "Range": 10
               },
               "Actions": [
@@ -220,12 +218,13 @@
             {
               "Sensor": {
                 "Type": "Target",
-                "TargetSlot": "LockedTarget",
                 "Range": 16
               },
               "BodyMotion": {
                 "Type": "Flee",
-                "RelativeSpeed": 1.0
+                "RelativeSpeed": 1.0,
+                "SlowDownDistance": 12,
+                "StopDistance": 18
               }
             },
             {
@@ -233,7 +232,6 @@
                 "Type": "Not",
                 "Sensor": {
                   "Type": "Target",
-                  "TargetSlot": "LockedTarget",
                   "Range": 16
                 }
               },
@@ -250,6 +248,10 @@
               "BodyMotion": {
                 "Type": "Nothing"
               }
+            },
+            {
+              "Sensor": { "Type": "Any" },
+              "Actions": [{ "Type": "State", "State": "Idle" }]
             }
           ]
         }

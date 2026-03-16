@@ -67,10 +67,9 @@
           },
           "Instructions": [
             {
-              "$Comment": "If plugin marked a target in LockedTarget, enter Combat",
+              "$Comment": "If a target is locked (by plugin or damage), enter Combat",
               "Sensor": {
                 "Type": "Target",
-                "TargetSlot": "LockedTarget",
                 "Range": 20
               },
               "Actions": [
@@ -101,16 +100,35 @@
           ]
         },
         {
-          "$Comment": "Combat: chase and engage hostile target",
+          "$Comment": "Combat: chase target, attack when in range",
           "Sensor": {
             "Type": "State",
             "State": "Combat"
           },
           "Instructions": [
             {
+              "$Comment": "In attack range: swing weapon",
               "Sensor": {
                 "Type": "Target",
-                "TargetSlot": "LockedTarget",
+                "Range": 3,
+                "Filters": [{ "Type": "LineOfSight" }]
+              },
+              "ActionsBlocking": true,
+              "Actions": [
+                {
+                  "Type": "Attack",
+                  "Attack": "Root_NPC_Attack_Melee",
+                  "AttackPauseRange": [0.5, 1.0]
+                }
+              ],
+              "HeadMotion": {
+                "Type": "Watch"
+              }
+            },
+            {
+              "$Comment": "Target visible but out of range: chase",
+              "Sensor": {
+                "Type": "Target",
                 "Range": 24
               },
               "HeadMotion": {
@@ -124,12 +142,11 @@
               }
             },
             {
-              "$Comment": "No target in LockedTarget: return to post",
+              "$Comment": "No target: return to post",
               "Sensor": {
                 "Type": "Not",
                 "Sensor": {
                   "Type": "Target",
-                  "TargetSlot": "LockedTarget",
                   "Range": 24
                 }
               },
