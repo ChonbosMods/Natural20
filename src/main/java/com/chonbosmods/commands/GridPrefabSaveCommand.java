@@ -91,49 +91,43 @@ public class GridPrefabSaveCommand extends AbstractPlayerCommand {
             rotatable = Boolean.parseBoolean(rotatableArg.get(context));
         }
 
-        // Get player position and rotation
+        // Get player position and facing direction
         TransformComponent transform = store.getComponent(ref, TransformComponent.getComponentType());
         if (transform == null) {
             context.sendMessage(Message.raw("Could not get your position."));
             return;
         }
         Vector3d pos = transform.getPosition();
-        // Use head rotation for accurate look direction (includes pitch)
         Vector3f headRot = playerRef.getHeadRotation();
-        float yaw = headRot.getY();
-        float pitch = headRot.getX();
+        Face facing = GridPrefabUtil.getCardinalFacing(headRot.getY());
 
-        Face facing = GridPrefabUtil.getCardinalFacing(yaw);
-        Vector3d direction = GridPrefabUtil.getDirection(yaw, pitch);
-
-        // Eye position is approximately 1.6 blocks above foot position
-        Vector3d eyePos = new Vector3d(pos.getX(), pos.getY() + 1.6, pos.getZ());
+        // Player position = back-left corner of the prefab
+        // Prefab extends FORWARD (facing direction) and to the RIGHT
+        // Floor starts at player's feet
+        int playerX = (int) Math.floor(pos.getX());
+        int playerY = (int) Math.floor(pos.getY());
+        int playerZ = (int) Math.floor(pos.getZ());
 
         int blockW = gridW * CELL_SIZE;
         int blockH = gridH * CELL_SIZE;
         int blockD = gridD * CELL_SIZE;
 
+        Vector3i origin = GridPrefabUtil.computeRegionOrigin(
+            new Vector3i(playerX, playerY, playerZ), facing, blockW, blockD);
+        int[] extents = GridPrefabUtil.getWorldExtents(facing, blockW, blockD);
+        int worldExtX = extents[0];
+        int worldExtZ = extents[1];
+
         // Capture final values for lambda
         final boolean rotatableFinal = rotatable;
         String prefabKey = "Nat20/dungeon/" + name;
 
+        context.sendMessage(Message.raw("Saving '" + name + "' facing " + facing +
+            " from " + origin.getX() + "," + origin.getY() + "," + origin.getZ() +
+            " (" + worldExtX + "x" + blockH + "x" + worldExtZ + ")..."));
+
         // All block access must happen on the world thread
         world.execute(() -> {
-            // Raycast to find target block
-            Vector3i target = GridPrefabUtil.getTargetBlock(world, eyePos, direction, RAYCAST_MAX_DISTANCE);
-            if (target == null) {
-                context.sendMessage(Message.raw("No block in view (look at a block to set the origin)."));
-                return;
-            }
-
-            Vector3i origin = GridPrefabUtil.computeRegionOrigin(target, facing, blockW, blockD);
-            int[] extents = GridPrefabUtil.getWorldExtents(facing, blockW, blockD);
-            int worldExtX = extents[0];
-            int worldExtZ = extents[1];
-
-            context.sendMessage(Message.raw("Scanning " + blockW + "x" + blockH + "x" + blockD +
-                " from " + origin.getX() + "," + origin.getY() + "," + origin.getZ() +
-                " facing " + facing + " (" + worldExtX + "x" + blockH + "x" + worldExtZ + " world)..."));
 
             List<String> warnings = new ArrayList<>();
 

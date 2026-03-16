@@ -66,45 +66,37 @@ public class GridPrefabPreviewCommand extends AbstractPlayerCommand {
             return;
         }
 
-        // Get player position and rotation
+        // Get player position and facing direction
         TransformComponent transform = store.getComponent(ref, TransformComponent.getComponentType());
         if (transform == null) {
             context.sendMessage(Message.raw("Could not get your position."));
             return;
         }
         Vector3d pos = transform.getPosition();
-        // Use head rotation for accurate look direction (includes pitch)
         Vector3f headRot = playerRef.getHeadRotation();
-        float yaw = headRot.getY();
-        float pitch = headRot.getX();
+        Face facing = GridPrefabUtil.getCardinalFacing(headRot.getY());
 
-        Face facing = GridPrefabUtil.getCardinalFacing(yaw);
-        Vector3d direction = GridPrefabUtil.getDirection(yaw, pitch);
-
-        // Eye position is approximately 1.6 blocks above foot position
-        Vector3d eyePos = new Vector3d(pos.getX(), pos.getY() + 1.6, pos.getZ());
+        // Player position = back-left corner of the prefab
+        int playerX = (int) Math.floor(pos.getX());
+        int playerY = (int) Math.floor(pos.getY());
+        int playerZ = (int) Math.floor(pos.getZ());
 
         int blockW = data.width();
         int blockD = data.depth();
+
+        Vector3i origin = GridPrefabUtil.computeRegionOrigin(
+            new Vector3i(playerX, playerY, playerZ), facing, blockW, blockD);
 
         // Capture for lambda
         final BlockData finalData = data;
         final String finalSourceType = sourceType;
 
+        context.sendMessage(Message.raw("Pasting " + finalSourceType + " '" + name + "' (" +
+            finalData.blocks().size() + " blocks) at " +
+            origin.getX() + "," + origin.getY() + "," + origin.getZ() +
+            " facing " + facing + "..."));
+
         world.execute(() -> {
-            // Raycast to find target block
-            Vector3i target = GridPrefabUtil.getTargetBlock(world, eyePos, direction, RAYCAST_MAX_DISTANCE);
-            if (target == null) {
-                context.sendMessage(Message.raw("No block in view (look at a block to set the origin)."));
-                return;
-            }
-
-            Vector3i origin = GridPrefabUtil.computeRegionOrigin(target, facing, blockW, blockD);
-
-            context.sendMessage(Message.raw("Pasting " + finalSourceType + " '" + name + "' (" +
-                finalData.blocks().size() + " blocks) at " +
-                origin.getX() + "," + origin.getY() + "," + origin.getZ() +
-                " facing " + facing + "..."));
 
             int placed = 0;
             for (BlockData.BlockEntry entry : finalData.blocks()) {

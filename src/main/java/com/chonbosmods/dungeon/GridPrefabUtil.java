@@ -1,13 +1,10 @@
 package com.chonbosmods.dungeon;
 
-import com.hypixel.hytale.math.vector.Vector3d;
 import com.hypixel.hytale.math.vector.Vector3i;
-import com.hypixel.hytale.server.core.asset.type.blocktype.config.BlockType;
-import com.hypixel.hytale.server.core.universe.world.World;
 
 /**
  * Shared utilities for grid prefab save/preview commands.
- * Provides raycast, cardinal direction snapping, and coordinate transforms
+ * Provides cardinal direction snapping and coordinate transforms
  * between world-space and canonical (south-facing) local-space.
  */
 public final class GridPrefabUtil {
@@ -34,67 +31,33 @@ public final class GridPrefabUtil {
     }
 
     /**
-     * Compute a direction unit vector from yaw and pitch (radians).
+     * Compute the world-space origin (minimum X, minimum Z corner) of the prefab region.
      *
-     * Hytale convention:
-     *   dx = -sin(yaw) * cos(pitch)
-     *   dy = -sin(pitch)
-     *   dz = -cos(yaw) * cos(pitch)
-     */
-    public static Vector3d getDirection(float yaw, float pitch) {
-        double cosPitch = Math.cos(pitch);
-        double dx = -Math.sin(yaw) * cosPitch;
-        double dy = -Math.sin(pitch);
-        double dz = -Math.cos(yaw) * cosPitch;
-        return new Vector3d(dx, dy, dz);
-    }
-
-    /**
-     * Raycast from eye position along direction to find the first solid block.
-     * Returns null if no block is found within maxDistance.
-     */
-    public static Vector3i getTargetBlock(World world, Vector3d eyePos, Vector3d direction, double maxDistance) {
-        double step = 0.25;
-        for (double d = 0.5; d <= maxDistance; d += step) {
-            int bx = (int) Math.floor(eyePos.getX() + direction.getX() * d);
-            int by = (int) Math.floor(eyePos.getY() + direction.getY() * d);
-            int bz = (int) Math.floor(eyePos.getZ() + direction.getZ() * d);
-            BlockType bt = world.getBlockType(bx, by, bz);
-            if (bt != null && !"Empty".equals(bt.getId())) {
-                return new Vector3i(bx, by, bz);
-            }
-        }
-        return null;
-    }
-
-    /**
-     * Compute the world-space origin (minimum X, minimum Z corner) of the scan region.
-     * The region starts 1 block above the target block and extends in the direction
-     * the player is facing (forward) and to their right.
+     * <p>The player stands at the back-left corner of the prefab. The region extends
+     * FORWARD (facing direction) and to the RIGHT from the player's position.
+     * Floor is at the player's feet (playerPos Y).
      *
-     * <p>For SOUTH/NORTH facing, the world-space region is blockW wide (X) and blockD deep (Z).
-     * For EAST/WEST facing, the world-space region is blockD wide (X) and blockW deep (Z)
-     * because width maps to the right axis and depth maps to the forward axis.
+     * <p>The origin is always the min-X, min-Z corner of the world-space bounding box.
      *
-     * @param target the block the player is looking at
+     * @param playerPos the block position at the player's feet
      * @param facing the player's cardinal facing direction
      * @param blockW canonical width (right-axis extent in blocks)
      * @param blockD canonical depth (forward-axis extent in blocks)
      * @return the minimum-corner origin of the world-space region
      */
-    public static Vector3i computeRegionOrigin(Vector3i target, Face facing, int blockW, int blockD) {
-        int tx = target.getX();
-        int ty = target.getY() + 1;
-        int tz = target.getZ();
+    public static Vector3i computeRegionOrigin(Vector3i playerPos, Face facing, int blockW, int blockD) {
+        int px = playerPos.getX();
+        int py = playerPos.getY();
+        int pz = playerPos.getZ();
         return switch (facing) {
-            // Forward = +Z, Right = +X: origin is at target, extends +X and +Z
-            case SOUTH -> new Vector3i(tx, ty, tz);
-            // Forward = -Z, Right = -X: far corner is at target, origin is min corner
-            case NORTH -> new Vector3i(tx - blockW + 1, ty, tz - blockD + 1);
-            // Forward = +X, Right = -Z: world X extent = blockD, world Z extent = blockW
-            case EAST -> new Vector3i(tx, ty, tz - blockW + 1);
-            // Forward = -X, Right = +Z: world X extent = blockD, world Z extent = blockW
-            case WEST -> new Vector3i(tx - blockD + 1, ty, tz);
+            // Forward = +Z, Right = +X: player at min corner
+            case SOUTH -> new Vector3i(px, py, pz);
+            // Forward = -Z, Right = -X: player at max corner
+            case NORTH -> new Vector3i(px - blockW + 1, py, pz - blockD + 1);
+            // Forward = +X, Right = -Z: player at min-X, max-Z corner
+            case EAST -> new Vector3i(px, py, pz - blockW + 1);
+            // Forward = -X, Right = +Z: player at max-X, min-Z corner
+            case WEST -> new Vector3i(px - blockD + 1, py, pz);
         };
     }
 
