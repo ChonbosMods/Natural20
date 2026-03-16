@@ -9,6 +9,7 @@ import com.hypixel.hytale.math.vector.Vector3d;
 import com.hypixel.hytale.math.vector.Vector3i;
 import com.hypixel.hytale.server.core.Message;
 import com.hypixel.hytale.server.core.command.system.CommandContext;
+import com.hypixel.hytale.server.core.asset.type.blocktype.config.BlockType;
 import com.hypixel.hytale.server.core.command.system.arguments.system.RequiredArg;
 import com.hypixel.hytale.server.core.command.system.arguments.types.ArgTypes;
 import com.hypixel.hytale.server.core.command.system.basecommands.AbstractPlayerCommand;
@@ -82,10 +83,19 @@ public class GridPrefabPreviewCommand extends AbstractPlayerCommand {
                 int bx = position.getX() + entry.x();
                 int by = position.getY() + entry.y();
                 int bz = position.getZ() + entry.z();
+                // Place block first
+                world.setBlock(bx, by, bz, entry.id());
+                // Apply rotation via chunk's BlockAccessor if needed
                 if (entry.rot() != 0) {
-                    world.setBlock(bx, by, bz, entry.id(), entry.rot());
-                } else {
-                    world.setBlock(bx, by, bz, entry.id());
+                    long chunkKey = com.hypixel.hytale.math.util.ChunkUtil.indexChunkFromBlock(bx, bz);
+                    var chunk = world.getChunkIfLoaded(chunkKey);
+                    if (chunk != null) {
+                        int blockId = world.getBlock(bx, by, bz);
+                        BlockType blockType = world.getBlockType(bx, by, bz);
+                        if (blockType != null) {
+                            chunk.setBlock(bx, by, bz, blockId, blockType, entry.rot(), 0, 0);
+                        }
+                    }
                 }
                 placed++;
             }

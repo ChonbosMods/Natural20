@@ -361,10 +361,17 @@ public class DungeonGenerator {
             int by = origin.getY() + entry.y();
             int bz = origin.getZ() + rz;
 
+            world.setBlock(bx, by, bz, entry.id());
             if (entry.rot() != 0) {
-                world.setBlock(bx, by, bz, entry.id(), entry.rot());
-            } else {
-                world.setBlock(bx, by, bz, entry.id());
+                long chunkKey = com.hypixel.hytale.math.util.ChunkUtil.indexChunkFromBlock(bx, bz);
+                var chunk = world.getChunkIfLoaded(chunkKey);
+                if (chunk != null) {
+                    int blockId = world.getBlock(bx, by, bz);
+                    var blockType = world.getBlockType(bx, by, bz);
+                    if (blockType != null) {
+                        chunk.setBlock(bx, by, bz, blockId, blockType, entry.rot(), 0, 0);
+                    }
+                }
             }
         }
     }
