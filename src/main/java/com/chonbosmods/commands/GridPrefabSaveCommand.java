@@ -380,12 +380,14 @@ public class GridPrefabSaveCommand extends AbstractPlayerCommand {
 
         Vector3i minPoint = new Vector3i(originX, originY, originZ);
         Vector3i maxPoint = new Vector3i(originX + blockW - 1, originY + blockH - 1, originZ + blockD - 1);
-        Vector3i anchor = new Vector3i(0, 0, 0);
+        // Anchor at minPoint so blocks are stored relative to the region origin
+        Vector3i anchor = minPoint;
 
         PrefabSaverSettings settings = new PrefabSaverSettings();
         settings.setBlocks(true);
         settings.setEntities(false);
         settings.setOverwriteExisting(true);
+        settings.setEmpty(true);
 
         PrefabSaver.savePrefab(context.sender(), world, prefabPath, minPoint, maxPoint,
                 anchor, anchor, anchor, settings)

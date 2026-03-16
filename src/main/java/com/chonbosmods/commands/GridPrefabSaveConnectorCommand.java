@@ -144,12 +144,13 @@ public class GridPrefabSaveConnectorCommand extends AbstractPlayerCommand {
 
         Vector3i minPoint = new Vector3i(originX, originY, originZ);
         Vector3i maxPoint = new Vector3i(originX + WIDTH - 1, originY + HEIGHT - 1, originZ + DEPTH - 1);
-        Vector3i anchor = new Vector3i(0, 0, 0);
+        Vector3i anchor = minPoint;
 
         PrefabSaverSettings settings = new PrefabSaverSettings();
         settings.setBlocks(true);
         settings.setEntities(false);
         settings.setOverwriteExisting(true);
+        settings.setEmpty(true);
 
         PrefabSaver.savePrefab(context.sender(), world, prefabPath, minPoint, maxPoint,
                 anchor, anchor, anchor, settings)

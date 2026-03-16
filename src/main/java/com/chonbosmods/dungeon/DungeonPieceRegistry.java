@@ -26,7 +26,8 @@ public class DungeonPieceRegistry {
             return;
         }
         try (Stream<Path> files = Files.list(dir)) {
-            files.filter(p -> p.toString().endsWith(".json")).sorted().forEach(this::loadFile);
+            files.filter(p -> p.toString().endsWith(".json") && !p.toString().endsWith(".blocks.json"))
+                 .sorted().forEach(this::loadFile);
         } catch (IOException e) {
             LOGGER.atSevere().withCause(e).log("Failed to list dungeon piece files in %s", dir);
         }
