@@ -353,6 +353,9 @@ public class DungeonGenerator {
             if (requiredTag != null && !variant.getTags().contains(requiredTag)) {
                 continue;
             }
+            if (requiredTag == null && variant.getTags().contains("entrance")) {
+                continue;
+            }
 
             for (SocketEntry socket : variant.getSockets()) {
                 if (!socket.isOpen() || socket.face() != oppositeFace) {
