@@ -22,22 +22,14 @@ public class QuestGenerator {
 
     private final QuestTemplateRegistry templateRegistry;
     private final SettlementRegistry settlementRegistry;
+    private final QuestPoolRegistry poolRegistry;
     private final AtomicLong questCounter = new AtomicLong(System.currentTimeMillis());
 
-    private static final String[] GATHER_ITEMS = {
-        "Hytale:RawMeat", "Hytale:Leather", "Hytale:Bone",
-        "Hytale:Feather", "Hytale:WoodLog", "Hytale:Stone",
-        "Hytale:IronOre", "Hytale:CottonFiber", "Hytale:Wheat"
-    };
-
-    private static final String[] HOSTILE_MOBS = {
-        "Hytale:Trork_Grunt", "Hytale:Trork_Brute", "Hytale:Skeleton",
-        "Hytale:Zombie", "Hytale:Spider"
-    };
-
-    public QuestGenerator(QuestTemplateRegistry templateRegistry, SettlementRegistry settlementRegistry) {
+    public QuestGenerator(QuestTemplateRegistry templateRegistry, SettlementRegistry settlementRegistry,
+                           QuestPoolRegistry poolRegistry) {
         this.templateRegistry = templateRegistry;
         this.settlementRegistry = settlementRegistry;
+        this.poolRegistry = poolRegistry;
     }
 
     public @Nullable QuestInstance generate(String npcRole, String npcId,
@@ -168,13 +160,13 @@ public class QuestGenerator {
                                                       String npcId, Random random) {
         Map<String, String> bindings = new HashMap<>();
 
-        String gatherItem = GATHER_ITEMS[random.nextInt(GATHER_ITEMS.length)];
-        bindings.put("quest_item", gatherItem.substring(gatherItem.indexOf(':') + 1));
-        bindings.put("gather_item_id", gatherItem);
+        QuestPoolRegistry.PoolEntry gatherItem = poolRegistry.randomGatherItem(random);
+        bindings.put("quest_item", gatherItem.label());
+        bindings.put("gather_item_id", gatherItem.id());
 
-        String enemyType = HOSTILE_MOBS[random.nextInt(HOSTILE_MOBS.length)];
-        bindings.put("enemy_type", enemyType.substring(enemyType.indexOf(':') + 1).replace("_", " "));
-        bindings.put("enemy_type_id", enemyType);
+        QuestPoolRegistry.PoolEntry enemyMob = poolRegistry.randomHostileMob(random);
+        bindings.put("enemy_type", enemyMob.label());
+        bindings.put("enemy_type_id", enemyMob.id());
 
         SettlementRecord nearestOther = findNearestOtherSettlement(npcX, npcZ, npcCellKey);
         if (nearestOther != null) {
