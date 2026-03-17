@@ -19,14 +19,18 @@ public class QuestPoolRegistry {
 
     private static final FluentLogger LOGGER = FluentLogger.forEnclosingClass();
 
-    public record PoolEntry(String id, String label) {}
+    /** Entry with id + label for items/mobs. */
+    public record ItemEntry(String id, String label) {}
 
-    private final List<PoolEntry> gatherItems = new ArrayList<>();
-    private final List<PoolEntry> hostileMobs = new ArrayList<>();
+    /** Entry with value + plural flag for narrative pools. */
+    public record NarrativeEntry(String value, boolean plural) {}
+
+    private final List<ItemEntry> gatherItems = new ArrayList<>();
+    private final List<ItemEntry> hostileMobs = new ArrayList<>();
     private final List<String> questActions = new ArrayList<>();
-    private final List<String> questFocuses = new ArrayList<>();
-    private final List<String> questStakes = new ArrayList<>();
-    private final List<String> questThreats = new ArrayList<>();
+    private final List<NarrativeEntry> questFocuses = new ArrayList<>();
+    private final List<NarrativeEntry> questStakes = new ArrayList<>();
+    private final List<NarrativeEntry> questThreats = new ArrayList<>();
     private final List<String> questOrigins = new ArrayList<>();
     private final List<String> questTimePressures = new ArrayList<>();
     private final List<String> questRewardHints = new ArrayList<>();
@@ -40,9 +44,9 @@ public class QuestPoolRegistry {
         loadItemPool(poolsDir.resolve("gather_items.json"), "items", gatherItems);
         loadItemPool(poolsDir.resolve("hostile_mobs.json"), "mobs", hostileMobs);
         loadStringPool(poolsDir.resolve("quest_actions.json"), questActions);
-        loadStringPool(poolsDir.resolve("quest_focuses.json"), questFocuses);
-        loadStringPool(poolsDir.resolve("quest_stakes.json"), questStakes);
-        loadStringPool(poolsDir.resolve("quest_threats.json"), questThreats);
+        loadNarrativePool(poolsDir.resolve("quest_focuses.json"), questFocuses);
+        loadNarrativePool(poolsDir.resolve("quest_stakes.json"), questStakes);
+        loadNarrativePool(poolsDir.resolve("quest_threats.json"), questThreats);
         loadStringPool(poolsDir.resolve("quest_origins.json"), questOrigins);
         loadStringPool(poolsDir.resolve("quest_time_pressures.json"), questTimePressures);
         loadStringPool(poolsDir.resolve("quest_reward_hints.json"), questRewardHints);
@@ -53,14 +57,36 @@ public class QuestPoolRegistry {
             questTimePressures.size(), questRewardHints.size());
     }
 
-    private void loadItemPool(Path file, String arrayKey, List<PoolEntry> target) {
+    private void loadItemPool(Path file, String arrayKey, List<ItemEntry> target) {
         if (!Files.exists(file)) return;
         try (var reader = Files.newBufferedReader(file, StandardCharsets.UTF_8)) {
             JsonObject root = JsonParser.parseReader(reader).getAsJsonObject();
             JsonArray arr = root.getAsJsonArray(arrayKey);
             for (JsonElement el : arr) {
                 JsonObject obj = el.getAsJsonObject();
-                target.add(new PoolEntry(obj.get("id").getAsString(), obj.get("label").getAsString()));
+                target.add(new ItemEntry(obj.get("id").getAsString(), obj.get("label").getAsString()));
+            }
+        } catch (IOException e) {
+            LOGGER.atSevere().withCause(e).log("Failed to load pool: %s", file);
+        }
+    }
+
+    private void loadNarrativePool(Path file, List<NarrativeEntry> target) {
+        if (!Files.exists(file)) return;
+        try (var reader = Files.newBufferedReader(file, StandardCharsets.UTF_8)) {
+            JsonObject root = JsonParser.parseReader(reader).getAsJsonObject();
+            JsonArray arr = root.getAsJsonArray("values");
+            for (JsonElement el : arr) {
+                if (el.isJsonObject()) {
+                    JsonObject obj = el.getAsJsonObject();
+                    target.add(new NarrativeEntry(
+                        obj.get("value").getAsString(),
+                        obj.has("plural") && obj.get("plural").getAsBoolean()
+                    ));
+                } else {
+                    // Backwards compat: plain string = singular
+                    target.add(new NarrativeEntry(el.getAsString(), false));
+                }
             }
         } catch (IOException e) {
             LOGGER.atSevere().withCause(e).log("Failed to load pool: %s", file);
@@ -73,20 +99,24 @@ public class QuestPoolRegistry {
             JsonObject root = JsonParser.parseReader(reader).getAsJsonObject();
             JsonArray arr = root.getAsJsonArray("values");
             for (JsonElement el : arr) {
-                target.add(el.getAsString());
+                if (el.isJsonPrimitive()) {
+                    target.add(el.getAsString());
+                } else if (el.isJsonObject()) {
+                    target.add(el.getAsJsonObject().get("value").getAsString());
+                }
             }
         } catch (IOException e) {
             LOGGER.atSevere().withCause(e).log("Failed to load pool: %s", file);
         }
     }
 
-    public PoolEntry randomGatherItem(Random random) {
-        if (gatherItems.isEmpty()) return new PoolEntry("Hytale:Stone", "stone");
+    public ItemEntry randomGatherItem(Random random) {
+        if (gatherItems.isEmpty()) return new ItemEntry("Hytale:Stone", "stone");
         return gatherItems.get(random.nextInt(gatherItems.size()));
     }
 
-    public PoolEntry randomHostileMob(Random random) {
-        if (hostileMobs.isEmpty()) return new PoolEntry("Hytale:Trork_Grunt", "Trork Grunt");
+    public ItemEntry randomHostileMob(Random random) {
+        if (hostileMobs.isEmpty()) return new ItemEntry("Hytale:Trork_Grunt", "Trork Grunt");
         return hostileMobs.get(random.nextInt(hostileMobs.size()));
     }
 
@@ -95,18 +125,18 @@ public class QuestPoolRegistry {
         return questActions.get(random.nextInt(questActions.size()));
     }
 
-    public String randomFocus(Random random) {
-        if (questFocuses.isEmpty()) return "the area";
+    public NarrativeEntry randomFocus(Random random) {
+        if (questFocuses.isEmpty()) return new NarrativeEntry("area", false);
         return questFocuses.get(random.nextInt(questFocuses.size()));
     }
 
-    public String randomStakes(Random random) {
-        if (questStakes.isEmpty()) return "everyone here";
+    public NarrativeEntry randomStakes(Random random) {
+        if (questStakes.isEmpty()) return new NarrativeEntry("everyone here", true);
         return questStakes.get(random.nextInt(questStakes.size()));
     }
 
-    public String randomThreat(Random random) {
-        if (questThreats.isEmpty()) return "the growing danger";
+    public NarrativeEntry randomThreat(Random random) {
+        if (questThreats.isEmpty()) return new NarrativeEntry("growing danger", false);
         return questThreats.get(random.nextInt(questThreats.size()));
     }
 

@@ -160,11 +160,11 @@ public class QuestGenerator {
                                                       String npcId, Random random) {
         Map<String, String> bindings = new HashMap<>();
 
-        QuestPoolRegistry.PoolEntry gatherItem = poolRegistry.randomGatherItem(random);
+        QuestPoolRegistry.ItemEntry gatherItem = poolRegistry.randomGatherItem(random);
         bindings.put("quest_item", gatherItem.label());
         bindings.put("gather_item_id", gatherItem.id());
 
-        QuestPoolRegistry.PoolEntry enemyMob = poolRegistry.randomHostileMob(random);
+        QuestPoolRegistry.ItemEntry enemyMob = poolRegistry.randomHostileMob(random);
         bindings.put("enemy_type", enemyMob.label());
         bindings.put("enemy_type_id", enemyMob.id());
 
@@ -190,17 +190,32 @@ public class QuestGenerator {
     private void resolveNarrativeBindings(Map<String, String> bindings, QuestVariant expositionVariant,
                                            QuestSituation situation, String npcCellKey,
                                            String npcId, Random random) {
-        // Pull narrative variables from pools
+        // Pull narrative variables from pools (article-free, with plural flags)
         bindings.put("quest_action", poolRegistry.randomAction(random));
-        bindings.put("quest_focus", poolRegistry.randomFocus(random));
-        bindings.put("quest_threat", poolRegistry.randomThreat(random));
+
+        QuestPoolRegistry.NarrativeEntry focus = poolRegistry.randomFocus(random);
+        bindings.put("quest_focus", focus.value());
+        bindings.put("quest_focus_is", focus.plural() ? "are" : "is");
+        bindings.put("quest_focus_has", focus.plural() ? "have" : "has");
+        bindings.put("quest_focus_was", focus.plural() ? "were" : "was");
+
+        QuestPoolRegistry.NarrativeEntry threat = poolRegistry.randomThreat(random);
+        bindings.put("quest_threat", threat.value());
+        bindings.put("quest_threat_is", threat.plural() ? "are" : "is");
+        bindings.put("quest_threat_has", threat.plural() ? "have" : "has");
+        bindings.put("quest_threat_was", threat.plural() ? "were" : "was");
 
         // 25% chance: quest_stakes = quest_focus
+        QuestPoolRegistry.NarrativeEntry stakes;
         if (random.nextDouble() < STAKES_EQUALS_FOCUS_CHANCE) {
-            bindings.put("quest_stakes", bindings.get("quest_focus"));
+            stakes = focus;
         } else {
-            bindings.put("quest_stakes", poolRegistry.randomStakes(random));
+            stakes = poolRegistry.randomStakes(random);
         }
+        bindings.put("quest_stakes", stakes.value());
+        bindings.put("quest_stakes_is", stakes.plural() ? "are" : "is");
+        bindings.put("quest_stakes_has", stakes.plural() ? "have" : "has");
+        bindings.put("quest_stakes_was", stakes.plural() ? "were" : "was");
 
         // Optional narrative pools (70% chance each to be included)
         String origin = poolRegistry.randomOrigin(random);
