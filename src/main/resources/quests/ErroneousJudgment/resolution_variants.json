@@ -1,11 +1,11 @@
 {
   "variants": [
     {
-      "id": "erroneous_judgment_reso_01",
+      "id": "reso_erroneous_judgment_01",
       "dialogueChunks": {
         "intro": "You found the truth, {player_name}. And the truth, as usual, was more complicated than anyone expected.",
-        "plotStep": "The evidence you brought back proved that {quest_focus} was never what it appeared. The council reviewed everything and reversed their decision. {target_npc} was vindicated, and the settlement owes them a debt that words alone can't pay. The real source of the problem has been dealt with, and the {enemy_type} have retreated now that the deception has been exposed. People are shaken by how close they came to an irreversible mistake.",
-        "outro": "You proved that the hardest thing to find isn't treasure or monsters: it's the truth. Take this, and know that {location} learned something painful but necessary."
+        "plotStep": "The evidence you brought back proved that {quest_focus} was never what it appeared. The council reversed their decision. {target_npc} was vindicated, and the real source of the problem has been dealt with. The {enemy_type} have retreated now that the deception has been exposed.",
+        "outro": "You proved that the hardest thing to find isn't treasure or monsters: it's the truth."
       },
       "playerResponses": [
         { "text": "The truth is always worth the effort. Even when it's uncomfortable.", "action": "ACCEPT", "dispositionShift": 10 },
@@ -15,11 +15,11 @@
       "objectiveConfig": {}
     },
     {
-      "id": "erroneous_judgment_reso_02",
+      "id": "reso_erroneous_judgment_02",
       "dialogueChunks": {
         "intro": "It's over, {player_name}. The damage is done, but at least the bleeding has stopped.",
-        "plotStep": "The settlement acknowledged the error, though not everyone is willing to admit they were wrong. {target_npc} accepted the council's apology with more grace than most people would manage. The real perpetrator was identified thanks to your investigation, and the {enemy_type} threat has been neutralized. But the trust that was broken won't heal quickly. Some families who acted on the false information are carrying guilt, and others are still suspicious despite the evidence.",
-        "outro": "You can't unring a bell, but you can stop people from ringing it again. Here, take this with our thanks."
+        "plotStep": "The settlement acknowledged the error, though not everyone is willing to admit they were wrong. {target_npc} accepted the apology with more grace than most would manage. The real perpetrator was identified thanks to your investigation, and the {enemy_type} threat has been neutralized.",
+        "outro": "You can't unring a bell, but you can stop people from ringing it again."
       },
       "playerResponses": [
         { "text": "Healing takes time. The important thing is the truth is out now.", "action": "ACCEPT", "dispositionShift": 5 },
@@ -29,11 +29,11 @@
       "objectiveConfig": {}
     },
     {
-      "id": "erroneous_judgment_reso_03",
+      "id": "reso_erroneous_judgment_03",
       "dialogueChunks": {
         "intro": "{player_name}, the truth you uncovered saved lives. But it also revealed something about us that nobody wanted to see.",
-        "plotStep": "The council disbanded the militia patrol that acted on the false report. {target_npc} is helping rebuild what was damaged in the confusion. But the conversation in {location} has shifted: people are asking how they allowed bad information to drive them so far, so fast. The {enemy_type} weren't the real danger, we were, to ourselves. Your investigation forced a reckoning that this settlement desperately needed, even if it didn't enjoy it.",
-        "outro": "Sometimes the bravest thing you can do is hold up a mirror. Take this: you earned every bit of it."
+        "plotStep": "The council disbanded the group that acted on the false report. {target_npc} is helping rebuild what was damaged. The conversation has shifted: people are asking how they allowed bad information to drive them so far, so fast. The {enemy_type} weren't the real danger. We were, to ourselves.",
+        "outro": "Sometimes the bravest thing you can do is hold up a mirror."
       },
       "playerResponses": [
         { "text": "Self-reflection is harder than any fight. I'm glad it's happening.", "action": "ACCEPT" },

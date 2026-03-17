@@ -1,10 +1,10 @@
 {
   "variants": [
     {
-      "id": "enemy_loved_conf_01",
+      "id": "conf_enemy_loved_01",
       "dialogueChunks": {
         "intro": "{player_name}, the situation has become far more dangerous than either of us anticipated.",
-        "plotStep": "Someone in {location} discovered what we've been doing with {quest_focus}. {target_npc} is being pressured to make a public statement condemning our actions, and a patrol has been organized to hunt down {quest_focus} and destroy it. Meanwhile, the {enemy_type} have sent their own search party {location_hint}, and if they find {quest_focus} before we can move it to safety, neither side will show restraint. I need you to gather {quest_item} to create a distraction and buy us time to {quest_action}.",
+        "plotStep": "Someone discovered what we've been doing with {quest_focus}. {target_npc} is being pressured to condemn our actions, and a patrol has been organized to hunt down {quest_focus}. Meanwhile, the {enemy_type} have sent their own search party {location_hint}. I need you to gather {quest_item} to create a distraction and buy us time to {quest_action}.",
         "outro": "Both sides are closing in. If we don't act now, {quest_stakes} dies on the altar of someone else's fear."
       },
       "playerResponses": [
@@ -20,10 +20,10 @@
       }
     },
     {
-      "id": "enemy_loved_conf_02",
+      "id": "conf_enemy_loved_02",
       "dialogueChunks": {
         "intro": "They came for {quest_focus} last night, {player_name}. We barely got away.",
-        "plotStep": "The mob that formed in {location} wasn't interested in explanations. They wanted blood, and {target_npc} tried to talk them down but got shouted into silence. We managed to relocate {quest_focus} to a hiding spot {location_hint}, but we can't stay there long. The {enemy_type} raids have intensified as if they can sense the disruption in our settlement. I need {quest_item} to sustain {quest_focus} and keep them hidden while I try to {quest_action} through back channels.",
+        "plotStep": "The mob wasn't interested in explanations. {target_npc} tried to talk them down but got shouted into silence. We managed to relocate {quest_focus} to a hiding spot {location_hint}, but we can't stay long. The {enemy_type} raids have intensified. I need {quest_item} to sustain {quest_focus} while I try to {quest_action}.",
         "outro": "{quest_threat} is closing in from every direction. We need supplies and we need them fast."
       },
       "playerResponses": [
@@ -39,11 +39,11 @@
       }
     },
     {
-      "id": "enemy_loved_conf_03",
+      "id": "conf_enemy_loved_03",
       "dialogueChunks": {
         "intro": "The {enemy_type} sent an emissary, {player_name}. And our people nearly killed it on sight.",
-        "plotStep": "The emissary carried a message: they want {quest_focus} returned, and they're willing to offer {quest_item} in exchange and stop raiding {location_hint}. But our guards intercepted the messenger and now {target_npc} is caught between people who want war and an enemy offering something that looks dangerously like peace. We need someone to reach the {enemy_type} camp {location_hint} and confirm the offer is genuine before {quest_threat} turns this into a massacre.",
-        "outro": "If their offer is real, {quest_action} could end years of bloodshed. If it's not, at least we'll know the truth."
+        "plotStep": "The emissary carried a message: they want {quest_focus} returned, and they're willing to offer {quest_item} in exchange and stop raiding {location_hint}. But our guards intercepted the messenger. {target_npc} is caught between people who want war and an enemy offering something that looks like peace.",
+        "outro": "We need someone to reach the {enemy_type} camp and confirm the offer is genuine before {quest_threat} turns this into a massacre. If their offer is real, {quest_action} could end years of bloodshed."
       },
       "playerResponses": [
         { "text": "I'll go to their camp. If peace is possible, someone has to try.", "action": "ACCEPT" },

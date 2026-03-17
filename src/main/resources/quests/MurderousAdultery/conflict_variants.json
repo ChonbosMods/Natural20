@@ -5,7 +5,7 @@
       "dialogueChunks": {
         "intro": "The investigation into {quest_focus} has uncovered layers of deception. Every lead points to another misdirection planted near {location_hint}.",
         "plotStep": "Whoever is behind {quest_threat} has been thorough. They've left false evidence implicating {target_npc}, who may be innocent. {quest_ally} says the real conspirator knows the {enemy_type} movements too well: they've been coordinating for months.",
-        "outro": "Cut through the misdirection. Search the area near {location} for the evidence they couldn't fake. {quest_stakes} won't survive much more of this uncertainty."
+        "outro": "Cut through the misdirection. Search the area near {location_hint} for the evidence they couldn't fake. {quest_stakes} won't survive much more of this uncertainty."
       },
       "playerResponses": [
         {
@@ -28,7 +28,7 @@
       "id": "treachery_conf_retaliation",
       "dialogueChunks": {
         "intro": "Your investigation is making someone nervous. The {enemy_type} launched a targeted strike near {location_hint}: aimed directly at the evidence you were tracking for {quest_focus}.",
-        "plotStep": "{quest_threat} is reacting to your progress. The conspirator warned their allies, and the {enemy_type} moved to destroy the proof. {quest_ally} says there may still be evidence at a secondary site near {location}, but time is short.",
+        "plotStep": "{quest_threat} is reacting to your progress. The conspirator warned their allies, and the {enemy_type} moved to destroy the proof. {quest_ally} says there may still be evidence at a secondary site near {location_hint}, but time is short.",
         "outro": "Get there before they can destroy everything. Fight through whatever they've left guarding the site and recover what remains."
       },
       "playerResponses": [
@@ -53,7 +53,7 @@
       "dialogueChunks": {
         "intro": "The evidence from {quest_focus} points to someone no one wants to believe. A person deeply trusted by the settlement stands accused, and the proof is damning.",
         "plotStep": "{target_npc} insists on their innocence, but {quest_ally} found correspondence near {location_hint} that connects them to {quest_threat}. We need final proof: something that confirms guilt or clears their name beyond doubt. The {enemy_type} are watching our confusion closely.",
-        "outro": "Find the decisive evidence near {location}. Whether it condemns or exonerates, {quest_stakes} need closure."
+        "outro": "Find the decisive evidence near {location_hint}. Whether it condemns or exonerates, {quest_stakes} need closure."
       },
       "playerResponses": [
         {

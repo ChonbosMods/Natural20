@@ -1,20 +1,20 @@
 {
   "variants": [
     {
-      "id": "reso_discovery_dishonor_master_exposed",
+      "id": "reso_discovery_dishonor_01",
       "dialogueChunks": {
-        "intro": "The guild council reviewed the evidence for four hours. When they emerged, the master's name had been struck from every register. Thirty years of reputation, gone in an afternoon.",
-        "plotStep": "Three former apprentices have been formally cleared of the espionage charges. {target_npc} says one of them wept when they heard. They'd been living under that shadow for eight years. {quest_ally} is overseeing the restitution process: every apprentice who was cheated will receive compensation. The master has been barred from the profession permanently.",
-        "outro": "Finding the truth cost the apprentice who started this everything they believed about their mentor, {player_name}. But it gave three innocent people their names back. Some truths are worth the price of disillusionment."
+        "intro": "The evidence was reviewed for hours. When the verdict came, the guilty party's name was struck from every register. Decades of reputation, gone in an afternoon.",
+        "plotStep": "The wrongly accused have been formally cleared. {target_npc} says one of them wept when they heard. They'd been living under that shadow for years. {quest_ally} is overseeing restitution.",
+        "outro": "Finding the truth cost the person who started this everything they believed about their mentor, {player_name}. But it gave innocent people their names back."
       },
       "playerResponses": [
         {
-          "text": "The apprentice showed more integrity than the master ever did.",
+          "text": "The whistleblower showed more integrity than the guilty ever did.",
           "action": "COMPLETE",
           "dispositionShift": 5
         },
         {
-          "text": "Eight years of false disgrace. Make sure they're truly made whole.",
+          "text": "Years of false disgrace. Make sure they're truly made whole.",
           "action": "COMPLETE",
           "dispositionShift": 3
         }
@@ -23,11 +23,11 @@
       "objectiveConfig": {}
     },
     {
-      "id": "reso_discovery_dishonor_hero_unmasked",
+      "id": "reso_discovery_dishonor_02",
       "dialogueChunks": {
-        "intro": "The evidence from the battlefield was undeniable. The weapon positions, the barricade layout: they told a story completely different from the one carved into the memorial.",
-        "plotStep": "The council removed the false hero from their position. The memorial is being recarved with the names of the actual defenders. {target_npc} found a survivor from the real fight, living quietly in {location}, who confirmed everything. {quest_ally} says the settlement is in shock, but it's the clean kind of shock: the kind that comes before honest rebuilding.",
-        "outro": "It's painful to learn your hero was a fraud, {player_name}. But the real heroes, the ones who died on that field, deserve their names on the stone. You made sure the right story gets told from now on."
+        "intro": "The evidence was undeniable. The details at the site told a story completely different from the one carved into the memorial.",
+        "plotStep": "The false hero was removed from their position. The memorial is being recarved with the names of the actual defenders. {target_npc} found a survivor who confirmed everything. {quest_ally} says the settlement is in shock, but it's the clean kind: the kind that comes before honest rebuilding.",
+        "outro": "It's painful to learn your hero was a fraud, {player_name}. But the real heroes deserve their names on the stone. You made sure the right story gets told."
       },
       "playerResponses": [
         {
@@ -50,11 +50,11 @@
       "objectiveConfig": {}
     },
     {
-      "id": "reso_discovery_dishonor_funds_recovered",
+      "id": "reso_discovery_dishonor_03",
       "dialogueChunks": {
-        "intro": "The administrator was caught at the border with two packed wagons and a new identity. The full records are now in the hands of the regional authority.",
-        "plotStep": "The accounting is devastating. Over three years, enough money to house and feed every displaced family was diverted to personal luxury. {target_npc} says the recovered assets will be redistributed to the families who were owed relief. {quest_ally} is coordinating with neighboring settlements to distribute the funds where they were originally promised.",
-        "outro": "The most trusted person in the settlement turned out to be its worst predator, {player_name}. The families who suffered will finally receive what was promised. It doesn't undo the months they spent without shelter, but it's the closest thing to justice that's possible."
+        "intro": "The administrator was caught at the border with packed wagons and a new identity. The full records are now in the hands of the authorities.",
+        "plotStep": "The accounting is devastating. Over years, enough resources to help every displaced family were diverted to personal luxury. {target_npc} says the recovered assets will be redistributed. {quest_ally} is coordinating distribution to where the funds were originally promised.",
+        "outro": "The most trusted person in the settlement turned out to be its worst predator, {player_name}. {quest_stakes} will finally receive what was promised. It doesn't undo the suffering, but it's the closest thing to justice."
       },
       "playerResponses": [
         {
@@ -63,7 +63,7 @@
           "dispositionShift": 5
         },
         {
-          "text": "Build oversight into the next relief fund. Trust alone isn't enough.",
+          "text": "Build oversight into the next fund. Trust alone isn't enough.",
           "action": "COMPLETE",
           "dispositionShift": 3
         }

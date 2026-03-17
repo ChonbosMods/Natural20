@@ -1,23 +1,15 @@
 {
   "variants": [
     {
-      "id": "expo_crimes_love_smuggled_medicine",
-      "bindings": {
-        "quest_action": "deliver the smuggled remedies",
-        "quest_focus": "the banned medicines",
-        "quest_stakes": "the sick children",
-        "quest_threat": "guild enforcers",
-        "quest_origin": "the herbalist's hidden garden",
-        "quest_time_pressure": "before the fever peaks"
-      },
+      "id": "expo_crimes_love_01",
       "dialogueChunks": {
-        "intro": "The guild banned the sale of moonwort remedies last season. Said they were 'unregulated.' Four children are sick with swamp fever and moonwort is the only thing that works.",
-        "plotStep": "A herbalist outside town has been growing {quest_focus} in secret at {quest_origin}. She knows the guild will have her arrested if they find out. She doesn't care. She said: 'Let them fine me. I'm not watching children die over a regulation.' But she can't deliver the medicine herself: the guild has watchers on the roads.",
-        "outro": "Someone needs to {quest_action} to the families before {quest_time_pressure}. The herbalist has committed a crime: growing and distributing banned substances. She did it because {quest_stakes} matter more to her than her freedom."
+        "intro": "{player_name}, someone broke the law because they couldn't stand to watch people suffer. Now they need help before {quest_threat} catches up.",
+        "plotStep": "Since {quest_origin}, they've been secretly providing {quest_focus} to those in need. They know the consequences if caught. They said: 'Let them punish me. I'm not watching people die over a regulation.' But they can't make the delivery themselves: {quest_threat} has watchers everywhere.",
+        "outro": "Someone needs to {quest_action} {quest_time_pressure}. They committed a crime because {quest_stakes} matters more to them than their freedom. {quest_item} {location_hint} is what's needed."
       },
       "playerResponses": [
         {
-          "text": "Sick children outrank guild regulations. I'll make the delivery.",
+          "text": "Lives outrank regulations. I'll make the delivery.",
           "action": "ACCEPT",
           "dispositionShift": 5
         },
@@ -37,32 +29,25 @@
       }
     },
     {
-      "id": "expo_crimes_love_deserter_father",
-      "bindings": {
-        "quest_action": "hide the deserter's trail",
-        "quest_focus": "the deserter's family",
-        "quest_stakes": "a father's life",
-        "quest_threat": "the military tribunal",
-        "quest_origin": "the abandoned farmstead"
-      },
+      "id": "expo_crimes_love_02",
       "dialogueChunks": {
-        "intro": "A soldier deserted his post three days ago. Not for cowardice. His daughter is dying and the commander wouldn't grant leave.",
-        "plotStep": "He walked away from a garrison of fifty knowing the penalty is death. His daughter has the wasting sickness and he has a remedy that only works if administered by someone who knows the dosage. He's hiding at {quest_origin} with his family. The military patrol is already searching.",
-        "outro": "If someone could {quest_action} and buy him time to treat his daughter, he'll turn himself in willingly. He said: 'They can hang me after she's well. I just need three days.' {quest_threat} won't show mercy, but {quest_stakes} hang on those three days."
+        "intro": "Someone deserted their post three days ago, {player_name}. Not for cowardice. Their family is dying and the authority wouldn't grant leave.",
+        "plotStep": "They walked away from their duty knowing the penalty is severe. They have {quest_item} that only works if administered by someone who knows how. They're hiding at {quest_origin} with their family. {quest_threat} is already searching.",
+        "outro": "If someone could {quest_action} and buy them time, they'll turn themselves in willingly. They said: 'They can punish me after. I just need three days.' {quest_stakes} hangs on those three days."
       },
       "playerResponses": [
         {
-          "text": "A father choosing his dying child over a post. I understand. I'll help.",
+          "text": "Someone choosing their dying family over a post. I understand. I'll help.",
           "action": "ACCEPT",
           "dispositionShift": 5
         },
         {
-          "text": "Desertion is desertion. But the child didn't choose this.",
+          "text": "Desertion is desertion. But the family didn't choose this.",
           "action": "ACCEPT",
           "dispositionShift": 1
         },
         {
-          "text": "I won't obstruct a military investigation.",
+          "text": "I won't obstruct an official investigation.",
           "action": "DECLINE"
         }
       ],
@@ -72,18 +57,11 @@
       }
     },
     {
-      "id": "expo_crimes_love_forbidden_trade",
-      "bindings": {
-        "quest_action": "complete the forbidden exchange",
-        "quest_focus": "the embargoed goods",
-        "quest_stakes": "a starving village",
-        "quest_threat": "border patrols",
-        "quest_reward_hint": "a trader's favor"
-      },
+      "id": "expo_crimes_love_03",
       "dialogueChunks": {
-        "intro": "The border embargo means no trade with the settlements across the river. It also means the village on the far bank is starving. One of our merchants has been smuggling food across in secret.",
-        "plotStep": "The merchant's own family lives on this side. If she's caught smuggling {quest_focus}, she loses everything: her license, her home, probably her freedom. She does it because her childhood friend lives across the river with six children and no food. Love doesn't care about border policy.",
-        "outro": "The next shipment needs to cross tonight. She can't make the run herself because {quest_threat} have doubled patrols. She needs someone to {quest_action}. It's illegal, it's dangerous, and it will feed twenty people for a week."
+        "intro": "The embargo means no trade with the settlements across the border, {player_name}. It also means people on the far side are starving. Someone has been smuggling supplies across in secret.",
+        "plotStep": "The smuggler's own family lives on this side. If caught with {quest_focus}, they lose everything: license, home, probably freedom. They do it because their childhood friend lives across the border with children and no food. Love doesn't care about border policy.",
+        "outro": "The next shipment needs to cross tonight. They can't make the run because {quest_threat} has doubled patrols. They need someone to {quest_action}. It's illegal, it's dangerous, and it will feed people for a week. {quest_reward_hint} might follow."
       },
       "playerResponses": [
         {

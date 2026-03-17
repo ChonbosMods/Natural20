@@ -4,7 +4,7 @@
       "id": "enigma_conf_deeper_puzzle",
       "dialogueChunks": {
         "intro": "The initial investigation raised more questions than answers. {quest_focus} is connected to something larger, and the clues point toward {location_hint}.",
-        "plotStep": "The {enemy_type} have been guarding a second site near {location}. Whatever {quest_threat} is, they seem to understand it better than we do. We need those {quest_item} fragments to piece together the pattern.",
+        "plotStep": "The {enemy_type} have been guarding a second site near {location_hint}. Whatever {quest_threat} is, they seem to understand it better than we do. We need those {quest_item} fragments to piece together the pattern.",
         "outro": "Gather what you can from the area and drive off the {enemy_type} guarding it. Every piece of evidence brings us closer to understanding."
       },
       "playerResponses": [
@@ -50,7 +50,7 @@
       "id": "enigma_conf_dangerous_truth",
       "dialogueChunks": {
         "intro": "{quest_ally} studied the evidence you brought back and turned grim. {quest_focus} isn't just a curiosity: it's a warning.",
-        "plotStep": "The markings describe something that happened here before, something involving {quest_threat}. If the pattern repeats, {quest_stakes} could be at risk. The {enemy_type} near {location} may be drawn by the same force.",
+        "plotStep": "The markings describe something that happened here before, something involving {quest_threat}. If the pattern repeats, {quest_stakes} could be at risk. The {enemy_type} near {location_hint} may be drawn by the same force.",
         "outro": "We need more information, but the remaining clues are in dangerous territory. Push into the area near {location_hint} and bring back anything that confirms the warning."
       },
       "playerResponses": [

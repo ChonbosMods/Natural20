@@ -2,17 +2,10 @@
   "variants": [
     {
       "id": "daringenterprise_expo_01",
-      "bindings": {
-        "quest_action": "map the uncharted ruins",
-        "quest_focus": "the collapsed tunnels",
-        "quest_stakes": "the lost expedition",
-        "quest_threat": "the creatures below",
-        "quest_origin": "the old survey maps"
-      },
       "dialogueChunks": {
-        "intro": "{player_name}, I have been planning something ambitious. {quest_origin} revealed that {quest_focus} may hold something extraordinary.",
-        "plotStep": "No one has dared to {quest_action} because of {quest_threat}. But I have studied the routes and I believe it can be done. I need {quest_item} from {location_hint} to prepare properly.",
-        "outro": "If we succeed, we could change the fortunes of this entire settlement. {quest_stakes} went in blind: we will not make the same mistake."
+        "intro": "{player_name}, I have been planning something ambitious. {quest_focus} may hold something extraordinary, and I finally have a plan to reach it.",
+        "plotStep": "No one has dared to {quest_action} because of {quest_threat}. But I have studied the approaches and I believe it can be done. I need {quest_item} from {location_hint} to prepare properly.",
+        "outro": "If we succeed, we could change the fortunes of this entire settlement. Others went in blind: we will not make the same mistake."
       },
       "playerResponses": [
         { "text": "An adventure worth taking. Count me in.", "action": "ACCEPT", "dispositionShift": 10 },
@@ -26,21 +19,14 @@
     },
     {
       "id": "daringenterprise_expo_02",
-      "bindings": {
-        "quest_action": "breach the sealed vault",
-        "quest_focus": "the ancient stronghold",
-        "quest_stakes": "the forgotten knowledge",
-        "quest_threat": "the guardian constructs",
-        "quest_reward_hint": "artifacts of the old age"
-      },
       "dialogueChunks": {
         "intro": "I have spent years researching this, {player_name}. {quest_focus} has been sealed for generations, and I finally know how to get inside.",
-        "plotStep": "The trick is to {quest_action} without waking {quest_threat}. I need someone brave enough to retrieve {quest_item} from {location_hint}: it is the key to everything.",
+        "plotStep": "The trick is to {quest_action} without drawing the attention of {quest_threat}. I need someone brave enough to retrieve {quest_item} from {location_hint}: it is the key to everything.",
         "outro": "{quest_stakes} locked away in there could reshape what we know about this land. And of course, there would be {quest_reward_hint} for your trouble."
       },
       "playerResponses": [
-        { "text": "Knowledge and artifacts? Say no more.", "action": "ACCEPT", "dispositionShift": 5 },
-        { "text": "How do you know those constructs will not tear me apart?", "action": "ACCEPT", "dispositionShift": -3 },
+        { "text": "Knowledge and treasure? Say no more.", "action": "ACCEPT", "dispositionShift": 5 },
+        { "text": "How do you know the danger will not overwhelm me?", "action": "ACCEPT", "dispositionShift": -3 },
         { "text": "Some things are sealed for a reason.", "action": "DECLINE" }
       ],
       "objectivePool": ["FETCH_ITEM", "EXPLORE_LOCATION"],
@@ -50,22 +36,15 @@
     },
     {
       "id": "daringenterprise_expo_03",
-      "bindings": {
-        "quest_action": "chart a new trade route",
-        "quest_focus": "the mountain pass",
-        "quest_stakes": "the settlement's future",
-        "quest_threat": "the territorial beasts",
-        "quest_time_pressure": "before winter closes in"
-      },
       "dialogueChunks": {
         "intro": "{player_name}, our current supply lines are failing. I propose something bold: to {quest_action} through {quest_focus}.",
-        "plotStep": "The path is treacherous and {quest_threat} have claimed the area as their own. But if we can clear it, we open reliable trade. I need you to scout {location_hint} and gather {quest_item} to mark the trail.",
+        "plotStep": "The path is treacherous and {quest_threat} have claimed the area as their own. But if we can clear it, everything changes. I need you to scout {location_hint} and gather {quest_item} to mark the route.",
         "outro": "{quest_stakes} depends on this. We must act {quest_time_pressure}, or we lose our window entirely."
       },
       "playerResponses": [
-        { "text": "A new trade route benefits everyone. I will scout it.", "action": "ACCEPT", "dispositionShift": 10 },
+        { "text": "A bold plan benefits everyone. I will scout it.", "action": "ACCEPT", "dispositionShift": 10 },
         { "text": "Dangerous work. The pay had better match.", "action": "ACCEPT", "dispositionShift": -5 },
-        { "text": "Find someone else to freeze on a mountain.", "action": "DECLINE", "dispositionShift": -5 }
+        { "text": "Find someone else for this one.", "action": "DECLINE", "dispositionShift": -5 }
       ],
       "objectivePool": ["EXPLORE_LOCATION", "GATHER_ITEMS", "KILL_MOBS"],
       "objectiveConfig": {

@@ -2,21 +2,14 @@
   "variants": [
     {
       "id": "misfortune_expo_01",
-      "bindings": {
-        "quest_action": "find a cure",
-        "quest_focus": "the blighted crops",
-        "quest_stakes": "the starving settlement",
-        "quest_threat": "the creeping rot",
-        "quest_origin": "a tainted seed shipment"
-      },
       "dialogueChunks": {
-        "intro": "{player_name}, cruel fate has dealt us a terrible hand. {quest_origin} brought {quest_threat} to our fields, and now {quest_focus} are withering before our eyes.",
-        "plotStep": "No one caused this on purpose. It is just bad luck, but {quest_stakes} will pay the price unless we {quest_action}. {quest_ally} heard that {quest_item} found {location_hint} might work as a remedy.",
+        "intro": "{player_name}, cruel fate has dealt us a terrible hand. {quest_origin} brought {quest_threat} upon us, and now {quest_focus} is crumbling before our eyes.",
+        "plotStep": "No one caused this on purpose. It is just bad luck, but {quest_stakes} will pay the price unless we {quest_action}. {quest_ally} heard that {quest_item} found {location_hint} might help us recover.",
         "outro": "We did nothing wrong and yet we suffer. Please help us fight back against this misfortune."
       },
       "playerResponses": [
         { "text": "Bad luck is no reason to give up. I will find what you need.", "action": "ACCEPT", "dispositionShift": 10 },
-        { "text": "A blight cure? That sounds like a long shot.", "action": "ACCEPT", "dispositionShift": -3 },
+        { "text": "That sounds like a long shot.", "action": "ACCEPT", "dispositionShift": -3 },
         { "text": "Some things cannot be fixed. I am sorry.", "action": "DECLINE", "dispositionShift": -5 }
       ],
       "objectivePool": ["GATHER_ITEMS", "FETCH_ITEM", "EXPLORE_LOCATION"],
@@ -27,22 +20,15 @@
     },
     {
       "id": "misfortune_expo_02",
-      "bindings": {
-        "quest_action": "repair the broken bridge",
-        "quest_focus": "the collapsed crossing",
-        "quest_stakes": "the isolated families",
-        "quest_threat": "the seasonal floods",
-        "quest_time_pressure": "before the rains return"
-      },
       "dialogueChunks": {
-        "intro": "It was not an attack, {player_name}. Just rotten timber and {quest_threat}. {quest_focus} gave way and now {quest_stakes} are cut off on the far side with no way to reach us.",
-        "plotStep": "We need to {quest_action} {quest_time_pressure}, or they will be stranded for months. The {enemy_type} have moved into the gap {location_hint}, making it even harder. We need {quest_item} for the reconstruction.",
-        "outro": "Those families have children. They cannot survive alone out there."
+        "intro": "It was not an attack, {player_name}. Just bad timing and {quest_threat}. {quest_focus} gave way and now {quest_stakes} are cut off with no way to reach us.",
+        "plotStep": "We need to {quest_action} {quest_time_pressure}, or they will be stranded. The {enemy_type} have moved into the gap {location_hint}, making it even harder. We need {quest_item} for the repair.",
+        "outro": "Those people cannot survive alone out there. Please hurry."
       },
       "playerResponses": [
-        { "text": "Stranded families need help. I will gather what you need.", "action": "ACCEPT", "dispositionShift": 15 },
-        { "text": "Monsters in the riverbed and a deadline? Tough job.", "action": "ACCEPT", "dispositionShift": 0 },
-        { "text": "They should have maintained the bridge.", "action": "DECLINE", "dispositionShift": -10 }
+        { "text": "Stranded people need help. I will gather what you need.", "action": "ACCEPT", "dispositionShift": 15 },
+        { "text": "Monsters in the path and a deadline? Tough job.", "action": "ACCEPT", "dispositionShift": 0 },
+        { "text": "They should have been more prepared.", "action": "DECLINE", "dispositionShift": -10 }
       ],
       "objectivePool": ["GATHER_ITEMS", "KILL_MOBS", "EXPLORE_LOCATION"],
       "objectiveConfig": {
@@ -52,22 +38,14 @@
     },
     {
       "id": "misfortune_expo_03",
-      "bindings": {
-        "quest_action": "retrieve the lost shipment",
-        "quest_focus": "the overturned wagon",
-        "quest_stakes": "the winter supplies",
-        "quest_threat": "the rockslide",
-        "quest_origin": "the unstable cliffs",
-        "quest_reward_hint": "a trader's favor"
-      },
       "dialogueChunks": {
-        "intro": "{player_name}, {quest_threat} from {quest_origin} buried our supply wagon on the road. {quest_focus} is wedged in the debris and {quest_stakes} are scattered across the hillside.",
+        "intro": "{player_name}, {quest_threat} from {quest_origin} scattered our supplies across the area. {quest_focus} is buried in the debris and {quest_stakes} are at risk.",
         "plotStep": "We need to {quest_action} before scavengers pick it clean. The {enemy_type} are already circling {location_hint}. Recover as many {quest_item} as you can find.",
-        "outro": "Without {quest_stakes}, we face a long, cold season with empty shelves. You would earn {quest_reward_hint} for helping."
+        "outro": "Without {quest_stakes}, we face a long stretch with nothing. You would earn {quest_reward_hint} for helping."
       },
       "playerResponses": [
         { "text": "I will recover everything I can. No promises, but I will try.", "action": "ACCEPT", "dispositionShift": 5 },
-        { "text": "A trader's favor could be useful. I am in.", "action": "ACCEPT", "dispositionShift": 0 },
+        { "text": "A favor could be useful. I am in.", "action": "ACCEPT", "dispositionShift": 0 },
         { "text": "Climbing through rubble with scavengers? Pass.", "action": "DECLINE" }
       ],
       "objectivePool": ["GATHER_ITEMS", "KILL_MOBS", "FETCH_ITEM"],

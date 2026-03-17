@@ -1,35 +1,16 @@
 {
   "variants": [
     {
-      "id": "enigma_expo_strange_ruins",
-      "bindings": {
-        "quest_action": "investigate the ruins",
-        "quest_focus": "the carved stones",
-        "quest_stakes": "hidden knowledge",
-        "quest_threat": "the site's guardians",
-        "quest_origin": "a traveler's report"
-      },
+      "id": "enigma_expo_01",
       "dialogueChunks": {
-        "intro": "A traveler passing through brought word of something strange {location_hint}. Ancient stones with carvings no one can read, arranged in patterns that don't match any known builders.",
-        "plotStep": "I've asked around and {quest_ally} confirmed similar markings were spotted near {location} months ago. Whatever civilization left these behind, they were deliberate about placement. The {enemy_type} seem drawn to those sites too, which worries me.",
+        "intro": "A traveler passing through brought word of something strange {location_hint}. {quest_focus} that no one can explain, arranged in patterns that do not match any known builders.",
+        "plotStep": "I have asked around and {quest_ally} confirmed similar signs were spotted months ago. Whatever left these behind was deliberate about placement. The {enemy_type} seem drawn to those sites too, which worries me.",
         "outro": "Someone needs to examine {quest_focus} up close and bring back anything that might explain their purpose. Are you curious enough to go, {player_name}?"
       },
       "playerResponses": [
-        {
-          "text": "Mysteries like this are worth pursuing.",
-          "action": "ACCEPT",
-          "dispositionShift": 4
-        },
-        {
-          "text": "I'll investigate, but I want answers too.",
-          "action": "ACCEPT",
-          "dispositionShift": 2
-        },
-        {
-          "text": "Old stones aren't my concern.",
-          "action": "DECLINE",
-          "dispositionShift": -2
-        }
+        { "text": "Mysteries like this are worth pursuing.", "action": "ACCEPT", "dispositionShift": 4 },
+        { "text": "I will investigate, but I want answers too.", "action": "ACCEPT", "dispositionShift": 2 },
+        { "text": "Old mysteries are not my concern.", "action": "DECLINE", "dispositionShift": -2 }
       ],
       "objectivePool": ["EXPLORE_LOCATION", "GATHER_ITEMS", "FETCH_ITEM"],
       "objectiveConfig": {
@@ -37,36 +18,16 @@
       }
     },
     {
-      "id": "enigma_expo_disappearing_wildlife",
-      "bindings": {
-        "quest_action": "find the cause",
-        "quest_focus": "the dead zone",
-        "quest_stakes": "the land's balance",
-        "quest_threat": "the corruption",
-        "quest_origin": "dying animals",
-        "quest_time_pressure": "before it spreads further"
-      },
+      "id": "enigma_expo_02",
       "dialogueChunks": {
-        "intro": "The wildlife around {location_hint} has been behaving strangely. Birds refuse to fly over a certain area. Animals that wander in don't come back.",
-        "plotStep": "{quest_ally} ventured to the edge of {quest_focus} and returned pale and shaking. They said the ground felt wrong underfoot: warm where it should be cold, silent where there should be insects. Even the {enemy_type} avoid it.",
-        "outro": "Something unnatural is happening out there, {player_name}. We need someone to get close enough to understand what's causing it before the dead zone reaches our walls."
+        "intro": "Something near {location_hint} has been behaving strangely. {quest_focus} defies explanation: things that should not happen are happening, and it is getting worse.",
+        "plotStep": "{quest_ally} ventured to the edge and returned shaken. They said the area felt wrong in ways they could not describe. Even the {enemy_type} avoid it. {quest_threat} is spreading, and no one understands why.",
+        "outro": "Something unnatural is happening out there, {player_name}. We need someone to get close enough to understand {quest_time_pressure} before it reaches our walls."
       },
       "playerResponses": [
-        {
-          "text": "I'll find out what's killing the land.",
-          "action": "ACCEPT",
-          "dispositionShift": 5
-        },
-        {
-          "text": "How far has it spread so far?",
-          "action": "ACCEPT",
-          "dispositionShift": 2
-        },
-        {
-          "text": "Nature sorts itself out. I'll pass.",
-          "action": "DECLINE",
-          "dispositionShift": -3
-        }
+        { "text": "I will find out what is causing this.", "action": "ACCEPT", "dispositionShift": 5 },
+        { "text": "How far has it spread so far?", "action": "ACCEPT", "dispositionShift": 2 },
+        { "text": "Nature sorts itself out. I will pass.", "action": "DECLINE", "dispositionShift": -3 }
       ],
       "objectivePool": ["EXPLORE_LOCATION", "GATHER_ITEMS", "TALK_TO_NPC"],
       "objectiveConfig": {
@@ -74,36 +35,16 @@
       }
     },
     {
-      "id": "enigma_expo_impossible_structure",
-      "bindings": {
-        "quest_action": "explore the anomaly",
-        "quest_focus": "the sealed chamber",
-        "quest_stakes": "ancient secrets",
-        "quest_threat": "what lies inside",
-        "quest_origin": "a miner's discovery",
-        "quest_reward_hint": "rare materials"
-      },
+      "id": "enigma_expo_03",
       "dialogueChunks": {
-        "intro": "Miners digging near {location_hint} broke through into something they weren't expecting: a chamber made of materials no one recognizes. They sealed the entrance and came here.",
-        "plotStep": "The miners swear the walls were warm to the touch and humming. {target_npc} thinks it could be a vault, a tomb, or something else entirely. The {enemy_type} have been more active in that area since the breach.",
-        "outro": "{quest_focus} needs someone who can handle surprises. The miners won't go back down. Will you, {player_name}?"
+        "intro": "Workers digging near {location_hint} broke through into something they were not expecting: {quest_focus} made of materials no one recognizes. They sealed the entrance and came here.",
+        "plotStep": "They swear it was warm to the touch and humming. {target_npc} thinks it could be a vault, a tomb, or something else entirely. The {enemy_type} have been more active in that area since the breach.",
+        "outro": "It needs someone who can handle surprises. The workers will not go back down. Will you, {player_name}? {quest_reward_hint} may well be waiting inside."
       },
       "playerResponses": [
-        {
-          "text": "A sealed chamber? I have to see it.",
-          "action": "ACCEPT",
-          "dispositionShift": 4
-        },
-        {
-          "text": "What if it was sealed for a reason?",
-          "action": "ACCEPT",
-          "dispositionShift": 1
-        },
-        {
-          "text": "Sounds like it should stay sealed.",
-          "action": "DECLINE",
-          "dispositionShift": -2
-        }
+        { "text": "A sealed chamber? I have to see it.", "action": "ACCEPT", "dispositionShift": 4 },
+        { "text": "What if it was sealed for a reason?", "action": "ACCEPT", "dispositionShift": 1 },
+        { "text": "Sounds like it should stay sealed.", "action": "DECLINE", "dispositionShift": -2 }
       ],
       "objectivePool": ["EXPLORE_LOCATION", "FETCH_ITEM", "KILL_MOBS"],
       "objectiveConfig": {

@@ -1,19 +1,11 @@
 {
   "variants": [
     {
-      "id": "ambition_expo_seize_control",
-      "bindings": {
-        "quest_action": "seize the council seat",
-        "quest_focus": "the power vacuum",
-        "quest_stakes": "control of the settlement",
-        "quest_threat": "rival claimants",
-        "quest_origin": "a leader's sudden departure",
-        "quest_reward_hint": "a position of influence"
-      },
+      "id": "expo_ambition_01",
       "dialogueChunks": {
-        "intro": "{player_name}, opportunity doesn't knock twice. The old leader of {location} is gone, and every schemer in the settlement is circling the empty chair.",
-        "plotStep": "I've spent years building connections, stockpiling favors, and waiting for exactly this moment. But my rivals are moving fast. {target_npc} has already started promising people things they can't deliver. I need {quest_item} from {location_hint} to secure the allegiance of the craftworkers' guild before {target_npc} gets to them. The {enemy_type} threat on our borders makes this urgent: whoever takes control needs to be ready to defend us, not just give speeches.",
-        "outro": "Help me claim what's mine, and you'll have the ear of the most powerful person in the region."
+        "intro": "{player_name}, opportunity doesn't knock twice. There's a power vacuum and every schemer is circling the empty chair.",
+        "plotStep": "Since {quest_origin}, I've spent years building connections and waiting for this moment. But my rivals are moving fast. {target_npc} has already started making promises they can't deliver. I need {quest_item} from {location_hint} to secure key support before {target_npc} gets to them. The {enemy_type} threat makes this urgent: whoever takes {quest_focus} needs to be ready to defend us.",
+        "outro": "Help me claim {quest_stakes}, and you'll have the ear of the most powerful person in the region. {quest_reward_hint} is only the beginning."
       },
       "playerResponses": [
         { "text": "A strong leader beats a popular one. I'll get what you need.", "action": "ACCEPT" },
@@ -28,19 +20,11 @@
       }
     },
     {
-      "id": "ambition_expo_monopoly",
-      "bindings": {
-        "quest_action": "corner the supply chain",
-        "quest_focus": "the rare resource vein",
-        "quest_stakes": "economic dominance",
-        "quest_threat": "competing merchants",
-        "quest_origin": "a prospector's discovery",
-        "quest_reward_hint": "a share of the profits"
-      },
+      "id": "expo_ambition_02",
       "dialogueChunks": {
         "intro": "Keep your voice down, {player_name}. What I'm offering could make us both very wealthy, or very dead.",
-        "plotStep": "A prospector found a vein of rare ore {location_hint} last week and made the mistake of telling me before anyone else. If I can secure {quest_item} to stake a legal claim before the guild merchants get wind of it, I'll control the only supply in three regions. {target_npc} has been sniffing around, asking questions about the prospector's route. If they beat me to the claim, everything I've built in {location} becomes worthless. The {enemy_type} have been spotted near the vein, which is the only reason nobody else has moved on it yet.",
-        "outro": "Fortune favors the bold, not the cautious. Are you bold enough?"
+        "plotStep": "A discovery was made {location_hint} last week. If I can secure {quest_item} to stake a legal claim before the competition gets wind of it, I'll control {quest_focus}. {target_npc} has been sniffing around. If they beat me to the claim, {quest_stakes} becomes worthless. The {enemy_type} have been spotted near the site, which is the only reason nobody else has moved on it yet.",
+        "outro": "Fortune favors the bold, not the cautious. {quest_reward_hint} awaits those who move first."
       },
       "playerResponses": [
         { "text": "Bold and well-compensated. Show me the way.", "action": "ACCEPT" },
@@ -55,18 +39,11 @@
       }
     },
     {
-      "id": "ambition_expo_reputation",
-      "bindings": {
-        "quest_action": "discredit the incumbent",
-        "quest_focus": "the forged evidence",
-        "quest_stakes": "public trust",
-        "quest_threat": "exposure and ruin",
-        "quest_time_pressure": "before the harvest feast"
-      },
+      "id": "expo_ambition_03",
       "dialogueChunks": {
         "intro": "{player_name}, I don't need a hero. I need someone practical who understands that winning isn't always clean.",
-        "plotStep": "The current leader of {location} is corrupt, but everyone loves them because they smile well and give pretty speeches. {target_npc} has proof of their misdeeds hidden {location_hint}, but getting to it means dealing with the {enemy_type} that have overrun the old record hall. I need {quest_item} from those archives to expose the truth before the harvest feast, when the leader plans to announce a new tax that will bleed us all dry.",
-        "outro": "This isn't about ambition. It's about replacing someone unworthy with someone who isn't afraid to make hard choices. Namely, me."
+        "plotStep": "The current leader is corrupt, but everyone loves them because they smile well and give pretty speeches. {target_npc} has proof of their misdeeds hidden {location_hint}, but getting to it means dealing with the {enemy_type} that have overrun the area. I need {quest_item} from those ruins to expose the truth before {quest_time_pressure}.",
+        "outro": "This isn't about ambition. It's about replacing someone unworthy with someone who isn't afraid to make hard choices. {quest_focus} demands action, and {quest_stakes} hangs in the balance."
       },
       "playerResponses": [
         { "text": "Exposing corruption is worth the risk. I'll retrieve the evidence.", "action": "ACCEPT" },

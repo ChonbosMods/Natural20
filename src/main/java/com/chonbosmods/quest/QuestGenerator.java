@@ -190,44 +190,56 @@ public class QuestGenerator {
     private void resolveNarrativeBindings(Map<String, String> bindings, QuestVariant expositionVariant,
                                            QuestSituation situation, String npcCellKey,
                                            String npcId, Random random) {
-        // Copy all bindings from the exposition variant
+        // Pull narrative variables from pools
+        bindings.put("quest_action", poolRegistry.randomAction(random));
+        bindings.put("quest_focus", poolRegistry.randomFocus(random));
+        bindings.put("quest_threat", poolRegistry.randomThreat(random));
+
+        // 25% chance: quest_stakes = quest_focus
+        if (random.nextDouble() < STAKES_EQUALS_FOCUS_CHANCE) {
+            bindings.put("quest_stakes", bindings.get("quest_focus"));
+        } else {
+            bindings.put("quest_stakes", poolRegistry.randomStakes(random));
+        }
+
+        // Optional narrative pools (70% chance each to be included)
+        String origin = poolRegistry.randomOrigin(random);
+        if (origin != null && random.nextDouble() < 0.7) {
+            bindings.put("quest_origin", origin);
+        }
+
+        String timePressure = poolRegistry.randomTimePressure(random);
+        if (timePressure != null && random.nextDouble() < 0.5) {
+            bindings.put("quest_time_pressure", timePressure);
+        }
+
+        String rewardHint = poolRegistry.randomRewardHint(random);
+        if (rewardHint != null && random.nextDouble() < 0.4) {
+            bindings.put("quest_reward_hint", rewardHint);
+        }
+
+        // Override with any exposition-defined bindings (template author can still force specific values)
         if (expositionVariant.bindings() != null) {
             bindings.putAll(expositionVariant.bindings());
         }
 
-        // 25% chance: quest_stakes = quest_focus
-        if (random.nextDouble() < STAKES_EQUALS_FOCUS_CHANCE && bindings.containsKey("quest_focus")) {
-            bindings.put("quest_stakes", bindings.get("quest_focus"));
-        }
-
-        // Auto-generate quest_threat if not defined
-        if (!bindings.containsKey("quest_threat")) {
-            String enemyType = bindings.getOrDefault("enemy_type", "unknown threat");
-            bindings.put("quest_threat", "the " + enemyType + " menace");
-        }
-
-        // Resolve quest_ally from same settlement if not defined
-        if (!bindings.containsKey("quest_ally")) {
-            SettlementRecord settlement = settlementRegistry.getByCell(npcCellKey);
-            if (settlement != null && settlement.getNpcs().size() > 1) {
-                List<NpcRecord> candidates = new ArrayList<>();
-                for (NpcRecord npc : settlement.getNpcs()) {
-                    if (!npc.getGeneratedName().equals(npcId)) {
-                        candidates.add(npc);
-                    }
+        // Resolve quest_ally from same settlement
+        SettlementRecord settlement = settlementRegistry.getByCell(npcCellKey);
+        if (settlement != null && settlement.getNpcs().size() > 1) {
+            List<NpcRecord> candidates = new ArrayList<>();
+            for (NpcRecord npc : settlement.getNpcs()) {
+                if (!npc.getGeneratedName().equals(npcId)) {
+                    candidates.add(npc);
                 }
-                if (!candidates.isEmpty()) {
-                    NpcRecord ally = candidates.get(random.nextInt(candidates.size()));
-                    bindings.put("quest_ally", ally.getGeneratedName());
-                    bindings.put("quest_ally_role", ally.getRole());
-                }
+            }
+            if (!candidates.isEmpty()) {
+                NpcRecord ally = candidates.get(random.nextInt(candidates.size()));
+                bindings.put("quest_ally", ally.getGeneratedName());
+                bindings.put("quest_ally_role", ally.getRole());
             }
         }
 
-        // Auto-generate quest_location_name if not defined
-        if (!bindings.containsKey("quest_location_name")) {
-            bindings.put("quest_location_name", bindings.getOrDefault("quest_focus", "the area"));
-        }
+        bindings.put("quest_location_name", bindings.getOrDefault("quest_focus", "the area"));
     }
 
     private @Nullable SettlementRecord findNearestOtherSettlement(double x, double z, String excludeCellKey) {

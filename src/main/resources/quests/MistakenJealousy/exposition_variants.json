@@ -1,19 +1,11 @@
 {
   "variants": [
     {
-      "id": "mistaken_jealousy_expo_stolen_trade",
-      "bindings": {
-        "quest_action": "uncover the real thief",
-        "quest_focus": "the missing trade goods",
-        "quest_stakes": "a wrongly accused friend",
-        "quest_threat": "blind suspicion",
-        "quest_origin": "a vanished shipment",
-        "quest_reward_hint": "the truth restored"
-      },
+      "id": "expo_mistaken_jealousy_01",
       "dialogueChunks": {
         "intro": "{player_name}, I need someone with no ties to this mess. Someone who'll look at the evidence instead of the gossip.",
-        "plotStep": "A shipment of {quest_item} vanished from the storehouse in {location} two nights ago. {target_npc} was the last person seen near the building, so naturally everyone has decided they're guilty. But I know {target_npc}, and they wouldn't steal a crumb from a dead man's plate. The real thief left tracks heading {location_hint}, but nobody cares because they've already made up their minds. If I don't find proof of who actually took the goods before the council meets, {target_npc} gets banished.",
-        "outro": "Suspicion is a poison, and this settlement is drinking deep. Help me find the truth before an innocent person pays for someone else's crime."
+        "plotStep": "{quest_item} vanished from the storehouse two nights ago. {target_npc} was the last person seen near the building, so naturally everyone has decided they're guilty. But I know {target_npc}, and they wouldn't steal. The real thief left tracks heading {location_hint}, but nobody cares because they've already made up their minds.",
+        "outro": "If I don't find proof of who actually took the goods before the council meets, {target_npc} gets banished. {quest_stakes} is at stake. {quest_threat} is poisoning everything. {quest_reward_hint} awaits if we set things right."
       },
       "playerResponses": [
         { "text": "If there are tracks, there's a trail. I'll find the real thief.", "action": "ACCEPT" },
@@ -28,18 +20,11 @@
       }
     },
     {
-      "id": "mistaken_jealousy_expo_secret_meetings",
-      "bindings": {
-        "quest_action": "prove innocent intentions",
-        "quest_focus": "the clandestine gatherings",
-        "quest_stakes": "trust between neighbors",
-        "quest_threat": "paranoid accusations",
-        "quest_origin": "overheard whispers"
-      },
+      "id": "expo_mistaken_jealousy_02",
       "dialogueChunks": {
         "intro": "People are whispering, {player_name}, and the whispers are getting louder. I need help before they turn into shouts.",
-        "plotStep": "{target_npc} has been leaving {location} at odd hours and meeting with travelers nobody recognizes. The settlement thinks it's conspiracy: selling information to the {enemy_type}, plotting against the council, smuggling contraband. The truth is quieter than that. {target_npc} has been bartering for {quest_item} to surprise the settlement with repairs to the old watchtower, but the sellers are from a rival settlement and the meetings had to be secret. I need you to find the traders {location_hint} and bring back proof of what was actually being exchanged.",
-        "outro": "One misunderstood kindness is about to destroy a good person's reputation. We don't have much time."
+        "plotStep": "{target_npc} has been leaving at odd hours and meeting with travelers nobody recognizes. The settlement thinks it's conspiracy. The truth is quieter: {target_npc} has been bartering for {quest_item} to surprise the community with something beneficial, but the sellers are from a rival settlement and the meetings had to be secret. I need you to find the traders {location_hint} and bring back proof of what was actually being exchanged.",
+        "outro": "One misunderstood kindness is about to destroy a good person's reputation. {quest_stakes} depends on setting the record straight. {quest_threat} feeds on itself."
       },
       "playerResponses": [
         { "text": "Secret good deeds mistaken for treachery. I'll set the record straight.", "action": "ACCEPT" },
@@ -53,18 +38,11 @@
       }
     },
     {
-      "id": "mistaken_jealousy_expo_favoritism",
-      "bindings": {
-        "quest_action": "reveal the fair allocation",
-        "quest_focus": "the disputed rations",
-        "quest_stakes": "community solidarity",
-        "quest_threat": "festering resentment",
-        "quest_time_pressure": "before the next distribution"
-      },
+      "id": "expo_mistaken_jealousy_03",
       "dialogueChunks": {
         "intro": "{player_name}, half this settlement thinks the other half is cheating them, and it's about to boil over.",
-        "plotStep": "The rationing system in {location} has people convinced that {target_npc} is giving extra portions to favorites. I've seen the ledgers, and every distribution is fair to the grain. But perception beats reality when bellies are growling. The real shortage is because {enemy_type} have been raiding the supply wagons {location_hint}, and nobody's tracked them down yet. If I can recover {quest_item} from the raided wagons and show that the missing food went to monsters, not neighbors, maybe people will stop blaming each other.",
-        "outro": "Hunger makes people suspicious. Proof that nobody is cheating will calm things down faster than any speech."
+        "plotStep": "The rationing system has people convinced that {target_npc} is giving extra portions to favorites. I've seen the ledgers, and every distribution is fair. But perception beats reality when bellies are growling. The real shortage is because {enemy_type} have been raiding the supply wagons {location_hint}. If I can recover {quest_item} from the raided wagons and show that the missing supplies went to monsters, not neighbors, maybe people will stop blaming each other.",
+        "outro": "{quest_threat} makes people suspicious. Proof that nobody is cheating will calm things down. {quest_stakes} depends on it. {quest_time_pressure}."
       },
       "playerResponses": [
         { "text": "Recovering stolen supplies and clearing names at once? I'll handle it.", "action": "ACCEPT" },

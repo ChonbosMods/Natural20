@@ -1,23 +1,15 @@
 {
   "variants": [
     {
-      "id": "expo_sacrifice_kindred_famine_run",
-      "bindings": {
-        "quest_action": "escort the supply caravan",
-        "quest_focus": "the winter stores",
-        "quest_stakes": "the starving families",
-        "quest_threat": "raider ambushes",
-        "quest_origin": "the trade post ruins",
-        "quest_time_pressure": "before the first frost"
-      },
+      "id": "expo_sacrifice_kindred_01",
       "dialogueChunks": {
-        "intro": "Our stores are empty. The children stopped asking for second helpings weeks ago because they know there aren't any.",
-        "plotStep": "A trader at {quest_origin} has grain to spare, but the road passes through {enemy_type} territory. Three volunteers have offered to drive the caravan knowing full well the odds. One of them is the baker's mother. She said she'd rather die on the road than watch her grandchildren waste away.",
-        "outro": "They leave at dawn to {quest_action}. {quest_threat} will be waiting somewhere along the route. Those volunteers aren't fighters: they're parents and grandparents who decided {quest_stakes} matter more than their own safety."
+        "intro": "Our people are desperate, {player_name}. And the ones stepping up to help them are willing to pay with their lives.",
+        "plotStep": "Since {quest_origin}, {quest_threat} has pushed us to the edge. Volunteers have offered to {quest_action} knowing the odds are against them. The road passes through {enemy_type} territory. Those volunteers aren't fighters: they're family who decided {quest_stakes} matters more than their own safety. {quest_item} {location_hint} could help even the odds.",
+        "outro": "They leave at dawn. {quest_threat} will be waiting somewhere along the way. Help me make sure their courage isn't wasted."
       },
       "playerResponses": [
         {
-          "text": "I'll ride with them. They won't face the road alone.",
+          "text": "I'll go with them. They won't face the road alone.",
           "action": "ACCEPT",
           "dispositionShift": 5
         },
@@ -27,7 +19,7 @@
           "dispositionShift": 2
         },
         {
-          "text": "I have my own supplies to worry about.",
+          "text": "I have my own concerns to worry about.",
           "action": "DECLINE"
         }
       ],
@@ -37,22 +29,15 @@
       }
     },
     {
-      "id": "expo_sacrifice_kindred_flood_watch",
-      "bindings": {
-        "quest_action": "reinforce the river levee",
-        "quest_focus": "the crumbling dam",
-        "quest_stakes": "the downstream homes",
-        "quest_threat": "the rising floodwaters",
-        "quest_origin": "the old mill foundation"
-      },
+      "id": "expo_sacrifice_kindred_02",
       "dialogueChunks": {
-        "intro": "The river has been rising for three days. {quest_focus} won't hold much longer, and everything downstream: homes, farms, families, is in the path.",
-        "plotStep": "The mason volunteered to go into the water and shore up the weakest section with his own hands. He knows that if the dam breaks while he's down there, he's gone. His wife begged him not to go. He kissed her forehead and said 'Those are our neighbors' children down the hill.'",
-        "outro": "He can't do it alone. We need someone to {quest_action} while he works the foundation. {quest_stakes} depend on whether that wall holds through tonight."
+        "intro": "{quest_focus} won't hold much longer, {player_name}, and everything downstream: homes, farms, families, is in the path.",
+        "plotStep": "Someone volunteered to go into danger and shore up {quest_focus} with their own hands. They know that if it fails while they're there, they're gone. Their family begged them not to go. They said: 'Those are our neighbors down the hill.' They can't do it alone. We need someone to {quest_action} while they do the dangerous work.",
+        "outro": "{quest_stakes} depends on whether the effort holds. {quest_item} {location_hint} could make the difference."
       },
       "playerResponses": [
         {
-          "text": "Let's get to the dam. Every minute counts.",
+          "text": "Let's get moving. Every minute counts.",
           "action": "ACCEPT",
           "dispositionShift": 5
         },
@@ -62,7 +47,7 @@
           "dispositionShift": 0
         },
         {
-          "text": "I'm not going near a collapsing dam.",
+          "text": "I'm not going near something that dangerous.",
           "action": "DECLINE"
         }
       ],
@@ -72,28 +57,20 @@
       }
     },
     {
-      "id": "expo_sacrifice_kindred_shield_bearer",
-      "bindings": {
-        "quest_action": "clear the evacuation path",
-        "quest_focus": "the refugee column",
-        "quest_stakes": "sixty displaced villagers",
-        "quest_threat": "pursuing war parties",
-        "quest_time_pressure": "before the war band closes in",
-        "quest_reward_hint": "a guardian's token"
-      },
+      "id": "expo_sacrifice_kindred_03",
       "dialogueChunks": {
-        "intro": "Sixty people are on the road right now, walking with everything they own on their backs. Behind them, the {enemy_type} are burning what's left.",
-        "plotStep": "The village elder stayed behind to buy time. She barricaded the gates and lit fires to make the settlement look occupied. She's seventy years old and she's pretending to be a garrison. {quest_focus} has maybe half a day's lead, and the road ahead isn't clear.",
-        "outro": "We need someone to {quest_action} so {quest_stakes} can reach safety. {quest_time_pressure}. That old woman is giving everything she has left so her people can walk a little further."
+        "intro": "People are on the road right now, walking with everything they own on their backs. Behind them, the {enemy_type} are burning what's left.",
+        "plotStep": "Someone stayed behind to buy time. They're pretending to be a garrison all by themselves. {quest_focus} has maybe half a day's lead, and the road ahead isn't clear. We need someone to {quest_action} so {quest_stakes} can reach safety. {quest_time_pressure}.",
+        "outro": "That person is giving everything they have left so their people can walk a little further. {quest_reward_hint} might come of reaching safety."
       },
       "playerResponses": [
         {
-          "text": "I'll make sure her sacrifice means something.",
+          "text": "I'll make sure their sacrifice means something.",
           "action": "ACCEPT",
           "dispositionShift": 5
         },
         {
-          "text": "Can we go back for the elder too?",
+          "text": "Can we go back for the one who stayed behind too?",
           "action": "ACCEPT",
           "dispositionShift": 3
         }

@@ -1,11 +1,11 @@
 {
   "variants": [
     {
-      "id": "enemy_loved_reso_01",
+      "id": "reso_enemy_loved_01",
       "dialogueChunks": {
-        "intro": "{player_name}, something remarkable happened. Something I never thought I'd see in my lifetime.",
-        "plotStep": "The {enemy_type} honored the agreement. They pulled back from {location} and left {quest_item} at the border as promised. {target_npc} presented the evidence to the settlement, and while not everyone is convinced, the raids have stopped. For the first time in years, people are sleeping through the night. {quest_focus} is safe, and even the doubters are having a hard time arguing with silence and full stomachs.",
-        "outro": "You walked into the space between two enemies and found common ground. That takes a kind of bravery no weapon can match. Take this."
+        "intro": "{player_name}, something remarkable happened. Something I never thought I'd see.",
+        "plotStep": "The {enemy_type} honored the agreement. They pulled back and left {quest_item} at the border as promised. {target_npc} presented the evidence to the settlement, and while not everyone is convinced, the raids have stopped. {quest_focus} is safe, and even the doubters are having a hard time arguing with silence and full stomachs.",
+        "outro": "You walked into the space between two enemies and found common ground. That takes a kind of bravery no weapon can match."
       },
       "playerResponses": [
         { "text": "Peace built on understanding is worth any risk. I'm glad it held.", "action": "ACCEPT", "dispositionShift": 10 },
@@ -15,11 +15,11 @@
       "objectiveConfig": {}
     },
     {
-      "id": "enemy_loved_reso_02",
+      "id": "reso_enemy_loved_02",
       "dialogueChunks": {
         "intro": "It's not the ending I hoped for, {player_name}. But it's better than I feared.",
-        "plotStep": "{quest_focus} was returned to the {enemy_type} in the end. It was the right thing to do, even though it hurt. {target_npc} stood at the border and watched them leave, and I swear I saw something pass between them and the emissary: not friendship exactly, but recognition. The raids have slowed, though they haven't stopped entirely. The settlement is divided between those who think we showed weakness and those who think we showed wisdom.",
-        "outro": "You proved that seeing the enemy as more than a monster doesn't make you a traitor. It makes you human. Here, this is yours."
+        "plotStep": "{quest_focus} was returned to the {enemy_type} in the end. It was the right thing to do. {target_npc} stood at the border and watched them leave, and I swear I saw something pass between them: not friendship exactly, but recognition. The raids have slowed, though not stopped entirely.",
+        "outro": "You proved that seeing the enemy as more than a monster doesn't make you a traitor. It makes you human."
       },
       "playerResponses": [
         { "text": "Understanding doesn't mean surrender. The settlement will learn that in time.", "action": "ACCEPT", "dispositionShift": 5 },
@@ -29,11 +29,11 @@
       "objectiveConfig": {}
     },
     {
-      "id": "enemy_loved_reso_03",
+      "id": "reso_enemy_loved_03",
       "dialogueChunks": {
         "intro": "{player_name}... it ended in blood. Not the way I wanted, but the truth still matters.",
-        "plotStep": "The hardliners in {location} found {quest_focus} before we could move them to safety. There was a confrontation, and {target_npc} was injured trying to intervene. The {enemy_type} attacked in force when they learned what happened, and the settlement barely held. But in the aftermath, as people tended their wounds side by side, some of the fighters admitted they saw {quest_focus} trying to protect our people during the chaos. That image won't leave them easily.",
-        "outro": "You tried to bridge the impossible, and even though the bridge broke, some people crossed it in their hearts. That has to count for something. Take this."
+        "plotStep": "The hardliners found {quest_focus} before we could move them to safety. There was a confrontation, and {target_npc} was injured trying to intervene. The {enemy_type} attacked in force when they learned what happened. But in the aftermath, some of the fighters admitted they saw {quest_focus} trying to protect our people during the chaos.",
+        "outro": "You tried to bridge the impossible, and even though the bridge broke, some people crossed it in their hearts. That has to count for something."
       },
       "playerResponses": [
         { "text": "The truth has a way of surviving violence. I'm sorry it came to this.", "action": "ACCEPT" },

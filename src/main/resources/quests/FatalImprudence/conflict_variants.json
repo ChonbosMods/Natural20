@@ -53,7 +53,7 @@
     {
       "id": "imprudence_conf_second_disaster",
       "dialogueChunks": {
-        "intro": "As if {quest_focus} wasn't enough, the instability has caused a second incident near {location}. The ground is weakened and the area is swarming with displaced {enemy_type}.",
+        "intro": "As if {quest_focus} wasn't enough, the instability has caused a second incident near {location_hint}. The ground is weakened and the area is swarming with displaced {enemy_type}.",
         "plotStep": "{quest_ally} says the second site is connected to the first: the same recklessness that created {quest_threat} destabilized the whole region. {target_npc} needs materials from both sites to reinforce what's left. {quest_stakes} can't take another hit.",
         "outro": "Go to the secondary site near {location_hint}. Clear it, gather what {target_npc} needs, and make sure we don't lose anything else."
       },

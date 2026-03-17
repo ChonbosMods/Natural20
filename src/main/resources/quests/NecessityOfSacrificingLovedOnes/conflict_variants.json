@@ -1,11 +1,11 @@
 {
   "variants": [
     {
-      "id": "conf_necessity_sacrifice_clock_ticking",
+      "id": "conf_necessity_sacrifice_01",
       "dialogueChunks": {
-        "intro": "The deadline moved up, {player_name}. Three more people in {quest_focus} collapsed overnight. The council says they can't wait any longer.",
-        "plotStep": "{target_npc} found a partial remedy in the records but it requires {quest_item} from {location}. It won't cure everyone: maybe half, maybe fewer. The council is debating whether a partial cure justifies keeping the doors open. My sister is one of the sickest. She told me through the wall to let them seal it.",
-        "outro": "I can't accept that. Get {quest_item} to {target_npc}. Even saving half is better than losing all of them. We're running out of time to find any answer."
+        "intro": "The deadline moved up, {player_name}. More people fell overnight. The council says they can't wait any longer.",
+        "plotStep": "{target_npc} found a partial solution in the records but it requires {quest_item} from {location_hint}. It won't save everyone: maybe half, maybe fewer. The council is debating whether a partial solution justifies keeping the doors open. The sickest among them told me to let the council seal it.",
+        "outro": "I can't accept that. Get {quest_item} to {target_npc}. Even saving half is better than losing all of them."
       },
       "playerResponses": [
         {
@@ -14,7 +14,7 @@
           "dispositionShift": 4
         },
         {
-          "text": "Your sister might be right. Sometimes love means letting go.",
+          "text": "They might be right. Sometimes love means letting go.",
           "action": "ACCEPT",
           "dispositionShift": -1
         },
@@ -31,11 +31,11 @@
       }
     },
     {
-      "id": "conf_necessity_sacrifice_rescue_complicated",
+      "id": "conf_necessity_sacrifice_02",
       "dialogueChunks": {
-        "intro": "The rescue plan hit a wall. The {enemy_type} moved the hostages to a second location deeper in their territory. {quest_ally} barely made it back alive.",
-        "plotStep": "{target_npc} intercepted a message: the {enemy_type} are splitting the hostages into two groups held at different camps near {location}. We can reach one camp in time but not both. Four captives at one site, eight at the other. {quest_ally} says the smaller group includes the settlement's only healer.",
-        "outro": "Choose which group to save and someone dies. Refuse to choose and everyone dies. Find {quest_item}: it might give us the edge to hit both camps, but it means going through hostile territory first."
+        "intro": "The rescue plan hit a wall. The {enemy_type} moved the captives deeper into their territory. {quest_ally} barely made it back alive.",
+        "plotStep": "{target_npc} intercepted a message: the {enemy_type} are splitting the hostages into two groups at different locations. We can reach one in time but not both. {quest_ally} says {quest_stakes} is at risk no matter what we choose.",
+        "outro": "Choose which group to save and someone dies. Refuse to choose and everyone dies. Find {quest_item}: it might give us the edge to reach both, but it means going through hostile territory first."
       },
       "playerResponses": [
         {
@@ -44,7 +44,7 @@
           "dispositionShift": 5
         },
         {
-          "text": "Eight lives versus four. The numbers are clear.",
+          "text": "The numbers are clear. Save the larger group.",
           "action": "ACCEPT",
           "dispositionShift": -2
         }
@@ -55,25 +55,25 @@
       }
     },
     {
-      "id": "conf_necessity_sacrifice_bridge_crumbling",
+      "id": "conf_necessity_sacrifice_03",
       "dialogueChunks": {
-        "intro": "The bridge is weakening on its own, {player_name}. The weight of the crossing refugees is cracking the supports. We might not even need the torch.",
-        "plotStep": "{target_npc} found a shallow ford two miles downstream, but {enemy_type} scouts are already patrolling the bank there. {quest_ally} counted at least a dozen. The seventeen stranded people include three children and an elder who can barely walk. Getting them to the ford means moving slowly through open ground.",
-        "outro": "Clear the ford of {enemy_type} patrols and mark the path with {quest_item}. If the bridge collapses before everyone crosses, the ford is their only chance. The commander is running out of reasons not to light the fuse."
+        "intro": "{quest_focus} is weakening on its own, {player_name}. We might not even need to destroy it: it might collapse by itself.",
+        "plotStep": "{target_npc} found an alternate route downstream, but {enemy_type} scouts are already patrolling it. The stranded people include children and elders who can barely walk. Getting them to safety means moving slowly through open ground.",
+        "outro": "Clear the patrols and mark the path with {quest_item}. If {quest_focus} fails before everyone crosses, the alternate route is their only chance."
       },
       "playerResponses": [
         {
-          "text": "I'll clear the ford. Get those people moving downstream.",
+          "text": "I'll clear the path. Get those people moving.",
           "action": "ACCEPT",
           "dispositionShift": 5
         },
         {
-          "text": "Can the bridge hold long enough for them to cross normally?",
+          "text": "Can {quest_focus} hold long enough for them to cross normally?",
           "action": "ACCEPT",
           "dispositionShift": 1
         },
         {
-          "text": "Seventeen people against an army. You know what the math says.",
+          "text": "A few people against an army. You know what the math says.",
           "action": "DECLINE",
           "dispositionShift": -4
         }

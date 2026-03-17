@@ -1,23 +1,15 @@
 {
   "variants": [
     {
-      "id": "expo_necessity_sacrifice_plague_choice",
-      "bindings": {
-        "quest_action": "find an alternative cure",
-        "quest_focus": "the infected quarter",
-        "quest_stakes": "the healthy survivors",
-        "quest_threat": "the spreading plague",
-        "quest_origin": "the healer's archive",
-        "quest_time_pressure": "before the quarantine fails"
-      },
+      "id": "expo_necessity_sacrifice_01",
       "dialogueChunks": {
-        "intro": "The council voted last night. If we can't find a cure by sundown tomorrow, they're going to seal {quest_focus} with the infected still inside. Including my sister.",
-        "plotStep": "There are forty people in the quarantine. Twelve are too sick to walk. The rest are trapped with them because the exits were barred when {quest_threat} first appeared. The council says it's forty lives against four hundred. They're not wrong about the math. They're just wrong about the deadline.",
-        "outro": "{quest_origin} might hold answers, but nobody has dared go there since the {enemy_type} moved into the area. I need someone to {quest_action} {quest_time_pressure}. I can't just watch them brick up the doors."
+        "intro": "{player_name}, the council voted last night. If we can't find a solution by the deadline, they're going to sacrifice {quest_stakes} to save the rest.",
+        "plotStep": "There are people trapped by {quest_threat}. The council says it's a few lives against many. They're not wrong about the math, but they might be wrong about the deadline. {quest_origin} might hold answers, but nobody has dared go there since the {enemy_type} moved in. Someone needs to {quest_action} {quest_time_pressure}.",
+        "outro": "I can't just watch them be abandoned. Not while there's still a chance."
       },
       "playerResponses": [
         {
-          "text": "Nobody gets sealed in while I can still run. Where's the archive?",
+          "text": "Nobody gets abandoned while I can still run. Where do I go?",
           "action": "ACCEPT",
           "dispositionShift": 5
         },
@@ -27,7 +19,7 @@
           "dispositionShift": 2
         },
         {
-          "text": "Forty against four hundred is a choice no one should have to make. But the council is right.",
+          "text": "The few against the many is a choice no one should make. But the council is right.",
           "action": "DECLINE"
         }
       ],
@@ -37,18 +29,11 @@
       }
     },
     {
-      "id": "expo_necessity_sacrifice_hostage_trade",
-      "bindings": {
-        "quest_action": "break the hostage ring",
-        "quest_focus": "the ransom demand",
-        "quest_stakes": "the captive families",
-        "quest_threat": "an impossible ultimatum",
-        "quest_origin": "the border crossing"
-      },
+      "id": "expo_necessity_sacrifice_02",
       "dialogueChunks": {
-        "intro": "The {enemy_type} sent {quest_focus} this morning. They have twelve of our people. They want us to hand over our grain reserves in exchange. All of them.",
-        "plotStep": "If we surrender the grain, the settlement starves. If we refuse, twelve families lose someone they love. The {enemy_type} chose their hostages carefully: parents, healers, people the settlement can't bear to lose. Every option on the table costs lives.",
-        "outro": "There might be a third option. {quest_origin} is where they're holding the captives. If someone could {quest_action} before the deadline, we wouldn't have to choose which of our people to sacrifice."
+        "intro": "The {enemy_type} sent {quest_focus} this morning, {player_name}. They have our people. They want our survival stores in exchange. All of them.",
+        "plotStep": "If we surrender the stores, the settlement starves. If we refuse, families lose someone they love. The {enemy_type} chose their hostages carefully: people the settlement can't bear to lose. Every option on the table costs lives.",
+        "outro": "There might be a third option. {quest_origin} is where they're being held. If someone could {quest_action} before the deadline, we wouldn't have to choose which of our people to sacrifice. {quest_item} {location_hint} could give us the edge we need."
       },
       "playerResponses": [
         {
@@ -72,27 +57,20 @@
       }
     },
     {
-      "id": "expo_necessity_sacrifice_bridge_guard",
-      "bindings": {
-        "quest_action": "find another crossing",
-        "quest_focus": "the only bridge",
-        "quest_stakes": "the retreating civilians",
-        "quest_threat": "the advancing army",
-        "quest_time_pressure": "before dawn"
-      },
+      "id": "expo_necessity_sacrifice_03",
       "dialogueChunks": {
-        "intro": "The commander wants to blow {quest_focus}. It's the only thing between {quest_threat} and the settlement. But there are still people on the other side trying to cross.",
-        "plotStep": "If the bridge stands, the {enemy_type} pour through and everyone dies. If we destroy it now, seventeen people on the far bank are cut off with no escape. The commander is standing there with a torch, waiting for my answer. I don't have one.",
-        "outro": "If there's another way across, somewhere downstream, those seventeen people have a chance. Someone needs to {quest_action} {quest_time_pressure}. Once that torch touches the fuse, there's no going back."
+        "intro": "The commander wants to destroy {quest_focus}. It's the only thing between {quest_threat} and the settlement, {player_name}. But there are still people on the other side.",
+        "plotStep": "If {quest_focus} stands, the {enemy_type} pour through and everyone dies. If we destroy it now, the people on the far side are cut off with no escape. The commander is waiting for an answer. I don't have one.",
+        "outro": "If there's another way through, somewhere beyond {quest_focus}, those people have a chance. Someone needs to {quest_action} {quest_time_pressure}. Once the order is given, there's no going back."
       },
       "playerResponses": [
         {
-          "text": "Hold the torch. I'll find another way across for them.",
+          "text": "Hold the order. I'll find another way for them.",
           "action": "ACCEPT",
           "dispositionShift": 5
         },
         {
-          "text": "How long can the bridge hold without being destroyed?",
+          "text": "How long can {quest_focus} hold without being destroyed?",
           "action": "ACCEPT",
           "dispositionShift": 2
         }

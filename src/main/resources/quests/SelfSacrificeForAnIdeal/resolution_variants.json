@@ -1,11 +1,11 @@
 {
   "variants": [
     {
-      "id": "reso_sacrifice_ideal_remembered",
+      "id": "reso_sacrifice_ideal_01",
       "dialogueChunks": {
-        "intro": "The line held. The evacuations completed. And the people who made it possible are being carried home on shields.",
-        "plotStep": "{target_npc} organized a ceremony at {location}. Every name was read aloud. The youngest defender was seventeen. The oldest was sixty-three. They held for four days against odds that should have broken them in hours. {quest_ally} says their example has inspired three dozen volunteers to take up the watch.",
-        "outro": "You kept their sacrifice from being wasted, {player_name}. That matters more than you might realize. The ideal lives because they did. And because you helped."
+        "intro": "The line held. The people they protected made it through. And the ones who held it are being carried home.",
+        "plotStep": "{target_npc} organized a ceremony. Every name was read aloud. {quest_ally} says their example has inspired volunteers to take up the watch.",
+        "outro": "You kept their sacrifice from being wasted, {player_name}. The ideal lives because they did. And because you helped."
       },
       "playerResponses": [
         {
@@ -23,25 +23,25 @@
       "objectiveConfig": {}
     },
     {
-      "id": "reso_sacrifice_ideal_bittersweet",
+      "id": "reso_sacrifice_ideal_02",
       "dialogueChunks": {
-        "intro": "The healer survived. Barely. She can't hold a mixing bowl steady anymore, but she walked out of {quest_focus} on her own two feet. Every patient lived.",
-        "plotStep": "She said the strangest thing when she opened the door: 'I didn't do it for them. I did it because the alternative was being someone I couldn't live as.' {target_npc} is arranging for her to rest and recover at {location}. Some of the families she saved have offered to take turns caring for her.",
-        "outro": "Not every sacrifice ends in death, {player_name}. Sometimes it just costs you everything you were, and you have to figure out who you are with what's left. She'll manage. People like her always do."
+        "intro": "They survived. Barely. They can't work the way they used to, but they walked out of {quest_focus} on their own two feet. Everyone they were protecting lived.",
+        "plotStep": "They said the strangest thing when it was over: 'I didn't do it for them. I did it because the alternative was being someone I couldn't live as.' {target_npc} is arranging for their care. The families they saved have offered to help.",
+        "outro": "Not every sacrifice ends in death, {player_name}. Sometimes it just costs you everything you were, and you have to figure out who you are with what's left."
       },
       "playerResponses": [
         {
-          "text": "She's the bravest person I've ever heard of.",
+          "text": "They're the bravest person I've ever heard of.",
           "action": "COMPLETE",
           "dispositionShift": 4
         },
         {
-          "text": "Make sure she's cared for. She's earned that much.",
+          "text": "Make sure they're cared for. They've earned that much.",
           "action": "COMPLETE",
           "dispositionShift": 3
         },
         {
-          "text": "The system that put her in that position needs to change.",
+          "text": "The system that put them in that position needs to change.",
           "action": "COMPLETE",
           "dispositionShift": 1
         }
@@ -50,20 +50,20 @@
       "objectiveConfig": {}
     },
     {
-      "id": "reso_sacrifice_ideal_legacy_endures",
+      "id": "reso_sacrifice_ideal_03",
       "dialogueChunks": {
-        "intro": "The texts survived. Every page, every diagram, every remedy and history. Hidden, transported, and now safe in a place the inquisitors will never reach.",
-        "plotStep": "The scholar who started all this was found last week. They'd been hiding {location_hint}, half-starved but alive. When {quest_ally} told them the knowledge was safe, they just nodded and said 'Good.' Like saving centuries of wisdom and nearly dying for it was just another day's work.",
-        "outro": "{target_npc} is already making copies to distribute. The ideal of free knowledge survived because one person decided it was worth more than comfort, safety, and possibly their life. You made sure that decision counted, {player_name}."
+        "intro": "What they protected survived. Every piece, every record, every life they were guarding. Safe.",
+        "plotStep": "The person who started it all was found afterward. Half-starved but alive. When {quest_ally} told them everything was safe, they just nodded and said 'Good.' {target_npc} is already making sure the work continues.",
+        "outro": "{quest_stakes} survived because one person decided it was worth more than comfort, safety, and possibly their life. You made sure that decision counted, {player_name}."
       },
       "playerResponses": [
         {
-          "text": "Ideas are harder to burn than books. They made sure of that.",
+          "text": "What they protected can't be destroyed now. They made sure of that.",
           "action": "COMPLETE",
           "dispositionShift": 5
         },
         {
-          "text": "Just keep the copies hidden this time.",
+          "text": "Just keep it safe this time.",
           "action": "COMPLETE",
           "dispositionShift": 1
         }

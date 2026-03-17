@@ -2,17 +2,10 @@
   "variants": [
     {
       "id": "vengeancekindred_expo_01",
-      "bindings": {
-        "quest_action": "avenge the fallen guards",
-        "quest_focus": "the ambush site",
-        "quest_stakes": "our slain protectors",
-        "quest_threat": "the marauder warband",
-        "quest_origin": "the dawn raid"
-      },
       "dialogueChunks": {
-        "intro": "{player_name}, we lost good people during {quest_origin}. {quest_stakes} gave their lives defending us, and {quest_threat} are still out there celebrating their kills.",
-        "plotStep": "I cannot let their sacrifice go unanswered. We need to {quest_action}. {quest_ally} tracked the warband to an area {location_hint}. Find them and collect {quest_item} from {quest_focus} as proof.",
-        "outro": "Those guards were family to this settlement. Their memory demands justice."
+        "intro": "{player_name}, we lost good people during {quest_origin}. {quest_stakes} gave their lives defending us, and {quest_threat} are still out there.",
+        "plotStep": "I cannot let their sacrifice go unanswered. We need to {quest_action}. {quest_ally} tracked them to an area {location_hint}. Find them and collect {quest_item} from {quest_focus} as proof.",
+        "outro": "Those we lost were family to this settlement. Their memory demands justice."
       },
       "playerResponses": [
         { "text": "They will pay for every life they took.", "action": "ACCEPT", "dispositionShift": 10 },
@@ -27,22 +20,15 @@
     },
     {
       "id": "vengeancekindred_expo_02",
-      "bindings": {
-        "quest_action": "destroy the nest",
-        "quest_focus": "the creature den",
-        "quest_stakes": "the killed shepherds",
-        "quest_threat": "the pack hunters",
-        "quest_time_pressure": "before they breed again"
-      },
       "dialogueChunks": {
-        "intro": "{quest_threat} killed two of our own last week, {player_name}. {quest_stakes} were out tending the flocks when they were dragged off. We found what was left.",
-        "plotStep": "The community is grieving and furious. We need to {quest_action} and wipe out {quest_threat} {quest_time_pressure}. {quest_focus} is somewhere {location_hint}. Take {quest_item} to flush them out.",
-        "outro": "We bury our people tomorrow. I want to tell them at the pyre that it is done."
+        "intro": "{quest_threat} killed people we cared about, {player_name}. {quest_stakes} were out doing their work when they were taken from us. We found what was left.",
+        "plotStep": "The community is grieving and furious. We need to {quest_action} {quest_time_pressure}. {quest_focus} is somewhere {location_hint}. Take {quest_item} to help deal with them.",
+        "outro": "We lay our people to rest soon. I want to tell them it is done."
       },
       "playerResponses": [
-        { "text": "I will make sure no more shepherds die to those things.", "action": "ACCEPT", "dispositionShift": 15 },
-        { "text": "Exterminating a nest is ugly work. But necessary.", "action": "ACCEPT", "dispositionShift": 0 },
-        { "text": "Nature is cruel. There is no point in revenge against beasts.", "action": "DECLINE" }
+        { "text": "I will make sure no more of your people die to this.", "action": "ACCEPT", "dispositionShift": 15 },
+        { "text": "Ugly work. But necessary.", "action": "ACCEPT", "dispositionShift": 0 },
+        { "text": "There is no point in revenge.", "action": "DECLINE" }
       ],
       "objectivePool": ["KILL_MOBS", "EXPLORE_LOCATION"],
       "objectiveConfig": {
@@ -51,23 +37,15 @@
     },
     {
       "id": "vengeancekindred_expo_03",
-      "bindings": {
-        "quest_action": "bring back the ringleader",
-        "quest_focus": "the bandit hideout",
-        "quest_stakes": "the murdered merchant",
-        "quest_threat": "the highway gang",
-        "quest_origin": "the trade road ambush",
-        "quest_reward_hint": "the merchant's estate"
-      },
       "dialogueChunks": {
-        "intro": "{player_name}, during {quest_origin}, {quest_threat} killed {quest_stakes} in cold blood. The merchant was kin to half this settlement.",
-        "plotStep": "The whole community wants blood. I need you to {quest_action} from {quest_focus}. {quest_ally} says they are holed up {location_hint}. Recover {quest_item} from the scene as evidence.",
-        "outro": "{quest_stakes} left behind a family. They deserve closure, and {quest_reward_hint} has funds set aside for exactly this purpose."
+        "intro": "{player_name}, during {quest_origin}, {quest_threat} killed {quest_stakes} in cold blood. The victim was kin to half this settlement.",
+        "plotStep": "The whole community wants justice. I need you to {quest_action} from {quest_focus}. {quest_ally} says they are holed up {location_hint}. Recover {quest_item} from the scene as evidence.",
+        "outro": "The family deserves closure, and {quest_reward_hint} has been set aside for exactly this purpose."
       },
       "playerResponses": [
         { "text": "Murder demands an answer. I will find them.", "action": "ACCEPT", "dispositionShift": 10 },
-        { "text": "A bounty from the estate works for me.", "action": "ACCEPT", "dispositionShift": -5 },
-        { "text": "Hunting bandits in their own hideout? Too risky.", "action": "DECLINE", "dispositionShift": -5 }
+        { "text": "A bounty works for me.", "action": "ACCEPT", "dispositionShift": -5 },
+        { "text": "Hunting them in their own territory? Too risky.", "action": "DECLINE", "dispositionShift": -5 }
       ],
       "objectivePool": ["EXPLORE_LOCATION", "KILL_MOBS", "FETCH_ITEM", "KILL_NPC"],
       "objectiveConfig": {

@@ -1,10 +1,10 @@
 {
   "variants": [
     {
-      "id": "ambition_conf_01",
+      "id": "conf_ambition_01",
       "dialogueChunks": {
         "intro": "Our rivals moved faster than I expected, {player_name}. The game has changed.",
-        "plotStep": "{target_npc} discovered what we're planning and has started rallying opposition. They've been spreading word through {location} that our efforts to secure {quest_focus} are a threat to everyone. Meanwhile, the {enemy_type} activity near {location_hint} has cut off our supply lines, and without {quest_item} we can't finish what we started. I need you to break through the blockade and bring back enough {quest_item} to tip the balance before {target_npc} turns the whole settlement against us.",
+        "plotStep": "{target_npc} discovered what we're planning and has started rallying opposition. They've been spreading word that our efforts to secure {quest_focus} are a threat to everyone. The {enemy_type} activity near {location_hint} has cut off our supply lines. I need you to break through and bring back enough {quest_item} to tip the balance before {target_npc} turns everything against us.",
         "outro": "If we lose momentum now, {quest_stakes} slips through our fingers and we'll never get another chance."
       },
       "playerResponses": [
@@ -20,14 +20,14 @@
       }
     },
     {
-      "id": "ambition_conf_02",
+      "id": "conf_ambition_02",
       "dialogueChunks": {
         "intro": "{player_name}, someone tried to burn my workshop last night. This is getting personal.",
-        "plotStep": "{target_npc} has hired mercenaries to intimidate anyone supporting our claim to {quest_focus}. Three of my allies in {location} have already backed down under pressure. I need you to find the mercenary camp {location_hint}, scatter them, and recover the {quest_item} they stole from my stores. Without those supplies, I can't fulfill the promises I've made. If my supporters see me fail to deliver, they'll abandon me for {target_npc} without a second thought.",
+        "plotStep": "{target_npc} has hired enforcers to intimidate anyone supporting our claim to {quest_focus}. Three of my allies have already backed down. I need you to find the enforcer camp {location_hint}, scatter them, and recover the {quest_item} they stole. Without those supplies, I can't fulfill promises I've made.",
         "outro": "This isn't just about {quest_stakes} anymore. It's about survival. Mine and everyone who bet on me."
       },
       "playerResponses": [
-        { "text": "Mercenaries and arsonists. I'll deal with both.", "action": "ACCEPT" },
+        { "text": "Enforcers and arsonists. I'll deal with both.", "action": "ACCEPT" },
         { "text": "Your enemies are escalating to violence. This is getting dangerous.", "action": "ACCEPT" },
         { "text": "Hired thugs are a line I won't cross in either direction.", "action": "DECLINE" }
       ],
@@ -39,11 +39,11 @@
       }
     },
     {
-      "id": "ambition_conf_03",
+      "id": "conf_ambition_03",
       "dialogueChunks": {
-        "intro": "The situation has become more complicated than I imagined, {player_name}. But complications are just problems dressed up in new clothes.",
-        "plotStep": "The {enemy_type} threat near {location} has given {target_npc} a platform to call for unity under their leadership. They're using {quest_threat} as justification to seize emergency authority. If I let them claim credit for defending {location}, {quest_stakes} is theirs by default. I need you to deal with the {enemy_type} stronghold {location_hint} before {target_npc} can organize a response. Clear them out, recover {quest_item} from the ruins, and bring it back as proof that we can protect this settlement better than any speech-maker.",
-        "outro": "Actions speak louder than promises. Let's give {location} something to believe in."
+        "intro": "The situation has become more complicated than I imagined, {player_name}. But complications are just problems in new clothes.",
+        "plotStep": "The {enemy_type} threat has given {target_npc} a platform to call for unity under their leadership. They're using {quest_threat} as justification to seize emergency authority. I need you to deal with the {enemy_type} stronghold {location_hint} before {target_npc} can organize a response. Clear them out and recover {quest_item} as proof that we can protect {quest_stakes} better than any speech-maker.",
+        "outro": "Actions speak louder than promises. Let's give people something to believe in."
       },
       "playerResponses": [
         { "text": "A stronghold assault to prove a point? Ambitious. I'm in.", "action": "ACCEPT" },

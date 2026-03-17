@@ -1,23 +1,15 @@
 {
   "variants": [
     {
-      "id": "erroneous_judgment_expo_wrong_target",
-      "bindings": {
-        "quest_action": "stop a wrongful attack",
-        "quest_focus": "the misidentified camp",
-        "quest_stakes": "innocent lives",
-        "quest_threat": "a militia acting on lies",
-        "quest_origin": "a scout's false report",
-        "quest_reward_hint": "a disaster averted"
-      },
+      "id": "expo_erroneous_judgment_01",
       "dialogueChunks": {
         "intro": "{player_name}, we're about to make a terrible mistake, and I'm the only one who sees it.",
-        "plotStep": "A scout returned to {location} claiming they found a {enemy_type} staging camp {location_hint}. The militia is arming up to attack at dawn. But I spoke to {target_npc}, who traveled that road last week, and they described a group of refugees sheltering in the same area: families fleeing violence, not causing it. The scout saw what they expected to see, not what was actually there. I need you to reach the camp before the militia does and bring back {quest_item} as proof that these are people, not enemies.",
-        "outro": "If the militia attacks innocent refugees, we become the monsters. We have until dawn to prove them wrong."
+        "plotStep": "A scout returned claiming they found an {enemy_type} camp {location_hint}. The militia is arming up. But I spoke to {target_npc}, who traveled that road recently, and they described something very different from what the scout reported. The scout saw what they expected to see, not what was actually there.",
+        "outro": "I need you to reach {quest_focus} before the militia does and bring back {quest_item} as proof of what's really there. If they attack the wrong target, {quest_stakes} will pay the price. {quest_reward_hint} could follow."
       },
       "playerResponses": [
         { "text": "Innocents in the crossfire. I'll get there first.", "action": "ACCEPT" },
-        { "text": "Racing a militia to save refugees. No pressure. What's the reward?", "action": "ACCEPT", "dispositionShift": -5 },
+        { "text": "Racing a militia to prevent a disaster. No pressure. What's the reward?", "action": "ACCEPT", "dispositionShift": -5 },
         { "text": "Getting between a militia and its target is a good way to get killed.", "action": "DECLINE" }
       ],
       "objectivePool": ["EXPLORE_LOCATION", "TALK_TO_NPC", "FETCH_ITEM"],
@@ -28,22 +20,15 @@
       }
     },
     {
-      "id": "erroneous_judgment_expo_bad_intel",
-      "bindings": {
-        "quest_action": "verify a dangerous rumor",
-        "quest_focus": "the poisoned well theory",
-        "quest_stakes": "a healer's reputation",
-        "quest_threat": "mob anger",
-        "quest_origin": "a child's illness"
-      },
+      "id": "expo_erroneous_judgment_02",
       "dialogueChunks": {
         "intro": "They're blaming {target_npc} for the sickness, {player_name}. And they're wrong. Dead wrong.",
-        "plotStep": "Three children in {location} fell ill after drinking water from the eastern well. Someone started a rumor that {target_npc} poisoned it, because {target_npc} was seen adding herbs to the well last week. What nobody bothered to ask is that {target_npc} was treating the water with purifying agents because they noticed contamination upstream. The real source of the poison is somewhere {location_hint}, and I'll bet the {enemy_type} that moved into the area are responsible. I need {quest_item} from the contamination site to prove where the sickness actually came from.",
-        "outro": "A healer who tried to help is about to be punished for someone else's crime. That's not justice: that's ignorance."
+        "plotStep": "People fell ill after contact with {quest_focus}. Someone started a rumor that {target_npc} caused it, because {target_npc} was seen adding something to {quest_focus} recently. What nobody bothered to ask is that {target_npc} was treating it with purifying agents because they noticed contamination. The real source of the problem is somewhere {location_hint}, and the {enemy_type} that moved into the area are likely responsible.",
+        "outro": "I need {quest_item} from the contamination site to prove where the sickness actually came from. {quest_threat} is driving this witch hunt. {quest_stakes} depends on the truth."
       },
       "playerResponses": [
         { "text": "I'll trace the contamination to its source. Healers shouldn't be punished for healing.", "action": "ACCEPT" },
-        { "text": "Investigating a poisoning near enemy territory. Risky. What's the compensation?", "action": "ACCEPT", "dispositionShift": -5 },
+        { "text": "Investigating near enemy territory. Risky. What's the compensation?", "action": "ACCEPT", "dispositionShift": -5 },
         { "text": "Witch hunts are dangerous to interfere with. I'll pass.", "action": "DECLINE" }
       ],
       "objectivePool": ["EXPLORE_LOCATION", "GATHER_ITEMS", "KILL_MOBS"],
@@ -54,23 +39,16 @@
       }
     },
     {
-      "id": "erroneous_judgment_expo_false_ally",
-      "bindings": {
-        "quest_action": "expose a false benefactor",
-        "quest_focus": "the suspicious generosity",
-        "quest_stakes": "the settlement's safety",
-        "quest_threat": "misplaced trust",
-        "quest_reward_hint": "a trap disarmed"
-      },
+      "id": "expo_erroneous_judgment_03",
       "dialogueChunks": {
-        "intro": "Everyone in {location} loves the new trader, {player_name}. Everyone except me.",
-        "plotStep": "A merchant arrived in {location} a month ago offering {quest_item} at prices that make no sense. Too cheap, too generous, too eager to be everyone's friend. {target_npc} is suspicious too but was shouted down when they raised concerns. I've noticed the merchant making trips {location_hint} at night, and the {enemy_type} attacks have shifted to target everywhere except routes the merchant uses. That's not coincidence. I need you to follow the merchant's trail and find out what they're really doing out there.",
-        "outro": "The settlement is so grateful for cheap goods that they can't see they're being set up. Someone has to look past the smile."
+        "intro": "Everyone loves the new arrival, {player_name}. Everyone except me.",
+        "plotStep": "A newcomer has been offering {quest_item} at prices that make no sense. Too cheap, too generous, too eager. {target_npc} is suspicious too but was shouted down. I've noticed the newcomer making trips {location_hint} at night, and the {enemy_type} attacks have shifted to target everywhere except routes the newcomer uses. That's not coincidence.",
+        "outro": "I need you to follow the trail and find out what they're really doing. {quest_focus} is too convenient. {quest_threat} lurks behind generosity this suspicious. {quest_stakes} is at risk. {quest_reward_hint} awaits if you uncover the truth."
       },
       "playerResponses": [
-        { "text": "If this merchant is working with the enemy, the settlement needs to know. I'll investigate.", "action": "ACCEPT" },
-        { "text": "Following a suspected enemy agent through hostile territory. Name your price.", "action": "ACCEPT", "dispositionShift": -5 },
-        { "text": "Maybe they're just a generous merchant. Not every kindness hides a knife.", "action": "DECLINE" }
+        { "text": "If this newcomer is working with the enemy, the settlement needs to know. I'll investigate.", "action": "ACCEPT" },
+        { "text": "Following a suspected agent through hostile territory. Name your price.", "action": "ACCEPT", "dispositionShift": -5 },
+        { "text": "Maybe they're just generous. Not every kindness hides a knife.", "action": "DECLINE" }
       ],
       "objectivePool": ["EXPLORE_LOCATION", "TALK_TO_NPC", "KILL_MOBS"],
       "objectiveConfig": {

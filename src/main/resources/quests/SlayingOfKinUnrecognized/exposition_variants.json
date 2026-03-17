@@ -1,28 +1,20 @@
 {
   "variants": [
     {
-      "id": "expo_slaying_kin_cursed_patrol",
-      "bindings": {
-        "quest_action": "identify the cursed patrol",
-        "quest_focus": "the transformed soldiers",
-        "quest_stakes": "allied lives",
-        "quest_threat": "a spreading curse",
-        "quest_origin": "a corrupted watchtower",
-        "quest_time_pressure": "before the next patrol"
-      },
+      "id": "expo_slaying_kin_01",
       "dialogueChunks": {
-        "intro": "Something terrible happened on the eastern road. One of our patrols attacked a group of travelers, killed two of them before anyone realized they were friendlies.",
-        "plotStep": "The patrol had been stationed near {quest_origin} for weeks. When they came back, they looked wrong: skin too pale, eyes too wide. Nobody said anything because they still wore our colors. Now two innocent people are dead and the patrol doesn't even remember doing it.",
-        "outro": "We need someone to {quest_action} before {quest_threat} claims more of our own. Those soldiers were good people once. Whatever changed them is still out there."
+        "intro": "{player_name}, something terrible has happened. People we trusted turned on their own, and they don't even remember doing it.",
+        "plotStep": "Since {quest_origin}, {quest_threat} has twisted things beyond recognition. Those affected see {enemy_type} where allies stand. We need someone to {quest_action} at {quest_focus}. There should be {quest_item} {location_hint} that can help us understand what's happening. Without it, {quest_stakes} will only get worse.",
+        "outro": "We're killing our own people and calling it defense. Help us stop this {quest_time_pressure}."
       },
       "playerResponses": [
         {
-          "text": "I'll find the source of this curse and put a stop to it.",
+          "text": "I'll find the source of this and put a stop to it.",
           "action": "ACCEPT",
           "dispositionShift": 5
         },
         {
-          "text": "Those soldiers need to be put down, not saved.",
+          "text": "Those people need to be put down, not saved.",
           "action": "ACCEPT",
           "dispositionShift": -3
         },
@@ -38,28 +30,20 @@
       }
     },
     {
-      "id": "expo_slaying_kin_poisoned_well",
-      "bindings": {
-        "quest_action": "trace the tainted water",
-        "quest_focus": "the poisoned well",
-        "quest_stakes": "the village's sanity",
-        "quest_threat": "a mind-altering blight",
-        "quest_origin": "upstream caverns",
-        "quest_reward_hint": "a purification charm"
-      },
+      "id": "expo_slaying_kin_02",
       "dialogueChunks": {
-        "intro": "My neighbor killed her own brother last night. She swears she saw a {enemy_type} standing where he stood. She wasn't lying: she truly saw a monster.",
-        "plotStep": "It started three days ago when people began drinking from {quest_focus}. The water tasted fine but something in it twists perception. Friends look like enemies. Family looks like {enemy_type}. Two people are dead already, both killed by people who loved them.",
-        "outro": "If we don't {quest_action} and find out what's contaminating the supply, {quest_stakes} will be gone by week's end. Please, {player_name}. We're turning on each other."
+        "intro": "My neighbor killed her own brother last night, {player_name}. She swears she saw a {enemy_type} standing where he stood. She wasn't lying: she truly believed it.",
+        "plotStep": "It started when {quest_origin} went wrong. {quest_threat} makes people see enemies in the faces of friends. If we don't {quest_action} and find {quest_item} {location_hint}, {quest_stakes} will be lost by week's end.",
+        "outro": "Please, {player_name}. We're turning on each other, and {quest_reward_hint} might be the only way to set things right."
       },
       "playerResponses": [
         {
-          "text": "Show me the well. I'll find what's doing this.",
+          "text": "Show me where it started. I'll find what's doing this.",
           "action": "ACCEPT",
           "dispositionShift": 4
         },
         {
-          "text": "Have you tried just... not drinking the water?",
+          "text": "Have you tried just... avoiding the affected area?",
           "action": "ACCEPT",
           "dispositionShift": -2
         },
@@ -74,18 +58,11 @@
       }
     },
     {
-      "id": "expo_slaying_kin_shapeshifter_panic",
-      "bindings": {
-        "quest_action": "expose the shapeshifter",
-        "quest_focus": "the stolen identity",
-        "quest_stakes": "trust between allies",
-        "quest_threat": "a hidden infiltrator",
-        "quest_time_pressure": "before suspicion tears us apart"
-      },
+      "id": "expo_slaying_kin_03",
       "dialogueChunks": {
-        "intro": "We killed one of our own scouts two days ago. The guard captain swore the scout drew a weapon first. The scout's partner says he was reaching for his canteen.",
-        "plotStep": "Something has been wearing the faces of our people. It takes {quest_focus} of someone trusted, walks among us, then does something violent enough to provoke a response. When the real person shows up later, they walk into a crossbow bolt meant for a monster. We've lost three people this way.",
-        "outro": "We need someone from outside our ranks to {quest_action}. Everyone here suspects everyone else already. {quest_time_pressure}: we'll destroy ourselves without any enemy lifting a finger."
+        "intro": "We lost one of our own two days ago. The guard captain swore they drew a weapon first. Their partner says they were reaching for a canteen.",
+        "plotStep": "Ever since {quest_origin}, {quest_threat} has been turning us against each other. {quest_focus} is at the center of it, and the {enemy_type} seem to be pulling the strings. We need an outsider to {quest_action}. Everyone here suspects everyone else already.",
+        "outro": "If we don't act soon, {quest_stakes} will collapse. We'll destroy ourselves without any enemy lifting a finger."
       },
       "playerResponses": [
         {
@@ -94,7 +71,7 @@
           "dispositionShift": 5
         },
         {
-          "text": "How do I know you're not the shapeshifter?",
+          "text": "How do I know you're not part of the problem?",
           "action": "ACCEPT",
           "dispositionShift": 1
         }

@@ -1,70 +1,31 @@
 {
   "variants": [
     {
-      "id": "madness_expo_cursed_artifact",
-      "bindings": {
-        "quest_action": "destroy the relic",
-        "quest_focus": "the corrupted artifact",
-        "quest_stakes": "the afflicted villager",
-        "quest_threat": "the relic's influence",
-        "quest_origin": "a found object",
-        "quest_time_pressure": "before the madness spreads"
-      },
+      "id": "madness_expo_01",
       "dialogueChunks": {
-        "intro": "{target_npc} hasn't been the same since they found that thing. They brought back an artifact from {location_hint} a week ago, and their behavior has been deteriorating ever since.",
-        "plotStep": "At first it was just muttering and sleepless nights. Now they've barricaded themselves in their home, raving about voices and scratching symbols into the walls. {quest_ally} tried to help but was driven off. The artifact pulses with a faint light whenever {target_npc} speaks.",
-        "outro": "We need to get {quest_focus} away from {target_npc} and find out what it is. {player_name}, can you help before {quest_threat} consumes them entirely?"
+        "intro": "{target_npc} has not been the same lately, {player_name}. Since {quest_origin}, their behavior has been deteriorating and no one can reach them.",
+        "plotStep": "At first it was just odd habits. Now they have barricaded themselves away, raving about things no one else can see. {quest_ally} tried to help but was driven off. Something at {quest_focus} is pulling them deeper.",
+        "outro": "We need to get to the source and find out what is doing this. Can you help {quest_time_pressure} before {quest_threat} consumes them entirely?"
       },
       "playerResponses": [
-        {
-          "text": "I'll try to reach them and remove it.",
-          "action": "ACCEPT",
-          "dispositionShift": 5
-        },
-        {
-          "text": "Where exactly did they find it?",
-          "action": "ACCEPT",
-          "dispositionShift": 2
-        },
-        {
-          "text": "Cursed objects are beyond me.",
-          "action": "DECLINE",
-          "dispositionShift": -3
-        }
+        { "text": "I will try to reach them and find the cause.", "action": "ACCEPT", "dispositionShift": 5 },
+        { "text": "Where exactly did this start?", "action": "ACCEPT", "dispositionShift": 2 },
+        { "text": "This is beyond me.", "action": "DECLINE", "dispositionShift": -3 }
       ],
       "objectivePool": ["TALK_TO_NPC", "EXPLORE_LOCATION", "FETCH_ITEM"],
       "objectiveConfig": {}
     },
     {
-      "id": "madness_expo_night_terrors",
-      "bindings": {
-        "quest_action": "find the source",
-        "quest_focus": "the nightmares",
-        "quest_stakes": "the settlement's sanity",
-        "quest_threat": "the spreading affliction",
-        "quest_origin": "shared bad dreams"
-      },
+      "id": "madness_expo_02",
       "dialogueChunks": {
-        "intro": "Half the settlement woke screaming last night. The same nightmare: darkness, a hum from underground, and a terrible presence watching from {location_hint}.",
-        "plotStep": "{quest_ally} is one of the affected. They describe {quest_focus} as vivid and identical across every victim. This isn't coincidence: something near {location} is projecting these visions. The {enemy_type} in the area have been behaving erratically too.",
-        "outro": "People are afraid to sleep, {player_name}. We need to find what's causing {quest_threat} and put an end to it before the whole settlement falls apart."
+        "intro": "Half the settlement has been afflicted, {player_name}. {quest_focus} struck without warning, and {quest_threat} is spreading faster than we can understand.",
+        "plotStep": "{quest_ally} is one of the affected. They describe identical visions across every victim. This is not coincidence: something near {location_hint} is projecting this. Even the {enemy_type} in the area have been behaving erratically.",
+        "outro": "People are terrified. We need to find what is causing {quest_threat} and put an end to it before the whole settlement falls apart."
       },
       "playerResponses": [
-        {
-          "text": "I'll track down whatever is doing this.",
-          "action": "ACCEPT",
-          "dispositionShift": 5
-        },
-        {
-          "text": "Shared nightmares? That's deeply wrong.",
-          "action": "ACCEPT",
-          "dispositionShift": 3
-        },
-        {
-          "text": "Nightmares are just dreams. They'll pass.",
-          "action": "DECLINE",
-          "dispositionShift": -4
-        }
+        { "text": "I will track down whatever is doing this.", "action": "ACCEPT", "dispositionShift": 5 },
+        { "text": "A shared affliction? That is deeply wrong.", "action": "ACCEPT", "dispositionShift": 3 },
+        { "text": "It will pass on its own.", "action": "DECLINE", "dispositionShift": -4 }
       ],
       "objectivePool": ["EXPLORE_LOCATION", "KILL_MOBS", "GATHER_ITEMS"],
       "objectiveConfig": {
@@ -73,36 +34,16 @@
       }
     },
     {
-      "id": "madness_expo_feral_turn",
-      "bindings": {
-        "quest_action": "cure the afflicted",
-        "quest_focus": "the feral settlers",
-        "quest_stakes": "their humanity",
-        "quest_threat": "the wild curse",
-        "quest_origin": "a tainted water source",
-        "quest_reward_hint": "the alchemist's thanks"
-      },
+      "id": "madness_expo_03",
       "dialogueChunks": {
-        "intro": "Three of our people have gone feral. They fled into the wilds near {location_hint}, snarling and refusing to recognize anyone. It happened overnight.",
-        "plotStep": "{quest_ally} examined the water they'd been drinking and found traces of something unnatural: {quest_item} residue that shouldn't be in our supply. The {enemy_type} may have contaminated the source deliberately. {target_npc} thinks a cure is possible, but needs samples from the contamination site.",
-        "outro": "{quest_focus} are still out there, lost to {quest_threat}. {player_name}, find the source and bring back what {target_npc} needs to brew a cure."
+        "intro": "Several of our people have lost themselves, {player_name}. They fled into the wilds near {location_hint}, unable to recognize anyone. It happened overnight.",
+        "plotStep": "{quest_ally} examined what they had been exposed to and found traces of something unnatural: {quest_item} residue that should not be there. {target_npc} thinks a cure is possible, but needs samples from the contamination site.",
+        "outro": "{quest_focus} are still out there, lost to {quest_threat}. Find the source and bring back what {target_npc} needs. {quest_reward_hint} awaits if you succeed."
       },
       "playerResponses": [
-        {
-          "text": "I'll get the samples and save them.",
-          "action": "ACCEPT",
-          "dispositionShift": 6
-        },
-        {
-          "text": "Are they dangerous in this state?",
-          "action": "ACCEPT",
-          "dispositionShift": 2
-        },
-        {
-          "text": "They might be beyond saving.",
-          "action": "DECLINE",
-          "dispositionShift": -5
-        }
+        { "text": "I will get the samples and save them.", "action": "ACCEPT", "dispositionShift": 6 },
+        { "text": "Are they dangerous in this state?", "action": "ACCEPT", "dispositionShift": 2 },
+        { "text": "They might be beyond saving.", "action": "DECLINE", "dispositionShift": -5 }
       ],
       "objectivePool": ["GATHER_ITEMS", "EXPLORE_LOCATION", "KILL_MOBS"],
       "objectiveConfig": {

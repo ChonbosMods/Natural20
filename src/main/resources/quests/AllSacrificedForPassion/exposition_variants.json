@@ -1,33 +1,25 @@
 {
   "variants": [
     {
-      "id": "expo_all_sacrificed_obsessed_smith",
-      "bindings": {
-        "quest_action": "retrieve the stolen ore",
-        "quest_focus": "the masterwork blade",
-        "quest_stakes": "the smith's livelihood",
-        "quest_threat": "total ruin",
-        "quest_origin": "the collapsed mine",
-        "quest_reward_hint": "a lesser work of the smith"
-      },
+      "id": "expo_all_sacrificed_01",
       "dialogueChunks": {
-        "intro": "The blacksmith hasn't left the forge in eleven days. His family moved out a month ago. He sold the furniture last week to buy more ore.",
-        "plotStep": "He's been chasing {quest_focus} for three years. Every coin, every favor, every relationship: all burned in the furnace alongside the metal. His latest supply of rare ore was stolen by {enemy_type} raiders from {quest_origin}, and now he has nothing left to work with. Nothing except the obsession.",
-        "outro": "His wife asked me to find someone to {quest_action} before {quest_threat} finishes what the obsession started. She still cares, even from a distance. But the ore is deep in {enemy_type} territory."
+        "intro": "{player_name}, someone here has given up everything for an obsession. Family, home, livelihood: all gone into the furnace.",
+        "plotStep": "They've been chasing {quest_focus} for years. Every coin, every favor, every relationship: burned. Their latest supply of {quest_item} was stolen by {enemy_type} from {quest_origin}, and now they have nothing left to work with. Nothing except the obsession.",
+        "outro": "Their family asked me to find someone to {quest_action} before {quest_threat} finishes what the obsession started. {quest_reward_hint} might come of it, but the real goal is ending the spiral."
       },
       "playerResponses": [
         {
-          "text": "I'll get the ore. Maybe finishing the blade will set him free.",
+          "text": "I'll get what they need. Maybe finishing will set them free.",
           "action": "ACCEPT",
           "dispositionShift": 3
         },
         {
-          "text": "Maybe he needs to lose the ore. Some obsessions need to end.",
+          "text": "Maybe they need to lose it. Some obsessions need to end.",
           "action": "ACCEPT",
           "dispositionShift": -1
         },
         {
-          "text": "I can't solve a man's war with himself.",
+          "text": "I can't solve someone's war with themselves.",
           "action": "DECLINE"
         }
       ],
@@ -37,32 +29,25 @@
       }
     },
     {
-      "id": "expo_all_sacrificed_rogue_alchemist",
-      "bindings": {
-        "quest_action": "recover the stolen reagents",
-        "quest_focus": "the philosopher's solution",
-        "quest_stakes": "an entire fortune",
-        "quest_threat": "a dangerous experiment",
-        "quest_origin": "the abandoned tower"
-      },
+      "id": "expo_all_sacrificed_02",
       "dialogueChunks": {
-        "intro": "There's an alchemist holed up in {quest_origin} who has been brewing something for the better part of a year. Everyone who knew her has either been driven away or bought out.",
-        "plotStep": "She sold her home, her practice, and her reputation to fund the research on {quest_focus}. The last batch required reagents so rare she traded away her guild certification to get them. Then the {enemy_type} raided her supply cache. {quest_stakes}: gone overnight.",
-        "outro": "She won't stop. She can't. If someone doesn't {quest_action} from the raider camp, she'll try something desperate with substitutes, and {quest_threat} could level the tower and everything around it."
+        "intro": "There's someone holed up at {quest_origin} who has been working on something for the better part of a year. Everyone who knew them has either been driven away or bought out.",
+        "plotStep": "They sold everything to fund the research on {quest_focus}. Then the {enemy_type} raided their supply cache. {quest_stakes}: gone overnight. If someone doesn't {quest_action}, they'll try something desperate with substitutes, and {quest_threat} could bring the whole place down.",
+        "outro": "They won't stop. They can't. Getting {quest_item} back from the {enemy_type} is the only way to prevent catastrophe."
       },
       "playerResponses": [
         {
-          "text": "I'd rather face raiders than an exploding tower. I'll go.",
+          "text": "I'd rather face {enemy_type} than an explosion. I'll go.",
           "action": "ACCEPT",
           "dispositionShift": 3
         },
         {
-          "text": "Sounds like she needs an intervention, not an errand runner.",
+          "text": "Sounds like they need an intervention, not an errand runner.",
           "action": "ACCEPT",
           "dispositionShift": 1
         },
         {
-          "text": "Let her face the consequences of her choices.",
+          "text": "Let them face the consequences of their choices.",
           "action": "DECLINE"
         }
       ],
@@ -73,18 +58,11 @@
       }
     },
     {
-      "id": "expo_all_sacrificed_collector_consumed",
-      "bindings": {
-        "quest_action": "find the last artifact",
-        "quest_focus": "the ancient collection",
-        "quest_stakes": "a family's future",
-        "quest_threat": "complete destitution",
-        "quest_time_pressure": "before the creditors arrive"
-      },
+      "id": "expo_all_sacrificed_03",
       "dialogueChunks": {
-        "intro": "The merchant used to be the wealthiest person in three settlements. Now he sleeps in his vault because he sold the bed.",
-        "plotStep": "He's spent everything on {quest_focus}: relics, tablets, fragments of a civilization nobody else remembers. His children haven't spoken to him in years. His business partners have all been bought out or abandoned. He needs one more piece, the keystone that makes sense of everything, and he swears the obsession will end.",
-        "outro": "His eldest asked me to find someone to {quest_action}. Not to enable the addiction, but because {quest_time_pressure} and if the collection isn't complete, he'll have destroyed {quest_stakes} for an incomplete puzzle. At least let it mean something."
+        "intro": "They used to be the wealthiest person in three settlements, {player_name}. Now they sleep in their vault because they sold the bed.",
+        "plotStep": "They've spent everything on {quest_focus}. Their children haven't spoken to them in years. They need one more piece, the keystone that makes sense of everything, and they swear the obsession will end. Their family asked me to find someone to {quest_action}. Not to enable the addiction, but because {quest_time_pressure} and {quest_stakes} hangs in the balance.",
+        "outro": "At least let {quest_focus} mean something. {quest_item} {location_hint} might be the final piece."
       },
       "playerResponses": [
         {
@@ -93,7 +71,7 @@
           "dispositionShift": 2
         },
         {
-          "text": "You realize finding it probably won't stop him.",
+          "text": "You realize finding it probably won't stop them.",
           "action": "ACCEPT",
           "dispositionShift": 1
         }
