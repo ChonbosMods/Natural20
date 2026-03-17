@@ -1,78 +1,77 @@
 {
   "variants": [
     {
-      "id": "involuntarycrimesof_conf_01",
+      "id": "involuntary_conf_resistance",
       "dialogueChunks": {
-        "intro": "{player_name}, the people I tried to protect are now in even greater danger because of me.",
-        "plotStep": "The raiders who exploited {quest_focus} didn't just steal supplies: they came back for more. This time they targeted the homes I left unguarded, and they've taken hostages. {target_npc} managed to track them {location_hint}, but they're dug in with the hostages as shields. The {enemy_type} are involved too: the raiders have been paying them with the {quest_item} they stole from us. We need someone who can get close without triggering a hostage situation.",
-        "outro": "My overprotection of one family put other families in chains. Please, help me free them."
+        "intro": "The person behind {quest_focus} refuses to believe they've done wrong. {quest_threat} runs deep: they see every attempt to intervene as an attack on the people they're trying to protect.",
+        "plotStep": "{target_npc} has rallied supporters near {location_hint} who share their conviction. Meanwhile, the {enemy_type} are exploiting the distraction to push deeper into our territory. {quest_ally} says {quest_stakes} grow more fragile with each day of deadlock.",
+        "outro": "Prove that the real danger isn't what they fear but what they've become. Clear the {enemy_type} threat near {location} and show that protection doesn't require tyranny."
       },
       "playerResponses": [
-        { "text": "Hostages and hostile camps? I'll find a way to get them out.", "action": "ACCEPT" },
-        { "text": "The consequences of your good intentions keep escalating. But those hostages need rescuing.", "action": "ACCEPT" },
-        { "text": "Hostage rescues require a trained squad, not one person. Find real help.", "action": "DECLINE" }
+        {
+          "text": "I'll show them what real protection looks like.",
+          "action": "ACCEPT",
+          "dispositionShift": 4
+        },
+        {
+          "text": "Actions will speak louder than words.",
+          "action": "ACCEPT",
+          "dispositionShift": 2
+        }
       ],
-      "objectivePool": ["EXPLORE_LOCATION", "KILL_MOBS", "TALK_TO_NPC"],
+      "objectivePool": ["KILL_MOBS", "TALK_TO_NPC", "EXPLORE_LOCATION"],
       "objectiveConfig": {
-        "EXPLORE_LOCATION": { "countMin": 1, "countMax": 2 },
-        "KILL_MOBS": { "countMin": 4, "countMax": 9 },
-        "TALK_TO_NPC": { "countMin": 1, "countMax": 1 }
+        "KILL_MOBS": { "countMin": 4, "countMax": 8 }
       }
     },
     {
-      "id": "involuntarycrimesof_conf_02",
+      "id": "involuntary_conf_collateral",
       "dialogueChunks": {
-        "intro": "It's happened again, {player_name}. My attempt to fix things made everything worse.",
-        "plotStep": "I told {target_npc} the truth about stealing the medicine, hoping they'd understand. Instead, they confronted the alchemist publicly, and now the entire settlement knows. People are furious: they're hoarding their own supplies out of fear that someone else will steal from the communal stores. The alchemist has locked their workshop and refuses to treat anyone until order is restored. Meanwhile, the sick are getting worse and the {quest_item} we need for a cure is still out in the marshes {location_hint}. The {enemy_type} there have grown bolder since your last trip.",
-        "outro": "Trust is broken, the sick are suffering, and the only medicine is in a monster-infested swamp. I'm so sorry."
+        "intro": "The consequences of {quest_focus} keep spreading. People who trusted {target_npc} are now stranded, hurt, or missing because of decisions made out of devotion rather than sense.",
+        "plotStep": "{quest_ally} found supplies scattered near {location_hint}, abandoned when {quest_threat} displaced people from their routes. The {enemy_type} have been picking over what was left. {quest_stakes} need immediate material support while we sort out the larger problem.",
+        "outro": "Recover what was lost and secure the area. Every piece of {quest_item} you bring back is one less person going without."
       },
       "playerResponses": [
-        { "text": "The sick come first. I'll get the medicine, and you work on rebuilding trust.", "action": "ACCEPT" },
-        { "text": "Every time you try to help, things collapse. Get the alchemist to cooperate while I'm gone.", "action": "ACCEPT", "dispositionShift": -5 },
-        { "text": "The settlement's trust issues aren't my problem to solve.", "action": "DECLINE" }
+        {
+          "text": "I'll salvage what I can.",
+          "action": "ACCEPT",
+          "dispositionShift": 3
+        },
+        {
+          "text": "The damage is done. Let me limit it.",
+          "action": "ACCEPT",
+          "dispositionShift": 2
+        }
       ],
       "objectivePool": ["GATHER_ITEMS", "KILL_MOBS", "EXPLORE_LOCATION"],
       "objectiveConfig": {
-        "GATHER_ITEMS": { "countMin": 6, "countMax": 14 },
-        "KILL_MOBS": { "countMin": 3, "countMax": 7 },
-        "EXPLORE_LOCATION": { "countMin": 1, "countMax": 2 }
-      }
-    },
-    {
-      "id": "involuntarycrimesof_conf_03",
-      "dialogueChunks": {
-        "intro": "The festival is tomorrow, {player_name}, and I've made the shortage worse by trying to cover it up.",
-        "plotStep": "I tried to replace the tavern stores by buying from a passing merchant, but they sold me spoiled goods. Half of what I stockpiled is rotten and the other half was infested with pests. Now we have less food than before I started. {target_npc} discovered the spoiled stores and is asking questions I can't answer. The only way to save the festival is to gather a massive amount of {quest_item} from the orchards {location_hint}: but a pack of {enemy_type} has claimed the area since the last harvest.",
-        "outro": "One lie leads to another. I just need this one last thing and I can make everything right."
-      },
-      "playerResponses": [
-        { "text": "A festival matters to these people. I'll gather what you need.", "action": "ACCEPT" },
-        { "text": "Cover-ups on top of cover-ups. This ends after I get the supplies. You tell the truth.", "action": "ACCEPT", "dispositionShift": -5 },
-        { "text": "You're digging yourself deeper with every move. I'm not enabling this.", "action": "DECLINE" }
-      ],
-      "objectivePool": ["GATHER_ITEMS", "KILL_MOBS"],
-      "objectiveConfig": {
-        "GATHER_ITEMS": { "countMin": 8, "countMax": 18 },
+        "GATHER_ITEMS": { "countMin": 5, "countMax": 16 },
         "KILL_MOBS": { "countMin": 3, "countMax": 6 }
       }
     },
     {
-      "id": "involuntarycrimesof_conf_04",
+      "id": "involuntary_conf_breaking_point",
       "dialogueChunks": {
-        "intro": "{player_name}, the farmstead you cleared? The raiders came back. And they brought reinforcements.",
-        "plotStep": "{target_npc}'s family tried to return home after you cleared the camp, but the raiders had regrouped with {enemy_type} allies. They ambushed the family on the road {location_hint} and scattered them into the woods. Some of {target_npc}'s belongings: including irreplaceable {quest_item}: were seized again. I should have warned them to wait, but {quest_threat} pushed me to tell them it was safe before confirming it.",
-        "outro": "I keep pushing people into danger by trying to help too fast. The family is out there, separated, in hostile territory. They need you."
+        "intro": "The situation around {quest_focus} has reached a crisis. The person responsible has realized the harm they've caused and is devastated: but the damage still needs repair.",
+        "plotStep": "{target_npc} is consumed with guilt. {quest_ally} is trying to hold the community together while the {enemy_type} near {location_hint} probe our weakened defenses. {quest_threat} created vulnerabilities everywhere, and {quest_stakes} need someone to plug the gaps.",
+        "outro": "The emotional fallout will take time. Right now we need the practical problems solved. Get out there and shore up what {quest_threat} left exposed."
       },
       "playerResponses": [
-        { "text": "Scattered in the woods with raiders closing in? I'll find them.", "action": "ACCEPT" },
-        { "text": "You told them it was safe when it wasn't. Again. I'll rescue them, but this pattern has to stop.", "action": "ACCEPT" },
-        { "text": "Every time you 'help,' more people get hurt. I can't keep cleaning up after you.", "action": "DECLINE" }
+        {
+          "text": "Guilt can wait. Safety can't.",
+          "action": "ACCEPT",
+          "dispositionShift": 3
+        },
+        {
+          "text": "I'll handle the defenses.",
+          "action": "ACCEPT",
+          "dispositionShift": 4
+        }
       ],
-      "objectivePool": ["EXPLORE_LOCATION", "KILL_MOBS", "FETCH_ITEM"],
+      "objectivePool": ["KILL_MOBS", "EXPLORE_LOCATION", "GATHER_ITEMS"],
       "objectiveConfig": {
-        "EXPLORE_LOCATION": { "countMin": 2, "countMax": 3 },
-        "KILL_MOBS": { "countMin": 4, "countMax": 8 },
-        "FETCH_ITEM": { "locationPreference": "WILDERNESS" }
+        "KILL_MOBS": { "countMin": 4, "countMax": 9 },
+        "GATHER_ITEMS": { "countMin": 4, "countMax": 10 }
       }
     }
   ]

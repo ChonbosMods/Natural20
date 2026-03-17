@@ -1,79 +1,105 @@
 {
   "variants": [
     {
-      "id": "all_sacrificed_for_passion_expo_01",
+      "id": "expo_all_sacrificed_obsessed_smith",
       "bindings": {
-        "quest_action": "retrieve the final reagent from deep volcanic fissures",
-        "quest_focus": "a three-year quest to perfect ore transmutation",
-        "quest_stakes": "an obsessed alchemist losing everything for nothing",
-        "quest_threat": "a consuming passion that has already devoured savings, health, and friendships",
-        "quest_origin": "a vision of transmuting common ore into something extraordinary"
+        "quest_action": "retrieve the stolen ore",
+        "quest_focus": "the masterwork blade",
+        "quest_stakes": "the smith's livelihood",
+        "quest_threat": "total ruin",
+        "quest_origin": "the collapsed mine",
+        "quest_reward_hint": "a lesser work of the smith"
       },
       "dialogueChunks": {
-        "intro": "{player_name}! Perfect timing. I've been looking for someone who isn't afraid to venture into dangerous territory. Everyone here thinks I'm mad, but I'll prove them wrong.",
-        "plotStep": "I've spent three years trying to perfect a formula that can transmute common ore into something extraordinary: {quest_focus}. I'm close: so close I can taste it. But the final reagent, {quest_item}, only forms in deep volcanic fissures {location_hint}. My workshop is mortgaged, my savings gone, my apprentice quit last month. {target_npc} warned me to stop, said {quest_threat} has already cost too much. But I can see the finish line.",
-        "outro": "Everyone thinks I'm chasing smoke. But when I hold that perfected ingot in my hands, they'll understand. They'll all understand. I just need this one last thing."
+        "intro": "The blacksmith hasn't left the forge in eleven days. His family moved out a month ago. He sold the furniture last week to buy more ore.",
+        "plotStep": "He's been chasing {quest_focus} for three years. Every coin, every favor, every relationship: all burned in the furnace alongside the metal. His latest supply of rare ore was stolen by {enemy_type} raiders from {quest_origin}, and now he has nothing left to work with. Nothing except the obsession.",
+        "outro": "His wife asked me to find someone to {quest_action} before {quest_threat} finishes what the obsession started. She still cares, even from a distance. But the ore is deep in {enemy_type} territory."
       },
       "playerResponses": [
-        { "text": "Your dedication is impressive. I'll fetch what you need.", "action": "ACCEPT" },
-        { "text": "You sound obsessed. But I'll help, against my better judgment.", "action": "ACCEPT", "dispositionShift": -5 },
-        { "text": "You've already lost everything. I won't help you lose more.", "action": "DECLINE" }
+        {
+          "text": "I'll get the ore. Maybe finishing the blade will set him free.",
+          "action": "ACCEPT",
+          "dispositionShift": 3
+        },
+        {
+          "text": "Maybe he needs to lose the ore. Some obsessions need to end.",
+          "action": "ACCEPT",
+          "dispositionShift": -1
+        },
+        {
+          "text": "I can't solve a man's war with himself.",
+          "action": "DECLINE"
+        }
       ],
-      "objectivePool": ["GATHER_ITEMS", "EXPLORE_LOCATION"],
+      "objectivePool": ["FETCH_ITEM", "KILL_MOBS", "EXPLORE_LOCATION"],
       "objectiveConfig": {
-        "GATHER_ITEMS": { "countMin": 4, "countMax": 10 },
-        "EXPLORE_LOCATION": { "countMin": 1, "countMax": 2 }
+        "KILL_MOBS": { "countMin": 3, "countMax": 7 }
       }
     },
     {
-      "id": "all_sacrificed_for_passion_expo_02",
+      "id": "expo_all_sacrificed_rogue_alchemist",
       "bindings": {
-        "quest_action": "retrieve a rare tempering compound from guarded ruins",
-        "quest_focus": "forging a blade that never dulls or chips",
-        "quest_stakes": "a family lost and a home sold for a dream that might fail",
-        "quest_threat": "an all-consuming obsession with the perfect weapon",
-        "quest_origin": "a blacksmith who sold their house to fund their research"
+        "quest_action": "recover the stolen reagents",
+        "quest_focus": "the philosopher's solution",
+        "quest_stakes": "an entire fortune",
+        "quest_threat": "a dangerous experiment",
+        "quest_origin": "the abandoned tower"
       },
       "dialogueChunks": {
-        "intro": "Don't mind the mess, {player_name}. Or the smell. Or the scorch marks. I've been working around the clock on something that will change everything.",
-        "plotStep": "I've discovered a way to forge weapons that hold an edge indefinitely: {quest_focus}. The secret is in the tempering process, but it requires {quest_item} that only exists in ruins guarded by {enemy_type} out {location_hint}. My family stopped speaking to me last season after I sold the house to fund this work. {target_npc} gives me scraps from the tavern kitchen because I forget to eat. I know how it looks from the outside. But this discovery will arm every guard in every settlement.",
-        "outro": "My wife said I love the forge more than I love her. Maybe she's right. But when every soldier carries an unbreakable blade, the settlements will be safe. That has to matter."
+        "intro": "There's an alchemist holed up in {quest_origin} who has been brewing something for the better part of a year. Everyone who knew her has either been driven away or bought out.",
+        "plotStep": "She sold her home, her practice, and her reputation to fund the research on {quest_focus}. The last batch required reagents so rare she traded away her guild certification to get them. Then the {enemy_type} raided her supply cache. {quest_stakes}: gone overnight.",
+        "outro": "She won't stop. She can't. If someone doesn't {quest_action} from the raider camp, she'll try something desperate with substitutes, and {quest_threat} could level the tower and everything around it."
       },
       "playerResponses": [
-        { "text": "An unbreakable blade would change everything. I'll help you finish this.", "action": "ACCEPT" },
-        { "text": "You sold your house for this? Fine, let's at least make it worth something.", "action": "ACCEPT", "dispositionShift": -5 },
-        { "text": "Your family needs you more than the world needs another sword.", "action": "DECLINE" }
+        {
+          "text": "I'd rather face raiders than an exploding tower. I'll go.",
+          "action": "ACCEPT",
+          "dispositionShift": 3
+        },
+        {
+          "text": "Sounds like she needs an intervention, not an errand runner.",
+          "action": "ACCEPT",
+          "dispositionShift": 1
+        },
+        {
+          "text": "Let her face the consequences of her choices.",
+          "action": "DECLINE"
+        }
       ],
-      "objectivePool": ["FETCH_ITEM", "EXPLORE_LOCATION"],
+      "objectivePool": ["FETCH_ITEM", "KILL_MOBS", "GATHER_ITEMS"],
       "objectiveConfig": {
-        "FETCH_ITEM": { "locationPreference": "DUNGEON" },
-        "EXPLORE_LOCATION": { "countMin": 1, "countMax": 2 }
+        "KILL_MOBS": { "countMin": 2, "countMax": 6 },
+        "GATHER_ITEMS": { "countMin": 4, "countMax": 10 }
       }
     },
     {
-      "id": "all_sacrificed_for_passion_expo_03",
+      "id": "expo_all_sacrificed_collector_consumed",
       "bindings": {
-        "quest_action": "gather the missing component from the deep wilds",
-        "quest_focus": "a land-purifying compound after four hundred failed attempts",
-        "quest_stakes": "years of sacrifice proving meaningless",
-        "quest_threat": "a researcher's obsession that has consumed their life and every partnership",
-        "quest_origin": "twelve volumes of notes and four hundred and seventeen failed experiments"
+        "quest_action": "find the last artifact",
+        "quest_focus": "the ancient collection",
+        "quest_stakes": "a family's future",
+        "quest_threat": "complete destitution",
+        "quest_time_pressure": "before the creditors arrive"
       },
       "dialogueChunks": {
-        "intro": "Come in, come in, but don't touch anything. And for the love of everything sacred, don't open that jar on the left. {player_name}, I need someone with steady hands and no fear.",
-        "plotStep": "I've been researching a compound that can purify tainted land: reverse the corruption that the {enemy_type} leave behind when they infest an area. {quest_origin}. Four hundred and sixteen failures, but number four hundred and seventeen showed a flicker of something. The missing component is {quest_item}, found only in the deep wilds {location_hint}. {target_npc} says I've wasted my life. My former partners say the same. They don't see what I see.",
-        "outro": "I know I look half-starved and wild-eyed. I know my hands shake. But I am on the verge of {quest_focus} that will restore poisoned land for generations. Help me cross the finish line."
+        "intro": "The merchant used to be the wealthiest person in three settlements. Now he sleeps in his vault because he sold the bed.",
+        "plotStep": "He's spent everything on {quest_focus}: relics, tablets, fragments of a civilization nobody else remembers. His children haven't spoken to him in years. His business partners have all been bought out or abandoned. He needs one more piece, the keystone that makes sense of everything, and he swears the obsession will end.",
+        "outro": "His eldest asked me to find someone to {quest_action}. Not to enable the addiction, but because {quest_time_pressure} and if the collection isn't complete, he'll have destroyed {quest_stakes} for an incomplete puzzle. At least let it mean something."
       },
       "playerResponses": [
-        { "text": "Four hundred and seventeen attempts. That's not madness, that's perseverance. What do you need?", "action": "ACCEPT" },
-        { "text": "I'll get your ingredient. But you should eat something while I'm gone.", "action": "ACCEPT" },
-        { "text": "You need rest, not more reagents. I can't enable this.", "action": "DECLINE" }
+        {
+          "text": "If finding it ends this, I'll look. Where was it last seen?",
+          "action": "ACCEPT",
+          "dispositionShift": 2
+        },
+        {
+          "text": "You realize finding it probably won't stop him.",
+          "action": "ACCEPT",
+          "dispositionShift": 1
+        }
       ],
-      "objectivePool": ["GATHER_ITEMS", "FETCH_ITEM"],
-      "objectiveConfig": {
-        "GATHER_ITEMS": { "countMin": 5, "countMax": 12 },
-        "FETCH_ITEM": { "locationPreference": "WILDERNESS" }
-      }
+      "objectivePool": ["EXPLORE_LOCATION", "FETCH_ITEM", "TALK_TO_NPC"],
+      "objectiveConfig": {}
     }
   ]
 }

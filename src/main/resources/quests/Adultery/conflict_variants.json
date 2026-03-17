@@ -1,60 +1,82 @@
 {
   "variants": [
     {
-      "id": "adultery_conf_01",
+      "id": "conf_adultery_deeper_web",
       "dialogueChunks": {
-        "intro": "{player_name}, I thought gathering evidence would be the hard part. I was wrong.",
-        "plotStep": "They found out we're trying to {quest_action}. They sent soldiers to {location} to intimidate us. {target_npc} was taken in for questioning. They confiscated half the supplies you gathered, calling it 'back taxes.' I need you to retrieve more {quest_item} and find a way to deliver our evidence to the regional council. There's an old messenger trail {location_hint}, but {enemy_type} have been spotted along it.",
-        "outro": "{quest_threat} is becoming dangerous. The only thing worse than a liar is a liar with soldiers."
+        "intro": "{player_name}, the betrayal goes deeper than we thought. The trade representative wasn't acting alone. There's a network of compromised officials.",
+        "plotStep": "{target_npc} found correspondence showing that three other settlement leaders have been making side deals with the {enemy_type}. The stolen plans were just one piece. {quest_ally} says the whole {quest_focus} was rotten from the start: people swearing oaths they never intended to keep. {quest_item} contains the full ledger of bribes.",
+        "outro": "Get {quest_item} from {location} before the conspirators destroy it. The partner settlement needs to see the full picture: not just one traitor, but a pattern. Only then can real trust be rebuilt."
       },
       "playerResponses": [
-        { "text": "Intimidation won't work when the truth gets out. I'll find a way through.", "action": "ACCEPT" },
-        { "text": "Soldiers, monsters, and a race against time. Just another delivery job.", "action": "ACCEPT", "dispositionShift": -5 },
-        { "text": "They have soldiers and we have documents. This fight is over.", "action": "DECLINE" }
+        {
+          "text": "Rot this deep needs to be cut out completely. I'll get the ledger.",
+          "action": "ACCEPT",
+          "dispositionShift": 5
+        },
+        {
+          "text": "Are you sure exposing everything won't make things worse?",
+          "action": "ACCEPT",
+          "dispositionShift": 1
+        },
+        {
+          "text": "This conspiracy is bigger than one person can handle.",
+          "action": "DECLINE",
+          "dispositionShift": -2
+        }
       ],
-      "objectivePool": ["EXPLORE_LOCATION", "KILL_MOBS", "DELIVER_ITEM"],
+      "objectivePool": ["FETCH_ITEM", "KILL_MOBS", "TALK_TO_NPC"],
       "objectiveConfig": {
-        "EXPLORE_LOCATION": { "countMin": 2, "countMax": 3 },
-        "KILL_MOBS": { "countMin": 3, "countMax": 6 },
-        "DELIVER_ITEM": {}
+        "KILL_MOBS": { "countMin": 3, "countMax": 7 }
       }
     },
     {
-      "id": "adultery_conf_02",
+      "id": "conf_adultery_captain_cornered",
       "dialogueChunks": {
-        "intro": "They had the nerve to come back here, {player_name}. Right through the front door, smiling.",
-        "plotStep": "{target_npc} returned acting as if nothing happened. But I found new ledgers hidden in the back room: {quest_focus} is still being undermined. The contraband trail leads to a warehouse {location_hint}. I need you to document what you find: crates, manifests, anything that proves the scope of the betrayal. And I need more {quest_item} to keep things running while I prepare my case.",
-        "outro": "They looked me in the eye and lied. Again. {quest_stakes} unless we stop this at the council table."
+        "intro": "The guard captain knows someone is investigating. She's moved up the watch rotation and restricted access to the garrison records.",
+        "plotStep": "{target_npc} tried to access the patrol logs and was turned away at the door. The captain is burning documents: {quest_ally} saw smoke from the records room chimney at midnight. If she destroys {quest_item}, the proof of {quest_threat} goes up in smoke. The next shift change happens at {location}.",
+        "outro": "We have a narrow window to get {quest_item} out of the garrison before the captain finishes covering her tracks. The guards loyal to her won't let anyone through the front. There might be another way in."
       },
       "playerResponses": [
-        { "text": "The warehouse will tell the whole story. I'll go.", "action": "ACCEPT" },
-        { "text": "Coming back and lying to your face. That takes a special kind of rotten. I'll get your evidence.", "action": "ACCEPT" },
-        { "text": "Partner disputes should stay between partners. I'm not a detective.", "action": "DECLINE" }
+        {
+          "text": "If she's burning evidence, we're running out of time. Show me the other way in.",
+          "action": "ACCEPT",
+          "dispositionShift": 4
+        },
+        {
+          "text": "Confronting her directly might force a confession.",
+          "action": "ACCEPT",
+          "dispositionShift": 1
+        }
       ],
-      "objectivePool": ["EXPLORE_LOCATION", "GATHER_ITEMS"],
-      "objectiveConfig": {
-        "EXPLORE_LOCATION": { "countMin": 2, "countMax": 3 },
-        "GATHER_ITEMS": { "countMin": 5, "countMax": 10 }
-      }
+      "objectivePool": ["FETCH_ITEM", "EXPLORE_LOCATION", "TALK_TO_NPC"],
+      "objectiveConfig": {}
     },
     {
-      "id": "adultery_conf_03",
+      "id": "conf_adultery_forger_flees",
       "dialogueChunks": {
-        "intro": "The guild master moved faster than we expected, {player_name}.",
-        "plotStep": "{quest_focus} has been moved from the guild hall. {target_npc} watched guards carry sealed chests out the back door. They're destroying evidence. Without the original signed covenant, it's my word against theirs. There's a clerk who kept copies in a private archive {location_hint}. The {enemy_type} enforcers are watching the roads, but if you can reach that archive, we have an airtight case.",
-        "outro": "Destroying a signed covenant is a crime in itself. {quest_threat}, but they're getting desperate."
+        "intro": "The person who forged the charter has been identified. It's the settlement clerk: the same person everyone trusted to maintain the records. And they've fled to {location}.",
+        "plotStep": "{target_npc} discovered that the clerk has been altering documents for years, not just the charter but trade agreements, boundary markers, and inheritance records. Always benefiting the same family. {quest_ally} found the original charter hidden in a wall cavity, but the clerk took {quest_item}: a seal that authenticates official documents.",
+        "outro": "Without {quest_item}, even the real charter can be questioned. The clerk took it to {location}, probably planning to sell it or destroy it. Track them down and recover the seal before {quest_threat} becomes permanent."
       },
       "playerResponses": [
-        { "text": "Destroying evidence means they're scared. I'll find the copy.", "action": "ACCEPT" },
-        { "text": "Enforcers on the roads and evidence vanishing. We need to move fast.", "action": "ACCEPT" },
-        { "text": "If they're destroying records, they've already won. Walk away.", "action": "DECLINE" }
+        {
+          "text": "A clerk who betrays a community's trust is the worst kind of thief. I'll find them.",
+          "action": "ACCEPT",
+          "dispositionShift": 5
+        },
+        {
+          "text": "What happens to the clerk when I catch them?",
+          "action": "ACCEPT",
+          "dispositionShift": 1
+        },
+        {
+          "text": "They're probably long gone by now.",
+          "action": "DECLINE",
+          "dispositionShift": -2
+        }
       ],
-      "objectivePool": ["FETCH_ITEM", "KILL_MOBS", "EXPLORE_LOCATION"],
-      "objectiveConfig": {
-        "FETCH_ITEM": { "locationPreference": "DUNGEON" },
-        "KILL_MOBS": { "countMin": 3, "countMax": 7 },
-        "EXPLORE_LOCATION": { "countMin": 1, "countMax": 2 }
-      }
+      "objectivePool": ["EXPLORE_LOCATION", "TALK_TO_NPC", "KILL_NPC"],
+      "objectiveConfig": {}
     }
   ]
 }

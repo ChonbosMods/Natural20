@@ -1,59 +1,67 @@
 {
   "variants": [
     {
-      "id": "madness_reso_01",
+      "id": "madness_reso_cured",
       "dialogueChunks": {
-        "intro": "{player_name}, look! {target_npc} is sitting up. They're speaking clearly for the first time in days.",
-        "plotStep": "The samples you brought allowed the alchemist to synthesize a counteragent. It took three doses administered over two days, but the fog is lifting. {target_npc} doesn't remember much of what happened, only fragments: the woods, the symbols, a feeling of something vast pressing against their mind. The alchemist sealed the remaining {quest_item} samples in a lead-lined box. Whatever {quest_threat} is out there, it's contained for now.",
-        "outro": "You gave us back someone we thought we'd lost forever. Nothing I can offer matches that, but please take this."
+        "intro": "{quest_threat} has been lifted. {quest_focus} is neutralized, and the afflicted are returning to their senses one by one.",
+        "plotStep": "{target_npc} administered the cure successfully, and {quest_ally} reports that {quest_stakes} are recovering well. The nightmares have stopped, the aggression has faded. Whatever was emanating from near {location} has gone silent.",
+        "outro": "You walked into something that defied understanding and came out the other side with a solution. {player_name}, the settlement will never forget this."
       },
       "playerResponses": [
-        { "text": "Seeing {target_npc} clear-eyed again is all I need. Keep that box sealed.", "action": "ACCEPT", "dispositionShift": 10 },
-        { "text": "Contained isn't the same as destroyed. Stay cautious.", "action": "ACCEPT" }
+        {
+          "text": "Seeing them recover makes it worthwhile.",
+          "action": "COMPLETE",
+          "dispositionShift": 10
+        },
+        {
+          "text": "Make sure that source stays sealed.",
+          "action": "COMPLETE",
+          "dispositionShift": 6
+        }
       ],
       "objectivePool": [],
       "objectiveConfig": {}
     },
     {
-      "id": "madness_reso_02",
+      "id": "madness_reso_contained",
       "dialogueChunks": {
-        "intro": "The alchemist's antidote worked, {player_name}. Every affected person is recovering.",
-        "plotStep": "It took a full day of treatment, but the whispers stopped. {target_npc} was the last to come around, and they wept when they realized what had happened to them. The alchemist says the contaminated {quest_item} has been neutralized completely: they distilled a permanent reagent from the cave samples you brought back. The water is clean again, the spores are dead, and {location} can breathe.",
-        "outro": "You went into a monster-infested cave for a handful of crystals, and those crystals saved an entire settlement. This is yours."
+        "intro": "The spread has stopped, though not everyone was saved. {quest_focus} claimed some victims before you could reach the source, and those losses weigh on all of us.",
+        "plotStep": "{quest_ally} says the surviving afflicted will recover in time. {quest_threat} has been contained if not fully destroyed. {target_npc} is maintaining a watch on the area near {location} to ensure {quest_stakes} don't relapse.",
+        "outro": "It's a bittersweet ending. You saved many, {player_name}, even if you couldn't save everyone."
       },
       "playerResponses": [
-        { "text": "A happy ending. That's rarer than any crystal.", "action": "ACCEPT" },
-        { "text": "Tell the alchemist to test their ingredients more carefully next time.", "action": "ACCEPT", "dispositionShift": -5 },
-        { "text": "Glad everyone recovered. Watch for relapse.", "action": "ACCEPT" }
+        {
+          "text": "I wish I'd been faster.",
+          "action": "COMPLETE",
+          "dispositionShift": 6
+        },
+        {
+          "text": "The living need us now.",
+          "action": "COMPLETE",
+          "dispositionShift": 5
+        }
       ],
       "objectivePool": [],
       "objectiveConfig": {}
     },
     {
-      "id": "madness_reso_03",
+      "id": "madness_reso_mystery_persists",
       "dialogueChunks": {
-        "intro": "The nightmares have stopped, {player_name}. All at once, across the entire settlement.",
-        "plotStep": "Whatever was in that tower, you silenced it. {target_npc} slept through the night for the first time in a week, and this morning they were smiling: actually smiling. The alchemist examined the {quest_item} residue you brought from the tower and says the signal it was emitting has gone dormant. Whether {quest_threat} is truly dead or merely sleeping, they can't say. But for now, {location} is free of its influence.",
-        "outro": "You walked into something ancient and unknowable and came back with our people's sanity in your hands. Take this, and thank you."
+        "intro": "The symptoms have receded, but {quest_focus} left marks that may never fully fade. Some of the afflicted see the world differently now: not worse, just changed.",
+        "plotStep": "{target_npc} says the exposure altered something fundamental in {quest_stakes}. {quest_ally} has begun documenting what the afflicted remember, hoping to understand {quest_threat} well enough to prevent it from returning. The source near {location} is dormant, not destroyed.",
+        "outro": "You did what could be done with the tools we had. The mystery of what caused this may outlast us all, but at least we survived it. Thank you, {player_name}."
       },
       "playerResponses": [
-        { "text": "Dormant is better than active. But keep monitoring it.", "action": "ACCEPT" },
-        { "text": "If it wakes up again, you know where to find me.", "action": "ACCEPT" },
-        { "text": "Seeing {target_npc} smile makes the trip worth it.", "action": "ACCEPT", "dispositionShift": 5 }
-      ],
-      "objectivePool": [],
-      "objectiveConfig": {}
-    },
-    {
-      "id": "madness_reso_04",
-      "dialogueChunks": {
-        "intro": "{target_npc} asked to see you, {player_name}. They're themselves again.",
-        "plotStep": "The alchemist used the quarry samples to formulate a treatment that broke {quest_focus}'s hold. {target_npc} remembers finding the artifact, the overwhelming compulsion to bring it back, and then nothing but darkness and rage until the treatment took effect. The artifact itself has been destroyed: the alchemist dissolved it in acid and buried the remains. The {enemy_type} that had moved into the quarry tunnels have dispersed now that the source is gone.",
-        "outro": "{target_npc} asked me to give you this personally. They said you saved them from a prison inside their own mind."
-      },
-      "playerResponses": [
-        { "text": "A prison inside their mind. I'm glad we found the key.", "action": "ACCEPT", "dispositionShift": 10 },
-        { "text": "The artifact is destroyed and the patient is free. Best possible outcome.", "action": "ACCEPT" }
+        {
+          "text": "Some things can't be fully understood.",
+          "action": "COMPLETE",
+          "dispositionShift": 5
+        },
+        {
+          "text": "Keep watching that site. Just in case.",
+          "action": "COMPLETE",
+          "dispositionShift": 7
+        }
       ],
       "objectivePool": [],
       "objectiveConfig": {}

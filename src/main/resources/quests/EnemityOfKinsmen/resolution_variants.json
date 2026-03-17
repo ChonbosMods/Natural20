@@ -1,59 +1,67 @@
 {
   "variants": [
     {
-      "id": "enemityofkinsmen_reso_01",
+      "id": "enemity_reso_peace_restored",
       "dialogueChunks": {
-        "intro": "{player_name}, you did it. The families are talking again.",
-        "plotStep": "The evidence you brought back was undeniable. When both families saw the truth laid out, the anger drained right out of them. {target_npc} brokered a formal agreement this morning: shared use of {quest_focus}, mutual defense obligations, and a promise to settle future disputes through the council, not through threats. It's not perfect, but it's peace.",
-        "outro": "You did what none of us could: you gave them the truth without taking a side. Take this, and know that {location} will remember the outsider who brought its people back together."
+        "intro": "The truth about {quest_focus} is finally out, and it's cleared the air between both sides. The real culprit wasn't who anyone expected.",
+        "plotStep": "{quest_ally} and {target_npc} have sat down together for the first time in weeks. {quest_stakes} are intact because you had the patience to uncover the truth rather than pick a side. The {enemy_type} lost their best weapon: our division.",
+        "outro": "Both settlements owe you a debt, {player_name}. You kept {quest_threat} from consuming an alliance that neither side could afford to lose."
       },
       "playerResponses": [
-        { "text": "Peace is worth more than any reward. I'm glad they're talking.", "action": "ACCEPT", "dispositionShift": 10 },
-        { "text": "As long as they keep the agreement, the hard part was worth it.", "action": "ACCEPT" }
+        {
+          "text": "Peace is its own reward.",
+          "action": "COMPLETE",
+          "dispositionShift": 10
+        },
+        {
+          "text": "Stay vigilant. Trust takes time to rebuild.",
+          "action": "COMPLETE",
+          "dispositionShift": 6
+        }
       ],
       "objectivePool": [],
       "objectiveConfig": {}
     },
     {
-      "id": "enemityofkinsmen_reso_02",
+      "id": "enemity_reso_uneasy_truce",
       "dialogueChunks": {
-        "intro": "You should have seen it, {player_name}. Both families standing together on the wall, watching you come back.",
-        "plotStep": "When word spread that {quest_threat} was real and imminent, the grudge suddenly felt very small. {target_npc} told me both family heads showed up at the barricade within minutes of each other, shoulder to shoulder, ready to fight. They may not like each other yet, but they've remembered they need each other. Your scouting report gave them the common ground they couldn't find on their own.",
-        "outro": "The feud isn't over, but the hatred is gone. That's a start. Take this: it's from both families, together, for the first time in weeks."
+        "intro": "The fighting has stopped, but the wounds from {quest_focus} haven't fully healed. Both sides agreed to stand down, at least for now.",
+        "plotStep": "{quest_ally} says the truce is fragile. {target_npc} seems willing to move forward, but there are people on both sides who still harbor grudges. At least {quest_threat} has been contained to words rather than weapons.",
+        "outro": "It's not the clean resolution anyone wanted, but {quest_stakes} survived. Sometimes that's the best you can ask for, {player_name}."
       },
       "playerResponses": [
-        { "text": "Standing together against a common threat: that's how communities survive.", "action": "ACCEPT" },
-        { "text": "I hope they remember this feeling the next time a petty argument starts.", "action": "ACCEPT", "dispositionShift": -5 },
-        { "text": "Glad I could help. Take care of each other.", "action": "ACCEPT" }
+        {
+          "text": "An uneasy peace beats open war.",
+          "action": "COMPLETE",
+          "dispositionShift": 5
+        },
+        {
+          "text": "Time will tell if it holds.",
+          "action": "COMPLETE",
+          "dispositionShift": 4
+        }
       ],
       "objectivePool": [],
       "objectiveConfig": {}
     },
     {
-      "id": "enemityofkinsmen_reso_03",
+      "id": "enemity_reso_stronger_bond",
       "dialogueChunks": {
-        "intro": "The merchant confirmed everything, {player_name}. Both families were right and both were wrong.",
-        "plotStep": "Turns out the trade agreement was genuinely ambiguous: the merchant admitted their records were sloppy and the promise could reasonably be read either way. With that clarity, both families agreed to split the {quest_item} evenly and share the cost of a clearer contract going forward. {target_npc} oversaw the division this morning, and for the first time in weeks, nobody was glaring across the square.",
-        "outro": "Sometimes the truth is messier than either side wants to hear. But at least now they can move forward. Here: you've earned this."
+        "intro": "Something unexpected came from this crisis. The struggle over {quest_focus} forced both settlements to confront problems they'd been avoiding for years.",
+        "plotStep": "{target_npc} proposed a new joint arrangement that addresses the root causes of {quest_threat}. {quest_ally} is cautiously optimistic. The {enemy_type} threat that exploited the rift has been driven back, and {quest_stakes} are stronger for having been tested.",
+        "outro": "You didn't just prevent a conflict, {player_name}: you built something better from the wreckage. Both settlements will remember your name."
       },
       "playerResponses": [
-        { "text": "The truth was in the middle all along. Glad it's settled.", "action": "ACCEPT" },
-        { "text": "A messy truth beats a clean lie. I hope they learned something.", "action": "ACCEPT" },
-        { "text": "Tell that merchant to keep better records next time.", "action": "ACCEPT" }
-      ],
-      "objectivePool": [],
-      "objectiveConfig": {}
-    },
-    {
-      "id": "enemityofkinsmen_reso_04",
-      "dialogueChunks": {
-        "intro": "{player_name}, my brother came to see me this morning. He hasn't done that in months.",
-        "plotStep": "When you brought back the supplies from where we'd hidden them, everyone could see they were exactly where I said they'd be. No theft, no lies: just a family trying to protect the community's reserves from raiders. My brother apologized in front of the whole settlement. {target_npc} said it was the first time in weeks that people looked each other in the eye without suspicion. We've got a long road to rebuild trust, but the road is open now.",
-        "outro": "You gave my family its name back. This is everything we have of value. Please take it."
-      },
-      "playerResponses": [
-        { "text": "Family is worth fighting for. I'm glad the truth came out.", "action": "ACCEPT", "dispositionShift": 10 },
-        { "text": "Your name was never really lost. People just needed to see clearly.", "action": "ACCEPT" }
+        {
+          "text": "Glad something good came from this.",
+          "action": "COMPLETE",
+          "dispositionShift": 10
+        },
+        {
+          "text": "Hold each other accountable this time.",
+          "action": "COMPLETE",
+          "dispositionShift": 6
+        }
       ],
       "objectivePool": [],
       "objectiveConfig": {}

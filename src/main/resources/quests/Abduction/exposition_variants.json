@@ -1,106 +1,114 @@
 {
   "variants": [
     {
-      "id": "abduction_expo_01",
+      "id": "abduction_expo_night_raid",
       "bindings": {
-        "quest_action": "follow the tracks and bring my daughter home",
-        "quest_focus": "the trail of heavy boots and dragging marks into the treeline",
-        "quest_stakes": "a ten-year-old girl taken from her bed in the night",
-        "quest_threat": "the abductors who snatched her while we slept",
-        "quest_time_pressure": "every second they're getting further away"
+        "quest_action": "track the captors",
+        "quest_focus": "the missing settlers",
+        "quest_stakes": "captive lives",
+        "quest_threat": "the raiding party",
+        "quest_origin": "a night raid",
+        "quest_time_pressure": "before the trail fades"
       },
       "dialogueChunks": {
-        "intro": "{player_name}! Please, stop! My child is gone and {quest_time_pressure}!",
-        "plotStep": "{quest_threat} took her last night. Right out of the house. {target_npc} heard the door close and ran out, but all they saw were {enemy_type} shapes disappearing into the treeline {location_hint}. {quest_focus} are clear: she's alive. The guards are organizing a search, but they're too slow. I need you to {quest_action}.",
-        "outro": "{quest_stakes} is out there in the dark with monsters. Please. I will give you everything I own."
+        "intro": "Something terrible happened last night. People are gone: taken from their beds while the settlement slept. The guards found signs of a struggle and tracks leading {location_hint}.",
+        "plotStep": "We counted the missing at dawn. Three families have lost someone. The {enemy_type} left drag marks and broken doors, but they moved fast. Whoever organized this knew exactly where to strike.",
+        "outro": "I need someone brave enough to follow those tracks before the weather turns. The captors have a head start, but they're moving slow with prisoners. Will you help us, {player_name}?"
       },
       "playerResponses": [
-        { "text": "Keep your possessions. Just show me the tracks and I'll bring her home.", "action": "ACCEPT", "dispositionShift": 5 },
-        { "text": "I'll follow the trail now. Don't lose hope.", "action": "ACCEPT" },
-        { "text": "I'm deeply sorry, but tracking at night through hostile territory is beyond me.", "action": "DECLINE" }
-      ],
-      "objectivePool": ["EXPLORE_LOCATION", "KILL_MOBS", "TALK_TO_NPC"],
-      "objectiveConfig": {
-        "EXPLORE_LOCATION": { "countMin": 2, "countMax": 3 },
-        "KILL_MOBS": { "countMin": 3, "countMax": 7 },
-        "TALK_TO_NPC": { "countMin": 1, "countMax": 1 }
-      }
-    },
-    {
-      "id": "abduction_expo_02",
-      "bindings": {
-        "quest_action": "find where the vanished are being taken and stop the abductions",
-        "quest_focus": "the strange organized tracks leading away from empty beds",
-        "quest_stakes": "three people who vanished without a trace",
-        "quest_threat": "a methodical force selecting and spiriting people away",
-        "quest_origin": "two weeks of silent disappearances"
-      },
-      "dialogueChunks": {
-        "intro": "Something is taking people, {player_name}. Not killing them: taking them. And nobody knows where they go.",
-        "plotStep": "{quest_stakes} in the last two weeks. No bodies, no blood, no signs of struggle: just empty beds. A hunter found {quest_focus} {location_hint}: {enemy_type} tracks in lines and formations. {quest_threat} is selecting people and spiriting them away.",
-        "outro": "The settlement is terrified. Doors are barred every night. We need you to {quest_action} before the next bed turns up empty."
-      },
-      "playerResponses": [
-        { "text": "Organized abductions? This isn't random. I'll follow the tracks and find the pattern.", "action": "ACCEPT" },
-        { "text": "Three people vanished without a trace? That's unsettling. I'll investigate.", "action": "ACCEPT" },
-        { "text": "Whatever is doing this is methodical and dangerous. I'd rather not be next.", "action": "DECLINE" }
-      ],
-      "objectivePool": ["EXPLORE_LOCATION", "KILL_MOBS", "FETCH_ITEM"],
-      "objectiveConfig": {
-        "EXPLORE_LOCATION": { "countMin": 2, "countMax": 4 },
-        "KILL_MOBS": { "countMin": 2, "countMax": 5 },
-        "FETCH_ITEM": { "locationPreference": "DUNGEON" }
-      }
-    },
-    {
-      "id": "abduction_expo_03",
-      "bindings": {
-        "quest_action": "track the abductors and rescue the captive",
-        "quest_focus": "the market square where they struck in broad daylight",
-        "quest_stakes": "a settlement that no longer feels safe even in daylight",
-        "quest_threat": "raiders bold enough to snatch someone from a crowded market",
-        "quest_time_pressure": "before they disappear into the deep wilderness"
-      },
-      "dialogueChunks": {
-        "intro": "I wasn't going to involve outsiders, {player_name}. But we've run out of options and time.",
-        "plotStep": "{target_npc} was taken in broad daylight from {quest_focus}: a group of {enemy_type} stormed in, grabbed them, and were gone before anyone could draw a weapon. {quest_threat} headed {location_hint} with a speed that suggests they knew exactly where they were going. The guards lost the trail at the river.",
-        "outro": "{quest_stakes}. They're not even afraid of us anymore. {quest_action} before {quest_time_pressure}."
-      },
-      "playerResponses": [
-        { "text": "Taken in daylight? They're getting bold. I'll pick up the trail at the river.", "action": "ACCEPT" },
-        { "text": "A coordinated snatch in a crowded market? These aren't ordinary raiders.", "action": "ACCEPT" },
-        { "text": "If they can grab someone from a crowded square, nowhere is safe. I'm leaving.", "action": "DECLINE" }
-      ],
-      "objectivePool": ["EXPLORE_LOCATION", "KILL_MOBS"],
-      "objectiveConfig": {
-        "EXPLORE_LOCATION": { "countMin": 2, "countMax": 3 },
-        "KILL_MOBS": { "countMin": 4, "countMax": 9 }
-      }
-    },
-    {
-      "id": "abduction_expo_04",
-      "bindings": {
-        "quest_action": "rescue the hostages before the deadline expires",
-        "quest_focus": "the enemy stronghold where they're being held",
-        "quest_stakes": "five hostages facing mutilation if the ransom isn't met",
-        "quest_threat": "captors who nailed a ransom demand in blood to our gate",
-        "quest_time_pressure": "five days before they start sending back fingers"
-      },
-      "dialogueChunks": {
-        "intro": "They left a ransom demand, {player_name}. Nailed to the gate in blood.",
-        "plotStep": "The {enemy_type} are holding {target_npc} and four others in {quest_focus} {location_hint}. {quest_threat} demands a cartload of {quest_item} within {quest_time_pressure}. The settlement doesn't have what they're asking for. We need someone to {quest_action}: either rescue them directly or gather enough {quest_item} to negotiate.",
-        "outro": "{quest_stakes}. {quest_time_pressure}, {player_name}."
-      },
-      "playerResponses": [
-        { "text": "I'll get the hostages out before the deadline. No ransom needed.", "action": "ACCEPT" },
-        { "text": "Five days is tight but workable. I'll gather what I can and plan a rescue.", "action": "ACCEPT" },
-        { "text": "Ransom demands backed by mutilation threats? This is too dangerous.", "action": "DECLINE" }
+        {
+          "text": "I'll follow the trail immediately.",
+          "action": "ACCEPT",
+          "dispositionShift": 5
+        },
+        {
+          "text": "What can you tell me about the attackers?",
+          "action": "ACCEPT",
+          "dispositionShift": 2
+        },
+        {
+          "text": "This sounds too dangerous for me.",
+          "action": "DECLINE",
+          "dispositionShift": -3
+        }
       ],
       "objectivePool": ["EXPLORE_LOCATION", "KILL_MOBS", "GATHER_ITEMS"],
       "objectiveConfig": {
-        "EXPLORE_LOCATION": { "countMin": 1, "countMax": 2 },
-        "KILL_MOBS": { "countMin": 4, "countMax": 8 },
-        "GATHER_ITEMS": { "countMin": 5, "countMax": 12 }
+        "KILL_MOBS": { "countMin": 3, "countMax": 7 },
+        "GATHER_ITEMS": { "countMin": 3, "countMax": 10 }
+      }
+    },
+    {
+      "id": "abduction_expo_lured_away",
+      "bindings": {
+        "quest_action": "find the missing person",
+        "quest_focus": "the vanished traveler",
+        "quest_stakes": "a friend's safety",
+        "quest_threat": "the trappers",
+        "quest_origin": "a false message",
+        "quest_reward_hint": "salvaged supplies"
+      },
+      "dialogueChunks": {
+        "intro": "{target_npc} received a message two days ago: an urgent summons to meet someone {location_hint}. They left at once. They never arrived.",
+        "plotStep": "The message was a forgery. {quest_ally} examined the handwriting and confirmed it matches none of our couriers. Someone lured {target_npc} out deliberately, and the {enemy_type} were spotted in that direction days before.",
+        "outro": "We fear the worst, but there's still hope. {target_npc} is resourceful and may still be alive. Will you search for them, {player_name}?"
+      },
+      "playerResponses": [
+        {
+          "text": "I'll find them. Which way did they go?",
+          "action": "ACCEPT",
+          "dispositionShift": 4
+        },
+        {
+          "text": "I'll need supplies before I head out.",
+          "action": "ACCEPT"
+        },
+        {
+          "text": "They're probably already dead. I'm sorry.",
+          "action": "DECLINE",
+          "dispositionShift": -5
+        }
+      ],
+      "objectivePool": ["EXPLORE_LOCATION", "TALK_TO_NPC", "KILL_MOBS"],
+      "objectiveConfig": {
+        "KILL_MOBS": { "countMin": 2, "countMax": 5 }
+      }
+    },
+    {
+      "id": "abduction_expo_ransom",
+      "bindings": {
+        "quest_action": "rescue the hostage",
+        "quest_focus": "the kidnapped elder",
+        "quest_stakes": "the settlement's leadership",
+        "quest_threat": "the kidnappers",
+        "quest_origin": "a ransom demand",
+        "quest_time_pressure": "before the deadline"
+      },
+      "dialogueChunks": {
+        "intro": "A ransom note was pinned to the gate this morning. The {enemy_type} have taken our elder and are demanding {quest_item} in exchange. The deadline is soon.",
+        "plotStep": "We cannot pay what they ask: we barely have enough to survive the season. But if we refuse, they've promised to make an example. {quest_ally} thinks their camp is somewhere {location_hint}, based on the messenger's direction.",
+        "outro": "We need someone to either negotiate or strike before the deadline passes. {player_name}, can we count on you?"
+      },
+      "playerResponses": [
+        {
+          "text": "I'll deal with them directly.",
+          "action": "ACCEPT",
+          "dispositionShift": 6
+        },
+        {
+          "text": "Maybe we can trick them. I'll try.",
+          "action": "ACCEPT",
+          "dispositionShift": 3
+        },
+        {
+          "text": "You should just pay the ransom.",
+          "action": "DECLINE",
+          "dispositionShift": -4
+        }
+      ],
+      "objectivePool": ["KILL_MOBS", "EXPLORE_LOCATION", "FETCH_ITEM"],
+      "objectiveConfig": {
+        "KILL_MOBS": { "countMin": 4, "countMax": 8 }
       }
     }
   ]

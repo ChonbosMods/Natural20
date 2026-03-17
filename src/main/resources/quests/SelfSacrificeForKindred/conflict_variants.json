@@ -1,59 +1,86 @@
 {
   "variants": [
     {
-      "id": "self_sacrifice_for_kindred_conf_01",
+      "id": "conf_sacrifice_kindred_ambush_road",
       "dialogueChunks": {
-        "intro": "{player_name}, you're back sooner than I expected. That can't be good news.",
-        "plotStep": "{quest_threat} has spread to the neighboring fields. {target_npc} just came in shaking: their settlement's grain is rotting too. They're asking us for help, but we barely have enough for ourselves. The wild grain you've been gathering is now the only hope for two communities, not one. I need you to go back out {location_hint} and gather twice as much, but the {enemy_type} have grown bolder. They've moved their nesting grounds closer to the grain patches.",
-        "outro": "I've started giving my water rations to the newcomers too. Don't look at me like that. I can last a little longer."
+        "intro": "The caravan was hit, {player_name}. The {enemy_type} attacked at the narrowest point of the road. The volunteers are holding but they can't last.",
+        "plotStep": "The baker's mother took an arrow in the shoulder and is still driving the lead wagon with one hand. She won't stop. {quest_ally} managed to pull one wagon behind cover, but {quest_item} was scattered across the road when the second wagon overturned. {target_npc} is trying to rally the survivors.",
+        "outro": "If we lose {quest_item}, the trip was for nothing and those people bled for nothing. Help {target_npc} recover the supplies and drive back the {enemy_type}."
       },
       "playerResponses": [
-        { "text": "Twice the grain, twice the danger. I'll manage.", "action": "ACCEPT" },
-        { "text": "You need to stop giving away everything you have. But fine, I'll go.", "action": "ACCEPT", "dispositionShift": -5 },
-        { "text": "I can't feed two settlements. This is beyond me.", "action": "DECLINE" }
+        {
+          "text": "Nobody's bleeding for nothing today. Let's move.",
+          "action": "ACCEPT",
+          "dispositionShift": 5
+        },
+        {
+          "text": "We should cut our losses and save the people.",
+          "action": "ACCEPT",
+          "dispositionShift": -1
+        },
+        {
+          "text": "The caravan is lost. We need to retreat.",
+          "action": "DECLINE",
+          "dispositionShift": -4
+        }
       ],
-      "objectivePool": ["GATHER_ITEMS", "KILL_MOBS"],
+      "objectivePool": ["KILL_MOBS", "GATHER_ITEMS", "DELIVER_ITEM"],
       "objectiveConfig": {
-        "GATHER_ITEMS": { "countMin": 8, "countMax": 16 },
-        "KILL_MOBS": { "countMin": 3, "countMax": 6 }
+        "KILL_MOBS": { "countMin": 4, "countMax": 9 },
+        "GATHER_ITEMS": { "countMin": 5, "countMax": 12 }
       }
     },
     {
-      "id": "self_sacrifice_for_kindred_conf_02",
+      "id": "conf_sacrifice_kindred_second_wave",
       "dialogueChunks": {
-        "intro": "{quest_focus} is cracking faster than we thought, {player_name}. We have days, not weeks.",
-        "plotStep": "{target_npc} inspected the floodgates and found that the secondary mechanism is seized up with rust. The parts you brought won't be enough on their own: we need a counterweight system to hold the gates open long enough. There's an old iron forge {location_hint} that might have what we need, but it was abandoned when {enemy_type} moved into the area. I need you to get in there and bring back anything heavy enough to serve as ballast.",
-        "outro": "Every hour the cracks widen. I've moved my bedroll into the floodgate room. If the dam breaks tonight, at least I'll already be at the wheels."
+        "intro": "We got the refugees to the halfway point, but scouts report a second {enemy_type} war band approaching from {location_hint}. The elder's diversion has been discovered.",
+        "plotStep": "{target_npc} wants to split the column: send the fastest ahead to {location} while the rest shelter in a defensible position. But splitting means someone has to stay with the slower group and face whatever comes. {quest_ally} has already volunteered. Said they've lived long enough.",
+        "outro": "We need {quest_item} to fortify the shelter point. If {quest_ally} is going to hold the line for {quest_stakes}, at least give them a fighting chance."
       },
       "playerResponses": [
-        { "text": "Hold on a little longer. I'll bring back what we need.", "action": "ACCEPT" },
-        { "text": "Sleeping in a death trap. You really have lost your mind. I'll hurry.", "action": "ACCEPT", "dispositionShift": -5 },
-        { "text": "The dam is going to break regardless. Get out while you can.", "action": "DECLINE" }
+        {
+          "text": "I'll fortify the position. Nobody else needs to die today.",
+          "action": "ACCEPT",
+          "dispositionShift": 5
+        },
+        {
+          "text": "The whole column should stay together. Splitting is a death sentence.",
+          "action": "ACCEPT",
+          "dispositionShift": 2
+        }
       ],
       "objectivePool": ["FETCH_ITEM", "KILL_MOBS", "EXPLORE_LOCATION"],
       "objectiveConfig": {
-        "FETCH_ITEM": { "locationPreference": "DUNGEON" },
-        "KILL_MOBS": { "countMin": 2, "countMax": 5 },
-        "EXPLORE_LOCATION": { "countMin": 1, "countMax": 2 }
+        "KILL_MOBS": { "countMin": 5, "countMax": 10 }
       }
     },
     {
-      "id": "self_sacrifice_for_kindred_conf_03",
+      "id": "conf_sacrifice_kindred_dam_breaking",
       "dialogueChunks": {
-        "intro": "Oh, {player_name}. I'm glad you're here. Things have gotten much worse.",
-        "plotStep": "{quest_focus} mutated. The remedy we had is only slowing it now, not curing it. The healer says we need a stronger preparation: a rare {quest_item} that grows deep in the caverns {location_hint}. {target_npc} collapsed this morning from exhaustion. I've been tending the sick around the clock. I haven't slept in three days, and I won't until this is over. The caverns are crawling with {enemy_type}, but that medicine is the only thing standing between us and {quest_stakes}.",
-        "outro": "Look at me, {player_name}. I'll hold this settlement together with my bare hands if I have to. But I need you to bring back the cure."
+        "intro": "A new crack opened in {quest_focus} an hour ago. Water is pouring through faster than we can patch it. The mason is waist-deep and refusing to come out.",
+        "plotStep": "{target_npc} tried to pull him back by force. He shoved them away and said there are children in the houses below. He's mixing mortar with shaking hands while the river pushes against his chest. We need more {quest_item} to reinforce the breach from the upstream side.",
+        "outro": "The {quest_threat} could take him any moment. But if that wall fails, {quest_stakes} lose everything. Find {quest_item} {location_hint} and bring it back before the next surge hits."
       },
       "playerResponses": [
-        { "text": "Rest for even an hour. I'll bring the cure back as fast as I can.", "action": "ACCEPT" },
-        { "text": "Three days without sleep. You'll be the next one who collapses. But I'll go.", "action": "ACCEPT" },
-        { "text": "You're killing yourself, and I can't watch it anymore.", "action": "DECLINE" }
+        {
+          "text": "I'll get the materials. Keep that man alive until I'm back.",
+          "action": "ACCEPT",
+          "dispositionShift": 4
+        },
+        {
+          "text": "Pull him out. No dam is worth a life.",
+          "action": "ACCEPT",
+          "dispositionShift": 2
+        },
+        {
+          "text": "The dam is going to fail regardless. Start evacuating.",
+          "action": "DECLINE",
+          "dispositionShift": -3
+        }
       ],
-      "objectivePool": ["GATHER_ITEMS", "EXPLORE_LOCATION", "KILL_MOBS"],
+      "objectivePool": ["GATHER_ITEMS", "FETCH_ITEM", "EXPLORE_LOCATION"],
       "objectiveConfig": {
-        "GATHER_ITEMS": { "countMin": 4, "countMax": 8 },
-        "EXPLORE_LOCATION": { "countMin": 1, "countMax": 2 },
-        "KILL_MOBS": { "countMin": 3, "countMax": 7 }
+        "GATHER_ITEMS": { "countMin": 6, "countMax": 18 }
       }
     }
   ]

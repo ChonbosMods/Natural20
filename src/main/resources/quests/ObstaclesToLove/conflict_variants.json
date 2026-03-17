@@ -1,60 +1,60 @@
 {
   "variants": [
     {
-      "id": "obstacles_to_love_conf_01",
+      "id": "obstacles_love_conf_01",
       "dialogueChunks": {
-        "intro": "{player_name}, the feud just turned violent. We're running out of time for peace.",
-        "plotStep": "A patrol crossed the river and vandalized the other's grain stores. Now both sides are talking retaliation. {target_npc} was caught carrying a message and accused of being a spy. {quest_focus} is escalating beyond words. I need you to find {target_npc} and convince them to vouch for the bridge plan. And I need more {quest_item} to reinforce the foundations: if we build it, it has to be strong enough that nobody tears it down.",
-        "outro": "They arrested the one person brave enough to carry peace. {quest_stakes} unless we act before the next confrontation."
+        "intro": "It's gotten worse, {player_name}. Much worse than I expected.",
+        "plotStep": "Word got out about {quest_focus}. The elders from both sides have called an emergency assembly and they're demanding that {target_npc} answer for their involvement. Meanwhile, the {enemy_type} have been spotted {location_hint}, and nobody is paying attention because they're too busy pointing fingers. I need you to {quest_action} before the assembly convenes, or everything we've built falls apart. Gather {quest_item} as proof that {quest_stakes} is worth fighting for.",
+        "outro": "The assembly meets at dusk. If we don't have something to show them by then, {target_npc} takes the fall alone."
       },
       "playerResponses": [
-        { "text": "I'll find {target_npc} and bring them home. Then we build that bridge.", "action": "ACCEPT" },
-        { "text": "Vandalism and arrests. This feud is a wildfire. But I'll try.", "action": "ACCEPT", "dispositionShift": -5 },
-        { "text": "When both sides want war, one bridge won't stop them.", "action": "DECLINE" }
+        { "text": "I'll get the proof you need before sundown.", "action": "ACCEPT" },
+        { "text": "This is spiraling fast. I'll help, but you owe me for the urgency.", "action": "ACCEPT", "dispositionShift": -5 },
+        { "text": "Politics and assemblies are your problem, not mine.", "action": "DECLINE" }
       ],
-      "objectivePool": ["TALK_TO_NPC", "GATHER_ITEMS", "EXPLORE_LOCATION"],
+      "objectivePool": ["FETCH_ITEM", "TALK_TO_NPC", "EXPLORE_LOCATION"],
       "objectiveConfig": {
+        "FETCH_ITEM": { "locationPreference": "WILDERNESS" },
         "TALK_TO_NPC": { "countMin": 1, "countMax": 1 },
-        "GATHER_ITEMS": { "countMin": 5, "countMax": 12 },
         "EXPLORE_LOCATION": { "countMin": 1, "countMax": 2 }
       }
     },
     {
-      "id": "obstacles_to_love_conf_02",
+      "id": "obstacles_love_conf_02",
       "dialogueChunks": {
-        "intro": "The council raised the stakes, {player_name}. The task just got harder.",
-        "plotStep": "The elder council heard I had outside help and declared the trial invalid. They've set a new challenge: clear the {enemy_type} nest threatening the northern road {location_hint}. {target_npc} protested but was overruled. {quest_threat}: they want me to fail so they have a reason to send me away. If I clear that nest and bring back {quest_item} as proof, even the most stubborn elder can't deny I've earned my place.",
-        "outro": "They keep moving the goal line. But {quest_stakes}, and I've come too far to walk away."
+        "intro": "{player_name}, someone has been sabotaging our efforts. This wasn't an accident.",
+        "plotStep": "The {quest_item} you recovered was stolen from the meeting point last night, and {target_npc} found {quest_threat} scratched into their doorframe as a warning. Someone on the inside doesn't want {quest_focus} resolved. To make matters worse, the {enemy_type} have pushed closer to {location}, and whoever is working against us might be using them as cover. We need to find out who took the {quest_item} and recover it from wherever they've hidden it {location_hint}.",
+        "outro": "There's a traitor among us, and the clock is ticking on {quest_stakes}."
       },
       "playerResponses": [
-        { "text": "They want impossible? Let's give them impossible and make it look easy.", "action": "ACCEPT" },
-        { "text": "Moving the goal line is the oldest trick. We'll clear it anyway.", "action": "ACCEPT" },
-        { "text": "They'll just set another test after this one. It's not worth it.", "action": "DECLINE" }
+        { "text": "A saboteur and a thief? I'll root them out.", "action": "ACCEPT" },
+        { "text": "This conspiracy is deeper than I signed up for. But I'll see it through.", "action": "ACCEPT" },
+        { "text": "Betrayal from the inside changes everything. I'm walking away.", "action": "DECLINE" }
       ],
-      "objectivePool": ["KILL_MOBS", "GATHER_ITEMS", "EXPLORE_LOCATION"],
+      "objectivePool": ["EXPLORE_LOCATION", "KILL_MOBS", "FETCH_ITEM"],
       "objectiveConfig": {
-        "KILL_MOBS": { "countMin": 5, "countMax": 10 },
-        "GATHER_ITEMS": { "countMin": 4, "countMax": 8 },
-        "EXPLORE_LOCATION": { "countMin": 1, "countMax": 2 }
+        "EXPLORE_LOCATION": { "countMin": 2, "countMax": 3 },
+        "KILL_MOBS": { "countMin": 3, "countMax": 6 },
+        "FETCH_ITEM": { "locationPreference": "DUNGEON" }
       }
     },
     {
-      "id": "obstacles_to_love_conf_03",
+      "id": "obstacles_love_conf_03",
       "dialogueChunks": {
-        "intro": "My family found out, {player_name}. There was a confrontation.",
-        "plotStep": "My father discovered the letters. He confronted the other family and words were exchanged that can't be taken back. {quest_focus} has exploded into open hostility. The ruin where {quest_origin} is kept has been overrun by {enemy_type}. I need you to fight through and retrieve both pieces, plus {quest_item} to restore the heirloom. If I present it at the next community gathering, reunited and whole, it might break through the anger.",
-        "outro": "Words spoken in fury built these walls. Maybe an act of unity can tear them down. But {quest_stakes} if we don't act soon."
+        "intro": "They've taken {target_npc}, {player_name}. Locked them away to prevent any contact with the other side.",
+        "plotStep": "The hardliners moved faster than we expected. {target_npc} is being held in {location} under guard, accused of betraying {quest_stakes} by associating with the wrong people. The only way to free them is to gather enough {quest_item} to prove that cooperation across {quest_focus} benefits everyone. There's evidence {location_hint}, but the {enemy_type} have been drawn to the area by all the commotion. Without {target_npc}, the last voice of reason goes silent.",
+        "outro": "They locked up the one person who could have united both sides. We have to get them out."
       },
       "playerResponses": [
-        { "text": "A reunited heirloom at a community gathering. That's a powerful statement. I'll get it.", "action": "ACCEPT" },
-        { "text": "Angry families and monster-filled ruins. At least the monsters are straightforward.", "action": "ACCEPT" },
-        { "text": "Your families are at war. A trinket won't fix that.", "action": "DECLINE" }
+        { "text": "Nobody gets locked up for wanting peace. I'll free them.", "action": "ACCEPT" },
+        { "text": "A jailbreak and monster-fighting in one trip? Double the risk, double the pay.", "action": "ACCEPT", "dispositionShift": -5 },
+        { "text": "Freeing prisoners is a step too far for me.", "action": "DECLINE" }
       ],
-      "objectivePool": ["KILL_MOBS", "FETCH_ITEM", "GATHER_ITEMS"],
+      "objectivePool": ["GATHER_ITEMS", "KILL_MOBS", "TALK_TO_NPC"],
       "objectiveConfig": {
-        "KILL_MOBS": { "countMin": 4, "countMax": 8 },
-        "FETCH_ITEM": { "locationPreference": "DUNGEON" },
-        "GATHER_ITEMS": { "countMin": 3, "countMax": 6 }
+        "GATHER_ITEMS": { "countMin": 4, "countMax": 10 },
+        "KILL_MOBS": { "countMin": 2, "countMax": 5 },
+        "TALK_TO_NPC": { "countMin": 1, "countMax": 1 }
       }
     }
   ]

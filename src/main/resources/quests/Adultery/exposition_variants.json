@@ -1,82 +1,101 @@
 {
   "variants": [
     {
-      "id": "adultery_expo_01",
+      "id": "expo_adultery_broken_alliance",
       "bindings": {
-        "quest_action": "expose the garrison's betrayal of our mutual defense pact",
-        "quest_focus": "the broken oath between our settlement and the garrison",
-        "quest_stakes": "our borders are undefended and stores are raided nightly",
-        "quest_threat": "a sworn ally abandoned us without warning when we needed them most",
-        "quest_origin": "a mutual defense pact signed three seasons ago",
-        "quest_reward_hint": "if we prove the betrayal, the regional council will restore our protection"
+        "quest_action": "recover the stolen plans",
+        "quest_focus": "the broken alliance",
+        "quest_stakes": "the trade network",
+        "quest_threat": "total isolation",
+        "quest_origin": "the council chamber"
       },
       "dialogueChunks": {
-        "intro": "{player_name}, you don't know me, but I know when someone can be trusted. And right now I need someone I can trust more than anything.",
-        "plotStep": "Our settlement signed a mutual defense pact with the garrison at {location} three seasons ago. We supplied them with food, they protected our borders. Then the {enemy_type} raids started and the garrison pulled back to protect their own walls. {target_npc} rode to demand they honor the pact and was turned away at the gates. I need to {quest_action}, but first I need {quest_item} to fortify what's left and proof that {quest_focus} was deliberately violated.",
-        "outro": "A sworn oath means nothing to them, but {quest_stakes}. Help me gather what we need to survive {quest_threat}."
+        "intro": "The alliance between our settlement and the one at {location} is over. Not because of war. Because of betrayal.",
+        "plotStep": "Our trade representative was caught secretly negotiating with the {enemy_type} to undercut the partner settlement's prices. It wasn't an accident or a misunderstanding: it was a calculated violation of every covenant we swore. The partner settlement has severed all contact. {quest_focus} took years to build and was destroyed in a single meeting.",
+        "outro": "The plans they stole from the partner settlement are still in the hands of the {enemy_type}. If someone could {quest_action}, it would prove we're willing to make it right. Without that gesture, {quest_threat} is all we have to look forward to."
       },
       "playerResponses": [
-        { "text": "Broken oaths deserve consequences. I'll help you build your case.", "action": "ACCEPT" },
-        { "text": "Gather supplies and evidence. I can do that.", "action": "ACCEPT" },
-        { "text": "Getting between a settlement and a garrison is too political for me.", "action": "DECLINE" }
+        {
+          "text": "Broken trust is hard to mend, but returning what was stolen is a start.",
+          "action": "ACCEPT",
+          "dispositionShift": 5
+        },
+        {
+          "text": "Why should I clean up your representative's mess?",
+          "action": "ACCEPT",
+          "dispositionShift": -1
+        },
+        {
+          "text": "You broke the alliance. Live with the consequences.",
+          "action": "DECLINE"
+        }
       ],
-      "objectivePool": ["GATHER_ITEMS", "EXPLORE_LOCATION"],
+      "objectivePool": ["EXPLORE_LOCATION", "FETCH_ITEM", "KILL_MOBS"],
       "objectiveConfig": {
-        "GATHER_ITEMS": { "countMin": 5, "countMax": 12 },
-        "EXPLORE_LOCATION": { "countMin": 1, "countMax": 2 }
+        "KILL_MOBS": { "countMin": 3, "countMax": 7 }
       }
     },
     {
-      "id": "adultery_expo_02",
+      "id": "expo_adultery_traitor_guard",
       "bindings": {
-        "quest_action": "prove my business partner has been secretly selling our stock",
-        "quest_focus": "the tavern we built together as equal partners",
-        "quest_stakes": "our reputation is crumbling and regulars are leaving",
-        "quest_threat": "a partner's greed is destroying everything we built on trust",
-        "quest_origin": "a covenant sealed with a handshake and witnessed by the settlement"
+        "quest_action": "find proof of the betrayal",
+        "quest_focus": "the guard captain's treachery",
+        "quest_stakes": "the garrison's loyalty",
+        "quest_threat": "infiltration from within",
+        "quest_time_pressure": "before the next watch rotation"
       },
       "dialogueChunks": {
-        "intro": "I should be angry. I am angry. But right now, {player_name}, what I really am is hurt.",
-        "plotStep": "{target_npc} and I built {quest_focus} together. Equal partners, equal shares. Last month, I discovered they've been secretly trading our best stock to {enemy_type} merchants {location_hint} for personal profit. I need to {quest_action} before {quest_stakes} gets any worse. I need {quest_item} to restock properly and evidence of the secret deals to bring before the settlement council.",
-        "outro": "I trusted them with everything. {quest_threat}, and I want justice, not revenge. There's a difference."
+        "intro": "The guard captain swore an oath to protect this settlement. She's been selling patrol schedules to the {enemy_type} for six months.",
+        "plotStep": "Three ambushes in two months, all targeting patrols at their most vulnerable positions. It couldn't be coincidence. {quest_focus} was only discovered because a wounded scout overheard a {enemy_type} raider laughing about knowing exactly when the guard changes happen.",
+        "outro": "We need someone from outside the garrison to {quest_action}. If the guards learn about this from their own ranks, it'll tear the unit apart. Hard evidence presented to the council is the only way to remove her without destroying {quest_stakes}."
       },
       "playerResponses": [
-        { "text": "Justice means evidence. I'll find it.", "action": "ACCEPT" },
-        { "text": "Betrayal by a partner cuts deep. I'll help you set things right.", "action": "ACCEPT" },
-        { "text": "Business disputes aren't really my area.", "action": "DECLINE" }
+        {
+          "text": "An oath-breaker in command is worse than any enemy. I'll find the proof.",
+          "action": "ACCEPT",
+          "dispositionShift": 5
+        },
+        {
+          "text": "What if the proof implicates others too?",
+          "action": "ACCEPT",
+          "dispositionShift": 2
+        }
       ],
-      "objectivePool": ["FETCH_ITEM", "EXPLORE_LOCATION", "GATHER_ITEMS"],
-      "objectiveConfig": {
-        "FETCH_ITEM": { "locationPreference": "WILDERNESS" },
-        "EXPLORE_LOCATION": { "countMin": 1, "countMax": 2 },
-        "GATHER_ITEMS": { "countMin": 4, "countMax": 8 }
-      }
+      "objectivePool": ["EXPLORE_LOCATION", "TALK_TO_NPC", "FETCH_ITEM"],
+      "objectiveConfig": {}
     },
     {
-      "id": "adultery_expo_03",
+      "id": "expo_adultery_forged_charter",
       "bindings": {
-        "quest_action": "retrieve the original trade covenant and expose the guild master's corruption",
-        "quest_focus": "the merchant guild's five-year trade covenant",
-        "quest_stakes": "local merchants are being undercut and ruined by side deals",
-        "quest_threat": "the guild master has powerful friends and enforcers watching the roads",
-        "quest_origin": "a trade agreement meant to ensure fair prices and shared routes",
-        "quest_time_pressure": "the guild master is consolidating power and the evidence may vanish"
+        "quest_action": "retrieve the original document",
+        "quest_focus": "the forged charter",
+        "quest_stakes": "the settlers' land rights",
+        "quest_threat": "mass eviction",
+        "quest_origin": "the archive vault"
       },
       "dialogueChunks": {
-        "intro": "Come closer, {player_name}. This isn't a conversation for open air.",
-        "plotStep": "The merchant guild in {location} signed {quest_focus} five years ago: fair prices, shared routes, mutual support. Then the guild master started making side deals, undercutting everyone. {target_npc} uncovered the discrepancy. I need you to {quest_action}. Gather {quest_item} to support the merchants who've been cut out, and retrieve the original covenant from the guild hall {location_hint}.",
-        "outro": "Five years of trust, shattered by one person's greed. {quest_threat}, but {quest_focus} is still legally binding. If we can put it in front of the right people, this ends."
+        "intro": "The founding covenant guaranteed every family an equal share of the settlement's land. Someone has replaced the original document with a forgery that gives the founding family majority ownership.",
+        "plotStep": "Twelve families received eviction notices this morning. The forged charter is the legal basis. Nobody knows when the original was swapped, but {quest_focus} is convincing enough that the regional authority accepted it. The real document was likely hidden or destroyed.",
+        "outro": "If someone can {quest_action} from {quest_origin}, or find proof it was altered, the evictions stop. {quest_threat} starts at the end of the week. Those families have nowhere to go."
       },
       "playerResponses": [
-        { "text": "A binding covenant and a corrupt leader. I'll get you what you need.", "action": "ACCEPT" },
-        { "text": "Powerful friends and enforcers. This won't be easy, but I'm in.", "action": "ACCEPT", "dispositionShift": -5 },
-        { "text": "Guild politics are a labyrinth I'd rather avoid.", "action": "DECLINE" }
+        {
+          "text": "Forging a community's founding document is the worst kind of theft. I'll help.",
+          "action": "ACCEPT",
+          "dispositionShift": 5
+        },
+        {
+          "text": "If the original is destroyed, what then?",
+          "action": "ACCEPT",
+          "dispositionShift": 1
+        },
+        {
+          "text": "Legal disputes aren't really my expertise.",
+          "action": "DECLINE"
+        }
       ],
-      "objectivePool": ["FETCH_ITEM", "GATHER_ITEMS"],
-      "objectiveConfig": {
-        "FETCH_ITEM": { "locationPreference": "DUNGEON" },
-        "GATHER_ITEMS": { "countMin": 4, "countMax": 10 }
-      }
+      "objectivePool": ["EXPLORE_LOCATION", "FETCH_ITEM", "TALK_TO_NPC"],
+      "objectiveConfig": {}
     }
   ]
 }

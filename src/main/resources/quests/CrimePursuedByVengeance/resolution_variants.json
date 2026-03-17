@@ -1,57 +1,45 @@
 {
   "variants": [
     {
-      "id": "crimepursued_reso_01",
+      "id": "crimevengeance_reso_01",
       "dialogueChunks": {
-        "intro": "It's done, {player_name}. The ones who did this have answered for their crimes.",
-        "plotStep": "{target_npc} gathered the whole settlement to hear the news. You managed to {quest_action}, and the silence that followed was the kind that comes when a wound starts to close. {quest_stakes} can begin to heal now. Justice doesn't bring back the dead, but it lets the living start to move forward.",
-        "outro": "Take this. It was meant for whoever set things right. You've earned it and then some."
+        "intro": "Justice is served, {player_name}. {quest_threat} have been dealt with, and {quest_stakes} can begin to heal.",
+        "plotStep": "What they did to {quest_focus} can be rebuilt. What matters is that the wrong has been answered. {quest_ally} says the settlement sleeps easier knowing someone held them accountable.",
+        "outro": "You did not let a crime go unanswered. That takes conviction."
       },
       "playerResponses": [
-        { "text": "I hope the watchman's family can find peace now.", "action": "ACCEPT", "dispositionShift": 10 },
-        { "text": "Justice served. Take care of your people.", "action": "ACCEPT" }
+        { "text": "No one should get away with harming innocents.", "action": "ACCEPT", "dispositionShift": 10 },
+        { "text": "It is done. Let us move on.", "action": "ACCEPT", "dispositionShift": 0 },
+        { "text": "Make sure it does not happen again.", "action": "ACCEPT", "dispositionShift": 5 }
       ],
       "objectivePool": [],
       "objectiveConfig": {}
     },
     {
-      "id": "crimepursued_reso_02",
+      "id": "crimevengeance_reso_02",
       "dialogueChunks": {
-        "intro": "{player_name}. I owe you more than I can ever repay.",
-        "plotStep": "The streets are quieter now, but it's the good kind of quiet. The traders are coming back, and {target_npc} finally slept through the night. You didn't just {quest_action}: you restored something this settlement had lost. Safety. Confidence. The belief that {quest_threat} has consequences.",
-        "outro": "We collected this from every household. Everyone wanted to contribute. You gave us back our courage."
+        "intro": "{player_name}, the nightmare is over. You managed to {quest_action}, and {quest_threat} will answer for what they did.",
+        "plotStep": "{quest_focus} still bears the scars, but the people are stronger for having seen justice. {quest_stakes} have been restored as much as they can be.",
+        "outro": "Vengeance can be a poison of its own, but what you brought us was not vengeance: it was justice. Thank you."
       },
       "playerResponses": [
-        { "text": "Courage was already here. I just reminded you of it.", "action": "ACCEPT", "dispositionShift": 5 },
-        { "text": "Glad the roads are safe again. That's what matters.", "action": "ACCEPT" }
+        { "text": "There is a difference between justice and revenge. I am glad we found it.", "action": "ACCEPT", "dispositionShift": 15 },
+        { "text": "Just be sure the next generation learns from this.", "action": "ACCEPT", "dispositionShift": 5 }
       ],
       "objectivePool": [],
       "objectiveConfig": {}
     },
     {
-      "id": "crimepursued_reso_03",
+      "id": "crimevengeance_reso_03",
       "dialogueChunks": {
-        "intro": "The deed is done, and I won't pretend I feel nothing. I feel everything.",
-        "plotStep": "Vengeance is a strange thing, {player_name}. I expected to feel satisfied when you told me you'd managed to {quest_action}. Instead I just feel tired. {target_npc} said the same thing: the anger that kept us going just drained away. What's left is the work of rebuilding. But it's a task worth doing now, because {quest_threat} is gone.",
-        "outro": "Here. You earned every bit of this. And know that what you did mattered, even if the feeling is more complicated than we expected."
+        "intro": "It is finished, {player_name}. {quest_threat} can no longer harm {quest_stakes}. The crime has been answered.",
+        "plotStep": "{quest_ally} has already begun restoring {quest_focus}. The mood in the settlement has shifted: people feel safer, more confident. Your actions made that possible.",
+        "outro": "You stood up when others looked away. That is the mark of a true ally."
       },
       "playerResponses": [
-        { "text": "Vengeance rarely feels the way we expect. But the living can move forward now.", "action": "ACCEPT" },
-        { "text": "The hard part is over. The rest is up to you.", "action": "ACCEPT" }
-      ],
-      "objectivePool": [],
-      "objectiveConfig": {}
-    },
-    {
-      "id": "crimepursued_reso_04",
-      "dialogueChunks": {
-        "intro": "You're back. And from the look on your face, I'd say justice has been served.",
-        "plotStep": "{target_npc} wants to name the rebuilt storehouse after the watchman. The whole settlement agreed within minutes. They're already carving the sign. {quest_stakes} won't be forgotten. And {quest_threat}? They'll be forgotten completely. That's the real punishment: oblivion for the guilty, memory for the innocent.",
-        "outro": "Take this with the gratitude of everyone here. And if you ever need anything, you know where to find us."
-      },
-      "playerResponses": [
-        { "text": "A storehouse with his name on it. That's a legacy worth defending.", "action": "ACCEPT", "dispositionShift": 15 },
-        { "text": "Good. He deserves to be remembered. I'll be on my way.", "action": "ACCEPT" }
+        { "text": "Wrongs should not go unanswered. It was the right thing to do.", "action": "ACCEPT", "dispositionShift": 10 },
+        { "text": "I expect you will remember this next time I need something.", "action": "ACCEPT", "dispositionShift": -3 },
+        { "text": "Stay watchful. Grudges have long memories.", "action": "ACCEPT", "dispositionShift": 0 }
       ],
       "objectivePool": [],
       "objectiveConfig": {}

@@ -1,59 +1,67 @@
 {
   "variants": [
     {
-      "id": "rivalryofkinsmen_reso_01",
+      "id": "rivalry_reso_mutual_respect",
       "dialogueChunks": {
-        "intro": "{player_name}, you're not going to believe this. They're laughing together.",
-        "plotStep": "When you brought back the {quest_item} that required both their skills to process, they had no choice but to work side by side. And somewhere between the arguing and the forging and the cooking, they realized neither of them could have done it alone. {target_npc} says they caught the two of them sharing a drink at the tavern last night, comparing techniques like old colleagues.",
-        "outro": "You didn't just fetch materials: you forced two stubborn artisans to remember why they respected each other. Here's your reward, well earned."
+        "intro": "Your actions during the crisis over {quest_focus} shamed both rivals into reflecting on their behavior. They've come to a reluctant understanding.",
+        "plotStep": "{quest_ally} and {target_npc} won't be friends, but they've agreed to keep their competition constructive. {quest_stakes} are settled: your example reminded them what actually matters when {quest_threat} is real.",
+        "outro": "You outperformed both of them without even trying to compete. That said more than any argument could, {player_name}."
       },
       "playerResponses": [
-        { "text": "Laughter after weeks of shouting. That's the best outcome I could hope for.", "action": "ACCEPT", "dispositionShift": 10 },
-        { "text": "Took them long enough. I hope they keep it up.", "action": "ACCEPT" }
+        {
+          "text": "As long as they stop endangering everyone.",
+          "action": "COMPLETE",
+          "dispositionShift": 8
+        },
+        {
+          "text": "Competition is fine. Stupidity isn't.",
+          "action": "COMPLETE",
+          "dispositionShift": 5
+        }
       ],
       "objectivePool": [],
       "objectiveConfig": {}
     },
     {
-      "id": "rivalryofkinsmen_reso_02",
+      "id": "rivalry_reso_clear_winner",
       "dialogueChunks": {
-        "intro": "The apprentice is safe, {player_name}. And they brought back something nobody expected.",
-        "plotStep": "While hiding from the {enemy_type}, the apprentice found a deposit of {quest_item} that neither master crafter knew existed. It's enough for both workshops to operate independently for months. With scarcity no longer an issue, {quest_focus} lost its edge. {target_npc} organized a modest ceremony where both crafters agreed to share resources going forward. The apprentice credits you with their survival.",
-        "outro": "An apprentice saved, a feud ended, and a new resource secured. Not a bad day's work. This is yours."
+        "intro": "The dust has settled on {quest_focus}, and one rival came out ahead. The loser is bitter, but the settlement has moved on.",
+        "plotStep": "{quest_ally} accepted the outcome, though it stung. {target_npc} earned their standing fairly, in part because you kept {quest_threat} from making the whole contest meaningless. {quest_stakes} found resolution, even if it's not perfectly clean.",
+        "outro": "Someone had to win, someone had to lose. What matters is that the settlement survived it intact. Thanks to you, {player_name}."
       },
       "playerResponses": [
-        { "text": "The apprentice deserves credit too: surviving out there took real courage.", "action": "ACCEPT" },
-        { "text": "Abundance solves a lot of arguments. I'm glad it worked out.", "action": "ACCEPT" },
-        { "text": "Tell those masters to take better care of their students.", "action": "ACCEPT", "dispositionShift": -5 }
+        {
+          "text": "A fair contest deserves a fair ending.",
+          "action": "COMPLETE",
+          "dispositionShift": 6
+        },
+        {
+          "text": "At least it's over.",
+          "action": "COMPLETE",
+          "dispositionShift": 3
+        }
       ],
       "objectivePool": [],
       "objectiveConfig": {}
     },
     {
-      "id": "rivalryofkinsmen_reso_03",
+      "id": "rivalry_reso_partnership_forged",
       "dialogueChunks": {
-        "intro": "The tavern is intact, the traders have settled, and I owe it all to you, {player_name}.",
-        "plotStep": "When you showed up with enough {quest_item} for both traders and then some, the wind went right out of their sails. Hard to fight over scarcity when there's abundance piled on the bar. {target_npc} helped broker a formal market-sharing agreement: both traders get designated stalls, set hours, and no more brawling on my floor. The settlement wins because competition drives prices down.",
-        "outro": "My tables are fixed, my customers are calm, and you're the reason. This round is on the house, plus a little something extra."
+        "intro": "Something no one expected: {quest_ally} and {target_npc} have decided to work together. The crisis around {quest_focus} forced them to see each other's strengths.",
+        "plotStep": "What started as bitter competition over {quest_stakes} became a partnership after they realized the {enemy_type} threat was bigger than either could handle alone. Your work against {quest_threat} gave them the wake-up call they needed.",
+        "outro": "From rivals to partners. The settlement is stronger for it, and you're the reason it happened, {player_name}."
       },
       "playerResponses": [
-        { "text": "A peaceful tavern and happy traders. I'll drink to that.", "action": "ACCEPT", "dispositionShift": 10 },
-        { "text": "Just keep the tables bolted down. Those two might relapse.", "action": "ACCEPT" }
-      ],
-      "objectivePool": [],
-      "objectiveConfig": {}
-    },
-    {
-      "id": "rivalryofkinsmen_reso_04",
-      "dialogueChunks": {
-        "intro": "The test was held this morning, {player_name}. Both prototypes were built, side by side.",
-        "plotStep": "In the end, the council chose elements from both designs. {quest_focus} will have one crafter's structural foundation and the other's defensive features. Neither won outright, but neither lost either: and the final design is better than what either could have made alone. {target_npc} says both crafters grumbled for an hour and then quietly started collaborating on the final blueprints. Construction breaks ground tomorrow.",
-        "outro": "A fair contest with a fair result. The settlement gets a better watchtower, and you made it possible. Take this with our thanks."
-      },
-      "playerResponses": [
-        { "text": "The best design used both their strengths. That's how it should be.", "action": "ACCEPT" },
-        { "text": "A watchtower built from rivalry. At least something good came of all that stubbornness.", "action": "ACCEPT" },
-        { "text": "Glad I could help settle it. Now build that tower.", "action": "ACCEPT" }
+        {
+          "text": "That's the best outcome I could imagine.",
+          "action": "COMPLETE",
+          "dispositionShift": 10
+        },
+        {
+          "text": "Let's hope it lasts.",
+          "action": "COMPLETE",
+          "dispositionShift": 5
+        }
       ],
       "objectivePool": [],
       "objectiveConfig": {}

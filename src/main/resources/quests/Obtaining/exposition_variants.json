@@ -1,105 +1,115 @@
 {
   "variants": [
     {
-      "id": "obtaining_expo_01",
+      "id": "obtaining_expo_rare_material",
       "bindings": {
-        "quest_action": "retrieve the rare materials from hostile territory",
-        "quest_focus": "a source of rare materials deep in dangerous land",
-        "quest_stakes": "a masterwork that hasn't been crafted in a generation",
-        "quest_threat": "the creatures occupying the area around the deposit",
-        "quest_reward_hint": "something extraordinary for the settlement"
+        "quest_action": "secure the supply",
+        "quest_focus": "the rare deposit",
+        "quest_stakes": "the settlement's future",
+        "quest_threat": "rival scavengers",
+        "quest_origin": "a prospector's find",
+        "quest_reward_hint": "a share of the haul"
       },
       "dialogueChunks": {
-        "intro": "{player_name}, you couldn't have arrived at a better time. I've been searching for someone resourceful enough to help me.",
-        "plotStep": "I've tracked down {quest_focus} {location_hint}: {quest_item} I've been trying to get my hands on for months. The problem is {quest_threat}: no merchant will make the trip and I can't leave the forge unattended. If I had enough, I could craft {quest_stakes}.",
-        "outro": "You'd be doing more than running an errand. You'd be making {quest_reward_hint} possible."
+        "intro": "A prospector found something valuable {location_hint}: a deposit of {quest_item} richer than anything we've seen in this region. Word is already spreading.",
+        "plotStep": "The problem is that we're not the only ones who know. The {enemy_type} have been pushing into that area, and {quest_ally} spotted organized groups heading the same direction. If we don't claim {quest_focus} first, someone else will.",
+        "outro": "I need someone fast and capable to get out there and secure what we need before it's all gone. {player_name}, will you make the trip?"
       },
       "playerResponses": [
-        { "text": "Tell me where to look. I'll bring back everything I can carry.", "action": "ACCEPT" },
-        { "text": "Rare materials in dangerous territory? I'll need proper compensation.", "action": "ACCEPT", "dispositionShift": -5 },
-        { "text": "I'm not a supply runner. Find another way.", "action": "DECLINE" }
+        {
+          "text": "I'll get there first.",
+          "action": "ACCEPT",
+          "dispositionShift": 4
+        },
+        {
+          "text": "What's my cut if I bring it back?",
+          "action": "ACCEPT",
+          "dispositionShift": 1
+        },
+        {
+          "text": "Send someone else. I'm busy.",
+          "action": "DECLINE",
+          "dispositionShift": -3
+        }
       ],
-      "objectivePool": ["GATHER_ITEMS", "EXPLORE_LOCATION"],
+      "objectivePool": ["GATHER_ITEMS", "KILL_MOBS", "EXPLORE_LOCATION"],
       "objectiveConfig": {
-        "GATHER_ITEMS": { "countMin": 5, "countMax": 12 },
-        "EXPLORE_LOCATION": { "countMin": 1, "countMax": 2 }
-      }
-    },
-    {
-      "id": "obtaining_expo_02",
-      "bindings": {
-        "quest_action": "harvest the key ingredient from its only growing site",
-        "quest_focus": "the one place where the ingredient grows",
-        "quest_stakes": "a recipe that could feed the settlement through the harshest winter",
-        "quest_threat": "the creatures that control the territory where it grows",
-        "quest_reward_hint": "enough food to last the whole settlement through winter"
-      },
-      "dialogueChunks": {
-        "intro": "Ah, a traveler with capable hands! {player_name}, I've been hoping someone like you would pass through.",
-        "plotStep": "I've been perfecting {quest_stakes} for years. But the key ingredient, {quest_item}, only grows at {quest_focus}, and that place is crawling with {enemy_type}. {target_npc} saw it flourishing {location_hint} but couldn't get close enough. I need someone who can {quest_action}.",
-        "outro": "Bring me what I need and I'll make sure {quest_reward_hint} becomes reality. You included."
-      },
-      "playerResponses": [
-        { "text": "A worthy cause. I'll get your ingredients.", "action": "ACCEPT" },
-        { "text": "I'll do it, but I want the first serving of whatever you cook.", "action": "ACCEPT" },
-        { "text": "I'm no forager. You'll have to find someone else.", "action": "DECLINE" }
-      ],
-      "objectivePool": ["GATHER_ITEMS", "FETCH_ITEM"],
-      "objectiveConfig": {
-        "GATHER_ITEMS": { "countMin": 4, "countMax": 10 },
-        "FETCH_ITEM": { "locationPreference": "WILDERNESS" }
-      }
-    },
-    {
-      "id": "obtaining_expo_03",
-      "bindings": {
-        "quest_action": "claim the abandoned cache before someone else does",
-        "quest_focus": "a collapsed storehouse with unclaimed goods",
-        "quest_stakes": "the commission that will establish my reputation",
-        "quest_threat": "the creatures that moved in when the owners fled",
-        "quest_origin": "owners who fled and never came back"
-      },
-      "dialogueChunks": {
-        "intro": "{player_name}, I need to speak with you urgently. I've discovered something that won't wait.",
-        "plotStep": "A merchant mentioned {quest_focus} {location_hint}: {quest_item} abandoned when the {enemy_type} moved in. {quest_origin}. That cache is exactly what I need to finish {quest_stakes} that {target_npc} placed with me. But the road is anything but safe.",
-        "outro": "First come, first served: if we don't {quest_action}, someone else will. Or {quest_threat} will destroy it."
-      },
-      "playerResponses": [
-        { "text": "An unclaimed cache? I'll have it back before anyone else catches wind.", "action": "ACCEPT" },
-        { "text": "Salvage from dangerous territory doesn't come cheap. What's my share?", "action": "ACCEPT", "dispositionShift": -5 },
-        { "text": "Abandoned for a reason, I'd wager. Count me out.", "action": "DECLINE" }
-      ],
-      "objectivePool": ["FETCH_ITEM", "EXPLORE_LOCATION", "KILL_MOBS"],
-      "objectiveConfig": {
-        "FETCH_ITEM": { "locationPreference": "DUNGEON" },
-        "EXPLORE_LOCATION": { "countMin": 1, "countMax": 2 },
+        "GATHER_ITEMS": { "countMin": 5, "countMax": 15 },
         "KILL_MOBS": { "countMin": 3, "countMax": 7 }
       }
     },
     {
-      "id": "obtaining_expo_04",
+      "id": "obtaining_expo_stolen_heirloom",
       "bindings": {
-        "quest_action": "make the trade run through hostile territory and back",
-        "quest_focus": "the dangerous road between settlements",
-        "quest_stakes": "supplies the settlement hasn't had in months",
-        "quest_threat": "the hostile creatures infesting the direct route",
-        "quest_reward_hint": "a well-rewarded journey"
+        "quest_action": "recover the heirloom",
+        "quest_focus": "the family relic",
+        "quest_stakes": "a family's honor",
+        "quest_threat": "the thieves",
+        "quest_origin": "a break-in"
       },
       "dialogueChunks": {
-        "intro": "Over here, {player_name}! I've been flagging down every capable-looking soul all week. You're the first one who stopped.",
-        "plotStep": "Word reached me that {target_npc} in a distant settlement has {quest_item} in surplus: exactly what I've been short on. They're willing to trade, but someone has to {quest_action}. {quest_focus} goes {location_hint}, straight through {enemy_type} territory. I'd go myself but I'd be dead before I got halfway.",
-        "outro": "Make the exchange and bring back the goods, and I'll make sure {quest_reward_hint} is worth your while."
+        "intro": "{target_npc}'s home was broken into last night. They took only one thing: a family heirloom that's been passed down for generations. It's irreplaceable.",
+        "plotStep": "The thieves weren't ordinary burglars. They knew exactly what they wanted and where it was kept. {quest_ally} found tracks leading {location_hint}, and the boot prints match the {enemy_type} we've seen lurking near the borders.",
+        "outro": "{quest_focus} means everything to {target_npc}. Will you track down {quest_threat} and bring it back, {player_name}?"
       },
       "playerResponses": [
-        { "text": "A trade run through hostile territory? I've handled worse.", "action": "ACCEPT" },
-        { "text": "That's a dangerous road. I expect danger pay on top of whatever you're offering.", "action": "ACCEPT", "dispositionShift": -5 },
-        { "text": "Hire a caravan with guards. I work alone.", "action": "DECLINE" }
+        {
+          "text": "I'll bring it home where it belongs.",
+          "action": "ACCEPT",
+          "dispositionShift": 5
+        },
+        {
+          "text": "Thieves deserve what's coming to them.",
+          "action": "ACCEPT",
+          "dispositionShift": 3
+        },
+        {
+          "text": "It's just an object. Let it go.",
+          "action": "DECLINE",
+          "dispositionShift": -4
+        }
       ],
-      "objectivePool": ["DELIVER_ITEM", "TALK_TO_NPC", "KILL_MOBS"],
+      "objectivePool": ["FETCH_ITEM", "KILL_MOBS", "EXPLORE_LOCATION"],
       "objectiveConfig": {
-        "DELIVER_ITEM": {},
-        "TALK_TO_NPC": { "countMin": 1, "countMax": 1 },
-        "KILL_MOBS": { "countMin": 3, "countMax": 8 }
+        "KILL_MOBS": { "countMin": 2, "countMax": 5 }
+      }
+    },
+    {
+      "id": "obtaining_expo_critical_medicine",
+      "bindings": {
+        "quest_action": "gather the ingredients",
+        "quest_focus": "the medicinal herbs",
+        "quest_stakes": "the sick villagers",
+        "quest_threat": "the spreading illness",
+        "quest_origin": "a sudden outbreak",
+        "quest_time_pressure": "before more fall ill"
+      },
+      "dialogueChunks": {
+        "intro": "A sickness has swept through the settlement. {quest_ally} says the cure requires {quest_item} that only grows in the wilds {location_hint}, and our stores are empty.",
+        "plotStep": "Three people are already bedridden, and more show symptoms each day. The herbs we need for {quest_focus} won't survive being shipped from afar: they have to be gathered fresh. The problem is that the gathering grounds are deep in {enemy_type} territory.",
+        "outro": "Without those ingredients, {quest_stakes} are in mortal danger. {player_name}, will you venture out and bring back what we need?"
+      },
+      "playerResponses": [
+        {
+          "text": "Lives are at stake. I'll go now.",
+          "action": "ACCEPT",
+          "dispositionShift": 6
+        },
+        {
+          "text": "Tell me exactly what to look for.",
+          "action": "ACCEPT",
+          "dispositionShift": 3
+        },
+        {
+          "text": "The wilds are too dangerous right now.",
+          "action": "DECLINE",
+          "dispositionShift": -5
+        }
+      ],
+      "objectivePool": ["GATHER_ITEMS", "EXPLORE_LOCATION", "KILL_MOBS"],
+      "objectiveConfig": {
+        "GATHER_ITEMS": { "countMin": 6, "countMax": 18 },
+        "KILL_MOBS": { "countMin": 2, "countMax": 6 }
       }
     }
   ]

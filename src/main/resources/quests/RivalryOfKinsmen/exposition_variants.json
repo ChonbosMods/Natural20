@@ -1,105 +1,114 @@
 {
   "variants": [
     {
-      "id": "rivalryofkinsmen_expo_01",
+      "id": "rivalry_expo_competing_claims",
       "bindings": {
-        "quest_action": "fetch materials that require both crafters to process",
-        "quest_focus": "the blacksmith-cook rivalry paralyzing the settlement",
-        "quest_stakes": "half the settlement going hungry and the other half wielding dull blades",
-        "quest_threat": "two stubborn artisans refusing to cooperate",
-        "quest_origin": "a petty contest over who contributes more to the settlement"
+        "quest_action": "prove your worth",
+        "quest_focus": "the contested title",
+        "quest_stakes": "the settlement's direction",
+        "quest_threat": "a leadership vacuum",
+        "quest_origin": "a succession dispute"
       },
       "dialogueChunks": {
-        "intro": "{player_name}! Perfect, an impartial judge. You have no idea how badly we need one.",
-        "plotStep": "The blacksmith and the cook have been locked in a contest for weeks: each claims they contribute more to {location} than the other. Normally it's harmless bickering, but now they've escalated. The blacksmith refuses to repair the cook's tools, and the cook won't feed anyone who takes the blacksmith's side. {target_npc} says if someone doesn't settle this, {quest_stakes}. They need {quest_item} that neither can source alone: proof that they need each other.",
-        "outro": "Bring back the {quest_item} and maybe we can knock some sense into both of them."
+        "intro": "Two of our most respected figures are at each other's throats. {quest_ally} and {target_npc} both believe they should lead the settlement's next expansion, and neither will yield.",
+        "plotStep": "Both have their supporters, and {quest_focus} has split the community down the middle. The {enemy_type} have taken note of our distraction: raids are increasing near {location_hint} while we bicker.",
+        "outro": "Someone outside the dispute needs to act while our leaders compete. {player_name}, will you handle the real threats while we sort out {quest_stakes}?"
       },
       "playerResponses": [
-        { "text": "Stubborn craftspeople? I'll find what they need and teach them a lesson in cooperation.", "action": "ACCEPT" },
-        { "text": "I'll fetch your supplies, but keeping the peace is your job.", "action": "ACCEPT", "dispositionShift": -5 },
-        { "text": "I'm not a mediator. Let them sort it out themselves.", "action": "DECLINE" }
+        {
+          "text": "I'll handle what matters while they argue.",
+          "action": "ACCEPT",
+          "dispositionShift": 4
+        },
+        {
+          "text": "Maybe I can help settle this too.",
+          "action": "ACCEPT",
+          "dispositionShift": 3
+        },
+        {
+          "text": "Your politics bore me.",
+          "action": "DECLINE",
+          "dispositionShift": -3
+        }
       ],
-      "objectivePool": ["GATHER_ITEMS", "FETCH_ITEM"],
+      "objectivePool": ["KILL_MOBS", "EXPLORE_LOCATION", "TALK_TO_NPC"],
       "objectiveConfig": {
-        "GATHER_ITEMS": { "countMin": 4, "countMax": 10 },
-        "FETCH_ITEM": { "locationPreference": "SETTLEMENT" }
+        "KILL_MOBS": { "countMin": 3, "countMax": 8 }
       }
     },
     {
-      "id": "rivalryofkinsmen_expo_02",
+      "id": "rivalry_expo_skill_challenge",
       "bindings": {
-        "quest_action": "find the missing apprentice and recover the materials",
-        "quest_focus": "a harvest festival wager between two artisans",
-        "quest_stakes": "a missing apprentice lost in dangerous territory",
-        "quest_threat": "a rivalry that has stopped both artisans from doing their jobs",
-        "quest_origin": "a wager over the title of Master Artisan"
+        "quest_action": "complete the trial",
+        "quest_focus": "the proving ground",
+        "quest_stakes": "professional standing",
+        "quest_threat": "bitter resentment",
+        "quest_origin": "a crafting rivalry",
+        "quest_reward_hint": "artisan's gratitude"
       },
       "dialogueChunks": {
-        "intro": "You wouldn't believe the mess this town is in, {player_name}. Two artisans trying to outdo each other and everyone else paying the price.",
-        "plotStep": "Both our blacksmith and our cook entered a wager: whoever produces the finer work by the harvest festival wins the title of Master Artisan of {location}. The problem is, they're both so focused on winning that they've stopped doing their actual jobs. Nobody can get a blade sharpened or a decent meal. Worse, the blacksmith sent someone {location_hint} to gather {quest_item} for their masterpiece and they haven't come back. The {enemy_type} in that area have been aggressive lately. Someone needs to {quest_action}.",
-        "outro": "Find the apprentice and the materials. Maybe once both artisans have what they need, they'll stop holding the settlement hostage."
+        "intro": "Two of our artisans have been feuding for months over who's the superior craftsperson. It's gotten so bad that {quest_ally} refuses to work on the same projects as {target_npc}.",
+        "plotStep": "Both claim they can produce better {quest_item} than the other, and they've dragged the whole settlement into their rivalry. Now they've proposed a challenge: whoever provides the better raw materials wins {quest_focus}. Both are looking for outside help.",
+        "outro": "It's petty, but it's disrupting everything. {player_name}, if you gather the materials they need, we might end {quest_threat} and get our artisans cooperating again."
       },
       "playerResponses": [
-        { "text": "A missing apprentice takes priority. I'll head out now.", "action": "ACCEPT" },
-        { "text": "Rescuing someone caught in a petty rivalry? I suppose I've done stranger things.", "action": "ACCEPT" },
-        { "text": "Their competition, their problem. I've got my own business.", "action": "DECLINE" }
+        {
+          "text": "I'll gather what's needed.",
+          "action": "ACCEPT",
+          "dispositionShift": 3
+        },
+        {
+          "text": "Craftspeople and their egos. Fine, I'll help.",
+          "action": "ACCEPT",
+          "dispositionShift": 1
+        },
+        {
+          "text": "Let them sort out their own squabble.",
+          "action": "DECLINE",
+          "dispositionShift": -2
+        }
       ],
-      "objectivePool": ["EXPLORE_LOCATION", "TALK_TO_NPC", "GATHER_ITEMS"],
+      "objectivePool": ["GATHER_ITEMS", "EXPLORE_LOCATION", "DELIVER_ITEM"],
       "objectiveConfig": {
-        "EXPLORE_LOCATION": { "countMin": 1, "countMax": 3 },
-        "TALK_TO_NPC": { "countMin": 1, "countMax": 1 },
+        "GATHER_ITEMS": { "countMin": 5, "countMax": 16 }
+      }
+    },
+    {
+      "id": "rivalry_expo_glory_hunt",
+      "bindings": {
+        "quest_action": "outperform the rival",
+        "quest_focus": "the hunting trophy",
+        "quest_stakes": "a fighter's reputation",
+        "quest_threat": "reckless one-upmanship",
+        "quest_origin": "a boastful challenge",
+        "quest_time_pressure": "before someone gets killed"
+      },
+      "dialogueChunks": {
+        "intro": "{quest_ally} challenged {target_npc} to a contest: who can clear more {enemy_type} from the land around {location_hint}. What started as bravado has become dangerously reckless.",
+        "plotStep": "Both are taking bigger risks to outdo the other, venturing deeper into hostile territory near {location}. {quest_focus} has become less about protecting the settlement and more about pride. Someone is going to get killed.",
+        "outro": "I need someone out there who can actually thin the {enemy_type} numbers while keeping those two from getting themselves killed. {player_name}, are you up for it?"
+      },
+      "playerResponses": [
+        {
+          "text": "I'll show them both how it's done.",
+          "action": "ACCEPT",
+          "dispositionShift": 5
+        },
+        {
+          "text": "Someone has to be the responsible one.",
+          "action": "ACCEPT",
+          "dispositionShift": 3
+        },
+        {
+          "text": "Let them learn the hard way.",
+          "action": "DECLINE",
+          "dispositionShift": -4
+        }
+      ],
+      "objectivePool": ["KILL_MOBS", "EXPLORE_LOCATION", "GATHER_ITEMS"],
+      "objectiveConfig": {
+        "KILL_MOBS": { "countMin": 5, "countMax": 10 },
         "GATHER_ITEMS": { "countMin": 3, "countMax": 8 }
-      }
-    },
-    {
-      "id": "rivalryofkinsmen_expo_03",
-      "bindings": {
-        "quest_action": "find a new supply source large enough for both traders",
-        "quest_focus": "exclusive trading rights in the tavern",
-        "quest_stakes": "the tavern becoming a battlefield",
-        "quest_threat": "two rival traders escalating a commercial dispute into violence",
-        "quest_origin": "competition for exclusive selling rights"
-      },
-      "dialogueChunks": {
-        "intro": "Listen, {player_name}, I run a tavern, not a boxing ring. But that's what my common room has turned into.",
-        "plotStep": "Two rival traders have been competing for {quest_focus} in {location}. Their arguments turned into shoving matches, and last night one of them smashed a table over the other's goods. {target_npc} is furious. Now both traders are demanding I ban the other from the tavern, and their supporters are taking sides. The only way to cool things down is to prove there's enough supply for both: someone needs to {quest_action} {location_hint}.",
-        "outro": "Find enough {quest_item} to show these fools there's room for everyone, before {quest_stakes}."
-      },
-      "playerResponses": [
-        { "text": "I'd rather brave the wilds than sit through another tavern brawl. I'm on it.", "action": "ACCEPT" },
-        { "text": "Merchant disputes and broken furniture. What's in it for me?", "action": "ACCEPT", "dispositionShift": -5 },
-        { "text": "Not my tavern, not my problem.", "action": "DECLINE" }
-      ],
-      "objectivePool": ["GATHER_ITEMS", "EXPLORE_LOCATION"],
-      "objectiveConfig": {
-        "GATHER_ITEMS": { "countMin": 6, "countMax": 15 },
-        "EXPLORE_LOCATION": { "countMin": 1, "countMax": 2 }
-      }
-    },
-    {
-      "id": "rivalryofkinsmen_expo_04",
-      "bindings": {
-        "quest_action": "gather materials so both crafters can build competing prototypes",
-        "quest_focus": "the new watchtower design",
-        "quest_stakes": "the settlement left without a desperately needed watchtower",
-        "quest_threat": "two crafters holding essential construction hostage over ego",
-        "quest_origin": "competing architectural designs submitted to the council"
-      },
-      "dialogueChunks": {
-        "intro": "{player_name}, I could use someone with no stake in the outcome. Everyone here is picking sides and it's gotten out of hand.",
-        "plotStep": "Our two best crafters both submitted designs for {quest_focus} at {location}. The council can't agree on which plan to use, and now neither crafter will work on anything else until their design is chosen. {target_npc} suggested a test: whoever can produce a working prototype using {quest_item} sourced from the old ruins {location_hint} proves their design is practical. But the ruins are deep in {enemy_type} territory, and neither crafter will set foot outside the walls.",
-        "outro": "If you {quest_action}, we can hold a fair test and end this deadlock. The settlement needs that watchtower."
-      },
-      "playerResponses": [
-        { "text": "A fair test sounds reasonable. I'll get the materials for both.", "action": "ACCEPT" },
-        { "text": "Fetching supplies so two stubborn crafters can compete? At least the watchtower matters.", "action": "ACCEPT" },
-        { "text": "Build it yourselves. I don't settle craft disputes.", "action": "DECLINE" }
-      ],
-      "objectivePool": ["GATHER_ITEMS", "EXPLORE_LOCATION", "KILL_MOBS"],
-      "objectiveConfig": {
-        "GATHER_ITEMS": { "countMin": 5, "countMax": 12 },
-        "EXPLORE_LOCATION": { "countMin": 1, "countMax": 2 },
-        "KILL_MOBS": { "countMin": 2, "countMax": 5 }
       }
     }
   ]

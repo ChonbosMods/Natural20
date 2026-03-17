@@ -1,59 +1,67 @@
 {
   "variants": [
     {
-      "id": "obtaining_reso_01",
+      "id": "obtaining_reso_bounty_secured",
       "dialogueChunks": {
-        "intro": "{player_name}! Is that what I think it is? Let me see!",
-        "plotStep": "This is even better than I hoped. The quality of this {quest_item} is extraordinary. You managed to {quest_action}, and now I can see three projects I can start with this batch alone. {target_npc} is going to be speechless when they see what I craft. {quest_stakes} will benefit the whole settlement for months.",
-        "outro": "You've earned this reward ten times over. And when my masterpiece is finished, I'll make sure your name is attached to it."
+        "intro": "You've done it. {quest_focus} is ours, and there's more than enough to meet our needs. The settlement can breathe easy now.",
+        "plotStep": "{quest_ally} is already putting the {quest_item} to use. {quest_stakes} are no longer a worry thanks to your efforts. Even {target_npc} is impressed with how much you brought back.",
+        "outro": "You've earned every bit of what's coming to you, {player_name}. The settlement won't forget this."
       },
       "playerResponses": [
-        { "text": "Seeing that excitement on your face is reward enough. Craft something amazing.", "action": "ACCEPT" },
-        { "text": "Glad the materials met your standards. I'll take that reward now.", "action": "ACCEPT", "dispositionShift": -5 },
-        { "text": "Happy to help. Make something the settlement will remember.", "action": "ACCEPT" }
+        {
+          "text": "Glad I could provide.",
+          "action": "COMPLETE",
+          "dispositionShift": 8
+        },
+        {
+          "text": "Make sure it lasts this time.",
+          "action": "COMPLETE",
+          "dispositionShift": 4
+        }
       ],
       "objectivePool": [],
       "objectiveConfig": {}
     },
     {
-      "id": "obtaining_reso_02",
+      "id": "obtaining_reso_just_enough",
       "dialogueChunks": {
-        "intro": "You look like you've been through the wringer, {player_name}. But those sacks on your back tell me it was worth it.",
-        "plotStep": "I wasn't sure you'd pull it off. {target_npc} told me the route you took was crawling with dangers, and yet here you are with everything I asked for. You managed to {quest_action}, and this {quest_item} will keep us fed through the worst of the cold months. {quest_stakes} are secured.",
-        "outro": "Take this with my thanks. And come back when the first loaves are out of the oven: you've earned the best seat at the table."
+        "intro": "It was close, but you managed to bring back what we needed. {quest_focus} came through, barely.",
+        "plotStep": "The quantity is tight. {quest_ally} says it will cover {quest_stakes} if we're careful with rationing. But the fact remains: without you out there fighting through {quest_threat}, we'd have nothing at all.",
+        "outro": "Sometimes scraping by is its own kind of victory. Well done, {player_name}."
       },
       "playerResponses": [
-        { "text": "Fresh bread after a long journey? That might be the best reward of all.", "action": "ACCEPT", "dispositionShift": 10 },
-        { "text": "Just doing what needed doing. Feed your people well.", "action": "ACCEPT" }
+        {
+          "text": "It was harder than expected out there.",
+          "action": "COMPLETE",
+          "dispositionShift": 5
+        },
+        {
+          "text": "Next time we should plan better.",
+          "action": "COMPLETE",
+          "dispositionShift": 3
+        }
       ],
       "objectivePool": [],
       "objectiveConfig": {}
     },
     {
-      "id": "obtaining_reso_03",
+      "id": "obtaining_reso_surplus",
       "dialogueChunks": {
-        "intro": "The commission is complete, {player_name}. And it's all thanks to you.",
-        "plotStep": "{target_npc} picked up the finished piece this morning and couldn't believe the quality. You managed to {quest_action}, and the raw materials from that cache were of a grade I haven't worked with in years. {quest_stakes} was worth every obstacle.",
-        "outro": "Here: your share of the commission payment. You took the risks, you deserve the lion's share."
+        "intro": "You outdid yourself. Not only did you secure {quest_focus}, but the surplus you brought back opens new possibilities for the settlement.",
+        "plotStep": "{target_npc} is already talking about trade opportunities. {quest_ally} says the extra {quest_item} could strengthen our position with neighboring settlements. {quest_stakes} are not just met: they're exceeded.",
+        "outro": "You turned a desperate need into an opportunity. {player_name}, you've changed our fortunes."
       },
       "playerResponses": [
-        { "text": "Helping a craftsperson create their best work? That's a good day.", "action": "ACCEPT" },
-        { "text": "Excellent work, excellent pay. Pleasure doing business.", "action": "ACCEPT" },
-        { "text": "If you ever need rare materials again, you know who to call.", "action": "ACCEPT" }
-      ],
-      "objectivePool": [],
-      "objectiveConfig": {}
-    },
-    {
-      "id": "obtaining_reso_04",
-      "dialogueChunks": {
-        "intro": "The trade is done, {player_name}. Everything went through perfectly.",
-        "plotStep": "{target_npc} held up their end of the bargain. You managed to {quest_action}, and the goods you carried back are exactly what we needed. {quest_stakes} are fulfilled, and the whole market square is buzzing about the new stock.",
-        "outro": "You made a dangerous journey look routine. Take this: it's the best we could set aside. You've earned the gratitude of every shop and home here."
-      },
-      "playerResponses": [
-        { "text": "A thriving market is its own reward. But I'll take the payment too.", "action": "ACCEPT" },
-        { "text": "Safe travels and fair trades. That's how it should always work.", "action": "ACCEPT", "dispositionShift": 5 }
+        {
+          "text": "Use it wisely. It wasn't easy to get.",
+          "action": "COMPLETE",
+          "dispositionShift": 10
+        },
+        {
+          "text": "Happy to help the settlement thrive.",
+          "action": "COMPLETE",
+          "dispositionShift": 7
+        }
       ],
       "objectivePool": [],
       "objectiveConfig": {}

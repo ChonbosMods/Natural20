@@ -1,106 +1,113 @@
 {
   "variants": [
     {
-      "id": "madness_expo_01",
+      "id": "madness_expo_cursed_artifact",
       "bindings": {
-        "quest_action": "retrace their steps and find the source of the affliction",
-        "quest_focus": "a strange substance found on the victim's skin",
-        "quest_stakes": "the affliction spreading to others in the settlement",
-        "quest_threat": "an unknown force in the wilderness that shatters minds",
-        "quest_origin": "a walk into the woods that came back wrong"
+        "quest_action": "destroy the relic",
+        "quest_focus": "the corrupted artifact",
+        "quest_stakes": "the afflicted villager",
+        "quest_threat": "the relic's influence",
+        "quest_origin": "a found object",
+        "quest_time_pressure": "before the madness spreads"
       },
       "dialogueChunks": {
-        "intro": "{player_name}, something is wrong with {target_npc}. Deeply, unsettlingly wrong.",
-        "plotStep": "Three days ago they were perfectly normal. Then they wandered into the woods {location_hint} and came back... different. Speaking in fragments, drawing strange symbols on the walls, refusing to eat. The alchemist examined them and found traces of {quest_item} on their skin: {quest_focus} that shouldn't exist naturally in this region. Whatever they encountered out there changed them. I need someone to {quest_action} before {quest_stakes}.",
-        "outro": "I've seen illness and I've seen grief. This is neither. {quest_threat} broke their mind, and I need to know what."
+        "intro": "{target_npc} hasn't been the same since they found that thing. They brought back an artifact from {location_hint} a week ago, and their behavior has been deteriorating ever since.",
+        "plotStep": "At first it was just muttering and sleepless nights. Now they've barricaded themselves in their home, raving about voices and scratching symbols into the walls. {quest_ally} tried to help but was driven off. The artifact pulses with a faint light whenever {target_npc} speaks.",
+        "outro": "We need to get {quest_focus} away from {target_npc} and find out what it is. {player_name}, can you help before {quest_threat} consumes them entirely?"
       },
       "playerResponses": [
-        { "text": "I'll follow their trail and find the source. Keep them safe until I return.", "action": "ACCEPT" },
-        { "text": "Strange substances and broken minds? This feels dangerous. I'll look into it carefully.", "action": "ACCEPT" },
-        { "text": "Cursed territory and madness? I'm not touching this.", "action": "DECLINE" }
+        {
+          "text": "I'll try to reach them and remove it.",
+          "action": "ACCEPT",
+          "dispositionShift": 5
+        },
+        {
+          "text": "Where exactly did they find it?",
+          "action": "ACCEPT",
+          "dispositionShift": 2
+        },
+        {
+          "text": "Cursed objects are beyond me.",
+          "action": "DECLINE",
+          "dispositionShift": -3
+        }
       ],
-      "objectivePool": ["EXPLORE_LOCATION", "GATHER_ITEMS", "FETCH_ITEM"],
+      "objectivePool": ["TALK_TO_NPC", "EXPLORE_LOCATION", "FETCH_ITEM"],
+      "objectiveConfig": {}
+    },
+    {
+      "id": "madness_expo_night_terrors",
+      "bindings": {
+        "quest_action": "find the source",
+        "quest_focus": "the nightmares",
+        "quest_stakes": "the settlement's sanity",
+        "quest_threat": "the spreading affliction",
+        "quest_origin": "shared bad dreams"
+      },
+      "dialogueChunks": {
+        "intro": "Half the settlement woke screaming last night. The same nightmare: darkness, a hum from underground, and a terrible presence watching from {location_hint}.",
+        "plotStep": "{quest_ally} is one of the affected. They describe {quest_focus} as vivid and identical across every victim. This isn't coincidence: something near {location} is projecting these visions. The {enemy_type} in the area have been behaving erratically too.",
+        "outro": "People are afraid to sleep, {player_name}. We need to find what's causing {quest_threat} and put an end to it before the whole settlement falls apart."
+      },
+      "playerResponses": [
+        {
+          "text": "I'll track down whatever is doing this.",
+          "action": "ACCEPT",
+          "dispositionShift": 5
+        },
+        {
+          "text": "Shared nightmares? That's deeply wrong.",
+          "action": "ACCEPT",
+          "dispositionShift": 3
+        },
+        {
+          "text": "Nightmares are just dreams. They'll pass.",
+          "action": "DECLINE",
+          "dispositionShift": -4
+        }
+      ],
+      "objectivePool": ["EXPLORE_LOCATION", "KILL_MOBS", "GATHER_ITEMS"],
       "objectiveConfig": {
-        "EXPLORE_LOCATION": { "countMin": 2, "countMax": 3 },
-        "GATHER_ITEMS": { "countMin": 3, "countMax": 6 },
-        "FETCH_ITEM": { "locationPreference": "WILDERNESS" }
+        "KILL_MOBS": { "countMin": 3, "countMax": 7 },
+        "GATHER_ITEMS": { "countMin": 3, "countMax": 8 }
       }
     },
     {
-      "id": "madness_expo_02",
+      "id": "madness_expo_feral_turn",
       "bindings": {
-        "quest_action": "retrieve a sample of the contamination from its source",
-        "quest_focus": "a contaminated alchemical batch from an unknown cave",
-        "quest_stakes": "the settlement losing more people to the whispers",
-        "quest_threat": "an ancient corruption seeping through tainted ingredients",
-        "quest_origin": "a well-meaning tonic brewed from unknowingly contaminated reagents"
+        "quest_action": "cure the afflicted",
+        "quest_focus": "the feral settlers",
+        "quest_stakes": "their humanity",
+        "quest_threat": "the wild curse",
+        "quest_origin": "a tainted water source",
+        "quest_reward_hint": "the alchemist's thanks"
       },
       "dialogueChunks": {
-        "intro": "Careful where you step, {player_name}. See those markings on the ground? {target_npc} has been carving them all night.",
-        "plotStep": "It started after the alchemist brewed a new tonic using {quest_item} from an unknown source. Three people drank it: two recovered after a few hours of confusion. {target_npc} didn't. They've been speaking to things that aren't there, claiming something in the water at {location} is alive and whispering to them. The alchemist is terrified: says the {quest_item} they used was contaminated with {quest_threat}. The original batch came from a cave {location_hint} where the {enemy_type} have been unusually active.",
-        "outro": "We need a sample of whatever contaminated that batch. Without it, the alchemist can't brew an antidote and {target_npc} may never come back to us."
+        "intro": "Three of our people have gone feral. They fled into the wilds near {location_hint}, snarling and refusing to recognize anyone. It happened overnight.",
+        "plotStep": "{quest_ally} examined the water they'd been drinking and found traces of something unnatural: {quest_item} residue that shouldn't be in our supply. The {enemy_type} may have contaminated the source deliberately. {target_npc} thinks a cure is possible, but needs samples from the contamination site.",
+        "outro": "{quest_focus} are still out there, lost to {quest_threat}. {player_name}, find the source and bring back what {target_npc} needs to brew a cure."
       },
       "playerResponses": [
-        { "text": "Contaminated ingredients and whispers in the water? I'll find the source.", "action": "ACCEPT" },
-        { "text": "If the alchemist caused this, the alchemist should fix it. But I'll get the sample.", "action": "ACCEPT", "dispositionShift": -5 },
-        { "text": "Ancient contamination and cave creatures? I value my sanity too much.", "action": "DECLINE" }
+        {
+          "text": "I'll get the samples and save them.",
+          "action": "ACCEPT",
+          "dispositionShift": 6
+        },
+        {
+          "text": "Are they dangerous in this state?",
+          "action": "ACCEPT",
+          "dispositionShift": 2
+        },
+        {
+          "text": "They might be beyond saving.",
+          "action": "DECLINE",
+          "dispositionShift": -5
+        }
       ],
-      "objectivePool": ["FETCH_ITEM", "EXPLORE_LOCATION", "KILL_MOBS"],
+      "objectivePool": ["GATHER_ITEMS", "EXPLORE_LOCATION", "KILL_MOBS"],
       "objectiveConfig": {
-        "FETCH_ITEM": { "locationPreference": "DUNGEON" },
-        "EXPLORE_LOCATION": { "countMin": 1, "countMax": 2 },
-        "KILL_MOBS": { "countMin": 3, "countMax": 7 }
-      }
-    },
-    {
-      "id": "madness_expo_03",
-      "bindings": {
-        "quest_action": "investigate the crumbling tower from the shared nightmares",
-        "quest_focus": "a recurring nightmare plaguing the entire settlement",
-        "quest_stakes": "the settlement descending into collective insanity",
-        "quest_threat": "something ancient in a crumbling tower broadcasting into people's dreams",
-        "quest_origin": "shared visions of a tower and a demanding voice"
-      },
-      "dialogueChunks": {
-        "intro": "{player_name}, I need your help. The settlement is frightened and I don't blame them.",
-        "plotStep": "People in {location} have been having the same nightmare for a week: vivid images of a crumbling tower {location_hint} and a voice demanding {quest_item}. Most shake it off by morning, but {target_npc} hasn't slept in three days. They wander the streets at dawn, eyes glazed, muttering directions to a place they've never been. The alchemist brewed a sleeping draft but {target_npc} fought it off like they were possessed. Whatever is causing {quest_focus}, it's centered on that tower.",
-        "outro": "I don't believe in curses, {player_name}. But I believe in what I'm seeing. And {quest_threat} terrifies me."
-      },
-      "playerResponses": [
-        { "text": "Shared nightmares and a crumbling tower? I'll investigate. Stay close to {target_npc}.", "action": "ACCEPT" },
-        { "text": "This sounds like more than a bad dream. I'll go, but I need to know everything you know.", "action": "ACCEPT" },
-        { "text": "Cursed towers and possessions? Find a priest, not an adventurer.", "action": "DECLINE" }
-      ],
-      "objectivePool": ["EXPLORE_LOCATION", "FETCH_ITEM"],
-      "objectiveConfig": {
-        "EXPLORE_LOCATION": { "countMin": 2, "countMax": 4 },
-        "FETCH_ITEM": { "locationPreference": "DUNGEON" }
-      }
-    },
-    {
-      "id": "madness_expo_04",
-      "bindings": {
-        "quest_action": "retrieve a fresh sample from the quarry for the alchemist to study",
-        "quest_focus": "a mind-warping artifact pulled from an old quarry",
-        "quest_stakes": "the victim losing their humanity entirely",
-        "quest_threat": "a buried artifact that drives anyone near it to violent paranoia",
-        "quest_origin": "an innocent discovery in abandoned tunnels that turned lethal"
-      },
-      "dialogueChunks": {
-        "intro": "Don't be alarmed by the barricaded house, {player_name}. That's... that's where we're keeping {target_npc}.",
-        "plotStep": "They used to be the kindest soul in {location}. Then they found something in the old quarry {location_hint}: {quest_focus} covered in {quest_item} residue. Since they brought it back, they've been violent, paranoid, attacking anyone who comes close. The alchemist says the residue has properties unlike anything in their books. They need a fresh sample from the quarry to study, but the {enemy_type} have moved into the tunnels since {target_npc} disturbed whatever was down there.",
-        "outro": "We've locked them in for their own safety. But every hour their eyes look a little less like a person's. Please hurry."
-      },
-      "playerResponses": [
-        { "text": "An artifact that drives people mad? I'll get the sample and bring back answers.", "action": "ACCEPT" },
-        { "text": "If there's something dangerous in that quarry, someone should have sealed it long ago. I'll go.", "action": "ACCEPT" },
-        { "text": "Whatever turned them violent could do the same to me. I'll pass.", "action": "DECLINE" }
-      ],
-      "objectivePool": ["FETCH_ITEM", "EXPLORE_LOCATION", "KILL_MOBS"],
-      "objectiveConfig": {
-        "FETCH_ITEM": { "locationPreference": "DUNGEON" },
-        "EXPLORE_LOCATION": { "countMin": 1, "countMax": 2 },
-        "KILL_MOBS": { "countMin": 3, "countMax": 8 }
+        "GATHER_ITEMS": { "countMin": 5, "countMax": 12 },
+        "KILL_MOBS": { "countMin": 2, "countMax": 5 }
       }
     }
   ]

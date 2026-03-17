@@ -3,14 +3,13 @@
     {
       "id": "mistaken_jealousy_reso_01",
       "dialogueChunks": {
-        "intro": "{target_npc} came back, {player_name}. They came back.",
-        "plotStep": "It took hours of talking, but they agreed to return. I apologized in front of the whole settlement: told everyone the truth about {quest_focus} and what I'd done. {target_npc} looked me in the eye and said, 'We've been neighbors too long for one mistake to end it.' I didn't deserve that grace. {quest_threat} was nothing but my own paranoia.",
-        "outro": "You carried the truth when I was too blinded by suspicion to see it. This is yours, with my deepest gratitude."
+        "intro": "The truth came out, {player_name}. Every last bit of it.",
+        "plotStep": "When you laid the evidence before the council, the room went silent. The real culprit was exposed: a merchant who'd been skimming from the stores and blaming {target_npc} to deflect suspicion. {target_npc} was cleared publicly, and the settlement apologized, though some of the damage can't be undone with words. {target_npc} says they'll forgive the community in time, but they won't forget how quickly trust evaporated.",
+        "outro": "You did more than solve a theft, {player_name}. You reminded this settlement that accusation isn't conviction. Take this with our deepest gratitude."
       },
       "playerResponses": [
-        { "text": "Grace given freely is the rarest thing in the world. Treasure it.", "action": "ACCEPT", "dispositionShift": 10 },
-        { "text": "Next time, talk to someone before you accuse them.", "action": "ACCEPT" },
-        { "text": "I'm glad it worked out. Take better care of your friendships.", "action": "ACCEPT" }
+        { "text": "Justice served and a lesson learned. That's the best outcome.", "action": "ACCEPT", "dispositionShift": 10 },
+        { "text": "Tell the council to be more careful next time. Glad it's resolved.", "action": "ACCEPT" }
       ],
       "objectivePool": [],
       "objectiveConfig": {}
@@ -18,13 +17,13 @@
     {
       "id": "mistaken_jealousy_reso_02",
       "dialogueChunks": {
-        "intro": "The debt is paid, {player_name}. The trader took the {quest_item} and left without trouble.",
-        "plotStep": "{target_npc} broke down when I told them what you'd done. Not anger: relief. {quest_stakes} was mended when the settlement rallied around them once they heard the truth. Three families offered to help if collectors come back. We're closer than before, believe it or not.",
-        "outro": "My jealousy nearly destroyed someone, but your persistence turned it into something better. Take this: I set it aside from my own savings."
+        "intro": "{target_npc} has been cleared, {player_name}. But the scars on this community run deep.",
+        "plotStep": "The evidence you recovered proved that the {enemy_type} were responsible for the missing goods, just as I suspected. The council withdrew the charges, and {target_npc} walked free. But the vandalism, the whispers, the isolation: none of that can be taken back. {target_npc} has reopened their workshop, but the customers are slow to return. Some people are ashamed of how they acted. Others are pretending it never happened. Healing will take time, longer than the crisis itself.",
+        "outro": "You gave us the truth. What we do with it is on us. Here, you've more than earned this."
       },
       "playerResponses": [
-        { "text": "Sometimes the worst mistakes lead to the best outcomes. Hold onto this.", "action": "ACCEPT" },
-        { "text": "Just remember this feeling next time suspicion starts whispering.", "action": "ACCEPT", "dispositionShift": 5 }
+        { "text": "The truth only works if people choose to accept it. I hope they do.", "action": "ACCEPT", "dispositionShift": 5 },
+        { "text": "Cleared is cleared. The rest is up to the settlement.", "action": "ACCEPT" }
       ],
       "objectivePool": [],
       "objectiveConfig": {}
@@ -32,13 +31,13 @@
     {
       "id": "mistaken_jealousy_reso_03",
       "dialogueChunks": {
-        "intro": "It's over, {player_name}. The truth is out, and I feel lighter and heavier at the same time.",
-        "plotStep": "{target_npc}'s relative is recovering, thanks to the {quest_item} you brought. And {target_npc} has forgiven me, though they said it'll take time. I understand that. The settlement is quieter now: people being more careful with their assumptions. {quest_threat} turned out to be nothing but my own imagination.",
-        "outro": "You saw through my suspicion to the truth underneath. {quest_stakes} can heal. Please, take this with my thanks."
+        "intro": "The council accepted the evidence, {player_name}, but {target_npc} has decided to leave anyway.",
+        "plotStep": "{target_npc} said they can't live in a place where people turned on them so easily. They packed up this morning: tools, clothes, everything they could carry. I tried to convince them to stay, but they said trust, once broken, doesn't mend cleanly. The settlement feels the absence already. The workshop is dark, the forge is cold, and the people who shouted loudest are the quietest now. Your evidence saved {target_npc}'s name, even if it couldn't save their home here.",
+        "outro": "Some truths arrive too late to undo all the damage. But {target_npc} left with their name intact, and that matters. Take this, from both of us."
       },
       "playerResponses": [
-        { "text": "Trust takes time to rebuild. But the fact that you're trying says a lot.", "action": "ACCEPT", "dispositionShift": 10 },
-        { "text": "Lessons learned the hard way stick the longest. Be well.", "action": "ACCEPT" }
+        { "text": "A name restored is something no one can take away again.", "action": "ACCEPT" },
+        { "text": "Maybe they'll find better people somewhere else. I hope so.", "action": "ACCEPT", "dispositionShift": 5 }
       ],
       "objectivePool": [],
       "objectiveConfig": {}

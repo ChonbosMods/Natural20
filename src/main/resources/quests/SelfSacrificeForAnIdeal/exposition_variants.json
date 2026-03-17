@@ -1,78 +1,104 @@
 {
   "variants": [
     {
-      "id": "self_sacrifice_for_an_ideal_expo_01",
+      "id": "expo_sacrifice_ideal_last_watch",
       "bindings": {
-        "quest_action": "gather barricade materials for a last stand at the watchtower",
-        "quest_focus": "the old watchtower that must hold long enough for evacuation",
-        "quest_stakes": "families being overrun during a chaotic retreat",
-        "quest_threat": "an advancing warband that will crush the settlement without a delay",
-        "quest_time_pressure": "every hour without barricades is an hour closer to losing everyone"
+        "quest_action": "reinforce the last watch",
+        "quest_focus": "the mountain outpost",
+        "quest_stakes": "the valley settlements",
+        "quest_threat": "an overwhelming horde",
+        "quest_origin": "the northern passes",
+        "quest_time_pressure": "before the passes thaw"
       },
       "dialogueChunks": {
-        "intro": "{player_name}, I need to speak with you. What I'm about to say may sound reckless, but I've thought it through a hundred times and my answer is always the same.",
-        "plotStep": "The {enemy_type} have been pushing closer to {location} every night. The outer farms are already abandoned. The council wants to pull everyone behind the walls and wait it out, but I've seen what waiting gets you: slow starvation and a grave nobody remembers. I'm going to take a stand at {quest_focus} {location_hint}. Hold the line there so the families have time to evacuate properly. I need someone to {quest_action} before I go.",
-        "outro": "I know I probably won't come back. But if even one child makes it out because I bought them an extra hour, that's a trade I'll make gladly."
+        "intro": "The outpost at {quest_focus} has sent word. The {enemy_type} are massing in numbers we haven't seen in a generation. The garrison there knows what's coming.",
+        "plotStep": "There are eight soldiers up there. Eight. Against what scouts estimate is several hundred {enemy_type} pushing through {quest_origin}. The garrison commander sent a letter: not asking for reinforcements, just asking that someone look after their families. They've accepted what this means.",
+        "outro": "Those soldiers are choosing to hold the line so {quest_stakes} have time to evacuate. If someone doesn't {quest_action}, their sacrifice buys hours instead of days. Every hour matters."
       },
       "playerResponses": [
-        { "text": "That's the bravest thing I've heard in a long time. I'll get what you need.", "action": "ACCEPT" },
-        { "text": "You're throwing your life away, but I'll help you do it right.", "action": "ACCEPT", "dispositionShift": -5 },
-        { "text": "There has to be a better plan than a suicide stand.", "action": "DECLINE" }
+        {
+          "text": "I won't let them die for nothing. I'll reinforce the outpost.",
+          "action": "ACCEPT",
+          "dispositionShift": 5
+        },
+        {
+          "text": "Eight soldiers can't hold anything. Focus on the evacuation.",
+          "action": "ACCEPT",
+          "dispositionShift": -2
+        },
+        {
+          "text": "I'm not walking into a last stand.",
+          "action": "DECLINE"
+        }
       ],
-      "objectivePool": ["GATHER_ITEMS", "FETCH_ITEM"],
+      "objectivePool": ["EXPLORE_LOCATION", "KILL_MOBS", "DELIVER_ITEM"],
       "objectiveConfig": {
-        "GATHER_ITEMS": { "countMin": 5, "countMax": 12 },
-        "FETCH_ITEM": { "locationPreference": "WILDERNESS" }
+        "KILL_MOBS": { "countMin": 5, "countMax": 10 }
       }
     },
     {
-      "id": "self_sacrifice_for_an_ideal_expo_02",
+      "id": "expo_sacrifice_ideal_forbidden_knowledge",
       "bindings": {
-        "quest_action": "find materials to create a permanent seal for the mine shaft",
-        "quest_focus": "a collapsed mine leaking poison into the river",
-        "quest_stakes": "children continuing to drink contaminated water",
-        "quest_threat": "toxic fumes in the mine that will kill whoever seals it",
-        "quest_origin": "enemy refuse dumped into the water source upstream"
+        "quest_action": "deliver the forbidden texts",
+        "quest_focus": "the banned library",
+        "quest_stakes": "free thought",
+        "quest_threat": "the inquisitor's purge",
+        "quest_origin": "the scholar's cellar",
+        "quest_reward_hint": "a rare translation"
       },
       "dialogueChunks": {
-        "intro": "You carry yourself like someone who understands duty, {player_name}. I hope I'm reading you right.",
-        "plotStep": "There's a sickness spreading through the wells in {location}. The alchemist says it's not natural: something is poisoning the water source upstream. {target_npc} traced it to {quest_focus} {location_hint} where {enemy_type} have been dumping foul refuse into the river. Someone needs to go in and seal the source, but {quest_threat} after prolonged exposure. I've volunteered. All I need is {quest_item} to create a seal strong enough to last.",
-        "outro": "The fumes will take me eventually. I've accepted that. But the water will run clean for generations. That matters more than one old soldier."
+        "intro": "They burned the library in {location} three weeks ago. Called it heresy. The scholar who maintained it vanished the same night.",
+        "plotStep": "What the inquisitors don't know is that the scholar hid copies of the most important texts in {quest_origin} before the fires started. They knew {quest_threat} was coming and chose to protect the knowledge rather than themselves. {quest_focus} held centuries of learning: healing remedies, agricultural techniques, histories that certain people want forgotten.",
+        "outro": "Someone needs to {quest_action} to a safe location before the inquisitors find the hiding spot. The scholar risked everything to preserve {quest_stakes}. It would be a tragedy if that sacrifice was wasted."
       },
       "playerResponses": [
-        { "text": "Let me help you gather what you need. Your sacrifice won't be wasted.", "action": "ACCEPT" },
-        { "text": "I respect your resolve. Tell me where to find the materials.", "action": "ACCEPT" },
-        { "text": "Surely there's a way to seal it without killing yourself in the process.", "action": "DECLINE" }
+        {
+          "text": "Knowledge shouldn't burn. Point me to the cellar.",
+          "action": "ACCEPT",
+          "dispositionShift": 5
+        },
+        {
+          "text": "If I'm caught with banned texts, it's my neck too.",
+          "action": "ACCEPT",
+          "dispositionShift": 0
+        },
+        {
+          "text": "I don't need the inquisitors on my trail.",
+          "action": "DECLINE"
+        }
       ],
-      "objectivePool": ["GATHER_ITEMS", "EXPLORE_LOCATION"],
-      "objectiveConfig": {
-        "GATHER_ITEMS": { "countMin": 4, "countMax": 10 },
-        "EXPLORE_LOCATION": { "countMin": 1, "countMax": 2 }
-      }
+      "objectivePool": ["FETCH_ITEM", "EXPLORE_LOCATION", "DELIVER_ITEM"],
+      "objectiveConfig": {}
     },
     {
-      "id": "self_sacrifice_for_an_ideal_expo_03",
+      "id": "expo_sacrifice_ideal_plague_ward",
       "bindings": {
-        "quest_action": "fetch explosives to rig the bridge supports",
-        "quest_focus": "the only bridge crossing for three days' travel",
-        "quest_stakes": "every settlement on this side of the river being overrun",
-        "quest_threat": "a massive warband that will cross the bridge and destroy everything",
-        "quest_time_pressure": "the warband arriving before the bridge can be collapsed"
+        "quest_action": "supply the quarantine ward",
+        "quest_focus": "the plague ward",
+        "quest_stakes": "the infected families",
+        "quest_threat": "total quarantine collapse",
+        "quest_time_pressure": "before supplies run out"
       },
       "dialogueChunks": {
-        "intro": "I've written my letters. Said my goodbyes in my own way. Now there's just one thing left to do, and I could use your help with part of it, {player_name}.",
-        "plotStep": "{quest_focus} at {location} is the only crossing for three days' travel in either direction. {target_npc} confirmed that a massive {enemy_type} warband is marching this way. If they cross that bridge, {quest_stakes}. I'm going to collapse the bridge once everyone is across, but I need to be on the far side when it falls to make sure it's done right. I need {quest_item} to rig the supports. Will you fetch it?",
-        "outro": "Someone has to be the one who stays behind. I've lived long enough. The young ones haven't."
+        "intro": "The healer at {quest_focus} locked herself in with the sick three days ago. She won't leave until they're cured or dead. The door is barred from the inside.",
+        "plotStep": "She sent a list of what she needs through a gap in the wall: herbs, clean water, bandages. Simple things, but nobody will go near {quest_focus} because they're terrified of the sickness. She knows the risk. She chose the oath she swore over her own safety.",
+        "outro": "If we don't {quest_action} soon, {quest_threat} is inevitable. The healer can save those people, but not without help from someone brave enough to approach the door. {quest_time_pressure}."
       },
       "playerResponses": [
-        { "text": "I'll bring you everything you need. You have my word.", "action": "ACCEPT" },
-        { "text": "This is a hard plan, but it's the right one. I'll help.", "action": "ACCEPT" },
-        { "text": "There must be another way to stop them without losing you.", "action": "DECLINE" }
+        {
+          "text": "She's braver than anyone I know. I'll get her what she needs.",
+          "action": "ACCEPT",
+          "dispositionShift": 5
+        },
+        {
+          "text": "What's to stop the plague from spreading to me?",
+          "action": "ACCEPT",
+          "dispositionShift": 1
+        }
       ],
-      "objectivePool": ["FETCH_ITEM", "GATHER_ITEMS"],
+      "objectivePool": ["GATHER_ITEMS", "DELIVER_ITEM", "FETCH_ITEM"],
       "objectiveConfig": {
-        "FETCH_ITEM": { "locationPreference": "DUNGEON" },
-        "GATHER_ITEMS": { "countMin": 3, "countMax": 8 }
+        "GATHER_ITEMS": { "countMin": 5, "countMax": 15 }
       }
     }
   ]

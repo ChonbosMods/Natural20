@@ -1,60 +1,60 @@
 {
   "variants": [
     {
-      "id": "recovery_of_a_lost_one_conf_01",
+      "id": "recovery_lost_conf_01",
       "dialogueChunks": {
-        "intro": "{player_name}, you found her? You actually found her? But... what do you mean she won't come back?",
-        "plotStep": "She's alive, but she's built a life out there: a small homestead {location_hint}. {quest_focus} didn't come home because she was ashamed of failing the original mission. She needs {quest_item} to winterize before the cold, and the {enemy_type} push closer every week. If we help secure her home, maybe she'll agree to at least visit {location}. {quest_stakes}, but in a way I didn't expect.",
-        "outro": "She's alive and safe, but chose to stay away. I don't know whether to be relieved or heartbroken."
+        "intro": "You found signs of them, {player_name}! But the trail just got much more complicated.",
+        "plotStep": "The markers you recovered confirm that {target_npc} was alive at least until recently. But the trail splits {location_hint}: one path leads toward {enemy_type} territory, the other toward an abandoned settlement. {quest_item} was found along both routes, as if {target_npc} was deliberately leaving a confusing trail, either to lose pursuers or because they were being moved by force. We need you to follow both leads and determine which one is real. The {enemy_type} presence has doubled in the area, and I'm afraid {quest_threat} is closing the window we have.",
+        "outro": "They're close. I can feel it. But close isn't found, and every wrong turn costs time we don't have."
       },
       "playerResponses": [
-        { "text": "One step at a time. Let's keep her safe first.", "action": "ACCEPT" },
-        { "text": "She left you worrying for three seasons by choice? That's rough.", "action": "ACCEPT", "dispositionShift": -5 },
-        { "text": "She's alive and doesn't want to come back. That's your answer.", "action": "DECLINE" }
+        { "text": "Split trails mean someone is being clever. I'll figure out which path is real.", "action": "ACCEPT" },
+        { "text": "Double the territory to cover, double the danger. But I'll see it through.", "action": "ACCEPT" },
+        { "text": "Confusing trails in enemy territory? This is too risky for the lead we have.", "action": "DECLINE" }
       ],
-      "objectivePool": ["GATHER_ITEMS", "KILL_MOBS", "DELIVER_ITEM"],
+      "objectivePool": ["EXPLORE_LOCATION", "KILL_MOBS", "GATHER_ITEMS"],
       "objectiveConfig": {
-        "GATHER_ITEMS": { "countMin": 5, "countMax": 12 },
+        "EXPLORE_LOCATION": { "countMin": 2, "countMax": 3 },
         "KILL_MOBS": { "countMin": 3, "countMax": 7 },
-        "DELIVER_ITEM": {}
+        "GATHER_ITEMS": { "countMin": 3, "countMax": 6 }
       }
     },
     {
-      "id": "recovery_of_a_lost_one_conf_02",
+      "id": "recovery_lost_conf_02",
       "dialogueChunks": {
-        "intro": "The trail went cold, {player_name}. But then something unexpected happened.",
-        "plotStep": "A trader arrived carrying {quest_item} with {target_npc}'s maker's mark. Fresh work, recently crafted. {quest_focus} is confirmed alive and working somewhere, but the trader bought from a middleman {location_hint} deep in {enemy_type} territory. If we trace the supply chain, we find {target_npc}. {quest_threat} makes the journey dangerous.",
-        "outro": "Every lead brings us closer. {quest_stakes}: they're out there."
+        "intro": "{player_name}, we found where {target_npc} has been. And the truth is harder than not knowing.",
+        "plotStep": "{target_npc} didn't vanish by accident. They were captured by the {enemy_type} and put to work in a labor camp {location_hint}. A refugee who escaped the camp described {target_npc} by name and said they're alive but weak. The camp is guarded, fortified, and deep in hostile territory. We need {quest_item} to sustain a rescue effort, and we need to clear the {enemy_type} patrols between here and the camp. {quest_stakes} depends on moving fast: the refugee said they're being moved soon.",
+        "outro": "Alive but captive. That's better than the alternatives, but it means the rescue just became ten times harder."
       },
       "playerResponses": [
-        { "text": "A maker's mark doesn't lie. I'll trace the supply chain.", "action": "ACCEPT" },
-        { "text": "We're playing detective in enemy territory. Could be worse.", "action": "ACCEPT" },
-        { "text": "Chasing middlemen through hostile land isn't my idea of progress.", "action": "DECLINE" }
+        { "text": "A labor camp rescue. Tell me everything the refugee told you.", "action": "ACCEPT" },
+        { "text": "Fortified camp, enemy patrols, time pressure. This is a full operation. I'll need support.", "action": "ACCEPT" },
+        { "text": "Assaulting a fortified labor camp solo is a death sentence.", "action": "DECLINE" }
       ],
-      "objectivePool": ["EXPLORE_LOCATION", "TALK_TO_NPC", "KILL_MOBS"],
+      "objectivePool": ["KILL_MOBS", "EXPLORE_LOCATION", "FETCH_ITEM"],
       "objectiveConfig": {
-        "EXPLORE_LOCATION": { "countMin": 2, "countMax": 4 },
-        "TALK_TO_NPC": { "countMin": 1, "countMax": 1 },
-        "KILL_MOBS": { "countMin": 3, "countMax": 6 }
+        "KILL_MOBS": { "countMin": 5, "countMax": 10 },
+        "EXPLORE_LOCATION": { "countMin": 2, "countMax": 3 },
+        "FETCH_ITEM": { "locationPreference": "DUNGEON" }
       }
     },
     {
-      "id": "recovery_of_a_lost_one_conf_03",
+      "id": "recovery_lost_conf_03",
       "dialogueChunks": {
-        "intro": "{player_name}, the letter was real. But the situation is more complicated than we thought.",
-        "plotStep": "{target_npc} isn't just being held: they've been working for the group willingly in exchange for protection from the {enemy_type}. They want to leave but fear {quest_threat} will retaliate against {location}. The drop point {location_hint} is watched. We need enough {quest_item} to satisfy the group's demands, and a safe escape route. {quest_stakes}, but freedom is within reach.",
-        "outro": "They're so close. {quest_action} is the last step to bringing them home."
+        "intro": "We found {target_npc}'s shelter, {player_name}. They've been surviving alone this whole time.",
+        "plotStep": "{target_npc} is alive and hiding in a makeshift camp {location_hint}, but they're injured and can't travel on their own. The area is thick with {enemy_type}, and {target_npc}'s camp is only hidden because it's so deep in dangerous territory that nobody goes there willingly. We need {quest_item} to treat their injuries and enough cleared path to get them out. The complication is that {target_npc} has been watching the {enemy_type} patterns and says they move in waves: there's a narrow window between patrols when we could slip out, but timing is everything.",
+        "outro": "They survived alone for weeks in the wilderness. The least we can do is get them the last mile home."
       },
       "playerResponses": [
-        { "text": "Negotiation backed by strength. I'll handle both.", "action": "ACCEPT" },
-        { "text": "A willing captive who wants out. That's a delicate situation.", "action": "ACCEPT" },
-        { "text": "If they chose to stay willingly, maybe they should stay.", "action": "DECLINE" }
+        { "text": "Timing and precision. I'll study the patrol patterns and find our window.", "action": "ACCEPT" },
+        { "text": "An injured person in hostile territory. No time for debates. I'm going.", "action": "ACCEPT" },
+        { "text": "Timed escapes through monster patrols with an injured person? The math doesn't work.", "action": "DECLINE" }
       ],
-      "objectivePool": ["GATHER_ITEMS", "KILL_MOBS", "EXPLORE_LOCATION"],
+      "objectivePool": ["KILL_MOBS", "GATHER_ITEMS", "EXPLORE_LOCATION"],
       "objectiveConfig": {
-        "GATHER_ITEMS": { "countMin": 6, "countMax": 14 },
-        "KILL_MOBS": { "countMin": 4, "countMax": 8 },
-        "EXPLORE_LOCATION": { "countMin": 1, "countMax": 3 }
+        "KILL_MOBS": { "countMin": 3, "countMax": 7 },
+        "GATHER_ITEMS": { "countMin": 4, "countMax": 8 },
+        "EXPLORE_LOCATION": { "countMin": 1, "countMax": 2 }
       }
     }
   ]

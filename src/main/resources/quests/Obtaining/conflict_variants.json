@@ -1,79 +1,82 @@
 {
   "variants": [
     {
-      "id": "obtaining_conf_01",
+      "id": "obtaining_conf_contested_ground",
       "dialogueChunks": {
-        "intro": "Bad news, {player_name}. The situation just got more complicated.",
-        "plotStep": "A rival collector heard about the {quest_item} and sent their own team to {quest_focus} {location_hint}. They're stripping the area clean and they're not above violence. {target_npc} spotted them setting up a guarded camp. Their activity has stirred up the {enemy_type}. We need to {quest_action} fast, before the competition or the creatures make it impossible.",
-        "outro": "Speed matters now more than ever. Get in, gather what you can, and get out."
+        "intro": "The area around {quest_focus} is more contested than expected. The {enemy_type} have established a presence near {location_hint} and aren't giving ground easily.",
+        "plotStep": "You'll need to clear out {quest_threat} before you can safely gather what we need. {quest_ally} estimates there are at least a dozen hostiles between here and the objective near {location}.",
+        "outro": "Fight through them and claim what's ours. {quest_stakes} depend on you pushing past this resistance."
       },
       "playerResponses": [
-        { "text": "Competition doesn't scare me. I'll be faster.", "action": "ACCEPT" },
-        { "text": "Rival teams and angry monsters? This just doubled in difficulty and so should my pay.", "action": "ACCEPT", "dispositionShift": -5 },
-        { "text": "Too many parties fighting over the same prize. I'm out.", "action": "DECLINE" }
+        {
+          "text": "Nothing will stop me.",
+          "action": "ACCEPT",
+          "dispositionShift": 4
+        },
+        {
+          "text": "I'll find a way around them.",
+          "action": "ACCEPT",
+          "dispositionShift": 2
+        }
       ],
-      "objectivePool": ["GATHER_ITEMS", "KILL_MOBS", "EXPLORE_LOCATION"],
+      "objectivePool": ["KILL_MOBS", "GATHER_ITEMS"],
       "objectiveConfig": {
-        "GATHER_ITEMS": { "countMin": 6, "countMax": 14 },
-        "KILL_MOBS": { "countMin": 3, "countMax": 7 },
-        "EXPLORE_LOCATION": { "countMin": 1, "countMax": 2 }
+        "KILL_MOBS": { "countMin": 4, "countMax": 10 },
+        "GATHER_ITEMS": { "countMin": 5, "countMax": 14 }
       }
     },
     {
-      "id": "obtaining_conf_02",
+      "id": "obtaining_conf_supply_chain",
       "dialogueChunks": {
-        "intro": "{player_name}, I wish I had better news to greet you with.",
-        "plotStep": "The {quest_item} you brought back isn't the right quality. The impurities make it unusable for {quest_stakes}. {target_npc} says there's a purer vein {location_hint}, deeper underground where the {enemy_type} are thickest. The cave system is unstable. Our efforts to {quest_action} need to go deeper.",
-        "outro": "I'm sorry to send you back out. But without the right materials, everything we've done so far is wasted."
+        "intro": "The first batch you brought back wasn't enough. {quest_ally} says we need more {quest_item} and the only remaining source is closer to {location}, deeper into dangerous territory.",
+        "plotStep": "{target_npc} knows a route {location_hint} that avoids the worst of {quest_threat}, but it passes through rough ground where the {enemy_type} forage. You'll need to gather supplies and handle anything that gets in your way.",
+        "outro": "Get out there and bring back what {quest_stakes} require. Time isn't on our side."
       },
       "playerResponses": [
-        { "text": "Unstable tunnels and monsters? Just another day. I'll find the pure vein.", "action": "ACCEPT" },
-        { "text": "Back into the caves for a second round. This is getting old.", "action": "ACCEPT", "dispositionShift": -5 },
-        { "text": "I already risked my neck once. Find another source.", "action": "DECLINE" }
+        {
+          "text": "Tell me the route. I'll handle the rest.",
+          "action": "ACCEPT",
+          "dispositionShift": 3
+        },
+        {
+          "text": "Deeper means more danger. Let's move.",
+          "action": "ACCEPT",
+          "dispositionShift": 2
+        }
       ],
-      "objectivePool": ["FETCH_ITEM", "EXPLORE_LOCATION", "KILL_MOBS"],
+      "objectivePool": ["GATHER_ITEMS", "EXPLORE_LOCATION", "KILL_MOBS"],
       "objectiveConfig": {
-        "FETCH_ITEM": { "locationPreference": "DUNGEON" },
-        "EXPLORE_LOCATION": { "countMin": 1, "countMax": 2 },
-        "KILL_MOBS": { "countMin": 4, "countMax": 8 }
+        "GATHER_ITEMS": { "countMin": 6, "countMax": 20 },
+        "KILL_MOBS": { "countMin": 2, "countMax": 5 }
       }
     },
     {
-      "id": "obtaining_conf_03",
+      "id": "obtaining_conf_bidding_war",
       "dialogueChunks": {
-        "intro": "Stop, stop, stop. Before you unpack, {player_name}, we have a problem.",
-        "plotStep": "While you were out gathering, someone broke into the workshop and stole the {quest_item} I had already processed. Weeks of work, gone. {target_npc} saw a cloaked figure heading toward the old mill {location_hint}. I suspect it's someone who knows the value of {quest_stakes}. We need those processed materials back, and more raw {quest_item} to replace what can't be recovered, to {quest_action}.",
-        "outro": "I'll reinforce the workshop. You track down the thief and recover what you can."
+        "intro": "A complication: {target_npc} says another settlement is also after {quest_focus}. They've sent their own people to claim it, and they reached the area first.",
+        "plotStep": "We can't afford to lose this. {quest_ally} suggests we gather what remains from alternate sites near {location_hint} while the competition is focused on the main deposit. The {enemy_type} in the area don't care who they attack.",
+        "outro": "Scour the secondary sites and bring back enough to meet our needs. {quest_stakes} cannot wait for negotiations."
       },
       "playerResponses": [
-        { "text": "A thief? I'll find them and bring everything back.", "action": "ACCEPT" },
-        { "text": "Stolen goods on top of monster runs? My rate just went up.", "action": "ACCEPT", "dispositionShift": -5 },
-        { "text": "Your security problems aren't my concern.", "action": "DECLINE" }
+        {
+          "text": "I'll outwork the competition.",
+          "action": "ACCEPT",
+          "dispositionShift": 3
+        },
+        {
+          "text": "Maybe we should try talking to them first.",
+          "action": "ACCEPT",
+          "dispositionShift": 1
+        },
+        {
+          "text": "Let the other settlement have it.",
+          "action": "DECLINE",
+          "dispositionShift": -3
+        }
       ],
-      "objectivePool": ["FETCH_ITEM", "TALK_TO_NPC", "GATHER_ITEMS"],
+      "objectivePool": ["GATHER_ITEMS", "EXPLORE_LOCATION", "TALK_TO_NPC"],
       "objectiveConfig": {
-        "FETCH_ITEM": { "locationPreference": "SETTLEMENT" },
-        "TALK_TO_NPC": { "countMin": 1, "countMax": 1 },
-        "GATHER_ITEMS": { "countMin": 4, "countMax": 8 }
-      }
-    },
-    {
-      "id": "obtaining_conf_04",
-      "dialogueChunks": {
-        "intro": "{player_name}, the route you've been using is gone. Completely impassable.",
-        "plotStep": "A rockslide buried the trail {location_hint} overnight. The only alternative cuts through forest thick with {enemy_type} this time of year. To make it worse, the remaining {quest_item} we had stored was damaged by moisture. We need to replace it all and find a safe way through to {quest_action} and salvage {quest_stakes}.",
-        "outro": "Nature and bad luck keep piling on. But giving up now means losing everything we've invested."
-      },
-      "playerResponses": [
-        { "text": "Blocked trails and ruined stores? I'll carve a new path and restock everything.", "action": "ACCEPT" },
-        { "text": "Every step forward, something knocks us two steps back. Fine, I'll manage.", "action": "ACCEPT" },
-        { "text": "The universe is telling us to quit. I'm listening.", "action": "DECLINE" }
-      ],
-      "objectivePool": ["EXPLORE_LOCATION", "GATHER_ITEMS", "KILL_MOBS"],
-      "objectiveConfig": {
-        "EXPLORE_LOCATION": { "countMin": 2, "countMax": 3 },
-        "GATHER_ITEMS": { "countMin": 5, "countMax": 12 },
-        "KILL_MOBS": { "countMin": 3, "countMax": 6 }
+        "GATHER_ITEMS": { "countMin": 7, "countMax": 18 }
       }
     }
   ]

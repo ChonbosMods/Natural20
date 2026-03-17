@@ -3,57 +3,57 @@
     {
       "id": "erroneous_judgment_conf_01",
       "dialogueChunks": {
-        "intro": "{player_name}... the scout lied. The whole thing was fabricated.",
-        "plotStep": "There was no {enemy_type} army massing. {quest_focus} was a lie: the scout was paid by a rival settlement to trick us into wasting resources. We've already spent half our {quest_item} stockpile arming for a war that was never coming. Now {quest_stakes} is real for the opposite reason: we're vulnerable while the rival's traders close deals {location_hint}. {target_npc} wants retribution, but first we need to recover what we can.",
-        "outro": "We jumped at shadows and {quest_threat} walked right past us. I should have verified before I panicked."
+        "intro": "The situation just became far more dangerous, {player_name}. Our assumptions were built on sand.",
+        "plotStep": "The information we acted on was wrong. Not just incomplete: actively wrong. {target_npc} uncovered that the original report about {quest_focus} was based on evidence that someone tampered with. The real situation {location_hint} is nothing like what we were told, and the {enemy_type} presence there has a purpose nobody anticipated. We need {quest_item} to understand the full picture before more decisions are made on false ground. Every hour we operate on bad intelligence, {quest_stakes} grows more precarious.",
+        "outro": "We built our strategy on a lie. Now we need to tear it down and start over before it collapses on us."
       },
       "playerResponses": [
-        { "text": "We fix what we can. Point me toward the rival traders.", "action": "ACCEPT" },
-        { "text": "Panic is expensive. Let's make sure it doesn't happen again.", "action": "ACCEPT", "dispositionShift": -5 },
-        { "text": "You armed for a fake war. That's your problem, not mine.", "action": "DECLINE" }
+        { "text": "Bad intelligence gets people killed. I'll find the truth.", "action": "ACCEPT" },
+        { "text": "Correcting course mid-crisis. Messy but necessary. I'm in.", "action": "ACCEPT" },
+        { "text": "If the foundation was wrong, the whole operation is compromised. I'm out.", "action": "DECLINE" }
       ],
-      "objectivePool": ["GATHER_ITEMS", "EXPLORE_LOCATION", "TALK_TO_NPC"],
+      "objectivePool": ["EXPLORE_LOCATION", "GATHER_ITEMS", "KILL_MOBS"],
       "objectiveConfig": {
-        "GATHER_ITEMS": { "countMin": 6, "countMax": 14 },
-        "EXPLORE_LOCATION": { "countMin": 1, "countMax": 2 },
-        "TALK_TO_NPC": { "countMin": 1, "countMax": 1 }
+        "EXPLORE_LOCATION": { "countMin": 2, "countMax": 3 },
+        "GATHER_ITEMS": { "countMin": 4, "countMax": 8 },
+        "KILL_MOBS": { "countMin": 3, "countMax": 6 }
       }
     },
     {
       "id": "erroneous_judgment_conf_02",
       "dialogueChunks": {
-        "intro": "I was wrong, {player_name}. Completely, devastatingly wrong.",
-        "plotStep": "{target_npc} wasn't tipping off raiders. {quest_focus} were being intercepted by {enemy_type} who found an old game trail {location_hint}. {target_npc} figured it out on their own and was secretly rerouting deliveries. And I accused them of treason in front of everyone. They've resigned and left {location}. I need you to find them and clear the trail of {enemy_type}. I'll need {quest_item} to rebuild the damaged supply line.",
-        "outro": "I destroyed a good person's reputation because I wanted a simple answer. {quest_threat} was in my own head."
+        "intro": "{player_name}, the people we tried to protect are now in greater danger because of what we did.",
+        "plotStep": "Our actions based on {quest_focus} provoked a retaliation nobody expected. The {enemy_type} struck back at {location} in force, and {target_npc} barely organized a defense in time. The settlement blames us for stirring the hornet's nest, and they're not entirely wrong. We made a judgment call on bad information and innocent people suffered for it. Now we need to gather {quest_item} from the aftermath {location_hint} and find a way to de-escalate before {quest_threat} spirals beyond recovery.",
+        "outro": "We meant well. That doesn't undo the harm. But maybe we can still prevent the worst of it."
       },
       "playerResponses": [
-        { "text": "People can forgive honest mistakes. I'll bring them back.", "action": "ACCEPT" },
-        { "text": "You owe {target_npc} more than an apology. But I'll start with finding them.", "action": "ACCEPT", "dispositionShift": -5 },
-        { "text": "You drove away the one person trying to help. Fix it yourself.", "action": "DECLINE" }
+        { "text": "Cleaning up a mistake is harder than making one. But it has to be done.", "action": "ACCEPT" },
+        { "text": "Retaliation we caused. Wonderful. I'll fix it, but this better be the last time.", "action": "ACCEPT", "dispositionShift": -5 },
+        { "text": "This is a mess of your own making. Dig yourselves out.", "action": "DECLINE" }
       ],
-      "objectivePool": ["TALK_TO_NPC", "KILL_MOBS", "GATHER_ITEMS"],
+      "objectivePool": ["KILL_MOBS", "GATHER_ITEMS", "EXPLORE_LOCATION"],
       "objectiveConfig": {
-        "TALK_TO_NPC": { "countMin": 1, "countMax": 1 },
         "KILL_MOBS": { "countMin": 4, "countMax": 8 },
-        "GATHER_ITEMS": { "countMin": 5, "countMax": 10 }
+        "GATHER_ITEMS": { "countMin": 3, "countMax": 7 },
+        "EXPLORE_LOCATION": { "countMin": 1, "countMax": 2 }
       }
     },
     {
       "id": "erroneous_judgment_conf_03",
       "dialogueChunks": {
-        "intro": "{player_name}, the evidence you found cleared {target_npc} completely. And it gets worse.",
-        "plotStep": "{quest_origin} was a setup. The traveler worked for a bandit group that wanted us distracted. While we held {quest_stakes}, they raided our supply cache {location_hint} and made off with a cartload of {quest_item}. {target_npc} tried to warn us but nobody listened. Now they're refusing to speak to anyone.",
-        "outro": "We imprisoned an innocent person while the real criminals robbed us blind. {quest_threat} played us perfectly."
+        "intro": "We were played, {player_name}. Deliberately, expertly played.",
+        "plotStep": "{target_npc} found documents {location_hint} that prove the false information about {quest_focus} was planted intentionally. Someone wanted us to act rashly, to turn our attention the wrong way while they moved on {quest_stakes} unopposed. The {enemy_type} were a distraction, herded toward us to keep our hands full while the real threat slipped past. We need {quest_item} from the site where the deception was staged, and we need to move fast before whoever orchestrated this covers their tracks completely.",
+        "outro": "We didn't make a mistake: we were led into one. And the puppeteer is still pulling strings."
       },
       "playerResponses": [
-        { "text": "One step at a time. First the supplies, then the trust.", "action": "ACCEPT" },
-        { "text": "Played like fools by a stranger. At least you can learn from it.", "action": "ACCEPT" },
-        { "text": "You imprisoned someone innocent. I don't want to be part of this.", "action": "DECLINE" }
+        { "text": "If someone set this trap, I'll find them. Show me where the deception started.", "action": "ACCEPT" },
+        { "text": "Manipulated into a crisis. Whoever did this is clever and dangerous.", "action": "ACCEPT" },
+        { "text": "Fighting a manipulator who's always a step ahead? That's a losing game.", "action": "DECLINE" }
       ],
-      "objectivePool": ["FETCH_ITEM", "EXPLORE_LOCATION", "KILL_MOBS"],
+      "objectivePool": ["EXPLORE_LOCATION", "FETCH_ITEM", "KILL_MOBS"],
       "objectiveConfig": {
+        "EXPLORE_LOCATION": { "countMin": 2, "countMax": 3 },
         "FETCH_ITEM": { "locationPreference": "DUNGEON" },
-        "EXPLORE_LOCATION": { "countMin": 1, "countMax": 3 },
         "KILL_MOBS": { "countMin": 3, "countMax": 7 }
       }
     }

@@ -1,107 +1,116 @@
 {
   "variants": [
     {
-      "id": "fatalimprudence_expo_01",
+      "id": "imprudence_expo_collapsed_mine",
       "bindings": {
-        "quest_action": "gather materials to reinforce the barricades before the swarm arrives",
-        "quest_focus": "a disturbed breeding ground now swarming toward the settlement",
-        "quest_stakes": "the settlement being overrun by a swarm drawn by recklessness",
-        "quest_threat": "a provoked creature swarm bearing down on undefended walls",
-        "quest_origin": "a reckless expedition that pushed past the safe markers"
+        "quest_action": "rescue the miners",
+        "quest_focus": "the collapsed shaft",
+        "quest_stakes": "trapped workers",
+        "quest_threat": "a structural failure",
+        "quest_origin": "reckless digging",
+        "quest_time_pressure": "before air runs out"
       },
       "dialogueChunks": {
-        "intro": "{player_name}, I've made a terrible mistake and people are going to die if I don't fix it.",
-        "plotStep": "I led an expedition {location_hint} last week to chart a shortcut through the mountains. Against every warning, I pushed the group past the safe markers. We stumbled into a {enemy_type} breeding ground and barely escaped. But we didn't just run: we disturbed their nests, and now {quest_focus} is headed toward {location} in numbers nobody has seen before. {target_npc} is organizing defenses, but we need {quest_item} to reinforce the barricades and we need it yesterday.",
-        "outro": "This is my fault. Every bit of it. But the people in {location} shouldn't pay for my arrogance. Help me make this right."
+        "intro": "The mine {location_hint} collapsed this morning. Workers are trapped below. The worst part: we were warned the supports were failing, and someone decided to keep digging anyway.",
+        "plotStep": "{quest_ally} tried to stop the expansion, but the foreman pushed ahead for more {quest_item}. Now {quest_focus} has buried at least four workers. The {enemy_type} have been spotted near the surface entrance, drawn by the commotion.",
+        "outro": "Those people don't have long, {player_name}. We need someone to clear the entrance, drive off the {enemy_type}, and get supplies to the trapped workers before {quest_stakes} are lost."
       },
       "playerResponses": [
-        { "text": "Blame can wait. Tell me what you need and where to find it.", "action": "ACCEPT" },
-        { "text": "You stirred up a hornet's nest and now the town pays. I'll help, but you owe them an explanation.", "action": "ACCEPT", "dispositionShift": -5 },
-        { "text": "You made this mess. Clean it up yourself.", "action": "DECLINE" }
+        {
+          "text": "Lives first. I'm going now.",
+          "action": "ACCEPT",
+          "dispositionShift": 6
+        },
+        {
+          "text": "How deep are they trapped?",
+          "action": "ACCEPT",
+          "dispositionShift": 2
+        },
+        {
+          "text": "Reckless fools. Not my problem.",
+          "action": "DECLINE",
+          "dispositionShift": -5
+        }
+      ],
+      "objectivePool": ["EXPLORE_LOCATION", "KILL_MOBS", "GATHER_ITEMS"],
+      "objectiveConfig": {
+        "KILL_MOBS": { "countMin": 3, "countMax": 6 },
+        "GATHER_ITEMS": { "countMin": 4, "countMax": 10 }
+      }
+    },
+    {
+      "id": "imprudence_expo_provoked_horde",
+      "bindings": {
+        "quest_action": "thin the horde",
+        "quest_focus": "the agitated nest",
+        "quest_stakes": "the outer farms",
+        "quest_threat": "the retaliating swarm",
+        "quest_origin": "a foolish raid"
+      },
+      "dialogueChunks": {
+        "intro": "Someone did something very stupid. A group of hotheads from the settlement attacked an {enemy_type} nest near {location_hint}, thinking they'd be heroes. They poked the nest and ran.",
+        "plotStep": "Now {quest_focus} has erupted. The {enemy_type} are retaliating with everything they have, and they're heading straight for {quest_stakes}. {quest_ally} is organizing a defense, but the horde is larger than anything we've prepared for.",
+        "outro": "The idiots who caused this are nursing their wounds. We need someone capable to get out there and reduce {quest_threat} before it overwhelms our defenses. {player_name}, can you fight?"
+      },
+      "playerResponses": [
+        {
+          "text": "Point me at them. I'll thin the numbers.",
+          "action": "ACCEPT",
+          "dispositionShift": 5
+        },
+        {
+          "text": "Your people caused this, but I'll help.",
+          "action": "ACCEPT",
+          "dispositionShift": 1
+        },
+        {
+          "text": "Clean up your own mess.",
+          "action": "DECLINE",
+          "dispositionShift": -4
+        }
+      ],
+      "objectivePool": ["KILL_MOBS", "EXPLORE_LOCATION", "GATHER_ITEMS"],
+      "objectiveConfig": {
+        "KILL_MOBS": { "countMin": 5, "countMax": 10 },
+        "GATHER_ITEMS": { "countMin": 3, "countMax": 8 }
+      }
+    },
+    {
+      "id": "imprudence_expo_burned_bridge",
+      "bindings": {
+        "quest_action": "restore the supply line",
+        "quest_focus": "the destroyed bridge",
+        "quest_stakes": "trade access",
+        "quest_threat": "total isolation",
+        "quest_origin": "a careless fire",
+        "quest_reward_hint": "trader's discount"
+      },
+      "dialogueChunks": {
+        "intro": "The bridge to {location} is gone. A campfire left unattended caught the supports, and the whole structure went up overnight. Our only reliable supply route is severed.",
+        "plotStep": "{target_npc} is furious. That bridge was our lifeline for {quest_item} and other essentials. {quest_ally} says we can establish an alternate route {location_hint}, but it passes through {enemy_type} territory and needs to be secured first.",
+        "outro": "We need materials, we need the path cleared, and we need it done before {quest_threat} cuts us off completely. {player_name}, will you help open the new route?"
+      },
+      "playerResponses": [
+        {
+          "text": "I'll clear the route and gather what's needed.",
+          "action": "ACCEPT",
+          "dispositionShift": 4
+        },
+        {
+          "text": "Who left the fire unattended?",
+          "action": "ACCEPT",
+          "dispositionShift": 1
+        },
+        {
+          "text": "Find your own way across.",
+          "action": "DECLINE",
+          "dispositionShift": -3
+        }
       ],
       "objectivePool": ["GATHER_ITEMS", "KILL_MOBS", "EXPLORE_LOCATION"],
       "objectiveConfig": {
-        "GATHER_ITEMS": { "countMin": 5, "countMax": 12 },
-        "KILL_MOBS": { "countMin": 4, "countMax": 8 },
-        "EXPLORE_LOCATION": { "countMin": 1, "countMax": 2 }
-      }
-    },
-    {
-      "id": "fatalimprudence_expo_02",
-      "bindings": {
-        "quest_action": "gather a neutralizing agent from the wetlands",
-        "quest_focus": "contaminated soil spreading toward the water table",
-        "quest_stakes": "the entire harvest being lost and the water supply poisoned",
-        "quest_threat": "an untested compound destroying the land from within",
-        "quest_origin": "an experimental formula applied without proper testing"
-      },
-      "dialogueChunks": {
-        "intro": "I don't deserve your help, {player_name}. But the people who are suffering because of me do.",
-        "plotStep": "I mixed an experimental compound without proper testing: thought I could speed up crop growth for {location}. Instead, it poisoned the soil. {quest_focus} is spreading, and the harvest is ruined. {target_npc} warned me not to use untested formulas, and I didn't listen. The only thing that can neutralize the compound is {quest_item}, found deep in the wetlands {location_hint}. The {enemy_type} have claimed that territory, but it's the only source.",
-        "outro": "A season's harvest, gone because I was too impatient. Please, help me undo this before the damage becomes permanent."
-      },
-      "playerResponses": [
-        { "text": "Poisoned soil is a crisis worth fixing. Point me to the wetlands.", "action": "ACCEPT" },
-        { "text": "You owe {target_npc} an apology. But I'll get your remedy.", "action": "ACCEPT" },
-        { "text": "Your experiment, your consequences. Figure it out.", "action": "DECLINE" }
-      ],
-      "objectivePool": ["GATHER_ITEMS", "FETCH_ITEM", "KILL_MOBS"],
-      "objectiveConfig": {
-        "GATHER_ITEMS": { "countMin": 6, "countMax": 14 },
-        "FETCH_ITEM": { "locationPreference": "WILDERNESS" },
-        "KILL_MOBS": { "countMin": 2, "countMax": 5 }
-      }
-    },
-    {
-      "id": "fatalimprudence_expo_03",
-      "bindings": {
-        "quest_action": "collect samples from the sealed chamber for analysis",
-        "quest_focus": "the unsealed chamber now driving creatures into a frenzy",
-        "quest_stakes": "coordinated attacks overwhelming the settlement's defenses",
-        "quest_threat": "an ancient force released from a chamber that should have stayed sealed",
-        "quest_origin": "an explorer opening a sealed chamber thinking it was a storehouse"
-      },
-      "dialogueChunks": {
-        "intro": "{player_name}, I need to tell you something before you hear it from someone else. I'm the reason {location} is in danger.",
-        "plotStep": "I found an old sealed chamber {location_hint} during my travels and opened it, thinking it was an abandoned storehouse. It wasn't. Whatever was locked inside is now loose: the {enemy_type} near {location} have become frenzied since that night, attacking in patterns they never used before. {target_npc} says something is driving them, coordinating them. I think I unleashed {quest_threat}. The only clue I have is the {quest_item} I found scattered around the chamber entrance.",
-        "outro": "I should have left that seal alone. Now I need to help fix what I broke, and I can't do it alone."
-      },
-      "playerResponses": [
-        { "text": "Unsealed horrors and frenzied monsters. I'll get the samples and we'll figure this out.", "action": "ACCEPT" },
-        { "text": "You opened a sealed chamber without knowing what was inside? Reckless. But I'll help.", "action": "ACCEPT", "dispositionShift": -5 },
-        { "text": "You unleashed something ancient and expect me to clean it up? No.", "action": "DECLINE" }
-      ],
-      "objectivePool": ["FETCH_ITEM", "EXPLORE_LOCATION", "KILL_MOBS"],
-      "objectiveConfig": {
-        "FETCH_ITEM": { "locationPreference": "DUNGEON" },
-        "EXPLORE_LOCATION": { "countMin": 2, "countMax": 3 },
+        "GATHER_ITEMS": { "countMin": 6, "countMax": 16 },
         "KILL_MOBS": { "countMin": 3, "countMax": 7 }
-      }
-    },
-    {
-      "id": "fatalimprudence_expo_04",
-      "bindings": {
-        "quest_action": "track the con artist and recover the stolen reserves",
-        "quest_focus": "the settlement's entire supply reserve lost to a scam",
-        "quest_stakes": "the settlement starving because of a fool's gamble",
-        "quest_threat": "a swindler with connections to hostile forces",
-        "quest_origin": "a greedy trade deal that was too good to be true"
-      },
-      "dialogueChunks": {
-        "intro": "I know that look, {player_name}. Everyone in {location} is giving me the same one. I deserve it.",
-        "plotStep": "I gambled with the settlement's entire reserve of {quest_item} on a trade deal that turned out to be a scam. A merchant promised triple returns and I believed every word. Now {quest_focus}: the supplies are gone, the merchant has vanished {location_hint}, and {target_npc} is trying to figure out how to keep people fed with nothing. {quest_threat} was last seen heading toward {enemy_type} territory: probably has contacts among them, which should have been my first warning.",
-        "outro": "I was greedy and stupid, and the whole settlement is paying for it. If there's any chance of recovering those supplies, I have to try."
-      },
-      "playerResponses": [
-        { "text": "A con artist preying on settlements? I'll track them down.", "action": "ACCEPT" },
-        { "text": "You gambled everything on a stranger's promise. Unbelievable. But the settlement shouldn't starve for your mistake.", "action": "ACCEPT", "dispositionShift": -5 },
-        { "text": "You got swindled. That's a lesson, not my problem.", "action": "DECLINE" }
-      ],
-      "objectivePool": ["EXPLORE_LOCATION", "TALK_TO_NPC", "FETCH_ITEM"],
-      "objectiveConfig": {
-        "EXPLORE_LOCATION": { "countMin": 2, "countMax": 4 },
-        "TALK_TO_NPC": { "countMin": 1, "countMax": 1 },
-        "FETCH_ITEM": { "locationPreference": "WILDERNESS" }
       }
     }
   ]

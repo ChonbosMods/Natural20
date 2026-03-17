@@ -1,105 +1,110 @@
 {
   "variants": [
     {
-      "id": "enemityofkinsmen_expo_01",
+      "id": "enemity_expo_broken_pact",
       "bindings": {
-        "quest_action": "uncover the truth behind a land dispute",
-        "quest_focus": "the contested field between two families",
-        "quest_stakes": "the settlement tearing itself apart from within",
-        "quest_threat": "an ancient grudge escalating into violence",
-        "quest_origin": "a boundary dispute that ignited old resentments"
+        "quest_action": "mediate the dispute",
+        "quest_focus": "the broken agreement",
+        "quest_stakes": "the alliance",
+        "quest_threat": "escalating hostility",
+        "quest_origin": "a violated trade pact"
       },
       "dialogueChunks": {
-        "intro": "{player_name}, I need an outsider's ear. Things in {location} have gotten ugly, and everyone here is too tangled up to see straight.",
-        "plotStep": "Two of our oldest families are at each other's throats. It started over {quest_focus}: who rightfully owns it. But now {target_npc} is threatening to burn the other family's storehouse, and accusations of sabotage are flying both ways. The guard tried to intervene but both sides accused them of taking the other's part. Someone neutral needs to {quest_action} before {quest_stakes}.",
-        "outro": "I'm not asking you to pick a side. I'm asking you to find the facts before someone gets killed."
+        "intro": "There's been a falling out between us and the people at {location}. A trade agreement that held for years was broken, and accusations are flying in both directions.",
+        "plotStep": "{quest_ally} was our negotiator, and they say {target_npc} over in {location} deliberately shorted our last shipment. But {target_npc} claims we were the ones who changed the terms. Meanwhile, the {enemy_type} are circling both settlements like vultures.",
+        "outro": "If we don't resolve {quest_focus} quickly, two allies could become enemies while {quest_threat} picks us apart. {player_name}, can you look into this with fresh eyes?"
       },
       "playerResponses": [
-        { "text": "I'll look into it. But both sides need to agree to accept what I find.", "action": "ACCEPT" },
-        { "text": "Settling feuds isn't my trade, but I'll see what I can do.", "action": "ACCEPT", "dispositionShift": -5 },
-        { "text": "Family grudges are quicksand. I'm staying out of this.", "action": "DECLINE" }
+        {
+          "text": "I'll hear both sides and sort it out.",
+          "action": "ACCEPT",
+          "dispositionShift": 5
+        },
+        {
+          "text": "Someone has to keep the peace. I'll try.",
+          "action": "ACCEPT",
+          "dispositionShift": 3
+        },
+        {
+          "text": "Your quarrels aren't my problem.",
+          "action": "DECLINE",
+          "dispositionShift": -4
+        }
       ],
-      "objectivePool": ["TALK_TO_NPC", "EXPLORE_LOCATION", "FETCH_ITEM"],
-      "objectiveConfig": {
-        "TALK_TO_NPC": { "countMin": 1, "countMax": 1 },
-        "EXPLORE_LOCATION": { "countMin": 1, "countMax": 2 },
-        "FETCH_ITEM": { "locationPreference": "SETTLEMENT" }
-      }
+      "objectivePool": ["TALK_TO_NPC", "DELIVER_ITEM", "EXPLORE_LOCATION"],
+      "objectiveConfig": {}
     },
     {
-      "id": "enemityofkinsmen_expo_02",
+      "id": "enemity_expo_territory_clash",
       "bindings": {
-        "quest_action": "scout the real threat so the leaders stop arguing",
-        "quest_focus": "the defense strategy for the settlement",
-        "quest_stakes": "the settlement being left defenseless while its leaders fight",
-        "quest_threat": "an external enemy exploiting internal division",
-        "quest_origin": "a disagreement between the guard captain and the village elder"
+        "quest_action": "settle the boundary",
+        "quest_focus": "the disputed land",
+        "quest_stakes": "two settlements' peace",
+        "quest_threat": "open conflict",
+        "quest_origin": "a boundary dispute",
+        "quest_time_pressure": "before blood is shed"
       },
       "dialogueChunks": {
-        "intro": "Keep your voice down, {player_name}. The walls have ears in {location} these days.",
-        "plotStep": "Our guard captain and the village elder have turned on each other. The captain wants to fortify {location} and conscript farmers into militia service. The elder says that will destroy the harvest and starve everyone. {target_npc} tried to broker a compromise and got shouted down by both. Meanwhile, {enemy_type} have been spotted {location_hint} and nobody can agree on how to respond. We need someone to {quest_action}, not fury.",
-        "outro": "If we don't figure this out soon, the {enemy_type} won't need to attack. We'll tear ourselves apart first."
+        "intro": "A stretch of land {location_hint} has become a flashpoint. Both our settlement and {location} claim rights to it, and people on both sides are arming up.",
+        "plotStep": "{quest_ally} tried to calm things down, but {target_npc} brought armed workers to {quest_focus} yesterday. Our people nearly came to blows. The {enemy_type} have been raiding both sides, which makes everyone angrier and more suspicious.",
+        "outro": "We need an outsider to walk between both camps and find a solution before {quest_threat} turns into something we can't take back. {player_name}, will you help?"
       },
       "playerResponses": [
-        { "text": "I'll scout the threat and bring back a clear report. That should end the argument.", "action": "ACCEPT" },
-        { "text": "Political squabbles and monster threats? I'll handle the monsters. You handle the politics.", "action": "ACCEPT" },
-        { "text": "I don't get between leaders fighting for power. Good luck.", "action": "DECLINE" }
+        {
+          "text": "I'll go speak to both sides.",
+          "action": "ACCEPT",
+          "dispositionShift": 4
+        },
+        {
+          "text": "Violence won't solve anything. I'll mediate.",
+          "action": "ACCEPT",
+          "dispositionShift": 6
+        },
+        {
+          "text": "Fight it out among yourselves.",
+          "action": "DECLINE",
+          "dispositionShift": -5
+        }
       ],
-      "objectivePool": ["EXPLORE_LOCATION", "KILL_MOBS"],
+      "objectivePool": ["TALK_TO_NPC", "EXPLORE_LOCATION", "KILL_MOBS"],
       "objectiveConfig": {
-        "EXPLORE_LOCATION": { "countMin": 2, "countMax": 3 },
-        "KILL_MOBS": { "countMin": 3, "countMax": 6 }
-      }
-    },
-    {
-      "id": "enemityofkinsmen_expo_03",
-      "bindings": {
-        "quest_action": "track down the merchant who arranged the deal",
-        "quest_focus": "a disputed trade shipment claimed by both families",
-        "quest_stakes": "a grudge that simmers for years with no resolution",
-        "quest_threat": "two families holding the settlement hostage over a vague contract",
-        "quest_origin": "a poorly worded trade agreement"
-      },
-      "dialogueChunks": {
-        "intro": "{player_name}, do you see those two groups glaring at each other across the square? That's been every day for the past two weeks.",
-        "plotStep": "A shipment of {quest_item} arrived from a neighboring settlement: enough to see us through the season. But the delivery was split between two families who both claim the full amount was promised to them. {target_npc} has the original trade agreement but it's vague enough that both sides think they're right. Now the {quest_item} is locked in the storehouse and nobody gets any until this is resolved. I need someone to {quest_action}: last seen heading {location_hint}.",
-        "outro": "Bring back the merchant, or at least their ledger. Without proof, {quest_stakes}."
-      },
-      "playerResponses": [
-        { "text": "I'll find the merchant and settle this once and for all.", "action": "ACCEPT" },
-        { "text": "Chasing down merchants to settle a squabble? Fine, but you owe me.", "action": "ACCEPT", "dispositionShift": -5 },
-        { "text": "Sort out your own supply disputes. I'm passing through.", "action": "DECLINE" }
-      ],
-      "objectivePool": ["TALK_TO_NPC", "EXPLORE_LOCATION"],
-      "objectiveConfig": {
-        "TALK_TO_NPC": { "countMin": 1, "countMax": 1 },
-        "EXPLORE_LOCATION": { "countMin": 1, "countMax": 3 }
-      }
-    },
-    {
-      "id": "enemityofkinsmen_expo_04",
-      "bindings": {
-        "quest_action": "recover the hidden supplies and prove the family's innocence",
-        "quest_focus": "falsely accused family stores moved for safekeeping",
-        "quest_stakes": "a family's reputation being destroyed by a false accusation",
-        "quest_threat": "a brother's betrayal poisoning the entire community",
-        "quest_origin": "supplies secretly moved to protect them from raiders"
-      },
-      "dialogueChunks": {
-        "intro": "I hate to burden a stranger with our troubles, {player_name}, but I'm at the end of my rope.",
-        "plotStep": "My own brother has turned half the settlement against us. He claims our family stole {quest_item} from the communal stores, and now people I've known my whole life won't look me in the eye. The truth is, those supplies were moved to a safer location {location_hint} after we heard rumors about {enemy_type} raiding. {target_npc} helped us move them, but now they're too frightened to speak up. If you could {quest_action}, it would prove we never stole a thing.",
-        "outro": "My family's name is all we have. Please help me clear it."
-      },
-      "playerResponses": [
-        { "text": "If the supplies are where you say they are, I'll bring them back and set the record straight.", "action": "ACCEPT" },
-        { "text": "Family drama and missing supplies. Not my usual work, but I'll look into it.", "action": "ACCEPT" },
-        { "text": "Family feuds run too deep for an outsider to fix. I'm sorry.", "action": "DECLINE" }
-      ],
-      "objectivePool": ["FETCH_ITEM", "EXPLORE_LOCATION", "KILL_MOBS"],
-      "objectiveConfig": {
-        "FETCH_ITEM": { "locationPreference": "WILDERNESS" },
-        "EXPLORE_LOCATION": { "countMin": 1, "countMax": 2 },
         "KILL_MOBS": { "countMin": 2, "countMax": 5 }
+      }
+    },
+    {
+      "id": "enemity_expo_poisoned_well",
+      "bindings": {
+        "quest_action": "find the saboteur",
+        "quest_focus": "the contaminated supply",
+        "quest_stakes": "trust between allies",
+        "quest_threat": "mutual suspicion",
+        "quest_origin": "a poisoned water source"
+      },
+      "dialogueChunks": {
+        "intro": "Our water supply was fouled two nights ago. Deliberately. And the only people with access to that cistern besides us are our allies from {location}.",
+        "plotStep": "{quest_ally} doesn't believe {target_npc}'s people would do this, but the evidence points their way. Someone left {quest_item} residue near the cistern, and that material comes from the mines near {location_hint}. If this was truly sabotage by allies, everything changes.",
+        "outro": "We need the truth, {player_name}. Investigate {quest_focus} and find out who really did this before {quest_threat} destroys an alliance that took years to build."
+      },
+      "playerResponses": [
+        {
+          "text": "I'll find out who's really behind this.",
+          "action": "ACCEPT",
+          "dispositionShift": 5
+        },
+        {
+          "text": "Could be a setup. I'll investigate.",
+          "action": "ACCEPT",
+          "dispositionShift": 4
+        },
+        {
+          "text": "It was probably just bad luck.",
+          "action": "DECLINE",
+          "dispositionShift": -2
+        }
+      ],
+      "objectivePool": ["EXPLORE_LOCATION", "TALK_TO_NPC", "GATHER_ITEMS"],
+      "objectiveConfig": {
+        "GATHER_ITEMS": { "countMin": 3, "countMax": 8 }
       }
     }
   ]

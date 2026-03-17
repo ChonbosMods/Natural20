@@ -1,57 +1,67 @@
 {
   "variants": [
     {
-      "id": "abduction_reso_01",
+      "id": "abduction_reso_rescue",
       "dialogueChunks": {
-        "intro": "She's home, {player_name}. My daughter is home. I can't stop shaking.",
-        "plotStep": "She ran to me the moment she saw the gate. She's thin, she's scared, and she flinches at loud noises, but she's alive because you managed to {quest_action}. {target_npc} is looking after the other rescued captives. {quest_stakes} are resolved: they're all in similar shape, but the healer says they'll recover.",
-        "outro": "You brought my daughter back to me. I don't have words big enough for that. Take everything I can offer, and know it will never be enough."
+        "intro": "You've done it. {quest_focus} has been found, shaken but alive. The {quest_threat} is broken, at least for now.",
+        "plotStep": "The settlement is overjoyed. {quest_ally} has been tending to the rescued and says they'll recover in time. What you did out there took real courage, {player_name}.",
+        "outro": "You've earned more than gratitude. This settlement will remember what you did when {quest_stakes} hung in the balance."
       },
       "playerResponses": [
-        { "text": "Seeing her holding onto you is worth more than anything you could give me.", "action": "ACCEPT", "dispositionShift": 15 },
-        { "text": "Take care of her. The nightmares will pass.", "action": "ACCEPT" }
+        {
+          "text": "I'm glad they're safe.",
+          "action": "COMPLETE",
+          "dispositionShift": 8
+        },
+        {
+          "text": "The threat may return. Stay vigilant.",
+          "action": "COMPLETE",
+          "dispositionShift": 5
+        }
       ],
       "objectivePool": [],
       "objectiveConfig": {}
     },
     {
-      "id": "abduction_reso_02",
+      "id": "abduction_reso_too_late",
       "dialogueChunks": {
-        "intro": "Every single one of them is accounted for, {player_name}. Every single one.",
-        "plotStep": "{target_npc} organized a gathering when the last of the rescued arrived. Names called out one by one, each answered with tears and embraces. You managed to {quest_action} and dismantled {quest_threat}'s operation completely. Every person taken is back where they belong.",
-        "outro": "Here. The settlement voted to give you this from the communal fund. Unanimous. Not a single dissenting voice."
+        "intro": "You found the place, but {quest_focus} was already moved on. The camp was abandoned in haste. Still, you've shattered the {quest_threat}'s hold on this region.",
+        "plotStep": "It's not the ending we wanted, but the {enemy_type} lost fighters, supplies, and their element of surprise. {quest_ally} says the intelligence you recovered will help prevent this from happening again.",
+        "outro": "Sometimes a partial victory is all we get. You did everything you could for {quest_stakes}, and that matters."
       },
       "playerResponses": [
-        { "text": "Every name answered. That's the only outcome I was willing to accept.", "action": "ACCEPT", "dispositionShift": 10 },
-        { "text": "Glad everyone made it home. Keep your guard up: stay vigilant.", "action": "ACCEPT" }
+        {
+          "text": "We'll find them eventually.",
+          "action": "COMPLETE",
+          "dispositionShift": 4
+        },
+        {
+          "text": "At least we hurt them badly.",
+          "action": "COMPLETE",
+          "dispositionShift": 3
+        }
       ],
       "objectivePool": [],
       "objectiveConfig": {}
     },
     {
-      "id": "abduction_reso_03",
+      "id": "abduction_reso_turned_tables",
       "dialogueChunks": {
-        "intro": "{player_name}. Most of them are home. Most.",
-        "plotStep": "We couldn't save everyone. The miller's son didn't survive captivity. But {target_npc} and the four others are alive and recovering because you managed to {quest_action}. {quest_threat}'s network is shattered. The grief for the one we lost is real and heavy. But so is the gratitude for the ones who came home.",
-        "outro": "Take this. It comes with our thanks and our sorrow, tangled together the way these things always are."
+        "intro": "Not only did you free {quest_focus}, you turned the captors' own camp against them. The {enemy_type} scattered when they realized they'd lost everything.",
+        "plotStep": "{target_npc} can hardly believe the report. The supplies you seized from the {quest_threat} will sustain us for weeks. The prisoners you freed are spreading word of what you did.",
+        "outro": "You didn't just solve a problem: you sent a message. {quest_stakes} are secure, and the {enemy_type} will think twice before crossing this settlement again."
       },
       "playerResponses": [
-        { "text": "I'm sorry about the miller's son. I wish the outcome had been different.", "action": "ACCEPT" },
-        { "text": "The ones who survived will carry his memory. That's all any of us can do.", "action": "ACCEPT", "dispositionShift": 5 }
-      ],
-      "objectivePool": [],
-      "objectiveConfig": {}
-    },
-    {
-      "id": "abduction_reso_04",
-      "dialogueChunks": {
-        "intro": "They're safe, {player_name}. And {quest_threat} will never take anyone again.",
-        "plotStep": "{target_npc} wanted me to tell you something specific. They said: 'In the dark, when we heard fighting outside the chamber, we didn't know if it was rescue or execution. When the door opened and it was {player_name}, every person wept. Not from fear: from knowing that someone came.' That's what you did when you managed to {quest_action}. You came when no one else would.",
-        "outro": "The settlement erected a marker at the gate: 'They came.' Take this, and know you will never be forgotten here."
-      },
-      "playerResponses": [
-        { "text": "'They came.' Two words that say everything. Thank you for honoring me.", "action": "ACCEPT", "dispositionShift": 15 },
-        { "text": "I came because it was the right thing to do. That's all.", "action": "ACCEPT" }
+        {
+          "text": "They won't be back anytime soon.",
+          "action": "COMPLETE",
+          "dispositionShift": 10
+        },
+        {
+          "text": "Take their supplies. You've earned them.",
+          "action": "COMPLETE",
+          "dispositionShift": 6
+        }
       ],
       "objectivePool": [],
       "objectiveConfig": {}

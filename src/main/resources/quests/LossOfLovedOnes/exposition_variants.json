@@ -1,80 +1,81 @@
 {
   "variants": [
     {
-      "id": "loss_of_loved_ones_expo_01",
+      "id": "loss_loved_expo_aftermath",
       "bindings": {
-        "quest_action": "restock the pantry using my husband's old supply routes",
-        "quest_focus": "learning to manage the household alone after losing my husband",
-        "quest_stakes": "the shelves are empty because I don't know how to do what he did",
-        "quest_threat": "dangerous roads and unfamiliar supply routes",
-        "quest_origin": "a fever that wouldn't break, three weeks ago"
+        "quest_action": "honor the fallen",
+        "quest_focus": "the memorial site",
+        "quest_stakes": "the grieving community",
+        "quest_threat": "despair and collapse",
+        "quest_origin": "a devastating raid",
+        "quest_reward_hint": "shared strength in mourning"
       },
       "dialogueChunks": {
-        "intro": "Forgive me, {player_name}. I'm not usually like this. It's just... the house is so quiet now.",
-        "plotStep": "My husband passed three weeks ago. {quest_origin}. He was the one who managed our stores, kept everything full. Now {quest_stakes}. {target_npc} has been helping, but they have their own family. I need {quest_item} from the suppliers he used {location_hint}, but {quest_threat} and I don't know the routes.",
-        "outro": "I'm not asking for pity. {quest_focus} is my burden, but I need help until I can {quest_action} on my own."
+        "intro": "{player_name}, we lost people in the last attack. Good people. And the ones who survived are falling apart.",
+        "plotStep": "The {enemy_type} raid on {location} took three lives: a guard, a farmer, and an elder who refused to abandon the storehouse. We drove them off, but the victory feels hollow. {target_npc} hasn't spoken since the burial, and half the settlement is talking about abandoning this place entirely. I need someone to gather {quest_item} from the old memorial grounds {location_hint} so we can build a proper remembrance. The {enemy_type} are still prowling the roads, but if we don't give people something to rally around, grief will destroy what the raid couldn't.",
+        "outro": "We need to mourn before we can rebuild. And we need help doing both."
       },
       "playerResponses": [
-        { "text": "You don't need to stand alone yet. I'll get what you need.", "action": "ACCEPT" },
-        { "text": "Grief is hard enough without empty shelves. Tell me the route.", "action": "ACCEPT" },
-        { "text": "I'm sorry for your loss, but I can't take on every sad story.", "action": "DECLINE" }
+        { "text": "Honoring the dead gives the living a reason to keep going. I'll help.", "action": "ACCEPT" },
+        { "text": "Memorial materials through hostile territory. It's somber work, but I'll do it.", "action": "ACCEPT" },
+        { "text": "Grief counseling isn't in my skill set. I'm sorry for your loss.", "action": "DECLINE" }
       ],
-      "objectivePool": ["FETCH_ITEM", "EXPLORE_LOCATION", "GATHER_ITEMS"],
+      "objectivePool": ["GATHER_ITEMS", "EXPLORE_LOCATION", "KILL_MOBS"],
       "objectiveConfig": {
-        "FETCH_ITEM": { "locationPreference": "WILDERNESS" },
+        "GATHER_ITEMS": { "countMin": 4, "countMax": 8 },
         "EXPLORE_LOCATION": { "countMin": 1, "countMax": 2 },
-        "GATHER_ITEMS": { "countMin": 4, "countMax": 10 }
+        "KILL_MOBS": { "countMin": 2, "countMax": 5 }
       }
     },
     {
-      "id": "loss_of_loved_ones_expo_02",
+      "id": "loss_loved_expo_empty_chair",
       "bindings": {
-        "quest_action": "restore the garden my daughter grew from bare dirt",
-        "quest_focus": "a garden that was my daughter's pride and life's work",
-        "quest_stakes": "letting it die feels like losing her twice",
-        "quest_threat": "the same enemies that took her still prowl the outskirts",
-        "quest_origin": "a raid on the outskirts that took my daughter last month"
+        "quest_action": "retrieve a keepsake",
+        "quest_focus": "the last belonging",
+        "quest_stakes": "a widow's peace",
+        "quest_threat": "the finality of loss",
+        "quest_origin": "an ambush on the road"
       },
       "dialogueChunks": {
-        "intro": "{player_name}, do you see that garden over there? The one with the withered tomatoes? That was my daughter's.",
-        "plotStep": "She was taken by {enemy_type} during {quest_origin}. {target_npc} tried to reach her but there were too many. Now {quest_focus} is dying because I can't bring myself to tend it. But {quest_stakes}. I need {quest_item} to {quest_action}: good seed, fresh soil. The supplier is {location_hint}, and {quest_threat} makes the roads unsafe.",
-        "outro": "I know a garden won't bring her back. But she'd want it to thrive."
+        "intro": "My husband was killed on the road two weeks ago, {player_name}. I've made my peace with that. But there's one thing I can't let go of.",
+        "plotStep": "He was carrying {quest_item} when the {enemy_type} ambushed his caravan {location_hint}. It was a gift he'd made for our daughter's naming day: the only thing of his she'd have to remember him by. The caravan was looted and the bodies were brought back, but {quest_item} was gone. {target_npc} says the {enemy_type} probably took it to their camp along with the other spoils. I know it's just an object. But it's the last piece of him that hasn't been buried.",
+        "outro": "I'm not asking you to avenge him. I'm asking you to bring home the one thing my daughter will hold when she asks about her father."
       },
       "playerResponses": [
-        { "text": "A garden kept alive is a memory kept alive. I'll get what you need.", "action": "ACCEPT" },
-        { "text": "She sounds like she was special. I'll honor her work.", "action": "ACCEPT" },
-        { "text": "I'm sorry. But a garden isn't something I risk my life for.", "action": "DECLINE" }
+        { "text": "A father's last gift to his daughter. I'll find it, no matter what's in the way.", "action": "ACCEPT" },
+        { "text": "Raiding an enemy camp for a keepsake. It's personal, but I'll do it for a price.", "action": "ACCEPT", "dispositionShift": -5 },
+        { "text": "Charging into an enemy camp for a single item is too dangerous.", "action": "DECLINE" }
       ],
-      "objectivePool": ["GATHER_ITEMS", "FETCH_ITEM", "EXPLORE_LOCATION"],
+      "objectivePool": ["FETCH_ITEM", "KILL_MOBS", "EXPLORE_LOCATION"],
       "objectiveConfig": {
-        "GATHER_ITEMS": { "countMin": 5, "countMax": 12 },
-        "FETCH_ITEM": { "locationPreference": "WILDERNESS" },
+        "FETCH_ITEM": { "locationPreference": "DUNGEON" },
+        "KILL_MOBS": { "countMin": 3, "countMax": 7 },
         "EXPLORE_LOCATION": { "countMin": 1, "countMax": 2 }
       }
     },
     {
-      "id": "loss_of_loved_ones_expo_03",
+      "id": "loss_loved_expo_survivors_guilt",
       "bindings": {
-        "quest_action": "complete the delivery my brother died trying to make",
-        "quest_focus": "my brother's final journey to feed a desperate settlement",
-        "quest_stakes": "the people he was trying to reach are still waiting and starving",
-        "quest_threat": "the same dangerous road and enemies that killed him",
-        "quest_origin": "an ambush on the road two months ago that took his life"
+        "quest_action": "complete an unfinished task",
+        "quest_focus": "the abandoned project",
+        "quest_stakes": "meaning in the wake of loss",
+        "quest_threat": "consuming guilt",
+        "quest_reward_hint": "a purpose renewed"
       },
       "dialogueChunks": {
-        "intro": "I should be cooking right now, {player_name}. That's what I do: I cook. But I can't seem to remember how anything tastes.",
-        "plotStep": "My brother was my taster, my critic, my loudest supporter. He died during {quest_origin} while delivering {quest_item} to a neighboring settlement. {target_npc} found his pack scattered {location_hint}. I want to {quest_action}. {quest_stakes}, and {quest_focus} deserves to be finished.",
-        "outro": "He believed every meal could make someone's day better. {quest_threat} couldn't stop him from trying."
+        "intro": "{player_name}, I should have died instead. I know that's not a productive thought, but it's the only one I have most days.",
+        "plotStep": "My partner and I were building something together: a watchtower at the edge of {location} to protect the settlement. They were gathering {quest_item} from {location_hint} when the {enemy_type} found them. I was supposed to go that day, but I stayed behind because I was tired. Tired. That's the reason I'm alive and they're not. {target_npc} has been trying to get me to eat, to sleep, to function. But the only thing that helps is the thought of finishing what we started. I need the materials they were gathering. I need to build that tower.",
+        "outro": "Finishing what they started won't bring them back. But leaving it unfinished feels like losing them twice."
       },
       "playerResponses": [
-        { "text": "We'll finish his journey. Together.", "action": "ACCEPT" },
-        { "text": "Completing an unfinished delivery. That's a worthy memorial.", "action": "ACCEPT" },
-        { "text": "I'm sorry about your brother. But retracing his steps feels dangerous.", "action": "DECLINE" }
+        { "text": "Building something in their memory is a way to carry them forward. I'll get the materials.", "action": "ACCEPT" },
+        { "text": "Survivor's guilt is a heavy burden. I'll help lighten it however I can.", "action": "ACCEPT" },
+        { "text": "I'm sorry for your loss, but I can't fight your grief for you.", "action": "DECLINE" }
       ],
-      "objectivePool": ["GATHER_ITEMS", "DELIVER_ITEM", "EXPLORE_LOCATION"],
+      "objectivePool": ["GATHER_ITEMS", "KILL_MOBS", "EXPLORE_LOCATION"],
       "objectiveConfig": {
-        "GATHER_ITEMS": { "countMin": 5, "countMax": 14 },
-        "DELIVER_ITEM": {},
+        "GATHER_ITEMS": { "countMin": 6, "countMax": 12 },
+        "KILL_MOBS": { "countMin": 3, "countMax": 6 },
         "EXPLORE_LOCATION": { "countMin": 1, "countMax": 2 }
       }
     }

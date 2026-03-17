@@ -1,106 +1,114 @@
 {
   "variants": [
     {
-      "id": "involuntarycrimesof_expo_01",
+      "id": "involuntary_expo_protective_harm",
       "bindings": {
-        "quest_action": "recover the stolen supplies from the raiders",
-        "quest_focus": "an undefended approach left open by misplaced protection",
-        "quest_stakes": "the settlement losing its reserves with no way to replace them",
-        "quest_threat": "raiders exploiting a gap created by one parent's fearful overreach",
-        "quest_origin": "barricading the wrong road to protect a frightened child"
+        "quest_action": "undo the damage",
+        "quest_focus": "the displaced families",
+        "quest_stakes": "innocent lives",
+        "quest_threat": "misguided protection",
+        "quest_origin": "an overprotective act"
       },
       "dialogueChunks": {
-        "intro": "{player_name}, I need your help. I've done something terrible, and I did it out of love.",
-        "plotStep": "My child wandered into the woods {location_hint} last month and came back with nightmares about the {enemy_type}. I was so afraid for their safety that I barricaded the eastern road and diverted the night patrols to watch our home. What I didn't realize is that I left {quest_focus} to {location} completely undefended. Raiders slipped through three nights ago and stole the settlement's entire stock of {quest_item}. {target_npc} is furious, and rightfully so.",
-        "outro": "I was trying to protect my family. Instead, I endangered everyone else's. I need to make this right."
+        "intro": "{target_npc} did something terrible while trying to protect the people they care about. They drove families from their homes near {location_hint}, claiming the area wasn't safe. They meant well, but the result is devastation.",
+        "plotStep": "The displaced are angry and lost. {quest_ally} has been sheltering them, but {quest_focus} left people without food, tools, or shelter. The {enemy_type} have moved into the abandoned homes, making return even harder.",
+        "outro": "Someone needs to clean up the mess left by good intentions. {player_name}, will you help resettle {quest_stakes} and clear the way for them to go home?"
       },
       "playerResponses": [
-        { "text": "Parents make mistakes. I'll recover the supplies and we'll sort the rest out later.", "action": "ACCEPT" },
-        { "text": "Good intentions, bad consequences. I'll help, but the settlement deserves an explanation.", "action": "ACCEPT" },
-        { "text": "You weakened your own settlement's defenses. That's on you.", "action": "DECLINE" }
+        {
+          "text": "Good intentions don't excuse the harm.",
+          "action": "ACCEPT",
+          "dispositionShift": 4
+        },
+        {
+          "text": "I'll help them get home safely.",
+          "action": "ACCEPT",
+          "dispositionShift": 5
+        },
+        {
+          "text": "They made their own choices.",
+          "action": "DECLINE",
+          "dispositionShift": -3
+        }
       ],
-      "objectivePool": ["FETCH_ITEM", "EXPLORE_LOCATION", "KILL_MOBS"],
+      "objectivePool": ["KILL_MOBS", "EXPLORE_LOCATION", "GATHER_ITEMS"],
       "objectiveConfig": {
-        "FETCH_ITEM": { "locationPreference": "WILDERNESS" },
-        "EXPLORE_LOCATION": { "countMin": 1, "countMax": 2 },
-        "KILL_MOBS": { "countMin": 3, "countMax": 6 }
+        "KILL_MOBS": { "countMin": 3, "countMax": 7 },
+        "GATHER_ITEMS": { "countMin": 4, "countMax": 12 }
       }
     },
     {
-      "id": "involuntarycrimesof_expo_02",
+      "id": "involuntary_expo_forbidden_cure",
       "bindings": {
-        "quest_action": "gather fresh medicinal ingredients from the marshes",
-        "quest_focus": "the depleted communal medicine stores",
-        "quest_stakes": "three sick people dying because the medicine was stolen for one",
-        "quest_threat": "a medicine shortage caused by desperate love for a friend",
-        "quest_origin": "stealing communal medicine to save a dear friend"
+        "quest_action": "find a real remedy",
+        "quest_focus": "the botched treatment",
+        "quest_stakes": "the patient's health",
+        "quest_threat": "the cure's side effects",
+        "quest_origin": "a desperate remedy",
+        "quest_time_pressure": "before permanent damage"
       },
       "dialogueChunks": {
-        "intro": "Please, {player_name}, hear me out before you judge. I know how this looks.",
-        "plotStep": "{target_npc} is my dearest friend, and when they fell ill last week, I panicked. I took {quest_item} from {quest_focus} without asking: enough to brew a private remedy. It worked: {target_npc} recovered in two days. But now three other people are sick with the same ailment and there isn't enough medicine left for any of them. The alchemist says the only way to replace what I took is to {quest_action} {location_hint}, but the {enemy_type} have been breeding there.",
-        "outro": "I saved my friend and condemned three strangers. I can't live with that. Please help me fix it."
+        "intro": "{quest_ally} loved someone so much they administered a forbidden treatment to save them. It worked against the original illness, but {quest_threat} is now worse than the disease ever was.",
+        "plotStep": "The patient is alive but suffering. {target_npc} examined them and says the treatment used {quest_item} in a way that was never meant for living bodies. A proper antidote exists, but the ingredients grow only in dangerous territory {location_hint}.",
+        "outro": "{quest_focus} can still be corrected, but time is critical. {player_name}, will you gather what {target_npc} needs before {quest_stakes} are lost to a well-meaning mistake?"
       },
       "playerResponses": [
-        { "text": "The sick need medicine. I'll get what the alchemist requires.", "action": "ACCEPT" },
-        { "text": "You stole communal supplies for one person. The marsh trip is the least you owe.", "action": "ACCEPT", "dispositionShift": -5 },
-        { "text": "Medicine shortages aren't my specialty. Talk to the alchemist.", "action": "DECLINE" }
+        {
+          "text": "I'll get what's needed for the antidote.",
+          "action": "ACCEPT",
+          "dispositionShift": 5
+        },
+        {
+          "text": "Love shouldn't cost someone their life.",
+          "action": "ACCEPT",
+          "dispositionShift": 3
+        },
+        {
+          "text": "They brought this on themselves.",
+          "action": "DECLINE",
+          "dispositionShift": -4
+        }
       ],
-      "objectivePool": ["GATHER_ITEMS", "KILL_MOBS"],
+      "objectivePool": ["GATHER_ITEMS", "EXPLORE_LOCATION", "KILL_MOBS"],
       "objectiveConfig": {
-        "GATHER_ITEMS": { "countMin": 5, "countMax": 12 },
-        "KILL_MOBS": { "countMin": 3, "countMax": 7 }
+        "GATHER_ITEMS": { "countMin": 5, "countMax": 14 },
+        "KILL_MOBS": { "countMin": 2, "countMax": 6 }
       }
     },
     {
-      "id": "involuntarycrimesof_expo_03",
+      "id": "involuntary_expo_loyalty_trap",
       "bindings": {
-        "quest_action": "restock the tavern stores before the harvest festival",
-        "quest_focus": "the secretly depleted tavern reserves",
-        "quest_stakes": "the settlement discovering someone has been skimming their communal stores",
-        "quest_threat": "a well-meaning deception that could shatter the community's trust",
-        "quest_origin": "secretly feeding a destitute family from the tavern supplies"
+        "quest_action": "free the captives",
+        "quest_focus": "the hidden prisoners",
+        "quest_stakes": "wrongfully held people",
+        "quest_threat": "paranoid devotion",
+        "quest_origin": "a misplaced loyalty"
       },
       "dialogueChunks": {
-        "intro": "{player_name}, I need to confess something. And then I need your help to make it right.",
-        "plotStep": "I've been secretly feeding {target_npc}'s family from the tavern stores for weeks. They lost everything in the last storm and were too proud to ask for help. I thought I was being kind. But now {quest_focus} is depleted and the harvest festival is in three days. The whole settlement depends on that feast for morale through the dark months. Without {quest_item} to restock, there's no festival and {quest_stakes}. The nearest source is {location_hint}, but that stretch of road has been plagued by {enemy_type}.",
-        "outro": "I was trying to help one family and ended up betraying the trust of an entire settlement. Please, help me set this right before anyone finds out."
+        "intro": "Something deeply wrong is happening at {location}. {target_npc} has been imprisoning travelers, convinced they're spies threatening the settlement. It started as vigilance and became cruelty.",
+        "plotStep": "{quest_ally} discovered {quest_focus} by accident: people locked away in a cellar, some for weeks. {target_npc} genuinely believes they're protecting everyone, but {quest_threat} has turned a loyal defender into a tyrant. The {enemy_type} raids they fear are real, but their response has gone too far.",
+        "outro": "The prisoners need to be freed, and {target_npc} needs to be confronted. {player_name}, this requires someone from outside who can see clearly."
       },
       "playerResponses": [
-        { "text": "Generosity that went too far. I'll restock the stores before anyone notices.", "action": "ACCEPT" },
-        { "text": "You should have asked the community for help openly. But fine, I'll get the supplies.", "action": "ACCEPT", "dispositionShift": -5 },
-        { "text": "Your secret charity, your problem. Come clean and deal with it.", "action": "DECLINE" }
+        {
+          "text": "Those people need to be freed now.",
+          "action": "ACCEPT",
+          "dispositionShift": 6
+        },
+        {
+          "text": "How did no one notice sooner?",
+          "action": "ACCEPT",
+          "dispositionShift": 2
+        },
+        {
+          "text": "Maybe they had good reason.",
+          "action": "DECLINE",
+          "dispositionShift": -5
+        }
       ],
-      "objectivePool": ["GATHER_ITEMS", "FETCH_ITEM", "EXPLORE_LOCATION"],
+      "objectivePool": ["TALK_TO_NPC", "EXPLORE_LOCATION", "KILL_MOBS"],
       "objectiveConfig": {
-        "GATHER_ITEMS": { "countMin": 6, "countMax": 15 },
-        "FETCH_ITEM": { "locationPreference": "WILDERNESS" },
-        "EXPLORE_LOCATION": { "countMin": 1, "countMax": 2 }
-      }
-    },
-    {
-      "id": "involuntarycrimesof_expo_04",
-      "bindings": {
-        "quest_action": "clear the occupied farmstead and recover what was stolen",
-        "quest_focus": "a farmstead turned into a raider forward camp",
-        "quest_stakes": "a displaced family losing everything permanently",
-        "quest_threat": "well-meaning advice that moved a family straight into danger",
-        "quest_origin": "convincing a family to move outside the walls for safety"
-      },
-      "dialogueChunks": {
-        "intro": "I thought I was protecting them, {player_name}. That's all I ever wanted to do.",
-        "plotStep": "When I heard rumors about {enemy_type} scouts near {location}, I convinced {target_npc} to move their family to a farmstead outside the walls where I thought they'd be safer. I even helped them carry their belongings. Last night, a raiding party hit the farmstead. {target_npc}'s family escaped, but everything they owned: tools, {quest_item}, winter stores: is gone. They had to flee {location_hint}, and now {quest_focus}. {quest_threat} cost them everything.",
-        "outro": "Their possessions, their security: I took it all away with the best of intentions. If someone doesn't {quest_action}, the damage I've done is permanent."
-      },
-      "playerResponses": [
-        { "text": "An occupied farmstead and stolen supplies? I'll clear the camp and bring back what I can.", "action": "ACCEPT" },
-        { "text": "You meant well but made things worse. Story of this settlement. I'll fix it.", "action": "ACCEPT" },
-        { "text": "You moved them outside the walls? That was reckless. Deal with the fallout yourself.", "action": "DECLINE" }
-      ],
-      "objectivePool": ["KILL_MOBS", "FETCH_ITEM", "EXPLORE_LOCATION"],
-      "objectiveConfig": {
-        "KILL_MOBS": { "countMin": 4, "countMax": 9 },
-        "FETCH_ITEM": { "locationPreference": "WILDERNESS" },
-        "EXPLORE_LOCATION": { "countMin": 1, "countMax": 1 }
+        "KILL_MOBS": { "countMin": 2, "countMax": 5 }
       }
     }
   ]

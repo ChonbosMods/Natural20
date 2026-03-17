@@ -1,44 +1,72 @@
 {
   "variants": [
     {
-      "id": "discovery_of_dishonor_reso_01",
+      "id": "reso_discovery_dishonor_master_exposed",
       "dialogueChunks": {
-        "intro": "The captain confessed, {player_name}. Broke down right in front of the council.",
-        "plotStep": "The evidence you recovered was overwhelming. {quest_focus} laid bare: patrol routes matching every ambush for three years. {target_npc} stood in the gallery and watched the person they'd trusted most admit to everything. The captain was stripped of rank. New leadership has been appointed, and for the first time in years, the roads around {location} will have patrols that actually protect people.",
-        "outro": "You walked into ambush sites and followed a dangerous cart to bring the truth home. {quest_stakes} is over. Take this: it comes with the merchants' thanks and the captain's shame."
+        "intro": "The guild council reviewed the evidence for four hours. When they emerged, the master's name had been struck from every register. Thirty years of reputation, gone in an afternoon.",
+        "plotStep": "Three former apprentices have been formally cleared of the espionage charges. {target_npc} says one of them wept when they heard. They'd been living under that shadow for eight years. {quest_ally} is overseeing the restitution process: every apprentice who was cheated will receive compensation. The master has been barred from the profession permanently.",
+        "outro": "Finding the truth cost the apprentice who started this everything they believed about their mentor, {player_name}. But it gave three innocent people their names back. Some truths are worth the price of disillusionment."
       },
       "playerResponses": [
-        { "text": "Three years of treachery, ended. The roads will be safer now.", "action": "ACCEPT", "dispositionShift": 15 },
-        { "text": "Justice served. Make sure the new captain is worth the badge.", "action": "ACCEPT" }
+        {
+          "text": "The apprentice showed more integrity than the master ever did.",
+          "action": "COMPLETE",
+          "dispositionShift": 5
+        },
+        {
+          "text": "Eight years of false disgrace. Make sure they're truly made whole.",
+          "action": "COMPLETE",
+          "dispositionShift": 3
+        }
       ],
       "objectivePool": [],
       "objectiveConfig": {}
     },
     {
-      "id": "discovery_of_dishonor_reso_02",
+      "id": "reso_discovery_dishonor_hero_unmasked",
       "dialogueChunks": {
-        "intro": "Every patient has been re-examined, {player_name}. Real medicine, full doses.",
-        "plotStep": "The council investigated and found everything: {quest_focus} confirmed in full. The healer fled before the verdict. {target_npc} is recovering properly now on real medicine. A new healer arrived from a neighboring settlement. People are healing for the first time in months: actually healing.",
-        "outro": "You uncovered a betrayal hidden behind a healer's mask. {quest_stakes} no longer. Take this, with the gratitude of everyone who can breathe easier tonight."
+        "intro": "The evidence from the battlefield was undeniable. The weapon positions, the barricade layout: they told a story completely different from the one carved into the memorial.",
+        "plotStep": "The council removed the false hero from their position. The memorial is being recarved with the names of the actual defenders. {target_npc} found a survivor from the real fight, living quietly in {location}, who confirmed everything. {quest_ally} says the settlement is in shock, but it's the clean kind of shock: the kind that comes before honest rebuilding.",
+        "outro": "It's painful to learn your hero was a fraud, {player_name}. But the real heroes, the ones who died on that field, deserve their names on the stone. You made sure the right story gets told from now on."
       },
       "playerResponses": [
-        { "text": "A healer who heals. What a concept. I'm glad the truth came out.", "action": "ACCEPT", "dispositionShift": 10 },
-        { "text": "People recovering on real medicine. That's all the reward I need.", "action": "ACCEPT" }
+        {
+          "text": "The real defenders waited a long time for their due. Better late than never.",
+          "action": "COMPLETE",
+          "dispositionShift": 5
+        },
+        {
+          "text": "A settlement that can face its own lies is stronger for it.",
+          "action": "COMPLETE",
+          "dispositionShift": 3
+        },
+        {
+          "text": "Watch for the next person who tells you what you want to hear.",
+          "action": "COMPLETE",
+          "dispositionShift": 1
+        }
       ],
       "objectivePool": [],
       "objectiveConfig": {}
     },
     {
-      "id": "discovery_of_dishonor_reso_03",
+      "id": "reso_discovery_dishonor_funds_recovered",
       "dialogueChunks": {
-        "intro": "{player_name}. I'm still here. They didn't exile me.",
-        "plotStep": "You found the cache. Every stolen item with {target_npc}'s own inventory marks on every crate. The council compared the real records to the fabricated ones and the forgery fell apart. {target_npc} was stripped of their position and ordered to repay every coin. Watching someone you admired revealed as a fraud is a peculiar kind of grief. {quest_focus} is accounted for at last.",
-        "outro": "You saved me from exile and exposed {quest_origin}. This is from the community fund: properly tracked this time. Every coin accounted for."
+        "intro": "The administrator was caught at the border with two packed wagons and a new identity. The full records are now in the hands of the regional authority.",
+        "plotStep": "The accounting is devastating. Over three years, enough money to house and feed every displaced family was diverted to personal luxury. {target_npc} says the recovered assets will be redistributed to the families who were owed relief. {quest_ally} is coordinating with neighboring settlements to distribute the funds where they were originally promised.",
+        "outro": "The most trusted person in the settlement turned out to be its worst predator, {player_name}. The families who suffered will finally receive what was promised. It doesn't undo the months they spent without shelter, but it's the closest thing to justice that's possible."
       },
       "playerResponses": [
-        { "text": "The person you admired wasn't real. The truth, painful as it is, was always better.", "action": "ACCEPT", "dispositionShift": 10 },
-        { "text": "Every coin tracked. That's the right way to rebuild trust.", "action": "ACCEPT" },
-        { "text": "You did the hard part: you kept digging when it would have been easier to look away.", "action": "ACCEPT", "dispositionShift": 5 }
+        {
+          "text": "Justice delayed is painful, but it still matters. Well done.",
+          "action": "COMPLETE",
+          "dispositionShift": 5
+        },
+        {
+          "text": "Build oversight into the next relief fund. Trust alone isn't enough.",
+          "action": "COMPLETE",
+          "dispositionShift": 3
+        }
       ],
       "objectivePool": [],
       "objectiveConfig": {}

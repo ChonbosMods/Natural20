@@ -1,81 +1,82 @@
 {
   "variants": [
     {
-      "id": "erroneous_judgment_expo_01",
+      "id": "erroneous_judgment_expo_wrong_target",
       "bindings": {
-        "quest_action": "arm the militia and prepare defenses against a reported enemy attack",
-        "quest_focus": "a scout report claiming enemy forces are massing nearby",
-        "quest_stakes": "the settlement will be overrun if the attack comes while unprepared",
-        "quest_threat": "a potential invasion force that demands immediate response",
-        "quest_time_pressure": "every hour of delay is another hour for the enemy to surround us"
+        "quest_action": "stop a wrongful attack",
+        "quest_focus": "the misidentified camp",
+        "quest_stakes": "innocent lives",
+        "quest_threat": "a militia acting on lies",
+        "quest_origin": "a scout's false report",
+        "quest_reward_hint": "a disaster averted"
       },
       "dialogueChunks": {
-        "intro": "{player_name}, I don't have time to explain everything properly. We need to act now and ask questions later.",
-        "plotStep": "{quest_focus} from {location_hint}, and {target_npc} confirmed seeing tracks near {location}. The council has authorized a preemptive strike. I need {quest_item} to {quest_action}. {quest_time_pressure}: {quest_threat} won't wait for us to debate.",
-        "outro": "Speed matters more than caution right now. {quest_stakes} if we don't move."
+        "intro": "{player_name}, we're about to make a terrible mistake, and I'm the only one who sees it.",
+        "plotStep": "A scout returned to {location} claiming they found a {enemy_type} staging camp {location_hint}. The militia is arming up to attack at dawn. But I spoke to {target_npc}, who traveled that road last week, and they described a group of refugees sheltering in the same area: families fleeing violence, not causing it. The scout saw what they expected to see, not what was actually there. I need you to reach the camp before the militia does and bring back {quest_item} as proof that these are people, not enemies.",
+        "outro": "If the militia attacks innocent refugees, we become the monsters. We have until dawn to prove them wrong."
       },
       "playerResponses": [
-        { "text": "I'll gather what you need. Better prepared than sorry.", "action": "ACCEPT" },
-        { "text": "Has anyone actually confirmed hostile intent? Never mind, I'll help.", "action": "ACCEPT" },
-        { "text": "Acting on a single scout report sounds reckless. I'll pass.", "action": "DECLINE" }
+        { "text": "Innocents in the crossfire. I'll get there first.", "action": "ACCEPT" },
+        { "text": "Racing a militia to save refugees. No pressure. What's the reward?", "action": "ACCEPT", "dispositionShift": -5 },
+        { "text": "Getting between a militia and its target is a good way to get killed.", "action": "DECLINE" }
       ],
-      "objectivePool": ["GATHER_ITEMS", "EXPLORE_LOCATION", "KILL_MOBS"],
-      "objectiveConfig": {
-        "GATHER_ITEMS": { "countMin": 5, "countMax": 12 },
-        "EXPLORE_LOCATION": { "countMin": 1, "countMax": 2 },
-        "KILL_MOBS": { "countMin": 3, "countMax": 7 }
-      }
-    },
-    {
-      "id": "erroneous_judgment_expo_02",
-      "bindings": {
-        "quest_action": "follow the next shipment to catch the suspected traitor in the act",
-        "quest_focus": "three missing shipments all handled by the same person",
-        "quest_stakes": "vital supplies keep vanishing and the settlement is running short",
-        "quest_threat": "an insider tipping off raiders in exchange for safe passage",
-        "quest_origin": "years of trust that make the betrayal pattern unmistakable"
-      },
-      "dialogueChunks": {
-        "intro": "Listen carefully, {player_name}. We've been betrayed, and I know exactly who did it.",
-        "plotStep": "{quest_focus} on the road from {location} in the past month. Every one handled by {target_npc}. That's not coincidence: that's {quest_threat}. The route passes through {enemy_type} territory {location_hint}. I need you to {quest_action} and recover whatever stolen goods you can find.",
-        "outro": "{quest_origin} is what makes this so clear. They're the only one who knew the schedule."
-      },
-      "playerResponses": [
-        { "text": "If they're guilty, I'll find the proof. I'll follow the route.", "action": "ACCEPT" },
-        { "text": "Three shipments is suspicious. But people aren't always what they seem.", "action": "ACCEPT" },
-        { "text": "Accusations without hard evidence lead to injustice. Sort it out properly.", "action": "DECLINE" }
-      ],
-      "objectivePool": ["EXPLORE_LOCATION", "FETCH_ITEM", "TALK_TO_NPC"],
+      "objectivePool": ["EXPLORE_LOCATION", "TALK_TO_NPC", "FETCH_ITEM"],
       "objectiveConfig": {
         "EXPLORE_LOCATION": { "countMin": 2, "countMax": 3 },
-        "FETCH_ITEM": { "locationPreference": "WILDERNESS" },
-        "TALK_TO_NPC": { "countMin": 1, "countMax": 1 }
+        "TALK_TO_NPC": { "countMin": 1, "countMax": 1 },
+        "FETCH_ITEM": { "locationPreference": "WILDERNESS" }
       }
     },
     {
-      "id": "erroneous_judgment_expo_03",
+      "id": "erroneous_judgment_expo_bad_intel",
       "bindings": {
-        "quest_action": "investigate a traveler's accusation before mob justice takes over",
-        "quest_focus": "a single traveler's claim that a resident was meeting with raiders",
-        "quest_stakes": "an innocent person is locked in the storehouse based on hearsay",
-        "quest_threat": "a settlement too angry to wait for evidence before passing judgment",
-        "quest_origin": "a stranger's accusation that arrived without proof and left without answers"
+        "quest_action": "verify a dangerous rumor",
+        "quest_focus": "the poisoned well theory",
+        "quest_stakes": "a healer's reputation",
+        "quest_threat": "mob anger",
+        "quest_origin": "a child's illness"
       },
       "dialogueChunks": {
-        "intro": "{player_name}, I need someone with a clear head. Everyone here is too angry to think straight, including me.",
-        "plotStep": "A traveler accused {target_npc} of meeting with a raider boss {location_hint}. The settlement is in uproar. {quest_stakes}: we locked them up while we decide what to do. But {quest_origin}: the traveler left before anyone could question them. I need you to {quest_action}. Follow the trail, find evidence, and gather {quest_item} that was allegedly part of the deal.",
-        "outro": "{quest_threat} is fast and wrong. Real justice takes time and truth. Help me find both."
+        "intro": "They're blaming {target_npc} for the sickness, {player_name}. And they're wrong. Dead wrong.",
+        "plotStep": "Three children in {location} fell ill after drinking water from the eastern well. Someone started a rumor that {target_npc} poisoned it, because {target_npc} was seen adding herbs to the well last week. What nobody bothered to ask is that {target_npc} was treating the water with purifying agents because they noticed contamination upstream. The real source of the poison is somewhere {location_hint}, and I'll bet the {enemy_type} that moved into the area are responsible. I need {quest_item} from the contamination site to prove where the sickness actually came from.",
+        "outro": "A healer who tried to help is about to be punished for someone else's crime. That's not justice: that's ignorance."
       },
       "playerResponses": [
-        { "text": "Truth first, judgment after. I'll find what happened.", "action": "ACCEPT" },
-        { "text": "Locking someone up on a stranger's word? This smells wrong. I'll investigate.", "action": "ACCEPT" },
-        { "text": "Your settlement, your problem. I'm not playing judge.", "action": "DECLINE" }
+        { "text": "I'll trace the contamination to its source. Healers shouldn't be punished for healing.", "action": "ACCEPT" },
+        { "text": "Investigating a poisoning near enemy territory. Risky. What's the compensation?", "action": "ACCEPT", "dispositionShift": -5 },
+        { "text": "Witch hunts are dangerous to interfere with. I'll pass.", "action": "DECLINE" }
       ],
-      "objectivePool": ["EXPLORE_LOCATION", "TALK_TO_NPC", "GATHER_ITEMS"],
+      "objectivePool": ["EXPLORE_LOCATION", "GATHER_ITEMS", "KILL_MOBS"],
       "objectiveConfig": {
-        "EXPLORE_LOCATION": { "countMin": 2, "countMax": 4 },
+        "EXPLORE_LOCATION": { "countMin": 2, "countMax": 3 },
+        "GATHER_ITEMS": { "countMin": 3, "countMax": 6 },
+        "KILL_MOBS": { "countMin": 2, "countMax": 5 }
+      }
+    },
+    {
+      "id": "erroneous_judgment_expo_false_ally",
+      "bindings": {
+        "quest_action": "expose a false benefactor",
+        "quest_focus": "the suspicious generosity",
+        "quest_stakes": "the settlement's safety",
+        "quest_threat": "misplaced trust",
+        "quest_reward_hint": "a trap disarmed"
+      },
+      "dialogueChunks": {
+        "intro": "Everyone in {location} loves the new trader, {player_name}. Everyone except me.",
+        "plotStep": "A merchant arrived in {location} a month ago offering {quest_item} at prices that make no sense. Too cheap, too generous, too eager to be everyone's friend. {target_npc} is suspicious too but was shouted down when they raised concerns. I've noticed the merchant making trips {location_hint} at night, and the {enemy_type} attacks have shifted to target everywhere except routes the merchant uses. That's not coincidence. I need you to follow the merchant's trail and find out what they're really doing out there.",
+        "outro": "The settlement is so grateful for cheap goods that they can't see they're being set up. Someone has to look past the smile."
+      },
+      "playerResponses": [
+        { "text": "If this merchant is working with the enemy, the settlement needs to know. I'll investigate.", "action": "ACCEPT" },
+        { "text": "Following a suspected enemy agent through hostile territory. Name your price.", "action": "ACCEPT", "dispositionShift": -5 },
+        { "text": "Maybe they're just a generous merchant. Not every kindness hides a knife.", "action": "DECLINE" }
+      ],
+      "objectivePool": ["EXPLORE_LOCATION", "TALK_TO_NPC", "KILL_MOBS"],
+      "objectiveConfig": {
+        "EXPLORE_LOCATION": { "countMin": 2, "countMax": 3 },
         "TALK_TO_NPC": { "countMin": 1, "countMax": 1 },
-        "GATHER_ITEMS": { "countMin": 3, "countMax": 8 }
+        "KILL_MOBS": { "countMin": 2, "countMax": 5 }
       }
     }
   ]

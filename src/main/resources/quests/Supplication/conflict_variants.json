@@ -1,153 +1,54 @@
 {
   "variants": [
     {
-      "id": "supplication_conf_ambush",
+      "id": "supplication_conf_01",
       "dialogueChunks": {
-        "intro": "You're back! But... your face tells me something went wrong out there.",
-        "plotStep": "The {enemy_type} have set up a camp right along the path we need to {quest_action}. They weren't there before, I swear it. {target_npc} says they've been moving closer all week. You'll need to clear them out or find another way through to {quest_focus}.",
-        "outro": "I'm so sorry to pile more trouble on you. {quest_stakes} are counting on you more than ever now."
+        "intro": "{player_name}, things have gotten worse since you helped us {quest_action}. I had hoped the worst was behind us.",
+        "plotStep": "{quest_ally} discovered that {quest_threat} are regrouping near {quest_focus}. The {enemy_type} have been spotted {location_hint}, and {quest_stakes} are still at risk.",
+        "outro": "We cannot let them undo everything you have done for us. Please, help us again."
       },
       "playerResponses": [
-        { "text": "A few monsters won't stop me. I'll push through.", "action": "ACCEPT" },
-        { "text": "This just got harder. I'll need something extra for my trouble.", "action": "ACCEPT", "dispositionShift": -5 },
-        { "text": "This is getting too dangerous. I'm done.", "action": "DECLINE" }
+        { "text": "I will put an end to this.", "action": "ACCEPT", "dispositionShift": 10 },
+        { "text": "Again? This had better be the last time.", "action": "ACCEPT", "dispositionShift": -5 },
+        { "text": "You need to learn to handle this yourselves.", "action": "DECLINE", "dispositionShift": -10 }
       ],
-      "objectivePool": ["KILL_MOBS", "GATHER_ITEMS", "EXPLORE_LOCATION"],
+      "objectivePool": ["KILL_MOBS", "EXPLORE_LOCATION"],
       "objectiveConfig": {
-        "KILL_MOBS": { "countMin": 4, "countMax": 8 },
-        "GATHER_ITEMS": { "countMin": 3, "countMax": 6 },
-        "EXPLORE_LOCATION": { "countMin": 1, "countMax": 1 }
+        "KILL_MOBS": { "countMin": 4, "countMax": 10 }
       }
     },
     {
-      "id": "supplication_conf_betrayal",
+      "id": "supplication_conf_02",
       "dialogueChunks": {
-        "intro": "{player_name}, I... I don't know how to say this. Something terrible has happened while you were away.",
-        "plotStep": "{target_npc} took what little {quest_item} we had stockpiled and fled toward {location_hint}. Said they couldn't wait any longer and were going to trade it for safe passage out of the region. Without those supplies, our efforts to {quest_action} are set back completely. We need you to track them down and recover what they took.",
-        "outro": "I trusted them. We all did. Please, bring back what's ours before {quest_stakes} suffer even more."
+        "intro": "I wish I had better news, {player_name}. Your efforts to {quest_action} bought us time, but not enough.",
+        "plotStep": "Something is driving {quest_threat} to act with new desperation. {quest_ally} thinks there may be a source: a nest or camp {location_hint}. If we do not deal with it, {quest_stakes} will suffer all over again.",
+        "outro": "Find whatever is behind this and put a stop to it."
       },
       "playerResponses": [
-        { "text": "I'll find them. They couldn't have gotten far.", "action": "ACCEPT" },
-        { "text": "Chasing down your own people now? This keeps getting worse.", "action": "ACCEPT", "dispositionShift": -5 },
-        { "text": "Sort out your own problems. I've done enough.", "action": "DECLINE" }
+        { "text": "I will find the source and end it.", "action": "ACCEPT", "dispositionShift": 5 },
+        { "text": "This is getting tiresome, but fine.", "action": "ACCEPT", "dispositionShift": -3 },
+        { "text": "I have done enough already.", "action": "DECLINE" }
       ],
-      "objectivePool": ["FETCH_ITEM", "TALK_TO_NPC", "EXPLORE_LOCATION"],
+      "objectivePool": ["EXPLORE_LOCATION", "KILL_MOBS", "GATHER_ITEMS"],
       "objectiveConfig": {
-        "FETCH_ITEM": { "locationPreference": "WILDERNESS" },
-        "TALK_TO_NPC": { "countMin": 1, "countMax": 1 },
-        "EXPLORE_LOCATION": { "countMin": 1, "countMax": 2 }
+        "KILL_MOBS": { "countMin": 3, "countMax": 7 },
+        "GATHER_ITEMS": { "countMin": 3, "countMax": 6 }
       }
     },
     {
-      "id": "supplication_conf_scarcity",
+      "id": "supplication_conf_03",
       "dialogueChunks": {
-        "intro": "Oh no. No, no, no. {player_name}, we have a new problem.",
-        "plotStep": "The {quest_item} you found? It's not enough. {quest_threat} has spread faster than we thought, and now we need three times the amount to {quest_action}. Worse, the only place to find more is deep in {enemy_type} territory {location_hint}. I've heard there's a cave system where it grows thick on the walls, but nobody who's gone in has come back out.",
-        "outro": "I would never ask this if there were any other option. You're the only hope {quest_stakes} have left."
+        "intro": "{player_name}, I know you have already done so much. But {quest_threat} struck again last night, harder than before.",
+        "plotStep": "They came straight for {quest_focus}. {quest_stakes} barely escaped. {quest_ally} says the {enemy_type} are being organized by something smarter: there are tracks leading {location_hint}.",
+        "outro": "If we do not act now, everything we have rebuilt will be lost."
       },
       "playerResponses": [
-        { "text": "Then I'll go deeper. Show me where this cave is.", "action": "ACCEPT" },
-        { "text": "Every time I come back you need more. This is the last time.", "action": "ACCEPT", "dispositionShift": -5 },
-        { "text": "I've risked my neck enough already.", "action": "DECLINE" }
+        { "text": "Show me the tracks. I will follow them.", "action": "ACCEPT", "dispositionShift": 10 },
+        { "text": "You owe me double for this one.", "action": "ACCEPT", "dispositionShift": -5 }
       ],
-      "objectivePool": ["GATHER_ITEMS", "EXPLORE_LOCATION", "KILL_MOBS"],
+      "objectivePool": ["EXPLORE_LOCATION", "KILL_MOBS", "KILL_NPC"],
       "objectiveConfig": {
-        "GATHER_ITEMS": { "countMin": 8, "countMax": 15 },
-        "EXPLORE_LOCATION": { "countMin": 1, "countMax": 2 },
-        "KILL_MOBS": { "countMin": 3, "countMax": 6 }
-      }
-    },
-    {
-      "id": "supplication_conf_04",
-      "dialogueChunks": {
-        "intro": "{player_name}, I hate to greet you with more bad news, but we've been hit again.",
-        "plotStep": "A second wave of {enemy_type} swept through while you were gone. They burned the storehouse where we were keeping the {quest_item} you already gathered. Everything is ash. {target_npc} managed to drag a few crates out the back, but it's barely a quarter of what we need to {quest_action}. The only option left is to scavenge from the old outpost {location_hint}.",
-        "outro": "I know I keep asking more from you. I know. But {quest_stakes} have no one else."
-      },
-      "playerResponses": [
-        { "text": "Then I'll go to the outpost. We're not giving up.", "action": "ACCEPT" },
-        { "text": "Burned? Every time I turn around, things get worse. Fine, I'll go.", "action": "ACCEPT", "dispositionShift": -5 },
-        { "text": "I've lost too much time on this already.", "action": "DECLINE" }
-      ],
-      "objectivePool": ["EXPLORE_LOCATION", "GATHER_ITEMS", "KILL_MOBS"],
-      "objectiveConfig": {
-        "EXPLORE_LOCATION": { "countMin": 1, "countMax": 2 },
-        "GATHER_ITEMS": { "countMin": 5, "countMax": 10 },
-        "KILL_MOBS": { "countMin": 3, "countMax": 7 }
-      }
-    },
-    {
-      "id": "supplication_conf_05",
-      "dialogueChunks": {
-        "intro": "Thank the stars you're still here, {player_name}. We need your help more urgently than ever.",
-        "plotStep": "{quest_threat} has spread to the very people trying to {quest_action}. {target_npc} is the only one still on their feet, and they're fading fast. Worse, a nest of {enemy_type} has moved into the caves where the last supply of {quest_item} grows. We need you to clear them out and gather what's left before we lose everything.",
-        "outro": "If we lose the people doing the work, we lose {quest_stakes}. There's no softer way to say it."
-      },
-      "playerResponses": [
-        { "text": "I'll clear the caves and bring back everything I can find.", "action": "ACCEPT" },
-        { "text": "This was supposed to be a simple errand. Now it's a full campaign.", "action": "ACCEPT", "dispositionShift": -5 },
-        { "text": "I'm not a healer or a miracle worker. I'm sorry.", "action": "DECLINE" }
-      ],
-      "objectivePool": ["KILL_MOBS", "GATHER_ITEMS"],
-      "objectiveConfig": {
-        "KILL_MOBS": { "countMin": 4, "countMax": 9 },
-        "GATHER_ITEMS": { "countMin": 6, "countMax": 12 }
-      }
-    },
-    {
-      "id": "supplication_conf_06",
-      "dialogueChunks": {
-        "intro": "{player_name}... I don't know how to tell you this. Something has gone terribly wrong.",
-        "plotStep": "The bridge you crossed to get the {quest_item} collapsed overnight: a landslide, triggered by the same rains that have been drowning us. The supply route to {quest_focus} is completely cut off. {target_npc} found an old game trail that winds {location_hint}, but it passes straight through {enemy_type} hunting grounds. We need you to scout that trail and make sure it's passable, or our efforts to {quest_action} are finished.",
-        "outro": "If we can't reopen a supply line, everything you've done for {quest_stakes} will have been for nothing."
-      },
-      "playerResponses": [
-        { "text": "I'll scout the trail and clear whatever's in the way.", "action": "ACCEPT" },
-        { "text": "Nature and monsters both working against us. Just my luck.", "action": "ACCEPT" },
-        { "text": "A collapsed bridge changes everything. I can't keep risking my life like this.", "action": "DECLINE" }
-      ],
-      "objectivePool": ["EXPLORE_LOCATION", "KILL_MOBS"],
-      "objectiveConfig": {
-        "EXPLORE_LOCATION": { "countMin": 2, "countMax": 4 },
-        "KILL_MOBS": { "countMin": 3, "countMax": 6 }
-      }
-    },
-    {
-      "id": "supplication_conf_07",
-      "dialogueChunks": {
-        "intro": "You won't believe what happened last night, {player_name}. I can barely believe it myself.",
-        "plotStep": "Wolves got into the livestock pen. Killed three goats and scattered the rest into the hills. Those animals were the only thing keeping {quest_stakes} fed while we worked to {quest_action}. {target_npc} tracked the herd {location_hint}, but the hills are thick with {enemy_type} and they couldn't go further alone. If we don't get those animals back and deliver the {quest_item}, two problems become a disaster.",
-        "outro": "We're holding on by our fingernails here. One more setback and {quest_focus} won't matter anymore."
-      },
-      "playerResponses": [
-        { "text": "I'll track down the herd and finish what I started.", "action": "ACCEPT" },
-        { "text": "Livestock, monsters, supplies: this list never ends. Let's just get it done.", "action": "ACCEPT", "dispositionShift": -5 },
-        { "text": "You've got too many problems for one person to solve.", "action": "DECLINE" }
-      ],
-      "objectivePool": ["EXPLORE_LOCATION", "GATHER_ITEMS", "DELIVER_ITEM"],
-      "objectiveConfig": {
-        "EXPLORE_LOCATION": { "countMin": 1, "countMax": 2 },
-        "GATHER_ITEMS": { "countMin": 4, "countMax": 8 },
-        "DELIVER_ITEM": {}
-      }
-    },
-    {
-      "id": "supplication_conf_08",
-      "dialogueChunks": {
-        "intro": "I was praying you'd come back soon, {player_name}. We're running out of time.",
-        "plotStep": "A group of strangers arrived claiming their need for {quest_item} is greater than ours. {target_npc} tried to negotiate but they won't budge, and some of them are armed. We can't afford a fight and we can't afford to give up what we need to {quest_action}. The only solution is more: enough for everyone. There's a deposit {location_hint} that nobody's touched because of the {enemy_type} nesting nearby.",
-        "outro": "If you can bring back enough for everyone, we avoid bloodshed. If not, {quest_stakes} are caught in the middle."
-      },
-      "playerResponses": [
-        { "text": "More for everyone is better than fighting over scraps. I'll go.", "action": "ACCEPT" },
-        { "text": "Sharing what I risked my life for? They'd better be grateful.", "action": "ACCEPT", "dispositionShift": -5 },
-        { "text": "Your neighbors' problems are not mine. Sort it out yourselves.", "action": "DECLINE" }
-      ],
-      "objectivePool": ["GATHER_ITEMS", "KILL_MOBS", "EXPLORE_LOCATION"],
-      "objectiveConfig": {
-        "GATHER_ITEMS": { "countMin": 8, "countMax": 18 },
-        "KILL_MOBS": { "countMin": 3, "countMax": 6 },
-        "EXPLORE_LOCATION": { "countMin": 1, "countMax": 1 }
+        "KILL_MOBS": { "countMin": 3, "countMax": 8 }
       }
     }
   ]

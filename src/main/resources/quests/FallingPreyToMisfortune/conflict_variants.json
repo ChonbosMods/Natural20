@@ -1,79 +1,56 @@
 {
   "variants": [
     {
-      "id": "fallingprey_conf_01",
+      "id": "misfortune_conf_01",
       "dialogueChunks": {
-        "intro": "I hate to be the bearer of more bad news, {player_name}. But the misfortune isn't done with us yet.",
-        "plotStep": "The remedy you gathered? It's not working. {quest_threat} has mutated into something the alchemist has never seen, and the standard treatment only slows it. {target_npc} found a reference to a stronger compound requiring {quest_item} from deep caves {location_hint}. Without a stronger formula, our efforts to {quest_action} will fail.",
-        "outro": "Every time we find a solution, the problem changes shape. But {quest_stakes} can't afford for us to stop trying."
+        "intro": "{player_name}, as if things were not bad enough. While you were helping us {quest_action}, {quest_threat} worsened and brought new problems.",
+        "plotStep": "{quest_ally} says the {enemy_type} have been emboldened by the disruption near {quest_focus}. They are scavenging {location_hint} and threatening {quest_stakes}. We need you to drive them off and secure more {quest_item}.",
+        "outro": "Misfortune compounds misfortune. But we have to keep fighting."
       },
       "playerResponses": [
-        { "text": "Then I'll go deeper. Whatever it takes.", "action": "ACCEPT" },
-        { "text": "A mutating blight? This job keeps getting harder. And more expensive.", "action": "ACCEPT", "dispositionShift": -5 },
-        { "text": "I can't chase a disease that keeps evolving. I'm sorry.", "action": "DECLINE" }
+        { "text": "One problem at a time. I will handle the creatures first.", "action": "ACCEPT", "dispositionShift": 5 },
+        { "text": "This luck of yours is unbelievable. Alright, I will go.", "action": "ACCEPT", "dispositionShift": -3 },
+        { "text": "I cannot fix everything.", "action": "DECLINE", "dispositionShift": -5 }
       ],
-      "objectivePool": ["GATHER_ITEMS", "EXPLORE_LOCATION", "KILL_MOBS"],
+      "objectivePool": ["KILL_MOBS", "GATHER_ITEMS"],
       "objectiveConfig": {
-        "GATHER_ITEMS": { "countMin": 6, "countMax": 15 },
-        "EXPLORE_LOCATION": { "countMin": 1, "countMax": 2 },
-        "KILL_MOBS": { "countMin": 2, "countMax": 5 }
+        "KILL_MOBS": { "countMin": 4, "countMax": 8 },
+        "GATHER_ITEMS": { "countMin": 3, "countMax": 8 }
       }
     },
     {
-      "id": "fallingprey_conf_02",
+      "id": "misfortune_conf_02",
       "dialogueChunks": {
-        "intro": "{player_name}, the universe has a terrible sense of humor. Listen to this.",
-        "plotStep": "A rockslide blocked the passage you cleared to {quest_focus}. The very next day. {target_npc} says it'll take weeks to dig through. But there's an old drainage tunnel {location_hint} that the original miners used, sealed because the {enemy_type} took it over. We need you to clear it and bring back enough {quest_item} to keep our efforts to {quest_action} going.",
-        "outro": "One step forward, two steps back. That's been the rhythm of our lives lately. {quest_stakes} are running out of patience."
+        "intro": "More misfortune, {player_name}. Your work to {quest_action} was going well until a second wave of {quest_threat} undid half your progress.",
+        "plotStep": "{quest_focus} has been hit again. {quest_ally} managed to salvage some {quest_item}, but {enemy_type} moved in {location_hint} and are blocking access. {quest_stakes} need those resources desperately.",
+        "outro": "I know this feels like pushing a boulder uphill. But we are close: one more effort."
       },
       "playerResponses": [
-        { "text": "A sealed tunnel full of monsters? Just another day at this point. I'll go.", "action": "ACCEPT" },
-        { "text": "Your luck is genuinely astounding. Fine, show me the drainage tunnel.", "action": "ACCEPT" },
-        { "text": "Even the mountain is fighting you. I think this mine is done.", "action": "DECLINE" }
+        { "text": "A setback, not a defeat. I will push through.", "action": "ACCEPT", "dispositionShift": 10 },
+        { "text": "Fate really has it in for this place.", "action": "ACCEPT", "dispositionShift": 0 }
       ],
-      "objectivePool": ["EXPLORE_LOCATION", "KILL_MOBS", "GATHER_ITEMS"],
+      "objectivePool": ["KILL_MOBS", "GATHER_ITEMS", "EXPLORE_LOCATION"],
       "objectiveConfig": {
-        "EXPLORE_LOCATION": { "countMin": 2, "countMax": 3 },
         "KILL_MOBS": { "countMin": 3, "countMax": 7 },
-        "GATHER_ITEMS": { "countMin": 4, "countMax": 8 }
+        "GATHER_ITEMS": { "countMin": 4, "countMax": 10 }
       }
     },
     {
-      "id": "fallingprey_conf_03",
+      "id": "misfortune_conf_03",
       "dialogueChunks": {
-        "intro": "It's getting worse, {player_name}. I didn't think that was possible, but here we are.",
-        "plotStep": "{quest_threat} spread to the alchemist: the one person who knows how to prepare the cure. {target_npc} found the alchemist's notes, but they're in shorthand nobody can read. There's a recluse living {location_hint} who might help: expelled years ago over a dispute. We need you to find them and bring back enough {quest_item} for a proper batch. The territory is swarming with {enemy_type}.",
-        "outro": "Our healer is sick, our notes are unreadable, and our last hope to {quest_action} is a hermit who hates us. {quest_stakes} deserve better luck than this."
+        "intro": "{player_name}, I hate to ask again. Since you began to {quest_action}, we discovered that {quest_threat} caused hidden damage to {quest_focus}.",
+        "plotStep": "The situation is more fragile than we thought. {quest_ally} found signs that the {enemy_type} are nesting {location_hint}, drawn by the instability. We need to clear them and bring {quest_item} to stabilize things.",
+        "outro": "Without your help, {quest_stakes} will be lost to nothing more than bad luck and bad timing."
       },
       "playerResponses": [
-        { "text": "I'll find the recluse and get the notes translated. We're not giving up.", "action": "ACCEPT" },
-        { "text": "A bitter hermit in monster territory? This quest has everything.", "action": "ACCEPT" },
-        { "text": "Diplomacy with angry hermits isn't really my skill set.", "action": "DECLINE" }
+        { "text": "Bad luck bends to persistence. I will keep going.", "action": "ACCEPT", "dispositionShift": 10 },
+        { "text": "Hidden damage? What else are you not telling me?", "action": "ACCEPT", "dispositionShift": -5 },
+        { "text": "This place is cursed. I am leaving.", "action": "DECLINE", "dispositionShift": -10 }
       ],
-      "objectivePool": ["TALK_TO_NPC", "GATHER_ITEMS", "KILL_MOBS"],
+      "objectivePool": ["KILL_MOBS", "GATHER_ITEMS", "EXPLORE_LOCATION"],
       "objectiveConfig": {
-        "TALK_TO_NPC": { "countMin": 1, "countMax": 1 },
-        "GATHER_ITEMS": { "countMin": 5, "countMax": 10 },
-        "KILL_MOBS": { "countMin": 2, "countMax": 5 }
-      }
-    },
-    {
-      "id": "fallingprey_conf_04",
-      "dialogueChunks": {
-        "intro": "Fate has a new twist for us, {player_name}. This one might be the cruelest yet.",
-        "plotStep": "The route you scouted worked for three days. Then the {enemy_type} returned in numbers we've never seen, driven out by something even they're afraid of. They've swarmed every path between us and the outside world. {target_npc} got a message to a trader who left a cache of {quest_item} hidden {location_hint}. But reaching it means fighting through the densest concentration of enemies we've ever seen to {quest_action}.",
-        "outro": "The supplies are tantalizingly close. But the gauntlet between us and them is the worst it's ever been. {quest_stakes} can't wait much longer."
-      },
-      "playerResponses": [
-        { "text": "I've fought through worse. Tell me where the cache is.", "action": "ACCEPT" },
-        { "text": "A gauntlet of monsters? At least this time there's a clear objective at the end.", "action": "ACCEPT" },
-        { "text": "Whatever scared the {enemy_type} out of their territory scares me more.", "action": "DECLINE" }
-      ],
-      "objectivePool": ["KILL_MOBS", "FETCH_ITEM", "EXPLORE_LOCATION"],
-      "objectiveConfig": {
-        "KILL_MOBS": { "countMin": 5, "countMax": 10 },
-        "FETCH_ITEM": { "locationPreference": "WILDERNESS" },
-        "EXPLORE_LOCATION": { "countMin": 1, "countMax": 2 }
+        "KILL_MOBS": { "countMin": 3, "countMax": 6 },
+        "GATHER_ITEMS": { "countMin": 5, "countMax": 12 }
       }
     }
   ]

@@ -1,79 +1,105 @@
 {
   "variants": [
     {
-      "id": "necessity_of_sacrificing_loved_ones_expo_01",
+      "id": "expo_necessity_sacrifice_plague_choice",
       "bindings": {
-        "quest_action": "fortify the settlement so the refugees can stay",
-        "quest_focus": "refugees hidden in the granary drawing enemy attention",
-        "quest_stakes": "being forced to choose between the refugees and the settlement",
-        "quest_threat": "an enemy force circling because the refugees were tracked here",
-        "quest_origin": "a friend harboring dozens of displaced people in secret"
+        "quest_action": "find an alternative cure",
+        "quest_focus": "the infected quarter",
+        "quest_stakes": "the healthy survivors",
+        "quest_threat": "the spreading plague",
+        "quest_origin": "the healer's archive",
+        "quest_time_pressure": "before the quarantine fails"
       },
       "dialogueChunks": {
-        "intro": "{player_name}, I need to talk to someone who isn't part of this settlement. Someone who can see clearly. Because I can't anymore.",
-        "plotStep": "My oldest friend, {target_npc}, has been harboring refugees from a settlement destroyed by {enemy_type}. Dozens of them, hidden in the old granary. The problem is that {quest_threat}: the {enemy_type} tracked the refugees here, and now they're circling {location}. The council says if we don't turn the refugees out, the entire settlement is at risk. They want me to deliver the exile order because {target_npc} trusts me. I need {quest_item} to reinforce our defenses: barricades, traps, anything. If I can make {location} strong enough to withstand a siege, maybe we don't have to choose.",
-        "outro": "I can't look my friend in the eye and tell them to send those people back into the wild to die. But I can't watch my own neighbors die either. Help me find a third option."
+        "intro": "The council voted last night. If we can't find a cure by sundown tomorrow, they're going to seal {quest_focus} with the infected still inside. Including my sister.",
+        "plotStep": "There are forty people in the quarantine. Twelve are too sick to walk. The rest are trapped with them because the exits were barred when {quest_threat} first appeared. The council says it's forty lives against four hundred. They're not wrong about the math. They're just wrong about the deadline.",
+        "outro": "{quest_origin} might hold answers, but nobody has dared go there since the {enemy_type} moved into the area. I need someone to {quest_action} {quest_time_pressure}. I can't just watch them brick up the doors."
       },
       "playerResponses": [
-        { "text": "A third option. I like that. Let's fortify this place.", "action": "ACCEPT" },
-        { "text": "Impossible choices are the worst kind. I'll do what I can.", "action": "ACCEPT" },
-        { "text": "Some choices don't have a third option. I can't fix this for you.", "action": "DECLINE" }
+        {
+          "text": "Nobody gets sealed in while I can still run. Where's the archive?",
+          "action": "ACCEPT",
+          "dispositionShift": 5
+        },
+        {
+          "text": "The council's math might be right, but I'll try anyway.",
+          "action": "ACCEPT",
+          "dispositionShift": 2
+        },
+        {
+          "text": "Forty against four hundred is a choice no one should have to make. But the council is right.",
+          "action": "DECLINE"
+        }
       ],
-      "objectivePool": ["GATHER_ITEMS", "FETCH_ITEM"],
+      "objectivePool": ["EXPLORE_LOCATION", "FETCH_ITEM", "KILL_MOBS"],
       "objectiveConfig": {
-        "GATHER_ITEMS": { "countMin": 6, "countMax": 14 },
-        "FETCH_ITEM": { "locationPreference": "WILDERNESS" }
+        "KILL_MOBS": { "countMin": 3, "countMax": 7 }
       }
     },
     {
-      "id": "necessity_of_sacrificing_loved_ones_expo_02",
+      "id": "expo_necessity_sacrifice_hostage_trade",
       "bindings": {
-        "quest_action": "build a purification system so neither community loses its water",
-        "quest_focus": "a poisoned well forcing a choice over the only clean water source",
-        "quest_stakes": "one community stealing water that another needs to survive",
-        "quest_threat": "a water crisis pitting two communities against each other",
-        "quest_origin": "slow poison in the well traced to enemy contamination"
+        "quest_action": "break the hostage ring",
+        "quest_focus": "the ransom demand",
+        "quest_stakes": "the captive families",
+        "quest_threat": "an impossible ultimatum",
+        "quest_origin": "the border crossing"
       },
       "dialogueChunks": {
-        "intro": "I haven't slept in four days, {player_name}. Every time I close my eyes I see two futures, and both of them are nightmares.",
-        "plotStep": "The well in {location} is poisoned. Slowly, subtly: people have been getting sicker for weeks before we traced it. The only clean water source is in a cavern {location_hint} that belongs to {target_npc}'s family by ancestral right. They've offered to share, but the cavern can only sustain one community's worth of water. If we divert it here, {target_npc}'s kin across the valley lose their supply. If we don't, our children keep drinking poison. I need {quest_item} to {quest_action}: something, anything, that means we don't have to steal water from people I love.",
-        "outro": "I would cut off my own hand before I took water from {target_npc}'s people. But I will not bury another child. There has to be another way."
+        "intro": "The {enemy_type} sent {quest_focus} this morning. They have twelve of our people. They want us to hand over our grain reserves in exchange. All of them.",
+        "plotStep": "If we surrender the grain, the settlement starves. If we refuse, twelve families lose someone they love. The {enemy_type} chose their hostages carefully: parents, healers, people the settlement can't bear to lose. Every option on the table costs lives.",
+        "outro": "There might be a third option. {quest_origin} is where they're holding the captives. If someone could {quest_action} before the deadline, we wouldn't have to choose which of our people to sacrifice."
       },
       "playerResponses": [
-        { "text": "A purification system could save everyone. Tell me what you need.", "action": "ACCEPT" },
-        { "text": "Four days without sleep and a poisoned well. Let me carry this burden for a while.", "action": "ACCEPT" },
-        { "text": "Water rights are a political problem. I'm not the right person for this.", "action": "DECLINE" }
+        {
+          "text": "I'll find a way that doesn't end with an impossible choice.",
+          "action": "ACCEPT",
+          "dispositionShift": 5
+        },
+        {
+          "text": "What happens if the rescue fails?",
+          "action": "ACCEPT",
+          "dispositionShift": 1
+        },
+        {
+          "text": "This decision belongs to the council, not an outsider.",
+          "action": "DECLINE"
+        }
       ],
-      "objectivePool": ["GATHER_ITEMS", "EXPLORE_LOCATION"],
+      "objectivePool": ["EXPLORE_LOCATION", "KILL_MOBS", "TALK_TO_NPC"],
       "objectiveConfig": {
-        "GATHER_ITEMS": { "countMin": 5, "countMax": 10 },
-        "EXPLORE_LOCATION": { "countMin": 1, "countMax": 3 }
+        "KILL_MOBS": { "countMin": 4, "countMax": 9 }
       }
     },
     {
-      "id": "necessity_of_sacrificing_loved_ones_expo_03",
+      "id": "expo_necessity_sacrifice_bridge_guard",
       "bindings": {
-        "quest_action": "gather replacement supplies before the truce deadline",
-        "quest_focus": "harvest stores demanded as tribute by a hostile force",
-        "quest_stakes": "choosing between starving families and dead soldiers",
-        "quest_threat": "an enemy truce that demands tribute at the cost of civilian lives",
-        "quest_time_pressure": "the truce deadline arriving before replacement supplies can be gathered"
+        "quest_action": "find another crossing",
+        "quest_focus": "the only bridge",
+        "quest_stakes": "the retreating civilians",
+        "quest_threat": "the advancing army",
+        "quest_time_pressure": "before dawn"
       },
       "dialogueChunks": {
-        "intro": "Sit down, {player_name}. What I'm about to tell you stays between us. If the wrong people hear this, blood will follow.",
-        "plotStep": "{target_npc} sent a message last night. The {enemy_type} have offered a truce: they'll stop raiding {location} if we hand over {quest_focus}. Those stores feed three families through winter, including my own sister's. If we refuse the truce, the raids continue and more guards die. If we accept, those families starve unless someone can {quest_action} from the wilds {location_hint} to replace what we give up. I need those supplies before {quest_time_pressure}, or I have to choose between {quest_stakes}.",
-        "outro": "Every option costs someone I care about. I'm asking you to help me find one that doesn't cost a life."
+        "intro": "The commander wants to blow {quest_focus}. It's the only thing between {quest_threat} and the settlement. But there are still people on the other side trying to cross.",
+        "plotStep": "If the bridge stands, the {enemy_type} pour through and everyone dies. If we destroy it now, seventeen people on the far bank are cut off with no escape. The commander is standing there with a torch, waiting for my answer. I don't have one.",
+        "outro": "If there's another way across, somewhere downstream, those seventeen people have a chance. Someone needs to {quest_action} {quest_time_pressure}. Once that torch touches the fuse, there's no going back."
       },
       "playerResponses": [
-        { "text": "I'll gather replacement supplies. Nobody has to starve or die.", "action": "ACCEPT" },
-        { "text": "A truce bought with food. It's ugly, but I'll help make it work.", "action": "ACCEPT", "dispositionShift": -5 },
-        { "text": "Negotiating with raiders is a mistake. I won't be part of it.", "action": "DECLINE" }
+        {
+          "text": "Hold the torch. I'll find another way across for them.",
+          "action": "ACCEPT",
+          "dispositionShift": 5
+        },
+        {
+          "text": "How long can the bridge hold without being destroyed?",
+          "action": "ACCEPT",
+          "dispositionShift": 2
+        }
       ],
-      "objectivePool": ["GATHER_ITEMS", "FETCH_ITEM", "EXPLORE_LOCATION"],
+      "objectivePool": ["EXPLORE_LOCATION", "TALK_TO_NPC", "KILL_MOBS"],
       "objectiveConfig": {
-        "GATHER_ITEMS": { "countMin": 6, "countMax": 12 },
-        "FETCH_ITEM": { "locationPreference": "WILDERNESS" },
-        "EXPLORE_LOCATION": { "countMin": 1, "countMax": 2 }
+        "KILL_MOBS": { "countMin": 2, "countMax": 6 }
       }
     }
   ]

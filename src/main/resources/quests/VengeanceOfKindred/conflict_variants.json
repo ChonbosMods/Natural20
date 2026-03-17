@@ -3,76 +3,53 @@
     {
       "id": "vengeancekindred_conf_01",
       "dialogueChunks": {
-        "intro": "{player_name}, the {enemy_type} know we're coming for them. And they've responded the only way they know how.",
-        "plotStep": "They killed another one. A shepherd boy, barely twelve, found at the edge of the settlement this morning. {target_npc} is trying to keep people from forming a mob, but the rage is boiling over. If we don't {quest_action} now, the villagers will charge in themselves and get massacred. You need to hit the {enemy_type} lair {location_hint} before grief turns into a bloodbath.",
-        "outro": "Every day we wait, {quest_threat} takes another life to prove they can. This has to end."
+        "intro": "{player_name}, your work to {quest_action} has stirred up a hornet's nest. {quest_threat} know someone is coming for them.",
+        "plotStep": "They sent {enemy_type} to strike at {quest_stakes} as a warning. {quest_ally} fended them off, but they hit hard. They are massing {location_hint} near {quest_focus}. We cannot let this go unanswered.",
+        "outro": "Every day they draw breath is an insult to the ones we lost. Finish it."
       },
       "playerResponses": [
-        { "text": "A child? No more waiting. I'm going now.", "action": "ACCEPT" },
-        { "text": "They're provoking us into a mistake. I'll stay focused and hit them where it hurts.", "action": "ACCEPT" },
-        { "text": "This cycle of killing will never stop. I can't be part of it.", "action": "DECLINE" }
+        { "text": "Warnings do not frighten me. I will see this through.", "action": "ACCEPT", "dispositionShift": 10 },
+        { "text": "They are fighting back hard. I will need more supplies.", "action": "ACCEPT", "dispositionShift": -3 },
+        { "text": "This cycle of violence is pointless.", "action": "DECLINE", "dispositionShift": -10 }
       ],
       "objectivePool": ["KILL_MOBS", "EXPLORE_LOCATION"],
       "objectiveConfig": {
-        "KILL_MOBS": { "countMin": 5, "countMax": 10 },
-        "EXPLORE_LOCATION": { "countMin": 1, "countMax": 2 }
+        "KILL_MOBS": { "countMin": 5, "countMax": 10 }
       }
     },
     {
       "id": "vengeancekindred_conf_02",
       "dialogueChunks": {
-        "intro": "We found something at the {enemy_type} camp you raided, {player_name}. Something that changes everything.",
-        "plotStep": "Belongings. Personal items from at least a dozen victims, kept as trophies. {target_npc} identified their sister's pendant, and three other families found pieces of people they'd lost. {quest_threat} didn't just kill our people: they collected souvenirs. There's a deeper warren {location_hint} where the leader keeps their hoard. We need you to recover what you can as part of {quest_action}.",
-        "outro": "Those items belong to {quest_stakes}. They should never have been trophies."
+        "intro": "Your pursuit to {quest_action} flushed them out, {player_name}. But {quest_threat} scattered and regrouped closer to {quest_focus}.",
+        "plotStep": "{quest_ally} says the {enemy_type} are dug in deep {location_hint}. They are using {quest_focus} as a strongpoint. We need to root them out before they can retaliate against {quest_stakes} again.",
+        "outro": "We are close. One more push and this will be over."
       },
       "playerResponses": [
-        { "text": "Trophies from the dead? I'll bring everything back and make them pay.", "action": "ACCEPT" },
-        { "text": "Deeper into their territory for personal effects? The families need this. I'll go.", "action": "ACCEPT" },
-        { "text": "Going deeper into their lair alone is asking to join the dead. I won't do it.", "action": "DECLINE" }
+        { "text": "One more push. I can do that.", "action": "ACCEPT", "dispositionShift": 5 },
+        { "text": "They keep regrouping. Are you sure this will end?", "action": "ACCEPT", "dispositionShift": -5 }
       ],
-      "objectivePool": ["EXPLORE_LOCATION", "FETCH_ITEM", "KILL_MOBS"],
+      "objectivePool": ["KILL_MOBS", "EXPLORE_LOCATION", "GATHER_ITEMS"],
       "objectiveConfig": {
-        "EXPLORE_LOCATION": { "countMin": 2, "countMax": 3 },
-        "FETCH_ITEM": { "locationPreference": "DUNGEON" },
-        "KILL_MOBS": { "countMin": 4, "countMax": 8 }
+        "KILL_MOBS": { "countMin": 4, "countMax": 9 },
+        "GATHER_ITEMS": { "countMin": 3, "countMax": 6 }
       }
     },
     {
       "id": "vengeancekindred_conf_03",
       "dialogueChunks": {
-        "intro": "Bad news, {player_name}. {quest_threat} have found allies.",
-        "plotStep": "A second group has joined the ones you've been hunting: drawn by the commotion, or maybe called in. {target_npc} spotted them arriving {location_hint} in numbers we haven't seen before. They've doubled the guard and they're raiding more aggressively, gathering {quest_item} to fortify. If we don't break their alliance now as part of our efforts to {quest_action}, the settlement will face a force too large to overcome.",
-        "outro": "Cut their supply line, scatter the reinforcements, and finish what we started for {quest_stakes}."
+        "intro": "{player_name}, the situation has shifted. Since you started to {quest_action}, {quest_threat} retaliated by targeting our supplies.",
+        "plotStep": "They raided the stores near {quest_focus} and the {enemy_type} are blocking the routes {location_hint}. {quest_ally} is rallying the community, but they need a fighter. Secure {quest_item} and clear the path.",
+        "outro": "Our kin deserve better than to be terrorized. End this threat for good."
       },
       "playerResponses": [
-        { "text": "Reinforcements change nothing. I'll cut through them all.", "action": "ACCEPT" },
-        { "text": "Double the enemies means double the danger. I'll need more resources.", "action": "ACCEPT", "dispositionShift": -5 },
-        { "text": "An enemy that's growing stronger while I fight alone? The odds are impossible.", "action": "DECLINE" }
+        { "text": "Striking at supplies is cowardly. I will cut them off.", "action": "ACCEPT", "dispositionShift": 10 },
+        { "text": "This keeps escalating. Fine, one more time.", "action": "ACCEPT", "dispositionShift": -3 },
+        { "text": "I signed up for vengeance, not a war.", "action": "DECLINE" }
       ],
       "objectivePool": ["KILL_MOBS", "GATHER_ITEMS", "EXPLORE_LOCATION"],
       "objectiveConfig": {
-        "KILL_MOBS": { "countMin": 5, "countMax": 10 },
-        "GATHER_ITEMS": { "countMin": 4, "countMax": 8 },
-        "EXPLORE_LOCATION": { "countMin": 1, "countMax": 2 }
-      }
-    },
-    {
-      "id": "vengeancekindred_conf_04",
-      "dialogueChunks": {
-        "intro": "{player_name}, I need you to listen carefully. Some of our own people are wavering.",
-        "plotStep": "Half the settlement thinks we should negotiate with the {enemy_type} instead of fighting. {target_npc} is holding the community together, but barely. To prove that our fight to {quest_action} is worth finishing, we need a decisive strike. There's a forward outpost {location_hint} where {quest_threat} have been stockpiling {quest_item}. Destroy it, and we show {quest_stakes} that victory is within reach.",
-        "outro": "If the settlement loses its nerve now, everyone who died will have died for nothing. We need this win."
-      },
-      "playerResponses": [
-        { "text": "A decisive strike to restore their courage. I'll make it count.", "action": "ACCEPT" },
-        { "text": "Internal divisions on top of external enemies? I'll handle the outpost, you handle the politics.", "action": "ACCEPT" },
-        { "text": "If your own people want peace, maybe you should listen to them.", "action": "DECLINE" }
-      ],
-      "objectivePool": ["EXPLORE_LOCATION", "KILL_MOBS", "GATHER_ITEMS"],
-      "objectiveConfig": {
-        "EXPLORE_LOCATION": { "countMin": 1, "countMax": 2 },
-        "KILL_MOBS": { "countMin": 4, "countMax": 9 },
-        "GATHER_ITEMS": { "countMin": 3, "countMax": 6 }
+        "KILL_MOBS": { "countMin": 3, "countMax": 7 },
+        "GATHER_ITEMS": { "countMin": 4, "countMax": 8 }
       }
     }
   ]

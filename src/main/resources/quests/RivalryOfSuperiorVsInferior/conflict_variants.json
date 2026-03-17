@@ -1,61 +1,82 @@
 {
   "variants": [
     {
-      "id": "rivalry_of_superior_vs_inferior_conf_01",
+      "id": "conf_rivalry_sup_inf_escalation",
       "dialogueChunks": {
-        "intro": "{player_name}, they know. Somehow, they found out about the documents.",
-        "plotStep": "{quest_threat} posted sentries on every road out of {location}. Nobody gets in or out without being searched. My records are hidden, but they're useless if I can't deliver them. Worse, {target_npc} was detained again: this time on fabricated charges of hoarding supplies. I need you to find a way through the sentries. There's an old smuggler's trail {location_hint} that might still be passable, but the {enemy_type} have been spotted along the route. Clear the path and deliver a sealed copy of {quest_focus} to the contact at the end of the trail.",
-        "outro": "If those records don't reach the authority, the commander tightens his grip and {target_npc} rots in a cell. We're running out of time."
+        "intro": "The mediation fell apart, {player_name}. One of the founding family's sons struck a worker during the talks. Now there's a mob forming at {location}.",
+        "plotStep": "{target_npc} is trying to hold back the workers from storming the estate, but they're furious. {quest_ally} found evidence that the elite have been stockpiling weapons, anticipating this exact situation. They never intended to negotiate fairly. {quest_item} contains records of how the founding families have been siphoning community funds for years.",
+        "outro": "If you can get {quest_item} to the settlement's neutral council before this turns violent, the evidence might force a real reckoning instead of a bloodbath."
       },
       "playerResponses": [
-        { "text": "I'll find the trail and deliver your records. No sentry will stop me.", "action": "ACCEPT" },
-        { "text": "Smuggler's trails and monster patrols. Your resistance effort needs better logistics.", "action": "ACCEPT", "dispositionShift": -5 },
-        { "text": "Smuggling documents past a garrison? That's treason in their eyes.", "action": "DECLINE" }
+        {
+          "text": "Evidence beats violence. I'll get the records to the council.",
+          "action": "ACCEPT",
+          "dispositionShift": 5
+        },
+        {
+          "text": "Maybe the mob has the right idea. The elite won't listen otherwise.",
+          "action": "ACCEPT",
+          "dispositionShift": -3
+        },
+        {
+          "text": "Both sides want blood now. I'm not standing in the middle.",
+          "action": "DECLINE",
+          "dispositionShift": -2
+        }
       ],
-      "objectivePool": ["EXPLORE_LOCATION", "KILL_MOBS", "DELIVER_ITEM"],
+      "objectivePool": ["FETCH_ITEM", "DELIVER_ITEM", "TALK_TO_NPC"],
+      "objectiveConfig": {}
+    },
+    {
+      "id": "conf_rivalry_sup_inf_siege_of_stores",
+      "dialogueChunks": {
+        "intro": "The farmers tried to take their harvest back by force. The guards repelled them, but three farmers were injured. The landowner doubled the guard.",
+        "plotStep": "{target_npc} discovered that {quest_item}, the original land charter, specifies that no taxes can be levied without a community vote. The landowner has been violating his own legal authority. But the charter is locked away in {location}, and the landowner's soldiers are between us and the proof.",
+        "outro": "Get the charter to {quest_ally}. If the founding agreement is clear, even the landowner's own guards will have to stand down. The law is on our side if we can put it in front of the right eyes."
+      },
+      "playerResponses": [
+        {
+          "text": "The truth is in that charter. I'll get it.",
+          "action": "ACCEPT",
+          "dispositionShift": 4
+        },
+        {
+          "text": "What if the landowner destroys it before I get there?",
+          "action": "ACCEPT",
+          "dispositionShift": 2
+        }
+      ],
+      "objectivePool": ["FETCH_ITEM", "EXPLORE_LOCATION", "KILL_MOBS"],
       "objectiveConfig": {
-        "EXPLORE_LOCATION": { "countMin": 2, "countMax": 3 },
-        "KILL_MOBS": { "countMin": 3, "countMax": 6 },
-        "DELIVER_ITEM": {}
+        "KILL_MOBS": { "countMin": 2, "countMax": 5 }
       }
     },
     {
-      "id": "rivalry_of_superior_vs_inferior_conf_02",
+      "id": "conf_rivalry_sup_inf_guild_retaliation",
       "dialogueChunks": {
-        "intro": "They burned it, {player_name}. They burned the forge to the ground.",
-        "plotStep": "{quest_threat} didn't even try to hide it. Torched {target_npc}'s new forge in broad daylight and dared anyone to say a word. {target_npc} barely got out alive. The message is clear: stay in your place or lose everything. But they made a mistake. They left witnesses, and now people who were too afraid to speak are furious. I need {quest_item} to set up a temporary forge in the old mine {location_hint}: somewhere the founding families can't easily reach. The {enemy_type} in those tunnels need to be cleared first.",
-        "outro": "They thought burning one forge would break us. Instead, it lit a fire in every person who's been kept down. We'll rebuild where they can't touch us."
+        "intro": "The guild masters found out about the investigation. The apprentice who gathered the evidence has been expelled and their workshop was ransacked.",
+        "plotStep": "{target_npc} managed to hide copies of {quest_item} before the guild's enforcers arrived. But the masters are now threatening to blacklist anyone who supports the apprentices. {quest_ally} says three journeymen have already been pressured into withdrawing their testimony. The guild is closing ranks.",
+        "outro": "We need to get the evidence to the trade council in {location} before the guild buries it completely. {quest_item} proves the examinations were rigged for at least a decade. The guild won't stop until they've silenced everyone who knows."
       },
       "playerResponses": [
-        { "text": "A hidden forge. They'll never see it coming. I'll clear those tunnels.", "action": "ACCEPT" },
-        { "text": "They burned the forge and created a rebellion. Their mistake. Let's move.", "action": "ACCEPT" },
-        { "text": "Going underground against the ruling families is a war you can't win.", "action": "DECLINE" }
+        {
+          "text": "Bullies fold when the light hits them. Let's deliver the evidence.",
+          "action": "ACCEPT",
+          "dispositionShift": 5
+        },
+        {
+          "text": "The guild has reach. Are we sure the trade council isn't in their pocket too?",
+          "action": "ACCEPT",
+          "dispositionShift": 1
+        },
+        {
+          "text": "I can't fight an entire guild alone.",
+          "action": "DECLINE",
+          "dispositionShift": -2
+        }
       ],
-      "objectivePool": ["KILL_MOBS", "EXPLORE_LOCATION", "GATHER_ITEMS"],
-      "objectiveConfig": {
-        "KILL_MOBS": { "countMin": 4, "countMax": 8 },
-        "EXPLORE_LOCATION": { "countMin": 1, "countMax": 2 },
-        "GATHER_ITEMS": { "countMin": 3, "countMax": 8 }
-      }
-    },
-    {
-      "id": "rivalry_of_superior_vs_inferior_conf_03",
-      "dialogueChunks": {
-        "intro": "Close the door, {player_name}. They raided the cache.",
-        "plotStep": "Someone talked. {quest_threat} found our emergency supply cache and confiscated everything you gathered. {target_npc} thinks there's an informant among the merchants: someone too scared of the guards to stay loyal. We need to start over, but smarter this time. There's an abandoned watchtower {location_hint} that nobody uses anymore. If you can clear the {enemy_type} out of it and gather fresh {quest_item}, we can establish a new cache in a place only three people know about. No more loose lips.",
-        "outro": "Losing that stockpile was a blow. But the guards just showed the whole settlement exactly how afraid they are of people who push back."
-      },
-      "playerResponses": [
-        { "text": "Three people and a hidden tower. That's all we need. I'm in.", "action": "ACCEPT" },
-        { "text": "An informant and a raid. You need to be more careful, but I'll help rebuild.", "action": "ACCEPT", "dispositionShift": -5 },
-        { "text": "If they found the first cache, they'll find the second. This is over.", "action": "DECLINE" }
-      ],
-      "objectivePool": ["KILL_MOBS", "GATHER_ITEMS", "EXPLORE_LOCATION"],
-      "objectiveConfig": {
-        "KILL_MOBS": { "countMin": 3, "countMax": 6 },
-        "GATHER_ITEMS": { "countMin": 6, "countMax": 15 },
-        "EXPLORE_LOCATION": { "countMin": 1, "countMax": 2 }
-      }
+      "objectivePool": ["DELIVER_ITEM", "TALK_TO_NPC", "EXPLORE_LOCATION"],
+      "objectiveConfig": {}
     }
   ]
 }

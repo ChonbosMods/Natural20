@@ -1,58 +1,86 @@
 {
   "variants": [
     {
-      "id": "necessity_of_sacrificing_loved_ones_conf_01",
+      "id": "conf_necessity_sacrifice_clock_ticking",
       "dialogueChunks": {
-        "intro": "{player_name}, the situation has turned worse. Much worse.",
-        "plotStep": "The {enemy_type} didn't wait for us to finish our defenses. They attacked the outer farms last night. Three families lost their homes. {target_npc} moved the refugees deeper into the settlement, but the council is furious. They're drafting an exile order. I have until dawn to convince them otherwise, but words won't do it: I need proof we can hold this place. Clear the {enemy_type} camp {location_hint} and bring back evidence that we've weakened their numbers. If the council sees we can fight, maybe {quest_stakes} won't come to pass.",
-        "outro": "Dawn. That's all I have. If I can't show the council a reason to hope by then, my friend and fifty refugees walk out those gates into certain death."
+        "intro": "The deadline moved up, {player_name}. Three more people in {quest_focus} collapsed overnight. The council says they can't wait any longer.",
+        "plotStep": "{target_npc} found a partial remedy in the records but it requires {quest_item} from {location}. It won't cure everyone: maybe half, maybe fewer. The council is debating whether a partial cure justifies keeping the doors open. My sister is one of the sickest. She told me through the wall to let them seal it.",
+        "outro": "I can't accept that. Get {quest_item} to {target_npc}. Even saving half is better than losing all of them. We're running out of time to find any answer."
       },
       "playerResponses": [
-        { "text": "I'll hit their camp tonight. You'll have your proof by morning.", "action": "ACCEPT" },
-        { "text": "Racing against the council and the enemy at the same time. Just another day.", "action": "ACCEPT", "dispositionShift": -5 },
-        { "text": "The council may be right. Sometimes the many outweigh the few.", "action": "DECLINE" }
+        {
+          "text": "Half is better than none. I'll get {quest_item}.",
+          "action": "ACCEPT",
+          "dispositionShift": 4
+        },
+        {
+          "text": "Your sister might be right. Sometimes love means letting go.",
+          "action": "ACCEPT",
+          "dispositionShift": -1
+        },
+        {
+          "text": "I can't keep chasing half-measures.",
+          "action": "DECLINE",
+          "dispositionShift": -3
+        }
       ],
-      "objectivePool": ["KILL_MOBS", "EXPLORE_LOCATION"],
+      "objectivePool": ["FETCH_ITEM", "GATHER_ITEMS", "KILL_MOBS"],
       "objectiveConfig": {
-        "KILL_MOBS": { "countMin": 5, "countMax": 10 },
-        "EXPLORE_LOCATION": { "countMin": 1, "countMax": 2 }
+        "GATHER_ITEMS": { "countMin": 4, "countMax": 10 },
+        "KILL_MOBS": { "countMin": 3, "countMax": 6 }
       }
     },
     {
-      "id": "necessity_of_sacrificing_loved_ones_conf_02",
+      "id": "conf_necessity_sacrifice_rescue_complicated",
       "dialogueChunks": {
-        "intro": "I need you to listen carefully, {player_name}. The purification plan hit a wall.",
-        "plotStep": "The materials you brought can filter sediment but not the poison itself. The contamination is magical in nature: some residue from the {enemy_type} that nested near the water table. {target_npc} found an old alchemical text that describes a neutralizing agent, but it requires {quest_item} from deep underground {location_hint}. Worse, {target_npc}'s family heard about our plans and they're threatening to seal the cavern. They think we're trying to take their water by force. I need you to gather the reagent AND speak to {target_npc} before their family does something irreversible.",
-        "outro": "If they seal that cavern, {quest_threat} destroys two communities instead of one. Fear makes people do terrible things."
+        "intro": "The rescue plan hit a wall. The {enemy_type} moved the hostages to a second location deeper in their territory. {quest_ally} barely made it back alive.",
+        "plotStep": "{target_npc} intercepted a message: the {enemy_type} are splitting the hostages into two groups held at different camps near {location}. We can reach one camp in time but not both. Four captives at one site, eight at the other. {quest_ally} says the smaller group includes the settlement's only healer.",
+        "outro": "Choose which group to save and someone dies. Refuse to choose and everyone dies. Find {quest_item}: it might give us the edge to hit both camps, but it means going through hostile territory first."
       },
       "playerResponses": [
-        { "text": "I'll talk to {target_npc} first, then get the reagent. Trust between neighbors matters.", "action": "ACCEPT" },
-        { "text": "Politics and poison. What a combination. I'll handle both.", "action": "ACCEPT" },
-        { "text": "I'm not a diplomat. You need someone who can negotiate, not fight.", "action": "DECLINE" }
+        {
+          "text": "I'll find a way to reach both. No one gets left behind.",
+          "action": "ACCEPT",
+          "dispositionShift": 5
+        },
+        {
+          "text": "Eight lives versus four. The numbers are clear.",
+          "action": "ACCEPT",
+          "dispositionShift": -2
+        }
       ],
-      "objectivePool": ["GATHER_ITEMS", "TALK_TO_NPC", "EXPLORE_LOCATION"],
+      "objectivePool": ["FETCH_ITEM", "KILL_MOBS", "EXPLORE_LOCATION"],
       "objectiveConfig": {
-        "GATHER_ITEMS": { "countMin": 4, "countMax": 8 },
-        "TALK_TO_NPC": { "countMin": 1, "countMax": 1 },
-        "EXPLORE_LOCATION": { "countMin": 1, "countMax": 2 }
+        "KILL_MOBS": { "countMin": 5, "countMax": 10 }
       }
     },
     {
-      "id": "necessity_of_sacrificing_loved_ones_conf_03",
+      "id": "conf_necessity_sacrifice_bridge_crumbling",
       "dialogueChunks": {
-        "intro": "The truce deadline moved up, {player_name}. They're coming tomorrow.",
-        "plotStep": "A second {enemy_type} warband joined the first. Their demands doubled: now they want the eastern AND western harvest stores. That's not three families going hungry, that's the entire settlement. {target_npc} says we have to fight, but fighting means guards die: guards with families of their own. My sister sent word that she'd rather starve than see soldiers killed protecting her grain. I need you to gather more {quest_item} from {location_hint} and I need you to do it faster than you've ever done anything. If we can stockpile enough before they arrive, we hand over the stores and nobody starves.",
-        "outro": "My sister volunteered to starve. My soldiers volunteered to die. I won't accept either offer. Help me refuse them both."
+        "intro": "The bridge is weakening on its own, {player_name}. The weight of the crossing refugees is cracking the supports. We might not even need the torch.",
+        "plotStep": "{target_npc} found a shallow ford two miles downstream, but {enemy_type} scouts are already patrolling the bank there. {quest_ally} counted at least a dozen. The seventeen stranded people include three children and an elder who can barely walk. Getting them to the ford means moving slowly through open ground.",
+        "outro": "Clear the ford of {enemy_type} patrols and mark the path with {quest_item}. If the bridge collapses before everyone crosses, the ford is their only chance. The commander is running out of reasons not to light the fuse."
       },
       "playerResponses": [
-        { "text": "Nobody starves and nobody dies. I'll make it happen.", "action": "ACCEPT" },
-        { "text": "Doubled demands. Of course. I'll move fast.", "action": "ACCEPT" },
-        { "text": "You can't outrun a warband with a basket of supplies. This is futile.", "action": "DECLINE" }
+        {
+          "text": "I'll clear the ford. Get those people moving downstream.",
+          "action": "ACCEPT",
+          "dispositionShift": 5
+        },
+        {
+          "text": "Can the bridge hold long enough for them to cross normally?",
+          "action": "ACCEPT",
+          "dispositionShift": 1
+        },
+        {
+          "text": "Seventeen people against an army. You know what the math says.",
+          "action": "DECLINE",
+          "dispositionShift": -4
+        }
       ],
-      "objectivePool": ["GATHER_ITEMS", "KILL_MOBS"],
+      "objectivePool": ["KILL_MOBS", "EXPLORE_LOCATION", "DELIVER_ITEM"],
       "objectiveConfig": {
-        "GATHER_ITEMS": { "countMin": 8, "countMax": 18 },
-        "KILL_MOBS": { "countMin": 3, "countMax": 7 }
+        "KILL_MOBS": { "countMin": 4, "countMax": 8 }
       }
     }
   ]

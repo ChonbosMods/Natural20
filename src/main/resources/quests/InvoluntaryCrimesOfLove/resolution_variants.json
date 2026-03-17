@@ -1,59 +1,67 @@
 {
   "variants": [
     {
-      "id": "involuntarycrimesof_reso_01",
+      "id": "involuntary_reso_forgiveness",
       "dialogueChunks": {
-        "intro": "The hostages are free, {player_name}. Every single one of them.",
-        "plotStep": "When you cleared that camp, the raiders scattered and the captives walked out into the daylight. {target_npc} helped reunite them with their families, and the whole settlement gathered at the gates to welcome them home. I told everyone the truth: that {quest_origin} left the others exposed. The looks I got were hard to bear, but the hostages' families thanked me for sending you after them.",
-        "outro": "You saved people I put in danger. I'll spend the rest of my days making sure I never let fear narrow my vision like that again. Take this, please."
+        "intro": "The harm from {quest_focus} has been repaired, and those who suffered have chosen to forgive. It's a fragile peace, but a genuine one.",
+        "plotStep": "{target_npc} has made amends as best they can. {quest_ally} facilitated reconciliation, and {quest_stakes} are recovering thanks to your intervention. The community understands now that {quest_threat} came from love twisted by fear, not malice.",
+        "outro": "Forgiveness takes courage on all sides. You made it possible by fixing what was broken while emotions ran high. Thank you, {player_name}."
       },
       "playerResponses": [
-        { "text": "The hostages are safe and you've learned something. That's a good ending.", "action": "ACCEPT", "dispositionShift": 10 },
-        { "text": "Protect everyone equally next time. That's all they ask.", "action": "ACCEPT" }
+        {
+          "text": "Healing takes time. You've made a start.",
+          "action": "COMPLETE",
+          "dispositionShift": 8
+        },
+        {
+          "text": "Don't let devotion blind you again.",
+          "action": "COMPLETE",
+          "dispositionShift": 5
+        }
       ],
       "objectivePool": [],
       "objectiveConfig": {}
     },
     {
-      "id": "involuntarycrimesof_reso_02",
+      "id": "involuntary_reso_painful_truth",
       "dialogueChunks": {
-        "intro": "The sick are recovering, {player_name}. All of them.",
-        "plotStep": "The alchemist brewed the cure from the ingredients you gathered, and within two days everyone was on their feet again. {target_npc} came to see me afterward: didn't yell, didn't lecture. Just said they understood why I did it, even though it was wrong. The alchemist reopened the workshop and the communal stores have been restocked. People are still wary, but the hoarding has stopped.",
-        "outro": "You fixed what my panic nearly destroyed. The community is healing in more ways than one. This is everything I can offer. It's not enough, but it's honest."
+        "intro": "The damage from {quest_focus} is mended, but the person responsible carries a weight that may never lift. Some mistakes can't be fully undone.",
+        "plotStep": "{target_npc} withdrew from community life. {quest_ally} says they need time. {quest_stakes} survived because you stepped in, but the scars from {quest_threat} are a reminder that love without wisdom can be as destructive as hate.",
+        "outro": "You did the right thing in an impossible situation, {player_name}. Not every resolution feels like a victory, but this one saved lives."
       },
       "playerResponses": [
-        { "text": "Healing takes time, both the sickness and the trust. Be patient with yourselves.", "action": "ACCEPT" },
-        { "text": "The important thing is nobody died. Don't steal from the commons again.", "action": "ACCEPT", "dispositionShift": -5 },
-        { "text": "I'm glad everyone pulled through. Stay well.", "action": "ACCEPT" }
+        {
+          "text": "They meant well. That counts for something.",
+          "action": "COMPLETE",
+          "dispositionShift": 6
+        },
+        {
+          "text": "The hardest lessons come from within.",
+          "action": "COMPLETE",
+          "dispositionShift": 5
+        }
       ],
       "objectivePool": [],
       "objectiveConfig": {}
     },
     {
-      "id": "involuntarycrimesof_reso_03",
+      "id": "involuntary_reso_redemption",
       "dialogueChunks": {
-        "intro": "The festival happened, {player_name}. And it was the best one in years.",
-        "plotStep": "The {quest_item} you gathered filled the stores to bursting. The feast was magnificent: {target_npc} said it was the finest spread they'd ever tasted. I told them the truth after the last plate was cleared. About {quest_origin}, the depleted stores, the spoiled replacements, everything. {target_npc}'s family stood up and said they'd had no idea I was helping them, and they wished I'd just asked the community openly. The settlement voted to establish a formal aid fund so nobody has to sneak food to their neighbors again.",
-        "outro": "My secret generosity accidentally created something better: open generosity. Take this, {player_name}. The festival wouldn't have happened without you."
+        "intro": "{target_npc} turned their guilt into action. After you resolved {quest_focus}, they dedicated themselves to repairing every consequence of {quest_threat}, working harder than anyone.",
+        "plotStep": "The community has seen the change. {quest_ally} says {target_npc} is not the same person who caused the harm: they've grown from it. {quest_stakes} are restored, and the settlement is more compassionate for having weathered this crisis together.",
+        "outro": "Your example inspired their redemption. By solving the problem without judgment, you showed that people can be more than their worst mistake. Well done, {player_name}."
       },
       "playerResponses": [
-        { "text": "An aid fund from a secret mistake. Sometimes good things grow from bad soil.", "action": "ACCEPT", "dispositionShift": 10 },
-        { "text": "A full belly and an honest community. Not bad for a day's work.", "action": "ACCEPT" }
-      ],
-      "objectivePool": [],
-      "objectiveConfig": {}
-    },
-    {
-      "id": "involuntarycrimesof_reso_04",
-      "dialogueChunks": {
-        "intro": "{target_npc}'s family is home, {player_name}. Really home this time.",
-        "plotStep": "You cleared the raiders permanently and recovered everything they'd stolen, including the {quest_item} that {target_npc} needed to restart their workshop. The family is safe behind the settlement walls now, and the guard has been reinforced on the southern road so nobody can exploit that approach again. I stood with {target_npc} this morning and apologized for everything: the hasty advice, the false assurance of safety, all of it. They forgave me. Said my heart was in the right place even when my judgment wasn't.",
-        "outro": "You gave a displaced family their life back. Here: it's from {target_npc} and me together. With gratitude and a promise to think before we act."
-      },
-      "playerResponses": [
-        { "text": "A family home and lessons learned. That's a real resolution.", "action": "ACCEPT" },
-        { "text": "Good intentions need good judgment to match. Remember that.", "action": "ACCEPT" },
-        { "text": "Glad the family is safe. Reinforce those defenses and stay cautious.", "action": "ACCEPT" }
+        {
+          "text": "Everyone deserves a chance to make things right.",
+          "action": "COMPLETE",
+          "dispositionShift": 10
+        },
+        {
+          "text": "Good. Let their actions prove it.",
+          "action": "COMPLETE",
+          "dispositionShift": 6
+        }
       ],
       "objectivePool": [],
       "objectiveConfig": {}

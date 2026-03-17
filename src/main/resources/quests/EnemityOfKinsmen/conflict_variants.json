@@ -1,77 +1,76 @@
 {
   "variants": [
     {
-      "id": "enemityofkinsmen_conf_01",
+      "id": "enemity_conf_escalation",
       "dialogueChunks": {
-        "intro": "{player_name}, things have gotten worse while you were investigating. Much worse.",
-        "plotStep": "One side torched the other family's grain shed last night. Nobody was hurt, but the accusations are flying and {target_npc} had to physically separate the two family heads this morning. The guard is threatening to arrest both leaders. Someone found evidence that the fire was actually started by {enemy_type} raiders who slipped through the distracted patrols: but neither family will believe it without proof. I need you to track the raiders {location_hint} and bring back undeniable evidence.",
-        "outro": "If we can prove {quest_threat} caused this, maybe both families will stop blaming each other long enough to defend {location} together."
+        "intro": "Things have gotten worse. While you were investigating {quest_focus}, an incident near {location_hint} has pushed both sides closer to violence.",
+        "plotStep": "{quest_ally} reports that armed groups from {location} were spotted near our borders. Whether it's posturing or preparation, {quest_threat} is escalating. The {enemy_type} are exploiting the distraction to raid both settlements.",
+        "outro": "Deal with the {enemy_type} raids first. If both settlements see you fighting their common enemy, it might cool tempers long enough to find a real solution for {quest_stakes}."
       },
       "playerResponses": [
-        { "text": "Raiders exploiting a feud? I'll find the evidence and expose the real threat.", "action": "ACCEPT" },
-        { "text": "So the infighting blinded everyone to the actual enemy. Typical. I'll go.", "action": "ACCEPT" },
-        { "text": "They burned each other's property and blame outsiders? I'm done with this.", "action": "DECLINE" }
+        {
+          "text": "I'll remind them who the real enemy is.",
+          "action": "ACCEPT",
+          "dispositionShift": 4
+        },
+        {
+          "text": "Fighting the raiders buys us time.",
+          "action": "ACCEPT",
+          "dispositionShift": 2
+        }
       ],
-      "objectivePool": ["EXPLORE_LOCATION", "KILL_MOBS", "FETCH_ITEM"],
+      "objectivePool": ["KILL_MOBS", "TALK_TO_NPC"],
       "objectiveConfig": {
-        "EXPLORE_LOCATION": { "countMin": 2, "countMax": 3 },
-        "KILL_MOBS": { "countMin": 3, "countMax": 6 },
-        "FETCH_ITEM": { "locationPreference": "WILDERNESS" }
+        "KILL_MOBS": { "countMin": 4, "countMax": 9 }
       }
     },
     {
-      "id": "enemityofkinsmen_conf_02",
+      "id": "enemity_conf_proof_needed",
       "dialogueChunks": {
-        "intro": "I was afraid of this, {player_name}. The evidence you found didn't resolve anything: it made things worse.",
-        "plotStep": "Both sides are interpreting your findings differently. One family claims it proves the other is lying, and the other says it was fabricated. {target_npc} tried to present the facts calmly and was called a traitor by both parties. Now the families have barricaded themselves in opposite ends of {location} and refuse to share the well or the marketplace. Meanwhile, {enemy_type} have been spotted massing {location_hint}. If the settlement can't unify, {quest_stakes}.",
-        "outro": "We need a show of strength against the real enemy to snap these people out of their grudge. Help me clear that {enemy_type} threat so both families see what they should really be fighting."
+        "intro": "Both sides claim innocence, and both sides blame the other. The truth about {quest_focus} is out there, but it won't come from accusations alone.",
+        "plotStep": "{target_npc} insists they had nothing to do with it, and they seem genuine. {quest_ally} suggests looking for evidence near {location_hint}: if a third party is responsible for {quest_threat}, there will be traces the {enemy_type} left behind.",
+        "outro": "Search the area around {location} for anything that proves who's really at fault. {quest_stakes} hang on what you find."
       },
       "playerResponses": [
-        { "text": "A common enemy might be the only thing that unites them. Let's give them one.", "action": "ACCEPT" },
-        { "text": "Stubborn fools. I'll clear the monsters, but they'd better listen this time.", "action": "ACCEPT", "dispositionShift": -5 },
-        { "text": "I can't fix people who refuse to be fixed. You're on your own.", "action": "DECLINE" }
+        {
+          "text": "The truth has to be out there.",
+          "action": "ACCEPT",
+          "dispositionShift": 3
+        },
+        {
+          "text": "I'll turn over every stone.",
+          "action": "ACCEPT",
+          "dispositionShift": 2
+        }
       ],
-      "objectivePool": ["KILL_MOBS", "EXPLORE_LOCATION"],
+      "objectivePool": ["EXPLORE_LOCATION", "GATHER_ITEMS", "TALK_TO_NPC"],
       "objectiveConfig": {
-        "KILL_MOBS": { "countMin": 5, "countMax": 10 },
-        "EXPLORE_LOCATION": { "countMin": 1, "countMax": 2 }
+        "GATHER_ITEMS": { "countMin": 4, "countMax": 10 }
       }
     },
     {
-      "id": "enemityofkinsmen_conf_03",
+      "id": "enemity_conf_divided_loyalties",
       "dialogueChunks": {
-        "intro": "Thank the stars you're back, {player_name}. Someone just escalated this feud into real danger.",
-        "plotStep": "One of the family members stole the settlement's {quest_item} reserves and hid them {location_hint}, claiming they'll only return the supplies when the council rules in their family's favor. It's blackmail, plain and simple. {target_npc} is trying to keep everyone calm, but hunger makes people desperate. The hiding spot is reportedly near a {enemy_type} den, which means retrieving the supplies won't be a simple walk.",
-        "outro": "Retrieve the {quest_item} before anyone starves, and we might still have a chance to resolve this without blood."
+        "intro": "The dispute over {quest_focus} has split opinions within our own settlement. Some side with {target_npc}, saying we were in the wrong all along.",
+        "plotStep": "{quest_ally} is trying to hold things together, but the internal division is giving {quest_threat} room to grow. Meanwhile, the {enemy_type} raided our stores near {location_hint} while everyone was arguing.",
+        "outro": "We need something to unite both factions. Recover what the {enemy_type} stole and bring it back. A common cause might be the only thing that saves {quest_stakes}."
       },
       "playerResponses": [
-        { "text": "Holding supplies hostage is a line. I'll get them back.", "action": "ACCEPT" },
-        { "text": "Blackmail over a grudge. These people are their own worst enemies. I'll recover the stores.", "action": "ACCEPT", "dispositionShift": -5 },
-        { "text": "Your internal politics have gone too far. Sort it out.", "action": "DECLINE" }
+        {
+          "text": "A shared problem might bring them together.",
+          "action": "ACCEPT",
+          "dispositionShift": 4
+        },
+        {
+          "text": "I'll get the supplies back first.",
+          "action": "ACCEPT",
+          "dispositionShift": 2
+        }
       ],
-      "objectivePool": ["FETCH_ITEM", "KILL_MOBS", "EXPLORE_LOCATION"],
+      "objectivePool": ["KILL_MOBS", "GATHER_ITEMS", "FETCH_ITEM"],
       "objectiveConfig": {
-        "FETCH_ITEM": { "locationPreference": "WILDERNESS" },
         "KILL_MOBS": { "countMin": 3, "countMax": 7 },
-        "EXPLORE_LOCATION": { "countMin": 1, "countMax": 2 }
-      }
-    },
-    {
-      "id": "enemityofkinsmen_conf_04",
-      "dialogueChunks": {
-        "intro": "{player_name}, sit down. I need to tell you something before you hear the rumors.",
-        "plotStep": "The younger generation from both families got into a brawl at the tavern last night. Three people are hurt, and one hit their head so badly {target_npc} isn't sure they'll recover. The guard has locked up the instigators, but now both families are demanding their people be released and the others punished. To make it worse, the commotion attracted {enemy_type} scouts to the edges of {location}: they heard the chaos and now they're circling. I need you to sweep the perimeter {location_hint} and drive them back before {quest_stakes}.",
-        "outro": "We're bleeding from the inside and surrounded from the outside. Deal with the external threat while I try to hold this place together."
-      },
-      "playerResponses": [
-        { "text": "I'll secure the perimeter. You keep these families from killing each other.", "action": "ACCEPT" },
-        { "text": "Monsters at the gates while the settlement tears itself apart. Just my luck.", "action": "ACCEPT" },
-        { "text": "I can't defend people who won't defend themselves. Good luck.", "action": "DECLINE" }
-      ],
-      "objectivePool": ["KILL_MOBS", "EXPLORE_LOCATION"],
-      "objectiveConfig": {
-        "KILL_MOBS": { "countMin": 4, "countMax": 9 },
-        "EXPLORE_LOCATION": { "countMin": 2, "countMax": 3 }
+        "GATHER_ITEMS": { "countMin": 4, "countMax": 12 }
       }
     }
   ]

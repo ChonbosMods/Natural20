@@ -1,210 +1,78 @@
 {
   "variants": [
     {
-      "id": "supplication_expo_famine",
+      "id": "supplication_expo_01",
       "bindings": {
-        "quest_action": "gather enough food to feed the settlement",
-        "quest_focus": "our depleted stores",
-        "quest_stakes": "the families who are going hungry",
-        "quest_threat": "the famine that's been tightening its grip on us",
-        "quest_origin": "a season of failed harvests"
+        "quest_action": "recover our food stores",
+        "quest_focus": "the ransacked storehouse",
+        "quest_stakes": "the hungry families",
+        "quest_threat": "the raiding parties",
+        "quest_origin": "the harvest failure"
       },
       "dialogueChunks": {
-        "intro": "Please, {player_name}, you have to help us. {quest_stakes} haven't had a proper meal in days.",
-        "plotStep": "We need to {quest_action}. I've heard there might be {quest_item} {location_hint}, but none of us are brave enough to make the journey. The {enemy_type} have been prowling the roads and we've already lost two foragers this season.",
-        "outro": "You'd be saving lives, truly. I wouldn't ask if there were any other way."
+        "intro": "Please, {player_name}, I would not ask if we had any other choice. Since {quest_origin}, {quest_threat} have grown bold enough to strike us directly.",
+        "plotStep": "They hit {quest_focus} two nights ago and took nearly everything. We need someone to {quest_action} before it is too late. I have heard there are {quest_item} scattered {location_hint} that could help us restock.",
+        "outro": "Without those supplies, {quest_stakes} will not survive the week. I am begging you."
       },
       "playerResponses": [
-        { "text": "I'll find what you need. Stay safe until I return.", "action": "ACCEPT" },
-        { "text": "Fine, but I expect fair compensation for the danger.", "action": "ACCEPT", "dispositionShift": -5 },
-        { "text": "I'm sorry, I can't help right now.", "action": "DECLINE" }
+        { "text": "I will find what you need. No one should go hungry.", "action": "ACCEPT", "dispositionShift": 10 },
+        { "text": "What is in it for me?", "action": "ACCEPT", "dispositionShift": -5 },
+        { "text": "That is not my problem.", "action": "DECLINE", "dispositionShift": -10 }
       ],
       "objectivePool": ["GATHER_ITEMS", "FETCH_ITEM"],
       "objectiveConfig": {
-        "GATHER_ITEMS": { "countMin": 6, "countMax": 12 },
-        "FETCH_ITEM": { "locationPreference": "WILDERNESS" }
+        "GATHER_ITEMS": { "countMin": 5, "countMax": 12 }
       }
     },
     {
-      "id": "supplication_expo_sickness",
+      "id": "supplication_expo_02",
       "bindings": {
-        "quest_action": "find ingredients for a cure",
-        "quest_focus": "the spreading sickness",
-        "quest_stakes": "everyone in the settlement who's fallen ill",
-        "quest_threat": "a disease that's cutting through us like wildfire",
-        "quest_origin": "something that took hold weeks ago without warning",
-        "quest_time_pressure": "before more people succumb"
+        "quest_action": "bring the medicine",
+        "quest_focus": "the village well",
+        "quest_stakes": "the sick children",
+        "quest_threat": "the spreading plague",
+        "quest_origin": "the contaminated water",
+        "quest_time_pressure": "before more fall ill"
       },
       "dialogueChunks": {
-        "intro": "Oh thank the stars, a traveler! {player_name}, I beg you, hear me out before you move on.",
-        "plotStep": "{quest_threat}, and we need to {quest_action} {quest_time_pressure}. {target_npc} fell ill first, and now half the settlement can barely stand. The alchemist says we need {quest_item} for a remedy, but it only grows in dangerous territory {location_hint}. I'd go myself but my hands won't stop shaking.",
-        "outro": "I know it's a lot to ask of a stranger. But strangers are all we have left to turn to."
+        "intro": "{player_name}, thank the stars you are here. Ever since {quest_origin}, {quest_threat} has been claiming more of us each day.",
+        "plotStep": "We traced it back to {quest_focus}, but we lack the means to fix it. We desperately need someone to {quest_action}. {quest_ally} mentioned that {quest_item} can be found {location_hint}.",
+        "outro": "Please, {quest_stakes} cannot wait. We need this done {quest_time_pressure}."
       },
       "playerResponses": [
-        { "text": "Tell me exactly where to look. I'll bring it back.", "action": "ACCEPT" },
-        { "text": "I'll do it, but only because the children are suffering.", "action": "ACCEPT" },
-        { "text": "That sounds like a problem for a healer, not me.", "action": "DECLINE" }
+        { "text": "Children are suffering. I will go now.", "action": "ACCEPT", "dispositionShift": 15 },
+        { "text": "Fine, but I expect fair payment.", "action": "ACCEPT", "dispositionShift": 0 },
+        { "text": "I cannot help with this.", "action": "DECLINE" }
       ],
-      "objectivePool": ["FETCH_ITEM", "EXPLORE_LOCATION", "GATHER_ITEMS"],
+      "objectivePool": ["FETCH_ITEM", "GATHER_ITEMS", "EXPLORE_LOCATION"],
       "objectiveConfig": {
-        "FETCH_ITEM": { "locationPreference": "WILDERNESS" },
-        "EXPLORE_LOCATION": { "countMin": 1, "countMax": 2 },
-        "GATHER_ITEMS": { "countMin": 4, "countMax": 8 }
+        "GATHER_ITEMS": { "countMin": 3, "countMax": 8 },
+        "FETCH_ITEM": { "countMin": 1, "countMax": 1 }
       }
     },
     {
-      "id": "supplication_expo_theft",
+      "id": "supplication_expo_03",
       "bindings": {
-        "quest_action": "recover our stolen supplies",
-        "quest_focus": "our ransacked storehouse",
-        "quest_stakes": "the settlement's survival through the cold season",
-        "quest_threat": "the raiders who have been pillaging the area",
-        "quest_origin": "raids that started earlier this season"
+        "quest_action": "drive off the beasts",
+        "quest_focus": "the outer pastures",
+        "quest_stakes": "our last livestock",
+        "quest_threat": "the feral predators",
+        "quest_origin": "the forest fire",
+        "quest_reward_hint": "my grandfather's blade"
       },
       "dialogueChunks": {
-        "intro": "Wait, please don't walk away! I know how this looks, a grown person begging, but I have nowhere else to turn, {player_name}.",
-        "plotStep": "{quest_threat} came through two nights ago. Took everything from {quest_focus}: our {quest_item}, our tools, anything they could carry. {target_npc} tried to stop them but they were outnumbered. We tracked them heading {location_hint}, but none of us can fight like you can.",
-        "outro": "If we don't {quest_action} before the cold sets in, {quest_stakes} will be lost. Please."
+        "intro": "Stranger, I have no pride left. {player_name}, since {quest_origin} drove them from their dens, {quest_threat} have been terrorizing {quest_focus}.",
+        "plotStep": "We have already lost half our herd. Someone needs to {quest_action} before we lose the rest. The {enemy_type} have been sighted {location_hint}.",
+        "outro": "If {quest_stakes} are taken, this settlement is finished. I will give you {quest_reward_hint} if you help us."
       },
       "playerResponses": [
-        { "text": "Point me toward their trail. I'll get everything back.", "action": "ACCEPT" },
-        { "text": "I suppose I could track them down, for the right price.", "action": "ACCEPT", "dispositionShift": -5 },
-        { "text": "Chasing raiders isn't something I do for free.", "action": "DECLINE" }
+        { "text": "Point me toward them. I will handle it.", "action": "ACCEPT", "dispositionShift": 5 },
+        { "text": "Tell me more about this blade first.", "action": "ACCEPT", "dispositionShift": -3 },
+        { "text": "Sounds too dangerous for too little.", "action": "DECLINE", "dispositionShift": -5 }
       ],
-      "objectivePool": ["FETCH_ITEM", "EXPLORE_LOCATION"],
+      "objectivePool": ["KILL_MOBS", "EXPLORE_LOCATION"],
       "objectiveConfig": {
-        "FETCH_ITEM": { "locationPreference": "DUNGEON" },
-        "EXPLORE_LOCATION": { "countMin": 1, "countMax": 3 }
-      }
-    },
-    {
-      "id": "supplication_expo_04",
-      "bindings": {
-        "quest_action": "rebuild the mill before the frost comes",
-        "quest_focus": "the ruined mill and bridge",
-        "quest_stakes": "every family that depends on the mill for grain",
-        "quest_threat": "the devastation left by the flood",
-        "quest_origin": "the flood that tore through three days ago",
-        "quest_time_pressure": "before the frost sets in"
-      },
-      "dialogueChunks": {
-        "intro": "Forgive me for grabbing your arm like that, {player_name}. I wouldn't do it if I weren't out of options.",
-        "plotStep": "{quest_origin} swept away {quest_focus} and half our winter stores. {target_npc} managed to save the youngest children but got hurt doing it and can barely walk now. We need {quest_item} to {quest_action}, but the water drove the {enemy_type} out of the lowlands and they're roaming everywhere. Last I heard, there's a supply {location_hint}.",
-        "outro": "I know you owe us nothing. But without that mill, {quest_stakes} will starve before spring."
-      },
-      "playerResponses": [
-        { "text": "I'll get what you need. Focus on keeping everyone warm.", "action": "ACCEPT" },
-        { "text": "Flood damage is rough. I'll help, but I won't do it for free.", "action": "ACCEPT", "dispositionShift": -5 },
-        { "text": "There's nothing I can do about a flood. I'm sorry.", "action": "DECLINE" }
-      ],
-      "objectivePool": ["GATHER_ITEMS", "FETCH_ITEM", "EXPLORE_LOCATION"],
-      "objectiveConfig": {
-        "GATHER_ITEMS": { "countMin": 5, "countMax": 10 },
-        "FETCH_ITEM": { "locationPreference": "WILDERNESS" },
-        "EXPLORE_LOCATION": { "countMin": 1, "countMax": 2 }
-      }
-    },
-    {
-      "id": "supplication_expo_05",
-      "bindings": {
-        "quest_action": "retrieve the supplies we abandoned when we fled",
-        "quest_focus": "our old home that was overrun",
-        "quest_stakes": "the refugee families who barely escaped alive",
-        "quest_threat": "the warband that drove us from our home",
-        "quest_origin": "the attack that forced us out a week ago"
-      },
-      "dialogueChunks": {
-        "intro": "You don't know me, {player_name}, and I have no right to burden you with our troubles. But my people are dying.",
-        "plotStep": "We're refugees: {quest_origin} left us with nothing but the clothes on our backs. The folk here have been kind, but there isn't enough food or medicine for all of us. {target_npc} sent word that {quest_item} is still stored in {quest_focus} {location_hint}, abandoned when we fled. Nobody will go back: they're too afraid of the {enemy_type} still lurking there.",
-        "outro": "Everything {quest_stakes} need to survive is sitting in a place we're too broken to return to. If you could bring it back, you'd be saving entire families."
-      },
-      "playerResponses": [
-        { "text": "Tell me the way. I'll bring back everything I can carry.", "action": "ACCEPT" },
-        { "text": "Heading into overrun territory is serious. What can you offer?", "action": "ACCEPT", "dispositionShift": -5 },
-        { "text": "I can't fight an entire warband alone. You need soldiers.", "action": "DECLINE" }
-      ],
-      "objectivePool": ["FETCH_ITEM", "EXPLORE_LOCATION", "GATHER_ITEMS"],
-      "objectiveConfig": {
-        "FETCH_ITEM": { "locationPreference": "DUNGEON" },
-        "EXPLORE_LOCATION": { "countMin": 1, "countMax": 2 },
-        "GATHER_ITEMS": { "countMin": 4, "countMax": 8 }
-      }
-    },
-    {
-      "id": "supplication_expo_06",
-      "bindings": {
-        "quest_action": "restore the water supply",
-        "quest_focus": "the dry well and broken pump",
-        "quest_stakes": "the children drinking muddy rainwater",
-        "quest_threat": "the water crisis that's been choking us for weeks",
-        "quest_origin": "the well running dry two weeks ago",
-        "quest_reward_hint": "clean water for the whole settlement"
-      },
-      "dialogueChunks": {
-        "intro": "{player_name}, I've asked every merchant, every traveler, every guard that's passed through. You're the last chance I have.",
-        "plotStep": "{quest_focus} failed us two weeks ago. We've been rationing what little water we had stored, but it ran out yesterday. {target_npc} found an old map showing an underground spring {location_hint}, but the tunnels down there are crawling with {enemy_type}. We sent a small group and only one came back. She said the {quest_item} we need to {quest_action} is down there too, just sitting in the ruins.",
-        "outro": "{quest_stakes} are surviving on puddles, {player_name}. I'll get on my knees if that's what it takes."
-      },
-      "playerResponses": [
-        { "text": "Stay on your feet. I'll handle the tunnels.", "action": "ACCEPT" },
-        { "text": "I'll go, but you owe me when this is over.", "action": "ACCEPT", "dispositionShift": -5 },
-        { "text": "If your own people couldn't survive down there, neither can I.", "action": "DECLINE" }
-      ],
-      "objectivePool": ["FETCH_ITEM", "EXPLORE_LOCATION"],
-      "objectiveConfig": {
-        "FETCH_ITEM": { "locationPreference": "DUNGEON" },
-        "EXPLORE_LOCATION": { "countMin": 2, "countMax": 3 }
-      }
-    },
-    {
-      "id": "supplication_expo_07",
-      "bindings": {
-        "quest_action": "get the raw materials to repair our tools",
-        "quest_focus": "the wrecked workshop and forge",
-        "quest_stakes": "the farmers left with broken plows and empty hands",
-        "quest_threat": "the loss of every tool we depend on",
-        "quest_origin": "the raid that destroyed our workshop"
-      },
-      "dialogueChunks": {
-        "intro": "I can see you're busy, {player_name}. I wouldn't stop you if lives weren't at stake.",
-        "plotStep": "Our blacksmith collapsed at the forge yesterday: exhaustion from working day and night trying to repair our tools after {quest_origin}. Without proper tools, we can't harvest, can't hunt, can't defend ourselves. {target_npc} says if we can get {quest_item} from the old mining camp {location_hint}, the blacksmith can {quest_action}. But that camp has been abandoned for good reason.",
-        "outro": "We're not warriors or adventurers. We're {quest_stakes}. Please."
-      },
-      "playerResponses": [
-        { "text": "Point me to the camp. I'll bring back what she needs.", "action": "ACCEPT" },
-        { "text": "Broken tools and monsters? You really are in trouble. Alright, I'll go.", "action": "ACCEPT" },
-        { "text": "I'm no errand runner. Find another way.", "action": "DECLINE" }
-      ],
-      "objectivePool": ["GATHER_ITEMS", "FETCH_ITEM"],
-      "objectiveConfig": {
-        "GATHER_ITEMS": { "countMin": 5, "countMax": 12 },
-        "FETCH_ITEM": { "locationPreference": "DUNGEON" }
-      }
-    },
-    {
-      "id": "supplication_expo_08",
-      "bindings": {
-        "quest_action": "find our missing courier and recover the shipment",
-        "quest_focus": "the abandoned cart on the road",
-        "quest_stakes": "the seed grain we need for next season",
-        "quest_threat": "the dangers lurking along the trade road",
-        "quest_origin": "the disappearance three days ago"
-      },
-      "dialogueChunks": {
-        "intro": "Traveler! Wait, please. I saw you walking past and I couldn't let you go without asking.",
-        "plotStep": "{target_npc} went out three days ago to deliver {quest_item} to a neighboring settlement and never arrived. The road {location_hint} has been dangerous lately: {enemy_type} sightings every night. We found {quest_focus} halfway there, wheel broken, supplies scattered. No blood, thank the stars, but no sign of {target_npc} either. We need to {quest_action}.",
-        "outro": "That delivery was everything we had to trade for {quest_stakes}. Without it, and without {target_npc}, we won't make it to harvest."
-      },
-      "playerResponses": [
-        { "text": "I'll find {target_npc} and recover the supplies. You have my word.", "action": "ACCEPT" },
-        { "text": "Missing person and stolen goods? That's two jobs. I expect to be paid for both.", "action": "ACCEPT", "dispositionShift": -5 },
-        { "text": "Search parties are not my specialty. I hope they turn up.", "action": "DECLINE" }
-      ],
-      "objectivePool": ["EXPLORE_LOCATION", "TALK_TO_NPC", "FETCH_ITEM"],
-      "objectiveConfig": {
-        "EXPLORE_LOCATION": { "countMin": 2, "countMax": 3 },
-        "TALK_TO_NPC": { "countMin": 1, "countMax": 1 },
-        "FETCH_ITEM": { "locationPreference": "WILDERNESS" }
+        "KILL_MOBS": { "countMin": 4, "countMax": 8 }
       }
     }
   ]

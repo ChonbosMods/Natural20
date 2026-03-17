@@ -1,107 +1,79 @@
 {
   "variants": [
     {
-      "id": "fallingprey_expo_01",
+      "id": "misfortune_expo_01",
       "bindings": {
-        "quest_action": "find the compound to treat the blighted soil",
-        "quest_focus": "the blackened fields destroyed overnight",
-        "quest_stakes": "the entire harvest and the settlement's food supply",
-        "quest_threat": "a dormant soil fungus that woke up and killed every crop",
-        "quest_origin": "a blight that struck without warning"
+        "quest_action": "find a cure",
+        "quest_focus": "the blighted crops",
+        "quest_stakes": "the starving settlement",
+        "quest_threat": "the creeping rot",
+        "quest_origin": "a tainted seed shipment"
       },
       "dialogueChunks": {
-        "intro": "{player_name}. Forgive me, I don't normally bother travelers with my troubles. But fate has left me no other door to knock on.",
-        "plotStep": "{quest_origin} destroyed {quest_focus}: weeks of growth blackened and rotting overnight. {target_npc} says it's {quest_threat} that's been dormant for years. The only remedy requires {quest_item}, but it only grows in the deep wilds {location_hint}, where the {enemy_type} have been hunting anything that moves.",
-        "outro": "We did everything right, {player_name}. And the earth itself betrayed us. Please, {quest_action}."
+        "intro": "{player_name}, cruel fate has dealt us a terrible hand. {quest_origin} brought {quest_threat} to our fields, and now {quest_focus} are withering before our eyes.",
+        "plotStep": "No one caused this on purpose. It is just bad luck, but {quest_stakes} will pay the price unless we {quest_action}. {quest_ally} heard that {quest_item} found {location_hint} might work as a remedy.",
+        "outro": "We did nothing wrong and yet we suffer. Please help us fight back against this misfortune."
       },
       "playerResponses": [
-        { "text": "Nature can be cruel, but it can be fought. I'll find what you need.", "action": "ACCEPT" },
-        { "text": "A blight with only one cure? Sounds expensive. What can you offer?", "action": "ACCEPT", "dispositionShift": -5 },
-        { "text": "Soil fungus is beyond my expertise. You need an alchemist, not an adventurer.", "action": "DECLINE" }
+        { "text": "Bad luck is no reason to give up. I will find what you need.", "action": "ACCEPT", "dispositionShift": 10 },
+        { "text": "A blight cure? That sounds like a long shot.", "action": "ACCEPT", "dispositionShift": -3 },
+        { "text": "Some things cannot be fixed. I am sorry.", "action": "DECLINE", "dispositionShift": -5 }
       ],
       "objectivePool": ["GATHER_ITEMS", "FETCH_ITEM", "EXPLORE_LOCATION"],
       "objectiveConfig": {
         "GATHER_ITEMS": { "countMin": 5, "countMax": 12 },
-        "FETCH_ITEM": { "locationPreference": "WILDERNESS" },
-        "EXPLORE_LOCATION": { "countMin": 1, "countMax": 2 }
+        "FETCH_ITEM": { "countMin": 1, "countMax": 1 }
       }
     },
     {
-      "id": "fallingprey_expo_02",
+      "id": "misfortune_expo_02",
       "bindings": {
-        "quest_action": "scout a new ore vein and clear the way for miners",
-        "quest_focus": "the collapsed mine that sustained us for generations",
-        "quest_stakes": "twelve families who depended on the mine for everything",
-        "quest_threat": "the collapse of our primary livelihood",
-        "quest_origin": "rotted timbers that gave way from sheer age"
+        "quest_action": "repair the broken bridge",
+        "quest_focus": "the collapsed crossing",
+        "quest_stakes": "the isolated families",
+        "quest_threat": "the seasonal floods",
+        "quest_time_pressure": "before the rains return"
       },
       "dialogueChunks": {
-        "intro": "I've been staring at this cup for an hour, {player_name}. Can't bring myself to drink it because I keep thinking: what if this is the last clean water we have?",
-        "plotStep": "{quest_focus} collapsed last week. Not sabotage, just age: {quest_origin}. {quest_stakes} have nothing now. {target_npc} found traces of a new vein {location_hint}, but the area is thick with {enemy_type} and we'd need {quest_item} to shore up any new excavation. Bad luck, piled on bad luck.",
-        "outro": "Some people would say we're cursed. I'd say we just need someone to {quest_action}."
+        "intro": "It was not an attack, {player_name}. Just rotten timber and {quest_threat}. {quest_focus} gave way and now {quest_stakes} are cut off on the far side with no way to reach us.",
+        "plotStep": "We need to {quest_action} {quest_time_pressure}, or they will be stranded for months. The {enemy_type} have moved into the gap {location_hint}, making it even harder. We need {quest_item} for the reconstruction.",
+        "outro": "Those families have children. They cannot survive alone out there."
       },
       "playerResponses": [
-        { "text": "Luck changes. Let me help change yours.", "action": "ACCEPT" },
-        { "text": "I'll scout the new vein and clear the way. But luck isn't free.", "action": "ACCEPT", "dispositionShift": -5 },
-        { "text": "Collapsed mines and dangerous territory? That's a dangerous combination I'd rather avoid.", "action": "DECLINE" }
-      ],
-      "objectivePool": ["EXPLORE_LOCATION", "GATHER_ITEMS", "KILL_MOBS"],
-      "objectiveConfig": {
-        "EXPLORE_LOCATION": { "countMin": 2, "countMax": 3 },
-        "GATHER_ITEMS": { "countMin": 4, "countMax": 10 },
-        "KILL_MOBS": { "countMin": 2, "countMax": 5 }
-      }
-    },
-    {
-      "id": "fallingprey_expo_03",
-      "bindings": {
-        "quest_action": "retrieve the cure ingredients from the marshes",
-        "quest_focus": "the settlement where people are quietly wasting away",
-        "quest_stakes": "the sick who grow weaker by the day",
-        "quest_threat": "a creeping sickness with only one known treatment",
-        "quest_origin": "an illness that started with a cough and ends with people too weak to move"
-      },
-      "dialogueChunks": {
-        "intro": "I should warn you, {player_name}: what I'm about to tell you is the kind of story that makes people walk away. I hope you're different.",
-        "plotStep": "{quest_threat} has been creeping through {quest_focus} for weeks. {target_npc} was the first to fall and hasn't left their bed in ten days. The alchemist says the only treatment requires {quest_item} found in the marshes {location_hint}, but the {enemy_type} have claimed the marshes.",
-        "outro": "We're not being attacked. We're not at war. We're just slowly, quietly dying. Please, {quest_action}."
-      },
-      "playerResponses": [
-        { "text": "I care. Show me where these marshes are, and I'll bring back what the alchemist needs.", "action": "ACCEPT" },
-        { "text": "Marshes crawling with {enemy_type}? I'll go, but it won't be pleasant.", "action": "ACCEPT" },
-        { "text": "A slow plague in a swamp full of monsters? I value my health too much.", "action": "DECLINE" }
+        { "text": "Stranded families need help. I will gather what you need.", "action": "ACCEPT", "dispositionShift": 15 },
+        { "text": "Monsters in the riverbed and a deadline? Tough job.", "action": "ACCEPT", "dispositionShift": 0 },
+        { "text": "They should have maintained the bridge.", "action": "DECLINE", "dispositionShift": -10 }
       ],
       "objectivePool": ["GATHER_ITEMS", "KILL_MOBS", "EXPLORE_LOCATION"],
       "objectiveConfig": {
-        "GATHER_ITEMS": { "countMin": 6, "countMax": 14 },
-        "KILL_MOBS": { "countMin": 3, "countMax": 6 },
-        "EXPLORE_LOCATION": { "countMin": 1, "countMax": 2 }
+        "GATHER_ITEMS": { "countMin": 6, "countMax": 15 },
+        "KILL_MOBS": { "countMin": 3, "countMax": 6 }
       }
     },
     {
-      "id": "fallingprey_expo_04",
+      "id": "misfortune_expo_03",
       "bindings": {
-        "quest_action": "break through the infested paths and reconnect us to the outside world",
-        "quest_focus": "the collapsed trade road that was our lifeline",
-        "quest_stakes": "a settlement slowly starving from isolation",
-        "quest_threat": "the total loss of our connection to the outside world",
-        "quest_origin": "a cliff collapse that buried our only trade route"
+        "quest_action": "retrieve the lost shipment",
+        "quest_focus": "the overturned wagon",
+        "quest_stakes": "the winter supplies",
+        "quest_threat": "the rockslide",
+        "quest_origin": "the unstable cliffs",
+        "quest_reward_hint": "a trader's favor"
       },
       "dialogueChunks": {
-        "intro": "You know what the cruelest part is, {player_name}? We were doing well. For the first time in years, we were thriving.",
-        "plotStep": "Then {quest_origin} happened. Overnight, {quest_threat} became real: exports worthless, imports gone. {target_npc} tried to blaze a new trail {location_hint}, but the {enemy_type} infest every alternative path. Without {quest_item} from outside, the craftsmen can't work, the alchemist can't brew, and {quest_stakes}.",
-        "outro": "We didn't make an enemy. We didn't provoke anyone. The cliff just fell. Please, {quest_action}."
+        "intro": "{player_name}, {quest_threat} from {quest_origin} buried our supply wagon on the road. {quest_focus} is wedged in the debris and {quest_stakes} are scattered across the hillside.",
+        "plotStep": "We need to {quest_action} before scavengers pick it clean. The {enemy_type} are already circling {location_hint}. Recover as many {quest_item} as you can find.",
+        "outro": "Without {quest_stakes}, we face a long, cold season with empty shelves. You would earn {quest_reward_hint} for helping."
       },
       "playerResponses": [
-        { "text": "Isolation can be broken. I'll open a way through.", "action": "ACCEPT" },
-        { "text": "A settlement cut off from trade is a settlement in trouble. I'll help, but at a cost.", "action": "ACCEPT", "dispositionShift": -5 },
-        { "text": "Reopening a trade route through monster territory is more than a single job.", "action": "DECLINE" }
+        { "text": "I will recover everything I can. No promises, but I will try.", "action": "ACCEPT", "dispositionShift": 5 },
+        { "text": "A trader's favor could be useful. I am in.", "action": "ACCEPT", "dispositionShift": 0 },
+        { "text": "Climbing through rubble with scavengers? Pass.", "action": "DECLINE" }
       ],
-      "objectivePool": ["EXPLORE_LOCATION", "KILL_MOBS", "FETCH_ITEM"],
+      "objectivePool": ["GATHER_ITEMS", "KILL_MOBS", "FETCH_ITEM"],
       "objectiveConfig": {
-        "EXPLORE_LOCATION": { "countMin": 2, "countMax": 4 },
-        "KILL_MOBS": { "countMin": 3, "countMax": 7 },
-        "FETCH_ITEM": { "locationPreference": "WILDERNESS" }
+        "GATHER_ITEMS": { "countMin": 5, "countMax": 14 },
+        "KILL_MOBS": { "countMin": 2, "countMax": 5 }
       }
     }
   ]

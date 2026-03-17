@@ -1,44 +1,72 @@
 {
   "variants": [
     {
-      "id": "all_sacrificed_for_passion_reso_01",
+      "id": "reso_all_sacrificed_masterwork_complete",
       "dialogueChunks": {
-        "intro": "{player_name}. Look. Look at this.",
-        "plotStep": "The transmutation held. Common iron, transformed into something that gleams like starlight and weighs half as much. Three years, my savings, my health, my friendships: all for this moment. {target_npc} was the first person I showed it to. They stared at it for a full minute without speaking, then quietly said they were sorry for doubting me. The question now is whether what I gained was worth what {quest_threat} took from me. I don't have an answer yet. I may never have one.",
-        "outro": "You believed in me when no one else did. This piece is yours: the first successful transmutation in history. Whatever happens to me from here, that exists because of both of us."
+        "intro": "He finished it. The blade is... honestly, it's the most beautiful thing I've ever seen. It hums when you hold it. Three years of his life, forged into steel.",
+        "plotStep": "The strange thing is what happened after. He set it on the anvil, stared at it for a long time, and then walked out of the forge. Went straight to the house where his wife has been staying. {target_npc} says they talked for hours. Whether the marriage survives, nobody knows yet. But for the first time in three years, the furnace is cold.",
+        "outro": "You gave him the means to finish, {player_name}. Whether that was mercy or enabling, I suppose time will tell. {quest_ally} says the blade is worth a fortune. He hasn't tried to sell it. Says it's not about the blade anymore."
       },
       "playerResponses": [
-        { "text": "It's beautiful. Now go find your family and show them too.", "action": "ACCEPT", "dispositionShift": 10 },
-        { "text": "Three years well spent. Just don't forget the people you left behind.", "action": "ACCEPT" },
-        { "text": "Worth it? I suppose time will tell. Congratulations.", "action": "ACCEPT", "dispositionShift": -5 }
+        {
+          "text": "Sometimes you have to reach the end of something to find your way back.",
+          "action": "COMPLETE",
+          "dispositionShift": 4
+        },
+        {
+          "text": "I hope the blade was worth everything it cost.",
+          "action": "COMPLETE",
+          "dispositionShift": 1
+        }
       ],
       "objectivePool": [],
       "objectiveConfig": {}
     },
     {
-      "id": "all_sacrificed_for_passion_reso_02",
+      "id": "reso_all_sacrificed_breakthrough_hollow",
       "dialogueChunks": {
-        "intro": "I didn't sleep last night. Not because I was working: because I was sitting by the forge, thinking.",
-        "plotStep": "{quest_focus} is real. The blade holds. Indefinitely. I tested it against stone, against iron, against everything I could find. Not a scratch, not a nick. {target_npc} spread the word, and three settlements have already sent messengers asking about the process. But my house is someone else's now. My family is somewhere I can't follow. I'm standing in an empty workshop holding the most important weapon ever forged, and I have no one to celebrate with except you.",
-        "outro": "Take this. The first unbreakable blade. I'll make more for the settlements. Maybe if I arm enough people, protect enough lives, the cost starts to make sense. Maybe."
+        "intro": "The alchemist succeeded. {quest_focus} works. It does exactly what she said it would. And she has absolutely no idea what to do next.",
+        "plotStep": "She sat in the wreckage of her tower, holding the vial, and said: 'Now what?' Fifteen years of work, every relationship sacrificed, her health ruined, and the discovery is real. {target_npc} asked her if it was worth it. She said: 'Ask me in ten years, when I know whether anyone I loved is still willing to speak to me.'",
+        "outro": "The discovery will change lives, {player_name}. Just not hers. Not yet. {quest_ally} is helping her publish the findings. Maybe recognition will fill some of the emptiness. Maybe nothing will."
       },
       "playerResponses": [
-        { "text": "The blade is remarkable. But rebuilding your life matters too.", "action": "ACCEPT" },
-        { "text": "You changed the world. Now let the world help you change your life back.", "action": "ACCEPT", "dispositionShift": 10 }
+        {
+          "text": "Genius and loneliness seem to travel together. I hope she finds her way back.",
+          "action": "COMPLETE",
+          "dispositionShift": 3
+        },
+        {
+          "text": "The world will benefit even if she doesn't.",
+          "action": "COMPLETE",
+          "dispositionShift": 1
+        },
+        {
+          "text": "She chose the work over the people. That's nobody's fault but hers.",
+          "action": "COMPLETE",
+          "dispositionShift": -2
+        }
       ],
       "objectivePool": [],
       "objectiveConfig": {}
     },
     {
-      "id": "all_sacrificed_for_passion_reso_03",
+      "id": "reso_all_sacrificed_collection_complete",
       "dialogueChunks": {
-        "intro": "It worked, {player_name}. Trial four hundred and twenty-two. It worked.",
-        "plotStep": "The compound purified a patch of corrupted soil in under an hour. Grass is already growing where nothing has lived for years. {target_npc} brought the whole settlement to watch, and there wasn't a dry eye among them. The land heals. After everything: the failed experiments, the lost partnerships, {quest_threat}. The land actually heals. I collapsed afterward. The healer says I've been running on stubbornness and not much else for months.",
-        "outro": "I have enough compound for one more demonstration. After that, I'll need to rest: really rest, for the first time in years. Take this as payment, and know that every field that grows green again owes something to you."
+        "intro": "The keystone fit. The collection is complete. And the collector sat on the floor of his vault and wept for twenty minutes.",
+        "plotStep": "Not from joy. From looking around the empty room and realizing what surrounded him: relics and dust instead of family. His daughter came back when she heard, bringing the grandchild again. This time, he held the baby. {target_npc} says he hasn't touched the collection since. He just sits in the garden with the child, pointing at birds.",
+        "outro": "I don't know if the collection was worth the cost, {player_name}. But I know that finding the last piece broke the spell. He can see what he lost now. That's either the beginning of recovery or the beginning of grief. Maybe they're the same thing."
       },
       "playerResponses": [
-        { "text": "Green grass on dead land. That was worth every trip into the wilds.", "action": "ACCEPT", "dispositionShift": 15 },
-        { "text": "Rest. Eat. You've proven your point. Now prove you can survive it.", "action": "ACCEPT" }
+        {
+          "text": "He's holding his grandchild instead of an artifact. That's a start.",
+          "action": "COMPLETE",
+          "dispositionShift": 5
+        },
+        {
+          "text": "Years of damage don't undo overnight. But at least he's trying.",
+          "action": "COMPLETE",
+          "dispositionShift": 3
+        }
       ],
       "objectivePool": [],
       "objectiveConfig": {}
