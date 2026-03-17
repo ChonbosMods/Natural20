@@ -2,9 +2,16 @@
   "variants": [
     {
       "id": "enemityofkinsmen_expo_01",
+      "bindings": {
+        "quest_action": "uncover the truth behind a land dispute",
+        "quest_focus": "the contested field between two families",
+        "quest_stakes": "the settlement tearing itself apart from within",
+        "quest_threat": "an ancient grudge escalating into violence",
+        "quest_origin": "a boundary dispute that ignited old resentments"
+      },
       "dialogueChunks": {
         "intro": "{player_name}, I need an outsider's ear. Things in {location} have gotten ugly, and everyone here is too tangled up to see straight.",
-        "plotStep": "Two of our oldest families are at each other's throats. It started over a land dispute: who owns the field {location_hint}. But now {target_npc} is threatening to burn the other family's storehouse, and accusations of sabotage are flying both ways. The guard tried to intervene but both sides accused them of taking the other's part. Someone neutral needs to dig up the truth before this tears the settlement apart.",
+        "plotStep": "Two of our oldest families are at each other's throats. It started over {quest_focus}: who rightfully owns it. But now {target_npc} is threatening to burn the other family's storehouse, and accusations of sabotage are flying both ways. The guard tried to intervene but both sides accused them of taking the other's part. Someone neutral needs to {quest_action} before {quest_stakes}.",
         "outro": "I'm not asking you to pick a side. I'm asking you to find the facts before someone gets killed."
       },
       "playerResponses": [
@@ -21,9 +28,16 @@
     },
     {
       "id": "enemityofkinsmen_expo_02",
+      "bindings": {
+        "quest_action": "scout the real threat so the leaders stop arguing",
+        "quest_focus": "the defense strategy for the settlement",
+        "quest_stakes": "the settlement being left defenseless while its leaders fight",
+        "quest_threat": "an external enemy exploiting internal division",
+        "quest_origin": "a disagreement between the guard captain and the village elder"
+      },
       "dialogueChunks": {
         "intro": "Keep your voice down, {player_name}. The walls have ears in {location} these days.",
-        "plotStep": "Our guard captain and the village elder have turned on each other. The captain wants to fortify {location} and conscript farmers into militia service. The elder says that will destroy the harvest and starve everyone. {target_npc} tried to broker a compromise and got shouted down by both. Meanwhile, {enemy_type} have been spotted {location_hint} and nobody can agree on how to respond. We need someone to scout the actual threat so we can settle this with facts, not fury.",
+        "plotStep": "Our guard captain and the village elder have turned on each other. The captain wants to fortify {location} and conscript farmers into militia service. The elder says that will destroy the harvest and starve everyone. {target_npc} tried to broker a compromise and got shouted down by both. Meanwhile, {enemy_type} have been spotted {location_hint} and nobody can agree on how to respond. We need someone to {quest_action}, not fury.",
         "outro": "If we don't figure this out soon, the {enemy_type} won't need to attack. We'll tear ourselves apart first."
       },
       "playerResponses": [
@@ -39,10 +53,17 @@
     },
     {
       "id": "enemityofkinsmen_expo_03",
+      "bindings": {
+        "quest_action": "track down the merchant who arranged the deal",
+        "quest_focus": "a disputed trade shipment claimed by both families",
+        "quest_stakes": "a grudge that simmers for years with no resolution",
+        "quest_threat": "two families holding the settlement hostage over a vague contract",
+        "quest_origin": "a poorly worded trade agreement"
+      },
       "dialogueChunks": {
         "intro": "{player_name}, do you see those two groups glaring at each other across the square? That's been every day for the past two weeks.",
-        "plotStep": "A shipment of {quest_item} arrived from a neighboring settlement: enough to see us through the season. But the delivery was split between two families who both claim the full amount was promised to them. {target_npc} has the original trade agreement but it's vague enough that both sides think they're right. Now the {quest_item} is locked in the storehouse and nobody gets any until this is resolved. I need someone to track down the merchant who arranged the deal: last seen heading {location_hint}.",
-        "outro": "Bring back the merchant, or at least their ledger. Without proof, this grudge will simmer for years."
+        "plotStep": "A shipment of {quest_item} arrived from a neighboring settlement: enough to see us through the season. But the delivery was split between two families who both claim the full amount was promised to them. {target_npc} has the original trade agreement but it's vague enough that both sides think they're right. Now the {quest_item} is locked in the storehouse and nobody gets any until this is resolved. I need someone to {quest_action}: last seen heading {location_hint}.",
+        "outro": "Bring back the merchant, or at least their ledger. Without proof, {quest_stakes}."
       },
       "playerResponses": [
         { "text": "I'll find the merchant and settle this once and for all.", "action": "ACCEPT" },
@@ -57,9 +78,16 @@
     },
     {
       "id": "enemityofkinsmen_expo_04",
+      "bindings": {
+        "quest_action": "recover the hidden supplies and prove the family's innocence",
+        "quest_focus": "falsely accused family stores moved for safekeeping",
+        "quest_stakes": "a family's reputation being destroyed by a false accusation",
+        "quest_threat": "a brother's betrayal poisoning the entire community",
+        "quest_origin": "supplies secretly moved to protect them from raiders"
+      },
       "dialogueChunks": {
         "intro": "I hate to burden a stranger with our troubles, {player_name}, but I'm at the end of my rope.",
-        "plotStep": "My own brother has turned half the settlement against us. He claims our family stole {quest_item} from the communal stores, and now people I've known my whole life won't look me in the eye. The truth is, those supplies were moved to a safer location {location_hint} after we heard rumors about {enemy_type} raiding. {target_npc} helped us move them, but now they're too frightened to speak up. If you could find the supplies and bring them back publicly, it would prove we never stole a thing.",
+        "plotStep": "My own brother has turned half the settlement against us. He claims our family stole {quest_item} from the communal stores, and now people I've known my whole life won't look me in the eye. The truth is, those supplies were moved to a safer location {location_hint} after we heard rumors about {enemy_type} raiding. {target_npc} helped us move them, but now they're too frightened to speak up. If you could {quest_action}, it would prove we never stole a thing.",
         "outro": "My family's name is all we have. Please help me clear it."
       },
       "playerResponses": [

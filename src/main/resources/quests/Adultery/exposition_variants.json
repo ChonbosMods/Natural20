@@ -2,10 +2,18 @@
   "variants": [
     {
       "id": "adultery_expo_01",
+      "bindings": {
+        "quest_action": "expose the garrison's betrayal of our mutual defense pact",
+        "quest_focus": "the broken oath between our settlement and the garrison",
+        "quest_stakes": "our borders are undefended and stores are raided nightly",
+        "quest_threat": "a sworn ally abandoned us without warning when we needed them most",
+        "quest_origin": "a mutual defense pact signed three seasons ago",
+        "quest_reward_hint": "if we prove the betrayal, the regional council will restore our protection"
+      },
       "dialogueChunks": {
         "intro": "{player_name}, you don't know me, but I know when someone can be trusted. And right now I need someone I can trust more than anything.",
-        "plotStep": "Our settlement signed a mutual defense pact with the garrison at {location} three seasons ago. We supplied them with food, they protected our borders. Simple, fair, sworn on oath. Then the {enemy_type} raids started and the garrison pulled back to protect their own walls. Left us exposed without a word of warning. {target_npc} rode to demand they honor the pact and was turned away at the gates. Now our stores are being raided nightly and we have no defenders. I need {quest_item} to fortify what's left and proof that the garrison broke their word.",
-        "outro": "A sworn oath means nothing to them. But it means everything to us. Help me gather what we need to survive their betrayal."
+        "plotStep": "Our settlement signed a mutual defense pact with the garrison at {location} three seasons ago. We supplied them with food, they protected our borders. Then the {enemy_type} raids started and the garrison pulled back to protect their own walls. {target_npc} rode to demand they honor the pact and was turned away at the gates. I need to {quest_action}, but first I need {quest_item} to fortify what's left and proof that {quest_focus} was deliberately violated.",
+        "outro": "A sworn oath means nothing to them, but {quest_stakes}. Help me gather what we need to survive {quest_threat}."
       },
       "playerResponses": [
         { "text": "Broken oaths deserve consequences. I'll help you build your case.", "action": "ACCEPT" },
@@ -20,10 +28,17 @@
     },
     {
       "id": "adultery_expo_02",
+      "bindings": {
+        "quest_action": "prove my business partner has been secretly selling our stock",
+        "quest_focus": "the tavern we built together as equal partners",
+        "quest_stakes": "our reputation is crumbling and regulars are leaving",
+        "quest_threat": "a partner's greed is destroying everything we built on trust",
+        "quest_origin": "a covenant sealed with a handshake and witnessed by the settlement"
+      },
       "dialogueChunks": {
         "intro": "I should be angry. I am angry. But right now, {player_name}, what I really am is hurt.",
-        "plotStep": "{target_npc} and I built this tavern together. Equal partners, equal shares, a covenant sealed with a handshake and witnessed by half the settlement. Last month, I discovered they've been secretly trading our best stock to {enemy_type} merchants {location_hint}: selling our finest barrels for personal profit and replacing them with watered-down swill. The regulars noticed the quality drop and started going elsewhere. Our reputation, everything we built together, is crumbling because of greed. I need {quest_item} to restock properly and evidence of the secret deals to bring before the settlement council.",
-        "outro": "I trusted them with everything. My livelihood, my name, my future. They poured it all out for a few extra coins. I want justice, not revenge. There's a difference."
+        "plotStep": "{target_npc} and I built {quest_focus} together. Equal partners, equal shares. Last month, I discovered they've been secretly trading our best stock to {enemy_type} merchants {location_hint} for personal profit. I need to {quest_action} before {quest_stakes} gets any worse. I need {quest_item} to restock properly and evidence of the secret deals to bring before the settlement council.",
+        "outro": "I trusted them with everything. {quest_threat}, and I want justice, not revenge. There's a difference."
       },
       "playerResponses": [
         { "text": "Justice means evidence. I'll find it.", "action": "ACCEPT" },
@@ -39,10 +54,18 @@
     },
     {
       "id": "adultery_expo_03",
+      "bindings": {
+        "quest_action": "retrieve the original trade covenant and expose the guild master's corruption",
+        "quest_focus": "the merchant guild's five-year trade covenant",
+        "quest_stakes": "local merchants are being undercut and ruined by side deals",
+        "quest_threat": "the guild master has powerful friends and enforcers watching the roads",
+        "quest_origin": "a trade agreement meant to ensure fair prices and shared routes",
+        "quest_time_pressure": "the guild master is consolidating power and the evidence may vanish"
+      },
       "dialogueChunks": {
         "intro": "Come closer, {player_name}. This isn't a conversation for open air.",
-        "plotStep": "The merchant guild in {location} signed a trade covenant five years ago: fair prices, shared routes, mutual support during shortages. It worked beautifully. Then the guild master started making side deals with outside traders, undercutting local merchants and funneling profits to a private account. {target_npc} uncovered the discrepancy in the ledgers and brought it to me. The guild master has powerful friends and {enemy_type} enforcers watching the roads. I need you to gather {quest_item} to support the local merchants who've been cut out, and retrieve the original covenant from the guild hall {location_hint}.",
-        "outro": "Five years of trust, shattered by one person's greed. The covenant still exists: signed, sealed, legally binding. If we can put it in front of the right people, the guild master answers for every broken promise."
+        "plotStep": "The merchant guild in {location} signed {quest_focus} five years ago: fair prices, shared routes, mutual support. Then the guild master started making side deals, undercutting everyone. {target_npc} uncovered the discrepancy. I need you to {quest_action}. Gather {quest_item} to support the merchants who've been cut out, and retrieve the original covenant from the guild hall {location_hint}.",
+        "outro": "Five years of trust, shattered by one person's greed. {quest_threat}, but {quest_focus} is still legally binding. If we can put it in front of the right people, this ends."
       },
       "playerResponses": [
         { "text": "A binding covenant and a corrupt leader. I'll get you what you need.", "action": "ACCEPT" },

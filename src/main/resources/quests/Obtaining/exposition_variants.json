@@ -2,10 +2,17 @@
   "variants": [
     {
       "id": "obtaining_expo_01",
+      "bindings": {
+        "quest_action": "retrieve the rare materials from hostile territory",
+        "quest_focus": "a source of rare materials deep in dangerous land",
+        "quest_stakes": "a masterwork that hasn't been crafted in a generation",
+        "quest_threat": "the creatures occupying the area around the deposit",
+        "quest_reward_hint": "something extraordinary for the settlement"
+      },
       "dialogueChunks": {
-        "intro": "{player_name}, you couldn't have arrived at a better time. I've been searching for someone resourceful enough to help me with a project.",
-        "plotStep": "I've tracked down a source of {quest_item}: rare materials I've been trying to get my hands on for months. The problem is the supply is {location_hint}, deep in territory overrun by {enemy_type}. No merchant will make the trip and I can't leave the forge unattended. If I had enough {quest_item}, I could craft something this settlement hasn't seen in a generation.",
-        "outro": "You'd be doing more than running an errand. You'd be making something extraordinary possible."
+        "intro": "{player_name}, you couldn't have arrived at a better time. I've been searching for someone resourceful enough to help me.",
+        "plotStep": "I've tracked down {quest_focus} {location_hint}: {quest_item} I've been trying to get my hands on for months. The problem is {quest_threat}: no merchant will make the trip and I can't leave the forge unattended. If I had enough, I could craft {quest_stakes}.",
+        "outro": "You'd be doing more than running an errand. You'd be making {quest_reward_hint} possible."
       },
       "playerResponses": [
         { "text": "Tell me where to look. I'll bring back everything I can carry.", "action": "ACCEPT" },
@@ -20,10 +27,17 @@
     },
     {
       "id": "obtaining_expo_02",
+      "bindings": {
+        "quest_action": "harvest the key ingredient from its only growing site",
+        "quest_focus": "the one place where the ingredient grows",
+        "quest_stakes": "a recipe that could feed the settlement through the harshest winter",
+        "quest_threat": "the creatures that control the territory where it grows",
+        "quest_reward_hint": "enough food to last the whole settlement through winter"
+      },
       "dialogueChunks": {
-        "intro": "Ah, a traveler with capable hands! {player_name}, I've been hoping someone like you would pass through {location}.",
-        "plotStep": "There's a recipe I've been perfecting for years: something that could feed this settlement through the harshest winter. But the key ingredient, {quest_item}, only grows in one place, and that place is crawling with {enemy_type}. {target_npc} saw it flourishing {location_hint} just last week, but couldn't get close enough to harvest any. I need someone who can handle themselves out there.",
-        "outro": "Bring me what I need and I'll make sure the whole settlement eats well. You included."
+        "intro": "Ah, a traveler with capable hands! {player_name}, I've been hoping someone like you would pass through.",
+        "plotStep": "I've been perfecting {quest_stakes} for years. But the key ingredient, {quest_item}, only grows at {quest_focus}, and that place is crawling with {enemy_type}. {target_npc} saw it flourishing {location_hint} but couldn't get close enough. I need someone who can {quest_action}.",
+        "outro": "Bring me what I need and I'll make sure {quest_reward_hint} becomes reality. You included."
       },
       "playerResponses": [
         { "text": "A worthy cause. I'll get your ingredients.", "action": "ACCEPT" },
@@ -38,10 +52,17 @@
     },
     {
       "id": "obtaining_expo_03",
+      "bindings": {
+        "quest_action": "claim the abandoned cache before someone else does",
+        "quest_focus": "a collapsed storehouse with unclaimed goods",
+        "quest_stakes": "the commission that will establish my reputation",
+        "quest_threat": "the creatures that moved in when the owners fled",
+        "quest_origin": "owners who fled and never came back"
+      },
       "dialogueChunks": {
         "intro": "{player_name}, I need to speak with you urgently. I've discovered something that won't wait.",
-        "plotStep": "A merchant passing through mentioned a cache of {quest_item} abandoned in a collapsed storehouse {location_hint}. The original owners fled when {enemy_type} moved into the area and never came back for it. That cache is just sitting there, unclaimed, and it's exactly what I need to finish the commission {target_npc} placed with me last month. But the road there is anything but safe.",
-        "outro": "First come, first served: if we don't claim it soon, someone else will. Or the {enemy_type} will destroy it."
+        "plotStep": "A merchant mentioned {quest_focus} {location_hint}: {quest_item} abandoned when the {enemy_type} moved in. {quest_origin}. That cache is exactly what I need to finish {quest_stakes} that {target_npc} placed with me. But the road is anything but safe.",
+        "outro": "First come, first served: if we don't {quest_action}, someone else will. Or {quest_threat} will destroy it."
       },
       "playerResponses": [
         { "text": "An unclaimed cache? I'll have it back before anyone else catches wind.", "action": "ACCEPT" },
@@ -57,10 +78,17 @@
     },
     {
       "id": "obtaining_expo_04",
+      "bindings": {
+        "quest_action": "make the trade run through hostile territory and back",
+        "quest_focus": "the dangerous road between settlements",
+        "quest_stakes": "supplies the settlement hasn't had in months",
+        "quest_threat": "the hostile creatures infesting the direct route",
+        "quest_reward_hint": "a well-rewarded journey"
+      },
       "dialogueChunks": {
         "intro": "Over here, {player_name}! I've been flagging down every capable-looking soul all week. You're the first one who stopped.",
-        "plotStep": "Word reached me through a traveling merchant that {target_npc} in a distant settlement has {quest_item} in surplus: exactly what I've been short on for months. They're willing to trade, but someone has to make the journey to {location} and back. The direct route goes {location_hint}, straight through {enemy_type} territory. I'd go myself but I'd be dead before I got halfway.",
-        "outro": "Make the exchange and bring back the goods, and I'll make sure you're well rewarded for the trip."
+        "plotStep": "Word reached me that {target_npc} in a distant settlement has {quest_item} in surplus: exactly what I've been short on. They're willing to trade, but someone has to {quest_action}. {quest_focus} goes {location_hint}, straight through {enemy_type} territory. I'd go myself but I'd be dead before I got halfway.",
+        "outro": "Make the exchange and bring back the goods, and I'll make sure {quest_reward_hint} is worth your while."
       },
       "playerResponses": [
         { "text": "A trade run through hostile territory? I've handled worse.", "action": "ACCEPT" },

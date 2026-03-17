@@ -4,7 +4,7 @@
       "id": "ambition_conf_01",
       "dialogueChunks": {
         "intro": "{player_name}, we have a problem. Someone's been talking.",
-        "plotStep": "{target_npc} found out about our arrangement and has rallied the guards against us. They've blockaded the road {location_hint} and seized half the {quest_item} you already gathered. If we don't act now, everything falls apart. I need you to find an alternate route to the stockpile and bring back twice as much: enough to outbid them and buy the guards' loyalty back. There are {enemy_type} on the back trail, but that's a problem you can handle.",
+        "plotStep": "{target_npc} found out about our plan to {quest_action} and has rallied the guards. They've blockaded the road {location_hint} and seized half the {quest_item} you gathered. I need you to find an alternate route and bring back twice as much: enough to outbid them. There are {enemy_type} on the back trail, but {quest_stakes} demands we push through.",
         "outro": "We're too deep to back out now. Either we win this or we lose everything."
       },
       "playerResponses": [
@@ -23,8 +23,8 @@
       "id": "ambition_conf_02",
       "dialogueChunks": {
         "intro": "Change of plans, {player_name}. A bigger opportunity just landed in my lap.",
-        "plotStep": "A merchant caravan heading through {location} lost their escort to {enemy_type} attacks {location_hint}. They're desperate for protection and they're carrying a fortune in {quest_item}. If you escort what's left of their cargo to my warehouse, I'll 'negotiate' a favorable storage fee. By the time they can arrange new transport, I'll have already brokered deals with their buyers. {target_npc} is trying to offer them shelter at the guild hall instead, so we need to move fast.",
-        "outro": "Opportunity doesn't knock, {player_name}. It stumbles past wounded, and the clever ones are ready."
+        "plotStep": "A merchant caravan lost their escort to {enemy_type} attacks {location_hint}. They're carrying a fortune in {quest_item}. If you escort their cargo to my warehouse, I'll negotiate a favorable storage fee. {target_npc} is trying to offer them shelter at the guild hall instead. {quest_stakes} hinges on who moves first.",
+        "outro": "Opportunity doesn't knock, {player_name}. It stumbles past wounded, and {quest_threat} means we can't afford hesitation."
       },
       "playerResponses": [
         { "text": "Ruthless, but effective. I'll bring the cargo.", "action": "ACCEPT" },
@@ -42,8 +42,8 @@
       "id": "ambition_conf_03",
       "dialogueChunks": {
         "intro": "Bad news, {player_name}. Our competitor isn't just blocking us: they're trying to destroy us.",
-        "plotStep": "{target_npc} hired a group of sellswords to ransack my workshop and scatter my tools into the wilderness {location_hint}. Without those tools, I can't forge anything, and without product, my trade agreements collapse. I need you to recover my equipment and deal with whatever {enemy_type} have moved into the area since the sellswords stirred everything up. Oh, and bring back more {quest_item}: the furnace ate through the last batch faster than expected.",
-        "outro": "They want a trade war? They'll get one. But first, I need my forge running again."
+        "plotStep": "{target_npc} hired sellswords to ransack my workshop and scatter my tools into the wilderness {location_hint}. Without them, {quest_focus} goes cold and my trade agreements collapse. I need you to recover my equipment and deal with the {enemy_type} that moved in. And bring back more {quest_item}: the furnace ate through the last batch.",
+        "outro": "They want a trade war? They'll get one. But first, {quest_action} depends on getting my forge running again."
       },
       "playerResponses": [
         { "text": "I'll get your tools back and clear the area.", "action": "ACCEPT" },

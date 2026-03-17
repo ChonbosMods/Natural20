@@ -2,10 +2,17 @@
   "variants": [
     {
       "id": "conflict_with_a_god_expo_01",
+      "bindings": {
+        "quest_action": "perform a cleansing ritual at the old temple shrine",
+        "quest_focus": "a disturbed shrine deep in the temple that unleashed a spreading curse",
+        "quest_stakes": "the land itself is dying: crops blacken, wells taste of copper",
+        "quest_threat": "an ancient force angered by the desecration of its sacred ground",
+        "quest_origin": "something disturbed the shrine and now the corruption spreads outward"
+      },
       "dialogueChunks": {
         "intro": "{player_name}, have you noticed the sky over {location}? That sickly green light isn't natural. Nothing about what's happening here is natural.",
-        "plotStep": "The land itself is turning against us. Crops blacken overnight, wells taste of copper, and the animals won't come within a mile of the old temple {location_hint}. {target_npc} says the spirits that guard this region have been angered: something disturbed the shrine deep in the temple, and now the curse is spreading. We need {quest_item} to perform a cleansing ritual before the corruption reaches the settlement. The {enemy_type} that have been spawning near the temple are a symptom, not the cause.",
-        "outro": "I don't pretend to understand the divine. But I understand dying land when I see it, and ours is dying fast."
+        "plotStep": "The land itself is turning against us. {quest_stakes}. {target_npc} says the spirits that guard this region have been angered: {quest_origin}. We need {quest_item} to {quest_action} before the corruption reaches the settlement. The {enemy_type} spawning near the temple are a symptom, not the cause.",
+        "outro": "I don't pretend to understand the divine. But {quest_threat} is real, and {quest_focus} must be addressed."
       },
       "playerResponses": [
         { "text": "Cursed temples and angry spirits. Not my usual work, but I'll go.", "action": "ACCEPT" },
@@ -21,10 +28,17 @@
     },
     {
       "id": "conflict_with_a_god_expo_02",
+      "bindings": {
+        "quest_action": "purify the desecrated shrine upstream by applying sacred materials",
+        "quest_focus": "broken seals at an ancient shrine that contained the corruption",
+        "quest_stakes": "anything living that touches the blackened river withers within hours",
+        "quest_threat": "whatever was sealed in the shrine is awake and poisoning the valley",
+        "quest_time_pressure": "the corruption spreads further each day"
+      },
       "dialogueChunks": {
         "intro": "Don't go near the water, {player_name}. Please. Not until you hear what I have to say.",
-        "plotStep": "Three days ago the river through {location} turned black. Not dirty: black, like ink. {target_npc} tested it and the results were terrifying: anything living that touches it withers within hours. The alchemists believe an ancient shrine upstream was desecrated: someone broke the seals that kept the corruption contained. I've studied the old texts, and the only way to purify the source is with {quest_item}, applied directly to the shrine stones. The path upstream is thick with {enemy_type} drawn to the dark energy.",
-        "outro": "Whatever was sealed in that shrine is awake now. If we don't put it back to sleep, this entire valley will be poisoned."
+        "plotStep": "Three days ago the river turned black. {quest_stakes}. The alchemists believe {quest_focus} was broken: someone let the corruption out. The only way to reverse it is with {quest_item}, applied directly to the shrine stones. I need you to {quest_action} {location_hint}. The path upstream is thick with {enemy_type} drawn to the dark energy.",
+        "outro": "{quest_threat}. If we don't act, this entire valley will be poisoned."
       },
       "playerResponses": [
         { "text": "Show me the old texts. I'll find the shrine and cleanse it.", "action": "ACCEPT" },
@@ -40,10 +54,17 @@
     },
     {
       "id": "conflict_with_a_god_expo_03",
+      "bindings": {
+        "quest_action": "place a purification ward at the heart-tree of the old forest",
+        "quest_focus": "the spirit guardians of the forest who have turned from protectors to destroyers",
+        "quest_stakes": "the forest that once sheltered travelers now kills anyone who enters",
+        "quest_threat": "something has corrupted sacred protectors into instruments of destruction",
+        "quest_origin": "generations of guardianship twisted by an unknown corruption"
+      },
       "dialogueChunks": {
-        "intro": "I've traveled far to reach {location}, {player_name}, because I heard there's someone here brave enough or foolish enough to help me challenge what no mortal should.",
-        "plotStep": "The spirit guardians of the old forest {location_hint} have turned hostile. For generations they protected travelers and kept the {enemy_type} at bay. Now they attack anyone who enters. {target_npc} ventured in last week to leave the traditional offerings and barely escaped alive. Something has corrupted them: twisted their purpose from protection to destruction. I believe {quest_item} can anchor a purification ward, but someone has to get close enough to the heart-tree to place it.",
-        "outro": "We're not fighting a mortal enemy. We're trying to heal something sacred that's been wounded. That takes a different kind of courage."
+        "intro": "I've traveled far to reach {location}, {player_name}, because I heard there's someone here brave enough or foolish enough to help me.",
+        "plotStep": "{quest_focus} have turned hostile. For generations they protected travelers and kept the {enemy_type} at bay. Now {quest_stakes}. {target_npc} ventured in to leave offerings and barely escaped. {quest_threat}, and I believe {quest_item} can anchor a ward, but someone must {quest_action} {location_hint}.",
+        "outro": "We're not fighting a mortal enemy. We're trying to heal something sacred. {quest_origin} demands a different kind of courage."
       },
       "playerResponses": [
         { "text": "Healing what's sacred sounds like a cause worth risking for.", "action": "ACCEPT" },

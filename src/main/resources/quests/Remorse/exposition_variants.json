@@ -2,10 +2,17 @@
   "variants": [
     {
       "id": "remorse_expo_01",
+      "bindings": {
+        "quest_action": "anonymously send defensive supplies to the settlement I abandoned",
+        "quest_focus": "the settlement I fled during a raid years ago",
+        "quest_stakes": "the same threat that drove me away is closing in on them again",
+        "quest_threat": "the shame of having abandoned people who counted on me",
+        "quest_origin": "years ago I ran from a raid and left everyone behind"
+      },
       "dialogueChunks": {
         "intro": "You look like someone who's seen the world, {player_name}. Tell me: do you believe a person can outrun their past?",
-        "plotStep": "Years ago, I abandoned a settlement during a {enemy_type} raid. Just ran. Left everyone behind: friends, neighbors, people who counted on me. I've lived with that shame every day since. Now I've heard that {location} is facing the same threat, and {target_npc} is there, one of the people I left behind. They don't know I'm nearby. I want to make it right: send them {quest_item} to help with their defenses, anonymously, gathered from {location_hint}. I can't face them yet. But I can stop being useless.",
-        "outro": "I know this doesn't erase what I did. But doing nothing a second time would be worse than the first."
+        "plotStep": "{quest_origin}. Friends, neighbors, people who counted on me. Now {quest_stakes}: {location} is facing the same {enemy_type} threat, and {target_npc} is there. I want to {quest_action}, gathered from {location_hint}. I can't face them yet. But I can stop being useless.",
+        "outro": "I know this doesn't erase what I did. But {quest_threat} doesn't go away by doing nothing a second time."
       },
       "playerResponses": [
         { "text": "Trying to make it right takes courage too. I'll help.", "action": "ACCEPT" },
@@ -21,10 +28,17 @@
     },
     {
       "id": "remorse_expo_02",
+      "bindings": {
+        "quest_action": "restock the settlement's medicine with pure, undiluted remedies",
+        "quest_focus": "the medicine I diluted for profit that cost people their lives",
+        "quest_stakes": "two or three people died because the remedies I made were too weak",
+        "quest_threat": "the healer who couldn't understand why treatments kept failing",
+        "quest_origin": "greed that led me to water down medicine during a plague"
+      },
       "dialogueChunks": {
         "intro": "{player_name}, I've spent a long time on the road trying to forget something I did. The road hasn't helped.",
-        "plotStep": "When I worked at the tavern in {location}, I watered down the medicine supply during a plague to stretch it further and pocket the difference. People died, {player_name}. Not many, maybe two or three, but that's two or three who might have lived if I hadn't been greedy. {target_npc} was the healer who couldn't understand why the remedies weren't working. I need to make amends. There's a source of pure {quest_item} {location_hint} that could restock the settlement's medicine cache properly. Real supplies, this time. No shortcuts.",
-        "outro": "I can't bring back the dead. But I can make sure no one else dies from my selfishness."
+        "plotStep": "When I worked at the tavern in {location}, {quest_origin}. {quest_stakes}. {target_npc} was {quest_threat}. I need to make amends. There's a source of pure {quest_item} {location_hint} that could {quest_action}. Real supplies, this time. No shortcuts.",
+        "outro": "I can't bring back the dead. But {quest_focus} doesn't have to claim anyone else."
       },
       "playerResponses": [
         { "text": "What you did was terrible. But wanting to fix it is real. I'll help.", "action": "ACCEPT" },
@@ -40,10 +54,17 @@
     },
     {
       "id": "remorse_expo_03",
+      "bindings": {
+        "quest_action": "rebuild a destroyed memorial site to honor a child I failed to save",
+        "quest_focus": "the night I froze while a child died in a burning building",
+        "quest_stakes": "the father still greets me kindly, not knowing I could have saved his daughter",
+        "quest_threat": "a guilt that cuts deeper every time the father smiles at me",
+        "quest_origin": "a moment of cowardice during an attack that cost a child's life"
+      },
       "dialogueChunks": {
         "intro": "Sit with me for a moment, {player_name}. I have a story I've never told anyone, and it's killing me to keep it inside.",
-        "plotStep": "I used to be a guard in {location}. One night during a {enemy_type} attack, I saw a family trapped in a burning building. I had the chance to help them, but the fire was so hot, so close. I froze. By the time I moved, it was too late for the youngest child. {target_npc} was the father. He doesn't know I was there: doesn't know I could have saved his daughter and didn't. He still greets me kindly whenever our paths cross, and every smile cuts deeper than any blade. I need to do something: anything. There's a memorial site {location_hint} that was destroyed by {enemy_type}. If I rebuild it with proper {quest_item}, maybe... maybe I can start to live with myself.",
-        "outro": "I don't expect forgiveness. I just can't carry this alone anymore."
+        "plotStep": "I used to be a guard in {location}. One night during a {enemy_type} attack, {quest_focus}. I had the chance to help but I froze. {target_npc} was the father. {quest_stakes}, and {quest_threat} is unbearable. There's a memorial site {location_hint} destroyed by {enemy_type}. If I {quest_action} with proper {quest_item}, maybe I can start to live with myself.",
+        "outro": "I don't expect forgiveness. {quest_origin} haunts me, but I can't carry this alone anymore."
       },
       "playerResponses": [
         { "text": "Rebuilding won't undo the past, but it honors the memory. I'll help.", "action": "ACCEPT" },

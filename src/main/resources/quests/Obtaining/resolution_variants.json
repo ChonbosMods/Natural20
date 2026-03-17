@@ -4,7 +4,7 @@
       "id": "obtaining_reso_01",
       "dialogueChunks": {
         "intro": "{player_name}! Is that what I think it is? Let me see!",
-        "plotStep": "This is even better than I hoped. The quality of this {quest_item} is extraordinary: I can already see three projects I can start with this batch alone. {target_npc} is going to be speechless when they see what I craft from this. The whole settlement will benefit for months.",
+        "plotStep": "This is even better than I hoped. The quality of this {quest_item} is extraordinary. You managed to {quest_action}, and now I can see three projects I can start with this batch alone. {target_npc} is going to be speechless when they see what I craft. {quest_stakes} will benefit the whole settlement for months.",
         "outro": "You've earned this reward ten times over. And when my masterpiece is finished, I'll make sure your name is attached to it."
       },
       "playerResponses": [
@@ -19,7 +19,7 @@
       "id": "obtaining_reso_02",
       "dialogueChunks": {
         "intro": "You look like you've been through the wringer, {player_name}. But those sacks on your back tell me it was worth it.",
-        "plotStep": "I wasn't sure you'd pull it off. {target_npc} told me the route you took was crawling with dangers, and yet here you are with everything I asked for and then some. This {quest_item} will keep {location} fed through the worst of the cold months. I'm already planning the first batch.",
+        "plotStep": "I wasn't sure you'd pull it off. {target_npc} told me the route you took was crawling with dangers, and yet here you are with everything I asked for. You managed to {quest_action}, and this {quest_item} will keep us fed through the worst of the cold months. {quest_stakes} are secured.",
         "outro": "Take this with my thanks. And come back when the first loaves are out of the oven: you've earned the best seat at the table."
       },
       "playerResponses": [
@@ -33,7 +33,7 @@
       "id": "obtaining_reso_03",
       "dialogueChunks": {
         "intro": "The commission is complete, {player_name}. And it's all thanks to you.",
-        "plotStep": "{target_npc} picked up the finished piece this morning and couldn't believe the quality. Said it was the finest work they'd ever seen from this forge. Between us, I couldn't have done it without the {quest_item} you brought back. The raw materials from that cache were of a grade I haven't worked with in years. This is the kind of work that builds a reputation.",
+        "plotStep": "{target_npc} picked up the finished piece this morning and couldn't believe the quality. You managed to {quest_action}, and the raw materials from that cache were of a grade I haven't worked with in years. {quest_stakes} was worth every obstacle.",
         "outro": "Here: your share of the commission payment. You took the risks, you deserve the lion's share."
       },
       "playerResponses": [
@@ -48,8 +48,8 @@
       "id": "obtaining_reso_04",
       "dialogueChunks": {
         "intro": "The trade is done, {player_name}. Everything went through perfectly.",
-        "plotStep": "{target_npc} held up their end of the bargain: the exchange was fair, and the goods you carried back are exactly what we needed. {location} hasn't had supplies this good in a long time. The whole market square is buzzing about the new stock. People are already talking about what this means for the season ahead.",
-        "outro": "You made a dangerous journey look routine. Take this: it's the best we could set aside. You've earned the gratitude of every shop and home in {location}."
+        "plotStep": "{target_npc} held up their end of the bargain. You managed to {quest_action}, and the goods you carried back are exactly what we needed. {quest_stakes} are fulfilled, and the whole market square is buzzing about the new stock.",
+        "outro": "You made a dangerous journey look routine. Take this: it's the best we could set aside. You've earned the gratitude of every shop and home here."
       },
       "playerResponses": [
         { "text": "A thriving market is its own reward. But I'll take the payment too.", "action": "ACCEPT" },

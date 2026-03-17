@@ -2,10 +2,17 @@
   "variants": [
     {
       "id": "vengeancekindred_expo_01",
+      "bindings": {
+        "quest_action": "avenge my brother's murder",
+        "quest_focus": "the road where my brother was killed",
+        "quest_stakes": "a family's honor and a brother's memory",
+        "quest_threat": "the creatures who left him in a ditch like refuse",
+        "quest_origin": "the attack three weeks ago"
+      },
       "dialogueChunks": {
         "intro": "{player_name}. Come closer. I need to speak quietly, because what I'm about to ask carries weight that most people can't bear.",
-        "plotStep": "My brother was killed by {enemy_type} three weeks ago on the road {location_hint}. He was bringing {quest_item} back to {location} for the harvest festival. They left his body in the ditch like refuse. The guards say they can't pursue because it happened outside their jurisdiction. Jurisdiction. As if borders matter when your family's blood is soaking into the dirt. {target_npc} helped me bury him, and they're the only one who understands that I can't let this stand.",
-        "outro": "I'm not asking you to feel what I feel. I'm asking you to act where I cannot. My brother deserves more than a forgotten grave."
+        "plotStep": "My brother was killed by {enemy_type} three weeks ago on the road {location_hint}. He was bringing {quest_item} back for the harvest festival. {quest_threat} left his body in the ditch. The guards say they can't pursue because it happened outside their jurisdiction. Jurisdiction. {target_npc} helped me bury him, and they're the only one who understands that I can't let this stand.",
+        "outro": "I'm not asking you to feel what I feel. I'm asking you to {quest_action} where I cannot. {quest_stakes} demand it."
       },
       "playerResponses": [
         { "text": "Your brother will be avenged. Tell me everything about the ones who did this.", "action": "ACCEPT" },
@@ -20,10 +27,17 @@
     },
     {
       "id": "vengeancekindred_expo_02",
+      "bindings": {
+        "quest_action": "destroy the raiders who burned our family's home twice",
+        "quest_focus": "the ashes of our farmstead",
+        "quest_stakes": "a family that has bled enough for one lifetime",
+        "quest_threat": "the raiders who keep coming back to finish what they started",
+        "quest_origin": "the first burning two months ago"
+      },
       "dialogueChunks": {
-        "intro": "You don't know me, {player_name}, but after today, you'll know my family's name. Everyone in {location} does.",
-        "plotStep": "The {enemy_type} burned our farmstead two months ago. My mother, my aunt, three cousins: all gone in one night. We rebuilt because that's what you do. Then they came back last week and did it again. Burned what we'd rebuilt, took the {quest_item} we'd stockpiled, scattered our livestock into the hills {location_hint}. {target_npc} took in the survivors, but we're broken, {player_name}. Broken and angry. The elders say to endure. I say the time for endurance is over.",
-        "outro": "My family has bled enough for one lifetime. Will you help us end this?"
+        "intro": "You don't know me, {player_name}, but after today, you'll know my family's name. Everyone here does.",
+        "plotStep": "The {enemy_type} burned {quest_focus} two months ago. My mother, my aunt, three cousins: all gone. We rebuilt, and then {quest_threat} came back and did it again. Took the {quest_item} we'd stockpiled, scattered our livestock {location_hint}. {target_npc} took in the survivors, but {quest_stakes} are broken and angry. The elders say to endure. I say the time for endurance is over.",
+        "outro": "Will you help us {quest_action}?"
       },
       "playerResponses": [
         { "text": "Twice they struck your family? There won't be a third time. I swear it.", "action": "ACCEPT" },
@@ -39,10 +53,17 @@
     },
     {
       "id": "vengeancekindred_expo_03",
+      "bindings": {
+        "quest_action": "carry out the community's solemn vow of vengeance",
+        "quest_focus": "the gathered intelligence on enemy positions",
+        "quest_stakes": "thirty families who each have a name to mourn",
+        "quest_threat": "the band that has been killing our people for months",
+        "quest_origin": "six months of unchecked violence"
+      },
       "dialogueChunks": {
-        "intro": "We held a gathering last night, {player_name}. Every family in {location} who's lost someone to the {enemy_type}. There were thirty of us.",
-        "plotStep": "Thirty families, each with a name to mourn. My own father was among the first taken, six months ago. He went to deliver {quest_item} to a trading post {location_hint} and never came back. {target_npc} organized the gathering because they lost their sister to the same band. We've pooled our resources and our knowledge. We know where the {enemy_type} roost, we know their patrol routes, and we know they'll keep killing unless someone stops them.",
-        "outro": "This isn't one family's grief anymore. This is a community's solemn vow. Will you carry it out?"
+        "intro": "We held a gathering last night, {player_name}. Every family who's lost someone to the {enemy_type}. There were thirty of us.",
+        "plotStep": "{quest_stakes}, each with a grief to carry. My own father was among the first, six months ago. He went to deliver {quest_item} to a trading post {location_hint} and never came back. {target_npc} organized the gathering because they lost their sister to {quest_threat}. We've pooled our resources and knowledge. We know where they roost and their patrol routes.",
+        "outro": "This isn't one family's grief anymore. This is a community's solemn vow. Will you {quest_action}?"
       },
       "playerResponses": [
         { "text": "Thirty families. Thirty reasons. I'll carry your vow to its end.", "action": "ACCEPT", "dispositionShift": 5 },
@@ -58,10 +79,17 @@
     },
     {
       "id": "vengeancekindred_expo_04",
+      "bindings": {
+        "quest_action": "make the creatures who took my daughter know her life had weight",
+        "quest_focus": "the path where my daughter was taken",
+        "quest_stakes": "a healer's memory and the community she served",
+        "quest_threat": "the creatures that killed a woman who only ever helped others",
+        "quest_origin": "a healing errand that ended in tragedy"
+      },
       "dialogueChunks": {
         "intro": "I've been sitting at this table since dawn, {player_name}, trying to find words for something that words can't reach.",
-        "plotStep": "My daughter was a healer. She went {location_hint} to gather {quest_item} for a sick child in {location}, because that's who she was: someone who couldn't stand by while others suffered. The {enemy_type} found her before she made it back. {target_npc} found what was left the next morning. The whole settlement turned out for the burial. Half of them brought weapons. They want to march on the {enemy_type} camp themselves, but they're farmers and shopkeepers, not warriors. They'd be slaughtered.",
-        "outro": "I don't want more death. But I need the creatures who took my daughter to know that her life had weight. That it mattered."
+        "plotStep": "My daughter was a healer. She went {location_hint} to gather {quest_item} for a sick child, because that's who she was. {quest_threat} found her before she made it back. {target_npc} found what was left the next morning. The whole settlement turned out for the burial. Half of them brought weapons: farmers and shopkeepers who want to march on the enemy camp. They'd be slaughtered.",
+        "outro": "I don't want more death. But I need you to {quest_action}. {quest_stakes} demand nothing less."
       },
       "playerResponses": [
         { "text": "Her life mattered. And the ones who ended it will answer for that.", "action": "ACCEPT" },

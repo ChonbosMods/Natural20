@@ -4,8 +4,8 @@
       "id": "mistaken_jealousy_conf_01",
       "dialogueChunks": {
         "intro": "{player_name}... what do you mean they were building a surprise? A what?",
-        "plotStep": "You're telling me {target_npc} was sneaking {location_hint} to build a new root cellar for the settlement as a gift? And the {quest_item} was construction material, not stolen goods? I... oh no. I've already told half the council they were a thief. {target_npc} has probably heard by now. I need you to find them before they do something rash: they've gone off toward {location} alone, upset, and there are {enemy_type} in those hills. Bring them back safely and bring more {quest_item} so the project can actually be completed. Maybe that will start to undo the damage I've done.",
-        "outro": "I accused my neighbor of betrayal because I couldn't imagine someone doing something kind without an agenda. What does that say about me?"
+        "plotStep": "You're telling me {target_npc} was sneaking {location_hint} to build a root cellar for the settlement as a gift? And the {quest_item} was construction material? I've already told half the council they were a thief. {target_npc} has probably heard. They've gone off toward {location} alone, upset, and there are {enemy_type} in those hills. I need you to find them and bring more {quest_item} so the project can be completed. Maybe that undoes some damage.",
+        "outro": "I accused my neighbor of betrayal because I couldn't imagine {quest_focus} being something kind. What does that say about me?"
       },
       "playerResponses": [
         { "text": "It says you're human. I'll find them and bring them home.", "action": "ACCEPT" },
@@ -23,8 +23,8 @@
       "id": "mistaken_jealousy_conf_02",
       "dialogueChunks": {
         "intro": "This is worse than I thought, {player_name}. Much worse: but not in the way I expected.",
-        "plotStep": "{target_npc} wasn't scheming at all. They were gathering {quest_item} {location_hint} to pay off a debt they owe to a trader who threatened their family. They kept it secret because they were ashamed. And now, because I spread rumors, the whole settlement is shunning them. The trader is coming to collect in three days, and {target_npc} is short because I disrupted their work with my accusations. I need you to gather the remaining {quest_item} and help pay the debt before the trader arrives with muscle.",
-        "outro": "I turned a private struggle into a public humiliation. The least I can do is help fix what I broke."
+        "plotStep": "{target_npc} wasn't scheming at all. They were gathering {quest_item} {location_hint} to pay off a debt that threatened their family. They kept it secret out of shame. Now, because I spread rumors, the whole settlement shuns them. {quest_threat} was just a desperate person hiding a private struggle. The debt collector arrives in three days. I need you to gather the remaining {quest_item}.",
+        "outro": "I turned {quest_stakes} into a public humiliation. The least I can do is help fix what I broke."
       },
       "playerResponses": [
         { "text": "Everyone makes mistakes. Let's make this right.", "action": "ACCEPT" },
@@ -42,8 +42,8 @@
       "id": "mistaken_jealousy_conf_03",
       "dialogueChunks": {
         "intro": "{player_name}, I owe you an apology. And I owe {target_npc} far more than that.",
-        "plotStep": "The 'secret meetings' were visits to a sick relative in a camp {location_hint}. {target_npc} didn't tell anyone because the illness is contagious and they didn't want to cause a panic. The {quest_item} was medicine, not contraband. Now that I've stirred up suspicion, {target_npc} is refusing to come back to {location} at all: says nobody will trust them anymore. Their relative's condition is worsening and they need more {quest_item} from a source deeper in {enemy_type} territory. Someone needs to deliver supplies and convince {target_npc} to come home.",
-        "outro": "I let suspicion eat me alive and hurt the one person who least deserved it."
+        "plotStep": "{quest_threat} were visits to a sick relative in a camp {location_hint}. {target_npc} kept it secret to prevent panic about contagion. The {quest_item} was medicine, not contraband. Now that I've stirred suspicion, {target_npc} refuses to return to {location}. Their relative's condition is worsening and they need more {quest_item} from deeper in {enemy_type} territory.",
+        "outro": "I let suspicion eat me alive and hurt the one person who least deserved it. {quest_stakes} is in ruins because of me."
       },
       "playerResponses": [
         { "text": "I'll bring the medicine and talk to them. People can forgive.", "action": "ACCEPT" },

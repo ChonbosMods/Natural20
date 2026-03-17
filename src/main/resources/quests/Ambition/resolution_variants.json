@@ -4,7 +4,7 @@
       "id": "ambition_reso_01",
       "dialogueChunks": {
         "intro": "Look around you, {player_name}. Everything you see? We built this.",
-        "plotStep": "The forge is producing at full capacity. Three settlements have placed orders. {target_npc} came by this morning: not to threaten, but to negotiate. They finally see that fighting me is more expensive than working with me. I offered them a partnership. A small one, mind you, but enough to keep the peace. The {quest_item} you gathered made all of this possible.",
+        "plotStep": "{quest_focus} is producing at full capacity. Three settlements have placed orders. {target_npc} came by this morning: not to threaten, but to negotiate. They finally see that fighting me is more expensive than working with me. {quest_stakes} was won, and the {quest_item} you gathered made it possible.",
         "outro": "You backed the right horse, {player_name}. Here's your share. And there'll be more where that came from."
       },
       "playerResponses": [
@@ -19,8 +19,8 @@
       "id": "ambition_reso_02",
       "dialogueChunks": {
         "intro": "{player_name}. I owe you an honest word, and I always pay my debts.",
-        "plotStep": "I got what I wanted. The trade routes, the contracts, the influence. But it cost more than I planned. {target_npc} won't speak to me anymore, and half the settlement looks at me differently. I tell myself it was necessary: that {location} is stronger now because someone had the spine to act. And it is stronger. But some mornings I wonder if the old way was really so bad.",
-        "outro": "Here. Your payment, as promised. You earned every piece of it. And if I'm honest, you might be the only person left who doesn't resent me for what we did."
+        "plotStep": "I got what I wanted. The trade routes, the contracts, the influence. But it cost more than I planned. {target_npc} won't speak to me, and half the settlement looks at me differently. {quest_stakes} was won, but {quest_action} left scars I didn't expect. {location} is stronger now. But some mornings I wonder if the old way was really so bad.",
+        "outro": "Here. Your payment, as promised. You might be the only person left who doesn't resent me for what we did."
       },
       "playerResponses": [
         { "text": "Power always comes with a price. You knew that going in.", "action": "ACCEPT" },
@@ -33,8 +33,8 @@
       "id": "ambition_reso_03",
       "dialogueChunks": {
         "intro": "Well, {player_name}. We did it. The question is: was it worth it?",
-        "plotStep": "The settlement is thriving. New trade, new wealth, new construction. {target_npc} even admitted that the old way wasn't working. But I notice people step aside when I walk past now. Not out of respect: out of caution. I wanted to be a leader, and instead I became someone people are careful around. The {quest_item} bought me everything I asked for and something I didn't: a very particular kind of loneliness.",
-        "outro": "Take your reward, {player_name}. You were the best partner a schemer could ask for. I hope you spend it somewhere warm."
+        "plotStep": "The settlement is thriving. New trade, new wealth, new construction. {target_npc} even admitted the old way wasn't working. But I notice people step aside when I walk past: not out of respect, but caution. {quest_action} bought me everything I asked for and something I didn't: a very particular kind of loneliness.",
+        "outro": "Take your reward, {player_name}. You were the best partner a schemer could ask for. {quest_stakes} is settled, for better or worse."
       },
       "playerResponses": [
         { "text": "Loneliness is the toll of ambition. Spend your gains wisely.", "action": "ACCEPT" },

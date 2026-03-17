@@ -18,7 +18,7 @@
       "id": "rivalryofkinsmen_reso_02",
       "dialogueChunks": {
         "intro": "The apprentice is safe, {player_name}. And they brought back something nobody expected.",
-        "plotStep": "While hiding from the {enemy_type}, the apprentice found a deposit of {quest_item} that neither master crafter knew existed. It's enough for both workshops to operate independently for months. With scarcity no longer an issue, the competition lost its edge. {target_npc} organized a modest ceremony where both crafters agreed to share resources going forward. The apprentice credits you with their survival: says you cut through those creatures like they were practice dummies.",
+        "plotStep": "While hiding from the {enemy_type}, the apprentice found a deposit of {quest_item} that neither master crafter knew existed. It's enough for both workshops to operate independently for months. With scarcity no longer an issue, {quest_focus} lost its edge. {target_npc} organized a modest ceremony where both crafters agreed to share resources going forward. The apprentice credits you with their survival.",
         "outro": "An apprentice saved, a feud ended, and a new resource secured. Not a bad day's work. This is yours."
       },
       "playerResponses": [
@@ -47,7 +47,7 @@
       "id": "rivalryofkinsmen_reso_04",
       "dialogueChunks": {
         "intro": "The test was held this morning, {player_name}. Both prototypes were built, side by side.",
-        "plotStep": "In the end, the council chose elements from both designs. The watchtower will have one crafter's structural foundation and the other's defensive features. Neither won outright, but neither lost either: and the final design is better than what either could have made alone. {target_npc} says both crafters grumbled for an hour and then quietly started collaborating on the final blueprints. The watchtower breaks ground tomorrow.",
+        "plotStep": "In the end, the council chose elements from both designs. {quest_focus} will have one crafter's structural foundation and the other's defensive features. Neither won outright, but neither lost either: and the final design is better than what either could have made alone. {target_npc} says both crafters grumbled for an hour and then quietly started collaborating on the final blueprints. Construction breaks ground tomorrow.",
         "outro": "A fair contest with a fair result. The settlement gets a better watchtower, and you made it possible. Take this with our thanks."
       },
       "playerResponses": [

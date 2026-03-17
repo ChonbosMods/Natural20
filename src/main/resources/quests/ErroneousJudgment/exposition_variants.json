@@ -2,10 +2,17 @@
   "variants": [
     {
       "id": "erroneous_judgment_expo_01",
+      "bindings": {
+        "quest_action": "arm the militia and prepare defenses against a reported enemy attack",
+        "quest_focus": "a scout report claiming enemy forces are massing nearby",
+        "quest_stakes": "the settlement will be overrun if the attack comes while unprepared",
+        "quest_threat": "a potential invasion force that demands immediate response",
+        "quest_time_pressure": "every hour of delay is another hour for the enemy to surround us"
+      },
       "dialogueChunks": {
         "intro": "{player_name}, I don't have time to explain everything properly. We need to act now and ask questions later.",
-        "plotStep": "A scout reported {enemy_type} massing {location_hint}, and {target_npc} confirmed seeing tracks near {location}. The council has authorized a preemptive strike: gather {quest_item} to arm the militia and prepare defenses before they hit us. Every hour we wait is another hour they have to surround us. I've seen what these creatures do to undefended settlements, and I won't let it happen here.",
-        "outro": "Speed matters more than caution right now. Will you help us prepare before it's too late?"
+        "plotStep": "{quest_focus} from {location_hint}, and {target_npc} confirmed seeing tracks near {location}. The council has authorized a preemptive strike. I need {quest_item} to {quest_action}. {quest_time_pressure}: {quest_threat} won't wait for us to debate.",
+        "outro": "Speed matters more than caution right now. {quest_stakes} if we don't move."
       },
       "playerResponses": [
         { "text": "I'll gather what you need. Better prepared than sorry.", "action": "ACCEPT" },
@@ -21,10 +28,17 @@
     },
     {
       "id": "erroneous_judgment_expo_02",
+      "bindings": {
+        "quest_action": "follow the next shipment to catch the suspected traitor in the act",
+        "quest_focus": "three missing shipments all handled by the same person",
+        "quest_stakes": "vital supplies keep vanishing and the settlement is running short",
+        "quest_threat": "an insider tipping off raiders in exchange for safe passage",
+        "quest_origin": "years of trust that make the betrayal pattern unmistakable"
+      },
       "dialogueChunks": {
         "intro": "Listen carefully, {player_name}. We've been betrayed, and I know exactly who did it.",
-        "plotStep": "Three shipments of {quest_item} have gone missing on the road from {location} in the past month. Every single one was handled by {target_npc}. That's not coincidence: that's a pattern. The route passes through {enemy_type} territory {location_hint}, and I think {target_npc} has been tipping them off in exchange for safe passage. I need you to follow the next shipment, catch them in the act, and recover whatever stolen goods you can find.",
-        "outro": "I've trusted {target_npc} for years. That trust is what makes this betrayal so clear: they're the only one who knew the schedule."
+        "plotStep": "{quest_focus} on the road from {location} in the past month. Every one handled by {target_npc}. That's not coincidence: that's {quest_threat}. The route passes through {enemy_type} territory {location_hint}. I need you to {quest_action} and recover whatever stolen goods you can find.",
+        "outro": "{quest_origin} is what makes this so clear. They're the only one who knew the schedule."
       },
       "playerResponses": [
         { "text": "If they're guilty, I'll find the proof. I'll follow the route.", "action": "ACCEPT" },
@@ -40,10 +54,17 @@
     },
     {
       "id": "erroneous_judgment_expo_03",
+      "bindings": {
+        "quest_action": "investigate a traveler's accusation before mob justice takes over",
+        "quest_focus": "a single traveler's claim that a resident was meeting with raiders",
+        "quest_stakes": "an innocent person is locked in the storehouse based on hearsay",
+        "quest_threat": "a settlement too angry to wait for evidence before passing judgment",
+        "quest_origin": "a stranger's accusation that arrived without proof and left without answers"
+      },
       "dialogueChunks": {
         "intro": "{player_name}, I need someone with a clear head. Everyone here is too angry to think straight, including me.",
-        "plotStep": "A traveler came through {location} yesterday claiming that {target_npc} was spotted {location_hint} meeting with a known raider boss. The whole settlement is in an uproar. We've locked {target_npc} in the storehouse while we decide what to do. But the traveler left before anyone could question them properly, and {target_npc} is swearing innocence. I need you to track down proof: follow the trail {location_hint}, find evidence of these meetings, and gather {quest_item} that was allegedly part of the deal. We can't hold someone on hearsay forever.",
-        "outro": "Mob justice is fast and wrong. Real justice takes time and truth. Help me find both before this gets out of hand."
+        "plotStep": "A traveler accused {target_npc} of meeting with a raider boss {location_hint}. The settlement is in uproar. {quest_stakes}: we locked them up while we decide what to do. But {quest_origin}: the traveler left before anyone could question them. I need you to {quest_action}. Follow the trail, find evidence, and gather {quest_item} that was allegedly part of the deal.",
+        "outro": "{quest_threat} is fast and wrong. Real justice takes time and truth. Help me find both."
       },
       "playerResponses": [
         { "text": "Truth first, judgment after. I'll find what happened.", "action": "ACCEPT" },

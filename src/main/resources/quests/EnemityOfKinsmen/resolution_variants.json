@@ -4,7 +4,7 @@
       "id": "enemityofkinsmen_reso_01",
       "dialogueChunks": {
         "intro": "{player_name}, you did it. The families are talking again.",
-        "plotStep": "The evidence you brought back was undeniable. When both families saw the truth laid out, the anger drained right out of them. {target_npc} brokered a formal agreement this morning: shared use of the disputed land, mutual defense obligations, and a promise to settle future disputes through the council, not through threats. It's not perfect, but it's peace.",
+        "plotStep": "The evidence you brought back was undeniable. When both families saw the truth laid out, the anger drained right out of them. {target_npc} brokered a formal agreement this morning: shared use of {quest_focus}, mutual defense obligations, and a promise to settle future disputes through the council, not through threats. It's not perfect, but it's peace.",
         "outro": "You did what none of us could: you gave them the truth without taking a side. Take this, and know that {location} will remember the outsider who brought its people back together."
       },
       "playerResponses": [
@@ -18,7 +18,7 @@
       "id": "enemityofkinsmen_reso_02",
       "dialogueChunks": {
         "intro": "You should have seen it, {player_name}. Both families standing together on the wall, watching you come back.",
-        "plotStep": "When word spread that the {enemy_type} threat was real and imminent, the grudge suddenly felt very small. {target_npc} told me both family heads showed up at the barricade within minutes of each other, shoulder to shoulder, ready to fight. They may not like each other yet, but they've remembered they need each other. Your scouting report gave them the common ground they couldn't find on their own.",
+        "plotStep": "When word spread that {quest_threat} was real and imminent, the grudge suddenly felt very small. {target_npc} told me both family heads showed up at the barricade within minutes of each other, shoulder to shoulder, ready to fight. They may not like each other yet, but they've remembered they need each other. Your scouting report gave them the common ground they couldn't find on their own.",
         "outro": "The feud isn't over, but the hatred is gone. That's a start. Take this: it's from both families, together, for the first time in weeks."
       },
       "playerResponses": [

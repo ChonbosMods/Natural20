@@ -2,10 +2,17 @@
   "variants": [
     {
       "id": "crimes_of_love_expo_01",
+      "bindings": {
+        "quest_action": "replace stolen storehouse supplies before the audit",
+        "quest_focus": "the food I took from the storehouse to feed starving children",
+        "quest_stakes": "exile from the settlement if the theft is discovered",
+        "quest_threat": "an investigation is closing in on the broken lock",
+        "quest_time_pressure": "the inventory count happens tomorrow"
+      },
       "dialogueChunks": {
         "intro": "I know what I did was wrong, {player_name}. I'm not here to pretend otherwise. But if you'd seen their faces, you'd have done the same thing.",
-        "plotStep": "My neighbor's children hadn't eaten in three days. The parents were too proud to beg and too sick to forage. So I took food from the settlement storehouse: broke the lock, filled a sack, and left it at their door. The guards found the broken lock the next morning and {target_npc} is leading the investigation. If they trace it back to me, I'll be exiled from {location}. I need {quest_item} to replace what I took before the inventory count tomorrow. If the storehouse is full when they check, there's nothing to investigate.",
-        "outro": "Call me a thief. I'll accept it. But those children ate that night, and I'd break that lock again tomorrow."
+        "plotStep": "My neighbor's children hadn't eaten in three days. So I took {quest_focus} to feed them. {target_npc} is leading the investigation into the broken lock. I need {quest_item} to {quest_action}. {quest_time_pressure}, and if the storehouse is full when they check, there's nothing to investigate.",
+        "outro": "Call me a thief. I'll accept it. But {quest_stakes} is a price I'll pay knowing those children ate that night."
       },
       "playerResponses": [
         { "text": "Stealing to feed hungry children isn't the crime they think it is. I'll help.", "action": "ACCEPT" },
@@ -20,10 +27,17 @@
     },
     {
       "id": "crimes_of_love_expo_02",
+      "bindings": {
+        "quest_action": "disguise a deserter's identity and arrange safe passage",
+        "quest_focus": "a young soldier who refused to burn an innocent village",
+        "quest_stakes": "both the soldier and my sister face hanging if caught",
+        "quest_threat": "the garrison is asking questions and closing in",
+        "quest_origin": "a monstrous order that no decent person could carry out"
+      },
       "dialogueChunks": {
         "intro": "{player_name}, I need someone who doesn't know the people involved. Someone who can look at this clearly.",
-        "plotStep": "My sister is harboring a deserter from the garrison: a young soldier who refused an order to burn a village suspected of aiding {enemy_type}. The order was monstrous, and the soldier couldn't carry it out. But desertion is a hanging offense, and {target_npc} has been asking questions around {location}. My sister asked me to find {quest_item} to disguise the soldier's identity and arrange passage to a settlement {location_hint} where nobody knows their face. I know I'm obstructing justice. But the 'justice' in question would hang someone for having a conscience.",
-        "outro": "The law says hang the deserter. My heart says save the person who couldn't burn innocent homes. I've chosen my heart. Will you help?"
+        "plotStep": "My sister is harboring {quest_focus}: a deserter who refused an order to burn a village suspected of aiding {enemy_type}. {quest_origin}, and the soldier couldn't carry it out. But desertion is a hanging offense, and {target_npc} has been asking questions around {location}. I need {quest_item} to {quest_action} to a settlement {location_hint} where nobody knows their face.",
+        "outro": "The law says hang the deserter. My heart says save {quest_focus}. {quest_stakes}, but I've chosen my heart. Will you help?"
       },
       "playerResponses": [
         { "text": "A soldier with a conscience deserves protection, not a noose. Count me in.", "action": "ACCEPT" },
@@ -38,10 +52,17 @@
     },
     {
       "id": "crimes_of_love_expo_03",
+      "bindings": {
+        "quest_action": "gather wild ingredients to keep brewing unlicensed remedies",
+        "quest_focus": "the secret medicine I brew for people who can't afford guild prices",
+        "quest_stakes": "the sick and poor will go untreated if I'm caught",
+        "quest_threat": "the alchemist guild has sent enforcers to find the source",
+        "quest_origin": "guild-controlled prices that only the wealthy can afford"
+      },
       "dialogueChunks": {
         "intro": "I've been making medicine for people who can't pay, {player_name}. Sounds noble until you hear the rest.",
-        "plotStep": "The alchemist guild controls all healing supplies in the region. Prices are set so high that only the wealthy can afford treatment. I've been secretly brewing remedies from wild ingredients and distributing them to the poor. The guild considers it unlicensed practice and they've sent enforcers to find the source. {target_npc} suspects me but hasn't said anything yet. I need {quest_item} from the highlands {location_hint} to keep brewing. The {enemy_type} up there make it dangerous, but people in {location} are counting on me.",
-        "outro": "Healing the sick shouldn't be a crime. But when the guild holds the monopoly, compassion becomes contraband. I won't stop. I can't."
+        "plotStep": "The alchemist guild controls all healing supplies in the region. {quest_origin}, so I've been secretly brewing {quest_focus} and distributing it to the poor. {quest_threat}, and {target_npc} suspects me. I need {quest_item} from the highlands {location_hint} to {quest_action}. The {enemy_type} up there make it dangerous, but people in {location} are counting on me.",
+        "outro": "Healing the sick shouldn't be a crime. But {quest_stakes}, and I won't stop. I can't."
       },
       "playerResponses": [
         { "text": "Medicine for those who need it, laws be damned. What do you need?", "action": "ACCEPT" },

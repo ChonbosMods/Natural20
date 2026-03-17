@@ -4,7 +4,7 @@
       "id": "rivalry_of_superior_vs_inferior_reso_01",
       "dialogueChunks": {
         "intro": "{player_name}. The commander is gone.",
-        "plotStep": "The regional authority received the documents, investigated, and removed the commander within a week. The officers who participated in the extortion are being reassigned. {target_npc} was released from detention and the charges dropped. The new garrison leadership actually asked the merchants what they need. I don't know how long this good period will last, but for now, people in {location} are walking with their heads up for the first time in months.",
+        "plotStep": "The regional authority received the documents, investigated, and removed the commander within a week. The officers who participated in {quest_origin} are being reassigned. {target_npc} was released from detention and the charges dropped. The new garrison leadership actually asked the merchants what they need. I don't know how long this good period will last, but for now, people in {location} are walking with their heads up for the first time in months.",
         "outro": "You carried documents through a wilderness crawling with danger. It doesn't sound heroic when you say it like that, but those papers toppled a tyrant. Take this: the merchants pooled it together."
       },
       "playerResponses": [
@@ -33,7 +33,7 @@
       "id": "rivalry_of_superior_vs_inferior_reso_03",
       "dialogueChunks": {
         "intro": "Sit down, {player_name}. Have a drink. This one's a celebration.",
-        "plotStep": "The new cache held. The guards came sniffing around twice but found nothing. Meanwhile, the merchants have been quietly resupplying from our reserves whenever the guards make their rounds. The protection racket is collapsing because there's nothing left to threaten us with. {target_npc}'s black eye healed, and they wore it like a badge of honor. The guard captain finally got reassigned after enough complaints reached the outside. Power shifted, quietly, without a single sword drawn.",
+        "plotStep": "The new cache held. {quest_threat} came sniffing around twice but found nothing. Meanwhile, the merchants have been quietly resupplying from our reserves whenever the guards make their rounds. {quest_focus} is collapsing because there's nothing left to threaten us with. {target_npc}'s black eye healed, and they wore it like a badge of honor. The guard captain finally got reassigned after enough complaints reached the outside. Power shifted, quietly, without a single sword drawn.",
         "outro": "You built the foundation that let ordinary people stand up straight. This is from every merchant in the settlement: a thank-you for teaching us that we don't have to accept what's handed to us."
       },
       "playerResponses": [

@@ -4,8 +4,8 @@
       "id": "an_enemy_loved_conf_01",
       "dialogueChunks": {
         "intro": "{player_name}, everything's falling apart. The settlement found out what we've been doing.",
-        "plotStep": "{target_npc} saw you heading toward the {enemy_type} camp and told the whole settlement. Now the guards are organizing a raid to wipe them out, children and all. They're marching at dawn. We have until then to gather enough {quest_item} to convince the {enemy_type} to relocate somewhere safe, or there's going to be a slaughter on both sides. The {enemy_type} won't leave without supplies for the journey.",
-        "outro": "I started this. If blood gets spilled because I stayed silent, I'll never forgive myself."
+        "plotStep": "{target_npc} saw you heading toward the {enemy_type} camp and told everyone. The guards are organizing a raid to wipe them out at dawn: {quest_focus} means nothing to them. We have until then to gather enough {quest_item} to convince the {enemy_type} to relocate somewhere safe. {quest_stakes} if blood gets spilled.",
+        "outro": "I started this. {quest_threat} is about to end in massacre unless we act before dawn."
       },
       "playerResponses": [
         { "text": "Then we move fast. I'll get the supplies before dawn.", "action": "ACCEPT" },
@@ -23,8 +23,8 @@
       "id": "an_enemy_loved_conf_02",
       "dialogueChunks": {
         "intro": "This is worse than I feared, {player_name}. Much worse.",
-        "plotStep": "The {enemy_type} took your visit as a sign of alliance. Now they're coming to {location} expecting friendship, and the guards have no idea they're coming peacefully. They'll see armed {enemy_type} approaching the gates and assume it's an attack. You need to intercept them {location_hint} and convince them to turn back before they walk into a bloodbath. Take {quest_item} as a gesture of good faith.",
-        "outro": "Two groups who could live in peace are about to destroy each other over a misunderstanding. You might be the only person who can prevent it."
+        "plotStep": "The {enemy_type} took your visit as a sign of alliance. Now they're coming to {location} expecting friendship, but the guards will see armed creatures approaching and assume attack. You need to intercept them {location_hint} before they walk into a bloodbath. Take {quest_item} as a gesture of good faith. {quest_focus} could be destroyed by a simple misunderstanding.",
+        "outro": "Two groups who could live in peace are about to destroy each other. {quest_threat} continues unless someone stands between them."
       },
       "playerResponses": [
         { "text": "I'll intercept them. Nobody dies today.", "action": "ACCEPT" },
@@ -42,8 +42,8 @@
       "id": "an_enemy_loved_conf_03",
       "dialogueChunks": {
         "intro": "{player_name}, something terrible has happened at the {enemy_type} camp.",
-        "plotStep": "A rogue faction within the {enemy_type} killed their own elder: the one who wanted peace. The hardliners have taken control and they're planning revenge against {location} for generations of hostility. {target_npc} says the remaining moderates fled {location_hint} and they're the only ones who can calm the war party. We need to find them and bring them {quest_item} to prove we still want peace, before the hardliners attack.",
-        "outro": "The window for peace is closing fast. If the moderates lose hope, so does everyone."
+        "plotStep": "A rogue faction killed their own elder: the one who wanted peace. Hardliners have taken control and they're planning revenge. {target_npc} says the remaining moderates fled {location_hint}. They're the only ones who can calm the war party. We need to find them and bring them {quest_item} to prove we still want peace. {quest_focus} hangs by a thread.",
+        "outro": "The window for peace is closing fast. {quest_threat} wins if the moderates lose hope."
       },
       "playerResponses": [
         { "text": "I'll find the moderates. Peace is worth fighting for.", "action": "ACCEPT" },

@@ -4,7 +4,7 @@
       "id": "fatalimprudence_reso_01",
       "dialogueChunks": {
         "intro": "{player_name}, the barricades held. Every family is accounted for.",
-        "plotStep": "The {quest_item} you gathered reinforced the walls just in time. The swarm hit at dawn and the defenses held every point. {target_npc} led the counterattack from the eastern gate and drove them back into the hills. The danger is over, at least for now. I stood in the square this morning and told everyone the truth: that my recklessness caused the swarm. Some people were angry. Most were just relieved to be alive.",
+        "plotStep": "The {quest_item} you gathered reinforced the walls just in time. The swarm hit at dawn and the defenses held every point. {target_npc} led the counterattack from the eastern gate and drove them back into the hills. The danger is over, at least for now. I stood in the square this morning and told everyone the truth: that {quest_origin} caused the swarm. Some people were angry. Most were just relieved to be alive.",
         "outro": "You cleaned up my mess and saved lives doing it. I owe you more than I can ever repay. But start with this."
       },
       "playerResponses": [
@@ -33,7 +33,7 @@
       "id": "fatalimprudence_reso_03",
       "dialogueChunks": {
         "intro": "You found it, {player_name}. The source of the signal.",
-        "plotStep": "The device you recovered from the chamber was ancient: some kind of resonance beacon that attracted and agitated the {enemy_type} within range. Once you disabled it, the coordinated attacks stopped within hours. {target_npc} reports the creatures are already dispersing back to their normal territories. The alchemist analyzed the {quest_item} coating and says the beacon was likely placed there deliberately, centuries ago, as a weapon. I just happened to set it off.",
+        "plotStep": "The device you recovered from the chamber was ancient: some kind of resonance beacon that attracted and agitated the {enemy_type} within range. Once you disabled it, the coordinated attacks stopped within hours. {target_npc} reports the creatures are already dispersing back to their normal territories. The alchemist analyzed the {quest_item} coating and says the beacon was likely placed there deliberately, centuries ago, as a weapon. {quest_origin} just happened to set it off.",
         "outro": "An ancient weapon armed by modern carelessness. At least it's over now. Take this, and my genuine thanks."
       },
       "playerResponses": [
@@ -48,7 +48,7 @@
       "id": "fatalimprudence_reso_04",
       "dialogueChunks": {
         "intro": "You found the con artist, {player_name}. And you brought back our supplies.",
-        "plotStep": "The swindler was hiding in a cave {location_hint}, surrounded by the very {enemy_type} they'd been trading with. When you showed up, they realized the game was over. {target_npc} has already distributed the recovered {quest_item} to the families who needed it most. I stood in front of the council and told them everything: the gamble, the scam, my stupidity. They stripped me of my trading privileges for a season. Fair punishment.",
+        "plotStep": "{quest_threat} was hiding in a cave {location_hint}, surrounded by the very {enemy_type} they'd been trading with. When you showed up, they realized the game was over. {target_npc} has already distributed the recovered {quest_item} to the families who needed it most. I stood in front of the council and told them everything: the gamble, the scam, my stupidity. They stripped me of my trading privileges for a season. Fair punishment.",
         "outro": "You recovered what my greed nearly lost forever. The settlement is whole again, and I have a lot of trust to rebuild. This is yours, earned honestly."
       },
       "playerResponses": [

@@ -2,10 +2,17 @@
   "variants": [
     {
       "id": "abduction_expo_01",
+      "bindings": {
+        "quest_action": "follow the tracks and bring my daughter home",
+        "quest_focus": "the trail of heavy boots and dragging marks into the treeline",
+        "quest_stakes": "a ten-year-old girl taken from her bed in the night",
+        "quest_threat": "the abductors who snatched her while we slept",
+        "quest_time_pressure": "every second they're getting further away"
+      },
       "dialogueChunks": {
-        "intro": "{player_name}! Please, stop! My child is gone and every second you stand here is a second they're getting further away!",
-        "plotStep": "They took her last night. Right out of the house while we slept. {target_npc} heard the door close and ran out, but all they saw were {enemy_type} shapes disappearing into the treeline {location_hint}. The tracks are clear: heavy boots and dragging marks. She's alive, {player_name}, I know it. They wouldn't go to the trouble of a quiet abduction just to... I can't finish that thought. The guards are organizing a search, but they're too slow, too cautious. My daughter doesn't have time for caution.",
-        "outro": "She's ten years old and she's out there in the dark with monsters. Please. I will give you everything I own."
+        "intro": "{player_name}! Please, stop! My child is gone and {quest_time_pressure}!",
+        "plotStep": "{quest_threat} took her last night. Right out of the house. {target_npc} heard the door close and ran out, but all they saw were {enemy_type} shapes disappearing into the treeline {location_hint}. {quest_focus} are clear: she's alive. The guards are organizing a search, but they're too slow. I need you to {quest_action}.",
+        "outro": "{quest_stakes} is out there in the dark with monsters. Please. I will give you everything I own."
       },
       "playerResponses": [
         { "text": "Keep your possessions. Just show me the tracks and I'll bring her home.", "action": "ACCEPT", "dispositionShift": 5 },
@@ -21,10 +28,17 @@
     },
     {
       "id": "abduction_expo_02",
+      "bindings": {
+        "quest_action": "find where the vanished are being taken and stop the abductions",
+        "quest_focus": "the strange organized tracks leading away from empty beds",
+        "quest_stakes": "three people who vanished without a trace",
+        "quest_threat": "a methodical force selecting and spiriting people away",
+        "quest_origin": "two weeks of silent disappearances"
+      },
       "dialogueChunks": {
-        "intro": "Something is taking people from {location}, {player_name}. Not killing them: taking them. And nobody knows where they go.",
-        "plotStep": "Three people have vanished in the last two weeks. First the miller's son, then a young woman from the orchards, then {target_npc}'s apprentice. No bodies, no blood, no signs of struggle: just empty beds in the morning and families torn apart. A hunter found strange tracks {location_hint} that don't match any animal she knows. {enemy_type} tracks, but organized: lines, formations, deliberate patterns. Someone or something is selecting people and spiriting them away.",
-        "outro": "The settlement is terrified. Doors are barred every night and nobody walks alone anymore. We need to find where they're being taken before the next bed turns up empty."
+        "intro": "Something is taking people, {player_name}. Not killing them: taking them. And nobody knows where they go.",
+        "plotStep": "{quest_stakes} in the last two weeks. No bodies, no blood, no signs of struggle: just empty beds. A hunter found {quest_focus} {location_hint}: {enemy_type} tracks in lines and formations. {quest_threat} is selecting people and spiriting them away.",
+        "outro": "The settlement is terrified. Doors are barred every night. We need you to {quest_action} before the next bed turns up empty."
       },
       "playerResponses": [
         { "text": "Organized abductions? This isn't random. I'll follow the tracks and find the pattern.", "action": "ACCEPT" },
@@ -40,10 +54,17 @@
     },
     {
       "id": "abduction_expo_03",
+      "bindings": {
+        "quest_action": "track the abductors and rescue the captive",
+        "quest_focus": "the market square where they struck in broad daylight",
+        "quest_stakes": "a settlement that no longer feels safe even in daylight",
+        "quest_threat": "raiders bold enough to snatch someone from a crowded market",
+        "quest_time_pressure": "before they disappear into the deep wilderness"
+      },
       "dialogueChunks": {
-        "intro": "I wasn't going to involve outsiders, {player_name}. But we've run out of options and we've run out of time.",
-        "plotStep": "{target_npc} was taken in broad daylight. Right from the market square in {location}, in front of a dozen witnesses. A group of {enemy_type} stormed in, grabbed them, and were gone before anyone could draw a weapon. It happened so fast that people are still trying to process what they saw. They headed {location_hint}, moving with a speed that suggests they knew exactly where they were going. The guards gave chase but lost the trail at the river crossing.",
-        "outro": "Broad daylight, {player_name}. They're not even afraid of us anymore. If we don't respond to this, they'll come back for more."
+        "intro": "I wasn't going to involve outsiders, {player_name}. But we've run out of options and time.",
+        "plotStep": "{target_npc} was taken in broad daylight from {quest_focus}: a group of {enemy_type} stormed in, grabbed them, and were gone before anyone could draw a weapon. {quest_threat} headed {location_hint} with a speed that suggests they knew exactly where they were going. The guards lost the trail at the river.",
+        "outro": "{quest_stakes}. They're not even afraid of us anymore. {quest_action} before {quest_time_pressure}."
       },
       "playerResponses": [
         { "text": "Taken in daylight? They're getting bold. I'll pick up the trail at the river.", "action": "ACCEPT" },
@@ -58,10 +79,17 @@
     },
     {
       "id": "abduction_expo_04",
+      "bindings": {
+        "quest_action": "rescue the hostages before the deadline expires",
+        "quest_focus": "the enemy stronghold where they're being held",
+        "quest_stakes": "five hostages facing mutilation if the ransom isn't met",
+        "quest_threat": "captors who nailed a ransom demand in blood to our gate",
+        "quest_time_pressure": "five days before they start sending back fingers"
+      },
       "dialogueChunks": {
-        "intro": "They left a ransom demand, {player_name}. Nailed to the gate of {location} in blood.",
-        "plotStep": "The {enemy_type} are holding {target_npc} and four others hostage in their stronghold {location_hint}. The note demands a cartload of {quest_item} delivered within five days, or they'll start sending back fingers. The settlement doesn't have what they're asking for: we'd have to strip every store bare and we still couldn't meet the demand. We need someone to either rescue the hostages directly or gather enough {quest_item} to negotiate, preferably both.",
-        "outro": "Five days, {player_name}. Five days before they start hurting people we love."
+        "intro": "They left a ransom demand, {player_name}. Nailed to the gate in blood.",
+        "plotStep": "The {enemy_type} are holding {target_npc} and four others in {quest_focus} {location_hint}. {quest_threat} demands a cartload of {quest_item} within {quest_time_pressure}. The settlement doesn't have what they're asking for. We need someone to {quest_action}: either rescue them directly or gather enough {quest_item} to negotiate.",
+        "outro": "{quest_stakes}. {quest_time_pressure}, {player_name}."
       },
       "playerResponses": [
         { "text": "I'll get the hostages out before the deadline. No ransom needed.", "action": "ACCEPT" },

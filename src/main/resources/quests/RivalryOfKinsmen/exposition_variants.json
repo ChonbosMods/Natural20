@@ -2,9 +2,16 @@
   "variants": [
     {
       "id": "rivalryofkinsmen_expo_01",
+      "bindings": {
+        "quest_action": "fetch materials that require both crafters to process",
+        "quest_focus": "the blacksmith-cook rivalry paralyzing the settlement",
+        "quest_stakes": "half the settlement going hungry and the other half wielding dull blades",
+        "quest_threat": "two stubborn artisans refusing to cooperate",
+        "quest_origin": "a petty contest over who contributes more to the settlement"
+      },
       "dialogueChunks": {
         "intro": "{player_name}! Perfect, an impartial judge. You have no idea how badly we need one.",
-        "plotStep": "The blacksmith and the cook have been locked in a contest for weeks: each claims they contribute more to {location} than the other. Normally it's harmless bickering, but now they've escalated. The blacksmith refuses to repair the cook's tools, and the cook won't feed anyone who takes the blacksmith's side. {target_npc} says if someone doesn't settle this, half the settlement will go hungry and the other half will have dull blades. They need {quest_item} that neither can source alone: proof that they need each other.",
+        "plotStep": "The blacksmith and the cook have been locked in a contest for weeks: each claims they contribute more to {location} than the other. Normally it's harmless bickering, but now they've escalated. The blacksmith refuses to repair the cook's tools, and the cook won't feed anyone who takes the blacksmith's side. {target_npc} says if someone doesn't settle this, {quest_stakes}. They need {quest_item} that neither can source alone: proof that they need each other.",
         "outro": "Bring back the {quest_item} and maybe we can knock some sense into both of them."
       },
       "playerResponses": [
@@ -20,9 +27,16 @@
     },
     {
       "id": "rivalryofkinsmen_expo_02",
+      "bindings": {
+        "quest_action": "find the missing apprentice and recover the materials",
+        "quest_focus": "a harvest festival wager between two artisans",
+        "quest_stakes": "a missing apprentice lost in dangerous territory",
+        "quest_threat": "a rivalry that has stopped both artisans from doing their jobs",
+        "quest_origin": "a wager over the title of Master Artisan"
+      },
       "dialogueChunks": {
         "intro": "You wouldn't believe the mess this town is in, {player_name}. Two artisans trying to outdo each other and everyone else paying the price.",
-        "plotStep": "Both our blacksmith and our cook entered a wager: whoever produces the finer work by the harvest festival wins the title of Master Artisan of {location}. The problem is, they're both so focused on winning that they've stopped doing their actual jobs. Nobody can get a blade sharpened or a decent meal. Worse, the blacksmith sent someone {location_hint} to gather {quest_item} for their masterpiece and they haven't come back. The {enemy_type} in that area have been aggressive lately. Someone needs to find the missing apprentice.",
+        "plotStep": "Both our blacksmith and our cook entered a wager: whoever produces the finer work by the harvest festival wins the title of Master Artisan of {location}. The problem is, they're both so focused on winning that they've stopped doing their actual jobs. Nobody can get a blade sharpened or a decent meal. Worse, the blacksmith sent someone {location_hint} to gather {quest_item} for their masterpiece and they haven't come back. The {enemy_type} in that area have been aggressive lately. Someone needs to {quest_action}.",
         "outro": "Find the apprentice and the materials. Maybe once both artisans have what they need, they'll stop holding the settlement hostage."
       },
       "playerResponses": [
@@ -39,10 +53,17 @@
     },
     {
       "id": "rivalryofkinsmen_expo_03",
+      "bindings": {
+        "quest_action": "find a new supply source large enough for both traders",
+        "quest_focus": "exclusive trading rights in the tavern",
+        "quest_stakes": "the tavern becoming a battlefield",
+        "quest_threat": "two rival traders escalating a commercial dispute into violence",
+        "quest_origin": "competition for exclusive selling rights"
+      },
       "dialogueChunks": {
         "intro": "Listen, {player_name}, I run a tavern, not a boxing ring. But that's what my common room has turned into.",
-        "plotStep": "Two rival traders have been competing for the exclusive right to sell {quest_item} in {location}. Their arguments turned into shoving matches, and last night one of them smashed a table over the other's goods. {target_npc} is furious. Now both traders are demanding I ban the other from the tavern, and their supporters are taking sides. The only way to cool things down is to prove there's enough supply for both: someone needs to find a new source {location_hint}.",
-        "outro": "Find enough {quest_item} to show these fools there's room for everyone, before my tavern becomes a battlefield."
+        "plotStep": "Two rival traders have been competing for {quest_focus} in {location}. Their arguments turned into shoving matches, and last night one of them smashed a table over the other's goods. {target_npc} is furious. Now both traders are demanding I ban the other from the tavern, and their supporters are taking sides. The only way to cool things down is to prove there's enough supply for both: someone needs to {quest_action} {location_hint}.",
+        "outro": "Find enough {quest_item} to show these fools there's room for everyone, before {quest_stakes}."
       },
       "playerResponses": [
         { "text": "I'd rather brave the wilds than sit through another tavern brawl. I'm on it.", "action": "ACCEPT" },
@@ -57,10 +78,17 @@
     },
     {
       "id": "rivalryofkinsmen_expo_04",
+      "bindings": {
+        "quest_action": "gather materials so both crafters can build competing prototypes",
+        "quest_focus": "the new watchtower design",
+        "quest_stakes": "the settlement left without a desperately needed watchtower",
+        "quest_threat": "two crafters holding essential construction hostage over ego",
+        "quest_origin": "competing architectural designs submitted to the council"
+      },
       "dialogueChunks": {
         "intro": "{player_name}, I could use someone with no stake in the outcome. Everyone here is picking sides and it's gotten out of hand.",
-        "plotStep": "Our two best crafters both submitted designs for the new watchtower at {location}. The council can't agree on which plan to use, and now neither crafter will work on anything else until their design is chosen. {target_npc} suggested a test: whoever can produce a working prototype using {quest_item} sourced from the old ruins {location_hint} proves their design is practical. But the ruins are deep in {enemy_type} territory, and neither crafter will set foot outside the walls.",
-        "outro": "If you gather the materials, we can hold a fair test and end this deadlock. The settlement needs that watchtower."
+        "plotStep": "Our two best crafters both submitted designs for {quest_focus} at {location}. The council can't agree on which plan to use, and now neither crafter will work on anything else until their design is chosen. {target_npc} suggested a test: whoever can produce a working prototype using {quest_item} sourced from the old ruins {location_hint} proves their design is practical. But the ruins are deep in {enemy_type} territory, and neither crafter will set foot outside the walls.",
+        "outro": "If you {quest_action}, we can hold a fair test and end this deadlock. The settlement needs that watchtower."
       },
       "playerResponses": [
         { "text": "A fair test sounds reasonable. I'll get the materials for both.", "action": "ACCEPT" },

@@ -4,7 +4,7 @@
       "id": "involuntarycrimesof_reso_01",
       "dialogueChunks": {
         "intro": "The hostages are free, {player_name}. Every single one of them.",
-        "plotStep": "When you cleared that camp, the raiders scattered and the captives walked out into the daylight. {target_npc} helped reunite them with their families, and the whole settlement gathered at the gates to welcome them home. I told everyone the truth: that my overprotection of my own family left the others exposed. The looks I got were hard to bear, but the hostages' families thanked me for sending you after them.",
+        "plotStep": "When you cleared that camp, the raiders scattered and the captives walked out into the daylight. {target_npc} helped reunite them with their families, and the whole settlement gathered at the gates to welcome them home. I told everyone the truth: that {quest_origin} left the others exposed. The looks I got were hard to bear, but the hostages' families thanked me for sending you after them.",
         "outro": "You saved people I put in danger. I'll spend the rest of my days making sure I never let fear narrow my vision like that again. Take this, please."
       },
       "playerResponses": [
@@ -33,7 +33,7 @@
       "id": "involuntarycrimesof_reso_03",
       "dialogueChunks": {
         "intro": "The festival happened, {player_name}. And it was the best one in years.",
-        "plotStep": "The {quest_item} you gathered filled the stores to bursting. The feast was magnificent: {target_npc} said it was the finest spread they'd ever tasted. I told them the truth after the last plate was cleared. About the secret charity, the depleted stores, the spoiled replacements, everything. {target_npc}'s family stood up and said they'd had no idea I was helping them, and they wished I'd just asked the community openly. The settlement voted to establish a formal aid fund so nobody has to sneak food to their neighbors again.",
+        "plotStep": "The {quest_item} you gathered filled the stores to bursting. The feast was magnificent: {target_npc} said it was the finest spread they'd ever tasted. I told them the truth after the last plate was cleared. About {quest_origin}, the depleted stores, the spoiled replacements, everything. {target_npc}'s family stood up and said they'd had no idea I was helping them, and they wished I'd just asked the community openly. The settlement voted to establish a formal aid fund so nobody has to sneak food to their neighbors again.",
         "outro": "My secret generosity accidentally created something better: open generosity. Take this, {player_name}. The festival wouldn't have happened without you."
       },
       "playerResponses": [

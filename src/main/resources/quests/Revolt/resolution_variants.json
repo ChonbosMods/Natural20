@@ -3,9 +3,9 @@
     {
       "id": "revolt_reso_01",
       "dialogueChunks": {
-        "intro": "It's done, {player_name}. The commander left {location} at dawn with nothing but the clothes on their back.",
-        "plotStep": "When the evidence was presented to the whole settlement, even the loyal guards turned against the commander. {target_npc} read the inventory records aloud in the square: every diverted crate, every hidden surplus, every lie. The silence that followed was the loudest thing I've ever heard. The people voted unanimously: the commander is banished, and a new council will govern {location} from now on.",
-        "outro": "We're free to govern ourselves for the first time in years. Take this: it was liberated from the commander's private stockpile. It belongs to the people, and the people want you to have it."
+        "intro": "It's done, {player_name}. {quest_threat} left at dawn with nothing but the clothes on their back.",
+        "plotStep": "When the evidence was presented, even the loyal guards turned against them. {target_npc} read the inventory records aloud: every diverted crate, every lie. The people voted unanimously: banishment, and a new council will govern. You helped us {quest_action}, and {quest_stakes} are free to govern themselves for the first time in years.",
+        "outro": "Take this: it was liberated from {quest_focus}. It belongs to the people, and the people want you to have it."
       },
       "playerResponses": [
         { "text": "A settlement governing itself. That's how it should always have been.", "action": "ACCEPT", "dispositionShift": 15 },
@@ -18,7 +18,7 @@
       "id": "revolt_reso_02",
       "dialogueChunks": {
         "intro": "The trading post is open, {player_name}. Officially, permanently, and defiantly open.",
-        "plotStep": "The first independent merchants arrived this morning, and the prices were half what the consortium charged. {target_npc} is managing operations, and they're grinning so wide I'm worried their face will crack. The consortium sent a threatening letter, but three other settlements have already declared support for the free market. They can't shut down what they can't surround. We started something here that's going to spread across the region.",
+        "plotStep": "The first independent merchants arrived this morning at half the consortium's prices. {target_npc} is managing operations with a grin so wide I'm worried their face will crack. Three other settlements have declared support. You helped us {quest_action}, and {quest_stakes} everywhere are finally free to trade fairly.",
         "outro": "Free trade. Fair prices. Open roads. You made this possible. Take this with the gratitude of every independent trader in the territory."
       },
       "playerResponses": [
@@ -32,8 +32,8 @@
       "id": "revolt_reso_03",
       "dialogueChunks": {
         "intro": "The warden is in chains, {player_name}. Actual chains, in the very cell where they held {target_npc}.",
-        "plotStep": "When the workers testified about what they'd been forced to do, the entire settlement turned. Even the warden's personal guard laid down their weapons. The deal with the {enemy_type} is broken: {target_npc} led a delegation to the border and made it clear that no more labor would be provided. The workers are home with their families for the first time in months, and the warden will face a tribunal in the morning.",
-        "outro": "Justice isn't always clean, but this time it was thorough. Take this: you earned it by standing with people who had no one else to stand with."
+        "plotStep": "When the workers testified, the entire settlement turned. Even the personal guard laid down their weapons. {quest_focus} is broken: {target_npc} led a delegation to the border and made it clear that no more labor would be provided. You helped us {quest_action}, and {quest_stakes} are home with their families for the first time in months.",
+        "outro": "Justice isn't always clean, but this time it was thorough. Take this: you earned it by standing with people who had no one else."
       },
       "playerResponses": [
         { "text": "The workers are home and the warden is in chains. That's the right ending.", "action": "ACCEPT", "dispositionShift": 10 },
@@ -45,9 +45,9 @@
     {
       "id": "revolt_reso_04",
       "dialogueChunks": {
-        "intro": "{player_name}. You should see {location} right now. It doesn't even look like the same place.",
-        "plotStep": "The tax is abolished. The barracks have been converted into a community hall. {target_npc} was elected as the new settlement representative by unanimous vote: the first time leadership here was actually chosen by the people. The soldiers who stayed accepted the new arrangement, and the ones who didn't left peacefully. There was a feast last night, the first in months where people ate without guilt or fear.",
-        "outro": "We ate freely and laughed freely for the first time since anyone can remember. This is yours: a token of a people who remembered what freedom tastes like."
+        "intro": "{player_name}. You should see this place right now. It doesn't even look the same.",
+        "plotStep": "{quest_focus} is abolished. The barracks have been converted into a community hall. {target_npc} was elected representative by unanimous vote. The soldiers who stayed accepted the new arrangement. There was a feast last night: the first where people ate without guilt or fear. You helped us {quest_action}, and {quest_stakes} finally know what freedom tastes like.",
+        "outro": "We ate freely and laughed freely for the first time since anyone can remember. This is yours: a token of a people who remembered their dignity."
       },
       "playerResponses": [
         { "text": "A feast without fear. That's what you were fighting for all along.", "action": "ACCEPT", "dispositionShift": 15 },

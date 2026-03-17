@@ -4,8 +4,8 @@
       "id": "an_enemy_loved_reso_01",
       "dialogueChunks": {
         "intro": "I can't believe it worked. {player_name}, they're leaving peacefully.",
-        "plotStep": "The {enemy_type} packed up their camp this morning and headed north. No raid, no blood. {target_npc} watched them go from the watchtower and said one of them turned back and raised a hand: not a threat, just a farewell. The settlement still doesn't know the full story, but nobody died. That's enough for me.",
-        "outro": "You walked into a situation that could have ended in massacre and found a way through. I won't forget that."
+        "plotStep": "The {enemy_type} packed up and headed north. No raid, no blood. {target_npc} watched from the watchtower and said one of them turned back and raised a hand: not a threat, just a farewell. {quest_focus} turned out to be true, and the settlement still doesn't know the full story. But nobody died.",
+        "outro": "You walked into a situation that could have ended in massacre and found a way through {quest_threat}. I won't forget that."
       },
       "playerResponses": [
         { "text": "A raised hand is a start. Maybe someday it'll be an open one.", "action": "ACCEPT" },
@@ -19,8 +19,8 @@
       "id": "an_enemy_loved_reso_02",
       "dialogueChunks": {
         "intro": "{player_name}... the {enemy_type} elder sent something for you.",
-        "plotStep": "It's a carved token. {target_npc} says it means 'remembered friend' in their culture. Not enemy, not ally: friend. The settlement is confused, a few people are angry, but most are just relieved the fighting stopped. Some are even starting to ask questions about why the {enemy_type} were here in the first place. That's more than I ever hoped for.",
-        "outro": "You didn't just end a conflict. You planted a seed of understanding. Take this token and what little we can offer: both are earned many times over."
+        "plotStep": "It's a carved token. {target_npc} says it means 'remembered friend' in their culture. The settlement is confused, some are angry, but most are relieved the fighting stopped. Some are even asking questions about why the {enemy_type} were here. {quest_focus} is changing how people think.",
+        "outro": "You didn't just end a conflict. You planted a seed of understanding where {quest_threat} once ruled. Take this token and what little we can offer."
       },
       "playerResponses": [
         { "text": "I'll carry this token with pride. Thank you.", "action": "ACCEPT", "dispositionShift": 10 },
@@ -33,8 +33,8 @@
       "id": "an_enemy_loved_reso_03",
       "dialogueChunks": {
         "intro": "It's quiet now. A different kind of quiet than before: not the silence of fear, but the stillness after something heavy finally lifts.",
-        "plotStep": "The {enemy_type} moderates made it back to their people and convinced the war party to stand down. {target_npc} told me this morning that a small delegation came to the edge of {location} and left a bundle of {quest_item} at the border marker. A gift, not a theft. First time that's ever happened in the history of this settlement.",
-        "outro": "I spent my whole life hating them. Now I don't know what I feel. But it's something better than hate. Here, take this: you've earned it."
+        "plotStep": "The {enemy_type} moderates made it back and convinced the war party to stand down. {target_npc} told me a small delegation came to the edge of {location} and left a bundle of {quest_item} at the border marker. A gift, not a theft. First time that's ever happened. {quest_focus} has become something new.",
+        "outro": "I spent my whole life hating them. Now I don't know what I feel. But it's something better than {quest_threat}. Take this: you've earned it."
       },
       "playerResponses": [
         { "text": "Something better than hate is a fine place to start.", "action": "ACCEPT", "dispositionShift": 15 },

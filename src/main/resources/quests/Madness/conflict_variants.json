@@ -5,7 +5,7 @@
       "dialogueChunks": {
         "intro": "{player_name}, whatever you found out there, it's spreading.",
         "plotStep": "Two more people in {location} have started showing the same symptoms as {target_npc}: drawing the same symbols, whispering the same fragmented phrases. The alchemist examined the {quest_item} samples you brought back and says the contamination is airborne when exposed to heat. Someone lit a fire near the samples without knowing, and now the spores have drifted through half the settlement. We need a reagent from the cold springs {location_hint} to neutralize the airborne particles, but the {enemy_type} have been drawn to the springs by the same strange energy.",
-        "outro": "The madness is spreading faster than we can contain it. That reagent is the only thing that can slow it down."
+        "outro": "{quest_threat} is spreading faster than we can contain it. That reagent is the only thing that can slow it down."
       },
       "playerResponses": [
         { "text": "Airborne contamination? I'll get the reagent before more people are affected.", "action": "ACCEPT" },
@@ -23,7 +23,7 @@
       "id": "madness_conf_02",
       "dialogueChunks": {
         "intro": "Something terrible happened last night, {player_name}. {target_npc} escaped the barricade.",
-        "plotStep": "They overpowered two people guarding the door and fled into the wilderness toward {location_hint}. The alchemist says {target_npc} is being drawn back to the source of the contamination: as if the {quest_item} compound is calling to them. If they reach whatever is out there, we might lose them completely. Worse, the guards who were overpowered are now showing early symptoms themselves. The contact must have transferred the compound. I need you to track {target_npc} down and bring them back before they disappear into {enemy_type} territory for good.",
+        "plotStep": "They overpowered two people guarding the door and fled into the wilderness toward {location_hint}. The alchemist says {target_npc} is being drawn back to the source of the contamination: as if the {quest_item} compound is calling to them. If they reach whatever is out there, {quest_stakes}. Worse, the guards who were overpowered are now showing early symptoms themselves. I need you to track {target_npc} down and bring them back before they disappear into {enemy_type} territory for good.",
         "outro": "They're not in their right mind. Whatever is pulling them, they can't resist it. But you can reach them."
       },
       "playerResponses": [
@@ -43,7 +43,7 @@
       "dialogueChunks": {
         "intro": "The alchemist's analysis is in, {player_name}. The news is grim.",
         "plotStep": "The {quest_item} compound isn't natural: someone synthesized it. The alchemist found tool marks on the crystal formations you brought from the cave, and traces of a binding agent that only an experienced apothecary would know how to use. Someone created this madness deliberately. {target_npc}'s condition is stable but not improving: the alchemist says without the original formula, they can't brew a true antidote. We need to find the workshop where this compound was created. The tool marks match a technique used {location_hint}: a place with a reputation for dark experiments.",
-        "outro": "This isn't a curse or an accident. Someone engineered this suffering, and their workshop holds the key to reversing it."
+        "outro": "This isn't a curse or an accident. Someone engineered {quest_threat}, and their workshop holds the key to reversing it."
       },
       "playerResponses": [
         { "text": "Deliberate madness? I'll find that workshop and the formula inside it.", "action": "ACCEPT" },
@@ -61,7 +61,7 @@
       "id": "madness_conf_04",
       "dialogueChunks": {
         "intro": "{player_name}, you need to see this. {target_npc} said something coherent for the first time in days.",
-        "plotStep": "They said a single word over and over: a name. The alchemist recognized it as an old settlement {location_hint} that was abandoned after everyone in it went mad overnight, years ago. Nobody ever explained what happened there. If the same force that destroyed that settlement is now affecting {location}, the ruins might hold clues: old records, remnants of {quest_item}, something that tells us how they tried to fight it. The {enemy_type} have moved into the ruins, but if there's a chance the answers are buried in that place, we have to try.",
+        "plotStep": "They said a single word over and over: a name. The alchemist recognized it as an old settlement {location_hint} that was abandoned after everyone in it went mad overnight, years ago. Nobody ever explained what happened there. If the same force behind {quest_threat} destroyed that settlement, the ruins might hold clues: old records, remnants of {quest_item}, something that tells us how they tried to fight it. The {enemy_type} have moved into the ruins, but if there's a chance the answers are buried in that place, we have to try.",
         "outro": "A whole settlement destroyed by the same thing. We can't let history repeat itself."
       },
       "playerResponses": [

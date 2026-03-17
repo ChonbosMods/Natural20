@@ -2,10 +2,17 @@
   "variants": [
     {
       "id": "mistaken_jealousy_expo_01",
+      "bindings": {
+        "quest_action": "follow the secret trail and find evidence of what they're hiding",
+        "quest_focus": "secret weekly trips and a locked chest of supplies",
+        "quest_stakes": "if they're stockpiling to sell behind our backs, the whole settlement suffers",
+        "quest_threat": "a neighbor whose guilty behavior and secrecy point to betrayal",
+        "quest_origin": "weeks of watching suspicious patterns that don't add up"
+      },
       "dialogueChunks": {
         "intro": "{player_name}, I need someone from outside {location} for this. Someone with no loyalties here, no bias.",
-        "plotStep": "{target_npc} has been making secret trips {location_hint} every week. Won't say where, won't say why, comes back with dirt under their nails and a guilty look. The whole settlement is whispering. I confronted them and they laughed it off, but I saw them hiding {quest_item} in a locked chest in their workshop. That's not something an honest person does. I think they're stockpiling supplies to sell behind our backs while the rest of us scrape by.",
-        "outro": "I need proof before I go to the council. Follow their trail, find out what they're doing, and bring me evidence."
+        "plotStep": "{target_npc} has been making {quest_focus} every week {location_hint}. Won't say where, won't say why. After {quest_origin}, I'm certain something is wrong. I think {quest_stakes}. I need proof before I go to the council. I need you to {quest_action} and bring me evidence. Bring {quest_item} to justify the investigation.",
+        "outro": "{quest_threat} is too obvious to ignore. I need the truth, whatever it is."
       },
       "playerResponses": [
         { "text": "I'll find out the truth, whatever it is.", "action": "ACCEPT" },
@@ -21,10 +28,17 @@
     },
     {
       "id": "mistaken_jealousy_expo_02",
+      "bindings": {
+        "quest_action": "investigate the supply chain and prove market manipulation",
+        "quest_focus": "the suspicion that a rival cook is cornering suppliers to drive me under",
+        "quest_stakes": "ten years of building this business could be destroyed by a scheme",
+        "quest_threat": "redirected shipments and declining quality that appeared when the rival arrived",
+        "quest_origin": "two months of watching my pantry quality drop as the new cook thrives"
+      },
       "dialogueChunks": {
         "intro": "Something isn't right in {location}, {player_name}, and I think I'm the only one who sees it.",
-        "plotStep": "The new cook, {target_npc}, arrived two months ago and suddenly everyone loves them. Best food in the settlement, they say. Generous portions, fair prices. But I've noticed something nobody else has: the quality of {quest_item} in my own pantry has been dropping ever since they arrived. Shipments that used to come to me are being redirected. I think {target_npc} is buying out the suppliers {location_hint} and cornering the market, then selling at a loss to drive me under. The {enemy_type} on the trade roads are making it impossible for me to verify in person.",
-        "outro": "I built this business over ten years. I'm not going to lose it to someone's scheme without a fight."
+        "plotStep": "The new cook, {target_npc}, arrived two months ago and suddenly everyone loves them. But {quest_origin}. I think {quest_focus}: they're buying out the suppliers {location_hint} and selling at a loss to drive me under. The {enemy_type} on the trade roads make it impossible for me to {quest_action} in person.",
+        "outro": "{quest_stakes}. I'm not going to lose it to someone's scheme without a fight."
       },
       "playerResponses": [
         { "text": "Competition can be cutthroat. I'll look into the supply chain.", "action": "ACCEPT" },
@@ -40,10 +54,17 @@
     },
     {
       "id": "mistaken_jealousy_expo_03",
+      "bindings": {
+        "quest_action": "follow the trail of secret meetings and unaccounted ledger entries",
+        "quest_focus": "large quantities of supplies marked outbound with no buyer listed",
+        "quest_stakes": "a lifelong friendship may be built on a lie",
+        "quest_threat": "secret meetings at odd hours in places nobody else frequents",
+        "quest_origin": "unrecognized ledger entries and evasive behavior from a trusted friend"
+      },
       "dialogueChunks": {
         "intro": "I've been losing sleep over this, {player_name}. Tossing and turning every night, running the same thoughts in circles.",
-        "plotStep": "My oldest friend, {target_npc}, has been meeting with traders from outside {location} in secret. I found a ledger in the tavern with entries I don't recognize: large quantities of {quest_item} marked 'outbound' with no buyer listed. When I asked about it, they changed the subject and started avoiding me. The meetings happen {location_hint}, always at odd hours, and the {enemy_type} activity in the area means nobody else goes out that way to notice. Something is wrong, and I can feel it in my bones.",
-        "outro": "I don't want to believe the worst about someone I've known my whole life. But the evidence is piling up. Please, find out the truth."
+        "plotStep": "My oldest friend, {target_npc}, has been meeting with traders in secret. I found {quest_focus} in the tavern ledger. When I asked, they changed the subject. {quest_threat} happen {location_hint}, and the {enemy_type} activity means nobody else goes that way. I need you to {quest_action} and bring back {quest_item} to account for the discrepancy.",
+        "outro": "{quest_stakes}. Please, find out the truth."
       },
       "playerResponses": [
         { "text": "I'll follow the trail and get you answers.", "action": "ACCEPT" },

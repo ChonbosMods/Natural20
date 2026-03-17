@@ -4,7 +4,7 @@
       "id": "daring_reso_triumph",
       "dialogueChunks": {
         "intro": "Ha! Look at you, walking in like a conquering hero! And rightfully so!",
-        "plotStep": "I knew you had it in you, {player_name}. When I first laid eyes on you, I thought: there's someone who doesn't know the meaning of impossible. The {quest_item} is secured, the route is clear, and {target_npc} is already telling everyone from here to {location} about what we accomplished.",
+        "plotStep": "I knew you had it in you, {player_name}. The {quest_item} is secured, {quest_focus} is cleared, and {target_npc} is already telling everyone about what we accomplished. You managed to {quest_action} against all odds.",
         "outro": "Your share of the spoils, as promised. And if you ever want to chase another impossible dream, you know where to find me."
       },
       "playerResponses": [
@@ -19,7 +19,7 @@
       "id": "daring_reso_pyrrhic",
       "dialogueChunks": {
         "intro": "You're alive. After what happened in there, I honestly didn't expect to see you again.",
-        "plotStep": "We got the {quest_item}, yes, but the cost... {target_npc} didn't make it out. The cave collapsed behind you, sealing everything else inside. Half our equipment is buried under rubble. The enterprise succeeded by the narrowest of margins, and I find myself wondering if it was worth the price.",
+        "plotStep": "We managed to {quest_action}, yes, but the cost... {target_npc} didn't make it out. {quest_focus} collapsed behind you, sealing everything else inside. The enterprise succeeded by the narrowest of margins, and I find myself wondering if {quest_stakes} were worth the price.",
         "outro": "Take your share. You earned every piece of it and then some. I need time to think about whether I'll ever attempt something like this again."
       },
       "playerResponses": [
@@ -34,7 +34,7 @@
       "id": "daring_reso_fame",
       "dialogueChunks": {
         "intro": "{player_name}! Come here, come here! You won't believe what's happened!",
-        "plotStep": "Word of our enterprise has spread like wildfire! Merchants from three settlements are already bidding on the {quest_item}, and the scholars at {location} want to study it. {target_npc} brokered a deal that will fund a dozen more expeditions. Your name is on everyone's lips: the adventurer who went where no one dared and came back with proof.",
+        "plotStep": "Word of our enterprise has spread like wildfire! Merchants from three settlements are already bidding on what we recovered from {quest_focus}. {target_npc} brokered a deal that will fund a dozen more expeditions. Your name is on everyone's lips: the adventurer who dared to {quest_action} and came back with proof.",
         "outro": "Here's your share from the initial sale. And mark my words: this is just the beginning. You and I are going to do great things."
       },
       "playerResponses": [
@@ -49,7 +49,7 @@
       "id": "daring_reso_04",
       "dialogueChunks": {
         "intro": "Well, {player_name}. We actually pulled it off. I still can't quite believe it.",
-        "plotStep": "The {quest_item} is secured, catalogued, and already drawing interest from buyers across three territories. {target_npc} says the scholarly value alone would fund a university. But what I keep thinking about is the look on your face when you walked out of that vault. That look was worth more than everything inside it.",
+        "plotStep": "The {quest_item} from {quest_focus} is secured, catalogued, and already drawing interest from buyers across three territories. {target_npc} says the scholarly value alone would fund a university. {quest_stakes} turned out to be everything we hoped and more.",
         "outro": "Your share, as agreed. And between you and me: I'm already planning the next one. You'll be the first person I call."
       },
       "playerResponses": [
@@ -63,7 +63,7 @@
       "id": "daring_reso_05",
       "dialogueChunks": {
         "intro": "{player_name}, before I hand over your reward, I want to say something I don't say often.",
-        "plotStep": "I was wrong about the difficulty. I told you it would be dangerous and I undersold it by half. You went into a place that should have killed you, fought things I couldn't have imagined, and came back carrying the {quest_item} like it was nothing. {target_npc} is writing a full account of the expedition, and I made sure your name is on every page.",
+        "plotStep": "I was wrong about the difficulty. I told you it would be dangerous and I undersold it by half. You went into {quest_focus}, fought things I couldn't have imagined, and came back carrying the {quest_item} like it was nothing. {target_npc} is writing a full account of how you managed to {quest_action}, and I made sure your name is on every page.",
         "outro": "Take this. It's more than we originally agreed, because you delivered more than anyone could have expected."
       },
       "playerResponses": [
@@ -77,7 +77,7 @@
       "id": "daring_reso_06",
       "dialogueChunks": {
         "intro": "Gather round, everyone! The hero of the hour has returned!",
-        "plotStep": "I hope you don't mind an audience, {player_name}, because half of {location} turned out to see the {quest_item} you recovered. {target_npc} has been telling the story to anyone who'll listen, and I'll admit they're embellishing a little. But honestly? The truth is impressive enough. You went where no one else would go and brought back proof that the old legends were real.",
+        "plotStep": "I hope you don't mind an audience, {player_name}, because half the settlement turned out to see the {quest_item} you recovered from {quest_focus}. {target_npc} has been telling the story to anyone who'll listen. You went where no one else would go and brought back proof that {quest_stakes} were real.",
         "outro": "Your cut of the profits, plus a bonus from {target_npc}'s personal funds. They insisted."
       },
       "playerResponses": [
@@ -91,7 +91,7 @@
       "id": "daring_reso_07",
       "dialogueChunks": {
         "intro": "You made it. I'll confess, {player_name}: there was a moment when I thought you wouldn't.",
-        "plotStep": "The enterprise is complete, but the cost was high. We lost half our supplies in the collapse, the maps are destroyed, and the route back is sealed permanently. But the {quest_item}? Safe in hand. {target_npc} says it's the finest specimen they've ever examined. Sometimes the greatest discoveries come at the steepest price, and I think we both know this was one of those times.",
+        "plotStep": "We managed to {quest_action}, but the cost was high. We lost half our supplies, the maps are destroyed, and the route back is sealed permanently. But the {quest_item}? Safe in hand. {target_npc} says it's the finest specimen they've ever examined. Sometimes the greatest discoveries come at the steepest price.",
         "outro": "Your full share, without deductions. You risked everything, and you deserve every bit of it."
       },
       "playerResponses": [
@@ -105,7 +105,7 @@
       "id": "daring_reso_08",
       "dialogueChunks": {
         "intro": "Ha! There's the look of someone who just accomplished the impossible! Come here, {player_name}!",
-        "plotStep": "Every single thing we planned for went sideways, and you still came through. The {enemy_type} were fiercer than expected, the terrain was worse than the maps showed, and the {quest_item} was harder to extract than anyone predicted. And yet here you stand with the prize in hand. {target_npc} is already in talks with collectors at {location} and the bidding war is driving the price through the roof.",
+        "plotStep": "Every single thing we planned for went sideways, and you still managed to {quest_action}. The {enemy_type} were fiercer than expected, {quest_focus} was worse than the maps showed, and the {quest_item} was harder to extract than anyone predicted. And yet here you stand with the prize in hand. {target_npc} is already in talks with collectors and the bidding war is driving the price through the roof.",
         "outro": "Here's your share of the advance payment. There'll be more once the final sale closes. You and I make a spectacular team."
       },
       "playerResponses": [

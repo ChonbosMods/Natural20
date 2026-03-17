@@ -2,9 +2,16 @@
   "variants": [
     {
       "id": "involuntarycrimesof_expo_01",
+      "bindings": {
+        "quest_action": "recover the stolen supplies from the raiders",
+        "quest_focus": "an undefended approach left open by misplaced protection",
+        "quest_stakes": "the settlement losing its reserves with no way to replace them",
+        "quest_threat": "raiders exploiting a gap created by one parent's fearful overreach",
+        "quest_origin": "barricading the wrong road to protect a frightened child"
+      },
       "dialogueChunks": {
         "intro": "{player_name}, I need your help. I've done something terrible, and I did it out of love.",
-        "plotStep": "My child wandered into the woods {location_hint} last month and came back with nightmares about the {enemy_type}. I was so afraid for their safety that I barricaded the eastern road and diverted the night patrols to watch our home. What I didn't realize is that I left the southern approach to {location} completely undefended. Raiders slipped through three nights ago and stole the settlement's entire stock of {quest_item}. {target_npc} is furious, and rightfully so. Those supplies were meant for everyone.",
+        "plotStep": "My child wandered into the woods {location_hint} last month and came back with nightmares about the {enemy_type}. I was so afraid for their safety that I barricaded the eastern road and diverted the night patrols to watch our home. What I didn't realize is that I left {quest_focus} to {location} completely undefended. Raiders slipped through three nights ago and stole the settlement's entire stock of {quest_item}. {target_npc} is furious, and rightfully so.",
         "outro": "I was trying to protect my family. Instead, I endangered everyone else's. I need to make this right."
       },
       "playerResponses": [
@@ -21,9 +28,16 @@
     },
     {
       "id": "involuntarycrimesof_expo_02",
+      "bindings": {
+        "quest_action": "gather fresh medicinal ingredients from the marshes",
+        "quest_focus": "the depleted communal medicine stores",
+        "quest_stakes": "three sick people dying because the medicine was stolen for one",
+        "quest_threat": "a medicine shortage caused by desperate love for a friend",
+        "quest_origin": "stealing communal medicine to save a dear friend"
+      },
       "dialogueChunks": {
         "intro": "Please, {player_name}, hear me out before you judge. I know how this looks.",
-        "plotStep": "{target_npc} is my dearest friend, and when they fell ill last week, I panicked. I took {quest_item} from the communal medicine stores without asking: enough to brew a private remedy. It worked: {target_npc} recovered in two days. But now three other people are sick with the same ailment and there isn't enough medicine left for any of them. The alchemist says the only way to replace what I took is to gather fresh ingredients from the marshes {location_hint}, but the {enemy_type} have been breeding there.",
+        "plotStep": "{target_npc} is my dearest friend, and when they fell ill last week, I panicked. I took {quest_item} from {quest_focus} without asking: enough to brew a private remedy. It worked: {target_npc} recovered in two days. But now three other people are sick with the same ailment and there isn't enough medicine left for any of them. The alchemist says the only way to replace what I took is to {quest_action} {location_hint}, but the {enemy_type} have been breeding there.",
         "outro": "I saved my friend and condemned three strangers. I can't live with that. Please help me fix it."
       },
       "playerResponses": [
@@ -39,9 +53,16 @@
     },
     {
       "id": "involuntarycrimesof_expo_03",
+      "bindings": {
+        "quest_action": "restock the tavern stores before the harvest festival",
+        "quest_focus": "the secretly depleted tavern reserves",
+        "quest_stakes": "the settlement discovering someone has been skimming their communal stores",
+        "quest_threat": "a well-meaning deception that could shatter the community's trust",
+        "quest_origin": "secretly feeding a destitute family from the tavern supplies"
+      },
       "dialogueChunks": {
         "intro": "{player_name}, I need to confess something. And then I need your help to make it right.",
-        "plotStep": "I've been secretly feeding {target_npc}'s family from the tavern stores for weeks. They lost everything in the last storm and were too proud to ask for help. I thought I was being kind. But now the tavern stores are depleted and the harvest festival is in three days. The whole settlement depends on that feast for morale through the dark months. Without {quest_item} to restock, there's no festival and everyone will know someone has been skimming. The nearest source is {location_hint}, but that stretch of road has been plagued by {enemy_type}.",
+        "plotStep": "I've been secretly feeding {target_npc}'s family from the tavern stores for weeks. They lost everything in the last storm and were too proud to ask for help. I thought I was being kind. But now {quest_focus} is depleted and the harvest festival is in three days. The whole settlement depends on that feast for morale through the dark months. Without {quest_item} to restock, there's no festival and {quest_stakes}. The nearest source is {location_hint}, but that stretch of road has been plagued by {enemy_type}.",
         "outro": "I was trying to help one family and ended up betraying the trust of an entire settlement. Please, help me set this right before anyone finds out."
       },
       "playerResponses": [
@@ -58,10 +79,17 @@
     },
     {
       "id": "involuntarycrimesof_expo_04",
+      "bindings": {
+        "quest_action": "clear the occupied farmstead and recover what was stolen",
+        "quest_focus": "a farmstead turned into a raider forward camp",
+        "quest_stakes": "a displaced family losing everything permanently",
+        "quest_threat": "well-meaning advice that moved a family straight into danger",
+        "quest_origin": "convincing a family to move outside the walls for safety"
+      },
       "dialogueChunks": {
         "intro": "I thought I was protecting them, {player_name}. That's all I ever wanted to do.",
-        "plotStep": "When I heard rumors about {enemy_type} scouts near {location}, I convinced {target_npc} to move their family to a farmstead outside the walls where I thought they'd be safer. I even helped them carry their belongings. Last night, a raiding party hit the farmstead. {target_npc}'s family escaped, but everything they owned: tools, {quest_item}, winter stores: is gone. They had to flee {location_hint}, and now the raiders are using the farmstead as a forward camp. I moved them straight into danger.",
-        "outro": "Their possessions, their security: I took it all away with the best of intentions. If someone doesn't recover what was lost and clear that farmstead, the damage I've done is permanent."
+        "plotStep": "When I heard rumors about {enemy_type} scouts near {location}, I convinced {target_npc} to move their family to a farmstead outside the walls where I thought they'd be safer. I even helped them carry their belongings. Last night, a raiding party hit the farmstead. {target_npc}'s family escaped, but everything they owned: tools, {quest_item}, winter stores: is gone. They had to flee {location_hint}, and now {quest_focus}. {quest_threat} cost them everything.",
+        "outro": "Their possessions, their security: I took it all away with the best of intentions. If someone doesn't {quest_action}, the damage I've done is permanent."
       },
       "playerResponses": [
         { "text": "An occupied farmstead and stolen supplies? I'll clear the camp and bring back what I can.", "action": "ACCEPT" },

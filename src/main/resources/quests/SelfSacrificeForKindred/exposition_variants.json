@@ -2,9 +2,16 @@
   "variants": [
     {
       "id": "self_sacrifice_for_kindred_expo_01",
+      "bindings": {
+        "quest_action": "gather wild grain from the monster-infested hills",
+        "quest_focus": "a failed harvest threatening starvation",
+        "quest_stakes": "children starving through the winter",
+        "quest_threat": "a blight that destroyed the entire crop overnight",
+        "quest_origin": "one person giving up their own food so children can eat"
+      },
       "dialogueChunks": {
         "intro": "{player_name}, sit down for a moment. I need to tell you what I've decided, and I need someone outside this settlement to understand why.",
-        "plotStep": "The harvest failed. Completely. Blight took everything in the fields overnight. We have enough grain stored to feed half the settlement through winter, but only half. I've been dividing my own rations among the children for a week now, and I'll keep doing it until the stores run out or I do. But there's a chance: a slim one. {target_npc} heard of a wild grain that grows {location_hint}, enough to make up the difference if someone gathers it. The problem is the {enemy_type} that roost in those hills.",
+        "plotStep": "{quest_focus}: blight took everything in the fields overnight. We have enough grain stored to feed half the settlement through winter, but only half. I've been dividing my own rations among the children for a week now, and I'll keep doing it until the stores run out or I do. But there's a chance: a slim one. {target_npc} heard of a wild grain that grows {location_hint}, enough to make up the difference if someone gathers it. The problem is the {enemy_type} that roost in those hills.",
         "outro": "I won't watch my neighbors' children starve while I eat. I'll waste away before I let that happen. But if you can bring back that grain, maybe none of us have to."
       },
       "playerResponses": [
@@ -20,9 +27,16 @@
     },
     {
       "id": "self_sacrifice_for_kindred_expo_02",
+      "bindings": {
+        "quest_action": "find floodgate parts in the old waterworks",
+        "quest_focus": "a cracking dam above the settlement",
+        "quest_stakes": "the lower quarter being swept away when the dam breaks",
+        "quest_threat": "a dam failure that will destroy the community's heart",
+        "quest_origin": "one person willing to drown operating the floodgates manually"
+      },
       "dialogueChunks": {
         "intro": "You look like someone who's traveled far, {player_name}. Then you'll understand what it means to give up a home.",
-        "plotStep": "The dam above {location} is cracking. When it breaks, and it will break, the lower quarter floods. That's where the kitchens are, the root cellars, the community hall: everything that keeps this community alive. I'm going to stay behind and operate the floodgates manually to redirect the worst of it away from the houses. {target_npc} says the mechanism needs {quest_item} to function. The parts are scattered in the old waterworks {location_hint}.",
+        "plotStep": "{quest_focus} above {location} is cracking. When it breaks, and it will break, the lower quarter floods. That's where the kitchens are, the root cellars, the community hall: everything that keeps this community alive. I'm going to stay behind and operate the floodgates manually to redirect the worst of it away from the houses. {target_npc} says the mechanism needs {quest_item} to function. The parts are scattered in the old waterworks {location_hint}.",
         "outro": "The floodgate room will fill when the dam goes. I know that. But if I can turn those wheels long enough, the homes survive. My neighbors survive. That's enough for me."
       },
       "playerResponses": [
@@ -38,9 +52,16 @@
     },
     {
       "id": "self_sacrifice_for_kindred_expo_03",
+      "bindings": {
+        "quest_action": "gather rare medicinal herbs from dangerous territory",
+        "quest_focus": "a fever sweeping through the settlement",
+        "quest_stakes": "the settlement losing its healer and its heart",
+        "quest_threat": "a deadly fever that the current medicine can barely slow",
+        "quest_origin": "a cook who sold their pots for bandages and gave every herb they had"
+      },
       "dialogueChunks": {
         "intro": "I've been cooking for this settlement for twelve years, {player_name}. Every birthday, every wedding, every funeral feast. These people are my family.",
-        "plotStep": "A fever swept through {location} last week. The healer says it's treatable, but the remedy requires {quest_item} that only grows in dangerous territory {location_hint}. I've already given every herb in my stores to stretch the medicine further. Sold my cooking pots to buy bandages. {target_npc} offered to go gathering but they're needed here: too many sick to tend. I'll go myself if no one else will, even though these old legs aren't made for {enemy_type} country.",
+        "plotStep": "{quest_focus} swept through {location} last week. The healer says it's treatable, but the remedy requires {quest_item} that only grows in dangerous territory {location_hint}. I've already given every herb in my stores to stretch the medicine further. Sold my cooking pots to buy bandages. {target_npc} offered to go gathering but they're needed here: too many sick to tend. I'll go myself if no one else will, even though these old legs aren't made for {enemy_type} country.",
         "outro": "I know my chances out there. But I also know what happens if nobody goes. I've buried enough friends this month."
       },
       "playerResponses": [

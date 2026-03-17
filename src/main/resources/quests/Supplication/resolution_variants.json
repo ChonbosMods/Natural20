@@ -4,7 +4,7 @@
       "id": "supplication_reso_gratitude",
       "dialogueChunks": {
         "intro": "You did it. You actually did it. {player_name}, I don't have the words.",
-        "plotStep": "The whole settlement is talking about what you've done. {target_npc} is already distributing the {quest_item} and the relief on people's faces... I haven't seen smiles like that in weeks. You've given us a future.",
+        "plotStep": "The whole settlement is talking about what you've done. {target_npc} is already distributing the {quest_item} and the relief on people's faces... I haven't seen smiles like that in weeks. You managed to {quest_action}, and {quest_stakes} finally have a future again.",
         "outro": "Take this. It's everything we could scrape together. I know it's not much compared to what you risked, but please accept it with our deepest thanks."
       },
       "playerResponses": [
@@ -19,7 +19,7 @@
       "id": "supplication_reso_bittersweet",
       "dialogueChunks": {
         "intro": "You're alive. When you didn't return by nightfall I feared the worst.",
-        "plotStep": "We lost two homes in the flooding while you were gone, and old {target_npc} passed in the night. But the {quest_item} you brought back will see the rest of us through. It's not the ending any of us wanted, but it's an ending we can live with.",
+        "plotStep": "We lost two homes while you were gone, and old {target_npc} passed in the night. But the {quest_item} you brought back will see the rest of us through. We managed to {quest_action}, even if it's not the ending any of us wanted.",
         "outro": "Here. {target_npc} wanted you to have this. Said you'd earned it ten times over. I think they were right."
       },
       "playerResponses": [
@@ -34,12 +34,12 @@
       "id": "supplication_reso_rebuilding",
       "dialogueChunks": {
         "intro": "{player_name}! Come, come, you have to see this!",
-        "plotStep": "Look at {location}: the storehouse is full, the gardens are planted again, and {target_npc} has already started organizing repair crews. All because you answered when we called. This place was dying before you arrived, and now there's laughter in the square again.",
+        "plotStep": "Look: {quest_focus} is restored, the gardens are planted again, and {target_npc} has already started organizing repair crews. All because you helped us {quest_action}. This place was dying before you arrived, and now there's laughter in the square again.",
         "outro": "We put something aside for you. And know this: you will always have a home here, for as long as these walls stand."
       },
       "playerResponses": [
         { "text": "That means more to me than any treasure.", "action": "ACCEPT" },
-        { "text": "It was nothing. Just glad {location} is back on its feet.", "action": "ACCEPT" },
+        { "text": "It was nothing. Just glad to see things back on track.", "action": "ACCEPT" },
         { "text": "Keep building. I might need a place to rest between adventures.", "action": "ACCEPT" }
       ],
       "objectivePool": [],
@@ -49,8 +49,8 @@
       "id": "supplication_reso_04",
       "dialogueChunks": {
         "intro": "When I saw you coming over the hill, I broke down crying. I'm not ashamed to say it.",
-        "plotStep": "The {quest_item} is already being put to use. {target_npc} hasn't stopped working since you handed it over: mending, sorting, distributing. For the first time in weeks, people aren't whispering about leaving {location}. They're talking about staying. About rebuilding. About a future.",
-        "outro": "We gathered what we could to repay you. It doesn't begin to cover what you've done, but take it with the weight of every grateful soul in this settlement behind it."
+        "plotStep": "The {quest_item} is already being put to use. {target_npc} hasn't stopped working since you handed it over: mending, sorting, distributing. For the first time in weeks, {quest_stakes} aren't whispering about leaving. They're talking about staying. About rebuilding. About a future.",
+        "outro": "We gathered what we could to repay you. It doesn't begin to cover what you've done, but take it with the weight of every grateful soul behind it."
       },
       "playerResponses": [
         { "text": "Seeing this place come back to life is payment enough.", "action": "ACCEPT", "dispositionShift": 10 },
@@ -63,8 +63,8 @@
       "id": "supplication_reso_05",
       "dialogueChunks": {
         "intro": "It's done, {player_name}. It's really done.",
-        "plotStep": "I won't pretend everything is perfect. We buried two people this morning who held on as long as they could but couldn't hold on long enough. The {quest_item} saved the rest, though. {target_npc} says another day and we would have lost a dozen more. You cut it close, but you cut it in time. That's what matters.",
-        "outro": "Take this. And if you ever pass through {location} again, know that there are graves here that would have been a graveyard without you."
+        "plotStep": "I won't pretend everything is perfect. We buried two people this morning who held on as long as they could but couldn't hold on long enough. The {quest_item} saved the rest, though. {target_npc} says another day and we would have lost a dozen more. You managed to {quest_action} just in time.",
+        "outro": "Take this. And if you ever pass through again, know that there are graves here that would have been a graveyard without you."
       },
       "playerResponses": [
         { "text": "I'm sorry I wasn't faster.", "action": "ACCEPT" },
@@ -77,7 +77,7 @@
       "id": "supplication_reso_06",
       "dialogueChunks": {
         "intro": "There you are! I've been watching the road for hours. The children spotted you first, actually: they've been calling you 'the hero' all day.",
-        "plotStep": "{target_npc} organized a feast. I know, I know: we can barely afford it. But they insisted, said morale matters as much as supplies. And they're right. The {quest_item} is stored safely, the repairs are underway, and for the first time since this nightmare started, people at {location} are laughing over dinner.",
+        "plotStep": "{target_npc} organized a feast. I know, I know: we can barely afford it. But they insisted, said morale matters as much as supplies. And they're right. The {quest_item} is stored safely, {quest_focus} is being restored, and for the first time since {quest_threat} started, people are laughing over dinner.",
         "outro": "Sit with us tonight if you can. And take this: it's the best we have, saved for whoever pulled us out of the dark."
       },
       "playerResponses": [
@@ -91,12 +91,12 @@
       "id": "supplication_reso_07",
       "dialogueChunks": {
         "intro": "{player_name}. Before you say anything, just look around.",
-        "plotStep": "The well is flowing again. The storehouse has walls. {target_npc} even got the old windmill turning yesterday. None of it would exist without what you brought back. People who were packing their things a week ago are now unpacking. A family that had given up planted a garden this morning, {player_name}. A garden. That's what hope looks like.",
+        "plotStep": "{quest_focus} is restored. {target_npc} even got the old windmill turning yesterday. None of it would exist without what you brought back. {quest_stakes} who were packing their things a week ago are now unpacking. A family that had given up planted a garden this morning. That's what hope looks like.",
         "outro": "This isn't much compared to what you risked. But every person here contributed something to this bundle. It's from all of us."
       },
       "playerResponses": [
         { "text": "A garden. That's the best reward I could ask for.", "action": "ACCEPT", "dispositionShift": 15 },
-        { "text": "Glad to see {location} on the mend. Take care of each other.", "action": "ACCEPT" }
+        { "text": "Glad to see things on the mend. Take care of each other.", "action": "ACCEPT" }
       ],
       "objectivePool": [],
       "objectiveConfig": {}
@@ -105,7 +105,7 @@
       "id": "supplication_reso_08",
       "dialogueChunks": {
         "intro": "I almost didn't recognize you under all that grime. Come, sit down, you've earned a rest.",
-        "plotStep": "It's quiet now. The good kind of quiet, I mean: not the silence of dread, but the calm that comes when the worst is over. {target_npc} distributed the last of the {quest_item} this morning and says we have enough to last the season. The {enemy_type} haven't been seen near {location} since you went through. I think you put a proper scare into them.",
+        "plotStep": "It's quiet now. The good kind of quiet: not the silence of dread, but the calm that comes when the worst is over. {target_npc} distributed the last of the {quest_item} this morning and says we have enough to last the season. {quest_threat} is behind us now, and {quest_stakes} can finally breathe.",
         "outro": "Here. We set this aside before you even left, because I knew you'd come through. Call it faith, or call it desperation: either way, you proved it right."
       },
       "playerResponses": [

@@ -5,7 +5,7 @@
       "dialogueChunks": {
         "intro": "Ah, {player_name}! Come, look at this! The preliminary results are extraordinary, but there's a complication.",
         "plotStep": "The reagent you brought reacted perfectly in the first trial, but the transmutation is unstable. It flares brilliantly for a moment and then collapses. I need a stabilizing agent: a rare {quest_item} that forms only in places where volcanic heat meets underground water {location_hint}. {target_npc} came by yesterday and told me my creditors are threatening to seize whatever's left. Let them. I'll sleep on the workshop floor if I have to. The {enemy_type} near the fissures have grown more aggressive, but this is the last obstacle.",
-        "outro": "Do you see these hands? Burned, scarred, shaking. Three years of work written on my skin. I will not stop when I'm this close."
+        "outro": "Do you see these hands? Burned, scarred, shaking. Three years of {quest_focus} written on my skin. I will not stop when I'm this close."
       },
       "playerResponses": [
         { "text": "If this is truly the last piece, I'll get it for you.", "action": "ACCEPT" },
@@ -24,7 +24,7 @@
       "dialogueChunks": {
         "intro": "{player_name}, I'll be honest with you because I don't think anyone else will tell you the truth.",
         "plotStep": "The tempering process worked: the blade held an edge for three days without a single mark. Then it shattered. The metallurgy is sound but the {quest_item} you found wasn't pure enough. I need samples from a deeper vein {location_hint}, one that hasn't been exposed to air. My family sent word through {target_npc} that they won't speak to me again unless I abandon this work. I read the letter twice, set it aside, and went back to the forge. What does that make me?",
-        "outro": "I know what I've given up. I count it every night. But a discovery this important doesn't care about one man's loneliness. It only cares about being found."
+        "outro": "I know what I've given up. I count it every night. But {quest_focus} doesn't care about one man's loneliness. It only cares about being found."
       },
       "playerResponses": [
         { "text": "It makes you someone who sees what others can't. I'll find the pure ore.", "action": "ACCEPT" },
@@ -42,7 +42,7 @@
       "dialogueChunks": {
         "intro": "Don't say it. I can see it on your face. Everyone wears that same expression when they look at me now.",
         "plotStep": "Trial four hundred and eighteen failed. And four hundred and nineteen. And twenty. But twenty-one: twenty-one showed a green shimmer that lasted four full seconds. That shimmer is the purification process beginning. I'm certain of it. The problem is scale: I need ten times the {quest_item} to sustain the reaction long enough to complete. There are thick deposits {location_hint}, but the {enemy_type} have nested right on top of them. {target_npc} offered to lend me money but I couldn't take it: they need it for their own livelihood.",
-        "outro": "Four seconds of green light, {player_name}. Four seconds that prove I'm not insane. Help me turn four seconds into four minutes."
+        "outro": "Four seconds of green light, {player_name}. Four seconds that prove {quest_focus} is real. Help me turn four seconds into four minutes."
       },
       "playerResponses": [
         { "text": "Four seconds is proof. Let's make it four minutes.", "action": "ACCEPT" },

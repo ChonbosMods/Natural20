@@ -4,8 +4,8 @@
       "id": "discovery_of_dishonor_reso_01",
       "dialogueChunks": {
         "intro": "The captain confessed, {player_name}. Broke down right in front of the council.",
-        "plotStep": "The evidence you recovered was overwhelming. Patrol routes matching every ambush for three years, payments traced to the captain's personal accounts, testimony from merchants who survived attacks that were suspiciously well-coordinated. {target_npc} stood in the gallery and watched the person they'd trusted most admit to selling lives for gold. The captain was stripped of rank and taken into custody. New leadership has been appointed, and for the first time in years, the roads around {location} will have patrols that actually protect people.",
-        "outro": "You walked into ambush sites and followed a dangerous cart to bring the truth home. The merchants who lost friends on those roads collected this for you. It comes with their thanks and the captain's shame."
+        "plotStep": "The evidence you recovered was overwhelming. {quest_focus} laid bare: patrol routes matching every ambush for three years. {target_npc} stood in the gallery and watched the person they'd trusted most admit to everything. The captain was stripped of rank. New leadership has been appointed, and for the first time in years, the roads around {location} will have patrols that actually protect people.",
+        "outro": "You walked into ambush sites and followed a dangerous cart to bring the truth home. {quest_stakes} is over. Take this: it comes with the merchants' thanks and the captain's shame."
       },
       "playerResponses": [
         { "text": "Three years of treachery, ended. The roads will be safer now.", "action": "ACCEPT", "dispositionShift": 15 },
@@ -18,8 +18,8 @@
       "id": "discovery_of_dishonor_reso_02",
       "dialogueChunks": {
         "intro": "Every patient has been re-examined, {player_name}. Real medicine, full doses.",
-        "plotStep": "The council investigated the healer's workshop and found everything: dilution equipment, private sales records, shipments to wealthy clients while the settlement suffered. The healer fled before the verdict but the damage is done to their reputation. {target_npc} is recovering properly now on real medicine. A new healer arrived from a neighboring settlement, brought by word of the opening. People are healing for the first time in months: actually healing, not just treading water.",
-        "outro": "You uncovered a betrayal hidden behind a healer's mask. People who were slowly getting worse are getting better because the truth came out. Take this, with the gratitude of everyone who can breathe easier tonight."
+        "plotStep": "The council investigated and found everything: {quest_focus} confirmed in full. The healer fled before the verdict. {target_npc} is recovering properly now on real medicine. A new healer arrived from a neighboring settlement. People are healing for the first time in months: actually healing.",
+        "outro": "You uncovered a betrayal hidden behind a healer's mask. {quest_stakes} no longer. Take this, with the gratitude of everyone who can breathe easier tonight."
       },
       "playerResponses": [
         { "text": "A healer who heals. What a concept. I'm glad the truth came out.", "action": "ACCEPT", "dispositionShift": 10 },
@@ -32,8 +32,8 @@
       "id": "discovery_of_dishonor_reso_03",
       "dialogueChunks": {
         "intro": "{player_name}. I'm still here. They didn't exile me.",
-        "plotStep": "You found the cache. Every stolen item, every diverted payment, neatly stored with {target_npc}'s own inventory marks on every crate. The council compared the real records to the fabricated ones and the forgery fell apart in minutes. {target_npc} tried to talk their way out of it: charm, deflection, even tears. None of it worked. They were stripped of their position and ordered to repay every coin. Watching someone you admired revealed as a fraud is a peculiar kind of grief, {player_name}. I'm glad the truth won, but I'll miss the person I thought they were.",
-        "outro": "You saved me from exile and exposed a thief wearing a hero's face. This is from the community fund: properly accounted for this time. Every coin tracked."
+        "plotStep": "You found the cache. Every stolen item with {target_npc}'s own inventory marks on every crate. The council compared the real records to the fabricated ones and the forgery fell apart. {target_npc} was stripped of their position and ordered to repay every coin. Watching someone you admired revealed as a fraud is a peculiar kind of grief. {quest_focus} is accounted for at last.",
+        "outro": "You saved me from exile and exposed {quest_origin}. This is from the community fund: properly tracked this time. Every coin accounted for."
       },
       "playerResponses": [
         { "text": "The person you admired wasn't real. The truth, painful as it is, was always better.", "action": "ACCEPT", "dispositionShift": 10 },

@@ -2,9 +2,16 @@
   "variants": [
     {
       "id": "daring_expo_expedition",
+      "bindings": {
+        "quest_action": "explore the uncharted ruins and retrieve what's inside",
+        "quest_focus": "an ancient ruin no one has entered in generations",
+        "quest_stakes": "a discovery that could change our understanding of the old world",
+        "quest_threat": "the dangers guarding the site",
+        "quest_reward_hint": "whatever treasures the ruins still hold"
+      },
       "dialogueChunks": {
         "intro": "Ah, {player_name}! You look like someone who doesn't shy away from the unknown. Perfect timing.",
-        "plotStep": "I've been mapping routes through the wilds for months now, and I've found something remarkable: an old ruin {location_hint} that nobody has explored in generations. My scouts report the area is thick with {enemy_type}, but the carvings on the entrance suggest there's {quest_item} inside. I need someone with real steel in their spine to go in and bring it out.",
+        "plotStep": "I've been mapping routes through the wilds for months, and I've found something remarkable: {quest_focus} {location_hint}. My scouts report the area is thick with {enemy_type}, but the carvings on the entrance suggest there's {quest_item} inside. I need someone with real steel in their spine to {quest_action}.",
         "outro": "What do you say? Fortune favors the bold, and I have a feeling you're exactly the kind of bold we need."
       },
       "playerResponses": [
@@ -21,9 +28,16 @@
     },
     {
       "id": "daring_expo_forge_legend",
+      "bindings": {
+        "quest_action": "recover the rare materials for an extraordinary weapon",
+        "quest_focus": "a deep ore vein lost to time",
+        "quest_stakes": "the chance to forge something that hasn't been made in centuries",
+        "quest_threat": "the creatures nesting around the deposit",
+        "quest_reward_hint": "a piece of history worthy of legend"
+      },
       "dialogueChunks": {
         "intro": "Hold on, don't go yet! I've been waiting weeks for someone capable to walk through that door, and here you are, {player_name}.",
-        "plotStep": "I'm working on something extraordinary: a weapon that hasn't been forged in centuries. The old techniques are lost, but the materials aren't. I need {quest_item} from a vein deep in the caves {location_hint}. The problem? The {enemy_type} have nested all around it. Clear the way and bring me what I need, and I'll craft something worthy of legend.",
+        "plotStep": "I'm working on something extraordinary: {quest_stakes}. The old techniques are lost, but the materials aren't. I need {quest_item} from {quest_focus} deep in the caves {location_hint}. The problem? The {enemy_type} have nested all around it. Clear the way and bring me what I need, and I'll craft {quest_reward_hint}.",
         "outro": "This isn't charity work: you'll walk away with a piece of history. So, are you in?"
       },
       "playerResponses": [
@@ -40,9 +54,17 @@
     },
     {
       "id": "daring_expo_bounty",
+      "bindings": {
+        "quest_action": "take down the warlord commanding the raiders",
+        "quest_focus": "the warlord's fortified camp",
+        "quest_stakes": "the safety of the trade routes",
+        "quest_threat": "a warlord who's been terrorizing the region",
+        "quest_origin": "months of unchecked raiding",
+        "quest_reward_hint": "a serious bounty from the merchants' guild"
+      },
       "dialogueChunks": {
         "intro": "Well met, {player_name}. I'll skip the pleasantries: I have a proposition that could make us both very wealthy.",
-        "plotStep": "A warlord commanding a band of {enemy_type} has been terrorizing the trade routes near {location}. The merchants' guild is offering a serious bounty for their head. {target_npc} tried to collect last month and barely made it back alive. Their camp is {location_hint}, heavily fortified. But I've studied their patrols and I know there's a gap in their defenses just before dawn.",
+        "plotStep": "{quest_threat} has been terrorizing {quest_stakes} near {location}. The merchants' guild is offering {quest_reward_hint} for their head. {target_npc} tried to collect last month and barely made it back alive. {quest_focus} is {location_hint}, heavily fortified. But I've studied their patrols and I know there's a gap in their defenses just before dawn.",
         "outro": "One strike, one kill, and we split the bounty. You handle the fighting, I handle the intel. Deal?"
       },
       "playerResponses": [
@@ -59,9 +81,16 @@
     },
     {
       "id": "daring_expo_04",
+      "bindings": {
+        "quest_action": "clear the mountain passes and recover the stockpiled caches",
+        "quest_focus": "a lost trade route through the mountains",
+        "quest_stakes": "control of the most valuable trade corridor in the region",
+        "quest_threat": "the creatures that sealed the passes generations ago",
+        "quest_origin": "a merchant's journal from two centuries ago"
+      },
       "dialogueChunks": {
         "intro": "{player_name}! Exactly who I was looking for. I've uncovered something that's going to change everything.",
-        "plotStep": "Deep in the archives at {location}, I found a merchant's journal from two centuries ago. It describes a trade route through the mountains that was abandoned after a {enemy_type} incursion sealed the passes. But here's the thing: the journal mentions caches of {quest_item} stockpiled at waypoints along the route. Nobody has touched them in generations. If we can clear the passes and recover those caches, we'd control the most valuable trade corridor in the region.",
+        "plotStep": "Deep in the archives, I found {quest_origin} describing {quest_focus} that was abandoned after a {enemy_type} incursion. The journal mentions caches of {quest_item} stockpiled at waypoints along the route. Nobody has touched them in generations. If we can {quest_action}, we'd control {quest_stakes}.",
         "outro": "This is bigger than one haul, {player_name}. This is a legacy. And you'd be the one who made it possible."
       },
       "playerResponses": [
@@ -78,10 +107,17 @@
     },
     {
       "id": "daring_expo_05",
+      "bindings": {
+        "quest_action": "raid the grove and harvest the bounty before the pack returns",
+        "quest_focus": "a hidden grove overflowing with rare resources",
+        "quest_stakes": "a haul that would set us up for months",
+        "quest_threat": "a massive pack that controls the territory",
+        "quest_origin": "a near-death scouting run last month"
+      },
       "dialogueChunks": {
         "intro": "Have a seat, {player_name}. What I'm about to show you is going to make your jaw drop.",
-        "plotStep": "See this map? {target_npc} drew it from memory after stumbling out of the deep forest half-dead last month. There's a grove {location_hint} where {quest_item} grows wild and untouched: more than anyone in {location} has ever seen in one place. The catch? The grove is the territory of a massive pack of {enemy_type}. {target_npc} barely escaped with their life. But I've been studying {enemy_type} behavior for years, and I think I've found a pattern in their patrols. A window.",
-        "outro": "One precise strike, in and out before they know what happened. The haul would set us up for months. Interested?"
+        "plotStep": "See this map? {target_npc} drew it from memory after stumbling out of the deep forest half-dead last month. There's {quest_focus} {location_hint} where {quest_item} grows wild and untouched. The catch? The grove is the territory of {quest_threat} of {enemy_type}. {target_npc} barely escaped. But I've been studying their behavior for years, and I think I've found a patrol window.",
+        "outro": "One precise strike, in and out before they know what happened. {quest_stakes}. Interested?"
       },
       "playerResponses": [
         { "text": "A precision raid into monster territory? That's my kind of enterprise.", "action": "ACCEPT" },
@@ -97,10 +133,17 @@
     },
     {
       "id": "daring_expo_06",
+      "bindings": {
+        "quest_action": "reach the sealed vault at the heart of the proving grounds",
+        "quest_focus": "the old proving grounds and their deepest vault",
+        "quest_stakes": "being the first person ever to breach the vault",
+        "quest_threat": "traps and guardians that have stopped every challenger",
+        "quest_reward_hint": "artifacts of a quality found nowhere else"
+      },
       "dialogueChunks": {
         "intro": "You look like someone who appreciates a challenge, {player_name}. Am I right? Because I've got the challenge of a lifetime.",
-        "plotStep": "The old proving grounds {location_hint} were built centuries ago to test warriors. According to {target_npc}, the deepest chamber holds a vault that hasn't been opened since the original builders sealed it. Inside? {quest_item} of a quality that can't be found anywhere else. The problem is the grounds are still active: traps, guardians, {enemy_type}, the works. Every adventurer who's tried has turned back at the third hall.",
-        "outro": "Nobody has ever reached the vault. Think about that: nobody. You'd be the first. Your name carved into history."
+        "plotStep": "{quest_focus} {location_hint} were built centuries ago to test warriors. According to {target_npc}, the deepest chamber holds a vault that hasn't been opened since the original builders sealed it. Inside? {quest_item} of unmatched quality. The problem is {quest_threat}: traps, guardians, {enemy_type}, the works. Every adventurer who's tried has turned back at the third hall.",
+        "outro": "Nobody has ever reached the vault. Think about that: nobody. {quest_stakes}. Your name carved into history."
       },
       "playerResponses": [
         { "text": "The first to reach the vault? That's a record worth setting.", "action": "ACCEPT" },
@@ -116,10 +159,17 @@
     },
     {
       "id": "daring_expo_07",
+      "bindings": {
+        "quest_action": "chart the uncharted wilderness and claim its resources",
+        "quest_focus": "a stretch of wilderness no cartographer has ever mapped",
+        "quest_stakes": "opening territory nobody else has dared to touch",
+        "quest_threat": "the hostile creatures that own the land",
+        "quest_reward_hint": "resources in quantities that would make a merchant weep"
+      },
       "dialogueChunks": {
-        "intro": "Perfect timing, {player_name}. I've been looking for a partner, and everyone else in {location} thinks I'm crazy.",
-        "plotStep": "I want to chart the uncharted. There's a stretch of wilderness {location_hint} that no cartographer has ever mapped. Why? Because the {enemy_type} own it. But I've spent months interviewing hunters and trappers, and I've pieced together enough to know there's {quest_item} out there in quantities that would make a merchant weep. {target_npc} offered to bankroll the expedition if someone with real combat ability leads the way.",
-        "outro": "We map the land, we claim the resources, and we open up territory that nobody else has dared to touch. Everyone wins."
+        "intro": "Perfect timing, {player_name}. I've been looking for a partner, and everyone else thinks I'm crazy.",
+        "plotStep": "I want to {quest_action}. There's {quest_focus} {location_hint}. Why uncharted? Because the {enemy_type} own it. But I've spent months interviewing hunters and trappers, and I know there's {quest_item} out there in quantities worth the risk. {target_npc} offered to bankroll the expedition if someone with real combat ability leads the way.",
+        "outro": "We map the land, we claim {quest_reward_hint}, and we open up {quest_stakes}. Everyone wins."
       },
       "playerResponses": [
         { "text": "Uncharted territory and unclaimed riches? Let's make history.", "action": "ACCEPT" },
@@ -135,10 +185,17 @@
     },
     {
       "id": "daring_expo_08",
+      "bindings": {
+        "quest_action": "break into the sealed crypt and retrieve the prize",
+        "quest_focus": "a sealed crypt that's been locked for centuries",
+        "quest_stakes": "an absurd sum from a collector who pays on delivery",
+        "quest_threat": "the creatures that have turned the crypt into a fortress",
+        "quest_reward_hint": "one expedition, one big payday"
+      },
       "dialogueChunks": {
         "intro": "Ah, {player_name}. I was beginning to think I'd have to do this alone. Glad that won't be necessary.",
-        "plotStep": "A collector in {location} is offering an absurd sum for a specific piece: {quest_item} from the sealed crypt {location_hint}. {target_npc} and I have been researching the crypt for months. It was built to keep people out, obviously, but the real obstacle isn't the locks or the walls: it's the {enemy_type} that have taken up residence inside. They've turned the place into a fortress. Breaking in means fighting through them first.",
-        "outro": "The collector pays on delivery, no questions asked. One expedition, one big payday, and a story nobody will believe. What do you say?"
+        "plotStep": "A collector is offering {quest_stakes} for a specific piece: {quest_item} from {quest_focus} {location_hint}. {target_npc} and I have been researching it for months. The real obstacle isn't the locks or the walls: it's the {enemy_type} that have taken up residence inside. {quest_threat} means fighting through them first.",
+        "outro": "{quest_reward_hint}, and a story nobody will believe. What do you say?"
       },
       "playerResponses": [
         { "text": "A sealed crypt, dangerous monsters, and a fortune waiting at the end? I'm in.", "action": "ACCEPT" },

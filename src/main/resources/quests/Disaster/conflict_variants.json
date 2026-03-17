@@ -4,7 +4,7 @@
       "id": "disaster_conf_01",
       "dialogueChunks": {
         "intro": "More bad news, {player_name}. It never stops.",
-        "plotStep": "The aftershocks have opened a second fissure near {location}, and the ground beneath the emergency shelters is cracking. {target_npc} is evacuating families to the northern ridge, but the ridge is exposed and the {enemy_type} have been circling it all day. We need you to clear the ridge and gather more {quest_item} from the collapsed structures {location_hint}. Without building materials, we can't make the shelters safe for another night.",
+        "plotStep": "The aftershocks opened a second fissure, and the ground beneath the emergency shelters is cracking. {target_npc} is evacuating families to the northern ridge, but {enemy_type} have been circling it all day. We need you to clear the ridge and gather more {quest_item} from the collapsed structures {location_hint}. Without materials, our efforts to {quest_action} stall completely.",
         "outro": "The ground won't stop shaking, and neither will the people. Hold us together a little longer, {player_name}."
       },
       "playerResponses": [
@@ -23,13 +23,13 @@
       "id": "disaster_conf_02",
       "dialogueChunks": {
         "intro": "{player_name}, the relief supplies you brought? They weren't enough. Not even close.",
-        "plotStep": "We underestimated the damage. The fire weakened the support beams throughout the settlement, and two more buildings collapsed overnight. Nobody was killed, but the medical supplies are buried in the rubble. {target_npc} found an alternative source of {quest_item} in an old storehouse {location_hint}, but it's been sealed for years and the {enemy_type} have nested around the entrance. We need those supplies dug out and the area cleared.",
-        "outro": "I keep thinking this is the worst of it, and then the next hour comes."
+        "plotStep": "We underestimated the damage from {quest_threat}. Two more buildings collapsed overnight. The medical supplies are buried in rubble. {target_npc} found an alternative source of {quest_item} in an old storehouse {location_hint}, but it's been sealed for years and the {enemy_type} have nested around it. We need those supplies to continue the effort to {quest_action}.",
+        "outro": "I keep thinking this is the worst of it, and then the next hour comes. {quest_stakes} are depending on us."
       },
       "playerResponses": [
         { "text": "We're not done yet. Show me where the storehouse is.", "action": "ACCEPT" },
         { "text": "More collapsed buildings and more monsters. This disaster has layers.", "action": "ACCEPT" },
-        { "text": "At some point, you need to accept that {location} can't be saved.", "action": "DECLINE" }
+        { "text": "At some point, you need to accept what can't be saved.", "action": "DECLINE" }
       ],
       "objectivePool": ["FETCH_ITEM", "KILL_MOBS", "EXPLORE_LOCATION"],
       "objectiveConfig": {
@@ -42,8 +42,8 @@
       "id": "disaster_conf_03",
       "dialogueChunks": {
         "intro": "The situation has deteriorated, {player_name}. I won't sugarcoat it.",
-        "plotStep": "The floodwater receded, but it left something behind: a thick mud that's contaminated the remaining wells. People are getting sick from drinking the only water available. {target_npc} says there's a clean spring {location_hint}, but the path is blocked by debris and overrun with {enemy_type} displaced by the flooding. We need clean water and we need {quest_item} to purify what's left in the settlement. Without it, disease will finish what the flood started.",
-        "outro": "The disaster didn't end when the water stopped rising. It changed shape. And it's still killing us."
+        "plotStep": "{quest_threat} left contaminated mud in the remaining wells. People are getting sick from the only water available. {target_npc} says there's a clean spring {location_hint}, but the path is blocked by debris and overrun with {enemy_type}. We need clean water and {quest_item} to purify what's left, or disease will finish what the disaster started.",
+        "outro": "{quest_threat} didn't end when the water stopped rising. It changed shape. And {quest_stakes} need us to {quest_action} before it gets worse."
       },
       "playerResponses": [
         { "text": "Contaminated water on top of everything else? I'll find the spring.", "action": "ACCEPT" },
@@ -61,8 +61,8 @@
       "id": "disaster_conf_04",
       "dialogueChunks": {
         "intro": "I thought the worst was over. I was wrong, {player_name}.",
-        "plotStep": "A group of refugees arrived from a neighboring settlement that was hit even harder by the storm. They brought nothing but the clothes on their backs and mouths that need feeding. {target_npc} couldn't turn them away, but now we have twice the people and half the supplies. Worse, the refugees say the {enemy_type} followed them here: a whole pack, tracking them by scent. We need more {quest_item} from the trading post {location_hint}, and we need the {enemy_type} driven off before they attack the overcrowded camp.",
-        "outro": "Too many people, too little of everything, and predators at the gates. We need a miracle, and you're it."
+        "plotStep": "Refugees arrived from a neighboring settlement hit even harder by the storm. They brought nothing but mouths that need feeding. {target_npc} couldn't turn them away, but now we have twice the people and half the supplies. Worse, the {enemy_type} followed them here, tracking by scent. We need more {quest_item} from the trading post {location_hint} and the {enemy_type} driven off. Our efforts to {quest_action} just doubled in scope.",
+        "outro": "Too many people, too little of everything, and predators at the gates. {quest_stakes} need a miracle, and you're it."
       },
       "playerResponses": [
         { "text": "Refugees and predators at the door? I'll handle the threat and bring back supplies.", "action": "ACCEPT" },

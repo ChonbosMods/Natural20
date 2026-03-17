@@ -2,10 +2,17 @@
   "variants": [
     {
       "id": "recovery_of_a_lost_one_expo_01",
+      "bindings": {
+        "quest_action": "travel to a distant camp and confirm a sighting of the missing person",
+        "quest_focus": "my sister who vanished three seasons ago on a trade journey",
+        "quest_stakes": "she may be alive but alone and unreachable",
+        "quest_threat": "the dangerous roads and enemy territory between here and the sighting",
+        "quest_origin": "a merchant's report of a woman matching her description"
+      },
       "dialogueChunks": {
         "intro": "{player_name}, I'm looking for someone. I've been looking for a very long time.",
-        "plotStep": "My sister left {location} three seasons ago to trade {quest_item} with the settlements up north. She never arrived. Everyone says the {enemy_type} got her on the road, but no body was ever found. No blood, no wreckage, nothing. Last week, a merchant passing through mentioned seeing a woman matching her description living in a camp {location_hint}. Alone, but alive. I need someone to go there and find out if it's really her. I can't make the journey myself: my legs haven't been right since the winter.",
-        "outro": "If she's alive, she needs to know we never stopped looking. That we never gave up on her."
+        "plotStep": "{quest_focus} left {location} to trade {quest_item} with the settlements up north. She never arrived. Everyone says the {enemy_type} got her, but no body was found. Last week, {quest_origin} living in a camp {location_hint}. I need someone to {quest_action}. {quest_threat} keeps me from going myself.",
+        "outro": "If she's alive, {quest_stakes}. She needs to know we never stopped looking."
       },
       "playerResponses": [
         { "text": "I'll find her. If she's out there, I'll bring word.", "action": "ACCEPT" },
@@ -21,10 +28,17 @@
     },
     {
       "id": "recovery_of_a_lost_one_expo_02",
+      "bindings": {
+        "quest_action": "follow boot prints through the wilderness to find the missing person",
+        "quest_focus": "a friend who disappeared during a raid six months ago",
+        "quest_stakes": "everyone else has accepted their death, but the evidence says otherwise",
+        "quest_threat": "enemy territory and a trail that could go cold at any moment",
+        "quest_origin": "fresh boot prints with a repair pattern I stitched myself"
+      },
       "dialogueChunks": {
         "intro": "I know what people think, {player_name}. They think I'm chasing ghosts. But I know what I saw.",
-        "plotStep": "{target_npc} disappeared during a {enemy_type} raid on {location} six months ago. The guards assumed the worst and held a memorial. But two weeks ago, I was gathering {quest_item} {location_hint} and I found fresh boot prints: their boots, {player_name}. I know the repair pattern on the sole because I stitched it myself. Someone is out there, moving through the wilderness, and I believe it's {target_npc}. They might be injured, lost, or hiding. Either way, they need help.",
-        "outro": "Everyone else has accepted their death. I haven't. And until I see a grave with my own eyes, I won't."
+        "plotStep": "{target_npc} disappeared during a {enemy_type} raid on {location} six months ago. The guards held a memorial. But two weeks ago, I found {quest_origin} while gathering {quest_item} {location_hint}. {quest_stakes}. Someone is out there, and I believe it's {target_npc}. I need you to {quest_action}.",
+        "outro": "{quest_focus}: until I see a grave with my own eyes, I won't accept it. {quest_threat} is all that stands between us."
       },
       "playerResponses": [
         { "text": "Boot prints are evidence. I'll follow the trail.", "action": "ACCEPT" },
@@ -40,10 +54,18 @@
     },
     {
       "id": "recovery_of_a_lost_one_expo_03",
+      "bindings": {
+        "quest_action": "deliver ransom supplies to a drop point and negotiate release",
+        "quest_focus": "a letter from my apprentice who vanished two years ago",
+        "quest_stakes": "they're alive but held captive, begging for someone to buy their freedom",
+        "quest_threat": "the captors who won't release them without payment",
+        "quest_origin": "two years of guilt for sending them on the expedition where they disappeared",
+        "quest_time_pressure": "the letter was urgent and every day of delay risks their safety"
+      },
       "dialogueChunks": {
         "intro": "{player_name}, I need to show you something. Come inside where nobody can hear us.",
-        "plotStep": "This letter arrived at {location} yesterday, left at the gate overnight. No messenger, no name on the outside. But I recognize the handwriting: it's from {target_npc}, my apprentice who vanished two years ago during an expedition {location_hint}. The letter says they're alive but can't return: something about being held by a group that won't let them leave. They need {quest_item} to trade for their freedom, and they're begging for someone to bring it to a drop point near the old ruins. The {enemy_type} between here and there make a direct journey dangerous.",
-        "outro": "Two years I thought they were dead. Two years of guilt for sending them on that expedition. Now there's a chance to bring them home."
+        "plotStep": "{quest_focus} arrived at {location} yesterday, left at the gate overnight. I recognize the handwriting: it's from {target_npc}, my apprentice who vanished two years ago during an expedition {location_hint}. {quest_stakes}. They need {quest_item} to trade for their freedom. I need you to {quest_action} near the old ruins. The {enemy_type} make a direct journey dangerous.",
+        "outro": "{quest_origin}. Now there's a chance to bring them home. {quest_time_pressure}."
       },
       "playerResponses": [
         { "text": "A letter after two years. This changes everything. I'll go.", "action": "ACCEPT" },

@@ -2,10 +2,17 @@
   "variants": [
     {
       "id": "an_enemy_loved_expo_01",
+      "bindings": {
+        "quest_action": "scout the enemy camp and confirm they have sick children",
+        "quest_focus": "the discovery that our enemies are desperate parents, not monsters",
+        "quest_stakes": "if the settlement finds out I sympathize, I'll be cast out",
+        "quest_threat": "a war being waged against families trying to keep their young alive",
+        "quest_origin": "a scouting mission that revealed something nobody wanted to see"
+      },
       "dialogueChunks": {
         "intro": "I need to tell someone this, {player_name}, before it eats me alive. I've been carrying a secret that could get me cast out of {location}.",
-        "plotStep": "There's a {enemy_type} camp {location_hint}. Everyone here wants them dead: they've raided our stores, stolen our livestock, caused nothing but grief. But I went out there last week to scout their numbers, and I saw something that changed everything. They have children, {player_name}. Sick children. They've been stealing our {quest_item} because they're trying to keep their young alive. I can't just pretend I didn't see that.",
-        "outro": "I need someone to go out there and confirm what I saw. If I'm right, then we've been waging war on desperate parents, not monsters."
+        "plotStep": "There's a {enemy_type} camp {location_hint}. Everyone here wants them dead. But during {quest_origin}, I saw {quest_focus}. They have sick children. They've been stealing our {quest_item} because they're trying to keep their young alive. I need someone to {quest_action}.",
+        "outro": "If I'm right, then {quest_threat}. We've been wrong about them all along."
       },
       "playerResponses": [
         { "text": "That changes things. I'll go see for myself.", "action": "ACCEPT" },
@@ -20,10 +27,17 @@
     },
     {
       "id": "an_enemy_loved_expo_02",
+      "bindings": {
+        "quest_action": "bring supplies to the enemy's kin hiding in the wilderness",
+        "quest_focus": "a wounded enemy who spoke of being driven from their homeland",
+        "quest_stakes": "being labeled a traitor for showing compassion to the enemy",
+        "quest_threat": "something far worse than them is driving these creatures from their home",
+        "quest_origin": "a wounded creature that stumbled into town and was given mercy"
+      },
       "dialogueChunks": {
         "intro": "{player_name}, do you believe that a person you've hated your whole life can turn out to be someone worth saving? Because I'm starting to.",
-        "plotStep": "A wounded {enemy_type} stumbled into {location} three nights ago. The guards wanted to kill it on the spot, but {target_npc} insisted on patching it up first, said we're not butchers. While it healed, it spoke to me. Broken words, barely understandable, but enough. It said its people are being driven from their homeland by something far worse than them, and they need {quest_item} to survive the journey. It begged me to bring some to its kin, hiding {location_hint}.",
-        "outro": "If anyone finds out I'm even considering this, they'll call me a traitor. But I can't unhear what it said."
+        "plotStep": "{quest_origin} three nights ago. {target_npc} insisted on patching it up. While it healed, it spoke to me: {quest_focus}. It said {quest_threat}, and they need {quest_item} to survive the journey. It begged me to {quest_action}, hiding {location_hint}.",
+        "outro": "If anyone finds out I'm even considering this, {quest_stakes}. But I can't unhear what it said."
       },
       "playerResponses": [
         { "text": "Compassion isn't treason. I'll bring the supplies.", "action": "ACCEPT" },
@@ -39,10 +53,17 @@
     },
     {
       "id": "an_enemy_loved_expo_03",
+      "bindings": {
+        "quest_action": "investigate whether these creatures are truly soulless monsters",
+        "quest_focus": "a carved pendant of a child's face that stopped me from killing",
+        "quest_stakes": "everything this settlement believes about them could be a lie",
+        "quest_threat": "a cycle of violence fueled by assumptions nobody has questioned",
+        "quest_origin": "a moment of mercy during a raid when a warrior showed me its child's pendant"
+      },
       "dialogueChunks": {
         "intro": "I've done something I can't take back, {player_name}. And I think I need help before it unravels.",
-        "plotStep": "During the last raid on {location}, I cornered a {enemy_type} warrior. Had my blade to its throat. Then it dropped its weapon and showed me a carved pendant: a child's face. Its child. It said one word I understood: 'please.' I let it go, {player_name}. I let the enemy walk away. Now {target_npc} is asking questions about the raider who escaped, and I need someone to go {location_hint} and figure out whether these creatures are truly the soulless monsters everyone says, or whether we've been wrong about them all along. I need {quest_item} as proof of peaceful contact.",
-        "outro": "If they're what I think they are, then everything this settlement believes about them is a lie."
+        "plotStep": "During the last raid on {location}, I cornered a {enemy_type} warrior. It dropped its weapon and showed me {quest_focus}. It said one word: 'please.' I let it go. Now {target_npc} is asking about the raider who escaped. I need someone to go {location_hint} and {quest_action}. I need {quest_item} as proof of peaceful contact.",
+        "outro": "{quest_stakes}. {quest_threat} has to end somewhere."
       },
       "playerResponses": [
         { "text": "The truth matters more than comfort. I'll find it.", "action": "ACCEPT" },

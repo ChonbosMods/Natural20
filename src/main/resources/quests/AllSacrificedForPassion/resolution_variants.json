@@ -4,7 +4,7 @@
       "id": "all_sacrificed_for_passion_reso_01",
       "dialogueChunks": {
         "intro": "{player_name}. Look. Look at this.",
-        "plotStep": "The transmutation held. Common iron, transformed into something that gleams like starlight and weighs half as much. Three years, my savings, my health, my friendships: all for this moment. {target_npc} was the first person I showed it to. They stared at it for a full minute without speaking, then quietly said they were sorry for doubting me. The question now is whether what I gained was worth what I lost. I don't have an answer yet. I may never have one.",
+        "plotStep": "The transmutation held. Common iron, transformed into something that gleams like starlight and weighs half as much. Three years, my savings, my health, my friendships: all for this moment. {target_npc} was the first person I showed it to. They stared at it for a full minute without speaking, then quietly said they were sorry for doubting me. The question now is whether what I gained was worth what {quest_threat} took from me. I don't have an answer yet. I may never have one.",
         "outro": "You believed in me when no one else did. This piece is yours: the first successful transmutation in history. Whatever happens to me from here, that exists because of both of us."
       },
       "playerResponses": [
@@ -19,7 +19,7 @@
       "id": "all_sacrificed_for_passion_reso_02",
       "dialogueChunks": {
         "intro": "I didn't sleep last night. Not because I was working: because I was sitting by the forge, thinking.",
-        "plotStep": "The blade holds. Indefinitely. I tested it against stone, against iron, against everything I could find. Not a scratch, not a nick. The discovery works. {target_npc} spread the word, and three settlements have already sent messengers asking about the process. But my house is someone else's now. My family is somewhere I can't follow. I'm standing in an empty workshop holding the most important weapon ever forged, and I have no one to celebrate with except you.",
+        "plotStep": "{quest_focus} is real. The blade holds. Indefinitely. I tested it against stone, against iron, against everything I could find. Not a scratch, not a nick. {target_npc} spread the word, and three settlements have already sent messengers asking about the process. But my house is someone else's now. My family is somewhere I can't follow. I'm standing in an empty workshop holding the most important weapon ever forged, and I have no one to celebrate with except you.",
         "outro": "Take this. The first unbreakable blade. I'll make more for the settlements. Maybe if I arm enough people, protect enough lives, the cost starts to make sense. Maybe."
       },
       "playerResponses": [
@@ -33,7 +33,7 @@
       "id": "all_sacrificed_for_passion_reso_03",
       "dialogueChunks": {
         "intro": "It worked, {player_name}. Trial four hundred and twenty-two. It worked.",
-        "plotStep": "The compound purified a patch of corrupted soil in under an hour. Grass is already growing where nothing has lived for years. {target_npc} brought the whole settlement to watch, and there wasn't a dry eye among them. The land heals. After everything: the failed experiments, the lost partnerships, the years of being called a fool. The land actually heals. I collapsed afterward. The healer says I've been running on stubbornness and not much else for months.",
+        "plotStep": "The compound purified a patch of corrupted soil in under an hour. Grass is already growing where nothing has lived for years. {target_npc} brought the whole settlement to watch, and there wasn't a dry eye among them. The land heals. After everything: the failed experiments, the lost partnerships, {quest_threat}. The land actually heals. I collapsed afterward. The healer says I've been running on stubbornness and not much else for months.",
         "outro": "I have enough compound for one more demonstration. After that, I'll need to rest: really rest, for the first time in years. Take this as payment, and know that every field that grows green again owes something to you."
       },
       "playerResponses": [

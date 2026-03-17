@@ -4,8 +4,8 @@
       "id": "enigma_conf_01",
       "dialogueChunks": {
         "intro": "The mystery just deepened, {player_name}. What you found raises more questions than it answers.",
-        "plotStep": "The {quest_item} patterns you documented match an ancient diagram {target_npc} found in a forgotten archive at {location}. The diagram describes a network of sites connected by underground channels, and the ruins are just one node. There are at least three more sites {location_hint}, and the diagram suggests they need to be activated in sequence. The {enemy_type} have started behaving erratically near the other sites: attacking anything that comes close, as if they're guarding something they don't understand.",
-        "outro": "A network of connected sites, guarded by creatures acting on instinct they can't explain. We need to map the full system before we can understand what it does."
+        "plotStep": "The {quest_item} patterns you documented match an ancient diagram {target_npc} found in a forgotten archive. The diagram describes a network of sites connected by underground channels: {quest_focus} is just one node. There are at least three more sites {location_hint}. The {enemy_type} have started behaving erratically near them, as if guarding something they don't understand. We need to map the full system to {quest_action}.",
+        "outro": "A network of connected sites, guarded by creatures acting on instinct they can't explain. {quest_stakes} grow more complex by the hour."
       },
       "playerResponses": [
         { "text": "A network of connected sites? I'll map every one of them.", "action": "ACCEPT" },
@@ -23,8 +23,8 @@
       "id": "enigma_conf_02",
       "dialogueChunks": {
         "intro": "{player_name}, something has responded to your investigation. And I don't think it's friendly.",
-        "plotStep": "The pulsing lights from the ruins have intensified since you disturbed the {quest_item} arrangement. They're visible from {location} now, and the {enemy_type} have gone berserk: attacking each other, charging at shadows, howling through the night. {target_npc} believes the energy from the ruins is affecting their behavior, driving them into a frenzy. We need to understand what's happening before the frenzy spreads to the settlement's livestock or worse. Collect samples of the agitated {quest_item} from the outer ring {location_hint} and bring them back for analysis.",
-        "outro": "We poked the mystery and it poked back. Now we need to figure out what we've stirred up before it gets worse."
+        "plotStep": "The phenomena at {quest_focus} have intensified since you disturbed the {quest_item} arrangement. The {enemy_type} have gone berserk: attacking each other, charging at shadows. {target_npc} believes {quest_threat} is affecting their behavior. We need to continue to {quest_action} before the frenzy spreads. Collect samples from the outer ring {location_hint} for analysis.",
+        "outro": "We poked the mystery and it poked back. Now we need to figure out what we've stirred up. {quest_stakes} demand we understand this."
       },
       "playerResponses": [
         { "text": "Frenzied monsters and intensifying lights? We must be getting close to something. I'll get the samples.", "action": "ACCEPT" },
@@ -42,8 +42,8 @@
       "id": "enigma_conf_03",
       "dialogueChunks": {
         "intro": "Remarkable news, {player_name}, though I'm not certain whether to be excited or terrified.",
-        "plotStep": "{target_npc} decoded part of the ancient writing from the cave walls. It's not a message: it's a set of instructions. Directions for assembling a device from specific quantities of {quest_item} arranged in the pattern we've been finding. The instructions reference a 'keystone chamber' located {location_hint}, deep beneath the surface. The {enemy_type} guarding the approach have tripled in number since your last visit, as if something is actively reinforcing them. Whatever this device does, something wants it either completed or prevented.",
-        "outro": "Instructions for a device nobody has built in centuries. The question is: should we follow them?"
+        "plotStep": "{target_npc} decoded part of the ancient writing from {quest_focus}. It's not a message: it's instructions for assembling a device from specific quantities of {quest_item}. The instructions reference a 'keystone chamber' located {location_hint}. The {enemy_type} guarding the approach have tripled in number since your last visit. Whatever this device does, {quest_threat} seems actively reinforcing its guardians.",
+        "outro": "Instructions for a device nobody has built in centuries. The question is whether we should follow them to {quest_action}."
       },
       "playerResponses": [
         { "text": "Instructions from the builders themselves? We have to see this through. Lead the way.", "action": "ACCEPT" },
@@ -61,8 +61,8 @@
       "id": "enigma_conf_04",
       "dialogueChunks": {
         "intro": "We have a problem, {player_name}. Someone else has taken an interest in our mystery.",
-        "plotStep": "A group of strangers arrived at {location} asking pointed questions about the ruins, the lights, and the {quest_item} patterns. {target_npc} tried to get information from them, but they were evasive and left in a hurry heading {location_hint}. If they reach the sites before we do, they could disturb whatever balance exists. Worse, they were armed and didn't seem concerned about the {enemy_type} at all: as if they knew how to avoid them or had some way of controlling them.",
-        "outro": "Rival investigators with knowledge we don't have. We need to get to the remaining sites before they do, or we may never learn the truth."
+        "plotStep": "A group of strangers arrived asking pointed questions about {quest_focus} and the {quest_item} patterns. {target_npc} tried to get information, but they were evasive and left in a hurry heading {location_hint}. If they reach the sites before we do, they could disturb whatever balance exists. Worse, they weren't concerned about the {enemy_type} at all. We need to get there first to {quest_action}.",
+        "outro": "Rival investigators with knowledge we don't have. {quest_stakes} depend on us reaching the remaining sites before they do."
       },
       "playerResponses": [
         { "text": "A race to the truth? I'll get there first.", "action": "ACCEPT" },

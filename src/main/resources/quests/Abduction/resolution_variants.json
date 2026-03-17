@@ -4,7 +4,7 @@
       "id": "abduction_reso_01",
       "dialogueChunks": {
         "intro": "She's home, {player_name}. My daughter is home. I can't stop shaking.",
-        "plotStep": "She ran to me the moment she saw the gate. Grabbed my legs and wouldn't let go for an hour. She's thin, she's scared, and she flinches at loud noises, but she's alive and she's here because of you. {target_npc} is looking after the other rescued captives: they're all in similar shape, but the healer says they'll recover fully with time and care. The nightmares will fade. The important thing is they have a home to wake up in.",
+        "plotStep": "She ran to me the moment she saw the gate. She's thin, she's scared, and she flinches at loud noises, but she's alive because you managed to {quest_action}. {target_npc} is looking after the other rescued captives. {quest_stakes} are resolved: they're all in similar shape, but the healer says they'll recover.",
         "outro": "You brought my daughter back to me. I don't have words big enough for that. Take everything I can offer, and know it will never be enough."
       },
       "playerResponses": [
@@ -18,7 +18,7 @@
       "id": "abduction_reso_02",
       "dialogueChunks": {
         "intro": "Every single one of them is accounted for, {player_name}. Every single one.",
-        "plotStep": "{target_npc} organized a gathering in the square when the last of the rescued arrived. Families reunited, names called out one by one, each answered with tears and embraces. The whole settlement stood in silence as the final name was called and answered. Then the cheering started, and it didn't stop for an hour. You dismantled the {enemy_type} operation, and every person who was taken is back where they belong.",
+        "plotStep": "{target_npc} organized a gathering when the last of the rescued arrived. Names called out one by one, each answered with tears and embraces. You managed to {quest_action} and dismantled {quest_threat}'s operation completely. Every person taken is back where they belong.",
         "outro": "Here. The settlement voted to give you this from the communal fund. Unanimous. Not a single dissenting voice."
       },
       "playerResponses": [
@@ -32,7 +32,7 @@
       "id": "abduction_reso_03",
       "dialogueChunks": {
         "intro": "{player_name}. Most of them are home. Most.",
-        "plotStep": "We couldn't save everyone. The miller's son didn't survive captivity: he was ill before they took him, and the conditions were too harsh. His father is inconsolable, and I won't pretend that anything I say can fix that. But {target_npc} and the four others are alive and recovering, and the network that took them is shattered. The grief for the one we lost is real and heavy. But so is the gratitude for the ones who came home.",
+        "plotStep": "We couldn't save everyone. The miller's son didn't survive captivity. But {target_npc} and the four others are alive and recovering because you managed to {quest_action}. {quest_threat}'s network is shattered. The grief for the one we lost is real and heavy. But so is the gratitude for the ones who came home.",
         "outro": "Take this. It comes with our thanks and our sorrow, tangled together the way these things always are."
       },
       "playerResponses": [
@@ -45,9 +45,9 @@
     {
       "id": "abduction_reso_04",
       "dialogueChunks": {
-        "intro": "They're safe, {player_name}. And the creatures that took them will never take anyone again.",
-        "plotStep": "{target_npc} wanted me to tell you something specific. They said: 'In the dark, when we heard fighting outside the chamber, we didn't know if it was rescue or execution. When the door opened and it was {player_name}, every person in that cell wept. Not from fear, not from relief: from knowing that someone came.' That's what you did. You came when no one else would or could.",
-        "outro": "The settlement erected a marker at the gate in your honor. It reads: 'They came.' Take this, and know you will never be forgotten here."
+        "intro": "They're safe, {player_name}. And {quest_threat} will never take anyone again.",
+        "plotStep": "{target_npc} wanted me to tell you something specific. They said: 'In the dark, when we heard fighting outside the chamber, we didn't know if it was rescue or execution. When the door opened and it was {player_name}, every person wept. Not from fear: from knowing that someone came.' That's what you did when you managed to {quest_action}. You came when no one else would.",
+        "outro": "The settlement erected a marker at the gate: 'They came.' Take this, and know you will never be forgotten here."
       },
       "playerResponses": [
         { "text": "'They came.' Two words that say everything. Thank you for honoring me.", "action": "ACCEPT", "dispositionShift": 15 },
