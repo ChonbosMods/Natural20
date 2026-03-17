@@ -7,6 +7,7 @@ import java.util.Map;
 
 public record QuestVariant(
     String id,
+    Map<String, String> bindings,
     DialogueChunks dialogueChunks,
     List<PlayerResponse> playerResponses,
     List<ObjectiveType> objectivePool,

@@ -72,6 +72,15 @@ public class QuestTemplateRegistry {
     private QuestVariant parseVariant(JsonObject obj) {
         String id = obj.get("id").getAsString();
 
+        // Parse optional bindings (exposition variants define these)
+        Map<String, String> bindings = new HashMap<>();
+        if (obj.has("bindings")) {
+            JsonObject bindObj = obj.getAsJsonObject("bindings");
+            for (var entry : bindObj.entrySet()) {
+                bindings.put(entry.getKey(), entry.getValue().getAsString());
+            }
+        }
+
         JsonObject chunks = obj.getAsJsonObject("dialogueChunks");
         DialogueChunks dialogueChunks = new DialogueChunks(
             chunks.has("intro") ? chunks.get("intro").getAsString() : "",
@@ -112,7 +121,7 @@ public class QuestTemplateRegistry {
             }
         }
 
-        return new QuestVariant(id, dialogueChunks, responses, pool, configs);
+        return new QuestVariant(id, bindings, dialogueChunks, responses, pool, configs);
     }
 
     private List<QuestReferenceTemplate> loadReferencesFile(Path file) {
