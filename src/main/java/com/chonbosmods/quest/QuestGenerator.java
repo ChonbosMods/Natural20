@@ -17,6 +17,8 @@ public class QuestGenerator {
     private static final double CONFLICT_EXTEND_CHANCE = 0.40;
     private static final double RESOLUTION_EXTEND_CHANCE = 0.25;
     private static final double REFERENCE_INJECT_CHANCE = 0.20;
+    private static final double QUEST_ALLY_TOPIC_CHANCE = 0.35;
+    private static final double STAKES_EQUALS_FOCUS_CHANCE = 0.25;
 
     private final QuestTemplateRegistry templateRegistry;
     private final SettlementRegistry settlementRegistry;
@@ -52,6 +54,7 @@ public class QuestGenerator {
 
         List<PhaseType> phaseSequence = rollPhaseSequence(random);
 
+        // Step 3: Pick variants per phase
         List<QuestVariant> selectedVariants = new ArrayList<>();
         for (PhaseType phase : phaseSequence) {
             List<QuestVariant> pool = switch (phase) {
@@ -66,8 +69,14 @@ public class QuestGenerator {
             selectedVariants.add(pool.get(random.nextInt(pool.size())));
         }
 
-        Map<String, String> bindings = resolveBindings(npcX, npcZ, npcSettlementCellKey, random);
+        // Step 4a: Resolve world bindings
+        Map<String, String> bindings = resolveWorldBindings(npcX, npcZ, npcSettlementCellKey, npcId, random);
 
+        // Step 4b: Resolve narrative bindings from exposition variant
+        QuestVariant expositionVariant = selectedVariants.getFirst();
+        resolveNarrativeBindings(bindings, expositionVariant, situation, npcSettlementCellKey, npcId, random);
+
+        // Step 5: Build phase instances with objectives
         List<PhaseInstance> phases = new ArrayList<>();
         ObjectiveType lastObjectiveType = null;
         for (int i = 0; i < phaseSequence.size(); i++) {
@@ -102,6 +111,18 @@ public class QuestGenerator {
         LOGGER.atInfo().log("Generated quest %s: situation=%s, phases=%d, for NPC %s",
             questId, situation.getId(), phases.size(), npcId);
         return quest;
+    }
+
+    /**
+     * Check if quest ally should get a topic unlocked (35% chance).
+     * Called after quest completion. Returns the ally NPC name or null.
+     */
+    public @Nullable String rollAllyTopic(QuestInstance quest, Random random) {
+        String ally = quest.getVariableBindings().get("quest_ally");
+        if (ally != null && !ally.isEmpty() && random.nextDouble() < QUEST_ALLY_TOPIC_CHANCE) {
+            return ally;
+        }
+        return null;
     }
 
     private List<PhaseType> rollPhaseSequence(Random random) {
@@ -143,11 +164,13 @@ public class QuestGenerator {
         return sequence;
     }
 
-    private Map<String, String> resolveBindings(double npcX, double npcZ, String npcCellKey, Random random) {
+    private Map<String, String> resolveWorldBindings(double npcX, double npcZ, String npcCellKey,
+                                                      String npcId, Random random) {
         Map<String, String> bindings = new HashMap<>();
 
         String gatherItem = GATHER_ITEMS[random.nextInt(GATHER_ITEMS.length)];
         bindings.put("quest_item", gatherItem.substring(gatherItem.indexOf(':') + 1));
+        bindings.put("gather_item_id", gatherItem);
 
         String enemyType = HOSTILE_MOBS[random.nextInt(HOSTILE_MOBS.length)];
         bindings.put("enemy_type", enemyType.substring(enemyType.indexOf(':') + 1).replace("_", " "));
@@ -166,13 +189,53 @@ public class QuestGenerator {
                 bindings.put("target_npc_settlement", nearestOther.getCellKey());
             }
         } else {
-            bindings.put("location", "a distant place");
             bindings.put("location_hint", "far away");
         }
 
-        bindings.put("gather_item_id", gatherItem);
-
         return bindings;
+    }
+
+    private void resolveNarrativeBindings(Map<String, String> bindings, QuestVariant expositionVariant,
+                                           QuestSituation situation, String npcCellKey,
+                                           String npcId, Random random) {
+        // Copy all bindings from the exposition variant
+        if (expositionVariant.bindings() != null) {
+            bindings.putAll(expositionVariant.bindings());
+        }
+
+        // 25% chance: quest_stakes = quest_focus
+        if (random.nextDouble() < STAKES_EQUALS_FOCUS_CHANCE && bindings.containsKey("quest_focus")) {
+            bindings.put("quest_stakes", bindings.get("quest_focus"));
+        }
+
+        // Auto-generate quest_threat if not defined
+        if (!bindings.containsKey("quest_threat")) {
+            String enemyType = bindings.getOrDefault("enemy_type", "unknown threat");
+            bindings.put("quest_threat", "the " + enemyType + " menace");
+        }
+
+        // Resolve quest_ally from same settlement if not defined
+        if (!bindings.containsKey("quest_ally")) {
+            SettlementRecord settlement = settlementRegistry.getByCell(npcCellKey);
+            if (settlement != null && settlement.getNpcs().size() > 1) {
+                List<NpcRecord> candidates = new ArrayList<>();
+                for (NpcRecord npc : settlement.getNpcs()) {
+                    if (!npc.getGeneratedName().equals(npcId)) {
+                        candidates.add(npc);
+                    }
+                }
+                if (!candidates.isEmpty()) {
+                    NpcRecord ally = candidates.get(random.nextInt(candidates.size()));
+                    bindings.put("quest_ally", ally.getGeneratedName());
+                    bindings.put("quest_ally_role", ally.getRole());
+                }
+            }
+        }
+
+        // Auto-generate quest_location_name if not defined
+        if (!bindings.containsKey("quest_location_name")) {
+            bindings.put("quest_location_name", bindings.getOrDefault("quest_focus", "the area"));
+        }
     }
 
     private @Nullable SettlementRecord findNearestOtherSettlement(double x, double z, String excludeCellKey) {
@@ -215,7 +278,7 @@ public class QuestGenerator {
                 1, bindings.get("location_hint"), bindings.get("target_npc_settlement")
             );
             case EXPLORE_LOCATION -> new ObjectiveInstance(
-                type, bindings.get("location"), bindings.get("location"),
+                type, bindings.get("location"), bindings.getOrDefault("quest_location_name", "the area"),
                 1, bindings.get("location_hint"), bindings.get("location")
             );
             case FETCH_ITEM -> new ObjectiveInstance(
