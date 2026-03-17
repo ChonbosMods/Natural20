@@ -44,6 +44,76 @@
       ],
       "objectivePool": [],
       "objectiveConfig": {}
+    },
+    {
+      "id": "supplication_reso_04",
+      "dialogueChunks": {
+        "intro": "When I saw you coming over the hill, I broke down crying. I'm not ashamed to say it.",
+        "plotStep": "The {quest_item} is already being put to use. {target_npc} hasn't stopped working since you handed it over: mending, sorting, distributing. For the first time in weeks, people aren't whispering about leaving {location}. They're talking about staying. About rebuilding. About a future.",
+        "outro": "We gathered what we could to repay you. It doesn't begin to cover what you've done, but take it with the weight of every grateful soul in this settlement behind it."
+      },
+      "playerResponses": [
+        { "text": "Seeing this place come back to life is payment enough.", "action": "ACCEPT", "dispositionShift": 10 },
+        { "text": "You all did the hard part: you survived. I just carried a few things.", "action": "ACCEPT" }
+      ],
+      "objectivePool": [],
+      "objectiveConfig": {}
+    },
+    {
+      "id": "supplication_reso_05",
+      "dialogueChunks": {
+        "intro": "It's done, {player_name}. It's really done.",
+        "plotStep": "I won't pretend everything is perfect. We buried two people this morning who held on as long as they could but couldn't hold on long enough. The {quest_item} saved the rest, though. {target_npc} says another day and we would have lost a dozen more. You cut it close, but you cut it in time. That's what matters.",
+        "outro": "Take this. And if you ever pass through {location} again, know that there are graves here that would have been a graveyard without you."
+      },
+      "playerResponses": [
+        { "text": "I'm sorry I wasn't faster.", "action": "ACCEPT" },
+        { "text": "The ones who held on: they fought as hard as I did.", "action": "ACCEPT", "dispositionShift": 5 }
+      ],
+      "objectivePool": [],
+      "objectiveConfig": {}
+    },
+    {
+      "id": "supplication_reso_06",
+      "dialogueChunks": {
+        "intro": "There you are! I've been watching the road for hours. The children spotted you first, actually: they've been calling you 'the hero' all day.",
+        "plotStep": "{target_npc} organized a feast. I know, I know: we can barely afford it. But they insisted, said morale matters as much as supplies. And they're right. The {quest_item} is stored safely, the repairs are underway, and for the first time since this nightmare started, people at {location} are laughing over dinner.",
+        "outro": "Sit with us tonight if you can. And take this: it's the best we have, saved for whoever pulled us out of the dark."
+      },
+      "playerResponses": [
+        { "text": "A feast sounds wonderful. I'd be honored to stay.", "action": "ACCEPT", "dispositionShift": 10 },
+        { "text": "Save the food for your people. I'll take the reward and move on.", "action": "ACCEPT", "dispositionShift": -5 }
+      ],
+      "objectivePool": [],
+      "objectiveConfig": {}
+    },
+    {
+      "id": "supplication_reso_07",
+      "dialogueChunks": {
+        "intro": "{player_name}. Before you say anything, just look around.",
+        "plotStep": "The well is flowing again. The storehouse has walls. {target_npc} even got the old windmill turning yesterday. None of it would exist without what you brought back. People who were packing their things a week ago are now unpacking. A family that had given up planted a garden this morning, {player_name}. A garden. That's what hope looks like.",
+        "outro": "This isn't much compared to what you risked. But every person here contributed something to this bundle. It's from all of us."
+      },
+      "playerResponses": [
+        { "text": "A garden. That's the best reward I could ask for.", "action": "ACCEPT", "dispositionShift": 15 },
+        { "text": "Glad to see {location} on the mend. Take care of each other.", "action": "ACCEPT" }
+      ],
+      "objectivePool": [],
+      "objectiveConfig": {}
+    },
+    {
+      "id": "supplication_reso_08",
+      "dialogueChunks": {
+        "intro": "I almost didn't recognize you under all that grime. Come, sit down, you've earned a rest.",
+        "plotStep": "It's quiet now. The good kind of quiet, I mean: not the silence of dread, but the calm that comes when the worst is over. {target_npc} distributed the last of the {quest_item} this morning and says we have enough to last the season. The {enemy_type} haven't been seen near {location} since you went through. I think you put a proper scare into them.",
+        "outro": "Here. We set this aside before you even left, because I knew you'd come through. Call it faith, or call it desperation: either way, you proved it right."
+      },
+      "playerResponses": [
+        { "text": "Faith suits me better than desperation. Take care of yourselves.", "action": "ACCEPT" },
+        { "text": "The quiet is nice. I could get used to it.", "action": "ACCEPT", "dispositionShift": 5 }
+      ],
+      "objectivePool": [],
+      "objectiveConfig": {}
     }
   ]
 }

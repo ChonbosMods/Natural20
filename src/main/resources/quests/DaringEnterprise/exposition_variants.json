@@ -56,6 +56,101 @@
         "KILL_MOBS": { "countMin": 6, "countMax": 12 },
         "EXPLORE_LOCATION": { "countMin": 1, "countMax": 1 }
       }
+    },
+    {
+      "id": "daring_expo_04",
+      "dialogueChunks": {
+        "intro": "{player_name}! Exactly who I was looking for. I've uncovered something that's going to change everything.",
+        "plotStep": "Deep in the archives at {location}, I found a merchant's journal from two centuries ago. It describes a trade route through the mountains that was abandoned after a {enemy_type} incursion sealed the passes. But here's the thing: the journal mentions caches of {quest_item} stockpiled at waypoints along the route. Nobody has touched them in generations. If we can clear the passes and recover those caches, we'd control the most valuable trade corridor in the region.",
+        "outro": "This is bigger than one haul, {player_name}. This is a legacy. And you'd be the one who made it possible."
+      },
+      "playerResponses": [
+        { "text": "A lost trade route with untouched stockpiles? Say no more.", "action": "ACCEPT" },
+        { "text": "Sounds profitable. What percentage are we talking?", "action": "ACCEPT", "dispositionShift": -5 },
+        { "text": "Two-hundred-year-old maps and sealed passes? That's a fool's errand.", "action": "DECLINE" }
+      ],
+      "objectivePool": ["EXPLORE_LOCATION", "GATHER_ITEMS", "KILL_MOBS"],
+      "objectiveConfig": {
+        "EXPLORE_LOCATION": { "countMin": 2, "countMax": 4 },
+        "GATHER_ITEMS": { "countMin": 5, "countMax": 10 },
+        "KILL_MOBS": { "countMin": 4, "countMax": 8 }
+      }
+    },
+    {
+      "id": "daring_expo_05",
+      "dialogueChunks": {
+        "intro": "Have a seat, {player_name}. What I'm about to show you is going to make your jaw drop.",
+        "plotStep": "See this map? {target_npc} drew it from memory after stumbling out of the deep forest half-dead last month. There's a grove {location_hint} where {quest_item} grows wild and untouched: more than anyone in {location} has ever seen in one place. The catch? The grove is the territory of a massive pack of {enemy_type}. {target_npc} barely escaped with their life. But I've been studying {enemy_type} behavior for years, and I think I've found a pattern in their patrols. A window.",
+        "outro": "One precise strike, in and out before they know what happened. The haul would set us up for months. Interested?"
+      },
+      "playerResponses": [
+        { "text": "A precision raid into monster territory? That's my kind of enterprise.", "action": "ACCEPT" },
+        { "text": "If {target_npc} almost died, I want hazard pay.", "action": "ACCEPT", "dispositionShift": -5 },
+        { "text": "If your expert barely survived, what chance do I have? Pass.", "action": "DECLINE" }
+      ],
+      "objectivePool": ["GATHER_ITEMS", "KILL_MOBS", "EXPLORE_LOCATION"],
+      "objectiveConfig": {
+        "GATHER_ITEMS": { "countMin": 6, "countMax": 14 },
+        "KILL_MOBS": { "countMin": 5, "countMax": 10 },
+        "EXPLORE_LOCATION": { "countMin": 1, "countMax": 2 }
+      }
+    },
+    {
+      "id": "daring_expo_06",
+      "dialogueChunks": {
+        "intro": "You look like someone who appreciates a challenge, {player_name}. Am I right? Because I've got the challenge of a lifetime.",
+        "plotStep": "The old proving grounds {location_hint} were built centuries ago to test warriors. According to {target_npc}, the deepest chamber holds a vault that hasn't been opened since the original builders sealed it. Inside? {quest_item} of a quality that can't be found anywhere else. The problem is the grounds are still active: traps, guardians, {enemy_type}, the works. Every adventurer who's tried has turned back at the third hall.",
+        "outro": "Nobody has ever reached the vault. Think about that: nobody. You'd be the first. Your name carved into history."
+      },
+      "playerResponses": [
+        { "text": "The first to reach the vault? That's a record worth setting.", "action": "ACCEPT" },
+        { "text": "Ancient traps and guardians sound expensive to survive. Make it worth my while.", "action": "ACCEPT", "dispositionShift": -5 },
+        { "text": "There's a reason nobody has reached it. I'll keep my head attached, thanks.", "action": "DECLINE" }
+      ],
+      "objectivePool": ["EXPLORE_LOCATION", "KILL_MOBS", "FETCH_ITEM"],
+      "objectiveConfig": {
+        "EXPLORE_LOCATION": { "countMin": 3, "countMax": 4 },
+        "KILL_MOBS": { "countMin": 5, "countMax": 10 },
+        "FETCH_ITEM": { "locationPreference": "DUNGEON" }
+      }
+    },
+    {
+      "id": "daring_expo_07",
+      "dialogueChunks": {
+        "intro": "Perfect timing, {player_name}. I've been looking for a partner, and everyone else in {location} thinks I'm crazy.",
+        "plotStep": "I want to chart the uncharted. There's a stretch of wilderness {location_hint} that no cartographer has ever mapped. Why? Because the {enemy_type} own it. But I've spent months interviewing hunters and trappers, and I've pieced together enough to know there's {quest_item} out there in quantities that would make a merchant weep. {target_npc} offered to bankroll the expedition if someone with real combat ability leads the way.",
+        "outro": "We map the land, we claim the resources, and we open up territory that nobody else has dared to touch. Everyone wins."
+      },
+      "playerResponses": [
+        { "text": "Uncharted territory and unclaimed riches? Let's make history.", "action": "ACCEPT" },
+        { "text": "I'll lead the way, but I get first pick of whatever we find.", "action": "ACCEPT" },
+        { "text": "There's a reason it's uncharted. I like living too much.", "action": "DECLINE" }
+      ],
+      "objectivePool": ["EXPLORE_LOCATION", "KILL_MOBS", "GATHER_ITEMS"],
+      "objectiveConfig": {
+        "EXPLORE_LOCATION": { "countMin": 3, "countMax": 5 },
+        "KILL_MOBS": { "countMin": 4, "countMax": 8 },
+        "GATHER_ITEMS": { "countMin": 4, "countMax": 10 }
+      }
+    },
+    {
+      "id": "daring_expo_08",
+      "dialogueChunks": {
+        "intro": "Ah, {player_name}. I was beginning to think I'd have to do this alone. Glad that won't be necessary.",
+        "plotStep": "A collector in {location} is offering an absurd sum for a specific piece: {quest_item} from the sealed crypt {location_hint}. {target_npc} and I have been researching the crypt for months. It was built to keep people out, obviously, but the real obstacle isn't the locks or the walls: it's the {enemy_type} that have taken up residence inside. They've turned the place into a fortress. Breaking in means fighting through them first.",
+        "outro": "The collector pays on delivery, no questions asked. One expedition, one big payday, and a story nobody will believe. What do you say?"
+      },
+      "playerResponses": [
+        { "text": "A sealed crypt, dangerous monsters, and a fortune waiting at the end? I'm in.", "action": "ACCEPT" },
+        { "text": "How absurd is the sum, exactly? I need numbers before I risk my neck.", "action": "ACCEPT", "dispositionShift": -5 },
+        { "text": "Crypts are sealed for a reason. Count me out.", "action": "DECLINE" }
+      ],
+      "objectivePool": ["FETCH_ITEM", "KILL_MOBS", "EXPLORE_LOCATION"],
+      "objectiveConfig": {
+        "FETCH_ITEM": { "locationPreference": "DUNGEON" },
+        "KILL_MOBS": { "countMin": 5, "countMax": 10 },
+        "EXPLORE_LOCATION": { "countMin": 1, "countMax": 2 }
+      }
     }
   ]
 }
