@@ -7,10 +7,13 @@ import java.util.regex.Pattern;
 public class DialogueResolver {
 
     private static final Pattern VAR_PATTERN = Pattern.compile("\\{(\\w+)}");
+    private static final Pattern DANGLING_PUNCT = Pattern.compile("\\s+([,.:;!?])");
+    private static final Pattern DOUBLE_SPACE = Pattern.compile("  +");
+    private static final Pattern EMPTY_PARENS = Pattern.compile("\\(\\s*\\)");
 
     /**
      * Replace all {variable} tokens in template with values from bindings.
-     * Unresolved tokens are stripped and surrounding whitespace cleaned up.
+     * Unresolved tokens are stripped and surrounding punctuation cleaned up.
      */
     public static String resolve(String template, Map<String, String> bindings) {
         if (template == null || template.isEmpty()) return template;
@@ -23,13 +26,18 @@ public class DialogueResolver {
             if (value != null) {
                 matcher.appendReplacement(sb, Matcher.quoteReplacement(value));
             } else {
-                // Strip unresolved token and clean surrounding whitespace
                 matcher.appendReplacement(sb, "");
             }
         }
         matcher.appendTail(sb);
 
-        // Clean up double spaces left by stripped tokens
-        return sb.toString().replaceAll("  +", " ").trim();
+        String result = sb.toString();
+        // Clean dangling punctuation left by stripped tokens: "from ," -> "from,"
+        result = DANGLING_PUNCT.matcher(result).replaceAll("$1");
+        // Clean empty parentheses
+        result = EMPTY_PARENS.matcher(result).replaceAll("");
+        // Clean double spaces
+        result = DOUBLE_SPACE.matcher(result).replaceAll(" ");
+        return result.trim();
     }
 }
