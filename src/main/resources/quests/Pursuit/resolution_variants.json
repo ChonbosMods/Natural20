@@ -1,0 +1,49 @@
+{
+  "variants": [
+    {
+      "id": "pursuit_reso_justice",
+      "dialogueChunks": {
+        "intro": "It's over. You did what a dozen patrols couldn't.",
+        "plotStep": "The threat is neutralized, {player_name}. {target_npc} confirmed the kill and recovered the stolen {quest_item} from the lair. The roads near {location} are safe again for the first time in weeks. Farmers are already returning to their outlying fields. You gave these people their lives back.",
+        "outro": "Here is the bounty, in full. You've more than earned it. {location} won't forget what you did here."
+      },
+      "playerResponses": [
+        { "text": "The hunt is its own reward. But I'll take the bounty too.", "action": "ACCEPT" },
+        { "text": "Just doing what needed to be done.", "action": "ACCEPT" },
+        { "text": "Make sure it doesn't happen again. Strengthen your patrols.", "action": "ACCEPT" }
+      ],
+      "objectivePool": [],
+      "objectiveConfig": {}
+    },
+    {
+      "id": "pursuit_reso_narrow_escape",
+      "dialogueChunks": {
+        "intro": "By the stars, {player_name}, you look like you went through a warzone. Are you alright?",
+        "plotStep": "The hunters at {location} are saying it was the most dangerous creature they've ever seen track marks from. The fact that you're standing here means you're either incredibly skilled or incredibly lucky. Either way, the {enemy_type} are scattered and their leader is finished. {target_npc} pulled the last of the stolen goods from the wreckage.",
+        "outro": "Your bounty, plus a little extra for the scars. Rest up: you've earned it more than anyone I've ever met."
+      },
+      "playerResponses": [
+        { "text": "It was close. Closer than I'd like to admit.", "action": "ACCEPT" },
+        { "text": "Skill, not luck. Remember that next time.", "action": "ACCEPT", "dispositionShift": -5 },
+        { "text": "I need a stiff drink and a long sleep. Thanks for the pay.", "action": "ACCEPT" }
+      ],
+      "objectivePool": [],
+      "objectiveConfig": {}
+    },
+    {
+      "id": "pursuit_reso_loose_ends",
+      "dialogueChunks": {
+        "intro": "Good work, {player_name}. The primary target is down. But I want to be honest with you.",
+        "plotStep": "We stopped the leader, but a few of the {enemy_type} scattered into the wilds when you hit their camp. {target_npc} is tracking two groups heading in opposite directions. For now, {location} is safe: they won't regroup without their commander. But if any of them are smart enough to find a new leader, we might see this kind of trouble again someday.",
+        "outro": "That's a problem for another day. Today you've earned this reward and the gratitude of every soul in the settlement."
+      },
+      "playerResponses": [
+        { "text": "If they come back, you know where to find me.", "action": "ACCEPT" },
+        { "text": "You should run those stragglers down before they regroup.", "action": "ACCEPT" },
+        { "text": "One problem at a time. Pay me and I'll be on my way.", "action": "ACCEPT" }
+      ],
+      "objectivePool": [],
+      "objectiveConfig": {}
+    }
+  ]
+}

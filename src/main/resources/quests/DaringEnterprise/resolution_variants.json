@@ -1,0 +1,49 @@
+{
+  "variants": [
+    {
+      "id": "daring_reso_triumph",
+      "dialogueChunks": {
+        "intro": "Ha! Look at you, walking in like a conquering hero! And rightfully so!",
+        "plotStep": "I knew you had it in you, {player_name}. When I first laid eyes on you, I thought: there's someone who doesn't know the meaning of impossible. The {quest_item} is secured, the route is clear, and {target_npc} is already telling everyone from here to {location} about what we accomplished.",
+        "outro": "Your share of the spoils, as promised. And if you ever want to chase another impossible dream, you know where to find me."
+      },
+      "playerResponses": [
+        { "text": "Best partnership I've had in years. Until next time.", "action": "ACCEPT" },
+        { "text": "The treasure was worth the trouble. Barely.", "action": "ACCEPT" },
+        { "text": "Just hand over my cut and we'll call it even.", "action": "ACCEPT", "dispositionShift": -5 }
+      ],
+      "objectivePool": [],
+      "objectiveConfig": {}
+    },
+    {
+      "id": "daring_reso_pyrrhic",
+      "dialogueChunks": {
+        "intro": "You're alive. After what happened in there, I honestly didn't expect to see you again.",
+        "plotStep": "We got the {quest_item}, yes, but the cost... {target_npc} didn't make it out. The cave collapsed behind you, sealing everything else inside. Half our equipment is buried under rubble. The enterprise succeeded by the narrowest of margins, and I find myself wondering if it was worth the price.",
+        "outro": "Take your share. You earned every piece of it and then some. I need time to think about whether I'll ever attempt something like this again."
+      },
+      "playerResponses": [
+        { "text": "We knew the risks going in. {target_npc} did too.", "action": "ACCEPT" },
+        { "text": "Next time, do better reconnaissance.", "action": "ACCEPT", "dispositionShift": -5 },
+        { "text": "Some victories leave scars. This is one of them.", "action": "ACCEPT" }
+      ],
+      "objectivePool": [],
+      "objectiveConfig": {}
+    },
+    {
+      "id": "daring_reso_fame",
+      "dialogueChunks": {
+        "intro": "{player_name}! Come here, come here! You won't believe what's happened!",
+        "plotStep": "Word of our enterprise has spread like wildfire! Merchants from three settlements are already bidding on the {quest_item}, and the scholars at {location} want to study it. {target_npc} brokered a deal that will fund a dozen more expeditions. Your name is on everyone's lips: the adventurer who went where no one dared and came back with proof.",
+        "outro": "Here's your share from the initial sale. And mark my words: this is just the beginning. You and I are going to do great things."
+      },
+      "playerResponses": [
+        { "text": "Fame and fortune in one trip? I could get used to this.", "action": "ACCEPT" },
+        { "text": "The money is nice, but the adventure was the real reward.", "action": "ACCEPT" },
+        { "text": "I'll let you handle the fame. Just keep my share coming.", "action": "ACCEPT" }
+      ],
+      "objectivePool": [],
+      "objectiveConfig": {}
+    }
+  ]
+}

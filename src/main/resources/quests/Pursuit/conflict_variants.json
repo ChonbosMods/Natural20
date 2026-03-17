@@ -1,0 +1,61 @@
+{
+  "variants": [
+    {
+      "id": "pursuit_conf_doubled_back",
+      "dialogueChunks": {
+        "intro": "Report just came in, {player_name}. The situation has changed drastically.",
+        "plotStep": "The target doubled back. While you were tracking {location_hint}, it circled around and hit {location} again. Took more {quest_item} and injured {target_npc} in the process. This thing is smarter than we thought: it's not running, it's playing with us. We found a second trail heading in a completely different direction, and {target_npc} swears they saw at least two more {enemy_type} with it this time.",
+        "outro": "It's building a force. We need to find its base before this becomes a full-scale siege."
+      },
+      "playerResponses": [
+        { "text": "Smart prey makes for a better hunt. I'll find its den.", "action": "ACCEPT" },
+        { "text": "You said this was one target. Now it's a warband? I need more support.", "action": "ACCEPT", "dispositionShift": -5 },
+        { "text": "This is out of control. You need an army, not one person.", "action": "DECLINE" }
+      ],
+      "objectivePool": ["EXPLORE_LOCATION", "KILL_MOBS", "KILL_NPC"],
+      "objectiveConfig": {
+        "EXPLORE_LOCATION": { "countMin": 2, "countMax": 3 },
+        "KILL_MOBS": { "countMin": 5, "countMax": 10 },
+        "KILL_NPC": { "countMin": 1, "countMax": 1 }
+      }
+    },
+    {
+      "id": "pursuit_conf_false_trail",
+      "dialogueChunks": {
+        "intro": "We've been played, {player_name}. That trail was a decoy.",
+        "plotStep": "The tracks you followed? Planted deliberately to lead us in circles while the real target moved {location_hint}. A farmer near the edge of {location} saw {enemy_type} dragging something heavy through the fields at midnight. Whatever they took, they're moving it toward the old ruins. {target_npc} thinks they're fortifying a position there, which means they're not planning to leave.",
+        "outro": "We've lost time, but not the hunt. Get to those ruins before they dig in any deeper."
+      },
+      "playerResponses": [
+        { "text": "Decoys mean they're afraid of being found. Good. I'm close.", "action": "ACCEPT" },
+        { "text": "I wasted an entire day on a false trail. This better be the right one.", "action": "ACCEPT", "dispositionShift": -5 },
+        { "text": "I'm chasing ghosts. Someone else can take over.", "action": "DECLINE" }
+      ],
+      "objectivePool": ["EXPLORE_LOCATION", "KILL_MOBS", "TALK_TO_NPC"],
+      "objectiveConfig": {
+        "EXPLORE_LOCATION": { "countMin": 1, "countMax": 3 },
+        "KILL_MOBS": { "countMin": 4, "countMax": 8 },
+        "TALK_TO_NPC": { "countMin": 1, "countMax": 1 }
+      }
+    },
+    {
+      "id": "pursuit_conf_hostage",
+      "dialogueChunks": {
+        "intro": "{player_name}, listen carefully. This just became a rescue mission.",
+        "plotStep": "The {enemy_type} we've been tracking took a prisoner: {target_npc} was captured during their last raid on {location}. A runner spotted them being dragged toward a camp {location_hint}. If we go in with force, the captors might harm {target_npc} before we can reach them. But if we wait too long, they'll disappear with their hostage into the deep wilderness.",
+        "outro": "We need speed and precision. Find the camp, locate {target_npc}, and bring them back alive. The {enemy_type} are secondary: the hostage is what matters."
+      },
+      "playerResponses": [
+        { "text": "I'll get them out. No one gets left behind.", "action": "ACCEPT" },
+        { "text": "Rescue and pursuit at once? This is going to cost extra.", "action": "ACCEPT", "dispositionShift": -5 },
+        { "text": "A hostage situation is beyond what I signed up for.", "action": "DECLINE" }
+      ],
+      "objectivePool": ["EXPLORE_LOCATION", "TALK_TO_NPC", "KILL_MOBS"],
+      "objectiveConfig": {
+        "EXPLORE_LOCATION": { "countMin": 1, "countMax": 2 },
+        "TALK_TO_NPC": { "countMin": 1, "countMax": 1 },
+        "KILL_MOBS": { "countMin": 3, "countMax": 7 }
+      }
+    }
+  ]
+}

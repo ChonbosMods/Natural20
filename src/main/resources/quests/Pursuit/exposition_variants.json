@@ -1,0 +1,61 @@
+{
+  "variants": [
+    {
+      "id": "pursuit_expo_escaped_prisoner",
+      "dialogueChunks": {
+        "intro": "{player_name}, stop. We have an emergency and I need someone who can move fast.",
+        "plotStep": "A dangerous {enemy_type} broke free from the holding cells at {location} last night. Killed two sentries on the way out and took a {quest_item} from the armory. We tracked it heading {location_hint} but lost the trail at the river crossing. Every hour we waste, it gets farther away and more entrenched. {target_npc} is organizing a perimeter, but we need a tracker to run it down.",
+        "outro": "Time is against us. Will you take up the hunt?"
+      },
+      "playerResponses": [
+        { "text": "Show me where you lost the trail. I'll pick it up.", "action": "ACCEPT" },
+        { "text": "What's in it for me if I catch this thing?", "action": "ACCEPT", "dispositionShift": -5 },
+        { "text": "Not my problem. Hire a bounty hunter.", "action": "DECLINE" }
+      ],
+      "objectivePool": ["KILL_NPC", "EXPLORE_LOCATION", "TALK_TO_NPC"],
+      "objectiveConfig": {
+        "KILL_NPC": { "countMin": 1, "countMax": 1 },
+        "EXPLORE_LOCATION": { "countMin": 2, "countMax": 3 },
+        "TALK_TO_NPC": { "countMin": 1, "countMax": 2 }
+      }
+    },
+    {
+      "id": "pursuit_expo_monster_hunt",
+      "dialogueChunks": {
+        "intro": "You there, {player_name}. I can see from your gear that you know how to handle yourself. Good. We need that right now.",
+        "plotStep": "A pack of {enemy_type} has been raiding livestock near {location} for weeks. Three farms hit in the last four days alone. We've found their tracks leading {location_hint}, but every patrol I send comes back empty-handed or doesn't come back at all. These aren't ordinary beasts: they're organized, hitting at night and vanishing before dawn.",
+        "outro": "I need someone who can track them to their den and end this. Before the next farm they hit has people in it instead of animals."
+      },
+      "playerResponses": [
+        { "text": "Organized predators? I know how to break a pack. Let's move.", "action": "ACCEPT" },
+        { "text": "I'll hunt them, but I keep whatever I find in their den.", "action": "ACCEPT", "dispositionShift": -5 },
+        { "text": "Your patrols should handle this. It's not my fight.", "action": "DECLINE" }
+      ],
+      "objectivePool": ["KILL_MOBS", "EXPLORE_LOCATION", "KILL_NPC"],
+      "objectiveConfig": {
+        "KILL_MOBS": { "countMin": 6, "countMax": 14 },
+        "EXPLORE_LOCATION": { "countMin": 1, "countMax": 2 },
+        "KILL_NPC": { "countMin": 1, "countMax": 1 }
+      }
+    },
+    {
+      "id": "pursuit_expo_informant",
+      "dialogueChunks": {
+        "intro": "Keep your voice down, {player_name}. What I'm about to tell you doesn't leave this room.",
+        "plotStep": "We've been tracking a spy who's been feeding information about {location}'s defenses to a {enemy_type} warband. {target_npc} intercepted a coded message last night: the next attack is being planned as we speak. The spy was last seen heading {location_hint}. We need someone to follow the trail quietly, find out who they're reporting to, and put a stop to it before the warband strikes.",
+        "outro": "Stealth and speed, {player_name}. Find the source and cut it off."
+      },
+      "playerResponses": [
+        { "text": "I'll shadow the trail and find their contact.", "action": "ACCEPT" },
+        { "text": "Spy hunting is delicate work. I expect proper compensation.", "action": "ACCEPT", "dispositionShift": -5 },
+        { "text": "This sounds like a job for your own intelligence people.", "action": "DECLINE" }
+      ],
+      "objectivePool": ["TALK_TO_NPC", "EXPLORE_LOCATION", "KILL_NPC"],
+      "objectiveConfig": {
+        "TALK_TO_NPC": { "countMin": 1, "countMax": 2 },
+        "EXPLORE_LOCATION": { "countMin": 2, "countMax": 3 },
+        "KILL_NPC": { "countMin": 1, "countMax": 1 }
+      }
+    }
+  ]
+}
