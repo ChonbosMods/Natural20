@@ -4,8 +4,8 @@
       "id": "expo_rivalry_sup_inf_01",
       "dialogueChunks": {
         "intro": "{player_name}, the people at the bottom and the people at the top are sharpening things that shouldn't be sharpened. Someone from outside needs to step in.",
-        "plotStep": "Since {quest_origin}, {quest_focus} has been building for years. The people in power are eating well while the rest choose between food and firewood. {quest_threat} is escalating and someone from outside needs to {quest_action} before this turns to bloodshed.",
-        "outro": "{quest_time_pressure}. After that, talking won't matter. {quest_stakes} depends on both sides believing they're being heard."
+        "plotStep": "Since {quest_origin}, the {quest_focus} {quest_focus_has} been building for years. The people in power are eating well while the rest choose between food and firewood. The {quest_threat} {quest_threat_is} escalating and someone from outside needs to {quest_action} before this turns to bloodshed.",
+        "outro": "{quest_time_pressure}. After that, talking won't matter. The {quest_stakes} depends on both sides believing they're being heard."
       },
       "playerResponses": [
         {
@@ -30,8 +30,8 @@
       "id": "expo_rivalry_sup_inf_02",
       "dialogueChunks": {
         "intro": "The powerful took everything, {player_name}. Sent soldiers in and carted off what the workers had earned. Said it was owed in back debts. Nobody remembers any debt being agreed upon.",
-        "plotStep": "{quest_focus} is locked in {quest_origin} under guard. The families who spent months earning it are standing outside with empty hands. The powerful say it stays until the 'debt' is paid. The workers say there is no debt.",
-        "outro": "If someone doesn't {quest_action}, {quest_threat} will destroy {quest_stakes} before long. {quest_item} {location_hint} might hold proof of who's telling the truth."
+        "plotStep": "The {quest_focus} {quest_focus_is} locked in {quest_origin} under guard. The families who spent months earning it are standing outside with empty hands. The powerful say it stays until the 'debt' is paid. The workers say there is no debt.",
+        "outro": "If someone doesn't {quest_action}, the {quest_threat} will destroy the {quest_stakes} before long. {quest_item} {location_hint} might hold proof of who's telling the truth."
       },
       "playerResponses": [
         {
@@ -56,8 +56,8 @@
       "id": "expo_rivalry_sup_inf_03",
       "dialogueChunks": {
         "intro": "Every year, the system claims to reward merit. Every year, the same families win and the rest fail. The pattern isn't subtle anymore, {player_name}.",
-        "plotStep": "{quest_focus} is designed to keep power in the same hands, dressed up as fairness. The lower ranks work twice as hard and fail on tests they were never given the tools to pass. One of them found proof that {quest_focus} changes every time an outsider gets close to succeeding.",
-        "outro": "If someone could {quest_action}, the whole rotten system collapses. But the powerful have influence everywhere. {quest_stakes} hangs in the balance. {quest_reward_hint} might follow if justice prevails."
+        "plotStep": "The {quest_focus} {quest_focus_is} designed to keep power in the same hands, dressed up as fairness. The lower ranks work twice as hard and fail on tests they were never given the tools to pass. One of them found proof that the {quest_focus} changes every time an outsider gets close to succeeding.",
+        "outro": "If someone could {quest_action}, the whole rotten system collapses. But the powerful have influence everywhere. the {quest_stakes} hangs in the balance. {quest_reward_hint} might follow if justice prevails."
       },
       "playerResponses": [
         {

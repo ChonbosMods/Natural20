@@ -34,7 +34,7 @@
       "id": "conf_necessity_sacrifice_02",
       "dialogueChunks": {
         "intro": "The rescue plan hit a wall. The {enemy_type} moved the captives deeper into their territory. {quest_ally} barely made it back alive.",
-        "plotStep": "{target_npc} intercepted a message: the {enemy_type} are splitting the hostages into two groups at different locations. We can reach one in time but not both. {quest_ally} says {quest_stakes} is at risk no matter what we choose.",
+        "plotStep": "{target_npc} intercepted a message: the {enemy_type} are splitting the hostages into two groups at different locations. We can reach one in time but not both. {quest_ally} says the {quest_stakes} {quest_stakes_is} at risk no matter what we choose.",
         "outro": "Choose which group to save and someone dies. Refuse to choose and everyone dies. Find {quest_item}: it might give us the edge to reach both, but it means going through hostile territory first."
       },
       "playerResponses": [
@@ -57,9 +57,9 @@
     {
       "id": "conf_necessity_sacrifice_03",
       "dialogueChunks": {
-        "intro": "{quest_focus} is weakening on its own, {player_name}. We might not even need to destroy it: it might collapse by itself.",
+        "intro": "The {quest_focus} {quest_focus_is} weakening on its own, {player_name}. We might not even need to destroy it: it might collapse by itself.",
         "plotStep": "{target_npc} found an alternate route downstream, but {enemy_type} scouts are already patrolling it. The stranded people include children and elders who can barely walk. Getting them to safety means moving slowly through open ground.",
-        "outro": "Clear the patrols and mark the path with {quest_item}. If {quest_focus} fails before everyone crosses, the alternate route is their only chance."
+        "outro": "Clear the patrols and mark the path with {quest_item}. If the {quest_focus} fails before everyone crosses, the alternate route is their only chance."
       },
       "playerResponses": [
         {
@@ -68,7 +68,7 @@
           "dispositionShift": 5
         },
         {
-          "text": "Can {quest_focus} hold long enough for them to cross normally?",
+          "text": "Can the {quest_focus} hold long enough for them to cross normally?",
           "action": "ACCEPT",
           "dispositionShift": 1
         },

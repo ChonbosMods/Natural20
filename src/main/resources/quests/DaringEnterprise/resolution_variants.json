@@ -3,8 +3,8 @@
     {
       "id": "daringenterprise_reso_01",
       "dialogueChunks": {
-        "intro": "We did it, {player_name}. Against all odds, we managed to {quest_action}. {quest_focus} is ours.",
-        "plotStep": "{quest_threat} are no longer a concern, and {quest_stakes} are secured. {quest_ally} is already talking about what comes next.",
+        "intro": "We did it, {player_name}. Against all odds, we managed to {quest_action}. The {quest_focus} is ours.",
+        "plotStep": "The {quest_threat} {quest_threat_is} no longer a concern, and the {quest_stakes} {quest_stakes_is} secured. {quest_ally} is already talking about what comes next.",
         "outro": "None of this would have been possible without your courage. You turned a wild ambition into reality."
       },
       "playerResponses": [
@@ -18,8 +18,8 @@
     {
       "id": "daringenterprise_reso_02",
       "dialogueChunks": {
-        "intro": "{player_name}, I can hardly believe it worked. {quest_focus} has been opened, and what we found inside exceeded every expectation.",
-        "plotStep": "{quest_stakes} are now within our grasp. The scholars and traders are already making plans. {quest_threat} proved formidable, but your determination proved greater.",
+        "intro": "{player_name}, I can hardly believe it worked. The {quest_focus} {quest_focus_has} been opened, and what we found inside exceeded every expectation.",
+        "plotStep": "The {quest_stakes} {quest_stakes_is} now within our grasp. The scholars and traders are already making plans. The {quest_threat} proved formidable, but your determination proved greater.",
         "outro": "History will remember this enterprise. And your name will be part of it."
       },
       "playerResponses": [
@@ -32,8 +32,8 @@
     {
       "id": "daringenterprise_reso_03",
       "dialogueChunks": {
-        "intro": "The impossible is now possible, {player_name}. Thanks to your efforts to {quest_action}, {quest_focus} is finally accessible.",
-        "plotStep": "Trade caravans, scholars, settlers: they will all benefit from what you have accomplished. {quest_stakes} are no longer just a dream.",
+        "intro": "The impossible is now possible, {player_name}. Thanks to your efforts to {quest_action}, the {quest_focus} is finally accessible.",
+        "plotStep": "Trade caravans, scholars, settlers: they will all benefit from what you have accomplished. The {quest_stakes} {quest_stakes_is} no longer just a dream.",
         "outro": "You dared greatly, and the rewards speak for themselves. Thank you."
       },
       "playerResponses": [

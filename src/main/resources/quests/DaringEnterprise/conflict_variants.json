@@ -4,8 +4,8 @@
       "id": "daringenterprise_conf_01",
       "dialogueChunks": {
         "intro": "{player_name}, the enterprise is not going as planned. Your work to {quest_action} uncovered something we did not expect.",
-        "plotStep": "{quest_threat} are far more dangerous than we anticipated. {quest_ally} barely made it back from {quest_focus} alive. We need to push through: {quest_item} can be found {location_hint} and may give us the edge we need.",
-        "outro": "We have come too far to turn back now. {quest_stakes} are within reach."
+        "plotStep": "The {quest_threat} {quest_threat_is} far more dangerous than we anticipated. {quest_ally} barely made it back from the {quest_focus} alive. We need to push through: {quest_item} can be found {location_hint} and may give us the edge we need.",
+        "outro": "We have come too far to turn back now. The {quest_stakes} {quest_stakes_is} within reach."
       },
       "playerResponses": [
         { "text": "We press forward. No turning back.", "action": "ACCEPT", "dispositionShift": 10 },
@@ -21,9 +21,9 @@
     {
       "id": "daringenterprise_conf_02",
       "dialogueChunks": {
-        "intro": "Complications, {player_name}. After you managed to {quest_action}, we triggered something. {quest_threat} have become agitated.",
-        "plotStep": "The {enemy_type} are now actively guarding the area around {quest_focus}. {quest_ally} thinks we need to deal with them directly before we can proceed. They have been concentrated {location_hint}.",
-        "outro": "We are so close. Clear the way and {quest_stakes} will be ours."
+        "intro": "Complications, {player_name}. After you managed to {quest_action}, we triggered something. The {quest_threat} {quest_threat_has} become agitated.",
+        "plotStep": "The {enemy_type} are now actively guarding the area around the {quest_focus}. {quest_ally} thinks we need to deal with them directly before we can proceed. They have been concentrated {location_hint}.",
+        "outro": "We are so close. Clear the way and the {quest_stakes} will be ours."
       },
       "playerResponses": [
         { "text": "Nothing worth having comes easy. I will clear them out.", "action": "ACCEPT", "dispositionShift": 5 },
@@ -37,9 +37,9 @@
     {
       "id": "daringenterprise_conf_03",
       "dialogueChunks": {
-        "intro": "{player_name}, I will not sugarcoat it. Our attempt to {quest_action} hit a wall. {quest_threat} destroyed our preparations.",
+        "intro": "{player_name}, I will not sugarcoat it. Our attempt to {quest_action} hit a wall. The {quest_threat} destroyed our preparations.",
         "plotStep": "We need to start over, and quickly. {quest_ally} says there is an alternate approach through an area {location_hint}, but {enemy_type} have been seen there. Someone needs to scout ahead and secure {quest_item} for a second attempt.",
-        "outro": "{quest_stakes} slip further away every day we delay. Are you still with us?"
+        "outro": "The {quest_stakes} {quest_stakes_is} slipping further away every day we delay. Are you still with us?"
       },
       "playerResponses": [
         { "text": "A setback, not a defeat. Let us try again.", "action": "ACCEPT", "dispositionShift": 10 },

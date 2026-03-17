@@ -52,7 +52,7 @@
     {
       "id": "reso_rivalry_sup_inf_03",
       "dialogueChunks": {
-        "intro": "The neutral authority ruled unanimously. {quest_focus} is suspended pending a complete overhaul. Those responsible have been stripped of their positions.",
+        "intro": "The neutral authority ruled unanimously. The {quest_focus} {quest_focus_is} suspended pending a complete overhaul. Those responsible have been stripped of their positions.",
         "plotStep": "The expelled worker was reinstated with a formal apology. {target_npc} says many others who were failed unfairly are being reassessed. {quest_ally} is drafting new standards with input from every level.",
         "outro": "The powerful won't forgive you easily, {player_name}. But the workers who can finally earn what they deserve will remember. Sometimes the underdog just needed a fair chance, not a revolution. You gave them one."
       },

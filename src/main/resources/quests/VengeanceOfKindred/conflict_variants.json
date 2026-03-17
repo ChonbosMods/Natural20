@@ -3,8 +3,8 @@
     {
       "id": "vengeancekindred_conf_01",
       "dialogueChunks": {
-        "intro": "{player_name}, your work to {quest_action} has stirred up a hornet's nest. {quest_threat} know someone is coming for them.",
-        "plotStep": "They sent {enemy_type} to strike at {quest_stakes} as a warning. {quest_ally} fended them off, but they hit hard. They are massing {location_hint} near {quest_focus}. We cannot let this go unanswered.",
+        "intro": "{player_name}, your work to {quest_action} has stirred up a hornet's nest. The {quest_threat} {quest_threat_is} aware someone is coming for them.",
+        "plotStep": "They sent {enemy_type} to strike at the {quest_stakes} as a warning. {quest_ally} fended them off, but they hit hard. They are massing {location_hint} near the {quest_focus}. We cannot let this go unanswered.",
         "outro": "Every day they draw breath is an insult to the ones we lost. Finish it."
       },
       "playerResponses": [
@@ -20,8 +20,8 @@
     {
       "id": "vengeancekindred_conf_02",
       "dialogueChunks": {
-        "intro": "Your pursuit to {quest_action} flushed them out, {player_name}. But {quest_threat} scattered and regrouped closer to {quest_focus}.",
-        "plotStep": "{quest_ally} says the {enemy_type} are dug in deep {location_hint}. They are using {quest_focus} as a strongpoint. We need to root them out before they can retaliate against {quest_stakes} again.",
+        "intro": "Your pursuit to {quest_action} flushed them out, {player_name}. But the {quest_threat} scattered and regrouped closer to the {quest_focus}.",
+        "plotStep": "{quest_ally} says the {enemy_type} are dug in deep {location_hint}. They are using the {quest_focus} as a strongpoint. We need to root them out before they can retaliate against the {quest_stakes} again.",
         "outro": "We are close. One more push and this will be over."
       },
       "playerResponses": [
@@ -37,8 +37,8 @@
     {
       "id": "vengeancekindred_conf_03",
       "dialogueChunks": {
-        "intro": "{player_name}, the situation has shifted. Since you started to {quest_action}, {quest_threat} retaliated by targeting our supplies.",
-        "plotStep": "They raided the stores near {quest_focus} and the {enemy_type} are blocking the routes {location_hint}. {quest_ally} is rallying the community, but they need a fighter. Secure {quest_item} and clear the path.",
+        "intro": "{player_name}, the situation has shifted. Since you started to {quest_action}, the {quest_threat} retaliated by targeting our supplies.",
+        "plotStep": "They raided the stores near the {quest_focus} and the {enemy_type} are blocking the routes {location_hint}. {quest_ally} is rallying the community, but they need a fighter. Secure {quest_item} and clear the path.",
         "outro": "Our kin deserve better than to be terrorized. End this threat for good."
       },
       "playerResponses": [

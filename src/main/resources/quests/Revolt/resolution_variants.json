@@ -3,8 +3,8 @@
     {
       "id": "revolt_reso_01",
       "dialogueChunks": {
-        "intro": "Freedom, {player_name}. Real, hard-won freedom. {quest_threat} have been overthrown, and {quest_stakes} are free at last.",
-        "plotStep": "{quest_focus} flies our banner now. {quest_ally} is helping establish a fair council to govern in place of the old authority. The people are choosing their own future for the first time.",
+        "intro": "Freedom, {player_name}. Real, hard-won freedom. The {quest_threat} {quest_threat_has} been overthrown, and the {quest_stakes} {quest_stakes_is} free at last.",
+        "plotStep": "The {quest_focus} flies our banner now. {quest_ally} is helping establish a fair council to govern in place of the old authority. The people are choosing their own future for the first time.",
         "outro": "You gave teeth to a dream that most thought impossible. We will never forget this."
       },
       "playerResponses": [
@@ -18,8 +18,8 @@
     {
       "id": "revolt_reso_02",
       "dialogueChunks": {
-        "intro": "{player_name}, the revolt succeeded. Your help to {quest_action} tipped the balance. {quest_threat} collapsed once the people stood united.",
-        "plotStep": "{quest_stakes} are celebrating in the streets. {quest_focus} has been reclaimed by the people. {quest_ally} is already drafting new agreements to ensure this never happens again.",
+        "intro": "{player_name}, the revolt succeeded. Your help to {quest_action} tipped the balance. The {quest_threat} collapsed once the people stood united.",
+        "plotStep": "The {quest_stakes} {quest_stakes_is} celebrating in the streets. The {quest_focus} {quest_focus_has} been reclaimed by the people. {quest_ally} is already drafting new agreements to ensure this never happens again.",
         "outro": "You stood with the oppressed and helped them rise. That is a legacy to be proud of."
       },
       "playerResponses": [
@@ -32,8 +32,8 @@
     {
       "id": "revolt_reso_03",
       "dialogueChunks": {
-        "intro": "It is over, {player_name}. The old regime is gone. {quest_threat} fled when they saw the people would not back down.",
-        "plotStep": "{quest_stakes} are rebuilding on their own terms now. {quest_focus} serves the community instead of one tyrant. {quest_ally} says the mood is cautious but hopeful.",
+        "intro": "It is over, {player_name}. The old regime is gone. The {quest_threat} fled when they saw the people would not back down.",
+        "plotStep": "The {quest_stakes} {quest_stakes_is} rebuilding on their own terms now. The {quest_focus} serves the community instead of one tyrant. {quest_ally} says the mood is cautious but hopeful.",
         "outro": "Change is always frightening. But you showed us it is possible. Thank you."
       },
       "playerResponses": [

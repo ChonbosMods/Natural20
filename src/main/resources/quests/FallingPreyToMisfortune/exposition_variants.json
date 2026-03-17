@@ -3,8 +3,8 @@
     {
       "id": "misfortune_expo_01",
       "dialogueChunks": {
-        "intro": "{player_name}, cruel fate has dealt us a terrible hand. {quest_origin} brought {quest_threat} upon us, and now {quest_focus} is crumbling before our eyes.",
-        "plotStep": "No one caused this on purpose. It is just bad luck, but {quest_stakes} will pay the price unless we {quest_action}. {quest_ally} heard that {quest_item} found {location_hint} might help us recover.",
+        "intro": "{player_name}, cruel fate has dealt us a terrible hand. {quest_origin} brought the {quest_threat} upon us, and now the {quest_focus} {quest_focus_is} crumbling before our eyes.",
+        "plotStep": "No one caused this on purpose. It is just bad luck, but the {quest_stakes} will pay the price unless we {quest_action}. {quest_ally} heard that {quest_item} found {location_hint} might help us recover.",
         "outro": "We did nothing wrong and yet we suffer. Please help us fight back against this misfortune."
       },
       "playerResponses": [
@@ -21,7 +21,7 @@
     {
       "id": "misfortune_expo_02",
       "dialogueChunks": {
-        "intro": "It was not an attack, {player_name}. Just bad timing and {quest_threat}. {quest_focus} gave way and now {quest_stakes} are cut off with no way to reach us.",
+        "intro": "It was not an attack, {player_name}. Just bad timing and the {quest_threat}. The {quest_focus} gave way and now the {quest_stakes} {quest_stakes_is} cut off with no way to reach us.",
         "plotStep": "We need to {quest_action} {quest_time_pressure}, or they will be stranded. The {enemy_type} have moved into the gap {location_hint}, making it even harder. We need {quest_item} for the repair.",
         "outro": "Those people cannot survive alone out there. Please hurry."
       },
@@ -39,9 +39,9 @@
     {
       "id": "misfortune_expo_03",
       "dialogueChunks": {
-        "intro": "{player_name}, {quest_threat} from {quest_origin} scattered our supplies across the area. {quest_focus} is buried in the debris and {quest_stakes} are at risk.",
+        "intro": "{player_name}, the {quest_threat} from {quest_origin} scattered our supplies across the area. The {quest_focus} {quest_focus_is} buried in the debris and the {quest_stakes} {quest_stakes_is} at risk.",
         "plotStep": "We need to {quest_action} before scavengers pick it clean. The {enemy_type} are already circling {location_hint}. Recover as many {quest_item} as you can find.",
-        "outro": "Without {quest_stakes}, we face a long stretch with nothing. You would earn {quest_reward_hint} for helping."
+        "outro": "Without the {quest_stakes}, we face a long stretch with nothing. You would earn {quest_reward_hint} for helping."
       },
       "playerResponses": [
         { "text": "I will recover everything I can. No promises, but I will try.", "action": "ACCEPT", "dispositionShift": 5 },

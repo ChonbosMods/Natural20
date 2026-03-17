@@ -3,8 +3,8 @@
     {
       "id": "expo_necessity_sacrifice_01",
       "dialogueChunks": {
-        "intro": "{player_name}, the council voted last night. If we can't find a solution by the deadline, they're going to sacrifice {quest_stakes} to save the rest.",
-        "plotStep": "There are people trapped by {quest_threat}. The council says it's a few lives against many. They're not wrong about the math, but they might be wrong about the deadline. {quest_origin} might hold answers, but nobody has dared go there since the {enemy_type} moved in. Someone needs to {quest_action} {quest_time_pressure}.",
+        "intro": "{player_name}, the council voted last night. If we can't find a solution by the deadline, they're going to sacrifice the {quest_stakes} to save the rest.",
+        "plotStep": "There are people trapped by the {quest_threat}. The council says it's a few lives against many. They're not wrong about the math, but they might be wrong about the deadline. {quest_origin} might hold answers, but nobody has dared go there since the {enemy_type} moved in. Someone needs to {quest_action} {quest_time_pressure}.",
         "outro": "I can't just watch them be abandoned. Not while there's still a chance."
       },
       "playerResponses": [
@@ -31,7 +31,7 @@
     {
       "id": "expo_necessity_sacrifice_02",
       "dialogueChunks": {
-        "intro": "The {enemy_type} sent {quest_focus} this morning, {player_name}. They have our people. They want our survival stores in exchange. All of them.",
+        "intro": "The {enemy_type} sent the {quest_focus} this morning, {player_name}. They have our people. They want our survival stores in exchange. All of them.",
         "plotStep": "If we surrender the stores, the settlement starves. If we refuse, families lose someone they love. The {enemy_type} chose their hostages carefully: people the settlement can't bear to lose. Every option on the table costs lives.",
         "outro": "There might be a third option. {quest_origin} is where they're being held. If someone could {quest_action} before the deadline, we wouldn't have to choose which of our people to sacrifice. {quest_item} {location_hint} could give us the edge we need."
       },
@@ -59,9 +59,9 @@
     {
       "id": "expo_necessity_sacrifice_03",
       "dialogueChunks": {
-        "intro": "The commander wants to destroy {quest_focus}. It's the only thing between {quest_threat} and the settlement, {player_name}. But there are still people on the other side.",
-        "plotStep": "If {quest_focus} stands, the {enemy_type} pour through and everyone dies. If we destroy it now, the people on the far side are cut off with no escape. The commander is waiting for an answer. I don't have one.",
-        "outro": "If there's another way through, somewhere beyond {quest_focus}, those people have a chance. Someone needs to {quest_action} {quest_time_pressure}. Once the order is given, there's no going back."
+        "intro": "The commander wants to destroy the {quest_focus}. It's the only thing between the {quest_threat} and the settlement, {player_name}. But there are still people on the other side.",
+        "plotStep": "If the {quest_focus} stands, the {enemy_type} pour through and everyone dies. If we destroy it now, the people on the far side are cut off with no escape. The commander is waiting for an answer. I don't have one.",
+        "outro": "If there's another way through, somewhere beyond the {quest_focus}, those people have a chance. Someone needs to {quest_action} {quest_time_pressure}. Once the order is given, there's no going back."
       },
       "playerResponses": [
         {
@@ -70,7 +70,7 @@
           "dispositionShift": 5
         },
         {
-          "text": "How long can {quest_focus} hold without being destroyed?",
+          "text": "How long can the {quest_focus} hold without being destroyed?",
           "action": "ACCEPT",
           "dispositionShift": 2
         }

@@ -3,8 +3,8 @@
     {
       "id": "deliverance_reso_01",
       "dialogueChunks": {
-        "intro": "They are free, {player_name}. You did it. {quest_stakes} are safe, and {quest_threat} have been driven off for good.",
-        "plotStep": "I saw faces I thought I would never see again walking back through our gates. {quest_focus} no longer holds any power over us. {quest_ally} is helping everyone settle back in.",
+        "intro": "They are free, {player_name}. You did it. The {quest_stakes} {quest_stakes_is} safe, and the {quest_threat} {quest_threat_has} been driven off for good.",
+        "plotStep": "I saw faces I thought I would never see again walking back through our gates. The {quest_focus} no longer holds any power over us. {quest_ally} is helping everyone settle back in.",
         "outro": "You brought our people home. That is a debt beyond measure."
       },
       "playerResponses": [
@@ -18,8 +18,8 @@
     {
       "id": "deliverance_reso_02",
       "dialogueChunks": {
-        "intro": "{player_name}, against all odds you managed to {quest_action}. {quest_stakes} are back with us.",
-        "plotStep": "The healers are tending to them now. It will take time, but they will recover. {quest_threat} scattered when they saw you coming: I doubt they will try this again.",
+        "intro": "{player_name}, against all odds you managed to {quest_action}. The {quest_stakes} {quest_stakes_is} back with us.",
+        "plotStep": "The healers are tending to them now. It will take time, but they will recover. The {quest_threat} scattered when they saw you coming: I doubt they will try this again.",
         "outro": "You risked your life for strangers. That kind of courage is rare."
       },
       "playerResponses": [
@@ -32,8 +32,8 @@
     {
       "id": "deliverance_reso_03",
       "dialogueChunks": {
-        "intro": "Freedom. That is what you gave them, {player_name}. {quest_stakes} walked out of {quest_focus} alive because of you.",
-        "plotStep": "{quest_threat} have been broken. What was once a place of despair is now just rubble and bad memories. {quest_ally} says the rescued are already asking for you by name.",
+        "intro": "Freedom. That is what you gave them, {player_name}. The {quest_stakes} walked out of the {quest_focus} alive because of you.",
+        "plotStep": "The {quest_threat} {quest_threat_has} been broken. What was once a place of despair is now just rubble and bad memories. {quest_ally} says the rescued are already asking for you by name.",
         "outro": "You did something extraordinary today. This settlement will never forget it."
       },
       "playerResponses": [

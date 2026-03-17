@@ -35,7 +35,7 @@
       "dialogueChunks": {
         "intro": "We got the refugees to the halfway point, but scouts report a second {enemy_type} group approaching from {location_hint}. The diversion has been discovered.",
         "plotStep": "{target_npc} wants to split the column: send the fastest ahead while the rest shelter in a defensible position. {quest_ally} has already volunteered to stay with the slower group. Said they've lived long enough.",
-        "outro": "We need {quest_item} to fortify the shelter point. If {quest_ally} is going to hold the line for {quest_stakes}, at least give them a fighting chance."
+        "outro": "We need {quest_item} to fortify the shelter point. If {quest_ally} is going to hold the line for the {quest_stakes}, at least give them a fighting chance."
       },
       "playerResponses": [
         {
@@ -57,9 +57,9 @@
     {
       "id": "conf_sacrifice_kindred_03",
       "dialogueChunks": {
-        "intro": "A new breach opened in {quest_focus} an hour ago. The volunteer is waist-deep in danger and refusing to come out.",
+        "intro": "A new breach opened in the {quest_focus} an hour ago. The volunteer is waist-deep in danger and refusing to come out.",
         "plotStep": "{target_npc} tried to pull them back by force. They shoved them away and said there are families depending on this holding. We need more {quest_item} to reinforce from the other side.",
-        "outro": "{quest_threat} could take them any moment. But if this fails, {quest_stakes} lose everything. Find {quest_item} {location_hint} and bring it back before the next surge."
+        "outro": "The {quest_threat} could take them any moment. But if this fails, the {quest_stakes} lose everything. Find {quest_item} {location_hint} and bring it back before the next surge."
       },
       "playerResponses": [
         {
