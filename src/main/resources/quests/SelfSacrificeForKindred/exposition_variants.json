@@ -22,7 +22,7 @@
       "id": "self_sacrifice_for_kindred_expo_02",
       "dialogueChunks": {
         "intro": "You look like someone who's traveled far, {player_name}. Then you'll understand what it means to give up a home.",
-        "plotStep": "The dam above {location} is cracking. When it breaks, and it will break, the lower quarter floods. That's where the kitchens are, the root cellars, the communting hall: everything that keeps this community alive. I'm going to stay behind and operate the floodgates manually to redirect the worst of it away from the houses. {target_npc} says the mechanism needs {quest_item} to function. The parts are scattered in the old waterworks {location_hint}.",
+        "plotStep": "The dam above {location} is cracking. When it breaks, and it will break, the lower quarter floods. That's where the kitchens are, the root cellars, the community hall: everything that keeps this community alive. I'm going to stay behind and operate the floodgates manually to redirect the worst of it away from the houses. {target_npc} says the mechanism needs {quest_item} to function. The parts are scattered in the old waterworks {location_hint}.",
         "outro": "The floodgate room will fill when the dam goes. I know that. But if I can turn those wheels long enough, the homes survive. My neighbors survive. That's enough for me."
       },
       "playerResponses": [
