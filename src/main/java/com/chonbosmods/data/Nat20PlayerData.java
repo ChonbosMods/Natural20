@@ -97,6 +97,20 @@ public class Nat20PlayerData implements Component<EntityStore> {
         this.questFlags = questFlags != null ? new HashMap<>(questFlags) : new HashMap<>();
     }
 
+    // --- Quest System Helpers ---
+
+    public String getQuestData(String key) {
+        return questFlags.get(key);
+    }
+
+    public void setQuestData(String key, String jsonValue) {
+        questFlags.put(key, jsonValue);
+    }
+
+    public void removeQuestData(String key) {
+        questFlags.remove(key);
+    }
+
     public Map<String, Integer> getReputation() {
         return reputation;
     }

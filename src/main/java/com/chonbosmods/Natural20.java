@@ -9,6 +9,7 @@ import com.chonbosmods.dialogue.DialogueLoader;
 import com.chonbosmods.dialogue.DialogueManager;
 import com.chonbosmods.loot.Nat20EquipmentListener;
 import com.chonbosmods.loot.Nat20LootSystem;
+import com.chonbosmods.quest.QuestSystem;
 import com.chonbosmods.npc.BuilderActionNat20StartDialogue;
 import com.chonbosmods.npc.Nat20NpcManager;
 import com.chonbosmods.settlement.SettlementNpcDeathSystem;
@@ -42,6 +43,7 @@ public class Natural20 extends JavaPlugin {
     private final DialogueLoader dialogueLoader = new DialogueLoader();
     private final DialogueManager dialogueManager = new DialogueManager(dialogueLoader, actionRegistry);
     private final Nat20LootSystem lootSystem = new Nat20LootSystem();
+    private QuestSystem questSystem;
     private final Nat20EquipmentListener equipmentListener = new Nat20EquipmentListener(lootSystem);
     private SettlementRegistry settlementRegistry;
     private Config<Nat20GlobalData> globalConfig;
@@ -78,6 +80,10 @@ public class Natural20 extends JavaPlugin {
 
     public Nat20LootSystem getLootSystem() {
         return lootSystem;
+    }
+
+    public QuestSystem getQuestSystem() {
+        return questSystem;
     }
 
     public SettlementRegistry getSettlementRegistry() {
@@ -170,6 +176,10 @@ public class Natural20 extends JavaPlugin {
 
         // Rehydrate persisted unique items and inject I18n entries
         lootSystem.getItemRegistry().rehydrateAll();
+
+        // Initialize quest system
+        questSystem = new QuestSystem(settlementRegistry);
+        questSystem.loadTemplates(getDataDirectory().resolve("quests"));
 
         getLogger().atInfo().log("Natural 20 v" + getManifest().getVersion() + " started!");
     }
