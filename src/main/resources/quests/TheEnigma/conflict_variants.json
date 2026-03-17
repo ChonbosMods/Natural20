@@ -3,8 +3,8 @@
     {
       "id": "enigma_conf_deeper_puzzle",
       "dialogueChunks": {
-        "intro": "The initial investigation raised more questions than answers. {quest_focus} is connected to something larger, and the clues point toward {location_hint}.",
-        "plotStep": "The {enemy_type} have been guarding a second site near {location_hint}. Whatever {quest_threat} is, they seem to understand it better than we do. We need those {quest_item} fragments to piece together the pattern.",
+        "intro": "The initial investigation raised more questions than answers. The {quest_focus} {quest_focus_is} connected to something larger, and the clues point toward {location_hint}.",
+        "plotStep": "The {enemy_type} have been guarding a second site near {location_hint}. Whatever the {quest_threat} is, they seem to understand it better than we do. We need those {quest_item} fragments to piece together the pattern.",
         "outro": "Gather what you can from the area and drive off the {enemy_type} guarding it. Every piece of evidence brings us closer to understanding."
       },
       "playerResponses": [
@@ -27,8 +27,8 @@
     {
       "id": "enigma_conf_rival_seekers",
       "dialogueChunks": {
-        "intro": "We're not the only ones investigating {quest_focus}. {target_npc} reports that outsiders have been asking questions about the same sites, and they don't seem friendly.",
-        "plotStep": "These strangers want {quest_stakes} for themselves, and they've already ransacked one site near {location_hint}. If we don't act quickly, every trace of {quest_focus} will vanish into their hands.",
+        "intro": "We're not the only ones investigating the {quest_focus}. {target_npc} reports that outsiders have been asking questions about the same sites, and they don't seem friendly.",
+        "plotStep": "These strangers want the {quest_stakes} for themselves, and they've already ransacked one site near {location_hint}. If we don't act quickly, every trace of the {quest_focus} will vanish into their hands.",
         "outro": "Reach the remaining site before they do. Recover what you can and find out who these people are working for."
       },
       "playerResponses": [
@@ -49,8 +49,8 @@
     {
       "id": "enigma_conf_dangerous_truth",
       "dialogueChunks": {
-        "intro": "{quest_ally} studied the evidence you brought back and turned grim. {quest_focus} isn't just a curiosity: it's a warning.",
-        "plotStep": "The markings describe something that happened here before, something involving {quest_threat}. If the pattern repeats, {quest_stakes} could be at risk. The {enemy_type} near {location_hint} may be drawn by the same force.",
+        "intro": "{quest_ally} studied the evidence you brought back and turned grim. The {quest_focus} isn't just a curiosity: it's a warning.",
+        "plotStep": "The markings describe something that happened here before, something involving the {quest_threat}. If the pattern repeats, the {quest_stakes} could be at risk. The {enemy_type} near {location_hint} may be drawn by the same force.",
         "outro": "We need more information, but the remaining clues are in dangerous territory. Push into the area near {location_hint} and bring back anything that confirms the warning."
       },
       "playerResponses": [

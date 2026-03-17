@@ -3,8 +3,8 @@
     {
       "id": "deliverance_conf_01",
       "dialogueChunks": {
-        "intro": "{player_name}, your push to {quest_action} stirred them up. {quest_threat} have tightened their grip on {quest_focus}.",
-        "plotStep": "{quest_ally} managed to get a message from {quest_stakes}: they are alive but desperate. The {enemy_type} have reinforced their positions {location_hint}. We need to fight through before it is too late.",
+        "intro": "{player_name}, your push to {quest_action} stirred them up. The {quest_threat} {quest_threat_has} tightened their grip on the {quest_focus}.",
+        "plotStep": "{quest_ally} managed to get a message from the {quest_stakes}: they are alive but desperate. The {enemy_type} have reinforced their positions {location_hint}. We need to fight through before it is too late.",
         "outro": "We are so close. Do not let them slip away now."
       },
       "playerResponses": [
@@ -20,8 +20,8 @@
     {
       "id": "deliverance_conf_02",
       "dialogueChunks": {
-        "intro": "Things have gotten worse since you began to {quest_action}, {player_name}. {quest_threat} retaliated against {quest_stakes}.",
-        "plotStep": "{quest_ally} reports that the {enemy_type} moved {quest_stakes} deeper toward {quest_focus}. There is a back route {location_hint} that might let you slip past the main force. Bring {quest_item} to break through any barriers.",
+        "intro": "Things have gotten worse since you began to {quest_action}, {player_name}. The {quest_threat} retaliated against the {quest_stakes}.",
+        "plotStep": "{quest_ally} reports that the {enemy_type} moved the {quest_stakes} deeper toward the {quest_focus}. There is a back route {location_hint} that might let you slip past the main force. Bring {quest_item} to break through any barriers.",
         "outro": "This is their last move. If we can outmaneuver them, we win."
       },
       "playerResponses": [
@@ -37,8 +37,8 @@
     {
       "id": "deliverance_conf_03",
       "dialogueChunks": {
-        "intro": "{player_name}, I have grim news. Your work to {quest_action} revealed that {quest_threat} are not the only danger at {quest_focus}.",
-        "plotStep": "The {enemy_type} are using the area {location_hint} as a staging ground. {quest_ally} believes they plan to move {quest_stakes} permanently unless we act now. We need someone to scatter their forces and create an opening.",
+        "intro": "{player_name}, I have grim news. Your work to {quest_action} revealed that the {quest_threat} {quest_threat_is} not the only danger at the {quest_focus}.",
+        "plotStep": "The {enemy_type} are using the area {location_hint} as a staging ground. {quest_ally} believes they plan to move the {quest_stakes} permanently unless we act now. We need someone to scatter their forces and create an opening.",
         "outro": "This may be our last chance. If they move now, we will never find them."
       },
       "playerResponses": [

@@ -4,8 +4,8 @@
       "id": "abduction_conf_ambush_trail",
       "dialogueChunks": {
         "intro": "The trail to {location_hint} is more dangerous than we expected. {enemy_type} patrols are everywhere, and they've set traps along the path.",
-        "plotStep": "You'll need to fight through their scouts before reaching {quest_focus}. {quest_ally} warned that the {quest_threat} grows stronger the closer you get to their territory.",
-        "outro": "Clear the way and press forward. Every moment wasted is another moment {quest_focus} remains in danger."
+        "plotStep": "You'll need to fight through their scouts before reaching the {quest_focus}. {quest_ally} warned that the {quest_threat} grows stronger the closer you get to their territory.",
+        "outro": "Clear the way and press forward. Every moment wasted is another moment the {quest_focus} remains in danger."
       },
       "playerResponses": [
         {
@@ -26,9 +26,9 @@
     {
       "id": "abduction_conf_captor_camp",
       "dialogueChunks": {
-        "intro": "You've found signs of {quest_threat} near {location_hint}. Discarded supplies and cold fire pits mark where they rested with their prisoners.",
+        "intro": "You've found signs of the {quest_threat} near {location_hint}. Discarded supplies and cold fire pits mark where they rested with their prisoners.",
         "plotStep": "The captors split into groups here. Tracks branch in two directions. One set leads deeper toward {location_hint}, the other circles back. We need proof of where they went: gather what they left behind.",
-        "outro": "Search the area thoroughly. What you find could tell us how many we're dealing with and where {quest_focus} was taken next."
+        "outro": "Search the area thoroughly. What you find could tell us how many we're dealing with and where the {quest_focus} was taken next."
       },
       "playerResponses": [
         {
@@ -51,9 +51,9 @@
     {
       "id": "abduction_conf_insider_betrayal",
       "dialogueChunks": {
-        "intro": "Something doesn't add up. The {enemy_type} knew too much about {quest_focus}: patrol schedules, weak points, who to target. Someone from the inside fed them information.",
-        "plotStep": "Talk to {target_npc}. They were the last person to see {quest_focus} before the {quest_threat} struck. Whether they're guilty or simply the last witness, their account matters.",
-        "outro": "We need the truth before {quest_stakes} are lost forever. Find out what {target_npc} knows, willingly or not."
+        "intro": "Something doesn't add up. The {enemy_type} knew too much about the {quest_focus}: patrol schedules, weak points, who to target. Someone from the inside fed them information.",
+        "plotStep": "Talk to {target_npc}. They were the last person to see the {quest_focus} before the {quest_threat} struck. Whether they're guilty or simply the last witness, their account matters.",
+        "outro": "We need the truth before the {quest_stakes} {quest_stakes_is} lost forever. Find out what {target_npc} knows, willingly or not."
       },
       "playerResponses": [
         {

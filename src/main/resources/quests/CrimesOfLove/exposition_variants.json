@@ -4,8 +4,8 @@
       "id": "expo_crimes_love_01",
       "dialogueChunks": {
         "intro": "{player_name}, someone broke the law because they couldn't stand to watch people suffer. Now they need help before {quest_threat} catches up.",
-        "plotStep": "Since {quest_origin}, they've been secretly providing {quest_focus} to those in need. They know the consequences if caught. They said: 'Let them punish me. I'm not watching people die over a regulation.' But they can't make the delivery themselves: {quest_threat} has watchers everywhere.",
-        "outro": "Someone needs to {quest_action} {quest_time_pressure}. They committed a crime because {quest_stakes} matters more to them than their freedom. {quest_item} {location_hint} is what's needed."
+        "plotStep": "Since {quest_origin}, they've been secretly providing the {quest_focus} to those in need. They know the consequences if caught. They said: 'Let them punish me. I'm not watching people die over a regulation.' But they can't make the delivery themselves: the {quest_threat} {quest_threat_has} watchers everywhere.",
+        "outro": "Someone needs to {quest_action} {quest_time_pressure}. They committed a crime because the {quest_stakes} matters more to them than their freedom. {quest_item} {location_hint} is what's needed."
       },
       "playerResponses": [
         {
@@ -32,7 +32,7 @@
       "id": "expo_crimes_love_02",
       "dialogueChunks": {
         "intro": "Someone deserted their post three days ago, {player_name}. Not for cowardice. Their family is dying and the authority wouldn't grant leave.",
-        "plotStep": "They walked away from their duty knowing the penalty is severe. They have {quest_item} that only works if administered by someone who knows how. They're hiding at {quest_origin} with their family. {quest_threat} is already searching.",
+        "plotStep": "They walked away from their duty knowing the penalty is severe. They have {quest_item} that only works if administered by someone who knows how. They're hiding at {quest_origin} with their family. The {quest_threat} {quest_threat_is} already searching.",
         "outro": "If someone could {quest_action} and buy them time, they'll turn themselves in willingly. They said: 'They can punish me after. I just need three days.' {quest_stakes} hangs on those three days."
       },
       "playerResponses": [
@@ -60,8 +60,8 @@
       "id": "expo_crimes_love_03",
       "dialogueChunks": {
         "intro": "The embargo means no trade with the settlements across the border, {player_name}. It also means people on the far side are starving. Someone has been smuggling supplies across in secret.",
-        "plotStep": "The smuggler's own family lives on this side. If caught with {quest_focus}, they lose everything: license, home, probably freedom. They do it because their childhood friend lives across the border with children and no food. Love doesn't care about border policy.",
-        "outro": "The next shipment needs to cross tonight. They can't make the run because {quest_threat} has doubled patrols. They need someone to {quest_action}. It's illegal, it's dangerous, and it will feed people for a week. {quest_reward_hint} might follow."
+        "plotStep": "The smuggler's own family lives on this side. If caught with the {quest_focus}, they lose everything: license, home, probably freedom. They do it because their childhood friend lives across the border with children and no food. Love doesn't care about border policy.",
+        "outro": "The next shipment needs to cross tonight. They can't make the run because the {quest_threat} {quest_threat_has} doubled patrols. They need someone to {quest_action}. It's illegal, it's dangerous, and it will feed people for a week. {quest_reward_hint} might follow."
       },
       "playerResponses": [
         {

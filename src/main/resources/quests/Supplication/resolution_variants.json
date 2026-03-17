@@ -3,8 +3,8 @@
     {
       "id": "supplication_reso_01",
       "dialogueChunks": {
-        "intro": "{player_name}, you have done it. {quest_threat} will not trouble us again, and {quest_stakes} are finally safe.",
-        "plotStep": "When word spread that someone stood up for {quest_focus}, I saw hope return to faces that had forgotten what it looked like.",
+        "intro": "{player_name}, you have done it. The {quest_threat} will not trouble us again, and the {quest_stakes} {quest_stakes_is} finally safe.",
+        "plotStep": "When word spread that someone stood up for the {quest_focus}, I saw hope return to faces that had forgotten what it looked like.",
         "outro": "You have given us a second chance. We will not waste it."
       },
       "playerResponses": [
@@ -18,8 +18,8 @@
     {
       "id": "supplication_reso_02",
       "dialogueChunks": {
-        "intro": "I hardly know what to say, {player_name}. After everything with {quest_threat}, we had almost given up.",
-        "plotStep": "{quest_ally} has already started restoring {quest_focus}. {quest_stakes} are recovering, slowly but surely. It will take time, but the danger has passed.",
+        "intro": "I hardly know what to say, {player_name}. After everything with the {quest_threat}, we had almost given up.",
+        "plotStep": "{quest_ally} has already started restoring the {quest_focus}. The {quest_stakes} {quest_stakes_is} recovering, slowly but surely. It will take time, but the danger has passed.",
         "outro": "You answered our plea when no one else would. That means more than you know."
       },
       "playerResponses": [
@@ -32,8 +32,8 @@
     {
       "id": "supplication_reso_03",
       "dialogueChunks": {
-        "intro": "It is over, {player_name}. Truly over. {quest_threat} are gone, and {quest_focus} stands whole again.",
-        "plotStep": "{quest_stakes} will sleep soundly tonight for the first time since {quest_origin}. The whole settlement owes you a debt we may never fully repay.",
+        "intro": "It is over, {player_name}. Truly over. The {quest_threat} {quest_threat_is} gone, and the {quest_focus} stands whole again.",
+        "plotStep": "The {quest_stakes} will sleep soundly tonight for the first time since {quest_origin}. The whole settlement owes you a debt we may never fully repay.",
         "outro": "If you ever need anything from us, you need only ask."
       },
       "playerResponses": [

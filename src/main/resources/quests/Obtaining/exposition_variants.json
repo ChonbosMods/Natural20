@@ -4,7 +4,7 @@
       "id": "obtaining_expo_01",
       "dialogueChunks": {
         "intro": "Word has reached us about something valuable {location_hint}: a source of {quest_item} richer than anything we have seen in this region. Word is already spreading.",
-        "plotStep": "The problem is that we are not the only ones who know. The {enemy_type} have been pushing into that area, and {quest_ally} spotted organized groups heading the same direction. If we do not claim {quest_focus} first, someone else will.",
+        "plotStep": "The problem is that we are not the only ones who know. The {enemy_type} have been pushing into that area, and {quest_ally} spotted organized groups heading the same direction. If we do not claim the {quest_focus} first, someone else will.",
         "outro": "I need someone fast and capable to get out there and secure what we need before it is all gone. {player_name}, will you make the trip?"
       },
       "playerResponses": [
@@ -21,9 +21,9 @@
     {
       "id": "obtaining_expo_02",
       "dialogueChunks": {
-        "intro": "{target_npc} lost something irreplaceable. Since {quest_origin}, {quest_focus} has been missing and it means everything to them.",
+        "intro": "{target_npc} lost something irreplaceable. Since {quest_origin}, the {quest_focus} {quest_focus_has} been missing and it means everything to them.",
         "plotStep": "The ones responsible were not ordinary opportunists. They knew exactly what they wanted. {quest_ally} found tracks leading {location_hint}, and the signs match the {enemy_type} we have seen lurking near the borders.",
-        "outro": "{quest_focus} means everything to {target_npc}. Will you track down {quest_threat} and bring it back, {player_name}?"
+        "outro": "The {quest_focus} means everything to {target_npc}. Will you track down the {quest_threat} and bring it back, {player_name}?"
       },
       "playerResponses": [
         { "text": "I will bring it home where it belongs.", "action": "ACCEPT", "dispositionShift": 5 },
@@ -38,9 +38,9 @@
     {
       "id": "obtaining_expo_03",
       "dialogueChunks": {
-        "intro": "{quest_threat} has swept through the settlement, {player_name}. {quest_ally} says we need {quest_item} that only grows in the wilds {location_hint}, and our stores are empty.",
-        "plotStep": "{quest_stakes} are already worsening, and more show signs each day. The resources we need from {quest_focus} cannot survive being shipped from afar: they have to be gathered fresh. The problem is that the gathering grounds are deep in {enemy_type} territory.",
-        "outro": "Without those resources, {quest_stakes} are in mortal danger. {player_name}, will you venture out {quest_time_pressure} and bring back what we need?"
+        "intro": "The {quest_threat} {quest_threat_has} swept through the settlement, {player_name}. {quest_ally} says we need {quest_item} that only grows in the wilds {location_hint}, and our stores are empty.",
+        "plotStep": "The {quest_stakes} {quest_stakes_is} already worsening, and more show signs each day. The resources we need from the {quest_focus} cannot survive being shipped from afar: they have to be gathered fresh. The problem is that the gathering grounds are deep in {enemy_type} territory.",
+        "outro": "Without those resources, the {quest_stakes} {quest_stakes_is} in mortal danger. {player_name}, will you venture out {quest_time_pressure} and bring back what we need?"
       },
       "playerResponses": [
         { "text": "Lives are at stake. I will go now.", "action": "ACCEPT", "dispositionShift": 6 },

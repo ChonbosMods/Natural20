@@ -4,7 +4,7 @@
       "id": "misfortune_conf_01",
       "dialogueChunks": {
         "intro": "{player_name}, as if things were not bad enough. While you were helping us {quest_action}, {quest_threat} worsened and brought new problems.",
-        "plotStep": "{quest_ally} says the {enemy_type} have been emboldened by the disruption near {quest_focus}. They are scavenging {location_hint} and threatening {quest_stakes}. We need you to drive them off and secure more {quest_item}.",
+        "plotStep": "{quest_ally} says the {enemy_type} have been emboldened by the disruption near the {quest_focus}. They are scavenging {location_hint} and threatening the {quest_stakes}. We need you to drive them off and secure more {quest_item}.",
         "outro": "Misfortune compounds misfortune. But we have to keep fighting."
       },
       "playerResponses": [
@@ -21,8 +21,8 @@
     {
       "id": "misfortune_conf_02",
       "dialogueChunks": {
-        "intro": "More misfortune, {player_name}. Your work to {quest_action} was going well until a second wave of {quest_threat} undid half your progress.",
-        "plotStep": "{quest_focus} has been hit again. {quest_ally} managed to salvage some {quest_item}, but {enemy_type} moved in {location_hint} and are blocking access. {quest_stakes} need those resources desperately.",
+        "intro": "More misfortune, {player_name}. Your work to {quest_action} was going well until a second wave of the {quest_threat} undid half your progress.",
+        "plotStep": "The {quest_focus} {quest_focus_has} been hit again. {quest_ally} managed to salvage some {quest_item}, but {enemy_type} moved in {location_hint} and are blocking access. The {quest_stakes} {quest_stakes_is} in desperate need of those resources.",
         "outro": "I know this feels like pushing a boulder uphill. But we are close: one more effort."
       },
       "playerResponses": [
@@ -38,9 +38,9 @@
     {
       "id": "misfortune_conf_03",
       "dialogueChunks": {
-        "intro": "{player_name}, I hate to ask again. Since you began to {quest_action}, we discovered that {quest_threat} caused hidden damage to {quest_focus}.",
+        "intro": "{player_name}, I hate to ask again. Since you began to {quest_action}, we discovered that the {quest_threat} caused hidden damage to the {quest_focus}.",
         "plotStep": "The situation is more fragile than we thought. {quest_ally} found signs that the {enemy_type} are nesting {location_hint}, drawn by the instability. We need to clear them and bring {quest_item} to stabilize things.",
-        "outro": "Without your help, {quest_stakes} will be lost to nothing more than bad luck and bad timing."
+        "outro": "Without your help, the {quest_stakes} will be lost to nothing more than bad luck and bad timing."
       },
       "playerResponses": [
         { "text": "Bad luck bends to persistence. I will keep going.", "action": "ACCEPT", "dispositionShift": 10 },

@@ -3,7 +3,7 @@
     {
       "id": "reso_slaying_kin_01",
       "dialogueChunks": {
-        "intro": "It's over. The source of {quest_threat} has been destroyed, and people are coming back to themselves.",
+        "intro": "It's over. The source of the {quest_threat} has been destroyed, and people are coming back to themselves.",
         "plotStep": "The survivors are gathering. Some of them remember what they did. {quest_ally} is tending to the wounded, but the deeper wounds aren't the kind bandages can fix.",
         "outro": "You gave us the truth, {player_name}. That's the first step. {target_npc} wants to establish a warning system so this can never happen again. We owe you more than words can say."
       },
@@ -25,7 +25,7 @@
     {
       "id": "reso_slaying_kin_02",
       "dialogueChunks": {
-        "intro": "{player_name}, {quest_focus} is neutralized. But the cost... more fell before you reached the source.",
+        "intro": "{player_name}, the {quest_focus} {quest_focus_is} neutralized. But the cost... more fell before you reached the source.",
         "plotStep": "The {enemy_type} won't be using this weapon again, at least not here. {target_npc} has already begun analyzing what's left of {quest_item} to develop defenses. But the people who harmed their own kin: they'll carry that weight forever.",
         "outro": "Some have asked to leave the settlement. They can't face the families of those they harmed. This place will never be the same."
       },

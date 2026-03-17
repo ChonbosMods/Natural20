@@ -3,8 +3,8 @@
     {
       "id": "supplication_expo_01",
       "dialogueChunks": {
-        "intro": "Please, {player_name}. Since {quest_origin}, {quest_threat} has made life unbearable. We have nowhere else to turn.",
-        "plotStep": "We need someone to {quest_action} at {quest_focus}. There should be {quest_item} {location_hint} that could help. Without it, {quest_stakes} will suffer.",
+        "intro": "Please, {player_name}. Since {quest_origin}, the {quest_threat} {quest_threat_has} made life unbearable. We have nowhere else to turn.",
+        "plotStep": "We need someone to {quest_action} at the {quest_focus}. There should be {quest_item} {location_hint} that could help. Without it, the {quest_stakes} will suffer.",
         "outro": "I know it is a lot to ask. But we are running out of time."
       },
       "playerResponses": [
@@ -20,9 +20,9 @@
     {
       "id": "supplication_expo_02",
       "dialogueChunks": {
-        "intro": "{player_name}, thank the stars you are here. {quest_threat} has been claiming more of us each day, and we cannot hold on much longer.",
-        "plotStep": "We traced the problem back to {quest_focus}, but we lack the means to fix it. We desperately need someone to {quest_action}. {quest_ally} mentioned that {quest_item} can be found {location_hint}.",
-        "outro": "Please, {quest_stakes} cannot wait. We need this done {quest_time_pressure}."
+        "intro": "{player_name}, thank the stars you are here. The {quest_threat} {quest_threat_has} been claiming more of us each day, and we cannot hold on much longer.",
+        "plotStep": "We traced the problem back to the {quest_focus}, but we lack the means to fix it. We desperately need someone to {quest_action}. {quest_ally} mentioned that {quest_item} can be found {location_hint}.",
+        "outro": "Please, the {quest_stakes} cannot wait. We need this done {quest_time_pressure}."
       },
       "playerResponses": [
         { "text": "People are suffering. I will go now.", "action": "ACCEPT", "dispositionShift": 15 },
@@ -38,9 +38,9 @@
     {
       "id": "supplication_expo_03",
       "dialogueChunks": {
-        "intro": "Stranger, I have no pride left. {player_name}, {quest_threat} has been terrorizing {quest_focus} and we are powerless to stop it.",
+        "intro": "Stranger, I have no pride left. {player_name}, the {quest_threat} {quest_threat_has} been terrorizing the {quest_focus} and we are powerless to stop it.",
         "plotStep": "Someone needs to {quest_action} before we lose everything. The {enemy_type} have been sighted {location_hint}. If you bring back {quest_item}, we might stand a chance.",
-        "outro": "If {quest_stakes} are taken, this settlement is finished. I will give you {quest_reward_hint} if you help us."
+        "outro": "If the {quest_stakes} {quest_stakes_is} taken, this settlement is finished. I will give you {quest_reward_hint} if you help us."
       },
       "playerResponses": [
         { "text": "Point me toward them. I will handle it.", "action": "ACCEPT", "dispositionShift": 5 },

@@ -5,7 +5,7 @@
       "dialogueChunks": {
         "intro": "There has been a falling out between us and our allies, {player_name}. {quest_origin} was broken, and accusations are flying in both directions.",
         "plotStep": "{quest_ally} was our negotiator, and they say {target_npc} deliberately caused the breach. But {target_npc} claims we were the ones at fault. Meanwhile, the {enemy_type} are circling both settlements while we argue.",
-        "outro": "If we do not resolve {quest_focus} quickly, two allies could become enemies while {quest_threat} picks us apart. Can you look into this with fresh eyes?"
+        "outro": "If we do not resolve the {quest_focus} quickly, two allies could become enemies while the {quest_threat} picks us apart. Can you look into this with fresh eyes?"
       },
       "playerResponses": [
         { "text": "I will hear both sides and sort it out.", "action": "ACCEPT", "dispositionShift": 5 },
@@ -18,9 +18,9 @@
     {
       "id": "enemity_expo_02",
       "dialogueChunks": {
-        "intro": "{quest_focus} {location_hint} has become a flashpoint, {player_name}. Both our settlement and our neighbors claim rights to it, and people on both sides are arming up.",
+        "intro": "The {quest_focus} {location_hint} has become a flashpoint, {player_name}. Both our settlement and our neighbors claim rights to it, and people on both sides are arming up.",
         "plotStep": "{quest_ally} tried to calm things down, but {target_npc} brought armed workers to the site yesterday. Our people nearly came to blows. The {enemy_type} have been raiding both sides, which makes everyone angrier.",
-        "outro": "We need an outsider to walk between both camps and find a solution {quest_time_pressure}. Will you help before {quest_threat} turns into something we cannot take back?"
+        "outro": "We need an outsider to walk between both camps and find a solution {quest_time_pressure}. Will you help before the {quest_threat} turns into something we cannot take back?"
       },
       "playerResponses": [
         { "text": "I will go speak to both sides.", "action": "ACCEPT", "dispositionShift": 4 },
@@ -36,8 +36,8 @@
       "id": "enemity_expo_03",
       "dialogueChunks": {
         "intro": "Our supplies were sabotaged, {player_name}. Deliberately. And the only people with access besides us are our allies.",
-        "plotStep": "{quest_ally} does not believe {target_npc}'s people would do this, but the evidence points their way. Someone left {quest_item} residue near {quest_focus}, and that material comes from {location_hint}. If this was truly sabotage by allies, everything changes.",
-        "outro": "We need the truth before {quest_threat} destroys an alliance that took years to build. Investigate and find out who really did this."
+        "plotStep": "{quest_ally} does not believe {target_npc}'s people would do this, but the evidence points their way. Someone left {quest_item} residue near the {quest_focus}, and that material comes from {location_hint}. If this was truly sabotage by allies, everything changes.",
+        "outro": "We need the truth before the {quest_threat} destroys an alliance that took years to build. Investigate and find out who really did this."
       },
       "playerResponses": [
         { "text": "I will find out who is really behind this.", "action": "ACCEPT", "dispositionShift": 5 },

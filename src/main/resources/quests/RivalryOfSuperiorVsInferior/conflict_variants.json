@@ -56,7 +56,7 @@
       "dialogueChunks": {
         "intro": "The powerful found out about the investigation. The person who gathered the evidence has been expelled and their workshop was ransacked.",
         "plotStep": "{target_npc} managed to hide copies of {quest_item} before the enforcers arrived. But the powerful are now threatening to blacklist anyone who supports the lower ranks. {quest_ally} says witnesses have already been pressured into withdrawing their testimony.",
-        "outro": "We need to get the evidence to a neutral authority at {location_hint} before it's buried completely. {quest_item} proves {quest_focus} was rigged for at least a decade. {quest_threat} won't stop until everyone who knows is silenced."
+        "outro": "We need to get the evidence to a neutral authority at {location_hint} before it's buried completely. {quest_item} proves the {quest_focus} was rigged for at least a decade. The {quest_threat} won't stop until everyone who knows is silenced."
       },
       "playerResponses": [
         {

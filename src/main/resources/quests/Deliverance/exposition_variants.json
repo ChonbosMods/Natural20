@@ -3,7 +3,7 @@
     {
       "id": "deliverance_expo_01",
       "dialogueChunks": {
-        "intro": "{player_name}, {quest_threat} struck our settlement and dragged off several people. {quest_stakes} are being held at {quest_focus}.",
+        "intro": "{player_name}, the {quest_threat} struck our settlement and dragged off several people. The {quest_stakes} {quest_stakes_is} being held at the {quest_focus}.",
         "plotStep": "We need to {quest_action} quickly, {quest_time_pressure}. {quest_ally} spotted the area {location_hint}. Gather {quest_item} along the way: we may need them to break through the defenses.",
         "outro": "Every moment we wait, those people suffer. Please, you are our only hope."
       },
@@ -21,7 +21,7 @@
     {
       "id": "deliverance_expo_02",
       "dialogueChunks": {
-        "intro": "Since {quest_origin}, {player_name}, {quest_stakes} have been trapped inside {quest_focus}. We can hear them calling out, but the path is blocked.",
+        "intro": "Since {quest_origin}, {player_name}, the {quest_stakes} {quest_stakes_has} been trapped inside the {quest_focus}. We can hear them calling out, but the path is blocked.",
         "plotStep": "We need to {quest_action} by clearing the way. The {enemy_type} have been drawn to the site and are lurking {location_hint}. We also need {quest_item} to secure the area.",
         "outro": "Time is running out down there. Every hour counts, {player_name}."
       },
@@ -39,7 +39,7 @@
     {
       "id": "deliverance_expo_03",
       "dialogueChunks": {
-        "intro": "{player_name}, {quest_focus} has been surrounded by {quest_threat} for days. {quest_stakes} are running low on supplies and cannot hold much longer.",
+        "intro": "{player_name}, the {quest_focus} {quest_focus_has} been surrounded by the {quest_threat} for days. The {quest_stakes} {quest_stakes_is} running low on supplies and cannot hold much longer.",
         "plotStep": "Someone needs to {quest_action} from the outside. The {enemy_type} are dug in {location_hint}. If you bring {quest_item}, the defenders can use them to push back.",
         "outro": "Save them, and you will have access to {quest_reward_hint} and the gratitude of every soul inside those walls."
       },
