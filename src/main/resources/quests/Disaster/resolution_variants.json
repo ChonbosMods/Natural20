@@ -3,12 +3,12 @@
     {
       "id": "disaster_reso_01",
       "dialogueChunks": {
-        "intro": "{player_name}! Come and see! The smoke has cleared and there's actually sky above us for the first time in days!",
-        "plotStep": "The fires are out, the wounded are being treated, and {target_npc} has the rebuilding crews organized into shifts. People who were running in panic two days ago are now hauling timber and mixing mortar. The {quest_item} you brought back saved at least eight lives that the healers had all but given up on. {location} looks like a wreck, I won't lie, but it's a wreck full of people who refuse to give up.",
-        "outro": "We pulled together what we could. It's not much compared to what you risked, but take it with the deepest thanks {location} has ever offered anyone."
+        "intro": "{player_name}! Come and see! The smoke has cleared and there's actually sky above us!",
+        "plotStep": "{quest_threat} is behind us. The wounded are being treated, and {target_npc} has the rebuilding crews organized. The {quest_item} you brought back saved at least eight lives. You managed to {quest_action} when it mattered most. The settlement looks like a wreck, but it's a wreck full of people who refuse to give up.",
+        "outro": "We pulled together what we could. It's not much compared to what you risked, but take it with the deepest thanks we've ever offered anyone."
       },
       "playerResponses": [
-        { "text": "Seeing {location} fighting back is all the thanks I need.", "action": "ACCEPT", "dispositionShift": 10 },
+        { "text": "Seeing the settlement fighting back is all the thanks I need.", "action": "ACCEPT", "dispositionShift": 10 },
         { "text": "Eight lives saved. That's a number worth remembering. Take care.", "action": "ACCEPT" }
       ],
       "objectivePool": [],
@@ -18,8 +18,8 @@
       "id": "disaster_reso_02",
       "dialogueChunks": {
         "intro": "We made it, {player_name}. Not everyone, but most of us. Most of us made it.",
-        "plotStep": "We buried three people this morning. The healer, the old miller, and a child who was too small to outrun the water. {target_npc} led the ceremony, and every person in {location} was there. But the shelters are standing, the supplies are distributed, and for the first time since the disaster, nobody is crying from fear. Grief, yes. But not fear. You made that possible.",
-        "outro": "Take this. It was gathered from every family that survived. Three lives lost, but dozens saved. That's the balance, and you tipped it in our favor."
+        "plotStep": "We buried three people this morning. {target_npc} led the ceremony, and every person was there. But the shelters are standing, the supplies are distributed, and {quest_stakes} aren't crying from fear anymore. Grief, yes. But not fear. You managed to {quest_action}, and that tipped the balance.",
+        "outro": "Take this. Three lives lost, but dozens saved. That's the balance, and you tipped it in our favor."
       },
       "playerResponses": [
         { "text": "I wish I could have saved everyone. I'm sorry for the three.", "action": "ACCEPT" },
@@ -32,12 +32,12 @@
       "id": "disaster_reso_03",
       "dialogueChunks": {
         "intro": "Look at them, {player_name}. Just look at them out there.",
-        "plotStep": "The children are playing in the square again. Two days ago they were huddled in shelters, terrified and hungry. Now they're laughing, chasing each other around the rubble like it's a playground. {target_npc} organized the food distribution so efficiently that we actually have a surplus for the first time since the disaster hit. The {quest_item} you brought back is being rationed carefully, and the healers say everyone should recover fully.",
+        "plotStep": "The children are playing in the square again. Two days ago they were huddled in shelters, terrified and hungry. {target_npc} organized the food distribution so efficiently that we actually have a surplus. The {quest_item} you brought back is being rationed carefully. You managed to {quest_action}, and now {quest_stakes} are healing.",
         "outro": "Children laughing in a place that almost died. If that's not a miracle, I don't know what is. Take this, with our gratitude."
       },
       "playerResponses": [
         { "text": "Children laughing in the rubble. That's worth every bruise and every mile.", "action": "ACCEPT", "dispositionShift": 15 },
-        { "text": "Good to see {location} on the mend. You're tough people.", "action": "ACCEPT" }
+        { "text": "Good to see things on the mend. You're tough people.", "action": "ACCEPT" }
       ],
       "objectivePool": [],
       "objectiveConfig": {}
@@ -46,8 +46,8 @@
       "id": "disaster_reso_04",
       "dialogueChunks": {
         "intro": "The worst is behind us now. Finally, truly behind us.",
-        "plotStep": "{target_npc} drew up plans for the new {location}. Not just repairs: improvements. Wider drainage channels, a stone granary to replace the wooden one, a proper watchtower. They said the disaster showed us every weakness our settlement had, and now we have the chance to build better. The {quest_item} you supplied gave us the foundation to start. Literally: the first new wall went up this morning.",
-        "outro": "A new wall on the first day of rebuilding. Here, take this. You didn't just save {location}: you gave us the chance to become something stronger."
+        "plotStep": "{target_npc} drew up plans for rebuilding: not just repairs, but improvements. Wider drainage channels, a stone granary, a proper watchtower. {quest_threat} showed us every weakness, and now we have the chance to build better. The {quest_item} you supplied gave us the foundation. You managed to {quest_action}, and it gave us a future that's stronger than what we had before.",
+        "outro": "A new wall on the first day of rebuilding. Take this. You didn't just save us: you gave us the chance to become something stronger."
       },
       "playerResponses": [
         { "text": "Building back stronger. That's the best possible outcome from all this.", "action": "ACCEPT", "dispositionShift": 10 },

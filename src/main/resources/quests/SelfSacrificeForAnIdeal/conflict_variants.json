@@ -4,7 +4,7 @@
       "id": "self_sacrifice_for_an_ideal_conf_01",
       "dialogueChunks": {
         "intro": "{player_name}, I hoped it wouldn't come to this. But it has.",
-        "plotStep": "The {enemy_type} sent scouts ahead of the main force. They found the watchtower and now they know our plan. {target_npc} intercepted one of their messengers carrying a map of our defenses back to their camp {location_hint}. If the main warband adjusts their route, my stand at the tower means nothing. I need you to hunt down the remaining scouts and make sure that information doesn't reach their leaders.",
+        "plotStep": "The {enemy_type} sent scouts ahead of the main force. They found {quest_focus} and now they know our plan. {target_npc} intercepted one of their messengers carrying a map of our defenses back to their camp {location_hint}. If the main warband adjusts their route, this stand means nothing. I need you to hunt down the remaining scouts and make sure that information doesn't reach their leaders.",
         "outro": "My sacrifice only works if they come at us the way we expect. Without that element of surprise, I'm just a fool dying alone on a hill."
       },
       "playerResponses": [
@@ -41,7 +41,7 @@
       "id": "self_sacrifice_for_an_ideal_conf_03",
       "dialogueChunks": {
         "intro": "We have a problem, {player_name}. A big one.",
-        "plotStep": "{target_npc} tried to convince the council to support the bridge plan and they refused. Called it madness. Now they're threatening to arrest anyone who tampers with the bridge. Worse, they've posted guards. I understand their fear: that bridge is their lifeline. But it's also the enemy's path straight to their doors. I need you to gather more {quest_item} so we can rig the charges discreetly. And I need you to talk to {target_npc} about creating a diversion to draw the guards away when the time comes.",
+        "plotStep": "{target_npc} tried to convince the council to support the bridge plan and they refused. Called it madness. Now they're threatening to arrest anyone who tampers with {quest_focus}. Worse, they've posted guards. I understand their fear: that bridge is their lifeline. But it's also the enemy's path straight to their doors. I need you to gather more {quest_item} so we can rig the charges discreetly. And I need you to talk to {target_npc} about creating a diversion to draw the guards away when the time comes.",
         "outro": "History will judge whether I was a hero or a criminal. I'd rather be a living criminal than watch a dead settlement, but I won't be either. I'll just be the one who stayed behind."
       },
       "playerResponses": [

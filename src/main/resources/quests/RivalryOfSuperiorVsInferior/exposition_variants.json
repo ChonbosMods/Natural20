@@ -2,9 +2,16 @@
   "variants": [
     {
       "id": "rivalry_of_superior_vs_inferior_expo_01",
+      "bindings": {
+        "quest_action": "obtain materials to copy and seal evidence documents",
+        "quest_focus": "meticulous records of the commander's extortion",
+        "quest_stakes": "the garrison tightening its grip until the settlement is bled dry",
+        "quest_threat": "a corrupt garrison commander abusing rank to exploit the people",
+        "quest_origin": "months of double taxes, forced labor, and confiscated goods"
+      },
       "dialogueChunks": {
         "intro": "Keep your voice down, {player_name}. Walls have ears in {location}, and the ones listening don't take kindly to complaints.",
-        "plotStep": "The garrison commander has been squeezing the merchants for months. Double taxes, forced labor on the walls, confiscated goods for 'settlement defense.' Most of it ends up in the officers' quarters. {target_npc} tried to petition for relief and was thrown in a holding cell for a day as a warning. The common folk are too afraid to speak up, but I've been keeping records: every stolen shipment, every unlawful order. I need {quest_item} to copy and seal these documents. If I can get proof to the regional authority {location_hint}, this commander's reign ends.",
+        "plotStep": "{quest_threat} has been squeezing the merchants for months. Double taxes, forced labor on the walls, confiscated goods for 'settlement defense.' Most of it ends up in the officers' quarters. {target_npc} tried to petition for relief and was thrown in a holding cell for a day as a warning. The common folk are too afraid to speak up, but I've been keeping {quest_focus}. I need {quest_item} to copy and seal these documents. If I can get proof to the regional authority {location_hint}, this commander's reign ends.",
         "outro": "I'm not brave. I'm just tired of watching good people get ground down by someone who thinks rank means they can take whatever they want."
       },
       "playerResponses": [
@@ -20,9 +27,16 @@
     },
     {
       "id": "rivalry_of_superior_vs_inferior_expo_02",
+      "bindings": {
+        "quest_action": "gather materials to rebuild an independent forge",
+        "quest_focus": "a destroyed independent forge that threatened the ruling families' monopoly",
+        "quest_stakes": "the common families being permanently locked out of self-sufficiency",
+        "quest_threat": "founding families who control all resources and crush any competition",
+        "quest_origin": "generations of outsiders being treated as second-class citizens"
+      },
       "dialogueChunks": {
         "intro": "{player_name}, you're new here. That means you haven't been broken yet. Listen.",
-        "plotStep": "The founding families of {location} control everything: the forge, the granary, the trade routes. Anyone who wasn't born into their circle gets last pick of everything. Worst jobs, worst housing, worst food. My people have been here for two generations and we're still treated like outsiders. {target_npc} tried to start an independent forge and the founding families sent {enemy_type} mercenaries to wreck it. I need {quest_item} to rebuild, and I need it from somewhere the founding families don't control: out {location_hint}.",
+        "plotStep": "The founding families of {location} control everything: the forge, the granary, the trade routes. Anyone who wasn't born into their circle gets last pick of everything. Worst jobs, worst housing, worst food. My people have been here for two generations and we're still treated like outsiders. {target_npc} tried to start an independent forge and {quest_threat} sent {enemy_type} mercenaries to wreck it. I need {quest_item} to rebuild, and I need it from somewhere the founding families don't control: out {location_hint}.",
         "outro": "They want us to stay small. Stay quiet. Stay grateful for scraps. I'm done with all three."
       },
       "playerResponses": [
@@ -38,9 +52,16 @@
     },
     {
       "id": "rivalry_of_superior_vs_inferior_expo_03",
+      "bindings": {
+        "quest_action": "establish a hidden supply cache the corrupt guards can't touch",
+        "quest_focus": "a protection racket bleeding the merchants dry",
+        "quest_stakes": "every shop in the settlement being crushed under illegal fees",
+        "quest_threat": "settlement guards running an extortion operation against their own people",
+        "quest_origin": "weekly fees enforced through fraudulent safety inspections"
+      },
       "dialogueChunks": {
         "intro": "Pour yourself something. On the house. What I'm about to tell you deserves a drink first, {player_name}.",
-        "plotStep": "The settlement guards have been running a protection racket. Pay a weekly fee or your shop gets 'inspected' and half your stock vanishes for 'safety violations.' The tavern, the bakery, the herbalist: we're all being bled dry. {target_npc} confronted the guard captain last week and got a black eye for the trouble. I've been quietly gathering {quest_item} to establish an emergency supply cache {location_hint}: a stockpile the guards can't touch. If the merchants have reserves, the guards lose their leverage.",
+        "plotStep": "{quest_threat}: pay a weekly fee or your shop gets 'inspected' and half your stock vanishes for 'safety violations.' The tavern, the bakery, the herbalist: we're all being bled dry. {target_npc} confronted the guard captain last week and got a black eye for the trouble. I've been quietly gathering {quest_item} to {quest_action} {location_hint}: a stockpile the guards can't touch. If the merchants have reserves, the guards lose their leverage.",
         "outro": "I pour drinks and I listen. I've heard every threat, every excuse, every lie. It's time to stop listening and start fighting back. Quietly."
       },
       "playerResponses": [

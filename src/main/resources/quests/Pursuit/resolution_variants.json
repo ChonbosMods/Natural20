@@ -4,8 +4,8 @@
       "id": "pursuit_reso_justice",
       "dialogueChunks": {
         "intro": "It's over. You did what a dozen patrols couldn't.",
-        "plotStep": "The threat is neutralized, {player_name}. {target_npc} confirmed the kill and recovered the stolen {quest_item} from the lair. The roads near {location} are safe again for the first time in weeks. Farmers are already returning to their outlying fields. You gave these people their lives back.",
-        "outro": "Here is the bounty, in full. You've more than earned it. {location} won't forget what you did here."
+        "plotStep": "You managed to {quest_action}. {target_npc} confirmed the kill and recovered the stolen {quest_item}. {quest_stakes} are secure again for the first time in weeks. Farmers are already returning to their outlying fields.",
+        "outro": "Here is the bounty, in full. You've more than earned it."
       },
       "playerResponses": [
         { "text": "The hunt is its own reward. But I'll take the bounty too.", "action": "ACCEPT" },
@@ -19,7 +19,7 @@
       "id": "pursuit_reso_narrow_escape",
       "dialogueChunks": {
         "intro": "By the stars, {player_name}, you look like you went through a warzone. Are you alright?",
-        "plotStep": "The hunters at {location} are saying it was the most dangerous creature they've ever seen track marks from. The fact that you're standing here means you're either incredibly skilled or incredibly lucky. Either way, the {enemy_type} are scattered and their leader is finished. {target_npc} pulled the last of the stolen goods from the wreckage.",
+        "plotStep": "The hunters are saying {quest_threat} was the most dangerous mark they've ever seen tracks from. The fact that you're standing here means you managed to {quest_action} through skill alone. The {enemy_type} are scattered and their leader is finished. {target_npc} pulled the last of the stolen goods from the wreckage.",
         "outro": "Your bounty, plus a little extra for the scars. Rest up: you've earned it more than anyone I've ever met."
       },
       "playerResponses": [
@@ -34,7 +34,7 @@
       "id": "pursuit_reso_loose_ends",
       "dialogueChunks": {
         "intro": "Good work, {player_name}. The primary target is down. But I want to be honest with you.",
-        "plotStep": "We stopped the leader, but a few of the {enemy_type} scattered into the wilds when you hit their camp. {target_npc} is tracking two groups heading in opposite directions. For now, {location} is safe: they won't regroup without their commander. But if any of them are smart enough to find a new leader, we might see this kind of trouble again someday.",
+        "plotStep": "We managed to {quest_action}, but a few of the {enemy_type} scattered into the wilds when you hit their camp. {target_npc} is tracking two groups heading in opposite directions. For now, {quest_stakes} are secure: they won't regroup without their commander.",
         "outro": "That's a problem for another day. Today you've earned this reward and the gratitude of every soul in the settlement."
       },
       "playerResponses": [
@@ -49,7 +49,7 @@
       "id": "pursuit_reso_04",
       "dialogueChunks": {
         "intro": "The hunt is over, {player_name}. Finally over.",
-        "plotStep": "The {enemy_type} threat is eliminated, the stolen {quest_item} is recovered, and {target_npc} has already begun returning goods to the families who lost them. The trail of destruction ends here. I've been doing this work for years, and I can say without hesitation that you're one of the best trackers I've ever seen operate.",
+        "plotStep": "{quest_threat} is eliminated, the stolen {quest_item} is recovered, and {target_npc} has already begun returning goods to the families who lost them. You managed to {quest_action} with the kind of precision I've rarely seen. {quest_stakes} are restored.",
         "outro": "Full payment, plus a commendation I'll be sending to every settlement in the region. Your reputation just went through the roof."
       },
       "playerResponses": [
@@ -63,7 +63,7 @@
       "id": "pursuit_reso_05",
       "dialogueChunks": {
         "intro": "You look exhausted, {player_name}. And I mean that as the highest compliment I can give.",
-        "plotStep": "That chase pushed you to your limit and you didn't flinch. The {enemy_type} fought hard at the end: {target_npc} heard the battle from half a league away and said it sounded like a thunderstorm. But the stolen {quest_item} is secured, the threat is neutralized, and the people of {location} can sleep soundly tonight for the first time in weeks.",
+        "plotStep": "That chase pushed you to your limit and you didn't flinch. {target_npc} heard the final battle from half a league away and said it sounded like a thunderstorm. But the stolen {quest_item} is secured, {quest_threat} is neutralized, and {quest_stakes} are safe tonight for the first time in weeks.",
         "outro": "Rest first. Then collect your bounty. You've earned both."
       },
       "playerResponses": [
@@ -77,8 +77,8 @@
       "id": "pursuit_reso_06",
       "dialogueChunks": {
         "intro": "Well. That was grimmer than either of us expected, wasn't it?",
-        "plotStep": "The target is down, but the things you found in their hideout... {target_npc} is still cataloguing the stolen {quest_item} and personal effects from a dozen victims. This wasn't just theft or territory: this was something cruel and deliberate. You stopped it, {player_name}. Whatever was driving that {enemy_type}, it ends with you standing here and them not.",
-        "outro": "Take your payment. And if the nightmares come, know that every person in {location} is alive tonight because of what you did."
+        "plotStep": "You managed to {quest_action}, but the things you found in their hideout... {target_npc} is still cataloguing the stolen {quest_item} and personal effects from a dozen victims. This wasn't just theft or territory: this was something cruel and deliberate. You stopped {quest_threat}, {player_name}. Whatever was driving them, it ends with you standing here and them not.",
+        "outro": "Take your payment. And if the nightmares come, know that {quest_stakes} are secure tonight because of what you did."
       },
       "playerResponses": [
         { "text": "Some hunts leave marks. This is one of them.", "action": "ACCEPT" },
@@ -91,8 +91,8 @@
       "id": "pursuit_reso_07",
       "dialogueChunks": {
         "intro": "Report from {target_npc} just came in. All clear on every front. You did it, {player_name}.",
-        "plotStep": "Every last {enemy_type} is either dead or scattered so far into the wilderness they'll never trouble {location} again. The {quest_item} has been recovered and returned. The roads are open. The patrols are reporting quiet nights for the first time in memory. {target_npc} is recommending we name the ridge after you, and I'm not going to argue.",
-        "outro": "Your bounty, in full. And an open invitation to {location}: any time you need a roof, a meal, or a friend, you'll find all three here."
+        "plotStep": "Every last {enemy_type} is either dead or scattered so far into the wilderness they'll never trouble us again. The {quest_item} has been recovered and returned. {quest_stakes} are restored. {target_npc} is recommending we name the ridge after you, and I'm not going to argue.",
+        "outro": "Your bounty, in full. And an open invitation: any time you need a roof, a meal, or a friend, you'll find all three here."
       },
       "playerResponses": [
         { "text": "A ridge with my name? I'd settle for a warm bed tonight.", "action": "ACCEPT", "dispositionShift": 10 },
@@ -105,7 +105,7 @@
       "id": "pursuit_reso_08",
       "dialogueChunks": {
         "intro": "One last thing before we close the book on this, {player_name}.",
-        "plotStep": "I want you to know that {target_npc} and I debated whether to send you after this target at all. The odds were against you from the start: hostile terrain, a cunning enemy, and a trail that went cold twice. Most people would have given up after the first dead end. You didn't. The {quest_item} is back, the {enemy_type} are gone, and {location} owes you a debt we can't easily repay.",
+        "plotStep": "I want you to know that {target_npc} and I debated whether to send you after this target at all. The odds were against you from the start: hostile terrain, {quest_threat}, and a trail that went cold twice. Most people would have given up after the first dead end. You didn't. You managed to {quest_action}, and {quest_stakes} are safe because of it.",
         "outro": "This is everything we promised, and then some. Walk tall, {player_name}. You've earned it."
       },
       "playerResponses": [

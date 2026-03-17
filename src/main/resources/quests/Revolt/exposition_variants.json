@@ -2,9 +2,16 @@
   "variants": [
     {
       "id": "revolt_expo_01",
+      "bindings": {
+        "quest_action": "gather evidence of the commander's corruption and rally support",
+        "quest_focus": "the commander's private stockpile of diverted supplies",
+        "quest_stakes": "the people scraping by on scraps while one person hoards",
+        "quest_threat": "a corrupt commander who threatens exile for anyone who speaks up",
+        "quest_origin": "months of supply diversion and intimidation"
+      },
       "dialogueChunks": {
-        "intro": "Keep your voice down, {player_name}. The walls in {location} have ears these days, and not all of them are friendly.",
-        "plotStep": "The settlement commander has been hoarding supplies while the rest of us scrape by on scraps. {target_npc} caught them diverting {quest_item} from the communal stores to their private stockpile {location_hint}. When confronted, the commander doubled the guard patrols and threatened anyone who speaks up with exile. The people are furious, but they're afraid. We need someone from outside to gather evidence and rally support: someone the commander can't intimidate or banish.",
+        "intro": "Keep your voice down, {player_name}. The walls have ears these days, and not all of them are friendly.",
+        "plotStep": "{quest_threat} has been hoarding supplies while {quest_stakes}. {target_npc} caught them diverting {quest_item} to {quest_focus} {location_hint}. When confronted, the commander doubled the guard and threatened anyone who speaks up. We need someone from outside to {quest_action}: someone who can't be intimidated or banished.",
         "outro": "We built this settlement together. Every brick, every beam. And now one person acts like they own it all. That ends now."
       },
       "playerResponses": [
@@ -21,9 +28,16 @@
     },
     {
       "id": "revolt_expo_02",
+      "bindings": {
+        "quest_action": "stockpile enough supplies to sustain the settlement independently",
+        "quest_focus": "the unjust tax draining every family dry",
+        "quest_stakes": "farmers breaking their backs while soldiers eat like kings",
+        "quest_threat": "a garrison commander who taxes a third of everything we produce",
+        "quest_origin": "a tax imposed last month that pushed us past the breaking point"
+      },
       "dialogueChunks": {
-        "intro": "You picked a hell of a time to visit {location}, {player_name}. Things are about to change around here.",
-        "plotStep": "The garrison commander imposed a tax last month: a third of everything we produce goes to the guard barracks. A third! The farmers are breaking their backs and going hungry while the soldiers eat like kings. {target_npc} tried to petition for relief, and the commander had them thrown in the stocks for a day as a warning. That was the last straw. Half the settlement is ready to refuse the tax, but we need {quest_item} to sustain ourselves independently and enough able bodies to hold the line when the commander sends troops to collect.",
+        "intro": "You picked a hell of a time to visit, {player_name}. Things are about to change around here.",
+        "plotStep": "{quest_threat}: {quest_focus} goes to the guard barracks. {quest_stakes} while the soldiers feast. {target_npc} tried to petition for relief and got thrown in the stocks. Half the settlement is ready to refuse the tax, but we need {quest_item} to {quest_action} and hold the line when troops come to collect.",
         "outro": "We're not rebels, {player_name}. We're people who've been pushed past the breaking point. Will you stand with us?"
       },
       "playerResponses": [
@@ -40,10 +54,17 @@
     },
     {
       "id": "revolt_expo_03",
+      "bindings": {
+        "quest_action": "establish an independent trading post beyond the consortium's reach",
+        "quest_focus": "the trade monopoly that controls who buys and sells",
+        "quest_stakes": "every independent trader crushed by rigged prices",
+        "quest_threat": "a merchant consortium that confiscates goods and burns stalls",
+        "quest_origin": "years of price-fixing and suppression of free trade"
+      },
       "dialogueChunks": {
         "intro": "I'm going to tell you something dangerous, {player_name}. Dangerous for me and dangerous for you, just by hearing it.",
-        "plotStep": "There's a merchant consortium that controls all trade in and out of {location}. They set the prices, they decide who buys and who sells, and anyone who tries to trade independently finds their goods confiscated and their stall burned down. {target_npc} had their entire inventory seized last week for undercutting the consortium's prices on {quest_item}. We've been meeting in secret, a group of us who've had enough. We want to establish an independent trading post {location_hint}, outside the consortium's reach, but the route there is infested with {enemy_type} and we need supplies to build it.",
-        "outro": "Freedom to trade shouldn't require permission from people who profit from our misery. Help us build something they can't control."
+        "plotStep": "{quest_threat} controls all trade here. They set prices, decide who buys, and anyone who trades independently has their goods seized. {target_npc} had their entire inventory of {quest_item} confiscated for undercutting the consortium. A group of us want to {quest_action} {location_hint}, but the route is infested with {enemy_type} and we need supplies to build it.",
+        "outro": "Freedom to trade shouldn't require permission from {quest_focus}. Help us build something they can't control."
       },
       "playerResponses": [
         { "text": "A free trading post? That's a cause worth fighting for.", "action": "ACCEPT" },
@@ -59,9 +80,16 @@
     },
     {
       "id": "revolt_expo_04",
+      "bindings": {
+        "quest_action": "expose the warden's deal and free the forced laborers",
+        "quest_focus": "the secret labor deal with hostile creatures",
+        "quest_stakes": "workers being forced into enemy territory under threat",
+        "quest_threat": "a warden selling our people's labor to the enemy",
+        "quest_origin": "a betrayal discovered when workers were followed to enemy overseers"
+      },
       "dialogueChunks": {
         "intro": "{player_name}, I need to ask you something, and I need you to decide quickly. Before the patrol comes back around.",
-        "plotStep": "The warden of {location} has been selling our people's labor to the {enemy_type}. Yes, you heard that right. Sending workers into their territory to mine {quest_item} in exchange for the warden's personal protection. {target_npc} discovered the arrangement when they followed a work crew {location_hint} and saw them handing over ore to {enemy_type} overseers. The workers are terrified: the warden has threatened their families if they talk. We need proof, we need allies, and we need to break this arrangement before more people are forced into it.",
+        "plotStep": "{quest_threat}: sending workers into {enemy_type} territory to mine {quest_item} in exchange for personal protection. {target_npc} discovered {quest_focus} when they followed a work crew {location_hint} and saw them handing over ore to enemy overseers. {quest_stakes} are terrified: the warden has threatened their families. We need proof, allies, and to {quest_action}.",
         "outro": "Our own leader is trading our people's sweat and safety for personal gain. This betrayal cannot stand."
       },
       "playerResponses": [

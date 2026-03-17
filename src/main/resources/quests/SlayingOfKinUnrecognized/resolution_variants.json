@@ -18,7 +18,7 @@
       "id": "slayingofkinunrecog_reso_02",
       "dialogueChunks": {
         "intro": "{player_name}, you found the laboratory. And the truth is worse and better than I feared.",
-        "plotStep": "The person running the transformation operation was a rogue alchemist who had been experimenting on abducted villagers for months. You shut them down and recovered enough of the {quest_item} formula to develop a reversal treatment. {target_npc} says two more transformed victims have been identified and sedated for treatment. The one I killed: they were too far gone, the alchemist confirmed. Nothing could have saved them by that point. That doesn't erase what I did, but it means I'm not the only one responsible.",
+        "plotStep": "{quest_threat} was a rogue alchemist who had been experimenting on abducted villagers for months. You shut them down and recovered enough of the {quest_item} formula to develop a reversal treatment. {target_npc} says two more transformed victims have been identified and sedated for treatment. The one I killed: they were too far gone, the alchemist confirmed. Nothing could have saved them by that point. That doesn't erase what I did, but it means I'm not the only one responsible.",
         "outro": "You stopped a monster-maker and gave us a cure. The weight on my shoulders is lighter because of you. Take this."
       },
       "playerResponses": [
@@ -46,7 +46,7 @@
       "id": "slayingofkinunrecog_reso_04",
       "dialogueChunks": {
         "intro": "The gates opened, {player_name}. They let us in.",
-        "plotStep": "When the village saw the {enemy_type} den cleared and the fresh {quest_item} supplies you gathered, they opened their gates for the first time in weeks. The sick received treatment, and {target_npc} spent the entire day working alongside their healers. By evening, the village elder invited me inside to talk. I told them everything: the cart, the healer, my failure to check their papers. They were quiet for a long time. Then they said forgiveness takes time, but they were willing to start.",
+        "plotStep": "When the village saw the {enemy_type} den cleared and the fresh {quest_item} supplies you gathered, they opened their gates for the first time in weeks. The sick received treatment, and {target_npc} spent the entire day working alongside their healers. By evening, the village elder invited me inside to talk. I told them everything: the cart, {quest_focus}, my failure to check their papers. They were quiet for a long time. Then they said forgiveness takes time, but they were willing to start.",
         "outro": "You earned their trust when I had destroyed it. The medicine is flowing, the sick are recovering, and two settlements are speaking again. This is yours."
       },
       "playerResponses": [

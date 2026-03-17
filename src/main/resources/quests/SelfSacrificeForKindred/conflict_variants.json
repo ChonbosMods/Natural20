@@ -4,7 +4,7 @@
       "id": "self_sacrifice_for_kindred_conf_01",
       "dialogueChunks": {
         "intro": "{player_name}, you're back sooner than I expected. That can't be good news.",
-        "plotStep": "The blight has spread to the neighboring fields. {target_npc} just came in shaking: their settlement's grain is rotting too. They're asking us for help, but we barely have enough for ourselves. The wild grain you've been gathering is now the only hope for two communities, not one. I need you to go back out {location_hint} and gather twice as much, but the {enemy_type} have grown bolder. They've moved their nesting grounds closer to the grain patches.",
+        "plotStep": "{quest_threat} has spread to the neighboring fields. {target_npc} just came in shaking: their settlement's grain is rotting too. They're asking us for help, but we barely have enough for ourselves. The wild grain you've been gathering is now the only hope for two communities, not one. I need you to go back out {location_hint} and gather twice as much, but the {enemy_type} have grown bolder. They've moved their nesting grounds closer to the grain patches.",
         "outro": "I've started giving my water rations to the newcomers too. Don't look at me like that. I can last a little longer."
       },
       "playerResponses": [
@@ -21,7 +21,7 @@
     {
       "id": "self_sacrifice_for_kindred_conf_02",
       "dialogueChunks": {
-        "intro": "The dam is cracking faster than we thought, {player_name}. We have days, not weeks.",
+        "intro": "{quest_focus} is cracking faster than we thought, {player_name}. We have days, not weeks.",
         "plotStep": "{target_npc} inspected the floodgates and found that the secondary mechanism is seized up with rust. The parts you brought won't be enough on their own: we need a counterweight system to hold the gates open long enough. There's an old iron forge {location_hint} that might have what we need, but it was abandoned when {enemy_type} moved into the area. I need you to get in there and bring back anything heavy enough to serve as ballast.",
         "outro": "Every hour the cracks widen. I've moved my bedroll into the floodgate room. If the dam breaks tonight, at least I'll already be at the wheels."
       },
@@ -41,7 +41,7 @@
       "id": "self_sacrifice_for_kindred_conf_03",
       "dialogueChunks": {
         "intro": "Oh, {player_name}. I'm glad you're here. Things have gotten much worse.",
-        "plotStep": "The fever mutated. The remedy we had is only slowing it now, not curing it. The healer says we need a stronger preparation: a rare {quest_item} that grows deep in the caverns {location_hint}. {target_npc} collapsed this morning from exhaustion. I've been tending the sick around the clock. I haven't slept in three days, and I won't until this is over. The caverns are crawling with {enemy_type}, but that medicine is the only thing standing between us and a mass grave.",
+        "plotStep": "{quest_focus} mutated. The remedy we had is only slowing it now, not curing it. The healer says we need a stronger preparation: a rare {quest_item} that grows deep in the caverns {location_hint}. {target_npc} collapsed this morning from exhaustion. I've been tending the sick around the clock. I haven't slept in three days, and I won't until this is over. The caverns are crawling with {enemy_type}, but that medicine is the only thing standing between us and {quest_stakes}.",
         "outro": "Look at me, {player_name}. I'll hold this settlement together with my bare hands if I have to. But I need you to bring back the cure."
       },
       "playerResponses": [

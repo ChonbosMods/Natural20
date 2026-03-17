@@ -4,8 +4,8 @@
       "id": "obtaining_conf_01",
       "dialogueChunks": {
         "intro": "Bad news, {player_name}. The situation just got more complicated.",
-        "plotStep": "A rival collector heard about the {quest_item} you're after and sent their own team {location_hint}. They're stripping the area clean and they're not above violence to protect their claim. {target_npc} spotted them setting up a guarded camp near the main deposit. If we don't act fast, there won't be anything left to gather. Worse, their activity has stirred up the {enemy_type} in the area.",
-        "outro": "Speed matters now more than ever. Get in, gather what you can, and get out before the competition or the creatures make it impossible."
+        "plotStep": "A rival collector heard about the {quest_item} and sent their own team to {quest_focus} {location_hint}. They're stripping the area clean and they're not above violence. {target_npc} spotted them setting up a guarded camp. Their activity has stirred up the {enemy_type}. We need to {quest_action} fast, before the competition or the creatures make it impossible.",
+        "outro": "Speed matters now more than ever. Get in, gather what you can, and get out."
       },
       "playerResponses": [
         { "text": "Competition doesn't scare me. I'll be faster.", "action": "ACCEPT" },
@@ -23,7 +23,7 @@
       "id": "obtaining_conf_02",
       "dialogueChunks": {
         "intro": "{player_name}, I wish I had better news to greet you with.",
-        "plotStep": "The {quest_item} you brought back? It's not the right quality. The impurities make it unusable for what I need. {target_npc} says there's a purer vein {location_hint}, but it's deeper underground and the tunnels are infested with {enemy_type}. I've also heard the cave system is unstable: collapses have been reported near the entrance. You'll need to find a way through without bringing the ceiling down.",
+        "plotStep": "The {quest_item} you brought back isn't the right quality. The impurities make it unusable for {quest_stakes}. {target_npc} says there's a purer vein {location_hint}, deeper underground where the {enemy_type} are thickest. The cave system is unstable. Our efforts to {quest_action} need to go deeper.",
         "outro": "I'm sorry to send you back out. But without the right materials, everything we've done so far is wasted."
       },
       "playerResponses": [
@@ -42,7 +42,7 @@
       "id": "obtaining_conf_03",
       "dialogueChunks": {
         "intro": "Stop, stop, stop. Before you unpack, {player_name}, we have a problem.",
-        "plotStep": "While you were out gathering, someone broke into the workshop and stole the {quest_item} I had already processed. Weeks of work, gone. {target_npc} saw a cloaked figure heading toward the old mill {location_hint} but was too afraid to follow. I suspect it's one of the traveling merchants who's been watching my work: they know the value of what I'm crafting. We need those processed materials back, and we need more raw {quest_item} to replace what can't be recovered.",
+        "plotStep": "While you were out gathering, someone broke into the workshop and stole the {quest_item} I had already processed. Weeks of work, gone. {target_npc} saw a cloaked figure heading toward the old mill {location_hint}. I suspect it's someone who knows the value of {quest_stakes}. We need those processed materials back, and more raw {quest_item} to replace what can't be recovered, to {quest_action}.",
         "outro": "I'll reinforce the workshop. You track down the thief and recover what you can."
       },
       "playerResponses": [
@@ -61,7 +61,7 @@
       "id": "obtaining_conf_04",
       "dialogueChunks": {
         "intro": "{player_name}, the route you've been using is gone. Completely impassable.",
-        "plotStep": "A rockslide buried the trail {location_hint} overnight. The only alternative path cuts through a stretch of forest that {target_npc} says is thick with {enemy_type} this time of year. To make matters worse, the remaining {quest_item} we had stored was damaged by moisture when the storehouse roof leaked during the last storm. We need to replace it all and find a safe way through to the new source.",
+        "plotStep": "A rockslide buried the trail {location_hint} overnight. The only alternative cuts through forest thick with {enemy_type} this time of year. To make it worse, the remaining {quest_item} we had stored was damaged by moisture. We need to replace it all and find a safe way through to {quest_action} and salvage {quest_stakes}.",
         "outro": "Nature and bad luck keep piling on. But giving up now means losing everything we've invested."
       },
       "playerResponses": [

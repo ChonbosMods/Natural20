@@ -2,10 +2,17 @@
   "variants": [
     {
       "id": "murderousadultery_expo_01",
+      "bindings": {
+        "quest_action": "follow the trail and find who poisoned the water supply",
+        "quest_focus": "the contaminated well at the heart of the settlement",
+        "quest_stakes": "more people falling ill or dying from the tainted water",
+        "quest_threat": "deliberate sabotage from within the community",
+        "quest_origin": "traces of a foreign toxin found near the well"
+      },
       "dialogueChunks": {
         "intro": "{player_name}, close the door. What I'm about to tell you doesn't leave this room.",
-        "plotStep": "Someone has been poisoning the settlement's water supply. Three people have fallen ill in the last week, and {target_npc} nearly died before the alchemist figured out what was happening. I found traces of {quest_item} ground into powder near the well: a substance that doesn't grow anywhere near {location}. Someone brought it here deliberately. The trail leads {location_hint}, and I suspect whoever did this has ties to the {enemy_type} raids we've been suffering. This isn't bad luck. It's sabotage.",
-        "outro": "I need someone I can trust to follow that trail. And right now, I can't trust anyone in this settlement."
+        "plotStep": "Someone has been poisoning the settlement's water supply. Three people have fallen ill in the last week, and {target_npc} nearly died before the alchemist figured out what was happening. I found traces of {quest_item} ground into powder near {quest_focus}: a substance that doesn't grow anywhere near {location}. Someone brought it here deliberately. The trail leads {location_hint}, and I suspect whoever did this has ties to the {enemy_type} raids we've been suffering. This isn't bad luck. It's {quest_threat}.",
+        "outro": "I need someone I can trust to {quest_action}. And right now, I can't trust anyone in this settlement."
       },
       "playerResponses": [
         { "text": "Poisoning a water supply is as low as it gets. I'll find who did this.", "action": "ACCEPT" },
@@ -21,10 +28,17 @@
     },
     {
       "id": "murderousadultery_expo_02",
+      "bindings": {
+        "quest_action": "uncover the puppet master behind the assassination",
+        "quest_focus": "the council leader's suspicious death",
+        "quest_stakes": "the wrong person hanging for a murder they were coerced into",
+        "quest_threat": "a hidden manipulator orchestrating killings from the shadows",
+        "quest_origin": "a rare toxin disguised as a natural heart attack"
+      },
       "dialogueChunks": {
         "intro": "Don't sit at the bar, {player_name}. Come to the back. This isn't a conversation for the common room.",
-        "plotStep": "The settlement council leader was found dead in their study three nights ago. Officially, it was a heart attack. Unofficially, I found {quest_item} residue on the rim of their cup: a rare toxin that mimics natural causes. {target_npc} was the last person seen entering the study, and they've been acting strange ever since: avoiding questions, locking their doors, pacing at night. But they're a good person, {player_name}. I don't think they acted alone. Someone put them up to this. The real puppet master is somewhere {location_hint}.",
-        "outro": "Help me find the truth before the wrong person hangs for this."
+        "plotStep": "The settlement council leader was found dead in their study three nights ago. Officially, it was a heart attack. Unofficially, I found {quest_item} residue on the rim of their cup: {quest_origin}. {target_npc} was the last person seen entering the study, and they've been acting strange ever since: avoiding questions, locking their doors, pacing at night. But they're a good person, {player_name}. I don't think they acted alone. {quest_threat} is somewhere {location_hint}.",
+        "outro": "Help me find the truth before {quest_stakes}."
       },
       "playerResponses": [
         { "text": "Murder disguised as illness? I'll uncover whoever is behind it.", "action": "ACCEPT" },
@@ -40,10 +54,17 @@
     },
     {
       "id": "murderousadultery_expo_03",
+      "bindings": {
+        "quest_action": "retrieve a coded letter that identifies the informant",
+        "quest_focus": "trade route information being leaked to raiders",
+        "quest_stakes": "more caravans being ambushed and more lives lost on the roads",
+        "quest_threat": "a traitor inside the settlement feeding intelligence to the enemy",
+        "quest_origin": "a pattern of redirected caravans into ambush points"
+      },
       "dialogueChunks": {
         "intro": "{player_name}, I've been watching you. You're not from here, which means you're the only person I can confide in.",
-        "plotStep": "Our settlement's trade agreements have been sabotaged from within. Caravans are being redirected into {enemy_type} ambushes, and it's costing us lives and goods. Someone inside {location} is feeding route information to raiders. I've narrowed it down to three suspects, but confronting any of them would tip off the traitor. {target_npc} found a coded letter hidden {location_hint} that might identify the informant, but retrieving it means getting past whatever guards the traitor posted.",
-        "outro": "We need that letter. Without evidence, the traitor walks free and more people die on the roads."
+        "plotStep": "Our settlement's trade agreements have been sabotaged from within. Caravans are being redirected into {enemy_type} ambushes, and it's costing us lives and goods. {quest_threat} is feeding route information to raiders. I've narrowed it down to three suspects, but confronting any of them would tip off the traitor. {target_npc} found a coded letter hidden {location_hint} that might identify the informant, but retrieving it means getting past whatever guards the traitor posted.",
+        "outro": "We need that letter. Without evidence, {quest_stakes}."
       },
       "playerResponses": [
         { "text": "A traitor selling out their own people? I'll get that letter.", "action": "ACCEPT" },
@@ -59,10 +80,18 @@
     },
     {
       "id": "murderousadultery_expo_04",
+      "bindings": {
+        "quest_action": "intercept a shipment of alchemical compounds and expose the conspiracy",
+        "quest_focus": "a pattern of suspicious council member deaths",
+        "quest_stakes": "the next target being eliminated before the conspiracy is exposed",
+        "quest_threat": "a power-hungry individual eliminating rivals through poison",
+        "quest_origin": "three council deaths in a month, all benefiting the same person",
+        "quest_time_pressure": "a new shipment arriving that could enable the next killing"
+      },
       "dialogueChunks": {
         "intro": "I shouldn't be telling you this, {player_name}. If the wrong person finds out I talked, I'll be next.",
-        "plotStep": "Three council members have died in the past month: all from different causes, all seemingly unrelated. But I've been keeping records, and every death benefits the same person. They've consolidated power over {location} faster than anyone should. Last night I overheard them arranging for a shipment of {quest_item}: a potent alchemical compound: to be delivered from {location_hint}. I think they're planning another move. {target_npc} is the likely target. Someone needs to intercept that shipment and expose the conspiracy.",
-        "outro": "I know how this sounds: paranoid, desperate. But the pattern is there if you look. Please, look."
+        "plotStep": "Three council members have died in the past month: all from different causes, all seemingly unrelated. But I've been keeping records, and every death benefits the same person. They've consolidated power over {location} faster than anyone should. Last night I overheard them arranging for a shipment of {quest_item}: a potent alchemical compound: to be delivered from {location_hint}. I think they're planning another move. {target_npc} is the likely target. Someone needs to {quest_action}.",
+        "outro": "I know how this sounds: paranoid, desperate. But {quest_focus} is there if you look. Please, look."
       },
       "playerResponses": [
         { "text": "Three deaths and one beneficiary? That's not a pattern, it's a confession. I'm in.", "action": "ACCEPT" },

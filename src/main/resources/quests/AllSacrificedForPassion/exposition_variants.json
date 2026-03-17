@@ -2,9 +2,16 @@
   "variants": [
     {
       "id": "all_sacrificed_for_passion_expo_01",
+      "bindings": {
+        "quest_action": "retrieve the final reagent from deep volcanic fissures",
+        "quest_focus": "a three-year quest to perfect ore transmutation",
+        "quest_stakes": "an obsessed alchemist losing everything for nothing",
+        "quest_threat": "a consuming passion that has already devoured savings, health, and friendships",
+        "quest_origin": "a vision of transmuting common ore into something extraordinary"
+      },
       "dialogueChunks": {
         "intro": "{player_name}! Perfect timing. I've been looking for someone who isn't afraid to venture into dangerous territory. Everyone here thinks I'm mad, but I'll prove them wrong.",
-        "plotStep": "I've spent three years trying to perfect a formula that can transmute common ore into something extraordinary. I'm close: so close I can taste it. But the final reagent, {quest_item}, only forms in deep volcanic fissures {location_hint}. My workshop is mortgaged, my savings gone, my apprentice quit last month. {target_npc} warned me to stop, said I've sacrificed too much already. But I can see the finish line.",
+        "plotStep": "I've spent three years trying to perfect a formula that can transmute common ore into something extraordinary: {quest_focus}. I'm close: so close I can taste it. But the final reagent, {quest_item}, only forms in deep volcanic fissures {location_hint}. My workshop is mortgaged, my savings gone, my apprentice quit last month. {target_npc} warned me to stop, said {quest_threat} has already cost too much. But I can see the finish line.",
         "outro": "Everyone thinks I'm chasing smoke. But when I hold that perfected ingot in my hands, they'll understand. They'll all understand. I just need this one last thing."
       },
       "playerResponses": [
@@ -20,9 +27,16 @@
     },
     {
       "id": "all_sacrificed_for_passion_expo_02",
+      "bindings": {
+        "quest_action": "retrieve a rare tempering compound from guarded ruins",
+        "quest_focus": "forging a blade that never dulls or chips",
+        "quest_stakes": "a family lost and a home sold for a dream that might fail",
+        "quest_threat": "an all-consuming obsession with the perfect weapon",
+        "quest_origin": "a blacksmith who sold their house to fund their research"
+      },
       "dialogueChunks": {
         "intro": "Don't mind the mess, {player_name}. Or the smell. Or the scorch marks. I've been working around the clock on something that will change everything.",
-        "plotStep": "I've discovered a way to forge weapons that hold an edge indefinitely: never dull, never chip. The secret is in the tempering process, but it requires {quest_item} that only exists in ruins guarded by {enemy_type} out {location_hint}. My family stopped speaking to me last season after I sold the house to fund this work. {target_npc} gives me scraps from the tavern kitchen because I forget to eat. I know how it looks from the outside. But this discovery will arm every guard in every settlement.",
+        "plotStep": "I've discovered a way to forge weapons that hold an edge indefinitely: {quest_focus}. The secret is in the tempering process, but it requires {quest_item} that only exists in ruins guarded by {enemy_type} out {location_hint}. My family stopped speaking to me last season after I sold the house to fund this work. {target_npc} gives me scraps from the tavern kitchen because I forget to eat. I know how it looks from the outside. But this discovery will arm every guard in every settlement.",
         "outro": "My wife said I love the forge more than I love her. Maybe she's right. But when every soldier carries an unbreakable blade, the settlements will be safe. That has to matter."
       },
       "playerResponses": [
@@ -38,10 +52,17 @@
     },
     {
       "id": "all_sacrificed_for_passion_expo_03",
+      "bindings": {
+        "quest_action": "gather the missing component from the deep wilds",
+        "quest_focus": "a land-purifying compound after four hundred failed attempts",
+        "quest_stakes": "years of sacrifice proving meaningless",
+        "quest_threat": "a researcher's obsession that has consumed their life and every partnership",
+        "quest_origin": "twelve volumes of notes and four hundred and seventeen failed experiments"
+      },
       "dialogueChunks": {
         "intro": "Come in, come in, but don't touch anything. And for the love of everything sacred, don't open that jar on the left. {player_name}, I need someone with steady hands and no fear.",
-        "plotStep": "I've been researching a compound that can purify tainted land: reverse the corruption that the {enemy_type} leave behind when they infest an area. My notes fill twelve volumes. I've tested four hundred and seventeen combinations. Four hundred and sixteen failures, but number four hundred and seventeen showed a flicker of something. The missing component is {quest_item}, found only in the deep wilds {location_hint}. {target_npc} says I've wasted my life. My former partners say the same. They don't see what I see.",
-        "outro": "I know I look half-starved and wild-eyed. I know my hands shake. But I am on the verge of something that will restore poisoned land for generations. Help me cross the finish line."
+        "plotStep": "I've been researching a compound that can purify tainted land: reverse the corruption that the {enemy_type} leave behind when they infest an area. {quest_origin}. Four hundred and sixteen failures, but number four hundred and seventeen showed a flicker of something. The missing component is {quest_item}, found only in the deep wilds {location_hint}. {target_npc} says I've wasted my life. My former partners say the same. They don't see what I see.",
+        "outro": "I know I look half-starved and wild-eyed. I know my hands shake. But I am on the verge of {quest_focus} that will restore poisoned land for generations. Help me cross the finish line."
       },
       "playerResponses": [
         { "text": "Four hundred and seventeen attempts. That's not madness, that's perseverance. What do you need?", "action": "ACCEPT" },

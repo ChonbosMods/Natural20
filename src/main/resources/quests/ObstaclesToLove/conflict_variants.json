@@ -4,8 +4,8 @@
       "id": "obstacles_to_love_conf_01",
       "dialogueChunks": {
         "intro": "{player_name}, the feud just turned violent. We're running out of time for peace.",
-        "plotStep": "A patrol from one settlement crossed the river and vandalized the other's grain stores. Now both sides are talking about retaliation. {target_npc} was caught carrying a message between us and was accused of being a spy. They're being held by the valley settlement's militia. The bridge materials you gathered are still hidden, but if we don't act before the next confrontation, nobody will be in any mood to talk. I need you to find {target_npc} and convince them to vouch for the bridge plan. And I need more {quest_item} to reinforce the bridge foundations: if we're going to build it, it has to be strong enough that nobody can tear it down in a fit of rage.",
-        "outro": "They arrested the one person brave enough to carry peace between two stubborn communities. If we don't act now, the bridge won't matter because there won't be anyone left willing to cross it."
+        "plotStep": "A patrol crossed the river and vandalized the other's grain stores. Now both sides are talking retaliation. {target_npc} was caught carrying a message and accused of being a spy. {quest_focus} is escalating beyond words. I need you to find {target_npc} and convince them to vouch for the bridge plan. And I need more {quest_item} to reinforce the foundations: if we build it, it has to be strong enough that nobody tears it down.",
+        "outro": "They arrested the one person brave enough to carry peace. {quest_stakes} unless we act before the next confrontation."
       },
       "playerResponses": [
         { "text": "I'll find {target_npc} and bring them home. Then we build that bridge.", "action": "ACCEPT" },
@@ -23,8 +23,8 @@
       "id": "obstacles_to_love_conf_02",
       "dialogueChunks": {
         "intro": "The council raised the stakes, {player_name}. The task just got harder.",
-        "plotStep": "The elder council heard I had outside help and declared the trial invalid. They've set a new challenge: clear the {enemy_type} nest that's been threatening the northern road {location_hint}. Something no outsider could fake or buy their way through. {target_npc} protested but was overruled. They want me to fail. They want a reason to send me away that looks legitimate. If I clear that nest and bring back {quest_item} as proof, even the most stubborn elder can't deny I've earned my place.",
-        "outro": "They keep moving the goal line. But I've come too far and I care too much about this community to walk away now."
+        "plotStep": "The elder council heard I had outside help and declared the trial invalid. They've set a new challenge: clear the {enemy_type} nest threatening the northern road {location_hint}. {target_npc} protested but was overruled. {quest_threat}: they want me to fail so they have a reason to send me away. If I clear that nest and bring back {quest_item} as proof, even the most stubborn elder can't deny I've earned my place.",
+        "outro": "They keep moving the goal line. But {quest_stakes}, and I've come too far to walk away."
       },
       "playerResponses": [
         { "text": "They want impossible? Let's give them impossible and make it look easy.", "action": "ACCEPT" },
@@ -42,8 +42,8 @@
       "id": "obstacles_to_love_conf_03",
       "dialogueChunks": {
         "intro": "My family found out, {player_name}. There was a confrontation.",
-        "plotStep": "My father discovered the letters. He confronted the blacksmith's family and words were exchanged that can't be taken back. Both families are demanding we never see each other again. {target_npc} is trying to calm things down but both sides are entrenched. The ruin where the heirloom halves are kept has been overrun by {enemy_type} who moved in since last season. I need you to fight through them and retrieve both pieces, and I need {quest_item} to restore the heirloom to its original form. If I can present it at the next community gathering, reunited and whole, it might break through the anger.",
-        "outro": "Words spoken in fury built these walls between our families. Maybe an act of unity can tear them down. But I need the heirloom first."
+        "plotStep": "My father discovered the letters. He confronted the other family and words were exchanged that can't be taken back. {quest_focus} has exploded into open hostility. The ruin where {quest_origin} is kept has been overrun by {enemy_type}. I need you to fight through and retrieve both pieces, plus {quest_item} to restore the heirloom. If I present it at the next community gathering, reunited and whole, it might break through the anger.",
+        "outro": "Words spoken in fury built these walls. Maybe an act of unity can tear them down. But {quest_stakes} if we don't act soon."
       },
       "playerResponses": [
         { "text": "A reunited heirloom at a community gathering. That's a powerful statement. I'll get it.", "action": "ACCEPT" },

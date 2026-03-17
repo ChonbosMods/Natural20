@@ -3,7 +3,7 @@
     {
       "id": "self_sacrifice_for_an_ideal_reso_01",
       "dialogueChunks": {
-        "intro": "{player_name}. It's done. The watchtower held.",
+        "intro": "{player_name}. It's done. {quest_focus} held.",
         "plotStep": "The evacuation succeeded. Every family, every child, every elder made it to safety because of the time that stand bought them. {target_npc} says the warband turned back after they couldn't break through in time. The person who held the tower... they didn't make it. But they knew they wouldn't. And they were at peace with it.",
         "outro": "We're carving their name into the new settlement gate. And yours beside it, for making it possible. Take this: it was found among their belongings, marked with your name."
       },
@@ -32,7 +32,7 @@
     {
       "id": "self_sacrifice_for_an_ideal_reso_03",
       "dialogueChunks": {
-        "intro": "The bridge is down, {player_name}. And the warband is stranded on the far side, howling with rage.",
+        "intro": "{quest_focus} is down, {player_name}. And the warband is stranded on the far side, howling with rage.",
         "plotStep": "It worked. Every charge detonated perfectly, the supports gave way, and three hundred feet of stone and timber crashed into the river. The {enemy_type} can't cross for months, maybe years. {target_npc} watched from the near bank and said the person on the far side raised their hand once, calmly, before the dust swallowed everything. The settlements on this side of the river are safe.",
         "outro": "The council called them a traitor yesterday. Today they're calling them a savior. Take this reward: you earned it standing beside someone the world almost failed to appreciate in time."
       },

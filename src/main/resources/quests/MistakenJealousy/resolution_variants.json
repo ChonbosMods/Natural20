@@ -4,7 +4,7 @@
       "id": "mistaken_jealousy_reso_01",
       "dialogueChunks": {
         "intro": "{target_npc} came back, {player_name}. They came back.",
-        "plotStep": "It took hours of talking, but they finally agreed to return to {location}. I apologized in front of the whole settlement: told everyone the truth about what happened and what I'd done. Some people were angry at me, and they had every right. But {target_npc} looked me in the eye and said, 'We've been neighbors too long for one mistake to end it.' I didn't deserve that grace, but I'll spend the rest of my days earning it.",
+        "plotStep": "It took hours of talking, but they agreed to return. I apologized in front of the whole settlement: told everyone the truth about {quest_focus} and what I'd done. {target_npc} looked me in the eye and said, 'We've been neighbors too long for one mistake to end it.' I didn't deserve that grace. {quest_threat} was nothing but my own paranoia.",
         "outro": "You carried the truth when I was too blinded by suspicion to see it. This is yours, with my deepest gratitude."
       },
       "playerResponses": [
@@ -19,7 +19,7 @@
       "id": "mistaken_jealousy_reso_02",
       "dialogueChunks": {
         "intro": "The debt is paid, {player_name}. The trader took the {quest_item} and left without trouble.",
-        "plotStep": "{target_npc} broke down when I told them what you'd done. Not anger: relief. Years of carrying that secret alone, and it took one nosy, jealous fool to finally bring it into the open. The irony isn't lost on me. The settlement rallied around {target_npc} once they heard the truth, and now three families have offered to help if the debt collectors ever come back. We're closer than before, believe it or not.",
+        "plotStep": "{target_npc} broke down when I told them what you'd done. Not anger: relief. {quest_stakes} was mended when the settlement rallied around them once they heard the truth. Three families offered to help if collectors come back. We're closer than before, believe it or not.",
         "outro": "My jealousy nearly destroyed someone, but your persistence turned it into something better. Take this: I set it aside from my own savings."
       },
       "playerResponses": [
@@ -33,8 +33,8 @@
       "id": "mistaken_jealousy_reso_03",
       "dialogueChunks": {
         "intro": "It's over, {player_name}. The truth is out, and I feel lighter and heavier at the same time.",
-        "plotStep": "{target_npc}'s relative is recovering, thanks to the {quest_item} you brought. And {target_npc} has forgiven me, though they said it'll take time before they fully trust me again. I understand that. I wouldn't trust me either, after what I put them through. The settlement is quieter now: people are being more careful with their assumptions, which is maybe the one good thing to come out of my foolishness.",
-        "outro": "You saw through my suspicion to the truth underneath. I'll carry that lesson for the rest of my life. Please, take this with my thanks."
+        "plotStep": "{target_npc}'s relative is recovering, thanks to the {quest_item} you brought. And {target_npc} has forgiven me, though they said it'll take time. I understand that. The settlement is quieter now: people being more careful with their assumptions. {quest_threat} turned out to be nothing but my own imagination.",
+        "outro": "You saw through my suspicion to the truth underneath. {quest_stakes} can heal. Please, take this with my thanks."
       },
       "playerResponses": [
         { "text": "Trust takes time to rebuild. But the fact that you're trying says a lot.", "action": "ACCEPT", "dispositionShift": 10 },

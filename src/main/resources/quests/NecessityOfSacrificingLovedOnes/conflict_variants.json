@@ -4,7 +4,7 @@
       "id": "necessity_of_sacrificing_loved_ones_conf_01",
       "dialogueChunks": {
         "intro": "{player_name}, the situation has turned worse. Much worse.",
-        "plotStep": "The {enemy_type} didn't wait for us to finish our defenses. They attacked the outer farms last night. Three families lost their homes. {target_npc} moved the refugees deeper into the settlement, but the council is furious. They're drafting an exile order. I have until dawn to convince them otherwise, but words won't do it: I need proof we can hold this place. Clear the {enemy_type} camp {location_hint} and bring back evidence that we've weakened their numbers. If the council sees we can fight, maybe they won't force me to choose.",
+        "plotStep": "The {enemy_type} didn't wait for us to finish our defenses. They attacked the outer farms last night. Three families lost their homes. {target_npc} moved the refugees deeper into the settlement, but the council is furious. They're drafting an exile order. I have until dawn to convince them otherwise, but words won't do it: I need proof we can hold this place. Clear the {enemy_type} camp {location_hint} and bring back evidence that we've weakened their numbers. If the council sees we can fight, maybe {quest_stakes} won't come to pass.",
         "outro": "Dawn. That's all I have. If I can't show the council a reason to hope by then, my friend and fifty refugees walk out those gates into certain death."
       },
       "playerResponses": [
@@ -23,7 +23,7 @@
       "dialogueChunks": {
         "intro": "I need you to listen carefully, {player_name}. The purification plan hit a wall.",
         "plotStep": "The materials you brought can filter sediment but not the poison itself. The contamination is magical in nature: some residue from the {enemy_type} that nested near the water table. {target_npc} found an old alchemical text that describes a neutralizing agent, but it requires {quest_item} from deep underground {location_hint}. Worse, {target_npc}'s family heard about our plans and they're threatening to seal the cavern. They think we're trying to take their water by force. I need you to gather the reagent AND speak to {target_npc} before their family does something irreversible.",
-        "outro": "If they seal that cavern, two communities lose their only clean water source instead of one. Fear makes people do terrible things."
+        "outro": "If they seal that cavern, {quest_threat} destroys two communities instead of one. Fear makes people do terrible things."
       },
       "playerResponses": [
         { "text": "I'll talk to {target_npc} first, then get the reagent. Trust between neighbors matters.", "action": "ACCEPT" },

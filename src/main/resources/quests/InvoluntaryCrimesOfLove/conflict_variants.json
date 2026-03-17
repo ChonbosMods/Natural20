@@ -4,7 +4,7 @@
       "id": "involuntarycrimesof_conf_01",
       "dialogueChunks": {
         "intro": "{player_name}, the people I tried to protect are now in even greater danger because of me.",
-        "plotStep": "The raiders who exploited the gap in our defenses didn't just steal supplies: they came back for more. This time they targeted the homes I left unguarded, and they've taken hostages. {target_npc} managed to track them {location_hint}, but they're dug in with the hostages as shields. The {enemy_type} are involved too: the raiders have been paying them with the {quest_item} they stole from us. We need someone who can get close without triggering a hostage situation.",
+        "plotStep": "The raiders who exploited {quest_focus} didn't just steal supplies: they came back for more. This time they targeted the homes I left unguarded, and they've taken hostages. {target_npc} managed to track them {location_hint}, but they're dug in with the hostages as shields. The {enemy_type} are involved too: the raiders have been paying them with the {quest_item} they stole from us. We need someone who can get close without triggering a hostage situation.",
         "outro": "My overprotection of one family put other families in chains. Please, help me free them."
       },
       "playerResponses": [
@@ -42,7 +42,7 @@
       "id": "involuntarycrimesof_conf_03",
       "dialogueChunks": {
         "intro": "The festival is tomorrow, {player_name}, and I've made the shortage worse by trying to cover it up.",
-        "plotStep": "I tried to replace the tavern stores by buying from a passing merchant, but they sold me spoiled goods. Half of what I stockpiled is rotten and the other half was infested with pests. Now we have less food than before I started. {target_npc} discovered the spoiled stores and is asking questions I can't answer. The only way to save the festival and my secret is to gather a massive amount of {quest_item} from the orchards {location_hint}: but a pack of {enemy_type} has claimed the area since the last harvest.",
+        "plotStep": "I tried to replace the tavern stores by buying from a passing merchant, but they sold me spoiled goods. Half of what I stockpiled is rotten and the other half was infested with pests. Now we have less food than before I started. {target_npc} discovered the spoiled stores and is asking questions I can't answer. The only way to save the festival is to gather a massive amount of {quest_item} from the orchards {location_hint}: but a pack of {enemy_type} has claimed the area since the last harvest.",
         "outro": "One lie leads to another. I just need this one last thing and I can make everything right."
       },
       "playerResponses": [
@@ -60,7 +60,7 @@
       "id": "involuntarycrimesof_conf_04",
       "dialogueChunks": {
         "intro": "{player_name}, the farmstead you cleared? The raiders came back. And they brought reinforcements.",
-        "plotStep": "{target_npc}'s family tried to return home after you cleared the camp, but the raiders had regrouped with {enemy_type} allies. They ambushed the family on the road {location_hint} and scattered them into the woods. Some of {target_npc}'s belongings: including irreplaceable {quest_item}: were seized again. I should have warned them to wait, but I wanted so badly to fix what I'd broken that I told them it was safe before confirming it.",
+        "plotStep": "{target_npc}'s family tried to return home after you cleared the camp, but the raiders had regrouped with {enemy_type} allies. They ambushed the family on the road {location_hint} and scattered them into the woods. Some of {target_npc}'s belongings: including irreplaceable {quest_item}: were seized again. I should have warned them to wait, but {quest_threat} pushed me to tell them it was safe before confirming it.",
         "outro": "I keep pushing people into danger by trying to help too fast. The family is out there, separated, in hostile territory. They need you."
       },
       "playerResponses": [

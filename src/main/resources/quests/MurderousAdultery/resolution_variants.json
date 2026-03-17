@@ -5,7 +5,7 @@
       "dialogueChunks": {
         "intro": "It's over, {player_name}. The conspiracy has been exposed.",
         "plotStep": "The evidence you brought from the supply cache was damning: names, dates, quantities, all meticulously recorded by someone too arrogant to think they'd be caught. The guard arrested the poisoner this morning, and {target_npc} is already working on purifying the water supply. The settlement is shaken but relieved. People who had been looking over their shoulders for weeks are finally breathing again.",
-        "outro": "You uncovered a darkness that could have consumed {location} from within. Take this: it doesn't begin to repay what you risked, but it's everything we can offer."
+        "outro": "You uncovered {quest_threat} that could have consumed {location} from within. Take this: it doesn't begin to repay what you risked, but it's everything we can offer."
       },
       "playerResponses": [
         { "text": "Justice and clean water: that's what matters. Take care of {location}.", "action": "ACCEPT" },

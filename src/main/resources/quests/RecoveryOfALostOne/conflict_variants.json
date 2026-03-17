@@ -4,8 +4,8 @@
       "id": "recovery_of_a_lost_one_conf_01",
       "dialogueChunks": {
         "intro": "{player_name}, you found her? You actually found her? But... what do you mean she won't come back?",
-        "plotStep": "She's alive, thank the stars, but she's built a life out there. A small homestead {location_hint}, trading with passing caravans. She said she didn't come back because she was ashamed of failing the original trade mission, and by the time shame faded, too much time had passed. She needs {quest_item} to winterize her homestead before the cold arrives, and the {enemy_type} have been pushing closer to her land every week. If we help secure her home, maybe she'll agree to at least visit {location}.",
-        "outro": "She's alive and safe, but she chose to stay away. I don't know whether to be relieved or heartbroken."
+        "plotStep": "She's alive, but she's built a life out there: a small homestead {location_hint}. {quest_focus} didn't come home because she was ashamed of failing the original mission. She needs {quest_item} to winterize before the cold, and the {enemy_type} push closer every week. If we help secure her home, maybe she'll agree to at least visit {location}. {quest_stakes}, but in a way I didn't expect.",
+        "outro": "She's alive and safe, but chose to stay away. I don't know whether to be relieved or heartbroken."
       },
       "playerResponses": [
         { "text": "One step at a time. Let's keep her safe first.", "action": "ACCEPT" },
@@ -23,8 +23,8 @@
       "id": "recovery_of_a_lost_one_conf_02",
       "dialogueChunks": {
         "intro": "The trail went cold, {player_name}. But then something unexpected happened.",
-        "plotStep": "A trader arrived at {location} carrying a bundle of {quest_item} with {target_npc}'s maker's mark on it. Fresh work, recently crafted. {target_npc} is alive and working somewhere, but the trader bought it from a middleman {location_hint} and doesn't know the original source. The middleman's camp is deep in {enemy_type} territory. If we can find the middleman and trace the supply chain back, we'll find {target_npc}. But the territory is dangerous and we'll need more {quest_item} to trade for information.",
-        "outro": "Every lead we follow brings us closer. I can feel it. They're out there, {player_name}, and they're alive."
+        "plotStep": "A trader arrived carrying {quest_item} with {target_npc}'s maker's mark. Fresh work, recently crafted. {quest_focus} is confirmed alive and working somewhere, but the trader bought from a middleman {location_hint} deep in {enemy_type} territory. If we trace the supply chain, we find {target_npc}. {quest_threat} makes the journey dangerous.",
+        "outro": "Every lead brings us closer. {quest_stakes}: they're out there."
       },
       "playerResponses": [
         { "text": "A maker's mark doesn't lie. I'll trace the supply chain.", "action": "ACCEPT" },
@@ -42,8 +42,8 @@
       "id": "recovery_of_a_lost_one_conf_03",
       "dialogueChunks": {
         "intro": "{player_name}, the letter was real. But the situation is more complicated than we thought.",
-        "plotStep": "{target_npc} isn't just being held: they've been working for the group willingly in exchange for protection from the {enemy_type}. They want to leave but fear the group will retaliate against {location} if they do. The drop point {location_hint} is watched. We need to gather enough {quest_item} to satisfy the group's demands for {target_npc}'s release, and we need to clear a safe escape route through territory that's crawling with {enemy_type}. It's a rescue and a negotiation at the same time.",
-        "outro": "They're so close to freedom. We just need to make the last pieces fall into place."
+        "plotStep": "{target_npc} isn't just being held: they've been working for the group willingly in exchange for protection from the {enemy_type}. They want to leave but fear {quest_threat} will retaliate against {location}. The drop point {location_hint} is watched. We need enough {quest_item} to satisfy the group's demands, and a safe escape route. {quest_stakes}, but freedom is within reach.",
+        "outro": "They're so close. {quest_action} is the last step to bringing them home."
       },
       "playerResponses": [
         { "text": "Negotiation backed by strength. I'll handle both.", "action": "ACCEPT" },

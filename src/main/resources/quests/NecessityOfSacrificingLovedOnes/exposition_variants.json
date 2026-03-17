@@ -2,9 +2,16 @@
   "variants": [
     {
       "id": "necessity_of_sacrificing_loved_ones_expo_01",
+      "bindings": {
+        "quest_action": "fortify the settlement so the refugees can stay",
+        "quest_focus": "refugees hidden in the granary drawing enemy attention",
+        "quest_stakes": "being forced to choose between the refugees and the settlement",
+        "quest_threat": "an enemy force circling because the refugees were tracked here",
+        "quest_origin": "a friend harboring dozens of displaced people in secret"
+      },
       "dialogueChunks": {
         "intro": "{player_name}, I need to talk to someone who isn't part of this settlement. Someone who can see clearly. Because I can't anymore.",
-        "plotStep": "My oldest friend, {target_npc}, has been harboring refugees from a settlement destroyed by {enemy_type}. Dozens of them, hidden in the old granary. The problem is that the {enemy_type} tracked the refugees here, and now they're circling {location}. The council says if we don't turn the refugees out, the entire settlement is at risk. They want me to deliver the order because {target_npc} trusts me. I need {quest_item} to reinforce our defenses: barricades, traps, anything. If I can make {location} strong enough to withstand a siege, maybe we don't have to choose.",
+        "plotStep": "My oldest friend, {target_npc}, has been harboring refugees from a settlement destroyed by {enemy_type}. Dozens of them, hidden in the old granary. The problem is that {quest_threat}: the {enemy_type} tracked the refugees here, and now they're circling {location}. The council says if we don't turn the refugees out, the entire settlement is at risk. They want me to deliver the exile order because {target_npc} trusts me. I need {quest_item} to reinforce our defenses: barricades, traps, anything. If I can make {location} strong enough to withstand a siege, maybe we don't have to choose.",
         "outro": "I can't look my friend in the eye and tell them to send those people back into the wild to die. But I can't watch my own neighbors die either. Help me find a third option."
       },
       "playerResponses": [
@@ -20,9 +27,16 @@
     },
     {
       "id": "necessity_of_sacrificing_loved_ones_expo_02",
+      "bindings": {
+        "quest_action": "build a purification system so neither community loses its water",
+        "quest_focus": "a poisoned well forcing a choice over the only clean water source",
+        "quest_stakes": "one community stealing water that another needs to survive",
+        "quest_threat": "a water crisis pitting two communities against each other",
+        "quest_origin": "slow poison in the well traced to enemy contamination"
+      },
       "dialogueChunks": {
         "intro": "I haven't slept in four days, {player_name}. Every time I close my eyes I see two futures, and both of them are nightmares.",
-        "plotStep": "The well in {location} is poisoned. Slowly, subtly: people have been getting sicker for weeks before we traced it. The only clean water source is in a cavern {location_hint} that belongs to {target_npc}'s family by ancestral right. They've offered to share, but the cavern can only sustain one community's worth of water. If we divert it here, {target_npc}'s kin across the valley lose their supply. If we don't, our children keep drinking poison. I need {quest_item} to build a purification system: something, anything, that means we don't have to steal water from people I love.",
+        "plotStep": "The well in {location} is poisoned. Slowly, subtly: people have been getting sicker for weeks before we traced it. The only clean water source is in a cavern {location_hint} that belongs to {target_npc}'s family by ancestral right. They've offered to share, but the cavern can only sustain one community's worth of water. If we divert it here, {target_npc}'s kin across the valley lose their supply. If we don't, our children keep drinking poison. I need {quest_item} to {quest_action}: something, anything, that means we don't have to steal water from people I love.",
         "outro": "I would cut off my own hand before I took water from {target_npc}'s people. But I will not bury another child. There has to be another way."
       },
       "playerResponses": [
@@ -38,9 +52,16 @@
     },
     {
       "id": "necessity_of_sacrificing_loved_ones_expo_03",
+      "bindings": {
+        "quest_action": "gather replacement supplies before the truce deadline",
+        "quest_focus": "harvest stores demanded as tribute by a hostile force",
+        "quest_stakes": "choosing between starving families and dead soldiers",
+        "quest_threat": "an enemy truce that demands tribute at the cost of civilian lives",
+        "quest_time_pressure": "the truce deadline arriving before replacement supplies can be gathered"
+      },
       "dialogueChunks": {
         "intro": "Sit down, {player_name}. What I'm about to tell you stays between us. If the wrong people hear this, blood will follow.",
-        "plotStep": "{target_npc} sent a message last night. The {enemy_type} have offered a truce: they'll stop raiding {location} if we hand over the harvest stores from the eastern fields. Those stores feed three families through winter, including my own sister's. If we refuse the truce, the raids continue and more guards die. If we accept, those families starve unless someone can gather enough {quest_item} from the wilds {location_hint} to replace what we give up. I need those supplies before the truce deadline, or I have to choose between my sister and my soldiers.",
+        "plotStep": "{target_npc} sent a message last night. The {enemy_type} have offered a truce: they'll stop raiding {location} if we hand over {quest_focus}. Those stores feed three families through winter, including my own sister's. If we refuse the truce, the raids continue and more guards die. If we accept, those families starve unless someone can {quest_action} from the wilds {location_hint} to replace what we give up. I need those supplies before {quest_time_pressure}, or I have to choose between {quest_stakes}.",
         "outro": "Every option costs someone I care about. I'm asking you to help me find one that doesn't cost a life."
       },
       "playerResponses": [

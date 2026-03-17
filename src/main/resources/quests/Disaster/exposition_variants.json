@@ -2,10 +2,17 @@
   "variants": [
     {
       "id": "disaster_expo_01",
+      "bindings": {
+        "quest_action": "bring back medical supplies and building materials",
+        "quest_focus": "the burned-out granary and half the settlement",
+        "quest_stakes": "the dozen people with severe burns who are dying right now",
+        "quest_threat": "the fire that destroyed our stores and drew predators from the hills",
+        "quest_origin": "the fire that swept through last night"
+      },
       "dialogueChunks": {
         "intro": "{player_name}! Thank the stars, someone who isn't covered in ash! We need help, we need it NOW!",
-        "plotStep": "A fire swept through {location} last night. Started in the granary and spread to half the settlement before we got it under control. Three buildings are still smoldering, the food stores are destroyed, and a dozen people are badly burned. {target_npc} is organizing what's left of the healthy adults, but we don't have the {quest_item} needed to treat the wounded or rebuild. The nearest supply is {location_hint}, but the smoke drew {enemy_type} down from the hills and they're between us and everything we need.",
-        "outro": "People are dying, {player_name}. Not tomorrow, not next week: right now, on the ground behind me. Please."
+        "plotStep": "{quest_origin} started in the granary and spread to {quest_focus}. {quest_stakes} are badly burned, and the food stores are destroyed. {target_npc} is organizing what's left, but we need {quest_item} to treat the wounded and rebuild. The nearest supply is {location_hint}, but the smoke drew {enemy_type} down from the hills.",
+        "outro": "People are dying, {player_name}. Not tomorrow: right now. Please, {quest_action}."
       },
       "playerResponses": [
         { "text": "Tell me exactly what you need and where to find it. I'm going now.", "action": "ACCEPT" },
@@ -21,10 +28,17 @@
     },
     {
       "id": "disaster_expo_02",
+      "bindings": {
+        "quest_action": "get shoring materials to the trapped miners before the tunnel collapses further",
+        "quest_focus": "the collapsed mine with workers trapped inside",
+        "quest_stakes": "the people underground who are running out of air",
+        "quest_threat": "the earthquake that cracked every foundation in the settlement",
+        "quest_origin": "an earthquake that struck before dawn"
+      },
       "dialogueChunks": {
-        "intro": "Don't step there! The ground is unstable! {player_name}, listen to me: {location} is falling apart.",
-        "plotStep": "An earthquake hit before dawn. The main road has collapsed into a sinkhole, half the buildings have cracked foundations, and the mine entrance caved in with workers still inside. {target_npc} is trying to dig them out with bare hands because every tool we had was stored in the workshop that's now rubble. We need {quest_item} to shore up the tunnel before it collapses further, and the only place to find it is {location_hint}. The aftershocks are driving {enemy_type} out of the caves and into the open.",
-        "outro": "There are people trapped underground running out of air. Every minute counts."
+        "intro": "Don't step there! The ground is unstable! {player_name}, listen: everything is falling apart.",
+        "plotStep": "{quest_origin} collapsed the main road into a sinkhole and caved in {quest_focus} with workers still inside. {target_npc} is trying to dig them out with bare hands because our tools are buried in rubble. We need {quest_item} to {quest_action}, and the only source is {location_hint}. The aftershocks are driving {enemy_type} out of the caves.",
+        "outro": "{quest_stakes}. Every minute counts."
       },
       "playerResponses": [
         { "text": "People trapped underground? I'll get the supplies. Don't stop digging.", "action": "ACCEPT" },
@@ -40,10 +54,17 @@
     },
     {
       "id": "disaster_expo_03",
+      "bindings": {
+        "quest_action": "get supplies through to the stranded survivors",
+        "quest_focus": "the hilltop where we're sheltering",
+        "quest_stakes": "everyone stranded on high ground with no food or clean water",
+        "quest_threat": "the flood that swept through and the creatures it displaced",
+        "quest_origin": "the dam breaking during the storm"
+      },
       "dialogueChunks": {
         "intro": "The river is still rising, {player_name}. It hasn't stopped since yesterday.",
-        "plotStep": "The dam upriver broke during the storm. {location} was in the flood path and we barely got the elders and children to high ground before the water swept through. Houses are underwater, livestock drowned, and the entire season's harvest of {quest_item} is either ruined or washed downstream. {target_npc} managed to salvage some tools and food, but it won't last three days. The flood pushed the {enemy_type} out of the lowlands and now they're prowling the same high ground we're sheltering on.",
-        "outro": "We're stranded on a hilltop with monsters below and no supplies. If you don't help us, this hill becomes a grave."
+        "plotStep": "{quest_origin} put us in the flood path. We barely got the elders and children to {quest_focus} before the water swept through. Houses are underwater, livestock drowned, and the {quest_item} is ruined or washed downstream. {target_npc} salvaged some tools, but it won't last. {quest_threat} pushed the {enemy_type} onto the same high ground we're sheltering on.",
+        "outro": "We're stranded with monsters below and no supplies. If you don't {quest_action}, this hill becomes a grave."
       },
       "playerResponses": [
         { "text": "I'll get through the floodwaters and bring back whatever you need.", "action": "ACCEPT" },
@@ -59,9 +80,16 @@
     },
     {
       "id": "disaster_expo_04",
+      "bindings": {
+        "quest_action": "patch up the wounded and seal the gaps in our walls",
+        "quest_focus": "the storm-shattered settlement",
+        "quest_stakes": "the wounded and the undefended gaps in our walls",
+        "quest_threat": "the storm that ripped the settlement apart and scattered hostile nests into our midst",
+        "quest_origin": "a freak hailstorm with winds that tore roofs off like paper"
+      },
       "dialogueChunks": {
         "intro": "{player_name}, I've never seen anything like this. The sky itself turned against us.",
-        "plotStep": "A freak storm: hail the size of fists, wind that ripped roofs off like paper. It lasted an hour and left {location} looking like a battlefield. The healer's workshop is destroyed, the forge chimney collapsed, and worst of all, the storm scattered a nest of {enemy_type} from the cliffs above and drove them straight into the settlement. {target_npc} fought them off at the bridge, but they're regrouping {location_hint}. We need {quest_item} to patch up the wounded and barricade the gaps in our walls before they come back.",
+        "plotStep": "{quest_origin} lasted an hour and left {quest_focus} looking like a battlefield. The healer's workshop is destroyed, the forge collapsed, and the storm scattered a nest of {enemy_type} from the cliffs straight into the settlement. {target_npc} fought them off at the bridge, but they're regrouping {location_hint}. We need {quest_item} to {quest_action} before they come back.",
         "outro": "We survived the storm. Now we need to survive what it brought to our doorstep."
       },
       "playerResponses": [

@@ -4,8 +4,8 @@
       "id": "adultery_conf_01",
       "dialogueChunks": {
         "intro": "{player_name}, I thought gathering evidence would be the hard part. I was wrong.",
-        "plotStep": "The garrison commander found out we're building a case. They sent soldiers to {location} to 'reinforce' us: but really to intimidate. {target_npc} was taken in for questioning and held for hours. They released them, but the message was clear: drop it or face consequences. Worse, the soldiers confiscated half the supplies you gathered, calling it 'back taxes.' I need you to retrieve more {quest_item} and find a way to deliver our evidence to the regional council through a route the garrison doesn't control. There's an old messenger trail {location_hint}, but {enemy_type} have been spotted along it.",
-        "outro": "They broke their oath and now they're threatening us for noticing. The only thing more dangerous than a liar is a liar with soldiers."
+        "plotStep": "They found out we're trying to {quest_action}. They sent soldiers to {location} to intimidate us. {target_npc} was taken in for questioning. They confiscated half the supplies you gathered, calling it 'back taxes.' I need you to retrieve more {quest_item} and find a way to deliver our evidence to the regional council. There's an old messenger trail {location_hint}, but {enemy_type} have been spotted along it.",
+        "outro": "{quest_threat} is becoming dangerous. The only thing worse than a liar is a liar with soldiers."
       },
       "playerResponses": [
         { "text": "Intimidation won't work when the truth gets out. I'll find a way through.", "action": "ACCEPT" },
@@ -23,8 +23,8 @@
       "id": "adultery_conf_02",
       "dialogueChunks": {
         "intro": "They had the nerve to come back here, {player_name}. Right through the front door, smiling.",
-        "plotStep": "{target_npc} returned to the tavern acting as if nothing happened. Charm, apologies, talk of fresh starts. But I found new ledgers hidden in the back room: they never stopped the side deals. They've been selling to {enemy_type} traders this entire time, and now the contraband trail leads to a warehouse {location_hint}. I need you to go there and document what you find: crates, manifests, anything that proves the scope of the betrayal. And I need more {quest_item} to keep the tavern running while I prepare my case for the council.",
-        "outro": "They looked me in the eye and lied. Again. No more chances. No more benefit of the doubt. This ends at the council table."
+        "plotStep": "{target_npc} returned acting as if nothing happened. But I found new ledgers hidden in the back room: {quest_focus} is still being undermined. The contraband trail leads to a warehouse {location_hint}. I need you to document what you find: crates, manifests, anything that proves the scope of the betrayal. And I need more {quest_item} to keep things running while I prepare my case.",
+        "outro": "They looked me in the eye and lied. Again. {quest_stakes} unless we stop this at the council table."
       },
       "playerResponses": [
         { "text": "The warehouse will tell the whole story. I'll go.", "action": "ACCEPT" },
@@ -41,8 +41,8 @@
       "id": "adultery_conf_03",
       "dialogueChunks": {
         "intro": "The guild master moved faster than we expected, {player_name}.",
-        "plotStep": "The original covenant has been moved from the guild hall. {target_npc} watched guards carry sealed chests out the back door last night. They're destroying evidence. The ledgers I have are damning, but without the original signed covenant showing exactly what was promised, it's my word against the guild master's. There's a clerk who kept copies of every guild document in a private archive {location_hint}. The {enemy_type} enforcers are watching the roads, but if you can reach that archive and bring back the copy, we have an airtight case.",
-        "outro": "Destroying a signed covenant is a crime in itself. If we prove they did it, there's nowhere left to hide."
+        "plotStep": "{quest_focus} has been moved from the guild hall. {target_npc} watched guards carry sealed chests out the back door. They're destroying evidence. Without the original signed covenant, it's my word against theirs. There's a clerk who kept copies in a private archive {location_hint}. The {enemy_type} enforcers are watching the roads, but if you can reach that archive, we have an airtight case.",
+        "outro": "Destroying a signed covenant is a crime in itself. {quest_threat}, but they're getting desperate."
       },
       "playerResponses": [
         { "text": "Destroying evidence means they're scared. I'll find the copy.", "action": "ACCEPT" },

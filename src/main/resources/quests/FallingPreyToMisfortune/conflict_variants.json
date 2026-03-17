@@ -4,8 +4,8 @@
       "id": "fallingprey_conf_01",
       "dialogueChunks": {
         "intro": "I hate to be the bearer of more bad news, {player_name}. But the misfortune isn't done with us yet.",
-        "plotStep": "The remedy you gathered? It's not working. The alchemist says the blight has mutated into something they've never seen before, and the standard treatment only slows it. {target_npc} has been pouring over old texts and found a reference to a stronger compound that requires {quest_item} from deep caves {location_hint}. The caves are dangerous: unstable tunnels, pockets of foul air, and {enemy_type} nesting in the dark. But without the stronger compound, the blight wins.",
-        "outro": "Every time we find a solution, the problem changes shape. But we can't stop trying."
+        "plotStep": "The remedy you gathered? It's not working. {quest_threat} has mutated into something the alchemist has never seen, and the standard treatment only slows it. {target_npc} found a reference to a stronger compound requiring {quest_item} from deep caves {location_hint}. Without a stronger formula, our efforts to {quest_action} will fail.",
+        "outro": "Every time we find a solution, the problem changes shape. But {quest_stakes} can't afford for us to stop trying."
       },
       "playerResponses": [
         { "text": "Then I'll go deeper. Whatever it takes.", "action": "ACCEPT" },
@@ -23,8 +23,8 @@
       "id": "fallingprey_conf_02",
       "dialogueChunks": {
         "intro": "{player_name}, the universe has a terrible sense of humor. Listen to this.",
-        "plotStep": "A rockslide blocked the passage you cleared to the new vein. The very next day. {target_npc} checked it and says it'll take weeks to dig through with the tools we have. But there might be another way in: an old drainage tunnel {location_hint} that the original miners used. It's been sealed and forgotten, probably because the {enemy_type} took it over when the mine was abandoned. We need you to clear it out and bring back enough {quest_item} to keep the excavation going while we dig through the main blockage.",
-        "outro": "One step forward, two steps back. That's been the rhythm of our lives lately."
+        "plotStep": "A rockslide blocked the passage you cleared to {quest_focus}. The very next day. {target_npc} says it'll take weeks to dig through. But there's an old drainage tunnel {location_hint} that the original miners used, sealed because the {enemy_type} took it over. We need you to clear it and bring back enough {quest_item} to keep our efforts to {quest_action} going.",
+        "outro": "One step forward, two steps back. That's been the rhythm of our lives lately. {quest_stakes} are running out of patience."
       },
       "playerResponses": [
         { "text": "A sealed tunnel full of monsters? Just another day at this point. I'll go.", "action": "ACCEPT" },
@@ -42,8 +42,8 @@
       "id": "fallingprey_conf_03",
       "dialogueChunks": {
         "intro": "It's getting worse, {player_name}. I didn't think that was possible, but here we are.",
-        "plotStep": "The sickness spread to the alchemist. The one person who knows how to prepare the cure is now too ill to stand. {target_npc} found the alchemist's notes, but they're written in shorthand that nobody else can read. There's another alchemist who might help: a recluse living {location_hint} who was expelled from {location} years ago over a dispute. We need you to find them, convince them to read the notes, and bring back enough {quest_item} for a proper batch of medicine. The recluse's territory is swarming with {enemy_type}, which is probably why they chose it.",
-        "outro": "Our healer is sick, our notes are unreadable, and our last hope is a hermit who hates us. Misfortune doesn't even begin to cover it."
+        "plotStep": "{quest_threat} spread to the alchemist: the one person who knows how to prepare the cure. {target_npc} found the alchemist's notes, but they're in shorthand nobody can read. There's a recluse living {location_hint} who might help: expelled years ago over a dispute. We need you to find them and bring back enough {quest_item} for a proper batch. The territory is swarming with {enemy_type}.",
+        "outro": "Our healer is sick, our notes are unreadable, and our last hope to {quest_action} is a hermit who hates us. {quest_stakes} deserve better luck than this."
       },
       "playerResponses": [
         { "text": "I'll find the recluse and get the notes translated. We're not giving up.", "action": "ACCEPT" },
@@ -61,8 +61,8 @@
       "id": "fallingprey_conf_04",
       "dialogueChunks": {
         "intro": "Fate has a new twist for us, {player_name}. This one might be the cruelest yet.",
-        "plotStep": "The alternate route you scouted? It worked for three days. Then the {enemy_type} returned in numbers we've never seen: driven out of their territory by something even they're afraid of. They've swarmed every path between {location} and the outside world. {target_npc} managed to get a message to a trader on the far side, and the trader left a cache of {quest_item} hidden {location_hint}. But reaching it means fighting through the densest concentration of {enemy_type} we've ever encountered.",
-        "outro": "The supplies are out there, tantalizingly close. But the gauntlet between us and them is the worst it's ever been."
+        "plotStep": "The route you scouted worked for three days. Then the {enemy_type} returned in numbers we've never seen, driven out by something even they're afraid of. They've swarmed every path between us and the outside world. {target_npc} got a message to a trader who left a cache of {quest_item} hidden {location_hint}. But reaching it means fighting through the densest concentration of enemies we've ever seen to {quest_action}.",
+        "outro": "The supplies are tantalizingly close. But the gauntlet between us and them is the worst it's ever been. {quest_stakes} can't wait much longer."
       },
       "playerResponses": [
         { "text": "I've fought through worse. Tell me where the cache is.", "action": "ACCEPT" },

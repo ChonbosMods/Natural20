@@ -4,7 +4,7 @@
       "id": "discovery_of_dishonor_conf_01",
       "dialogueChunks": {
         "intro": "{player_name}, the captain knows we've seen the ledgers. Things are moving fast.",
-        "plotStep": "Two guards loyal to the captain came to the tavern asking pointed questions about where I've been and who I've been talking to. {target_npc} was warned to stay quiet: a thinly veiled threat disguised as friendly advice. The captain is trying to move the evidence: I saw crates being loaded onto a cart heading {location_hint} under heavy escort. If that cart reaches its destination, the proof disappears forever. I need you to intercept it or at least follow it to wherever they're hiding the records. Watch out for {enemy_type} along the road: the captain might be using them as a screen.",
+        "plotStep": "Two guards came asking pointed questions about where I've been. {target_npc} was warned to stay quiet. The captain is moving the evidence: crates loaded onto a cart heading {location_hint} under heavy escort. If that cart reaches its destination, {quest_focus} disappears forever. Watch out for {enemy_type} along the road: {quest_threat} is using them as a screen.",
         "outro": "The captain is panicking. Panicked people are dangerous, but they also make mistakes. Don't let the evidence vanish."
       },
       "playerResponses": [
@@ -23,8 +23,8 @@
       "id": "discovery_of_dishonor_conf_02",
       "dialogueChunks": {
         "intro": "Someone broke into my home last night, {player_name}. They took the proof I'd been keeping.",
-        "plotStep": "The vials, the private ledger, everything I'd documented about the diluted medicines: stolen. The healer must have realized I know. {target_npc} says the healer has been acting erratically, canceling appointments, avoiding people. They're planning to run. I need you to find where they hid the stolen evidence: {target_npc} saw them heading toward an old storage building {location_hint}. And I need you to gather {quest_item} urgently: the patients on diluted medicines need real treatment before anyone else gets worse.",
-        "outro": "They stole back the proof, but they can't steal back what's in my memory. If we can recover even one piece of evidence, the council will listen."
+        "plotStep": "Everything I'd documented about {quest_focus}: stolen. The healer must have realized I know. {target_npc} says they've been acting erratically, canceling appointments. They're planning to run. I need you to find where they hid the stolen evidence: {target_npc} saw them heading toward an old storage building {location_hint}. And I need {quest_item} urgently: {quest_stakes}, and patients need real treatment now.",
+        "outro": "They stole back the proof, but they can't steal what's in my memory. If we can recover even one piece, the council will listen."
       },
       "playerResponses": [
         { "text": "The evidence is out there. I'll track it down and bring proper medicine too.", "action": "ACCEPT" },
@@ -42,8 +42,8 @@
       "id": "discovery_of_dishonor_conf_03",
       "dialogueChunks": {
         "intro": "They did it, {player_name}. {target_npc} went to the council and accused me of the theft.",
-        "plotStep": "False charges, fabricated ledgers, character witnesses who owe them favors: the whole thing was prepared in advance, like they knew this day was coming. I have three days before the council rules. If I can't produce the real records and the hidden cache of stolen goods, I'm the one who gets exiled. I need you to find that cache {location_hint}: the actual stolen goods with {target_npc}'s markings still on them. The {enemy_type} in the area will make it difficult, and I suspect {target_npc} may have set up obstacles of their own. This is my last chance.",
-        "outro": "Three days to prove I'm not the thief. Three days to prove my hero is. Everything rides on what you find in that cache."
+        "plotStep": "False charges, fabricated ledgers: {quest_threat} was prepared in advance. I have three days before the council rules. If I can't produce evidence of {quest_focus}, I'm the one who gets exiled. I need you to find the cache {location_hint}: the actual stolen goods with {target_npc}'s markings. The {enemy_type} will make it difficult, and I suspect traps have been set.",
+        "outro": "Three days to prove I'm not the thief. Three days to prove {quest_origin}. Everything rides on what you find."
       },
       "playerResponses": [
         { "text": "Three days. I won't waste a minute. Where's the cache?", "action": "ACCEPT" },

@@ -4,8 +4,8 @@
       "id": "conflict_with_a_god_reso_01",
       "dialogueChunks": {
         "intro": "Look at the sky, {player_name}. The green light is gone. The stars are back.",
-        "plotStep": "The shrine is sealed again, the corruption is receding, and the river runs clear for the first time in weeks. {target_npc} went to the temple this morning and said the air felt different: warm, calm, like the land itself is exhaling after holding its breath. The spirit guardians have returned to their vigil, and the {enemy_type} are retreating from the area. Whatever ancient force was disturbed has been put to rest.",
-        "outro": "You stood against something vast and unknowable and held your ground. There are no words for what that means to us. Take this, and know that this land remembers its defenders."
+        "plotStep": "{quest_focus} is sealed again, the corruption is receding, and the river runs clear. {target_npc} went to the temple and said the air felt different: warm, calm. The {enemy_type} are retreating. {quest_threat} has been put to rest at last.",
+        "outro": "You stood against something vast and unknowable and held your ground. {quest_stakes} is over. Take this, and know that this land remembers its defenders."
       },
       "playerResponses": [
         { "text": "Seeing the stars again is reward enough.", "action": "ACCEPT", "dispositionShift": 15 },
@@ -18,8 +18,8 @@
       "id": "conflict_with_a_god_reso_02",
       "dialogueChunks": {
         "intro": "{player_name}... I felt it the moment you completed the ritual. The whole settlement felt it.",
-        "plotStep": "A warmth spread through {location} like the first day of spring. The blighted crops are still dead, and it will take seasons to recover, but new shoots are already pushing through the blackened soil. {target_npc} says the spirit guardians left an offering at the edge of the forest: rare herbs and crystals arranged in a pattern that means 'gratitude.' They're thanking us. Thanking you.",
-        "outro": "You healed a wound between the mortal world and something far older. This is what we can offer in return. It feels small next to what you did, but it carries the weight of every soul you saved."
+        "plotStep": "A warmth spread through {location} like the first day of spring. The blighted crops are still dead, but new shoots push through the blackened soil. {target_npc} says {quest_focus} left an offering at the forest edge: rare herbs arranged in a pattern meaning 'gratitude.' They're thanking us. Thanking you.",
+        "outro": "You healed a wound between the mortal world and {quest_threat}. This is what we can offer. It feels small next to what you did."
       },
       "playerResponses": [
         { "text": "New shoots through blackened soil. That's the best kind of miracle.", "action": "ACCEPT", "dispositionShift": 10 },
@@ -33,8 +33,8 @@
       "id": "conflict_with_a_god_reso_03",
       "dialogueChunks": {
         "intro": "The corruption is gone, but the cost... {player_name}, the cost was heavy.",
-        "plotStep": "The temple collapsed during the final ritual. Centuries of knowledge and history, buried under stone. {target_npc} says the spirit guardians chose destruction over the risk of the corruption returning: they sealed the source permanently by bringing the mountain down on it. The land is healing, slowly, but we've lost something that can never be rebuilt. An entire chapter of our history is gone.",
-        "outro": "You did what had to be done. Nobody could have asked for more. Take this: it was found at the edge of the rubble, almost as if it was left there for you."
+        "plotStep": "The temple collapsed during the final ritual. Centuries of knowledge buried. {target_npc} says {quest_focus} chose destruction over the risk of the corruption returning: they sealed the source permanently. The land is healing slowly, but an entire chapter of our history is gone.",
+        "outro": "You did what had to be done against {quest_threat}. Take this: it was found at the edge of the rubble, almost as if it was left for you."
       },
       "playerResponses": [
         { "text": "Some things are worth more than old stones. Your lives, for instance.", "action": "ACCEPT" },

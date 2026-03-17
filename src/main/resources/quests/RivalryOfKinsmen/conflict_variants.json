@@ -22,7 +22,7 @@
       "id": "rivalryofkinsmen_conf_02",
       "dialogueChunks": {
         "intro": "{player_name}, the rivalry has spilled outside {location} and now other people are caught in the crossfire.",
-        "plotStep": "Both competitors sent apprentices to the same supply source {location_hint} at the same time. Instead of sharing, the apprentices fought over it. Now both groups are stranded out there: injured, out of supplies, and surrounded by {enemy_type} that moved in during the commotion. {target_npc} says neither master crafter will send a rescue party because they refuse to be the one who admits they need help. Someone has to bring those apprentices back before the {enemy_type} finish what the rivalry started.",
+        "plotStep": "Both competitors sent apprentices to the same supply source {location_hint} at the same time. Instead of sharing, the apprentices fought over it. Now both groups are stranded out there: injured, out of supplies, and surrounded by {enemy_type} that moved in during the commotion. {target_npc} says neither master crafter will send a rescue party because they refuse to be the one who admits they need help. Someone has to bring those apprentices back before {quest_stakes}.",
         "outro": "Innocent people stuck between stubborn masters and hungry monsters. They need you, {player_name}."
       },
       "playerResponses": [
@@ -41,7 +41,7 @@
       "id": "rivalryofkinsmen_conf_03",
       "dialogueChunks": {
         "intro": "I thought getting the materials would calm them down, {player_name}. I was wrong.",
-        "plotStep": "Both crafters used the {quest_item} you brought to build their competing prototypes, and now they're demanding a public trial to determine the winner. The problem is, each side has bribed half the judges. {target_npc} found out and canceled the trial, which only made both sides angrier. Now one of them has threatened to take their skills and leave {location} entirely, and the other says they'll refuse to work until they're declared the winner. We need a third source of {quest_item} to build a neutral prototype that neither side can dispute: something from the old foundry {location_hint}.",
+        "plotStep": "Both crafters used the {quest_item} you brought to build their competing prototypes, and now they're demanding a public trial to determine the winner. The problem is, each side has bribed half the judges. {target_npc} found out and canceled the trial, which only made both sides angrier. Now one of them has threatened to take their skills and leave {location} entirely. We need a third source of {quest_item} to build a neutral prototype that neither side can dispute: something from the old foundry {location_hint}.",
         "outro": "An impartial comparison might be the only way to end this. But getting materials from that foundry won't be easy."
       },
       "playerResponses": [
@@ -60,8 +60,8 @@
       "id": "rivalryofkinsmen_conf_04",
       "dialogueChunks": {
         "intro": "The situation just escalated, {player_name}. The rivalry has attracted outside attention.",
-        "plotStep": "Word of the competition between our crafters reached a merchant guild in a neighboring region. They've sent a representative to {location} offering to buy out both workshops and install their own people. If either crafter accepts, {location} loses its independence. {target_npc} is panicking: the guild representative has been meeting with both crafters privately, playing them against each other. Someone needs to find out what the guild is really offering: their records are being kept at a camp {location_hint}, guarded by hired muscle and {enemy_type} that the guild seems to have tamed.",
-        "outro": "If we can expose the guild's true terms, maybe both crafters will realize they're being played and finally stop fighting each other."
+        "plotStep": "Word of the competition reached a merchant guild in a neighboring region. They've sent a representative to {location} offering to buy out both workshops and install their own people. If either crafter accepts, {location} loses its independence. {target_npc} is panicking: the guild representative has been meeting with both crafters privately, playing them against each other. Someone needs to find out what the guild is really offering: their records are being kept at a camp {location_hint}, guarded by hired muscle and {enemy_type}.",
+        "outro": "If we can expose the guild's true terms, maybe both crafters will realize {quest_threat} and finally stop fighting each other."
       },
       "playerResponses": [
         { "text": "An outside guild exploiting a local feud? I'll get those records.", "action": "ACCEPT" },

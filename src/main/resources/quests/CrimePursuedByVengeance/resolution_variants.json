@@ -4,7 +4,7 @@
       "id": "crimepursued_reso_01",
       "dialogueChunks": {
         "intro": "It's done, {player_name}. The ones who did this have answered for their crimes.",
-        "plotStep": "{target_npc} gathered the whole settlement in the square to hear the news. When I told them what you'd accomplished, there was a silence: not the silence of fear, but the kind that comes when a wound starts to close. The old watchman's family wept, but they wept with relief, not anguish. Justice doesn't bring back the dead, but it lets the living start to heal.",
+        "plotStep": "{target_npc} gathered the whole settlement to hear the news. You managed to {quest_action}, and the silence that followed was the kind that comes when a wound starts to close. {quest_stakes} can begin to heal now. Justice doesn't bring back the dead, but it lets the living start to move forward.",
         "outro": "Take this. It was meant for whoever set things right. You've earned it and then some."
       },
       "playerResponses": [
@@ -18,7 +18,7 @@
       "id": "crimepursued_reso_02",
       "dialogueChunks": {
         "intro": "{player_name}. I owe you more than I can ever repay.",
-        "plotStep": "The streets of {location} are quieter now, but it's the good kind of quiet. The traders are coming back, the night patrols aren't finding anything worse than stray cats, and {target_npc} finally slept through the night for the first time in weeks. You didn't just punish the guilty: you restored something this settlement had lost. Safety. Confidence. The belief that wrong deeds have consequences.",
+        "plotStep": "The streets are quieter now, but it's the good kind of quiet. The traders are coming back, and {target_npc} finally slept through the night. You didn't just {quest_action}: you restored something this settlement had lost. Safety. Confidence. The belief that {quest_threat} has consequences.",
         "outro": "We collected this from every household. Everyone wanted to contribute. You gave us back our courage."
       },
       "playerResponses": [
@@ -32,8 +32,8 @@
       "id": "crimepursued_reso_03",
       "dialogueChunks": {
         "intro": "The deed is done, and I won't pretend I feel nothing. I feel everything.",
-        "plotStep": "Vengeance is a strange thing, {player_name}. I expected to feel satisfied when you told me the {enemy_type} had been dealt with. Instead I just feel tired. {target_npc} said the same thing: the anger that kept us going for weeks just... drained away. What's left is the work of rebuilding, and oddly enough, that feels like the harder task. But it's a task worth doing now, because the threat is gone.",
-        "outro": "Here. You earned every bit of this. And know that {location} will not forget what you did, even if the feeling is more complicated than we expected."
+        "plotStep": "Vengeance is a strange thing, {player_name}. I expected to feel satisfied when you told me you'd managed to {quest_action}. Instead I just feel tired. {target_npc} said the same thing: the anger that kept us going just drained away. What's left is the work of rebuilding. But it's a task worth doing now, because {quest_threat} is gone.",
+        "outro": "Here. You earned every bit of this. And know that what you did mattered, even if the feeling is more complicated than we expected."
       },
       "playerResponses": [
         { "text": "Vengeance rarely feels the way we expect. But the living can move forward now.", "action": "ACCEPT" },
@@ -46,8 +46,8 @@
       "id": "crimepursued_reso_04",
       "dialogueChunks": {
         "intro": "You're back. And from the look on your face, I'd say justice has been served.",
-        "plotStep": "{target_npc} wants to name the rebuilt storehouse after the watchman who was killed. The whole settlement agreed within minutes. They're already carving the sign. It's a small thing, maybe, but it means his sacrifice won't be forgotten. And the {enemy_type} who took him from us? They'll be forgotten. Completely. That's the real punishment: oblivion for the guilty, memory for the innocent.",
-        "outro": "Take this with the gratitude of everyone in {location}. And if you ever need anything, anything at all, you know where to find us."
+        "plotStep": "{target_npc} wants to name the rebuilt storehouse after the watchman. The whole settlement agreed within minutes. They're already carving the sign. {quest_stakes} won't be forgotten. And {quest_threat}? They'll be forgotten completely. That's the real punishment: oblivion for the guilty, memory for the innocent.",
+        "outro": "Take this with the gratitude of everyone here. And if you ever need anything, you know where to find us."
       },
       "playerResponses": [
         { "text": "A storehouse with his name on it. That's a legacy worth defending.", "action": "ACCEPT", "dispositionShift": 15 },

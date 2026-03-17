@@ -4,8 +4,8 @@
       "id": "crimes_of_love_reso_01",
       "dialogueChunks": {
         "intro": "The storehouse is full, {player_name}. Fuller than before I took from it, actually.",
-        "plotStep": "{target_npc} conducted the audit and found everything in order: plus a surplus. They looked confused but closed the investigation. The neighbor's children recovered with the medicine you brought. Their mother came to my door this morning, crying, saying she didn't know who had been leaving food but she'd pray for them every night. I didn't say a word. Just held her hand and nodded.",
-        "outro": "No one was punished. No one went hungry. No one knows what happened except you and me. Take this: it's all I can offer for helping me keep a secret that saved a family."
+        "plotStep": "{target_npc} conducted the audit and found everything in order: plus a surplus. They closed the investigation. The neighbor's children recovered with the medicine you brought. Their mother came to my door crying, saying she'd pray for whoever helped. {quest_focus} stayed secret, and no one suffered for it.",
+        "outro": "No one was punished. No one went hungry. Take this: it's all I can offer for helping me keep a secret that saved a family."
       },
       "playerResponses": [
         { "text": "Some secrets are worth keeping. Take care of your neighbors.", "action": "ACCEPT", "dispositionShift": 10 },
@@ -19,8 +19,8 @@
       "id": "crimes_of_love_reso_02",
       "dialogueChunks": {
         "intro": "They made it, {player_name}. The soldier is safe.",
-        "plotStep": "The route was clear, the provisions held, and the deserter reached the settlement on the other side. They sent word through a trusted courier: new name, new life, working as a carpenter. My sister wept with relief when she heard. {target_npc} eventually closed the investigation, saying the trail went cold. I think they suspected more than they let on, but sometimes good people in authority know when to stop looking.",
-        "outro": "A person with a conscience is alive because you cleared a path through the wilderness. My sister wanted you to have this. She said it's not enough, and she's right, but it's everything she has."
+        "plotStep": "The route was clear, the provisions held, and {quest_focus} reached the settlement on the other side. New name, new life, working as a carpenter. {target_npc} eventually closed the investigation, saying the trail went cold. {quest_stakes} never came to pass, and sometimes good people in authority know when to stop looking.",
+        "outro": "A person with a conscience is alive because you cleared a path through the wilderness. My sister wanted you to have this."
       },
       "playerResponses": [
         { "text": "A carpenter with a clear conscience. That's a good second life.", "action": "ACCEPT", "dispositionShift": 10 },
@@ -33,8 +33,8 @@
       "id": "crimes_of_love_reso_03",
       "dialogueChunks": {
         "intro": "The cottage is working beautifully, {player_name}. Better than the old setup, honestly.",
-        "plotStep": "I've been brewing remedies for three weeks without interruption. Fourteen people treated, seven fully recovered, and the guild hasn't found so much as a footprint. {target_npc} actually came to me last week with a sick friend, not knowing I was the one they'd been hunting. I treated the friend. No charge, same as always. The look on their face when the fever broke: that's why I do this. The guild can keep their monopoly and their prices. I'll keep making medicine for people who need it.",
-        "outro": "You built the foundation for a hidden clinic that saves lives the system refuses to value. This remedy is for you: the finest batch I've ever brewed. And this payment, small as it is, comes with the gratitude of everyone I've healed."
+        "plotStep": "I've been brewing {quest_focus} for three weeks without interruption. Fourteen people treated, seven fully recovered, and {quest_threat} hasn't found so much as a footprint. {target_npc} actually came to me with a sick friend, not knowing I was the one they'd been hunting. I treated the friend. No charge, same as always.",
+        "outro": "You built the foundation for a hidden clinic that saves lives the system refuses to value. This remedy is for you, and this payment comes with the gratitude of everyone I've healed."
       },
       "playerResponses": [
         { "text": "A hidden healer doing what the guild won't. The world needs more like you.", "action": "ACCEPT", "dispositionShift": 15 },

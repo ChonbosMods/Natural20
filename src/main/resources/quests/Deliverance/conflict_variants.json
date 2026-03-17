@@ -4,7 +4,7 @@
       "id": "deliverance_conf_01",
       "dialogueChunks": {
         "intro": "You're back, but something tells me it wasn't a clean run out there.",
-        "plotStep": "The {enemy_type} have reinforced their positions around the area where {target_npc} is trapped. Scouts report they've brought in more of their kind from {location_hint}, and they've set crude barriers across every approach. You'll need to break through their outer line and clear a path before you can reach the captives. Time is running out: {target_npc} was injured in the initial attack.",
+        "plotStep": "The {enemy_type} have reinforced their positions around {quest_focus}. Scouts report they've brought in more of their kind from {location_hint}. You'll need to break through their outer line to {quest_action}. Time is running out: {target_npc} was injured in the initial attack and {quest_stakes} grow more dire by the hour.",
         "outro": "They're fortifying because they know we're coming. We need to hit them before they dig in any deeper."
       },
       "playerResponses": [
@@ -22,8 +22,8 @@
       "id": "deliverance_conf_02",
       "dialogueChunks": {
         "intro": "{player_name}, we have a serious problem. The situation just got worse.",
-        "plotStep": "The captives have been moved. A trader passing through spotted {enemy_type} dragging prisoners {location_hint}, deeper into their territory. {target_npc} wasn't among the group the trader saw, which means they might have been separated or taken somewhere else entirely. We need you to track down where they've been relocated and bring {quest_item} to treat any wounded you find along the way.",
-        "outro": "Every hour they're in enemy hands is another hour of suffering. Please, hurry."
+        "plotStep": "The captives have been moved deeper into {enemy_type} territory {location_hint}. {target_npc} wasn't among the group a trader spotted, which means they might have been separated. Our efforts to {quest_action} just got harder. We need you to track where they've been relocated and bring {quest_item} to treat any wounded.",
+        "outro": "Every hour they're in enemy hands, {quest_stakes} become more desperate. Please, hurry."
       },
       "playerResponses": [
         { "text": "Moved or not, I'll find them. Give me everything you know.", "action": "ACCEPT" },
@@ -41,8 +41,8 @@
       "id": "deliverance_conf_03",
       "dialogueChunks": {
         "intro": "Bad news, {player_name}. I wish I had something better to tell you.",
-        "plotStep": "{target_npc} managed to smuggle out a message: they've been forced to gather {quest_item} for the {enemy_type}. Working them day and night in the caves {location_hint}. If they stop producing, the {enemy_type} have threatened to make examples of the weakest. We need you to gather enough {quest_item} to replace what they've been mining so we can pull them out without the captors noticing immediately.",
-        "outro": "A distraction and a substitute. It's our best chance at getting them out alive."
+        "plotStep": "{target_npc} managed to smuggle out a message: they've been forced to gather {quest_item} for the {enemy_type} in caves {location_hint}. If they stop producing, the captors will make examples of the weakest. To {quest_action}, we need to gather enough {quest_item} to replace what they've been mining so we can pull them out without the captors noticing.",
+        "outro": "A distraction and a substitute. It's our best chance at keeping {quest_stakes} alive."
       },
       "playerResponses": [
         { "text": "Gather the materials and stage a swap? Clever. I'll make it work.", "action": "ACCEPT" },
@@ -59,8 +59,8 @@
       "id": "deliverance_conf_04",
       "dialogueChunks": {
         "intro": "Thank the stars you came back, {player_name}. Things have taken a dark turn.",
-        "plotStep": "An informant from {location} says the {enemy_type} are planning to move the captives across the river {location_hint} by tomorrow morning. Once they cross, there's no settlement, no road, no landmark for miles: we'd lose their trail completely. {target_npc} sent word that several of the prisoners are too weak to travel fast. If we strike tonight, the confusion might give us the opening we need. But the camp is crawling with {enemy_type}.",
-        "outro": "Tomorrow they vanish. Tonight is our only window."
+        "plotStep": "The {enemy_type} are planning to move the captives across the river {location_hint} by tomorrow morning. Once they cross, we lose the trail completely. {target_npc} sent word that several prisoners are too weak to travel fast. If we strike tonight while {quest_threat} is in disarray, we might finally {quest_action}. But the camp is crawling with enemies.",
+        "outro": "Tomorrow {quest_stakes} vanish. Tonight is our only window."
       },
       "playerResponses": [
         { "text": "Then we move tonight. No more waiting.", "action": "ACCEPT" },

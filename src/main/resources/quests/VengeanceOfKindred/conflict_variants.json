@@ -4,8 +4,8 @@
       "id": "vengeancekindred_conf_01",
       "dialogueChunks": {
         "intro": "{player_name}, the {enemy_type} know we're coming for them. And they've responded the only way they know how.",
-        "plotStep": "They killed another one. A shepherd boy, barely twelve years old, found at the edge of {location} this morning with their mark carved into a post beside him. {target_npc} is trying to keep the settlement from turning into a mob, but the rage is boiling over. If we don't strike now, the villagers will charge in themselves and get massacred. You need to hit the {enemy_type} lair {location_hint} before this grief turns into a bloodbath on both sides.",
-        "outro": "Every day we wait, they take another life to prove they can. This has to end."
+        "plotStep": "They killed another one. A shepherd boy, barely twelve, found at the edge of the settlement this morning. {target_npc} is trying to keep people from forming a mob, but the rage is boiling over. If we don't {quest_action} now, the villagers will charge in themselves and get massacred. You need to hit the {enemy_type} lair {location_hint} before grief turns into a bloodbath.",
+        "outro": "Every day we wait, {quest_threat} takes another life to prove they can. This has to end."
       },
       "playerResponses": [
         { "text": "A child? No more waiting. I'm going now.", "action": "ACCEPT" },
@@ -22,8 +22,8 @@
       "id": "vengeancekindred_conf_02",
       "dialogueChunks": {
         "intro": "We found something at the {enemy_type} camp you raided, {player_name}. Something that changes everything.",
-        "plotStep": "Belongings. Personal items from at least a dozen victims, kept as trophies. My brother's ring was among them. {target_npc} identified their sister's pendant. Three other families in {location} found pieces of people they'd lost. The {enemy_type} didn't just kill our people: they collected souvenirs. {target_npc} says there's a deeper warren {location_hint} where the leader keeps their hoard. We need you to recover what you can and destroy the rest.",
-        "outro": "Those items belong to the dead, and to the families who mourn them. They should never have been trophies."
+        "plotStep": "Belongings. Personal items from at least a dozen victims, kept as trophies. {target_npc} identified their sister's pendant, and three other families found pieces of people they'd lost. {quest_threat} didn't just kill our people: they collected souvenirs. There's a deeper warren {location_hint} where the leader keeps their hoard. We need you to recover what you can as part of {quest_action}.",
+        "outro": "Those items belong to {quest_stakes}. They should never have been trophies."
       },
       "playerResponses": [
         { "text": "Trophies from the dead? I'll bring everything back and make them pay.", "action": "ACCEPT" },
@@ -40,9 +40,9 @@
     {
       "id": "vengeancekindred_conf_03",
       "dialogueChunks": {
-        "intro": "Bad news, {player_name}. The {enemy_type} have found allies.",
-        "plotStep": "A second group has joined the ones you've been hunting: drawn by the commotion, or maybe called in. {target_npc} spotted them arriving {location_hint} in numbers we haven't seen before. They've doubled the guard around their main camp and they're raiding more aggressively, like they're gathering {quest_item} to fortify for a prolonged conflict. If we don't break their alliance now, {location} will face a force too large for any rescue to matter.",
-        "outro": "Cut their supply line, scatter the reinforcements, and finish what we started. Before it grows beyond anyone's ability to stop."
+        "intro": "Bad news, {player_name}. {quest_threat} have found allies.",
+        "plotStep": "A second group has joined the ones you've been hunting: drawn by the commotion, or maybe called in. {target_npc} spotted them arriving {location_hint} in numbers we haven't seen before. They've doubled the guard and they're raiding more aggressively, gathering {quest_item} to fortify. If we don't break their alliance now as part of our efforts to {quest_action}, the settlement will face a force too large to overcome.",
+        "outro": "Cut their supply line, scatter the reinforcements, and finish what we started for {quest_stakes}."
       },
       "playerResponses": [
         { "text": "Reinforcements change nothing. I'll cut through them all.", "action": "ACCEPT" },
@@ -60,7 +60,7 @@
       "id": "vengeancekindred_conf_04",
       "dialogueChunks": {
         "intro": "{player_name}, I need you to listen carefully. Some of our own people are wavering.",
-        "plotStep": "Half the settlement thinks we should negotiate with the {enemy_type} instead of fighting. They say the killing has to stop, and they're not wrong about that: but negotiation means accepting what was done to our families. {target_npc} is holding the community together, but barely. To prove that this fight is worth finishing, we need a decisive strike. There's a forward outpost {location_hint} where the {enemy_type} have been stockpiling {quest_item}. Destroy it, and we show {location} that victory is within reach.",
+        "plotStep": "Half the settlement thinks we should negotiate with the {enemy_type} instead of fighting. {target_npc} is holding the community together, but barely. To prove that our fight to {quest_action} is worth finishing, we need a decisive strike. There's a forward outpost {location_hint} where {quest_threat} have been stockpiling {quest_item}. Destroy it, and we show {quest_stakes} that victory is within reach.",
         "outro": "If the settlement loses its nerve now, everyone who died will have died for nothing. We need this win."
       },
       "playerResponses": [

@@ -4,8 +4,8 @@
       "id": "conflict_with_a_god_conf_01",
       "dialogueChunks": {
         "intro": "{player_name}, the ritual failed. Or rather, something fought back.",
-        "plotStep": "When you placed the {quest_item} at the shrine, it absorbed the offering and grew stronger instead of quieting. {target_npc} says the corruption has a will of its own: it's feeding on our attempts to purify it. The old texts mention a second shrine deeper in the temple {location_hint}, one that serves as an anchor for the curse. We need to find it and sever the connection, but the {enemy_type} presence has tripled since your last visit. Whatever we awakened knows we're coming.",
-        "outro": "We're not just fighting corruption anymore. We're in a contest of wills with something that was old before this settlement existed."
+        "plotStep": "When you placed the {quest_item} at the shrine, it absorbed the offering and grew stronger. {target_npc} says the corruption has a will of its own: it's feeding on our attempts to purify it. The old texts mention a second shrine deeper in the temple {location_hint}, an anchor for the curse. The {enemy_type} presence has tripled. {quest_threat} knows we're coming.",
+        "outro": "We're not just fighting corruption anymore. {quest_focus} is more dangerous than we imagined, and it was old before this settlement existed."
       },
       "playerResponses": [
         { "text": "Then we go deeper. It can't hold on forever.", "action": "ACCEPT" },
@@ -23,8 +23,8 @@
       "id": "conflict_with_a_god_conf_02",
       "dialogueChunks": {
         "intro": "The corruption has reached {location}, {player_name}. We're running out of time.",
-        "plotStep": "The blackened earth is creeping toward the settlement walls. Trees are splitting open and oozing dark sap. {target_npc} collapsed this morning: the sickness is in the air now, not just the water. The only option left is to gather a massive quantity of {quest_item} and create a barrier ward around the settlement while someone returns to the temple source to confront whatever is driving this. The {enemy_type} are everywhere now, drawn to the dark energy like moths to flame.",
-        "outro": "I've studied ancient forces my whole life. I've never seen one this angry. Whatever we disturbed wants us gone from this land."
+        "plotStep": "The blackened earth is creeping toward the walls. Trees are splitting open. {target_npc} collapsed this morning: {quest_stakes} is in the air now. The only option is to gather massive quantities of {quest_item} and create a barrier ward while someone returns to the source. The {enemy_type} are everywhere, drawn to the energy like moths to flame.",
+        "outro": "{quest_threat} wants us gone from this land. We have to make our stand or abandon everything."
       },
       "playerResponses": [
         { "text": "Then we make our stand. I'll gather what we need and face the source.", "action": "ACCEPT" },
@@ -42,8 +42,8 @@
       "id": "conflict_with_a_god_conf_03",
       "dialogueChunks": {
         "intro": "{player_name}, the spirit guardians spoke. Not in words: in visions. And what they showed me changes everything.",
-        "plotStep": "The corruption wasn't random. Someone deliberately broke the shrine seals generations ago to harness the dark energy for their own purposes. The spirit guardians have been trying to contain the damage ever since, growing more desperate and violent as the corruption spread. They're not our enemies: they're exhausted protectors on the verge of collapse. {target_npc} found records {location_hint} that describe a binding ritual, but it requires rare {quest_item} and someone must carry it through territory the {enemy_type} have completely overrun.",
-        "outro": "We've been fighting the wrong battle. The guardians need our help, not our fear."
+        "plotStep": "The corruption wasn't random. Someone deliberately broke the shrine seals generations ago. {quest_focus} have been trying to contain the damage ever since, growing desperate and violent. They're not our enemies: they're exhausted protectors. {target_npc} found records {location_hint} describing a binding ritual requiring rare {quest_item}. Someone must carry it through territory the {enemy_type} have overrun.",
+        "outro": "We've been fighting the wrong battle. {quest_threat} was never directed at us: it was a cry for help."
       },
       "playerResponses": [
         { "text": "Then we help them. Show me where to find what we need.", "action": "ACCEPT" },

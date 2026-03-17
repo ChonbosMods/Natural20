@@ -2,10 +2,17 @@
   "variants": [
     {
       "id": "fallingprey_expo_01",
+      "bindings": {
+        "quest_action": "find the compound to treat the blighted soil",
+        "quest_focus": "the blackened fields destroyed overnight",
+        "quest_stakes": "the entire harvest and the settlement's food supply",
+        "quest_threat": "a dormant soil fungus that woke up and killed every crop",
+        "quest_origin": "a blight that struck without warning"
+      },
       "dialogueChunks": {
         "intro": "{player_name}. Forgive me, I don't normally bother travelers with my troubles. But fate has left me no other door to knock on.",
-        "plotStep": "The blight came without warning. One morning the crops were green and thriving, the next they were blackened and rotting in the soil. Every field in {location} was hit: weeks of growth destroyed overnight. {target_npc} says it's a soil fungus, something that's been dormant in the ground for years and chose now to wake up. The only remedy is a compound made from {quest_item}, but it only grows in the deep wilds {location_hint}, where the {enemy_type} have been hunting anything that moves.",
-        "outro": "We did everything right, {player_name}. Planted on time, tended carefully, prayed for rain. And the earth itself betrayed us."
+        "plotStep": "{quest_origin} destroyed {quest_focus}: weeks of growth blackened and rotting overnight. {target_npc} says it's {quest_threat} that's been dormant for years. The only remedy requires {quest_item}, but it only grows in the deep wilds {location_hint}, where the {enemy_type} have been hunting anything that moves.",
+        "outro": "We did everything right, {player_name}. And the earth itself betrayed us. Please, {quest_action}."
       },
       "playerResponses": [
         { "text": "Nature can be cruel, but it can be fought. I'll find what you need.", "action": "ACCEPT" },
@@ -21,10 +28,17 @@
     },
     {
       "id": "fallingprey_expo_02",
+      "bindings": {
+        "quest_action": "scout a new ore vein and clear the way for miners",
+        "quest_focus": "the collapsed mine that sustained us for generations",
+        "quest_stakes": "twelve families who depended on the mine for everything",
+        "quest_threat": "the collapse of our primary livelihood",
+        "quest_origin": "rotted timbers that gave way from sheer age"
+      },
       "dialogueChunks": {
         "intro": "I've been staring at this cup for an hour, {player_name}. Can't bring myself to drink it because I keep thinking: what if this is the last clean water we have?",
-        "plotStep": "The mine that sustained {location} for three generations collapsed last week. Not from an earthquake, not from sabotage: just age. The timbers rotted through and the whole thing came down. Twelve families depended on that mine for their livelihood, and now they have nothing. {target_npc} found traces of a new vein {location_hint}, but the area is thick with {enemy_type} and we'd need {quest_item} to shore up any new excavation. Bad luck, piled on bad luck, piled on worse.",
-        "outro": "Some people would say we're cursed. I'd say we're just unlucky enough that it feels the same."
+        "plotStep": "{quest_focus} collapsed last week. Not sabotage, just age: {quest_origin}. {quest_stakes} have nothing now. {target_npc} found traces of a new vein {location_hint}, but the area is thick with {enemy_type} and we'd need {quest_item} to shore up any new excavation. Bad luck, piled on bad luck.",
+        "outro": "Some people would say we're cursed. I'd say we just need someone to {quest_action}."
       },
       "playerResponses": [
         { "text": "Luck changes. Let me help change yours.", "action": "ACCEPT" },
@@ -40,10 +54,17 @@
     },
     {
       "id": "fallingprey_expo_03",
+      "bindings": {
+        "quest_action": "retrieve the cure ingredients from the marshes",
+        "quest_focus": "the settlement where people are quietly wasting away",
+        "quest_stakes": "the sick who grow weaker by the day",
+        "quest_threat": "a creeping sickness with only one known treatment",
+        "quest_origin": "an illness that started with a cough and ends with people too weak to move"
+      },
       "dialogueChunks": {
         "intro": "I should warn you, {player_name}: what I'm about to tell you is the kind of story that makes people walk away. I hope you're different.",
-        "plotStep": "A sickness has been creeping through {location} for weeks. Slow, insidious: starts with a cough and ends with people too weak to lift a spoon. {target_npc} was the first to fall ill and hasn't left their bed in ten days. The alchemist says the only treatment requires {quest_item} found in the marshes {location_hint}, but every forager we've sent has come back empty-handed or not come back at all. The {enemy_type} have claimed the marshes, and they don't share.",
-        "outro": "We're not being attacked. We're not at war. We're just slowly, quietly dying. And nobody seems to care."
+        "plotStep": "{quest_threat} has been creeping through {quest_focus} for weeks. {target_npc} was the first to fall and hasn't left their bed in ten days. The alchemist says the only treatment requires {quest_item} found in the marshes {location_hint}, but the {enemy_type} have claimed the marshes.",
+        "outro": "We're not being attacked. We're not at war. We're just slowly, quietly dying. Please, {quest_action}."
       },
       "playerResponses": [
         { "text": "I care. Show me where these marshes are, and I'll bring back what the alchemist needs.", "action": "ACCEPT" },
@@ -59,10 +80,17 @@
     },
     {
       "id": "fallingprey_expo_04",
+      "bindings": {
+        "quest_action": "break through the infested paths and reconnect us to the outside world",
+        "quest_focus": "the collapsed trade road that was our lifeline",
+        "quest_stakes": "a settlement slowly starving from isolation",
+        "quest_threat": "the total loss of our connection to the outside world",
+        "quest_origin": "a cliff collapse that buried our only trade route"
+      },
       "dialogueChunks": {
-        "intro": "You know what the cruelest part is, {player_name}? We were doing well. For the first time in years, {location} was thriving.",
-        "plotStep": "Then the trade road collapsed. A whole section of cliff gave way and buried the only route connecting us to the outside world. Overnight, our exports became worthless and our imports vanished. Merchants who used to come weekly stopped coming entirely. {target_npc} tried to blaze a new trail {location_hint}, but the {enemy_type} have infested every alternative path. Without {quest_item} from the outside, the craftsmen can't work, the alchemist can't brew, and the settlement that was thriving a month ago is slowly starving.",
-        "outro": "We didn't make an enemy. We didn't provoke anyone. The cliff just... fell. And now we're dying of isolation."
+        "intro": "You know what the cruelest part is, {player_name}? We were doing well. For the first time in years, we were thriving.",
+        "plotStep": "Then {quest_origin} happened. Overnight, {quest_threat} became real: exports worthless, imports gone. {target_npc} tried to blaze a new trail {location_hint}, but the {enemy_type} infest every alternative path. Without {quest_item} from outside, the craftsmen can't work, the alchemist can't brew, and {quest_stakes}.",
+        "outro": "We didn't make an enemy. We didn't provoke anyone. The cliff just fell. Please, {quest_action}."
       },
       "playerResponses": [
         { "text": "Isolation can be broken. I'll open a way through.", "action": "ACCEPT" },

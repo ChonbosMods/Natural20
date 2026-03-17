@@ -4,8 +4,8 @@
       "id": "enemityofkinsmen_conf_01",
       "dialogueChunks": {
         "intro": "{player_name}, things have gotten worse while you were investigating. Much worse.",
-        "plotStep": "One side torched the other family's grain shed last night. Nobody was hurt, but the accusations are flying and {target_npc} had to physically separate the two family heads in the square this morning. The guard is threatening to arrest both leaders, which would leave their families leaderless and even more hostile. Someone found evidence that the fire was actually started by {enemy_type} raiders who slipped through the distracted patrols: but neither family will believe it without proof. I need you to track the raiders {location_hint} and bring back undeniable evidence.",
-        "outro": "If we can prove an outside threat caused this, maybe both families will stop blaming each other long enough to defend the settlement together."
+        "plotStep": "One side torched the other family's grain shed last night. Nobody was hurt, but the accusations are flying and {target_npc} had to physically separate the two family heads this morning. The guard is threatening to arrest both leaders. Someone found evidence that the fire was actually started by {enemy_type} raiders who slipped through the distracted patrols: but neither family will believe it without proof. I need you to track the raiders {location_hint} and bring back undeniable evidence.",
+        "outro": "If we can prove {quest_threat} caused this, maybe both families will stop blaming each other long enough to defend {location} together."
       },
       "playerResponses": [
         { "text": "Raiders exploiting a feud? I'll find the evidence and expose the real threat.", "action": "ACCEPT" },
@@ -23,7 +23,7 @@
       "id": "enemityofkinsmen_conf_02",
       "dialogueChunks": {
         "intro": "I was afraid of this, {player_name}. The evidence you found didn't resolve anything: it made things worse.",
-        "plotStep": "Both sides are interpreting your findings differently. One family claims it proves the other is lying, and the other says it was fabricated. {target_npc} tried to present the facts calmly and was called a traitor by both parties. Now the families have barricaded themselves in opposite ends of {location} and refuse to share the well or the marketplace. Meanwhile, {enemy_type} have been spotted massing {location_hint}. If the settlement can't unify to defend itself, everyone loses.",
+        "plotStep": "Both sides are interpreting your findings differently. One family claims it proves the other is lying, and the other says it was fabricated. {target_npc} tried to present the facts calmly and was called a traitor by both parties. Now the families have barricaded themselves in opposite ends of {location} and refuse to share the well or the marketplace. Meanwhile, {enemy_type} have been spotted massing {location_hint}. If the settlement can't unify, {quest_stakes}.",
         "outro": "We need a show of strength against the real enemy to snap these people out of their grudge. Help me clear that {enemy_type} threat so both families see what they should really be fighting."
       },
       "playerResponses": [
@@ -60,7 +60,7 @@
       "id": "enemityofkinsmen_conf_04",
       "dialogueChunks": {
         "intro": "{player_name}, sit down. I need to tell you something before you hear the rumors.",
-        "plotStep": "The younger generation from both families got into a brawl at the tavern last night. Three people are hurt, and one of them hit their head so badly {target_npc} isn't sure they'll recover. The guard has locked up the instigators, but now both families are demanding their people be released and the others punished. To make it worse, the commotion attracted {enemy_type} scouts to the edges of {location}: they heard the chaos and now they're circling. I need you to sweep the perimeter {location_hint} and drive them back before they attack while we're divided.",
+        "plotStep": "The younger generation from both families got into a brawl at the tavern last night. Three people are hurt, and one hit their head so badly {target_npc} isn't sure they'll recover. The guard has locked up the instigators, but now both families are demanding their people be released and the others punished. To make it worse, the commotion attracted {enemy_type} scouts to the edges of {location}: they heard the chaos and now they're circling. I need you to sweep the perimeter {location_hint} and drive them back before {quest_stakes}.",
         "outro": "We're bleeding from the inside and surrounded from the outside. Deal with the external threat while I try to hold this place together."
       },
       "playerResponses": [

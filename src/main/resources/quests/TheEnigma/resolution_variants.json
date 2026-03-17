@@ -4,8 +4,8 @@
       "id": "enigma_reso_01",
       "dialogueChunks": {
         "intro": "{player_name}, I've been up all night analyzing what you brought back, and I think I finally understand.",
-        "plotStep": "The ruins aren't ruins at all: they're a monitoring system. Ancient builders created a network to track seismic activity, water tables, and mineral deposits across the region. The 'lights' are warning indicators that the system is detecting instability underground. The {quest_item} patterns are data readouts, and the {enemy_type} were responding to vibrations the system produces. It's not magic or malice: it's engineering so advanced it looks like magic. {target_npc} is already adapting the knowledge to predict future geological events.",
-        "outro": "We didn't just solve a mystery, {player_name}: we recovered technology that could protect {location} for generations. Take this, with the deepest gratitude of every curious mind in the settlement."
+        "plotStep": "{quest_focus} aren't ruins at all: they're a monitoring system. Ancient builders created a network to track seismic activity, water tables, and mineral deposits. The 'lights' are warning indicators, and the {quest_item} patterns are data readouts. The {enemy_type} were responding to vibrations. You managed to {quest_action}, and {quest_stakes} turned out to be engineering so advanced it looks like magic. {target_npc} is already adapting the knowledge.",
+        "outro": "We didn't just solve a mystery: we recovered technology that could protect the settlement for generations. Take this, with the deepest gratitude."
       },
       "playerResponses": [
         { "text": "Ancient engineering mistaken for magic. That's the best kind of answer.", "action": "ACCEPT", "dispositionShift": 15 },
@@ -18,7 +18,7 @@
       "id": "enigma_reso_02",
       "dialogueChunks": {
         "intro": "The spirals stopped, {player_name}. The crops are growing normally again, and the {enemy_type} have returned to their usual patterns.",
-        "plotStep": "{target_npc} and I believe the phenomenon was cyclical: a natural process that occurs once every few decades when underground mineral deposits shift and release energy into the soil. The {quest_item} deposits were crystallized minerals pushed to the surface by the same pressure. The spirals in the crops were growth responses to the mineral enrichment. It's beautiful, really: the earth breathing, in its own slow way. And now we know to expect it and benefit from it next time.",
+        "plotStep": "{target_npc} and I believe the phenomenon was cyclical: a natural process occurring once every few decades when underground minerals shift. The {quest_item} deposits were crystallized minerals pushed to the surface by the same pressure. You managed to {quest_action}, and {quest_stakes} are answered: the earth breathing, in its own slow way.",
         "outro": "You turned a mystery that terrified us into knowledge that empowers us. Here, a proper reward for a proper scholar's work."
       },
       "playerResponses": [
@@ -32,7 +32,7 @@
       "id": "enigma_reso_03",
       "dialogueChunks": {
         "intro": "I need to sit down for this, {player_name}. The implications of what we've discovered are staggering.",
-        "plotStep": "The cave system wasn't just sealed: it was deliberately hidden by people who knew exactly what they were doing. The writing on the walls is a warning, and {target_npc} translated enough to understand: the device described in the instructions is a weapon, built during an ancient war and locked away when peace was achieved. The builders sealed it because they believed no generation should inherit the temptation to use it. We've resealed the cave and destroyed the instructions.",
+        "plotStep": "{quest_focus} wasn't just sealed: it was deliberately hidden. {target_npc} translated enough of the writing to understand: the device described in the instructions is a weapon, built during an ancient war and locked away when peace was achieved. You managed to {quest_action}, and the answer to {quest_stakes} was a warning. We've resealed the cave and destroyed the instructions.",
         "outro": "Some mysteries are solved and celebrated. Others are solved and buried. This is the second kind. Take this, and carry the knowledge quietly."
       },
       "playerResponses": [
@@ -45,9 +45,9 @@
     {
       "id": "enigma_reso_04",
       "dialogueChunks": {
-        "intro": "The silence is gone, {player_name}. The birds are back, the insects are humming, and the tower is quiet.",
-        "plotStep": "What woke up in that tower was simpler than we feared and stranger than we expected: a hibernating colony of bioluminescent creatures that produce energy fields disrupting animal senses. They'd been dormant for decades and emerged due to a shift in the underground water table. The {quest_item} ring was mineral buildup from their excretions, and the {enemy_type} fled because the energy fields caused them pain. {target_npc} collected specimens for study, and the colony has returned to dormancy now that the water levels stabilized.",
-        "outro": "Not a curse, not a weapon, not a god: just creatures we didn't know existed doing what creatures do. Take this, with our thanks for having the courage to find the mundane truth behind the extraordinary."
+        "intro": "The silence is gone, {player_name}. The birds are back, the insects are humming, and {quest_focus} is quiet.",
+        "plotStep": "What woke up in that tower was simpler than we feared: a hibernating colony of bioluminescent creatures that produce energy fields disrupting animal senses. The {quest_item} ring was mineral buildup from their excretions. The {enemy_type} fled because the fields caused them pain. You managed to {quest_action}, and {target_npc} collected specimens for study. The colony has returned to dormancy.",
+        "outro": "Not a curse, not a weapon: just creatures we didn't know existed. Take this, with thanks for having the courage to find the mundane truth behind the extraordinary."
       },
       "playerResponses": [
         { "text": "Bioluminescent creatures and mineral excretions. Reality is stranger than any legend.", "action": "ACCEPT", "dispositionShift": 5 },

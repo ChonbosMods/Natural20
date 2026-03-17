@@ -4,7 +4,7 @@
       "id": "self_sacrifice_for_kindred_reso_01",
       "dialogueChunks": {
         "intro": "{player_name}... the grain is here. Both settlements will eat this winter.",
-        "plotStep": "The children are already grinding flour. {target_npc} organized a shared meal between both communities: the first time some of those families have sat down together in years. The person who gave up their rations for weeks... they're weak, but they're smiling. The healer says they'll recover if they start eating again, and I intend to personally make sure they do.",
+        "plotStep": "The children are already grinding flour. {target_npc} organized a shared meal between both communities: the first time some of those families have sat down together in years. The person who gave up their rations for weeks: {quest_origin}: they're weak, but they're smiling. The healer says they'll recover if they start eating again, and I intend to personally make sure they do.",
         "outro": "You carried more than grain back from those hills, {player_name}. You carried hope. Take this with our deepest gratitude."
       },
       "playerResponses": [
@@ -19,7 +19,7 @@
       "id": "self_sacrifice_for_kindred_reso_02",
       "dialogueChunks": {
         "intro": "The dam broke last night, {player_name}. But the homes are standing.",
-        "plotStep": "The floodgates held just long enough. The water roared through the overflow channels instead of the lower quarter. {target_npc} pulled the gate operator out of the flooding room at the last second: unconscious, half-drowned, but alive. The healer says they'll walk again in a few weeks. The community hall is intact. The kitchens are dry. Families are sleeping in their own beds tonight because one person decided their neighbors mattered more than their own safety.",
+        "plotStep": "The floodgates held just long enough. The water roared through the overflow channels instead of the lower quarter. {target_npc} pulled the gate operator out of the flooding room at the last second: unconscious, half-drowned, but alive. The healer says they'll walk again in a few weeks. The community hall is intact. The kitchens are dry. Families are sleeping in their own beds tonight because {quest_origin} decided their neighbors mattered more than their own safety.",
         "outro": "They asked me to give you this. Said you were the one who made the impossible possible. I think they're right."
       },
       "playerResponses": [
@@ -32,7 +32,7 @@
     {
       "id": "self_sacrifice_for_kindred_reso_03",
       "dialogueChunks": {
-        "intro": "The fever broke, {player_name}. Every single patient is recovering.",
+        "intro": "{quest_focus} broke, {player_name}. Every single patient is recovering.",
         "plotStep": "The remedy worked. {target_npc} is back on their feet, the children are playing in the square again, and our tireless caretaker finally fell asleep at the kitchen table this morning. First rest they've had in a week. The healer says they pushed themselves to the edge of collapse, but the stubbornness that nearly killed them is the same stubbornness that kept everyone else alive.",
         "outro": "They made you something before they passed out. A meal, of all things. Said feeding people is how they say thank you. Please take this reward too: the settlement collected it while you were gone."
       },

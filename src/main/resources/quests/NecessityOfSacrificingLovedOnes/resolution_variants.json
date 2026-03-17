@@ -33,7 +33,7 @@
       "id": "necessity_of_sacrificing_loved_ones_reso_03",
       "dialogueChunks": {
         "intro": "They came, {player_name}. The warband came. And we were ready.",
-        "plotStep": "We handed over the harvest stores as agreed, and the replacement supplies you gathered were distributed the same day. My sister didn't starve. My soldiers didn't fight. The {enemy_type} took their tribute and left, and nobody in {location} went to bed hungry. {target_npc} says it's a temporary peace, and maybe they're right. But temporary peace is still peace, and the families that would have suffered are eating tonight because of you.",
+        "plotStep": "We handed over {quest_focus} as agreed, and the replacement supplies you gathered were distributed the same day. My sister didn't starve. My soldiers didn't fight. The {enemy_type} took their tribute and left, and nobody in {location} went to bed hungry. {target_npc} says it's a temporary peace, and maybe they're right. But temporary peace is still peace, and the families that would have suffered are eating tonight because of you.",
         "outro": "My sister asked me to give you this. She said to tell you she knows what you did, and that her children will grow up knowing your name."
       },
       "playerResponses": [

@@ -4,8 +4,8 @@
       "id": "recovery_of_a_lost_one_reso_01",
       "dialogueChunks": {
         "intro": "She walked through the gate this morning, {player_name}. I saw her from the window and nearly fell over.",
-        "plotStep": "Three seasons apart, and the first thing she did was apologize. Can you believe that? She apologized to me for making me worry. We stood in the doorway crying like children while the whole settlement watched. {target_npc} brought flowers: said they'd been saving them since they heard she was alive. {location} feels different now. Fuller. Like a missing piece clicked back into place.",
-        "outro": "You brought my sister home. No amount of coin can equal that, but please, take this. It's the least we owe you."
+        "plotStep": "Three seasons apart, and the first thing she did was apologize. We stood in the doorway crying while the whole settlement watched. {target_npc} brought flowers. {location} feels different now: fuller. {quest_focus} is finally home, and {quest_stakes} is over.",
+        "outro": "You brought my sister home. No amount of coin can equal that, but please take this."
       },
       "playerResponses": [
         { "text": "Seeing you together again is worth more than any payment.", "action": "ACCEPT", "dispositionShift": 15 },
@@ -19,8 +19,8 @@
       "id": "recovery_of_a_lost_one_reso_02",
       "dialogueChunks": {
         "intro": "{player_name}... the trail led somewhere I didn't expect. Somewhere wonderful.",
-        "plotStep": "{target_npc} was alive the whole time: living under a different name in a settlement {location_hint}, working as a craftsperson. They'd started over, built new friendships, found a kind of peace. When I found them, they wept. Not from sadness: from the shock that someone had never stopped searching. We talked for hours. They're not ready to come back to {location}, but they promised to visit. And for now, knowing they're safe and well is enough. It's more than enough.",
-        "outro": "Two years of searching, and the answer was a living, breathing person with a whole new life. You made this reunion possible. Take this with all my heart."
+        "plotStep": "{target_npc} was alive the whole time: living under a different name, working as a craftsperson. They'd started over and found peace. When I found them, they wept from the shock that someone never stopped searching. They're not ready to come back to {location}, but they promised to visit. {quest_focus} is resolved: {quest_stakes} was answered with life, not death.",
+        "outro": "You made this reunion possible. Take this with all my heart."
       },
       "playerResponses": [
         { "text": "A new life isn't a betrayal. It's survival. I'm glad they're well.", "action": "ACCEPT", "dispositionShift": 10 },
@@ -33,8 +33,8 @@
       "id": "recovery_of_a_lost_one_reso_03",
       "dialogueChunks": {
         "intro": "They're free, {player_name}. {target_npc} walked out of that camp and didn't look back.",
-        "plotStep": "The group took the {quest_item} and honored the deal. {target_npc} arrived at {location} last night, thinner and quieter than I remember, but alive. They slept for fourteen hours straight. This morning they sat in the garden and just watched the birds, like they'd forgotten what stillness felt like. It'll take time for them to readjust. But they're here, and they're safe, and that's a miracle I stopped believing in.",
-        "outro": "You brought someone back from the edge of being lost forever. This reward is everything I could gather, and it still isn't enough."
+        "plotStep": "{quest_threat} took the {quest_item} and honored the deal. {target_npc} arrived at {location} last night, thinner and quieter, but alive. They slept fourteen hours straight. This morning they sat in the garden watching birds, like they'd forgotten what stillness felt like. {quest_focus} ended with freedom. {quest_stakes} is finally over.",
+        "outro": "You brought someone back from the edge of being lost forever. This reward is everything I could gather."
       },
       "playerResponses": [
         { "text": "Watching birds in a garden. That's what freedom looks like.", "action": "ACCEPT", "dispositionShift": 10 },

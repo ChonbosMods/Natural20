@@ -2,10 +2,17 @@
   "variants": [
     {
       "id": "slayingofkinunrecog_expo_01",
+      "bindings": {
+        "quest_action": "travel to the neighboring settlement and discover the full truth",
+        "quest_focus": "disguised friendly traders killed in a tragic misidentification",
+        "quest_stakes": "diplomatic relations collapsing between two settlements",
+        "quest_threat": "an ally-killing mistake that could sever vital trade ties",
+        "quest_origin": "a night patrol that mistook disguised traders for enemy scouts"
+      },
       "dialogueChunks": {
         "intro": "{player_name}, I've done something that haunts me. I need help understanding what happened before I lose my mind.",
-        "plotStep": "Three nights ago, the guard patrol I was leading encountered a group of cloaked figures {location_hint}. They moved like {enemy_type} scouts: same formations, same signals. We engaged. It was over in seconds. When we pulled back the hoods, we found the faces of traders from a neighboring settlement. Friendly traders. Disguised, apparently, to avoid bandit attention on the roads. {target_npc} identified them from their goods: they were bringing {quest_item} to {location} as a gift. I killed allies carrying gifts.",
-        "outro": "I need someone to travel to that settlement and find out the full truth. Were they really traders? Why the disguises? And how do I face their families?"
+        "plotStep": "Three nights ago, the guard patrol I was leading encountered a group of cloaked figures {location_hint}. They moved like {enemy_type} scouts: same formations, same signals. We engaged. It was over in seconds. When we pulled back the hoods, we found {quest_focus}: friendly traders from a neighboring settlement. Disguised, apparently, to avoid bandit attention on the roads. {target_npc} identified them from their goods: they were bringing {quest_item} to {location} as a gift. I killed allies carrying gifts.",
+        "outro": "I need someone to {quest_action}. Were they really traders? Why the disguises? And how do I face their families?"
       },
       "playerResponses": [
         { "text": "You acted on what you saw. Let me find out the full story before you condemn yourself.", "action": "ACCEPT" },
@@ -20,10 +27,17 @@
     },
     {
       "id": "slayingofkinunrecog_expo_02",
+      "bindings": {
+        "quest_action": "investigate who is transforming villagers into monsters",
+        "quest_focus": "a missing villager transformed beyond recognition",
+        "quest_stakes": "more transformed victims being unknowingly killed",
+        "quest_threat": "a rogue alchemist turning people into unrecognizable creatures",
+        "quest_origin": "a hunter who killed a creature that turned out to be a person"
+      },
       "dialogueChunks": {
         "intro": "I haven't slept in four days, {player_name}. Every time I close my eyes I see their faces.",
-        "plotStep": "There was a creature terrorizing the roads near {location}: huge, aggressive, wearing scraps of {enemy_type} armor. I tracked it for two days {location_hint} and finally brought it down in a ravine. When I examined the body, I found a necklace that {target_npc} recognized. It belonged to a villager who went missing months ago. The alchemist says they were transformed: some kind of {quest_item} compound that warped their body beyond recognition. I killed someone I should have been trying to save.",
-        "outro": "Someone turned a villager into a monster. I need to know who, and I need to find out if there are others before I unknowingly kill them too."
+        "plotStep": "There was a creature terrorizing the roads near {location}: huge, aggressive, wearing scraps of {enemy_type} armor. I tracked it for two days {location_hint} and finally brought it down in a ravine. When I examined the body, I found a necklace that {target_npc} recognized. It belonged to {quest_focus}: a villager who went missing months ago. The alchemist says they were transformed: some kind of {quest_item} compound that warped their body beyond recognition. I killed someone I should have been trying to save.",
+        "outro": "Someone turned a villager into a monster. I need to know who, and I need to find out if there are others before {quest_stakes}."
       },
       "playerResponses": [
         { "text": "If someone is transforming people into creatures, we need to stop them. I'll investigate.", "action": "ACCEPT" },
@@ -39,9 +53,16 @@
     },
     {
       "id": "slayingofkinunrecog_expo_03",
+      "bindings": {
+        "quest_action": "search the burned camp ruins for survivors or evidence",
+        "quest_focus": "prisoners held as forced labor in an enemy camp",
+        "quest_stakes": "survivors trapped in tunnels beneath the destroyed camp",
+        "quest_threat": "a bounty hunter's carelessness that may have killed captives",
+        "quest_origin": "torching an enemy camp without checking for prisoners inside"
+      },
       "dialogueChunks": {
         "intro": "{player_name}, I came to {location} looking for a friend. Instead I found out what I've done.",
-        "plotStep": "Last month I cleared a {enemy_type} camp {location_hint} on a bounty. Standard work: burned the supplies, scattered the survivors. What I didn't know was that the camp held prisoners: people from nearby settlements being used as forced labor. {target_npc} told me one of the prisoners was a herbalist who had been gathering {quest_item} under duress. When I torched the supply tent, the herbalist was still inside. I didn't check. I need to go back and search the ruins for survivors, or at least for proof of what really happened there.",
+        "plotStep": "Last month I cleared a {enemy_type} camp {location_hint} on a bounty. Standard work: burned the supplies, scattered the survivors. What I didn't know was that the camp held {quest_focus}: people from nearby settlements being used as forced labor. {target_npc} told me one of the prisoners was a herbalist who had been gathering {quest_item} under duress. When I torched the supply tent, the herbalist was still inside. I didn't check. I need to go back and {quest_action}.",
         "outro": "I was so focused on completing the bounty that I never thought to look for captives. That has to change, starting now."
       },
       "playerResponses": [
@@ -58,10 +79,17 @@
     },
     {
       "id": "slayingofkinunrecog_expo_04",
+      "bindings": {
+        "quest_action": "deliver the remaining medicine to the plague-stricken village",
+        "quest_focus": "a healer killed while carrying lifesaving medicine",
+        "quest_stakes": "an entire village dying of plague without their medicine",
+        "quest_threat": "a fatal mistake born of shoot-first paranoia",
+        "quest_origin": "killing a smuggler who turned out to be a healer with legitimate papers"
+      },
       "dialogueChunks": {
         "intro": "Don't touch that pile, {player_name}. Those are the belongings of someone I wronged. I can't bring myself to move them.",
-        "plotStep": "A week ago, I intercepted a smuggler's cart {location_hint} carrying what I thought was stolen {quest_item}. The driver fought back and I... I didn't hold back. Turns out the cart belonged to a healer from a neighboring settlement. The {quest_item} was medicine, not contraband, bound for people dying of plague. {target_npc} confirmed the healer had legitimate passage papers that I never asked to see. Now an entire village is waiting for medicine that will never arrive, and the person carrying it is dead because of me.",
-        "outro": "I need to deliver what's left of that medicine and find out if it's too late for the people who needed it. I owe them that much."
+        "plotStep": "A week ago, I intercepted a smuggler's cart {location_hint} carrying what I thought was stolen {quest_item}. The driver fought back and I... I didn't hold back. Turns out the cart belonged to {quest_focus}: a healer from a neighboring settlement. The {quest_item} was medicine, not contraband, bound for people dying of plague. {target_npc} confirmed the healer had legitimate passage papers that I never asked to see. Now {quest_stakes}: an entire village is waiting for medicine that will never arrive.",
+        "outro": "I need to {quest_action} and find out if it's too late for the people who needed it. I owe them that much."
       },
       "playerResponses": [
         { "text": "The medicine still needs to reach those people. I'll make the delivery.", "action": "ACCEPT" },

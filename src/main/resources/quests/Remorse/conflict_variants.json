@@ -4,8 +4,8 @@
       "id": "remorse_conf_01",
       "dialogueChunks": {
         "intro": "{player_name}, {target_npc} found out. They know it was me who ran.",
-        "plotStep": "Someone recognized me in the market and told {target_npc} everything. They came to my door, shaking with anger, and demanded to know why. I couldn't lie anymore: I told them the truth. They didn't hit me, didn't shout. They just said, 'Then prove you've changed.' They want me to help defend {location} personally. But first, we need more {quest_item} from {location_hint}, and the {enemy_type} are thicker than ever. This time, I can't run.",
-        "outro": "I asked for a chance to make amends and I got one. The hard kind. Will you stand with me?"
+        "plotStep": "Someone recognized me and told {target_npc} everything about {quest_origin}. They came shaking with anger and demanded to know why. I told them the truth. They said, 'Then prove you've changed.' They want me to help defend {location} personally. But first, more {quest_item} from {location_hint}, and the {enemy_type} are thicker than ever. {quest_threat} no longer lets me hide.",
+        "outro": "I asked for a chance to make amends and got the hard kind. {quest_focus} demands I stop running. Will you stand with me?"
       },
       "playerResponses": [
         { "text": "You asked for this. Now earn it. I'll stand with you.", "action": "ACCEPT" },
@@ -23,8 +23,8 @@
       "id": "remorse_conf_02",
       "dialogueChunks": {
         "intro": "The medicine we gathered, {player_name}... it's been stolen.",
-        "plotStep": "Bandits raided the supply wagon {location_hint} before it reached {location}. Everything: every vial, every herb, every ounce of {quest_item}. {target_npc} doesn't even know the shipment was coming from me. They just know that the settlement's medicine supply is dangerously low again. If I don't replace it quickly, more people will die, and this time I can't hide behind anonymity. The bandits left a trail through {enemy_type} territory, and the supplies might still be recoverable.",
-        "outro": "The universe has a cruel sense of humor. But I'm not laughing, and I'm not quitting."
+        "plotStep": "Bandits raided the supply wagon {location_hint}. Everything: every vial of {quest_item} meant to {quest_action}. {target_npc} doesn't even know the shipment was coming from me. {quest_stakes} becomes real again if I can't replace it. The bandits left a trail through {enemy_type} territory, and the supplies might still be recoverable.",
+        "outro": "The universe has a cruel sense of humor. But {quest_focus} drives me forward. I'm not quitting."
       },
       "playerResponses": [
         { "text": "Then we get it back. Every last drop.", "action": "ACCEPT" },
@@ -42,8 +42,8 @@
       "id": "remorse_conf_03",
       "dialogueChunks": {
         "intro": "{player_name}... {target_npc} came to the memorial site while I was building it.",
-        "plotStep": "He saw the half-finished monument to his daughter and broke down. I tried to leave before he noticed me, but he caught my arm and asked why a stranger was honoring his child. I couldn't speak. He read it on my face, {player_name}. He read the truth right off me like words on a page. He didn't say anything: just walked away. Now the site has been wrecked. {enemy_type} tore through it last night, scattered the {quest_item} I'd already placed. I don't know if {target_npc} will ever speak to me again, but I have to finish what I started. For her, not for me.",
-        "outro": "The memorial doesn't need to be for my peace. It needs to exist because she deserved to be remembered."
+        "plotStep": "He saw the half-finished monument to his daughter and broke down. I tried to leave, but he caught my arm and asked why a stranger was honoring his child. He read {quest_origin} right off my face. He walked away without a word. Then {enemy_type} tore through the site last night, scattering the {quest_item}. {quest_threat} is crushing, but I have to finish. For her, not for me.",
+        "outro": "{quest_focus} doesn't need to be about my peace. She deserved to be remembered."
       },
       "playerResponses": [
         { "text": "For her, then. Let's rebuild it right.", "action": "ACCEPT" },

@@ -4,7 +4,7 @@
       "id": "fallingprey_reso_01",
       "dialogueChunks": {
         "intro": "I almost don't dare say it out loud, {player_name}, but I think the worst is finally behind us.",
-        "plotStep": "The blight is receding. The alchemist applied the compound you brought back, and the soil is responding. {target_npc} planted a test row this morning, and by afternoon there were green shoots pushing through. Green, {player_name}. After weeks of nothing but black and rot. The settlement is cautiously, carefully, allowing itself to hope again.",
+        "plotStep": "{quest_threat} is receding. The alchemist applied the compound you brought back, and the soil is responding. {target_npc} planted a test row this morning, and by afternoon there were green shoots pushing through. You managed to {quest_action}, and {quest_stakes} are cautiously allowing themselves to hope again.",
         "outro": "You fought nature itself to save us. Take this: it's all we have, but we give it with full hearts."
       },
       "playerResponses": [
@@ -18,7 +18,7 @@
       "id": "fallingprey_reso_02",
       "dialogueChunks": {
         "intro": "{player_name}, sit with me a moment. I want to tell you what happened after you left.",
-        "plotStep": "The sickness broke three days ago. Just like that: one morning, people woke up and the fever was gone. The alchemist says the compound you brought tipped the balance at exactly the right moment. {target_npc} was the last to recover, and the first thing they did was walk to the well and drink a full cup of water without coughing. The whole square went silent watching them. Then someone started clapping, and it spread until every person in {location} was applauding a person drinking water.",
+        "plotStep": "{quest_threat} broke three days ago. The compound you brought tipped the balance at exactly the right moment. {target_npc} was the last to recover, and the first thing they did was walk to the well and drink a full cup of water without coughing. The whole square went silent, then someone started clapping. You managed to {quest_action}, and {quest_stakes} are finally on the mend.",
         "outro": "We cheered for a cup of water, {player_name}. That's how far we'd fallen, and how far you lifted us. Take this."
       },
       "playerResponses": [
@@ -32,8 +32,8 @@
       "id": "fallingprey_reso_03",
       "dialogueChunks": {
         "intro": "The road is open, {player_name}. A merchant arrived this morning: the first in over a month.",
-        "plotStep": "You should have seen the faces when that cart rolled through the gate. People ran out of their houses. {target_npc} actually embraced the merchant, who was thoroughly confused by the welcome. The supplies the merchant brought are already being distributed, and the trade route you cleared is holding. {location} is connected to the world again. The isolation is over, and the slow starvation with it.",
-        "outro": "Here. Every family contributed to this. You broke the curse of misfortune that had been strangling us for months."
+        "plotStep": "You should have seen the faces when that cart rolled through the gate. {target_npc} actually embraced the merchant. The trade route you cleared is holding. You managed to {quest_action}, and {quest_stakes} is connected to the world again. The isolation is over.",
+        "outro": "Here. Every family contributed to this. You broke the curse of misfortune that had been strangling us."
       },
       "playerResponses": [
         { "text": "Not a curse: just bad luck that finally ran out. Keep the road maintained.", "action": "ACCEPT" },
@@ -46,7 +46,7 @@
       "id": "fallingprey_reso_04",
       "dialogueChunks": {
         "intro": "I never thought I'd say this, but good things are happening, {player_name}. Actual, genuine good things.",
-        "plotStep": "The new mine vein {target_npc} found is producing twice what the old one ever did. The ore quality is exceptional, and the miners are saying it could sustain {location} for decades. What started as the worst disaster in our history has led us to something better than what we had before. The old miners have a saying: 'The mountain takes with one hand and gives with the other.' It took a while for the giving hand to open, but open it did.",
+        "plotStep": "The new vein {target_npc} found is producing twice what the old one ever did. What started as the worst disaster in our history has led to something better. You helped us {quest_action}, and {quest_stakes} are thriving for the first time in memory. The old miners say 'The mountain takes with one hand and gives with the other.' It took a while for the giving hand to open, but open it did.",
         "outro": "From ruin to riches. And it started with you refusing to let misfortune have the last word. Take this with our profound gratitude."
       },
       "playerResponses": [

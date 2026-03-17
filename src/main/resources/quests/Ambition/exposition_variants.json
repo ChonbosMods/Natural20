@@ -2,10 +2,17 @@
   "variants": [
     {
       "id": "ambition_expo_01",
+      "bindings": {
+        "quest_action": "claim a hidden resource cache to secure loyalty and seize power",
+        "quest_focus": "a cache of supplies that belonged to the old regime",
+        "quest_stakes": "the settlement suffers under weak, indecisive leadership",
+        "quest_threat": "those in power will resist change and punish anyone who challenges them",
+        "quest_reward_hint": "a powerful ally when the dust settles"
+      },
       "dialogueChunks": {
         "intro": "Close the door, {player_name}. What I'm about to propose isn't for public ears.",
-        "plotStep": "I've been watching the power structure in {location} for months. The current leadership is weak, indecisive, and the people suffer for it. I have a plan to change that, but I need resources they'd never willingly give me. There's a cache of {quest_item} hidden {location_hint} that belonged to the old regime. With it, I can secure the loyalty of every craftsperson and guard in the settlement. {target_npc} thinks I'm mad, but they'll come around once they see the results.",
-        "outro": "This isn't greed, {player_name}. This is vision. Help me, and you'll have a powerful ally when the dust settles."
+        "plotStep": "I've been watching the power structure in {location} for months. {quest_stakes}, and I have a plan to change that. There's {quest_focus} hidden {location_hint} that I can use to secure the loyalty of every craftsperson and guard. {target_npc} thinks I'm mad, but they'll come around. I need you to {quest_action} and bring back the {quest_item}.",
+        "outro": "This isn't greed, {player_name}. This is vision. Help me, and you'll have {quest_reward_hint}."
       },
       "playerResponses": [
         { "text": "Vision or ambition, I'll help you claim it.", "action": "ACCEPT" },
@@ -21,10 +28,17 @@
     },
     {
       "id": "ambition_expo_02",
+      "bindings": {
+        "quest_action": "fuel an abandoned forge that produces superior weapons",
+        "quest_focus": "a forge that can produce weapons cutting through enemy armor",
+        "quest_stakes": "whoever controls those weapons controls the region's trade",
+        "quest_threat": "a rival who tried to claim the forge first but lacks the skill",
+        "quest_origin": "years of studying the previous smith's lost technique"
+      },
       "dialogueChunks": {
         "intro": "{player_name}, I'll be direct. I've never been one for pleasantries and I won't start now.",
-        "plotStep": "There's a forge {location_hint} that nobody's used in years. The previous smith who worked it produced weapons that could cut through {enemy_type} armor like parchment. I've studied the technique, and I'm certain I can replicate it: but I need {quest_item} from the old mine to fuel the furnace properly. Once I'm producing those weapons, every settlement in the region will come to me. Not the guild, not the council: me. {target_npc} tried to claim the forge first, but they don't have the skill to use it.",
-        "outro": "I don't need a partner. I need a pair of hands willing to get dirty for the right price."
+        "plotStep": "There's {quest_focus} {location_hint} that nobody's used in years. The previous smith produced weapons that could cut through {enemy_type} armor like parchment. After {quest_origin}, I'm certain I can replicate it. I need {quest_item} from the old mine to {quest_action}. {target_npc} tried to claim it first, but {quest_threat} won't stop me.",
+        "outro": "I don't need a partner. I need a pair of hands willing to get dirty. {quest_stakes}, and I intend to be on top."
       },
       "playerResponses": [
         { "text": "Sounds like a solid investment. I'll get what you need.", "action": "ACCEPT" },
@@ -39,10 +53,17 @@
     },
     {
       "id": "ambition_expo_03",
+      "bindings": {
+        "quest_action": "intercept a rival's stockpile before they can move it",
+        "quest_focus": "a trade deal that would make the rival the wealthiest in the settlement",
+        "quest_stakes": "control of the most profitable trade route in the region",
+        "quest_threat": "the rival has a head start and the route is crawling with enemies",
+        "quest_origin": "years of listening to every secret whispered over tavern ale"
+      },
       "dialogueChunks": {
         "intro": "Sit down, {player_name}. Have a drink. And listen carefully, because what I'm about to offer won't be offered twice.",
-        "plotStep": "I run the only tavern in {location}, which means I hear everything. Every deal, every grudge, every secret whispered over ale. I know that {target_npc} has been stockpiling {quest_item} {location_hint} for a trade deal that would make them the wealthiest person in the settlement. I also know the route they're using is crawling with {enemy_type}. If someone were to... acquire that stockpile before {target_npc} can move it, well, the trade deal becomes mine instead.",
-        "outro": "I'm not asking you to hurt anyone. Just to be faster and smarter than the competition."
+        "plotStep": "I run the only tavern in {location}, which means I hear everything. After {quest_origin}, I know that {target_npc} has been stockpiling {quest_item} {location_hint} for {quest_focus}. The route is crawling with {enemy_type}. If someone were to {quest_action}, the deal becomes mine instead.",
+        "outro": "I'm not asking you to hurt anyone. Just to be faster and smarter. {quest_stakes} is at play here."
       },
       "playerResponses": [
         { "text": "Faster and smarter I can do. Point me the way.", "action": "ACCEPT" },

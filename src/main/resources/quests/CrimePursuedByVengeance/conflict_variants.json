@@ -4,7 +4,7 @@
       "id": "crimepursued_conf_01",
       "dialogueChunks": {
         "intro": "They know you're coming, {player_name}. They sent us a message.",
-        "plotStep": "A dead crow nailed to the gate of {location} with a note: 'Send your hunter. We'll be waiting.' The {enemy_type} have fortified their position {location_hint} and they've been gathering reinforcements. {target_npc} says they spotted scouts on the ridgeline watching the settlement. They're not running: they're preparing for a fight. You'll need to hit them hard and fast before they finish their preparations.",
+        "plotStep": "A dead crow nailed to the gate with a note: 'Send your hunter. We'll be waiting.' {quest_threat} have fortified their position {location_hint} and they've been gathering reinforcements. {target_npc} spotted scouts on the ridgeline watching us. They're not running: they're preparing to stop you from finishing the job to {quest_action}.",
         "outro": "They think fear will stop us. Show them what justice looks like when it refuses to flinch."
       },
       "playerResponses": [
@@ -22,8 +22,8 @@
       "id": "crimepursued_conf_02",
       "dialogueChunks": {
         "intro": "{player_name}, they've struck again. While you were hunting them, they circled back.",
-        "plotStep": "The {enemy_type} raided {location} while most of the guards were out on patrol. They burned the mill and stole more {quest_item}. Nobody was killed this time, but {target_npc} was hurt trying to organize a defense. It's a message: they want us to know they can reach us whenever they want. We need to end this. Find their supply cache {location_hint} and destroy it. Without supplies, they'll have to move on or starve.",
-        "outro": "They want to prove they're untouchable. Prove them wrong."
+        "plotStep": "The {enemy_type} raided the settlement while most guards were out on patrol. They burned the mill and stole more {quest_item}. {target_npc} was hurt trying to organize a defense. It's a message: they want us to know they can reach us whenever they want. To {quest_action}, we need to find their supply cache {location_hint} and destroy it.",
+        "outro": "They want to prove they're untouchable. Prove them wrong, and {quest_stakes} will mean something."
       },
       "playerResponses": [
         { "text": "Burn their supplies? With pleasure. They started this.", "action": "ACCEPT" },
@@ -41,7 +41,7 @@
       "id": "crimepursued_conf_03",
       "dialogueChunks": {
         "intro": "I've learned something that changes everything, {player_name}.",
-        "plotStep": "{target_npc} captured one of the {enemy_type} scouts alive. Under questioning, the scout revealed that their leader isn't just a raider: they're a former soldier who deserted and has been building a warband for months. They have a forward camp {location_hint} with a stockpile of weapons and {quest_item} stolen from a dozen settlements. If we don't shut them down now, they'll grow into a force that no single settlement can resist.",
+        "plotStep": "{target_npc} captured one of the {enemy_type} scouts alive. Their leader isn't just a raider: they're a former soldier building a warband for months. They have a forward camp {location_hint} with stockpiled weapons and {quest_item} stolen from a dozen settlements. If we don't {quest_action} now, {quest_threat} will grow into a force no single settlement can resist.",
         "outro": "This is bigger than one crime. This is an army in the making. We need to cut the head off before it grows."
       },
       "playerResponses": [
@@ -59,9 +59,9 @@
     {
       "id": "crimepursued_conf_04",
       "dialogueChunks": {
-        "intro": "The plot thickens, {player_name}. Someone in {location} has been helping the enemy.",
-        "plotStep": "{target_npc} found evidence that a trader in our own settlement has been feeding information to the {enemy_type}: patrol schedules, supply routes, when the storehouse is least guarded. That's how they've been staying one step ahead. The traitor fled when confronted, heading {location_hint} with a satchel of {quest_item} as payment for their betrayal. We need you to pursue them and bring back the evidence before they destroy it.",
-        "outro": "Justice isn't just about punishing the enemy outside our walls. Sometimes the rot is closer to home."
+        "intro": "The plot thickens, {player_name}. Someone in our own settlement has been helping the enemy.",
+        "plotStep": "{target_npc} found evidence that a trader has been feeding information to the {enemy_type}: patrol schedules, supply routes, when the storehouse is least guarded. That's how {quest_threat} stayed one step ahead. The traitor fled when confronted, heading {location_hint} with {quest_item} as payment for their betrayal. We need you to pursue them and bring back the evidence before they destroy it.",
+        "outro": "Justice isn't just about {quest_action} against the enemy outside our walls. Sometimes the rot is closer to home."
       },
       "playerResponses": [
         { "text": "A traitor? I'll bring them back and let the settlement decide their fate.", "action": "ACCEPT" },

@@ -4,7 +4,7 @@
       "id": "rivalry_of_superior_vs_inferior_conf_01",
       "dialogueChunks": {
         "intro": "{player_name}, they know. Somehow, they found out about the documents.",
-        "plotStep": "The commander posted sentries on every road out of {location}. Nobody gets in or out without being searched. My records are hidden, but they're useless if I can't deliver them. Worse, {target_npc} was detained again: this time on fabricated charges of hoarding supplies. I need you to find a way through the sentries. There's an old smuggler's trail {location_hint} that might still be passable, but the {enemy_type} have been spotted along the route. Clear the path and deliver a sealed copy of my records to the contact at the end of the trail.",
+        "plotStep": "{quest_threat} posted sentries on every road out of {location}. Nobody gets in or out without being searched. My records are hidden, but they're useless if I can't deliver them. Worse, {target_npc} was detained again: this time on fabricated charges of hoarding supplies. I need you to find a way through the sentries. There's an old smuggler's trail {location_hint} that might still be passable, but the {enemy_type} have been spotted along the route. Clear the path and deliver a sealed copy of {quest_focus} to the contact at the end of the trail.",
         "outro": "If those records don't reach the authority, the commander tightens his grip and {target_npc} rots in a cell. We're running out of time."
       },
       "playerResponses": [
@@ -23,7 +23,7 @@
       "id": "rivalry_of_superior_vs_inferior_conf_02",
       "dialogueChunks": {
         "intro": "They burned it, {player_name}. They burned the forge to the ground.",
-        "plotStep": "The founding families didn't even try to hide it. Torched {target_npc}'s new forge in broad daylight and dared anyone to say a word. {target_npc} barely got out alive. The message is clear: stay in your place or lose everything. But they made a mistake. They left witnesses, and now people who were too afraid to speak are furious. I need {quest_item} to set up a temporary forge in the old mine {location_hint}: somewhere the founding families can't easily reach. The {enemy_type} in those tunnels need to be cleared first.",
+        "plotStep": "{quest_threat} didn't even try to hide it. Torched {target_npc}'s new forge in broad daylight and dared anyone to say a word. {target_npc} barely got out alive. The message is clear: stay in your place or lose everything. But they made a mistake. They left witnesses, and now people who were too afraid to speak are furious. I need {quest_item} to set up a temporary forge in the old mine {location_hint}: somewhere the founding families can't easily reach. The {enemy_type} in those tunnels need to be cleared first.",
         "outro": "They thought burning one forge would break us. Instead, it lit a fire in every person who's been kept down. We'll rebuild where they can't touch us."
       },
       "playerResponses": [
@@ -42,7 +42,7 @@
       "id": "rivalry_of_superior_vs_inferior_conf_03",
       "dialogueChunks": {
         "intro": "Close the door, {player_name}. They raided the cache.",
-        "plotStep": "Someone talked. The guards found our emergency supply cache and confiscated everything you gathered. {target_npc} thinks there's an informant among the merchants: someone too scared of the guards to stay loyal. We need to start over, but smarter this time. There's an abandoned watchtower {location_hint} that nobody uses anymore. If you can clear the {enemy_type} out of it and gather fresh {quest_item}, we can establish a new cache in a place only three people know about. No more loose lips.",
+        "plotStep": "Someone talked. {quest_threat} found our emergency supply cache and confiscated everything you gathered. {target_npc} thinks there's an informant among the merchants: someone too scared of the guards to stay loyal. We need to start over, but smarter this time. There's an abandoned watchtower {location_hint} that nobody uses anymore. If you can clear the {enemy_type} out of it and gather fresh {quest_item}, we can establish a new cache in a place only three people know about. No more loose lips.",
         "outro": "Losing that stockpile was a blow. But the guards just showed the whole settlement exactly how afraid they are of people who push back."
       },
       "playerResponses": [

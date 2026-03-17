@@ -2,9 +2,16 @@
   "variants": [
     {
       "id": "supplication_expo_famine",
+      "bindings": {
+        "quest_action": "gather enough food to feed the settlement",
+        "quest_focus": "our depleted stores",
+        "quest_stakes": "the families who are going hungry",
+        "quest_threat": "the famine that's been tightening its grip on us",
+        "quest_origin": "a season of failed harvests"
+      },
       "dialogueChunks": {
-        "intro": "Please, {player_name}, you have to help us. Our stores are nearly empty and the children haven't had a proper meal in days.",
-        "plotStep": "We need {quest_item} desperately. I've heard there might be some {location_hint}, but none of us are brave enough to make the journey. The {enemy_type} have been prowling the roads and we've already lost two foragers this season.",
+        "intro": "Please, {player_name}, you have to help us. {quest_stakes} haven't had a proper meal in days.",
+        "plotStep": "We need to {quest_action}. I've heard there might be {quest_item} {location_hint}, but none of us are brave enough to make the journey. The {enemy_type} have been prowling the roads and we've already lost two foragers this season.",
         "outro": "You'd be saving lives, truly. I wouldn't ask if there were any other way."
       },
       "playerResponses": [
@@ -20,9 +27,17 @@
     },
     {
       "id": "supplication_expo_sickness",
+      "bindings": {
+        "quest_action": "find ingredients for a cure",
+        "quest_focus": "the spreading sickness",
+        "quest_stakes": "everyone in the settlement who's fallen ill",
+        "quest_threat": "a disease that's cutting through us like wildfire",
+        "quest_origin": "something that took hold weeks ago without warning",
+        "quest_time_pressure": "before more people succumb"
+      },
       "dialogueChunks": {
         "intro": "Oh thank the stars, a traveler! {player_name}, I beg you, hear me out before you move on.",
-        "plotStep": "A sickness has taken hold in {location}. {target_npc} fell ill first, and now half the settlement can barely stand. The alchemist says we need {quest_item} for a remedy, but it only grows in dangerous territory {location_hint}. I'd go myself but my hands won't stop shaking.",
+        "plotStep": "{quest_threat}, and we need to {quest_action} {quest_time_pressure}. {target_npc} fell ill first, and now half the settlement can barely stand. The alchemist says we need {quest_item} for a remedy, but it only grows in dangerous territory {location_hint}. I'd go myself but my hands won't stop shaking.",
         "outro": "I know it's a lot to ask of a stranger. But strangers are all we have left to turn to."
       },
       "playerResponses": [
@@ -39,10 +54,17 @@
     },
     {
       "id": "supplication_expo_theft",
+      "bindings": {
+        "quest_action": "recover our stolen supplies",
+        "quest_focus": "our ransacked storehouse",
+        "quest_stakes": "the settlement's survival through the cold season",
+        "quest_threat": "the raiders who have been pillaging the area",
+        "quest_origin": "raids that started earlier this season"
+      },
       "dialogueChunks": {
         "intro": "Wait, please don't walk away! I know how this looks, a grown person begging, but I have nowhere else to turn, {player_name}.",
-        "plotStep": "Raiders came through {location} two nights ago. Took everything: our {quest_item}, our tools, anything they could carry. {target_npc} tried to stop them but they were outnumbered. We tracked them heading {location_hint}, but none of us can fight like you can.",
-        "outro": "If we don't get our supplies back before the cold sets in, this settlement won't survive the season. Please."
+        "plotStep": "{quest_threat} came through two nights ago. Took everything from {quest_focus}: our {quest_item}, our tools, anything they could carry. {target_npc} tried to stop them but they were outnumbered. We tracked them heading {location_hint}, but none of us can fight like you can.",
+        "outro": "If we don't {quest_action} before the cold sets in, {quest_stakes} will be lost. Please."
       },
       "playerResponses": [
         { "text": "Point me toward their trail. I'll get everything back.", "action": "ACCEPT" },
@@ -57,10 +79,18 @@
     },
     {
       "id": "supplication_expo_04",
+      "bindings": {
+        "quest_action": "rebuild the mill before the frost comes",
+        "quest_focus": "the ruined mill and bridge",
+        "quest_stakes": "every family that depends on the mill for grain",
+        "quest_threat": "the devastation left by the flood",
+        "quest_origin": "the flood that tore through three days ago",
+        "quest_time_pressure": "before the frost sets in"
+      },
       "dialogueChunks": {
         "intro": "Forgive me for grabbing your arm like that, {player_name}. I wouldn't do it if I weren't out of options.",
-        "plotStep": "A flood tore through {location} three days ago. Swept away the bridge, the mill, and half our winter stores. {target_npc} managed to save the youngest children but got hurt doing it and can barely walk now. We've scraped together what little we have left, but without {quest_item} we can't rebuild the mill or grind grain before the frost comes. Last I heard, there's a supply {location_hint}, but the water drove the {enemy_type} out of the lowlands and they're roaming everywhere.",
-        "outro": "I know you owe us nothing. But without that mill, we starve before spring."
+        "plotStep": "{quest_origin} swept away {quest_focus} and half our winter stores. {target_npc} managed to save the youngest children but got hurt doing it and can barely walk now. We need {quest_item} to {quest_action}, but the water drove the {enemy_type} out of the lowlands and they're roaming everywhere. Last I heard, there's a supply {location_hint}.",
+        "outro": "I know you owe us nothing. But without that mill, {quest_stakes} will starve before spring."
       },
       "playerResponses": [
         { "text": "I'll get what you need. Focus on keeping everyone warm.", "action": "ACCEPT" },
@@ -76,10 +106,17 @@
     },
     {
       "id": "supplication_expo_05",
+      "bindings": {
+        "quest_action": "retrieve the supplies we abandoned when we fled",
+        "quest_focus": "our old home that was overrun",
+        "quest_stakes": "the refugee families who barely escaped alive",
+        "quest_threat": "the warband that drove us from our home",
+        "quest_origin": "the attack that forced us out a week ago"
+      },
       "dialogueChunks": {
         "intro": "You don't know me, {player_name}, and I have no right to burden you with our troubles. But my people are dying.",
-        "plotStep": "We're refugees from a settlement that was overrun by {enemy_type} a week ago. Barely made it to {location} with the clothes on our backs. The folk here have been kind, but there isn't enough food or medicine for all of us. {target_npc} sent word that there's {quest_item} stored in our old home {location_hint}, abandoned when we fled. Nobody here will go back: they're too afraid of what's still lurking there.",
-        "outro": "Everything we need to survive is sitting in a place we're too broken to return to. If you could bring it back, you'd be saving entire families."
+        "plotStep": "We're refugees: {quest_origin} left us with nothing but the clothes on our backs. The folk here have been kind, but there isn't enough food or medicine for all of us. {target_npc} sent word that {quest_item} is still stored in {quest_focus} {location_hint}, abandoned when we fled. Nobody will go back: they're too afraid of the {enemy_type} still lurking there.",
+        "outro": "Everything {quest_stakes} need to survive is sitting in a place we're too broken to return to. If you could bring it back, you'd be saving entire families."
       },
       "playerResponses": [
         { "text": "Tell me the way. I'll bring back everything I can carry.", "action": "ACCEPT" },
@@ -95,10 +132,18 @@
     },
     {
       "id": "supplication_expo_06",
+      "bindings": {
+        "quest_action": "restore the water supply",
+        "quest_focus": "the dry well and broken pump",
+        "quest_stakes": "the children drinking muddy rainwater",
+        "quest_threat": "the water crisis that's been choking us for weeks",
+        "quest_origin": "the well running dry two weeks ago",
+        "quest_reward_hint": "clean water for the whole settlement"
+      },
       "dialogueChunks": {
         "intro": "{player_name}, I've asked every merchant, every traveler, every guard that's passed through. You're the last chance I have.",
-        "plotStep": "The well in {location} went dry two weeks ago. We've been rationing what little water we had stored, but it ran out yesterday. {target_npc} found an old map showing an underground spring {location_hint}, but the tunnels down there are crawling with {enemy_type}. We sent a small group to try and reach it, and only one came back. She said the {quest_item} we need to repair the well pump is down there too, just sitting in the ruins.",
-        "outro": "Children are drinking muddy rainwater from barrels, {player_name}. I'll get on my knees if that's what it takes."
+        "plotStep": "{quest_focus} failed us two weeks ago. We've been rationing what little water we had stored, but it ran out yesterday. {target_npc} found an old map showing an underground spring {location_hint}, but the tunnels down there are crawling with {enemy_type}. We sent a small group and only one came back. She said the {quest_item} we need to {quest_action} is down there too, just sitting in the ruins.",
+        "outro": "{quest_stakes} are surviving on puddles, {player_name}. I'll get on my knees if that's what it takes."
       },
       "playerResponses": [
         { "text": "Stay on your feet. I'll handle the tunnels.", "action": "ACCEPT" },
@@ -113,10 +158,17 @@
     },
     {
       "id": "supplication_expo_07",
+      "bindings": {
+        "quest_action": "get the raw materials to repair our tools",
+        "quest_focus": "the wrecked workshop and forge",
+        "quest_stakes": "the farmers left with broken plows and empty hands",
+        "quest_threat": "the loss of every tool we depend on",
+        "quest_origin": "the raid that destroyed our workshop"
+      },
       "dialogueChunks": {
         "intro": "I can see you're busy, {player_name}. I wouldn't stop you if lives weren't at stake.",
-        "plotStep": "Our blacksmith collapsed at the forge yesterday. Heatstroke, the healer says, but really it's exhaustion: she's been working day and night trying to repair our tools after the {enemy_type} wrecked the workshop. Without proper tools, we can't harvest, can't hunt, can't defend ourselves. {target_npc} says if we can get {quest_item} from the old mining camp {location_hint}, the blacksmith can get us back on our feet. But that camp has been abandoned for good reason.",
-        "outro": "We're not warriors or adventurers. We're farmers with broken plows and empty hands. Please."
+        "plotStep": "Our blacksmith collapsed at the forge yesterday: exhaustion from working day and night trying to repair our tools after {quest_origin}. Without proper tools, we can't harvest, can't hunt, can't defend ourselves. {target_npc} says if we can get {quest_item} from the old mining camp {location_hint}, the blacksmith can {quest_action}. But that camp has been abandoned for good reason.",
+        "outro": "We're not warriors or adventurers. We're {quest_stakes}. Please."
       },
       "playerResponses": [
         { "text": "Point me to the camp. I'll bring back what she needs.", "action": "ACCEPT" },
@@ -131,10 +183,17 @@
     },
     {
       "id": "supplication_expo_08",
+      "bindings": {
+        "quest_action": "find our missing courier and recover the shipment",
+        "quest_focus": "the abandoned cart on the road",
+        "quest_stakes": "the seed grain we need for next season",
+        "quest_threat": "the dangers lurking along the trade road",
+        "quest_origin": "the disappearance three days ago"
+      },
       "dialogueChunks": {
         "intro": "Traveler! Wait, please. I saw you walking past and I couldn't let you go without asking.",
-        "plotStep": "{target_npc} went out three days ago to deliver {quest_item} to a neighboring settlement and never arrived. The road {location_hint} has been dangerous lately: {enemy_type} sightings every night, and tracks all along the ridge. We found the cart abandoned halfway, wheel broken, supplies scattered. No blood, thank the stars, but no sign of {target_npc} either. Someone took them, or something chased them off the road.",
-        "outro": "That delivery was everything we had to trade for seed grain. Without it, and without {target_npc}, we won't make it to harvest."
+        "plotStep": "{target_npc} went out three days ago to deliver {quest_item} to a neighboring settlement and never arrived. The road {location_hint} has been dangerous lately: {enemy_type} sightings every night. We found {quest_focus} halfway there, wheel broken, supplies scattered. No blood, thank the stars, but no sign of {target_npc} either. We need to {quest_action}.",
+        "outro": "That delivery was everything we had to trade for {quest_stakes}. Without it, and without {target_npc}, we won't make it to harvest."
       },
       "playerResponses": [
         { "text": "I'll find {target_npc} and recover the supplies. You have my word.", "action": "ACCEPT" },
