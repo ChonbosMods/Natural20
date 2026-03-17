@@ -56,6 +56,101 @@
         "EXPLORE_LOCATION": { "countMin": 2, "countMax": 3 },
         "KILL_NPC": { "countMin": 1, "countMax": 1 }
       }
+    },
+    {
+      "id": "pursuit_expo_04",
+      "dialogueChunks": {
+        "intro": "Drop what you're doing, {player_name}. A caravan was hit an hour ago and the attackers are still close.",
+        "plotStep": "A band of {enemy_type} ambushed a supply caravan heading to {location} and made off with a shipment of {quest_item}. They killed the driver and wounded three guards. {target_npc} followed the blood trail {location_hint} before they were forced to turn back. The {enemy_type} are moving fast and they know the terrain, but they're dragging heavy cargo. That slows them down.",
+        "outro": "Every minute we stand here talking, they get farther away. I need a hunter, not a committee. Are you that hunter?"
+      },
+      "playerResponses": [
+        { "text": "Heavy cargo means deep tracks. I'll catch them before sundown.", "action": "ACCEPT" },
+        { "text": "Recovering stolen goods is bounty work. What's the rate?", "action": "ACCEPT", "dispositionShift": -5 },
+        { "text": "Chase bandits through hostile terrain? Hire a mercenary company.", "action": "DECLINE" }
+      ],
+      "objectivePool": ["EXPLORE_LOCATION", "KILL_MOBS", "FETCH_ITEM"],
+      "objectiveConfig": {
+        "EXPLORE_LOCATION": { "countMin": 2, "countMax": 3 },
+        "KILL_MOBS": { "countMin": 4, "countMax": 8 },
+        "FETCH_ITEM": { "locationPreference": "WILDERNESS" }
+      }
+    },
+    {
+      "id": "pursuit_expo_05",
+      "dialogueChunks": {
+        "intro": "{player_name}. Good. I need someone with a sharp eye and a steady hand. We have a deserter.",
+        "plotStep": "One of our own garrison abandoned their post last night and fled toward {location_hint}. Normally I'd let the fool go, but they took a satchel of {quest_item} and sensitive documents about {location}'s defenses. If those papers reach the {enemy_type} warband camped in the hills, every wall we've built becomes useless. {target_npc} confirmed the deserter was spotted heading through the eastern pass at dawn.",
+        "outro": "Bring back the satchel. The deserter can answer for their choices later: the documents are what matter."
+      },
+      "playerResponses": [
+        { "text": "I'll intercept them before they reach the warband. Consider it done.", "action": "ACCEPT" },
+        { "text": "Chasing deserters through enemy territory. Lovely. What's my pay?", "action": "ACCEPT", "dispositionShift": -5 },
+        { "text": "Your internal problems are not my business.", "action": "DECLINE" }
+      ],
+      "objectivePool": ["EXPLORE_LOCATION", "TALK_TO_NPC", "KILL_NPC"],
+      "objectiveConfig": {
+        "EXPLORE_LOCATION": { "countMin": 2, "countMax": 3 },
+        "TALK_TO_NPC": { "countMin": 1, "countMax": 1 },
+        "KILL_NPC": { "countMin": 1, "countMax": 1 }
+      }
+    },
+    {
+      "id": "pursuit_expo_06",
+      "dialogueChunks": {
+        "intro": "Listen closely, {player_name}. I'm only going to explain this once because we don't have time to repeat ourselves.",
+        "plotStep": "Something has been killing livestock and dragging the carcasses into the ravines near {location}. Not wolves, not bears: something bigger. {target_npc} found claw marks on the rocks {location_hint} that match a {enemy_type} alpha, the kind that usually keeps to the deep wilderness. If it's moved this close to the settlement, it's either been driven out of its territory or it's hunting for something specific. Either way, it needs to be put down before it moves on to bigger prey.",
+        "outro": "The farmers won't leave their homes after dark anymore. End this before someone gets killed."
+      },
+      "playerResponses": [
+        { "text": "An alpha predator near the settlement? I'll track it to its lair.", "action": "ACCEPT" },
+        { "text": "Big game hunting is premium work. Pay accordingly.", "action": "ACCEPT", "dispositionShift": -5 },
+        { "text": "That sounds like a creature I don't want to meet. No thanks.", "action": "DECLINE" }
+      ],
+      "objectivePool": ["EXPLORE_LOCATION", "KILL_NPC", "KILL_MOBS"],
+      "objectiveConfig": {
+        "EXPLORE_LOCATION": { "countMin": 1, "countMax": 3 },
+        "KILL_NPC": { "countMin": 1, "countMax": 1 },
+        "KILL_MOBS": { "countMin": 3, "countMax": 6 }
+      }
+    },
+    {
+      "id": "pursuit_expo_07",
+      "dialogueChunks": {
+        "intro": "I've been waiting at this crossroad for two days hoping someone competent would pass through. {player_name}, you'll do.",
+        "plotStep": "A smuggler has been running {quest_item} through {location}'s territory and selling it to {enemy_type} warbands in exchange for safe passage. We've known about the operation for weeks but couldn't pin down the route until {target_npc} intercepted a dead drop message. The next exchange happens {location_hint}, and if we can catch the smuggler in the act, we shut down the whole pipeline.",
+        "outro": "This isn't a straight fight: it requires patience, tracking, and the willingness to act fast when the moment comes. Can you handle that?"
+      },
+      "playerResponses": [
+        { "text": "Catch them at the exchange. Clean and decisive. I can do that.", "action": "ACCEPT" },
+        { "text": "Smugglers are slippery. This will cost you more than a standard bounty.", "action": "ACCEPT", "dispositionShift": -5 },
+        { "text": "Stakeouts and smuggling rings are too complicated. Pass.", "action": "DECLINE" }
+      ],
+      "objectivePool": ["EXPLORE_LOCATION", "TALK_TO_NPC", "KILL_NPC"],
+      "objectiveConfig": {
+        "EXPLORE_LOCATION": { "countMin": 1, "countMax": 2 },
+        "TALK_TO_NPC": { "countMin": 1, "countMax": 2 },
+        "KILL_NPC": { "countMin": 1, "countMax": 1 }
+      }
+    },
+    {
+      "id": "pursuit_expo_08",
+      "dialogueChunks": {
+        "intro": "{player_name}, I'll be blunt. A killer is on the loose and our guards can't find them.",
+        "plotStep": "Three travelers have been found dead on the roads near {location} in the past week. Stripped of their {quest_item} and left in the ditches. The kill wounds match {enemy_type} weapons, but the pattern is too deliberate for random monster attacks. {target_npc} examined the scenes and believes we're dealing with an ambush predator: something or someone that studies the roads and strikes when victims are isolated. The latest attack was {location_hint}.",
+        "outro": "The trade routes are dying. Nobody will travel alone anymore, and caravans are taking detours that add days. Find this killer and end it."
+      },
+      "playerResponses": [
+        { "text": "A methodical killer? I'll study the pattern and set my own trap.", "action": "ACCEPT" },
+        { "text": "Serial ambushes are grim work. I'll do it, but don't expect me to enjoy it.", "action": "ACCEPT" },
+        { "text": "Walking into a killer's hunting ground alone sounds like becoming victim number four.", "action": "DECLINE" }
+      ],
+      "objectivePool": ["EXPLORE_LOCATION", "KILL_NPC", "TALK_TO_NPC"],
+      "objectiveConfig": {
+        "EXPLORE_LOCATION": { "countMin": 2, "countMax": 3 },
+        "KILL_NPC": { "countMin": 1, "countMax": 1 },
+        "TALK_TO_NPC": { "countMin": 1, "countMax": 2 }
+      }
     }
   ]
 }

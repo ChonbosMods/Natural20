@@ -44,6 +44,76 @@
       ],
       "objectivePool": [],
       "objectiveConfig": {}
+    },
+    {
+      "id": "pursuit_reso_04",
+      "dialogueChunks": {
+        "intro": "The hunt is over, {player_name}. Finally over.",
+        "plotStep": "The {enemy_type} threat is eliminated, the stolen {quest_item} is recovered, and {target_npc} has already begun returning goods to the families who lost them. The trail of destruction ends here. I've been doing this work for years, and I can say without hesitation that you're one of the best trackers I've ever seen operate.",
+        "outro": "Full payment, plus a commendation I'll be sending to every settlement in the region. Your reputation just went through the roof."
+      },
+      "playerResponses": [
+        { "text": "The trail always leads somewhere. You just have to be patient.", "action": "ACCEPT", "dispositionShift": 5 },
+        { "text": "Reputation is nice, but the coin is nicer. Thanks.", "action": "ACCEPT" }
+      ],
+      "objectivePool": [],
+      "objectiveConfig": {}
+    },
+    {
+      "id": "pursuit_reso_05",
+      "dialogueChunks": {
+        "intro": "You look exhausted, {player_name}. And I mean that as the highest compliment I can give.",
+        "plotStep": "That chase pushed you to your limit and you didn't flinch. The {enemy_type} fought hard at the end: {target_npc} heard the battle from half a league away and said it sounded like a thunderstorm. But the stolen {quest_item} is secured, the threat is neutralized, and the people of {location} can sleep soundly tonight for the first time in weeks.",
+        "outro": "Rest first. Then collect your bounty. You've earned both."
+      },
+      "playerResponses": [
+        { "text": "Rest sounds good right about now. I'll take that bounty, too.", "action": "ACCEPT" },
+        { "text": "It was a good hunt. The kind that reminds you why you do this work.", "action": "ACCEPT", "dispositionShift": 5 }
+      ],
+      "objectivePool": [],
+      "objectiveConfig": {}
+    },
+    {
+      "id": "pursuit_reso_06",
+      "dialogueChunks": {
+        "intro": "Well. That was grimmer than either of us expected, wasn't it?",
+        "plotStep": "The target is down, but the things you found in their hideout... {target_npc} is still cataloguing the stolen {quest_item} and personal effects from a dozen victims. This wasn't just theft or territory: this was something cruel and deliberate. You stopped it, {player_name}. Whatever was driving that {enemy_type}, it ends with you standing here and them not.",
+        "outro": "Take your payment. And if the nightmares come, know that every person in {location} is alive tonight because of what you did."
+      },
+      "playerResponses": [
+        { "text": "Some hunts leave marks. This is one of them.", "action": "ACCEPT" },
+        { "text": "The important thing is it's over. That's all that matters.", "action": "ACCEPT", "dispositionShift": 5 }
+      ],
+      "objectivePool": [],
+      "objectiveConfig": {}
+    },
+    {
+      "id": "pursuit_reso_07",
+      "dialogueChunks": {
+        "intro": "Report from {target_npc} just came in. All clear on every front. You did it, {player_name}.",
+        "plotStep": "Every last {enemy_type} is either dead or scattered so far into the wilderness they'll never trouble {location} again. The {quest_item} has been recovered and returned. The roads are open. The patrols are reporting quiet nights for the first time in memory. {target_npc} is recommending we name the ridge after you, and I'm not going to argue.",
+        "outro": "Your bounty, in full. And an open invitation to {location}: any time you need a roof, a meal, or a friend, you'll find all three here."
+      },
+      "playerResponses": [
+        { "text": "A ridge with my name? I'd settle for a warm bed tonight.", "action": "ACCEPT", "dispositionShift": 10 },
+        { "text": "Keep the ridge. The bounty and the open door are more than enough.", "action": "ACCEPT" }
+      ],
+      "objectivePool": [],
+      "objectiveConfig": {}
+    },
+    {
+      "id": "pursuit_reso_08",
+      "dialogueChunks": {
+        "intro": "One last thing before we close the book on this, {player_name}.",
+        "plotStep": "I want you to know that {target_npc} and I debated whether to send you after this target at all. The odds were against you from the start: hostile terrain, a cunning enemy, and a trail that went cold twice. Most people would have given up after the first dead end. You didn't. The {quest_item} is back, the {enemy_type} are gone, and {location} owes you a debt we can't easily repay.",
+        "outro": "This is everything we promised, and then some. Walk tall, {player_name}. You've earned it."
+      },
+      "playerResponses": [
+        { "text": "I don't give up on a trail. It's not in my nature.", "action": "ACCEPT" },
+        { "text": "Debated whether to send me? Good thing you made the right call.", "action": "ACCEPT", "dispositionShift": 5 }
+      ],
+      "objectivePool": [],
+      "objectiveConfig": {}
     }
   ]
 }

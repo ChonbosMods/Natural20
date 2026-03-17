@@ -56,6 +56,100 @@
         "FETCH_ITEM": { "locationPreference": "DUNGEON" },
         "EXPLORE_LOCATION": { "countMin": 1, "countMax": 2 }
       }
+    },
+    {
+      "id": "daring_conf_04",
+      "dialogueChunks": {
+        "intro": "Sit down, {player_name}. We need to rethink this entire operation.",
+        "plotStep": "The {quest_item} we recovered is authentic, but {target_npc} discovered something troubling: it's been tampered with. Someone carved new markings over the originals, redirecting us toward a dead end {location_hint}. We were being led into a trap by whoever got there before us. The real prize is still out there, but now we're racing against an unknown adversary who clearly knows these ruins better than we do. And they've left {enemy_type} sentries along every approach.",
+        "outro": "Whoever is behind this underestimated us. Let's prove them wrong."
+      },
+      "playerResponses": [
+        { "text": "Someone is playing games with us? Time to change the rules.", "action": "ACCEPT" },
+        { "text": "An unknown rival with traps and sentries? This costs extra.", "action": "ACCEPT", "dispositionShift": -5 },
+        { "text": "I'm not interested in someone else's puzzle. Find another champion.", "action": "DECLINE" }
+      ],
+      "objectivePool": ["EXPLORE_LOCATION", "KILL_MOBS", "FETCH_ITEM"],
+      "objectiveConfig": {
+        "EXPLORE_LOCATION": { "countMin": 2, "countMax": 3 },
+        "KILL_MOBS": { "countMin": 4, "countMax": 8 },
+        "FETCH_ITEM": { "locationPreference": "DUNGEON" }
+      }
+    },
+    {
+      "id": "daring_conf_05",
+      "dialogueChunks": {
+        "intro": "Great news and terrible news, {player_name}. Which do you want first?",
+        "plotStep": "The great news: {target_npc} confirmed the {quest_item} deposit is even larger than we estimated. The terrible news: a clan of {enemy_type} has claimed the entire cavern system as their nesting ground since our last visit. They've dug new tunnels, collapsed old ones, and turned the place into a maze. Our original maps are useless. You'll need to scout a new path through while dealing with anything that crawls out of the dark.",
+        "outro": "The prize just got bigger, but so did the risk. That's what makes this an enterprise and not a stroll."
+      },
+      "playerResponses": [
+        { "text": "Bigger prize, bigger fight. I like those odds.", "action": "ACCEPT" },
+        { "text": "A maze full of monsters. Wonderful. Let's get it over with.", "action": "ACCEPT" },
+        { "text": "Collapsed tunnels and nesting creatures? That's a death trap.", "action": "DECLINE" }
+      ],
+      "objectivePool": ["EXPLORE_LOCATION", "KILL_MOBS", "GATHER_ITEMS"],
+      "objectiveConfig": {
+        "EXPLORE_LOCATION": { "countMin": 2, "countMax": 4 },
+        "KILL_MOBS": { "countMin": 5, "countMax": 10 },
+        "GATHER_ITEMS": { "countMin": 4, "countMax": 8 }
+      }
+    },
+    {
+      "id": "daring_conf_06",
+      "dialogueChunks": {
+        "intro": "Back already? Good, because I need you to turn right around. There's been a development.",
+        "plotStep": "The merchant guild at {location} caught wind of our operation and they're furious. They've put a price on the {quest_item} we're after and hired {enemy_type} mercenaries to secure the site {location_hint} before we can get back there. {target_npc} spotted their advance party setting up a blockade this morning. We've got maybe a day before they lock the whole area down tight.",
+        "outro": "We either break through their line now or lose everything we've worked for. No pressure."
+      },
+      "playerResponses": [
+        { "text": "Mercenaries and a blockade? They're about to find out who got there first.", "action": "ACCEPT" },
+        { "text": "We're making enemies of a merchant guild? The payoff had better be enormous.", "action": "ACCEPT", "dispositionShift": -5 },
+        { "text": "Fighting a merchant guild is a losing proposition. I'm walking away.", "action": "DECLINE" }
+      ],
+      "objectivePool": ["KILL_MOBS", "FETCH_ITEM", "EXPLORE_LOCATION"],
+      "objectiveConfig": {
+        "KILL_MOBS": { "countMin": 6, "countMax": 12 },
+        "FETCH_ITEM": { "locationPreference": "DUNGEON" },
+        "EXPLORE_LOCATION": { "countMin": 1, "countMax": 1 }
+      }
+    },
+    {
+      "id": "daring_conf_07",
+      "dialogueChunks": {
+        "intro": "{player_name}, I'll level with you: I underestimated the scope of this. Badly.",
+        "plotStep": "The site {location_hint} isn't just a ruin: it's an entire underground complex. What we found last time was the antechamber. {target_npc} translated the inscriptions on the inner doors, and they describe a treasury sealed behind three guardian chambers. Each chamber is infested with {enemy_type} that have been breeding undisturbed for who knows how long. The {quest_item} we need is beyond the third chamber.",
+        "outro": "Three chambers, three fights, one treasure. It's more than I promised, but the reward at the end is worth ten times what we originally thought."
+      },
+      "playerResponses": [
+        { "text": "Three guardian chambers? Now this is an enterprise worthy of the name.", "action": "ACCEPT" },
+        { "text": "You keep discovering new obstacles. Triple the original deal.", "action": "ACCEPT", "dispositionShift": -5 },
+        { "text": "Three layers of monsters is three too many. I quit.", "action": "DECLINE" }
+      ],
+      "objectivePool": ["KILL_MOBS", "EXPLORE_LOCATION", "FETCH_ITEM"],
+      "objectiveConfig": {
+        "KILL_MOBS": { "countMin": 6, "countMax": 14 },
+        "EXPLORE_LOCATION": { "countMin": 2, "countMax": 3 },
+        "FETCH_ITEM": { "locationPreference": "DUNGEON" }
+      }
+    },
+    {
+      "id": "daring_conf_08",
+      "dialogueChunks": {
+        "intro": "Change of plans, {player_name}. A big one.",
+        "plotStep": "The route we mapped is flooded. Completely impassable. But {target_npc} found something better while scouting an alternate path: a second entrance to the vault, hidden behind a waterfall {location_hint}. The bad news is it drops straight into the lower levels where the {enemy_type} are thickest. No sneaking past them this time. We'll need to fight through to reach the {quest_item}, and there's no guarantee the lower passage connects to the vault at all.",
+        "outro": "It's a gamble. But every great enterprise involves a leap of faith. And I'd rather leap forward than crawl backward."
+      },
+      "playerResponses": [
+        { "text": "A hidden entrance behind a waterfall? That's too good to pass up.", "action": "ACCEPT" },
+        { "text": "No guarantee it connects? You realize I could die for nothing.", "action": "ACCEPT", "dispositionShift": -5 },
+        { "text": "Gambling with my life on a maybe? Absolutely not.", "action": "DECLINE" }
+      ],
+      "objectivePool": ["EXPLORE_LOCATION", "KILL_MOBS"],
+      "objectiveConfig": {
+        "EXPLORE_LOCATION": { "countMin": 2, "countMax": 4 },
+        "KILL_MOBS": { "countMin": 5, "countMax": 10 }
+      }
     }
   ]
 }

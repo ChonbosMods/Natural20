@@ -56,6 +56,99 @@
         "EXPLORE_LOCATION": { "countMin": 1, "countMax": 2 },
         "KILL_MOBS": { "countMin": 3, "countMax": 6 }
       }
+    },
+    {
+      "id": "supplication_conf_04",
+      "dialogueChunks": {
+        "intro": "{player_name}, I hate to greet you with more bad news, but we've been hit again.",
+        "plotStep": "A second wave of {enemy_type} swept through while you were gone. They burned the storehouse where we were keeping the {quest_item} you already gathered. Everything is ash. {target_npc} managed to drag a few crates out the back, but it's barely a quarter of what we need. The only option left is to scavenge from the old outpost {location_hint}. It's been sealed for years and nobody knows what's inside anymore.",
+        "outro": "I know I keep asking more from you. I know. But there is no one else."
+      },
+      "playerResponses": [
+        { "text": "Then I'll go to the outpost. We're not giving up.", "action": "ACCEPT" },
+        { "text": "Burned? Every time I turn around, things get worse. Fine, I'll go.", "action": "ACCEPT", "dispositionShift": -5 },
+        { "text": "I've lost too much time on this already.", "action": "DECLINE" }
+      ],
+      "objectivePool": ["EXPLORE_LOCATION", "GATHER_ITEMS", "KILL_MOBS"],
+      "objectiveConfig": {
+        "EXPLORE_LOCATION": { "countMin": 1, "countMax": 2 },
+        "GATHER_ITEMS": { "countMin": 5, "countMax": 10 },
+        "KILL_MOBS": { "countMin": 3, "countMax": 7 }
+      }
+    },
+    {
+      "id": "supplication_conf_05",
+      "dialogueChunks": {
+        "intro": "Thank the stars you're still here, {player_name}. We need your help more urgently than ever.",
+        "plotStep": "The sickness has spread to the healers now. The very people mixing the remedies from the {quest_item} you brought are too weak to stand. {target_npc} is the only one still on their feet, and they're running a fever. Worse, a nest of {enemy_type} has moved into the caves where the last supply of ingredients grows. We need you to clear them out and gather what's left before the whole settlement goes under.",
+        "outro": "If we lose the healers, we lose everyone. There's no softer way to say it."
+      },
+      "playerResponses": [
+        { "text": "I'll clear the caves and bring back everything I can find.", "action": "ACCEPT" },
+        { "text": "This was supposed to be a simple errand. Now it's a full campaign.", "action": "ACCEPT", "dispositionShift": -5 },
+        { "text": "I'm not a healer or a miracle worker. I'm sorry.", "action": "DECLINE" }
+      ],
+      "objectivePool": ["KILL_MOBS", "GATHER_ITEMS"],
+      "objectiveConfig": {
+        "KILL_MOBS": { "countMin": 4, "countMax": 9 },
+        "GATHER_ITEMS": { "countMin": 6, "countMax": 12 }
+      }
+    },
+    {
+      "id": "supplication_conf_06",
+      "dialogueChunks": {
+        "intro": "{player_name}... I don't know how to tell you this. Something has gone terribly wrong.",
+        "plotStep": "The bridge you crossed to get the {quest_item} collapsed overnight. A landslide, triggered by the same rains that have been drowning us. The supply route is completely cut off. {target_npc} found an old game trail that winds {location_hint} and reconnects with the main road, but it passes straight through {enemy_type} hunting grounds. We need you to scout that trail and make sure it's passable, or we'll be completely isolated.",
+        "outro": "If we can't reopen a supply line, everything you've done so far will have been for nothing."
+      },
+      "playerResponses": [
+        { "text": "I'll scout the trail and clear whatever's in the way.", "action": "ACCEPT" },
+        { "text": "Nature and monsters both working against us. Just my luck.", "action": "ACCEPT" },
+        { "text": "A collapsed bridge changes everything. I can't keep risking my life like this.", "action": "DECLINE" }
+      ],
+      "objectivePool": ["EXPLORE_LOCATION", "KILL_MOBS"],
+      "objectiveConfig": {
+        "EXPLORE_LOCATION": { "countMin": 2, "countMax": 4 },
+        "KILL_MOBS": { "countMin": 3, "countMax": 6 }
+      }
+    },
+    {
+      "id": "supplication_conf_07",
+      "dialogueChunks": {
+        "intro": "You won't believe what happened last night, {player_name}. I can barely believe it myself.",
+        "plotStep": "Wolves got into the livestock pen. Killed three goats and scattered the rest into the hills. Those animals were the only thing keeping the children fed while we waited for the {quest_item}. {target_npc} tracked the herd {location_hint}, but the hills are thick with {enemy_type} and they couldn't go any further alone. If we don't get those animals back and deliver the {quest_item} to the settlement, two problems become a disaster.",
+        "outro": "We're holding on by our fingernails here. One more setback and there won't be a {location} to save."
+      },
+      "playerResponses": [
+        { "text": "I'll track down the herd and finish what I started.", "action": "ACCEPT" },
+        { "text": "Livestock, monsters, supplies: this list never ends. Let's just get it done.", "action": "ACCEPT", "dispositionShift": -5 },
+        { "text": "You've got too many problems for one person to solve.", "action": "DECLINE" }
+      ],
+      "objectivePool": ["EXPLORE_LOCATION", "GATHER_ITEMS", "DELIVER_ITEM"],
+      "objectiveConfig": {
+        "EXPLORE_LOCATION": { "countMin": 1, "countMax": 2 },
+        "GATHER_ITEMS": { "countMin": 4, "countMax": 8 },
+        "DELIVER_ITEM": {}
+      }
+    },
+    {
+      "id": "supplication_conf_08",
+      "dialogueChunks": {
+        "intro": "I was praying you'd come back soon, {player_name}. We're running out of time.",
+        "plotStep": "A group of strangers arrived at {location} claiming they're from a neighboring settlement, and they're demanding we hand over the {quest_item} you've been gathering. Say their need is greater. {target_npc} tried to negotiate but they won't budge, and some of them are armed. We can't afford a fight and we can't afford to give it up. The only solution is more {quest_item}: enough for both settlements. There's a deposit {location_hint} that nobody's touched because of the {enemy_type} nesting nearby.",
+        "outro": "If you can bring back enough for everyone, we avoid bloodshed. If not, I don't know what happens next."
+      },
+      "playerResponses": [
+        { "text": "More for everyone is better than fighting over scraps. I'll go.", "action": "ACCEPT" },
+        { "text": "Sharing what I risked my life for? They'd better be grateful.", "action": "ACCEPT", "dispositionShift": -5 },
+        { "text": "Your neighbors' problems are not mine. Sort it out yourselves.", "action": "DECLINE" }
+      ],
+      "objectivePool": ["GATHER_ITEMS", "KILL_MOBS", "EXPLORE_LOCATION"],
+      "objectiveConfig": {
+        "GATHER_ITEMS": { "countMin": 8, "countMax": 18 },
+        "KILL_MOBS": { "countMin": 3, "countMax": 6 },
+        "EXPLORE_LOCATION": { "countMin": 1, "countMax": 1 }
+      }
     }
   ]
 }

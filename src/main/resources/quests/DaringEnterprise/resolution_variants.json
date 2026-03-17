@@ -44,6 +44,76 @@
       ],
       "objectivePool": [],
       "objectiveConfig": {}
+    },
+    {
+      "id": "daring_reso_04",
+      "dialogueChunks": {
+        "intro": "Well, {player_name}. We actually pulled it off. I still can't quite believe it.",
+        "plotStep": "The {quest_item} is secured, catalogued, and already drawing interest from buyers across three territories. {target_npc} says the scholarly value alone would fund a university. But what I keep thinking about is the look on your face when you walked out of that vault. That look was worth more than everything inside it.",
+        "outro": "Your share, as agreed. And between you and me: I'm already planning the next one. You'll be the first person I call."
+      },
+      "playerResponses": [
+        { "text": "Call anytime. I live for this kind of work.", "action": "ACCEPT", "dispositionShift": 10 },
+        { "text": "Next time, better intel. But yes, I'm in.", "action": "ACCEPT" }
+      ],
+      "objectivePool": [],
+      "objectiveConfig": {}
+    },
+    {
+      "id": "daring_reso_05",
+      "dialogueChunks": {
+        "intro": "{player_name}, before I hand over your reward, I want to say something I don't say often.",
+        "plotStep": "I was wrong about the difficulty. I told you it would be dangerous and I undersold it by half. You went into a place that should have killed you, fought things I couldn't have imagined, and came back carrying the {quest_item} like it was nothing. {target_npc} is writing a full account of the expedition, and I made sure your name is on every page.",
+        "outro": "Take this. It's more than we originally agreed, because you delivered more than anyone could have expected."
+      },
+      "playerResponses": [
+        { "text": "I appreciate you owning that. It was harder than advertised.", "action": "ACCEPT" },
+        { "text": "Keep the account. The extra pay is thanks enough.", "action": "ACCEPT", "dispositionShift": -5 }
+      ],
+      "objectivePool": [],
+      "objectiveConfig": {}
+    },
+    {
+      "id": "daring_reso_06",
+      "dialogueChunks": {
+        "intro": "Gather round, everyone! The hero of the hour has returned!",
+        "plotStep": "I hope you don't mind an audience, {player_name}, because half of {location} turned out to see the {quest_item} you recovered. {target_npc} has been telling the story to anyone who'll listen, and I'll admit they're embellishing a little. But honestly? The truth is impressive enough. You went where no one else would go and brought back proof that the old legends were real.",
+        "outro": "Your cut of the profits, plus a bonus from {target_npc}'s personal funds. They insisted."
+      },
+      "playerResponses": [
+        { "text": "Tell the story however you want. I know what really happened.", "action": "ACCEPT" },
+        { "text": "The legends were real, and now I'm part of them. Not a bad outcome.", "action": "ACCEPT", "dispositionShift": 5 }
+      ],
+      "objectivePool": [],
+      "objectiveConfig": {}
+    },
+    {
+      "id": "daring_reso_07",
+      "dialogueChunks": {
+        "intro": "You made it. I'll confess, {player_name}: there was a moment when I thought you wouldn't.",
+        "plotStep": "The enterprise is complete, but the cost was high. We lost half our supplies in the collapse, the maps are destroyed, and the route back is sealed permanently. But the {quest_item}? Safe in hand. {target_npc} says it's the finest specimen they've ever examined. Sometimes the greatest discoveries come at the steepest price, and I think we both know this was one of those times.",
+        "outro": "Your full share, without deductions. You risked everything, and you deserve every bit of it."
+      },
+      "playerResponses": [
+        { "text": "Worth it. Even with the close calls.", "action": "ACCEPT" },
+        { "text": "Let's never do anything like that again. Unless the pay is even better.", "action": "ACCEPT" }
+      ],
+      "objectivePool": [],
+      "objectiveConfig": {}
+    },
+    {
+      "id": "daring_reso_08",
+      "dialogueChunks": {
+        "intro": "Ha! There's the look of someone who just accomplished the impossible! Come here, {player_name}!",
+        "plotStep": "Every single thing we planned for went sideways, and you still came through. The {enemy_type} were fiercer than expected, the terrain was worse than the maps showed, and the {quest_item} was harder to extract than anyone predicted. And yet here you stand with the prize in hand. {target_npc} is already in talks with collectors at {location} and the bidding war is driving the price through the roof.",
+        "outro": "Here's your share of the advance payment. There'll be more once the final sale closes. You and I make a spectacular team."
+      },
+      "playerResponses": [
+        { "text": "Impossible is just a word. When do we go again?", "action": "ACCEPT", "dispositionShift": 10 },
+        { "text": "A spectacular team with spectacular bruises. But yes, I'll take my cut.", "action": "ACCEPT" }
+      ],
+      "objectivePool": [],
+      "objectiveConfig": {}
     }
   ]
 }
