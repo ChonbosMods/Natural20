@@ -1,0 +1,49 @@
+{
+  "variants": [
+    {
+      "id": "supplication_reso_gratitude",
+      "dialogueChunks": {
+        "intro": "You did it. You actually did it. {player_name}, I don't have the words.",
+        "plotStep": "The whole settlement is talking about what you've done. {target_npc} is already distributing the {quest_item} and the relief on people's faces... I haven't seen smiles like that in weeks. You've given us a future.",
+        "outro": "Take this. It's everything we could scrape together. I know it's not much compared to what you risked, but please accept it with our deepest thanks."
+      },
+      "playerResponses": [
+        { "text": "Seeing everyone safe is reward enough.", "action": "ACCEPT" },
+        { "text": "You're welcome. Take better care of your supplies next time.", "action": "ACCEPT", "dispositionShift": -5 },
+        { "text": "Glad I could help.", "action": "ACCEPT" }
+      ],
+      "objectivePool": [],
+      "objectiveConfig": {}
+    },
+    {
+      "id": "supplication_reso_bittersweet",
+      "dialogueChunks": {
+        "intro": "You're alive. When you didn't return by nightfall I feared the worst.",
+        "plotStep": "We lost two homes in the flooding while you were gone, and old {target_npc} passed in the night. But the {quest_item} you brought back will see the rest of us through. It's not the ending any of us wanted, but it's an ending we can live with.",
+        "outro": "Here. {target_npc} wanted you to have this. Said you'd earned it ten times over. I think they were right."
+      },
+      "playerResponses": [
+        { "text": "I wish I could have done more.", "action": "ACCEPT" },
+        { "text": "At least something good came of it.", "action": "ACCEPT" },
+        { "text": "I'll remember them. Stay strong.", "action": "ACCEPT" }
+      ],
+      "objectivePool": [],
+      "objectiveConfig": {}
+    },
+    {
+      "id": "supplication_reso_rebuilding",
+      "dialogueChunks": {
+        "intro": "{player_name}! Come, come, you have to see this!",
+        "plotStep": "Look at {location}: the storehouse is full, the gardens are planted again, and {target_npc} has already started organizing repair crews. All because you answered when we called. This place was dying before you arrived, and now there's laughter in the square again.",
+        "outro": "We put something aside for you. And know this: you will always have a home here, for as long as these walls stand."
+      },
+      "playerResponses": [
+        { "text": "That means more to me than any treasure.", "action": "ACCEPT" },
+        { "text": "It was nothing. Just glad {location} is back on its feet.", "action": "ACCEPT" },
+        { "text": "Keep building. I might need a place to rest between adventures.", "action": "ACCEPT" }
+      ],
+      "objectivePool": [],
+      "objectiveConfig": {}
+    }
+  ]
+}

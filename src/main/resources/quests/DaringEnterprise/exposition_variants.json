@@ -1,0 +1,61 @@
+{
+  "variants": [
+    {
+      "id": "daring_expo_expedition",
+      "dialogueChunks": {
+        "intro": "Ah, {player_name}! You look like someone who doesn't shy away from the unknown. Perfect timing.",
+        "plotStep": "I've been mapping routes through the wilds for months now, and I've found something remarkable: an old ruin {location_hint} that nobody has explored in generations. My scouts report the area is thick with {enemy_type}, but the carvings on the entrance suggest there's {quest_item} inside. I need someone with real steel in their spine to go in and bring it out.",
+        "outro": "What do you say? Fortune favors the bold, and I have a feeling you're exactly the kind of bold we need."
+      },
+      "playerResponses": [
+        { "text": "Uncharted ruins? I was born for this.", "action": "ACCEPT" },
+        { "text": "Sounds dangerous. What's my cut?", "action": "ACCEPT", "dispositionShift": -5 },
+        { "text": "Find someone else. I'm not interested in suicide missions.", "action": "DECLINE" }
+      ],
+      "objectivePool": ["EXPLORE_LOCATION", "KILL_MOBS", "FETCH_ITEM"],
+      "objectiveConfig": {
+        "EXPLORE_LOCATION": { "countMin": 2, "countMax": 3 },
+        "KILL_MOBS": { "countMin": 5, "countMax": 10 },
+        "FETCH_ITEM": { "locationPreference": "DUNGEON" }
+      }
+    },
+    {
+      "id": "daring_expo_forge_legend",
+      "dialogueChunks": {
+        "intro": "Hold on, don't go yet! I've been waiting weeks for someone capable to walk through that door, and here you are, {player_name}.",
+        "plotStep": "I'm working on something extraordinary: a weapon that hasn't been forged in centuries. The old techniques are lost, but the materials aren't. I need {quest_item} from a vein deep in the caves {location_hint}. The problem? The {enemy_type} have nested all around it. Clear the way and bring me what I need, and I'll craft something worthy of legend.",
+        "outro": "This isn't charity work: you'll walk away with a piece of history. So, are you in?"
+      },
+      "playerResponses": [
+        { "text": "A legendary weapon? Count me in.", "action": "ACCEPT" },
+        { "text": "I'll get your materials, but I want first pick of what you forge.", "action": "ACCEPT" },
+        { "text": "I don't fight monsters for a blacksmith's pet project.", "action": "DECLINE" }
+      ],
+      "objectivePool": ["FETCH_ITEM", "KILL_MOBS", "EXPLORE_LOCATION"],
+      "objectiveConfig": {
+        "FETCH_ITEM": { "locationPreference": "DUNGEON" },
+        "KILL_MOBS": { "countMin": 4, "countMax": 8 },
+        "EXPLORE_LOCATION": { "countMin": 1, "countMax": 2 }
+      }
+    },
+    {
+      "id": "daring_expo_bounty",
+      "dialogueChunks": {
+        "intro": "Well met, {player_name}. I'll skip the pleasantries: I have a proposition that could make us both very wealthy.",
+        "plotStep": "A warlord commanding a band of {enemy_type} has been terrorizing the trade routes near {location}. The merchants' guild is offering a serious bounty for their head. {target_npc} tried to collect last month and barely made it back alive. Their camp is {location_hint}, heavily fortified. But I've studied their patrols and I know there's a gap in their defenses just before dawn.",
+        "outro": "One strike, one kill, and we split the bounty. You handle the fighting, I handle the intel. Deal?"
+      },
+      "playerResponses": [
+        { "text": "Show me the patrol routes. I'll handle the rest.", "action": "ACCEPT" },
+        { "text": "Sixty-forty my way, since I'm the one risking my neck.", "action": "ACCEPT", "dispositionShift": -5 },
+        { "text": "Too risky. Find another sword for hire.", "action": "DECLINE" }
+      ],
+      "objectivePool": ["KILL_NPC", "KILL_MOBS", "EXPLORE_LOCATION"],
+      "objectiveConfig": {
+        "KILL_NPC": { "countMin": 1, "countMax": 1 },
+        "KILL_MOBS": { "countMin": 6, "countMax": 12 },
+        "EXPLORE_LOCATION": { "countMin": 1, "countMax": 1 }
+      }
+    }
+  ]
+}

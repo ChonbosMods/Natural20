@@ -1,0 +1,59 @@
+{
+  "variants": [
+    {
+      "id": "supplication_expo_famine",
+      "dialogueChunks": {
+        "intro": "Please, {player_name}, you have to help us. Our stores are nearly empty and the children haven't had a proper meal in days.",
+        "plotStep": "We need {quest_item} desperately. I've heard there might be some {location_hint}, but none of us are brave enough to make the journey. The {enemy_type} have been prowling the roads and we've already lost two foragers this season.",
+        "outro": "You'd be saving lives, truly. I wouldn't ask if there were any other way."
+      },
+      "playerResponses": [
+        { "text": "I'll find what you need. Stay safe until I return.", "action": "ACCEPT" },
+        { "text": "Fine, but I expect fair compensation for the danger.", "action": "ACCEPT", "dispositionShift": -5 },
+        { "text": "I'm sorry, I can't help right now.", "action": "DECLINE" }
+      ],
+      "objectivePool": ["GATHER_ITEMS", "FETCH_ITEM"],
+      "objectiveConfig": {
+        "GATHER_ITEMS": { "countMin": 6, "countMax": 12 },
+        "FETCH_ITEM": { "locationPreference": "WILDERNESS" }
+      }
+    },
+    {
+      "id": "supplication_expo_sickness",
+      "dialogueChunks": {
+        "intro": "Oh thank the stars, a traveler! {player_name}, I beg you, hear me out before you move on.",
+        "plotStep": "A sickness has taken hold in {location}. {target_npc} fell ill first, and now half the settlement can barely stand. The alchemist says we need {quest_item} for a remedy, but it only grows in dangerous territory {location_hint}. I'd go myself but my hands won't stop shaking.",
+        "outro": "I know it's a lot to ask of a stranger. But strangers are all we have left to turn to."
+      },
+      "playerResponses": [
+        { "text": "Tell me exactly where to look. I'll bring it back.", "action": "ACCEPT" },
+        { "text": "I'll do it, but only because the children are suffering.", "action": "ACCEPT" },
+        { "text": "That sounds like a problem for a healer, not me.", "action": "DECLINE" }
+      ],
+      "objectivePool": ["FETCH_ITEM", "EXPLORE_LOCATION", "GATHER_ITEMS"],
+      "objectiveConfig": {
+        "FETCH_ITEM": { "locationPreference": "WILDERNESS" },
+        "EXPLORE_LOCATION": { "countMin": 1, "countMax": 2 },
+        "GATHER_ITEMS": { "countMin": 4, "countMax": 8 }
+      }
+    },
+    {
+      "id": "supplication_expo_theft",
+      "dialogueChunks": {
+        "intro": "Wait, please don't walk away! I know how this looks, a grown person begging, but I have nowhere else to turn, {player_name}.",
+        "plotStep": "Raiders came through {location} two nights ago. Took everything: our {quest_item}, our tools, anything they could carry. {target_npc} tried to stop them but they were outnumbered. We tracked them heading {location_hint}, but none of us can fight like you can.",
+        "outro": "If we don't get our supplies back before the cold sets in, this settlement won't survive the season. Please."
+      },
+      "playerResponses": [
+        { "text": "Point me toward their trail. I'll get everything back.", "action": "ACCEPT" },
+        { "text": "I suppose I could track them down, for the right price.", "action": "ACCEPT", "dispositionShift": -5 },
+        { "text": "Chasing raiders isn't something I do for free.", "action": "DECLINE" }
+      ],
+      "objectivePool": ["FETCH_ITEM", "EXPLORE_LOCATION"],
+      "objectiveConfig": {
+        "FETCH_ITEM": { "locationPreference": "DUNGEON" },
+        "EXPLORE_LOCATION": { "countMin": 1, "countMax": 3 }
+      }
+    }
+  ]
+}
