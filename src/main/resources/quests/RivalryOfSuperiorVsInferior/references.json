@@ -1,0 +1,22 @@
+{
+  "references": [
+    {
+      "id": "ref_rivalry_superior_inferior_old_uprising",
+      "compatibleSituations": ["RivalryOfSuperiorVsInferior", "SelfSacrificeForAnIdeal"],
+      "passiveText": "There was an uprising in a settlement to the north years ago. The outcome wasn't pretty for either side.",
+      "triggerTopicLabel": "The northern uprising",
+      "triggerDialogue": "{target_npc} lived through it. The common folk overthrew the ruling council, but without anyone who knew how to manage trade routes and granary rotations, the settlement nearly starved the following winter. The lesson wasn't that power shouldn't change hands: it was that revolution without preparation is just a different kind of disaster. They've been quietly training people in governance ever since.",
+      "catalystSituations": ["RivalryOfSuperiorVsInferior", "NecessityOfSacrificingLovedOnes"],
+      "targetNpcRoles": ["Guard", "TavernKeeper"]
+    },
+    {
+      "id": "ref_rivalry_superior_inferior_smuggled_tools",
+      "compatibleSituations": ["RivalryOfSuperiorVsInferior", "CrimesOfLove"],
+      "passiveText": "Someone has been leaving tools at the doorsteps of the poorest families. Nobody knows who.",
+      "triggerTopicLabel": "The mystery tools",
+      "triggerDialogue": "Quality work, too: proper steel, good handles. {target_npc} thinks it's someone inside the founding families who disagrees with how things are run but can't speak openly. Every axe and hammer that appears means one more family can work without begging the elite for permission. If you find out who's behind it, keep it to yourself. Whoever they are, they're doing more good in silence than most people manage with all the noise in the world.",
+      "catalystSituations": ["RivalryOfSuperiorVsInferior", "DiscoveryOfDishonor"],
+      "targetNpcRoles": ["Villager", "ArtisanBlacksmith"]
+    }
+  ]
+}

@@ -1,0 +1,63 @@
+{
+  "variants": [
+    {
+      "id": "fatalimprudence_reso_01",
+      "dialogueChunks": {
+        "intro": "{player_name}, the barricades held. Every family is accounted for.",
+        "plotStep": "The {quest_item} you gathered reinforced the walls just in time. The swarm hit at dawn and the defenses held every point. {target_npc} led the counterattack from the eastern gate and drove them back into the hills. The danger is over, at least for now. I stood in the square this morning and told everyone the truth: that my recklessness caused the swarm. Some people were angry. Most were just relieved to be alive.",
+        "outro": "You cleaned up my mess and saved lives doing it. I owe you more than I can ever repay. But start with this."
+      },
+      "playerResponses": [
+        { "text": "Telling the truth took courage. The settlement will respect that.", "action": "ACCEPT", "dispositionShift": 10 },
+        { "text": "The swarm is driven back and the walls held. That's what matters.", "action": "ACCEPT" }
+      ],
+      "objectivePool": [],
+      "objectiveConfig": {}
+    },
+    {
+      "id": "fatalimprudence_reso_02",
+      "dialogueChunks": {
+        "intro": "The soil is recovering, {player_name}. The alchemist says the readings are back to normal.",
+        "plotStep": "The mineral you found in that cave worked exactly as they predicted. Within two days of application, the contamination stopped spreading. Within a week, the first green shoots pushed through. {target_npc} planted a test crop yesterday and it's already taking root. I confessed to the settlement about the experimental compound. The alchemist spoke on my behalf: said the lesson I learned will make me a better apothecary, not a worse one.",
+        "outro": "The harvest won't be what it should have been, but it will be enough. Take this, {player_name}. You saved a season and possibly a career."
+      },
+      "playerResponses": [
+        { "text": "Green shoots from poisoned ground. That's as close to a miracle as it gets.", "action": "ACCEPT" },
+        { "text": "Learn from this. Test before you deploy. Always.", "action": "ACCEPT", "dispositionShift": -5 },
+        { "text": "Glad the land is healing. Take better care of it.", "action": "ACCEPT" }
+      ],
+      "objectivePool": [],
+      "objectiveConfig": {}
+    },
+    {
+      "id": "fatalimprudence_reso_03",
+      "dialogueChunks": {
+        "intro": "You found it, {player_name}. The source of the signal.",
+        "plotStep": "The device you recovered from the chamber was ancient: some kind of resonance beacon that attracted and agitated the {enemy_type} within range. Once you disabled it, the coordinated attacks stopped within hours. {target_npc} reports the creatures are already dispersing back to their normal territories. The alchemist analyzed the {quest_item} coating and says the beacon was likely placed there deliberately, centuries ago, as a weapon. I just happened to set it off.",
+        "outro": "An ancient weapon armed by modern carelessness. At least it's over now. Take this, and my genuine thanks."
+      },
+      "playerResponses": [
+        { "text": "Ancient traps should stay sealed. Remember that next time you find a mysterious door.", "action": "ACCEPT" },
+        { "text": "The beacon is destroyed and the creatures are scattering. Good enough.", "action": "ACCEPT" },
+        { "text": "Centuries-old weapons lurking underground. The world is full of dangers nobody remembers.", "action": "ACCEPT" }
+      ],
+      "objectivePool": [],
+      "objectiveConfig": {}
+    },
+    {
+      "id": "fatalimprudence_reso_04",
+      "dialogueChunks": {
+        "intro": "You found the con artist, {player_name}. And you brought back our supplies.",
+        "plotStep": "The swindler was hiding in a cave {location_hint}, surrounded by the very {enemy_type} they'd been trading with. When you showed up, they realized the game was over. {target_npc} has already distributed the recovered {quest_item} to the families who needed it most. I stood in front of the council and told them everything: the gamble, the scam, my stupidity. They stripped me of my trading privileges for a season. Fair punishment.",
+        "outro": "You recovered what my greed nearly lost forever. The settlement is whole again, and I have a lot of trust to rebuild. This is yours, earned honestly."
+      },
+      "playerResponses": [
+        { "text": "A season's punishment is light for what happened. Use the time to reflect.", "action": "ACCEPT" },
+        { "text": "The supplies are back where they belong. That's what counts.", "action": "ACCEPT", "dispositionShift": 5 },
+        { "text": "Next time a deal sounds too good to be true, it probably is.", "action": "ACCEPT" }
+      ],
+      "objectivePool": [],
+      "objectiveConfig": {}
+    }
+  ]
+}

@@ -1,0 +1,13 @@
+{
+  "references": [
+    {
+      "id": "ref_mistaken_jealousy_gossip_network",
+      "compatibleSituations": ["MistakenJealousy", "ErroneousJudgment", "Ambition"],
+      "passiveText": "People in {location} have been whispering about someone who may not be what they seem.",
+      "triggerTopicLabel": "The rumors going around",
+      "triggerDialogue": "You know how tavern talk goes: half truth, half imagination. But {target_npc} mentioned something interesting the other night. Said they saw someone from the settlement meeting with outsiders {location_hint} after dark. Could be nothing. Could be trade, could be trouble. The kind of thing that festers if nobody looks into it.",
+      "catalystSituations": ["MistakenJealousy", "Ambition"],
+      "targetNpcRoles": ["TavernKeeper", "Villager"]
+    }
+  ]
+}

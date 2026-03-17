@@ -1,0 +1,79 @@
+{
+  "variants": [
+    {
+      "id": "vengeancekindred_expo_01",
+      "dialogueChunks": {
+        "intro": "{player_name}. Come closer. I need to speak quietly, because what I'm about to ask carries weight that most people can't bear.",
+        "plotStep": "My brother was killed by {enemy_type} three weeks ago on the road {location_hint}. He was bringing {quest_item} back to {location} for the harvest festival. They left his body in the ditch like refuse. The guards say they can't pursue because it happened outside their jurisdiction. Jurisdiction. As if borders matter when your family's blood is soaking into the dirt. {target_npc} helped me bury him, and they're the only one who understands that I can't let this stand.",
+        "outro": "I'm not asking you to feel what I feel. I'm asking you to act where I cannot. My brother deserves more than a forgotten grave."
+      },
+      "playerResponses": [
+        { "text": "Your brother will be avenged. Tell me everything about the ones who did this.", "action": "ACCEPT" },
+        { "text": "Family blood demands an answer. I'll see it done, for a fair price.", "action": "ACCEPT", "dispositionShift": -5 },
+        { "text": "I'm sorry for your loss, but vengeance isn't a path I walk.", "action": "DECLINE" }
+      ],
+      "objectivePool": ["KILL_MOBS", "EXPLORE_LOCATION"],
+      "objectiveConfig": {
+        "KILL_MOBS": { "countMin": 4, "countMax": 8 },
+        "EXPLORE_LOCATION": { "countMin": 1, "countMax": 2 }
+      }
+    },
+    {
+      "id": "vengeancekindred_expo_02",
+      "dialogueChunks": {
+        "intro": "You don't know me, {player_name}, but after today, you'll know my family's name. Everyone in {location} does.",
+        "plotStep": "The {enemy_type} burned our farmstead two months ago. My mother, my aunt, three cousins: all gone in one night. We rebuilt because that's what you do. Then they came back last week and did it again. Burned what we'd rebuilt, took the {quest_item} we'd stockpiled, scattered our livestock into the hills {location_hint}. {target_npc} took in the survivors, but we're broken, {player_name}. Broken and angry. The elders say to endure. I say the time for endurance is over.",
+        "outro": "My family has bled enough for one lifetime. Will you help us end this?"
+      },
+      "playerResponses": [
+        { "text": "Twice they struck your family? There won't be a third time. I swear it.", "action": "ACCEPT" },
+        { "text": "I understand the fury. Point me in the right direction.", "action": "ACCEPT" },
+        { "text": "I grieve for your family, but this kind of fight draws more blood, not less.", "action": "DECLINE" }
+      ],
+      "objectivePool": ["KILL_MOBS", "FETCH_ITEM", "EXPLORE_LOCATION"],
+      "objectiveConfig": {
+        "KILL_MOBS": { "countMin": 5, "countMax": 10 },
+        "FETCH_ITEM": { "locationPreference": "WILDERNESS" },
+        "EXPLORE_LOCATION": { "countMin": 1, "countMax": 2 }
+      }
+    },
+    {
+      "id": "vengeancekindred_expo_03",
+      "dialogueChunks": {
+        "intro": "We held a gathering last night, {player_name}. Every family in {location} who's lost someone to the {enemy_type}. There were thirty of us.",
+        "plotStep": "Thirty families, each with a name to mourn. My own father was among the first taken, six months ago. He went to deliver {quest_item} to a trading post {location_hint} and never came back. {target_npc} organized the gathering because they lost their sister to the same band. We've pooled our resources and our knowledge. We know where the {enemy_type} roost, we know their patrol routes, and we know they'll keep killing unless someone stops them.",
+        "outro": "This isn't one family's grief anymore. This is a community's solemn vow. Will you carry it out?"
+      },
+      "playerResponses": [
+        { "text": "Thirty families. Thirty reasons. I'll carry your vow to its end.", "action": "ACCEPT", "dispositionShift": 5 },
+        { "text": "With that much intel, I can make this work. Show me the maps.", "action": "ACCEPT" },
+        { "text": "A community's vengeance is a heavy burden. I can't carry it.", "action": "DECLINE" }
+      ],
+      "objectivePool": ["KILL_MOBS", "EXPLORE_LOCATION", "KILL_NPC"],
+      "objectiveConfig": {
+        "KILL_MOBS": { "countMin": 5, "countMax": 10 },
+        "EXPLORE_LOCATION": { "countMin": 2, "countMax": 3 },
+        "KILL_NPC": { "countMin": 1, "countMax": 1 }
+      }
+    },
+    {
+      "id": "vengeancekindred_expo_04",
+      "dialogueChunks": {
+        "intro": "I've been sitting at this table since dawn, {player_name}, trying to find words for something that words can't reach.",
+        "plotStep": "My daughter was a healer. She went {location_hint} to gather {quest_item} for a sick child in {location}, because that's who she was: someone who couldn't stand by while others suffered. The {enemy_type} found her before she made it back. {target_npc} found what was left the next morning. The whole settlement turned out for the burial. Half of them brought weapons. They want to march on the {enemy_type} camp themselves, but they're farmers and shopkeepers, not warriors. They'd be slaughtered.",
+        "outro": "I don't want more death. But I need the creatures who took my daughter to know that her life had weight. That it mattered."
+      },
+      "playerResponses": [
+        { "text": "Her life mattered. And the ones who ended it will answer for that.", "action": "ACCEPT" },
+        { "text": "A healer, killed while helping others. I'll make sure it wasn't for nothing.", "action": "ACCEPT", "dispositionShift": 5 },
+        { "text": "Nothing I do will bring her back. I'm sorry.", "action": "DECLINE" }
+      ],
+      "objectivePool": ["KILL_MOBS", "EXPLORE_LOCATION", "GATHER_ITEMS"],
+      "objectiveConfig": {
+        "KILL_MOBS": { "countMin": 3, "countMax": 7 },
+        "EXPLORE_LOCATION": { "countMin": 1, "countMax": 2 },
+        "GATHER_ITEMS": { "countMin": 3, "countMax": 6 }
+      }
+    }
+  ]
+}

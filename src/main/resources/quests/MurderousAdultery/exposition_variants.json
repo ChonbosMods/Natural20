@@ -1,0 +1,80 @@
+{
+  "variants": [
+    {
+      "id": "murderousadultery_expo_01",
+      "dialogueChunks": {
+        "intro": "{player_name}, close the door. What I'm about to tell you doesn't leave this room.",
+        "plotStep": "Someone has been poisoning the settlement's water supply. Three people have fallen ill in the last week, and {target_npc} nearly died before the alchemist figured out what was happening. I found traces of {quest_item} ground into powder near the well: a substance that doesn't grow anywhere near {location}. Someone brought it here deliberately. The trail leads {location_hint}, and I suspect whoever did this has ties to the {enemy_type} raids we've been suffering. This isn't bad luck. It's sabotage.",
+        "outro": "I need someone I can trust to follow that trail. And right now, I can't trust anyone in this settlement."
+      },
+      "playerResponses": [
+        { "text": "Poisoning a water supply is as low as it gets. I'll find who did this.", "action": "ACCEPT" },
+        { "text": "Intrigue and poison? I'll investigate, but I want full access and no interference.", "action": "ACCEPT" },
+        { "text": "I don't do conspiracy work. Call the guard.", "action": "DECLINE" }
+      ],
+      "objectivePool": ["EXPLORE_LOCATION", "TALK_TO_NPC", "FETCH_ITEM"],
+      "objectiveConfig": {
+        "EXPLORE_LOCATION": { "countMin": 2, "countMax": 3 },
+        "TALK_TO_NPC": { "countMin": 1, "countMax": 1 },
+        "FETCH_ITEM": { "locationPreference": "SETTLEMENT" }
+      }
+    },
+    {
+      "id": "murderousadultery_expo_02",
+      "dialogueChunks": {
+        "intro": "Don't sit at the bar, {player_name}. Come to the back. This isn't a conversation for the common room.",
+        "plotStep": "The settlement council leader was found dead in their study three nights ago. Officially, it was a heart attack. Unofficially, I found {quest_item} residue on the rim of their cup: a rare toxin that mimics natural causes. {target_npc} was the last person seen entering the study, and they've been acting strange ever since: avoiding questions, locking their doors, pacing at night. But they're a good person, {player_name}. I don't think they acted alone. Someone put them up to this. The real puppet master is somewhere {location_hint}.",
+        "outro": "Help me find the truth before the wrong person hangs for this."
+      },
+      "playerResponses": [
+        { "text": "Murder disguised as illness? I'll uncover whoever is behind it.", "action": "ACCEPT" },
+        { "text": "This is darker than what I usually handle. But I'll look into it.", "action": "ACCEPT", "dispositionShift": -5 },
+        { "text": "Politics and poison are a dangerous mix. Leave me out of it.", "action": "DECLINE" }
+      ],
+      "objectivePool": ["TALK_TO_NPC", "EXPLORE_LOCATION", "FETCH_ITEM"],
+      "objectiveConfig": {
+        "TALK_TO_NPC": { "countMin": 1, "countMax": 1 },
+        "EXPLORE_LOCATION": { "countMin": 1, "countMax": 2 },
+        "FETCH_ITEM": { "locationPreference": "DUNGEON" }
+      }
+    },
+    {
+      "id": "murderousadultery_expo_03",
+      "dialogueChunks": {
+        "intro": "{player_name}, I've been watching you. You're not from here, which means you're the only person I can confide in.",
+        "plotStep": "Our settlement's trade agreements have been sabotaged from within. Caravans are being redirected into {enemy_type} ambushes, and it's costing us lives and goods. Someone inside {location} is feeding route information to raiders. I've narrowed it down to three suspects, but confronting any of them would tip off the traitor. {target_npc} found a coded letter hidden {location_hint} that might identify the informant, but retrieving it means getting past whatever guards the traitor posted.",
+        "outro": "We need that letter. Without evidence, the traitor walks free and more people die on the roads."
+      },
+      "playerResponses": [
+        { "text": "A traitor selling out their own people? I'll get that letter.", "action": "ACCEPT" },
+        { "text": "Spy work, then. I'll do it, but I want the traitor exposed publicly.", "action": "ACCEPT" },
+        { "text": "Internal politics. Not my fight.", "action": "DECLINE" }
+      ],
+      "objectivePool": ["FETCH_ITEM", "EXPLORE_LOCATION", "KILL_MOBS"],
+      "objectiveConfig": {
+        "FETCH_ITEM": { "locationPreference": "DUNGEON" },
+        "EXPLORE_LOCATION": { "countMin": 1, "countMax": 2 },
+        "KILL_MOBS": { "countMin": 2, "countMax": 5 }
+      }
+    },
+    {
+      "id": "murderousadultery_expo_04",
+      "dialogueChunks": {
+        "intro": "I shouldn't be telling you this, {player_name}. If the wrong person finds out I talked, I'll be next.",
+        "plotStep": "Three council members have died in the past month: all from different causes, all seemingly unrelated. But I've been keeping records, and every death benefits the same person. They've consolidated power over {location} faster than anyone should. Last night I overheard them arranging for a shipment of {quest_item}: a potent alchemical compound: to be delivered from {location_hint}. I think they're planning another move. {target_npc} is the likely target. Someone needs to intercept that shipment and expose the conspiracy.",
+        "outro": "I know how this sounds: paranoid, desperate. But the pattern is there if you look. Please, look."
+      },
+      "playerResponses": [
+        { "text": "Three deaths and one beneficiary? That's not a pattern, it's a confession. I'm in.", "action": "ACCEPT" },
+        { "text": "Intercepting shipments and exposing conspiracies. This had better not blow back on me.", "action": "ACCEPT", "dispositionShift": -5 },
+        { "text": "I don't investigate murders. You need the authorities.", "action": "DECLINE" }
+      ],
+      "objectivePool": ["FETCH_ITEM", "EXPLORE_LOCATION", "TALK_TO_NPC"],
+      "objectiveConfig": {
+        "FETCH_ITEM": { "locationPreference": "WILDERNESS" },
+        "EXPLORE_LOCATION": { "countMin": 1, "countMax": 3 },
+        "TALK_TO_NPC": { "countMin": 1, "countMax": 1 }
+      }
+    }
+  ]
+}

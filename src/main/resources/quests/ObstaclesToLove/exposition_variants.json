@@ -1,0 +1,59 @@
+{
+  "variants": [
+    {
+      "id": "obstacles_to_love_expo_01",
+      "dialogueChunks": {
+        "intro": "{player_name}, you're not from either settlement, which makes you the only person who might actually listen to both sides.",
+        "plotStep": "Two settlements, {location} and the one across the valley, have been feuding for three generations over a water dispute. Nobody alive remembers how it started, but everyone remembers the hate. My closest friend lives on the other side. We grew up trading stories across the river before our families found out and forbade it. Now {target_npc} carries messages between us in secret, but the feud is escalating: both sides are stockpiling weapons. I need {quest_item} to repair the old meeting bridge between the settlements. If there's a neutral ground for talking, maybe reason has a chance.",
+        "outro": "Three generations of grudges, and for what? A river that has enough water for everyone. Help me build a bridge: the real kind and the kind that matters more."
+      },
+      "playerResponses": [
+        { "text": "A bridge for peace. I'll gather what you need to build it.", "action": "ACCEPT" },
+        { "text": "Three generations is a long time to hate. But bridges are a good start.", "action": "ACCEPT" },
+        { "text": "Getting between feuding settlements is a fast way to make enemies on both sides.", "action": "DECLINE" }
+      ],
+      "objectivePool": ["GATHER_ITEMS", "FETCH_ITEM"],
+      "objectiveConfig": {
+        "GATHER_ITEMS": { "countMin": 6, "countMax": 14 },
+        "FETCH_ITEM": { "locationPreference": "WILDERNESS" }
+      }
+    },
+    {
+      "id": "obstacles_to_love_expo_02",
+      "dialogueChunks": {
+        "intro": "I've been told I don't belong here, {player_name}. Not in those words, but in every way that counts.",
+        "plotStep": "I arrived in {location} as a traveler six months ago and found a community worth staying for. I've worked harder than anyone, learned their customs, contributed to every harvest and repair. But the elder council won't grant me resident status. Without it, I can't own property, join the militia, or even attend the seasonal feasts. {target_npc} has been advocating for me, but the council insists outsiders bring trouble. There's an old tradition: anyone who proves their worth by completing a task for the settlement earns the right to stay. The task is gathering {quest_item} from a dangerous location {location_hint} where the {enemy_type} dwell.",
+        "outro": "I don't want charity. I want to earn my place. But I can't do the task alone, and nobody here will help an outsider. Except you."
+      },
+      "playerResponses": [
+        { "text": "You've already proven your worth. Let's make the council see it too.", "action": "ACCEPT" },
+        { "text": "Earning belonging through a dangerous quest. That's a hard tradition, but I'll help.", "action": "ACCEPT" },
+        { "text": "If they don't want you, maybe you should find a community that does.", "action": "DECLINE" }
+      ],
+      "objectivePool": ["GATHER_ITEMS", "EXPLORE_LOCATION", "KILL_MOBS"],
+      "objectiveConfig": {
+        "GATHER_ITEMS": { "countMin": 5, "countMax": 10 },
+        "EXPLORE_LOCATION": { "countMin": 1, "countMax": 2 },
+        "KILL_MOBS": { "countMin": 2, "countMax": 5 }
+      }
+    },
+    {
+      "id": "obstacles_to_love_expo_03",
+      "dialogueChunks": {
+        "intro": "Have you ever cared about someone you're not supposed to care about, {player_name}? Not by your own choice, but by everyone else's rules?",
+        "plotStep": "The artisan families and the farming families in {location} don't mix. Haven't for decades. Different quarters, different festivals, different everything. My family farms the eastern fields. The person I want to spend my life with is a blacksmith's child. {target_npc} has been helping us meet in secret, but our families are starting to suspect. If they find out, both of us will be disowned. I want to prove that the divide between our communities is meaningless. There's an old {quest_item} that belongs to both families: a shared heirloom split during the original separation, kept in a ruin {location_hint}. If I can reunite both halves, maybe it will remind people that we were one community once.",
+        "outro": "A divided heirloom for a divided settlement. If I can make the pieces fit together again, maybe I can make the people fit together too."
+      },
+      "playerResponses": [
+        { "text": "Reuniting an heirloom to reunite a community. That's beautiful. I'll help.", "action": "ACCEPT" },
+        { "text": "Old divisions and forbidden bonds. You're either brave or foolish. Either way, I'm in.", "action": "ACCEPT" },
+        { "text": "Community divisions this deep don't heal with symbols. I'm sorry.", "action": "DECLINE" }
+      ],
+      "objectivePool": ["FETCH_ITEM", "EXPLORE_LOCATION"],
+      "objectiveConfig": {
+        "FETCH_ITEM": { "locationPreference": "DUNGEON" },
+        "EXPLORE_LOCATION": { "countMin": 2, "countMax": 3 }
+      }
+    }
+  ]
+}

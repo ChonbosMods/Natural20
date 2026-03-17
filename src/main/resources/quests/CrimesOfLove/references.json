@@ -1,0 +1,22 @@
+{
+  "references": [
+    {
+      "id": "ref_crimes_of_love_robin_hood",
+      "compatibleSituations": ["CrimesOfLove", "RivalryOfSuperiorVsInferior"],
+      "passiveText": "There's a story about someone who used to redistribute goods from wealthy merchants to struggling families. Nobody knows if it's true.",
+      "triggerTopicLabel": "The redistribution story",
+      "triggerDialogue": "{target_npc} swears it happened: someone would break into warehouses owned by the wealthiest traders and leave the goods at the doors of families hit hardest by the last famine. Never caught, never identified. Some people called them a thief. Others called them the only honest person in {location}. The truth, as always, is probably somewhere uncomfortable in between.",
+      "catalystSituations": ["CrimesOfLove", "Supplication"],
+      "targetNpcRoles": ["Villager", "TavernKeeper"]
+    },
+    {
+      "id": "ref_crimes_of_love_healers_dilemma",
+      "compatibleSituations": ["CrimesOfLove", "AllSacrificedForPassion"],
+      "passiveText": "The old herbalist used to say that the best medicine is the kind nobody profits from.",
+      "triggerTopicLabel": "The herbalist's philosophy",
+      "triggerDialogue": "Before the guild took control, {target_npc} practiced openly: treating anyone who came to the door, charging what people could afford, trading remedies for firewood or a warm meal. The guild shut them down, called it 'unregulated practice.' {target_npc} moved on but left behind a notebook full of recipes. If someone found it {location_hint}, they could do a lot of good quietly.",
+      "catalystSituations": ["CrimesOfLove", "AllSacrificedForPassion"],
+      "targetNpcRoles": ["ArtisanAlchemist", "ArtisanCook"]
+    }
+  ]
+}

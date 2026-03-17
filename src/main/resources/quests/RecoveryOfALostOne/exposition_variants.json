@@ -1,0 +1,61 @@
+{
+  "variants": [
+    {
+      "id": "recovery_of_a_lost_one_expo_01",
+      "dialogueChunks": {
+        "intro": "{player_name}, I'm looking for someone. I've been looking for a very long time.",
+        "plotStep": "My sister left {location} three seasons ago to trade {quest_item} with the settlements up north. She never arrived. Everyone says the {enemy_type} got her on the road, but no body was ever found. No blood, no wreckage, nothing. Last week, a merchant passing through mentioned seeing a woman matching her description living in a camp {location_hint}. Alone, but alive. I need someone to go there and find out if it's really her. I can't make the journey myself: my legs haven't been right since the winter.",
+        "outro": "If she's alive, she needs to know we never stopped looking. That we never gave up on her."
+      },
+      "playerResponses": [
+        { "text": "I'll find her. If she's out there, I'll bring word.", "action": "ACCEPT" },
+        { "text": "Three seasons is a long time. Are you sure you're ready for what I might find?", "action": "ACCEPT" },
+        { "text": "Missing for that long... I don't want to be the one bringing bad news.", "action": "DECLINE" }
+      ],
+      "objectivePool": ["EXPLORE_LOCATION", "TALK_TO_NPC", "KILL_MOBS"],
+      "objectiveConfig": {
+        "EXPLORE_LOCATION": { "countMin": 2, "countMax": 4 },
+        "TALK_TO_NPC": { "countMin": 1, "countMax": 1 },
+        "KILL_MOBS": { "countMin": 2, "countMax": 5 }
+      }
+    },
+    {
+      "id": "recovery_of_a_lost_one_expo_02",
+      "dialogueChunks": {
+        "intro": "I know what people think, {player_name}. They think I'm chasing ghosts. But I know what I saw.",
+        "plotStep": "{target_npc} disappeared during a {enemy_type} raid on {location} six months ago. The guards assumed the worst and held a memorial. But two weeks ago, I was gathering {quest_item} {location_hint} and I found fresh boot prints: their boots, {player_name}. I know the repair pattern on the sole because I stitched it myself. Someone is out there, moving through the wilderness, and I believe it's {target_npc}. They might be injured, lost, or hiding. Either way, they need help.",
+        "outro": "Everyone else has accepted their death. I haven't. And until I see a grave with my own eyes, I won't."
+      },
+      "playerResponses": [
+        { "text": "Boot prints are evidence. I'll follow the trail.", "action": "ACCEPT" },
+        { "text": "Hope is stubborn. I'll find out if it's justified.", "action": "ACCEPT" },
+        { "text": "Six months in the wild alone? I don't want to give you false hope.", "action": "DECLINE" }
+      ],
+      "objectivePool": ["EXPLORE_LOCATION", "GATHER_ITEMS", "TALK_TO_NPC"],
+      "objectiveConfig": {
+        "EXPLORE_LOCATION": { "countMin": 3, "countMax": 5 },
+        "GATHER_ITEMS": { "countMin": 3, "countMax": 8 },
+        "TALK_TO_NPC": { "countMin": 1, "countMax": 1 }
+      }
+    },
+    {
+      "id": "recovery_of_a_lost_one_expo_03",
+      "dialogueChunks": {
+        "intro": "{player_name}, I need to show you something. Come inside where nobody can hear us.",
+        "plotStep": "This letter arrived at {location} yesterday, left at the gate overnight. No messenger, no name on the outside. But I recognize the handwriting: it's from {target_npc}, my apprentice who vanished two years ago during an expedition {location_hint}. The letter says they're alive but can't return: something about being held by a group that won't let them leave. They need {quest_item} to trade for their freedom, and they're begging for someone to bring it to a drop point near the old ruins. The {enemy_type} between here and there make a direct journey dangerous.",
+        "outro": "Two years I thought they were dead. Two years of guilt for sending them on that expedition. Now there's a chance to bring them home."
+      },
+      "playerResponses": [
+        { "text": "A letter after two years. This changes everything. I'll go.", "action": "ACCEPT" },
+        { "text": "It could be a trap using their handwriting. But I'll check it out.", "action": "ACCEPT", "dispositionShift": -5 },
+        { "text": "A mysterious letter and dangerous territory. This screams ambush.", "action": "DECLINE" }
+      ],
+      "objectivePool": ["FETCH_ITEM", "EXPLORE_LOCATION", "DELIVER_ITEM"],
+      "objectiveConfig": {
+        "FETCH_ITEM": { "locationPreference": "DUNGEON" },
+        "EXPLORE_LOCATION": { "countMin": 1, "countMax": 3 },
+        "DELIVER_ITEM": {}
+      }
+    }
+  ]
+}

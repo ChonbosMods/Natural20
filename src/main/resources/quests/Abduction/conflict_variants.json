@@ -1,0 +1,80 @@
+{
+  "variants": [
+    {
+      "id": "abduction_conf_01",
+      "dialogueChunks": {
+        "intro": "The situation has changed, {player_name}. And not for the better.",
+        "plotStep": "The {enemy_type} have split the hostages into two groups and moved them to separate locations. A runner spotted one group being taken deeper {location_hint}, while the other is still at the original site. {target_npc}'s message says they're being forced to harvest {quest_item} for the {enemy_type}: those who work eat, those who refuse don't. We need to deal with both locations, but hitting one will alert the other. You'll have to be fast and brutal.",
+        "outro": "Two locations, limited time, and they'll kill the hostages the moment they suspect a rescue. The pressure just doubled."
+      },
+      "playerResponses": [
+        { "text": "Split groups means I need to hit hard and fast. Give me the locations.", "action": "ACCEPT" },
+        { "text": "Two sites, one rescuer? The odds aren't great, but the hostages don't have better options.", "action": "ACCEPT" },
+        { "text": "Splitting the hostages means they're prepared for a rescue. This is a trap.", "action": "DECLINE" }
+      ],
+      "objectivePool": ["EXPLORE_LOCATION", "KILL_MOBS", "GATHER_ITEMS"],
+      "objectiveConfig": {
+        "EXPLORE_LOCATION": { "countMin": 2, "countMax": 3 },
+        "KILL_MOBS": { "countMin": 5, "countMax": 10 },
+        "GATHER_ITEMS": { "countMin": 3, "countMax": 6 }
+      }
+    },
+    {
+      "id": "abduction_conf_02",
+      "dialogueChunks": {
+        "intro": "{player_name}, they took another one. While you were tracking the first group, they circled back.",
+        "plotStep": "The blacksmith's apprentice is gone: snatched while locking up the forge last night. The {enemy_type} are sending a message: they can reach us whenever they want. {target_npc} found a note scratched into the forge door: coordinates leading {location_hint} and a crude drawing of what looks like a cage. Either they're taunting us or it's a genuine clue. We need you to investigate and gather {quest_item} from the area: the forge needs materials to equip the militia we're forming to guard the settlement.",
+        "outro": "They're hunting us in our own home. We need to turn the tables before there's no one left to take."
+      },
+      "playerResponses": [
+        { "text": "A taunting message means they're overconfident. I'll use that against them.", "action": "ACCEPT" },
+        { "text": "More abductions while I'm out searching? We need to solve this at the source.", "action": "ACCEPT" },
+        { "text": "They can grab people from inside the settlement walls? Nothing I do will be enough.", "action": "DECLINE" }
+      ],
+      "objectivePool": ["EXPLORE_LOCATION", "GATHER_ITEMS", "KILL_MOBS"],
+      "objectiveConfig": {
+        "EXPLORE_LOCATION": { "countMin": 1, "countMax": 2 },
+        "GATHER_ITEMS": { "countMin": 4, "countMax": 10 },
+        "KILL_MOBS": { "countMin": 3, "countMax": 7 }
+      }
+    },
+    {
+      "id": "abduction_conf_03",
+      "dialogueChunks": {
+        "intro": "One of the hostages escaped, {player_name}. Barely alive, but they brought crucial information.",
+        "plotStep": "The escapee says the {enemy_type} have a network of tunnels {location_hint} connecting several holding sites. {target_npc} and the other captives are being held in the deepest chamber, behind at least three guard posts. The tunnels are rigged with crude alarms: tripwires, loose stones, anything that makes noise. A direct assault would give them time to move or kill the hostages. We need {quest_item} to create a diversion at the main entrance while you slip in through the drainage vent the escapee used.",
+        "outro": "We have a way in, but it's narrow, dangerous, and leaves no room for error."
+      },
+      "playerResponses": [
+        { "text": "The drainage vent. A diversion at the front. And no room for error. Let's do it.", "action": "ACCEPT" },
+        { "text": "Tunnel networks and alarm systems? At least now we know what we're dealing with.", "action": "ACCEPT" },
+        { "text": "Booby-trapped tunnels and a single narrow entrance? That's a death sentence.", "action": "DECLINE" }
+      ],
+      "objectivePool": ["EXPLORE_LOCATION", "KILL_MOBS", "FETCH_ITEM"],
+      "objectiveConfig": {
+        "EXPLORE_LOCATION": { "countMin": 2, "countMax": 3 },
+        "KILL_MOBS": { "countMin": 4, "countMax": 8 },
+        "FETCH_ITEM": { "locationPreference": "DUNGEON" }
+      }
+    },
+    {
+      "id": "abduction_conf_04",
+      "dialogueChunks": {
+        "intro": "The deadline is tomorrow, {player_name}. Tomorrow.",
+        "plotStep": "We managed to gather some {quest_item} for the ransom, but it's barely half what they demanded. {target_npc} smuggled out word that the {enemy_type} are arguing among themselves: some want to execute the hostages as a warning, others want to keep them as workers. The division in their ranks might be our best chance. If you can reach the stronghold {location_hint} during the argument and strike while they're distracted, we might pull this off. But if the hardliners win the debate before you get there, it's over.",
+        "outro": "An enemy divided is an enemy vulnerable. But the window is closing by the hour."
+      },
+      "playerResponses": [
+        { "text": "Internal division is an opportunity. I'll strike before they resolve it.", "action": "ACCEPT" },
+        { "text": "Racing against a debate among monsters. Strange days. Give me the approach route.", "action": "ACCEPT" },
+        { "text": "Gambling on an internal dispute? Too many unknowns.", "action": "DECLINE" }
+      ],
+      "objectivePool": ["KILL_MOBS", "EXPLORE_LOCATION", "TALK_TO_NPC"],
+      "objectiveConfig": {
+        "KILL_MOBS": { "countMin": 4, "countMax": 9 },
+        "EXPLORE_LOCATION": { "countMin": 1, "countMax": 2 },
+        "TALK_TO_NPC": { "countMin": 1, "countMax": 1 }
+      }
+    }
+  ]
+}

@@ -1,0 +1,61 @@
+{
+  "variants": [
+    {
+      "id": "mistaken_jealousy_expo_01",
+      "dialogueChunks": {
+        "intro": "{player_name}, I need someone from outside {location} for this. Someone with no loyalties here, no bias.",
+        "plotStep": "{target_npc} has been making secret trips {location_hint} every week. Won't say where, won't say why, comes back with dirt under their nails and a guilty look. The whole settlement is whispering. I confronted them and they laughed it off, but I saw them hiding {quest_item} in a locked chest in their workshop. That's not something an honest person does. I think they're stockpiling supplies to sell behind our backs while the rest of us scrape by.",
+        "outro": "I need proof before I go to the council. Follow their trail, find out what they're doing, and bring me evidence."
+      },
+      "playerResponses": [
+        { "text": "I'll find out the truth, whatever it is.", "action": "ACCEPT" },
+        { "text": "Spying on your neighbor? This feels wrong. But I'll look.", "action": "ACCEPT", "dispositionShift": -5 },
+        { "text": "Sort out your own grudges. I'm not getting involved.", "action": "DECLINE" }
+      ],
+      "objectivePool": ["EXPLORE_LOCATION", "GATHER_ITEMS", "TALK_TO_NPC"],
+      "objectiveConfig": {
+        "EXPLORE_LOCATION": { "countMin": 1, "countMax": 3 },
+        "GATHER_ITEMS": { "countMin": 3, "countMax": 8 },
+        "TALK_TO_NPC": { "countMin": 1, "countMax": 1 }
+      }
+    },
+    {
+      "id": "mistaken_jealousy_expo_02",
+      "dialogueChunks": {
+        "intro": "Something isn't right in {location}, {player_name}, and I think I'm the only one who sees it.",
+        "plotStep": "The new cook, {target_npc}, arrived two months ago and suddenly everyone loves them. Best food in the settlement, they say. Generous portions, fair prices. But I've noticed something nobody else has: the quality of {quest_item} in my own pantry has been dropping ever since they arrived. Shipments that used to come to me are being redirected. I think {target_npc} is buying out the suppliers {location_hint} and cornering the market, then selling at a loss to drive me under. The {enemy_type} on the trade roads are making it impossible for me to verify in person.",
+        "outro": "I built this business over ten years. I'm not going to lose it to someone's scheme without a fight."
+      },
+      "playerResponses": [
+        { "text": "Competition can be cutthroat. I'll look into the supply chain.", "action": "ACCEPT" },
+        { "text": "Or maybe they're just a better cook. But fine, I'll check.", "action": "ACCEPT", "dispositionShift": -5 },
+        { "text": "Business disputes aren't my area. Work it out yourselves.", "action": "DECLINE" }
+      ],
+      "objectivePool": ["EXPLORE_LOCATION", "FETCH_ITEM", "TALK_TO_NPC"],
+      "objectiveConfig": {
+        "EXPLORE_LOCATION": { "countMin": 1, "countMax": 2 },
+        "FETCH_ITEM": { "locationPreference": "WILDERNESS" },
+        "TALK_TO_NPC": { "countMin": 1, "countMax": 1 }
+      }
+    },
+    {
+      "id": "mistaken_jealousy_expo_03",
+      "dialogueChunks": {
+        "intro": "I've been losing sleep over this, {player_name}. Tossing and turning every night, running the same thoughts in circles.",
+        "plotStep": "My oldest friend, {target_npc}, has been meeting with traders from outside {location} in secret. I found a ledger in the tavern with entries I don't recognize: large quantities of {quest_item} marked 'outbound' with no buyer listed. When I asked about it, they changed the subject and started avoiding me. The meetings happen {location_hint}, always at odd hours, and the {enemy_type} activity in the area means nobody else goes out that way to notice. Something is wrong, and I can feel it in my bones.",
+        "outro": "I don't want to believe the worst about someone I've known my whole life. But the evidence is piling up. Please, find out the truth."
+      },
+      "playerResponses": [
+        { "text": "I'll follow the trail and get you answers.", "action": "ACCEPT" },
+        { "text": "Have you tried just talking to them honestly?", "action": "ACCEPT" },
+        { "text": "Suspicion can poison a friendship faster than any betrayal. Leave me out of it.", "action": "DECLINE" }
+      ],
+      "objectivePool": ["EXPLORE_LOCATION", "TALK_TO_NPC", "GATHER_ITEMS"],
+      "objectiveConfig": {
+        "EXPLORE_LOCATION": { "countMin": 2, "countMax": 3 },
+        "TALK_TO_NPC": { "countMin": 1, "countMax": 1 },
+        "GATHER_ITEMS": { "countMin": 3, "countMax": 6 }
+      }
+    }
+  ]
+}

@@ -1,0 +1,58 @@
+{
+  "variants": [
+    {
+      "id": "all_sacrificed_for_passion_expo_01",
+      "dialogueChunks": {
+        "intro": "{player_name}! Perfect timing. I've been looking for someone who isn't afraid to venture into dangerous territory. Everyone here thinks I'm mad, but I'll prove them wrong.",
+        "plotStep": "I've spent three years trying to perfect a formula that can transmute common ore into something extraordinary. I'm close: so close I can taste it. But the final reagent, {quest_item}, only forms in deep volcanic fissures {location_hint}. My workshop is mortgaged, my savings gone, my apprentice quit last month. {target_npc} warned me to stop, said I've sacrificed too much already. But I can see the finish line.",
+        "outro": "Everyone thinks I'm chasing smoke. But when I hold that perfected ingot in my hands, they'll understand. They'll all understand. I just need this one last thing."
+      },
+      "playerResponses": [
+        { "text": "Your dedication is impressive. I'll fetch what you need.", "action": "ACCEPT" },
+        { "text": "You sound obsessed. But I'll help, against my better judgment.", "action": "ACCEPT", "dispositionShift": -5 },
+        { "text": "You've already lost everything. I won't help you lose more.", "action": "DECLINE" }
+      ],
+      "objectivePool": ["GATHER_ITEMS", "EXPLORE_LOCATION"],
+      "objectiveConfig": {
+        "GATHER_ITEMS": { "countMin": 4, "countMax": 10 },
+        "EXPLORE_LOCATION": { "countMin": 1, "countMax": 2 }
+      }
+    },
+    {
+      "id": "all_sacrificed_for_passion_expo_02",
+      "dialogueChunks": {
+        "intro": "Don't mind the mess, {player_name}. Or the smell. Or the scorch marks. I've been working around the clock on something that will change everything.",
+        "plotStep": "I've discovered a way to forge weapons that hold an edge indefinitely: never dull, never chip. The secret is in the tempering process, but it requires {quest_item} that only exists in ruins guarded by {enemy_type} out {location_hint}. My family stopped speaking to me last season after I sold the house to fund this work. {target_npc} gives me scraps from the tavern kitchen because I forget to eat. I know how it looks from the outside. But this discovery will arm every guard in every settlement.",
+        "outro": "My wife said I love the forge more than I love her. Maybe she's right. But when every soldier carries an unbreakable blade, the settlements will be safe. That has to matter."
+      },
+      "playerResponses": [
+        { "text": "An unbreakable blade would change everything. I'll help you finish this.", "action": "ACCEPT" },
+        { "text": "You sold your house for this? Fine, let's at least make it worth something.", "action": "ACCEPT", "dispositionShift": -5 },
+        { "text": "Your family needs you more than the world needs another sword.", "action": "DECLINE" }
+      ],
+      "objectivePool": ["FETCH_ITEM", "EXPLORE_LOCATION"],
+      "objectiveConfig": {
+        "FETCH_ITEM": { "locationPreference": "DUNGEON" },
+        "EXPLORE_LOCATION": { "countMin": 1, "countMax": 2 }
+      }
+    },
+    {
+      "id": "all_sacrificed_for_passion_expo_03",
+      "dialogueChunks": {
+        "intro": "Come in, come in, but don't touch anything. And for the love of everything sacred, don't open that jar on the left. {player_name}, I need someone with steady hands and no fear.",
+        "plotStep": "I've been researching a compound that can purify tainted land: reverse the corruption that the {enemy_type} leave behind when they infest an area. My notes fill twelve volumes. I've tested four hundred and seventeen combinations. Four hundred and sixteen failures, but number four hundred and seventeen showed a flicker of something. The missing component is {quest_item}, found only in the deep wilds {location_hint}. {target_npc} says I've wasted my life. My former partners say the same. They don't see what I see.",
+        "outro": "I know I look half-starved and wild-eyed. I know my hands shake. But I am on the verge of something that will restore poisoned land for generations. Help me cross the finish line."
+      },
+      "playerResponses": [
+        { "text": "Four hundred and seventeen attempts. That's not madness, that's perseverance. What do you need?", "action": "ACCEPT" },
+        { "text": "I'll get your ingredient. But you should eat something while I'm gone.", "action": "ACCEPT" },
+        { "text": "You need rest, not more reagents. I can't enable this.", "action": "DECLINE" }
+      ],
+      "objectivePool": ["GATHER_ITEMS", "FETCH_ITEM"],
+      "objectiveConfig": {
+        "GATHER_ITEMS": { "countMin": 5, "countMax": 12 },
+        "FETCH_ITEM": { "locationPreference": "WILDERNESS" }
+      }
+    }
+  ]
+}

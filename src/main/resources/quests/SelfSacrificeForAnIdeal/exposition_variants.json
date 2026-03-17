@@ -1,0 +1,58 @@
+{
+  "variants": [
+    {
+      "id": "self_sacrifice_for_an_ideal_expo_01",
+      "dialogueChunks": {
+        "intro": "{player_name}, I need to speak with you. What I'm about to say may sound reckless, but I've thought it through a hundred times and my answer is always the same.",
+        "plotStep": "The {enemy_type} have been pushing closer to {location} every night. The outer farms are already abandoned. The council wants to pull everyone behind the walls and wait it out, but I've seen what waiting gets you: slow starvation and a grave nobody remembers. I'm going to take a stand at the old watchtower {location_hint}. Hold the line there so the families have time to evacuate properly. I need someone to gather {quest_item} for barricades before I go.",
+        "outro": "I know I probably won't come back. But if even one child makes it out because I bought them an extra hour, that's a trade I'll make gladly."
+      },
+      "playerResponses": [
+        { "text": "That's the bravest thing I've heard in a long time. I'll get what you need.", "action": "ACCEPT" },
+        { "text": "You're throwing your life away, but I'll help you do it right.", "action": "ACCEPT", "dispositionShift": -5 },
+        { "text": "There has to be a better plan than a suicide stand.", "action": "DECLINE" }
+      ],
+      "objectivePool": ["GATHER_ITEMS", "FETCH_ITEM"],
+      "objectiveConfig": {
+        "GATHER_ITEMS": { "countMin": 5, "countMax": 12 },
+        "FETCH_ITEM": { "locationPreference": "WILDERNESS" }
+      }
+    },
+    {
+      "id": "self_sacrifice_for_an_ideal_expo_02",
+      "dialogueChunks": {
+        "intro": "You carry yourself like someone who understands duty, {player_name}. I hope I'm reading you right.",
+        "plotStep": "There's a sickness spreading through the wells in {location}. The alchemist says it's not natural: something is poisoning the water source upstream. {target_npc} traced it to a collapsed mine {location_hint} where {enemy_type} have been dumping foul refuse into the river. Someone needs to go in and seal the source, but the fumes down there are lethal after prolonged exposure. I've volunteered. All I need is {quest_item} to create a seal strong enough to last.",
+        "outro": "The fumes will take me eventually. I've accepted that. But the water will run clean for generations. That matters more than one old soldier."
+      },
+      "playerResponses": [
+        { "text": "Let me help you gather what you need. Your sacrifice won't be wasted.", "action": "ACCEPT" },
+        { "text": "I respect your resolve. Tell me where to find the materials.", "action": "ACCEPT" },
+        { "text": "Surely there's a way to seal it without killing yourself in the process.", "action": "DECLINE" }
+      ],
+      "objectivePool": ["GATHER_ITEMS", "EXPLORE_LOCATION"],
+      "objectiveConfig": {
+        "GATHER_ITEMS": { "countMin": 4, "countMax": 10 },
+        "EXPLORE_LOCATION": { "countMin": 1, "countMax": 2 }
+      }
+    },
+    {
+      "id": "self_sacrifice_for_an_ideal_expo_03",
+      "dialogueChunks": {
+        "intro": "I've written my letters. Said my goodbyes in my own way. Now there's just one thing left to do, and I could use your help with part of it, {player_name}.",
+        "plotStep": "The bridge at {location} is the only crossing for three days' travel in either direction. {target_npc} confirmed that a massive {enemy_type} warband is marching this way. If they cross that bridge, every settlement on this side of the river is finished. I'm going to collapse the bridge once everyone is across, but I need to be on the far side when it falls to make sure it's done right. I need {quest_item} to rig the supports. Will you fetch it?",
+        "outro": "Someone has to be the one who stays behind. I've lived long enough. The young ones haven't."
+      },
+      "playerResponses": [
+        { "text": "I'll bring you everything you need. You have my word.", "action": "ACCEPT" },
+        { "text": "This is a hard plan, but it's the right one. I'll help.", "action": "ACCEPT" },
+        { "text": "There must be another way to stop them without losing you.", "action": "DECLINE" }
+      ],
+      "objectivePool": ["FETCH_ITEM", "GATHER_ITEMS"],
+      "objectiveConfig": {
+        "FETCH_ITEM": { "locationPreference": "DUNGEON" },
+        "GATHER_ITEMS": { "countMin": 3, "countMax": 8 }
+      }
+    }
+  ]
+}

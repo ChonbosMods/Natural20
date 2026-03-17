@@ -1,0 +1,22 @@
+{
+  "references": [
+    {
+      "id": "ref_slaying_disguise_trade",
+      "compatibleSituations": ["SlayingOfKinUnrecognized", "MurderousAdultery"],
+      "passiveText": "The practice of disguising traders for road safety has been growing. Other settlements are dealing with the same confusion.",
+      "triggerTopicLabel": "Disguised traders on other roads",
+      "triggerDialogue": "{target_npc} told me about a convoy from their settlement that was nearly attacked by a friendly patrol for the same reason: dressed like bandits to avoid bandits, mistaken for the real thing. It's become a serious problem across the region. Some settlements {location_hint} are working on a signaling system: tokens or colored markers that identify friendly travelers without advertising them to raiders. Might be worth connecting with their efforts.",
+      "catalystSituations": ["SlayingOfKinUnrecognized", "Pursuit"],
+      "targetNpcRoles": ["Guard", "Traveler"]
+    },
+    {
+      "id": "ref_slaying_transformation_research",
+      "compatibleSituations": ["SlayingOfKinUnrecognized", "Madness"],
+      "passiveText": "The transformation compound isn't unique to this region. Scholars elsewhere have studied similar phenomena.",
+      "triggerTopicLabel": "Scholars studying transformations",
+      "triggerDialogue": "There's an alchemist collective {location_hint} that has been documenting cases of forced transformation for years. {target_npc} is one of their researchers: quiet, cautious, but deeply knowledgeable. If you brought them what you've learned about the compound being used here, they might be able to develop a prevention method. The more settlements that share information, the harder it becomes for whoever is creating these horrors to operate.",
+      "catalystSituations": ["SlayingOfKinUnrecognized", "Madness"],
+      "targetNpcRoles": ["ArtisanAlchemist", "Villager"]
+    }
+  ]
+}

@@ -1,0 +1,79 @@
+{
+  "variants": [
+    {
+      "id": "crimepursued_conf_01",
+      "dialogueChunks": {
+        "intro": "They know you're coming, {player_name}. They sent us a message.",
+        "plotStep": "A dead crow nailed to the gate of {location} with a note: 'Send your hunter. We'll be waiting.' The {enemy_type} have fortified their position {location_hint} and they've been gathering reinforcements. {target_npc} says they spotted scouts on the ridgeline watching the settlement. They're not running: they're preparing for a fight. You'll need to hit them hard and fast before they finish their preparations.",
+        "outro": "They think fear will stop us. Show them what justice looks like when it refuses to flinch."
+      },
+      "playerResponses": [
+        { "text": "Let them prepare. It won't save them.", "action": "ACCEPT" },
+        { "text": "Threats and fortifications? This just doubled in difficulty and price.", "action": "ACCEPT", "dispositionShift": -5 },
+        { "text": "Walking into a trap isn't justice, it's stupidity.", "action": "DECLINE" }
+      ],
+      "objectivePool": ["KILL_MOBS", "EXPLORE_LOCATION"],
+      "objectiveConfig": {
+        "KILL_MOBS": { "countMin": 5, "countMax": 10 },
+        "EXPLORE_LOCATION": { "countMin": 1, "countMax": 2 }
+      }
+    },
+    {
+      "id": "crimepursued_conf_02",
+      "dialogueChunks": {
+        "intro": "{player_name}, they've struck again. While you were hunting them, they circled back.",
+        "plotStep": "The {enemy_type} raided {location} while most of the guards were out on patrol. They burned the mill and stole more {quest_item}. Nobody was killed this time, but {target_npc} was hurt trying to organize a defense. It's a message: they want us to know they can reach us whenever they want. We need to end this. Find their supply cache {location_hint} and destroy it. Without supplies, they'll have to move on or starve.",
+        "outro": "They want to prove they're untouchable. Prove them wrong."
+      },
+      "playerResponses": [
+        { "text": "Burn their supplies? With pleasure. They started this.", "action": "ACCEPT" },
+        { "text": "So now I'm fighting a guerrilla war? This is escalating.", "action": "ACCEPT", "dispositionShift": -5 },
+        { "text": "If they can hit the settlement that easily, nowhere is safe. I'm leaving.", "action": "DECLINE" }
+      ],
+      "objectivePool": ["EXPLORE_LOCATION", "GATHER_ITEMS", "KILL_MOBS"],
+      "objectiveConfig": {
+        "EXPLORE_LOCATION": { "countMin": 1, "countMax": 2 },
+        "GATHER_ITEMS": { "countMin": 4, "countMax": 8 },
+        "KILL_MOBS": { "countMin": 3, "countMax": 7 }
+      }
+    },
+    {
+      "id": "crimepursued_conf_03",
+      "dialogueChunks": {
+        "intro": "I've learned something that changes everything, {player_name}.",
+        "plotStep": "{target_npc} captured one of the {enemy_type} scouts alive. Under questioning, the scout revealed that their leader isn't just a raider: they're a former soldier who deserted and has been building a warband for months. They have a forward camp {location_hint} with a stockpile of weapons and {quest_item} stolen from a dozen settlements. If we don't shut them down now, they'll grow into a force that no single settlement can resist.",
+        "outro": "This is bigger than one crime. This is an army in the making. We need to cut the head off before it grows."
+      },
+      "playerResponses": [
+        { "text": "A deserter building a warband? That ends today.", "action": "ACCEPT" },
+        { "text": "An armed camp full of stolen weapons? You're asking a lot.", "action": "ACCEPT" },
+        { "text": "You need a militia, not one adventurer. This is too big for me.", "action": "DECLINE" }
+      ],
+      "objectivePool": ["KILL_MOBS", "KILL_NPC", "EXPLORE_LOCATION"],
+      "objectiveConfig": {
+        "KILL_MOBS": { "countMin": 4, "countMax": 8 },
+        "KILL_NPC": { "countMin": 1, "countMax": 1 },
+        "EXPLORE_LOCATION": { "countMin": 1, "countMax": 2 }
+      }
+    },
+    {
+      "id": "crimepursued_conf_04",
+      "dialogueChunks": {
+        "intro": "The plot thickens, {player_name}. Someone in {location} has been helping the enemy.",
+        "plotStep": "{target_npc} found evidence that a trader in our own settlement has been feeding information to the {enemy_type}: patrol schedules, supply routes, when the storehouse is least guarded. That's how they've been staying one step ahead. The traitor fled when confronted, heading {location_hint} with a satchel of {quest_item} as payment for their betrayal. We need you to pursue them and bring back the evidence before they destroy it.",
+        "outro": "Justice isn't just about punishing the enemy outside our walls. Sometimes the rot is closer to home."
+      },
+      "playerResponses": [
+        { "text": "A traitor? I'll bring them back and let the settlement decide their fate.", "action": "ACCEPT" },
+        { "text": "Chasing informants through the wild. This quest keeps getting more complicated.", "action": "ACCEPT", "dispositionShift": -5 },
+        { "text": "Internal politics aren't my concern. Handle your own people.", "action": "DECLINE" }
+      ],
+      "objectivePool": ["EXPLORE_LOCATION", "FETCH_ITEM", "TALK_TO_NPC"],
+      "objectiveConfig": {
+        "EXPLORE_LOCATION": { "countMin": 2, "countMax": 3 },
+        "FETCH_ITEM": { "locationPreference": "WILDERNESS" },
+        "TALK_TO_NPC": { "countMin": 1, "countMax": 1 }
+      }
+    }
+  ]
+}

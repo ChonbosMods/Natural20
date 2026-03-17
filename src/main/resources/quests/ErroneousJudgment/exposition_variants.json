@@ -1,0 +1,61 @@
+{
+  "variants": [
+    {
+      "id": "erroneous_judgment_expo_01",
+      "dialogueChunks": {
+        "intro": "{player_name}, I don't have time to explain everything properly. We need to act now and ask questions later.",
+        "plotStep": "A scout reported {enemy_type} massing {location_hint}, and {target_npc} confirmed seeing tracks near {location}. The council has authorized a preemptive strike: gather {quest_item} to arm the militia and prepare defenses before they hit us. Every hour we wait is another hour they have to surround us. I've seen what these creatures do to undefended settlements, and I won't let it happen here.",
+        "outro": "Speed matters more than caution right now. Will you help us prepare before it's too late?"
+      },
+      "playerResponses": [
+        { "text": "I'll gather what you need. Better prepared than sorry.", "action": "ACCEPT" },
+        { "text": "Has anyone actually confirmed hostile intent? Never mind, I'll help.", "action": "ACCEPT" },
+        { "text": "Acting on a single scout report sounds reckless. I'll pass.", "action": "DECLINE" }
+      ],
+      "objectivePool": ["GATHER_ITEMS", "EXPLORE_LOCATION", "KILL_MOBS"],
+      "objectiveConfig": {
+        "GATHER_ITEMS": { "countMin": 5, "countMax": 12 },
+        "EXPLORE_LOCATION": { "countMin": 1, "countMax": 2 },
+        "KILL_MOBS": { "countMin": 3, "countMax": 7 }
+      }
+    },
+    {
+      "id": "erroneous_judgment_expo_02",
+      "dialogueChunks": {
+        "intro": "Listen carefully, {player_name}. We've been betrayed, and I know exactly who did it.",
+        "plotStep": "Three shipments of {quest_item} have gone missing on the road from {location} in the past month. Every single one was handled by {target_npc}. That's not coincidence: that's a pattern. The route passes through {enemy_type} territory {location_hint}, and I think {target_npc} has been tipping them off in exchange for safe passage. I need you to follow the next shipment, catch them in the act, and recover whatever stolen goods you can find.",
+        "outro": "I've trusted {target_npc} for years. That trust is what makes this betrayal so clear: they're the only one who knew the schedule."
+      },
+      "playerResponses": [
+        { "text": "If they're guilty, I'll find the proof. I'll follow the route.", "action": "ACCEPT" },
+        { "text": "Three shipments is suspicious. But people aren't always what they seem.", "action": "ACCEPT" },
+        { "text": "Accusations without hard evidence lead to injustice. Sort it out properly.", "action": "DECLINE" }
+      ],
+      "objectivePool": ["EXPLORE_LOCATION", "FETCH_ITEM", "TALK_TO_NPC"],
+      "objectiveConfig": {
+        "EXPLORE_LOCATION": { "countMin": 2, "countMax": 3 },
+        "FETCH_ITEM": { "locationPreference": "WILDERNESS" },
+        "TALK_TO_NPC": { "countMin": 1, "countMax": 1 }
+      }
+    },
+    {
+      "id": "erroneous_judgment_expo_03",
+      "dialogueChunks": {
+        "intro": "{player_name}, I need someone with a clear head. Everyone here is too angry to think straight, including me.",
+        "plotStep": "A traveler came through {location} yesterday claiming that {target_npc} was spotted {location_hint} meeting with a known raider boss. The whole settlement is in an uproar. We've locked {target_npc} in the storehouse while we decide what to do. But the traveler left before anyone could question them properly, and {target_npc} is swearing innocence. I need you to track down proof: follow the trail {location_hint}, find evidence of these meetings, and gather {quest_item} that was allegedly part of the deal. We can't hold someone on hearsay forever.",
+        "outro": "Mob justice is fast and wrong. Real justice takes time and truth. Help me find both before this gets out of hand."
+      },
+      "playerResponses": [
+        { "text": "Truth first, judgment after. I'll find what happened.", "action": "ACCEPT" },
+        { "text": "Locking someone up on a stranger's word? This smells wrong. I'll investigate.", "action": "ACCEPT" },
+        { "text": "Your settlement, your problem. I'm not playing judge.", "action": "DECLINE" }
+      ],
+      "objectivePool": ["EXPLORE_LOCATION", "TALK_TO_NPC", "GATHER_ITEMS"],
+      "objectiveConfig": {
+        "EXPLORE_LOCATION": { "countMin": 2, "countMax": 4 },
+        "TALK_TO_NPC": { "countMin": 1, "countMax": 1 },
+        "GATHER_ITEMS": { "countMin": 3, "countMax": 8 }
+      }
+    }
+  ]
+}

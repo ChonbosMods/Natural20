@@ -1,0 +1,80 @@
+{
+  "variants": [
+    {
+      "id": "disaster_conf_01",
+      "dialogueChunks": {
+        "intro": "More bad news, {player_name}. It never stops.",
+        "plotStep": "The aftershocks have opened a second fissure near {location}, and the ground beneath the emergency shelters is cracking. {target_npc} is evacuating families to the northern ridge, but the ridge is exposed and the {enemy_type} have been circling it all day. We need you to clear the ridge and gather more {quest_item} from the collapsed structures {location_hint}. Without building materials, we can't make the shelters safe for another night.",
+        "outro": "The ground won't stop shaking, and neither will the people. Hold us together a little longer, {player_name}."
+      },
+      "playerResponses": [
+        { "text": "I'll secure the ridge and bring back whatever I can salvage.", "action": "ACCEPT" },
+        { "text": "Crumbling ground and circling predators. Your settlement has the worst luck I've ever seen.", "action": "ACCEPT", "dispositionShift": -5 },
+        { "text": "If the ground itself is giving way, no amount of supplies will help.", "action": "DECLINE" }
+      ],
+      "objectivePool": ["KILL_MOBS", "GATHER_ITEMS", "EXPLORE_LOCATION"],
+      "objectiveConfig": {
+        "KILL_MOBS": { "countMin": 3, "countMax": 7 },
+        "GATHER_ITEMS": { "countMin": 5, "countMax": 12 },
+        "EXPLORE_LOCATION": { "countMin": 1, "countMax": 2 }
+      }
+    },
+    {
+      "id": "disaster_conf_02",
+      "dialogueChunks": {
+        "intro": "{player_name}, the relief supplies you brought? They weren't enough. Not even close.",
+        "plotStep": "We underestimated the damage. The fire weakened the support beams throughout the settlement, and two more buildings collapsed overnight. Nobody was killed, but the medical supplies are buried in the rubble. {target_npc} found an alternative source of {quest_item} in an old storehouse {location_hint}, but it's been sealed for years and the {enemy_type} have nested around the entrance. We need those supplies dug out and the area cleared.",
+        "outro": "I keep thinking this is the worst of it, and then the next hour comes."
+      },
+      "playerResponses": [
+        { "text": "We're not done yet. Show me where the storehouse is.", "action": "ACCEPT" },
+        { "text": "More collapsed buildings and more monsters. This disaster has layers.", "action": "ACCEPT" },
+        { "text": "At some point, you need to accept that {location} can't be saved.", "action": "DECLINE" }
+      ],
+      "objectivePool": ["FETCH_ITEM", "KILL_MOBS", "EXPLORE_LOCATION"],
+      "objectiveConfig": {
+        "FETCH_ITEM": { "locationPreference": "DUNGEON" },
+        "KILL_MOBS": { "countMin": 3, "countMax": 6 },
+        "EXPLORE_LOCATION": { "countMin": 1, "countMax": 2 }
+      }
+    },
+    {
+      "id": "disaster_conf_03",
+      "dialogueChunks": {
+        "intro": "The situation has deteriorated, {player_name}. I won't sugarcoat it.",
+        "plotStep": "The floodwater receded, but it left something behind: a thick mud that's contaminated the remaining wells. People are getting sick from drinking the only water available. {target_npc} says there's a clean spring {location_hint}, but the path is blocked by debris and overrun with {enemy_type} displaced by the flooding. We need clean water and we need {quest_item} to purify what's left in the settlement. Without it, disease will finish what the flood started.",
+        "outro": "The disaster didn't end when the water stopped rising. It changed shape. And it's still killing us."
+      },
+      "playerResponses": [
+        { "text": "Contaminated water on top of everything else? I'll find the spring.", "action": "ACCEPT" },
+        { "text": "Disease, debris, and monsters. A complete nightmare. Let's deal with it.", "action": "ACCEPT" },
+        { "text": "I'm not a healer or an engineer. This problem is bigger than me.", "action": "DECLINE" }
+      ],
+      "objectivePool": ["EXPLORE_LOCATION", "GATHER_ITEMS", "KILL_MOBS"],
+      "objectiveConfig": {
+        "EXPLORE_LOCATION": { "countMin": 1, "countMax": 2 },
+        "GATHER_ITEMS": { "countMin": 4, "countMax": 10 },
+        "KILL_MOBS": { "countMin": 3, "countMax": 6 }
+      }
+    },
+    {
+      "id": "disaster_conf_04",
+      "dialogueChunks": {
+        "intro": "I thought the worst was over. I was wrong, {player_name}.",
+        "plotStep": "A group of refugees arrived from a neighboring settlement that was hit even harder by the storm. They brought nothing but the clothes on their backs and mouths that need feeding. {target_npc} couldn't turn them away, but now we have twice the people and half the supplies. Worse, the refugees say the {enemy_type} followed them here: a whole pack, tracking them by scent. We need more {quest_item} from the trading post {location_hint}, and we need the {enemy_type} driven off before they attack the overcrowded camp.",
+        "outro": "Too many people, too little of everything, and predators at the gates. We need a miracle, and you're it."
+      },
+      "playerResponses": [
+        { "text": "Refugees and predators at the door? I'll handle the threat and bring back supplies.", "action": "ACCEPT" },
+        { "text": "One disaster feeding another. Fine, I'll sort out the immediate dangers.", "action": "ACCEPT", "dispositionShift": -5 },
+        { "text": "There are limits to what one person can do, and I've reached mine.", "action": "DECLINE" }
+      ],
+      "objectivePool": ["KILL_MOBS", "GATHER_ITEMS", "FETCH_ITEM"],
+      "objectiveConfig": {
+        "KILL_MOBS": { "countMin": 4, "countMax": 9 },
+        "GATHER_ITEMS": { "countMin": 5, "countMax": 12 },
+        "FETCH_ITEM": { "locationPreference": "SETTLEMENT" }
+      }
+    }
+  ]
+}

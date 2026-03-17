@@ -1,0 +1,47 @@
+{
+  "variants": [
+    {
+      "id": "obstacles_to_love_reso_01",
+      "dialogueChunks": {
+        "intro": "They're talking, {player_name}. After three generations, they're actually talking.",
+        "plotStep": "The bridge stands. Strong, level, and real. The first people to cross it were children from both settlements, daring each other to go first. Then the adults followed, slowly, suspiciously, but they followed. {target_npc} was released and stood in the middle of the bridge with a foot on each side, grinning. My friend crossed over for the first time in years and we sat together in the open, no hiding, no shame. The water dispute isn't solved yet, but people are talking instead of stockpiling. That's everything.",
+        "outro": "You built more than a bridge, {player_name}. You built the first step back from a war nobody wanted but everyone was marching toward. Take this: it was gathered from both sides of the valley."
+      },
+      "playerResponses": [
+        { "text": "Children crossing first. That's how peace should start.", "action": "ACCEPT", "dispositionShift": 15 },
+        { "text": "Three generations of hate, and all it took was a bridge. Keep talking.", "action": "ACCEPT" },
+        { "text": "Talking is a start. Now solve the water problem before winter.", "action": "ACCEPT" }
+      ],
+      "objectivePool": [],
+      "objectiveConfig": {}
+    },
+    {
+      "id": "obstacles_to_love_reso_02",
+      "dialogueChunks": {
+        "intro": "{player_name}. I'm home. I'm actually home.",
+        "plotStep": "The elder council had no choice. The {enemy_type} nest is cleared, the northern road is safe for the first time in years, and every family that uses it knows who made it possible. The vote was unanimous: full resident status, effective immediately. {target_npc} stood in the council chamber and said 'This community is stronger because this person chose us.' I didn't cry. I wanted to, but I didn't. I'll save that for later, when nobody's watching.",
+        "outro": "Six months of working, hoping, being told I don't belong: all of it worth it for the moment they said 'welcome home.' Take this: it's from my first earnings as a full resident. The first of many, I hope."
+      },
+      "playerResponses": [
+        { "text": "Welcome home. You earned every inch of it.", "action": "ACCEPT", "dispositionShift": 10 },
+        { "text": "Full resident status. Unanimous. They won't regret it.", "action": "ACCEPT" }
+      ],
+      "objectivePool": [],
+      "objectiveConfig": {}
+    },
+    {
+      "id": "obstacles_to_love_reso_03",
+      "dialogueChunks": {
+        "intro": "Look at this, {player_name}. Whole again, after all these years.",
+        "plotStep": "The heirloom is restored. When I presented it at the gathering, the room went silent. My father stared at it for a long time, then looked at the blacksmith and said something nobody expected: 'We should never have broken it.' The blacksmith's family agreed. It wasn't forgiveness: not yet: but it was acknowledgment. Something shifted in the room. {target_npc} says the families have agreed to share a meal together at the next feast day. My partner and I stood side by side for the first time in public, and nobody said a word against it.",
+        "outro": "A broken heirloom, made whole. A broken community, beginning to mend. You walked through danger to retrieve two halves of something that was always meant to be together. This reward comes from both families: the first thing they've agreed on in a generation."
+      },
+      "playerResponses": [
+        { "text": "Two halves reunited. Two families at one table. That's the real treasure.", "action": "ACCEPT", "dispositionShift": 15 },
+        { "text": "Standing together in public. That took more courage than clearing any ruin.", "action": "ACCEPT", "dispositionShift": 10 }
+      ],
+      "objectivePool": [],
+      "objectiveConfig": {}
+    }
+  ]
+}

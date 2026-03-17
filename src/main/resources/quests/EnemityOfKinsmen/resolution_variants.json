@@ -1,0 +1,62 @@
+{
+  "variants": [
+    {
+      "id": "enemityofkinsmen_reso_01",
+      "dialogueChunks": {
+        "intro": "{player_name}, you did it. The families are talking again.",
+        "plotStep": "The evidence you brought back was undeniable. When both families saw the truth laid out, the anger drained right out of them. {target_npc} brokered a formal agreement this morning: shared use of the disputed land, mutual defense obligations, and a promise to settle future disputes through the council, not through threats. It's not perfect, but it's peace.",
+        "outro": "You did what none of us could: you gave them the truth without taking a side. Take this, and know that {location} will remember the outsider who brought its people back together."
+      },
+      "playerResponses": [
+        { "text": "Peace is worth more than any reward. I'm glad they're talking.", "action": "ACCEPT", "dispositionShift": 10 },
+        { "text": "As long as they keep the agreement, the hard part was worth it.", "action": "ACCEPT" }
+      ],
+      "objectivePool": [],
+      "objectiveConfig": {}
+    },
+    {
+      "id": "enemityofkinsmen_reso_02",
+      "dialogueChunks": {
+        "intro": "You should have seen it, {player_name}. Both families standing together on the wall, watching you come back.",
+        "plotStep": "When word spread that the {enemy_type} threat was real and imminent, the grudge suddenly felt very small. {target_npc} told me both family heads showed up at the barricade within minutes of each other, shoulder to shoulder, ready to fight. They may not like each other yet, but they've remembered they need each other. Your scouting report gave them the common ground they couldn't find on their own.",
+        "outro": "The feud isn't over, but the hatred is gone. That's a start. Take this: it's from both families, together, for the first time in weeks."
+      },
+      "playerResponses": [
+        { "text": "Standing together against a common threat: that's how communities survive.", "action": "ACCEPT" },
+        { "text": "I hope they remember this feeling the next time a petty argument starts.", "action": "ACCEPT", "dispositionShift": -5 },
+        { "text": "Glad I could help. Take care of each other.", "action": "ACCEPT" }
+      ],
+      "objectivePool": [],
+      "objectiveConfig": {}
+    },
+    {
+      "id": "enemityofkinsmen_reso_03",
+      "dialogueChunks": {
+        "intro": "The merchant confirmed everything, {player_name}. Both families were right and both were wrong.",
+        "plotStep": "Turns out the trade agreement was genuinely ambiguous: the merchant admitted their records were sloppy and the promise could reasonably be read either way. With that clarity, both families agreed to split the {quest_item} evenly and share the cost of a clearer contract going forward. {target_npc} oversaw the division this morning, and for the first time in weeks, nobody was glaring across the square.",
+        "outro": "Sometimes the truth is messier than either side wants to hear. But at least now they can move forward. Here: you've earned this."
+      },
+      "playerResponses": [
+        { "text": "The truth was in the middle all along. Glad it's settled.", "action": "ACCEPT" },
+        { "text": "A messy truth beats a clean lie. I hope they learned something.", "action": "ACCEPT" },
+        { "text": "Tell that merchant to keep better records next time.", "action": "ACCEPT" }
+      ],
+      "objectivePool": [],
+      "objectiveConfig": {}
+    },
+    {
+      "id": "enemityofkinsmen_reso_04",
+      "dialogueChunks": {
+        "intro": "{player_name}, my brother came to see me this morning. He hasn't done that in months.",
+        "plotStep": "When you brought back the supplies from where we'd hidden them, everyone could see they were exactly where I said they'd be. No theft, no lies: just a family trying to protect the community's reserves from raiders. My brother apologized in front of the whole settlement. {target_npc} said it was the first time in weeks that people looked each other in the eye without suspicion. We've got a long road to rebuild trust, but the road is open now.",
+        "outro": "You gave my family its name back. This is everything we have of value. Please take it."
+      },
+      "playerResponses": [
+        { "text": "Family is worth fighting for. I'm glad the truth came out.", "action": "ACCEPT", "dispositionShift": 10 },
+        { "text": "Your name was never really lost. People just needed to see clearly.", "action": "ACCEPT" }
+      ],
+      "objectivePool": [],
+      "objectiveConfig": {}
+    }
+  ]
+}

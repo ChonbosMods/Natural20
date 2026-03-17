@@ -1,0 +1,80 @@
+{
+  "variants": [
+    {
+      "id": "revolt_conf_01",
+      "dialogueChunks": {
+        "intro": "They found out, {player_name}. Someone talked, and now the commander knows we're organizing.",
+        "plotStep": "The commander has locked down {location}. No one enters, no one leaves without passing through a checkpoint. {target_npc} was arrested this morning and is being held in the guard barracks. We need to get them out before they're forced to name everyone involved. The resistance has a contact among the guards who can create a distraction, but we need {quest_item} to bribe the supply officer and get access to the back gate {location_hint}. The rest of us are preparing to make our move once {target_npc} is free.",
+        "outro": "If {target_npc} breaks under pressure, everyone involved in the revolt is finished. We have to act tonight."
+      },
+      "playerResponses": [
+        { "text": "Bribe the officer, free {target_npc}, and make the move. I'm ready.", "action": "ACCEPT" },
+        { "text": "Prison breaks and bribes? This revolt just went from simmering to boiling.", "action": "ACCEPT" },
+        { "text": "Jailbreaks are a line I won't cross. You're on your own.", "action": "DECLINE" }
+      ],
+      "objectivePool": ["FETCH_ITEM", "TALK_TO_NPC", "EXPLORE_LOCATION"],
+      "objectiveConfig": {
+        "FETCH_ITEM": { "locationPreference": "SETTLEMENT" },
+        "TALK_TO_NPC": { "countMin": 1, "countMax": 1 },
+        "EXPLORE_LOCATION": { "countMin": 1, "countMax": 1 }
+      }
+    },
+    {
+      "id": "revolt_conf_02",
+      "dialogueChunks": {
+        "intro": "The consortium struck back, {player_name}. Hard.",
+        "plotStep": "They sent mercenaries to destroy the independent trading post we built. Burned half of it and scattered the supplies. {target_npc} managed to save some of the {quest_item}, but the route {location_hint} is now patrolled by hired swords and the {enemy_type} they've been using as attack dogs. We need to rebuild, restock, and clear the route again. Giving up now means the consortium wins permanently, and every independent trader in the region loses their last hope.",
+        "outro": "They want us to surrender. They want us to accept that free trade is a privilege they control. We refuse."
+      },
+      "playerResponses": [
+        { "text": "Mercenaries and attack dogs? They're afraid of us. Good. Let's rebuild.", "action": "ACCEPT" },
+        { "text": "The consortium is playing rough. I'll play rougher.", "action": "ACCEPT" },
+        { "text": "They brought mercenaries? This is an arms race I can't win.", "action": "DECLINE" }
+      ],
+      "objectivePool": ["KILL_MOBS", "GATHER_ITEMS", "EXPLORE_LOCATION"],
+      "objectiveConfig": {
+        "KILL_MOBS": { "countMin": 4, "countMax": 8 },
+        "GATHER_ITEMS": { "countMin": 5, "countMax": 10 },
+        "EXPLORE_LOCATION": { "countMin": 1, "countMax": 2 }
+      }
+    },
+    {
+      "id": "revolt_conf_03",
+      "dialogueChunks": {
+        "intro": "We've been betrayed from within, {player_name}. One of our own sold us out.",
+        "plotStep": "Someone in the resistance has been feeding information to the warden. {target_npc} figured it out when a planned supply run was ambushed at exactly the location only our inner circle knew about. The informant escaped with a shipment of {quest_item} and is heading {location_hint} to deliver it to the warden's {enemy_type} contacts. If that delivery reaches them, the warden will have the resources to crush the resistance entirely. We need to intercept the shipment and identify the traitor.",
+        "outro": "Trust is the only weapon we have left. If we can't trust each other, the revolt dies here."
+      },
+      "playerResponses": [
+        { "text": "A traitor in the ranks? I'll intercept the delivery and find out who.", "action": "ACCEPT" },
+        { "text": "Betrayal and interception. This is getting complicated, but I'll do it.", "action": "ACCEPT" },
+        { "text": "Internal betrayal means your movement is compromised. I'm stepping away.", "action": "DECLINE" }
+      ],
+      "objectivePool": ["EXPLORE_LOCATION", "FETCH_ITEM", "TALK_TO_NPC"],
+      "objectiveConfig": {
+        "EXPLORE_LOCATION": { "countMin": 2, "countMax": 3 },
+        "FETCH_ITEM": { "locationPreference": "WILDERNESS" },
+        "TALK_TO_NPC": { "countMin": 1, "countMax": 1 }
+      }
+    },
+    {
+      "id": "revolt_conf_04",
+      "dialogueChunks": {
+        "intro": "{player_name}, the stakes just went up. The commander has called for reinforcements from outside {location}.",
+        "plotStep": "A messenger was spotted riding out at dawn: heading for the regional garrison to request troops. If those reinforcements arrive, the revolt is over before it starts. {target_npc} says we have a narrow window: three days at most before soldiers march in. We need to gather enough {quest_item} to sustain the settlement independently, rally the remaining undecided families, and blockade the main road {location_hint} before the troops arrive. It's now or never.",
+        "outro": "Three days to change everything. Three days to prove that the people of {location} will not be ruled by fear."
+      },
+      "playerResponses": [
+        { "text": "Three days? Then we don't waste a single hour. Let's move.", "action": "ACCEPT" },
+        { "text": "A race against reinforcements? The pressure just tripled. I'll make it count.", "action": "ACCEPT" },
+        { "text": "Blockading a road against a professional garrison? That's a battle, not a revolt.", "action": "DECLINE" }
+      ],
+      "objectivePool": ["GATHER_ITEMS", "EXPLORE_LOCATION", "KILL_MOBS"],
+      "objectiveConfig": {
+        "GATHER_ITEMS": { "countMin": 6, "countMax": 14 },
+        "EXPLORE_LOCATION": { "countMin": 1, "countMax": 2 },
+        "KILL_MOBS": { "countMin": 2, "countMax": 5 }
+      }
+    }
+  ]
+}

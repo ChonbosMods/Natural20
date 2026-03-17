@@ -1,0 +1,61 @@
+{
+  "variants": [
+    {
+      "id": "conflict_with_a_god_conf_01",
+      "dialogueChunks": {
+        "intro": "{player_name}, the ritual failed. Or rather, something fought back.",
+        "plotStep": "When you placed the {quest_item} at the shrine, it absorbed the offering and grew stronger instead of quieting. {target_npc} says the corruption has a will of its own: it's feeding on our attempts to purify it. The old texts mention a second shrine deeper in the temple {location_hint}, one that serves as an anchor for the curse. We need to find it and sever the connection, but the {enemy_type} presence has tripled since your last visit. Whatever we awakened knows we're coming.",
+        "outro": "We're not just fighting corruption anymore. We're in a contest of wills with something that was old before this settlement existed."
+      },
+      "playerResponses": [
+        { "text": "Then we go deeper. It can't hold on forever.", "action": "ACCEPT" },
+        { "text": "A contest of wills with an ancient curse. This keeps getting better.", "action": "ACCEPT", "dispositionShift": -5 },
+        { "text": "If the ritual made it worse, I'm done making things worse.", "action": "DECLINE" }
+      ],
+      "objectivePool": ["EXPLORE_LOCATION", "KILL_MOBS", "GATHER_ITEMS"],
+      "objectiveConfig": {
+        "EXPLORE_LOCATION": { "countMin": 2, "countMax": 4 },
+        "KILL_MOBS": { "countMin": 5, "countMax": 10 },
+        "GATHER_ITEMS": { "countMin": 4, "countMax": 8 }
+      }
+    },
+    {
+      "id": "conflict_with_a_god_conf_02",
+      "dialogueChunks": {
+        "intro": "The corruption has reached {location}, {player_name}. We're running out of time.",
+        "plotStep": "The blackened earth is creeping toward the settlement walls. Trees are splitting open and oozing dark sap. {target_npc} collapsed this morning: the sickness is in the air now, not just the water. The only option left is to gather a massive quantity of {quest_item} and create a barrier ward around the settlement while someone returns to the temple source to confront whatever is driving this. The {enemy_type} are everywhere now, drawn to the dark energy like moths to flame.",
+        "outro": "I've studied ancient forces my whole life. I've never seen one this angry. Whatever we disturbed wants us gone from this land."
+      },
+      "playerResponses": [
+        { "text": "Then we make our stand. I'll gather what we need and face the source.", "action": "ACCEPT" },
+        { "text": "Angry ancient forces. Exactly what I signed up for.", "action": "ACCEPT" },
+        { "text": "If the land itself wants you gone, maybe you should listen.", "action": "DECLINE" }
+      ],
+      "objectivePool": ["GATHER_ITEMS", "KILL_MOBS", "EXPLORE_LOCATION"],
+      "objectiveConfig": {
+        "GATHER_ITEMS": { "countMin": 8, "countMax": 16 },
+        "KILL_MOBS": { "countMin": 4, "countMax": 9 },
+        "EXPLORE_LOCATION": { "countMin": 1, "countMax": 2 }
+      }
+    },
+    {
+      "id": "conflict_with_a_god_conf_03",
+      "dialogueChunks": {
+        "intro": "{player_name}, the spirit guardians spoke. Not in words: in visions. And what they showed me changes everything.",
+        "plotStep": "The corruption wasn't random. Someone deliberately broke the shrine seals generations ago to harness the dark energy for their own purposes. The spirit guardians have been trying to contain the damage ever since, growing more desperate and violent as the corruption spread. They're not our enemies: they're exhausted protectors on the verge of collapse. {target_npc} found records {location_hint} that describe a binding ritual, but it requires rare {quest_item} and someone must carry it through territory the {enemy_type} have completely overrun.",
+        "outro": "We've been fighting the wrong battle. The guardians need our help, not our fear."
+      },
+      "playerResponses": [
+        { "text": "Then we help them. Show me where to find what we need.", "action": "ACCEPT" },
+        { "text": "Generations of damage to undo. No pressure.", "action": "ACCEPT", "dispositionShift": -5 },
+        { "text": "Visions and binding rituals are beyond what I can offer.", "action": "DECLINE" }
+      ],
+      "objectivePool": ["FETCH_ITEM", "KILL_MOBS", "EXPLORE_LOCATION"],
+      "objectiveConfig": {
+        "FETCH_ITEM": { "locationPreference": "DUNGEON" },
+        "KILL_MOBS": { "countMin": 4, "countMax": 8 },
+        "EXPLORE_LOCATION": { "countMin": 2, "countMax": 3 }
+      }
+    }
+  ]
+}

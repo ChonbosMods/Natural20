@@ -1,0 +1,80 @@
+{
+  "variants": [
+    {
+      "id": "fallingprey_conf_01",
+      "dialogueChunks": {
+        "intro": "I hate to be the bearer of more bad news, {player_name}. But the misfortune isn't done with us yet.",
+        "plotStep": "The remedy you gathered? It's not working. The alchemist says the blight has mutated into something they've never seen before, and the standard treatment only slows it. {target_npc} has been pouring over old texts and found a reference to a stronger compound that requires {quest_item} from deep caves {location_hint}. The caves are dangerous: unstable tunnels, pockets of foul air, and {enemy_type} nesting in the dark. But without the stronger compound, the blight wins.",
+        "outro": "Every time we find a solution, the problem changes shape. But we can't stop trying."
+      },
+      "playerResponses": [
+        { "text": "Then I'll go deeper. Whatever it takes.", "action": "ACCEPT" },
+        { "text": "A mutating blight? This job keeps getting harder. And more expensive.", "action": "ACCEPT", "dispositionShift": -5 },
+        { "text": "I can't chase a disease that keeps evolving. I'm sorry.", "action": "DECLINE" }
+      ],
+      "objectivePool": ["GATHER_ITEMS", "EXPLORE_LOCATION", "KILL_MOBS"],
+      "objectiveConfig": {
+        "GATHER_ITEMS": { "countMin": 6, "countMax": 15 },
+        "EXPLORE_LOCATION": { "countMin": 1, "countMax": 2 },
+        "KILL_MOBS": { "countMin": 2, "countMax": 5 }
+      }
+    },
+    {
+      "id": "fallingprey_conf_02",
+      "dialogueChunks": {
+        "intro": "{player_name}, the universe has a terrible sense of humor. Listen to this.",
+        "plotStep": "A rockslide blocked the passage you cleared to the new vein. The very next day. {target_npc} checked it and says it'll take weeks to dig through with the tools we have. But there might be another way in: an old drainage tunnel {location_hint} that the original miners used. It's been sealed and forgotten, probably because the {enemy_type} took it over when the mine was abandoned. We need you to clear it out and bring back enough {quest_item} to keep the excavation going while we dig through the main blockage.",
+        "outro": "One step forward, two steps back. That's been the rhythm of our lives lately."
+      },
+      "playerResponses": [
+        { "text": "A sealed tunnel full of monsters? Just another day at this point. I'll go.", "action": "ACCEPT" },
+        { "text": "Your luck is genuinely astounding. Fine, show me the drainage tunnel.", "action": "ACCEPT" },
+        { "text": "Even the mountain is fighting you. I think this mine is done.", "action": "DECLINE" }
+      ],
+      "objectivePool": ["EXPLORE_LOCATION", "KILL_MOBS", "GATHER_ITEMS"],
+      "objectiveConfig": {
+        "EXPLORE_LOCATION": { "countMin": 2, "countMax": 3 },
+        "KILL_MOBS": { "countMin": 3, "countMax": 7 },
+        "GATHER_ITEMS": { "countMin": 4, "countMax": 8 }
+      }
+    },
+    {
+      "id": "fallingprey_conf_03",
+      "dialogueChunks": {
+        "intro": "It's getting worse, {player_name}. I didn't think that was possible, but here we are.",
+        "plotStep": "The sickness spread to the alchemist. The one person who knows how to prepare the cure is now too ill to stand. {target_npc} found the alchemist's notes, but they're written in shorthand that nobody else can read. There's another alchemist who might help: a recluse living {location_hint} who was expelled from {location} years ago over a dispute. We need you to find them, convince them to read the notes, and bring back enough {quest_item} for a proper batch of medicine. The recluse's territory is swarming with {enemy_type}, which is probably why they chose it.",
+        "outro": "Our healer is sick, our notes are unreadable, and our last hope is a hermit who hates us. Misfortune doesn't even begin to cover it."
+      },
+      "playerResponses": [
+        { "text": "I'll find the recluse and get the notes translated. We're not giving up.", "action": "ACCEPT" },
+        { "text": "A bitter hermit in monster territory? This quest has everything.", "action": "ACCEPT" },
+        { "text": "Diplomacy with angry hermits isn't really my skill set.", "action": "DECLINE" }
+      ],
+      "objectivePool": ["TALK_TO_NPC", "GATHER_ITEMS", "KILL_MOBS"],
+      "objectiveConfig": {
+        "TALK_TO_NPC": { "countMin": 1, "countMax": 1 },
+        "GATHER_ITEMS": { "countMin": 5, "countMax": 10 },
+        "KILL_MOBS": { "countMin": 2, "countMax": 5 }
+      }
+    },
+    {
+      "id": "fallingprey_conf_04",
+      "dialogueChunks": {
+        "intro": "Fate has a new twist for us, {player_name}. This one might be the cruelest yet.",
+        "plotStep": "The alternate route you scouted? It worked for three days. Then the {enemy_type} returned in numbers we've never seen: driven out of their territory by something even they're afraid of. They've swarmed every path between {location} and the outside world. {target_npc} managed to get a message to a trader on the far side, and the trader left a cache of {quest_item} hidden {location_hint}. But reaching it means fighting through the densest concentration of {enemy_type} we've ever encountered.",
+        "outro": "The supplies are out there, tantalizingly close. But the gauntlet between us and them is the worst it's ever been."
+      },
+      "playerResponses": [
+        { "text": "I've fought through worse. Tell me where the cache is.", "action": "ACCEPT" },
+        { "text": "A gauntlet of monsters? At least this time there's a clear objective at the end.", "action": "ACCEPT" },
+        { "text": "Whatever scared the {enemy_type} out of their territory scares me more.", "action": "DECLINE" }
+      ],
+      "objectivePool": ["KILL_MOBS", "FETCH_ITEM", "EXPLORE_LOCATION"],
+      "objectiveConfig": {
+        "KILL_MOBS": { "countMin": 5, "countMax": 10 },
+        "FETCH_ITEM": { "locationPreference": "WILDERNESS" },
+        "EXPLORE_LOCATION": { "countMin": 1, "countMax": 2 }
+      }
+    }
+  ]
+}

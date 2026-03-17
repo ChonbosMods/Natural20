@@ -1,0 +1,22 @@
+{
+  "references": [
+    {
+      "id": "ref_all_sacrificed_passion_burned_workshop",
+      "compatibleSituations": ["AllSacrificedForPassion", "DaringEnterprise"],
+      "passiveText": "There's a burned-out workshop on the edge of {location}. They say the owner pushed an experiment too far.",
+      "triggerTopicLabel": "The burned workshop",
+      "triggerDialogue": "{target_npc} knew the alchemist who worked there. Brilliant mind, absolutely consumed by their research. One night the furnace overloaded and took half the building with it. The alchemist survived but lost everything: notes, equipment, years of work. Last anyone heard, they were starting over from scratch in a cave somewhere {location_hint}. Some people can't stop even when the world is telling them to.",
+      "catalystSituations": ["AllSacrificedForPassion", "DaringEnterprise"],
+      "targetNpcRoles": ["ArtisanAlchemist", "ArtisanBlacksmith"]
+    },
+    {
+      "id": "ref_all_sacrificed_passion_masters_journal",
+      "compatibleSituations": ["AllSacrificedForPassion", "DiscoveryOfDishonor"],
+      "passiveText": "An old master once wrote that the line between genius and obsession is drawn by the people you leave behind.",
+      "triggerTopicLabel": "The old master's journal",
+      "triggerDialogue": "The journal belongs to {target_npc}'s mentor. Filled with brilliant observations alongside increasingly erratic entries. The last page just says 'It was worth it' over and over in shaking handwriting. {target_npc} keeps it as a warning, or maybe as inspiration: hard to tell which. You can find them near {location} if you want to see it yourself.",
+      "catalystSituations": ["AllSacrificedForPassion", "SelfSacrificeForAnIdeal"],
+      "targetNpcRoles": ["ArtisanAlchemist", "Traveler"]
+    }
+  ]
+}

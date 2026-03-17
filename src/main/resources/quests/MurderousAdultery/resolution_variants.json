@@ -1,0 +1,62 @@
+{
+  "variants": [
+    {
+      "id": "murderousadultery_reso_01",
+      "dialogueChunks": {
+        "intro": "It's over, {player_name}. The conspiracy has been exposed.",
+        "plotStep": "The evidence you brought from the supply cache was damning: names, dates, quantities, all meticulously recorded by someone too arrogant to think they'd be caught. The guard arrested the poisoner this morning, and {target_npc} is already working on purifying the water supply. The settlement is shaken but relieved. People who had been looking over their shoulders for weeks are finally breathing again.",
+        "outro": "You uncovered a darkness that could have consumed {location} from within. Take this: it doesn't begin to repay what you risked, but it's everything we can offer."
+      },
+      "playerResponses": [
+        { "text": "Justice and clean water: that's what matters. Take care of {location}.", "action": "ACCEPT" },
+        { "text": "The poisoner is caught, but watch for accomplices. Conspiracies have roots.", "action": "ACCEPT" },
+        { "text": "Glad the evidence held up. Stay vigilant.", "action": "ACCEPT" }
+      ],
+      "objectivePool": [],
+      "objectiveConfig": {}
+    },
+    {
+      "id": "murderousadultery_reso_02",
+      "dialogueChunks": {
+        "intro": "{player_name}, the truth has come to light. All of it.",
+        "plotStep": "The ledgers proved everything: the coded list decoded perfectly against the trade entries. The conspiracy involved five people, three of whom have already confessed. {target_npc} led the guard to the remaining two before dawn. The puppet master behind it all was a merchant from a rival settlement trying to destabilize {location} for economic advantage. Cold, calculated, and now thoroughly exposed.",
+        "outro": "You pulled the thread that unraveled a web of treachery. {location} won't forget what you did. Here: take this with our deepest gratitude."
+      },
+      "playerResponses": [
+        { "text": "Five conspirators and a puppet master. At least now {location} can heal.", "action": "ACCEPT", "dispositionShift": 10 },
+        { "text": "Economic sabotage disguised as local crime. At least they'll answer for it.", "action": "ACCEPT" }
+      ],
+      "objectivePool": [],
+      "objectiveConfig": {}
+    },
+    {
+      "id": "murderousadultery_reso_03",
+      "dialogueChunks": {
+        "intro": "The shipment was intercepted. The settlement is safe, {player_name}.",
+        "plotStep": "The courier you caught broke quickly under questioning: gave up the entire supply chain, the contact in the neighboring settlement, even the name of the person inside {location} who arranged the whole thing. {target_npc} handled the arrests quietly, without panic. The {quest_item} compound has been destroyed, and the alchemist is working on a detection method so nothing like this can be smuggled in again.",
+        "outro": "You stopped a massacre, {player_name}. Not many people can say that. This is the settlement's way of saying thank you."
+      },
+      "playerResponses": [
+        { "text": "Preventing a massacre is its own reward. But I'll accept the thanks.", "action": "ACCEPT" },
+        { "text": "Make sure the detection method works. Conspiracies don't always die when you cut the head off.", "action": "ACCEPT", "dispositionShift": -5 },
+        { "text": "Glad I could stop it in time. Stay sharp.", "action": "ACCEPT" }
+      ],
+      "objectivePool": [],
+      "objectiveConfig": {}
+    },
+    {
+      "id": "murderousadultery_reso_04",
+      "dialogueChunks": {
+        "intro": "{target_npc} has been cleared, {player_name}. Publicly and completely.",
+        "plotStep": "The cache you recovered contained everything we needed: the real traitor's personal seal on every document, their handwriting on the shipping orders, and a letter outlining their entire plan. When the evidence was presented to the settlement council, the traitor tried to run. They didn't get far. {target_npc} stood in the square afterward, vindicated and visibly relieved. The settlement owes both of you a debt.",
+        "outro": "You saved an innocent person from a false accusation and caught a genuine villain. That's rare work. Take this, and know you've made a real difference."
+      },
+      "playerResponses": [
+        { "text": "Clearing {target_npc}'s name was the right thing to do. Justice found its way.", "action": "ACCEPT", "dispositionShift": 10 },
+        { "text": "The truth wins eventually. I just helped it arrive faster.", "action": "ACCEPT" }
+      ],
+      "objectivePool": [],
+      "objectiveConfig": {}
+    }
+  ]
+}

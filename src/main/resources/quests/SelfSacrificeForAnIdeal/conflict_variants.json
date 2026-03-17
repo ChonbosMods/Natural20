@@ -1,0 +1,59 @@
+{
+  "variants": [
+    {
+      "id": "self_sacrifice_for_an_ideal_conf_01",
+      "dialogueChunks": {
+        "intro": "{player_name}, I hoped it wouldn't come to this. But it has.",
+        "plotStep": "The {enemy_type} sent scouts ahead of the main force. They found the watchtower and now they know our plan. {target_npc} intercepted one of their messengers carrying a map of our defenses back to their camp {location_hint}. If the main warband adjusts their route, my stand at the tower means nothing. I need you to hunt down the remaining scouts and make sure that information doesn't reach their leaders.",
+        "outro": "My sacrifice only works if they come at us the way we expect. Without that element of surprise, I'm just a fool dying alone on a hill."
+      },
+      "playerResponses": [
+        { "text": "I'll make sure those scouts never report back.", "action": "ACCEPT" },
+        { "text": "Your plan is unraveling, but I'll hold it together. This time.", "action": "ACCEPT", "dispositionShift": -5 },
+        { "text": "This is spiraling out of control. I can't keep chasing loose ends.", "action": "DECLINE" }
+      ],
+      "objectivePool": ["KILL_MOBS", "EXPLORE_LOCATION"],
+      "objectiveConfig": {
+        "KILL_MOBS": { "countMin": 4, "countMax": 8 },
+        "EXPLORE_LOCATION": { "countMin": 1, "countMax": 2 }
+      }
+    },
+    {
+      "id": "self_sacrifice_for_an_ideal_conf_02",
+      "dialogueChunks": {
+        "intro": "I need to tell you something, {player_name}, and I need you not to argue with me about it.",
+        "plotStep": "The materials you gathered aren't enough. The alchemist looked at the mine shaft and says the contamination runs deeper than we thought. To seal it properly, I'll need to go further in, past the point where the air turns toxic. {target_npc} found records of a ventilation system in the old engineering tunnels {location_hint}, but it's overrun with {enemy_type}. If you can clear a path and find the ventilation controls, I can buy myself a few more minutes down there. Minutes that make the difference between a seal that lasts a year and one that lasts forever.",
+        "outro": "I didn't plan on a quick death, but I didn't plan on a slow one either. It doesn't matter. The water has to be clean."
+      },
+      "playerResponses": [
+        { "text": "I'll clear those tunnels. You'll have your ventilation.", "action": "ACCEPT" },
+        { "text": "You're asking me to help you die more thoroughly. But fine.", "action": "ACCEPT", "dispositionShift": -5 },
+        { "text": "I won't be part of making this worse for you.", "action": "DECLINE" }
+      ],
+      "objectivePool": ["KILL_MOBS", "EXPLORE_LOCATION", "FETCH_ITEM"],
+      "objectiveConfig": {
+        "KILL_MOBS": { "countMin": 3, "countMax": 7 },
+        "EXPLORE_LOCATION": { "countMin": 1, "countMax": 2 },
+        "FETCH_ITEM": { "locationPreference": "DUNGEON" }
+      }
+    },
+    {
+      "id": "self_sacrifice_for_an_ideal_conf_03",
+      "dialogueChunks": {
+        "intro": "We have a problem, {player_name}. A big one.",
+        "plotStep": "{target_npc} tried to convince the council to support the bridge plan and they refused. Called it madness. Now they're threatening to arrest anyone who tampers with the bridge. Worse, they've posted guards. I understand their fear: that bridge is their lifeline. But it's also the enemy's path straight to their doors. I need you to gather more {quest_item} so we can rig the charges discreetly. And I need you to talk to {target_npc} about creating a diversion to draw the guards away when the time comes.",
+        "outro": "History will judge whether I was a hero or a criminal. I'd rather be a living criminal than watch a dead settlement, but I won't be either. I'll just be the one who stayed behind."
+      },
+      "playerResponses": [
+        { "text": "The council is wrong and you know it. I'll help you see this through.", "action": "ACCEPT" },
+        { "text": "Going against the council is dangerous. But so is doing nothing.", "action": "ACCEPT" },
+        { "text": "I won't go against the settlement's leaders. Find another way.", "action": "DECLINE" }
+      ],
+      "objectivePool": ["GATHER_ITEMS", "TALK_TO_NPC"],
+      "objectiveConfig": {
+        "GATHER_ITEMS": { "countMin": 4, "countMax": 10 },
+        "TALK_TO_NPC": { "countMin": 1, "countMax": 1 }
+      }
+    }
+  ]
+}

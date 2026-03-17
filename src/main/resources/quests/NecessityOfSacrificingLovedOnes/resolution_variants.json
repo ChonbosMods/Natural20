@@ -1,0 +1,47 @@
+{
+  "variants": [
+    {
+      "id": "necessity_of_sacrificing_loved_ones_reso_01",
+      "dialogueChunks": {
+        "intro": "{player_name}. I don't have to choose. Thanks to you, I don't have to choose.",
+        "plotStep": "The defenses held. The council saw the {enemy_type} numbers and agreed that exile was never the answer: it was just fear talking. {target_npc} is organizing the refugees into work crews now. They're repairing the damage from the raid and integrating into the settlement. My friend smiled at me this morning for the first time in weeks. Nobody was sent away. Nobody was sacrificed.",
+        "outro": "You didn't just save the refugees or the settlement. You saved me from becoming someone I couldn't live with. This is everything we have to offer, and it's not nearly enough."
+      },
+      "playerResponses": [
+        { "text": "The fact that you fought for both sides is what saved everyone.", "action": "ACCEPT", "dispositionShift": 15 },
+        { "text": "No impossible choices today. That's a good day.", "action": "ACCEPT" },
+        { "text": "Glad it worked out. Take care of those people.", "action": "ACCEPT" }
+      ],
+      "objectivePool": [],
+      "objectiveConfig": {}
+    },
+    {
+      "id": "necessity_of_sacrificing_loved_ones_reso_02",
+      "dialogueChunks": {
+        "intro": "The water is clean, {player_name}. Both wells. Both communities.",
+        "plotStep": "The neutralizing agent worked perfectly. {target_npc}'s family came to see it for themselves and nearly wept with relief. They thought we were enemies, and instead we solved a problem that could have poisoned them too in another season. Both communities are sharing the cavern now, with a proper agreement drawn up and signed. I finally slept last night. Eight hours. Felt like a miracle.",
+        "outro": "You found the third option I was too exhausted to see. Take this: it was contributed by both settlements, because both settlements owe their water to you."
+      },
+      "playerResponses": [
+        { "text": "Two communities sharing instead of fighting. That's worth more than any reward.", "action": "ACCEPT", "dispositionShift": 10 },
+        { "text": "Get some more sleep. You've earned it.", "action": "ACCEPT" }
+      ],
+      "objectivePool": [],
+      "objectiveConfig": {}
+    },
+    {
+      "id": "necessity_of_sacrificing_loved_ones_reso_03",
+      "dialogueChunks": {
+        "intro": "They came, {player_name}. The warband came. And we were ready.",
+        "plotStep": "We handed over the harvest stores as agreed, and the replacement supplies you gathered were distributed the same day. My sister didn't starve. My soldiers didn't fight. The {enemy_type} took their tribute and left, and nobody in {location} went to bed hungry. {target_npc} says it's a temporary peace, and maybe they're right. But temporary peace is still peace, and the families that would have suffered are eating tonight because of you.",
+        "outro": "My sister asked me to give you this. She said to tell you she knows what you did, and that her children will grow up knowing your name."
+      },
+      "playerResponses": [
+        { "text": "Temporary peace bought time. Use it to build something permanent.", "action": "ACCEPT" },
+        { "text": "Children eating dinner instead of going hungry. That's the only victory that matters.", "action": "ACCEPT", "dispositionShift": 10 }
+      ],
+      "objectivePool": [],
+      "objectiveConfig": {}
+    }
+  ]
+}

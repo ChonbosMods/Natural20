@@ -1,0 +1,60 @@
+{
+  "variants": [
+    {
+      "id": "ambition_expo_01",
+      "dialogueChunks": {
+        "intro": "Close the door, {player_name}. What I'm about to propose isn't for public ears.",
+        "plotStep": "I've been watching the power structure in {location} for months. The current leadership is weak, indecisive, and the people suffer for it. I have a plan to change that, but I need resources they'd never willingly give me. There's a cache of {quest_item} hidden {location_hint} that belonged to the old regime. With it, I can secure the loyalty of every craftsperson and guard in the settlement. {target_npc} thinks I'm mad, but they'll come around once they see the results.",
+        "outro": "This isn't greed, {player_name}. This is vision. Help me, and you'll have a powerful ally when the dust settles."
+      },
+      "playerResponses": [
+        { "text": "Vision or ambition, I'll help you claim it.", "action": "ACCEPT" },
+        { "text": "I'll get your supplies, but I want a cut of whatever comes next.", "action": "ACCEPT", "dispositionShift": -5 },
+        { "text": "Power grabs never end well. Find someone else.", "action": "DECLINE" }
+      ],
+      "objectivePool": ["FETCH_ITEM", "EXPLORE_LOCATION", "GATHER_ITEMS"],
+      "objectiveConfig": {
+        "FETCH_ITEM": { "locationPreference": "DUNGEON" },
+        "EXPLORE_LOCATION": { "countMin": 1, "countMax": 2 },
+        "GATHER_ITEMS": { "countMin": 5, "countMax": 12 }
+      }
+    },
+    {
+      "id": "ambition_expo_02",
+      "dialogueChunks": {
+        "intro": "{player_name}, I'll be direct. I've never been one for pleasantries and I won't start now.",
+        "plotStep": "There's a forge {location_hint} that nobody's used in years. The previous smith who worked it produced weapons that could cut through {enemy_type} armor like parchment. I've studied the technique, and I'm certain I can replicate it: but I need {quest_item} from the old mine to fuel the furnace properly. Once I'm producing those weapons, every settlement in the region will come to me. Not the guild, not the council: me. {target_npc} tried to claim the forge first, but they don't have the skill to use it.",
+        "outro": "I don't need a partner. I need a pair of hands willing to get dirty for the right price."
+      },
+      "playerResponses": [
+        { "text": "Sounds like a solid investment. I'll get what you need.", "action": "ACCEPT" },
+        { "text": "Undercutting the guild is risky. But profitable. I'm in.", "action": "ACCEPT" },
+        { "text": "Schemes like this tend to blow up in everyone's face. No thanks.", "action": "DECLINE" }
+      ],
+      "objectivePool": ["GATHER_ITEMS", "EXPLORE_LOCATION"],
+      "objectiveConfig": {
+        "GATHER_ITEMS": { "countMin": 6, "countMax": 15 },
+        "EXPLORE_LOCATION": { "countMin": 1, "countMax": 2 }
+      }
+    },
+    {
+      "id": "ambition_expo_03",
+      "dialogueChunks": {
+        "intro": "Sit down, {player_name}. Have a drink. And listen carefully, because what I'm about to offer won't be offered twice.",
+        "plotStep": "I run the only tavern in {location}, which means I hear everything. Every deal, every grudge, every secret whispered over ale. I know that {target_npc} has been stockpiling {quest_item} {location_hint} for a trade deal that would make them the wealthiest person in the settlement. I also know the route they're using is crawling with {enemy_type}. If someone were to... acquire that stockpile before {target_npc} can move it, well, the trade deal becomes mine instead.",
+        "outro": "I'm not asking you to hurt anyone. Just to be faster and smarter than the competition."
+      },
+      "playerResponses": [
+        { "text": "Faster and smarter I can do. Point me the way.", "action": "ACCEPT" },
+        { "text": "Stealing someone's trade deal? That's cold. But I'll do it for the right price.", "action": "ACCEPT", "dispositionShift": -5 },
+        { "text": "This is theft with extra steps. I'm not interested.", "action": "DECLINE" }
+      ],
+      "objectivePool": ["FETCH_ITEM", "EXPLORE_LOCATION", "KILL_MOBS"],
+      "objectiveConfig": {
+        "FETCH_ITEM": { "locationPreference": "WILDERNESS" },
+        "EXPLORE_LOCATION": { "countMin": 1, "countMax": 3 },
+        "KILL_MOBS": { "countMin": 3, "countMax": 7 }
+      }
+    }
+  ]
+}

@@ -1,0 +1,61 @@
+{
+  "variants": [
+    {
+      "id": "loss_of_loved_ones_conf_01",
+      "dialogueChunks": {
+        "intro": "{player_name}, I thought I was managing. I thought the worst was over. I was wrong.",
+        "plotStep": "His old business partner came to {location} demanding payment on a debt I didn't know existed. Says my husband borrowed {quest_item} months before he died and never settled the account. {target_npc} tried to mediate, but the partner is threatening to take our home if I don't pay. The only way to gather enough is from the old supply cache {location_hint}, but {enemy_type} have taken over the area since the route went unused. I can't lose this house: it's all I have left of him.",
+        "outro": "Grief wasn't enough, apparently. Now I'm fighting to keep a roof over my head too."
+      },
+      "playerResponses": [
+        { "text": "Nobody's taking your home. I'll get what you need.", "action": "ACCEPT" },
+        { "text": "Debt collectors circling a widow. Charming. I'll handle it.", "action": "ACCEPT", "dispositionShift": -5 },
+        { "text": "Financial disputes aren't something I can solve with a sword.", "action": "DECLINE" }
+      ],
+      "objectivePool": ["GATHER_ITEMS", "KILL_MOBS", "FETCH_ITEM"],
+      "objectiveConfig": {
+        "GATHER_ITEMS": { "countMin": 6, "countMax": 15 },
+        "KILL_MOBS": { "countMin": 3, "countMax": 7 },
+        "FETCH_ITEM": { "locationPreference": "DUNGEON" }
+      }
+    },
+    {
+      "id": "loss_of_loved_ones_conf_02",
+      "dialogueChunks": {
+        "intro": "The garden is growing again, {player_name}. But something is trying to destroy it.",
+        "plotStep": "The same {enemy_type} that took my daughter have been raiding the outskirts of {location} again. They trampled through the garden two nights ago: not for food, just destruction. {target_npc} set up a watch, but we're short-handed and the creatures come from different directions each time. I need more {quest_item} to rebuild the beds and proper fencing materials from {location_hint}. And someone needs to deal with the nest those creatures are coming from before they destroy everything we've replanted.",
+        "outro": "I won't let them take this from me too. She grew this garden from bare dirt, and it's going to survive."
+      },
+      "playerResponses": [
+        { "text": "They won't touch that garden again. I'll find their nest.", "action": "ACCEPT" },
+        { "text": "Defending a garden from monsters. Strange work, but meaningful.", "action": "ACCEPT" },
+        { "text": "The garden isn't worth getting killed over.", "action": "DECLINE" }
+      ],
+      "objectivePool": ["KILL_MOBS", "GATHER_ITEMS", "EXPLORE_LOCATION"],
+      "objectiveConfig": {
+        "KILL_MOBS": { "countMin": 4, "countMax": 9 },
+        "GATHER_ITEMS": { "countMin": 5, "countMax": 10 },
+        "EXPLORE_LOCATION": { "countMin": 1, "countMax": 2 }
+      }
+    },
+    {
+      "id": "loss_of_loved_ones_conf_03",
+      "dialogueChunks": {
+        "intro": "{player_name}, I found something in his pack that changes everything.",
+        "plotStep": "Hidden in a false bottom of my brother's delivery satchel was a letter. He knew the road {location_hint} was dangerous. He'd been warned about the {enemy_type} and went anyway because the neighboring settlement was desperate. He wrote, 'If something happens to me, make sure the {quest_item} gets through. These people are counting on it.' {target_npc} read the letter and hasn't stopped crying. Now there are reports that the settlement he was trying to reach is in worse shape than ever. I need to honor his wish: gather the supplies and complete the delivery.",
+        "outro": "He knew the risk and chose to go anyway. The least we can do is finish what he died trying to do."
+      },
+      "playerResponses": [
+        { "text": "He was braver than he knew. I'll make sure his sacrifice counts.", "action": "ACCEPT" },
+        { "text": "A man who walked into danger for strangers deserves to have his mission completed.", "action": "ACCEPT" },
+        { "text": "Honoring the dead by risking the living. I understand, but I can't.", "action": "DECLINE" }
+      ],
+      "objectivePool": ["GATHER_ITEMS", "DELIVER_ITEM", "KILL_MOBS"],
+      "objectiveConfig": {
+        "GATHER_ITEMS": { "countMin": 7, "countMax": 16 },
+        "DELIVER_ITEM": {},
+        "KILL_MOBS": { "countMin": 3, "countMax": 6 }
+      }
+    }
+  ]
+}

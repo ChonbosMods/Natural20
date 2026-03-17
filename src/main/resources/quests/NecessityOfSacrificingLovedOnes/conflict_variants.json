@@ -1,0 +1,59 @@
+{
+  "variants": [
+    {
+      "id": "necessity_of_sacrificing_loved_ones_conf_01",
+      "dialogueChunks": {
+        "intro": "{player_name}, the situation has turned worse. Much worse.",
+        "plotStep": "The {enemy_type} didn't wait for us to finish our defenses. They attacked the outer farms last night. Three families lost their homes. {target_npc} moved the refugees deeper into the settlement, but the council is furious. They're drafting an exile order. I have until dawn to convince them otherwise, but words won't do it: I need proof we can hold this place. Clear the {enemy_type} camp {location_hint} and bring back evidence that we've weakened their numbers. If the council sees we can fight, maybe they won't force me to choose.",
+        "outro": "Dawn. That's all I have. If I can't show the council a reason to hope by then, my friend and fifty refugees walk out those gates into certain death."
+      },
+      "playerResponses": [
+        { "text": "I'll hit their camp tonight. You'll have your proof by morning.", "action": "ACCEPT" },
+        { "text": "Racing against the council and the enemy at the same time. Just another day.", "action": "ACCEPT", "dispositionShift": -5 },
+        { "text": "The council may be right. Sometimes the many outweigh the few.", "action": "DECLINE" }
+      ],
+      "objectivePool": ["KILL_MOBS", "EXPLORE_LOCATION"],
+      "objectiveConfig": {
+        "KILL_MOBS": { "countMin": 5, "countMax": 10 },
+        "EXPLORE_LOCATION": { "countMin": 1, "countMax": 2 }
+      }
+    },
+    {
+      "id": "necessity_of_sacrificing_loved_ones_conf_02",
+      "dialogueChunks": {
+        "intro": "I need you to listen carefully, {player_name}. The purification plan hit a wall.",
+        "plotStep": "The materials you brought can filter sediment but not the poison itself. The contamination is magical in nature: some residue from the {enemy_type} that nested near the water table. {target_npc} found an old alchemical text that describes a neutralizing agent, but it requires {quest_item} from deep underground {location_hint}. Worse, {target_npc}'s family heard about our plans and they're threatening to seal the cavern. They think we're trying to take their water by force. I need you to gather the reagent AND speak to {target_npc} before their family does something irreversible.",
+        "outro": "If they seal that cavern, two communities lose their only clean water source instead of one. Fear makes people do terrible things."
+      },
+      "playerResponses": [
+        { "text": "I'll talk to {target_npc} first, then get the reagent. Trust between neighbors matters.", "action": "ACCEPT" },
+        { "text": "Politics and poison. What a combination. I'll handle both.", "action": "ACCEPT" },
+        { "text": "I'm not a diplomat. You need someone who can negotiate, not fight.", "action": "DECLINE" }
+      ],
+      "objectivePool": ["GATHER_ITEMS", "TALK_TO_NPC", "EXPLORE_LOCATION"],
+      "objectiveConfig": {
+        "GATHER_ITEMS": { "countMin": 4, "countMax": 8 },
+        "TALK_TO_NPC": { "countMin": 1, "countMax": 1 },
+        "EXPLORE_LOCATION": { "countMin": 1, "countMax": 2 }
+      }
+    },
+    {
+      "id": "necessity_of_sacrificing_loved_ones_conf_03",
+      "dialogueChunks": {
+        "intro": "The truce deadline moved up, {player_name}. They're coming tomorrow.",
+        "plotStep": "A second {enemy_type} warband joined the first. Their demands doubled: now they want the eastern AND western harvest stores. That's not three families going hungry, that's the entire settlement. {target_npc} says we have to fight, but fighting means guards die: guards with families of their own. My sister sent word that she'd rather starve than see soldiers killed protecting her grain. I need you to gather more {quest_item} from {location_hint} and I need you to do it faster than you've ever done anything. If we can stockpile enough before they arrive, we hand over the stores and nobody starves.",
+        "outro": "My sister volunteered to starve. My soldiers volunteered to die. I won't accept either offer. Help me refuse them both."
+      },
+      "playerResponses": [
+        { "text": "Nobody starves and nobody dies. I'll make it happen.", "action": "ACCEPT" },
+        { "text": "Doubled demands. Of course. I'll move fast.", "action": "ACCEPT" },
+        { "text": "You can't outrun a warband with a basket of supplies. This is futile.", "action": "DECLINE" }
+      ],
+      "objectivePool": ["GATHER_ITEMS", "KILL_MOBS"],
+      "objectiveConfig": {
+        "GATHER_ITEMS": { "countMin": 8, "countMax": 18 },
+        "KILL_MOBS": { "countMin": 3, "countMax": 7 }
+      }
+    }
+  ]
+}

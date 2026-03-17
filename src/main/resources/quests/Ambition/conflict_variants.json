@@ -1,0 +1,61 @@
+{
+  "variants": [
+    {
+      "id": "ambition_conf_01",
+      "dialogueChunks": {
+        "intro": "{player_name}, we have a problem. Someone's been talking.",
+        "plotStep": "{target_npc} found out about our arrangement and has rallied the guards against us. They've blockaded the road {location_hint} and seized half the {quest_item} you already gathered. If we don't act now, everything falls apart. I need you to find an alternate route to the stockpile and bring back twice as much: enough to outbid them and buy the guards' loyalty back. There are {enemy_type} on the back trail, but that's a problem you can handle.",
+        "outro": "We're too deep to back out now. Either we win this or we lose everything."
+      },
+      "playerResponses": [
+        { "text": "Double the supplies, alternate route, hostile territory. Consider it done.", "action": "ACCEPT" },
+        { "text": "Your plan is unraveling fast. But I'll patch it together.", "action": "ACCEPT", "dispositionShift": -5 },
+        { "text": "You've made too many enemies. I'm cutting my losses.", "action": "DECLINE" }
+      ],
+      "objectivePool": ["GATHER_ITEMS", "KILL_MOBS", "EXPLORE_LOCATION"],
+      "objectiveConfig": {
+        "GATHER_ITEMS": { "countMin": 8, "countMax": 18 },
+        "KILL_MOBS": { "countMin": 3, "countMax": 8 },
+        "EXPLORE_LOCATION": { "countMin": 1, "countMax": 2 }
+      }
+    },
+    {
+      "id": "ambition_conf_02",
+      "dialogueChunks": {
+        "intro": "Change of plans, {player_name}. A bigger opportunity just landed in my lap.",
+        "plotStep": "A merchant caravan heading through {location} lost their escort to {enemy_type} attacks {location_hint}. They're desperate for protection and they're carrying a fortune in {quest_item}. If you escort what's left of their cargo to my warehouse, I'll 'negotiate' a favorable storage fee. By the time they can arrange new transport, I'll have already brokered deals with their buyers. {target_npc} is trying to offer them shelter at the guild hall instead, so we need to move fast.",
+        "outro": "Opportunity doesn't knock, {player_name}. It stumbles past wounded, and the clever ones are ready."
+      },
+      "playerResponses": [
+        { "text": "Ruthless, but effective. I'll bring the cargo.", "action": "ACCEPT" },
+        { "text": "Exploiting stranded merchants? You're something else. Fine.", "action": "ACCEPT", "dispositionShift": -5 },
+        { "text": "Preying on desperate people crosses a line. I'm out.", "action": "DECLINE" }
+      ],
+      "objectivePool": ["KILL_MOBS", "DELIVER_ITEM", "EXPLORE_LOCATION"],
+      "objectiveConfig": {
+        "KILL_MOBS": { "countMin": 4, "countMax": 9 },
+        "DELIVER_ITEM": {},
+        "EXPLORE_LOCATION": { "countMin": 1, "countMax": 2 }
+      }
+    },
+    {
+      "id": "ambition_conf_03",
+      "dialogueChunks": {
+        "intro": "Bad news, {player_name}. Our competitor isn't just blocking us: they're trying to destroy us.",
+        "plotStep": "{target_npc} hired a group of sellswords to ransack my workshop and scatter my tools into the wilderness {location_hint}. Without those tools, I can't forge anything, and without product, my trade agreements collapse. I need you to recover my equipment and deal with whatever {enemy_type} have moved into the area since the sellswords stirred everything up. Oh, and bring back more {quest_item}: the furnace ate through the last batch faster than expected.",
+        "outro": "They want a trade war? They'll get one. But first, I need my forge running again."
+      },
+      "playerResponses": [
+        { "text": "I'll get your tools back and clear the area.", "action": "ACCEPT" },
+        { "text": "Trade wars, sellswords, monsters: your ambition has expensive taste.", "action": "ACCEPT", "dispositionShift": -5 },
+        { "text": "This feud is going to get someone killed. I want no part of it.", "action": "DECLINE" }
+      ],
+      "objectivePool": ["FETCH_ITEM", "KILL_MOBS", "GATHER_ITEMS"],
+      "objectiveConfig": {
+        "FETCH_ITEM": { "locationPreference": "WILDERNESS" },
+        "KILL_MOBS": { "countMin": 4, "countMax": 8 },
+        "GATHER_ITEMS": { "countMin": 5, "countMax": 12 }
+      }
+    }
+  ]
+}

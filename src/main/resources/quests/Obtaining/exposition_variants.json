@@ -1,0 +1,78 @@
+{
+  "variants": [
+    {
+      "id": "obtaining_expo_01",
+      "dialogueChunks": {
+        "intro": "{player_name}, you couldn't have arrived at a better time. I've been searching for someone resourceful enough to help me with a project.",
+        "plotStep": "I've tracked down a source of {quest_item}: rare materials I've been trying to get my hands on for months. The problem is the supply is {location_hint}, deep in territory overrun by {enemy_type}. No merchant will make the trip and I can't leave the forge unattended. If I had enough {quest_item}, I could craft something this settlement hasn't seen in a generation.",
+        "outro": "You'd be doing more than running an errand. You'd be making something extraordinary possible."
+      },
+      "playerResponses": [
+        { "text": "Tell me where to look. I'll bring back everything I can carry.", "action": "ACCEPT" },
+        { "text": "Rare materials in dangerous territory? I'll need proper compensation.", "action": "ACCEPT", "dispositionShift": -5 },
+        { "text": "I'm not a supply runner. Find another way.", "action": "DECLINE" }
+      ],
+      "objectivePool": ["GATHER_ITEMS", "EXPLORE_LOCATION"],
+      "objectiveConfig": {
+        "GATHER_ITEMS": { "countMin": 5, "countMax": 12 },
+        "EXPLORE_LOCATION": { "countMin": 1, "countMax": 2 }
+      }
+    },
+    {
+      "id": "obtaining_expo_02",
+      "dialogueChunks": {
+        "intro": "Ah, a traveler with capable hands! {player_name}, I've been hoping someone like you would pass through {location}.",
+        "plotStep": "There's a recipe I've been perfecting for years: something that could feed this settlement through the harshest winter. But the key ingredient, {quest_item}, only grows in one place, and that place is crawling with {enemy_type}. {target_npc} saw it flourishing {location_hint} just last week, but couldn't get close enough to harvest any. I need someone who can handle themselves out there.",
+        "outro": "Bring me what I need and I'll make sure the whole settlement eats well. You included."
+      },
+      "playerResponses": [
+        { "text": "A worthy cause. I'll get your ingredients.", "action": "ACCEPT" },
+        { "text": "I'll do it, but I want the first serving of whatever you cook.", "action": "ACCEPT" },
+        { "text": "I'm no forager. You'll have to find someone else.", "action": "DECLINE" }
+      ],
+      "objectivePool": ["GATHER_ITEMS", "FETCH_ITEM"],
+      "objectiveConfig": {
+        "GATHER_ITEMS": { "countMin": 4, "countMax": 10 },
+        "FETCH_ITEM": { "locationPreference": "WILDERNESS" }
+      }
+    },
+    {
+      "id": "obtaining_expo_03",
+      "dialogueChunks": {
+        "intro": "{player_name}, I need to speak with you urgently. I've discovered something that won't wait.",
+        "plotStep": "A merchant passing through mentioned a cache of {quest_item} abandoned in a collapsed storehouse {location_hint}. The original owners fled when {enemy_type} moved into the area and never came back for it. That cache is just sitting there, unclaimed, and it's exactly what I need to finish the commission {target_npc} placed with me last month. But the road there is anything but safe.",
+        "outro": "First come, first served: if we don't claim it soon, someone else will. Or the {enemy_type} will destroy it."
+      },
+      "playerResponses": [
+        { "text": "An unclaimed cache? I'll have it back before anyone else catches wind.", "action": "ACCEPT" },
+        { "text": "Salvage from dangerous territory doesn't come cheap. What's my share?", "action": "ACCEPT", "dispositionShift": -5 },
+        { "text": "Abandoned for a reason, I'd wager. Count me out.", "action": "DECLINE" }
+      ],
+      "objectivePool": ["FETCH_ITEM", "EXPLORE_LOCATION", "KILL_MOBS"],
+      "objectiveConfig": {
+        "FETCH_ITEM": { "locationPreference": "DUNGEON" },
+        "EXPLORE_LOCATION": { "countMin": 1, "countMax": 2 },
+        "KILL_MOBS": { "countMin": 3, "countMax": 7 }
+      }
+    },
+    {
+      "id": "obtaining_expo_04",
+      "dialogueChunks": {
+        "intro": "Over here, {player_name}! I've been flagging down every capable-looking soul all week. You're the first one who stopped.",
+        "plotStep": "Word reached me through a traveling merchant that {target_npc} in a distant settlement has {quest_item} in surplus: exactly what I've been short on for months. They're willing to trade, but someone has to make the journey to {location} and back. The direct route goes {location_hint}, straight through {enemy_type} territory. I'd go myself but I'd be dead before I got halfway.",
+        "outro": "Make the exchange and bring back the goods, and I'll make sure you're well rewarded for the trip."
+      },
+      "playerResponses": [
+        { "text": "A trade run through hostile territory? I've handled worse.", "action": "ACCEPT" },
+        { "text": "That's a dangerous road. I expect danger pay on top of whatever you're offering.", "action": "ACCEPT", "dispositionShift": -5 },
+        { "text": "Hire a caravan with guards. I work alone.", "action": "DECLINE" }
+      ],
+      "objectivePool": ["DELIVER_ITEM", "TALK_TO_NPC", "KILL_MOBS"],
+      "objectiveConfig": {
+        "DELIVER_ITEM": {},
+        "TALK_TO_NPC": { "countMin": 1, "countMax": 1 },
+        "KILL_MOBS": { "countMin": 3, "countMax": 8 }
+      }
+    }
+  ]
+}

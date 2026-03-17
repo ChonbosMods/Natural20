@@ -1,0 +1,61 @@
+{
+  "variants": [
+    {
+      "id": "crimes_of_love_conf_01",
+      "dialogueChunks": {
+        "intro": "The inventory count moved up, {player_name}. We're out of time.",
+        "plotStep": "{target_npc} announced a surprise audit: they're counting the storehouse supplies tonight, not tomorrow. The supplies you gathered aren't enough to replace everything I took. Worse, the neighbor's children are sick now: the food helped, but what they really need is medicine. I need you to gather more {quest_item} to fill the gap AND find healing herbs in the wilds {location_hint}. The {enemy_type} have been thick along the treeline, but those children can't wait for a safer day.",
+        "outro": "One act of kindness turned into a cascade of problems. I don't regret it. But I need your help more than ever now."
+      },
+      "playerResponses": [
+        { "text": "Sick children and a ticking clock. I'll move fast.", "action": "ACCEPT" },
+        { "text": "Every time I turn around, this gets more complicated. But those kids need help.", "action": "ACCEPT" },
+        { "text": "You're in too deep. Turn yourself in before it gets worse.", "action": "DECLINE" }
+      ],
+      "objectivePool": ["GATHER_ITEMS", "FETCH_ITEM", "KILL_MOBS"],
+      "objectiveConfig": {
+        "GATHER_ITEMS": { "countMin": 6, "countMax": 12 },
+        "FETCH_ITEM": { "locationPreference": "WILDERNESS" },
+        "KILL_MOBS": { "countMin": 2, "countMax": 5 }
+      }
+    },
+    {
+      "id": "crimes_of_love_conf_02",
+      "dialogueChunks": {
+        "intro": "{player_name}, the search is getting closer. {target_npc} questioned my sister this morning.",
+        "plotStep": "The questioning was polite but thorough. {target_npc} knows something is off but can't prove it yet. Meanwhile, the escape route {location_hint} has been compromised: a patrol of {enemy_type} set up camp right across the path. The deserter is growing desperate, talking about turning themselves in to spare my sister. I need you to clear that route and find an alternate path. And I need {quest_item} to provision the journey: food, clothing, anything to help them start a new life.",
+        "outro": "If the soldier surrenders, my sister goes down too for harboring them. I won't let my sister hang for having a kind heart."
+      },
+      "playerResponses": [
+        { "text": "Clear the route, provision the journey. I'll make it happen.", "action": "ACCEPT" },
+        { "text": "Your sister's kindness shouldn't cost her life. Let me handle the monsters.", "action": "ACCEPT" },
+        { "text": "The net is closing and I'm helping you slip through it. This is going to end badly.", "action": "DECLINE" }
+      ],
+      "objectivePool": ["KILL_MOBS", "EXPLORE_LOCATION", "GATHER_ITEMS"],
+      "objectiveConfig": {
+        "KILL_MOBS": { "countMin": 4, "countMax": 8 },
+        "EXPLORE_LOCATION": { "countMin": 2, "countMax": 3 },
+        "GATHER_ITEMS": { "countMin": 3, "countMax": 6 }
+      }
+    },
+    {
+      "id": "crimes_of_love_conf_03",
+      "dialogueChunks": {
+        "intro": "They almost caught me, {player_name}. An enforcer was watching the house where I distribute the remedies.",
+        "plotStep": "I had to destroy a week's worth of medicine to keep it from being seized as evidence. People who were counting on those remedies are going without treatment now. {target_npc} pulled me aside and warned me: the guild is hiring a tracker to find the source of the unlicensed medicine. I need to move my operation somewhere hidden. There's an old herbalist's cottage {location_hint}, abandoned after the {enemy_type} moved into the area. If you can clear it out and gather more {quest_item} from the surrounding hills, I can set up a new brewing station the guild will never find.",
+        "outro": "I destroyed medicine that sick people needed. The guilt is crushing. Help me make more before anyone suffers for my caution."
+      },
+      "playerResponses": [
+        { "text": "A hidden cottage and fresh ingredients. We'll have medicine flowing again in no time.", "action": "ACCEPT" },
+        { "text": "The guild is closing in. A hidden location is smart. Let's move.", "action": "ACCEPT" },
+        { "text": "Enforcers and trackers. You're going to get us both caught.", "action": "DECLINE" }
+      ],
+      "objectivePool": ["KILL_MOBS", "GATHER_ITEMS", "EXPLORE_LOCATION"],
+      "objectiveConfig": {
+        "KILL_MOBS": { "countMin": 3, "countMax": 6 },
+        "GATHER_ITEMS": { "countMin": 5, "countMax": 12 },
+        "EXPLORE_LOCATION": { "countMin": 1, "countMax": 2 }
+      }
+    }
+  ]
+}

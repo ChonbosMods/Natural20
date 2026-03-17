@@ -1,0 +1,58 @@
+{
+  "variants": [
+    {
+      "id": "rivalry_of_superior_vs_inferior_expo_01",
+      "dialogueChunks": {
+        "intro": "Keep your voice down, {player_name}. Walls have ears in {location}, and the ones listening don't take kindly to complaints.",
+        "plotStep": "The garrison commander has been squeezing the merchants for months. Double taxes, forced labor on the walls, confiscated goods for 'settlement defense.' Most of it ends up in the officers' quarters. {target_npc} tried to petition for relief and was thrown in a holding cell for a day as a warning. The common folk are too afraid to speak up, but I've been keeping records: every stolen shipment, every unlawful order. I need {quest_item} to copy and seal these documents. If I can get proof to the regional authority {location_hint}, this commander's reign ends.",
+        "outro": "I'm not brave. I'm just tired of watching good people get ground down by someone who thinks rank means they can take whatever they want."
+      },
+      "playerResponses": [
+        { "text": "Records and evidence. Smart. I'll help you get what you need.", "action": "ACCEPT" },
+        { "text": "Going over a commander's head is dangerous. But so is doing nothing.", "action": "ACCEPT" },
+        { "text": "I don't get involved in local politics. Too many ways it goes wrong.", "action": "DECLINE" }
+      ],
+      "objectivePool": ["FETCH_ITEM", "EXPLORE_LOCATION"],
+      "objectiveConfig": {
+        "FETCH_ITEM": { "locationPreference": "WILDERNESS" },
+        "EXPLORE_LOCATION": { "countMin": 1, "countMax": 2 }
+      }
+    },
+    {
+      "id": "rivalry_of_superior_vs_inferior_expo_02",
+      "dialogueChunks": {
+        "intro": "{player_name}, you're new here. That means you haven't been broken yet. Listen.",
+        "plotStep": "The founding families of {location} control everything: the forge, the granary, the trade routes. Anyone who wasn't born into their circle gets last pick of everything. Worst jobs, worst housing, worst food. My people have been here for two generations and we're still treated like outsiders. {target_npc} tried to start an independent forge and the founding families sent {enemy_type} mercenaries to wreck it. I need {quest_item} to rebuild, and I need it from somewhere the founding families don't control: out {location_hint}.",
+        "outro": "They want us to stay small. Stay quiet. Stay grateful for scraps. I'm done with all three."
+      },
+      "playerResponses": [
+        { "text": "An independent forge changes everything. I'll bring what you need to rebuild.", "action": "ACCEPT" },
+        { "text": "Taking on the founding families is a fight you might not win. But I'll help you start.", "action": "ACCEPT", "dispositionShift": -5 },
+        { "text": "Power struggles like this get people killed. Count me out.", "action": "DECLINE" }
+      ],
+      "objectivePool": ["GATHER_ITEMS", "FETCH_ITEM"],
+      "objectiveConfig": {
+        "GATHER_ITEMS": { "countMin": 5, "countMax": 12 },
+        "FETCH_ITEM": { "locationPreference": "DUNGEON" }
+      }
+    },
+    {
+      "id": "rivalry_of_superior_vs_inferior_expo_03",
+      "dialogueChunks": {
+        "intro": "Pour yourself something. On the house. What I'm about to tell you deserves a drink first, {player_name}.",
+        "plotStep": "The settlement guards have been running a protection racket. Pay a weekly fee or your shop gets 'inspected' and half your stock vanishes for 'safety violations.' The tavern, the bakery, the herbalist: we're all being bled dry. {target_npc} confronted the guard captain last week and got a black eye for the trouble. I've been quietly gathering {quest_item} to establish an emergency supply cache {location_hint}: a stockpile the guards can't touch. If the merchants have reserves, the guards lose their leverage.",
+        "outro": "I pour drinks and I listen. I've heard every threat, every excuse, every lie. It's time to stop listening and start fighting back. Quietly."
+      },
+      "playerResponses": [
+        { "text": "A hidden supply cache. That's clever. Where do I start gathering?", "action": "ACCEPT" },
+        { "text": "Corrupt guards and secret stockpiles. This is going to get messy.", "action": "ACCEPT", "dispositionShift": -5 },
+        { "text": "Getting between merchants and guards sounds like a fast way to get hurt.", "action": "DECLINE" }
+      ],
+      "objectivePool": ["GATHER_ITEMS", "EXPLORE_LOCATION"],
+      "objectiveConfig": {
+        "GATHER_ITEMS": { "countMin": 6, "countMax": 14 },
+        "EXPLORE_LOCATION": { "countMin": 1, "countMax": 2 }
+      }
+    }
+  ]
+}
