@@ -1,107 +1,77 @@
 {
   "variants": [
     {
-      "id": "crimepursued_expo_01",
+      "id": "crimevengeance_expo_01",
       "bindings": {
-        "quest_action": "hunt down the raiders and bring them to justice",
-        "quest_focus": "the ransacked storehouse where the watchman died",
-        "quest_stakes": "the memory of an innocent man who deserved better",
-        "quest_threat": "the raiders who murdered the night watchman",
-        "quest_origin": "the attack three nights ago"
+        "quest_action": "find the arsonist",
+        "quest_focus": "the burned workshop",
+        "quest_stakes": "the blacksmith's legacy",
+        "quest_threat": "the one who set the fire",
+        "quest_origin": "a bitter rivalry"
       },
       "dialogueChunks": {
-        "intro": "Sit down, {player_name}. What I'm about to tell you will make your blood boil, and I need you thinking clearly.",
-        "plotStep": "{quest_origin}, a band of {enemy_type} hit {quest_focus} and killed the night watchman: an old man who never hurt anyone in his life. They took every last crate of {quest_item} and left him bleeding in the doorway. {target_npc} found the body at dawn. We tracked {quest_threat} {location_hint}, but the guards won't pursue beyond the boundary. Someone needs to {quest_action}.",
-        "outro": "{quest_stakes} demands it. Will you make this right?"
+        "intro": "{player_name}, look at what they did. {quest_focus} was torched last night. Years of work, gone. I know exactly who is responsible: {quest_threat}, born out of {quest_origin}.",
+        "plotStep": "I need you to {quest_action}. {quest_ally} saw someone fleeing {location_hint} just after the flames started. Find proof: look for {quest_item} near the scene.",
+        "outro": "They destroyed {quest_stakes} out of spite. I will see justice done, one way or another."
       },
       "playerResponses": [
-        { "text": "They murdered an innocent man. I'll hunt them down.", "action": "ACCEPT" },
-        { "text": "Justice and vengeance both pay the same. I'm in.", "action": "ACCEPT", "dispositionShift": -5 },
-        { "text": "Vengeance is a dangerous road. I'll pass.", "action": "DECLINE" }
+        { "text": "Burning a person's livelihood is despicable. I will find who did this.", "action": "ACCEPT", "dispositionShift": 10 },
+        { "text": "What kind of rivalry leads to arson?", "action": "ACCEPT", "dispositionShift": 0 },
+        { "text": "This sounds like a personal feud. Sort it out yourself.", "action": "DECLINE", "dispositionShift": -5 }
       ],
-      "objectivePool": ["KILL_MOBS", "EXPLORE_LOCATION", "FETCH_ITEM"],
+      "objectivePool": ["EXPLORE_LOCATION", "FETCH_ITEM", "GATHER_ITEMS"],
       "objectiveConfig": {
-        "KILL_MOBS": { "countMin": 4, "countMax": 8 },
-        "EXPLORE_LOCATION": { "countMin": 1, "countMax": 2 },
-        "FETCH_ITEM": { "locationPreference": "DUNGEON" }
-      }
-    },
-    {
-      "id": "crimepursued_expo_02",
-      "bindings": {
-        "quest_action": "track down whoever poisoned the well and make them answer",
-        "quest_focus": "the poisoned well that killed three people",
-        "quest_stakes": "justice for the dead and safety for the living",
-        "quest_threat": "the deliberate poisoning of our water supply",
-        "quest_origin": "months of escalating raids that led to this atrocity"
-      },
-      "dialogueChunks": {
-        "intro": "{player_name}, I'm going to be straight with you. I'm not asking for charity. I'm asking for justice.",
-        "plotStep": "Someone poisoned {quest_focus}. Not an accident: deliberate. Three people are dead, including {target_npc}'s daughter. The alchemist found traces of a compound from the caves {location_hint}, and the tracks belong to {enemy_type}. {quest_origin}, but {quest_threat} is something else entirely. This is war.",
-        "outro": "{quest_stakes} demand that whoever ordered this answers for what they've done."
-      },
-      "playerResponses": [
-        { "text": "Poisoning a water supply is an act of war. I'll find whoever is responsible.", "action": "ACCEPT" },
-        { "text": "Tracking poisoners through caves sounds dangerous. What's the bounty?", "action": "ACCEPT", "dispositionShift": -5 },
-        { "text": "This sounds like a feud that goes deeper than I want to get involved in.", "action": "DECLINE" }
-      ],
-      "objectivePool": ["EXPLORE_LOCATION", "KILL_MOBS", "GATHER_ITEMS"],
-      "objectiveConfig": {
-        "EXPLORE_LOCATION": { "countMin": 2, "countMax": 3 },
-        "KILL_MOBS": { "countMin": 3, "countMax": 7 },
         "GATHER_ITEMS": { "countMin": 3, "countMax": 6 }
       }
     },
     {
-      "id": "crimepursued_expo_03",
+      "id": "crimevengeance_expo_02",
       "bindings": {
-        "quest_action": "deliver the answer those murdered merchants' families deserve",
-        "quest_focus": "the massacre site on the road",
-        "quest_stakes": "the families waiting for people who will never come home",
-        "quest_threat": "killers who slaughter for sport",
-        "quest_origin": "a senseless massacre that left goods untouched in the mud"
+        "quest_action": "track down the poisoner",
+        "quest_focus": "the tainted grain stores",
+        "quest_stakes": "the sick townsfolk",
+        "quest_threat": "the saboteur",
+        "quest_time_pressure": "before more are harmed"
       },
       "dialogueChunks": {
-        "intro": "You look like someone who understands that some wrongs can't be forgiven, {player_name}.",
-        "plotStep": "A merchant caravan was slaughtered on the road {location_hint} last week. Not robbed: slaughtered. The goods were left scattered, untouched. {target_npc} was the only survivor, hiding under a wagon. They saw {quest_threat}: {enemy_type} laughing while good people screamed. The guards filed a report. As if paperwork brings back the dead.",
-        "outro": "{quest_stakes} deserve more than a report. Someone needs to {quest_action}."
+        "intro": "Someone poisoned us, {player_name}. Deliberately. {quest_threat} contaminated {quest_focus} and now {quest_stakes} are paying the price.",
+        "plotStep": "I will not let this stand. Someone needs to {quest_action} {quest_time_pressure}. The {enemy_type} that nest near {quest_focus} may have been used to spread the poison. Check the area {location_hint} for {quest_item}: that could be evidence.",
+        "outro": "This was no accident. This was a crime, and I want the one responsible to answer for it."
       },
       "playerResponses": [
-        { "text": "Killing for sport? They won't be laughing when I find them.", "action": "ACCEPT" },
-        { "text": "I'll track them, but I need supplies and information first.", "action": "ACCEPT" },
-        { "text": "I hunt monsters, not ghosts. The trail is probably cold by now.", "action": "DECLINE" }
+        { "text": "Poisoning innocents crosses every line. I will hunt them down.", "action": "ACCEPT", "dispositionShift": 15 },
+        { "text": "Do you have any suspects?", "action": "ACCEPT", "dispositionShift": 0 },
+        { "text": "This is a matter for your own people.", "action": "DECLINE" }
       ],
-      "objectivePool": ["KILL_MOBS", "EXPLORE_LOCATION", "TALK_TO_NPC"],
+      "objectivePool": ["EXPLORE_LOCATION", "GATHER_ITEMS", "TALK_TO_NPC"],
       "objectiveConfig": {
-        "KILL_MOBS": { "countMin": 5, "countMax": 10 },
-        "EXPLORE_LOCATION": { "countMin": 1, "countMax": 2 },
-        "TALK_TO_NPC": { "countMin": 1, "countMax": 1 }
+        "GATHER_ITEMS": { "countMin": 4, "countMax": 8 }
       }
     },
     {
-      "id": "crimepursued_expo_04",
+      "id": "crimevengeance_expo_03",
       "bindings": {
-        "quest_action": "shut down the crew that's been terrorizing the settlement",
-        "quest_focus": "the extortion ring shaking down traders",
-        "quest_stakes": "a sixteen-year-old apprentice who may never use his hand again",
-        "quest_threat": "a violent crew that makes examples of anyone who resists",
-        "quest_origin": "weeks of unchallenged intimidation"
+        "quest_action": "recover the stolen heirlooms",
+        "quest_focus": "the ransacked home",
+        "quest_stakes": "the elder's honor",
+        "quest_threat": "the disgraced apprentice",
+        "quest_origin": "a failed mentorship",
+        "quest_reward_hint": "a share of the recovered goods"
       },
       "dialogueChunks": {
-        "intro": "Buy you a drink, {player_name}? Good. You'll need it after you hear what I have to say.",
-        "plotStep": "The blacksmith's apprentice was beaten half to death behind the tavern last night by {enemy_type} who've been running {quest_focus} for weeks. The boy refused to hand over the {quest_item} he'd been commissioned to deliver, so {quest_threat} made an example of him. {target_npc} pulled him out at sunrise. The guards know who's responsible: a crew holed up {location_hint}. But knowing and acting are two different things.",
-        "outro": "{quest_stakes} because of {quest_origin}. If the guards won't act, someone else has to."
+        "intro": "{player_name}, {quest_threat} broke into {quest_focus} and took everything of value. This was not a random theft: it was born out of {quest_origin} and aimed straight at {quest_stakes}.",
+        "plotStep": "I need you to {quest_action}. The trail leads {location_hint}. {quest_ally} believes {quest_threat} is selling {quest_item} to fund their escape.",
+        "outro": "Bring back what was taken and there will be {quest_reward_hint} for your trouble. But more importantly, bring back our dignity."
       },
       "playerResponses": [
-        { "text": "Show me where this crew is hiding. They'll answer for what they did.", "action": "ACCEPT" },
-        { "text": "Sixteen years old? I'll make them regret ever setting foot here.", "action": "ACCEPT", "dispositionShift": 5 },
-        { "text": "Getting involved in local gang disputes isn't my fight.", "action": "DECLINE" }
+        { "text": "Theft driven by spite deserves swift justice. I will go.", "action": "ACCEPT", "dispositionShift": 10 },
+        { "text": "Tell me more about this share.", "action": "ACCEPT", "dispositionShift": -5 },
+        { "text": "Chasing a bitter apprentice is beneath me.", "action": "DECLINE", "dispositionShift": -10 }
       ],
-      "objectivePool": ["KILL_MOBS", "FETCH_ITEM", "EXPLORE_LOCATION"],
+      "objectivePool": ["FETCH_ITEM", "EXPLORE_LOCATION", "GATHER_ITEMS"],
       "objectiveConfig": {
-        "KILL_MOBS": { "countMin": 4, "countMax": 9 },
-        "FETCH_ITEM": { "locationPreference": "SETTLEMENT" },
-        "EXPLORE_LOCATION": { "countMin": 1, "countMax": 1 }
+        "GATHER_ITEMS": { "countMin": 5, "countMax": 10 },
+        "FETCH_ITEM": { "countMin": 1, "countMax": 1 }
       }
     }
   ]

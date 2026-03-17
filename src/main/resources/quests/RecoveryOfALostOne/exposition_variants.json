@@ -1,82 +1,83 @@
 {
   "variants": [
     {
-      "id": "recovery_of_a_lost_one_expo_01",
+      "id": "recovery_lost_expo_vanished_kin",
       "bindings": {
-        "quest_action": "travel to a distant camp and confirm a sighting of the missing person",
-        "quest_focus": "my sister who vanished three seasons ago on a trade journey",
-        "quest_stakes": "she may be alive but alone and unreachable",
-        "quest_threat": "the dangerous roads and enemy territory between here and the sighting",
-        "quest_origin": "a merchant's report of a woman matching her description"
+        "quest_action": "find the missing traveler",
+        "quest_focus": "the abandoned campsite",
+        "quest_stakes": "a family reunited",
+        "quest_threat": "a cold trail going colder",
+        "quest_origin": "a routine journey gone wrong",
+        "quest_reward_hint": "a family's eternal gratitude"
       },
       "dialogueChunks": {
-        "intro": "{player_name}, I'm looking for someone. I've been looking for a very long time.",
-        "plotStep": "{quest_focus} left {location} to trade {quest_item} with the settlements up north. She never arrived. Everyone says the {enemy_type} got her, but no body was found. Last week, {quest_origin} living in a camp {location_hint}. I need someone to {quest_action}. {quest_threat} keeps me from going myself.",
-        "outro": "If she's alive, {quest_stakes}. She needs to know we never stopped looking."
+        "intro": "{player_name}, my brother left {location} six weeks ago to deliver goods to a neighboring settlement. He never arrived. Nobody's seen him since.",
+        "plotStep": "The last anyone heard, he was camped {location_hint} when a storm hit. I found his campsite a week later: tent torn, supplies scattered, but no body and no blood. {target_npc} thinks the {enemy_type} might have taken him, but there's no proof either way. I've searched everywhere I can reach on my own, but the trail leads into dangerous territory and I'm no fighter. I need someone who can follow {quest_item} he left along his route: markers he always drops when he travels, little carved stones with our family crest.",
+        "outro": "He's out there somewhere. I can feel it. I just need someone brave enough to find him."
       },
       "playerResponses": [
-        { "text": "I'll find her. If she's out there, I'll bring word.", "action": "ACCEPT" },
-        { "text": "Three seasons is a long time. Are you sure you're ready for what I might find?", "action": "ACCEPT" },
-        { "text": "Missing for that long... I don't want to be the one bringing bad news.", "action": "DECLINE" }
+        { "text": "Six weeks is a long time, but hope isn't lost. I'll follow the trail.", "action": "ACCEPT" },
+        { "text": "Tracking someone through hostile territory is dangerous work. What can you offer?", "action": "ACCEPT", "dispositionShift": -5 },
+        { "text": "After six weeks, the odds of finding him alive are slim. I'm sorry.", "action": "DECLINE" }
+      ],
+      "objectivePool": ["EXPLORE_LOCATION", "GATHER_ITEMS", "KILL_MOBS"],
+      "objectiveConfig": {
+        "EXPLORE_LOCATION": { "countMin": 2, "countMax": 3 },
+        "GATHER_ITEMS": { "countMin": 3, "countMax": 6 },
+        "KILL_MOBS": { "countMin": 2, "countMax": 5 }
+      }
+    },
+    {
+      "id": "recovery_lost_expo_separated_child",
+      "bindings": {
+        "quest_action": "rescue the lost child",
+        "quest_focus": "the child's last sighting",
+        "quest_stakes": "a parent's sanity",
+        "quest_threat": "wilderness dangers",
+        "quest_origin": "a raid's chaos",
+        "quest_time_pressure": "before nightfall"
+      },
+      "dialogueChunks": {
+        "intro": "Please, {player_name}, you have to help me. My daughter wandered off during the {enemy_type} attack and nobody's seen her since.",
+        "plotStep": "When the {enemy_type} hit {location} yesterday, everyone scattered. In the chaos, my daughter was separated from the group fleeing toward the shelters. {target_npc} saw her running toward the old mill {location_hint}, but nobody could follow because the {enemy_type} were between us and her. The attack has been repelled, but the roads aren't clear. She's seven years old, alone, and she doesn't know the forest. I need you to find {quest_item} she was carrying: her toy bear, her water skin, anything that shows which direction she went.",
+        "outro": "She's smart and she's tough, but she's a child alone in the wild. Every hour counts."
+      },
+      "playerResponses": [
+        { "text": "A child alone out there? I'm already moving. Which direction was the mill?", "action": "ACCEPT" },
+        { "text": "I'll find her. Try to stay calm until I get back.", "action": "ACCEPT" },
+        { "text": "The forest is crawling with threats after that attack. I can't guarantee anything.", "action": "DECLINE" }
       ],
       "objectivePool": ["EXPLORE_LOCATION", "TALK_TO_NPC", "KILL_MOBS"],
       "objectiveConfig": {
-        "EXPLORE_LOCATION": { "countMin": 2, "countMax": 4 },
+        "EXPLORE_LOCATION": { "countMin": 2, "countMax": 3 },
         "TALK_TO_NPC": { "countMin": 1, "countMax": 1 },
         "KILL_MOBS": { "countMin": 2, "countMax": 5 }
       }
     },
     {
-      "id": "recovery_of_a_lost_one_expo_02",
+      "id": "recovery_lost_expo_old_friend",
       "bindings": {
-        "quest_action": "follow boot prints through the wilderness to find the missing person",
-        "quest_focus": "a friend who disappeared during a raid six months ago",
-        "quest_stakes": "everyone else has accepted their death, but the evidence says otherwise",
-        "quest_threat": "enemy territory and a trail that could go cold at any moment",
-        "quest_origin": "fresh boot prints with a repair pattern I stitched myself"
+        "quest_action": "track down a missing ally",
+        "quest_focus": "the last known location",
+        "quest_stakes": "an old bond honored",
+        "quest_threat": "hostile territory",
+        "quest_origin": "a broken promise to return"
       },
       "dialogueChunks": {
-        "intro": "I know what people think, {player_name}. They think I'm chasing ghosts. But I know what I saw.",
-        "plotStep": "{target_npc} disappeared during a {enemy_type} raid on {location} six months ago. The guards held a memorial. But two weeks ago, I found {quest_origin} while gathering {quest_item} {location_hint}. {quest_stakes}. Someone is out there, and I believe it's {target_npc}. I need you to {quest_action}.",
-        "outro": "{quest_focus}: until I see a grave with my own eyes, I won't accept it. {quest_threat} is all that stands between us."
+        "intro": "{player_name}, I've been looking for someone for a very long time. And I think I've finally found a lead.",
+        "plotStep": "{target_npc} and I built {location} together, back when this was nothing but trees and mud. Three years ago, they left to establish a trade route through {location_hint} and promised to return within a season. That season turned into three years of silence. Last week, a trader passing through recognized {quest_item} I described: said they saw it in a camp near the edge of {enemy_type} territory. {target_npc} might be alive, might be captive, might be something I haven't considered. Either way, I owe it to them to find out.",
+        "outro": "We swore we'd never abandon each other. I've already broken that promise once by waiting this long. Not again."
       },
       "playerResponses": [
-        { "text": "Boot prints are evidence. I'll follow the trail.", "action": "ACCEPT" },
-        { "text": "Hope is stubborn. I'll find out if it's justified.", "action": "ACCEPT" },
-        { "text": "Six months in the wild alone? I don't want to give you false hope.", "action": "DECLINE" }
+        { "text": "Three years of searching deserves a real answer. I'll find it.", "action": "ACCEPT" },
+        { "text": "Enemy territory with slim leads. Risky, but I understand the need. What's the pay?", "action": "ACCEPT", "dispositionShift": -5 },
+        { "text": "Three years is a long time. You should prepare for the worst.", "action": "DECLINE" }
       ],
-      "objectivePool": ["EXPLORE_LOCATION", "GATHER_ITEMS", "TALK_TO_NPC"],
+      "objectivePool": ["EXPLORE_LOCATION", "FETCH_ITEM", "KILL_MOBS"],
       "objectiveConfig": {
-        "EXPLORE_LOCATION": { "countMin": 3, "countMax": 5 },
-        "GATHER_ITEMS": { "countMin": 3, "countMax": 8 },
-        "TALK_TO_NPC": { "countMin": 1, "countMax": 1 }
-      }
-    },
-    {
-      "id": "recovery_of_a_lost_one_expo_03",
-      "bindings": {
-        "quest_action": "deliver ransom supplies to a drop point and negotiate release",
-        "quest_focus": "a letter from my apprentice who vanished two years ago",
-        "quest_stakes": "they're alive but held captive, begging for someone to buy their freedom",
-        "quest_threat": "the captors who won't release them without payment",
-        "quest_origin": "two years of guilt for sending them on the expedition where they disappeared",
-        "quest_time_pressure": "the letter was urgent and every day of delay risks their safety"
-      },
-      "dialogueChunks": {
-        "intro": "{player_name}, I need to show you something. Come inside where nobody can hear us.",
-        "plotStep": "{quest_focus} arrived at {location} yesterday, left at the gate overnight. I recognize the handwriting: it's from {target_npc}, my apprentice who vanished two years ago during an expedition {location_hint}. {quest_stakes}. They need {quest_item} to trade for their freedom. I need you to {quest_action} near the old ruins. The {enemy_type} make a direct journey dangerous.",
-        "outro": "{quest_origin}. Now there's a chance to bring them home. {quest_time_pressure}."
-      },
-      "playerResponses": [
-        { "text": "A letter after two years. This changes everything. I'll go.", "action": "ACCEPT" },
-        { "text": "It could be a trap using their handwriting. But I'll check it out.", "action": "ACCEPT", "dispositionShift": -5 },
-        { "text": "A mysterious letter and dangerous territory. This screams ambush.", "action": "DECLINE" }
-      ],
-      "objectivePool": ["FETCH_ITEM", "EXPLORE_LOCATION", "DELIVER_ITEM"],
-      "objectiveConfig": {
+        "EXPLORE_LOCATION": { "countMin": 2, "countMax": 3 },
         "FETCH_ITEM": { "locationPreference": "DUNGEON" },
-        "EXPLORE_LOCATION": { "countMin": 1, "countMax": 3 },
-        "DELIVER_ITEM": {}
+        "KILL_MOBS": { "countMin": 3, "countMax": 7 }
       }
     }
   ]

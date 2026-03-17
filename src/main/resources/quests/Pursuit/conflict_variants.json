@@ -1,155 +1,54 @@
 {
   "variants": [
     {
-      "id": "pursuit_conf_doubled_back",
+      "id": "pursuit_conf_01",
       "dialogueChunks": {
-        "intro": "Report just came in, {player_name}. The situation has changed drastically.",
-        "plotStep": "The target doubled back. While you were tracking {location_hint}, it circled around and struck again: took more {quest_item} and injured {target_npc} in the process. {quest_threat} is smarter than we thought: it's not running, it's playing with us. We found a second trail heading in a completely different direction, and {target_npc} swears there are more {enemy_type} with it now.",
-        "outro": "It's building a force. We need to find its base before our efforts to {quest_action} become a full-scale siege."
+        "intro": "{player_name}, the pursuit is not over. Your efforts to {quest_action} led us to a dead end, but {quest_ally} found new signs.",
+        "plotStep": "{quest_threat} doubled back toward {quest_focus}. The {enemy_type} are providing cover, and they have been massing {location_hint}. We need to push through them to pick up the trail again.",
+        "outro": "{quest_stakes} cannot wait. If we lose the trail now, we lose everything."
       },
       "playerResponses": [
-        { "text": "Smart prey makes for a better hunt. I'll find its den.", "action": "ACCEPT" },
-        { "text": "You said this was one target. Now it's a warband? I need more support.", "action": "ACCEPT", "dispositionShift": -5 },
-        { "text": "This is out of control. You need an army, not one person.", "action": "DECLINE" }
+        { "text": "Then we push through. I am not giving up.", "action": "ACCEPT", "dispositionShift": 10 },
+        { "text": "This chase is getting complicated.", "action": "ACCEPT", "dispositionShift": -3 },
+        { "text": "The trail is cold. It is time to move on.", "action": "DECLINE", "dispositionShift": -5 }
       ],
-      "objectivePool": ["EXPLORE_LOCATION", "KILL_MOBS", "KILL_NPC"],
+      "objectivePool": ["KILL_MOBS", "EXPLORE_LOCATION"],
       "objectiveConfig": {
-        "EXPLORE_LOCATION": { "countMin": 2, "countMax": 3 },
-        "KILL_MOBS": { "countMin": 5, "countMax": 10 },
-        "KILL_NPC": { "countMin": 1, "countMax": 1 }
-      }
-    },
-    {
-      "id": "pursuit_conf_false_trail",
-      "dialogueChunks": {
-        "intro": "We've been played, {player_name}. That trail was a decoy.",
-        "plotStep": "The tracks you followed were planted deliberately to lead us in circles while the real target moved {location_hint}. A farmer saw {enemy_type} dragging something heavy through the fields at midnight. {target_npc} thinks they're fortifying a position at the old ruins, which means they're not planning to leave. {quest_threat} is digging in.",
-        "outro": "We've lost time, but not the hunt. Get to those ruins before {quest_stakes} are compromised further."
-      },
-      "playerResponses": [
-        { "text": "Decoys mean they're afraid of being found. Good. I'm close.", "action": "ACCEPT" },
-        { "text": "I wasted an entire day on a false trail. This better be the right one.", "action": "ACCEPT", "dispositionShift": -5 },
-        { "text": "I'm chasing ghosts. Someone else can take over.", "action": "DECLINE" }
-      ],
-      "objectivePool": ["EXPLORE_LOCATION", "KILL_MOBS", "TALK_TO_NPC"],
-      "objectiveConfig": {
-        "EXPLORE_LOCATION": { "countMin": 1, "countMax": 3 },
-        "KILL_MOBS": { "countMin": 4, "countMax": 8 },
-        "TALK_TO_NPC": { "countMin": 1, "countMax": 1 }
-      }
-    },
-    {
-      "id": "pursuit_conf_hostage",
-      "dialogueChunks": {
-        "intro": "{player_name}, listen carefully. This just became a rescue mission.",
-        "plotStep": "The {enemy_type} we've been tracking took a prisoner: {target_npc} was captured during their last strike. A runner spotted them being dragged toward a camp {location_hint}. If we go in with force, the captors might harm {target_npc}. But if we wait too long, they'll disappear with their hostage. Our pursuit to {quest_action} just got a lot more complicated.",
-        "outro": "We need speed and precision. Find the camp, locate {target_npc}, and bring them back alive. {quest_stakes} depend on it."
-      },
-      "playerResponses": [
-        { "text": "I'll get them out. No one gets left behind.", "action": "ACCEPT" },
-        { "text": "Rescue and pursuit at once? This is going to cost extra.", "action": "ACCEPT", "dispositionShift": -5 },
-        { "text": "A hostage situation is beyond what I signed up for.", "action": "DECLINE" }
-      ],
-      "objectivePool": ["EXPLORE_LOCATION", "TALK_TO_NPC", "KILL_MOBS"],
-      "objectiveConfig": {
-        "EXPLORE_LOCATION": { "countMin": 1, "countMax": 2 },
-        "TALK_TO_NPC": { "countMin": 1, "countMax": 1 },
-        "KILL_MOBS": { "countMin": 3, "countMax": 7 }
-      }
-    },
-    {
-      "id": "pursuit_conf_04",
-      "dialogueChunks": {
-        "intro": "{player_name}, we've got a serious complication. The target isn't alone anymore.",
-        "plotStep": "The {enemy_type} you've been tracking linked up with a second group {location_hint}. What was a lone target is now a fortified warband with sentries, scouts, and a stockpile of stolen {quest_item}. {target_npc} counted at least a dozen fighters. They're dug in, and {quest_threat} has become far more dangerous than we anticipated.",
-        "outro": "Brute force won't work against those numbers. You'll need to find a weakness in their defenses to {quest_action}."
-      },
-      "playerResponses": [
-        { "text": "Numbers don't matter if their defenses have a gap. I'll find one.", "action": "ACCEPT" },
-        { "text": "A warband is not what I signed up for. Double the bounty or I walk.", "action": "ACCEPT", "dispositionShift": -5 },
-        { "text": "A dozen fighters with fortifications? Send the army.", "action": "DECLINE" }
-      ],
-      "objectivePool": ["EXPLORE_LOCATION", "KILL_MOBS", "KILL_NPC"],
-      "objectiveConfig": {
-        "EXPLORE_LOCATION": { "countMin": 1, "countMax": 2 },
-        "KILL_MOBS": { "countMin": 6, "countMax": 12 },
-        "KILL_NPC": { "countMin": 1, "countMax": 1 }
-      }
-    },
-    {
-      "id": "pursuit_conf_05",
-      "dialogueChunks": {
-        "intro": "Bad timing, {player_name}. The target just made things personal.",
-        "plotStep": "They came back in the night and left a message nailed to the gate: a warning, written in blood, threatening to burn the settlement if we keep trying to {quest_action}. {target_npc} found tracks heading {location_hint}, alongside caches of {quest_item} arranged in a pattern. {quest_threat} is marking territory and daring us to respond.",
-        "outro": "We can't ignore a direct threat like this. {quest_stakes} are on the line."
-      },
-      "playerResponses": [
-        { "text": "Threats carved in blood? This ends now. Show me those tracks.", "action": "ACCEPT" },
-        { "text": "They've made it personal, and personal is expensive. Pay up.", "action": "ACCEPT", "dispositionShift": -5 },
-        { "text": "Blood warnings and territory marking? This is above my pay grade.", "action": "DECLINE" }
-      ],
-      "objectivePool": ["EXPLORE_LOCATION", "KILL_NPC", "KILL_MOBS"],
-      "objectiveConfig": {
-        "EXPLORE_LOCATION": { "countMin": 2, "countMax": 3 },
-        "KILL_NPC": { "countMin": 1, "countMax": 1 },
         "KILL_MOBS": { "countMin": 4, "countMax": 8 }
       }
     },
     {
-      "id": "pursuit_conf_06",
+      "id": "pursuit_conf_02",
       "dialogueChunks": {
-        "intro": "New intelligence, {player_name}. And none of it is good.",
-        "plotStep": "The {enemy_type} we've been chasing went underground: literally. {target_npc} tracked them to a tunnel entrance {location_hint} that connects to a network of old mining shafts. They've taken the {quest_item} down there with them. {quest_threat} is using the underground network to move without being seen, making our pursuit to {quest_action} far more difficult.",
-        "outro": "Underground pursuit is the worst kind of hunt: tight quarters, no visibility, enemy advantage. But if we don't go in, {quest_stakes} will be lost."
+        "intro": "Bad news, {player_name}. While you were working to {quest_action}, {quest_threat} set a trap near {quest_focus}.",
+        "plotStep": "{quest_ally} nearly walked into it. The {enemy_type} have fortified the area {location_hint}. We need to clear them out and recover any {quest_item} they have taken as proof.",
+        "outro": "They are trying to discourage us. Let us show them it will not work."
       },
       "playerResponses": [
-        { "text": "Tight quarters favor a single skilled fighter. I'll flush them out.", "action": "ACCEPT" },
-        { "text": "Underground in enemy territory. Just when I thought this couldn't get worse.", "action": "ACCEPT" },
-        { "text": "I don't fight in tunnels. Find me when they surface.", "action": "DECLINE" }
+        { "text": "Traps will not stop me. Where are they?", "action": "ACCEPT", "dispositionShift": 5 },
+        { "text": "They are getting desperate. Good. So am I.", "action": "ACCEPT", "dispositionShift": 0 }
       ],
-      "objectivePool": ["EXPLORE_LOCATION", "KILL_MOBS", "FETCH_ITEM"],
+      "objectivePool": ["KILL_MOBS", "GATHER_ITEMS", "EXPLORE_LOCATION"],
       "objectiveConfig": {
-        "EXPLORE_LOCATION": { "countMin": 2, "countMax": 3 },
-        "KILL_MOBS": { "countMin": 5, "countMax": 9 },
-        "FETCH_ITEM": { "locationPreference": "DUNGEON" }
+        "KILL_MOBS": { "countMin": 3, "countMax": 7 },
+        "GATHER_ITEMS": { "countMin": 3, "countMax": 6 }
       }
     },
     {
-      "id": "pursuit_conf_07",
+      "id": "pursuit_conf_03",
       "dialogueChunks": {
-        "intro": "I just got word from {target_npc}, {player_name}. The hunt just fractured.",
-        "plotStep": "The target split into three groups heading in different directions. Each group is carrying some of the stolen {quest_item}. It's a classic scatter maneuver: force the pursuer to choose and hope they pick wrong. {target_npc} is watching the one heading toward town. You need to track the other two to {quest_action}.",
-        "outro": "Pick up the trails before they go cold. If even one group escapes, {quest_stakes} remain at risk."
+        "intro": "{player_name}, I was wrong about how far {quest_threat} would go. Since you started to {quest_action}, they have lashed out at {quest_stakes} directly.",
+        "plotStep": "It is personal now. {quest_ally} confirmed that {enemy_type} were sent to {quest_focus} as a distraction while the real target fled {location_hint}. We need to deal with both threats.",
+        "outro": "End this pursuit once and for all. I am counting on you."
       },
       "playerResponses": [
-        { "text": "Two trails, two groups. I'll run them both down.", "action": "ACCEPT" },
-        { "text": "Splitting up is clever. But I've hunted clever prey before.", "action": "ACCEPT" },
-        { "text": "Three groups in three directions? That's three problems. I signed up for one.", "action": "DECLINE" }
+        { "text": "They made this personal. I will finish it.", "action": "ACCEPT", "dispositionShift": 10 },
+        { "text": "Two targets? This had better come with a bonus.", "action": "ACCEPT", "dispositionShift": -5 },
+        { "text": "This is spiraling out of control. I am done.", "action": "DECLINE", "dispositionShift": -10 }
       ],
-      "objectivePool": ["EXPLORE_LOCATION", "KILL_MOBS", "TALK_TO_NPC"],
+      "objectivePool": ["KILL_MOBS", "EXPLORE_LOCATION", "KILL_NPC"],
       "objectiveConfig": {
-        "EXPLORE_LOCATION": { "countMin": 2, "countMax": 4 },
-        "KILL_MOBS": { "countMin": 4, "countMax": 8 },
-        "TALK_TO_NPC": { "countMin": 1, "countMax": 1 }
-      }
-    },
-    {
-      "id": "pursuit_conf_08",
-      "dialogueChunks": {
-        "intro": "{player_name}, hold up. The target set a trap and one of our scouts walked right into it.",
-        "plotStep": "{target_npc} was scouting the ridge {location_hint} when the {enemy_type} sprung an ambush. They're pinned down with no way out. The {enemy_type} aren't pressing the attack: they're using {target_npc} as bait to lure in a rescue party. The stolen {quest_item} is secondary right now: we need to extract our scout without walking into the same trap, then finish the job to {quest_action}.",
-        "outro": "Get {target_npc} out alive and then we finish this hunt. {quest_threat} thinks they're the predators here. Time to correct that assumption."
-      },
-      "playerResponses": [
-        { "text": "They want me to walk into a trap? I'll spring it on my terms.", "action": "ACCEPT" },
-        { "text": "Rescue and counterattack at once. That's going to take everything I've got.", "action": "ACCEPT" },
-        { "text": "A baited trap with a hostage? This has gone too far.", "action": "DECLINE" }
-      ],
-      "objectivePool": ["EXPLORE_LOCATION", "KILL_MOBS", "TALK_TO_NPC"],
-      "objectiveConfig": {
-        "EXPLORE_LOCATION": { "countMin": 1, "countMax": 2 },
-        "KILL_MOBS": { "countMin": 5, "countMax": 10 },
-        "TALK_TO_NPC": { "countMin": 1, "countMax": 1 }
+        "KILL_MOBS": { "countMin": 3, "countMax": 8 }
       }
     }
   ]

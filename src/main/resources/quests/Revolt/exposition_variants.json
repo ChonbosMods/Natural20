@@ -3,105 +3,75 @@
     {
       "id": "revolt_expo_01",
       "bindings": {
-        "quest_action": "gather evidence of the commander's corruption and rally support",
-        "quest_focus": "the commander's private stockpile of diverted supplies",
-        "quest_stakes": "the people scraping by on scraps while one person hoards",
-        "quest_threat": "a corrupt commander who threatens exile for anyone who speaks up",
-        "quest_origin": "months of supply diversion and intimidation"
+        "quest_action": "rally the dissenters",
+        "quest_focus": "the garrison outpost",
+        "quest_stakes": "the oppressed workers",
+        "quest_threat": "the corrupt overseer",
+        "quest_origin": "years of exploitation"
       },
       "dialogueChunks": {
-        "intro": "Keep your voice down, {player_name}. The walls have ears these days, and not all of them are friendly.",
-        "plotStep": "{quest_threat} has been hoarding supplies while {quest_stakes}. {target_npc} caught them diverting {quest_item} to {quest_focus} {location_hint}. When confronted, the commander doubled the guard and threatened anyone who speaks up. We need someone from outside to {quest_action}: someone who can't be intimidated or banished.",
-        "outro": "We built this settlement together. Every brick, every beam. And now one person acts like they own it all. That ends now."
+        "intro": "{player_name}, for too long {quest_threat} has ground {quest_stakes} into the dirt. {quest_origin} have pushed people past their breaking point.",
+        "plotStep": "We intend to {quest_action} and challenge the authority at {quest_focus}. But we need supplies first. Gather {quest_item} from {location_hint} so we can prepare. The {enemy_type} serving the overseer patrol the roads.",
+        "outro": "This is not recklessness: it is survival. Without change, there is nothing left for us here."
       },
       "playerResponses": [
-        { "text": "Hoarding while people starve? I'll help you expose the truth.", "action": "ACCEPT" },
-        { "text": "Political disputes aren't my specialty, but corruption is corruption. I'm in.", "action": "ACCEPT" },
-        { "text": "Internal power struggles are a hornet's nest. I'd rather not get stung.", "action": "DECLINE" }
+        { "text": "Tyranny should always be challenged. I will help you prepare.", "action": "ACCEPT", "dispositionShift": 15 },
+        { "text": "Revolts are messy. Are you sure about this?", "action": "ACCEPT", "dispositionShift": 0 },
+        { "text": "I do not pick sides in local politics.", "action": "DECLINE", "dispositionShift": -5 }
       ],
-      "objectivePool": ["EXPLORE_LOCATION", "GATHER_ITEMS", "TALK_TO_NPC"],
+      "objectivePool": ["GATHER_ITEMS", "TALK_TO_NPC", "EXPLORE_LOCATION"],
       "objectiveConfig": {
-        "EXPLORE_LOCATION": { "countMin": 1, "countMax": 2 },
-        "GATHER_ITEMS": { "countMin": 3, "countMax": 6 },
-        "TALK_TO_NPC": { "countMin": 1, "countMax": 1 }
+        "GATHER_ITEMS": { "countMin": 5, "countMax": 12 }
       }
     },
     {
       "id": "revolt_expo_02",
       "bindings": {
-        "quest_action": "stockpile enough supplies to sustain the settlement independently",
-        "quest_focus": "the unjust tax draining every family dry",
-        "quest_stakes": "farmers breaking their backs while soldiers eat like kings",
-        "quest_threat": "a garrison commander who taxes a third of everything we produce",
-        "quest_origin": "a tax imposed last month that pushed us past the breaking point"
+        "quest_action": "sabotage the supply depot",
+        "quest_focus": "the warlord's stores",
+        "quest_stakes": "the subjugated village",
+        "quest_threat": "the occupying force",
+        "quest_time_pressure": "before reinforcements arrive"
       },
       "dialogueChunks": {
-        "intro": "You picked a hell of a time to visit, {player_name}. Things are about to change around here.",
-        "plotStep": "{quest_threat}: {quest_focus} goes to the guard barracks. {quest_stakes} while the soldiers feast. {target_npc} tried to petition for relief and got thrown in the stocks. Half the settlement is ready to refuse the tax, but we need {quest_item} to {quest_action} and hold the line when troops come to collect.",
-        "outro": "We're not rebels, {player_name}. We're people who've been pushed past the breaking point. Will you stand with us?"
+        "intro": "{player_name}, {quest_threat} has held {quest_stakes} under their boot for too long. They rule through fear and force, but they have a weakness.",
+        "plotStep": "We need to {quest_action} {quest_time_pressure}. Their strength depends on {quest_focus}, and without it, their grip loosens. The {enemy_type} guard the area {location_hint}. Bring back any {quest_item} you can seize.",
+        "outro": "If we cut their supply line, the people will find the courage to stand up. This is how it starts."
       },
       "playerResponses": [
-        { "text": "A third of everything? That's not a tax, it's theft. Count me in.", "action": "ACCEPT" },
-        { "text": "Standing against armed soldiers is risky. What's your plan?", "action": "ACCEPT" },
-        { "text": "I don't pick sides in local politics. Sort this out yourselves.", "action": "DECLINE" }
+        { "text": "Strike at their supplies, break their hold. Smart plan.", "action": "ACCEPT", "dispositionShift": 10 },
+        { "text": "How many guards are we talking about?", "action": "ACCEPT", "dispositionShift": -3 },
+        { "text": "Poking a warlord sounds like a death sentence.", "action": "DECLINE", "dispositionShift": -10 }
       ],
-      "objectivePool": ["GATHER_ITEMS", "TALK_TO_NPC", "EXPLORE_LOCATION"],
+      "objectivePool": ["KILL_MOBS", "GATHER_ITEMS", "EXPLORE_LOCATION"],
       "objectiveConfig": {
-        "GATHER_ITEMS": { "countMin": 5, "countMax": 12 },
-        "TALK_TO_NPC": { "countMin": 1, "countMax": 1 },
-        "EXPLORE_LOCATION": { "countMin": 1, "countMax": 2 }
+        "KILL_MOBS": { "countMin": 4, "countMax": 8 },
+        "GATHER_ITEMS": { "countMin": 3, "countMax": 8 }
       }
     },
     {
       "id": "revolt_expo_03",
       "bindings": {
-        "quest_action": "establish an independent trading post beyond the consortium's reach",
-        "quest_focus": "the trade monopoly that controls who buys and sells",
-        "quest_stakes": "every independent trader crushed by rigged prices",
-        "quest_threat": "a merchant consortium that confiscates goods and burns stalls",
-        "quest_origin": "years of price-fixing and suppression of free trade"
+        "quest_action": "deliver the message",
+        "quest_focus": "the hidden meeting place",
+        "quest_stakes": "the resistance movement",
+        "quest_threat": "the loyalist patrols",
+        "quest_origin": "the unjust taxes",
+        "quest_reward_hint": "the movement's gratitude"
       },
       "dialogueChunks": {
-        "intro": "I'm going to tell you something dangerous, {player_name}. Dangerous for me and dangerous for you, just by hearing it.",
-        "plotStep": "{quest_threat} controls all trade here. They set prices, decide who buys, and anyone who trades independently has their goods seized. {target_npc} had their entire inventory of {quest_item} confiscated for undercutting the consortium. A group of us want to {quest_action} {location_hint}, but the route is infested with {enemy_type} and we need supplies to build it.",
-        "outro": "Freedom to trade shouldn't require permission from {quest_focus}. Help us build something they can't control."
+        "intro": "Keep your voice down, {player_name}. Since {quest_origin} began draining us dry, {quest_stakes} have been organizing in secret. {quest_threat} are everywhere.",
+        "plotStep": "We need someone the patrols do not recognize to {quest_action} to {quest_focus}. It is {location_hint}. Pick up {quest_item} on the way: the resistance needs them.",
+        "outro": "If {quest_threat} intercept this message, people will die. But if it gets through, everything changes. You would earn {quest_reward_hint}."
       },
       "playerResponses": [
-        { "text": "A free trading post? That's a cause worth fighting for.", "action": "ACCEPT" },
-        { "text": "Breaking a trade monopoly sounds profitable for everyone. I'm listening.", "action": "ACCEPT", "dispositionShift": -5 },
-        { "text": "Cross a merchant consortium? Those people have long memories and deep pockets. No thanks.", "action": "DECLINE" }
+        { "text": "I can move unseen. Give me the message.", "action": "ACCEPT", "dispositionShift": 10 },
+        { "text": "Courier work through hostile territory. What is in it for me?", "action": "ACCEPT", "dispositionShift": -5 },
+        { "text": "I am no revolutionary. Find someone else.", "action": "DECLINE" }
       ],
-      "objectivePool": ["EXPLORE_LOCATION", "KILL_MOBS", "GATHER_ITEMS"],
+      "objectivePool": ["DELIVER_ITEM", "GATHER_ITEMS", "EXPLORE_LOCATION"],
       "objectiveConfig": {
-        "EXPLORE_LOCATION": { "countMin": 2, "countMax": 3 },
-        "KILL_MOBS": { "countMin": 3, "countMax": 6 },
         "GATHER_ITEMS": { "countMin": 4, "countMax": 10 }
-      }
-    },
-    {
-      "id": "revolt_expo_04",
-      "bindings": {
-        "quest_action": "expose the warden's deal and free the forced laborers",
-        "quest_focus": "the secret labor deal with hostile creatures",
-        "quest_stakes": "workers being forced into enemy territory under threat",
-        "quest_threat": "a warden selling our people's labor to the enemy",
-        "quest_origin": "a betrayal discovered when workers were followed to enemy overseers"
-      },
-      "dialogueChunks": {
-        "intro": "{player_name}, I need to ask you something, and I need you to decide quickly. Before the patrol comes back around.",
-        "plotStep": "{quest_threat}: sending workers into {enemy_type} territory to mine {quest_item} in exchange for personal protection. {target_npc} discovered {quest_focus} when they followed a work crew {location_hint} and saw them handing over ore to enemy overseers. {quest_stakes} are terrified: the warden has threatened their families. We need proof, allies, and to {quest_action}.",
-        "outro": "Our own leader is trading our people's sweat and safety for personal gain. This betrayal cannot stand."
-      },
-      "playerResponses": [
-        { "text": "Selling labor to hostile creatures? That's slavery with a middleman. I'll help you end it.", "action": "ACCEPT" },
-        { "text": "This is bigger than a revolt: this is liberation. Tell me the plan.", "action": "ACCEPT", "dispositionShift": 5 },
-        { "text": "Going against a warden with {enemy_type} allies? The odds are terrible.", "action": "DECLINE" }
-      ],
-      "objectivePool": ["EXPLORE_LOCATION", "TALK_TO_NPC", "FETCH_ITEM"],
-      "objectiveConfig": {
-        "EXPLORE_LOCATION": { "countMin": 1, "countMax": 2 },
-        "TALK_TO_NPC": { "countMin": 1, "countMax": 1 },
-        "FETCH_ITEM": { "locationPreference": "DUNGEON" }
       }
     }
   ]

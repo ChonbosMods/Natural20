@@ -1,45 +1,43 @@
 {
   "variants": [
     {
-      "id": "loss_of_loved_ones_reso_01",
+      "id": "loss_loved_reso_01",
       "dialogueChunks": {
-        "intro": "The shelves are full, {player_name}. For the first time since he's been gone, the pantry looks the way he used to keep it.",
-        "plotStep": "I spent the morning organizing everything his way. {target_npc} said the house smells like it used to: like someone's home, not someone's absence. {quest_focus} is getting easier. I even cooked his favorite recipe last night. It wasn't as good as his, but close. Close enough. {quest_stakes} is over.",
-        "outro": "You didn't just bring supplies. You brought back a piece of a life I thought was over. Take this, with more gratitude than words can hold."
+        "intro": "The memorial is finished, {player_name}. The whole settlement gathered for the dedication.",
+        "plotStep": "{target_npc} spoke at the ceremony, the first words they've said in weeks. They talked about the people we lost: not how they died, but how they lived. The farmer who always shared his harvest. The guard who taught the children sword forms with wooden sticks. The elder who remembered every name and every birthday. When the torches were lit and the names read aloud, something shifted in {location}. Not healing exactly, but the beginning of it. The settlement voted unanimously to stay and rebuild.",
+        "outro": "You gave us the materials, but more than that, you gave us the space to grieve properly. Take this, and know that every name on that memorial includes yours in spirit."
       },
       "playerResponses": [
-        { "text": "Close enough is a beautiful thing. Take care of yourself.", "action": "ACCEPT", "dispositionShift": 10 },
-        { "text": "He'd be proud to see those shelves. I'm sure of it.", "action": "ACCEPT" },
-        { "text": "A home that smells like home again. That's the best outcome.", "action": "ACCEPT" }
+        { "text": "Remembering how they lived matters more than how they died. I'm glad it helped.", "action": "ACCEPT", "dispositionShift": 10 },
+        { "text": "A community that mourns together can rebuild together. Take care.", "action": "ACCEPT" }
       ],
       "objectivePool": [],
       "objectiveConfig": {}
     },
     {
-      "id": "loss_of_loved_ones_reso_02",
+      "id": "loss_loved_reso_02",
       "dialogueChunks": {
-        "intro": "Come look, {player_name}. Come look at the garden.",
-        "plotStep": "The tomatoes are growing. Small and green, but growing. {target_npc} helped me plant the seeds you brought, and we talked about her: not about how she died, but how she lived. {quest_focus} doesn't fill the hole she left. Nothing will. But it keeps her hands in the soil. {quest_stakes} was never about tomatoes: it was about remembering.",
-        "outro": "You gave this garden a second chance. That's more than I can ever repay."
+        "intro": "She held it to her chest, {player_name}. The moment I gave it to her, she held it and wouldn't let go.",
+        "plotStep": "My daughter doesn't understand death yet. She's too young for that. But she understands that the carved figure you recovered smells like her father's workshop and fits in her hand the way it was meant to. She sleeps with it now, and sometimes she whispers to it. {target_npc} says children process grief through objects and rituals, and that this keepsake will become the anchor for every memory she builds of him as she grows. You gave her something no amount of time could replace.",
+        "outro": "He would have liked you, I think. He always admired people who did hard things for simple reasons. Take this, from both of us."
       },
       "playerResponses": [
-        { "text": "Her hands in the soil. That makes perfect sense. Be well.", "action": "ACCEPT", "dispositionShift": 15 },
-        { "text": "When those tomatoes ripen, share them the way she would have.", "action": "ACCEPT" }
+        { "text": "A child holding her father's last gift. That image will stay with me.", "action": "ACCEPT", "dispositionShift": 10 },
+        { "text": "I'm glad she has something to hold onto. Take care of her.", "action": "ACCEPT" }
       ],
       "objectivePool": [],
       "objectiveConfig": {}
     },
     {
-      "id": "loss_of_loved_ones_reso_03",
+      "id": "loss_loved_reso_03",
       "dialogueChunks": {
-        "intro": "The delivery arrived, {player_name}. His last delivery, completed at last.",
-        "plotStep": "The settlement sent back a letter of thanks. They had no idea someone died trying to bring it the first time. {target_npc} read it aloud at the tavern and the whole room went quiet. Then someone raised a glass to my brother. Strangers who never knew him, drinking to his memory. {quest_focus} is complete. I cooked his favorite meal that night. The taste is coming back to me, slowly.",
-        "outro": "{quest_action} is done. His journey is complete, and mine can finally begin again. Take this: it's the least his memory deserves."
+        "intro": "The tower is finished, {player_name}. I set the last stone this morning, right as the sun came up.",
+        "plotStep": "I stood on top and looked out over {location} and cried. Not the hopeless kind of crying I've been doing for weeks: the kind that comes when something heavy finally lifts. {target_npc} came up and stood with me, and we didn't say anything for a long time. The tower works: you can see the approaches from every direction, and the guards are already planning watch rotations. My partner would have loved the view. I carved their name into the cornerstone where it will outlast all of us.",
+        "outro": "You brought me the materials, but you also brought me a reason to get out of bed in the morning. That's not a small thing. Take this."
       },
       "playerResponses": [
-        { "text": "Kindness that outlasts a life is the greatest legacy. He'd be proud.", "action": "ACCEPT", "dispositionShift": 10 },
-        { "text": "A glass raised by strangers. That's a fine memorial.", "action": "ACCEPT" },
-        { "text": "The taste coming back: hold onto that. It means you're healing.", "action": "ACCEPT" }
+        { "text": "A name in stone and a purpose renewed. They'd be proud of what you built.", "action": "ACCEPT", "dispositionShift": 5 },
+        { "text": "The best memorials are the ones that keep the living safe. Well done.", "action": "ACCEPT" }
       ],
       "objectivePool": [],
       "objectiveConfig": {}

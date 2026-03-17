@@ -1,154 +1,54 @@
 {
   "variants": [
     {
-      "id": "daring_conf_rival",
+      "id": "daringenterprise_conf_01",
       "dialogueChunks": {
-        "intro": "Bad news, {player_name}. We've got competition.",
-        "plotStep": "A rival expedition is after the same prize from {quest_focus}. {target_npc} spotted their scouts heading {location_hint} with a full supply train. They've got numbers on their side, but we've got speed. If we don't move fast, they'll strip the place clean before we can {quest_action}.",
-        "outro": "We didn't come this far to lose to latecomers. Get in there first and claim what's ours."
+        "intro": "{player_name}, the enterprise is not going as planned. Your work to {quest_action} uncovered something we did not expect.",
+        "plotStep": "{quest_threat} are far more dangerous than we anticipated. {quest_ally} barely made it back from {quest_focus} alive. We need to push through: {quest_item} can be found {location_hint} and may give us the edge we need.",
+        "outro": "We have come too far to turn back now. {quest_stakes} are within reach."
       },
       "playerResponses": [
-        { "text": "Then there's no time to waste. I'm moving now.", "action": "ACCEPT" },
-        { "text": "Competition means this prize is worth even more. I want a bigger share.", "action": "ACCEPT", "dispositionShift": -5 },
-        { "text": "I didn't sign up for a race. Count me out.", "action": "DECLINE" }
+        { "text": "We press forward. No turning back.", "action": "ACCEPT", "dispositionShift": 10 },
+        { "text": "You underestimated the danger. This will cost extra.", "action": "ACCEPT", "dispositionShift": -5 },
+        { "text": "This is beyond what I signed up for.", "action": "DECLINE", "dispositionShift": -10 }
+      ],
+      "objectivePool": ["KILL_MOBS", "GATHER_ITEMS", "EXPLORE_LOCATION"],
+      "objectiveConfig": {
+        "KILL_MOBS": { "countMin": 4, "countMax": 9 },
+        "GATHER_ITEMS": { "countMin": 3, "countMax": 8 }
+      }
+    },
+    {
+      "id": "daringenterprise_conf_02",
+      "dialogueChunks": {
+        "intro": "Complications, {player_name}. After you managed to {quest_action}, we triggered something. {quest_threat} have become agitated.",
+        "plotStep": "The {enemy_type} are now actively guarding the area around {quest_focus}. {quest_ally} thinks we need to deal with them directly before we can proceed. They have been concentrated {location_hint}.",
+        "outro": "We are so close. Clear the way and {quest_stakes} will be ours."
+      },
+      "playerResponses": [
+        { "text": "Nothing worth having comes easy. I will clear them out.", "action": "ACCEPT", "dispositionShift": 5 },
+        { "text": "You are lucky I enjoy a good fight.", "action": "ACCEPT", "dispositionShift": 0 }
+      ],
+      "objectivePool": ["KILL_MOBS", "EXPLORE_LOCATION"],
+      "objectiveConfig": {
+        "KILL_MOBS": { "countMin": 5, "countMax": 10 }
+      }
+    },
+    {
+      "id": "daringenterprise_conf_03",
+      "dialogueChunks": {
+        "intro": "{player_name}, I will not sugarcoat it. Our attempt to {quest_action} hit a wall. {quest_threat} destroyed our preparations.",
+        "plotStep": "We need to start over, and quickly. {quest_ally} says there is an alternate approach through an area {location_hint}, but {enemy_type} have been seen there. Someone needs to scout ahead and secure {quest_item} for a second attempt.",
+        "outro": "{quest_stakes} slip further away every day we delay. Are you still with us?"
+      },
+      "playerResponses": [
+        { "text": "A setback, not a defeat. Let us try again.", "action": "ACCEPT", "dispositionShift": 10 },
+        { "text": "This plan keeps falling apart. Last chance.", "action": "ACCEPT", "dispositionShift": -5 },
+        { "text": "I am done chasing a fool's dream.", "action": "DECLINE", "dispositionShift": -10 }
       ],
       "objectivePool": ["EXPLORE_LOCATION", "FETCH_ITEM", "KILL_MOBS"],
       "objectiveConfig": {
-        "EXPLORE_LOCATION": { "countMin": 1, "countMax": 2 },
-        "FETCH_ITEM": { "locationPreference": "DUNGEON" },
-        "KILL_MOBS": { "countMin": 4, "countMax": 8 }
-      }
-    },
-    {
-      "id": "daring_conf_trap",
-      "dialogueChunks": {
-        "intro": "You made it back. Good. Because my intel was wrong and I owe you the truth.",
-        "plotStep": "{quest_focus} isn't just guarded: it's a trap. The {enemy_type} aren't nesting there by accident. Something is using the {quest_item} as bait to lure in adventurers. {target_npc} found markings near the entrance: deliberate, organized, predatory. We need a new approach to {quest_action}: scout the perimeter, find another way in, and neutralize whatever is coordinating those creatures.",
-        "outro": "I won't blame you if you walk away. But if you're still in, {quest_stakes} just became the kind of story people tell for generations."
-      },
-      "playerResponses": [
-        { "text": "A trap makes it interesting. Let's spring it on our terms.", "action": "ACCEPT" },
-        { "text": "You almost got me killed with bad intel. Don't let it happen again.", "action": "ACCEPT", "dispositionShift": -5 },
-        { "text": "Walking into a known trap is just stupidity. I'm out.", "action": "DECLINE" }
-      ],
-      "objectivePool": ["EXPLORE_LOCATION", "KILL_MOBS", "KILL_NPC"],
-      "objectiveConfig": {
-        "EXPLORE_LOCATION": { "countMin": 2, "countMax": 3 },
-        "KILL_MOBS": { "countMin": 5, "countMax": 10 },
-        "KILL_NPC": { "countMin": 1, "countMax": 1 }
-      }
-    },
-    {
-      "id": "daring_conf_escalation",
-      "dialogueChunks": {
-        "intro": "Incredible work so far, {player_name}, but listen carefully: the situation has evolved.",
-        "plotStep": "What we thought was a simple retrieval from {quest_focus} has turned into something much bigger. The {quest_item} you found is only a fragment. {target_npc} deciphered the inscriptions: without all three pieces, what we have is worthless. The second piece is held by a {enemy_type} chieftain {location_hint} who won't part with it willingly.",
-        "outro": "We're in too deep to turn back now. One more piece, and we {quest_action} for real. Are you ready?"
-      },
-      "playerResponses": [
-        { "text": "One chieftain between us and history? Let's go.", "action": "ACCEPT" },
-        { "text": "The scope keeps growing. So should my reward.", "action": "ACCEPT", "dispositionShift": -5 },
-        { "text": "You keep moving the goalposts. I'm done.", "action": "DECLINE" }
-      ],
-      "objectivePool": ["KILL_NPC", "FETCH_ITEM", "EXPLORE_LOCATION"],
-      "objectiveConfig": {
-        "KILL_NPC": { "countMin": 1, "countMax": 1 },
-        "FETCH_ITEM": { "locationPreference": "DUNGEON" },
-        "EXPLORE_LOCATION": { "countMin": 1, "countMax": 2 }
-      }
-    },
-    {
-      "id": "daring_conf_04",
-      "dialogueChunks": {
-        "intro": "Sit down, {player_name}. We need to rethink this entire operation.",
-        "plotStep": "The {quest_item} we recovered from {quest_focus} has been tampered with. Someone carved new markings over the originals, redirecting us toward a dead end {location_hint}. We were being led into a trap by whoever got there before us. The real prize is still out there, but now we're racing against an unknown adversary who clearly knows these ruins better than we do. And they've left {enemy_type} sentries along every approach.",
-        "outro": "Whoever is behind this underestimated us. Let's prove them wrong and {quest_action}."
-      },
-      "playerResponses": [
-        { "text": "Someone is playing games with us? Time to change the rules.", "action": "ACCEPT" },
-        { "text": "An unknown rival with traps and sentries? This costs extra.", "action": "ACCEPT", "dispositionShift": -5 },
-        { "text": "I'm not interested in someone else's puzzle. Find another champion.", "action": "DECLINE" }
-      ],
-      "objectivePool": ["EXPLORE_LOCATION", "KILL_MOBS", "FETCH_ITEM"],
-      "objectiveConfig": {
-        "EXPLORE_LOCATION": { "countMin": 2, "countMax": 3 },
-        "KILL_MOBS": { "countMin": 4, "countMax": 8 },
-        "FETCH_ITEM": { "locationPreference": "DUNGEON" }
-      }
-    },
-    {
-      "id": "daring_conf_05",
-      "dialogueChunks": {
-        "intro": "Great news and terrible news, {player_name}. Which do you want first?",
-        "plotStep": "The great news: {target_npc} confirmed that {quest_focus} holds even more than we estimated. The terrible news: a clan of {enemy_type} has claimed the entire cavern system as their nesting ground since our last visit. They've dug new tunnels, collapsed old ones, and turned the place into a maze. Our original maps are useless. You'll need to scout a new path through to {quest_action}.",
-        "outro": "{quest_stakes} just got bigger, but so did the risk. That's what makes this an enterprise and not a stroll."
-      },
-      "playerResponses": [
-        { "text": "Bigger prize, bigger fight. I like those odds.", "action": "ACCEPT" },
-        { "text": "A maze full of monsters. Wonderful. Let's get it over with.", "action": "ACCEPT" },
-        { "text": "Collapsed tunnels and nesting creatures? That's a death trap.", "action": "DECLINE" }
-      ],
-      "objectivePool": ["EXPLORE_LOCATION", "KILL_MOBS", "GATHER_ITEMS"],
-      "objectiveConfig": {
-        "EXPLORE_LOCATION": { "countMin": 2, "countMax": 4 },
-        "KILL_MOBS": { "countMin": 5, "countMax": 10 },
-        "GATHER_ITEMS": { "countMin": 4, "countMax": 8 }
-      }
-    },
-    {
-      "id": "daring_conf_06",
-      "dialogueChunks": {
-        "intro": "Back already? Good, because I need you to turn right around. There's been a development.",
-        "plotStep": "A merchant guild caught wind of our operation and they're furious. They've hired {enemy_type} mercenaries to secure {quest_focus} {location_hint} before we can get back there. {target_npc} spotted their advance party setting up a blockade this morning. We've got maybe a day before they lock the whole area down.",
-        "outro": "We either break through their line now or lose everything we've worked for. {quest_stakes} slip away if we don't act."
-      },
-      "playerResponses": [
-        { "text": "Mercenaries and a blockade? They're about to find out who got there first.", "action": "ACCEPT" },
-        { "text": "We're making enemies of a merchant guild? The payoff had better be enormous.", "action": "ACCEPT", "dispositionShift": -5 },
-        { "text": "Fighting a merchant guild is a losing proposition. I'm walking away.", "action": "DECLINE" }
-      ],
-      "objectivePool": ["KILL_MOBS", "FETCH_ITEM", "EXPLORE_LOCATION"],
-      "objectiveConfig": {
-        "KILL_MOBS": { "countMin": 6, "countMax": 12 },
-        "FETCH_ITEM": { "locationPreference": "DUNGEON" },
-        "EXPLORE_LOCATION": { "countMin": 1, "countMax": 1 }
-      }
-    },
-    {
-      "id": "daring_conf_07",
-      "dialogueChunks": {
-        "intro": "{player_name}, I'll level with you: I underestimated the scope of this. Badly.",
-        "plotStep": "{quest_focus} isn't just a ruin: it's an entire underground complex. What we found last time was the antechamber. {target_npc} translated the inscriptions on the inner doors: they describe a treasury sealed behind three guardian chambers, each infested with {enemy_type}. The {quest_item} we need to {quest_action} is beyond the third chamber.",
-        "outro": "Three chambers, three fights, one treasure. It's more than I promised, but {quest_stakes} are worth ten times what we originally thought."
-      },
-      "playerResponses": [
-        { "text": "Three guardian chambers? Now this is an enterprise worthy of the name.", "action": "ACCEPT" },
-        { "text": "You keep discovering new obstacles. Triple the original deal.", "action": "ACCEPT", "dispositionShift": -5 },
-        { "text": "Three layers of monsters is three too many. I quit.", "action": "DECLINE" }
-      ],
-      "objectivePool": ["KILL_MOBS", "EXPLORE_LOCATION", "FETCH_ITEM"],
-      "objectiveConfig": {
-        "KILL_MOBS": { "countMin": 6, "countMax": 14 },
-        "EXPLORE_LOCATION": { "countMin": 2, "countMax": 3 },
-        "FETCH_ITEM": { "locationPreference": "DUNGEON" }
-      }
-    },
-    {
-      "id": "daring_conf_08",
-      "dialogueChunks": {
-        "intro": "Change of plans, {player_name}. A big one.",
-        "plotStep": "The route we mapped to {quest_focus} is flooded. Completely impassable. But {target_npc} found something better while scouting an alternate path: a second entrance hidden behind a waterfall {location_hint}. The bad news is it drops straight into the lower levels where the {enemy_type} are thickest. No sneaking past them this time to {quest_action}.",
-        "outro": "It's a gamble. But every great enterprise involves a leap of faith. And I'd rather leap forward than crawl backward."
-      },
-      "playerResponses": [
-        { "text": "A hidden entrance behind a waterfall? That's too good to pass up.", "action": "ACCEPT" },
-        { "text": "No guarantee it connects? You realize I could die for nothing.", "action": "ACCEPT", "dispositionShift": -5 },
-        { "text": "Gambling with my life on a maybe? Absolutely not.", "action": "DECLINE" }
-      ],
-      "objectivePool": ["EXPLORE_LOCATION", "KILL_MOBS"],
-      "objectiveConfig": {
-        "EXPLORE_LOCATION": { "countMin": 2, "countMax": 4 },
-        "KILL_MOBS": { "countMin": 5, "countMax": 10 }
+        "KILL_MOBS": { "countMin": 3, "countMax": 7 }
       }
     }
   ]

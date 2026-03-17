@@ -1,79 +1,81 @@
 {
   "variants": [
     {
-      "id": "obstacles_to_love_expo_01",
+      "id": "obstacles_love_expo_feud",
       "bindings": {
-        "quest_action": "repair the old meeting bridge between the feuding settlements",
-        "quest_focus": "the three-generation feud over a water dispute",
-        "quest_stakes": "both sides are stockpiling weapons and headed toward war",
-        "quest_threat": "hatred so old that nobody alive remembers how it started",
-        "quest_origin": "a friendship across the river forbidden by both families"
+        "quest_action": "broker a truce",
+        "quest_focus": "the feuding families",
+        "quest_stakes": "a forbidden friendship",
+        "quest_threat": "ancestral grudges",
+        "quest_origin": "an old land dispute",
+        "quest_reward_hint": "both families' gratitude"
       },
       "dialogueChunks": {
-        "intro": "{player_name}, you're not from either settlement, which makes you the only person who might actually listen to both sides.",
-        "plotStep": "Two settlements have been locked in {quest_focus} for generations over water rights. My closest friend lives on the other side. {target_npc} carries messages between us in secret, but {quest_stakes}. I need {quest_item} to {quest_action}. If there's neutral ground for talking, maybe reason has a chance.",
-        "outro": "{quest_threat}, and for what? A river with enough water for everyone. Help me build a bridge: the real kind and the kind that matters more."
+        "intro": "{player_name}, you might be the only person in {location} who doesn't have a stake in this feud. That's exactly why I need you.",
+        "plotStep": "Two families here have been at each other's throats for generations over a boundary line that nobody can even find anymore. The problem is, {target_npc} from one side and a friend of mine from the other have been meeting in secret, sharing tools and stories. If their families find out, both of them will be cast out. I need {quest_item} from a meeting place {location_hint} to prove that cooperation works, before the {enemy_type} pressing on our borders make the whole argument pointless.",
+        "outro": "If those two get caught before we can show their families there's a better way, we lose the only bridge between them."
       },
       "playerResponses": [
-        { "text": "A bridge for peace. I'll gather what you need to build it.", "action": "ACCEPT" },
-        { "text": "Three generations is a long time to hate. But bridges are a good start.", "action": "ACCEPT" },
-        { "text": "Getting between feuding settlements is a fast way to make enemies on both sides.", "action": "DECLINE" }
+        { "text": "I'll find what you need. This feud has gone on long enough.", "action": "ACCEPT" },
+        { "text": "Playing peacemaker between angry families? Fine, but I expect compensation.", "action": "ACCEPT", "dispositionShift": -5 },
+        { "text": "Family feuds aren't my problem. Sort it out yourselves.", "action": "DECLINE" }
       ],
-      "objectivePool": ["GATHER_ITEMS", "FETCH_ITEM"],
+      "objectivePool": ["FETCH_ITEM", "EXPLORE_LOCATION", "TALK_TO_NPC"],
       "objectiveConfig": {
-        "GATHER_ITEMS": { "countMin": 6, "countMax": 14 },
-        "FETCH_ITEM": { "locationPreference": "WILDERNESS" }
-      }
-    },
-    {
-      "id": "obstacles_to_love_expo_02",
-      "bindings": {
-        "quest_action": "complete a dangerous proving task to earn resident status",
-        "quest_focus": "the elder council's refusal to grant an outsider belonging",
-        "quest_stakes": "without resident status I can't own property, join the militia, or attend feasts",
-        "quest_threat": "the council insists outsiders bring trouble despite all evidence otherwise",
-        "quest_origin": "six months of hard work, learning customs, and contributing to every harvest"
-      },
-      "dialogueChunks": {
-        "intro": "I've been told I don't belong here, {player_name}. Not in those words, but in every way that counts.",
-        "plotStep": "I arrived in {location} six months ago and found a community worth staying for. {quest_origin}, but {quest_focus} stands firm. {target_npc} has been advocating for me, but {quest_threat}. There's an old tradition: {quest_action} earns the right to stay. The task is gathering {quest_item} from a dangerous location {location_hint} where the {enemy_type} dwell.",
-        "outro": "I don't want charity. I want to earn my place. But {quest_stakes}, and nobody here will help an outsider. Except you."
-      },
-      "playerResponses": [
-        { "text": "You've already proven your worth. Let's make the council see it too.", "action": "ACCEPT" },
-        { "text": "Earning belonging through a dangerous quest. That's a hard tradition, but I'll help.", "action": "ACCEPT" },
-        { "text": "If they don't want you, maybe you should find a community that does.", "action": "DECLINE" }
-      ],
-      "objectivePool": ["GATHER_ITEMS", "EXPLORE_LOCATION", "KILL_MOBS"],
-      "objectiveConfig": {
-        "GATHER_ITEMS": { "countMin": 5, "countMax": 10 },
+        "FETCH_ITEM": { "locationPreference": "WILDERNESS" },
         "EXPLORE_LOCATION": { "countMin": 1, "countMax": 2 },
-        "KILL_MOBS": { "countMin": 2, "countMax": 5 }
+        "TALK_TO_NPC": { "countMin": 1, "countMax": 1 }
       }
     },
     {
-      "id": "obstacles_to_love_expo_03",
+      "id": "obstacles_love_expo_outcast",
       "bindings": {
-        "quest_action": "reunite a split heirloom from the ruin where both halves are kept",
-        "quest_focus": "the divide between artisan families and farming families",
-        "quest_stakes": "both of us will be disowned if our families discover the relationship",
-        "quest_threat": "decades of separation have hardened into rules nobody questions",
-        "quest_origin": "a shared heirloom split during the original community separation"
+        "quest_action": "prove an outsider's worth",
+        "quest_focus": "the shunned traveler",
+        "quest_stakes": "acceptance in the settlement",
+        "quest_threat": "deep-rooted suspicion",
+        "quest_origin": "a stranger's arrival",
+        "quest_reward_hint": "a place earned through deeds"
       },
       "dialogueChunks": {
-        "intro": "Have you ever cared about someone you're not supposed to care about, {player_name}? Not by your own choice, but by everyone else's rules?",
-        "plotStep": "{quest_focus} in {location} runs deep. Different quarters, different festivals. The person I want to spend my life with is from the other side. {target_npc} has been helping us meet in secret, but {quest_stakes}. I want to {quest_action} from {location_hint}: {quest_origin} that might remind people we were one community once.",
-        "outro": "A divided heirloom for a divided settlement. If I can make the pieces fit together again, maybe {quest_threat} will finally crack."
+        "intro": "I need someone who doesn't care about local politics, {player_name}. Someone who judges people by what they do, not where they come from.",
+        "plotStep": "A traveler arrived in {location} two weeks ago and the people here won't give them the time of day. Wrong accent, wrong clothes, wrong everything according to the elders. But {target_npc} has been helping this stranger quietly, and now the council is threatening to strip {target_npc} of their standing. If I can gather {quest_item} from {location_hint} and show the council that outsiders bring value, maybe they'll listen to reason. The {enemy_type} don't care about borders, and neither should we.",
+        "outro": "One good deed from a stranger could undo a lifetime of prejudice. But only if we act before the council meets."
       },
       "playerResponses": [
-        { "text": "Reuniting an heirloom to reunite a community. That's beautiful. I'll help.", "action": "ACCEPT" },
-        { "text": "Old divisions and forbidden bonds. You're either brave or foolish. Either way, I'm in.", "action": "ACCEPT" },
-        { "text": "Community divisions this deep don't heal with symbols. I'm sorry.", "action": "DECLINE" }
+        { "text": "Prejudice is a poison. I'll help you cure it.", "action": "ACCEPT" },
+        { "text": "Changing minds isn't easy. What's in it for me when this works?", "action": "ACCEPT", "dispositionShift": -5 },
+        { "text": "Local politics are exactly what I try to avoid. Good luck.", "action": "DECLINE" }
       ],
-      "objectivePool": ["FETCH_ITEM", "EXPLORE_LOCATION"],
+      "objectivePool": ["GATHER_ITEMS", "TALK_TO_NPC"],
       "objectiveConfig": {
-        "FETCH_ITEM": { "locationPreference": "DUNGEON" },
-        "EXPLORE_LOCATION": { "countMin": 2, "countMax": 3 }
+        "GATHER_ITEMS": { "countMin": 4, "countMax": 8 },
+        "TALK_TO_NPC": { "countMin": 1, "countMax": 1 }
+      }
+    },
+    {
+      "id": "obstacles_love_expo_wall",
+      "bindings": {
+        "quest_action": "open a sealed passage",
+        "quest_focus": "the border wall",
+        "quest_stakes": "two divided communities",
+        "quest_threat": "enforced isolation",
+        "quest_time_pressure": "before the next patrol"
+      },
+      "dialogueChunks": {
+        "intro": "{player_name}, have you seen the wall between our settlement and the one across the ridge? It wasn't always there, and it doesn't need to stay.",
+        "plotStep": "Years ago, a dispute over {quest_item} led the elders to build a barrier cutting off the path between {location} and the neighboring settlement. Families were split apart overnight. {target_npc} has been passing messages through a crack in the stonework, but the guards patrol it constantly. If you can find the old tunnel {location_hint} and clear out the {enemy_type} that have nested in it, we could open a passage that no patrol would ever find.",
+        "outro": "People on both sides are waiting for a chance to see each other again. All they need is a door."
+      },
+      "playerResponses": [
+        { "text": "A wall built on spite deserves to be opened. Show me this tunnel.", "action": "ACCEPT" },
+        { "text": "Tunnels full of monsters and political risk? I'll want proper payment.", "action": "ACCEPT", "dispositionShift": -5 },
+        { "text": "Breaking barriers between settlements is above my pay grade.", "action": "DECLINE" }
+      ],
+      "objectivePool": ["EXPLORE_LOCATION", "KILL_MOBS"],
+      "objectiveConfig": {
+        "EXPLORE_LOCATION": { "countMin": 2, "countMax": 3 },
+        "KILL_MOBS": { "countMin": 3, "countMax": 7 }
       }
     }
   ]

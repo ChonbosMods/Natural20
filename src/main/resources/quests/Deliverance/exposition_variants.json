@@ -3,104 +3,75 @@
     {
       "id": "deliverance_expo_01",
       "bindings": {
-        "quest_action": "rescue the captive from enemy hands",
-        "quest_focus": "the old ruins where they're being held",
-        "quest_stakes": "a life hanging in the balance",
-        "quest_threat": "the captors who grow bolder by the hour",
-        "quest_time_pressure": "every hour closer to losing them forever"
+        "quest_action": "rescue the captives",
+        "quest_focus": "the enemy camp",
+        "quest_stakes": "the taken villagers",
+        "quest_threat": "the slavers",
+        "quest_time_pressure": "before they are moved"
       },
       "dialogueChunks": {
-        "intro": "{player_name}, thank the stars I found you! There's no time to explain properly, but {quest_stakes}.",
-        "plotStep": "{target_npc} was taken by {enemy_type} while traveling the road {location_hint}. A merchant saw them being dragged toward {quest_focus}. The guards are stretched thin and can't spare anyone. {quest_time_pressure}. We need you to {quest_action}.",
-        "outro": "I know it's a terrible thing to ask of a stranger, but you're the only one who can reach them in time."
+        "intro": "{player_name}, {quest_threat} struck our settlement at night and dragged off several people. {quest_stakes} are being held at {quest_focus}.",
+        "plotStep": "We need to {quest_action} quickly, {quest_time_pressure}. {quest_ally} spotted the camp {location_hint}. Gather {quest_item} along the way: we may need them to break through the defenses.",
+        "outro": "Every moment we wait, those people suffer. Please, you are our only hope."
       },
       "playerResponses": [
-        { "text": "Show me where they were taken. I'll bring them back.", "action": "ACCEPT" },
-        { "text": "Rescues are dangerous work. What's in it for me?", "action": "ACCEPT", "dispositionShift": -5 },
-        { "text": "I'm sorry, but I can't take that kind of risk.", "action": "DECLINE" }
+        { "text": "I will bring them home. Every last one.", "action": "ACCEPT", "dispositionShift": 15 },
+        { "text": "How many captors are we talking about?", "action": "ACCEPT", "dispositionShift": 0 },
+        { "text": "That camp sounds like a fortress. I cannot do this alone.", "action": "DECLINE", "dispositionShift": -5 }
       ],
-      "objectivePool": ["EXPLORE_LOCATION", "KILL_MOBS"],
+      "objectivePool": ["EXPLORE_LOCATION", "KILL_MOBS", "GATHER_ITEMS"],
       "objectiveConfig": {
-        "EXPLORE_LOCATION": { "countMin": 1, "countMax": 2 },
-        "KILL_MOBS": { "countMin": 3, "countMax": 7 }
+        "KILL_MOBS": { "countMin": 4, "countMax": 8 },
+        "GATHER_ITEMS": { "countMin": 3, "countMax": 6 }
       }
     },
     {
       "id": "deliverance_expo_02",
       "bindings": {
-        "quest_action": "clear the tunnels and free the trapped travelers",
-        "quest_focus": "the sealed cave system",
-        "quest_stakes": "the travelers trapped underground with dwindling air",
-        "quest_threat": "the collapsed entrance and the creatures moving into the tunnels",
-        "quest_origin": "a rockslide that sealed the caves without warning"
+        "quest_action": "free the trapped miners",
+        "quest_focus": "the collapsed shaft",
+        "quest_stakes": "the workers below",
+        "quest_threat": "the unstable tunnels",
+        "quest_origin": "the earthquake"
       },
       "dialogueChunks": {
-        "intro": "Please, {player_name}, stop! I've been running since dawn trying to find help.",
-        "plotStep": "{quest_stakes} got trapped in {quest_focus} {location_hint} after {quest_origin}. {target_npc} is among them, and they only had supplies for a day. We need {quest_item} to shore up the tunnel, and someone to fight through whatever {enemy_type} have moved in since the collapse. I need you to {quest_action}.",
-        "outro": "They have children with them, {player_name}. Little ones who don't understand why the walls closed in."
+        "intro": "Since {quest_origin}, {player_name}, {quest_stakes} have been trapped inside {quest_focus}. We can hear them calling out, but the path is blocked.",
+        "plotStep": "We need to {quest_action} by clearing the rubble. The {enemy_type} have been drawn to the site by the noise and are lurking {location_hint}. We also need {quest_item} to shore up the walls.",
+        "outro": "Air will run out down there. Every hour counts, {player_name}."
       },
       "playerResponses": [
-        { "text": "Children trapped underground? I'm already moving. Point me the way.", "action": "ACCEPT" },
-        { "text": "I'll dig them out, but I'll need supplies for the effort.", "action": "ACCEPT" },
-        { "text": "Cave rescues are a death trap. I can't help.", "action": "DECLINE" }
+        { "text": "People are trapped. I will not stand by.", "action": "ACCEPT", "dispositionShift": 10 },
+        { "text": "Crawling into a collapsing mine with monsters? What is my cut?", "action": "ACCEPT", "dispositionShift": -5 },
+        { "text": "I am not dying in a hole in the ground.", "action": "DECLINE", "dispositionShift": -10 }
       ],
-      "objectivePool": ["EXPLORE_LOCATION", "KILL_MOBS", "GATHER_ITEMS"],
+      "objectivePool": ["GATHER_ITEMS", "KILL_MOBS", "EXPLORE_LOCATION"],
       "objectiveConfig": {
-        "EXPLORE_LOCATION": { "countMin": 2, "countMax": 3 },
-        "KILL_MOBS": { "countMin": 2, "countMax": 5 },
-        "GATHER_ITEMS": { "countMin": 3, "countMax": 8 }
+        "GATHER_ITEMS": { "countMin": 5, "countMax": 12 },
+        "KILL_MOBS": { "countMin": 3, "countMax": 6 }
       }
     },
     {
       "id": "deliverance_expo_03",
       "bindings": {
-        "quest_action": "break through the siege and rescue the defender",
-        "quest_focus": "the overturned wagon where they're barricaded",
-        "quest_stakes": "the brave soul who held the line so others could flee",
-        "quest_threat": "the ambush force surrounding the barricade",
-        "quest_origin": "an ambush on a refugee caravan"
+        "quest_action": "break the siege",
+        "quest_focus": "the besieged outpost",
+        "quest_stakes": "the stranded defenders",
+        "quest_threat": "the encircling horde",
+        "quest_reward_hint": "the outpost's armory"
       },
       "dialogueChunks": {
-        "intro": "You there! You look capable enough. I need help, and I need it now.",
-        "plotStep": "{quest_origin} left {target_npc} barricaded in {quest_focus} {location_hint}, surrounded by {enemy_type} on all sides. They stayed behind so dozens could escape. The guards sent a scout who says {quest_stakes} won't last another night. I need you to {quest_action}.",
-        "outro": "One person holding the line so dozens could escape. That kind of courage deserves a rescue, not a grave."
+        "intro": "{player_name}, {quest_focus} has been surrounded by {quest_threat} for days. {quest_stakes} are running low on supplies and cannot hold much longer.",
+        "plotStep": "Someone needs to {quest_action} from the outside. The {enemy_type} are dug in {location_hint}. If you bring {quest_item}, the defenders can use them to counterattack.",
+        "outro": "Save them, and you will have access to {quest_reward_hint} and the gratitude of every soul inside those walls."
       },
       "playerResponses": [
-        { "text": "They held the line alone? I'll get them out. Count on it.", "action": "ACCEPT" },
-        { "text": "Sounds like a warzone. I'll go, but I expect proper compensation.", "action": "ACCEPT", "dispositionShift": -5 },
-        { "text": "If the guards can't handle it, one more sword won't make the difference.", "action": "DECLINE" }
+        { "text": "A siege needs breaking? I am on my way.", "action": "ACCEPT", "dispositionShift": 10 },
+        { "text": "Tell me more about this armory.", "action": "ACCEPT", "dispositionShift": -3 },
+        { "text": "One person against a horde? No.", "action": "DECLINE" }
       ],
-      "objectivePool": ["KILL_MOBS", "EXPLORE_LOCATION", "TALK_TO_NPC"],
+      "objectivePool": ["KILL_MOBS", "DELIVER_ITEM", "EXPLORE_LOCATION"],
       "objectiveConfig": {
-        "KILL_MOBS": { "countMin": 4, "countMax": 9 },
-        "EXPLORE_LOCATION": { "countMin": 1, "countMax": 2 },
-        "TALK_TO_NPC": { "countMin": 1, "countMax": 1 }
-      }
-    },
-    {
-      "id": "deliverance_expo_04",
-      "bindings": {
-        "quest_action": "cut through the blockade and bring the stranded families to safety",
-        "quest_focus": "the exposed ridge where the families are stranded",
-        "quest_stakes": "three families with no food and no shelter",
-        "quest_threat": "the floodwaters and the creatures they drew in",
-        "quest_origin": "the storm that swept them off the lowland road"
-      },
-      "dialogueChunks": {
-        "intro": "{player_name}, I won't waste your time with pleasantries. People are going to die if I can't find someone brave enough to act.",
-        "plotStep": "{quest_origin} two nights ago. {quest_stakes} managed to reach {quest_focus} {location_hint}, but {quest_threat} are circling below. {target_npc} tried to lead a rescue party through but was forced back. I need you to {quest_action}.",
-        "outro": "Those people climbed to survive. Now they need someone to carry them the rest of the way."
-      },
-      "playerResponses": [
-        { "text": "I'll cut through whatever's between them and safety.", "action": "ACCEPT" },
-        { "text": "Floods and monsters together? This won't be easy. I'll need payment.", "action": "ACCEPT", "dispositionShift": -5 },
-        { "text": "That's a job for a whole squad, not one person.", "action": "DECLINE" }
-      ],
-      "objectivePool": ["KILL_MOBS", "EXPLORE_LOCATION", "FETCH_ITEM"],
-      "objectiveConfig": {
-        "KILL_MOBS": { "countMin": 3, "countMax": 8 },
-        "EXPLORE_LOCATION": { "countMin": 1, "countMax": 3 },
-        "FETCH_ITEM": { "locationPreference": "WILDERNESS" }
+        "KILL_MOBS": { "countMin": 5, "countMax": 10 }
       }
     }
   ]

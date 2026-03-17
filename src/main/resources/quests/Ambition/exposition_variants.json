@@ -1,80 +1,83 @@
 {
   "variants": [
     {
-      "id": "ambition_expo_01",
+      "id": "ambition_expo_seize_control",
       "bindings": {
-        "quest_action": "claim a hidden resource cache to secure loyalty and seize power",
-        "quest_focus": "a cache of supplies that belonged to the old regime",
-        "quest_stakes": "the settlement suffers under weak, indecisive leadership",
-        "quest_threat": "those in power will resist change and punish anyone who challenges them",
-        "quest_reward_hint": "a powerful ally when the dust settles"
+        "quest_action": "seize the council seat",
+        "quest_focus": "the power vacuum",
+        "quest_stakes": "control of the settlement",
+        "quest_threat": "rival claimants",
+        "quest_origin": "a leader's sudden departure",
+        "quest_reward_hint": "a position of influence"
       },
       "dialogueChunks": {
-        "intro": "Close the door, {player_name}. What I'm about to propose isn't for public ears.",
-        "plotStep": "I've been watching the power structure in {location} for months. {quest_stakes}, and I have a plan to change that. There's {quest_focus} hidden {location_hint} that I can use to secure the loyalty of every craftsperson and guard. {target_npc} thinks I'm mad, but they'll come around. I need you to {quest_action} and bring back the {quest_item}.",
-        "outro": "This isn't greed, {player_name}. This is vision. Help me, and you'll have {quest_reward_hint}."
+        "intro": "{player_name}, opportunity doesn't knock twice. The old leader of {location} is gone, and every schemer in the settlement is circling the empty chair.",
+        "plotStep": "I've spent years building connections, stockpiling favors, and waiting for exactly this moment. But my rivals are moving fast. {target_npc} has already started promising people things they can't deliver. I need {quest_item} from {location_hint} to secure the allegiance of the craftworkers' guild before {target_npc} gets to them. The {enemy_type} threat on our borders makes this urgent: whoever takes control needs to be ready to defend us, not just give speeches.",
+        "outro": "Help me claim what's mine, and you'll have the ear of the most powerful person in the region."
       },
       "playerResponses": [
-        { "text": "Vision or ambition, I'll help you claim it.", "action": "ACCEPT" },
-        { "text": "I'll get your supplies, but I want a cut of whatever comes next.", "action": "ACCEPT", "dispositionShift": -5 },
-        { "text": "Power grabs never end well. Find someone else.", "action": "DECLINE" }
+        { "text": "A strong leader beats a popular one. I'll get what you need.", "action": "ACCEPT" },
+        { "text": "Power plays are messy business. What's my cut?", "action": "ACCEPT", "dispositionShift": -5 },
+        { "text": "I don't get involved in succession fights. Too many knives.", "action": "DECLINE" }
       ],
-      "objectivePool": ["FETCH_ITEM", "EXPLORE_LOCATION", "GATHER_ITEMS"],
+      "objectivePool": ["FETCH_ITEM", "GATHER_ITEMS", "TALK_TO_NPC"],
       "objectiveConfig": {
         "FETCH_ITEM": { "locationPreference": "DUNGEON" },
-        "EXPLORE_LOCATION": { "countMin": 1, "countMax": 2 },
-        "GATHER_ITEMS": { "countMin": 5, "countMax": 12 }
+        "GATHER_ITEMS": { "countMin": 5, "countMax": 12 },
+        "TALK_TO_NPC": { "countMin": 1, "countMax": 1 }
       }
     },
     {
-      "id": "ambition_expo_02",
+      "id": "ambition_expo_monopoly",
       "bindings": {
-        "quest_action": "fuel an abandoned forge that produces superior weapons",
-        "quest_focus": "a forge that can produce weapons cutting through enemy armor",
-        "quest_stakes": "whoever controls those weapons controls the region's trade",
-        "quest_threat": "a rival who tried to claim the forge first but lacks the skill",
-        "quest_origin": "years of studying the previous smith's lost technique"
+        "quest_action": "corner the supply chain",
+        "quest_focus": "the rare resource vein",
+        "quest_stakes": "economic dominance",
+        "quest_threat": "competing merchants",
+        "quest_origin": "a prospector's discovery",
+        "quest_reward_hint": "a share of the profits"
       },
       "dialogueChunks": {
-        "intro": "{player_name}, I'll be direct. I've never been one for pleasantries and I won't start now.",
-        "plotStep": "There's {quest_focus} {location_hint} that nobody's used in years. The previous smith produced weapons that could cut through {enemy_type} armor like parchment. After {quest_origin}, I'm certain I can replicate it. I need {quest_item} from the old mine to {quest_action}. {target_npc} tried to claim it first, but {quest_threat} won't stop me.",
-        "outro": "I don't need a partner. I need a pair of hands willing to get dirty. {quest_stakes}, and I intend to be on top."
+        "intro": "Keep your voice down, {player_name}. What I'm offering could make us both very wealthy, or very dead.",
+        "plotStep": "A prospector found a vein of rare ore {location_hint} last week and made the mistake of telling me before anyone else. If I can secure {quest_item} to stake a legal claim before the guild merchants get wind of it, I'll control the only supply in three regions. {target_npc} has been sniffing around, asking questions about the prospector's route. If they beat me to the claim, everything I've built in {location} becomes worthless. The {enemy_type} have been spotted near the vein, which is the only reason nobody else has moved on it yet.",
+        "outro": "Fortune favors the bold, not the cautious. Are you bold enough?"
       },
       "playerResponses": [
-        { "text": "Sounds like a solid investment. I'll get what you need.", "action": "ACCEPT" },
-        { "text": "Undercutting the guild is risky. But profitable. I'm in.", "action": "ACCEPT" },
-        { "text": "Schemes like this tend to blow up in everyone's face. No thanks.", "action": "DECLINE" }
+        { "text": "Bold and well-compensated. Show me the way.", "action": "ACCEPT" },
+        { "text": "Cornering a market is ruthless. I like it. I'm in.", "action": "ACCEPT" },
+        { "text": "Monopolies create enemies. I'd rather not be one of them.", "action": "DECLINE" }
       ],
-      "objectivePool": ["GATHER_ITEMS", "EXPLORE_LOCATION"],
+      "objectivePool": ["EXPLORE_LOCATION", "GATHER_ITEMS", "KILL_MOBS"],
       "objectiveConfig": {
+        "EXPLORE_LOCATION": { "countMin": 2, "countMax": 3 },
         "GATHER_ITEMS": { "countMin": 6, "countMax": 15 },
-        "EXPLORE_LOCATION": { "countMin": 1, "countMax": 2 }
+        "KILL_MOBS": { "countMin": 3, "countMax": 6 }
       }
     },
     {
-      "id": "ambition_expo_03",
+      "id": "ambition_expo_reputation",
       "bindings": {
-        "quest_action": "intercept a rival's stockpile before they can move it",
-        "quest_focus": "a trade deal that would make the rival the wealthiest in the settlement",
-        "quest_stakes": "control of the most profitable trade route in the region",
-        "quest_threat": "the rival has a head start and the route is crawling with enemies",
-        "quest_origin": "years of listening to every secret whispered over tavern ale"
+        "quest_action": "discredit the incumbent",
+        "quest_focus": "the forged evidence",
+        "quest_stakes": "public trust",
+        "quest_threat": "exposure and ruin",
+        "quest_time_pressure": "before the harvest feast"
       },
       "dialogueChunks": {
-        "intro": "Sit down, {player_name}. Have a drink. And listen carefully, because what I'm about to offer won't be offered twice.",
-        "plotStep": "I run the only tavern in {location}, which means I hear everything. After {quest_origin}, I know that {target_npc} has been stockpiling {quest_item} {location_hint} for {quest_focus}. The route is crawling with {enemy_type}. If someone were to {quest_action}, the deal becomes mine instead.",
-        "outro": "I'm not asking you to hurt anyone. Just to be faster and smarter. {quest_stakes} is at play here."
+        "intro": "{player_name}, I don't need a hero. I need someone practical who understands that winning isn't always clean.",
+        "plotStep": "The current leader of {location} is corrupt, but everyone loves them because they smile well and give pretty speeches. {target_npc} has proof of their misdeeds hidden {location_hint}, but getting to it means dealing with the {enemy_type} that have overrun the old record hall. I need {quest_item} from those archives to expose the truth before the harvest feast, when the leader plans to announce a new tax that will bleed us all dry.",
+        "outro": "This isn't about ambition. It's about replacing someone unworthy with someone who isn't afraid to make hard choices. Namely, me."
       },
       "playerResponses": [
-        { "text": "Faster and smarter I can do. Point me the way.", "action": "ACCEPT" },
-        { "text": "Stealing someone's trade deal? That's cold. But I'll do it for the right price.", "action": "ACCEPT", "dispositionShift": -5 },
-        { "text": "This is theft with extra steps. I'm not interested.", "action": "DECLINE" }
+        { "text": "Exposing corruption is worth the risk. I'll retrieve the evidence.", "action": "ACCEPT" },
+        { "text": "Dirty politics with a side of monster-fighting. What's the pay?", "action": "ACCEPT", "dispositionShift": -5 },
+        { "text": "One schemer replacing another isn't progress. Pass.", "action": "DECLINE" }
       ],
       "objectivePool": ["FETCH_ITEM", "EXPLORE_LOCATION", "KILL_MOBS"],
       "objectiveConfig": {
-        "FETCH_ITEM": { "locationPreference": "WILDERNESS" },
-        "EXPLORE_LOCATION": { "countMin": 1, "countMax": 3 },
-        "KILL_MOBS": { "countMin": 3, "countMax": 7 }
+        "FETCH_ITEM": { "locationPreference": "DUNGEON" },
+        "EXPLORE_LOCATION": { "countMin": 1, "countMax": 2 },
+        "KILL_MOBS": { "countMin": 3, "countMax": 8 }
       }
     }
   ]

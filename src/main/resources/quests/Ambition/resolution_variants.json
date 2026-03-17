@@ -3,14 +3,13 @@
     {
       "id": "ambition_reso_01",
       "dialogueChunks": {
-        "intro": "Look around you, {player_name}. Everything you see? We built this.",
-        "plotStep": "{quest_focus} is producing at full capacity. Three settlements have placed orders. {target_npc} came by this morning: not to threaten, but to negotiate. They finally see that fighting me is more expensive than working with me. {quest_stakes} was won, and the {quest_item} you gathered made it possible.",
-        "outro": "You backed the right horse, {player_name}. Here's your share. And there'll be more where that came from."
+        "intro": "It's done, {player_name}. The seat is mine, and {location} will be better for it.",
+        "plotStep": "The council recognized my claim this morning. {target_npc} conceded after they saw the evidence and the support we'd gathered. The people aren't entirely happy: some think I pushed too hard, others think I didn't push hard enough. But the {enemy_type} threat is being addressed, the supply lines are open, and for the first time in months, decisions are being made instead of debated endlessly.",
+        "outro": "You helped me earn this. Not just take it: earn it. Here's what I promised, and know that when you return to {location}, you'll always have an ally in power."
       },
       "playerResponses": [
-        { "text": "A good outcome for everyone. I'll take my share gladly.", "action": "ACCEPT" },
-        { "text": "Just remember who made this possible when you're counting your profits.", "action": "ACCEPT", "dispositionShift": -5 },
-        { "text": "Profit and peace. Not bad for a day's work.", "action": "ACCEPT" }
+        { "text": "Use the power wisely. That's all I ask.", "action": "ACCEPT" },
+        { "text": "An ally in power is worth more than gold. I'll hold you to that.", "action": "ACCEPT", "dispositionShift": 5 }
       ],
       "objectivePool": [],
       "objectiveConfig": {}
@@ -18,13 +17,13 @@
     {
       "id": "ambition_reso_02",
       "dialogueChunks": {
-        "intro": "{player_name}. I owe you an honest word, and I always pay my debts.",
-        "plotStep": "I got what I wanted. The trade routes, the contracts, the influence. But it cost more than I planned. {target_npc} won't speak to me, and half the settlement looks at me differently. {quest_stakes} was won, but {quest_action} left scars I didn't expect. {location} is stronger now. But some mornings I wonder if the old way was really so bad.",
-        "outro": "Here. Your payment, as promised. You might be the only person left who doesn't resent me for what we did."
+        "intro": "{player_name}, I won't pretend the victory was clean. But it's mine.",
+        "plotStep": "The opposition crumbled after you dealt with their mercenaries and I exposed their backers. {target_npc} left {location} rather than face the assembly. Some call me ruthless, and maybe they're right. But the workshops are running, the defenses are strengthened, and the {enemy_type} haven't breached our perimeter since I took charge. The people who called me a tyrant last week are sleeping safely because of the choices I made.",
+        "outro": "History remembers results, not methods. Here's your share of the results."
       },
       "playerResponses": [
-        { "text": "Power always comes with a price. You knew that going in.", "action": "ACCEPT" },
-        { "text": "Maybe rebuild some bridges while you still can.", "action": "ACCEPT", "dispositionShift": 10 }
+        { "text": "Results that protect people are results I can live with.", "action": "ACCEPT" },
+        { "text": "Just remember that fear is a poor foundation for loyalty.", "action": "ACCEPT", "dispositionShift": -5 }
       ],
       "objectivePool": [],
       "objectiveConfig": {}
@@ -32,14 +31,13 @@
     {
       "id": "ambition_reso_03",
       "dialogueChunks": {
-        "intro": "Well, {player_name}. We did it. The question is: was it worth it?",
-        "plotStep": "The settlement is thriving. New trade, new wealth, new construction. {target_npc} even admitted the old way wasn't working. But I notice people step aside when I walk past: not out of respect, but caution. {quest_action} bought me everything I asked for and something I didn't: a very particular kind of loneliness.",
-        "outro": "Take your reward, {player_name}. You were the best partner a schemer could ask for. {quest_stakes} is settled, for better or worse."
+        "intro": "I pushed too far, {player_name}. I know that now.",
+        "plotStep": "I got what I wanted: the seat, the authority, the control. And it lasted three days before {target_npc} rallied enough support to force a shared council. I'm still at the table, but I'm not the only voice anymore. Part of me is furious. Another part, the part I don't let many people see, is relieved. Leading alone was exhausting in ways I didn't expect. The {enemy_type} don't care about politics, and neither do hungry children.",
+        "outro": "I learned something about ambition: having it isn't the sin. Letting it consume you is. Take this, and know I'm grateful for your honesty, even when it wasn't what I wanted to hear."
       },
       "playerResponses": [
-        { "text": "Loneliness is the toll of ambition. Spend your gains wisely.", "action": "ACCEPT" },
-        { "text": "You got what you wanted. Most people never even get that.", "action": "ACCEPT" },
-        { "text": "Maybe use some of that wealth to earn back what you lost.", "action": "ACCEPT", "dispositionShift": 5 }
+        { "text": "Shared power is still power. And it's more sustainable.", "action": "ACCEPT", "dispositionShift": 10 },
+        { "text": "The fact that you can admit it means you'll be a better leader for it.", "action": "ACCEPT" }
       ],
       "objectivePool": [],
       "objectiveConfig": {}

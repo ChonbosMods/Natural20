@@ -1,60 +1,60 @@
 {
   "variants": [
     {
-      "id": "loss_of_loved_ones_conf_01",
+      "id": "loss_loved_conf_01",
       "dialogueChunks": {
-        "intro": "{player_name}, I thought I was managing. I thought the worst was over. I was wrong.",
-        "plotStep": "His old business partner came demanding payment on a debt I didn't know existed. {target_npc} tried to mediate, but the partner threatens to take our home. {quest_focus} is hard enough without fighting for a roof. The only way to gather enough {quest_item} is from the old supply cache {location_hint}, but {enemy_type} have taken over since the route went unused. {quest_stakes} just got worse.",
-        "outro": "Grief wasn't enough, apparently. {quest_threat} surrounds me on all sides now."
+        "intro": "The grief has turned to anger, {player_name}. And angry people make dangerous decisions.",
+        "plotStep": "A group from {location} has decided to avenge their dead by striking the {enemy_type} camp {location_hint}. They're not soldiers, they're farmers and craftworkers blinded by rage. {target_npc} tried to stop them but they shouted them down. If they march on that camp, they'll be slaughtered, and we'll have more graves to dig. I need you to gather {quest_item} to reinforce our defenses as a counter-argument: show them that protecting what we have is more honorable than a suicide charge. The {enemy_type} have been reinforcing too, as if they expect us to come.",
+        "outro": "If we can't channel this grief into something constructive, {quest_stakes} will suffer even more loss."
       },
       "playerResponses": [
-        { "text": "Nobody's taking your home. I'll get what you need.", "action": "ACCEPT" },
-        { "text": "Debt collectors circling a widow. Charming. I'll handle it.", "action": "ACCEPT", "dispositionShift": -5 },
-        { "text": "Financial disputes aren't something I can solve with a sword.", "action": "DECLINE" }
+        { "text": "Vengeance raids get people killed. I'll give them a better option.", "action": "ACCEPT" },
+        { "text": "Stopping a grieving mob from marching to their deaths. Delicate work.", "action": "ACCEPT" },
+        { "text": "Angry people with weapons don't listen to reason. Stay clear.", "action": "DECLINE" }
       ],
-      "objectivePool": ["GATHER_ITEMS", "KILL_MOBS", "FETCH_ITEM"],
+      "objectivePool": ["GATHER_ITEMS", "KILL_MOBS", "TALK_TO_NPC"],
       "objectiveConfig": {
-        "GATHER_ITEMS": { "countMin": 6, "countMax": 15 },
+        "GATHER_ITEMS": { "countMin": 5, "countMax": 10 },
         "KILL_MOBS": { "countMin": 3, "countMax": 7 },
-        "FETCH_ITEM": { "locationPreference": "DUNGEON" }
+        "TALK_TO_NPC": { "countMin": 1, "countMax": 1 }
       }
     },
     {
-      "id": "loss_of_loved_ones_conf_02",
+      "id": "loss_loved_conf_02",
       "dialogueChunks": {
-        "intro": "The garden is growing again, {player_name}. But something is trying to destroy it.",
-        "plotStep": "{quest_threat} raided the outskirts again. They trampled {quest_focus} two nights ago: not for food, just destruction. {target_npc} set up a watch, but we're short-handed. I need more {quest_item} to rebuild the beds and fencing from {location_hint}. And someone needs to deal with the {enemy_type} nest before they destroy everything we've replanted.",
-        "outro": "I won't let them take this from me too. She grew this garden from bare dirt, and {quest_stakes}."
+        "intro": "{player_name}, the loss keeps compounding. Another family is leaving {location}.",
+        "plotStep": "Two more families packed up and left in the night. They said they can't raise children in a place where death comes so easily. {target_npc} is trying to hold things together, but every departure takes skills, labor, and hope with it. The {enemy_type} have noticed the weakening defenses and are probing closer {location_hint}. We need {quest_item} to repair the outer walls and show the remaining families that {location} is worth defending. If the settlement shrinks much more, it won't be viable: {quest_stakes} depends on having enough hands to work the land and stand watch.",
+        "outro": "We're bleeding people as surely as if the {enemy_type} were still inside our walls. We need a reason to stay."
       },
       "playerResponses": [
-        { "text": "They won't touch that garden again. I'll find their nest.", "action": "ACCEPT" },
-        { "text": "Defending a garden from monsters. Strange work, but meaningful.", "action": "ACCEPT" },
-        { "text": "The garden isn't worth getting killed over.", "action": "DECLINE" }
+        { "text": "A settlement that fights to survive gives its people a reason to stay. I'll shore up the defenses.", "action": "ACCEPT" },
+        { "text": "Population collapse and monster raids. A grim combination. What's the plan?", "action": "ACCEPT" },
+        { "text": "If people are leaving, maybe they're right to. Not every settlement survives.", "action": "DECLINE" }
       ],
-      "objectivePool": ["KILL_MOBS", "GATHER_ITEMS", "EXPLORE_LOCATION"],
+      "objectivePool": ["GATHER_ITEMS", "KILL_MOBS", "EXPLORE_LOCATION"],
       "objectiveConfig": {
-        "KILL_MOBS": { "countMin": 4, "countMax": 9 },
-        "GATHER_ITEMS": { "countMin": 5, "countMax": 10 },
+        "GATHER_ITEMS": { "countMin": 6, "countMax": 12 },
+        "KILL_MOBS": { "countMin": 4, "countMax": 8 },
         "EXPLORE_LOCATION": { "countMin": 1, "countMax": 2 }
       }
     },
     {
-      "id": "loss_of_loved_ones_conf_03",
+      "id": "loss_loved_conf_03",
       "dialogueChunks": {
-        "intro": "{player_name}, I found something in his pack that changes everything.",
-        "plotStep": "Hidden in a false bottom was a letter. He knew {quest_threat} was real. He'd been warned about the {enemy_type} and went anyway because {quest_stakes}. He wrote, 'If something happens to me, make sure the {quest_item} gets through.' {target_npc} read the letter and hasn't stopped crying. The settlement he was trying to reach is in worse shape than ever. {quest_focus} has to be finished.",
-        "outro": "He knew the risk and chose to go anyway. {quest_action} is the least we can do."
+        "intro": "Something unexpected happened, {player_name}. The grief brought something else to the surface.",
+        "plotStep": "While searching for {quest_item} to complete {quest_focus}, {target_npc} found evidence that the raid which killed our people wasn't random. The {enemy_type} targeted specific buildings, specific stores, as if guided by someone who knew our layout. There might be a collaborator in {location}, someone who traded information about our defenses for personal safety. If that's true, the loss we suffered was a betrayal, not just a tragedy. We need you to investigate the {enemy_type} camp {location_hint} and find proof of who gave them our secrets.",
+        "outro": "If someone sold out their neighbors to save themselves, the dead deserve justice and the living deserve the truth."
       },
       "playerResponses": [
-        { "text": "He was braver than he knew. I'll make sure his sacrifice counts.", "action": "ACCEPT" },
-        { "text": "A man who walked into danger for strangers deserves to have his mission completed.", "action": "ACCEPT" },
-        { "text": "Honoring the dead by risking the living. I understand, but I can't.", "action": "DECLINE" }
+        { "text": "Betrayal that led to deaths is unforgivable. I'll find the proof.", "action": "ACCEPT" },
+        { "text": "A collaborator inside the settlement. That changes everything. I'm in.", "action": "ACCEPT", "dispositionShift": -5 },
+        { "text": "Hunting a traitor in a grieving community could tear it apart entirely.", "action": "DECLINE" }
       ],
-      "objectivePool": ["GATHER_ITEMS", "DELIVER_ITEM", "KILL_MOBS"],
+      "objectivePool": ["EXPLORE_LOCATION", "KILL_MOBS", "FETCH_ITEM"],
       "objectiveConfig": {
-        "GATHER_ITEMS": { "countMin": 7, "countMax": 16 },
-        "DELIVER_ITEM": {},
-        "KILL_MOBS": { "countMin": 3, "countMax": 6 }
+        "EXPLORE_LOCATION": { "countMin": 2, "countMax": 3 },
+        "KILL_MOBS": { "countMin": 3, "countMax": 6 },
+        "FETCH_ITEM": { "locationPreference": "DUNGEON" }
       }
     }
   ]

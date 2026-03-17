@@ -1,44 +1,43 @@
 {
   "variants": [
     {
-      "id": "an_enemy_loved_reso_01",
+      "id": "enemy_loved_reso_01",
       "dialogueChunks": {
-        "intro": "I can't believe it worked. {player_name}, they're leaving peacefully.",
-        "plotStep": "The {enemy_type} packed up and headed north. No raid, no blood. {target_npc} watched from the watchtower and said one of them turned back and raised a hand: not a threat, just a farewell. {quest_focus} turned out to be true, and the settlement still doesn't know the full story. But nobody died.",
-        "outro": "You walked into a situation that could have ended in massacre and found a way through {quest_threat}. I won't forget that."
+        "intro": "{player_name}, something remarkable happened. Something I never thought I'd see in my lifetime.",
+        "plotStep": "The {enemy_type} honored the agreement. They pulled back from {location} and left {quest_item} at the border as promised. {target_npc} presented the evidence to the settlement, and while not everyone is convinced, the raids have stopped. For the first time in years, people are sleeping through the night. {quest_focus} is safe, and even the doubters are having a hard time arguing with silence and full stomachs.",
+        "outro": "You walked into the space between two enemies and found common ground. That takes a kind of bravery no weapon can match. Take this."
       },
       "playerResponses": [
-        { "text": "A raised hand is a start. Maybe someday it'll be an open one.", "action": "ACCEPT" },
-        { "text": "It's done. Let's hope both sides remember this.", "action": "ACCEPT" },
-        { "text": "Just make sure the guards don't chase after them.", "action": "ACCEPT", "dispositionShift": 5 }
+        { "text": "Peace built on understanding is worth any risk. I'm glad it held.", "action": "ACCEPT", "dispositionShift": 10 },
+        { "text": "I hope it lasts. Take care of what you've built here.", "action": "ACCEPT" }
       ],
       "objectivePool": [],
       "objectiveConfig": {}
     },
     {
-      "id": "an_enemy_loved_reso_02",
+      "id": "enemy_loved_reso_02",
       "dialogueChunks": {
-        "intro": "{player_name}... the {enemy_type} elder sent something for you.",
-        "plotStep": "It's a carved token. {target_npc} says it means 'remembered friend' in their culture. The settlement is confused, some are angry, but most are relieved the fighting stopped. Some are even asking questions about why the {enemy_type} were here. {quest_focus} is changing how people think.",
-        "outro": "You didn't just end a conflict. You planted a seed of understanding where {quest_threat} once ruled. Take this token and what little we can offer."
+        "intro": "It's not the ending I hoped for, {player_name}. But it's better than I feared.",
+        "plotStep": "{quest_focus} was returned to the {enemy_type} in the end. It was the right thing to do, even though it hurt. {target_npc} stood at the border and watched them leave, and I swear I saw something pass between them and the emissary: not friendship exactly, but recognition. The raids have slowed, though they haven't stopped entirely. The settlement is divided between those who think we showed weakness and those who think we showed wisdom.",
+        "outro": "You proved that seeing the enemy as more than a monster doesn't make you a traitor. It makes you human. Here, this is yours."
       },
       "playerResponses": [
-        { "text": "I'll carry this token with pride. Thank you.", "action": "ACCEPT", "dispositionShift": 10 },
-        { "text": "Understanding takes time. But today was a good step.", "action": "ACCEPT" }
+        { "text": "Understanding doesn't mean surrender. The settlement will learn that in time.", "action": "ACCEPT", "dispositionShift": 5 },
+        { "text": "It was the right call. Give it time.", "action": "ACCEPT" }
       ],
       "objectivePool": [],
       "objectiveConfig": {}
     },
     {
-      "id": "an_enemy_loved_reso_03",
+      "id": "enemy_loved_reso_03",
       "dialogueChunks": {
-        "intro": "It's quiet now. A different kind of quiet than before: not the silence of fear, but the stillness after something heavy finally lifts.",
-        "plotStep": "The {enemy_type} moderates made it back and convinced the war party to stand down. {target_npc} told me a small delegation came to the edge of {location} and left a bundle of {quest_item} at the border marker. A gift, not a theft. First time that's ever happened. {quest_focus} has become something new.",
-        "outro": "I spent my whole life hating them. Now I don't know what I feel. But it's something better than {quest_threat}. Take this: you've earned it."
+        "intro": "{player_name}... it ended in blood. Not the way I wanted, but the truth still matters.",
+        "plotStep": "The hardliners in {location} found {quest_focus} before we could move them to safety. There was a confrontation, and {target_npc} was injured trying to intervene. The {enemy_type} attacked in force when they learned what happened, and the settlement barely held. But in the aftermath, as people tended their wounds side by side, some of the fighters admitted they saw {quest_focus} trying to protect our people during the chaos. That image won't leave them easily.",
+        "outro": "You tried to bridge the impossible, and even though the bridge broke, some people crossed it in their hearts. That has to count for something. Take this."
       },
       "playerResponses": [
-        { "text": "Something better than hate is a fine place to start.", "action": "ACCEPT", "dispositionShift": 15 },
-        { "text": "Change is uncomfortable. But it beats the alternative.", "action": "ACCEPT" }
+        { "text": "The truth has a way of surviving violence. I'm sorry it came to this.", "action": "ACCEPT" },
+        { "text": "Not every story ends well. But the attempt was worth making.", "action": "ACCEPT", "dispositionShift": 5 }
       ],
       "objectivePool": [],
       "objectiveConfig": {}

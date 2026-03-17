@@ -1,211 +1,75 @@
 {
   "variants": [
     {
-      "id": "pursuit_expo_escaped_prisoner",
+      "id": "pursuit_expo_01",
       "bindings": {
-        "quest_action": "track down the escaped prisoner before it regroups",
-        "quest_focus": "the trail leading from the holding cells",
-        "quest_stakes": "the safety of the settlement and everyone in it",
-        "quest_threat": "a dangerous creature that killed two sentries during its escape",
-        "quest_time_pressure": "every hour it gets farther away and more entrenched"
+        "quest_action": "track the thief",
+        "quest_focus": "the stolen cargo",
+        "quest_stakes": "our trade reputation",
+        "quest_threat": "the cunning bandit",
+        "quest_origin": "the ambush at dawn"
       },
       "dialogueChunks": {
-        "intro": "{player_name}, stop. We have an emergency and I need someone who can move fast.",
-        "plotStep": "{quest_threat} broke free from the holding cells last night. It took {quest_item} from the armory and headed {location_hint}. We lost the trail at the river crossing, and {quest_time_pressure}. {target_npc} is organizing a perimeter, but we need a tracker to {quest_action}.",
-        "outro": "Time is against us. Will you take up the hunt?"
+        "intro": "{player_name}, we had a shipment hit this morning. Since {quest_origin}, {quest_threat} has made off with {quest_focus} and vanished into the wilds.",
+        "plotStep": "I need someone who can {quest_action} before the trail goes cold. {quest_ally} spotted footprints heading {location_hint}. If you find {quest_item} along the way, grab them: they were part of the shipment.",
+        "outro": "{quest_stakes} are at risk if word spreads that we cannot protect our goods."
       },
       "playerResponses": [
-        { "text": "Show me where you lost the trail. I'll pick it up.", "action": "ACCEPT" },
-        { "text": "What's in it for me if I catch this thing?", "action": "ACCEPT", "dispositionShift": -5 },
-        { "text": "Not my problem. Hire a bounty hunter.", "action": "DECLINE" }
+        { "text": "I will pick up the trail. They will not get far.", "action": "ACCEPT", "dispositionShift": 10 },
+        { "text": "What exactly was stolen? I want to know what I am recovering.", "action": "ACCEPT", "dispositionShift": 0 },
+        { "text": "Hire a tracker. I am no bloodhound.", "action": "DECLINE", "dispositionShift": -5 }
       ],
-      "objectivePool": ["KILL_NPC", "EXPLORE_LOCATION", "TALK_TO_NPC"],
+      "objectivePool": ["EXPLORE_LOCATION", "GATHER_ITEMS", "FETCH_ITEM"],
       "objectiveConfig": {
-        "KILL_NPC": { "countMin": 1, "countMax": 1 },
-        "EXPLORE_LOCATION": { "countMin": 2, "countMax": 3 },
-        "TALK_TO_NPC": { "countMin": 1, "countMax": 2 }
+        "GATHER_ITEMS": { "countMin": 4, "countMax": 10 }
       }
     },
     {
-      "id": "pursuit_expo_monster_hunt",
+      "id": "pursuit_expo_02",
       "bindings": {
-        "quest_action": "track the pack to their den and wipe them out",
-        "quest_focus": "the organized raids on outlying farms",
-        "quest_stakes": "the farms and the people who depend on them",
-        "quest_threat": "an organized pack that hits at night and vanishes before dawn",
-        "quest_origin": "weeks of escalating livestock raids"
+        "quest_action": "hunt the rogue beast",
+        "quest_focus": "the wounded creature",
+        "quest_stakes": "the outlying homesteads",
+        "quest_threat": "the maddened predator",
+        "quest_time_pressure": "before nightfall"
       },
       "dialogueChunks": {
-        "intro": "You there, {player_name}. I can see from your gear that you know how to handle yourself. Good. We need that right now.",
-        "plotStep": "{quest_threat} has been raiding {quest_stakes} for weeks. Three farms hit in the last four days alone. We've found their tracks leading {location_hint}, but every patrol I send comes back empty-handed. These aren't ordinary {enemy_type}: they're organized, hitting at night and vanishing before dawn. I need someone who can {quest_action}.",
-        "outro": "Before the next farm they hit has people in it instead of animals."
+        "intro": "{player_name}, {quest_threat} attacked {quest_stakes} at first light and fled before anyone could stop it. {quest_focus} left a blood trail heading into the hills.",
+        "plotStep": "We need to {quest_action} and put it down before it circles back. The {enemy_type} was last seen {location_hint}. Take some {quest_item} in case you need to lure it out.",
+        "outro": "This must be done {quest_time_pressure}. A wounded animal is twice as dangerous in the dark."
       },
       "playerResponses": [
-        { "text": "Organized predators? I know how to break a pack. Let's move.", "action": "ACCEPT" },
-        { "text": "I'll hunt them, but I keep whatever I find in their den.", "action": "ACCEPT", "dispositionShift": -5 },
-        { "text": "Your patrols should handle this. It's not my fight.", "action": "DECLINE" }
+        { "text": "I will bring it down before sunset.", "action": "ACCEPT", "dispositionShift": 5 },
+        { "text": "A wounded predator? That is a hard hunt. I want proper pay.", "action": "ACCEPT", "dispositionShift": -5 },
+        { "text": "Let it bleed out on its own.", "action": "DECLINE", "dispositionShift": -10 }
       ],
-      "objectivePool": ["KILL_MOBS", "EXPLORE_LOCATION", "KILL_NPC"],
+      "objectivePool": ["KILL_MOBS", "EXPLORE_LOCATION"],
       "objectiveConfig": {
-        "KILL_MOBS": { "countMin": 6, "countMax": 14 },
-        "EXPLORE_LOCATION": { "countMin": 1, "countMax": 2 },
-        "KILL_NPC": { "countMin": 1, "countMax": 1 }
+        "KILL_MOBS": { "countMin": 2, "countMax": 5 }
       }
     },
     {
-      "id": "pursuit_expo_informant",
+      "id": "pursuit_expo_03",
       "bindings": {
-        "quest_action": "follow the spy's trail and cut off the information flow",
-        "quest_focus": "intercepted coded messages about our defenses",
-        "quest_stakes": "the entire settlement's security",
-        "quest_threat": "a spy feeding our defense plans to the enemy",
-        "quest_time_pressure": "before the next attack is launched"
+        "quest_action": "find the deserter",
+        "quest_focus": "the abandoned post",
+        "quest_stakes": "our defenses",
+        "quest_threat": "the missing guard",
+        "quest_origin": "the night watch incident"
       },
       "dialogueChunks": {
-        "intro": "Keep your voice down, {player_name}. What I'm about to tell you doesn't leave this room.",
-        "plotStep": "{quest_threat} to a {enemy_type} warband. {target_npc} intercepted {quest_focus} last night: the next attack is being planned as we speak. The spy was last seen heading {location_hint}. We need someone to {quest_action} {quest_time_pressure}.",
-        "outro": "Stealth and speed, {player_name}. Find the source and cut it off."
+        "intro": "Since {quest_origin}, {quest_threat} has not been seen. {player_name}, {quest_focus} was left wide open and something got through.",
+        "plotStep": "I need you to {quest_action}. Tracks lead {location_hint}. {quest_ally} thinks they may have had a reason to flee, but we need answers. Bring back any {quest_item} you find: they may have dropped their gear along the way.",
+        "outro": "{quest_stakes} have a hole in them until we sort this out. Every hour matters."
       },
       "playerResponses": [
-        { "text": "I'll shadow the trail and find their contact.", "action": "ACCEPT" },
-        { "text": "Spy hunting is delicate work. I expect proper compensation.", "action": "ACCEPT", "dispositionShift": -5 },
-        { "text": "This sounds like a job for your own intelligence people.", "action": "DECLINE" }
+        { "text": "I will find them and get to the bottom of this.", "action": "ACCEPT", "dispositionShift": 10 },
+        { "text": "Sounds more like a deserter than a mystery.", "action": "ACCEPT", "dispositionShift": -3 },
+        { "text": "Your personnel problems are not my concern.", "action": "DECLINE" }
       ],
-      "objectivePool": ["TALK_TO_NPC", "EXPLORE_LOCATION", "KILL_NPC"],
+      "objectivePool": ["EXPLORE_LOCATION", "FETCH_ITEM", "TALK_TO_NPC"],
       "objectiveConfig": {
-        "TALK_TO_NPC": { "countMin": 1, "countMax": 2 },
-        "EXPLORE_LOCATION": { "countMin": 2, "countMax": 3 },
-        "KILL_NPC": { "countMin": 1, "countMax": 1 }
-      }
-    },
-    {
-      "id": "pursuit_expo_04",
-      "bindings": {
-        "quest_action": "pursue the raiders and recover the stolen cargo",
-        "quest_focus": "the ambushed supply caravan",
-        "quest_stakes": "the supplies the settlement desperately needs",
-        "quest_threat": "raiders who are fast but dragging heavy cargo",
-        "quest_time_pressure": "before they disappear into the wilds"
-      },
-      "dialogueChunks": {
-        "intro": "Drop what you're doing, {player_name}. {quest_focus} was hit an hour ago and the attackers are still close.",
-        "plotStep": "A band of {enemy_type} ambushed a supply caravan and made off with a shipment of {quest_item}. They killed the driver and wounded three guards. {target_npc} followed the blood trail {location_hint} before they were forced to turn back. {quest_threat}, but they're dragging heavy cargo. That slows them down. I need you to {quest_action}.",
-        "outro": "Every minute we stand here talking, they get farther away. I need a hunter, not a committee. Are you that hunter?"
-      },
-      "playerResponses": [
-        { "text": "Heavy cargo means deep tracks. I'll catch them before sundown.", "action": "ACCEPT" },
-        { "text": "Recovering stolen goods is bounty work. What's the rate?", "action": "ACCEPT", "dispositionShift": -5 },
-        { "text": "Chase bandits through hostile terrain? Hire a mercenary company.", "action": "DECLINE" }
-      ],
-      "objectivePool": ["EXPLORE_LOCATION", "KILL_MOBS", "FETCH_ITEM"],
-      "objectiveConfig": {
-        "EXPLORE_LOCATION": { "countMin": 2, "countMax": 3 },
-        "KILL_MOBS": { "countMin": 4, "countMax": 8 },
-        "FETCH_ITEM": { "locationPreference": "WILDERNESS" }
-      }
-    },
-    {
-      "id": "pursuit_expo_05",
-      "bindings": {
-        "quest_action": "intercept the deserter before the documents reach the enemy",
-        "quest_focus": "stolen defense documents and sensitive intelligence",
-        "quest_stakes": "every wall and fortification we've built",
-        "quest_threat": "a deserter carrying our secrets to the enemy",
-        "quest_time_pressure": "before those papers reach the warband"
-      },
-      "dialogueChunks": {
-        "intro": "{player_name}. Good. I need someone with a sharp eye and a steady hand. We have a deserter.",
-        "plotStep": "{quest_threat} who abandoned their post last night and fled toward {location_hint}. Normally I'd let the fool go, but they took {quest_focus} about our defenses. If those papers reach the {enemy_type} warband, {quest_stakes} become useless. {target_npc} confirmed they were spotted heading through the eastern pass at dawn.",
-        "outro": "Bring back the satchel. The deserter can answer for their choices later: {quest_focus} are what matter."
-      },
-      "playerResponses": [
-        { "text": "I'll intercept them before they reach the warband. Consider it done.", "action": "ACCEPT" },
-        { "text": "Chasing deserters through enemy territory. Lovely. What's my pay?", "action": "ACCEPT", "dispositionShift": -5 },
-        { "text": "Your internal problems are not my business.", "action": "DECLINE" }
-      ],
-      "objectivePool": ["EXPLORE_LOCATION", "TALK_TO_NPC", "KILL_NPC"],
-      "objectiveConfig": {
-        "EXPLORE_LOCATION": { "countMin": 2, "countMax": 3 },
-        "TALK_TO_NPC": { "countMin": 1, "countMax": 1 },
-        "KILL_NPC": { "countMin": 1, "countMax": 1 }
-      }
-    },
-    {
-      "id": "pursuit_expo_06",
-      "bindings": {
-        "quest_action": "track the alpha to its lair and put it down",
-        "quest_focus": "the claw marks and kill sites near the settlement",
-        "quest_stakes": "the farmers who won't leave their homes after dark",
-        "quest_threat": "an alpha predator that's moved dangerously close",
-        "quest_origin": "something driving it out of its usual territory"
-      },
-      "dialogueChunks": {
-        "intro": "Listen closely, {player_name}. I'm only going to explain this once because we don't have time to repeat ourselves.",
-        "plotStep": "Something has been killing livestock and dragging carcasses into the ravines. Not wolves, not bears: something bigger. {target_npc} found {quest_focus} {location_hint} that match a {enemy_type} alpha. If {quest_threat} has settled this close, {quest_origin} must be to blame. Either way, I need you to {quest_action}.",
-        "outro": "{quest_stakes} anymore. End this before someone gets killed."
-      },
-      "playerResponses": [
-        { "text": "An alpha predator near the settlement? I'll track it to its lair.", "action": "ACCEPT" },
-        { "text": "Big game hunting is premium work. Pay accordingly.", "action": "ACCEPT", "dispositionShift": -5 },
-        { "text": "That sounds like a creature I don't want to meet. No thanks.", "action": "DECLINE" }
-      ],
-      "objectivePool": ["EXPLORE_LOCATION", "KILL_NPC", "KILL_MOBS"],
-      "objectiveConfig": {
-        "EXPLORE_LOCATION": { "countMin": 1, "countMax": 3 },
-        "KILL_NPC": { "countMin": 1, "countMax": 1 },
-        "KILL_MOBS": { "countMin": 3, "countMax": 6 }
-      }
-    },
-    {
-      "id": "pursuit_expo_07",
-      "bindings": {
-        "quest_action": "catch the smuggler at the exchange and shut down the pipeline",
-        "quest_focus": "a smuggling operation running through our territory",
-        "quest_stakes": "the security of every settlement in the region",
-        "quest_threat": "a smuggler arming enemy warbands with our own resources",
-        "quest_time_pressure": "at the next scheduled exchange"
-      },
-      "dialogueChunks": {
-        "intro": "I've been waiting at this crossroad for two days hoping someone competent would pass through. {player_name}, you'll do.",
-        "plotStep": "{quest_threat} has been running {quest_item} through our territory and selling it to {enemy_type} warbands in exchange for safe passage. {target_npc} intercepted a dead drop message revealing {quest_focus}. The next exchange happens {location_hint}. If we can {quest_action}, we shut down the whole pipeline.",
-        "outro": "This isn't a straight fight: it requires patience, tracking, and the willingness to act fast when the moment comes. Can you handle that?"
-      },
-      "playerResponses": [
-        { "text": "Catch them at the exchange. Clean and decisive. I can do that.", "action": "ACCEPT" },
-        { "text": "Smugglers are slippery. This will cost you more than a standard bounty.", "action": "ACCEPT", "dispositionShift": -5 },
-        { "text": "Stakeouts and smuggling rings are too complicated. Pass.", "action": "DECLINE" }
-      ],
-      "objectivePool": ["EXPLORE_LOCATION", "TALK_TO_NPC", "KILL_NPC"],
-      "objectiveConfig": {
-        "EXPLORE_LOCATION": { "countMin": 1, "countMax": 2 },
-        "TALK_TO_NPC": { "countMin": 1, "countMax": 2 },
-        "KILL_NPC": { "countMin": 1, "countMax": 1 }
-      }
-    },
-    {
-      "id": "pursuit_expo_08",
-      "bindings": {
-        "quest_action": "find the ambush predator and end the killings",
-        "quest_focus": "the pattern of deliberate roadside murders",
-        "quest_stakes": "the trade routes that are dying as travelers avoid the area",
-        "quest_threat": "a methodical killer stalking isolated travelers",
-        "quest_origin": "three deaths in the past week alone"
-      },
-      "dialogueChunks": {
-        "intro": "{player_name}, I'll be blunt. A killer is on the loose and our guards can't find them.",
-        "plotStep": "{quest_origin}: three travelers found dead on the roads, stripped of their {quest_item} and left in the ditches. {quest_focus} is too deliberate for random attacks. {target_npc} examined the scenes and believes we're dealing with {quest_threat} that studies the roads and strikes when victims are isolated. The latest attack was {location_hint}.",
-        "outro": "{quest_stakes}. Nobody will travel alone anymore. I need you to {quest_action}."
-      },
-      "playerResponses": [
-        { "text": "A methodical killer? I'll study the pattern and set my own trap.", "action": "ACCEPT" },
-        { "text": "Serial ambushes are grim work. I'll do it, but don't expect me to enjoy it.", "action": "ACCEPT" },
-        { "text": "Walking into a killer's hunting ground alone sounds like becoming victim number four.", "action": "DECLINE" }
-      ],
-      "objectivePool": ["EXPLORE_LOCATION", "KILL_NPC", "TALK_TO_NPC"],
-      "objectiveConfig": {
-        "EXPLORE_LOCATION": { "countMin": 2, "countMax": 3 },
-        "KILL_NPC": { "countMin": 1, "countMax": 1 },
-        "TALK_TO_NPC": { "countMin": 1, "countMax": 2 }
+        "FETCH_ITEM": { "countMin": 1, "countMax": 1 }
       }
     }
   ]

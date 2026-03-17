@@ -3,77 +3,54 @@
     {
       "id": "disaster_conf_01",
       "dialogueChunks": {
-        "intro": "More bad news, {player_name}. It never stops.",
-        "plotStep": "The aftershocks opened a second fissure, and the ground beneath the emergency shelters is cracking. {target_npc} is evacuating families to the northern ridge, but {enemy_type} have been circling it all day. We need you to clear the ridge and gather more {quest_item} from the collapsed structures {location_hint}. Without materials, our efforts to {quest_action} stall completely.",
-        "outro": "The ground won't stop shaking, and neither will the people. Hold us together a little longer, {player_name}."
+        "intro": "{player_name}, things are worse than before. Your efforts to {quest_action} helped, but {quest_threat} struck again and undid much of our progress.",
+        "plotStep": "{quest_ally} reports that {quest_focus} is under renewed pressure. The {enemy_type} are taking advantage of the chaos {location_hint}. We need to deal with them while shoring up what is left of {quest_stakes}.",
+        "outro": "We are fighting on two fronts: nature and creatures. We need you now more than ever."
       },
       "playerResponses": [
-        { "text": "I'll secure the ridge and bring back whatever I can salvage.", "action": "ACCEPT" },
-        { "text": "Crumbling ground and circling predators. Your settlement has the worst luck I've ever seen.", "action": "ACCEPT", "dispositionShift": -5 },
-        { "text": "If the ground itself is giving way, no amount of supplies will help.", "action": "DECLINE" }
+        { "text": "I will hold the line. Tell me where to start.", "action": "ACCEPT", "dispositionShift": 10 },
+        { "text": "This disaster keeps getting worse. But I am still here.", "action": "ACCEPT", "dispositionShift": 5 },
+        { "text": "Even I cannot fight the elements.", "action": "DECLINE", "dispositionShift": -5 }
       ],
       "objectivePool": ["KILL_MOBS", "GATHER_ITEMS", "EXPLORE_LOCATION"],
       "objectiveConfig": {
-        "KILL_MOBS": { "countMin": 3, "countMax": 7 },
-        "GATHER_ITEMS": { "countMin": 5, "countMax": 12 },
-        "EXPLORE_LOCATION": { "countMin": 1, "countMax": 2 }
+        "KILL_MOBS": { "countMin": 4, "countMax": 8 },
+        "GATHER_ITEMS": { "countMin": 4, "countMax": 10 }
       }
     },
     {
       "id": "disaster_conf_02",
       "dialogueChunks": {
-        "intro": "{player_name}, the relief supplies you brought? They weren't enough. Not even close.",
-        "plotStep": "We underestimated the damage from {quest_threat}. Two more buildings collapsed overnight. The medical supplies are buried in rubble. {target_npc} found an alternative source of {quest_item} in an old storehouse {location_hint}, but it's been sealed for years and the {enemy_type} have nested around it. We need those supplies to continue the effort to {quest_action}.",
-        "outro": "I keep thinking this is the worst of it, and then the next hour comes. {quest_stakes} are depending on us."
+        "intro": "More trouble, {player_name}. Since you started to {quest_action}, we discovered that {quest_threat} caused more damage than we realized.",
+        "plotStep": "{quest_focus} is compromised and {quest_stakes} are at risk of total loss. {quest_ally} found that {enemy_type} have nested in the wreckage {location_hint}. We need to clear them out and recover any {quest_item} before it is too late.",
+        "outro": "If we lose {quest_stakes}, there is nothing left to rebuild."
       },
       "playerResponses": [
-        { "text": "We're not done yet. Show me where the storehouse is.", "action": "ACCEPT" },
-        { "text": "More collapsed buildings and more monsters. This disaster has layers.", "action": "ACCEPT" },
-        { "text": "At some point, you need to accept what can't be saved.", "action": "DECLINE" }
+        { "text": "I will not let it come to that. Send me in.", "action": "ACCEPT", "dispositionShift": 10 },
+        { "text": "Nested in the wreckage? Lovely. Fine, I will clear them.", "action": "ACCEPT", "dispositionShift": 0 }
       ],
-      "objectivePool": ["FETCH_ITEM", "KILL_MOBS", "EXPLORE_LOCATION"],
+      "objectivePool": ["KILL_MOBS", "GATHER_ITEMS", "EXPLORE_LOCATION"],
       "objectiveConfig": {
-        "FETCH_ITEM": { "locationPreference": "DUNGEON" },
-        "KILL_MOBS": { "countMin": 3, "countMax": 6 },
-        "EXPLORE_LOCATION": { "countMin": 1, "countMax": 2 }
+        "KILL_MOBS": { "countMin": 3, "countMax": 7 },
+        "GATHER_ITEMS": { "countMin": 5, "countMax": 12 }
       }
     },
     {
       "id": "disaster_conf_03",
       "dialogueChunks": {
-        "intro": "The situation has deteriorated, {player_name}. I won't sugarcoat it.",
-        "plotStep": "{quest_threat} left contaminated mud in the remaining wells. People are getting sick from the only water available. {target_npc} says there's a clean spring {location_hint}, but the path is blocked by debris and overrun with {enemy_type}. We need clean water and {quest_item} to purify what's left, or disease will finish what the disaster started.",
-        "outro": "{quest_threat} didn't end when the water stopped rising. It changed shape. And {quest_stakes} need us to {quest_action} before it gets worse."
+        "intro": "{player_name}, an aftershock of {quest_threat} hit while you were working to {quest_action}. {quest_ally} was nearly caught in it.",
+        "plotStep": "The area around {quest_focus} is now crawling with displaced {enemy_type} {location_hint}. People cannot get close enough to continue repairs. Someone needs to secure the perimeter and salvage what {quest_item} remain.",
+        "outro": "{quest_stakes} hang by a thread. We need the area safe before we can save anything."
       },
       "playerResponses": [
-        { "text": "Contaminated water on top of everything else? I'll find the spring.", "action": "ACCEPT" },
-        { "text": "Disease, debris, and monsters. A complete nightmare. Let's deal with it.", "action": "ACCEPT" },
-        { "text": "I'm not a healer or an engineer. This problem is bigger than me.", "action": "DECLINE" }
+        { "text": "Clear the area, save the supplies. I can do both.", "action": "ACCEPT", "dispositionShift": 5 },
+        { "text": "The danger keeps piling up. What choice do we have?", "action": "ACCEPT", "dispositionShift": 0 },
+        { "text": "This is beyond saving.", "action": "DECLINE", "dispositionShift": -10 }
       ],
-      "objectivePool": ["EXPLORE_LOCATION", "GATHER_ITEMS", "KILL_MOBS"],
+      "objectivePool": ["KILL_MOBS", "GATHER_ITEMS"],
       "objectiveConfig": {
-        "EXPLORE_LOCATION": { "countMin": 1, "countMax": 2 },
-        "GATHER_ITEMS": { "countMin": 4, "countMax": 10 },
-        "KILL_MOBS": { "countMin": 3, "countMax": 6 }
-      }
-    },
-    {
-      "id": "disaster_conf_04",
-      "dialogueChunks": {
-        "intro": "I thought the worst was over. I was wrong, {player_name}.",
-        "plotStep": "Refugees arrived from a neighboring settlement hit even harder by the storm. They brought nothing but mouths that need feeding. {target_npc} couldn't turn them away, but now we have twice the people and half the supplies. Worse, the {enemy_type} followed them here, tracking by scent. We need more {quest_item} from the trading post {location_hint} and the {enemy_type} driven off. Our efforts to {quest_action} just doubled in scope.",
-        "outro": "Too many people, too little of everything, and predators at the gates. {quest_stakes} need a miracle, and you're it."
-      },
-      "playerResponses": [
-        { "text": "Refugees and predators at the door? I'll handle the threat and bring back supplies.", "action": "ACCEPT" },
-        { "text": "One disaster feeding another. Fine, I'll sort out the immediate dangers.", "action": "ACCEPT", "dispositionShift": -5 },
-        { "text": "There are limits to what one person can do, and I've reached mine.", "action": "DECLINE" }
-      ],
-      "objectivePool": ["KILL_MOBS", "GATHER_ITEMS", "FETCH_ITEM"],
-      "objectiveConfig": {
-        "KILL_MOBS": { "countMin": 4, "countMax": 9 },
-        "GATHER_ITEMS": { "countMin": 5, "countMax": 12 },
-        "FETCH_ITEM": { "locationPreference": "SETTLEMENT" }
+        "KILL_MOBS": { "countMin": 5, "countMax": 10 },
+        "GATHER_ITEMS": { "countMin": 3, "countMax": 8 }
       }
     }
   ]

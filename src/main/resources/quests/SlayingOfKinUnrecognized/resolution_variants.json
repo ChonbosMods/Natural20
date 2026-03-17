@@ -1,58 +1,72 @@
 {
   "variants": [
     {
-      "id": "slayingofkinunrecog_reso_01",
+      "id": "reso_slaying_kin_truth_revealed",
       "dialogueChunks": {
-        "intro": "It's done, {player_name}. The reparations have been accepted.",
-        "plotStep": "The neighboring settlement received the {quest_item} compensation and the cleared road with grace. Their elder said something I didn't expect: that the disguised traders were warned the roads were dangerous but chose the costumes themselves, against advice. The blame isn't entirely mine, though the guilt will never fully lift. {target_npc} brokered a renewed trade agreement between our settlements, stronger than the old one. Something good grew from something terrible.",
-        "outro": "You cleared the road, delivered the reparations, and helped two settlements find peace. Take this. I earned none of it, but you earned all of it."
+        "intro": "It's over. The source of {quest_threat} has been destroyed, and people are coming back to themselves. The fog is lifting from their eyes.",
+        "plotStep": "The survivors are gathering. Some of them remember what they did. Others are being told. There's a lot of weeping in {location} tonight. {quest_ally} is tending to the wounded, but the deeper wounds aren't the kind bandages can fix.",
+        "outro": "You gave us the truth, {player_name}. That's the first step. The healing will take longer. {target_npc} wants to establish a warning system so this can never happen again. We owe you more than words can say."
       },
       "playerResponses": [
-        { "text": "Shared blame and renewed trade. It's not perfect, but it's a path forward.", "action": "ACCEPT" },
-        { "text": "The guilt may linger, but the friendship between settlements is real. Hold onto that.", "action": "ACCEPT", "dispositionShift": 5 }
+        {
+          "text": "The truth was the least you deserved. Take care of each other.",
+          "action": "COMPLETE",
+          "dispositionShift": 5
+        },
+        {
+          "text": "Just make sure it doesn't happen again.",
+          "action": "COMPLETE",
+          "dispositionShift": 2
+        }
       ],
       "objectivePool": [],
       "objectiveConfig": {}
     },
     {
-      "id": "slayingofkinunrecog_reso_02",
+      "id": "reso_slaying_kin_grim_reckoning",
       "dialogueChunks": {
-        "intro": "{player_name}, you found the laboratory. And the truth is worse and better than I feared.",
-        "plotStep": "{quest_threat} was a rogue alchemist who had been experimenting on abducted villagers for months. You shut them down and recovered enough of the {quest_item} formula to develop a reversal treatment. {target_npc} says two more transformed victims have been identified and sedated for treatment. The one I killed: they were too far gone, the alchemist confirmed. Nothing could have saved them by that point. That doesn't erase what I did, but it means I'm not the only one responsible.",
-        "outro": "You stopped a monster-maker and gave us a cure. The weight on my shoulders is lighter because of you. Take this."
+        "intro": "{player_name}, the {quest_focus} is neutralized. But the cost... three more fell before you reached the source. Three more names to carve into stone.",
+        "plotStep": "The {enemy_type} won't be using this weapon again, at least not here. {target_npc} has already begun analyzing what's left of {quest_item} to develop defenses. But the people who pulled the trigger on their own kin: they'll carry that weight forever.",
+        "outro": "Some of the killers have asked to leave the settlement. They can't face the families of those they harmed. I don't know if that's cowardice or mercy. Either way, this place will never be the same."
       },
       "playerResponses": [
-        { "text": "The alchemist who did this is the real villain. You were a victim of circumstance.", "action": "ACCEPT", "dispositionShift": 10 },
-        { "text": "Two more victims saved because you carried your guilt to me. That courage matters.", "action": "ACCEPT" }
+        {
+          "text": "They were victims too. Remember that when you judge them.",
+          "action": "COMPLETE",
+          "dispositionShift": 4
+        },
+        {
+          "text": "At least the enemy paid for what they orchestrated.",
+          "action": "COMPLETE",
+          "dispositionShift": 1
+        },
+        {
+          "text": "Some debts can only be paid in time.",
+          "action": "COMPLETE",
+          "dispositionShift": 3
+        }
       ],
       "objectivePool": [],
       "objectiveConfig": {}
     },
     {
-      "id": "slayingofkinunrecog_reso_03",
+      "id": "reso_slaying_kin_uneasy_peace",
       "dialogueChunks": {
-        "intro": "You found survivors, {player_name}. Living, breathing survivors.",
-        "plotStep": "Three people were hiding in the deepest tunnels, surviving on cave water and moss. They're malnourished and shaken, but alive. When I saw them emerge from the tunnel mouth, I fell to my knees. These are people who would have died in that camp if not for your search. {target_npc} is organizing their care, and the families from the other settlements have been notified. The {quest_item} they'd gathered in the tunnels is being returned to its rightful owners.",
-        "outro": "I went to those tunnels looking for evidence of my failure and found proof that something I did, however badly, led to lives being saved. Take this, {player_name}. You found the redemption I was too afraid to look for."
+        "intro": "The killing has stopped. The mistrust hasn't. People flinch when their neighbors reach for a tool belt. It's quiet, but it's not peace.",
+        "plotStep": "{quest_ally} proposed a memorial for all who died: both those killed by the deception and those who did the killing without knowing. {target_npc} opposed it at first, but came around. They said naming the dead honestly might be the only way to stop the silence from rotting what's left of this community.",
+        "outro": "You broke the curse, {player_name}. Now we have to live with what it did to us. That's the harder part, and it's ours to carry. Thank you for giving us the chance."
       },
       "playerResponses": [
-        { "text": "Three lives pulled from the dark. That changes everything.", "action": "ACCEPT", "dispositionShift": 10 },
-        { "text": "The past can't be undone, but the living can be helped. Focus on that.", "action": "ACCEPT" }
-      ],
-      "objectivePool": [],
-      "objectiveConfig": {}
-    },
-    {
-      "id": "slayingofkinunrecog_reso_04",
-      "dialogueChunks": {
-        "intro": "The gates opened, {player_name}. They let us in.",
-        "plotStep": "When the village saw the {enemy_type} den cleared and the fresh {quest_item} supplies you gathered, they opened their gates for the first time in weeks. The sick received treatment, and {target_npc} spent the entire day working alongside their healers. By evening, the village elder invited me inside to talk. I told them everything: the cart, {quest_focus}, my failure to check their papers. They were quiet for a long time. Then they said forgiveness takes time, but they were willing to start.",
-        "outro": "You earned their trust when I had destroyed it. The medicine is flowing, the sick are recovering, and two settlements are speaking again. This is yours."
-      },
-      "playerResponses": [
-        { "text": "Forgiveness that takes time is still forgiveness. That's a beginning.", "action": "ACCEPT" },
-        { "text": "The sick are treated and the gates are open. The rest will follow.", "action": "ACCEPT", "dispositionShift": 5 },
-        { "text": "Never skip the papers. Ever.", "action": "ACCEPT" }
+        {
+          "text": "The memorial is a good start. Don't let grief turn to blame.",
+          "action": "COMPLETE",
+          "dispositionShift": 5
+        },
+        {
+          "text": "You'll rebuild. People always do.",
+          "action": "COMPLETE",
+          "dispositionShift": 2
+        }
       ],
       "objectivePool": [],
       "objectiveConfig": {}

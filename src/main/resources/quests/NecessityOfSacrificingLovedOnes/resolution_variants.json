@@ -1,44 +1,72 @@
 {
   "variants": [
     {
-      "id": "necessity_of_sacrificing_loved_ones_reso_01",
+      "id": "reso_necessity_sacrifice_doors_open",
       "dialogueChunks": {
-        "intro": "{player_name}. I don't have to choose. Thanks to you, I don't have to choose.",
-        "plotStep": "The defenses held. The council saw the {enemy_type} numbers and agreed that exile was never the answer: it was just fear talking. {target_npc} is organizing the refugees into work crews now. They're repairing the damage from the raid and integrating into the settlement. My friend smiled at me this morning for the first time in weeks. Nobody was sent away. Nobody was sacrificed.",
-        "outro": "You didn't just save the refugees or the settlement. You saved me from becoming someone I couldn't live with. This is everything we have to offer, and it's not nearly enough."
+        "intro": "The doors opened this morning. Twenty-eight walked out. Twelve didn't. My sister was one of the twenty-eight.",
+        "plotStep": "The partial cure worked better than {target_npc} expected. Not everyone could be saved, and the families of those who didn't make it aren't ready to call this a victory. But the council never had to seal the doors. {quest_ally} is already distributing the remaining remedy to the outer settlements.",
+        "outro": "You gave us a choice that wasn't between terrible and worse, {player_name}. Twelve graves is a tragedy. Forty would have been an atrocity. I'll carry the weight of the ones we lost, but I'll carry it standing up."
       },
       "playerResponses": [
-        { "text": "The fact that you fought for both sides is what saved everyone.", "action": "ACCEPT", "dispositionShift": 15 },
-        { "text": "No impossible choices today. That's a good day.", "action": "ACCEPT" },
-        { "text": "Glad it worked out. Take care of those people.", "action": "ACCEPT" }
+        {
+          "text": "Mourn the twelve. But don't forget the twenty-eight.",
+          "action": "COMPLETE",
+          "dispositionShift": 5
+        },
+        {
+          "text": "I wish I could have saved them all.",
+          "action": "COMPLETE",
+          "dispositionShift": 3
+        },
+        {
+          "text": "Make sure the council never faces that vote again.",
+          "action": "COMPLETE",
+          "dispositionShift": 2
+        }
       ],
       "objectivePool": [],
       "objectiveConfig": {}
     },
     {
-      "id": "necessity_of_sacrificing_loved_ones_reso_02",
+      "id": "reso_necessity_sacrifice_all_returned",
       "dialogueChunks": {
-        "intro": "The water is clean, {player_name}. Both wells. Both communities.",
-        "plotStep": "The neutralizing agent worked perfectly. {target_npc}'s family came to see it for themselves and nearly wept with relief. They thought we were enemies, and instead we solved a problem that could have poisoned them too in another season. Both communities are sharing the cavern now, with a proper agreement drawn up and signed. I finally slept last night. Eight hours. Felt like a miracle.",
-        "outro": "You found the third option I was too exhausted to see. Take this: it was contributed by both settlements, because both settlements owe their water to you."
+        "intro": "Twelve hostages. All twelve. Walking through the gates right now. Some of them are injured, but they're alive.",
+        "plotStep": "The {enemy_type} didn't expect a strike on both camps simultaneously. {target_npc} coordinated the timing while {quest_ally} led the second team. It was close: closer than anyone wants to admit. But nobody was left behind. The grain reserves are untouched. The hostage-takers are scattered.",
+        "outro": "You found the third option, {player_name}. The one nobody believed existed. Twelve families are whole tonight because you refused to accept the impossible choice."
       },
       "playerResponses": [
-        { "text": "Two communities sharing instead of fighting. That's worth more than any reward.", "action": "ACCEPT", "dispositionShift": 10 },
-        { "text": "Get some more sleep. You've earned it.", "action": "ACCEPT" }
+        {
+          "text": "There's always a third option. You just have to be stubborn enough to find it.",
+          "action": "COMPLETE",
+          "dispositionShift": 5
+        },
+        {
+          "text": "The raiders will try again. Be ready next time.",
+          "action": "COMPLETE",
+          "dispositionShift": 2
+        }
       ],
       "objectivePool": [],
       "objectiveConfig": {}
     },
     {
-      "id": "necessity_of_sacrificing_loved_ones_reso_03",
+      "id": "reso_necessity_sacrifice_bridge_and_lives",
       "dialogueChunks": {
-        "intro": "They came, {player_name}. The warband came. And we were ready.",
-        "plotStep": "We handed over {quest_focus} as agreed, and the replacement supplies you gathered were distributed the same day. My sister didn't starve. My soldiers didn't fight. The {enemy_type} took their tribute and left, and nobody in {location} went to bed hungry. {target_npc} says it's a temporary peace, and maybe they're right. But temporary peace is still peace, and the families that would have suffered are eating tonight because of you.",
-        "outro": "My sister asked me to give you this. She said to tell you she knows what you did, and that her children will grow up knowing your name."
+        "intro": "The bridge is gone. It collapsed an hour after the last person crossed. The commander never had to light the torch.",
+        "plotStep": "All seventeen made it across the ford. The elder had to be carried the last mile, and one of the children fell asleep on a soldier's back. {target_npc} said the sound of the bridge falling behind them was the worst and best thing they ever heard. The {enemy_type} are on the far side now with no way across.",
+        "outro": "You found the path nobody was looking for, {player_name}. Seventeen people are alive because you wouldn't accept that saving the many meant abandoning the few. The commander wants to shake your hand. I think he's also a little relieved he didn't have to make the call."
       },
       "playerResponses": [
-        { "text": "Temporary peace bought time. Use it to build something permanent.", "action": "ACCEPT" },
-        { "text": "Children eating dinner instead of going hungry. That's the only victory that matters.", "action": "ACCEPT", "dispositionShift": 10 }
+        {
+          "text": "Those children sleeping safe tonight is all the thanks I need.",
+          "action": "COMPLETE",
+          "dispositionShift": 5
+        },
+        {
+          "text": "Rebuild the defenses. They'll find another way across eventually.",
+          "action": "COMPLETE",
+          "dispositionShift": 1
+        }
       ],
       "objectivePool": [],
       "objectiveConfig": {}

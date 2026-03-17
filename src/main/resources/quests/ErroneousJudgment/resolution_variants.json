@@ -3,14 +3,13 @@
     {
       "id": "erroneous_judgment_reso_01",
       "dialogueChunks": {
-        "intro": "{target_npc} is back, {player_name}. And somehow, they've forgiven us.",
-        "plotStep": "I stood in front of the whole settlement and admitted everything: the hasty accusation based on {quest_focus}, all of it. {target_npc} just nodded and said, 'Don't let it happen again.' The trade route is secured, the {quest_item} is flowing again. {location} is stronger for having gone through this. {quest_threat} taught us a painful lesson.",
-        "outro": "You showed us the truth when we didn't want to see it. I hope this is enough to show our gratitude."
+        "intro": "You found the truth, {player_name}. And the truth, as usual, was more complicated than anyone expected.",
+        "plotStep": "The evidence you brought back proved that {quest_focus} was never what it appeared. The council reviewed everything and reversed their decision. {target_npc} was vindicated, and the settlement owes them a debt that words alone can't pay. The real source of the problem has been dealt with, and the {enemy_type} have retreated now that the deception has been exposed. People are shaken by how close they came to an irreversible mistake.",
+        "outro": "You proved that the hardest thing to find isn't treasure or monsters: it's the truth. Take this, and know that {location} learned something painful but necessary."
       },
       "playerResponses": [
-        { "text": "The courage to admit you were wrong is its own kind of strength.", "action": "ACCEPT", "dispositionShift": 10 },
-        { "text": "Glad {target_npc} is more forgiving than most. Take care.", "action": "ACCEPT" },
-        { "text": "Remember this next time someone brings accusations without proof.", "action": "ACCEPT" }
+        { "text": "The truth is always worth the effort. Even when it's uncomfortable.", "action": "ACCEPT", "dispositionShift": 10 },
+        { "text": "Lesson learned, I hope. Be more careful with judgment next time.", "action": "ACCEPT" }
       ],
       "objectivePool": [],
       "objectiveConfig": {}
@@ -18,13 +17,13 @@
     {
       "id": "erroneous_judgment_reso_02",
       "dialogueChunks": {
-        "intro": "The supplies are recovered and the real culprits won't be bothering us again.",
-        "plotStep": "{target_npc} was released and given a formal apology. {quest_stakes} is resolved: they chose to stay in {location}. The council enacted new rules: no accusations without evidence from at least two independent sources. A small change born from a lesson we won't forget. {quest_origin} will never fool us again.",
-        "outro": "You kept us from making an irreversible mistake. This is yours, with the thanks of everyone who almost lost a good neighbor to a lie."
+        "intro": "It's over, {player_name}. The damage is done, but at least the bleeding has stopped.",
+        "plotStep": "The settlement acknowledged the error, though not everyone is willing to admit they were wrong. {target_npc} accepted the council's apology with more grace than most people would manage. The real perpetrator was identified thanks to your investigation, and the {enemy_type} threat has been neutralized. But the trust that was broken won't heal quickly. Some families who acted on the false information are carrying guilt, and others are still suspicious despite the evidence.",
+        "outro": "You can't unring a bell, but you can stop people from ringing it again. Here, take this with our thanks."
       },
       "playerResponses": [
-        { "text": "New rules are a good start. Actions will matter more than words now.", "action": "ACCEPT" },
-        { "text": "Justice done late is better than injustice done fast. Be well.", "action": "ACCEPT", "dispositionShift": 5 }
+        { "text": "Healing takes time. The important thing is the truth is out now.", "action": "ACCEPT", "dispositionShift": 5 },
+        { "text": "Done is done. Learn from it and move forward.", "action": "ACCEPT" }
       ],
       "objectivePool": [],
       "objectiveConfig": {}
@@ -32,13 +31,13 @@
     {
       "id": "erroneous_judgment_reso_03",
       "dialogueChunks": {
-        "intro": "{player_name}, I have something to say and I don't expect it to be easy to hear.",
-        "plotStep": "I was so sure {quest_focus} was real. So certain that {quest_threat} demanded action. And I was wrong about all of it. The {quest_item} we wasted could have fed families. {target_npc} came back, and the settlement is recovering, but I've had to sit with the weight of knowing how close I came to ruining an innocent life.",
-        "outro": "You didn't just find the truth: you forced me to face it. Take this, and know it comes from a humbler person than the one who sent you out."
+        "intro": "{player_name}, the truth you uncovered saved lives. But it also revealed something about us that nobody wanted to see.",
+        "plotStep": "The council disbanded the militia patrol that acted on the false report. {target_npc} is helping rebuild what was damaged in the confusion. But the conversation in {location} has shifted: people are asking how they allowed bad information to drive them so far, so fast. The {enemy_type} weren't the real danger, we were, to ourselves. Your investigation forced a reckoning that this settlement desperately needed, even if it didn't enjoy it.",
+        "outro": "Sometimes the bravest thing you can do is hold up a mirror. Take this: you earned every bit of it."
       },
       "playerResponses": [
-        { "text": "Humility earned through failure is still humility. You'll be better for it.", "action": "ACCEPT", "dispositionShift": 10 },
-        { "text": "Next time, slow down. The truth doesn't run as fast as fear.", "action": "ACCEPT" }
+        { "text": "Self-reflection is harder than any fight. I'm glad it's happening.", "action": "ACCEPT" },
+        { "text": "Knowing your weaknesses is the first step to fixing them.", "action": "ACCEPT", "dispositionShift": 5 }
       ],
       "objectivePool": [],
       "objectiveConfig": {}

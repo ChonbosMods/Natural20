@@ -1,44 +1,72 @@
 {
   "variants": [
     {
-      "id": "rivalry_of_superior_vs_inferior_reso_01",
+      "id": "reso_rivalry_sup_inf_new_accord",
       "dialogueChunks": {
-        "intro": "{player_name}. The commander is gone.",
-        "plotStep": "The regional authority received the documents, investigated, and removed the commander within a week. The officers who participated in {quest_origin} are being reassigned. {target_npc} was released from detention and the charges dropped. The new garrison leadership actually asked the merchants what they need. I don't know how long this good period will last, but for now, people in {location} are walking with their heads up for the first time in months.",
-        "outro": "You carried documents through a wilderness crawling with danger. It doesn't sound heroic when you say it like that, but those papers toppled a tyrant. Take this: the merchants pooled it together."
+        "intro": "The council heard the evidence. The founding families are furious, but they can't deny the numbers. The siphoning was systematic and documented.",
+        "plotStep": "{target_npc} brokered a new accord: wages adjusted, community funds restored, and a public accounting system so nobody can skim again. The founding family's son who struck the worker publicly apologized. Whether he meant it is debatable. Whether it matters is less so.",
+        "outro": "The settlement won't change overnight, {player_name}. Power doesn't redistribute quietly. But the workers have a seat at the table now, and that's something they didn't have yesterday. {quest_ally} says to tell you the first fair payroll goes out next week."
       },
       "playerResponses": [
-        { "text": "Papers and persistence beat armor and threats. Enjoy your freedom.", "action": "ACCEPT", "dispositionShift": 10 },
-        { "text": "Make sure the next commander is better. Or I'll deliver more documents.", "action": "ACCEPT" },
-        { "text": "About time someone listened. Take care of yourselves.", "action": "ACCEPT" }
+        {
+          "text": "A seat at the table is where change starts. Good luck to them.",
+          "action": "COMPLETE",
+          "dispositionShift": 5
+        },
+        {
+          "text": "Keep watching the books. Corruption doesn't stay gone on its own.",
+          "action": "COMPLETE",
+          "dispositionShift": 2
+        }
       ],
       "objectivePool": [],
       "objectiveConfig": {}
     },
     {
-      "id": "rivalry_of_superior_vs_inferior_reso_02",
+      "id": "reso_rivalry_sup_inf_harvest_returned",
       "dialogueChunks": {
-        "intro": "Come see the forge, {player_name}. You won't believe what we've built.",
-        "plotStep": "The hidden forge is operational. {target_npc} has been training apprentices from every family that was shut out by the founding elite. Tools, horseshoes, hinges: we're producing everything the settlement needs without going through the old families' monopoly. They've noticed, of course. But they can't find us, and the people who buy from us aren't talking. For the first time, the power in {location} isn't all in one set of hands.",
-        "outro": "{target_npc} forged something special for you. Said it was the first piece made by free hands in this settlement. Carry it with pride."
+        "intro": "The charter was clear. The taxes were illegal. The landowner's own guards opened the storehouse doors when they saw the founding document.",
+        "plotStep": "The families got their harvest back. Every bushel. {target_npc} supervised the distribution personally. The landowner hasn't been seen since: some say he left in the night, others say he's locked in his estate drafting new schemes. {quest_ally} organized a watch rotation to make sure the storehouse stays public.",
+        "outro": "A piece of paper with old words on it broke a tyrant's grip, {player_name}. That's the thing about legitimate authority: it only works as long as nobody reads the fine print. You read it."
       },
       "playerResponses": [
-        { "text": "Free hands making honest goods. That's what a settlement should look like.", "action": "ACCEPT", "dispositionShift": 15 },
-        { "text": "A forge they can't find and can't control. Well done.", "action": "ACCEPT" }
+        {
+          "text": "The law was always on their side. They just needed someone to prove it.",
+          "action": "COMPLETE",
+          "dispositionShift": 5
+        },
+        {
+          "text": "The landowner will try again. Stay vigilant.",
+          "action": "COMPLETE",
+          "dispositionShift": 2
+        },
+        {
+          "text": "Next time, don't wait for an outsider. Fight for your own.",
+          "action": "COMPLETE",
+          "dispositionShift": 0
+        }
       ],
       "objectivePool": [],
       "objectiveConfig": {}
     },
     {
-      "id": "rivalry_of_superior_vs_inferior_reso_03",
+      "id": "reso_rivalry_sup_inf_guild_reformed",
       "dialogueChunks": {
-        "intro": "Sit down, {player_name}. Have a drink. This one's a celebration.",
-        "plotStep": "The new cache held. {quest_threat} came sniffing around twice but found nothing. Meanwhile, the merchants have been quietly resupplying from our reserves whenever the guards make their rounds. {quest_focus} is collapsing because there's nothing left to threaten us with. {target_npc}'s black eye healed, and they wore it like a badge of honor. The guard captain finally got reassigned after enough complaints reached the outside. Power shifted, quietly, without a single sword drawn.",
-        "outro": "You built the foundation that let ordinary people stand up straight. This is from every merchant in the settlement: a thank-you for teaching us that we don't have to accept what's handed to us."
+        "intro": "The trade council ruled unanimously. The guild examinations are suspended pending a complete overhaul. Three guild masters have been stripped of their positions.",
+        "plotStep": "The expelled apprentice was reinstated with a formal apology. {target_npc} says fourteen other apprentices who had been failed unfairly are being reassessed. {quest_ally} is drafting new examination standards with input from every skill level, not just the top. It's messy and loud and exactly what reform looks like.",
+        "outro": "The guild won't forgive you easily, {player_name}. But the apprentices who can finally earn what they deserve: they'll remember. Sometimes the inferior just needed a fair chance, not a revolution. You gave them one."
       },
       "playerResponses": [
-        { "text": "You taught yourselves. I just gathered supplies.", "action": "ACCEPT" },
-        { "text": "A quiet revolution. The best kind. Take care of each other.", "action": "ACCEPT", "dispositionShift": 10 }
+        {
+          "text": "Fair chances shouldn't require someone breaking the system. Fix it properly.",
+          "action": "COMPLETE",
+          "dispositionShift": 4
+        },
+        {
+          "text": "The guild masters got off easy. But at least the system changes.",
+          "action": "COMPLETE",
+          "dispositionShift": 1
+        }
       ],
       "objectivePool": [],
       "objectiveConfig": {}

@@ -1,78 +1,105 @@
 {
   "variants": [
     {
-      "id": "crimes_of_love_expo_01",
+      "id": "expo_crimes_love_smuggled_medicine",
       "bindings": {
-        "quest_action": "replace stolen storehouse supplies before the audit",
-        "quest_focus": "the food I took from the storehouse to feed starving children",
-        "quest_stakes": "exile from the settlement if the theft is discovered",
-        "quest_threat": "an investigation is closing in on the broken lock",
-        "quest_time_pressure": "the inventory count happens tomorrow"
+        "quest_action": "deliver the smuggled remedies",
+        "quest_focus": "the banned medicines",
+        "quest_stakes": "the sick children",
+        "quest_threat": "guild enforcers",
+        "quest_origin": "the herbalist's hidden garden",
+        "quest_time_pressure": "before the fever peaks"
       },
       "dialogueChunks": {
-        "intro": "I know what I did was wrong, {player_name}. I'm not here to pretend otherwise. But if you'd seen their faces, you'd have done the same thing.",
-        "plotStep": "My neighbor's children hadn't eaten in three days. So I took {quest_focus} to feed them. {target_npc} is leading the investigation into the broken lock. I need {quest_item} to {quest_action}. {quest_time_pressure}, and if the storehouse is full when they check, there's nothing to investigate.",
-        "outro": "Call me a thief. I'll accept it. But {quest_stakes} is a price I'll pay knowing those children ate that night."
+        "intro": "The guild banned the sale of moonwort remedies last season. Said they were 'unregulated.' Four children are sick with swamp fever and moonwort is the only thing that works.",
+        "plotStep": "A herbalist outside town has been growing {quest_focus} in secret at {quest_origin}. She knows the guild will have her arrested if they find out. She doesn't care. She said: 'Let them fine me. I'm not watching children die over a regulation.' But she can't deliver the medicine herself: the guild has watchers on the roads.",
+        "outro": "Someone needs to {quest_action} to the families before {quest_time_pressure}. The herbalist has committed a crime: growing and distributing banned substances. She did it because {quest_stakes} matter more to her than her freedom."
       },
       "playerResponses": [
-        { "text": "Stealing to feed hungry children isn't the crime they think it is. I'll help.", "action": "ACCEPT" },
-        { "text": "You broke the law for the right reasons. Let's fix this before it gets worse.", "action": "ACCEPT" },
-        { "text": "Theft is theft, no matter the reason. I can't be part of a cover-up.", "action": "DECLINE" }
+        {
+          "text": "Sick children outrank guild regulations. I'll make the delivery.",
+          "action": "ACCEPT",
+          "dispositionShift": 5
+        },
+        {
+          "text": "If I'm caught, I go down too. What's the plan?",
+          "action": "ACCEPT",
+          "dispositionShift": 2
+        },
+        {
+          "text": "I'm not running contraband, even for a good reason.",
+          "action": "DECLINE"
+        }
       ],
-      "objectivePool": ["GATHER_ITEMS", "FETCH_ITEM"],
+      "objectivePool": ["DELIVER_ITEM", "EXPLORE_LOCATION", "GATHER_ITEMS"],
       "objectiveConfig": {
-        "GATHER_ITEMS": { "countMin": 5, "countMax": 10 },
-        "FETCH_ITEM": { "locationPreference": "WILDERNESS" }
+        "GATHER_ITEMS": { "countMin": 4, "countMax": 10 }
       }
     },
     {
-      "id": "crimes_of_love_expo_02",
+      "id": "expo_crimes_love_deserter_father",
       "bindings": {
-        "quest_action": "disguise a deserter's identity and arrange safe passage",
-        "quest_focus": "a young soldier who refused to burn an innocent village",
-        "quest_stakes": "both the soldier and my sister face hanging if caught",
-        "quest_threat": "the garrison is asking questions and closing in",
-        "quest_origin": "a monstrous order that no decent person could carry out"
+        "quest_action": "hide the deserter's trail",
+        "quest_focus": "the deserter's family",
+        "quest_stakes": "a father's life",
+        "quest_threat": "the military tribunal",
+        "quest_origin": "the abandoned farmstead"
       },
       "dialogueChunks": {
-        "intro": "{player_name}, I need someone who doesn't know the people involved. Someone who can look at this clearly.",
-        "plotStep": "My sister is harboring {quest_focus}: a deserter who refused an order to burn a village suspected of aiding {enemy_type}. {quest_origin}, and the soldier couldn't carry it out. But desertion is a hanging offense, and {target_npc} has been asking questions around {location}. I need {quest_item} to {quest_action} to a settlement {location_hint} where nobody knows their face.",
-        "outro": "The law says hang the deserter. My heart says save {quest_focus}. {quest_stakes}, but I've chosen my heart. Will you help?"
+        "intro": "A soldier deserted his post three days ago. Not for cowardice. His daughter is dying and the commander wouldn't grant leave.",
+        "plotStep": "He walked away from a garrison of fifty knowing the penalty is death. His daughter has the wasting sickness and he has a remedy that only works if administered by someone who knows the dosage. He's hiding at {quest_origin} with his family. The military patrol is already searching.",
+        "outro": "If someone could {quest_action} and buy him time to treat his daughter, he'll turn himself in willingly. He said: 'They can hang me after she's well. I just need three days.' {quest_threat} won't show mercy, but {quest_stakes} hang on those three days."
       },
       "playerResponses": [
-        { "text": "A soldier with a conscience deserves protection, not a noose. Count me in.", "action": "ACCEPT" },
-        { "text": "Harboring deserters and forging identities. This is serious. But I'll help.", "action": "ACCEPT", "dispositionShift": -5 },
-        { "text": "I won't help a deserter escape, no matter the reason.", "action": "DECLINE" }
+        {
+          "text": "A father choosing his dying child over a post. I understand. I'll help.",
+          "action": "ACCEPT",
+          "dispositionShift": 5
+        },
+        {
+          "text": "Desertion is desertion. But the child didn't choose this.",
+          "action": "ACCEPT",
+          "dispositionShift": 1
+        },
+        {
+          "text": "I won't obstruct a military investigation.",
+          "action": "DECLINE"
+        }
       ],
-      "objectivePool": ["FETCH_ITEM", "EXPLORE_LOCATION"],
+      "objectivePool": ["EXPLORE_LOCATION", "TALK_TO_NPC", "KILL_MOBS"],
       "objectiveConfig": {
-        "FETCH_ITEM": { "locationPreference": "WILDERNESS" },
-        "EXPLORE_LOCATION": { "countMin": 1, "countMax": 3 }
+        "KILL_MOBS": { "countMin": 2, "countMax": 5 }
       }
     },
     {
-      "id": "crimes_of_love_expo_03",
+      "id": "expo_crimes_love_forbidden_trade",
       "bindings": {
-        "quest_action": "gather wild ingredients to keep brewing unlicensed remedies",
-        "quest_focus": "the secret medicine I brew for people who can't afford guild prices",
-        "quest_stakes": "the sick and poor will go untreated if I'm caught",
-        "quest_threat": "the alchemist guild has sent enforcers to find the source",
-        "quest_origin": "guild-controlled prices that only the wealthy can afford"
+        "quest_action": "complete the forbidden exchange",
+        "quest_focus": "the embargoed goods",
+        "quest_stakes": "a starving village",
+        "quest_threat": "border patrols",
+        "quest_reward_hint": "a trader's favor"
       },
       "dialogueChunks": {
-        "intro": "I've been making medicine for people who can't pay, {player_name}. Sounds noble until you hear the rest.",
-        "plotStep": "The alchemist guild controls all healing supplies in the region. {quest_origin}, so I've been secretly brewing {quest_focus} and distributing it to the poor. {quest_threat}, and {target_npc} suspects me. I need {quest_item} from the highlands {location_hint} to {quest_action}. The {enemy_type} up there make it dangerous, but people in {location} are counting on me.",
-        "outro": "Healing the sick shouldn't be a crime. But {quest_stakes}, and I won't stop. I can't."
+        "intro": "The border embargo means no trade with the settlements across the river. It also means the village on the far bank is starving. One of our merchants has been smuggling food across in secret.",
+        "plotStep": "The merchant's own family lives on this side. If she's caught smuggling {quest_focus}, she loses everything: her license, her home, probably her freedom. She does it because her childhood friend lives across the river with six children and no food. Love doesn't care about border policy.",
+        "outro": "The next shipment needs to cross tonight. She can't make the run herself because {quest_threat} have doubled patrols. She needs someone to {quest_action}. It's illegal, it's dangerous, and it will feed twenty people for a week."
       },
       "playerResponses": [
-        { "text": "Medicine for those who need it, laws be damned. What do you need?", "action": "ACCEPT" },
-        { "text": "Contraband compassion. I like you. Tell me where the herbs grow.", "action": "ACCEPT" },
-        { "text": "Going against a guild with enforcers is a fight I'd rather avoid.", "action": "DECLINE" }
+        {
+          "text": "Hungry children don't respect borders either. I'll do it.",
+          "action": "ACCEPT",
+          "dispositionShift": 5
+        },
+        {
+          "text": "How many more runs until this becomes unsustainable?",
+          "action": "ACCEPT",
+          "dispositionShift": 1
+        }
       ],
-      "objectivePool": ["GATHER_ITEMS", "EXPLORE_LOCATION"],
+      "objectivePool": ["DELIVER_ITEM", "EXPLORE_LOCATION", "KILL_MOBS"],
       "objectiveConfig": {
-        "GATHER_ITEMS": { "countMin": 6, "countMax": 14 },
-        "EXPLORE_LOCATION": { "countMin": 1, "countMax": 2 }
+        "KILL_MOBS": { "countMin": 2, "countMax": 6 }
       }
     }
   ]

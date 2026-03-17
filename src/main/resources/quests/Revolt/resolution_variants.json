@@ -3,13 +3,14 @@
     {
       "id": "revolt_reso_01",
       "dialogueChunks": {
-        "intro": "It's done, {player_name}. {quest_threat} left at dawn with nothing but the clothes on their back.",
-        "plotStep": "When the evidence was presented, even the loyal guards turned against them. {target_npc} read the inventory records aloud: every diverted crate, every lie. The people voted unanimously: banishment, and a new council will govern. You helped us {quest_action}, and {quest_stakes} are free to govern themselves for the first time in years.",
-        "outro": "Take this: it was liberated from {quest_focus}. It belongs to the people, and the people want you to have it."
+        "intro": "Freedom, {player_name}. Real, hard-won freedom. {quest_threat} have been overthrown, and {quest_stakes} are free at last.",
+        "plotStep": "{quest_focus} flies our banner now. {quest_ally} is helping establish a fair council to govern in place of the old authority. The people are choosing their own future for the first time.",
+        "outro": "You gave teeth to a dream that most thought impossible. We will never forget this."
       },
       "playerResponses": [
-        { "text": "A settlement governing itself. That's how it should always have been.", "action": "ACCEPT", "dispositionShift": 15 },
-        { "text": "I'm glad the truth came out. Use your freedom wisely.", "action": "ACCEPT" }
+        { "text": "Freedom is worth fighting for. Govern yourselves well.", "action": "ACCEPT", "dispositionShift": 15 },
+        { "text": "Make sure the new leaders are better than the old ones.", "action": "ACCEPT", "dispositionShift": 5 },
+        { "text": "Revolutions are easy. Building something better is the real work.", "action": "ACCEPT", "dispositionShift": 0 }
       ],
       "objectivePool": [],
       "objectiveConfig": {}
@@ -17,13 +18,13 @@
     {
       "id": "revolt_reso_02",
       "dialogueChunks": {
-        "intro": "The trading post is open, {player_name}. Officially, permanently, and defiantly open.",
-        "plotStep": "The first independent merchants arrived this morning at half the consortium's prices. {target_npc} is managing operations with a grin so wide I'm worried their face will crack. Three other settlements have declared support. You helped us {quest_action}, and {quest_stakes} everywhere are finally free to trade fairly.",
-        "outro": "Free trade. Fair prices. Open roads. You made this possible. Take this with the gratitude of every independent trader in the territory."
+        "intro": "{player_name}, the revolt succeeded. Your help to {quest_action} tipped the balance. {quest_threat} collapsed once the people stood united.",
+        "plotStep": "{quest_stakes} are celebrating in the streets. {quest_focus} has been reclaimed by the people. {quest_ally} is already drafting new agreements to ensure this never happens again.",
+        "outro": "You stood with the oppressed and helped them rise. That is a legacy to be proud of."
       },
       "playerResponses": [
-        { "text": "A free market spreading across the region? That's a revolution worth fighting for.", "action": "ACCEPT", "dispositionShift": 10 },
-        { "text": "Good to see the consortium humbled. Keep the post running.", "action": "ACCEPT" }
+        { "text": "The people did this. I just helped level the field.", "action": "ACCEPT", "dispositionShift": 10 },
+        { "text": "Stay vigilant. Power corrupts.", "action": "ACCEPT", "dispositionShift": 5 }
       ],
       "objectivePool": [],
       "objectiveConfig": {}
@@ -31,27 +32,14 @@
     {
       "id": "revolt_reso_03",
       "dialogueChunks": {
-        "intro": "The warden is in chains, {player_name}. Actual chains, in the very cell where they held {target_npc}.",
-        "plotStep": "When the workers testified, the entire settlement turned. Even the personal guard laid down their weapons. {quest_focus} is broken: {target_npc} led a delegation to the border and made it clear that no more labor would be provided. You helped us {quest_action}, and {quest_stakes} are home with their families for the first time in months.",
-        "outro": "Justice isn't always clean, but this time it was thorough. Take this: you earned it by standing with people who had no one else."
+        "intro": "It is over, {player_name}. The old regime is gone. {quest_threat} fled when they saw the people would not back down.",
+        "plotStep": "{quest_stakes} are rebuilding on their own terms now. {quest_focus} serves the community instead of one tyrant. {quest_ally} says the mood is cautious but hopeful.",
+        "outro": "Change is always frightening. But you showed us it is possible. Thank you."
       },
       "playerResponses": [
-        { "text": "The workers are home and the warden is in chains. That's the right ending.", "action": "ACCEPT", "dispositionShift": 10 },
-        { "text": "Make sure the tribunal is fair. Even tyrants deserve due process.", "action": "ACCEPT" }
-      ],
-      "objectivePool": [],
-      "objectiveConfig": {}
-    },
-    {
-      "id": "revolt_reso_04",
-      "dialogueChunks": {
-        "intro": "{player_name}. You should see this place right now. It doesn't even look the same.",
-        "plotStep": "{quest_focus} is abolished. The barracks have been converted into a community hall. {target_npc} was elected representative by unanimous vote. The soldiers who stayed accepted the new arrangement. There was a feast last night: the first where people ate without guilt or fear. You helped us {quest_action}, and {quest_stakes} finally know what freedom tastes like.",
-        "outro": "We ate freely and laughed freely for the first time since anyone can remember. This is yours: a token of a people who remembered their dignity."
-      },
-      "playerResponses": [
-        { "text": "A feast without fear. That's what you were fighting for all along.", "action": "ACCEPT", "dispositionShift": 15 },
-        { "text": "Freedom earned by the people themselves. I was just the spark.", "action": "ACCEPT" }
+        { "text": "Build something worth defending. That is my advice.", "action": "ACCEPT", "dispositionShift": 10 },
+        { "text": "I am glad the bloodshed was worth it in the end.", "action": "ACCEPT", "dispositionShift": 5 },
+        { "text": "Remember what you fought for when the hard decisions come.", "action": "ACCEPT", "dispositionShift": 5 }
       ],
       "objectivePool": [],
       "objectiveConfig": {}

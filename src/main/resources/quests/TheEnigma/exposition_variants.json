@@ -1,106 +1,113 @@
 {
   "variants": [
     {
-      "id": "enigma_expo_01",
+      "id": "enigma_expo_strange_ruins",
       "bindings": {
-        "quest_action": "investigate the pulsing lights and the patterns they've left behind",
-        "quest_focus": "the ruins where strange lights appear every night",
-        "quest_stakes": "understanding a phenomenon that has the whole settlement on edge",
-        "quest_threat": "an unknown force that even the local creatures are afraid of",
-        "quest_origin": "lights that started appearing a week ago"
+        "quest_action": "investigate the ruins",
+        "quest_focus": "the carved stones",
+        "quest_stakes": "hidden knowledge",
+        "quest_threat": "the site's guardians",
+        "quest_origin": "a traveler's report"
       },
       "dialogueChunks": {
-        "intro": "Ah, {player_name}! I was hoping someone with a curious mind would pass through. Tell me: do you enjoy a good mystery?",
-        "plotStep": "{quest_origin} over {quest_focus} {location_hint}: not fire, not torches, something that pulses with a rhythm like a heartbeat. {target_npc} went to investigate and found {quest_item} scattered in deliberate patterns on the ground. The {enemy_type} in the area have been avoiding the ruins entirely. {quest_threat} has everyone baffled.",
-        "outro": "Lights, patterns, and creatures that are afraid to go near. I need someone to {quest_action}."
+        "intro": "A traveler passing through brought word of something strange {location_hint}. Ancient stones with carvings no one can read, arranged in patterns that don't match any known builders.",
+        "plotStep": "I've asked around and {quest_ally} confirmed similar markings were spotted near {location} months ago. Whatever civilization left these behind, they were deliberate about placement. The {enemy_type} seem drawn to those sites too, which worries me.",
+        "outro": "Someone needs to examine {quest_focus} up close and bring back anything that might explain their purpose. Are you curious enough to go, {player_name}?"
       },
       "playerResponses": [
-        { "text": "Pulsing lights and deliberate patterns? Now you have my full attention.", "action": "ACCEPT" },
-        { "text": "Mysteries don't pay the bills. What's the reward for answers?", "action": "ACCEPT", "dispositionShift": -5 },
-        { "text": "Unexplained lights that scare away monsters? I think I'll scare away too.", "action": "DECLINE" }
-      ],
-      "objectivePool": ["EXPLORE_LOCATION", "GATHER_ITEMS"],
-      "objectiveConfig": {
-        "EXPLORE_LOCATION": { "countMin": 2, "countMax": 4 },
-        "GATHER_ITEMS": { "countMin": 3, "countMax": 6 }
-      }
-    },
-    {
-      "id": "enigma_expo_02",
-      "bindings": {
-        "quest_action": "investigate the spiral phenomenon and determine what's causing it",
-        "quest_focus": "the mathematically perfect crop spirals",
-        "quest_stakes": "the settlement's peace of mind and understanding of what's happening to their fields",
-        "quest_threat": "an inexplicable force reshaping our crops with impossible precision",
-        "quest_origin": "crops growing in perfect spiral patterns with mineral deposits at their centers"
-      },
-      "dialogueChunks": {
-        "intro": "I need someone who can look at something impossible and not immediately run away, {player_name}. Are you that person?",
-        "plotStep": "{quest_origin} in the fields. Not dying, not blighting: growing in {quest_focus} that shouldn't exist in nature. {target_npc} measured them and says the mathematical precision is beyond deliberate cultivation. At each spiral's center, there's {quest_item}. The {enemy_type} gather near the fields at night but don't attack: they just watch.",
-        "outro": "{quest_threat} contradicts everything I know. I need you to {quest_action}."
-      },
-      "playerResponses": [
-        { "text": "Spirals, minerals, and watching monsters? This is the most fascinating thing I've heard in months.", "action": "ACCEPT" },
-        { "text": "I'll investigate, but if the answer turns out to be dangerous, I reserve the right to leave.", "action": "ACCEPT" },
-        { "text": "Mathematical crop spirals and gathering monsters? That sounds less like a mystery and more like a warning.", "action": "DECLINE" }
-      ],
-      "objectivePool": ["EXPLORE_LOCATION", "GATHER_ITEMS", "TALK_TO_NPC"],
-      "objectiveConfig": {
-        "EXPLORE_LOCATION": { "countMin": 1, "countMax": 3 },
-        "GATHER_ITEMS": { "countMin": 4, "countMax": 8 },
-        "TALK_TO_NPC": { "countMin": 1, "countMax": 1 }
-      }
-    },
-    {
-      "id": "enigma_expo_03",
-      "bindings": {
-        "quest_action": "explore the self-unsealed cave and decipher what's inside",
-        "quest_focus": "a cave system that opened itself after centuries sealed",
-        "quest_stakes": "knowledge of an ancient civilization and their technology",
-        "quest_threat": "unknown forces stirring in a place that was deliberately hidden",
-        "quest_origin": "stone that simply moved on its own, unsealing a cave sealed since before the settlement was founded"
-      },
-      "dialogueChunks": {
-        "intro": "{player_name}, I've spent thirty years studying the natural world, and last week I encountered something that made me question everything.",
-        "plotStep": "{quest_focus} {location_hint}: {quest_origin}. Inside, {target_npc} found walls covered in unreadable writing, tools of unknown materials, and a chamber filled with {quest_item} arranged in a configuration that produces a faint humming sound. The {enemy_type} swarm toward the cave but none will cross the threshold.",
-        "outro": "Ancient writing, unknown materials, and a cave that unsealed itself. I need you to {quest_action}."
-      },
-      "playerResponses": [
-        { "text": "A cave that opened itself? Unknown writing? I'll explore every inch of it.", "action": "ACCEPT" },
-        { "text": "This sounds like something that was sealed for a reason. But curiosity wins. I'll look.", "action": "ACCEPT" },
-        { "text": "Things that unseal themselves are usually best left alone.", "action": "DECLINE" }
-      ],
-      "objectivePool": ["EXPLORE_LOCATION", "FETCH_ITEM", "KILL_MOBS"],
-      "objectiveConfig": {
-        "EXPLORE_LOCATION": { "countMin": 3, "countMax": 4 },
-        "FETCH_ITEM": { "locationPreference": "DUNGEON" },
-        "KILL_MOBS": { "countMin": 2, "countMax": 5 }
-      }
-    },
-    {
-      "id": "enigma_expo_04",
-      "bindings": {
-        "quest_action": "discover what has awakened in the tower and why every creature has fled",
-        "quest_focus": "the old tower surrounded by absolute silence",
-        "quest_stakes": "understanding a phenomenon that has driven every living thing away",
-        "quest_threat": "something in the tower that has woken up and terrified every creature for a mile",
-        "quest_origin": "the sudden flight of all animals from the area around the tower"
-      },
-      "dialogueChunks": {
-        "intro": "I've been asking everyone who passes through the same question, {player_name}, and nobody has an answer. Maybe you will.",
-        "plotStep": "{quest_origin}: birds, rabbits, deer, insects, everything within a mile of {quest_focus} {location_hint}. The silence is absolute. {target_npc} found a ring of {quest_item} embedded in the ground in a perfect circle around the tower, immovable. The {enemy_type} have abandoned nests they've occupied for years. {quest_threat} demands investigation.",
-        "outro": "When every creature in the forest runs from the same spot, a wise person asks why. Will you help me {quest_action}?"
-      },
-      "playerResponses": [
-        { "text": "A silent forest and an immovable ring of minerals? I have to see this for myself.", "action": "ACCEPT" },
-        { "text": "Everything is running from it? That's either very dangerous or very important. Either way, I'm curious.", "action": "ACCEPT" },
-        { "text": "When every animal flees, the smart move is to join them. Good luck.", "action": "DECLINE" }
+        {
+          "text": "Mysteries like this are worth pursuing.",
+          "action": "ACCEPT",
+          "dispositionShift": 4
+        },
+        {
+          "text": "I'll investigate, but I want answers too.",
+          "action": "ACCEPT",
+          "dispositionShift": 2
+        },
+        {
+          "text": "Old stones aren't my concern.",
+          "action": "DECLINE",
+          "dispositionShift": -2
+        }
       ],
       "objectivePool": ["EXPLORE_LOCATION", "GATHER_ITEMS", "FETCH_ITEM"],
       "objectiveConfig": {
-        "EXPLORE_LOCATION": { "countMin": 2, "countMax": 3 },
-        "GATHER_ITEMS": { "countMin": 3, "countMax": 8 },
-        "FETCH_ITEM": { "locationPreference": "DUNGEON" }
+        "GATHER_ITEMS": { "countMin": 3, "countMax": 8 }
+      }
+    },
+    {
+      "id": "enigma_expo_disappearing_wildlife",
+      "bindings": {
+        "quest_action": "find the cause",
+        "quest_focus": "the dead zone",
+        "quest_stakes": "the land's balance",
+        "quest_threat": "the corruption",
+        "quest_origin": "dying animals",
+        "quest_time_pressure": "before it spreads further"
+      },
+      "dialogueChunks": {
+        "intro": "The wildlife around {location_hint} has been behaving strangely. Birds refuse to fly over a certain area. Animals that wander in don't come back.",
+        "plotStep": "{quest_ally} ventured to the edge of {quest_focus} and returned pale and shaking. They said the ground felt wrong underfoot: warm where it should be cold, silent where there should be insects. Even the {enemy_type} avoid it.",
+        "outro": "Something unnatural is happening out there, {player_name}. We need someone to get close enough to understand what's causing it before the dead zone reaches our walls."
+      },
+      "playerResponses": [
+        {
+          "text": "I'll find out what's killing the land.",
+          "action": "ACCEPT",
+          "dispositionShift": 5
+        },
+        {
+          "text": "How far has it spread so far?",
+          "action": "ACCEPT",
+          "dispositionShift": 2
+        },
+        {
+          "text": "Nature sorts itself out. I'll pass.",
+          "action": "DECLINE",
+          "dispositionShift": -3
+        }
+      ],
+      "objectivePool": ["EXPLORE_LOCATION", "GATHER_ITEMS", "TALK_TO_NPC"],
+      "objectiveConfig": {
+        "GATHER_ITEMS": { "countMin": 4, "countMax": 10 }
+      }
+    },
+    {
+      "id": "enigma_expo_impossible_structure",
+      "bindings": {
+        "quest_action": "explore the anomaly",
+        "quest_focus": "the sealed chamber",
+        "quest_stakes": "ancient secrets",
+        "quest_threat": "what lies inside",
+        "quest_origin": "a miner's discovery",
+        "quest_reward_hint": "rare materials"
+      },
+      "dialogueChunks": {
+        "intro": "Miners digging near {location_hint} broke through into something they weren't expecting: a chamber made of materials no one recognizes. They sealed the entrance and came here.",
+        "plotStep": "The miners swear the walls were warm to the touch and humming. {target_npc} thinks it could be a vault, a tomb, or something else entirely. The {enemy_type} have been more active in that area since the breach.",
+        "outro": "{quest_focus} needs someone who can handle surprises. The miners won't go back down. Will you, {player_name}?"
+      },
+      "playerResponses": [
+        {
+          "text": "A sealed chamber? I have to see it.",
+          "action": "ACCEPT",
+          "dispositionShift": 4
+        },
+        {
+          "text": "What if it was sealed for a reason?",
+          "action": "ACCEPT",
+          "dispositionShift": 1
+        },
+        {
+          "text": "Sounds like it should stay sealed.",
+          "action": "DECLINE",
+          "dispositionShift": -2
+        }
+      ],
+      "objectivePool": ["EXPLORE_LOCATION", "FETCH_ITEM", "KILL_MOBS"],
+      "objectiveConfig": {
+        "KILL_MOBS": { "countMin": 3, "countMax": 6 }
       }
     }
   ]

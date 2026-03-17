@@ -1,45 +1,43 @@
 {
   "variants": [
     {
-      "id": "recovery_of_a_lost_one_reso_01",
+      "id": "recovery_lost_reso_01",
       "dialogueChunks": {
-        "intro": "She walked through the gate this morning, {player_name}. I saw her from the window and nearly fell over.",
-        "plotStep": "Three seasons apart, and the first thing she did was apologize. We stood in the doorway crying while the whole settlement watched. {target_npc} brought flowers. {location} feels different now: fuller. {quest_focus} is finally home, and {quest_stakes} is over.",
-        "outro": "You brought my sister home. No amount of coin can equal that, but please take this."
+        "intro": "They're home, {player_name}. After everything, they're finally home.",
+        "plotStep": "When {target_npc} walked through the gates of {location}, the whole settlement stopped. People who'd given up hope were weeping in the streets. {target_npc} is thin and scarred, but their eyes are bright and their grip is still strong. They told stories by the fire last night: about the days in the dark, the fear, the stubborn refusal to give up hope. They said they kept going because they knew someone would come. And someone did.",
+        "outro": "You brought back someone we'd already mourned. There's no payment that matches that, but take this and know that you'll never want for a warm fire in {location}."
       },
       "playerResponses": [
-        { "text": "Seeing you together again is worth more than any payment.", "action": "ACCEPT", "dispositionShift": 15 },
-        { "text": "A missing piece back in place. That's all that matters.", "action": "ACCEPT" },
-        { "text": "Hold onto her this time. Don't let pride or shame separate you again.", "action": "ACCEPT" }
+        { "text": "Seeing them by the fire, alive and home. That's payment enough.", "action": "ACCEPT", "dispositionShift": 15 },
+        { "text": "They survived because they didn't give up. The credit belongs to them.", "action": "ACCEPT" }
       ],
       "objectivePool": [],
       "objectiveConfig": {}
     },
     {
-      "id": "recovery_of_a_lost_one_reso_02",
+      "id": "recovery_lost_reso_02",
       "dialogueChunks": {
-        "intro": "{player_name}... the trail led somewhere I didn't expect. Somewhere wonderful.",
-        "plotStep": "{target_npc} was alive the whole time: living under a different name, working as a craftsperson. They'd started over and found peace. When I found them, they wept from the shock that someone never stopped searching. They're not ready to come back to {location}, but they promised to visit. {quest_focus} is resolved: {quest_stakes} was answered with life, not death.",
-        "outro": "You made this reunion possible. Take this with all my heart."
+        "intro": "You found them, {player_name}. Alive, changed, but alive.",
+        "plotStep": "{target_npc} is recovering in the healer's care. The time alone in the wilderness changed them: they're quieter, more watchful, slower to trust the safety of walls. The healers say the physical wounds will mend, but the time in captivity and isolation left deeper marks. Still, when I sat beside them and held their hand, they squeezed back. The family hasn't stopped crying: happy tears, the kind that come after a long drought.",
+        "outro": "Recovery will be slow, but it starts today because of you. Take this with the gratitude of every person who loves {target_npc}."
       },
       "playerResponses": [
-        { "text": "A new life isn't a betrayal. It's survival. I'm glad they're well.", "action": "ACCEPT", "dispositionShift": 10 },
-        { "text": "Knowing they're alive changes everything. Be patient with the rest.", "action": "ACCEPT" }
+        { "text": "Time heals what medicine can't. I'm glad they're back where they belong.", "action": "ACCEPT", "dispositionShift": 5 },
+        { "text": "The hard part is over. The rest is patience and kindness.", "action": "ACCEPT" }
       ],
       "objectivePool": [],
       "objectiveConfig": {}
     },
     {
-      "id": "recovery_of_a_lost_one_reso_03",
+      "id": "recovery_lost_reso_03",
       "dialogueChunks": {
-        "intro": "They're free, {player_name}. {target_npc} walked out of that camp and didn't look back.",
-        "plotStep": "{quest_threat} took the {quest_item} and honored the deal. {target_npc} arrived at {location} last night, thinner and quieter, but alive. They slept fourteen hours straight. This morning they sat in the garden watching birds, like they'd forgotten what stillness felt like. {quest_focus} ended with freedom. {quest_stakes} is finally over.",
-        "outro": "You brought someone back from the edge of being lost forever. This reward is everything I could gather."
+        "intro": "You found the truth, {player_name}. It wasn't the answer I wanted, but it was the one I needed.",
+        "plotStep": "{target_npc} didn't vanish because of the {enemy_type}. They left by choice: overwhelmed by obligations, by expectations, by the weight of being needed by too many people. You found them living quietly in a small camp {location_hint}, healthy and at peace for the first time in years. They asked me not to be angry, and I'm trying. They sent back {quest_item} and a letter explaining everything. It hurts, but at least I know they're alive and they made a choice rather than having one made for them.",
+        "outro": "The answer wasn't kidnapping or tragedy. It was just a person who needed to breathe. Take this, {player_name}. The truth was worth more than any rescue."
       },
       "playerResponses": [
-        { "text": "Watching birds in a garden. That's what freedom looks like.", "action": "ACCEPT", "dispositionShift": 10 },
-        { "text": "Give them time and space. Recovery isn't instant.", "action": "ACCEPT" },
-        { "text": "They're home. That's the only reward that counts.", "action": "ACCEPT" }
+        { "text": "Sometimes finding someone means accepting they chose to leave. I'm sorry.", "action": "ACCEPT" },
+        { "text": "At least you know they're safe. That's not nothing.", "action": "ACCEPT", "dispositionShift": 5 }
       ],
       "objectivePool": [],
       "objectiveConfig": {}

@@ -3,58 +3,58 @@
     {
       "id": "ambition_conf_01",
       "dialogueChunks": {
-        "intro": "{player_name}, we have a problem. Someone's been talking.",
-        "plotStep": "{target_npc} found out about our plan to {quest_action} and has rallied the guards. They've blockaded the road {location_hint} and seized half the {quest_item} you gathered. I need you to find an alternate route and bring back twice as much: enough to outbid them. There are {enemy_type} on the back trail, but {quest_stakes} demands we push through.",
-        "outro": "We're too deep to back out now. Either we win this or we lose everything."
+        "intro": "Our rivals moved faster than I expected, {player_name}. The game has changed.",
+        "plotStep": "{target_npc} discovered what we're planning and has started rallying opposition. They've been spreading word through {location} that our efforts to secure {quest_focus} are a threat to everyone. Meanwhile, the {enemy_type} activity near {location_hint} has cut off our supply lines, and without {quest_item} we can't finish what we started. I need you to break through the blockade and bring back enough {quest_item} to tip the balance before {target_npc} turns the whole settlement against us.",
+        "outro": "If we lose momentum now, {quest_stakes} slips through our fingers and we'll never get another chance."
       },
       "playerResponses": [
-        { "text": "Double the supplies, alternate route, hostile territory. Consider it done.", "action": "ACCEPT" },
-        { "text": "Your plan is unraveling fast. But I'll patch it together.", "action": "ACCEPT", "dispositionShift": -5 },
-        { "text": "You've made too many enemies. I'm cutting my losses.", "action": "DECLINE" }
+        { "text": "Blockades are meant to be broken. I'll punch through.", "action": "ACCEPT" },
+        { "text": "Rival factions and monsters. This escalation will cost you extra.", "action": "ACCEPT", "dispositionShift": -5 },
+        { "text": "The opposition is too strong. I'm cutting my losses.", "action": "DECLINE" }
       ],
       "objectivePool": ["GATHER_ITEMS", "KILL_MOBS", "EXPLORE_LOCATION"],
       "objectiveConfig": {
-        "GATHER_ITEMS": { "countMin": 8, "countMax": 18 },
-        "KILL_MOBS": { "countMin": 3, "countMax": 8 },
+        "GATHER_ITEMS": { "countMin": 5, "countMax": 12 },
+        "KILL_MOBS": { "countMin": 4, "countMax": 8 },
         "EXPLORE_LOCATION": { "countMin": 1, "countMax": 2 }
       }
     },
     {
       "id": "ambition_conf_02",
       "dialogueChunks": {
-        "intro": "Change of plans, {player_name}. A bigger opportunity just landed in my lap.",
-        "plotStep": "A merchant caravan lost their escort to {enemy_type} attacks {location_hint}. They're carrying a fortune in {quest_item}. If you escort their cargo to my warehouse, I'll negotiate a favorable storage fee. {target_npc} is trying to offer them shelter at the guild hall instead. {quest_stakes} hinges on who moves first.",
-        "outro": "Opportunity doesn't knock, {player_name}. It stumbles past wounded, and {quest_threat} means we can't afford hesitation."
+        "intro": "{player_name}, someone tried to burn my workshop last night. This is getting personal.",
+        "plotStep": "{target_npc} has hired mercenaries to intimidate anyone supporting our claim to {quest_focus}. Three of my allies in {location} have already backed down under pressure. I need you to find the mercenary camp {location_hint}, scatter them, and recover the {quest_item} they stole from my stores. Without those supplies, I can't fulfill the promises I've made. If my supporters see me fail to deliver, they'll abandon me for {target_npc} without a second thought.",
+        "outro": "This isn't just about {quest_stakes} anymore. It's about survival. Mine and everyone who bet on me."
       },
       "playerResponses": [
-        { "text": "Ruthless, but effective. I'll bring the cargo.", "action": "ACCEPT" },
-        { "text": "Exploiting stranded merchants? You're something else. Fine.", "action": "ACCEPT", "dispositionShift": -5 },
-        { "text": "Preying on desperate people crosses a line. I'm out.", "action": "DECLINE" }
+        { "text": "Mercenaries and arsonists. I'll deal with both.", "action": "ACCEPT" },
+        { "text": "Your enemies are escalating to violence. This is getting dangerous.", "action": "ACCEPT" },
+        { "text": "Hired thugs are a line I won't cross in either direction.", "action": "DECLINE" }
       ],
-      "objectivePool": ["KILL_MOBS", "DELIVER_ITEM", "EXPLORE_LOCATION"],
+      "objectivePool": ["KILL_MOBS", "FETCH_ITEM", "EXPLORE_LOCATION"],
       "objectiveConfig": {
         "KILL_MOBS": { "countMin": 4, "countMax": 9 },
-        "DELIVER_ITEM": {},
+        "FETCH_ITEM": { "locationPreference": "WILDERNESS" },
         "EXPLORE_LOCATION": { "countMin": 1, "countMax": 2 }
       }
     },
     {
       "id": "ambition_conf_03",
       "dialogueChunks": {
-        "intro": "Bad news, {player_name}. Our competitor isn't just blocking us: they're trying to destroy us.",
-        "plotStep": "{target_npc} hired sellswords to ransack my workshop and scatter my tools into the wilderness {location_hint}. Without them, {quest_focus} goes cold and my trade agreements collapse. I need you to recover my equipment and deal with the {enemy_type} that moved in. And bring back more {quest_item}: the furnace ate through the last batch.",
-        "outro": "They want a trade war? They'll get one. But first, {quest_action} depends on getting my forge running again."
+        "intro": "The situation has become more complicated than I imagined, {player_name}. But complications are just problems dressed up in new clothes.",
+        "plotStep": "The {enemy_type} threat near {location} has given {target_npc} a platform to call for unity under their leadership. They're using {quest_threat} as justification to seize emergency authority. If I let them claim credit for defending {location}, {quest_stakes} is theirs by default. I need you to deal with the {enemy_type} stronghold {location_hint} before {target_npc} can organize a response. Clear them out, recover {quest_item} from the ruins, and bring it back as proof that we can protect this settlement better than any speech-maker.",
+        "outro": "Actions speak louder than promises. Let's give {location} something to believe in."
       },
       "playerResponses": [
-        { "text": "I'll get your tools back and clear the area.", "action": "ACCEPT" },
-        { "text": "Trade wars, sellswords, monsters: your ambition has expensive taste.", "action": "ACCEPT", "dispositionShift": -5 },
-        { "text": "This feud is going to get someone killed. I want no part of it.", "action": "DECLINE" }
+        { "text": "A stronghold assault to prove a point? Ambitious. I'm in.", "action": "ACCEPT" },
+        { "text": "Using a monster threat as a political tool. You're ruthless. I respect it.", "action": "ACCEPT", "dispositionShift": -5 },
+        { "text": "I'm a fighter, not a political pawn. Handle your own schemes.", "action": "DECLINE" }
       ],
-      "objectivePool": ["FETCH_ITEM", "KILL_MOBS", "GATHER_ITEMS"],
+      "objectivePool": ["KILL_MOBS", "EXPLORE_LOCATION", "GATHER_ITEMS"],
       "objectiveConfig": {
-        "FETCH_ITEM": { "locationPreference": "WILDERNESS" },
-        "KILL_MOBS": { "countMin": 4, "countMax": 8 },
-        "GATHER_ITEMS": { "countMin": 5, "countMax": 12 }
+        "KILL_MOBS": { "countMin": 5, "countMax": 10 },
+        "EXPLORE_LOCATION": { "countMin": 2, "countMax": 3 },
+        "GATHER_ITEMS": { "countMin": 3, "countMax": 8 }
       }
     }
   ]

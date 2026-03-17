@@ -3,75 +3,52 @@
     {
       "id": "deliverance_conf_01",
       "dialogueChunks": {
-        "intro": "You're back, but something tells me it wasn't a clean run out there.",
-        "plotStep": "The {enemy_type} have reinforced their positions around {quest_focus}. Scouts report they've brought in more of their kind from {location_hint}. You'll need to break through their outer line to {quest_action}. Time is running out: {target_npc} was injured in the initial attack and {quest_stakes} grow more dire by the hour.",
-        "outro": "They're fortifying because they know we're coming. We need to hit them before they dig in any deeper."
+        "intro": "{player_name}, your push to {quest_action} stirred them up. {quest_threat} have tightened their grip on {quest_focus}.",
+        "plotStep": "{quest_ally} managed to get a message from {quest_stakes}: they are alive but desperate. The {enemy_type} have reinforced their positions {location_hint}. We need to fight through before it is too late.",
+        "outro": "We are so close. Do not let them slip away now."
       },
       "playerResponses": [
-        { "text": "Fortifications won't stop me. I'll punch through.", "action": "ACCEPT" },
-        { "text": "This is escalating fast. I'll need more than gratitude when it's done.", "action": "ACCEPT", "dispositionShift": -5 },
-        { "text": "An entrenched enemy is a different fight entirely. I'm out.", "action": "DECLINE" }
+        { "text": "They are alive. That is all I need to hear. I am going.", "action": "ACCEPT", "dispositionShift": 15 },
+        { "text": "More resistance means more danger. I will need better equipment.", "action": "ACCEPT", "dispositionShift": -3 },
+        { "text": "It sounds hopeless.", "action": "DECLINE", "dispositionShift": -10 }
       ],
       "objectivePool": ["KILL_MOBS", "EXPLORE_LOCATION"],
       "objectiveConfig": {
-        "KILL_MOBS": { "countMin": 5, "countMax": 10 },
-        "EXPLORE_LOCATION": { "countMin": 1, "countMax": 2 }
+        "KILL_MOBS": { "countMin": 5, "countMax": 10 }
       }
     },
     {
       "id": "deliverance_conf_02",
       "dialogueChunks": {
-        "intro": "{player_name}, we have a serious problem. The situation just got worse.",
-        "plotStep": "The captives have been moved deeper into {enemy_type} territory {location_hint}. {target_npc} wasn't among the group a trader spotted, which means they might have been separated. Our efforts to {quest_action} just got harder. We need you to track where they've been relocated and bring {quest_item} to treat any wounded.",
-        "outro": "Every hour they're in enemy hands, {quest_stakes} become more desperate. Please, hurry."
+        "intro": "Things have gotten worse since you began to {quest_action}, {player_name}. {quest_threat} retaliated against {quest_stakes}.",
+        "plotStep": "{quest_ally} reports that the {enemy_type} moved {quest_stakes} deeper toward {quest_focus}. There is a back route {location_hint} that might let you slip past the main force. Bring {quest_item} to break through any barriers.",
+        "outro": "This is their last move. If we can outmaneuver them, we win."
       },
       "playerResponses": [
-        { "text": "Moved or not, I'll find them. Give me everything you know.", "action": "ACCEPT" },
-        { "text": "Tracking prisoners through hostile territory? This just became a much bigger job.", "action": "ACCEPT", "dispositionShift": -5 },
-        { "text": "If they've been moved that deep, a rescue might be impossible.", "action": "DECLINE" }
+        { "text": "A back route sounds smart. I will take it.", "action": "ACCEPT", "dispositionShift": 5 },
+        { "text": "Sneaking in was not part of the plan, but fine.", "action": "ACCEPT", "dispositionShift": 0 }
       ],
-      "objectivePool": ["EXPLORE_LOCATION", "FETCH_ITEM", "KILL_MOBS"],
+      "objectivePool": ["EXPLORE_LOCATION", "GATHER_ITEMS", "KILL_MOBS"],
       "objectiveConfig": {
-        "EXPLORE_LOCATION": { "countMin": 2, "countMax": 3 },
-        "FETCH_ITEM": { "locationPreference": "WILDERNESS" },
-        "KILL_MOBS": { "countMin": 3, "countMax": 6 }
+        "KILL_MOBS": { "countMin": 3, "countMax": 7 },
+        "GATHER_ITEMS": { "countMin": 3, "countMax": 8 }
       }
     },
     {
       "id": "deliverance_conf_03",
       "dialogueChunks": {
-        "intro": "Bad news, {player_name}. I wish I had something better to tell you.",
-        "plotStep": "{target_npc} managed to smuggle out a message: they've been forced to gather {quest_item} for the {enemy_type} in caves {location_hint}. If they stop producing, the captors will make examples of the weakest. To {quest_action}, we need to gather enough {quest_item} to replace what they've been mining so we can pull them out without the captors noticing.",
-        "outro": "A distraction and a substitute. It's our best chance at keeping {quest_stakes} alive."
+        "intro": "{player_name}, I have grim news. Your work to {quest_action} revealed that {quest_threat} are not the only danger at {quest_focus}.",
+        "plotStep": "The {enemy_type} are using the area {location_hint} as a staging ground. {quest_ally} believes they plan to move {quest_stakes} permanently unless we act now. We need someone to scatter their forces and create an opening.",
+        "outro": "This may be our last chance. If they move now, we will never find them."
       },
       "playerResponses": [
-        { "text": "Gather the materials and stage a swap? Clever. I'll make it work.", "action": "ACCEPT" },
-        { "text": "So now I'm doing the captors' mining for them? This is getting absurd.", "action": "ACCEPT", "dispositionShift": -5 },
-        { "text": "That plan has too many moving parts. I can't risk it.", "action": "DECLINE" }
+        { "text": "Last chance or not, I will make it count.", "action": "ACCEPT", "dispositionShift": 10 },
+        { "text": "You keep saying 'last chance'. It had better be true this time.", "action": "ACCEPT", "dispositionShift": -5 },
+        { "text": "I have already risked enough.", "action": "DECLINE" }
       ],
-      "objectivePool": ["GATHER_ITEMS", "EXPLORE_LOCATION"],
+      "objectivePool": ["KILL_MOBS", "KILL_NPC", "EXPLORE_LOCATION"],
       "objectiveConfig": {
-        "GATHER_ITEMS": { "countMin": 5, "countMax": 12 },
-        "EXPLORE_LOCATION": { "countMin": 1, "countMax": 2 }
-      }
-    },
-    {
-      "id": "deliverance_conf_04",
-      "dialogueChunks": {
-        "intro": "Thank the stars you came back, {player_name}. Things have taken a dark turn.",
-        "plotStep": "The {enemy_type} are planning to move the captives across the river {location_hint} by tomorrow morning. Once they cross, we lose the trail completely. {target_npc} sent word that several prisoners are too weak to travel fast. If we strike tonight while {quest_threat} is in disarray, we might finally {quest_action}. But the camp is crawling with enemies.",
-        "outro": "Tomorrow {quest_stakes} vanish. Tonight is our only window."
-      },
-      "playerResponses": [
-        { "text": "Then we move tonight. No more waiting.", "action": "ACCEPT" },
-        { "text": "A night raid against a full camp? I want double compensation.", "action": "ACCEPT", "dispositionShift": -5 },
-        { "text": "A nighttime assault on an enemy camp is suicide.", "action": "DECLINE" }
-      ],
-      "objectivePool": ["KILL_MOBS", "EXPLORE_LOCATION", "TALK_TO_NPC"],
-      "objectiveConfig": {
-        "KILL_MOBS": { "countMin": 4, "countMax": 8 },
-        "EXPLORE_LOCATION": { "countMin": 1, "countMax": 2 },
-        "TALK_TO_NPC": { "countMin": 1, "countMax": 1 }
+        "KILL_MOBS": { "countMin": 4, "countMax": 9 }
       }
     }
   ]

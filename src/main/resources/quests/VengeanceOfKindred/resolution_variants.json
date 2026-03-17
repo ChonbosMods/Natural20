@@ -3,13 +3,14 @@
     {
       "id": "vengeancekindred_reso_01",
       "dialogueChunks": {
-        "intro": "It's over, {player_name}. The weight I've been carrying... I can finally set it down.",
-        "plotStep": "We held a ceremony at sunset. {quest_stakes} placed a stone on the memorial cairn. {target_npc} spoke for the community, and there wasn't a dry eye. They said the dead can rest now because someone cared enough to {quest_action}. My brother's stone is at the top. I put it there myself.",
-        "outro": "Take this. It's from all the families. Every one of them wanted you to know that what you did mattered."
+        "intro": "It is done, {player_name}. {quest_threat} have been dealt with. {quest_stakes} can rest in peace now.",
+        "plotStep": "The community gathered to honor the fallen today. Your name was spoken alongside theirs: not as a killer, but as someone who stood for our people.",
+        "outro": "This was not about hatred. It was about love for the ones we lost. Thank you for understanding that."
       },
       "playerResponses": [
-        { "text": "Thirty stones. I'll carry their memory with me.", "action": "ACCEPT", "dispositionShift": 15 },
-        { "text": "I hope the ceremony brought some peace. Your brother deserved it.", "action": "ACCEPT" }
+        { "text": "They deserved to be remembered. I am glad I could help.", "action": "ACCEPT", "dispositionShift": 15 },
+        { "text": "I hope this brings some measure of peace.", "action": "ACCEPT", "dispositionShift": 10 },
+        { "text": "It is over now. Focus on the living.", "action": "ACCEPT", "dispositionShift": 5 }
       ],
       "objectivePool": [],
       "objectiveConfig": {}
@@ -17,13 +18,13 @@
     {
       "id": "vengeancekindred_reso_02",
       "dialogueChunks": {
-        "intro": "I thought vengeance would feel like fire. Instead, it feels like rain after a drought. Quiet. Necessary.",
-        "plotStep": "{target_npc} returned the personal belongings you recovered to each family. A mother held her son's ring and wept for an hour. These objects won't bring anyone back, but they close a chapter. {quest_threat} who collected them like prizes are gone, and {quest_stakes} can start to heal.",
-        "outro": "Here. This was set aside for the one who helped us {quest_action}. You did more than avenge: you restored."
+        "intro": "{player_name}, the deed is done. You managed to {quest_action}, and {quest_threat} will harm no one else.",
+        "plotStep": "{quest_ally} lit a fire at {quest_focus} in remembrance. The community mourns, but there is relief in knowing the danger has passed. {quest_stakes} have been honored.",
+        "outro": "Vengeance is a heavy burden. You carried it well."
       },
       "playerResponses": [
-        { "text": "Returning what was stolen felt more important than the fighting.", "action": "ACCEPT", "dispositionShift": 10 },
-        { "text": "I'm glad the families have something to hold onto.", "action": "ACCEPT" }
+        { "text": "No one should have to carry this burden alone.", "action": "ACCEPT", "dispositionShift": 10 },
+        { "text": "It is finished. That is what matters.", "action": "ACCEPT", "dispositionShift": 5 }
       ],
       "objectivePool": [],
       "objectiveConfig": {}
@@ -31,27 +32,14 @@
     {
       "id": "vengeancekindred_reso_03",
       "dialogueChunks": {
-        "intro": "{player_name}. I need to be honest with you about something.",
-        "plotStep": "I expected to feel triumph when you told me you'd managed to {quest_action}. I didn't. I felt hollow. {target_npc} warned me about this: said that revenge fills the hole with something, but not with what you lost. My daughter is still gone. But {quest_stakes} are safe now, and {quest_threat} can't hurt anyone else. That has to be enough.",
-        "outro": "Take this. And if anyone asks whether vengeance is worth it, tell them the truth: it's not satisfaction, but it's closure."
+        "intro": "The scales are balanced, {player_name}. {quest_threat} answered for what they did to {quest_stakes}.",
+        "plotStep": "{quest_focus} is quiet now. {quest_ally} says the families are beginning to heal. The grief will linger, but the fear is gone.",
+        "outro": "You fought for people you never knew, on behalf of a community's pain. That is a rare kind of honor."
       },
       "playerResponses": [
-        { "text": "Closure is worth something. I hope you find your way forward.", "action": "ACCEPT" },
-        { "text": "Your daughter was brave. Carry that forward, not the grief.", "action": "ACCEPT", "dispositionShift": 5 }
-      ],
-      "objectivePool": [],
-      "objectiveConfig": {}
-    },
-    {
-      "id": "vengeancekindred_reso_04",
-      "dialogueChunks": {
-        "intro": "The elders called an assembly this morning. What they decided took everyone by surprise.",
-        "plotStep": "They've declared an annual remembrance day for {quest_stakes}. Not a day of anger: a day of memory. {target_npc} suggested it, and the vote was unanimous. Your name will be spoken at the first ceremony as the one who helped {quest_action}. The farms are being replanted, the fences rebuilt, and for the first time in months, people are talking about the future.",
-        "outro": "We set this aside before you even returned. Some things you just know will be earned. Take it with our gratitude."
-      },
-      "playerResponses": [
-        { "text": "A day of memory, not anger. That's the right way to honor them.", "action": "ACCEPT", "dispositionShift": 10 },
-        { "text": "Rebuild well. I'll think of this place when the remembrance day comes.", "action": "ACCEPT" }
+        { "text": "Everyone deserves someone to fight for them.", "action": "ACCEPT", "dispositionShift": 15 },
+        { "text": "I hope the families find peace.", "action": "ACCEPT", "dispositionShift": 10 },
+        { "text": "Keep your people safe going forward. That is the best tribute.", "action": "ACCEPT", "dispositionShift": 5 }
       ],
       "objectivePool": [],
       "objectiveConfig": {}

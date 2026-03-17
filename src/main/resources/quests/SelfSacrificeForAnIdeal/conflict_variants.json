@@ -1,58 +1,85 @@
 {
   "variants": [
     {
-      "id": "self_sacrifice_for_an_ideal_conf_01",
+      "id": "conf_sacrifice_ideal_cost_rising",
       "dialogueChunks": {
-        "intro": "{player_name}, I hoped it wouldn't come to this. But it has.",
-        "plotStep": "The {enemy_type} sent scouts ahead of the main force. They found {quest_focus} and now they know our plan. {target_npc} intercepted one of their messengers carrying a map of our defenses back to their camp {location_hint}. If the main warband adjusts their route, this stand means nothing. I need you to hunt down the remaining scouts and make sure that information doesn't reach their leaders.",
-        "outro": "My sacrifice only works if they come at us the way we expect. Without that element of surprise, I'm just a fool dying alone on a hill."
+        "intro": "{player_name}, the situation at {location} has grown dire. {quest_ally} sent word that the {enemy_type} have doubled their assault. The defenders are holding, but barely.",
+        "plotStep": "The commander has ordered the youngest soldiers to fall back while the veterans hold the line. They know they're buying time with their lives. {target_npc} tried to convince them to retreat together, but they refused: said the ideal they swore to protect is bigger than any one of them. They need {quest_item} to shore up their defenses.",
+        "outro": "Every hour those defenders hold saves dozens of lives downstream. If you can get {quest_item} to them, it might turn hours into days."
       },
       "playerResponses": [
-        { "text": "I'll make sure those scouts never report back.", "action": "ACCEPT" },
-        { "text": "Your plan is unraveling, but I'll hold it together. This time.", "action": "ACCEPT", "dispositionShift": -5 },
-        { "text": "This is spiraling out of control. I can't keep chasing loose ends.", "action": "DECLINE" }
+        {
+          "text": "I'll get it there. Their sacrifice won't be in vain.",
+          "action": "ACCEPT",
+          "dispositionShift": 5
+        },
+        {
+          "text": "Is there no way to get reinforcements instead?",
+          "action": "ACCEPT",
+          "dispositionShift": 1
+        },
+        {
+          "text": "They've chosen their fate. I won't share it.",
+          "action": "DECLINE",
+          "dispositionShift": -4
+        }
       ],
-      "objectivePool": ["KILL_MOBS", "EXPLORE_LOCATION"],
+      "objectivePool": ["DELIVER_ITEM", "KILL_MOBS", "FETCH_ITEM"],
       "objectiveConfig": {
-        "KILL_MOBS": { "countMin": 4, "countMax": 8 },
-        "EXPLORE_LOCATION": { "countMin": 1, "countMax": 2 }
+        "KILL_MOBS": { "countMin": 4, "countMax": 10 }
       }
     },
     {
-      "id": "self_sacrifice_for_an_ideal_conf_02",
+      "id": "conf_sacrifice_ideal_wavering_resolve",
       "dialogueChunks": {
-        "intro": "I need to tell you something, {player_name}, and I need you not to argue with me about it.",
-        "plotStep": "The materials you gathered aren't enough. The alchemist looked at the mine shaft and says the contamination runs deeper than we thought. To seal it properly, I'll need to go further in, past the point where the air turns toxic. {target_npc} found records of a ventilation system in the old engineering tunnels {location_hint}, but it's overrun with {enemy_type}. If you can clear a path and find the ventilation controls, I can buy myself a few more minutes down there. Minutes that make the difference between a seal that lasts a year and one that lasts forever.",
-        "outro": "I didn't plan on a quick death, but I didn't plan on a slow one either. It doesn't matter. The water has to be clean."
+        "intro": "One of the defenders broke. Ran from the post in the night. Can't say I blame them, but now there's a gap that needs filling.",
+        "plotStep": "{target_npc} caught the deserter {location_hint} and talked them down. They weren't a coward: they were a parent. Three children waiting at home and a post that demanded they never come back. {quest_ally} is trying to redistribute the remaining fighters, but without {quest_item}, the defensive line has a hole that {quest_threat} will pour through.",
+        "outro": "The ideal asks everything. Most people can give almost everything. That last fraction is where heroes are made, or broken."
       },
       "playerResponses": [
-        { "text": "I'll clear those tunnels. You'll have your ventilation.", "action": "ACCEPT" },
-        { "text": "You're asking me to help you die more thoroughly. But fine.", "action": "ACCEPT", "dispositionShift": -5 },
-        { "text": "I won't be part of making this worse for you.", "action": "DECLINE" }
+        {
+          "text": "I'll fill the gap. Someone has to.",
+          "action": "ACCEPT",
+          "dispositionShift": 5
+        },
+        {
+          "text": "The deserter had the right idea. These people need to retreat.",
+          "action": "ACCEPT",
+          "dispositionShift": -2
+        }
       ],
-      "objectivePool": ["KILL_MOBS", "EXPLORE_LOCATION", "FETCH_ITEM"],
+      "objectivePool": ["FETCH_ITEM", "KILL_MOBS", "EXPLORE_LOCATION"],
       "objectiveConfig": {
-        "KILL_MOBS": { "countMin": 3, "countMax": 7 },
-        "EXPLORE_LOCATION": { "countMin": 1, "countMax": 2 },
-        "FETCH_ITEM": { "locationPreference": "DUNGEON" }
+        "KILL_MOBS": { "countMin": 3, "countMax": 8 }
       }
     },
     {
-      "id": "self_sacrifice_for_an_ideal_conf_03",
+      "id": "conf_sacrifice_ideal_final_preparation",
       "dialogueChunks": {
-        "intro": "We have a problem, {player_name}. A big one.",
-        "plotStep": "{target_npc} tried to convince the council to support the bridge plan and they refused. Called it madness. Now they're threatening to arrest anyone who tampers with {quest_focus}. Worse, they've posted guards. I understand their fear: that bridge is their lifeline. But it's also the enemy's path straight to their doors. I need you to gather more {quest_item} so we can rig the charges discreetly. And I need you to talk to {target_npc} about creating a diversion to draw the guards away when the time comes.",
-        "outro": "History will judge whether I was a hero or a criminal. I'd rather be a living criminal than watch a dead settlement, but I won't be either. I'll just be the one who stayed behind."
+        "intro": "The healer inside {quest_focus} is weakening. She's been exposed for days now and her hands shake when she mixes the remedies. But she won't stop.",
+        "plotStep": "{target_npc} says she needs one more batch of {quest_item} to finish treating the last patients. After that, whether she survives depends on how much damage the sickness has already done to her. She knows this. She told {quest_ally} through the wall: 'The oath doesn't have an exception clause.'",
+        "outro": "Find {quest_item} and bring it to {location}. If the healer finishes her work, every life in that ward is saved. The only life in question is hers."
       },
       "playerResponses": [
-        { "text": "The council is wrong and you know it. I'll help you see this through.", "action": "ACCEPT" },
-        { "text": "Going against the council is dangerous. But so is doing nothing.", "action": "ACCEPT" },
-        { "text": "I won't go against the settlement's leaders. Find another way.", "action": "DECLINE" }
+        {
+          "text": "She deserves every chance to survive this. I'll find what she needs.",
+          "action": "ACCEPT",
+          "dispositionShift": 4
+        },
+        {
+          "text": "Has anyone tried to talk her out of there?",
+          "action": "ACCEPT",
+          "dispositionShift": 1
+        },
+        {
+          "text": "I'm not sure more supplies will change the outcome.",
+          "action": "DECLINE",
+          "dispositionShift": -3
+        }
       ],
-      "objectivePool": ["GATHER_ITEMS", "TALK_TO_NPC"],
+      "objectivePool": ["GATHER_ITEMS", "FETCH_ITEM", "DELIVER_ITEM"],
       "objectiveConfig": {
-        "GATHER_ITEMS": { "countMin": 4, "countMax": 10 },
-        "TALK_TO_NPC": { "countMin": 1, "countMax": 1 }
+        "GATHER_ITEMS": { "countMin": 4, "countMax": 12 }
       }
     }
   ]

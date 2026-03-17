@@ -1,44 +1,72 @@
 {
   "variants": [
     {
-      "id": "crimes_of_love_reso_01",
+      "id": "reso_crimes_love_children_recover",
       "dialogueChunks": {
-        "intro": "The storehouse is full, {player_name}. Fuller than before I took from it, actually.",
-        "plotStep": "{target_npc} conducted the audit and found everything in order: plus a surplus. They closed the investigation. The neighbor's children recovered with the medicine you brought. Their mother came to my door crying, saying she'd pray for whoever helped. {quest_focus} stayed secret, and no one suffered for it.",
-        "outro": "No one was punished. No one went hungry. Take this: it's all I can offer for helping me keep a secret that saved a family."
+        "intro": "The fevers broke overnight. All four children are sitting up, drinking broth, and asking for their parents. The moonwort worked.",
+        "plotStep": "The herbalist is still in custody, but {target_npc} organized a petition. Forty families signed it, including three guild members who said privately that the ban was wrong. {quest_ally} is presenting the petition at the hearing tomorrow. Nobody knows if it will work, but the children are alive and that's hard to argue against.",
+        "outro": "She broke the law and saved four lives, {player_name}. You carried the medicine knowing the risk. Some crimes are harder to condemn when you look at who they saved. The guild will have to decide what matters more: their regulations or those children."
       },
       "playerResponses": [
-        { "text": "Some secrets are worth keeping. Take care of your neighbors.", "action": "ACCEPT", "dispositionShift": 10 },
-        { "text": "A surplus in the storehouse and healthy children. Best kind of ending.", "action": "ACCEPT" },
-        { "text": "You got lucky. Don't make a habit of it.", "action": "ACCEPT", "dispositionShift": -5 }
+        {
+          "text": "A law that lets children die deserves to be broken. I hope she goes free.",
+          "action": "COMPLETE",
+          "dispositionShift": 5
+        },
+        {
+          "text": "Fix the law so nobody has to become a criminal to save lives.",
+          "action": "COMPLETE",
+          "dispositionShift": 3
+        }
       ],
       "objectivePool": [],
       "objectiveConfig": {}
     },
     {
-      "id": "crimes_of_love_reso_02",
+      "id": "reso_crimes_love_father_surrenders",
       "dialogueChunks": {
-        "intro": "They made it, {player_name}. The soldier is safe.",
-        "plotStep": "The route was clear, the provisions held, and {quest_focus} reached the settlement on the other side. New name, new life, working as a carpenter. {target_npc} eventually closed the investigation, saying the trail went cold. {quest_stakes} never came to pass, and sometimes good people in authority know when to stop looking.",
-        "outro": "A person with a conscience is alive because you cleared a path through the wilderness. My sister wanted you to have this."
+        "intro": "The daughter is walking again. Thin and pale, but walking. The father turned himself in this morning, as promised.",
+        "plotStep": "He walked into the garrison with his head up and his daughter's hand in his. She cried. He didn't. The tribunal is set for next week. {target_npc} is arranging for his defense, arguing that the commander's refusal to grant leave was the real dereliction. {quest_ally} says several soldiers have testified that the commander routinely denies leave requests.",
+        "outro": "He committed a crime, {player_name}. He also saved his daughter's life. The tribunal will decide which matters more. But whatever happens, she's alive. He told me to tell you: 'That's enough. That was always enough.'"
       },
       "playerResponses": [
-        { "text": "A carpenter with a clear conscience. That's a good second life.", "action": "ACCEPT", "dispositionShift": 10 },
-        { "text": "Your sister's courage saved a life. Give her my respects.", "action": "ACCEPT" }
+        {
+          "text": "He chose love over law. I'd make the same choice.",
+          "action": "COMPLETE",
+          "dispositionShift": 5
+        },
+        {
+          "text": "The commander who denied leave should be on trial too.",
+          "action": "COMPLETE",
+          "dispositionShift": 3
+        },
+        {
+          "text": "I hope the tribunal sees a father, not just a deserter.",
+          "action": "COMPLETE",
+          "dispositionShift": 4
+        }
       ],
       "objectivePool": [],
       "objectiveConfig": {}
     },
     {
-      "id": "crimes_of_love_reso_03",
+      "id": "reso_crimes_love_embargo_cracks",
       "dialogueChunks": {
-        "intro": "The cottage is working beautifully, {player_name}. Better than the old setup, honestly.",
-        "plotStep": "I've been brewing {quest_focus} for three weeks without interruption. Fourteen people treated, seven fully recovered, and {quest_threat} hasn't found so much as a footprint. {target_npc} actually came to me with a sick friend, not knowing I was the one they'd been hunting. I treated the friend. No charge, same as always.",
-        "outro": "You built the foundation for a hidden clinic that saves lives the system refuses to value. This remedy is for you, and this payment comes with the gratitude of everyone I've healed."
+        "intro": "The food made it across. Twenty people ate a real meal for the first time in weeks. The merchant's friend sent a pressed flower back as thanks. That's all she could afford to send.",
+        "plotStep": "{target_npc} says the embargo is losing support among the border communities on both sides. Too many people know someone on the other bank who's suffering. {quest_ally} is connecting the merchant with other traders who want to push for official relief channels. It's still illegal, but the tide is turning.",
+        "outro": "A woman risked everything because her friend's children were hungry, {player_name}. You carried the risk with her. Sometimes the law changes because enough people decide it's wrong. She was one of the first. You were another."
       },
       "playerResponses": [
-        { "text": "A hidden healer doing what the guild won't. The world needs more like you.", "action": "ACCEPT", "dispositionShift": 15 },
-        { "text": "Fourteen people treated, seven cured. Keep going. I'll keep quiet.", "action": "ACCEPT" }
+        {
+          "text": "Unjust laws fall when enough people refuse to obey them.",
+          "action": "COMPLETE",
+          "dispositionShift": 5
+        },
+        {
+          "text": "One delivery at a time. It's not much, but it's something.",
+          "action": "COMPLETE",
+          "dispositionShift": 3
+        }
       ],
       "objectivePool": [],
       "objectiveConfig": {}

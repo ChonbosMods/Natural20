@@ -1,44 +1,72 @@
 {
   "variants": [
     {
-      "id": "adultery_reso_01",
+      "id": "reso_adultery_trust_rebuilt",
       "dialogueChunks": {
-        "intro": "Justice, {player_name}. Slow, imperfect, but real.",
-        "plotStep": "The regional council reviewed our evidence and ruled in our favor. {quest_focus} has been reinstated with new terms and honest leadership. {target_npc} received a formal apology. The raids have slowed now that patrols are running again. {location} is breathing easier for the first time in months.",
-        "outro": "You carried truth through a dangerous road and it arrived intact. {quest_stakes} no longer. Take this: our way of saying the oath we make to you is one we'll keep."
+        "intro": "The partner settlement received the stolen plans and the full accounting of who betrayed them. Their council sent a one-word reply: 'Begin.'",
+        "plotStep": "{target_npc} traveled to {location} personally to negotiate new terms. The old alliance is dead, but something more honest is growing in its place. No more backroom deals, no more secret negotiations. Every term is public, every obligation mutual. {quest_ally} says it's slower and harder than the old way. Also more durable.",
+        "outro": "Trust built on truth survives what trust built on convenience cannot, {player_name}. You pulled the rot out by the root. What grows back will be stronger because of it."
       },
       "playerResponses": [
-        { "text": "An oath kept is worth more than gold. Take care of each other.", "action": "ACCEPT", "dispositionShift": 10 },
-        { "text": "Make sure the new commander knows people are watching.", "action": "ACCEPT" },
-        { "text": "Good. Now hold them to it.", "action": "ACCEPT" }
+        {
+          "text": "An honest alliance is worth ten convenient ones.",
+          "action": "COMPLETE",
+          "dispositionShift": 5
+        },
+        {
+          "text": "Keep the traitors away from the negotiating table this time.",
+          "action": "COMPLETE",
+          "dispositionShift": 2
+        }
       ],
       "objectivePool": [],
       "objectiveConfig": {}
     },
     {
-      "id": "adultery_reso_02",
+      "id": "reso_adultery_captain_removed",
       "dialogueChunks": {
-        "intro": "It's over, {player_name}. The council heard everything.",
-        "plotStep": "The evidence was undeniable. {target_npc} tried to deny it, then went quiet. The council dissolved the partnership in my favor. They left {location} that night without a word. I won't pretend it feels good. {quest_focus} was something we built together, and now I'm running it alone. But at least things are honest again.",
-        "outro": "Take this drink and this reward: you helped me save a business and what's left of my dignity."
+        "intro": "The council confronted the captain with the evidence. She didn't deny it. Just took off her badge and set it on the table.",
+        "plotStep": "She said the {enemy_type} threatened her family. That the first deal was survival and every deal after was too late to stop. {target_npc} doesn't know whether to believe her. Some of the guards she betrayed certainly don't. {quest_ally} has taken interim command while the garrison rebuilds trust in its own chain.",
+        "outro": "The patrols are safe again, {player_name}. Whether the captain was a victim or a villain, the oath she broke put lives at risk. {quest_ally} says the new procedures require dual authorization for patrol schedules. No single point of failure, no single point of betrayal."
       },
       "playerResponses": [
-        { "text": "Honest ale in an honest tavern. That's a foundation worth building on.", "action": "ACCEPT" },
-        { "text": "You lost a partner but kept your integrity. I'd say you came out ahead.", "action": "ACCEPT", "dispositionShift": 10 }
+        {
+          "text": "Betrayal under duress is still betrayal. But I hope she finds peace.",
+          "action": "COMPLETE",
+          "dispositionShift": 3
+        },
+        {
+          "text": "She made her choice. The garrison comes first.",
+          "action": "COMPLETE",
+          "dispositionShift": 1
+        },
+        {
+          "text": "Fix the system so one person can never compromise it again.",
+          "action": "COMPLETE",
+          "dispositionShift": 4
+        }
       ],
       "objectivePool": [],
       "objectiveConfig": {}
     },
     {
-      "id": "adultery_reso_03",
+      "id": "reso_adultery_charter_restored",
       "dialogueChunks": {
-        "intro": "The guild master resigned this morning, {player_name}. Walked out before the council could vote on removal.",
-        "plotStep": "The copied covenant matched the original terms exactly. There was no denying the breach. The local merchants are reorganizing under new leadership: {target_npc} among them. Fair prices are being restored, and the enforcers scattered. Five years of corruption, undone by {quest_focus} and the courage to use it.",
-        "outro": "You walked through danger to retrieve a piece of paper. But that paper held the truth, and truth turned out to be stronger than {quest_threat}. Take this: the merchants' gratitude, properly earned."
+        "intro": "The seal is back. The original charter is authenticated. The eviction notices are null and void. Twelve families are staying in their homes.",
+        "plotStep": "The clerk was found at {location}, trying to sell the seal to a merchant who didn't ask questions. {target_npc} has them in custody. The founding family that benefited from the forgery is claiming ignorance, but the evidence {quest_ally} compiled suggests otherwise. The regional authority is reviewing every document the clerk ever touched.",
+        "outro": "A community's word is only as good as the people who keep the records, {player_name}. You made sure the truth was louder than the lie. Those families will remember that when the next crisis tests what this settlement is made of."
       },
       "playerResponses": [
-        { "text": "A guild that serves its members instead of robbing them. That's worth fighting for.", "action": "ACCEPT", "dispositionShift": 15 },
-        { "text": "Good riddance to corrupt leadership. Keep the new guild honest.", "action": "ACCEPT" }
+        {
+          "text": "The pen can be as dangerous as the sword. Guard your records well.",
+          "action": "COMPLETE",
+          "dispositionShift": 5
+        },
+        {
+          "text": "Hold the founding family accountable too. Ignorance is a convenient excuse.",
+          "action": "COMPLETE",
+          "dispositionShift": 2
+        }
       ],
       "objectivePool": [],
       "objectiveConfig": {}

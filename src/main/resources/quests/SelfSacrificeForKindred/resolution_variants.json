@@ -1,44 +1,72 @@
 {
   "variants": [
     {
-      "id": "self_sacrifice_for_kindred_reso_01",
+      "id": "reso_sacrifice_kindred_grain_arrives",
       "dialogueChunks": {
-        "intro": "{player_name}... the grain is here. Both settlements will eat this winter.",
-        "plotStep": "The children are already grinding flour. {target_npc} organized a shared meal between both communities: the first time some of those families have sat down together in years. The person who gave up their rations for weeks: {quest_origin}: they're weak, but they're smiling. The healer says they'll recover if they start eating again, and I intend to personally make sure they do.",
-        "outro": "You carried more than grain back from those hills, {player_name}. You carried hope. Take this with our deepest gratitude."
+        "intro": "The wagons rolled in at sunset. The children came running before the wheels stopped turning. I've never heard so much crying and laughing at the same time.",
+        "plotStep": "The baker's mother made it. Arrow wound and all, she drove that wagon through the gates with a grin on her face. {target_npc} stitched her up while she insisted on unloading the grain first. {quest_ally} says there's enough to last through the winter if we're careful.",
+        "outro": "Those volunteers walked into near-certain death for sacks of grain. And every child eating tonight is proof they were right. Thank you, {player_name}. You made their courage count."
       },
       "playerResponses": [
-        { "text": "Make sure the one who starved themselves gets the first bowl.", "action": "ACCEPT", "dispositionShift": 10 },
-        { "text": "Two communities, one table. That's a good ending.", "action": "ACCEPT" },
-        { "text": "Just glad nobody had to die for a sack of grain.", "action": "ACCEPT" }
+        {
+          "text": "The real heroes are the ones who volunteered. I just helped.",
+          "action": "COMPLETE",
+          "dispositionShift": 5
+        },
+        {
+          "text": "Make sure the baker's mother gets the first hot meal.",
+          "action": "COMPLETE",
+          "dispositionShift": 3
+        }
       ],
       "objectivePool": [],
       "objectiveConfig": {}
     },
     {
-      "id": "self_sacrifice_for_kindred_reso_02",
+      "id": "reso_sacrifice_kindred_dam_holds",
       "dialogueChunks": {
-        "intro": "The dam broke last night, {player_name}. But the homes are standing.",
-        "plotStep": "The floodgates held just long enough. The water roared through the overflow channels instead of the lower quarter. {target_npc} pulled the gate operator out of the flooding room at the last second: unconscious, half-drowned, but alive. The healer says they'll walk again in a few weeks. The community hall is intact. The kitchens are dry. Families are sleeping in their own beds tonight because {quest_origin} decided their neighbors mattered more than their own safety.",
-        "outro": "They asked me to give you this. Said you were the one who made the impossible possible. I think they're right."
+        "intro": "The river crested at midnight and the dam held. The mason climbed out of the water at dawn, shivering so hard he couldn't stand. He just pointed downstream and asked if the houses were still there.",
+        "plotStep": "They are. Every single one. {target_npc} carried him to the nearest hearth and wrapped him in every blanket they could find. The families he saved brought food, dry clothes, and quiet gratitude. His wife hasn't let go of his hand since he came home.",
+        "outro": "A man stood in a freezing river all night because he couldn't bear to see his neighbors lose their homes. And because you brought what he needed, {player_name}, he lived to see the sunrise."
       },
       "playerResponses": [
-        { "text": "They survived? That's the best news I've heard in months.", "action": "ACCEPT", "dispositionShift": 15 },
-        { "text": "Alive and the homes are safe. I'd call that a miracle.", "action": "ACCEPT" }
+        {
+          "text": "That man is what community looks like. Take care of him.",
+          "action": "COMPLETE",
+          "dispositionShift": 5
+        },
+        {
+          "text": "Fix the dam properly before the next storm.",
+          "action": "COMPLETE",
+          "dispositionShift": 1
+        },
+        {
+          "text": "Glad it worked out. He's tougher than he looks.",
+          "action": "COMPLETE",
+          "dispositionShift": 2
+        }
       ],
       "objectivePool": [],
       "objectiveConfig": {}
     },
     {
-      "id": "self_sacrifice_for_kindred_reso_03",
+      "id": "reso_sacrifice_kindred_safe_harbor",
       "dialogueChunks": {
-        "intro": "{quest_focus} broke, {player_name}. Every single patient is recovering.",
-        "plotStep": "The remedy worked. {target_npc} is back on their feet, the children are playing in the square again, and our tireless caretaker finally fell asleep at the kitchen table this morning. First rest they've had in a week. The healer says they pushed themselves to the edge of collapse, but the stubbornness that nearly killed them is the same stubbornness that kept everyone else alive.",
-        "outro": "They made you something before they passed out. A meal, of all things. Said feeding people is how they say thank you. Please take this reward too: the settlement collected it while you were gone."
+        "intro": "All sixty made it. Every last one. The column arrived at {location} ragged, exhausted, and alive. The elder... the elder didn't make it.",
+        "plotStep": "They found her afterward. She'd held the gates for nearly a full day before the {enemy_type} realized it was one old woman. {quest_ally} says she went down fighting. {target_npc} is building a marker for her at the new settlement's entrance: first thing visitors will see when they arrive.",
+        "outro": "She gave her people a future by giving up her own. And you made sure that future had a clear road to walk on. Her grandchildren are safe, {player_name}. That's what she wanted."
       },
       "playerResponses": [
-        { "text": "A home-cooked meal from someone who gave everything. I'll treasure it.", "action": "ACCEPT", "dispositionShift": 10 },
-        { "text": "Make sure they sleep for a week. They've earned it.", "action": "ACCEPT" }
+        {
+          "text": "She stood taller than any soldier I've met. Honor her well.",
+          "action": "COMPLETE",
+          "dispositionShift": 5
+        },
+        {
+          "text": "I wish we could have saved her too.",
+          "action": "COMPLETE",
+          "dispositionShift": 3
+        }
       ],
       "objectivePool": [],
       "objectiveConfig": {}

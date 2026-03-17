@@ -1,60 +1,83 @@
 {
   "variants": [
     {
-      "id": "crimes_of_love_conf_01",
+      "id": "conf_crimes_love_enforcers_close",
       "dialogueChunks": {
-        "intro": "The inventory count moved up, {player_name}. We're out of time.",
-        "plotStep": "{target_npc} announced a surprise audit: they're counting the storehouse supplies tonight. The supplies you gathered aren't enough to cover {quest_focus}. Worse, the neighbor's children are sick now. I need you to gather more {quest_item} to fill the gap AND find healing herbs in the wilds {location_hint}. The {enemy_type} have been thick along the treeline, but those children can't wait.",
-        "outro": "One act of kindness turned into a cascade of problems. {quest_stakes}, but I need your help more than ever now."
+        "intro": "The guild enforcers found the garden, {player_name}. The herbalist was arrested an hour ago. The medicines you're carrying are now the only supply left.",
+        "plotStep": "{target_npc} says {quest_ally} is trying to delay the guild hearing, but the enforcers are also looking for the person who picked up the delivery. That's you. The children's fevers are climbing. Two families have sent word that {quest_item} is their last hope. {quest_threat} is tightening the net around {location}.",
+        "outro": "The delivery route through {location} is compromised. {target_npc} knows a back path through {location_hint}, but it adds hours. The children may not have hours. Choose the route and pray it's the right one."
       },
       "playerResponses": [
-        { "text": "Sick children and a ticking clock. I'll move fast.", "action": "ACCEPT" },
-        { "text": "Every time I turn around, this gets more complicated. But those kids need help.", "action": "ACCEPT" },
-        { "text": "You're in too deep. Turn yourself in before it gets worse.", "action": "DECLINE" }
+        {
+          "text": "I'll take the back path. Slower is better than caught.",
+          "action": "ACCEPT",
+          "dispositionShift": 3
+        },
+        {
+          "text": "The direct route. Those children don't have time for detours.",
+          "action": "ACCEPT",
+          "dispositionShift": 1
+        },
+        {
+          "text": "The herbalist was arrested for this. I'm not joining her.",
+          "action": "DECLINE",
+          "dispositionShift": -4
+        }
       ],
-      "objectivePool": ["GATHER_ITEMS", "FETCH_ITEM", "KILL_MOBS"],
+      "objectivePool": ["DELIVER_ITEM", "EXPLORE_LOCATION", "KILL_MOBS"],
       "objectiveConfig": {
-        "GATHER_ITEMS": { "countMin": 6, "countMax": 12 },
-        "FETCH_ITEM": { "locationPreference": "WILDERNESS" },
         "KILL_MOBS": { "countMin": 2, "countMax": 5 }
       }
     },
     {
-      "id": "crimes_of_love_conf_02",
+      "id": "conf_crimes_love_patrol_closing",
       "dialogueChunks": {
-        "intro": "{player_name}, the search is getting closer. {target_npc} questioned my sister this morning.",
-        "plotStep": "The questioning was polite but thorough. {quest_threat} is intensifying. Meanwhile, the escape route {location_hint} has been compromised: a patrol of {enemy_type} set up camp across the path. {quest_focus} is growing desperate, talking about surrendering to spare my sister. I need you to clear that route and find {quest_item} to provision the journey.",
-        "outro": "If the soldier surrenders, {quest_stakes}. I won't let my sister hang for having a kind heart."
+        "intro": "The military patrol found the farmstead. The deserter and his family fled into the forest, but his daughter is too weak to travel far.",
+        "plotStep": "{target_npc} picked up their trail {location_hint}. The deserter is carrying his daughter on his back, administering the remedy in doses while they move. {quest_ally} says the patrol commander has orders to bring him back alive, but not all soldiers follow orders carefully. The forest near {location} has plenty of places to hide, but they need {quest_item} to keep moving.",
+        "outro": "Two more days. That's all the father needs to finish the treatment. After that, he'll surrender himself. Find them before the patrol does and bring {quest_item}."
       },
       "playerResponses": [
-        { "text": "Clear the route, provision the journey. I'll make it happen.", "action": "ACCEPT" },
-        { "text": "Your sister's kindness shouldn't cost her life. Let me handle the monsters.", "action": "ACCEPT" },
-        { "text": "The net is closing and I'm helping you slip through it. This is going to end badly.", "action": "DECLINE" }
+        {
+          "text": "Two days for his daughter's life. I'll buy him that time.",
+          "action": "ACCEPT",
+          "dispositionShift": 5
+        },
+        {
+          "text": "If I misdirect the patrol, that's a crime too. You know that.",
+          "action": "ACCEPT",
+          "dispositionShift": 1
+        }
       ],
-      "objectivePool": ["KILL_MOBS", "EXPLORE_LOCATION", "GATHER_ITEMS"],
-      "objectiveConfig": {
-        "KILL_MOBS": { "countMin": 4, "countMax": 8 },
-        "EXPLORE_LOCATION": { "countMin": 2, "countMax": 3 },
-        "GATHER_ITEMS": { "countMin": 3, "countMax": 6 }
-      }
+      "objectivePool": ["FETCH_ITEM", "EXPLORE_LOCATION", "TALK_TO_NPC"],
+      "objectiveConfig": {}
     },
     {
-      "id": "crimes_of_love_conf_03",
+      "id": "conf_crimes_love_border_tightened",
       "dialogueChunks": {
-        "intro": "They almost caught me, {player_name}. An enforcer was watching the distribution house.",
-        "plotStep": "I had to destroy a week's worth of {quest_focus} to keep it from being seized. {target_npc} warned me: {quest_threat} is hiring a tracker. There's an old herbalist's cottage {location_hint}, abandoned after the {enemy_type} moved in. If you can clear it out and gather more {quest_item}, I can set up where the guild will never find me.",
-        "outro": "I destroyed medicine that sick people needed. {quest_stakes} hangs in the balance. Help me make more before anyone suffers for my caution."
+        "intro": "The border patrols intercepted a previous shipment. They know someone is smuggling and they've tripled the watch along the river.",
+        "plotStep": "{target_npc} says the merchant was questioned but didn't crack. She's terrified but she's also thinking about the twenty people across the river who are counting on her. {quest_ally} found a section of the river near {location} where the current is weaker, but it's closer to a {enemy_type} camp. {quest_item} could serve as a distraction to draw the patrols away.",
+        "outro": "The food needs to cross tonight or the village goes another week without. The merchant can't do it herself: she's being watched. Someone needs to make the run."
       },
       "playerResponses": [
-        { "text": "A hidden cottage and fresh ingredients. We'll have medicine flowing again in no time.", "action": "ACCEPT" },
-        { "text": "The guild is closing in. A hidden location is smart. Let's move.", "action": "ACCEPT" },
-        { "text": "Enforcers and trackers. You're going to get us both caught.", "action": "DECLINE" }
+        {
+          "text": "Show me the crossing point. Those people need to eat.",
+          "action": "ACCEPT",
+          "dispositionShift": 4
+        },
+        {
+          "text": "Using {enemy_type} as a distraction is risky. What if it backfires?",
+          "action": "ACCEPT",
+          "dispositionShift": 1
+        },
+        {
+          "text": "The patrols are too heavy. This can't continue.",
+          "action": "DECLINE",
+          "dispositionShift": -2
+        }
       ],
-      "objectivePool": ["KILL_MOBS", "GATHER_ITEMS", "EXPLORE_LOCATION"],
+      "objectivePool": ["DELIVER_ITEM", "KILL_MOBS", "EXPLORE_LOCATION"],
       "objectiveConfig": {
-        "KILL_MOBS": { "countMin": 3, "countMax": 6 },
-        "GATHER_ITEMS": { "countMin": 5, "countMax": 12 },
-        "EXPLORE_LOCATION": { "countMin": 1, "countMax": 2 }
+        "KILL_MOBS": { "countMin": 3, "countMax": 7 }
       }
     }
   ]

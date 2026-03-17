@@ -1,107 +1,106 @@
 {
   "variants": [
     {
-      "id": "slayingofkinunrecog_expo_01",
+      "id": "expo_slaying_kin_cursed_patrol",
       "bindings": {
-        "quest_action": "travel to the neighboring settlement and discover the full truth",
-        "quest_focus": "disguised friendly traders killed in a tragic misidentification",
-        "quest_stakes": "diplomatic relations collapsing between two settlements",
-        "quest_threat": "an ally-killing mistake that could sever vital trade ties",
-        "quest_origin": "a night patrol that mistook disguised traders for enemy scouts"
+        "quest_action": "identify the cursed patrol",
+        "quest_focus": "the transformed soldiers",
+        "quest_stakes": "allied lives",
+        "quest_threat": "a spreading curse",
+        "quest_origin": "a corrupted watchtower",
+        "quest_time_pressure": "before the next patrol"
       },
       "dialogueChunks": {
-        "intro": "{player_name}, I've done something that haunts me. I need help understanding what happened before I lose my mind.",
-        "plotStep": "Three nights ago, the guard patrol I was leading encountered a group of cloaked figures {location_hint}. They moved like {enemy_type} scouts: same formations, same signals. We engaged. It was over in seconds. When we pulled back the hoods, we found {quest_focus}: friendly traders from a neighboring settlement. Disguised, apparently, to avoid bandit attention on the roads. {target_npc} identified them from their goods: they were bringing {quest_item} to {location} as a gift. I killed allies carrying gifts.",
-        "outro": "I need someone to {quest_action}. Were they really traders? Why the disguises? And how do I face their families?"
+        "intro": "Something terrible happened on the eastern road. One of our patrols attacked a group of travelers, killed two of them before anyone realized they were friendlies.",
+        "plotStep": "The patrol had been stationed near {quest_origin} for weeks. When they came back, they looked wrong: skin too pale, eyes too wide. Nobody said anything because they still wore our colors. Now two innocent people are dead and the patrol doesn't even remember doing it.",
+        "outro": "We need someone to {quest_action} before {quest_threat} claims more of our own. Those soldiers were good people once. Whatever changed them is still out there."
       },
       "playerResponses": [
-        { "text": "You acted on what you saw. Let me find out the full story before you condemn yourself.", "action": "ACCEPT" },
-        { "text": "Killing disguised allies is a nightmare. I'll get answers, but you have to face whatever I find.", "action": "ACCEPT" },
-        { "text": "That's a burden you'll have to carry alone. I can't undo what happened.", "action": "DECLINE" }
+        {
+          "text": "I'll find the source of this curse and put a stop to it.",
+          "action": "ACCEPT",
+          "dispositionShift": 5
+        },
+        {
+          "text": "Those soldiers need to be put down, not saved.",
+          "action": "ACCEPT",
+          "dispositionShift": -3
+        },
+        {
+          "text": "This isn't my problem to solve.",
+          "action": "DECLINE"
+        }
       ],
-      "objectivePool": ["TALK_TO_NPC", "EXPLORE_LOCATION"],
+      "objectivePool": ["EXPLORE_LOCATION", "KILL_MOBS", "GATHER_ITEMS"],
       "objectiveConfig": {
-        "TALK_TO_NPC": { "countMin": 1, "countMax": 1 },
-        "EXPLORE_LOCATION": { "countMin": 2, "countMax": 3 }
+        "KILL_MOBS": { "countMin": 3, "countMax": 6 },
+        "GATHER_ITEMS": { "countMin": 3, "countMax": 10 }
       }
     },
     {
-      "id": "slayingofkinunrecog_expo_02",
+      "id": "expo_slaying_kin_poisoned_well",
       "bindings": {
-        "quest_action": "investigate who is transforming villagers into monsters",
-        "quest_focus": "a missing villager transformed beyond recognition",
-        "quest_stakes": "more transformed victims being unknowingly killed",
-        "quest_threat": "a rogue alchemist turning people into unrecognizable creatures",
-        "quest_origin": "a hunter who killed a creature that turned out to be a person"
+        "quest_action": "trace the tainted water",
+        "quest_focus": "the poisoned well",
+        "quest_stakes": "the village's sanity",
+        "quest_threat": "a mind-altering blight",
+        "quest_origin": "upstream caverns",
+        "quest_reward_hint": "a purification charm"
       },
       "dialogueChunks": {
-        "intro": "I haven't slept in four days, {player_name}. Every time I close my eyes I see their faces.",
-        "plotStep": "There was a creature terrorizing the roads near {location}: huge, aggressive, wearing scraps of {enemy_type} armor. I tracked it for two days {location_hint} and finally brought it down in a ravine. When I examined the body, I found a necklace that {target_npc} recognized. It belonged to {quest_focus}: a villager who went missing months ago. The alchemist says they were transformed: some kind of {quest_item} compound that warped their body beyond recognition. I killed someone I should have been trying to save.",
-        "outro": "Someone turned a villager into a monster. I need to know who, and I need to find out if there are others before {quest_stakes}."
+        "intro": "My neighbor killed her own brother last night. She swears she saw a {enemy_type} standing where he stood. She wasn't lying: she truly saw a monster.",
+        "plotStep": "It started three days ago when people began drinking from {quest_focus}. The water tasted fine but something in it twists perception. Friends look like enemies. Family looks like {enemy_type}. Two people are dead already, both killed by people who loved them.",
+        "outro": "If we don't {quest_action} and find out what's contaminating the supply, {quest_stakes} will be gone by week's end. Please, {player_name}. We're turning on each other."
       },
       "playerResponses": [
-        { "text": "If someone is transforming people into creatures, we need to stop them. I'll investigate.", "action": "ACCEPT" },
-        { "text": "You couldn't have known. But there might be more victims out there. I'll look.", "action": "ACCEPT" },
-        { "text": "Transformation curses are beyond my expertise. Find a healer.", "action": "DECLINE" }
+        {
+          "text": "Show me the well. I'll find what's doing this.",
+          "action": "ACCEPT",
+          "dispositionShift": 4
+        },
+        {
+          "text": "Have you tried just... not drinking the water?",
+          "action": "ACCEPT",
+          "dispositionShift": -2
+        },
+        {
+          "text": "I can't risk being affected myself.",
+          "action": "DECLINE"
+        }
       ],
-      "objectivePool": ["EXPLORE_LOCATION", "FETCH_ITEM", "KILL_MOBS"],
+      "objectivePool": ["EXPLORE_LOCATION", "GATHER_ITEMS", "FETCH_ITEM"],
       "objectiveConfig": {
-        "EXPLORE_LOCATION": { "countMin": 2, "countMax": 3 },
-        "FETCH_ITEM": { "locationPreference": "DUNGEON" },
-        "KILL_MOBS": { "countMin": 2, "countMax": 5 }
+        "GATHER_ITEMS": { "countMin": 4, "countMax": 12 }
       }
     },
     {
-      "id": "slayingofkinunrecog_expo_03",
+      "id": "expo_slaying_kin_shapeshifter_panic",
       "bindings": {
-        "quest_action": "search the burned camp ruins for survivors or evidence",
-        "quest_focus": "prisoners held as forced labor in an enemy camp",
-        "quest_stakes": "survivors trapped in tunnels beneath the destroyed camp",
-        "quest_threat": "a bounty hunter's carelessness that may have killed captives",
-        "quest_origin": "torching an enemy camp without checking for prisoners inside"
+        "quest_action": "expose the shapeshifter",
+        "quest_focus": "the stolen identity",
+        "quest_stakes": "trust between allies",
+        "quest_threat": "a hidden infiltrator",
+        "quest_time_pressure": "before suspicion tears us apart"
       },
       "dialogueChunks": {
-        "intro": "{player_name}, I came to {location} looking for a friend. Instead I found out what I've done.",
-        "plotStep": "Last month I cleared a {enemy_type} camp {location_hint} on a bounty. Standard work: burned the supplies, scattered the survivors. What I didn't know was that the camp held {quest_focus}: people from nearby settlements being used as forced labor. {target_npc} told me one of the prisoners was a herbalist who had been gathering {quest_item} under duress. When I torched the supply tent, the herbalist was still inside. I didn't check. I need to go back and {quest_action}.",
-        "outro": "I was so focused on completing the bounty that I never thought to look for captives. That has to change, starting now."
+        "intro": "We killed one of our own scouts two days ago. The guard captain swore the scout drew a weapon first. The scout's partner says he was reaching for his canteen.",
+        "plotStep": "Something has been wearing the faces of our people. It takes {quest_focus} of someone trusted, walks among us, then does something violent enough to provoke a response. When the real person shows up later, they walk into a crossbow bolt meant for a monster. We've lost three people this way.",
+        "outro": "We need someone from outside our ranks to {quest_action}. Everyone here suspects everyone else already. {quest_time_pressure}: we'll destroy ourselves without any enemy lifting a finger."
       },
       "playerResponses": [
-        { "text": "Captives held in an enemy camp: that changes everything. I'll help you search the ruins.", "action": "ACCEPT" },
-        { "text": "You rushed a job and people suffered. I'll help find the truth, but you need to face it.", "action": "ACCEPT", "dispositionShift": -5 },
-        { "text": "What's done is done. Going back won't bring anyone back.", "action": "DECLINE" }
+        {
+          "text": "An outsider's eyes might see what yours can't. I'll help.",
+          "action": "ACCEPT",
+          "dispositionShift": 5
+        },
+        {
+          "text": "How do I know you're not the shapeshifter?",
+          "action": "ACCEPT",
+          "dispositionShift": 1
+        }
       ],
-      "objectivePool": ["EXPLORE_LOCATION", "GATHER_ITEMS", "TALK_TO_NPC"],
-      "objectiveConfig": {
-        "EXPLORE_LOCATION": { "countMin": 2, "countMax": 4 },
-        "GATHER_ITEMS": { "countMin": 3, "countMax": 6 },
-        "TALK_TO_NPC": { "countMin": 1, "countMax": 1 }
-      }
-    },
-    {
-      "id": "slayingofkinunrecog_expo_04",
-      "bindings": {
-        "quest_action": "deliver the remaining medicine to the plague-stricken village",
-        "quest_focus": "a healer killed while carrying lifesaving medicine",
-        "quest_stakes": "an entire village dying of plague without their medicine",
-        "quest_threat": "a fatal mistake born of shoot-first paranoia",
-        "quest_origin": "killing a smuggler who turned out to be a healer with legitimate papers"
-      },
-      "dialogueChunks": {
-        "intro": "Don't touch that pile, {player_name}. Those are the belongings of someone I wronged. I can't bring myself to move them.",
-        "plotStep": "A week ago, I intercepted a smuggler's cart {location_hint} carrying what I thought was stolen {quest_item}. The driver fought back and I... I didn't hold back. Turns out the cart belonged to {quest_focus}: a healer from a neighboring settlement. The {quest_item} was medicine, not contraband, bound for people dying of plague. {target_npc} confirmed the healer had legitimate passage papers that I never asked to see. Now {quest_stakes}: an entire village is waiting for medicine that will never arrive.",
-        "outro": "I need to {quest_action} and find out if it's too late for the people who needed it. I owe them that much."
-      },
-      "playerResponses": [
-        { "text": "The medicine still needs to reach those people. I'll make the delivery.", "action": "ACCEPT" },
-        { "text": "You killed a healer carrying medicine. That's heavy. But the sick still need help.", "action": "ACCEPT" },
-        { "text": "You can't undo a killing with a delivery. Carry that weight yourself.", "action": "DECLINE" }
-      ],
-      "objectivePool": ["DELIVER_ITEM", "TALK_TO_NPC", "EXPLORE_LOCATION"],
-      "objectiveConfig": {
-        "DELIVER_ITEM": {},
-        "TALK_TO_NPC": { "countMin": 1, "countMax": 1 },
-        "EXPLORE_LOCATION": { "countMin": 1, "countMax": 2 }
-      }
+      "objectivePool": ["TALK_TO_NPC", "EXPLORE_LOCATION", "KILL_NPC"],
+      "objectiveConfig": {}
     }
   ]
 }

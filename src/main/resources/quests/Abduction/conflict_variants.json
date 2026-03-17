@@ -1,80 +1,78 @@
 {
   "variants": [
     {
-      "id": "abduction_conf_01",
+      "id": "abduction_conf_ambush_trail",
       "dialogueChunks": {
-        "intro": "The situation has changed, {player_name}. And not for the better.",
-        "plotStep": "The {enemy_type} have split the hostages into two groups and moved them to separate locations. {target_npc}'s message says they're being forced to harvest {quest_item}. One group was taken deeper {location_hint}. Hitting one site will alert the other. Our efforts to {quest_action} just doubled in complexity.",
-        "outro": "Two locations, limited time, and {quest_stakes} at risk if they suspect a rescue. The pressure just doubled."
+        "intro": "The trail to {location_hint} is more dangerous than we expected. {enemy_type} patrols are everywhere, and they've set traps along the path.",
+        "plotStep": "You'll need to fight through their scouts before reaching {quest_focus}. {quest_ally} warned that the {quest_threat} grows stronger the closer you get to their territory.",
+        "outro": "Clear the way and press forward. Every moment wasted is another moment {quest_focus} remains in danger."
       },
       "playerResponses": [
-        { "text": "Split groups means I need to hit hard and fast. Give me the locations.", "action": "ACCEPT" },
-        { "text": "Two sites, one rescuer? The odds aren't great, but the hostages don't have better options.", "action": "ACCEPT" },
-        { "text": "Splitting the hostages means they're prepared for a rescue. This is a trap.", "action": "DECLINE" }
+        {
+          "text": "I'll cut through them.",
+          "action": "ACCEPT",
+          "dispositionShift": 3
+        },
+        {
+          "text": "I need to regroup first.",
+          "action": "ACCEPT"
+        }
       ],
-      "objectivePool": ["EXPLORE_LOCATION", "KILL_MOBS", "GATHER_ITEMS"],
+      "objectivePool": ["KILL_MOBS", "EXPLORE_LOCATION"],
       "objectiveConfig": {
-        "EXPLORE_LOCATION": { "countMin": 2, "countMax": 3 },
-        "KILL_MOBS": { "countMin": 5, "countMax": 10 },
-        "GATHER_ITEMS": { "countMin": 3, "countMax": 6 }
+        "KILL_MOBS": { "countMin": 4, "countMax": 9 }
       }
     },
     {
-      "id": "abduction_conf_02",
+      "id": "abduction_conf_captor_camp",
       "dialogueChunks": {
-        "intro": "{player_name}, they took another one. While you were tracking the first group, they circled back.",
-        "plotStep": "{quest_threat} snatched the blacksmith's apprentice while locking up the forge. {target_npc} found a note scratched into the forge door: coordinates leading {location_hint}. Either they're taunting us or it's a genuine clue. We need you to investigate and gather {quest_item} to equip the militia. Our efforts to {quest_action} need to address the source, not just the symptoms.",
-        "outro": "They're hunting us in our own home. We need to turn the tables before {quest_stakes} grows worse."
+        "intro": "You've found signs of {quest_threat} near {location_hint}. Discarded supplies and cold fire pits mark where they rested with their prisoners.",
+        "plotStep": "The captors split into groups here. Tracks branch in two directions. One set leads deeper toward {location}, the other circles back. We need proof of where they went: gather what they left behind.",
+        "outro": "Search the area thoroughly. What you find could tell us how many we're dealing with and where {quest_focus} was taken next."
       },
       "playerResponses": [
-        { "text": "A taunting message means they're overconfident. I'll use that against them.", "action": "ACCEPT" },
-        { "text": "More abductions while I'm out searching? We need to solve this at the source.", "action": "ACCEPT" },
-        { "text": "They can grab people from inside the settlement walls? Nothing I do will be enough.", "action": "DECLINE" }
+        {
+          "text": "I'll search every inch of this camp.",
+          "action": "ACCEPT",
+          "dispositionShift": 2
+        },
+        {
+          "text": "There's no time. I'll follow the deeper trail.",
+          "action": "ACCEPT",
+          "dispositionShift": 4
+        }
       ],
-      "objectivePool": ["EXPLORE_LOCATION", "GATHER_ITEMS", "KILL_MOBS"],
+      "objectivePool": ["GATHER_ITEMS", "EXPLORE_LOCATION", "KILL_MOBS"],
       "objectiveConfig": {
-        "EXPLORE_LOCATION": { "countMin": 1, "countMax": 2 },
-        "GATHER_ITEMS": { "countMin": 4, "countMax": 10 },
-        "KILL_MOBS": { "countMin": 3, "countMax": 7 }
+        "GATHER_ITEMS": { "countMin": 4, "countMax": 12 },
+        "KILL_MOBS": { "countMin": 2, "countMax": 6 }
       }
     },
     {
-      "id": "abduction_conf_03",
+      "id": "abduction_conf_insider_betrayal",
       "dialogueChunks": {
-        "intro": "One of the hostages escaped, {player_name}. Barely alive, but they brought crucial information.",
-        "plotStep": "The escapee says the {enemy_type} have a tunnel network {location_hint} connecting several holding sites. {target_npc} and the other captives are in the deepest chamber, behind three guard posts. The tunnels are rigged with crude alarms. We need {quest_item} to create a diversion at the main entrance while you slip in through the drainage vent to {quest_action}.",
-        "outro": "We have a way in, but it's narrow, dangerous, and leaves no room for error. {quest_stakes} depend on precision."
+        "intro": "Something doesn't add up. The {enemy_type} knew too much about {quest_focus}: patrol schedules, weak points, who to target. Someone from the inside fed them information.",
+        "plotStep": "Talk to {target_npc}. They were the last person to see {quest_focus} before the {quest_threat} struck. Whether they're guilty or simply the last witness, their account matters.",
+        "outro": "We need the truth before {quest_stakes} are lost forever. Find out what {target_npc} knows, willingly or not."
       },
       "playerResponses": [
-        { "text": "The drainage vent. A diversion at the front. And no room for error. Let's do it.", "action": "ACCEPT" },
-        { "text": "Tunnel networks and alarm systems? At least now we know what we're dealing with.", "action": "ACCEPT" },
-        { "text": "Booby-trapped tunnels and a single narrow entrance? That's a death sentence.", "action": "DECLINE" }
+        {
+          "text": "I'll confront them carefully.",
+          "action": "ACCEPT",
+          "dispositionShift": 2
+        },
+        {
+          "text": "If they're a traitor, they'll pay.",
+          "action": "ACCEPT",
+          "dispositionShift": -1
+        },
+        {
+          "text": "Maybe there's a simpler explanation.",
+          "action": "ACCEPT"
+        }
       ],
-      "objectivePool": ["EXPLORE_LOCATION", "KILL_MOBS", "FETCH_ITEM"],
-      "objectiveConfig": {
-        "EXPLORE_LOCATION": { "countMin": 2, "countMax": 3 },
-        "KILL_MOBS": { "countMin": 4, "countMax": 8 },
-        "FETCH_ITEM": { "locationPreference": "DUNGEON" }
-      }
-    },
-    {
-      "id": "abduction_conf_04",
-      "dialogueChunks": {
-        "intro": "The deadline is tomorrow, {player_name}. Tomorrow.",
-        "plotStep": "We gathered some {quest_item} for the ransom, but it's barely half what they demanded. {target_npc} smuggled out word that the {enemy_type} are arguing among themselves: some want to execute the hostages, others want to keep them as workers. The division might be our best chance to {quest_action}. If you can reach {quest_focus} {location_hint} during the argument and strike while they're distracted, we might pull this off.",
-        "outro": "An enemy divided is an enemy vulnerable. But {quest_stakes} depend on us acting before they resolve their debate."
-      },
-      "playerResponses": [
-        { "text": "Internal division is an opportunity. I'll strike before they resolve it.", "action": "ACCEPT" },
-        { "text": "Racing against a debate among monsters. Strange days. Give me the approach route.", "action": "ACCEPT" },
-        { "text": "Gambling on an internal dispute? Too many unknowns.", "action": "DECLINE" }
-      ],
-      "objectivePool": ["KILL_MOBS", "EXPLORE_LOCATION", "TALK_TO_NPC"],
-      "objectiveConfig": {
-        "KILL_MOBS": { "countMin": 4, "countMax": 9 },
-        "EXPLORE_LOCATION": { "countMin": 1, "countMax": 2 },
-        "TALK_TO_NPC": { "countMin": 1, "countMax": 1 }
-      }
+      "objectivePool": ["TALK_TO_NPC", "EXPLORE_LOCATION"],
+      "objectiveConfig": {}
     }
   ]
 }

@@ -1,78 +1,106 @@
 {
   "variants": [
     {
-      "id": "self_sacrifice_for_kindred_expo_01",
+      "id": "expo_sacrifice_kindred_famine_run",
       "bindings": {
-        "quest_action": "gather wild grain from the monster-infested hills",
-        "quest_focus": "a failed harvest threatening starvation",
-        "quest_stakes": "children starving through the winter",
-        "quest_threat": "a blight that destroyed the entire crop overnight",
-        "quest_origin": "one person giving up their own food so children can eat"
+        "quest_action": "escort the supply caravan",
+        "quest_focus": "the winter stores",
+        "quest_stakes": "the starving families",
+        "quest_threat": "raider ambushes",
+        "quest_origin": "the trade post ruins",
+        "quest_time_pressure": "before the first frost"
       },
       "dialogueChunks": {
-        "intro": "{player_name}, sit down for a moment. I need to tell you what I've decided, and I need someone outside this settlement to understand why.",
-        "plotStep": "{quest_focus}: blight took everything in the fields overnight. We have enough grain stored to feed half the settlement through winter, but only half. I've been dividing my own rations among the children for a week now, and I'll keep doing it until the stores run out or I do. But there's a chance: a slim one. {target_npc} heard of a wild grain that grows {location_hint}, enough to make up the difference if someone gathers it. The problem is the {enemy_type} that roost in those hills.",
-        "outro": "I won't watch my neighbors' children starve while I eat. I'll waste away before I let that happen. But if you can bring back that grain, maybe none of us have to."
+        "intro": "Our stores are empty. The children stopped asking for second helpings weeks ago because they know there aren't any.",
+        "plotStep": "A trader at {quest_origin} has grain to spare, but the road passes through {enemy_type} territory. Three volunteers have offered to drive the caravan knowing full well the odds. One of them is the baker's mother. She said she'd rather die on the road than watch her grandchildren waste away.",
+        "outro": "They leave at dawn to {quest_action}. {quest_threat} will be waiting somewhere along the route. Those volunteers aren't fighters: they're parents and grandparents who decided {quest_stakes} matter more than their own safety."
       },
       "playerResponses": [
-        { "text": "You're starving yourself for them. The least I can do is gather some grain.", "action": "ACCEPT" },
-        { "text": "Stop skipping meals. I'll bring back enough for everyone, including you.", "action": "ACCEPT", "dispositionShift": 5 },
-        { "text": "You can't save everyone by destroying yourself. I'm sorry.", "action": "DECLINE" }
+        {
+          "text": "I'll ride with them. They won't face the road alone.",
+          "action": "ACCEPT",
+          "dispositionShift": 5
+        },
+        {
+          "text": "Can we find a safer route instead?",
+          "action": "ACCEPT",
+          "dispositionShift": 2
+        },
+        {
+          "text": "I have my own supplies to worry about.",
+          "action": "DECLINE"
+        }
       ],
-      "objectivePool": ["GATHER_ITEMS", "EXPLORE_LOCATION"],
+      "objectivePool": ["KILL_MOBS", "EXPLORE_LOCATION", "DELIVER_ITEM"],
       "objectiveConfig": {
-        "GATHER_ITEMS": { "countMin": 6, "countMax": 14 },
-        "EXPLORE_LOCATION": { "countMin": 1, "countMax": 2 }
+        "KILL_MOBS": { "countMin": 4, "countMax": 8 }
       }
     },
     {
-      "id": "self_sacrifice_for_kindred_expo_02",
+      "id": "expo_sacrifice_kindred_flood_watch",
       "bindings": {
-        "quest_action": "find floodgate parts in the old waterworks",
-        "quest_focus": "a cracking dam above the settlement",
-        "quest_stakes": "the lower quarter being swept away when the dam breaks",
-        "quest_threat": "a dam failure that will destroy the community's heart",
-        "quest_origin": "one person willing to drown operating the floodgates manually"
+        "quest_action": "reinforce the river levee",
+        "quest_focus": "the crumbling dam",
+        "quest_stakes": "the downstream homes",
+        "quest_threat": "the rising floodwaters",
+        "quest_origin": "the old mill foundation"
       },
       "dialogueChunks": {
-        "intro": "You look like someone who's traveled far, {player_name}. Then you'll understand what it means to give up a home.",
-        "plotStep": "{quest_focus} above {location} is cracking. When it breaks, and it will break, the lower quarter floods. That's where the kitchens are, the root cellars, the community hall: everything that keeps this community alive. I'm going to stay behind and operate the floodgates manually to redirect the worst of it away from the houses. {target_npc} says the mechanism needs {quest_item} to function. The parts are scattered in the old waterworks {location_hint}.",
-        "outro": "The floodgate room will fill when the dam goes. I know that. But if I can turn those wheels long enough, the homes survive. My neighbors survive. That's enough for me."
+        "intro": "The river has been rising for three days. {quest_focus} won't hold much longer, and everything downstream: homes, farms, families, is in the path.",
+        "plotStep": "The mason volunteered to go into the water and shore up the weakest section with his own hands. He knows that if the dam breaks while he's down there, he's gone. His wife begged him not to go. He kissed her forehead and said 'Those are our neighbors' children down the hill.'",
+        "outro": "He can't do it alone. We need someone to {quest_action} while he works the foundation. {quest_stakes} depend on whether that wall holds through tonight."
       },
       "playerResponses": [
-        { "text": "I'll find those parts. Your people need you alive, but they need their homes too.", "action": "ACCEPT" },
-        { "text": "You've thought this through. I can see it in your eyes. Tell me where to look.", "action": "ACCEPT" },
-        { "text": "There has to be a way to save both you and the settlement.", "action": "DECLINE" }
+        {
+          "text": "Let's get to the dam. Every minute counts.",
+          "action": "ACCEPT",
+          "dispositionShift": 5
+        },
+        {
+          "text": "Wouldn't it be smarter to evacuate?",
+          "action": "ACCEPT",
+          "dispositionShift": 0
+        },
+        {
+          "text": "I'm not going near a collapsing dam.",
+          "action": "DECLINE"
+        }
       ],
-      "objectivePool": ["FETCH_ITEM", "EXPLORE_LOCATION"],
+      "objectivePool": ["GATHER_ITEMS", "EXPLORE_LOCATION", "DELIVER_ITEM"],
       "objectiveConfig": {
-        "FETCH_ITEM": { "locationPreference": "DUNGEON" },
-        "EXPLORE_LOCATION": { "countMin": 1, "countMax": 3 }
+        "GATHER_ITEMS": { "countMin": 6, "countMax": 15 }
       }
     },
     {
-      "id": "self_sacrifice_for_kindred_expo_03",
+      "id": "expo_sacrifice_kindred_shield_bearer",
       "bindings": {
-        "quest_action": "gather rare medicinal herbs from dangerous territory",
-        "quest_focus": "a fever sweeping through the settlement",
-        "quest_stakes": "the settlement losing its healer and its heart",
-        "quest_threat": "a deadly fever that the current medicine can barely slow",
-        "quest_origin": "a cook who sold their pots for bandages and gave every herb they had"
+        "quest_action": "clear the evacuation path",
+        "quest_focus": "the refugee column",
+        "quest_stakes": "sixty displaced villagers",
+        "quest_threat": "pursuing war parties",
+        "quest_time_pressure": "before the war band closes in",
+        "quest_reward_hint": "a guardian's token"
       },
       "dialogueChunks": {
-        "intro": "I've been cooking for this settlement for twelve years, {player_name}. Every birthday, every wedding, every funeral feast. These people are my family.",
-        "plotStep": "{quest_focus} swept through {location} last week. The healer says it's treatable, but the remedy requires {quest_item} that only grows in dangerous territory {location_hint}. I've already given every herb in my stores to stretch the medicine further. Sold my cooking pots to buy bandages. {target_npc} offered to go gathering but they're needed here: too many sick to tend. I'll go myself if no one else will, even though these old legs aren't made for {enemy_type} country.",
-        "outro": "I know my chances out there. But I also know what happens if nobody goes. I've buried enough friends this month."
+        "intro": "Sixty people are on the road right now, walking with everything they own on their backs. Behind them, the {enemy_type} are burning what's left.",
+        "plotStep": "The village elder stayed behind to buy time. She barricaded the gates and lit fires to make the settlement look occupied. She's seventy years old and she's pretending to be a garrison. {quest_focus} has maybe half a day's lead, and the road ahead isn't clear.",
+        "outro": "We need someone to {quest_action} so {quest_stakes} can reach safety. {quest_time_pressure}. That old woman is giving everything she has left so her people can walk a little further."
       },
       "playerResponses": [
-        { "text": "Keep your pots and stay with your people. I'll bring back what you need.", "action": "ACCEPT", "dispositionShift": 5 },
-        { "text": "You've given enough. Let me handle the dangerous part.", "action": "ACCEPT" },
-        { "text": "I'm not a forager. You need someone who knows herbs.", "action": "DECLINE" }
+        {
+          "text": "I'll make sure her sacrifice means something.",
+          "action": "ACCEPT",
+          "dispositionShift": 5
+        },
+        {
+          "text": "Can we go back for the elder too?",
+          "action": "ACCEPT",
+          "dispositionShift": 3
+        }
       ],
-      "objectivePool": ["GATHER_ITEMS", "FETCH_ITEM"],
+      "objectivePool": ["KILL_MOBS", "EXPLORE_LOCATION", "TALK_TO_NPC"],
       "objectiveConfig": {
-        "GATHER_ITEMS": { "countMin": 5, "countMax": 10 },
-        "FETCH_ITEM": { "locationPreference": "WILDERNESS" }
+        "KILL_MOBS": { "countMin": 3, "countMax": 7 }
       }
     }
   ]

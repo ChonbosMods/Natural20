@@ -1,44 +1,43 @@
 {
   "variants": [
     {
-      "id": "obstacles_to_love_reso_01",
+      "id": "obstacles_love_reso_01",
       "dialogueChunks": {
-        "intro": "They're talking, {player_name}. After three generations, they're actually talking.",
-        "plotStep": "The bridge stands. The first people to cross were children from both settlements. {target_npc} was released and stood in the middle with a foot on each side, grinning. My friend crossed for the first time in years. {quest_focus} isn't solved yet, but people are talking instead of stockpiling. That's everything.",
-        "outro": "You built more than a bridge. You built the first step back from {quest_stakes}. Take this: it was gathered from both sides of the valley."
+        "intro": "You did it, {player_name}. The wall is crumbling, and I don't mean the stone one.",
+        "plotStep": "When the elders saw what you brought back, the room went quiet. Not angry-quiet: thoughtful-quiet. {target_npc} stood up and spoke about {quest_focus}, about how {quest_stakes} matters more than old grudges. For the first time in years, people from both sides sat at the same table. It's not perfect, there's still suspicion and side-eyed looks, but the shouting has stopped. That's a start.",
+        "outro": "You gave us something nobody else could: a reason to try. Take this, and know you're welcome on both sides of the ridge."
       },
       "playerResponses": [
-        { "text": "Children crossing first. That's how peace should start.", "action": "ACCEPT", "dispositionShift": 15 },
-        { "text": "Three generations of hate, and all it took was a bridge. Keep talking.", "action": "ACCEPT" },
-        { "text": "Talking is a start. Now solve the water problem before winter.", "action": "ACCEPT" }
+        { "text": "Seeing people talk instead of fight is reward enough.", "action": "ACCEPT", "dispositionShift": 10 },
+        { "text": "I'm glad it worked. Take care of each other.", "action": "ACCEPT" }
       ],
       "objectivePool": [],
       "objectiveConfig": {}
     },
     {
-      "id": "obstacles_to_love_reso_02",
+      "id": "obstacles_love_reso_02",
       "dialogueChunks": {
-        "intro": "{player_name}. I'm home. I'm actually home.",
-        "plotStep": "The elder council had no choice. The {enemy_type} nest is cleared, the northern road is safe. The vote was unanimous: full resident status. {target_npc} stood in the council chamber and said 'This community is stronger because this person chose us.' {quest_focus} is behind me now. {quest_threat} lost to proof they couldn't deny.",
-        "outro": "Six months of being told I don't belong: all of it worth it for the moment they said 'welcome home.' Take this: it's from my first earnings as a full resident."
+        "intro": "{player_name}... the feud isn't over. But something shifted, and it's because of you.",
+        "plotStep": "{target_npc} and their friend from the other side met openly for the first time yesterday. The families haven't reconciled, not by a long stretch, but they didn't stop the meeting either. A few of the younger ones even joined in. The elders are grumbling, but they're outnumbered by the curious. {quest_focus} is still a sore subject, but at least people are talking about it instead of throwing punches.",
+        "outro": "Change is slow when the roots go deep. But you planted a seed that nobody can uproot now. Here, take this with our thanks."
       },
       "playerResponses": [
-        { "text": "Welcome home. You earned every inch of it.", "action": "ACCEPT", "dispositionShift": 10 },
-        { "text": "Full resident status. Unanimous. They won't regret it.", "action": "ACCEPT" }
+        { "text": "Seeds take time. I'll check back when it's grown.", "action": "ACCEPT", "dispositionShift": 5 },
+        { "text": "Small steps are still steps. Good luck to all of you.", "action": "ACCEPT" }
       ],
       "objectivePool": [],
       "objectiveConfig": {}
     },
     {
-      "id": "obstacles_to_love_reso_03",
+      "id": "obstacles_love_reso_03",
       "dialogueChunks": {
-        "intro": "Look at this, {player_name}. Whole again, after all these years.",
-        "plotStep": "The heirloom is restored. When I presented it at the gathering, the room went silent. My father stared and said something nobody expected: 'We should never have broken it.' {target_npc} says the families have agreed to share a meal at the next feast. My partner and I stood side by side in public for the first time. {quest_focus} is beginning to mend.",
-        "outro": "You walked through danger to retrieve {quest_origin}. This reward comes from both families: the first thing they've agreed on in a generation."
+        "intro": "I won't sugarcoat it, {player_name}. The truce is fragile. But it exists, and that's more than we had before.",
+        "plotStep": "Some of the hardliners refused to accept the evidence you brought back. They stormed out of the assembly and took a handful of supporters with them. But {target_npc} stayed, and so did the majority. The barrier is still standing, but a gate has been built into it, a real, physical gate that both sides agreed to. It's not the open road we wanted, but it's a passage that didn't exist a week ago.",
+        "outro": "You didn't solve a generations-old feud in a few days. Nobody could. But you cracked it open, and that took more courage than most people have. Take this."
       },
       "playerResponses": [
-        { "text": "Two halves reunited. Two families at one table. That's the real treasure.", "action": "ACCEPT", "dispositionShift": 15 },
-        { "text": "Standing together in public. That took more courage than clearing any ruin.", "action": "ACCEPT", "dispositionShift": 10 }
+        { "text": "A gate is better than a wall. I'll take that as a win.", "action": "ACCEPT" },
+        { "text": "Progress, not perfection. That's how these things work.", "action": "ACCEPT", "dispositionShift": 5 }
       ],
       "objectivePool": [],
       "objectiveConfig": {}

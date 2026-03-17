@@ -3,58 +3,58 @@
     {
       "id": "remorse_conf_01",
       "dialogueChunks": {
-        "intro": "{player_name}, {target_npc} found out. They know it was me who ran.",
-        "plotStep": "Someone recognized me and told {target_npc} everything about {quest_origin}. They came shaking with anger and demanded to know why. I told them the truth. They said, 'Then prove you've changed.' They want me to help defend {location} personally. But first, more {quest_item} from {location_hint}, and the {enemy_type} are thicker than ever. {quest_threat} no longer lets me hide.",
-        "outro": "I asked for a chance to make amends and got the hard kind. {quest_focus} demands I stop running. Will you stand with me?"
+        "intro": "{player_name}, {target_npc} refused to see me. Slammed the door and told me to leave before they did something they'd regret.",
+        "plotStep": "I expected anger, but the depth of it shook me. {target_npc} said {quest_focus} destroyed more than just their standing: it cost them friends, livelihood, years they'll never get back. They threw the {quest_item} I brought into the dirt and said no gift erases what happened. The {enemy_type} have moved closer to where {target_npc} is sheltering {location_hint}, and if they stay out of stubbornness, they'll be in real danger. I need to find something more meaningful than objects: proof that {quest_stakes} still has value.",
+        "outro": "Words failed. Gifts failed. The only thing left is action that speaks louder than either."
       },
       "playerResponses": [
-        { "text": "You asked for this. Now earn it. I'll stand with you.", "action": "ACCEPT" },
-        { "text": "Proving yourself under fire. That's the only language that matters.", "action": "ACCEPT" },
-        { "text": "Your redemption arc isn't my problem.", "action": "DECLINE" }
+        { "text": "Actions over apologies. Tell me what would actually prove you've changed.", "action": "ACCEPT" },
+        { "text": "Rejected twice. You're persistent. I respect that, even if it's painful.", "action": "ACCEPT" },
+        { "text": "If they don't want your apology, forcing it makes things worse.", "action": "DECLINE" }
       ],
       "objectivePool": ["GATHER_ITEMS", "KILL_MOBS", "EXPLORE_LOCATION"],
       "objectiveConfig": {
-        "GATHER_ITEMS": { "countMin": 5, "countMax": 12 },
-        "KILL_MOBS": { "countMin": 4, "countMax": 9 },
+        "GATHER_ITEMS": { "countMin": 5, "countMax": 10 },
+        "KILL_MOBS": { "countMin": 3, "countMax": 7 },
         "EXPLORE_LOCATION": { "countMin": 1, "countMax": 2 }
       }
     },
     {
       "id": "remorse_conf_02",
       "dialogueChunks": {
-        "intro": "The medicine we gathered, {player_name}... it's been stolen.",
-        "plotStep": "Bandits raided the supply wagon {location_hint}. Everything: every vial of {quest_item} meant to {quest_action}. {target_npc} doesn't even know the shipment was coming from me. {quest_stakes} becomes real again if I can't replace it. The bandits left a trail through {enemy_type} territory, and the supplies might still be recoverable.",
-        "outro": "The universe has a cruel sense of humor. But {quest_focus} drives me forward. I'm not quitting."
+        "intro": "The confession didn't go the way I hoped, {player_name}. The truth came out, and now everyone knows.",
+        "plotStep": "When I admitted what I did to the council in {location}, the reaction was exactly what I deserved. They stripped my standing and half the settlement won't look at me. But {target_npc} heard about the confession from {location_hint} and sent word: not forgiveness, but a request. They need {quest_item} to defend against the {enemy_type} that have been threatening their camp. If I can deliver what they asked for, it's not redemption, but it's a start. The problem is the road there is crawling with {quest_threat}.",
+        "outro": "The settlement turned its back on me. But {target_npc} opened a door, just a crack. I won't waste it."
       },
       "playerResponses": [
-        { "text": "Then we get it back. Every last drop.", "action": "ACCEPT" },
-        { "text": "Stolen medicine in enemy territory. Your redemption just got expensive.", "action": "ACCEPT", "dispositionShift": -5 },
-        { "text": "Fate seems to be telling you something. Maybe listen.", "action": "DECLINE" }
+        { "text": "A crack in the door is enough. I'll help you push through it.", "action": "ACCEPT" },
+        { "text": "You lost everything and they're still asking for help. At least they're talking. I'll go.", "action": "ACCEPT" },
+        { "text": "You burned every bridge. Walking through fire won't rebuild them.", "action": "DECLINE" }
       ],
       "objectivePool": ["FETCH_ITEM", "KILL_MOBS", "EXPLORE_LOCATION"],
       "objectiveConfig": {
-        "FETCH_ITEM": { "locationPreference": "DUNGEON" },
-        "KILL_MOBS": { "countMin": 3, "countMax": 8 },
-        "EXPLORE_LOCATION": { "countMin": 2, "countMax": 3 }
+        "FETCH_ITEM": { "locationPreference": "WILDERNESS" },
+        "KILL_MOBS": { "countMin": 4, "countMax": 8 },
+        "EXPLORE_LOCATION": { "countMin": 1, "countMax": 2 }
       }
     },
     {
       "id": "remorse_conf_03",
       "dialogueChunks": {
-        "intro": "{player_name}... {target_npc} came to the memorial site while I was building it.",
-        "plotStep": "He saw the half-finished monument to his daughter and broke down. I tried to leave, but he caught my arm and asked why a stranger was honoring his child. He read {quest_origin} right off my face. He walked away without a word. Then {enemy_type} tore through the site last night, scattering the {quest_item}. {quest_threat} is crushing, but I have to finish. For her, not for me.",
-        "outro": "{quest_focus} doesn't need to be about my peace. She deserved to be remembered."
+        "intro": "{player_name}, the past just caught up with us in the worst possible way.",
+        "plotStep": "{target_npc} is in danger. The {enemy_type} overran the area {location_hint} where they've been living, and they sent a desperate message asking for help. The irony isn't lost on me: the person I wronged is now begging for rescue from the person who caused their exile. I want to go myself, but I know my presence would do more harm than good right now. I need you to bring {quest_item} and clear the {enemy_type} from the area so {target_npc} can escape safely. If they survive because of me, maybe that starts to balance the scales.",
+        "outro": "Saving someone you hurt isn't redemption. But letting them die when you could help is a sin beyond any I've already committed."
       },
       "playerResponses": [
-        { "text": "For her, then. Let's rebuild it right.", "action": "ACCEPT" },
-        { "text": "You owe him the truth in words, not just stones. But I'll help with the stones.", "action": "ACCEPT" },
-        { "text": "Some wounds heal. Some don't. I can't tell you which this is.", "action": "DECLINE" }
+        { "text": "No one deserves to be abandoned twice. I'll get them out.", "action": "ACCEPT" },
+        { "text": "The person you wronged needs rescue by proxy. There's a painful irony in that.", "action": "ACCEPT" },
+        { "text": "They're in danger because you got them exiled. This isn't my mess.", "action": "DECLINE" }
       ],
-      "objectivePool": ["GATHER_ITEMS", "KILL_MOBS", "EXPLORE_LOCATION"],
+      "objectivePool": ["KILL_MOBS", "EXPLORE_LOCATION", "FETCH_ITEM"],
       "objectiveConfig": {
-        "GATHER_ITEMS": { "countMin": 8, "countMax": 16 },
-        "KILL_MOBS": { "countMin": 2, "countMax": 6 },
-        "EXPLORE_LOCATION": { "countMin": 1, "countMax": 2 }
+        "KILL_MOBS": { "countMin": 4, "countMax": 9 },
+        "EXPLORE_LOCATION": { "countMin": 2, "countMax": 3 },
+        "FETCH_ITEM": { "locationPreference": "WILDERNESS" }
       }
     }
   ]

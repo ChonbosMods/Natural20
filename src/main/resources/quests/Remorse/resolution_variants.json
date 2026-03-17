@@ -3,13 +3,13 @@
     {
       "id": "remorse_reso_01",
       "dialogueChunks": {
-        "intro": "I stood my ground, {player_name}. When the {enemy_type} came, I didn't run. Not this time.",
-        "plotStep": "{target_npc} fought beside me at the barricade. Didn't say a word, but when it was over, they handed me their waterskin and sat next to me. We watched the sun come up in silence. That silence said more than any apology. {quest_focus} is safe, and {quest_threat} finally eased. For the first time in years, I feel like I belong.",
-        "outro": "You gave me the push I needed to stop running from {quest_origin}. Take this: it's everything I have."
+        "intro": "{target_npc} spoke to me, {player_name}. Really spoke to me, for the first time in years.",
+        "plotStep": "They didn't forgive me. They said forgiveness might come someday, or it might not, and they won't promise what they can't guarantee. But they thanked me for the rescue and for finally telling the truth. They're coming back to {location}, not for me, but because this is their home and they're done letting someone else's mistake dictate their life. The council agreed to restore their standing. As for me, I've been assigned the worst duties in the settlement for the next year. I've never been happier to shovel manure.",
+        "outro": "You carried my burden to a place I couldn't reach alone. Take this: I don't have much left, but you've earned all of it."
       },
       "playerResponses": [
-        { "text": "Standing your ground when it mattered: that's who you are now.", "action": "ACCEPT", "dispositionShift": 15 },
-        { "text": "Silence and a shared waterskin. Sometimes that's enough.", "action": "ACCEPT" }
+        { "text": "Forgiveness on their terms, not yours. That's how it should be.", "action": "ACCEPT", "dispositionShift": 10 },
+        { "text": "Manure duty is a small price for a clear conscience. Good luck.", "action": "ACCEPT" }
       ],
       "objectivePool": [],
       "objectiveConfig": {}
@@ -17,14 +17,13 @@
     {
       "id": "remorse_reso_02",
       "dialogueChunks": {
-        "intro": "The medicine reached {location}, {player_name}. Every vial, properly dosed, properly labeled.",
-        "plotStep": "{target_npc} figured out who sent it. They sent a message: 'The sick are recovering. Come home if you want to.' I read those words fifty times. {quest_stakes} won't repeat. For the first time, the door isn't closed. {quest_focus} is being undone, one remedy at a time.",
-        "outro": "You carried my penance across dangerous ground. This is for you, and I hope you know what it means."
+        "intro": "It's done, {player_name}. Not the way I dreamed it, but done.",
+        "plotStep": "{target_npc} accepted the {quest_item} and acknowledged what I tried to do. They said they can't live in {location} anymore: too many memories, too much pain in every familiar face. But they shook my hand before they left and said they'd carry one fewer grudge on the road. The settlement knows the truth now, and they're watching me with new eyes: some with pity, some with contempt, some with something that looks like respect for finally owning my failure.",
+        "outro": "I didn't get the ending I wanted. But I got the one I deserved, and it's lighter than the secret was. Here, take this."
       },
       "playerResponses": [
-        { "text": "Go home. The door's open. That's what matters.", "action": "ACCEPT", "dispositionShift": 10 },
-        { "text": "You can't change the past. But you changed the future for those people.", "action": "ACCEPT" },
-        { "text": "Don't waste the chance. Chances like this don't come twice.", "action": "ACCEPT" }
+        { "text": "Owning your failures is the beginning of earning trust back.", "action": "ACCEPT", "dispositionShift": 5 },
+        { "text": "A handshake and an honest goodbye. That's worth more than most people get.", "action": "ACCEPT" }
       ],
       "objectivePool": [],
       "objectiveConfig": {}
@@ -32,13 +31,13 @@
     {
       "id": "remorse_reso_03",
       "dialogueChunks": {
-        "intro": "The memorial is finished, {player_name}. It's... it's beautiful.",
-        "plotStep": "I went at dawn. The {quest_item} catches the light just right, and wildflowers are growing around the base. {target_npc} was there. He'd left a small wooden toy at the foot: his daughter's favorite. He looked at me and said, 'She would have liked this.' Then he walked away. Not in anger. Just in grief. {quest_focus} is honored at last.",
-        "outro": "I don't have peace yet. But {quest_threat} is lighter now. You made that possible. Take this, please."
+        "intro": "{player_name}... {target_npc} left a letter. They were gone before I arrived.",
+        "plotStep": "The letter said they'd already forgiven me, months ago, alone in the dark one night when the anger finally burned out. They said holding a grudge was heavier than the original wound and they couldn't carry both. But they also said they couldn't face me: not out of anger, but because seeing me would mean reliving the worst day of their life. They wished me peace and asked me not to follow. I'm standing in an empty camp, reading a farewell from someone I wronged, and I feel lighter and emptier than I've ever felt.",
+        "outro": "Forgiveness doesn't always look like a reunion. Sometimes it's a letter and an empty chair. Take this, {player_name}. You helped me reach an answer, even if it wasn't the one I expected."
       },
       "playerResponses": [
-        { "text": "The beginning of peace is more than most people find. Hold onto it.", "action": "ACCEPT", "dispositionShift": 15 },
-        { "text": "She would have liked it. That's all the redemption you need.", "action": "ACCEPT" }
+        { "text": "Forgiveness given freely, even from a distance, is still forgiveness.", "action": "ACCEPT" },
+        { "text": "They let go of the burden. Now you have to let go of yours.", "action": "ACCEPT", "dispositionShift": 5 }
       ],
       "objectivePool": [],
       "objectiveConfig": {}

@@ -1,80 +1,81 @@
 {
   "variants": [
     {
-      "id": "an_enemy_loved_expo_01",
+      "id": "enemy_loved_expo_wounded_foe",
       "bindings": {
-        "quest_action": "scout the enemy camp and confirm they have sick children",
-        "quest_focus": "the discovery that our enemies are desperate parents, not monsters",
-        "quest_stakes": "if the settlement finds out I sympathize, I'll be cast out",
-        "quest_threat": "a war being waged against families trying to keep their young alive",
-        "quest_origin": "a scouting mission that revealed something nobody wanted to see"
+        "quest_action": "aid a wounded enemy",
+        "quest_focus": "the injured creature",
+        "quest_stakes": "mercy versus safety",
+        "quest_threat": "suspicious neighbors",
+        "quest_origin": "a skirmish gone wrong",
+        "quest_reward_hint": "unexpected allegiance"
       },
       "dialogueChunks": {
-        "intro": "I need to tell someone this, {player_name}, before it eats me alive. I've been carrying a secret that could get me cast out of {location}.",
-        "plotStep": "There's a {enemy_type} camp {location_hint}. Everyone here wants them dead. But during {quest_origin}, I saw {quest_focus}. They have sick children. They've been stealing our {quest_item} because they're trying to keep their young alive. I need someone to {quest_action}.",
-        "outro": "If I'm right, then {quest_threat}. We've been wrong about them all along."
+        "intro": "{player_name}, I need someone I can trust to keep quiet. What I'm about to show you would get me run out of {location}.",
+        "plotStep": "After the last raid, I found one of the {enemy_type} wounded and left behind by its own kind. I should have finished it off. Instead, I dragged it into the root cellar and bandaged it. It looked at me, {player_name}, really looked at me, and I couldn't do it. Now it's healing, and I need {quest_item} from {location_hint} to treat the infection before it dies. {target_npc} would never understand. Nobody here would.",
+        "outro": "I know what they are and what they've done to us. But killing something that's already beaten feels wrong in a way I can't explain."
       },
       "playerResponses": [
-        { "text": "That changes things. I'll go see for myself.", "action": "ACCEPT" },
-        { "text": "Enemies are enemies. But I'll look, if only to prove you wrong.", "action": "ACCEPT", "dispositionShift": -5 },
-        { "text": "What they are doesn't change what they've done. Count me out.", "action": "DECLINE" }
+        { "text": "Mercy takes more courage than a killing blow. I'll help.", "action": "ACCEPT" },
+        { "text": "This is dangerous and foolish. But I'll get what you need.", "action": "ACCEPT", "dispositionShift": -5 },
+        { "text": "You're harboring an enemy. I want no part of this.", "action": "DECLINE" }
       ],
-      "objectivePool": ["EXPLORE_LOCATION", "GATHER_ITEMS"],
-      "objectiveConfig": {
-        "EXPLORE_LOCATION": { "countMin": 1, "countMax": 2 },
-        "GATHER_ITEMS": { "countMin": 4, "countMax": 10 }
-      }
-    },
-    {
-      "id": "an_enemy_loved_expo_02",
-      "bindings": {
-        "quest_action": "bring supplies to the enemy's kin hiding in the wilderness",
-        "quest_focus": "a wounded enemy who spoke of being driven from their homeland",
-        "quest_stakes": "being labeled a traitor for showing compassion to the enemy",
-        "quest_threat": "something far worse than them is driving these creatures from their home",
-        "quest_origin": "a wounded creature that stumbled into town and was given mercy"
-      },
-      "dialogueChunks": {
-        "intro": "{player_name}, do you believe that a person you've hated your whole life can turn out to be someone worth saving? Because I'm starting to.",
-        "plotStep": "{quest_origin} three nights ago. {target_npc} insisted on patching it up. While it healed, it spoke to me: {quest_focus}. It said {quest_threat}, and they need {quest_item} to survive the journey. It begged me to {quest_action}, hiding {location_hint}.",
-        "outro": "If anyone finds out I'm even considering this, {quest_stakes}. But I can't unhear what it said."
-      },
-      "playerResponses": [
-        { "text": "Compassion isn't treason. I'll bring the supplies.", "action": "ACCEPT" },
-        { "text": "This could be a trap. But I'll investigate.", "action": "ACCEPT" },
-        { "text": "Helping the enemy isn't something I'm willing to do.", "action": "DECLINE" }
-      ],
-      "objectivePool": ["FETCH_ITEM", "EXPLORE_LOCATION", "TALK_TO_NPC"],
+      "objectivePool": ["FETCH_ITEM", "GATHER_ITEMS"],
       "objectiveConfig": {
         "FETCH_ITEM": { "locationPreference": "WILDERNESS" },
-        "EXPLORE_LOCATION": { "countMin": 1, "countMax": 2 },
-        "TALK_TO_NPC": { "countMin": 1, "countMax": 1 }
+        "GATHER_ITEMS": { "countMin": 3, "countMax": 6 }
       }
     },
     {
-      "id": "an_enemy_loved_expo_03",
+      "id": "enemy_loved_expo_shared_enemy",
       "bindings": {
-        "quest_action": "investigate whether these creatures are truly soulless monsters",
-        "quest_focus": "a carved pendant of a child's face that stopped me from killing",
-        "quest_stakes": "everything this settlement believes about them could be a lie",
-        "quest_threat": "a cycle of violence fueled by assumptions nobody has questioned",
-        "quest_origin": "a moment of mercy during a raid when a warrior showed me its child's pendant"
+        "quest_action": "forge an uneasy alliance",
+        "quest_focus": "a common threat",
+        "quest_stakes": "survival of both sides",
+        "quest_threat": "a greater predator",
+        "quest_origin": "mutual desperation",
+        "quest_reward_hint": "strength in unlikely bonds"
       },
       "dialogueChunks": {
-        "intro": "I've done something I can't take back, {player_name}. And I think I need help before it unravels.",
-        "plotStep": "During the last raid on {location}, I cornered a {enemy_type} warrior. It dropped its weapon and showed me {quest_focus}. It said one word: 'please.' I let it go. Now {target_npc} is asking about the raider who escaped. I need someone to go {location_hint} and {quest_action}. I need {quest_item} as proof of peaceful contact.",
-        "outro": "{quest_stakes}. {quest_threat} has to end somewhere."
+        "intro": "What I'm about to tell you will sound insane, {player_name}. But hear me out before you decide I've lost my mind.",
+        "plotStep": "The {enemy_type} we've been fighting for months? They're not our biggest problem anymore. Something worse has moved into the caves {location_hint}, and it's hunting them as brutally as it hunts us. One of their scouts approached {target_npc} at the border, unarmed, and tried to communicate. It left behind {quest_item} as what I can only describe as a peace offering. {target_npc} thinks they want to fight the new threat together. Our people think it's a trap.",
+        "outro": "If it's real, we could end this war and survive something neither side can face alone. If it's a trap, we lose everything."
       },
       "playerResponses": [
-        { "text": "The truth matters more than comfort. I'll find it.", "action": "ACCEPT" },
-        { "text": "You let one go? That was reckless. But fine, I'll look into it.", "action": "ACCEPT", "dispositionShift": -5 },
-        { "text": "Some truths are better left buried. I won't be part of this.", "action": "DECLINE" }
+        { "text": "An alliance against a common enemy? I'll investigate their offer.", "action": "ACCEPT" },
+        { "text": "Could be a trap, could be genuine. Either way, I want to know the truth.", "action": "ACCEPT" },
+        { "text": "Trusting the enemy is how settlements fall. Count me out.", "action": "DECLINE" }
       ],
-      "objectivePool": ["EXPLORE_LOCATION", "TALK_TO_NPC", "GATHER_ITEMS"],
+      "objectivePool": ["EXPLORE_LOCATION", "TALK_TO_NPC", "KILL_MOBS"],
       "objectiveConfig": {
         "EXPLORE_LOCATION": { "countMin": 2, "countMax": 3 },
         "TALK_TO_NPC": { "countMin": 1, "countMax": 1 },
-        "GATHER_ITEMS": { "countMin": 3, "countMax": 8 }
+        "KILL_MOBS": { "countMin": 2, "countMax": 5 }
+      }
+    },
+    {
+      "id": "enemy_loved_expo_captors_child",
+      "bindings": {
+        "quest_action": "protect an orphaned enemy",
+        "quest_focus": "the abandoned young one",
+        "quest_stakes": "innocence in wartime",
+        "quest_threat": "fearful townsfolk",
+        "quest_origin": "a raid's aftermath"
+      },
+      "dialogueChunks": {
+        "intro": "{player_name}, I found something after the last battle that changed everything I thought I knew about the {enemy_type}.",
+        "plotStep": "When our guards drove the {enemy_type} back from {location}, they left behind a young one. Not a warrior, not a threat, just a small, frightened creature hiding under a collapsed cart. I've been feeding it scraps and keeping it hidden, but {target_npc} is getting suspicious. The little one needs {quest_item} that I can't get without raising questions. There's a supply {location_hint}, but the roads are crawling with {enemy_type} patrols looking for their lost kin.",
+        "outro": "I can't hand it over to be killed, and I can't keep hiding it forever. I need your help."
+      },
+      "playerResponses": [
+        { "text": "A child is a child, regardless of what it grows into. I'll help.", "action": "ACCEPT" },
+        { "text": "You're risking a lot for a creature that would grow up to raid us. But fine.", "action": "ACCEPT", "dispositionShift": -5 },
+        { "text": "That thing's parents tried to kill us. It doesn't belong here.", "action": "DECLINE" }
+      ],
+      "objectivePool": ["FETCH_ITEM", "EXPLORE_LOCATION"],
+      "objectiveConfig": {
+        "FETCH_ITEM": { "locationPreference": "WILDERNESS" },
+        "EXPLORE_LOCATION": { "countMin": 1, "countMax": 3 }
       }
     }
   ]

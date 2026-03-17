@@ -1,108 +1,110 @@
 {
   "variants": [
     {
-      "id": "murderousadultery_expo_01",
+      "id": "treachery_expo_double_agent",
       "bindings": {
-        "quest_action": "follow the trail and find who poisoned the water supply",
-        "quest_focus": "the contaminated well at the heart of the settlement",
-        "quest_stakes": "more people falling ill or dying from the tainted water",
-        "quest_threat": "deliberate sabotage from within the community",
-        "quest_origin": "traces of a foreign toxin found near the well"
+        "quest_action": "expose the traitor",
+        "quest_focus": "the leaked plans",
+        "quest_stakes": "the settlement's safety",
+        "quest_threat": "an insider threat",
+        "quest_origin": "ambushed patrols"
       },
       "dialogueChunks": {
-        "intro": "{player_name}, close the door. What I'm about to tell you doesn't leave this room.",
-        "plotStep": "Someone has been poisoning the settlement's water supply. Three people have fallen ill in the last week, and {target_npc} nearly died before the alchemist figured out what was happening. I found traces of {quest_item} ground into powder near {quest_focus}: a substance that doesn't grow anywhere near {location}. Someone brought it here deliberately. The trail leads {location_hint}, and I suspect whoever did this has ties to the {enemy_type} raids we've been suffering. This isn't bad luck. It's {quest_threat}.",
-        "outro": "I need someone I can trust to {quest_action}. And right now, I can't trust anyone in this settlement."
+        "intro": "Our patrols have been ambushed three times this week. The {enemy_type} knew exactly where our people would be and when. Someone is feeding them information.",
+        "plotStep": "{quest_ally} reviewed the patrol routes and confirmed they were shared only with trusted members. The leak has to come from within. {quest_focus} were found in the wreckage near {location_hint}, written in our own cipher.",
+        "outro": "We have a traitor among us, {player_name}. I need someone outside the usual chain of trust to investigate before {quest_threat} gets more of our people killed."
       },
       "playerResponses": [
-        { "text": "Poisoning a water supply is as low as it gets. I'll find who did this.", "action": "ACCEPT" },
-        { "text": "Intrigue and poison? I'll investigate, but I want full access and no interference.", "action": "ACCEPT" },
-        { "text": "I don't do conspiracy work. Call the guard.", "action": "DECLINE" }
+        {
+          "text": "A traitor? I'll root them out.",
+          "action": "ACCEPT",
+          "dispositionShift": 5
+        },
+        {
+          "text": "Who had access to the routes?",
+          "action": "ACCEPT",
+          "dispositionShift": 3
+        },
+        {
+          "text": "Internal politics aren't my strength.",
+          "action": "DECLINE",
+          "dispositionShift": -3
+        }
+      ],
+      "objectivePool": ["TALK_TO_NPC", "EXPLORE_LOCATION", "GATHER_ITEMS"],
+      "objectiveConfig": {
+        "GATHER_ITEMS": { "countMin": 3, "countMax": 8 }
+      }
+    },
+    {
+      "id": "treachery_expo_power_grab",
+      "bindings": {
+        "quest_action": "stop the conspiracy",
+        "quest_focus": "the forged orders",
+        "quest_stakes": "legitimate authority",
+        "quest_threat": "a political coup",
+        "quest_origin": "suspicious orders",
+        "quest_time_pressure": "before the takeover"
+      },
+      "dialogueChunks": {
+        "intro": "Someone has been issuing orders in our leader's name: orders that divert supplies, reassign guards, and leave key positions unmanned. The forgeries are skillful.",
+        "plotStep": "{quest_ally} intercepted {quest_focus} before they could be carried out and recognized the deception. The orders would have left the gate near {location_hint} unguarded while the {enemy_type} are at their most aggressive. This isn't carelessness: it's deliberate sabotage.",
+        "outro": "Whoever is behind {quest_threat} has connections and patience. {player_name}, will you help us trace the source before they try again?"
+      },
+      "playerResponses": [
+        {
+          "text": "Sabotage from within demands action.",
+          "action": "ACCEPT",
+          "dispositionShift": 6
+        },
+        {
+          "text": "Show me the forged orders first.",
+          "action": "ACCEPT",
+          "dispositionShift": 2
+        },
+        {
+          "text": "This is above my pay grade.",
+          "action": "DECLINE",
+          "dispositionShift": -2
+        }
       ],
       "objectivePool": ["EXPLORE_LOCATION", "TALK_TO_NPC", "FETCH_ITEM"],
-      "objectiveConfig": {
-        "EXPLORE_LOCATION": { "countMin": 2, "countMax": 3 },
-        "TALK_TO_NPC": { "countMin": 1, "countMax": 1 },
-        "FETCH_ITEM": { "locationPreference": "SETTLEMENT" }
-      }
+      "objectiveConfig": {}
     },
     {
-      "id": "murderousadultery_expo_02",
+      "id": "treachery_expo_secret_deal",
       "bindings": {
-        "quest_action": "uncover the puppet master behind the assassination",
-        "quest_focus": "the council leader's suspicious death",
-        "quest_stakes": "the wrong person hanging for a murder they were coerced into",
-        "quest_threat": "a hidden manipulator orchestrating killings from the shadows",
-        "quest_origin": "a rare toxin disguised as a natural heart attack"
+        "quest_action": "uncover the arrangement",
+        "quest_focus": "the hidden meetings",
+        "quest_stakes": "the settlement's autonomy",
+        "quest_threat": "a secret alliance",
+        "quest_origin": "midnight visitors"
       },
       "dialogueChunks": {
-        "intro": "Don't sit at the bar, {player_name}. Come to the back. This isn't a conversation for the common room.",
-        "plotStep": "The settlement council leader was found dead in their study three nights ago. Officially, it was a heart attack. Unofficially, I found {quest_item} residue on the rim of their cup: {quest_origin}. {target_npc} was the last person seen entering the study, and they've been acting strange ever since: avoiding questions, locking their doors, pacing at night. But they're a good person, {player_name}. I don't think they acted alone. {quest_threat} is somewhere {location_hint}.",
-        "outro": "Help me find the truth before {quest_stakes}."
+        "intro": "{quest_ally} saw something unsettling last night: one of our own meeting with {enemy_type} scouts outside the walls. Not fighting. Talking.",
+        "plotStep": "It happened near {location_hint}, well away from the usual patrol routes. {quest_focus} suggest this wasn't the first meeting either. Someone in our settlement has been negotiating with {quest_threat} behind everyone's backs.",
+        "outro": "We need proof before we can act. {player_name}, investigate the meeting site and find out what terms were being discussed. {quest_stakes} may depend on it."
       },
       "playerResponses": [
-        { "text": "Murder disguised as illness? I'll uncover whoever is behind it.", "action": "ACCEPT" },
-        { "text": "This is darker than what I usually handle. But I'll look into it.", "action": "ACCEPT", "dispositionShift": -5 },
-        { "text": "Politics and poison are a dangerous mix. Leave me out of it.", "action": "DECLINE" }
+        {
+          "text": "I'll find out what they're hiding.",
+          "action": "ACCEPT",
+          "dispositionShift": 5
+        },
+        {
+          "text": "Could there be a good explanation?",
+          "action": "ACCEPT",
+          "dispositionShift": 1
+        },
+        {
+          "text": "Maybe they have their reasons.",
+          "action": "DECLINE",
+          "dispositionShift": -3
+        }
       ],
-      "objectivePool": ["TALK_TO_NPC", "EXPLORE_LOCATION", "FETCH_ITEM"],
+      "objectivePool": ["EXPLORE_LOCATION", "GATHER_ITEMS", "TALK_TO_NPC"],
       "objectiveConfig": {
-        "TALK_TO_NPC": { "countMin": 1, "countMax": 1 },
-        "EXPLORE_LOCATION": { "countMin": 1, "countMax": 2 },
-        "FETCH_ITEM": { "locationPreference": "DUNGEON" }
-      }
-    },
-    {
-      "id": "murderousadultery_expo_03",
-      "bindings": {
-        "quest_action": "retrieve a coded letter that identifies the informant",
-        "quest_focus": "trade route information being leaked to raiders",
-        "quest_stakes": "more caravans being ambushed and more lives lost on the roads",
-        "quest_threat": "a traitor inside the settlement feeding intelligence to the enemy",
-        "quest_origin": "a pattern of redirected caravans into ambush points"
-      },
-      "dialogueChunks": {
-        "intro": "{player_name}, I've been watching you. You're not from here, which means you're the only person I can confide in.",
-        "plotStep": "Our settlement's trade agreements have been sabotaged from within. Caravans are being redirected into {enemy_type} ambushes, and it's costing us lives and goods. {quest_threat} is feeding route information to raiders. I've narrowed it down to three suspects, but confronting any of them would tip off the traitor. {target_npc} found a coded letter hidden {location_hint} that might identify the informant, but retrieving it means getting past whatever guards the traitor posted.",
-        "outro": "We need that letter. Without evidence, {quest_stakes}."
-      },
-      "playerResponses": [
-        { "text": "A traitor selling out their own people? I'll get that letter.", "action": "ACCEPT" },
-        { "text": "Spy work, then. I'll do it, but I want the traitor exposed publicly.", "action": "ACCEPT" },
-        { "text": "Internal politics. Not my fight.", "action": "DECLINE" }
-      ],
-      "objectivePool": ["FETCH_ITEM", "EXPLORE_LOCATION", "KILL_MOBS"],
-      "objectiveConfig": {
-        "FETCH_ITEM": { "locationPreference": "DUNGEON" },
-        "EXPLORE_LOCATION": { "countMin": 1, "countMax": 2 },
-        "KILL_MOBS": { "countMin": 2, "countMax": 5 }
-      }
-    },
-    {
-      "id": "murderousadultery_expo_04",
-      "bindings": {
-        "quest_action": "intercept a shipment of alchemical compounds and expose the conspiracy",
-        "quest_focus": "a pattern of suspicious council member deaths",
-        "quest_stakes": "the next target being eliminated before the conspiracy is exposed",
-        "quest_threat": "a power-hungry individual eliminating rivals through poison",
-        "quest_origin": "three council deaths in a month, all benefiting the same person",
-        "quest_time_pressure": "a new shipment arriving that could enable the next killing"
-      },
-      "dialogueChunks": {
-        "intro": "I shouldn't be telling you this, {player_name}. If the wrong person finds out I talked, I'll be next.",
-        "plotStep": "Three council members have died in the past month: all from different causes, all seemingly unrelated. But I've been keeping records, and every death benefits the same person. They've consolidated power over {location} faster than anyone should. Last night I overheard them arranging for a shipment of {quest_item}: a potent alchemical compound: to be delivered from {location_hint}. I think they're planning another move. {target_npc} is the likely target. Someone needs to {quest_action}.",
-        "outro": "I know how this sounds: paranoid, desperate. But {quest_focus} is there if you look. Please, look."
-      },
-      "playerResponses": [
-        { "text": "Three deaths and one beneficiary? That's not a pattern, it's a confession. I'm in.", "action": "ACCEPT" },
-        { "text": "Intercepting shipments and exposing conspiracies. This had better not blow back on me.", "action": "ACCEPT", "dispositionShift": -5 },
-        { "text": "I don't investigate murders. You need the authorities.", "action": "DECLINE" }
-      ],
-      "objectivePool": ["FETCH_ITEM", "EXPLORE_LOCATION", "TALK_TO_NPC"],
-      "objectiveConfig": {
-        "FETCH_ITEM": { "locationPreference": "WILDERNESS" },
-        "EXPLORE_LOCATION": { "countMin": 1, "countMax": 3 },
-        "TALK_TO_NPC": { "countMin": 1, "countMax": 1 }
+        "GATHER_ITEMS": { "countMin": 3, "countMax": 10 }
       }
     }
   ]

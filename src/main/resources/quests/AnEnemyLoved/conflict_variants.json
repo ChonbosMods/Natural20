@@ -1,59 +1,58 @@
 {
   "variants": [
     {
-      "id": "an_enemy_loved_conf_01",
+      "id": "enemy_loved_conf_01",
       "dialogueChunks": {
-        "intro": "{player_name}, everything's falling apart. The settlement found out what we've been doing.",
-        "plotStep": "{target_npc} saw you heading toward the {enemy_type} camp and told everyone. The guards are organizing a raid to wipe them out at dawn: {quest_focus} means nothing to them. We have until then to gather enough {quest_item} to convince the {enemy_type} to relocate somewhere safe. {quest_stakes} if blood gets spilled.",
-        "outro": "I started this. {quest_threat} is about to end in massacre unless we act before dawn."
+        "intro": "{player_name}, the situation has become far more dangerous than either of us anticipated.",
+        "plotStep": "Someone in {location} discovered what we've been doing with {quest_focus}. {target_npc} is being pressured to make a public statement condemning our actions, and a patrol has been organized to hunt down {quest_focus} and destroy it. Meanwhile, the {enemy_type} have sent their own search party {location_hint}, and if they find {quest_focus} before we can move it to safety, neither side will show restraint. I need you to gather {quest_item} to create a distraction and buy us time to {quest_action}.",
+        "outro": "Both sides are closing in. If we don't act now, {quest_stakes} dies on the altar of someone else's fear."
       },
       "playerResponses": [
-        { "text": "Then we move fast. I'll get the supplies before dawn.", "action": "ACCEPT" },
-        { "text": "You should have spoken up sooner. But I'll try to stop this.", "action": "ACCEPT", "dispositionShift": -5 },
-        { "text": "You chose the wrong side. I'm staying out of this.", "action": "DECLINE" }
+        { "text": "I'll create the opening. Get ready to move.", "action": "ACCEPT" },
+        { "text": "Two hostile groups converging on one point? This is a mess. But I'll do it.", "action": "ACCEPT" },
+        { "text": "Both armies hunting the same thing? I'm not stepping into that crossfire.", "action": "DECLINE" }
       ],
-      "objectivePool": ["GATHER_ITEMS", "FETCH_ITEM", "TALK_TO_NPC"],
+      "objectivePool": ["GATHER_ITEMS", "EXPLORE_LOCATION", "KILL_MOBS"],
       "objectiveConfig": {
-        "GATHER_ITEMS": { "countMin": 6, "countMax": 12 },
-        "FETCH_ITEM": { "locationPreference": "WILDERNESS" },
-        "TALK_TO_NPC": { "countMin": 1, "countMax": 1 }
+        "GATHER_ITEMS": { "countMin": 4, "countMax": 8 },
+        "EXPLORE_LOCATION": { "countMin": 1, "countMax": 2 },
+        "KILL_MOBS": { "countMin": 3, "countMax": 7 }
       }
     },
     {
-      "id": "an_enemy_loved_conf_02",
+      "id": "enemy_loved_conf_02",
       "dialogueChunks": {
-        "intro": "This is worse than I feared, {player_name}. Much worse.",
-        "plotStep": "The {enemy_type} took your visit as a sign of alliance. Now they're coming to {location} expecting friendship, but the guards will see armed creatures approaching and assume attack. You need to intercept them {location_hint} before they walk into a bloodbath. Take {quest_item} as a gesture of good faith. {quest_focus} could be destroyed by a simple misunderstanding.",
-        "outro": "Two groups who could live in peace are about to destroy each other. {quest_threat} continues unless someone stands between them."
+        "intro": "They came for {quest_focus} last night, {player_name}. We barely got away.",
+        "plotStep": "The mob that formed in {location} wasn't interested in explanations. They wanted blood, and {target_npc} tried to talk them down but got shouted into silence. We managed to relocate {quest_focus} to a hiding spot {location_hint}, but we can't stay there long. The {enemy_type} raids have intensified as if they can sense the disruption in our settlement. I need {quest_item} to sustain {quest_focus} and keep them hidden while I try to {quest_action} through back channels.",
+        "outro": "{quest_threat} is closing in from every direction. We need supplies and we need them fast."
       },
       "playerResponses": [
-        { "text": "I'll intercept them. Nobody dies today.", "action": "ACCEPT" },
-        { "text": "Caught between two sides and trusted by neither. Wonderful.", "action": "ACCEPT", "dispositionShift": -5 },
-        { "text": "Let them sort it out themselves. This isn't my war.", "action": "DECLINE" }
+        { "text": "Tell me what's needed. I'll keep {quest_focus} safe.", "action": "ACCEPT" },
+        { "text": "Angry mobs and enemy raids at the same time. I hope this is worth it.", "action": "ACCEPT", "dispositionShift": -5 },
+        { "text": "You're fighting the whole settlement and the enemy. I can't win that war.", "action": "DECLINE" }
       ],
-      "objectivePool": ["EXPLORE_LOCATION", "TALK_TO_NPC", "DELIVER_ITEM"],
+      "objectivePool": ["FETCH_ITEM", "GATHER_ITEMS", "KILL_MOBS"],
       "objectiveConfig": {
-        "EXPLORE_LOCATION": { "countMin": 1, "countMax": 3 },
-        "TALK_TO_NPC": { "countMin": 1, "countMax": 1 },
-        "DELIVER_ITEM": {}
+        "FETCH_ITEM": { "locationPreference": "DUNGEON" },
+        "GATHER_ITEMS": { "countMin": 3, "countMax": 8 },
+        "KILL_MOBS": { "countMin": 2, "countMax": 5 }
       }
     },
     {
-      "id": "an_enemy_loved_conf_03",
+      "id": "enemy_loved_conf_03",
       "dialogueChunks": {
-        "intro": "{player_name}, something terrible has happened at the {enemy_type} camp.",
-        "plotStep": "A rogue faction killed their own elder: the one who wanted peace. Hardliners have taken control and they're planning revenge. {target_npc} says the remaining moderates fled {location_hint}. They're the only ones who can calm the war party. We need to find them and bring them {quest_item} to prove we still want peace. {quest_focus} hangs by a thread.",
-        "outro": "The window for peace is closing fast. {quest_threat} wins if the moderates lose hope."
+        "intro": "The {enemy_type} sent an emissary, {player_name}. And our people nearly killed it on sight.",
+        "plotStep": "The emissary carried a message: they want {quest_focus} returned, and they're willing to offer {quest_item} in exchange and stop raiding {location_hint}. But our guards intercepted the messenger and now {target_npc} is caught between people who want war and an enemy offering something that looks dangerously like peace. We need someone to reach the {enemy_type} camp {location_hint} and confirm the offer is genuine before {quest_threat} turns this into a massacre.",
+        "outro": "If their offer is real, {quest_action} could end years of bloodshed. If it's not, at least we'll know the truth."
       },
       "playerResponses": [
-        { "text": "I'll find the moderates. Peace is worth fighting for.", "action": "ACCEPT" },
-        { "text": "Their own people killed the peacemaker? This might be hopeless.", "action": "ACCEPT", "dispositionShift": -5 },
-        { "text": "Internal politics of monsters isn't my problem.", "action": "DECLINE" }
+        { "text": "I'll go to their camp. If peace is possible, someone has to try.", "action": "ACCEPT" },
+        { "text": "Walking into an enemy camp alone. Wonderful. I'll need assurances when I get back.", "action": "ACCEPT", "dispositionShift": -5 },
+        { "text": "Walking into the enemy's camp unarmed is suicide, not diplomacy.", "action": "DECLINE" }
       ],
-      "objectivePool": ["EXPLORE_LOCATION", "KILL_MOBS", "TALK_TO_NPC"],
+      "objectivePool": ["EXPLORE_LOCATION", "TALK_TO_NPC"],
       "objectiveConfig": {
         "EXPLORE_LOCATION": { "countMin": 2, "countMax": 3 },
-        "KILL_MOBS": { "countMin": 3, "countMax": 7 },
         "TALK_TO_NPC": { "countMin": 1, "countMax": 1 }
       }
     }
