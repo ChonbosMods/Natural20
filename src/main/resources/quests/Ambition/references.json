@@ -1,0 +1,13 @@
+{
+  "references": [
+    {
+      "id": "ref_ambition_rival_network",
+      "compatibleSituations": ["Ambition", "MistakenJealousy", "ErroneousJudgment"],
+      "passiveText": "I've heard rumors about a rival operation setting up in a nearby settlement. Could be a threat or an opportunity.",
+      "triggerTopicLabel": "This rival operation you mentioned",
+      "triggerDialogue": "A smith in {location} has been undercutting prices across the region. {target_npc} says they're getting their materials from somewhere unusual, maybe {location_hint}. Either they found a new vein nobody knows about, or they're cutting corners that will catch up to them. Might be worth investigating: if their supply runs dry, the market opens up.",
+      "catalystSituations": ["Ambition", "DaringEnterprise"],
+      "targetNpcRoles": ["ArtisanBlacksmith", "TavernKeeper"]
+    }
+  ]
+}

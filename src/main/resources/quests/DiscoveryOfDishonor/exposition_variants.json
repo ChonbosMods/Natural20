@@ -1,0 +1,60 @@
+{
+  "variants": [
+    {
+      "id": "discovery_of_dishonor_expo_01",
+      "dialogueChunks": {
+        "intro": "{player_name}, close the door. What I'm about to show you changes everything I thought I knew about {location}.",
+        "plotStep": "I found ledgers hidden beneath the floorboards of the guard captain's office. Double entries, phantom supply orders, payments to {enemy_type} scouts: for years, the captain has been selling patrol routes to raiders in exchange for a cut of whatever they steal from merchant caravans. Every attack on the roads, every lost shipment, every merchant who vanished: the captain knew it was coming and profited from it. {target_npc} always trusted the captain completely. I need {quest_item} to make copies of these ledgers and evidence from the old ambush sites {location_hint} before the captain realizes the originals have been seen.",
+        "outro": "I served under this person. I believed in them. Now I have to bring them down, and it feels like cutting off my own hand."
+      },
+      "playerResponses": [
+        { "text": "Corruption this deep has to be exposed. I'll help gather the evidence.", "action": "ACCEPT" },
+        { "text": "Selling patrol routes to raiders. That's not dishonor, that's murder. I'll help.", "action": "ACCEPT" },
+        { "text": "Going after a guard captain alone is suicide. I want no part of this.", "action": "DECLINE" }
+      ],
+      "objectivePool": ["FETCH_ITEM", "EXPLORE_LOCATION"],
+      "objectiveConfig": {
+        "FETCH_ITEM": { "locationPreference": "WILDERNESS" },
+        "EXPLORE_LOCATION": { "countMin": 2, "countMax": 3 }
+      }
+    },
+    {
+      "id": "discovery_of_dishonor_expo_02",
+      "dialogueChunks": {
+        "intro": "I don't know who else to tell, {player_name}. I've been turning this over in my head for days and I'm sick with it.",
+        "plotStep": "The settlement healer: the person everyone trusts with their lives: has been diluting medicines and selling the concentrated doses to wealthy clients in other settlements. People here have been getting sicker, treatments lasting half as long as they should, and nobody understood why. {target_npc} noticed first when their own recovery took twice as long as expected. I broke into the healer's workshop and found the proof: watered-down vials, a private ledger of outside sales, everything. I need {quest_item} to create untainted remedies for the people currently being treated with worthless dilutions, and evidence from the healer's delivery route {location_hint}.",
+        "outro": "This person held our lives in their hands and chose profit over healing. I can't unknow what I know, and I can't stay silent."
+      },
+      "playerResponses": [
+        { "text": "Diluted medicine. People could die. Where do I start?", "action": "ACCEPT" },
+        { "text": "A healer who poisons through neglect. I've heard enough. Tell me what you need.", "action": "ACCEPT" },
+        { "text": "Accusing the settlement healer is a dangerous game. Are you certain?", "action": "DECLINE" }
+      ],
+      "objectivePool": ["GATHER_ITEMS", "EXPLORE_LOCATION", "FETCH_ITEM"],
+      "objectiveConfig": {
+        "GATHER_ITEMS": { "countMin": 5, "countMax": 10 },
+        "EXPLORE_LOCATION": { "countMin": 1, "countMax": 2 },
+        "FETCH_ITEM": { "locationPreference": "WILDERNESS" }
+      }
+    },
+    {
+      "id": "discovery_of_dishonor_expo_03",
+      "dialogueChunks": {
+        "intro": "You know {target_npc}, right? Everyone does. Respected, admired, trusted by the whole settlement. I used to be one of them, {player_name}.",
+        "plotStep": "{target_npc} has been embezzling from the community fund for over a year. The fund was built from everyone's contributions: savings meant for emergency repairs, winter supplies, medical costs. I discovered the discrepancy while helping with the annual count. Thousands gone, funneled into personal accounts. When I confronted them privately, they threatened to accuse me of the theft instead. I need {quest_item} to reconstruct the financial records and I need evidence from a hidden cache {location_hint} where they've been storing the stolen goods. The area is crawling with {enemy_type}.",
+        "outro": "I looked up to this person my entire life. Finding out your hero is a thief is like watching the sun go dark. But the truth doesn't care about feelings."
+      },
+      "playerResponses": [
+        { "text": "Financial records and a hidden cache. I'll find the proof.", "action": "ACCEPT" },
+        { "text": "Threatening to frame you when caught. That's not just dishonor, that's cowardice.", "action": "ACCEPT" },
+        { "text": "A respected leader accused of theft. This could tear the settlement apart.", "action": "DECLINE" }
+      ],
+      "objectivePool": ["FETCH_ITEM", "EXPLORE_LOCATION", "GATHER_ITEMS"],
+      "objectiveConfig": {
+        "FETCH_ITEM": { "locationPreference": "DUNGEON" },
+        "EXPLORE_LOCATION": { "countMin": 1, "countMax": 2 },
+        "GATHER_ITEMS": { "countMin": 3, "countMax": 8 }
+      }
+    }
+  ]
+}

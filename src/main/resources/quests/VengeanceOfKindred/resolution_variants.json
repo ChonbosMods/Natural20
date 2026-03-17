@@ -1,0 +1,60 @@
+{
+  "variants": [
+    {
+      "id": "vengeancekindred_reso_01",
+      "dialogueChunks": {
+        "intro": "It's over, {player_name}. The weight I've been carrying... I can finally set it down.",
+        "plotStep": "We held a ceremony at sunset. Every family that lost someone placed a stone on the memorial cairn. Thirty stones, {player_name}. {target_npc} spoke for the community, and there wasn't a dry eye in {location}. They said the dead can rest now because someone cared enough to answer for them. My brother's stone is at the top. I put it there myself.",
+        "outro": "Take this. It's from all thirty families. Every one of them wanted you to know that what you did mattered."
+      },
+      "playerResponses": [
+        { "text": "Thirty stones. I'll carry their memory with me.", "action": "ACCEPT", "dispositionShift": 15 },
+        { "text": "I hope the ceremony brought some peace. Your brother deserved it.", "action": "ACCEPT" }
+      ],
+      "objectivePool": [],
+      "objectiveConfig": {}
+    },
+    {
+      "id": "vengeancekindred_reso_02",
+      "dialogueChunks": {
+        "intro": "I thought vengeance would feel like fire. Instead, it feels like rain after a drought. Quiet. Necessary.",
+        "plotStep": "{target_npc} returned the personal belongings you recovered to each family. I watched a mother hold her son's ring and weep for an hour. A father pressed his daughter's pendant to his forehead and whispered things I couldn't hear. These objects won't bring anyone back, but they close a chapter. The {enemy_type} who collected them like prizes are gone, and {location} can start to heal.",
+        "outro": "Here. This was set aside for the one who brought our people's things home. You did more than avenge: you restored."
+      },
+      "playerResponses": [
+        { "text": "Returning what was stolen felt more important than the fighting.", "action": "ACCEPT", "dispositionShift": 10 },
+        { "text": "I'm glad the families have something to hold onto.", "action": "ACCEPT" }
+      ],
+      "objectivePool": [],
+      "objectiveConfig": {}
+    },
+    {
+      "id": "vengeancekindred_reso_03",
+      "dialogueChunks": {
+        "intro": "{player_name}. I need to be honest with you about something.",
+        "plotStep": "I expected to feel triumph when you told me it was done. I didn't. I felt hollow. {target_npc} warned me about this: said that revenge fills the hole with something, but not with what you lost. My daughter is still gone. But the families in {location} are safe now, and the creatures that took her can't hurt anyone else. That has to be enough. It has to be.",
+        "outro": "Take this. And if anyone asks you whether vengeance is worth it, tell them the truth: it's not satisfaction, but it's closure."
+      },
+      "playerResponses": [
+        { "text": "Closure is worth something. I hope you find your way forward.", "action": "ACCEPT" },
+        { "text": "Your daughter was brave. Carry that forward, not the grief.", "action": "ACCEPT", "dispositionShift": 5 }
+      ],
+      "objectivePool": [],
+      "objectiveConfig": {}
+    },
+    {
+      "id": "vengeancekindred_reso_04",
+      "dialogueChunks": {
+        "intro": "The elders called an assembly this morning. What they decided took everyone by surprise.",
+        "plotStep": "They've declared an annual remembrance day for everyone lost to the {enemy_type}. Not a day of anger: a day of memory. {target_npc} suggested it, and the vote was unanimous. Your name will be spoken at the first ceremony as the one who answered when {location} called. The farms are being replanted, the fences rebuilt, and for the first time in months, people are talking about the future instead of the past.",
+        "outro": "We set this aside before you even returned. Some things you just know will be earned. Take it with our gratitude."
+      },
+      "playerResponses": [
+        { "text": "A day of memory, not anger. That's the right way to honor them.", "action": "ACCEPT", "dispositionShift": 10 },
+        { "text": "Rebuild well. I'll think of {location} when the remembrance day comes.", "action": "ACCEPT" }
+      ],
+      "objectivePool": [],
+      "objectiveConfig": {}
+    }
+  ]
+}

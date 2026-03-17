@@ -1,0 +1,61 @@
+{
+  "variants": [
+    {
+      "id": "mistaken_jealousy_conf_01",
+      "dialogueChunks": {
+        "intro": "{player_name}... what do you mean they were building a surprise? A what?",
+        "plotStep": "You're telling me {target_npc} was sneaking {location_hint} to build a new root cellar for the settlement as a gift? And the {quest_item} was construction material, not stolen goods? I... oh no. I've already told half the council they were a thief. {target_npc} has probably heard by now. I need you to find them before they do something rash: they've gone off toward {location} alone, upset, and there are {enemy_type} in those hills. Bring them back safely and bring more {quest_item} so the project can actually be completed. Maybe that will start to undo the damage I've done.",
+        "outro": "I accused my neighbor of betrayal because I couldn't imagine someone doing something kind without an agenda. What does that say about me?"
+      },
+      "playerResponses": [
+        { "text": "It says you're human. I'll find them and bring them home.", "action": "ACCEPT" },
+        { "text": "You really jumped to the worst conclusion, didn't you. I'll fix it.", "action": "ACCEPT", "dispositionShift": -5 },
+        { "text": "Clean up your own mess. I found the truth; the rest is on you.", "action": "DECLINE" }
+      ],
+      "objectivePool": ["EXPLORE_LOCATION", "TALK_TO_NPC", "GATHER_ITEMS"],
+      "objectiveConfig": {
+        "EXPLORE_LOCATION": { "countMin": 1, "countMax": 3 },
+        "TALK_TO_NPC": { "countMin": 1, "countMax": 1 },
+        "GATHER_ITEMS": { "countMin": 5, "countMax": 10 }
+      }
+    },
+    {
+      "id": "mistaken_jealousy_conf_02",
+      "dialogueChunks": {
+        "intro": "This is worse than I thought, {player_name}. Much worse: but not in the way I expected.",
+        "plotStep": "{target_npc} wasn't scheming at all. They were gathering {quest_item} {location_hint} to pay off a debt they owe to a trader who threatened their family. They kept it secret because they were ashamed. And now, because I spread rumors, the whole settlement is shunning them. The trader is coming to collect in three days, and {target_npc} is short because I disrupted their work with my accusations. I need you to gather the remaining {quest_item} and help pay the debt before the trader arrives with muscle.",
+        "outro": "I turned a private struggle into a public humiliation. The least I can do is help fix what I broke."
+      },
+      "playerResponses": [
+        { "text": "Everyone makes mistakes. Let's make this right.", "action": "ACCEPT" },
+        { "text": "Three days, a debt, and your guilt. This is quite a tangle.", "action": "ACCEPT" },
+        { "text": "You caused this. Pay the debt yourself.", "action": "DECLINE" }
+      ],
+      "objectivePool": ["GATHER_ITEMS", "FETCH_ITEM", "KILL_MOBS"],
+      "objectiveConfig": {
+        "GATHER_ITEMS": { "countMin": 6, "countMax": 14 },
+        "FETCH_ITEM": { "locationPreference": "WILDERNESS" },
+        "KILL_MOBS": { "countMin": 2, "countMax": 5 }
+      }
+    },
+    {
+      "id": "mistaken_jealousy_conf_03",
+      "dialogueChunks": {
+        "intro": "{player_name}, I owe you an apology. And I owe {target_npc} far more than that.",
+        "plotStep": "The 'secret meetings' were visits to a sick relative in a camp {location_hint}. {target_npc} didn't tell anyone because the illness is contagious and they didn't want to cause a panic. The {quest_item} was medicine, not contraband. Now that I've stirred up suspicion, {target_npc} is refusing to come back to {location} at all: says nobody will trust them anymore. Their relative's condition is worsening and they need more {quest_item} from a source deeper in {enemy_type} territory. Someone needs to deliver supplies and convince {target_npc} to come home.",
+        "outro": "I let suspicion eat me alive and hurt the one person who least deserved it."
+      },
+      "playerResponses": [
+        { "text": "I'll bring the medicine and talk to them. People can forgive.", "action": "ACCEPT" },
+        { "text": "You certainly made a mess of things. I'll try to sort it out.", "action": "ACCEPT", "dispositionShift": -5 },
+        { "text": "You shattered their trust. That's not something I can fix.", "action": "DECLINE" }
+      ],
+      "objectivePool": ["FETCH_ITEM", "TALK_TO_NPC", "KILL_MOBS"],
+      "objectiveConfig": {
+        "FETCH_ITEM": { "locationPreference": "WILDERNESS" },
+        "TALK_TO_NPC": { "countMin": 1, "countMax": 1 },
+        "KILL_MOBS": { "countMin": 3, "countMax": 6 }
+      }
+    }
+  ]
+}

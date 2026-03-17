@@ -1,0 +1,80 @@
+{
+  "variants": [
+    {
+      "id": "fatalimprudence_conf_01",
+      "dialogueChunks": {
+        "intro": "{player_name}, my mistake has consequences I didn't anticipate. Again.",
+        "plotStep": "The {enemy_type} swarm I stirred up has split into two groups. One is heading for {location} as expected, but the second group circled around and is approaching from the direction of the farmlands {location_hint}. The farmers are completely unaware. {target_npc} is trying to organize an evacuation but there aren't enough people to both defend the walls and warn the outlying farms. If someone doesn't reach the farms first and help the families fall back, they'll be overrun.",
+        "outro": "I caused this by being reckless, and now innocent families are in the crossfire. Please, get to them before the swarm does."
+      },
+      "playerResponses": [
+        { "text": "I'll reach the farms and get everyone to safety. Hold the walls.", "action": "ACCEPT" },
+        { "text": "Your recklessness keeps expanding in scope. But those farmers need warning.", "action": "ACCEPT", "dispositionShift": -5 },
+        { "text": "Defending against a swarm I didn't provoke? Not my responsibility.", "action": "DECLINE" }
+      ],
+      "objectivePool": ["EXPLORE_LOCATION", "KILL_MOBS", "TALK_TO_NPC"],
+      "objectiveConfig": {
+        "EXPLORE_LOCATION": { "countMin": 2, "countMax": 3 },
+        "KILL_MOBS": { "countMin": 4, "countMax": 9 },
+        "TALK_TO_NPC": { "countMin": 1, "countMax": 1 }
+      }
+    },
+    {
+      "id": "fatalimprudence_conf_02",
+      "dialogueChunks": {
+        "intro": "The antidote isn't working, {player_name}. The alchemist miscalculated.",
+        "plotStep": "The {quest_item} you gathered neutralized only part of the contamination. The remaining poison has seeped deeper into the soil than anyone expected, and it's now affecting the root systems of every plant in {location}. {target_npc} says the only hope is a deep-earth mineral that absorbs toxins: found in a specific cave formation {location_hint}. But the cave is a {enemy_type} lair, and my original blunder is the reason they're agitated. Everything connects back to my mistake.",
+        "outro": "The land is dying because of what I did. If you can find that mineral, the alchemist swears they can formulate a true cure."
+      },
+      "playerResponses": [
+        { "text": "The land needs saving. Point me to the cave.", "action": "ACCEPT" },
+        { "text": "One mistake cascading into disaster after disaster. I'll get the mineral, but you need to own up to the settlement.", "action": "ACCEPT" },
+        { "text": "This problem is deeper than one adventurer can solve. Literally.", "action": "DECLINE" }
+      ],
+      "objectivePool": ["FETCH_ITEM", "KILL_MOBS", "EXPLORE_LOCATION"],
+      "objectiveConfig": {
+        "FETCH_ITEM": { "locationPreference": "DUNGEON" },
+        "KILL_MOBS": { "countMin": 4, "countMax": 8 },
+        "EXPLORE_LOCATION": { "countMin": 1, "countMax": 2 }
+      }
+    },
+    {
+      "id": "fatalimprudence_conf_03",
+      "dialogueChunks": {
+        "intro": "Remember the sealed chamber I opened? What I unleashed is worse than I thought.",
+        "plotStep": "The {enemy_type} aren't just frenzied: they're organized. Something from that chamber is directing them, drawing them into formations they've never used before. {target_npc} reports coordinated attacks on supply lines, almost military in precision. The alchemist analyzed more of the {quest_item} from the chamber and says it contains a resonance that can attract and control weaker creatures. If the source isn't contained, the {enemy_type} army will only grow. You need to go back to the chamber {location_hint} and find whatever is emitting the signal.",
+        "outro": "I opened that door. Now something is using it as a beacon. We have to shut it down."
+      },
+      "playerResponses": [
+        { "text": "A control signal means a device. I'll find it and destroy it.", "action": "ACCEPT" },
+        { "text": "You unleashed a monster army by opening the wrong door. Spectacular. I'll go end it.", "action": "ACCEPT", "dispositionShift": -5 },
+        { "text": "Going back to a chamber that's commanding monsters? No.", "action": "DECLINE" }
+      ],
+      "objectivePool": ["EXPLORE_LOCATION", "KILL_MOBS", "FETCH_ITEM"],
+      "objectiveConfig": {
+        "EXPLORE_LOCATION": { "countMin": 2, "countMax": 3 },
+        "KILL_MOBS": { "countMin": 5, "countMax": 10 },
+        "FETCH_ITEM": { "locationPreference": "DUNGEON" }
+      }
+    },
+    {
+      "id": "fatalimprudence_conf_04",
+      "dialogueChunks": {
+        "intro": "{player_name}, I found the swindler's trail. But it leads somewhere I didn't expect.",
+        "plotStep": "The con artist who stole our {quest_item} reserves didn't sell them to a fence: they delivered them directly to a {enemy_type} warband {location_hint}. This wasn't a random scam. It was a planned supply theft for the enemy. {target_npc} says the warband has been stockpiling for a major raid on {location}, and our stolen supplies just gave them exactly what they needed. We have to hit their supply camp before they launch the attack: recover what we can and destroy what we can't carry.",
+        "outro": "My greed fed the very enemy that's now preparing to attack us. I'll never forgive myself, but right now we need to act."
+      },
+      "playerResponses": [
+        { "text": "A raid supplied by our own stolen goods. I'll hit their camp and take back what's ours.", "action": "ACCEPT" },
+        { "text": "The swindle was part of a military operation. That changes everything. I'm in.", "action": "ACCEPT" },
+        { "text": "A fortified warband camp? You need soldiers, not one adventurer.", "action": "DECLINE" }
+      ],
+      "objectivePool": ["KILL_MOBS", "FETCH_ITEM", "EXPLORE_LOCATION"],
+      "objectiveConfig": {
+        "KILL_MOBS": { "countMin": 5, "countMax": 10 },
+        "FETCH_ITEM": { "locationPreference": "WILDERNESS" },
+        "EXPLORE_LOCATION": { "countMin": 1, "countMax": 2 }
+      }
+    }
+  ]
+}

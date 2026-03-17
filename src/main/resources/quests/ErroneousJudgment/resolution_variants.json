@@ -1,0 +1,47 @@
+{
+  "variants": [
+    {
+      "id": "erroneous_judgment_reso_01",
+      "dialogueChunks": {
+        "intro": "{target_npc} is back, {player_name}. And somehow, they've forgiven us.",
+        "plotStep": "I stood in front of the whole settlement and admitted everything: the hasty accusation, the false evidence, all of it. {target_npc} listened with their arms crossed, and when I finished, they just nodded and said, 'Don't let it happen again.' That was it. No shouting, no demands. The trade route is secured, the {quest_item} is flowing again, and {location} is stronger for having gone through this. Painful, but stronger.",
+        "outro": "You showed us the truth when we didn't want to see it. I hope this is enough to show our gratitude."
+      },
+      "playerResponses": [
+        { "text": "The courage to admit you were wrong is its own kind of strength.", "action": "ACCEPT", "dispositionShift": 10 },
+        { "text": "Glad {target_npc} is more forgiving than most. Take care.", "action": "ACCEPT" },
+        { "text": "Remember this next time someone brings accusations without proof.", "action": "ACCEPT" }
+      ],
+      "objectivePool": [],
+      "objectiveConfig": {}
+    },
+    {
+      "id": "erroneous_judgment_reso_02",
+      "dialogueChunks": {
+        "intro": "The supplies are recovered and the real culprits won't be bothering us again.",
+        "plotStep": "{target_npc} was released and given a formal apology from the council. They accepted, but I can see the hurt in their eyes. Trust, once broken, doesn't heal overnight. Still, they chose to stay in {location}, and that's more than we deserved. The council has enacted new rules: no accusations without evidence from at least two independent sources. A small change, but one born from a lesson we won't forget.",
+        "outro": "You kept us from making an irreversible mistake. This is yours, and it comes with the thanks of everyone who almost lost a good neighbor to a lie."
+      },
+      "playerResponses": [
+        { "text": "New rules are a good start. Actions will matter more than words now.", "action": "ACCEPT" },
+        { "text": "Justice done late is better than injustice done fast. Be well.", "action": "ACCEPT", "dispositionShift": 5 }
+      ],
+      "objectivePool": [],
+      "objectiveConfig": {}
+    },
+    {
+      "id": "erroneous_judgment_reso_03",
+      "dialogueChunks": {
+        "intro": "{player_name}, I have something to say and I don't expect it to be easy to hear.",
+        "plotStep": "I was so sure I was right. So absolutely certain that the threat was real, that {target_npc} was guilty, that quick action would save us. And I was wrong about all of it. The {quest_item} we wasted on false defenses could have fed families. The time we spent chasing phantoms could have been spent building. {target_npc} came back, and the settlement is recovering, but I've had to sit with the weight of knowing how close I came to ruining an innocent life.",
+        "outro": "You didn't just find the truth: you forced me to face it. That's a harder service than swinging a sword. Take this, and know it comes from a humbler man than the one who sent you out."
+      },
+      "playerResponses": [
+        { "text": "Humility earned through failure is still humility. You'll be better for it.", "action": "ACCEPT", "dispositionShift": 10 },
+        { "text": "Next time, slow down. The truth doesn't run as fast as fear.", "action": "ACCEPT" }
+      ],
+      "objectivePool": [],
+      "objectiveConfig": {}
+    }
+  ]
+}

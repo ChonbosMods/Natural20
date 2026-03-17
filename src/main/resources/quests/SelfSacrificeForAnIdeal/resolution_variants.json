@@ -1,0 +1,47 @@
+{
+  "variants": [
+    {
+      "id": "self_sacrifice_for_an_ideal_reso_01",
+      "dialogueChunks": {
+        "intro": "{player_name}. It's done. The watchtower held.",
+        "plotStep": "The evacuation succeeded. Every family, every child, every elder made it to safety because of the time that stand bought them. {target_npc} says the warband turned back after they couldn't break through in time. The person who held the tower... they didn't make it. But they knew they wouldn't. And they were at peace with it.",
+        "outro": "We're carving their name into the new settlement gate. And yours beside it, for making it possible. Take this: it was found among their belongings, marked with your name."
+      },
+      "playerResponses": [
+        { "text": "Their courage saved everyone. I just carried supplies.", "action": "ACCEPT" },
+        { "text": "I'll remember them. We all should.", "action": "ACCEPT", "dispositionShift": 10 },
+        { "text": "A name on a gate. I hope it was worth it.", "action": "ACCEPT", "dispositionShift": -5 }
+      ],
+      "objectivePool": [],
+      "objectiveConfig": {}
+    },
+    {
+      "id": "self_sacrifice_for_an_ideal_reso_02",
+      "dialogueChunks": {
+        "intro": "The water runs clear, {player_name}. For the first time in months, the water runs clear.",
+        "plotStep": "The seal held perfectly. {target_npc} tested the wells this morning and there's no trace of contamination. Children are drinking clean water again. The person who went into that mine knew what would happen, and they walked in with steady hands and a calm heart. The alchemist says the seal is built to last decades.",
+        "outro": "They left something for you. Said if anyone deserved to carry it forward, it was the one who helped them do what needed doing. Please take it."
+      },
+      "playerResponses": [
+        { "text": "Clean water for decades. That's a legacy worth everything.", "action": "ACCEPT", "dispositionShift": 10 },
+        { "text": "I wish there had been another way. But I'm glad the water is safe.", "action": "ACCEPT" }
+      ],
+      "objectivePool": [],
+      "objectiveConfig": {}
+    },
+    {
+      "id": "self_sacrifice_for_an_ideal_reso_03",
+      "dialogueChunks": {
+        "intro": "The bridge is down, {player_name}. And the warband is stranded on the far side, howling with rage.",
+        "plotStep": "It worked. Every charge detonated perfectly, the supports gave way, and three hundred feet of stone and timber crashed into the river. The {enemy_type} can't cross for months, maybe years. {target_npc} watched from the near bank and said the person on the far side raised their hand once, calmly, before the dust swallowed everything. The settlements on this side of the river are safe.",
+        "outro": "The council called them a traitor yesterday. Today they're calling them a savior. Take this reward: you earned it standing beside someone the world almost failed to appreciate in time."
+      },
+      "playerResponses": [
+        { "text": "They were never a traitor. They were the only one willing to do what had to be done.", "action": "ACCEPT", "dispositionShift": 15 },
+        { "text": "Safe settlements and a ruined bridge. I'd call that a fair trade.", "action": "ACCEPT" }
+      ],
+      "objectivePool": [],
+      "objectiveConfig": {}
+    }
+  ]
+}

@@ -1,0 +1,80 @@
+{
+  "variants": [
+    {
+      "id": "obtaining_conf_01",
+      "dialogueChunks": {
+        "intro": "Bad news, {player_name}. The situation just got more complicated.",
+        "plotStep": "A rival collector heard about the {quest_item} you're after and sent their own team {location_hint}. They're stripping the area clean and they're not above violence to protect their claim. {target_npc} spotted them setting up a guarded camp near the main deposit. If we don't act fast, there won't be anything left to gather. Worse, their activity has stirred up the {enemy_type} in the area.",
+        "outro": "Speed matters now more than ever. Get in, gather what you can, and get out before the competition or the creatures make it impossible."
+      },
+      "playerResponses": [
+        { "text": "Competition doesn't scare me. I'll be faster.", "action": "ACCEPT" },
+        { "text": "Rival teams and angry monsters? This just doubled in difficulty and so should my pay.", "action": "ACCEPT", "dispositionShift": -5 },
+        { "text": "Too many parties fighting over the same prize. I'm out.", "action": "DECLINE" }
+      ],
+      "objectivePool": ["GATHER_ITEMS", "KILL_MOBS", "EXPLORE_LOCATION"],
+      "objectiveConfig": {
+        "GATHER_ITEMS": { "countMin": 6, "countMax": 14 },
+        "KILL_MOBS": { "countMin": 3, "countMax": 7 },
+        "EXPLORE_LOCATION": { "countMin": 1, "countMax": 2 }
+      }
+    },
+    {
+      "id": "obtaining_conf_02",
+      "dialogueChunks": {
+        "intro": "{player_name}, I wish I had better news to greet you with.",
+        "plotStep": "The {quest_item} you brought back? It's not the right quality. The impurities make it unusable for what I need. {target_npc} says there's a purer vein {location_hint}, but it's deeper underground and the tunnels are infested with {enemy_type}. I've also heard the cave system is unstable: collapses have been reported near the entrance. You'll need to find a way through without bringing the ceiling down.",
+        "outro": "I'm sorry to send you back out. But without the right materials, everything we've done so far is wasted."
+      },
+      "playerResponses": [
+        { "text": "Unstable tunnels and monsters? Just another day. I'll find the pure vein.", "action": "ACCEPT" },
+        { "text": "Back into the caves for a second round. This is getting old.", "action": "ACCEPT", "dispositionShift": -5 },
+        { "text": "I already risked my neck once. Find another source.", "action": "DECLINE" }
+      ],
+      "objectivePool": ["FETCH_ITEM", "EXPLORE_LOCATION", "KILL_MOBS"],
+      "objectiveConfig": {
+        "FETCH_ITEM": { "locationPreference": "DUNGEON" },
+        "EXPLORE_LOCATION": { "countMin": 1, "countMax": 2 },
+        "KILL_MOBS": { "countMin": 4, "countMax": 8 }
+      }
+    },
+    {
+      "id": "obtaining_conf_03",
+      "dialogueChunks": {
+        "intro": "Stop, stop, stop. Before you unpack, {player_name}, we have a problem.",
+        "plotStep": "While you were out gathering, someone broke into the workshop and stole the {quest_item} I had already processed. Weeks of work, gone. {target_npc} saw a cloaked figure heading toward the old mill {location_hint} but was too afraid to follow. I suspect it's one of the traveling merchants who's been watching my work: they know the value of what I'm crafting. We need those processed materials back, and we need more raw {quest_item} to replace what can't be recovered.",
+        "outro": "I'll reinforce the workshop. You track down the thief and recover what you can."
+      },
+      "playerResponses": [
+        { "text": "A thief? I'll find them and bring everything back.", "action": "ACCEPT" },
+        { "text": "Stolen goods on top of monster runs? My rate just went up.", "action": "ACCEPT", "dispositionShift": -5 },
+        { "text": "Your security problems aren't my concern.", "action": "DECLINE" }
+      ],
+      "objectivePool": ["FETCH_ITEM", "TALK_TO_NPC", "GATHER_ITEMS"],
+      "objectiveConfig": {
+        "FETCH_ITEM": { "locationPreference": "SETTLEMENT" },
+        "TALK_TO_NPC": { "countMin": 1, "countMax": 1 },
+        "GATHER_ITEMS": { "countMin": 4, "countMax": 8 }
+      }
+    },
+    {
+      "id": "obtaining_conf_04",
+      "dialogueChunks": {
+        "intro": "{player_name}, the route you've been using is gone. Completely impassable.",
+        "plotStep": "A rockslide buried the trail {location_hint} overnight. The only alternative path cuts through a stretch of forest that {target_npc} says is thick with {enemy_type} this time of year. To make matters worse, the remaining {quest_item} we had stored was damaged by moisture when the storehouse roof leaked during the last storm. We need to replace it all and find a safe way through to the new source.",
+        "outro": "Nature and bad luck keep piling on. But giving up now means losing everything we've invested."
+      },
+      "playerResponses": [
+        { "text": "Blocked trails and ruined stores? I'll carve a new path and restock everything.", "action": "ACCEPT" },
+        { "text": "Every step forward, something knocks us two steps back. Fine, I'll manage.", "action": "ACCEPT" },
+        { "text": "The universe is telling us to quit. I'm listening.", "action": "DECLINE" }
+      ],
+      "objectivePool": ["EXPLORE_LOCATION", "GATHER_ITEMS", "KILL_MOBS"],
+      "objectiveConfig": {
+        "EXPLORE_LOCATION": { "countMin": 2, "countMax": 3 },
+        "GATHER_ITEMS": { "countMin": 5, "countMax": 12 },
+        "KILL_MOBS": { "countMin": 3, "countMax": 6 }
+      }
+    }
+  ]
+}

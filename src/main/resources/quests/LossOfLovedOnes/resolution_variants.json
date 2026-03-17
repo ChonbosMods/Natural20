@@ -1,0 +1,48 @@
+{
+  "variants": [
+    {
+      "id": "loss_of_loved_ones_reso_01",
+      "dialogueChunks": {
+        "intro": "The shelves are full, {player_name}. For the first time since he's been gone, the pantry looks the way he used to keep it.",
+        "plotStep": "I spent the morning organizing everything the way he would have: labels facing out, oldest stock in front, everything in its place. {target_npc} came by and said the house smells like it used to. Like someone's home, not someone's absence. I cried, but the good kind. The kind that means something is healing. I even cooked dinner last night: his favorite recipe. It wasn't as good as his, but it was close. Close enough.",
+        "outro": "You didn't just bring supplies, {player_name}. You brought back a piece of a life I thought was over. Take this, and know it comes with more gratitude than words can hold."
+      },
+      "playerResponses": [
+        { "text": "Close enough is a beautiful thing. Take care of yourself.", "action": "ACCEPT", "dispositionShift": 10 },
+        { "text": "He'd be proud to see those shelves. I'm sure of it.", "action": "ACCEPT" },
+        { "text": "A home that smells like home again. That's the best outcome.", "action": "ACCEPT" }
+      ],
+      "objectivePool": [],
+      "objectiveConfig": {}
+    },
+    {
+      "id": "loss_of_loved_ones_reso_02",
+      "dialogueChunks": {
+        "intro": "Come look, {player_name}. Come look at the garden.",
+        "plotStep": "The tomatoes are growing. Small and green still, but growing. {target_npc} helped me plant the seeds you brought, and we talked about her while we worked: not about how she died, but about how she lived. The funniest things she said, the way she'd argue with the weeds like they could hear her, how she'd bring the first ripe tomato to everyone in {location} to taste. The garden doesn't fill the hole she left. Nothing will. But it keeps her hands in the soil, if that makes any sense.",
+        "outro": "You gave this garden a second chance. That's more than I can ever repay, but please accept this."
+      },
+      "playerResponses": [
+        { "text": "Her hands in the soil. That makes perfect sense. Be well.", "action": "ACCEPT", "dispositionShift": 15 },
+        { "text": "When those tomatoes ripen, share them the way she would have.", "action": "ACCEPT" }
+      ],
+      "objectivePool": [],
+      "objectiveConfig": {}
+    },
+    {
+      "id": "loss_of_loved_ones_reso_03",
+      "dialogueChunks": {
+        "intro": "The delivery arrived, {player_name}. His last delivery, completed at last.",
+        "plotStep": "The settlement he was trying to reach received the {quest_item} and sent back a letter of thanks. They had no idea someone died trying to bring it to them the first time. {target_npc} read the letter aloud at the tavern, and the whole room went quiet. Then someone raised a glass to my brother, and everyone followed. Strangers who never knew him, drinking to his memory because his kindness outlasted him. I cooked his favorite meal that night. The taste is coming back to me, slowly.",
+        "outro": "His journey is complete now. And mine can finally begin again. Thank you, {player_name}. Take this: it's the least his memory deserves."
+      },
+      "playerResponses": [
+        { "text": "Kindness that outlasts a life is the greatest legacy. He'd be proud.", "action": "ACCEPT", "dispositionShift": 10 },
+        { "text": "A glass raised by strangers. That's a fine memorial.", "action": "ACCEPT" },
+        { "text": "The taste coming back: hold onto that. It means you're healing.", "action": "ACCEPT" }
+      ],
+      "objectivePool": [],
+      "objectiveConfig": {}
+    }
+  ]
+}

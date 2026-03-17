@@ -1,0 +1,47 @@
+{
+  "variants": [
+    {
+      "id": "adultery_reso_01",
+      "dialogueChunks": {
+        "intro": "Justice, {player_name}. Slow, imperfect, but real.",
+        "plotStep": "The regional council reviewed our evidence and ruled against the garrison commander. The mutual defense pact has been reinstated with new terms and a different commander who actually intends to honor them. {target_npc} received a formal apology, which they accepted with more grace than I could have managed. The raids have slowed now that patrols are running again. {location} is breathing easier for the first time in months.",
+        "outro": "You carried truth through a dangerous road and it arrived intact. That matters more than any sword could. Take this: our way of saying the oath we make to you is one we'll keep."
+      },
+      "playerResponses": [
+        { "text": "An oath kept is worth more than gold. Take care of each other.", "action": "ACCEPT", "dispositionShift": 10 },
+        { "text": "Make sure the new commander knows people are watching.", "action": "ACCEPT" },
+        { "text": "Good. Now hold them to it.", "action": "ACCEPT" }
+      ],
+      "objectivePool": [],
+      "objectiveConfig": {}
+    },
+    {
+      "id": "adultery_reso_02",
+      "dialogueChunks": {
+        "intro": "It's over, {player_name}. The council heard everything.",
+        "plotStep": "The evidence was undeniable. Warehouse manifests, side-deal contracts, the whole rotten scheme laid bare. {target_npc} tried to deny it at first, then went quiet. The council dissolved the partnership in my favor and {target_npc} was ordered to repay what they skimmed. They left {location} that night without a word. I won't pretend it feels good. We built this place together, and now I'm running it alone. But at least the ale is honest again.",
+        "outro": "The tavern is mine now. Fully mine. Take this drink and this reward: you helped me save a business and what's left of my dignity."
+      },
+      "playerResponses": [
+        { "text": "Honest ale in an honest tavern. That's a foundation worth building on.", "action": "ACCEPT" },
+        { "text": "You lost a partner but kept your integrity. I'd say you came out ahead.", "action": "ACCEPT", "dispositionShift": 10 }
+      ],
+      "objectivePool": [],
+      "objectiveConfig": {}
+    },
+    {
+      "id": "adultery_reso_03",
+      "dialogueChunks": {
+        "intro": "The guild master resigned this morning, {player_name}. Walked out before the council could vote on removal.",
+        "plotStep": "The copied covenant matched the original terms exactly. There was no denying the breach. The local merchants are reorganizing the guild under new leadership: {target_npc} among them. Fair prices are being restored, the side deals have been cut off, and the enforcers scattered when they realized their employer was finished. Five years of corruption, undone by a document and the courage to use it.",
+        "outro": "You walked through danger to retrieve a piece of paper. But that paper held the truth, and truth turned out to be stronger than all the gold and muscle the guild master could buy. Take this: the merchants' gratitude, properly earned."
+      },
+      "playerResponses": [
+        { "text": "A guild that serves its members instead of robbing them. That's worth fighting for.", "action": "ACCEPT", "dispositionShift": 15 },
+        { "text": "Good riddance to corrupt leadership. Keep the new guild honest.", "action": "ACCEPT" }
+      ],
+      "objectivePool": [],
+      "objectiveConfig": {}
+    }
+  ]
+}

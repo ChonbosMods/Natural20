@@ -1,0 +1,22 @@
+{
+  "references": [
+    {
+      "id": "ref_necessity_sacrificing_solomons_dilemma",
+      "compatibleSituations": ["NecessityOfSacrificingLovedOnes", "SelfSacrificeForAnIdeal"],
+      "passiveText": "The elder in {location} once had to choose which of two settlements received the last shipment of medicine. Both were dying.",
+      "triggerTopicLabel": "The elder's choice",
+      "triggerDialogue": "{target_npc} was there when the decision was made. The elder split the medicine in half: not enough to cure either settlement completely, but enough to keep both alive until more could be found. Half the people said it was wisdom. The other half called it cowardice. The elder never spoke about it again, but I heard they never slept a full night after that day.",
+      "catalystSituations": ["NecessityOfSacrificingLovedOnes", "Supplication"],
+      "targetNpcRoles": ["Villager", "Guard"]
+    },
+    {
+      "id": "ref_necessity_sacrificing_family_feud",
+      "compatibleSituations": ["NecessityOfSacrificingLovedOnes", "ObstaclesToLove"],
+      "passiveText": "Two families near {location} haven't spoken in years. The reason is uglier than most people know.",
+      "triggerTopicLabel": "The family feud",
+      "triggerDialogue": "It started when one family had to choose between saving their own livestock and helping the other family's during a flood. They chose their own. Nobody died, but trust did. {target_npc} has been trying to broker peace for months, but every time one side extends a hand, the other remembers what it felt like to be abandoned. Some wounds only heal when someone else carries the weight for a while.",
+      "catalystSituations": ["NecessityOfSacrificingLovedOnes", "RivalryOfSuperiorVsInferior"],
+      "targetNpcRoles": ["TavernKeeper", "Villager"]
+    }
+  ]
+}

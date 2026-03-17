@@ -1,0 +1,80 @@
+{
+  "variants": [
+    {
+      "id": "murderousadultery_conf_01",
+      "dialogueChunks": {
+        "intro": "{player_name}, the conspirators know someone is investigating. They've started covering their tracks.",
+        "plotStep": "The witness I was counting on: the one who could identify the poisoner: was found unconscious in their home this morning. Someone drugged them with the same {quest_item} compound used on the water supply. {target_npc} says they'll recover, but their memory of the incident might be gone permanently. Worse, someone ransacked the evidence room and took the samples you collected. The only remaining lead is a supply cache {location_hint} where the poison is being manufactured. If we can seize that operation, we'll have undeniable proof.",
+        "outro": "They're erasing every thread we pull. We need to find the source before there's nothing left to find."
+      },
+      "playerResponses": [
+        { "text": "They're getting desperate. That means we're close. Show me the cache location.", "action": "ACCEPT" },
+        { "text": "Attacking witnesses and destroying evidence? These people play dirty. I'll match them.", "action": "ACCEPT" },
+        { "text": "They're eliminating witnesses. I'm not eager to be next.", "action": "DECLINE" }
+      ],
+      "objectivePool": ["EXPLORE_LOCATION", "KILL_MOBS", "FETCH_ITEM"],
+      "objectiveConfig": {
+        "EXPLORE_LOCATION": { "countMin": 2, "countMax": 3 },
+        "KILL_MOBS": { "countMin": 3, "countMax": 7 },
+        "FETCH_ITEM": { "locationPreference": "DUNGEON" }
+      }
+    },
+    {
+      "id": "murderousadultery_conf_02",
+      "dialogueChunks": {
+        "intro": "Lock the door, {player_name}. I think I'm being followed.",
+        "plotStep": "The person I suspected has fled {location}, but they left something behind: a list of names. People in the settlement who have been feeding them information, helping them smuggle {quest_item} past the guards, looking the other way during the poisonings. The list is coded, but {target_npc} recognized a pattern that matches trade ledger entries from the last six months. If we can recover the original ledgers from the archive {location_hint}, we can decode the list and expose the entire network. But the archive has been sealed: and there are {enemy_type} nesting in the tunnels beneath it.",
+        "outro": "The conspiracy runs deeper than one person. We need those ledgers to uproot all of it."
+      },
+      "playerResponses": [
+        { "text": "A network of accomplices? I'll get the ledgers and we'll expose them all.", "action": "ACCEPT" },
+        { "text": "Coded lists and sealed archives. This is spy work. Fine, I'm already in too deep.", "action": "ACCEPT", "dispositionShift": -5 },
+        { "text": "The deeper this goes, the more dangerous it gets. I know when to walk away.", "action": "DECLINE" }
+      ],
+      "objectivePool": ["FETCH_ITEM", "EXPLORE_LOCATION", "KILL_MOBS"],
+      "objectiveConfig": {
+        "FETCH_ITEM": { "locationPreference": "DUNGEON" },
+        "EXPLORE_LOCATION": { "countMin": 1, "countMax": 2 },
+        "KILL_MOBS": { "countMin": 3, "countMax": 6 }
+      }
+    },
+    {
+      "id": "murderousadultery_conf_03",
+      "dialogueChunks": {
+        "intro": "I found something, {player_name}. And I wish I hadn't.",
+        "plotStep": "The traitor isn't working alone: they're being directed by someone from a neighboring settlement. I intercepted a coded message arranging a meeting {location_hint}. The message mentioned a final shipment of {quest_item}: enough to poison the entire water system of {location}, not just the well. {target_npc} confirmed that the compound in those quantities would be lethal, not just sickening. This isn't sabotage anymore. It's an assassination attempt against the entire settlement. We have to intercept that shipment.",
+        "outro": "The meeting is set for tomorrow night. If we intercept the shipment and catch the courier, we can end this."
+      },
+      "playerResponses": [
+        { "text": "Mass poisoning? This ends now. I'll intercept the shipment.", "action": "ACCEPT" },
+        { "text": "From sabotage to attempted mass murder. I'll stop the courier, but the people behind this need to answer for everything.", "action": "ACCEPT" },
+        { "text": "This has gone beyond what one person can handle. You need an army, not an adventurer.", "action": "DECLINE" }
+      ],
+      "objectivePool": ["EXPLORE_LOCATION", "KILL_MOBS", "FETCH_ITEM"],
+      "objectiveConfig": {
+        "EXPLORE_LOCATION": { "countMin": 1, "countMax": 2 },
+        "KILL_MOBS": { "countMin": 4, "countMax": 8 },
+        "FETCH_ITEM": { "locationPreference": "WILDERNESS" }
+      }
+    },
+    {
+      "id": "murderousadultery_conf_04",
+      "dialogueChunks": {
+        "intro": "{player_name}, come quickly. The situation just took a dangerous turn.",
+        "plotStep": "The suspect we've been investigating confronted {target_npc} publicly and accused them of being the real traitor. It was convincing enough that half the settlement now suspects {target_npc}, not the actual conspirator. With suspicion turned the wrong way, the real traitor has free rein. I overheard them arranging for a cache of {quest_item} to be moved from a hideout {location_hint}: probably relocating their poison supplies before anyone searches. If you can intercept the cache and bring back the evidence, we can clear {target_npc}'s name and prove who the real traitor is.",
+        "outro": "They've weaponized the truth against us. That cache is the only proof that can set things right."
+      },
+      "playerResponses": [
+        { "text": "Framing an innocent person to cover their tracks? I'll find that cache and end this charade.", "action": "ACCEPT" },
+        { "text": "Manipulating public opinion while poisoning the well. Literally and figuratively. I'll go.", "action": "ACCEPT", "dispositionShift": -5 },
+        { "text": "When the town turns on its own protectors, there's no saving it. I'm leaving.", "action": "DECLINE" }
+      ],
+      "objectivePool": ["FETCH_ITEM", "EXPLORE_LOCATION", "KILL_MOBS"],
+      "objectiveConfig": {
+        "FETCH_ITEM": { "locationPreference": "WILDERNESS" },
+        "EXPLORE_LOCATION": { "countMin": 1, "countMax": 3 },
+        "KILL_MOBS": { "countMin": 2, "countMax": 5 }
+      }
+    }
+  ]
+}

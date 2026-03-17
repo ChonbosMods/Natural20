@@ -1,0 +1,60 @@
+{
+  "variants": [
+    {
+      "id": "an_enemy_loved_expo_01",
+      "dialogueChunks": {
+        "intro": "I need to tell someone this, {player_name}, before it eats me alive. I've been carrying a secret that could get me cast out of {location}.",
+        "plotStep": "There's a {enemy_type} camp {location_hint}. Everyone here wants them dead: they've raided our stores, stolen our livestock, caused nothing but grief. But I went out there last week to scout their numbers, and I saw something that changed everything. They have children, {player_name}. Sick children. They've been stealing our {quest_item} because they're trying to keep their young alive. I can't just pretend I didn't see that.",
+        "outro": "I need someone to go out there and confirm what I saw. If I'm right, then we've been waging war on desperate parents, not monsters."
+      },
+      "playerResponses": [
+        { "text": "That changes things. I'll go see for myself.", "action": "ACCEPT" },
+        { "text": "Enemies are enemies. But I'll look, if only to prove you wrong.", "action": "ACCEPT", "dispositionShift": -5 },
+        { "text": "What they are doesn't change what they've done. Count me out.", "action": "DECLINE" }
+      ],
+      "objectivePool": ["EXPLORE_LOCATION", "GATHER_ITEMS"],
+      "objectiveConfig": {
+        "EXPLORE_LOCATION": { "countMin": 1, "countMax": 2 },
+        "GATHER_ITEMS": { "countMin": 4, "countMax": 10 }
+      }
+    },
+    {
+      "id": "an_enemy_loved_expo_02",
+      "dialogueChunks": {
+        "intro": "{player_name}, do you believe that a person you've hated your whole life can turn out to be someone worth saving? Because I'm starting to.",
+        "plotStep": "A wounded {enemy_type} stumbled into {location} three nights ago. The guards wanted to kill it on the spot, but {target_npc} insisted on patching it up first, said we're not butchers. While it healed, it spoke to me. Broken words, barely understandable, but enough. It said its people are being driven from their homeland by something far worse than them, and they need {quest_item} to survive the journey. It begged me to bring some to its kin, hiding {location_hint}.",
+        "outro": "If anyone finds out I'm even considering this, they'll call me a traitor. But I can't unhear what it said."
+      },
+      "playerResponses": [
+        { "text": "Compassion isn't treason. I'll bring the supplies.", "action": "ACCEPT" },
+        { "text": "This could be a trap. But I'll investigate.", "action": "ACCEPT" },
+        { "text": "Helping the enemy isn't something I'm willing to do.", "action": "DECLINE" }
+      ],
+      "objectivePool": ["FETCH_ITEM", "EXPLORE_LOCATION", "TALK_TO_NPC"],
+      "objectiveConfig": {
+        "FETCH_ITEM": { "locationPreference": "WILDERNESS" },
+        "EXPLORE_LOCATION": { "countMin": 1, "countMax": 2 },
+        "TALK_TO_NPC": { "countMin": 1, "countMax": 1 }
+      }
+    },
+    {
+      "id": "an_enemy_loved_expo_03",
+      "dialogueChunks": {
+        "intro": "I've done something I can't take back, {player_name}. And I think I need help before it unravels.",
+        "plotStep": "During the last raid on {location}, I cornered a {enemy_type} warrior. Had my blade to its throat. Then it dropped its weapon and showed me a carved pendant: a child's face. Its child. It said one word I understood: 'please.' I let it go, {player_name}. I let the enemy walk away. Now {target_npc} is asking questions about the raider who escaped, and I need someone to go {location_hint} and figure out whether these creatures are truly the soulless monsters everyone says, or whether we've been wrong about them all along. I need {quest_item} as proof of peaceful contact.",
+        "outro": "If they're what I think they are, then everything this settlement believes about them is a lie."
+      },
+      "playerResponses": [
+        { "text": "The truth matters more than comfort. I'll find it.", "action": "ACCEPT" },
+        { "text": "You let one go? That was reckless. But fine, I'll look into it.", "action": "ACCEPT", "dispositionShift": -5 },
+        { "text": "Some truths are better left buried. I won't be part of this.", "action": "DECLINE" }
+      ],
+      "objectivePool": ["EXPLORE_LOCATION", "TALK_TO_NPC", "GATHER_ITEMS"],
+      "objectiveConfig": {
+        "EXPLORE_LOCATION": { "countMin": 2, "countMax": 3 },
+        "TALK_TO_NPC": { "countMin": 1, "countMax": 1 },
+        "GATHER_ITEMS": { "countMin": 3, "countMax": 8 }
+      }
+    }
+  ]
+}

@@ -1,0 +1,22 @@
+{
+  "references": [
+    {
+      "id": "ref_self_sacrifice_ideal_veterans_oath",
+      "compatibleSituations": ["SelfSacrificeForAnIdeal", "NecessityOfSacrificingLovedOnes"],
+      "passiveText": "There's an old oath the veterans used to swear. Most people have forgotten it, but some still live by it.",
+      "triggerTopicLabel": "The veterans' oath",
+      "triggerDialogue": "{target_npc} once told me the words: 'The post does not abandon the people, even when the people abandon the post.' I thought it was just ceremony. Now I see there are still those who mean every word. If you pass through {location}, you might find others who remember what that oath demands.",
+      "catalystSituations": ["SelfSacrificeForAnIdeal", "RivalryOfSuperiorVsInferior"],
+      "targetNpcRoles": ["Guard", "Traveler"]
+    },
+    {
+      "id": "ref_self_sacrifice_ideal_last_stand_legend",
+      "compatibleSituations": ["SelfSacrificeForAnIdeal", "DaringEnterprise"],
+      "passiveText": "They say someone once held the mountain pass alone for three days. I wonder if that story is about to repeat itself.",
+      "triggerTopicLabel": "The mountain pass story",
+      "triggerDialogue": "It happened a generation ago, near {location}. A single defender held a narrow pass against a raiding force while an entire village fled to safety. {target_npc} says they found the defender's journal years later: no regret, no fear, just a quiet accounting of hours held and lives saved. Some people are built different, I suppose.",
+      "catalystSituations": ["SelfSacrificeForAnIdeal", "Pursuit"],
+      "targetNpcRoles": ["Guard", "Villager"]
+    }
+  ]
+}

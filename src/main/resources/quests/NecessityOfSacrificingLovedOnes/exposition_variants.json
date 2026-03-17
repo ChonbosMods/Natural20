@@ -1,0 +1,59 @@
+{
+  "variants": [
+    {
+      "id": "necessity_of_sacrificing_loved_ones_expo_01",
+      "dialogueChunks": {
+        "intro": "{player_name}, I need to talk to someone who isn't part of this settlement. Someone who can see clearly. Because I can't anymore.",
+        "plotStep": "My oldest friend, {target_npc}, has been harboring refugees from a settlement destroyed by {enemy_type}. Dozens of them, hidden in the old granary. The problem is that the {enemy_type} tracked the refugees here, and now they're circling {location}. The council says if we don't turn the refugees out, the entire settlement is at risk. They want me to deliver the order because {target_npc} trusts me. I need {quest_item} to reinforce our defenses: barricades, traps, anything. If I can make {location} strong enough to withstand a siege, maybe we don't have to choose.",
+        "outro": "I can't look my friend in the eye and tell them to send those people back into the wild to die. But I can't watch my own neighbors die either. Help me find a third option."
+      },
+      "playerResponses": [
+        { "text": "A third option. I like that. Let's fortify this place.", "action": "ACCEPT" },
+        { "text": "Impossible choices are the worst kind. I'll do what I can.", "action": "ACCEPT" },
+        { "text": "Some choices don't have a third option. I can't fix this for you.", "action": "DECLINE" }
+      ],
+      "objectivePool": ["GATHER_ITEMS", "FETCH_ITEM"],
+      "objectiveConfig": {
+        "GATHER_ITEMS": { "countMin": 6, "countMax": 14 },
+        "FETCH_ITEM": { "locationPreference": "WILDERNESS" }
+      }
+    },
+    {
+      "id": "necessity_of_sacrificing_loved_ones_expo_02",
+      "dialogueChunks": {
+        "intro": "I haven't slept in four days, {player_name}. Every time I close my eyes I see two futures, and both of them are nightmares.",
+        "plotStep": "The well in {location} is poisoned. Slowly, subtly: people have been getting sicker for weeks before we traced it. The only clean water source is in a cavern {location_hint} that belongs to {target_npc}'s family by ancestral right. They've offered to share, but the cavern can only sustain one community's worth of water. If we divert it here, {target_npc}'s kin across the valley lose their supply. If we don't, our children keep drinking poison. I need {quest_item} to build a purification system: something, anything, that means we don't have to steal water from people I love.",
+        "outro": "I would cut off my own hand before I took water from {target_npc}'s people. But I will not bury another child. There has to be another way."
+      },
+      "playerResponses": [
+        { "text": "A purification system could save everyone. Tell me what you need.", "action": "ACCEPT" },
+        { "text": "Four days without sleep and a poisoned well. Let me carry this burden for a while.", "action": "ACCEPT" },
+        { "text": "Water rights are a political problem. I'm not the right person for this.", "action": "DECLINE" }
+      ],
+      "objectivePool": ["GATHER_ITEMS", "EXPLORE_LOCATION"],
+      "objectiveConfig": {
+        "GATHER_ITEMS": { "countMin": 5, "countMax": 10 },
+        "EXPLORE_LOCATION": { "countMin": 1, "countMax": 3 }
+      }
+    },
+    {
+      "id": "necessity_of_sacrificing_loved_ones_expo_03",
+      "dialogueChunks": {
+        "intro": "Sit down, {player_name}. What I'm about to tell you stays between us. If the wrong people hear this, blood will follow.",
+        "plotStep": "{target_npc} sent a message last night. The {enemy_type} have offered a truce: they'll stop raiding {location} if we hand over the harvest stores from the eastern fields. Those stores feed three families through winter, including my own sister's. If we refuse the truce, the raids continue and more guards die. If we accept, those families starve unless someone can gather enough {quest_item} from the wilds {location_hint} to replace what we give up. I need those supplies before the truce deadline, or I have to choose between my sister and my soldiers.",
+        "outro": "Every option costs someone I care about. I'm asking you to help me find one that doesn't cost a life."
+      },
+      "playerResponses": [
+        { "text": "I'll gather replacement supplies. Nobody has to starve or die.", "action": "ACCEPT" },
+        { "text": "A truce bought with food. It's ugly, but I'll help make it work.", "action": "ACCEPT", "dispositionShift": -5 },
+        { "text": "Negotiating with raiders is a mistake. I won't be part of it.", "action": "DECLINE" }
+      ],
+      "objectivePool": ["GATHER_ITEMS", "FETCH_ITEM", "EXPLORE_LOCATION"],
+      "objectiveConfig": {
+        "GATHER_ITEMS": { "countMin": 6, "countMax": 12 },
+        "FETCH_ITEM": { "locationPreference": "WILDERNESS" },
+        "EXPLORE_LOCATION": { "countMin": 1, "countMax": 2 }
+      }
+    }
+  ]
+}

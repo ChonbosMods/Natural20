@@ -1,0 +1,61 @@
+{
+  "variants": [
+    {
+      "id": "an_enemy_loved_conf_01",
+      "dialogueChunks": {
+        "intro": "{player_name}, everything's falling apart. The settlement found out what we've been doing.",
+        "plotStep": "{target_npc} saw you heading toward the {enemy_type} camp and told the whole settlement. Now the guards are organizing a raid to wipe them out, children and all. They're marching at dawn. We have until then to gather enough {quest_item} to convince the {enemy_type} to relocate somewhere safe, or there's going to be a slaughter on both sides. The {enemy_type} won't leave without supplies for the journey.",
+        "outro": "I started this. If blood gets spilled because I stayed silent, I'll never forgive myself."
+      },
+      "playerResponses": [
+        { "text": "Then we move fast. I'll get the supplies before dawn.", "action": "ACCEPT" },
+        { "text": "You should have spoken up sooner. But I'll try to stop this.", "action": "ACCEPT", "dispositionShift": -5 },
+        { "text": "You chose the wrong side. I'm staying out of this.", "action": "DECLINE" }
+      ],
+      "objectivePool": ["GATHER_ITEMS", "FETCH_ITEM", "TALK_TO_NPC"],
+      "objectiveConfig": {
+        "GATHER_ITEMS": { "countMin": 6, "countMax": 12 },
+        "FETCH_ITEM": { "locationPreference": "WILDERNESS" },
+        "TALK_TO_NPC": { "countMin": 1, "countMax": 1 }
+      }
+    },
+    {
+      "id": "an_enemy_loved_conf_02",
+      "dialogueChunks": {
+        "intro": "This is worse than I feared, {player_name}. Much worse.",
+        "plotStep": "The {enemy_type} took your visit as a sign of alliance. Now they're coming to {location} expecting friendship, and the guards have no idea they're coming peacefully. They'll see armed {enemy_type} approaching the gates and assume it's an attack. You need to intercept them {location_hint} and convince them to turn back before they walk into a bloodbath. Take {quest_item} as a gesture of good faith.",
+        "outro": "Two groups who could live in peace are about to destroy each other over a misunderstanding. You might be the only person who can prevent it."
+      },
+      "playerResponses": [
+        { "text": "I'll intercept them. Nobody dies today.", "action": "ACCEPT" },
+        { "text": "Caught between two sides and trusted by neither. Wonderful.", "action": "ACCEPT", "dispositionShift": -5 },
+        { "text": "Let them sort it out themselves. This isn't my war.", "action": "DECLINE" }
+      ],
+      "objectivePool": ["EXPLORE_LOCATION", "TALK_TO_NPC", "DELIVER_ITEM"],
+      "objectiveConfig": {
+        "EXPLORE_LOCATION": { "countMin": 1, "countMax": 3 },
+        "TALK_TO_NPC": { "countMin": 1, "countMax": 1 },
+        "DELIVER_ITEM": {}
+      }
+    },
+    {
+      "id": "an_enemy_loved_conf_03",
+      "dialogueChunks": {
+        "intro": "{player_name}, something terrible has happened at the {enemy_type} camp.",
+        "plotStep": "A rogue faction within the {enemy_type} killed their own elder: the one who wanted peace. The hardliners have taken control and they're planning revenge against {location} for generations of hostility. {target_npc} says the remaining moderates fled {location_hint} and they're the only ones who can calm the war party. We need to find them and bring them {quest_item} to prove we still want peace, before the hardliners attack.",
+        "outro": "The window for peace is closing fast. If the moderates lose hope, so does everyone."
+      },
+      "playerResponses": [
+        { "text": "I'll find the moderates. Peace is worth fighting for.", "action": "ACCEPT" },
+        { "text": "Their own people killed the peacemaker? This might be hopeless.", "action": "ACCEPT", "dispositionShift": -5 },
+        { "text": "Internal politics of monsters isn't my problem.", "action": "DECLINE" }
+      ],
+      "objectivePool": ["EXPLORE_LOCATION", "KILL_MOBS", "TALK_TO_NPC"],
+      "objectiveConfig": {
+        "EXPLORE_LOCATION": { "countMin": 2, "countMax": 3 },
+        "KILL_MOBS": { "countMin": 3, "countMax": 7 },
+        "TALK_TO_NPC": { "countMin": 1, "countMax": 1 }
+      }
+    }
+  ]
+}

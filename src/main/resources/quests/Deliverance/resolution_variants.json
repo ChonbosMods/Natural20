@@ -1,0 +1,60 @@
+{
+  "variants": [
+    {
+      "id": "deliverance_reso_01",
+      "dialogueChunks": {
+        "intro": "They're safe! {player_name}, they're actually safe! I can hardly believe it!",
+        "plotStep": "{target_npc} is being tended to by the healers now. Bruised, exhausted, but alive. They told us everything: how you fought through the {enemy_type}, how you carried the wounded on your back when they couldn't walk. The children haven't stopped talking about you. They're calling you their guardian spirit.",
+        "outro": "We gathered everything of value we could find as thanks. It's not enough, it will never be enough, but please take it."
+      },
+      "playerResponses": [
+        { "text": "Seeing them safe is all the reward I need.", "action": "ACCEPT", "dispositionShift": 10 },
+        { "text": "I'm glad everyone made it. Take care of them.", "action": "ACCEPT" }
+      ],
+      "objectivePool": [],
+      "objectiveConfig": {}
+    },
+    {
+      "id": "deliverance_reso_02",
+      "dialogueChunks": {
+        "intro": "You brought them home, {player_name}. Every single one of them.",
+        "plotStep": "The settlement erupted when they saw {target_npc} walking through the gates. People who hadn't smiled in days were weeping with joy. The healers say everyone will recover, though some will carry scars. {target_npc} asked me to tell you something: they said you moved through those {enemy_type} like you were born for it, and that they've never seen anything braver.",
+        "outro": "You gave us back our people. Here, take this with the gratitude of every soul in {location}."
+      },
+      "playerResponses": [
+        { "text": "Tell {target_npc} to rest up. They showed plenty of courage themselves.", "action": "ACCEPT", "dispositionShift": 5 },
+        { "text": "Just doing what needed to be done. Stay safe out there.", "action": "ACCEPT" }
+      ],
+      "objectivePool": [],
+      "objectiveConfig": {}
+    },
+    {
+      "id": "deliverance_reso_03",
+      "dialogueChunks": {
+        "intro": "{player_name}... I won't lie to you. Not everyone made it.",
+        "plotStep": "You saved most of them, and that matters. But two of the captives didn't survive the ordeal. {target_npc} is alive thanks to you, though they're not speaking much. The grief is heavy in {location} tonight: joy and sorrow all tangled together. You did everything you could, and without you, none of them would have come home.",
+        "outro": "Take this. It was set aside for whoever brought our people back. You earned it, every bit of it, even if the ending is heavier than we hoped."
+      },
+      "playerResponses": [
+        { "text": "I wish I'd been faster. I'm sorry for the ones we lost.", "action": "ACCEPT" },
+        { "text": "The ones who survived will carry their memory forward. That matters.", "action": "ACCEPT", "dispositionShift": 5 }
+      ],
+      "objectivePool": [],
+      "objectiveConfig": {}
+    },
+    {
+      "id": "deliverance_reso_04",
+      "dialogueChunks": {
+        "intro": "You did it, {player_name}. Against everything, you brought them home.",
+        "plotStep": "{target_npc} organized a vigil last night for the rescue. The whole settlement turned out, torches lining the main road from the gate to the square. They wanted you to walk through it, but I told them you'd probably find that embarrassing. The point is this: {location} remembers its heroes, and your name is now carved alongside the founders on the remembrance stone.",
+        "outro": "This is from all of us. And whenever you return, there will be a fire lit and a seat waiting."
+      },
+      "playerResponses": [
+        { "text": "A place on the remembrance stone? I'm honored beyond words.", "action": "ACCEPT", "dispositionShift": 15 },
+        { "text": "That's very kind. I'll visit when the road brings me back.", "action": "ACCEPT" }
+      ],
+      "objectivePool": [],
+      "objectiveConfig": {}
+    }
+  ]
+}

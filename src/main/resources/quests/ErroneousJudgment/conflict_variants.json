@@ -1,0 +1,61 @@
+{
+  "variants": [
+    {
+      "id": "erroneous_judgment_conf_01",
+      "dialogueChunks": {
+        "intro": "{player_name}... the scout lied. The whole thing was fabricated.",
+        "plotStep": "There was no {enemy_type} army massing for attack. The scout was paid by a rival settlement to trick us into wasting our resources on unnecessary defenses while they moved in on our trade routes. We've already spent half our {quest_item} stockpile arming for a war that was never coming. Now we're vulnerable to the real threats out there, and the rival settlement's traders are {location_hint} right now, closing deals that should have been ours. {target_npc} is furious and wants retribution, but first we need to recover what we can.",
+        "outro": "We jumped at shadows and the real threat walked right past us. I should have verified before I panicked."
+      },
+      "playerResponses": [
+        { "text": "We fix what we can. Point me toward the rival traders.", "action": "ACCEPT" },
+        { "text": "Panic is expensive. Let's make sure it doesn't happen again.", "action": "ACCEPT", "dispositionShift": -5 },
+        { "text": "You armed for a fake war. That's your problem, not mine.", "action": "DECLINE" }
+      ],
+      "objectivePool": ["GATHER_ITEMS", "EXPLORE_LOCATION", "TALK_TO_NPC"],
+      "objectiveConfig": {
+        "GATHER_ITEMS": { "countMin": 6, "countMax": 14 },
+        "EXPLORE_LOCATION": { "countMin": 1, "countMax": 2 },
+        "TALK_TO_NPC": { "countMin": 1, "countMax": 1 }
+      }
+    },
+    {
+      "id": "erroneous_judgment_conf_02",
+      "dialogueChunks": {
+        "intro": "I was wrong, {player_name}. Completely, devastatingly wrong.",
+        "plotStep": "{target_npc} wasn't tipping off raiders. The missing shipments were being intercepted by {enemy_type} who found an old game trail that intersected our route {location_hint}. {target_npc} figured it out on their own and was trying to reroute deliveries secretly to avoid panic. And I accused them of treason in front of everyone. They've resigned their position and left {location}. I need you to find them, bring them back, and help me clear the trail of {enemy_type} so the trade route is safe again. I'll need {quest_item} to rebuild the damaged supply line.",
+        "outro": "I destroyed a good person's reputation because I wanted a simple answer. The truth is rarely simple."
+      },
+      "playerResponses": [
+        { "text": "People can forgive honest mistakes. I'll bring them back.", "action": "ACCEPT" },
+        { "text": "You owe {target_npc} more than an apology. But I'll start with finding them.", "action": "ACCEPT", "dispositionShift": -5 },
+        { "text": "You drove away the one person trying to help. Fix it yourself.", "action": "DECLINE" }
+      ],
+      "objectivePool": ["TALK_TO_NPC", "KILL_MOBS", "GATHER_ITEMS"],
+      "objectiveConfig": {
+        "TALK_TO_NPC": { "countMin": 1, "countMax": 1 },
+        "KILL_MOBS": { "countMin": 4, "countMax": 8 },
+        "GATHER_ITEMS": { "countMin": 5, "countMax": 10 }
+      }
+    },
+    {
+      "id": "erroneous_judgment_conf_03",
+      "dialogueChunks": {
+        "intro": "{player_name}, the evidence you found cleared {target_npc} completely. And it gets worse.",
+        "plotStep": "The traveler who accused {target_npc} was working for a bandit group that wanted us distracted. While we were busy interrogating an innocent person, they raided our supply cache {location_hint} and made off with a cartload of {quest_item}. {target_npc} tried to warn us from the storehouse, but nobody listened. Now they're refusing to speak to anyone. We need to recover the stolen supplies before winter and somehow convince {target_npc} that this settlement is still worth staying in.",
+        "outro": "We imprisoned an innocent person while the real criminals robbed us blind. I don't know how we come back from that."
+      },
+      "playerResponses": [
+        { "text": "One step at a time. First the supplies, then the trust.", "action": "ACCEPT" },
+        { "text": "Played like fools by a stranger. At least you can learn from it.", "action": "ACCEPT" },
+        { "text": "You imprisoned someone innocent. I don't want to be part of this.", "action": "DECLINE" }
+      ],
+      "objectivePool": ["FETCH_ITEM", "EXPLORE_LOCATION", "KILL_MOBS"],
+      "objectiveConfig": {
+        "FETCH_ITEM": { "locationPreference": "DUNGEON" },
+        "EXPLORE_LOCATION": { "countMin": 1, "countMax": 3 },
+        "KILL_MOBS": { "countMin": 3, "countMax": 7 }
+      }
+    }
+  ]
+}

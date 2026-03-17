@@ -1,0 +1,13 @@
+{
+  "references": [
+    {
+      "id": "ref_remorse_unfinished_business",
+      "compatibleSituations": ["Remorse", "LossOfLovedOnes", "AnEnemyLoved"],
+      "passiveText": "There's someone I wronged a long time ago. I keep meaning to make it right, but I never find the courage.",
+      "triggerTopicLabel": "The person you wronged",
+      "triggerDialogue": "It was {target_npc}, back when we both lived near {location}. I won't bore you with the details, but I took something from them: not a thing you can hold, but trust. They moved on, settled somewhere {location_hint}, and I've been too much of a coward to follow. If you ever meet them, just... tell them I'm sorry. Or don't. Maybe some debts aren't meant to be paid with words.",
+      "catalystSituations": ["Remorse", "RecoveryOfALostOne"],
+      "targetNpcRoles": ["Villager", "Traveler"]
+    }
+  ]
+}

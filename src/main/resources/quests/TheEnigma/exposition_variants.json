@@ -1,0 +1,79 @@
+{
+  "variants": [
+    {
+      "id": "enigma_expo_01",
+      "dialogueChunks": {
+        "intro": "Ah, {player_name}! I was hoping someone with a curious mind would pass through. Tell me: do you enjoy a good mystery?",
+        "plotStep": "Strange lights have been appearing over the ruins {location_hint} every night for the past week. Not fire, not torches: something that pulses with a rhythm, like a heartbeat. {target_npc} went to investigate and came back with more questions than answers. They found {quest_item} scattered in patterns on the ground: deliberate arrangements that match no natural formation. The {enemy_type} in the area have been behaving oddly too, avoiding the ruins entirely instead of nesting in them like they usually do.",
+        "outro": "Lights, patterns, and creatures that are afraid to go near. Something is happening in those ruins, and I need to know what."
+      },
+      "playerResponses": [
+        { "text": "Pulsing lights and deliberate patterns? Now you have my full attention.", "action": "ACCEPT" },
+        { "text": "Mysteries don't pay the bills. What's the reward for answers?", "action": "ACCEPT", "dispositionShift": -5 },
+        { "text": "Unexplained lights that scare away monsters? I think I'll scare away too.", "action": "DECLINE" }
+      ],
+      "objectivePool": ["EXPLORE_LOCATION", "GATHER_ITEMS"],
+      "objectiveConfig": {
+        "EXPLORE_LOCATION": { "countMin": 2, "countMax": 4 },
+        "GATHER_ITEMS": { "countMin": 3, "countMax": 6 }
+      }
+    },
+    {
+      "id": "enigma_expo_02",
+      "dialogueChunks": {
+        "intro": "I need someone who can look at something impossible and not immediately run away, {player_name}. Are you that person?",
+        "plotStep": "The crops in {location} have started growing in spirals. Not dying, not blighting: growing perfectly healthy, but in perfect spiral patterns that shouldn't exist in nature. {target_npc} measured them and says the mathematical precision is beyond anything a person could cultivate deliberately. At the center of each spiral, there's a small deposit of {quest_item} that wasn't there when the seeds were planted. The {enemy_type} have been gathering near the fields at night, drawn by something, but they don't attack: they just watch.",
+        "outro": "Spiral crops, spontaneous minerals, and monsters that watch instead of hunt. Every piece of this puzzle contradicts everything I know."
+      },
+      "playerResponses": [
+        { "text": "Spirals, minerals, and watching monsters? This is the most fascinating thing I've heard in months.", "action": "ACCEPT" },
+        { "text": "I'll investigate, but if the answer turns out to be dangerous, I reserve the right to leave.", "action": "ACCEPT" },
+        { "text": "Mathematical crop spirals and gathering monsters? That sounds less like a mystery and more like a warning.", "action": "DECLINE" }
+      ],
+      "objectivePool": ["EXPLORE_LOCATION", "GATHER_ITEMS", "TALK_TO_NPC"],
+      "objectiveConfig": {
+        "EXPLORE_LOCATION": { "countMin": 1, "countMax": 3 },
+        "GATHER_ITEMS": { "countMin": 4, "countMax": 8 },
+        "TALK_TO_NPC": { "countMin": 1, "countMax": 1 }
+      }
+    },
+    {
+      "id": "enigma_expo_03",
+      "dialogueChunks": {
+        "intro": "{player_name}, I've spent thirty years studying the natural world, and last week I encountered something that made me question everything I thought I understood.",
+        "plotStep": "A cave system {location_hint} that has been sealed since before {location} was founded suddenly opened on its own. No earthquake, no excavation: the stone simply moved. Inside, {target_npc} found walls covered in writing that no one can read, tools made of materials that don't match any known ore, and a chamber filled with {quest_item} arranged in a configuration that produces a faint humming sound. The {enemy_type} have been swarming toward the cave from every direction, but none will cross the threshold.",
+        "outro": "Ancient writing, unknown materials, and a cave that unsealed itself. I need answers, and I can't get them sitting in my workshop."
+      },
+      "playerResponses": [
+        { "text": "A cave that opened itself? Unknown writing? I'll explore every inch of it.", "action": "ACCEPT" },
+        { "text": "This sounds like something that was sealed for a reason. But curiosity wins. I'll look.", "action": "ACCEPT" },
+        { "text": "Things that unseal themselves are usually best left alone.", "action": "DECLINE" }
+      ],
+      "objectivePool": ["EXPLORE_LOCATION", "FETCH_ITEM", "KILL_MOBS"],
+      "objectiveConfig": {
+        "EXPLORE_LOCATION": { "countMin": 3, "countMax": 4 },
+        "FETCH_ITEM": { "locationPreference": "DUNGEON" },
+        "KILL_MOBS": { "countMin": 2, "countMax": 5 }
+      }
+    },
+    {
+      "id": "enigma_expo_04",
+      "dialogueChunks": {
+        "intro": "I've been asking everyone who passes through {location} the same question, {player_name}, and nobody has an answer. Maybe you will.",
+        "plotStep": "Every animal within a mile of the old tower {location_hint} has fled. Birds, rabbits, deer, insects: everything. The silence is absolute. {target_npc} ventured out to investigate and found the tower surrounded by a ring of {quest_item} embedded in the ground in a perfect circle. Nothing they did could pry the pieces loose. The {enemy_type} have abandoned their nests nearby, which they've occupied for as long as anyone can remember. Something in that tower has woken up, and every living thing except us has the sense to run from it.",
+        "outro": "When every creature in the forest runs from the same spot, a wise person asks why. I'm asking. Will you help me find the answer?"
+      },
+      "playerResponses": [
+        { "text": "A silent forest and an immovable ring of minerals? I have to see this for myself.", "action": "ACCEPT" },
+        { "text": "Everything is running from it? That's either very dangerous or very important. Either way, I'm curious.", "action": "ACCEPT" },
+        { "text": "When every animal flees, the smart move is to join them. Good luck.", "action": "DECLINE" }
+      ],
+      "objectivePool": ["EXPLORE_LOCATION", "GATHER_ITEMS", "FETCH_ITEM"],
+      "objectiveConfig": {
+        "EXPLORE_LOCATION": { "countMin": 2, "countMax": 3 },
+        "GATHER_ITEMS": { "countMin": 3, "countMax": 8 },
+        "FETCH_ITEM": { "locationPreference": "DUNGEON" }
+      }
+    }
+  ]
+}

@@ -1,0 +1,62 @@
+{
+  "variants": [
+    {
+      "id": "involuntarycrimesof_reso_01",
+      "dialogueChunks": {
+        "intro": "The hostages are free, {player_name}. Every single one of them.",
+        "plotStep": "When you cleared that camp, the raiders scattered and the captives walked out into the daylight. {target_npc} helped reunite them with their families, and the whole settlement gathered at the gates to welcome them home. I told everyone the truth: that my overprotection of my own family left the others exposed. The looks I got were hard to bear, but the hostages' families thanked me for sending you after them.",
+        "outro": "You saved people I put in danger. I'll spend the rest of my days making sure I never let fear narrow my vision like that again. Take this, please."
+      },
+      "playerResponses": [
+        { "text": "The hostages are safe and you've learned something. That's a good ending.", "action": "ACCEPT", "dispositionShift": 10 },
+        { "text": "Protect everyone equally next time. That's all they ask.", "action": "ACCEPT" }
+      ],
+      "objectivePool": [],
+      "objectiveConfig": {}
+    },
+    {
+      "id": "involuntarycrimesof_reso_02",
+      "dialogueChunks": {
+        "intro": "The sick are recovering, {player_name}. All of them.",
+        "plotStep": "The alchemist brewed the cure from the ingredients you gathered, and within two days everyone was on their feet again. {target_npc} came to see me afterward: didn't yell, didn't lecture. Just said they understood why I did it, even though it was wrong. The alchemist reopened the workshop and the communal stores have been restocked. People are still wary, but the hoarding has stopped.",
+        "outro": "You fixed what my panic nearly destroyed. The community is healing in more ways than one. This is everything I can offer. It's not enough, but it's honest."
+      },
+      "playerResponses": [
+        { "text": "Healing takes time, both the sickness and the trust. Be patient with yourselves.", "action": "ACCEPT" },
+        { "text": "The important thing is nobody died. Don't steal from the commons again.", "action": "ACCEPT", "dispositionShift": -5 },
+        { "text": "I'm glad everyone pulled through. Stay well.", "action": "ACCEPT" }
+      ],
+      "objectivePool": [],
+      "objectiveConfig": {}
+    },
+    {
+      "id": "involuntarycrimesof_reso_03",
+      "dialogueChunks": {
+        "intro": "The festival happened, {player_name}. And it was the best one in years.",
+        "plotStep": "The {quest_item} you gathered filled the stores to bursting. The feast was magnificent: {target_npc} said it was the finest spread they'd ever tasted. I told them the truth after the last plate was cleared. About the secret charity, the depleted stores, the spoiled replacements, everything. {target_npc}'s family stood up and said they'd had no idea I was helping them, and they wished I'd just asked the community openly. The settlement voted to establish a formal aid fund so nobody has to sneak food to their neighbors again.",
+        "outro": "My secret generosity accidentally created something better: open generosity. Take this, {player_name}. The festival wouldn't have happened without you."
+      },
+      "playerResponses": [
+        { "text": "An aid fund from a secret mistake. Sometimes good things grow from bad soil.", "action": "ACCEPT", "dispositionShift": 10 },
+        { "text": "A full belly and an honest community. Not bad for a day's work.", "action": "ACCEPT" }
+      ],
+      "objectivePool": [],
+      "objectiveConfig": {}
+    },
+    {
+      "id": "involuntarycrimesof_reso_04",
+      "dialogueChunks": {
+        "intro": "{target_npc}'s family is home, {player_name}. Really home this time.",
+        "plotStep": "You cleared the raiders permanently and recovered everything they'd stolen, including the {quest_item} that {target_npc} needed to restart their workshop. The family is safe behind the settlement walls now, and the guard has been reinforced on the southern road so nobody can exploit that approach again. I stood with {target_npc} this morning and apologized for everything: the hasty advice, the false assurance of safety, all of it. They forgave me. Said my heart was in the right place even when my judgment wasn't.",
+        "outro": "You gave a displaced family their life back. Here: it's from {target_npc} and me together. With gratitude and a promise to think before we act."
+      },
+      "playerResponses": [
+        { "text": "A family home and lessons learned. That's a real resolution.", "action": "ACCEPT" },
+        { "text": "Good intentions need good judgment to match. Remember that.", "action": "ACCEPT" },
+        { "text": "Glad the family is safe. Reinforce those defenses and stay cautious.", "action": "ACCEPT" }
+      ],
+      "objectivePool": [],
+      "objectiveConfig": {}
+    }
+  ]
+}

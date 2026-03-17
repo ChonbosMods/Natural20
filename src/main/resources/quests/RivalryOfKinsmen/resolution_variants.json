@@ -1,0 +1,62 @@
+{
+  "variants": [
+    {
+      "id": "rivalryofkinsmen_reso_01",
+      "dialogueChunks": {
+        "intro": "{player_name}, you're not going to believe this. They're laughing together.",
+        "plotStep": "When you brought back the {quest_item} that required both their skills to process, they had no choice but to work side by side. And somewhere between the arguing and the forging and the cooking, they realized neither of them could have done it alone. {target_npc} says they caught the two of them sharing a drink at the tavern last night, comparing techniques like old colleagues.",
+        "outro": "You didn't just fetch materials: you forced two stubborn artisans to remember why they respected each other. Here's your reward, well earned."
+      },
+      "playerResponses": [
+        { "text": "Laughter after weeks of shouting. That's the best outcome I could hope for.", "action": "ACCEPT", "dispositionShift": 10 },
+        { "text": "Took them long enough. I hope they keep it up.", "action": "ACCEPT" }
+      ],
+      "objectivePool": [],
+      "objectiveConfig": {}
+    },
+    {
+      "id": "rivalryofkinsmen_reso_02",
+      "dialogueChunks": {
+        "intro": "The apprentice is safe, {player_name}. And they brought back something nobody expected.",
+        "plotStep": "While hiding from the {enemy_type}, the apprentice found a deposit of {quest_item} that neither master crafter knew existed. It's enough for both workshops to operate independently for months. With scarcity no longer an issue, the competition lost its edge. {target_npc} organized a modest ceremony where both crafters agreed to share resources going forward. The apprentice credits you with their survival: says you cut through those creatures like they were practice dummies.",
+        "outro": "An apprentice saved, a feud ended, and a new resource secured. Not a bad day's work. This is yours."
+      },
+      "playerResponses": [
+        { "text": "The apprentice deserves credit too: surviving out there took real courage.", "action": "ACCEPT" },
+        { "text": "Abundance solves a lot of arguments. I'm glad it worked out.", "action": "ACCEPT" },
+        { "text": "Tell those masters to take better care of their students.", "action": "ACCEPT", "dispositionShift": -5 }
+      ],
+      "objectivePool": [],
+      "objectiveConfig": {}
+    },
+    {
+      "id": "rivalryofkinsmen_reso_03",
+      "dialogueChunks": {
+        "intro": "The tavern is intact, the traders have settled, and I owe it all to you, {player_name}.",
+        "plotStep": "When you showed up with enough {quest_item} for both traders and then some, the wind went right out of their sails. Hard to fight over scarcity when there's abundance piled on the bar. {target_npc} helped broker a formal market-sharing agreement: both traders get designated stalls, set hours, and no more brawling on my floor. The settlement wins because competition drives prices down.",
+        "outro": "My tables are fixed, my customers are calm, and you're the reason. This round is on the house, plus a little something extra."
+      },
+      "playerResponses": [
+        { "text": "A peaceful tavern and happy traders. I'll drink to that.", "action": "ACCEPT", "dispositionShift": 10 },
+        { "text": "Just keep the tables bolted down. Those two might relapse.", "action": "ACCEPT" }
+      ],
+      "objectivePool": [],
+      "objectiveConfig": {}
+    },
+    {
+      "id": "rivalryofkinsmen_reso_04",
+      "dialogueChunks": {
+        "intro": "The test was held this morning, {player_name}. Both prototypes were built, side by side.",
+        "plotStep": "In the end, the council chose elements from both designs. The watchtower will have one crafter's structural foundation and the other's defensive features. Neither won outright, but neither lost either: and the final design is better than what either could have made alone. {target_npc} says both crafters grumbled for an hour and then quietly started collaborating on the final blueprints. The watchtower breaks ground tomorrow.",
+        "outro": "A fair contest with a fair result. The settlement gets a better watchtower, and you made it possible. Take this with our thanks."
+      },
+      "playerResponses": [
+        { "text": "The best design used both their strengths. That's how it should be.", "action": "ACCEPT" },
+        { "text": "A watchtower built from rivalry. At least something good came of all that stubbornness.", "action": "ACCEPT" },
+        { "text": "Glad I could help settle it. Now build that tower.", "action": "ACCEPT" }
+      ],
+      "objectivePool": [],
+      "objectiveConfig": {}
+    }
+  ]
+}

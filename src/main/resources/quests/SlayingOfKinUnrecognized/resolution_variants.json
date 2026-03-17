@@ -1,0 +1,61 @@
+{
+  "variants": [
+    {
+      "id": "slayingofkinunrecog_reso_01",
+      "dialogueChunks": {
+        "intro": "It's done, {player_name}. The reparations have been accepted.",
+        "plotStep": "The neighboring settlement received the {quest_item} compensation and the cleared road with grace. Their elder said something I didn't expect: that the disguised traders were warned the roads were dangerous but chose the costumes themselves, against advice. The blame isn't entirely mine, though the guilt will never fully lift. {target_npc} brokered a renewed trade agreement between our settlements, stronger than the old one. Something good grew from something terrible.",
+        "outro": "You cleared the road, delivered the reparations, and helped two settlements find peace. Take this. I earned none of it, but you earned all of it."
+      },
+      "playerResponses": [
+        { "text": "Shared blame and renewed trade. It's not perfect, but it's a path forward.", "action": "ACCEPT" },
+        { "text": "The guilt may linger, but the friendship between settlements is real. Hold onto that.", "action": "ACCEPT", "dispositionShift": 5 }
+      ],
+      "objectivePool": [],
+      "objectiveConfig": {}
+    },
+    {
+      "id": "slayingofkinunrecog_reso_02",
+      "dialogueChunks": {
+        "intro": "{player_name}, you found the laboratory. And the truth is worse and better than I feared.",
+        "plotStep": "The person running the transformation operation was a rogue alchemist who had been experimenting on abducted villagers for months. You shut them down and recovered enough of the {quest_item} formula to develop a reversal treatment. {target_npc} says two more transformed victims have been identified and sedated for treatment. The one I killed: they were too far gone, the alchemist confirmed. Nothing could have saved them by that point. That doesn't erase what I did, but it means I'm not the only one responsible.",
+        "outro": "You stopped a monster-maker and gave us a cure. The weight on my shoulders is lighter because of you. Take this."
+      },
+      "playerResponses": [
+        { "text": "The alchemist who did this is the real villain. You were a victim of circumstance.", "action": "ACCEPT", "dispositionShift": 10 },
+        { "text": "Two more victims saved because you carried your guilt to me. That courage matters.", "action": "ACCEPT" }
+      ],
+      "objectivePool": [],
+      "objectiveConfig": {}
+    },
+    {
+      "id": "slayingofkinunrecog_reso_03",
+      "dialogueChunks": {
+        "intro": "You found survivors, {player_name}. Living, breathing survivors.",
+        "plotStep": "Three people were hiding in the deepest tunnels, surviving on cave water and moss. They're malnourished and shaken, but alive. When I saw them emerge from the tunnel mouth, I fell to my knees. These are people who would have died in that camp if not for your search. {target_npc} is organizing their care, and the families from the other settlements have been notified. The {quest_item} they'd gathered in the tunnels is being returned to its rightful owners.",
+        "outro": "I went to those tunnels looking for evidence of my failure and found proof that something I did, however badly, led to lives being saved. Take this, {player_name}. You found the redemption I was too afraid to look for."
+      },
+      "playerResponses": [
+        { "text": "Three lives pulled from the dark. That changes everything.", "action": "ACCEPT", "dispositionShift": 10 },
+        { "text": "The past can't be undone, but the living can be helped. Focus on that.", "action": "ACCEPT" }
+      ],
+      "objectivePool": [],
+      "objectiveConfig": {}
+    },
+    {
+      "id": "slayingofkinunrecog_reso_04",
+      "dialogueChunks": {
+        "intro": "The gates opened, {player_name}. They let us in.",
+        "plotStep": "When the village saw the {enemy_type} den cleared and the fresh {quest_item} supplies you gathered, they opened their gates for the first time in weeks. The sick received treatment, and {target_npc} spent the entire day working alongside their healers. By evening, the village elder invited me inside to talk. I told them everything: the cart, the healer, my failure to check their papers. They were quiet for a long time. Then they said forgiveness takes time, but they were willing to start.",
+        "outro": "You earned their trust when I had destroyed it. The medicine is flowing, the sick are recovering, and two settlements are speaking again. This is yours."
+      },
+      "playerResponses": [
+        { "text": "Forgiveness that takes time is still forgiveness. That's a beginning.", "action": "ACCEPT" },
+        { "text": "The sick are treated and the gates are open. The rest will follow.", "action": "ACCEPT", "dispositionShift": 5 },
+        { "text": "Never skip the papers. Ever.", "action": "ACCEPT" }
+      ],
+      "objectivePool": [],
+      "objectiveConfig": {}
+    }
+  ]
+}

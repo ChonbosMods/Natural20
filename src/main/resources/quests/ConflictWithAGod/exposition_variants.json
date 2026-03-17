@@ -1,0 +1,61 @@
+{
+  "variants": [
+    {
+      "id": "conflict_with_a_god_expo_01",
+      "dialogueChunks": {
+        "intro": "{player_name}, have you noticed the sky over {location}? That sickly green light isn't natural. Nothing about what's happening here is natural.",
+        "plotStep": "The land itself is turning against us. Crops blacken overnight, wells taste of copper, and the animals won't come within a mile of the old temple {location_hint}. {target_npc} says the spirits that guard this region have been angered: something disturbed the shrine deep in the temple, and now the curse is spreading. We need {quest_item} to perform a cleansing ritual before the corruption reaches the settlement. The {enemy_type} that have been spawning near the temple are a symptom, not the cause.",
+        "outro": "I don't pretend to understand the divine. But I understand dying land when I see it, and ours is dying fast."
+      },
+      "playerResponses": [
+        { "text": "Cursed temples and angry spirits. Not my usual work, but I'll go.", "action": "ACCEPT" },
+        { "text": "Sounds like superstition. But if the land really is dying, I'll investigate.", "action": "ACCEPT", "dispositionShift": -5 },
+        { "text": "I don't meddle with forces I don't understand. Find a priest.", "action": "DECLINE" }
+      ],
+      "objectivePool": ["EXPLORE_LOCATION", "GATHER_ITEMS", "KILL_MOBS"],
+      "objectiveConfig": {
+        "EXPLORE_LOCATION": { "countMin": 1, "countMax": 3 },
+        "GATHER_ITEMS": { "countMin": 4, "countMax": 10 },
+        "KILL_MOBS": { "countMin": 3, "countMax": 6 }
+      }
+    },
+    {
+      "id": "conflict_with_a_god_expo_02",
+      "dialogueChunks": {
+        "intro": "Don't go near the water, {player_name}. Please. Not until you hear what I have to say.",
+        "plotStep": "Three days ago the river through {location} turned black. Not dirty: black, like ink. {target_npc} tested it and the results were terrifying: anything living that touches it withers within hours. The alchemists believe an ancient shrine upstream was desecrated: someone broke the seals that kept the corruption contained. I've studied the old texts, and the only way to purify the source is with {quest_item}, applied directly to the shrine stones. The path upstream is thick with {enemy_type} drawn to the dark energy.",
+        "outro": "Whatever was sealed in that shrine is awake now. If we don't put it back to sleep, this entire valley will be poisoned."
+      },
+      "playerResponses": [
+        { "text": "Show me the old texts. I'll find the shrine and cleanse it.", "action": "ACCEPT" },
+        { "text": "Desecrated shrines and cursed rivers. What have you people been doing out here?", "action": "ACCEPT" },
+        { "text": "Ancient corruption is beyond my abilities. You need a scholar, not a sword.", "action": "DECLINE" }
+      ],
+      "objectivePool": ["FETCH_ITEM", "EXPLORE_LOCATION", "KILL_MOBS"],
+      "objectiveConfig": {
+        "FETCH_ITEM": { "locationPreference": "DUNGEON" },
+        "EXPLORE_LOCATION": { "countMin": 2, "countMax": 3 },
+        "KILL_MOBS": { "countMin": 3, "countMax": 8 }
+      }
+    },
+    {
+      "id": "conflict_with_a_god_expo_03",
+      "dialogueChunks": {
+        "intro": "I've traveled far to reach {location}, {player_name}, because I heard there's someone here brave enough or foolish enough to help me challenge what no mortal should.",
+        "plotStep": "The spirit guardians of the old forest {location_hint} have turned hostile. For generations they protected travelers and kept the {enemy_type} at bay. Now they attack anyone who enters. {target_npc} ventured in last week to leave the traditional offerings and barely escaped alive. Something has corrupted them: twisted their purpose from protection to destruction. I believe {quest_item} can anchor a purification ward, but someone has to get close enough to the heart-tree to place it.",
+        "outro": "We're not fighting a mortal enemy. We're trying to heal something sacred that's been wounded. That takes a different kind of courage."
+      },
+      "playerResponses": [
+        { "text": "Healing what's sacred sounds like a cause worth risking for.", "action": "ACCEPT" },
+        { "text": "Corrupted spirits, cursed forests, certain danger. Why not.", "action": "ACCEPT" },
+        { "text": "I respect the old spirits enough to stay out of their business.", "action": "DECLINE" }
+      ],
+      "objectivePool": ["EXPLORE_LOCATION", "GATHER_ITEMS", "FETCH_ITEM"],
+      "objectiveConfig": {
+        "EXPLORE_LOCATION": { "countMin": 2, "countMax": 4 },
+        "GATHER_ITEMS": { "countMin": 5, "countMax": 12 },
+        "FETCH_ITEM": { "locationPreference": "DUNGEON" }
+      }
+    }
+  ]
+}

@@ -1,0 +1,61 @@
+{
+  "variants": [
+    {
+      "id": "loss_of_loved_ones_expo_01",
+      "dialogueChunks": {
+        "intro": "Forgive me, {player_name}. I'm not usually like this. It's just... the house is so quiet now.",
+        "plotStep": "My husband passed three weeks ago. Not violently, not from {enemy_type}: just a fever that wouldn't break. He was the one who managed our stores, kept the pantry full, made sure {location} always had enough to eat. Now the shelves are empty because I don't know how to do what he did. {target_npc} has been helping, but they have their own family to feed. I need {quest_item} from the suppliers he used to visit {location_hint}, but I don't know the routes and the roads are dangerous.",
+        "outro": "I'm not asking for pity. I'm asking for help until I can stand on my own two feet again."
+      },
+      "playerResponses": [
+        { "text": "You don't need to stand alone yet. I'll get what you need.", "action": "ACCEPT" },
+        { "text": "Grief is hard enough without empty shelves. Tell me the route.", "action": "ACCEPT" },
+        { "text": "I'm sorry for your loss, but I can't take on every sad story.", "action": "DECLINE" }
+      ],
+      "objectivePool": ["FETCH_ITEM", "EXPLORE_LOCATION", "GATHER_ITEMS"],
+      "objectiveConfig": {
+        "FETCH_ITEM": { "locationPreference": "WILDERNESS" },
+        "EXPLORE_LOCATION": { "countMin": 1, "countMax": 2 },
+        "GATHER_ITEMS": { "countMin": 4, "countMax": 10 }
+      }
+    },
+    {
+      "id": "loss_of_loved_ones_expo_02",
+      "dialogueChunks": {
+        "intro": "{player_name}, do you see that garden over there? The one with the withered tomatoes? That was my daughter's.",
+        "plotStep": "She was taken by {enemy_type} during a raid on the outskirts of {location} last month. Not captured: taken. {target_npc} tried to reach her but there were too many. Now the garden is dying because I can't bring myself to tend it: every time I touch the soil, I feel her hands guiding mine. But she'd hate to see it like this. She'd want it to thrive. I need {quest_item} to restore it properly: good seed, fresh soil, the things she always said made the difference. The supplier is {location_hint}, and the roads aren't safe.",
+        "outro": "I know a garden won't bring her back. But letting it die feels like losing her twice."
+      },
+      "playerResponses": [
+        { "text": "A garden kept alive is a memory kept alive. I'll get what you need.", "action": "ACCEPT" },
+        { "text": "She sounds like she was special. I'll honor her work.", "action": "ACCEPT" },
+        { "text": "I'm sorry. But a garden isn't something I risk my life for.", "action": "DECLINE" }
+      ],
+      "objectivePool": ["GATHER_ITEMS", "FETCH_ITEM", "EXPLORE_LOCATION"],
+      "objectiveConfig": {
+        "GATHER_ITEMS": { "countMin": 5, "countMax": 12 },
+        "FETCH_ITEM": { "locationPreference": "WILDERNESS" },
+        "EXPLORE_LOCATION": { "countMin": 1, "countMax": 2 }
+      }
+    },
+    {
+      "id": "loss_of_loved_ones_expo_03",
+      "dialogueChunks": {
+        "intro": "I should be cooking right now, {player_name}. That's what I do: I cook. But I can't seem to remember how anything tastes.",
+        "plotStep": "My brother was my taster, my critic, my loudest supporter. Every recipe I ever created, he was the first to try it and the last to leave the table. He died on the road from {location} two months ago, ambushed by {enemy_type} while delivering {quest_item} to a neighboring settlement. The delivery never arrived, and neither did he. {target_npc} found his pack scattered {location_hint}, but the supplies were gone. I want to finish what he started: complete that delivery in his name. But I need to gather replacement {quest_item} first.",
+        "outro": "He believed every meal could make someone's day better. The least I can do is make sure his last delivery reaches the people who needed it."
+      },
+      "playerResponses": [
+        { "text": "We'll finish his journey. Together.", "action": "ACCEPT" },
+        { "text": "Completing an unfinished delivery. That's a worthy memorial.", "action": "ACCEPT" },
+        { "text": "I'm sorry about your brother. But retracing his steps feels dangerous.", "action": "DECLINE" }
+      ],
+      "objectivePool": ["GATHER_ITEMS", "DELIVER_ITEM", "EXPLORE_LOCATION"],
+      "objectiveConfig": {
+        "GATHER_ITEMS": { "countMin": 5, "countMax": 14 },
+        "DELIVER_ITEM": {},
+        "EXPLORE_LOCATION": { "countMin": 1, "countMax": 2 }
+      }
+    }
+  ]
+}

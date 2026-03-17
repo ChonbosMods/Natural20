@@ -1,0 +1,60 @@
+{
+  "variants": [
+    {
+      "id": "fallingprey_reso_01",
+      "dialogueChunks": {
+        "intro": "I almost don't dare say it out loud, {player_name}, but I think the worst is finally behind us.",
+        "plotStep": "The blight is receding. The alchemist applied the compound you brought back, and the soil is responding. {target_npc} planted a test row this morning, and by afternoon there were green shoots pushing through. Green, {player_name}. After weeks of nothing but black and rot. The settlement is cautiously, carefully, allowing itself to hope again.",
+        "outro": "You fought nature itself to save us. Take this: it's all we have, but we give it with full hearts."
+      },
+      "playerResponses": [
+        { "text": "Green shoots from blackened soil. That's the most beautiful thing I've heard in weeks.", "action": "ACCEPT", "dispositionShift": 10 },
+        { "text": "I'm glad the treatment worked. May your harvest be strong.", "action": "ACCEPT" }
+      ],
+      "objectivePool": [],
+      "objectiveConfig": {}
+    },
+    {
+      "id": "fallingprey_reso_02",
+      "dialogueChunks": {
+        "intro": "{player_name}, sit with me a moment. I want to tell you what happened after you left.",
+        "plotStep": "The sickness broke three days ago. Just like that: one morning, people woke up and the fever was gone. The alchemist says the compound you brought tipped the balance at exactly the right moment. {target_npc} was the last to recover, and the first thing they did was walk to the well and drink a full cup of water without coughing. The whole square went silent watching them. Then someone started clapping, and it spread until every person in {location} was applauding a person drinking water.",
+        "outro": "We cheered for a cup of water, {player_name}. That's how far we'd fallen, and how far you lifted us. Take this."
+      },
+      "playerResponses": [
+        { "text": "Applause for a cup of water. I'll remember that for a long time.", "action": "ACCEPT", "dispositionShift": 5 },
+        { "text": "Simple things matter most after you almost lose them. Glad I could help.", "action": "ACCEPT" }
+      ],
+      "objectivePool": [],
+      "objectiveConfig": {}
+    },
+    {
+      "id": "fallingprey_reso_03",
+      "dialogueChunks": {
+        "intro": "The road is open, {player_name}. A merchant arrived this morning: the first in over a month.",
+        "plotStep": "You should have seen the faces when that cart rolled through the gate. People ran out of their houses. {target_npc} actually embraced the merchant, who was thoroughly confused by the welcome. The supplies the merchant brought are already being distributed, and the trade route you cleared is holding. {location} is connected to the world again. The isolation is over, and the slow starvation with it.",
+        "outro": "Here. Every family contributed to this. You broke the curse of misfortune that had been strangling us for months."
+      },
+      "playerResponses": [
+        { "text": "Not a curse: just bad luck that finally ran out. Keep the road maintained.", "action": "ACCEPT" },
+        { "text": "A merchant at the gates. Civilization returns. Good.", "action": "ACCEPT", "dispositionShift": 5 }
+      ],
+      "objectivePool": [],
+      "objectiveConfig": {}
+    },
+    {
+      "id": "fallingprey_reso_04",
+      "dialogueChunks": {
+        "intro": "I never thought I'd say this, but good things are happening, {player_name}. Actual, genuine good things.",
+        "plotStep": "The new mine vein {target_npc} found is producing twice what the old one ever did. The ore quality is exceptional, and the miners are saying it could sustain {location} for decades. What started as the worst disaster in our history has led us to something better than what we had before. The old miners have a saying: 'The mountain takes with one hand and gives with the other.' It took a while for the giving hand to open, but open it did.",
+        "outro": "From ruin to riches. And it started with you refusing to let misfortune have the last word. Take this with our profound gratitude."
+      },
+      "playerResponses": [
+        { "text": "From tragedy to something better. That's a story worth telling.", "action": "ACCEPT", "dispositionShift": 15 },
+        { "text": "I'm glad the mountain decided to give back. Mine it wisely.", "action": "ACCEPT" }
+      ],
+      "objectivePool": [],
+      "objectiveConfig": {}
+    }
+  ]
+}

@@ -1,0 +1,48 @@
+{
+  "variants": [
+    {
+      "id": "ambition_reso_01",
+      "dialogueChunks": {
+        "intro": "Look around you, {player_name}. Everything you see? We built this.",
+        "plotStep": "The forge is producing at full capacity. Three settlements have placed orders. {target_npc} came by this morning: not to threaten, but to negotiate. They finally see that fighting me is more expensive than working with me. I offered them a partnership. A small one, mind you, but enough to keep the peace. The {quest_item} you gathered made all of this possible.",
+        "outro": "You backed the right horse, {player_name}. Here's your share. And there'll be more where that came from."
+      },
+      "playerResponses": [
+        { "text": "A good outcome for everyone. I'll take my share gladly.", "action": "ACCEPT" },
+        { "text": "Just remember who made this possible when you're counting your profits.", "action": "ACCEPT", "dispositionShift": -5 },
+        { "text": "Profit and peace. Not bad for a day's work.", "action": "ACCEPT" }
+      ],
+      "objectivePool": [],
+      "objectiveConfig": {}
+    },
+    {
+      "id": "ambition_reso_02",
+      "dialogueChunks": {
+        "intro": "{player_name}. I owe you an honest word, and I always pay my debts.",
+        "plotStep": "I got what I wanted. The trade routes, the contracts, the influence. But it cost more than I planned. {target_npc} won't speak to me anymore, and half the settlement looks at me differently. I tell myself it was necessary: that {location} is stronger now because someone had the spine to act. And it is stronger. But some mornings I wonder if the old way was really so bad.",
+        "outro": "Here. Your payment, as promised. You earned every piece of it. And if I'm honest, you might be the only person left who doesn't resent me for what we did."
+      },
+      "playerResponses": [
+        { "text": "Power always comes with a price. You knew that going in.", "action": "ACCEPT" },
+        { "text": "Maybe rebuild some bridges while you still can.", "action": "ACCEPT", "dispositionShift": 10 }
+      ],
+      "objectivePool": [],
+      "objectiveConfig": {}
+    },
+    {
+      "id": "ambition_reso_03",
+      "dialogueChunks": {
+        "intro": "Well, {player_name}. We did it. The question is: was it worth it?",
+        "plotStep": "The settlement is thriving. New trade, new wealth, new construction. {target_npc} even admitted that the old way wasn't working. But I notice people step aside when I walk past now. Not out of respect: out of caution. I wanted to be a leader, and instead I became someone people are careful around. The {quest_item} bought me everything I asked for and something I didn't: a very particular kind of loneliness.",
+        "outro": "Take your reward, {player_name}. You were the best partner a schemer could ask for. I hope you spend it somewhere warm."
+      },
+      "playerResponses": [
+        { "text": "Loneliness is the toll of ambition. Spend your gains wisely.", "action": "ACCEPT" },
+        { "text": "You got what you wanted. Most people never even get that.", "action": "ACCEPT" },
+        { "text": "Maybe use some of that wealth to earn back what you lost.", "action": "ACCEPT", "dispositionShift": 5 }
+      ],
+      "objectivePool": [],
+      "objectiveConfig": {}
+    }
+  ]
+}

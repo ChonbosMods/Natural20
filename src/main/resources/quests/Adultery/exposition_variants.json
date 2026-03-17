@@ -1,0 +1,59 @@
+{
+  "variants": [
+    {
+      "id": "adultery_expo_01",
+      "dialogueChunks": {
+        "intro": "{player_name}, you don't know me, but I know when someone can be trusted. And right now I need someone I can trust more than anything.",
+        "plotStep": "Our settlement signed a mutual defense pact with the garrison at {location} three seasons ago. We supplied them with food, they protected our borders. Simple, fair, sworn on oath. Then the {enemy_type} raids started and the garrison pulled back to protect their own walls. Left us exposed without a word of warning. {target_npc} rode to demand they honor the pact and was turned away at the gates. Now our stores are being raided nightly and we have no defenders. I need {quest_item} to fortify what's left and proof that the garrison broke their word.",
+        "outro": "A sworn oath means nothing to them. But it means everything to us. Help me gather what we need to survive their betrayal."
+      },
+      "playerResponses": [
+        { "text": "Broken oaths deserve consequences. I'll help you build your case.", "action": "ACCEPT" },
+        { "text": "Gather supplies and evidence. I can do that.", "action": "ACCEPT" },
+        { "text": "Getting between a settlement and a garrison is too political for me.", "action": "DECLINE" }
+      ],
+      "objectivePool": ["GATHER_ITEMS", "EXPLORE_LOCATION"],
+      "objectiveConfig": {
+        "GATHER_ITEMS": { "countMin": 5, "countMax": 12 },
+        "EXPLORE_LOCATION": { "countMin": 1, "countMax": 2 }
+      }
+    },
+    {
+      "id": "adultery_expo_02",
+      "dialogueChunks": {
+        "intro": "I should be angry. I am angry. But right now, {player_name}, what I really am is hurt.",
+        "plotStep": "{target_npc} and I built this tavern together. Equal partners, equal shares, a covenant sealed with a handshake and witnessed by half the settlement. Last month, I discovered they've been secretly trading our best stock to {enemy_type} merchants {location_hint}: selling our finest barrels for personal profit and replacing them with watered-down swill. The regulars noticed the quality drop and started going elsewhere. Our reputation, everything we built together, is crumbling because of greed. I need {quest_item} to restock properly and evidence of the secret deals to bring before the settlement council.",
+        "outro": "I trusted them with everything. My livelihood, my name, my future. They poured it all out for a few extra coins. I want justice, not revenge. There's a difference."
+      },
+      "playerResponses": [
+        { "text": "Justice means evidence. I'll find it.", "action": "ACCEPT" },
+        { "text": "Betrayal by a partner cuts deep. I'll help you set things right.", "action": "ACCEPT" },
+        { "text": "Business disputes aren't really my area.", "action": "DECLINE" }
+      ],
+      "objectivePool": ["FETCH_ITEM", "EXPLORE_LOCATION", "GATHER_ITEMS"],
+      "objectiveConfig": {
+        "FETCH_ITEM": { "locationPreference": "WILDERNESS" },
+        "EXPLORE_LOCATION": { "countMin": 1, "countMax": 2 },
+        "GATHER_ITEMS": { "countMin": 4, "countMax": 8 }
+      }
+    },
+    {
+      "id": "adultery_expo_03",
+      "dialogueChunks": {
+        "intro": "Come closer, {player_name}. This isn't a conversation for open air.",
+        "plotStep": "The merchant guild in {location} signed a trade covenant five years ago: fair prices, shared routes, mutual support during shortages. It worked beautifully. Then the guild master started making side deals with outside traders, undercutting local merchants and funneling profits to a private account. {target_npc} uncovered the discrepancy in the ledgers and brought it to me. The guild master has powerful friends and {enemy_type} enforcers watching the roads. I need you to gather {quest_item} to support the local merchants who've been cut out, and retrieve the original covenant from the guild hall {location_hint}.",
+        "outro": "Five years of trust, shattered by one person's greed. The covenant still exists: signed, sealed, legally binding. If we can put it in front of the right people, the guild master answers for every broken promise."
+      },
+      "playerResponses": [
+        { "text": "A binding covenant and a corrupt leader. I'll get you what you need.", "action": "ACCEPT" },
+        { "text": "Powerful friends and enforcers. This won't be easy, but I'm in.", "action": "ACCEPT", "dispositionShift": -5 },
+        { "text": "Guild politics are a labyrinth I'd rather avoid.", "action": "DECLINE" }
+      ],
+      "objectivePool": ["FETCH_ITEM", "GATHER_ITEMS"],
+      "objectiveConfig": {
+        "FETCH_ITEM": { "locationPreference": "DUNGEON" },
+        "GATHER_ITEMS": { "countMin": 4, "countMax": 10 }
+      }
+    }
+  ]
+}

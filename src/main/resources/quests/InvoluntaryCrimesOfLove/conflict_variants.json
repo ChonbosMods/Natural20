@@ -1,0 +1,79 @@
+{
+  "variants": [
+    {
+      "id": "involuntarycrimesof_conf_01",
+      "dialogueChunks": {
+        "intro": "{player_name}, the people I tried to protect are now in even greater danger because of me.",
+        "plotStep": "The raiders who exploited the gap in our defenses didn't just steal supplies: they came back for more. This time they targeted the homes I left unguarded, and they've taken hostages. {target_npc} managed to track them {location_hint}, but they're dug in with the hostages as shields. The {enemy_type} are involved too: the raiders have been paying them with the {quest_item} they stole from us. We need someone who can get close without triggering a hostage situation.",
+        "outro": "My overprotection of one family put other families in chains. Please, help me free them."
+      },
+      "playerResponses": [
+        { "text": "Hostages and hostile camps? I'll find a way to get them out.", "action": "ACCEPT" },
+        { "text": "The consequences of your good intentions keep escalating. But those hostages need rescuing.", "action": "ACCEPT" },
+        { "text": "Hostage rescues require a trained squad, not one person. Find real help.", "action": "DECLINE" }
+      ],
+      "objectivePool": ["EXPLORE_LOCATION", "KILL_MOBS", "TALK_TO_NPC"],
+      "objectiveConfig": {
+        "EXPLORE_LOCATION": { "countMin": 1, "countMax": 2 },
+        "KILL_MOBS": { "countMin": 4, "countMax": 9 },
+        "TALK_TO_NPC": { "countMin": 1, "countMax": 1 }
+      }
+    },
+    {
+      "id": "involuntarycrimesof_conf_02",
+      "dialogueChunks": {
+        "intro": "It's happened again, {player_name}. My attempt to fix things made everything worse.",
+        "plotStep": "I told {target_npc} the truth about stealing the medicine, hoping they'd understand. Instead, they confronted the alchemist publicly, and now the entire settlement knows. People are furious: they're hoarding their own supplies out of fear that someone else will steal from the communal stores. The alchemist has locked their workshop and refuses to treat anyone until order is restored. Meanwhile, the sick are getting worse and the {quest_item} we need for a cure is still out in the marshes {location_hint}. The {enemy_type} there have grown bolder since your last trip.",
+        "outro": "Trust is broken, the sick are suffering, and the only medicine is in a monster-infested swamp. I'm so sorry."
+      },
+      "playerResponses": [
+        { "text": "The sick come first. I'll get the medicine, and you work on rebuilding trust.", "action": "ACCEPT" },
+        { "text": "Every time you try to help, things collapse. Get the alchemist to cooperate while I'm gone.", "action": "ACCEPT", "dispositionShift": -5 },
+        { "text": "The settlement's trust issues aren't my problem to solve.", "action": "DECLINE" }
+      ],
+      "objectivePool": ["GATHER_ITEMS", "KILL_MOBS", "EXPLORE_LOCATION"],
+      "objectiveConfig": {
+        "GATHER_ITEMS": { "countMin": 6, "countMax": 14 },
+        "KILL_MOBS": { "countMin": 3, "countMax": 7 },
+        "EXPLORE_LOCATION": { "countMin": 1, "countMax": 2 }
+      }
+    },
+    {
+      "id": "involuntarycrimesof_conf_03",
+      "dialogueChunks": {
+        "intro": "The festival is tomorrow, {player_name}, and I've made the shortage worse by trying to cover it up.",
+        "plotStep": "I tried to replace the tavern stores by buying from a passing merchant, but they sold me spoiled goods. Half of what I stockpiled is rotten and the other half was infested with pests. Now we have less food than before I started. {target_npc} discovered the spoiled stores and is asking questions I can't answer. The only way to save the festival and my secret is to gather a massive amount of {quest_item} from the orchards {location_hint}: but a pack of {enemy_type} has claimed the area since the last harvest.",
+        "outro": "One lie leads to another. I just need this one last thing and I can make everything right."
+      },
+      "playerResponses": [
+        { "text": "A festival matters to these people. I'll gather what you need.", "action": "ACCEPT" },
+        { "text": "Cover-ups on top of cover-ups. This ends after I get the supplies. You tell the truth.", "action": "ACCEPT", "dispositionShift": -5 },
+        { "text": "You're digging yourself deeper with every move. I'm not enabling this.", "action": "DECLINE" }
+      ],
+      "objectivePool": ["GATHER_ITEMS", "KILL_MOBS"],
+      "objectiveConfig": {
+        "GATHER_ITEMS": { "countMin": 8, "countMax": 18 },
+        "KILL_MOBS": { "countMin": 3, "countMax": 6 }
+      }
+    },
+    {
+      "id": "involuntarycrimesof_conf_04",
+      "dialogueChunks": {
+        "intro": "{player_name}, the farmstead you cleared? The raiders came back. And they brought reinforcements.",
+        "plotStep": "{target_npc}'s family tried to return home after you cleared the camp, but the raiders had regrouped with {enemy_type} allies. They ambushed the family on the road {location_hint} and scattered them into the woods. Some of {target_npc}'s belongings: including irreplaceable {quest_item}: were seized again. I should have warned them to wait, but I wanted so badly to fix what I'd broken that I told them it was safe before confirming it.",
+        "outro": "I keep pushing people into danger by trying to help too fast. The family is out there, separated, in hostile territory. They need you."
+      },
+      "playerResponses": [
+        { "text": "Scattered in the woods with raiders closing in? I'll find them.", "action": "ACCEPT" },
+        { "text": "You told them it was safe when it wasn't. Again. I'll rescue them, but this pattern has to stop.", "action": "ACCEPT" },
+        { "text": "Every time you 'help,' more people get hurt. I can't keep cleaning up after you.", "action": "DECLINE" }
+      ],
+      "objectivePool": ["EXPLORE_LOCATION", "KILL_MOBS", "FETCH_ITEM"],
+      "objectiveConfig": {
+        "EXPLORE_LOCATION": { "countMin": 2, "countMax": 3 },
+        "KILL_MOBS": { "countMin": 4, "countMax": 8 },
+        "FETCH_ITEM": { "locationPreference": "WILDERNESS" }
+      }
+    }
+  ]
+}

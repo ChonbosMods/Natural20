@@ -1,0 +1,61 @@
+{
+  "variants": [
+    {
+      "id": "recovery_of_a_lost_one_conf_01",
+      "dialogueChunks": {
+        "intro": "{player_name}, you found her? You actually found her? But... what do you mean she won't come back?",
+        "plotStep": "She's alive, thank the stars, but she's built a life out there. A small homestead {location_hint}, trading with passing caravans. She said she didn't come back because she was ashamed of failing the original trade mission, and by the time shame faded, too much time had passed. She needs {quest_item} to winterize her homestead before the cold arrives, and the {enemy_type} have been pushing closer to her land every week. If we help secure her home, maybe she'll agree to at least visit {location}.",
+        "outro": "She's alive and safe, but she chose to stay away. I don't know whether to be relieved or heartbroken."
+      },
+      "playerResponses": [
+        { "text": "One step at a time. Let's keep her safe first.", "action": "ACCEPT" },
+        { "text": "She left you worrying for three seasons by choice? That's rough.", "action": "ACCEPT", "dispositionShift": -5 },
+        { "text": "She's alive and doesn't want to come back. That's your answer.", "action": "DECLINE" }
+      ],
+      "objectivePool": ["GATHER_ITEMS", "KILL_MOBS", "DELIVER_ITEM"],
+      "objectiveConfig": {
+        "GATHER_ITEMS": { "countMin": 5, "countMax": 12 },
+        "KILL_MOBS": { "countMin": 3, "countMax": 7 },
+        "DELIVER_ITEM": {}
+      }
+    },
+    {
+      "id": "recovery_of_a_lost_one_conf_02",
+      "dialogueChunks": {
+        "intro": "The trail went cold, {player_name}. But then something unexpected happened.",
+        "plotStep": "A trader arrived at {location} carrying a bundle of {quest_item} with {target_npc}'s maker's mark on it. Fresh work, recently crafted. {target_npc} is alive and working somewhere, but the trader bought it from a middleman {location_hint} and doesn't know the original source. The middleman's camp is deep in {enemy_type} territory. If we can find the middleman and trace the supply chain back, we'll find {target_npc}. But the territory is dangerous and we'll need more {quest_item} to trade for information.",
+        "outro": "Every lead we follow brings us closer. I can feel it. They're out there, {player_name}, and they're alive."
+      },
+      "playerResponses": [
+        { "text": "A maker's mark doesn't lie. I'll trace the supply chain.", "action": "ACCEPT" },
+        { "text": "We're playing detective in enemy territory. Could be worse.", "action": "ACCEPT" },
+        { "text": "Chasing middlemen through hostile land isn't my idea of progress.", "action": "DECLINE" }
+      ],
+      "objectivePool": ["EXPLORE_LOCATION", "TALK_TO_NPC", "KILL_MOBS"],
+      "objectiveConfig": {
+        "EXPLORE_LOCATION": { "countMin": 2, "countMax": 4 },
+        "TALK_TO_NPC": { "countMin": 1, "countMax": 1 },
+        "KILL_MOBS": { "countMin": 3, "countMax": 6 }
+      }
+    },
+    {
+      "id": "recovery_of_a_lost_one_conf_03",
+      "dialogueChunks": {
+        "intro": "{player_name}, the letter was real. But the situation is more complicated than we thought.",
+        "plotStep": "{target_npc} isn't just being held: they've been working for the group willingly in exchange for protection from the {enemy_type}. They want to leave but fear the group will retaliate against {location} if they do. The drop point {location_hint} is watched. We need to gather enough {quest_item} to satisfy the group's demands for {target_npc}'s release, and we need to clear a safe escape route through territory that's crawling with {enemy_type}. It's a rescue and a negotiation at the same time.",
+        "outro": "They're so close to freedom. We just need to make the last pieces fall into place."
+      },
+      "playerResponses": [
+        { "text": "Negotiation backed by strength. I'll handle both.", "action": "ACCEPT" },
+        { "text": "A willing captive who wants out. That's a delicate situation.", "action": "ACCEPT" },
+        { "text": "If they chose to stay willingly, maybe they should stay.", "action": "DECLINE" }
+      ],
+      "objectivePool": ["GATHER_ITEMS", "KILL_MOBS", "EXPLORE_LOCATION"],
+      "objectiveConfig": {
+        "GATHER_ITEMS": { "countMin": 6, "countMax": 14 },
+        "KILL_MOBS": { "countMin": 4, "countMax": 8 },
+        "EXPLORE_LOCATION": { "countMin": 1, "countMax": 3 }
+      }
+    }
+  ]
+}

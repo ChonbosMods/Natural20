@@ -1,0 +1,78 @@
+{
+  "variants": [
+    {
+      "id": "deliverance_conf_01",
+      "dialogueChunks": {
+        "intro": "You're back, but something tells me it wasn't a clean run out there.",
+        "plotStep": "The {enemy_type} have reinforced their positions around the area where {target_npc} is trapped. Scouts report they've brought in more of their kind from {location_hint}, and they've set crude barriers across every approach. You'll need to break through their outer line and clear a path before you can reach the captives. Time is running out: {target_npc} was injured in the initial attack.",
+        "outro": "They're fortifying because they know we're coming. We need to hit them before they dig in any deeper."
+      },
+      "playerResponses": [
+        { "text": "Fortifications won't stop me. I'll punch through.", "action": "ACCEPT" },
+        { "text": "This is escalating fast. I'll need more than gratitude when it's done.", "action": "ACCEPT", "dispositionShift": -5 },
+        { "text": "An entrenched enemy is a different fight entirely. I'm out.", "action": "DECLINE" }
+      ],
+      "objectivePool": ["KILL_MOBS", "EXPLORE_LOCATION"],
+      "objectiveConfig": {
+        "KILL_MOBS": { "countMin": 5, "countMax": 10 },
+        "EXPLORE_LOCATION": { "countMin": 1, "countMax": 2 }
+      }
+    },
+    {
+      "id": "deliverance_conf_02",
+      "dialogueChunks": {
+        "intro": "{player_name}, we have a serious problem. The situation just got worse.",
+        "plotStep": "The captives have been moved. A trader passing through spotted {enemy_type} dragging prisoners {location_hint}, deeper into their territory. {target_npc} wasn't among the group the trader saw, which means they might have been separated or taken somewhere else entirely. We need you to track down where they've been relocated and bring {quest_item} to treat any wounded you find along the way.",
+        "outro": "Every hour they're in enemy hands is another hour of suffering. Please, hurry."
+      },
+      "playerResponses": [
+        { "text": "Moved or not, I'll find them. Give me everything you know.", "action": "ACCEPT" },
+        { "text": "Tracking prisoners through hostile territory? This just became a much bigger job.", "action": "ACCEPT", "dispositionShift": -5 },
+        { "text": "If they've been moved that deep, a rescue might be impossible.", "action": "DECLINE" }
+      ],
+      "objectivePool": ["EXPLORE_LOCATION", "FETCH_ITEM", "KILL_MOBS"],
+      "objectiveConfig": {
+        "EXPLORE_LOCATION": { "countMin": 2, "countMax": 3 },
+        "FETCH_ITEM": { "locationPreference": "WILDERNESS" },
+        "KILL_MOBS": { "countMin": 3, "countMax": 6 }
+      }
+    },
+    {
+      "id": "deliverance_conf_03",
+      "dialogueChunks": {
+        "intro": "Bad news, {player_name}. I wish I had something better to tell you.",
+        "plotStep": "{target_npc} managed to smuggle out a message: they've been forced to gather {quest_item} for the {enemy_type}. Working them day and night in the caves {location_hint}. If they stop producing, the {enemy_type} have threatened to make examples of the weakest. We need you to gather enough {quest_item} to replace what they've been mining so we can pull them out without the captors noticing immediately.",
+        "outro": "A distraction and a substitute. It's our best chance at getting them out alive."
+      },
+      "playerResponses": [
+        { "text": "Gather the materials and stage a swap? Clever. I'll make it work.", "action": "ACCEPT" },
+        { "text": "So now I'm doing the captors' mining for them? This is getting absurd.", "action": "ACCEPT", "dispositionShift": -5 },
+        { "text": "That plan has too many moving parts. I can't risk it.", "action": "DECLINE" }
+      ],
+      "objectivePool": ["GATHER_ITEMS", "EXPLORE_LOCATION"],
+      "objectiveConfig": {
+        "GATHER_ITEMS": { "countMin": 5, "countMax": 12 },
+        "EXPLORE_LOCATION": { "countMin": 1, "countMax": 2 }
+      }
+    },
+    {
+      "id": "deliverance_conf_04",
+      "dialogueChunks": {
+        "intro": "Thank the stars you came back, {player_name}. Things have taken a dark turn.",
+        "plotStep": "An informant from {location} says the {enemy_type} are planning to move the captives across the river {location_hint} by tomorrow morning. Once they cross, there's no settlement, no road, no landmark for miles: we'd lose their trail completely. {target_npc} sent word that several of the prisoners are too weak to travel fast. If we strike tonight, the confusion might give us the opening we need. But the camp is crawling with {enemy_type}.",
+        "outro": "Tomorrow they vanish. Tonight is our only window."
+      },
+      "playerResponses": [
+        { "text": "Then we move tonight. No more waiting.", "action": "ACCEPT" },
+        { "text": "A night raid against a full camp? I want double compensation.", "action": "ACCEPT", "dispositionShift": -5 },
+        { "text": "A nighttime assault on an enemy camp is suicide.", "action": "DECLINE" }
+      ],
+      "objectivePool": ["KILL_MOBS", "EXPLORE_LOCATION", "TALK_TO_NPC"],
+      "objectiveConfig": {
+        "KILL_MOBS": { "countMin": 4, "countMax": 8 },
+        "EXPLORE_LOCATION": { "countMin": 1, "countMax": 2 },
+        "TALK_TO_NPC": { "countMin": 1, "countMax": 1 }
+      }
+    }
+  ]
+}

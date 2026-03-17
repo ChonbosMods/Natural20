@@ -1,0 +1,58 @@
+{
+  "variants": [
+    {
+      "id": "crimes_of_love_expo_01",
+      "dialogueChunks": {
+        "intro": "I know what I did was wrong, {player_name}. I'm not here to pretend otherwise. But if you'd seen their faces, you'd have done the same thing.",
+        "plotStep": "My neighbor's children hadn't eaten in three days. The parents were too proud to beg and too sick to forage. So I took food from the settlement storehouse: broke the lock, filled a sack, and left it at their door. The guards found the broken lock the next morning and {target_npc} is leading the investigation. If they trace it back to me, I'll be exiled from {location}. I need {quest_item} to replace what I took before the inventory count tomorrow. If the storehouse is full when they check, there's nothing to investigate.",
+        "outro": "Call me a thief. I'll accept it. But those children ate that night, and I'd break that lock again tomorrow."
+      },
+      "playerResponses": [
+        { "text": "Stealing to feed hungry children isn't the crime they think it is. I'll help.", "action": "ACCEPT" },
+        { "text": "You broke the law for the right reasons. Let's fix this before it gets worse.", "action": "ACCEPT" },
+        { "text": "Theft is theft, no matter the reason. I can't be part of a cover-up.", "action": "DECLINE" }
+      ],
+      "objectivePool": ["GATHER_ITEMS", "FETCH_ITEM"],
+      "objectiveConfig": {
+        "GATHER_ITEMS": { "countMin": 5, "countMax": 10 },
+        "FETCH_ITEM": { "locationPreference": "WILDERNESS" }
+      }
+    },
+    {
+      "id": "crimes_of_love_expo_02",
+      "dialogueChunks": {
+        "intro": "{player_name}, I need someone who doesn't know the people involved. Someone who can look at this clearly.",
+        "plotStep": "My sister is harboring a deserter from the garrison: a young soldier who refused an order to burn a village suspected of aiding {enemy_type}. The order was monstrous, and the soldier couldn't carry it out. But desertion is a hanging offense, and {target_npc} has been asking questions around {location}. My sister asked me to find {quest_item} to disguise the soldier's identity and arrange passage to a settlement {location_hint} where nobody knows their face. I know I'm obstructing justice. But the 'justice' in question would hang someone for having a conscience.",
+        "outro": "The law says hang the deserter. My heart says save the person who couldn't burn innocent homes. I've chosen my heart. Will you help?"
+      },
+      "playerResponses": [
+        { "text": "A soldier with a conscience deserves protection, not a noose. Count me in.", "action": "ACCEPT" },
+        { "text": "Harboring deserters and forging identities. This is serious. But I'll help.", "action": "ACCEPT", "dispositionShift": -5 },
+        { "text": "I won't help a deserter escape, no matter the reason.", "action": "DECLINE" }
+      ],
+      "objectivePool": ["FETCH_ITEM", "EXPLORE_LOCATION"],
+      "objectiveConfig": {
+        "FETCH_ITEM": { "locationPreference": "WILDERNESS" },
+        "EXPLORE_LOCATION": { "countMin": 1, "countMax": 3 }
+      }
+    },
+    {
+      "id": "crimes_of_love_expo_03",
+      "dialogueChunks": {
+        "intro": "I've been making medicine for people who can't pay, {player_name}. Sounds noble until you hear the rest.",
+        "plotStep": "The alchemist guild controls all healing supplies in the region. Prices are set so high that only the wealthy can afford treatment. I've been secretly brewing remedies from wild ingredients and distributing them to the poor. The guild considers it unlicensed practice and they've sent enforcers to find the source. {target_npc} suspects me but hasn't said anything yet. I need {quest_item} from the highlands {location_hint} to keep brewing. The {enemy_type} up there make it dangerous, but people in {location} are counting on me.",
+        "outro": "Healing the sick shouldn't be a crime. But when the guild holds the monopoly, compassion becomes contraband. I won't stop. I can't."
+      },
+      "playerResponses": [
+        { "text": "Medicine for those who need it, laws be damned. What do you need?", "action": "ACCEPT" },
+        { "text": "Contraband compassion. I like you. Tell me where the herbs grow.", "action": "ACCEPT" },
+        { "text": "Going against a guild with enforcers is a fight I'd rather avoid.", "action": "DECLINE" }
+      ],
+      "objectivePool": ["GATHER_ITEMS", "EXPLORE_LOCATION"],
+      "objectiveConfig": {
+        "GATHER_ITEMS": { "countMin": 6, "countMax": 14 },
+        "EXPLORE_LOCATION": { "countMin": 1, "countMax": 2 }
+      }
+    }
+  ]
+}

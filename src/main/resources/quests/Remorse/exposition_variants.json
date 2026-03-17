@@ -1,0 +1,61 @@
+{
+  "variants": [
+    {
+      "id": "remorse_expo_01",
+      "dialogueChunks": {
+        "intro": "You look like someone who's seen the world, {player_name}. Tell me: do you believe a person can outrun their past?",
+        "plotStep": "Years ago, I abandoned a settlement during a {enemy_type} raid. Just ran. Left everyone behind: friends, neighbors, people who counted on me. I've lived with that shame every day since. Now I've heard that {location} is facing the same threat, and {target_npc} is there, one of the people I left behind. They don't know I'm nearby. I want to make it right: send them {quest_item} to help with their defenses, anonymously, gathered from {location_hint}. I can't face them yet. But I can stop being useless.",
+        "outro": "I know this doesn't erase what I did. But doing nothing a second time would be worse than the first."
+      },
+      "playerResponses": [
+        { "text": "Trying to make it right takes courage too. I'll help.", "action": "ACCEPT" },
+        { "text": "Anonymous help? Seems like you're still running. But I'll gather the supplies.", "action": "ACCEPT", "dispositionShift": -5 },
+        { "text": "Your guilt isn't my burden. Deal with it yourself.", "action": "DECLINE" }
+      ],
+      "objectivePool": ["GATHER_ITEMS", "FETCH_ITEM", "EXPLORE_LOCATION"],
+      "objectiveConfig": {
+        "GATHER_ITEMS": { "countMin": 5, "countMax": 12 },
+        "FETCH_ITEM": { "locationPreference": "WILDERNESS" },
+        "EXPLORE_LOCATION": { "countMin": 1, "countMax": 2 }
+      }
+    },
+    {
+      "id": "remorse_expo_02",
+      "dialogueChunks": {
+        "intro": "{player_name}, I've spent a long time on the road trying to forget something I did. The road hasn't helped.",
+        "plotStep": "When I worked at the tavern in {location}, I watered down the medicine supply during a plague to stretch it further and pocket the difference. People died, {player_name}. Not many, maybe two or three, but that's two or three who might have lived if I hadn't been greedy. {target_npc} was the healer who couldn't understand why the remedies weren't working. I need to make amends. There's a source of pure {quest_item} {location_hint} that could restock the settlement's medicine cache properly. Real supplies, this time. No shortcuts.",
+        "outro": "I can't bring back the dead. But I can make sure no one else dies from my selfishness."
+      },
+      "playerResponses": [
+        { "text": "What you did was terrible. But wanting to fix it is real. I'll help.", "action": "ACCEPT" },
+        { "text": "People died because of your greed. Getting supplies doesn't even the score.", "action": "ACCEPT", "dispositionShift": -5 },
+        { "text": "Turn yourself in. That's the only real redemption.", "action": "DECLINE" }
+      ],
+      "objectivePool": ["FETCH_ITEM", "GATHER_ITEMS", "KILL_MOBS"],
+      "objectiveConfig": {
+        "FETCH_ITEM": { "locationPreference": "DUNGEON" },
+        "GATHER_ITEMS": { "countMin": 6, "countMax": 14 },
+        "KILL_MOBS": { "countMin": 2, "countMax": 5 }
+      }
+    },
+    {
+      "id": "remorse_expo_03",
+      "dialogueChunks": {
+        "intro": "Sit with me for a moment, {player_name}. I have a story I've never told anyone, and it's killing me to keep it inside.",
+        "plotStep": "I used to be a guard in {location}. One night during a {enemy_type} attack, I saw a family trapped in a burning building. I had the chance to help them, but the fire was so hot, so close. I froze. By the time I moved, it was too late for the youngest child. {target_npc} was the father. He doesn't know I was there: doesn't know I could have saved his daughter and didn't. He still greets me kindly whenever our paths cross, and every smile cuts deeper than any blade. I need to do something: anything. There's a memorial site {location_hint} that was destroyed by {enemy_type}. If I rebuild it with proper {quest_item}, maybe... maybe I can start to live with myself.",
+        "outro": "I don't expect forgiveness. I just can't carry this alone anymore."
+      },
+      "playerResponses": [
+        { "text": "Rebuilding won't undo the past, but it honors the memory. I'll help.", "action": "ACCEPT" },
+        { "text": "That's a heavy burden. I'll gather what you need.", "action": "ACCEPT" },
+        { "text": "You should tell {target_npc} the truth. Not build monuments to avoid it.", "action": "DECLINE" }
+      ],
+      "objectivePool": ["GATHER_ITEMS", "EXPLORE_LOCATION", "FETCH_ITEM"],
+      "objectiveConfig": {
+        "GATHER_ITEMS": { "countMin": 6, "countMax": 15 },
+        "EXPLORE_LOCATION": { "countMin": 1, "countMax": 3 },
+        "FETCH_ITEM": { "locationPreference": "WILDERNESS" }
+      }
+    }
+  ]
+}

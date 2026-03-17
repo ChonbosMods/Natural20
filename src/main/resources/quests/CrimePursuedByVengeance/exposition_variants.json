@@ -1,0 +1,80 @@
+{
+  "variants": [
+    {
+      "id": "crimepursued_expo_01",
+      "dialogueChunks": {
+        "intro": "Sit down, {player_name}. What I'm about to tell you will make your blood boil, and I need you thinking clearly.",
+        "plotStep": "Three nights ago, a band of {enemy_type} hit the storehouse in {location} and killed the night watchman: an old man who never hurt anyone in his life. They took every last crate of {quest_item} and left him bleeding in the doorway. {target_npc} found the body at dawn. We tracked the raiders {location_hint}, but the guards here won't pursue beyond the settlement boundary. Someone needs to bring those monsters to justice.",
+        "outro": "That old man deserved better than dying alone on a cold floor. Will you make this right?"
+      },
+      "playerResponses": [
+        { "text": "They murdered an innocent man. I'll hunt them down.", "action": "ACCEPT" },
+        { "text": "Justice and vengeance both pay the same. I'm in.", "action": "ACCEPT", "dispositionShift": -5 },
+        { "text": "Vengeance is a dangerous road. I'll pass.", "action": "DECLINE" }
+      ],
+      "objectivePool": ["KILL_MOBS", "EXPLORE_LOCATION", "FETCH_ITEM"],
+      "objectiveConfig": {
+        "KILL_MOBS": { "countMin": 4, "countMax": 8 },
+        "EXPLORE_LOCATION": { "countMin": 1, "countMax": 2 },
+        "FETCH_ITEM": { "locationPreference": "DUNGEON" }
+      }
+    },
+    {
+      "id": "crimepursued_expo_02",
+      "dialogueChunks": {
+        "intro": "{player_name}, I'm going to be straight with you. I'm not asking for charity. I'm asking for justice.",
+        "plotStep": "Someone poisoned the well in {location}. Not an accident: deliberate. Three people are dead, including {target_npc}'s daughter. The alchemist found traces of a compound that only grows in the caves {location_hint}, and the tracks leading away from the well belong to {enemy_type}. They've been raiding our trade routes for months, but this? This is something else entirely. This is war.",
+        "outro": "Poisoning a well is the lowest act imaginable. Whoever ordered it needs to answer for what they've done."
+      },
+      "playerResponses": [
+        { "text": "Poisoning a water supply is an act of war. I'll find whoever is responsible.", "action": "ACCEPT" },
+        { "text": "Tracking poisoners through caves sounds dangerous. What's the bounty?", "action": "ACCEPT", "dispositionShift": -5 },
+        { "text": "This sounds like a feud that goes deeper than I want to get involved in.", "action": "DECLINE" }
+      ],
+      "objectivePool": ["EXPLORE_LOCATION", "KILL_MOBS", "GATHER_ITEMS"],
+      "objectiveConfig": {
+        "EXPLORE_LOCATION": { "countMin": 2, "countMax": 3 },
+        "KILL_MOBS": { "countMin": 3, "countMax": 7 },
+        "GATHER_ITEMS": { "countMin": 3, "countMax": 6 }
+      }
+    },
+    {
+      "id": "crimepursued_expo_03",
+      "dialogueChunks": {
+        "intro": "You look like someone who understands that some wrongs can't be forgiven, {player_name}.",
+        "plotStep": "A merchant caravan was slaughtered on the road {location_hint} last week. Not robbed: slaughtered. The goods were left scattered in the mud, untouched. {target_npc} was the only survivor, hiding under a wagon with a broken leg. They saw everything. The {enemy_type} did it for sport, laughing while good people screamed. The guards filed a report. A report. As if paperwork brings back the dead.",
+        "outro": "Those merchants had families waiting for them to come home. Someone needs to deliver the answer their families deserve."
+      },
+      "playerResponses": [
+        { "text": "Killing for sport? They won't be laughing when I find them.", "action": "ACCEPT" },
+        { "text": "I'll track them, but I need supplies and information first.", "action": "ACCEPT" },
+        { "text": "I hunt monsters, not ghosts. The trail is probably cold by now.", "action": "DECLINE" }
+      ],
+      "objectivePool": ["KILL_MOBS", "EXPLORE_LOCATION", "TALK_TO_NPC"],
+      "objectiveConfig": {
+        "KILL_MOBS": { "countMin": 5, "countMax": 10 },
+        "EXPLORE_LOCATION": { "countMin": 1, "countMax": 2 },
+        "TALK_TO_NPC": { "countMin": 1, "countMax": 1 }
+      }
+    },
+    {
+      "id": "crimepursued_expo_04",
+      "dialogueChunks": {
+        "intro": "Buy you a drink, {player_name}? Good. You'll need it after you hear what I have to say.",
+        "plotStep": "The blacksmith's apprentice was beaten half to death behind the tavern last night by {enemy_type} who've been shaking down traders in {location} for weeks. The boy refused to hand over the {quest_item} he'd been commissioned to deliver, so they made an example of him. {target_npc} pulled him out of the gutter at sunrise. The guards know who's responsible: a crew holed up in a camp {location_hint}. But knowing and acting are two different things around here.",
+        "outro": "That boy is sixteen years old and may never use his right hand again. If the guards won't act, someone else has to."
+      },
+      "playerResponses": [
+        { "text": "Show me where this crew is hiding. They'll answer for what they did.", "action": "ACCEPT" },
+        { "text": "Sixteen years old? I'll make them regret ever setting foot in {location}.", "action": "ACCEPT", "dispositionShift": 5 },
+        { "text": "Getting involved in local gang disputes isn't my fight.", "action": "DECLINE" }
+      ],
+      "objectivePool": ["KILL_MOBS", "FETCH_ITEM", "EXPLORE_LOCATION"],
+      "objectiveConfig": {
+        "KILL_MOBS": { "countMin": 4, "countMax": 9 },
+        "FETCH_ITEM": { "locationPreference": "SETTLEMENT" },
+        "EXPLORE_LOCATION": { "countMin": 1, "countMax": 1 }
+      }
+    }
+  ]
+}

@@ -1,0 +1,47 @@
+{
+  "variants": [
+    {
+      "id": "remorse_reso_01",
+      "dialogueChunks": {
+        "intro": "I stood my ground, {player_name}. When the {enemy_type} came, I didn't run. Not this time.",
+        "plotStep": "{target_npc} fought beside me at the barricade. Didn't say a word the whole time, but when it was over, they handed me their waterskin and sat down next to me. We watched the sun come up together in silence. That silence said more than any apology I could have spoken. {location} is safe, and for the first time in years, I feel like I belong somewhere again.",
+        "outro": "You gave me the push I needed to stop running. This isn't much, but it's everything I have. Take it."
+      },
+      "playerResponses": [
+        { "text": "Standing your ground when it mattered: that's who you are now.", "action": "ACCEPT", "dispositionShift": 15 },
+        { "text": "Silence and a shared waterskin. Sometimes that's enough.", "action": "ACCEPT" }
+      ],
+      "objectivePool": [],
+      "objectiveConfig": {}
+    },
+    {
+      "id": "remorse_reso_02",
+      "dialogueChunks": {
+        "intro": "The medicine reached {location}, {player_name}. Every vial, properly dosed, properly labeled.",
+        "plotStep": "{target_npc} figured out who sent it. I don't know how: maybe the handwriting, maybe someone talked. They sent a message back through a trader. Just one line: 'The sick are recovering. Come home if you want to.' I read those words fifty times. I'm not sure I deserve to go back. But for the first time, the door isn't closed. The people I let down aren't telling me to stay away.",
+        "outro": "You carried my penance across dangerous ground and delivered it with clean hands. This is for you, and I hope you know what it means."
+      },
+      "playerResponses": [
+        { "text": "Go home. The door's open. That's what matters.", "action": "ACCEPT", "dispositionShift": 10 },
+        { "text": "You can't change the past. But you changed the future for those people.", "action": "ACCEPT" },
+        { "text": "Don't waste the chance. Chances like this don't come twice.", "action": "ACCEPT" }
+      ],
+      "objectivePool": [],
+      "objectiveConfig": {}
+    },
+    {
+      "id": "remorse_reso_03",
+      "dialogueChunks": {
+        "intro": "The memorial is finished, {player_name}. It's... it's beautiful.",
+        "plotStep": "I went at dawn to see it complete. The {quest_item} catches the light just right, and there are wildflowers growing around the base already. {target_npc} was there. He'd left a small wooden toy at the foot of the stone: his daughter's favorite. He looked at me and said, 'She would have liked this.' Then he walked away. Not in anger. Just in grief. Grief I can understand. Grief I can share without making worse.",
+        "outro": "I don't have peace yet. But I have something I didn't have before: the beginning of peace. You made that possible. Take this, please."
+      },
+      "playerResponses": [
+        { "text": "The beginning of peace is more than most people find. Hold onto it.", "action": "ACCEPT", "dispositionShift": 15 },
+        { "text": "She would have liked it. That's all the redemption you need.", "action": "ACCEPT" }
+      ],
+      "objectivePool": [],
+      "objectiveConfig": {}
+    }
+  ]
+}

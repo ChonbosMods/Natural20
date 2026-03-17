@@ -1,0 +1,80 @@
+{
+  "variants": [
+    {
+      "id": "disaster_expo_01",
+      "dialogueChunks": {
+        "intro": "{player_name}! Thank the stars, someone who isn't covered in ash! We need help, we need it NOW!",
+        "plotStep": "A fire swept through {location} last night. Started in the granary and spread to half the settlement before we got it under control. Three buildings are still smoldering, the food stores are destroyed, and a dozen people are badly burned. {target_npc} is organizing what's left of the healthy adults, but we don't have the {quest_item} needed to treat the wounded or rebuild. The nearest supply is {location_hint}, but the smoke drew {enemy_type} down from the hills and they're between us and everything we need.",
+        "outro": "People are dying, {player_name}. Not tomorrow, not next week: right now, on the ground behind me. Please."
+      },
+      "playerResponses": [
+        { "text": "Tell me exactly what you need and where to find it. I'm going now.", "action": "ACCEPT" },
+        { "text": "I'll cut through whatever's in the way. Just keep the wounded alive until I get back.", "action": "ACCEPT" },
+        { "text": "I'm sorry, but I'm not equipped to handle a disaster of this scale.", "action": "DECLINE" }
+      ],
+      "objectivePool": ["GATHER_ITEMS", "FETCH_ITEM", "KILL_MOBS"],
+      "objectiveConfig": {
+        "GATHER_ITEMS": { "countMin": 6, "countMax": 15 },
+        "FETCH_ITEM": { "locationPreference": "WILDERNESS" },
+        "KILL_MOBS": { "countMin": 2, "countMax": 5 }
+      }
+    },
+    {
+      "id": "disaster_expo_02",
+      "dialogueChunks": {
+        "intro": "Don't step there! The ground is unstable! {player_name}, listen to me: {location} is falling apart.",
+        "plotStep": "An earthquake hit before dawn. The main road has collapsed into a sinkhole, half the buildings have cracked foundations, and the mine entrance caved in with workers still inside. {target_npc} is trying to dig them out with bare hands because every tool we had was stored in the workshop that's now rubble. We need {quest_item} to shore up the tunnel before it collapses further, and the only place to find it is {location_hint}. The aftershocks are driving {enemy_type} out of the caves and into the open.",
+        "outro": "There are people trapped underground running out of air. Every minute counts."
+      },
+      "playerResponses": [
+        { "text": "People trapped underground? I'll get the supplies. Don't stop digging.", "action": "ACCEPT" },
+        { "text": "Earthquakes, cave-ins, and displaced monsters. What a day. I'll help.", "action": "ACCEPT" },
+        { "text": "An unstable mine with aftershocks? That's a death trap, not a rescue mission.", "action": "DECLINE" }
+      ],
+      "objectivePool": ["GATHER_ITEMS", "FETCH_ITEM", "EXPLORE_LOCATION"],
+      "objectiveConfig": {
+        "GATHER_ITEMS": { "countMin": 5, "countMax": 12 },
+        "FETCH_ITEM": { "locationPreference": "DUNGEON" },
+        "EXPLORE_LOCATION": { "countMin": 1, "countMax": 2 }
+      }
+    },
+    {
+      "id": "disaster_expo_03",
+      "dialogueChunks": {
+        "intro": "The river is still rising, {player_name}. It hasn't stopped since yesterday.",
+        "plotStep": "The dam upriver broke during the storm. {location} was in the flood path and we barely got the elders and children to high ground before the water swept through. Houses are underwater, livestock drowned, and the entire season's harvest of {quest_item} is either ruined or washed downstream. {target_npc} managed to salvage some tools and food, but it won't last three days. The flood pushed the {enemy_type} out of the lowlands and now they're prowling the same high ground we're sheltering on.",
+        "outro": "We're stranded on a hilltop with monsters below and no supplies. If you don't help us, this hill becomes a grave."
+      },
+      "playerResponses": [
+        { "text": "I'll get through the floodwaters and bring back whatever you need.", "action": "ACCEPT" },
+        { "text": "Flood, famine, and monsters? Fine, but you owe me big.", "action": "ACCEPT", "dispositionShift": -5 },
+        { "text": "I can't fight a river. This is beyond what one person can fix.", "action": "DECLINE" }
+      ],
+      "objectivePool": ["GATHER_ITEMS", "KILL_MOBS", "EXPLORE_LOCATION"],
+      "objectiveConfig": {
+        "GATHER_ITEMS": { "countMin": 5, "countMax": 10 },
+        "KILL_MOBS": { "countMin": 3, "countMax": 6 },
+        "EXPLORE_LOCATION": { "countMin": 1, "countMax": 3 }
+      }
+    },
+    {
+      "id": "disaster_expo_04",
+      "dialogueChunks": {
+        "intro": "{player_name}, I've never seen anything like this. The sky itself turned against us.",
+        "plotStep": "A freak storm: hail the size of fists, wind that ripped roofs off like paper. It lasted an hour and left {location} looking like a battlefield. The healer's workshop is destroyed, the forge chimney collapsed, and worst of all, the storm scattered a nest of {enemy_type} from the cliffs above and drove them straight into the settlement. {target_npc} fought them off at the bridge, but they're regrouping {location_hint}. We need {quest_item} to patch up the wounded and barricade the gaps in our walls before they come back.",
+        "outro": "We survived the storm. Now we need to survive what it brought to our doorstep."
+      },
+      "playerResponses": [
+        { "text": "Storm damage and displaced monsters? I'll handle both. Point me where to go.", "action": "ACCEPT" },
+        { "text": "This is a mess, but a mess I can help clean up. What do you need first?", "action": "ACCEPT" },
+        { "text": "The storm was bad enough. Adding monsters to it is more than I can handle alone.", "action": "DECLINE" }
+      ],
+      "objectivePool": ["KILL_MOBS", "GATHER_ITEMS", "FETCH_ITEM"],
+      "objectiveConfig": {
+        "KILL_MOBS": { "countMin": 4, "countMax": 8 },
+        "GATHER_ITEMS": { "countMin": 4, "countMax": 10 },
+        "FETCH_ITEM": { "locationPreference": "WILDERNESS" }
+      }
+    }
+  ]
+}

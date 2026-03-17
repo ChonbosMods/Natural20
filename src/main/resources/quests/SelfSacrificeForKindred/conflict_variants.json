@@ -1,0 +1,60 @@
+{
+  "variants": [
+    {
+      "id": "self_sacrifice_for_kindred_conf_01",
+      "dialogueChunks": {
+        "intro": "{player_name}, you're back sooner than I expected. That can't be good news.",
+        "plotStep": "The blight has spread to the neighboring fields. {target_npc} just came in shaking: their settlement's grain is rotting too. They're asking us for help, but we barely have enough for ourselves. The wild grain you've been gathering is now the only hope for two communities, not one. I need you to go back out {location_hint} and gather twice as much, but the {enemy_type} have grown bolder. They've moved their nesting grounds closer to the grain patches.",
+        "outro": "I've started giving my water rations to the newcomers too. Don't look at me like that. I can last a little longer."
+      },
+      "playerResponses": [
+        { "text": "Twice the grain, twice the danger. I'll manage.", "action": "ACCEPT" },
+        { "text": "You need to stop giving away everything you have. But fine, I'll go.", "action": "ACCEPT", "dispositionShift": -5 },
+        { "text": "I can't feed two settlements. This is beyond me.", "action": "DECLINE" }
+      ],
+      "objectivePool": ["GATHER_ITEMS", "KILL_MOBS"],
+      "objectiveConfig": {
+        "GATHER_ITEMS": { "countMin": 8, "countMax": 16 },
+        "KILL_MOBS": { "countMin": 3, "countMax": 6 }
+      }
+    },
+    {
+      "id": "self_sacrifice_for_kindred_conf_02",
+      "dialogueChunks": {
+        "intro": "The dam is cracking faster than we thought, {player_name}. We have days, not weeks.",
+        "plotStep": "{target_npc} inspected the floodgates and found that the secondary mechanism is seized up with rust. The parts you brought won't be enough on their own: we need a counterweight system to hold the gates open long enough. There's an old iron forge {location_hint} that might have what we need, but it was abandoned when {enemy_type} moved into the area. I need you to get in there and bring back anything heavy enough to serve as ballast.",
+        "outro": "Every hour the cracks widen. I've moved my bedroll into the floodgate room. If the dam breaks tonight, at least I'll already be at the wheels."
+      },
+      "playerResponses": [
+        { "text": "Hold on a little longer. I'll bring back what we need.", "action": "ACCEPT" },
+        { "text": "Sleeping in a death trap. You really have lost your mind. I'll hurry.", "action": "ACCEPT", "dispositionShift": -5 },
+        { "text": "The dam is going to break regardless. Get out while you can.", "action": "DECLINE" }
+      ],
+      "objectivePool": ["FETCH_ITEM", "KILL_MOBS", "EXPLORE_LOCATION"],
+      "objectiveConfig": {
+        "FETCH_ITEM": { "locationPreference": "DUNGEON" },
+        "KILL_MOBS": { "countMin": 2, "countMax": 5 },
+        "EXPLORE_LOCATION": { "countMin": 1, "countMax": 2 }
+      }
+    },
+    {
+      "id": "self_sacrifice_for_kindred_conf_03",
+      "dialogueChunks": {
+        "intro": "Oh, {player_name}. I'm glad you're here. Things have gotten much worse.",
+        "plotStep": "The fever mutated. The remedy we had is only slowing it now, not curing it. The healer says we need a stronger preparation: a rare {quest_item} that grows deep in the caverns {location_hint}. {target_npc} collapsed this morning from exhaustion. I've been tending the sick around the clock. I haven't slept in three days, and I won't until this is over. The caverns are crawling with {enemy_type}, but that medicine is the only thing standing between us and a mass grave.",
+        "outro": "Look at me, {player_name}. I'll hold this settlement together with my bare hands if I have to. But I need you to bring back the cure."
+      },
+      "playerResponses": [
+        { "text": "Rest for even an hour. I'll bring the cure back as fast as I can.", "action": "ACCEPT" },
+        { "text": "Three days without sleep. You'll be the next one who collapses. But I'll go.", "action": "ACCEPT" },
+        { "text": "You're killing yourself, and I can't watch it anymore.", "action": "DECLINE" }
+      ],
+      "objectivePool": ["GATHER_ITEMS", "EXPLORE_LOCATION", "KILL_MOBS"],
+      "objectiveConfig": {
+        "GATHER_ITEMS": { "countMin": 4, "countMax": 8 },
+        "EXPLORE_LOCATION": { "countMin": 1, "countMax": 2 },
+        "KILL_MOBS": { "countMin": 3, "countMax": 7 }
+      }
+    }
+  ]
+}
