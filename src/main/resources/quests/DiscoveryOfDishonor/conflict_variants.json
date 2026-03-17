@@ -1,20 +1,20 @@
 {
   "variants": [
     {
-      "id": "conf_discovery_dishonor_evidence_deepens",
+      "id": "conf_discovery_dishonor_01",
       "dialogueChunks": {
-        "intro": "{player_name}, the corruption runs deeper than ledger entries. {target_npc} found evidence that {quest_threat} has been going on for over a decade.",
-        "plotStep": "The master didn't just skim fees. They sold proprietary techniques to a rival guild and blamed the leak on former apprentices: people whose careers were destroyed by the accusation. {quest_ally} tracked down one of those apprentices in {location}. They've been living in disgrace for years, blacklisted from every workshop in the region. {quest_item} contains the master's correspondence proving the sales.",
-        "outro": "Get {quest_item} from {location}. Every ruined career, every cheated student: all of it is connected. The master knows someone is looking and has started moving assets. We need the proof before it vanishes."
+        "intro": "{player_name}, the corruption runs deeper than we thought. {target_npc} found evidence that {quest_threat} has been going on for over a decade.",
+        "plotStep": "The dishonored person didn't just cheat their own people. They sold secrets to rivals and blamed the leak on innocent colleagues: people whose careers were destroyed by the accusation. {quest_ally} tracked down one of those wrongly accused at {location_hint}. {quest_item} contains proof of the full scheme.",
+        "outro": "Get {quest_item} from {location_hint}. Every ruined life, every cheated person: all connected. The guilty party knows someone is looking and has started moving assets."
       },
       "playerResponses": [
         {
-          "text": "Innocent people were destroyed by these lies. I'll get the correspondence.",
+          "text": "Innocent people were destroyed by these lies. I'll get the proof.",
           "action": "ACCEPT",
           "dispositionShift": 5
         },
         {
-          "text": "The master will fight back. Are we prepared for that?",
+          "text": "The guilty party will fight back. Are we prepared for that?",
           "action": "ACCEPT",
           "dispositionShift": 2
         },
@@ -28,15 +28,15 @@
       "objectiveConfig": {}
     },
     {
-      "id": "conf_discovery_dishonor_hero_fights_back",
+      "id": "conf_discovery_dishonor_02",
       "dialogueChunks": {
-        "intro": "The false hero found out about the investigation. They're not hiding anymore: they're attacking. Two witnesses have been intimidated into silence.",
-        "plotStep": "{target_npc} was threatened directly. Someone broke into their home and left a message: stop digging or suffer the consequences. The false hero has allies on the council and among the guards. {quest_ally} says we need physical evidence from {quest_origin} because testimony alone won't hold up against someone this powerful. {quest_item} at {location} might contain the proof.",
-        "outro": "The hero's reputation is their weapon. Every challenge to it makes them more dangerous. But the real defenders who died at Thornfield deserve the truth. Find the evidence that can't be threatened into silence."
+        "intro": "The false hero found out about the investigation. They're not hiding anymore: they're attacking. Witnesses have been intimidated into silence.",
+        "plotStep": "{target_npc} was threatened directly. Someone broke into their home and left a warning. The false hero has allies among the powerful. {quest_ally} says we need physical evidence from {quest_origin} because testimony alone won't hold against someone this influential. {quest_item} at {location_hint} might contain the proof.",
+        "outro": "The guilty party's reputation is their weapon. Every challenge to it makes them more dangerous. But the real defenders who died deserve the truth."
       },
       "playerResponses": [
         {
-          "text": "Dead soldiers deserve truth more than living cowards deserve comfort.",
+          "text": "The dead deserve truth more than the living deserve comfortable lies.",
           "action": "ACCEPT",
           "dispositionShift": 5
         },
@@ -52,11 +52,11 @@
       }
     },
     {
-      "id": "conf_discovery_dishonor_paper_trail",
+      "id": "conf_discovery_dishonor_03",
       "dialogueChunks": {
-        "intro": "The administrator is accelerating. Three safe houses have been cleared out. Money is being moved faster than we can track.",
-        "plotStep": "{target_npc} intercepted a courier headed to {location} carrying {quest_item}: a partial accounting of where the relief funds actually went. Mansions, luxury goods, private guards: all purchased while {quest_stakes} slept in ditches. {quest_ally} says the administrator is planning to flee the region within days.",
-        "outro": "The courier was stopped, but {quest_item} is only part of the picture. The full records are in a lockbox at {location}. Get them before the administrator's people destroy what's left. Those families deserve to know exactly how thoroughly they were betrayed."
+        "intro": "The administrator is accelerating. Safe houses have been cleared out. Money is being moved faster than we can track.",
+        "plotStep": "{target_npc} intercepted a courier headed to {location_hint} carrying {quest_item}: a partial accounting of where the funds actually went. Luxury goods, private guards: all purchased while {quest_stakes} suffered. {quest_ally} says the administrator is planning to flee within days.",
+        "outro": "The courier was stopped, but {quest_item} is only part of the picture. The full records are at {location_hint}. Get them before everything is destroyed."
       },
       "playerResponses": [
         {

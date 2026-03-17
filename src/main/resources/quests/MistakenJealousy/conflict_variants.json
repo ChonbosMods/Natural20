@@ -1,10 +1,10 @@
 {
   "variants": [
     {
-      "id": "mistaken_jealousy_conf_01",
+      "id": "conf_mistaken_jealousy_01",
       "dialogueChunks": {
         "intro": "It's worse than we thought, {player_name}. The suspicion has turned violent.",
-        "plotStep": "Someone vandalized {target_npc}'s workshop last night: smashed tools, scattered supplies, painted 'TRAITOR' across the door. {target_npc} is too shaken to leave the house, and the people responsible are hiding behind mob anonymity. Meanwhile, the real culprit behind {quest_focus} is still out there, and the evidence I need you to recover is now at risk. The {enemy_type} have been spotted {location_hint} where the stolen {quest_item} was likely taken. I need you to get there first and bring back proof before the mob decides that conviction without evidence is good enough.",
+        "plotStep": "Someone vandalized {target_npc}'s workshop: smashed tools, scattered supplies, painted threats across the door. {target_npc} is too shaken to leave. Meanwhile, the real culprit behind {quest_focus} is still out there. The {enemy_type} have been spotted {location_hint} where the stolen {quest_item} was likely taken.",
         "outro": "{quest_stakes} is crumbling by the hour. If we don't produce the truth soon, {target_npc} won't have a home to return to."
       },
       "playerResponses": [
@@ -20,11 +20,11 @@
       }
     },
     {
-      "id": "mistaken_jealousy_conf_02",
+      "id": "conf_mistaken_jealousy_02",
       "dialogueChunks": {
         "intro": "{player_name}, the accusers have found new evidence. Or rather, they've manufactured it.",
-        "plotStep": "Someone planted stolen {quest_item} in {target_npc}'s cellar and made sure the council found it. The framing is crude but effective: now even {target_npc}'s allies are wavering. I know it was planted because the items were taken from a cache {location_hint} that was raided by {enemy_type} days before the accusation. If you can find the real raider camp and recover what remains, we can prove the timeline doesn't add up. {quest_threat} is feeding on itself, and {target_npc} is running out of defenders.",
-        "outro": "Someone in {location} wants {target_npc} gone badly enough to frame them. We need to find out who before the council votes."
+        "plotStep": "Someone planted stolen {quest_item} in {target_npc}'s home and made sure the council found it. The framing is crude but effective. I know it was planted because the items were taken from a cache {location_hint} that was raided by {enemy_type} days before. If you can find the real raider camp and recover what remains, we can prove the timeline doesn't add up.",
+        "outro": "Someone wants {target_npc} gone badly enough to frame them. We need to find out who before the council votes. {quest_threat} is feeding on itself."
       },
       "playerResponses": [
         { "text": "Planted evidence has a source. I'll trace it back and expose the framer.", "action": "ACCEPT" },
@@ -39,10 +39,10 @@
       }
     },
     {
-      "id": "mistaken_jealousy_conf_03",
+      "id": "conf_mistaken_jealousy_03",
       "dialogueChunks": {
-        "intro": "{target_npc} has been confined to their home by the council, {player_name}. Time is running out.",
-        "plotStep": "The council gave us three days to produce counter-evidence or they'll proceed with banishment. {target_npc} is under guard, and the people who poisoned opinion against them are already dividing up their property in whispered conversations. The real trail leads {location_hint}, where {quest_item} was last seen before the {enemy_type} carried it off. If I can put the actual stolen goods next to the planted ones, even the most stubborn accuser will see the difference. But the path is crawling with {enemy_type} patrols.",
+        "intro": "{target_npc} has been confined by the council, {player_name}. Time is running out.",
+        "plotStep": "The council gave us three days to produce counter-evidence or they'll proceed with banishment. The real trail leads {location_hint}, where {quest_item} was last seen before the {enemy_type} carried it off. If I can put the actual stolen goods next to the planted ones, even the most stubborn accuser will see the difference.",
         "outro": "Three days, {player_name}. That's all {quest_stakes} has left."
       },
       "playerResponses": [

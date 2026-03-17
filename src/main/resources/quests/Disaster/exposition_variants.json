@@ -2,21 +2,14 @@
   "variants": [
     {
       "id": "disaster_expo_01",
-      "bindings": {
-        "quest_action": "salvage what remains",
-        "quest_focus": "the flooded lowlands",
-        "quest_stakes": "the displaced settlers",
-        "quest_threat": "the rising waters",
-        "quest_origin": "the broken dam"
-      },
       "dialogueChunks": {
-        "intro": "{player_name}, {quest_origin} sent {quest_threat} crashing through {quest_focus}. Half our homes are underwater and {quest_stakes} have nowhere to go.",
-        "plotStep": "We need someone to {quest_action} before the current carries it all away. {quest_item} have been scattered {location_hint} and we desperately need them. The {enemy_type} have been drawn to the chaos.",
+        "intro": "{player_name}, {quest_origin} sent {quest_threat} crashing through {quest_focus}. Half our homes are ruined and {quest_stakes} have nowhere to go.",
+        "plotStep": "We need someone to {quest_action} before it is too late. {quest_item} have been scattered {location_hint} and we desperately need them. The {enemy_type} have been drawn to the chaos.",
         "outro": "People are cold, scared, and hungry. Every bit you recover could save a life."
       },
       "playerResponses": [
         { "text": "I will wade in and pull out whatever I can.", "action": "ACCEPT", "dispositionShift": 10 },
-        { "text": "Floodwaters and creatures? That is hazardous work.", "action": "ACCEPT", "dispositionShift": -3 },
+        { "text": "That sounds like hazardous work.", "action": "ACCEPT", "dispositionShift": -3 },
         { "text": "There is nothing left to save down there.", "action": "DECLINE", "dispositionShift": -10 }
       ],
       "objectivePool": ["GATHER_ITEMS", "EXPLORE_LOCATION", "KILL_MOBS"],
@@ -27,22 +20,15 @@
     },
     {
       "id": "disaster_expo_02",
-      "bindings": {
-        "quest_action": "clear the fire line",
-        "quest_focus": "the burning forest edge",
-        "quest_stakes": "the eastern homesteads",
-        "quest_threat": "the wildfire",
-        "quest_time_pressure": "before the wind shifts"
-      },
       "dialogueChunks": {
-        "intro": "{player_name}, {quest_threat} is sweeping toward {quest_stakes} and nothing we have done has slowed it. {quest_focus} is ablaze and the wind is pushing it straight at us.",
-        "plotStep": "We need to {quest_action} {quest_time_pressure}. Gather {quest_item} from {location_hint} to build firebreaks. Watch for {enemy_type}: the fire is driving them out of the woods and they are panicked.",
-        "outro": "If that fire reaches the homesteads, we lose everything. Every moment counts."
+        "intro": "{player_name}, {quest_threat} is sweeping toward {quest_stakes} and nothing we have done has slowed it. {quest_focus} is overwhelmed and we are losing ground fast.",
+        "plotStep": "We need to {quest_action} {quest_time_pressure}. Gather {quest_item} from {location_hint} to help shore up our defenses. Watch for {enemy_type}: the disaster is driving them out and they are panicked.",
+        "outro": "If this reaches the settlement, we lose everything. Every moment counts."
       },
       "playerResponses": [
         { "text": "People come first. I will get it done.", "action": "ACCEPT", "dispositionShift": 15 },
-        { "text": "Fighting fire and beasts at the same time? Understood.", "action": "ACCEPT", "dispositionShift": 0 },
-        { "text": "Running toward a wildfire is suicide.", "action": "DECLINE", "dispositionShift": -5 }
+        { "text": "Fighting disaster and beasts at the same time? Understood.", "action": "ACCEPT", "dispositionShift": 0 },
+        { "text": "Running toward that is suicide.", "action": "DECLINE", "dispositionShift": -5 }
       ],
       "objectivePool": ["GATHER_ITEMS", "KILL_MOBS", "EXPLORE_LOCATION"],
       "objectiveConfig": {
@@ -52,22 +38,15 @@
     },
     {
       "id": "disaster_expo_03",
-      "bindings": {
-        "quest_action": "shore up the foundations",
-        "quest_focus": "the cracked walls",
-        "quest_stakes": "the town center",
-        "quest_threat": "the aftershocks",
-        "quest_origin": "the great tremor"
-      },
       "dialogueChunks": {
-        "intro": "Since {quest_origin}, {player_name}, {quest_threat} keep coming. {quest_focus} are failing, and {quest_stakes} could collapse any day.",
-        "plotStep": "We need to {quest_action} before the next tremor finishes what the first one started. Bring {quest_item} from {location_hint}. The {enemy_type} have been scavenging the rubble, so watch your back.",
-        "outro": "The ground itself has turned against us. But we will not abandon our home without a fight."
+        "intro": "Since {quest_origin}, {player_name}, {quest_threat} keeps coming. {quest_focus} is failing, and {quest_stakes} could be lost any day.",
+        "plotStep": "We need to {quest_action} before the next wave finishes what the first one started. Bring {quest_item} from {location_hint}. The {enemy_type} have been scavenging the wreckage, so watch your back.",
+        "outro": "Everything has turned against us. But we will not abandon our home without a fight."
       },
       "playerResponses": [
-        { "text": "Earthquakes and monsters. What a day. I will help.", "action": "ACCEPT", "dispositionShift": 5 },
-        { "text": "Those walls look ready to fall on whoever is underneath. Dangerous.", "action": "ACCEPT", "dispositionShift": -5 },
-        { "text": "Maybe it is time to move somewhere more stable.", "action": "DECLINE" }
+        { "text": "Danger on all sides. What a day. I will help.", "action": "ACCEPT", "dispositionShift": 5 },
+        { "text": "That area looks ready to collapse on whoever goes. Dangerous.", "action": "ACCEPT", "dispositionShift": -5 },
+        { "text": "Maybe it is time to move somewhere safer.", "action": "DECLINE" }
       ],
       "objectivePool": ["GATHER_ITEMS", "FETCH_ITEM", "KILL_MOBS"],
       "objectiveConfig": {

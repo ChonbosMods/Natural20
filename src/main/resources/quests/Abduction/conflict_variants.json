@@ -27,7 +27,7 @@
       "id": "abduction_conf_captor_camp",
       "dialogueChunks": {
         "intro": "You've found signs of {quest_threat} near {location_hint}. Discarded supplies and cold fire pits mark where they rested with their prisoners.",
-        "plotStep": "The captors split into groups here. Tracks branch in two directions. One set leads deeper toward {location}, the other circles back. We need proof of where they went: gather what they left behind.",
+        "plotStep": "The captors split into groups here. Tracks branch in two directions. One set leads deeper toward {location_hint}, the other circles back. We need proof of where they went: gather what they left behind.",
         "outro": "Search the area thoroughly. What you find could tell us how many we're dealing with and where {quest_focus} was taken next."
       },
       "playerResponses": [

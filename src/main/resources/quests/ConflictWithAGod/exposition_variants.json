@@ -1,23 +1,15 @@
 {
   "variants": [
     {
-      "id": "conflict_god_expo_cursed_land",
-      "bindings": {
-        "quest_action": "break the land's curse",
-        "quest_focus": "the blighted fields",
-        "quest_stakes": "the settlement's harvest",
-        "quest_threat": "divine retribution",
-        "quest_origin": "a desecrated shrine",
-        "quest_reward_hint": "fertile ground restored"
-      },
+      "id": "expo_conflict_god_01",
       "dialogueChunks": {
-        "intro": "Look at the fields, {player_name}. Nothing has grown here in weeks. The soil itself rejects every seed we plant.",
-        "plotStep": "It started when a work crew clearing land near {location} knocked over an old shrine {location_hint}. Nobody thought much of it at the time, just a pile of carved stones. But the next morning, the crops withered overnight. {target_npc} says the shrine was a ward against something ancient, something that considers this land its own. The {enemy_type} have been drawn to the blighted areas like moths to flame. We need {quest_item} to rebuild the shrine and appease whatever we angered, before the settlement starves.",
-        "outro": "We didn't mean to trespass on something sacred. But intentions don't matter when the ground won't feed your children."
+        "intro": "Look at the land, {player_name}. Nothing has grown here in weeks. The soil itself rejects everything we try.",
+        "plotStep": "It started when a work crew near {quest_origin} disturbed something ancient {location_hint}. Nobody thought much of it at the time. But {quest_threat} struck overnight. {target_npc} says the disturbance awakened something that considers this land its own. The {enemy_type} have been drawn to the blighted areas. We need {quest_item} to restore what was broken.",
+        "outro": "We didn't mean to trespass on something sacred. But intentions don't matter when {quest_stakes} is at risk. {quest_reward_hint} might come of setting things right."
       },
       "playerResponses": [
-        { "text": "I'll find the materials and restore the shrine. This blight ends now.", "action": "ACCEPT" },
-        { "text": "Angry spirits and cursed land? That's more than a foraging run. What's the pay?", "action": "ACCEPT", "dispositionShift": -5 },
+        { "text": "I'll find the materials and restore what was broken. This blight ends now.", "action": "ACCEPT" },
+        { "text": "Angry forces and cursed land? That's more than a foraging run. What's the pay?", "action": "ACCEPT", "dispositionShift": -5 },
         { "text": "If the land itself is cursed, no amount of gathering will fix it.", "action": "DECLINE" }
       ],
       "objectivePool": ["GATHER_ITEMS", "EXPLORE_LOCATION", "KILL_MOBS"],
@@ -28,23 +20,15 @@
       }
     },
     {
-      "id": "conflict_god_expo_angry_spirits",
-      "bindings": {
-        "quest_action": "calm the restless dead",
-        "quest_focus": "the haunted ruins",
-        "quest_stakes": "the living's safety",
-        "quest_threat": "wrathful spirits",
-        "quest_origin": "a disturbed burial ground",
-        "quest_reward_hint": "peace for all sides"
-      },
+      "id": "expo_conflict_god_02",
       "dialogueChunks": {
         "intro": "{player_name}, I don't believe in ghost stories. At least, I didn't until three nights ago.",
-        "plotStep": "The builders expanding {location} dug into an old burial site {location_hint}. Since then, lights move through the settlement at night, tools shatter without being touched, and two guards swear they saw figures standing in the fog that vanished when approached. {target_npc} consulted the oldest records and found references to a ritual that requires {quest_item} to lay the disturbed dead back to rest. The {enemy_type} in the area have become agitated too, as if the disturbance is driving them mad.",
-        "outro": "The living and the dead both need this resolved. I'm asking you because everyone else is too frightened to go near those ruins."
+        "plotStep": "The builders expanding the settlement dug into {quest_origin} {location_hint}. Since then, {quest_threat} has manifested: lights move at night, tools shatter without being touched, guards see figures that vanish in the fog. {target_npc} consulted the oldest records and found references to a ritual that requires {quest_item} to set things right. The {enemy_type} in the area have become agitated too.",
+        "outro": "{quest_stakes} needs this resolved. I'm asking you because everyone else is too frightened to go near {quest_focus}. {quest_reward_hint} would be a welcome outcome."
       },
       "playerResponses": [
         { "text": "Spirits or not, I'll put this right. Tell me what's needed.", "action": "ACCEPT" },
-        { "text": "Haunted burial grounds and angry monsters. Quite the combination. I'll do it for a price.", "action": "ACCEPT", "dispositionShift": -5 },
+        { "text": "Haunted grounds and angry monsters. Quite the combination. I'll do it for a price.", "action": "ACCEPT", "dispositionShift": -5 },
         { "text": "The dead should stay buried, and so should my involvement.", "action": "DECLINE" }
       ],
       "objectivePool": ["FETCH_ITEM", "EXPLORE_LOCATION", "KILL_MOBS"],
@@ -55,18 +39,11 @@
       }
     },
     {
-      "id": "conflict_god_expo_forbidden_water",
-      "bindings": {
-        "quest_action": "purify the sacred spring",
-        "quest_focus": "the corrupted water source",
-        "quest_stakes": "the settlement's water",
-        "quest_threat": "an ancient guardian",
-        "quest_time_pressure": "before the sickness spreads"
-      },
+      "id": "expo_conflict_god_03",
       "dialogueChunks": {
         "intro": "Don't drink from the well, {player_name}. I'm serious. Not a single drop.",
-        "plotStep": "The spring that feeds {location} runs through a cavern {location_hint} that our miners breached last month. The water turned black the same day. People who drank it before we realized have fallen ill, and {target_npc} is barely keeping them alive. The miners say they saw carvings in the cavern walls, warnings in a language nobody speaks anymore. Something down there is poisoning the water deliberately, and the {enemy_type} nesting near the entrance seem to be guarding it. We need {quest_item} to purify the source, but getting there means going through whatever's protecting it.",
-        "outro": "We violated something we didn't understand, and now the whole settlement is paying for it."
+        "plotStep": "The spring that feeds the settlement runs through a cavern {location_hint} that our miners breached. {quest_focus} turned dark the same day. People who consumed it before we realized have fallen ill. {target_npc} is barely keeping them alive. The miners say they saw warnings carved in the walls. Something down there is contaminating the water deliberately, and the {enemy_type} nesting near the entrance seem to be guarding it.",
+        "outro": "We violated something we didn't understand, and now {quest_stakes} is paying for it. We need {quest_item} to purify the source. {quest_time_pressure}."
       },
       "playerResponses": [
         { "text": "Contaminated water kills faster than any monster. I'll handle both.", "action": "ACCEPT" },

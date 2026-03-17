@@ -1,11 +1,11 @@
 {
   "variants": [
     {
-      "id": "conf_crimes_love_enforcers_close",
+      "id": "conf_crimes_love_01",
       "dialogueChunks": {
-        "intro": "The guild enforcers found the garden, {player_name}. The herbalist was arrested an hour ago. The medicines you're carrying are now the only supply left.",
-        "plotStep": "{target_npc} says {quest_ally} is trying to delay the guild hearing, but the enforcers are also looking for the person who picked up the delivery. That's you. The children's fevers are climbing. Two families have sent word that {quest_item} is their last hope. {quest_threat} is tightening the net around {location}.",
-        "outro": "The delivery route through {location} is compromised. {target_npc} knows a back path through {location_hint}, but it adds hours. The children may not have hours. Choose the route and pray it's the right one."
+        "intro": "The enforcers found the source, {player_name}. The provider was arrested an hour ago. What you're carrying is now the only supply left.",
+        "plotStep": "{target_npc} says {quest_ally} is trying to delay the hearing, but the enforcers are also looking for the person who picked up the delivery. That's you. {quest_item} is the last hope for {quest_stakes}. {quest_threat} is tightening the net around {location_hint}.",
+        "outro": "The delivery route is compromised. {target_npc} knows a back path, but it adds hours. {quest_stakes} may not have hours. Choose the route and hope it's the right one."
       },
       "playerResponses": [
         {
@@ -14,12 +14,12 @@
           "dispositionShift": 3
         },
         {
-          "text": "The direct route. Those children don't have time for detours.",
+          "text": "The direct route. Those people don't have time for detours.",
           "action": "ACCEPT",
           "dispositionShift": 1
         },
         {
-          "text": "The herbalist was arrested for this. I'm not joining her.",
+          "text": "The provider was arrested for this. I'm not joining them.",
           "action": "DECLINE",
           "dispositionShift": -4
         }
@@ -30,15 +30,15 @@
       }
     },
     {
-      "id": "conf_crimes_love_patrol_closing",
+      "id": "conf_crimes_love_02",
       "dialogueChunks": {
-        "intro": "The military patrol found the farmstead. The deserter and his family fled into the forest, but his daughter is too weak to travel far.",
-        "plotStep": "{target_npc} picked up their trail {location_hint}. The deserter is carrying his daughter on his back, administering the remedy in doses while they move. {quest_ally} says the patrol commander has orders to bring him back alive, but not all soldiers follow orders carefully. The forest near {location} has plenty of places to hide, but they need {quest_item} to keep moving.",
-        "outro": "Two more days. That's all the father needs to finish the treatment. After that, he'll surrender himself. Find them before the patrol does and bring {quest_item}."
+        "intro": "The patrol found the hiding place. The deserter and their family fled into the forest, but the sick one is too weak to travel far.",
+        "plotStep": "{target_npc} picked up their trail {location_hint}. The deserter is carrying their loved one on their back, administering the remedy in doses while they move. {quest_ally} says the patrol has orders to bring them back alive, but not all soldiers follow orders carefully. They need {quest_item} to keep moving.",
+        "outro": "Two more days. That's all they need to finish the treatment. After that, they'll surrender. Find them before the patrol does and bring {quest_item}."
       },
       "playerResponses": [
         {
-          "text": "Two days for his daughter's life. I'll buy him that time.",
+          "text": "Two days for their family's life. I'll buy them that time.",
           "action": "ACCEPT",
           "dispositionShift": 5
         },
@@ -52,11 +52,11 @@
       "objectiveConfig": {}
     },
     {
-      "id": "conf_crimes_love_border_tightened",
+      "id": "conf_crimes_love_03",
       "dialogueChunks": {
-        "intro": "The border patrols intercepted a previous shipment. They know someone is smuggling and they've tripled the watch along the river.",
-        "plotStep": "{target_npc} says the merchant was questioned but didn't crack. She's terrified but she's also thinking about the twenty people across the river who are counting on her. {quest_ally} found a section of the river near {location} where the current is weaker, but it's closer to a {enemy_type} camp. {quest_item} could serve as a distraction to draw the patrols away.",
-        "outro": "The food needs to cross tonight or the village goes another week without. The merchant can't do it herself: she's being watched. Someone needs to make the run."
+        "intro": "The patrols intercepted a previous shipment. They know someone is smuggling and they've tripled the watch.",
+        "plotStep": "{target_npc} says the smuggler was questioned but didn't crack. They're terrified but thinking about the people who are counting on them. {quest_ally} found a section near {location_hint} where crossing is possible, but it's closer to an {enemy_type} camp. {quest_item} could serve as a distraction to draw the patrols away.",
+        "outro": "The food needs to cross tonight or {quest_stakes} goes another week without. Someone needs to make the run."
       },
       "playerResponses": [
         {

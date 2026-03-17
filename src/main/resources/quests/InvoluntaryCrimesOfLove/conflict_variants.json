@@ -5,7 +5,7 @@
       "dialogueChunks": {
         "intro": "The person behind {quest_focus} refuses to believe they've done wrong. {quest_threat} runs deep: they see every attempt to intervene as an attack on the people they're trying to protect.",
         "plotStep": "{target_npc} has rallied supporters near {location_hint} who share their conviction. Meanwhile, the {enemy_type} are exploiting the distraction to push deeper into our territory. {quest_ally} says {quest_stakes} grow more fragile with each day of deadlock.",
-        "outro": "Prove that the real danger isn't what they fear but what they've become. Clear the {enemy_type} threat near {location} and show that protection doesn't require tyranny."
+        "outro": "Prove that the real danger isn't what they fear but what they've become. Clear the {enemy_type} threat near {location_hint} and show that protection doesn't require tyranny."
       },
       "playerResponses": [
         {

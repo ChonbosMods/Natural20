@@ -2,16 +2,9 @@
   "variants": [
     {
       "id": "revolt_expo_01",
-      "bindings": {
-        "quest_action": "rally the dissenters",
-        "quest_focus": "the garrison outpost",
-        "quest_stakes": "the oppressed workers",
-        "quest_threat": "the corrupt overseer",
-        "quest_origin": "years of exploitation"
-      },
       "dialogueChunks": {
-        "intro": "{player_name}, for too long {quest_threat} has ground {quest_stakes} into the dirt. {quest_origin} have pushed people past their breaking point.",
-        "plotStep": "We intend to {quest_action} and challenge the authority at {quest_focus}. But we need supplies first. Gather {quest_item} from {location_hint} so we can prepare. The {enemy_type} serving the overseer patrol the roads.",
+        "intro": "{player_name}, for too long {quest_threat} has ground {quest_stakes} into the dirt. {quest_origin} has pushed people past their breaking point.",
+        "plotStep": "We intend to {quest_action} and challenge the authority at {quest_focus}. But we need supplies first. Gather {quest_item} from {location_hint} so we can prepare. The {enemy_type} serving the oppressors patrol the roads.",
         "outro": "This is not recklessness: it is survival. Without change, there is nothing left for us here."
       },
       "playerResponses": [
@@ -26,22 +19,15 @@
     },
     {
       "id": "revolt_expo_02",
-      "bindings": {
-        "quest_action": "sabotage the supply depot",
-        "quest_focus": "the warlord's stores",
-        "quest_stakes": "the subjugated village",
-        "quest_threat": "the occupying force",
-        "quest_time_pressure": "before reinforcements arrive"
-      },
       "dialogueChunks": {
         "intro": "{player_name}, {quest_threat} has held {quest_stakes} under their boot for too long. They rule through fear and force, but they have a weakness.",
         "plotStep": "We need to {quest_action} {quest_time_pressure}. Their strength depends on {quest_focus}, and without it, their grip loosens. The {enemy_type} guard the area {location_hint}. Bring back any {quest_item} you can seize.",
         "outro": "If we cut their supply line, the people will find the courage to stand up. This is how it starts."
       },
       "playerResponses": [
-        { "text": "Strike at their supplies, break their hold. Smart plan.", "action": "ACCEPT", "dispositionShift": 10 },
+        { "text": "Strike at their weakness, break their hold. Smart plan.", "action": "ACCEPT", "dispositionShift": 10 },
         { "text": "How many guards are we talking about?", "action": "ACCEPT", "dispositionShift": -3 },
-        { "text": "Poking a warlord sounds like a death sentence.", "action": "DECLINE", "dispositionShift": -10 }
+        { "text": "Poking a tyrant sounds like a death sentence.", "action": "DECLINE", "dispositionShift": -10 }
       ],
       "objectivePool": ["KILL_MOBS", "GATHER_ITEMS", "EXPLORE_LOCATION"],
       "objectiveConfig": {
@@ -51,21 +37,13 @@
     },
     {
       "id": "revolt_expo_03",
-      "bindings": {
-        "quest_action": "deliver the message",
-        "quest_focus": "the hidden meeting place",
-        "quest_stakes": "the resistance movement",
-        "quest_threat": "the loyalist patrols",
-        "quest_origin": "the unjust taxes",
-        "quest_reward_hint": "the movement's gratitude"
-      },
       "dialogueChunks": {
         "intro": "Keep your voice down, {player_name}. Since {quest_origin} began draining us dry, {quest_stakes} have been organizing in secret. {quest_threat} are everywhere.",
-        "plotStep": "We need someone the patrols do not recognize to {quest_action} to {quest_focus}. It is {location_hint}. Pick up {quest_item} on the way: the resistance needs them.",
-        "outro": "If {quest_threat} intercept this message, people will die. But if it gets through, everything changes. You would earn {quest_reward_hint}."
+        "plotStep": "We need someone the patrols do not recognize to {quest_action} at {quest_focus}. It is {location_hint}. Pick up {quest_item} on the way: the resistance needs them.",
+        "outro": "If {quest_threat} intercepts this, people will die. But if it succeeds, everything changes. You would earn {quest_reward_hint}."
       },
       "playerResponses": [
-        { "text": "I can move unseen. Give me the message.", "action": "ACCEPT", "dispositionShift": 10 },
+        { "text": "I can move unseen. Give me the task.", "action": "ACCEPT", "dispositionShift": 10 },
         { "text": "Courier work through hostile territory. What is in it for me?", "action": "ACCEPT", "dispositionShift": -5 },
         { "text": "I am no revolutionary. Find someone else.", "action": "DECLINE" }
       ],

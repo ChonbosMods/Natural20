@@ -1,11 +1,11 @@
 {
   "variants": [
     {
-      "id": "conf_sacrifice_kindred_ambush_road",
+      "id": "conf_sacrifice_kindred_01",
       "dialogueChunks": {
-        "intro": "The caravan was hit, {player_name}. The {enemy_type} attacked at the narrowest point of the road. The volunteers are holding but they can't last.",
-        "plotStep": "The baker's mother took an arrow in the shoulder and is still driving the lead wagon with one hand. She won't stop. {quest_ally} managed to pull one wagon behind cover, but {quest_item} was scattered across the road when the second wagon overturned. {target_npc} is trying to rally the survivors.",
-        "outro": "If we lose {quest_item}, the trip was for nothing and those people bled for nothing. Help {target_npc} recover the supplies and drive back the {enemy_type}."
+        "intro": "The group was hit, {player_name}. The {enemy_type} attacked at the narrowest point. The volunteers are holding but they can't last.",
+        "plotStep": "One volunteer took a wound and is still pushing forward with one hand. {quest_ally} managed to save part of the supplies, but {quest_item} was scattered when things went wrong. {target_npc} is trying to rally the survivors.",
+        "outro": "If we lose {quest_item}, the trip was for nothing and those people bled for nothing. Help {target_npc} recover what was lost and drive back the {enemy_type}."
       },
       "playerResponses": [
         {
@@ -19,7 +19,7 @@
           "dispositionShift": -1
         },
         {
-          "text": "The caravan is lost. We need to retreat.",
+          "text": "Everything is lost. We need to retreat.",
           "action": "DECLINE",
           "dispositionShift": -4
         }
@@ -31,10 +31,10 @@
       }
     },
     {
-      "id": "conf_sacrifice_kindred_second_wave",
+      "id": "conf_sacrifice_kindred_02",
       "dialogueChunks": {
-        "intro": "We got the refugees to the halfway point, but scouts report a second {enemy_type} war band approaching from {location_hint}. The elder's diversion has been discovered.",
-        "plotStep": "{target_npc} wants to split the column: send the fastest ahead to {location} while the rest shelter in a defensible position. But splitting means someone has to stay with the slower group and face whatever comes. {quest_ally} has already volunteered. Said they've lived long enough.",
+        "intro": "We got the refugees to the halfway point, but scouts report a second {enemy_type} group approaching from {location_hint}. The diversion has been discovered.",
+        "plotStep": "{target_npc} wants to split the column: send the fastest ahead while the rest shelter in a defensible position. {quest_ally} has already volunteered to stay with the slower group. Said they've lived long enough.",
         "outro": "We need {quest_item} to fortify the shelter point. If {quest_ally} is going to hold the line for {quest_stakes}, at least give them a fighting chance."
       },
       "playerResponses": [
@@ -55,25 +55,25 @@
       }
     },
     {
-      "id": "conf_sacrifice_kindred_dam_breaking",
+      "id": "conf_sacrifice_kindred_03",
       "dialogueChunks": {
-        "intro": "A new crack opened in {quest_focus} an hour ago. Water is pouring through faster than we can patch it. The mason is waist-deep and refusing to come out.",
-        "plotStep": "{target_npc} tried to pull him back by force. He shoved them away and said there are children in the houses below. He's mixing mortar with shaking hands while the river pushes against his chest. We need more {quest_item} to reinforce the breach from the upstream side.",
-        "outro": "The {quest_threat} could take him any moment. But if that wall fails, {quest_stakes} lose everything. Find {quest_item} {location_hint} and bring it back before the next surge hits."
+        "intro": "A new breach opened in {quest_focus} an hour ago. The volunteer is waist-deep in danger and refusing to come out.",
+        "plotStep": "{target_npc} tried to pull them back by force. They shoved them away and said there are families depending on this holding. We need more {quest_item} to reinforce from the other side.",
+        "outro": "{quest_threat} could take them any moment. But if this fails, {quest_stakes} lose everything. Find {quest_item} {location_hint} and bring it back before the next surge."
       },
       "playerResponses": [
         {
-          "text": "I'll get the materials. Keep that man alive until I'm back.",
+          "text": "I'll get the materials. Keep them alive until I'm back.",
           "action": "ACCEPT",
           "dispositionShift": 4
         },
         {
-          "text": "Pull him out. No dam is worth a life.",
+          "text": "Pull them out. No structure is worth a life.",
           "action": "ACCEPT",
           "dispositionShift": 2
         },
         {
-          "text": "The dam is going to fail regardless. Start evacuating.",
+          "text": "It's going to fail regardless. Start evacuating.",
           "action": "DECLINE",
           "dispositionShift": -3
         }

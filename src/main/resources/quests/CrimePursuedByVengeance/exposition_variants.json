@@ -2,21 +2,14 @@
   "variants": [
     {
       "id": "crimevengeance_expo_01",
-      "bindings": {
-        "quest_action": "find the arsonist",
-        "quest_focus": "the burned workshop",
-        "quest_stakes": "the blacksmith's legacy",
-        "quest_threat": "the one who set the fire",
-        "quest_origin": "a bitter rivalry"
-      },
       "dialogueChunks": {
-        "intro": "{player_name}, look at what they did. {quest_focus} was torched last night. Years of work, gone. I know exactly who is responsible: {quest_threat}, born out of {quest_origin}.",
-        "plotStep": "I need you to {quest_action}. {quest_ally} saw someone fleeing {location_hint} just after the flames started. Find proof: look for {quest_item} near the scene.",
+        "intro": "{player_name}, look at what they did. {quest_focus} was hit last night. I know exactly who is responsible: {quest_threat}, born out of {quest_origin}.",
+        "plotStep": "I need you to {quest_action}. {quest_ally} saw someone fleeing {location_hint} just after it happened. Find proof: look for {quest_item} near the scene.",
         "outro": "They destroyed {quest_stakes} out of spite. I will see justice done, one way or another."
       },
       "playerResponses": [
-        { "text": "Burning a person's livelihood is despicable. I will find who did this.", "action": "ACCEPT", "dispositionShift": 10 },
-        { "text": "What kind of rivalry leads to arson?", "action": "ACCEPT", "dispositionShift": 0 },
+        { "text": "Destroying someone's livelihood is despicable. I will find who did this.", "action": "ACCEPT", "dispositionShift": 10 },
+        { "text": "What kind of grudge leads to this?", "action": "ACCEPT", "dispositionShift": 0 },
         { "text": "This sounds like a personal feud. Sort it out yourself.", "action": "DECLINE", "dispositionShift": -5 }
       ],
       "objectivePool": ["EXPLORE_LOCATION", "FETCH_ITEM", "GATHER_ITEMS"],
@@ -26,20 +19,13 @@
     },
     {
       "id": "crimevengeance_expo_02",
-      "bindings": {
-        "quest_action": "track down the poisoner",
-        "quest_focus": "the tainted grain stores",
-        "quest_stakes": "the sick townsfolk",
-        "quest_threat": "the saboteur",
-        "quest_time_pressure": "before more are harmed"
-      },
       "dialogueChunks": {
-        "intro": "Someone poisoned us, {player_name}. Deliberately. {quest_threat} contaminated {quest_focus} and now {quest_stakes} are paying the price.",
-        "plotStep": "I will not let this stand. Someone needs to {quest_action} {quest_time_pressure}. The {enemy_type} that nest near {quest_focus} may have been used to spread the poison. Check the area {location_hint} for {quest_item}: that could be evidence.",
+        "intro": "Someone targeted us deliberately, {player_name}. {quest_threat} sabotaged {quest_focus} and now {quest_stakes} are paying the price.",
+        "plotStep": "I will not let this stand. Someone needs to {quest_action} {quest_time_pressure}. The {enemy_type} near {quest_focus} may have been involved. Check the area {location_hint} for {quest_item}: that could be evidence.",
         "outro": "This was no accident. This was a crime, and I want the one responsible to answer for it."
       },
       "playerResponses": [
-        { "text": "Poisoning innocents crosses every line. I will hunt them down.", "action": "ACCEPT", "dispositionShift": 15 },
+        { "text": "Harming innocents crosses every line. I will hunt them down.", "action": "ACCEPT", "dispositionShift": 15 },
         { "text": "Do you have any suspects?", "action": "ACCEPT", "dispositionShift": 0 },
         { "text": "This is a matter for your own people.", "action": "DECLINE" }
       ],
@@ -50,23 +36,15 @@
     },
     {
       "id": "crimevengeance_expo_03",
-      "bindings": {
-        "quest_action": "recover the stolen heirlooms",
-        "quest_focus": "the ransacked home",
-        "quest_stakes": "the elder's honor",
-        "quest_threat": "the disgraced apprentice",
-        "quest_origin": "a failed mentorship",
-        "quest_reward_hint": "a share of the recovered goods"
-      },
       "dialogueChunks": {
-        "intro": "{player_name}, {quest_threat} broke into {quest_focus} and took everything of value. This was not a random theft: it was born out of {quest_origin} and aimed straight at {quest_stakes}.",
-        "plotStep": "I need you to {quest_action}. The trail leads {location_hint}. {quest_ally} believes {quest_threat} is selling {quest_item} to fund their escape.",
+        "intro": "{player_name}, {quest_threat} broke into {quest_focus} and took everything of value. This was not random: it was born out of {quest_origin} and aimed straight at {quest_stakes}.",
+        "plotStep": "I need you to {quest_action}. The trail leads {location_hint}. {quest_ally} believes they are selling {quest_item} to fund their escape.",
         "outro": "Bring back what was taken and there will be {quest_reward_hint} for your trouble. But more importantly, bring back our dignity."
       },
       "playerResponses": [
         { "text": "Theft driven by spite deserves swift justice. I will go.", "action": "ACCEPT", "dispositionShift": 10 },
-        { "text": "Tell me more about this share.", "action": "ACCEPT", "dispositionShift": -5 },
-        { "text": "Chasing a bitter apprentice is beneath me.", "action": "DECLINE", "dispositionShift": -10 }
+        { "text": "Tell me more about the reward.", "action": "ACCEPT", "dispositionShift": -5 },
+        { "text": "Chasing a vendetta is beneath me.", "action": "DECLINE", "dispositionShift": -10 }
       ],
       "objectivePool": ["FETCH_ITEM", "EXPLORE_LOCATION", "GATHER_ITEMS"],
       "objectiveConfig": {

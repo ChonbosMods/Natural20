@@ -1,11 +1,11 @@
 {
   "variants": [
     {
-      "id": "reso_adultery_trust_rebuilt",
+      "id": "reso_adultery_01",
       "dialogueChunks": {
-        "intro": "The partner settlement received the stolen plans and the full accounting of who betrayed them. Their council sent a one-word reply: 'Begin.'",
-        "plotStep": "{target_npc} traveled to {location} personally to negotiate new terms. The old alliance is dead, but something more honest is growing in its place. No more backroom deals, no more secret negotiations. Every term is public, every obligation mutual. {quest_ally} says it's slower and harder than the old way. Also more durable.",
-        "outro": "Trust built on truth survives what trust built on convenience cannot, {player_name}. You pulled the rot out by the root. What grows back will be stronger because of it."
+        "intro": "The betrayed received the full accounting of who wronged them. Their council sent a one-word reply: 'Begin.'",
+        "plotStep": "{target_npc} traveled personally to negotiate new terms. The old alliance is dead, but something more honest is growing in its place. Every term is public, every obligation mutual. {quest_ally} says it's slower and harder than the old way. Also more durable.",
+        "outro": "Trust built on truth survives what trust built on convenience cannot, {player_name}. You pulled the rot out by the root."
       },
       "playerResponses": [
         {
@@ -23,20 +23,20 @@
       "objectiveConfig": {}
     },
     {
-      "id": "reso_adultery_captain_removed",
+      "id": "reso_adultery_02",
       "dialogueChunks": {
-        "intro": "The council confronted the captain with the evidence. She didn't deny it. Just took off her badge and set it on the table.",
-        "plotStep": "She said the {enemy_type} threatened her family. That the first deal was survival and every deal after was too late to stop. {target_npc} doesn't know whether to believe her. Some of the guards she betrayed certainly don't. {quest_ally} has taken interim command while the garrison rebuilds trust in its own chain.",
-        "outro": "The patrols are safe again, {player_name}. Whether the captain was a victim or a villain, the oath she broke put lives at risk. {quest_ally} says the new procedures require dual authorization for patrol schedules. No single point of failure, no single point of betrayal."
+        "intro": "The council confronted the traitor with the evidence. They didn't deny it. Just set down their badge and sat in silence.",
+        "plotStep": "They said the {enemy_type} threatened their family. That the first deal was survival and every deal after was too late to stop. {target_npc} doesn't know whether to believe them. {quest_ally} has taken interim command while trust is rebuilt.",
+        "outro": "Whether the traitor was a victim or a villain, the oath they broke put lives at risk, {player_name}. The new procedures require dual authorization. No single point of betrayal."
       },
       "playerResponses": [
         {
-          "text": "Betrayal under duress is still betrayal. But I hope she finds peace.",
+          "text": "Betrayal under duress is still betrayal. But I hope they find peace.",
           "action": "COMPLETE",
           "dispositionShift": 3
         },
         {
-          "text": "She made her choice. The garrison comes first.",
+          "text": "They made their choice. The community comes first.",
           "action": "COMPLETE",
           "dispositionShift": 1
         },
@@ -50,11 +50,11 @@
       "objectiveConfig": {}
     },
     {
-      "id": "reso_adultery_charter_restored",
+      "id": "reso_adultery_03",
       "dialogueChunks": {
-        "intro": "The seal is back. The original charter is authenticated. The eviction notices are null and void. Twelve families are staying in their homes.",
-        "plotStep": "The clerk was found at {location}, trying to sell the seal to a merchant who didn't ask questions. {target_npc} has them in custody. The founding family that benefited from the forgery is claiming ignorance, but the evidence {quest_ally} compiled suggests otherwise. The regional authority is reviewing every document the clerk ever touched.",
-        "outro": "A community's word is only as good as the people who keep the records, {player_name}. You made sure the truth was louder than the lie. Those families will remember that when the next crisis tests what this settlement is made of."
+        "intro": "The seal is back. The original document is authenticated. The evictions are null and void. Those families are staying in their homes.",
+        "plotStep": "The forger was found trying to sell the seal. {target_npc} has them in custody. The family that benefited from the forgery is claiming ignorance, but the evidence {quest_ally} compiled suggests otherwise.",
+        "outro": "A community's word is only as good as the people who keep the records, {player_name}. You made sure the truth was louder than the lie."
       },
       "playerResponses": [
         {
@@ -63,7 +63,7 @@
           "dispositionShift": 5
         },
         {
-          "text": "Hold the founding family accountable too. Ignorance is a convenient excuse.",
+          "text": "Hold the beneficiaries accountable too. Ignorance is a convenient excuse.",
           "action": "COMPLETE",
           "dispositionShift": 2
         }

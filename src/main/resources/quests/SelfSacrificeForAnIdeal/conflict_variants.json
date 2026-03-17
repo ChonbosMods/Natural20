@@ -1,11 +1,11 @@
 {
   "variants": [
     {
-      "id": "conf_sacrifice_ideal_cost_rising",
+      "id": "conf_sacrifice_ideal_01",
       "dialogueChunks": {
-        "intro": "{player_name}, the situation at {location} has grown dire. {quest_ally} sent word that the {enemy_type} have doubled their assault. The defenders are holding, but barely.",
-        "plotStep": "The commander has ordered the youngest soldiers to fall back while the veterans hold the line. They know they're buying time with their lives. {target_npc} tried to convince them to retreat together, but they refused: said the ideal they swore to protect is bigger than any one of them. They need {quest_item} to shore up their defenses.",
-        "outro": "Every hour those defenders hold saves dozens of lives downstream. If you can get {quest_item} to them, it might turn hours into days."
+        "intro": "{player_name}, the situation has grown dire. {quest_ally} sent word that the {enemy_type} have doubled their assault. The defenders are holding, but barely.",
+        "plotStep": "The veterans are holding the line while the others fall back. {target_npc} tried to convince them to retreat together, but they refused: said {quest_stakes} is bigger than any one of them. They need {quest_item} to shore up their position.",
+        "outro": "Every hour they hold saves lives. If you can get {quest_item} to them, it might turn hours into days."
       },
       "playerResponses": [
         {
@@ -30,10 +30,10 @@
       }
     },
     {
-      "id": "conf_sacrifice_ideal_wavering_resolve",
+      "id": "conf_sacrifice_ideal_02",
       "dialogueChunks": {
-        "intro": "One of the defenders broke. Ran from the post in the night. Can't say I blame them, but now there's a gap that needs filling.",
-        "plotStep": "{target_npc} caught the deserter {location_hint} and talked them down. They weren't a coward: they were a parent. Three children waiting at home and a post that demanded they never come back. {quest_ally} is trying to redistribute the remaining fighters, but without {quest_item}, the defensive line has a hole that {quest_threat} will pour through.",
+        "intro": "One of the defenders broke. Ran in the night. Can't say I blame them, but now there's a gap that needs filling.",
+        "plotStep": "{target_npc} caught the deserter {location_hint} and talked them down. They weren't a coward: they were a parent. {quest_ally} is trying to redistribute the remaining defenders, but without {quest_item}, {quest_threat} will pour through the gap.",
         "outro": "The ideal asks everything. Most people can give almost everything. That last fraction is where heroes are made, or broken."
       },
       "playerResponses": [
@@ -54,20 +54,20 @@
       }
     },
     {
-      "id": "conf_sacrifice_ideal_final_preparation",
+      "id": "conf_sacrifice_ideal_03",
       "dialogueChunks": {
-        "intro": "The healer inside {quest_focus} is weakening. She's been exposed for days now and her hands shake when she mixes the remedies. But she won't stop.",
-        "plotStep": "{target_npc} says she needs one more batch of {quest_item} to finish treating the last patients. After that, whether she survives depends on how much damage the sickness has already done to her. She knows this. She told {quest_ally} through the wall: 'The oath doesn't have an exception clause.'",
-        "outro": "Find {quest_item} and bring it to {location}. If the healer finishes her work, every life in that ward is saved. The only life in question is hers."
+        "intro": "The person inside {quest_focus} is weakening. They've been exposed for days now, but they won't stop.",
+        "plotStep": "{target_npc} says they need one more batch of {quest_item} to finish. After that, whether they survive depends on how much damage has already been done. They told {quest_ally}: 'The oath doesn't have an exception clause.'",
+        "outro": "Find {quest_item} {location_hint} and bring it back. If they finish their work, {quest_stakes} is saved. The only life in question is theirs."
       },
       "playerResponses": [
         {
-          "text": "She deserves every chance to survive this. I'll find what she needs.",
+          "text": "They deserve every chance to survive this. I'll find what's needed.",
           "action": "ACCEPT",
           "dispositionShift": 4
         },
         {
-          "text": "Has anyone tried to talk her out of there?",
+          "text": "Has anyone tried to talk them out of there?",
           "action": "ACCEPT",
           "dispositionShift": 1
         },

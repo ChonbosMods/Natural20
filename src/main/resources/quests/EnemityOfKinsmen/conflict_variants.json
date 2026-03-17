@@ -4,7 +4,7 @@
       "id": "enemity_conf_escalation",
       "dialogueChunks": {
         "intro": "Things have gotten worse. While you were investigating {quest_focus}, an incident near {location_hint} has pushed both sides closer to violence.",
-        "plotStep": "{quest_ally} reports that armed groups from {location} were spotted near our borders. Whether it's posturing or preparation, {quest_threat} is escalating. The {enemy_type} are exploiting the distraction to raid both settlements.",
+        "plotStep": "{quest_ally} reports that armed groups from {location_hint} were spotted near our borders. Whether it's posturing or preparation, {quest_threat} is escalating. The {enemy_type} are exploiting the distraction to raid both settlements.",
         "outro": "Deal with the {enemy_type} raids first. If both settlements see you fighting their common enemy, it might cool tempers long enough to find a real solution for {quest_stakes}."
       },
       "playerResponses": [
@@ -29,7 +29,7 @@
       "dialogueChunks": {
         "intro": "Both sides claim innocence, and both sides blame the other. The truth about {quest_focus} is out there, but it won't come from accusations alone.",
         "plotStep": "{target_npc} insists they had nothing to do with it, and they seem genuine. {quest_ally} suggests looking for evidence near {location_hint}: if a third party is responsible for {quest_threat}, there will be traces the {enemy_type} left behind.",
-        "outro": "Search the area around {location} for anything that proves who's really at fault. {quest_stakes} hang on what you find."
+        "outro": "Search the area around {location_hint} for anything that proves who's really at fault. {quest_stakes} hang on what you find."
       },
       "playerResponses": [
         {

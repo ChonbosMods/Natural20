@@ -1,11 +1,11 @@
 {
   "variants": [
     {
-      "id": "recovery_lost_conf_01",
+      "id": "conf_recovery_lost_01",
       "dialogueChunks": {
         "intro": "You found signs of them, {player_name}! But the trail just got much more complicated.",
-        "plotStep": "The markers you recovered confirm that {target_npc} was alive at least until recently. But the trail splits {location_hint}: one path leads toward {enemy_type} territory, the other toward an abandoned settlement. {quest_item} was found along both routes, as if {target_npc} was deliberately leaving a confusing trail, either to lose pursuers or because they were being moved by force. We need you to follow both leads and determine which one is real. The {enemy_type} presence has doubled in the area, and I'm afraid {quest_threat} is closing the window we have.",
-        "outro": "They're close. I can feel it. But close isn't found, and every wrong turn costs time we don't have."
+        "plotStep": "The markers you recovered confirm that {target_npc} was alive recently. But the trail splits {location_hint}: one path leads toward {enemy_type} territory, the other toward an abandoned area. {quest_item} was found along both routes, as if {target_npc} was deliberately leaving a confusing trail.",
+        "outro": "They're close. I can feel it. But close isn't found, and every wrong turn costs time. {quest_threat} is closing the window we have."
       },
       "playerResponses": [
         { "text": "Split trails mean someone is being clever. I'll figure out which path is real.", "action": "ACCEPT" },
@@ -20,11 +20,11 @@
       }
     },
     {
-      "id": "recovery_lost_conf_02",
+      "id": "conf_recovery_lost_02",
       "dialogueChunks": {
         "intro": "{player_name}, we found where {target_npc} has been. And the truth is harder than not knowing.",
-        "plotStep": "{target_npc} didn't vanish by accident. They were captured by the {enemy_type} and put to work in a labor camp {location_hint}. A refugee who escaped the camp described {target_npc} by name and said they're alive but weak. The camp is guarded, fortified, and deep in hostile territory. We need {quest_item} to sustain a rescue effort, and we need to clear the {enemy_type} patrols between here and the camp. {quest_stakes} depends on moving fast: the refugee said they're being moved soon.",
-        "outro": "Alive but captive. That's better than the alternatives, but it means the rescue just became ten times harder."
+        "plotStep": "{target_npc} didn't vanish by accident. They were captured by the {enemy_type} and put to work in a labor camp {location_hint}. A refugee who escaped described {target_npc} by name. The camp is guarded, fortified, and deep in hostile territory. We need {quest_item} to sustain a rescue effort.",
+        "outro": "Alive but captive. That's better than the alternatives, but it means the rescue just became ten times harder. {quest_stakes} depends on moving fast."
       },
       "playerResponses": [
         { "text": "A labor camp rescue. Tell me everything the refugee told you.", "action": "ACCEPT" },
@@ -39,10 +39,10 @@
       }
     },
     {
-      "id": "recovery_lost_conf_03",
+      "id": "conf_recovery_lost_03",
       "dialogueChunks": {
         "intro": "We found {target_npc}'s shelter, {player_name}. They've been surviving alone this whole time.",
-        "plotStep": "{target_npc} is alive and hiding in a makeshift camp {location_hint}, but they're injured and can't travel on their own. The area is thick with {enemy_type}, and {target_npc}'s camp is only hidden because it's so deep in dangerous territory that nobody goes there willingly. We need {quest_item} to treat their injuries and enough cleared path to get them out. The complication is that {target_npc} has been watching the {enemy_type} patterns and says they move in waves: there's a narrow window between patrols when we could slip out, but timing is everything.",
+        "plotStep": "{target_npc} is alive and hiding in a makeshift camp {location_hint}, but they're injured and can't travel. The area is thick with {enemy_type}. We need {quest_item} to treat their injuries and enough cleared path to get them out. {target_npc} says the {enemy_type} move in waves: there's a narrow window between patrols.",
         "outro": "They survived alone for weeks in the wilderness. The least we can do is get them the last mile home."
       },
       "playerResponses": [

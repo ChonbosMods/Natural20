@@ -1,28 +1,20 @@
 {
   "variants": [
     {
-      "id": "expo_sacrifice_ideal_last_watch",
-      "bindings": {
-        "quest_action": "reinforce the last watch",
-        "quest_focus": "the mountain outpost",
-        "quest_stakes": "the valley settlements",
-        "quest_threat": "an overwhelming horde",
-        "quest_origin": "the northern passes",
-        "quest_time_pressure": "before the passes thaw"
-      },
+      "id": "expo_sacrifice_ideal_01",
       "dialogueChunks": {
-        "intro": "The outpost at {quest_focus} has sent word. The {enemy_type} are massing in numbers we haven't seen in a generation. The garrison there knows what's coming.",
-        "plotStep": "There are eight soldiers up there. Eight. Against what scouts estimate is several hundred {enemy_type} pushing through {quest_origin}. The garrison commander sent a letter: not asking for reinforcements, just asking that someone look after their families. They've accepted what this means.",
-        "outro": "Those soldiers are choosing to hold the line so {quest_stakes} have time to evacuate. If someone doesn't {quest_action}, their sacrifice buys hours instead of days. Every hour matters."
+        "intro": "{player_name}, someone is choosing to give everything they have for something bigger than themselves. And they need help to make that sacrifice count.",
+        "plotStep": "Since {quest_origin}, {quest_threat} has been bearing down on us. The defenders at {quest_focus} know what's coming and they've accepted it. They need someone to {quest_action}, and {quest_item} {location_hint} could make the difference between their sacrifice buying hours or buying days.",
+        "outro": "Every hour matters for {quest_stakes}. Those people chose their oath over their own safety. Don't let that choice be wasted."
       },
       "playerResponses": [
         {
-          "text": "I won't let them die for nothing. I'll reinforce the outpost.",
+          "text": "I won't let them die for nothing. I'll help.",
           "action": "ACCEPT",
           "dispositionShift": 5
         },
         {
-          "text": "Eight soldiers can't hold anything. Focus on the evacuation.",
+          "text": "They can't hold. Focus on what can still be saved.",
           "action": "ACCEPT",
           "dispositionShift": -2
         },
@@ -37,33 +29,25 @@
       }
     },
     {
-      "id": "expo_sacrifice_ideal_forbidden_knowledge",
-      "bindings": {
-        "quest_action": "deliver the forbidden texts",
-        "quest_focus": "the banned library",
-        "quest_stakes": "free thought",
-        "quest_threat": "the inquisitor's purge",
-        "quest_origin": "the scholar's cellar",
-        "quest_reward_hint": "a rare translation"
-      },
+      "id": "expo_sacrifice_ideal_02",
       "dialogueChunks": {
-        "intro": "They burned the library in {location} three weeks ago. Called it heresy. The scholar who maintained it vanished the same night.",
-        "plotStep": "What the inquisitors don't know is that the scholar hid copies of the most important texts in {quest_origin} before the fires started. They knew {quest_threat} was coming and chose to protect the knowledge rather than themselves. {quest_focus} held centuries of learning: healing remedies, agricultural techniques, histories that certain people want forgotten.",
-        "outro": "Someone needs to {quest_action} to a safe location before the inquisitors find the hiding spot. The scholar risked everything to preserve {quest_stakes}. It would be a tragedy if that sacrifice was wasted."
+        "intro": "They burned everything at {quest_focus} and called it dangerous. The person who protected it vanished the same night, {player_name}.",
+        "plotStep": "What they don't know is that copies were hidden at {quest_origin} before the fires started. Someone risked everything to preserve {quest_stakes} rather than themselves. {quest_threat} is closing in, and someone needs to {quest_action} before the hiding spot is found. {quest_item} {location_hint} might still be recoverable.",
+        "outro": "The sacrifice was made to protect something worth protecting. It would be a tragedy if that sacrifice was wasted. {quest_reward_hint} might come of it."
       },
       "playerResponses": [
         {
-          "text": "Knowledge shouldn't burn. Point me to the cellar.",
+          "text": "What they protected matters. Point me in the right direction.",
           "action": "ACCEPT",
           "dispositionShift": 5
         },
         {
-          "text": "If I'm caught with banned texts, it's my neck too.",
+          "text": "If I'm caught, it's my neck too.",
           "action": "ACCEPT",
           "dispositionShift": 0
         },
         {
-          "text": "I don't need the inquisitors on my trail.",
+          "text": "I don't need that kind of trouble on my trail.",
           "action": "DECLINE"
         }
       ],
@@ -71,27 +55,20 @@
       "objectiveConfig": {}
     },
     {
-      "id": "expo_sacrifice_ideal_plague_ward",
-      "bindings": {
-        "quest_action": "supply the quarantine ward",
-        "quest_focus": "the plague ward",
-        "quest_stakes": "the infected families",
-        "quest_threat": "total quarantine collapse",
-        "quest_time_pressure": "before supplies run out"
-      },
+      "id": "expo_sacrifice_ideal_03",
       "dialogueChunks": {
-        "intro": "The healer at {quest_focus} locked herself in with the sick three days ago. She won't leave until they're cured or dead. The door is barred from the inside.",
-        "plotStep": "She sent a list of what she needs through a gap in the wall: herbs, clean water, bandages. Simple things, but nobody will go near {quest_focus} because they're terrified of the sickness. She knows the risk. She chose the oath she swore over her own safety.",
-        "outro": "If we don't {quest_action} soon, {quest_threat} is inevitable. The healer can save those people, but not without help from someone brave enough to approach the door. {quest_time_pressure}."
+        "intro": "Someone locked themselves in with the people who need help and won't come out until the job is done or they're gone, {player_name}.",
+        "plotStep": "They sent a list of what they need: {quest_item}, supplies, basics. But nobody will go near {quest_focus} because of {quest_threat}. They know the risk. They chose the oath they swore over their own safety. If we don't {quest_action} soon, {quest_stakes} will suffer.",
+        "outro": "They can save those people, but not without help from someone brave enough to get close. {quest_time_pressure}."
       },
       "playerResponses": [
         {
-          "text": "She's braver than anyone I know. I'll get her what she needs.",
+          "text": "They're braver than anyone I know. I'll get them what they need.",
           "action": "ACCEPT",
           "dispositionShift": 5
         },
         {
-          "text": "What's to stop the plague from spreading to me?",
+          "text": "What's to stop the danger from spreading to me?",
           "action": "ACCEPT",
           "dispositionShift": 1
         }

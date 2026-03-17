@@ -48,7 +48,7 @@
       "id": "treachery_reso_grim_justice",
       "dialogueChunks": {
         "intro": "Justice was served, but the cost of {quest_focus} weighs heavily on everyone. Some truths are painful to face.",
-        "plotStep": "The conspirator fled toward {location} when confronted with the evidence. The {enemy_type} they'd been feeding information to turned on them when the arrangement collapsed. {quest_stakes} survived, but the betrayal left scars that won't fade quickly.",
+        "plotStep": "The conspirator fled toward {location_hint} when confronted with the evidence. The {enemy_type} they'd been feeding information to turned on them when the arrangement collapsed. {quest_stakes} survived, but the betrayal left scars that won't fade quickly.",
         "outro": "You did what had to be done. {quest_threat} is ended, and {quest_ally} says the settlement will be wiser for it. Thank you, {player_name}."
       },
       "playerResponses": [

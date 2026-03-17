@@ -1,10 +1,10 @@
 {
   "variants": [
     {
-      "id": "loss_loved_conf_01",
+      "id": "conf_loss_loved_01",
       "dialogueChunks": {
         "intro": "The grief has turned to anger, {player_name}. And angry people make dangerous decisions.",
-        "plotStep": "A group from {location} has decided to avenge their dead by striking the {enemy_type} camp {location_hint}. They're not soldiers, they're farmers and craftworkers blinded by rage. {target_npc} tried to stop them but they shouted them down. If they march on that camp, they'll be slaughtered, and we'll have more graves to dig. I need you to gather {quest_item} to reinforce our defenses as a counter-argument: show them that protecting what we have is more honorable than a suicide charge. The {enemy_type} have been reinforcing too, as if they expect us to come.",
+        "plotStep": "A group has decided to avenge the dead by striking the {enemy_type} camp {location_hint}. They're not soldiers: they're workers blinded by rage. {target_npc} tried to stop them but was shouted down. If they march on that camp, they'll be slaughtered. I need you to gather {quest_item} to reinforce our defenses as a counter-argument.",
         "outro": "If we can't channel this grief into something constructive, {quest_stakes} will suffer even more loss."
       },
       "playerResponses": [
@@ -20,11 +20,11 @@
       }
     },
     {
-      "id": "loss_loved_conf_02",
+      "id": "conf_loss_loved_02",
       "dialogueChunks": {
-        "intro": "{player_name}, the loss keeps compounding. Another family is leaving {location}.",
-        "plotStep": "Two more families packed up and left in the night. They said they can't raise children in a place where death comes so easily. {target_npc} is trying to hold things together, but every departure takes skills, labor, and hope with it. The {enemy_type} have noticed the weakening defenses and are probing closer {location_hint}. We need {quest_item} to repair the outer walls and show the remaining families that {location} is worth defending. If the settlement shrinks much more, it won't be viable: {quest_stakes} depends on having enough hands to work the land and stand watch.",
-        "outro": "We're bleeding people as surely as if the {enemy_type} were still inside our walls. We need a reason to stay."
+        "intro": "{player_name}, the loss keeps compounding. Another family is leaving.",
+        "plotStep": "More families packed up and left in the night. They said they can't raise children in a place where death comes so easily. {target_npc} is trying to hold things together, but every departure takes skills and hope with it. The {enemy_type} have noticed the weakening defenses and are probing closer {location_hint}. We need {quest_item} to repair the outer walls.",
+        "outro": "We're bleeding people as surely as if the {enemy_type} were still inside our walls. {quest_stakes} depends on having enough hands to work and stand watch."
       },
       "playerResponses": [
         { "text": "A settlement that fights to survive gives its people a reason to stay. I'll shore up the defenses.", "action": "ACCEPT" },
@@ -39,11 +39,11 @@
       }
     },
     {
-      "id": "loss_loved_conf_03",
+      "id": "conf_loss_loved_03",
       "dialogueChunks": {
         "intro": "Something unexpected happened, {player_name}. The grief brought something else to the surface.",
-        "plotStep": "While searching for {quest_item} to complete {quest_focus}, {target_npc} found evidence that the raid which killed our people wasn't random. The {enemy_type} targeted specific buildings, specific stores, as if guided by someone who knew our layout. There might be a collaborator in {location}, someone who traded information about our defenses for personal safety. If that's true, the loss we suffered was a betrayal, not just a tragedy. We need you to investigate the {enemy_type} camp {location_hint} and find proof of who gave them our secrets.",
-        "outro": "If someone sold out their neighbors to save themselves, the dead deserve justice and the living deserve the truth."
+        "plotStep": "While searching for {quest_item} to complete {quest_focus}, {target_npc} found evidence that the raid wasn't random. The {enemy_type} targeted specific buildings, specific stores, as if guided by someone who knew our layout. There might be a collaborator: someone who traded information about our defenses for personal safety.",
+        "outro": "If someone sold out their neighbors to save themselves, the dead deserve justice and the living deserve the truth. Investigate the {enemy_type} camp {location_hint} and find proof."
       },
       "playerResponses": [
         { "text": "Betrayal that led to deaths is unforgivable. I'll find the proof.", "action": "ACCEPT" },

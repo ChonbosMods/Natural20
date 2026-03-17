@@ -1,11 +1,11 @@
 {
   "variants": [
     {
-      "id": "reso_rivalry_sup_inf_new_accord",
+      "id": "reso_rivalry_sup_inf_01",
       "dialogueChunks": {
-        "intro": "The council heard the evidence. The founding families are furious, but they can't deny the numbers. The siphoning was systematic and documented.",
-        "plotStep": "{target_npc} brokered a new accord: wages adjusted, community funds restored, and a public accounting system so nobody can skim again. The founding family's son who struck the worker publicly apologized. Whether he meant it is debatable. Whether it matters is less so.",
-        "outro": "The settlement won't change overnight, {player_name}. Power doesn't redistribute quietly. But the workers have a seat at the table now, and that's something they didn't have yesterday. {quest_ally} says to tell you the first fair payroll goes out next week."
+        "intro": "The council heard the evidence. The powerful are furious, but they can't deny the numbers.",
+        "plotStep": "{target_npc} brokered a new accord: fair compensation, community funds restored, and a public accounting system so nobody can skim again. Whether the apologies from the powerful were sincere is debatable. Whether it matters is less so.",
+        "outro": "The settlement won't change overnight, {player_name}. Power doesn't redistribute quietly. But the workers have a seat at the table now. {quest_ally} says the first fair payroll goes out next week."
       },
       "playerResponses": [
         {
@@ -23,10 +23,10 @@
       "objectiveConfig": {}
     },
     {
-      "id": "reso_rivalry_sup_inf_harvest_returned",
+      "id": "reso_rivalry_sup_inf_02",
       "dialogueChunks": {
-        "intro": "The charter was clear. The taxes were illegal. The landowner's own guards opened the storehouse doors when they saw the founding document.",
-        "plotStep": "The families got their harvest back. Every bushel. {target_npc} supervised the distribution personally. The landowner hasn't been seen since: some say he left in the night, others say he's locked in his estate drafting new schemes. {quest_ally} organized a watch rotation to make sure the storehouse stays public.",
+        "intro": "The founding document was clear. The levies were illegal. The guards opened the storehouse doors when they saw the proof.",
+        "plotStep": "The families got everything back. {target_npc} supervised the distribution personally. The one who imposed the false debts hasn't been seen since. {quest_ally} organized a watch to make sure it stays fair.",
         "outro": "A piece of paper with old words on it broke a tyrant's grip, {player_name}. That's the thing about legitimate authority: it only works as long as nobody reads the fine print. You read it."
       },
       "playerResponses": [
@@ -36,7 +36,7 @@
           "dispositionShift": 5
         },
         {
-          "text": "The landowner will try again. Stay vigilant.",
+          "text": "The powerful will try again. Stay vigilant.",
           "action": "COMPLETE",
           "dispositionShift": 2
         },
@@ -50,11 +50,11 @@
       "objectiveConfig": {}
     },
     {
-      "id": "reso_rivalry_sup_inf_guild_reformed",
+      "id": "reso_rivalry_sup_inf_03",
       "dialogueChunks": {
-        "intro": "The trade council ruled unanimously. The guild examinations are suspended pending a complete overhaul. Three guild masters have been stripped of their positions.",
-        "plotStep": "The expelled apprentice was reinstated with a formal apology. {target_npc} says fourteen other apprentices who had been failed unfairly are being reassessed. {quest_ally} is drafting new examination standards with input from every skill level, not just the top. It's messy and loud and exactly what reform looks like.",
-        "outro": "The guild won't forgive you easily, {player_name}. But the apprentices who can finally earn what they deserve: they'll remember. Sometimes the inferior just needed a fair chance, not a revolution. You gave them one."
+        "intro": "The neutral authority ruled unanimously. {quest_focus} is suspended pending a complete overhaul. Those responsible have been stripped of their positions.",
+        "plotStep": "The expelled worker was reinstated with a formal apology. {target_npc} says many others who were failed unfairly are being reassessed. {quest_ally} is drafting new standards with input from every level.",
+        "outro": "The powerful won't forgive you easily, {player_name}. But the workers who can finally earn what they deserve will remember. Sometimes the underdog just needed a fair chance, not a revolution. You gave them one."
       },
       "playerResponses": [
         {
@@ -63,7 +63,7 @@
           "dispositionShift": 4
         },
         {
-          "text": "The guild masters got off easy. But at least the system changes.",
+          "text": "The guilty got off easy. But at least the system changes.",
           "action": "COMPLETE",
           "dispositionShift": 1
         }

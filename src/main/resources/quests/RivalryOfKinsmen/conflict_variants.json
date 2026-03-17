@@ -5,7 +5,7 @@
       "dialogueChunks": {
         "intro": "The rivalry over {quest_focus} has turned ugly. Someone tampered with supplies meant for {quest_ally}, and suspicion falls on {target_npc}'s supporters.",
         "plotStep": "Whether it's actual sabotage or just paranoia, the damage is done. Both sides are accusing the other while {quest_threat} erodes the settlement's cohesion. The {enemy_type} near {location_hint} are taking advantage of the chaos.",
-        "outro": "Get out to {location} and deal with the real problems while these fools tear each other apart. Bring back {quest_item} to replenish what was lost."
+        "outro": "Get out to {location_hint} and deal with the real problems while these fools tear each other apart. Bring back {quest_item} to replenish what was lost."
       },
       "playerResponses": [
         {
@@ -52,7 +52,7 @@
     {
       "id": "rivalry_conf_dangerous_bet",
       "dialogueChunks": {
-        "intro": "Both rivals have upped the stakes on {quest_focus}. {quest_ally} ventured deep toward {location} alone to prove a point and hasn't returned on time.",
+        "intro": "Both rivals have upped the stakes on {quest_focus}. {quest_ally} ventured deep toward {location_hint} alone to prove a point and hasn't returned on time.",
         "plotStep": "{target_npc} is torn between concern and satisfaction. The area near {location_hint} is crawling with {enemy_type}, and {quest_threat} may have finally produced real consequences. Someone needs to check the route and make sure {quest_ally} is safe.",
         "outro": "Track {quest_ally}'s path, clear any hostiles, and make sure this stupid rivalry doesn't cost us someone we can't replace."
       },

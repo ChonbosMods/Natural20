@@ -2,22 +2,15 @@
   "variants": [
     {
       "id": "deliverance_expo_01",
-      "bindings": {
-        "quest_action": "rescue the captives",
-        "quest_focus": "the enemy camp",
-        "quest_stakes": "the taken villagers",
-        "quest_threat": "the slavers",
-        "quest_time_pressure": "before they are moved"
-      },
       "dialogueChunks": {
-        "intro": "{player_name}, {quest_threat} struck our settlement at night and dragged off several people. {quest_stakes} are being held at {quest_focus}.",
-        "plotStep": "We need to {quest_action} quickly, {quest_time_pressure}. {quest_ally} spotted the camp {location_hint}. Gather {quest_item} along the way: we may need them to break through the defenses.",
+        "intro": "{player_name}, {quest_threat} struck our settlement and dragged off several people. {quest_stakes} are being held at {quest_focus}.",
+        "plotStep": "We need to {quest_action} quickly, {quest_time_pressure}. {quest_ally} spotted the area {location_hint}. Gather {quest_item} along the way: we may need them to break through the defenses.",
         "outro": "Every moment we wait, those people suffer. Please, you are our only hope."
       },
       "playerResponses": [
         { "text": "I will bring them home. Every last one.", "action": "ACCEPT", "dispositionShift": 15 },
         { "text": "How many captors are we talking about?", "action": "ACCEPT", "dispositionShift": 0 },
-        { "text": "That camp sounds like a fortress. I cannot do this alone.", "action": "DECLINE", "dispositionShift": -5 }
+        { "text": "That sounds like a fortress. I cannot do this alone.", "action": "DECLINE", "dispositionShift": -5 }
       ],
       "objectivePool": ["EXPLORE_LOCATION", "KILL_MOBS", "GATHER_ITEMS"],
       "objectiveConfig": {
@@ -27,22 +20,15 @@
     },
     {
       "id": "deliverance_expo_02",
-      "bindings": {
-        "quest_action": "free the trapped miners",
-        "quest_focus": "the collapsed shaft",
-        "quest_stakes": "the workers below",
-        "quest_threat": "the unstable tunnels",
-        "quest_origin": "the earthquake"
-      },
       "dialogueChunks": {
         "intro": "Since {quest_origin}, {player_name}, {quest_stakes} have been trapped inside {quest_focus}. We can hear them calling out, but the path is blocked.",
-        "plotStep": "We need to {quest_action} by clearing the rubble. The {enemy_type} have been drawn to the site by the noise and are lurking {location_hint}. We also need {quest_item} to shore up the walls.",
-        "outro": "Air will run out down there. Every hour counts, {player_name}."
+        "plotStep": "We need to {quest_action} by clearing the way. The {enemy_type} have been drawn to the site and are lurking {location_hint}. We also need {quest_item} to secure the area.",
+        "outro": "Time is running out down there. Every hour counts, {player_name}."
       },
       "playerResponses": [
         { "text": "People are trapped. I will not stand by.", "action": "ACCEPT", "dispositionShift": 10 },
-        { "text": "Crawling into a collapsing mine with monsters? What is my cut?", "action": "ACCEPT", "dispositionShift": -5 },
-        { "text": "I am not dying in a hole in the ground.", "action": "DECLINE", "dispositionShift": -10 }
+        { "text": "Creatures and rubble? What is my cut?", "action": "ACCEPT", "dispositionShift": -5 },
+        { "text": "I am not risking my life in there.", "action": "DECLINE", "dispositionShift": -10 }
       ],
       "objectivePool": ["GATHER_ITEMS", "KILL_MOBS", "EXPLORE_LOCATION"],
       "objectiveConfig": {
@@ -52,22 +38,15 @@
     },
     {
       "id": "deliverance_expo_03",
-      "bindings": {
-        "quest_action": "break the siege",
-        "quest_focus": "the besieged outpost",
-        "quest_stakes": "the stranded defenders",
-        "quest_threat": "the encircling horde",
-        "quest_reward_hint": "the outpost's armory"
-      },
       "dialogueChunks": {
         "intro": "{player_name}, {quest_focus} has been surrounded by {quest_threat} for days. {quest_stakes} are running low on supplies and cannot hold much longer.",
-        "plotStep": "Someone needs to {quest_action} from the outside. The {enemy_type} are dug in {location_hint}. If you bring {quest_item}, the defenders can use them to counterattack.",
+        "plotStep": "Someone needs to {quest_action} from the outside. The {enemy_type} are dug in {location_hint}. If you bring {quest_item}, the defenders can use them to push back.",
         "outro": "Save them, and you will have access to {quest_reward_hint} and the gratitude of every soul inside those walls."
       },
       "playerResponses": [
-        { "text": "A siege needs breaking? I am on my way.", "action": "ACCEPT", "dispositionShift": 10 },
-        { "text": "Tell me more about this armory.", "action": "ACCEPT", "dispositionShift": -3 },
-        { "text": "One person against a horde? No.", "action": "DECLINE" }
+        { "text": "They need help? I am on my way.", "action": "ACCEPT", "dispositionShift": 10 },
+        { "text": "Tell me more about what I stand to gain.", "action": "ACCEPT", "dispositionShift": -3 },
+        { "text": "One person against all of that? No.", "action": "DECLINE" }
       ],
       "objectivePool": ["KILL_MOBS", "DELIVER_ITEM", "EXPLORE_LOCATION"],
       "objectiveConfig": {

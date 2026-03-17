@@ -2,17 +2,10 @@
   "variants": [
     {
       "id": "supplication_expo_01",
-      "bindings": {
-        "quest_action": "recover our food stores",
-        "quest_focus": "the ransacked storehouse",
-        "quest_stakes": "the hungry families",
-        "quest_threat": "the raiding parties",
-        "quest_origin": "the harvest failure"
-      },
       "dialogueChunks": {
-        "intro": "Please, {player_name}, I would not ask if we had any other choice. Since {quest_origin}, {quest_threat} have grown bold enough to strike us directly.",
-        "plotStep": "They hit {quest_focus} two nights ago and took nearly everything. We need someone to {quest_action} before it is too late. I have heard there are {quest_item} scattered {location_hint} that could help us restock.",
-        "outro": "Without those supplies, {quest_stakes} will not survive the week. I am begging you."
+        "intro": "Please, {player_name}. Since {quest_origin}, {quest_threat} has made life unbearable. We have nowhere else to turn.",
+        "plotStep": "We need someone to {quest_action} at {quest_focus}. There should be {quest_item} {location_hint} that could help. Without it, {quest_stakes} will suffer.",
+        "outro": "I know it is a lot to ask. But we are running out of time."
       },
       "playerResponses": [
         { "text": "I will find what you need. No one should go hungry.", "action": "ACCEPT", "dispositionShift": 10 },
@@ -26,21 +19,13 @@
     },
     {
       "id": "supplication_expo_02",
-      "bindings": {
-        "quest_action": "bring the medicine",
-        "quest_focus": "the village well",
-        "quest_stakes": "the sick children",
-        "quest_threat": "the spreading plague",
-        "quest_origin": "the contaminated water",
-        "quest_time_pressure": "before more fall ill"
-      },
       "dialogueChunks": {
-        "intro": "{player_name}, thank the stars you are here. Ever since {quest_origin}, {quest_threat} has been claiming more of us each day.",
-        "plotStep": "We traced it back to {quest_focus}, but we lack the means to fix it. We desperately need someone to {quest_action}. {quest_ally} mentioned that {quest_item} can be found {location_hint}.",
+        "intro": "{player_name}, thank the stars you are here. {quest_threat} has been claiming more of us each day, and we cannot hold on much longer.",
+        "plotStep": "We traced the problem back to {quest_focus}, but we lack the means to fix it. We desperately need someone to {quest_action}. {quest_ally} mentioned that {quest_item} can be found {location_hint}.",
         "outro": "Please, {quest_stakes} cannot wait. We need this done {quest_time_pressure}."
       },
       "playerResponses": [
-        { "text": "Children are suffering. I will go now.", "action": "ACCEPT", "dispositionShift": 15 },
+        { "text": "People are suffering. I will go now.", "action": "ACCEPT", "dispositionShift": 15 },
         { "text": "Fine, but I expect fair payment.", "action": "ACCEPT", "dispositionShift": 0 },
         { "text": "I cannot help with this.", "action": "DECLINE" }
       ],
@@ -52,22 +37,14 @@
     },
     {
       "id": "supplication_expo_03",
-      "bindings": {
-        "quest_action": "drive off the beasts",
-        "quest_focus": "the outer pastures",
-        "quest_stakes": "our last livestock",
-        "quest_threat": "the feral predators",
-        "quest_origin": "the forest fire",
-        "quest_reward_hint": "my grandfather's blade"
-      },
       "dialogueChunks": {
-        "intro": "Stranger, I have no pride left. {player_name}, since {quest_origin} drove them from their dens, {quest_threat} have been terrorizing {quest_focus}.",
-        "plotStep": "We have already lost half our herd. Someone needs to {quest_action} before we lose the rest. The {enemy_type} have been sighted {location_hint}.",
+        "intro": "Stranger, I have no pride left. {player_name}, {quest_threat} has been terrorizing {quest_focus} and we are powerless to stop it.",
+        "plotStep": "Someone needs to {quest_action} before we lose everything. The {enemy_type} have been sighted {location_hint}. If you bring back {quest_item}, we might stand a chance.",
         "outro": "If {quest_stakes} are taken, this settlement is finished. I will give you {quest_reward_hint} if you help us."
       },
       "playerResponses": [
         { "text": "Point me toward them. I will handle it.", "action": "ACCEPT", "dispositionShift": 5 },
-        { "text": "Tell me more about this blade first.", "action": "ACCEPT", "dispositionShift": -3 },
+        { "text": "Tell me more about this reward first.", "action": "ACCEPT", "dispositionShift": -3 },
         { "text": "Sounds too dangerous for too little.", "action": "DECLINE", "dispositionShift": -5 }
       ],
       "objectivePool": ["KILL_MOBS", "EXPLORE_LOCATION"],

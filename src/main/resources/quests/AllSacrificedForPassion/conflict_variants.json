@@ -1,25 +1,25 @@
 {
   "variants": [
     {
-      "id": "conf_all_sacrificed_deeper_spiral",
+      "id": "conf_all_sacrificed_01",
       "dialogueChunks": {
-        "intro": "{player_name}, the situation has escalated. The smith got his hands on inferior ore while you were out and tried to work it anyway. The forge fire nearly took the workshop.",
-        "plotStep": "{target_npc} pulled him out before the smoke got him. He was furious: not grateful, furious. Said he was close to a breakthrough on {quest_focus} and the interruption cost him hours. His hands are burned and he's already back at the anvil. {quest_ally} found him trying to trade his last tool set for more fuel.",
-        "outro": "If you found the original {quest_item}, bring it now. He's past the point of reason and the next shortcut he takes might be the one that kills him."
+        "intro": "{player_name}, the situation has escalated. They got their hands on inferior substitutes while you were out and tried to work with them anyway. Nearly destroyed everything.",
+        "plotStep": "{target_npc} pulled them out before the worst happened. They were furious: not grateful, furious. Said they were close to a breakthrough on {quest_focus}. {quest_ally} found them trying to trade their last possessions for more materials.",
+        "outro": "If you found the original {quest_item}, bring it now. They're past the point of reason and the next shortcut might be the one that kills them."
       },
       "playerResponses": [
         {
-          "text": "I have what he needs. Let's hope it's enough to stop the spiral.",
+          "text": "I have what they need. Let's hope it's enough to stop the spiral.",
           "action": "ACCEPT",
           "dispositionShift": 3
         },
         {
-          "text": "Maybe the fire should have been the wake-up call.",
+          "text": "Maybe the disaster should have been the wake-up call.",
           "action": "ACCEPT",
           "dispositionShift": -2
         },
         {
-          "text": "He's choosing this. I'm done.",
+          "text": "They're choosing this. I'm done.",
           "action": "DECLINE",
           "dispositionShift": -3
         }
@@ -28,20 +28,20 @@
       "objectiveConfig": {}
     },
     {
-      "id": "conf_all_sacrificed_point_of_no_return",
+      "id": "conf_all_sacrificed_02",
       "dialogueChunks": {
-        "intro": "The alchemist tried the substitutes. The explosion was visible from three settlements away. The tower is still standing, but barely.",
-        "plotStep": "{target_npc} found her in the wreckage, mixing another batch with bleeding hands. She wasn't even shaken by the explosion: she was taking notes on what went wrong. {quest_ally} tried to reason with her and she said: 'I'm closer than anyone has ever been to {quest_focus}. You want me to stop now?' The {enemy_type} camp where {quest_item} was taken is still reachable, but the path runs through {location}.",
-        "outro": "Get {quest_item} before she tries again with something worse. The next experiment might not leave a tower to stand in."
+        "intro": "They tried the substitutes. The result was visible from three settlements away. The workshop is still standing, but barely.",
+        "plotStep": "{target_npc} found them in the wreckage, already mixing another batch with bleeding hands. They weren't even shaken: they were taking notes. {quest_ally} tried to reason with them and they said: 'I'm closer than anyone has ever been to {quest_focus}. You want me to stop now?' The {enemy_type} camp where {quest_item} was taken is still reachable, but the path is dangerous.",
+        "outro": "Get {quest_item} before they try again with something worse. The next attempt might not leave anything standing."
       },
       "playerResponses": [
         {
-          "text": "I'll bring the real reagents. At least the next attempt won't be suicidal.",
+          "text": "I'll bring the real materials. At least the next attempt won't be suicidal.",
           "action": "ACCEPT",
           "dispositionShift": 2
         },
         {
-          "text": "She needs to be stopped, not supplied.",
+          "text": "They need to be stopped, not supplied.",
           "action": "ACCEPT",
           "dispositionShift": 1
         }
@@ -52,25 +52,25 @@
       }
     },
     {
-      "id": "conf_all_sacrificed_family_plea",
+      "id": "conf_all_sacrificed_03",
       "dialogueChunks": {
-        "intro": "The collector's daughter came to see him yesterday. First time in two years. She brought her child: his grandchild he's never met.",
-        "plotStep": "He barely looked up from his catalogues. {target_npc} says the daughter stood there for ten minutes holding the baby before she started crying. {quest_ally} tried to intervene but the collector just said: 'After I find the last piece of {quest_focus}. Then I'll have time.' The grandchild was asleep on his desk and he moved it aside to make room for a rubbing of an inscription.",
-        "outro": "The keystone artifact was last traced to a ruin near {location}. Find it. Not for him: for the family that's watching him disappear into {quest_focus} one day at a time."
+        "intro": "Their family came to see them yesterday. First time in years. They brought a grandchild they've never met.",
+        "plotStep": "They barely looked up. {target_npc} says the family stood there for ten minutes before the tears started. {quest_ally} tried to intervene but they just said: 'After I find the last piece of {quest_focus}. Then I'll have time.'",
+        "outro": "The final piece was last traced to {location_hint}. Find it. Not for them: for the family that's watching them disappear into {quest_focus} one day at a time."
       },
       "playerResponses": [
         {
-          "text": "That child deserves a grandfather. I'll find the keystone.",
+          "text": "That family deserves their loved one back. I'll find the keystone.",
           "action": "ACCEPT",
           "dispositionShift": 4
         },
         {
-          "text": "What if the keystone isn't there? Will he finally stop?",
+          "text": "What if the piece isn't there? Will they finally stop?",
           "action": "ACCEPT",
           "dispositionShift": 1
         },
         {
-          "text": "His family needs to accept that he's made his choice.",
+          "text": "Their family needs to accept that they've made their choice.",
           "action": "DECLINE",
           "dispositionShift": -2
         }

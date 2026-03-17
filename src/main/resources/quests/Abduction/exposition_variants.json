@@ -1,36 +1,16 @@
 {
   "variants": [
     {
-      "id": "abduction_expo_night_raid",
-      "bindings": {
-        "quest_action": "track the captors",
-        "quest_focus": "the missing settlers",
-        "quest_stakes": "captive lives",
-        "quest_threat": "the raiding party",
-        "quest_origin": "a night raid",
-        "quest_time_pressure": "before the trail fades"
-      },
+      "id": "abduction_expo_01",
       "dialogueChunks": {
-        "intro": "Something terrible happened last night. People are gone: taken from their beds while the settlement slept. The guards found signs of a struggle and tracks leading {location_hint}.",
-        "plotStep": "We counted the missing at dawn. Three families have lost someone. The {enemy_type} left drag marks and broken doors, but they moved fast. Whoever organized this knew exactly where to strike.",
-        "outro": "I need someone brave enough to follow those tracks before the weather turns. The captors have a head start, but they're moving slow with prisoners. Will you help us, {player_name}?"
+        "intro": "Something terrible happened, {player_name}. People are gone: taken while the settlement slept. The guards found signs of a struggle and tracks leading {location_hint}.",
+        "plotStep": "We counted the missing at dawn. {quest_stakes} are in the hands of {quest_threat}. The {enemy_type} left drag marks and broken doors, but they moved fast. Whoever organized this knew exactly where to strike.",
+        "outro": "I need someone brave enough to follow those tracks {quest_time_pressure}. The captors have a head start, but they are moving slow with prisoners. Will you help us?"
       },
       "playerResponses": [
-        {
-          "text": "I'll follow the trail immediately.",
-          "action": "ACCEPT",
-          "dispositionShift": 5
-        },
-        {
-          "text": "What can you tell me about the attackers?",
-          "action": "ACCEPT",
-          "dispositionShift": 2
-        },
-        {
-          "text": "This sounds too dangerous for me.",
-          "action": "DECLINE",
-          "dispositionShift": -3
-        }
+        { "text": "I will follow the trail immediately.", "action": "ACCEPT", "dispositionShift": 5 },
+        { "text": "What can you tell me about the attackers?", "action": "ACCEPT", "dispositionShift": 2 },
+        { "text": "This sounds too dangerous for me.", "action": "DECLINE", "dispositionShift": -3 }
       ],
       "objectivePool": ["EXPLORE_LOCATION", "KILL_MOBS", "GATHER_ITEMS"],
       "objectiveConfig": {
@@ -39,35 +19,16 @@
       }
     },
     {
-      "id": "abduction_expo_lured_away",
-      "bindings": {
-        "quest_action": "find the missing person",
-        "quest_focus": "the vanished traveler",
-        "quest_stakes": "a friend's safety",
-        "quest_threat": "the trappers",
-        "quest_origin": "a false message",
-        "quest_reward_hint": "salvaged supplies"
-      },
+      "id": "abduction_expo_02",
       "dialogueChunks": {
         "intro": "{target_npc} received a message two days ago: an urgent summons to meet someone {location_hint}. They left at once. They never arrived.",
-        "plotStep": "The message was a forgery. {quest_ally} examined the handwriting and confirmed it matches none of our couriers. Someone lured {target_npc} out deliberately, and the {enemy_type} were spotted in that direction days before.",
-        "outro": "We fear the worst, but there's still hope. {target_npc} is resourceful and may still be alive. Will you search for them, {player_name}?"
+        "plotStep": "The message was a forgery. {quest_ally} confirmed it matches none of our couriers. Someone lured {target_npc} out deliberately, and the {enemy_type} were spotted in that direction days before.",
+        "outro": "We fear the worst, but there is still hope. {target_npc} may still be alive. Will you search for them, {player_name}?"
       },
       "playerResponses": [
-        {
-          "text": "I'll find them. Which way did they go?",
-          "action": "ACCEPT",
-          "dispositionShift": 4
-        },
-        {
-          "text": "I'll need supplies before I head out.",
-          "action": "ACCEPT"
-        },
-        {
-          "text": "They're probably already dead. I'm sorry.",
-          "action": "DECLINE",
-          "dispositionShift": -5
-        }
+        { "text": "I will find them. Which way did they go?", "action": "ACCEPT", "dispositionShift": 4 },
+        { "text": "I will need supplies before I head out.", "action": "ACCEPT" },
+        { "text": "They are probably already gone. I am sorry.", "action": "DECLINE", "dispositionShift": -5 }
       ],
       "objectivePool": ["EXPLORE_LOCATION", "TALK_TO_NPC", "KILL_MOBS"],
       "objectiveConfig": {
@@ -75,36 +36,16 @@
       }
     },
     {
-      "id": "abduction_expo_ransom",
-      "bindings": {
-        "quest_action": "rescue the hostage",
-        "quest_focus": "the kidnapped elder",
-        "quest_stakes": "the settlement's leadership",
-        "quest_threat": "the kidnappers",
-        "quest_origin": "a ransom demand",
-        "quest_time_pressure": "before the deadline"
-      },
+      "id": "abduction_expo_03",
       "dialogueChunks": {
-        "intro": "A ransom note was pinned to the gate this morning. The {enemy_type} have taken our elder and are demanding {quest_item} in exchange. The deadline is soon.",
-        "plotStep": "We cannot pay what they ask: we barely have enough to survive the season. But if we refuse, they've promised to make an example. {quest_ally} thinks their camp is somewhere {location_hint}, based on the messenger's direction.",
-        "outro": "We need someone to either negotiate or strike before the deadline passes. {player_name}, can we count on you?"
+        "intro": "A ransom note was pinned to the gate this morning. The {enemy_type} have taken {quest_focus} and are demanding {quest_item} in exchange. The deadline is soon.",
+        "plotStep": "We cannot pay what they ask: we barely have enough to survive the season. But if we refuse, they have promised to make an example. {quest_ally} thinks their camp is somewhere {location_hint}.",
+        "outro": "We need someone to either negotiate or strike {quest_time_pressure}. {player_name}, can we count on you?"
       },
       "playerResponses": [
-        {
-          "text": "I'll deal with them directly.",
-          "action": "ACCEPT",
-          "dispositionShift": 6
-        },
-        {
-          "text": "Maybe we can trick them. I'll try.",
-          "action": "ACCEPT",
-          "dispositionShift": 3
-        },
-        {
-          "text": "You should just pay the ransom.",
-          "action": "DECLINE",
-          "dispositionShift": -4
-        }
+        { "text": "I will deal with them directly.", "action": "ACCEPT", "dispositionShift": 6 },
+        { "text": "Maybe we can outwit them. I will try.", "action": "ACCEPT", "dispositionShift": 3 },
+        { "text": "You should just pay the ransom.", "action": "DECLINE", "dispositionShift": -4 }
       ],
       "objectivePool": ["KILL_MOBS", "EXPLORE_LOCATION", "FETCH_ITEM"],
       "objectiveConfig": {

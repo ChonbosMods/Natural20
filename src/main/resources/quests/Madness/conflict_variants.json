@@ -4,7 +4,7 @@
       "id": "madness_conf_spreading_fast",
       "dialogueChunks": {
         "intro": "{quest_threat} is spreading faster than anticipated. More people are showing symptoms, and the area around {location_hint} is getting worse.",
-        "plotStep": "{quest_ally} says {quest_focus} has affected a dozen more since you started investigating. The {enemy_type} near {location} are also behaving strangely: aggressive and uncoordinated, as if driven by the same force.",
+        "plotStep": "{quest_ally} says {quest_focus} has affected a dozen more since you started investigating. The {enemy_type} near {location_hint} are also behaving strangely: aggressive and uncoordinated, as if driven by the same force.",
         "outro": "We need {quest_item} from the affected zone and every hostile cleared from the path. {quest_stakes} worsen with every hour that passes."
       },
       "playerResponses": [
@@ -52,7 +52,7 @@
     {
       "id": "madness_conf_source_found",
       "dialogueChunks": {
-        "intro": "You've traced {quest_threat} to its origin near {location}. The source is worse than anyone expected: a site pulsing with corrupt energy that warps everything around it.",
+        "intro": "You've traced {quest_threat} to its origin near {location_hint}. The source is worse than anyone expected: a site pulsing with corrupt energy that warps everything around it.",
         "plotStep": "The {enemy_type} near the source have been twisted by prolonged exposure. {quest_ally} says neutralizing {quest_focus} requires specific materials gathered from the surrounding area. {target_npc} is preparing a countermeasure, but needs what only you can retrieve.",
         "outro": "Gather the materials and clear the corrupted {enemy_type} from around the source. {quest_stakes} hang on what you do next."
       },

@@ -1,35 +1,16 @@
 {
   "variants": [
     {
-      "id": "rivalry_expo_competing_claims",
-      "bindings": {
-        "quest_action": "prove your worth",
-        "quest_focus": "the contested title",
-        "quest_stakes": "the settlement's direction",
-        "quest_threat": "a leadership vacuum",
-        "quest_origin": "a succession dispute"
-      },
+      "id": "rivalry_expo_01",
       "dialogueChunks": {
-        "intro": "Two of our most respected figures are at each other's throats. {quest_ally} and {target_npc} both believe they should lead the settlement's next expansion, and neither will yield.",
+        "intro": "Two of our most respected figures are at each other's throats, {player_name}. {quest_ally} and {target_npc} both believe they should lead, and neither will yield.",
         "plotStep": "Both have their supporters, and {quest_focus} has split the community down the middle. The {enemy_type} have taken note of our distraction: raids are increasing near {location_hint} while we bicker.",
-        "outro": "Someone outside the dispute needs to act while our leaders compete. {player_name}, will you handle the real threats while we sort out {quest_stakes}?"
+        "outro": "Someone outside the dispute needs to act while our leaders compete. Will you handle the real threats while we sort out {quest_stakes}?"
       },
       "playerResponses": [
-        {
-          "text": "I'll handle what matters while they argue.",
-          "action": "ACCEPT",
-          "dispositionShift": 4
-        },
-        {
-          "text": "Maybe I can help settle this too.",
-          "action": "ACCEPT",
-          "dispositionShift": 3
-        },
-        {
-          "text": "Your politics bore me.",
-          "action": "DECLINE",
-          "dispositionShift": -3
-        }
+        { "text": "I will handle what matters while they argue.", "action": "ACCEPT", "dispositionShift": 4 },
+        { "text": "Maybe I can help settle this too.", "action": "ACCEPT", "dispositionShift": 3 },
+        { "text": "Your politics bore me.", "action": "DECLINE", "dispositionShift": -3 }
       ],
       "objectivePool": ["KILL_MOBS", "EXPLORE_LOCATION", "TALK_TO_NPC"],
       "objectiveConfig": {
@@ -37,36 +18,16 @@
       }
     },
     {
-      "id": "rivalry_expo_skill_challenge",
-      "bindings": {
-        "quest_action": "complete the trial",
-        "quest_focus": "the proving ground",
-        "quest_stakes": "professional standing",
-        "quest_threat": "bitter resentment",
-        "quest_origin": "a crafting rivalry",
-        "quest_reward_hint": "artisan's gratitude"
-      },
+      "id": "rivalry_expo_02",
       "dialogueChunks": {
-        "intro": "Two of our artisans have been feuding for months over who's the superior craftsperson. It's gotten so bad that {quest_ally} refuses to work on the same projects as {target_npc}.",
-        "plotStep": "Both claim they can produce better {quest_item} than the other, and they've dragged the whole settlement into their rivalry. Now they've proposed a challenge: whoever provides the better raw materials wins {quest_focus}. Both are looking for outside help.",
-        "outro": "It's petty, but it's disrupting everything. {player_name}, if you gather the materials they need, we might end {quest_threat} and get our artisans cooperating again."
+        "intro": "Two of our artisans have been feuding for months, {player_name}. It has gotten so bad that {quest_ally} refuses to work on the same projects as {target_npc}.",
+        "plotStep": "Both claim superiority and they have dragged the whole settlement into their rivalry over {quest_focus}. Now they have proposed a challenge, and both are looking for outside help to gather {quest_item} from {location_hint}.",
+        "outro": "It is petty, but it is disrupting everything. If you gather the materials they need, we might end {quest_threat} and get our people cooperating again. {quest_reward_hint} is on the table."
       },
       "playerResponses": [
-        {
-          "text": "I'll gather what's needed.",
-          "action": "ACCEPT",
-          "dispositionShift": 3
-        },
-        {
-          "text": "Craftspeople and their egos. Fine, I'll help.",
-          "action": "ACCEPT",
-          "dispositionShift": 1
-        },
-        {
-          "text": "Let them sort out their own squabble.",
-          "action": "DECLINE",
-          "dispositionShift": -2
-        }
+        { "text": "I will gather what is needed.", "action": "ACCEPT", "dispositionShift": 3 },
+        { "text": "Artisans and their egos. Fine, I will help.", "action": "ACCEPT", "dispositionShift": 1 },
+        { "text": "Let them sort out their own squabble.", "action": "DECLINE", "dispositionShift": -2 }
       ],
       "objectivePool": ["GATHER_ITEMS", "EXPLORE_LOCATION", "DELIVER_ITEM"],
       "objectiveConfig": {
@@ -74,36 +35,16 @@
       }
     },
     {
-      "id": "rivalry_expo_glory_hunt",
-      "bindings": {
-        "quest_action": "outperform the rival",
-        "quest_focus": "the hunting trophy",
-        "quest_stakes": "a fighter's reputation",
-        "quest_threat": "reckless one-upmanship",
-        "quest_origin": "a boastful challenge",
-        "quest_time_pressure": "before someone gets killed"
-      },
+      "id": "rivalry_expo_03",
       "dialogueChunks": {
         "intro": "{quest_ally} challenged {target_npc} to a contest: who can clear more {enemy_type} from the land around {location_hint}. What started as bravado has become dangerously reckless.",
-        "plotStep": "Both are taking bigger risks to outdo the other, venturing deeper into hostile territory near {location}. {quest_focus} has become less about protecting the settlement and more about pride. Someone is going to get killed.",
-        "outro": "I need someone out there who can actually thin the {enemy_type} numbers while keeping those two from getting themselves killed. {player_name}, are you up for it?"
+        "plotStep": "Both are taking bigger risks to outdo the other, venturing deeper into hostile territory. {quest_focus} has become less about protecting the settlement and more about pride. Someone is going to get killed {quest_time_pressure}.",
+        "outro": "I need someone out there who can actually thin the numbers while keeping those two from getting themselves killed. {player_name}, are you up for it?"
       },
       "playerResponses": [
-        {
-          "text": "I'll show them both how it's done.",
-          "action": "ACCEPT",
-          "dispositionShift": 5
-        },
-        {
-          "text": "Someone has to be the responsible one.",
-          "action": "ACCEPT",
-          "dispositionShift": 3
-        },
-        {
-          "text": "Let them learn the hard way.",
-          "action": "DECLINE",
-          "dispositionShift": -4
-        }
+        { "text": "I will show them both how it is done.", "action": "ACCEPT", "dispositionShift": 5 },
+        { "text": "Someone has to be the responsible one.", "action": "ACCEPT", "dispositionShift": 3 },
+        { "text": "Let them learn the hard way.", "action": "DECLINE", "dispositionShift": -4 }
       ],
       "objectivePool": ["KILL_MOBS", "EXPLORE_LOCATION", "GATHER_ITEMS"],
       "objectiveConfig": {

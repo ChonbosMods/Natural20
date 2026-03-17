@@ -1,11 +1,11 @@
 {
   "variants": [
     {
-      "id": "ambition_reso_01",
+      "id": "reso_ambition_01",
       "dialogueChunks": {
-        "intro": "It's done, {player_name}. The seat is mine, and {location} will be better for it.",
-        "plotStep": "The council recognized my claim this morning. {target_npc} conceded after they saw the evidence and the support we'd gathered. The people aren't entirely happy: some think I pushed too hard, others think I didn't push hard enough. But the {enemy_type} threat is being addressed, the supply lines are open, and for the first time in months, decisions are being made instead of debated endlessly.",
-        "outro": "You helped me earn this. Not just take it: earn it. Here's what I promised, and know that when you return to {location}, you'll always have an ally in power."
+        "intro": "It's done, {player_name}. {quest_focus} is mine, and things will be better for it.",
+        "plotStep": "The council recognized my claim this morning. {target_npc} conceded after they saw the evidence and the support we'd gathered. The {enemy_type} threat is being addressed, supply lines are open, and decisions are being made instead of debated endlessly.",
+        "outro": "You helped me earn this. Not just take it: earn it. Here's what I promised, and know that you'll always have an ally in power."
       },
       "playerResponses": [
         { "text": "Use the power wisely. That's all I ask.", "action": "ACCEPT" },
@@ -15,10 +15,10 @@
       "objectiveConfig": {}
     },
     {
-      "id": "ambition_reso_02",
+      "id": "reso_ambition_02",
       "dialogueChunks": {
         "intro": "{player_name}, I won't pretend the victory was clean. But it's mine.",
-        "plotStep": "The opposition crumbled after you dealt with their mercenaries and I exposed their backers. {target_npc} left {location} rather than face the assembly. Some call me ruthless, and maybe they're right. But the workshops are running, the defenses are strengthened, and the {enemy_type} haven't breached our perimeter since I took charge. The people who called me a tyrant last week are sleeping safely because of the choices I made.",
+        "plotStep": "The opposition crumbled after you dealt with their enforcers. {target_npc} left rather than face the assembly. Some call me ruthless, and maybe they're right. But the defenses are strengthened and the {enemy_type} haven't breached our perimeter since I took charge. {quest_stakes} is secure.",
         "outro": "History remembers results, not methods. Here's your share of the results."
       },
       "playerResponses": [
@@ -29,11 +29,11 @@
       "objectiveConfig": {}
     },
     {
-      "id": "ambition_reso_03",
+      "id": "reso_ambition_03",
       "dialogueChunks": {
         "intro": "I pushed too far, {player_name}. I know that now.",
-        "plotStep": "I got what I wanted: the seat, the authority, the control. And it lasted three days before {target_npc} rallied enough support to force a shared council. I'm still at the table, but I'm not the only voice anymore. Part of me is furious. Another part, the part I don't let many people see, is relieved. Leading alone was exhausting in ways I didn't expect. The {enemy_type} don't care about politics, and neither do hungry children.",
-        "outro": "I learned something about ambition: having it isn't the sin. Letting it consume you is. Take this, and know I'm grateful for your honesty, even when it wasn't what I wanted to hear."
+        "plotStep": "I got what I wanted: {quest_focus}, the authority, the control. And it lasted three days before {target_npc} rallied enough support to force a shared council. I'm still at the table, but I'm not the only voice anymore. Part of me is furious. Another part is relieved. Leading alone was exhausting in ways I didn't expect.",
+        "outro": "I learned something about ambition: having it isn't the sin. Letting it consume you is. Take this, and know I'm grateful for your honesty."
       },
       "playerResponses": [
         { "text": "Shared power is still power. And it's more sustainable.", "action": "ACCEPT", "dispositionShift": 10 },

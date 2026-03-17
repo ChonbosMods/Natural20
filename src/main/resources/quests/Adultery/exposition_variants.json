@@ -1,18 +1,11 @@
 {
   "variants": [
     {
-      "id": "expo_adultery_broken_alliance",
-      "bindings": {
-        "quest_action": "recover the stolen plans",
-        "quest_focus": "the broken alliance",
-        "quest_stakes": "the trade network",
-        "quest_threat": "total isolation",
-        "quest_origin": "the council chamber"
-      },
+      "id": "expo_adultery_01",
       "dialogueChunks": {
-        "intro": "The alliance between our settlement and the one at {location} is over. Not because of war. Because of betrayal.",
-        "plotStep": "Our trade representative was caught secretly negotiating with the {enemy_type} to undercut the partner settlement's prices. It wasn't an accident or a misunderstanding: it was a calculated violation of every covenant we swore. The partner settlement has severed all contact. {quest_focus} took years to build and was destroyed in a single meeting.",
-        "outro": "The plans they stole from the partner settlement are still in the hands of the {enemy_type}. If someone could {quest_action}, it would prove we're willing to make it right. Without that gesture, {quest_threat} is all we have to look forward to."
+        "intro": "{player_name}, an alliance that took years to build has been shattered. Not by war. By betrayal from within.",
+        "plotStep": "Our representative was caught secretly working with the {enemy_type} to undermine our partners. It was calculated: a violation of every covenant we swore. {quest_focus} is in ruins, and {quest_item} was stolen in the process. If someone could {quest_action}, it would prove we're willing to make it right.",
+        "outro": "Without that gesture, {quest_threat} is all we have to look forward to. {quest_stakes} depends on whether trust can be rebuilt."
       },
       "playerResponses": [
         {
@@ -36,18 +29,11 @@
       }
     },
     {
-      "id": "expo_adultery_traitor_guard",
-      "bindings": {
-        "quest_action": "find proof of the betrayal",
-        "quest_focus": "the guard captain's treachery",
-        "quest_stakes": "the garrison's loyalty",
-        "quest_threat": "infiltration from within",
-        "quest_time_pressure": "before the next watch rotation"
-      },
+      "id": "expo_adultery_02",
       "dialogueChunks": {
-        "intro": "The guard captain swore an oath to protect this settlement. She's been selling patrol schedules to the {enemy_type} for six months.",
-        "plotStep": "Three ambushes in two months, all targeting patrols at their most vulnerable positions. It couldn't be coincidence. {quest_focus} was only discovered because a wounded scout overheard a {enemy_type} raider laughing about knowing exactly when the guard changes happen.",
-        "outro": "We need someone from outside the garrison to {quest_action}. If the guards learn about this from their own ranks, it'll tear the unit apart. Hard evidence presented to the council is the only way to remove her without destroying {quest_stakes}."
+        "intro": "Someone in a position of sacred trust has been selling us out to the {enemy_type} for months, {player_name}.",
+        "plotStep": "Three attacks in two months, all targeting us at our most vulnerable. {quest_focus} was only discovered because a wounded scout overheard a {enemy_type} laughing about knowing exactly when our defenses change. We need someone from outside to {quest_action}. {quest_item} {location_hint} might hold the proof.",
+        "outro": "If the defenders learn about this from their own ranks, it'll tear the unit apart. Hard evidence is the only way to remove the traitor without destroying {quest_stakes}. {quest_time_pressure}."
       },
       "playerResponses": [
         {
@@ -65,18 +51,11 @@
       "objectiveConfig": {}
     },
     {
-      "id": "expo_adultery_forged_charter",
-      "bindings": {
-        "quest_action": "retrieve the original document",
-        "quest_focus": "the forged charter",
-        "quest_stakes": "the settlers' land rights",
-        "quest_threat": "mass eviction",
-        "quest_origin": "the archive vault"
-      },
+      "id": "expo_adultery_03",
       "dialogueChunks": {
-        "intro": "The founding covenant guaranteed every family an equal share of the settlement's land. Someone has replaced the original document with a forgery that gives the founding family majority ownership.",
-        "plotStep": "Twelve families received eviction notices this morning. The forged charter is the legal basis. Nobody knows when the original was swapped, but {quest_focus} is convincing enough that the regional authority accepted it. The real document was likely hidden or destroyed.",
-        "outro": "If someone can {quest_action} from {quest_origin}, or find proof it was altered, the evictions stop. {quest_threat} starts at the end of the week. Those families have nowhere to go."
+        "intro": "The founding covenant guaranteed every family equal standing. Someone has replaced the original document with a forgery that gives one family everything, {player_name}.",
+        "plotStep": "Families received eviction notices this morning. {quest_focus} is the legal basis. Nobody knows when the original was swapped, but the forgery is convincing. If someone can {quest_action} from {quest_origin}, or find proof it was altered, the evictions stop.",
+        "outro": "{quest_threat} starts at the end of the week. {quest_stakes} have nowhere to go. {quest_item} {location_hint} might hold the key to proving the fraud."
       },
       "playerResponses": [
         {

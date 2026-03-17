@@ -1,35 +1,16 @@
 {
   "variants": [
     {
-      "id": "involuntary_expo_protective_harm",
-      "bindings": {
-        "quest_action": "undo the damage",
-        "quest_focus": "the displaced families",
-        "quest_stakes": "innocent lives",
-        "quest_threat": "misguided protection",
-        "quest_origin": "an overprotective act"
-      },
+      "id": "involuntary_expo_01",
       "dialogueChunks": {
-        "intro": "{target_npc} did something terrible while trying to protect the people they care about. They drove families from their homes near {location_hint}, claiming the area wasn't safe. They meant well, but the result is devastation.",
-        "plotStep": "The displaced are angry and lost. {quest_ally} has been sheltering them, but {quest_focus} left people without food, tools, or shelter. The {enemy_type} have moved into the abandoned homes, making return even harder.",
-        "outro": "Someone needs to clean up the mess left by good intentions. {player_name}, will you help resettle {quest_stakes} and clear the way for them to go home?"
+        "intro": "{target_npc} did something terrible while trying to protect the people they care about, {player_name}. They meant well, but the result is devastation.",
+        "plotStep": "{quest_stakes} are angry and lost. {quest_ally} has been sheltering them, but {quest_focus} left people without what they need. The {enemy_type} have moved into the affected area {location_hint}, making recovery even harder.",
+        "outro": "Someone needs to clean up the mess left by good intentions. Will you help settle {quest_stakes} and clear the way for things to return to normal?"
       },
       "playerResponses": [
-        {
-          "text": "Good intentions don't excuse the harm.",
-          "action": "ACCEPT",
-          "dispositionShift": 4
-        },
-        {
-          "text": "I'll help them get home safely.",
-          "action": "ACCEPT",
-          "dispositionShift": 5
-        },
-        {
-          "text": "They made their own choices.",
-          "action": "DECLINE",
-          "dispositionShift": -3
-        }
+        { "text": "Good intentions do not excuse the harm.", "action": "ACCEPT", "dispositionShift": 4 },
+        { "text": "I will help them recover.", "action": "ACCEPT", "dispositionShift": 5 },
+        { "text": "They made their own choices.", "action": "DECLINE", "dispositionShift": -3 }
       ],
       "objectivePool": ["KILL_MOBS", "EXPLORE_LOCATION", "GATHER_ITEMS"],
       "objectiveConfig": {
@@ -38,36 +19,16 @@
       }
     },
     {
-      "id": "involuntary_expo_forbidden_cure",
-      "bindings": {
-        "quest_action": "find a real remedy",
-        "quest_focus": "the botched treatment",
-        "quest_stakes": "the patient's health",
-        "quest_threat": "the cure's side effects",
-        "quest_origin": "a desperate remedy",
-        "quest_time_pressure": "before permanent damage"
-      },
+      "id": "involuntary_expo_02",
       "dialogueChunks": {
-        "intro": "{quest_ally} loved someone so much they administered a forbidden treatment to save them. It worked against the original illness, but {quest_threat} is now worse than the disease ever was.",
-        "plotStep": "The patient is alive but suffering. {target_npc} examined them and says the treatment used {quest_item} in a way that was never meant for living bodies. A proper antidote exists, but the ingredients grow only in dangerous territory {location_hint}.",
-        "outro": "{quest_focus} can still be corrected, but time is critical. {player_name}, will you gather what {target_npc} needs before {quest_stakes} are lost to a well-meaning mistake?"
+        "intro": "{quest_ally} loved someone so much they did something desperate to save them, {player_name}. It worked against the original problem, but {quest_threat} is now worse than what they tried to cure.",
+        "plotStep": "The person is alive but suffering. {target_npc} examined them and says {quest_focus} used {quest_item} in a way that was never intended. A proper remedy exists, but the ingredients grow only in dangerous territory {location_hint}.",
+        "outro": "This can still be corrected, but time is critical. Will you gather what {target_npc} needs {quest_time_pressure} before {quest_stakes} are lost to a well-meaning mistake?"
       },
       "playerResponses": [
-        {
-          "text": "I'll get what's needed for the antidote.",
-          "action": "ACCEPT",
-          "dispositionShift": 5
-        },
-        {
-          "text": "Love shouldn't cost someone their life.",
-          "action": "ACCEPT",
-          "dispositionShift": 3
-        },
-        {
-          "text": "They brought this on themselves.",
-          "action": "DECLINE",
-          "dispositionShift": -4
-        }
+        { "text": "I will get what is needed for the remedy.", "action": "ACCEPT", "dispositionShift": 5 },
+        { "text": "Love should not cost someone their life.", "action": "ACCEPT", "dispositionShift": 3 },
+        { "text": "They brought this on themselves.", "action": "DECLINE", "dispositionShift": -4 }
       ],
       "objectivePool": ["GATHER_ITEMS", "EXPLORE_LOCATION", "KILL_MOBS"],
       "objectiveConfig": {
@@ -76,35 +37,16 @@
       }
     },
     {
-      "id": "involuntary_expo_loyalty_trap",
-      "bindings": {
-        "quest_action": "free the captives",
-        "quest_focus": "the hidden prisoners",
-        "quest_stakes": "wrongfully held people",
-        "quest_threat": "paranoid devotion",
-        "quest_origin": "a misplaced loyalty"
-      },
+      "id": "involuntary_expo_03",
       "dialogueChunks": {
-        "intro": "Something deeply wrong is happening at {location}. {target_npc} has been imprisoning travelers, convinced they're spies threatening the settlement. It started as vigilance and became cruelty.",
-        "plotStep": "{quest_ally} discovered {quest_focus} by accident: people locked away in a cellar, some for weeks. {target_npc} genuinely believes they're protecting everyone, but {quest_threat} has turned a loyal defender into a tyrant. The {enemy_type} raids they fear are real, but their response has gone too far.",
-        "outro": "The prisoners need to be freed, and {target_npc} needs to be confronted. {player_name}, this requires someone from outside who can see clearly."
+        "intro": "Something deeply wrong is happening, {player_name}. {target_npc} has been imprisoning travelers out of {quest_origin}, convinced they threaten the settlement. It started as vigilance and became cruelty.",
+        "plotStep": "{quest_ally} discovered {quest_focus} by accident: people held against their will, some for weeks. {target_npc} genuinely believes they are protecting everyone, but {quest_threat} has turned a loyal defender into something else. The {enemy_type} raids they fear are real, but the response has gone too far.",
+        "outro": "{quest_stakes} need to be freed, and {target_npc} needs to be confronted. This requires someone from outside who can see clearly."
       },
       "playerResponses": [
-        {
-          "text": "Those people need to be freed now.",
-          "action": "ACCEPT",
-          "dispositionShift": 6
-        },
-        {
-          "text": "How did no one notice sooner?",
-          "action": "ACCEPT",
-          "dispositionShift": 2
-        },
-        {
-          "text": "Maybe they had good reason.",
-          "action": "DECLINE",
-          "dispositionShift": -5
-        }
+        { "text": "Those people need to be freed now.", "action": "ACCEPT", "dispositionShift": 6 },
+        { "text": "How did no one notice sooner?", "action": "ACCEPT", "dispositionShift": 2 },
+        { "text": "Maybe they had good reason.", "action": "DECLINE", "dispositionShift": -5 }
       ],
       "objectivePool": ["TALK_TO_NPC", "EXPLORE_LOCATION", "KILL_MOBS"],
       "objectiveConfig": {

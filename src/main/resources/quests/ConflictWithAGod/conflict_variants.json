@@ -1,11 +1,11 @@
 {
   "variants": [
     {
-      "id": "conflict_god_conf_01",
+      "id": "conf_conflict_god_01",
       "dialogueChunks": {
         "intro": "The situation is deteriorating, {player_name}. What started as {quest_focus} is spreading.",
-        "plotStep": "The blight has expanded beyond {location} and into the surrounding farmland. Livestock won't graze near {quest_focus}, and {target_npc} reports that the {enemy_type} are behaving strangely: moving in patterns, almost ritualistic, as if drawn to specific points around the affected area. Worse, the {quest_item} you gathered isn't enough. The old texts {target_npc} found describe a second component hidden {location_hint}, protected by something that the records call a 'warden.' Whatever that means, it can't be worse than watching {quest_stakes} slip away.",
-        "outro": "We underestimated {quest_threat}. It's not just angry. It's organized."
+        "plotStep": "The blight has expanded beyond the original area. The {enemy_type} are behaving strangely: moving in patterns, almost ritualistic. Worse, the {quest_item} you gathered isn't enough. {target_npc} found records describing a second component hidden {location_hint}, protected by something the texts call a 'warden.'",
+        "outro": "We underestimated {quest_threat}. It's not just angry. It's organized. {quest_stakes} depends on finding the second component."
       },
       "playerResponses": [
         { "text": "A warden doesn't scare me. Tell me where to find the second component.", "action": "ACCEPT" },
@@ -20,10 +20,10 @@
       }
     },
     {
-      "id": "conflict_god_conf_02",
+      "id": "conf_conflict_god_02",
       "dialogueChunks": {
         "intro": "{player_name}, something spoke to {target_npc} last night. Through the walls of the shrine.",
-        "plotStep": "{target_npc} won't repeat exactly what was said, but the message was clear: {quest_threat} demands a tribute of {quest_item} placed at {quest_focus}, or the punishment escalates. The {enemy_type} attacks have intensified as if enforcing the demand. Half the settlement wants to comply. The other half says giving in once means giving in forever. We need to find an alternative: the old records mention a place {location_hint} where a previous generation faced {quest_threat} and found a way to negotiate without submission.",
+        "plotStep": "{target_npc} won't repeat exactly what was said, but the message was clear: {quest_threat} demands a tribute of {quest_item} at {quest_focus}, or the punishment escalates. The {enemy_type} attacks have intensified as if enforcing the demand. The old records mention a place {location_hint} where a previous generation found a way to negotiate without submission.",
         "outro": "Submission or defiance: both have costs. We need a third option, and you might be the one to find it."
       },
       "playerResponses": [
@@ -39,11 +39,11 @@
       }
     },
     {
-      "id": "conflict_god_conf_03",
+      "id": "conf_conflict_god_03",
       "dialogueChunks": {
         "intro": "It's inside the settlement now, {player_name}. Whatever we disturbed, it's not staying at the edges anymore.",
-        "plotStep": "Three buildings in {location} cracked from foundation to roof last night, as if the ground shrugged beneath them. The well water tastes of iron and the {enemy_type} have breached the outer perimeter, drawn inward by {quest_threat}. {target_npc} believes the original offense against {quest_focus} can only be undone at the source: deep in the ruins {location_hint}. You'll need to gather {quest_item} for the cleansing ritual and fight through the {enemy_type} that have colonized the passage. If we don't act now, {location} won't survive the week.",
-        "outro": "We can't run from this. The only way out is through."
+        "plotStep": "Buildings cracked from foundation to roof last night. The well tastes of iron and the {enemy_type} have breached the perimeter, drawn inward by {quest_threat}. {target_npc} believes the original offense against {quest_focus} can only be undone at the source: deep in the ruins {location_hint}. You'll need {quest_item} for the cleansing ritual.",
+        "outro": "We can't run from this. The only way out is through. {quest_stakes} won't survive the week otherwise."
       },
       "playerResponses": [
         { "text": "Into the ruins, then. Whatever's down there, I'll face it.", "action": "ACCEPT" },

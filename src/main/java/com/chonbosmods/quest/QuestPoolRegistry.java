@@ -19,10 +19,17 @@ public class QuestPoolRegistry {
 
     private static final FluentLogger LOGGER = FluentLogger.forEnclosingClass();
 
+    public record PoolEntry(String id, String label) {}
+
     private final List<PoolEntry> gatherItems = new ArrayList<>();
     private final List<PoolEntry> hostileMobs = new ArrayList<>();
-
-    public record PoolEntry(String id, String label) {}
+    private final List<String> questActions = new ArrayList<>();
+    private final List<String> questFocuses = new ArrayList<>();
+    private final List<String> questStakes = new ArrayList<>();
+    private final List<String> questThreats = new ArrayList<>();
+    private final List<String> questOrigins = new ArrayList<>();
+    private final List<String> questTimePressures = new ArrayList<>();
+    private final List<String> questRewardHints = new ArrayList<>();
 
     public void loadAll(@Nullable Path poolsDir) {
         if (poolsDir == null || !Files.isDirectory(poolsDir)) {
@@ -30,27 +37,43 @@ public class QuestPoolRegistry {
             return;
         }
 
-        loadPool(poolsDir.resolve("gather_items.json"), "items", gatherItems);
-        loadPool(poolsDir.resolve("hostile_mobs.json"), "mobs", hostileMobs);
+        loadItemPool(poolsDir.resolve("gather_items.json"), "items", gatherItems);
+        loadItemPool(poolsDir.resolve("hostile_mobs.json"), "mobs", hostileMobs);
+        loadStringPool(poolsDir.resolve("quest_actions.json"), questActions);
+        loadStringPool(poolsDir.resolve("quest_focuses.json"), questFocuses);
+        loadStringPool(poolsDir.resolve("quest_stakes.json"), questStakes);
+        loadStringPool(poolsDir.resolve("quest_threats.json"), questThreats);
+        loadStringPool(poolsDir.resolve("quest_origins.json"), questOrigins);
+        loadStringPool(poolsDir.resolve("quest_time_pressures.json"), questTimePressures);
+        loadStringPool(poolsDir.resolve("quest_reward_hints.json"), questRewardHints);
 
-        LOGGER.atInfo().log("Loaded pools: %d gather items, %d hostile mobs",
-            gatherItems.size(), hostileMobs.size());
+        LOGGER.atInfo().log("Loaded pools: %d items, %d mobs, %d actions, %d focuses, %d stakes, %d threats, %d origins, %d pressures, %d rewards",
+            gatherItems.size(), hostileMobs.size(), questActions.size(), questFocuses.size(),
+            questStakes.size(), questThreats.size(), questOrigins.size(),
+            questTimePressures.size(), questRewardHints.size());
     }
 
-    private void loadPool(Path file, String arrayKey, List<PoolEntry> target) {
-        if (!Files.exists(file)) {
-            LOGGER.atWarning().log("Pool file not found: %s", file);
-            return;
-        }
+    private void loadItemPool(Path file, String arrayKey, List<PoolEntry> target) {
+        if (!Files.exists(file)) return;
         try (var reader = Files.newBufferedReader(file, StandardCharsets.UTF_8)) {
             JsonObject root = JsonParser.parseReader(reader).getAsJsonObject();
             JsonArray arr = root.getAsJsonArray(arrayKey);
             for (JsonElement el : arr) {
                 JsonObject obj = el.getAsJsonObject();
-                target.add(new PoolEntry(
-                    obj.get("id").getAsString(),
-                    obj.get("label").getAsString()
-                ));
+                target.add(new PoolEntry(obj.get("id").getAsString(), obj.get("label").getAsString()));
+            }
+        } catch (IOException e) {
+            LOGGER.atSevere().withCause(e).log("Failed to load pool: %s", file);
+        }
+    }
+
+    private void loadStringPool(Path file, List<String> target) {
+        if (!Files.exists(file)) return;
+        try (var reader = Files.newBufferedReader(file, StandardCharsets.UTF_8)) {
+            JsonObject root = JsonParser.parseReader(reader).getAsJsonObject();
+            JsonArray arr = root.getAsJsonArray("values");
+            for (JsonElement el : arr) {
+                target.add(el.getAsString());
             }
         } catch (IOException e) {
             LOGGER.atSevere().withCause(e).log("Failed to load pool: %s", file);
@@ -67,6 +90,38 @@ public class QuestPoolRegistry {
         return hostileMobs.get(random.nextInt(hostileMobs.size()));
     }
 
-    public List<PoolEntry> getGatherItems() { return gatherItems; }
-    public List<PoolEntry> getHostileMobs() { return hostileMobs; }
+    public String randomAction(Random random) {
+        if (questActions.isEmpty()) return "investigate the situation";
+        return questActions.get(random.nextInt(questActions.size()));
+    }
+
+    public String randomFocus(Random random) {
+        if (questFocuses.isEmpty()) return "the area";
+        return questFocuses.get(random.nextInt(questFocuses.size()));
+    }
+
+    public String randomStakes(Random random) {
+        if (questStakes.isEmpty()) return "everyone here";
+        return questStakes.get(random.nextInt(questStakes.size()));
+    }
+
+    public String randomThreat(Random random) {
+        if (questThreats.isEmpty()) return "the growing danger";
+        return questThreats.get(random.nextInt(questThreats.size()));
+    }
+
+    public @Nullable String randomOrigin(Random random) {
+        if (questOrigins.isEmpty()) return null;
+        return questOrigins.get(random.nextInt(questOrigins.size()));
+    }
+
+    public @Nullable String randomTimePressure(Random random) {
+        if (questTimePressures.isEmpty()) return null;
+        return questTimePressures.get(random.nextInt(questTimePressures.size()));
+    }
+
+    public @Nullable String randomRewardHint(Random random) {
+        if (questRewardHints.isEmpty()) return null;
+        return questRewardHints.get(random.nextInt(questRewardHints.size()));
+    }
 }

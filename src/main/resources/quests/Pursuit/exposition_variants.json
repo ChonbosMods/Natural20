@@ -2,21 +2,14 @@
   "variants": [
     {
       "id": "pursuit_expo_01",
-      "bindings": {
-        "quest_action": "track the thief",
-        "quest_focus": "the stolen cargo",
-        "quest_stakes": "our trade reputation",
-        "quest_threat": "the cunning bandit",
-        "quest_origin": "the ambush at dawn"
-      },
       "dialogueChunks": {
-        "intro": "{player_name}, we had a shipment hit this morning. Since {quest_origin}, {quest_threat} has made off with {quest_focus} and vanished into the wilds.",
-        "plotStep": "I need someone who can {quest_action} before the trail goes cold. {quest_ally} spotted footprints heading {location_hint}. If you find {quest_item} along the way, grab them: they were part of the shipment.",
-        "outro": "{quest_stakes} are at risk if word spreads that we cannot protect our goods."
+        "intro": "{player_name}, {quest_threat} struck this morning and made off with {quest_focus}. The trail is still fresh but it will not last.",
+        "plotStep": "I need someone who can {quest_action} before the trail goes cold. {quest_ally} spotted tracks heading {location_hint}. If you find {quest_item} along the way, grab them: they were part of what was taken.",
+        "outro": "{quest_stakes} are at risk if word spreads that we cannot protect our own."
       },
       "playerResponses": [
         { "text": "I will pick up the trail. They will not get far.", "action": "ACCEPT", "dispositionShift": 10 },
-        { "text": "What exactly was stolen? I want to know what I am recovering.", "action": "ACCEPT", "dispositionShift": 0 },
+        { "text": "What exactly was taken? I want to know what I am recovering.", "action": "ACCEPT", "dispositionShift": 0 },
         { "text": "Hire a tracker. I am no bloodhound.", "action": "DECLINE", "dispositionShift": -5 }
       ],
       "objectivePool": ["EXPLORE_LOCATION", "GATHER_ITEMS", "FETCH_ITEM"],
@@ -26,22 +19,15 @@
     },
     {
       "id": "pursuit_expo_02",
-      "bindings": {
-        "quest_action": "hunt the rogue beast",
-        "quest_focus": "the wounded creature",
-        "quest_stakes": "the outlying homesteads",
-        "quest_threat": "the maddened predator",
-        "quest_time_pressure": "before nightfall"
-      },
       "dialogueChunks": {
-        "intro": "{player_name}, {quest_threat} attacked {quest_stakes} at first light and fled before anyone could stop it. {quest_focus} left a blood trail heading into the hills.",
-        "plotStep": "We need to {quest_action} and put it down before it circles back. The {enemy_type} was last seen {location_hint}. Take some {quest_item} in case you need to lure it out.",
-        "outro": "This must be done {quest_time_pressure}. A wounded animal is twice as dangerous in the dark."
+        "intro": "{player_name}, {quest_threat} attacked {quest_stakes} at first light and fled before anyone could respond. {quest_focus} left signs heading into the wilds.",
+        "plotStep": "We need to {quest_action} and deal with this before it circles back. The {enemy_type} was last seen {location_hint}. Take some {quest_item} in case you need to draw it out.",
+        "outro": "This must be done {quest_time_pressure}. The longer we wait, the more dangerous it becomes."
       },
       "playerResponses": [
-        { "text": "I will bring it down before sunset.", "action": "ACCEPT", "dispositionShift": 5 },
-        { "text": "A wounded predator? That is a hard hunt. I want proper pay.", "action": "ACCEPT", "dispositionShift": -5 },
-        { "text": "Let it bleed out on its own.", "action": "DECLINE", "dispositionShift": -10 }
+        { "text": "I will bring it down.", "action": "ACCEPT", "dispositionShift": 5 },
+        { "text": "A dangerous hunt. I want proper pay.", "action": "ACCEPT", "dispositionShift": -5 },
+        { "text": "Let it sort itself out.", "action": "DECLINE", "dispositionShift": -10 }
       ],
       "objectivePool": ["KILL_MOBS", "EXPLORE_LOCATION"],
       "objectiveConfig": {
@@ -50,22 +36,15 @@
     },
     {
       "id": "pursuit_expo_03",
-      "bindings": {
-        "quest_action": "find the deserter",
-        "quest_focus": "the abandoned post",
-        "quest_stakes": "our defenses",
-        "quest_threat": "the missing guard",
-        "quest_origin": "the night watch incident"
-      },
       "dialogueChunks": {
         "intro": "Since {quest_origin}, {quest_threat} has not been seen. {player_name}, {quest_focus} was left wide open and something got through.",
-        "plotStep": "I need you to {quest_action}. Tracks lead {location_hint}. {quest_ally} thinks they may have had a reason to flee, but we need answers. Bring back any {quest_item} you find: they may have dropped their gear along the way.",
-        "outro": "{quest_stakes} have a hole in them until we sort this out. Every hour matters."
+        "plotStep": "I need you to {quest_action}. Tracks lead {location_hint}. {quest_ally} thinks there may be a reason behind this, but we need answers. Bring back any {quest_item} you find along the way.",
+        "outro": "{quest_stakes} have a gap in them until we sort this out. Every hour matters."
       },
       "playerResponses": [
         { "text": "I will find them and get to the bottom of this.", "action": "ACCEPT", "dispositionShift": 10 },
-        { "text": "Sounds more like a deserter than a mystery.", "action": "ACCEPT", "dispositionShift": -3 },
-        { "text": "Your personnel problems are not my concern.", "action": "DECLINE" }
+        { "text": "Sounds more like a mystery than a chase.", "action": "ACCEPT", "dispositionShift": -3 },
+        { "text": "Not my concern.", "action": "DECLINE" }
       ],
       "objectivePool": ["EXPLORE_LOCATION", "FETCH_ITEM", "TALK_TO_NPC"],
       "objectiveConfig": {

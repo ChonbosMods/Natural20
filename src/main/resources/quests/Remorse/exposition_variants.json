@@ -1,19 +1,11 @@
 {
   "variants": [
     {
-      "id": "remorse_expo_burned_bridge",
-      "bindings": {
-        "quest_action": "make amends for betrayal",
-        "quest_focus": "the broken alliance",
-        "quest_stakes": "a chance at forgiveness",
-        "quest_threat": "justified resentment",
-        "quest_origin": "a selfish decision",
-        "quest_reward_hint": "peace of conscience"
-      },
+      "id": "expo_remorse_01",
       "dialogueChunks": {
         "intro": "{player_name}, I need to tell you something I've never told anyone. Something I did years ago that I can't stop thinking about.",
-        "plotStep": "When {location} was under attack by {enemy_type}, I ran. I was supposed to hold the eastern gate with {target_npc}, but I abandoned my post and fled into the forest. {target_npc} held the gate alone and was badly injured because of it. They survived, but they moved to another settlement {location_hint} and haven't spoken to me since. I've been gathering {quest_item} as a peace offering, but I can't face them alone. The road there is dangerous: {enemy_type} own the passes now, and I'm not the fighter I should have been.",
-        "outro": "I don't deserve forgiveness. But I need to try, or this guilt will eat me alive."
+        "plotStep": "When this place was under attack by {enemy_type}, I ran. I was supposed to hold the line with {target_npc}, but I abandoned my post and fled. {target_npc} held on alone and was badly injured because of it. They moved to another settlement {location_hint} and haven't spoken to me since. I've been gathering {quest_item} as a peace offering, but the road is dangerous.",
+        "outro": "I don't deserve forgiveness. But I need to {quest_action}. {quest_stakes} depends on whether I can face what I did. {quest_origin} haunts me every day."
       },
       "playerResponses": [
         { "text": "It takes courage to face what you did. I'll walk that road with you.", "action": "ACCEPT" },
@@ -28,18 +20,11 @@
       }
     },
     {
-      "id": "remorse_expo_stolen_legacy",
-      "bindings": {
-        "quest_action": "return what was taken",
-        "quest_focus": "the stolen heirloom",
-        "quest_stakes": "a family's trust",
-        "quest_threat": "old shame surfacing",
-        "quest_origin": "desperate times"
-      },
+      "id": "expo_remorse_02",
       "dialogueChunks": {
         "intro": "I won't lie to you, {player_name}. What I'm about to ask you to help me with started because I did something unforgivable.",
-        "plotStep": "Years ago, when my family was starving, I stole {quest_item} from {target_npc}'s household. It was a family heirloom, irreplaceable, and I sold it to a trader who took it {location_hint}. I've carried that secret like a stone in my chest ever since. {target_npc} still searches for it, still offers rewards for its return. The trader's camp is in {enemy_type} territory now, and nobody else would risk the journey. But I need to get it back and return it, even if it means confessing what I did.",
-        "outro": "I stole from someone who trusted me. The least I can do is risk my pride to give it back."
+        "plotStep": "Years ago, when times were desperate, I stole {quest_item} from {target_npc}'s household. It was irreplaceable, and I sold it to a trader who took it {location_hint}. I've carried that secret ever since. {target_npc} still searches for it. The trader's camp is in {enemy_type} territory now.",
+        "outro": "I stole from someone who trusted me. The least I can do is risk my pride to give it back. {quest_action} is the only way to start. {quest_stakes} demands it. {quest_origin} started this."
       },
       "playerResponses": [
         { "text": "Returning what you stole is the right first step. I'll help you take it.", "action": "ACCEPT" },
@@ -53,18 +38,11 @@
       }
     },
     {
-      "id": "remorse_expo_false_witness",
-      "bindings": {
-        "quest_action": "clear a falsely condemned name",
-        "quest_focus": "the false testimony",
-        "quest_stakes": "an exile's honor",
-        "quest_threat": "the weight of a lie",
-        "quest_time_pressure": "before the exile moves on"
-      },
+      "id": "expo_remorse_03",
       "dialogueChunks": {
         "intro": "I lied, {player_name}. In front of the whole council, under oath, I lied. And an innocent person lost everything because of it.",
-        "plotStep": "The council asked me if I saw {target_npc} take supplies from the storehouse. I said yes, because the real thief was my cousin and I was protecting family. {target_npc} was exiled from {location} and has been living rough {location_hint} ever since. My cousin died last winter, and now there's nobody left to protect. I need to find {target_npc} and bring them {quest_item} as proof of what really happened. But the {enemy_type} have overrun the area where {target_npc} was last seen, and I'm terrified of what I'll find.",
-        "outro": "Every day that passes with {target_npc} in exile is another day my lie draws breath. Help me kill it."
+        "plotStep": "The council asked me if I saw {target_npc} commit a crime. I said yes, because the real guilty party was my relative and I was protecting family. {target_npc} was exiled and has been living rough {location_hint} ever since. My relative died recently, and now there's nobody left to protect. I need to find {target_npc} and bring them {quest_item} as proof of what really happened.",
+        "outro": "Every day that passes with {target_npc} in exile is another day my lie draws breath. Help me {quest_action}. {quest_time_pressure}. {quest_stakes} depends on the truth."
       },
       "playerResponses": [
         { "text": "An innocent person exiled by a lie deserves the truth. I'll help you find them.", "action": "ACCEPT" },

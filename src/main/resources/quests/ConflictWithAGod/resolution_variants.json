@@ -1,25 +1,25 @@
 {
   "variants": [
     {
-      "id": "conflict_god_reso_01",
+      "id": "reso_conflict_god_01",
       "dialogueChunks": {
         "intro": "The ground is still, {player_name}. For the first time in weeks, the ground is truly still.",
-        "plotStep": "Whatever you did in those ruins, it worked. The blight receded overnight, the water runs clear, and the {enemy_type} scattered like they'd been released from a leash. {target_npc} examined {quest_focus} and says the old markings have changed: not angry anymore, but watchful. The settlement has started replanting, and the first green shoots appeared this morning. People are calling it a miracle, but I know it was you, standing where nobody else dared to stand.",
-        "outro": "You didn't just save our crops. You saved our future here. Take this, and know that {location} remembers its debts."
+        "plotStep": "Whatever you did in those ruins worked. The blight receded overnight, the water runs clear, and the {enemy_type} scattered. {target_npc} examined {quest_focus} and says the old markings have changed: not angry anymore, but watchful. The first new growth appeared this morning.",
+        "outro": "You didn't just save {quest_stakes}. You saved our future here. Take this, and know that we remember our debts."
       },
       "playerResponses": [
-        { "text": "Green shoots from cursed ground. That's worth more than any payment.", "action": "ACCEPT", "dispositionShift": 10 },
+        { "text": "New growth from cursed ground. That's worth more than any payment.", "action": "ACCEPT", "dispositionShift": 10 },
         { "text": "Respect what's beneath your feet from now on. Glad it's over.", "action": "ACCEPT" }
       ],
       "objectivePool": [],
       "objectiveConfig": {}
     },
     {
-      "id": "conflict_god_reso_02",
+      "id": "reso_conflict_god_02",
       "dialogueChunks": {
-        "intro": "{player_name}, the crisis has passed, but what you discovered in those ruins has changed how we see this land.",
-        "plotStep": "The ritual worked, but it wasn't a simple cleansing. {target_npc} says the records you found describe an ancient covenant between the first settlers and the forces that shaped this land. We'd been living here for generations without knowing we were guests, not owners. The settlement has agreed to maintain the shrine and leave the sacred areas undisturbed. It's a compromise: we keep our home, but we acknowledge something greater was here first.",
-        "outro": "You taught us humility without a single lecture. That's a rare gift. Take this with our gratitude."
+        "intro": "{player_name}, the crisis has passed, but what you discovered has changed how we see this land.",
+        "plotStep": "The ritual worked, but it wasn't a simple cleansing. {target_npc} says the records you found describe an ancient covenant between the first settlers and the forces that shaped this land. We'd been living here for generations without knowing we were guests, not owners. The settlement has agreed to maintain the shrine and leave {quest_focus} undisturbed.",
+        "outro": "You taught us humility without a single lecture. That's a rare gift."
       },
       "playerResponses": [
         { "text": "Coexistence with the old powers sounds wiser than conquest.", "action": "ACCEPT", "dispositionShift": 5 },
@@ -29,11 +29,11 @@
       "objectiveConfig": {}
     },
     {
-      "id": "conflict_god_reso_03",
+      "id": "reso_conflict_god_03",
       "dialogueChunks": {
         "intro": "It's over, {player_name}. But the cost was higher than any of us expected.",
-        "plotStep": "The curse broke when you completed the ritual, but not before it claimed the eastern quarter of {location}. Three families lost their homes, and the land there won't support building for years: the ground is soft and strange, as if the earth itself is healing from a wound. {target_npc} organized the relocation, and the settlement is pulling together in a way we haven't seen before. The shrine stands restored, the water flows clean, and {quest_focus} has gone quiet. But we'll carry the scars of our ignorance for a long time.",
-        "outro": "You saved what could be saved. Nobody could have done more. Take this: it's everything the eastern families could spare as thanks."
+        "plotStep": "The curse broke when you completed the ritual, but not before it claimed part of the settlement. Families lost their homes, and the damaged land won't support building for years. {target_npc} organized the relocation. The shrine stands restored, the water flows clean, and {quest_focus} has gone quiet.",
+        "outro": "You saved what could be saved. Nobody could have done more. Take this: it's everything the affected families could spare as thanks."
       },
       "playerResponses": [
         { "text": "Scars are reminders. Build back smarter this time.", "action": "ACCEPT" },

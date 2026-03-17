@@ -4,7 +4,7 @@
       "id": "obtaining_conf_contested_ground",
       "dialogueChunks": {
         "intro": "The area around {quest_focus} is more contested than expected. The {enemy_type} have established a presence near {location_hint} and aren't giving ground easily.",
-        "plotStep": "You'll need to clear out {quest_threat} before you can safely gather what we need. {quest_ally} estimates there are at least a dozen hostiles between here and the objective near {location}.",
+        "plotStep": "You'll need to clear out {quest_threat} before you can safely gather what we need. {quest_ally} estimates there are at least a dozen hostiles between here and the objective near {location_hint}.",
         "outro": "Fight through them and claim what's ours. {quest_stakes} depend on you pushing past this resistance."
       },
       "playerResponses": [
@@ -28,7 +28,7 @@
     {
       "id": "obtaining_conf_supply_chain",
       "dialogueChunks": {
-        "intro": "The first batch you brought back wasn't enough. {quest_ally} says we need more {quest_item} and the only remaining source is closer to {location}, deeper into dangerous territory.",
+        "intro": "The first batch you brought back wasn't enough. {quest_ally} says we need more {quest_item} and the only remaining source is closer to {location_hint}, deeper into dangerous territory.",
         "plotStep": "{target_npc} knows a route {location_hint} that avoids the worst of {quest_threat}, but it passes through rough ground where the {enemy_type} forage. You'll need to gather supplies and handle anything that gets in your way.",
         "outro": "Get out there and bring back what {quest_stakes} require. Time isn't on our side."
       },

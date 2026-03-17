@@ -1,15 +1,15 @@
 {
   "variants": [
     {
-      "id": "reso_necessity_sacrifice_doors_open",
+      "id": "reso_necessity_sacrifice_01",
       "dialogueChunks": {
-        "intro": "The doors opened this morning. Twenty-eight walked out. Twelve didn't. My sister was one of the twenty-eight.",
-        "plotStep": "The partial cure worked better than {target_npc} expected. Not everyone could be saved, and the families of those who didn't make it aren't ready to call this a victory. But the council never had to seal the doors. {quest_ally} is already distributing the remaining remedy to the outer settlements.",
-        "outro": "You gave us a choice that wasn't between terrible and worse, {player_name}. Twelve graves is a tragedy. Forty would have been an atrocity. I'll carry the weight of the ones we lost, but I'll carry it standing up."
+        "intro": "The doors opened this morning. Most walked out. Some didn't.",
+        "plotStep": "The partial solution worked better than {target_npc} expected. Not everyone could be saved, and the families of those who didn't make it aren't ready to call this a victory. But the council never had to make the worst call. {quest_ally} is already distributing the remaining remedy.",
+        "outro": "You gave us a choice that wasn't between terrible and worse, {player_name}. The losses are a tragedy. The alternative would have been an atrocity."
       },
       "playerResponses": [
         {
-          "text": "Mourn the twelve. But don't forget the twenty-eight.",
+          "text": "Mourn the ones we lost. But don't forget the ones we saved.",
           "action": "COMPLETE",
           "dispositionShift": 5
         },
@@ -28,11 +28,11 @@
       "objectiveConfig": {}
     },
     {
-      "id": "reso_necessity_sacrifice_all_returned",
+      "id": "reso_necessity_sacrifice_02",
       "dialogueChunks": {
-        "intro": "Twelve hostages. All twelve. Walking through the gates right now. Some of them are injured, but they're alive.",
-        "plotStep": "The {enemy_type} didn't expect a strike on both camps simultaneously. {target_npc} coordinated the timing while {quest_ally} led the second team. It was close: closer than anyone wants to admit. But nobody was left behind. The grain reserves are untouched. The hostage-takers are scattered.",
-        "outro": "You found the third option, {player_name}. The one nobody believed existed. Twelve families are whole tonight because you refused to accept the impossible choice."
+        "intro": "All of them, {player_name}. Every captive. Walking through the gates right now.",
+        "plotStep": "The {enemy_type} didn't expect a strike on both locations simultaneously. {target_npc} coordinated the timing while {quest_ally} led the second effort. It was close: closer than anyone wants to admit. But nobody was left behind. The stores are untouched.",
+        "outro": "You found the third option, {player_name}. The one nobody believed existed. Families are whole tonight because you refused to accept the impossible choice."
       },
       "playerResponses": [
         {
@@ -41,7 +41,7 @@
           "dispositionShift": 5
         },
         {
-          "text": "The raiders will try again. Be ready next time.",
+          "text": "The {enemy_type} will try again. Be ready next time.",
           "action": "COMPLETE",
           "dispositionShift": 2
         }
@@ -50,11 +50,11 @@
       "objectiveConfig": {}
     },
     {
-      "id": "reso_necessity_sacrifice_bridge_and_lives",
+      "id": "reso_necessity_sacrifice_03",
       "dialogueChunks": {
-        "intro": "The bridge is gone. It collapsed an hour after the last person crossed. The commander never had to light the torch.",
-        "plotStep": "All seventeen made it across the ford. The elder had to be carried the last mile, and one of the children fell asleep on a soldier's back. {target_npc} said the sound of the bridge falling behind them was the worst and best thing they ever heard. The {enemy_type} are on the far side now with no way across.",
-        "outro": "You found the path nobody was looking for, {player_name}. Seventeen people are alive because you wouldn't accept that saving the many meant abandoning the few. The commander wants to shake your hand. I think he's also a little relieved he didn't have to make the call."
+        "intro": "{quest_focus} is gone. It collapsed an hour after the last person crossed. The commander never had to give the order.",
+        "plotStep": "Everyone made it through the alternate path. The elder had to be carried the last mile, and one of the children fell asleep on a soldier's back. {target_npc} said the sound of {quest_focus} falling behind them was the worst and best thing they ever heard.",
+        "outro": "You found the path nobody was looking for, {player_name}. {quest_stakes} survived because you wouldn't accept that saving the many meant abandoning the few."
       },
       "playerResponses": [
         {
@@ -63,7 +63,7 @@
           "dispositionShift": 5
         },
         {
-          "text": "Rebuild the defenses. They'll find another way across eventually.",
+          "text": "Rebuild the defenses. They'll find another way through eventually.",
           "action": "COMPLETE",
           "dispositionShift": 1
         }
