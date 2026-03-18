@@ -38,6 +38,11 @@ public class QuestPoolRegistry {
     private final List<String> questRewardHints = new ArrayList<>();
     private final Map<String, List<String>> acceptResponses = new HashMap<>();
     private final Map<String, List<String>> declineResponses = new HashMap<>();
+    private final Map<String, List<String>> counterAcceptResponses = new HashMap<>();
+    private final Map<String, List<String>> counterDeclineResponses = new HashMap<>();
+    private final Map<String, List<String>> counterStatPassResponses = new HashMap<>();
+    private final Map<String, List<String>> counterStatFailResponses = new HashMap<>();
+    private final Map<String, List<String>> statCheckResponses = new HashMap<>();
     private final Map<String, String> situationTones = new HashMap<>();
 
     public void loadAll(@Nullable Path poolsDir) {
@@ -58,6 +63,11 @@ public class QuestPoolRegistry {
 
         loadTonedResponses(poolsDir.resolve("responses_accept.json"), acceptResponses);
         loadTonedResponses(poolsDir.resolve("responses_decline.json"), declineResponses);
+        loadTonedResponses(poolsDir.resolve("responses_counter_accept.json"), counterAcceptResponses);
+        loadTonedResponses(poolsDir.resolve("responses_counter_decline.json"), counterDeclineResponses);
+        loadTonedResponses(poolsDir.resolve("responses_counter_stat_pass.json"), counterStatPassResponses);
+        loadTonedResponses(poolsDir.resolve("responses_counter_stat_fail.json"), counterStatFailResponses);
+        loadTonedResponses(poolsDir.resolve("responses_stat_check.json"), statCheckResponses);
         loadSituationTones(poolsDir.resolve("situation_tones.json"));
 
         LOGGER.atInfo().log("Loaded pools: %d items, %d mobs, %d actions, %d focuses, %d stakes, %d threats, %d origins, %d pressures, %d rewards",
@@ -192,11 +202,55 @@ public class QuestPoolRegistry {
         return pool.get(random.nextInt(pool.size()));
     }
 
+    public String randomCounterAccept(String situationId, String tone, Random random) {
+        List<String> pool = counterAcceptResponses.get(tone);
+        if (pool == null || pool.isEmpty()) return "Thank you.";
+        return pool.get(random.nextInt(pool.size()));
+    }
+
+    public String randomCounterDecline(String situationId, String tone, Random random) {
+        List<String> pool = counterDeclineResponses.get(tone);
+        if (pool == null || pool.isEmpty()) return "I understand.";
+        return pool.get(random.nextInt(pool.size()));
+    }
+
+    public String randomCounterStatPass(String tone, Random random) {
+        List<String> pool = counterStatPassResponses.get(tone);
+        if (pool == null || pool.isEmpty()) return "Impressive. I'm glad you're helping.";
+        return pool.get(random.nextInt(pool.size()));
+    }
+
+    public String randomCounterStatFail(String tone, Random random) {
+        List<String> pool = counterStatFailResponses.get(tone);
+        if (pool == null || pool.isEmpty()) return "Well, we'll manage somehow.";
+        return pool.get(random.nextInt(pool.size()));
+    }
+
+    /**
+     * Pick a stat-gated player response line for the given stat.
+     */
+    public String randomStatCheckResponse(String stat, Random random) {
+        List<String> pool = statCheckResponses.get(stat);
+        if (pool == null || pool.isEmpty()) return "I'll use my abilities to handle this.";
+        return pool.get(random.nextInt(pool.size()));
+    }
+
+    /**
+     * Pick a random stat type for a stat-gated response option.
+     */
+    public String randomStatType(Random random) {
+        String[] stats = {"STR", "DEX", "CON", "INT", "WIS", "CHA"};
+        return stats[random.nextInt(stats.length)];
+    }
+
     private void loadTonedResponses(Path file, Map<String, List<String>> target) {
         if (!Files.exists(file)) return;
         try (var reader = Files.newBufferedReader(file, StandardCharsets.UTF_8)) {
             JsonObject root = JsonParser.parseReader(reader).getAsJsonObject();
-            JsonObject tones = root.getAsJsonObject("tones");
+            // Support both "tones" and "stats" as root keys
+            JsonObject tones = root.has("tones") ? root.getAsJsonObject("tones")
+                : root.has("stats") ? root.getAsJsonObject("stats") : null;
+            if (tones == null) return;
             for (var entry : tones.entrySet()) {
                 List<String> responses = new ArrayList<>();
                 for (JsonElement el : entry.getValue().getAsJsonArray()) {

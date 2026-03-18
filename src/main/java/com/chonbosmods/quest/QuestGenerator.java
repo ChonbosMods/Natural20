@@ -263,10 +263,19 @@ public class QuestGenerator {
 
         bindings.put("quest_location_name", bindings.getOrDefault("quest_focus", "the area"));
 
-        // Resolve player responses: situation-specific first, then tone fallback
+        // Resolve player responses and NPC counter-responses
         String tone = poolRegistry.getToneForSituation(situation.getId());
         bindings.put("response_accept", poolRegistry.randomAcceptResponse(situation.getId(), tone, random));
         bindings.put("response_decline", poolRegistry.randomDeclineResponse(situation.getId(), tone, random));
+        bindings.put("counter_accept", poolRegistry.randomCounterAccept(situation.getId(), tone, random));
+        bindings.put("counter_decline", poolRegistry.randomCounterDecline(situation.getId(), tone, random));
+
+        // Stat-gated response option
+        String statType = poolRegistry.randomStatType(random);
+        bindings.put("stat_check_type", statType);
+        bindings.put("response_stat_check", poolRegistry.randomStatCheckResponse(statType, random));
+        bindings.put("counter_stat_pass", poolRegistry.randomCounterStatPass(tone, random));
+        bindings.put("counter_stat_fail", poolRegistry.randomCounterStatFail(tone, random));
     }
 
     private @Nullable SettlementRecord findNearestOtherSettlement(double x, double z, String excludeCellKey) {
