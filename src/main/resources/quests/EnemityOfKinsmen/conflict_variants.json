@@ -7,21 +7,15 @@
         "plotStep": "{quest_ally} reports that armed groups from {location_hint} were spotted near our borders. Whether it's posturing or preparation, {quest_threat} is escalating. The {enemy_type} are exploiting the distraction to raid both settlements.",
         "outro": "Deal with the {enemy_type} raids first. If both settlements see you fighting their common enemy, it might cool tempers long enough to find a real solution for {quest_stakes}."
       },
-      "playerResponses": [
-        {
-          "text": "I'll remind them who the real enemy is.",
-          "action": "ACCEPT",
-          "dispositionShift": 4
-        },
-        {
-          "text": "Fighting the raiders buys us time.",
-          "action": "ACCEPT",
-          "dispositionShift": 2
-        }
+      "objectivePool": [
+        "KILL_MOBS",
+        "TALK_TO_NPC"
       ],
-      "objectivePool": ["KILL_MOBS", "TALK_TO_NPC"],
       "objectiveConfig": {
-        "KILL_MOBS": { "countMin": 4, "countMax": 9 }
+        "KILL_MOBS": {
+          "countMin": 4,
+          "countMax": 9
+        }
       }
     },
     {
@@ -31,21 +25,16 @@
         "plotStep": "{target_npc} insists they had nothing to do with it, and they seem genuine. {quest_ally} suggests looking for evidence near {location_hint}: if a third party is responsible for {quest_threat}, there will be traces the {enemy_type} left behind.",
         "outro": "Search the area around {location_hint} for anything that proves who's really at fault. {quest_stakes} hang on what you find."
       },
-      "playerResponses": [
-        {
-          "text": "The truth has to be out there.",
-          "action": "ACCEPT",
-          "dispositionShift": 3
-        },
-        {
-          "text": "I'll turn over every stone.",
-          "action": "ACCEPT",
-          "dispositionShift": 2
-        }
+      "objectivePool": [
+        "EXPLORE_LOCATION",
+        "GATHER_ITEMS",
+        "TALK_TO_NPC"
       ],
-      "objectivePool": ["EXPLORE_LOCATION", "GATHER_ITEMS", "TALK_TO_NPC"],
       "objectiveConfig": {
-        "GATHER_ITEMS": { "countMin": 4, "countMax": 10 }
+        "GATHER_ITEMS": {
+          "countMin": 4,
+          "countMax": 10
+        }
       }
     },
     {
@@ -55,22 +44,20 @@
         "plotStep": "{quest_ally} is trying to hold things together, but the internal division is giving {quest_threat} room to grow. Meanwhile, the {enemy_type} raided our stores near {location_hint} while everyone was arguing.",
         "outro": "We need something to unite both factions. Recover what the {enemy_type} stole and bring it back. A common cause might be the only thing that saves {quest_stakes}."
       },
-      "playerResponses": [
-        {
-          "text": "A shared problem might bring them together.",
-          "action": "ACCEPT",
-          "dispositionShift": 4
-        },
-        {
-          "text": "I'll get the supplies back first.",
-          "action": "ACCEPT",
-          "dispositionShift": 2
-        }
+      "objectivePool": [
+        "KILL_MOBS",
+        "GATHER_ITEMS",
+        "FETCH_ITEM"
       ],
-      "objectivePool": ["KILL_MOBS", "GATHER_ITEMS", "FETCH_ITEM"],
       "objectiveConfig": {
-        "KILL_MOBS": { "countMin": 3, "countMax": 7 },
-        "GATHER_ITEMS": { "countMin": 4, "countMax": 12 }
+        "KILL_MOBS": {
+          "countMin": 3,
+          "countMax": 7
+        },
+        "GATHER_ITEMS": {
+          "countMin": 4,
+          "countMax": 12
+        }
       }
     }
   ]

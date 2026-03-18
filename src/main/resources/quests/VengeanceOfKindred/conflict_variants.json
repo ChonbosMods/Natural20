@@ -7,14 +7,15 @@
         "plotStep": "They sent {enemy_type} to strike at the {quest_stakes} as a warning. {quest_ally} fended them off, but they hit hard. They are massing {location_hint} near the {quest_focus}. We cannot let this go unanswered.",
         "outro": "Every day they draw breath is an insult to the ones we lost. Finish it."
       },
-      "playerResponses": [
-        { "text": "Warnings do not frighten me. I will see this through.", "action": "ACCEPT", "dispositionShift": 10 },
-        { "text": "They are fighting back hard. I will need more supplies.", "action": "ACCEPT", "dispositionShift": -3 },
-        { "text": "This cycle of violence is pointless.", "action": "DECLINE", "dispositionShift": -10 }
+      "objectivePool": [
+        "KILL_MOBS",
+        "EXPLORE_LOCATION"
       ],
-      "objectivePool": ["KILL_MOBS", "EXPLORE_LOCATION"],
       "objectiveConfig": {
-        "KILL_MOBS": { "countMin": 5, "countMax": 10 }
+        "KILL_MOBS": {
+          "countMin": 5,
+          "countMax": 10
+        }
       }
     },
     {
@@ -24,14 +25,20 @@
         "plotStep": "{quest_ally} says the {enemy_type} are dug in deep {location_hint}. They are using the {quest_focus} as a strongpoint. We need to root them out before they can retaliate against the {quest_stakes} again.",
         "outro": "We are close. One more push and this will be over."
       },
-      "playerResponses": [
-        { "text": "One more push. I can do that.", "action": "ACCEPT", "dispositionShift": 5 },
-        { "text": "They keep regrouping. Are you sure this will end?", "action": "ACCEPT", "dispositionShift": -5 }
+      "objectivePool": [
+        "KILL_MOBS",
+        "EXPLORE_LOCATION",
+        "GATHER_ITEMS"
       ],
-      "objectivePool": ["KILL_MOBS", "EXPLORE_LOCATION", "GATHER_ITEMS"],
       "objectiveConfig": {
-        "KILL_MOBS": { "countMin": 4, "countMax": 9 },
-        "GATHER_ITEMS": { "countMin": 3, "countMax": 6 }
+        "KILL_MOBS": {
+          "countMin": 4,
+          "countMax": 9
+        },
+        "GATHER_ITEMS": {
+          "countMin": 3,
+          "countMax": 6
+        }
       }
     },
     {
@@ -41,15 +48,20 @@
         "plotStep": "They raided the stores near the {quest_focus} and the {enemy_type} are blocking the routes {location_hint}. {quest_ally} is rallying the community, but they need a fighter. Secure {quest_item} and clear the path.",
         "outro": "Our kin deserve better than to be terrorized. End this threat for good."
       },
-      "playerResponses": [
-        { "text": "Striking at supplies is cowardly. I will cut them off.", "action": "ACCEPT", "dispositionShift": 10 },
-        { "text": "This keeps escalating. Fine, one more time.", "action": "ACCEPT", "dispositionShift": -3 },
-        { "text": "I signed up for vengeance, not a war.", "action": "DECLINE" }
+      "objectivePool": [
+        "KILL_MOBS",
+        "GATHER_ITEMS",
+        "EXPLORE_LOCATION"
       ],
-      "objectivePool": ["KILL_MOBS", "GATHER_ITEMS", "EXPLORE_LOCATION"],
       "objectiveConfig": {
-        "KILL_MOBS": { "countMin": 3, "countMax": 7 },
-        "GATHER_ITEMS": { "countMin": 4, "countMax": 8 }
+        "KILL_MOBS": {
+          "countMin": 3,
+          "countMax": 7
+        },
+        "GATHER_ITEMS": {
+          "countMin": 4,
+          "countMax": 8
+        }
       }
     }
   ]

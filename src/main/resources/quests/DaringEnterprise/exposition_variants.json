@@ -7,14 +7,16 @@
         "plotStep": "No one has dared to {quest_action} because of the {quest_threat}. But I have studied the approaches and I believe it can be done. I need {quest_item} from {location_hint} to prepare properly.",
         "outro": "If we succeed, we could change the fortunes of this entire settlement. Others went in blind: we will not make the same mistake."
       },
-      "playerResponses": [
-        { "text": "An adventure worth taking. Count me in.", "action": "ACCEPT", "dispositionShift": 10 },
-        { "text": "What happened to the last group that tried?", "action": "ACCEPT", "dispositionShift": 0 },
-        { "text": "That sounds like a death wish.", "action": "DECLINE", "dispositionShift": -5 }
+      "objectivePool": [
+        "EXPLORE_LOCATION",
+        "GATHER_ITEMS",
+        "FETCH_ITEM"
       ],
-      "objectivePool": ["EXPLORE_LOCATION", "GATHER_ITEMS", "FETCH_ITEM"],
       "objectiveConfig": {
-        "GATHER_ITEMS": { "countMin": 4, "countMax": 10 }
+        "GATHER_ITEMS": {
+          "countMin": 4,
+          "countMax": 10
+        }
       }
     },
     {
@@ -24,14 +26,15 @@
         "plotStep": "The trick is to {quest_action} without drawing the attention of the {quest_threat}. I need someone brave enough to retrieve {quest_item} from {location_hint}: it is the key to everything.",
         "outro": "The {quest_stakes} locked away in there could reshape what we know about this land. And of course, there would be {quest_reward_hint} for your trouble."
       },
-      "playerResponses": [
-        { "text": "Knowledge and treasure? Say no more.", "action": "ACCEPT", "dispositionShift": 5 },
-        { "text": "How do you know the danger will not overwhelm me?", "action": "ACCEPT", "dispositionShift": -3 },
-        { "text": "Some things are sealed for a reason.", "action": "DECLINE" }
+      "objectivePool": [
+        "FETCH_ITEM",
+        "EXPLORE_LOCATION"
       ],
-      "objectivePool": ["FETCH_ITEM", "EXPLORE_LOCATION"],
       "objectiveConfig": {
-        "FETCH_ITEM": { "countMin": 1, "countMax": 1 }
+        "FETCH_ITEM": {
+          "countMin": 1,
+          "countMax": 1
+        }
       }
     },
     {
@@ -41,15 +44,20 @@
         "plotStep": "The path is treacherous and the {quest_threat} {quest_threat_has} claimed the area as their own. But if we can clear it, everything changes. I need you to scout {location_hint} and gather {quest_item} to mark the route.",
         "outro": "The {quest_stakes} {quest_stakes_is} depending on this. We must act {quest_time_pressure}, or we lose our window entirely."
       },
-      "playerResponses": [
-        { "text": "A bold plan benefits everyone. I will scout it.", "action": "ACCEPT", "dispositionShift": 10 },
-        { "text": "Dangerous work. The pay had better match.", "action": "ACCEPT", "dispositionShift": -5 },
-        { "text": "Find someone else for this one.", "action": "DECLINE", "dispositionShift": -5 }
+      "objectivePool": [
+        "EXPLORE_LOCATION",
+        "GATHER_ITEMS",
+        "KILL_MOBS"
       ],
-      "objectivePool": ["EXPLORE_LOCATION", "GATHER_ITEMS", "KILL_MOBS"],
       "objectiveConfig": {
-        "GATHER_ITEMS": { "countMin": 5, "countMax": 12 },
-        "KILL_MOBS": { "countMin": 3, "countMax": 6 }
+        "GATHER_ITEMS": {
+          "countMin": 5,
+          "countMax": 12
+        },
+        "KILL_MOBS": {
+          "countMin": 3,
+          "countMax": 6
+        }
       }
     }
   ]

@@ -7,22 +7,20 @@
         "plotStep": "{quest_ally} says the {quest_focus} {quest_focus_has} affected a dozen more since you started investigating. The {enemy_type} near {location_hint} are also behaving strangely: aggressive and uncoordinated, as if driven by the same force.",
         "outro": "We need {quest_item} from the affected zone and every hostile cleared from the path. The {quest_stakes} worsen with every hour that passes."
       },
-      "playerResponses": [
-        {
-          "text": "I won't let it spread further.",
-          "action": "ACCEPT",
-          "dispositionShift": 4
-        },
-        {
-          "text": "We're running out of time.",
-          "action": "ACCEPT",
-          "dispositionShift": 2
-        }
+      "objectivePool": [
+        "KILL_MOBS",
+        "GATHER_ITEMS",
+        "EXPLORE_LOCATION"
       ],
-      "objectivePool": ["KILL_MOBS", "GATHER_ITEMS", "EXPLORE_LOCATION"],
       "objectiveConfig": {
-        "KILL_MOBS": { "countMin": 4, "countMax": 10 },
-        "GATHER_ITEMS": { "countMin": 5, "countMax": 15 }
+        "KILL_MOBS": {
+          "countMin": 4,
+          "countMax": 10
+        },
+        "GATHER_ITEMS": {
+          "countMin": 5,
+          "countMax": 15
+        }
       }
     },
     {
@@ -32,21 +30,16 @@
         "plotStep": "{target_npc} says they're not in control of themselves: the {quest_threat} {quest_threat_has} them in its grip. The {enemy_type} seem drawn to the same location, creating a chaotic mix of hostile forces. {quest_ally} insists we can still save the {quest_stakes} if we act now.",
         "outro": "Push through the hostiles, gather what we need, and don't harm the afflicted unless you have no choice. They're victims, not enemies."
       },
-      "playerResponses": [
-        {
-          "text": "I'll do what I can to save them.",
-          "action": "ACCEPT",
-          "dispositionShift": 5
-        },
-        {
-          "text": "What if they attack me?",
-          "action": "ACCEPT",
-          "dispositionShift": 1
-        }
+      "objectivePool": [
+        "KILL_MOBS",
+        "FETCH_ITEM",
+        "EXPLORE_LOCATION"
       ],
-      "objectivePool": ["KILL_MOBS", "FETCH_ITEM", "EXPLORE_LOCATION"],
       "objectiveConfig": {
-        "KILL_MOBS": { "countMin": 3, "countMax": 8 }
+        "KILL_MOBS": {
+          "countMin": 3,
+          "countMax": 8
+        }
       }
     },
     {
@@ -56,22 +49,20 @@
         "plotStep": "The {enemy_type} near the source have been twisted by prolonged exposure. {quest_ally} says neutralizing the {quest_focus} requires specific materials gathered from the surrounding area. {target_npc} is preparing a countermeasure, but needs what only you can retrieve.",
         "outro": "Gather the materials and clear the corrupted {enemy_type} from around the source. The {quest_stakes} hang on what you do next."
       },
-      "playerResponses": [
-        {
-          "text": "I'll get everything we need.",
-          "action": "ACCEPT",
-          "dispositionShift": 4
-        },
-        {
-          "text": "The source must be destroyed.",
-          "action": "ACCEPT",
-          "dispositionShift": 3
-        }
+      "objectivePool": [
+        "GATHER_ITEMS",
+        "KILL_MOBS",
+        "EXPLORE_LOCATION"
       ],
-      "objectivePool": ["GATHER_ITEMS", "KILL_MOBS", "EXPLORE_LOCATION"],
       "objectiveConfig": {
-        "GATHER_ITEMS": { "countMin": 6, "countMax": 18 },
-        "KILL_MOBS": { "countMin": 4, "countMax": 9 }
+        "GATHER_ITEMS": {
+          "countMin": 6,
+          "countMax": 18
+        },
+        "KILL_MOBS": {
+          "countMin": 4,
+          "countMax": 9
+        }
       }
     }
   ]

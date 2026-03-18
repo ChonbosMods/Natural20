@@ -7,16 +7,24 @@
         "plotStep": "A group has decided to avenge the dead by striking the {enemy_type} camp {location_hint}. They're not soldiers: they're workers blinded by rage. {target_npc} tried to stop them but was shouted down. If they march on that camp, they'll be slaughtered. I need you to gather {quest_item} to reinforce our defenses as a counter-argument.",
         "outro": "If we can't channel this grief into something constructive, the {quest_stakes} will suffer even more loss."
       },
-      "playerResponses": [
-        { "text": "Vengeance raids get people killed. I'll give them a better option.", "action": "ACCEPT" },
-        { "text": "Stopping a grieving mob from marching to their deaths. Delicate work.", "action": "ACCEPT" },
-        { "text": "Angry people with weapons don't listen to reason. Stay clear.", "action": "DECLINE" }
+      "objectivePool": [
+        "GATHER_ITEMS",
+        "KILL_MOBS",
+        "TALK_TO_NPC"
       ],
-      "objectivePool": ["GATHER_ITEMS", "KILL_MOBS", "TALK_TO_NPC"],
       "objectiveConfig": {
-        "GATHER_ITEMS": { "countMin": 5, "countMax": 10 },
-        "KILL_MOBS": { "countMin": 3, "countMax": 7 },
-        "TALK_TO_NPC": { "countMin": 1, "countMax": 1 }
+        "GATHER_ITEMS": {
+          "countMin": 5,
+          "countMax": 10
+        },
+        "KILL_MOBS": {
+          "countMin": 3,
+          "countMax": 7
+        },
+        "TALK_TO_NPC": {
+          "countMin": 1,
+          "countMax": 1
+        }
       }
     },
     {
@@ -26,16 +34,24 @@
         "plotStep": "More families packed up and left in the night. They said they can't raise children in a place where death comes so easily. {target_npc} is trying to hold things together, but every departure takes skills and hope with it. The {enemy_type} have noticed the weakening defenses and are probing closer {location_hint}. We need {quest_item} to repair the outer walls.",
         "outro": "We're bleeding people as surely as if the {enemy_type} were still inside our walls. The {quest_stakes} depends on having enough hands to work and stand watch."
       },
-      "playerResponses": [
-        { "text": "A settlement that fights to survive gives its people a reason to stay. I'll shore up the defenses.", "action": "ACCEPT" },
-        { "text": "Population collapse and monster raids. A grim combination. What's the plan?", "action": "ACCEPT" },
-        { "text": "If people are leaving, maybe they're right to. Not every settlement survives.", "action": "DECLINE" }
+      "objectivePool": [
+        "GATHER_ITEMS",
+        "KILL_MOBS",
+        "EXPLORE_LOCATION"
       ],
-      "objectivePool": ["GATHER_ITEMS", "KILL_MOBS", "EXPLORE_LOCATION"],
       "objectiveConfig": {
-        "GATHER_ITEMS": { "countMin": 6, "countMax": 12 },
-        "KILL_MOBS": { "countMin": 4, "countMax": 8 },
-        "EXPLORE_LOCATION": { "countMin": 1, "countMax": 2 }
+        "GATHER_ITEMS": {
+          "countMin": 6,
+          "countMax": 12
+        },
+        "KILL_MOBS": {
+          "countMin": 4,
+          "countMax": 8
+        },
+        "EXPLORE_LOCATION": {
+          "countMin": 1,
+          "countMax": 2
+        }
       }
     },
     {
@@ -45,16 +61,23 @@
         "plotStep": "While searching for {quest_item} to complete the {quest_focus}, {target_npc} found evidence that the raid wasn't random. The {enemy_type} targeted specific buildings, specific stores, as if guided by someone who knew our layout. There might be a collaborator: someone who traded information about our defenses for personal safety.",
         "outro": "If someone sold out their neighbors to save themselves, the dead deserve justice and the living deserve the truth. Investigate the {enemy_type} camp {location_hint} and find proof."
       },
-      "playerResponses": [
-        { "text": "Betrayal that led to deaths is unforgivable. I'll find the proof.", "action": "ACCEPT" },
-        { "text": "A collaborator inside the settlement. That changes everything. I'm in.", "action": "ACCEPT", "dispositionShift": -5 },
-        { "text": "Hunting a traitor in a grieving community could tear it apart entirely.", "action": "DECLINE" }
+      "objectivePool": [
+        "EXPLORE_LOCATION",
+        "KILL_MOBS",
+        "FETCH_ITEM"
       ],
-      "objectivePool": ["EXPLORE_LOCATION", "KILL_MOBS", "FETCH_ITEM"],
       "objectiveConfig": {
-        "EXPLORE_LOCATION": { "countMin": 2, "countMax": 3 },
-        "KILL_MOBS": { "countMin": 3, "countMax": 6 },
-        "FETCH_ITEM": { "locationPreference": "DUNGEON" }
+        "EXPLORE_LOCATION": {
+          "countMin": 2,
+          "countMax": 3
+        },
+        "KILL_MOBS": {
+          "countMin": 3,
+          "countMax": 6
+        },
+        "FETCH_ITEM": {
+          "locationPreference": "DUNGEON"
+        }
       }
     }
   ]

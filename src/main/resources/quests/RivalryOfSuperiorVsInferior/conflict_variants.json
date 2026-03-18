@@ -7,24 +7,11 @@
         "plotStep": "{target_npc} is trying to hold back the workers from storming the estate, but they're furious. {quest_ally} found evidence that the powerful have been stockpiling weapons, anticipating this situation. {quest_item} contains records of how they've been siphoning community funds for years.",
         "outro": "If you can get {quest_item} to the neutral council before this turns violent, the evidence might force a real reckoning instead of a bloodbath."
       },
-      "playerResponses": [
-        {
-          "text": "Evidence beats violence. I'll get the records to the council.",
-          "action": "ACCEPT",
-          "dispositionShift": 5
-        },
-        {
-          "text": "Maybe the mob has the right idea. The elite won't listen otherwise.",
-          "action": "ACCEPT",
-          "dispositionShift": -3
-        },
-        {
-          "text": "Both sides want blood now. I'm not standing in the middle.",
-          "action": "DECLINE",
-          "dispositionShift": -2
-        }
+      "objectivePool": [
+        "FETCH_ITEM",
+        "DELIVER_ITEM",
+        "TALK_TO_NPC"
       ],
-      "objectivePool": ["FETCH_ITEM", "DELIVER_ITEM", "TALK_TO_NPC"],
       "objectiveConfig": {}
     },
     {
@@ -34,21 +21,16 @@
         "plotStep": "{target_npc} discovered that {quest_item}, the original founding agreement, specifies that no levies can be imposed without a community vote. The powerful have been violating their own legal authority. But the document is locked away in {location_hint}, and soldiers stand between us and the proof.",
         "outro": "Get the document to {quest_ally}. If the founding agreement is clear, even the guards will have to stand down. The law is on our side if we can put it in front of the right eyes."
       },
-      "playerResponses": [
-        {
-          "text": "The truth is in that document. I'll get it.",
-          "action": "ACCEPT",
-          "dispositionShift": 4
-        },
-        {
-          "text": "What if they destroy it before I get there?",
-          "action": "ACCEPT",
-          "dispositionShift": 2
-        }
+      "objectivePool": [
+        "FETCH_ITEM",
+        "EXPLORE_LOCATION",
+        "KILL_MOBS"
       ],
-      "objectivePool": ["FETCH_ITEM", "EXPLORE_LOCATION", "KILL_MOBS"],
       "objectiveConfig": {
-        "KILL_MOBS": { "countMin": 2, "countMax": 5 }
+        "KILL_MOBS": {
+          "countMin": 2,
+          "countMax": 5
+        }
       }
     },
     {
@@ -58,24 +40,11 @@
         "plotStep": "{target_npc} managed to hide copies of {quest_item} before the enforcers arrived. But the powerful are now threatening to blacklist anyone who supports the lower ranks. {quest_ally} says witnesses have already been pressured into withdrawing their testimony.",
         "outro": "We need to get the evidence to a neutral authority at {location_hint} before it's buried completely. {quest_item} proves the {quest_focus} was rigged for at least a decade. The {quest_threat} won't stop until everyone who knows is silenced."
       },
-      "playerResponses": [
-        {
-          "text": "Bullies fold when the light hits them. Let's deliver the evidence.",
-          "action": "ACCEPT",
-          "dispositionShift": 5
-        },
-        {
-          "text": "Are we sure the neutral authority isn't compromised too?",
-          "action": "ACCEPT",
-          "dispositionShift": 1
-        },
-        {
-          "text": "I can't fight an entire power structure alone.",
-          "action": "DECLINE",
-          "dispositionShift": -2
-        }
+      "objectivePool": [
+        "DELIVER_ITEM",
+        "TALK_TO_NPC",
+        "EXPLORE_LOCATION"
       ],
-      "objectivePool": ["DELIVER_ITEM", "TALK_TO_NPC", "EXPLORE_LOCATION"],
       "objectiveConfig": {}
     }
   ]

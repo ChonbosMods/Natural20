@@ -7,15 +7,20 @@
         "plotStep": "{quest_ally} tried to stop the recklessness, but {quest_origin} pushed things too far. Now people are in danger. The {enemy_type} have been spotted near the area {location_hint}, drawn by the commotion.",
         "outro": "Those people do not have long. We need someone to clear the area, drive off the {enemy_type}, and get {quest_item} to stabilize things {quest_time_pressure}."
       },
-      "playerResponses": [
-        { "text": "Lives first. I am going now.", "action": "ACCEPT", "dispositionShift": 6 },
-        { "text": "How bad is the situation?", "action": "ACCEPT", "dispositionShift": 2 },
-        { "text": "Reckless fools. Not my problem.", "action": "DECLINE", "dispositionShift": -5 }
+      "objectivePool": [
+        "EXPLORE_LOCATION",
+        "KILL_MOBS",
+        "GATHER_ITEMS"
       ],
-      "objectivePool": ["EXPLORE_LOCATION", "KILL_MOBS", "GATHER_ITEMS"],
       "objectiveConfig": {
-        "KILL_MOBS": { "countMin": 3, "countMax": 6 },
-        "GATHER_ITEMS": { "countMin": 4, "countMax": 10 }
+        "KILL_MOBS": {
+          "countMin": 3,
+          "countMax": 6
+        },
+        "GATHER_ITEMS": {
+          "countMin": 4,
+          "countMax": 10
+        }
       }
     },
     {
@@ -25,15 +30,20 @@
         "plotStep": "The {enemy_type} are retaliating with everything they have, and they are heading straight for the {quest_focus}. {quest_ally} is organizing a defense, but the response is larger than anything we prepared for.",
         "outro": "The ones who caused this are nursing their wounds. We need someone capable to get out {location_hint} and reduce the {quest_threat} before it overwhelms us."
       },
-      "playerResponses": [
-        { "text": "Point me at them. I will thin the numbers.", "action": "ACCEPT", "dispositionShift": 5 },
-        { "text": "Your people caused this, but I will help.", "action": "ACCEPT", "dispositionShift": 1 },
-        { "text": "Clean up your own mess.", "action": "DECLINE", "dispositionShift": -4 }
+      "objectivePool": [
+        "KILL_MOBS",
+        "EXPLORE_LOCATION",
+        "GATHER_ITEMS"
       ],
-      "objectivePool": ["KILL_MOBS", "EXPLORE_LOCATION", "GATHER_ITEMS"],
       "objectiveConfig": {
-        "KILL_MOBS": { "countMin": 5, "countMax": 10 },
-        "GATHER_ITEMS": { "countMin": 3, "countMax": 8 }
+        "KILL_MOBS": {
+          "countMin": 5,
+          "countMax": 10
+        },
+        "GATHER_ITEMS": {
+          "countMin": 3,
+          "countMax": 8
+        }
       }
     },
     {
@@ -43,15 +53,20 @@
         "plotStep": "{target_npc} is furious. That route was our lifeline. {quest_ally} says we can establish an alternate path {location_hint}, but it passes through {enemy_type} territory and needs to be secured first.",
         "outro": "We need materials, we need the path cleared, and we need it done before the {quest_threat} cuts us off completely. {quest_reward_hint} is yours if you pull this off."
       },
-      "playerResponses": [
-        { "text": "I will clear the route and gather what is needed.", "action": "ACCEPT", "dispositionShift": 4 },
-        { "text": "Whose carelessness caused this?", "action": "ACCEPT", "dispositionShift": 1 },
-        { "text": "Find your own way through.", "action": "DECLINE", "dispositionShift": -3 }
+      "objectivePool": [
+        "GATHER_ITEMS",
+        "KILL_MOBS",
+        "EXPLORE_LOCATION"
       ],
-      "objectivePool": ["GATHER_ITEMS", "KILL_MOBS", "EXPLORE_LOCATION"],
       "objectiveConfig": {
-        "GATHER_ITEMS": { "countMin": 6, "countMax": 16 },
-        "KILL_MOBS": { "countMin": 3, "countMax": 7 }
+        "GATHER_ITEMS": {
+          "countMin": 6,
+          "countMax": 16
+        },
+        "KILL_MOBS": {
+          "countMin": 3,
+          "countMax": 7
+        }
       }
     }
   ]

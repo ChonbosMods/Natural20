@@ -7,10 +7,6 @@
         "plotStep": "When the elders saw what you brought back, the room went quiet. Not angry-quiet: thoughtful-quiet. {target_npc} stood up and spoke about the {quest_focus}, about how protecting the {quest_stakes} matters more than old grudges. For the first time in years, people from both sides sat at the same table.",
         "outro": "You gave us something nobody else could: a reason to try. Take this, and know you're welcome on both sides."
       },
-      "playerResponses": [
-        { "text": "Seeing people talk instead of fight is reward enough.", "action": "ACCEPT", "dispositionShift": 10 },
-        { "text": "I'm glad it worked. Take care of each other.", "action": "ACCEPT" }
-      ],
       "objectivePool": [],
       "objectiveConfig": {}
     },
@@ -21,10 +17,6 @@
         "plotStep": "{target_npc} and their friend from the other side met openly for the first time yesterday. The families haven't reconciled, not by a long stretch, but they didn't stop the meeting either. A few of the younger ones even joined in. The {quest_focus} {quest_focus_is} still a sore subject, but at least people are talking about it instead of throwing punches.",
         "outro": "Change is slow when the roots go deep. But you planted a seed that nobody can uproot now."
       },
-      "playerResponses": [
-        { "text": "Seeds take time. I'll check back when it's grown.", "action": "ACCEPT", "dispositionShift": 5 },
-        { "text": "Small steps are still steps. Good luck to all of you.", "action": "ACCEPT" }
-      ],
       "objectivePool": [],
       "objectiveConfig": {}
     },
@@ -35,10 +27,6 @@
         "plotStep": "Some of the hardliners refused to accept the evidence. They stormed out and took supporters with them. But {target_npc} stayed, and so did the majority. The barrier is still standing, but a gate has been built into it: a real, physical gate that both sides agreed to.",
         "outro": "You didn't solve a generations-old feud in a few days. Nobody could. But you cracked it open, and that took more courage than most people have."
       },
-      "playerResponses": [
-        { "text": "A gate is better than a wall. I'll take that as a win.", "action": "ACCEPT" },
-        { "text": "Progress, not perfection. That's how these things work.", "action": "ACCEPT", "dispositionShift": 5 }
-      ],
       "objectivePool": [],
       "objectiveConfig": {}
     }

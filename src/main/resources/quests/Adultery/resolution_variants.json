@@ -7,18 +7,6 @@
         "plotStep": "{target_npc} traveled personally to negotiate new terms. The old alliance is dead, but something more honest is growing in its place. Every term is public, every obligation mutual. {quest_ally} says it's slower and harder than the old way. Also more durable.",
         "outro": "Trust built on truth survives what trust built on convenience cannot, {player_name}. You pulled the rot out by the root."
       },
-      "playerResponses": [
-        {
-          "text": "An honest alliance is worth ten convenient ones.",
-          "action": "COMPLETE",
-          "dispositionShift": 5
-        },
-        {
-          "text": "Keep the traitors away from the negotiating table this time.",
-          "action": "COMPLETE",
-          "dispositionShift": 2
-        }
-      ],
       "objectivePool": [],
       "objectiveConfig": {}
     },
@@ -29,23 +17,6 @@
         "plotStep": "They said the {enemy_type} threatened their family. That the first deal was survival and every deal after was too late to stop. {target_npc} doesn't know whether to believe them. {quest_ally} has taken interim command while trust is rebuilt.",
         "outro": "Whether the traitor was a victim or a villain, the oath they broke put lives at risk, {player_name}. The new procedures require dual authorization. No single point of betrayal."
       },
-      "playerResponses": [
-        {
-          "text": "Betrayal under duress is still betrayal. But I hope they find peace.",
-          "action": "COMPLETE",
-          "dispositionShift": 3
-        },
-        {
-          "text": "They made their choice. The community comes first.",
-          "action": "COMPLETE",
-          "dispositionShift": 1
-        },
-        {
-          "text": "Fix the system so one person can never compromise it again.",
-          "action": "COMPLETE",
-          "dispositionShift": 4
-        }
-      ],
       "objectivePool": [],
       "objectiveConfig": {}
     },
@@ -56,18 +27,6 @@
         "plotStep": "The forger was found trying to sell the seal. {target_npc} has them in custody. The family that benefited from the forgery is claiming ignorance, but the evidence {quest_ally} compiled suggests otherwise.",
         "outro": "A community's word is only as good as the people who keep the records, {player_name}. You made sure the truth was louder than the lie."
       },
-      "playerResponses": [
-        {
-          "text": "The pen can be as dangerous as the sword. Guard your records well.",
-          "action": "COMPLETE",
-          "dispositionShift": 5
-        },
-        {
-          "text": "Hold the beneficiaries accountable too. Ignorance is a convenient excuse.",
-          "action": "COMPLETE",
-          "dispositionShift": 2
-        }
-      ],
       "objectivePool": [],
       "objectiveConfig": {}
     }

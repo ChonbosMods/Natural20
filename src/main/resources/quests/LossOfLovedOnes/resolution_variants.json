@@ -7,10 +7,6 @@
         "plotStep": "{target_npc} spoke at the ceremony: the first words they've said in weeks. They talked about the people we lost: not how they died, but how they lived. When the names were read aloud, something shifted. Not healing exactly, but the beginning of it. The settlement voted unanimously to stay and rebuild.",
         "outro": "You gave us the materials, but more than that, you gave us the space to grieve properly. Take this, and know that every name on that memorial includes yours in spirit."
       },
-      "playerResponses": [
-        { "text": "Remembering how they lived matters more than how they died. I'm glad it helped.", "action": "ACCEPT", "dispositionShift": 10 },
-        { "text": "A community that mourns together can rebuild together. Take care.", "action": "ACCEPT" }
-      ],
       "objectivePool": [],
       "objectiveConfig": {}
     },
@@ -21,10 +17,6 @@
         "plotStep": "My child doesn't understand death yet. But they understand that {quest_item} smells like their parent's workshop and fits in their hand the way it was meant to. {target_npc} says children process grief through objects and rituals, and that this keepsake will become the anchor for every memory they build.",
         "outro": "Their parent would have liked you, I think. They always admired people who did hard things for simple reasons. Take this, from both of us."
       },
-      "playerResponses": [
-        { "text": "A child holding their parent's last gift. That image will stay with me.", "action": "ACCEPT", "dispositionShift": 10 },
-        { "text": "I'm glad they have something to hold onto. Take care of them.", "action": "ACCEPT" }
-      ],
       "objectivePool": [],
       "objectiveConfig": {}
     },
@@ -35,10 +27,6 @@
         "plotStep": "I stood on top and looked out and cried. Not the hopeless kind: the kind that comes when something heavy finally lifts. {target_npc} came up and stood with me, and we didn't say anything for a long time. It works: people are already planning how to use it. I carved my partner's name into the cornerstone where it will outlast all of us.",
         "outro": "You brought me the materials, but you also brought me a reason to get out of bed in the morning. That's not a small thing."
       },
-      "playerResponses": [
-        { "text": "A name in stone and a purpose renewed. They'd be proud of what you built.", "action": "ACCEPT", "dispositionShift": 5 },
-        { "text": "The best memorials are the ones that keep the living safe. Well done.", "action": "ACCEPT" }
-      ],
       "objectivePool": [],
       "objectiveConfig": {}
     }

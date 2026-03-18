@@ -7,11 +7,6 @@
         "plotStep": "The {quest_focus} flies our banner now. {quest_ally} is helping establish a fair council to govern in place of the old authority. The people are choosing their own future for the first time.",
         "outro": "You gave teeth to a dream that most thought impossible. We will never forget this."
       },
-      "playerResponses": [
-        { "text": "Freedom is worth fighting for. Govern yourselves well.", "action": "ACCEPT", "dispositionShift": 15 },
-        { "text": "Make sure the new leaders are better than the old ones.", "action": "ACCEPT", "dispositionShift": 5 },
-        { "text": "Revolutions are easy. Building something better is the real work.", "action": "ACCEPT", "dispositionShift": 0 }
-      ],
       "objectivePool": [],
       "objectiveConfig": {}
     },
@@ -22,10 +17,6 @@
         "plotStep": "The {quest_stakes} {quest_stakes_is} celebrating in the streets. The {quest_focus} {quest_focus_has} been reclaimed by the people. {quest_ally} is already drafting new agreements to ensure this never happens again.",
         "outro": "You stood with the oppressed and helped them rise. That is a legacy to be proud of."
       },
-      "playerResponses": [
-        { "text": "The people did this. I just helped level the field.", "action": "ACCEPT", "dispositionShift": 10 },
-        { "text": "Stay vigilant. Power corrupts.", "action": "ACCEPT", "dispositionShift": 5 }
-      ],
       "objectivePool": [],
       "objectiveConfig": {}
     },
@@ -36,11 +27,6 @@
         "plotStep": "The {quest_stakes} {quest_stakes_is} rebuilding on their own terms now. The {quest_focus} serves the community instead of one tyrant. {quest_ally} says the mood is cautious but hopeful.",
         "outro": "Change is always frightening. But you showed us it is possible. Thank you."
       },
-      "playerResponses": [
-        { "text": "Build something worth defending. That is my advice.", "action": "ACCEPT", "dispositionShift": 10 },
-        { "text": "I am glad the bloodshed was worth it in the end.", "action": "ACCEPT", "dispositionShift": 5 },
-        { "text": "Remember what you fought for when the hard decisions come.", "action": "ACCEPT", "dispositionShift": 5 }
-      ],
       "objectivePool": [],
       "objectiveConfig": {}
     }

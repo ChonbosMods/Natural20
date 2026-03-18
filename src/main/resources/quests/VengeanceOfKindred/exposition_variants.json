@@ -7,15 +7,20 @@
         "plotStep": "I cannot let their sacrifice go unanswered. We need to {quest_action}. {quest_ally} tracked them to an area {location_hint}. Find them and collect {quest_item} from the {quest_focus} as proof.",
         "outro": "Those we lost were family to this settlement. Their memory demands justice."
       },
-      "playerResponses": [
-        { "text": "They will pay for every life they took.", "action": "ACCEPT", "dispositionShift": 10 },
-        { "text": "Revenge is a dangerous road. But I understand.", "action": "ACCEPT", "dispositionShift": 5 },
-        { "text": "The dead are dead. More killing will not bring them back.", "action": "DECLINE", "dispositionShift": -5 }
+      "objectivePool": [
+        "KILL_MOBS",
+        "EXPLORE_LOCATION",
+        "GATHER_ITEMS"
       ],
-      "objectivePool": ["KILL_MOBS", "EXPLORE_LOCATION", "GATHER_ITEMS"],
       "objectiveConfig": {
-        "KILL_MOBS": { "countMin": 5, "countMax": 10 },
-        "GATHER_ITEMS": { "countMin": 3, "countMax": 6 }
+        "KILL_MOBS": {
+          "countMin": 5,
+          "countMax": 10
+        },
+        "GATHER_ITEMS": {
+          "countMin": 3,
+          "countMax": 6
+        }
       }
     },
     {
@@ -25,14 +30,15 @@
         "plotStep": "The community is grieving and furious. We need to {quest_action} {quest_time_pressure}. The {quest_focus} is somewhere {location_hint}. Take {quest_item} to help deal with them.",
         "outro": "We lay our people to rest soon. I want to tell them it is done."
       },
-      "playerResponses": [
-        { "text": "I will make sure no more of your people die to this.", "action": "ACCEPT", "dispositionShift": 15 },
-        { "text": "Ugly work. But necessary.", "action": "ACCEPT", "dispositionShift": 0 },
-        { "text": "There is no point in revenge.", "action": "DECLINE" }
+      "objectivePool": [
+        "KILL_MOBS",
+        "EXPLORE_LOCATION"
       ],
-      "objectivePool": ["KILL_MOBS", "EXPLORE_LOCATION"],
       "objectiveConfig": {
-        "KILL_MOBS": { "countMin": 5, "countMax": 10 }
+        "KILL_MOBS": {
+          "countMin": 5,
+          "countMax": 10
+        }
       }
     },
     {
@@ -42,14 +48,17 @@
         "plotStep": "The whole community wants justice. I need you to {quest_action} from the {quest_focus}. {quest_ally} says they are holed up {location_hint}. Recover {quest_item} from the scene as evidence.",
         "outro": "The family deserves closure, and {quest_reward_hint} has been set aside for exactly this purpose."
       },
-      "playerResponses": [
-        { "text": "Murder demands an answer. I will find them.", "action": "ACCEPT", "dispositionShift": 10 },
-        { "text": "A bounty works for me.", "action": "ACCEPT", "dispositionShift": -5 },
-        { "text": "Hunting them in their own territory? Too risky.", "action": "DECLINE", "dispositionShift": -5 }
+      "objectivePool": [
+        "EXPLORE_LOCATION",
+        "KILL_MOBS",
+        "FETCH_ITEM",
+        "KILL_NPC"
       ],
-      "objectivePool": ["EXPLORE_LOCATION", "KILL_MOBS", "FETCH_ITEM", "KILL_NPC"],
       "objectiveConfig": {
-        "KILL_MOBS": { "countMin": 4, "countMax": 8 }
+        "KILL_MOBS": {
+          "countMin": 4,
+          "countMax": 8
+        }
       }
     }
   ]

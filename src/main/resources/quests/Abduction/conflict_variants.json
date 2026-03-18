@@ -7,20 +7,15 @@
         "plotStep": "You'll need to fight through their scouts before reaching the {quest_focus}. {quest_ally} warned that the {quest_threat} grows stronger the closer you get to their territory.",
         "outro": "Clear the way and press forward. Every moment wasted is another moment the {quest_focus} remains in danger."
       },
-      "playerResponses": [
-        {
-          "text": "I'll cut through them.",
-          "action": "ACCEPT",
-          "dispositionShift": 3
-        },
-        {
-          "text": "I need to regroup first.",
-          "action": "ACCEPT"
-        }
+      "objectivePool": [
+        "KILL_MOBS",
+        "EXPLORE_LOCATION"
       ],
-      "objectivePool": ["KILL_MOBS", "EXPLORE_LOCATION"],
       "objectiveConfig": {
-        "KILL_MOBS": { "countMin": 4, "countMax": 9 }
+        "KILL_MOBS": {
+          "countMin": 4,
+          "countMax": 9
+        }
       }
     },
     {
@@ -30,22 +25,20 @@
         "plotStep": "The captors split into groups here. Tracks branch in two directions. One set leads deeper toward {location_hint}, the other circles back. We need proof of where they went: gather what they left behind.",
         "outro": "Search the area thoroughly. What you find could tell us how many we're dealing with and where the {quest_focus} was taken next."
       },
-      "playerResponses": [
-        {
-          "text": "I'll search every inch of this camp.",
-          "action": "ACCEPT",
-          "dispositionShift": 2
-        },
-        {
-          "text": "There's no time. I'll follow the deeper trail.",
-          "action": "ACCEPT",
-          "dispositionShift": 4
-        }
+      "objectivePool": [
+        "GATHER_ITEMS",
+        "EXPLORE_LOCATION",
+        "KILL_MOBS"
       ],
-      "objectivePool": ["GATHER_ITEMS", "EXPLORE_LOCATION", "KILL_MOBS"],
       "objectiveConfig": {
-        "GATHER_ITEMS": { "countMin": 4, "countMax": 12 },
-        "KILL_MOBS": { "countMin": 2, "countMax": 6 }
+        "GATHER_ITEMS": {
+          "countMin": 4,
+          "countMax": 12
+        },
+        "KILL_MOBS": {
+          "countMin": 2,
+          "countMax": 6
+        }
       }
     },
     {
@@ -55,23 +48,10 @@
         "plotStep": "Talk to {target_npc}. They were the last person to see the {quest_focus} before the {quest_threat} struck. Whether they're guilty or simply the last witness, their account matters.",
         "outro": "We need the truth before the {quest_stakes} {quest_stakes_is} lost forever. Find out what {target_npc} knows, willingly or not."
       },
-      "playerResponses": [
-        {
-          "text": "I'll confront them carefully.",
-          "action": "ACCEPT",
-          "dispositionShift": 2
-        },
-        {
-          "text": "If they're a traitor, they'll pay.",
-          "action": "ACCEPT",
-          "dispositionShift": -1
-        },
-        {
-          "text": "Maybe there's a simpler explanation.",
-          "action": "ACCEPT"
-        }
+      "objectivePool": [
+        "TALK_TO_NPC",
+        "EXPLORE_LOCATION"
       ],
-      "objectivePool": ["TALK_TO_NPC", "EXPLORE_LOCATION"],
       "objectiveConfig": {}
     }
   ]

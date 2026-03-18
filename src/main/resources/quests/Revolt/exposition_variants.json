@@ -7,14 +7,16 @@
         "plotStep": "We intend to {quest_action} and challenge the authority at the {quest_focus}. But we need supplies first. Gather {quest_item} from {location_hint} so we can prepare. The {enemy_type} serving the oppressors patrol the roads.",
         "outro": "This is not recklessness: it is survival. Without change, there is nothing left for us here."
       },
-      "playerResponses": [
-        { "text": "Tyranny should always be challenged. I will help you prepare.", "action": "ACCEPT", "dispositionShift": 15 },
-        { "text": "Revolts are messy. Are you sure about this?", "action": "ACCEPT", "dispositionShift": 0 },
-        { "text": "I do not pick sides in local politics.", "action": "DECLINE", "dispositionShift": -5 }
+      "objectivePool": [
+        "GATHER_ITEMS",
+        "TALK_TO_NPC",
+        "EXPLORE_LOCATION"
       ],
-      "objectivePool": ["GATHER_ITEMS", "TALK_TO_NPC", "EXPLORE_LOCATION"],
       "objectiveConfig": {
-        "GATHER_ITEMS": { "countMin": 5, "countMax": 12 }
+        "GATHER_ITEMS": {
+          "countMin": 5,
+          "countMax": 12
+        }
       }
     },
     {
@@ -24,15 +26,20 @@
         "plotStep": "We need to {quest_action} {quest_time_pressure}. Their strength depends on the {quest_focus}, and without it, their grip loosens. The {enemy_type} guard the area {location_hint}. Bring back any {quest_item} you can seize.",
         "outro": "If we cut their supply line, the people will find the courage to stand up. This is how it starts."
       },
-      "playerResponses": [
-        { "text": "Strike at their weakness, break their hold. Smart plan.", "action": "ACCEPT", "dispositionShift": 10 },
-        { "text": "How many guards are we talking about?", "action": "ACCEPT", "dispositionShift": -3 },
-        { "text": "Poking a tyrant sounds like a death sentence.", "action": "DECLINE", "dispositionShift": -10 }
+      "objectivePool": [
+        "KILL_MOBS",
+        "GATHER_ITEMS",
+        "EXPLORE_LOCATION"
       ],
-      "objectivePool": ["KILL_MOBS", "GATHER_ITEMS", "EXPLORE_LOCATION"],
       "objectiveConfig": {
-        "KILL_MOBS": { "countMin": 4, "countMax": 8 },
-        "GATHER_ITEMS": { "countMin": 3, "countMax": 8 }
+        "KILL_MOBS": {
+          "countMin": 4,
+          "countMax": 8
+        },
+        "GATHER_ITEMS": {
+          "countMin": 3,
+          "countMax": 8
+        }
       }
     },
     {
@@ -42,14 +49,16 @@
         "plotStep": "We need someone the patrols do not recognize to {quest_action} at the {quest_focus}. It is {location_hint}. Pick up {quest_item} on the way: the resistance needs them.",
         "outro": "If the {quest_threat} intercepts this, people will die. But if it succeeds, everything changes. You would earn {quest_reward_hint}."
       },
-      "playerResponses": [
-        { "text": "I can move unseen. Give me the task.", "action": "ACCEPT", "dispositionShift": 10 },
-        { "text": "Courier work through hostile territory. What is in it for me?", "action": "ACCEPT", "dispositionShift": -5 },
-        { "text": "I am no revolutionary. Find someone else.", "action": "DECLINE" }
+      "objectivePool": [
+        "DELIVER_ITEM",
+        "GATHER_ITEMS",
+        "EXPLORE_LOCATION"
       ],
-      "objectivePool": ["DELIVER_ITEM", "GATHER_ITEMS", "EXPLORE_LOCATION"],
       "objectiveConfig": {
-        "GATHER_ITEMS": { "countMin": 4, "countMax": 10 }
+        "GATHER_ITEMS": {
+          "countMin": 4,
+          "countMax": 10
+        }
       }
     }
   ]

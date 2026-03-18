@@ -7,11 +7,6 @@
         "plotStep": "The {quest_threat} {quest_threat_is} no longer a concern, and the {quest_stakes} {quest_stakes_is} secured. {quest_ally} is already talking about what comes next.",
         "outro": "None of this would have been possible without your courage. You turned a wild ambition into reality."
       },
-      "playerResponses": [
-        { "text": "It was a worthy endeavor. I am glad we saw it through.", "action": "ACCEPT", "dispositionShift": 15 },
-        { "text": "Next time, warn me about the dangers upfront.", "action": "ACCEPT", "dispositionShift": 0 },
-        { "text": "Just make sure those efforts were not wasted.", "action": "ACCEPT", "dispositionShift": 5 }
-      ],
       "objectivePool": [],
       "objectiveConfig": {}
     },
@@ -22,10 +17,6 @@
         "plotStep": "The {quest_stakes} {quest_stakes_is} now within our grasp. The scholars and traders are already making plans. The {quest_threat} proved formidable, but your determination proved greater.",
         "outro": "History will remember this enterprise. And your name will be part of it."
       },
-      "playerResponses": [
-        { "text": "I do not need my name in a book. The result is enough.", "action": "ACCEPT", "dispositionShift": 10 },
-        { "text": "I prefer tangible rewards over fame.", "action": "ACCEPT", "dispositionShift": -3 }
-      ],
       "objectivePool": [],
       "objectiveConfig": {}
     },
@@ -36,11 +27,6 @@
         "plotStep": "Trade caravans, scholars, settlers: they will all benefit from what you have accomplished. The {quest_stakes} {quest_stakes_is} no longer just a dream.",
         "outro": "You dared greatly, and the rewards speak for themselves. Thank you."
       },
-      "playerResponses": [
-        { "text": "Fortune favors the bold. It was my pleasure.", "action": "ACCEPT", "dispositionShift": 10 },
-        { "text": "Let us hope the next enterprise is less harrowing.", "action": "ACCEPT", "dispositionShift": 5 },
-        { "text": "Keep me in mind for the next big venture.", "action": "ACCEPT", "dispositionShift": 5 }
-      ],
       "objectivePool": [],
       "objectiveConfig": {}
     }

@@ -7,10 +7,6 @@
         "plotStep": "When {target_npc} walked through the gates, the whole settlement stopped. People who'd given up hope were weeping. {target_npc} is thin and scarred, but their eyes are bright. They told stories by the fire last night: about the days in the dark, the fear, the stubborn refusal to give up hope.",
         "outro": "You brought back someone we'd already mourned. There's no payment that matches that, but take this and know you'll never want for a warm fire here."
       },
-      "playerResponses": [
-        { "text": "Seeing them by the fire, alive and home. That's payment enough.", "action": "ACCEPT", "dispositionShift": 15 },
-        { "text": "They survived because they didn't give up. The credit belongs to them.", "action": "ACCEPT" }
-      ],
       "objectivePool": [],
       "objectiveConfig": {}
     },
@@ -21,10 +17,6 @@
         "plotStep": "{target_npc} is recovering in the healer's care. The time alone changed them: they're quieter, more watchful. The healers say the physical wounds will mend, but the time in captivity left deeper marks. Still, when I sat beside them and held their hand, they squeezed back.",
         "outro": "Recovery will be slow, but it starts today because of you. Take this with the gratitude of every person who loves {target_npc}."
       },
-      "playerResponses": [
-        { "text": "Time heals what medicine can't. I'm glad they're back where they belong.", "action": "ACCEPT", "dispositionShift": 5 },
-        { "text": "The hard part is over. The rest is patience and kindness.", "action": "ACCEPT" }
-      ],
       "objectivePool": [],
       "objectiveConfig": {}
     },
@@ -35,10 +27,6 @@
         "plotStep": "{target_npc} didn't vanish because of the {enemy_type}. They left by choice: overwhelmed by obligations, by the weight of being needed by too many people. You found them living quietly {location_hint}, healthy and at peace. They asked me not to be angry. They sent back {quest_item} and a letter explaining everything.",
         "outro": "The answer wasn't tragedy. It was just a person who needed to breathe. The truth was worth more than any rescue."
       },
-      "playerResponses": [
-        { "text": "Sometimes finding someone means accepting they chose to leave. I'm sorry.", "action": "ACCEPT" },
-        { "text": "At least you know they're safe. That's not nothing.", "action": "ACCEPT", "dispositionShift": 5 }
-      ],
       "objectivePool": [],
       "objectiveConfig": {}
     }

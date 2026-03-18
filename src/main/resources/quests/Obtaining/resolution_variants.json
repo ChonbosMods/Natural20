@@ -7,18 +7,6 @@
         "plotStep": "{quest_ally} is already putting the {quest_item} to use. The {quest_stakes} {quest_stakes_is} no longer a worry thanks to your efforts. Even {target_npc} is impressed with how much you brought back.",
         "outro": "You've earned every bit of what's coming to you, {player_name}. The settlement won't forget this."
       },
-      "playerResponses": [
-        {
-          "text": "Glad I could provide.",
-          "action": "COMPLETE",
-          "dispositionShift": 8
-        },
-        {
-          "text": "Make sure it lasts this time.",
-          "action": "COMPLETE",
-          "dispositionShift": 4
-        }
-      ],
       "objectivePool": [],
       "objectiveConfig": {}
     },
@@ -29,18 +17,6 @@
         "plotStep": "The quantity is tight. {quest_ally} says it will cover the {quest_stakes} if we're careful with rationing. But the fact remains: without you out there fighting through the {quest_threat}, we'd have nothing at all.",
         "outro": "Sometimes scraping by is its own kind of victory. Well done, {player_name}."
       },
-      "playerResponses": [
-        {
-          "text": "It was harder than expected out there.",
-          "action": "COMPLETE",
-          "dispositionShift": 5
-        },
-        {
-          "text": "Next time we should plan better.",
-          "action": "COMPLETE",
-          "dispositionShift": 3
-        }
-      ],
       "objectivePool": [],
       "objectiveConfig": {}
     },
@@ -51,18 +27,6 @@
         "plotStep": "{target_npc} is already talking about trade opportunities. {quest_ally} says the extra {quest_item} could strengthen our position with neighboring settlements. The {quest_stakes} {quest_stakes_is} not just met: they're exceeded.",
         "outro": "You turned a desperate need into an opportunity. {player_name}, you've changed our fortunes."
       },
-      "playerResponses": [
-        {
-          "text": "Use it wisely. It wasn't easy to get.",
-          "action": "COMPLETE",
-          "dispositionShift": 10
-        },
-        {
-          "text": "Happy to help the settlement thrive.",
-          "action": "COMPLETE",
-          "dispositionShift": 7
-        }
-      ],
       "objectivePool": [],
       "objectiveConfig": {}
     }

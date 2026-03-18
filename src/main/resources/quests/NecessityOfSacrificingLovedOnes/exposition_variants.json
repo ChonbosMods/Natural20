@@ -7,25 +7,16 @@
         "plotStep": "There are people trapped by the {quest_threat}. The council says it's a few lives against many. They're not wrong about the math, but they might be wrong about the deadline. {quest_origin} might hold answers, but nobody has dared go there since the {enemy_type} moved in. Someone needs to {quest_action} {quest_time_pressure}.",
         "outro": "I can't just watch them be abandoned. Not while there's still a chance."
       },
-      "playerResponses": [
-        {
-          "text": "Nobody gets abandoned while I can still run. Where do I go?",
-          "action": "ACCEPT",
-          "dispositionShift": 5
-        },
-        {
-          "text": "The council's math might be right, but I'll try anyway.",
-          "action": "ACCEPT",
-          "dispositionShift": 2
-        },
-        {
-          "text": "The few against the many is a choice no one should make. But the council is right.",
-          "action": "DECLINE"
-        }
+      "objectivePool": [
+        "EXPLORE_LOCATION",
+        "FETCH_ITEM",
+        "KILL_MOBS"
       ],
-      "objectivePool": ["EXPLORE_LOCATION", "FETCH_ITEM", "KILL_MOBS"],
       "objectiveConfig": {
-        "KILL_MOBS": { "countMin": 3, "countMax": 7 }
+        "KILL_MOBS": {
+          "countMin": 3,
+          "countMax": 7
+        }
       }
     },
     {
@@ -35,25 +26,16 @@
         "plotStep": "If we surrender the stores, the settlement starves. If we refuse, families lose someone they love. The {enemy_type} chose their hostages carefully: people the settlement can't bear to lose. Every option on the table costs lives.",
         "outro": "There might be a third option. {quest_origin} is where they're being held. If someone could {quest_action} before the deadline, we wouldn't have to choose which of our people to sacrifice. {quest_item} {location_hint} could give us the edge we need."
       },
-      "playerResponses": [
-        {
-          "text": "I'll find a way that doesn't end with an impossible choice.",
-          "action": "ACCEPT",
-          "dispositionShift": 5
-        },
-        {
-          "text": "What happens if the rescue fails?",
-          "action": "ACCEPT",
-          "dispositionShift": 1
-        },
-        {
-          "text": "This decision belongs to the council, not an outsider.",
-          "action": "DECLINE"
-        }
+      "objectivePool": [
+        "EXPLORE_LOCATION",
+        "KILL_MOBS",
+        "TALK_TO_NPC"
       ],
-      "objectivePool": ["EXPLORE_LOCATION", "KILL_MOBS", "TALK_TO_NPC"],
       "objectiveConfig": {
-        "KILL_MOBS": { "countMin": 4, "countMax": 9 }
+        "KILL_MOBS": {
+          "countMin": 4,
+          "countMax": 9
+        }
       }
     },
     {
@@ -63,21 +45,16 @@
         "plotStep": "If the {quest_focus} stands, the {enemy_type} pour through and everyone dies. If we destroy it now, the people on the far side are cut off with no escape. The commander is waiting for an answer. I don't have one.",
         "outro": "If there's another way through, somewhere beyond the {quest_focus}, those people have a chance. Someone needs to {quest_action} {quest_time_pressure}. Once the order is given, there's no going back."
       },
-      "playerResponses": [
-        {
-          "text": "Hold the order. I'll find another way for them.",
-          "action": "ACCEPT",
-          "dispositionShift": 5
-        },
-        {
-          "text": "How long can the {quest_focus} hold without being destroyed?",
-          "action": "ACCEPT",
-          "dispositionShift": 2
-        }
+      "objectivePool": [
+        "EXPLORE_LOCATION",
+        "TALK_TO_NPC",
+        "KILL_MOBS"
       ],
-      "objectivePool": ["EXPLORE_LOCATION", "TALK_TO_NPC", "KILL_MOBS"],
       "objectiveConfig": {
-        "KILL_MOBS": { "countMin": 2, "countMax": 6 }
+        "KILL_MOBS": {
+          "countMin": 2,
+          "countMax": 6
+        }
       }
     }
   ]

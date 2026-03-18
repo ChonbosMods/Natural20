@@ -7,15 +7,20 @@
         "plotStep": "We need someone to {quest_action} before it is too late. {quest_item} have been scattered {location_hint} and we desperately need them. The {enemy_type} have been drawn to the chaos.",
         "outro": "People are cold, scared, and hungry. Every bit you recover could save a life."
       },
-      "playerResponses": [
-        { "text": "I will wade in and pull out whatever I can.", "action": "ACCEPT", "dispositionShift": 10 },
-        { "text": "That sounds like hazardous work.", "action": "ACCEPT", "dispositionShift": -3 },
-        { "text": "There is nothing left to save down there.", "action": "DECLINE", "dispositionShift": -10 }
+      "objectivePool": [
+        "GATHER_ITEMS",
+        "EXPLORE_LOCATION",
+        "KILL_MOBS"
       ],
-      "objectivePool": ["GATHER_ITEMS", "EXPLORE_LOCATION", "KILL_MOBS"],
       "objectiveConfig": {
-        "GATHER_ITEMS": { "countMin": 6, "countMax": 15 },
-        "KILL_MOBS": { "countMin": 3, "countMax": 6 }
+        "GATHER_ITEMS": {
+          "countMin": 6,
+          "countMax": 15
+        },
+        "KILL_MOBS": {
+          "countMin": 3,
+          "countMax": 6
+        }
       }
     },
     {
@@ -25,15 +30,20 @@
         "plotStep": "We need to {quest_action} {quest_time_pressure}. Gather {quest_item} from {location_hint} to help shore up our defenses. Watch for {enemy_type}: the disaster is driving them out and they are panicked.",
         "outro": "If this reaches the settlement, we lose everything. Every moment counts."
       },
-      "playerResponses": [
-        { "text": "People come first. I will get it done.", "action": "ACCEPT", "dispositionShift": 15 },
-        { "text": "Fighting disaster and beasts at the same time? Understood.", "action": "ACCEPT", "dispositionShift": 0 },
-        { "text": "Running toward that is suicide.", "action": "DECLINE", "dispositionShift": -5 }
+      "objectivePool": [
+        "GATHER_ITEMS",
+        "KILL_MOBS",
+        "EXPLORE_LOCATION"
       ],
-      "objectivePool": ["GATHER_ITEMS", "KILL_MOBS", "EXPLORE_LOCATION"],
       "objectiveConfig": {
-        "GATHER_ITEMS": { "countMin": 5, "countMax": 12 },
-        "KILL_MOBS": { "countMin": 2, "countMax": 5 }
+        "GATHER_ITEMS": {
+          "countMin": 5,
+          "countMax": 12
+        },
+        "KILL_MOBS": {
+          "countMin": 2,
+          "countMax": 5
+        }
       }
     },
     {
@@ -43,15 +53,20 @@
         "plotStep": "We need to {quest_action} before the next wave finishes what the first one started. Bring {quest_item} from {location_hint}. The {enemy_type} have been scavenging the wreckage, so watch your back.",
         "outro": "Everything has turned against us. But we will not abandon our home without a fight."
       },
-      "playerResponses": [
-        { "text": "Danger on all sides. What a day. I will help.", "action": "ACCEPT", "dispositionShift": 5 },
-        { "text": "That area looks ready to collapse on whoever goes. Dangerous.", "action": "ACCEPT", "dispositionShift": -5 },
-        { "text": "Maybe it is time to move somewhere safer.", "action": "DECLINE" }
+      "objectivePool": [
+        "GATHER_ITEMS",
+        "FETCH_ITEM",
+        "KILL_MOBS"
       ],
-      "objectivePool": ["GATHER_ITEMS", "FETCH_ITEM", "KILL_MOBS"],
       "objectiveConfig": {
-        "GATHER_ITEMS": { "countMin": 8, "countMax": 20 },
-        "KILL_MOBS": { "countMin": 2, "countMax": 5 }
+        "GATHER_ITEMS": {
+          "countMin": 8,
+          "countMax": 20
+        },
+        "KILL_MOBS": {
+          "countMin": 2,
+          "countMax": 5
+        }
       }
     }
   ]

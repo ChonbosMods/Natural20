@@ -7,15 +7,20 @@
         "plotStep": "The {quest_stakes} {quest_stakes_is} angry and lost. {quest_ally} has been sheltering them, but the {quest_focus} left people without what they need. The {enemy_type} have moved into the affected area {location_hint}, making recovery even harder.",
         "outro": "Someone needs to clean up the mess left by good intentions. Will you help settle the {quest_stakes} and clear the way for things to return to normal?"
       },
-      "playerResponses": [
-        { "text": "Good intentions do not excuse the harm.", "action": "ACCEPT", "dispositionShift": 4 },
-        { "text": "I will help them recover.", "action": "ACCEPT", "dispositionShift": 5 },
-        { "text": "They made their own choices.", "action": "DECLINE", "dispositionShift": -3 }
+      "objectivePool": [
+        "KILL_MOBS",
+        "EXPLORE_LOCATION",
+        "GATHER_ITEMS"
       ],
-      "objectivePool": ["KILL_MOBS", "EXPLORE_LOCATION", "GATHER_ITEMS"],
       "objectiveConfig": {
-        "KILL_MOBS": { "countMin": 3, "countMax": 7 },
-        "GATHER_ITEMS": { "countMin": 4, "countMax": 12 }
+        "KILL_MOBS": {
+          "countMin": 3,
+          "countMax": 7
+        },
+        "GATHER_ITEMS": {
+          "countMin": 4,
+          "countMax": 12
+        }
       }
     },
     {
@@ -25,15 +30,20 @@
         "plotStep": "The person is alive but suffering. {target_npc} examined them and says the {quest_focus} used {quest_item} in a way that was never intended. A proper remedy exists, but the ingredients grow only in dangerous territory {location_hint}.",
         "outro": "This can still be corrected, but time is critical. Will you gather what {target_npc} needs {quest_time_pressure} before the {quest_stakes} {quest_stakes_is} lost to a well-meaning mistake?"
       },
-      "playerResponses": [
-        { "text": "I will get what is needed for the remedy.", "action": "ACCEPT", "dispositionShift": 5 },
-        { "text": "Love should not cost someone their life.", "action": "ACCEPT", "dispositionShift": 3 },
-        { "text": "They brought this on themselves.", "action": "DECLINE", "dispositionShift": -4 }
+      "objectivePool": [
+        "GATHER_ITEMS",
+        "EXPLORE_LOCATION",
+        "KILL_MOBS"
       ],
-      "objectivePool": ["GATHER_ITEMS", "EXPLORE_LOCATION", "KILL_MOBS"],
       "objectiveConfig": {
-        "GATHER_ITEMS": { "countMin": 5, "countMax": 14 },
-        "KILL_MOBS": { "countMin": 2, "countMax": 6 }
+        "GATHER_ITEMS": {
+          "countMin": 5,
+          "countMax": 14
+        },
+        "KILL_MOBS": {
+          "countMin": 2,
+          "countMax": 6
+        }
       }
     },
     {
@@ -43,14 +53,16 @@
         "plotStep": "{quest_ally} discovered the {quest_focus} by accident: people held against their will, some for weeks. {target_npc} genuinely believes they are protecting everyone, but the {quest_threat} {quest_threat_has} turned a loyal defender into something else. The {enemy_type} raids they fear are real, but the response has gone too far.",
         "outro": "The {quest_stakes} need to be freed, and {target_npc} needs to be confronted. This requires someone from outside who can see clearly."
       },
-      "playerResponses": [
-        { "text": "Those people need to be freed now.", "action": "ACCEPT", "dispositionShift": 6 },
-        { "text": "How did no one notice sooner?", "action": "ACCEPT", "dispositionShift": 2 },
-        { "text": "Maybe they had good reason.", "action": "DECLINE", "dispositionShift": -5 }
+      "objectivePool": [
+        "TALK_TO_NPC",
+        "EXPLORE_LOCATION",
+        "KILL_MOBS"
       ],
-      "objectivePool": ["TALK_TO_NPC", "EXPLORE_LOCATION", "KILL_MOBS"],
       "objectiveConfig": {
-        "KILL_MOBS": { "countMin": 2, "countMax": 5 }
+        "KILL_MOBS": {
+          "countMin": 2,
+          "countMax": 5
+        }
       }
     }
   ]

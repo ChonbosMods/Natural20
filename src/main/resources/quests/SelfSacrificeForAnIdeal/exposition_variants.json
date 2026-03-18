@@ -7,25 +7,16 @@
         "plotStep": "Since {quest_origin}, the {quest_threat} {quest_threat_has} been bearing down on us. The defenders at the {quest_focus} know what's coming and they've accepted it. They need someone to {quest_action}, and {quest_item} {location_hint} could make the difference between their sacrifice buying hours or buying days.",
         "outro": "Every hour matters for the {quest_stakes}. Those people chose their oath over their own safety. Don't let that choice be wasted."
       },
-      "playerResponses": [
-        {
-          "text": "I won't let them die for nothing. I'll help.",
-          "action": "ACCEPT",
-          "dispositionShift": 5
-        },
-        {
-          "text": "They can't hold. Focus on what can still be saved.",
-          "action": "ACCEPT",
-          "dispositionShift": -2
-        },
-        {
-          "text": "I'm not walking into a last stand.",
-          "action": "DECLINE"
-        }
+      "objectivePool": [
+        "EXPLORE_LOCATION",
+        "KILL_MOBS",
+        "DELIVER_ITEM"
       ],
-      "objectivePool": ["EXPLORE_LOCATION", "KILL_MOBS", "DELIVER_ITEM"],
       "objectiveConfig": {
-        "KILL_MOBS": { "countMin": 5, "countMax": 10 }
+        "KILL_MOBS": {
+          "countMin": 5,
+          "countMax": 10
+        }
       }
     },
     {
@@ -35,23 +26,11 @@
         "plotStep": "What they don't know is that copies were hidden at {quest_origin} before the fires started. Someone risked everything to preserve the {quest_stakes} rather than themselves. The {quest_threat} {quest_threat_is} closing in, and someone needs to {quest_action} before the hiding spot is found. {quest_item} {location_hint} might still be recoverable.",
         "outro": "The sacrifice was made to protect something worth protecting. It would be a tragedy if that sacrifice was wasted. {quest_reward_hint} might come of it."
       },
-      "playerResponses": [
-        {
-          "text": "What they protected matters. Point me in the right direction.",
-          "action": "ACCEPT",
-          "dispositionShift": 5
-        },
-        {
-          "text": "If I'm caught, it's my neck too.",
-          "action": "ACCEPT",
-          "dispositionShift": 0
-        },
-        {
-          "text": "I don't need that kind of trouble on my trail.",
-          "action": "DECLINE"
-        }
+      "objectivePool": [
+        "FETCH_ITEM",
+        "EXPLORE_LOCATION",
+        "DELIVER_ITEM"
       ],
-      "objectivePool": ["FETCH_ITEM", "EXPLORE_LOCATION", "DELIVER_ITEM"],
       "objectiveConfig": {}
     },
     {
@@ -61,21 +40,16 @@
         "plotStep": "They sent a list of what they need: {quest_item}, supplies, basics. But nobody will go near the {quest_focus} because of the {quest_threat}. They know the risk. They chose the oath they swore over their own safety. If we don't {quest_action} soon, the {quest_stakes} will suffer.",
         "outro": "They can save those people, but not without help from someone brave enough to get close. {quest_time_pressure}."
       },
-      "playerResponses": [
-        {
-          "text": "They're braver than anyone I know. I'll get them what they need.",
-          "action": "ACCEPT",
-          "dispositionShift": 5
-        },
-        {
-          "text": "What's to stop the danger from spreading to me?",
-          "action": "ACCEPT",
-          "dispositionShift": 1
-        }
+      "objectivePool": [
+        "GATHER_ITEMS",
+        "DELIVER_ITEM",
+        "FETCH_ITEM"
       ],
-      "objectivePool": ["GATHER_ITEMS", "DELIVER_ITEM", "FETCH_ITEM"],
       "objectiveConfig": {
-        "GATHER_ITEMS": { "countMin": 5, "countMax": 15 }
+        "GATHER_ITEMS": {
+          "countMin": 5,
+          "countMax": 15
+        }
       }
     }
   ]

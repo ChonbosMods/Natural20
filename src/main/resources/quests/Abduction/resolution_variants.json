@@ -7,18 +7,6 @@
         "plotStep": "The settlement is overjoyed. {quest_ally} has been tending to the rescued and says they'll recover in time. What you did out there took real courage, {player_name}.",
         "outro": "You've earned more than gratitude. This settlement will remember what you did when the {quest_stakes} hung in the balance."
       },
-      "playerResponses": [
-        {
-          "text": "I'm glad they're safe.",
-          "action": "COMPLETE",
-          "dispositionShift": 8
-        },
-        {
-          "text": "The threat may return. Stay vigilant.",
-          "action": "COMPLETE",
-          "dispositionShift": 5
-        }
-      ],
       "objectivePool": [],
       "objectiveConfig": {}
     },
@@ -29,18 +17,6 @@
         "plotStep": "It's not the ending we wanted, but the {enemy_type} lost fighters, supplies, and their element of surprise. {quest_ally} says the intelligence you recovered will help prevent this from happening again.",
         "outro": "Sometimes a partial victory is all we get. You did everything you could for the {quest_stakes}, and that matters."
       },
-      "playerResponses": [
-        {
-          "text": "We'll find them eventually.",
-          "action": "COMPLETE",
-          "dispositionShift": 4
-        },
-        {
-          "text": "At least we hurt them badly.",
-          "action": "COMPLETE",
-          "dispositionShift": 3
-        }
-      ],
       "objectivePool": [],
       "objectiveConfig": {}
     },
@@ -51,18 +27,6 @@
         "plotStep": "{target_npc} can hardly believe the report. The supplies you seized from the {quest_threat} will sustain us for weeks. The prisoners you freed are spreading word of what you did.",
         "outro": "You didn't just solve a problem: you sent a message. The {quest_stakes} {quest_stakes_is} secure, and the {enemy_type} will think twice before crossing this settlement again."
       },
-      "playerResponses": [
-        {
-          "text": "They won't be back anytime soon.",
-          "action": "COMPLETE",
-          "dispositionShift": 10
-        },
-        {
-          "text": "Take their supplies. You've earned them.",
-          "action": "COMPLETE",
-          "dispositionShift": 6
-        }
-      ],
       "objectivePool": [],
       "objectiveConfig": {}
     }

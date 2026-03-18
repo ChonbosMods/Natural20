@@ -7,25 +7,16 @@
         "plotStep": "I found tracks leading toward {location_hint} that suggest the {enemy_type} are deliberately provoking these attacks. The {quest_focus} seems to be the key: whoever controls it can turn anyone against their allies. {target_npc} might know more about how to counter it.",
         "outro": "We need {quest_item} to break this cycle. Without it, every patrol we send out is a gamble on whether they'll come back as themselves."
       },
-      "playerResponses": [
-        {
-          "text": "I'll track down the source and retrieve {quest_item}.",
-          "action": "ACCEPT",
-          "dispositionShift": 3
-        },
-        {
-          "text": "Maybe the patrols should stop going out until this is solved.",
-          "action": "ACCEPT",
-          "dispositionShift": -1
-        },
-        {
-          "text": "This is beyond what I signed up for.",
-          "action": "DECLINE"
-        }
+      "objectivePool": [
+        "FETCH_ITEM",
+        "KILL_MOBS",
+        "EXPLORE_LOCATION"
       ],
-      "objectivePool": ["FETCH_ITEM", "KILL_MOBS", "EXPLORE_LOCATION"],
       "objectiveConfig": {
-        "KILL_MOBS": { "countMin": 3, "countMax": 8 }
+        "KILL_MOBS": {
+          "countMin": 3,
+          "countMax": 8
+        }
       }
     },
     {
@@ -35,21 +26,20 @@
         "plotStep": "The {quest_threat} {quest_threat_is} spreading faster than we expected. {quest_ally} confirmed that the {enemy_type} have been planting {quest_item} along our routes: it's what triggers the confusion. {target_npc} thinks there's a way to neutralize the effect, but it requires materials from deep in hostile territory.",
         "outro": "The settlement is paralyzed. If we can't trust our own eyes, we can't defend ourselves. Get to {target_npc} and find out what they need."
       },
-      "playerResponses": [
-        {
-          "text": "Tell me where {target_npc} is. I'll get what they need.",
-          "action": "ACCEPT",
-          "dispositionShift": 4
-        },
-        {
-          "text": "What guarantee is there that their solution will work?",
-          "action": "ACCEPT"
-        }
+      "objectivePool": [
+        "TALK_TO_NPC",
+        "GATHER_ITEMS",
+        "KILL_MOBS"
       ],
-      "objectivePool": ["TALK_TO_NPC", "GATHER_ITEMS", "KILL_MOBS"],
       "objectiveConfig": {
-        "GATHER_ITEMS": { "countMin": 5, "countMax": 15 },
-        "KILL_MOBS": { "countMin": 2, "countMax": 7 }
+        "GATHER_ITEMS": {
+          "countMin": 5,
+          "countMax": 15
+        },
+        "KILL_MOBS": {
+          "countMin": 2,
+          "countMax": 7
+        }
       }
     },
     {
@@ -59,26 +49,16 @@
         "plotStep": "{target_npc} discovered that the {quest_threat} originates from {location_hint}. The {enemy_type} have been using the {quest_focus} to turn our people into weapons against each other. It's deliberate and methodical. {quest_ally} is willing to guide you, but even they aren't sure they can trust their own senses anymore.",
         "outro": "We have to strike at the source and destroy the {quest_focus} before there's no one left who trusts anyone."
       },
-      "playerResponses": [
-        {
-          "text": "I'll go. Someone who isn't affected needs to end this.",
-          "action": "ACCEPT",
-          "dispositionShift": 5
-        },
-        {
-          "text": "What if I become affected too?",
-          "action": "ACCEPT",
-          "dispositionShift": 1
-        },
-        {
-          "text": "This settlement is already lost. I'm sorry.",
-          "action": "DECLINE",
-          "dispositionShift": -5
-        }
+      "objectivePool": [
+        "EXPLORE_LOCATION",
+        "KILL_MOBS",
+        "KILL_NPC"
       ],
-      "objectivePool": ["EXPLORE_LOCATION", "KILL_MOBS", "KILL_NPC"],
       "objectiveConfig": {
-        "KILL_MOBS": { "countMin": 4, "countMax": 10 }
+        "KILL_MOBS": {
+          "countMin": 4,
+          "countMax": 10
+        }
       }
     }
   ]

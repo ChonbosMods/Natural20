@@ -9,7 +9,6 @@ public record QuestVariant(
     String id,
     Map<String, String> bindings,
     DialogueChunks dialogueChunks,
-    List<PlayerResponse> playerResponses,
     List<ObjectiveType> objectivePool,
     Map<ObjectiveType, ObjectiveConfig> objectiveConfig
 ) {}

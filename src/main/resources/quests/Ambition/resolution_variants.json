@@ -7,10 +7,6 @@
         "plotStep": "The council recognized my claim this morning. {target_npc} conceded after they saw the evidence and the support we'd gathered. The {enemy_type} threat is being addressed, supply lines are open, and decisions are being made instead of debated endlessly.",
         "outro": "You helped me earn this. Not just take it: earn it. Here's what I promised, and know that you'll always have an ally in power."
       },
-      "playerResponses": [
-        { "text": "Use the power wisely. That's all I ask.", "action": "ACCEPT" },
-        { "text": "An ally in power is worth more than gold. I'll hold you to that.", "action": "ACCEPT", "dispositionShift": 5 }
-      ],
       "objectivePool": [],
       "objectiveConfig": {}
     },
@@ -21,10 +17,6 @@
         "plotStep": "The opposition crumbled after you dealt with their enforcers. {target_npc} left rather than face the assembly. Some call me ruthless, and maybe they're right. But the defenses are strengthened and the {enemy_type} haven't breached our perimeter since I took charge. The {quest_stakes} {quest_stakes_is} secure.",
         "outro": "History remembers results, not methods. Here's your share of the results."
       },
-      "playerResponses": [
-        { "text": "Results that protect people are results I can live with.", "action": "ACCEPT" },
-        { "text": "Just remember that fear is a poor foundation for loyalty.", "action": "ACCEPT", "dispositionShift": -5 }
-      ],
       "objectivePool": [],
       "objectiveConfig": {}
     },
@@ -35,10 +27,6 @@
         "plotStep": "I got what I wanted: the {quest_focus}, the authority, the control. And it lasted three days before {target_npc} rallied enough support to force a shared council. I'm still at the table, but I'm not the only voice anymore. Part of me is furious. Another part is relieved. Leading alone was exhausting in ways I didn't expect.",
         "outro": "I learned something about ambition: having it isn't the sin. Letting it consume you is. Take this, and know I'm grateful for your honesty."
       },
-      "playerResponses": [
-        { "text": "Shared power is still power. And it's more sustainable.", "action": "ACCEPT", "dispositionShift": 10 },
-        { "text": "The fact that you can admit it means you'll be a better leader for it.", "action": "ACCEPT" }
-      ],
       "objectivePool": [],
       "objectiveConfig": {}
     }

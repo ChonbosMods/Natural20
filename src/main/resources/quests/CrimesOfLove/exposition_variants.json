@@ -7,25 +7,16 @@
         "plotStep": "Since {quest_origin}, they've been secretly providing the {quest_focus} to those in need. They know the consequences if caught. They said: 'Let them punish me. I'm not watching people die over a regulation.' But they can't make the delivery themselves: the {quest_threat} {quest_threat_has} watchers everywhere.",
         "outro": "Someone needs to {quest_action} {quest_time_pressure}. They committed a crime because the {quest_stakes} matters more to them than their freedom. {quest_item} {location_hint} is what's needed."
       },
-      "playerResponses": [
-        {
-          "text": "Lives outrank regulations. I'll make the delivery.",
-          "action": "ACCEPT",
-          "dispositionShift": 5
-        },
-        {
-          "text": "If I'm caught, I go down too. What's the plan?",
-          "action": "ACCEPT",
-          "dispositionShift": 2
-        },
-        {
-          "text": "I'm not running contraband, even for a good reason.",
-          "action": "DECLINE"
-        }
+      "objectivePool": [
+        "DELIVER_ITEM",
+        "EXPLORE_LOCATION",
+        "GATHER_ITEMS"
       ],
-      "objectivePool": ["DELIVER_ITEM", "EXPLORE_LOCATION", "GATHER_ITEMS"],
       "objectiveConfig": {
-        "GATHER_ITEMS": { "countMin": 4, "countMax": 10 }
+        "GATHER_ITEMS": {
+          "countMin": 4,
+          "countMax": 10
+        }
       }
     },
     {
@@ -35,25 +26,16 @@
         "plotStep": "They walked away from their duty knowing the penalty is severe. They have {quest_item} that only works if administered by someone who knows how. They're hiding at {quest_origin} with their family. The {quest_threat} {quest_threat_is} already searching.",
         "outro": "If someone could {quest_action} and buy them time, they'll turn themselves in willingly. They said: 'They can punish me after. I just need three days.' {quest_stakes} hangs on those three days."
       },
-      "playerResponses": [
-        {
-          "text": "Someone choosing their dying family over a post. I understand. I'll help.",
-          "action": "ACCEPT",
-          "dispositionShift": 5
-        },
-        {
-          "text": "Desertion is desertion. But the family didn't choose this.",
-          "action": "ACCEPT",
-          "dispositionShift": 1
-        },
-        {
-          "text": "I won't obstruct an official investigation.",
-          "action": "DECLINE"
-        }
+      "objectivePool": [
+        "EXPLORE_LOCATION",
+        "TALK_TO_NPC",
+        "KILL_MOBS"
       ],
-      "objectivePool": ["EXPLORE_LOCATION", "TALK_TO_NPC", "KILL_MOBS"],
       "objectiveConfig": {
-        "KILL_MOBS": { "countMin": 2, "countMax": 5 }
+        "KILL_MOBS": {
+          "countMin": 2,
+          "countMax": 5
+        }
       }
     },
     {
@@ -63,21 +45,16 @@
         "plotStep": "The smuggler's own family lives on this side. If caught with the {quest_focus}, they lose everything: license, home, probably freedom. They do it because their childhood friend lives across the border with children and no food. Love doesn't care about border policy.",
         "outro": "The next shipment needs to cross tonight. They can't make the run because the {quest_threat} {quest_threat_has} doubled patrols. They need someone to {quest_action}. It's illegal, it's dangerous, and it will feed people for a week. {quest_reward_hint} might follow."
       },
-      "playerResponses": [
-        {
-          "text": "Hungry children don't respect borders either. I'll do it.",
-          "action": "ACCEPT",
-          "dispositionShift": 5
-        },
-        {
-          "text": "How many more runs until this becomes unsustainable?",
-          "action": "ACCEPT",
-          "dispositionShift": 1
-        }
+      "objectivePool": [
+        "DELIVER_ITEM",
+        "EXPLORE_LOCATION",
+        "KILL_MOBS"
       ],
-      "objectivePool": ["DELIVER_ITEM", "EXPLORE_LOCATION", "KILL_MOBS"],
       "objectiveConfig": {
-        "KILL_MOBS": { "countMin": 2, "countMax": 6 }
+        "KILL_MOBS": {
+          "countMin": 2,
+          "countMax": 6
+        }
       }
     }
   ]

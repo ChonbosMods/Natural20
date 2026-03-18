@@ -7,18 +7,6 @@
         "plotStep": "The survivors are gathering. Some of them remember what they did. {quest_ally} is tending to the wounded, but the deeper wounds aren't the kind bandages can fix.",
         "outro": "You gave us the truth, {player_name}. That's the first step. {target_npc} wants to establish a warning system so this can never happen again. We owe you more than words can say."
       },
-      "playerResponses": [
-        {
-          "text": "The truth was the least you deserved. Take care of each other.",
-          "action": "COMPLETE",
-          "dispositionShift": 5
-        },
-        {
-          "text": "Just make sure it doesn't happen again.",
-          "action": "COMPLETE",
-          "dispositionShift": 2
-        }
-      ],
       "objectivePool": [],
       "objectiveConfig": {}
     },
@@ -29,23 +17,6 @@
         "plotStep": "The {enemy_type} won't be using this weapon again, at least not here. {target_npc} has already begun analyzing what's left of {quest_item} to develop defenses. But the people who harmed their own kin: they'll carry that weight forever.",
         "outro": "Some have asked to leave the settlement. They can't face the families of those they harmed. This place will never be the same."
       },
-      "playerResponses": [
-        {
-          "text": "They were victims too. Remember that when you judge them.",
-          "action": "COMPLETE",
-          "dispositionShift": 4
-        },
-        {
-          "text": "At least the enemy paid for what they orchestrated.",
-          "action": "COMPLETE",
-          "dispositionShift": 1
-        },
-        {
-          "text": "Some debts can only be paid in time.",
-          "action": "COMPLETE",
-          "dispositionShift": 3
-        }
-      ],
       "objectivePool": [],
       "objectiveConfig": {}
     },
@@ -56,18 +27,6 @@
         "plotStep": "{quest_ally} proposed a memorial for all who died. {target_npc} opposed it at first, but came around. They said naming the dead honestly might be the only way to stop the silence from rotting what's left of this community.",
         "outro": "You broke the cycle, {player_name}. Now we have to live with what it did to us. That's the harder part, and it's ours to carry."
       },
-      "playerResponses": [
-        {
-          "text": "The memorial is a good start. Don't let grief turn to blame.",
-          "action": "COMPLETE",
-          "dispositionShift": 5
-        },
-        {
-          "text": "You'll rebuild. People always do.",
-          "action": "COMPLETE",
-          "dispositionShift": 2
-        }
-      ],
       "objectivePool": [],
       "objectiveConfig": {}
     }

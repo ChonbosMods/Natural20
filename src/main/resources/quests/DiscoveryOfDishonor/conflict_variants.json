@@ -7,24 +7,11 @@
         "plotStep": "The dishonored person didn't just cheat their own people. They sold secrets to rivals and blamed the leak on innocent colleagues: people whose careers were destroyed by the accusation. {quest_ally} tracked down one of those wrongly accused at {location_hint}. {quest_item} contains proof of the full scheme.",
         "outro": "Get {quest_item} from {location_hint}. Every ruined life, every cheated person: all connected. The guilty party knows someone is looking and has started moving assets."
       },
-      "playerResponses": [
-        {
-          "text": "Innocent people were destroyed by these lies. I'll get the proof.",
-          "action": "ACCEPT",
-          "dispositionShift": 5
-        },
-        {
-          "text": "The guilty party will fight back. Are we prepared for that?",
-          "action": "ACCEPT",
-          "dispositionShift": 2
-        },
-        {
-          "text": "This is bigger than I signed up for.",
-          "action": "DECLINE",
-          "dispositionShift": -2
-        }
+      "objectivePool": [
+        "FETCH_ITEM",
+        "TALK_TO_NPC",
+        "EXPLORE_LOCATION"
       ],
-      "objectivePool": ["FETCH_ITEM", "TALK_TO_NPC", "EXPLORE_LOCATION"],
       "objectiveConfig": {}
     },
     {
@@ -34,21 +21,16 @@
         "plotStep": "{target_npc} was threatened directly. Someone broke into their home and left a warning. The false hero has allies among the powerful. {quest_ally} says we need physical evidence from {quest_origin} because testimony alone won't hold against someone this influential. {quest_item} at {location_hint} might contain the proof.",
         "outro": "The guilty party's reputation is their weapon. Every challenge to it makes them more dangerous. But the real defenders who died deserve the truth."
       },
-      "playerResponses": [
-        {
-          "text": "The dead deserve truth more than the living deserve comfortable lies.",
-          "action": "ACCEPT",
-          "dispositionShift": 5
-        },
-        {
-          "text": "Threatening witnesses is exactly what a guilty person does.",
-          "action": "ACCEPT",
-          "dispositionShift": 3
-        }
+      "objectivePool": [
+        "EXPLORE_LOCATION",
+        "FETCH_ITEM",
+        "KILL_MOBS"
       ],
-      "objectivePool": ["EXPLORE_LOCATION", "FETCH_ITEM", "KILL_MOBS"],
       "objectiveConfig": {
-        "KILL_MOBS": { "countMin": 2, "countMax": 5 }
+        "KILL_MOBS": {
+          "countMin": 2,
+          "countMax": 5
+        }
       }
     },
     {
@@ -58,26 +40,16 @@
         "plotStep": "{target_npc} intercepted a courier headed to {location_hint} carrying {quest_item}: a partial accounting of where the funds actually went. Luxury goods, private guards: all purchased while the {quest_stakes} suffered. {quest_ally} says the administrator is planning to flee within days.",
         "outro": "The courier was stopped, but {quest_item} is only part of the picture. The full records are at {location_hint}. Get them before everything is destroyed."
       },
-      "playerResponses": [
-        {
-          "text": "The administrator doesn't get to run from this. I'll secure the records.",
-          "action": "ACCEPT",
-          "dispositionShift": 5
-        },
-        {
-          "text": "Can we freeze their assets before they flee?",
-          "action": "ACCEPT",
-          "dispositionShift": 2
-        },
-        {
-          "text": "They're powerful enough to disappear. Is this even winnable?",
-          "action": "DECLINE",
-          "dispositionShift": -1
-        }
+      "objectivePool": [
+        "FETCH_ITEM",
+        "EXPLORE_LOCATION",
+        "KILL_MOBS"
       ],
-      "objectivePool": ["FETCH_ITEM", "EXPLORE_LOCATION", "KILL_MOBS"],
       "objectiveConfig": {
-        "KILL_MOBS": { "countMin": 3, "countMax": 6 }
+        "KILL_MOBS": {
+          "countMin": 3,
+          "countMax": 6
+        }
       }
     }
   ]

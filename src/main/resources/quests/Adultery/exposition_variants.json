@@ -7,25 +7,16 @@
         "plotStep": "Our representative was caught secretly working with the {enemy_type} to undermine our partners. It was calculated: a violation of every covenant we swore. the {quest_focus} {quest_focus_is} in ruins, and {quest_item} was stolen in the process. If someone could {quest_action}, it would prove we're willing to make it right.",
         "outro": "Without that gesture, the {quest_threat} {quest_threat_is} all we have to look forward to. The {quest_stakes} depends on whether trust can be rebuilt."
       },
-      "playerResponses": [
-        {
-          "text": "Broken trust is hard to mend, but returning what was stolen is a start.",
-          "action": "ACCEPT",
-          "dispositionShift": 5
-        },
-        {
-          "text": "Why should I clean up your representative's mess?",
-          "action": "ACCEPT",
-          "dispositionShift": -1
-        },
-        {
-          "text": "You broke the alliance. Live with the consequences.",
-          "action": "DECLINE"
-        }
+      "objectivePool": [
+        "EXPLORE_LOCATION",
+        "FETCH_ITEM",
+        "KILL_MOBS"
       ],
-      "objectivePool": ["EXPLORE_LOCATION", "FETCH_ITEM", "KILL_MOBS"],
       "objectiveConfig": {
-        "KILL_MOBS": { "countMin": 3, "countMax": 7 }
+        "KILL_MOBS": {
+          "countMin": 3,
+          "countMax": 7
+        }
       }
     },
     {
@@ -35,19 +26,11 @@
         "plotStep": "Three attacks in two months, all targeting us at our most vulnerable. the {quest_focus} was only discovered because a wounded scout overheard a {enemy_type} laughing about knowing exactly when our defenses change. We need someone from outside to {quest_action}. {quest_item} {location_hint} might hold the proof.",
         "outro": "If the defenders learn about this from their own ranks, it'll tear the unit apart. Hard evidence is the only way to remove the traitor without destroying the {quest_stakes}. {quest_time_pressure}."
       },
-      "playerResponses": [
-        {
-          "text": "An oath-breaker in command is worse than any enemy. I'll find the proof.",
-          "action": "ACCEPT",
-          "dispositionShift": 5
-        },
-        {
-          "text": "What if the proof implicates others too?",
-          "action": "ACCEPT",
-          "dispositionShift": 2
-        }
+      "objectivePool": [
+        "EXPLORE_LOCATION",
+        "TALK_TO_NPC",
+        "FETCH_ITEM"
       ],
-      "objectivePool": ["EXPLORE_LOCATION", "TALK_TO_NPC", "FETCH_ITEM"],
       "objectiveConfig": {}
     },
     {
@@ -57,23 +40,11 @@
         "plotStep": "Families received eviction notices this morning. The {quest_focus} {quest_focus_is} the legal basis. Nobody knows when the original was swapped, but the forgery is convincing. If someone can {quest_action} from {quest_origin}, or find proof it was altered, the evictions stop.",
         "outro": "The {quest_threat} starts at the end of the week. The {quest_stakes} have nowhere to go. {quest_item} {location_hint} might hold the key to proving the fraud."
       },
-      "playerResponses": [
-        {
-          "text": "Forging a community's founding document is the worst kind of theft. I'll help.",
-          "action": "ACCEPT",
-          "dispositionShift": 5
-        },
-        {
-          "text": "If the original is destroyed, what then?",
-          "action": "ACCEPT",
-          "dispositionShift": 1
-        },
-        {
-          "text": "Legal disputes aren't really my expertise.",
-          "action": "DECLINE"
-        }
+      "objectivePool": [
+        "EXPLORE_LOCATION",
+        "FETCH_ITEM",
+        "TALK_TO_NPC"
       ],
-      "objectivePool": ["EXPLORE_LOCATION", "FETCH_ITEM", "TALK_TO_NPC"],
       "objectiveConfig": {}
     }
   ]

@@ -7,18 +7,6 @@
         "plotStep": "The provider is still in custody, but {target_npc} organized a petition. Dozens of families signed it, including some who said privately that the ban was wrong. {quest_ally} is presenting the petition at the hearing. Nobody knows if it will work, but lives were saved and that's hard to argue against.",
         "outro": "They broke the law and saved lives, {player_name}. You carried the risk knowing what it meant. Some crimes are harder to condemn when you look at who they saved."
       },
-      "playerResponses": [
-        {
-          "text": "A law that lets people die deserves to be broken. I hope they go free.",
-          "action": "COMPLETE",
-          "dispositionShift": 5
-        },
-        {
-          "text": "Fix the law so nobody has to become a criminal to save lives.",
-          "action": "COMPLETE",
-          "dispositionShift": 3
-        }
-      ],
       "objectivePool": [],
       "objectiveConfig": {}
     },
@@ -29,23 +17,6 @@
         "plotStep": "They walked in with their head up and their family's hand in theirs. The tribunal is set for next week. {target_npc} is arranging the defense. {quest_ally} says several others have testified that leave requests were routinely denied.",
         "outro": "They committed a crime, {player_name}. They also saved their family's life. The tribunal will decide which matters more. Whatever happens, their loved one is alive. They told me: 'That's enough. That was always enough.'"
       },
-      "playerResponses": [
-        {
-          "text": "They chose love over law. I'd make the same choice.",
-          "action": "COMPLETE",
-          "dispositionShift": 5
-        },
-        {
-          "text": "The commander who denied leave should be on trial too.",
-          "action": "COMPLETE",
-          "dispositionShift": 3
-        },
-        {
-          "text": "I hope the tribunal sees a parent, not just a deserter.",
-          "action": "COMPLETE",
-          "dispositionShift": 4
-        }
-      ],
       "objectivePool": [],
       "objectiveConfig": {}
     },
@@ -56,18 +27,6 @@
         "plotStep": "{target_npc} says the embargo is losing support among the communities on both sides. {quest_ally} is connecting the smuggler with others who want to push for official relief channels. It's still illegal, but the tide is turning.",
         "outro": "Someone risked everything because people they loved were hungry, {player_name}. You carried the risk with them. Sometimes the law changes because enough people decide it's wrong."
       },
-      "playerResponses": [
-        {
-          "text": "Unjust laws fall when enough people refuse to obey them.",
-          "action": "COMPLETE",
-          "dispositionShift": 5
-        },
-        {
-          "text": "One delivery at a time. It's not much, but it's something.",
-          "action": "COMPLETE",
-          "dispositionShift": 3
-        }
-      ],
       "objectivePool": [],
       "objectiveConfig": {}
     }

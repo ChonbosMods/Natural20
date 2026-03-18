@@ -7,14 +7,16 @@
         "plotStep": "I need you to {quest_action}. {quest_ally} saw someone fleeing {location_hint} just after it happened. Find proof: look for {quest_item} near the scene.",
         "outro": "They destroyed the {quest_stakes} out of spite. I will see justice done, one way or another."
       },
-      "playerResponses": [
-        { "text": "Destroying someone's livelihood is despicable. I will find who did this.", "action": "ACCEPT", "dispositionShift": 10 },
-        { "text": "What kind of grudge leads to this?", "action": "ACCEPT", "dispositionShift": 0 },
-        { "text": "This sounds like a personal feud. Sort it out yourself.", "action": "DECLINE", "dispositionShift": -5 }
+      "objectivePool": [
+        "EXPLORE_LOCATION",
+        "FETCH_ITEM",
+        "GATHER_ITEMS"
       ],
-      "objectivePool": ["EXPLORE_LOCATION", "FETCH_ITEM", "GATHER_ITEMS"],
       "objectiveConfig": {
-        "GATHER_ITEMS": { "countMin": 3, "countMax": 6 }
+        "GATHER_ITEMS": {
+          "countMin": 3,
+          "countMax": 6
+        }
       }
     },
     {
@@ -24,14 +26,16 @@
         "plotStep": "I will not let this stand. Someone needs to {quest_action} {quest_time_pressure}. The {enemy_type} near the {quest_focus} may have been involved. Check the area {location_hint} for {quest_item}: that could be evidence.",
         "outro": "This was no accident. This was a crime, and I want the one responsible to answer for it."
       },
-      "playerResponses": [
-        { "text": "Harming innocents crosses every line. I will hunt them down.", "action": "ACCEPT", "dispositionShift": 15 },
-        { "text": "Do you have any suspects?", "action": "ACCEPT", "dispositionShift": 0 },
-        { "text": "This is a matter for your own people.", "action": "DECLINE" }
+      "objectivePool": [
+        "EXPLORE_LOCATION",
+        "GATHER_ITEMS",
+        "TALK_TO_NPC"
       ],
-      "objectivePool": ["EXPLORE_LOCATION", "GATHER_ITEMS", "TALK_TO_NPC"],
       "objectiveConfig": {
-        "GATHER_ITEMS": { "countMin": 4, "countMax": 8 }
+        "GATHER_ITEMS": {
+          "countMin": 4,
+          "countMax": 8
+        }
       }
     },
     {
@@ -41,15 +45,20 @@
         "plotStep": "I need you to {quest_action}. The trail leads {location_hint}. {quest_ally} believes they are selling {quest_item} to fund their escape.",
         "outro": "Bring back what was taken and there will be {quest_reward_hint} for your trouble. But more importantly, bring back our dignity."
       },
-      "playerResponses": [
-        { "text": "Theft driven by spite deserves swift justice. I will go.", "action": "ACCEPT", "dispositionShift": 10 },
-        { "text": "Tell me more about the reward.", "action": "ACCEPT", "dispositionShift": -5 },
-        { "text": "Chasing a vendetta is beneath me.", "action": "DECLINE", "dispositionShift": -10 }
+      "objectivePool": [
+        "FETCH_ITEM",
+        "EXPLORE_LOCATION",
+        "GATHER_ITEMS"
       ],
-      "objectivePool": ["FETCH_ITEM", "EXPLORE_LOCATION", "GATHER_ITEMS"],
       "objectiveConfig": {
-        "GATHER_ITEMS": { "countMin": 5, "countMax": 10 },
-        "FETCH_ITEM": { "countMin": 1, "countMax": 1 }
+        "GATHER_ITEMS": {
+          "countMin": 5,
+          "countMax": 10
+        },
+        "FETCH_ITEM": {
+          "countMin": 1,
+          "countMax": 1
+        }
       }
     }
   ]

@@ -7,11 +7,6 @@
         "plotStep": "The {quest_focus} {quest_focus_is} battered but standing. {quest_ally} has organized the rebuilding effort, and spirits are higher than they have been in days.",
         "outro": "You stood with us through the worst of it. This settlement would not exist without you."
       },
-      "playerResponses": [
-        { "text": "Glad to see the community pulling through.", "action": "ACCEPT", "dispositionShift": 15 },
-        { "text": "Build stronger next time. Nature does not give second chances.", "action": "ACCEPT", "dispositionShift": 0 },
-        { "text": "It was touch and go, but we did it.", "action": "ACCEPT", "dispositionShift": 10 }
-      ],
       "objectivePool": [],
       "objectiveConfig": {}
     },
@@ -22,10 +17,6 @@
         "plotStep": "The {quest_stakes} {quest_stakes_is} intact. Not whole, not perfect, but intact. The {quest_threat} could have wiped us from the map, and you stood in its way.",
         "outro": "We will rebuild. Stronger, smarter, and never forgetting who helped us survive."
       },
-      "playerResponses": [
-        { "text": "You are resilient people. You would have found a way.", "action": "ACCEPT", "dispositionShift": 10 },
-        { "text": "Surviving is the first step. Now comes the hard part.", "action": "ACCEPT", "dispositionShift": 5 }
-      ],
       "objectivePool": [],
       "objectiveConfig": {}
     },
@@ -36,11 +27,6 @@
         "plotStep": "The {quest_focus} bears the scars, but the people are alive and determined. {quest_ally} said it best: the disaster tested us, and you were the reason we passed that test.",
         "outro": "From rubble, we rise. Thank you for helping us find our footing."
       },
-      "playerResponses": [
-        { "text": "Disasters reveal character. Yours is strong.", "action": "ACCEPT", "dispositionShift": 10 },
-        { "text": "Keep each other safe. That is all I ask.", "action": "ACCEPT", "dispositionShift": 5 },
-        { "text": "I am just glad it is over.", "action": "ACCEPT", "dispositionShift": 0 }
-      ],
       "objectivePool": [],
       "objectiveConfig": {}
     }

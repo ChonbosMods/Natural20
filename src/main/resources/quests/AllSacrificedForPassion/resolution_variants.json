@@ -7,18 +7,6 @@
         "plotStep": "The strange thing is what happened after. They set it down, stared at it for a long time, and then walked away. Went straight to find the people they'd pushed away. {target_npc} says they talked for hours. Whether those relationships survive, nobody knows yet. But for the first time in years, the workshop is dark.",
         "outro": "You gave them the means to finish. Whether that was mercy or enabling, time will tell. {quest_ally} says the result is worth a fortune. They haven't tried to sell it."
       },
-      "playerResponses": [
-        {
-          "text": "Sometimes you have to reach the end of something to find your way back.",
-          "action": "COMPLETE",
-          "dispositionShift": 4
-        },
-        {
-          "text": "I hope the {quest_focus} was worth everything it cost.",
-          "action": "COMPLETE",
-          "dispositionShift": 1
-        }
-      ],
       "objectivePool": [],
       "objectiveConfig": {}
     },
@@ -29,23 +17,6 @@
         "plotStep": "They sat in the wreckage and said: 'Now what?' Years of work, every relationship sacrificed, their health ruined, and the result is real. {target_npc} asked if it was worth it. They said: 'Ask me in ten years, when I know whether anyone I loved is still willing to speak to me.'",
         "outro": "The discovery will change lives, {player_name}. Just not theirs. Not yet. {quest_ally} is helping share the findings."
       },
-      "playerResponses": [
-        {
-          "text": "Genius and loneliness seem to travel together. I hope they find their way back.",
-          "action": "COMPLETE",
-          "dispositionShift": 3
-        },
-        {
-          "text": "The world will benefit even if they don't.",
-          "action": "COMPLETE",
-          "dispositionShift": 1
-        },
-        {
-          "text": "They chose the work over the people. That's nobody's fault but theirs.",
-          "action": "COMPLETE",
-          "dispositionShift": -2
-        }
-      ],
       "objectivePool": [],
       "objectiveConfig": {}
     },
@@ -56,18 +27,6 @@
         "plotStep": "Not from joy. From looking around the empty room and realizing what surrounded them: achievements and dust instead of family. Their family came back when they heard. This time, they held the people close. {target_npc} says they haven't touched the {quest_focus} since.",
         "outro": "Finding the last piece broke the spell, {player_name}. They can see what they lost now. That's either the beginning of recovery or the beginning of grief. Maybe they're the same thing."
       },
-      "playerResponses": [
-        {
-          "text": "They're holding their family instead of their work. That's a start.",
-          "action": "COMPLETE",
-          "dispositionShift": 5
-        },
-        {
-          "text": "Years of damage don't undo overnight. But at least they're trying.",
-          "action": "COMPLETE",
-          "dispositionShift": 3
-        }
-      ],
       "objectivePool": [],
       "objectiveConfig": {}
     }

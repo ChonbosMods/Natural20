@@ -7,16 +7,24 @@
         "plotStep": "It started when a work crew near {quest_origin} disturbed something ancient {location_hint}. Nobody thought much of it at the time. But the {quest_threat} struck overnight. {target_npc} says the disturbance awakened something that considers this land its own. The {enemy_type} have been drawn to the blighted areas. We need {quest_item} to restore what was broken.",
         "outro": "We didn't mean to trespass on something sacred. But intentions don't matter when the {quest_stakes} {quest_stakes_is} at risk. {quest_reward_hint} might come of setting things right."
       },
-      "playerResponses": [
-        { "text": "I'll find the materials and restore what was broken. This blight ends now.", "action": "ACCEPT" },
-        { "text": "Angry forces and cursed land? That's more than a foraging run. What's the pay?", "action": "ACCEPT", "dispositionShift": -5 },
-        { "text": "If the land itself is cursed, no amount of gathering will fix it.", "action": "DECLINE" }
+      "objectivePool": [
+        "GATHER_ITEMS",
+        "EXPLORE_LOCATION",
+        "KILL_MOBS"
       ],
-      "objectivePool": ["GATHER_ITEMS", "EXPLORE_LOCATION", "KILL_MOBS"],
       "objectiveConfig": {
-        "GATHER_ITEMS": { "countMin": 5, "countMax": 10 },
-        "EXPLORE_LOCATION": { "countMin": 1, "countMax": 3 },
-        "KILL_MOBS": { "countMin": 3, "countMax": 7 }
+        "GATHER_ITEMS": {
+          "countMin": 5,
+          "countMax": 10
+        },
+        "EXPLORE_LOCATION": {
+          "countMin": 1,
+          "countMax": 3
+        },
+        "KILL_MOBS": {
+          "countMin": 3,
+          "countMax": 7
+        }
       }
     },
     {
@@ -26,16 +34,23 @@
         "plotStep": "The builders expanding the settlement dug into {quest_origin} {location_hint}. Since then, the {quest_threat} {quest_threat_has} manifested: lights move at night, tools shatter without being touched, guards see figures that vanish in the fog. {target_npc} consulted the oldest records and found references to a ritual that requires {quest_item} to set things right. The {enemy_type} in the area have become agitated too.",
         "outro": "The {quest_stakes} needs this resolved. I'm asking you because everyone else is too frightened to go near the {quest_focus}. {quest_reward_hint} would be a welcome outcome."
       },
-      "playerResponses": [
-        { "text": "Spirits or not, I'll put this right. Tell me what's needed.", "action": "ACCEPT" },
-        { "text": "Haunted grounds and angry monsters. Quite the combination. I'll do it for a price.", "action": "ACCEPT", "dispositionShift": -5 },
-        { "text": "The dead should stay buried, and so should my involvement.", "action": "DECLINE" }
+      "objectivePool": [
+        "FETCH_ITEM",
+        "EXPLORE_LOCATION",
+        "KILL_MOBS"
       ],
-      "objectivePool": ["FETCH_ITEM", "EXPLORE_LOCATION", "KILL_MOBS"],
       "objectiveConfig": {
-        "FETCH_ITEM": { "locationPreference": "DUNGEON" },
-        "EXPLORE_LOCATION": { "countMin": 2, "countMax": 3 },
-        "KILL_MOBS": { "countMin": 2, "countMax": 6 }
+        "FETCH_ITEM": {
+          "locationPreference": "DUNGEON"
+        },
+        "EXPLORE_LOCATION": {
+          "countMin": 2,
+          "countMax": 3
+        },
+        "KILL_MOBS": {
+          "countMin": 2,
+          "countMax": 6
+        }
       }
     },
     {
@@ -45,16 +60,23 @@
         "plotStep": "The spring that feeds the settlement runs through a cavern {location_hint} that our miners breached. The {quest_focus} turned dark the same day. People who consumed it before we realized have fallen ill. {target_npc} is barely keeping them alive. The miners say they saw warnings carved in the walls. Something down there is contaminating the water deliberately, and the {enemy_type} nesting near the entrance seem to be guarding it.",
         "outro": "We violated something we didn't understand, and now the {quest_stakes} {quest_stakes_is} paying for it. We need {quest_item} to purify the source. {quest_time_pressure}."
       },
-      "playerResponses": [
-        { "text": "Contaminated water kills faster than any monster. I'll handle both.", "action": "ACCEPT" },
-        { "text": "Ancient guardians and cave monsters. This will cost you.", "action": "ACCEPT", "dispositionShift": -5 },
-        { "text": "Sacred springs and ancient warnings? You need a priest, not a fighter.", "action": "DECLINE" }
+      "objectivePool": [
+        "EXPLORE_LOCATION",
+        "KILL_MOBS",
+        "FETCH_ITEM"
       ],
-      "objectivePool": ["EXPLORE_LOCATION", "KILL_MOBS", "FETCH_ITEM"],
       "objectiveConfig": {
-        "EXPLORE_LOCATION": { "countMin": 2, "countMax": 3 },
-        "KILL_MOBS": { "countMin": 4, "countMax": 8 },
-        "FETCH_ITEM": { "locationPreference": "DUNGEON" }
+        "EXPLORE_LOCATION": {
+          "countMin": 2,
+          "countMax": 3
+        },
+        "KILL_MOBS": {
+          "countMin": 4,
+          "countMax": 8
+        },
+        "FETCH_ITEM": {
+          "locationPreference": "DUNGEON"
+        }
       }
     }
   ]
