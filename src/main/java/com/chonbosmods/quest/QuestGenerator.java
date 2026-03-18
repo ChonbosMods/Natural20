@@ -262,6 +262,11 @@ public class QuestGenerator {
         }
 
         bindings.put("quest_location_name", bindings.getOrDefault("quest_focus", "the area"));
+
+        // Resolve tone-based player responses
+        String tone = poolRegistry.getToneForSituation(situation.getId());
+        bindings.put("response_accept", poolRegistry.randomAcceptResponse(tone, random));
+        bindings.put("response_decline", poolRegistry.randomDeclineResponse(tone, random));
     }
 
     private @Nullable SettlementRecord findNearestOtherSettlement(double x, double z, String excludeCellKey) {
