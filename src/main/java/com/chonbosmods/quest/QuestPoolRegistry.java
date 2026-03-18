@@ -43,6 +43,7 @@ public class QuestPoolRegistry {
     private final Map<String, List<String>> counterStatPassResponses = new HashMap<>();
     private final Map<String, List<String>> counterStatFailResponses = new HashMap<>();
     private final Map<String, List<String>> statCheckResponses = new HashMap<>();
+    private final Map<String, List<String>> targetNpcResponses = new HashMap<>();
     private final Map<String, String> situationTones = new HashMap<>();
 
     public void loadAll(@Nullable Path poolsDir) {
@@ -68,6 +69,7 @@ public class QuestPoolRegistry {
         loadTonedResponses(poolsDir.resolve("responses_counter_stat_pass.json"), counterStatPassResponses);
         loadTonedResponses(poolsDir.resolve("responses_counter_stat_fail.json"), counterStatFailResponses);
         loadTonedResponses(poolsDir.resolve("responses_stat_check.json"), statCheckResponses);
+        loadTonedResponses(poolsDir.resolve("responses_target_npc.json"), targetNpcResponses);
         loadSituationTones(poolsDir.resolve("situation_tones.json"));
 
         LOGGER.atInfo().log("Loaded pools: %d items, %d mobs, %d actions, %d focuses, %d stakes, %d threats, %d origins, %d pressures, %d rewards",
@@ -223,6 +225,15 @@ public class QuestPoolRegistry {
     public String randomCounterStatFail(String tone, Random random) {
         List<String> pool = counterStatFailResponses.get(tone);
         if (pool == null || pool.isEmpty()) return "Well, we'll manage somehow.";
+        return pool.get(random.nextInt(pool.size()));
+    }
+
+    /**
+     * Pick a target NPC dialogue line for TALK_TO_NPC objectives.
+     */
+    public String randomTargetNpcDialogue(String tone, Random random) {
+        List<String> pool = targetNpcResponses.get(tone);
+        if (pool == null || pool.isEmpty()) return "I know about the {quest_focus}. Here's what I can tell you.";
         return pool.get(random.nextInt(pool.size()));
     }
 
