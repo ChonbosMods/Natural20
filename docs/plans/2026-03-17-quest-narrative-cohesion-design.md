@@ -120,3 +120,22 @@ New utility method `resolveDialogue(String template, Map<String, String> binding
 - Topic is a direct unlock, not part of the reference escalation system
 - The ally is already known to the player through quest dialogue, so no directional guidance needed
 - Higher narrative value than random references because the player has existing context
+
+---
+
+## Status Update (2026-03-17)
+
+This design was superseded during implementation. The exposition-defined `bindings` approach was replaced with a fully pool-driven system:
+
+- All narrative variables (`quest_action`, `quest_focus`, `quest_stakes`, `quest_threat`, `quest_origin`, `quest_time_pressure`, `quest_reward_hint`) are drawn from external JSON pools in `quests/pools/`
+- Templates are fully generic: situation determines tone only, all content comes from variable substitution
+- Pool values are article-free with plural flags for verb conjugation helpers
+- `DialogueResolver` handles variable substitution, double-article collapsion, and dangling punctuation cleanup
+
+### Additional systems added:
+- **Player responses**: Pool-driven with situation-specific (36 situations) + tone fallback (6 tones). 1 accept + 1 stat-gated + 1 decline per quest.
+- **NPC counter-responses**: Tone-matched NPC reactions to accept, decline, stat pass, and stat fail.
+- **Stat check system**: Random stat type per quest, player response themed to stat, pass/fail with disposition consequences.
+- **Disposition rules**: Accept=neutral, stat pass=+positive, stat fail=-negative, decline=-negative, completion=+positive.
+
+See `quests/AUTHORING_RULES.md` for the current authoritative guide.
