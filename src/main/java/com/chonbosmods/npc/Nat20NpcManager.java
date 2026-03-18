@@ -18,6 +18,7 @@ import com.hypixel.hytale.server.core.modules.entity.component.ModelComponent;
 import com.hypixel.hytale.server.core.modules.entity.player.PlayerSkinComponent;
 import com.hypixel.hytale.server.core.universe.world.World;
 import com.hypixel.hytale.server.core.universe.world.storage.EntityStore;
+import com.hypixel.hytale.server.core.inventory.ItemStack;
 import com.hypixel.hytale.server.npc.NPCPlugin;
 import com.hypixel.hytale.server.npc.entities.NPCEntity;
 import it.unimi.dsi.fastutil.Pair;
@@ -104,6 +105,11 @@ public class Nat20NpcManager {
                 // Apply random skin (deterministic from name so respawns look the same)
                 applyRandomSkin(store, npcRef, name);
 
+                // Equip guard armor
+                if (roleName.equals("Guard")) {
+                    equipGuardArmor(npcEntity);
+                }
+
                 LOGGER.atInfo().log("[Nat20] Spawned " + displayName + " at " +
                     (int) spawnX + ", " + (int) spawnY + ", " + (int) spawnZ);
             } else {
@@ -172,12 +178,33 @@ public class Nat20NpcManager {
         // Apply random skin (deterministic from name so respawns look the same)
         applyRandomSkin(store, npcRef, record.getGeneratedName());
 
+        // Equip guard armor
+        if (roleName.equals("Guard")) {
+            equipGuardArmor(npcEntity);
+        }
+
         UUID newUUID = npcEntity.getUuid();
         record.setEntityUUID(newUUID);
 
         LOGGER.atInfo().log("Respawned " + displayName + " at " +
             (int) spawnPos.getX() + ", " + (int) spawnPos.getY() + ", " + (int) spawnPos.getZ());
         return newUUID;
+    }
+
+    /**
+     * Equip a Guard NPC with cobalt armor.
+     * Armor slots: 0=helmet, 1=chestplate, 2=gauntlets, 3=greaves.
+     */
+    private void equipGuardArmor(NPCEntity npcEntity) {
+        try {
+            var armor = npcEntity.getInventory().getArmor();
+            armor.setItemStackForSlot((short) 0, new ItemStack("Armor_Cobalt_Head"));
+            armor.setItemStackForSlot((short) 1, new ItemStack("Armor_Cobalt_Chest"));
+            armor.setItemStackForSlot((short) 2, new ItemStack("Armor_Cobalt_Hands"));
+            armor.setItemStackForSlot((short) 3, new ItemStack("Armor_Cobalt_Legs"));
+        } catch (Exception e) {
+            LOGGER.atWarning().withCause(e).log("Failed to equip guard armor");
+        }
     }
 
     /**
