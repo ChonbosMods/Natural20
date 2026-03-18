@@ -168,14 +168,26 @@ public class QuestPoolRegistry {
         return situationTones.getOrDefault(situationId, "somber");
     }
 
-    public String randomAcceptResponse(String tone, Random random) {
-        List<String> pool = acceptResponses.getOrDefault(tone, acceptResponses.get("somber"));
+    /**
+     * Pick an accept response: tries situation-specific first, then falls back to tone.
+     */
+    public String randomAcceptResponse(String situationId, String tone, Random random) {
+        List<String> pool = acceptResponses.get(situationId);
+        if (pool == null || pool.isEmpty()) {
+            pool = acceptResponses.getOrDefault(tone, acceptResponses.get("somber"));
+        }
         if (pool == null || pool.isEmpty()) return "I'll help.";
         return pool.get(random.nextInt(pool.size()));
     }
 
-    public String randomDeclineResponse(String tone, Random random) {
-        List<String> pool = declineResponses.getOrDefault(tone, declineResponses.get("somber"));
+    /**
+     * Pick a decline response: tries situation-specific first, then falls back to tone.
+     */
+    public String randomDeclineResponse(String situationId, String tone, Random random) {
+        List<String> pool = declineResponses.get(situationId);
+        if (pool == null || pool.isEmpty()) {
+            pool = declineResponses.getOrDefault(tone, declineResponses.get("somber"));
+        }
         if (pool == null || pool.isEmpty()) return "I can't help right now.";
         return pool.get(random.nextInt(pool.size()));
     }
