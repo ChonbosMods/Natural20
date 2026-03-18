@@ -12,7 +12,9 @@ import java.nio.charset.StandardCharsets;
 import java.nio.file.Files;
 import java.nio.file.Path;
 import java.util.ArrayList;
+import java.util.HashMap;
 import java.util.List;
+import java.util.Map;
 import java.util.Random;
 
 public class QuestPoolRegistry {
@@ -34,6 +36,9 @@ public class QuestPoolRegistry {
     private final List<String> questOrigins = new ArrayList<>();
     private final List<String> questTimePressures = new ArrayList<>();
     private final List<String> questRewardHints = new ArrayList<>();
+    private final Map<String, List<String>> acceptResponses = new HashMap<>();
+    private final Map<String, List<String>> declineResponses = new HashMap<>();
+    private final Map<String, String> situationTones = new HashMap<>();
 
     public void loadAll(@Nullable Path poolsDir) {
         if (poolsDir == null || !Files.isDirectory(poolsDir)) {
@@ -50,6 +55,10 @@ public class QuestPoolRegistry {
         loadStringPool(poolsDir.resolve("quest_origins.json"), questOrigins);
         loadStringPool(poolsDir.resolve("quest_time_pressures.json"), questTimePressures);
         loadStringPool(poolsDir.resolve("quest_reward_hints.json"), questRewardHints);
+
+        loadTonedResponses(poolsDir.resolve("responses_accept.json"), acceptResponses);
+        loadTonedResponses(poolsDir.resolve("responses_decline.json"), declineResponses);
+        loadSituationTones(poolsDir.resolve("situation_tones.json"));
 
         LOGGER.atInfo().log("Loaded pools: %d items, %d mobs, %d actions, %d focuses, %d stakes, %d threats, %d origins, %d pressures, %d rewards",
             gatherItems.size(), hostileMobs.size(), questActions.size(), questFocuses.size(),
@@ -153,5 +162,51 @@ public class QuestPoolRegistry {
     public @Nullable String randomRewardHint(Random random) {
         if (questRewardHints.isEmpty()) return null;
         return questRewardHints.get(random.nextInt(questRewardHints.size()));
+    }
+
+    public String getToneForSituation(String situationId) {
+        return situationTones.getOrDefault(situationId, "somber");
+    }
+
+    public String randomAcceptResponse(String tone, Random random) {
+        List<String> pool = acceptResponses.getOrDefault(tone, acceptResponses.get("somber"));
+        if (pool == null || pool.isEmpty()) return "I'll help.";
+        return pool.get(random.nextInt(pool.size()));
+    }
+
+    public String randomDeclineResponse(String tone, Random random) {
+        List<String> pool = declineResponses.getOrDefault(tone, declineResponses.get("somber"));
+        if (pool == null || pool.isEmpty()) return "I can't help right now.";
+        return pool.get(random.nextInt(pool.size()));
+    }
+
+    private void loadTonedResponses(Path file, Map<String, List<String>> target) {
+        if (!Files.exists(file)) return;
+        try (var reader = Files.newBufferedReader(file, StandardCharsets.UTF_8)) {
+            JsonObject root = JsonParser.parseReader(reader).getAsJsonObject();
+            JsonObject tones = root.getAsJsonObject("tones");
+            for (var entry : tones.entrySet()) {
+                List<String> responses = new ArrayList<>();
+                for (JsonElement el : entry.getValue().getAsJsonArray()) {
+                    responses.add(el.getAsString());
+                }
+                target.put(entry.getKey(), responses);
+            }
+        } catch (IOException e) {
+            LOGGER.atSevere().withCause(e).log("Failed to load responses: %s", file);
+        }
+    }
+
+    private void loadSituationTones(Path file) {
+        if (!Files.exists(file)) return;
+        try (var reader = Files.newBufferedReader(file, StandardCharsets.UTF_8)) {
+            JsonObject root = JsonParser.parseReader(reader).getAsJsonObject();
+            JsonObject tones = root.getAsJsonObject("tones");
+            for (var entry : tones.entrySet()) {
+                situationTones.put(entry.getKey(), entry.getValue().getAsString());
+            }
+        } catch (IOException e) {
+            LOGGER.atSevere().withCause(e).log("Failed to load situation tones: %s", file);
+        }
     }
 }
