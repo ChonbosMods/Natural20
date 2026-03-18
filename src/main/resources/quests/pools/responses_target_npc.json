@@ -1,46 +1,90 @@
 {
-  "tones": {
+  "info": {
     "desperate": [
-      "You've come about the {quest_focus}? I was afraid someone would. The {quest_threat} {quest_threat_has} been weighing on all of us here.",
-      "I know why you're here. The {quest_stakes} {quest_stakes_is} in trouble, and word travels fast. I'll tell you what I know.",
-      "So they sent someone. Good. I've been watching the {quest_threat} grow worse and wondering when someone would come asking.",
-      "You're here about the {quest_focus}, aren't you? I've seen what the {quest_threat} {quest_threat_has} done. It's worse than they told you.",
-      "Thank goodness someone came. I've been holding onto information about the {quest_focus} that your quest giver needs to hear."
+      "You've come about the {quest_focus}? I was afraid someone would. The {quest_threat} {quest_threat_has} been weighing on all of us here. I've watched it get worse for weeks, and the {quest_stakes} {quest_stakes_is} suffering more than anyone admits. Tell your quest giver that what they fear is true, and it's worse up close.",
+      "I know why you're here, and I wish I had better news. The {quest_focus} {quest_focus_is} in worse shape than anyone back there realizes. The {quest_threat} {quest_threat_has} been accelerating. Your quest giver needs to know that the {quest_stakes} {quest_stakes_has} less time than they think. Go back and tell them to act now.",
+      "Thank goodness someone came. I've been holding onto this for days with no one to tell. The {quest_focus} {quest_focus_is} compromised from the inside. The {quest_threat} didn't cause it all: someone local made a desperate choice that made things worse. Your quest giver needs to hear this before they plan their next move.",
+      "Sit down. What I'm about to tell you isn't easy. The {quest_threat} {quest_threat_is} only the surface problem. Underneath, the {quest_stakes} {quest_stakes_has} been eroding for longer than anyone knew. I've documented everything I could. Take this information back to your quest giver. They'll know what to do with it.",
+      "I've been expecting someone. The {quest_focus} {quest_focus_has} been sending warning signs for a while now. The {quest_threat} {quest_threat_is} real, but there's a pattern to it that your quest giver might have missed. The {quest_stakes} can still be saved if you relay what I've seen. Here's what I know."
     ],
     "bold": [
-      "Ah, you're the one taking on the {quest_focus}? Bold move. Here's what I can tell you about the {quest_threat}.",
-      "So someone finally decided to {quest_action}. About time. I've got information that might give you an edge.",
-      "I heard someone was looking into the {quest_focus}. You'll want to know what I've seen near the {quest_threat}.",
-      "You've got nerve coming here asking about the {quest_focus}. I respect that. Let me tell you what I know.",
-      "The {quest_focus}? I've been keeping an eye on that situation. Here's what your quest giver doesn't know yet."
+      "Ah, you're the one looking into the {quest_focus}? Good. I've been studying the {quest_threat} from this angle and I've found something your quest giver missed entirely. The {quest_stakes} {quest_stakes_is} more valuable than anyone realizes, which is exactly why the {quest_threat} {quest_threat_is} targeting it. Take this back: they need to rethink their approach.",
+      "So someone finally decided to {quest_action}. About time. Here's what I can tell you: the {quest_focus} {quest_focus_is} the key to everything, not just this situation but the whole region. The {quest_threat} knows it too. Your quest giver is on the right track, but they're underestimating the scale. Go back and tell them to think bigger.",
+      "I've been mapping the {quest_threat} for months. The {quest_focus} {quest_focus_is} just one piece of a larger puzzle. But it's the critical piece: lose the {quest_stakes} and the rest falls apart. I've written down everything I know. Take this to your quest giver and tell them the opportunity is real, but the window is closing.",
+      "You want to know about the {quest_focus}? I'll do you one better. I know how the {quest_threat} operates, and I know the weakness. The {quest_stakes} can be secured, but only if your quest giver moves on the information I'm about to give you. Listen carefully: this is the advantage you've been looking for.",
+      "I respect anyone willing to {quest_action}. Here's what you need to know: the {quest_focus} {quest_focus_has} a history that your quest giver doesn't know about. The {quest_threat} {quest_threat_is} exploiting that history. Once your quest giver understands the full picture, the path forward becomes clear. Tell them what I've told you."
     ],
     "urgent": [
-      "You need to hear this quickly. The {quest_threat} {quest_threat_is} moving faster than anyone expected.",
-      "No time for pleasantries. The situation at the {quest_focus} {quest_focus_has} changed. Listen carefully.",
-      "Good, you're here. I've been watching the {quest_threat} and the {quest_stakes} {quest_stakes_is} running out of time.",
-      "Every moment counts. The {quest_focus} {quest_focus_is} in worse shape than your quest giver knows. Here's what I've seen.",
-      "I'll keep this brief. The {quest_threat} {quest_threat_has} reached the {quest_focus} and the {quest_stakes} {quest_stakes_is} at immediate risk."
+      "No time for pleasantries. The {quest_focus} {quest_focus_is} in immediate danger. The {quest_threat} {quest_threat_has} moved faster than anyone predicted. I've been tracking them and they're already past the {quest_focus}. The {quest_stakes} {quest_stakes_has} hours, not days. Get back to your quest giver with this: the timeline just collapsed.",
+      "Listen carefully because I'll only say this once. The {quest_threat} {quest_threat_is} not what your quest giver thinks. What's threatening the {quest_focus} is a diversion. The real target is the {quest_stakes}. I've seen the evidence myself. You need to get back immediately and change the plan before it's too late.",
+      "Good, you're here. I've been watching the {quest_focus} day and night. The {quest_threat} {quest_threat_has} established a pattern: they strike when our guard rotations overlap. The {quest_stakes} {quest_stakes_is} exposed for exactly twenty minutes every cycle. Your quest giver needs this information now. Go.",
+      "Every minute you're here is a minute the {quest_stakes} {quest_stakes_is} unprotected. Here's the short version: the {quest_threat} {quest_threat_has} doubled in strength since your quest giver last checked. The {quest_focus} can't hold at current levels. Take this report back and tell them to reinforce immediately.",
+      "I intercepted something. The {quest_threat} {quest_threat_is} coordinating with forces we didn't know existed. The {quest_focus} {quest_focus_is} about to be hit from two directions. The {quest_stakes} {quest_stakes_is} directly in the crossfire. Your quest giver is planning for one attack. They need to plan for two. Run."
     ],
     "somber": [
-      "I wish I had better news about the {quest_focus}. The {quest_threat} {quest_threat_has} taken a heavy toll.",
-      "You've come a long way to hear what I know. I'm sorry to say the situation with the {quest_stakes} {quest_stakes_is} grim.",
-      "I've been watching the {quest_focus} for some time now. What the {quest_threat} {quest_threat_has} done... it's hard to put into words.",
-      "Sit down. What I have to tell you about the {quest_focus} isn't easy to hear. The {quest_stakes} {quest_stakes_has} suffered greatly.",
-      "I know about the {quest_focus}. I've seen the {quest_threat} with my own eyes. The truth is heavier than rumors."
+      "I've been watching the {quest_focus} for a long time now. What I've seen doesn't make for happy telling. The {quest_threat} {quest_threat_has} been steady, relentless, and the {quest_stakes} {quest_stakes_has} been worn down slowly. There's no dramatic crisis: just a long, grinding decline. Your quest giver needs to know that patience, not heroics, is what's needed.",
+      "You came a long way to hear this, and I'm sorry it's not the answer you wanted. The {quest_focus} can be saved, but not the way your quest giver is planning. The {quest_threat} {quest_threat_is} too entrenched for a direct approach. The {quest_stakes} will need a different kind of protection. Take my observations back. They'll see what I mean.",
+      "I knew someone would come asking eventually. The {quest_focus} carries more weight than most people understand. The {quest_threat} {quest_threat_has} been circling it for reasons nobody has bothered to investigate. I have. The {quest_stakes} {quest_stakes_is} tied to something older than this settlement. Your quest giver should hear what I've found.",
+      "Sit with me a moment. What I know about the {quest_focus} isn't just tactical: it's personal. The {quest_threat} took something from me too, and I've spent years understanding why. The {quest_stakes} matters to more people than your quest giver realizes. Take this knowledge back. It won't fix everything, but it will help.",
+      "The truth about the {quest_focus} is quieter than people expect. The {quest_threat} {quest_threat_is} not some raging force: it's a slow erosion. The {quest_stakes} {quest_stakes_has} been diminishing so gradually that nobody noticed until now. I noticed. Here's what I've documented. Your quest giver needs to see this."
     ],
     "conspiratorial": [
-      "Keep your voice down. I know about the {quest_focus}, and what I've learned about the {quest_threat} could put us both in danger.",
-      "You're here about the {quest_focus}? Good. But we need to be careful who hears this. The {quest_threat} {quest_threat_has} allies here.",
-      "I've been gathering information quietly. The {quest_stakes} {quest_stakes_is} more compromised than anyone realizes.",
-      "Close the door. What I know about the {quest_focus} isn't safe to say openly. The {quest_threat} {quest_threat_has} eyes everywhere.",
-      "I was hoping someone trustworthy would come asking. The {quest_focus} {quest_focus_is} tied to something bigger than your quest giver suspects."
+      "Close the door. What I know about the {quest_focus} isn't safe to say openly. The {quest_threat} {quest_threat_has} allies inside the settlement, and they're watching who talks to whom. The {quest_stakes} {quest_stakes_is} more compromised than your quest giver suspects. Memorize what I'm about to tell you. Don't write it down.",
+      "I've been gathering evidence quietly for weeks. The {quest_focus} {quest_focus_is} at the center of something much larger than your quest giver realizes. The {quest_threat} {quest_threat_is} organized, funded, and protected by people in positions of trust. The {quest_stakes} {quest_stakes_is} being deliberately undermined. Take this back, but be careful who you share it with.",
+      "You weren't followed? Good. The {quest_threat} {quest_threat_has} informants, and the {quest_focus} {quest_focus_is} being watched. I have names, routes, and schedules. The {quest_stakes} can be protected, but only if your quest giver acts on this information without alerting the wrong people. Here's everything I know.",
+      "I was hoping someone trustworthy would come. The {quest_focus} {quest_focus_is} a front for something else entirely. The {quest_threat} {quest_threat_is} using it to move resources while everyone's distracted. The real danger to the {quest_stakes} isn't what's happening at the {quest_focus}: it's what's happening behind it. Your quest giver needs this perspective.",
+      "Don't use my name when you report back. What I've learned about the {quest_focus} could get us both killed. The {quest_threat} {quest_threat_has} been operating under the protection of someone powerful. The {quest_stakes} {quest_stakes_is} being sacrificed to keep that protection intact. Your quest giver needs to know who's really pulling the strings."
     ],
     "conflicted": [
-      "You're asking about the {quest_focus}? I've been going back and forth about whether to share what I know.",
-      "I'm not sure telling you this is the right thing, but the {quest_stakes} {quest_stakes_is} at risk and silence feels worse.",
-      "The situation with the {quest_focus} isn't as clear-cut as your quest giver thinks. The {quest_threat} {quest_threat_is} only part of the story.",
-      "I'll tell you what I know, but understand: the truth about the {quest_focus} is complicated. The {quest_stakes} {quest_stakes_is} caught in the middle.",
-      "I've struggled with this. The {quest_focus} {quest_focus_is} important, but what I know about the {quest_threat} changes things."
+      "I'm glad you came, but I'm not sure you'll like what I have to say. The situation with the {quest_focus} isn't as clear-cut as your quest giver presented it. The {quest_threat} {quest_threat_has} legitimate grievances that nobody wants to acknowledge. The {quest_stakes} {quest_stakes_is} caught in the middle of something more nuanced. Take both sides of this story back.",
+      "Your quest giver told you their version. Here's mine. The {quest_focus} matters to everyone, not just one side. The {quest_threat} didn't appear from nowhere: it grew from decisions that seemed right at the time. The {quest_stakes} will only be safe when both sides admit their part. I hope your quest giver is willing to hear that.",
+      "I've struggled with whether to share this. The {quest_focus} is important, but what I know about the {quest_threat} complicates the narrative your quest giver is telling. The {quest_stakes} {quest_stakes_is} real, but the solution isn't as simple as pointing at a villain. Go back and tell them there are no easy answers here.",
+      "Before I say anything, understand that I don't fully agree with your quest giver's approach to the {quest_focus}. The {quest_threat} {quest_threat_is} real, but the response so far has created new problems. The {quest_stakes} {quest_stakes_is} at risk from both the threat and the reaction to it. Your quest giver needs to hear a voice of moderation.",
+      "I'll tell you what I know, but promise me you'll think about it before acting. The {quest_focus} {quest_focus_has} a history that complicates everything. The {quest_threat} and the {quest_stakes}: they're connected in ways your quest giver hasn't considered. Take my perspective back. Not as contradiction, but as context."
+    ]
+  },
+  "handoff": {
+    "desperate": [
+      "You've come about the {quest_focus}? I can help, but I need something first. The {quest_threat} {quest_threat_has} cut off my access to {quest_item}. If you could gather some from {location_hint}, I can give you information that will save the {quest_stakes}. Please hurry.",
+      "I know what your quest giver needs, and I have it. But the {quest_threat} {quest_threat_has} put us in a desperate position too. We need {quest_item} to survive the week. Help us with that, and I'll share everything I know about the {quest_focus}.",
+      "Thank the stars you're here. I have critical information about the {quest_focus}, but first: the {enemy_type} have overrun the area {location_hint}. I can't even reach my own records. Clear them out or retrieve what I need, and the {quest_stakes} will have a fighting chance.",
+      "I want to help with the {quest_focus}, truly. But look around: we're barely holding together ourselves. The {quest_threat} {quest_threat_has} left us without basic supplies. Bring us {quest_item} from {location_hint} and I'll tell you everything. Fair trade in unfair times.",
+      "Your quest giver sent you to the right person. I know exactly what's happening at the {quest_focus}. But the {enemy_type} stole our reserves last night. I need you to track them {location_hint} and recover what you can. Do that, and I'll make sure the {quest_stakes} {quest_stakes_has} a chance."
+    ],
+    "bold": [
+      "You want information about the {quest_focus}? I'll do better than that. I know where the {quest_threat} {quest_threat_is} weakest. But I need proof of concept first: bring me {quest_item} from {location_hint} and I'll show your quest giver how to end this in one move.",
+      "Interesting that your quest giver sent you to me. I've been working on a plan of my own regarding the {quest_focus}. It requires {quest_item} that I can't get myself. There's a source {location_hint}. Bring it back and we'll both get what we want.",
+      "Ah, the {quest_focus}. I've been waiting for someone with the nerve to act on what I know. Here's the deal: the {enemy_type} are guarding something valuable {location_hint}. Take them out and retrieve it. That's the key to everything the {quest_stakes} needs.",
+      "I have exactly what your quest giver is looking for. But information this valuable isn't free, and I don't mean coin. There's a task {location_hint} that I can't handle alone. Deal with it and the intelligence about the {quest_focus} is yours.",
+      "Your quest giver is thinking too small about the {quest_focus}. I have a better angle, but it requires {quest_item} from {location_hint}. The {enemy_type} are thick out there. If you can handle them and bring back what I need, we turn this entire situation around."
+    ],
+    "urgent": [
+      "No time to explain fully. The {quest_threat} {quest_threat_is} closing on the {quest_focus} faster than expected. I need {quest_item} from {location_hint} to activate the contingency plan. Get it now and I'll brief you on everything when you return.",
+      "You're here about the {quest_focus}? Good, because I need help right now. The {enemy_type} hit our perimeter {location_hint} an hour ago. Drive them back and I'll give you intelligence about the {quest_threat} that your quest giver desperately needs.",
+      "Listen: the {quest_focus} is about to fall. I have a way to prevent it, but I'm pinned down. There's {quest_item} {location_hint} that I need retrieved immediately. The {quest_stakes} {quest_stakes_has} no time left. Go now, come back fast.",
+      "I've been monitoring the {quest_threat} and it just changed course toward the {quest_stakes}. I can redirect it, but I need resources. Get to {location_hint}, gather {quest_item}, and bring it back before the {quest_threat} arrives. We're out of alternatives.",
+      "Critical situation. The {quest_focus} {quest_focus_is} under direct assault. I need you {location_hint} to deal with the {enemy_type} flanking our position. Clear them out and I'll have the intelligence your quest giver needs to protect the {quest_stakes}."
+    ],
+    "somber": [
+      "I know about the {quest_focus}. I've known for a while. But before I share what I've learned, there's something I need help with. The {quest_threat} {quest_threat_has} left damage {location_hint} that needs tending. Help me with that, and I'll tell you everything.",
+      "Your quest giver was right to send you. The {quest_focus} {quest_focus_is} in trouble, and I have answers. But I also have a burden: the {enemy_type} have been threatening this area, and I need {quest_item} to secure what's left. Help me carry this weight, and I'll carry yours.",
+      "I'll share what I know about the {quest_focus}. But first, would you do something for me? There are people {location_hint} who need {quest_item}. The {quest_threat} {quest_threat_has} forgotten about them, but I haven't. Help them, and I'll help the {quest_stakes}.",
+      "Sit down. I have much to tell you about the {quest_focus}. But I need a favor in return. The {quest_threat} {quest_threat_has} been pushing the {enemy_type} into our territory. I need someone to scout {location_hint} and assess the damage. Do that, and the information is yours.",
+      "The {quest_focus} weighs on my mind constantly. I'll tell your quest giver everything I know, but I need help first. Something was taken from us by the {enemy_type}: something important. It's {location_hint}. Retrieve it, and I'll make sure the {quest_stakes} {quest_stakes_has} every advantage I can offer."
+    ],
+    "conspiratorial": [
+      "You're here about the {quest_focus}? I have what you need, but I need a favor first. Discreetly. There's a cache of {quest_item} {location_hint} that certain people don't want found. Retrieve it without being seen, and I'll share everything about the {quest_threat}.",
+      "I'll talk, but first you need to prove you're trustworthy. There's a dead drop {location_hint} with evidence about the {quest_threat}. Retrieve it and bring it here without anyone knowing. Then we'll discuss the {quest_focus} and the {quest_stakes}.",
+      "The information I have about the {quest_focus} is dangerous. I won't share it unless I know we're protected. The {enemy_type} have been used as cover for something {location_hint}. Investigate quietly and report back. Then I'll tell you everything.",
+      "Before I say a word about the {quest_focus}: I need insurance. There's a person {location_hint} who's been watching the {quest_threat}. Make contact, get their report, and bring it here. I need to know what they know before I reveal what I know.",
+      "I have names, dates, and evidence about the {quest_focus}. But handing it over openly would put the {quest_stakes} in more danger. First, go to {location_hint} and neutralize the {enemy_type} watching this location. Once we're clear, I'll tell you everything."
+    ],
+    "conflicted": [
+      "I'm willing to help with the {quest_focus}, but I need you to understand something first by seeing it yourself. Go {location_hint} and look at what the {quest_threat} {quest_threat_has} actually done. Then come back and we'll talk with the full picture.",
+      "Before I share what I know, I need a second opinion. Go to {location_hint} and see the situation at the {quest_focus} for yourself. The {enemy_type} are active there, so be careful. Come back and tell me what you think. Then I'll add what I know.",
+      "I have information about the {quest_focus}, but I'm not sure your quest giver will use it wisely. Prove me wrong: the {quest_stakes} needs {quest_item} from {location_hint}. Handle that first, and I'll trust you with what I know.",
+      "The {quest_focus} is complicated. I'll tell you my side, but first go {location_hint} and gather {quest_item}. The {quest_stakes} needs it regardless of who's right about the {quest_threat}. Helping them will show me you care about people, not just sides.",
+      "I want to trust your quest giver's judgment on the {quest_focus}. Help me believe it. There are {enemy_type} {location_hint} threatening everyone, not just one side. Deal with them, and I'll share everything I've been holding back about the {quest_threat}."
     ]
   }
 }

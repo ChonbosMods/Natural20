@@ -1,0 +1,46 @@
+{
+  "tones": {
+    "desperate": [
+      "There's someone who might know more. {target_npc} lives {location_hint}. Please, find them and ask about the {quest_focus}. They may have answers I don't.",
+      "I've done everything I can from here. {target_npc} has been watching the {quest_threat} longer than anyone. Go to them {location_hint} and hear what they know.",
+      "We need outside help. {target_npc} {location_hint} has dealt with situations like this before. Tell them about the {quest_focus} and listen carefully.",
+      "{target_npc} sent word days ago that they had information about the {quest_threat}. I was too afraid to go myself. Would you travel {location_hint} and speak with them?",
+      "I trust {target_npc} more than anyone on matters like this. They're {location_hint}. Go to them, explain what's happening with the {quest_focus}, and bring back whatever they tell you."
+    ],
+    "bold": [
+      "There's someone I want you to meet. {target_npc} {location_hint} knows things about the {quest_focus} that could change everything. Talk to them.",
+      "{target_npc} has been researching the {quest_threat} independently. They're {location_hint}. Compare notes with them and see what we're really dealing with.",
+      "Before we go further, we need intel. {target_npc} {location_hint} has been tracking the {quest_focus} for weeks. Find out what they've learned.",
+      "I've got a contact: {target_npc}, {location_hint}. They owe me a favor and they know the {quest_focus} better than anyone alive. Go see them.",
+      "The next step requires knowledge I don't have. {target_npc} does. They're {location_hint}. Tell them I sent you and ask about the {quest_focus}."
+    ],
+    "urgent": [
+      "No time to explain everything. {target_npc} {location_hint} has critical information about the {quest_threat}. Get there fast and find out what they know.",
+      "{target_npc} sent an urgent message about the {quest_focus}. They're {location_hint}. Go now, hear what they have to say, and report back immediately.",
+      "We're missing something. {target_npc} {location_hint} has been monitoring the {quest_threat} and they've seen things we haven't. Talk to them. Quickly.",
+      "I need you {location_hint} as fast as you can move. {target_npc} has intelligence about the {quest_focus} that can't wait. Every moment matters.",
+      "The situation at the {quest_focus} is changing faster than we can track. {target_npc} {location_hint} has eyes on it. Go get their report."
+    ],
+    "somber": [
+      "{target_npc} has been through something similar. They're {location_hint}. I think hearing their perspective on the {quest_focus} would help us understand what we're facing.",
+      "There's someone who deserves to know what's happening. {target_npc} {location_hint} has a connection to the {quest_focus} that runs deep. Talk to them.",
+      "I've been carrying this alone, but {target_npc} should hear about the {quest_threat}. They're {location_hint}. They'll understand in ways others won't.",
+      "Before we go further, visit {target_npc} {location_hint}. They've watched the {quest_focus} longer than I have. Their wisdom on the {quest_threat} could guide us.",
+      "{target_npc} lost something to the {quest_threat} too. They're {location_hint}. What they've learned about the {quest_focus} since then might be exactly what we need."
+    ],
+    "conspiratorial": [
+      "There's someone we need on our side. {target_npc} {location_hint} knows about the {quest_threat} but hasn't spoken publicly. Go to them quietly and find out why.",
+      "I can't be seen talking to {target_npc} directly. They're {location_hint}. Go to them, mention the {quest_focus}, and listen to everything they say. Memorize it.",
+      "{target_npc} has been gathering evidence about the {quest_focus} in secret. They're {location_hint}. Make contact and find out what they've uncovered.",
+      "We need an ally with information. {target_npc} {location_hint} has been watching the {quest_threat} from the inside. Approach carefully and hear them out.",
+      "Don't let anyone follow you. {target_npc} is {location_hint} and they have intelligence about the {quest_focus} that certain people don't want shared."
+    ],
+    "conflicted": [
+      "I'm not sure what {target_npc} will tell you, but they deserve to be heard. They're {location_hint}. Ask them about the {quest_focus} and bring me their perspective.",
+      "There are two sides to the {quest_focus}, and I've only heard one. {target_npc} {location_hint} knows the other. Talk to them before we make any decisions.",
+      "{target_npc} and I don't agree on the {quest_threat}, but their view matters. They're {location_hint}. Listen to what they have to say with an open mind.",
+      "I need someone impartial to talk to {target_npc} {location_hint}. They know things about the {quest_focus} that complicate everything I've told you.",
+      "Before you judge this situation, hear {target_npc} out. They're {location_hint}. What they know about the {quest_threat} might change how you see the {quest_focus}."
+    ]
+  }
+}
