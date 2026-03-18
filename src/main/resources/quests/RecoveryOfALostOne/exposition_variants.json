@@ -24,7 +24,7 @@
       "dialogueChunks": {
         "intro": "Please, {player_name}, you have to help me. My child wandered off during the {enemy_type} attack and nobody's seen them since.",
         "plotStep": "When the {enemy_type} hit, everyone scattered. In the chaos, my child was separated from the group. {target_npc} saw them running toward {location_hint}, but nobody could follow because the {enemy_type} were between us. I need you to find {quest_item} they were carrying: anything that shows which direction they went.",
-        "outro": "They're young and alone in the wild. Every hour counts. {quest_stakes} is all I can think about. {quest_time_pressure}."
+        "outro": "They're young and alone in the wild. Every hour counts. The {quest_stakes} {quest_stakes_is} all I can think about. {quest_time_pressure}."
       },
       "playerResponses": [
         { "text": "A child alone out there? I'm already moving. Which direction?", "action": "ACCEPT" },
@@ -43,7 +43,7 @@
       "dialogueChunks": {
         "intro": "{player_name}, I've been looking for someone for a very long time. And I think I've finally found a lead.",
         "plotStep": "{target_npc} and I built this place together. Years ago, they left to establish a route through {location_hint} and promised to return. That promise turned into years of silence. Last week, a trader recognized {quest_item} I described: said they saw it in a camp near the edge of {enemy_type} territory.",
-        "outro": "{target_npc} might be alive, might be captive, might be something I haven't considered. Either way, I owe it to them to {quest_action}. {quest_stakes} demands I try. {quest_origin} bound us together."
+        "outro": "{target_npc} might be alive, might be captive, might be something I haven't considered. Either way, I owe it to them to {quest_action}. For the sake of the {quest_stakes}, I have to try. {quest_origin} bound us together."
       },
       "playerResponses": [
         { "text": "Years of searching deserves a real answer. I'll find it.", "action": "ACCEPT" },

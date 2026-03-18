@@ -5,7 +5,7 @@
       "dialogueChunks": {
         "intro": "{player_name}, I need to tell you something I've never told anyone. Something I did years ago that I can't stop thinking about.",
         "plotStep": "When this place was under attack by {enemy_type}, I ran. I was supposed to hold the line with {target_npc}, but I abandoned my post and fled. {target_npc} held on alone and was badly injured because of it. They moved to another settlement {location_hint} and haven't spoken to me since. I've been gathering {quest_item} as a peace offering, but the road is dangerous.",
-        "outro": "I don't deserve forgiveness. But I need to {quest_action}. {quest_stakes} depends on whether I can face what I did. {quest_origin} haunts me every day."
+        "outro": "I don't deserve forgiveness. But I need to {quest_action}. The fate of the {quest_stakes} depends on whether I can face what I did. {quest_origin} haunts me every day."
       },
       "playerResponses": [
         { "text": "It takes courage to face what you did. I'll walk that road with you.", "action": "ACCEPT" },
@@ -24,7 +24,7 @@
       "dialogueChunks": {
         "intro": "I won't lie to you, {player_name}. What I'm about to ask you to help me with started because I did something unforgivable.",
         "plotStep": "Years ago, when times were desperate, I stole {quest_item} from {target_npc}'s household. It was irreplaceable, and I sold it to a trader who took it {location_hint}. I've carried that secret ever since. {target_npc} still searches for it. The trader's camp is in {enemy_type} territory now.",
-        "outro": "I stole from someone who trusted me. The least I can do is risk my pride to give it back. {quest_action} is the only way to start. {quest_stakes} demands it. {quest_origin} started this."
+        "outro": "I stole from someone who trusted me. The least I can do is risk my pride to give it back. {quest_action} is the only way to start. I owe it to the {quest_stakes}. {quest_origin} started this."
       },
       "playerResponses": [
         { "text": "Returning what you stole is the right first step. I'll help you take it.", "action": "ACCEPT" },
@@ -42,7 +42,7 @@
       "dialogueChunks": {
         "intro": "I lied, {player_name}. In front of the whole council, under oath, I lied. And an innocent person lost everything because of it.",
         "plotStep": "The council asked me if I saw {target_npc} commit a crime. I said yes, because the real guilty party was my relative and I was protecting family. {target_npc} was exiled and has been living rough {location_hint} ever since. My relative died recently, and now there's nobody left to protect. I need to find {target_npc} and bring them {quest_item} as proof of what really happened.",
-        "outro": "Every day that passes with {target_npc} in exile is another day my lie draws breath. Help me {quest_action}. {quest_time_pressure}. {quest_stakes} depends on the truth."
+        "outro": "Every day that passes with {target_npc} in exile is another day my lie draws breath. Help me {quest_action}. {quest_time_pressure}. Everything about the {quest_stakes} depends on the truth."
       },
       "playerResponses": [
         { "text": "An innocent person exiled by a lie deserves the truth. I'll help you find them.", "action": "ACCEPT" },

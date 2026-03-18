@@ -4,8 +4,8 @@
       "id": "rivalry_expo_01",
       "dialogueChunks": {
         "intro": "Two of our most respected figures are at each other's throats, {player_name}. {quest_ally} and {target_npc} both believe they should lead, and neither will yield.",
-        "plotStep": "Both have their supporters, and {quest_focus} has split the community down the middle. The {enemy_type} have taken note of our distraction: raids are increasing near {location_hint} while we bicker.",
-        "outro": "Someone outside the dispute needs to act while our leaders compete. Will you handle the real threats while we sort out {quest_stakes}?"
+        "plotStep": "Both have their supporters, and the {quest_focus} has split the community down the middle. The {enemy_type} have taken note of our distraction: raids are increasing near {location_hint} while we bicker.",
+        "outro": "Someone outside the dispute needs to act while our leaders compete. Will you handle the real threats while we sort out the {quest_stakes}?"
       },
       "playerResponses": [
         { "text": "I will handle what matters while they argue.", "action": "ACCEPT", "dispositionShift": 4 },
@@ -21,8 +21,8 @@
       "id": "rivalry_expo_02",
       "dialogueChunks": {
         "intro": "Two of our artisans have been feuding for months, {player_name}. It has gotten so bad that {quest_ally} refuses to work on the same projects as {target_npc}.",
-        "plotStep": "Both claim superiority and they have dragged the whole settlement into their rivalry over {quest_focus}. Now they have proposed a challenge, and both are looking for outside help to gather {quest_item} from {location_hint}.",
-        "outro": "It is petty, but it is disrupting everything. If you gather the materials they need, we might end {quest_threat} and get our people cooperating again. {quest_reward_hint} is on the table."
+        "plotStep": "Both claim superiority and they have dragged the whole settlement into their rivalry over the {quest_focus}. Now they have proposed a challenge, and both are looking for outside help to gather {quest_item} from {location_hint}.",
+        "outro": "It is petty, but it is disrupting everything. If you gather the materials they need, we might end the {quest_threat} and get our people cooperating again. {quest_reward_hint} is on the table."
       },
       "playerResponses": [
         { "text": "I will gather what is needed.", "action": "ACCEPT", "dispositionShift": 3 },
@@ -38,7 +38,7 @@
       "id": "rivalry_expo_03",
       "dialogueChunks": {
         "intro": "{quest_ally} challenged {target_npc} to a contest: who can clear more {enemy_type} from the land around {location_hint}. What started as bravado has become dangerously reckless.",
-        "plotStep": "Both are taking bigger risks to outdo the other, venturing deeper into hostile territory. {quest_focus} has become less about protecting the settlement and more about pride. Someone is going to get killed {quest_time_pressure}.",
+        "plotStep": "Both are taking bigger risks to outdo the other, venturing deeper into hostile territory. The {quest_focus} has become less about protecting the settlement and more about pride. Someone is going to get killed {quest_time_pressure}.",
         "outro": "I need someone out there who can actually thin the numbers while keeping those two from getting themselves killed. {player_name}, are you up for it?"
       },
       "playerResponses": [

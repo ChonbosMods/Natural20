@@ -4,8 +4,8 @@
       "id": "expo_ambition_01",
       "dialogueChunks": {
         "intro": "{player_name}, opportunity doesn't knock twice. There's a power vacuum and every schemer is circling the empty chair.",
-        "plotStep": "Since {quest_origin}, I've spent years building connections and waiting for this moment. But my rivals are moving fast. {target_npc} has already started making promises they can't deliver. I need {quest_item} from {location_hint} to secure key support before {target_npc} gets to them. The {enemy_type} threat makes this urgent: whoever takes {quest_focus} needs to be ready to defend us.",
-        "outro": "Help me claim {quest_stakes}, and you'll have the ear of the most powerful person in the region. {quest_reward_hint} is only the beginning."
+        "plotStep": "Since {quest_origin}, I've spent years building connections and waiting for this moment. But my rivals are moving fast. {target_npc} has already started making promises they can't deliver. I need {quest_item} from {location_hint} to secure key support before {target_npc} gets to them. The {enemy_type} threat makes this urgent: whoever takes the {quest_focus} needs to be ready to defend us.",
+        "outro": "Help me claim the {quest_stakes}, and you'll have the ear of the most powerful person in the region. {quest_reward_hint} is only the beginning."
       },
       "playerResponses": [
         { "text": "A strong leader beats a popular one. I'll get what you need.", "action": "ACCEPT" },
@@ -23,7 +23,7 @@
       "id": "expo_ambition_02",
       "dialogueChunks": {
         "intro": "Keep your voice down, {player_name}. What I'm offering could make us both very wealthy, or very dead.",
-        "plotStep": "A discovery was made {location_hint} last week. If I can secure {quest_item} to stake a legal claim before the competition gets wind of it, I'll control {quest_focus}. {target_npc} has been sniffing around. If they beat me to the claim, {quest_stakes} becomes worthless. The {enemy_type} have been spotted near the site, which is the only reason nobody else has moved on it yet.",
+        "plotStep": "A discovery was made {location_hint} last week. If I can secure {quest_item} to stake a legal claim before the competition gets wind of it, I'll control the {quest_focus}. {target_npc} has been sniffing around. If they beat me to the claim, the {quest_stakes} {quest_stakes_is} worthless. The {enemy_type} have been spotted near the site, which is the only reason nobody else has moved on it yet.",
         "outro": "Fortune favors the bold, not the cautious. {quest_reward_hint} awaits those who move first."
       },
       "playerResponses": [
@@ -43,7 +43,7 @@
       "dialogueChunks": {
         "intro": "{player_name}, I don't need a hero. I need someone practical who understands that winning isn't always clean.",
         "plotStep": "The current leader is corrupt, but everyone loves them because they smile well and give pretty speeches. {target_npc} has proof of their misdeeds hidden {location_hint}, but getting to it means dealing with the {enemy_type} that have overrun the area. I need {quest_item} from those ruins to expose the truth before {quest_time_pressure}.",
-        "outro": "This isn't about ambition. It's about replacing someone unworthy with someone who isn't afraid to make hard choices. {quest_focus} demands action, and {quest_stakes} hangs in the balance."
+        "outro": "This isn't about ambition. It's about replacing someone unworthy with someone who isn't afraid to make hard choices. The {quest_focus} demands action, and the {quest_stakes} {quest_stakes_is} hanging in the balance."
       },
       "playerResponses": [
         { "text": "Exposing corruption is worth the risk. I'll retrieve the evidence.", "action": "ACCEPT" },

@@ -4,8 +4,8 @@
       "id": "madness_expo_01",
       "dialogueChunks": {
         "intro": "{target_npc} has not been the same lately, {player_name}. Since {quest_origin}, their behavior has been deteriorating and no one can reach them.",
-        "plotStep": "At first it was just odd habits. Now they have barricaded themselves away, raving about things no one else can see. {quest_ally} tried to help but was driven off. Something at {quest_focus} is pulling them deeper.",
-        "outro": "We need to get to the source and find out what is doing this. Can you help {quest_time_pressure} before {quest_threat} consumes them entirely?"
+        "plotStep": "At first it was just odd habits. Now they have barricaded themselves away, raving about things no one else can see. {quest_ally} tried to help but was driven off. Something at the {quest_focus} is pulling them deeper.",
+        "outro": "We need to get to the source and find out what is doing this. Can you help {quest_time_pressure} before the {quest_threat} consumes them entirely?"
       },
       "playerResponses": [
         { "text": "I will try to reach them and find the cause.", "action": "ACCEPT", "dispositionShift": 5 },
@@ -18,9 +18,9 @@
     {
       "id": "madness_expo_02",
       "dialogueChunks": {
-        "intro": "Half the settlement has been afflicted, {player_name}. {quest_focus} struck without warning, and {quest_threat} is spreading faster than we can understand.",
+        "intro": "Half the settlement has been afflicted, {player_name}. The {quest_focus} struck without warning, and the {quest_threat} {quest_threat_is} spreading faster than we can understand.",
         "plotStep": "{quest_ally} is one of the affected. They describe identical visions across every victim. This is not coincidence: something near {location_hint} is projecting this. Even the {enemy_type} in the area have been behaving erratically.",
-        "outro": "People are terrified. We need to find what is causing {quest_threat} and put an end to it before the whole settlement falls apart."
+        "outro": "People are terrified. We need to find what is causing the {quest_threat} and put an end to it before the whole settlement falls apart."
       },
       "playerResponses": [
         { "text": "I will track down whatever is doing this.", "action": "ACCEPT", "dispositionShift": 5 },
@@ -38,7 +38,7 @@
       "dialogueChunks": {
         "intro": "Several of our people have lost themselves, {player_name}. They fled into the wilds near {location_hint}, unable to recognize anyone. It happened overnight.",
         "plotStep": "{quest_ally} examined what they had been exposed to and found traces of something unnatural: {quest_item} residue that should not be there. {target_npc} thinks a cure is possible, but needs samples from the contamination site.",
-        "outro": "{quest_focus} are still out there, lost to {quest_threat}. Find the source and bring back what {target_npc} needs. {quest_reward_hint} awaits if you succeed."
+        "outro": "The {quest_focus} {quest_focus_is} still out there, lost to the {quest_threat}. Find the source and bring back what {target_npc} needs. {quest_reward_hint} awaits if you succeed."
       },
       "playerResponses": [
         { "text": "I will get the samples and save them.", "action": "ACCEPT", "dispositionShift": 6 },

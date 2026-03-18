@@ -4,8 +4,8 @@
       "id": "conf_erroneous_judgment_01",
       "dialogueChunks": {
         "intro": "The situation just became far more dangerous, {player_name}. Our assumptions were built on sand.",
-        "plotStep": "The information we acted on was wrong. Not just incomplete: actively wrong. {target_npc} uncovered that the original report about {quest_focus} was based on tampered evidence. The real situation {location_hint} is nothing like what we were told. We need {quest_item} to understand the full picture.",
-        "outro": "We built our strategy on a lie. Now we need to tear it down and start over before {quest_stakes} collapses on us."
+        "plotStep": "The information we acted on was wrong. Not just incomplete: actively wrong. {target_npc} uncovered that the original report about the {quest_focus} was based on tampered evidence. The real situation {location_hint} is nothing like what we were told. We need {quest_item} to understand the full picture.",
+        "outro": "We built our strategy on a lie. Now we need to tear it down and start over before the {quest_stakes} collapses on us."
       },
       "playerResponses": [
         { "text": "Bad intelligence gets people killed. I'll find the truth.", "action": "ACCEPT" },
@@ -23,8 +23,8 @@
       "id": "conf_erroneous_judgment_02",
       "dialogueChunks": {
         "intro": "{player_name}, the people we tried to protect are now in greater danger because of what we did.",
-        "plotStep": "Our actions based on {quest_focus} provoked a retaliation nobody expected. The {enemy_type} struck back in force, and {target_npc} barely organized a defense. The settlement blames us for stirring things up, and they're not entirely wrong. We need to gather {quest_item} from the aftermath {location_hint} and find a way to de-escalate.",
-        "outro": "We meant well. That doesn't undo the harm. But maybe we can still prevent {quest_threat} from spiraling beyond recovery."
+        "plotStep": "Our actions based on the {quest_focus} provoked a retaliation nobody expected. The {enemy_type} struck back in force, and {target_npc} barely organized a defense. The settlement blames us for stirring things up, and they're not entirely wrong. We need to gather {quest_item} from the aftermath {location_hint} and find a way to de-escalate.",
+        "outro": "We meant well. That doesn't undo the harm. But maybe we can still prevent the {quest_threat} from spiraling beyond recovery."
       },
       "playerResponses": [
         { "text": "Cleaning up a mistake is harder than making one. But it has to be done.", "action": "ACCEPT" },
@@ -42,7 +42,7 @@
       "id": "conf_erroneous_judgment_03",
       "dialogueChunks": {
         "intro": "We were played, {player_name}. Deliberately, expertly played.",
-        "plotStep": "{target_npc} found documents {location_hint} that prove the false information about {quest_focus} was planted intentionally. Someone wanted us to act rashly, to turn our attention the wrong way while they moved on {quest_stakes} unopposed. The {enemy_type} were a distraction. We need {quest_item} from the site where the deception was staged.",
+        "plotStep": "{target_npc} found documents {location_hint} that prove the false information about the {quest_focus} was planted intentionally. Someone wanted us to act rashly, to turn our attention the wrong way while they moved on the {quest_stakes} unopposed. The {enemy_type} were a distraction. We need {quest_item} from the site where the deception was staged.",
         "outro": "We didn't make a mistake: we were led into one. And the puppeteer is still pulling strings."
       },
       "playerResponses": [

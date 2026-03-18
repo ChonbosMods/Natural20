@@ -4,7 +4,7 @@
       "id": "reso_obstacles_love_01",
       "dialogueChunks": {
         "intro": "You did it, {player_name}. The wall is crumbling, and I don't mean the stone one.",
-        "plotStep": "When the elders saw what you brought back, the room went quiet. Not angry-quiet: thoughtful-quiet. {target_npc} stood up and spoke about {quest_focus}, about how {quest_stakes} matters more than old grudges. For the first time in years, people from both sides sat at the same table.",
+        "plotStep": "When the elders saw what you brought back, the room went quiet. Not angry-quiet: thoughtful-quiet. {target_npc} stood up and spoke about the {quest_focus}, about how protecting the {quest_stakes} matters more than old grudges. For the first time in years, people from both sides sat at the same table.",
         "outro": "You gave us something nobody else could: a reason to try. Take this, and know you're welcome on both sides."
       },
       "playerResponses": [
@@ -18,7 +18,7 @@
       "id": "reso_obstacles_love_02",
       "dialogueChunks": {
         "intro": "{player_name}... the feud isn't over. But something shifted, and it's because of you.",
-        "plotStep": "{target_npc} and their friend from the other side met openly for the first time yesterday. The families haven't reconciled, not by a long stretch, but they didn't stop the meeting either. A few of the younger ones even joined in. {quest_focus} is still a sore subject, but at least people are talking about it instead of throwing punches.",
+        "plotStep": "{target_npc} and their friend from the other side met openly for the first time yesterday. The families haven't reconciled, not by a long stretch, but they didn't stop the meeting either. A few of the younger ones even joined in. The {quest_focus} {quest_focus_is} still a sore subject, but at least people are talking about it instead of throwing punches.",
         "outro": "Change is slow when the roots go deep. But you planted a seed that nobody can uproot now."
       },
       "playerResponses": [

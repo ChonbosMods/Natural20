@@ -3,8 +3,8 @@
     {
       "id": "madness_reso_cured",
       "dialogueChunks": {
-        "intro": "{quest_threat} has been lifted. {quest_focus} is neutralized, and the afflicted are returning to their senses one by one.",
-        "plotStep": "{target_npc} administered the cure successfully, and {quest_ally} reports that {quest_stakes} are recovering well. The nightmares have stopped, the aggression has faded. Whatever was emanating from near {location_hint} has gone silent.",
+        "intro": "The {quest_threat} {quest_threat_has} been lifted. The {quest_focus} {quest_focus_is} neutralized, and the afflicted are returning to their senses one by one.",
+        "plotStep": "{target_npc} administered the cure successfully, and {quest_ally} reports that the {quest_stakes} {quest_stakes_is} recovering well. The nightmares have stopped, the aggression has faded. Whatever was emanating from near {location_hint} has gone silent.",
         "outro": "You walked into something that defied understanding and came out the other side with a solution. {player_name}, the settlement will never forget this."
       },
       "playerResponses": [
@@ -25,8 +25,8 @@
     {
       "id": "madness_reso_contained",
       "dialogueChunks": {
-        "intro": "The spread has stopped, though not everyone was saved. {quest_focus} claimed some victims before you could reach the source, and those losses weigh on all of us.",
-        "plotStep": "{quest_ally} says the surviving afflicted will recover in time. {quest_threat} has been contained if not fully destroyed. {target_npc} is maintaining a watch on the area near {location_hint} to ensure {quest_stakes} don't relapse.",
+        "intro": "The spread has stopped, though not everyone was saved. The {quest_focus} claimed some victims before you could reach the source, and those losses weigh on all of us.",
+        "plotStep": "{quest_ally} says the surviving afflicted will recover in time. The {quest_threat} {quest_threat_has} been contained if not fully destroyed. {target_npc} is maintaining a watch on the area near {location_hint} to ensure the {quest_stakes} don't relapse.",
         "outro": "It's a bittersweet ending. You saved many, {player_name}, even if you couldn't save everyone."
       },
       "playerResponses": [
@@ -47,8 +47,8 @@
     {
       "id": "madness_reso_mystery_persists",
       "dialogueChunks": {
-        "intro": "The symptoms have receded, but {quest_focus} left marks that may never fully fade. Some of the afflicted see the world differently now: not worse, just changed.",
-        "plotStep": "{target_npc} says the exposure altered something fundamental in {quest_stakes}. {quest_ally} has begun documenting what the afflicted remember, hoping to understand {quest_threat} well enough to prevent it from returning. The source near {location_hint} is dormant, not destroyed.",
+        "intro": "The symptoms have receded, but the {quest_focus} left marks that may never fully fade. Some of the afflicted see the world differently now: not worse, just changed.",
+        "plotStep": "{target_npc} says the exposure altered something fundamental in the {quest_stakes}. {quest_ally} has begun documenting what the afflicted remember, hoping to understand the {quest_threat} well enough to prevent it from returning. The source near {location_hint} is dormant, not destroyed.",
         "outro": "You did what could be done with the tools we had. The mystery of what caused this may outlast us all, but at least we survived it. Thank you, {player_name}."
       },
       "playerResponses": [

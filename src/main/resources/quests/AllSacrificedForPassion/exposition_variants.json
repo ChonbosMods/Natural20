@@ -61,7 +61,7 @@
       "id": "expo_all_sacrificed_03",
       "dialogueChunks": {
         "intro": "They used to be the wealthiest person in three settlements, {player_name}. Now they sleep in their vault because they sold the bed.",
-        "plotStep": "They've spent everything on the {quest_focus}. Their children haven't spoken to them in years. They need one more piece, the keystone that makes sense of everything, and they swear the obsession will end. Their family asked me to find someone to {quest_action}. Not to enable the addiction, but because {quest_time_pressure} and the {quest_stakes} hangs in the balance.",
+        "plotStep": "They've spent everything on the {quest_focus}. Their children haven't spoken to them in years. They need one more piece, the keystone that makes sense of everything, and they swear the obsession will end. Their family asked me to find someone to {quest_action}. Not to enable the addiction, but because {quest_time_pressure} and the {quest_stakes} {quest_stakes_is} hanging in the balance.",
         "outro": "At least let the {quest_focus} mean something. {quest_item} {location_hint} might be the final piece."
       },
       "playerResponses": [
