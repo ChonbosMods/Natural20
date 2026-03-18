@@ -19,6 +19,7 @@ public class QuestGenerator {
     private static final double REFERENCE_INJECT_CHANCE = 0.20;
     private static final double QUEST_ALLY_TOPIC_CHANCE = 0.35;
     private static final double STAKES_EQUALS_FOCUS_CHANCE = 0.25;
+    private static final double SHORT_QUEST_CHANCE = 0.10;
 
     private final QuestTemplateRegistry templateRegistry;
     private final SettlementRegistry settlementRegistry;
@@ -120,6 +121,12 @@ public class QuestGenerator {
     private List<PhaseType> rollPhaseSequence(Random random) {
         List<PhaseType> sequence = new ArrayList<>();
         sequence.add(PhaseType.EXPOSITION);
+
+        // 10% chance: short quest (exposition -> resolution, no conflict)
+        if (random.nextDouble() < SHORT_QUEST_CHANCE) {
+            sequence.add(PhaseType.RESOLUTION);
+            return sequence;
+        }
 
         PhaseType current = PhaseType.EXPOSITION;
         while (sequence.size() < MAX_PHASES) {
