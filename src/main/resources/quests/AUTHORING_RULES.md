@@ -1,6 +1,6 @@
 # Quest Template Authoring Guide
 
-This document defines how to write quest template JSON files for the Natural20 randomizing quest system. Follow these rules exactly. When in doubt, test your dialogue mentally with 3 different variable substitutions before committing.
+This document defines how to write quest template JSON files and response pool entries for the Natural20 randomizing quest system. Follow these rules exactly.
 
 ---
 
@@ -9,7 +9,7 @@ This document defines how to write quest template JSON files for the Natural20 r
 The quest system generates quests by combining:
 1. A **dramatic situation** (1 of 36, determines NPC tone)
 2. A **phase sequence** (Exposition → optional Conflicts → Resolution)
-3. **Pool-drawn variables** (action, focus, stakes, threat, items, mobs, NPCs)
+3. **Pool-drawn variables** (action, focus, stakes, threat, items, mobs, NPCs, responses)
 4. **Dialogue variants** (templates with `{variable}` tokens, written per-situation)
 
 All story content comes from variables. Templates provide emotional framing only.
@@ -25,16 +25,113 @@ All story content comes from variables. Templates provide emotional framing only
 
 ## File Structure
 
-Each situation directory contains 5 files:
+### Situation Templates (36 directories)
 
 ```
 quests/{SituationName}/
-  exposition_variants.json   # Quest intro (NPC presents the problem)
-  conflict_variants.json     # Complications (things get harder)
-  resolution_variants.json   # Conclusion (wrap-up + reward)
+  exposition_variants.json   # Quest intro: NPC presents the problem
+  conflict_variants.json     # Complications: things get harder
+  resolution_variants.json   # Conclusion: wrap-up + reward
   references.json            # Cross-quest reference hooks
   npc_weights.json           # NPC role → selection weight
 ```
+
+### Pool Files (shared across all situations)
+
+```
+quests/pools/
+  # World variable pools
+  gather_items.json          # Items for GATHER_ITEMS objectives
+  hostile_mobs.json          # Mobs for KILL_MOBS objectives
+  quest_actions.json         # Verb phrases: what needs doing
+  quest_focuses.json         # Noun phrases: where/what action targets
+  quest_stakes.json          # Noun phrases: who/what is at risk
+  quest_threats.json         # Noun phrases: what causes the problem
+  quest_origins.json         # Backstory phrases
+  quest_time_pressures.json  # Urgency phrases
+  quest_reward_hints.json    # Reward foreshadowing phrases
+
+  # Response pools
+  responses_accept.json            # Player accept lines (by situation + tone)
+  responses_decline.json           # Player decline lines (by situation + tone)
+  responses_stat_check.json        # Player stat-gated lines (by stat type)
+  responses_counter_accept.json    # NPC counter to player accepting (by tone)
+  responses_counter_decline.json   # NPC counter to player declining (by tone)
+  responses_counter_stat_pass.json # NPC counter to stat check pass (by tone)
+  responses_counter_stat_fail.json # NPC counter to stat check fail (by tone)
+
+  # Mapping
+  situation_tones.json       # Situation name → tone mapping
+```
+
+---
+
+## Player Response & Disposition System
+
+### Conversation Flow
+
+When a quest is presented, the player sees 3 options:
+
+```
+[ACCEPT]     "I'll handle it."                    → no disposition change
+[STR/DEX/CON/INT/WIS/CHA]  "I can muscle through this."  → stat roll required
+[DECLINE]    "Not my problem."                    → negative disposition
+```
+
+After the player picks, the NPC gives a counter-response (max 2 total exchanges):
+
+**If Accept:**
+```
+Player: "I'll handle it."
+NPC:    "Thank you. You have no idea how much this means."
+        (no disposition change)
+```
+
+**If Stat Check Pass:**
+```
+Player: "I can endure whatever this throws at me." [CON check]
+        → Roll succeeds
+NPC:    "That skill might be what saves us."
+        (+disposition)
+```
+
+**If Stat Check Fail:**
+```
+Player: "I can endure whatever this throws at me." [CON check]
+        → Roll fails
+NPC:    "We'll manage somehow."
+        (-disposition)
+        Quest is still accepted.
+```
+
+**If Decline:**
+```
+Player: "I can't help with this right now."
+NPC:    "I understand. Not everyone can carry this weight."
+        (-disposition, -reputation)
+```
+
+### Disposition Rules Summary
+
+| Action | Disposition | Reputation |
+|---|---|---|
+| Accept (plain) | No change | No change |
+| Accept (stat pass) | + positive | No change |
+| Accept (stat fail) | - negative | No change |
+| Decline | - negative | - negative |
+| Quest completion | + positive | + positive |
+
+### Response Pool Sources
+
+| What | Pool file | Keyed by |
+|---|---|---|
+| Player accept line | `responses_accept.json` | Situation name, fallback to tone |
+| Player decline line | `responses_decline.json` | Situation name, fallback to tone |
+| Player stat check line | `responses_stat_check.json` | Stat type (STR/DEX/CON/INT/WIS/CHA) |
+| NPC counter to accept | `responses_counter_accept.json` | Tone |
+| NPC counter to decline | `responses_counter_decline.json` | Tone |
+| NPC counter to stat pass | `responses_counter_stat_pass.json` | Tone |
+| NPC counter to stat fail | `responses_counter_stat_fail.json` | Tone |
 
 ---
 
@@ -68,18 +165,11 @@ Same structure but:
 - `"objectivePool": []` (MUST be empty)
 - `"objectiveConfig": {}` (MUST be empty)
 
-### Player Responses
+### What is NOT in templates
 
-Player responses are NOT defined in template files. They are drawn from tone-based
-pools at quest generation time (`quests/pools/responses_accept.json` and
-`quests/pools/responses_decline.json`). Each situation is mapped to a tone via
-`quests/pools/situation_tones.json`.
-
-Each generated quest gets exactly 1 accept response and 1 decline response, both
-matching the situation's tone. Responses are self-contained statements that do not
-require the NPC to respond or acknowledge the player's choice.
-
-Available tones: `desperate`, `bold`, `urgent`, `somber`, `conspiratorial`, `conflicted`
+- **No `playerResponses`**: responses come from response pools
+- **No `bindings`**: all narrative variables come from external pools
+- **No hardcoded names/places/items**: all specifics are `{variable}` tokens
 
 ---
 
@@ -90,7 +180,7 @@ Available tones: `desperate`, `bold`, `urgent`, `somber`, `conspiratorial`, `con
 | Token | Type | Example | Template usage |
 |---|---|---|---|
 | `{player_name}` | proper noun | "Adventurer" | Use directly: `"{player_name}, I need your help."` |
-| `{enemy_type}` | noun with article | "Trork Brute" | Use directly: `"The {enemy_type} attacked."` |
+| `{enemy_type}` | noun | "Trork Brute" | Use directly: `"The {enemy_type} attacked."` |
 | `{quest_item}` | lowercase noun | "leather" | Use directly: `"Gather {quest_item} for us."` |
 | `{location_hint}` | directional phrase | "north-west, about 200 blocks" | Use directly: `"Head {location_hint}."` |
 | `{quest_action}` | verb phrase | "hold the line" | Use directly: `"We need to {quest_action}."` |
@@ -102,30 +192,43 @@ Available tones: `desperate`, `bold`, `urgent`, `somber`, `conspiratorial`, `con
 
 These resolve to "is"/"are", "has"/"have", or "was"/"were" based on whether the pool value is singular or plural.
 
-| Token | Singular result | Plural result |
-|---|---|---|
-| `{quest_focus_is}` | "is" | "are" |
-| `{quest_focus_has}` | "has" | "have" |
-| `{quest_focus_was}` | "was" | "were" |
-| `{quest_stakes_is}` | "is" | "are" |
-| `{quest_stakes_has}` | "has" | "have" |
-| `{quest_stakes_was}` | "was" | "were" |
-| `{quest_threat_is}` | "is" | "are" |
-| `{quest_threat_has}` | "has" | "have" |
-| `{quest_threat_was}` | "was" | "were" |
-
-**Usage:** `"The {quest_stakes} {quest_stakes_is} in danger."` → "The refugee families are in danger." OR "The harvest is in danger."
+| Token | Singular | Plural | Usage |
+|---|---|---|---|
+| `{quest_focus_is}` | "is" | "are" | `"The {quest_focus} {quest_focus_is} in danger"` |
+| `{quest_focus_has}` | "has" | "have" | `"The {quest_focus} {quest_focus_has} been compromised"` |
+| `{quest_focus_was}` | "was" | "were" | `"The {quest_focus} {quest_focus_was} destroyed"` |
+| `{quest_stakes_is}` | "is" | "are" | `"The {quest_stakes} {quest_stakes_is} at risk"` |
+| `{quest_stakes_has}` | "has" | "have" | |
+| `{quest_stakes_was}` | "was" | "were" | |
+| `{quest_threat_is}` | "is" | "are" | `"The {quest_threat} {quest_threat_is} growing"` |
+| `{quest_threat_has}` | "has" | "have" | |
+| `{quest_threat_was}` | "was" | "were" | |
 
 ### Optional Variables (may be empty: unresolved tokens are stripped cleanly)
 
 | Token | Example | Notes |
 |---|---|---|
-| `{target_npc}` | "Elara Thornwick" | Full name. Required only when TALK_TO_NPC/DELIVER_ITEM objective. |
+| `{target_npc}` | "Elara Thornwick" | Full name. Required only for TALK_TO_NPC/DELIVER_ITEM. |
 | `{quest_ally}` | "Old Maren" | Full name. NPC in same settlement as quest giver. |
 | `{quest_origin}` | "last winter's famine" | Full phrase with article. Backstory. |
 | `{quest_time_pressure}` | "before the next storm" | Full phrase. Urgency. |
 | `{quest_reward_hint}` | "my family's heirloom" | Full phrase. Foreshadows reward. |
 | `{location}` | "Ironhaven" | Settlement name. |
+
+### Response Bindings (resolved at generation time, used by dialogue system)
+
+These are NOT used in dialogue templates. They are resolved by the generator and consumed by the dialogue presentation layer.
+
+| Token | Source | Example |
+|---|---|---|
+| `{response_accept}` | Accept response pool | "I'll handle it." |
+| `{response_decline}` | Decline response pool | "Not my problem." |
+| `{response_stat_check}` | Stat check response pool | "I can muscle through this." |
+| `{stat_check_type}` | Random stat | "STR" |
+| `{counter_accept}` | Counter-accept pool | "Thank you." |
+| `{counter_decline}` | Counter-decline pool | "I understand." |
+| `{counter_stat_pass}` | Counter-stat-pass pool | "Impressive." |
+| `{counter_stat_fail}` | Counter-stat-fail pool | "We'll manage." |
 
 ---
 
@@ -133,19 +236,15 @@ These resolve to "is"/"are", "has"/"have", or "was"/"were" based on whether the 
 
 ### Rule 1: Templates add "the", pool values do not
 
-Pool values for `quest_focus`, `quest_stakes`, and `quest_threat` are bare nouns without articles. The template MUST add "the" before them.
+Pool values for `quest_focus`, `quest_stakes`, and `quest_threat` are bare nouns. Templates MUST add "the".
 
 ```
 GOOD: "We must protect the {quest_focus}."
 BAD:  "We must protect {quest_focus}."
-      → renders as "We must protect old watchtower." (missing article)
+      → "We must protect old watchtower." (missing article)
 ```
 
-The `DialogueResolver` collapses double articles automatically ("the the" → "the"), so accidentally writing "the the {quest_focus}" is safe but sloppy.
-
 ### Rule 2: Use conjugation helpers when a pool variable is the sentence subject
-
-When `quest_focus`, `quest_stakes`, or `quest_threat` is the grammatical subject of a verb, use the matching `_is`, `_has`, or `_was` helper instead of hardcoding the verb.
 
 ```
 GOOD: "The {quest_threat} {quest_threat_has} grown worse."
@@ -153,93 +252,54 @@ GOOD: "The {quest_threat} {quest_threat_has} grown worse."
       → "The spreading blight has grown worse." (singular)
 
 BAD:  "The {quest_threat} has grown worse."
-      → "The advancing raiders has grown worse." (BROKEN with plural)
+      → "The advancing raiders has grown worse." (BROKEN)
 ```
 
-**When NOT to use helpers:** When the variable is NOT the subject:
+When NOT to use: when the variable is the object, not the subject:
 ```
-OK:   "I fear the {quest_threat} more than anything."
-      (quest_threat is the object, "I" is the subject: no helper needed)
+OK: "I fear the {quest_threat} more than anything."
 ```
 
 ### Rule 3: Respect semantic roles
 
-Each variable has a specific semantic meaning. Using them in the wrong context creates nonsense.
+| Variable | Role | Use as... |
+|---|---|---|
+| `{quest_focus}` | PLACE/THING | Location or object: "at the {quest_focus}" |
+| `{quest_stakes}` | AT-RISK | People or resources: "the {quest_stakes} will suffer" |
+| `{quest_threat}` | DANGER | Enemy or force: "the {quest_threat} grows stronger" |
+| `{quest_action}` | TASK | Verb phrase: "we need to {quest_action}" |
 
-| Variable | Semantic role | It represents... | Use it as... |
-|---|---|---|---|
-| `{quest_focus}` | PLACE or THING | Where/what the action targets | A location or object: "at the {quest_focus}", "near the {quest_focus}" |
-| `{quest_stakes}` | AT-RISK entity | Who/what suffers if quest fails | People or resources: "the {quest_stakes} will suffer", "to protect the {quest_stakes}" |
-| `{quest_threat}` | DANGER SOURCE | What causes the problem | An enemy or force: "the {quest_threat} grows stronger", "caused by the {quest_threat}" |
-| `{quest_action}` | TASK | What needs doing | A verb phrase: "we need to {quest_action}", "help me {quest_action}" |
+### Rule 4: Optional variables in removable clauses
 
-```
-GOOD: "The {quest_threat} {quest_threat_has} reached the {quest_focus}."
-      → "The advancing raiders have reached the old watchtower."
-
-BAD:  "The {quest_focus} has been going on for decades."
-      → "The old watchtower has been going on for decades." (place can't "go on")
-```
-
-### Rule 4: Optional variables must be in removable clauses
-
-Optional variables (`{quest_origin}`, `{quest_time_pressure}`, `{quest_reward_hint}`, `{quest_ally}`) may not resolve. When stripped, the surrounding text must still be grammatical.
-
-**Pattern A: Leading clause (best)**
 ```
 GOOD: "Ever since {quest_origin}, things have been difficult."
       → stripped: "things have been difficult."
-```
 
-**Pattern B: Trailing clause**
-```
 GOOD: "We must act quickly, {quest_time_pressure}."
       → stripped: "We must act quickly."
-```
 
-**Pattern C: Parenthetical**
-```
-GOOD: "{quest_ally} says the situation is worsening."
-      → stripped: "says the situation is worsening." (still readable)
-```
-
-**Anti-patterns:**
-```
 BAD:  "The {quest_origin} caused all of this."
       → stripped: "The caused all of this." (BROKEN)
 
-BAD:  "We must finish {quest_time_pressure} or everything is lost."
-      → stripped: "We must finish or everything is lost." (awkward)
-
-BAD:  "Only {quest_ally} can save us now."
-      → stripped: "Only can save us now." (BROKEN)
+BAD:  "Only {quest_ally} can save us."
+      → stripped: "Only can save us." (BROKEN)
 ```
 
 ### Rule 5: Situation = tone, NOT content
 
-The dramatic situation controls HOW the NPC speaks. It does NOT control WHAT the quest is about. All story specifics come from pool variables.
-
-| Situation | Tone keywords | NPC voice |
+| Situation | Tone | NPC voice |
 |---|---|---|
-| Supplication | desperate, humble, pleading | Begging for help, emotionally vulnerable |
-| DaringEnterprise | bold, confident, ambitious | Excited about a grand plan, recruiting |
-| Pursuit | urgent, focused, tactical | Briefing on a target, mission-oriented |
-| Disaster | panicked, rallying, urgent | Responding to crisis, needs immediate action |
-| Revolt | defiant, conspiratorial | Secret resistance, whispering about uprising |
-| Remorse | penitent, haunted, seeking peace | Confessing past wrongs, asking for redemption |
+| Supplication | desperate | Begging, emotionally vulnerable |
+| DaringEnterprise | bold | Excited, recruiting for adventure |
+| Pursuit | urgent | Mission briefing, tactical |
+| Disaster | urgent | Crisis response, rallying |
+| Revolt | conspiratorial | Secret resistance, defiant |
+| Remorse | somber | Confessing, seeking redemption |
+| AnEnemyLoved | conflicted | Questioning loyalties |
+| Ambition | bold | Scheming, driven |
 | ... | ... | ... |
 
-```
-GOOD (Supplication tone): "Please, {player_name}. The {quest_stakes} {quest_stakes_is}
-      all we have left. If you could {quest_action} at the {quest_focus}, we might survive."
-
-GOOD (Pursuit tone): "{player_name}, we have a target. The {quest_threat} {quest_threat_was}
-      last spotted near the {quest_focus}. I need you to {quest_action} before they disappear."
-```
-
 ### Rule 6: Each variant = different phrasing, NOT different story
-
-Variants within a file must differ in sentence structure, emotional angle, and which optional variables they include. They must NOT differ in story content, because story content comes from pools.
 
 ```
 Variant 1: Opens with a question, uses {quest_origin}, skips {quest_ally}
@@ -249,91 +309,181 @@ Variant 3: Opens with calm explanation, uses {quest_reward_hint}, skips optional
 
 ### Rule 7: No hardcoded names, places, or specifics
 
-Every proper noun, location, item, NPC name, action, threat, and stakes MUST be a variable. The only hardcoded text is the NPC's emotional framing.
-
 ```
 GOOD: "{quest_ally} spotted the {enemy_type} near the {quest_focus}."
 BAD:  "Old Maren spotted the Trork near the watchtower."
 ```
 
-### Rule 8: Test with 3 random substitutions
+### Rule 8: Test with 3 substitution sets
 
-Before finalizing any template, mentally substitute 3 different pool value sets:
+**Set A:** action="seal the entrance", focus="collapsed mine", stakes="village children", threat="spreading blight", enemy="Spider", item="bone"
 
-**Test set A:**
-- action="seal the entrance", focus="collapsed mine", stakes="village children"
-- threat="spreading blight", enemy="Spider", item="bone", ally="Bren Ironjaw"
+**Set B:** action="protect the caravan", focus="river crossing", stakes="winter supplies", threat="deserter gangs", enemy="Trork Grunt", item="wheat"
 
-**Test set B:**
-- action="protect the caravan", focus="river crossing", stakes="winter supplies"
-- threat="deserter gangs", enemy="Trork Grunt", item="wheat", ally="Tessa Brightwater"
-
-**Test set C:**
-- action="root out the corruption", focus="burial ground", stakes="last of our iron"
-- threat="political unrest", enemy="Skeleton", item="cotton fiber", ally="Old Maren"
-
-If any substitution produces broken grammar, semantic nonsense, or awkward phrasing: revise the template.
+**Set C:** action="root out the corruption", focus="burial ground", stakes="last of our iron", threat="political unrest", enemy="Skeleton", item="cotton fiber"
 
 ---
 
 ## Objective Types
 
-| Type | Description | Config fields |
+| Type | Description | Config |
 |---|---|---|
 | `GATHER_ITEMS` | Collect resources | `countMin` (3-8), `countMax` (10-20) |
 | `KILL_MOBS` | Kill hostile mobs | `countMin` (2-5), `countMax` (5-10) |
-| `DELIVER_ITEM` | Bring item to NPC | none needed |
-| `EXPLORE_LOCATION` | Visit a location | none needed |
+| `DELIVER_ITEM` | Bring item to NPC | none |
+| `EXPLORE_LOCATION` | Visit a location | none |
 | `FETCH_ITEM` | Retrieve from chest | `locationPreference`: `"DUNGEON"` or `"SETTLEMENT"` (optional) |
-| `TALK_TO_NPC` | Interact with NPC | none needed |
-| `KILL_NPC` | Eliminate target NPC | none needed |
+| `TALK_TO_NPC` | Interact with NPC | none |
+| `KILL_NPC` | Eliminate target NPC | none |
 
-- Exposition and Conflict: `objectivePool` must have 2-4 types
+- Exposition/Conflict: `objectivePool` must have 2-4 types
 - Resolution: `objectivePool` MUST be `[]`
-
----
 
 ---
 
 ## Pool Value Authoring
 
-Pool values live in `quests/pools/*.json`. When adding new entries:
-
-### Item and mob pools (gather_items.json, hostile_mobs.json)
+### Item/mob pools (gather_items.json, hostile_mobs.json)
 ```json
 { "id": "Hytale:ItemId", "label": "display name" }
 ```
-- `label` is what appears in dialogue (lowercase, natural language)
 
 ### Narrative pools (quest_focuses.json, quest_stakes.json, quest_threats.json)
 ```json
 { "value": "noun phrase without article", "plural": true/false }
 ```
-- `value`: bare noun phrase, NO "the" prefix
-- `plural`: determines verb conjugation helpers
-- Keep values 1-4 words
-- Values must work as both subjects and objects in sentences
+- NO "the" prefix
+- `plural` determines conjugation helpers
+- 1-4 words
+- Must work as both subject and object
 
 ### String pools (quest_actions.json, quest_origins.json, etc.)
 ```json
 "verb phrase" or "full phrase"
 ```
-- `quest_actions`: verb phrases that follow "to" or "we need to" (e.g., "hold the line")
-- `quest_origins`: full phrases that follow "since" or "because of" (e.g., "last winter's famine")
-- `quest_time_pressures`: full phrases that work as deadlines (e.g., "before the next storm")
-- `quest_reward_hints`: full phrases the NPC says about reward (e.g., "my family's heirloom")
+
+### Response pools (responses_accept.json, responses_decline.json)
+
+Keyed by situation name (preferred) AND tone (fallback):
+```json
+{
+  "tones": {
+    "desperate": ["response1", "response2", ...],
+    "Supplication": ["situation-specific response1", ...]
+  }
+}
+```
+
+Rules for response text:
+- Self-contained statements only
+- NO questions expecting NPC reply (NPC counter-responses are separate)
+- NO demands ("What's in it for me?")
+- `{quest_action}` and `{quest_focus}` tokens allowed sparingly when natural
+- Match the situation's emotional register
+
+### Counter-response pools (responses_counter_*.json)
+
+Keyed by tone only:
+```json
+{
+  "tones": {
+    "desperate": ["NPC counter-response1", ...],
+    "bold": [...]
+  }
+}
+```
+
+Rules for counter-response text:
+- NPC acknowledging the player's choice
+- Self-contained: does not expect further player reply
+- Matches the tone of the situation
+- `{quest_action}`, `{quest_focus}`, `{quest_stakes}` tokens allowed sparingly
+- Accept counters: grateful, acknowledging
+- Decline counters: disappointed but not hostile
+- Stat pass counters: impressed, reassured
+- Stat fail counters: mildly disappointed but accepting, quest still proceeds
+
+### Stat check response pool (responses_stat_check.json)
+
+Keyed by stat type:
+```json
+{
+  "stats": {
+    "STR": ["strength-themed player line", ...],
+    "DEX": ["dexterity-themed player line", ...],
+    "CON": [...], "INT": [...], "WIS": [...], "CHA": [...]
+  }
+}
+```
+
+Rules:
+- Player asserting their capability in that stat
+- Self-contained, no questions
+- Should not reference specific quest details (these are stat-generic)
+
+---
+
+## Tone Reference (all 36 situations)
+
+| Situation | Tone |
+|---|---|
+| Supplication | desperate |
+| Deliverance | urgent |
+| CrimePursuedByVengeance | urgent |
+| VengeanceOfKindred | somber |
+| Pursuit | urgent |
+| Disaster | urgent |
+| FallingPreyToMisfortune | somber |
+| Revolt | conspiratorial |
+| DaringEnterprise | bold |
+| Abduction | urgent |
+| TheEnigma | bold |
+| Obtaining | bold |
+| EnemityOfKinsmen | conflicted |
+| RivalryOfKinsmen | conflicted |
+| MurderousAdultery | conspiratorial |
+| Madness | somber |
+| FatalImprudence | somber |
+| InvoluntaryCrimesOfLove | conflicted |
+| SlayingOfKinUnrecognized | somber |
+| SelfSacrificeForAnIdeal | somber |
+| SelfSacrificeForKindred | desperate |
+| AllSacrificedForPassion | conflicted |
+| NecessityOfSacrificingLovedOnes | conflicted |
+| RivalryOfSuperiorVsInferior | conspiratorial |
+| Adultery | conspiratorial |
+| CrimesOfLove | conflicted |
+| DiscoveryOfDishonor | urgent |
+| ObstaclesToLove | conflicted |
+| AnEnemyLoved | conflicted |
+| Ambition | bold |
+| ConflictWithAGod | somber |
+| MistakenJealousy | conflicted |
+| ErroneousJudgment | urgent |
+| Remorse | somber |
+| RecoveryOfALostOne | desperate |
+| LossOfLovedOnes | somber |
 
 ---
 
 ## Checklist Before Submitting
 
-- [ ] No `bindings` object in any variant (all variables come from pools)
-- [ ] No `playerResponses` in any variant (responses come from tone pools)
-- [ ] All `{quest_focus}`, `{quest_stakes}`, `{quest_threat}` preceded by "the" in templates
+### Template files
+- [ ] No `bindings` object in any variant
+- [ ] No `playerResponses` in any variant
+- [ ] All `{quest_focus}`, `{quest_stakes}`, `{quest_threat}` preceded by "the"
 - [ ] Conjugation helpers used when pool variable is sentence subject
-- [ ] Optional variables in removable clauses (grammar survives stripping)
+- [ ] Optional variables in removable clauses
 - [ ] No hardcoded names, places, items, or story specifics
 - [ ] Resolution variants have empty `objectivePool` and `objectiveConfig`
-- [ ] Each variant has different phrasing/structure, not different content
-- [ ] Tested mentally with 3 different variable substitutions
-- [ ] Valid JSON (no trailing commas, proper brackets)
+- [ ] Each variant has different phrasing, not different content
+- [ ] Tested mentally with 3 substitution sets
+- [ ] Valid JSON
+
+### Response pool entries
+- [ ] Self-contained statements (no questions, no demands)
+- [ ] Match situation/tone emotional register
+- [ ] Variable tokens used sparingly and naturally
+- [ ] Counter-responses don't expect further player reply
+- [ ] Stat check responses are stat-themed but quest-generic
+- [ ] 5 entries per situation key, 5-8 per tone key
