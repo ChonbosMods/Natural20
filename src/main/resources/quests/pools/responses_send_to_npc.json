@@ -41,6 +41,186 @@
       "{target_npc} and I don't agree on the {quest_threat}, but their view matters. They're {location_hint}. Listen to what they have to say with an open mind.",
       "I need someone impartial to talk to {target_npc} {location_hint}. They know things about the {quest_focus} that complicate everything I've told you.",
       "Before you judge this situation, hear {target_npc} out. They're {location_hint}. What they know about the {quest_threat} might change how you see the {quest_focus}."
+    ],
+    "Supplication": [
+      "I'm begging you, find {target_npc} {location_hint}. They're the only one who might still help us with the {quest_focus}. Please, tell them how desperate things have become.",
+      "We have no one else to turn to. {target_npc} {location_hint} knows about the {quest_threat} and they might take pity on our situation. Go to them and plead our case.",
+      "I would go myself if I could. {target_npc} is {location_hint}: they've helped people in need before. Beg them if you must, but get them to help us with the {quest_focus}."
+    ],
+    "DaringEnterprise": [
+      "This is our chance. {target_npc} {location_hint} has been planning something bold against the {quest_threat}. Find them and tell them we're ready to move on the {quest_focus}.",
+      "Fortune favors the brave, and {target_npc} is the bravest person I know. They're {location_hint}. Talk to them about the {quest_focus}: they'll know how to strike.",
+      "I've heard {target_npc} {location_hint} has a daring plan involving the {quest_focus}. Seek them out and see if we can make it work. This could change everything."
+    ],
+    "Pursuit": [
+      "We can't lose the trail. {target_npc} {location_hint} has been tracking the {quest_threat} and knows where it's heading. Get to them before the lead goes cold.",
+      "Every second counts. {target_npc} {location_hint} spotted movement near the {quest_focus} and sent word. Reach them fast and get coordinates before we lose our window.",
+      "{target_npc} is {location_hint} monitoring the {quest_threat} right now. They can tell you exactly where to intercept. Go: the {quest_focus} won't stay exposed for long."
+    ],
+    "Deliverance": [
+      "The people trapped by the {quest_threat} need a champion. {target_npc} {location_hint} knows a way to reach them through the {quest_focus}. Go: lives depend on what they tell you.",
+      "{target_npc} {location_hint} has been organizing a rescue effort around the {quest_focus}. They need capable help. Find them and lend your strength to saving the {quest_stakes}.",
+      "Someone has to stand between the {quest_threat} and the innocent. {target_npc} is {location_hint} and they've found a weakness we can exploit. Talk to them and bring hope back."
+    ],
+    "CrimePursuedByVengeance": [
+      "Justice demands an answer. {target_npc} {location_hint} witnessed what the {quest_threat} did to the {quest_focus}. Find them and get their testimony: the guilty will not escape.",
+      "{target_npc} has been gathering evidence {location_hint} against those who harmed the {quest_stakes}. Seek them out. What they know will bring the wrongdoers to account.",
+      "The crime against the {quest_focus} cannot go unanswered. {target_npc} {location_hint} knows who is responsible. Go to them and learn the truth so justice can be served."
+    ],
+    "VengeanceOfKindred": [
+      "We owe this to the fallen. {target_npc} {location_hint} carries the same grief we do over the {quest_focus}. Speak with them: they've sworn to see this through to the end.",
+      "{target_npc} lost someone to the {quest_threat} too. They're {location_hint}, keeping vigil. Go to them and honor what was taken by learning everything they know about the {quest_focus}.",
+      "The dead deserve remembrance, and the {quest_threat} deserves reckoning. {target_npc} {location_hint} has been carrying this burden alone. Find them and share it."
+    ],
+    "Disaster": [
+      "Everything is falling apart. {target_npc} {location_hint} is our best chance at understanding how to survive the {quest_threat}. Get to them now before things get worse.",
+      "The {quest_focus} is collapsing around us. {target_npc} {location_hint} has dealt with catastrophe before and might know how to stem the tide. Go: there's no time to hesitate.",
+      "We need to rally or we lose everything. {target_npc} {location_hint} knows the {quest_focus} better than anyone. Find them and figure out how we pull through this disaster."
+    ],
+    "FallingPreyToMisfortune": [
+      "I suppose it was inevitable. {target_npc} {location_hint} tried to warn us about the {quest_focus}, and now it's come to pass. Go hear what they have to say. Maybe something can still be salvaged.",
+      "Fate hasn't been kind to any of us. {target_npc} is {location_hint}, and they understand the {quest_threat} better than most: they've suffered from it themselves. Talk to them.",
+      "The {quest_focus} was always fragile. {target_npc} {location_hint} saw this misfortune coming and may know how to endure what we cannot prevent. Seek their counsel."
+    ],
+    "Revolt": [
+      "Keep your voice down. {target_npc} {location_hint} shares our frustration with the {quest_threat} and has been quietly building support. Make contact: the {quest_focus} depends on it.",
+      "The time for obedience is over. {target_npc} {location_hint} has been organizing resistance around the {quest_focus}. Go to them discreetly and see where we stand.",
+      "We can't tolerate the {quest_threat} any longer. {target_npc} is {location_hint}: they know who else is ready to act. Find them and tell them the {quest_focus} has reached a breaking point."
+    ],
+    "Abduction": [
+      "They took them. {target_npc} {location_hint} saw where the {quest_threat} went with the {quest_stakes}. Get to them immediately: every moment we waste is a moment lost.",
+      "There's no time. {target_npc} {location_hint} was tracking the {quest_threat} when the {quest_stakes} was seized. Find them now and get a heading before the trail disappears.",
+      "Please, you have to hurry. {target_npc} is {location_hint} and they have information about where the {quest_stakes} is being held. Run. The {quest_focus} cannot wait."
+    ],
+    "TheEnigma": [
+      "Something strange is happening with the {quest_focus}. {target_npc} {location_hint} has noticed it too and has been piecing things together. I think you'll find their theories fascinating.",
+      "I can't make sense of the {quest_threat} on my own. {target_npc} {location_hint} has a sharp mind for this sort of puzzle. Go pick their brain about the {quest_focus}.",
+      "There's a mystery buried in the {quest_focus} that none of us can solve alone. {target_npc} is {location_hint}: they've been studying it from a different angle. See what they've uncovered."
+    ],
+    "Obtaining": [
+      "{target_npc} {location_hint} knows exactly how to get what we need regarding the {quest_focus}. They're resourceful and well-connected. Talk to them and see what can be arranged.",
+      "If anyone can help us secure the {quest_focus}, it's {target_npc}. They're {location_hint} and they know every trick in the book. Go see what they can offer against the {quest_threat}.",
+      "We need an edge, and {target_npc} {location_hint} is the one to provide it. They've been working on something related to the {quest_focus}. Find out what it is and how we can use it."
+    ],
+    "EnemityOfKinsmen": [
+      "This feud over the {quest_focus} is tearing people apart. {target_npc} {location_hint} has ties to both sides. Talk to them and see if there's common ground before the {quest_threat} destroys everything.",
+      "Blood shouldn't fight blood, but the {quest_focus} has driven kin against kin. {target_npc} is {location_hint}: they've been trying to mediate. Go hear where things stand.",
+      "The hatred between families over the {quest_threat} runs deep. {target_npc} {location_hint} understands the roots of this conflict better than anyone. Speak with them before more damage is done."
+    ],
+    "RivalryOfKinsmen": [
+      "{target_npc} {location_hint} has been watching the rivalry over the {quest_focus} with level eyes. Talk to them: they might know how to settle this fairly before it escalates.",
+      "Both sides claim the {quest_focus}, and neither will yield. {target_npc} is {location_hint} and they've proposed terms that might satisfy everyone. Go hear them out.",
+      "The competition for the {quest_stakes} needs an impartial judge. {target_npc} {location_hint} has earned that trust. See them and learn how this rivalry can end with honor intact."
+    ],
+    "MurderousAdultery": [
+      "Something dark is festering around the {quest_focus}. {target_npc} {location_hint} has seen things they're afraid to speak of openly. Go to them alone and ask about the {quest_threat}.",
+      "I don't trust what I've been told about the {quest_focus}. {target_npc} is {location_hint}: they've been watching the people involved and have suspicions of their own. Hear what they've noticed.",
+      "There are whispers of betrayal tied to the {quest_focus}. {target_npc} {location_hint} knows more than they've let on. Approach carefully and find out what they're hiding."
+    ],
+    "Madness": [
+      "I hardly know how to say this. Something is wrong with the {quest_focus}: deeply, unnervingly wrong. {target_npc} {location_hint} has studied it and they're unsettled too. Talk to them, but be wary.",
+      "{target_npc} is {location_hint}. They've been observing the {quest_threat} and what it does to people. What they've seen is disturbing. Go to them, but keep your wits about you.",
+      "The {quest_focus} is driving people to act against their own nature. {target_npc} {location_hint} might understand why. Approach them carefully: this affliction spares no one."
+    ],
+    "FatalImprudence": [
+      "I made a terrible mistake regarding the {quest_focus}. {target_npc} {location_hint} warned me and I didn't listen. Go to them and ask how we undo what my recklessness set in motion.",
+      "If only we'd been more careful. {target_npc} is {location_hint}: they predicted the {quest_threat} would come from our own carelessness. See if they know how to repair the damage.",
+      "The {quest_focus} is in jeopardy because of choices that should never have been made. {target_npc} {location_hint} saw the folly from the start. Ask them what path remains to set things right."
+    ],
+    "InvoluntaryCrimesOfLove": [
+      "What happened with the {quest_focus} wasn't born of malice: it was born of love, and it went terribly wrong. {target_npc} {location_hint} understands the pain. Please, talk to them.",
+      "No one meant for the {quest_threat} to harm the {quest_stakes}. {target_npc} is {location_hint}: they've seen this kind of heartbreak before. Go to them with compassion and hear what they know.",
+      "The {quest_focus} is tangled in grief and devotion. {target_npc} {location_hint} has a gentle hand with these matters. Seek them out and try to find a way forward that doesn't demand more suffering."
+    ],
+    "SlayingOfKinUnrecognized": [
+      "Something terrible has happened at the {quest_focus}, and the truth of it hasn't come to light yet. {target_npc} {location_hint} may know who was really struck down. Go to them and find out before the {quest_stakes} {quest_stakes_is} buried along with the dead.",
+      "{target_npc} was there when the {quest_threat} turned kin against kin. They're {location_hint}. I need you to learn what they saw, because someone killed their own blood and doesn't even know it.",
+      "The blood spilled at the {quest_focus} may belong to family. {target_npc} {location_hint} has been piecing together the identities. Talk to them, {player_name}. The truth must not stay hidden."
+    ],
+    "SelfSacrificeForAnIdeal": [
+      "What {quest_ally} did for the {quest_stakes} was beyond what anyone should ask. {target_npc} {location_hint} witnessed the sacrifice firsthand. Go to them and learn what it meant, so it won't be forgotten.",
+      "{target_npc} understands the kind of conviction that drives a person to give everything for the {quest_focus}. They're {location_hint}. Seek them out and hear what they know about this noble burden.",
+      "Someone laid down their life for the {quest_stakes}, and {target_npc} {location_hint} can tell you why it mattered. Go to them. What they share will give this sacrifice the meaning it deserves."
+    ],
+    "SelfSacrificeForKindred": [
+      "The {quest_threat} forced someone to choose between their own life and their family's. {target_npc} {location_hint} knows what happened. Go to them and learn who was protected and at what cost.",
+      "{target_npc} {location_hint} has been watching over those left behind after someone gave everything to shield them from the {quest_threat}. Talk to them. They'll tell you what the {quest_stakes} still needs.",
+      "Blood was shed to keep loved ones safe from the {quest_threat}. {target_npc} {location_hint} carries the full story. Find them and understand what this devotion has cost, so we can honor it properly."
+    ],
+    "AllSacrificedForPassion": [
+      "Someone threw away everything: home, standing, the {quest_stakes}: all for a passion that consumed them. {target_npc} {location_hint} watched it happen. Go to them and learn how deep this recklessness runs.",
+      "The {quest_focus} {quest_focus_was} destroyed by someone's obsession, and {target_npc} {location_hint} tried to warn them. Speak with {target_npc} before the {quest_threat} claims more collateral.",
+      "I'm worried about what passion has done to the {quest_stakes}. {target_npc} {location_hint} has seen the damage up close. Talk to them and bring back an honest account, even if it's hard to hear."
+    ],
+    "NecessityOfSacrificingLovedOnes": [
+      "There's no gentle way to say this. The {quest_stakes} may require a sacrifice no one wants to make. {target_npc} {location_hint} has faced this kind of impossible choice before. Go to them and hear how they survived it.",
+      "{target_npc} {location_hint} carries a burden heavier than any of us can imagine. They know what it means to sacrifice someone you love to stop the {quest_threat}. Hear their counsel before we go further.",
+      "The {quest_focus} demands a terrible price. {target_npc} {location_hint} understands this better than I ever could. Go to them, {player_name}. What they tell you will weigh on your heart, but we need their guidance."
+    ],
+    "RivalryOfSuperiorVsInferior": [
+      "The {quest_threat} thinks power alone decides who matters. {target_npc} {location_hint} has been standing against that belief despite the odds. Go to them and find out how we can challenge what seems unchallengeable.",
+      "{target_npc} {location_hint} refuses to bow to the {quest_threat}, even though they have every reason to be afraid. Talk to them about the {quest_focus}. Their defiance might be exactly the edge the {quest_stakes} needs.",
+      "Those who hold power over the {quest_focus} think themselves untouchable. {target_npc} {location_hint} knows differently. Seek them out and learn what the powerful don't want you to know about the {quest_stakes}."
+    ],
+    "Adultery": [
+      "Oaths have been broken, and the {quest_stakes} {quest_stakes_is} unraveling because of it. {target_npc} {location_hint} knows who betrayed whom. Go to them and learn the truth so we can set things right.",
+      "The {quest_focus} {quest_focus_was} built on trust that someone shattered. {target_npc} {location_hint} has proof of the betrayal. Speak with them, {player_name}. Broken vows must be answered.",
+      "{target_npc} {location_hint} has been watching the fallout from a betrayal that's tearing the {quest_stakes} apart. Go to them. We need to know the full scope of the damage before we can act."
+    ],
+    "CrimesOfLove": [
+      "What happened at the {quest_focus} wasn't malice: it was love, twisted into something the law cannot forgive. {target_npc} {location_hint} understands the whole story. Go hear them out before you judge.",
+      "{target_npc} {location_hint} knows why someone broke every rule for the sake of the {quest_stakes}. Their perspective on the {quest_focus} is nuanced. Seek them and listen with an open heart.",
+      "The person responsible for the {quest_threat} acted out of love, not cruelty. {target_npc} {location_hint} can explain. Talk to them, {player_name}. The truth here isn't as simple as right and wrong."
+    ],
+    "DiscoveryOfDishonor": [
+      "Someone we trusted has dishonored the {quest_stakes}, and the evidence points to the {quest_focus}. {target_npc} {location_hint} has been investigating. Go to them and find out exactly what they've uncovered.",
+      "The {quest_focus} {quest_focus_has} been tainted by dishonor, and I can't stomach it. {target_npc} {location_hint} knows who's responsible. Get their account, {player_name}. This corruption must be exposed.",
+      "{target_npc} {location_hint} discovered something disgraceful about the {quest_threat} that affects the {quest_stakes} directly. Speak with them and bring back the full, ugly truth. We owe it to the people who've been wronged."
+    ],
+    "ObstaclesToLove": [
+      "Two people who care deeply for each other are being kept apart by the {quest_threat}, and the {quest_stakes} {quest_stakes_is} caught in the middle. {target_npc} {location_hint} knows what stands between them. Go and find out what we can do.",
+      "{target_npc} {location_hint} has been trying to help those separated by the {quest_focus}. They understand the barriers better than anyone. Talk to them and learn what it would take to clear the path.",
+      "Love shouldn't be this hard, but the {quest_threat} has made it so. {target_npc} {location_hint} can tell you what's really keeping these hearts apart. Go to them, {player_name}. Maybe together we can find a way."
+    ],
+    "AnEnemyLoved": [
+      "This may surprise you, but the person behind the {quest_threat} isn't entirely what we assumed. {target_npc} {location_hint} has seen another side of them. Go hear what they have to say before we act on the {quest_focus}.",
+      "{target_npc} {location_hint} believes there's good in someone everyone else has written off as an enemy. Talk to them about the {quest_focus}. Understanding our adversary might be the only way to protect the {quest_stakes}.",
+      "The line between friend and foe has blurred around the {quest_focus}. {target_npc} {location_hint} can help us see both sides. Go to them with an open mind, {player_name}. Peace might still be possible."
+    ],
+    "Ambition": [
+      "The {quest_focus} represents an opportunity that won't come again. {target_npc} {location_hint} has the strategic mind to see how we can seize it. Go to them and find out what it will take to secure the {quest_stakes}.",
+      "{target_npc} {location_hint} has been positioning themselves near the {quest_focus} for exactly this moment. They understand the {quest_threat} as a puzzle to be solved, not just a danger to fear. Consult with them.",
+      "If we're going to outmaneuver the {quest_threat}, we need sharper thinking. {target_npc} {location_hint} has that. Go to them, lay out the situation with the {quest_focus}, and bring back a plan worthy of the {quest_stakes}."
+    ],
+    "ConflictWithAGod": [
+      "What threatens the {quest_focus} is beyond mortal reckoning. {target_npc} {location_hint} has studied the {quest_threat} and understands forces that ordinary people cannot fathom. Seek their counsel before we dare act.",
+      "We are dealing with powers that shaped the world itself. {target_npc} {location_hint} may be the only one who can guide us through this conflict with the {quest_threat}. Go to them, {player_name}, and tread carefully.",
+      "The {quest_stakes} {quest_stakes_is} caught between mortal concerns and divine wrath. {target_npc} {location_hint} has walked this line before. Find them and ask how one stands against a force that commands the {quest_threat}."
+    ],
+    "MistakenJealousy": [
+      "Someone is being blamed for the {quest_threat} out of jealousy, not evidence. {target_npc} {location_hint} can separate the truth from the suspicion. Go to them before an innocent person pays for the {quest_focus}.",
+      "Jealousy has poisoned the truth about the {quest_focus}. {target_npc} {location_hint} sees clearly where others are blinded by suspicion. Talk to them and bring back what's real, not what's feared.",
+      "{target_npc} {location_hint} has been patient with the accusations swirling around the {quest_stakes}. They know the jealousy driving this is misplaced. Go to them and learn what actually happened at the {quest_focus}."
+    ],
+    "ErroneousJudgment": [
+      "A terrible mistake has been made regarding the {quest_focus}, and an innocent person is suffering for it. {target_npc} {location_hint} has evidence that the judgment was wrong. Go to them now, before the damage is permanent.",
+      "The {quest_stakes} {quest_stakes_is} being destroyed by a verdict built on lies. {target_npc} {location_hint} knows the truth. Talk to them immediately, {player_name}. Every moment this false judgment stands, the {quest_threat} grows stronger.",
+      "{target_npc} {location_hint} tried to speak up when the wrong person was condemned for the {quest_focus}, but no one would listen. Go hear their testimony. We need to correct this before it's too late."
+    ],
+    "Remorse": [
+      "I carry guilt that I cannot undo. But {target_npc} {location_hint} may know how I can begin to make amends for what happened to the {quest_stakes}. Go to them and ask what path redemption takes.",
+      "The {quest_focus} {quest_focus_was} damaged by my own hand, and I have to face that. {target_npc} {location_hint} has helped others find their way back from such burdens. Speak with them on my behalf, {player_name}.",
+      "What was done to the {quest_stakes} haunts me. {target_npc} {location_hint} understands the weight of remorse better than anyone I know. Go to them and learn if there is still a way to set things right."
+    ],
+    "RecoveryOfALostOne": [
+      "Someone dear to us vanished near the {quest_focus}, and {target_npc} {location_hint} may have seen where they went. Go to them. Any trace, any word: it could bring our lost one home.",
+      "I haven't given up hope. {target_npc} {location_hint} has been searching for the one taken by the {quest_threat}. Talk to them and find out what they've learned. Even the smallest lead matters now.",
+      "{target_npc} {location_hint} reported something near the {quest_focus} that might be connected to the one we lost. Please, {player_name}, go to them and find out if our loved one is still out there."
+    ],
+    "LossOfLovedOnes": [
+      "We lost someone who meant everything to us, and the {quest_focus} is all that remains of their memory. {target_npc} {location_hint} knew them well. Go to them, {player_name}, and help us remember what we're fighting to preserve.",
+      "The {quest_threat} took people from us that we can never replace. {target_npc} {location_hint} is grieving too, but they also know things about the {quest_focus} that could protect the {quest_stakes} from further loss. Please go to them.",
+      "{target_npc} {location_hint} was close to those we've lost. They carry memories and knowledge about the {quest_focus} that we need now more than ever. Talk to them gently, {player_name}. This pain is still raw."
     ]
   }
 }

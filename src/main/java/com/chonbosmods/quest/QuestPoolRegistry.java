@@ -234,26 +234,29 @@ public class QuestPoolRegistry {
     /**
      * Pick a quest giver line for sending the player to talk to an NPC.
      */
-    public String randomSendToNpcDialogue(String tone, Random random) {
-        List<String> pool = sendToNpcResponses.get(tone);
+    public String randomSendToNpcDialogue(String situationId, String tone, Random random) {
+        List<String> pool = sendToNpcResponses.get(situationId);
+        if (pool == null || pool.isEmpty()) pool = sendToNpcResponses.get(tone);
         if (pool == null || pool.isEmpty()) return "Go speak with {target_npc} {location_hint}. They may know something about the {quest_focus}.";
         return pool.get(random.nextInt(pool.size()));
     }
 
     /**
-     * Pick a target NPC info-only dialogue (60% chance path).
+     * Pick a target NPC info-only dialogue: situation-specific first, then tone fallback.
      */
-    public String randomTargetNpcInfo(String tone, Random random) {
-        List<String> pool = targetNpcInfoResponses.get(tone);
-        if (pool == null || pool.isEmpty()) return "I know about the {quest_focus}. Here's what I can tell you. Take this back to your quest giver.";
+    public String randomTargetNpcInfo(String situationId, String tone, Random random) {
+        List<String> pool = targetNpcInfoResponses.get(situationId);
+        if (pool == null || pool.isEmpty()) pool = targetNpcInfoResponses.get(tone);
+        if (pool == null || pool.isEmpty()) return "I know about the {quest_focus}. Here's what I can tell you. Take this back to {quest_giver_name}.";
         return pool.get(random.nextInt(pool.size()));
     }
 
     /**
-     * Pick a target NPC handoff dialogue that includes giving an objective (40% chance path).
+     * Pick a target NPC handoff dialogue: situation-specific first, then tone fallback.
      */
-    public String randomTargetNpcHandoff(String tone, Random random) {
-        List<String> pool = targetNpcHandoffResponses.get(tone);
+    public String randomTargetNpcHandoff(String situationId, String tone, Random random) {
+        List<String> pool = targetNpcHandoffResponses.get(situationId);
+        if (pool == null || pool.isEmpty()) pool = targetNpcHandoffResponses.get(tone);
         if (pool == null || pool.isEmpty()) return "I can help with the {quest_focus}, but I need {quest_item} first. Bring some from {location_hint} and I'll share what I know.";
         return pool.get(random.nextInt(pool.size()));
     }

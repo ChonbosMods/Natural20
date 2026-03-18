@@ -167,6 +167,7 @@ public class QuestGenerator {
     private Map<String, String> resolveWorldBindings(double npcX, double npcZ, String npcCellKey,
                                                       String npcId, Random random) {
         Map<String, String> bindings = new HashMap<>();
+        bindings.put("quest_giver_name", npcId);
 
         QuestPoolRegistry.ItemEntry gatherItem = poolRegistry.randomGatherItem(random);
         bindings.put("quest_item", gatherItem.label());
@@ -272,13 +273,13 @@ public class QuestGenerator {
         bindings.put("counter_decline", poolRegistry.randomCounterDecline(situation.getId(), tone, random));
 
         // Target NPC dialogue for TALK_TO_NPC objectives
-        bindings.put("send_to_npc_dialogue", poolRegistry.randomSendToNpcDialogue(tone, random));
+        bindings.put("send_to_npc_dialogue", poolRegistry.randomSendToNpcDialogue(situation.getId(), tone, random));
         boolean talkHandoff = random.nextDouble() < TALK_NPC_HANDOFF_CHANCE;
         bindings.put("talk_npc_is_handoff", talkHandoff ? "true" : "false");
         if (talkHandoff) {
-            bindings.put("target_npc_dialogue", poolRegistry.randomTargetNpcHandoff(tone, random));
+            bindings.put("target_npc_dialogue", poolRegistry.randomTargetNpcHandoff(situation.getId(), tone, random));
         } else {
-            bindings.put("target_npc_dialogue", poolRegistry.randomTargetNpcInfo(tone, random));
+            bindings.put("target_npc_dialogue", poolRegistry.randomTargetNpcInfo(situation.getId(), tone, random));
         }
 
         // Stat-gated response option
