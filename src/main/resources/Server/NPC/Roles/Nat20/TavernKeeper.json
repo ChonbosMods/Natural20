@@ -1,78 +1,8 @@
 {
   "Type": "Variant",
   "Reference": "Template_Settlement_Civilian",
-  "Appearance": "NPC_Elf",
-  "NameTranslationKey": "nat20.npc.tavernkeeper",
   "Parameters": {
-    "MaxHealth": {
-      "Value": 100
-    },
-    "WanderRadius": {
-      "Value": 0
-    }
-  },
-  "InteractionVars": {
-    "nat20_role": "tavern",
-    "nat20_trade": "keeper"
-  },
-  "InteractionInstruction": {
-    "Instructions": [
-      {
-        "Sensor": {
-          "Type": "Not",
-          "Sensor": {
-            "Type": "CanInteract",
-            "ViewSector": 180
-          }
-        },
-        "Actions": [
-          {
-            "Type": "SetInteractable",
-            "Interactable": false
-          }
-        ]
-      },
-      {
-        "Continue": true,
-        "Sensor": {
-          "Type": "Any"
-        },
-        "Actions": [
-          {
-            "Type": "SetInteractable",
-            "Interactable": true,
-            "Hint": "Talk to Tavern Keeper"
-          }
-        ]
-      },
-      {
-        "Sensor": {
-          "Type": "HasInteracted"
-        },
-        "Instructions": [
-          {
-            "Sensor": {
-              "Type": "Not",
-              "Sensor": {
-                "Type": "State",
-                "State": "$Interaction"
-              }
-            },
-            "Actions": [
-              {
-                "Type": "LockOnInteractionTarget"
-              },
-              {
-                "Type": "Nat20StartDialogue"
-              },
-              {
-                "Type": "State",
-                "State": "$Interaction"
-              }
-            ]
-          }
-        ]
-      }
-    ]
+    "MaxHealth": { "Value": 100 },
+    "WanderRadius": { "Value": 0 }
   }
 }
