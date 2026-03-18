@@ -20,6 +20,7 @@ public class QuestGenerator {
     private static final double QUEST_ALLY_TOPIC_CHANCE = 0.35;
     private static final double STAKES_EQUALS_FOCUS_CHANCE = 0.25;
     private static final double SHORT_QUEST_CHANCE = 0.10;
+    private static final double TALK_NPC_HANDOFF_CHANCE = 0.40;
 
     private final QuestTemplateRegistry templateRegistry;
     private final SettlementRegistry settlementRegistry;
@@ -271,7 +272,14 @@ public class QuestGenerator {
         bindings.put("counter_decline", poolRegistry.randomCounterDecline(situation.getId(), tone, random));
 
         // Target NPC dialogue for TALK_TO_NPC objectives
-        bindings.put("target_npc_dialogue", poolRegistry.randomTargetNpcDialogue(tone, random));
+        bindings.put("send_to_npc_dialogue", poolRegistry.randomSendToNpcDialogue(tone, random));
+        boolean talkHandoff = random.nextDouble() < TALK_NPC_HANDOFF_CHANCE;
+        bindings.put("talk_npc_is_handoff", talkHandoff ? "true" : "false");
+        if (talkHandoff) {
+            bindings.put("target_npc_dialogue", poolRegistry.randomTargetNpcHandoff(tone, random));
+        } else {
+            bindings.put("target_npc_dialogue", poolRegistry.randomTargetNpcInfo(tone, random));
+        }
 
         // Stat-gated response option
         String statType = poolRegistry.randomStatType(random);

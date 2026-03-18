@@ -43,7 +43,9 @@ public class QuestPoolRegistry {
     private final Map<String, List<String>> counterStatPassResponses = new HashMap<>();
     private final Map<String, List<String>> counterStatFailResponses = new HashMap<>();
     private final Map<String, List<String>> statCheckResponses = new HashMap<>();
-    private final Map<String, List<String>> targetNpcResponses = new HashMap<>();
+    private final Map<String, List<String>> targetNpcInfoResponses = new HashMap<>();
+    private final Map<String, List<String>> targetNpcHandoffResponses = new HashMap<>();
+    private final Map<String, List<String>> sendToNpcResponses = new HashMap<>();
     private final Map<String, String> situationTones = new HashMap<>();
 
     public void loadAll(@Nullable Path poolsDir) {
@@ -69,7 +71,8 @@ public class QuestPoolRegistry {
         loadTonedResponses(poolsDir.resolve("responses_counter_stat_pass.json"), counterStatPassResponses);
         loadTonedResponses(poolsDir.resolve("responses_counter_stat_fail.json"), counterStatFailResponses);
         loadTonedResponses(poolsDir.resolve("responses_stat_check.json"), statCheckResponses);
-        loadTonedResponses(poolsDir.resolve("responses_target_npc.json"), targetNpcResponses);
+        loadTargetNpcResponses(poolsDir.resolve("responses_target_npc.json"));
+        loadTonedResponses(poolsDir.resolve("responses_send_to_npc.json"), sendToNpcResponses);
         loadSituationTones(poolsDir.resolve("situation_tones.json"));
 
         LOGGER.atInfo().log("Loaded pools: %d items, %d mobs, %d actions, %d focuses, %d stakes, %d threats, %d origins, %d pressures, %d rewards",
@@ -229,11 +232,29 @@ public class QuestPoolRegistry {
     }
 
     /**
-     * Pick a target NPC dialogue line for TALK_TO_NPC objectives.
+     * Pick a quest giver line for sending the player to talk to an NPC.
      */
-    public String randomTargetNpcDialogue(String tone, Random random) {
-        List<String> pool = targetNpcResponses.get(tone);
-        if (pool == null || pool.isEmpty()) return "I know about the {quest_focus}. Here's what I can tell you.";
+    public String randomSendToNpcDialogue(String tone, Random random) {
+        List<String> pool = sendToNpcResponses.get(tone);
+        if (pool == null || pool.isEmpty()) return "Go speak with {target_npc} {location_hint}. They may know something about the {quest_focus}.";
+        return pool.get(random.nextInt(pool.size()));
+    }
+
+    /**
+     * Pick a target NPC info-only dialogue (60% chance path).
+     */
+    public String randomTargetNpcInfo(String tone, Random random) {
+        List<String> pool = targetNpcInfoResponses.get(tone);
+        if (pool == null || pool.isEmpty()) return "I know about the {quest_focus}. Here's what I can tell you. Take this back to your quest giver.";
+        return pool.get(random.nextInt(pool.size()));
+    }
+
+    /**
+     * Pick a target NPC handoff dialogue that includes giving an objective (40% chance path).
+     */
+    public String randomTargetNpcHandoff(String tone, Random random) {
+        List<String> pool = targetNpcHandoffResponses.get(tone);
+        if (pool == null || pool.isEmpty()) return "I can help with the {quest_focus}, but I need {quest_item} first. Bring some from {location_hint} and I'll share what I know.";
         return pool.get(random.nextInt(pool.size()));
     }
 
@@ -252,6 +273,35 @@ public class QuestPoolRegistry {
     public String randomStatType(Random random) {
         String[] stats = {"STR", "DEX", "CON", "INT", "WIS", "CHA"};
         return stats[random.nextInt(stats.length)];
+    }
+
+    private void loadTargetNpcResponses(Path file) {
+        if (!Files.exists(file)) return;
+        try (var reader = Files.newBufferedReader(file, StandardCharsets.UTF_8)) {
+            JsonObject root = JsonParser.parseReader(reader).getAsJsonObject();
+            if (root.has("info")) {
+                JsonObject info = root.getAsJsonObject("info");
+                for (var entry : info.entrySet()) {
+                    List<String> responses = new ArrayList<>();
+                    for (JsonElement el : entry.getValue().getAsJsonArray()) {
+                        responses.add(el.getAsString());
+                    }
+                    targetNpcInfoResponses.put(entry.getKey(), responses);
+                }
+            }
+            if (root.has("handoff")) {
+                JsonObject handoff = root.getAsJsonObject("handoff");
+                for (var entry : handoff.entrySet()) {
+                    List<String> responses = new ArrayList<>();
+                    for (JsonElement el : entry.getValue().getAsJsonArray()) {
+                        responses.add(el.getAsString());
+                    }
+                    targetNpcHandoffResponses.put(entry.getKey(), responses);
+                }
+            }
+        } catch (IOException e) {
+            LOGGER.atSevere().withCause(e).log("Failed to load target NPC responses: %s", file);
+        }
     }
 
     private void loadTonedResponses(Path file, Map<String, List<String>> target) {
