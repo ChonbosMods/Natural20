@@ -1,0 +1,46 @@
+{
+  "tones": {
+    "desperate": [
+      "You've come about the {quest_focus}? I was afraid someone would. The {quest_threat} {quest_threat_has} been weighing on all of us here.",
+      "I know why you're here. The {quest_stakes} {quest_stakes_is} in trouble, and word travels fast. I'll tell you what I know.",
+      "So they sent someone. Good. I've been watching the {quest_threat} grow worse and wondering when someone would come asking.",
+      "You're here about the {quest_focus}, aren't you? I've seen what the {quest_threat} {quest_threat_has} done. It's worse than they told you.",
+      "Thank goodness someone came. I've been holding onto information about the {quest_focus} that your quest giver needs to hear."
+    ],
+    "bold": [
+      "Ah, you're the one taking on the {quest_focus}? Bold move. Here's what I can tell you about the {quest_threat}.",
+      "So someone finally decided to {quest_action}. About time. I've got information that might give you an edge.",
+      "I heard someone was looking into the {quest_focus}. You'll want to know what I've seen near the {quest_threat}.",
+      "You've got nerve coming here asking about the {quest_focus}. I respect that. Let me tell you what I know.",
+      "The {quest_focus}? I've been keeping an eye on that situation. Here's what your quest giver doesn't know yet."
+    ],
+    "urgent": [
+      "You need to hear this quickly. The {quest_threat} {quest_threat_is} moving faster than anyone expected.",
+      "No time for pleasantries. The situation at the {quest_focus} {quest_focus_has} changed. Listen carefully.",
+      "Good, you're here. I've been watching the {quest_threat} and the {quest_stakes} {quest_stakes_is} running out of time.",
+      "Every moment counts. The {quest_focus} {quest_focus_is} in worse shape than your quest giver knows. Here's what I've seen.",
+      "I'll keep this brief. The {quest_threat} {quest_threat_has} reached the {quest_focus} and the {quest_stakes} {quest_stakes_is} at immediate risk."
+    ],
+    "somber": [
+      "I wish I had better news about the {quest_focus}. The {quest_threat} {quest_threat_has} taken a heavy toll.",
+      "You've come a long way to hear what I know. I'm sorry to say the situation with the {quest_stakes} {quest_stakes_is} grim.",
+      "I've been watching the {quest_focus} for some time now. What the {quest_threat} {quest_threat_has} done... it's hard to put into words.",
+      "Sit down. What I have to tell you about the {quest_focus} isn't easy to hear. The {quest_stakes} {quest_stakes_has} suffered greatly.",
+      "I know about the {quest_focus}. I've seen the {quest_threat} with my own eyes. The truth is heavier than rumors."
+    ],
+    "conspiratorial": [
+      "Keep your voice down. I know about the {quest_focus}, and what I've learned about the {quest_threat} could put us both in danger.",
+      "You're here about the {quest_focus}? Good. But we need to be careful who hears this. The {quest_threat} {quest_threat_has} allies here.",
+      "I've been gathering information quietly. The {quest_stakes} {quest_stakes_is} more compromised than anyone realizes.",
+      "Close the door. What I know about the {quest_focus} isn't safe to say openly. The {quest_threat} {quest_threat_has} eyes everywhere.",
+      "I was hoping someone trustworthy would come asking. The {quest_focus} {quest_focus_is} tied to something bigger than your quest giver suspects."
+    ],
+    "conflicted": [
+      "You're asking about the {quest_focus}? I've been going back and forth about whether to share what I know.",
+      "I'm not sure telling you this is the right thing, but the {quest_stakes} {quest_stakes_is} at risk and silence feels worse.",
+      "The situation with the {quest_focus} isn't as clear-cut as your quest giver thinks. The {quest_threat} {quest_threat_is} only part of the story.",
+      "I'll tell you what I know, but understand: the truth about the {quest_focus} is complicated. The {quest_stakes} {quest_stakes_is} caught in the middle.",
+      "I've struggled with this. The {quest_focus} {quest_focus_is} important, but what I know about the {quest_threat} changes things."
+    ]
+  }
+}

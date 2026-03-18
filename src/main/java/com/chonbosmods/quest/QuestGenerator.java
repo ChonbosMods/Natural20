@@ -270,6 +270,9 @@ public class QuestGenerator {
         bindings.put("counter_accept", poolRegistry.randomCounterAccept(situation.getId(), tone, random));
         bindings.put("counter_decline", poolRegistry.randomCounterDecline(situation.getId(), tone, random));
 
+        // Target NPC dialogue for TALK_TO_NPC objectives
+        bindings.put("target_npc_dialogue", poolRegistry.randomTargetNpcDialogue(tone, random));
+
         // Stat-gated response option
         String statType = poolRegistry.randomStatType(random);
         bindings.put("stat_check_type", statType);
