@@ -7,10 +7,6 @@
         "plotStep": "The evidence you brought back proved that the {quest_focus} {quest_focus_was} never what it appeared. The council reversed their decision. {target_npc} was vindicated, and the real source of the problem has been dealt with. The {enemy_type} have retreated now that the deception has been exposed.",
         "outro": "You proved that the hardest thing to find isn't treasure or monsters: it's the truth."
       },
-      "playerResponses": [
-        { "text": "The truth is always worth the effort. Even when it's uncomfortable.", "action": "ACCEPT", "dispositionShift": 10 },
-        { "text": "Lesson learned, I hope. Be more careful with judgment next time.", "action": "ACCEPT" }
-      ],
       "objectivePool": [],
       "objectiveConfig": {}
     },
@@ -21,10 +17,6 @@
         "plotStep": "The settlement acknowledged the error, though not everyone is willing to admit they were wrong. {target_npc} accepted the apology with more grace than most would manage. The real perpetrator was identified thanks to your investigation, and the {enemy_type} threat has been neutralized.",
         "outro": "You can't unring a bell, but you can stop people from ringing it again."
       },
-      "playerResponses": [
-        { "text": "Healing takes time. The important thing is the truth is out now.", "action": "ACCEPT", "dispositionShift": 5 },
-        { "text": "Done is done. Learn from it and move forward.", "action": "ACCEPT" }
-      ],
       "objectivePool": [],
       "objectiveConfig": {}
     },
@@ -35,10 +27,6 @@
         "plotStep": "The council disbanded the group that acted on the false report. {target_npc} is helping rebuild what was damaged. The conversation has shifted: people are asking how they allowed bad information to drive them so far, so fast. The {enemy_type} weren't the real danger. We were, to ourselves.",
         "outro": "Sometimes the bravest thing you can do is hold up a mirror."
       },
-      "playerResponses": [
-        { "text": "Self-reflection is harder than any fight. I'm glad it's happening.", "action": "ACCEPT" },
-        { "text": "Knowing your weaknesses is the first step to fixing them.", "action": "ACCEPT", "dispositionShift": 5 }
-      ],
       "objectivePool": [],
       "objectiveConfig": {}
     }

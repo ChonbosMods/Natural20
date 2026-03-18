@@ -7,18 +7,6 @@
         "plotStep": "{target_npc} brokered a new accord: fair compensation, community funds restored, and a public accounting system so nobody can skim again. Whether the apologies from the powerful were sincere is debatable. Whether it matters is less so.",
         "outro": "The settlement won't change overnight, {player_name}. Power doesn't redistribute quietly. But the workers have a seat at the table now. {quest_ally} says the first fair payroll goes out next week."
       },
-      "playerResponses": [
-        {
-          "text": "A seat at the table is where change starts. Good luck to them.",
-          "action": "COMPLETE",
-          "dispositionShift": 5
-        },
-        {
-          "text": "Keep watching the books. Corruption doesn't stay gone on its own.",
-          "action": "COMPLETE",
-          "dispositionShift": 2
-        }
-      ],
       "objectivePool": [],
       "objectiveConfig": {}
     },
@@ -29,23 +17,6 @@
         "plotStep": "The families got everything back. {target_npc} supervised the distribution personally. The one who imposed the false debts hasn't been seen since. {quest_ally} organized a watch to make sure it stays fair.",
         "outro": "A piece of paper with old words on it broke a tyrant's grip, {player_name}. That's the thing about legitimate authority: it only works as long as nobody reads the fine print. You read it."
       },
-      "playerResponses": [
-        {
-          "text": "The law was always on their side. They just needed someone to prove it.",
-          "action": "COMPLETE",
-          "dispositionShift": 5
-        },
-        {
-          "text": "The powerful will try again. Stay vigilant.",
-          "action": "COMPLETE",
-          "dispositionShift": 2
-        },
-        {
-          "text": "Next time, don't wait for an outsider. Fight for your own.",
-          "action": "COMPLETE",
-          "dispositionShift": 0
-        }
-      ],
       "objectivePool": [],
       "objectiveConfig": {}
     },
@@ -56,18 +27,6 @@
         "plotStep": "The expelled worker was reinstated with a formal apology. {target_npc} says many others who were failed unfairly are being reassessed. {quest_ally} is drafting new standards with input from every level.",
         "outro": "The powerful won't forgive you easily, {player_name}. But the workers who can finally earn what they deserve will remember. Sometimes the underdog just needed a fair chance, not a revolution. You gave them one."
       },
-      "playerResponses": [
-        {
-          "text": "Fair chances shouldn't require someone breaking the system. Fix it properly.",
-          "action": "COMPLETE",
-          "dispositionShift": 4
-        },
-        {
-          "text": "The guilty got off easy. But at least the system changes.",
-          "action": "COMPLETE",
-          "dispositionShift": 1
-        }
-      ],
       "objectivePool": [],
       "objectiveConfig": {}
     }

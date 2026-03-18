@@ -7,24 +7,11 @@
         "plotStep": "{target_npc} pulled them out before the worst happened. They were furious: not grateful, furious. Said they were close to a breakthrough on the {quest_focus}. {quest_ally} found them trying to trade their last possessions for more materials.",
         "outro": "If you found the original {quest_item}, bring it now. They're past the point of reason and the next shortcut might be the one that kills them."
       },
-      "playerResponses": [
-        {
-          "text": "I have what they need. Let's hope it's enough to stop the spiral.",
-          "action": "ACCEPT",
-          "dispositionShift": 3
-        },
-        {
-          "text": "Maybe the disaster should have been the wake-up call.",
-          "action": "ACCEPT",
-          "dispositionShift": -2
-        },
-        {
-          "text": "They're choosing this. I'm done.",
-          "action": "DECLINE",
-          "dispositionShift": -3
-        }
+      "objectivePool": [
+        "DELIVER_ITEM",
+        "TALK_TO_NPC",
+        "FETCH_ITEM"
       ],
-      "objectivePool": ["DELIVER_ITEM", "TALK_TO_NPC", "FETCH_ITEM"],
       "objectiveConfig": {}
     },
     {
@@ -34,21 +21,16 @@
         "plotStep": "{target_npc} found them in the wreckage, already mixing another batch with bleeding hands. They weren't even shaken: they were taking notes. {quest_ally} tried to reason with them and they said: 'I'm closer than anyone has ever been to the {quest_focus}. You want me to stop now?' The {enemy_type} camp where {quest_item} was taken is still reachable, but the path is dangerous.",
         "outro": "Get {quest_item} before they try again with something worse. The next attempt might not leave anything standing."
       },
-      "playerResponses": [
-        {
-          "text": "I'll bring the real materials. At least the next attempt won't be suicidal.",
-          "action": "ACCEPT",
-          "dispositionShift": 2
-        },
-        {
-          "text": "They need to be stopped, not supplied.",
-          "action": "ACCEPT",
-          "dispositionShift": 1
-        }
+      "objectivePool": [
+        "FETCH_ITEM",
+        "KILL_MOBS",
+        "EXPLORE_LOCATION"
       ],
-      "objectivePool": ["FETCH_ITEM", "KILL_MOBS", "EXPLORE_LOCATION"],
       "objectiveConfig": {
-        "KILL_MOBS": { "countMin": 3, "countMax": 8 }
+        "KILL_MOBS": {
+          "countMin": 3,
+          "countMax": 8
+        }
       }
     },
     {
@@ -58,26 +40,16 @@
         "plotStep": "They barely looked up. {target_npc} says the family stood there for ten minutes before the tears started. {quest_ally} tried to intervene but they just said: 'After I find the last piece of the {quest_focus}. Then I'll have time.'",
         "outro": "The final piece was last traced to {location_hint}. Find it. Not for them: for the family that's watching them disappear into the {quest_focus} one day at a time."
       },
-      "playerResponses": [
-        {
-          "text": "That family deserves their loved one back. I'll find the keystone.",
-          "action": "ACCEPT",
-          "dispositionShift": 4
-        },
-        {
-          "text": "What if the piece isn't there? Will they finally stop?",
-          "action": "ACCEPT",
-          "dispositionShift": 1
-        },
-        {
-          "text": "Their family needs to accept that they've made their choice.",
-          "action": "DECLINE",
-          "dispositionShift": -2
-        }
+      "objectivePool": [
+        "EXPLORE_LOCATION",
+        "FETCH_ITEM",
+        "KILL_MOBS"
       ],
-      "objectivePool": ["EXPLORE_LOCATION", "FETCH_ITEM", "KILL_MOBS"],
       "objectiveConfig": {
-        "KILL_MOBS": { "countMin": 2, "countMax": 5 }
+        "KILL_MOBS": {
+          "countMin": 2,
+          "countMax": 5
+        }
       }
     }
   ]

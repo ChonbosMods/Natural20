@@ -7,18 +7,6 @@
         "plotStep": "{quest_ally} is shaken but relieved. The conspirator's deal with the {enemy_type} has been severed, and the {quest_stakes} {quest_stakes_is} secure now that the {quest_threat} {quest_threat_has} been cut off at the source. {target_npc} is overseeing new security measures.",
         "outro": "It's a bitter victory, losing trust in someone you relied on. But you saved lives by finding the truth, {player_name}. That counts for everything."
       },
-      "playerResponses": [
-        {
-          "text": "Better a harsh truth than a comfortable lie.",
-          "action": "COMPLETE",
-          "dispositionShift": 8
-        },
-        {
-          "text": "Rebuild your trust carefully this time.",
-          "action": "COMPLETE",
-          "dispositionShift": 5
-        }
-      ],
       "objectivePool": [],
       "objectiveConfig": {}
     },
@@ -29,18 +17,6 @@
         "plotStep": "The {enemy_type} lost their inside advantage and retreated from {location_hint} in disarray. {quest_ally} says rebuilding the {quest_stakes} will take time, but the foundation is clean now. The settlement owes its survival to your tenacity.",
         "outro": "You took on the {quest_threat} when no one else could be trusted to. {player_name}, that kind of integrity is rare."
       },
-      "playerResponses": [
-        {
-          "text": "The settlement deserved better. Now it has it.",
-          "action": "COMPLETE",
-          "dispositionShift": 10
-        },
-        {
-          "text": "Stay watchful. Conspiracies can regrow.",
-          "action": "COMPLETE",
-          "dispositionShift": 6
-        }
-      ],
       "objectivePool": [],
       "objectiveConfig": {}
     },
@@ -51,18 +27,6 @@
         "plotStep": "The conspirator fled toward {location_hint} when confronted with the evidence. The {enemy_type} they'd been feeding information to turned on them when the arrangement collapsed. The {quest_stakes} survived, but the betrayal left scars that won't fade quickly.",
         "outro": "You did what had to be done. The {quest_threat} {quest_threat_is} ended, and {quest_ally} says the settlement will be wiser for it. Thank you, {player_name}."
       },
-      "playerResponses": [
-        {
-          "text": "Some lessons are learned the hard way.",
-          "action": "COMPLETE",
-          "dispositionShift": 6
-        },
-        {
-          "text": "At least it's over.",
-          "action": "COMPLETE",
-          "dispositionShift": 4
-        }
-      ],
       "objectivePool": [],
       "objectiveConfig": {}
     }

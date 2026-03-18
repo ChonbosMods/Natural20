@@ -7,15 +7,20 @@
         "plotStep": "The {quest_threat} {quest_threat_is} far more dangerous than we anticipated. {quest_ally} barely made it back from the {quest_focus} alive. We need to push through: {quest_item} can be found {location_hint} and may give us the edge we need.",
         "outro": "We have come too far to turn back now. The {quest_stakes} {quest_stakes_is} within reach."
       },
-      "playerResponses": [
-        { "text": "We press forward. No turning back.", "action": "ACCEPT", "dispositionShift": 10 },
-        { "text": "You underestimated the danger. This will cost extra.", "action": "ACCEPT", "dispositionShift": -5 },
-        { "text": "This is beyond what I signed up for.", "action": "DECLINE", "dispositionShift": -10 }
+      "objectivePool": [
+        "KILL_MOBS",
+        "GATHER_ITEMS",
+        "EXPLORE_LOCATION"
       ],
-      "objectivePool": ["KILL_MOBS", "GATHER_ITEMS", "EXPLORE_LOCATION"],
       "objectiveConfig": {
-        "KILL_MOBS": { "countMin": 4, "countMax": 9 },
-        "GATHER_ITEMS": { "countMin": 3, "countMax": 8 }
+        "KILL_MOBS": {
+          "countMin": 4,
+          "countMax": 9
+        },
+        "GATHER_ITEMS": {
+          "countMin": 3,
+          "countMax": 8
+        }
       }
     },
     {
@@ -25,13 +30,15 @@
         "plotStep": "The {enemy_type} are now actively guarding the area around the {quest_focus}. {quest_ally} thinks we need to deal with them directly before we can proceed. They have been concentrated {location_hint}.",
         "outro": "We are so close. Clear the way and the {quest_stakes} will be ours."
       },
-      "playerResponses": [
-        { "text": "Nothing worth having comes easy. I will clear them out.", "action": "ACCEPT", "dispositionShift": 5 },
-        { "text": "You are lucky I enjoy a good fight.", "action": "ACCEPT", "dispositionShift": 0 }
+      "objectivePool": [
+        "KILL_MOBS",
+        "EXPLORE_LOCATION"
       ],
-      "objectivePool": ["KILL_MOBS", "EXPLORE_LOCATION"],
       "objectiveConfig": {
-        "KILL_MOBS": { "countMin": 5, "countMax": 10 }
+        "KILL_MOBS": {
+          "countMin": 5,
+          "countMax": 10
+        }
       }
     },
     {
@@ -41,14 +48,16 @@
         "plotStep": "We need to start over, and quickly. {quest_ally} says there is an alternate approach through an area {location_hint}, but {enemy_type} have been seen there. Someone needs to scout ahead and secure {quest_item} for a second attempt.",
         "outro": "The {quest_stakes} {quest_stakes_is} slipping further away every day we delay. Are you still with us?"
       },
-      "playerResponses": [
-        { "text": "A setback, not a defeat. Let us try again.", "action": "ACCEPT", "dispositionShift": 10 },
-        { "text": "This plan keeps falling apart. Last chance.", "action": "ACCEPT", "dispositionShift": -5 },
-        { "text": "I am done chasing a fool's dream.", "action": "DECLINE", "dispositionShift": -10 }
+      "objectivePool": [
+        "EXPLORE_LOCATION",
+        "FETCH_ITEM",
+        "KILL_MOBS"
       ],
-      "objectivePool": ["EXPLORE_LOCATION", "FETCH_ITEM", "KILL_MOBS"],
       "objectiveConfig": {
-        "KILL_MOBS": { "countMin": 3, "countMax": 7 }
+        "KILL_MOBS": {
+          "countMin": 3,
+          "countMax": 7
+        }
       }
     }
   ]

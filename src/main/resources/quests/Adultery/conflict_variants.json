@@ -7,26 +7,16 @@
         "plotStep": "{target_npc} found correspondence showing that others have been making side deals with the {enemy_type}. {quest_ally} says the whole thing around the {quest_focus} was rotten from the start: people swearing oaths they never intended to keep. {quest_item} contains the full ledger.",
         "outro": "Get {quest_item} from {location_hint} before the conspirators destroy it. The betrayed need to see the full picture: not just one traitor, but a pattern."
       },
-      "playerResponses": [
-        {
-          "text": "Rot this deep needs to be cut out completely. I'll get the ledger.",
-          "action": "ACCEPT",
-          "dispositionShift": 5
-        },
-        {
-          "text": "Are you sure exposing everything won't make things worse?",
-          "action": "ACCEPT",
-          "dispositionShift": 1
-        },
-        {
-          "text": "This conspiracy is bigger than one person can handle.",
-          "action": "DECLINE",
-          "dispositionShift": -2
-        }
+      "objectivePool": [
+        "FETCH_ITEM",
+        "KILL_MOBS",
+        "TALK_TO_NPC"
       ],
-      "objectivePool": ["FETCH_ITEM", "KILL_MOBS", "TALK_TO_NPC"],
       "objectiveConfig": {
-        "KILL_MOBS": { "countMin": 3, "countMax": 7 }
+        "KILL_MOBS": {
+          "countMin": 3,
+          "countMax": 7
+        }
       }
     },
     {
@@ -36,19 +26,11 @@
         "plotStep": "{target_npc} tried to access the evidence and was turned away. The traitor is burning documents: {quest_ally} saw smoke from the records room at midnight. If they destroy {quest_item}, the proof of the {quest_threat} goes up in smoke.",
         "outro": "We have a narrow window to get {quest_item} out before the traitor finishes covering their tracks. There might be another way in {location_hint}."
       },
-      "playerResponses": [
-        {
-          "text": "If they're burning evidence, we're running out of time. Show me the way in.",
-          "action": "ACCEPT",
-          "dispositionShift": 4
-        },
-        {
-          "text": "Confronting them directly might force a confession.",
-          "action": "ACCEPT",
-          "dispositionShift": 1
-        }
+      "objectivePool": [
+        "FETCH_ITEM",
+        "EXPLORE_LOCATION",
+        "TALK_TO_NPC"
       ],
-      "objectivePool": ["FETCH_ITEM", "EXPLORE_LOCATION", "TALK_TO_NPC"],
       "objectiveConfig": {}
     },
     {
@@ -58,24 +40,11 @@
         "plotStep": "{target_npc} discovered that the forger has been altering documents for years. {quest_ally} found the original document hidden in a wall cavity, but the forger took {quest_item}: a seal that authenticates official records.",
         "outro": "Without {quest_item}, even the real document can be questioned. Track them down and recover the seal before the {quest_threat} becomes permanent."
       },
-      "playerResponses": [
-        {
-          "text": "Someone who betrays a community's trust is the worst kind of thief. I'll find them.",
-          "action": "ACCEPT",
-          "dispositionShift": 5
-        },
-        {
-          "text": "What happens to the forger when I catch them?",
-          "action": "ACCEPT",
-          "dispositionShift": 1
-        },
-        {
-          "text": "They're probably long gone by now.",
-          "action": "DECLINE",
-          "dispositionShift": -2
-        }
+      "objectivePool": [
+        "EXPLORE_LOCATION",
+        "TALK_TO_NPC",
+        "KILL_NPC"
       ],
-      "objectivePool": ["EXPLORE_LOCATION", "TALK_TO_NPC", "KILL_NPC"],
       "objectiveConfig": {}
     }
   ]

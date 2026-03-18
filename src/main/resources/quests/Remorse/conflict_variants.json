@@ -7,16 +7,24 @@
         "plotStep": "I expected anger, but the depth of it shook me. {target_npc} said the {quest_focus} destroyed more than just their standing: it cost them friends, livelihood, years they'll never get back. They threw the {quest_item} I brought into the dirt. The {enemy_type} have moved closer to where {target_npc} is sheltering {location_hint}, and if they stay out of stubbornness, they'll be in real danger.",
         "outro": "Words failed. Gifts failed. The only thing left is action that speaks louder than either. The {quest_stakes} still {quest_stakes_has} value."
       },
-      "playerResponses": [
-        { "text": "Actions over apologies. Tell me what would actually prove you've changed.", "action": "ACCEPT" },
-        { "text": "Rejected twice. You're persistent. I respect that, even if it's painful.", "action": "ACCEPT" },
-        { "text": "If they don't want your apology, forcing it makes things worse.", "action": "DECLINE" }
+      "objectivePool": [
+        "GATHER_ITEMS",
+        "KILL_MOBS",
+        "EXPLORE_LOCATION"
       ],
-      "objectivePool": ["GATHER_ITEMS", "KILL_MOBS", "EXPLORE_LOCATION"],
       "objectiveConfig": {
-        "GATHER_ITEMS": { "countMin": 5, "countMax": 10 },
-        "KILL_MOBS": { "countMin": 3, "countMax": 7 },
-        "EXPLORE_LOCATION": { "countMin": 1, "countMax": 2 }
+        "GATHER_ITEMS": {
+          "countMin": 5,
+          "countMax": 10
+        },
+        "KILL_MOBS": {
+          "countMin": 3,
+          "countMax": 7
+        },
+        "EXPLORE_LOCATION": {
+          "countMin": 1,
+          "countMax": 2
+        }
       }
     },
     {
@@ -26,16 +34,23 @@
         "plotStep": "When I admitted what I did to the council, the reaction was exactly what I deserved. They stripped my standing and half the settlement won't look at me. But {target_npc} heard about the confession and sent word: not forgiveness, but a request. They need {quest_item} to defend against the {enemy_type} that have been threatening their position. The {quest_threat} {quest_threat_is} closing in.",
         "outro": "The settlement turned its back on me. But {target_npc} opened a door, just a crack. I won't waste it."
       },
-      "playerResponses": [
-        { "text": "A crack in the door is enough. I'll help you push through it.", "action": "ACCEPT" },
-        { "text": "You lost everything and they're still asking for help. At least they're talking. I'll go.", "action": "ACCEPT" },
-        { "text": "You burned every bridge. Walking through fire won't rebuild them.", "action": "DECLINE" }
+      "objectivePool": [
+        "FETCH_ITEM",
+        "KILL_MOBS",
+        "EXPLORE_LOCATION"
       ],
-      "objectivePool": ["FETCH_ITEM", "KILL_MOBS", "EXPLORE_LOCATION"],
       "objectiveConfig": {
-        "FETCH_ITEM": { "locationPreference": "WILDERNESS" },
-        "KILL_MOBS": { "countMin": 4, "countMax": 8 },
-        "EXPLORE_LOCATION": { "countMin": 1, "countMax": 2 }
+        "FETCH_ITEM": {
+          "locationPreference": "WILDERNESS"
+        },
+        "KILL_MOBS": {
+          "countMin": 4,
+          "countMax": 8
+        },
+        "EXPLORE_LOCATION": {
+          "countMin": 1,
+          "countMax": 2
+        }
       }
     },
     {
@@ -45,16 +60,23 @@
         "plotStep": "{target_npc} is in danger. The {enemy_type} overran the area {location_hint} where they've been living, and they sent a desperate message asking for help. The irony isn't lost on me: the person I wronged is now begging for rescue. I want to go myself, but my presence would do more harm than good right now.",
         "outro": "I need you to bring {quest_item} and clear the {enemy_type} so {target_npc} can escape safely. If they survive because of me, maybe that starts to balance the scales. The fate of the {quest_stakes} hangs on it."
       },
-      "playerResponses": [
-        { "text": "No one deserves to be abandoned twice. I'll get them out.", "action": "ACCEPT" },
-        { "text": "The person you wronged needs rescue by proxy. There's a painful irony in that.", "action": "ACCEPT" },
-        { "text": "They're in danger because you got them exiled. This isn't my mess.", "action": "DECLINE" }
+      "objectivePool": [
+        "KILL_MOBS",
+        "EXPLORE_LOCATION",
+        "FETCH_ITEM"
       ],
-      "objectivePool": ["KILL_MOBS", "EXPLORE_LOCATION", "FETCH_ITEM"],
       "objectiveConfig": {
-        "KILL_MOBS": { "countMin": 4, "countMax": 9 },
-        "EXPLORE_LOCATION": { "countMin": 2, "countMax": 3 },
-        "FETCH_ITEM": { "locationPreference": "WILDERNESS" }
+        "KILL_MOBS": {
+          "countMin": 4,
+          "countMax": 9
+        },
+        "EXPLORE_LOCATION": {
+          "countMin": 2,
+          "countMax": 3
+        },
+        "FETCH_ITEM": {
+          "locationPreference": "WILDERNESS"
+        }
       }
     }
   ]

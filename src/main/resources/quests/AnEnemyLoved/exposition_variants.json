@@ -7,15 +7,18 @@
         "plotStep": "After the last raid, I found one of the {enemy_type} wounded and left behind by its own kind. I should have finished it off. Instead, I bandaged it. It looked at me, really looked at me, and I couldn't do it. Now it's healing, and I need {quest_item} from {location_hint} to treat the infection. {target_npc} would never understand.",
         "outro": "I know what they are and what they've done to us. But the {quest_stakes} {quest_stakes_is} at the heart of this. {quest_origin} changed everything I thought I knew. {quest_reward_hint} might come of showing mercy."
       },
-      "playerResponses": [
-        { "text": "Mercy takes more courage than a killing blow. I'll help.", "action": "ACCEPT" },
-        { "text": "This is dangerous and foolish. But I'll get what you need.", "action": "ACCEPT", "dispositionShift": -5 },
-        { "text": "You're harboring an enemy. I want no part of this.", "action": "DECLINE" }
+      "objectivePool": [
+        "FETCH_ITEM",
+        "GATHER_ITEMS"
       ],
-      "objectivePool": ["FETCH_ITEM", "GATHER_ITEMS"],
       "objectiveConfig": {
-        "FETCH_ITEM": { "locationPreference": "WILDERNESS" },
-        "GATHER_ITEMS": { "countMin": 3, "countMax": 6 }
+        "FETCH_ITEM": {
+          "locationPreference": "WILDERNESS"
+        },
+        "GATHER_ITEMS": {
+          "countMin": 3,
+          "countMax": 6
+        }
       }
     },
     {
@@ -25,16 +28,24 @@
         "plotStep": "The {enemy_type} we've been fighting for months aren't our biggest problem anymore. The {quest_threat} {quest_threat_has} moved into the area, and it's hunting them as brutally as it hunts us. One of their scouts approached {target_npc} unarmed and left behind {quest_item} as what I can only describe as a peace offering. {target_npc} thinks they want to fight the {quest_threat} together.",
         "outro": "If it's real, we could survive something neither side can face alone. If it's a trap, we lose everything. The {quest_focus} demands someone investigate. {quest_reward_hint} could follow."
       },
-      "playerResponses": [
-        { "text": "An alliance against a common enemy? I'll investigate their offer.", "action": "ACCEPT" },
-        { "text": "Could be a trap, could be genuine. Either way, I want to know the truth.", "action": "ACCEPT" },
-        { "text": "Trusting the enemy is how settlements fall. Count me out.", "action": "DECLINE" }
+      "objectivePool": [
+        "EXPLORE_LOCATION",
+        "TALK_TO_NPC",
+        "KILL_MOBS"
       ],
-      "objectivePool": ["EXPLORE_LOCATION", "TALK_TO_NPC", "KILL_MOBS"],
       "objectiveConfig": {
-        "EXPLORE_LOCATION": { "countMin": 2, "countMax": 3 },
-        "TALK_TO_NPC": { "countMin": 1, "countMax": 1 },
-        "KILL_MOBS": { "countMin": 2, "countMax": 5 }
+        "EXPLORE_LOCATION": {
+          "countMin": 2,
+          "countMax": 3
+        },
+        "TALK_TO_NPC": {
+          "countMin": 1,
+          "countMax": 1
+        },
+        "KILL_MOBS": {
+          "countMin": 2,
+          "countMax": 5
+        }
       }
     },
     {
@@ -44,15 +55,18 @@
         "plotStep": "When our guards drove the {enemy_type} back, they left behind a young one. Not a warrior, not a threat: just a small, frightened creature hiding in the wreckage. I've been feeding it and keeping it hidden, but {target_npc} is getting suspicious. The little one needs {quest_item} that I can't get without raising questions. There's a supply {location_hint}, but the roads are crawling with {enemy_type} looking for their lost kin.",
         "outro": "I can't hand it over to be killed, and I can't keep hiding it forever. The {quest_stakes} depends on what we do next. {quest_origin} started all of this."
       },
-      "playerResponses": [
-        { "text": "A child is a child, regardless of what it grows into. I'll help.", "action": "ACCEPT" },
-        { "text": "You're risking a lot for a creature that would grow up to raid us. But fine.", "action": "ACCEPT", "dispositionShift": -5 },
-        { "text": "That thing's parents tried to kill us. It doesn't belong here.", "action": "DECLINE" }
+      "objectivePool": [
+        "FETCH_ITEM",
+        "EXPLORE_LOCATION"
       ],
-      "objectivePool": ["FETCH_ITEM", "EXPLORE_LOCATION"],
       "objectiveConfig": {
-        "FETCH_ITEM": { "locationPreference": "WILDERNESS" },
-        "EXPLORE_LOCATION": { "countMin": 1, "countMax": 3 }
+        "FETCH_ITEM": {
+          "locationPreference": "WILDERNESS"
+        },
+        "EXPLORE_LOCATION": {
+          "countMin": 1,
+          "countMax": 3
+        }
       }
     }
   ]

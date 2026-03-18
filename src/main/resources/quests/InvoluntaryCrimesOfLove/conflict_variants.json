@@ -7,21 +7,16 @@
         "plotStep": "{target_npc} has rallied supporters near {location_hint} who share their conviction. Meanwhile, the {enemy_type} are exploiting the distraction to push deeper into our territory. {quest_ally} says the {quest_stakes} grow more fragile with each day of deadlock.",
         "outro": "Prove that the real danger isn't what they fear but what they've become. Clear the {enemy_type} threat near {location_hint} and show that protection doesn't require tyranny."
       },
-      "playerResponses": [
-        {
-          "text": "I'll show them what real protection looks like.",
-          "action": "ACCEPT",
-          "dispositionShift": 4
-        },
-        {
-          "text": "Actions will speak louder than words.",
-          "action": "ACCEPT",
-          "dispositionShift": 2
-        }
+      "objectivePool": [
+        "KILL_MOBS",
+        "TALK_TO_NPC",
+        "EXPLORE_LOCATION"
       ],
-      "objectivePool": ["KILL_MOBS", "TALK_TO_NPC", "EXPLORE_LOCATION"],
       "objectiveConfig": {
-        "KILL_MOBS": { "countMin": 4, "countMax": 8 }
+        "KILL_MOBS": {
+          "countMin": 4,
+          "countMax": 8
+        }
       }
     },
     {
@@ -31,22 +26,20 @@
         "plotStep": "{quest_ally} found supplies scattered near {location_hint}, abandoned when the {quest_threat} displaced people from their routes. The {enemy_type} have been picking over what was left. The {quest_stakes} need immediate material support while we sort out the larger problem.",
         "outro": "Recover what was lost and secure the area. Every piece of {quest_item} you bring back is one less person going without."
       },
-      "playerResponses": [
-        {
-          "text": "I'll salvage what I can.",
-          "action": "ACCEPT",
-          "dispositionShift": 3
-        },
-        {
-          "text": "The damage is done. Let me limit it.",
-          "action": "ACCEPT",
-          "dispositionShift": 2
-        }
+      "objectivePool": [
+        "GATHER_ITEMS",
+        "KILL_MOBS",
+        "EXPLORE_LOCATION"
       ],
-      "objectivePool": ["GATHER_ITEMS", "KILL_MOBS", "EXPLORE_LOCATION"],
       "objectiveConfig": {
-        "GATHER_ITEMS": { "countMin": 5, "countMax": 16 },
-        "KILL_MOBS": { "countMin": 3, "countMax": 6 }
+        "GATHER_ITEMS": {
+          "countMin": 5,
+          "countMax": 16
+        },
+        "KILL_MOBS": {
+          "countMin": 3,
+          "countMax": 6
+        }
       }
     },
     {
@@ -56,22 +49,20 @@
         "plotStep": "{target_npc} is consumed with guilt. {quest_ally} is trying to hold the community together while the {enemy_type} near {location_hint} probe our weakened defenses. The {quest_threat} created vulnerabilities everywhere, and the {quest_stakes} need someone to plug the gaps.",
         "outro": "The emotional fallout will take time. Right now we need the practical problems solved. Get out there and shore up what the {quest_threat} left exposed."
       },
-      "playerResponses": [
-        {
-          "text": "Guilt can wait. Safety can't.",
-          "action": "ACCEPT",
-          "dispositionShift": 3
-        },
-        {
-          "text": "I'll handle the defenses.",
-          "action": "ACCEPT",
-          "dispositionShift": 4
-        }
+      "objectivePool": [
+        "KILL_MOBS",
+        "EXPLORE_LOCATION",
+        "GATHER_ITEMS"
       ],
-      "objectivePool": ["KILL_MOBS", "EXPLORE_LOCATION", "GATHER_ITEMS"],
       "objectiveConfig": {
-        "KILL_MOBS": { "countMin": 4, "countMax": 9 },
-        "GATHER_ITEMS": { "countMin": 4, "countMax": 10 }
+        "KILL_MOBS": {
+          "countMin": 4,
+          "countMax": 9
+        },
+        "GATHER_ITEMS": {
+          "countMin": 4,
+          "countMax": 10
+        }
       }
     }
   ]

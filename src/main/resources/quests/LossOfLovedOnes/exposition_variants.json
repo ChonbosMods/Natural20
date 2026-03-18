@@ -7,16 +7,24 @@
         "plotStep": "The {enemy_type} raid took lives: a guard, a worker, an elder who refused to abandon their post. We drove them off, but the victory feels hollow. {target_npc} hasn't spoken since the burial. Half the settlement is talking about abandoning this place. I need someone to gather {quest_item} from {location_hint} so we can build a proper remembrance.",
         "outro": "The {enemy_type} are still prowling the roads, but if we don't give people something to rally around, grief will destroy what the raid couldn't. The {quest_stakes} depends on it. {quest_reward_hint} is the shared strength we need."
       },
-      "playerResponses": [
-        { "text": "Honoring the dead gives the living a reason to keep going. I'll help.", "action": "ACCEPT" },
-        { "text": "Memorial materials through hostile territory. It's somber work, but I'll do it.", "action": "ACCEPT" },
-        { "text": "Grief counseling isn't in my skill set. I'm sorry for your loss.", "action": "DECLINE" }
+      "objectivePool": [
+        "GATHER_ITEMS",
+        "EXPLORE_LOCATION",
+        "KILL_MOBS"
       ],
-      "objectivePool": ["GATHER_ITEMS", "EXPLORE_LOCATION", "KILL_MOBS"],
       "objectiveConfig": {
-        "GATHER_ITEMS": { "countMin": 4, "countMax": 8 },
-        "EXPLORE_LOCATION": { "countMin": 1, "countMax": 2 },
-        "KILL_MOBS": { "countMin": 2, "countMax": 5 }
+        "GATHER_ITEMS": {
+          "countMin": 4,
+          "countMax": 8
+        },
+        "EXPLORE_LOCATION": {
+          "countMin": 1,
+          "countMax": 2
+        },
+        "KILL_MOBS": {
+          "countMin": 2,
+          "countMax": 5
+        }
       }
     },
     {
@@ -26,16 +34,23 @@
         "plotStep": "They were carrying {quest_item} when the {enemy_type} ambushed the caravan {location_hint}. It was a gift they'd made for our child: the only thing our child would have to remember them by. The caravan was looted and the spoils were carried off. {target_npc} says the {enemy_type} probably took it to their camp.",
         "outro": "I'm not asking you to avenge them. I'm asking you to {quest_action} and bring home the one thing my child will hold when asking about their parent. The {quest_stakes} {quest_stakes_is} everything to us. The {quest_threat} {quest_threat_is} the finality of it."
       },
-      "playerResponses": [
-        { "text": "A parent's last gift to their child. I'll find it, no matter what's in the way.", "action": "ACCEPT" },
-        { "text": "Raiding an enemy camp for a keepsake. It's personal, but I'll do it for a price.", "action": "ACCEPT", "dispositionShift": -5 },
-        { "text": "Charging into an enemy camp for a single item is too dangerous.", "action": "DECLINE" }
+      "objectivePool": [
+        "FETCH_ITEM",
+        "KILL_MOBS",
+        "EXPLORE_LOCATION"
       ],
-      "objectivePool": ["FETCH_ITEM", "KILL_MOBS", "EXPLORE_LOCATION"],
       "objectiveConfig": {
-        "FETCH_ITEM": { "locationPreference": "DUNGEON" },
-        "KILL_MOBS": { "countMin": 3, "countMax": 7 },
-        "EXPLORE_LOCATION": { "countMin": 1, "countMax": 2 }
+        "FETCH_ITEM": {
+          "locationPreference": "DUNGEON"
+        },
+        "KILL_MOBS": {
+          "countMin": 3,
+          "countMax": 7
+        },
+        "EXPLORE_LOCATION": {
+          "countMin": 1,
+          "countMax": 2
+        }
       }
     },
     {
@@ -45,16 +60,24 @@
         "plotStep": "My partner and I were building something together at the edge of the settlement. They were gathering {quest_item} from {location_hint} when the {enemy_type} found them. I was supposed to go that day, but I stayed behind because I was tired. Tired. That's the reason I'm alive and they're not.",
         "outro": "{target_npc} has been trying to get me to function. But the only thing that helps is the thought of finishing what we started. I need the materials they were gathering. I need to {quest_action}. The {quest_stakes} gives me a reason to keep going. {quest_reward_hint} would be a purpose renewed."
       },
-      "playerResponses": [
-        { "text": "Building something in their memory is a way to carry them forward. I'll get the materials.", "action": "ACCEPT" },
-        { "text": "Survivor's guilt is a heavy burden. I'll help lighten it however I can.", "action": "ACCEPT" },
-        { "text": "I'm sorry for your loss, but I can't fight your grief for you.", "action": "DECLINE" }
+      "objectivePool": [
+        "GATHER_ITEMS",
+        "KILL_MOBS",
+        "EXPLORE_LOCATION"
       ],
-      "objectivePool": ["GATHER_ITEMS", "KILL_MOBS", "EXPLORE_LOCATION"],
       "objectiveConfig": {
-        "GATHER_ITEMS": { "countMin": 6, "countMax": 12 },
-        "KILL_MOBS": { "countMin": 3, "countMax": 6 },
-        "EXPLORE_LOCATION": { "countMin": 1, "countMax": 2 }
+        "GATHER_ITEMS": {
+          "countMin": 6,
+          "countMax": 12
+        },
+        "KILL_MOBS": {
+          "countMin": 3,
+          "countMax": 6
+        },
+        "EXPLORE_LOCATION": {
+          "countMin": 1,
+          "countMax": 2
+        }
       }
     }
   ]

@@ -7,14 +7,16 @@
         "plotStep": "I have asked around and {quest_ally} confirmed similar signs were spotted months ago. Whatever left these behind was deliberate about placement. The {enemy_type} seem drawn to those sites too, which worries me.",
         "outro": "Someone needs to examine the {quest_focus} up close and bring back anything that might explain its purpose. Are you curious enough to go, {player_name}?"
       },
-      "playerResponses": [
-        { "text": "Mysteries like this are worth pursuing.", "action": "ACCEPT", "dispositionShift": 4 },
-        { "text": "I will investigate, but I want answers too.", "action": "ACCEPT", "dispositionShift": 2 },
-        { "text": "Old mysteries are not my concern.", "action": "DECLINE", "dispositionShift": -2 }
+      "objectivePool": [
+        "EXPLORE_LOCATION",
+        "GATHER_ITEMS",
+        "FETCH_ITEM"
       ],
-      "objectivePool": ["EXPLORE_LOCATION", "GATHER_ITEMS", "FETCH_ITEM"],
       "objectiveConfig": {
-        "GATHER_ITEMS": { "countMin": 3, "countMax": 8 }
+        "GATHER_ITEMS": {
+          "countMin": 3,
+          "countMax": 8
+        }
       }
     },
     {
@@ -24,14 +26,16 @@
         "plotStep": "{quest_ally} ventured to the edge and returned shaken. They said the area felt wrong in ways they could not describe. Even the {enemy_type} avoid it. The {quest_threat} {quest_threat_is} spreading, and no one understands why.",
         "outro": "Something unnatural is happening out there, {player_name}. We need someone to get close enough to understand {quest_time_pressure} before it reaches our walls."
       },
-      "playerResponses": [
-        { "text": "I will find out what is causing this.", "action": "ACCEPT", "dispositionShift": 5 },
-        { "text": "How far has it spread so far?", "action": "ACCEPT", "dispositionShift": 2 },
-        { "text": "Nature sorts itself out. I will pass.", "action": "DECLINE", "dispositionShift": -3 }
+      "objectivePool": [
+        "EXPLORE_LOCATION",
+        "GATHER_ITEMS",
+        "TALK_TO_NPC"
       ],
-      "objectivePool": ["EXPLORE_LOCATION", "GATHER_ITEMS", "TALK_TO_NPC"],
       "objectiveConfig": {
-        "GATHER_ITEMS": { "countMin": 4, "countMax": 10 }
+        "GATHER_ITEMS": {
+          "countMin": 4,
+          "countMax": 10
+        }
       }
     },
     {
@@ -41,14 +45,16 @@
         "plotStep": "They swear it was warm to the touch and humming. {target_npc} thinks it could be a vault, a tomb, or something else entirely. The {enemy_type} have been more active in that area since the breach.",
         "outro": "It needs someone who can handle surprises. The workers will not go back down. Will you, {player_name}? {quest_reward_hint} may well be waiting inside."
       },
-      "playerResponses": [
-        { "text": "A sealed chamber? I have to see it.", "action": "ACCEPT", "dispositionShift": 4 },
-        { "text": "What if it was sealed for a reason?", "action": "ACCEPT", "dispositionShift": 1 },
-        { "text": "Sounds like it should stay sealed.", "action": "DECLINE", "dispositionShift": -2 }
+      "objectivePool": [
+        "EXPLORE_LOCATION",
+        "FETCH_ITEM",
+        "KILL_MOBS"
       ],
-      "objectivePool": ["EXPLORE_LOCATION", "FETCH_ITEM", "KILL_MOBS"],
       "objectiveConfig": {
-        "KILL_MOBS": { "countMin": 3, "countMax": 6 }
+        "KILL_MOBS": {
+          "countMin": 3,
+          "countMax": 6
+        }
       }
     }
   ]

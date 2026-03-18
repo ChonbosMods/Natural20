@@ -7,15 +7,20 @@
         "plotStep": "The problem is that we are not the only ones who know. The {enemy_type} have been pushing into that area, and {quest_ally} spotted organized groups heading the same direction. If we do not claim the {quest_focus} first, someone else will.",
         "outro": "I need someone fast and capable to get out there and secure what we need before it is all gone. {player_name}, will you make the trip?"
       },
-      "playerResponses": [
-        { "text": "I will get there first.", "action": "ACCEPT", "dispositionShift": 4 },
-        { "text": "What is my cut if I bring it back?", "action": "ACCEPT", "dispositionShift": 1 },
-        { "text": "Send someone else. I am busy.", "action": "DECLINE", "dispositionShift": -3 }
+      "objectivePool": [
+        "GATHER_ITEMS",
+        "KILL_MOBS",
+        "EXPLORE_LOCATION"
       ],
-      "objectivePool": ["GATHER_ITEMS", "KILL_MOBS", "EXPLORE_LOCATION"],
       "objectiveConfig": {
-        "GATHER_ITEMS": { "countMin": 5, "countMax": 15 },
-        "KILL_MOBS": { "countMin": 3, "countMax": 7 }
+        "GATHER_ITEMS": {
+          "countMin": 5,
+          "countMax": 15
+        },
+        "KILL_MOBS": {
+          "countMin": 3,
+          "countMax": 7
+        }
       }
     },
     {
@@ -25,14 +30,16 @@
         "plotStep": "The ones responsible were not ordinary opportunists. They knew exactly what they wanted. {quest_ally} found tracks leading {location_hint}, and the signs match the {enemy_type} we have seen lurking near the borders.",
         "outro": "The {quest_focus} means everything to {target_npc}. Will you track down the {quest_threat} and bring it back, {player_name}?"
       },
-      "playerResponses": [
-        { "text": "I will bring it home where it belongs.", "action": "ACCEPT", "dispositionShift": 5 },
-        { "text": "They deserve what is coming to them.", "action": "ACCEPT", "dispositionShift": 3 },
-        { "text": "It is just an object. Let it go.", "action": "DECLINE", "dispositionShift": -4 }
+      "objectivePool": [
+        "FETCH_ITEM",
+        "KILL_MOBS",
+        "EXPLORE_LOCATION"
       ],
-      "objectivePool": ["FETCH_ITEM", "KILL_MOBS", "EXPLORE_LOCATION"],
       "objectiveConfig": {
-        "KILL_MOBS": { "countMin": 2, "countMax": 5 }
+        "KILL_MOBS": {
+          "countMin": 2,
+          "countMax": 5
+        }
       }
     },
     {
@@ -42,15 +49,20 @@
         "plotStep": "The {quest_stakes} {quest_stakes_is} already worsening, and more show signs each day. The resources we need from the {quest_focus} cannot survive being shipped from afar: they have to be gathered fresh. The problem is that the gathering grounds are deep in {enemy_type} territory.",
         "outro": "Without those resources, the {quest_stakes} {quest_stakes_is} in mortal danger. {player_name}, will you venture out {quest_time_pressure} and bring back what we need?"
       },
-      "playerResponses": [
-        { "text": "Lives are at stake. I will go now.", "action": "ACCEPT", "dispositionShift": 6 },
-        { "text": "Tell me exactly what to look for.", "action": "ACCEPT", "dispositionShift": 3 },
-        { "text": "The wilds are too dangerous right now.", "action": "DECLINE", "dispositionShift": -5 }
+      "objectivePool": [
+        "GATHER_ITEMS",
+        "EXPLORE_LOCATION",
+        "KILL_MOBS"
       ],
-      "objectivePool": ["GATHER_ITEMS", "EXPLORE_LOCATION", "KILL_MOBS"],
       "objectiveConfig": {
-        "GATHER_ITEMS": { "countMin": 6, "countMax": 18 },
-        "KILL_MOBS": { "countMin": 2, "countMax": 6 }
+        "GATHER_ITEMS": {
+          "countMin": 6,
+          "countMax": 18
+        },
+        "KILL_MOBS": {
+          "countMin": 2,
+          "countMax": 6
+        }
       }
     }
   ]

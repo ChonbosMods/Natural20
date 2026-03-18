@@ -7,18 +7,6 @@
         "plotStep": "The lead volunteer made it. Wounded but grinning. {target_npc} patched them up while they insisted on distributing the supplies first. {quest_ally} says there's enough to last if we're careful.",
         "outro": "Those volunteers walked into near-certain death for the {quest_stakes}. And everyone safe tonight is proof they were right. Thank you, {player_name}."
       },
-      "playerResponses": [
-        {
-          "text": "The real heroes are the ones who volunteered. I just helped.",
-          "action": "COMPLETE",
-          "dispositionShift": 5
-        },
-        {
-          "text": "Make sure the wounded get the first proper meal.",
-          "action": "COMPLETE",
-          "dispositionShift": 3
-        }
-      ],
       "objectivePool": [],
       "objectiveConfig": {}
     },
@@ -29,23 +17,6 @@
         "plotStep": "They are. Every single one. {target_npc} carried the volunteer to the nearest hearth. The families they saved brought food, dry clothes, and quiet gratitude.",
         "outro": "Someone stood in danger all night because they couldn't bear to see their neighbors lose everything. And because you brought what they needed, {player_name}, they lived to see it through."
       },
-      "playerResponses": [
-        {
-          "text": "That person is what community looks like. Take care of them.",
-          "action": "COMPLETE",
-          "dispositionShift": 5
-        },
-        {
-          "text": "Fix the {quest_focus} properly before the next crisis.",
-          "action": "COMPLETE",
-          "dispositionShift": 1
-        },
-        {
-          "text": "Glad it worked out. They're tougher than they look.",
-          "action": "COMPLETE",
-          "dispositionShift": 2
-        }
-      ],
       "objectivePool": [],
       "objectiveConfig": {}
     },
@@ -56,18 +27,6 @@
         "plotStep": "They held for nearly a full day before the {enemy_type} realized it was one person. {quest_ally} says they went down fighting. {target_npc} is building a marker at the new settlement's entrance.",
         "outro": "They gave their people a future by giving up their own. And you made sure that future had a clear road, {player_name}. Their family is safe. That's what they wanted."
       },
-      "playerResponses": [
-        {
-          "text": "They stood taller than any soldier I've met. Honor them well.",
-          "action": "COMPLETE",
-          "dispositionShift": 5
-        },
-        {
-          "text": "I wish we could have saved them too.",
-          "action": "COMPLETE",
-          "dispositionShift": 3
-        }
-      ],
       "objectivePool": [],
       "objectiveConfig": {}
     }

@@ -7,10 +7,6 @@
         "plotStep": "When you laid the evidence before the council, the room went silent. The real culprit was exposed. {target_npc} was cleared publicly, and the settlement apologized, though some of the damage can't be undone with words. {target_npc} says they'll forgive the community in time, but they won't forget how quickly trust evaporated.",
         "outro": "You did more than solve a theft, {player_name}. You reminded this settlement that accusation isn't conviction."
       },
-      "playerResponses": [
-        { "text": "Justice served and a lesson learned. That's the best outcome.", "action": "ACCEPT", "dispositionShift": 10 },
-        { "text": "Tell the council to be more careful next time. Glad it's resolved.", "action": "ACCEPT" }
-      ],
       "objectivePool": [],
       "objectiveConfig": {}
     },
@@ -21,10 +17,6 @@
         "plotStep": "The evidence you recovered proved that the {enemy_type} were responsible, just as I suspected. The council withdrew the charges, and {target_npc} walked free. But the vandalism, the whispers, the isolation: none of that can be taken back. {target_npc} has reopened their workshop, but the customers are slow to return.",
         "outro": "You gave us the truth. What we do with it is on us."
       },
-      "playerResponses": [
-        { "text": "The truth only works if people choose to accept it. I hope they do.", "action": "ACCEPT", "dispositionShift": 5 },
-        { "text": "Cleared is cleared. The rest is up to the settlement.", "action": "ACCEPT" }
-      ],
       "objectivePool": [],
       "objectiveConfig": {}
     },
@@ -35,10 +27,6 @@
         "plotStep": "{target_npc} said they can't live in a place where people turned on them so easily. They packed up everything they could carry. The workshop is dark, and the people who shouted loudest are the quietest now. Your evidence saved {target_npc}'s name, even if it couldn't save their home here.",
         "outro": "Some truths arrive too late to undo all the damage. But {target_npc} left with their name intact, and that matters."
       },
-      "playerResponses": [
-        { "text": "A name restored is something no one can take away again.", "action": "ACCEPT" },
-        { "text": "Maybe they'll find better people somewhere else. I hope so.", "action": "ACCEPT", "dispositionShift": 5 }
-      ],
       "objectivePool": [],
       "objectiveConfig": {}
     }

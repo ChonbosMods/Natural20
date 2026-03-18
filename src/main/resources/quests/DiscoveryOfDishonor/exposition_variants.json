@@ -7,23 +7,11 @@
         "plotStep": "My mentor taught me everything. I trusted them completely. But the {quest_focus} shows years of skimming, falsifying costs, and cheating everyone who relied on them. {quest_origin} holds more evidence, but the {enemy_type} have moved into the area.",
         "outro": "I need someone from outside to {quest_action}. If I'm wrong, I've slandered the person I respect most. If I'm right, the {quest_threat} {quest_threat_is} worse than anyone imagines. {quest_time_pressure}."
       },
-      "playerResponses": [
-        {
-          "text": "Truth is truth, even when it hurts. I'll look into it.",
-          "action": "ACCEPT",
-          "dispositionShift": 5
-        },
-        {
-          "text": "Are you sure you want this door opened? It doesn't close again.",
-          "action": "ACCEPT",
-          "dispositionShift": 2
-        },
-        {
-          "text": "Internal matters are best handled internally.",
-          "action": "DECLINE"
-        }
+      "objectivePool": [
+        "EXPLORE_LOCATION",
+        "TALK_TO_NPC",
+        "FETCH_ITEM"
       ],
-      "objectivePool": ["EXPLORE_LOCATION", "TALK_TO_NPC", "FETCH_ITEM"],
       "objectiveConfig": {}
     },
     {
@@ -33,23 +21,11 @@
         "plotStep": "The 'hero' didn't rally the defenders. The {quest_focus} {quest_focus_is} that they fled and hid while others fought and died. They came out afterward and claimed the victory. The real defenders were dead and couldn't contradict the story. Now that person holds power, revered and untouchable.",
         "outro": "{quest_origin} still has evidence: details that don't match the official account. Someone needs to {quest_action} before this person's false reputation lets them make decisions that cost more lives. {quest_item} {location_hint} might prove it."
       },
-      "playerResponses": [
-        {
-          "text": "A hero built on lies is a danger to everyone who trusts them.",
-          "action": "ACCEPT",
-          "dispositionShift": 5
-        },
-        {
-          "text": "The settlement might be better off not knowing.",
-          "action": "ACCEPT",
-          "dispositionShift": -2
-        },
-        {
-          "text": "Old stories and old lies aren't my concern.",
-          "action": "DECLINE"
-        }
+      "objectivePool": [
+        "EXPLORE_LOCATION",
+        "TALK_TO_NPC",
+        "FETCH_ITEM"
       ],
-      "objectivePool": ["EXPLORE_LOCATION", "TALK_TO_NPC", "FETCH_ITEM"],
       "objectiveConfig": {}
     },
     {
@@ -59,19 +35,11 @@
         "plotStep": "The administrator, the most respected and trusted person in the settlement, has been diverting donations to their own accounts. The {quest_focus} {quest_focus_is} staggering in its scale. The {quest_stakes} who were promised help received nothing. The administrator still gives public speeches about compassion.",
         "outro": "The records are scattered to avoid detection. Someone needs to {quest_action} and build a case that can't be denied. The {quest_threat} {quest_threat_has} enough influence to silence anyone from within. {quest_reward_hint} might follow if justice is done."
       },
-      "playerResponses": [
-        {
-          "text": "Stealing from the vulnerable is as low as it gets. I'll find the evidence.",
-          "action": "ACCEPT",
-          "dispositionShift": 5
-        },
-        {
-          "text": "How deep does this person's influence go?",
-          "action": "ACCEPT",
-          "dispositionShift": 2
-        }
+      "objectivePool": [
+        "EXPLORE_LOCATION",
+        "FETCH_ITEM",
+        "TALK_TO_NPC"
       ],
-      "objectivePool": ["EXPLORE_LOCATION", "FETCH_ITEM", "TALK_TO_NPC"],
       "objectiveConfig": {}
     }
   ]

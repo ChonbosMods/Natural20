@@ -7,23 +7,11 @@
         "plotStep": "Since {quest_origin}, the {quest_focus} {quest_focus_has} been building for years. The people in power are eating well while the rest choose between food and firewood. The {quest_threat} {quest_threat_is} escalating and someone from outside needs to {quest_action} before this turns to bloodshed.",
         "outro": "{quest_time_pressure}. After that, talking won't matter. Protecting the {quest_stakes} depends on both sides believing they're being heard."
       },
-      "playerResponses": [
-        {
-          "text": "I'll hear both sides. Someone has to before the blades come out.",
-          "action": "ACCEPT",
-          "dispositionShift": 5
-        },
-        {
-          "text": "The workers are right. The elite need to answer for what they've done.",
-          "action": "ACCEPT",
-          "dispositionShift": -2
-        },
-        {
-          "text": "Internal politics aren't my arena.",
-          "action": "DECLINE"
-        }
+      "objectivePool": [
+        "TALK_TO_NPC",
+        "EXPLORE_LOCATION",
+        "FETCH_ITEM"
       ],
-      "objectivePool": ["TALK_TO_NPC", "EXPLORE_LOCATION", "FETCH_ITEM"],
       "objectiveConfig": {}
     },
     {
@@ -33,23 +21,11 @@
         "plotStep": "The {quest_focus} {quest_focus_is} locked in {quest_origin} under guard. The families who spent months earning it are standing outside with empty hands. The powerful say it stays until the 'debt' is paid. The workers say there is no debt.",
         "outro": "If someone doesn't {quest_action}, the {quest_threat} will destroy the {quest_stakes} before long. {quest_item} {location_hint} might hold proof of who's telling the truth."
       },
-      "playerResponses": [
-        {
-          "text": "Theft is theft, even when the thief holds power. I'll help.",
-          "action": "ACCEPT",
-          "dispositionShift": 5
-        },
-        {
-          "text": "Is there proof the debts are fabricated?",
-          "action": "ACCEPT",
-          "dispositionShift": 2
-        },
-        {
-          "text": "I'm not getting between the powerful and the powerless.",
-          "action": "DECLINE"
-        }
+      "objectivePool": [
+        "EXPLORE_LOCATION",
+        "TALK_TO_NPC",
+        "FETCH_ITEM"
       ],
-      "objectivePool": ["EXPLORE_LOCATION", "TALK_TO_NPC", "FETCH_ITEM"],
       "objectiveConfig": {}
     },
     {
@@ -59,19 +35,11 @@
         "plotStep": "The {quest_focus} {quest_focus_is} designed to keep power in the same hands, dressed up as fairness. The lower ranks work twice as hard and fail on tests they were never given the tools to pass. One of them found proof that the {quest_focus} changes every time an outsider gets close to succeeding.",
         "outro": "If someone could {quest_action}, the whole rotten system collapses. But the powerful have influence everywhere. The fate of the {quest_stakes} hangs in the balance. {quest_reward_hint} might follow if justice prevails."
       },
-      "playerResponses": [
-        {
-          "text": "A rigged game needs someone to flip the table. I'm in.",
-          "action": "ACCEPT",
-          "dispositionShift": 5
-        },
-        {
-          "text": "Exposing corruption is dangerous. What's in it for me?",
-          "action": "ACCEPT",
-          "dispositionShift": -1
-        }
+      "objectivePool": [
+        "TALK_TO_NPC",
+        "FETCH_ITEM",
+        "EXPLORE_LOCATION"
       ],
-      "objectivePool": ["TALK_TO_NPC", "FETCH_ITEM", "EXPLORE_LOCATION"],
       "objectiveConfig": {}
     }
   ]

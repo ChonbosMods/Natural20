@@ -7,11 +7,6 @@
         "plotStep": "Your persistence to {quest_action} in the face of one setback after another is what saved us. The {quest_focus} {quest_focus_is} stabilized, and {quest_ally} is organizing the recovery.",
         "outro": "Sometimes all it takes is one person who refuses to quit. You were that person."
       },
-      "playerResponses": [
-        { "text": "Misfortune does not last forever. Glad to see you through it.", "action": "ACCEPT", "dispositionShift": 15 },
-        { "text": "Please invest in better infrastructure after this.", "action": "ACCEPT", "dispositionShift": 0 },
-        { "text": "You earned this recovery. Own it.", "action": "ACCEPT", "dispositionShift": 5 }
-      ],
       "objectivePool": [],
       "objectiveConfig": {}
     },
@@ -22,10 +17,6 @@
         "plotStep": "The {quest_focus} still needs work, but the crisis has passed. {quest_ally} says the worst is over, and I believe it this time.",
         "outro": "You fought against cruel fate itself and won. That is no small thing."
       },
-      "playerResponses": [
-        { "text": "Luck had nothing to do with it. You worked hard.", "action": "ACCEPT", "dispositionShift": 10 },
-        { "text": "Let us hope the worst really is over this time.", "action": "ACCEPT", "dispositionShift": 5 }
-      ],
       "objectivePool": [],
       "objectiveConfig": {}
     },
@@ -36,11 +27,6 @@
         "plotStep": "The {quest_stakes} {quest_stakes_is} secured. The {quest_focus} can be rebuilt properly now. {quest_ally} has already drawn up plans to prevent this from happening again.",
         "outro": "When misfortune came knocking, you answered the door and sent it packing. We are grateful beyond words."
       },
-      "playerResponses": [
-        { "text": "Build back stronger. That is the best revenge against fate.", "action": "ACCEPT", "dispositionShift": 10 },
-        { "text": "Glad to hear you have a prevention plan.", "action": "ACCEPT", "dispositionShift": 5 },
-        { "text": "Take care of each other. That is all.", "action": "ACCEPT", "dispositionShift": 5 }
-      ],
       "objectivePool": [],
       "objectiveConfig": {}
     }

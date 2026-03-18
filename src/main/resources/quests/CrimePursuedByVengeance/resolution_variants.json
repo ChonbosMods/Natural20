@@ -7,11 +7,6 @@
         "plotStep": "What they did to the {quest_focus} can be rebuilt. What matters is that the wrong has been answered. {quest_ally} says the settlement sleeps easier knowing someone held them accountable.",
         "outro": "You did not let a crime go unanswered. That takes conviction."
       },
-      "playerResponses": [
-        { "text": "No one should get away with harming innocents.", "action": "ACCEPT", "dispositionShift": 10 },
-        { "text": "It is done. Let us move on.", "action": "ACCEPT", "dispositionShift": 0 },
-        { "text": "Make sure it does not happen again.", "action": "ACCEPT", "dispositionShift": 5 }
-      ],
       "objectivePool": [],
       "objectiveConfig": {}
     },
@@ -22,10 +17,6 @@
         "plotStep": "The {quest_focus} still bears the scars, but the people are stronger for having seen justice. The {quest_stakes} {quest_stakes_has} been restored as much as possible.",
         "outro": "Vengeance can be a poison of its own, but what you brought us was not vengeance: it was justice. Thank you."
       },
-      "playerResponses": [
-        { "text": "There is a difference between justice and revenge. I am glad we found it.", "action": "ACCEPT", "dispositionShift": 15 },
-        { "text": "Just be sure the next generation learns from this.", "action": "ACCEPT", "dispositionShift": 5 }
-      ],
       "objectivePool": [],
       "objectiveConfig": {}
     },
@@ -36,11 +27,6 @@
         "plotStep": "{quest_ally} has already begun restoring the {quest_focus}. The mood in the settlement has shifted: people feel safer, more confident. Your actions made that possible.",
         "outro": "You stood up when others looked away. That is the mark of a true ally."
       },
-      "playerResponses": [
-        { "text": "Wrongs should not go unanswered. It was the right thing to do.", "action": "ACCEPT", "dispositionShift": 10 },
-        { "text": "I expect you will remember this next time I need something.", "action": "ACCEPT", "dispositionShift": -3 },
-        { "text": "Stay watchful. Grudges have long memories.", "action": "ACCEPT", "dispositionShift": 0 }
-      ],
       "objectivePool": [],
       "objectiveConfig": {}
     }

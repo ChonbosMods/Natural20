@@ -7,10 +7,6 @@
         "plotStep": "Whatever you did in those ruins worked. The blight receded overnight, the water runs clear, and the {enemy_type} scattered. {target_npc} examined the {quest_focus} and says the old markings have changed: not angry anymore, but watchful. The first new growth appeared this morning.",
         "outro": "You didn't just save the {quest_stakes}. You saved our future here. Take this, and know that we remember our debts."
       },
-      "playerResponses": [
-        { "text": "New growth from cursed ground. That's worth more than any payment.", "action": "ACCEPT", "dispositionShift": 10 },
-        { "text": "Respect what's beneath your feet from now on. Glad it's over.", "action": "ACCEPT" }
-      ],
       "objectivePool": [],
       "objectiveConfig": {}
     },
@@ -21,10 +17,6 @@
         "plotStep": "The ritual worked, but it wasn't a simple cleansing. {target_npc} says the records you found describe an ancient covenant between the first settlers and the forces that shaped this land. We'd been living here for generations without knowing we were guests, not owners. The settlement has agreed to maintain the shrine and leave the {quest_focus} undisturbed.",
         "outro": "You taught us humility without a single lecture. That's a rare gift."
       },
-      "playerResponses": [
-        { "text": "Coexistence with the old powers sounds wiser than conquest.", "action": "ACCEPT", "dispositionShift": 5 },
-        { "text": "A covenant honored is better than a war fought. Wise choice.", "action": "ACCEPT" }
-      ],
       "objectivePool": [],
       "objectiveConfig": {}
     },
@@ -35,10 +27,6 @@
         "plotStep": "The curse broke when you completed the ritual, but not before it claimed part of the settlement. Families lost their homes, and the damaged land won't support building for years. {target_npc} organized the relocation. The shrine stands restored, the water flows clean, and the {quest_focus} {quest_focus_has} gone quiet.",
         "outro": "You saved what could be saved. Nobody could have done more. Take this: it's everything the affected families could spare as thanks."
       },
-      "playerResponses": [
-        { "text": "Scars are reminders. Build back smarter this time.", "action": "ACCEPT" },
-        { "text": "The land heals. So will the people. Give it time.", "action": "ACCEPT", "dispositionShift": 5 }
-      ],
       "objectivePool": [],
       "objectiveConfig": {}
     }

@@ -7,16 +7,23 @@
         "plotStep": "Since {quest_origin}, I've spent years building connections and waiting for this moment. But my rivals are moving fast. {target_npc} has already started making promises they can't deliver. I need {quest_item} from {location_hint} to secure key support before {target_npc} gets to them. The {enemy_type} threat makes this urgent: whoever takes the {quest_focus} needs to be ready to defend us.",
         "outro": "Help me claim the {quest_stakes}, and you'll have the ear of the most powerful person in the region. {quest_reward_hint} is only the beginning."
       },
-      "playerResponses": [
-        { "text": "A strong leader beats a popular one. I'll get what you need.", "action": "ACCEPT" },
-        { "text": "Power plays are messy business. What's my cut?", "action": "ACCEPT", "dispositionShift": -5 },
-        { "text": "I don't get involved in succession fights. Too many knives.", "action": "DECLINE" }
+      "objectivePool": [
+        "FETCH_ITEM",
+        "GATHER_ITEMS",
+        "TALK_TO_NPC"
       ],
-      "objectivePool": ["FETCH_ITEM", "GATHER_ITEMS", "TALK_TO_NPC"],
       "objectiveConfig": {
-        "FETCH_ITEM": { "locationPreference": "DUNGEON" },
-        "GATHER_ITEMS": { "countMin": 5, "countMax": 12 },
-        "TALK_TO_NPC": { "countMin": 1, "countMax": 1 }
+        "FETCH_ITEM": {
+          "locationPreference": "DUNGEON"
+        },
+        "GATHER_ITEMS": {
+          "countMin": 5,
+          "countMax": 12
+        },
+        "TALK_TO_NPC": {
+          "countMin": 1,
+          "countMax": 1
+        }
       }
     },
     {
@@ -26,16 +33,24 @@
         "plotStep": "A discovery was made {location_hint} last week. If I can secure {quest_item} to stake a legal claim before the competition gets wind of it, I'll control the {quest_focus}. {target_npc} has been sniffing around. If they beat me to the claim, the {quest_stakes} {quest_stakes_is} worthless. The {enemy_type} have been spotted near the site, which is the only reason nobody else has moved on it yet.",
         "outro": "Fortune favors the bold, not the cautious. {quest_reward_hint} awaits those who move first."
       },
-      "playerResponses": [
-        { "text": "Bold and well-compensated. Show me the way.", "action": "ACCEPT" },
-        { "text": "Cornering a market is ruthless. I like it. I'm in.", "action": "ACCEPT" },
-        { "text": "Monopolies create enemies. I'd rather not be one of them.", "action": "DECLINE" }
+      "objectivePool": [
+        "EXPLORE_LOCATION",
+        "GATHER_ITEMS",
+        "KILL_MOBS"
       ],
-      "objectivePool": ["EXPLORE_LOCATION", "GATHER_ITEMS", "KILL_MOBS"],
       "objectiveConfig": {
-        "EXPLORE_LOCATION": { "countMin": 2, "countMax": 3 },
-        "GATHER_ITEMS": { "countMin": 6, "countMax": 15 },
-        "KILL_MOBS": { "countMin": 3, "countMax": 6 }
+        "EXPLORE_LOCATION": {
+          "countMin": 2,
+          "countMax": 3
+        },
+        "GATHER_ITEMS": {
+          "countMin": 6,
+          "countMax": 15
+        },
+        "KILL_MOBS": {
+          "countMin": 3,
+          "countMax": 6
+        }
       }
     },
     {
@@ -45,16 +60,23 @@
         "plotStep": "The current leader is corrupt, but everyone loves them because they smile well and give pretty speeches. {target_npc} has proof of their misdeeds hidden {location_hint}, but getting to it means dealing with the {enemy_type} that have overrun the area. I need {quest_item} from those ruins to expose the truth before {quest_time_pressure}.",
         "outro": "This isn't about ambition. It's about replacing someone unworthy with someone who isn't afraid to make hard choices. The {quest_focus} demands action, and the {quest_stakes} {quest_stakes_is} hanging in the balance."
       },
-      "playerResponses": [
-        { "text": "Exposing corruption is worth the risk. I'll retrieve the evidence.", "action": "ACCEPT" },
-        { "text": "Dirty politics with a side of monster-fighting. What's the pay?", "action": "ACCEPT", "dispositionShift": -5 },
-        { "text": "One schemer replacing another isn't progress. Pass.", "action": "DECLINE" }
+      "objectivePool": [
+        "FETCH_ITEM",
+        "EXPLORE_LOCATION",
+        "KILL_MOBS"
       ],
-      "objectivePool": ["FETCH_ITEM", "EXPLORE_LOCATION", "KILL_MOBS"],
       "objectiveConfig": {
-        "FETCH_ITEM": { "locationPreference": "DUNGEON" },
-        "EXPLORE_LOCATION": { "countMin": 1, "countMax": 2 },
-        "KILL_MOBS": { "countMin": 3, "countMax": 8 }
+        "FETCH_ITEM": {
+          "locationPreference": "DUNGEON"
+        },
+        "EXPLORE_LOCATION": {
+          "countMin": 1,
+          "countMax": 2
+        },
+        "KILL_MOBS": {
+          "countMin": 3,
+          "countMax": 8
+        }
       }
     }
   ]

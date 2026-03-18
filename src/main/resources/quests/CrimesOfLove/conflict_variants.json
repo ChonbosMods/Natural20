@@ -7,26 +7,16 @@
         "plotStep": "{target_npc} says {quest_ally} is trying to delay the hearing, but the enforcers are also looking for the person who picked up the delivery. That's you. {quest_item} is the last hope for {quest_stakes}. The {quest_threat} {quest_threat_is} tightening the net around {location_hint}.",
         "outro": "The delivery route is compromised. {target_npc} knows a back path, but it adds hours. The {quest_stakes} may not have hours. Choose the route and hope it's the right one."
       },
-      "playerResponses": [
-        {
-          "text": "I'll take the back path. Slower is better than caught.",
-          "action": "ACCEPT",
-          "dispositionShift": 3
-        },
-        {
-          "text": "The direct route. Those people don't have time for detours.",
-          "action": "ACCEPT",
-          "dispositionShift": 1
-        },
-        {
-          "text": "The provider was arrested for this. I'm not joining them.",
-          "action": "DECLINE",
-          "dispositionShift": -4
-        }
+      "objectivePool": [
+        "DELIVER_ITEM",
+        "EXPLORE_LOCATION",
+        "KILL_MOBS"
       ],
-      "objectivePool": ["DELIVER_ITEM", "EXPLORE_LOCATION", "KILL_MOBS"],
       "objectiveConfig": {
-        "KILL_MOBS": { "countMin": 2, "countMax": 5 }
+        "KILL_MOBS": {
+          "countMin": 2,
+          "countMax": 5
+        }
       }
     },
     {
@@ -36,19 +26,11 @@
         "plotStep": "{target_npc} picked up their trail {location_hint}. The deserter is carrying their loved one on their back, administering the remedy in doses while they move. {quest_ally} says the patrol has orders to bring them back alive, but not all soldiers follow orders carefully. They need {quest_item} to keep moving.",
         "outro": "Two more days. That's all they need to finish the treatment. After that, they'll surrender. Find them before the patrol does and bring {quest_item}."
       },
-      "playerResponses": [
-        {
-          "text": "Two days for their family's life. I'll buy them that time.",
-          "action": "ACCEPT",
-          "dispositionShift": 5
-        },
-        {
-          "text": "If I misdirect the patrol, that's a crime too. You know that.",
-          "action": "ACCEPT",
-          "dispositionShift": 1
-        }
+      "objectivePool": [
+        "FETCH_ITEM",
+        "EXPLORE_LOCATION",
+        "TALK_TO_NPC"
       ],
-      "objectivePool": ["FETCH_ITEM", "EXPLORE_LOCATION", "TALK_TO_NPC"],
       "objectiveConfig": {}
     },
     {
@@ -58,26 +40,16 @@
         "plotStep": "{target_npc} says the smuggler was questioned but didn't crack. They're terrified but thinking about the people who are counting on them. {quest_ally} found a section near {location_hint} where crossing is possible, but it's closer to an {enemy_type} camp. {quest_item} could serve as a distraction to draw the patrols away.",
         "outro": "The food needs to cross tonight or {quest_stakes} goes another week without. Someone needs to make the run."
       },
-      "playerResponses": [
-        {
-          "text": "Show me the crossing point. Those people need to eat.",
-          "action": "ACCEPT",
-          "dispositionShift": 4
-        },
-        {
-          "text": "Using {enemy_type} as a distraction is risky. What if it backfires?",
-          "action": "ACCEPT",
-          "dispositionShift": 1
-        },
-        {
-          "text": "The patrols are too heavy. This can't continue.",
-          "action": "DECLINE",
-          "dispositionShift": -2
-        }
+      "objectivePool": [
+        "DELIVER_ITEM",
+        "KILL_MOBS",
+        "EXPLORE_LOCATION"
       ],
-      "objectivePool": ["DELIVER_ITEM", "KILL_MOBS", "EXPLORE_LOCATION"],
       "objectiveConfig": {
-        "KILL_MOBS": { "countMin": 3, "countMax": 7 }
+        "KILL_MOBS": {
+          "countMin": 3,
+          "countMax": 7
+        }
       }
     }
   ]

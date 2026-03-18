@@ -7,18 +7,6 @@
         "plotStep": "The wrongly accused have been formally cleared. {target_npc} says one of them wept when they heard. They'd been living under that shadow for years. {quest_ally} is overseeing restitution.",
         "outro": "Finding the truth cost the person who started this everything they believed about their mentor, {player_name}. But it gave innocent people their names back."
       },
-      "playerResponses": [
-        {
-          "text": "The whistleblower showed more integrity than the guilty ever did.",
-          "action": "COMPLETE",
-          "dispositionShift": 5
-        },
-        {
-          "text": "Years of false disgrace. Make sure they're truly made whole.",
-          "action": "COMPLETE",
-          "dispositionShift": 3
-        }
-      ],
       "objectivePool": [],
       "objectiveConfig": {}
     },
@@ -29,23 +17,6 @@
         "plotStep": "The false hero was removed from their position. The memorial is being recarved with the names of the actual defenders. {target_npc} found a survivor who confirmed everything. {quest_ally} says the settlement is in shock, but it's the clean kind: the kind that comes before honest rebuilding.",
         "outro": "It's painful to learn your hero was a fraud, {player_name}. But the real heroes deserve their names on the stone. You made sure the right story gets told."
       },
-      "playerResponses": [
-        {
-          "text": "The real defenders waited a long time for their due. Better late than never.",
-          "action": "COMPLETE",
-          "dispositionShift": 5
-        },
-        {
-          "text": "A settlement that can face its own lies is stronger for it.",
-          "action": "COMPLETE",
-          "dispositionShift": 3
-        },
-        {
-          "text": "Watch for the next person who tells you what you want to hear.",
-          "action": "COMPLETE",
-          "dispositionShift": 1
-        }
-      ],
       "objectivePool": [],
       "objectiveConfig": {}
     },
@@ -56,18 +27,6 @@
         "plotStep": "The accounting is devastating. Over years, enough resources to help every displaced family were diverted to personal luxury. {target_npc} says the recovered assets will be redistributed. {quest_ally} is coordinating distribution to where the funds were originally promised.",
         "outro": "The most trusted person in the settlement turned out to be its worst predator, {player_name}. The {quest_stakes} will finally receive what was promised. It doesn't undo the suffering, but it's the closest thing to justice."
       },
-      "playerResponses": [
-        {
-          "text": "Justice delayed is painful, but it still matters. Well done.",
-          "action": "COMPLETE",
-          "dispositionShift": 5
-        },
-        {
-          "text": "Build oversight into the next fund. Trust alone isn't enough.",
-          "action": "COMPLETE",
-          "dispositionShift": 3
-        }
-      ],
       "objectivePool": [],
       "objectiveConfig": {}
     }

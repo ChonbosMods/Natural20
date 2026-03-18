@@ -7,27 +7,20 @@
         "plotStep": "{target_npc} found a partial solution in the records but it requires {quest_item} from {location_hint}. It won't save everyone: maybe half, maybe fewer. The council is debating whether a partial solution justifies keeping the doors open. The sickest among them told me to let the council seal it.",
         "outro": "I can't accept that. Get {quest_item} to {target_npc}. Even saving half is better than losing all of them."
       },
-      "playerResponses": [
-        {
-          "text": "Half is better than none. I'll get {quest_item}.",
-          "action": "ACCEPT",
-          "dispositionShift": 4
-        },
-        {
-          "text": "They might be right. Sometimes love means letting go.",
-          "action": "ACCEPT",
-          "dispositionShift": -1
-        },
-        {
-          "text": "I can't keep chasing half-measures.",
-          "action": "DECLINE",
-          "dispositionShift": -3
-        }
+      "objectivePool": [
+        "FETCH_ITEM",
+        "GATHER_ITEMS",
+        "KILL_MOBS"
       ],
-      "objectivePool": ["FETCH_ITEM", "GATHER_ITEMS", "KILL_MOBS"],
       "objectiveConfig": {
-        "GATHER_ITEMS": { "countMin": 4, "countMax": 10 },
-        "KILL_MOBS": { "countMin": 3, "countMax": 6 }
+        "GATHER_ITEMS": {
+          "countMin": 4,
+          "countMax": 10
+        },
+        "KILL_MOBS": {
+          "countMin": 3,
+          "countMax": 6
+        }
       }
     },
     {
@@ -37,21 +30,16 @@
         "plotStep": "{target_npc} intercepted a message: the {enemy_type} are splitting the hostages into two groups at different locations. We can reach one in time but not both. {quest_ally} says the {quest_stakes} {quest_stakes_is} at risk no matter what we choose.",
         "outro": "Choose which group to save and someone dies. Refuse to choose and everyone dies. Find {quest_item}: it might give us the edge to reach both, but it means going through hostile territory first."
       },
-      "playerResponses": [
-        {
-          "text": "I'll find a way to reach both. No one gets left behind.",
-          "action": "ACCEPT",
-          "dispositionShift": 5
-        },
-        {
-          "text": "The numbers are clear. Save the larger group.",
-          "action": "ACCEPT",
-          "dispositionShift": -2
-        }
+      "objectivePool": [
+        "FETCH_ITEM",
+        "KILL_MOBS",
+        "EXPLORE_LOCATION"
       ],
-      "objectivePool": ["FETCH_ITEM", "KILL_MOBS", "EXPLORE_LOCATION"],
       "objectiveConfig": {
-        "KILL_MOBS": { "countMin": 5, "countMax": 10 }
+        "KILL_MOBS": {
+          "countMin": 5,
+          "countMax": 10
+        }
       }
     },
     {
@@ -61,26 +49,16 @@
         "plotStep": "{target_npc} found an alternate route downstream, but {enemy_type} scouts are already patrolling it. The stranded people include children and elders who can barely walk. Getting them to safety means moving slowly through open ground.",
         "outro": "Clear the patrols and mark the path with {quest_item}. If the {quest_focus} fails before everyone crosses, the alternate route is their only chance."
       },
-      "playerResponses": [
-        {
-          "text": "I'll clear the path. Get those people moving.",
-          "action": "ACCEPT",
-          "dispositionShift": 5
-        },
-        {
-          "text": "Can the {quest_focus} hold long enough for them to cross normally?",
-          "action": "ACCEPT",
-          "dispositionShift": 1
-        },
-        {
-          "text": "A few people against an army. You know what the math says.",
-          "action": "DECLINE",
-          "dispositionShift": -4
-        }
+      "objectivePool": [
+        "KILL_MOBS",
+        "EXPLORE_LOCATION",
+        "DELIVER_ITEM"
       ],
-      "objectivePool": ["KILL_MOBS", "EXPLORE_LOCATION", "DELIVER_ITEM"],
       "objectiveConfig": {
-        "KILL_MOBS": { "countMin": 4, "countMax": 8 }
+        "KILL_MOBS": {
+          "countMin": 4,
+          "countMax": 8
+        }
       }
     }
   ]

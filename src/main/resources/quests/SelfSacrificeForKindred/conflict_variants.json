@@ -7,27 +7,20 @@
         "plotStep": "One volunteer took a wound and is still pushing forward with one hand. {quest_ally} managed to save part of the supplies, but {quest_item} was scattered when things went wrong. {target_npc} is trying to rally the survivors.",
         "outro": "If we lose {quest_item}, the trip was for nothing and those people bled for nothing. Help {target_npc} recover what was lost and drive back the {enemy_type}."
       },
-      "playerResponses": [
-        {
-          "text": "Nobody's bleeding for nothing today. Let's move.",
-          "action": "ACCEPT",
-          "dispositionShift": 5
-        },
-        {
-          "text": "We should cut our losses and save the people.",
-          "action": "ACCEPT",
-          "dispositionShift": -1
-        },
-        {
-          "text": "Everything is lost. We need to retreat.",
-          "action": "DECLINE",
-          "dispositionShift": -4
-        }
+      "objectivePool": [
+        "KILL_MOBS",
+        "GATHER_ITEMS",
+        "DELIVER_ITEM"
       ],
-      "objectivePool": ["KILL_MOBS", "GATHER_ITEMS", "DELIVER_ITEM"],
       "objectiveConfig": {
-        "KILL_MOBS": { "countMin": 4, "countMax": 9 },
-        "GATHER_ITEMS": { "countMin": 5, "countMax": 12 }
+        "KILL_MOBS": {
+          "countMin": 4,
+          "countMax": 9
+        },
+        "GATHER_ITEMS": {
+          "countMin": 5,
+          "countMax": 12
+        }
       }
     },
     {
@@ -37,21 +30,16 @@
         "plotStep": "{target_npc} wants to split the column: send the fastest ahead while the rest shelter in a defensible position. {quest_ally} has already volunteered to stay with the slower group. Said they've lived long enough.",
         "outro": "We need {quest_item} to fortify the shelter point. If {quest_ally} is going to hold the line for the {quest_stakes}, at least give them a fighting chance."
       },
-      "playerResponses": [
-        {
-          "text": "I'll fortify the position. Nobody else needs to die today.",
-          "action": "ACCEPT",
-          "dispositionShift": 5
-        },
-        {
-          "text": "The whole column should stay together. Splitting is a death sentence.",
-          "action": "ACCEPT",
-          "dispositionShift": 2
-        }
+      "objectivePool": [
+        "FETCH_ITEM",
+        "KILL_MOBS",
+        "EXPLORE_LOCATION"
       ],
-      "objectivePool": ["FETCH_ITEM", "KILL_MOBS", "EXPLORE_LOCATION"],
       "objectiveConfig": {
-        "KILL_MOBS": { "countMin": 5, "countMax": 10 }
+        "KILL_MOBS": {
+          "countMin": 5,
+          "countMax": 10
+        }
       }
     },
     {
@@ -61,26 +49,16 @@
         "plotStep": "{target_npc} tried to pull them back by force. They shoved them away and said there are families depending on this holding. We need more {quest_item} to reinforce from the other side.",
         "outro": "The {quest_threat} could take them any moment. But if this fails, everything about the {quest_stakes} {quest_stakes_is} lost. Find {quest_item} {location_hint} and bring it back before the next surge."
       },
-      "playerResponses": [
-        {
-          "text": "I'll get the materials. Keep them alive until I'm back.",
-          "action": "ACCEPT",
-          "dispositionShift": 4
-        },
-        {
-          "text": "Pull them out. No structure is worth a life.",
-          "action": "ACCEPT",
-          "dispositionShift": 2
-        },
-        {
-          "text": "It's going to fail regardless. Start evacuating.",
-          "action": "DECLINE",
-          "dispositionShift": -3
-        }
+      "objectivePool": [
+        "GATHER_ITEMS",
+        "FETCH_ITEM",
+        "EXPLORE_LOCATION"
       ],
-      "objectivePool": ["GATHER_ITEMS", "FETCH_ITEM", "EXPLORE_LOCATION"],
       "objectiveConfig": {
-        "GATHER_ITEMS": { "countMin": 6, "countMax": 18 }
+        "GATHER_ITEMS": {
+          "countMin": 6,
+          "countMax": 18
+        }
       }
     }
   ]

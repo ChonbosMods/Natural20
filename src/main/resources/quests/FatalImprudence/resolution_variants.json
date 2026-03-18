@@ -7,18 +7,6 @@
         "plotStep": "{quest_ally} is coordinating the final repairs. {target_npc} has calmed down now that the immediate crisis from the {quest_threat} has passed. The settlement learned a hard lesson about caution, but at least the lesson wasn't fatal.",
         "outro": "You turned a disaster into a recovery, {player_name}. The settlement owes you more than they know."
       },
-      "playerResponses": [
-        {
-          "text": "Learn from this. Don't repeat it.",
-          "action": "COMPLETE",
-          "dispositionShift": 8
-        },
-        {
-          "text": "Glad everyone made it through.",
-          "action": "COMPLETE",
-          "dispositionShift": 6
-        }
-      ],
       "objectivePool": [],
       "objectiveConfig": {}
     },
@@ -29,18 +17,6 @@
         "plotStep": "{quest_ally} says the {quest_stakes} took a heavy blow. The recklessness behind the {quest_threat} cost us resources, morale, and trust. {target_npc} has promised reforms, but the damage is done. Your intervention prevented total disaster: without it, we'd have lost everything.",
         "outro": "A costly lesson, but one the settlement will remember. You did everything possible, {player_name}."
       },
-      "playerResponses": [
-        {
-          "text": "Pain is a good teacher, at least.",
-          "action": "COMPLETE",
-          "dispositionShift": 5
-        },
-        {
-          "text": "Next time, listen to the warnings.",
-          "action": "COMPLETE",
-          "dispositionShift": 4
-        }
-      ],
       "objectivePool": [],
       "objectiveConfig": {}
     },
@@ -51,18 +27,6 @@
         "plotStep": "{target_npc} used the crisis as an opportunity to implement safety measures that had been ignored for years. {quest_ally} organized the labor, and the {enemy_type} threat that exploited the {quest_threat} has been pushed back permanently. The {quest_stakes} {quest_stakes_is} more secure than ever.",
         "outro": "What could have been the settlement's worst day became the foundation for its strongest season. That started with you, {player_name}."
       },
-      "playerResponses": [
-        {
-          "text": "Better to build right than build fast.",
-          "action": "COMPLETE",
-          "dispositionShift": 10
-        },
-        {
-          "text": "Just don't burn down the improvements.",
-          "action": "COMPLETE",
-          "dispositionShift": 5
-        }
-      ],
       "objectivePool": [],
       "objectiveConfig": {}
     }

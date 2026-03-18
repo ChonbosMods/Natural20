@@ -7,16 +7,23 @@
         "plotStep": "When this place was under attack by {enemy_type}, I ran. I was supposed to hold the line with {target_npc}, but I abandoned my post and fled. {target_npc} held on alone and was badly injured because of it. They moved to another settlement {location_hint} and haven't spoken to me since. I've been gathering {quest_item} as a peace offering, but the road is dangerous.",
         "outro": "I don't deserve forgiveness. But I need to {quest_action}. The fate of the {quest_stakes} depends on whether I can face what I did. {quest_origin} haunts me every day."
       },
-      "playerResponses": [
-        { "text": "It takes courage to face what you did. I'll walk that road with you.", "action": "ACCEPT" },
-        { "text": "Cowardice has consequences. But so does trying to make it right. I'll help.", "action": "ACCEPT" },
-        { "text": "You abandoned someone in battle. That's not something a delivery can fix.", "action": "DECLINE" }
+      "objectivePool": [
+        "FETCH_ITEM",
+        "EXPLORE_LOCATION",
+        "KILL_MOBS"
       ],
-      "objectivePool": ["FETCH_ITEM", "EXPLORE_LOCATION", "KILL_MOBS"],
       "objectiveConfig": {
-        "FETCH_ITEM": { "locationPreference": "WILDERNESS" },
-        "EXPLORE_LOCATION": { "countMin": 2, "countMax": 3 },
-        "KILL_MOBS": { "countMin": 3, "countMax": 6 }
+        "FETCH_ITEM": {
+          "locationPreference": "WILDERNESS"
+        },
+        "EXPLORE_LOCATION": {
+          "countMin": 2,
+          "countMax": 3
+        },
+        "KILL_MOBS": {
+          "countMin": 3,
+          "countMax": 6
+        }
       }
     },
     {
@@ -26,15 +33,18 @@
         "plotStep": "Years ago, when times were desperate, I stole {quest_item} from {target_npc}'s household. It was irreplaceable, and I sold it to a trader who took it {location_hint}. I've carried that secret ever since. {target_npc} still searches for it. The trader's camp is in {enemy_type} territory now.",
         "outro": "I stole from someone who trusted me. The least I can do is risk my pride to give it back. {quest_action} is the only way to start. I owe it to the {quest_stakes}. {quest_origin} started this."
       },
-      "playerResponses": [
-        { "text": "Returning what you stole is the right first step. I'll help you take it.", "action": "ACCEPT" },
-        { "text": "Theft and guilt and dangerous territory. At least you're honest about it. I'm in.", "action": "ACCEPT", "dispositionShift": -5 },
-        { "text": "You made your choices. Live with them.", "action": "DECLINE" }
+      "objectivePool": [
+        "FETCH_ITEM",
+        "EXPLORE_LOCATION"
       ],
-      "objectivePool": ["FETCH_ITEM", "EXPLORE_LOCATION"],
       "objectiveConfig": {
-        "FETCH_ITEM": { "locationPreference": "DUNGEON" },
-        "EXPLORE_LOCATION": { "countMin": 1, "countMax": 3 }
+        "FETCH_ITEM": {
+          "locationPreference": "DUNGEON"
+        },
+        "EXPLORE_LOCATION": {
+          "countMin": 1,
+          "countMax": 3
+        }
       }
     },
     {
@@ -44,16 +54,24 @@
         "plotStep": "The council asked me if I saw {target_npc} commit a crime. I said yes, because the real guilty party was my relative and I was protecting family. {target_npc} was exiled and has been living rough {location_hint} ever since. My relative died recently, and now there's nobody left to protect. I need to find {target_npc} and bring them {quest_item} as proof of what really happened.",
         "outro": "Every day that passes with {target_npc} in exile is another day my lie draws breath. Help me {quest_action}. {quest_time_pressure}. Everything about the {quest_stakes} depends on the truth."
       },
-      "playerResponses": [
-        { "text": "An innocent person exiled by a lie deserves the truth. I'll help you find them.", "action": "ACCEPT" },
-        { "text": "You destroyed someone's life with false testimony. But trying to fix it counts for something.", "action": "ACCEPT" },
-        { "text": "Your guilty conscience isn't my problem.", "action": "DECLINE" }
+      "objectivePool": [
+        "EXPLORE_LOCATION",
+        "TALK_TO_NPC",
+        "KILL_MOBS"
       ],
-      "objectivePool": ["EXPLORE_LOCATION", "TALK_TO_NPC", "KILL_MOBS"],
       "objectiveConfig": {
-        "EXPLORE_LOCATION": { "countMin": 2, "countMax": 3 },
-        "TALK_TO_NPC": { "countMin": 1, "countMax": 1 },
-        "KILL_MOBS": { "countMin": 2, "countMax": 5 }
+        "EXPLORE_LOCATION": {
+          "countMin": 2,
+          "countMax": 3
+        },
+        "TALK_TO_NPC": {
+          "countMin": 1,
+          "countMax": 1
+        },
+        "KILL_MOBS": {
+          "countMin": 2,
+          "countMax": 5
+        }
       }
     }
   ]

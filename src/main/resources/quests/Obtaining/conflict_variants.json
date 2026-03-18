@@ -7,22 +7,19 @@
         "plotStep": "You'll need to clear out the {quest_threat} before you can safely gather what we need. {quest_ally} estimates there are at least a dozen hostiles between here and the objective near {location_hint}.",
         "outro": "Fight through them and claim what's ours. The {quest_stakes} {quest_stakes_is} depending on you pushing past this resistance."
       },
-      "playerResponses": [
-        {
-          "text": "Nothing will stop me.",
-          "action": "ACCEPT",
-          "dispositionShift": 4
-        },
-        {
-          "text": "I'll find a way around them.",
-          "action": "ACCEPT",
-          "dispositionShift": 2
-        }
+      "objectivePool": [
+        "KILL_MOBS",
+        "GATHER_ITEMS"
       ],
-      "objectivePool": ["KILL_MOBS", "GATHER_ITEMS"],
       "objectiveConfig": {
-        "KILL_MOBS": { "countMin": 4, "countMax": 10 },
-        "GATHER_ITEMS": { "countMin": 5, "countMax": 14 }
+        "KILL_MOBS": {
+          "countMin": 4,
+          "countMax": 10
+        },
+        "GATHER_ITEMS": {
+          "countMin": 5,
+          "countMax": 14
+        }
       }
     },
     {
@@ -32,22 +29,20 @@
         "plotStep": "{target_npc} knows a route {location_hint} that avoids the worst of the {quest_threat}, but it passes through rough ground where the {enemy_type} forage. You'll need to gather supplies and handle anything that gets in your way.",
         "outro": "Get out there and bring back what we need for the {quest_stakes}. Time isn't on our side."
       },
-      "playerResponses": [
-        {
-          "text": "Tell me the route. I'll handle the rest.",
-          "action": "ACCEPT",
-          "dispositionShift": 3
-        },
-        {
-          "text": "Deeper means more danger. Let's move.",
-          "action": "ACCEPT",
-          "dispositionShift": 2
-        }
+      "objectivePool": [
+        "GATHER_ITEMS",
+        "EXPLORE_LOCATION",
+        "KILL_MOBS"
       ],
-      "objectivePool": ["GATHER_ITEMS", "EXPLORE_LOCATION", "KILL_MOBS"],
       "objectiveConfig": {
-        "GATHER_ITEMS": { "countMin": 6, "countMax": 20 },
-        "KILL_MOBS": { "countMin": 2, "countMax": 5 }
+        "GATHER_ITEMS": {
+          "countMin": 6,
+          "countMax": 20
+        },
+        "KILL_MOBS": {
+          "countMin": 2,
+          "countMax": 5
+        }
       }
     },
     {
@@ -57,26 +52,16 @@
         "plotStep": "We can't afford to lose this. {quest_ally} suggests we gather what remains from alternate sites near {location_hint} while the competition is focused on the main deposit. The {enemy_type} in the area don't care who they attack.",
         "outro": "Scour the secondary sites and bring back enough to meet our needs. The {quest_stakes} cannot wait for negotiations."
       },
-      "playerResponses": [
-        {
-          "text": "I'll outwork the competition.",
-          "action": "ACCEPT",
-          "dispositionShift": 3
-        },
-        {
-          "text": "Maybe we should try talking to them first.",
-          "action": "ACCEPT",
-          "dispositionShift": 1
-        },
-        {
-          "text": "Let the other settlement have it.",
-          "action": "DECLINE",
-          "dispositionShift": -3
-        }
+      "objectivePool": [
+        "GATHER_ITEMS",
+        "EXPLORE_LOCATION",
+        "TALK_TO_NPC"
       ],
-      "objectivePool": ["GATHER_ITEMS", "EXPLORE_LOCATION", "TALK_TO_NPC"],
       "objectiveConfig": {
-        "GATHER_ITEMS": { "countMin": 7, "countMax": 18 }
+        "GATHER_ITEMS": {
+          "countMin": 7,
+          "countMax": 18
+        }
       }
     }
   ]

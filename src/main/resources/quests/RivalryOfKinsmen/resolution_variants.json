@@ -7,18 +7,6 @@
         "plotStep": "{quest_ally} and {target_npc} won't be friends, but they've agreed to keep their competition constructive. The {quest_stakes} {quest_stakes_is} settled: your example reminded them what actually matters when the {quest_threat} {quest_threat_is} real.",
         "outro": "You outperformed both of them without even trying to compete. That said more than any argument could, {player_name}."
       },
-      "playerResponses": [
-        {
-          "text": "As long as they stop endangering everyone.",
-          "action": "COMPLETE",
-          "dispositionShift": 8
-        },
-        {
-          "text": "Competition is fine. Stupidity isn't.",
-          "action": "COMPLETE",
-          "dispositionShift": 5
-        }
-      ],
       "objectivePool": [],
       "objectiveConfig": {}
     },
@@ -29,18 +17,6 @@
         "plotStep": "{quest_ally} accepted the outcome, though it stung. {target_npc} earned their standing fairly, in part because you kept the {quest_threat} from making the whole contest meaningless. The {quest_stakes} found resolution, even if it's not perfectly clean.",
         "outro": "Someone had to win, someone had to lose. What matters is that the settlement survived it intact. Thanks to you, {player_name}."
       },
-      "playerResponses": [
-        {
-          "text": "A fair contest deserves a fair ending.",
-          "action": "COMPLETE",
-          "dispositionShift": 6
-        },
-        {
-          "text": "At least it's over.",
-          "action": "COMPLETE",
-          "dispositionShift": 3
-        }
-      ],
       "objectivePool": [],
       "objectiveConfig": {}
     },
@@ -51,18 +27,6 @@
         "plotStep": "What started as bitter competition over the {quest_stakes} became a partnership after they realized the {enemy_type} threat was bigger than either could handle alone. Your work against the {quest_threat} gave them the wake-up call they needed.",
         "outro": "From rivals to partners. The settlement is stronger for it, and you're the reason it happened, {player_name}."
       },
-      "playerResponses": [
-        {
-          "text": "That's the best outcome I could imagine.",
-          "action": "COMPLETE",
-          "dispositionShift": 10
-        },
-        {
-          "text": "Let's hope it lasts.",
-          "action": "COMPLETE",
-          "dispositionShift": 5
-        }
-      ],
       "objectivePool": [],
       "objectiveConfig": {}
     }

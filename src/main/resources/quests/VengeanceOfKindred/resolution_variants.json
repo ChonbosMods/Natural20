@@ -7,11 +7,6 @@
         "plotStep": "The community gathered to honor the fallen today. Your name was spoken alongside theirs: not as a killer, but as someone who stood for our people.",
         "outro": "This was not about hatred. It was about love for the ones we lost. Thank you for understanding that."
       },
-      "playerResponses": [
-        { "text": "They deserved to be remembered. I am glad I could help.", "action": "ACCEPT", "dispositionShift": 15 },
-        { "text": "I hope this brings some measure of peace.", "action": "ACCEPT", "dispositionShift": 10 },
-        { "text": "It is over now. Focus on the living.", "action": "ACCEPT", "dispositionShift": 5 }
-      ],
       "objectivePool": [],
       "objectiveConfig": {}
     },
@@ -22,10 +17,6 @@
         "plotStep": "{quest_ally} lit a fire at the {quest_focus} in remembrance. The community mourns, but there is relief in knowing the danger has passed. The {quest_stakes} {quest_stakes_has} been honored.",
         "outro": "Vengeance is a heavy burden. You carried it well."
       },
-      "playerResponses": [
-        { "text": "No one should have to carry this burden alone.", "action": "ACCEPT", "dispositionShift": 10 },
-        { "text": "It is finished. That is what matters.", "action": "ACCEPT", "dispositionShift": 5 }
-      ],
       "objectivePool": [],
       "objectiveConfig": {}
     },
@@ -36,11 +27,6 @@
         "plotStep": "The {quest_focus} is quiet now. {quest_ally} says the families are beginning to heal. The grief will linger, but the fear is gone.",
         "outro": "You fought for people you never knew, on behalf of a community's pain. That is a rare kind of honor."
       },
-      "playerResponses": [
-        { "text": "Everyone deserves someone to fight for them.", "action": "ACCEPT", "dispositionShift": 15 },
-        { "text": "I hope the families find peace.", "action": "ACCEPT", "dispositionShift": 10 },
-        { "text": "Keep your people safe going forward. That is the best tribute.", "action": "ACCEPT", "dispositionShift": 5 }
-      ],
       "objectivePool": [],
       "objectiveConfig": {}
     }

@@ -7,18 +7,6 @@
         "plotStep": "{target_npc} administered the cure successfully, and {quest_ally} reports that the {quest_stakes} {quest_stakes_is} recovering well. The nightmares have stopped, the aggression has faded. Whatever was emanating from near {location_hint} has gone silent.",
         "outro": "You walked into something that defied understanding and came out the other side with a solution. {player_name}, the settlement will never forget this."
       },
-      "playerResponses": [
-        {
-          "text": "Seeing them recover makes it worthwhile.",
-          "action": "COMPLETE",
-          "dispositionShift": 10
-        },
-        {
-          "text": "Make sure that source stays sealed.",
-          "action": "COMPLETE",
-          "dispositionShift": 6
-        }
-      ],
       "objectivePool": [],
       "objectiveConfig": {}
     },
@@ -29,18 +17,6 @@
         "plotStep": "{quest_ally} says the surviving afflicted will recover in time. The {quest_threat} {quest_threat_has} been contained if not fully destroyed. {target_npc} is maintaining a watch on the area near {location_hint} to ensure the {quest_stakes} don't relapse.",
         "outro": "It's a bittersweet ending. You saved many, {player_name}, even if you couldn't save everyone."
       },
-      "playerResponses": [
-        {
-          "text": "I wish I'd been faster.",
-          "action": "COMPLETE",
-          "dispositionShift": 6
-        },
-        {
-          "text": "The living need us now.",
-          "action": "COMPLETE",
-          "dispositionShift": 5
-        }
-      ],
       "objectivePool": [],
       "objectiveConfig": {}
     },
@@ -51,18 +27,6 @@
         "plotStep": "{target_npc} says the exposure altered something fundamental in the {quest_stakes}. {quest_ally} has begun documenting what the afflicted remember, hoping to understand the {quest_threat} well enough to prevent it from returning. The source near {location_hint} is dormant, not destroyed.",
         "outro": "You did what could be done with the tools we had. The mystery of what caused this may outlast us all, but at least we survived it. Thank you, {player_name}."
       },
-      "playerResponses": [
-        {
-          "text": "Some things can't be fully understood.",
-          "action": "COMPLETE",
-          "dispositionShift": 5
-        },
-        {
-          "text": "Keep watching that site. Just in case.",
-          "action": "COMPLETE",
-          "dispositionShift": 7
-        }
-      ],
       "objectivePool": [],
       "objectiveConfig": {}
     }

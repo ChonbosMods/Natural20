@@ -7,23 +7,6 @@
         "plotStep": "The partial solution worked better than {target_npc} expected. Not everyone could be saved, and the families of those who didn't make it aren't ready to call this a victory. But the council never had to make the worst call. {quest_ally} is already distributing the remaining remedy.",
         "outro": "You gave us a choice that wasn't between terrible and worse, {player_name}. The losses are a tragedy. The alternative would have been an atrocity."
       },
-      "playerResponses": [
-        {
-          "text": "Mourn the ones we lost. But don't forget the ones we saved.",
-          "action": "COMPLETE",
-          "dispositionShift": 5
-        },
-        {
-          "text": "I wish I could have saved them all.",
-          "action": "COMPLETE",
-          "dispositionShift": 3
-        },
-        {
-          "text": "Make sure the council never faces that vote again.",
-          "action": "COMPLETE",
-          "dispositionShift": 2
-        }
-      ],
       "objectivePool": [],
       "objectiveConfig": {}
     },
@@ -34,18 +17,6 @@
         "plotStep": "The {enemy_type} didn't expect a strike on both locations simultaneously. {target_npc} coordinated the timing while {quest_ally} led the second effort. It was close: closer than anyone wants to admit. But nobody was left behind. The stores are untouched.",
         "outro": "You found the third option, {player_name}. The one nobody believed existed. Families are whole tonight because you refused to accept the impossible choice."
       },
-      "playerResponses": [
-        {
-          "text": "There's always a third option. You just have to be stubborn enough to find it.",
-          "action": "COMPLETE",
-          "dispositionShift": 5
-        },
-        {
-          "text": "The {enemy_type} will try again. Be ready next time.",
-          "action": "COMPLETE",
-          "dispositionShift": 2
-        }
-      ],
       "objectivePool": [],
       "objectiveConfig": {}
     },
@@ -56,18 +27,6 @@
         "plotStep": "Everyone made it through the alternate path. The elder had to be carried the last mile, and one of the children fell asleep on a soldier's back. {target_npc} said the sound of the {quest_focus} falling behind them was the worst and best thing they ever heard.",
         "outro": "You found the path nobody was looking for, {player_name}. The {quest_stakes} survived because you wouldn't accept that saving the many meant abandoning the few."
       },
-      "playerResponses": [
-        {
-          "text": "Those children sleeping safe tonight is all the thanks I need.",
-          "action": "COMPLETE",
-          "dispositionShift": 5
-        },
-        {
-          "text": "Rebuild the defenses. They'll find another way through eventually.",
-          "action": "COMPLETE",
-          "dispositionShift": 1
-        }
-      ],
       "objectivePool": [],
       "objectiveConfig": {}
     }

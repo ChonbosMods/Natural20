@@ -7,22 +7,20 @@
         "plotStep": "{quest_ally} warns that the {quest_threat} {quest_threat_is} compounding: each problem feeds the next. The {enemy_type} are exploiting the chaos, raiding supply caches that were left exposed. We need those supplies recovered and the hostiles driven out.",
         "outro": "Stabilize the situation before it spirals further. Clear the area, recover what was lost, and buy us time to fix what the {quest_stakes} need most."
       },
-      "playerResponses": [
-        {
-          "text": "One problem at a time. I'll start now.",
-          "action": "ACCEPT",
-          "dispositionShift": 3
-        },
-        {
-          "text": "This is getting worse by the hour.",
-          "action": "ACCEPT",
-          "dispositionShift": 2
-        }
+      "objectivePool": [
+        "KILL_MOBS",
+        "GATHER_ITEMS",
+        "FETCH_ITEM"
       ],
-      "objectivePool": ["KILL_MOBS", "GATHER_ITEMS", "FETCH_ITEM"],
       "objectiveConfig": {
-        "KILL_MOBS": { "countMin": 4, "countMax": 9 },
-        "GATHER_ITEMS": { "countMin": 5, "countMax": 14 }
+        "KILL_MOBS": {
+          "countMin": 4,
+          "countMax": 9
+        },
+        "GATHER_ITEMS": {
+          "countMin": 5,
+          "countMax": 14
+        }
       }
     },
     {
@@ -32,22 +30,20 @@
         "plotStep": "{target_npc} is taking most of the heat, deserved or not. Meanwhile, {quest_ally} is struggling to organize repairs because everyone is too busy arguing about whose fault the {quest_threat} {quest_threat_was}. The {enemy_type} don't care about blame: they're raiding near {location_hint}.",
         "outro": "Ignore the politics and handle the practical problem. Fight back the {quest_threat}, gather what's needed, and let results speak louder than accusations."
       },
-      "playerResponses": [
-        {
-          "text": "Actions matter more than blame.",
-          "action": "ACCEPT",
-          "dispositionShift": 4
-        },
-        {
-          "text": "Let them argue. I'll do the work.",
-          "action": "ACCEPT",
-          "dispositionShift": 2
-        }
+      "objectivePool": [
+        "KILL_MOBS",
+        "GATHER_ITEMS",
+        "EXPLORE_LOCATION"
       ],
-      "objectivePool": ["KILL_MOBS", "GATHER_ITEMS", "EXPLORE_LOCATION"],
       "objectiveConfig": {
-        "KILL_MOBS": { "countMin": 3, "countMax": 7 },
-        "GATHER_ITEMS": { "countMin": 4, "countMax": 12 }
+        "KILL_MOBS": {
+          "countMin": 3,
+          "countMax": 7
+        },
+        "GATHER_ITEMS": {
+          "countMin": 4,
+          "countMax": 12
+        }
       }
     },
     {
@@ -57,22 +53,20 @@
         "plotStep": "{quest_ally} says the second site is connected to the first: the same recklessness that created the {quest_threat} destabilized the whole region. {target_npc} needs materials from both sites to reinforce what's left. The {quest_stakes} can't take another hit.",
         "outro": "Go to the secondary site near {location_hint}. Clear it, gather what {target_npc} needs, and make sure we don't lose anything else."
       },
-      "playerResponses": [
-        {
-          "text": "Two disasters means twice the work. I'm ready.",
-          "action": "ACCEPT",
-          "dispositionShift": 5
-        },
-        {
-          "text": "Tell me the fastest route.",
-          "action": "ACCEPT",
-          "dispositionShift": 2
-        }
+      "objectivePool": [
+        "EXPLORE_LOCATION",
+        "KILL_MOBS",
+        "GATHER_ITEMS"
       ],
-      "objectivePool": ["EXPLORE_LOCATION", "KILL_MOBS", "GATHER_ITEMS"],
       "objectiveConfig": {
-        "KILL_MOBS": { "countMin": 3, "countMax": 8 },
-        "GATHER_ITEMS": { "countMin": 5, "countMax": 15 }
+        "KILL_MOBS": {
+          "countMin": 3,
+          "countMax": 8
+        },
+        "GATHER_ITEMS": {
+          "countMin": 5,
+          "countMax": 15
+        }
       }
     }
   ]

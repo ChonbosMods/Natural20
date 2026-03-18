@@ -7,25 +7,16 @@
         "plotStep": "They've been chasing the {quest_focus} for years. Every coin, every favor, every relationship: burned. Their latest supply of {quest_item} was stolen by {enemy_type} from {quest_origin}, and now they have nothing left to work with. Nothing except the obsession.",
         "outro": "Their family asked me to find someone to {quest_action} before the {quest_threat} finishes what the obsession started. {quest_reward_hint} might come of it, but the real goal is ending the spiral."
       },
-      "playerResponses": [
-        {
-          "text": "I'll get what they need. Maybe finishing will set them free.",
-          "action": "ACCEPT",
-          "dispositionShift": 3
-        },
-        {
-          "text": "Maybe they need to lose it. Some obsessions need to end.",
-          "action": "ACCEPT",
-          "dispositionShift": -1
-        },
-        {
-          "text": "I can't solve someone's war with themselves.",
-          "action": "DECLINE"
-        }
+      "objectivePool": [
+        "FETCH_ITEM",
+        "KILL_MOBS",
+        "EXPLORE_LOCATION"
       ],
-      "objectivePool": ["FETCH_ITEM", "KILL_MOBS", "EXPLORE_LOCATION"],
       "objectiveConfig": {
-        "KILL_MOBS": { "countMin": 3, "countMax": 7 }
+        "KILL_MOBS": {
+          "countMin": 3,
+          "countMax": 7
+        }
       }
     },
     {
@@ -35,26 +26,20 @@
         "plotStep": "They sold everything to fund the research on the {quest_focus}. Then the {enemy_type} raided their supply cache. The {quest_stakes}: gone overnight. If someone doesn't {quest_action}, they'll try something desperate with substitutes, and the {quest_threat} could bring the whole place down.",
         "outro": "They won't stop. They can't. Getting {quest_item} back from the {enemy_type} is the only way to prevent catastrophe."
       },
-      "playerResponses": [
-        {
-          "text": "I'd rather face {enemy_type} than an explosion. I'll go.",
-          "action": "ACCEPT",
-          "dispositionShift": 3
-        },
-        {
-          "text": "Sounds like they need an intervention, not an errand runner.",
-          "action": "ACCEPT",
-          "dispositionShift": 1
-        },
-        {
-          "text": "Let them face the consequences of their choices.",
-          "action": "DECLINE"
-        }
+      "objectivePool": [
+        "FETCH_ITEM",
+        "KILL_MOBS",
+        "GATHER_ITEMS"
       ],
-      "objectivePool": ["FETCH_ITEM", "KILL_MOBS", "GATHER_ITEMS"],
       "objectiveConfig": {
-        "KILL_MOBS": { "countMin": 2, "countMax": 6 },
-        "GATHER_ITEMS": { "countMin": 4, "countMax": 10 }
+        "KILL_MOBS": {
+          "countMin": 2,
+          "countMax": 6
+        },
+        "GATHER_ITEMS": {
+          "countMin": 4,
+          "countMax": 10
+        }
       }
     },
     {
@@ -64,19 +49,11 @@
         "plotStep": "They've spent everything on the {quest_focus}. Their children haven't spoken to them in years. They need one more piece, the keystone that makes sense of everything, and they swear the obsession will end. Their family asked me to find someone to {quest_action}. Not to enable the addiction, but because {quest_time_pressure} and the {quest_stakes} {quest_stakes_is} hanging in the balance.",
         "outro": "At least let the {quest_focus} mean something. {quest_item} {location_hint} might be the final piece."
       },
-      "playerResponses": [
-        {
-          "text": "If finding it ends this, I'll look. Where was it last seen?",
-          "action": "ACCEPT",
-          "dispositionShift": 2
-        },
-        {
-          "text": "You realize finding it probably won't stop them.",
-          "action": "ACCEPT",
-          "dispositionShift": 1
-        }
+      "objectivePool": [
+        "EXPLORE_LOCATION",
+        "FETCH_ITEM",
+        "TALK_TO_NPC"
       ],
-      "objectivePool": ["EXPLORE_LOCATION", "FETCH_ITEM", "TALK_TO_NPC"],
       "objectiveConfig": {}
     }
   ]

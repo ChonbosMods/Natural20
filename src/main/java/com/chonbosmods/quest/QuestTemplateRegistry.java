@@ -1,6 +1,10 @@
 package com.chonbosmods.quest;
 
-import com.chonbosmods.quest.model.*;
+import com.chonbosmods.quest.model.DialogueChunks;
+import com.chonbosmods.quest.model.ObjectiveConfig;
+import com.chonbosmods.quest.model.QuestReferenceTemplate;
+import com.chonbosmods.quest.model.QuestSituation;
+import com.chonbosmods.quest.model.QuestVariant;
 import com.google.common.flogger.FluentLogger;
 import com.google.gson.*;
 
@@ -88,18 +92,6 @@ public class QuestTemplateRegistry {
             chunks.has("outro") ? chunks.get("outro").getAsString() : ""
         );
 
-        List<PlayerResponse> responses = new ArrayList<>();
-        if (obj.has("playerResponses")) {
-            for (JsonElement el : obj.getAsJsonArray("playerResponses")) {
-                JsonObject r = el.getAsJsonObject();
-                responses.add(new PlayerResponse(
-                    r.get("text").getAsString(),
-                    r.get("action").getAsString(),
-                    r.has("dispositionShift") ? r.get("dispositionShift").getAsInt() : null
-                ));
-            }
-        }
-
         List<ObjectiveType> pool = new ArrayList<>();
         if (obj.has("objectivePool")) {
             for (JsonElement el : obj.getAsJsonArray("objectivePool")) {
@@ -121,7 +113,7 @@ public class QuestTemplateRegistry {
             }
         }
 
-        return new QuestVariant(id, bindings, dialogueChunks, responses, pool, configs);
+        return new QuestVariant(id, bindings, dialogueChunks, pool, configs);
     }
 
     private List<QuestReferenceTemplate> loadReferencesFile(Path file) {

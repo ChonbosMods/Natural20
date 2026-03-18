@@ -7,16 +7,23 @@
         "plotStep": "The blight has expanded beyond the original area. The {enemy_type} are behaving strangely: moving in patterns, almost ritualistic. Worse, the {quest_item} you gathered isn't enough. {target_npc} found records describing a second component hidden {location_hint}, protected by something the texts call a 'warden.'",
         "outro": "We underestimated the {quest_threat}. It's not just angry. It's organized. The {quest_stakes} depends on finding the second component."
       },
-      "playerResponses": [
-        { "text": "A warden doesn't scare me. Tell me where to find the second component.", "action": "ACCEPT" },
-        { "text": "This keeps getting bigger. I'll need significant compensation for taking on wardens.", "action": "ACCEPT", "dispositionShift": -5 },
-        { "text": "Organized supernatural forces? I know when I'm outmatched.", "action": "DECLINE" }
+      "objectivePool": [
+        "EXPLORE_LOCATION",
+        "KILL_MOBS",
+        "FETCH_ITEM"
       ],
-      "objectivePool": ["EXPLORE_LOCATION", "KILL_MOBS", "FETCH_ITEM"],
       "objectiveConfig": {
-        "EXPLORE_LOCATION": { "countMin": 2, "countMax": 3 },
-        "KILL_MOBS": { "countMin": 4, "countMax": 9 },
-        "FETCH_ITEM": { "locationPreference": "DUNGEON" }
+        "EXPLORE_LOCATION": {
+          "countMin": 2,
+          "countMax": 3
+        },
+        "KILL_MOBS": {
+          "countMin": 4,
+          "countMax": 9
+        },
+        "FETCH_ITEM": {
+          "locationPreference": "DUNGEON"
+        }
       }
     },
     {
@@ -26,16 +33,23 @@
         "plotStep": "{target_npc} won't repeat exactly what was said, but the message was clear: the {quest_threat} demands a tribute of {quest_item} at the {quest_focus}, or the punishment escalates. The {enemy_type} attacks have intensified as if enforcing the demand. The old records mention a place {location_hint} where a previous generation found a way to negotiate without submission.",
         "outro": "Submission or defiance: both have costs. We need a third option, and you might be the one to find it."
       },
-      "playerResponses": [
-        { "text": "If there's a precedent for negotiation, I'll find it.", "action": "ACCEPT" },
-        { "text": "Ultimatums from ancient forces. What a time to be alive. I'm in.", "action": "ACCEPT" },
-        { "text": "Negotiating with divine forces is beyond any mortal's ability.", "action": "DECLINE" }
+      "objectivePool": [
+        "EXPLORE_LOCATION",
+        "FETCH_ITEM",
+        "GATHER_ITEMS"
       ],
-      "objectivePool": ["EXPLORE_LOCATION", "FETCH_ITEM", "GATHER_ITEMS"],
       "objectiveConfig": {
-        "EXPLORE_LOCATION": { "countMin": 2, "countMax": 3 },
-        "FETCH_ITEM": { "locationPreference": "DUNGEON" },
-        "GATHER_ITEMS": { "countMin": 4, "countMax": 10 }
+        "EXPLORE_LOCATION": {
+          "countMin": 2,
+          "countMax": 3
+        },
+        "FETCH_ITEM": {
+          "locationPreference": "DUNGEON"
+        },
+        "GATHER_ITEMS": {
+          "countMin": 4,
+          "countMax": 10
+        }
       }
     },
     {
@@ -45,16 +59,24 @@
         "plotStep": "Buildings cracked from foundation to roof last night. The well tastes of iron and the {enemy_type} have breached the perimeter, drawn inward by the {quest_threat}. {target_npc} believes the original offense against the {quest_focus} can only be undone at the source: deep in the ruins {location_hint}. You'll need {quest_item} for the cleansing ritual.",
         "outro": "We can't run from this. The only way out is through. The {quest_stakes} won't survive the week otherwise."
       },
-      "playerResponses": [
-        { "text": "Into the ruins, then. Whatever's down there, I'll face it.", "action": "ACCEPT" },
-        { "text": "Structural collapse and monsters inside the walls? This is dire. But I'll go.", "action": "ACCEPT" },
-        { "text": "When buildings start cracking, it's time to evacuate, not dig deeper.", "action": "DECLINE" }
+      "objectivePool": [
+        "KILL_MOBS",
+        "EXPLORE_LOCATION",
+        "GATHER_ITEMS"
       ],
-      "objectivePool": ["KILL_MOBS", "EXPLORE_LOCATION", "GATHER_ITEMS"],
       "objectiveConfig": {
-        "KILL_MOBS": { "countMin": 5, "countMax": 10 },
-        "EXPLORE_LOCATION": { "countMin": 2, "countMax": 3 },
-        "GATHER_ITEMS": { "countMin": 3, "countMax": 8 }
+        "KILL_MOBS": {
+          "countMin": 5,
+          "countMax": 10
+        },
+        "EXPLORE_LOCATION": {
+          "countMin": 2,
+          "countMax": 3
+        },
+        "GATHER_ITEMS": {
+          "countMin": 3,
+          "countMax": 8
+        }
       }
     }
   ]

@@ -7,26 +7,16 @@
         "plotStep": "The veterans are holding the line while the others fall back. {target_npc} tried to convince them to retreat together, but they refused: said the {quest_stakes} {quest_stakes_is} bigger than any one of them. They need {quest_item} to shore up their position.",
         "outro": "Every hour they hold saves lives. If you can get {quest_item} to them, it might turn hours into days."
       },
-      "playerResponses": [
-        {
-          "text": "I'll get it there. Their sacrifice won't be in vain.",
-          "action": "ACCEPT",
-          "dispositionShift": 5
-        },
-        {
-          "text": "Is there no way to get reinforcements instead?",
-          "action": "ACCEPT",
-          "dispositionShift": 1
-        },
-        {
-          "text": "They've chosen their fate. I won't share it.",
-          "action": "DECLINE",
-          "dispositionShift": -4
-        }
+      "objectivePool": [
+        "DELIVER_ITEM",
+        "KILL_MOBS",
+        "FETCH_ITEM"
       ],
-      "objectivePool": ["DELIVER_ITEM", "KILL_MOBS", "FETCH_ITEM"],
       "objectiveConfig": {
-        "KILL_MOBS": { "countMin": 4, "countMax": 10 }
+        "KILL_MOBS": {
+          "countMin": 4,
+          "countMax": 10
+        }
       }
     },
     {
@@ -36,21 +26,16 @@
         "plotStep": "{target_npc} caught the deserter {location_hint} and talked them down. They weren't a coward: they were a parent. {quest_ally} is trying to redistribute the remaining defenders, but without {quest_item}, the {quest_threat} will pour through the gap.",
         "outro": "The ideal asks everything. Most people can give almost everything. That last fraction is where heroes are made, or broken."
       },
-      "playerResponses": [
-        {
-          "text": "I'll fill the gap. Someone has to.",
-          "action": "ACCEPT",
-          "dispositionShift": 5
-        },
-        {
-          "text": "The deserter had the right idea. These people need to retreat.",
-          "action": "ACCEPT",
-          "dispositionShift": -2
-        }
+      "objectivePool": [
+        "FETCH_ITEM",
+        "KILL_MOBS",
+        "EXPLORE_LOCATION"
       ],
-      "objectivePool": ["FETCH_ITEM", "KILL_MOBS", "EXPLORE_LOCATION"],
       "objectiveConfig": {
-        "KILL_MOBS": { "countMin": 3, "countMax": 8 }
+        "KILL_MOBS": {
+          "countMin": 3,
+          "countMax": 8
+        }
       }
     },
     {
@@ -60,26 +45,16 @@
         "plotStep": "{target_npc} says they need one more batch of {quest_item} to finish. After that, whether they survive depends on how much damage has already been done. They told {quest_ally}: 'The oath doesn't have an exception clause.'",
         "outro": "Find {quest_item} {location_hint} and bring it back. If they finish their work, the {quest_stakes} {quest_stakes_is} saved. The only life in question is theirs."
       },
-      "playerResponses": [
-        {
-          "text": "They deserve every chance to survive this. I'll find what's needed.",
-          "action": "ACCEPT",
-          "dispositionShift": 4
-        },
-        {
-          "text": "Has anyone tried to talk them out of there?",
-          "action": "ACCEPT",
-          "dispositionShift": 1
-        },
-        {
-          "text": "I'm not sure more supplies will change the outcome.",
-          "action": "DECLINE",
-          "dispositionShift": -3
-        }
+      "objectivePool": [
+        "GATHER_ITEMS",
+        "FETCH_ITEM",
+        "DELIVER_ITEM"
       ],
-      "objectivePool": ["GATHER_ITEMS", "FETCH_ITEM", "DELIVER_ITEM"],
       "objectiveConfig": {
-        "GATHER_ITEMS": { "countMin": 4, "countMax": 12 }
+        "GATHER_ITEMS": {
+          "countMin": 4,
+          "countMax": 12
+        }
       }
     }
   ]

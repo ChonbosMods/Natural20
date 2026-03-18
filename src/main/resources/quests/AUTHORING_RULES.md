@@ -52,11 +52,6 @@ quests/{SituationName}/
         "plotStep": "The core ask. Uses variables for specifics.",
         "outro": "Closing line. Motivates the player to act."
       },
-      "playerResponses": [
-        { "text": "Positive response", "action": "ACCEPT", "dispositionShift": 5 },
-        { "text": "Reluctant response", "action": "ACCEPT", "dispositionShift": -5 },
-        { "text": "Refusal", "action": "DECLINE" }
-      ],
       "objectivePool": ["GATHER_ITEMS", "KILL_MOBS", "EXPLORE_LOCATION"],
       "objectiveConfig": {
         "GATHER_ITEMS": { "countMin": 5, "countMax": 12 },
@@ -72,7 +67,19 @@ quests/{SituationName}/
 Same structure but:
 - `"objectivePool": []` (MUST be empty)
 - `"objectiveConfig": {}` (MUST be empty)
-- `"action"` in playerResponses should be `"ACCEPT"` or `"COMPLETE"`
+
+### Player Responses
+
+Player responses are NOT defined in template files. They are drawn from tone-based
+pools at quest generation time (`quests/pools/responses_accept.json` and
+`quests/pools/responses_decline.json`). Each situation is mapped to a tone via
+`quests/pools/situation_tones.json`.
+
+Each generated quest gets exactly 1 accept response and 1 decline response, both
+matching the situation's tone. Responses are self-contained statements that do not
+require the NPC to respond or acknowledge the player's choice.
+
+Available tones: `desperate`, `bold`, `urgent`, `somber`, `conspiratorial`, `conflicted`
 
 ---
 
@@ -286,17 +293,6 @@ If any substitution produces broken grammar, semantic nonsense, or awkward phras
 
 ---
 
-## Player Responses
-
-- 2-3 responses per variant
-- At least one with `"action": "ACCEPT"`
-- Optionally one with `"action": "DECLINE"`
-- Resolution responses use `"action": "ACCEPT"` or `"action": "COMPLETE"`
-- `dispositionShift` range: -10 to +15 (optional, omit for neutral)
-- Positive responses: +3 to +15
-- Reluctant/mercenary responses: -3 to -10
-- Decline: -3 to -10 or omit
-
 ---
 
 ## Pool Value Authoring
@@ -332,12 +328,12 @@ Pool values live in `quests/pools/*.json`. When adding new entries:
 ## Checklist Before Submitting
 
 - [ ] No `bindings` object in any variant (all variables come from pools)
+- [ ] No `playerResponses` in any variant (responses come from tone pools)
 - [ ] All `{quest_focus}`, `{quest_stakes}`, `{quest_threat}` preceded by "the" in templates
 - [ ] Conjugation helpers used when pool variable is sentence subject
 - [ ] Optional variables in removable clauses (grammar survives stripping)
 - [ ] No hardcoded names, places, items, or story specifics
 - [ ] Resolution variants have empty `objectivePool` and `objectiveConfig`
-- [ ] 2-3 playerResponses per variant with at least one ACCEPT
 - [ ] Each variant has different phrasing/structure, not different content
 - [ ] Tested mentally with 3 different variable substitutions
 - [ ] Valid JSON (no trailing commas, proper brackets)

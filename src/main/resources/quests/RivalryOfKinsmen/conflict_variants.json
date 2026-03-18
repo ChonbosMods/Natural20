@@ -7,22 +7,19 @@
         "plotStep": "Whether it's actual sabotage or just paranoia, the damage is done. Both sides are accusing the other while the {quest_threat} {quest_threat_is} eroding the settlement's cohesion. The {enemy_type} near {location_hint} are taking advantage of the chaos.",
         "outro": "Get out to {location_hint} and deal with the real problems while these fools tear each other apart. Bring back {quest_item} to replenish what was lost."
       },
-      "playerResponses": [
-        {
-          "text": "I'll fix the damage they've caused.",
-          "action": "ACCEPT",
-          "dispositionShift": 3
-        },
-        {
-          "text": "Someone needs to be the adult here.",
-          "action": "ACCEPT",
-          "dispositionShift": 2
-        }
+      "objectivePool": [
+        "GATHER_ITEMS",
+        "KILL_MOBS"
       ],
-      "objectivePool": ["GATHER_ITEMS", "KILL_MOBS"],
       "objectiveConfig": {
-        "GATHER_ITEMS": { "countMin": 5, "countMax": 14 },
-        "KILL_MOBS": { "countMin": 3, "countMax": 7 }
+        "GATHER_ITEMS": {
+          "countMin": 5,
+          "countMax": 14
+        },
+        "KILL_MOBS": {
+          "countMin": 3,
+          "countMax": 7
+        }
       }
     },
     {
@@ -32,21 +29,16 @@
         "plotStep": "With {target_npc} on strike, the settlement's defenses {location_hint} are understaffed. The {quest_threat} {quest_threat_has} left gaps that the {enemy_type} will exploit. We need someone to cover those gaps and deliver a message to {target_npc}.",
         "outro": "Shore up our weak points and try to talk {target_npc} back to reason. The {quest_stakes} can't afford this standoff."
       },
-      "playerResponses": [
-        {
-          "text": "I'll handle the gaps and the grudge.",
-          "action": "ACCEPT",
-          "dispositionShift": 4
-        },
-        {
-          "text": "Pride shouldn't cost everyone else.",
-          "action": "ACCEPT",
-          "dispositionShift": 2
-        }
+      "objectivePool": [
+        "TALK_TO_NPC",
+        "KILL_MOBS",
+        "EXPLORE_LOCATION"
       ],
-      "objectivePool": ["TALK_TO_NPC", "KILL_MOBS", "EXPLORE_LOCATION"],
       "objectiveConfig": {
-        "KILL_MOBS": { "countMin": 3, "countMax": 6 }
+        "KILL_MOBS": {
+          "countMin": 3,
+          "countMax": 6
+        }
       }
     },
     {
@@ -56,21 +48,16 @@
         "plotStep": "{target_npc} is torn between concern and satisfaction. The area near {location_hint} is crawling with {enemy_type}, and the {quest_threat} may have finally produced real consequences. Someone needs to check the route and make sure {quest_ally} is safe.",
         "outro": "Track {quest_ally}'s path, clear any hostiles, and make sure this stupid rivalry doesn't cost us someone we can't replace."
       },
-      "playerResponses": [
-        {
-          "text": "I'll bring them back in one piece.",
-          "action": "ACCEPT",
-          "dispositionShift": 5
-        },
-        {
-          "text": "They'd better learn from this.",
-          "action": "ACCEPT",
-          "dispositionShift": 2
-        }
+      "objectivePool": [
+        "EXPLORE_LOCATION",
+        "KILL_MOBS",
+        "TALK_TO_NPC"
       ],
-      "objectivePool": ["EXPLORE_LOCATION", "KILL_MOBS", "TALK_TO_NPC"],
       "objectiveConfig": {
-        "KILL_MOBS": { "countMin": 4, "countMax": 9 }
+        "KILL_MOBS": {
+          "countMin": 4,
+          "countMax": 9
+        }
       }
     }
   ]

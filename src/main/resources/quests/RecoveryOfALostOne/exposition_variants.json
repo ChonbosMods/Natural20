@@ -7,16 +7,24 @@
         "plotStep": "The last anyone heard, they were camped {location_hint} when trouble hit. I found the campsite a week later: torn apart, supplies scattered, but no body. {target_npc} thinks the {enemy_type} might have taken them. I need someone who can follow {quest_item} they left along their route: markers they always leave when traveling.",
         "outro": "They're out there somewhere. I can feel it. I just need someone brave enough to {quest_action}. {quest_origin} started all of this. {quest_reward_hint} would be my undying gratitude."
       },
-      "playerResponses": [
-        { "text": "Weeks is a long time, but hope isn't lost. I'll follow the trail.", "action": "ACCEPT" },
-        { "text": "Tracking someone through hostile territory is dangerous work. What can you offer?", "action": "ACCEPT", "dispositionShift": -5 },
-        { "text": "After this long, the odds of finding them alive are slim. I'm sorry.", "action": "DECLINE" }
+      "objectivePool": [
+        "EXPLORE_LOCATION",
+        "GATHER_ITEMS",
+        "KILL_MOBS"
       ],
-      "objectivePool": ["EXPLORE_LOCATION", "GATHER_ITEMS", "KILL_MOBS"],
       "objectiveConfig": {
-        "EXPLORE_LOCATION": { "countMin": 2, "countMax": 3 },
-        "GATHER_ITEMS": { "countMin": 3, "countMax": 6 },
-        "KILL_MOBS": { "countMin": 2, "countMax": 5 }
+        "EXPLORE_LOCATION": {
+          "countMin": 2,
+          "countMax": 3
+        },
+        "GATHER_ITEMS": {
+          "countMin": 3,
+          "countMax": 6
+        },
+        "KILL_MOBS": {
+          "countMin": 2,
+          "countMax": 5
+        }
       }
     },
     {
@@ -26,16 +34,24 @@
         "plotStep": "When the {enemy_type} hit, everyone scattered. In the chaos, my child was separated from the group. {target_npc} saw them running toward {location_hint}, but nobody could follow because the {enemy_type} were between us. I need you to find {quest_item} they were carrying: anything that shows which direction they went.",
         "outro": "They're young and alone in the wild. Every hour counts. The {quest_stakes} {quest_stakes_is} all I can think about. {quest_time_pressure}."
       },
-      "playerResponses": [
-        { "text": "A child alone out there? I'm already moving. Which direction?", "action": "ACCEPT" },
-        { "text": "I'll find them. Try to stay calm until I get back.", "action": "ACCEPT" },
-        { "text": "The wilderness is crawling with threats after that attack. I can't guarantee anything.", "action": "DECLINE" }
+      "objectivePool": [
+        "EXPLORE_LOCATION",
+        "TALK_TO_NPC",
+        "KILL_MOBS"
       ],
-      "objectivePool": ["EXPLORE_LOCATION", "TALK_TO_NPC", "KILL_MOBS"],
       "objectiveConfig": {
-        "EXPLORE_LOCATION": { "countMin": 2, "countMax": 3 },
-        "TALK_TO_NPC": { "countMin": 1, "countMax": 1 },
-        "KILL_MOBS": { "countMin": 2, "countMax": 5 }
+        "EXPLORE_LOCATION": {
+          "countMin": 2,
+          "countMax": 3
+        },
+        "TALK_TO_NPC": {
+          "countMin": 1,
+          "countMax": 1
+        },
+        "KILL_MOBS": {
+          "countMin": 2,
+          "countMax": 5
+        }
       }
     },
     {
@@ -45,16 +61,23 @@
         "plotStep": "{target_npc} and I built this place together. Years ago, they left to establish a route through {location_hint} and promised to return. That promise turned into years of silence. Last week, a trader recognized {quest_item} I described: said they saw it in a camp near the edge of {enemy_type} territory.",
         "outro": "{target_npc} might be alive, might be captive, might be something I haven't considered. Either way, I owe it to them to {quest_action}. For the sake of the {quest_stakes}, I have to try. {quest_origin} bound us together."
       },
-      "playerResponses": [
-        { "text": "Years of searching deserves a real answer. I'll find it.", "action": "ACCEPT" },
-        { "text": "Enemy territory with slim leads. Risky, but I understand the need. What's the pay?", "action": "ACCEPT", "dispositionShift": -5 },
-        { "text": "After so long, you should prepare for the worst.", "action": "DECLINE" }
+      "objectivePool": [
+        "EXPLORE_LOCATION",
+        "FETCH_ITEM",
+        "KILL_MOBS"
       ],
-      "objectivePool": ["EXPLORE_LOCATION", "FETCH_ITEM", "KILL_MOBS"],
       "objectiveConfig": {
-        "EXPLORE_LOCATION": { "countMin": 2, "countMax": 3 },
-        "FETCH_ITEM": { "locationPreference": "DUNGEON" },
-        "KILL_MOBS": { "countMin": 3, "countMax": 7 }
+        "EXPLORE_LOCATION": {
+          "countMin": 2,
+          "countMax": 3
+        },
+        "FETCH_ITEM": {
+          "locationPreference": "DUNGEON"
+        },
+        "KILL_MOBS": {
+          "countMin": 3,
+          "countMax": 7
+        }
       }
     }
   ]

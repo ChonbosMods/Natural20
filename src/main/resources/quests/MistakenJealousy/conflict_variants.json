@@ -7,16 +7,23 @@
         "plotStep": "Someone vandalized {target_npc}'s workshop: smashed tools, scattered supplies, painted threats across the door. {target_npc} is too shaken to leave. Meanwhile, the real culprit behind the {quest_focus} is still out there. The {enemy_type} have been spotted {location_hint} where the stolen {quest_item} was likely taken.",
         "outro": "The {quest_stakes} {quest_stakes_is} crumbling by the hour. If we don't produce the truth soon, {target_npc} won't have a home to return to."
       },
-      "playerResponses": [
-        { "text": "Mob justice is no justice at all. I'll find the real answer.", "action": "ACCEPT" },
-        { "text": "Vandalism and angry crowds. This is getting dangerous for everyone involved.", "action": "ACCEPT" },
-        { "text": "When a whole settlement turns on someone, staying clear is the smart move.", "action": "DECLINE" }
+      "objectivePool": [
+        "EXPLORE_LOCATION",
+        "FETCH_ITEM",
+        "KILL_MOBS"
       ],
-      "objectivePool": ["EXPLORE_LOCATION", "FETCH_ITEM", "KILL_MOBS"],
       "objectiveConfig": {
-        "EXPLORE_LOCATION": { "countMin": 2, "countMax": 3 },
-        "FETCH_ITEM": { "locationPreference": "WILDERNESS" },
-        "KILL_MOBS": { "countMin": 3, "countMax": 6 }
+        "EXPLORE_LOCATION": {
+          "countMin": 2,
+          "countMax": 3
+        },
+        "FETCH_ITEM": {
+          "locationPreference": "WILDERNESS"
+        },
+        "KILL_MOBS": {
+          "countMin": 3,
+          "countMax": 6
+        }
       }
     },
     {
@@ -26,16 +33,24 @@
         "plotStep": "Someone planted stolen {quest_item} in {target_npc}'s home and made sure the council found it. The framing is crude but effective. I know it was planted because the items were taken from a cache {location_hint} that was raided by {enemy_type} days before. If you can find the real raider camp and recover what remains, we can prove the timeline doesn't add up.",
         "outro": "Someone wants {target_npc} gone badly enough to frame them. We need to find out who before the council votes. The {quest_threat} {quest_threat_is} feeding on itself."
       },
-      "playerResponses": [
-        { "text": "Planted evidence has a source. I'll trace it back and expose the framer.", "action": "ACCEPT" },
-        { "text": "Frameups and political sabotage. This goes deeper than jealousy.", "action": "ACCEPT", "dispositionShift": -5 },
-        { "text": "Conspiracy and counter-conspiracy? I don't need this headache.", "action": "DECLINE" }
+      "objectivePool": [
+        "EXPLORE_LOCATION",
+        "KILL_MOBS",
+        "TALK_TO_NPC"
       ],
-      "objectivePool": ["EXPLORE_LOCATION", "KILL_MOBS", "TALK_TO_NPC"],
       "objectiveConfig": {
-        "EXPLORE_LOCATION": { "countMin": 2, "countMax": 3 },
-        "KILL_MOBS": { "countMin": 3, "countMax": 7 },
-        "TALK_TO_NPC": { "countMin": 1, "countMax": 1 }
+        "EXPLORE_LOCATION": {
+          "countMin": 2,
+          "countMax": 3
+        },
+        "KILL_MOBS": {
+          "countMin": 3,
+          "countMax": 7
+        },
+        "TALK_TO_NPC": {
+          "countMin": 1,
+          "countMax": 1
+        }
       }
     },
     {
@@ -45,16 +60,23 @@
         "plotStep": "The council gave us three days to produce counter-evidence or they'll proceed with banishment. The real trail leads {location_hint}, where {quest_item} was last seen before the {enemy_type} carried it off. If I can put the actual stolen goods next to the planted ones, even the most stubborn accuser will see the difference.",
         "outro": "Three days, {player_name}. That's all the {quest_stakes} {quest_stakes_has} left."
       },
-      "playerResponses": [
-        { "text": "Three days is enough. I'll bring back the proof.", "action": "ACCEPT" },
-        { "text": "Racing a deadline through enemy territory. At least it's straightforward.", "action": "ACCEPT" },
-        { "text": "Three days against a hostile settlement and monster patrols? Those are bad odds.", "action": "DECLINE" }
+      "objectivePool": [
+        "FETCH_ITEM",
+        "KILL_MOBS",
+        "EXPLORE_LOCATION"
       ],
-      "objectivePool": ["FETCH_ITEM", "KILL_MOBS", "EXPLORE_LOCATION"],
       "objectiveConfig": {
-        "FETCH_ITEM": { "locationPreference": "DUNGEON" },
-        "KILL_MOBS": { "countMin": 4, "countMax": 8 },
-        "EXPLORE_LOCATION": { "countMin": 1, "countMax": 2 }
+        "FETCH_ITEM": {
+          "locationPreference": "DUNGEON"
+        },
+        "KILL_MOBS": {
+          "countMin": 4,
+          "countMax": 8
+        },
+        "EXPLORE_LOCATION": {
+          "countMin": 1,
+          "countMax": 2
+        }
       }
     }
   ]

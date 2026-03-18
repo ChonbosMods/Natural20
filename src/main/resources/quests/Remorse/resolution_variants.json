@@ -7,10 +7,6 @@
         "plotStep": "They didn't forgive me. They said forgiveness might come someday, or it might not. But they thanked me for the rescue and for finally telling the truth. They're coming back: not for me, but because this is their home. The council agreed to restore their standing. As for me, I've been assigned the worst duties for the next year. I've never been happier.",
         "outro": "You carried my burden to a place I couldn't reach alone. Take this: I don't have much left, but you've earned all of it."
       },
-      "playerResponses": [
-        { "text": "Forgiveness on their terms, not yours. That's how it should be.", "action": "ACCEPT", "dispositionShift": 10 },
-        { "text": "Hard labor is a small price for a clear conscience. Good luck.", "action": "ACCEPT" }
-      ],
       "objectivePool": [],
       "objectiveConfig": {}
     },
@@ -21,10 +17,6 @@
         "plotStep": "{target_npc} accepted the {quest_item} and acknowledged what I tried to do. They said they can't live here anymore: too many memories. But they shook my hand before they left and said they'd carry one fewer grudge on the road. The settlement knows the truth now, and they're watching me with new eyes.",
         "outro": "I didn't get the ending I wanted. But I got the one I deserved, and it's lighter than the secret was."
       },
-      "playerResponses": [
-        { "text": "Owning your failures is the beginning of earning trust back.", "action": "ACCEPT", "dispositionShift": 5 },
-        { "text": "A handshake and an honest goodbye. That's worth more than most people get.", "action": "ACCEPT" }
-      ],
       "objectivePool": [],
       "objectiveConfig": {}
     },
@@ -35,10 +27,6 @@
         "plotStep": "The letter said they'd already forgiven me, months ago, alone in the dark one night when the anger finally burned out. They said holding a grudge was heavier than the original wound. But they couldn't face me: not out of anger, but because seeing me would mean reliving the worst day of their life.",
         "outro": "Forgiveness doesn't always look like a reunion. Sometimes it's a letter and an empty chair. You helped me reach an answer, {player_name}, even if it wasn't the one I expected."
       },
-      "playerResponses": [
-        { "text": "Forgiveness given freely, even from a distance, is still forgiveness.", "action": "ACCEPT" },
-        { "text": "They let go of the burden. Now you have to let go of yours.", "action": "ACCEPT", "dispositionShift": 5 }
-      ],
       "objectivePool": [],
       "objectiveConfig": {}
     }
