@@ -59,6 +59,258 @@
       "I'll help, even if the outcome isn't perfect.",
       "Not sure this ends well, but I'm in.",
       "I'll do what I can."
+    ],
+    "Supplication": [
+      "I hear you. I'll do what I can.",
+      "You came to the right person. I'll help.",
+      "No one should have to beg. I'll take care of it.",
+      "You have my word. I'll {quest_action}.",
+      "I won't turn you away. Tell me what you need."
+    ],
+    "DaringEnterprise": [
+      "Sounds dangerous. I'm in.",
+      "This is the kind of thing I live for.",
+      "Bold plan. Let's make it happen.",
+      "I'll take those odds.",
+      "Fortune favors the reckless. Count me in."
+    ],
+    "Pursuit": [
+      "I'll track them down.",
+      "They won't get far. I'm on it.",
+      "Point me in the right direction.",
+      "I know how to follow a trail. I'll find {quest_focus}.",
+      "I'll see this through to the end."
+    ],
+    "Deliverance": [
+      "No one deserves to suffer like that. I'll go.",
+      "I'll bring them home safe.",
+      "This is what I'm meant to do.",
+      "I won't rest until {quest_focus} is safe.",
+      "I'll be the one to set things right."
+    ],
+    "CrimePursuedByVengeance": [
+      "Justice shouldn't wait. I'll see to it.",
+      "Someone has to hold them accountable. I will.",
+      "This wrong won't go unanswered.",
+      "I'll make sure the guilty answer for what they've done.",
+      "The truth will come out. I'll make certain of it."
+    ],
+    "VengeanceOfKindred": [
+      "I understand the weight of this. I'll help.",
+      "Blood calls for justice. I'll stand with you.",
+      "This debt will be settled. You have my word.",
+      "I'll carry this burden alongside you.",
+      "Some things cannot be forgiven. I'll see it done."
+    ],
+    "Disaster": [
+      "There's no time to hesitate. I'll go now.",
+      "Tell me where to start. I'll do whatever it takes.",
+      "People need help. That's all I need to know.",
+      "I'll hold the line while there's still something to save.",
+      "Every hand matters right now. I'm with you."
+    ],
+    "FallingPreyToMisfortune": [
+      "No one should face that alone. I'll help.",
+      "Misfortune doesn't have to be the final word.",
+      "I've seen hard times too. Let me do something about this.",
+      "I'll try to ease the burden however I can.",
+      "There's still a chance to turn things around. I'll take it."
+    ],
+    "Revolt": [
+      "It's time someone stood up. I will.",
+      "I won't kneel to tyranny. I'm with you.",
+      "If not now, when? Count me in.",
+      "This ends today. Tell me the plan.",
+      "Freedom is worth the fight. Let's go."
+    ],
+    "Abduction": [
+      "I'll find them. Whatever it takes.",
+      "Every moment matters. I'm leaving now.",
+      "I won't let {quest_focus} disappear without a trace.",
+      "Tell me everything you know. I'll bring them back.",
+      "I'll move heaven and earth to get them home."
+    ],
+    "TheEnigma": [
+      "I have to know the truth. I'll look into it.",
+      "Mysteries like this don't stay hidden forever. I'll dig.",
+      "Something doesn't add up. I'll find the answer.",
+      "I won't rest until this makes sense.",
+      "Consider my curiosity fully committed."
+    ],
+    "Obtaining": [
+      "I know exactly how to get this done.",
+      "Consider {quest_focus} as good as yours.",
+      "I'll secure it. Leave the details to me.",
+      "This is straightforward. I'll handle it.",
+      "I've been waiting for a task like this."
+    ],
+    "EnemityOfKinsmen": [
+      "Someone needs to step between them. I'll do it.",
+      "This feud doesn't have to end in blood.",
+      "I'll try to find common ground for both sides.",
+      "Let me see if there's a way to mend this.",
+      "I'd rather heal a rift than watch it widen. I'll help."
+    ],
+    "RivalryOfKinsmen": [
+      "I'll handle this fairly, for both sides.",
+      "There's a way through this that doesn't ruin anyone.",
+      "I'll keep my judgment even. You have my word.",
+      "Both sides deserve to be heard. I'll see to it.",
+      "I'll find a resolution that everyone can live with."
+    ],
+    "MurderousAdultery": [
+      "I'll get to the bottom of this.",
+      "The truth matters more than comfort. I'll find it.",
+      "Someone has to untangle this web. I will.",
+      "I'll see justice done, no matter where it leads.",
+      "This darkness won't stay hidden. I'll expose it."
+    ],
+    "Madness": [
+      "I'm not afraid. I'll face whatever this is.",
+      "Someone has to be steady when reason fails. I will.",
+      "I'll tread carefully, but I won't turn back.",
+      "Whatever's taken hold, I'll find a way through.",
+      "Fear won't stop me. I'll help."
+    ],
+    "FatalImprudence": [
+      "What's done is done. Let me fix what I can.",
+      "There's still time to make this right.",
+      "Mistakes happen. What matters now is the response.",
+      "I'll clean this up before it gets worse.",
+      "Someone has to undo the damage. I'll start now."
+    ],
+    "InvoluntaryCrimesOfLove": [
+      "I understand. The heart doesn't always choose wisely.",
+      "No one asked for this. I'll help sort it out.",
+      "There's pain enough here without adding blame. I'll help.",
+      "I'll do what I can to ease the suffering.",
+      "This wasn't anyone's fault. Let me see what I can do."
+    ],
+    "SlayingOfKinUnrecognized": [
+      "This is terrible beyond words, but I'll {quest_action} before it's too late.",
+      "No one should have to face this horror alone. I'll help.",
+      "The weight of it won't stop me. Someone must act.",
+      "If there's any chance to set this right, I have to try.",
+      "I can barely stomach this, but turning away would be worse."
+    ],
+    "SelfSacrificeForAnIdeal": [
+      "That kind of conviction deserves support. I'll {quest_action}.",
+      "If you believe in this that deeply, so do I.",
+      "A cause worth dying for is worth fighting for. I'm in.",
+      "Your courage inspires me. I'll see this through.",
+      "I'll stand beside anyone willing to give everything for what's right."
+    ],
+    "SelfSacrificeForKindred": [
+      "For family, I'd do the same. I'll {quest_action}.",
+      "That kind of devotion is rare. I'll protect it.",
+      "I won't let that sacrifice be in vain.",
+      "Blood calls to blood. I understand. I'll help.",
+      "Nothing matters more than the people we love. Count me in."
+    ],
+    "AllSacrificedForPassion": [
+      "I'll help, but we need to tread carefully here.",
+      "Passion like that burns everything it touches. I'll {quest_action} with caution.",
+      "I understand the pull of it. I'll do what I can.",
+      "There may still be something worth saving here. I'll try.",
+      "I'll step in, but we do this with open eyes."
+    ],
+    "NecessityOfSacrificingLovedOnes": [
+      "This is the hardest thing anyone could ask. I'll carry it with you.",
+      "No one should bear this choice alone. I'll {quest_action}.",
+      "My heart is heavy, but I'll do what must be done.",
+      "I wish there were another way. Since there isn't, I'll help.",
+      "Some burdens are too great for one person. Let me share the weight."
+    ],
+    "RivalryOfSuperiorVsInferior": [
+      "I don't care who's supposed to be stronger. I'll {quest_action}.",
+      "They think they're above challenge. Let's prove them wrong.",
+      "The odds don't scare me. What matters is showing up.",
+      "I've never let someone's title decide what I can do.",
+      "Rank means nothing when the cause is just. I'm in."
+    ],
+    "Adultery": [
+      "I won't pretend this is simple, but I'll {quest_action}.",
+      "Broken vows leave wreckage everywhere. I'll do what I can to help.",
+      "I'm not here to judge. I'm here to act.",
+      "This mess needs someone steady. I'll handle it.",
+      "There's pain on every side of this. I'll do the right thing."
+    ],
+    "CrimesOfLove": [
+      "Love makes people do desperate things. I understand.",
+      "I won't condemn what I haven't lived. I'll {quest_action}.",
+      "There's more to this than what the law sees. I'll help.",
+      "The heart doesn't follow rules. I'll do what's compassionate.",
+      "I've seen worse done for lesser reasons. Count me in."
+    ],
+    "DiscoveryOfDishonor": [
+      "This betrayal won't stand. I'll {quest_action}.",
+      "Someone has to answer for this. I'll make sure they do.",
+      "Honor still means something. I'll see this set right.",
+      "The truth deserves to come out, no matter who it shames.",
+      "I won't let dishonor go unchallenged."
+    ],
+    "ObstaclesToLove": [
+      "Love is worth fighting for. I'll {quest_action}.",
+      "Nothing worth having comes without struggle. I'm with you.",
+      "If two hearts belong together, no wall should keep them apart.",
+      "I've always believed love finds a way. I'll help clear the path.",
+      "Let them try to stop it. I'll see you through."
+    ],
+    "AnEnemyLoved": [
+      "Hate and love aren't as far apart as people think. I'll help.",
+      "I won't pretend to understand it fully, but I'll {quest_action}.",
+      "If there's a bridge to be built, I'll help lay the stones.",
+      "The world could use more people willing to see past old grudges.",
+      "Sometimes the bravest thing is reaching across the divide. I'm in."
+    ],
+    "Ambition": [
+      "Greatness doesn't come to those who wait. I'll {quest_action}.",
+      "I see the opportunity here. Count me in.",
+      "This is a chance to make something of ourselves. Let's take it.",
+      "Fortune favors the bold. I'm ready.",
+      "I didn't come this far to settle for less. I'll do it."
+    ],
+    "ConflictWithAGod": [
+      "The divine may be vast, but mortal will counts for something. I'll {quest_action}.",
+      "If the gods demand injustice, mortals must answer. I'll help.",
+      "I tremble, but I'll stand firm.",
+      "Even the heavens must be held accountable. I'm with you.",
+      "This is beyond what any mortal should face, but I won't turn away."
+    ],
+    "MistakenJealousy": [
+      "The truth matters more than suspicion. I'll {quest_action}.",
+      "Jealousy clouds everything. Let me help clear the air.",
+      "I've seen what false accusations do. I'll sort this out.",
+      "There's an explanation here somewhere. I'll find it.",
+      "Patience will reveal what jealousy hides. I'll help."
+    ],
+    "ErroneousJudgment": [
+      "If a wrong judgment was made, I'll help set it right.",
+      "The truth doesn't care about first impressions. I'll {quest_action}.",
+      "Everyone deserves a fair hearing. I'll see to it.",
+      "Mistakes can be corrected. Let me help fix this.",
+      "I won't let a hasty conclusion ruin someone's life."
+    ],
+    "Remorse": [
+      "Seeking to make amends takes real courage. I'll {quest_action}.",
+      "Redemption is always worth pursuing. I'll help.",
+      "The past can't be undone, but the future can be shaped.",
+      "I believe people can change. Let me help you prove it.",
+      "Carrying that guilt alone helps no one. I'll walk this road with you."
+    ],
+    "RecoveryOfALostOne": [
+      "There's still hope. I'll {quest_action}.",
+      "I won't rest until we've found them.",
+      "Every lost soul deserves someone searching for them. I'm in.",
+      "The world is vast, but not vast enough to hide them forever.",
+      "If they're out there, we'll bring them home."
+    ],
+    "LossOfLovedOnes": [
+      "I'm so sorry for your loss. I'll {quest_action} in their memory.",
+      "Grief is a heavy burden. Let me help carry some of it.",
+      "They mattered, and so does this. I'll help.",
+      "Loss like this deserves to be honored with action. I'll do what I can.",
+      "No one should grieve alone. I'm here, and I'll see this through."
     ]
   }
 }
