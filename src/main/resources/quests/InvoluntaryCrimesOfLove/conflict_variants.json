@@ -3,8 +3,8 @@
     {
       "id": "involuntary_conf_resistance",
       "dialogueChunks": {
-        "intro": "The person behind {quest_focus} refuses to believe they've done wrong. {quest_threat} runs deep: they see every attempt to intervene as an attack on the people they're trying to protect.",
-        "plotStep": "{target_npc} has rallied supporters near {location_hint} who share their conviction. Meanwhile, the {enemy_type} are exploiting the distraction to push deeper into our territory. {quest_ally} says {quest_stakes} grow more fragile with each day of deadlock.",
+        "intro": "The person behind the {quest_focus} refuses to believe they've done wrong. The {quest_threat} runs deep: they see every attempt to intervene as an attack on the people they're trying to protect.",
+        "plotStep": "{target_npc} has rallied supporters near {location_hint} who share their conviction. Meanwhile, the {enemy_type} are exploiting the distraction to push deeper into our territory. {quest_ally} says the {quest_stakes} grow more fragile with each day of deadlock.",
         "outro": "Prove that the real danger isn't what they fear but what they've become. Clear the {enemy_type} threat near {location_hint} and show that protection doesn't require tyranny."
       },
       "playerResponses": [
@@ -27,8 +27,8 @@
     {
       "id": "involuntary_conf_collateral",
       "dialogueChunks": {
-        "intro": "The consequences of {quest_focus} keep spreading. People who trusted {target_npc} are now stranded, hurt, or missing because of decisions made out of devotion rather than sense.",
-        "plotStep": "{quest_ally} found supplies scattered near {location_hint}, abandoned when {quest_threat} displaced people from their routes. The {enemy_type} have been picking over what was left. {quest_stakes} need immediate material support while we sort out the larger problem.",
+        "intro": "The consequences of the {quest_focus} keep spreading. People who trusted {target_npc} are now stranded, hurt, or missing because of decisions made out of devotion rather than sense.",
+        "plotStep": "{quest_ally} found supplies scattered near {location_hint}, abandoned when the {quest_threat} displaced people from their routes. The {enemy_type} have been picking over what was left. The {quest_stakes} need immediate material support while we sort out the larger problem.",
         "outro": "Recover what was lost and secure the area. Every piece of {quest_item} you bring back is one less person going without."
       },
       "playerResponses": [
@@ -52,9 +52,9 @@
     {
       "id": "involuntary_conf_breaking_point",
       "dialogueChunks": {
-        "intro": "The situation around {quest_focus} has reached a crisis. The person responsible has realized the harm they've caused and is devastated: but the damage still needs repair.",
-        "plotStep": "{target_npc} is consumed with guilt. {quest_ally} is trying to hold the community together while the {enemy_type} near {location_hint} probe our weakened defenses. {quest_threat} created vulnerabilities everywhere, and {quest_stakes} need someone to plug the gaps.",
-        "outro": "The emotional fallout will take time. Right now we need the practical problems solved. Get out there and shore up what {quest_threat} left exposed."
+        "intro": "The situation around the {quest_focus} has reached a crisis. The person responsible has realized the harm they've caused and is devastated: but the damage still needs repair.",
+        "plotStep": "{target_npc} is consumed with guilt. {quest_ally} is trying to hold the community together while the {enemy_type} near {location_hint} probe our weakened defenses. The {quest_threat} created vulnerabilities everywhere, and the {quest_stakes} need someone to plug the gaps.",
+        "outro": "The emotional fallout will take time. Right now we need the practical problems solved. Get out there and shore up what the {quest_threat} left exposed."
       },
       "playerResponses": [
         {

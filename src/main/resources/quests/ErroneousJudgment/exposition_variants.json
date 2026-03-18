@@ -5,7 +5,7 @@
       "dialogueChunks": {
         "intro": "{player_name}, we're about to make a terrible mistake, and I'm the only one who sees it.",
         "plotStep": "A scout returned claiming they found an {enemy_type} camp {location_hint}. The militia is arming up. But I spoke to {target_npc}, who traveled that road recently, and they described something very different from what the scout reported. The scout saw what they expected to see, not what was actually there.",
-        "outro": "I need you to reach {quest_focus} before the militia does and bring back {quest_item} as proof of what's really there. If they attack the wrong target, {quest_stakes} will pay the price. {quest_reward_hint} could follow."
+        "outro": "I need you to reach the {quest_focus} before the militia does and bring back {quest_item} as proof of what's really there. If they attack the wrong target, the {quest_stakes} will pay the price. {quest_reward_hint} could follow."
       },
       "playerResponses": [
         { "text": "Innocents in the crossfire. I'll get there first.", "action": "ACCEPT" },
@@ -23,8 +23,8 @@
       "id": "expo_erroneous_judgment_02",
       "dialogueChunks": {
         "intro": "They're blaming {target_npc} for the sickness, {player_name}. And they're wrong. Dead wrong.",
-        "plotStep": "People fell ill after contact with {quest_focus}. Someone started a rumor that {target_npc} caused it, because {target_npc} was seen adding something to {quest_focus} recently. What nobody bothered to ask is that {target_npc} was treating it with purifying agents because they noticed contamination. The real source of the problem is somewhere {location_hint}, and the {enemy_type} that moved into the area are likely responsible.",
-        "outro": "I need {quest_item} from the contamination site to prove where the sickness actually came from. {quest_threat} is driving this witch hunt. {quest_stakes} depends on the truth."
+        "plotStep": "People fell ill after contact with the {quest_focus}. Someone started a rumor that {target_npc} caused it, because {target_npc} was seen adding something to the {quest_focus} recently. What nobody bothered to ask is that {target_npc} was treating it with purifying agents because they noticed contamination. The real source of the problem is somewhere {location_hint}, and the {enemy_type} that moved into the area are likely responsible.",
+        "outro": "I need {quest_item} from the contamination site to prove where the sickness actually came from. The {quest_threat} {quest_threat_is} driving this witch hunt. The {quest_stakes} depends on the truth."
       },
       "playerResponses": [
         { "text": "I'll trace the contamination to its source. Healers shouldn't be punished for healing.", "action": "ACCEPT" },
@@ -43,7 +43,7 @@
       "dialogueChunks": {
         "intro": "Everyone loves the new arrival, {player_name}. Everyone except me.",
         "plotStep": "A newcomer has been offering {quest_item} at prices that make no sense. Too cheap, too generous, too eager. {target_npc} is suspicious too but was shouted down. I've noticed the newcomer making trips {location_hint} at night, and the {enemy_type} attacks have shifted to target everywhere except routes the newcomer uses. That's not coincidence.",
-        "outro": "I need you to follow the trail and find out what they're really doing. {quest_focus} is too convenient. {quest_threat} lurks behind generosity this suspicious. {quest_stakes} is at risk. {quest_reward_hint} awaits if you uncover the truth."
+        "outro": "I need you to follow the trail and find out what they're really doing. The {quest_focus} {quest_focus_is} too convenient. The {quest_threat} lurks behind generosity this suspicious. The {quest_stakes} {quest_stakes_is} at risk. {quest_reward_hint} awaits if you uncover the truth."
       },
       "playerResponses": [
         { "text": "If this newcomer is working with the enemy, the settlement needs to know. I'll investigate.", "action": "ACCEPT" },

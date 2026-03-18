@@ -3,7 +3,7 @@
     {
       "id": "misfortune_conf_01",
       "dialogueChunks": {
-        "intro": "{player_name}, as if things were not bad enough. While you were helping us {quest_action}, {quest_threat} worsened and brought new problems.",
+        "intro": "{player_name}, as if things were not bad enough. While you were helping us {quest_action}, the {quest_threat} worsened and brought new problems.",
         "plotStep": "{quest_ally} says the {enemy_type} have been emboldened by the disruption near the {quest_focus}. They are scavenging {location_hint} and threatening the {quest_stakes}. We need you to drive them off and secure more {quest_item}.",
         "outro": "Misfortune compounds misfortune. But we have to keep fighting."
       },

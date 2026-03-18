@@ -4,8 +4,8 @@
       "id": "conf_remorse_01",
       "dialogueChunks": {
         "intro": "{player_name}, {target_npc} refused to see me. Slammed the door and told me to leave before they did something they'd regret.",
-        "plotStep": "I expected anger, but the depth of it shook me. {target_npc} said {quest_focus} destroyed more than just their standing: it cost them friends, livelihood, years they'll never get back. They threw the {quest_item} I brought into the dirt. The {enemy_type} have moved closer to where {target_npc} is sheltering {location_hint}, and if they stay out of stubbornness, they'll be in real danger.",
-        "outro": "Words failed. Gifts failed. The only thing left is action that speaks louder than either. {quest_stakes} still has value."
+        "plotStep": "I expected anger, but the depth of it shook me. {target_npc} said the {quest_focus} destroyed more than just their standing: it cost them friends, livelihood, years they'll never get back. They threw the {quest_item} I brought into the dirt. The {enemy_type} have moved closer to where {target_npc} is sheltering {location_hint}, and if they stay out of stubbornness, they'll be in real danger.",
+        "outro": "Words failed. Gifts failed. The only thing left is action that speaks louder than either. The {quest_stakes} still {quest_stakes_has} value."
       },
       "playerResponses": [
         { "text": "Actions over apologies. Tell me what would actually prove you've changed.", "action": "ACCEPT" },
@@ -23,7 +23,7 @@
       "id": "conf_remorse_02",
       "dialogueChunks": {
         "intro": "The confession didn't go the way I hoped, {player_name}. The truth came out, and now everyone knows.",
-        "plotStep": "When I admitted what I did to the council, the reaction was exactly what I deserved. They stripped my standing and half the settlement won't look at me. But {target_npc} heard about the confession and sent word: not forgiveness, but a request. They need {quest_item} to defend against the {enemy_type} that have been threatening their position. {quest_threat} is closing in.",
+        "plotStep": "When I admitted what I did to the council, the reaction was exactly what I deserved. They stripped my standing and half the settlement won't look at me. But {target_npc} heard about the confession and sent word: not forgiveness, but a request. They need {quest_item} to defend against the {enemy_type} that have been threatening their position. The {quest_threat} {quest_threat_is} closing in.",
         "outro": "The settlement turned its back on me. But {target_npc} opened a door, just a crack. I won't waste it."
       },
       "playerResponses": [
@@ -43,7 +43,7 @@
       "dialogueChunks": {
         "intro": "{player_name}, the past just caught up with us in the worst possible way.",
         "plotStep": "{target_npc} is in danger. The {enemy_type} overran the area {location_hint} where they've been living, and they sent a desperate message asking for help. The irony isn't lost on me: the person I wronged is now begging for rescue. I want to go myself, but my presence would do more harm than good right now.",
-        "outro": "I need you to bring {quest_item} and clear the {enemy_type} so {target_npc} can escape safely. If they survive because of me, maybe that starts to balance the scales. {quest_stakes} hangs on it."
+        "outro": "I need you to bring {quest_item} and clear the {enemy_type} so {target_npc} can escape safely. If they survive because of me, maybe that starts to balance the scales. The fate of the {quest_stakes} hangs on it."
       },
       "playerResponses": [
         { "text": "No one deserves to be abandoned twice. I'll get them out.", "action": "ACCEPT" },

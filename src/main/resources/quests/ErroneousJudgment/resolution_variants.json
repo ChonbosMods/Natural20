@@ -4,7 +4,7 @@
       "id": "reso_erroneous_judgment_01",
       "dialogueChunks": {
         "intro": "You found the truth, {player_name}. And the truth, as usual, was more complicated than anyone expected.",
-        "plotStep": "The evidence you brought back proved that {quest_focus} was never what it appeared. The council reversed their decision. {target_npc} was vindicated, and the real source of the problem has been dealt with. The {enemy_type} have retreated now that the deception has been exposed.",
+        "plotStep": "The evidence you brought back proved that the {quest_focus} {quest_focus_was} never what it appeared. The council reversed their decision. {target_npc} was vindicated, and the real source of the problem has been dealt with. The {enemy_type} have retreated now that the deception has been exposed.",
         "outro": "You proved that the hardest thing to find isn't treasure or monsters: it's the truth."
       },
       "playerResponses": [
