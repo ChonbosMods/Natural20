@@ -12,14 +12,20 @@ import com.hypixel.hytale.server.core.entity.entities.Player;
 import com.hypixel.hytale.server.core.modules.entity.damage.Damage;
 import com.hypixel.hytale.server.core.modules.entity.damage.DamageEventSystem;
 import com.hypixel.hytale.server.core.universe.world.storage.EntityStore;
-import com.hypixel.hytale.server.npc.entities.NPCEntity;
 
 import java.util.UUID;
 
 /**
- * Listens for damage on settlement NPCs from non-hostile sources (players, neutral mobs).
- * Marks the attacker as a hostile target on the damaged NPC and all Guards in the same
- * settlement. For player attackers, decreases disposition across the settlement.
+ * Listens for damage on settlement NPCs and handles player disposition tracking.
+ *
+ * Guard alerting is now handled by the behavior tree's Beacon system:
+ * when any settlement NPC takes damage, it broadcasts "Under_Attack" via
+ * Component_Instruction_Damage_Check, and nearby Guards receive the beacon
+ * in their Idle state and transition to Investigate/Combat.
+ *
+ * This system only handles:
+ * 1. Player disposition tracking (decrease on attack)
+ * 2. Dialogue cancellation (end active dialogue on damage)
  */
 public class SettlementThreatSystem extends DamageEventSystem {
 
@@ -63,47 +69,29 @@ public class SettlementThreatSystem extends DamageEventSystem {
         Nat20NpcData attackerNpcData = store.getComponent(attackerRef, Natural20.getNpcDataType());
         if (attackerNpcData != null && attackerNpcData.getSettlementCellKey() != null) return;
 
-        // Mark attacker as target on the damaged NPC
-        NPCEntity victimNpc = store.getComponent(victimRef, NPCEntity.getComponentType());
-        if (victimNpc != null) {
-            victimNpc.onFlockSetTarget("LockedTarget", attackerRef);
-        }
+        // For player attackers: decrease disposition on ALL settlement NPCs
+        if (isPlayerAttacker) {
+            SettlementRegistry registry = Natural20.getInstance().getSettlementRegistry();
+            if (registry != null) {
+                SettlementRecord settlement = registry.getByCell(cellKey);
+                if (settlement != null) {
+                    UUID worldUUID = settlement.getWorldUUID();
+                    var world = registry.getCachedWorld(worldUUID);
+                    if (world != null) {
+                        for (NpcRecord npcRecord : settlement.getNpcs()) {
+                            UUID npcUUID = npcRecord.getEntityUUID();
+                            if (npcUUID == null) continue;
 
-        // Find settlement and mark attacker on all Guards
-        SettlementRegistry registry = Natural20.getInstance().getSettlementRegistry();
-        if (registry == null) return;
+                            Ref<EntityStore> npcRef = world.getEntityRef(npcUUID);
+                            if (npcRef == null || !npcRef.isValid()) continue;
 
-        SettlementRecord settlement = registry.getByCell(cellKey);
-        if (settlement == null) return;
-
-        UUID worldUUID = settlement.getWorldUUID();
-        var world = registry.getCachedWorld(worldUUID);
-        if (world == null) return;
-
-        for (NpcRecord npcRecord : settlement.getNpcs()) {
-            UUID npcUUID = npcRecord.getEntityUUID();
-            if (npcUUID == null) continue;
-
-            // Mark attacker on Guards
-            if (npcRecord.getRole().equals("Guard")) {
-                Ref<EntityStore> guardRef = world.getEntityRef(npcUUID);
-                if (guardRef != null && guardRef.isValid()) {
-                    NPCEntity guardNpc = store.getComponent(guardRef, NPCEntity.getComponentType());
-                    if (guardNpc != null) {
-                        guardNpc.onFlockSetTarget("LockedTarget", attackerRef);
-                    }
-                }
-            }
-
-            // For player attackers: decrease disposition on ALL settlement NPCs
-            if (isPlayerAttacker) {
-                Ref<EntityStore> npcRef = world.getEntityRef(npcUUID);
-                if (npcRef != null && npcRef.isValid()) {
-                    Nat20NpcData npcData = store.getComponent(npcRef, Natural20.getNpcDataType());
-                    if (npcData != null) {
-                        int current = npcData.getDefaultDisposition();
-                        int updated = Math.max(DISPOSITION_FLOOR, current + DISPOSITION_PER_HIT);
-                        npcData.setDefaultDisposition(updated);
+                            Nat20NpcData npcData = store.getComponent(npcRef, Natural20.getNpcDataType());
+                            if (npcData != null) {
+                                int current = npcData.getDefaultDisposition();
+                                int updated = Math.max(DISPOSITION_FLOOR, current + DISPOSITION_PER_HIT);
+                                npcData.setDefaultDisposition(updated);
+                            }
+                        }
                     }
                 }
             }
@@ -112,28 +100,10 @@ public class SettlementThreatSystem extends DamageEventSystem {
         // Cancel any active dialogue with the attacked NPC
         Natural20.getInstance().getDialogueManager().endSessionForNpc(victimRef);
 
-        // Track threat for the cooldown system (applies to all attacker types)
-        SettlementThreatClearSystem clearSystem = Natural20.getInstance().getThreatClearSystem();
-        if (clearSystem != null) {
-            clearSystem.recordThreat(victimRef, attackerRef, worldUUID);
-            // Also record threat on all guards
-            for (NpcRecord npcRecord : settlement.getNpcs()) {
-                if (npcRecord.getRole().equals("Guard") && npcRecord.getEntityUUID() != null) {
-                    Ref<EntityStore> guardRef = world.getEntityRef(npcRecord.getEntityUUID());
-                    if (guardRef != null && guardRef.isValid()) {
-                        clearSystem.recordThreat(guardRef, attackerRef, worldUUID);
-                    }
-                }
-            }
-        }
-
         if (isPlayerAttacker) {
             UUID playerUuid = attackerPlayer.getPlayerRef().getUuid();
-            LOGGER.atInfo().log("Player %s attacked settlement NPC '%s': marked hostile, disposition -%d",
+            LOGGER.atInfo().log("Player %s attacked settlement NPC '%s': disposition -%d",
                     playerUuid, victimData.getGeneratedName(), Math.abs(DISPOSITION_PER_HIT));
-        } else {
-            LOGGER.atInfo().log("Non-hostile entity attacked settlement NPC '%s': marked as threat",
-                    victimData.getGeneratedName());
         }
     }
 }

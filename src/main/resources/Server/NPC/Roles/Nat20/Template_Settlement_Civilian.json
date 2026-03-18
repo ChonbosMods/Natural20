@@ -1,0 +1,536 @@
+{
+  "Type": "Abstract",
+  "StartState": "Idle",
+  "Parameters": {
+    "Appearance": {
+      "Value": "NPC_Elf",
+      "Description": "Model to be used."
+    },
+    "MaxHealth": {
+      "Value": 100,
+      "Description": "Max health for the NPC."
+    },
+    "MaxSpeed": {
+      "Value": 7,
+      "Description": "Maximum walking speed."
+    },
+    "RunThreshold": {
+      "Value": 0.3,
+      "Description": "Relative speed at which run animation should be used."
+    },
+    "ViewRange": {
+      "Value": 15,
+      "Description": "The range from which the target will be seen."
+    },
+    "ViewSector": {
+      "Value": 180,
+      "Description": "The view sector within which the target needs to be to be seen."
+    },
+    "HearingRange": {
+      "Value": 10,
+      "Description": "The range from which the target will be heard."
+    },
+    "AbsoluteDetectionRange": {
+      "Value": 3,
+      "Description": "The range at which a target is guaranteed to be detected."
+    },
+    "AlertedRange": {
+      "Value": 25,
+      "Description": "Range within which a target can be sensed when alerted."
+    },
+    "AlertedTime": {
+      "Value": [ 0.5, 1 ],
+      "Description": "How long to wait in alerted state before fleeing."
+    },
+    "LeashDistance": {
+      "Value": 20,
+      "Description": "Distance from spawn before the NPC wants to return home."
+    },
+    "HardLeashDistance": {
+      "Value": 60,
+      "Description": "Absolute maximum distance from spawn."
+    },
+    "WanderRadius": {
+      "Value": 6,
+      "Description": "General wander radius for idle behavior."
+    },
+    "AttitudeGroup": {
+      "Value": "Nat20_Settlement",
+      "Description": "This NPC's attitude group."
+    },
+    "DefaultNPCAttitude": {
+      "Value": "Ignore",
+      "Description": "Default attitude towards NPCs."
+    },
+    "DefaultPlayerAttitude": {
+      "Value": "Ignore",
+      "Description": "Default attitude towards players."
+    },
+    "InvestigateRange": {
+      "Value": 30,
+      "Description": "Range within which the NPC reacts to Under_Attack beacons."
+    },
+    "KnockbackScale": {
+      "Value": 0.5,
+      "Description": "Scale factor for knockback."
+    },
+    "ConfusedTimeRange": {
+      "Value": [ 2, 3 ],
+      "Description": "How long the NPC acts confused after losing its target."
+    },
+    "SearchTimeRange": {
+      "Value": [ 5, 8 ],
+      "Description": "How long the NPC stands alert before giving up."
+    },
+    "FleeTimeRange": {
+      "Value": [ 50, 70 ],
+      "Description": "How long (seconds) the NPC flees randomly before returning home."
+    },
+    "DisableDamageGroups": {
+      "Value": [ "Self" ],
+      "Description": "Groups not to take damage from."
+    },
+    "NameTranslationKey": {
+      "Value": "nat20.npc.civilian",
+      "Description": "Translation key for NPC name display."
+    }
+  },
+  "Appearance": { "Compute": "Appearance" },
+  "DisableDamageGroups": { "Compute": "DisableDamageGroups" },
+  "DefaultNPCAttitude": { "Compute": "DefaultNPCAttitude" },
+  "DefaultPlayerAttitude": { "Compute": "DefaultPlayerAttitude" },
+  "AttitudeGroup": { "Compute": "AttitudeGroup" },
+  "BusyStates": [ "Fleeing", "ReturnHome", "Alerted", "Search" ],
+  "KnockbackScale": { "Compute": "KnockbackScale" },
+  "MotionControllerList": [
+    {
+      "Type": "Walk",
+      "MaxWalkSpeed": { "Compute": "MaxSpeed" },
+      "Gravity": 10,
+      "RunThreshold": { "Compute": "RunThreshold" },
+      "MaxFallSpeed": 15,
+      "MaxRotationSpeed": 360,
+      "Acceleration": 10
+    }
+  ],
+  "StateTransitions": [
+    {
+      "$Comment": "Clear animation when leaving Alerted state.",
+      "States": [
+        {
+          "To": [],
+          "From": [ "Alerted" ]
+        }
+      ],
+      "Actions": [
+        {
+          "Type": "PlayAnimation",
+          "Slot": "Status"
+        },
+        {
+          "Type": "SetFlag",
+          "Name": "AnimationBlock",
+          "SetTo": false
+        }
+      ]
+    },
+    {
+      "$Comment": "Clear target and reset instructions when returning to Idle.",
+      "States": [
+        {
+          "To": [ "Idle" ],
+          "From": []
+        }
+      ],
+      "Actions": [
+        {
+          "Type": "ReleaseTarget"
+        },
+        {
+          "Type": "ResetInstructions"
+        }
+      ]
+    }
+  ],
+  "MaxHealth": { "Compute": "MaxHealth" },
+  "Instructions": [
+    {
+      "Instructions": [
+        {
+          "$Comment": "=== IDLE STATE ===",
+          "Sensor": {
+            "Type": "State",
+            "State": "Idle"
+          },
+          "Instructions": [
+            {
+              "$Comment": "React to Under_Attack beacon.",
+              "Sensor": {
+                "Type": "Beacon",
+                "Message": "Under_Attack",
+                "TargetSlot": "LockedTarget",
+                "Range": { "Compute": "InvestigateRange" }
+              },
+              "Actions": [
+                {
+                  "Type": "State",
+                  "State": "Alerted"
+                }
+              ]
+            },
+            {
+              "$Comment": "Damage check: flee on damage.",
+              "Reference": "Component_Instruction_Damage_Check",
+              "Modify": {
+                "_ExportStates": [ "Fleeing", "Search.Confused" ],
+                "AlertedRange": { "Compute": "AlertedRange" }
+              }
+            },
+            {
+              "$Comment": "Detect hostile entities via attitude-based detection.",
+              "Sensor": {
+                "Reference": "Component_Sensor_Standard_Detection",
+                "Modify": {
+                  "ViewRange": { "Compute": "ViewRange" },
+                  "ViewSector": { "Compute": "ViewSector" },
+                  "HearingRange": { "Compute": "HearingRange" },
+                  "AbsoluteDetectionRange": { "Compute": "AbsoluteDetectionRange" },
+                  "Attitudes": [ "Hostile" ]
+                }
+              },
+              "Actions": [
+                {
+                  "Type": "State",
+                  "State": "Alerted"
+                }
+              ]
+            },
+            {
+              "$Comment": "Idle wander behavior.",
+              "Sensor": {
+                "Type": "Any"
+              },
+              "BodyMotion": {
+                "Type": "Sequence",
+                "Looped": true,
+                "Motions": [
+                  {
+                    "Type": "Timer",
+                    "Time": [ 3, 6 ],
+                    "Motion": {
+                      "Type": "Nothing"
+                    }
+                  },
+                  {
+                    "Type": "Timer",
+                    "Time": [ 2, 4 ],
+                    "Motion": {
+                      "Type": "WanderInCircle",
+                      "Radius": { "Compute": "WanderRadius" },
+                      "MaxHeadingChange": 60,
+                      "RelativeSpeed": 0.15
+                    }
+                  }
+                ]
+              }
+            }
+          ]
+        },
+        {
+          "$Comment": "=== ALERTED STATE: brief pause then flee ===",
+          "Sensor": {
+            "Type": "State",
+            "State": "Alerted"
+          },
+          "Instructions": [
+            {
+              "Continue": true,
+              "Sensor": {
+                "Type": "Any",
+                "Once": true
+              },
+              "Actions": [
+                {
+                  "Type": "PlayAnimation",
+                  "Slot": "Status",
+                  "Animation": "Alerted"
+                }
+              ]
+            },
+            {
+              "Continue": true,
+              "Sensor": {
+                "Type": "Target",
+                "Range": { "Compute": "AlertedRange" },
+                "Filters": [
+                  {
+                    "Type": "LineOfSight"
+                  }
+                ]
+              },
+              "HeadMotion": {
+                "Type": "Watch"
+              }
+            },
+            {
+              "$Comment": "Damage while alerted: flee immediately.",
+              "Sensor": {
+                "Type": "Damage",
+                "Combat": true
+              },
+              "Actions": [
+                {
+                  "Type": "State",
+                  "State": "Fleeing"
+                }
+              ]
+            },
+            {
+              "$Comment": "Target in range: brief pause then flee.",
+              "Sensor": {
+                "Type": "Target",
+                "Range": { "Compute": "AlertedRange" }
+              },
+              "ActionsBlocking": true,
+              "Actions": [
+                {
+                  "Type": "Timeout",
+                  "Delay": { "Compute": "AlertedTime" }
+                },
+                {
+                  "Type": "State",
+                  "State": "Fleeing"
+                }
+              ]
+            },
+            {
+              "$Comment": "No target: return to idle.",
+              "ActionsBlocking": true,
+              "Actions": [
+                {
+                  "Type": "Timeout",
+                  "Delay": { "Compute": "AlertedTime" }
+                },
+                {
+                  "Type": "State",
+                  "State": "Idle"
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "$Comment": "=== FLEEING STATE: run randomly for ~1 min, then go home ===",
+          "Sensor": {
+            "Type": "State",
+            "State": "Fleeing"
+          },
+          "Instructions": [
+            {
+              "$Comment": "Hard leash safety: if way too far from home, go home immediately.",
+              "Sensor": {
+                "Type": "Leash",
+                "Range": { "Compute": "HardLeashDistance" }
+              },
+              "Actions": [
+                {
+                  "Type": "State",
+                  "State": "ReturnHome"
+                }
+              ]
+            },
+            {
+              "$Comment": "Run randomly at full speed. After FleeTimeRange seconds, go home.",
+              "BodyMotion": {
+                "Type": "Wander",
+                "MaxHeadingChange": 2,
+                "RelativeSpeed": 1.0
+              },
+              "ActionsBlocking": true,
+              "Actions": [
+                {
+                  "Type": "Timeout",
+                  "Delay": { "Compute": "FleeTimeRange" }
+                },
+                {
+                  "Type": "State",
+                  "State": "ReturnHome"
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "$Comment": "=== SEARCH STATE ===",
+          "Sensor": {
+            "Type": "State",
+            "State": "Search"
+          },
+          "Instructions": [
+            {
+              "Sensor": {
+                "Type": "State",
+                "State": ".Confused"
+              },
+              "Instructions": [
+                {
+                  "Continue": true,
+                  "ActionsBlocking": true,
+                  "Actions": [
+                    {
+                      "Type": "SpawnParticles",
+                      "Offset": [ 0, 2.1, 0 ],
+                      "ParticleSystem": "Question"
+                    },
+                    {
+                      "Type": "Timeout",
+                      "Delay": { "Compute": "ConfusedTimeRange" }
+                    },
+                    {
+                      "Type": "State",
+                      "State": ".Prowl"
+                    }
+                  ]
+                },
+                {
+                  "Sensor": {
+                    "Reference": "Component_Sensor_Standard_Detection",
+                    "Modify": {
+                      "ViewRange": { "Compute": "ViewRange / 2" },
+                      "ViewSector": { "Compute": "ViewSector" },
+                      "HearingRange": { "Compute": "HearingRange / 2" },
+                      "AbsoluteDetectionRange": { "Compute": "AbsoluteDetectionRange" },
+                      "Attitudes": [ "Hostile" ]
+                    }
+                  },
+                  "Actions": [
+                    {
+                      "Type": "State",
+                      "State": "Alerted"
+                    }
+                  ]
+                },
+                {
+                  "Sensor": {
+                    "Type": "Damage",
+                    "Combat": true
+                  },
+                  "Actions": [
+                    {
+                      "Type": "State",
+                      "State": "Fleeing"
+                    }
+                  ]
+                }
+              ]
+            },
+            {
+              "Sensor": {
+                "Type": "State",
+                "State": ".Prowl"
+              },
+              "Instructions": [
+                {
+                  "Sensor": {
+                    "Reference": "Component_Sensor_Standard_Detection",
+                    "Modify": {
+                      "ViewRange": { "Compute": "ViewRange" },
+                      "ViewSector": { "Compute": "ViewSector" },
+                      "HearingRange": { "Compute": "HearingRange" },
+                      "AbsoluteDetectionRange": { "Compute": "AbsoluteDetectionRange" },
+                      "Attitudes": [ "Hostile" ]
+                    }
+                  },
+                  "Actions": [
+                    {
+                      "Type": "State",
+                      "State": "Alerted"
+                    }
+                  ]
+                },
+                {
+                  "BodyMotion": {
+                    "Type": "Nothing"
+                  },
+                  "ActionsBlocking": true,
+                  "Actions": [
+                    {
+                      "Type": "Timeout",
+                      "Delay": { "Compute": "SearchTimeRange" }
+                    },
+                    {
+                      "Type": "State",
+                      "State": "ReturnHome"
+                    }
+                  ]
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "$Comment": "=== RETURNHOME STATE: walk back to spawn, heal on arrival ===",
+          "Sensor": {
+            "Type": "State",
+            "State": "ReturnHome"
+          },
+          "Instructions": [
+            {
+              "$Comment": "Damage while returning and attacker very close: flee again.",
+              "Sensor": {
+                "Type": "And",
+                "Sensors": [
+                  {
+                    "Type": "Damage",
+                    "Combat": true,
+                    "TargetSlot": "LockedTarget"
+                  },
+                  {
+                    "Type": "Target",
+                    "TargetSlot": "LockedTarget",
+                    "Range": { "Compute": "AbsoluteDetectionRange" }
+                  }
+                ]
+              },
+              "Actions": [
+                {
+                  "Type": "State",
+                  "State": "Fleeing"
+                }
+              ]
+            },
+            {
+              "$Comment": "Not home yet: pathfind back at full speed.",
+              "Sensor": {
+                "Type": "Leash",
+                "Range": { "Compute": "LeashDistance * 0.3" }
+              },
+              "BodyMotion": {
+                "Type": "Seek",
+                "SlowDownDistance": 1,
+                "StopDistance": 0.5,
+                "RelativeSpeed": 1,
+                "UsePathfinder": true
+              }
+            },
+            {
+              "$Comment": "Arrived home: full heal and return to Idle.",
+              "Actions": [
+                {
+                  "Type": "SetStat",
+                  "Stat": "Health",
+                  "Value": 1000000
+                },
+                {
+                  "Type": "State",
+                  "State": "Idle"
+                }
+              ]
+            }
+          ]
+        }
+      ]
+    }
+  ],
+  "NameTranslationKey": { "Compute": "NameTranslationKey" }
+}

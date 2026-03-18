@@ -1,153 +1,16 @@
 {
-  "Type": "Generic",
-  "StartState": "Idle",
-  "NameTranslationKey": "nat20.npc.villager",
-  "DisplayNames": [
-    "Villager"
-  ],
-  "DefaultNPCAttitude": "Ignore",
-  "DefaultPlayerAttitude": "Neutral",
-  "AttitudeGroup": "Nat20_Settlement",
+  "Type": "Variant",
+  "Reference": "Template_Settlement_Civilian",
   "Appearance": "NPC_Elf",
-  "MaxHealth": 20,
-  "KnockbackScale": 0.5,
-  "BusyStates": ["Fleeing"],
-  "MotionControllerList": [
-    {
-      "Type": "Walk",
-      "MaxWalkSpeed": 7,
-      "Gravity": 10,
-      "RunThreshold": 0.3,
-      "MaxFallSpeed": 15,
-      "MaxRotationSpeed": 360,
-      "Acceleration": 10
+  "NameTranslationKey": "nat20.npc.villager",
+  "Parameters": {
+    "MaxHealth": {
+      "Value": 100
+    },
+    "WanderRadius": {
+      "Value": 6
     }
-  ],
-  "Instructions": [
-    {
-      "Instructions": [
-        {
-          "$Comment": "Idle: wander slowly in a circle, pause, repeat",
-          "Sensor": {
-            "Type": "State",
-            "State": "Idle"
-          },
-          "Instructions": [
-            {
-              "Sensor": {
-                "Type": "Damage",
-                "Combat": true,
-                "TargetSlot": "LockedTarget"
-              },
-              "Actions": [
-                {
-                  "Type": "State",
-                  "State": "Fleeing"
-                }
-              ]
-            },
-            {
-              "Sensor": {
-                "Type": "Target",
-                "Range": 10
-              },
-              "Actions": [
-                {
-                  "Type": "State",
-                  "State": "Fleeing"
-                }
-              ]
-            },
-            {
-              "Continue": true,
-              "Sensor": {
-                "Type": "Player",
-                "Range": 8
-              },
-              "HeadMotion": {
-                "Type": "Watch"
-              }
-            },
-            {
-              "Sensor": {
-                "Type": "Any"
-              },
-              "BodyMotion": {
-                "Type": "Sequence",
-                "Looped": true,
-                "Motions": [
-                  {
-                    "Type": "Timer",
-                    "Time": [3, 6],
-                    "Motion": {
-                      "Type": "Nothing"
-                    }
-                  },
-                  {
-                    "Type": "Timer",
-                    "Time": [2, 4],
-                    "Motion": {
-                      "Type": "WanderInCircle",
-                      "Radius": 6,
-                      "MaxHeadingChange": 60,
-                      "RelativeSpeed": 0.15
-                    }
-                  }
-                ]
-              }
-            }
-          ]
-        },
-        {
-          "$Comment": "Fleeing: run away from hostile threat",
-          "Sensor": {
-            "Type": "State",
-            "State": "Fleeing"
-          },
-          "Instructions": [
-            {
-              "Sensor": {
-                "Type": "Target",
-                "Range": 16
-              },
-              "BodyMotion": {
-                "Type": "Flee",
-                "RelativeSpeed": 1.0,
-                "SlowDownDistance": 12,
-                "StopDistance": 18
-              }
-            },
-            {
-              "Sensor": {
-                "Type": "Not",
-                "Sensor": {
-                  "Type": "Target",
-                  "Range": 16
-                }
-              },
-              "Actions": [
-                {
-                  "Type": "Timeout",
-                  "Delay": [5, 5],
-                  "Action": {
-                    "Type": "State",
-                    "State": "Idle"
-                  }
-                }
-              ],
-              "BodyMotion": {
-                "Type": "Nothing"
-              }
-            },
-            {
-              "Sensor": { "Type": "Any" },
-              "Actions": [{ "Type": "State", "State": "Idle" }]
-            }
-          ]
-        }
-      ]
-    }
-  ],
+  },
   "InteractionVars": {
     "nat20_role": "villager"
   }
