@@ -530,30 +530,25 @@
           ]
         },
         {
-          "$Comment": "=== $INTERACTION STATE: look at interacting player ===",
+          "$Comment": "=== $INTERACTION STATE: stand still during dialogue ===",
           "Sensor": {
             "Type": "State",
             "State": "$Interaction"
           },
           "Instructions": [
             {
-              "Continue": true,
-              "Sensor": {
-                "Type": "Target",
-                "Range": 10
-              },
-              "HeadMotion": {
-                "Type": "Watch"
-              }
-            },
-            {
+              "$Comment": "Stand still. No target sensors to avoid player-targeting bleed.",
               "Sensor": {
                 "Type": "Any"
               },
+              "BodyMotion": {
+                "Type": "Nothing"
+              },
+              "ActionsBlocking": true,
               "Actions": [
                 {
                   "Type": "Timeout",
-                  "Delay": [1, 1],
+                  "Delay": [60, 60],
                   "Action": {
                     "Type": "Sequence",
                     "Actions": [
