@@ -14,6 +14,7 @@ import com.chonbosmods.npc.BuilderActionNat20StartDialogue;
 import com.chonbosmods.npc.Nat20NpcManager;
 import com.chonbosmods.settlement.SettlementNpcDeathSystem;
 import com.chonbosmods.settlement.SettlementPlacer;
+import com.chonbosmods.settlement.SettlementRecord;
 import com.chonbosmods.settlement.SettlementRegistry;
 import com.chonbosmods.settlement.SettlementThreatSystem;
 import com.chonbosmods.settlement.SettlementWorldGenListener;
@@ -88,6 +89,17 @@ public class Natural20 extends JavaPlugin {
 
     public SettlementRegistry getSettlementRegistry() {
         return settlementRegistry;
+    }
+
+    /**
+     * Called when a new settlement is created during world generation.
+     * Generates procedural topic dialogue graphs for the settlement's NPCs.
+     */
+    public void onSettlementCreated(SettlementRecord settlement) {
+        if (questSystem != null) {
+            var topicGraphs = questSystem.getTopicGenerator().generate(settlement);
+            dialogueLoader.registerGeneratedGraphs(topicGraphs);
+        }
     }
 
     public static ComponentType<EntityStore, Nat20NpcData> getNpcDataType() {
@@ -179,6 +191,13 @@ public class Natural20 extends JavaPlugin {
         // Initialize quest system
         questSystem = new QuestSystem(settlementRegistry);
         questSystem.loadTemplates(getDataDirectory().resolve("quests"));
+
+        // Generate procedural topics for all existing settlements
+        for (SettlementRecord settlement : settlementRegistry.getAll().values()) {
+            var topicGraphs = questSystem.getTopicGenerator().generate(settlement);
+            dialogueLoader.registerGeneratedGraphs(topicGraphs);
+        }
+        getLogger().atInfo().log("Generated procedural topics for %d settlement(s)", settlementRegistry.getAll().size());
 
         getLogger().atInfo().log("Natural 20 v" + getManifest().getVersion() + " started!");
     }
