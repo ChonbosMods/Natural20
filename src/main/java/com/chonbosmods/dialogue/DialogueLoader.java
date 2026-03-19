@@ -302,6 +302,21 @@ public class DialogueLoader {
         return graphsByNpcId.get(npcId);
     }
 
+    /**
+     * Register a programmatically-generated dialogue graph.
+     * Used by TopicGenerator for settlement-seeded topics.
+     */
+    public void registerGeneratedGraph(String npcKey, DialogueGraph graph) {
+        graphsByNpcId.put(npcKey, graph);
+    }
+
+    /**
+     * Bulk-register generated graphs for a settlement.
+     */
+    public void registerGeneratedGraphs(Map<String, DialogueGraph> graphs) {
+        graphsByNpcId.putAll(graphs);
+    }
+
     public int getLoadedCount() {
         return graphsByNpcId.size();
     }
