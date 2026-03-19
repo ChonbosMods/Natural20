@@ -1,0 +1,388 @@
+package com.chonbosmods.topic;
+
+import com.chonbosmods.dialogue.model.DialogueGraph;
+import com.chonbosmods.quest.QuestPoolRegistry;
+import com.chonbosmods.settlement.NpcRecord;
+import com.chonbosmods.settlement.SettlementRecord;
+import com.google.common.flogger.FluentLogger;
+
+import java.util.*;
+
+/**
+ * Settlement-level orchestrator that generates all topics for every NPC in a settlement.
+ * Seeds deterministically from the settlement's cell key so the same topics regenerate
+ * on server restart.
+ */
+public class TopicGenerator {
+
+    private static final FluentLogger LOGGER = FluentLogger.forEnclosingClass();
+
+    private static final int MIN_TOPICS_PER_NPC = 2;
+    private static final int MAX_TOPICS_PER_NPC = 4;
+    private static final double RUMOR_RATIO = 0.6;
+    private static final double QUEST_CHANCE_PER_SUBJECT = 0.25;
+    private static final int MIN_QUESTS_PER_SETTLEMENT = 2;
+    private static final int MAX_QUESTS_PER_SETTLEMENT = 8;
+    private static final int MIN_NPCS_PER_SUBJECT = 3;
+    private static final double EXTRA_NPC_CHANCE = 0.30;
+    private static final double VISIBILITY_CHANCE = 0.40;
+
+    private final TopicPoolRegistry topicPool;
+    private final TopicTemplateRegistry templateRegistry;
+    private final QuestPoolRegistry questPool;
+
+    public TopicGenerator(TopicPoolRegistry topicPool, TopicTemplateRegistry templateRegistry,
+                          QuestPoolRegistry questPool) {
+        this.topicPool = topicPool;
+        this.templateRegistry = templateRegistry;
+        this.questPool = questPool;
+    }
+
+    /**
+     * Generate dialogue graphs for all NPCs in a settlement.
+     *
+     * @return map of NPC generated name to their DialogueGraph
+     */
+    public Map<String, DialogueGraph> generate(SettlementRecord settlement) {
+        List<NpcRecord> npcs = settlement.getNpcs();
+        if (npcs.isEmpty()) {
+            LOGGER.atWarning().log("Settlement %s has no NPCs, skipping topic generation", settlement.getCellKey());
+            return Map.of();
+        }
+
+        Random random = new Random(settlement.getCellKey().hashCode());
+        int npcCount = npcs.size();
+
+        // Step 1: Roll topic budgets per NPC
+        Map<String, Integer> topicBudgets = new LinkedHashMap<>();
+        for (NpcRecord npc : npcs) {
+            int budget = MIN_TOPICS_PER_NPC + random.nextInt(MAX_TOPICS_PER_NPC - MIN_TOPICS_PER_NPC + 1);
+            topicBudgets.put(npc.getGeneratedName(), budget);
+        }
+
+        // Step 2: Roll shared subjects
+        int subjectCount = (int) Math.ceil(npcCount * 0.6);
+        int rumorCount = (int) Math.ceil(subjectCount * RUMOR_RATIO);
+        int smallTalkCount = subjectCount - rumorCount;
+
+        List<SubjectFocus> subjects = new ArrayList<>();
+        for (int i = 0; i < subjectCount; i++) {
+            TopicCategory category = i < rumorCount ? TopicCategory.RUMORS : TopicCategory.SMALLTALK;
+            TopicPoolRegistry.SubjectEntry entry = topicPool.randomSubject(random);
+            String subjectId = "subj_" + i + "_" + sanitize(entry.value());
+            subjects.add(new SubjectFocus(subjectId, entry.value(), entry.plural(), category));
+        }
+
+        // Step 3: Roll quest placement (25% per subject, min 2, max 8)
+        List<Integer> questCandidates = new ArrayList<>();
+        for (int i = 0; i < subjects.size(); i++) {
+            if (random.nextDouble() < QUEST_CHANCE_PER_SUBJECT) {
+                questCandidates.add(i);
+            }
+        }
+
+        // Enforce minimum quests: add random subjects until we have enough
+        while (questCandidates.size() < MIN_QUESTS_PER_SETTLEMENT && questCandidates.size() < subjects.size()) {
+            int idx = random.nextInt(subjects.size());
+            if (!questCandidates.contains(idx)) {
+                questCandidates.add(idx);
+            }
+        }
+
+        // Enforce maximum quests
+        while (questCandidates.size() > MAX_QUESTS_PER_SETTLEMENT) {
+            questCandidates.remove(random.nextInt(questCandidates.size()));
+        }
+
+        // Quest subjects must use quest-eligible values: swap out non-eligible entries
+        for (int qi : questCandidates) {
+            SubjectFocus focus = subjects.get(qi);
+            TopicPoolRegistry.SubjectEntry currentEntry = new TopicPoolRegistry.SubjectEntry(
+                focus.getSubjectValue(), focus.isPlural(), false);
+            // Check if current subject is quest-eligible by re-checking the original entry
+            // If not quest-eligible, replace with a quest-eligible subject
+            if (!isQuestEligible(focus)) {
+                TopicPoolRegistry.SubjectEntry eligible = topicPool.randomQuestEligibleSubject(random);
+                String newId = "subj_" + qi + "_" + sanitize(eligible.value());
+                subjects.set(qi, new SubjectFocus(newId, eligible.value(), eligible.plural(), focus.getCategory()));
+            }
+        }
+
+        // Mark quest bearers: assign to a random NPC
+        List<String> npcNames = npcs.stream().map(NpcRecord::getGeneratedName).toList();
+        for (int qi : questCandidates) {
+            SubjectFocus focus = subjects.get(qi);
+            String bearer = npcNames.get(random.nextInt(npcNames.size()));
+            focus.setQuestBearer(bearer, focus.getSubjectId());
+        }
+
+        // Step 4: Distribute subjects across NPCs
+        for (SubjectFocus focus : subjects) {
+            distributeSubject(focus, npcNames, npcCount, random);
+        }
+
+        // Step 5: Roll visibility per subject/NPC
+        for (SubjectFocus focus : subjects) {
+            rollVisibility(focus, random);
+        }
+
+        // Step 6 & 7: Generate perspectives and build graphs per NPC
+        Map<String, List<TopicGraphBuilder.TopicAssignment>> npcAssignments = new LinkedHashMap<>();
+        for (NpcRecord npc : npcs) {
+            npcAssignments.put(npc.getGeneratedName(), new ArrayList<>());
+        }
+
+        for (SubjectFocus focus : subjects) {
+            for (String npcName : focus.getAssignedNpcs()) {
+                TopicGraphBuilder.TopicAssignment assignment = buildAssignment(focus, npcName, random);
+                npcAssignments.get(npcName).add(assignment);
+            }
+        }
+
+        // Step 8: Ensure minimum topics per NPC
+        ensureMinimumTopics(npcAssignments, subjects, npcNames, random);
+
+        // Build final graphs
+        Map<String, DialogueGraph> results = new LinkedHashMap<>();
+        for (NpcRecord npc : npcs) {
+            String npcName = npc.getGeneratedName();
+            List<TopicGraphBuilder.TopicAssignment> assignments = npcAssignments.get(npcName);
+
+            String greeting = topicPool.randomGreeting(random);
+            String returnGreeting = topicPool.randomReturnGreeting(random);
+
+            TopicGraphBuilder builder = new TopicGraphBuilder(
+                npcName, 50, greeting, returnGreeting, assignments
+            );
+            DialogueGraph graph = builder.build();
+
+            if (graph.validate()) {
+                results.put(npcName, graph);
+            } else {
+                LOGGER.atWarning().log("Generated invalid dialogue graph for NPC %s in settlement %s",
+                    npcName, settlement.getCellKey());
+            }
+        }
+
+        LOGGER.atInfo().log("Generated %d dialogue graphs for settlement %s (%d subjects, %d quests)",
+            results.size(), settlement.getCellKey(), subjects.size(), questCandidates.size());
+
+        return results;
+    }
+
+    /**
+     * Distribute a subject across NPCs: min 3 NPCs (or npcCount if smaller),
+     * then 30% diminishing chance for additional NPCs.
+     */
+    private void distributeSubject(SubjectFocus focus, List<String> npcNames, int npcCount, Random random) {
+        int minAssign = Math.min(MIN_NPCS_PER_SUBJECT, npcCount);
+
+        // Shuffle a copy to randomize which NPCs get assigned
+        List<String> shuffled = new ArrayList<>(npcNames);
+        Collections.shuffle(shuffled, random);
+
+        // If this subject has a quest bearer, ensure they're in the first minAssign
+        String bearer = focus.getQuestBearingNpc();
+        if (bearer != null) {
+            shuffled.remove(bearer);
+            shuffled.addFirst(bearer);
+        }
+
+        // Assign minimum NPCs
+        int assigned = 0;
+        for (int i = 0; i < minAssign && i < shuffled.size(); i++) {
+            focus.assignNpc(shuffled.get(i), false);
+            assigned++;
+        }
+
+        // Extra NPCs with 30% diminishing chance
+        for (int i = assigned; i < shuffled.size(); i++) {
+            if (random.nextDouble() < EXTRA_NPC_CHANCE) {
+                focus.assignNpc(shuffled.get(i), false);
+            } else {
+                break; // Diminishing: stop on first failure
+            }
+        }
+    }
+
+    /**
+     * Roll visibility: 1 NPC guaranteed visible (startLearned:true), others get 40% chance.
+     */
+    private void rollVisibility(SubjectFocus focus, Random random) {
+        Set<String> assignedNpcs = focus.getAssignedNpcs();
+        if (assignedNpcs.isEmpty()) return;
+
+        // Pick one guaranteed visible NPC
+        List<String> npcList = new ArrayList<>(assignedNpcs);
+        String guaranteedVisible = npcList.get(random.nextInt(npcList.size()));
+
+        // Re-assign all with visibility flags
+        Map<String, Boolean> visibilityMap = new LinkedHashMap<>();
+        for (String npc : npcList) {
+            if (npc.equals(guaranteedVisible)) {
+                visibilityMap.put(npc, true);
+            } else {
+                visibilityMap.put(npc, random.nextDouble() < VISIBILITY_CHANCE);
+            }
+        }
+
+        // Clear and re-add with correct visibility (SubjectFocus.assignNpc replaces)
+        // Since assignNpc uses a LinkedHashMap, re-assigning overwrites the entry
+        for (var entry : visibilityMap.entrySet()) {
+            focus.assignNpc(entry.getKey(), entry.getValue());
+        }
+    }
+
+    /**
+     * Build a TopicAssignment for a specific NPC on a specific subject.
+     */
+    private TopicGraphBuilder.TopicAssignment buildAssignment(SubjectFocus focus, String npcName, Random random) {
+        TopicTemplate template = templateRegistry.randomTemplate(focus.getCategory(), random);
+        boolean isQuestBearer = npcName.equals(focus.getQuestBearingNpc());
+
+        // Pick perspective: quest hook for quest bearer, normal for others
+        TopicTemplate.Perspective perspective;
+        if (isQuestBearer && !template.questHookPerspectives().isEmpty()) {
+            List<TopicTemplate.Perspective> hooks = template.questHookPerspectives();
+            perspective = hooks.get(random.nextInt(hooks.size()));
+        } else if (!template.perspectives().isEmpty()) {
+            List<TopicTemplate.Perspective> normals = template.perspectives();
+            perspective = normals.get(random.nextInt(normals.size()));
+        } else {
+            // Fallback: create a minimal perspective
+            perspective = new TopicTemplate.Perspective(
+                "I've heard something about {subject_focus}...", List.of(), null
+            );
+        }
+
+        // Build variable bindings
+        Map<String, String> bindings = buildBindings(focus, npcName, isQuestBearer, random);
+
+        return new TopicGraphBuilder.TopicAssignment(
+            focus.getSubjectId(),
+            template.labelTemplate(),
+            perspective,
+            bindings,
+            focus.isVisibleFor(npcName),
+            isQuestBearer && focus.hasQuest()
+        );
+    }
+
+    /**
+     * Build variable bindings for a topic assignment.
+     */
+    private Map<String, String> buildBindings(SubjectFocus focus, String npcName,
+                                               boolean isQuestBearer, Random random) {
+        Map<String, String> bindings = new HashMap<>();
+
+        // Subject focus bindings
+        bindings.put("subject_focus", focus.getSubjectValue());
+        bindings.put("subject_focus_is", focus.isPlural() ? "are" : "is");
+        bindings.put("subject_focus_has", focus.isPlural() ? "have" : "has");
+        bindings.put("subject_focus_was", focus.isPlural() ? "were" : "was");
+
+        // NPC name
+        bindings.put("npc_name", npcName);
+
+        // Category-specific pool bindings
+        if (focus.getCategory() == TopicCategory.RUMORS) {
+            bindings.put("rumor_detail", topicPool.randomRumorDetail(random));
+            bindings.put("perspective_source", topicPool.randomRumorSource(random));
+        }
+        bindings.put("perspective_detail", topicPool.randomPerspectiveDetail(random));
+        if (focus.getCategory() == TopicCategory.SMALLTALK) {
+            bindings.put("smalltalk_opener", topicPool.randomSmalltalkOpener(random));
+        }
+
+        // Quest bindings for quest bearers
+        if (isQuestBearer && focus.hasQuest()) {
+            QuestPoolRegistry.NarrativeEntry threat = questPool.randomThreat(random);
+            bindings.put("quest_threat", threat.value());
+            bindings.put("quest_threat_is", threat.plural() ? "are" : "is");
+            bindings.put("quest_threat_has", threat.plural() ? "have" : "has");
+            bindings.put("quest_threat_was", threat.plural() ? "were" : "was");
+
+            QuestPoolRegistry.NarrativeEntry stakes = questPool.randomStakes(random);
+            bindings.put("quest_stakes", stakes.value());
+            bindings.put("quest_stakes_is", stakes.plural() ? "are" : "is");
+            bindings.put("quest_stakes_has", stakes.plural() ? "have" : "has");
+            bindings.put("quest_stakes_was", stakes.plural() ? "were" : "was");
+            bindings.put("quest_stakes_detail", stakes.value());
+
+            bindings.put("quest_exposition", topicPool.randomRumorDetail(random));
+            bindings.put("quest_detail", topicPool.randomPerspectiveDetail(random));
+
+            String tone = questPool.getToneForSituation(focus.getQuestSituationId());
+            bindings.put("quest_accept_response",
+                questPool.randomCounterAccept(focus.getQuestSituationId(), tone, random));
+        }
+
+        return bindings;
+    }
+
+    /**
+     * Ensure every NPC has at least {@link #MIN_TOPICS_PER_NPC} topics.
+     * If an NPC is short, assign them to existing subjects they don't already have.
+     */
+    private void ensureMinimumTopics(Map<String, List<TopicGraphBuilder.TopicAssignment>> npcAssignments,
+                                      List<SubjectFocus> subjects, List<String> npcNames, Random random) {
+        for (String npcName : npcNames) {
+            List<TopicGraphBuilder.TopicAssignment> assignments = npcAssignments.get(npcName);
+            if (assignments.size() >= MIN_TOPICS_PER_NPC) continue;
+
+            // Find subjects this NPC doesn't already have
+            Set<String> existingSubjects = new HashSet<>();
+            for (TopicGraphBuilder.TopicAssignment a : assignments) {
+                existingSubjects.add(a.subjectId());
+            }
+
+            List<SubjectFocus> available = new ArrayList<>();
+            for (SubjectFocus focus : subjects) {
+                if (!existingSubjects.contains(focus.getSubjectId())) {
+                    available.add(focus);
+                }
+            }
+            Collections.shuffle(available, random);
+
+            for (SubjectFocus focus : available) {
+                if (assignments.size() >= MIN_TOPICS_PER_NPC) break;
+
+                focus.assignNpc(npcName, random.nextDouble() < VISIBILITY_CHANCE);
+                TopicGraphBuilder.TopicAssignment assignment = buildAssignment(focus, npcName, random);
+                assignments.add(assignment);
+            }
+
+            // If still short (very few subjects), create new subjects
+            while (assignments.size() < MIN_TOPICS_PER_NPC) {
+                TopicCategory category = random.nextBoolean() ? TopicCategory.RUMORS : TopicCategory.SMALLTALK;
+                TopicPoolRegistry.SubjectEntry entry = topicPool.randomSubject(random);
+                int idx = subjects.size();
+                String subjectId = "subj_" + idx + "_" + sanitize(entry.value());
+                SubjectFocus newFocus = new SubjectFocus(subjectId, entry.value(), entry.plural(), category);
+                newFocus.assignNpc(npcName, true);
+                subjects.add(newFocus);
+
+                TopicGraphBuilder.TopicAssignment assignment = buildAssignment(newFocus, npcName, random);
+                assignments.add(assignment);
+            }
+        }
+    }
+
+    /**
+     * Check if a SubjectFocus was originally created from a quest-eligible entry.
+     * Since we lose the questEligible flag in SubjectFocus, we check the pool again.
+     * For simplicity, we just return false here and let the caller swap it.
+     */
+    private boolean isQuestEligible(SubjectFocus focus) {
+        // SubjectFocus doesn't store the questEligible flag,
+        // so we conservatively return false to trigger a swap to a known-eligible subject.
+        return false;
+    }
+
+    /**
+     * Sanitize a subject value into a safe ID component: lowercase alphanumeric with underscores.
+     */
+    private static String sanitize(String value) {
+        return value.toLowerCase().replaceAll("[^a-z0-9]+", "_").replaceAll("^_|_$", "");
+    }
+}
