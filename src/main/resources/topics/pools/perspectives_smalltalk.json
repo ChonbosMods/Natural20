@@ -1,0 +1,150 @@
+{
+  "perspectives": [
+    {
+      "intro": "Have you heard much about the {subject_focus}? {smalltalk_opener}",
+      "exploratories": [
+        {
+          "prompt": "A little. What's your take?",
+          "response": "Honestly? I think people are making more of it than they should. But who am I to say?"
+        }
+      ]
+    },
+    {
+      "intro": "The {subject_focus} keeps coming up in conversation. {smalltalk_opener}",
+      "exploratories": [
+        {
+          "prompt": "What are people saying?",
+          "response": "Oh, the usual. Some think it's fine, others think the sky is falling. Depends on who you ask."
+        },
+        {
+          "prompt": "Does it bother you?",
+          "response": "Not especially. I've got enough on my plate without borrowing trouble."
+        }
+      ]
+    },
+    {
+      "intro": "I was just talking to someone about the {subject_focus}. {smalltalk_opener}",
+      "exploratories": [
+        {
+          "prompt": "And what did they think?",
+          "response": "Same as most folk: curious but not quite sure what to make of it."
+        }
+      ]
+    },
+    {
+      "intro": "You know, the {subject_focus} is all anyone talks about these days. {smalltalk_opener}",
+      "exploratories": [
+        {
+          "prompt": "Can't blame them, I suppose.",
+          "response": "No, I suppose not. It's the most interesting thing to happen around here in a while."
+        }
+      ]
+    },
+    {
+      "intro": "Quiet day. Not much to report, aside from the usual chatter about the {subject_focus}. {smalltalk_opener}",
+      "exploratories": [
+        {
+          "prompt": "What's the latest?",
+          "response": "Nothing new, really. Just the same old talk going round and round."
+        },
+        {
+          "prompt": "Sounds like a slow day.",
+          "response": "They all are, mostly. But I prefer slow to the alternative."
+        }
+      ]
+    },
+    {
+      "intro": "I've got my own thoughts on the {subject_focus}, for what they're worth. {smalltalk_opener}",
+      "exploratories": [
+        {
+          "prompt": "Let's hear them.",
+          "response": "Well, I reckon things will sort themselves out. They usually do, given time."
+        }
+      ]
+    },
+    {
+      "intro": "The {subject_focus} came up again at the market today. {smalltalk_opener}",
+      "exploratories": [
+        {
+          "prompt": "People do love to gossip.",
+          "response": "That they do. Can't buy a bag of flour without getting an earful."
+        }
+      ]
+    },
+    {
+      "intro": "Between the weather and the {subject_focus}, there's no shortage of things to grumble about. {smalltalk_opener}",
+      "exploratories": [
+        {
+          "prompt": "Which bothers you more?",
+          "response": "The weather, honestly. At least the {subject_focus} might change. The rain never does."
+        },
+        {
+          "prompt": "Sounds about right.",
+          "response": "Aye. Same as it ever was. Folk need something to talk about."
+        }
+      ]
+    }
+  ],
+  "questHookPerspectives": [
+    {
+      "intro": "I was chatting about the {subject_focus} earlier, and something came up that might interest you. {smalltalk_opener} {quest_exposition}",
+      "exploratories": [
+        {
+          "prompt": "I'm listening.",
+          "response": "{quest_detail}"
+        }
+      ],
+      "decisive": {
+        "prompt": "I could look into that.",
+        "response": "{quest_accept_response}"
+      }
+    },
+    {
+      "intro": "The {subject_focus} is usually just idle talk, but this time it's different. {quest_exposition}",
+      "exploratories": [
+        {
+          "prompt": "Different how?",
+          "response": "{quest_detail} {quest_stakes_detail}"
+        }
+      ],
+      "decisive": {
+        "prompt": "Sounds like someone should step in.",
+        "response": "{quest_accept_response}"
+      }
+    },
+    {
+      "intro": "I know we were just making small talk, but the {subject_focus} actually has me a bit concerned. {quest_exposition}",
+      "exploratories": [
+        {
+          "prompt": "What's concerning you?",
+          "response": "{quest_detail}"
+        },
+        {
+          "prompt": "Is it that serious?",
+          "response": "More than most realize. {quest_stakes_detail}"
+        }
+      ],
+      "decisive": {
+        "prompt": "Maybe I can help with that.",
+        "response": "{quest_accept_response}"
+      }
+    },
+    {
+      "intro": "Speaking of the {subject_focus}, there's actually something that needs doing. {smalltalk_opener} {quest_exposition}",
+      "exploratories": [
+        {
+          "prompt": "What sort of something?",
+          "response": "{quest_detail}"
+        },
+        {
+          "prompt": "Why bring it up to me?",
+          "response": "Because you seem capable, and we're short on capable folk. {quest_stakes_detail}"
+        }
+      ],
+      "decisive": {
+        "prompt": "All right, I'll take care of it.",
+        "response": "{quest_accept_response}"
+      }
+    }
+  ]
+}

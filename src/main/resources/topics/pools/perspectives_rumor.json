@@ -1,0 +1,150 @@
+{
+  "perspectives": [
+    {
+      "intro": "I've been hearing things about the {subject_focus}. {rumor_detail}",
+      "exploratories": [
+        {
+          "prompt": "What have you heard?",
+          "response": "Nothing solid, mind you. But enough folk are talking that there must be something to it."
+        }
+      ]
+    },
+    {
+      "intro": "There's been talk about the {subject_focus} lately. {rumor_detail}",
+      "exploratories": [
+        {
+          "prompt": "What kind of talk?",
+          "response": "The worried kind. People don't bring it up lightly."
+        },
+        {
+          "prompt": "Who's been saying this?",
+          "response": "Half the settlement, it feels like. Started with just a few, but it's spread."
+        }
+      ]
+    },
+    {
+      "intro": "You haven't heard about the {subject_focus}? {rumor_detail}",
+      "exploratories": [
+        {
+          "prompt": "No, fill me in.",
+          "response": "Well, the short of it is that something's not right. People are uneasy, and I can't blame them."
+        }
+      ]
+    },
+    {
+      "intro": "The {subject_focus} has folk worried around here. {rumor_detail}",
+      "exploratories": [
+        {
+          "prompt": "What's got them worried?",
+          "response": "Could be nothing. Could be something. That's what has everyone on edge: the not knowing."
+        },
+        {
+          "prompt": "Are you worried too?",
+          "response": "I'd be a fool not to be, wouldn't I? But worrying doesn't fix anything."
+        }
+      ]
+    },
+    {
+      "intro": "Word around the settlement is that the {subject_focus} has become a problem. {rumor_detail}",
+      "exploratories": [
+        {
+          "prompt": "A problem how?",
+          "response": "The kind that doesn't solve itself. Someone's going to have to deal with it sooner or later."
+        }
+      ]
+    },
+    {
+      "intro": "I don't usually put stock in rumors, but the {subject_focus}... that's different. {rumor_detail}",
+      "exploratories": [
+        {
+          "prompt": "Why is it different?",
+          "response": "Because the people telling me aren't the sort to make things up. Practical folk. Level-headed."
+        }
+      ]
+    },
+    {
+      "intro": "Something's stirring with the {subject_focus}. {rumor_detail}",
+      "exploratories": [
+        {
+          "prompt": "Stirring how?",
+          "response": "Changes. Small ones at first, but they're adding up. The kind of thing that makes you look twice."
+        },
+        {
+          "prompt": "When did this start?",
+          "response": "Few weeks back, maybe longer. Hard to pin down exactly when folk started noticing."
+        }
+      ]
+    },
+    {
+      "intro": "If you've been anywhere near the {subject_focus}, you've probably noticed it yourself. {rumor_detail}",
+      "exploratories": [
+        {
+          "prompt": "I'm not sure what you mean.",
+          "response": "You will, if you spend any time there. It's the kind of thing you feel before you see."
+        }
+      ]
+    }
+  ],
+  "questHookPerspectives": [
+    {
+      "intro": "The {subject_focus} has been on my mind. {rumor_detail} {quest_exposition}",
+      "exploratories": [
+        {
+          "prompt": "What needs to be done?",
+          "response": "{quest_detail}"
+        }
+      ],
+      "decisive": {
+        "prompt": "I can take care of that.",
+        "response": "{quest_accept_response}"
+      }
+    },
+    {
+      "intro": "Listen, the {subject_focus} is more than just idle talk. {quest_exposition}",
+      "exploratories": [
+        {
+          "prompt": "What are you getting at?",
+          "response": "{quest_detail} {quest_stakes_detail}"
+        }
+      ],
+      "decisive": {
+        "prompt": "Tell me what you need.",
+        "response": "{quest_accept_response}"
+      }
+    },
+    {
+      "intro": "I wasn't going to mention it, but since you're here: the {subject_focus} needs attention. {quest_exposition}",
+      "exploratories": [
+        {
+          "prompt": "What sort of attention?",
+          "response": "{quest_detail}"
+        },
+        {
+          "prompt": "Why not handle it yourself?",
+          "response": "If I could, I would. But it's beyond what I can manage alone. {quest_stakes_detail}"
+        }
+      ],
+      "decisive": {
+        "prompt": "I'll see what I can do.",
+        "response": "{quest_accept_response}"
+      }
+    },
+    {
+      "intro": "The {subject_focus} has been trouble for a while now, and it's only getting worse. {rumor_detail} {quest_exposition}",
+      "exploratories": [
+        {
+          "prompt": "How bad is it?",
+          "response": "{quest_stakes_detail}"
+        },
+        {
+          "prompt": "What would help?",
+          "response": "{quest_detail}"
+        }
+      ],
+      "decisive": {
+        "prompt": "Point me toward it. I'll handle the rest.",
+        "response": "{quest_accept_response}"
+      }
+    }
+  ]
+}
