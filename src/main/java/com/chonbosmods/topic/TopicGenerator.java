@@ -70,7 +70,7 @@ public class TopicGenerator {
             TopicCategory category = i < rumorCount ? TopicCategory.RUMORS : TopicCategory.SMALLTALK;
             TopicPoolRegistry.SubjectEntry entry = topicPool.randomSubject(random);
             String subjectId = "subj_" + i + "_" + sanitize(entry.value());
-            subjects.add(new SubjectFocus(subjectId, entry.value(), entry.plural(), category));
+            subjects.add(new SubjectFocus(subjectId, entry.value(), entry.plural(), entry.questEligible(), category));
         }
 
         // Step 3: Roll quest placement (25% per subject, min 2, max 8)
@@ -97,14 +97,11 @@ public class TopicGenerator {
         // Quest subjects must use quest-eligible values: swap out non-eligible entries
         for (int qi : questCandidates) {
             SubjectFocus focus = subjects.get(qi);
-            TopicPoolRegistry.SubjectEntry currentEntry = new TopicPoolRegistry.SubjectEntry(
-                focus.getSubjectValue(), focus.isPlural(), false);
-            // Check if current subject is quest-eligible by re-checking the original entry
-            // If not quest-eligible, replace with a quest-eligible subject
-            if (!isQuestEligible(focus)) {
+            if (!focus.isQuestEligible()) {
                 TopicPoolRegistry.SubjectEntry eligible = topicPool.randomQuestEligibleSubject(random);
                 String newId = "subj_" + qi + "_" + sanitize(eligible.value());
-                subjects.set(qi, new SubjectFocus(newId, eligible.value(), eligible.plural(), focus.getCategory()));
+                subjects.set(qi, new SubjectFocus(newId, eligible.value(), eligible.plural(),
+                    eligible.questEligible(), focus.getCategory()));
             }
         }
 
@@ -358,7 +355,7 @@ public class TopicGenerator {
                 TopicPoolRegistry.SubjectEntry entry = topicPool.randomSubject(random);
                 int idx = subjects.size();
                 String subjectId = "subj_" + idx + "_" + sanitize(entry.value());
-                SubjectFocus newFocus = new SubjectFocus(subjectId, entry.value(), entry.plural(), category);
+                SubjectFocus newFocus = new SubjectFocus(subjectId, entry.value(), entry.plural(), entry.questEligible(), category);
                 newFocus.assignNpc(npcName, true);
                 subjects.add(newFocus);
 
@@ -366,17 +363,6 @@ public class TopicGenerator {
                 assignments.add(assignment);
             }
         }
-    }
-
-    /**
-     * Check if a SubjectFocus was originally created from a quest-eligible entry.
-     * Since we lose the questEligible flag in SubjectFocus, we check the pool again.
-     * For simplicity, we just return false here and let the caller swap it.
-     */
-    private boolean isQuestEligible(SubjectFocus focus) {
-        // SubjectFocus doesn't store the questEligible flag,
-        // so we conservatively return false to trigger a swap to a known-eligible subject.
-        return false;
     }
 
     /**

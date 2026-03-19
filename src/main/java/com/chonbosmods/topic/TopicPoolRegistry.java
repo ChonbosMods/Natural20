@@ -22,10 +22,6 @@ public class TopicPoolRegistry {
     private final List<String> rumorSources = new ArrayList<>();
     private final List<String> smalltalkOpeners = new ArrayList<>();
     private final List<String> perspectiveDetails = new ArrayList<>();
-    private final List<String> followUpPrompts = new ArrayList<>();
-    private final List<String> followUpResponses = new ArrayList<>();
-    private final List<String> decisivePrompts = new ArrayList<>();
-    private final List<String> decisiveResponses = new ArrayList<>();
 
     public void loadAll(@Nullable Path poolsDir) {
         if (poolsDir == null || !Files.isDirectory(poolsDir)) {
@@ -39,10 +35,6 @@ public class TopicPoolRegistry {
         loadStringPool(poolsDir.resolve("rumor_sources.json"), rumorSources);
         loadStringPool(poolsDir.resolve("smalltalk_openers.json"), smalltalkOpeners);
         loadStringPool(poolsDir.resolve("perspective_details.json"), perspectiveDetails);
-        loadStringPool(poolsDir.resolve("follow_up_prompts.json"), followUpPrompts);
-        loadStringPool(poolsDir.resolve("follow_up_responses.json"), followUpResponses);
-        loadStringPool(poolsDir.resolve("decisive_prompts.json"), decisivePrompts);
-        loadStringPool(poolsDir.resolve("decisive_responses.json"), decisiveResponses);
 
         LOGGER.atInfo().log("Loaded topic pools: %d subjects, %d greetings, %d return greetings",
             subjectFocuses.size(), greetingLines.size(), returnGreetingLines.size());
@@ -89,6 +81,7 @@ public class TopicPoolRegistry {
     // --- Random selection methods ---
 
     public SubjectEntry randomSubject(Random random) {
+        if (subjectFocuses.isEmpty()) return new SubjectEntry("strange occurrence", false, false);
         return subjectFocuses.get(random.nextInt(subjectFocuses.size()));
     }
 
@@ -100,42 +93,32 @@ public class TopicPoolRegistry {
     }
 
     public String randomGreeting(Random random) {
+        if (greetingLines.isEmpty()) return "Well met, traveler.";
         return greetingLines.get(random.nextInt(greetingLines.size()));
     }
 
     public String randomReturnGreeting(Random random) {
+        if (returnGreetingLines.isEmpty()) return "Back again, I see.";
         return returnGreetingLines.get(random.nextInt(returnGreetingLines.size()));
     }
 
     public String randomRumorDetail(Random random) {
+        if (rumorDetails.isEmpty()) return "something unusual";
         return rumorDetails.get(random.nextInt(rumorDetails.size()));
     }
 
     public String randomRumorSource(Random random) {
+        if (rumorSources.isEmpty()) return "a passing traveler";
         return rumorSources.get(random.nextInt(rumorSources.size()));
     }
 
     public String randomSmalltalkOpener(Random random) {
+        if (smalltalkOpeners.isEmpty()) return "You know what I think?";
         return smalltalkOpeners.get(random.nextInt(smalltalkOpeners.size()));
     }
 
     public String randomPerspectiveDetail(Random random) {
+        if (perspectiveDetails.isEmpty()) return "it's been on my mind lately";
         return perspectiveDetails.get(random.nextInt(perspectiveDetails.size()));
-    }
-
-    public String randomFollowUpPrompt(Random random) {
-        return followUpPrompts.get(random.nextInt(followUpPrompts.size()));
-    }
-
-    public String randomFollowUpResponse(Random random) {
-        return followUpResponses.get(random.nextInt(followUpResponses.size()));
-    }
-
-    public String randomDecisivePrompt(Random random) {
-        return decisivePrompts.get(random.nextInt(decisivePrompts.size()));
-    }
-
-    public String randomDecisiveResponse(Random random) {
-        return decisiveResponses.get(random.nextInt(decisiveResponses.size()));
     }
 }

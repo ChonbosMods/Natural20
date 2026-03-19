@@ -13,6 +13,13 @@ public class TopicTemplateRegistry {
 
     private static final FluentLogger LOGGER = FluentLogger.forEnclosingClass();
 
+    private static final TopicTemplate FALLBACK_TEMPLATE = new TopicTemplate(
+        "fallback", TopicCategory.RUMORS, "{subject_focus}",
+        List.of(new TopicTemplate.Perspective("I've heard about the {subject_focus}.",
+            List.of(new TopicTemplate.FollowUp("Tell me more.", "That's all I know, really.")), null)),
+        List.of()
+    );
+
     private final List<TopicTemplate> rumorTemplates = new ArrayList<>();
     private final List<TopicTemplate> smallTalkTemplates = new ArrayList<>();
 
@@ -87,10 +94,12 @@ public class TopicTemplateRegistry {
     }
 
     public TopicTemplate randomRumorTemplate(Random random) {
+        if (rumorTemplates.isEmpty()) return FALLBACK_TEMPLATE;
         return rumorTemplates.get(random.nextInt(rumorTemplates.size()));
     }
 
     public TopicTemplate randomSmallTalkTemplate(Random random) {
+        if (smallTalkTemplates.isEmpty()) return FALLBACK_TEMPLATE;
         return smallTalkTemplates.get(random.nextInt(smallTalkTemplates.size()));
     }
 

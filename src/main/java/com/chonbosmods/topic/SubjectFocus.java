@@ -12,15 +12,18 @@ public class SubjectFocus {
     private final String subjectId;
     private final String subjectValue;
     private final boolean plural;
+    private final boolean questEligible;
     private final TopicCategory category;
     private final Map<String, Boolean> npcVisibility = new LinkedHashMap<>();
     private @Nullable String questBearingNpc;
     private @Nullable String questSituationId;
 
-    public SubjectFocus(String subjectId, String subjectValue, boolean plural, TopicCategory category) {
+    public SubjectFocus(String subjectId, String subjectValue, boolean plural, boolean questEligible,
+                        TopicCategory category) {
         this.subjectId = subjectId;
         this.subjectValue = subjectValue;
         this.plural = plural;
+        this.questEligible = questEligible;
         this.category = category;
     }
 
@@ -36,6 +39,7 @@ public class SubjectFocus {
     public String getSubjectId() { return subjectId; }
     public String getSubjectValue() { return subjectValue; }
     public boolean isPlural() { return plural; }
+    public boolean isQuestEligible() { return questEligible; }
     public TopicCategory getCategory() { return category; }
     public Map<String, Boolean> getNpcVisibility() { return npcVisibility; }
     public @Nullable String getQuestBearingNpc() { return questBearingNpc; }
