@@ -13,7 +13,11 @@ import com.hypixel.hytale.server.core.universe.PlayerRef;
 import com.hypixel.hytale.server.core.universe.world.World;
 import com.hypixel.hytale.server.core.universe.world.storage.EntityStore;
 
+import com.hypixel.hytale.server.core.asset.type.blocktype.config.Rotation;
 import com.hypixel.hytale.server.core.prefab.PrefabStore;
+import com.hypixel.hytale.server.core.prefab.selection.buffer.PrefabBufferUtil;
+import com.hypixel.hytale.server.core.prefab.selection.buffer.impl.IPrefabBuffer;
+import com.hypixel.hytale.server.core.util.PrefabUtil;
 
 import javax.annotation.Nonnull;
 import java.io.IOException;
@@ -22,6 +26,7 @@ import java.nio.file.Path;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Map;
+import java.util.Random;
 import java.util.Set;
 import java.util.TreeMap;
 import java.util.stream.Stream;
@@ -31,7 +36,10 @@ public class PlacePrefabsCommand extends AbstractPlayerCommand {
     private static final FluentLogger logger = FluentLogger.forEnclosingClass();
 
     private static final int SPACING = 100;
+    private static final int BATCH_SIZE = 10;
     private static final Set<String> CATEGORIES = Set.of("Npc", "Dungeon", "Monuments");
+
+    private record PlacementEntry(Path path, Vector3i position, String groupKey) {}
 
     public PlacePrefabsCommand() {
         super("placeprefabs", "Place all vanilla NPC/Dungeon/Monument prefabs in a grid");
@@ -61,7 +69,7 @@ public class PlacePrefabsCommand extends AbstractPlayerCommand {
         int total = prefabs.values().stream().mapToInt(List::size).sum();
         context.sendMessage(Message.raw("Found " + total + " prefabs in " + prefabs.size() + " categories. Placing..."));
 
-        placePrefabs(world, blockPos, prefabs);
+        placePrefabs(world, blockPos, prefabs, store, context);
     }
 
     /**
@@ -106,8 +114,59 @@ public class PlacePrefabsCommand extends AbstractPlayerCommand {
 
     /**
      * Place all enumerated prefabs in a grid layout starting at the given position.
-     * Stub: empty body until implemented.
+     * Each group occupies one row along the +X axis; groups advance along the +Z axis.
      */
-    private void placePrefabs(World world, Vector3i origin, Map<String, List<Path>> prefabs) {
+    private void placePrefabs(World world, Vector3i origin, Map<String, List<Path>> prefabs,
+                              Store<EntityStore> store, CommandContext context) {
+        List<PlacementEntry> entries = new ArrayList<>();
+        int groupIndex = 0;
+
+        for (Map.Entry<String, List<Path>> group : prefabs.entrySet()) {
+            String groupKey = group.getKey();
+            List<Path> paths = group.getValue();
+
+            for (int i = 0; i < paths.size(); i++) {
+                int x = origin.getX() + i * SPACING;
+                int y = origin.getY();
+                int z = origin.getZ() + groupIndex * SPACING;
+                entries.add(new PlacementEntry(paths.get(i), new Vector3i(x, y, z), groupKey));
+            }
+            groupIndex++;
+        }
+
+        placeBatch(world, entries, 0, 0, store, context);
+    }
+
+    /**
+     * Place a batch of prefabs on the world thread, then schedule the next batch.
+     * Processes BATCH_SIZE entries per tick to avoid blocking the server.
+     */
+    private void placeBatch(World world, List<PlacementEntry> entries, int startIndex, int placedSoFar,
+                            Store<EntityStore> store, CommandContext context) {
+        world.execute(() -> {
+            int[] placed = {placedSoFar};
+            int end = Math.min(startIndex + BATCH_SIZE, entries.size());
+
+            for (int i = startIndex; i < end; i++) {
+                PlacementEntry entry = entries.get(i);
+                try {
+                    IPrefabBuffer buffer = PrefabBufferUtil.getCached(entry.path());
+                    PrefabUtil.paste(buffer, world, entry.position(), Rotation.None, true, new Random(), 0, store);
+                    placed[0]++;
+                } catch (Exception e) {
+                    logger.atWarning().withCause(e).log("Failed to place prefab: %s", entry.path());
+                }
+
+                if ((i + 1) % 50 == 0) {
+                    context.sendMessage(Message.raw("Progress: placed " + placed[0] + "/" + entries.size() + " prefabs..."));
+                }
+            }
+
+            if (end < entries.size()) {
+                placeBatch(world, entries, end, placed[0], store, context);
+            } else {
+                context.sendMessage(Message.raw("Done! Placed " + placed[0] + " prefabs."));
+            }
+        });
     }
 }
