@@ -88,7 +88,7 @@ public class PlacePrefabsCommand extends AbstractPlayerCommand {
                          .forEach(p -> {
                              Path relative = prefabsDir.relativize(p);
                              String groupKey;
-                             if (relative.getNameCount() >= 2) {
+                             if (relative.getNameCount() >= 3) {
                                  groupKey = relative.getName(0) + "/" + relative.getName(1);
                              } else {
                                  groupKey = relative.getName(0).toString();
