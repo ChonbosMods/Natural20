@@ -1,6 +1,6 @@
 package com.chonbosmods.commands;
 
-import com.google.common.flogger.FluentLogger;
+import com.hypixel.hytale.logger.HytaleLogger;
 import com.hypixel.hytale.component.Ref;
 import com.hypixel.hytale.component.Store;
 import com.hypixel.hytale.math.vector.Vector3d;
@@ -33,7 +33,7 @@ import java.util.stream.Stream;
 
 public class PlacePrefabsCommand extends AbstractPlayerCommand {
 
-    private static final FluentLogger logger = FluentLogger.forEnclosingClass();
+    private static final HytaleLogger LOGGER = HytaleLogger.get("Nat20|PlacePrefabs");
 
     private static final int SPACING = 100;
     private static final int BATCH_SIZE = 10;
@@ -97,14 +97,14 @@ public class PlacePrefabsCommand extends AbstractPlayerCommand {
                              Path relative = prefabsDir.relativize(p);
                              String groupKey;
                              if (relative.getNameCount() >= 3) {
-                                 groupKey = relative.getName(0) + "/" + relative.getName(1);
+                                 groupKey = relative.getName(0).toString() + "/" + relative.getName(1).toString();
                              } else {
                                  groupKey = relative.getName(0).toString();
                              }
                              result.computeIfAbsent(groupKey, k -> new ArrayList<>()).add(p);
                          });
                 } catch (IOException e) {
-                    logger.atWarning().withCause(e).log("Failed to walk prefab directory: %s", categoryDir);
+                    LOGGER.atWarning().withCause(e).log("Failed to walk prefab directory: %s", categoryDir);
                 }
             }
         }
@@ -134,7 +134,8 @@ public class PlacePrefabsCommand extends AbstractPlayerCommand {
             groupIndex++;
         }
 
-        placeBatch(world, entries, 0, 0, store, context);
+        Random random = new Random();
+        placeBatch(world, entries, 0, 0, store, context, random);
     }
 
     /**
@@ -142,7 +143,7 @@ public class PlacePrefabsCommand extends AbstractPlayerCommand {
      * Processes BATCH_SIZE entries per tick to avoid blocking the server.
      */
     private void placeBatch(World world, List<PlacementEntry> entries, int startIndex, int placedSoFar,
-                            Store<EntityStore> store, CommandContext context) {
+                            Store<EntityStore> store, CommandContext context, Random random) {
         world.execute(() -> {
             int[] placed = {placedSoFar};
             int end = Math.min(startIndex + BATCH_SIZE, entries.size());
@@ -151,10 +152,10 @@ public class PlacePrefabsCommand extends AbstractPlayerCommand {
                 PlacementEntry entry = entries.get(i);
                 try {
                     IPrefabBuffer buffer = PrefabBufferUtil.getCached(entry.path());
-                    PrefabUtil.paste(buffer, world, entry.position(), Rotation.None, true, new Random(), 0, store);
+                    PrefabUtil.paste(buffer, world, entry.position(), Rotation.None, true, random, 0, store);
                     placed[0]++;
                 } catch (Exception e) {
-                    logger.atWarning().withCause(e).log("Failed to place prefab: %s", entry.path());
+                    LOGGER.atWarning().withCause(e).log("Failed to place prefab: %s", entry.path());
                 }
 
                 if ((i + 1) % 50 == 0) {
@@ -163,7 +164,7 @@ public class PlacePrefabsCommand extends AbstractPlayerCommand {
             }
 
             if (end < entries.size()) {
-                placeBatch(world, entries, end, placed[0], store, context);
+                placeBatch(world, entries, end, placed[0], store, context, random);
             } else {
                 context.sendMessage(Message.raw("Done! Placed " + placed[0] + " prefabs."));
             }
