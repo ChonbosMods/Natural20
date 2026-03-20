@@ -3,10 +3,13 @@ package com.chonbosmods.commands;
 import com.hypixel.hytale.logger.HytaleLogger;
 import com.hypixel.hytale.component.Ref;
 import com.hypixel.hytale.component.Store;
+import com.hypixel.hytale.math.util.ChunkUtil;
 import com.hypixel.hytale.math.vector.Vector3d;
 import com.hypixel.hytale.math.vector.Vector3i;
 import com.hypixel.hytale.server.core.Message;
 import com.hypixel.hytale.server.core.command.system.CommandContext;
+import com.hypixel.hytale.server.core.command.system.arguments.system.RequiredArg;
+import com.hypixel.hytale.server.core.command.system.arguments.types.ArgTypes;
 import com.hypixel.hytale.server.core.command.system.basecommands.AbstractPlayerCommand;
 import com.hypixel.hytale.server.core.modules.entity.component.TransformComponent;
 import com.hypixel.hytale.server.core.universe.PlayerRef;
@@ -27,22 +30,25 @@ import java.util.ArrayList;
 import java.util.List;
 import java.util.Map;
 import java.util.Random;
-import java.util.Set;
 import java.util.TreeMap;
+import java.util.concurrent.CompletableFuture;
+import java.util.concurrent.TimeUnit;
 import java.util.stream.Stream;
 
 public class PlacePrefabsCommand extends AbstractPlayerCommand {
 
     private static final HytaleLogger LOGGER = HytaleLogger.get("Nat20|PlacePrefabs");
 
-    private static final int SPACING = 100;
-    private static final int BATCH_SIZE = 10;
-    private static final Set<String> CATEGORIES = Set.of("Npc", "Dungeon", "Monuments");
+    private static final int SPACING = 30;
+    private static final int SETTLE_TICKS = 5;
 
-    private record PlacementEntry(Path path, Vector3i position, String groupKey) {}
+    private record PlacementEntry(Path path, IPrefabBuffer buffer, Vector3i position, String groupKey) {}
+
+    private final RequiredArg<String> filterArg =
+            withRequiredArg("filter", "'help' for categories, 'all' for everything, or filter e.g. Kweebec", ArgTypes.STRING);
 
     public PlacePrefabsCommand() {
-        super("placeprefabs", "Place all vanilla NPC/Dungeon/Monument prefabs in a grid");
+        super("placeprefabs", "Place vanilla prefabs in a grid");
     }
 
     @Override
@@ -51,6 +57,16 @@ public class PlacePrefabsCommand extends AbstractPlayerCommand {
                            @Nonnull Ref<EntityStore> ref,
                            @Nonnull PlayerRef playerRef,
                            @Nonnull World world) {
+        String filterRaw = filterArg.get(context);
+        LOGGER.atInfo().log("placeprefabs called with filter='%s'", filterRaw);
+
+        if (filterRaw.equalsIgnoreCase("help")) {
+            showHelp(context);
+            return;
+        }
+
+        String filter = filterRaw.equalsIgnoreCase("all") ? null : filterRaw;
+
         TransformComponent transform = store.getComponent(ref, TransformComponent.getComponentType());
         if (transform == null) {
             context.sendMessage(Message.raw("Could not get your position."));
@@ -58,66 +74,133 @@ public class PlacePrefabsCommand extends AbstractPlayerCommand {
         }
 
         Vector3d pos = transform.getPosition();
-        Vector3i blockPos = new Vector3i((int) pos.getX(), (int) pos.getY(), (int) pos.getZ());
+        int originX = (int) pos.getX();
+        int originZ = (int) pos.getZ();
 
-        Map<String, List<Path>> prefabs = enumeratePrefabs();
+        Map<String, List<Path>> prefabs = enumeratePrefabs(filter);
+        LOGGER.atInfo().log("enumeratePrefabs returned %d groups", prefabs.size());
         if (prefabs.isEmpty()) {
-            context.sendMessage(Message.raw("No prefabs found."));
+            context.sendMessage(Message.raw("No prefabs found" + (filter != null ? " matching '" + filter + "'" : "") + "."));
+            if (filter != null) {
+                context.sendMessage(Message.raw("Use --help to see available categories."));
+            }
             return;
         }
 
         int total = prefabs.values().stream().mapToInt(List::size).sum();
-        context.sendMessage(Message.raw("Found " + total + " prefabs in " + prefabs.size() + " categories. Placing..."));
+        context.sendMessage(Message.raw("Found " + total + " prefabs in " + prefabs.size() + " groups. Loading buffers..."));
 
-        placePrefabs(world, blockPos, prefabs, store, context);
+        List<PlacementEntry> entries = buildPlacementList(prefabs, originX, originZ, context);
+        if (entries.isEmpty()) {
+            context.sendMessage(Message.raw("No prefabs could be loaded."));
+            return;
+        }
+
+        context.sendMessage(Message.raw("Placing " + entries.size() + " prefabs..."));
+        placeNext(world, entries, 0, 0, store, context, new Random());
     }
 
-    /**
-     * Enumerate vanilla prefabs from asset packs, grouped by subcategory.
-     * Scans Npc, Dungeon, and Monuments directories for .prefab.json files,
-     * grouping by the first two path components relative to the prefabs root
-     * (e.g. "Npc/Outlander").
-     */
-    private Map<String, List<Path>> enumeratePrefabs() {
+    private void showHelp(CommandContext context) {
+        Map<String, List<Path>> allPrefabs = enumerateAllPrefabs();
+        LOGGER.atInfo().log("Help: enumerateAllPrefabs returned %d groups", allPrefabs.size());
+
+        // Build category -> subcategories, output as compact lines
+        TreeMap<String, List<String>> categories = new TreeMap<>();
+
+        for (Map.Entry<String, List<Path>> entry : allPrefabs.entrySet()) {
+            String key = entry.getKey();
+            int count = entry.getValue().size();
+            String[] parts = key.split("/", 2);
+            String cat = parts[0];
+            String sub = parts.length > 1 ? parts[1] : null;
+            categories.computeIfAbsent(cat, k -> new ArrayList<>());
+            if (sub != null) {
+                categories.get(cat).add(sub + "(" + count + ")");
+            }
+        }
+
+        context.sendMessage(Message.raw("--- Prefab Categories ---"));
+        for (Map.Entry<String, List<String>> cat : categories.entrySet()) {
+            String catName = cat.getKey();
+            List<String> subs = cat.getValue();
+            if (subs.isEmpty()) {
+                context.sendMessage(Message.raw(catName));
+            } else {
+                // Join subcategories into one line per category
+                context.sendMessage(Message.raw(catName + ": " + String.join(", ", subs)));
+            }
+        }
+
+        context.sendMessage(Message.raw("--- Usage: /nat20 placeprefabs <filter> ---"));
+        context.sendMessage(Message.raw("Examples: Kweebec, Dungeon/Sewer, Challenge_Gate, Feran"));
+    }
+
+    private Map<String, List<Path>> enumerateAllPrefabs() {
         TreeMap<String, List<Path>> result = new TreeMap<>();
 
         List<PrefabStore.AssetPackPrefabPath> allPaths = PrefabStore.get().getAllAssetPrefabPaths();
+        LOGGER.atInfo().log("getAllAssetPrefabPaths returned %d paths", allPaths.size());
         for (PrefabStore.AssetPackPrefabPath assetPackPath : allPaths) {
             Path prefabsDir = assetPackPath.prefabsPath();
+            LOGGER.atInfo().log("Checking prefab dir: %s exists=%b isDir=%b", prefabsDir, Files.exists(prefabsDir), Files.isDirectory(prefabsDir));
+            if (!Files.isDirectory(prefabsDir)) continue;
 
-            for (String category : CATEGORIES) {
-                Path categoryDir = prefabsDir.resolve(category);
-                if (!Files.isDirectory(categoryDir)) {
-                    continue;
-                }
-
-                try (Stream<Path> paths = Files.walk(categoryDir)) {
-                    paths.filter(p -> p.toString().endsWith(".prefab.json"))
-                         .forEach(p -> {
-                             Path relative = prefabsDir.relativize(p);
-                             String groupKey;
-                             if (relative.getNameCount() >= 3) {
-                                 groupKey = relative.getName(0).toString() + "/" + relative.getName(1).toString();
-                             } else {
-                                 groupKey = relative.getName(0).toString();
-                             }
-                             result.computeIfAbsent(groupKey, k -> new ArrayList<>()).add(p);
-                         });
-                } catch (IOException e) {
-                    LOGGER.atWarning().withCause(e).log("Failed to walk prefab directory: %s", categoryDir);
-                }
+            try (Stream<Path> paths = Files.walk(prefabsDir)) {
+                paths.filter(p -> p.toString().endsWith(".prefab.json"))
+                     .forEach(p -> {
+                         Path relative = prefabsDir.relativize(p);
+                         String groupKey;
+                         if (relative.getNameCount() >= 3) {
+                             groupKey = relative.getName(0).toString() + "/" + relative.getName(1).toString();
+                         } else if (relative.getNameCount() >= 2) {
+                             groupKey = relative.getName(0).toString();
+                         } else {
+                             groupKey = "Other";
+                         }
+                         result.computeIfAbsent(groupKey, k -> new ArrayList<>()).add(p);
+                     });
+            } catch (IOException e) {
+                LOGGER.atWarning().withCause(e).log("Failed to walk prefab directory: %s", prefabsDir);
             }
         }
 
         return result;
     }
 
-    /**
-     * Place all enumerated prefabs in a grid layout starting at the given position.
-     * Each group occupies one row along the +X axis; groups advance along the +Z axis.
-     */
-    private void placePrefabs(World world, Vector3i origin, Map<String, List<Path>> prefabs,
-                              Store<EntityStore> store, CommandContext context) {
+    private Map<String, List<Path>> enumeratePrefabs(String filter) {
+        Map<String, List<Path>> all = enumerateAllPrefabs();
+        if (filter == null || filter.isEmpty()) {
+            return all;
+        }
+
+        String lowerFilter = filter.toLowerCase();
+        TreeMap<String, List<Path>> filtered = new TreeMap<>();
+
+        for (Map.Entry<String, List<Path>> entry : all.entrySet()) {
+            String key = entry.getKey();
+            // Match against group key (e.g. "Npc/Kweebec") or individual path segments
+            if (key.toLowerCase().contains(lowerFilter)) {
+                filtered.put(key, entry.getValue());
+            } else {
+                // Check individual prefab paths for the filter term
+                List<Path> matching = new ArrayList<>();
+                for (Path p : entry.getValue()) {
+                    if (p.toString().toLowerCase().contains(lowerFilter)) {
+                        matching.add(p);
+                    }
+                }
+                if (!matching.isEmpty()) {
+                    filtered.put(key, matching);
+                }
+            }
+        }
+
+        return filtered;
+    }
+
+    private List<PlacementEntry> buildPlacementList(Map<String, List<Path>> prefabs,
+                                                     int originX, int originZ,
+                                                     CommandContext context) {
         List<PlacementEntry> entries = new ArrayList<>();
         int groupIndex = 0;
 
@@ -126,48 +209,82 @@ public class PlacePrefabsCommand extends AbstractPlayerCommand {
             List<Path> paths = group.getValue();
 
             for (int i = 0; i < paths.size(); i++) {
-                int x = origin.getX() + i * SPACING;
-                int y = origin.getY();
-                int z = origin.getZ() + groupIndex * SPACING;
-                entries.add(new PlacementEntry(paths.get(i), new Vector3i(x, y, z), groupKey));
+                try {
+                    IPrefabBuffer buffer = PrefabBufferUtil.getCached(paths.get(i));
+                    int x = originX + i * SPACING;
+                    int z = originZ + groupIndex * SPACING;
+                    int y = buffer.getAnchorY() - buffer.getMinY();
+                    entries.add(new PlacementEntry(paths.get(i), buffer, new Vector3i(x, y, z), groupKey));
+                } catch (Exception e) {
+                    LOGGER.atWarning().withCause(e).log("Failed to load prefab buffer: %s", paths.get(i));
+                }
             }
+
+            context.sendMessage(Message.raw("  " + groupKey + ": " + paths.size() + " prefabs"));
             groupIndex++;
         }
 
-        Random random = new Random();
-        placeBatch(world, entries, 0, 0, store, context, random);
+        return entries;
     }
 
-    /**
-     * Place a batch of prefabs on the world thread, then schedule the next batch.
-     * Processes BATCH_SIZE entries per tick to avoid blocking the server.
-     */
-    private void placeBatch(World world, List<PlacementEntry> entries, int startIndex, int placedSoFar,
-                            Store<EntityStore> store, CommandContext context, Random random) {
-        world.execute(() -> {
-            int[] placed = {placedSoFar};
-            int end = Math.min(startIndex + BATCH_SIZE, entries.size());
+    private void placeNext(World world, List<PlacementEntry> entries, int index, int placedSoFar,
+                           Store<EntityStore> store, CommandContext context, Random random) {
+        if (index >= entries.size()) {
+            context.sendMessage(Message.raw("Done! Placed " + placedSoFar + " prefabs."));
+            return;
+        }
 
-            for (int i = startIndex; i < end; i++) {
-                PlacementEntry entry = entries.get(i);
-                try {
-                    IPrefabBuffer buffer = PrefabBufferUtil.getCached(entry.path());
-                    PrefabUtil.paste(buffer, world, entry.position(), Rotation.None, true, random, 0, store);
-                    placed[0]++;
-                } catch (Exception e) {
-                    LOGGER.atWarning().withCause(e).log("Failed to place prefab: %s", entry.path());
-                }
+        PlacementEntry entry = entries.get(index);
+        IPrefabBuffer buffer = entry.buffer();
+        Vector3i pos = entry.position();
 
-                if ((i + 1) % 50 == 0) {
-                    context.sendMessage(Message.raw("Progress: placed " + placed[0] + "/" + entries.size() + " prefabs..."));
-                }
+        int minChunkX = ChunkUtil.chunkCoordinate(pos.getX() + buffer.getMinX());
+        int minChunkZ = ChunkUtil.chunkCoordinate(pos.getZ() + buffer.getMinZ());
+        int maxChunkX = ChunkUtil.chunkCoordinate(pos.getX() + buffer.getMaxX());
+        int maxChunkZ = ChunkUtil.chunkCoordinate(pos.getZ() + buffer.getMaxZ());
+
+        List<CompletableFuture<?>> chunkFutures = new ArrayList<>();
+        for (int cx = minChunkX; cx <= maxChunkX; cx++) {
+            for (int cz = minChunkZ; cz <= maxChunkZ; cz++) {
+                long key = ChunkUtil.indexChunk(cx, cz);
+                chunkFutures.add(world.getNonTickingChunkAsync(key));
             }
+        }
 
-            if (end < entries.size()) {
-                placeBatch(world, entries, end, placed[0], store, context, random);
-            } else {
-                context.sendMessage(Message.raw("Done! Placed " + placed[0] + " prefabs."));
-            }
-        });
+        CompletableFuture.allOf(chunkFutures.toArray(new CompletableFuture[0]))
+                .orTimeout(30, TimeUnit.SECONDS)
+                .whenComplete((result, error) -> {
+                    deferTicks(world, SETTLE_TICKS, () -> {
+                        int placed = placedSoFar;
+
+                        if (error != null) {
+                            LOGGER.atWarning().withCause(error).log("Chunk loading timed out for prefab %d: %s", index, entry.path());
+                        } else {
+                            try {
+                                PrefabUtil.paste(buffer, world, pos, Rotation.None, true, random, 0, store);
+                                placed++;
+                            } catch (Exception e) {
+                                LOGGER.atWarning().withCause(e).log("Failed to place prefab %d: %s", index, entry.path());
+                            }
+                        }
+
+                        int next = index + 1;
+                        if (next % 50 == 0) {
+                            context.sendMessage(Message.raw("Progress: " + placed + "/" + entries.size()));
+                        }
+
+                        final int placedFinal = placed;
+                        deferTicks(world, SETTLE_TICKS, () ->
+                                placeNext(world, entries, next, placedFinal, store, context, random));
+                    });
+                });
+    }
+
+    private void deferTicks(World world, int ticks, Runnable action) {
+        if (ticks <= 0) {
+            world.execute(action);
+        } else {
+            world.execute(() -> deferTicks(world, ticks - 1, action));
+        }
     }
 }
