@@ -1,0 +1,64 @@
+{
+  "variants": [
+    {
+      "id": "enemity_conf_escalation",
+      "dialogueChunks": {
+        "intro": "Things have gotten worse. While you were investigating {quest_focus}, an incident near {location_hint} has pushed both sides closer to violence.",
+        "plotStep": "{quest_ally} reports that armed groups from {location_hint} were spotted near our borders. Whether it's posturing or preparation, {quest_threat} is escalating. The {enemy_type} are exploiting the distraction to raid both settlements.",
+        "outro": "Deal with the {enemy_type} raids first. If both settlements see you fighting their common enemy, it might cool tempers long enough to find a real solution for {quest_stakes}."
+      },
+      "objectivePool": [
+        "KILL_MOBS",
+        "TALK_TO_NPC"
+      ],
+      "objectiveConfig": {
+        "KILL_MOBS": {
+          "countMin": 4,
+          "countMax": 9
+        }
+      }
+    },
+    {
+      "id": "enemity_conf_proof_needed",
+      "dialogueChunks": {
+        "intro": "Both sides claim innocence, and both sides blame the other. The truth about {quest_focus} is out there, but it won't come from accusations alone.",
+        "plotStep": "{target_npc} insists they had nothing to do with it, and they seem genuine. {quest_ally} suggests looking for evidence near {location_hint}: if a third party is responsible for {quest_threat}, there will be traces the {enemy_type} left behind.",
+        "outro": "Search the area around {location_hint} for anything that proves who's really at fault. {quest_stakes} hang on what you find."
+      },
+      "objectivePool": [
+        "EXPLORE_LOCATION",
+        "GATHER_ITEMS",
+        "TALK_TO_NPC"
+      ],
+      "objectiveConfig": {
+        "GATHER_ITEMS": {
+          "countMin": 4,
+          "countMax": 10
+        }
+      }
+    },
+    {
+      "id": "enemity_conf_divided_loyalties",
+      "dialogueChunks": {
+        "intro": "The dispute over {quest_focus} has split opinions within our own settlement. Some side with {target_npc}, saying we were in the wrong all along.",
+        "plotStep": "{quest_ally} is trying to hold things together, but the internal division is giving {quest_threat} room to grow. Meanwhile, the {enemy_type} raided our stores near {location_hint} while everyone was arguing.",
+        "outro": "We need something to unite both factions. Recover what the {enemy_type} stole and bring it back. A common cause might be the only thing that saves {quest_stakes}."
+      },
+      "objectivePool": [
+        "KILL_MOBS",
+        "GATHER_ITEMS",
+        "FETCH_ITEM"
+      ],
+      "objectiveConfig": {
+        "KILL_MOBS": {
+          "countMin": 3,
+          "countMax": 7
+        },
+        "GATHER_ITEMS": {
+          "countMin": 4,
+          "countMax": 12
+        }
+      }
+    }
+  ]
+}

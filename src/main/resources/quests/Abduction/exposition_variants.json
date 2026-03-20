@@ -1,0 +1,65 @@
+{
+  "variants": [
+    {
+      "id": "abduction_expo_01",
+      "dialogueChunks": {
+        "intro": "Something terrible happened, {player_name}. People are gone: taken while the settlement slept. The guards found signs of a struggle and tracks leading {location_hint}.",
+        "plotStep": "We counted the missing at dawn. The {quest_stakes} {quest_stakes_is} in the hands of the {quest_threat}. The {enemy_type} left drag marks and broken doors, but they moved fast. Whoever organized this knew exactly where to strike.",
+        "outro": "I need someone brave enough to follow those tracks {quest_time_pressure}. The captors have a head start, but they are moving slow with prisoners. Will you help us?"
+      },
+      "objectivePool": [
+        "EXPLORE_LOCATION",
+        "KILL_MOBS",
+        "GATHER_ITEMS"
+      ],
+      "objectiveConfig": {
+        "KILL_MOBS": {
+          "countMin": 3,
+          "countMax": 7
+        },
+        "GATHER_ITEMS": {
+          "countMin": 3,
+          "countMax": 10
+        }
+      }
+    },
+    {
+      "id": "abduction_expo_02",
+      "dialogueChunks": {
+        "intro": "{target_npc} received a message two days ago: an urgent summons to meet someone {location_hint}. They left at once. They never arrived.",
+        "plotStep": "The message was a forgery. {quest_ally} confirmed it matches none of our couriers. Someone lured {target_npc} out deliberately, and the {enemy_type} were spotted in that direction days before.",
+        "outro": "We fear the worst, but there is still hope. {target_npc} may still be alive. Will you search for them, {player_name}?"
+      },
+      "objectivePool": [
+        "EXPLORE_LOCATION",
+        "TALK_TO_NPC",
+        "KILL_MOBS"
+      ],
+      "objectiveConfig": {
+        "KILL_MOBS": {
+          "countMin": 2,
+          "countMax": 5
+        }
+      }
+    },
+    {
+      "id": "abduction_expo_03",
+      "dialogueChunks": {
+        "intro": "A ransom note was pinned to the gate this morning. The {enemy_type} have taken the {quest_focus} and are demanding {quest_item} in exchange. The deadline is soon.",
+        "plotStep": "We cannot pay what they ask: we barely have enough to survive the season. But if we refuse, they have promised to make an example. {quest_ally} thinks their camp is somewhere {location_hint}.",
+        "outro": "We need someone to either negotiate or strike {quest_time_pressure}. {player_name}, can we count on you?"
+      },
+      "objectivePool": [
+        "KILL_MOBS",
+        "EXPLORE_LOCATION",
+        "FETCH_ITEM"
+      ],
+      "objectiveConfig": {
+        "KILL_MOBS": {
+          "countMin": 4,
+          "countMax": 8
+        }
+      }
+    }
+  ]
+}

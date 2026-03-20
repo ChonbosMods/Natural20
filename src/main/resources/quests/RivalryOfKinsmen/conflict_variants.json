@@ -1,0 +1,64 @@
+{
+  "variants": [
+    {
+      "id": "rivalry_conf_sabotage",
+      "dialogueChunks": {
+        "intro": "The rivalry over the {quest_focus} has turned ugly. Someone tampered with supplies meant for {quest_ally}, and suspicion falls on {target_npc}'s supporters.",
+        "plotStep": "Whether it's actual sabotage or just paranoia, the damage is done. Both sides are accusing the other while the {quest_threat} {quest_threat_is} eroding the settlement's cohesion. The {enemy_type} near {location_hint} are taking advantage of the chaos.",
+        "outro": "Get out to {location_hint} and deal with the real problems while these fools tear each other apart. Bring back {quest_item} to replenish what was lost."
+      },
+      "objectivePool": [
+        "GATHER_ITEMS",
+        "KILL_MOBS"
+      ],
+      "objectiveConfig": {
+        "GATHER_ITEMS": {
+          "countMin": 5,
+          "countMax": 14
+        },
+        "KILL_MOBS": {
+          "countMin": 3,
+          "countMax": 7
+        }
+      }
+    },
+    {
+      "id": "rivalry_conf_public_humiliation",
+      "dialogueChunks": {
+        "intro": "The competition around the {quest_focus} became public. {quest_ally} openly mocked {target_npc}'s abilities in front of the settlement, and now {target_npc} is refusing to contribute to any communal work.",
+        "plotStep": "With {target_npc} on strike, the settlement's defenses {location_hint} are understaffed. The {quest_threat} {quest_threat_has} left gaps that the {enemy_type} will exploit. We need someone to cover those gaps and deliver a message to {target_npc}.",
+        "outro": "Shore up our weak points and try to talk {target_npc} back to reason. The {quest_stakes} can't afford this standoff."
+      },
+      "objectivePool": [
+        "TALK_TO_NPC",
+        "KILL_MOBS",
+        "EXPLORE_LOCATION"
+      ],
+      "objectiveConfig": {
+        "KILL_MOBS": {
+          "countMin": 3,
+          "countMax": 6
+        }
+      }
+    },
+    {
+      "id": "rivalry_conf_dangerous_bet",
+      "dialogueChunks": {
+        "intro": "Both rivals have upped the stakes on the {quest_focus}. {quest_ally} ventured deep toward {location_hint} alone to prove a point and hasn't returned on time.",
+        "plotStep": "{target_npc} is torn between concern and satisfaction. The area near {location_hint} is crawling with {enemy_type}, and the {quest_threat} may have finally produced real consequences. Someone needs to check the route and make sure {quest_ally} is safe.",
+        "outro": "Track {quest_ally}'s path, clear any hostiles, and make sure this stupid rivalry doesn't cost us someone we can't replace."
+      },
+      "objectivePool": [
+        "EXPLORE_LOCATION",
+        "KILL_MOBS",
+        "TALK_TO_NPC"
+      ],
+      "objectiveConfig": {
+        "KILL_MOBS": {
+          "countMin": 4,
+          "countMax": 9
+        }
+      }
+    }
+  ]
+}

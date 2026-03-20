@@ -1,0 +1,22 @@
+{
+  "references": [
+    {
+      "id": "ref_disaster_supply_route",
+      "compatibleSituations": ["Disaster", "Supplication"],
+      "passiveText": "We used to have a supply agreement with a settlement to the east, but the disaster severed the road.",
+      "triggerTopicLabel": "The supply agreement",
+      "triggerDialogue": "{target_npc} ran a regular trade caravan between {location} and the eastern settlements. Good arrangement: we sent grain, they sent medicine and tools. The disaster destroyed the bridge and scattered {enemy_type} across the only alternative route. If someone could reopen that connection, both settlements would benefit enormously.",
+      "catalystSituations": ["Disaster", "DaringEnterprise"],
+      "targetNpcRoles": ["Villager", "ArtisanCook"]
+    },
+    {
+      "id": "ref_disaster_warning_signs",
+      "compatibleSituations": ["Disaster", "TheEnigma"],
+      "passiveText": "Some of the elders say they noticed warning signs before the disaster, but nobody listened.",
+      "triggerTopicLabel": "The warning signs",
+      "triggerDialogue": "{target_npc} swears the animals behaved strangely for days before it happened: birds flying in circles, livestock refusing to graze near the river. The old records mention similar patterns before the last great disaster, two generations ago. If those signs could be properly understood, {location} might never be caught off guard again.",
+      "catalystSituations": ["Disaster", "TheEnigma"],
+      "targetNpcRoles": ["ArtisanAlchemist", "Villager"]
+    }
+  ]
+}

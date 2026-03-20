@@ -1,0 +1,34 @@
+{
+  "variants": [
+    {
+      "id": "reso_sacrifice_kindred_01",
+      "dialogueChunks": {
+        "intro": "The supplies rolled in. The people who needed them came running before they could be unloaded.",
+        "plotStep": "The lead volunteer made it. Wounded but grinning. {target_npc} patched them up while they insisted on distributing the supplies first. {quest_ally} says there's enough to last if we're careful.",
+        "outro": "Those volunteers walked into near-certain death for the {quest_stakes}. And everyone safe tonight is proof they were right. Thank you, {player_name}."
+      },
+      "objectivePool": [],
+      "objectiveConfig": {}
+    },
+    {
+      "id": "reso_sacrifice_kindred_02",
+      "dialogueChunks": {
+        "intro": "The {quest_focus} held through the worst of it. The volunteer climbed out shivering so hard they couldn't stand. They just pointed toward the families and asked if they were still safe.",
+        "plotStep": "They are. Every single one. {target_npc} carried the volunteer to the nearest hearth. The families they saved brought food, dry clothes, and quiet gratitude.",
+        "outro": "Someone stood in danger all night because they couldn't bear to see their neighbors lose everything. And because you brought what they needed, {player_name}, they lived to see it through."
+      },
+      "objectivePool": [],
+      "objectiveConfig": {}
+    },
+    {
+      "id": "reso_sacrifice_kindred_03",
+      "dialogueChunks": {
+        "intro": "Everyone made it. Every last one. The column arrived ragged, exhausted, and alive. The one who stayed behind... didn't make it.",
+        "plotStep": "They held for nearly a full day before the {enemy_type} realized it was one person. {quest_ally} says they went down fighting. {target_npc} is building a marker at the new settlement's entrance.",
+        "outro": "They gave their people a future by giving up their own. And you made sure that future had a clear road, {player_name}. Their family is safe. That's what they wanted."
+      },
+      "objectivePool": [],
+      "objectiveConfig": {}
+    }
+  ]
+}

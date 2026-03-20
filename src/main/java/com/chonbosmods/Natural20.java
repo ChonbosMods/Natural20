@@ -9,10 +9,12 @@ import com.chonbosmods.dialogue.DialogueLoader;
 import com.chonbosmods.dialogue.DialogueManager;
 import com.chonbosmods.loot.Nat20EquipmentListener;
 import com.chonbosmods.loot.Nat20LootSystem;
+import com.chonbosmods.quest.QuestSystem;
 import com.chonbosmods.npc.BuilderActionNat20StartDialogue;
 import com.chonbosmods.npc.Nat20NpcManager;
 import com.chonbosmods.settlement.SettlementNpcDeathSystem;
 import com.chonbosmods.settlement.SettlementPlacer;
+import com.chonbosmods.settlement.SettlementRecord;
 import com.chonbosmods.settlement.SettlementRegistry;
 import com.chonbosmods.settlement.SettlementThreatSystem;
 import com.chonbosmods.settlement.SettlementWorldGenListener;
@@ -42,6 +44,7 @@ public class Natural20 extends JavaPlugin {
     private final DialogueLoader dialogueLoader = new DialogueLoader();
     private final DialogueManager dialogueManager = new DialogueManager(dialogueLoader, actionRegistry);
     private final Nat20LootSystem lootSystem = new Nat20LootSystem();
+    private QuestSystem questSystem;
     private final Nat20EquipmentListener equipmentListener = new Nat20EquipmentListener(lootSystem);
     private SettlementRegistry settlementRegistry;
     private Config<Nat20GlobalData> globalConfig;
@@ -80,8 +83,23 @@ public class Natural20 extends JavaPlugin {
         return lootSystem;
     }
 
+    public QuestSystem getQuestSystem() {
+        return questSystem;
+    }
+
     public SettlementRegistry getSettlementRegistry() {
         return settlementRegistry;
+    }
+
+    /**
+     * Called when a new settlement is created during world generation.
+     * Generates procedural topic dialogue graphs for the settlement's NPCs.
+     */
+    public void onSettlementCreated(SettlementRecord settlement) {
+        if (questSystem != null) {
+            var topicGraphs = questSystem.getTopicGenerator().generate(settlement);
+            dialogueLoader.registerGeneratedGraphs(topicGraphs);
+        }
     }
 
     public static ComponentType<EntityStore, Nat20NpcData> getNpcDataType() {
@@ -169,6 +187,17 @@ public class Natural20 extends JavaPlugin {
 
         // Rehydrate persisted unique items and inject I18n entries
         lootSystem.getItemRegistry().rehydrateAll();
+
+        // Initialize quest system
+        questSystem = new QuestSystem(settlementRegistry);
+        questSystem.loadTemplates(getDataDirectory().resolve("quests"));
+
+        // Generate procedural topics for all existing settlements
+        for (SettlementRecord settlement : settlementRegistry.getAll().values()) {
+            var topicGraphs = questSystem.getTopicGenerator().generate(settlement);
+            dialogueLoader.registerGeneratedGraphs(topicGraphs);
+        }
+        getLogger().atInfo().log("Generated procedural topics for %d settlement(s)", settlementRegistry.getAll().size());
 
         getLogger().atInfo().log("Natural 20 v" + getManifest().getVersion() + " started!");
     }

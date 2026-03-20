@@ -1,0 +1,60 @@
+{
+  "variants": [
+    {
+      "id": "pursuit_expo_01",
+      "dialogueChunks": {
+        "intro": "{player_name}, the {quest_threat} struck this morning and made off with the {quest_focus}. The trail is still fresh but it will not last.",
+        "plotStep": "I need someone who can {quest_action} before the trail goes cold. {quest_ally} spotted tracks heading {location_hint}. If you find {quest_item} along the way, grab them: they were part of what was taken.",
+        "outro": "The {quest_stakes} {quest_stakes_is} at risk if word spreads that we cannot protect our own."
+      },
+      "objectivePool": [
+        "EXPLORE_LOCATION",
+        "GATHER_ITEMS",
+        "FETCH_ITEM"
+      ],
+      "objectiveConfig": {
+        "GATHER_ITEMS": {
+          "countMin": 4,
+          "countMax": 10
+        }
+      }
+    },
+    {
+      "id": "pursuit_expo_02",
+      "dialogueChunks": {
+        "intro": "{player_name}, the {quest_threat} attacked the {quest_stakes} at first light and fled before anyone could respond. The {quest_focus} left signs heading into the wilds.",
+        "plotStep": "We need to {quest_action} and deal with this before it circles back. The {enemy_type} was last seen {location_hint}. Take some {quest_item} in case you need to draw it out.",
+        "outro": "This must be done {quest_time_pressure}. The longer we wait, the more dangerous it becomes."
+      },
+      "objectivePool": [
+        "KILL_MOBS",
+        "EXPLORE_LOCATION"
+      ],
+      "objectiveConfig": {
+        "KILL_MOBS": {
+          "countMin": 2,
+          "countMax": 5
+        }
+      }
+    },
+    {
+      "id": "pursuit_expo_03",
+      "dialogueChunks": {
+        "intro": "Since {quest_origin}, the {quest_threat} {quest_threat_has} not been seen. {player_name}, the {quest_focus} {quest_focus_was} left wide open and something got through.",
+        "plotStep": "I need you to {quest_action}. Tracks lead {location_hint}. {quest_ally} thinks there may be a reason behind this, but we need answers. Bring back any {quest_item} you find along the way.",
+        "outro": "The {quest_stakes} {quest_stakes_has} a gap until we sort this out. Every hour matters."
+      },
+      "objectivePool": [
+        "EXPLORE_LOCATION",
+        "FETCH_ITEM",
+        "TALK_TO_NPC"
+      ],
+      "objectiveConfig": {
+        "FETCH_ITEM": {
+          "countMin": 1,
+          "countMax": 1
+        }
+      }
+    }
+  ]
+}

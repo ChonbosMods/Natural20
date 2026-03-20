@@ -1,0 +1,406 @@
+{
+  "templates": [
+    {
+      "id": "rumor_danger",
+      "label": "{subject_focus}",
+      "perspectives": [
+        {
+          "intro": "Keep your wits about you: I've heard tell of {subject_focus} stirring up trouble. {rumor_detail}",
+          "exploratories": [
+            {
+              "prompt": "What kind of trouble?",
+              "response": "The dangerous kind. {perspective_detail} Folk have been avoiding the roads after dark because of it."
+            },
+            {
+              "prompt": "Where did you hear this?",
+              "response": "{rumor_source} brought the news not three days past. Looked shaken, too."
+            }
+          ],
+          "decisive": {
+            "prompt": "I'll look into it.",
+            "response": "Brave of you. Just don't go wandering out there without a blade at your side."
+          }
+        },
+        {
+          "intro": "You'd best watch yourself. Word is {subject_focus} has become a real threat. {rumor_detail}",
+          "exploratories": [
+            {
+              "prompt": "A threat to whom?",
+              "response": "To anyone fool enough to wander close. {perspective_detail} The militia's been talking about it, but nobody's volunteered yet."
+            }
+          ],
+          "decisive": {
+            "prompt": "Someone ought to deal with it.",
+            "response": "Aye, someone should. If you're that someone, you'll have my thanks and then some."
+          }
+        }
+      ],
+      "questHookPerspectives": [
+        {
+          "intro": "{quest_exposition} The danger from {subject_focus} grows with each passing day. {quest_detail}",
+          "exploratories": [
+            {
+              "prompt": "What's at stake?",
+              "response": "{quest_stakes_detail}"
+            }
+          ],
+          "decisive": {
+            "prompt": "I'll handle it.",
+            "response": "{quest_accept_response}"
+          }
+        }
+      ]
+    },
+    {
+      "id": "rumor_sighting",
+      "label": "{subject_focus}",
+      "perspectives": [
+        {
+          "intro": "Strange sighting the other night: someone spotted {subject_focus} near the settlement. {rumor_detail}",
+          "exploratories": [
+            {
+              "prompt": "Who saw it?",
+              "response": "{rumor_source} was the one who noticed. Said it was plain as day, even in the dim light."
+            },
+            {
+              "prompt": "Is it still out there?",
+              "response": "Could be. {perspective_detail} Nobody's gone to check, and I'm not about to volunteer."
+            }
+          ]
+        },
+        {
+          "intro": "Have you seen {subject_focus} about? Others have. {rumor_detail}",
+          "exploratories": [
+            {
+              "prompt": "When was this?",
+              "response": "Just a few nights ago, from what I hear. {perspective_detail} Could be nothing, but it has folk on edge."
+            }
+          ],
+          "decisive": {
+            "prompt": "I'll go take a look.",
+            "response": "Your courage, not mine. Stay sharp out there."
+          }
+        },
+        {
+          "intro": "Did you know {subject_focus} was spotted not far from here? {rumor_detail}",
+          "exploratories": [
+            {
+              "prompt": "That's unusual.",
+              "response": "Very much so. {perspective_detail} Never used to see them this close to the walls."
+            }
+          ]
+        }
+      ],
+      "questHookPerspectives": [
+        {
+          "intro": "{quest_exposition} {subject_focus} was sighted in an area that should have been safe. {quest_detail}",
+          "exploratories": [
+            {
+              "prompt": "Why does this matter?",
+              "response": "{quest_stakes_detail}"
+            }
+          ],
+          "decisive": {
+            "prompt": "I'll investigate.",
+            "response": "{quest_accept_response}"
+          }
+        }
+      ]
+    },
+    {
+      "id": "rumor_disappearance",
+      "label": "{subject_focus}",
+      "perspectives": [
+        {
+          "intro": "People have been going missing, and some think {subject_focus} is behind it. {rumor_detail}",
+          "exploratories": [
+            {
+              "prompt": "Who went missing?",
+              "response": "A woodcutter and a forager, last I heard. {perspective_detail} Their families are beside themselves."
+            },
+            {
+              "prompt": "What makes folk think it's connected?",
+              "response": "{rumor_source} noticed tracks leading toward where {subject_focus} was last seen. Doesn't sit well."
+            }
+          ],
+          "decisive": {
+            "prompt": "This needs investigating.",
+            "response": "I'd be grateful if someone did. Those missing people have families waiting for them."
+          }
+        },
+        {
+          "intro": "Something's not right. Folk keep vanishing, and {subject_focus} is the common thread. {rumor_detail}",
+          "exploratories": [
+            {
+              "prompt": "How many have disappeared?",
+              "response": "Three, maybe four, over the past fortnight. {perspective_detail} The elders are starting to worry."
+            }
+          ]
+        }
+      ],
+      "questHookPerspectives": [
+        {
+          "intro": "{quest_exposition} The disappearances linked to {subject_focus} can't be ignored any longer. {quest_detail}",
+          "exploratories": [
+            {
+              "prompt": "What happens if nothing is done?",
+              "response": "{quest_stakes_detail}"
+            }
+          ],
+          "decisive": {
+            "prompt": "I'll find them.",
+            "response": "{quest_accept_response}"
+          }
+        }
+      ]
+    },
+    {
+      "id": "rumor_treasure",
+      "label": "{subject_focus}",
+      "perspectives": [
+        {
+          "intro": "Now, I don't put much stock in treasure tales, but this one about {subject_focus} has legs. {rumor_detail}",
+          "exploratories": [
+            {
+              "prompt": "What sort of treasure?",
+              "response": "Old relics, from what I gather. {perspective_detail} The kind of things you read about in dusty books."
+            },
+            {
+              "prompt": "Has anyone gone looking?",
+              "response": "A few bold souls tried. {rumor_source} said they came back empty-handed, but they didn't look everywhere."
+            }
+          ],
+          "decisive": {
+            "prompt": "Might be worth a look.",
+            "response": "If you've got the nerve for it, aye. Just remember: where there's treasure, there's usually something guarding it."
+          }
+        },
+        {
+          "intro": "There's talk of something valuable connected to {subject_focus}. {rumor_detail}",
+          "exploratories": [
+            {
+              "prompt": "Valuable how?",
+              "response": "{perspective_detail} The kind of find that could change someone's fortunes, if the stories are true."
+            }
+          ]
+        }
+      ],
+      "questHookPerspectives": [
+        {
+          "intro": "{quest_exposition} There's something of real value tied to {subject_focus}, and it won't stay hidden forever. {quest_detail}",
+          "exploratories": [
+            {
+              "prompt": "What's the catch?",
+              "response": "{quest_stakes_detail}"
+            }
+          ],
+          "decisive": {
+            "prompt": "I'll go after it.",
+            "response": "{quest_accept_response}"
+          }
+        }
+      ]
+    },
+    {
+      "id": "rumor_conflict",
+      "label": "{subject_focus}",
+      "perspectives": [
+        {
+          "intro": "There's bad blood brewing over {subject_focus}. {rumor_detail}",
+          "exploratories": [
+            {
+              "prompt": "Between whom?",
+              "response": "Hard to say exactly. {perspective_detail} But tempers are running high, and someone's going to get hurt if it carries on."
+            },
+            {
+              "prompt": "How did this start?",
+              "response": "From what {rumor_source} told me, it's been simmering for a while now. Old grudges and new provocations."
+            }
+          ],
+          "decisive": {
+            "prompt": "Maybe I can help sort this out.",
+            "response": "If anyone could talk sense into them, I'd welcome it. Just be careful not to get caught in the middle."
+          }
+        },
+        {
+          "intro": "Tensions over {subject_focus} are getting worse by the day. {rumor_detail}",
+          "exploratories": [
+            {
+              "prompt": "Is it going to turn violent?",
+              "response": "Could well do. {perspective_detail} People are choosing sides already."
+            }
+          ]
+        }
+      ],
+      "questHookPerspectives": [
+        {
+          "intro": "{quest_exposition} The conflict surrounding {subject_focus} threatens to spill over into something much worse. {quest_detail}",
+          "exploratories": [
+            {
+              "prompt": "What's the worst that could happen?",
+              "response": "{quest_stakes_detail}"
+            }
+          ],
+          "decisive": {
+            "prompt": "I'll step in.",
+            "response": "{quest_accept_response}"
+          }
+        }
+      ]
+    },
+    {
+      "id": "rumor_corruption",
+      "label": "{subject_focus}",
+      "perspectives": [
+        {
+          "intro": "Something foul is happening with {subject_focus}. I can feel it in the air. {rumor_detail}",
+          "exploratories": [
+            {
+              "prompt": "What do you mean, foul?",
+              "response": "Unnatural. {perspective_detail} The land itself seems wrong where {subject_focus} holds sway."
+            },
+            {
+              "prompt": "Has anyone reported this?",
+              "response": "{rumor_source} mentioned it to the council, but they dismissed it as superstition. I'm not so sure."
+            }
+          ],
+          "decisive": {
+            "prompt": "Superstition or not, I'll check it out.",
+            "response": "Be wary. Whatever's out there, it's unlike anything we've dealt with before."
+          }
+        },
+        {
+          "intro": "Mark my words: {subject_focus} is tainted by something dark. {rumor_detail}",
+          "exploratories": [
+            {
+              "prompt": "Dark how?",
+              "response": "{perspective_detail} The animals won't go near the place anymore. That should tell you something."
+            }
+          ]
+        }
+      ],
+      "questHookPerspectives": [
+        {
+          "intro": "{quest_exposition} The corruption spreading from {subject_focus} will poison everything it touches if left unchecked. {quest_detail}",
+          "exploratories": [
+            {
+              "prompt": "How far has it spread?",
+              "response": "{quest_stakes_detail}"
+            }
+          ],
+          "decisive": {
+            "prompt": "I'll put a stop to it.",
+            "response": "{quest_accept_response}"
+          }
+        }
+      ]
+    },
+    {
+      "id": "rumor_migration",
+      "label": "{subject_focus}",
+      "perspectives": [
+        {
+          "intro": "Something's driven {subject_focus} from their usual territory. {rumor_detail}",
+          "exploratories": [
+            {
+              "prompt": "Driven by what?",
+              "response": "That's the question, isn't it? {perspective_detail} Whatever chased them out must be fearsome indeed."
+            },
+            {
+              "prompt": "Where are they heading?",
+              "response": "Toward us, if {rumor_source} is to be believed. They were seen on the eastern trails not long ago."
+            }
+          ],
+          "decisive": {
+            "prompt": "We should find out what's pushing them this way.",
+            "response": "Agreed. The cause worries me more than the symptom, truth be told."
+          }
+        },
+        {
+          "intro": "{subject_focus} is on the move, and nobody knows why. {rumor_detail}",
+          "exploratories": [
+            {
+              "prompt": "Is this normal?",
+              "response": "Not in the slightest. {perspective_detail} In all my years, I've never seen anything like it."
+            }
+          ]
+        }
+      ],
+      "questHookPerspectives": [
+        {
+          "intro": "{quest_exposition} The migration of {subject_focus} is a symptom of something far more troubling. {quest_detail}",
+          "exploratories": [
+            {
+              "prompt": "What do you think is behind it?",
+              "response": "{quest_stakes_detail}"
+            }
+          ],
+          "decisive": {
+            "prompt": "I'll track it to the source.",
+            "response": "{quest_accept_response}"
+          }
+        }
+      ]
+    },
+    {
+      "id": "rumor_omen",
+      "label": "{subject_focus}",
+      "perspectives": [
+        {
+          "intro": "The old folk say {subject_focus} is an omen: a sign of things to come. {rumor_detail}",
+          "exploratories": [
+            {
+              "prompt": "An omen of what?",
+              "response": "Change. Upheaval. {perspective_detail} The last time folk spoke of such things, the harvest failed for two seasons."
+            },
+            {
+              "prompt": "Do you believe in omens?",
+              "response": "I believe in what I see with my own eyes. And what {rumor_source} described was enough to make me uneasy."
+            }
+          ],
+          "decisive": {
+            "prompt": "Omens can be averted.",
+            "response": "Maybe so. If you're willing to try, you'll have the gratitude of everyone here."
+          }
+        },
+        {
+          "intro": "There's been talk of {subject_focus} and what it portends. {rumor_detail}",
+          "exploratories": [
+            {
+              "prompt": "Portends?",
+              "response": "{perspective_detail} I don't put much stock in prophecy, but I can't deny the pattern."
+            }
+          ],
+          "decisive": {
+            "prompt": "Patterns can be broken.",
+            "response": "Here's hoping you're right. The settlement could use someone who thinks like that."
+          }
+        },
+        {
+          "intro": "Have you noticed anything strange about {subject_focus}? The elders certainly have. {rumor_detail}",
+          "exploratories": [
+            {
+              "prompt": "What have the elders said?",
+              "response": "They speak in hushed tones about old warnings. {perspective_detail} Normally I'd laugh it off, but their faces told a different story."
+            }
+          ]
+        }
+      ],
+      "questHookPerspectives": [
+        {
+          "intro": "{quest_exposition} The signs surrounding {subject_focus} point to something that must be confronted before it's too late. {quest_detail}",
+          "exploratories": [
+            {
+              "prompt": "What are we facing?",
+              "response": "{quest_stakes_detail}"
+            }
+          ],
+          "decisive": {
+            "prompt": "Tell me what needs doing.",
+            "response": "{quest_accept_response}"
+          }
+        }
+      ]
+    }
+  ]
+}

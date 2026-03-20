@@ -1,0 +1,13 @@
+{
+  "references": [
+    {
+      "id": "ref_crimes_love_overprotector",
+      "compatibleSituations": ["InvoluntaryCrimesOfLove", "EnemityOfKinsmen"],
+      "passiveText": "I know someone else who tried too hard to protect the people they loved. It didn't end well for them either.",
+      "triggerTopicLabel": "The other overprotector",
+      "triggerDialogue": "{target_npc} built a wall around their family's homestead so high that the wind couldn't reach their crops. The harvest withered in still air while the family suffocated in safety. They lost everything trying to keep everything safe. Last I heard, they were living {location_hint}, helping other families learn to balance protection with freedom. Might be worth talking to them if you're struggling with the same lesson I am.",
+      "catalystSituations": ["InvoluntaryCrimesOfLove", "Supplication"],
+      "targetNpcRoles": ["Villager", "ArtisanCook"]
+    }
+  ]
+}

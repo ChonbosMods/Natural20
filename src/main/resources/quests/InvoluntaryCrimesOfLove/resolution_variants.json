@@ -1,0 +1,34 @@
+{
+  "variants": [
+    {
+      "id": "involuntary_reso_forgiveness",
+      "dialogueChunks": {
+        "intro": "The harm from the {quest_focus} has been repaired, and those who suffered have chosen to forgive. It's a fragile peace, but a genuine one.",
+        "plotStep": "{target_npc} has made amends as best they can. {quest_ally} facilitated reconciliation, and the {quest_stakes} {quest_stakes_is} recovering thanks to your intervention. The community understands now that the {quest_threat} came from love twisted by fear, not malice.",
+        "outro": "Forgiveness takes courage on all sides. You made it possible by fixing what was broken while emotions ran high. Thank you, {player_name}."
+      },
+      "objectivePool": [],
+      "objectiveConfig": {}
+    },
+    {
+      "id": "involuntary_reso_painful_truth",
+      "dialogueChunks": {
+        "intro": "The damage from the {quest_focus} is mended, but the person responsible carries a weight that may never lift. Some mistakes can't be fully undone.",
+        "plotStep": "{target_npc} withdrew from community life. {quest_ally} says they need time. The {quest_stakes} survived because you stepped in, but the scars from the {quest_threat} are a reminder that love without wisdom can be as destructive as hate.",
+        "outro": "You did the right thing in an impossible situation, {player_name}. Not every resolution feels like a victory, but this one saved lives."
+      },
+      "objectivePool": [],
+      "objectiveConfig": {}
+    },
+    {
+      "id": "involuntary_reso_redemption",
+      "dialogueChunks": {
+        "intro": "{target_npc} turned their guilt into action. After you resolved the {quest_focus}, they dedicated themselves to repairing every consequence of the {quest_threat}, working harder than anyone.",
+        "plotStep": "The community has seen the change. {quest_ally} says {target_npc} is not the same person who caused the harm: they've grown from it. The {quest_stakes} {quest_stakes_is} restored, and the settlement is more compassionate for having weathered this crisis together.",
+        "outro": "Your example inspired their redemption. By solving the problem without judgment, you showed that people can be more than their worst mistake. Well done, {player_name}."
+      },
+      "objectivePool": [],
+      "objectiveConfig": {}
+    }
+  ]
+}

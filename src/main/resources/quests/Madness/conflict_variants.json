@@ -1,0 +1,69 @@
+{
+  "variants": [
+    {
+      "id": "madness_conf_spreading_fast",
+      "dialogueChunks": {
+        "intro": "The {quest_threat} {quest_threat_is} spreading faster than anticipated. More people are showing symptoms, and the area around {location_hint} is getting worse.",
+        "plotStep": "{quest_ally} says the {quest_focus} {quest_focus_has} affected a dozen more since you started investigating. The {enemy_type} near {location_hint} are also behaving strangely: aggressive and uncoordinated, as if driven by the same force.",
+        "outro": "We need {quest_item} from the affected zone and every hostile cleared from the path. The {quest_stakes} worsen with every hour that passes."
+      },
+      "objectivePool": [
+        "KILL_MOBS",
+        "GATHER_ITEMS",
+        "EXPLORE_LOCATION"
+      ],
+      "objectiveConfig": {
+        "KILL_MOBS": {
+          "countMin": 4,
+          "countMax": 10
+        },
+        "GATHER_ITEMS": {
+          "countMin": 5,
+          "countMax": 15
+        }
+      }
+    },
+    {
+      "id": "madness_conf_afflicted_hostile",
+      "dialogueChunks": {
+        "intro": "The afflicted have become dangerous. The {quest_focus} drove them to violence, and they've attacked anyone who approaches the contaminated area near {location_hint}.",
+        "plotStep": "{target_npc} says they're not in control of themselves: the {quest_threat} {quest_threat_has} them in its grip. The {enemy_type} seem drawn to the same location, creating a chaotic mix of hostile forces. {quest_ally} insists we can still save the {quest_stakes} if we act now.",
+        "outro": "Push through the hostiles, gather what we need, and don't harm the afflicted unless you have no choice. They're victims, not enemies."
+      },
+      "objectivePool": [
+        "KILL_MOBS",
+        "FETCH_ITEM",
+        "EXPLORE_LOCATION"
+      ],
+      "objectiveConfig": {
+        "KILL_MOBS": {
+          "countMin": 3,
+          "countMax": 8
+        }
+      }
+    },
+    {
+      "id": "madness_conf_source_found",
+      "dialogueChunks": {
+        "intro": "You've traced the {quest_threat} to its origin near {location_hint}. The source is worse than anyone expected: a site pulsing with corrupt energy that warps everything around it.",
+        "plotStep": "The {enemy_type} near the source have been twisted by prolonged exposure. {quest_ally} says neutralizing the {quest_focus} requires specific materials gathered from the surrounding area. {target_npc} is preparing a countermeasure, but needs what only you can retrieve.",
+        "outro": "Gather the materials and clear the corrupted {enemy_type} from around the source. The {quest_stakes} hang on what you do next."
+      },
+      "objectivePool": [
+        "GATHER_ITEMS",
+        "KILL_MOBS",
+        "EXPLORE_LOCATION"
+      ],
+      "objectiveConfig": {
+        "GATHER_ITEMS": {
+          "countMin": 6,
+          "countMax": 18
+        },
+        "KILL_MOBS": {
+          "countMin": 4,
+          "countMax": 9
+        }
+      }
+    }
+  ]
+}

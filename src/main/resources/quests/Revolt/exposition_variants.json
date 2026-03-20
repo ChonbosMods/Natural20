@@ -1,0 +1,65 @@
+{
+  "variants": [
+    {
+      "id": "revolt_expo_01",
+      "dialogueChunks": {
+        "intro": "{player_name}, for too long the {quest_threat} {quest_threat_has} ground the {quest_stakes} into the dirt. {quest_origin} has pushed people past their breaking point.",
+        "plotStep": "We intend to {quest_action} and challenge the authority at the {quest_focus}. But we need supplies first. Gather {quest_item} from {location_hint} so we can prepare. The {enemy_type} serving the oppressors patrol the roads.",
+        "outro": "This is not recklessness: it is survival. Without change, there is nothing left for us here."
+      },
+      "objectivePool": [
+        "GATHER_ITEMS",
+        "TALK_TO_NPC",
+        "EXPLORE_LOCATION"
+      ],
+      "objectiveConfig": {
+        "GATHER_ITEMS": {
+          "countMin": 5,
+          "countMax": 12
+        }
+      }
+    },
+    {
+      "id": "revolt_expo_02",
+      "dialogueChunks": {
+        "intro": "{player_name}, the {quest_threat} {quest_threat_has} held the {quest_stakes} under their boot for too long. They rule through fear and force, but they have a weakness.",
+        "plotStep": "We need to {quest_action} {quest_time_pressure}. Their strength depends on the {quest_focus}, and without it, their grip loosens. The {enemy_type} guard the area {location_hint}. Bring back any {quest_item} you can seize.",
+        "outro": "If we cut their supply line, the people will find the courage to stand up. This is how it starts."
+      },
+      "objectivePool": [
+        "KILL_MOBS",
+        "GATHER_ITEMS",
+        "EXPLORE_LOCATION"
+      ],
+      "objectiveConfig": {
+        "KILL_MOBS": {
+          "countMin": 4,
+          "countMax": 8
+        },
+        "GATHER_ITEMS": {
+          "countMin": 3,
+          "countMax": 8
+        }
+      }
+    },
+    {
+      "id": "revolt_expo_03",
+      "dialogueChunks": {
+        "intro": "Keep your voice down, {player_name}. Since {quest_origin} began draining us dry, the {quest_stakes} {quest_stakes_has} been organizing in secret. The {quest_threat} {quest_threat_is} everywhere.",
+        "plotStep": "We need someone the patrols do not recognize to {quest_action} at the {quest_focus}. It is {location_hint}. Pick up {quest_item} on the way: the resistance needs them.",
+        "outro": "If the {quest_threat} intercepts this, people will die. But if it succeeds, everything changes. You would earn {quest_reward_hint}."
+      },
+      "objectivePool": [
+        "DELIVER_ITEM",
+        "GATHER_ITEMS",
+        "EXPLORE_LOCATION"
+      ],
+      "objectiveConfig": {
+        "GATHER_ITEMS": {
+          "countMin": 4,
+          "countMax": 10
+        }
+      }
+    }
+  ]
+}

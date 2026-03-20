@@ -1,0 +1,34 @@
+{
+  "variants": [
+    {
+      "id": "disaster_reso_01",
+      "dialogueChunks": {
+        "intro": "We made it, {player_name}. The {quest_threat} {quest_threat_has} passed, and thanks to your help, the {quest_stakes} survived.",
+        "plotStep": "The {quest_focus} {quest_focus_is} battered but standing. {quest_ally} has organized the rebuilding effort, and spirits are higher than they have been in days.",
+        "outro": "You stood with us through the worst of it. This settlement would not exist without you."
+      },
+      "objectivePool": [],
+      "objectiveConfig": {}
+    },
+    {
+      "id": "disaster_reso_02",
+      "dialogueChunks": {
+        "intro": "{player_name}, the worst is behind us. Your work to {quest_action} saved more than we dared hope.",
+        "plotStep": "The {quest_stakes} {quest_stakes_is} intact. Not whole, not perfect, but intact. The {quest_threat} could have wiped us from the map, and you stood in its way.",
+        "outro": "We will rebuild. Stronger, smarter, and never forgetting who helped us survive."
+      },
+      "objectivePool": [],
+      "objectiveConfig": {}
+    },
+    {
+      "id": "disaster_reso_03",
+      "dialogueChunks": {
+        "intro": "The storm has passed, {player_name}. Literally and figuratively. The {quest_threat} {quest_threat_is} over, and the {quest_stakes} endure.",
+        "plotStep": "The {quest_focus} bears the scars, but the people are alive and determined. {quest_ally} said it best: the disaster tested us, and you were the reason we passed that test.",
+        "outro": "From rubble, we rise. Thank you for helping us find our footing."
+      },
+      "objectivePool": [],
+      "objectiveConfig": {}
+    }
+  ]
+}

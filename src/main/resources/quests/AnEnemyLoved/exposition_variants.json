@@ -1,0 +1,73 @@
+{
+  "variants": [
+    {
+      "id": "expo_enemy_loved_01",
+      "dialogueChunks": {
+        "intro": "{player_name}, I need someone I can trust to keep quiet. What I'm about to show you would get me run out of town.",
+        "plotStep": "After the last raid, I found one of the {enemy_type} wounded and left behind by its own kind. I should have finished it off. Instead, I bandaged it. It looked at me, really looked at me, and I couldn't do it. Now it's healing, and I need {quest_item} from {location_hint} to treat the infection. {target_npc} would never understand.",
+        "outro": "I know what they are and what they've done to us. But the {quest_stakes} {quest_stakes_is} at the heart of this. {quest_origin} changed everything I thought I knew. {quest_reward_hint} might come of showing mercy."
+      },
+      "objectivePool": [
+        "FETCH_ITEM",
+        "GATHER_ITEMS"
+      ],
+      "objectiveConfig": {
+        "FETCH_ITEM": {
+          "locationPreference": "WILDERNESS"
+        },
+        "GATHER_ITEMS": {
+          "countMin": 3,
+          "countMax": 6
+        }
+      }
+    },
+    {
+      "id": "expo_enemy_loved_02",
+      "dialogueChunks": {
+        "intro": "What I'm about to tell you will sound insane, {player_name}. But hear me out before you decide I've lost my mind.",
+        "plotStep": "The {enemy_type} we've been fighting for months aren't our biggest problem anymore. The {quest_threat} {quest_threat_has} moved into the area, and it's hunting them as brutally as it hunts us. One of their scouts approached {target_npc} unarmed and left behind {quest_item} as what I can only describe as a peace offering. {target_npc} thinks they want to fight the {quest_threat} together.",
+        "outro": "If it's real, we could survive something neither side can face alone. If it's a trap, we lose everything. The {quest_focus} demands someone investigate. {quest_reward_hint} could follow."
+      },
+      "objectivePool": [
+        "EXPLORE_LOCATION",
+        "TALK_TO_NPC",
+        "KILL_MOBS"
+      ],
+      "objectiveConfig": {
+        "EXPLORE_LOCATION": {
+          "countMin": 2,
+          "countMax": 3
+        },
+        "TALK_TO_NPC": {
+          "countMin": 1,
+          "countMax": 1
+        },
+        "KILL_MOBS": {
+          "countMin": 2,
+          "countMax": 5
+        }
+      }
+    },
+    {
+      "id": "expo_enemy_loved_03",
+      "dialogueChunks": {
+        "intro": "{player_name}, I found something after the last battle that changed everything I thought I knew about the {enemy_type}.",
+        "plotStep": "When our guards drove the {enemy_type} back, they left behind a young one. Not a warrior, not a threat: just a small, frightened creature hiding in the wreckage. I've been feeding it and keeping it hidden, but {target_npc} is getting suspicious. The little one needs {quest_item} that I can't get without raising questions. There's a supply {location_hint}, but the roads are crawling with {enemy_type} looking for their lost kin.",
+        "outro": "I can't hand it over to be killed, and I can't keep hiding it forever. The {quest_stakes} depends on what we do next. {quest_origin} started all of this."
+      },
+      "objectivePool": [
+        "FETCH_ITEM",
+        "EXPLORE_LOCATION"
+      ],
+      "objectiveConfig": {
+        "FETCH_ITEM": {
+          "locationPreference": "WILDERNESS"
+        },
+        "EXPLORE_LOCATION": {
+          "countMin": 1,
+          "countMax": 3
+        }
+      }
+    }
+  ]
+}

@@ -1,0 +1,22 @@
+{
+  "references": [
+    {
+      "id": "ref_obstacles_love_forbidden_garden",
+      "compatibleSituations": ["ObstaclesToLove", "CrimesOfLove"],
+      "passiveText": "There's a garden on the border between two feuding properties. Somehow, both families tend it without ever meeting.",
+      "triggerTopicLabel": "The border garden",
+      "triggerDialogue": "One family plants in the morning, the other waters in the evening. Neither acknowledges the other's work, but the garden thrives. {target_npc} says it started when a child from one family dropped seeds on the property line and a child from the other watered them out of curiosity. Years later, it's the most beautiful patch of green in {location}. Proof that even in the middle of a feud, growing things is easier than growing grudges.",
+      "catalystSituations": ["ObstaclesToLove", "NecessityOfSacrificingLovedOnes"],
+      "targetNpcRoles": ["Villager", "Traveler"]
+    },
+    {
+      "id": "ref_obstacles_love_wanderers_welcome",
+      "compatibleSituations": ["ObstaclesToLove", "SelfSacrificeForKindred"],
+      "passiveText": "In some settlements, travelers are welcomed with open arms. In others, they're watched until they leave. The difference is always one person's influence.",
+      "triggerTopicLabel": "The welcoming influence",
+      "triggerDialogue": "{target_npc} runs a small inn near {location} and makes a point of treating every stranger like a returning friend. Warm food, a clean bed, and conversation without judgment. They say the settlement changed after they opened: fewer suspicions, more curiosity about the outside world. One person's hospitality shifted an entire community's attitude. It doesn't always work that way, but when it does, it's something to see.",
+      "catalystSituations": ["ObstaclesToLove", "Supplication"],
+      "targetNpcRoles": ["TavernKeeper", "Traveler"]
+    }
+  ]
+}

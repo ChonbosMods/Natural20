@@ -1,0 +1,61 @@
+{
+  "variants": [
+    {
+      "id": "expo_sacrifice_kindred_01",
+      "dialogueChunks": {
+        "intro": "Our people are desperate, {player_name}. And the ones stepping up to help them are willing to pay with their lives.",
+        "plotStep": "Since {quest_origin}, the {quest_threat} {quest_threat_has} pushed us to the edge. Volunteers have offered to {quest_action} knowing the odds are against them. The road passes through {enemy_type} territory. Those volunteers aren't fighters: they're family who decided protecting the {quest_stakes} matters more than their own safety. {quest_item} {location_hint} could help even the odds.",
+        "outro": "They leave at dawn. The {quest_threat} will be waiting somewhere along the way. Help me make sure their courage isn't wasted."
+      },
+      "objectivePool": [
+        "KILL_MOBS",
+        "EXPLORE_LOCATION",
+        "DELIVER_ITEM"
+      ],
+      "objectiveConfig": {
+        "KILL_MOBS": {
+          "countMin": 4,
+          "countMax": 8
+        }
+      }
+    },
+    {
+      "id": "expo_sacrifice_kindred_02",
+      "dialogueChunks": {
+        "intro": "The {quest_focus} won't hold much longer, {player_name}, and everything downstream: homes, farms, families, is in the path.",
+        "plotStep": "Someone volunteered to go into danger and shore up the {quest_focus} with their own hands. They know that if it fails while they're there, they're gone. Their family begged them not to go. They said: 'Those are our neighbors down the hill.' They can't do it alone. We need someone to {quest_action} while they do the dangerous work.",
+        "outro": "Saving the {quest_stakes} depends on whether the effort holds. {quest_item} {location_hint} could make the difference."
+      },
+      "objectivePool": [
+        "GATHER_ITEMS",
+        "EXPLORE_LOCATION",
+        "DELIVER_ITEM"
+      ],
+      "objectiveConfig": {
+        "GATHER_ITEMS": {
+          "countMin": 6,
+          "countMax": 15
+        }
+      }
+    },
+    {
+      "id": "expo_sacrifice_kindred_03",
+      "dialogueChunks": {
+        "intro": "People are on the road right now, walking with everything they own on their backs. Behind them, the {enemy_type} are burning what's left.",
+        "plotStep": "Someone stayed behind to buy time. They're pretending to be a garrison all by themselves. The {quest_focus} {quest_focus_has} maybe half a day's lead, and the road ahead isn't clear. We need someone to {quest_action} so the {quest_stakes} can reach safety. {quest_time_pressure}.",
+        "outro": "That person is giving everything they have left so their people can walk a little further. {quest_reward_hint} might come of reaching safety."
+      },
+      "objectivePool": [
+        "KILL_MOBS",
+        "EXPLORE_LOCATION",
+        "TALK_TO_NPC"
+      ],
+      "objectiveConfig": {
+        "KILL_MOBS": {
+          "countMin": 3,
+          "countMax": 7
+        }
+      }
+    }
+  ]
+}

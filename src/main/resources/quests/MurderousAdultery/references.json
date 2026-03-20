@@ -1,0 +1,22 @@
+{
+  "references": [
+    {
+      "id": "ref_adultery_informant",
+      "compatibleSituations": ["MurderousAdultery", "EnemityOfKinsmen"],
+      "passiveText": "There's someone in the tavern who seems to know more about the conspiracy than they're letting on.",
+      "triggerTopicLabel": "The tavern informant",
+      "triggerDialogue": "{target_npc} has been asking pointed questions about the poisonings: not worried questions, but specific ones. What compounds were used, how much, how long the effects lasted. They claim to be writing a chronicle, but nobody in {location} has ever seen them write a word. I think they either know who's behind this or they're connected to whoever is. Approach carefully: if they're an informant, pushing too hard will make them disappear.",
+      "catalystSituations": ["MurderousAdultery", "FatalImprudence"],
+      "targetNpcRoles": ["TavernKeeper", "Villager"]
+    },
+    {
+      "id": "ref_adultery_past_crime",
+      "compatibleSituations": ["MurderousAdultery"],
+      "passiveText": "This isn't the first time someone has tried to destabilize {location}. There was an incident years ago that was hushed up.",
+      "triggerTopicLabel": "The hushed-up incident",
+      "triggerDialogue": "About five years ago, a trade envoy from a rival settlement was caught tampering with {location}'s grain stores. The council at the time decided to handle it quietly: expelled the envoy, sealed the records, moved on. {target_npc} was on the council then and always thought that was a mistake. If the current conspiracy is connected to the same outside interests, those sealed records {location_hint} might contain names and methods that could help us now.",
+      "catalystSituations": ["MurderousAdultery", "EnemityOfKinsmen"],
+      "targetNpcRoles": ["Guard", "Villager"]
+    }
+  ]
+}

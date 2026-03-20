@@ -1,0 +1,22 @@
+{
+  "references": [
+    {
+      "id": "ref_madness_old_healer",
+      "compatibleSituations": ["Madness", "FatalImprudence"],
+      "passiveText": "An old healer once told me about a similar madness that struck a settlement decades ago.",
+      "triggerTopicLabel": "The old healer's story",
+      "triggerDialogue": "{target_npc} treated survivors of a mass delirium event thirty years ago in a mining village {location_hint}. They said the miners broke into a sealed cavern and breathed something ancient. Most recovered after the cavern was sealed again, but a few never came back fully. {target_npc} might still have notes on the treatment they used. They live alone now, but they'd talk to someone who came bearing {quest_item} as a professional courtesy.",
+      "catalystSituations": ["Madness", "Supplication"],
+      "targetNpcRoles": ["ArtisanAlchemist", "Villager"]
+    },
+    {
+      "id": "ref_madness_strange_ore",
+      "compatibleSituations": ["Madness", "Obtaining"],
+      "passiveText": "The {quest_item} from those caves has unusual properties that certain collectors would pay dearly for.",
+      "triggerTopicLabel": "Collectors of unusual substances",
+      "triggerDialogue": "I shouldn't be saying this, but there are scholars {location_hint} who study exactly the kind of mind-affecting compounds you've been dealing with. {target_npc} among them. They're not malicious: they're researchers trying to understand ancient alchemical techniques. If you brought them a sample, they'd pay well and might provide insights that our local alchemist couldn't match. Just be careful who you trust with something that powerful.",
+      "catalystSituations": ["Madness", "DaringEnterprise"],
+      "targetNpcRoles": ["ArtisanAlchemist", "TavernKeeper"]
+    }
+  ]
+}

@@ -1,0 +1,61 @@
+{
+  "variants": [
+    {
+      "id": "treachery_conf_trail_of_lies",
+      "dialogueChunks": {
+        "intro": "The investigation into the {quest_focus} has uncovered layers of deception. Every lead points to another misdirection planted near {location_hint}.",
+        "plotStep": "Whoever is behind the {quest_threat} has been thorough. They've left false evidence implicating {target_npc}, who may be innocent. {quest_ally} says the real conspirator knows the {enemy_type} movements too well: they've been coordinating for months.",
+        "outro": "Cut through the misdirection. Search the area near {location_hint} for the evidence they couldn't fake. The {quest_stakes} won't survive much more of this uncertainty."
+      },
+      "objectivePool": [
+        "EXPLORE_LOCATION",
+        "GATHER_ITEMS",
+        "TALK_TO_NPC"
+      ],
+      "objectiveConfig": {
+        "GATHER_ITEMS": {
+          "countMin": 4,
+          "countMax": 10
+        }
+      }
+    },
+    {
+      "id": "treachery_conf_retaliation",
+      "dialogueChunks": {
+        "intro": "Your investigation is making someone nervous. The {enemy_type} launched a targeted strike near {location_hint}: aimed directly at the evidence you were tracking for the {quest_focus}.",
+        "plotStep": "The {quest_threat} {quest_threat_is} reacting to your progress. The conspirator warned their allies, and the {enemy_type} moved to destroy the proof. {quest_ally} says there may still be evidence at a secondary site near {location_hint}, but time is short.",
+        "outro": "Get there before they can destroy everything. Fight through whatever they've left guarding the site and recover what remains."
+      },
+      "objectivePool": [
+        "KILL_MOBS",
+        "EXPLORE_LOCATION",
+        "FETCH_ITEM"
+      ],
+      "objectiveConfig": {
+        "KILL_MOBS": {
+          "countMin": 4,
+          "countMax": 9
+        }
+      }
+    },
+    {
+      "id": "treachery_conf_trusted_suspect",
+      "dialogueChunks": {
+        "intro": "The evidence from the {quest_focus} points to someone no one wants to believe. A person deeply trusted by the settlement stands accused, and the proof is damning.",
+        "plotStep": "{target_npc} insists on their innocence, but {quest_ally} found correspondence near {location_hint} that connects them to the {quest_threat}. We need final proof: something that confirms guilt or clears their name beyond doubt. The {enemy_type} are watching our confusion closely.",
+        "outro": "Find the decisive evidence near {location_hint}. Whether it condemns or exonerates, the {quest_stakes} cannot wait any longer for closure."
+      },
+      "objectivePool": [
+        "EXPLORE_LOCATION",
+        "TALK_TO_NPC",
+        "GATHER_ITEMS"
+      ],
+      "objectiveConfig": {
+        "GATHER_ITEMS": {
+          "countMin": 3,
+          "countMax": 8
+        }
+      }
+    }
+  ]
+}

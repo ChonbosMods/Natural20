@@ -1,0 +1,34 @@
+{
+  "variants": [
+    {
+      "id": "reso_all_sacrificed_01",
+      "dialogueChunks": {
+        "intro": "They finished it, {player_name}. The {quest_focus} {quest_focus_is} complete. And it's the most remarkable thing anyone here has ever seen.",
+        "plotStep": "The strange thing is what happened after. They set it down, stared at it for a long time, and then walked away. Went straight to find the people they'd pushed away. {target_npc} says they talked for hours. Whether those relationships survive, nobody knows yet. But for the first time in years, the workshop is dark.",
+        "outro": "You gave them the means to finish. Whether that was mercy or enabling, time will tell. {quest_ally} says the result is worth a fortune. They haven't tried to sell it."
+      },
+      "objectivePool": [],
+      "objectiveConfig": {}
+    },
+    {
+      "id": "reso_all_sacrificed_02",
+      "dialogueChunks": {
+        "intro": "They succeeded. The {quest_focus} works. It does exactly what they said it would. And they have absolutely no idea what to do next.",
+        "plotStep": "They sat in the wreckage and said: 'Now what?' Years of work, every relationship sacrificed, their health ruined, and the result is real. {target_npc} asked if it was worth it. They said: 'Ask me in ten years, when I know whether anyone I loved is still willing to speak to me.'",
+        "outro": "The discovery will change lives, {player_name}. Just not theirs. Not yet. {quest_ally} is helping share the findings."
+      },
+      "objectivePool": [],
+      "objectiveConfig": {}
+    },
+    {
+      "id": "reso_all_sacrificed_03",
+      "dialogueChunks": {
+        "intro": "The final piece fit. The {quest_focus} {quest_focus_is} complete. And they sat on the floor and wept for twenty minutes.",
+        "plotStep": "Not from joy. From looking around the empty room and realizing what surrounded them: achievements and dust instead of family. Their family came back when they heard. This time, they held the people close. {target_npc} says they haven't touched the {quest_focus} since.",
+        "outro": "Finding the last piece broke the spell, {player_name}. They can see what they lost now. That's either the beginning of recovery or the beginning of grief. Maybe they're the same thing."
+      },
+      "objectivePool": [],
+      "objectiveConfig": {}
+    }
+  ]
+}

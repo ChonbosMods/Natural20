@@ -1,0 +1,73 @@
+{
+  "variants": [
+    {
+      "id": "disaster_expo_01",
+      "dialogueChunks": {
+        "intro": "{player_name}, {quest_origin} sent the {quest_threat} crashing through the {quest_focus}. Half our homes are ruined and the {quest_stakes} {quest_stakes_has} nowhere to go.",
+        "plotStep": "We need someone to {quest_action} before it is too late. {quest_item} have been scattered {location_hint} and we desperately need them. The {enemy_type} have been drawn to the chaos.",
+        "outro": "People are cold, scared, and hungry. Every bit you recover could save a life."
+      },
+      "objectivePool": [
+        "GATHER_ITEMS",
+        "EXPLORE_LOCATION",
+        "KILL_MOBS"
+      ],
+      "objectiveConfig": {
+        "GATHER_ITEMS": {
+          "countMin": 6,
+          "countMax": 15
+        },
+        "KILL_MOBS": {
+          "countMin": 3,
+          "countMax": 6
+        }
+      }
+    },
+    {
+      "id": "disaster_expo_02",
+      "dialogueChunks": {
+        "intro": "{player_name}, the {quest_threat} {quest_threat_is} sweeping toward the {quest_stakes} and nothing we have done has slowed it. The {quest_focus} {quest_focus_is} overwhelmed and we are losing ground fast.",
+        "plotStep": "We need to {quest_action} {quest_time_pressure}. Gather {quest_item} from {location_hint} to help shore up our defenses. Watch for {enemy_type}: the disaster is driving them out and they are panicked.",
+        "outro": "If this reaches the settlement, we lose everything. Every moment counts."
+      },
+      "objectivePool": [
+        "GATHER_ITEMS",
+        "KILL_MOBS",
+        "EXPLORE_LOCATION"
+      ],
+      "objectiveConfig": {
+        "GATHER_ITEMS": {
+          "countMin": 5,
+          "countMax": 12
+        },
+        "KILL_MOBS": {
+          "countMin": 2,
+          "countMax": 5
+        }
+      }
+    },
+    {
+      "id": "disaster_expo_03",
+      "dialogueChunks": {
+        "intro": "Since {quest_origin}, {player_name}, the {quest_threat} keeps coming. The {quest_focus} {quest_focus_is} failing, and the {quest_stakes} could be lost any day.",
+        "plotStep": "We need to {quest_action} before the next wave finishes what the first one started. Bring {quest_item} from {location_hint}. The {enemy_type} have been scavenging the wreckage, so watch your back.",
+        "outro": "Everything has turned against us. But we will not abandon our home without a fight."
+      },
+      "objectivePool": [
+        "GATHER_ITEMS",
+        "FETCH_ITEM",
+        "KILL_MOBS"
+      ],
+      "objectiveConfig": {
+        "GATHER_ITEMS": {
+          "countMin": 8,
+          "countMax": 20
+        },
+        "KILL_MOBS": {
+          "countMin": 2,
+          "countMax": 5
+        }
+      }
+    }
+  ]
+}

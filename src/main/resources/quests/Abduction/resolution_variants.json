@@ -1,0 +1,34 @@
+{
+  "variants": [
+    {
+      "id": "abduction_reso_rescue",
+      "dialogueChunks": {
+        "intro": "You've done it. The {quest_focus} {quest_focus_has} been found, shaken but alive. The {quest_threat} is broken, at least for now.",
+        "plotStep": "The settlement is overjoyed. {quest_ally} has been tending to the rescued and says they'll recover in time. What you did out there took real courage, {player_name}.",
+        "outro": "You've earned more than gratitude. This settlement will remember what you did when the {quest_stakes} hung in the balance."
+      },
+      "objectivePool": [],
+      "objectiveConfig": {}
+    },
+    {
+      "id": "abduction_reso_too_late",
+      "dialogueChunks": {
+        "intro": "You found the place, but the {quest_focus} was already moved on. The camp was abandoned in haste. Still, you've shattered the {quest_threat}'s hold on this region.",
+        "plotStep": "It's not the ending we wanted, but the {enemy_type} lost fighters, supplies, and their element of surprise. {quest_ally} says the intelligence you recovered will help prevent this from happening again.",
+        "outro": "Sometimes a partial victory is all we get. You did everything you could for the {quest_stakes}, and that matters."
+      },
+      "objectivePool": [],
+      "objectiveConfig": {}
+    },
+    {
+      "id": "abduction_reso_turned_tables",
+      "dialogueChunks": {
+        "intro": "Not only did you free the {quest_focus}, you turned the captors' own camp against them. The {enemy_type} scattered when they realized they'd lost everything.",
+        "plotStep": "{target_npc} can hardly believe the report. The supplies you seized from the {quest_threat} will sustain us for weeks. The prisoners you freed are spreading word of what you did.",
+        "outro": "You didn't just solve a problem: you sent a message. The {quest_stakes} {quest_stakes_is} secure, and the {enemy_type} will think twice before crossing this settlement again."
+      },
+      "objectivePool": [],
+      "objectiveConfig": {}
+    }
+  ]
+}

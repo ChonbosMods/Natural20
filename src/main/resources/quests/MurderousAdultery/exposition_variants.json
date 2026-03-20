@@ -1,0 +1,56 @@
+{
+  "variants": [
+    {
+      "id": "treachery_expo_01",
+      "dialogueChunks": {
+        "intro": "Our patrols have been ambushed repeatedly, {player_name}. The {enemy_type} knew exactly where our people would be and when. Someone is feeding them information.",
+        "plotStep": "{quest_ally} reviewed the plans and confirmed they were shared only with trusted members. The leak has to come from within. The {quest_focus} was found in the wreckage near {location_hint}, written in our own cipher.",
+        "outro": "We have a traitor among us. I need someone outside the usual chain of trust to investigate before the {quest_threat} gets more of our people killed."
+      },
+      "objectivePool": [
+        "TALK_TO_NPC",
+        "EXPLORE_LOCATION",
+        "GATHER_ITEMS"
+      ],
+      "objectiveConfig": {
+        "GATHER_ITEMS": {
+          "countMin": 3,
+          "countMax": 8
+        }
+      }
+    },
+    {
+      "id": "treachery_expo_02",
+      "dialogueChunks": {
+        "intro": "Someone has been issuing orders in our leader's name, {player_name}: orders that divert supplies, reassign guards, and leave key positions unmanned. The forgeries are skillful.",
+        "plotStep": "{quest_ally} intercepted the {quest_focus} before it could be carried out and recognized the deception. The orders would have left the gate near {location_hint} unguarded while the {enemy_type} are at their most aggressive. This is not carelessness: it is deliberate sabotage.",
+        "outro": "Whoever is behind the {quest_threat} has connections and patience. Will you help us trace the source {quest_time_pressure}?"
+      },
+      "objectivePool": [
+        "EXPLORE_LOCATION",
+        "TALK_TO_NPC",
+        "FETCH_ITEM"
+      ],
+      "objectiveConfig": {}
+    },
+    {
+      "id": "treachery_expo_03",
+      "dialogueChunks": {
+        "intro": "{quest_ally} saw something unsettling last night, {player_name}: one of our own meeting with {enemy_type} scouts outside the walls. Not fighting. Talking.",
+        "plotStep": "It happened near {location_hint}, well away from the usual patrol routes. The {quest_focus} suggests this was not the first meeting either. Someone in our settlement has been negotiating with the {quest_threat} behind everyone's backs.",
+        "outro": "We need proof before we can act. Investigate the meeting site and find out what terms were being discussed. The {quest_stakes} may depend on it."
+      },
+      "objectivePool": [
+        "EXPLORE_LOCATION",
+        "GATHER_ITEMS",
+        "TALK_TO_NPC"
+      ],
+      "objectiveConfig": {
+        "GATHER_ITEMS": {
+          "countMin": 3,
+          "countMax": 10
+        }
+      }
+    }
+  ]
+}

@@ -1,0 +1,84 @@
+{
+  "variants": [
+    {
+      "id": "expo_recovery_lost_01",
+      "dialogueChunks": {
+        "intro": "{player_name}, my loved one left weeks ago and never arrived at their destination. Nobody's seen them since.",
+        "plotStep": "The last anyone heard, they were camped {location_hint} when trouble hit. I found the campsite a week later: torn apart, supplies scattered, but no body. {target_npc} thinks the {enemy_type} might have taken them. I need someone who can follow {quest_item} they left along their route: markers they always leave when traveling.",
+        "outro": "They're out there somewhere. I can feel it. I just need someone brave enough to {quest_action}. {quest_origin} started all of this. {quest_reward_hint} would be my undying gratitude."
+      },
+      "objectivePool": [
+        "EXPLORE_LOCATION",
+        "GATHER_ITEMS",
+        "KILL_MOBS"
+      ],
+      "objectiveConfig": {
+        "EXPLORE_LOCATION": {
+          "countMin": 2,
+          "countMax": 3
+        },
+        "GATHER_ITEMS": {
+          "countMin": 3,
+          "countMax": 6
+        },
+        "KILL_MOBS": {
+          "countMin": 2,
+          "countMax": 5
+        }
+      }
+    },
+    {
+      "id": "expo_recovery_lost_02",
+      "dialogueChunks": {
+        "intro": "Please, {player_name}, you have to help me. My child wandered off during the {enemy_type} attack and nobody's seen them since.",
+        "plotStep": "When the {enemy_type} hit, everyone scattered. In the chaos, my child was separated from the group. {target_npc} saw them running toward {location_hint}, but nobody could follow because the {enemy_type} were between us. I need you to find {quest_item} they were carrying: anything that shows which direction they went.",
+        "outro": "They're young and alone in the wild. Every hour counts. The {quest_stakes} {quest_stakes_is} all I can think about. {quest_time_pressure}."
+      },
+      "objectivePool": [
+        "EXPLORE_LOCATION",
+        "TALK_TO_NPC",
+        "KILL_MOBS"
+      ],
+      "objectiveConfig": {
+        "EXPLORE_LOCATION": {
+          "countMin": 2,
+          "countMax": 3
+        },
+        "TALK_TO_NPC": {
+          "countMin": 1,
+          "countMax": 1
+        },
+        "KILL_MOBS": {
+          "countMin": 2,
+          "countMax": 5
+        }
+      }
+    },
+    {
+      "id": "expo_recovery_lost_03",
+      "dialogueChunks": {
+        "intro": "{player_name}, I've been looking for someone for a very long time. And I think I've finally found a lead.",
+        "plotStep": "{target_npc} and I built this place together. Years ago, they left to establish a route through {location_hint} and promised to return. That promise turned into years of silence. Last week, a trader recognized {quest_item} I described: said they saw it in a camp near the edge of {enemy_type} territory.",
+        "outro": "{target_npc} might be alive, might be captive, might be something I haven't considered. Either way, I owe it to them to {quest_action}. For the sake of the {quest_stakes}, I have to try. {quest_origin} bound us together."
+      },
+      "objectivePool": [
+        "EXPLORE_LOCATION",
+        "FETCH_ITEM",
+        "KILL_MOBS"
+      ],
+      "objectiveConfig": {
+        "EXPLORE_LOCATION": {
+          "countMin": 2,
+          "countMax": 3
+        },
+        "FETCH_ITEM": {
+          "locationPreference": "DUNGEON"
+        },
+        "KILL_MOBS": {
+          "countMin": 3,
+          "countMax": 7
+        }
+      }
+    }
+  ]
+}

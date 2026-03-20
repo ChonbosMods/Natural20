@@ -1,9 +1,14 @@
 package com.chonbosmods.action;
 
+import com.chonbosmods.Natural20;
+import com.chonbosmods.quest.QuestSystem;
+import com.chonbosmods.quest.QuestInstance;
 import com.google.common.flogger.FluentLogger;
+import com.hypixel.hytale.server.core.Message;
 
 import java.util.HashMap;
 import java.util.Map;
+import java.util.Set;
 
 public class DialogueActionRegistry {
 
@@ -48,13 +53,56 @@ public class DialogueActionRegistry {
         });
 
         register("GIVE_QUEST", (ctx, params) -> {
-            String questId = params.get("questId");
-            LOGGER.atInfo().log("GIVE_QUEST stub: %s to %s", questId, ctx.player().getPlayerRef().getUuid());
+            QuestSystem questSystem = Natural20.getInstance().getQuestSystem();
+            if (questSystem == null) {
+                LOGGER.atWarning().log("GIVE_QUEST: quest system not initialized");
+                return;
+            }
+            String npcRole = ctx.npcData() != null ? ctx.npcData().getRoleName() : "Villager";
+            String npcId = ctx.npcId();
+            String settlementCellKey = ctx.npcData() != null ? ctx.npcData().getSettlementCellKey() : "";
+
+            double npcX = 0, npcZ = 0;
+            try {
+                var transform = ctx.store().getComponent(ctx.npcRef(),
+                    com.hypixel.hytale.server.core.modules.entity.component.TransformComponent.getComponentType());
+                if (transform != null) {
+                    var pos = transform.getPosition();
+                    npcX = pos.getX();
+                    npcZ = pos.getZ();
+                }
+            } catch (Exception e) {
+                LOGGER.atWarning().log("GIVE_QUEST: could not get NPC position");
+            }
+
+            Set<String> completed = questSystem.getStateManager().getCompletedQuestIds(ctx.playerData());
+            QuestInstance quest = questSystem.getGenerator().generate(
+                npcRole, npcId, settlementCellKey, npcX, npcZ, completed);
+            if (quest != null) {
+                questSystem.getStateManager().addQuest(ctx.playerData(), quest);
+                ctx.player().sendMessage(Message.raw("New quest accepted: " + quest.getSituationId()));
+
+                for (var phase : quest.getPhases()) {
+                    if (phase.getReferenceId() != null) {
+                        questSystem.getReferenceManager().injectReference(
+                            ctx.playerData(), quest.getSituationId(),
+                            phase.getReferenceId(), npcX, npcZ);
+                    }
+                }
+            }
         });
 
         register("COMPLETE_QUEST", (ctx, params) -> {
             String questId = params.get("questId");
-            LOGGER.atInfo().log("COMPLETE_QUEST stub: %s for %s", questId, ctx.player().getPlayerRef().getUuid());
+            QuestSystem questSystem = Natural20.getInstance().getQuestSystem();
+            if (questSystem == null || questId == null) return;
+
+            QuestInstance quest = questSystem.getStateManager().getQuest(ctx.playerData(), questId);
+            if (quest != null && quest.isComplete()) {
+                questSystem.getStateManager().markQuestCompleted(ctx.playerData(), questId);
+                questSystem.getReferenceManager().cleanupQuestReferences(ctx.playerData(), quest);
+                ctx.player().sendMessage(Message.raw("Quest completed: " + quest.getSituationId()));
+            }
         });
 
         register("OPEN_SHOP", (ctx, params) -> {

@@ -1,0 +1,64 @@
+{
+  "variants": [
+    {
+      "id": "daringenterprise_conf_01",
+      "dialogueChunks": {
+        "intro": "{player_name}, the enterprise is not going as planned. Your work to {quest_action} uncovered something we did not expect.",
+        "plotStep": "The {quest_threat} {quest_threat_is} far more dangerous than we anticipated. {quest_ally} barely made it back from the {quest_focus} alive. We need to push through: {quest_item} can be found {location_hint} and may give us the edge we need.",
+        "outro": "We have come too far to turn back now. The {quest_stakes} {quest_stakes_is} within reach."
+      },
+      "objectivePool": [
+        "KILL_MOBS",
+        "GATHER_ITEMS",
+        "EXPLORE_LOCATION"
+      ],
+      "objectiveConfig": {
+        "KILL_MOBS": {
+          "countMin": 4,
+          "countMax": 9
+        },
+        "GATHER_ITEMS": {
+          "countMin": 3,
+          "countMax": 8
+        }
+      }
+    },
+    {
+      "id": "daringenterprise_conf_02",
+      "dialogueChunks": {
+        "intro": "Complications, {player_name}. After you managed to {quest_action}, we triggered something. The {quest_threat} {quest_threat_has} become agitated.",
+        "plotStep": "The {enemy_type} are now actively guarding the area around the {quest_focus}. {quest_ally} thinks we need to deal with them directly before we can proceed. They have been concentrated {location_hint}.",
+        "outro": "We are so close. Clear the way and the {quest_stakes} will be ours."
+      },
+      "objectivePool": [
+        "KILL_MOBS",
+        "EXPLORE_LOCATION"
+      ],
+      "objectiveConfig": {
+        "KILL_MOBS": {
+          "countMin": 5,
+          "countMax": 10
+        }
+      }
+    },
+    {
+      "id": "daringenterprise_conf_03",
+      "dialogueChunks": {
+        "intro": "{player_name}, I will not sugarcoat it. Our attempt to {quest_action} hit a wall. The {quest_threat} destroyed our preparations.",
+        "plotStep": "We need to start over, and quickly. {quest_ally} says there is an alternate approach through an area {location_hint}, but {enemy_type} have been seen there. Someone needs to scout ahead and secure {quest_item} for a second attempt.",
+        "outro": "The {quest_stakes} {quest_stakes_is} slipping further away every day we delay. Are you still with us?"
+      },
+      "objectivePool": [
+        "EXPLORE_LOCATION",
+        "FETCH_ITEM",
+        "KILL_MOBS"
+      ],
+      "objectiveConfig": {
+        "KILL_MOBS": {
+          "countMin": 3,
+          "countMax": 7
+        }
+      }
+    }
+  ]
+}

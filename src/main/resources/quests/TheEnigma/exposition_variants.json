@@ -1,0 +1,61 @@
+{
+  "variants": [
+    {
+      "id": "enigma_expo_01",
+      "dialogueChunks": {
+        "intro": "A traveler passing through brought word of something strange {location_hint}. The {quest_focus}: something that no one can explain, arranged in patterns that do not match any known builders.",
+        "plotStep": "I have asked around and {quest_ally} confirmed similar signs were spotted months ago. Whatever left these behind was deliberate about placement. The {enemy_type} seem drawn to those sites too, which worries me.",
+        "outro": "Someone needs to examine the {quest_focus} up close and bring back anything that might explain its purpose. Are you curious enough to go, {player_name}?"
+      },
+      "objectivePool": [
+        "EXPLORE_LOCATION",
+        "GATHER_ITEMS",
+        "FETCH_ITEM"
+      ],
+      "objectiveConfig": {
+        "GATHER_ITEMS": {
+          "countMin": 3,
+          "countMax": 8
+        }
+      }
+    },
+    {
+      "id": "enigma_expo_02",
+      "dialogueChunks": {
+        "intro": "Something near {location_hint} has been behaving strangely. The {quest_focus} defies explanation: things that should not happen are happening, and it is getting worse.",
+        "plotStep": "{quest_ally} ventured to the edge and returned shaken. They said the area felt wrong in ways they could not describe. Even the {enemy_type} avoid it. The {quest_threat} {quest_threat_is} spreading, and no one understands why.",
+        "outro": "Something unnatural is happening out there, {player_name}. We need someone to get close enough to understand {quest_time_pressure} before it reaches our walls."
+      },
+      "objectivePool": [
+        "EXPLORE_LOCATION",
+        "GATHER_ITEMS",
+        "TALK_TO_NPC"
+      ],
+      "objectiveConfig": {
+        "GATHER_ITEMS": {
+          "countMin": 4,
+          "countMax": 10
+        }
+      }
+    },
+    {
+      "id": "enigma_expo_03",
+      "dialogueChunks": {
+        "intro": "Workers digging near {location_hint} broke through into something they were not expecting: the {quest_focus}, made of materials no one recognizes. They sealed the entrance and came here.",
+        "plotStep": "They swear it was warm to the touch and humming. {target_npc} thinks it could be a vault, a tomb, or something else entirely. The {enemy_type} have been more active in that area since the breach.",
+        "outro": "It needs someone who can handle surprises. The workers will not go back down. Will you, {player_name}? {quest_reward_hint} may well be waiting inside."
+      },
+      "objectivePool": [
+        "EXPLORE_LOCATION",
+        "FETCH_ITEM",
+        "KILL_MOBS"
+      ],
+      "objectiveConfig": {
+        "KILL_MOBS": {
+          "countMin": 3,
+          "countMax": 6
+        }
+      }
+    }
+  ]
+}

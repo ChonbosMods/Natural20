@@ -1,0 +1,78 @@
+{
+  "variants": [
+    {
+      "id": "expo_mistaken_jealousy_01",
+      "dialogueChunks": {
+        "intro": "{player_name}, I need someone with no ties to this mess. Someone who'll look at the evidence instead of the gossip.",
+        "plotStep": "{quest_item} vanished from the storehouse two nights ago. {target_npc} was the last person seen near the building, so naturally everyone has decided they're guilty. But I know {target_npc}, and they wouldn't steal. The real thief left tracks heading {location_hint}, but nobody cares because they've already made up their minds.",
+        "outro": "If I don't find proof of who actually took the goods before the council meets, {target_npc} gets banished. The {quest_stakes} {quest_stakes_is} at stake. The {quest_threat} {quest_threat_is} poisoning everything. {quest_reward_hint} awaits if we set things right."
+      },
+      "objectivePool": [
+        "EXPLORE_LOCATION",
+        "FETCH_ITEM",
+        "TALK_TO_NPC"
+      ],
+      "objectiveConfig": {
+        "EXPLORE_LOCATION": {
+          "countMin": 2,
+          "countMax": 3
+        },
+        "FETCH_ITEM": {
+          "locationPreference": "WILDERNESS"
+        },
+        "TALK_TO_NPC": {
+          "countMin": 1,
+          "countMax": 1
+        }
+      }
+    },
+    {
+      "id": "expo_mistaken_jealousy_02",
+      "dialogueChunks": {
+        "intro": "People are whispering, {player_name}, and the whispers are getting louder. I need help before they turn into shouts.",
+        "plotStep": "{target_npc} has been leaving at odd hours and meeting with travelers nobody recognizes. The settlement thinks it's conspiracy. The truth is quieter: {target_npc} has been bartering for {quest_item} to surprise the community with something beneficial, but the sellers are from a rival settlement and the meetings had to be secret. I need you to find the traders {location_hint} and bring back proof of what was actually being exchanged.",
+        "outro": "One misunderstood kindness is about to destroy a good person's reputation. Saving the {quest_stakes} depends on setting the record straight. The {quest_threat} only grows worse on its own."
+      },
+      "objectivePool": [
+        "TALK_TO_NPC",
+        "EXPLORE_LOCATION"
+      ],
+      "objectiveConfig": {
+        "TALK_TO_NPC": {
+          "countMin": 1,
+          "countMax": 1
+        },
+        "EXPLORE_LOCATION": {
+          "countMin": 1,
+          "countMax": 3
+        }
+      }
+    },
+    {
+      "id": "expo_mistaken_jealousy_03",
+      "dialogueChunks": {
+        "intro": "{player_name}, half this settlement thinks the other half is cheating them, and it's about to boil over.",
+        "plotStep": "The rationing system has people convinced that {target_npc} is giving extra portions to favorites. I've seen the ledgers, and every distribution is fair. But perception beats reality when bellies are growling. The real shortage is because {enemy_type} have been raiding the supply wagons {location_hint}. If I can recover {quest_item} from the raided wagons and show that the missing supplies went to monsters, not neighbors, maybe people will stop blaming each other.",
+        "outro": "The {quest_threat} {quest_threat_has} made everyone suspicious. Proof that nobody is cheating will calm things down. Protecting the {quest_stakes} depends on it. {quest_time_pressure}."
+      },
+      "objectivePool": [
+        "FETCH_ITEM",
+        "KILL_MOBS",
+        "EXPLORE_LOCATION"
+      ],
+      "objectiveConfig": {
+        "FETCH_ITEM": {
+          "locationPreference": "WILDERNESS"
+        },
+        "KILL_MOBS": {
+          "countMin": 3,
+          "countMax": 7
+        },
+        "EXPLORE_LOCATION": {
+          "countMin": 1,
+          "countMax": 2
+        }
+      }
+    }
+  ]
+}

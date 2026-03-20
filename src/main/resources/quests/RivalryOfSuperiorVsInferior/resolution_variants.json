@@ -1,0 +1,34 @@
+{
+  "variants": [
+    {
+      "id": "reso_rivalry_sup_inf_01",
+      "dialogueChunks": {
+        "intro": "The council heard the evidence. The powerful are furious, but they can't deny the numbers.",
+        "plotStep": "{target_npc} brokered a new accord: fair compensation, community funds restored, and a public accounting system so nobody can skim again. Whether the apologies from the powerful were sincere is debatable. Whether it matters is less so.",
+        "outro": "The settlement won't change overnight, {player_name}. Power doesn't redistribute quietly. But the workers have a seat at the table now. {quest_ally} says the first fair payroll goes out next week."
+      },
+      "objectivePool": [],
+      "objectiveConfig": {}
+    },
+    {
+      "id": "reso_rivalry_sup_inf_02",
+      "dialogueChunks": {
+        "intro": "The founding document was clear. The levies were illegal. The guards opened the storehouse doors when they saw the proof.",
+        "plotStep": "The families got everything back. {target_npc} supervised the distribution personally. The one who imposed the false debts hasn't been seen since. {quest_ally} organized a watch to make sure it stays fair.",
+        "outro": "A piece of paper with old words on it broke a tyrant's grip, {player_name}. That's the thing about legitimate authority: it only works as long as nobody reads the fine print. You read it."
+      },
+      "objectivePool": [],
+      "objectiveConfig": {}
+    },
+    {
+      "id": "reso_rivalry_sup_inf_03",
+      "dialogueChunks": {
+        "intro": "The neutral authority ruled unanimously. The {quest_focus} {quest_focus_is} suspended pending a complete overhaul. Those responsible have been stripped of their positions.",
+        "plotStep": "The expelled worker was reinstated with a formal apology. {target_npc} says many others who were failed unfairly are being reassessed. {quest_ally} is drafting new standards with input from every level.",
+        "outro": "The powerful won't forgive you easily, {player_name}. But the workers who can finally earn what they deserve will remember. Sometimes the underdog just needed a fair chance, not a revolution. You gave them one."
+      },
+      "objectivePool": [],
+      "objectiveConfig": {}
+    }
+  ]
+}

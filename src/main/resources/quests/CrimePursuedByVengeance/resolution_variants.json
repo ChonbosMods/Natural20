@@ -1,0 +1,34 @@
+{
+  "variants": [
+    {
+      "id": "crimevengeance_reso_01",
+      "dialogueChunks": {
+        "intro": "Justice is served, {player_name}. The {quest_threat} {quest_threat_has} been dealt with, and the {quest_stakes} can begin to heal.",
+        "plotStep": "What they did to the {quest_focus} can be rebuilt. What matters is that the wrong has been answered. {quest_ally} says the settlement sleeps easier knowing someone held them accountable.",
+        "outro": "You did not let a crime go unanswered. That takes conviction."
+      },
+      "objectivePool": [],
+      "objectiveConfig": {}
+    },
+    {
+      "id": "crimevengeance_reso_02",
+      "dialogueChunks": {
+        "intro": "{player_name}, the nightmare is over. You managed to {quest_action}, and the {quest_threat} will answer for what they did.",
+        "plotStep": "The {quest_focus} still bears the scars, but the people are stronger for having seen justice. The {quest_stakes} {quest_stakes_has} been restored as much as possible.",
+        "outro": "Vengeance can be a poison of its own, but what you brought us was not vengeance: it was justice. Thank you."
+      },
+      "objectivePool": [],
+      "objectiveConfig": {}
+    },
+    {
+      "id": "crimevengeance_reso_03",
+      "dialogueChunks": {
+        "intro": "It is finished, {player_name}. The {quest_threat} can no longer harm the {quest_stakes}. The crime has been answered.",
+        "plotStep": "{quest_ally} has already begun restoring the {quest_focus}. The mood in the settlement has shifted: people feel safer, more confident. Your actions made that possible.",
+        "outro": "You stood up when others looked away. That is the mark of a true ally."
+      },
+      "objectivePool": [],
+      "objectiveConfig": {}
+    }
+  ]
+}

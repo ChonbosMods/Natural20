@@ -1,0 +1,65 @@
+{
+  "variants": [
+    {
+      "id": "crimevengeance_expo_01",
+      "dialogueChunks": {
+        "intro": "{player_name}, look at what they did. The {quest_focus} {quest_focus_was} hit last night. I know exactly who is responsible: the {quest_threat}, born out of {quest_origin}.",
+        "plotStep": "I need you to {quest_action}. {quest_ally} saw someone fleeing {location_hint} just after it happened. Find proof: look for {quest_item} near the scene.",
+        "outro": "They destroyed the {quest_stakes} out of spite. I will see justice done, one way or another."
+      },
+      "objectivePool": [
+        "EXPLORE_LOCATION",
+        "FETCH_ITEM",
+        "GATHER_ITEMS"
+      ],
+      "objectiveConfig": {
+        "GATHER_ITEMS": {
+          "countMin": 3,
+          "countMax": 6
+        }
+      }
+    },
+    {
+      "id": "crimevengeance_expo_02",
+      "dialogueChunks": {
+        "intro": "Someone targeted us deliberately, {player_name}. The {quest_threat} sabotaged the {quest_focus} and now the {quest_stakes} {quest_stakes_is} paying the price.",
+        "plotStep": "I will not let this stand. Someone needs to {quest_action} {quest_time_pressure}. The {enemy_type} near the {quest_focus} may have been involved. Check the area {location_hint} for {quest_item}: that could be evidence.",
+        "outro": "This was no accident. This was a crime, and I want the one responsible to answer for it."
+      },
+      "objectivePool": [
+        "EXPLORE_LOCATION",
+        "GATHER_ITEMS",
+        "TALK_TO_NPC"
+      ],
+      "objectiveConfig": {
+        "GATHER_ITEMS": {
+          "countMin": 4,
+          "countMax": 8
+        }
+      }
+    },
+    {
+      "id": "crimevengeance_expo_03",
+      "dialogueChunks": {
+        "intro": "{player_name}, the {quest_threat} broke into the {quest_focus} and took everything of value. This was not random: it was born out of {quest_origin} and aimed straight at the {quest_stakes}.",
+        "plotStep": "I need you to {quest_action}. The trail leads {location_hint}. {quest_ally} believes they are selling {quest_item} to fund their escape.",
+        "outro": "Bring back what was taken and there will be {quest_reward_hint} for your trouble. But more importantly, bring back our dignity."
+      },
+      "objectivePool": [
+        "FETCH_ITEM",
+        "EXPLORE_LOCATION",
+        "GATHER_ITEMS"
+      ],
+      "objectiveConfig": {
+        "GATHER_ITEMS": {
+          "countMin": 5,
+          "countMax": 10
+        },
+        "FETCH_ITEM": {
+          "countMin": 1,
+          "countMax": 1
+        }
+      }
+    }
+  ]
+}

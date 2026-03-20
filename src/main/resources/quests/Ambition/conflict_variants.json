@@ -1,0 +1,84 @@
+{
+  "variants": [
+    {
+      "id": "conf_ambition_01",
+      "dialogueChunks": {
+        "intro": "Our rivals moved faster than I expected, {player_name}. The game has changed.",
+        "plotStep": "{target_npc} discovered what we're planning and has started rallying opposition. They've been spreading word that our efforts to secure the {quest_focus} are a threat to everyone. The {enemy_type} activity near {location_hint} has cut off our supply lines. I need you to break through and bring back enough {quest_item} to tip the balance before {target_npc} turns everything against us.",
+        "outro": "If we lose momentum now, the {quest_stakes} slips through our fingers and we'll never get another chance."
+      },
+      "objectivePool": [
+        "GATHER_ITEMS",
+        "KILL_MOBS",
+        "EXPLORE_LOCATION"
+      ],
+      "objectiveConfig": {
+        "GATHER_ITEMS": {
+          "countMin": 5,
+          "countMax": 12
+        },
+        "KILL_MOBS": {
+          "countMin": 4,
+          "countMax": 8
+        },
+        "EXPLORE_LOCATION": {
+          "countMin": 1,
+          "countMax": 2
+        }
+      }
+    },
+    {
+      "id": "conf_ambition_02",
+      "dialogueChunks": {
+        "intro": "{player_name}, someone tried to burn my workshop last night. This is getting personal.",
+        "plotStep": "{target_npc} has hired enforcers to intimidate anyone supporting our claim to the {quest_focus}. Three of my allies have already backed down. I need you to find the enforcer camp {location_hint}, scatter them, and recover the {quest_item} they stole. Without those supplies, I can't fulfill promises I've made.",
+        "outro": "This isn't just about the {quest_stakes} anymore. It's about survival. Mine and everyone who bet on me."
+      },
+      "objectivePool": [
+        "KILL_MOBS",
+        "FETCH_ITEM",
+        "EXPLORE_LOCATION"
+      ],
+      "objectiveConfig": {
+        "KILL_MOBS": {
+          "countMin": 4,
+          "countMax": 9
+        },
+        "FETCH_ITEM": {
+          "locationPreference": "WILDERNESS"
+        },
+        "EXPLORE_LOCATION": {
+          "countMin": 1,
+          "countMax": 2
+        }
+      }
+    },
+    {
+      "id": "conf_ambition_03",
+      "dialogueChunks": {
+        "intro": "The situation has become more complicated than I imagined, {player_name}. But complications are just problems in new clothes.",
+        "plotStep": "The {enemy_type} threat has given {target_npc} a platform to call for unity under their leadership. They're using the {quest_threat} as justification to seize emergency authority. I need you to deal with the {enemy_type} stronghold {location_hint} before {target_npc} can organize a response. Clear them out and recover {quest_item} as proof that we can protect the {quest_stakes} better than any speech-maker.",
+        "outro": "Actions speak louder than promises. Let's give people something to believe in."
+      },
+      "objectivePool": [
+        "KILL_MOBS",
+        "EXPLORE_LOCATION",
+        "GATHER_ITEMS"
+      ],
+      "objectiveConfig": {
+        "KILL_MOBS": {
+          "countMin": 5,
+          "countMax": 10
+        },
+        "EXPLORE_LOCATION": {
+          "countMin": 2,
+          "countMax": 3
+        },
+        "GATHER_ITEMS": {
+          "countMin": 3,
+          "countMax": 8
+        }
+      }
+    }
+  ]
+}

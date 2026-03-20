@@ -1,0 +1,79 @@
+{
+  "variants": [
+    {
+      "id": "conf_enemy_loved_01",
+      "dialogueChunks": {
+        "intro": "{player_name}, the situation has become far more dangerous than either of us anticipated.",
+        "plotStep": "Someone discovered what we've been doing with the {quest_focus}. {target_npc} is being pressured to condemn our actions, and a patrol has been organized to hunt down the {quest_focus}. Meanwhile, the {enemy_type} have sent their own search party {location_hint}. I need you to gather {quest_item} to create a distraction and buy us time to {quest_action}.",
+        "outro": "Both sides are closing in. If we don't act now, the {quest_stakes} dies on the altar of someone else's fear."
+      },
+      "objectivePool": [
+        "GATHER_ITEMS",
+        "EXPLORE_LOCATION",
+        "KILL_MOBS"
+      ],
+      "objectiveConfig": {
+        "GATHER_ITEMS": {
+          "countMin": 4,
+          "countMax": 8
+        },
+        "EXPLORE_LOCATION": {
+          "countMin": 1,
+          "countMax": 2
+        },
+        "KILL_MOBS": {
+          "countMin": 3,
+          "countMax": 7
+        }
+      }
+    },
+    {
+      "id": "conf_enemy_loved_02",
+      "dialogueChunks": {
+        "intro": "They came for the {quest_focus} last night, {player_name}. We barely got away.",
+        "plotStep": "The mob wasn't interested in explanations. {target_npc} tried to talk them down but got shouted into silence. We managed to relocate the {quest_focus} to a hiding spot {location_hint}, but we can't stay long. The {enemy_type} raids have intensified. I need {quest_item} to sustain the {quest_focus} while I try to {quest_action}.",
+        "outro": "The {quest_threat} {quest_threat_is} closing in from every direction. We need supplies and we need them fast."
+      },
+      "objectivePool": [
+        "FETCH_ITEM",
+        "GATHER_ITEMS",
+        "KILL_MOBS"
+      ],
+      "objectiveConfig": {
+        "FETCH_ITEM": {
+          "locationPreference": "DUNGEON"
+        },
+        "GATHER_ITEMS": {
+          "countMin": 3,
+          "countMax": 8
+        },
+        "KILL_MOBS": {
+          "countMin": 2,
+          "countMax": 5
+        }
+      }
+    },
+    {
+      "id": "conf_enemy_loved_03",
+      "dialogueChunks": {
+        "intro": "The {enemy_type} sent an emissary, {player_name}. And our people nearly killed it on sight.",
+        "plotStep": "The emissary carried a message: they want the {quest_focus} returned, and they're willing to offer {quest_item} in exchange and stop raiding {location_hint}. But our guards intercepted the messenger. {target_npc} is caught between people who want war and an enemy offering something that looks like peace.",
+        "outro": "We need someone to reach the {enemy_type} camp and confirm the offer is genuine before the {quest_threat} turns this into a massacre. If their offer is real, {quest_action} could end years of bloodshed."
+      },
+      "objectivePool": [
+        "EXPLORE_LOCATION",
+        "TALK_TO_NPC"
+      ],
+      "objectiveConfig": {
+        "EXPLORE_LOCATION": {
+          "countMin": 2,
+          "countMax": 3
+        },
+        "TALK_TO_NPC": {
+          "countMin": 1,
+          "countMax": 1
+        }
+      }
+    }
+  ]
+}

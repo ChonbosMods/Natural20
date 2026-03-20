@@ -55,11 +55,16 @@ public class DialogueManager {
             return;
         }
 
-        // Load dialogue graph for this NPC
-        String npcId = npcData.getRoleName();
-        DialogueGraph graph = dialogueLoader.getGraphForNpc(npcId);
+        // Load dialogue graph: try generated name first (for generated topics), then role name
+        String npcId = npcData.getGeneratedName();
+        DialogueGraph graph = npcId != null ? dialogueLoader.getGraphForNpc(npcId) : null;
         if (graph == null) {
-            player.sendMessage(Message.raw("[Nat20] No dialogue found for role: " + npcId));
+            npcId = npcData.getRoleName();
+            graph = dialogueLoader.getGraphForNpc(npcId);
+        }
+        if (graph == null) {
+            player.sendMessage(Message.raw("[Nat20] No dialogue found for: " +
+                (npcData.getGeneratedName() != null ? npcData.getGeneratedName() : npcData.getRoleName())));
             return;
         }
 

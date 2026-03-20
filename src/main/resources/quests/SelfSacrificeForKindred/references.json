@@ -1,0 +1,22 @@
+{
+  "references": [
+    {
+      "id": "ref_self_sacrifice_kindred_community_bonds",
+      "compatibleSituations": ["SelfSacrificeForKindred", "Supplication"],
+      "passiveText": "There's a family in {location} that took in three orphans after the last crisis. They can barely feed themselves.",
+      "triggerTopicLabel": "The family with the orphans",
+      "triggerDialogue": "{target_npc} has been stretching every meal to feed five mouths on a portion meant for two. Never complains, never asks for help, just quietly goes without so the little ones don't. I've tried to send supplies but the roads have been too dangerous. If you're heading that way, even a small delivery would mean the world to them.",
+      "catalystSituations": ["SelfSacrificeForKindred", "Supplication"],
+      "targetNpcRoles": ["Villager", "ArtisanCook"]
+    },
+    {
+      "id": "ref_self_sacrifice_kindred_old_recipe",
+      "compatibleSituations": ["SelfSacrificeForKindred", "CrimesOfLove"],
+      "passiveText": "Our cook used to make a remedy broth that could bring people back from the brink. The recipe was lost when the old kitchen burned.",
+      "triggerTopicLabel": "The lost remedy recipe",
+      "triggerDialogue": "It wasn't just soup: it was medicine disguised as comfort food. {target_npc} memorized part of the recipe but not all of it. The missing ingredients were rare even before the {enemy_type} moved in. If someone could find those herbs {location_hint}, we could start brewing it again. Might save lives the next time sickness comes knocking.",
+      "catalystSituations": ["SelfSacrificeForKindred", "Supplication"],
+      "targetNpcRoles": ["ArtisanCook", "TavernKeeper"]
+    }
+  ]
+}

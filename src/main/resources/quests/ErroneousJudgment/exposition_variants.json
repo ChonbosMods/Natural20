@@ -1,0 +1,84 @@
+{
+  "variants": [
+    {
+      "id": "expo_erroneous_judgment_01",
+      "dialogueChunks": {
+        "intro": "{player_name}, we're about to make a terrible mistake, and I'm the only one who sees it.",
+        "plotStep": "A scout returned claiming they found an {enemy_type} camp {location_hint}. The militia is arming up. But I spoke to {target_npc}, who traveled that road recently, and they described something very different from what the scout reported. The scout saw what they expected to see, not what was actually there.",
+        "outro": "I need you to reach the {quest_focus} before the militia does and bring back {quest_item} as proof of what's really there. If they attack the wrong target, the {quest_stakes} will pay the price. {quest_reward_hint} could follow."
+      },
+      "objectivePool": [
+        "EXPLORE_LOCATION",
+        "TALK_TO_NPC",
+        "FETCH_ITEM"
+      ],
+      "objectiveConfig": {
+        "EXPLORE_LOCATION": {
+          "countMin": 2,
+          "countMax": 3
+        },
+        "TALK_TO_NPC": {
+          "countMin": 1,
+          "countMax": 1
+        },
+        "FETCH_ITEM": {
+          "locationPreference": "WILDERNESS"
+        }
+      }
+    },
+    {
+      "id": "expo_erroneous_judgment_02",
+      "dialogueChunks": {
+        "intro": "They're blaming {target_npc} for the sickness, {player_name}. And they're wrong. Dead wrong.",
+        "plotStep": "People fell ill after contact with the {quest_focus}. Someone started a rumor that {target_npc} caused it, because {target_npc} was seen adding something to the {quest_focus} recently. What nobody bothered to ask is that {target_npc} was treating it with purifying agents because they noticed contamination. The real source of the problem is somewhere {location_hint}, and the {enemy_type} that moved into the area are likely responsible.",
+        "outro": "I need {quest_item} from the contamination site to prove where the sickness actually came from. The {quest_threat} {quest_threat_is} driving this witch hunt. The {quest_stakes} depends on the truth."
+      },
+      "objectivePool": [
+        "EXPLORE_LOCATION",
+        "GATHER_ITEMS",
+        "KILL_MOBS"
+      ],
+      "objectiveConfig": {
+        "EXPLORE_LOCATION": {
+          "countMin": 2,
+          "countMax": 3
+        },
+        "GATHER_ITEMS": {
+          "countMin": 3,
+          "countMax": 6
+        },
+        "KILL_MOBS": {
+          "countMin": 2,
+          "countMax": 5
+        }
+      }
+    },
+    {
+      "id": "expo_erroneous_judgment_03",
+      "dialogueChunks": {
+        "intro": "Everyone loves the new arrival, {player_name}. Everyone except me.",
+        "plotStep": "A newcomer has been offering {quest_item} at prices that make no sense. Too cheap, too generous, too eager. {target_npc} is suspicious too but was shouted down. I've noticed the newcomer making trips {location_hint} at night, and the {enemy_type} attacks have shifted to target everywhere except routes the newcomer uses. That's not coincidence.",
+        "outro": "I need you to follow the trail and find out what they're really doing. The {quest_focus} {quest_focus_is} too convenient. The {quest_threat} lurks behind generosity this suspicious. The {quest_stakes} {quest_stakes_is} at risk. {quest_reward_hint} awaits if you uncover the truth."
+      },
+      "objectivePool": [
+        "EXPLORE_LOCATION",
+        "TALK_TO_NPC",
+        "KILL_MOBS"
+      ],
+      "objectiveConfig": {
+        "EXPLORE_LOCATION": {
+          "countMin": 2,
+          "countMax": 3
+        },
+        "TALK_TO_NPC": {
+          "countMin": 1,
+          "countMax": 1
+        },
+        "KILL_MOBS": {
+          "countMin": 2,
+          "countMax": 5
+        }
+      }
+    }
+  ]
+}

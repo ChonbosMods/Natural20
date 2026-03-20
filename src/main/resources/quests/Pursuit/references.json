@@ -1,0 +1,22 @@
+{
+  "references": [
+    {
+      "id": "ref_pursuit_old_tracks",
+      "compatibleSituations": ["Pursuit", "DaringEnterprise"],
+      "passiveText": "The tracks near {location} remind me of something I saw months ago. Something that was never resolved.",
+      "triggerTopicLabel": "The old tracks you mentioned",
+      "triggerDialogue": "{target_npc} reported similar disturbances near their settlement last season. Livestock vanishing, strange markings on trees, sentries hearing noises in the dark. They never caught whatever was responsible, and eventually it just stopped. Now I'm wondering if it didn't stop at all: just moved on to new hunting grounds.",
+      "catalystSituations": ["Pursuit", "Supplication"],
+      "targetNpcRoles": ["Guard", "Villager"]
+    },
+    {
+      "id": "ref_pursuit_smuggler_tip",
+      "compatibleSituations": ["Pursuit", "DaringEnterprise"],
+      "passiveText": "A traveler passing through mentioned seeing armed figures near the old bridge.",
+      "triggerTopicLabel": "The armed figures at the bridge",
+      "triggerDialogue": "I didn't think much of it at first, but {target_npc} at the tavern says those figures have been spotted three times now, always at night, always heading {location_hint}. Could be smugglers, could be scouts for something bigger. Either way, someone should look into it before it becomes everyone's problem.",
+      "catalystSituations": ["Pursuit", "DaringEnterprise"],
+      "targetNpcRoles": ["TavernKeeper", "Traveler"]
+    }
+  ]
+}

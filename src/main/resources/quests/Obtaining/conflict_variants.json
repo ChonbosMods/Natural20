@@ -1,0 +1,68 @@
+{
+  "variants": [
+    {
+      "id": "obtaining_conf_contested_ground",
+      "dialogueChunks": {
+        "intro": "The area around the {quest_focus} is more contested than expected. The {enemy_type} have established a presence near {location_hint} and aren't giving ground easily.",
+        "plotStep": "You'll need to clear out the {quest_threat} before you can safely gather what we need. {quest_ally} estimates there are at least a dozen hostiles between here and the objective near {location_hint}.",
+        "outro": "Fight through them and claim what's ours. The {quest_stakes} {quest_stakes_is} depending on you pushing past this resistance."
+      },
+      "objectivePool": [
+        "KILL_MOBS",
+        "GATHER_ITEMS"
+      ],
+      "objectiveConfig": {
+        "KILL_MOBS": {
+          "countMin": 4,
+          "countMax": 10
+        },
+        "GATHER_ITEMS": {
+          "countMin": 5,
+          "countMax": 14
+        }
+      }
+    },
+    {
+      "id": "obtaining_conf_supply_chain",
+      "dialogueChunks": {
+        "intro": "The first batch you brought back wasn't enough. {quest_ally} says we need more {quest_item} and the only remaining source is closer to {location_hint}, deeper into dangerous territory.",
+        "plotStep": "{target_npc} knows a route {location_hint} that avoids the worst of the {quest_threat}, but it passes through rough ground where the {enemy_type} forage. You'll need to gather supplies and handle anything that gets in your way.",
+        "outro": "Get out there and bring back what we need for the {quest_stakes}. Time isn't on our side."
+      },
+      "objectivePool": [
+        "GATHER_ITEMS",
+        "EXPLORE_LOCATION",
+        "KILL_MOBS"
+      ],
+      "objectiveConfig": {
+        "GATHER_ITEMS": {
+          "countMin": 6,
+          "countMax": 20
+        },
+        "KILL_MOBS": {
+          "countMin": 2,
+          "countMax": 5
+        }
+      }
+    },
+    {
+      "id": "obtaining_conf_bidding_war",
+      "dialogueChunks": {
+        "intro": "A complication: {target_npc} says another settlement is also after the {quest_focus}. They've sent their own people to claim it, and they reached the area first.",
+        "plotStep": "We can't afford to lose this. {quest_ally} suggests we gather what remains from alternate sites near {location_hint} while the competition is focused on the main deposit. The {enemy_type} in the area don't care who they attack.",
+        "outro": "Scour the secondary sites and bring back enough to meet our needs. The {quest_stakes} cannot wait for negotiations."
+      },
+      "objectivePool": [
+        "GATHER_ITEMS",
+        "EXPLORE_LOCATION",
+        "TALK_TO_NPC"
+      ],
+      "objectiveConfig": {
+        "GATHER_ITEMS": {
+          "countMin": 7,
+          "countMax": 18
+        }
+      }
+    }
+  ]
+}

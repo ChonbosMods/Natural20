@@ -1,0 +1,34 @@
+{
+  "variants": [
+    {
+      "id": "reso_mistaken_jealousy_01",
+      "dialogueChunks": {
+        "intro": "The truth came out, {player_name}. Every last bit of it.",
+        "plotStep": "When you laid the evidence before the council, the room went silent. The real culprit was exposed. {target_npc} was cleared publicly, and the settlement apologized, though some of the damage can't be undone with words. {target_npc} says they'll forgive the community in time, but they won't forget how quickly trust evaporated.",
+        "outro": "You did more than solve a theft, {player_name}. You reminded this settlement that accusation isn't conviction."
+      },
+      "objectivePool": [],
+      "objectiveConfig": {}
+    },
+    {
+      "id": "reso_mistaken_jealousy_02",
+      "dialogueChunks": {
+        "intro": "{target_npc} has been cleared, {player_name}. But the scars on this community run deep.",
+        "plotStep": "The evidence you recovered proved that the {enemy_type} were responsible, just as I suspected. The council withdrew the charges, and {target_npc} walked free. But the vandalism, the whispers, the isolation: none of that can be taken back. {target_npc} has reopened their workshop, but the customers are slow to return.",
+        "outro": "You gave us the truth. What we do with it is on us."
+      },
+      "objectivePool": [],
+      "objectiveConfig": {}
+    },
+    {
+      "id": "reso_mistaken_jealousy_03",
+      "dialogueChunks": {
+        "intro": "The council accepted the evidence, {player_name}, but {target_npc} has decided to leave anyway.",
+        "plotStep": "{target_npc} said they can't live in a place where people turned on them so easily. They packed up everything they could carry. The workshop is dark, and the people who shouted loudest are the quietest now. Your evidence saved {target_npc}'s name, even if it couldn't save their home here.",
+        "outro": "Some truths arrive too late to undo all the damage. But {target_npc} left with their name intact, and that matters."
+      },
+      "objectivePool": [],
+      "objectiveConfig": {}
+    }
+  ]
+}
