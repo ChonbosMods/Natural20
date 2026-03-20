@@ -4,6 +4,8 @@ import com.google.common.flogger.FluentLogger;
 import com.google.gson.*;
 
 import javax.annotation.Nullable;
+import java.io.InputStream;
+import java.io.InputStreamReader;
 import java.nio.charset.StandardCharsets;
 import java.nio.file.Files;
 import java.nio.file.Path;
@@ -12,6 +14,7 @@ import java.util.*;
 public class TopicPoolRegistry {
 
     private static final FluentLogger LOGGER = FluentLogger.forEnclosingClass();
+    private static final String CLASSPATH_PREFIX = "topics/pools/";
 
     public record SubjectEntry(String value, boolean plural, boolean questEligible) {}
 
@@ -24,34 +27,64 @@ public class TopicPoolRegistry {
     private final List<String> perspectiveDetails = new ArrayList<>();
 
     public void loadAll(@Nullable Path poolsDir) {
-        if (poolsDir == null || !Files.isDirectory(poolsDir)) {
-            LOGGER.atWarning().log("Topic pools directory not found: %s", poolsDir);
-            return;
-        }
+        // Load from classpath first (bundled resources)
+        loadSubjectPoolFromClasspath(CLASSPATH_PREFIX + "subject_focuses.json");
+        loadGreetingPoolFromClasspath(CLASSPATH_PREFIX + "greeting_lines.json");
+        loadStringPoolFromClasspath(CLASSPATH_PREFIX + "rumor_details.json", rumorDetails);
+        loadStringPoolFromClasspath(CLASSPATH_PREFIX + "rumor_sources.json", rumorSources);
+        loadStringPoolFromClasspath(CLASSPATH_PREFIX + "smalltalk_openers.json", smalltalkOpeners);
+        loadStringPoolFromClasspath(CLASSPATH_PREFIX + "perspective_details.json", perspectiveDetails);
 
-        loadSubjectPool(poolsDir.resolve("subject_focuses.json"));
-        loadGreetingPool(poolsDir.resolve("greeting_lines.json"));
-        loadStringPool(poolsDir.resolve("rumor_details.json"), rumorDetails);
-        loadStringPool(poolsDir.resolve("rumor_sources.json"), rumorSources);
-        loadStringPool(poolsDir.resolve("smalltalk_openers.json"), smalltalkOpeners);
-        loadStringPool(poolsDir.resolve("perspective_details.json"), perspectiveDetails);
+        // Override with filesystem if available
+        if (poolsDir != null && Files.isDirectory(poolsDir)) {
+            loadSubjectPool(poolsDir.resolve("subject_focuses.json"));
+            loadGreetingPool(poolsDir.resolve("greeting_lines.json"));
+            loadStringPool(poolsDir.resolve("rumor_details.json"), rumorDetails);
+            loadStringPool(poolsDir.resolve("rumor_sources.json"), rumorSources);
+            loadStringPool(poolsDir.resolve("smalltalk_openers.json"), smalltalkOpeners);
+            loadStringPool(poolsDir.resolve("perspective_details.json"), perspectiveDetails);
+        }
 
         LOGGER.atInfo().log("Loaded topic pools: %d subjects, %d greetings, %d return greetings",
             subjectFocuses.size(), greetingLines.size(), returnGreetingLines.size());
+    }
+
+    private void loadSubjectPoolFromClasspath(String resource) {
+        try (InputStream is = getClass().getClassLoader().getResourceAsStream(resource)) {
+            if (is == null) return;
+            JsonObject root = JsonParser.parseReader(new InputStreamReader(is, StandardCharsets.UTF_8)).getAsJsonObject();
+            parseSubjects(root);
+        } catch (Exception e) {
+            LOGGER.atSevere().withCause(e).log("Failed to load subject pool from classpath: %s", resource);
+        }
+    }
+
+    private void loadGreetingPoolFromClasspath(String resource) {
+        try (InputStream is = getClass().getClassLoader().getResourceAsStream(resource)) {
+            if (is == null) return;
+            JsonObject root = JsonParser.parseReader(new InputStreamReader(is, StandardCharsets.UTF_8)).getAsJsonObject();
+            parseGreetings(root);
+        } catch (Exception e) {
+            LOGGER.atSevere().withCause(e).log("Failed to load greeting pool from classpath: %s", resource);
+        }
+    }
+
+    private void loadStringPoolFromClasspath(String resource, List<String> target) {
+        try (InputStream is = getClass().getClassLoader().getResourceAsStream(resource)) {
+            if (is == null) return;
+            JsonArray arr = JsonParser.parseReader(new InputStreamReader(is, StandardCharsets.UTF_8)).getAsJsonArray();
+            for (JsonElement el : arr) target.add(el.getAsString());
+        } catch (Exception e) {
+            LOGGER.atSevere().withCause(e).log("Failed to load string pool from classpath: %s", resource);
+        }
     }
 
     private void loadSubjectPool(Path file) {
         if (!Files.exists(file)) return;
         try (var reader = Files.newBufferedReader(file, StandardCharsets.UTF_8)) {
             JsonObject root = JsonParser.parseReader(reader).getAsJsonObject();
-            for (JsonElement el : root.getAsJsonArray("subjects")) {
-                JsonObject obj = el.getAsJsonObject();
-                subjectFocuses.add(new SubjectEntry(
-                    obj.get("value").getAsString(),
-                    obj.has("plural") && obj.get("plural").getAsBoolean(),
-                    obj.has("questEligible") && obj.get("questEligible").getAsBoolean()
-                ));
-            }
+            subjectFocuses.clear();
+            parseSubjects(root);
         } catch (Exception e) {
             LOGGER.atSevere().withCause(e).log("Failed to load subject pool: %s", file);
         }
@@ -61,8 +94,9 @@ public class TopicPoolRegistry {
         if (!Files.exists(file)) return;
         try (var reader = Files.newBufferedReader(file, StandardCharsets.UTF_8)) {
             JsonObject root = JsonParser.parseReader(reader).getAsJsonObject();
-            for (JsonElement el : root.getAsJsonArray("greetings")) greetingLines.add(el.getAsString());
-            for (JsonElement el : root.getAsJsonArray("returnGreetings")) returnGreetingLines.add(el.getAsString());
+            greetingLines.clear();
+            returnGreetingLines.clear();
+            parseGreetings(root);
         } catch (Exception e) {
             LOGGER.atSevere().withCause(e).log("Failed to load greeting pool: %s", file);
         }
@@ -72,10 +106,27 @@ public class TopicPoolRegistry {
         if (!Files.exists(file)) return;
         try (var reader = Files.newBufferedReader(file, StandardCharsets.UTF_8)) {
             JsonArray arr = JsonParser.parseReader(reader).getAsJsonArray();
+            target.clear();
             for (JsonElement el : arr) target.add(el.getAsString());
         } catch (Exception e) {
             LOGGER.atSevere().withCause(e).log("Failed to load string pool: %s", file);
         }
+    }
+
+    private void parseSubjects(JsonObject root) {
+        for (JsonElement el : root.getAsJsonArray("subjects")) {
+            JsonObject obj = el.getAsJsonObject();
+            subjectFocuses.add(new SubjectEntry(
+                obj.get("value").getAsString(),
+                obj.has("plural") && obj.get("plural").getAsBoolean(),
+                obj.has("questEligible") && obj.get("questEligible").getAsBoolean()
+            ));
+        }
+    }
+
+    private void parseGreetings(JsonObject root) {
+        for (JsonElement el : root.getAsJsonArray("greetings")) greetingLines.add(el.getAsString());
+        for (JsonElement el : root.getAsJsonArray("returnGreetings")) returnGreetingLines.add(el.getAsString());
     }
 
     // --- Random selection methods ---

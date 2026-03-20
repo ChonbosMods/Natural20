@@ -4,6 +4,8 @@ import com.google.common.flogger.FluentLogger;
 import com.google.gson.*;
 
 import javax.annotation.Nullable;
+import java.io.InputStream;
+import java.io.InputStreamReader;
 import java.nio.charset.StandardCharsets;
 import java.nio.file.Files;
 import java.nio.file.Path;
@@ -24,22 +26,38 @@ public class TopicTemplateRegistry {
     private final List<TopicTemplate> smallTalkTemplates = new ArrayList<>();
 
     public void loadAll(@Nullable Path topicsDir) {
-        if (topicsDir == null || !Files.isDirectory(topicsDir)) {
-            LOGGER.atWarning().log("Topics directory not found: %s", topicsDir);
-            return;
-        }
+        // Load from classpath first (bundled resources)
+        loadTemplatesFromClasspath("topics/Rumors/templates.json", TopicCategory.RUMORS, rumorTemplates);
+        loadTemplatesFromClasspath("topics/SmallTalk/templates.json", TopicCategory.SMALLTALK, smallTalkTemplates);
 
-        loadTemplates(topicsDir.resolve("Rumors/templates.json"), TopicCategory.RUMORS, rumorTemplates);
-        loadTemplates(topicsDir.resolve("SmallTalk/templates.json"), TopicCategory.SMALLTALK, smallTalkTemplates);
+        // Override with filesystem if available
+        if (topicsDir != null && Files.isDirectory(topicsDir)) {
+            loadTemplates(topicsDir.resolve("Rumors/templates.json"), TopicCategory.RUMORS, rumorTemplates);
+            loadTemplates(topicsDir.resolve("SmallTalk/templates.json"), TopicCategory.SMALLTALK, smallTalkTemplates);
+        }
 
         LOGGER.atInfo().log("Loaded topic templates: %d rumors, %d smalltalk",
             rumorTemplates.size(), smallTalkTemplates.size());
+    }
+
+    private void loadTemplatesFromClasspath(String resource, TopicCategory category, List<TopicTemplate> target) {
+        try (InputStream is = getClass().getClassLoader().getResourceAsStream(resource)) {
+            if (is == null) return;
+            JsonObject root = JsonParser.parseReader(new InputStreamReader(is, StandardCharsets.UTF_8)).getAsJsonObject();
+            JsonArray templates = root.getAsJsonArray("templates");
+            for (JsonElement el : templates) {
+                target.add(parseTemplate(el.getAsJsonObject(), category));
+            }
+        } catch (Exception e) {
+            LOGGER.atSevere().withCause(e).log("Failed to load templates from classpath: %s", resource);
+        }
     }
 
     private void loadTemplates(Path file, TopicCategory category, List<TopicTemplate> target) {
         if (!Files.exists(file)) return;
         try (var reader = Files.newBufferedReader(file, StandardCharsets.UTF_8)) {
             JsonObject root = JsonParser.parseReader(reader).getAsJsonObject();
+            target.clear();
             JsonArray templates = root.getAsJsonArray("templates");
             for (JsonElement el : templates) {
                 target.add(parseTemplate(el.getAsJsonObject(), category));

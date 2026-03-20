@@ -8,6 +8,8 @@ import com.google.gson.JsonParser;
 
 import javax.annotation.Nullable;
 import java.io.IOException;
+import java.io.InputStream;
+import java.io.InputStreamReader;
 import java.nio.charset.StandardCharsets;
 import java.nio.file.Files;
 import java.nio.file.Path;
@@ -20,6 +22,7 @@ import java.util.Random;
 public class QuestPoolRegistry {
 
     private static final FluentLogger LOGGER = FluentLogger.forEnclosingClass();
+    private static final String CLASSPATH_PREFIX = "quests/pools/";
 
     /** Entry with id + label for items/mobs. */
     public record ItemEntry(String id, String label) {}
@@ -49,31 +52,51 @@ public class QuestPoolRegistry {
     private final Map<String, String> situationTones = new HashMap<>();
 
     public void loadAll(@Nullable Path poolsDir) {
-        if (poolsDir == null || !Files.isDirectory(poolsDir)) {
-            LOGGER.atWarning().log("Pools directory not found: %s", poolsDir);
-            return;
+        // Load from classpath first (bundled resources)
+        loadItemPoolFromClasspath(CLASSPATH_PREFIX + "gather_items.json", "items", gatherItems);
+        loadItemPoolFromClasspath(CLASSPATH_PREFIX + "hostile_mobs.json", "mobs", hostileMobs);
+        loadStringPoolFromClasspath(CLASSPATH_PREFIX + "quest_actions.json", questActions);
+        loadNarrativePoolFromClasspath(CLASSPATH_PREFIX + "quest_focuses.json", questFocuses);
+        loadNarrativePoolFromClasspath(CLASSPATH_PREFIX + "quest_stakes.json", questStakes);
+        loadNarrativePoolFromClasspath(CLASSPATH_PREFIX + "quest_threats.json", questThreats);
+        loadStringPoolFromClasspath(CLASSPATH_PREFIX + "quest_origins.json", questOrigins);
+        loadStringPoolFromClasspath(CLASSPATH_PREFIX + "quest_time_pressures.json", questTimePressures);
+        loadStringPoolFromClasspath(CLASSPATH_PREFIX + "quest_reward_hints.json", questRewardHints);
+
+        loadTonedResponsesFromClasspath(CLASSPATH_PREFIX + "responses_accept.json", acceptResponses);
+        loadTonedResponsesFromClasspath(CLASSPATH_PREFIX + "responses_decline.json", declineResponses);
+        loadTonedResponsesFromClasspath(CLASSPATH_PREFIX + "responses_counter_accept.json", counterAcceptResponses);
+        loadTonedResponsesFromClasspath(CLASSPATH_PREFIX + "responses_counter_decline.json", counterDeclineResponses);
+        loadTonedResponsesFromClasspath(CLASSPATH_PREFIX + "responses_counter_stat_pass.json", counterStatPassResponses);
+        loadTonedResponsesFromClasspath(CLASSPATH_PREFIX + "responses_counter_stat_fail.json", counterStatFailResponses);
+        loadTonedResponsesFromClasspath(CLASSPATH_PREFIX + "responses_stat_check.json", statCheckResponses);
+        loadTargetNpcResponsesFromClasspath(CLASSPATH_PREFIX + "responses_target_npc.json");
+        loadTonedResponsesFromClasspath(CLASSPATH_PREFIX + "responses_send_to_npc.json", sendToNpcResponses);
+        loadSituationTonesFromClasspath(CLASSPATH_PREFIX + "situation_tones.json");
+
+        // Override with filesystem if available
+        if (poolsDir != null && Files.isDirectory(poolsDir)) {
+            loadItemPool(poolsDir.resolve("gather_items.json"), "items", gatherItems);
+            loadItemPool(poolsDir.resolve("hostile_mobs.json"), "mobs", hostileMobs);
+            loadStringPool(poolsDir.resolve("quest_actions.json"), questActions);
+            loadNarrativePool(poolsDir.resolve("quest_focuses.json"), questFocuses);
+            loadNarrativePool(poolsDir.resolve("quest_stakes.json"), questStakes);
+            loadNarrativePool(poolsDir.resolve("quest_threats.json"), questThreats);
+            loadStringPool(poolsDir.resolve("quest_origins.json"), questOrigins);
+            loadStringPool(poolsDir.resolve("quest_time_pressures.json"), questTimePressures);
+            loadStringPool(poolsDir.resolve("quest_reward_hints.json"), questRewardHints);
+
+            loadTonedResponses(poolsDir.resolve("responses_accept.json"), acceptResponses);
+            loadTonedResponses(poolsDir.resolve("responses_decline.json"), declineResponses);
+            loadTonedResponses(poolsDir.resolve("responses_counter_accept.json"), counterAcceptResponses);
+            loadTonedResponses(poolsDir.resolve("responses_counter_decline.json"), counterDeclineResponses);
+            loadTonedResponses(poolsDir.resolve("responses_counter_stat_pass.json"), counterStatPassResponses);
+            loadTonedResponses(poolsDir.resolve("responses_counter_stat_fail.json"), counterStatFailResponses);
+            loadTonedResponses(poolsDir.resolve("responses_stat_check.json"), statCheckResponses);
+            loadTargetNpcResponses(poolsDir.resolve("responses_target_npc.json"));
+            loadTonedResponses(poolsDir.resolve("responses_send_to_npc.json"), sendToNpcResponses);
+            loadSituationTones(poolsDir.resolve("situation_tones.json"));
         }
-
-        loadItemPool(poolsDir.resolve("gather_items.json"), "items", gatherItems);
-        loadItemPool(poolsDir.resolve("hostile_mobs.json"), "mobs", hostileMobs);
-        loadStringPool(poolsDir.resolve("quest_actions.json"), questActions);
-        loadNarrativePool(poolsDir.resolve("quest_focuses.json"), questFocuses);
-        loadNarrativePool(poolsDir.resolve("quest_stakes.json"), questStakes);
-        loadNarrativePool(poolsDir.resolve("quest_threats.json"), questThreats);
-        loadStringPool(poolsDir.resolve("quest_origins.json"), questOrigins);
-        loadStringPool(poolsDir.resolve("quest_time_pressures.json"), questTimePressures);
-        loadStringPool(poolsDir.resolve("quest_reward_hints.json"), questRewardHints);
-
-        loadTonedResponses(poolsDir.resolve("responses_accept.json"), acceptResponses);
-        loadTonedResponses(poolsDir.resolve("responses_decline.json"), declineResponses);
-        loadTonedResponses(poolsDir.resolve("responses_counter_accept.json"), counterAcceptResponses);
-        loadTonedResponses(poolsDir.resolve("responses_counter_decline.json"), counterDeclineResponses);
-        loadTonedResponses(poolsDir.resolve("responses_counter_stat_pass.json"), counterStatPassResponses);
-        loadTonedResponses(poolsDir.resolve("responses_counter_stat_fail.json"), counterStatFailResponses);
-        loadTonedResponses(poolsDir.resolve("responses_stat_check.json"), statCheckResponses);
-        loadTargetNpcResponses(poolsDir.resolve("responses_target_npc.json"));
-        loadTonedResponses(poolsDir.resolve("responses_send_to_npc.json"), sendToNpcResponses);
-        loadSituationTones(poolsDir.resolve("situation_tones.json"));
 
         LOGGER.atInfo().log("Loaded pools: %d items, %d mobs, %d actions, %d focuses, %d stakes, %d threats, %d origins, %d pressures, %d rewards",
             gatherItems.size(), hostileMobs.size(), questActions.size(), questFocuses.size(),
@@ -81,15 +104,76 @@ public class QuestPoolRegistry {
             questTimePressures.size(), questRewardHints.size());
     }
 
+    // --- Classpath loading methods ---
+
+    private void loadItemPoolFromClasspath(String resource, String arrayKey, List<ItemEntry> target) {
+        try (InputStream is = getClass().getClassLoader().getResourceAsStream(resource)) {
+            if (is == null) return;
+            JsonObject root = JsonParser.parseReader(new InputStreamReader(is, StandardCharsets.UTF_8)).getAsJsonObject();
+            parseItemEntries(root, arrayKey, target);
+        } catch (Exception e) {
+            LOGGER.atSevere().withCause(e).log("Failed to load pool from classpath: %s", resource);
+        }
+    }
+
+    private void loadNarrativePoolFromClasspath(String resource, List<NarrativeEntry> target) {
+        try (InputStream is = getClass().getClassLoader().getResourceAsStream(resource)) {
+            if (is == null) return;
+            JsonObject root = JsonParser.parseReader(new InputStreamReader(is, StandardCharsets.UTF_8)).getAsJsonObject();
+            parseNarrativeEntries(root, target);
+        } catch (Exception e) {
+            LOGGER.atSevere().withCause(e).log("Failed to load pool from classpath: %s", resource);
+        }
+    }
+
+    private void loadStringPoolFromClasspath(String resource, List<String> target) {
+        try (InputStream is = getClass().getClassLoader().getResourceAsStream(resource)) {
+            if (is == null) return;
+            JsonObject root = JsonParser.parseReader(new InputStreamReader(is, StandardCharsets.UTF_8)).getAsJsonObject();
+            parseStringEntries(root, target);
+        } catch (Exception e) {
+            LOGGER.atSevere().withCause(e).log("Failed to load pool from classpath: %s", resource);
+        }
+    }
+
+    private void loadTonedResponsesFromClasspath(String resource, Map<String, List<String>> target) {
+        try (InputStream is = getClass().getClassLoader().getResourceAsStream(resource)) {
+            if (is == null) return;
+            JsonObject root = JsonParser.parseReader(new InputStreamReader(is, StandardCharsets.UTF_8)).getAsJsonObject();
+            parseTonedResponses(root, target);
+        } catch (Exception e) {
+            LOGGER.atSevere().withCause(e).log("Failed to load responses from classpath: %s", resource);
+        }
+    }
+
+    private void loadTargetNpcResponsesFromClasspath(String resource) {
+        try (InputStream is = getClass().getClassLoader().getResourceAsStream(resource)) {
+            if (is == null) return;
+            JsonObject root = JsonParser.parseReader(new InputStreamReader(is, StandardCharsets.UTF_8)).getAsJsonObject();
+            parseTargetNpcResponses(root);
+        } catch (Exception e) {
+            LOGGER.atSevere().withCause(e).log("Failed to load target NPC responses from classpath: %s", resource);
+        }
+    }
+
+    private void loadSituationTonesFromClasspath(String resource) {
+        try (InputStream is = getClass().getClassLoader().getResourceAsStream(resource)) {
+            if (is == null) return;
+            JsonObject root = JsonParser.parseReader(new InputStreamReader(is, StandardCharsets.UTF_8)).getAsJsonObject();
+            parseSituationTones(root);
+        } catch (Exception e) {
+            LOGGER.atSevere().withCause(e).log("Failed to load situation tones from classpath: %s", resource);
+        }
+    }
+
+    // --- Filesystem loading methods ---
+
     private void loadItemPool(Path file, String arrayKey, List<ItemEntry> target) {
         if (!Files.exists(file)) return;
         try (var reader = Files.newBufferedReader(file, StandardCharsets.UTF_8)) {
             JsonObject root = JsonParser.parseReader(reader).getAsJsonObject();
-            JsonArray arr = root.getAsJsonArray(arrayKey);
-            for (JsonElement el : arr) {
-                JsonObject obj = el.getAsJsonObject();
-                target.add(new ItemEntry(obj.get("id").getAsString(), obj.get("label").getAsString()));
-            }
+            target.clear();
+            parseItemEntries(root, arrayKey, target);
         } catch (IOException e) {
             LOGGER.atSevere().withCause(e).log("Failed to load pool: %s", file);
         }
@@ -99,19 +183,8 @@ public class QuestPoolRegistry {
         if (!Files.exists(file)) return;
         try (var reader = Files.newBufferedReader(file, StandardCharsets.UTF_8)) {
             JsonObject root = JsonParser.parseReader(reader).getAsJsonObject();
-            JsonArray arr = root.getAsJsonArray("values");
-            for (JsonElement el : arr) {
-                if (el.isJsonObject()) {
-                    JsonObject obj = el.getAsJsonObject();
-                    target.add(new NarrativeEntry(
-                        obj.get("value").getAsString(),
-                        obj.has("plural") && obj.get("plural").getAsBoolean()
-                    ));
-                } else {
-                    // Backwards compat: plain string = singular
-                    target.add(new NarrativeEntry(el.getAsString(), false));
-                }
-            }
+            target.clear();
+            parseNarrativeEntries(root, target);
         } catch (IOException e) {
             LOGGER.atSevere().withCause(e).log("Failed to load pool: %s", file);
         }
@@ -121,16 +194,89 @@ public class QuestPoolRegistry {
         if (!Files.exists(file)) return;
         try (var reader = Files.newBufferedReader(file, StandardCharsets.UTF_8)) {
             JsonObject root = JsonParser.parseReader(reader).getAsJsonObject();
-            JsonArray arr = root.getAsJsonArray("values");
-            for (JsonElement el : arr) {
-                if (el.isJsonPrimitive()) {
-                    target.add(el.getAsString());
-                } else if (el.isJsonObject()) {
-                    target.add(el.getAsJsonObject().get("value").getAsString());
-                }
-            }
+            target.clear();
+            parseStringEntries(root, target);
         } catch (IOException e) {
             LOGGER.atSevere().withCause(e).log("Failed to load pool: %s", file);
+        }
+    }
+
+    // --- Shared parsing methods ---
+
+    private void parseItemEntries(JsonObject root, String arrayKey, List<ItemEntry> target) {
+        JsonArray arr = root.getAsJsonArray(arrayKey);
+        for (JsonElement el : arr) {
+            JsonObject obj = el.getAsJsonObject();
+            target.add(new ItemEntry(obj.get("id").getAsString(), obj.get("label").getAsString()));
+        }
+    }
+
+    private void parseNarrativeEntries(JsonObject root, List<NarrativeEntry> target) {
+        JsonArray arr = root.getAsJsonArray("values");
+        for (JsonElement el : arr) {
+            if (el.isJsonObject()) {
+                JsonObject obj = el.getAsJsonObject();
+                target.add(new NarrativeEntry(
+                    obj.get("value").getAsString(),
+                    obj.has("plural") && obj.get("plural").getAsBoolean()
+                ));
+            } else {
+                target.add(new NarrativeEntry(el.getAsString(), false));
+            }
+        }
+    }
+
+    private void parseStringEntries(JsonObject root, List<String> target) {
+        JsonArray arr = root.getAsJsonArray("values");
+        for (JsonElement el : arr) {
+            if (el.isJsonPrimitive()) {
+                target.add(el.getAsString());
+            } else if (el.isJsonObject()) {
+                target.add(el.getAsJsonObject().get("value").getAsString());
+            }
+        }
+    }
+
+    private void parseTonedResponses(JsonObject root, Map<String, List<String>> target) {
+        JsonObject tones = root.has("tones") ? root.getAsJsonObject("tones")
+            : root.has("stats") ? root.getAsJsonObject("stats") : null;
+        if (tones == null) return;
+        for (var entry : tones.entrySet()) {
+            List<String> responses = new ArrayList<>();
+            for (JsonElement el : entry.getValue().getAsJsonArray()) {
+                responses.add(el.getAsString());
+            }
+            target.put(entry.getKey(), responses);
+        }
+    }
+
+    private void parseTargetNpcResponses(JsonObject root) {
+        if (root.has("info")) {
+            JsonObject info = root.getAsJsonObject("info");
+            for (var entry : info.entrySet()) {
+                List<String> responses = new ArrayList<>();
+                for (JsonElement el : entry.getValue().getAsJsonArray()) {
+                    responses.add(el.getAsString());
+                }
+                targetNpcInfoResponses.put(entry.getKey(), responses);
+            }
+        }
+        if (root.has("handoff")) {
+            JsonObject handoff = root.getAsJsonObject("handoff");
+            for (var entry : handoff.entrySet()) {
+                List<String> responses = new ArrayList<>();
+                for (JsonElement el : entry.getValue().getAsJsonArray()) {
+                    responses.add(el.getAsString());
+                }
+                targetNpcHandoffResponses.put(entry.getKey(), responses);
+            }
+        }
+    }
+
+    private void parseSituationTones(JsonObject root) {
+        JsonObject tones = root.getAsJsonObject("tones");
+        for (var entry : tones.entrySet()) {
+            situationTones.put(entry.getKey(), entry.getValue().getAsString());
         }
     }
 
@@ -282,26 +428,9 @@ public class QuestPoolRegistry {
         if (!Files.exists(file)) return;
         try (var reader = Files.newBufferedReader(file, StandardCharsets.UTF_8)) {
             JsonObject root = JsonParser.parseReader(reader).getAsJsonObject();
-            if (root.has("info")) {
-                JsonObject info = root.getAsJsonObject("info");
-                for (var entry : info.entrySet()) {
-                    List<String> responses = new ArrayList<>();
-                    for (JsonElement el : entry.getValue().getAsJsonArray()) {
-                        responses.add(el.getAsString());
-                    }
-                    targetNpcInfoResponses.put(entry.getKey(), responses);
-                }
-            }
-            if (root.has("handoff")) {
-                JsonObject handoff = root.getAsJsonObject("handoff");
-                for (var entry : handoff.entrySet()) {
-                    List<String> responses = new ArrayList<>();
-                    for (JsonElement el : entry.getValue().getAsJsonArray()) {
-                        responses.add(el.getAsString());
-                    }
-                    targetNpcHandoffResponses.put(entry.getKey(), responses);
-                }
-            }
+            targetNpcInfoResponses.clear();
+            targetNpcHandoffResponses.clear();
+            parseTargetNpcResponses(root);
         } catch (IOException e) {
             LOGGER.atSevere().withCause(e).log("Failed to load target NPC responses: %s", file);
         }
@@ -311,17 +440,8 @@ public class QuestPoolRegistry {
         if (!Files.exists(file)) return;
         try (var reader = Files.newBufferedReader(file, StandardCharsets.UTF_8)) {
             JsonObject root = JsonParser.parseReader(reader).getAsJsonObject();
-            // Support both "tones" and "stats" as root keys
-            JsonObject tones = root.has("tones") ? root.getAsJsonObject("tones")
-                : root.has("stats") ? root.getAsJsonObject("stats") : null;
-            if (tones == null) return;
-            for (var entry : tones.entrySet()) {
-                List<String> responses = new ArrayList<>();
-                for (JsonElement el : entry.getValue().getAsJsonArray()) {
-                    responses.add(el.getAsString());
-                }
-                target.put(entry.getKey(), responses);
-            }
+            target.clear();
+            parseTonedResponses(root, target);
         } catch (IOException e) {
             LOGGER.atSevere().withCause(e).log("Failed to load responses: %s", file);
         }
@@ -331,10 +451,8 @@ public class QuestPoolRegistry {
         if (!Files.exists(file)) return;
         try (var reader = Files.newBufferedReader(file, StandardCharsets.UTF_8)) {
             JsonObject root = JsonParser.parseReader(reader).getAsJsonObject();
-            JsonObject tones = root.getAsJsonObject("tones");
-            for (var entry : tones.entrySet()) {
-                situationTones.put(entry.getKey(), entry.getValue().getAsString());
-            }
+            situationTones.clear();
+            parseSituationTones(root);
         } catch (IOException e) {
             LOGGER.atSevere().withCause(e).log("Failed to load situation tones: %s", file);
         }
