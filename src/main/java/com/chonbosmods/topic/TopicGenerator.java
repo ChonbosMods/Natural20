@@ -284,7 +284,7 @@ public class TopicGenerator {
         // Category-specific pool bindings
         if (focus.getCategory() == TopicCategory.RUMORS) {
             bindings.put("rumor_detail", topicPool.randomRumorDetail(random));
-            bindings.put("perspective_source", topicPool.randomRumorSource(random));
+            bindings.put("rumor_source", topicPool.randomRumorSource(random));
         }
         bindings.put("perspective_detail", topicPool.randomPerspectiveDetail(random));
         if (focus.getCategory() == TopicCategory.SMALLTALK) {

@@ -197,15 +197,23 @@ public class ConversationSession {
                 presenter.refreshFollowUps(activeFollowUps);
                 presenter.flushUpdates();
             } else {
-                // Pure exploratory exhaustion: replay intro with grayed options
-                DialogueNode entryNode = graph.getNode(entryNodeId);
-                if (entryNode instanceof DialogueNode.DialogueTextNode textNode) {
-                    conversationLog.add(new LogEntry.TopicHeader(topic.label()));
-                    conversationLog.add(new LogEntry.NpcSpeech(textNode.speakerText()));
-                    activeTopicId = topicId;
-                    activeNodeId = entryNodeId;
-                    filterAndDisplayResponses(textNode);
+                // Pure exploratory exhaustion: show recap text, no follow-ups
+                String recapNodeId = playerData.getTopicRecapNode(npcId, topicId);
+                DialogueNode recapNode = recapNodeId != null ? graph.getNode(recapNodeId) : null;
+                String text;
+                if (recapNode instanceof DialogueNode.DialogueTextNode recapText) {
+                    text = recapText.speakerText();
+                } else {
+                    DialogueNode entryNode = graph.getNode(entryNodeId);
+                    text = topic.recapText() != null ? topic.recapText()
+                        : (entryNode instanceof DialogueNode.DialogueTextNode tn ? tn.speakerText() : null);
                 }
+                if (text != null) {
+                    conversationLog.add(new LogEntry.TopicHeader(topic.label()));
+                    conversationLog.add(new LogEntry.NpcSpeech(text));
+                }
+                activeFollowUps = List.of();
+                pendingFollowUpIds.clear();
                 presenter.refreshLog(conversationLog);
                 presenter.refreshFollowUps(activeFollowUps);
                 presenter.flushUpdates();

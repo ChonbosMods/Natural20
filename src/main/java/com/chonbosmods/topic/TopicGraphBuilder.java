@@ -182,6 +182,17 @@ public class TopicGraphBuilder {
             );
         }
 
+        // Build recap text: last exploratory response, or decisive response, or intro
+        String recapText;
+        if (decisive != null) {
+            recapText = DialogueResolver.resolve(decisive.response(), bindings);
+        } else if (!exploratories.isEmpty()) {
+            TopicTemplate.FollowUp lastExp = exploratories.getLast();
+            recapText = DialogueResolver.resolve(lastExp.response(), bindings);
+        } else {
+            recapText = introText;
+        }
+
         topics.add(new TopicDefinition(
             subjectId,
             resolvedLabel,
@@ -191,7 +202,7 @@ public class TopicGraphBuilder {
             assignment.startVisible(),
             null,
             sortOrder,
-            null
+            recapText
         ));
     }
 

@@ -263,28 +263,20 @@ public class Nat20NpcManager {
      * @return the Y coordinate to place the NPC (groundY + 1.0)
      */
     private double findGroundY(World world, int x, int z, int originY) {
-        // Scan downward from originY + 32 to originY - 32
-        int ceiling = originY + 32;
-        int floor = originY - 32;
-
-        for (int y = ceiling; y >= floor; y--) {
+        // Scan downward from world ceiling to find the surface: first solid block
+        // with air (non-solid) above it, so the NPC doesn't spawn inside terrain
+        for (int y = 256; y >= 0; y--) {
             BlockType blockType = world.getBlockType(x, y, z);
             if (blockType != null && blockType.getMaterial() == BlockMaterial.Solid) {
-                return y + 1.0;
-            }
-        }
-
-        // Scan upward from originY to originY + 10
-        for (int y = originY; y <= originY + 10; y++) {
-            BlockType blockType = world.getBlockType(x, y, z);
-            if (blockType != null && blockType.getMaterial() == BlockMaterial.Solid) {
-                return y + 1.0;
+                BlockType above = world.getBlockType(x, y + 1, z);
+                if (above == null || above.getMaterial() != BlockMaterial.Solid) {
+                    return y + 1.0;
+                }
             }
         }
 
         // Final fallback
-        LOGGER.atWarning().log( "[Nat20] No ground found at " + x + ", " + z +
-            " near originY=" + originY + ": using fallback Y");
+        LOGGER.atWarning().log("[Nat20] No ground found at %d, %d near originY=%d: using fallback Y", x, z, originY);
         return originY + 1.0;
     }
 }
