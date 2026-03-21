@@ -31,11 +31,14 @@ import java.util.concurrent.TimeUnit;
 public class UndergroundStructurePlacer {
 
     private static final HytaleLogger LOGGER = HytaleLogger.get("Nat20|CavePlacer");
-    private static final String TEST_PREFAB_KEY = "Nat20/dungeon/testDungeon";
+    private static final String TEST_PREFAB_KEY = "Nat20/dungeon/Dungeon1Test";
     private static final int TUNNEL_WIDTH = 3;
     private static final int TUNNEL_HEIGHT = 4;
     private static final int DEFER_TICKS = 5;
     private static final int CARVE_MARGIN = 3;
+    private static final int ENTRANCE_HALF_WIDTH = 3;
+    private static final int ENTRANCE_UP = 2;
+    private static final int ENTRANCE_DOWN = 1;
 
     /**
      * Place a structure adjacent to the given cave void and carve a connecting tunnel.
@@ -259,6 +262,11 @@ public class UndergroundStructurePlacer {
         int fromY = pasteY + buffer.getMinY();
         int toY = pasteY + buffer.getMaxY() + 1;
 
+        // Entrance exclusion zone: anchor world position ± half-width, entrance faces -Z
+        int anchorWorldX = pasteX + buffer.getAnchorX();
+        int anchorWorldY = pasteY + buffer.getAnchorY();
+        int entranceFaceZ = pasteZ + buffer.getMinZ();
+
         BlockType empty = BlockType.getAssetMap().getAsset("Empty");
         if (empty == null) {
             LOGGER.atSevere().log("Could not find Empty block type: carving skipped");
@@ -266,6 +274,7 @@ public class UndergroundStructurePlacer {
         }
 
         int cleared = 0;
+        int skipped = 0;
         for (int x = fromX; x <= toX; x++) {
             for (int z = fromZ; z <= toZ; z++) {
                 long chunkKey = ChunkUtil.indexChunk(
@@ -274,14 +283,23 @@ public class UndergroundStructurePlacer {
                 if (chunk == null) continue;
 
                 for (int y = fromY; y <= toY; y++) {
+                    // Skip entrance zone: in front of -Z face, within entrance dimensions
+                    if (z <= entranceFaceZ
+                            && x >= anchorWorldX - ENTRANCE_HALF_WIDTH
+                            && x <= anchorWorldX + ENTRANCE_HALF_WIDTH
+                            && y >= anchorWorldY - ENTRANCE_DOWN
+                            && y <= anchorWorldY + ENTRANCE_UP) {
+                        skipped++;
+                        continue;
+                    }
                     chunk.setBlock(x, y, z, empty);
                     cleared++;
                 }
             }
         }
 
-        LOGGER.atInfo().log("Carved clearing: %d blocks in (%d,%d,%d)-(%d,%d,%d)",
-                cleared, fromX, fromY, fromZ, toX, toY, toZ);
+        LOGGER.atInfo().log("Carved clearing: %d blocks cleared, %d skipped (entrance zone) in (%d,%d,%d)-(%d,%d,%d)",
+                cleared, skipped, fromX, fromY, fromZ, toX, toY, toZ);
     }
 
     private void setBlockEmpty(World world, int x, int y, int z) {
