@@ -1,9 +1,8 @@
 package com.chonbosmods.cave;
 
 import com.chonbosmods.Natural20;
-import com.hypixel.hytale.component.ComponentAccessor;
+import com.hypixel.hytale.component.Store;
 import com.hypixel.hytale.logger.HytaleLogger;
-import com.hypixel.hytale.math.util.ChunkUtil;
 import com.hypixel.hytale.math.vector.Vector3i;
 import com.hypixel.hytale.server.core.asset.type.blocktype.config.Rotation;
 import com.hypixel.hytale.server.core.prefab.PrefabStore;
@@ -12,6 +11,10 @@ import com.hypixel.hytale.server.core.prefab.selection.buffer.impl.IPrefabBuffer
 import com.hypixel.hytale.server.core.universe.world.World;
 import com.hypixel.hytale.server.core.universe.world.storage.EntityStore;
 import com.hypixel.hytale.server.core.util.PrefabUtil;
+
+import com.hypixel.hytale.math.util.ChunkUtil;
+import com.hypixel.hytale.protocol.BlockMaterial;
+import com.hypixel.hytale.server.core.asset.type.blocktype.config.BlockType;
 
 import java.nio.file.Files;
 import java.nio.file.Path;
@@ -42,10 +45,10 @@ public class UndergroundStructurePlacer {
      * @return a future that completes with the entrance position (tunnel start), or null on failure
      */
     public CompletableFuture<Vector3i> placeAtVoid(World world, CaveVoidRecord voidRecord,
-                                                    ComponentAccessor<EntityStore> store) {
+                                                    Store<EntityStore> store) {
         CompletableFuture<Vector3i> result = new CompletableFuture<>();
 
-        // 1. Pick the closest floor position to the void's center
+        // 1. Pick the floor position with the most vertical clearance
         List<int[]> floorPositions = voidRecord.getFloorPositions();
         if (floorPositions == null || floorPositions.isEmpty()) {
             LOGGER.atWarning().log("No floor positions in void at (%d, %d, %d)",
@@ -59,16 +62,24 @@ public class UndergroundStructurePlacer {
         int cz = voidRecord.getCenterZ();
 
         int[] bestFloor = null;
-        double bestDist = Double.MAX_VALUE;
+        int bestClearance = 0;
         for (int[] fp : floorPositions) {
-            double dx = fp[0] - cx;
-            double dy = fp[1] - cy;
-            double dz = fp[2] - cz;
-            double dist = dx * dx + dy * dy + dz * dz;
-            if (dist < bestDist) {
-                bestDist = dist;
+            int clearance = 0;
+            for (int y = fp[1]; y < fp[1] + 50; y++) {
+                BlockType bt = world.getBlockType(fp[0], y, fp[2]);
+                if (bt != null && bt.getMaterial() == BlockMaterial.Solid) break;
+                clearance++;
+            }
+            if (clearance > bestClearance) {
+                bestClearance = clearance;
                 bestFloor = fp;
             }
+        }
+        if (bestFloor == null) {
+            LOGGER.atWarning().log("No floor position with vertical clearance in void at (%d, %d, %d)",
+                    cx, cy, cz);
+            result.complete(null);
+            return result;
         }
 
         int floorX = bestFloor[0];
@@ -93,10 +104,11 @@ public class UndergroundStructurePlacer {
         }
 
         // 3. Calculate structure placement position
+        // Account for prefab anchor: paste position = target - anchor
+        // so the anchor point lands on the floor
         int structX = floorX + offsetX;
         int structY = floorY;
         int structZ = floorZ + offsetZ;
-        Vector3i structPos = new Vector3i(structX, structY, structZ);
 
         LOGGER.atInfo().log("Placing structure at (%d, %d, %d) for void at (%d, %d, %d)",
                 structX, structY, structZ, cx, cy, cz);
@@ -118,47 +130,58 @@ public class UndergroundStructurePlacer {
             return result;
         }
 
-        LOGGER.atInfo().log("Loaded prefab buffer: %s (size: %dx%dx%d)",
+        LOGGER.atInfo().log("Loaded prefab buffer: %s (size: %dx%dx%d, anchor: %d,%d,%d, columns: %d)",
                 prefabPath,
                 buffer.getMaxX() - buffer.getMinX(),
                 buffer.getMaxY() - buffer.getMinY(),
-                buffer.getMaxZ() - buffer.getMinZ());
+                buffer.getMaxZ() - buffer.getMinZ(),
+                buffer.getAnchorX(), buffer.getAnchorY(), buffer.getAnchorZ(),
+                buffer.getColumnCount());
 
-        // 5. Pre-load non-ticking chunks covering the structure bounding box AND the tunnel path
-        int minBlockX = Math.min(structX + buffer.getMinX(), floorX - 1);
-        int maxBlockX = Math.max(structX + buffer.getMaxX(), floorX + 1);
-        int minBlockZ = Math.min(structZ + buffer.getMinZ(), floorZ - 1);
-        int maxBlockZ = Math.max(structZ + buffer.getMaxZ(), floorZ + 1);
+        // Adjust for non-zero anchors
+        int pasteX = structX - buffer.getAnchorX();
+        int pasteY = structY - buffer.getAnchorY();
+        int pasteZ = structZ - buffer.getAnchorZ();
+        Vector3i pastePos = new Vector3i(pasteX, pasteY, pasteZ);
 
-        preloadChunks(world, minBlockX, minBlockZ, maxBlockX, maxBlockZ)
+        LOGGER.atInfo().log("Paste position: (%d, %d, %d) (anchor offset: %d, %d, %d)",
+                pasteX, pasteY, pasteZ,
+                buffer.getAnchorX(), buffer.getAnchorY(), buffer.getAnchorZ());
+
+        // 5. Pre-load chunks covering the prefab footprint
+        int minChunkX = ChunkUtil.chunkCoordinate(pasteX + buffer.getMinX());
+        int minChunkZ = ChunkUtil.chunkCoordinate(pasteZ + buffer.getMinZ());
+        int maxChunkX = ChunkUtil.chunkCoordinate(pasteX + buffer.getMaxX());
+        int maxChunkZ = ChunkUtil.chunkCoordinate(pasteZ + buffer.getMaxZ());
+
+        List<CompletableFuture<?>> chunkFutures = new ArrayList<>();
+        for (int chunkX = minChunkX; chunkX <= maxChunkX; chunkX++) {
+            for (int chunkZ = minChunkZ; chunkZ <= maxChunkZ; chunkZ++) {
+                long key = ChunkUtil.indexChunk(chunkX, chunkZ);
+                chunkFutures.add(world.getNonTickingChunkAsync(key));
+            }
+        }
+
+        LOGGER.atInfo().log("Pre-loading %d chunks for prefab placement", chunkFutures.size());
+
+        CompletableFuture.allOf(chunkFutures.toArray(new CompletableFuture[0]))
                 .orTimeout(30, TimeUnit.SECONDS)
                 .whenComplete((ignored, error) -> {
                     if (error != null) {
-                        LOGGER.atSevere().withCause(error).log("Chunk pre-loading failed for structure placement");
+                        LOGGER.atSevere().withCause(error).log("Chunk loading timed out for structure placement");
                         result.complete(null);
                         return;
                     }
-
-                    // 6. Defer ticks then paste
                     deferTicks(world, DEFER_TICKS, () -> {
                         try {
-                            // 7. Paste the prefab
                             Random random = new Random();
-                            PrefabUtil.paste(buffer, world, structPos, Rotation.None, true, random, 0, store);
-                            LOGGER.atInfo().log("Pasted prefab at (%d, %d, %d)", structX, structY, structZ);
+                            PrefabUtil.paste(buffer, world, pastePos, Rotation.None, true, random, 0, store);
+                            LOGGER.atInfo().log("Pasted prefab at (%d, %d, %d)", pasteX, pasteY, pasteZ);
 
-                            // 8. Carve the connecting tunnel from structure entrance face to void floor
-                            // Tunnel starts at the structure edge facing the void
-                            int tunnelStartX = structX - offsetX;
-                            int tunnelStartZ = structZ - offsetZ;
-                            carveTunnel(world, tunnelStartX, floorY, tunnelStartZ, floorX, floorY, floorZ);
-
-                            Vector3i entrance = new Vector3i(tunnelStartX, floorY, tunnelStartZ);
-                            LOGGER.atInfo().log("Structure placement complete. Entrance at (%d, %d, %d)",
-                                    tunnelStartX, floorY, tunnelStartZ);
+                            Vector3i entrance = new Vector3i(floorX, floorY, floorZ);
                             result.complete(entrance);
                         } catch (Exception e) {
-                            LOGGER.atSevere().withCause(e).log("Failed to place structure or carve tunnel");
+                            LOGGER.atSevere().withCause(e).log("Failed to paste prefab");
                             result.complete(null);
                         }
                     });
@@ -260,26 +283,6 @@ public class UndergroundStructurePlacer {
         }
     }
 
-    /**
-     * Pre-load non-ticking chunks covering the given block coordinate range.
-     */
-    private CompletableFuture<Void> preloadChunks(World world, int minX, int minZ, int maxX, int maxZ) {
-        int minCX = ChunkUtil.chunkCoordinate(minX);
-        int minCZ = ChunkUtil.chunkCoordinate(minZ);
-        int maxCX = ChunkUtil.chunkCoordinate(maxX);
-        int maxCZ = ChunkUtil.chunkCoordinate(maxZ);
-        List<CompletableFuture<?>> futures = new ArrayList<>();
-        for (int cx = minCX; cx <= maxCX; cx++) {
-            for (int cz = minCZ; cz <= maxCZ; cz++) {
-                futures.add(world.getNonTickingChunkAsync(ChunkUtil.indexChunk(cx, cz)));
-            }
-        }
-        return CompletableFuture.allOf(futures.toArray(new CompletableFuture[0]));
-    }
-
-    /**
-     * Defer execution by the given number of world ticks.
-     */
     private void deferTicks(World world, int ticks, Runnable action) {
         if (ticks <= 0) {
             world.execute(action);
@@ -287,4 +290,5 @@ public class UndergroundStructurePlacer {
             world.execute(() -> deferTicks(world, ticks - 1, action));
         }
     }
+
 }
