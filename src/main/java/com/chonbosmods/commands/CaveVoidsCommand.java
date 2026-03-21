@@ -8,6 +8,7 @@ import com.hypixel.hytale.component.Ref;
 import com.hypixel.hytale.component.Store;
 import com.hypixel.hytale.math.util.ChunkUtil;
 import com.hypixel.hytale.math.vector.Vector3d;
+import com.hypixel.hytale.math.vector.Vector3i;
 import com.hypixel.hytale.server.core.Message;
 import com.hypixel.hytale.server.core.command.system.CommandContext;
 import com.hypixel.hytale.server.core.command.system.arguments.system.OptionalArg;
@@ -53,7 +54,7 @@ public class CaveVoidsCommand extends AbstractPlayerCommand {
             case "scan" -> executeScan(context, world, playerPos);
             case "list" -> executeList(context, playerPos);
             case "nearest" -> executeNearest(context, playerPos);
-            case "place" -> context.sendMessage(Message.raw("Place operation: coming in Task 8"));
+            case "place" -> executePlace(context, world, playerPos);
             case "clear" -> executeClear(context);
             default -> context.sendMessage(Message.raw(
                     "Unknown operation: " + operation + ". Use: scan, list, nearest, place, clear"));
@@ -137,6 +138,41 @@ public class CaveVoidsCommand extends AbstractPlayerCommand {
                 " dist=" + dist + "m"));
         context.sendMessage(Message.raw("Use: /tp " + nearest.getCenterX() + " " +
                 nearest.getCenterY() + " " + nearest.getCenterZ()));
+    }
+
+    private void executePlace(CommandContext context, World world, Vector3d playerPos) {
+        CaveVoidRegistry registry = Natural20.getInstance().getCaveVoidRegistry();
+        int px = (int) playerPos.getX();
+        int pz = (int) playerPos.getZ();
+
+        CaveVoidRecord nearest = registry.findAnyVoid(px, pz);
+        if (nearest == null) {
+            context.sendMessage(Message.raw("No unclaimed cave voids found. Run 'scan' first."));
+            return;
+        }
+
+        int cx = nearest.getCenterX();
+        int cy = nearest.getCenterY();
+        int cz = nearest.getCenterZ();
+        context.sendMessage(Message.raw("Placing structure at nearest void (" + cx + ", " + cy + ", " + cz + ")..."));
+
+        var entityStore = world.getEntityStore().getStore();
+
+        Natural20.getInstance().getStructurePlacer()
+                .placeAtVoid(world, nearest, entityStore)
+                .whenComplete((entrance, error) -> {
+                    if (error != null) {
+                        context.sendMessage(Message.raw("Structure placement failed: " + error.getMessage()));
+                        return;
+                    }
+                    if (entrance == null) {
+                        context.sendMessage(Message.raw("Structure placement failed: no entrance position returned."));
+                        return;
+                    }
+                    context.sendMessage(Message.raw("Structure placed at (" +
+                            entrance.getX() + ", " + entrance.getY() + ", " + entrance.getZ() +
+                            ") connected to void at (" + cx + ", " + cy + ", " + cz + ")"));
+                });
     }
 
     private void executeClear(CommandContext context) {

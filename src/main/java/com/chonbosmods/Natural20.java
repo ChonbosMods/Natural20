@@ -2,6 +2,7 @@ package com.chonbosmods;
 
 import com.chonbosmods.cave.CaveVoidRegistry;
 import com.chonbosmods.cave.CaveVoidScanner;
+import com.chonbosmods.cave.UndergroundStructurePlacer;
 import com.chonbosmods.commands.Nat20Command;
 import com.chonbosmods.data.Nat20GlobalData;
 import com.chonbosmods.data.Nat20NpcData;
@@ -52,6 +53,7 @@ public class Natural20 extends JavaPlugin {
     private SettlementRegistry settlementRegistry;
     private CaveVoidRegistry caveVoidRegistry;
     private CaveVoidScanner caveVoidScanner;
+    private UndergroundStructurePlacer structurePlacer;
     private Config<Nat20GlobalData> globalConfig;
 
     public Natural20(@Nonnull JavaPluginInit init) {
@@ -99,6 +101,8 @@ public class Natural20 extends JavaPlugin {
     public CaveVoidRegistry getCaveVoidRegistry() { return caveVoidRegistry; }
 
     public CaveVoidScanner getCaveVoidScanner() { return caveVoidScanner; }
+
+    public UndergroundStructurePlacer getStructurePlacer() { return structurePlacer; }
 
     /**
      * Called when a new settlement is created during world generation.
@@ -183,6 +187,7 @@ public class Natural20 extends JavaPlugin {
         caveVoidRegistry = new CaveVoidRegistry(caveVoidPath);
         caveVoidRegistry.load();
         caveVoidScanner = new CaveVoidScanner(caveVoidRegistry);
+        structurePlacer = new UndergroundStructurePlacer();
 
         // Register worldgen settlement listener
         SettlementWorldGenListener worldGenListener = new SettlementWorldGenListener(settlementRegistry, placer);
