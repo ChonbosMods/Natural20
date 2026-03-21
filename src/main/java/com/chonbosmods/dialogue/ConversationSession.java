@@ -104,12 +104,6 @@ public class ConversationSession {
         grayedExploratories.addAll(savedGrayedExploratories);
         activeTopicId = savedActiveTopicId;
 
-        DialogueNode returnNode = graph.getNode(graph.returnGreetingNodeId());
-        if (returnNode instanceof DialogueNode.DialogueTextNode textNode) {
-            conversationLog.add(new LogEntry.ReturnDivider());
-            conversationLog.add(new LogEntry.ReturnGreeting(textNode.speakerText()));
-        }
-
         if (!savedPendingFollowUps.isEmpty()) {
             pendingFollowUpIds.addAll(savedPendingFollowUps);
             activeNodeId = savedActiveNodeId;
@@ -497,7 +491,8 @@ public class ConversationSession {
             this::modifyDisposition,
             this::learnGlobalTopic,
             this::exhaustTopic,
-            this::reactivateTopic
+            this::reactivateTopic,
+            text -> conversationLog.add(new LogEntry.SystemText(text))
         );
     }
 

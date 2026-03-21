@@ -20,5 +20,6 @@ public record ActionContext(
     Consumer<Integer> dispositionUpdater,
     Consumer<String> globalTopicUnlocker,
     Consumer<String> topicExhauster,
-    Consumer<String> topicReactivator
+    Consumer<String> topicReactivator,
+    Consumer<String> systemLogger
 ) {}

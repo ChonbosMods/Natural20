@@ -217,12 +217,6 @@ public class Nat20NpcManager {
 
         store.putComponent(npcRef, PlayerSkinComponent.getComponentType(),
                 new PlayerSkinComponent(skin));
-
-        Model model = CosmeticsModule.get().createModel(skin, 1.0f);
-        if (model != null) {
-            store.putComponent(npcRef, ModelComponent.getComponentType(),
-                    new ModelComponent(model));
-        }
     }
 
     /**
@@ -263,15 +257,11 @@ public class Nat20NpcManager {
      * @return the Y coordinate to place the NPC (groundY + 1.0)
      */
     private double findGroundY(World world, int x, int z, int originY) {
-        // Scan downward from world ceiling to find the surface: first solid block
-        // with air (non-solid) above it, so the NPC doesn't spawn inside terrain
+        // Scan downward from world ceiling: same approach as settlement placement
         for (int y = 256; y >= 0; y--) {
             BlockType blockType = world.getBlockType(x, y, z);
             if (blockType != null && blockType.getMaterial() == BlockMaterial.Solid) {
-                BlockType above = world.getBlockType(x, y + 1, z);
-                if (above == null || above.getMaterial() != BlockMaterial.Solid) {
-                    return y + 1.0;
-                }
+                return y + 1.0;
             }
         }
 

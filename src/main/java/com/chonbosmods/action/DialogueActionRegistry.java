@@ -80,7 +80,7 @@ public class DialogueActionRegistry {
                 npcRole, npcId, settlementCellKey, npcX, npcZ, completed);
             if (quest != null) {
                 questSystem.getStateManager().addQuest(ctx.playerData(), quest);
-                ctx.player().sendMessage(Message.raw("New quest accepted: " + quest.getSituationId()));
+                ctx.systemLogger().accept("Quest accepted: " + quest.getSituationId());
 
                 for (var phase : quest.getPhases()) {
                     if (phase.getReferenceId() != null) {

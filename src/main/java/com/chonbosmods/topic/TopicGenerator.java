@@ -1,6 +1,7 @@
 package com.chonbosmods.topic;
 
 import com.chonbosmods.dialogue.model.DialogueGraph;
+import com.chonbosmods.quest.DialogueResolver;
 import com.chonbosmods.quest.QuestPoolRegistry;
 import com.chonbosmods.settlement.NpcRecord;
 import com.chonbosmods.settlement.SettlementRecord;
@@ -281,14 +282,14 @@ public class TopicGenerator {
         // NPC name
         bindings.put("npc_name", npcName);
 
-        // Category-specific pool bindings
+        // Category-specific pool bindings (pre-resolve so nested {subject_focus} etc. are substituted)
         if (focus.getCategory() == TopicCategory.RUMORS) {
-            bindings.put("rumor_detail", topicPool.randomRumorDetail(random));
-            bindings.put("rumor_source", topicPool.randomRumorSource(random));
+            bindings.put("rumor_detail", DialogueResolver.resolve(topicPool.randomRumorDetail(random), bindings));
+            bindings.put("rumor_source", DialogueResolver.resolve(topicPool.randomRumorSource(random), bindings));
         }
-        bindings.put("perspective_detail", topicPool.randomPerspectiveDetail(random));
+        bindings.put("perspective_detail", DialogueResolver.resolve(topicPool.randomPerspectiveDetail(random), bindings));
         if (focus.getCategory() == TopicCategory.SMALLTALK) {
-            bindings.put("smalltalk_opener", topicPool.randomSmalltalkOpener(random));
+            bindings.put("smalltalk_opener", DialogueResolver.resolve(topicPool.randomSmalltalkOpener(random), bindings));
         }
 
         // Quest bindings for quest bearers
@@ -306,8 +307,8 @@ public class TopicGenerator {
             bindings.put("quest_stakes_was", stakes.plural() ? "were" : "was");
             bindings.put("quest_stakes_detail", stakes.value());
 
-            bindings.put("quest_exposition", topicPool.randomRumorDetail(random));
-            bindings.put("quest_detail", topicPool.randomPerspectiveDetail(random));
+            bindings.put("quest_exposition", DialogueResolver.resolve(topicPool.randomRumorDetail(random), bindings));
+            bindings.put("quest_detail", DialogueResolver.resolve(topicPool.randomPerspectiveDetail(random), bindings));
 
             String tone = questPool.getToneForSituation(focus.getQuestSituationId());
             bindings.put("quest_accept_response",
