@@ -78,13 +78,13 @@ public class CaveVoidScanner {
     }
 
     /**
-     * Check whether a position is within 16 blocks (horizontal) of any existing void center.
+     * Check whether a position is within 64 blocks (horizontal) of any existing void center.
      */
     private boolean isTooCloseToExisting(int x, int z) {
         for (CaveVoidRecord existing : registry.getAll()) {
             int dx = existing.getCenterX() - x;
             int dz = existing.getCenterZ() - z;
-            if (dx * dx + dz * dz < 16 * 16) {
+            if (dx * dx + dz * dz < 64 * 64) {
                 return true;
             }
         }

@@ -41,7 +41,7 @@ public class CaveVoidRegistry {
 
     /**
      * Register a cave void. Deduplicates by merging if an existing void's center
-     * is within 16 blocks (horizontal distance).
+     * is within 64 blocks (horizontal distance).
      */
     public void register(CaveVoidRecord record) {
         String key = cellKey(record.getCenterX(), record.getCenterZ());
@@ -51,7 +51,7 @@ public class CaveVoidRegistry {
             for (CaveVoidRecord existing : list) {
                 int dx = existing.getCenterX() - record.getCenterX();
                 int dz = existing.getCenterZ() - record.getCenterZ();
-                if (dx * dx + dz * dz < 16 * 16) {
+                if (dx * dx + dz * dz < 64 * 64) {
                     existing.merge(record);
                     dirty.set(true);
                     return;
