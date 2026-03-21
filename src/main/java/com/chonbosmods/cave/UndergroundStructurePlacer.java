@@ -15,6 +15,7 @@ import com.hypixel.hytale.server.core.util.PrefabUtil;
 import com.hypixel.hytale.math.util.ChunkUtil;
 import com.hypixel.hytale.protocol.BlockMaterial;
 import com.hypixel.hytale.server.core.asset.type.blocktype.config.BlockType;
+import com.hypixel.hytale.server.core.universe.world.accessor.BlockAccessor;
 
 import java.nio.file.Files;
 import java.nio.file.Path;
@@ -33,8 +34,8 @@ public class UndergroundStructurePlacer {
     private static final String TEST_PREFAB_KEY = "Nat20/dungeon/testDungeon";
     private static final int TUNNEL_WIDTH = 3;
     private static final int TUNNEL_HEIGHT = 4;
-    private static final int STRUCTURE_OFFSET = 15; // half-width of testDungeon (10) + gap (5)
     private static final int DEFER_TICKS = 5;
+    private static final int CARVE_MARGIN = 3;
 
     /**
      * Place a structure adjacent to the given cave void and carve a connecting tunnel.
@@ -86,29 +87,10 @@ public class UndergroundStructurePlacer {
         int floorY = bestFloor[1];
         int floorZ = bestFloor[2];
 
-        // 2. Determine cardinal direction: pick axis with largest void extent, offset perpendicular
-        int extentX = voidRecord.getMaxX() - voidRecord.getMinX();
-        int extentZ = voidRecord.getMaxZ() - voidRecord.getMinZ();
-
-        // Offset perpendicular to the largest extent axis
-        final int offsetX;
-        final int offsetZ;
-        if (extentX >= extentZ) {
-            // Void is wider in X: offset in Z direction
-            offsetX = 0;
-            offsetZ = (floorZ >= cz) ? STRUCTURE_OFFSET : -STRUCTURE_OFFSET;
-        } else {
-            // Void is wider in Z: offset in X direction
-            offsetX = (floorX >= cx) ? STRUCTURE_OFFSET : -STRUCTURE_OFFSET;
-            offsetZ = 0;
-        }
-
-        // 3. Calculate structure placement position
-        // Account for prefab anchor: paste position = target - anchor
-        // so the anchor point lands on the floor
-        int structX = floorX + offsetX;
+        // 2. Place directly at the floor position (inside the cave void where there's clearance)
+        int structX = floorX;
         int structY = floorY;
-        int structZ = floorZ + offsetZ;
+        int structZ = floorZ;
 
         LOGGER.atInfo().log("Placing structure at (%d, %d, %d) for void at (%d, %d, %d)",
                 structX, structY, structZ, cx, cy, cz);
@@ -148,11 +130,11 @@ public class UndergroundStructurePlacer {
                 pasteX, pasteY, pasteZ,
                 buffer.getAnchorX(), buffer.getAnchorY(), buffer.getAnchorZ());
 
-        // 5. Pre-load chunks covering the prefab footprint
-        int minChunkX = ChunkUtil.chunkCoordinate(pasteX + buffer.getMinX());
-        int minChunkZ = ChunkUtil.chunkCoordinate(pasteZ + buffer.getMinZ());
-        int maxChunkX = ChunkUtil.chunkCoordinate(pasteX + buffer.getMaxX());
-        int maxChunkZ = ChunkUtil.chunkCoordinate(pasteZ + buffer.getMaxZ());
+        // 5. Pre-load chunks covering the prefab footprint + carve margin
+        int minChunkX = ChunkUtil.chunkCoordinate(pasteX + buffer.getMinX() - CARVE_MARGIN);
+        int minChunkZ = ChunkUtil.chunkCoordinate(pasteZ + buffer.getMinZ() - CARVE_MARGIN);
+        int maxChunkX = ChunkUtil.chunkCoordinate(pasteX + buffer.getMaxX() + CARVE_MARGIN);
+        int maxChunkZ = ChunkUtil.chunkCoordinate(pasteZ + buffer.getMaxZ() + CARVE_MARGIN);
 
         List<CompletableFuture<?>> chunkFutures = new ArrayList<>();
         for (int chunkX = minChunkX; chunkX <= maxChunkX; chunkX++) {
@@ -174,12 +156,13 @@ public class UndergroundStructurePlacer {
                     }
                     deferTicks(world, DEFER_TICKS, () -> {
                         try {
+                            carveClearing(world, pasteX, pasteY, pasteZ, buffer);
+
                             Random random = new Random();
                             PrefabUtil.paste(buffer, world, pastePos, Rotation.None, true, random, 0, store);
                             LOGGER.atInfo().log("Pasted prefab at (%d, %d, %d)", pasteX, pasteY, pasteZ);
 
-                            Vector3i entrance = new Vector3i(floorX, floorY, floorZ);
-                            result.complete(entrance);
+                            result.complete(pastePos);
                         } catch (Exception e) {
                             LOGGER.atSevere().withCause(e).log("Failed to paste prefab");
                             result.complete(null);
@@ -264,22 +247,52 @@ public class UndergroundStructurePlacer {
     }
 
     /**
-     * Set a single block to empty/air.
-     * <p>
-     * TODO: Verify correct API for setting blocks to empty. Candidates to try at runtime:
-     * - world.setBlockType(x, y, z, null)
-     * - world.setBlock(x, y, z, null)
-     * - world.removeBlock(x, y, z)
-     * - BlockType.getAssetMap().getAsset("Empty") then world.setBlockType(x, y, z, empty)
-     * - Chunk-level API via world.getChunk() then chunk.setBlockType()
+     * Carve a clearing around the prefab's bounding box so the structure is not buried.
+     * Clears the prefab footprint + margin to empty, then the prefab paste overwrites
+     * the interior with the structure's own blocks.
      */
-    private boolean setBlockEmptyWarned = false;
+    private void carveClearing(World world, int pasteX, int pasteY, int pasteZ, IPrefabBuffer buffer) {
+        int fromX = pasteX + buffer.getMinX() - CARVE_MARGIN;
+        int fromZ = pasteZ + buffer.getMinZ() - CARVE_MARGIN;
+        int toX = pasteX + buffer.getMaxX() + CARVE_MARGIN;
+        int toZ = pasteZ + buffer.getMaxZ() + CARVE_MARGIN;
+        int fromY = pasteY + buffer.getMinY();
+        int toY = pasteY + buffer.getMaxY() + 1;
+
+        BlockType empty = BlockType.getAssetMap().getAsset("Empty");
+        if (empty == null) {
+            LOGGER.atSevere().log("Could not find Empty block type: carving skipped");
+            return;
+        }
+
+        int cleared = 0;
+        for (int x = fromX; x <= toX; x++) {
+            for (int z = fromZ; z <= toZ; z++) {
+                long chunkKey = ChunkUtil.indexChunk(
+                        ChunkUtil.chunkCoordinate(x), ChunkUtil.chunkCoordinate(z));
+                BlockAccessor chunk = world.getChunkIfLoaded(chunkKey);
+                if (chunk == null) continue;
+
+                for (int y = fromY; y <= toY; y++) {
+                    chunk.setBlock(x, y, z, empty);
+                    cleared++;
+                }
+            }
+        }
+
+        LOGGER.atInfo().log("Carved clearing: %d blocks in (%d,%d,%d)-(%d,%d,%d)",
+                cleared, fromX, fromY, fromZ, toX, toY, toZ);
+    }
 
     private void setBlockEmpty(World world, int x, int y, int z) {
-        // Stub: block-setting API not yet discovered
-        if (!setBlockEmptyWarned) {
-            LOGGER.atWarning().log("setBlockEmpty not yet implemented: tunnel carving will be skipped");
-            setBlockEmptyWarned = true;
+        long chunkKey = ChunkUtil.indexChunk(
+                ChunkUtil.chunkCoordinate(x), ChunkUtil.chunkCoordinate(z));
+        BlockAccessor chunk = world.getChunkIfLoaded(chunkKey);
+        if (chunk == null) return;
+
+        BlockType empty = BlockType.getAssetMap().getAsset("Empty");
+        if (empty != null) {
+            chunk.setBlock(x, y, z, empty);
         }
     }
 

@@ -6,6 +6,7 @@ import com.hypixel.hytale.server.core.asset.type.blocktype.config.BlockType;
 import com.hypixel.hytale.server.core.universe.world.World;
 
 import java.util.*;
+import java.util.stream.Collectors;
 
 /**
  * Detects underground air pockets in chunks using column sampling and BFS flood-fill.
@@ -22,6 +23,8 @@ public class CaveVoidScanner {
     private static final int CHUNK_SIZE = 32;
 
     private static final int[][] DIRS = {{1, 0, 0}, {-1, 0, 0}, {0, 1, 0}, {0, -1, 0}, {0, 0, 1}, {0, 0, -1}};
+
+    private static Set<BlockType> fluidTypes;
 
     private final CaveVoidRegistry registry;
 
@@ -43,7 +46,7 @@ public class CaveVoidScanner {
             for (int z = chunkBlockZ; z < chunkBlockZ + CHUNK_SIZE; z += SAMPLE_STEP) {
                 for (int y = MAX_Y; y >= MIN_Y; y--) {
                     BlockType bt = world.getBlockType(x, y, z);
-                    if (bt != null && bt.getMaterial() == BlockMaterial.Solid) continue;
+                    if (isNonVoid(bt)) continue;
 
                     // Skip if too close to an already-registered void
                     if (isTooCloseToExisting(x, z)) break;
@@ -111,7 +114,7 @@ public class CaveVoidScanner {
             int x = pos[0], y = pos[1], z = pos[2];
 
             BlockType bt = world.getBlockType(x, y, z);
-            if (bt != null && bt.getMaterial() == BlockMaterial.Solid) continue;
+            if (isNonVoid(bt)) continue;
 
             volume++;
             minX = Math.min(minX, x);
@@ -144,6 +147,27 @@ public class CaveVoidScanner {
         int centerY = (minY + maxY) / 2;
         int centerZ = (minZ + maxZ) / 2;
         return new FloodFillResult(centerX, centerY, centerZ, minX, minY, minZ, maxX, maxY, maxZ, volume, floorPositions);
+    }
+
+    /**
+     * Returns true if the block is non-void: solid or fluid.
+     * Null (air) returns false.
+     */
+    private static boolean isNonVoid(BlockType bt) {
+        if (bt == null) return false;
+        if (bt.getMaterial() == BlockMaterial.Solid) return true;
+        return getFluidTypes().contains(bt);
+    }
+
+    private static Set<BlockType> getFluidTypes() {
+        if (fluidTypes == null) {
+            fluidTypes = BlockType.getAssetMap().getAssetMap().entrySet().stream()
+                    .filter(e -> e.getKey().startsWith("Fluid_"))
+                    .map(Map.Entry::getValue)
+                    .collect(Collectors.toSet());
+            LOGGER.atInfo().log("Loaded %d fluid block types for void filtering", fluidTypes.size());
+        }
+        return fluidTypes;
     }
 
     private static long packPos(int x, int y, int z) {

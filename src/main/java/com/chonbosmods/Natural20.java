@@ -197,7 +197,6 @@ public class Natural20 extends JavaPlugin {
             int chunkBlockX = chunk.getX() * 32;
             int chunkBlockZ = chunk.getZ() * 32;
             worldGenListener.onChunkLoad(chunk.getWorld(), chunkBlockX, chunkBlockZ);
-            caveVoidScanner.scanChunk(chunk.getWorld(), chunkBlockX, chunkBlockZ);
         });
 
         // Load dialogue files from plugin data directory
