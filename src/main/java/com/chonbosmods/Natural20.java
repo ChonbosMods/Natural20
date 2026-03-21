@@ -1,5 +1,7 @@
 package com.chonbosmods;
 
+import com.chonbosmods.cave.CaveVoidRegistry;
+import com.chonbosmods.cave.CaveVoidScanner;
 import com.chonbosmods.commands.Nat20Command;
 import com.chonbosmods.data.Nat20GlobalData;
 import com.chonbosmods.data.Nat20NpcData;
@@ -29,6 +31,7 @@ import com.hypixel.hytale.server.core.universe.world.storage.EntityStore;
 import com.hypixel.hytale.server.core.util.Config;
 
 import javax.annotation.Nonnull;
+import java.nio.file.Path;
 import java.util.concurrent.TimeUnit;
 
 public class Natural20 extends JavaPlugin {
@@ -47,6 +50,8 @@ public class Natural20 extends JavaPlugin {
     private QuestSystem questSystem;
     private final Nat20EquipmentListener equipmentListener = new Nat20EquipmentListener(lootSystem);
     private SettlementRegistry settlementRegistry;
+    private CaveVoidRegistry caveVoidRegistry;
+    private CaveVoidScanner caveVoidScanner;
     private Config<Nat20GlobalData> globalConfig;
 
     public Natural20(@Nonnull JavaPluginInit init) {
@@ -90,6 +95,10 @@ public class Natural20 extends JavaPlugin {
     public SettlementRegistry getSettlementRegistry() {
         return settlementRegistry;
     }
+
+    public CaveVoidRegistry getCaveVoidRegistry() { return caveVoidRegistry; }
+
+    public CaveVoidScanner getCaveVoidScanner() { return caveVoidScanner; }
 
     /**
      * Called when a new settlement is created during world generation.
@@ -169,6 +178,12 @@ public class Natural20 extends JavaPlugin {
         settlementRegistry = new SettlementRegistry(getDataDirectory());
         settlementRegistry.load();
 
+        // Load cave void registry and scanner
+        Path caveVoidPath = getDataDirectory().resolve("cave_voids.json");
+        caveVoidRegistry = new CaveVoidRegistry(caveVoidPath);
+        caveVoidRegistry.load();
+        caveVoidScanner = new CaveVoidScanner(caveVoidRegistry);
+
         // Register worldgen settlement listener
         SettlementWorldGenListener worldGenListener = new SettlementWorldGenListener(settlementRegistry, placer);
         getEventRegistry().registerGlobal(ChunkPreLoadProcessEvent.class, event -> {
@@ -177,6 +192,7 @@ public class Natural20 extends JavaPlugin {
             int chunkBlockX = chunk.getX() * 32;
             int chunkBlockZ = chunk.getZ() * 32;
             worldGenListener.onChunkLoad(chunk.getWorld(), chunkBlockX, chunkBlockZ);
+            caveVoidScanner.scanChunk(chunk.getWorld(), chunkBlockX, chunkBlockZ);
         });
 
         // Load dialogue files from plugin data directory
@@ -207,6 +223,9 @@ public class Natural20 extends JavaPlugin {
         getLogger().atInfo().log("Natural 20 shutting down...");
         if (settlementRegistry != null) {
             settlementRegistry.saveAsync();
+        }
+        if (caveVoidRegistry != null) {
+            caveVoidRegistry.saveAsync().join();
         }
     }
 }
