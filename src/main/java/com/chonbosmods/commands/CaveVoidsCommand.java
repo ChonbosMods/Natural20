@@ -27,7 +27,7 @@ import java.util.List;
 public class CaveVoidsCommand extends AbstractPlayerCommand {
 
     private final RequiredArg<String> operationArg =
-            withRequiredArg("operation", "scan [radius], list, nearest, place, clear", ArgTypes.STRING);
+            withRequiredArg("operation", "scan [radius], list, nearest, place, stats, clear", ArgTypes.STRING);
     private final OptionalArg<String> extraArg =
             withOptionalArg("args", "Optional arguments (e.g. radius for scan)", ArgTypes.STRING);
 
@@ -54,10 +54,11 @@ public class CaveVoidsCommand extends AbstractPlayerCommand {
             case "scan" -> executeScan(context, world, playerPos);
             case "list" -> executeList(context, playerPos);
             case "nearest" -> executeNearest(context, playerPos);
-            case "place" -> executePlace(context, world, playerPos);
+            case "place" -> executePlace(context, world, playerPos, store);
             case "clear" -> executeClear(context);
+            case "stats" -> executeStats(context, playerPos);
             default -> context.sendMessage(Message.raw(
-                    "Unknown operation: " + operation + ". Use: scan, list, nearest, place, clear"));
+                    "Unknown operation: " + operation + ". Use: scan, list, nearest, place, stats, clear"));
         }
     }
 
@@ -111,9 +112,12 @@ public class CaveVoidsCommand extends AbstractPlayerCommand {
             .limit(20)
             .forEach(v -> {
                 int dist = v.distanceTo(px, pz);
+                int spanX = v.getMaxX() - v.getMinX() + 1;
+                int spanZ = v.getMaxZ() - v.getMinZ() + 1;
                 String claimed = v.isClaimed() ? " [CLAIMED by " + v.getClaimedBySettlement() + "]" : "";
                 context.sendMessage(Message.raw("  (" + v.getCenterX() + ", " + v.getCenterY() + ", " + v.getCenterZ() +
-                        ") vol=" + v.getVolume() + " dist=" + dist + "m" + claimed));
+                        ") vol=" + v.getVolume() + " span=" + spanX + "x" + spanZ +
+                        " dist=" + dist + "m" + claimed));
             });
 
         if (all.size() > 20) {
@@ -140,7 +144,8 @@ public class CaveVoidsCommand extends AbstractPlayerCommand {
                 nearest.getCenterY() + " " + nearest.getCenterZ()));
     }
 
-    private void executePlace(CommandContext context, World world, Vector3d playerPos) {
+    private void executePlace(CommandContext context, World world, Vector3d playerPos,
+                              Store<EntityStore> store) {
         CaveVoidRegistry registry = Natural20.getInstance().getCaveVoidRegistry();
         int px = (int) playerPos.getX();
         int pz = (int) playerPos.getZ();
@@ -156,10 +161,8 @@ public class CaveVoidsCommand extends AbstractPlayerCommand {
         int cz = nearest.getCenterZ();
         context.sendMessage(Message.raw("Placing structure at nearest void (" + cx + ", " + cy + ", " + cz + ")..."));
 
-        var entityStore = world.getEntityStore().getStore();
-
         Natural20.getInstance().getStructurePlacer()
-                .placeAtVoid(world, nearest, entityStore)
+                .placeAtVoid(world, nearest, store)
                 .whenComplete((entrance, error) -> {
                     if (error != null) {
                         context.sendMessage(Message.raw("Structure placement failed: " + error.getMessage()));
@@ -180,5 +183,22 @@ public class CaveVoidsCommand extends AbstractPlayerCommand {
         int count = registry.getCount();
         registry.clear();
         context.sendMessage(Message.raw("Cleared " + count + " cave void(s) from registry."));
+    }
+
+    private void executeStats(CommandContext context, Vector3d playerPos) {
+        CaveVoidRegistry registry = Natural20.getInstance().getCaveVoidRegistry();
+        List<CaveVoidRecord> all = registry.getAll();
+
+        if (all.isEmpty()) {
+            context.sendMessage(Message.raw("No cave voids registered. Run 'scan' first."));
+            return;
+        }
+
+        int[] tiers = {25_000, 50_000, 100_000, 250_000};
+        context.sendMessage(Message.raw("Cave void stats (" + all.size() + " total):"));
+        for (int tier : tiers) {
+            long count = all.stream().filter(v -> v.getVolume() >= tier).count();
+            context.sendMessage(Message.raw("  " + tier + "+ blocks: " + count + " void(s)"));
+        }
     }
 }
