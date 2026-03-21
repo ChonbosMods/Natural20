@@ -40,7 +40,17 @@ public class ActionNat20StartDialogue extends ActionBase {
             return true;
         }
 
-        dialogueManager.startSession(playerRef, npcRef, store);
+        // Create cleanup callback to release NPC from $Interaction when dialogue ends
+        Runnable releaseNpc = () -> {
+            try {
+                int idleIndex = role.getStateSupport().getStateHelper().getStateIndex("Idle");
+                role.getStateSupport().setState(idleIndex, 0, false, false);
+            } catch (Exception e) {
+                LOGGER.atWarning().withCause(e).log("Failed to release NPC from $Interaction");
+            }
+        };
+
+        dialogueManager.startSession(playerRef, npcRef, store, releaseNpc);
         return true;
     }
 

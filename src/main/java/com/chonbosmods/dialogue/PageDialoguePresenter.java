@@ -188,6 +188,18 @@ public class PageDialoguePresenter implements DialoguePresenter {
         player.getPageManager().openCustomPage(entityRef, store, dialoguePage);
     }
 
+    /**
+     * Open the dialogue page directly on the caller's thread.
+     * Used for the initial page open from session start, where no event handler
+     * is on the stack and the scheduler delay is unnecessary. Caches topics and
+     * disposition, then opens the page synchronously.
+     */
+    public void openInitialPage(List<ResolvedTopic> visibleTopics, int disposition) {
+        currentTopics = visibleTopics;
+        currentDisposition = disposition;
+        openDialoguePage();
+    }
+
     // --- Private methods ---
 
     private boolean isSessionTopicsLocked() {

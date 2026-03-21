@@ -15,5 +15,6 @@ public interface DialoguePresenter {
     void refreshDisposition(int disposition);
     void showSkillCheck(DialogueNode.SkillCheckNode node, int effectiveDC, PlayerStats stats);
     void flushUpdates();
+    void openInitialPage(List<ResolvedTopic> visibleTopics, int disposition);
     void close();
 }

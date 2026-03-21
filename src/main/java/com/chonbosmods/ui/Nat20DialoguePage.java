@@ -58,6 +58,7 @@ public class Nat20DialoguePage extends InteractiveCustomUIPage<Nat20DialoguePage
     private boolean topicsLocked;
     private BiConsumer<String, String> onEvent;
     private boolean built;
+    private boolean dismissed;
 
     public Nat20DialoguePage(PlayerRef playerRef) {
         super(playerRef, CustomPageLifetime.CanDismiss, EVENT_CODEC);
@@ -299,6 +300,13 @@ public class Nat20DialoguePage extends InteractiveCustomUIPage<Nat20DialoguePage
         LOGGER.atInfo().log("handleDataEvent: type='" + type + "', id='" + id + "'");
         if (type == null || type.isEmpty()) return;
 
+        // Goodbye button: dismiss the page just like ESC does.
+        // onDismiss will fire and handle session cleanup.
+        if ("goodbye".equals(type)) {
+            close();
+            return;
+        }
+
         // Server-side guard: reject topic clicks while locked
         if ("topic".equals(type) && topicsLocked) {
             LOGGER.atWarning().log("Rejected topic click while locked: id='" + id + "'");
@@ -313,8 +321,11 @@ public class Nat20DialoguePage extends InteractiveCustomUIPage<Nat20DialoguePage
     @Override
     public void onDismiss(Ref<EntityStore> playerRef, Store<EntityStore> store) {
         LOGGER.atInfo().log("onDismiss");
+        dismissed = true;
         if (onEvent != null) {
-            onEvent.accept("goodbye", "");
+            BiConsumer<String, String> handler = onEvent;
+            onEvent = null;
+            handler.accept("goodbye", "");
         }
     }
 
@@ -323,7 +334,9 @@ public class Nat20DialoguePage extends InteractiveCustomUIPage<Nat20DialoguePage
     }
 
     public void closePage() {
-        close();
+        if (!dismissed) {
+            close();
+        }
     }
 
     // --- Inner event data class ---

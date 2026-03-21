@@ -32,7 +32,7 @@ public class DialogueManager {
         this.conditionEvaluator = new ConditionEvaluator();
     }
 
-    public void startSession(Ref<EntityStore> playerRef, Ref<EntityStore> npcRef, Store<EntityStore> store) {
+    public void startSession(Ref<EntityStore> playerRef, Ref<EntityStore> npcRef, Store<EntityStore> store, Runnable onNpcRelease) {
         // Resolve Player from entity ref
         Player player = store.getComponent(playerRef, Player.getComponentType());
         if (player == null) {
@@ -87,7 +87,7 @@ public class DialogueManager {
                 player, playerRef, npcRef,
                 store, graph, playerData, npcData,
                 actionRegistry, conditionEvaluator,
-                presenter, onSessionEnd);
+                presenter, onSessionEnd, onNpcRelease);
 
         activeSessions.put(playerUuid, session);
 

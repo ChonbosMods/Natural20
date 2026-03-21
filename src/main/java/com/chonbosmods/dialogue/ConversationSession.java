@@ -53,6 +53,7 @@ public class ConversationSession {
     // Callbacks
     private final DialoguePresenter presenter;
     private final Runnable onSessionEnd;
+    private final Runnable onNpcRelease;
 
     public ConversationSession(
             Player player,
@@ -65,7 +66,8 @@ public class ConversationSession {
             DialogueActionRegistry actionRegistry,
             ConditionEvaluator conditionEvaluator,
             DialoguePresenter presenter,
-            Runnable onSessionEnd
+            Runnable onSessionEnd,
+            Runnable onNpcRelease
     ) {
         this.player = player;
         this.playerId = player.getPlayerRef().getUuid();
@@ -80,6 +82,7 @@ public class ConversationSession {
         this.conditionEvaluator = conditionEvaluator;
         this.presenter = presenter;
         this.onSessionEnd = onSessionEnd;
+        this.onNpcRelease = onNpcRelease;
         int defaultDisp = npcData.getDefaultDisposition() != 0
             ? npcData.getDefaultDisposition()
             : graph.defaultDisposition();
@@ -90,9 +93,7 @@ public class ConversationSession {
 
     public void start() {
         processNode(graph.greetingNodeId());
-        presenter.refreshTopics(resolveVisibleTopics());
-        presenter.refreshDisposition(disposition);
-        presenter.flushUpdates();
+        presenter.openInitialPage(resolveVisibleTopics(), disposition);
     }
 
     public void startFromSaved(List<LogEntry> savedLog, String savedActiveNodeId,
@@ -132,9 +133,7 @@ public class ConversationSession {
 
         presenter.refreshLog(conversationLog);
         presenter.refreshFollowUps(activeFollowUps);
-        presenter.refreshTopics(resolveVisibleTopics());
-        presenter.refreshDisposition(disposition);
-        presenter.flushUpdates();
+        presenter.openInitialPage(resolveVisibleTopics(), disposition);
     }
 
     public void endDialogue() {
@@ -150,6 +149,9 @@ public class ConversationSession {
         }
 
         presenter.close();
+        if (onNpcRelease != null) {
+            onNpcRelease.run();
+        }
         onSessionEnd.run();
     }
 
