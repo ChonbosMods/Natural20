@@ -61,6 +61,7 @@ public class CaveVoidRegistry {
         }
 
         dirty.set(true);
+        saveAsync();
     }
 
     /**
