@@ -17,8 +17,8 @@ public class CaveVoidScanner {
     private static final int MIN_Y = 10;
     private static final int MAX_Y = 90;
     private static final int SAMPLE_STEP = 4;
-    private static final int MIN_VOLUME = 125;
-    private static final int FLOOD_FILL_CAP = 2000;
+    private static final int MIN_VOLUME = 25_000;
+    private static final int FLOOD_FILL_CAP = 50_000;
     private static final int CHUNK_SIZE = 32;
 
     private static final int[][] DIRS = {{1, 0, 0}, {-1, 0, 0}, {0, 1, 0}, {0, -1, 0}, {0, 0, 1}, {0, 0, -1}};
@@ -50,6 +50,13 @@ public class CaveVoidScanner {
 
                     FloodFillResult result = floodFill(world, x, y, z);
                     if (result != null && result.volume() >= MIN_VOLUME) {
+                        // Reject voids too narrow to fit a structure
+                        int xExtent = result.maxX() - result.minX() + 1;
+                        int zExtent = result.maxZ() - result.minZ() + 1;
+                        if (xExtent < 25 || zExtent < 25) {
+                            break; // too narrow, skip to next column
+                        }
+
                         CaveVoidRecord record = new CaveVoidRecord(
                                 result.centerX(), result.centerY(), result.centerZ(),
                                 result.minX(), result.minY(), result.minZ(),
@@ -58,8 +65,9 @@ public class CaveVoidScanner {
                                 chunkKey
                         );
                         registry.register(record);
-                        LOGGER.atInfo().log("Found cave void: center=(%d,%d,%d) volume=%d",
-                                result.centerX(), result.centerY(), result.centerZ(), result.volume());
+                        LOGGER.atInfo().log("Found cave void: center=(%d,%d,%d) volume=%d span=%dx%d",
+                                result.centerX(), result.centerY(), result.centerZ(),
+                                result.volume(), xExtent, zExtent);
                     }
 
                     // After processing this air pocket (registered or not), move to the next column
