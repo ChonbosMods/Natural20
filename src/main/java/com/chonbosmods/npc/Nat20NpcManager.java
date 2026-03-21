@@ -11,10 +11,8 @@ import com.hypixel.hytale.math.vector.Vector3f;
 import com.hypixel.hytale.logger.HytaleLogger;
 import com.hypixel.hytale.protocol.BlockMaterial;
 import com.hypixel.hytale.server.core.asset.type.blocktype.config.BlockType;
-import com.hypixel.hytale.server.core.asset.type.model.config.Model;
 import com.hypixel.hytale.server.core.cosmetics.CosmeticsModule;
 import com.hypixel.hytale.server.core.entity.nameplate.Nameplate;
-import com.hypixel.hytale.server.core.modules.entity.component.ModelComponent;
 import com.hypixel.hytale.server.core.modules.entity.player.PlayerSkinComponent;
 import com.hypixel.hytale.server.core.universe.world.World;
 import com.hypixel.hytale.server.core.universe.world.storage.EntityStore;
@@ -78,11 +76,8 @@ public class Nat20NpcManager {
             String name = Nat20NameGenerator.generate(java.util.Objects.hash(cellKey, npcIndex));
             npcIndex++;
 
-            // Create skin model before spawn so it's passed through the engine's model system
-            Model skinModel = createSkinModel(name);
-
             Pair<Ref<EntityStore>, NPCEntity> result =
-                NPCPlugin.get().spawnEntity(store, roleIndex, spawnPos, def.rotation(), skinModel, null, null);
+                NPCPlugin.get().spawnEntity(store, roleIndex, spawnPos, def.rotation(), null, null);
 
             if (result != null) {
                 Ref<EntityStore> npcRef = result.first();
@@ -110,7 +105,7 @@ public class Nat20NpcManager {
                 store.putComponent(npcRef, Nameplate.getComponentType(), new Nameplate(displayName));
 
                 // Apply skin component (appearance data, model already set via spawnEntity)
-                applySkinComponent(store, npcRef, name);
+                applyRandomSkin(store, npcRef,name);
 
                 // Equip guard armor
                 if (roleName.equals("Guard")) {
@@ -159,11 +154,8 @@ public class Nat20NpcManager {
         Vector3d spawnPos = new Vector3d(record.getSpawnX(), record.getSpawnY(), record.getSpawnZ());
         Vector3f rotation = new Vector3f(record.getRotX(), record.getRotY(), record.getRotZ());
 
-        // Create skin model before spawn so it's passed through the engine's model system
-        Model skinModel = createSkinModel(record.getGeneratedName());
-
         Pair<Ref<EntityStore>, NPCEntity> result =
-            NPCPlugin.get().spawnEntity(store, roleIndex, spawnPos, rotation, skinModel, null, null);
+            NPCPlugin.get().spawnEntity(store, roleIndex, spawnPos, rotation, null, null);
 
         if (result == null) {
             LOGGER.atWarning().log("Failed to respawn " + roleName);
@@ -186,7 +178,7 @@ public class Nat20NpcManager {
         store.putComponent(npcRef, Nameplate.getComponentType(), new Nameplate(displayName));
 
         // Apply skin component (appearance data, model already set via spawnEntity)
-        applySkinComponent(store, npcRef, record.getGeneratedName());
+        applyRandomSkin(store, npcRef,record.getGeneratedName());
 
         // Equip guard armor
         if (roleName.equals("Guard")) {
@@ -218,20 +210,11 @@ public class Nat20NpcManager {
     }
 
     /**
-     * Create a player-model from a deterministic skin for an NPC.
-     * Passed to spawnEntity so the engine handles model persistence natively.
+     * Apply a randomized player skin to an NPC entity, giving it a unique appearance.
+     * Uses a deterministic seed from the NPC's name so respawned NPCs look the same.
+     * The role's Appearance is set to "Player" so PlayerSkinComponent provides the texture.
      */
-    private Model createSkinModel(String generatedName) {
-        Random rng = new Random(generatedName.hashCode());
-        com.hypixel.hytale.protocol.PlayerSkin skin = CosmeticsModule.get().generateRandomSkin(rng);
-        return CosmeticsModule.get().createModel(skin, 1.0f);
-    }
-
-    /**
-     * Apply the PlayerSkinComponent for appearance data.
-     * Model is already set via spawnEntity; this provides the skin texture/metadata.
-     */
-    private void applySkinComponent(Store<EntityStore> store, Ref<EntityStore> npcRef, String generatedName) {
+    private void applyRandomSkin(Store<EntityStore> store, Ref<EntityStore> npcRef, String generatedName) {
         Random rng = new Random(generatedName.hashCode());
         com.hypixel.hytale.protocol.PlayerSkin skin = CosmeticsModule.get().generateRandomSkin(rng);
 

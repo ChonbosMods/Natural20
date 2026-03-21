@@ -108,10 +108,20 @@ public class TopicGenerator {
 
         // Mark quest bearers: assign to a random NPC
         List<String> npcNames = npcs.stream().map(NpcRecord::getGeneratedName).toList();
+        Map<String, NpcRecord> npcByName = new LinkedHashMap<>();
+        for (NpcRecord npc : npcs) npcByName.put(npc.getGeneratedName(), npc);
+
         for (int qi : questCandidates) {
             SubjectFocus focus = subjects.get(qi);
             String bearer = npcNames.get(random.nextInt(npcNames.size()));
             focus.setQuestBearer(bearer, focus.getSubjectId());
+            NpcRecord rec = npcByName.get(bearer);
+            LOGGER.atInfo().log("  QUEST BEARER: %s (%s) holds quest for '%s' | /tp %d %d %d",
+                bearer, rec != null ? rec.getRole() : "?",
+                focus.getSubjectValue(),
+                rec != null ? (int) rec.getSpawnX() : 0,
+                rec != null ? (int) rec.getSpawnY() : 0,
+                rec != null ? (int) rec.getSpawnZ() : 0);
         }
 
         // Step 4: Distribute subjects across NPCs
