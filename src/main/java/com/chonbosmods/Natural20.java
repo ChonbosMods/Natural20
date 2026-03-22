@@ -12,6 +12,7 @@ import com.chonbosmods.dialogue.DialogueLoader;
 import com.chonbosmods.dialogue.DialogueManager;
 import com.chonbosmods.loot.Nat20EquipmentListener;
 import com.chonbosmods.loot.Nat20LootSystem;
+import com.chonbosmods.quest.POIKillTrackingSystem;
 import com.chonbosmods.quest.POIPopulationListener;
 import com.chonbosmods.quest.QuestSystem;
 import com.chonbosmods.npc.BuilderActionNat20StartDialogue;
@@ -171,6 +172,9 @@ public class Natural20 extends JavaPlugin {
 
         // Register settlement NPC death/respawn system
         getEntityStoreRegistry().registerSystem(new SettlementNpcDeathSystem());
+
+        // Register POI kill tracking system for quest objectives
+        getEntityStoreRegistry().registerSystem(new POIKillTrackingSystem());
 
         // Register settlement threat detection system (marks attackers as hostile)
         getEntityStoreRegistry().registerSystem(new SettlementThreatSystem());
