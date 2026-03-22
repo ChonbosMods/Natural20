@@ -12,6 +12,7 @@ import com.chonbosmods.dialogue.DialogueLoader;
 import com.chonbosmods.dialogue.DialogueManager;
 import com.chonbosmods.loot.Nat20EquipmentListener;
 import com.chonbosmods.loot.Nat20LootSystem;
+import com.chonbosmods.quest.POIPopulationListener;
 import com.chonbosmods.quest.QuestSystem;
 import com.chonbosmods.npc.BuilderActionNat20StartDialogue;
 import com.chonbosmods.npc.Nat20NpcManager;
@@ -55,6 +56,7 @@ public class Natural20 extends JavaPlugin {
     private CaveVoidRegistry caveVoidRegistry;
     private CaveVoidScanner caveVoidScanner;
     private UndergroundStructurePlacer structurePlacer;
+    private POIPopulationListener poiPopulationListener;
     private Config<Nat20GlobalData> globalConfig;
 
     public Natural20(@Nonnull JavaPluginInit init) {
@@ -104,6 +106,8 @@ public class Natural20 extends JavaPlugin {
     public CaveVoidScanner getCaveVoidScanner() { return caveVoidScanner; }
 
     public UndergroundStructurePlacer getStructurePlacer() { return structurePlacer; }
+
+    public POIPopulationListener getPOIPopulationListener() { return poiPopulationListener; }
 
     private volatile World defaultWorld;
 
@@ -208,6 +212,10 @@ public class Natural20 extends JavaPlugin {
             int chunkBlockZ = chunk.getZ() * 32;
             worldGenListener.onChunkLoad(chunk.getWorld(), chunkBlockX, chunkBlockZ);
         });
+
+        // Register POI mob population listener (deferred spawning when player approaches quest POI)
+        poiPopulationListener = new POIPopulationListener();
+        getEventRegistry().registerGlobal(ChunkPreLoadProcessEvent.class, poiPopulationListener::onChunkLoad);
 
         // Load dialogue files from plugin data directory
         dialogueLoader.loadAll(getDataDirectory().resolve("dialogues"));

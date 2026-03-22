@@ -3,6 +3,7 @@ package com.chonbosmods.action;
 import com.chonbosmods.Natural20;
 import com.chonbosmods.cave.CaveVoidRecord;
 import com.chonbosmods.cave.CaveVoidRegistry;
+import com.chonbosmods.quest.POIPopulationListener;
 import com.chonbosmods.quest.QuestSystem;
 import com.chonbosmods.quest.QuestInstance;
 import com.google.common.flogger.FluentLogger;
@@ -91,6 +92,23 @@ public class DialogueActionRegistry {
                 // If quest has a POI, claim the void and place the structure
                 if ("true".equals(quest.getVariableBindings().get("poi_available"))) {
                     triggerPOIPlacement(quest, ctx.store());
+
+                    // Register pending mob population for when player approaches
+                    String popSpec = quest.getVariableBindings().get("poi_population_spec");
+                    if (popSpec != null && popSpec.startsWith("KILL_MOBS:")) {
+                        String[] parts = popSpec.split(":");
+                        String mobRole = parts[1];
+                        int mobCount = Integer.parseInt(parts[2]);
+                        int poiX = Integer.parseInt(quest.getVariableBindings().get("poi_center_x"));
+                        int poiY = Integer.parseInt(quest.getVariableBindings().get("poi_center_y"));
+                        int poiZ = Integer.parseInt(quest.getVariableBindings().get("poi_center_z"));
+
+                        Natural20.getInstance().getPOIPopulationListener().register(
+                            new POIPopulationListener.PendingPopulation(
+                                quest.getQuestId(), poiX, poiY, poiZ, mobRole, mobCount, ctx.playerRef()
+                            )
+                        );
+                    }
                 }
 
                 ctx.systemLogger().accept("Quest accepted: " + quest.getSituationId());
