@@ -1176,12 +1176,29 @@
       {
         "Continue": true,
         "Sensor": {
-          "Type": "Any"
+          "Type": "State",
+          "State": "Idle"
         },
         "Actions": [
           {
             "Type": "SetInteractable",
             "Interactable": true
+          }
+        ]
+      },
+      {
+        "Continue": true,
+        "Sensor": {
+          "Type": "Not",
+          "Sensor": {
+            "Type": "State",
+            "State": "Idle"
+          }
+        },
+        "Actions": [
+          {
+            "Type": "SetInteractable",
+            "Interactable": false
           }
         ]
       },
