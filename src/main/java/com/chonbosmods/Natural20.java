@@ -24,6 +24,7 @@ import com.chonbosmods.settlement.SettlementWorldGenListener;
 import com.hypixel.hytale.component.ComponentType;
 import com.hypixel.hytale.server.core.HytaleServer;
 import com.hypixel.hytale.server.core.event.events.player.PlayerDisconnectEvent;
+import com.hypixel.hytale.server.core.universe.world.World;
 import com.hypixel.hytale.server.core.universe.world.events.ChunkPreLoadProcessEvent;
 import com.hypixel.hytale.server.core.plugin.JavaPlugin;
 import com.hypixel.hytale.server.core.plugin.JavaPluginInit;
@@ -103,6 +104,12 @@ public class Natural20 extends JavaPlugin {
     public CaveVoidScanner getCaveVoidScanner() { return caveVoidScanner; }
 
     public UndergroundStructurePlacer getStructurePlacer() { return structurePlacer; }
+
+    private volatile World defaultWorld;
+
+    public World getDefaultWorld() {
+        return defaultWorld;
+    }
 
     /**
      * Called when a new settlement is created during world generation.
@@ -193,6 +200,9 @@ public class Natural20 extends JavaPlugin {
         SettlementWorldGenListener worldGenListener = new SettlementWorldGenListener(settlementRegistry, placer);
         getEventRegistry().registerGlobal(ChunkPreLoadProcessEvent.class, event -> {
             var chunk = event.getChunk();
+            if (defaultWorld == null) {
+                defaultWorld = chunk.getWorld();
+            }
             // WorldChunk.getX()/getZ() return chunk coordinates: multiply by 32 for block coords
             int chunkBlockX = chunk.getX() * 32;
             int chunkBlockZ = chunk.getZ() * 32;
