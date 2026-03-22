@@ -171,6 +171,8 @@ public class QuestGenerator {
                                                       String npcId, Random random) {
         Map<String, String> bindings = new HashMap<>();
         bindings.put("quest_giver_name", npcId);
+        bindings.put("npc_x", String.valueOf(npcX));
+        bindings.put("npc_z", String.valueOf(npcZ));
 
         QuestPoolRegistry.ItemEntry gatherItem = poolRegistry.randomGatherItem(random);
         bindings.put("quest_item", gatherItem.label());
@@ -337,37 +339,108 @@ public class QuestGenerator {
 
     private ObjectiveInstance createObjective(ObjectiveType type, ObjectiveConfig config,
                                               Map<String, String> bindings, Random random) {
+        boolean poiAvailable = "true".equals(bindings.get("poi_available"));
+
         return switch (type) {
             case GATHER_ITEMS -> new ObjectiveInstance(
                 type, bindings.get("gather_item_id"), bindings.get("quest_item"),
                 config.rollCount(random), null, null
             );
-            case KILL_MOBS -> new ObjectiveInstance(
-                type, bindings.get("enemy_type_id"), bindings.get("enemy_type"),
-                config.rollCount(random), null, null
-            );
+            case KILL_MOBS -> {
+                if (poiAvailable) {
+                    yield createPOIObjective(type, bindings, config, random);
+                }
+                yield new ObjectiveInstance(
+                    type, bindings.get("enemy_type_id"), bindings.get("enemy_type"),
+                    config.rollCount(random), null, null
+                );
+            }
             case DELIVER_ITEM -> new ObjectiveInstance(
                 type, bindings.get("gather_item_id"), bindings.get("quest_item"),
                 1, bindings.get("location_hint"), bindings.get("target_npc_settlement")
             );
-            case EXPLORE_LOCATION -> new ObjectiveInstance(
-                type, bindings.get("location"), bindings.getOrDefault("quest_location_name", "the area"),
-                1, bindings.get("location_hint"), bindings.get("location")
-            );
-            case FETCH_ITEM -> new ObjectiveInstance(
-                type, bindings.get("gather_item_id"), bindings.get("quest_item"),
-                1, bindings.get("location_hint"), bindings.get("location")
-            );
+            case EXPLORE_LOCATION -> {
+                if (poiAvailable) {
+                    yield createPOIObjective(type, bindings, config, random);
+                }
+                yield new ObjectiveInstance(
+                    type, bindings.get("location"), bindings.getOrDefault("quest_location_name", "the area"),
+                    1, bindings.get("location_hint"), bindings.get("location")
+                );
+            }
+            case FETCH_ITEM -> {
+                if (poiAvailable) {
+                    yield createPOIObjective(type, bindings, config, random);
+                }
+                yield new ObjectiveInstance(
+                    type, bindings.get("gather_item_id"), bindings.get("quest_item"),
+                    1, bindings.get("location_hint"), bindings.get("location")
+                );
+            }
             case TALK_TO_NPC -> new ObjectiveInstance(
                 type, bindings.getOrDefault("target_npc", "an NPC"),
                 bindings.getOrDefault("target_npc", "an NPC"),
                 1, bindings.get("location_hint"), bindings.get("target_npc_settlement")
             );
-            case KILL_NPC -> new ObjectiveInstance(
-                type, "bandit_" + Long.toHexString(random.nextLong()),
-                "a dangerous outlaw",
-                1, bindings.get("location_hint"), bindings.get("location")
-            );
+            case KILL_NPC -> {
+                if (poiAvailable) {
+                    yield createPOIObjective(type, bindings, config, random);
+                }
+                yield new ObjectiveInstance(
+                    type, "bandit_" + Long.toHexString(random.nextLong()),
+                    "a dangerous outlaw",
+                    1, bindings.get("location_hint"), bindings.get("location")
+                );
+            }
         };
+    }
+
+    private ObjectiveInstance createPOIObjective(ObjectiveType type, Map<String, String> bindings,
+                                                  ObjectiveConfig config, Random random) {
+        String poiX = bindings.get("poi_center_x");
+        String poiY = bindings.get("poi_center_y");
+        String poiZ = bindings.get("poi_center_z");
+        String poiLocationId = "poi:" + poiX + "," + poiY + "," + poiZ;
+
+        // Compute direction hint from NPC to POI
+        double npcX = 0, npcZ = 0;
+        try {
+            npcX = Double.parseDouble(bindings.getOrDefault("npc_x", "0"));
+            npcZ = Double.parseDouble(bindings.getOrDefault("npc_z", "0"));
+        } catch (NumberFormatException ignored) {}
+        String hint = DirectionUtil.computeHint(npcX, npcZ,
+                Double.parseDouble(poiX), Double.parseDouble(poiZ));
+
+        // Store POI metadata in quest bindings for population later
+        bindings.put("poi_type", "hostile_location");
+        bindings.put("poi_populated", "false");
+        bindings.put("poi_x", poiX);
+        bindings.put("poi_y", poiY);
+        bindings.put("poi_z", poiZ);
+
+        String populationSpec = switch (type) {
+            case KILL_MOBS -> "KILL_MOBS:" + bindings.get("enemy_type_id") + ":4";
+            case KILL_NPC -> "KILL_NPC:" + bindings.get("enemy_type_id") + ":1";
+            case FETCH_ITEM -> "FETCH_ITEM:" + bindings.get("gather_item_id") + ":1";
+            default -> "NONE";
+        };
+        bindings.put("poi_population_spec", populationSpec);
+
+        int requiredCount = switch (type) {
+            case KILL_MOBS -> 2;
+            case KILL_NPC -> 1;
+            case FETCH_ITEM -> 1;
+            default -> 1;
+        };
+
+        String targetLabel = switch (type) {
+            case KILL_MOBS -> bindings.get("enemy_type");
+            case KILL_NPC -> "a dangerous outlaw";
+            case FETCH_ITEM -> bindings.get("quest_item");
+            default -> "a cave dungeon";
+        };
+
+        return new ObjectiveInstance(type, poiLocationId, targetLabel,
+                requiredCount, hint, poiLocationId);
     }
 }
