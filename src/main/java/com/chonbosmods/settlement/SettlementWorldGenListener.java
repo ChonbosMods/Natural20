@@ -95,7 +95,7 @@ public class SettlementWorldGenListener {
                 registry.saveAsync();
 
                 // Generate procedural topic dialogues for the new settlement's NPCs
-                Natural20.getInstance().onSettlementCreated(record);
+                Natural20.getInstance().onSettlementCreated(record, world);
 
                 LOGGER.atInfo().log("Settlement placed at " + settlementX + ", " + groundY + ", " + settlementZ +
                     " with " + npcRecords.size() + " NPCs");

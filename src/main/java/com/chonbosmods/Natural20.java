@@ -118,13 +118,52 @@ public class Natural20 extends JavaPlugin {
 
     /**
      * Called when a new settlement is created during world generation.
-     * Generates procedural topic dialogue graphs for the settlement's NPCs.
+     * Generates procedural topic dialogue graphs and scans for nearby cave voids.
      */
-    public void onSettlementCreated(SettlementRecord settlement) {
+    public void onSettlementCreated(SettlementRecord settlement, World world) {
         if (questSystem != null) {
             var topicGraphs = questSystem.getTopicGenerator().generate(settlement);
             dialogueLoader.registerGeneratedGraphs(topicGraphs);
         }
+
+        // Scan for cave voids near the settlement so POI quests have targets
+        // Batched on the world thread: scans one row of chunks per tick to avoid blocking
+        if (caveVoidScanner != null && world != null) {
+            int centerX = (int) settlement.getPosX();
+            int centerZ = (int) settlement.getPosZ();
+            String cellKey = settlement.getCellKey();
+            int scanRadius = 150;
+            int chunkRadius = scanRadius / 32;
+            int centerChunkX = Math.floorDiv(centerX, 32);
+            int centerChunkZ = Math.floorDiv(centerZ, 32);
+            int startCX = centerChunkX - chunkRadius;
+            int endCX = centerChunkX + chunkRadius;
+            int startCZ = centerChunkZ - chunkRadius;
+            int endCZ = centerChunkZ + chunkRadius;
+            int beforeCount = caveVoidRegistry.getCount();
+            int maxVoids = 3;
+            scanChunkRow(world, cellKey, startCX, endCX, startCX, startCZ, endCZ, beforeCount, maxVoids);
+        }
+    }
+
+    /**
+     * Scans one row of chunks (one X value, all Z) for cave voids, then defers the next row
+     * to the next world tick. Stops early if maxVoids new voids have been found.
+     */
+    private void scanChunkRow(World world, String cellKey, int cx, int endCX,
+                               int startCX, int startCZ, int endCZ,
+                               int beforeCount, int maxVoids) {
+        if (cx > endCX || caveVoidRegistry.getCount() - beforeCount >= maxVoids) {
+            int found = caveVoidRegistry.getCount() - beforeCount;
+            getLogger().atInfo().log("Cave void scan near settlement %s: found %d void(s)", cellKey, found);
+            return;
+        }
+        for (int cz = startCZ; cz <= endCZ; cz++) {
+            caveVoidScanner.scanChunk(world, cx * 32, cz * 32);
+            if (caveVoidRegistry.getCount() - beforeCount >= maxVoids) break;
+        }
+        // Defer next row to next tick so we don't hog the world thread
+        world.execute(() -> scanChunkRow(world, cellKey, cx + 1, endCX, startCX, startCZ, endCZ, beforeCount, maxVoids));
     }
 
     public static ComponentType<EntityStore, Nat20NpcData> getNpcDataType() {
