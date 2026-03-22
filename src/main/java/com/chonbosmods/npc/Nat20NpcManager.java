@@ -107,9 +107,8 @@ public class Nat20NpcManager {
                     def.leashRadius(), name);
                 spawned.add(npcRecord);
 
-                // Set nameplate using Nameplate component (overrides role's DisplayNames)
-                String displayName = formatDisplayName(name, roleName);
-                store.putComponent(npcRef, Nameplate.getComponentType(), new Nameplate(displayName));
+                // Set nameplate to just the name (dialogue UI shows full name + role)
+                store.putComponent(npcRef, Nameplate.getComponentType(), new Nameplate(name));
 
                 // Apply skin component (model already set via spawnEntity)
                 store.putComponent(npcRef, PlayerSkinComponent.getComponentType(),
@@ -120,7 +119,7 @@ public class Nat20NpcManager {
                     equipGuardArmor(npcEntity);
                 }
 
-                LOGGER.atInfo().log("[Nat20] Spawned " + displayName + " at " +
+                LOGGER.atInfo().log("[Nat20] Spawned " + formatDisplayName(name, roleName) + " at " +
                     (int) spawnX + ", " + (int) spawnY + ", " + (int) spawnZ);
             } else {
                 LOGGER.atWarning().log("[Nat20] Failed to spawn " + roleName + " at " +
@@ -188,9 +187,9 @@ public class Nat20NpcManager {
         // Set leash
         npcEntity.setLeashPoint(spawnPos);
 
-        // Set nameplate using Nameplate component (overrides role's DisplayNames)
+        // Set nameplate to just the name (dialogue UI shows full name + role)
         String displayName = formatDisplayName(record.getGeneratedName(), roleName);
-        store.putComponent(npcRef, Nameplate.getComponentType(), new Nameplate(displayName));
+        store.putComponent(npcRef, Nameplate.getComponentType(), new Nameplate(record.getGeneratedName()));
 
         // Apply skin component (model already set via spawnEntity)
         store.putComponent(npcRef, PlayerSkinComponent.getComponentType(),

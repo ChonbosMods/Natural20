@@ -31,7 +31,7 @@ import java.util.concurrent.TimeUnit;
 public class UndergroundStructurePlacer {
 
     private static final HytaleLogger LOGGER = HytaleLogger.get("Nat20|CavePlacer");
-    private static final String TEST_PREFAB_KEY = "Nat20/dungeon/Dungeon1Test";
+    private static final String TEST_PREFAB_KEY = "Nat20/dungeon/Dungeon2Test";
     private static final int TUNNEL_WIDTH = 3;
     private static final int TUNNEL_HEIGHT = 4;
     private static final int DEFER_TICKS = 5;
@@ -52,7 +52,7 @@ public class UndergroundStructurePlacer {
                                                     Store<EntityStore> store) {
         CompletableFuture<Vector3i> result = new CompletableFuture<>();
 
-        // 1. Pick the floor position with the most vertical clearance
+        // 1. Score floor positions for tunnel-mouth placement
         List<int[]> floorPositions = voidRecord.getFloorPositions();
         if (floorPositions == null || floorPositions.isEmpty()) {
             LOGGER.atWarning().log("No floor positions in void at (%d, %d, %d)",
@@ -66,21 +66,91 @@ public class UndergroundStructurePlacer {
         int cz = voidRecord.getCenterZ();
 
         int[] bestFloor = null;
-        int bestClearance = 0;
+        int bestScore = -1;
+        String bestWallDir = null;
+
         for (int[] fp : floorPositions) {
+            int x = fp[0], y = fp[1], z = fp[2];
+
+            // Skip fluid positions
+            BlockType footBlock = world.getBlockType(x, y, z);
+            if (footBlock != null && footBlock.getId() != null
+                    && footBlock.getId().startsWith("Fluid_")) continue;
+
+            // Ledge filter: check that below the floor is thick solid, not air
+            // A real cave floor has solid for several blocks below; a ceiling ledge has air
+            int solidBelow = 0;
+            for (int dy = y - 1; dy >= y - 5; dy--) {
+                BlockType bt = world.getBlockType(x, dy, z);
+                if (bt != null && bt.getMaterial() == BlockMaterial.Solid) solidBelow++;
+            }
+            if (solidBelow < 3) continue;
+
+            // Vertical clearance
             int clearance = 0;
-            for (int y = fp[1]; y < fp[1] + 50; y++) {
-                BlockType bt = world.getBlockType(fp[0], y, fp[2]);
+            for (int dy = y; dy < y + 50; dy++) {
+                BlockType bt = world.getBlockType(x, dy, z);
                 if (bt != null && bt.getMaterial() == BlockMaterial.Solid) break;
                 clearance++;
             }
-            if (clearance > bestClearance) {
-                bestClearance = clearance;
+            if (clearance < 4) continue;
+
+            // Air extents in each cardinal direction
+            int airNegX = scanAir(world, x, y, z, -1, 0);
+            int airPosX = scanAir(world, x, y, z, 1, 0);
+            int airNegZ = scanAir(world, x, y, z, 0, -1);
+            int airPosZ = scanAir(world, x, y, z, 0, 1);
+
+            int xSpan = airNegX + 1 + airPosX;
+            int zSpan = airNegZ + 1 + airPosZ;
+            int minSpan = Math.min(xSpan, zSpan);
+            int maxSpan = Math.max(xSpan, zSpan);
+            int minAir = Math.min(Math.min(airNegX, airPosX), Math.min(airNegZ, airPosZ));
+
+            // Reject: too narrow (crevice) or too open (center of chamber)
+            if (minSpan < 3 || maxSpan < 5 || minAir > 6) continue;
+
+            // Wall density in ring 3-5
+            int wallBlocks = 0;
+            int ringTotal = 0;
+            for (int rx = x - 5; rx <= x + 5; rx++) {
+                for (int rz = z - 5; rz <= z + 5; rz++) {
+                    int dx = Math.abs(rx - x);
+                    int dz = Math.abs(rz - z);
+                    if (dx < 3 && dz < 3) continue;
+                    ringTotal++;
+                    for (int ry = y; ry < y + 4; ry++) {
+                        BlockType bt = world.getBlockType(rx, ry, rz);
+                        if (bt != null && bt.getMaterial() == BlockMaterial.Solid) {
+                            wallBlocks++;
+                            break;
+                        }
+                    }
+                }
+            }
+            double wallDensity = ringTotal > 0 ? (double) wallBlocks / ringTotal : 0;
+            if (wallDensity < 0.3) continue;
+
+            // Score: prefer close wall + high enclosure + good clearance
+            // Lower minAir = closer to wall = better
+            int score = (int) (wallDensity * 100) + clearance - minAir * 5;
+
+            // Determine which direction the nearest wall is
+            String wallDir;
+            if (airNegX <= airPosX && airNegX <= airNegZ && airNegX <= airPosZ) wallDir = "-X";
+            else if (airPosX <= airNegZ && airPosX <= airPosZ) wallDir = "+X";
+            else if (airNegZ <= airPosZ) wallDir = "-Z";
+            else wallDir = "+Z";
+
+            if (score > bestScore) {
+                bestScore = score;
                 bestFloor = fp;
+                bestWallDir = wallDir;
             }
         }
+
         if (bestFloor == null) {
-            LOGGER.atWarning().log("No floor position with vertical clearance in void at (%d, %d, %d)",
+            LOGGER.atWarning().log("No suitable tunnel-mouth floor in void at (%d, %d, %d)",
                     cx, cy, cz);
             result.complete(null);
             return result;
@@ -90,13 +160,29 @@ public class UndergroundStructurePlacer {
         int floorY = bestFloor[1];
         int floorZ = bestFloor[2];
 
-        // 2. Place directly at the floor position (inside the cave void where there's clearance)
+        // Determine rotation: entrance faces +Z by default (Dungeon2Test)
+        // Rotate so entrance faces AWAY from the nearest wall (into the cave)
+        // Wall on -X -> entrance faces +X -> rotate 270 (entrance +Z becomes +X)
+        // Wall on +X -> entrance faces -X -> rotate 90  (entrance +Z becomes -X)
+        // Wall on -Z -> entrance faces +Z -> no rotation (default)
+        // Wall on +Z -> entrance faces -Z -> rotate 180
+        Rotation rotation = switch (bestWallDir) {
+            case "-X" -> Rotation.TwoSeventy;
+            case "+X" -> Rotation.Ninety;
+            case "+Z" -> Rotation.OneEighty;
+            default -> Rotation.None;  // -Z: entrance already faces +Z, away from -Z wall
+        };
+
+        LOGGER.atInfo().log("Selected tunnel-mouth at (%d, %d, %d) score=%d wallDir=%s rotation=%s for void at (%d, %d, %d)",
+                floorX, floorY, floorZ, bestScore, bestWallDir, rotation, cx, cy, cz);
+
+        // 2. Place with anchor aligned to the tunnel-mouth floor
         int structX = floorX;
         int structY = floorY;
         int structZ = floorZ;
 
-        LOGGER.atInfo().log("Placing structure at (%d, %d, %d) for void at (%d, %d, %d)",
-                structX, structY, structZ, cx, cy, cz);
+        LOGGER.atInfo().log("Placing structure at (%d, %d, %d) rotation=%s for void at (%d, %d, %d)",
+                structX, structY, structZ, rotation, cx, cy, cz);
 
         // 4. Load the prefab buffer
         Path prefabPath = findPrefabPath();
@@ -123,21 +209,17 @@ public class UndergroundStructurePlacer {
                 buffer.getAnchorX(), buffer.getAnchorY(), buffer.getAnchorZ(),
                 buffer.getColumnCount());
 
-        // Adjust for non-zero anchors
-        int pasteX = structX - buffer.getAnchorX();
-        int pasteY = structY - buffer.getAnchorY();
-        int pasteZ = structZ - buffer.getAnchorZ();
-        Vector3i pastePos = new Vector3i(pasteX, pasteY, pasteZ);
+        // PrefabUtil.paste treats position as the anchor location
+        Vector3i pastePos = new Vector3i(structX, structY, structZ);
 
-        LOGGER.atInfo().log("Paste position: (%d, %d, %d) (anchor offset: %d, %d, %d)",
-                pasteX, pasteY, pasteZ,
-                buffer.getAnchorX(), buffer.getAnchorY(), buffer.getAnchorZ());
+        LOGGER.atInfo().log("Paste position (anchor at): (%d, %d, %d) rotation=%s",
+                structX, structY, structZ, rotation);
 
-        // 5. Pre-load chunks covering the prefab footprint + carve margin
-        int minChunkX = ChunkUtil.chunkCoordinate(pasteX + buffer.getMinX() - CARVE_MARGIN);
-        int minChunkZ = ChunkUtil.chunkCoordinate(pasteZ + buffer.getMinZ() - CARVE_MARGIN);
-        int maxChunkX = ChunkUtil.chunkCoordinate(pasteX + buffer.getMaxX() + CARVE_MARGIN);
-        int maxChunkZ = ChunkUtil.chunkCoordinate(pasteZ + buffer.getMaxZ() + CARVE_MARGIN);
+        // 5. Pre-load chunks covering the prefab footprint
+        int minChunkX = ChunkUtil.chunkCoordinate(structX + buffer.getMinX());
+        int minChunkZ = ChunkUtil.chunkCoordinate(structZ + buffer.getMinZ());
+        int maxChunkX = ChunkUtil.chunkCoordinate(structX + buffer.getMaxX());
+        int maxChunkZ = ChunkUtil.chunkCoordinate(structZ + buffer.getMaxZ());
 
         List<CompletableFuture<?>> chunkFutures = new ArrayList<>();
         for (int chunkX = minChunkX; chunkX <= maxChunkX; chunkX++) {
@@ -159,11 +241,12 @@ public class UndergroundStructurePlacer {
                     }
                     deferTicks(world, DEFER_TICKS, () -> {
                         try {
-                            carveClearing(world, pasteX, pasteY, pasteZ, buffer);
+                            // Carving disabled: Dungeon2Test has its own Empty blocks
+                            // carveClearing(world, pasteX, pasteY, pasteZ, buffer);
 
                             Random random = new Random();
-                            PrefabUtil.paste(buffer, world, pastePos, Rotation.None, true, random, 0, store);
-                            LOGGER.atInfo().log("Pasted prefab at (%d, %d, %d)", pasteX, pasteY, pasteZ);
+                            PrefabUtil.paste(buffer, world, pastePos, rotation, true, random, 0, store);
+                            LOGGER.atInfo().log("Pasted prefab at (%d, %d, %d)", structX, structY, structZ);
 
                             result.complete(pastePos);
                         } catch (Exception e) {
@@ -262,10 +345,15 @@ public class UndergroundStructurePlacer {
         int fromY = pasteY + buffer.getMinY();
         int toY = pasteY + buffer.getMaxY() + 1;
 
-        // Entrance exclusion zone: anchor world position ± half-width, entrance faces -Z
+        // Entrance exclusion zone: anchor world position ± half-width
+        // Detect entrance face from anchor position relative to prefab bounds
         int anchorWorldX = pasteX + buffer.getAnchorX();
         int anchorWorldY = pasteY + buffer.getAnchorY();
-        int entranceFaceZ = pasteZ + buffer.getMinZ();
+        int anchorWorldZ = pasteZ + buffer.getAnchorZ();
+        boolean entranceOnMaxZ = buffer.getAnchorZ() >= buffer.getMaxZ();
+        int entranceFaceZ = entranceOnMaxZ
+                ? pasteZ + buffer.getMaxZ()
+                : pasteZ + buffer.getMinZ();
 
         BlockType empty = BlockType.getAssetMap().getAsset("Empty");
         if (empty == null) {
@@ -283,8 +371,9 @@ public class UndergroundStructurePlacer {
                 if (chunk == null) continue;
 
                 for (int y = fromY; y <= toY; y++) {
-                    // Skip entrance zone: in front of -Z face, within entrance dimensions
-                    if (z <= entranceFaceZ
+                    // Skip entrance zone: in front of the entrance face, within entrance dimensions
+                    boolean inEntranceZ = entranceOnMaxZ ? z >= entranceFaceZ : z <= entranceFaceZ;
+                    if (inEntranceZ
                             && x >= anchorWorldX - ENTRANCE_HALF_WIDTH
                             && x <= anchorWorldX + ENTRANCE_HALF_WIDTH
                             && y >= anchorWorldY - ENTRANCE_DOWN
@@ -312,6 +401,20 @@ public class UndergroundStructurePlacer {
         if (empty != null) {
             chunk.setBlock(x, y, z, empty);
         }
+    }
+
+    private int scanAir(World world, int x, int y, int z, int dx, int dz) {
+        int count = 0;
+        int cx = x + dx;
+        int cz = z + dz;
+        while (count < 50) {
+            BlockType bt = world.getBlockType(cx, y, cz);
+            if (bt != null && bt.getMaterial() == BlockMaterial.Solid) break;
+            count++;
+            cx += dx;
+            cz += dz;
+        }
+        return count;
     }
 
     private void deferTicks(World world, int ticks, Runnable action) {

@@ -19,10 +19,22 @@ import com.hypixel.hytale.server.core.modules.entity.component.TransformComponen
 import com.hypixel.hytale.server.core.universe.PlayerRef;
 import com.hypixel.hytale.server.core.universe.world.World;
 import com.hypixel.hytale.server.core.universe.world.storage.EntityStore;
+import com.hypixel.hytale.protocol.BlockMaterial;
+import com.hypixel.hytale.server.core.asset.type.blocktype.config.BlockType;
+import com.hypixel.hytale.server.core.asset.type.blocktype.config.Rotation;
+import com.hypixel.hytale.server.core.prefab.PrefabStore;
+import com.hypixel.hytale.server.core.prefab.selection.buffer.PrefabBufferUtil;
+import com.hypixel.hytale.server.core.prefab.selection.buffer.impl.IPrefabBuffer;
+import com.hypixel.hytale.server.core.util.PrefabUtil;
 
 import javax.annotation.Nonnull;
+import java.nio.file.Path;
+import java.util.ArrayList;
 import java.util.Comparator;
 import java.util.List;
+import java.util.Random;
+import java.util.concurrent.CompletableFuture;
+import java.util.concurrent.TimeUnit;
 
 public class CaveVoidsCommand extends AbstractPlayerCommand {
 
@@ -57,8 +69,10 @@ public class CaveVoidsCommand extends AbstractPlayerCommand {
             case "place" -> executePlace(context, world, playerPos, store);
             case "clear" -> executeClear(context);
             case "stats" -> executeStats(context, playerPos);
+            case "probe" -> executeProbe(context, world, playerPos);
+            case "pastehere" -> executePasteHere(context, world, playerPos, store);
             default -> context.sendMessage(Message.raw(
-                    "Unknown operation: " + operation + ". Use: scan, list, nearest, place, stats, clear"));
+                    "Unknown operation: " + operation + ". Use: scan, list, nearest, place, pastehere, probe, stats, clear"));
         }
     }
 
@@ -200,5 +214,203 @@ public class CaveVoidsCommand extends AbstractPlayerCommand {
             long count = all.stream().filter(v -> v.getVolume() >= tier).count();
             context.sendMessage(Message.raw("  " + tier + "+ blocks: " + count + " void(s)"));
         }
+    }
+
+    private void executeProbe(CommandContext context, World world, Vector3d playerPos) {
+        int px = (int) Math.floor(playerPos.getX());
+        int py = (int) Math.floor(playerPos.getY());
+        int pz = (int) Math.floor(playerPos.getZ());
+
+        context.sendMessage(Message.raw("Probing at (" + px + ", " + py + ", " + pz + ")"));
+
+        // Scan air extent in each cardinal direction at foot level
+        int airNegX = scanAir(world, px, py, pz, -1, 0);
+        int airPosX = scanAir(world, px, py, pz, 1, 0);
+        int airNegZ = scanAir(world, px, py, pz, 0, -1);
+        int airPosZ = scanAir(world, px, py, pz, 0, 1);
+        int xSpan = airNegX + 1 + airPosX;
+        int zSpan = airNegZ + 1 + airPosZ;
+        context.sendMessage(Message.raw("Air extents: -X=" + airNegX + " +X=" + airPosX +
+                " -Z=" + airNegZ + " +Z=" + airPosZ +
+                " (spans: X=" + xSpan + " Z=" + zSpan + ")"));
+
+        // Vertical clearance
+        int clearance = 0;
+        for (int y = py; y < py + 50; y++) {
+            BlockType bt = world.getBlockType(px, y, pz);
+            if (bt != null && bt.getMaterial() == BlockMaterial.Solid) break;
+            clearance++;
+        }
+        context.sendMessage(Message.raw("Vertical clearance: " + clearance));
+
+        // Floor flatness: count solid blocks at Y-1 in a 5x5 area
+        int solidFloor = 0;
+        int totalFloor = 0;
+        for (int x = px - 2; x <= px + 2; x++) {
+            for (int z = pz - 2; z <= pz + 2; z++) {
+                totalFloor++;
+                BlockType bt = world.getBlockType(x, py - 1, z);
+                if (bt != null && bt.getMaterial() == BlockMaterial.Solid) solidFloor++;
+            }
+        }
+        context.sendMessage(Message.raw("Floor solidity (5x5): " + solidFloor + "/" + totalFloor));
+
+        // Wall proximity: count solid blocks in a ring at distance 3-5
+        int wallBlocks = 0;
+        int ringTotal = 0;
+        for (int x = px - 5; x <= px + 5; x++) {
+            for (int z = pz - 5; z <= pz + 5; z++) {
+                int dx = Math.abs(x - px);
+                int dz = Math.abs(z - pz);
+                if (dx < 3 && dz < 3) continue;
+                ringTotal++;
+                for (int y = py; y < py + 4; y++) {
+                    BlockType bt = world.getBlockType(x, y, z);
+                    if (bt != null && bt.getMaterial() == BlockMaterial.Solid) {
+                        wallBlocks++;
+                        break;
+                    }
+                }
+            }
+        }
+        context.sendMessage(Message.raw("Wall density (ring 3-5): " + wallBlocks + "/" + ringTotal));
+
+        // Shortest wall direction
+        String shortestDir;
+        int shortestDist;
+        if (airNegX <= airPosX && airNegX <= airNegZ && airNegX <= airPosZ) {
+            shortestDir = "-X"; shortestDist = airNegX;
+        } else if (airPosX <= airNegZ && airPosX <= airPosZ) {
+            shortestDir = "+X"; shortestDist = airPosX;
+        } else if (airNegZ <= airPosZ) {
+            shortestDir = "-Z"; shortestDist = airNegZ;
+        } else {
+            shortestDir = "+Z"; shortestDist = airPosZ;
+        }
+        context.sendMessage(Message.raw("Nearest wall: " + shortestDir + " (" + shortestDist + " blocks)"));
+
+        // Fluid check: reject if standing in lava/water
+        BlockType footBlock = world.getBlockType(px, py, pz);
+        boolean inFluid = footBlock != null && footBlock.getId() != null
+                && footBlock.getId().startsWith("Fluid_");
+        if (inFluid) {
+            context.sendMessage(Message.raw("Verdict: REJECTED (submerged in fluid)"));
+            return;
+        }
+
+        // Tunnel score summary
+        // Key signals: wall proximity, wall density (enclosure), clearance, minimum width
+        int minAir = Math.min(Math.min(airNegX, airPosX), Math.min(airNegZ, airPosZ));
+        int minSpan = Math.min(xSpan, zSpan);
+        int maxSpan = Math.max(xSpan, zSpan);
+        double wallDensity = ringTotal > 0 ? (double) wallBlocks / ringTotal : 0;
+        String verdict;
+        if (minAir <= 3 && maxSpan >= 5 && minSpan >= 3 && wallDensity >= 0.5 && clearance >= 4) {
+            verdict = "GOOD tunnel-mouth candidate";
+        } else if (minAir <= 6 && maxSpan >= 3 && minSpan >= 3 && wallDensity >= 0.3 && clearance >= 3) {
+            verdict = "OK candidate";
+        } else {
+            verdict = "Poor candidate (too open, too narrow, or low enclosure)";
+        }
+        context.sendMessage(Message.raw("Verdict: " + verdict));
+    }
+
+    private void executePasteHere(CommandContext context, World world, Vector3d playerPos,
+                                  Store<EntityStore> store) {
+        int px = (int) Math.floor(playerPos.getX());
+        int py = (int) Math.floor(playerPos.getY());
+        int pz = (int) Math.floor(playerPos.getZ());
+
+        context.sendMessage(Message.raw("Pasting Dungeon2Test with anchor at (" + px + ", " + py + ", " + pz + ")"));
+
+        String prefabKey = "Nat20/dungeon/Dungeon2Test";
+        Path prefabPath = PrefabStore.get().findAssetPrefabPath(prefabKey);
+        if (prefabPath == null) {
+            // Fallback: walk up from plugin file to find assets/Server/Prefabs/
+            Path pluginFile = Natural20.getInstance().getFile();
+            if (pluginFile != null) {
+                Path candidate = pluginFile;
+                for (int i = 0; i < 4; i++) {
+                    Path p = candidate.resolve("assets").resolve("Server").resolve("Prefabs")
+                            .resolve(prefabKey + ".prefab.json");
+                    if (java.nio.file.Files.exists(p)) { prefabPath = p; break; }
+                    p = candidate.resolve("Server").resolve("Prefabs")
+                            .resolve(prefabKey + ".prefab.json");
+                    if (java.nio.file.Files.exists(p)) { prefabPath = p; break; }
+                    candidate = candidate.getParent();
+                    if (candidate == null) break;
+                }
+            }
+        }
+        if (prefabPath == null) {
+            context.sendMessage(Message.raw("Prefab not found: " + prefabKey));
+            return;
+        }
+        context.sendMessage(Message.raw("Loaded from: " + prefabPath.getFileName()));
+
+        IPrefabBuffer buffer;
+        try {
+            buffer = PrefabBufferUtil.getCached(prefabPath);
+        } catch (Exception e) {
+            context.sendMessage(Message.raw("Failed to load buffer: " + e.getMessage()));
+            return;
+        }
+
+        int anchorX = buffer.getAnchorX();
+        int anchorY = buffer.getAnchorY();
+        int anchorZ = buffer.getAnchorZ();
+        context.sendMessage(Message.raw("Buffer anchor: (" + anchorX + ", " + anchorY + ", " + anchorZ + ")"));
+        context.sendMessage(Message.raw("Buffer bounds: X[" + buffer.getMinX() + ".." + buffer.getMaxX() +
+                "] Y[" + buffer.getMinY() + ".." + buffer.getMaxY() +
+                "] Z[" + buffer.getMinZ() + ".." + buffer.getMaxZ() + "]"));
+
+        // Test: pass player position directly (PrefabUtil.paste may treat pos as anchor)
+        Vector3i pastePos = new Vector3i(px, py, pz);
+        context.sendMessage(Message.raw("Paste position (raw feet): (" + px + ", " + py + ", " + pz + ")"));
+        context.sendMessage(Message.raw("If paste uses pos as anchor, entrance should be at your feet"));
+
+        // Pre-load chunks
+        int minCX = ChunkUtil.chunkCoordinate(pastePos.getX() + buffer.getMinX());
+        int minCZ = ChunkUtil.chunkCoordinate(pastePos.getZ() + buffer.getMinZ());
+        int maxCX = ChunkUtil.chunkCoordinate(pastePos.getX() + buffer.getMaxX());
+        int maxCZ = ChunkUtil.chunkCoordinate(pastePos.getZ() + buffer.getMaxZ());
+
+        List<CompletableFuture<?>> futures = new ArrayList<>();
+        for (int cx = minCX; cx <= maxCX; cx++) {
+            for (int cz = minCZ; cz <= maxCZ; cz++) {
+                futures.add(world.getNonTickingChunkAsync(ChunkUtil.indexChunk(cx, cz)));
+            }
+        }
+
+        CompletableFuture.allOf(futures.toArray(new CompletableFuture[0]))
+                .orTimeout(30, TimeUnit.SECONDS)
+                .whenComplete((ignored, error) -> {
+                    if (error != null) {
+                        context.sendMessage(Message.raw("Chunk loading failed."));
+                        return;
+                    }
+                    world.execute(() -> {
+                        try {
+                            PrefabUtil.paste(buffer, world, pastePos, Rotation.None, true, new Random(), 0, store);
+                            context.sendMessage(Message.raw("Pasted at (" + pastePos.getX() + ", " + pastePos.getY() + ", " + pastePos.getZ() + "). Check if anchor aligns with your feet."));
+                        } catch (Exception e) {
+                            context.sendMessage(Message.raw("Paste failed: " + e.getMessage()));
+                        }
+                    });
+                });
+    }
+
+    private int scanAir(World world, int x, int y, int z, int dx, int dz) {
+        int count = 0;
+        int cx = x + dx;
+        int cz = z + dz;
+        while (count < 50) {
+            BlockType bt = world.getBlockType(cx, y, cz);
+            if (bt != null && bt.getMaterial() == BlockMaterial.Solid) break;
+            count++;
+            cx += dx;
+            cz += dz;
+        }
+        return count;
     }
 }
