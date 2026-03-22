@@ -5,6 +5,7 @@ import com.google.gson.GsonBuilder;
 import com.google.gson.reflect.TypeToken;
 import com.hypixel.hytale.logger.HytaleLogger;
 
+import javax.annotation.Nullable;
 import java.io.IOException;
 import java.io.Reader;
 import java.io.Writer;
@@ -108,6 +109,31 @@ public class CaveVoidRegistry {
         }
 
         return closest;
+    }
+
+    /**
+     * Find the single closest unclaimed void within the given range band.
+     * @return the closest unclaimed CaveVoidRecord in range, or null if none qualify
+     */
+    public @Nullable CaveVoidRecord findNearbyVoid(double x, double z, int minRange, int maxRange) {
+        int px = (int) x;
+        int pz = (int) z;
+        CaveVoidRecord best = null;
+        int bestDist = Integer.MAX_VALUE;
+
+        for (List<CaveVoidRecord> cell : voidsByCell.values()) {
+            synchronized (cell) {
+                for (CaveVoidRecord v : cell) {
+                    if (v.isClaimed()) continue;
+                    int dist = v.distanceTo(px, pz);
+                    if (dist >= minRange && dist <= maxRange && dist < bestDist) {
+                        bestDist = dist;
+                        best = v;
+                    }
+                }
+            }
+        }
+        return best;
     }
 
     /**

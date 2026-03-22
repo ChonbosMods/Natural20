@@ -1,5 +1,8 @@
 package com.chonbosmods.quest;
 
+import com.chonbosmods.Natural20;
+import com.chonbosmods.cave.CaveVoidRecord;
+import com.chonbosmods.cave.CaveVoidRegistry;
 import com.chonbosmods.quest.model.*;
 import com.chonbosmods.settlement.NpcRecord;
 import com.chonbosmods.settlement.SettlementRecord;
@@ -191,6 +194,24 @@ public class QuestGenerator {
             }
         } else {
             bindings.put("location_hint", "far away");
+        }
+
+        // Resolve POI: find nearby cave void for hostile location quests
+        CaveVoidRegistry voidRegistry = Natural20.getInstance().getCaveVoidRegistry();
+        if (voidRegistry != null) {
+            CaveVoidRecord poi = voidRegistry.findNearbyVoid(npcX, npcZ, 100, 300);
+            if (poi == null) {
+                poi = voidRegistry.findAnyVoid((int) npcX, (int) npcZ);
+            }
+            if (poi != null) {
+                bindings.put("poi_available", "true");
+                bindings.put("poi_center_x", String.valueOf(poi.getCenterX()));
+                bindings.put("poi_center_y", String.valueOf(poi.getCenterY()));
+                bindings.put("poi_center_z", String.valueOf(poi.getCenterZ()));
+            }
+        }
+        if (!bindings.containsKey("poi_available")) {
+            bindings.put("poi_available", "false");
         }
 
         return bindings;
