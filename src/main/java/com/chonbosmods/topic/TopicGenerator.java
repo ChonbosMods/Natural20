@@ -175,6 +175,22 @@ public class TopicGenerator {
         LOGGER.atInfo().log("Generated %d dialogue graphs for settlement %s (%d subjects, %d quests)",
             results.size(), settlement.getCellKey(), subjects.size(), questCandidates.size());
 
+        // Debug: log per-subject visibility and quest assignments
+        for (SubjectFocus focus : subjects) {
+            StringBuilder sb = new StringBuilder();
+            sb.append("  Subject '%s' (%s)".formatted(focus.getSubjectValue(), focus.getCategory()));
+            if (focus.hasQuest()) {
+                sb.append(" [QUEST bearer=%s]".formatted(focus.getQuestBearingNpc()));
+            }
+            sb.append(": ");
+            List<String> npcEntries = new ArrayList<>();
+            for (var entry : focus.getNpcVisibility().entrySet()) {
+                npcEntries.add("%s=%s".formatted(entry.getKey(), entry.getValue() ? "VISIBLE" : "HIDDEN"));
+            }
+            sb.append(String.join(", ", npcEntries));
+            LOGGER.atInfo().log(sb.toString());
+        }
+
         return results;
     }
 

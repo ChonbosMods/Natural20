@@ -11,5 +11,6 @@ public record TopicDefinition(
     boolean startLearned,
     @Nullable String statPrefix,
     int sortOrder,
-    @Nullable String recapText
+    @Nullable String recapText,
+    boolean questTopic
 ) {}

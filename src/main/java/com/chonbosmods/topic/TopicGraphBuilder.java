@@ -115,28 +115,40 @@ public class TopicGraphBuilder {
             String responseId = subjectId + "_resp_decisive";
 
             if (assignment.hasQuest()) {
-                // Quest-bearing: ACTION(GIVE_QUEST + UNLOCK_TOPIC) -> DIALOGUE(confirmation) -> TERMINAL
+                // Quest-bearing: accept triggers GIVE_QUEST + UNLOCK_TOPIC, decline just unlocks
                 String actionNodeId = subjectId + "_action_decisive";
                 String confirmNodeId = subjectId + "_confirm_decisive";
                 String terminalNodeId = subjectId + "_terminal";
+                String declineNodeId = subjectId + "_decline";
 
                 String confirmText = DialogueResolver.resolve(decisive.response(), bindings);
 
-                List<Map<String, String>> actions = List.of(
+                List<Map<String, String>> acceptActions = List.of(
                     Map.of("type", "GIVE_QUEST"),
+                    Map.of("type", "UNLOCK_TOPIC", "topicId", subjectId, "scope", "GLOBAL")
+                );
+                List<Map<String, String>> declineActions = List.of(
                     Map.of("type", "UNLOCK_TOPIC", "topicId", subjectId, "scope", "GLOBAL")
                 );
 
                 nodes.put(actionNodeId, new DialogueNode.ActionNode(
-                    actions, confirmNodeId, List.of(), false
+                    acceptActions, confirmNodeId, List.of(), false
                 ));
                 nodes.put(confirmNodeId, new DialogueNode.DialogueTextNode(
                     confirmText, List.of(), List.of(), true, false
                 ));
                 nodes.put(terminalNodeId, new DialogueNode.TerminalNode(List.of(), false));
+                nodes.put(declineNodeId, new DialogueNode.DialogueTextNode(
+                    "I understand. Perhaps another time.", List.of(), declineActions, true, false
+                ));
 
                 entryResponses.add(new ResponseOption(
-                    responseId, prompt, actionNodeId,
+                    responseId, "[Accept] " + prompt, actionNodeId,
+                    ResponseMode.DECISIVE, null, null, null, null
+                ));
+                String declineResponseId = subjectId + "_resp_decline";
+                entryResponses.add(new ResponseOption(
+                    declineResponseId, "[Decline] Maybe not right now.", declineNodeId,
                     ResponseMode.DECISIVE, null, null, null, null
                 ));
             } else {
@@ -202,7 +214,8 @@ public class TopicGraphBuilder {
             assignment.startVisible(),
             null,
             sortOrder,
-            recapText
+            recapText,
+            assignment.hasQuest()
         ));
     }
 

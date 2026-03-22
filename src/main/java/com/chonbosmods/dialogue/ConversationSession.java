@@ -179,7 +179,7 @@ public class ConversationSession {
                         : (entryNode instanceof DialogueNode.DialogueTextNode tn ? tn.speakerText() : null);
                 }
                 if (text != null) {
-                    conversationLog.add(new LogEntry.TopicHeader(topic.label()));
+                    conversationLog.add(new LogEntry.TopicHeader(topic.label(), topic.questTopic()));
                     conversationLog.add(new LogEntry.NpcSpeech(text));
                 }
                 // Show surviving follow-ups (grayed exploratories) if any exist
@@ -205,7 +205,7 @@ public class ConversationSession {
                         : (entryNode instanceof DialogueNode.DialogueTextNode tn ? tn.speakerText() : null);
                 }
                 if (text != null) {
-                    conversationLog.add(new LogEntry.TopicHeader(topic.label()));
+                    conversationLog.add(new LogEntry.TopicHeader(topic.label(), topic.questTopic()));
                     conversationLog.add(new LogEntry.NpcSpeech(text));
                 }
                 activeFollowUps = List.of();
@@ -223,7 +223,7 @@ public class ConversationSession {
         topicsLocked = false;
         exhaustTopicFired = false;
         activeTopicId = topicId;
-        conversationLog.add(new LogEntry.TopicHeader(topic.label()));
+        conversationLog.add(new LogEntry.TopicHeader(topic.label(), topic.questTopic()));
         presenter.refreshLog(conversationLog);
         presenter.refreshFollowUps(activeFollowUps);
 
@@ -583,6 +583,7 @@ public class ConversationSession {
                 case LogEntry.TopicHeader h -> {
                     logObj.addProperty("type", "TopicHeader");
                     logObj.addProperty("label", h.label());
+                    if (h.questTopic()) logObj.addProperty("questTopic", true);
                 }
                 case LogEntry.NpcSpeech s -> {
                     logObj.addProperty("type", "NpcSpeech");

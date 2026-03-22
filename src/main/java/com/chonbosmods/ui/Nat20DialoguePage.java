@@ -39,10 +39,12 @@ public class Nat20DialoguePage extends InteractiveCustomUIPage<Nat20DialoguePage
 
     // Log rendering colors (per visual polish guide)
     private static final String COLOR_TOPIC_HEADER = "#666666";
+    private static final String COLOR_QUEST_TOPIC_HEADER = "#FFD700";
     private static final String COLOR_NPC_SPEECH = "#FFCC00";
     private static final String COLOR_SELECTED_FOLLOW_UP = "#888888";
     private static final String COLOR_SYSTEM_TEXT = "#66BB77";
     private static final String COLOR_RETURN_GREETING = "#FFCC00";
+    private static final String COLOR_QUEST_BRACKET = "#55CCCC";
 
     public static final BuilderCodec<PageEventData> EVENT_CODEC = BuilderCodec.builder(PageEventData.class, PageEventData::new)
             .addField(new KeyedCodec<>("Type", Codec.STRING), PageEventData::setType, PageEventData::getType)
@@ -119,6 +121,10 @@ public class Nat20DialoguePage extends InteractiveCustomUIPage<Nat20DialoguePage
                     Message label = Message.raw(bracket).color(statColor)
                             .insert(Message.raw(" " + rt.topic().label()).color("#FFFFFF"));
                     cmd.set(selector + ".TextSpans", label);
+                } else if (rt.topic().questTopic()) {
+                    cmd.set(selector + ".Text", rt.topic().label());
+                    cmd.set(selector + ".Style.Default.LabelStyle.TextColor", COLOR_QUEST_BRACKET);
+                    cmd.set(selector + ".Style.Hovered.LabelStyle.TextColor", "#77DDDD");
                 } else {
                     cmd.set(selector + ".Text", rt.topic().label());
                 }
@@ -145,7 +151,11 @@ public class Nat20DialoguePage extends InteractiveCustomUIPage<Nat20DialoguePage
                     if (!lines.isEmpty()) {
                         lines.add(new LogLine(" ", COLOR_TOPIC_HEADER));
                     }
-                    lines.add(new LogLine("-- " + h.label() + " --", COLOR_TOPIC_HEADER));
+                    if (h.questTopic()) {
+                        lines.add(new LogLine("-- " + h.label() + " --", COLOR_QUEST_BRACKET));
+                    } else {
+                        lines.add(new LogLine("-- " + h.label() + " --", COLOR_TOPIC_HEADER));
+                    }
                 }
                 case LogEntry.NpcSpeech s ->
                     lines.add(new LogLine(s.text(), COLOR_NPC_SPEECH));
@@ -224,6 +234,13 @@ public class Nat20DialoguePage extends InteractiveCustomUIPage<Nat20DialoguePage
                         String bracket = "[" + f.statPrefix().replace("[","").replace("]","").trim().toUpperCase() + "]";
                         Message label = Message.raw(bracket).color(statColor)
                                 .insert(Message.raw(" " + clean).color("#FFFFFF"));
+                        cmd.set(selector + ".TextSpans", label);
+                    } else if (clean.startsWith("[Accept]") || clean.startsWith("[Decline]")) {
+                        int bracketEnd = clean.indexOf(']') + 1;
+                        String bracketText = clean.substring(0, bracketEnd);
+                        String rest = clean.substring(bracketEnd);
+                        Message label = Message.raw(bracketText).color(COLOR_QUEST_BRACKET)
+                                .insert(Message.raw(rest).color("#FFFFFF"));
                         cmd.set(selector + ".TextSpans", label);
                     } else {
                         cmd.set(selector + ".TextSpans", Message.raw(clean).color("#FFFFFF"));

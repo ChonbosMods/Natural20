@@ -44,6 +44,8 @@ public class DialogueActionRegistry {
             String scope = params.getOrDefault("scope", "LOCAL");
             if ("GLOBAL".equals(scope)) {
                 ctx.globalTopicUnlocker().accept(topicId);
+                LOGGER.atInfo().log("UNLOCK_TOPIC: player %s learned global topic '%s' (via NPC %s)",
+                    ctx.player().getPlayerRef().getUuid(), topicId, ctx.npcId());
             }
         });
 
@@ -81,6 +83,9 @@ public class DialogueActionRegistry {
             if (quest != null) {
                 questSystem.getStateManager().addQuest(ctx.playerData(), quest);
                 ctx.systemLogger().accept("Quest accepted: " + quest.getSituationId());
+                LOGGER.atInfo().log("GIVE_QUEST: player %s received quest '%s' (situation=%s, phases=%d) from NPC %s",
+                    ctx.player().getPlayerRef().getUuid(), quest.getQuestId(), quest.getSituationId(),
+                    quest.getPhases().size(), npcId);
 
                 for (var phase : quest.getPhases()) {
                     if (phase.getReferenceId() != null) {
@@ -89,6 +94,8 @@ public class DialogueActionRegistry {
                             phase.getReferenceId(), npcX, npcZ);
                     }
                 }
+            } else {
+                LOGGER.atWarning().log("GIVE_QUEST: quest generation returned null for NPC %s (role=%s)", npcId, npcRole);
             }
         });
 

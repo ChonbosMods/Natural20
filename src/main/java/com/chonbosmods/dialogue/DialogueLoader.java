@@ -139,7 +139,8 @@ public class DialogueLoader {
             obj.has("startLearned") ? obj.get("startLearned").getAsBoolean() : true,
             obj.has("statPrefix") ? obj.get("statPrefix").getAsString() : null,
             obj.has("sortOrder") ? obj.get("sortOrder").getAsInt() : 0,
-            obj.has("recapText") ? obj.get("recapText").getAsString() : null
+            obj.has("recapText") ? obj.get("recapText").getAsString() : null,
+            obj.has("questTopic") && obj.get("questTopic").getAsBoolean()
         );
     }
 

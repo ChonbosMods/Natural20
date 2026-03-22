@@ -4,7 +4,7 @@ import javax.annotation.Nullable;
 
 public sealed interface LogEntry {
 
-    record TopicHeader(String label) implements LogEntry {}
+    record TopicHeader(String label, boolean questTopic) implements LogEntry {}
 
     record NpcSpeech(String text) implements LogEntry {}
 

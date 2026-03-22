@@ -10,6 +10,8 @@ import com.google.gson.*;
 
 import javax.annotation.Nullable;
 import java.io.IOException;
+import java.io.InputStream;
+import java.io.InputStreamReader;
 import java.nio.charset.StandardCharsets;
 import java.nio.file.Files;
 import java.nio.file.Path;
@@ -19,10 +21,15 @@ import java.util.stream.Stream;
 public class QuestTemplateRegistry {
 
     private static final FluentLogger LOGGER = FluentLogger.forEnclosingClass();
+    private static final String CLASSPATH_PREFIX = "quests/";
 
     private final Map<String, QuestSituation> situations = new LinkedHashMap<>();
 
     public void loadAll(@Nullable Path overrideDir) {
+        // Load from classpath first (bundled resources)
+        loadFromClasspath();
+
+        // Override with filesystem if available
         if (overrideDir != null && Files.isDirectory(overrideDir)) {
             try (Stream<Path> dirs = Files.list(overrideDir)) {
                 dirs.filter(Files::isDirectory).forEach(this::loadSituationDir);
@@ -31,6 +38,82 @@ public class QuestTemplateRegistry {
             }
         }
         LOGGER.atInfo().log("Loaded %d quest situation(s)", situations.size());
+    }
+
+    private void loadFromClasspath() {
+        // Read index.json to discover situation directories
+        try (InputStream is = getClass().getClassLoader().getResourceAsStream(CLASSPATH_PREFIX + "index.json")) {
+            if (is == null) {
+                LOGGER.atWarning().log("No quests/index.json found on classpath");
+                return;
+            }
+            JsonObject root = JsonParser.parseReader(new InputStreamReader(is, StandardCharsets.UTF_8)).getAsJsonObject();
+            JsonArray situationNames = root.getAsJsonArray("situations");
+            for (JsonElement el : situationNames) {
+                String situationId = el.getAsString();
+                loadSituationFromClasspath(situationId);
+            }
+        } catch (Exception e) {
+            LOGGER.atSevere().withCause(e).log("Failed to load quest index from classpath");
+        }
+    }
+
+    private void loadSituationFromClasspath(String situationId) {
+        String prefix = CLASSPATH_PREFIX + situationId + "/";
+        try {
+            List<QuestVariant> exposition = loadVariantsFromClasspath(prefix + "exposition_variants.json");
+            List<QuestVariant> conflict = loadVariantsFromClasspath(prefix + "conflict_variants.json");
+            List<QuestVariant> resolution = loadVariantsFromClasspath(prefix + "resolution_variants.json");
+            List<QuestReferenceTemplate> references = loadReferencesFromClasspath(prefix + "references.json");
+            Map<String, Double> weights = loadWeightsFromClasspath(prefix + "npc_weights.json");
+
+            if (exposition.isEmpty() && conflict.isEmpty() && resolution.isEmpty()) {
+                LOGGER.atWarning().log("Situation %s has no variants (classpath), skipping", situationId);
+                return;
+            }
+
+            situations.put(situationId, new QuestSituation(
+                situationId, exposition, conflict, resolution, references, weights
+            ));
+        } catch (Exception e) {
+            LOGGER.atSevere().withCause(e).log("Failed to load situation from classpath: %s", situationId);
+        }
+    }
+
+    private List<QuestVariant> loadVariantsFromClasspath(String resource) {
+        try (InputStream is = getClass().getClassLoader().getResourceAsStream(resource)) {
+            if (is == null) return List.of();
+            JsonObject root = JsonParser.parseReader(new InputStreamReader(is, StandardCharsets.UTF_8)).getAsJsonObject();
+            JsonArray variants = root.getAsJsonArray("variants");
+            List<QuestVariant> result = new ArrayList<>();
+            for (JsonElement el : variants) {
+                result.add(parseVariant(el.getAsJsonObject()));
+            }
+            return result;
+        } catch (Exception e) {
+            LOGGER.atSevere().withCause(e).log("Failed to parse variants from classpath: %s", resource);
+            return List.of();
+        }
+    }
+
+    private List<QuestReferenceTemplate> loadReferencesFromClasspath(String resource) {
+        try (InputStream is = getClass().getClassLoader().getResourceAsStream(resource)) {
+            if (is == null) return List.of();
+            return parseReferences(JsonParser.parseReader(new InputStreamReader(is, StandardCharsets.UTF_8)).getAsJsonObject());
+        } catch (Exception e) {
+            LOGGER.atSevere().withCause(e).log("Failed to parse references from classpath: %s", resource);
+            return List.of();
+        }
+    }
+
+    private Map<String, Double> loadWeightsFromClasspath(String resource) {
+        try (InputStream is = getClass().getClassLoader().getResourceAsStream(resource)) {
+            if (is == null) return Map.of();
+            return parseWeights(JsonParser.parseReader(new InputStreamReader(is, StandardCharsets.UTF_8)).getAsJsonObject());
+        } catch (Exception e) {
+            LOGGER.atSevere().withCause(e).log("Failed to parse weights from classpath: %s", resource);
+            return Map.of();
+        }
     }
 
     private void loadSituationDir(Path dir) {
@@ -119,41 +202,47 @@ public class QuestTemplateRegistry {
     private List<QuestReferenceTemplate> loadReferencesFile(Path file) {
         if (!Files.exists(file)) return List.of();
         try (var reader = Files.newBufferedReader(file, StandardCharsets.UTF_8)) {
-            JsonObject root = JsonParser.parseReader(reader).getAsJsonObject();
-            JsonArray refs = root.getAsJsonArray("references");
-            List<QuestReferenceTemplate> result = new ArrayList<>();
-            for (JsonElement el : refs) {
-                JsonObject r = el.getAsJsonObject();
-                result.add(new QuestReferenceTemplate(
-                    r.get("id").getAsString(),
-                    jsonArrayToStringList(r.getAsJsonArray("compatibleSituations")),
-                    r.get("passiveText").getAsString(),
-                    r.get("triggerTopicLabel").getAsString(),
-                    r.get("triggerDialogue").getAsString(),
-                    jsonArrayToStringList(r.getAsJsonArray("catalystSituations")),
-                    jsonArrayToStringList(r.getAsJsonArray("targetNpcRoles"))
-                ));
-            }
-            return result;
+            return parseReferences(JsonParser.parseReader(reader).getAsJsonObject());
         } catch (Exception e) {
             LOGGER.atSevere().withCause(e).log("Failed to parse references file: %s", file);
             return List.of();
         }
     }
 
+    private List<QuestReferenceTemplate> parseReferences(JsonObject root) {
+        JsonArray refs = root.getAsJsonArray("references");
+        List<QuestReferenceTemplate> result = new ArrayList<>();
+        for (JsonElement el : refs) {
+            JsonObject r = el.getAsJsonObject();
+            result.add(new QuestReferenceTemplate(
+                r.get("id").getAsString(),
+                jsonArrayToStringList(r.getAsJsonArray("compatibleSituations")),
+                r.get("passiveText").getAsString(),
+                r.get("triggerTopicLabel").getAsString(),
+                r.get("triggerDialogue").getAsString(),
+                jsonArrayToStringList(r.getAsJsonArray("catalystSituations")),
+                jsonArrayToStringList(r.getAsJsonArray("targetNpcRoles"))
+            ));
+        }
+        return result;
+    }
+
     private Map<String, Double> loadWeightsFile(Path file) {
         if (!Files.exists(file)) return Map.of();
         try (var reader = Files.newBufferedReader(file, StandardCharsets.UTF_8)) {
-            JsonObject root = JsonParser.parseReader(reader).getAsJsonObject();
-            Map<String, Double> weights = new HashMap<>();
-            for (var entry : root.entrySet()) {
-                weights.put(entry.getKey(), entry.getValue().getAsDouble());
-            }
-            return weights;
+            return parseWeights(JsonParser.parseReader(reader).getAsJsonObject());
         } catch (Exception e) {
             LOGGER.atSevere().withCause(e).log("Failed to parse weights file: %s", file);
             return Map.of();
         }
+    }
+
+    private Map<String, Double> parseWeights(JsonObject root) {
+        Map<String, Double> weights = new HashMap<>();
+        for (var entry : root.entrySet()) {
+            weights.put(entry.getKey(), entry.getValue().getAsDouble());
+        }
+        return weights;
     }
 
     private List<String> jsonArrayToStringList(JsonArray arr) {

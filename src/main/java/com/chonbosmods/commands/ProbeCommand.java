@@ -131,7 +131,7 @@ public class ProbeCommand extends AbstractPlayerCommand {
                                 Ref<EntityStore> ref, Store<EntityStore> store,
                                 CommandContext context) {
         List<LogEntry> testLog = List.of(
-            new LogEntry.TopicHeader("Repair"),
+            new LogEntry.TopicHeader("Repair", false),
             new LogEntry.NpcSpeech("Aye, I can fix that blade for ye. But it'll cost ya. Good steel doesn't come cheap around here.")
         );
 
@@ -142,9 +142,9 @@ public class ProbeCommand extends AbstractPlayerCommand {
         );
 
         List<ResolvedTopic> testTopics = List.of(
-            new ResolvedTopic(new TopicDefinition("repair", "Repair", "n1", TopicScope.LOCAL, null, true, null, 0, null), TopicState.ACTIVE),
-            new ResolvedTopic(new TopicDefinition("rumors", "Rumors", "n2", TopicScope.LOCAL, null, true, "INT", 1, null), TopicState.ACTIVE),
-            new ResolvedTopic(new TopicDefinition("quest", "The Missing Shipment", "n3", TopicScope.LOCAL, null, true, "CHA +2", 2, null), TopicState.ACTIVE)
+            new ResolvedTopic(new TopicDefinition("repair", "Repair", "n1", TopicScope.LOCAL, null, true, null, 0, null, false), TopicState.ACTIVE),
+            new ResolvedTopic(new TopicDefinition("rumors", "Rumors", "n2", TopicScope.LOCAL, null, true, "INT", 1, null, false), TopicState.ACTIVE),
+            new ResolvedTopic(new TopicDefinition("quest", "The Missing Shipment", "n3", TopicScope.LOCAL, null, true, "CHA +2", 2, null, true), TopicState.ACTIVE)
         );
 
         Nat20DialoguePage page = new Nat20DialoguePage(playerRef);

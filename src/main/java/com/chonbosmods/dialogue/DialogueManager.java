@@ -104,7 +104,7 @@ public class DialogueManager {
                         var logObj = el.getAsJsonObject();
                         String logType = logObj.get("type").getAsString();
                         LogEntry entry = switch (logType) {
-                            case "TopicHeader" -> new LogEntry.TopicHeader(logObj.get("label").getAsString());
+                            case "TopicHeader" -> new LogEntry.TopicHeader(logObj.get("label").getAsString(), logObj.has("questTopic") && logObj.get("questTopic").getAsBoolean());
                             case "NpcSpeech" -> new LogEntry.NpcSpeech(logObj.get("text").getAsString());
                             case "SelectedResponse" -> new LogEntry.SelectedResponse(
                                     logObj.get("responseId").getAsString(),

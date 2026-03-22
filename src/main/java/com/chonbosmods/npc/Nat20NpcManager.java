@@ -76,8 +76,15 @@ public class Nat20NpcManager {
             String name = Nat20NameGenerator.generate(java.util.Objects.hash(cellKey, npcIndex));
             npcIndex++;
 
+            // Pre-compute skin model so we can pass it to spawnEntity
+            // (avoids ModelComponent scale=0 crash on chunk reload)
+            Random skinRng = new Random(name.hashCode());
+            com.hypixel.hytale.protocol.PlayerSkin skin = CosmeticsModule.get().generateRandomSkin(skinRng);
+            com.hypixel.hytale.server.core.asset.type.model.config.Model model =
+                CosmeticsModule.get().createModel(skin, 1.0f);
+
             Pair<Ref<EntityStore>, NPCEntity> result =
-                NPCPlugin.get().spawnEntity(store, roleIndex, spawnPos, def.rotation(), null, null);
+                NPCPlugin.get().spawnEntity(store, roleIndex, spawnPos, def.rotation(), model, null);
 
             if (result != null) {
                 Ref<EntityStore> npcRef = result.first();
@@ -104,8 +111,9 @@ public class Nat20NpcManager {
                 String displayName = formatDisplayName(name, roleName);
                 store.putComponent(npcRef, Nameplate.getComponentType(), new Nameplate(displayName));
 
-                // Apply skin component (appearance data, model already set via spawnEntity)
-                applyRandomSkin(store, npcRef,name);
+                // Apply skin component (model already set via spawnEntity)
+                store.putComponent(npcRef, PlayerSkinComponent.getComponentType(),
+                        new PlayerSkinComponent(skin));
 
                 // Equip guard armor
                 if (roleName.equals("Guard")) {
@@ -154,8 +162,15 @@ public class Nat20NpcManager {
         Vector3d spawnPos = new Vector3d(record.getSpawnX(), record.getSpawnY(), record.getSpawnZ());
         Vector3f rotation = new Vector3f(record.getRotX(), record.getRotY(), record.getRotZ());
 
+        // Pre-compute skin/model so we can pass Model to spawnEntity
+        // (avoids ModelComponent scale=0 crash on chunk reload)
+        Random skinRng = new Random(record.getGeneratedName().hashCode());
+        com.hypixel.hytale.protocol.PlayerSkin skin = CosmeticsModule.get().generateRandomSkin(skinRng);
+        com.hypixel.hytale.server.core.asset.type.model.config.Model model =
+            CosmeticsModule.get().createModel(skin, 1.0f);
+
         Pair<Ref<EntityStore>, NPCEntity> result =
-            NPCPlugin.get().spawnEntity(store, roleIndex, spawnPos, rotation, null, null);
+            NPCPlugin.get().spawnEntity(store, roleIndex, spawnPos, rotation, model, null);
 
         if (result == null) {
             LOGGER.atWarning().log("Failed to respawn " + roleName);
@@ -177,8 +192,9 @@ public class Nat20NpcManager {
         String displayName = formatDisplayName(record.getGeneratedName(), roleName);
         store.putComponent(npcRef, Nameplate.getComponentType(), new Nameplate(displayName));
 
-        // Apply skin component (appearance data, model already set via spawnEntity)
-        applyRandomSkin(store, npcRef,record.getGeneratedName());
+        // Apply skin component (model already set via spawnEntity)
+        store.putComponent(npcRef, PlayerSkinComponent.getComponentType(),
+                new PlayerSkinComponent(skin));
 
         // Equip guard armor
         if (roleName.equals("Guard")) {
@@ -210,19 +226,6 @@ public class Nat20NpcManager {
     }
 
     /**
-     * Apply a randomized player skin to an NPC entity, giving it a unique appearance.
-     * Uses a deterministic seed from the NPC's name so respawned NPCs look the same.
-     * The role's Appearance is set to "Player" so PlayerSkinComponent provides the texture.
-     */
-    private void applyRandomSkin(Store<EntityStore> store, Ref<EntityStore> npcRef, String generatedName) {
-        Random rng = new Random(generatedName.hashCode());
-        com.hypixel.hytale.protocol.PlayerSkin skin = CosmeticsModule.get().generateRandomSkin(rng);
-
-        store.putComponent(npcRef, PlayerSkinComponent.getComponentType(),
-                new PlayerSkinComponent(skin));
-    }
-
-    /**
      * Resolve a role name: if RANDOM_ARTISAN, pick from the artisan pool
      * preferring unused artisans. Falls back to repeats if all are used.
      */
@@ -251,7 +254,7 @@ public class Nat20NpcManager {
 
     /**
      * Find the ground-level Y coordinate for an NPC spawn point.
-     * Scans downward first, then upward, with a final fallback.
+     * Scans downward from world ceiling with a final fallback.
      *
      * @param world   the world to scan
      * @param x       block X coordinate
