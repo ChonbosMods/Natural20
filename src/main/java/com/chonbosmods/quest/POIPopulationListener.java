@@ -43,8 +43,9 @@ public class POIPopulationListener {
      */
     public void populateNow(World world, QuestInstance quest, Ref<EntityStore> playerRef,
                              int poiX, int poiY, int poiZ, String mobRole, int mobCount) {
+        String questId = quest != null ? quest.getQuestId() : "test";
         PendingPopulation pop = new PendingPopulation(
-            quest.getQuestId(), poiX, poiY, poiZ, mobRole, mobCount, playerRef);
+            questId, poiX, poiY, poiZ, mobRole, mobCount, playerRef);
         populate(world, pop);
     }
 

@@ -71,8 +71,9 @@ public class CaveVoidsCommand extends AbstractPlayerCommand {
             case "stats" -> executeStats(context, playerPos);
             case "probe" -> executeProbe(context, world, playerPos);
             case "pastehere" -> executePasteHere(context, world, playerPos, store);
+            case "testpoi" -> executeTestPOI(context, world, playerPos, store, ref);
             default -> context.sendMessage(Message.raw(
-                    "Unknown operation: " + operation + ". Use: scan, list, nearest, place, pastehere, probe, stats, clear"));
+                    "Unknown operation: " + operation + ". Use: scan, list, nearest, place, pastehere, probe, stats, testpoi, clear"));
         }
     }
 
@@ -398,6 +399,51 @@ public class CaveVoidsCommand extends AbstractPlayerCommand {
                         }
                     });
                 });
+    }
+
+    private void executeTestPOI(CommandContext context, World world, Vector3d playerPos,
+                                 Store<EntityStore> store, Ref<EntityStore> playerRef) {
+        CaveVoidRegistry registry = Natural20.getInstance().getCaveVoidRegistry();
+        int px = (int) playerPos.getX();
+        int pz = (int) playerPos.getZ();
+
+        CaveVoidRecord nearest = registry.findAnyVoid(px, pz);
+        if (nearest == null) {
+            context.sendMessage(Message.raw("No unclaimed cave voids found. Run 'scan' first."));
+            return;
+        }
+
+        context.sendMessage(Message.raw("Testing POI flow at void (" +
+            nearest.getCenterX() + ", " + nearest.getCenterY() + ", " + nearest.getCenterZ() + ")"));
+
+        // Pick a random mob role from the pool
+        String[] testRoles = {"Trork_Warrior", "Skeleton", "Zombie", "Spider", "Goblin_Scrapper"};
+        String mobRole = testRoles[new Random().nextInt(testRoles.length)];
+        int mobCount = 4;
+
+        Natural20.getInstance().getStructurePlacer()
+            .placeAtVoid(world, nearest, store)
+            .whenComplete((entrance, error) -> {
+                if (error != null || entrance == null) {
+                    context.sendMessage(Message.raw("Prefab placement failed."));
+                    return;
+                }
+                context.sendMessage(Message.raw("Prefab placed at (" +
+                    entrance.getX() + ", " + entrance.getY() + ", " + entrance.getZ() + ")"));
+                context.sendMessage(Message.raw("Spawning " + mobCount + "x " + mobRole + "..."));
+
+                // Spawn mobs on the world thread
+                world.execute(() -> {
+                    Natural20.getInstance().getPOIPopulationListener().populateNow(
+                        world, null, playerRef,
+                        entrance.getX(), entrance.getY(), entrance.getZ(),
+                        mobRole, mobCount);
+                    context.sendMessage(Message.raw("Done! /tp " +
+                        entrance.getX() + " " + entrance.getY() + " " + entrance.getZ()));
+                });
+            });
+
+        registry.claimVoid(nearest, "test");
     }
 
     private int scanAir(World world, int x, int y, int z, int dx, int dz) {
