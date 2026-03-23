@@ -1,15 +1,17 @@
 package com.chonbosmods.settlement;
 
 import com.chonbosmods.Natural20;
+import com.chonbosmods.data.Nat20NpcData;
+import com.hypixel.hytale.component.Ref;
 import com.hypixel.hytale.logger.HytaleLogger;
 import com.hypixel.hytale.math.vector.Vector3d;
 import com.hypixel.hytale.math.vector.Vector3i;
 import com.hypixel.hytale.protocol.BlockMaterial;
+import com.hypixel.hytale.server.core.universe.world.storage.EntityStore;
 import com.hypixel.hytale.server.core.asset.type.blocktype.config.BlockType;
 import com.hypixel.hytale.server.core.asset.type.blocktype.config.Rotation;
 import com.hypixel.hytale.server.core.universe.world.World;
 
-import java.util.ArrayList;
 import java.util.List;
 import java.util.Random;
 import java.util.UUID;
@@ -114,8 +116,11 @@ public class SettlementWorldGenListener {
     private static final long CHECK_COOLDOWN_MS = 30_000;
 
     /**
-     * Check if NPCs for an existing settlement are missing from the entity store
-     * and respawn them if needed. Entities can be lost on chunk unload/reload.
+     * Check NPCs for an existing settlement and recover them if needed.
+     * 3-tier recovery:
+     *   1. Entity exists with Nat20NpcData: intact, skip
+     *   2. Entity exists without Nat20NpcData: reattach components (preserves UUID)
+     *   3. Entity missing: full respawn (new UUID)
      */
     private void checkAndRespawnNpcs(World world, String cellKey) {
         long now = System.currentTimeMillis();
@@ -126,38 +131,53 @@ public class SettlementWorldGenListener {
         SettlementRecord record = registry.getByCell(cellKey);
         if (record == null || record.getNpcs().isEmpty()) return;
 
-        // Defer to world thread for entity store access
         world.execute(() -> {
             var store = world.getEntityStore().getStore();
 
-            List<NpcRecord> missingNpcs = new ArrayList<>();
+            int reattached = 0;
+            int respawned = 0;
+            int intact = 0;
+
             for (NpcRecord npc : record.getNpcs()) {
-                if (npc.getEntityUUID() == null) continue;
-                boolean exists = false;
+                if (npc.getEntityUUID() == null) {
+                    // Dead NPC (UUID cleared by death system): skip
+                    continue;
+                }
+
+                Ref<EntityStore> npcRef = null;
+                boolean entityExists = false;
                 try {
-                    var npcRef = world.getEntityRef(npc.getEntityUUID());
-                    exists = npcRef != null && store.getComponent(npcRef,
+                    npcRef = world.getEntityRef(npc.getEntityUUID());
+                    entityExists = npcRef != null && store.getComponent(npcRef,
                         com.hypixel.hytale.server.npc.entities.NPCEntity.getComponentType()) != null;
                 } catch (Exception ignored) {}
-                if (!exists) {
-                    missingNpcs.add(npc);
+
+                if (entityExists) {
+                    // Entity survived: check if custom data is intact
+                    Nat20NpcData npcData = store.getComponent(npcRef, Natural20.getNpcDataType());
+                    if (npcData != null && npcData.getGeneratedName() != null) {
+                        // Tier 1: fully intact
+                        intact++;
+                    } else {
+                        // Tier 2: entity exists but lost custom components, reattach
+                        boolean ok = Natural20.getInstance().getNpcManager()
+                            .reattachNpc(store, npcRef, npc, cellKey);
+                        if (ok) reattached++;
+                        else respawned++; // fallback to respawn if reattach fails
+                    }
+                } else {
+                    // Tier 3: entity is gone, full respawn
+                    UUID newUUID = Natural20.getInstance().getNpcManager()
+                        .respawnNpc(store, world, npc, cellKey);
+                    if (newUUID != null) respawned++;
                 }
             }
 
-            if (missingNpcs.isEmpty()) return;
-
-            LOGGER.atInfo().log("Settlement %s: %d/%d NPCs missing from entity store, respawning",
-                cellKey, missingNpcs.size(), record.getNpcs().size());
-
-            for (NpcRecord npc : missingNpcs) {
-                UUID newUUID = Natural20.getInstance().getNpcManager().respawnNpc(store, world, npc, cellKey);
-                if (newUUID != null) {
-                    LOGGER.atInfo().log("  Respawned %s (%s) with new UUID %s",
-                        npc.getGeneratedName(), npc.getRole(), newUUID);
-                }
+            if (reattached > 0 || respawned > 0) {
+                LOGGER.atInfo().log("Settlement %s: %d intact, %d reattached, %d respawned",
+                    cellKey, intact, reattached, respawned);
+                registry.saveAsync();
             }
-
-            registry.saveAsync();
         });
     }
 
