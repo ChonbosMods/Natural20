@@ -37,6 +37,10 @@ public class QuestPoolRegistry {
     private final List<NarrativeEntry> questFocuses = new ArrayList<>();
     private final List<NarrativeEntry> questStakes = new ArrayList<>();
     private final List<NarrativeEntry> questThreats = new ArrayList<>();
+    private final List<NarrativeEntry> threatsAnimate = new ArrayList<>();
+    private final List<NarrativeEntry> threatsAbstract = new ArrayList<>();
+    private final List<NarrativeEntry> stakesHuman = new ArrayList<>();
+    private final List<NarrativeEntry> stakesAbstract = new ArrayList<>();
     private final List<String> questOrigins = new ArrayList<>();
     private final List<String> questTimePressures = new ArrayList<>();
     private final List<String> questRewardHints = new ArrayList<>();
@@ -61,6 +65,10 @@ public class QuestPoolRegistry {
         loadNarrativePoolFromClasspath(CLASSPATH_PREFIX + "quest_focuses.json", questFocuses);
         loadNarrativePoolFromClasspath(CLASSPATH_PREFIX + "quest_stakes.json", questStakes);
         loadNarrativePoolFromClasspath(CLASSPATH_PREFIX + "quest_threats.json", questThreats);
+        loadNarrativePoolFromClasspath(CLASSPATH_PREFIX + "quest_threats_animate.json", threatsAnimate);
+        loadNarrativePoolFromClasspath(CLASSPATH_PREFIX + "quest_threats_abstract.json", threatsAbstract);
+        loadNarrativePoolFromClasspath(CLASSPATH_PREFIX + "quest_stakes_human.json", stakesHuman);
+        loadNarrativePoolFromClasspath(CLASSPATH_PREFIX + "quest_stakes_abstract.json", stakesAbstract);
         loadStringPoolFromClasspath(CLASSPATH_PREFIX + "quest_origins.json", questOrigins);
         loadStringPoolFromClasspath(CLASSPATH_PREFIX + "quest_time_pressures.json", questTimePressures);
         loadStringPoolFromClasspath(CLASSPATH_PREFIX + "quest_reward_hints.json", questRewardHints);
@@ -85,6 +93,10 @@ public class QuestPoolRegistry {
             loadNarrativePool(poolsDir.resolve("quest_focuses.json"), questFocuses);
             loadNarrativePool(poolsDir.resolve("quest_stakes.json"), questStakes);
             loadNarrativePool(poolsDir.resolve("quest_threats.json"), questThreats);
+            loadNarrativePool(poolsDir.resolve("quest_threats_animate.json"), threatsAnimate);
+            loadNarrativePool(poolsDir.resolve("quest_threats_abstract.json"), threatsAbstract);
+            loadNarrativePool(poolsDir.resolve("quest_stakes_human.json"), stakesHuman);
+            loadNarrativePool(poolsDir.resolve("quest_stakes_abstract.json"), stakesAbstract);
             loadStringPool(poolsDir.resolve("quest_origins.json"), questOrigins);
             loadStringPool(poolsDir.resolve("quest_time_pressures.json"), questTimePressures);
             loadStringPool(poolsDir.resolve("quest_reward_hints.json"), questRewardHints);
@@ -320,6 +332,26 @@ public class QuestPoolRegistry {
     public NarrativeEntry randomThreat(Random random) {
         if (questThreats.isEmpty()) return new NarrativeEntry("growing danger", false, false);
         return questThreats.get(random.nextInt(questThreats.size()));
+    }
+
+    public NarrativeEntry randomAnimateThreat(Random random) {
+        if (threatsAnimate.isEmpty()) return new NarrativeEntry("advancing raiders", true, false);
+        return threatsAnimate.get(random.nextInt(threatsAnimate.size()));
+    }
+
+    public NarrativeEntry randomAbstractThreat(Random random) {
+        if (threatsAbstract.isEmpty()) return new NarrativeEntry("growing danger", false, false);
+        return threatsAbstract.get(random.nextInt(threatsAbstract.size()));
+    }
+
+    public NarrativeEntry randomHumanStakes(Random random) {
+        if (stakesHuman.isEmpty()) return new NarrativeEntry("refugee families", true, false);
+        return stakesHuman.get(random.nextInt(stakesHuman.size()));
+    }
+
+    public NarrativeEntry randomAbstractStakes(Random random) {
+        if (stakesAbstract.isEmpty()) return new NarrativeEntry("winter supplies", true, false);
+        return stakesAbstract.get(random.nextInt(stakesAbstract.size()));
     }
 
     public @Nullable String randomOrigin(Random random) {
