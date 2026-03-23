@@ -150,7 +150,7 @@ public class Nat20NpcManager {
      * @param record the NpcRecord describing the NPC to respawn
      * @return the new UUID of the respawned entity, or null on failure
      */
-    public UUID respawnNpc(Store<EntityStore> store, World world, NpcRecord record) {
+    public UUID respawnNpc(Store<EntityStore> store, World world, NpcRecord record, String settlementCellKey) {
         String roleName = record.getRole();
         int roleIndex = NPCPlugin.get().getIndex(roleName);
         if (roleIndex < 0) {
@@ -183,6 +183,7 @@ public class Nat20NpcManager {
         Nat20NpcData npcData = store.addComponent(npcRef, Natural20.getNpcDataType());
         npcData.setGeneratedName(record.getGeneratedName());
         npcData.setRoleName(roleName);
+        npcData.setSettlementCellKey(settlementCellKey);
 
         // Set leash
         npcEntity.setLeashPoint(spawnPos);

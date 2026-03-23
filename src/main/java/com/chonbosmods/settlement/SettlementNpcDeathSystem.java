@@ -115,7 +115,7 @@ public class SettlementNpcDeathSystem extends DamageEventSystem {
                     try {
                         Store<EntityStore> respawnStore = world.getEntityStore().getStore();
                         UUID newUUID = Natural20.getInstance().getNpcManager()
-                                .respawnNpc(respawnStore, world, npcRecord);
+                                .respawnNpc(respawnStore, world, npcRecord, cellKey);
 
                         if (newUUID != null) {
                             registry.saveAsync();

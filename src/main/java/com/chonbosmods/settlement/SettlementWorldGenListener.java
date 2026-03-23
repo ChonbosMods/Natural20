@@ -150,7 +150,7 @@ public class SettlementWorldGenListener {
                 cellKey, missingNpcs.size(), record.getNpcs().size());
 
             for (NpcRecord npc : missingNpcs) {
-                UUID newUUID = Natural20.getInstance().getNpcManager().respawnNpc(store, world, npc);
+                UUID newUUID = Natural20.getInstance().getNpcManager().respawnNpc(store, world, npc, cellKey);
                 if (newUUID != null) {
                     LOGGER.atInfo().log("  Respawned %s (%s) with new UUID %s",
                         npc.getGeneratedName(), npc.getRole(), newUUID);
