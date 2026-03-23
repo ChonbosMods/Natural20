@@ -7,38 +7,21 @@
         "plotStep": "{quest_ally} confirmed that {enemy_type} are being used as enforcers near the {quest_focus}. They have been gathering {location_hint}. We need to break through them and cut off the escape route.",
         "outro": "Justice demands we finish this. They cannot be allowed to keep hurting people."
       },
-      "objectivePool": [
-        "KILL_MOBS",
-        "EXPLORE_LOCATION"
-      ],
+      "objectivePool": ["KILL_MOBS"],
       "objectiveConfig": {
-        "KILL_MOBS": {
-          "countMin": 4,
-          "countMax": 9
-        }
+        "KILL_MOBS": {"countMin": 4, "countMax": 9}
       }
     },
     {
       "id": "crimevengeance_conf_02",
       "dialogueChunks": {
         "intro": "It is worse than we thought, {player_name}. Since you began to {quest_action}, we discovered that the {quest_threat} did not act alone.",
-        "plotStep": "There are accomplices hiding near the {quest_focus}. {quest_ally} found evidence {location_hint}. The {enemy_type} they recruited are guarding the remaining {quest_item}. We need to deal with all of them.",
+        "plotStep": "There are accomplices hiding near the {quest_focus}. {quest_ally} found evidence {location_hint}. The {enemy_type} they recruited are guarding the area. We need to cut through every last one of them.",
         "outro": "Every one of them played a part in harming the {quest_stakes}. They all answer for it."
       },
-      "objectivePool": [
-        "KILL_MOBS",
-        "GATHER_ITEMS",
-        "KILL_NPC"
-      ],
+      "objectivePool": ["KILL_MOBS"],
       "objectiveConfig": {
-        "KILL_MOBS": {
-          "countMin": 3,
-          "countMax": 8
-        },
-        "GATHER_ITEMS": {
-          "countMin": 3,
-          "countMax": 6
-        }
+        "KILL_MOBS": {"countMin": 3, "countMax": 8}
       }
     },
     {
@@ -48,16 +31,9 @@
         "plotStep": "{quest_ally} intercepted signs that {enemy_type} are patrolling the approaches {location_hint}. They are daring us to come after them. The {quest_stakes} will remain at risk until we confront them directly.",
         "outro": "They think they can intimidate us. Prove them wrong."
       },
-      "objectivePool": [
-        "KILL_MOBS",
-        "EXPLORE_LOCATION",
-        "KILL_NPC"
-      ],
+      "objectivePool": ["KILL_MOBS"],
       "objectiveConfig": {
-        "KILL_MOBS": {
-          "countMin": 5,
-          "countMax": 10
-        }
+        "KILL_MOBS": {"countMin": 5, "countMax": 10}
       }
     }
   ]

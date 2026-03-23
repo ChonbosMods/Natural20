@@ -4,43 +4,37 @@
       "id": "expo_discovery_dishonor_01",
       "dialogueChunks": {
         "intro": "I found something in my mentor's workshop that I wish I hadn't, {player_name}. Records that don't add up. Payments to people who shouldn't be receiving them.",
-        "plotStep": "My mentor taught me everything. I trusted them completely. But the {quest_focus} shows years of skimming, falsifying costs, and cheating everyone who relied on them. {quest_origin} holds more evidence, but the {enemy_type} have moved into the area.",
+        "plotStep": "My mentor taught me everything. I trusted them completely. But the {quest_focus} shows years of skimming, falsifying costs, and cheating everyone who relied on them. {target_npc} may know the truth: they worked alongside my mentor for years and would have seen things.",
         "outro": "I need someone from outside to {quest_action}. If I'm wrong, I've slandered the person I respect most. If I'm right, the {quest_threat} {quest_threat_is} worse than anyone imagines. {quest_time_pressure}."
       },
-      "objectivePool": [
-        "EXPLORE_LOCATION",
-        "TALK_TO_NPC",
-        "FETCH_ITEM"
-      ],
-      "objectiveConfig": {}
+      "objectivePool": ["TALK_TO_NPC"],
+      "objectiveConfig": {
+        "TALK_TO_NPC": {"countMin": 1, "countMax": 1}
+      }
     },
     {
       "id": "expo_discovery_dishonor_02",
       "dialogueChunks": {
         "intro": "Every child in this settlement grows up hearing about a great deed and the hero who saved us, {player_name}. I just learned that story is a lie.",
         "plotStep": "The 'hero' didn't rally the defenders. The {quest_focus} {quest_focus_is} that they fled and hid while others fought and died. They came out afterward and claimed the victory. The real defenders were dead and couldn't contradict the story. Now that person holds power, revered and untouchable.",
-        "outro": "{quest_origin} still has evidence: details that don't match the official account. Someone needs to {quest_action} before this person's false reputation lets them make decisions that cost more lives. {quest_item} {location_hint} might prove it."
+        "outro": "{target_npc} was there that day and survived. Find them {location_hint} and get their testimony before this person's false reputation lets them make decisions that cost more lives. Someone needs to {quest_action}."
       },
-      "objectivePool": [
-        "EXPLORE_LOCATION",
-        "TALK_TO_NPC",
-        "FETCH_ITEM"
-      ],
-      "objectiveConfig": {}
+      "objectivePool": ["TALK_TO_NPC"],
+      "objectiveConfig": {
+        "TALK_TO_NPC": {"countMin": 1, "countMax": 1}
+      }
     },
     {
       "id": "expo_discovery_dishonor_03",
       "dialogueChunks": {
         "intro": "The relief fund was supposed to help the {quest_stakes}, {player_name}. Hundreds of contributions from across the region. The fund is empty.",
         "plotStep": "The administrator, the most respected and trusted person in the settlement, has been diverting donations to their own accounts. The {quest_focus} {quest_focus_is} staggering in its scale. The {quest_stakes} who were promised help received nothing. The administrator still gives public speeches about compassion.",
-        "outro": "The records are scattered to avoid detection. Someone needs to {quest_action} and build a case that can't be denied. The {quest_threat} {quest_threat_has} enough influence to silence anyone from within. {quest_reward_hint} might follow if justice is done."
+        "outro": "The records are scattered to avoid detection. Someone needs to {quest_action} and retrieve the ledgers from {location_hint} before they are destroyed. The {quest_threat} {quest_threat_has} enough influence to silence anyone from within. {quest_reward_hint} might follow if justice is done."
       },
-      "objectivePool": [
-        "EXPLORE_LOCATION",
-        "FETCH_ITEM",
-        "TALK_TO_NPC"
-      ],
-      "objectiveConfig": {}
+      "objectivePool": ["FETCH_ITEM"],
+      "objectiveConfig": {
+        "FETCH_ITEM": {"countMin": 1, "countMax": 1}
+      }
     }
   ]
 }

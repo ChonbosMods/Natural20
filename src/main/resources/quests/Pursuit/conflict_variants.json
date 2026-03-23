@@ -7,57 +7,33 @@
         "plotStep": "The {quest_threat} doubled back toward the {quest_focus}. The {enemy_type} are providing cover, and they have been massing {location_hint}. We need to push through them to pick up the trail again.",
         "outro": "The {quest_stakes} cannot wait. If we lose the trail now, we lose everything."
       },
-      "objectivePool": [
-        "KILL_MOBS",
-        "EXPLORE_LOCATION"
-      ],
+      "objectivePool": ["KILL_MOBS"],
       "objectiveConfig": {
-        "KILL_MOBS": {
-          "countMin": 4,
-          "countMax": 8
-        }
+        "KILL_MOBS": {"countMin": 4, "countMax": 8}
       }
     },
     {
       "id": "pursuit_conf_02",
       "dialogueChunks": {
         "intro": "Bad news, {player_name}. While you were working to {quest_action}, the {quest_threat} set a trap near the {quest_focus}.",
-        "plotStep": "{quest_ally} nearly walked into it. The {enemy_type} have fortified the area {location_hint}. We need to clear them out and recover any {quest_item} they have taken as proof.",
+        "plotStep": "{quest_ally} nearly walked into it. The {enemy_type} have fortified the area {location_hint}. We need to clear them out before anyone else gets hurt.",
         "outro": "They are trying to discourage us. Let us show them it will not work."
       },
-      "objectivePool": [
-        "KILL_MOBS",
-        "GATHER_ITEMS",
-        "EXPLORE_LOCATION"
-      ],
+      "objectivePool": ["KILL_MOBS"],
       "objectiveConfig": {
-        "KILL_MOBS": {
-          "countMin": 3,
-          "countMax": 7
-        },
-        "GATHER_ITEMS": {
-          "countMin": 3,
-          "countMax": 6
-        }
+        "KILL_MOBS": {"countMin": 3, "countMax": 7}
       }
     },
     {
       "id": "pursuit_conf_03",
       "dialogueChunks": {
         "intro": "{player_name}, I was wrong about how far the {quest_threat} would go. Since you started to {quest_action}, they have lashed out at the {quest_stakes} directly.",
-        "plotStep": "It is personal now. {quest_ally} confirmed that {enemy_type} were sent to the {quest_focus} as a distraction while the real target fled {location_hint}. We need to deal with both threats.",
+        "plotStep": "It is personal now. {quest_ally} confirmed that {enemy_type} were sent to the {quest_focus} as a distraction while the real target fled {location_hint}. We need to cut through them and end this.",
         "outro": "End this pursuit once and for all. I am counting on you."
       },
-      "objectivePool": [
-        "KILL_MOBS",
-        "EXPLORE_LOCATION",
-        "KILL_NPC"
-      ],
+      "objectivePool": ["KILL_MOBS"],
       "objectiveConfig": {
-        "KILL_MOBS": {
-          "countMin": 3,
-          "countMax": 8
-        }
+        "KILL_MOBS": {"countMin": 3, "countMax": 8}
       }
     }
   ]
