@@ -342,7 +342,7 @@ public class QuestGenerator {
         boolean poiAvailable = "true".equals(bindings.get("poi_available"));
 
         return switch (type) {
-            case GATHER_ITEMS -> new ObjectiveInstance(
+            case COLLECT_RESOURCES -> new ObjectiveInstance(
                 type, bindings.get("gather_item_id"), bindings.get("quest_item"),
                 config.rollCount(random), null, null
             );
@@ -353,19 +353,6 @@ public class QuestGenerator {
                 yield new ObjectiveInstance(
                     type, bindings.get("enemy_type_id"), bindings.get("enemy_type"),
                     config.rollCount(random), null, null
-                );
-            }
-            case DELIVER_ITEM -> new ObjectiveInstance(
-                type, bindings.get("gather_item_id"), bindings.get("quest_item"),
-                1, bindings.get("location_hint"), bindings.get("target_npc_settlement")
-            );
-            case EXPLORE_LOCATION -> {
-                if (poiAvailable) {
-                    yield createPOIObjective(type, bindings, config, random);
-                }
-                yield new ObjectiveInstance(
-                    type, bindings.get("location"), bindings.getOrDefault("quest_location_name", "the area"),
-                    1, bindings.get("location_hint"), bindings.get("location")
                 );
             }
             case FETCH_ITEM -> {
@@ -382,16 +369,6 @@ public class QuestGenerator {
                 bindings.getOrDefault("target_npc", "an NPC"),
                 1, bindings.get("location_hint"), bindings.get("target_npc_settlement")
             );
-            case KILL_NPC -> {
-                if (poiAvailable) {
-                    yield createPOIObjective(type, bindings, config, random);
-                }
-                yield new ObjectiveInstance(
-                    type, "bandit_" + Long.toHexString(random.nextLong()),
-                    "a dangerous outlaw",
-                    1, bindings.get("location_hint"), bindings.get("location")
-                );
-            }
         };
     }
 
@@ -421,21 +398,17 @@ public class QuestGenerator {
         // All POI quests spawn hostile mobs in the dungeon
         String populationSpec = "KILL_MOBS:" + bindings.get("enemy_type_id") + ":" + switch (type) {
             case KILL_MOBS -> "4";
-            case KILL_NPC -> "2";
-            default -> "3"; // EXPLORE_LOCATION, FETCH_ITEM
+            default -> "3"; // FETCH_ITEM
         };
         bindings.put("poi_population_spec", populationSpec);
 
         int requiredCount = switch (type) {
             case KILL_MOBS -> 2;
-            case KILL_NPC -> 1;
-            case FETCH_ITEM -> 1;
-            default -> 1;
+            default -> 1; // FETCH_ITEM
         };
 
         String targetLabel = switch (type) {
             case KILL_MOBS -> bindings.get("enemy_type");
-            case KILL_NPC -> "a dangerous outlaw";
             case FETCH_ITEM -> bindings.get("quest_item");
             default -> "a cave dungeon";
         };
