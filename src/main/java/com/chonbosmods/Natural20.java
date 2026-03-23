@@ -17,6 +17,7 @@ import com.chonbosmods.quest.POIPopulationListener;
 import com.chonbosmods.quest.QuestSystem;
 import com.chonbosmods.npc.BuilderActionNat20StartDialogue;
 import com.chonbosmods.npc.Nat20NpcManager;
+import com.chonbosmods.settlement.NpcRecord;
 import com.chonbosmods.settlement.SettlementNpcDeathSystem;
 import com.chonbosmods.settlement.SettlementPlacer;
 import com.chonbosmods.settlement.SettlementRecord;
@@ -24,6 +25,7 @@ import com.chonbosmods.settlement.SettlementRegistry;
 import com.chonbosmods.settlement.SettlementThreatSystem;
 import com.chonbosmods.settlement.SettlementWorldGenListener;
 import com.hypixel.hytale.component.ComponentType;
+import com.hypixel.hytale.component.Ref;
 import com.hypixel.hytale.server.core.HytaleServer;
 import com.hypixel.hytale.server.core.event.events.player.PlayerDisconnectEvent;
 import com.hypixel.hytale.server.core.universe.world.World;
@@ -36,6 +38,9 @@ import com.hypixel.hytale.server.core.util.Config;
 
 import javax.annotation.Nonnull;
 import java.nio.file.Path;
+import java.util.Map;
+import java.util.UUID;
+import java.util.concurrent.Executors;
 import java.util.concurrent.TimeUnit;
 
 public class Natural20 extends JavaPlugin {
@@ -280,6 +285,13 @@ public class Natural20 extends JavaPlugin {
         }
         getLogger().atInfo().log("Generated procedural topics for %d settlement(s)", settlementRegistry.getAll().size());
 
+        // Periodic NPC state sync (every 60s)
+        Executors.newSingleThreadScheduledExecutor(r -> {
+            Thread t = new Thread(r, "nat20-npc-sync");
+            t.setDaemon(true);
+            return t;
+        }).scheduleAtFixedRate(this::syncAllNpcState, 60, 60, TimeUnit.SECONDS);
+
         getLogger().atInfo().log("Natural 20 v" + getManifest().getVersion() + " started!");
     }
 
@@ -291,6 +303,58 @@ public class Natural20 extends JavaPlugin {
         }
         if (caveVoidRegistry != null) {
             caveVoidRegistry.saveAsync().join();
+        }
+    }
+
+    /**
+     * Sync all live NPC Nat20NpcData back to their NpcRecords.
+     * Called periodically to ensure external persistence stays current.
+     */
+    private void syncAllNpcState() {
+        SettlementRegistry registry = getSettlementRegistry();
+        if (registry == null) return;
+
+        for (SettlementRecord settlement : registry.getAll().values()) {
+            UUID worldUUID = settlement.getWorldUUID();
+            World world = registry.getCachedWorld(worldUUID);
+            if (world == null) continue;
+
+            world.execute(() -> {
+                var store = world.getEntityStore().getStore();
+                boolean dirty = false;
+
+                for (NpcRecord npc : settlement.getNpcs()) {
+                    if (npc.getEntityUUID() == null) continue;
+
+                    try {
+                        Ref<EntityStore> ref = world.getEntityRef(npc.getEntityUUID());
+                        if (ref == null) continue;
+
+                        Nat20NpcData data = store.getComponent(ref, getNpcDataType());
+                        if (data == null) continue;
+
+                        // Sync mutable fields
+                        if (data.getDefaultDisposition() != npc.getDisposition()) {
+                            npc.setDisposition(data.getDefaultDisposition());
+                            dirty = true;
+                        }
+                        String ds = data.getDialogueState();
+                        if (ds != null && !ds.equals(npc.getDialogueState())) {
+                            npc.setDialogueState(ds);
+                            dirty = true;
+                        }
+                        Map<String, String> flags = data.getFlags();
+                        if (flags != null && !flags.equals(npc.getFlags())) {
+                            npc.setFlags(flags);
+                            dirty = true;
+                        }
+                    } catch (Exception ignored) {}
+                }
+
+                if (dirty) {
+                    registry.saveAsync();
+                }
+            });
         }
     }
 }
