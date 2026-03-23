@@ -81,7 +81,7 @@ public class POIKillTrackingSystem extends DamageEventSystem {
             for (ObjectiveInstance obj : phase.getObjectives()) {
                 if (obj.isComplete()) continue;
                 if (obj.getLocationId() == null || !obj.getLocationId().startsWith("poi:")) continue;
-                if (obj.getType() != ObjectiveType.KILL_MOBS && obj.getType() != ObjectiveType.KILL_NPC) continue;
+                if (obj.getType() != ObjectiveType.KILL_MOBS) continue;
 
                 obj.incrementProgress(1);
                 LOGGER.atInfo().log("POI kill tracked: quest=%s victim=%s progress=%d/%d",
