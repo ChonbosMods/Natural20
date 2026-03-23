@@ -225,7 +225,7 @@
           "intro": "{tone_opener} {creature_sighting}. {tone_closer}",
           "exploratories": [
             {
-              "prompt": "What could be driving them?",
+              "prompt": "Describe what was seen.",
               "response": "{creature_detail}",
               "exploratories": [
                 {
@@ -236,7 +236,7 @@
             },
             {
               "prompt": "How many are we talking about?",
-              "response": "{location_detail}",
+              "response": "{creature_detail}",
               "exploratories": [
                 {
                   "prompt": "Can the settlement handle that?",
