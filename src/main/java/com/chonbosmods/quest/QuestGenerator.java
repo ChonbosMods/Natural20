@@ -418,11 +418,11 @@ public class QuestGenerator {
         bindings.put("poi_y", poiY);
         bindings.put("poi_z", poiZ);
 
-        String populationSpec = switch (type) {
-            case KILL_MOBS -> "KILL_MOBS:" + bindings.get("enemy_type_id") + ":4";
-            case KILL_NPC -> "KILL_NPC:" + bindings.get("enemy_type_id") + ":1";
-            case FETCH_ITEM -> "FETCH_ITEM:" + bindings.get("gather_item_id") + ":1";
-            default -> "NONE";
+        // All POI quests spawn hostile mobs in the dungeon
+        String populationSpec = "KILL_MOBS:" + bindings.get("enemy_type_id") + ":" + switch (type) {
+            case KILL_MOBS -> "4";
+            case KILL_NPC -> "2";
+            default -> "3"; // EXPLORE_LOCATION, FETCH_ITEM
         };
         bindings.put("poi_population_spec", populationSpec);
 

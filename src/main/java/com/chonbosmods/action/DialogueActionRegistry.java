@@ -92,14 +92,17 @@ public class DialogueActionRegistry {
 
                 // If quest has a POI, claim the void and place the structure
                 if ("true".equals(quest.getVariableBindings().get("poi_available"))) {
-                    // Parse population spec before placement so we can spawn after prefab is pasted
+                    // Parse population spec: "KILL_MOBS:RoleName:count"
                     String popSpec = quest.getVariableBindings().get("poi_population_spec");
                     String mobRole = null;
                     int mobCount = 0;
-                    if (popSpec != null && popSpec.startsWith("KILL_MOBS:")) {
+                    if (popSpec != null && !popSpec.equals("NONE")) {
+                        int firstColon = popSpec.indexOf(':');
                         int lastColon = popSpec.lastIndexOf(':');
-                        mobCount = Integer.parseInt(popSpec.substring(lastColon + 1));
-                        mobRole = popSpec.substring("KILL_MOBS:".length(), lastColon);
+                        if (firstColon > 0 && lastColon > firstColon) {
+                            mobRole = popSpec.substring(firstColon + 1, lastColon);
+                            mobCount = Integer.parseInt(popSpec.substring(lastColon + 1));
+                        }
                     }
                     triggerPOIPlacement(quest, ctx.store(), ctx.playerRef(), mobRole, mobCount);
                 }
