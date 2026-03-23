@@ -1,0 +1,19 @@
+{
+  "values": [
+    {"id": "evidence_ledger", "label": "a signed ledger", "labelPlural": "signed ledgers"},
+    {"id": "evidence_letter", "label": "a sealed letter", "labelPlural": "sealed letters"},
+    {"id": "evidence_manifest", "label": "the original trade manifest", "labelPlural": "trade manifests"},
+    {"id": "evidence_witness", "label": "a written witness statement", "labelPlural": "witness statements"},
+    {"id": "evidence_contract", "label": "the forged contract", "labelPlural": "forged contracts"},
+    {"id": "evidence_journal", "label": "a personal journal", "labelPlural": "personal journals"},
+    {"id": "evidence_map", "label": "an annotated map", "labelPlural": "annotated maps"},
+    {"id": "evidence_receipt", "label": "a stack of receipts", "labelPlural": "stacks of receipts"},
+    {"id": "evidence_orders", "label": "a set of sealed orders", "labelPlural": "sets of sealed orders"},
+    {"id": "evidence_token", "label": "a marked token", "labelPlural": "marked tokens"},
+    {"id": "evidence_correspondence", "label": "encoded correspondence", "labelPlural": "encoded correspondence"},
+    {"id": "evidence_deed", "label": "the original deed", "labelPlural": "original deeds"},
+    {"id": "evidence_blueprint", "label": "a set of stolen plans", "labelPlural": "sets of stolen plans"},
+    {"id": "evidence_signet", "label": "a signet ring", "labelPlural": "signet rings"},
+    {"id": "evidence_logbook", "label": "the guard's logbook", "labelPlural": "guard logbooks"}
+  ]
+}

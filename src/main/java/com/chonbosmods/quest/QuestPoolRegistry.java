@@ -31,6 +31,7 @@ public class QuestPoolRegistry {
     public record NarrativeEntry(String value, boolean plural, boolean proper) {}
 
     private final List<ItemEntry> gatherItems = new ArrayList<>();
+    private final List<ItemEntry> evidenceItems = new ArrayList<>();
     private final List<ItemEntry> hostileMobs = new ArrayList<>();
     private final List<String> questActions = new ArrayList<>();
     private final List<NarrativeEntry> questFocuses = new ArrayList<>();
@@ -54,6 +55,7 @@ public class QuestPoolRegistry {
     public void loadAll(@Nullable Path poolsDir) {
         // Load from classpath first (bundled resources)
         loadItemPoolFromClasspath(CLASSPATH_PREFIX + "gather_items.json", "items", gatherItems);
+        loadItemPoolFromClasspath(CLASSPATH_PREFIX + "evidence_items.json", "values", evidenceItems);
         loadItemPoolFromClasspath(CLASSPATH_PREFIX + "hostile_mobs.json", "mobs", hostileMobs);
         loadStringPoolFromClasspath(CLASSPATH_PREFIX + "quest_actions.json", questActions);
         loadNarrativePoolFromClasspath(CLASSPATH_PREFIX + "quest_focuses.json", questFocuses);
@@ -77,6 +79,7 @@ public class QuestPoolRegistry {
         // Override with filesystem if available
         if (poolsDir != null && Files.isDirectory(poolsDir)) {
             loadItemPool(poolsDir.resolve("gather_items.json"), "items", gatherItems);
+            loadItemPool(poolsDir.resolve("evidence_items.json"), "values", evidenceItems);
             loadItemPool(poolsDir.resolve("hostile_mobs.json"), "mobs", hostileMobs);
             loadStringPool(poolsDir.resolve("quest_actions.json"), questActions);
             loadNarrativePool(poolsDir.resolve("quest_focuses.json"), questFocuses);
@@ -98,8 +101,8 @@ public class QuestPoolRegistry {
             loadSituationTones(poolsDir.resolve("situation_tones.json"));
         }
 
-        LOGGER.atInfo().log("Loaded pools: %d items, %d mobs, %d actions, %d focuses, %d stakes, %d threats, %d origins, %d pressures, %d rewards",
-            gatherItems.size(), hostileMobs.size(), questActions.size(), questFocuses.size(),
+        LOGGER.atInfo().log("Loaded pools: %d items, %d evidence, %d mobs, %d actions, %d focuses, %d stakes, %d threats, %d origins, %d pressures, %d rewards",
+            gatherItems.size(), evidenceItems.size(), hostileMobs.size(), questActions.size(), questFocuses.size(),
             questStakes.size(), questThreats.size(), questOrigins.size(),
             questTimePressures.size(), questRewardHints.size());
     }
@@ -287,6 +290,11 @@ public class QuestPoolRegistry {
     public ItemEntry randomGatherItem(Random random) {
         if (gatherItems.isEmpty()) return new ItemEntry("Hytale:Stone", "stone", "stones");
         return gatherItems.get(random.nextInt(gatherItems.size()));
+    }
+
+    public ItemEntry randomEvidenceItem(Random random) {
+        if (evidenceItems.isEmpty()) return new ItemEntry("evidence_ledger", "a signed ledger", "signed ledgers");
+        return evidenceItems.get(random.nextInt(evidenceItems.size()));
     }
 
     public ItemEntry randomHostileMob(Random random) {

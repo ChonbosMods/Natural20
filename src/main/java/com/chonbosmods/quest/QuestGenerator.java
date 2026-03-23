@@ -24,6 +24,9 @@ public class QuestGenerator {
     private static final double STAKES_EQUALS_FOCUS_CHANCE = 0.25;
     private static final double SHORT_QUEST_CHANCE = 0.10;
     private static final double TALK_NPC_HANDOFF_CHANCE = 0.75;
+    private static final Set<String> INVESTIGATION_SITUATIONS = Set.of(
+        "DiscoveryOfDishonor", "ErroneousJudgment", "TheEnigma", "RivalryOfSuperiorVsInferior"
+    );
 
     private final QuestTemplateRegistry templateRegistry;
     private final SettlementRegistry settlementRegistry;
@@ -67,7 +70,7 @@ public class QuestGenerator {
         }
 
         // Step 4a: Resolve world bindings
-        Map<String, String> bindings = resolveWorldBindings(npcX, npcZ, npcSettlementCellKey, npcId, random);
+        Map<String, String> bindings = resolveWorldBindings(npcX, npcZ, npcSettlementCellKey, npcId, situation.getId(), random);
 
         // Step 4b: Resolve narrative bindings from exposition variant
         QuestVariant expositionVariant = selectedVariants.getFirst();
@@ -168,13 +171,16 @@ public class QuestGenerator {
     }
 
     private Map<String, String> resolveWorldBindings(double npcX, double npcZ, String npcCellKey,
-                                                      String npcId, Random random) {
+                                                      String npcId, String situationId, Random random) {
         Map<String, String> bindings = new HashMap<>();
         bindings.put("quest_giver_name", npcId);
         bindings.put("npc_x", String.valueOf(npcX));
         bindings.put("npc_z", String.valueOf(npcZ));
 
-        QuestPoolRegistry.ItemEntry gatherItem = poolRegistry.randomGatherItem(random);
+        // Investigation situations use evidence items for FETCH_ITEM objectives
+        QuestPoolRegistry.ItemEntry gatherItem = INVESTIGATION_SITUATIONS.contains(situationId)
+            ? poolRegistry.randomEvidenceItem(random)
+            : poolRegistry.randomGatherItem(random);
         bindings.put("quest_item", gatherItem.label());
         bindings.put("gather_item_id", gatherItem.id());
 
