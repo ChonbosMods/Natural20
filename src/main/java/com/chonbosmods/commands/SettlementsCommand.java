@@ -60,12 +60,28 @@ public class SettlementsCommand extends AbstractPlayerCommand {
                     displayY = (int) r.getNpcs().getFirst().getSpawnY();
                 }
 
-                long alive = r.getNpcs().stream()
+                long registryAlive = r.getNpcs().stream()
                     .filter(n -> n.getEntityUUID() != null).count();
+
+                // Validate: how many actually exist in the entity store?
+                long entityExists = r.getNpcs().stream()
+                    .filter(n -> n.getEntityUUID() != null)
+                    .filter(n -> {
+                        try {
+                            var npcRef = world.getEntityRef(n.getEntityUUID());
+                            return npcRef != null && store.getComponent(npcRef,
+                                com.hypixel.hytale.server.npc.entities.NPCEntity.getComponentType()) != null;
+                        } catch (Exception e) {
+                            return false;
+                        }
+                    }).count();
+
+                String status = entityExists == registryAlive ? "" :
+                    " [MISSING:" + (registryAlive - entityExists) + "]";
                 context.sendMessage(Message.raw("  " + r.getCellKey() +
                     " [" + r.getType() + "] " +
                     (int) r.getPosX() + " " + displayY + " " + (int) r.getPosZ() +
-                    " (" + dist + "m) NPCs:" + alive + "/" + r.getNpcs().size()));
+                    " (" + dist + "m) NPCs:" + entityExists + "/" + r.getNpcs().size() + status));
             });
     }
 }
