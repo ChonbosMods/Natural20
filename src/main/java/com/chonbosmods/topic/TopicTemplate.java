@@ -18,6 +18,7 @@ public record TopicTemplate(
 
     public record FollowUp(
         String prompt,
-        String response
+        String response,
+        List<FollowUp> exploratories
     ) {}
 }

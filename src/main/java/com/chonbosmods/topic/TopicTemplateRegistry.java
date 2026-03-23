@@ -18,7 +18,7 @@ public class TopicTemplateRegistry {
     private static final TopicTemplate FALLBACK_TEMPLATE = new TopicTemplate(
         "fallback", TopicCategory.RUMORS, "{subject_focus}",
         List.of(new TopicTemplate.Perspective("I've heard about the {subject_focus}.",
-            List.of(new TopicTemplate.FollowUp("Tell me more.", "That's all I know, really.")), null)),
+            List.of(new TopicTemplate.FollowUp("Tell me more.", "That's all I know, really.", List.of())), null)),
         List.of()
     );
 
@@ -97,7 +97,8 @@ public class TopicTemplateRegistry {
                 JsonObject fu = el.getAsJsonObject();
                 exploratories.add(new TopicTemplate.FollowUp(
                     fu.get("prompt").getAsString(),
-                    fu.get("response").getAsString()
+                    fu.get("response").getAsString(),
+                    List.of()
                 ));
             }
         }
@@ -105,7 +106,7 @@ public class TopicTemplateRegistry {
         TopicTemplate.FollowUp decisive = null;
         if (obj.has("decisive")) {
             JsonObject d = obj.getAsJsonObject("decisive");
-            decisive = new TopicTemplate.FollowUp(d.get("prompt").getAsString(), d.get("response").getAsString());
+            decisive = new TopicTemplate.FollowUp(d.get("prompt").getAsString(), d.get("response").getAsString(), List.of());
         }
 
         return new TopicTemplate.Perspective(intro, exploratories, decisive);
