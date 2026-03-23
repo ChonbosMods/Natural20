@@ -5,24 +5,24 @@
       "label": "{subject_focus}",
       "perspectives": [
         {
-          "intro": "{tone_opener} The sky's been strange {time_ref}. {local_complaint} Folk keep glancing upward like the weather owes them an explanation. {tone_closer}",
+          "intro": "{tone_opener} {weather_observation}. {tone_closer}",
           "exploratories": [
             {
-              "prompt": "Strange how?",
-              "response": "The clouds sat low for three days straight, barely moving. Then the wind shifted and it all cleared in under an hour. Nobody has seen weather turn that fast before.",
+              "prompt": "When did that start?",
+              "response": "{time_ref}. {weather_detail}",
               "exploratories": [
                 {
-                  "prompt": "Is it causing real problems?",
+                  "prompt": "What do people make of it?",
                   "response": "{local_opinion}"
                 }
               ]
             },
             {
-              "prompt": "Does the weather shift often around here?",
-              "response": "More than most places, or so the travelers say. One season it will be dry for weeks on end, the next it rains so hard the paths turn to mud. The old folk claim you can tell what is coming by the color of the sunset, but they never agree on what each color means.",
+              "prompt": "Where is it worst?",
+              "response": "{location_detail}",
               "exploratories": [
                 {
-                  "prompt": "So people are used to it, then?",
+                  "prompt": "Does it worry you?",
                   "response": "{personal_reaction}"
                 }
               ]
@@ -30,50 +30,50 @@
           ]
         },
         {
-          "intro": "{tone_opener} {time_ref}, the wind changed {direction} and hasn't let up since. {traveler_news} {tone_closer}",
+          "intro": "{tone_opener} {weather_observation}. {tone_closer}",
           "exploratories": [
             {
-              "prompt": "What does the wind have to do with anything?",
-              "response": "When the wind blows steady from one direction for that long, it pulls the warmth right out of the ground. Frost settles in places it has no business being, and the wells run colder than they should. It is the kind of change you feel before you see it.",
+              "prompt": "Is that normal for this area?",
+              "response": "{weather_detail}",
               "exploratories": [
                 {
-                  "prompt": "And people pay attention to that sort of thing?",
-                  "response": "{local_opinion}"
+                  "prompt": "How are you handling it?",
+                  "response": "{personal_reaction}"
                 }
               ]
             },
             {
-              "prompt": "Has this affected daily life much?",
-              "response": "The rooftops took a beating, and a few walls cracked where the mortar was already thin. The paths flood quickly when it comes down hard, so people stay in until it passes. Nobody plans much of anything until the sky settles.",
+              "prompt": "Has anyone figured out why?",
+              "response": "{weather_detail}",
               "exploratories": [
                 {
-                  "prompt": "How do you manage when it gets bad?",
-                  "response": "{personal_reaction}"
+                  "prompt": "What are the old-timers saying?",
+                  "response": "{local_opinion}"
                 }
               ]
             }
           ]
         },
         {
-          "intro": "{tone_opener} Fine day today, but {time_ref} it was miserable. {local_complaint} The sort of weather that keeps everyone indoors grumbling. {tone_closer}",
+          "intro": "{tone_opener} {weather_observation}. {tone_closer}",
           "exploratories": [
             {
-              "prompt": "I can imagine. What were people grumbling about?",
-              "response": "The usual: damp getting into everything, gear rusting, nothing drying properly. A gust tore the covering off the market stalls one afternoon and scattered half the stock. People were chasing their own goods down the road in the rain.",
+              "prompt": "How long has this been going on?",
+              "response": "{time_ref}. {weather_detail}",
               "exploratories": [
                 {
-                  "prompt": "Any silver lining?",
-                  "response": "{personal_reaction}"
+                  "prompt": "How do folk feel about it?",
+                  "response": "{local_opinion}"
                 }
               ]
             },
             {
-              "prompt": "Does bad weather hit this area hard?",
-              "response": "The ridge line funnels storms right through the valley, so whatever blows in hits twice as hard here as it does on the far side. When the pressure drops, you can feel it in your joints before you see a single cloud. Storms that pass over other settlements in an hour can sit on top of us for days.",
+              "prompt": "Which area gets hit hardest?",
+              "response": "{location_detail}",
               "exploratories": [
                 {
-                  "prompt": "What's the worst you've seen?",
-                  "response": "{local_opinion}"
+                  "prompt": "What is your take on it?",
+                  "response": "{personal_reaction}"
                 }
               ]
             }
@@ -82,15 +82,15 @@
       ],
       "questHookPerspectives": [
         {
-          "intro": "{quest_exposition} The weather around {subject_focus} isn't natural: something {direction} is causing it. {quest_detail}",
+          "intro": "{quest_exposition} The weather around {subject_focus_the} is not natural. {quest_detail}",
           "exploratories": [
             {
-              "prompt": "What makes you say it isn't natural?",
+              "prompt": "What is at stake?",
               "response": "{quest_stakes_detail}"
             }
           ],
           "decisive": {
-            "prompt": "I'll look into the source.",
+            "prompt": "I will look into the source.",
             "response": "{quest_accept_response}"
           }
         }
@@ -101,11 +101,11 @@
       "label": "{subject_focus}",
       "perspectives": [
         {
-          "intro": "{tone_opener} The market's been busier than usual {time_ref}. {trade_gossip} Always good to see coin changing hands. {tone_closer}",
+          "intro": "{tone_opener} {trade_gossip}. {tone_closer}",
           "exploratories": [
             {
-              "prompt": "What's driving the business?",
-              "response": "{trade_detail}",
+              "prompt": "What is driving that?",
+              "response": "{time_ref}. {trade_detail}",
               "exploratories": [
                 {
                   "prompt": "Who benefits most from that?",
@@ -114,11 +114,11 @@
               ]
             },
             {
-              "prompt": "Any trouble with supply lately?",
-              "response": "{trade_detail}",
+              "prompt": "Where are the goods coming from?",
+              "response": "{location_detail}",
               "exploratories": [
                 {
-                  "prompt": "That must be frustrating for the merchants.",
+                  "prompt": "Does that concern you?",
                   "response": "{personal_reaction}"
                 }
               ]
@@ -126,24 +126,49 @@
           ]
         },
         {
-          "intro": "{tone_opener} {time_ref}, a trader from {direction} came through with all sorts of goods. {trade_gossip} {tone_closer}",
+          "intro": "{tone_opener} {trade_gossip}. {tone_closer}",
           "exploratories": [
             {
-              "prompt": "Anything unusual in their stock?",
+              "prompt": "How are the merchants handling it?",
               "response": "{trade_detail}",
               "exploratories": [
                 {
-                  "prompt": "Is there much demand for that kind of thing here?",
+                  "prompt": "What is your take on it?",
+                  "response": "{personal_reaction}"
+                }
+              ]
+            },
+            {
+              "prompt": "Has the supply been steady?",
+              "response": "{trade_detail}",
+              "exploratories": [
+                {
+                  "prompt": "What are people saying about the prices?",
+                  "response": "{local_opinion}"
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "intro": "{tone_opener} {trade_gossip}. {tone_closer}",
+          "exploratories": [
+            {
+              "prompt": "When did this start?",
+              "response": "{time_ref}. {trade_detail}",
+              "exploratories": [
+                {
+                  "prompt": "How do folk feel about it?",
                   "response": "{local_opinion}"
                 }
               ]
             },
             {
-              "prompt": "Do traders come through often?",
-              "response": "{trade_detail}",
+              "prompt": "Which routes are affected?",
+              "response": "{location_detail}",
               "exploratories": [
                 {
-                  "prompt": "Must be nice to see new faces.",
+                  "prompt": "How are you managing?",
                   "response": "{personal_reaction}"
                 }
               ]
@@ -153,7 +178,7 @@
       ],
       "questHookPerspectives": [
         {
-          "intro": "{quest_exposition} The trouble with {subject_focus} has started choking the supply lines {direction}. {quest_detail}",
+          "intro": "{quest_exposition} The trade situation around {subject_focus_the} has reached a breaking point. {quest_detail}",
           "exploratories": [
             {
               "prompt": "How bad is it for business?",
@@ -161,7 +186,7 @@
             }
           ],
           "decisive": {
-            "prompt": "I'll see what I can do about the route.",
+            "prompt": "I will see what I can do about the route.",
             "response": "{quest_accept_response}"
           }
         }
@@ -172,75 +197,75 @@
       "label": "{subject_focus}",
       "perspectives": [
         {
-          "intro": "{tone_opener} I've been busy at the workbench {time_ref}. {trade_gossip} A craftsman's hands are never idle for long. {tone_closer}",
+          "intro": "{tone_opener} {craft_observation}. {tone_closer}",
           "exploratories": [
             {
               "prompt": "What are you working on?",
-              "response": "A set of hinges for the storehouse door. Simple enough in principle, but the fit has to be exact or the weight will warp them inside a season. I have been shaping the same piece for two days, getting the taper right.",
+              "response": "{time_ref}. {craft_detail}",
               "exploratories": [
                 {
-                  "prompt": "Sounds like skilled work. Where did you learn?",
-                  "response": "{personal_reaction}"
-                }
-              ]
-            },
-            {
-              "prompt": "Are the other crafters keeping busy too?",
-              "response": "Busier than usual, actually. Every workbench in the settlement has a queue of repairs waiting. The mason has been patching walls nonstop, and the weaver cannot keep up with orders for heavy cloth. When one trade picks up, the rest tend to follow.",
-              "exploratories": [
-                {
-                  "prompt": "Is there much competition between you?",
-                  "response": "{local_opinion}"
-                }
-              ]
-            }
-          ]
-        },
-        {
-          "intro": "{tone_opener} Good materials have been harder to come by {time_ref}. {local_complaint} You can't make quality work from scraps. {tone_closer}",
-          "exploratories": [
-            {
-              "prompt": "What materials are you short on?",
-              "response": "{trade_detail}",
-              "exploratories": [
-                {
-                  "prompt": "Can you source them from somewhere else?",
+                  "prompt": "Is there much competition among the crafters?",
                   "response": "{local_opinion}"
                 }
               ]
             },
             {
-              "prompt": "Is this affecting the whole settlement?",
-              "response": "It is. The builders have had to pause repairs on the outer wall, and the toolmaker says he cannot fill half the orders on his bench. When one craft stalls, the others feel it soon after. Everyone depends on everyone else here, whether they admit it or not.",
-              "exploratories": [
-                {
-                  "prompt": "How are you getting by in the meantime?",
-                  "response": "{personal_reaction}"
-                }
-              ]
-            }
-          ]
-        },
-        {
-          "intro": "{tone_opener} Someone brought in a piece {time_ref} that had the whole workshop talking. {trade_gossip} Craftsmanship like you rarely see anymore. {tone_closer}",
-          "exploratories": [
-            {
-              "prompt": "What was so special about it?",
-              "response": "The joinery was seamless. You could not feel the seam where two pieces met, even running your finger along it. The balance was perfect, too: every proportion deliberate. That kind of precision takes years of practice and a patience most folk do not have.",
-              "exploratories": [
-                {
-                  "prompt": "Could you make something like that?",
-                  "response": "{personal_reaction}"
-                }
-              ]
-            },
-            {
-              "prompt": "Where did it come from?",
+              "prompt": "Where do you get your materials?",
               "response": "{location_detail}",
               "exploratories": [
                 {
-                  "prompt": "Do people around here value that kind of work?",
+                  "prompt": "Does the shortage worry you?",
+                  "response": "{personal_reaction}"
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "intro": "{tone_opener} {craft_observation}. {tone_closer}",
+          "exploratories": [
+            {
+              "prompt": "Tell me more.",
+              "response": "{craft_detail}",
+              "exploratories": [
+                {
+                  "prompt": "How are you handling it?",
+                  "response": "{personal_reaction}"
+                }
+              ]
+            },
+            {
+              "prompt": "Are the other crafters seeing the same thing?",
+              "response": "{craft_detail}",
+              "exploratories": [
+                {
+                  "prompt": "What do people think about the quality these days?",
                   "response": "{local_opinion}"
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "intro": "{tone_opener} {craft_observation}. {tone_closer}",
+          "exploratories": [
+            {
+              "prompt": "How long has this been going on?",
+              "response": "{time_ref}. {craft_detail}",
+              "exploratories": [
+                {
+                  "prompt": "What are the old-timers saying?",
+                  "response": "{local_opinion}"
+                }
+              ]
+            },
+            {
+              "prompt": "Which workshops are affected?",
+              "response": "{location_detail}",
+              "exploratories": [
+                {
+                  "prompt": "What is your take on it?",
+                  "response": "{personal_reaction}"
                 }
               ]
             }
@@ -249,7 +274,7 @@
       ],
       "questHookPerspectives": [
         {
-          "intro": "{quest_exposition} My craft depends on materials that {subject_focus} has put in jeopardy {direction}. {quest_detail}",
+          "intro": "{quest_exposition} The crafting situation around {subject_focus_the} has put livelihoods at risk. {quest_detail}",
           "exploratories": [
             {
               "prompt": "What do you need to keep working?",
@@ -257,7 +282,7 @@
             }
           ],
           "decisive": {
-            "prompt": "I'll sort out the supply for you.",
+            "prompt": "I will sort out the supply for you.",
             "response": "{quest_accept_response}"
           }
         }
@@ -268,11 +293,11 @@
       "label": "{subject_focus}",
       "perspectives": [
         {
-          "intro": "{tone_opener} The settlement's been lively {time_ref}. {local_complaint} Opinions are like weeds: pull one up and three more sprout. {tone_closer}",
+          "intro": "{tone_opener} {community_observation}. {tone_closer}",
           "exploratories": [
             {
-              "prompt": "What's everyone so worked up about?",
-              "response": "The council proposed extending the watch rotation, and half the settlement thinks it is overreach. The other half says it is long overdue. People who have been neighbors for years are barely speaking over it.",
+              "prompt": "What started it?",
+              "response": "{time_ref}. {community_detail}",
               "exploratories": [
                 {
                   "prompt": "Where do you stand on it?",
@@ -281,8 +306,8 @@
               ]
             },
             {
-              "prompt": "Is that kind of squabbling common here?",
-              "response": "More than anyone would like to admit. Small disagreements have a way of growing when people live close together. A dispute over a shared well or a fence line can simmer for months before someone finally speaks up at a meeting.",
+              "prompt": "How is the rest of the settlement taking it?",
+              "response": "{community_detail}",
               "exploratories": [
                 {
                   "prompt": "How does it usually get resolved?",
@@ -293,24 +318,24 @@
           ]
         },
         {
-          "intro": "{tone_opener} Good to see a new face around here. {time_ref}, {traveler_news} It's been all anyone talks about. {tone_closer}",
+          "intro": "{tone_opener} {community_observation}. {tone_closer}",
           "exploratories": [
             {
-              "prompt": "What's the general feeling about it?",
-              "response": "Mixed, to put it gently. Some folk see it as a chance to pull together, while others think it is just one more thing to argue about. The loudest voices tend to win out at gatherings, which does not always mean the wisest ones.",
+              "prompt": "Go on.",
+              "response": "{community_detail}",
               "exploratories": [
                 {
-                  "prompt": "And the more level-headed folk?",
+                  "prompt": "What do people think?",
                   "response": "{local_opinion}"
                 }
               ]
             },
             {
-              "prompt": "Do newcomers usually get this kind of welcome?",
-              "response": "Depends on the timing. When things are calm, people are friendly enough. But when tensions are already running high, a new face can draw suspicion just for being unfamiliar. It is not personal: folk just get cautious when they are unsettled.",
+              "prompt": "Where is the tension coming from?",
+              "response": "{location_detail}",
               "exploratories": [
                 {
-                  "prompt": "I'll try not to cause a stir, then.",
+                  "prompt": "How are you handling it?",
                   "response": "{personal_reaction}"
                 }
               ]
@@ -318,25 +343,25 @@
           ]
         },
         {
-          "intro": "{tone_opener} {time_ref}, the elders held a meeting about {subject_focus}. {local_complaint} Everyone's got an opinion, but nobody's got a plan. {tone_closer}",
+          "intro": "{tone_opener} {community_observation}. {tone_closer}",
           "exploratories": [
             {
-              "prompt": "What came of the meeting?",
-              "response": "A lot of talking, not much doing. Two of the elders spent half the time disagreeing over procedure before they even got to the matter at hand. They tabled the decision until the next gathering, which could be weeks away.",
+              "prompt": "When did this start?",
+              "response": "{time_ref}. {community_detail}",
               "exploratories": [
                 {
-                  "prompt": "That doesn't sound very productive.",
-                  "response": "{personal_reaction}"
+                  "prompt": "What are the old-timers saying?",
+                  "response": "{local_opinion}"
                 }
               ]
             },
             {
-              "prompt": "Do the elders usually agree on things?",
-              "response": "Rarely. Each one speaks for a different part of the settlement, and what is good for one quarter is not always good for another. They mean well, most of them, but they have been butting heads for so long it has become a habit.",
+              "prompt": "Which part of the settlement is most affected?",
+              "response": "{location_detail}",
               "exploratories": [
                 {
-                  "prompt": "Sounds like there's a story behind that.",
-                  "response": "{local_opinion}"
+                  "prompt": "What is your take on it?",
+                  "response": "{personal_reaction}"
                 }
               ]
             }
@@ -345,7 +370,7 @@
       ],
       "questHookPerspectives": [
         {
-          "intro": "{quest_exposition} The community's concern about {subject_focus} has gone beyond words. Someone needs to act. {quest_detail}",
+          "intro": "{quest_exposition} The trouble within the community over {subject_focus_the} has gone beyond words. {quest_detail}",
           "exploratories": [
             {
               "prompt": "What needs doing?",
@@ -353,7 +378,7 @@
             }
           ],
           "decisive": {
-            "prompt": "I'll take care of it.",
+            "prompt": "I will take care of it.",
             "response": "{quest_accept_response}"
           }
         }
@@ -364,50 +389,75 @@
       "label": "{subject_focus}",
       "perspectives": [
         {
-          "intro": "{tone_opener} The woods {direction} have been lovely {time_ref}. {traveler_news} Nature has its own way of keeping things interesting. {tone_closer}",
+          "intro": "{tone_opener} {nature_observation}. {tone_closer}",
           "exploratories": [
             {
               "prompt": "What did you see out there?",
-              "response": "{location_detail}",
+              "response": "{time_ref}. {nature_detail}",
               "exploratories": [
                 {
-                  "prompt": "Does anyone else appreciate it like you do?",
+                  "prompt": "What do people make of it?",
                   "response": "{local_opinion}"
                 }
               ]
             },
             {
-              "prompt": "Do you spend much time in the wilds?",
+              "prompt": "Have the animals been acting strangely?",
               "response": "{creature_detail}",
               "exploratories": [
                 {
-                  "prompt": "What keeps drawing you back?",
-                  "response": "{personal_reaction}"
+                  "prompt": "Is it dangerous?",
+                  "response": "{danger_assessment}"
                 }
               ]
             }
           ]
         },
         {
-          "intro": "{tone_opener} {time_ref}, the birds went quiet in the forest {direction}. {local_complaint} Probably nothing, but the silence was eerie. {tone_closer}",
+          "intro": "{tone_opener} {nature_observation}. {tone_closer}",
           "exploratories": [
             {
-              "prompt": "Has that happened before?",
-              "response": "{creature_detail}",
+              "prompt": "Where exactly?",
+              "response": "{location_detail}",
               "exploratories": [
                 {
-                  "prompt": "What do the old-timers make of it?",
-                  "response": "{local_opinion}"
+                  "prompt": "Does it worry you?",
+                  "response": "{personal_reaction}"
                 }
               ]
             },
             {
-              "prompt": "Do animals often behave oddly here?",
-              "response": "{location_detail}",
+              "prompt": "What else have you noticed?",
+              "response": "{nature_detail}",
               "exploratories": [
                 {
-                  "prompt": "You seem to notice these things more than most.",
+                  "prompt": "What are the old-timers saying?",
+                  "response": "{local_opinion}"
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "intro": "{tone_opener} {nature_observation}. {tone_closer}",
+          "exploratories": [
+            {
+              "prompt": "Tell me more.",
+              "response": "{nature_detail}",
+              "exploratories": [
+                {
+                  "prompt": "How are you handling it?",
                   "response": "{personal_reaction}"
+                }
+              ]
+            },
+            {
+              "prompt": "Have the creatures in the area changed their behavior?",
+              "response": "{creature_detail}",
+              "exploratories": [
+                {
+                  "prompt": "Should I be worried out there?",
+                  "response": "{danger_assessment}"
                 }
               ]
             }
@@ -416,7 +466,7 @@
       ],
       "questHookPerspectives": [
         {
-          "intro": "{quest_exposition} The changes in the wilds near {subject_focus} {direction} aren't slowing down. Someone needs to find the cause. {quest_detail}",
+          "intro": "{quest_exposition} The changes in the wilds near {subject_focus_the} are not slowing down. {quest_detail}",
           "exploratories": [
             {
               "prompt": "Should I be concerned?",
@@ -424,7 +474,7 @@
             }
           ],
           "decisive": {
-            "prompt": "I'll go see for myself.",
+            "prompt": "I will go see for myself.",
             "response": "{quest_accept_response}"
           }
         }
@@ -435,49 +485,24 @@
       "label": "{subject_focus}",
       "perspectives": [
         {
-          "intro": "{tone_opener} Things were different before, you know. {time_ref}, {traveler_news} It got me thinking about how much has changed. {tone_closer}",
+          "intro": "{tone_opener} {nostalgia_observation}. {tone_closer}",
           "exploratories": [
             {
-              "prompt": "Changed for the better?",
-              "response": "That depends on who you ask. The roads are wider now, and supplies come more regularly. But there was a quietness to the old days that you cannot get back. People knew each other by name, and nobody locked their doors. Progress always costs something.",
-              "exploratories": [
-                {
-                  "prompt": "You sound like you miss the old days.",
-                  "response": "{personal_reaction}"
-                }
-              ]
-            },
-            {
               "prompt": "What was it like before?",
-              "response": "Simpler. The settlement was half its current size, and you could walk from one end to the other in the time it takes to finish a conversation. The market was just a few stalls, but everyone traded fair because everyone knew everyone. There was a trust to it that is hard to explain.",
+              "response": "{time_ref}. {nostalgia_detail}",
               "exploratories": [
                 {
                   "prompt": "Do others around here feel the same way?",
                   "response": "{local_opinion}"
                 }
               ]
-            }
-          ]
-        },
-        {
-          "intro": "{tone_opener} I remember when {subject_focus} wasn't worth a second thought. {time_ref}, {local_complaint} Times move on, I suppose. {tone_closer}",
-          "exploratories": [
-            {
-              "prompt": "What changed?",
-              "response": "Hard to point to one thing. It happened gradually: a tradition dropped here, a gathering skipped there. Before anyone noticed, the old customs had faded. The younger folk never learned them, and the ones who remembered stopped bothering to explain.",
-              "exploratories": [
-                {
-                  "prompt": "Do you think things could go back to the way they were?",
-                  "response": "{local_opinion}"
-                }
-              ]
             },
             {
-              "prompt": "Is the younger generation aware of how things used to be?",
-              "response": "Some are. A few of the young ones ask questions, want to hear the old stories. But most have their eyes on what is ahead, not what is behind. You cannot blame them for that. Every generation builds its own version of the place, whether the last one approves or not.",
+              "prompt": "Where did all of that happen?",
+              "response": "{location_detail}",
               "exploratories": [
                 {
-                  "prompt": "That must be hard to watch.",
+                  "prompt": "You sound like you miss the old days.",
                   "response": "{personal_reaction}"
                 }
               ]
@@ -485,24 +510,49 @@
           ]
         },
         {
-          "intro": "{tone_opener} An old song came to mind {time_ref}. {trade_gossip} Funny how a melody can bring back a whole lifetime of memories. {tone_closer}",
+          "intro": "{tone_opener} {nostalgia_observation}. {tone_closer}",
           "exploratories": [
             {
-              "prompt": "What kind of song?",
-              "response": "A work song, the kind people used to sing while hauling stone or mending walls. The melody is simple, just a handful of notes that repeat, but it sticks in your head for days. My grandmother hummed it every morning. I had not thought of it in years until it came back to me out of nowhere.",
+              "prompt": "What changed?",
+              "response": "{nostalgia_detail}",
               "exploratories": [
                 {
-                  "prompt": "Does anyone still sing it?",
+                  "prompt": "That must be hard to watch.",
+                  "response": "{personal_reaction}"
+                }
+              ]
+            },
+            {
+              "prompt": "Does the younger generation know about this?",
+              "response": "{nostalgia_detail}",
+              "exploratories": [
+                {
+                  "prompt": "Do people think things could go back to the way they were?",
+                  "response": "{local_opinion}"
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "intro": "{tone_opener} {nostalgia_observation}. {tone_closer}",
+          "exploratories": [
+            {
+              "prompt": "When was this?",
+              "response": "{time_ref}. {nostalgia_detail}",
+              "exploratories": [
+                {
+                  "prompt": "How do folk feel about it?",
                   "response": "{local_opinion}"
                 }
               ]
             },
             {
-              "prompt": "What did it remind you of?",
-              "response": "The harvest gatherings, when I was small. The whole settlement would come together by the old wall, and the elders would tell stories until the fire burned low. Everyone had a role: someone cooked, someone played, someone kept the children in line. It felt like the place was whole.",
+              "prompt": "Which part of the settlement has changed the most?",
+              "response": "{location_detail}",
               "exploratories": [
                 {
-                  "prompt": "Those sound like good memories.",
+                  "prompt": "How are you handling it?",
                   "response": "{personal_reaction}"
                 }
               ]
@@ -512,7 +562,7 @@
       ],
       "questHookPerspectives": [
         {
-          "intro": "{quest_exposition} The way things are going with {subject_focus}, the old days won't come back on their own. {quest_detail}",
+          "intro": "{quest_exposition} The way things are going with {subject_focus_the}, the old days will not come back on their own. {quest_detail}",
           "exploratories": [
             {
               "prompt": "What would it take to set things right?",
@@ -520,7 +570,7 @@
             }
           ],
           "decisive": {
-            "prompt": "I'll see what can be done.",
+            "prompt": "I will see what can be done.",
             "response": "{quest_accept_response}"
           }
         }
@@ -531,36 +581,11 @@
       "label": "{subject_focus}",
       "perspectives": [
         {
-          "intro": "{tone_opener} I've been puzzling over something {time_ref}. {traveler_news} Can't seem to make sense of it. {tone_closer}",
+          "intro": "{tone_opener} {curiosity_observation}. {tone_closer}",
           "exploratories": [
             {
-              "prompt": "What's got you thinking?",
-              "response": "{event_detail}",
-              "exploratories": [
-                {
-                  "prompt": "That is odd. Have you asked around?",
-                  "response": "{local_opinion}"
-                }
-              ]
-            },
-            {
-              "prompt": "Maybe I can help figure it out.",
-              "response": "{event_detail}",
-              "exploratories": [
-                {
-                  "prompt": "Interesting. What's your best guess?",
-                  "response": "{personal_reaction}"
-                }
-              ]
-            }
-          ]
-        },
-        {
-          "intro": "{tone_opener} {time_ref}, I noticed something peculiar {direction}. {trade_gossip} Probably nothing, but my curiosity won't let it rest. {tone_closer}",
-          "exploratories": [
-            {
-              "prompt": "Peculiar in what way?",
-              "response": "{location_detail}",
+              "prompt": "What got you thinking about it?",
+              "response": "{time_ref}. {curiosity_detail}",
               "exploratories": [
                 {
                   "prompt": "Has anyone else noticed?",
@@ -569,37 +594,62 @@
               ]
             },
             {
-              "prompt": "Are you the type to investigate?",
-              "response": "{event_detail}",
+              "prompt": "Where did this happen?",
+              "response": "{location_detail}",
               "exploratories": [
                 {
-                  "prompt": "I admire the curiosity, at least.",
-                  "response": "{personal_reaction}"
+                  "prompt": "Is it dangerous?",
+                  "response": "{danger_assessment}"
                 }
               ]
             }
           ]
         },
         {
-          "intro": "{tone_opener} Tell me, do you ever wonder about {subject_focus}? {time_ref}, {strange_event} It's been nagging at me since. {tone_closer}",
+          "intro": "{tone_opener} {curiosity_observation}. {tone_closer}",
           "exploratories": [
             {
-              "prompt": "I hadn't thought about it, honestly.",
+              "prompt": "Tell me more.",
               "response": "{event_detail}",
               "exploratories": [
                 {
-                  "prompt": "Now you've got me curious too.",
+                  "prompt": "What is your best guess?",
                   "response": "{personal_reaction}"
                 }
               ]
             },
             {
               "prompt": "What do other folk make of it?",
+              "response": "{curiosity_detail}",
+              "exploratories": [
+                {
+                  "prompt": "What are the old-timers saying?",
+                  "response": "{local_opinion}"
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "intro": "{tone_opener} {curiosity_observation}. {tone_closer}",
+          "exploratories": [
+            {
+              "prompt": "How long has this been going on?",
+              "response": "{time_ref}. {event_detail}",
+              "exploratories": [
+                {
+                  "prompt": "Does that worry you?",
+                  "response": "{personal_reaction}"
+                }
+              ]
+            },
+            {
+              "prompt": "Which area is it happening in?",
               "response": "{location_detail}",
               "exploratories": [
                 {
-                  "prompt": "Nobody seems to have the full picture, then.",
-                  "response": "{local_opinion}"
+                  "prompt": "Should people be more careful out there?",
+                  "response": "{danger_assessment}"
                 }
               ]
             }
@@ -608,7 +658,7 @@
       ],
       "questHookPerspectives": [
         {
-          "intro": "{quest_exposition} My poking around about {subject_focus} turned up something {direction} that can't be ignored. {quest_detail}",
+          "intro": "{quest_exposition} The oddity surrounding {subject_focus_the} cannot be ignored any longer. {quest_detail}",
           "exploratories": [
             {
               "prompt": "What did you find?",
@@ -616,7 +666,7 @@
             }
           ],
           "decisive": {
-            "prompt": "I'll look into it properly.",
+            "prompt": "I will look into it properly.",
             "response": "{quest_accept_response}"
           }
         }
@@ -627,24 +677,24 @@
       "label": "{subject_focus}",
       "perspectives": [
         {
-          "intro": "{tone_opener} There's a gathering coming up, and the whole settlement's buzzing. {time_ref}, {trade_gossip} Any excuse for folk to come together. {tone_closer}",
+          "intro": "{tone_opener} {festival_observation}. {tone_closer}",
           "exploratories": [
             {
-              "prompt": "What kind of gathering?",
-              "response": "A seasonal celebration, held every year when the days start getting longer. There is music, contests of skill, and more food than anyone knows what to do with. The cooks start preparing days in advance, and the children help hang lanterns along the main path.",
+              "prompt": "What kind of celebration is it?",
+              "response": "{time_ref}. {festival_detail}",
               "exploratories": [
                 {
-                  "prompt": "Sounds like the settlement could use the cheer.",
+                  "prompt": "Does the settlement look forward to it?",
                   "response": "{local_opinion}"
                 }
               ]
             },
             {
-              "prompt": "Are you looking forward to it?",
-              "response": "More than I expected. The preparations alone lift everyone's spirits: people trading recipes, arguing over who makes the best stew, dragging out old decorations from storage. It is the one time of year when the whole settlement feels like it is pulling in the same direction.",
+              "prompt": "Where is it being held?",
+              "response": "{location_detail}",
               "exploratories": [
                 {
-                  "prompt": "You seem to enjoy these things.",
+                  "prompt": "Are you looking forward to it?",
                   "response": "{personal_reaction}"
                 }
               ]
@@ -652,50 +702,50 @@
           ]
         },
         {
-          "intro": "{tone_opener} {time_ref}, word spread about a celebration {direction}. {traveler_news} The mood's already lighter just from the talk of it. {tone_closer}",
+          "intro": "{tone_opener} {festival_observation}. {tone_closer}",
           "exploratories": [
             {
-              "prompt": "What's the occasion?",
-              "response": "A remembrance for the settlement's founding. Every year they retell the story of how the first families arrived and chose this spot to build. There are toasts, a bonfire, and someone always recites the old oath. It means more to some than others, but everyone shows up.",
+              "prompt": "Go on.",
+              "response": "{festival_detail}",
               "exploratories": [
                 {
-                  "prompt": "Does the settlement have these often?",
-                  "response": "{local_opinion}"
+                  "prompt": "How are you handling the preparations?",
+                  "response": "{personal_reaction}"
                 }
               ]
             },
             {
-              "prompt": "Will there be anything special this time?",
-              "response": "There is talk of a competition: a test of aim and balance, open to anyone willing to try. The winner gets a wreath and bragging rights for the year. Last time they held one, half the settlement entered. The other half placed wagers.",
+              "prompt": "What traditions are involved?",
+              "response": "{festival_detail}",
               "exploratories": [
                 {
-                  "prompt": "I might have to stick around for that.",
-                  "response": "{personal_reaction}"
+                  "prompt": "What do people think about keeping the old customs?",
+                  "response": "{local_opinion}"
                 }
               ]
             }
           ]
         },
         {
-          "intro": "{tone_opener} The children are already running around talking about the festival. {time_ref}, {local_complaint} But everyone agrees the celebration should still go ahead. {tone_closer}",
+          "intro": "{tone_opener} {festival_observation}. {tone_closer}",
           "exploratories": [
             {
-              "prompt": "What sort of festival is it?",
-              "response": "A harvest thanks, mostly. People bring what they have grown or made and lay it out for everyone to share. There are games for the children, demonstrations by the crafters, and more singing than you would expect from a settlement this size. It goes well into the night.",
+              "prompt": "When did this start?",
+              "response": "{time_ref}. {festival_detail}",
               "exploratories": [
                 {
-                  "prompt": "That sounds like quite the tradition.",
-                  "response": "{personal_reaction}"
+                  "prompt": "How do folk feel about it?",
+                  "response": "{local_opinion}"
                 }
               ]
             },
             {
-              "prompt": "What were the complaints about?",
-              "response": "The usual disagreements over who organizes what. One family thinks they should lead the preparations, another says it should rotate. Then there is the question of where to hold it, since the old gathering ground needs repairs. Small things, but people care deeply about tradition.",
+              "prompt": "Which part of the settlement is most involved?",
+              "response": "{location_detail}",
               "exploratories": [
                 {
-                  "prompt": "Will they sort it out in time?",
-                  "response": "{local_opinion}"
+                  "prompt": "What is your take on it?",
+                  "response": "{personal_reaction}"
                 }
               ]
             }
@@ -704,15 +754,15 @@
       ],
       "questHookPerspectives": [
         {
-          "intro": "{quest_exposition} The festivities are threatened by the situation with {subject_focus} {direction}. {quest_detail}",
+          "intro": "{quest_exposition} The festivities are threatened by the situation with {subject_focus_the}. {quest_detail}",
           "exploratories": [
             {
-              "prompt": "What's threatening the celebration?",
+              "prompt": "What is threatening the celebration?",
               "response": "{quest_stakes_detail}"
             }
           ],
           "decisive": {
-            "prompt": "I'll make sure it goes ahead.",
+            "prompt": "I will make sure it goes ahead.",
             "response": "{quest_accept_response}"
           }
         }
