@@ -179,34 +179,57 @@ public class Nat20NpcManager {
         Ref<EntityStore> npcRef = result.first();
         NPCEntity npcEntity = result.second();
 
-        // Restore identity
-        Nat20NpcData npcData = store.addComponent(npcRef, Natural20.getNpcDataType());
-        npcData.setGeneratedName(record.getGeneratedName());
-        npcData.setRoleName(roleName);
-        npcData.setSettlementCellKey(settlementCellKey);
-
-        // Set leash
-        npcEntity.setLeashPoint(spawnPos);
-
-        // Set nameplate to just the name (dialogue UI shows full name + role)
-        String displayName = formatDisplayName(record.getGeneratedName(), roleName);
-        store.putComponent(npcRef, Nameplate.getComponentType(), new Nameplate(record.getGeneratedName()));
-
-        // Apply skin component (model already set via spawnEntity)
-        store.putComponent(npcRef, PlayerSkinComponent.getComponentType(),
-                new PlayerSkinComponent(skin));
-
-        // Equip guard armor
-        if (roleName.equals("Guard")) {
-            equipGuardArmor(npcEntity);
-        }
+        applyNpcComponents(store, npcRef, npcEntity, record, settlementCellKey);
 
         UUID newUUID = npcEntity.getUuid();
         record.setEntityUUID(newUUID);
 
-        LOGGER.atInfo().log("Respawned " + displayName + " at " +
-            (int) spawnPos.getX() + ", " + (int) spawnPos.getY() + ", " + (int) spawnPos.getZ());
+        LOGGER.atInfo().log("Respawned %s (%s) with new UUID %s",
+            record.getGeneratedName(), roleName, newUUID);
         return newUUID;
+    }
+
+    /**
+     * Apply all custom components to an NPC entity from its NpcRecord.
+     * Used by spawn, respawn, and reattach flows.
+     */
+    private void applyNpcComponents(Store<EntityStore> store, Ref<EntityStore> npcRef,
+                                     NPCEntity npcEntity, NpcRecord record, String cellKey) {
+        String name = record.getGeneratedName();
+        String roleName = record.getRole();
+
+        // Attach or update Nat20NpcData
+        Nat20NpcData existing = store.getComponent(npcRef, Natural20.getNpcDataType());
+        Nat20NpcData npcData;
+        if (existing != null) {
+            npcData = existing;
+        } else {
+            npcData = store.addComponent(npcRef, Natural20.getNpcDataType());
+        }
+        npcData.setGeneratedName(name);
+        npcData.setRoleName(roleName);
+        npcData.setSettlementCellKey(cellKey);
+        npcData.setDefaultDisposition(record.getDisposition());
+        npcData.setDialogueState(record.getDialogueState());
+        npcData.setFlags(record.getFlags());
+
+        // Nameplate
+        store.putComponent(npcRef, Nameplate.getComponentType(), new Nameplate(name));
+
+        // Skin (deterministic from name hash)
+        Random skinRng = new Random(name.hashCode());
+        com.hypixel.hytale.protocol.PlayerSkin skin = CosmeticsModule.get().generateRandomSkin(skinRng);
+        store.putComponent(npcRef, PlayerSkinComponent.getComponentType(),
+                new PlayerSkinComponent(skin));
+
+        // Leash
+        Vector3d spawnPos = new Vector3d(record.getSpawnX(), record.getSpawnY(), record.getSpawnZ());
+        npcEntity.setLeashPoint(spawnPos);
+
+        // Guard armor
+        if (roleName.equals("Guard")) {
+            equipGuardArmor(npcEntity);
+        }
     }
 
     /**
