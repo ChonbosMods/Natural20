@@ -9,6 +9,7 @@ import com.hypixel.hytale.server.core.asset.type.blocktype.config.BlockType;
 import com.hypixel.hytale.server.core.asset.type.blocktype.config.Rotation;
 import com.hypixel.hytale.server.core.universe.world.World;
 
+import java.util.ArrayList;
 import java.util.List;
 import java.util.Random;
 import java.util.UUID;
@@ -43,10 +44,9 @@ public class SettlementWorldGenListener {
         int cellZ = Math.floorDiv(chunkBlockZ, CELL_SIZE);
         String cellKey = cellX + "," + cellZ;
 
-        // Settlement already placed: nothing to do.
-        // Hytale persists NPC entities in chunk data natively.
-        // Respawning is only handled by SettlementNpcDeathSystem on actual death.
+        // Settlement already placed: check if NPCs need respawning
         if (registry.hasCell(cellKey)) {
+            checkAndRespawnNpcs(world, cellKey);
             return;
         }
 
@@ -102,6 +102,62 @@ public class SettlementWorldGenListener {
             } catch (Exception e) {
                 LOGGER.atSevere().withCause(e).log("Failed to place settlement at cell " + cellKey);
             }
+        });
+    }
+
+    /**
+     * Cooldown: don't re-check the same cell more than once per 30 seconds.
+     * Allows re-checking after chunks have unloaded and reloaded.
+     */
+    private final java.util.concurrent.ConcurrentHashMap<String, Long> lastCheckTime =
+        new java.util.concurrent.ConcurrentHashMap<>();
+    private static final long CHECK_COOLDOWN_MS = 30_000;
+
+    /**
+     * Check if NPCs for an existing settlement are missing from the entity store
+     * and respawn them if needed. Entities can be lost on chunk unload/reload.
+     */
+    private void checkAndRespawnNpcs(World world, String cellKey) {
+        long now = System.currentTimeMillis();
+        Long lastCheck = lastCheckTime.get(cellKey);
+        if (lastCheck != null && now - lastCheck < CHECK_COOLDOWN_MS) return;
+        lastCheckTime.put(cellKey, now);
+
+        SettlementRecord record = registry.getByCell(cellKey);
+        if (record == null || record.getNpcs().isEmpty()) return;
+
+        // Defer to world thread for entity store access
+        world.execute(() -> {
+            var store = world.getEntityStore().getStore();
+
+            List<NpcRecord> missingNpcs = new ArrayList<>();
+            for (NpcRecord npc : record.getNpcs()) {
+                if (npc.getEntityUUID() == null) continue;
+                boolean exists = false;
+                try {
+                    var npcRef = world.getEntityRef(npc.getEntityUUID());
+                    exists = npcRef != null && store.getComponent(npcRef,
+                        com.hypixel.hytale.server.npc.entities.NPCEntity.getComponentType()) != null;
+                } catch (Exception ignored) {}
+                if (!exists) {
+                    missingNpcs.add(npc);
+                }
+            }
+
+            if (missingNpcs.isEmpty()) return;
+
+            LOGGER.atInfo().log("Settlement %s: %d/%d NPCs missing from entity store, respawning",
+                cellKey, missingNpcs.size(), record.getNpcs().size());
+
+            for (NpcRecord npc : missingNpcs) {
+                UUID newUUID = Natural20.getInstance().getNpcManager().respawnNpc(store, world, npc);
+                if (newUUID != null) {
+                    LOGGER.atInfo().log("  Respawned %s (%s) with new UUID %s",
+                        npc.getGeneratedName(), npc.getRole(), newUUID);
+                }
+            }
+
+            registry.saveAsync();
         });
     }
 
