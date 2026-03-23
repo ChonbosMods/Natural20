@@ -8,8 +8,7 @@
         "outro": "Every day they draw breath is an insult to the ones we lost. Finish it."
       },
       "objectivePool": [
-        "KILL_MOBS",
-        "EXPLORE_LOCATION"
+        "KILL_MOBS"
       ],
       "objectiveConfig": {
         "KILL_MOBS": {
@@ -26,41 +25,29 @@
         "outro": "We are close. One more push and this will be over."
       },
       "objectivePool": [
-        "KILL_MOBS",
-        "EXPLORE_LOCATION",
-        "GATHER_ITEMS"
+        "KILL_MOBS"
       ],
       "objectiveConfig": {
         "KILL_MOBS": {
           "countMin": 4,
           "countMax": 9
-        },
-        "GATHER_ITEMS": {
-          "countMin": 3,
-          "countMax": 6
         }
       }
     },
     {
       "id": "vengeancekindred_conf_03",
       "dialogueChunks": {
-        "intro": "{player_name}, the situation has shifted. Since you started to {quest_action}, the {quest_threat} retaliated by targeting our supplies.",
-        "plotStep": "They raided the stores near the {quest_focus} and the {enemy_type} are blocking the routes {location_hint}. {quest_ally} is rallying the community, but they need a fighter. Secure {quest_item} and clear the path.",
+        "intro": "{player_name}, the situation has shifted. Since you started to {quest_action}, the {quest_threat} retaliated by targeting our people.",
+        "plotStep": "They struck near the {quest_focus} and the {enemy_type} are blocking the routes {location_hint}. {quest_ally} is rallying the community, but they need a fighter. Cut through them and end this before more of our kin are lost.",
         "outro": "Our kin deserve better than to be terrorized. End this threat for good."
       },
       "objectivePool": [
-        "KILL_MOBS",
-        "GATHER_ITEMS",
-        "EXPLORE_LOCATION"
+        "KILL_MOBS"
       ],
       "objectiveConfig": {
         "KILL_MOBS": {
           "countMin": 3,
           "countMax": 7
-        },
-        "GATHER_ITEMS": {
-          "countMin": 4,
-          "countMax": 8
         }
       }
     }

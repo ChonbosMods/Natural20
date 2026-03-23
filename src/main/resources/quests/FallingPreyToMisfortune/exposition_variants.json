@@ -4,22 +4,16 @@
       "id": "misfortune_expo_01",
       "dialogueChunks": {
         "intro": "{player_name}, cruel fate has dealt us a terrible hand. {quest_origin} brought the {quest_threat} upon us, and now the {quest_focus} {quest_focus_is} crumbling before our eyes.",
-        "plotStep": "No one caused this on purpose. It is just bad luck, but the {quest_stakes} will pay the price unless we {quest_action}. {quest_ally} heard that {quest_item} found {location_hint} might help us recover.",
+        "plotStep": "No one caused this on purpose. It is just bad luck, but the {quest_stakes} will pay the price unless we {quest_action}. {quest_ally} heard that {quest_item} found {location_hint} might help us recover. We need as much as you can gather.",
         "outro": "We did nothing wrong and yet we suffer. Please help us fight back against this misfortune."
       },
       "objectivePool": [
-        "GATHER_ITEMS",
-        "FETCH_ITEM",
-        "EXPLORE_LOCATION"
+        "COLLECT_RESOURCES"
       ],
       "objectiveConfig": {
-        "GATHER_ITEMS": {
+        "COLLECT_RESOURCES": {
           "countMin": 5,
           "countMax": 12
-        },
-        "FETCH_ITEM": {
-          "countMin": 1,
-          "countMax": 1
         }
       }
     },
@@ -27,22 +21,16 @@
       "id": "misfortune_expo_02",
       "dialogueChunks": {
         "intro": "It was not an attack, {player_name}. Just bad timing and the {quest_threat}. The {quest_focus} gave way and now the {quest_stakes} {quest_stakes_is} cut off with no way to reach us.",
-        "plotStep": "We need to {quest_action} {quest_time_pressure}, or they will be stranded. The {enemy_type} have moved into the gap {location_hint}, making it even harder. We need {quest_item} for the repair.",
+        "plotStep": "We need to {quest_action} {quest_time_pressure}, or they will be stranded. Gather {quest_item} from {location_hint} for the repair. It is the only way to reconnect with the {quest_stakes}.",
         "outro": "Those people cannot survive alone out there. Please hurry."
       },
       "objectivePool": [
-        "GATHER_ITEMS",
-        "KILL_MOBS",
-        "EXPLORE_LOCATION"
+        "COLLECT_RESOURCES"
       ],
       "objectiveConfig": {
-        "GATHER_ITEMS": {
+        "COLLECT_RESOURCES": {
           "countMin": 6,
           "countMax": 15
-        },
-        "KILL_MOBS": {
-          "countMin": 3,
-          "countMax": 6
         }
       }
     },
@@ -50,22 +38,16 @@
       "id": "misfortune_expo_03",
       "dialogueChunks": {
         "intro": "{player_name}, the {quest_threat} from {quest_origin} scattered our supplies across the area. The {quest_focus} {quest_focus_is} buried in the debris and the {quest_stakes} {quest_stakes_is} at risk.",
-        "plotStep": "We need to {quest_action} before scavengers pick it clean. The {enemy_type} are already circling {location_hint}. Recover as many {quest_item} as you can find.",
+        "plotStep": "We need to {quest_action} before scavengers pick it clean. Recover as many {quest_item} as you can find from {location_hint}. Every piece of it counts.",
         "outro": "Without the {quest_stakes}, we face a long stretch with nothing. You would earn {quest_reward_hint} for helping."
       },
       "objectivePool": [
-        "GATHER_ITEMS",
-        "KILL_MOBS",
-        "FETCH_ITEM"
+        "COLLECT_RESOURCES"
       ],
       "objectiveConfig": {
-        "GATHER_ITEMS": {
+        "COLLECT_RESOURCES": {
           "countMin": 5,
           "countMax": 14
-        },
-        "KILL_MOBS": {
-          "countMin": 2,
-          "countMax": 5
         }
       }
     }

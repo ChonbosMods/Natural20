@@ -4,19 +4,14 @@
       "id": "misfortune_conf_01",
       "dialogueChunks": {
         "intro": "{player_name}, as if things were not bad enough. While you were helping us {quest_action}, the {quest_threat} worsened and brought new problems.",
-        "plotStep": "{quest_ally} says the {enemy_type} have been emboldened by the disruption near the {quest_focus}. They are scavenging {location_hint} and threatening the {quest_stakes}. We need you to drive them off and secure more {quest_item}.",
+        "plotStep": "{quest_ally} says the disruption near the {quest_focus} has left supplies exposed {location_hint}. The {quest_stakes} {quest_stakes_is} running dangerously low. We need you to secure more {quest_item} before what little we have is gone.",
         "outro": "Misfortune compounds misfortune. But we have to keep fighting."
       },
       "objectivePool": [
-        "KILL_MOBS",
-        "GATHER_ITEMS"
+        "COLLECT_RESOURCES"
       ],
       "objectiveConfig": {
-        "KILL_MOBS": {
-          "countMin": 4,
-          "countMax": 8
-        },
-        "GATHER_ITEMS": {
+        "COLLECT_RESOURCES": {
           "countMin": 3,
           "countMax": 8
         }
@@ -26,20 +21,14 @@
       "id": "misfortune_conf_02",
       "dialogueChunks": {
         "intro": "More misfortune, {player_name}. Your work to {quest_action} was going well until a second wave of the {quest_threat} undid half your progress.",
-        "plotStep": "The {quest_focus} {quest_focus_has} been hit again. {quest_ally} managed to salvage some {quest_item}, but {enemy_type} moved in {location_hint} and are blocking access. The {quest_stakes} {quest_stakes_is} in desperate need of those resources.",
+        "plotStep": "The {quest_focus} {quest_focus_has} been hit again. {quest_ally} managed to salvage some {quest_item}, but we lost most of the stockpile. The {quest_stakes} {quest_stakes_is} in desperate need of those resources. Gather what you can from {location_hint}.",
         "outro": "I know this feels like pushing a boulder uphill. But we are close: one more effort."
       },
       "objectivePool": [
-        "KILL_MOBS",
-        "GATHER_ITEMS",
-        "EXPLORE_LOCATION"
+        "COLLECT_RESOURCES"
       ],
       "objectiveConfig": {
-        "KILL_MOBS": {
-          "countMin": 3,
-          "countMax": 7
-        },
-        "GATHER_ITEMS": {
+        "COLLECT_RESOURCES": {
           "countMin": 4,
           "countMax": 10
         }
@@ -49,20 +38,14 @@
       "id": "misfortune_conf_03",
       "dialogueChunks": {
         "intro": "{player_name}, I hate to ask again. Since you began to {quest_action}, we discovered that the {quest_threat} caused hidden damage to the {quest_focus}.",
-        "plotStep": "The situation is more fragile than we thought. {quest_ally} found signs that the {enemy_type} are nesting {location_hint}, drawn by the instability. We need to clear them and bring {quest_item} to stabilize things.",
+        "plotStep": "The situation is more fragile than we thought. {quest_ally} found the damage runs deeper than the surface. We need {quest_item} from {location_hint} to stabilize things before the {quest_focus} fails entirely.",
         "outro": "Without your help, the {quest_stakes} will be lost to nothing more than bad luck and bad timing."
       },
       "objectivePool": [
-        "KILL_MOBS",
-        "GATHER_ITEMS",
-        "EXPLORE_LOCATION"
+        "COLLECT_RESOURCES"
       ],
       "objectiveConfig": {
-        "KILL_MOBS": {
-          "countMin": 3,
-          "countMax": 6
-        },
-        "GATHER_ITEMS": {
+        "COLLECT_RESOURCES": {
           "countMin": 5,
           "countMax": 12
         }
