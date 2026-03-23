@@ -28,7 +28,7 @@ public class QuestPoolRegistry {
     public record ItemEntry(String id, String label) {}
 
     /** Entry with value + plural flag for narrative pools. */
-    public record NarrativeEntry(String value, boolean plural) {}
+    public record NarrativeEntry(String value, boolean plural, boolean proper) {}
 
     private final List<ItemEntry> gatherItems = new ArrayList<>();
     private final List<ItemEntry> hostileMobs = new ArrayList<>();
@@ -218,10 +218,11 @@ public class QuestPoolRegistry {
                 JsonObject obj = el.getAsJsonObject();
                 target.add(new NarrativeEntry(
                     obj.get("value").getAsString(),
-                    obj.has("plural") && obj.get("plural").getAsBoolean()
+                    obj.has("plural") && obj.get("plural").getAsBoolean(),
+                    obj.has("proper") && obj.get("proper").getAsBoolean()
                 ));
             } else {
-                target.add(new NarrativeEntry(el.getAsString(), false));
+                target.add(new NarrativeEntry(el.getAsString(), false, false));
             }
         }
     }
@@ -296,17 +297,17 @@ public class QuestPoolRegistry {
     }
 
     public NarrativeEntry randomFocus(Random random) {
-        if (questFocuses.isEmpty()) return new NarrativeEntry("area", false);
+        if (questFocuses.isEmpty()) return new NarrativeEntry("area", false, false);
         return questFocuses.get(random.nextInt(questFocuses.size()));
     }
 
     public NarrativeEntry randomStakes(Random random) {
-        if (questStakes.isEmpty()) return new NarrativeEntry("everyone here", true);
+        if (questStakes.isEmpty()) return new NarrativeEntry("everyone here", true, false);
         return questStakes.get(random.nextInt(questStakes.size()));
     }
 
     public NarrativeEntry randomThreat(Random random) {
-        if (questThreats.isEmpty()) return new NarrativeEntry("growing danger", false);
+        if (questThreats.isEmpty()) return new NarrativeEntry("growing danger", false, false);
         return questThreats.get(random.nextInt(questThreats.size()));
     }
 

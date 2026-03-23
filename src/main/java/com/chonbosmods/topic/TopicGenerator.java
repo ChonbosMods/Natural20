@@ -71,7 +71,7 @@ public class TopicGenerator {
             TopicCategory category = i < rumorCount ? TopicCategory.RUMORS : TopicCategory.SMALLTALK;
             TopicPoolRegistry.SubjectEntry entry = topicPool.randomSubject(random);
             String subjectId = "subj_" + i + "_" + sanitize(entry.value());
-            subjects.add(new SubjectFocus(subjectId, entry.value(), entry.plural(), entry.questEligible(), category));
+            subjects.add(new SubjectFocus(subjectId, entry.value(), entry.plural(), entry.proper(), entry.questEligible(), category));
         }
 
         // Step 3: Roll quest placement (25% per subject, min 2, max 8)
@@ -102,7 +102,7 @@ public class TopicGenerator {
                 TopicPoolRegistry.SubjectEntry eligible = topicPool.randomQuestEligibleSubject(random);
                 String newId = "subj_" + qi + "_" + sanitize(eligible.value());
                 subjects.set(qi, new SubjectFocus(newId, eligible.value(), eligible.plural(),
-                    eligible.questEligible(), focus.getCategory()));
+                    eligible.proper(), eligible.questEligible(), focus.getCategory()));
             }
         }
 
@@ -409,7 +409,7 @@ public class TopicGenerator {
                 TopicPoolRegistry.SubjectEntry entry = topicPool.randomSubject(random);
                 int idx = subjects.size();
                 String subjectId = "subj_" + idx + "_" + sanitize(entry.value());
-                SubjectFocus newFocus = new SubjectFocus(subjectId, entry.value(), entry.plural(), entry.questEligible(), category);
+                SubjectFocus newFocus = new SubjectFocus(subjectId, entry.value(), entry.plural(), entry.proper(), entry.questEligible(), category);
                 newFocus.assignNpc(npcName, true);
                 subjects.add(newFocus);
 

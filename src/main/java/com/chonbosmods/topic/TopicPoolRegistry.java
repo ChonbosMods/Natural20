@@ -16,7 +16,7 @@ public class TopicPoolRegistry {
     private static final FluentLogger LOGGER = FluentLogger.forEnclosingClass();
     private static final String CLASSPATH_PREFIX = "topics/pools/";
 
-    public record SubjectEntry(String value, boolean plural, boolean questEligible) {}
+    public record SubjectEntry(String value, boolean plural, boolean proper, boolean questEligible) {}
 
     private final List<SubjectEntry> subjectFocuses = new ArrayList<>();
     private final List<String> greetingLines = new ArrayList<>();
@@ -228,6 +228,7 @@ public class TopicPoolRegistry {
             subjectFocuses.add(new SubjectEntry(
                 obj.get("value").getAsString(),
                 obj.has("plural") && obj.get("plural").getAsBoolean(),
+                obj.has("proper") && obj.get("proper").getAsBoolean(),
                 obj.has("questEligible") && obj.get("questEligible").getAsBoolean()
             ));
         }
@@ -241,7 +242,7 @@ public class TopicPoolRegistry {
     // --- Random selection methods ---
 
     public SubjectEntry randomSubject(Random random) {
-        if (subjectFocuses.isEmpty()) return new SubjectEntry("strange occurrence", false, false);
+        if (subjectFocuses.isEmpty()) return new SubjectEntry("strange occurrence", false, false, false);
         return subjectFocuses.get(random.nextInt(subjectFocuses.size()));
     }
 
