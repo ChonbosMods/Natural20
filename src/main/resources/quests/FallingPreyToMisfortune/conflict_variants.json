@@ -3,8 +3,8 @@
     {
       "id": "misfortune_conf_01",
       "dialogueChunks": {
-        "intro": "{player_name}, as if things were not bad enough. While you were helping us {quest_action}, the {quest_threat} worsened and brought new problems.",
-        "plotStep": "{quest_ally} says the disruption near the {quest_focus} has left supplies exposed {location_hint}. The {quest_stakes} {quest_stakes_is} running dangerously low. We need you to secure more {quest_item} before what little we have is gone.",
+        "intro": "{player_name}, as if things were not bad enough. While you were helping us {quest_action}, {quest_threat_the} worsened and brought new problems.",
+        "plotStep": "{quest_ally} says the disruption near {quest_focus_the} has left supplies exposed {location_hint}. {quest_stakes_The} {quest_stakes_is} running dangerously low. We need you to secure more {quest_item} before what little we have is gone.",
         "outro": "Misfortune compounds misfortune. But we have to keep fighting."
       },
       "objectivePool": [
@@ -20,8 +20,8 @@
     {
       "id": "misfortune_conf_02",
       "dialogueChunks": {
-        "intro": "More misfortune, {player_name}. Your work to {quest_action} was going well until a second wave of the {quest_threat} undid half your progress.",
-        "plotStep": "The {quest_focus} {quest_focus_has} been hit again. {quest_ally} managed to salvage some {quest_item}, but we lost most of the stockpile. The {quest_stakes} {quest_stakes_is} in desperate need of those resources. Gather what you can from {location_hint}.",
+        "intro": "More misfortune, {player_name}. Your work to {quest_action} was going well until a second wave of {quest_threat_the} undid half your progress.",
+        "plotStep": "{quest_focus_The} {quest_focus_has} been hit again. {quest_ally} managed to salvage some {quest_item}, but we lost most of the stockpile. {quest_stakes_The} {quest_stakes_is} in desperate need of those resources. Gather what you can from {location_hint}.",
         "outro": "I know this feels like pushing a boulder uphill. But we are close: one more effort."
       },
       "objectivePool": [
@@ -37,9 +37,9 @@
     {
       "id": "misfortune_conf_03",
       "dialogueChunks": {
-        "intro": "{player_name}, I hate to ask again. Since you began to {quest_action}, we discovered that the {quest_threat} caused hidden damage to the {quest_focus}.",
-        "plotStep": "The situation is more fragile than we thought. {quest_ally} found the damage runs deeper than the surface. We need {quest_item} from {location_hint} to stabilize things before the {quest_focus} fails entirely.",
-        "outro": "Without your help, the {quest_stakes} will be lost to nothing more than bad luck and bad timing."
+        "intro": "{player_name}, I hate to ask again. Since you began to {quest_action}, we discovered that {quest_threat_the} caused hidden damage to {quest_focus_the}.",
+        "plotStep": "The situation is more fragile than we thought. {quest_ally} found the damage runs deeper than the surface. We need {quest_item} from {location_hint} to stabilize things before {quest_focus_the} fails entirely.",
+        "outro": "Without your help, {quest_stakes_the} will be lost to nothing more than bad luck and bad timing."
       },
       "objectivePool": [
         "COLLECT_RESOURCES"

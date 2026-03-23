@@ -3,9 +3,9 @@
     {
       "id": "imprudence_expo_01",
       "dialogueChunks": {
-        "intro": "The {quest_focus} collapsed this morning, {player_name}. The {quest_stakes} {quest_stakes_is} trapped. The worst part: we were warned the {quest_threat} {quest_threat_was} building, and someone decided to press ahead anyway.",
+        "intro": "{quest_focus_The} collapsed this morning, {player_name}. {quest_stakes_The} {quest_stakes_is} trapped. The worst part: we were warned {quest_threat_the} {quest_threat_was} building, and someone decided to press ahead anyway.",
         "plotStep": "{quest_ally} tried to stop the recklessness, but {quest_origin} pushed things too far. Now people are in danger. The {enemy_type} have been spotted near the area {location_hint}, drawn by the commotion.",
-        "outro": "Those people do not have long. We need someone to clear the area, drive off the {enemy_type}, and get {quest_item} to stabilize things {quest_time_pressure}."
+        "outro": "Those people do not have long. We need someone to clear the area, drive off the {enemy_type}, and get {quest_item} to stabilize things before {quest_time_pressure}."
       },
       "objectivePool": [
         "EXPLORE_LOCATION",
@@ -26,9 +26,9 @@
     {
       "id": "imprudence_expo_02",
       "dialogueChunks": {
-        "intro": "Someone did something very foolish, {player_name}. {quest_origin} provoked the {quest_threat}, and now the consequences are raining down on the {quest_stakes}.",
-        "plotStep": "The {enemy_type} are retaliating with everything they have, and they are heading straight for the {quest_focus}. {quest_ally} is organizing a defense, but the response is larger than anything we prepared for.",
-        "outro": "The ones who caused this are nursing their wounds. We need someone capable to get out {location_hint} and reduce the {quest_threat} before it overwhelms us."
+        "intro": "Someone did something very foolish, {player_name}. {quest_origin} provoked {quest_threat_the}, and now the consequences are raining down on {quest_stakes_the}.",
+        "plotStep": "The {enemy_type} are retaliating with everything they have, and they are heading straight for {quest_focus_the}. {quest_ally} is organizing a defense, but the response is larger than anything we prepared for.",
+        "outro": "The ones who caused this are nursing their wounds. We need someone capable to get out {location_hint} and reduce {quest_threat_the} before it overwhelms us."
       },
       "objectivePool": [
         "KILL_MOBS",
@@ -49,9 +49,9 @@
     {
       "id": "imprudence_expo_03",
       "dialogueChunks": {
-        "intro": "Our supply line is gone, {player_name}. {quest_origin} destroyed the {quest_focus}, and our only reliable route to {quest_item} is severed.",
+        "intro": "Our supply line is gone, {player_name}. {quest_origin} destroyed {quest_focus_the}, and our only reliable route to {quest_item} is severed.",
         "plotStep": "{target_npc} is furious. That route was our lifeline. {quest_ally} says we can establish an alternate path {location_hint}, but it passes through {enemy_type} territory and needs to be secured first.",
-        "outro": "We need materials, we need the path cleared, and we need it done before the {quest_threat} cuts us off completely. {quest_reward_hint} is yours if you pull this off."
+        "outro": "We need materials, we need the path cleared, and we need it done before {quest_threat_the} cuts us off completely. {quest_reward_hint} is yours if you pull this off."
       },
       "objectivePool": [
         "GATHER_ITEMS",

@@ -3,8 +3,8 @@
     {
       "id": "deliverance_expo_01",
       "dialogueChunks": {
-        "intro": "{player_name}, the {quest_threat} struck our settlement and dragged off several people. The {quest_stakes} {quest_stakes_is} being held at the {quest_focus}.",
-        "plotStep": "We need to act quickly, {quest_time_pressure}. {quest_ally} spotted the {enemy_type} guarding the area {location_hint}. Cut through every one of them standing between us and the captives.",
+        "intro": "{player_name}, {quest_threat_the} struck our settlement and dragged off several people. {quest_stakes_The} {quest_stakes_is} being held at {quest_focus_the}.",
+        "plotStep": "We need to act quickly, before {quest_time_pressure}. {quest_ally} spotted the {enemy_type} guarding the area {location_hint}. Cut through every one of them standing between us and the captives.",
         "outro": "Every moment we wait, those people suffer. Kill anything that moves in that camp: they showed us no mercy either."
       },
       "objectivePool": ["KILL_MOBS"],
@@ -15,7 +15,7 @@
     {
       "id": "deliverance_expo_02",
       "dialogueChunks": {
-        "intro": "Since {quest_origin}, {player_name}, the {quest_stakes} {quest_stakes_has} been trapped inside the {quest_focus}. We can hear them calling out, but the path is blocked.",
+        "intro": "Since {quest_origin}, {player_name}, {quest_stakes_the} {quest_stakes_has} been trapped inside {quest_focus_the}. We can hear them calling out, but the path is blocked.",
         "plotStep": "The {enemy_type} have been drawn to the site and are lurking {location_hint}. They stand between us and the people trapped inside. Clear out every last one of them so we can reach the survivors.",
         "outro": "Time is running out down there. Slay the {enemy_type} and open the way, {player_name}."
       },
@@ -27,7 +27,7 @@
     {
       "id": "deliverance_expo_03",
       "dialogueChunks": {
-        "intro": "{player_name}, the {quest_focus} {quest_focus_has} been surrounded by the {quest_threat} for days. The {quest_stakes} {quest_stakes_is} running low on supplies and cannot hold much longer.",
+        "intro": "{player_name}, {quest_focus_the} {quest_focus_has} been surrounded by {quest_threat_the} for days. {quest_stakes_The} {quest_stakes_is} running low on supplies and cannot hold much longer.",
         "plotStep": "The {enemy_type} are dug in {location_hint}, and they are tightening the noose. Someone needs to break the siege from the outside: destroy their patrols and scatter their ranks.",
         "outro": "Save them, and you will have access to {quest_reward_hint} and the gratitude of every soul inside those walls."
       },
@@ -40,8 +40,8 @@
       "id": "deliverance_expo_04",
       "dialogueChunks": {
         "intro": "Something terrible happened, {player_name}. People are gone: taken while the settlement slept. The guards found signs of a struggle and tracks leading {location_hint}.",
-        "plotStep": "We counted the missing at dawn. The {quest_stakes} {quest_stakes_is} in the hands of the {quest_threat}. The {enemy_type} left drag marks and broken doors, but they moved fast. Whoever organized this knew exactly where to strike.",
-        "outro": "Follow those tracks and kill every captor you find, {quest_time_pressure}. They have a head start, but they are moving slow with prisoners. Cut them down before they reach safety."
+        "plotStep": "We counted the missing at dawn. {quest_stakes_The} {quest_stakes_is} in the hands of {quest_threat_the}. The {enemy_type} left drag marks and broken doors, but they moved fast. Whoever organized this knew exactly where to strike.",
+        "outro": "Follow those tracks and kill every captor you find, before {quest_time_pressure}. They have a head start, but they are moving slow with prisoners. Cut them down before they reach safety."
       },
       "objectivePool": ["KILL_MOBS"],
       "objectiveConfig": {
@@ -61,9 +61,9 @@
     {
       "id": "deliverance_expo_06",
       "dialogueChunks": {
-        "intro": "A ransom note was pinned to the gate this morning. The {enemy_type} have taken the {quest_focus} and are demanding {quest_item} in exchange. The deadline is soon.",
+        "intro": "A ransom note was pinned to the gate this morning. The {enemy_type} have taken {quest_focus_the} and are demanding {quest_item} in exchange. The deadline is soon.",
         "plotStep": "We cannot pay what they ask: we barely have enough to survive the season. But if we refuse, they have promised to make an example. {quest_ally} thinks their camp is somewhere {location_hint}.",
-        "outro": "Forget negotiation: strike their camp and slaughter every last one of them, {quest_time_pressure}. {player_name}, can we count on you?"
+        "outro": "Forget negotiation: strike their camp and slaughter every last one of them, before {quest_time_pressure}. {player_name}, can we count on you?"
       },
       "objectivePool": ["KILL_MOBS"],
       "objectiveConfig": {

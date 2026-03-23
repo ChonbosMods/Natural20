@@ -3,8 +3,8 @@
     {
       "id": "rivalry_reso_mutual_respect",
       "dialogueChunks": {
-        "intro": "Your actions during the crisis over the {quest_focus} shamed both rivals into reflecting on their behavior. They've come to a reluctant understanding.",
-        "plotStep": "{quest_ally} and {target_npc} won't be friends, but they've agreed to keep their competition constructive. The {quest_stakes} {quest_stakes_is} settled: your example reminded them what actually matters when the {quest_threat} {quest_threat_is} real.",
+        "intro": "Your actions during the crisis over {quest_focus_the} shamed both rivals into reflecting on their behavior. They've come to a reluctant understanding.",
+        "plotStep": "{quest_ally} and {target_npc} won't be friends, but they've agreed to keep their competition constructive. {quest_stakes_The} {quest_stakes_is} settled: your example reminded them what actually matters when {quest_threat_the} {quest_threat_is} real.",
         "outro": "You outperformed both of them without even trying to compete. That said more than any argument could, {player_name}."
       },
       "objectivePool": [],
@@ -13,8 +13,8 @@
     {
       "id": "rivalry_reso_clear_winner",
       "dialogueChunks": {
-        "intro": "The dust has settled on the {quest_focus}, and one rival came out ahead. The loser is bitter, but the settlement has moved on.",
-        "plotStep": "{quest_ally} accepted the outcome, though it stung. {target_npc} earned their standing fairly, in part because you kept the {quest_threat} from making the whole contest meaningless. The {quest_stakes} found resolution, even if it's not perfectly clean.",
+        "intro": "The dust has settled on {quest_focus_the}, and one rival came out ahead. The loser is bitter, but the settlement has moved on.",
+        "plotStep": "{quest_ally} accepted the outcome, though it stung. {target_npc} earned their standing fairly, in part because you kept {quest_threat_the} from making the whole contest meaningless. {quest_stakes_The} found resolution, even if it's not perfectly clean.",
         "outro": "Someone had to win, someone had to lose. What matters is that the settlement survived it intact. Thanks to you, {player_name}."
       },
       "objectivePool": [],
@@ -23,8 +23,8 @@
     {
       "id": "rivalry_reso_partnership_forged",
       "dialogueChunks": {
-        "intro": "Something no one expected: {quest_ally} and {target_npc} have decided to work together. The crisis around the {quest_focus} forced them to see each other's strengths.",
-        "plotStep": "What started as bitter competition over the {quest_stakes} became a partnership after they realized the {enemy_type} threat was bigger than either could handle alone. Your work against the {quest_threat} gave them the wake-up call they needed.",
+        "intro": "Something no one expected: {quest_ally} and {target_npc} have decided to work together. The crisis around {quest_focus_the} forced them to see each other's strengths.",
+        "plotStep": "What started as bitter competition over {quest_stakes_the} became a partnership after they realized the {enemy_type} threat was bigger than either could handle alone. Your work against {quest_threat_the} gave them the wake-up call they needed.",
         "outro": "From rivals to partners. The settlement is stronger for it, and you're the reason it happened, {player_name}."
       },
       "objectivePool": [],

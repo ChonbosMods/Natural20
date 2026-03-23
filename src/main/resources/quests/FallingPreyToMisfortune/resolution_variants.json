@@ -3,8 +3,8 @@
     {
       "id": "misfortune_reso_01",
       "dialogueChunks": {
-        "intro": "The tide has turned, {player_name}. The {quest_threat} {quest_threat_has} finally relented, and the {quest_stakes} {quest_stakes_is} going to make it.",
-        "plotStep": "Your persistence to {quest_action} in the face of one setback after another is what saved us. The {quest_focus} {quest_focus_is} stabilized, and {quest_ally} is organizing the recovery.",
+        "intro": "The tide has turned, {player_name}. {quest_threat_The} {quest_threat_has} finally relented, and {quest_stakes_the} {quest_stakes_is} going to make it.",
+        "plotStep": "Your persistence to {quest_action} in the face of one setback after another is what saved us. {quest_focus_The} {quest_focus_is} stabilized, and {quest_ally} is organizing the recovery.",
         "outro": "Sometimes all it takes is one person who refuses to quit. You were that person."
       },
       "objectivePool": [],
@@ -13,8 +13,8 @@
     {
       "id": "misfortune_reso_02",
       "dialogueChunks": {
-        "intro": "{player_name}, I think our luck has finally changed. The {quest_threat} {quest_threat_is} behind us, and the {quest_stakes} survived.",
-        "plotStep": "The {quest_focus} still needs work, but the crisis has passed. {quest_ally} says the worst is over, and I believe it this time.",
+        "intro": "{player_name}, I think our luck has finally changed. {quest_threat_The} {quest_threat_is} behind us, and {quest_stakes_the} survived.",
+        "plotStep": "{quest_focus_The} still needs work, but the crisis has passed. {quest_ally} says the worst is over, and I believe it this time.",
         "outro": "You fought against cruel fate itself and won. That is no small thing."
       },
       "objectivePool": [],
@@ -23,8 +23,8 @@
     {
       "id": "misfortune_reso_03",
       "dialogueChunks": {
-        "intro": "Against all odds, {player_name}, we survived. The {quest_threat} threw everything at us, and we are still standing.",
-        "plotStep": "The {quest_stakes} {quest_stakes_is} secured. The {quest_focus} can be rebuilt properly now. {quest_ally} has already drawn up plans to prevent this from happening again.",
+        "intro": "Against all odds, {player_name}, we survived. {quest_threat_The} threw everything at us, and we are still standing.",
+        "plotStep": "{quest_stakes_The} {quest_stakes_is} secured. {quest_focus_The} can be rebuilt properly now. {quest_ally} has already drawn up plans to prevent this from happening again.",
         "outro": "When misfortune came knocking, you answered the door and sent it packing. We are grateful beyond words."
       },
       "objectivePool": [],

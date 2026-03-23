@@ -3,8 +3,8 @@
     {
       "id": "crimevengeance_conf_01",
       "dialogueChunks": {
-        "intro": "{player_name}, your efforts to {quest_action} rattled the {quest_threat}. They have turned desperate and struck at the {quest_stakes} again.",
-        "plotStep": "{quest_ally} confirmed that {enemy_type} are being used as enforcers near the {quest_focus}. They have been gathering {location_hint}. We need to break through them and cut off the escape route.",
+        "intro": "{player_name}, your efforts to {quest_action} rattled {quest_threat_the}. They have turned desperate and struck at {quest_stakes_the} again.",
+        "plotStep": "{quest_ally} confirmed that {enemy_type} are being used as enforcers near {quest_focus_the}. They have been gathering {location_hint}. We need to break through them and cut off the escape route.",
         "outro": "Justice demands we finish this. They cannot be allowed to keep hurting people."
       },
       "objectivePool": ["KILL_MOBS"],
@@ -15,9 +15,9 @@
     {
       "id": "crimevengeance_conf_02",
       "dialogueChunks": {
-        "intro": "It is worse than we thought, {player_name}. Since you began to {quest_action}, we discovered that the {quest_threat} did not act alone.",
-        "plotStep": "There are accomplices hiding near the {quest_focus}. {quest_ally} found evidence {location_hint}. The {enemy_type} they recruited are guarding the area. We need to cut through every last one of them.",
-        "outro": "Every one of them played a part in harming the {quest_stakes}. They all answer for it."
+        "intro": "It is worse than we thought, {player_name}. Since you began to {quest_action}, we discovered that {quest_threat_the} did not act alone.",
+        "plotStep": "There are accomplices hiding near {quest_focus_the}. {quest_ally} found evidence {location_hint}. The {enemy_type} they recruited are guarding the area. We need to cut through every last one of them.",
+        "outro": "Every one of them played a part in harming {quest_stakes_the}. They all answer for it."
       },
       "objectivePool": ["KILL_MOBS"],
       "objectiveConfig": {
@@ -27,8 +27,8 @@
     {
       "id": "crimevengeance_conf_03",
       "dialogueChunks": {
-        "intro": "{player_name}, the {quest_threat} left a warning. They know you are coming, and they have fortified their position near the {quest_focus}.",
-        "plotStep": "{quest_ally} intercepted signs that {enemy_type} are patrolling the approaches {location_hint}. They are daring us to come after them. The {quest_stakes} will remain at risk until we confront them directly.",
+        "intro": "{player_name}, {quest_threat_the} left a warning. They know you are coming, and they have fortified their position near {quest_focus_the}.",
+        "plotStep": "{quest_ally} intercepted signs that {enemy_type} are patrolling the approaches {location_hint}. They are daring us to come after them. {quest_stakes_The} will remain at risk until we confront them directly.",
         "outro": "They think they can intimidate us. Prove them wrong."
       },
       "objectivePool": ["KILL_MOBS"],

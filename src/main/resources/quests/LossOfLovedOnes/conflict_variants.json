@@ -5,7 +5,7 @@
       "dialogueChunks": {
         "intro": "The grief has turned to anger, {player_name}. And angry people make dangerous decisions.",
         "plotStep": "A group has decided to avenge the dead by striking the {enemy_type} camp {location_hint}. They're not soldiers: they're workers blinded by rage. {target_npc} tried to stop them but was shouted down. If they march on that camp, they'll be slaughtered. I need you to talk to {target_npc} and help convince the group to stand down.",
-        "outro": "If we can't channel this grief into something constructive, the {quest_stakes} will suffer even more loss."
+        "outro": "If we can't channel this grief into something constructive, {quest_stakes_the} will suffer even more loss."
       },
       "objectivePool": [
         "TALK_TO_NPC"
@@ -22,7 +22,7 @@
       "dialogueChunks": {
         "intro": "{player_name}, the loss keeps compounding. Another family is leaving.",
         "plotStep": "More families packed up and left in the night. They said they can't raise children in a place where death comes so easily. {target_npc} is trying to hold things together, but every departure takes skills and hope with it. The departing families left behind {quest_item} in their haste {location_hint}. Retrieve what they abandoned before it is lost to the elements.",
-        "outro": "We're bleeding people as surely as if the {enemy_type} were still inside our walls. The {quest_stakes} depends on having enough hands to work and stand watch."
+        "outro": "We're bleeding people as surely as if the {enemy_type} were still inside our walls. {quest_stakes_The} depends on having enough hands to work and stand watch."
       },
       "objectivePool": [
         "FETCH_ITEM"
@@ -37,7 +37,7 @@
       "id": "conf_loss_loved_03",
       "dialogueChunks": {
         "intro": "Something unexpected happened, {player_name}. The grief brought something else to the surface.",
-        "plotStep": "While searching near the {quest_focus}, {target_npc} found evidence that the raid wasn't random. The {enemy_type} targeted specific buildings, specific stores, as if guided by someone who knew our layout. There might be a collaborator: someone who traded information about our defenses for personal safety.",
+        "plotStep": "While searching near {quest_focus_the}, {target_npc} found evidence that the raid wasn't random. The {enemy_type} targeted specific buildings, specific stores, as if guided by someone who knew our layout. There might be a collaborator: someone who traded information about our defenses for personal safety.",
         "outro": "If someone sold out their neighbors to save themselves, the dead deserve justice and the living deserve the truth. Retrieve {quest_item} from the {enemy_type} camp {location_hint} as proof."
       },
       "objectivePool": [

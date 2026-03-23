@@ -3,7 +3,7 @@
     {
       "id": "enigma_expo_01",
       "dialogueChunks": {
-        "intro": "A traveler passing through brought word of something strange {location_hint}. The {quest_focus}: something that no one can explain, arranged in patterns that do not match any known builders.",
+        "intro": "A traveler passing through brought word of something strange {location_hint}. {quest_focus_The}: something that no one can explain, arranged in patterns that do not match any known builders.",
         "plotStep": "I have asked around and {quest_ally} confirmed similar signs were spotted months ago. Whatever left these behind was deliberate about placement. Someone needs to bring back evidence from the site: {quest_item} that might explain what we are dealing with.",
         "outro": "The {enemy_type} seem drawn to those sites too, which worries me. Are you curious enough to go, {player_name}?"
       },
@@ -20,9 +20,9 @@
     {
       "id": "enigma_expo_02",
       "dialogueChunks": {
-        "intro": "Something near {location_hint} has been behaving strangely. The {quest_focus} defies explanation: things that should not happen are happening, and it is getting worse.",
-        "plotStep": "{quest_ally} ventured to the edge and returned shaken. They said the area felt wrong in ways they could not describe. Even the {enemy_type} avoid it. We need someone to talk to {target_npc}, who once ventured there and may know what the {quest_threat} actually is.",
-        "outro": "Something unnatural is happening out there, {player_name}. We need answers {quest_time_pressure} before it reaches our walls."
+        "intro": "Something near {location_hint} has been behaving strangely. {quest_focus_The} defies explanation: things that should not happen are happening, and it is getting worse.",
+        "plotStep": "{quest_ally} ventured to the edge and returned shaken. They said the area felt wrong in ways they could not describe. Even the {enemy_type} avoid it. We need someone to talk to {target_npc}, who once ventured there and may know what {quest_threat_the} actually is.",
+        "outro": "Something unnatural is happening out there, {player_name}. We need answers before {quest_time_pressure}, or it will reach our walls."
       },
       "objectivePool": [
         "TALK_TO_NPC"
@@ -37,7 +37,7 @@
     {
       "id": "enigma_expo_03",
       "dialogueChunks": {
-        "intro": "Workers digging near {location_hint} broke through into something they were not expecting: the {quest_focus}, made of materials no one recognizes. They sealed the entrance and came here.",
+        "intro": "Workers digging near {location_hint} broke through into something they were not expecting: {quest_focus_the}, made of materials no one recognizes. They sealed the entrance and came here.",
         "plotStep": "They swear it was warm to the touch and humming. {target_npc} thinks it could be a vault, a tomb, or something else entirely. Whatever is inside, we need {quest_item} retrieved before the breach draws more attention from the {enemy_type}.",
         "outro": "It needs someone who can handle surprises. The workers will not go back down. Will you, {player_name}? {quest_reward_hint} may well be waiting inside."
       },

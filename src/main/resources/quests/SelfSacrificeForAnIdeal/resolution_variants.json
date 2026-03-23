@@ -13,7 +13,7 @@
     {
       "id": "reso_sacrifice_ideal_02",
       "dialogueChunks": {
-        "intro": "They survived. Barely. They can't work the way they used to, but they walked out of the {quest_focus} on their own two feet. Everyone they were protecting lived.",
+        "intro": "They survived. Barely. They can't work the way they used to, but they walked out of {quest_focus_the} on their own two feet. Everyone they were protecting lived.",
         "plotStep": "They said the strangest thing when it was over: 'I didn't do it for them. I did it because the alternative was being someone I couldn't live as.' {target_npc} is arranging for their care. The families they saved have offered to help.",
         "outro": "Not every sacrifice ends in death, {player_name}. Sometimes it just costs you everything you were, and you have to figure out who you are with what's left."
       },
@@ -25,7 +25,7 @@
       "dialogueChunks": {
         "intro": "What they protected survived. Every piece, every record, every life they were guarding. Safe.",
         "plotStep": "The person who started it all was found afterward. Half-starved but alive. When {quest_ally} told them everything was safe, they just nodded and said 'Good.' {target_npc} is already making sure the work continues.",
-        "outro": "The {quest_stakes} survived because one person decided it was worth more than comfort, safety, and possibly their life. You made sure that decision counted, {player_name}."
+        "outro": "{quest_stakes_The} survived because one person decided it was worth more than comfort, safety, and possibly their life. You made sure that decision counted, {player_name}."
       },
       "objectivePool": [],
       "objectiveConfig": {}

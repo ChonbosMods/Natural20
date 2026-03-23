@@ -4,8 +4,8 @@
       "id": "conf_ambition_01",
       "dialogueChunks": {
         "intro": "Our rivals moved faster than I expected, {player_name}. The game has changed.",
-        "plotStep": "{target_npc} discovered what we are planning and has started rallying opposition. They have been spreading word that our efforts to secure the {quest_focus} are a threat to everyone. The {enemy_type} have massed near {location_hint} and cut off our approach. I need you to break through and scatter them before {target_npc} turns everything against us.",
-        "outro": "If we lose momentum now, the {quest_stakes} slips through our fingers and we will never get another chance."
+        "plotStep": "{target_npc} discovered what we are planning and has started rallying opposition. They have been spreading word that our efforts to secure {quest_focus_the} are a threat to everyone. The {enemy_type} have massed near {location_hint} and cut off our approach. I need you to break through and scatter them before {target_npc} turns everything against us.",
+        "outro": "If we lose momentum now, {quest_stakes_the} slips through our fingers and we will never get another chance."
       },
       "objectivePool": [
         "KILL_MOBS"
@@ -21,8 +21,8 @@
       "id": "conf_ambition_02",
       "dialogueChunks": {
         "intro": "{player_name}, someone tried to burn my workshop last night. This is getting personal.",
-        "plotStep": "{target_npc} has hired enforcers to intimidate anyone supporting our claim to the {quest_focus}. Three of my allies have already backed down. I need you to find the enforcer camp {location_hint} and scatter them. Without control of that area, I cannot fulfill promises I have made.",
-        "outro": "This is not just about the {quest_stakes} anymore. It is about survival: mine and everyone who bet on me."
+        "plotStep": "{target_npc} has hired enforcers to intimidate anyone supporting our claim to {quest_focus_the}. Three of my allies have already backed down. I need you to find the enforcer camp {location_hint} and scatter them. Without control of that area, I cannot fulfill promises I have made.",
+        "outro": "This is not just about {quest_stakes_the} anymore. It is about survival: mine and everyone who bet on me."
       },
       "objectivePool": [
         "KILL_MOBS"
@@ -38,7 +38,7 @@
       "id": "conf_ambition_03",
       "dialogueChunks": {
         "intro": "The situation has become more complicated than I imagined, {player_name}. But complications are just problems in new clothes.",
-        "plotStep": "The {enemy_type} threat has given {target_npc} a platform to call for unity under their leadership. They are using the {quest_threat} as justification to seize emergency authority. I need you to deal with the {enemy_type} stronghold {location_hint} before {target_npc} can organize a response. Clear them out as proof that we can protect the {quest_stakes} better than any speech-maker.",
+        "plotStep": "The {enemy_type} threat has given {target_npc} a platform to call for unity under their leadership. They are using {quest_threat_the} as justification to seize emergency authority. I need you to deal with the {enemy_type} stronghold {location_hint} before {target_npc} can organize a response. Clear them out as proof that we can protect {quest_stakes_the} better than any speech-maker.",
         "outro": "Actions speak louder than promises. Let us give people something to believe in."
       },
       "objectivePool": [

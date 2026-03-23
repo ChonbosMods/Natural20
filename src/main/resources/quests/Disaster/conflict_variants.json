@@ -3,8 +3,8 @@
     {
       "id": "disaster_conf_01",
       "dialogueChunks": {
-        "intro": "{player_name}, things are worse than before. Your efforts to {quest_action} helped, but the {quest_threat} struck again and undid much of our progress.",
-        "plotStep": "{quest_ally} reports that the {quest_focus} {quest_focus_is} under renewed pressure. The {enemy_type} are taking advantage of the chaos {location_hint}. We need to deal with them before they overrun what is left of the {quest_stakes}.",
+        "intro": "{player_name}, things are worse than before. Your efforts to {quest_action} helped, but {quest_threat_the} struck again and undid much of our progress.",
+        "plotStep": "{quest_ally} reports that {quest_focus_the} {quest_focus_is} under renewed pressure. The {enemy_type} are taking advantage of the chaos {location_hint}. We need to deal with them before they overrun what is left of {quest_stakes_the}.",
         "outro": "We are fighting on two fronts: nature and creatures. We need you now more than ever."
       },
       "objectivePool": ["KILL_MOBS"],
@@ -15,9 +15,9 @@
     {
       "id": "disaster_conf_02",
       "dialogueChunks": {
-        "intro": "More trouble, {player_name}. Since you started to {quest_action}, we discovered that the {quest_threat} caused more damage than we realized.",
-        "plotStep": "The {quest_focus} {quest_focus_is} compromised and the {quest_stakes} {quest_stakes_is} at risk of total loss. {quest_ally} found that {enemy_type} have nested in the wreckage {location_hint}. We need to clear them out before we can salvage anything.",
-        "outro": "If we lose the {quest_stakes}, there is nothing left to rebuild."
+        "intro": "More trouble, {player_name}. Since you started to {quest_action}, we discovered that {quest_threat_the} caused more damage than we realized.",
+        "plotStep": "{quest_focus_The} {quest_focus_is} compromised and {quest_stakes_the} {quest_stakes_is} at risk of total loss. {quest_ally} found that {enemy_type} have nested in the wreckage {location_hint}. We need to clear them out before we can salvage anything.",
+        "outro": "If we lose {quest_stakes_the}, there is nothing left to rebuild."
       },
       "objectivePool": ["KILL_MOBS"],
       "objectiveConfig": {
@@ -27,9 +27,9 @@
     {
       "id": "disaster_conf_03",
       "dialogueChunks": {
-        "intro": "{player_name}, an aftershock of the {quest_threat} hit while you were working to {quest_action}. {quest_ally} was nearly caught in it.",
-        "plotStep": "The area around the {quest_focus} is now crawling with displaced {enemy_type} {location_hint}. People cannot get close enough to continue repairs. Someone needs to secure the perimeter and drive them out.",
-        "outro": "The {quest_stakes} {quest_stakes_is} hanging by a thread. We need the area safe before we can save anything."
+        "intro": "{player_name}, an aftershock of {quest_threat_the} hit while you were working to {quest_action}. {quest_ally} was nearly caught in it.",
+        "plotStep": "The area around {quest_focus_the} is now crawling with displaced {enemy_type} {location_hint}. People cannot get close enough to continue repairs. Someone needs to secure the perimeter and drive them out.",
+        "outro": "{quest_stakes_The} {quest_stakes_is} hanging by a thread. We need the area safe before we can save anything."
       },
       "objectivePool": ["KILL_MOBS"],
       "objectiveConfig": {

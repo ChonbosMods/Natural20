@@ -4,8 +4,8 @@
       "id": "daringenterprise_conf_01",
       "dialogueChunks": {
         "intro": "{player_name}, the enterprise is not going as planned. Your work to {quest_action} uncovered something we did not expect.",
-        "plotStep": "The {quest_threat} {quest_threat_is} far more dangerous than we anticipated. {quest_ally} barely made it back from the {quest_focus} alive. The {enemy_type} have massed {location_hint} and they need to be fought through before we can continue.",
-        "outro": "We have come too far to turn back now. The {quest_stakes} {quest_stakes_is} within reach."
+        "plotStep": "{quest_threat_The} {quest_threat_is} far more dangerous than we anticipated. {quest_ally} barely made it back from {quest_focus_the} alive. The {enemy_type} have massed {location_hint} and they need to be fought through before we can continue.",
+        "outro": "We have come too far to turn back now. {quest_stakes_The} {quest_stakes_is} within reach."
       },
       "objectivePool": [
         "KILL_MOBS"
@@ -20,9 +20,9 @@
     {
       "id": "daringenterprise_conf_02",
       "dialogueChunks": {
-        "intro": "Complications, {player_name}. After you managed to {quest_action}, we triggered something. The {quest_threat} {quest_threat_has} become agitated.",
-        "plotStep": "The {enemy_type} are now actively guarding the area around the {quest_focus}. {quest_ally} thinks we need to deal with them directly before we can proceed. They have been concentrated {location_hint}.",
-        "outro": "We are so close. Clear the way and the {quest_stakes} will be ours."
+        "intro": "Complications, {player_name}. After you managed to {quest_action}, we triggered something. {quest_threat_The} {quest_threat_has} become agitated.",
+        "plotStep": "The {enemy_type} are now actively guarding the area around {quest_focus_the}. {quest_ally} thinks we need to deal with them directly before we can proceed. They have been concentrated {location_hint}.",
+        "outro": "We are so close. Clear the way and {quest_stakes_the} will be ours."
       },
       "objectivePool": [
         "KILL_MOBS"
@@ -37,9 +37,9 @@
     {
       "id": "daringenterprise_conf_03",
       "dialogueChunks": {
-        "intro": "{player_name}, I will not sugarcoat it. Our attempt to {quest_action} hit a wall. The {quest_threat} destroyed our preparations.",
+        "intro": "{player_name}, I will not sugarcoat it. Our attempt to {quest_action} hit a wall. {quest_threat_The} destroyed our preparations.",
         "plotStep": "We need to start over, and quickly. {quest_ally} says there is an alternate approach through an area {location_hint}, but the {enemy_type} have been seen there. Someone needs to push through and secure {quest_item} for a second attempt.",
-        "outro": "The {quest_stakes} {quest_stakes_is} slipping further away every day we delay. Are you still with us?"
+        "outro": "{quest_stakes_The} {quest_stakes_is} slipping further away every day we delay. Are you still with us?"
       },
       "objectivePool": [
         "FETCH_ITEM"

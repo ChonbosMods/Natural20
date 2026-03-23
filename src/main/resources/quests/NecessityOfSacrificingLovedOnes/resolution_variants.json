@@ -23,9 +23,9 @@
     {
       "id": "reso_necessity_sacrifice_03",
       "dialogueChunks": {
-        "intro": "The {quest_focus} {quest_focus_is} gone. It collapsed an hour after the last person crossed. The commander never had to give the order.",
-        "plotStep": "Everyone made it through the alternate path. The elder had to be carried the last mile, and one of the children fell asleep on a soldier's back. {target_npc} said the sound of the {quest_focus} falling behind them was the worst and best thing they ever heard.",
-        "outro": "You found the path nobody was looking for, {player_name}. The {quest_stakes} survived because you wouldn't accept that saving the many meant abandoning the few."
+        "intro": "{quest_focus_The} {quest_focus_is} gone. It collapsed an hour after the last person crossed. The commander never had to give the order.",
+        "plotStep": "Everyone made it through the alternate path. The elder had to be carried the last mile, and one of the children fell asleep on a soldier's back. {target_npc} said the sound of {quest_focus_the} falling behind them was the worst and best thing they ever heard.",
+        "outro": "You found the path nobody was looking for, {player_name}. {quest_stakes_The} survived because you wouldn't accept that saving the many meant abandoning the few."
       },
       "objectivePool": [],
       "objectiveConfig": {}

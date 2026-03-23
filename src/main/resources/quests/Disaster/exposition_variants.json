@@ -3,7 +3,7 @@
     {
       "id": "disaster_expo_01",
       "dialogueChunks": {
-        "intro": "{player_name}, {quest_origin} sent the {quest_threat} crashing through the {quest_focus}. Half our homes are ruined and the {quest_stakes} {quest_stakes_has} nowhere to go.",
+        "intro": "{player_name}, {quest_origin} sent {quest_threat_the} crashing through {quest_focus_the}. Half our homes are ruined and {quest_stakes_the} {quest_stakes_has} nowhere to go.",
         "plotStep": "We need someone to {quest_action} before it is too late. {quest_item} have been scattered {location_hint} and we desperately need them recovered. Every piece you bring back is one less family going without.",
         "outro": "People are cold, scared, and hungry. Every bit you recover could save a life."
       },
@@ -15,8 +15,8 @@
     {
       "id": "disaster_expo_02",
       "dialogueChunks": {
-        "intro": "{player_name}, the {quest_threat} {quest_threat_is} sweeping toward the {quest_stakes} and nothing we have done has slowed it. The {quest_focus} {quest_focus_is} overwhelmed and we are losing ground fast.",
-        "plotStep": "We need to {quest_action} {quest_time_pressure}. Collect {quest_item} from {location_hint} to help shore up our defenses. The wreckage is full of what we need if someone can get to it.",
+        "intro": "{player_name}, {quest_threat_the} {quest_threat_is} sweeping toward {quest_stakes_the} and nothing we have done has slowed it. {quest_focus_The} {quest_focus_is} overwhelmed and we are losing ground fast.",
+        "plotStep": "We need to {quest_action} before {quest_time_pressure}. Collect {quest_item} from {location_hint} to help shore up our defenses. The wreckage is full of what we need if someone can get to it.",
         "outro": "If this reaches the settlement, we lose everything. Every moment counts."
       },
       "objectivePool": ["COLLECT_RESOURCES"],
@@ -27,7 +27,7 @@
     {
       "id": "disaster_expo_03",
       "dialogueChunks": {
-        "intro": "Since {quest_origin}, {player_name}, the {quest_threat} keeps coming. The {quest_focus} {quest_focus_is} failing, and the {quest_stakes} could be lost any day.",
+        "intro": "Since {quest_origin}, {player_name}, {quest_threat_the} keeps coming. {quest_focus_The} {quest_focus_is} failing, and {quest_stakes_the} could be lost any day.",
         "plotStep": "We need to {quest_action} before the next wave finishes what the first one started. Gather {quest_item} from {location_hint}. The wreckage still holds enough to keep us going if we can recover it in time.",
         "outro": "Everything has turned against us. But we will not abandon our home without a fight."
       },

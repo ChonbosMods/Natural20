@@ -4,7 +4,7 @@
       "id": "supplication_conf_01",
       "dialogueChunks": {
         "intro": "{player_name}, things have gotten worse since you helped us {quest_action}. I had hoped the worst was behind us.",
-        "plotStep": "{quest_ally} discovered that the {quest_threat} {quest_threat_is} regrouping near the {quest_focus}. The {enemy_type} have been spotted {location_hint}, and the {quest_stakes} {quest_stakes_is} still at risk. We need you to hunt them down before they strike again.",
+        "plotStep": "{quest_ally} discovered that {quest_threat_the} {quest_threat_is} regrouping near {quest_focus_the}. The {enemy_type} have been spotted {location_hint}, and {quest_stakes_the} {quest_stakes_is} still at risk. We need you to hunt them down before they strike again.",
         "outro": "We cannot let them undo everything you have done for us. Please, help us again."
       },
       "objectivePool": [
@@ -21,7 +21,7 @@
       "id": "supplication_conf_02",
       "dialogueChunks": {
         "intro": "I wish I had better news, {player_name}. Your efforts to {quest_action} bought us time, but not enough.",
-        "plotStep": "Something is driving the {quest_threat} to act with new desperation. {quest_ally} thinks there is a nest or camp {location_hint} where they are massing. We need you to go there and cut their numbers down before they overwhelm us.",
+        "plotStep": "Something is driving {quest_threat_the} to act with new desperation. {quest_ally} thinks there is a nest or camp {location_hint} where they are massing. We need you to go there and cut their numbers down before they overwhelm us.",
         "outro": "Find whatever is behind this and put a stop to it."
       },
       "objectivePool": [
@@ -37,8 +37,8 @@
     {
       "id": "supplication_conf_03",
       "dialogueChunks": {
-        "intro": "{player_name}, I know you have already done so much. But the {quest_threat} struck again last night, harder than before.",
-        "plotStep": "They came straight for the {quest_focus}. The {quest_stakes} barely escaped. {quest_ally} says the {enemy_type} are being organized by something smarter: there are tracks leading {location_hint}. We need you to follow them and kill whatever you find.",
+        "intro": "{player_name}, I know you have already done so much. But {quest_threat_the} struck again last night, harder than before.",
+        "plotStep": "They came straight for {quest_focus_the}. {quest_stakes_The} barely escaped. {quest_ally} says the {enemy_type} are being organized by something smarter: there are tracks leading {location_hint}. We need you to follow them and kill whatever you find.",
         "outro": "If we do not act now, everything we have rebuilt will be lost."
       },
       "objectivePool": [

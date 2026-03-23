@@ -5,7 +5,7 @@
       "dialogueChunks": {
         "intro": "The supplies rolled in. The people who needed them came running before they could be unloaded.",
         "plotStep": "The lead volunteer made it. Wounded but grinning. {target_npc} patched them up while they insisted on distributing the supplies first. {quest_ally} says there's enough to last if we're careful.",
-        "outro": "Those volunteers walked into near-certain death for the {quest_stakes}. And everyone safe tonight is proof they were right. Thank you, {player_name}."
+        "outro": "Those volunteers walked into near-certain death for {quest_stakes_the}. And everyone safe tonight is proof they were right. Thank you, {player_name}."
       },
       "objectivePool": [],
       "objectiveConfig": {}
@@ -13,7 +13,7 @@
     {
       "id": "reso_sacrifice_kindred_02",
       "dialogueChunks": {
-        "intro": "The {quest_focus} held through the worst of it. The volunteer climbed out shivering so hard they couldn't stand. They just pointed toward the families and asked if they were still safe.",
+        "intro": "{quest_focus_The} held through the worst of it. The volunteer climbed out shivering so hard they couldn't stand. They just pointed toward the families and asked if they were still safe.",
         "plotStep": "They are. Every single one. {target_npc} carried the volunteer to the nearest hearth. The families they saved brought food, dry clothes, and quiet gratitude.",
         "outro": "Someone stood in danger all night because they couldn't bear to see their neighbors lose everything. And because you brought what they needed, {player_name}, they lived to see it through."
       },

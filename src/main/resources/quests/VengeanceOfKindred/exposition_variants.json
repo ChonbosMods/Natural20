@@ -3,8 +3,8 @@
     {
       "id": "vengeancekindred_expo_01",
       "dialogueChunks": {
-        "intro": "{player_name}, we lost good people during {quest_origin}. The {quest_stakes} gave their lives defending us, and the {quest_threat} {quest_threat_is} still out there.",
-        "plotStep": "I cannot let their sacrifice go unanswered. The {enemy_type} that did this are lurking {location_hint} near the {quest_focus}. We need to {quest_action}. Hunt them down and make them answer for what they took from us.",
+        "intro": "{player_name}, we lost good people during {quest_origin}. {quest_stakes_The} gave their lives defending us, and {quest_threat_the} {quest_threat_is} still out there.",
+        "plotStep": "I cannot let their sacrifice go unanswered. The {enemy_type} that did this are lurking {location_hint} near {quest_focus_the}. We need to {quest_action}. Hunt them down and make them answer for what they took from us.",
         "outro": "Those we lost were family to this settlement. Their memory demands justice."
       },
       "objectivePool": [
@@ -20,8 +20,8 @@
     {
       "id": "vengeancekindred_expo_02",
       "dialogueChunks": {
-        "intro": "The {quest_threat} killed people we cared about, {player_name}. The {quest_stakes} {quest_stakes_was} out doing their work when they were taken from us. We found what was left.",
-        "plotStep": "The community is grieving and furious. The {enemy_type} responsible are somewhere {location_hint} near the {quest_focus}. We need to {quest_action} {quest_time_pressure}. Take {quest_item} to help deal with them.",
+        "intro": "{quest_threat_The} killed people we cared about, {player_name}. {quest_stakes_The} {quest_stakes_was} out doing their work when they were taken from us. We found what was left.",
+        "plotStep": "The community is grieving and furious. The {enemy_type} responsible are somewhere {location_hint} near {quest_focus_the}. We need to {quest_action} before {quest_time_pressure}. Take {quest_item} to help deal with them.",
         "outro": "We lay our people to rest soon. I want to tell them it is done."
       },
       "objectivePool": [
@@ -37,8 +37,8 @@
     {
       "id": "vengeancekindred_expo_03",
       "dialogueChunks": {
-        "intro": "{player_name}, during {quest_origin}, the {quest_threat} killed the {quest_stakes} in cold blood. The victim was kin to half this settlement.",
-        "plotStep": "The whole community wants justice. The {enemy_type} are holed up {location_hint} near the {quest_focus}. I need you to {quest_action} and put them down. Every one of them that falls is a debt repaid.",
+        "intro": "{player_name}, during {quest_origin}, {quest_threat_the} killed {quest_stakes_the} in cold blood. The victim was kin to half this settlement.",
+        "plotStep": "The whole community wants justice. The {enemy_type} are holed up {location_hint} near {quest_focus_the}. I need you to {quest_action} and put them down. Every one of them that falls is a debt repaid.",
         "outro": "The family deserves closure, and {quest_reward_hint} has been set aside for exactly this purpose."
       },
       "objectivePool": [

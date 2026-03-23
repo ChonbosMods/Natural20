@@ -4,7 +4,7 @@
       "id": "conf_sacrifice_ideal_01",
       "dialogueChunks": {
         "intro": "{player_name}, the situation has grown dire. {quest_ally} sent word that the {enemy_type} have doubled their assault. The defenders are holding, but barely.",
-        "plotStep": "The veterans are holding the line while the others fall back. {target_npc} tried to convince them to retreat together, but they refused: said the {quest_stakes} {quest_stakes_is} bigger than any one of them. They need {quest_item} to shore up their position.",
+        "plotStep": "The veterans are holding the line while the others fall back. {target_npc} tried to convince them to retreat together, but they refused: said {quest_stakes_the} {quest_stakes_is} bigger than any one of them. They need {quest_item} to shore up their position.",
         "outro": "Every hour they hold saves lives. If you can get {quest_item} to them, it might turn hours into days."
       },
       "objectivePool": [
@@ -23,7 +23,7 @@
       "id": "conf_sacrifice_ideal_02",
       "dialogueChunks": {
         "intro": "One of the defenders broke. Ran in the night. Can't say I blame them, but now there's a gap that needs filling.",
-        "plotStep": "{target_npc} caught the deserter {location_hint} and talked them down. They weren't a coward: they were a parent. {quest_ally} is trying to redistribute the remaining defenders, but without {quest_item}, the {quest_threat} will pour through the gap.",
+        "plotStep": "{target_npc} caught the deserter {location_hint} and talked them down. They weren't a coward: they were a parent. {quest_ally} is trying to redistribute the remaining defenders, but without {quest_item}, {quest_threat_the} will pour through the gap.",
         "outro": "The ideal asks everything. Most people can give almost everything. That last fraction is where heroes are made, or broken."
       },
       "objectivePool": [
@@ -41,9 +41,9 @@
     {
       "id": "conf_sacrifice_ideal_03",
       "dialogueChunks": {
-        "intro": "The person inside the {quest_focus} is weakening. They've been exposed for days now, but they won't stop.",
+        "intro": "The person inside {quest_focus_the} is weakening. They've been exposed for days now, but they won't stop.",
         "plotStep": "{target_npc} says they need one more batch of {quest_item} to finish. After that, whether they survive depends on how much damage has already been done. They told {quest_ally}: 'The oath doesn't have an exception clause.'",
-        "outro": "Find {quest_item} {location_hint} and bring it back. If they finish their work, the {quest_stakes} {quest_stakes_is} saved. The only life in question is theirs."
+        "outro": "Find {quest_item} {location_hint} and bring it back. If they finish their work, {quest_stakes_the} {quest_stakes_is} saved. The only life in question is theirs."
       },
       "objectivePool": [
         "GATHER_ITEMS",

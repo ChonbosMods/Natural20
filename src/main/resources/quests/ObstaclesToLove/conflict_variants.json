@@ -4,7 +4,7 @@
       "id": "conf_obstacles_love_01",
       "dialogueChunks": {
         "intro": "It's gotten worse, {player_name}. Much worse than I expected.",
-        "plotStep": "Word got out about the {quest_focus}. The elders have called an emergency assembly and they're demanding that {target_npc} answer for their involvement. Meanwhile, the {enemy_type} have been spotted {location_hint}, and nobody is paying attention because they're too busy pointing fingers. I need you to {quest_action} before the assembly convenes. Gather {quest_item} as proof that the {quest_stakes} {quest_stakes_is} worth fighting for.",
+        "plotStep": "Word got out about {quest_focus_the}. The elders have called an emergency assembly and they're demanding that {target_npc} answer for their involvement. Meanwhile, the {enemy_type} have been spotted {location_hint}, and nobody is paying attention because they're too busy pointing fingers. I need you to {quest_action} before the assembly convenes. Gather {quest_item} as proof that {quest_stakes_the} {quest_stakes_is} worth fighting for.",
         "outro": "The assembly meets at dusk. If we don't have something to show them by then, {target_npc} takes the fall alone."
       },
       "objectivePool": [
@@ -30,8 +30,8 @@
       "id": "conf_obstacles_love_02",
       "dialogueChunks": {
         "intro": "{player_name}, someone has been sabotaging our efforts. This wasn't an accident.",
-        "plotStep": "The {quest_item} you recovered was stolen from the meeting point last night, and {target_npc} found the {quest_threat} scratched into their doorframe as a warning. Someone on the inside doesn't want the {quest_focus} resolved. The {enemy_type} have pushed closer to {location_hint}, and whoever is working against us might be using them as cover. We need to find out who took {quest_item} and recover it.",
-        "outro": "There's a traitor among us, and the clock is ticking on the {quest_stakes}."
+        "plotStep": "The {quest_item} you recovered was stolen from the meeting point last night, and {target_npc} found {quest_threat_the} scratched into their doorframe as a warning. Someone on the inside doesn't want {quest_focus_the} resolved. The {enemy_type} have pushed closer to {location_hint}, and whoever is working against us might be using them as cover. We need to find out who took {quest_item} and recover it.",
+        "outro": "There's a traitor among us, and the clock is ticking on {quest_stakes_the}."
       },
       "objectivePool": [
         "EXPLORE_LOCATION",
@@ -56,7 +56,7 @@
       "id": "conf_obstacles_love_03",
       "dialogueChunks": {
         "intro": "They've taken {target_npc}, {player_name}. Locked them away to prevent any contact with the other side.",
-        "plotStep": "The hardliners moved faster than we expected. {target_npc} is being held under guard, accused of betraying the {quest_stakes} by associating with the wrong people. The only way to free them is to gather enough {quest_item} to prove that cooperation across the {quest_focus} benefits everyone. There's evidence {location_hint}, but the {enemy_type} have been drawn to the area.",
+        "plotStep": "The hardliners moved faster than we expected. {target_npc} is being held under guard, accused of betraying {quest_stakes_the} by associating with the wrong people. The only way to free them is to gather enough {quest_item} to prove that cooperation across {quest_focus_the} benefits everyone. There's evidence {location_hint}, but the {enemy_type} have been drawn to the area.",
         "outro": "They locked up the one person who could have united both sides. We have to get them out."
       },
       "objectivePool": [

@@ -3,8 +3,8 @@
     {
       "id": "obtaining_reso_bounty_secured",
       "dialogueChunks": {
-        "intro": "You've done it. The {quest_focus} is ours, and there's more than enough to meet our needs. The settlement can breathe easy now.",
-        "plotStep": "{quest_ally} is already putting the {quest_item} to use. The {quest_stakes} {quest_stakes_is} no longer a worry thanks to your efforts. Even {target_npc} is impressed with how much you brought back.",
+        "intro": "You've done it. {quest_focus_The} is ours, and there's more than enough to meet our needs. The settlement can breathe easy now.",
+        "plotStep": "{quest_ally} is already putting the {quest_item} to use. {quest_stakes_The} {quest_stakes_is} no longer a worry thanks to your efforts. Even {target_npc} is impressed with how much you brought back.",
         "outro": "You've earned every bit of what's coming to you, {player_name}. The settlement won't forget this."
       },
       "objectivePool": [],
@@ -13,8 +13,8 @@
     {
       "id": "obtaining_reso_just_enough",
       "dialogueChunks": {
-        "intro": "It was close, but you managed to bring back what we needed. The {quest_focus} came through, barely.",
-        "plotStep": "The quantity is tight. {quest_ally} says it will cover the {quest_stakes} if we're careful with rationing. But the fact remains: without you out there fighting through the {quest_threat}, we'd have nothing at all.",
+        "intro": "It was close, but you managed to bring back what we needed. {quest_focus_The} came through, barely.",
+        "plotStep": "The quantity is tight. {quest_ally} says it will cover {quest_stakes_the} if we're careful with rationing. But the fact remains: without you out there fighting through {quest_threat_the}, we'd have nothing at all.",
         "outro": "Sometimes scraping by is its own kind of victory. Well done, {player_name}."
       },
       "objectivePool": [],
@@ -23,8 +23,8 @@
     {
       "id": "obtaining_reso_surplus",
       "dialogueChunks": {
-        "intro": "You outdid yourself. Not only did you secure the {quest_focus}, but the surplus you brought back opens new possibilities for the settlement.",
-        "plotStep": "{target_npc} is already talking about trade opportunities. {quest_ally} says the extra {quest_item} could strengthen our position with neighboring settlements. The {quest_stakes} {quest_stakes_is} not just met: they're exceeded.",
+        "intro": "You outdid yourself. Not only did you secure {quest_focus_the}, but the surplus you brought back opens new possibilities for the settlement.",
+        "plotStep": "{target_npc} is already talking about trade opportunities. {quest_ally} says the extra {quest_item} could strengthen our position with neighboring settlements. {quest_stakes_The} {quest_stakes_is} not just met: they're exceeded.",
         "outro": "You turned a desperate need into an opportunity. {player_name}, you've changed our fortunes."
       },
       "objectivePool": [],

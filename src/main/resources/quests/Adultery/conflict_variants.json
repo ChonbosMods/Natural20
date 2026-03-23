@@ -4,7 +4,7 @@
       "id": "conf_adultery_01",
       "dialogueChunks": {
         "intro": "{player_name}, the betrayal goes deeper than we thought. The traitor wasn't acting alone. There's a network of compromised officials.",
-        "plotStep": "{target_npc} found correspondence showing that others have been making side deals with the {enemy_type}. {quest_ally} says the whole thing around the {quest_focus} was rotten from the start: people swearing oaths they never intended to keep. {quest_item} contains the full ledger.",
+        "plotStep": "{target_npc} found correspondence showing that others have been making side deals with the {enemy_type}. {quest_ally} says the whole thing around {quest_focus_the} was rotten from the start: people swearing oaths they never intended to keep. {quest_item} contains the full ledger.",
         "outro": "Get {quest_item} from {location_hint} before the conspirators destroy it. The betrayed need to see the full picture: not just one traitor, but a pattern."
       },
       "objectivePool": [
@@ -23,7 +23,7 @@
       "id": "conf_adultery_02",
       "dialogueChunks": {
         "intro": "The traitor knows someone is investigating. They've restricted access and started destroying records.",
-        "plotStep": "{target_npc} tried to access the evidence and was turned away. The traitor is burning documents: {quest_ally} saw smoke from the records room at midnight. If they destroy {quest_item}, the proof of the {quest_threat} goes up in smoke.",
+        "plotStep": "{target_npc} tried to access the evidence and was turned away. The traitor is burning documents: {quest_ally} saw smoke from the records room at midnight. If they destroy {quest_item}, the proof of {quest_threat_the} goes up in smoke.",
         "outro": "We have a narrow window to get {quest_item} out before the traitor finishes covering their tracks. There might be another way in {location_hint}."
       },
       "objectivePool": [
@@ -38,7 +38,7 @@
       "dialogueChunks": {
         "intro": "The person who committed the forgery has been identified. And they've fled to {location_hint}.",
         "plotStep": "{target_npc} discovered that the forger has been altering documents for years. {quest_ally} found the original document hidden in a wall cavity, but the forger took {quest_item}: a seal that authenticates official records.",
-        "outro": "Without {quest_item}, even the real document can be questioned. Track them down and recover the seal before the {quest_threat} becomes permanent."
+        "outro": "Without {quest_item}, even the real document can be questioned. Track them down and recover the seal before {quest_threat_the} becomes permanent."
       },
       "objectivePool": [
         "EXPLORE_LOCATION",

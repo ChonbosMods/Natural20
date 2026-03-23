@@ -3,7 +3,7 @@
     {
       "id": "reso_ambition_01",
       "dialogueChunks": {
-        "intro": "It's done, {player_name}. The {quest_focus} {quest_focus_is} mine, and things will be better for it.",
+        "intro": "It's done, {player_name}. {quest_focus_The} {quest_focus_is} mine, and things will be better for it.",
         "plotStep": "The council recognized my claim this morning. {target_npc} conceded after they saw the evidence and the support we'd gathered. The {enemy_type} threat is being addressed, supply lines are open, and decisions are being made instead of debated endlessly.",
         "outro": "You helped me earn this. Not just take it: earn it. Here's what I promised, and know that you'll always have an ally in power."
       },
@@ -14,7 +14,7 @@
       "id": "reso_ambition_02",
       "dialogueChunks": {
         "intro": "{player_name}, I won't pretend the victory was clean. But it's mine.",
-        "plotStep": "The opposition crumbled after you dealt with their enforcers. {target_npc} left rather than face the assembly. Some call me ruthless, and maybe they're right. But the defenses are strengthened and the {enemy_type} haven't breached our perimeter since I took charge. The {quest_stakes} {quest_stakes_is} secure.",
+        "plotStep": "The opposition crumbled after you dealt with their enforcers. {target_npc} left rather than face the assembly. Some call me ruthless, and maybe they're right. But the defenses are strengthened and the {enemy_type} haven't breached our perimeter since I took charge. {quest_stakes_The} {quest_stakes_is} secure.",
         "outro": "History remembers results, not methods. Here's your share of the results."
       },
       "objectivePool": [],
@@ -24,7 +24,7 @@
       "id": "reso_ambition_03",
       "dialogueChunks": {
         "intro": "I pushed too far, {player_name}. I know that now.",
-        "plotStep": "I got what I wanted: the {quest_focus}, the authority, the control. And it lasted three days before {target_npc} rallied enough support to force a shared council. I'm still at the table, but I'm not the only voice anymore. Part of me is furious. Another part is relieved. Leading alone was exhausting in ways I didn't expect.",
+        "plotStep": "I got what I wanted: {quest_focus_the}, the authority, the control. And it lasted three days before {target_npc} rallied enough support to force a shared council. I'm still at the table, but I'm not the only voice anymore. Part of me is furious. Another part is relieved. Leading alone was exhausting in ways I didn't expect.",
         "outro": "I learned something about ambition: having it isn't the sin. Letting it consume you is. Take this, and know I'm grateful for your honesty."
       },
       "objectivePool": [],

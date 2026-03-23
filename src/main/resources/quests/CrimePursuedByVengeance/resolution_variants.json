@@ -3,8 +3,8 @@
     {
       "id": "crimevengeance_reso_01",
       "dialogueChunks": {
-        "intro": "Justice is served, {player_name}. The {quest_threat} {quest_threat_has} been dealt with, and the {quest_stakes} can begin to heal.",
-        "plotStep": "What they did to the {quest_focus} can be rebuilt. What matters is that the wrong has been answered. {quest_ally} says the settlement sleeps easier knowing someone held them accountable.",
+        "intro": "Justice is served, {player_name}. {quest_threat_The} {quest_threat_has} been dealt with, and {quest_stakes_the} can begin to heal.",
+        "plotStep": "What they did to {quest_focus_the} can be rebuilt. What matters is that the wrong has been answered. {quest_ally} says the settlement sleeps easier knowing someone held them accountable.",
         "outro": "You did not let a crime go unanswered. That takes conviction."
       },
       "objectivePool": [],
@@ -13,8 +13,8 @@
     {
       "id": "crimevengeance_reso_02",
       "dialogueChunks": {
-        "intro": "{player_name}, the nightmare is over. You managed to {quest_action}, and the {quest_threat} will answer for what they did.",
-        "plotStep": "The {quest_focus} still bears the scars, but the people are stronger for having seen justice. The {quest_stakes} {quest_stakes_has} been restored as much as possible.",
+        "intro": "{player_name}, the nightmare is over. You managed to {quest_action}, and {quest_threat_the} will answer for what they did.",
+        "plotStep": "{quest_focus_The} still bears the scars, but the people are stronger for having seen justice. {quest_stakes_The} {quest_stakes_has} been restored as much as possible.",
         "outro": "Vengeance can be a poison of its own, but what you brought us was not vengeance: it was justice. Thank you."
       },
       "objectivePool": [],
@@ -23,8 +23,8 @@
     {
       "id": "crimevengeance_reso_03",
       "dialogueChunks": {
-        "intro": "It is finished, {player_name}. The {quest_threat} can no longer harm the {quest_stakes}. The crime has been answered.",
-        "plotStep": "{quest_ally} has already begun restoring the {quest_focus}. The mood in the settlement has shifted: people feel safer, more confident. Your actions made that possible.",
+        "intro": "It is finished, {player_name}. {quest_threat_The} can no longer harm {quest_stakes_the}. The crime has been answered.",
+        "plotStep": "{quest_ally} has already begun restoring {quest_focus_the}. The mood in the settlement has shifted: people feel safer, more confident. Your actions made that possible.",
         "outro": "You stood up when others looked away. That is the mark of a true ally."
       },
       "objectivePool": [],

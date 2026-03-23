@@ -3,8 +3,8 @@
     {
       "id": "revolt_conf_01",
       "dialogueChunks": {
-        "intro": "{player_name}, the uprising has begun, but the {quest_threat} hit back hard. Your efforts to {quest_action} drew their attention.",
-        "plotStep": "{quest_ally} reports that {enemy_type} are sweeping the area near the {quest_focus}. They are hunting for the {quest_stakes}. We need you to intercept them {location_hint} before they find our people.",
+        "intro": "{player_name}, the uprising has begun, but {quest_threat_the} hit back hard. Your efforts to {quest_action} drew their attention.",
+        "plotStep": "{quest_ally} reports that {enemy_type} are sweeping the area near {quest_focus_the}. They are hunting for {quest_stakes_the}. We need you to intercept them {location_hint} before they find our people.",
         "outro": "The revolution lives or dies on what happens next. We need you out there."
       },
       "objectivePool": [
@@ -20,8 +20,8 @@
     {
       "id": "revolt_conf_02",
       "dialogueChunks": {
-        "intro": "The crackdown came, {player_name}. After you helped us {quest_action}, the {quest_threat} retaliated against the {quest_stakes} directly.",
-        "plotStep": "{quest_ally} is rallying supporters, but the {enemy_type} seized a cache near the {quest_focus}: it is {location_hint}. Fight through them and break their hold on the area.",
+        "intro": "The crackdown came, {player_name}. After you helped us {quest_action}, {quest_threat_the} retaliated against {quest_stakes_the} directly.",
+        "plotStep": "{quest_ally} is rallying supporters, but the {enemy_type} seized a cache near {quest_focus_the}: it is {location_hint}. Fight through them and break their hold on the area.",
         "outro": "Every blow against them strengthens our resolve. We cannot stop now."
       },
       "objectivePool": [
@@ -37,8 +37,8 @@
     {
       "id": "revolt_conf_03",
       "dialogueChunks": {
-        "intro": "{player_name}, a spy within our ranks nearly undid everything. Since you helped {quest_action}, the {quest_threat} learned the location of the {quest_focus}.",
-        "plotStep": "We had to move fast. {quest_ally} relocated the {quest_stakes}, but {enemy_type} are converging on the area {location_hint}. We need someone to lead them away and deal with the patrols.",
+        "intro": "{player_name}, a spy within our ranks nearly undid everything. Since you helped {quest_action}, {quest_threat_the} learned the location of {quest_focus_the}.",
+        "plotStep": "We had to move fast. {quest_ally} relocated {quest_stakes_the}, but {enemy_type} are converging on the area {location_hint}. We need someone to lead them away and deal with the patrols.",
         "outro": "Betrayal stings, but the cause is bigger than one traitor. Help us survive this."
       },
       "objectivePool": [

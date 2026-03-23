@@ -4,8 +4,8 @@
       "id": "pursuit_conf_01",
       "dialogueChunks": {
         "intro": "{player_name}, the pursuit is not over. Your efforts to {quest_action} led us to a dead end, but {quest_ally} found new signs.",
-        "plotStep": "The {quest_threat} doubled back toward the {quest_focus}. The {enemy_type} are providing cover, and they have been massing {location_hint}. We need to push through them to pick up the trail again.",
-        "outro": "The {quest_stakes} cannot wait. If we lose the trail now, we lose everything."
+        "plotStep": "{quest_threat_The} doubled back toward {quest_focus_the}. The {enemy_type} are providing cover, and they have been massing {location_hint}. We need to push through them to pick up the trail again.",
+        "outro": "{quest_stakes_The} cannot wait. If we lose the trail now, we lose everything."
       },
       "objectivePool": ["KILL_MOBS"],
       "objectiveConfig": {
@@ -15,7 +15,7 @@
     {
       "id": "pursuit_conf_02",
       "dialogueChunks": {
-        "intro": "Bad news, {player_name}. While you were working to {quest_action}, the {quest_threat} set a trap near the {quest_focus}.",
+        "intro": "Bad news, {player_name}. While you were working to {quest_action}, {quest_threat_the} set a trap near {quest_focus_the}.",
         "plotStep": "{quest_ally} nearly walked into it. The {enemy_type} have fortified the area {location_hint}. We need to clear them out before anyone else gets hurt.",
         "outro": "They are trying to discourage us. Let us show them it will not work."
       },
@@ -27,8 +27,8 @@
     {
       "id": "pursuit_conf_03",
       "dialogueChunks": {
-        "intro": "{player_name}, I was wrong about how far the {quest_threat} would go. Since you started to {quest_action}, they have lashed out at the {quest_stakes} directly.",
-        "plotStep": "It is personal now. {quest_ally} confirmed that {enemy_type} were sent to the {quest_focus} as a distraction while the real target fled {location_hint}. We need to cut through them and end this.",
+        "intro": "{player_name}, I was wrong about how far {quest_threat_the} would go. Since you started to {quest_action}, they have lashed out at {quest_stakes_the} directly.",
+        "plotStep": "It is personal now. {quest_ally} confirmed that {enemy_type} were sent to {quest_focus_the} as a distraction while the real target fled {location_hint}. We need to cut through them and end this.",
         "outro": "End this pursuit once and for all. I am counting on you."
       },
       "objectivePool": ["KILL_MOBS"],

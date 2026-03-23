@@ -4,8 +4,8 @@
       "id": "conf_crimes_love_01",
       "dialogueChunks": {
         "intro": "The enforcers found the source, {player_name}. The provider was arrested an hour ago. What you're carrying is now the only supply left.",
-        "plotStep": "{target_npc} says {quest_ally} is trying to delay the hearing, but the enforcers are also looking for the person who picked up the delivery. That's you. {quest_item} is the last hope for {quest_stakes}. The {quest_threat} {quest_threat_is} tightening the net around {location_hint}.",
-        "outro": "The delivery route is compromised. {target_npc} knows a back path, but it adds hours. The {quest_stakes} may not have hours. Choose the route and hope it's the right one."
+        "plotStep": "{target_npc} says {quest_ally} is trying to delay the hearing, but the enforcers are also looking for the person who picked up the delivery. That's you. {quest_item} is the last hope for {quest_stakes}. {quest_threat_The} {quest_threat_is} tightening the net around {location_hint}.",
+        "outro": "The delivery route is compromised. {target_npc} knows a back path, but it adds hours. {quest_stakes_The} may not have hours. Choose the route and hope it's the right one."
       },
       "objectivePool": [
         "DELIVER_ITEM",

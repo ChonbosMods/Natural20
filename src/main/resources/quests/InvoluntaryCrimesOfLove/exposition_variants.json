@@ -4,8 +4,8 @@
       "id": "involuntary_expo_01",
       "dialogueChunks": {
         "intro": "{target_npc} did something terrible while trying to protect the people they care about, {player_name}. They meant well, but the result is devastation.",
-        "plotStep": "The {quest_stakes} {quest_stakes_is} angry and lost. {quest_ally} has been sheltering them, but the {quest_focus} left people without what they need. The {enemy_type} have moved into the affected area {location_hint}, making recovery even harder.",
-        "outro": "Someone needs to clean up the mess left by good intentions. Will you help settle the {quest_stakes} and clear the way for things to return to normal?"
+        "plotStep": "{quest_stakes_The} {quest_stakes_is} angry and lost. {quest_ally} has been sheltering them, but {quest_focus_the} left people without what they need. The {enemy_type} have moved into the affected area {location_hint}, making recovery even harder.",
+        "outro": "Someone needs to clean up the mess left by good intentions. Will you help settle {quest_stakes_the} and clear the way for things to return to normal?"
       },
       "objectivePool": [
         "KILL_MOBS",
@@ -26,9 +26,9 @@
     {
       "id": "involuntary_expo_02",
       "dialogueChunks": {
-        "intro": "{quest_ally} loved someone so much they did something desperate to save them, {player_name}. It worked against the original problem, but the {quest_threat} {quest_threat_is} now worse than what they tried to cure.",
-        "plotStep": "The person is alive but suffering. {target_npc} examined them and says the {quest_focus} used {quest_item} in a way that was never intended. A proper remedy exists, but the ingredients grow only in dangerous territory {location_hint}.",
-        "outro": "This can still be corrected, but time is critical. Will you gather what {target_npc} needs {quest_time_pressure} before the {quest_stakes} {quest_stakes_is} lost to a well-meaning mistake?"
+        "intro": "{quest_ally} loved someone so much they did something desperate to save them, {player_name}. It worked against the original problem, but {quest_threat_the} {quest_threat_is} now worse than what they tried to cure.",
+        "plotStep": "The person is alive but suffering. {target_npc} examined them and says {quest_focus_the} used {quest_item} in a way that was never intended. A proper remedy exists, but the ingredients grow only in dangerous territory {location_hint}.",
+        "outro": "This can still be corrected, but time is critical. Will you gather what {target_npc} needs before {quest_time_pressure}? {quest_stakes_The} could be lost to a well-meaning mistake."
       },
       "objectivePool": [
         "GATHER_ITEMS",
@@ -50,8 +50,8 @@
       "id": "involuntary_expo_03",
       "dialogueChunks": {
         "intro": "Something deeply wrong is happening, {player_name}. {target_npc} has been imprisoning travelers out of {quest_origin}, convinced they threaten the settlement. It started as vigilance and became cruelty.",
-        "plotStep": "{quest_ally} discovered the {quest_focus} by accident: people held against their will, some for weeks. {target_npc} genuinely believes they are protecting everyone, but the {quest_threat} {quest_threat_has} turned a loyal defender into something else. The {enemy_type} raids they fear are real, but the response has gone too far.",
-        "outro": "The {quest_stakes} need to be freed, and {target_npc} needs to be confronted. This requires someone from outside who can see clearly."
+        "plotStep": "{quest_ally} discovered {quest_focus_the} by accident: people held against their will, some for weeks. {target_npc} genuinely believes they are protecting everyone, but {quest_threat_the} {quest_threat_has} turned a loyal defender into something else. The {enemy_type} raids they fear are real, but the response has gone too far.",
+        "outro": "{quest_stakes_The} need to be freed, and {target_npc} needs to be confronted. This requires someone from outside who can see clearly."
       },
       "objectivePool": [
         "TALK_TO_NPC",

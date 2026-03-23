@@ -3,8 +3,8 @@
     {
       "id": "rivalry_conf_sabotage",
       "dialogueChunks": {
-        "intro": "The rivalry over the {quest_focus} has turned ugly. Someone tampered with supplies meant for {quest_ally}, and suspicion falls on {target_npc}'s supporters.",
-        "plotStep": "Whether it's actual sabotage or just paranoia, the damage is done. Both sides are accusing the other while the {quest_threat} {quest_threat_is} eroding the settlement's cohesion. Nobody is willing to talk openly while suspicion poisons every conversation.",
+        "intro": "The rivalry over {quest_focus_the} has turned ugly. Someone tampered with supplies meant for {quest_ally}, and suspicion falls on {target_npc}'s supporters.",
+        "plotStep": "Whether it's actual sabotage or just paranoia, the damage is done. Both sides are accusing the other while {quest_threat_the} {quest_threat_is} eroding the settlement's cohesion. Nobody is willing to talk openly while suspicion poisons every conversation.",
         "outro": "Speak with people on both sides and find out what really happened. If {target_npc}'s people are innocent, clearing their name is the only way to mend this. If they are guilty, the settlement needs to hear it from a neutral voice."
       },
       "objectivePool": [
@@ -15,9 +15,9 @@
     {
       "id": "rivalry_conf_public_humiliation",
       "dialogueChunks": {
-        "intro": "The competition around the {quest_focus} became public. {quest_ally} openly mocked {target_npc}'s abilities in front of the settlement, and now {target_npc} is refusing to contribute to any communal work.",
-        "plotStep": "With {target_npc} on strike, the settlement is struggling. The {quest_threat} {quest_threat_has} left gaps in our defenses, and morale is crumbling. {target_npc} will not listen to anyone who was there for the humiliation.",
-        "outro": "You are an outsider: {target_npc} might hear you out. Talk to them and find a way to restore their dignity without letting {quest_ally} off the hook entirely. The {quest_stakes} can't afford this standoff."
+        "intro": "The competition around {quest_focus_the} became public. {quest_ally} openly mocked {target_npc}'s abilities in front of the settlement, and now {target_npc} is refusing to contribute to any communal work.",
+        "plotStep": "With {target_npc} on strike, the settlement is struggling. {quest_threat_The} {quest_threat_has} left gaps in our defenses, and morale is crumbling. {target_npc} will not listen to anyone who was there for the humiliation.",
+        "outro": "You are an outsider: {target_npc} might hear you out. Talk to them and find a way to restore their dignity without letting {quest_ally} off the hook entirely. {quest_stakes_The} can't afford this standoff."
       },
       "objectivePool": [
         "TALK_TO_NPC"
@@ -27,8 +27,8 @@
     {
       "id": "rivalry_conf_dangerous_bet",
       "dialogueChunks": {
-        "intro": "Both rivals have upped the stakes on the {quest_focus}. {quest_ally} ventured deep toward {location_hint} alone to prove a point and hasn't returned on time.",
-        "plotStep": "{target_npc} is torn between concern and satisfaction. The area near {location_hint} is dangerous, and the {quest_threat} may have finally produced real consequences. People in the settlement are panicking.",
+        "intro": "Both rivals have upped the stakes on {quest_focus_the}. {quest_ally} ventured deep toward {location_hint} alone to prove a point and hasn't returned on time.",
+        "plotStep": "{target_npc} is torn between concern and satisfaction. The area near {location_hint} is dangerous, and {quest_threat_the} may have finally produced real consequences. People in the settlement are panicking.",
         "outro": "Talk to {target_npc} and convince them to help organize a search. If both rivals work together to bring {quest_ally} back safely, it might be the thing that finally ends this destructive competition."
       },
       "objectivePool": [

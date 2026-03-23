@@ -3,7 +3,7 @@
     {
       "id": "vengeancekindred_reso_01",
       "dialogueChunks": {
-        "intro": "It is done, {player_name}. The {quest_threat} {quest_threat_has} been dealt with. The {quest_stakes} can rest in peace now.",
+        "intro": "It is done, {player_name}. {quest_threat_The} {quest_threat_has} been dealt with. {quest_stakes_The} can rest in peace now.",
         "plotStep": "The community gathered to honor the fallen today. Your name was spoken alongside theirs: not as a killer, but as someone who stood for our people.",
         "outro": "This was not about hatred. It was about love for the ones we lost. Thank you for understanding that."
       },
@@ -13,8 +13,8 @@
     {
       "id": "vengeancekindred_reso_02",
       "dialogueChunks": {
-        "intro": "{player_name}, the deed is done. You managed to {quest_action}, and the {quest_threat} will harm no one else.",
-        "plotStep": "{quest_ally} lit a fire at the {quest_focus} in remembrance. The community mourns, but there is relief in knowing the danger has passed. The {quest_stakes} {quest_stakes_has} been honored.",
+        "intro": "{player_name}, the deed is done. You managed to {quest_action}, and {quest_threat_the} will harm no one else.",
+        "plotStep": "{quest_ally} lit a fire at {quest_focus_the} in remembrance. The community mourns, but there is relief in knowing the danger has passed. {quest_stakes_The} {quest_stakes_has} been honored.",
         "outro": "Vengeance is a heavy burden. You carried it well."
       },
       "objectivePool": [],
@@ -23,8 +23,8 @@
     {
       "id": "vengeancekindred_reso_03",
       "dialogueChunks": {
-        "intro": "The scales are balanced, {player_name}. The {quest_threat} answered for what they did to the {quest_stakes}.",
-        "plotStep": "The {quest_focus} is quiet now. {quest_ally} says the families are beginning to heal. The grief will linger, but the fear is gone.",
+        "intro": "The scales are balanced, {player_name}. {quest_threat_The} answered for what they did to {quest_stakes_the}.",
+        "plotStep": "{quest_focus_The} is quiet now. {quest_ally} says the families are beginning to heal. The grief will linger, but the fear is gone.",
         "outro": "You fought for people you never knew, on behalf of a community's pain. That is a rare kind of honor."
       },
       "objectivePool": [],

@@ -4,8 +4,8 @@
       "id": "abduction_expo_01",
       "dialogueChunks": {
         "intro": "Something terrible happened, {player_name}. People are gone: taken while the settlement slept. The guards found signs of a struggle and tracks leading {location_hint}.",
-        "plotStep": "We counted the missing at dawn. The {quest_stakes} {quest_stakes_is} in the hands of the {quest_threat}. The {enemy_type} left drag marks and broken doors, but they moved fast. Whoever organized this knew exactly where to strike.",
-        "outro": "I need someone brave enough to follow those tracks {quest_time_pressure}. The captors have a head start, but they are moving slow with prisoners. Will you help us?"
+        "plotStep": "We counted the missing at dawn. {quest_stakes_The} {quest_stakes_is} in the hands of {quest_threat_the}. The {enemy_type} left drag marks and broken doors, but they moved fast. Whoever organized this knew exactly where to strike.",
+        "outro": "I need someone brave enough to follow those tracks before {quest_time_pressure}. The captors have a head start, but they are moving slow with prisoners. Will you help us?"
       },
       "objectivePool": [
         "EXPLORE_LOCATION",
@@ -45,9 +45,9 @@
     {
       "id": "abduction_expo_03",
       "dialogueChunks": {
-        "intro": "A ransom note was pinned to the gate this morning. The {enemy_type} have taken the {quest_focus} and are demanding {quest_item} in exchange. The deadline is soon.",
+        "intro": "A ransom note was pinned to the gate this morning. The {enemy_type} have taken {quest_focus_the} and are demanding {quest_item} in exchange. The deadline is soon.",
         "plotStep": "We cannot pay what they ask: we barely have enough to survive the season. But if we refuse, they have promised to make an example. {quest_ally} thinks their camp is somewhere {location_hint}.",
-        "outro": "We need someone to either negotiate or strike {quest_time_pressure}. {player_name}, can we count on you?"
+        "outro": "We need someone to either negotiate or strike before {quest_time_pressure}. {player_name}, can we count on you?"
       },
       "objectivePool": [
         "KILL_MOBS",
