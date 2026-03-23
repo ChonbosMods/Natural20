@@ -94,11 +94,12 @@ public class DialogueActionRegistry {
                     triggerPOIPlacement(quest, ctx.store());
 
                     // Register pending mob population for when player approaches
+                    // popSpec format: "KILL_MOBS:Namespace:RoleName:count" (role has colon)
                     String popSpec = quest.getVariableBindings().get("poi_population_spec");
                     if (popSpec != null && popSpec.startsWith("KILL_MOBS:")) {
-                        String[] parts = popSpec.split(":");
-                        String mobRole = parts[1];
-                        int mobCount = Integer.parseInt(parts[2]);
+                        int lastColon = popSpec.lastIndexOf(':');
+                        int mobCount = Integer.parseInt(popSpec.substring(lastColon + 1));
+                        String mobRole = popSpec.substring("KILL_MOBS:".length(), lastColon);
                         int poiX = Integer.parseInt(quest.getVariableBindings().get("poi_center_x"));
                         int poiY = Integer.parseInt(quest.getVariableBindings().get("poi_center_y"));
                         int poiZ = Integer.parseInt(quest.getVariableBindings().get("poi_center_z"));
