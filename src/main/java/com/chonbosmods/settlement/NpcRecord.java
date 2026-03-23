@@ -1,5 +1,7 @@
 package com.chonbosmods.settlement;
 
+import java.util.HashMap;
+import java.util.Map;
 import java.util.UUID;
 
 /**
@@ -18,6 +20,9 @@ public class NpcRecord {
     private float rotZ;
     private double leashRadius;
     private String generatedName;
+    private int disposition;
+    private String dialogueState;
+    private Map<String, String> flags = new HashMap<>();
 
     /** No-arg constructor for Gson deserialization. */
     public NpcRecord() {}
@@ -61,4 +66,13 @@ public class NpcRecord {
     public String getGeneratedName() { return generatedName; }
 
     public void setGeneratedName(String generatedName) { this.generatedName = generatedName; }
+
+    public int getDisposition() { return disposition; }
+    public void setDisposition(int disposition) { this.disposition = disposition; }
+
+    public String getDialogueState() { return dialogueState; }
+    public void setDialogueState(String dialogueState) { this.dialogueState = dialogueState; }
+
+    public Map<String, String> getFlags() { return flags; }
+    public void setFlags(Map<String, String> flags) { this.flags = flags != null ? new HashMap<>(flags) : new HashMap<>(); }
 }
