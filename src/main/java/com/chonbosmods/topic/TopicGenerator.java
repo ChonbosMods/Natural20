@@ -240,10 +240,13 @@ public class TopicGenerator {
         List<String> npcList = new ArrayList<>(assignedNpcs);
         String guaranteedVisible = npcList.get(random.nextInt(npcList.size()));
 
+        // Quest bearers must always be visible for their own quest topic
+        String bearer = focus.getQuestBearingNpc();
+
         // Re-assign all with visibility flags
         Map<String, Boolean> visibilityMap = new LinkedHashMap<>();
         for (String npc : npcList) {
-            if (npc.equals(guaranteedVisible)) {
+            if (npc.equals(guaranteedVisible) || npc.equals(bearer)) {
                 visibilityMap.put(npc, true);
             } else {
                 visibilityMap.put(npc, random.nextDouble() < VISIBILITY_CHANCE);
