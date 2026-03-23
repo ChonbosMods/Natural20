@@ -5,21 +5,15 @@
       "dialogueChunks": {
         "intro": "Word has reached us about something valuable {location_hint}: a source of {quest_item} richer than anything we have seen in this region. Word is already spreading.",
         "plotStep": "The problem is that we are not the only ones who know. The {enemy_type} have been pushing into that area, and {quest_ally} spotted organized groups heading the same direction. If we do not claim the {quest_focus} first, someone else will.",
-        "outro": "I need someone fast and capable to get out there and secure what we need before it is all gone. {player_name}, will you make the trip?"
+        "outro": "I need someone fast and capable to get out there and collect what we need before it is all gone. {player_name}, will you make the trip?"
       },
       "objectivePool": [
-        "GATHER_ITEMS",
-        "KILL_MOBS",
-        "EXPLORE_LOCATION"
+        "COLLECT_RESOURCES"
       ],
       "objectiveConfig": {
-        "GATHER_ITEMS": {
+        "COLLECT_RESOURCES": {
           "countMin": 5,
           "countMax": 15
-        },
-        "KILL_MOBS": {
-          "countMin": 3,
-          "countMax": 7
         }
       }
     },
@@ -31,14 +25,12 @@
         "outro": "The {quest_focus} means everything to {target_npc}. Will you track down the {quest_threat} and bring it back, {player_name}?"
       },
       "objectivePool": [
-        "FETCH_ITEM",
-        "KILL_MOBS",
-        "EXPLORE_LOCATION"
+        "FETCH_ITEM"
       ],
       "objectiveConfig": {
-        "KILL_MOBS": {
-          "countMin": 2,
-          "countMax": 5
+        "FETCH_ITEM": {
+          "countMin": 1,
+          "countMax": 1
         }
       }
     },
@@ -50,18 +42,12 @@
         "outro": "Without those resources, the {quest_stakes} {quest_stakes_is} in mortal danger. {player_name}, will you venture out {quest_time_pressure} and bring back what we need?"
       },
       "objectivePool": [
-        "GATHER_ITEMS",
-        "EXPLORE_LOCATION",
-        "KILL_MOBS"
+        "COLLECT_RESOURCES"
       ],
       "objectiveConfig": {
-        "GATHER_ITEMS": {
+        "COLLECT_RESOURCES": {
           "countMin": 6,
           "countMax": 18
-        },
-        "KILL_MOBS": {
-          "countMin": 2,
-          "countMax": 6
         }
       }
     }
