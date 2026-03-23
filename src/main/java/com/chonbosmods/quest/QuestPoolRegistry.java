@@ -24,8 +24,8 @@ public class QuestPoolRegistry {
     private static final FluentLogger LOGGER = FluentLogger.forEnclosingClass();
     private static final String CLASSPATH_PREFIX = "quests/pools/";
 
-    /** Entry with id + label for items/mobs. */
-    public record ItemEntry(String id, String label) {}
+    /** Entry with id + label + optional plural label for items/mobs. */
+    public record ItemEntry(String id, String label, String labelPlural) {}
 
     /** Entry with value + plural flag for narrative pools. */
     public record NarrativeEntry(String value, boolean plural, boolean proper) {}
@@ -207,7 +207,10 @@ public class QuestPoolRegistry {
         JsonArray arr = root.getAsJsonArray(arrayKey);
         for (JsonElement el : arr) {
             JsonObject obj = el.getAsJsonObject();
-            target.add(new ItemEntry(obj.get("id").getAsString(), obj.get("label").getAsString()));
+            String id = obj.get("id").getAsString();
+            String label = obj.get("label").getAsString();
+            String labelPlural = obj.has("labelPlural") ? obj.get("labelPlural").getAsString() : label + "s";
+            target.add(new ItemEntry(id, label, labelPlural));
         }
     }
 
@@ -282,12 +285,12 @@ public class QuestPoolRegistry {
     }
 
     public ItemEntry randomGatherItem(Random random) {
-        if (gatherItems.isEmpty()) return new ItemEntry("Hytale:Stone", "stone");
+        if (gatherItems.isEmpty()) return new ItemEntry("Hytale:Stone", "stone", "stones");
         return gatherItems.get(random.nextInt(gatherItems.size()));
     }
 
     public ItemEntry randomHostileMob(Random random) {
-        if (hostileMobs.isEmpty()) return new ItemEntry("Hytale:Trork_Grunt", "Trork Grunt");
+        if (hostileMobs.isEmpty()) return new ItemEntry("Hytale:Trork_Grunt", "Trork Grunt", "Trork Grunts");
         return hostileMobs.get(random.nextInt(hostileMobs.size()));
     }
 
@@ -384,7 +387,7 @@ public class QuestPoolRegistry {
     public String randomSendToNpcDialogue(String situationId, String tone, Random random) {
         List<String> pool = sendToNpcResponses.get(situationId);
         if (pool == null || pool.isEmpty()) pool = sendToNpcResponses.get(tone);
-        if (pool == null || pool.isEmpty()) return "Go speak with {target_npc} {location_hint}. They may know something about the {quest_focus}.";
+        if (pool == null || pool.isEmpty()) return "Go speak with {target_npc} {location_hint}. They may know something about {quest_focus_the}.";
         return pool.get(random.nextInt(pool.size()));
     }
 
@@ -394,7 +397,7 @@ public class QuestPoolRegistry {
     public String randomTargetNpcInfo(String situationId, String tone, Random random) {
         List<String> pool = targetNpcInfoResponses.get(situationId);
         if (pool == null || pool.isEmpty()) pool = targetNpcInfoResponses.get(tone);
-        if (pool == null || pool.isEmpty()) return "I know about the {quest_focus}. Here's what I can tell you. Take this back to {quest_giver_name}.";
+        if (pool == null || pool.isEmpty()) return "I know about {quest_focus_the}. Here's what I can tell you. Take this back to {quest_giver_name}.";
         return pool.get(random.nextInt(pool.size()));
     }
 
@@ -404,7 +407,7 @@ public class QuestPoolRegistry {
     public String randomTargetNpcHandoff(String situationId, String tone, Random random) {
         List<String> pool = targetNpcHandoffResponses.get(situationId);
         if (pool == null || pool.isEmpty()) pool = targetNpcHandoffResponses.get(tone);
-        if (pool == null || pool.isEmpty()) return "I can help with the {quest_focus}, but I need {quest_item} first. Bring some from {location_hint} and I'll share what I know.";
+        if (pool == null || pool.isEmpty()) return "I can help with {quest_focus_the}, but I need {quest_item} first. Bring some from {location_hint} and I'll share what I know.";
         return pool.get(random.nextInt(pool.size()));
     }
 

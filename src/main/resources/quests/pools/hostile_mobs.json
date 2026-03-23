@@ -1,14 +1,14 @@
 {
   "mobs": [
-    { "id": "Trork_Warrior", "label": "Trork Warrior" },
-    { "id": "Trork_Brawler", "label": "Trork Brawler" },
-    { "id": "Skeleton", "label": "Skeleton" },
-    { "id": "Zombie", "label": "Zombie" },
-    { "id": "Spider", "label": "Spider" },
-    { "id": "Goblin_Scrapper", "label": "Goblin Scrapper" },
-    { "id": "Goblin_Thief", "label": "Goblin Thief" },
-    { "id": "Trork_Shaman", "label": "Trork Shaman" },
-    { "id": "Wolf_Black", "label": "Black Wolf" },
-    { "id": "Spider_Cave", "label": "Cave Spider" }
+    { "id": "Trork_Warrior", "label": "Trork Warrior", "labelPlural": "Trork Warriors" },
+    { "id": "Trork_Brawler", "label": "Trork Brawler", "labelPlural": "Trork Brawlers" },
+    { "id": "Skeleton", "label": "Skeleton", "labelPlural": "Skeletons" },
+    { "id": "Zombie", "label": "Zombie", "labelPlural": "Zombies" },
+    { "id": "Spider", "label": "Spider", "labelPlural": "Spiders" },
+    { "id": "Goblin_Scrapper", "label": "Goblin Scrapper", "labelPlural": "Goblin Scrappers" },
+    { "id": "Goblin_Thief", "label": "Goblin Thief", "labelPlural": "Goblin Thieves" },
+    { "id": "Trork_Shaman", "label": "Trork Shaman", "labelPlural": "Trork Shamans" },
+    { "id": "Wolf_Black", "label": "Black Wolf", "labelPlural": "Black Wolves" },
+    { "id": "Spider_Cave", "label": "Cave Spider", "labelPlural": "Cave Spiders" }
   ]
 }

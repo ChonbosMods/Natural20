@@ -180,6 +180,7 @@ public class QuestGenerator {
 
         QuestPoolRegistry.ItemEntry enemyMob = poolRegistry.randomHostileMob(random);
         bindings.put("enemy_type", enemyMob.label());
+        bindings.put("enemy_type_plural", enemyMob.labelPlural());
         bindings.put("enemy_type_id", enemyMob.id());
 
         SettlementRecord nearestOther = findNearestOtherSettlement(npcX, npcZ, npcCellKey);
@@ -248,6 +249,14 @@ public class QuestGenerator {
         bindings.put("quest_stakes_is", stakes.plural() ? "are" : "is");
         bindings.put("quest_stakes_has", stakes.plural() ? "have" : "has");
         bindings.put("quest_stakes_was", stakes.plural() ? "were" : "was");
+
+        // Article-prefixed variants: "the old watchtower" vs bare proper nouns
+        bindings.put("quest_focus_the", focus.proper() ? focus.value() : "the " + focus.value());
+        bindings.put("quest_focus_The", focus.proper() ? focus.value() : "The " + focus.value());
+        bindings.put("quest_threat_the", threat.proper() ? threat.value() : "the " + threat.value());
+        bindings.put("quest_threat_The", threat.proper() ? threat.value() : "The " + threat.value());
+        bindings.put("quest_stakes_the", stakes.proper() ? stakes.value() : "the " + stakes.value());
+        bindings.put("quest_stakes_The", stakes.proper() ? stakes.value() : "The " + stakes.value());
 
         // Optional narrative pools (70% chance each to be included)
         String origin = poolRegistry.randomOrigin(random);
