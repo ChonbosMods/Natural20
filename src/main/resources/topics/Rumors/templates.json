@@ -5,24 +5,24 @@
       "label": "{subject_focus}",
       "perspectives": [
         {
-          "intro": "{tone_opener} {time_ref}, {creature_sighting} {direction}. Folks are scared, and I can't blame them. {tone_closer}",
+          "intro": "{tone_opener} {creature_sighting}. {tone_closer}",
           "exploratories": [
             {
-              "prompt": "What kind of creature was it?",
+              "prompt": "What did it look like?",
               "response": "{creature_detail}",
               "exploratories": [
                 {
-                  "prompt": "Has it attacked anyone?",
+                  "prompt": "Should we be worried?",
                   "response": "{danger_assessment}"
                 }
               ]
             },
             {
-              "prompt": "How close did it get?",
+              "prompt": "Where was this?",
               "response": "{location_detail}",
               "exploratories": [
                 {
-                  "prompt": "Do people think it'll come back?",
+                  "prompt": "What do people think?",
                   "response": "{local_opinion}"
                 }
               ]
@@ -30,46 +30,21 @@
           ]
         },
         {
-          "intro": "{tone_opener} {rumor_source} came in white as a sheet, talking about {subject_focus}. {time_ref}, {creature_sighting} {direction}. {tone_closer}",
+          "intro": "{tone_opener} {creature_sighting}. {tone_closer}",
           "exploratories": [
             {
-              "prompt": "What did they see exactly?",
+              "prompt": "Who saw it?",
+              "response": "{rumor_source}",
+              "exploratories": [
+                {
+                  "prompt": "Do you trust them?",
+                  "response": "{personal_reaction}"
+                }
+              ]
+            },
+            {
+              "prompt": "Tell me more about it.",
               "response": "{creature_detail}",
-              "exploratories": [
-                {
-                  "prompt": "And you trust this source?",
-                  "response": "{personal_reaction}"
-                }
-              ]
-            },
-            {
-              "prompt": "Should we be worried?",
-              "response": "{danger_assessment}",
-              "exploratories": [
-                {
-                  "prompt": "What are people doing about it?",
-                  "response": "{local_opinion}"
-                }
-              ]
-            }
-          ]
-        },
-        {
-          "intro": "{tone_opener} The roads {direction} aren't safe anymore. {time_ref}, {creature_sighting}. {rumor_detail} {tone_closer}",
-          "exploratories": [
-            {
-              "prompt": "Which roads are we talking about?",
-              "response": "{location_detail}",
-              "exploratories": [
-                {
-                  "prompt": "Is there another route?",
-                  "response": "{personal_reaction}"
-                }
-              ]
-            },
-            {
-              "prompt": "How dangerous is it really?",
-              "response": "{danger_assessment}",
               "exploratories": [
                 {
                   "prompt": "Has anyone tried to deal with it?",
@@ -78,19 +53,44 @@
               ]
             }
           ]
+        },
+        {
+          "intro": "{tone_opener} {creature_sighting}. {tone_closer}",
+          "exploratories": [
+            {
+              "prompt": "Has it attacked anyone?",
+              "response": "{danger_assessment}",
+              "exploratories": [
+                {
+                  "prompt": "How are people reacting?",
+                  "response": "{local_opinion}"
+                }
+              ]
+            },
+            {
+              "prompt": "How close did it get to the settlement?",
+              "response": "{location_detail}",
+              "exploratories": [
+                {
+                  "prompt": "What do you make of it?",
+                  "response": "{personal_reaction}"
+                }
+              ]
+            }
+          ]
         }
       ],
       "questHookPerspectives": [
         {
-          "intro": "{quest_exposition} The danger from {subject_focus} {direction} grows with each passing day. {quest_detail}",
+          "intro": "{quest_exposition} The danger from {subject_focus_the} grows with each passing day. {quest_detail}",
           "exploratories": [
             {
-              "prompt": "What's at stake?",
+              "prompt": "What is at stake?",
               "response": "{quest_stakes_detail}"
             }
           ],
           "decisive": {
-            "prompt": "I'll handle it.",
+            "prompt": "I will handle it.",
             "response": "{quest_accept_response}"
           }
         }
@@ -101,10 +101,10 @@
       "label": "{subject_focus}",
       "perspectives": [
         {
-          "intro": "{tone_opener} {time_ref}, {creature_sighting} {direction}. I've never seen anything like it described. {tone_closer}",
+          "intro": "{tone_opener} {creature_sighting}. {tone_closer}",
           "exploratories": [
             {
-              "prompt": "Who was the witness?",
+              "prompt": "What was it doing?",
               "response": "{creature_detail}",
               "exploratories": [
                 {
@@ -126,11 +126,11 @@
           ]
         },
         {
-          "intro": "{tone_opener} {rumor_source} swears they saw {subject_focus} {direction}. {time_ref}, they were out gathering when they came across it. {tone_closer}",
+          "intro": "{tone_opener} {creature_sighting}. {tone_closer}",
           "exploratories": [
             {
-              "prompt": "What was it doing?",
-              "response": "{creature_detail}",
+              "prompt": "Who told you about this?",
+              "response": "{rumor_source}",
               "exploratories": [
                 {
                   "prompt": "That sounds unusual. Is it?",
@@ -140,7 +140,7 @@
             },
             {
               "prompt": "Has anyone else seen it since?",
-              "response": "{personal_reaction}",
+              "response": "{creature_detail}",
               "exploratories": [
                 {
                   "prompt": "Are people avoiding the area?",
@@ -151,15 +151,15 @@
           ]
         },
         {
-          "intro": "{tone_opener} You won't believe this, but {creature_sighting} {direction}. {time_ref}, plain as anything. {rumor_detail} {tone_closer}",
+          "intro": "{tone_opener} {creature_sighting}. {tone_closer}",
           "exploratories": [
             {
               "prompt": "How many were there?",
               "response": "{creature_detail}",
               "exploratories": [
                 {
-                  "prompt": "Do they usually travel in groups?",
-                  "response": "{local_opinion}"
+                  "prompt": "What is your gut feeling about it?",
+                  "response": "{personal_reaction}"
                 }
               ]
             },
@@ -168,7 +168,103 @@
               "response": "{danger_assessment}",
               "exploratories": [
                 {
-                  "prompt": "What's your gut feeling about it?",
+                  "prompt": "Do they usually appear in groups?",
+                  "response": "{local_opinion}"
+                }
+              ]
+            }
+          ]
+        }
+      ],
+      "questHookPerspectives": [
+        {
+          "intro": "{quest_exposition} The sighting of {subject_focus_the} in an area that should have been safe cannot be ignored. {quest_detail}",
+          "exploratories": [
+            {
+              "prompt": "Why does this matter?",
+              "response": "{quest_stakes_detail}"
+            }
+          ],
+          "decisive": {
+            "prompt": "I will investigate.",
+            "response": "{quest_accept_response}"
+          }
+        }
+      ]
+    },
+    {
+      "id": "rumor_migration",
+      "label": "{subject_focus}",
+      "perspectives": [
+        {
+          "intro": "{tone_opener} {creature_sighting}. {tone_closer}",
+          "exploratories": [
+            {
+              "prompt": "Is this seasonal?",
+              "response": "{creature_detail}",
+              "exploratories": [
+                {
+                  "prompt": "Should we be worried about whatever drove them out?",
+                  "response": "{danger_assessment}"
+                }
+              ]
+            },
+            {
+              "prompt": "Where are they headed?",
+              "response": "{location_detail}",
+              "exploratories": [
+                {
+                  "prompt": "Will they cause trouble when they arrive?",
+                  "response": "{local_opinion}"
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "intro": "{tone_opener} {creature_sighting}. {tone_closer}",
+          "exploratories": [
+            {
+              "prompt": "What could be driving them?",
+              "response": "{creature_detail}",
+              "exploratories": [
+                {
+                  "prompt": "So what changed?",
+                  "response": "{personal_reaction}"
+                }
+              ]
+            },
+            {
+              "prompt": "How many are we talking about?",
+              "response": "{location_detail}",
+              "exploratories": [
+                {
+                  "prompt": "Can the settlement handle that?",
+                  "response": "{local_opinion}"
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "intro": "{tone_opener} {creature_sighting}. {tone_closer}",
+          "exploratories": [
+            {
+              "prompt": "Has this happened before?",
+              "response": "{creature_detail}",
+              "exploratories": [
+                {
+                  "prompt": "What do the old-timers say about it?",
+                  "response": "{local_opinion}"
+                }
+              ]
+            },
+            {
+              "prompt": "Which direction are they moving?",
+              "response": "{location_detail}",
+              "exploratories": [
+                {
+                  "prompt": "Does that worry you?",
                   "response": "{personal_reaction}"
                 }
               ]
@@ -178,15 +274,15 @@
       ],
       "questHookPerspectives": [
         {
-          "intro": "{quest_exposition} {subject_focus} was sighted {direction}, in an area that should have been safe. {quest_detail}",
+          "intro": "{quest_exposition} The migration of {subject_focus_the} is a sign of something far more troubling. {quest_detail}",
           "exploratories": [
             {
-              "prompt": "Why does this matter?",
+              "prompt": "What do you think is behind it?",
               "response": "{quest_stakes_detail}"
             }
           ],
           "decisive": {
-            "prompt": "I'll investigate.",
+            "prompt": "I will track it to the source.",
             "response": "{quest_accept_response}"
           }
         }
@@ -197,7 +293,7 @@
       "label": "{subject_focus}",
       "perspectives": [
         {
-          "intro": "{tone_opener} {time_ref}, {strange_event} {direction}. {rumor_source} noticed it first, and now the whole settlement's talking. {tone_closer}",
+          "intro": "{tone_opener} {strange_event}. {tone_closer}",
           "exploratories": [
             {
               "prompt": "Who went missing?",
@@ -222,7 +318,7 @@
           ]
         },
         {
-          "intro": "{tone_opener} Something's wrong: {strange_event}. {time_ref}, it happened again {direction}. {rumor_detail} {tone_closer}",
+          "intro": "{tone_opener} {strange_event}. {tone_closer}",
           "exploratories": [
             {
               "prompt": "How many have vanished?",
@@ -235,12 +331,37 @@
               ]
             },
             {
-              "prompt": "What do people think is causing it?",
-              "response": "{local_opinion}",
+              "prompt": "Who told you about this?",
+              "response": "{rumor_source}",
               "exploratories": [
                 {
-                  "prompt": "Do you agree with them?",
+                  "prompt": "Do you agree with what they think happened?",
                   "response": "{personal_reaction}"
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "intro": "{tone_opener} {strange_event}. {tone_closer}",
+          "exploratories": [
+            {
+              "prompt": "When did people first notice?",
+              "response": "{time_ref}. {event_detail}",
+              "exploratories": [
+                {
+                  "prompt": "What do people think is causing it?",
+                  "response": "{local_opinion}"
+                }
+              ]
+            },
+            {
+              "prompt": "Has anyone gone looking for them?",
+              "response": "{location_detail}",
+              "exploratories": [
+                {
+                  "prompt": "How dangerous is the search?",
+                  "response": "{danger_assessment}"
                 }
               ]
             }
@@ -249,7 +370,7 @@
       ],
       "questHookPerspectives": [
         {
-          "intro": "{quest_exposition} The disappearances linked to {subject_focus} {direction} can't be ignored any longer. {quest_detail}",
+          "intro": "{quest_exposition} The disappearances linked to {subject_focus_the} cannot be ignored any longer. {quest_detail}",
           "exploratories": [
             {
               "prompt": "What happens if nothing is done?",
@@ -257,174 +378,7 @@
             }
           ],
           "decisive": {
-            "prompt": "I'll find them.",
-            "response": "{quest_accept_response}"
-          }
-        }
-      ]
-    },
-    {
-      "id": "rumor_treasure",
-      "label": "{subject_focus}",
-      "perspectives": [
-        {
-          "intro": "{tone_opener} {time_ref}, {traveler_news} {direction}. Something about {subject_focus} and old riches buried out there. {tone_closer}",
-          "exploratories": [
-            {
-              "prompt": "What kind of riches?",
-              "response": "Coin, mostly, packed into chests and sealed with wax. But some say there are relics mixed in: old weapons, ceremonial pieces, things that belonged to someone important. The kind of goods that do not just sit in a hole without a reason.",
-              "exploratories": [
-                {
-                  "prompt": "Sounds too good to be true.",
-                  "response": "{personal_reaction}"
-                }
-              ]
-            },
-            {
-              "prompt": "Who brought this story?",
-              "response": "A peddler who passes through every few seasons. Not the type to spin tales for attention: quiet, keeps to himself, trades fair. He mentioned it over a drink like it was nothing, which is exactly why people took it seriously.",
-              "exploratories": [
-                {
-                  "prompt": "Do the locals believe it?",
-                  "response": "{local_opinion}"
-                }
-              ]
-            }
-          ]
-        },
-        {
-          "intro": "{tone_opener} Now, I don't chase fairy tales, but {rumor_source} mentioned something about {subject_focus}. {time_ref}, {traveler_news} {direction}. {tone_closer}",
-          "exploratories": [
-            {
-              "prompt": "Has anyone gone looking?",
-              "response": "A few have tried over the years. Most came back empty-handed and tight-lipped about what they found. One group made it further than the rest but turned back when they lost their bearings. Nobody has managed to bring anything out.",
-              "exploratories": [
-                {
-                  "prompt": "What stopped them?",
-                  "response": "{danger_assessment}"
-                }
-              ]
-            },
-            {
-              "prompt": "Where is this supposed to be?",
-              "response": "{location_detail}",
-              "exploratories": [
-                {
-                  "prompt": "Is the area accessible?",
-                  "response": "{personal_reaction}"
-                }
-              ]
-            }
-          ]
-        },
-        {
-          "intro": "{tone_opener} There's an old story about {subject_focus} that's been making the rounds again. {time_ref}, {traveler_news} {direction}, and it lined up with what folk already suspected. {tone_closer}",
-          "exploratories": [
-            {
-              "prompt": "What's the old story?",
-              "response": "The tale goes that a lord of some forgotten holding buried his wealth before the settlement fell. He sealed it away where only someone who knew the old markers could find it. The story has been passed down so many times that the details shift with every telling, but the core stays the same: something of value was hidden and never recovered.",
-              "exploratories": [
-                {
-                  "prompt": "Do you think there's any truth to it?",
-                  "response": "{local_opinion}"
-                }
-              ]
-            },
-            {
-              "prompt": "Lined up how?",
-              "response": "{location_detail}",
-              "exploratories": [
-                {
-                  "prompt": "Would you go looking yourself?",
-                  "response": "{personal_reaction}"
-                }
-              ]
-            }
-          ]
-        }
-      ],
-      "questHookPerspectives": [
-        {
-          "intro": "{quest_exposition} There's something of real value tied to {subject_focus} {direction}, and it won't stay hidden forever. {quest_detail}",
-          "exploratories": [
-            {
-              "prompt": "What's the catch?",
-              "response": "{quest_stakes_detail}"
-            }
-          ],
-          "decisive": {
-            "prompt": "I'll go after it.",
-            "response": "{quest_accept_response}"
-          }
-        }
-      ]
-    },
-    {
-      "id": "rumor_conflict",
-      "label": "{subject_focus}",
-      "perspectives": [
-        {
-          "intro": "{tone_opener} {time_ref}, {strange_event} {direction}. It's all tied up with {subject_focus}, and tempers are running hot. {tone_closer}",
-          "exploratories": [
-            {
-              "prompt": "Who's involved?",
-              "response": "Two groups, mostly. One side holds the old claim and says the arrangement was settled long ago. The other side says the terms were never fair to begin with and they are done honoring them. Neither is willing to back down, and the people caught in the middle are the ones suffering for it.",
-              "exploratories": [
-                {
-                  "prompt": "Which side are people on?",
-                  "response": "{local_opinion}"
-                }
-              ]
-            },
-            {
-              "prompt": "How did this start?",
-              "response": "A broken agreement, from what I hear. One party changed the terms without consulting the other, and the offended side took it as a betrayal. It might have been resolved quietly if someone had spoken up early, but pride got in the way and the grievance festered.",
-              "exploratories": [
-                {
-                  "prompt": "Could it have been avoided?",
-                  "response": "{personal_reaction}"
-                }
-              ]
-            }
-          ]
-        },
-        {
-          "intro": "{tone_opener} {rumor_source} says the situation with {subject_focus} is getting worse. {time_ref}, {strange_event} {direction}. {tone_closer}",
-          "exploratories": [
-            {
-              "prompt": "Worse how?",
-              "response": "What started as harsh words has turned into blocked roads and refused trade. Supplies meant for one side are being turned away at the boundary. There was a scuffle at the crossroads not long ago: nothing deadly, but enough to put everyone on edge. The next incident might not end so cleanly.",
-              "exploratories": [
-                {
-                  "prompt": "Is it going to turn violent?",
-                  "response": "{danger_assessment}"
-                }
-              ]
-            },
-            {
-              "prompt": "What sparked the latest trouble?",
-              "response": "{personal_reaction}",
-              "exploratories": [
-                {
-                  "prompt": "Can anything be done to calm things down?",
-                  "response": "{local_opinion}"
-                }
-              ]
-            }
-          ]
-        }
-      ],
-      "questHookPerspectives": [
-        {
-          "intro": "{quest_exposition} The conflict surrounding {subject_focus} threatens to spill over into something much worse. {quest_detail}",
-          "exploratories": [
-            {
-              "prompt": "What's the worst that could happen?",
-              "response": "{quest_stakes_detail}"
-            }
-          ],
-          "decisive": {
-            "prompt": "I'll step in before it's too late.",
+            "prompt": "I will find them.",
             "response": "{quest_accept_response}"
           }
         }
@@ -435,7 +389,7 @@
       "label": "{subject_focus}",
       "perspectives": [
         {
-          "intro": "{tone_opener} {time_ref}, {strange_event} {direction}. The land around {subject_focus} just isn't right anymore. {tone_closer}",
+          "intro": "{tone_opener} {strange_event}. {tone_closer}",
           "exploratories": [
             {
               "prompt": "What do you mean, not right?",
@@ -460,21 +414,21 @@
           ]
         },
         {
-          "intro": "{tone_opener} {rumor_source} mentioned something unsettling about {subject_focus}. {time_ref}, {strange_event} {direction}. The animals won't go near the place. {tone_closer}",
+          "intro": "{tone_opener} {strange_event}. {tone_closer}",
           "exploratories": [
             {
-              "prompt": "Unsettling in what way?",
+              "prompt": "Is it spreading?",
               "response": "{event_detail}",
               "exploratories": [
                 {
-                  "prompt": "Is it spreading?",
-                  "response": "{danger_assessment}"
+                  "prompt": "What do the elders say?",
+                  "response": "{local_opinion}"
                 }
               ]
             },
             {
-              "prompt": "What do the elders think?",
-              "response": "{local_opinion}",
+              "prompt": "Who told you about this?",
+              "response": "{rumor_source}",
               "exploratories": [
                 {
                   "prompt": "Are you frightened?",
@@ -485,7 +439,7 @@
           ]
         },
         {
-          "intro": "{tone_opener} I don't scare easily, but {subject_focus_is} wrong. {time_ref}, {strange_event} {direction}. {rumor_detail} {tone_closer}",
+          "intro": "{tone_opener} {strange_event}. {tone_closer}",
           "exploratories": [
             {
               "prompt": "What makes you so sure?",
@@ -498,7 +452,7 @@
               ]
             },
             {
-              "prompt": "What's causing it?",
+              "prompt": "What is causing it?",
               "response": "{danger_assessment}",
               "exploratories": [
                 {
@@ -512,7 +466,7 @@
       ],
       "questHookPerspectives": [
         {
-          "intro": "{quest_exposition} The corruption spreading from {subject_focus} will poison everything it touches if left unchecked. {quest_detail}",
+          "intro": "{quest_exposition} The corruption spreading from {subject_focus_the} will poison everything it touches if left unchecked. {quest_detail}",
           "exploratories": [
             {
               "prompt": "How far has it spread?",
@@ -520,78 +474,7 @@
             }
           ],
           "decisive": {
-            "prompt": "I'll put a stop to it.",
-            "response": "{quest_accept_response}"
-          }
-        }
-      ]
-    },
-    {
-      "id": "rumor_migration",
-      "label": "{subject_focus}",
-      "perspectives": [
-        {
-          "intro": "{tone_opener} {time_ref}, {creature_sighting} {direction}. Whole packs of them, moving together like something drove them out. {tone_closer}",
-          "exploratories": [
-            {
-              "prompt": "Driven out by what?",
-              "response": "{creature_detail}",
-              "exploratories": [
-                {
-                  "prompt": "Should we be worried about whatever chased them?",
-                  "response": "{danger_assessment}"
-                }
-              ]
-            },
-            {
-              "prompt": "Where are they headed?",
-              "response": "{location_detail}",
-              "exploratories": [
-                {
-                  "prompt": "Will they cause trouble when they arrive?",
-                  "response": "{local_opinion}"
-                }
-              ]
-            }
-          ]
-        },
-        {
-          "intro": "{tone_opener} {subject_focus_is} on the move. {time_ref}, {rumor_source} saw them pouring {direction}, more than anyone's ever counted. {tone_closer}",
-          "exploratories": [
-            {
-              "prompt": "Is this seasonal?",
-              "response": "{creature_detail}",
-              "exploratories": [
-                {
-                  "prompt": "So what changed?",
-                  "response": "{personal_reaction}"
-                }
-              ]
-            },
-            {
-              "prompt": "How many are we talking about?",
-              "response": "{event_detail}",
-              "exploratories": [
-                {
-                  "prompt": "Can the settlement handle that?",
-                  "response": "{local_opinion}"
-                }
-              ]
-            }
-          ]
-        }
-      ],
-      "questHookPerspectives": [
-        {
-          "intro": "{quest_exposition} The migration of {subject_focus} is a sign of something far more troubling {direction}. {quest_detail}",
-          "exploratories": [
-            {
-              "prompt": "What do you think is behind it?",
-              "response": "{quest_stakes_detail}"
-            }
-          ],
-          "decisive": {
-            "prompt": "I'll track it to the source.",
+            "prompt": "I will put a stop to it.",
             "response": "{quest_accept_response}"
           }
         }
@@ -602,7 +485,7 @@
       "label": "{subject_focus}",
       "perspectives": [
         {
-          "intro": "{tone_opener} The old folk won't stop whispering about {subject_focus}. {time_ref}, {strange_event} {direction}, and they say it's a sign. {tone_closer}",
+          "intro": "{tone_opener} {strange_event}. {tone_closer}",
           "exploratories": [
             {
               "prompt": "A sign of what?",
@@ -615,7 +498,7 @@
               ]
             },
             {
-              "prompt": "What happened exactly?",
+              "prompt": "Where did this happen?",
               "response": "{location_detail}",
               "exploratories": [
                 {
@@ -627,7 +510,7 @@
           ]
         },
         {
-          "intro": "{tone_opener} {time_ref}, {strange_event} {direction}. {rumor_source} says it's tied to {subject_focus}, and the elders agree. {tone_closer}",
+          "intro": "{tone_opener} {strange_event}. {tone_closer}",
           "exploratories": [
             {
               "prompt": "What do the elders say?",
@@ -640,8 +523,8 @@
               ]
             },
             {
-              "prompt": "What should we expect?",
-              "response": "{danger_assessment}",
+              "prompt": "Who told you about this?",
+              "response": "{rumor_source}",
               "exploratories": [
                 {
                   "prompt": "How are you preparing?",
@@ -652,25 +535,25 @@
           ]
         },
         {
-          "intro": "{tone_opener} I'm not one for superstition, but even I noticed {subject_focus}. {time_ref}, {strange_event} {direction}. {rumor_detail} {tone_closer}",
+          "intro": "{tone_opener} {strange_event}. {tone_closer}",
           "exploratories": [
             {
-              "prompt": "What did you notice?",
+              "prompt": "What should we expect?",
+              "response": "{danger_assessment}",
+              "exploratories": [
+                {
+                  "prompt": "What are people saying about it?",
+                  "response": "{local_opinion}"
+                }
+              ]
+            },
+            {
+              "prompt": "What exactly did you notice?",
               "response": "{event_detail}",
               "exploratories": [
                 {
                   "prompt": "And that worries you?",
                   "response": "{personal_reaction}"
-                }
-              ]
-            },
-            {
-              "prompt": "What are people saying about it?",
-              "response": "{local_opinion}",
-              "exploratories": [
-                {
-                  "prompt": "Is there anything to be done?",
-                  "response": "{danger_assessment}"
                 }
               ]
             }
@@ -679,7 +562,7 @@
       ],
       "questHookPerspectives": [
         {
-          "intro": "{quest_exposition} The signs surrounding {subject_focus} point to something {direction} that must be confronted before it's too late. {quest_detail}",
+          "intro": "{quest_exposition} The signs surrounding {subject_focus_the} point to something that must be confronted before it is too late. {quest_detail}",
           "exploratories": [
             {
               "prompt": "What are we facing?",
@@ -688,6 +571,198 @@
           ],
           "decisive": {
             "prompt": "Tell me what needs doing.",
+            "response": "{quest_accept_response}"
+          }
+        }
+      ]
+    },
+    {
+      "id": "rumor_treasure",
+      "label": "{subject_focus}",
+      "perspectives": [
+        {
+          "intro": "{tone_opener} {treasure_rumor}. {tone_closer}",
+          "exploratories": [
+            {
+              "prompt": "What kind of riches?",
+              "response": "{treasure_detail}",
+              "exploratories": [
+                {
+                  "prompt": "Sounds too good to be true.",
+                  "response": "{personal_reaction}"
+                }
+              ]
+            },
+            {
+              "prompt": "Where is this supposed to be?",
+              "response": "{location_detail}",
+              "exploratories": [
+                {
+                  "prompt": "Do the locals believe it?",
+                  "response": "{local_opinion}"
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "intro": "{tone_opener} {treasure_rumor}. {tone_closer}",
+          "exploratories": [
+            {
+              "prompt": "Has anyone gone looking?",
+              "response": "{treasure_detail}",
+              "exploratories": [
+                {
+                  "prompt": "What stopped them?",
+                  "response": "{danger_assessment}"
+                }
+              ]
+            },
+            {
+              "prompt": "Who brought this story?",
+              "response": "{rumor_source}",
+              "exploratories": [
+                {
+                  "prompt": "Is the area accessible?",
+                  "response": "{personal_reaction}"
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "intro": "{tone_opener} {treasure_rumor}. {tone_closer}",
+          "exploratories": [
+            {
+              "prompt": "What is the old story?",
+              "response": "{treasure_detail}",
+              "exploratories": [
+                {
+                  "prompt": "Do you think there is any truth to it?",
+                  "response": "{local_opinion}"
+                }
+              ]
+            },
+            {
+              "prompt": "How did you hear about it?",
+              "response": "{rumor_source}",
+              "exploratories": [
+                {
+                  "prompt": "Would you go looking yourself?",
+                  "response": "{personal_reaction}"
+                }
+              ]
+            }
+          ]
+        }
+      ],
+      "questHookPerspectives": [
+        {
+          "intro": "{quest_exposition} There is something of real value tied to {subject_focus_the}, and it will not stay hidden forever. {quest_detail}",
+          "exploratories": [
+            {
+              "prompt": "What is the catch?",
+              "response": "{quest_stakes_detail}"
+            }
+          ],
+          "decisive": {
+            "prompt": "I will go after it.",
+            "response": "{quest_accept_response}"
+          }
+        }
+      ]
+    },
+    {
+      "id": "rumor_conflict",
+      "label": "{subject_focus}",
+      "perspectives": [
+        {
+          "intro": "{tone_opener} {conflict_rumor}. {tone_closer}",
+          "exploratories": [
+            {
+              "prompt": "Who is involved?",
+              "response": "{conflict_detail}",
+              "exploratories": [
+                {
+                  "prompt": "Which side are people on?",
+                  "response": "{local_opinion}"
+                }
+              ]
+            },
+            {
+              "prompt": "How did this start?",
+              "response": "{conflict_detail}",
+              "exploratories": [
+                {
+                  "prompt": "Could it have been avoided?",
+                  "response": "{personal_reaction}"
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "intro": "{tone_opener} {conflict_rumor}. {tone_closer}",
+          "exploratories": [
+            {
+              "prompt": "Who told you about this?",
+              "response": "{rumor_source}",
+              "exploratories": [
+                {
+                  "prompt": "Is it going to turn violent?",
+                  "response": "{danger_assessment}"
+                }
+              ]
+            },
+            {
+              "prompt": "Where is the tension worst?",
+              "response": "{location_detail}",
+              "exploratories": [
+                {
+                  "prompt": "Can anything be done to calm things down?",
+                  "response": "{local_opinion}"
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "intro": "{tone_opener} {conflict_rumor}. {tone_closer}",
+          "exploratories": [
+            {
+              "prompt": "How bad has it gotten?",
+              "response": "{conflict_detail}",
+              "exploratories": [
+                {
+                  "prompt": "What do you think will happen next?",
+                  "response": "{danger_assessment}"
+                }
+              ]
+            },
+            {
+              "prompt": "What sparked the latest trouble?",
+              "response": "{conflict_detail}",
+              "exploratories": [
+                {
+                  "prompt": "How do you feel about it?",
+                  "response": "{personal_reaction}"
+                }
+              ]
+            }
+          ]
+        }
+      ],
+      "questHookPerspectives": [
+        {
+          "intro": "{quest_exposition} The conflict surrounding {subject_focus_the} threatens to spill over into something much worse. {quest_detail}",
+          "exploratories": [
+            {
+              "prompt": "What is the worst that could happen?",
+              "response": "{quest_stakes_detail}"
+            }
+          ],
+          "decisive": {
+            "prompt": "I will step in before it is too late.",
             "response": "{quest_accept_response}"
           }
         }
