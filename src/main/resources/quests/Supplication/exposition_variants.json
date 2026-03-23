@@ -4,15 +4,14 @@
       "id": "supplication_expo_01",
       "dialogueChunks": {
         "intro": "Please, {player_name}. Since {quest_origin}, the {quest_threat} {quest_threat_has} made life unbearable. We have nowhere else to turn.",
-        "plotStep": "We need someone to {quest_action} at the {quest_focus}. There should be {quest_item} {location_hint} that could help. Without it, the {quest_stakes} will suffer.",
+        "plotStep": "We need someone to {quest_action} at the {quest_focus}. There should be {quest_item} {location_hint} that could help. We need as much of it as you can carry back. Without those supplies, the {quest_stakes} will suffer.",
         "outro": "I know it is a lot to ask. But we are running out of time."
       },
       "objectivePool": [
-        "GATHER_ITEMS",
-        "FETCH_ITEM"
+        "COLLECT_RESOURCES"
       ],
       "objectiveConfig": {
-        "GATHER_ITEMS": {
+        "COLLECT_RESOURCES": {
           "countMin": 5,
           "countMax": 12
         }
@@ -22,22 +21,16 @@
       "id": "supplication_expo_02",
       "dialogueChunks": {
         "intro": "{player_name}, thank the stars you are here. The {quest_threat} {quest_threat_has} been claiming more of us each day, and we cannot hold on much longer.",
-        "plotStep": "We traced the problem back to the {quest_focus}, but we lack the means to fix it. We desperately need someone to {quest_action}. {quest_ally} mentioned that {quest_item} can be found {location_hint}.",
+        "plotStep": "We traced the problem back to the {quest_focus}, but we lack the means to fix it. We desperately need someone to gather {quest_item} from {location_hint}. {quest_ally} says we need a good supply of it to have any chance.",
         "outro": "Please, the {quest_stakes} cannot wait. We need this done {quest_time_pressure}."
       },
       "objectivePool": [
-        "FETCH_ITEM",
-        "GATHER_ITEMS",
-        "EXPLORE_LOCATION"
+        "COLLECT_RESOURCES"
       ],
       "objectiveConfig": {
-        "GATHER_ITEMS": {
+        "COLLECT_RESOURCES": {
           "countMin": 3,
           "countMax": 8
-        },
-        "FETCH_ITEM": {
-          "countMin": 1,
-          "countMax": 1
         }
       }
     },
@@ -45,12 +38,11 @@
       "id": "supplication_expo_03",
       "dialogueChunks": {
         "intro": "Stranger, I have no pride left. {player_name}, the {quest_threat} {quest_threat_has} been terrorizing the {quest_focus} and we are powerless to stop it.",
-        "plotStep": "Someone needs to {quest_action} before we lose everything. The {enemy_type} have been sighted {location_hint}. If you bring back {quest_item}, we might stand a chance.",
+        "plotStep": "Someone needs to {quest_action} before we lose everything. The {enemy_type} have been sighted {location_hint}. Kill enough of them and we might stand a chance.",
         "outro": "If the {quest_stakes} {quest_stakes_is} taken, this settlement is finished. I will give you {quest_reward_hint} if you help us."
       },
       "objectivePool": [
-        "KILL_MOBS",
-        "EXPLORE_LOCATION"
+        "KILL_MOBS"
       ],
       "objectiveConfig": {
         "KILL_MOBS": {
