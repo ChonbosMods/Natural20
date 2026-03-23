@@ -136,4 +136,21 @@ public class TopicTemplateRegistry {
             case SMALLTALK -> randomSmallTalkTemplate(random);
         };
     }
+
+    /**
+     * Select a template whose topic matches one of the subject's categories.
+     * Falls back to unfiltered random if no matching template is found.
+     */
+    public TopicTemplate randomTemplateForSubject(TopicCategory category, List<String> subjectCategories, Random random) {
+        if (subjectCategories.isEmpty()) return randomTemplate(category, random);
+        List<TopicTemplate> pool = category == TopicCategory.RUMORS ? rumorTemplates : smallTalkTemplates;
+        List<TopicTemplate> matching = pool.stream()
+            .filter(t -> {
+                String topic = t.id().contains("_") ? t.id().substring(t.id().indexOf('_') + 1) : t.id();
+                return subjectCategories.contains(topic);
+            })
+            .toList();
+        if (matching.isEmpty()) return randomTemplate(category, random);
+        return matching.get(random.nextInt(matching.size()));
+    }
 }

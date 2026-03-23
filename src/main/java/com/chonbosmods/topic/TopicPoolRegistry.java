@@ -16,7 +16,8 @@ public class TopicPoolRegistry {
     private static final FluentLogger LOGGER = FluentLogger.forEnclosingClass();
     private static final String CLASSPATH_PREFIX = "topics/pools/";
 
-    public record SubjectEntry(String value, boolean plural, boolean proper, boolean questEligible) {}
+    public record SubjectEntry(String value, boolean plural, boolean proper, boolean questEligible,
+                                List<String> categories) {}
 
     private final List<SubjectEntry> subjectFocuses = new ArrayList<>();
     private final List<String> greetingLines = new ArrayList<>();
@@ -66,7 +67,7 @@ public class TopicPoolRegistry {
     private final List<String> conflictDetails = new ArrayList<>();
 
     // Fragment pools: Layer 2
-    private final List<String> localOpinions = new ArrayList<>();
+    private final Map<String, List<String>> localOpinions = new LinkedHashMap<>();
     private final Map<String, List<String>> personalReactions = new LinkedHashMap<>();
     private final List<String> dangerAssessments = new ArrayList<>();
 
@@ -123,7 +124,7 @@ public class TopicPoolRegistry {
         loadStringPoolFromClasspath(CLASSPATH_PREFIX + "conflict_details.json", conflictDetails);
 
         // Fragment pools: Layer 2
-        loadStringPoolFromClasspath(CLASSPATH_PREFIX + "local_opinions.json", localOpinions);
+        loadTonePoolFromClasspath(CLASSPATH_PREFIX + "local_opinions.json", localOpinions);
         loadTonePoolFromClasspath(CLASSPATH_PREFIX + "personal_reactions.json", personalReactions);
         loadStringPoolFromClasspath(CLASSPATH_PREFIX + "danger_assessments.json", dangerAssessments);
 
@@ -180,7 +181,7 @@ public class TopicPoolRegistry {
             loadStringPool(poolsDir.resolve("conflict_details.json"), conflictDetails);
 
             // Fragment pools: Layer 2
-            loadStringPool(poolsDir.resolve("local_opinions.json"), localOpinions);
+            loadTonePool(poolsDir.resolve("local_opinions.json"), localOpinions);
             loadTonePool(poolsDir.resolve("personal_reactions.json"), personalReactions);
             loadStringPool(poolsDir.resolve("danger_assessments.json"), dangerAssessments);
 
@@ -291,11 +292,18 @@ public class TopicPoolRegistry {
     private void parseSubjects(JsonObject root) {
         for (JsonElement el : root.getAsJsonArray("subjects")) {
             JsonObject obj = el.getAsJsonObject();
+            List<String> categories = new ArrayList<>();
+            if (obj.has("categories")) {
+                for (JsonElement cat : obj.getAsJsonArray("categories")) {
+                    categories.add(cat.getAsString());
+                }
+            }
             subjectFocuses.add(new SubjectEntry(
                 obj.get("value").getAsString(),
                 obj.has("plural") && obj.get("plural").getAsBoolean(),
                 obj.has("proper") && obj.get("proper").getAsBoolean(),
-                obj.has("questEligible") && obj.get("questEligible").getAsBoolean()
+                obj.has("questEligible") && obj.get("questEligible").getAsBoolean(),
+                categories
             ));
         }
     }
@@ -308,8 +316,18 @@ public class TopicPoolRegistry {
     // --- Random selection methods ---
 
     public SubjectEntry randomSubject(Random random) {
-        if (subjectFocuses.isEmpty()) return new SubjectEntry("strange occurrence", false, false, false);
+        if (subjectFocuses.isEmpty()) return new SubjectEntry("strange occurrence", false, false, false, List.of());
         return subjectFocuses.get(random.nextInt(subjectFocuses.size()));
+    }
+
+    public SubjectEntry randomSubjectForTemplate(String templateId, Random random) {
+        // Extract category from template ID: "smalltalk_weather" -> "weather", "rumor_danger" -> "danger"
+        String category = templateId.contains("_") ? templateId.substring(templateId.indexOf('_') + 1) : templateId;
+        List<SubjectEntry> matching = subjectFocuses.stream()
+            .filter(e -> e.categories().contains(category))
+            .toList();
+        if (matching.isEmpty()) return randomSubject(random); // Fallback to unfiltered
+        return matching.get(random.nextInt(matching.size()));
     }
 
     public SubjectEntry randomQuestEligibleSubject(Random random) {
@@ -506,9 +524,10 @@ public class TopicPoolRegistry {
 
     // --- Fragment pool accessors: Layer 2 ---
 
-    public String randomLocalOpinion(Random random) {
-        if (localOpinions.isEmpty()) return "Folk have their opinions, as always.";
-        return localOpinions.get(random.nextInt(localOpinions.size()));
+    public String randomLocalOpinion(String bracket, Random random) {
+        List<String> entries = localOpinions.getOrDefault(bracket, List.of());
+        if (entries.isEmpty()) return "Folk have their opinions, as always.";
+        return entries.get(random.nextInt(entries.size()));
     }
 
     public String randomPersonalReaction(String bracket, Random random) {
