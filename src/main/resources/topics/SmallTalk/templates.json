@@ -9,7 +9,7 @@
           "exploratories": [
             {
               "prompt": "Strange how?",
-              "response": "{trade_detail}",
+              "response": "The clouds sat low for three days straight, barely moving. Then the wind shifted and it all cleared in under an hour. Nobody has seen weather turn that fast before.",
               "exploratories": [
                 {
                   "prompt": "Is it causing real problems?",
@@ -19,7 +19,7 @@
             },
             {
               "prompt": "Does the weather shift often around here?",
-              "response": "{location_detail}",
+              "response": "More than most places, or so the travelers say. One season it will be dry for weeks on end, the next it rains so hard the paths turn to mud. The old folk claim you can tell what is coming by the color of the sunset, but they never agree on what each color means.",
               "exploratories": [
                 {
                   "prompt": "So people are used to it, then?",
@@ -34,7 +34,7 @@
           "exploratories": [
             {
               "prompt": "What does the wind have to do with anything?",
-              "response": "{event_detail}",
+              "response": "When the wind blows steady from one direction for that long, it pulls the warmth right out of the ground. Frost settles in places it has no business being, and the wells run colder than they should. It is the kind of change you feel before you see it.",
               "exploratories": [
                 {
                   "prompt": "And people pay attention to that sort of thing?",
@@ -44,7 +44,7 @@
             },
             {
               "prompt": "Has this affected daily life much?",
-              "response": "{trade_detail}",
+              "response": "The rooftops took a beating, and a few walls cracked where the mortar was already thin. The paths flood quickly when it comes down hard, so people stay in until it passes. Nobody plans much of anything until the sky settles.",
               "exploratories": [
                 {
                   "prompt": "How do you manage when it gets bad?",
@@ -59,7 +59,7 @@
           "exploratories": [
             {
               "prompt": "I can imagine. What were people grumbling about?",
-              "response": "{trade_detail}",
+              "response": "The usual: damp getting into everything, gear rusting, nothing drying properly. A gust tore the covering off the market stalls one afternoon and scattered half the stock. People were chasing their own goods down the road in the rain.",
               "exploratories": [
                 {
                   "prompt": "Any silver lining?",
@@ -69,7 +69,7 @@
             },
             {
               "prompt": "Does bad weather hit this area hard?",
-              "response": "{location_detail}",
+              "response": "The ridge line funnels storms right through the valley, so whatever blows in hits twice as hard here as it does on the far side. When the pressure drops, you can feel it in your joints before you see a single cloud. Storms that pass over other settlements in an hour can sit on top of us for days.",
               "exploratories": [
                 {
                   "prompt": "What's the worst you've seen?",
@@ -115,7 +115,7 @@
             },
             {
               "prompt": "Any trouble with supply lately?",
-              "response": "{event_detail}",
+              "response": "{trade_detail}",
               "exploratories": [
                 {
                   "prompt": "That must be frustrating for the merchants.",
@@ -140,7 +140,7 @@
             },
             {
               "prompt": "Do traders come through often?",
-              "response": "{location_detail}",
+              "response": "{trade_detail}",
               "exploratories": [
                 {
                   "prompt": "Must be nice to see new faces.",
@@ -176,7 +176,7 @@
           "exploratories": [
             {
               "prompt": "What are you working on?",
-              "response": "{trade_detail}",
+              "response": "A set of hinges for the storehouse door. Simple enough in principle, but the fit has to be exact or the weight will warp them inside a season. I have been shaping the same piece for two days, getting the taper right.",
               "exploratories": [
                 {
                   "prompt": "Sounds like skilled work. Where did you learn?",
@@ -186,7 +186,7 @@
             },
             {
               "prompt": "Are the other crafters keeping busy too?",
-              "response": "{event_detail}",
+              "response": "Busier than usual, actually. Every workbench in the settlement has a queue of repairs waiting. The mason has been patching walls nonstop, and the weaver cannot keep up with orders for heavy cloth. When one trade picks up, the rest tend to follow.",
               "exploratories": [
                 {
                   "prompt": "Is there much competition between you?",
@@ -211,7 +211,7 @@
             },
             {
               "prompt": "Is this affecting the whole settlement?",
-              "response": "{location_detail}",
+              "response": "It is. The builders have had to pause repairs on the outer wall, and the toolmaker says he cannot fill half the orders on his bench. When one craft stalls, the others feel it soon after. Everyone depends on everyone else here, whether they admit it or not.",
               "exploratories": [
                 {
                   "prompt": "How are you getting by in the meantime?",
@@ -226,7 +226,7 @@
           "exploratories": [
             {
               "prompt": "What was so special about it?",
-              "response": "{trade_detail}",
+              "response": "The joinery was seamless. You could not feel the seam where two pieces met, even running your finger along it. The balance was perfect, too: every proportion deliberate. That kind of precision takes years of practice and a patience most folk do not have.",
               "exploratories": [
                 {
                   "prompt": "Could you make something like that?",
@@ -272,7 +272,7 @@
           "exploratories": [
             {
               "prompt": "What's everyone so worked up about?",
-              "response": "{event_detail}",
+              "response": "The council proposed extending the watch rotation, and half the settlement thinks it is overreach. The other half says it is long overdue. People who have been neighbors for years are barely speaking over it.",
               "exploratories": [
                 {
                   "prompt": "Where do you stand on it?",
@@ -282,7 +282,7 @@
             },
             {
               "prompt": "Is that kind of squabbling common here?",
-              "response": "{trade_detail}",
+              "response": "More than anyone would like to admit. Small disagreements have a way of growing when people live close together. A dispute over a shared well or a fence line can simmer for months before someone finally speaks up at a meeting.",
               "exploratories": [
                 {
                   "prompt": "How does it usually get resolved?",
@@ -297,7 +297,7 @@
           "exploratories": [
             {
               "prompt": "What's the general feeling about it?",
-              "response": "{event_detail}",
+              "response": "Mixed, to put it gently. Some folk see it as a chance to pull together, while others think it is just one more thing to argue about. The loudest voices tend to win out at gatherings, which does not always mean the wisest ones.",
               "exploratories": [
                 {
                   "prompt": "And the more level-headed folk?",
@@ -307,7 +307,7 @@
             },
             {
               "prompt": "Do newcomers usually get this kind of welcome?",
-              "response": "{trade_detail}",
+              "response": "Depends on the timing. When things are calm, people are friendly enough. But when tensions are already running high, a new face can draw suspicion just for being unfamiliar. It is not personal: folk just get cautious when they are unsettled.",
               "exploratories": [
                 {
                   "prompt": "I'll try not to cause a stir, then.",
@@ -322,7 +322,7 @@
           "exploratories": [
             {
               "prompt": "What came of the meeting?",
-              "response": "{event_detail}",
+              "response": "A lot of talking, not much doing. Two of the elders spent half the time disagreeing over procedure before they even got to the matter at hand. They tabled the decision until the next gathering, which could be weeks away.",
               "exploratories": [
                 {
                   "prompt": "That doesn't sound very productive.",
@@ -332,7 +332,7 @@
             },
             {
               "prompt": "Do the elders usually agree on things?",
-              "response": "{location_detail}",
+              "response": "Rarely. Each one speaks for a different part of the settlement, and what is good for one quarter is not always good for another. They mean well, most of them, but they have been butting heads for so long it has become a habit.",
               "exploratories": [
                 {
                   "prompt": "Sounds like there's a story behind that.",
@@ -378,7 +378,7 @@
             },
             {
               "prompt": "Do you spend much time in the wilds?",
-              "response": "{event_detail}",
+              "response": "{creature_detail}",
               "exploratories": [
                 {
                   "prompt": "What keeps drawing you back?",
@@ -393,7 +393,7 @@
           "exploratories": [
             {
               "prompt": "Has that happened before?",
-              "response": "{event_detail}",
+              "response": "{creature_detail}",
               "exploratories": [
                 {
                   "prompt": "What do the old-timers make of it?",
@@ -439,7 +439,7 @@
           "exploratories": [
             {
               "prompt": "Changed for the better?",
-              "response": "{event_detail}",
+              "response": "That depends on who you ask. The roads are wider now, and supplies come more regularly. But there was a quietness to the old days that you cannot get back. People knew each other by name, and nobody locked their doors. Progress always costs something.",
               "exploratories": [
                 {
                   "prompt": "You sound like you miss the old days.",
@@ -449,7 +449,7 @@
             },
             {
               "prompt": "What was it like before?",
-              "response": "{location_detail}",
+              "response": "Simpler. The settlement was half its current size, and you could walk from one end to the other in the time it takes to finish a conversation. The market was just a few stalls, but everyone traded fair because everyone knew everyone. There was a trust to it that is hard to explain.",
               "exploratories": [
                 {
                   "prompt": "Do others around here feel the same way?",
@@ -464,7 +464,7 @@
           "exploratories": [
             {
               "prompt": "What changed?",
-              "response": "{event_detail}",
+              "response": "Hard to point to one thing. It happened gradually: a tradition dropped here, a gathering skipped there. Before anyone noticed, the old customs had faded. The younger folk never learned them, and the ones who remembered stopped bothering to explain.",
               "exploratories": [
                 {
                   "prompt": "Do you think things could go back to the way they were?",
@@ -474,7 +474,7 @@
             },
             {
               "prompt": "Is the younger generation aware of how things used to be?",
-              "response": "{trade_detail}",
+              "response": "Some are. A few of the young ones ask questions, want to hear the old stories. But most have their eyes on what is ahead, not what is behind. You cannot blame them for that. Every generation builds its own version of the place, whether the last one approves or not.",
               "exploratories": [
                 {
                   "prompt": "That must be hard to watch.",
@@ -489,7 +489,7 @@
           "exploratories": [
             {
               "prompt": "What kind of song?",
-              "response": "{event_detail}",
+              "response": "A work song, the kind people used to sing while hauling stone or mending walls. The melody is simple, just a handful of notes that repeat, but it sticks in your head for days. My grandmother hummed it every morning. I had not thought of it in years until it came back to me out of nowhere.",
               "exploratories": [
                 {
                   "prompt": "Does anyone still sing it?",
@@ -499,7 +499,7 @@
             },
             {
               "prompt": "What did it remind you of?",
-              "response": "{location_detail}",
+              "response": "The harvest gatherings, when I was small. The whole settlement would come together by the old wall, and the elders would tell stories until the fire burned low. Everyone had a role: someone cooked, someone played, someone kept the children in line. It felt like the place was whole.",
               "exploratories": [
                 {
                   "prompt": "Those sound like good memories.",
@@ -545,7 +545,7 @@
             },
             {
               "prompt": "Maybe I can help figure it out.",
-              "response": "{trade_detail}",
+              "response": "{event_detail}",
               "exploratories": [
                 {
                   "prompt": "Interesting. What's your best guess?",
@@ -631,7 +631,7 @@
           "exploratories": [
             {
               "prompt": "What kind of gathering?",
-              "response": "{event_detail}",
+              "response": "A seasonal celebration, held every year when the days start getting longer. There is music, contests of skill, and more food than anyone knows what to do with. The cooks start preparing days in advance, and the children help hang lanterns along the main path.",
               "exploratories": [
                 {
                   "prompt": "Sounds like the settlement could use the cheer.",
@@ -641,7 +641,7 @@
             },
             {
               "prompt": "Are you looking forward to it?",
-              "response": "{trade_detail}",
+              "response": "More than I expected. The preparations alone lift everyone's spirits: people trading recipes, arguing over who makes the best stew, dragging out old decorations from storage. It is the one time of year when the whole settlement feels like it is pulling in the same direction.",
               "exploratories": [
                 {
                   "prompt": "You seem to enjoy these things.",
@@ -656,7 +656,7 @@
           "exploratories": [
             {
               "prompt": "What's the occasion?",
-              "response": "{event_detail}",
+              "response": "A remembrance for the settlement's founding. Every year they retell the story of how the first families arrived and chose this spot to build. There are toasts, a bonfire, and someone always recites the old oath. It means more to some than others, but everyone shows up.",
               "exploratories": [
                 {
                   "prompt": "Does the settlement have these often?",
@@ -666,7 +666,7 @@
             },
             {
               "prompt": "Will there be anything special this time?",
-              "response": "{trade_detail}",
+              "response": "There is talk of a competition: a test of aim and balance, open to anyone willing to try. The winner gets a wreath and bragging rights for the year. Last time they held one, half the settlement entered. The other half placed wagers.",
               "exploratories": [
                 {
                   "prompt": "I might have to stick around for that.",
@@ -681,7 +681,7 @@
           "exploratories": [
             {
               "prompt": "What sort of festival is it?",
-              "response": "{event_detail}",
+              "response": "A harvest thanks, mostly. People bring what they have grown or made and lay it out for everyone to share. There are games for the children, demonstrations by the crafters, and more singing than you would expect from a settlement this size. It goes well into the night.",
               "exploratories": [
                 {
                   "prompt": "That sounds like quite the tradition.",
@@ -691,7 +691,7 @@
             },
             {
               "prompt": "What were the complaints about?",
-              "response": "{location_detail}",
+              "response": "The usual disagreements over who organizes what. One family thinks they should lead the preparations, another says it should rotate. Then there is the question of where to hold it, since the old gathering ground needs repairs. Small things, but people care deeply about tradition.",
               "exploratories": [
                 {
                   "prompt": "Will they sort it out in time?",

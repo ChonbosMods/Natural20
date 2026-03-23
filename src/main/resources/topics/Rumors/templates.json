@@ -272,7 +272,7 @@
           "exploratories": [
             {
               "prompt": "What kind of riches?",
-              "response": "{event_detail}",
+              "response": "Coin, mostly, packed into chests and sealed with wax. But some say there are relics mixed in: old weapons, ceremonial pieces, things that belonged to someone important. The kind of goods that do not just sit in a hole without a reason.",
               "exploratories": [
                 {
                   "prompt": "Sounds too good to be true.",
@@ -282,7 +282,7 @@
             },
             {
               "prompt": "Who brought this story?",
-              "response": "{location_detail}",
+              "response": "A peddler who passes through every few seasons. Not the type to spin tales for attention: quiet, keeps to himself, trades fair. He mentioned it over a drink like it was nothing, which is exactly why people took it seriously.",
               "exploratories": [
                 {
                   "prompt": "Do the locals believe it?",
@@ -297,7 +297,7 @@
           "exploratories": [
             {
               "prompt": "Has anyone gone looking?",
-              "response": "{event_detail}",
+              "response": "A few have tried over the years. Most came back empty-handed and tight-lipped about what they found. One group made it further than the rest but turned back when they lost their bearings. Nobody has managed to bring anything out.",
               "exploratories": [
                 {
                   "prompt": "What stopped them?",
@@ -322,7 +322,7 @@
           "exploratories": [
             {
               "prompt": "What's the old story?",
-              "response": "{event_detail}",
+              "response": "The tale goes that a lord of some forgotten holding buried his wealth before the settlement fell. He sealed it away where only someone who knew the old markers could find it. The story has been passed down so many times that the details shift with every telling, but the core stays the same: something of value was hidden and never recovered.",
               "exploratories": [
                 {
                   "prompt": "Do you think there's any truth to it?",
@@ -368,7 +368,7 @@
           "exploratories": [
             {
               "prompt": "Who's involved?",
-              "response": "{event_detail}",
+              "response": "Two groups, mostly. One side holds the old claim and says the arrangement was settled long ago. The other side says the terms were never fair to begin with and they are done honoring them. Neither is willing to back down, and the people caught in the middle are the ones suffering for it.",
               "exploratories": [
                 {
                   "prompt": "Which side are people on?",
@@ -378,7 +378,7 @@
             },
             {
               "prompt": "How did this start?",
-              "response": "{location_detail}",
+              "response": "A broken agreement, from what I hear. One party changed the terms without consulting the other, and the offended side took it as a betrayal. It might have been resolved quietly if someone had spoken up early, but pride got in the way and the grievance festered.",
               "exploratories": [
                 {
                   "prompt": "Could it have been avoided?",
@@ -393,7 +393,7 @@
           "exploratories": [
             {
               "prompt": "Worse how?",
-              "response": "{event_detail}",
+              "response": "What started as harsh words has turned into blocked roads and refused trade. Supplies meant for one side are being turned away at the boundary. There was a scuffle at the crossroads not long ago: nothing deadly, but enough to put everyone on edge. The next incident might not end so cleanly.",
               "exploratories": [
                 {
                   "prompt": "Is it going to turn violent?",
