@@ -5,39 +5,92 @@
       "label": "{subject_focus}",
       "perspectives": [
         {
-          "intro": "Fine day, isn't it? Though I hear {subject_focus} has been on everyone's mind lately. {smalltalk_opener}",
+          "intro": "{tone_opener} The sky's been strange {time_ref}. {local_complaint} Folk keep glancing upward like the weather owes them an explanation. {tone_closer}",
           "exploratories": [
             {
-              "prompt": "What about it?",
-              "response": "Oh, nothing dire. {perspective_detail} Just the sort of thing folk chatter about over a warm meal."
+              "prompt": "Strange how?",
+              "response": "{trade_detail}",
+              "exploratories": [
+                {
+                  "prompt": "Is it causing real problems?",
+                  "response": "{local_opinion}"
+                }
+              ]
             },
             {
-              "prompt": "Sounds like idle talk.",
-              "response": "And what's wrong with a bit of idle talk? {perspective_detail} Keeps the mind off harder things."
+              "prompt": "Does the weather shift often around here?",
+              "response": "{location_detail}",
+              "exploratories": [
+                {
+                  "prompt": "So people are used to it, then?",
+                  "response": "{personal_reaction}"
+                }
+              ]
             }
           ]
         },
         {
-          "intro": "The weather's been agreeable, which means folk have time to gossip about {subject_focus}. {smalltalk_opener}",
+          "intro": "{tone_opener} {time_ref}, the wind changed {direction} and hasn't let up since. {traveler_news} {tone_closer}",
           "exploratories": [
             {
-              "prompt": "What are they saying?",
-              "response": "Nothing too exciting. {perspective_detail} You know how it is when people have time on their hands."
+              "prompt": "What does the wind have to do with anything?",
+              "response": "{event_detail}",
+              "exploratories": [
+                {
+                  "prompt": "And people pay attention to that sort of thing?",
+                  "response": "{local_opinion}"
+                }
+              ]
+            },
+            {
+              "prompt": "Has this affected daily life much?",
+              "response": "{trade_detail}",
+              "exploratories": [
+                {
+                  "prompt": "How do you manage when it gets bad?",
+                  "response": "{personal_reaction}"
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "intro": "{tone_opener} Fine day today, but {time_ref} it was miserable. {local_complaint} The sort of weather that keeps everyone indoors grumbling. {tone_closer}",
+          "exploratories": [
+            {
+              "prompt": "I can imagine. What were people grumbling about?",
+              "response": "{trade_detail}",
+              "exploratories": [
+                {
+                  "prompt": "Any silver lining?",
+                  "response": "{personal_reaction}"
+                }
+              ]
+            },
+            {
+              "prompt": "Does bad weather hit this area hard?",
+              "response": "{location_detail}",
+              "exploratories": [
+                {
+                  "prompt": "What's the worst you've seen?",
+                  "response": "{local_opinion}"
+                }
+              ]
             }
           ]
         }
       ],
       "questHookPerspectives": [
         {
-          "intro": "{quest_exposition} What started as casual talk about {subject_focus} has turned into something worth looking into. {quest_detail}",
+          "intro": "{quest_exposition} The weather around {subject_focus} isn't natural: something {direction} is causing it. {quest_detail}",
           "exploratories": [
             {
-              "prompt": "Worth looking into how?",
+              "prompt": "What makes you say it isn't natural?",
               "response": "{quest_stakes_detail}"
             }
           ],
           "decisive": {
-            "prompt": "I can check it out.",
+            "prompt": "I'll look into the source.",
             "response": "{quest_accept_response}"
           }
         }
@@ -48,43 +101,67 @@
       "label": "{subject_focus}",
       "perspectives": [
         {
-          "intro": "Business has been steady. Speaking of which, have you heard much about {subject_focus}? {smalltalk_opener}",
+          "intro": "{tone_opener} The market's been busier than usual {time_ref}. {trade_gossip} Always good to see coin changing hands. {tone_closer}",
           "exploratories": [
             {
-              "prompt": "What about it?",
-              "response": "Just that it's been the talk of the market square. {perspective_detail} Might affect trade if it keeps up."
+              "prompt": "What's driving the business?",
+              "response": "{trade_detail}",
+              "exploratories": [
+                {
+                  "prompt": "Who benefits most from that?",
+                  "response": "{local_opinion}"
+                }
+              ]
             },
             {
-              "prompt": "Is trade good these days?",
-              "response": "Can't complain. {perspective_detail} Though things could always be better, I suppose."
+              "prompt": "Any trouble with supply lately?",
+              "response": "{event_detail}",
+              "exploratories": [
+                {
+                  "prompt": "That must be frustrating for the merchants.",
+                  "response": "{personal_reaction}"
+                }
+              ]
             }
-          ],
-          "decisive": {
-            "prompt": "Let me know if you need anything.",
-            "response": "Appreciate that. It's good to know there are helpful folk about."
-          }
+          ]
         },
         {
-          "intro": "You look like someone with coin to spend. While you're here, I'll mention that {subject_focus} has been quite the topic. {smalltalk_opener}",
+          "intro": "{tone_opener} {time_ref}, a trader from {direction} came through with all sorts of goods. {trade_gossip} {tone_closer}",
           "exploratories": [
             {
-              "prompt": "Go on.",
-              "response": "{perspective_detail} Nothing that'll keep you up at night, mind you. Just interesting, is all."
+              "prompt": "Anything unusual in their stock?",
+              "response": "{trade_detail}",
+              "exploratories": [
+                {
+                  "prompt": "Is there much demand for that kind of thing here?",
+                  "response": "{local_opinion}"
+                }
+              ]
+            },
+            {
+              "prompt": "Do traders come through often?",
+              "response": "{location_detail}",
+              "exploratories": [
+                {
+                  "prompt": "Must be nice to see new faces.",
+                  "response": "{personal_reaction}"
+                }
+              ]
             }
           ]
         }
       ],
       "questHookPerspectives": [
         {
-          "intro": "{quest_exposition} The situation with {subject_focus} has started to affect the supply lines. {quest_detail}",
+          "intro": "{quest_exposition} The trouble with {subject_focus} has started choking the supply lines {direction}. {quest_detail}",
           "exploratories": [
             {
-              "prompt": "How bad is it?",
+              "prompt": "How bad is it for business?",
               "response": "{quest_stakes_detail}"
             }
           ],
           "decisive": {
-            "prompt": "I'll see what I can do.",
+            "prompt": "I'll see what I can do about the route.",
             "response": "{quest_accept_response}"
           }
         }
@@ -95,43 +172,92 @@
       "label": "{subject_focus}",
       "perspectives": [
         {
-          "intro": "I've been keeping busy with my work, but I keep thinking about {subject_focus}. {smalltalk_opener}",
+          "intro": "{tone_opener} I've been busy at the workbench {time_ref}. {trade_gossip} A craftsman's hands are never idle for long. {tone_closer}",
           "exploratories": [
             {
-              "prompt": "What's on your mind?",
-              "response": "Just curiosity, really. {perspective_detail} A craftsman's mind wanders when the hands are busy."
-            }
-          ],
-          "decisive": {
-            "prompt": "Sounds like you could use a hand.",
-            "response": "Ha, I'd never turn one down. But I manage well enough, thank you."
-          }
-        },
-        {
-          "intro": "There's been word around the workshop about {subject_focus}. {smalltalk_opener}",
-          "exploratories": [
-            {
-              "prompt": "Among the crafters?",
-              "response": "Aye. {perspective_detail} We talk while we work: keeps the hours from dragging."
+              "prompt": "What are you working on?",
+              "response": "{trade_detail}",
+              "exploratories": [
+                {
+                  "prompt": "Sounds like skilled work. Where did you learn?",
+                  "response": "{personal_reaction}"
+                }
+              ]
             },
             {
-              "prompt": "Is it affecting your work?",
-              "response": "Not directly. {perspective_detail} But it's the sort of thing that nags at you, you know?"
+              "prompt": "Are the other crafters keeping busy too?",
+              "response": "{event_detail}",
+              "exploratories": [
+                {
+                  "prompt": "Is there much competition between you?",
+                  "response": "{local_opinion}"
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "intro": "{tone_opener} Good materials have been harder to come by {time_ref}. {local_complaint} You can't make quality work from scraps. {tone_closer}",
+          "exploratories": [
+            {
+              "prompt": "What materials are you short on?",
+              "response": "{trade_detail}",
+              "exploratories": [
+                {
+                  "prompt": "Can you source them from somewhere else?",
+                  "response": "{local_opinion}"
+                }
+              ]
+            },
+            {
+              "prompt": "Is this affecting the whole settlement?",
+              "response": "{location_detail}",
+              "exploratories": [
+                {
+                  "prompt": "How are you getting by in the meantime?",
+                  "response": "{personal_reaction}"
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "intro": "{tone_opener} Someone brought in a piece {time_ref} that had the whole workshop talking. {trade_gossip} Craftsmanship like you rarely see anymore. {tone_closer}",
+          "exploratories": [
+            {
+              "prompt": "What was so special about it?",
+              "response": "{trade_detail}",
+              "exploratories": [
+                {
+                  "prompt": "Could you make something like that?",
+                  "response": "{personal_reaction}"
+                }
+              ]
+            },
+            {
+              "prompt": "Where did it come from?",
+              "response": "{location_detail}",
+              "exploratories": [
+                {
+                  "prompt": "Do people around here value that kind of work?",
+                  "response": "{local_opinion}"
+                }
+              ]
             }
           ]
         }
       ],
       "questHookPerspectives": [
         {
-          "intro": "{quest_exposition} My craft depends on materials that {subject_focus} has put in jeopardy. {quest_detail}",
+          "intro": "{quest_exposition} My craft depends on materials that {subject_focus} has put in jeopardy {direction}. {quest_detail}",
           "exploratories": [
             {
-              "prompt": "What do you need?",
+              "prompt": "What do you need to keep working?",
               "response": "{quest_stakes_detail}"
             }
           ],
           "decisive": {
-            "prompt": "I'll sort it out for you.",
+            "prompt": "I'll sort out the supply for you.",
             "response": "{quest_accept_response}"
           }
         }
@@ -142,47 +268,87 @@
       "label": "{subject_focus}",
       "perspectives": [
         {
-          "intro": "The settlement's been lively. Have you noticed how often {subject_focus} comes up in conversation? {smalltalk_opener}",
+          "intro": "{tone_opener} The settlement's been lively {time_ref}. {local_complaint} Opinions are like weeds: pull one up and three more sprout. {tone_closer}",
           "exploratories": [
             {
-              "prompt": "Can't say I have.",
-              "response": "Well, now you'll start noticing. {perspective_detail} It's been the favourite topic at the tavern."
+              "prompt": "What's everyone so worked up about?",
+              "response": "{event_detail}",
+              "exploratories": [
+                {
+                  "prompt": "Where do you stand on it?",
+                  "response": "{personal_reaction}"
+                }
+              ]
             },
             {
-              "prompt": "What's the general feeling?",
-              "response": "Mixed, I'd say. {perspective_detail} Some folk worry, others shrug it off. The usual."
+              "prompt": "Is that kind of squabbling common here?",
+              "response": "{trade_detail}",
+              "exploratories": [
+                {
+                  "prompt": "How does it usually get resolved?",
+                  "response": "{local_opinion}"
+                }
+              ]
             }
           ]
         },
         {
-          "intro": "It's good to see a fresh face. We've all been going back and forth about {subject_focus}. {smalltalk_opener}",
+          "intro": "{tone_opener} Good to see a new face around here. {time_ref}, {traveler_news} It's been all anyone talks about. {tone_closer}",
           "exploratories": [
             {
-              "prompt": "What's the debate?",
-              "response": "Nothing too heated. {perspective_detail} Just folk sharing opinions over their evening bread."
+              "prompt": "What's the general feeling about it?",
+              "response": "{event_detail}",
+              "exploratories": [
+                {
+                  "prompt": "And the more level-headed folk?",
+                  "response": "{local_opinion}"
+                }
+              ]
+            },
+            {
+              "prompt": "Do newcomers usually get this kind of welcome?",
+              "response": "{trade_detail}",
+              "exploratories": [
+                {
+                  "prompt": "I'll try not to cause a stir, then.",
+                  "response": "{personal_reaction}"
+                }
+              ]
             }
-          ],
-          "decisive": {
-            "prompt": "I could weigh in, if you'd like.",
-            "response": "Always welcome. An outsider's perspective can cut through the noise."
-          }
+          ]
         },
         {
-          "intro": "You've come at an interesting time. Everyone's got an opinion about {subject_focus}. {smalltalk_opener}",
+          "intro": "{tone_opener} {time_ref}, the elders held a meeting about {subject_focus}. {local_complaint} Everyone's got an opinion, but nobody's got a plan. {tone_closer}",
           "exploratories": [
             {
-              "prompt": "What's yours?",
-              "response": "Me? {perspective_detail} I try to keep a level head, but it's hard not to have thoughts."
+              "prompt": "What came of the meeting?",
+              "response": "{event_detail}",
+              "exploratories": [
+                {
+                  "prompt": "That doesn't sound very productive.",
+                  "response": "{personal_reaction}"
+                }
+              ]
+            },
+            {
+              "prompt": "Do the elders usually agree on things?",
+              "response": "{location_detail}",
+              "exploratories": [
+                {
+                  "prompt": "Sounds like there's a story behind that.",
+                  "response": "{local_opinion}"
+                }
+              ]
             }
           ]
         }
       ],
       "questHookPerspectives": [
         {
-          "intro": "{quest_exposition} The community's concern about {subject_focus} has gone beyond idle talk. {quest_detail}",
+          "intro": "{quest_exposition} The community's concern about {subject_focus} has gone beyond words. Someone needs to act. {quest_detail}",
           "exploratories": [
             {
-              "prompt": "What needs to be done?",
+              "prompt": "What needs doing?",
               "response": "{quest_stakes_detail}"
             }
           ],
@@ -198,38 +364,62 @@
       "label": "{subject_focus}",
       "perspectives": [
         {
-          "intro": "Beautiful country around here, isn't it? Though {subject_focus} has folk talking. {smalltalk_opener}",
+          "intro": "{tone_opener} The woods {direction} have been lovely {time_ref}. {traveler_news} Nature has its own way of keeping things interesting. {tone_closer}",
           "exploratories": [
             {
-              "prompt": "Talking about what exactly?",
-              "response": "Oh, the usual wonderings. {perspective_detail} Nature has its rhythms, and people like to make sense of them."
+              "prompt": "What did you see out there?",
+              "response": "{location_detail}",
+              "exploratories": [
+                {
+                  "prompt": "Does anyone else appreciate it like you do?",
+                  "response": "{local_opinion}"
+                }
+              ]
             },
             {
-              "prompt": "Have you noticed anything yourself?",
-              "response": "A bit, now that you mention it. {perspective_detail} Could be my imagination, though."
+              "prompt": "Do you spend much time in the wilds?",
+              "response": "{event_detail}",
+              "exploratories": [
+                {
+                  "prompt": "What keeps drawing you back?",
+                  "response": "{personal_reaction}"
+                }
+              ]
             }
           ]
         },
         {
-          "intro": "I was out walking this morning and got to thinking about {subject_focus}. {smalltalk_opener}",
+          "intro": "{tone_opener} {time_ref}, the birds went quiet in the forest {direction}. {local_complaint} Probably nothing, but the silence was eerie. {tone_closer}",
           "exploratories": [
             {
-              "prompt": "What were you thinking?",
-              "response": "Just that things change, is all. {perspective_detail} The forest doesn't look quite the same as it did last season."
+              "prompt": "Has that happened before?",
+              "response": "{event_detail}",
+              "exploratories": [
+                {
+                  "prompt": "What do the old-timers make of it?",
+                  "response": "{local_opinion}"
+                }
+              ]
+            },
+            {
+              "prompt": "Do animals often behave oddly here?",
+              "response": "{location_detail}",
+              "exploratories": [
+                {
+                  "prompt": "You seem to notice these things more than most.",
+                  "response": "{personal_reaction}"
+                }
+              ]
             }
-          ],
-          "decisive": {
-            "prompt": "Change isn't always bad.",
-            "response": "True enough. I like your way of looking at things."
-          }
+          ]
         }
       ],
       "questHookPerspectives": [
         {
-          "intro": "{quest_exposition} The changes in the wilds connected to {subject_focus} are starting to worry the more experienced folk. {quest_detail}",
+          "intro": "{quest_exposition} The changes in the wilds near {subject_focus} {direction} aren't slowing down. Someone needs to find the cause. {quest_detail}",
           "exploratories": [
             {
-              "prompt": "Should I be worried too?",
+              "prompt": "Should I be concerned?",
               "response": "{quest_stakes_detail}"
             }
           ],
@@ -245,34 +435,87 @@
       "label": "{subject_focus}",
       "perspectives": [
         {
-          "intro": "You know, things were different before all this talk about {subject_focus}. {smalltalk_opener}",
+          "intro": "{tone_opener} Things were different before, you know. {time_ref}, {traveler_news} It got me thinking about how much has changed. {tone_closer}",
           "exploratories": [
             {
-              "prompt": "Different how?",
-              "response": "Quieter, maybe. {perspective_detail} Not that quiet is always better, mind you."
+              "prompt": "Changed for the better?",
+              "response": "{event_detail}",
+              "exploratories": [
+                {
+                  "prompt": "You sound like you miss the old days.",
+                  "response": "{personal_reaction}"
+                }
+              ]
             },
             {
-              "prompt": "You sound wistful.",
-              "response": "Do I? Suppose I am, a little. {perspective_detail} Time has a way of smoothing over the rough patches in memory."
+              "prompt": "What was it like before?",
+              "response": "{location_detail}",
+              "exploratories": [
+                {
+                  "prompt": "Do others around here feel the same way?",
+                  "response": "{local_opinion}"
+                }
+              ]
             }
           ]
         },
         {
-          "intro": "I remember when {subject_focus} wasn't worth a second thought. Times change. {smalltalk_opener}",
+          "intro": "{tone_opener} I remember when {subject_focus} wasn't worth a second thought. {time_ref}, {local_complaint} Times move on, I suppose. {tone_closer}",
           "exploratories": [
             {
-              "prompt": "For better or worse?",
-              "response": "Depends on who you ask. {perspective_detail} I try not to dwell on it too much."
+              "prompt": "What changed?",
+              "response": "{event_detail}",
+              "exploratories": [
+                {
+                  "prompt": "Do you think things could go back to the way they were?",
+                  "response": "{local_opinion}"
+                }
+              ]
+            },
+            {
+              "prompt": "Is the younger generation aware of how things used to be?",
+              "response": "{trade_detail}",
+              "exploratories": [
+                {
+                  "prompt": "That must be hard to watch.",
+                  "response": "{personal_reaction}"
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "intro": "{tone_opener} An old song came to mind {time_ref}. {trade_gossip} Funny how a melody can bring back a whole lifetime of memories. {tone_closer}",
+          "exploratories": [
+            {
+              "prompt": "What kind of song?",
+              "response": "{event_detail}",
+              "exploratories": [
+                {
+                  "prompt": "Does anyone still sing it?",
+                  "response": "{local_opinion}"
+                }
+              ]
+            },
+            {
+              "prompt": "What did it remind you of?",
+              "response": "{location_detail}",
+              "exploratories": [
+                {
+                  "prompt": "Those sound like good memories.",
+                  "response": "{personal_reaction}"
+                }
+              ]
             }
           ]
         }
       ],
       "questHookPerspectives": [
         {
-          "intro": "{quest_exposition} The old days won't come back on their own: the matter of {subject_focus} demands attention. {quest_detail}",
+          "intro": "{quest_exposition} The way things are going with {subject_focus}, the old days won't come back on their own. {quest_detail}",
           "exploratories": [
             {
-              "prompt": "What would it take?",
+              "prompt": "What would it take to set things right?",
               "response": "{quest_stakes_detail}"
             }
           ],
@@ -288,44 +531,84 @@
       "label": "{subject_focus}",
       "perspectives": [
         {
-          "intro": "I've been curious about something. You ever wonder about {subject_focus}? {smalltalk_opener}",
+          "intro": "{tone_opener} I've been puzzling over something {time_ref}. {traveler_news} Can't seem to make sense of it. {tone_closer}",
           "exploratories": [
             {
-              "prompt": "Can't say I have, but go on.",
-              "response": "Well, it's just that {perspective_detail} Probably nothing, but it's been nagging at me."
+              "prompt": "What's got you thinking?",
+              "response": "{event_detail}",
+              "exploratories": [
+                {
+                  "prompt": "That is odd. Have you asked around?",
+                  "response": "{local_opinion}"
+                }
+              ]
             },
             {
-              "prompt": "What's got you curious?",
-              "response": "{perspective_detail} I'm sure there's a simple explanation, but I can't seem to land on one."
-            }
-          ],
-          "decisive": {
-            "prompt": "Only one way to find out.",
-            "response": "Ha, you're bolder than I am. Good on you."
-          }
-        },
-        {
-          "intro": "Tell me: what do you make of {subject_focus}? I've been puzzling over it. {smalltalk_opener}",
-          "exploratories": [
-            {
-              "prompt": "I don't know enough to say.",
-              "response": "Fair enough. {perspective_detail} I suppose not everyone finds these things as fascinating as I do."
+              "prompt": "Maybe I can help figure it out.",
+              "response": "{trade_detail}",
+              "exploratories": [
+                {
+                  "prompt": "Interesting. What's your best guess?",
+                  "response": "{personal_reaction}"
+                }
+              ]
             }
           ]
         },
         {
-          "intro": "I asked around about {subject_focus}, and the answers were... interesting. {smalltalk_opener}",
+          "intro": "{tone_opener} {time_ref}, I noticed something peculiar {direction}. {trade_gossip} Probably nothing, but my curiosity won't let it rest. {tone_closer}",
           "exploratories": [
             {
-              "prompt": "Interesting how?",
-              "response": "Everyone had a different take. {perspective_detail} Makes you wonder who's got the right of it."
+              "prompt": "Peculiar in what way?",
+              "response": "{location_detail}",
+              "exploratories": [
+                {
+                  "prompt": "Has anyone else noticed?",
+                  "response": "{local_opinion}"
+                }
+              ]
+            },
+            {
+              "prompt": "Are you the type to investigate?",
+              "response": "{event_detail}",
+              "exploratories": [
+                {
+                  "prompt": "I admire the curiosity, at least.",
+                  "response": "{personal_reaction}"
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "intro": "{tone_opener} Tell me, do you ever wonder about {subject_focus}? {time_ref}, {strange_event} It's been nagging at me since. {tone_closer}",
+          "exploratories": [
+            {
+              "prompt": "I hadn't thought about it, honestly.",
+              "response": "{event_detail}",
+              "exploratories": [
+                {
+                  "prompt": "Now you've got me curious too.",
+                  "response": "{personal_reaction}"
+                }
+              ]
+            },
+            {
+              "prompt": "What do other folk make of it?",
+              "response": "{location_detail}",
+              "exploratories": [
+                {
+                  "prompt": "Nobody seems to have the full picture, then.",
+                  "response": "{local_opinion}"
+                }
+              ]
             }
           ]
         }
       ],
       "questHookPerspectives": [
         {
-          "intro": "{quest_exposition} My curiosity about {subject_focus} turned up something that can't be ignored. {quest_detail}",
+          "intro": "{quest_exposition} My poking around about {subject_focus} turned up something {direction} that can't be ignored. {quest_detail}",
           "exploratories": [
             {
               "prompt": "What did you find?",
@@ -344,35 +627,84 @@
       "label": "{subject_focus}",
       "perspectives": [
         {
-          "intro": "There's talk of a gathering soon, and naturally {subject_focus} has come up. {smalltalk_opener}",
+          "intro": "{tone_opener} There's a gathering coming up, and the whole settlement's buzzing. {time_ref}, {trade_gossip} Any excuse for folk to come together. {tone_closer}",
           "exploratories": [
             {
               "prompt": "What kind of gathering?",
-              "response": "Oh, the usual sort. {perspective_detail} Any excuse for the folk to come together and share stories."
+              "response": "{event_detail}",
+              "exploratories": [
+                {
+                  "prompt": "Sounds like the settlement could use the cheer.",
+                  "response": "{local_opinion}"
+                }
+              ]
             },
             {
-              "prompt": "Will you be going?",
-              "response": "Wouldn't miss it. {perspective_detail} These things don't come around often enough, if you ask me."
+              "prompt": "Are you looking forward to it?",
+              "response": "{trade_detail}",
+              "exploratories": [
+                {
+                  "prompt": "You seem to enjoy these things.",
+                  "response": "{personal_reaction}"
+                }
+              ]
             }
-          ],
-          "decisive": {
-            "prompt": "Sounds like a fine time.",
-            "response": "It will be. You should come along: the more the merrier, as they say."
-          }
+          ]
         },
         {
-          "intro": "The settlement could use some cheer. Maybe that's why folk keep bringing up {subject_focus}. {smalltalk_opener}",
+          "intro": "{tone_opener} {time_ref}, word spread about a celebration {direction}. {traveler_news} The mood's already lighter just from the talk of it. {tone_closer}",
           "exploratories": [
             {
-              "prompt": "People need something to look forward to.",
-              "response": "Exactly right. {perspective_detail} A little hope goes a long way in times like these."
+              "prompt": "What's the occasion?",
+              "response": "{event_detail}",
+              "exploratories": [
+                {
+                  "prompt": "Does the settlement have these often?",
+                  "response": "{local_opinion}"
+                }
+              ]
+            },
+            {
+              "prompt": "Will there be anything special this time?",
+              "response": "{trade_detail}",
+              "exploratories": [
+                {
+                  "prompt": "I might have to stick around for that.",
+                  "response": "{personal_reaction}"
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "intro": "{tone_opener} The children are already running around talking about the festival. {time_ref}, {local_complaint} But everyone agrees the celebration should still go ahead. {tone_closer}",
+          "exploratories": [
+            {
+              "prompt": "What sort of festival is it?",
+              "response": "{event_detail}",
+              "exploratories": [
+                {
+                  "prompt": "That sounds like quite the tradition.",
+                  "response": "{personal_reaction}"
+                }
+              ]
+            },
+            {
+              "prompt": "What were the complaints about?",
+              "response": "{location_detail}",
+              "exploratories": [
+                {
+                  "prompt": "Will they sort it out in time?",
+                  "response": "{local_opinion}"
+                }
+              ]
             }
           ]
         }
       ],
       "questHookPerspectives": [
         {
-          "intro": "{quest_exposition} The festivities are threatened unless someone deals with the problem of {subject_focus}. {quest_detail}",
+          "intro": "{quest_exposition} The festivities are threatened by the situation with {subject_focus} {direction}. {quest_detail}",
           "exploratories": [
             {
               "prompt": "What's threatening the celebration?",
