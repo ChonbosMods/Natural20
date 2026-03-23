@@ -177,10 +177,15 @@ public class QuestGenerator {
         bindings.put("npc_x", String.valueOf(npcX));
         bindings.put("npc_z", String.valueOf(npcZ));
 
-        // Investigation situations use evidence items for FETCH_ITEM objectives
-        QuestPoolRegistry.ItemEntry gatherItem = INVESTIGATION_SITUATIONS.contains(situationId)
-            ? poolRegistry.randomEvidenceItem(random)
-            : poolRegistry.randomGatherItem(random);
+        // Item pool selection: investigation → evidence, loss of loved ones → keepsakes, default → resources
+        QuestPoolRegistry.ItemEntry gatherItem;
+        if (INVESTIGATION_SITUATIONS.contains(situationId)) {
+            gatherItem = poolRegistry.randomEvidenceItem(random);
+        } else if ("LossOfLovedOnes".equals(situationId)) {
+            gatherItem = poolRegistry.randomKeepsakeItem(random);
+        } else {
+            gatherItem = poolRegistry.randomCollectResource(random);
+        }
         bindings.put("quest_item", gatherItem.label());
         bindings.put("gather_item_id", gatherItem.id());
 

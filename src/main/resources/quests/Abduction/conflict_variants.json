@@ -26,12 +26,12 @@
         "outro": "Search the area thoroughly. What you find could tell us how many we're dealing with and where {quest_focus_the} was taken next."
       },
       "objectivePool": [
-        "GATHER_ITEMS",
+        "COLLECT_RESOURCES",
         "EXPLORE_LOCATION",
         "KILL_MOBS"
       ],
       "objectiveConfig": {
-        "GATHER_ITEMS": {
+        "COLLECT_RESOURCES": {
           "countMin": 4,
           "countMax": 12
         },

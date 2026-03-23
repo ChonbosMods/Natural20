@@ -8,12 +8,12 @@
         "outro": "We didn't mean to trespass on something sacred. But intentions don't matter when {quest_stakes_the} {quest_stakes_is} at risk. {quest_reward_hint} might come of setting things right."
       },
       "objectivePool": [
-        "GATHER_ITEMS",
+        "COLLECT_RESOURCES",
         "EXPLORE_LOCATION",
         "KILL_MOBS"
       ],
       "objectiveConfig": {
-        "GATHER_ITEMS": {
+        "COLLECT_RESOURCES": {
           "countMin": 5,
           "countMax": 10
         },

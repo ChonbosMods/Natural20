@@ -10,14 +10,14 @@
       "objectivePool": [
         "EXPLORE_LOCATION",
         "KILL_MOBS",
-        "GATHER_ITEMS"
+        "COLLECT_RESOURCES"
       ],
       "objectiveConfig": {
         "KILL_MOBS": {
           "countMin": 3,
           "countMax": 6
         },
-        "GATHER_ITEMS": {
+        "COLLECT_RESOURCES": {
           "countMin": 4,
           "countMax": 10
         }
@@ -33,14 +33,14 @@
       "objectivePool": [
         "KILL_MOBS",
         "EXPLORE_LOCATION",
-        "GATHER_ITEMS"
+        "COLLECT_RESOURCES"
       ],
       "objectiveConfig": {
         "KILL_MOBS": {
           "countMin": 5,
           "countMax": 10
         },
-        "GATHER_ITEMS": {
+        "COLLECT_RESOURCES": {
           "countMin": 3,
           "countMax": 8
         }
@@ -54,12 +54,12 @@
         "outro": "We need materials, we need the path cleared, and we need it done before {quest_threat_the} cuts us off completely. {quest_reward_hint} is yours if you pull this off."
       },
       "objectivePool": [
-        "GATHER_ITEMS",
+        "COLLECT_RESOURCES",
         "KILL_MOBS",
         "EXPLORE_LOCATION"
       ],
       "objectiveConfig": {
-        "GATHER_ITEMS": {
+        "COLLECT_RESOURCES": {
           "countMin": 6,
           "countMax": 16
         },

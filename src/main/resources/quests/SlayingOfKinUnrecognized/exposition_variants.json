@@ -10,14 +10,14 @@
       "objectivePool": [
         "EXPLORE_LOCATION",
         "KILL_MOBS",
-        "GATHER_ITEMS"
+        "COLLECT_RESOURCES"
       ],
       "objectiveConfig": {
         "KILL_MOBS": {
           "countMin": 3,
           "countMax": 6
         },
-        "GATHER_ITEMS": {
+        "COLLECT_RESOURCES": {
           "countMin": 3,
           "countMax": 10
         }
@@ -32,11 +32,11 @@
       },
       "objectivePool": [
         "EXPLORE_LOCATION",
-        "GATHER_ITEMS",
+        "COLLECT_RESOURCES",
         "FETCH_ITEM"
       ],
       "objectiveConfig": {
-        "GATHER_ITEMS": {
+        "COLLECT_RESOURCES": {
           "countMin": 4,
           "countMax": 12
         }

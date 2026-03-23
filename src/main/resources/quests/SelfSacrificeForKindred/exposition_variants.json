@@ -27,12 +27,12 @@
         "outro": "Saving {quest_stakes_the} depends on whether the effort holds. {quest_item} {location_hint} could make the difference."
       },
       "objectivePool": [
-        "GATHER_ITEMS",
+        "COLLECT_RESOURCES",
         "EXPLORE_LOCATION",
         "DELIVER_ITEM"
       ],
       "objectiveConfig": {
-        "GATHER_ITEMS": {
+        "COLLECT_RESOURCES": {
           "countMin": 6,
           "countMax": 15
         }

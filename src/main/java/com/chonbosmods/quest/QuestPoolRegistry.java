@@ -30,7 +30,8 @@ public class QuestPoolRegistry {
     /** Entry with value + plural flag for narrative pools. */
     public record NarrativeEntry(String value, boolean plural, boolean proper) {}
 
-    private final List<ItemEntry> gatherItems = new ArrayList<>();
+    private final List<ItemEntry> collectResources = new ArrayList<>();
+    private final List<ItemEntry> keepsakeItems = new ArrayList<>();
     private final List<ItemEntry> evidenceItems = new ArrayList<>();
     private final List<ItemEntry> hostileMobs = new ArrayList<>();
     private final List<String> questActions = new ArrayList<>();
@@ -58,8 +59,9 @@ public class QuestPoolRegistry {
 
     public void loadAll(@Nullable Path poolsDir) {
         // Load from classpath first (bundled resources)
-        loadItemPoolFromClasspath(CLASSPATH_PREFIX + "gather_items.json", "items", gatherItems);
+        loadItemPoolFromClasspath(CLASSPATH_PREFIX + "collect_resources.json", "items", collectResources);
         loadItemPoolFromClasspath(CLASSPATH_PREFIX + "evidence_items.json", "values", evidenceItems);
+        loadItemPoolFromClasspath(CLASSPATH_PREFIX + "keepsake_items.json", "values", keepsakeItems);
         loadItemPoolFromClasspath(CLASSPATH_PREFIX + "hostile_mobs.json", "mobs", hostileMobs);
         loadStringPoolFromClasspath(CLASSPATH_PREFIX + "quest_actions.json", questActions);
         loadNarrativePoolFromClasspath(CLASSPATH_PREFIX + "quest_focuses.json", questFocuses);
@@ -86,8 +88,9 @@ public class QuestPoolRegistry {
 
         // Override with filesystem if available
         if (poolsDir != null && Files.isDirectory(poolsDir)) {
-            loadItemPool(poolsDir.resolve("gather_items.json"), "items", gatherItems);
+            loadItemPool(poolsDir.resolve("collect_resources.json"), "items", collectResources);
             loadItemPool(poolsDir.resolve("evidence_items.json"), "values", evidenceItems);
+            loadItemPool(poolsDir.resolve("keepsake_items.json"), "values", keepsakeItems);
             loadItemPool(poolsDir.resolve("hostile_mobs.json"), "mobs", hostileMobs);
             loadStringPool(poolsDir.resolve("quest_actions.json"), questActions);
             loadNarrativePool(poolsDir.resolve("quest_focuses.json"), questFocuses);
@@ -113,8 +116,8 @@ public class QuestPoolRegistry {
             loadSituationTones(poolsDir.resolve("situation_tones.json"));
         }
 
-        LOGGER.atInfo().log("Loaded pools: %d items, %d evidence, %d mobs, %d actions, %d focuses, %d stakes, %d threats, %d origins, %d pressures, %d rewards",
-            gatherItems.size(), evidenceItems.size(), hostileMobs.size(), questActions.size(), questFocuses.size(),
+        LOGGER.atInfo().log("Loaded pools: %d resources, %d evidence, %d keepsakes, %d mobs, %d actions, %d focuses, %d stakes, %d threats, %d origins, %d pressures, %d rewards",
+            collectResources.size(), evidenceItems.size(), keepsakeItems.size(), hostileMobs.size(), questActions.size(), questFocuses.size(),
             questStakes.size(), questThreats.size(), questOrigins.size(),
             questTimePressures.size(), questRewardHints.size());
     }
@@ -299,9 +302,14 @@ public class QuestPoolRegistry {
         }
     }
 
-    public ItemEntry randomGatherItem(Random random) {
-        if (gatherItems.isEmpty()) return new ItemEntry("Hytale:Stone", "stone", "stones");
-        return gatherItems.get(random.nextInt(gatherItems.size()));
+    public ItemEntry randomCollectResource(Random random) {
+        if (collectResources.isEmpty()) return new ItemEntry("Hytale:Stone", "stone", "stones");
+        return collectResources.get(random.nextInt(collectResources.size()));
+    }
+
+    public ItemEntry randomKeepsakeItem(Random random) {
+        if (keepsakeItems.isEmpty()) return new ItemEntry("keepsake_journal", "a worn leather journal", "worn leather journals");
+        return keepsakeItems.get(random.nextInt(keepsakeItems.size()));
     }
 
     public ItemEntry randomEvidenceItem(Random random) {

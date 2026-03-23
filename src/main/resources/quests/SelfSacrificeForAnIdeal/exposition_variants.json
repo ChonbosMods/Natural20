@@ -41,12 +41,12 @@
         "outro": "They can save those people, but not without help from someone brave enough to get close. Before {quest_time_pressure}."
       },
       "objectivePool": [
-        "GATHER_ITEMS",
+        "COLLECT_RESOURCES",
         "DELIVER_ITEM",
         "FETCH_ITEM"
       ],
       "objectiveConfig": {
-        "GATHER_ITEMS": {
+        "COLLECT_RESOURCES": {
           "countMin": 5,
           "countMax": 15
         }

@@ -9,7 +9,7 @@
       },
       "objectivePool": [
         "KILL_MOBS",
-        "GATHER_ITEMS",
+        "COLLECT_RESOURCES",
         "FETCH_ITEM"
       ],
       "objectiveConfig": {
@@ -17,7 +17,7 @@
           "countMin": 4,
           "countMax": 9
         },
-        "GATHER_ITEMS": {
+        "COLLECT_RESOURCES": {
           "countMin": 5,
           "countMax": 14
         }
@@ -32,7 +32,7 @@
       },
       "objectivePool": [
         "KILL_MOBS",
-        "GATHER_ITEMS",
+        "COLLECT_RESOURCES",
         "EXPLORE_LOCATION"
       ],
       "objectiveConfig": {
@@ -40,7 +40,7 @@
           "countMin": 3,
           "countMax": 7
         },
-        "GATHER_ITEMS": {
+        "COLLECT_RESOURCES": {
           "countMin": 4,
           "countMax": 12
         }
@@ -56,14 +56,14 @@
       "objectivePool": [
         "EXPLORE_LOCATION",
         "KILL_MOBS",
-        "GATHER_ITEMS"
+        "COLLECT_RESOURCES"
       ],
       "objectiveConfig": {
         "KILL_MOBS": {
           "countMin": 3,
           "countMax": 8
         },
-        "GATHER_ITEMS": {
+        "COLLECT_RESOURCES": {
           "countMin": 5,
           "countMax": 15
         }

@@ -29,14 +29,14 @@
       "objectivePool": [
         "FETCH_ITEM",
         "KILL_MOBS",
-        "GATHER_ITEMS"
+        "COLLECT_RESOURCES"
       ],
       "objectiveConfig": {
         "KILL_MOBS": {
           "countMin": 2,
           "countMax": 6
         },
-        "GATHER_ITEMS": {
+        "COLLECT_RESOURCES": {
           "countMin": 4,
           "countMax": 10
         }

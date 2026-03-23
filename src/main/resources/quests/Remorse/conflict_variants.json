@@ -8,12 +8,12 @@
         "outro": "Words failed. Gifts failed. The only thing left is action that speaks louder than either. {quest_stakes_The} still {quest_stakes_has} value."
       },
       "objectivePool": [
-        "GATHER_ITEMS",
+        "COLLECT_RESOURCES",
         "KILL_MOBS",
         "EXPLORE_LOCATION"
       ],
       "objectiveConfig": {
-        "GATHER_ITEMS": {
+        "COLLECT_RESOURCES": {
           "countMin": 5,
           "countMax": 10
         },

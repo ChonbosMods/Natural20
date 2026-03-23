@@ -10,14 +10,14 @@
       "objectivePool": [
         "KILL_MOBS",
         "EXPLORE_LOCATION",
-        "GATHER_ITEMS"
+        "COLLECT_RESOURCES"
       ],
       "objectiveConfig": {
         "KILL_MOBS": {
           "countMin": 3,
           "countMax": 7
         },
-        "GATHER_ITEMS": {
+        "COLLECT_RESOURCES": {
           "countMin": 4,
           "countMax": 12
         }
@@ -31,12 +31,12 @@
         "outro": "This can still be corrected, but time is critical. Will you gather what {target_npc} needs before {quest_time_pressure}? {quest_stakes_The} could be lost to a well-meaning mistake."
       },
       "objectivePool": [
-        "GATHER_ITEMS",
+        "COLLECT_RESOURCES",
         "EXPLORE_LOCATION",
         "KILL_MOBS"
       ],
       "objectiveConfig": {
-        "GATHER_ITEMS": {
+        "COLLECT_RESOURCES": {
           "countMin": 5,
           "countMax": 14
         },

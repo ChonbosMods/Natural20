@@ -9,11 +9,11 @@
       },
       "objectivePool": [
         "EXPLORE_LOCATION",
-        "GATHER_ITEMS",
+        "COLLECT_RESOURCES",
         "TALK_TO_NPC"
       ],
       "objectiveConfig": {
-        "GATHER_ITEMS": {
+        "COLLECT_RESOURCES": {
           "countMin": 4,
           "countMax": 10
         }
@@ -48,10 +48,10 @@
       "objectivePool": [
         "EXPLORE_LOCATION",
         "TALK_TO_NPC",
-        "GATHER_ITEMS"
+        "COLLECT_RESOURCES"
       ],
       "objectiveConfig": {
-        "GATHER_ITEMS": {
+        "COLLECT_RESOURCES": {
           "countMin": 3,
           "countMax": 8
         }

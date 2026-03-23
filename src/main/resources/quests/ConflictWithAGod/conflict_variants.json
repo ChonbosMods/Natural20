@@ -36,7 +36,7 @@
       "objectivePool": [
         "EXPLORE_LOCATION",
         "FETCH_ITEM",
-        "GATHER_ITEMS"
+        "COLLECT_RESOURCES"
       ],
       "objectiveConfig": {
         "EXPLORE_LOCATION": {
@@ -46,7 +46,7 @@
         "FETCH_ITEM": {
           "locationPreference": "DUNGEON"
         },
-        "GATHER_ITEMS": {
+        "COLLECT_RESOURCES": {
           "countMin": 4,
           "countMax": 10
         }
@@ -62,7 +62,7 @@
       "objectivePool": [
         "KILL_MOBS",
         "EXPLORE_LOCATION",
-        "GATHER_ITEMS"
+        "COLLECT_RESOURCES"
       ],
       "objectiveConfig": {
         "KILL_MOBS": {
@@ -73,7 +73,7 @@
           "countMin": 2,
           "countMax": 3
         },
-        "GATHER_ITEMS": {
+        "COLLECT_RESOURCES": {
           "countMin": 3,
           "countMax": 8
         }

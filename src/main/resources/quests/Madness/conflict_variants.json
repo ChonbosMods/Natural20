@@ -9,7 +9,7 @@
       },
       "objectivePool": [
         "KILL_MOBS",
-        "GATHER_ITEMS",
+        "COLLECT_RESOURCES",
         "EXPLORE_LOCATION"
       ],
       "objectiveConfig": {
@@ -17,7 +17,7 @@
           "countMin": 4,
           "countMax": 10
         },
-        "GATHER_ITEMS": {
+        "COLLECT_RESOURCES": {
           "countMin": 5,
           "countMax": 15
         }
@@ -50,12 +50,12 @@
         "outro": "Gather the materials and clear the corrupted {enemy_type} from around the source. {quest_stakes_The} hang on what you do next."
       },
       "objectivePool": [
-        "GATHER_ITEMS",
+        "COLLECT_RESOURCES",
         "KILL_MOBS",
         "EXPLORE_LOCATION"
       ],
       "objectiveConfig": {
-        "GATHER_ITEMS": {
+        "COLLECT_RESOURCES": {
           "countMin": 6,
           "countMax": 18
         },

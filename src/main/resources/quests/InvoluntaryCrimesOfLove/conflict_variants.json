@@ -27,12 +27,12 @@
         "outro": "Recover what was lost and secure the area. Every piece of {quest_item} you bring back is one less person going without."
       },
       "objectivePool": [
-        "GATHER_ITEMS",
+        "COLLECT_RESOURCES",
         "KILL_MOBS",
         "EXPLORE_LOCATION"
       ],
       "objectiveConfig": {
-        "GATHER_ITEMS": {
+        "COLLECT_RESOURCES": {
           "countMin": 5,
           "countMax": 16
         },
@@ -52,14 +52,14 @@
       "objectivePool": [
         "KILL_MOBS",
         "EXPLORE_LOCATION",
-        "GATHER_ITEMS"
+        "COLLECT_RESOURCES"
       ],
       "objectiveConfig": {
         "KILL_MOBS": {
           "countMin": 4,
           "countMax": 9
         },
-        "GATHER_ITEMS": {
+        "COLLECT_RESOURCES": {
           "countMin": 4,
           "countMax": 10
         }

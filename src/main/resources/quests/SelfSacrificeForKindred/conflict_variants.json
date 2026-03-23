@@ -9,7 +9,7 @@
       },
       "objectivePool": [
         "KILL_MOBS",
-        "GATHER_ITEMS",
+        "COLLECT_RESOURCES",
         "DELIVER_ITEM"
       ],
       "objectiveConfig": {
@@ -17,7 +17,7 @@
           "countMin": 4,
           "countMax": 9
         },
-        "GATHER_ITEMS": {
+        "COLLECT_RESOURCES": {
           "countMin": 5,
           "countMax": 12
         }
@@ -50,12 +50,12 @@
         "outro": "{quest_threat_The} could take them any moment. But if this fails, everything about {quest_stakes_the} {quest_stakes_is} lost. Find {quest_item} {location_hint} and bring it back before the next surge."
       },
       "objectivePool": [
-        "GATHER_ITEMS",
+        "COLLECT_RESOURCES",
         "FETCH_ITEM",
         "EXPLORE_LOCATION"
       ],
       "objectiveConfig": {
-        "GATHER_ITEMS": {
+        "COLLECT_RESOURCES": {
           "countMin": 6,
           "countMax": 18
         }

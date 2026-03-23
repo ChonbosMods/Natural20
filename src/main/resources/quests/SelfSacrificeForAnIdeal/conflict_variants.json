@@ -46,12 +46,12 @@
         "outro": "Find {quest_item} {location_hint} and bring it back. If they finish their work, {quest_stakes_the} {quest_stakes_is} saved. The only life in question is theirs."
       },
       "objectivePool": [
-        "GATHER_ITEMS",
+        "COLLECT_RESOURCES",
         "FETCH_ITEM",
         "DELIVER_ITEM"
       ],
       "objectiveConfig": {
-        "GATHER_ITEMS": {
+        "COLLECT_RESOURCES": {
           "countMin": 4,
           "countMax": 12
         }

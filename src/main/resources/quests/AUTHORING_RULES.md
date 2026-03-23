@@ -144,9 +144,9 @@ When a TALK_TO_NPC objective is rolled, the full flow is:
         "plotStep": "The core ask. Uses variables for specifics.",
         "outro": "Closing line. Motivates player to act."
       },
-      "objectivePool": ["GATHER_ITEMS", "KILL_MOBS", "EXPLORE_LOCATION"],
+      "objectivePool": ["COLLECT_RESOURCES", "KILL_MOBS", "EXPLORE_LOCATION"],
       "objectiveConfig": {
-        "GATHER_ITEMS": { "countMin": 5, "countMax": 12 },
+        "COLLECT_RESOURCES": { "countMin": 5, "countMax": 12 },
         "KILL_MOBS": { "countMin": 3, "countMax": 8 }
       }
     }
@@ -280,7 +280,7 @@ Use `{quest_giver_name}` for the quest giver, `{target_npc}` for target NPCs, `{
 
 | Type | Description | Config |
 |---|---|---|
-| `GATHER_ITEMS` | Collect resources | `countMin` (3-8), `countMax` (10-20) |
+| `COLLECT_RESOURCES` | Collect resources | `countMin` (3-8), `countMax` (10-20) |
 | `KILL_MOBS` | Kill hostile mobs | `countMin` (2-5), `countMax` (5-10) |
 | `DELIVER_ITEM` | Bring item to NPC | none |
 | `EXPLORE_LOCATION` | Visit a location | none |

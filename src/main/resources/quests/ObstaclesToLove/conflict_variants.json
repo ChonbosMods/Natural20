@@ -60,12 +60,12 @@
         "outro": "They locked up the one person who could have united both sides. We have to get them out."
       },
       "objectivePool": [
-        "GATHER_ITEMS",
+        "COLLECT_RESOURCES",
         "KILL_MOBS",
         "TALK_TO_NPC"
       ],
       "objectiveConfig": {
-        "GATHER_ITEMS": {
+        "COLLECT_RESOURCES": {
           "countMin": 4,
           "countMax": 10
         },

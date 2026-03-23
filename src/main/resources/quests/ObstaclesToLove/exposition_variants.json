@@ -34,11 +34,11 @@
         "outro": "One good deed from a stranger could undo a lifetime of prejudice. But only if we act before the council meets. {quest_threat_The} doesn't care about borders, and neither should we."
       },
       "objectivePool": [
-        "GATHER_ITEMS",
+        "COLLECT_RESOURCES",
         "TALK_TO_NPC"
       ],
       "objectiveConfig": {
-        "GATHER_ITEMS": {
+        "COLLECT_RESOURCES": {
           "countMin": 4,
           "countMax": 8
         },

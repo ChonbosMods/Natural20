@@ -28,11 +28,11 @@
       },
       "objectivePool": [
         "TALK_TO_NPC",
-        "GATHER_ITEMS",
+        "COLLECT_RESOURCES",
         "KILL_MOBS"
       ],
       "objectiveConfig": {
-        "GATHER_ITEMS": {
+        "COLLECT_RESOURCES": {
           "countMin": 5,
           "countMax": 15
         },
