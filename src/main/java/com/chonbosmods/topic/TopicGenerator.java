@@ -280,7 +280,7 @@ public class TopicGenerator {
         }
 
         // Build variable bindings
-        Map<String, String> bindings = buildBindings(focus, npcName, isQuestBearer, random);
+        Map<String, String> bindings = buildBindings(focus, npcName, isQuestBearer, template.id(), random);
 
         return new TopicGraphBuilder.TopicAssignment(
             focus.getSubjectId(),
@@ -296,7 +296,7 @@ public class TopicGenerator {
      * Build variable bindings for a topic assignment.
      */
     private Map<String, String> buildBindings(SubjectFocus focus, String npcName,
-                                               boolean isQuestBearer, Random random) {
+                                               boolean isQuestBearer, String templateId, Random random) {
         Map<String, String> bindings = new HashMap<>();
 
         // Subject focus bindings
@@ -355,8 +355,12 @@ public class TopicGenerator {
         bindings.put("conflict_detail", topicPool.randomConflictDetail(random));
 
         // Fragment pool bindings: Layer 2
+        // Reaction bracket: rumors + nature + curiosity = intense, all other smalltalk = mild
+        String reactionBracket = (focus.getCategory() == TopicCategory.RUMORS
+            || "smalltalk_nature".equals(templateId)
+            || "smalltalk_curiosity".equals(templateId)) ? "intense" : "mild";
         bindings.put("local_opinion", topicPool.randomLocalOpinion(random));
-        bindings.put("personal_reaction", topicPool.randomPersonalReaction(random));
+        bindings.put("personal_reaction", topicPool.randomPersonalReaction(reactionBracket, random));
         bindings.put("danger_assessment", topicPool.randomDangerAssessment(random));
 
         // Category-specific pool bindings (pre-resolve so nested {subject_focus} etc. are substituted)

@@ -67,7 +67,7 @@ public class TopicPoolRegistry {
 
     // Fragment pools: Layer 2
     private final List<String> localOpinions = new ArrayList<>();
-    private final List<String> personalReactions = new ArrayList<>();
+    private final Map<String, List<String>> personalReactions = new LinkedHashMap<>();
     private final List<String> dangerAssessments = new ArrayList<>();
 
     // Tone pools (bracket-keyed)
@@ -124,7 +124,7 @@ public class TopicPoolRegistry {
 
         // Fragment pools: Layer 2
         loadStringPoolFromClasspath(CLASSPATH_PREFIX + "local_opinions.json", localOpinions);
-        loadStringPoolFromClasspath(CLASSPATH_PREFIX + "personal_reactions.json", personalReactions);
+        loadTonePoolFromClasspath(CLASSPATH_PREFIX + "personal_reactions.json", personalReactions);
         loadStringPoolFromClasspath(CLASSPATH_PREFIX + "danger_assessments.json", dangerAssessments);
 
         // Tone pools (bracket-keyed)
@@ -181,7 +181,7 @@ public class TopicPoolRegistry {
 
             // Fragment pools: Layer 2
             loadStringPool(poolsDir.resolve("local_opinions.json"), localOpinions);
-            loadStringPool(poolsDir.resolve("personal_reactions.json"), personalReactions);
+            loadTonePool(poolsDir.resolve("personal_reactions.json"), personalReactions);
             loadStringPool(poolsDir.resolve("danger_assessments.json"), dangerAssessments);
 
             // Tone pools (bracket-keyed)
@@ -511,9 +511,10 @@ public class TopicPoolRegistry {
         return localOpinions.get(random.nextInt(localOpinions.size()));
     }
 
-    public String randomPersonalReaction(Random random) {
-        if (personalReactions.isEmpty()) return "I try not to think about it too much.";
-        return personalReactions.get(random.nextInt(personalReactions.size()));
+    public String randomPersonalReaction(String bracket, Random random) {
+        List<String> entries = personalReactions.getOrDefault(bracket, List.of());
+        if (entries.isEmpty()) return "I try not to think about it too much.";
+        return entries.get(random.nextInt(entries.size()));
     }
 
     public String randomDangerAssessment(Random random) {
