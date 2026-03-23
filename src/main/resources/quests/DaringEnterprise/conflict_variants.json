@@ -37,7 +37,7 @@
     {
       "id": "daringenterprise_conf_03",
       "dialogueChunks": {
-        "intro": "{player_name}, I will not sugarcoat it. Our attempt to {quest_action} hit a wall. {quest_threat_The} destroyed our preparations.",
+        "intro": "{player_name}, I will not sugarcoat it. Our attempt to {quest_action} hit a wall. {quest_threat_animate_The} destroyed our preparations.",
         "plotStep": "We need to start over, and quickly. {quest_ally} says there is an alternate approach through an area {location_hint}, but the {enemy_type} have been seen there. Someone needs to push through and secure {quest_item} for a second attempt.",
         "outro": "{quest_stakes_The} {quest_stakes_is} slipping further away every day we delay. Are you still with us?"
       },

@@ -17,7 +17,7 @@
       "dialogueChunks": {
         "intro": "They're blaming {target_npc} for the sickness, {player_name}. And they're wrong. Dead wrong.",
         "plotStep": "People fell ill after contact with {quest_focus_the}. Someone started a rumor that {target_npc} caused it, because {target_npc} was seen adding something to {quest_focus_the} recently. What nobody bothered to ask is that {target_npc} was treating it with purifying agents because they noticed contamination upstream.",
-        "outro": "Find {target_npc} {location_hint} before the mob does. They can explain what really happened, and their testimony is the only thing that will clear their name. {quest_threat_The} {quest_threat_is} driving this witch hunt. {quest_stakes_The} depends on the truth."
+        "outro": "Find {target_npc} {location_hint} before the mob does. They can explain what really happened, and their testimony is the only thing that will clear their name. {quest_threat_animate_The} {quest_threat_animate_is} driving this witch hunt. {quest_stakes_The} depends on the truth."
       },
       "objectivePool": ["TALK_TO_NPC"],
       "objectiveConfig": {

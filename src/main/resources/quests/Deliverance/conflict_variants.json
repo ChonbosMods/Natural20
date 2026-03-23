@@ -3,8 +3,8 @@
     {
       "id": "deliverance_conf_01",
       "dialogueChunks": {
-        "intro": "{player_name}, your push to {quest_action} stirred them up. {quest_threat_The} {quest_threat_has} tightened their grip on {quest_focus_the}.",
-        "plotStep": "{quest_ally} managed to get a message from {quest_stakes_the}: they are alive but desperate. The {enemy_type} have reinforced their positions {location_hint}. We need to fight through before it is too late.",
+        "intro": "{player_name}, your push to {quest_action} stirred them up. {quest_threat_animate_The} {quest_threat_animate_has} tightened their grip on {quest_focus_the}.",
+        "plotStep": "{quest_ally} managed to get a message from {quest_stakes_human_the}: they are alive but desperate. The {enemy_type} have reinforced their positions {location_hint}. We need to fight through before it is too late.",
         "outro": "We are so close. Kill every one of them standing in your way: do not let them slip away now."
       },
       "objectivePool": ["KILL_MOBS"],
@@ -15,7 +15,7 @@
     {
       "id": "deliverance_conf_02",
       "dialogueChunks": {
-        "intro": "Things have gotten worse since you began to {quest_action}, {player_name}. {quest_threat_The} retaliated against {quest_stakes_the}.",
+        "intro": "Things have gotten worse since you began to {quest_action}, {player_name}. {quest_threat_animate_The} retaliated against {quest_stakes_the}.",
         "plotStep": "{quest_ally} reports that the {enemy_type} moved {quest_stakes_the} deeper toward {quest_focus_the}. They left a rear guard {location_hint} to slow any pursuit. Cut through them before the main force escapes.",
         "outro": "This is their last move. Destroy the rear guard and push through to the captives."
       },
@@ -64,7 +64,7 @@
       "id": "deliverance_conf_06",
       "dialogueChunks": {
         "intro": "Something does not add up. The {enemy_type} knew too much about {quest_focus_the}: patrol schedules, weak points, who to target. Someone from the inside fed them information.",
-        "plotStep": "Talk to {target_npc}. They were the last person to see {quest_focus_the} before {quest_threat_the} struck. Whether they are guilty or simply the last witness, their account matters.",
+        "plotStep": "Talk to {target_npc}. They were the last person to see {quest_focus_the} before {quest_threat_animate_the} struck. Whether they are guilty or simply the last witness, their account matters.",
         "outro": "We need the truth before {quest_stakes_the} {quest_stakes_is} lost forever. Find {target_npc} and get them to tell you everything they know."
       },
       "objectivePool": ["TALK_TO_NPC"],

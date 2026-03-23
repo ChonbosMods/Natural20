@@ -37,7 +37,7 @@
     {
       "id": "misfortune_expo_03",
       "dialogueChunks": {
-        "intro": "{player_name}, {quest_threat_the} from {quest_origin} scattered our supplies across the area. {quest_focus_The} {quest_focus_is} buried in the debris and {quest_stakes_the} {quest_stakes_is} at risk.",
+        "intro": "{player_name}, {quest_threat_animate_the} from {quest_origin} scattered our supplies across the area. {quest_focus_The} {quest_focus_is} buried in the debris and {quest_stakes_the} {quest_stakes_is} at risk.",
         "plotStep": "We need to {quest_action} before scavengers pick it clean. Recover as many {quest_item} as you can find from {location_hint}. Every piece of it counts.",
         "outro": "Without {quest_stakes_the}, we face a long stretch with nothing. You would earn {quest_reward_hint} for helping."
       },

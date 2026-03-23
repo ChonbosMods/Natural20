@@ -17,7 +17,7 @@
       "dialogueChunks": {
         "intro": "The competition around {quest_focus_the} became public. {quest_ally} openly mocked {target_npc}'s abilities in front of the settlement, and now {target_npc} is refusing to contribute to any communal work.",
         "plotStep": "With {target_npc} on strike, the settlement is struggling. {quest_threat_The} {quest_threat_has} left gaps in our defenses, and morale is crumbling. {target_npc} will not listen to anyone who was there for the humiliation.",
-        "outro": "You are an outsider: {target_npc} might hear you out. Talk to them and find a way to restore their dignity without letting {quest_ally} off the hook entirely. {quest_stakes_The} can't afford this standoff."
+        "outro": "You are an outsider: {target_npc} might hear you out. Talk to them and find a way to restore their dignity without letting {quest_ally} off the hook entirely. {quest_stakes_human_The} can't afford this standoff."
       },
       "objectivePool": [
         "TALK_TO_NPC"

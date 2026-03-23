@@ -5,7 +5,7 @@
       "dialogueChunks": {
         "intro": "There has been a falling out between us and our allies, {player_name}. {quest_origin} was broken, and accusations are flying in both directions.",
         "plotStep": "{quest_ally} was our negotiator, and they say {target_npc} deliberately caused the breach. But {target_npc} claims we were the ones at fault. Meanwhile, the {enemy_type} are circling both settlements while we argue.",
-        "outro": "If we do not resolve {quest_focus_the} quickly, two allies could become enemies while {quest_threat_the} picks us apart. Talk to both sides and find out what really happened."
+        "outro": "If we do not resolve {quest_focus_the} quickly, two allies could become enemies while {quest_threat_animate_the} picks us apart. Talk to both sides and find out what really happened."
       },
       "objectivePool": [
         "TALK_TO_NPC"
@@ -29,7 +29,7 @@
       "dialogueChunks": {
         "intro": "Our supplies were sabotaged, {player_name}. Deliberately. And the only people with access besides us are our allies.",
         "plotStep": "{quest_ally} does not believe {target_npc}'s people would do this, but the evidence points their way. Someone left traces near {quest_focus_the}, and the materials involved come from {location_hint}. If this was truly sabotage by allies, everything changes.",
-        "outro": "We need the truth before {quest_threat_the} destroys an alliance that took years to build. Talk to witnesses on both sides and find out who really did this."
+        "outro": "We need the truth before {quest_threat_animate_the} destroys an alliance that took years to build. Talk to witnesses on both sides and find out who really did this."
       },
       "objectivePool": [
         "TALK_TO_NPC"

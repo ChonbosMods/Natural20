@@ -3,7 +3,7 @@
     {
       "id": "vengeancekindred_reso_01",
       "dialogueChunks": {
-        "intro": "It is done, {player_name}. {quest_threat_The} {quest_threat_has} been dealt with. {quest_stakes_The} can rest in peace now.",
+        "intro": "It is done, {player_name}. {quest_threat_The} {quest_threat_has} been dealt with. {quest_stakes_human_The} can rest in peace now.",
         "plotStep": "The community gathered to honor the fallen today. Your name was spoken alongside theirs: not as a killer, but as someone who stood for our people.",
         "outro": "This was not about hatred. It was about love for the ones we lost. Thank you for understanding that."
       },
@@ -23,7 +23,7 @@
     {
       "id": "vengeancekindred_reso_03",
       "dialogueChunks": {
-        "intro": "The scales are balanced, {player_name}. {quest_threat_The} answered for what they did to {quest_stakes_the}.",
+        "intro": "The scales are balanced, {player_name}. {quest_threat_animate_The} answered for what they did to {quest_stakes_the}.",
         "plotStep": "{quest_focus_The} is quiet now. {quest_ally} says the families are beginning to heal. The grief will linger, but the fear is gone.",
         "outro": "You fought for people you never knew, on behalf of a community's pain. That is a rare kind of honor."
       },

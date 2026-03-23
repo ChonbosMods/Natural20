@@ -3,9 +3,9 @@
     {
       "id": "enemity_conf_escalation",
       "dialogueChunks": {
-        "intro": "Things have gotten worse. While you were investigating {quest_focus}, an incident near {location_hint} has pushed both sides closer to violence.",
-        "plotStep": "{quest_ally} reports that armed groups from {location_hint} were spotted near our borders. Whether it's posturing or preparation, {quest_threat} is escalating. The {enemy_type} are exploiting the distraction to raid both settlements.",
-        "outro": "Deal with the {enemy_type} raids first. If both settlements see you fighting their common enemy, it might cool tempers long enough to find a real solution for {quest_stakes}."
+        "intro": "Things have gotten worse. While you were investigating {quest_focus_the}, an incident near {location_hint} has pushed both sides closer to violence.",
+        "plotStep": "{quest_ally} reports that armed groups from {location_hint} were spotted near our borders. Whether it's posturing or preparation, {quest_threat_the} is escalating. The {enemy_type} are exploiting the distraction to raid both settlements.",
+        "outro": "Deal with the {enemy_type} raids first. If both settlements see you fighting their common enemy, it might cool tempers long enough to find a real solution for {quest_stakes_the}."
       },
       "objectivePool": [
         "KILL_MOBS"
@@ -20,9 +20,9 @@
     {
       "id": "enemity_conf_proof_needed",
       "dialogueChunks": {
-        "intro": "Both sides claim innocence, and both sides blame the other. The truth about {quest_focus} is out there, but it won't come from accusations alone.",
+        "intro": "Both sides claim innocence, and both sides blame the other. The truth about {quest_focus_the} is out there, but it won't come from accusations alone.",
         "plotStep": "{target_npc} insists they had nothing to do with it, and they seem genuine. {quest_ally} suggests speaking with people who were near {location_hint} when the incident happened: someone must have seen something the {enemy_type} left behind.",
-        "outro": "Question the people in the area and piece together what really happened. {quest_stakes} hang on what you uncover."
+        "outro": "Question the people in the area and piece together what really happened. {quest_stakes_the} hang on what you uncover."
       },
       "objectivePool": [
         "TALK_TO_NPC"
@@ -32,9 +32,9 @@
     {
       "id": "enemity_conf_divided_loyalties",
       "dialogueChunks": {
-        "intro": "The dispute over {quest_focus} has split opinions within our own settlement. Some side with {target_npc}, saying we were in the wrong all along.",
-        "plotStep": "{quest_ally} is trying to hold things together, but the internal division is giving {quest_threat} room to grow. Meanwhile, the {enemy_type} raided our stores near {location_hint} while everyone was arguing.",
-        "outro": "We need to show strength against the common threat. Clear out the {enemy_type} and remind both factions what the real danger is. A common cause might be the only thing that saves {quest_stakes}."
+        "intro": "The dispute over {quest_focus_the} has split opinions within our own settlement. Some side with {target_npc}, saying we were in the wrong all along.",
+        "plotStep": "{quest_ally} is trying to hold things together, but the internal division is giving {quest_threat_the} room to grow. Meanwhile, the {enemy_type} raided our stores near {location_hint} while everyone was arguing.",
+        "outro": "We need to show strength against the common threat. Clear out the {enemy_type} and remind both factions what the real danger is. A common cause might be the only thing that saves {quest_stakes_the}."
       },
       "objectivePool": [
         "KILL_MOBS"

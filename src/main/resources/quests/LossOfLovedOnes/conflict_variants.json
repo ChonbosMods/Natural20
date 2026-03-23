@@ -5,7 +5,7 @@
       "dialogueChunks": {
         "intro": "The grief has turned to anger, {player_name}. And angry people make dangerous decisions.",
         "plotStep": "A group has decided to avenge the dead by striking the {enemy_type} camp {location_hint}. They're not soldiers: they're workers blinded by rage. {target_npc} tried to stop them but was shouted down. If they march on that camp, they'll be slaughtered. I need you to talk to {target_npc} and help convince the group to stand down.",
-        "outro": "If we can't channel this grief into something constructive, {quest_stakes_the} will suffer even more loss."
+        "outro": "If we can't channel this grief into something constructive, {quest_stakes_human_the} will suffer even more loss."
       },
       "objectivePool": [
         "TALK_TO_NPC"

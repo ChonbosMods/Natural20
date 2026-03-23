@@ -3,7 +3,7 @@
     {
       "id": "disaster_conf_01",
       "dialogueChunks": {
-        "intro": "{player_name}, things are worse than before. Your efforts to {quest_action} helped, but {quest_threat_the} struck again and undid much of our progress.",
+        "intro": "{player_name}, things are worse than before. Your efforts to {quest_action} helped, but {quest_threat_animate_the} struck again and undid much of our progress.",
         "plotStep": "{quest_ally} reports that {quest_focus_the} {quest_focus_is} under renewed pressure. The {enemy_type} are taking advantage of the chaos {location_hint}. We need to deal with them before they overrun what is left of {quest_stakes_the}.",
         "outro": "We are fighting on two fronts: nature and creatures. We need you now more than ever."
       },

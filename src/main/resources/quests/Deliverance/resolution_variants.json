@@ -14,7 +14,7 @@
       "id": "deliverance_reso_02",
       "dialogueChunks": {
         "intro": "{player_name}, against all odds you managed to {quest_action}. {quest_stakes_The} {quest_stakes_is} back with us.",
-        "plotStep": "The healers are tending to them now. It will take time, but they will recover. {quest_threat_The} scattered when they saw you coming: I doubt they will try this again.",
+        "plotStep": "The healers are tending to them now. It will take time, but they will recover. {quest_threat_animate_The} scattered when they saw you coming: I doubt they will try this again.",
         "outro": "You risked your life for strangers. That kind of courage is rare."
       },
       "objectivePool": [],
@@ -23,7 +23,7 @@
     {
       "id": "deliverance_reso_03",
       "dialogueChunks": {
-        "intro": "Freedom. That is what you gave them, {player_name}. {quest_stakes_The} walked out of {quest_focus_the} alive because of you.",
+        "intro": "Freedom. That is what you gave them, {player_name}. {quest_stakes_human_The} walked out of {quest_focus_the} alive because of you.",
         "plotStep": "{quest_threat_The} {quest_threat_has} been broken. What was once a place of despair is now just rubble and bad memories. {quest_ally} says the rescued are already asking for you by name.",
         "outro": "You did something extraordinary today. This settlement will never forget it."
       },

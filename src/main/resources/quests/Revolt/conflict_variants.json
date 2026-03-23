@@ -3,7 +3,7 @@
     {
       "id": "revolt_conf_01",
       "dialogueChunks": {
-        "intro": "{player_name}, the uprising has begun, but {quest_threat_the} hit back hard. Your efforts to {quest_action} drew their attention.",
+        "intro": "{player_name}, the uprising has begun, but {quest_threat_animate_the} hit back hard. Your efforts to {quest_action} drew their attention.",
         "plotStep": "{quest_ally} reports that {enemy_type} are sweeping the area near {quest_focus_the}. They are hunting for {quest_stakes_the}. We need you to intercept them {location_hint} before they find our people.",
         "outro": "The revolution lives or dies on what happens next. We need you out there."
       },
@@ -20,7 +20,7 @@
     {
       "id": "revolt_conf_02",
       "dialogueChunks": {
-        "intro": "The crackdown came, {player_name}. After you helped us {quest_action}, {quest_threat_the} retaliated against {quest_stakes_the} directly.",
+        "intro": "The crackdown came, {player_name}. After you helped us {quest_action}, {quest_threat_animate_the} retaliated against {quest_stakes_the} directly.",
         "plotStep": "{quest_ally} is rallying supporters, but the {enemy_type} seized a cache near {quest_focus_the}: it is {location_hint}. Fight through them and break their hold on the area.",
         "outro": "Every blow against them strengthens our resolve. We cannot stop now."
       },

@@ -37,7 +37,7 @@
     {
       "id": "obtaining_expo_03",
       "dialogueChunks": {
-        "intro": "{quest_threat_The} {quest_threat_has} swept through the settlement, {player_name}. {quest_ally} says we need {quest_item} that only grows in the wilds {location_hint}, and our stores are empty.",
+        "intro": "{quest_threat_animate_The} {quest_threat_animate_has} swept through the settlement, {player_name}. {quest_ally} says we need {quest_item} that only grows in the wilds {location_hint}, and our stores are empty.",
         "plotStep": "{quest_stakes_The} {quest_stakes_is} already worsening, and more show signs each day. The resources we need from {quest_focus_the} cannot survive being shipped from afar: they have to be gathered fresh. The problem is that the gathering grounds are deep in {enemy_type} territory.",
         "outro": "Without those resources, {quest_stakes_the} {quest_stakes_is} in mortal danger. {player_name}, will you venture out before {quest_time_pressure} and bring back what we need?"
       },

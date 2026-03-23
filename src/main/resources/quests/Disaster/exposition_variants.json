@@ -15,7 +15,7 @@
     {
       "id": "disaster_expo_02",
       "dialogueChunks": {
-        "intro": "{player_name}, {quest_threat_the} {quest_threat_is} sweeping toward {quest_stakes_the} and nothing we have done has slowed it. {quest_focus_The} {quest_focus_is} overwhelmed and we are losing ground fast.",
+        "intro": "{player_name}, {quest_threat_animate_the} {quest_threat_animate_is} sweeping toward {quest_stakes_the} and nothing we have done has slowed it. {quest_focus_The} {quest_focus_is} overwhelmed and we are losing ground fast.",
         "plotStep": "We need to {quest_action} before {quest_time_pressure}. Collect {quest_item} from {location_hint} to help shore up our defenses. The wreckage is full of what we need if someone can get to it.",
         "outro": "If this reaches the settlement, we lose everything. Every moment counts."
       },

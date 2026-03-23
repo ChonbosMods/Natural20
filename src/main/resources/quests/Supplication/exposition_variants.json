@@ -4,7 +4,7 @@
       "id": "supplication_expo_01",
       "dialogueChunks": {
         "intro": "Please, {player_name}. Since {quest_origin}, {quest_threat_the} {quest_threat_has} made life unbearable. We have nowhere else to turn.",
-        "plotStep": "We need someone to {quest_action} at {quest_focus_the}. There should be {quest_item} {location_hint} that could help. We need as much of it as you can carry back. Without those supplies, {quest_stakes_the} will suffer.",
+        "plotStep": "We need someone to {quest_action} at {quest_focus_the}. There should be {quest_item} {location_hint} that could help. We need as much of it as you can carry back. Without those supplies, {quest_stakes_human_the} will suffer.",
         "outro": "I know it is a lot to ask. But we are running out of time."
       },
       "objectivePool": [

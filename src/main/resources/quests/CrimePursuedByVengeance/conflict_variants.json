@@ -3,7 +3,7 @@
     {
       "id": "crimevengeance_conf_01",
       "dialogueChunks": {
-        "intro": "{player_name}, your efforts to {quest_action} rattled {quest_threat_the}. They have turned desperate and struck at {quest_stakes_the} again.",
+        "intro": "{player_name}, your efforts to {quest_action} rattled {quest_threat_animate_the}. They have turned desperate and struck at {quest_stakes_the} again.",
         "plotStep": "{quest_ally} confirmed that {enemy_type} are being used as enforcers near {quest_focus_the}. They have been gathering {location_hint}. We need to break through them and cut off the escape route.",
         "outro": "Justice demands we finish this. They cannot be allowed to keep hurting people."
       },
@@ -27,7 +27,7 @@
     {
       "id": "crimevengeance_conf_03",
       "dialogueChunks": {
-        "intro": "{player_name}, {quest_threat_the} left a warning. They know you are coming, and they have fortified their position near {quest_focus_the}.",
+        "intro": "{player_name}, {quest_threat_animate_the} left a warning. They know you are coming, and they have fortified their position near {quest_focus_the}.",
         "plotStep": "{quest_ally} intercepted signs that {enemy_type} are patrolling the approaches {location_hint}. They are daring us to come after them. {quest_stakes_The} will remain at risk until we confront them directly.",
         "outro": "They think they can intimidate us. Prove them wrong."
       },

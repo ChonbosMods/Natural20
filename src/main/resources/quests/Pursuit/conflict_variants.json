@@ -27,7 +27,7 @@
     {
       "id": "pursuit_conf_03",
       "dialogueChunks": {
-        "intro": "{player_name}, I was wrong about how far {quest_threat_the} would go. Since you started to {quest_action}, they have lashed out at {quest_stakes_the} directly.",
+        "intro": "{player_name}, I was wrong about how far {quest_threat_animate_the} would go. Since you started to {quest_action}, they have lashed out at {quest_stakes_the} directly.",
         "plotStep": "It is personal now. {quest_ally} confirmed that {enemy_type} were sent to {quest_focus_the} as a distraction while the real target fled {location_hint}. We need to cut through them and end this.",
         "outro": "End this pursuit once and for all. I am counting on you."
       },

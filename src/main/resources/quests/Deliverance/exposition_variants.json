@@ -3,7 +3,7 @@
     {
       "id": "deliverance_expo_01",
       "dialogueChunks": {
-        "intro": "{player_name}, {quest_threat_the} struck our settlement and dragged off several people. {quest_stakes_The} {quest_stakes_is} being held at {quest_focus_the}.",
+        "intro": "{player_name}, {quest_threat_animate_the} struck our settlement and dragged off several people. {quest_stakes_The} {quest_stakes_is} being held at {quest_focus_the}.",
         "plotStep": "We need to act quickly, before {quest_time_pressure}. {quest_ally} spotted the {enemy_type} guarding the area {location_hint}. Cut through every one of them standing between us and the captives.",
         "outro": "Every moment we wait, those people suffer. Kill anything that moves in that camp: they showed us no mercy either."
       },

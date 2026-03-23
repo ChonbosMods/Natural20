@@ -15,7 +15,7 @@
     {
       "id": "crimevengeance_expo_02",
       "dialogueChunks": {
-        "intro": "Someone targeted us deliberately, {player_name}. {quest_threat_The} sabotaged {quest_focus_the} and now {quest_stakes_the} {quest_stakes_is} paying the price.",
+        "intro": "Someone targeted us deliberately, {player_name}. {quest_threat_animate_The} sabotaged {quest_focus_the} and now {quest_stakes_the} {quest_stakes_is} paying the price.",
         "plotStep": "I will not let this stand. Someone needs to {quest_action} before {quest_time_pressure}. {target_npc} near {quest_focus_the} may have witnessed what happened. Track them down {location_hint} and find out what they know before the trail goes cold.",
         "outro": "This was no accident. This was a crime, and I want the one responsible to answer for it."
       },
@@ -27,7 +27,7 @@
     {
       "id": "crimevengeance_expo_03",
       "dialogueChunks": {
-        "intro": "{player_name}, {quest_threat_the} broke into {quest_focus_the} and took everything of value. This was not random: it was born out of {quest_origin} and aimed straight at {quest_stakes_the}.",
+        "intro": "{player_name}, {quest_threat_animate_the} broke into {quest_focus_the} and took everything of value. This was not random: it was born out of {quest_origin} and aimed straight at {quest_stakes_the}.",
         "plotStep": "I need you to {quest_action}. The trail leads {location_hint}. {quest_ally} says the thieves are still nearby. Track them down and put an end to this: the {enemy_type} they hired will not let you pass quietly.",
         "outro": "Bring back what was taken and there will be {quest_reward_hint} for your trouble. But more importantly, bring back our dignity."
       },

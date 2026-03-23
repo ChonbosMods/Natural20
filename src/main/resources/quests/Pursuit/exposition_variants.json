@@ -3,7 +3,7 @@
     {
       "id": "pursuit_expo_01",
       "dialogueChunks": {
-        "intro": "{player_name}, {quest_threat_the} struck this morning and made off with {quest_focus_the}. The trail is still fresh but it will not last.",
+        "intro": "{player_name}, {quest_threat_animate_the} struck this morning and made off with {quest_focus_the}. The trail is still fresh but it will not last.",
         "plotStep": "I need someone who can {quest_action} before the trail goes cold. {quest_ally} spotted tracks heading {location_hint}. The {enemy_type} that escorted them are still in the area: hunt them down and make sure this does not happen again.",
         "outro": "{quest_stakes_The} {quest_stakes_is} at risk if word spreads that we cannot protect our own."
       },
@@ -15,7 +15,7 @@
     {
       "id": "pursuit_expo_02",
       "dialogueChunks": {
-        "intro": "{player_name}, {quest_threat_the} attacked {quest_stakes_the} at first light and fled before anyone could respond. {quest_focus_The} left signs heading into the wilds.",
+        "intro": "{player_name}, {quest_threat_animate_the} attacked {quest_stakes_the} at first light and fled before anyone could respond. {quest_focus_The} left signs heading into the wilds.",
         "plotStep": "We need to {quest_action} and deal with this before it circles back. The {enemy_type} was last seen {location_hint}. Track them down and eliminate the threat before it returns.",
         "outro": "This must be done before {quest_time_pressure}. The longer we wait, the more dangerous it becomes."
       },

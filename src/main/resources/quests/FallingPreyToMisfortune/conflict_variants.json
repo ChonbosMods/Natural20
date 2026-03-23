@@ -21,7 +21,7 @@
       "id": "misfortune_conf_02",
       "dialogueChunks": {
         "intro": "More misfortune, {player_name}. Your work to {quest_action} was going well until a second wave of {quest_threat_the} undid half your progress.",
-        "plotStep": "{quest_focus_The} {quest_focus_has} been hit again. {quest_ally} managed to salvage some {quest_item}, but we lost most of the stockpile. {quest_stakes_The} {quest_stakes_is} in desperate need of those resources. Gather what you can from {location_hint}.",
+        "plotStep": "{quest_focus_The} {quest_focus_has} been hit again. {quest_ally} managed to salvage some {quest_item}, but we lost most of the stockpile. {quest_stakes_human_The} {quest_stakes_human_is} in desperate need of those resources. Gather what you can from {location_hint}.",
         "outro": "I know this feels like pushing a boulder uphill. But we are close: one more effort."
       },
       "objectivePool": [
