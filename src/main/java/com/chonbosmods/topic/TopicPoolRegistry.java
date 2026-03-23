@@ -37,11 +37,33 @@ public class TopicPoolRegistry {
     private final List<String> localComplaints = new ArrayList<>();
     private final List<String> travelerNews = new ArrayList<>();
 
+    // Fragment pools: Layer 0 (new topic-matched)
+    private final List<String> weatherObservations = new ArrayList<>();
+    private final List<String> craftObservations = new ArrayList<>();
+    private final List<String> communityObservations = new ArrayList<>();
+    private final List<String> natureObservations = new ArrayList<>();
+    private final List<String> nostalgiaObservations = new ArrayList<>();
+    private final List<String> curiosityObservations = new ArrayList<>();
+    private final List<String> festivalObservations = new ArrayList<>();
+    private final List<String> treasureRumors = new ArrayList<>();
+    private final List<String> conflictRumors = new ArrayList<>();
+
     // Fragment pools: Layer 1
     private final List<String> creatureDetails = new ArrayList<>();
     private final List<String> eventDetails = new ArrayList<>();
     private final List<String> tradeDetails = new ArrayList<>();
     private final List<String> locationDetails = new ArrayList<>();
+
+    // Fragment pools: Layer 1 (new topic-matched)
+    private final List<String> weatherDetails = new ArrayList<>();
+    private final List<String> craftDetails = new ArrayList<>();
+    private final List<String> communityDetails = new ArrayList<>();
+    private final List<String> natureDetails = new ArrayList<>();
+    private final List<String> nostalgiaDetails = new ArrayList<>();
+    private final List<String> curiosityDetails = new ArrayList<>();
+    private final List<String> festivalDetails = new ArrayList<>();
+    private final List<String> treasureDetails = new ArrayList<>();
+    private final List<String> conflictDetails = new ArrayList<>();
 
     // Fragment pools: Layer 2
     private final List<String> localOpinions = new ArrayList<>();
@@ -72,11 +94,33 @@ public class TopicPoolRegistry {
         loadStringPoolFromClasspath(CLASSPATH_PREFIX + "local_complaints.json", localComplaints);
         loadStringPoolFromClasspath(CLASSPATH_PREFIX + "traveler_news.json", travelerNews);
 
+        // Fragment pools: Layer 0 (new topic-matched)
+        loadStringPoolFromClasspath(CLASSPATH_PREFIX + "weather_observations.json", weatherObservations);
+        loadStringPoolFromClasspath(CLASSPATH_PREFIX + "craft_observations.json", craftObservations);
+        loadStringPoolFromClasspath(CLASSPATH_PREFIX + "community_observations.json", communityObservations);
+        loadStringPoolFromClasspath(CLASSPATH_PREFIX + "nature_observations.json", natureObservations);
+        loadStringPoolFromClasspath(CLASSPATH_PREFIX + "nostalgia_observations.json", nostalgiaObservations);
+        loadStringPoolFromClasspath(CLASSPATH_PREFIX + "curiosity_observations.json", curiosityObservations);
+        loadStringPoolFromClasspath(CLASSPATH_PREFIX + "festival_observations.json", festivalObservations);
+        loadStringPoolFromClasspath(CLASSPATH_PREFIX + "treasure_rumors.json", treasureRumors);
+        loadStringPoolFromClasspath(CLASSPATH_PREFIX + "conflict_rumors.json", conflictRumors);
+
         // Fragment pools: Layer 1
         loadStringPoolFromClasspath(CLASSPATH_PREFIX + "creature_details.json", creatureDetails);
         loadStringPoolFromClasspath(CLASSPATH_PREFIX + "event_details.json", eventDetails);
         loadStringPoolFromClasspath(CLASSPATH_PREFIX + "trade_details.json", tradeDetails);
         loadStringPoolFromClasspath(CLASSPATH_PREFIX + "location_details.json", locationDetails);
+
+        // Fragment pools: Layer 1 (new topic-matched)
+        loadStringPoolFromClasspath(CLASSPATH_PREFIX + "weather_details.json", weatherDetails);
+        loadStringPoolFromClasspath(CLASSPATH_PREFIX + "craft_details.json", craftDetails);
+        loadStringPoolFromClasspath(CLASSPATH_PREFIX + "community_details.json", communityDetails);
+        loadStringPoolFromClasspath(CLASSPATH_PREFIX + "nature_details.json", natureDetails);
+        loadStringPoolFromClasspath(CLASSPATH_PREFIX + "nostalgia_details.json", nostalgiaDetails);
+        loadStringPoolFromClasspath(CLASSPATH_PREFIX + "curiosity_details.json", curiosityDetails);
+        loadStringPoolFromClasspath(CLASSPATH_PREFIX + "festival_details.json", festivalDetails);
+        loadStringPoolFromClasspath(CLASSPATH_PREFIX + "treasure_details.json", treasureDetails);
+        loadStringPoolFromClasspath(CLASSPATH_PREFIX + "conflict_details.json", conflictDetails);
 
         // Fragment pools: Layer 2
         loadStringPoolFromClasspath(CLASSPATH_PREFIX + "local_opinions.json", localOpinions);
@@ -107,11 +151,33 @@ public class TopicPoolRegistry {
             loadStringPool(poolsDir.resolve("local_complaints.json"), localComplaints);
             loadStringPool(poolsDir.resolve("traveler_news.json"), travelerNews);
 
+            // Fragment pools: Layer 0 (new topic-matched)
+            loadStringPool(poolsDir.resolve("weather_observations.json"), weatherObservations);
+            loadStringPool(poolsDir.resolve("craft_observations.json"), craftObservations);
+            loadStringPool(poolsDir.resolve("community_observations.json"), communityObservations);
+            loadStringPool(poolsDir.resolve("nature_observations.json"), natureObservations);
+            loadStringPool(poolsDir.resolve("nostalgia_observations.json"), nostalgiaObservations);
+            loadStringPool(poolsDir.resolve("curiosity_observations.json"), curiosityObservations);
+            loadStringPool(poolsDir.resolve("festival_observations.json"), festivalObservations);
+            loadStringPool(poolsDir.resolve("treasure_rumors.json"), treasureRumors);
+            loadStringPool(poolsDir.resolve("conflict_rumors.json"), conflictRumors);
+
             // Fragment pools: Layer 1
             loadStringPool(poolsDir.resolve("creature_details.json"), creatureDetails);
             loadStringPool(poolsDir.resolve("event_details.json"), eventDetails);
             loadStringPool(poolsDir.resolve("trade_details.json"), tradeDetails);
             loadStringPool(poolsDir.resolve("location_details.json"), locationDetails);
+
+            // Fragment pools: Layer 1 (new topic-matched)
+            loadStringPool(poolsDir.resolve("weather_details.json"), weatherDetails);
+            loadStringPool(poolsDir.resolve("craft_details.json"), craftDetails);
+            loadStringPool(poolsDir.resolve("community_details.json"), communityDetails);
+            loadStringPool(poolsDir.resolve("nature_details.json"), natureDetails);
+            loadStringPool(poolsDir.resolve("nostalgia_details.json"), nostalgiaDetails);
+            loadStringPool(poolsDir.resolve("curiosity_details.json"), curiosityDetails);
+            loadStringPool(poolsDir.resolve("festival_details.json"), festivalDetails);
+            loadStringPool(poolsDir.resolve("treasure_details.json"), treasureDetails);
+            loadStringPool(poolsDir.resolve("conflict_details.json"), conflictDetails);
 
             // Fragment pools: Layer 2
             loadStringPool(poolsDir.resolve("local_opinions.json"), localOpinions);
@@ -322,6 +388,53 @@ public class TopicPoolRegistry {
         return travelerNews.get(random.nextInt(travelerNews.size()));
     }
 
+    // --- Fragment pool accessors: Layer 0 (new topic-matched) ---
+
+    public String randomWeatherObservation(Random random) {
+        if (weatherObservations.isEmpty()) return "the weather has been unpredictable lately";
+        return weatherObservations.get(random.nextInt(weatherObservations.size()));
+    }
+
+    public String randomCraftObservation(Random random) {
+        if (craftObservations.isEmpty()) return "the workshop has been busy";
+        return craftObservations.get(random.nextInt(craftObservations.size()));
+    }
+
+    public String randomCommunityObservation(Random random) {
+        if (communityObservations.isEmpty()) return "people have been talking";
+        return communityObservations.get(random.nextInt(communityObservations.size()));
+    }
+
+    public String randomNatureObservation(Random random) {
+        if (natureObservations.isEmpty()) return "the wilds have been restless";
+        return natureObservations.get(random.nextInt(natureObservations.size()));
+    }
+
+    public String randomNostalgiaObservation(Random random) {
+        if (nostalgiaObservations.isEmpty()) return "things were different before";
+        return nostalgiaObservations.get(random.nextInt(nostalgiaObservations.size()));
+    }
+
+    public String randomCuriosityObservation(Random random) {
+        if (curiosityObservations.isEmpty()) return "something odd has been happening";
+        return curiosityObservations.get(random.nextInt(curiosityObservations.size()));
+    }
+
+    public String randomFestivalObservation(Random random) {
+        if (festivalObservations.isEmpty()) return "there is talk of a celebration";
+        return festivalObservations.get(random.nextInt(festivalObservations.size()));
+    }
+
+    public String randomTreasureRumor(Random random) {
+        if (treasureRumors.isEmpty()) return "someone found something valuable out there";
+        return treasureRumors.get(random.nextInt(treasureRumors.size()));
+    }
+
+    public String randomConflictRumor(Random random) {
+        if (conflictRumors.isEmpty()) return "tensions have been rising between neighbors";
+        return conflictRumors.get(random.nextInt(conflictRumors.size()));
+    }
+
     // --- Fragment pool accessors: Layer 1 ---
 
     public String randomCreatureDetail(Random random) {
@@ -342,6 +455,53 @@ public class TopicPoolRegistry {
     public String randomLocationDetail(Random random) {
         if (locationDetails.isEmpty()) return "Somewhere out past the settlement, that's all I know.";
         return locationDetails.get(random.nextInt(locationDetails.size()));
+    }
+
+    // --- Fragment pool accessors: Layer 1 (new topic-matched) ---
+
+    public String randomWeatherDetail(Random random) {
+        if (weatherDetails.isEmpty()) return "It has been like this for days.";
+        return weatherDetails.get(random.nextInt(weatherDetails.size()));
+    }
+
+    public String randomCraftDetail(Random random) {
+        if (craftDetails.isEmpty()) return "The work goes on, one way or another.";
+        return craftDetails.get(random.nextInt(craftDetails.size()));
+    }
+
+    public String randomCommunityDetail(Random random) {
+        if (communityDetails.isEmpty()) return "People have their opinions.";
+        return communityDetails.get(random.nextInt(communityDetails.size()));
+    }
+
+    public String randomNatureDetail(Random random) {
+        if (natureDetails.isEmpty()) return "The wilds are full of surprises.";
+        return natureDetails.get(random.nextInt(natureDetails.size()));
+    }
+
+    public String randomNostalgiaDetail(Random random) {
+        if (nostalgiaDetails.isEmpty()) return "Times change whether we want them to or not.";
+        return nostalgiaDetails.get(random.nextInt(nostalgiaDetails.size()));
+    }
+
+    public String randomCuriosityDetail(Random random) {
+        if (curiosityDetails.isEmpty()) return "Nobody seems to have an explanation.";
+        return curiosityDetails.get(random.nextInt(curiosityDetails.size()));
+    }
+
+    public String randomFestivalDetail(Random random) {
+        if (festivalDetails.isEmpty()) return "The preparations are well underway.";
+        return festivalDetails.get(random.nextInt(festivalDetails.size()));
+    }
+
+    public String randomTreasureDetail(Random random) {
+        if (treasureDetails.isEmpty()) return "That is all I know about it.";
+        return treasureDetails.get(random.nextInt(treasureDetails.size()));
+    }
+
+    public String randomConflictDetail(Random random) {
+        if (conflictDetails.isEmpty()) return "It is a delicate situation.";
+        return conflictDetails.get(random.nextInt(conflictDetails.size()));
     }
 
     // --- Fragment pool accessors: Layer 2 ---
