@@ -4,62 +4,37 @@
       "id": "rivalry_expo_01",
       "dialogueChunks": {
         "intro": "Two of our most respected figures are at each other's throats, {player_name}. {quest_ally} and {target_npc} both believe they should lead, and neither will yield.",
-        "plotStep": "Both have their supporters, and the {quest_focus} has split the community down the middle. The {enemy_type} have taken note of our distraction: raids are increasing near {location_hint} while we bicker.",
-        "outro": "Someone outside the dispute needs to act while our leaders compete. Will you handle the real threats while we sort out the {quest_stakes}?"
+        "plotStep": "Both have their supporters, and the {quest_focus} has split the community down the middle. People are choosing sides instead of working together, and the {quest_threat} is getting worse because of it.",
+        "outro": "Someone outside the dispute needs to talk sense into both of them. Speak with {quest_ally} and {target_npc} separately: find out what it would take for each to stand down before the {quest_stakes} suffer any further."
       },
       "objectivePool": [
-        "KILL_MOBS",
-        "EXPLORE_LOCATION",
         "TALK_TO_NPC"
       ],
-      "objectiveConfig": {
-        "KILL_MOBS": {
-          "countMin": 3,
-          "countMax": 8
-        }
-      }
+      "objectiveConfig": {}
     },
     {
       "id": "rivalry_expo_02",
       "dialogueChunks": {
         "intro": "Two of our artisans have been feuding for months, {player_name}. It has gotten so bad that {quest_ally} refuses to work on the same projects as {target_npc}.",
-        "plotStep": "Both claim superiority and they have dragged the whole settlement into their rivalry over the {quest_focus}. Now they have proposed a challenge, and both are looking for outside help to gather {quest_item} from {location_hint}.",
-        "outro": "It is petty, but it is disrupting everything. If you gather the materials they need, we might end the {quest_threat} and get our people cooperating again. {quest_reward_hint} is on the table."
+        "plotStep": "Both claim superiority and they have dragged the whole settlement into their rivalry over the {quest_focus}. The people caught between them are exhausted by the constant bickering, and the {quest_threat} grows while productivity stalls.",
+        "outro": "Talk to the people who work under both of them. If enough of the settlement speaks with one voice, even these two might listen. {quest_reward_hint} is on the table if you can broker a truce."
       },
       "objectivePool": [
-        "GATHER_ITEMS",
-        "EXPLORE_LOCATION",
-        "DELIVER_ITEM"
+        "TALK_TO_NPC"
       ],
-      "objectiveConfig": {
-        "GATHER_ITEMS": {
-          "countMin": 5,
-          "countMax": 16
-        }
-      }
+      "objectiveConfig": {}
     },
     {
       "id": "rivalry_expo_03",
       "dialogueChunks": {
-        "intro": "{quest_ally} challenged {target_npc} to a contest: who can clear more {enemy_type} from the land around {location_hint}. What started as bravado has become dangerously reckless.",
-        "plotStep": "Both are taking bigger risks to outdo the other, venturing deeper into hostile territory. The {quest_focus} has become less about protecting the settlement and more about pride. Someone is going to get killed {quest_time_pressure}.",
-        "outro": "I need someone out there who can actually thin the numbers while keeping those two from getting themselves killed. {player_name}, are you up for it?"
+        "intro": "{quest_ally} challenged {target_npc} to a contest over the {quest_focus}, and what started as bravado has become dangerously reckless, {player_name}.",
+        "plotStep": "Both are taking bigger risks to outdo the other, and the settlement is egging them on instead of pulling them back. The {quest_threat} {quest_threat_has} turned what should be cooperation into a spectacle {quest_time_pressure}.",
+        "outro": "Talk to {target_npc} and the people closest to both rivals. Someone has to break through the pride before this contest costs us something we cannot replace."
       },
       "objectivePool": [
-        "KILL_MOBS",
-        "EXPLORE_LOCATION",
-        "GATHER_ITEMS"
+        "TALK_TO_NPC"
       ],
-      "objectiveConfig": {
-        "KILL_MOBS": {
-          "countMin": 5,
-          "countMax": 10
-        },
-        "GATHER_ITEMS": {
-          "countMin": 3,
-          "countMax": 8
-        }
-      }
+      "objectiveConfig": {}
     }
   ]
 }

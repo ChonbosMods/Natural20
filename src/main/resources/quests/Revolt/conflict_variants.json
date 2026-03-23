@@ -8,8 +8,7 @@
         "outro": "The revolution lives or dies on what happens next. We need you out there."
       },
       "objectivePool": [
-        "KILL_MOBS",
-        "EXPLORE_LOCATION"
+        "KILL_MOBS"
       ],
       "objectiveConfig": {
         "KILL_MOBS": {
@@ -22,22 +21,16 @@
       "id": "revolt_conf_02",
       "dialogueChunks": {
         "intro": "The crackdown came, {player_name}. After you helped us {quest_action}, the {quest_threat} retaliated against the {quest_stakes} directly.",
-        "plotStep": "{quest_ally} is rallying supporters, but we need weapons and resources. The {enemy_type} seized a cache near the {quest_focus}: it is {location_hint}. Recover {quest_item} from them and break their hold.",
+        "plotStep": "{quest_ally} is rallying supporters, but the {enemy_type} seized a cache near the {quest_focus}: it is {location_hint}. Fight through them and break their hold on the area.",
         "outro": "Every blow against them strengthens our resolve. We cannot stop now."
       },
       "objectivePool": [
-        "KILL_MOBS",
-        "GATHER_ITEMS",
-        "EXPLORE_LOCATION"
+        "KILL_MOBS"
       ],
       "objectiveConfig": {
         "KILL_MOBS": {
           "countMin": 4,
           "countMax": 8
-        },
-        "GATHER_ITEMS": {
-          "countMin": 4,
-          "countMax": 10
         }
       }
     },
@@ -49,9 +42,7 @@
         "outro": "Betrayal stings, but the cause is bigger than one traitor. Help us survive this."
       },
       "objectivePool": [
-        "KILL_MOBS",
-        "EXPLORE_LOCATION",
-        "KILL_NPC"
+        "KILL_MOBS"
       ],
       "objectiveConfig": {
         "KILL_MOBS": {
