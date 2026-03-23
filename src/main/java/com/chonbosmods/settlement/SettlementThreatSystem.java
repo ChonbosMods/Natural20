@@ -90,10 +90,12 @@ public class SettlementThreatSystem extends DamageEventSystem {
                                 int current = npcData.getDefaultDisposition();
                                 int updated = Math.max(DISPOSITION_FLOOR, current + DISPOSITION_PER_HIT);
                                 npcData.setDefaultDisposition(updated);
+                                npcRecord.setDisposition(updated);
                             }
                         }
                     }
                 }
+                registry.saveAsync();
             }
         }
 

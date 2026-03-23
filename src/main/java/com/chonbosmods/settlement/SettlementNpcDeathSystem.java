@@ -96,6 +96,9 @@ public class SettlementNpcDeathSystem extends DamageEventSystem {
             return;
         }
 
+        // Persist current NPC state to record before death
+        syncNpcDataToRecord(npcData, npcRecord);
+
         // Mark dead: clear entity UUID
         npcRecord.setEntityUUID(null);
         registry.saveAsync();
@@ -131,5 +134,11 @@ public class SettlementNpcDeathSystem extends DamageEventSystem {
                 LOGGER.atSevere().withCause(e).log("Error scheduling world-thread respawn for " + name);
             }
         }, RESPAWN_DELAY_SECONDS, TimeUnit.SECONDS);
+    }
+
+    private void syncNpcDataToRecord(Nat20NpcData npcData, NpcRecord record) {
+        record.setDisposition(npcData.getDefaultDisposition());
+        record.setDialogueState(npcData.getDialogueState());
+        record.setFlags(npcData.getFlags());
     }
 }
