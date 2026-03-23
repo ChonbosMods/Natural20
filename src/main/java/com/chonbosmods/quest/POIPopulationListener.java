@@ -98,17 +98,20 @@ public class POIPopulationListener {
             );
             Vector3f rotation = new Vector3f(0, (float)(rng.nextDouble() * 2 - 1), 0);
 
-            // Pre-compute model with explicit scale to avoid ModelComponent scale=0 crash on chunk reload
-            com.hypixel.hytale.protocol.PlayerSkin skin =
-                com.hypixel.hytale.server.core.cosmetics.CosmeticsModule.get().generateRandomSkin(rng);
-            com.hypixel.hytale.server.core.asset.type.model.config.Model model =
-                com.hypixel.hytale.server.core.cosmetics.CosmeticsModule.get().createModel(skin, 1.0f);
-
             Pair<Ref<EntityStore>, NPCEntity> result =
-                NPCPlugin.get().spawnEntity(store, roleIndex, spawnPos, rotation, model, null);
+                NPCPlugin.get().spawnEntity(store, roleIndex, spawnPos, rotation, null, null);
 
             if (result != null) {
+                Ref<EntityStore> npcRef = result.first();
                 NPCEntity npcEntity = result.second();
+
+                // Remove ModelComponent to prevent scale=0 crash on chunk reload.
+                // The role's model config still drives rendering at runtime.
+                try {
+                    store.removeComponentIfExists(npcRef,
+                        com.hypixel.hytale.server.core.modules.entity.model.ModelComponent.getComponentType());
+                } catch (Exception ignored) {}
+
                 spawnedUUIDs.add(npcEntity.getUuid().toString());
                 LOGGER.atInfo().log("  Spawned %s at (%.0f, %.0f, %.0f) UUID=%s",
                     pop.mobRole(), spawnPos.getX(), spawnPos.getY(), spawnPos.getZ(),
