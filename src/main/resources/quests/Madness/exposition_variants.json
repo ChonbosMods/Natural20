@@ -17,21 +17,21 @@
     {
       "id": "madness_expo_02",
       "dialogueChunks": {
-        "intro": "Half the settlement has been afflicted, {player_name}. {quest_focus_The} struck without warning, and {quest_threat_the} {quest_threat_is} spreading faster than we can understand.",
+        "intro": "Half the settlement has been afflicted, {player_name}. Something at {quest_focus_the} struck without warning, and {quest_threat_the} {quest_threat_is} spreading faster than we can understand.",
         "plotStep": "{quest_ally} is one of the affected. They describe identical visions across every victim. This is not coincidence: something near {location_hint} is projecting this. Even the {enemy_type} in the area have been behaving erratically.",
         "outro": "People are terrified. We need to find what is causing {quest_threat_the} and put an end to it before the whole settlement falls apart."
       },
       "objectivePool": [
         "EXPLORE_LOCATION",
         "KILL_MOBS",
-        "GATHER_ITEMS"
+        "COLLECT_RESOURCES"
       ],
       "objectiveConfig": {
         "KILL_MOBS": {
           "countMin": 3,
           "countMax": 7
         },
-        "GATHER_ITEMS": {
+        "COLLECT_RESOURCES": {
           "countMin": 3,
           "countMax": 8
         }
@@ -45,12 +45,12 @@
         "outro": "{quest_focus_The} {quest_focus_is} still out there, lost to {quest_threat_the}. Find the source and bring back what {target_npc} needs. {quest_reward_hint} awaits if you succeed."
       },
       "objectivePool": [
-        "GATHER_ITEMS",
+        "COLLECT_RESOURCES",
         "EXPLORE_LOCATION",
         "KILL_MOBS"
       ],
       "objectiveConfig": {
-        "GATHER_ITEMS": {
+        "COLLECT_RESOURCES": {
           "countMin": 5,
           "countMax": 12
         },

@@ -16,7 +16,7 @@
       "id": "expo_discovery_dishonor_02",
       "dialogueChunks": {
         "intro": "Every child in this settlement grows up hearing about a great deed and the hero who saved us, {player_name}. I just learned that story is a lie.",
-        "plotStep": "The 'hero' didn't rally the defenders. {quest_focus_The} {quest_focus_is} that they fled and hid while others fought and died. They came out afterward and claimed the victory. The real defenders were dead and couldn't contradict the story. Now that person holds power, revered and untouchable.",
+        "plotStep": "The 'hero' didn't rally the defenders. The truth about {quest_focus_the} {quest_focus_is} that they fled and hid while others fought and died. They came out afterward and claimed the victory. The real defenders were dead and couldn't contradict the story. Now that person holds power, revered and untouchable.",
         "outro": "{target_npc} was there that day and survived. Find them {location_hint} and get their testimony before this person's false reputation lets them make decisions that cost more lives. Someone needs to {quest_action}."
       },
       "objectivePool": ["TALK_TO_NPC"],
