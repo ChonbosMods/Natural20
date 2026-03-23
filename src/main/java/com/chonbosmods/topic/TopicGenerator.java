@@ -326,11 +326,33 @@ public class TopicGenerator {
         bindings.put("local_complaint", topicPool.randomLocalComplaint(random));
         bindings.put("traveler_news", topicPool.randomTravelerNews(random));
 
+        // Fragment pool bindings: Layer 0 (new topic-matched)
+        bindings.put("weather_observation", topicPool.randomWeatherObservation(random));
+        bindings.put("craft_observation", topicPool.randomCraftObservation(random));
+        bindings.put("community_observation", topicPool.randomCommunityObservation(random));
+        bindings.put("nature_observation", topicPool.randomNatureObservation(random));
+        bindings.put("nostalgia_observation", topicPool.randomNostalgiaObservation(random));
+        bindings.put("curiosity_observation", topicPool.randomCuriosityObservation(random));
+        bindings.put("festival_observation", topicPool.randomFestivalObservation(random));
+        bindings.put("treasure_rumor", topicPool.randomTreasureRumor(random));
+        bindings.put("conflict_rumor", topicPool.randomConflictRumor(random));
+
         // Fragment pool bindings: Layer 1
         bindings.put("creature_detail", topicPool.randomCreatureDetail(random));
         bindings.put("event_detail", topicPool.randomEventDetail(random));
         bindings.put("trade_detail", topicPool.randomTradeDetail(random));
         bindings.put("location_detail", topicPool.randomLocationDetail(random));
+
+        // Fragment pool bindings: Layer 1 (new topic-matched)
+        bindings.put("weather_detail", topicPool.randomWeatherDetail(random));
+        bindings.put("craft_detail", topicPool.randomCraftDetail(random));
+        bindings.put("community_detail", topicPool.randomCommunityDetail(random));
+        bindings.put("nature_detail", topicPool.randomNatureDetail(random));
+        bindings.put("nostalgia_detail", topicPool.randomNostalgiaDetail(random));
+        bindings.put("curiosity_detail", topicPool.randomCuriosityDetail(random));
+        bindings.put("festival_detail", topicPool.randomFestivalDetail(random));
+        bindings.put("treasure_detail", topicPool.randomTreasureDetail(random));
+        bindings.put("conflict_detail", topicPool.randomConflictDetail(random));
 
         // Fragment pool bindings: Layer 2
         bindings.put("local_opinion", topicPool.randomLocalOpinion(random));
