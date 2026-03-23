@@ -98,8 +98,14 @@ public class POIPopulationListener {
             );
             Vector3f rotation = new Vector3f(0, (float)(rng.nextDouble() * 2 - 1), 0);
 
+            // Pre-compute model with explicit scale to avoid ModelComponent scale=0 crash on chunk reload
+            com.hypixel.hytale.protocol.PlayerSkin skin =
+                com.hypixel.hytale.server.core.cosmetics.CosmeticsModule.get().generateRandomSkin(rng);
+            com.hypixel.hytale.server.core.asset.type.model.config.Model model =
+                com.hypixel.hytale.server.core.cosmetics.CosmeticsModule.get().createModel(skin, 1.0f);
+
             Pair<Ref<EntityStore>, NPCEntity> result =
-                NPCPlugin.get().spawnEntity(store, roleIndex, spawnPos, rotation, null, null);
+                NPCPlugin.get().spawnEntity(store, roleIndex, spawnPos, rotation, model, null);
 
             if (result != null) {
                 NPCEntity npcEntity = result.second();
