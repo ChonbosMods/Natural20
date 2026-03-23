@@ -86,25 +86,7 @@ public class TopicGraphBuilder {
         List<ResponseOption> entryResponses = new ArrayList<>();
 
         // Exploratory branches
-        List<TopicTemplate.FollowUp> exploratories = perspective.exploratories();
-        for (int i = 0; i < exploratories.size(); i++) {
-            TopicTemplate.FollowUp followUp = exploratories.get(i);
-            String expNodeId = subjectId + "_exp_" + i;
-            String responseId = subjectId + "_resp_exp_" + i;
-
-            String prompt = DialogueResolver.resolve(followUp.prompt(), bindings);
-            String response = DialogueResolver.resolve(followUp.response(), bindings);
-
-            // Child dialogue node: leaf with no responses (returnCheck handles return)
-            nodes.put(expNodeId, new DialogueNode.DialogueTextNode(
-                response, List.of(), List.of(), false, false
-            ));
-
-            entryResponses.add(new ResponseOption(
-                responseId, prompt, expNodeId,
-                ResponseMode.EXPLORATORY, null, null, null, null
-            ));
-        }
+        buildExploratories(perspective.exploratories(), subjectId, "", bindings, nodes, entryResponses);
 
         // Decisive branch
         TopicTemplate.FollowUp decisive = perspective.decisive();
@@ -198,8 +180,8 @@ public class TopicGraphBuilder {
         String recapText;
         if (decisive != null) {
             recapText = DialogueResolver.resolve(decisive.response(), bindings);
-        } else if (!exploratories.isEmpty()) {
-            TopicTemplate.FollowUp lastExp = exploratories.getLast();
+        } else if (!perspective.exploratories().isEmpty()) {
+            TopicTemplate.FollowUp lastExp = perspective.exploratories().getLast();
             recapText = DialogueResolver.resolve(lastExp.response(), bindings);
         } else {
             recapText = introText;
@@ -217,6 +199,47 @@ public class TopicGraphBuilder {
             recapText,
             assignment.hasQuest()
         ));
+    }
+
+    /**
+     * Recursively build exploratory nodes and responses.
+     * Each exploratory creates a dialogue node. If it has child exploratories,
+     * those become response options on that node instead of it being a leaf.
+     */
+    private void buildExploratories(
+            List<TopicTemplate.FollowUp> exploratories,
+            String subjectId,
+            String prefix,
+            Map<String, String> bindings,
+            Map<String, DialogueNode> nodes,
+            List<ResponseOption> parentResponses
+    ) {
+        for (int i = 0; i < exploratories.size(); i++) {
+            TopicTemplate.FollowUp followUp = exploratories.get(i);
+            String expNodeId = subjectId + "_exp" + prefix + "_" + i;
+            String responseId = subjectId + "_resp_exp" + prefix + "_" + i;
+
+            String prompt = DialogueResolver.resolve(followUp.prompt(), bindings);
+            String response = DialogueResolver.resolve(followUp.response(), bindings);
+
+            List<ResponseOption> childResponses = new ArrayList<>();
+            if (!followUp.exploratories().isEmpty()) {
+                // Recurse: this node gets child response options
+                buildExploratories(
+                    followUp.exploratories(), subjectId, prefix + "_" + i,
+                    bindings, nodes, childResponses
+                );
+            }
+
+            nodes.put(expNodeId, new DialogueNode.DialogueTextNode(
+                response, childResponses, List.of(), false, false
+            ));
+
+            parentResponses.add(new ResponseOption(
+                responseId, prompt, expNodeId,
+                ResponseMode.EXPLORATORY, null, null, null, null
+            ));
+        }
     }
 
     private static String capitalizeFirst(String text) {
