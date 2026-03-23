@@ -190,6 +190,32 @@ public class Nat20NpcManager {
     }
 
     /**
+     * Reattach custom components to a surviving NPC entity that lost them on chunk reload.
+     * Preserves the entity UUID (no respawn needed).
+     *
+     * @param store    the entity store
+     * @param npcRef   the existing entity reference
+     * @param record   the NpcRecord with identity/state data
+     * @param cellKey  the settlement cell key
+     * @return true if reattach succeeded
+     */
+    public boolean reattachNpc(Store<EntityStore> store, Ref<EntityStore> npcRef,
+                                NpcRecord record, String cellKey) {
+        NPCEntity npcEntity = store.getComponent(npcRef, NPCEntity.getComponentType());
+        if (npcEntity == null) {
+            LOGGER.atWarning().log("Cannot reattach: entity has no NPCEntity component for %s",
+                record.getGeneratedName());
+            return false;
+        }
+
+        applyNpcComponents(store, npcRef, npcEntity, record, cellKey);
+
+        LOGGER.atInfo().log("Reattached components to %s (%s) UUID %s",
+            record.getGeneratedName(), record.getRole(), record.getEntityUUID());
+        return true;
+    }
+
+    /**
      * Apply all custom components to an NPC entity from its NpcRecord.
      * Used by spawn, respawn, and reattach flows.
      */
