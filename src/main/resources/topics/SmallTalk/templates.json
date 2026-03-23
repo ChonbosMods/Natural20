@@ -105,7 +105,7 @@
           "exploratories": [
             {
               "prompt": "What is driving that?",
-              "response": "{time_ref}. {trade_detail}",
+              "response": "{trade_detail}",
               "exploratories": [
                 {
                   "prompt": "Who benefits most from that?",
@@ -201,7 +201,7 @@
           "exploratories": [
             {
               "prompt": "What are you working on?",
-              "response": "{time_ref}. {craft_detail}",
+              "response": "{craft_detail}",
               "exploratories": [
                 {
                   "prompt": "Is there much competition among the crafters?",
@@ -297,7 +297,7 @@
           "exploratories": [
             {
               "prompt": "What started it?",
-              "response": "{time_ref}. {community_detail}",
+              "response": "{community_detail}",
               "exploratories": [
                 {
                   "prompt": "Where do you stand on it?",
@@ -393,7 +393,7 @@
           "exploratories": [
             {
               "prompt": "What did you see out there?",
-              "response": "{time_ref}. {nature_detail}",
+              "response": "{nature_detail}",
               "exploratories": [
                 {
                   "prompt": "What do people make of it?",
@@ -585,7 +585,7 @@
           "exploratories": [
             {
               "prompt": "What got you thinking about it?",
-              "response": "{time_ref}. {curiosity_detail}",
+              "response": "{curiosity_detail}",
               "exploratories": [
                 {
                   "prompt": "Has anyone else noticed?",
@@ -681,7 +681,7 @@
           "exploratories": [
             {
               "prompt": "What kind of celebration is it?",
-              "response": "{time_ref}. {festival_detail}",
+              "response": "{festival_detail}",
               "exploratories": [
                 {
                   "prompt": "Does the settlement look forward to it?",
