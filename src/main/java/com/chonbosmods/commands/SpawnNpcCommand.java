@@ -15,7 +15,6 @@ import com.hypixel.hytale.server.core.command.system.basecommands.AbstractPlayer
 import com.hypixel.hytale.server.core.asset.type.model.config.Model;
 import com.hypixel.hytale.server.core.cosmetics.CosmeticsModule;
 import com.hypixel.hytale.server.core.entity.nameplate.Nameplate;
-import com.hypixel.hytale.server.core.modules.entity.component.ModelComponent;
 import com.hypixel.hytale.server.core.modules.entity.component.TransformComponent;
 import com.hypixel.hytale.server.core.modules.entity.player.PlayerSkinComponent;
 import com.hypixel.hytale.server.core.universe.PlayerRef;
@@ -27,6 +26,7 @@ import it.unimi.dsi.fastutil.Pair;
 
 import javax.annotation.Nonnull;
 import java.util.Map;
+import java.util.Objects;
 import java.util.Random;
 
 public class SpawnNpcCommand extends AbstractPlayerCommand {
@@ -83,8 +83,15 @@ public class SpawnNpcCommand extends AbstractPlayerCommand {
         Vector3d spawnPos = new Vector3d(pos.getX() + 2, pos.getY(), pos.getZ());
         Vector3f rotation = new Vector3f(0, 0, 0);
 
+        // Pre-compute skin/model so we can pass Model to spawnEntity
+        // (avoids ModelComponent scale=0 crash on chunk reload)
+        String preName = Nat20NameGenerator.generate(Objects.hash(roleName, System.nanoTime()));
+        Random rng = new Random(preName.hashCode());
+        com.hypixel.hytale.protocol.PlayerSkin skin = CosmeticsModule.get().generateRandomSkin(rng);
+        Model model = CosmeticsModule.get().createModel(skin, 1.0f);
+
         Pair<Ref<EntityStore>, NPCEntity> result =
-            NPCPlugin.get().spawnEntity(store, roleIndex, spawnPos, rotation, null, null);
+            NPCPlugin.get().spawnEntity(store, roleIndex, spawnPos, rotation, model, null);
 
         if (result != null) {
             Ref<EntityStore> npcRef = result.first();
@@ -100,16 +107,9 @@ public class SpawnNpcCommand extends AbstractPlayerCommand {
             String displayName = name + " the " + formatDisplayRole(roleName);
             store.putComponent(npcRef, Nameplate.getComponentType(), new Nameplate(displayName));
 
-            // Apply random skin for unique appearance
-            Random rng = new Random(name.hashCode());
-            com.hypixel.hytale.protocol.PlayerSkin skin = CosmeticsModule.get().generateRandomSkin(rng);
+            // Apply skin component (model already set via spawnEntity)
             store.putComponent(npcRef, PlayerSkinComponent.getComponentType(),
                     new PlayerSkinComponent(skin));
-            Model model = CosmeticsModule.get().createModel(skin, 1.0f);
-            if (model != null) {
-                store.putComponent(npcRef, ModelComponent.getComponentType(),
-                        new ModelComponent(model));
-            }
 
             context.sendMessage(Message.raw("Spawned " + displayName + " at " +
                 (int) spawnPos.getX() + ", " + (int) spawnPos.getY() + ", " + (int) spawnPos.getZ()));

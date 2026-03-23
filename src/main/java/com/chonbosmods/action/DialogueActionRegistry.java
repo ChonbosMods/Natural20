@@ -1,10 +1,17 @@
 package com.chonbosmods.action;
 
 import com.chonbosmods.Natural20;
+import com.chonbosmods.cave.CaveVoidRecord;
+import com.chonbosmods.cave.CaveVoidRegistry;
+import com.chonbosmods.quest.POIPopulationListener;
 import com.chonbosmods.quest.QuestSystem;
 import com.chonbosmods.quest.QuestInstance;
+import com.hypixel.hytale.component.Ref;
 import com.google.common.flogger.FluentLogger;
+import com.hypixel.hytale.component.Store;
 import com.hypixel.hytale.server.core.Message;
+import com.hypixel.hytale.server.core.universe.world.World;
+import com.hypixel.hytale.server.core.universe.world.storage.EntityStore;
 
 import java.util.HashMap;
 import java.util.Map;
@@ -82,6 +89,24 @@ public class DialogueActionRegistry {
                 npcRole, npcId, settlementCellKey, npcX, npcZ, completed);
             if (quest != null) {
                 questSystem.getStateManager().addQuest(ctx.playerData(), quest);
+
+                // If quest has a POI, claim the void and place the structure
+                if ("true".equals(quest.getVariableBindings().get("poi_available"))) {
+                    // Parse population spec: "KILL_MOBS:RoleName:count"
+                    String popSpec = quest.getVariableBindings().get("poi_population_spec");
+                    String mobRole = null;
+                    int mobCount = 0;
+                    if (popSpec != null && !popSpec.equals("NONE")) {
+                        int firstColon = popSpec.indexOf(':');
+                        int lastColon = popSpec.lastIndexOf(':');
+                        if (firstColon > 0 && lastColon > firstColon) {
+                            mobRole = popSpec.substring(firstColon + 1, lastColon);
+                            mobCount = Integer.parseInt(popSpec.substring(lastColon + 1));
+                        }
+                    }
+                    triggerPOIPlacement(quest, ctx.store(), ctx.playerRef(), mobRole, mobCount);
+                }
+
                 ctx.systemLogger().accept("Quest accepted: " + quest.getSituationId());
                 LOGGER.atInfo().log("GIVE_QUEST: player %s received quest '%s' (situation=%s, phases=%d) from NPC %s",
                     ctx.player().getPlayerRef().getUuid(), quest.getQuestId(), quest.getSituationId(),
@@ -142,6 +167,69 @@ public class DialogueActionRegistry {
             }
             ctx.topicReactivator().accept(topicId);
         });
+    }
+
+    private void triggerPOIPlacement(QuestInstance quest, Store<EntityStore> store,
+                                     Ref<EntityStore> playerRef,
+                                     String mobRole, int mobCount) {
+        Map<String, String> bindings = quest.getVariableBindings();
+        CaveVoidRegistry voidRegistry = Natural20.getInstance().getCaveVoidRegistry();
+        if (voidRegistry == null) return;
+
+        String rawX = bindings.get("poi_center_x");
+        String rawZ = bindings.get("poi_center_z");
+        if (rawX == null || rawZ == null) {
+            LOGGER.atWarning().log("POI placement: missing center coordinates in bindings");
+            bindings.put("poi_available", "false");
+            return;
+        }
+        int poiX = Integer.parseInt(rawX);
+        int poiZ = Integer.parseInt(rawZ);
+
+        // Find and claim the void
+        CaveVoidRecord void_ = voidRegistry.findAnyVoid(poiX, poiZ);
+        if (void_ == null) {
+            LOGGER.atWarning().log("POI placement: no void found near (%d, %d)", poiX, poiZ);
+            bindings.put("poi_available", "false");
+            return;
+        }
+        voidRegistry.claimVoid(void_, quest.getSourceSettlementId());
+
+        // Place the dungeon prefab
+        World world = Natural20.getInstance().getDefaultWorld();
+        if (world == null) {
+            LOGGER.atWarning().log("POI placement: no default world");
+            return;
+        }
+
+        Natural20.getInstance().getStructurePlacer()
+            .placeAtVoid(world, void_, store)
+            .whenComplete((entrance, error) -> {
+                if (error != null || entrance == null) {
+                    if (error != null) {
+                        LOGGER.atWarning().withCause(error).log("POI placement failed for quest %s", quest.getQuestId());
+                    } else {
+                        LOGGER.atWarning().log("POI placement returned no entrance for quest %s", quest.getQuestId());
+                    }
+                    world.execute(() -> bindings.put("poi_available", "false"));
+                    return;
+                }
+                // Update bindings and spawn mobs on the world thread (chunks are loaded from prefab paste)
+                world.execute(() -> {
+                    bindings.put("poi_x", String.valueOf(entrance.getX()));
+                    bindings.put("poi_y", String.valueOf(entrance.getY()));
+                    bindings.put("poi_z", String.valueOf(entrance.getZ()));
+
+                    // Spawn mobs immediately: chunks are guaranteed loaded after prefab paste
+                    if (mobRole != null && mobCount > 0) {
+                        Natural20.getInstance().getPOIPopulationListener().populateNow(
+                            world, quest, playerRef, entrance.getX(), entrance.getY(), entrance.getZ(),
+                            mobRole, mobCount);
+                    }
+                });
+                LOGGER.atInfo().log("POI placed for quest %s at (%d, %d, %d)",
+                    quest.getQuestId(), entrance.getX(), entrance.getY(), entrance.getZ());
+            });
     }
 
     public void register(String type, DialogueAction action) {

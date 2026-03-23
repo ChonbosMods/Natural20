@@ -1,5 +1,8 @@
 package com.chonbosmods;
 
+import com.chonbosmods.cave.CaveVoidRegistry;
+import com.chonbosmods.cave.CaveVoidScanner;
+import com.chonbosmods.cave.UndergroundStructurePlacer;
 import com.chonbosmods.commands.Nat20Command;
 import com.chonbosmods.data.Nat20GlobalData;
 import com.chonbosmods.data.Nat20NpcData;
@@ -9,6 +12,8 @@ import com.chonbosmods.dialogue.DialogueLoader;
 import com.chonbosmods.dialogue.DialogueManager;
 import com.chonbosmods.loot.Nat20EquipmentListener;
 import com.chonbosmods.loot.Nat20LootSystem;
+import com.chonbosmods.quest.POIKillTrackingSystem;
+import com.chonbosmods.quest.POIPopulationListener;
 import com.chonbosmods.quest.QuestSystem;
 import com.chonbosmods.npc.BuilderActionNat20StartDialogue;
 import com.chonbosmods.npc.Nat20NpcManager;
@@ -21,6 +26,7 @@ import com.chonbosmods.settlement.SettlementWorldGenListener;
 import com.hypixel.hytale.component.ComponentType;
 import com.hypixel.hytale.server.core.HytaleServer;
 import com.hypixel.hytale.server.core.event.events.player.PlayerDisconnectEvent;
+import com.hypixel.hytale.server.core.universe.world.World;
 import com.hypixel.hytale.server.core.universe.world.events.ChunkPreLoadProcessEvent;
 import com.hypixel.hytale.server.core.plugin.JavaPlugin;
 import com.hypixel.hytale.server.core.plugin.JavaPluginInit;
@@ -29,6 +35,7 @@ import com.hypixel.hytale.server.core.universe.world.storage.EntityStore;
 import com.hypixel.hytale.server.core.util.Config;
 
 import javax.annotation.Nonnull;
+import java.nio.file.Path;
 import java.util.concurrent.TimeUnit;
 
 public class Natural20 extends JavaPlugin {
@@ -47,6 +54,10 @@ public class Natural20 extends JavaPlugin {
     private QuestSystem questSystem;
     private final Nat20EquipmentListener equipmentListener = new Nat20EquipmentListener(lootSystem);
     private SettlementRegistry settlementRegistry;
+    private CaveVoidRegistry caveVoidRegistry;
+    private CaveVoidScanner caveVoidScanner;
+    private UndergroundStructurePlacer structurePlacer;
+    private POIPopulationListener poiPopulationListener;
     private Config<Nat20GlobalData> globalConfig;
 
     public Natural20(@Nonnull JavaPluginInit init) {
@@ -91,15 +102,68 @@ public class Natural20 extends JavaPlugin {
         return settlementRegistry;
     }
 
+    public CaveVoidRegistry getCaveVoidRegistry() { return caveVoidRegistry; }
+
+    public CaveVoidScanner getCaveVoidScanner() { return caveVoidScanner; }
+
+    public UndergroundStructurePlacer getStructurePlacer() { return structurePlacer; }
+
+    public POIPopulationListener getPOIPopulationListener() { return poiPopulationListener; }
+
+    private volatile World defaultWorld;
+
+    public World getDefaultWorld() {
+        return defaultWorld;
+    }
+
     /**
      * Called when a new settlement is created during world generation.
-     * Generates procedural topic dialogue graphs for the settlement's NPCs.
+     * Generates procedural topic dialogue graphs and scans for nearby cave voids.
      */
-    public void onSettlementCreated(SettlementRecord settlement) {
+    public void onSettlementCreated(SettlementRecord settlement, World world) {
         if (questSystem != null) {
             var topicGraphs = questSystem.getTopicGenerator().generate(settlement);
             dialogueLoader.registerGeneratedGraphs(topicGraphs);
         }
+
+        // Scan for cave voids near the settlement so POI quests have targets
+        // Batched on the world thread: scans one row of chunks per tick to avoid blocking
+        if (caveVoidScanner != null && world != null) {
+            int centerX = (int) settlement.getPosX();
+            int centerZ = (int) settlement.getPosZ();
+            String cellKey = settlement.getCellKey();
+            int scanRadius = 150;
+            int chunkRadius = scanRadius / 32;
+            int centerChunkX = Math.floorDiv(centerX, 32);
+            int centerChunkZ = Math.floorDiv(centerZ, 32);
+            int startCX = centerChunkX - chunkRadius;
+            int endCX = centerChunkX + chunkRadius;
+            int startCZ = centerChunkZ - chunkRadius;
+            int endCZ = centerChunkZ + chunkRadius;
+            int beforeCount = caveVoidRegistry.getCount();
+            int maxVoids = 3;
+            scanChunkRow(world, cellKey, startCX, endCX, startCX, startCZ, endCZ, beforeCount, maxVoids);
+        }
+    }
+
+    /**
+     * Scans one row of chunks (one X value, all Z) for cave voids, then defers the next row
+     * to the next world tick. Stops early if maxVoids new voids have been found.
+     */
+    private void scanChunkRow(World world, String cellKey, int cx, int endCX,
+                               int startCX, int startCZ, int endCZ,
+                               int beforeCount, int maxVoids) {
+        if (cx > endCX || caveVoidRegistry.getCount() - beforeCount >= maxVoids) {
+            int found = caveVoidRegistry.getCount() - beforeCount;
+            getLogger().atInfo().log("Cave void scan near settlement %s: found %d void(s)", cellKey, found);
+            return;
+        }
+        for (int cz = startCZ; cz <= endCZ; cz++) {
+            caveVoidScanner.scanChunk(world, cx * 32, cz * 32);
+            if (caveVoidRegistry.getCount() - beforeCount >= maxVoids) break;
+        }
+        // Defer next row to next tick so we don't hog the world thread
+        world.execute(() -> scanChunkRow(world, cellKey, cx + 1, endCX, startCX, startCZ, endCZ, beforeCount, maxVoids));
     }
 
     public static ComponentType<EntityStore, Nat20NpcData> getNpcDataType() {
@@ -148,6 +212,9 @@ public class Natural20 extends JavaPlugin {
         // Register settlement NPC death/respawn system
         getEntityStoreRegistry().registerSystem(new SettlementNpcDeathSystem());
 
+        // Register POI kill tracking system for quest objectives
+        getEntityStoreRegistry().registerSystem(new POIKillTrackingSystem());
+
         // Register settlement threat detection system (marks attackers as hostile)
         getEntityStoreRegistry().registerSystem(new SettlementThreatSystem());
 
@@ -169,15 +236,29 @@ public class Natural20 extends JavaPlugin {
         settlementRegistry = new SettlementRegistry(getDataDirectory());
         settlementRegistry.load();
 
+        // Load cave void registry and scanner
+        Path caveVoidPath = getDataDirectory().resolve("cave_voids.json");
+        caveVoidRegistry = new CaveVoidRegistry(caveVoidPath);
+        caveVoidRegistry.load();
+        caveVoidScanner = new CaveVoidScanner(caveVoidRegistry);
+        structurePlacer = new UndergroundStructurePlacer();
+
         // Register worldgen settlement listener
         SettlementWorldGenListener worldGenListener = new SettlementWorldGenListener(settlementRegistry, placer);
         getEventRegistry().registerGlobal(ChunkPreLoadProcessEvent.class, event -> {
             var chunk = event.getChunk();
+            if (defaultWorld == null) {
+                defaultWorld = chunk.getWorld();
+            }
             // WorldChunk.getX()/getZ() return chunk coordinates: multiply by 32 for block coords
             int chunkBlockX = chunk.getX() * 32;
             int chunkBlockZ = chunk.getZ() * 32;
             worldGenListener.onChunkLoad(chunk.getWorld(), chunkBlockX, chunkBlockZ);
         });
+
+        // Register POI mob population listener (deferred spawning when player approaches quest POI)
+        poiPopulationListener = new POIPopulationListener();
+        getEventRegistry().registerGlobal(ChunkPreLoadProcessEvent.class, poiPopulationListener::onChunkLoad);
 
         // Load dialogue files from plugin data directory
         dialogueLoader.loadAll(getDataDirectory().resolve("dialogues"));
@@ -207,6 +288,9 @@ public class Natural20 extends JavaPlugin {
         getLogger().atInfo().log("Natural 20 shutting down...");
         if (settlementRegistry != null) {
             settlementRegistry.saveAsync();
+        }
+        if (caveVoidRegistry != null) {
+            caveVoidRegistry.saveAsync().join();
         }
     }
 }
