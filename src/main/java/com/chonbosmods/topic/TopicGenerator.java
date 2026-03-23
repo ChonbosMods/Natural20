@@ -304,6 +304,8 @@ public class TopicGenerator {
         bindings.put("subject_focus_is", focus.isPlural() ? "are" : "is");
         bindings.put("subject_focus_has", focus.isPlural() ? "have" : "has");
         bindings.put("subject_focus_was", focus.isPlural() ? "were" : "was");
+        bindings.put("subject_focus_the", focus.isProper() ? focus.getSubjectValue() : "the " + focus.getSubjectValue());
+        bindings.put("subject_focus_The", focus.isProper() ? focus.getSubjectValue() : "The " + focus.getSubjectValue());
 
         // NPC name
         bindings.put("npc_name", npcName);
@@ -352,6 +354,8 @@ public class TopicGenerator {
             bindings.put("quest_threat_is", threat.plural() ? "are" : "is");
             bindings.put("quest_threat_has", threat.plural() ? "have" : "has");
             bindings.put("quest_threat_was", threat.plural() ? "were" : "was");
+            bindings.put("quest_threat_the", threat.proper() ? threat.value() : "the " + threat.value());
+            bindings.put("quest_threat_The", threat.proper() ? threat.value() : "The " + threat.value());
 
             QuestPoolRegistry.NarrativeEntry stakes = questPool.randomStakes(random);
             bindings.put("quest_stakes", stakes.value());
@@ -359,6 +363,8 @@ public class TopicGenerator {
             bindings.put("quest_stakes_has", stakes.plural() ? "have" : "has");
             bindings.put("quest_stakes_was", stakes.plural() ? "were" : "was");
             bindings.put("quest_stakes_detail", stakes.value());
+            bindings.put("quest_stakes_the", stakes.proper() ? stakes.value() : "the " + stakes.value());
+            bindings.put("quest_stakes_The", stakes.proper() ? stakes.value() : "The " + stakes.value());
 
             bindings.put("quest_exposition", DialogueResolver.resolve(topicPool.randomRumorDetail(random), bindings));
             bindings.put("quest_detail", DialogueResolver.resolve(topicPool.randomPerspectiveDetail(random), bindings));
