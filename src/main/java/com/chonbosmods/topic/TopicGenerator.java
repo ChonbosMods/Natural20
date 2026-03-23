@@ -308,6 +308,33 @@ public class TopicGenerator {
         // NPC name
         bindings.put("npc_name", npcName);
 
+        // New drop-in pool bindings
+        bindings.put("time_ref", topicPool.randomTimeRef(random));
+        bindings.put("direction", topicPool.randomDirection(random));
+
+        // Tone bindings (bracket-filtered by disposition)
+        String bracket = dispositionBracket(50); // default disposition for generated topics
+        bindings.put("tone_opener", topicPool.randomToneOpener(bracket, random));
+        bindings.put("tone_closer", topicPool.randomToneCloser(bracket, random));
+
+        // Fragment pool bindings: Layer 0
+        bindings.put("creature_sighting", topicPool.randomCreatureSighting(random));
+        bindings.put("strange_event", topicPool.randomStrangeEvent(random));
+        bindings.put("trade_gossip", topicPool.randomTradeGossip(random));
+        bindings.put("local_complaint", topicPool.randomLocalComplaint(random));
+        bindings.put("traveler_news", topicPool.randomTravelerNews(random));
+
+        // Fragment pool bindings: Layer 1
+        bindings.put("creature_detail", topicPool.randomCreatureDetail(random));
+        bindings.put("event_detail", topicPool.randomEventDetail(random));
+        bindings.put("trade_detail", topicPool.randomTradeDetail(random));
+        bindings.put("location_detail", topicPool.randomLocationDetail(random));
+
+        // Fragment pool bindings: Layer 2
+        bindings.put("local_opinion", topicPool.randomLocalOpinion(random));
+        bindings.put("personal_reaction", topicPool.randomPersonalReaction(random));
+        bindings.put("danger_assessment", topicPool.randomDangerAssessment(random));
+
         // Category-specific pool bindings (pre-resolve so nested {subject_focus} etc. are substituted)
         if (focus.getCategory() == TopicCategory.RUMORS) {
             bindings.put("rumor_detail", DialogueResolver.resolve(topicPool.randomRumorDetail(random), bindings));
@@ -397,5 +424,11 @@ public class TopicGenerator {
      */
     private static String sanitize(String value) {
         return value.toLowerCase().replaceAll("[^a-z0-9]+", "_").replaceAll("^_|_$", "");
+    }
+
+    private static String dispositionBracket(int disposition) {
+        if (disposition < 45) return "hostile";
+        if (disposition < 60) return "neutral";
+        return "friendly";
     }
 }
