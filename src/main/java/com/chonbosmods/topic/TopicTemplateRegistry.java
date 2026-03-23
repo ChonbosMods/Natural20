@@ -94,22 +94,30 @@ public class TopicTemplateRegistry {
         List<TopicTemplate.FollowUp> exploratories = new ArrayList<>();
         if (obj.has("exploratories")) {
             for (JsonElement el : obj.getAsJsonArray("exploratories")) {
-                JsonObject fu = el.getAsJsonObject();
-                exploratories.add(new TopicTemplate.FollowUp(
-                    fu.get("prompt").getAsString(),
-                    fu.get("response").getAsString(),
-                    List.of()
-                ));
+                exploratories.add(parseFollowUp(el.getAsJsonObject()));
             }
         }
 
         TopicTemplate.FollowUp decisive = null;
         if (obj.has("decisive")) {
-            JsonObject d = obj.getAsJsonObject("decisive");
-            decisive = new TopicTemplate.FollowUp(d.get("prompt").getAsString(), d.get("response").getAsString(), List.of());
+            decisive = parseFollowUp(obj.getAsJsonObject("decisive"));
         }
 
         return new TopicTemplate.Perspective(intro, exploratories, decisive);
+    }
+
+    private TopicTemplate.FollowUp parseFollowUp(JsonObject obj) {
+        String prompt = obj.get("prompt").getAsString();
+        String response = obj.get("response").getAsString();
+
+        List<TopicTemplate.FollowUp> children = new ArrayList<>();
+        if (obj.has("exploratories")) {
+            for (JsonElement el : obj.getAsJsonArray("exploratories")) {
+                children.add(parseFollowUp(el.getAsJsonObject()));
+            }
+        }
+
+        return new TopicTemplate.FollowUp(prompt, response, children);
     }
 
     public TopicTemplate randomRumorTemplate(Random random) {
