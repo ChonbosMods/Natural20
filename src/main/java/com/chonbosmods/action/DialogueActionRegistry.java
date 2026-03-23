@@ -6,6 +6,7 @@ import com.chonbosmods.cave.CaveVoidRegistry;
 import com.chonbosmods.quest.POIPopulationListener;
 import com.chonbosmods.quest.QuestSystem;
 import com.chonbosmods.quest.QuestInstance;
+import com.hypixel.hytale.component.Ref;
 import com.google.common.flogger.FluentLogger;
 import com.hypixel.hytale.component.Store;
 import com.hypixel.hytale.server.core.Message;
@@ -91,25 +92,16 @@ public class DialogueActionRegistry {
 
                 // If quest has a POI, claim the void and place the structure
                 if ("true".equals(quest.getVariableBindings().get("poi_available"))) {
-                    triggerPOIPlacement(quest, ctx.store());
-
-                    // Register pending mob population for when player approaches
-                    // popSpec format: "KILL_MOBS:Namespace:RoleName:count" (role has colon)
+                    // Parse population spec before placement so we can spawn after prefab is pasted
                     String popSpec = quest.getVariableBindings().get("poi_population_spec");
+                    String mobRole = null;
+                    int mobCount = 0;
                     if (popSpec != null && popSpec.startsWith("KILL_MOBS:")) {
                         int lastColon = popSpec.lastIndexOf(':');
-                        int mobCount = Integer.parseInt(popSpec.substring(lastColon + 1));
-                        String mobRole = popSpec.substring("KILL_MOBS:".length(), lastColon);
-                        int poiX = Integer.parseInt(quest.getVariableBindings().get("poi_center_x"));
-                        int poiY = Integer.parseInt(quest.getVariableBindings().get("poi_center_y"));
-                        int poiZ = Integer.parseInt(quest.getVariableBindings().get("poi_center_z"));
-
-                        Natural20.getInstance().getPOIPopulationListener().register(
-                            new POIPopulationListener.PendingPopulation(
-                                quest.getQuestId(), poiX, poiY, poiZ, mobRole, mobCount, ctx.playerRef()
-                            )
-                        );
+                        mobCount = Integer.parseInt(popSpec.substring(lastColon + 1));
+                        mobRole = popSpec.substring("KILL_MOBS:".length(), lastColon);
                     }
+                    triggerPOIPlacement(quest, ctx.store(), ctx.playerRef(), mobRole, mobCount);
                 }
 
                 ctx.systemLogger().accept("Quest accepted: " + quest.getSituationId());
@@ -174,7 +166,9 @@ public class DialogueActionRegistry {
         });
     }
 
-    private void triggerPOIPlacement(QuestInstance quest, Store<EntityStore> store) {
+    private void triggerPOIPlacement(QuestInstance quest, Store<EntityStore> store,
+                                     Ref<EntityStore> playerRef,
+                                     String mobRole, int mobCount) {
         Map<String, String> bindings = quest.getVariableBindings();
         CaveVoidRegistry voidRegistry = Natural20.getInstance().getCaveVoidRegistry();
         if (voidRegistry == null) return;
@@ -217,11 +211,18 @@ public class DialogueActionRegistry {
                     world.execute(() -> bindings.put("poi_available", "false"));
                     return;
                 }
-                // Update bindings with actual entrance position on the world thread
+                // Update bindings and spawn mobs on the world thread (chunks are loaded from prefab paste)
                 world.execute(() -> {
                     bindings.put("poi_x", String.valueOf(entrance.getX()));
                     bindings.put("poi_y", String.valueOf(entrance.getY()));
                     bindings.put("poi_z", String.valueOf(entrance.getZ()));
+
+                    // Spawn mobs immediately: chunks are guaranteed loaded after prefab paste
+                    if (mobRole != null && mobCount > 0) {
+                        Natural20.getInstance().getPOIPopulationListener().populateNow(
+                            world, quest, playerRef, entrance.getX(), entrance.getY(), entrance.getZ(),
+                            mobRole, mobCount);
+                    }
                 });
                 LOGGER.atInfo().log("POI placed for quest %s at (%d, %d, %d)",
                     quest.getQuestId(), entrance.getX(), entrance.getY(), entrance.getZ());

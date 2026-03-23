@@ -37,6 +37,17 @@ public class POIPopulationListener {
             pop.questId(), pop.poiX(), pop.poiY(), pop.poiZ(), pop.mobRole(), pop.mobCount());
     }
 
+    /**
+     * Spawn mobs immediately at the given position. Called after prefab placement
+     * when chunks are guaranteed loaded.
+     */
+    public void populateNow(World world, QuestInstance quest, Ref<EntityStore> playerRef,
+                             int poiX, int poiY, int poiZ, String mobRole, int mobCount) {
+        PendingPopulation pop = new PendingPopulation(
+            quest.getQuestId(), poiX, poiY, poiZ, mobRole, mobCount, playerRef);
+        populate(world, pop);
+    }
+
     public void onChunkLoad(ChunkPreLoadProcessEvent event) {
         if (pending.isEmpty()) return;
 
