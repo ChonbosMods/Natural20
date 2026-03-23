@@ -162,8 +162,14 @@ public class SettlementWorldGenListener {
                         // Tier 2: entity exists but lost custom components, reattach
                         boolean ok = Natural20.getInstance().getNpcManager()
                             .reattachNpc(store, npcRef, npc, cellKey);
-                        if (ok) reattached++;
-                        else respawned++; // fallback to respawn if reattach fails
+                        if (ok) {
+                            reattached++;
+                        } else {
+                            // Reattach failed: actually respawn as fallback
+                            UUID newUUID = Natural20.getInstance().getNpcManager()
+                                .respawnNpc(store, world, npc, cellKey);
+                            if (newUUID != null) respawned++;
+                        }
                     }
                 } else {
                     // Tier 3: entity is gone, full respawn

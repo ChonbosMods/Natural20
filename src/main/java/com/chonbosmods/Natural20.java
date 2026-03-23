@@ -64,6 +64,7 @@ public class Natural20 extends JavaPlugin {
     private UndergroundStructurePlacer structurePlacer;
     private POIPopulationListener poiPopulationListener;
     private Config<Nat20GlobalData> globalConfig;
+    private java.util.concurrent.ScheduledExecutorService npcSyncExecutor;
 
     public Natural20(@Nonnull JavaPluginInit init) {
         super(init);
@@ -286,11 +287,12 @@ public class Natural20 extends JavaPlugin {
         getLogger().atInfo().log("Generated procedural topics for %d settlement(s)", settlementRegistry.getAll().size());
 
         // Periodic NPC state sync (every 60s)
-        Executors.newSingleThreadScheduledExecutor(r -> {
+        npcSyncExecutor = Executors.newSingleThreadScheduledExecutor(r -> {
             Thread t = new Thread(r, "nat20-npc-sync");
             t.setDaemon(true);
             return t;
-        }).scheduleAtFixedRate(this::syncAllNpcState, 60, 60, TimeUnit.SECONDS);
+        });
+        npcSyncExecutor.scheduleAtFixedRate(this::syncAllNpcState, 60, 60, TimeUnit.SECONDS);
 
         getLogger().atInfo().log("Natural 20 v" + getManifest().getVersion() + " started!");
     }
@@ -298,7 +300,12 @@ public class Natural20 extends JavaPlugin {
     @Override
     protected void shutdown() {
         getLogger().atInfo().log("Natural 20 shutting down...");
+        if (npcSyncExecutor != null) {
+            npcSyncExecutor.shutdownNow();
+        }
         if (settlementRegistry != null) {
+            // Final sync before save
+            syncAllNpcState();
             settlementRegistry.saveAsync();
         }
         if (caveVoidRegistry != null) {
@@ -339,12 +346,12 @@ public class Natural20 extends JavaPlugin {
                             dirty = true;
                         }
                         String ds = data.getDialogueState();
-                        if (ds != null && !ds.equals(npc.getDialogueState())) {
+                        if (!java.util.Objects.equals(ds, npc.getDialogueState())) {
                             npc.setDialogueState(ds);
                             dirty = true;
                         }
                         Map<String, String> flags = data.getFlags();
-                        if (flags != null && !flags.equals(npc.getFlags())) {
+                        if (!java.util.Objects.equals(flags, npc.getFlags())) {
                             npc.setFlags(flags);
                             dirty = true;
                         }
