@@ -3,7 +3,7 @@
     {
       "id": "revolt_expo_01",
       "dialogueChunks": {
-        "intro": "{player_name}, for too long {quest_threat_animate_the} {quest_threat_animate_has} ground {quest_stakes_the} into the dirt. {quest_origin} has pushed people past their breaking point.",
+        "intro": "{player_name}, for too long {quest_threat_animate_the} {quest_threat_animate_has} ground {quest_stakes_the} into the dirt. What started with {quest_origin} pushed people past their breaking point.",
         "plotStep": "We intend to {quest_action} and challenge the authority at {quest_focus_the}. But we cannot do it alone: we need people willing to stand with us. Speak to the workers {location_hint} and gauge who can be trusted. The {enemy_type_plural} serving the oppressors are watching everyone.",
         "outro": "This is not recklessness: it is survival. Without change, there is nothing left for us here."
       },

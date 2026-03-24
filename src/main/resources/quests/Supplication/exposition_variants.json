@@ -37,7 +37,7 @@
     {
       "id": "supplication_expo_03",
       "dialogueChunks": {
-        "intro": "Stranger, I have no pride left. {player_name}, {quest_threat_the} {quest_threat_has} been terrorizing {quest_focus_the} and we are powerless to stop it.",
+        "intro": "Stranger, I have no pride left. {player_name}, {quest_threat_animate_the} {quest_threat_animate_has} been terrorizing {quest_focus_the} and we are powerless to stop it.",
         "plotStep": "Someone needs to {quest_action} before we lose everything. The {enemy_type_plural} have been sighted {location_hint}. Kill enough of them and we might stand a chance.",
         "outro": "If {quest_stakes_the} {quest_stakes_is} taken, this settlement is finished. I will give you {quest_reward_hint} if you help us."
       },

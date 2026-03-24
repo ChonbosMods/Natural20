@@ -29,7 +29,7 @@
       "dialogueChunks": {
         "intro": "The relief fund was supposed to help {quest_stakes_the}, {player_name}. Hundreds of contributions from across the region. The fund is empty.",
         "plotStep": "The administrator, the most respected and trusted person in the settlement, has been diverting donations to their own accounts. {quest_focus_The} {quest_focus_is} staggering in its scale. {quest_stakes_The} who were promised help received nothing. The administrator still gives public speeches about compassion.",
-        "outro": "The records are scattered to avoid detection. Someone needs to {quest_action} and retrieve the ledgers hidden {location_hint} before they are destroyed. {quest_threat_The} {quest_threat_has} enough influence to silence anyone from within. {quest_reward_hint} might follow if justice is done."
+        "outro": "The records are scattered to avoid detection. Someone needs to {quest_action} and retrieve the ledgers hidden {location_hint} before they are destroyed. {quest_threat_animate_The} {quest_threat_animate_has} enough influence to silence anyone from within. {quest_reward_hint} might follow if justice is done."
       },
       "objectivePool": ["FETCH_ITEM"],
       "objectiveConfig": {
