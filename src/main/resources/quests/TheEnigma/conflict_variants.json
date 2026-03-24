@@ -3,8 +3,8 @@
     {
       "id": "enigma_conf_deeper_puzzle",
       "dialogueChunks": {
-        "intro": "The initial investigation raised more questions than answers. {quest_focus_The} {quest_focus_is} connected to something larger, and the clues point toward {location_hint}.",
-        "plotStep": "The {enemy_type_plural} have been guarding a second site near {location_hint}. Whatever {quest_threat_the} is, they seem to understand it better than we do. We need you to retrieve the {quest_item} fragments from that site to piece together the pattern.",
+        "intro": "The initial investigation raised more questions than answers. {quest_focus_The} {quest_focus_is} connected to something larger, and the clues point {location_hint}.",
+        "plotStep": "The {enemy_type_plural} have been guarding a second site {location_hint}. Whatever {quest_threat_the} is, they seem to understand it better than we do. We need you to retrieve the {quest_item} fragments from that site to piece together the pattern.",
         "outro": "Every piece of evidence brings us closer to understanding. Bring back what you can from the guarded area."
       },
       "objectivePool": [
@@ -21,7 +21,7 @@
       "id": "enigma_conf_rival_seekers",
       "dialogueChunks": {
         "intro": "We are not the only ones investigating {quest_focus_the}. {target_npc} reports that outsiders have been asking questions about the same sites, and they do not seem friendly.",
-        "plotStep": "These strangers want {quest_stakes_the} for themselves, and they have already ransacked one site near {location_hint}. If we do not act quickly, every trace of {quest_focus_the} will vanish into their hands.",
+        "plotStep": "These strangers want {quest_stakes_the} for themselves, and they have already ransacked one site {location_hint}. If we do not act quickly, every trace of {quest_focus_the} will vanish into their hands.",
         "outro": "Reach the remaining site before they do. Recover {quest_item} before it disappears."
       },
       "objectivePool": [
@@ -38,7 +38,7 @@
       "id": "enigma_conf_dangerous_truth",
       "dialogueChunks": {
         "intro": "{quest_ally} studied the evidence you brought back and turned grim. {quest_focus_The} is not just a curiosity: it is a warning.",
-        "plotStep": "The markings describe something that happened here before, something involving {quest_threat_the}. If the pattern repeats, {quest_stakes_the} could be at risk. We need {quest_item} from the site near {location_hint} to confirm whether the warning is real.",
+        "plotStep": "The markings describe something that happened here before, something involving {quest_threat_the}. If the pattern repeats, {quest_stakes_the} could be at risk. We need {quest_item} from the site {location_hint} to confirm whether the warning is real.",
         "outro": "The remaining clues are in dangerous territory, but we cannot afford to guess. Bring back the evidence that confirms the warning."
       },
       "objectivePool": [

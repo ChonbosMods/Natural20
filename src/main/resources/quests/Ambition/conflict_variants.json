@@ -4,8 +4,8 @@
       "id": "conf_ambition_01",
       "dialogueChunks": {
         "intro": "Our rivals moved faster than I expected, {player_name}. The game has changed.",
-        "plotStep": "{target_npc} discovered what we are planning and has started rallying opposition. They have been spreading word that our efforts to secure {quest_focus_the} are a threat to everyone. The {enemy_type_plural} have massed near {location_hint} and cut off our approach. I need you to break through and scatter them before {target_npc} turns everything against us.",
-        "outro": "If we lose momentum now, {quest_stakes_the} slips through our fingers and we will never get another chance."
+        "plotStep": "{target_npc} discovered what we are planning and has started rallying opposition. They have been spreading word that our efforts to secure {quest_focus_the} are a threat to everyone. The {enemy_type_plural} have massed {location_hint} and cut off our approach. I need you to break through and scatter them before {target_npc} turns everything against us.",
+        "outro": "If we lose momentum now, everything slips through our fingers and we will never get another chance."
       },
       "objectivePool": [
         "KILL_MOBS"

@@ -16,7 +16,7 @@
       "id": "rivalry_expo_02",
       "dialogueChunks": {
         "intro": "Two of our artisans have been feuding for months, {player_name}. It has gotten so bad that {quest_ally} refuses to work on the same projects as {target_npc}.",
-        "plotStep": "Both claim superiority and they have dragged the whole settlement into their rivalry over {quest_focus_the}. The people caught between them are exhausted by the constant bickering, and {quest_threat_the} grows while productivity stalls.",
+        "plotStep": "Both claim superiority and they have dragged the whole settlement into their rivalry over {quest_focus_the}. The people caught between them are exhausted by the constant bickering, and {quest_threat_the} {quest_threat_is} growing while productivity stalls.",
         "outro": "Talk to the people who work under both of them. If enough of the settlement speaks with one voice, even these two might listen. {quest_reward_hint} is on the table if you can broker a truce."
       },
       "objectivePool": [

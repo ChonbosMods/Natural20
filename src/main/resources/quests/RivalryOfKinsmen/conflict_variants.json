@@ -27,8 +27,8 @@
     {
       "id": "rivalry_conf_dangerous_bet",
       "dialogueChunks": {
-        "intro": "Both rivals have upped the stakes on {quest_focus_the}. {quest_ally} ventured deep toward {location_hint} alone to prove a point and hasn't returned on time.",
-        "plotStep": "{target_npc} is torn between concern and satisfaction. The area near {location_hint} is dangerous, and {quest_threat_the} may have finally produced real consequences. People in the settlement are panicking.",
+        "intro": "Both rivals have upped the stakes on {quest_focus_the}. {quest_ally} ventured deep {location_hint} alone to prove a point and hasn't returned on time.",
+        "plotStep": "{target_npc} is torn between concern and satisfaction. The area {location_hint} is dangerous, and {quest_threat_the} may have finally produced real consequences. People in the settlement are panicking.",
         "outro": "Talk to {target_npc} and convince them to help organize a search. If both rivals work together to bring {quest_ally} back safely, it might be the thing that finally ends this destructive competition."
       },
       "objectivePool": [

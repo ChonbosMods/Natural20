@@ -22,7 +22,7 @@
       "dialogueChunks": {
         "intro": "{player_name}, the loss keeps compounding. Another family is leaving.",
         "plotStep": "More families packed up and left in the night. They said they can't raise children in a place where death comes so easily. {target_npc} is trying to hold things together, but every departure takes skills and hope with it. The departing families left behind {quest_item} in their haste {location_hint}. Retrieve what they abandoned before it is lost to the elements.",
-        "outro": "We're bleeding people as surely as if the {enemy_type_plural} were still inside our walls. {quest_stakes_The} depends on having enough hands to work and stand watch."
+        "outro": "We're bleeding people as surely as if the {enemy_type_plural} were still inside our walls. Survival depends on having enough hands to work and stand watch."
       },
       "objectivePool": [
         "FETCH_ITEM"

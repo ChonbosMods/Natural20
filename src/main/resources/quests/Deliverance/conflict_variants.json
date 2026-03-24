@@ -39,8 +39,8 @@
     {
       "id": "deliverance_conf_04",
       "dialogueChunks": {
-        "intro": "The trail to {location_hint} is more dangerous than we expected. {enemy_type_plural} patrols are everywhere, and they have set traps along the path.",
-        "plotStep": "You will need to fight through their scouts before reaching {quest_focus_the}. {quest_ally} warned that {quest_threat_the} grows stronger the closer you get to their territory.",
+        "intro": "The trail {location_hint} is more dangerous than we expected. {enemy_type_plural} patrols are everywhere, and they have set traps along the path.",
+        "plotStep": "You will need to fight through their scouts before reaching {quest_focus_the}. {quest_ally} warned that {quest_threat_the} {quest_threat_is} growing stronger the closer you get to their territory.",
         "outro": "Clear the way and press forward. Kill every patrol you encounter: every moment wasted is another moment {quest_focus_the} remains in danger."
       },
       "objectivePool": ["KILL_MOBS"],
@@ -51,7 +51,7 @@
     {
       "id": "deliverance_conf_05",
       "dialogueChunks": {
-        "intro": "You have found signs of {quest_threat_the} near {location_hint}. Discarded supplies and cold fire pits mark where they rested with their prisoners.",
+        "intro": "You have found signs of {quest_threat_the} {location_hint}. Discarded supplies and cold fire pits mark where they rested with their prisoners.",
         "plotStep": "The captors split into groups here. A rearguard of {enemy_type_plural} stayed behind to cover the retreat. They are still camped in the area, and they will raise the alarm if they spot you.",
         "outro": "Wipe out the stragglers before they can warn the others. Once the camp is clear, we can pick up the trail again."
       },

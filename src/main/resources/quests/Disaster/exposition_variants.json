@@ -16,7 +16,7 @@
       "id": "disaster_expo_02",
       "dialogueChunks": {
         "intro": "{player_name}, {quest_threat_animate_the} {quest_threat_animate_is} sweeping toward {quest_stakes_the} and nothing we have done has slowed it. {quest_focus_The} {quest_focus_is} overwhelmed and we are losing ground fast.",
-        "plotStep": "We need to {quest_action} before {quest_time_pressure}. Collect {quest_item} from {location_hint} to help shore up our defenses. The wreckage is full of what we need if someone can get to it.",
+        "plotStep": "We need to {quest_action} before {quest_time_pressure}. Collect {quest_item} scattered {location_hint} to help shore up our defenses. The wreckage is full of what we need if someone can get to it.",
         "outro": "If this reaches the settlement, we lose everything. Every moment counts."
       },
       "objectivePool": ["COLLECT_RESOURCES"],
@@ -27,8 +27,8 @@
     {
       "id": "disaster_expo_03",
       "dialogueChunks": {
-        "intro": "Since {quest_origin}, {player_name}, {quest_threat_the} keeps coming. {quest_focus_The} {quest_focus_is} failing, and {quest_stakes_the} could be lost any day.",
-        "plotStep": "We need to {quest_action} before the next wave finishes what the first one started. Gather {quest_item} from {location_hint}. The wreckage still holds enough to keep us going if we can recover it in time.",
+        "intro": "Since {quest_origin}, {player_name}, the danger keeps coming. {quest_focus_The} {quest_focus_is} failing, and {quest_stakes_the} could be lost any day.",
+        "plotStep": "We need to {quest_action} before the next wave finishes what the first one started. Gather {quest_item} scattered {location_hint}. The wreckage still holds enough to keep us going if we can recover it in time.",
         "outro": "Everything has turned against us. But we will not abandon our home without a fight."
       },
       "objectivePool": ["COLLECT_RESOURCES"],

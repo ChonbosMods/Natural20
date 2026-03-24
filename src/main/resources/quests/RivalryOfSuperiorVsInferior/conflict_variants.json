@@ -29,7 +29,7 @@
       "dialogueChunks": {
         "intro": "The powerful found out about the investigation. The person who gathered the evidence has been expelled and their workshop was ransacked.",
         "plotStep": "{target_npc} managed to hide copies of {quest_item} before the enforcers arrived. But the powerful are now threatening to blacklist anyone who supports the lower ranks. {quest_ally} says witnesses have already been pressured into withdrawing their testimony.",
-        "outro": "We need people willing to stand firm. Talk to the witnesses and convince them that silence only protects the powerful. {quest_stakes_The} depend on someone speaking up before {quest_threat_the} buries the truth entirely."
+        "outro": "We need people willing to stand firm. Talk to the witnesses and convince them that silence only protects the powerful. Everything depends on someone speaking up before {quest_threat_the} can bury the truth entirely."
       },
       "objectivePool": [
         "TALK_TO_NPC"

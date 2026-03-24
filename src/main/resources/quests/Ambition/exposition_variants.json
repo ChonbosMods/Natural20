@@ -4,7 +4,7 @@
       "id": "expo_ambition_01",
       "dialogueChunks": {
         "intro": "{player_name}, opportunity does not knock twice. There is a power vacuum and every schemer is circling the empty chair.",
-        "plotStep": "Since {quest_origin}, I have spent years building connections and waiting for this moment. But my rivals are moving fast. {target_npc} has already started making promises they cannot deliver. I need {quest_item} from {location_hint} to secure key support before {target_npc} gets to them. The {enemy_type} threat makes this urgent: whoever takes {quest_focus_the} needs to be ready to defend us.",
+        "plotStep": "Since {quest_origin}, I have spent years building connections and waiting for this moment. But my rivals are moving fast. {target_npc} has already started making promises they cannot deliver. I need {quest_item} found {location_hint} to secure key support before {target_npc} gets to them. The {enemy_type} threat makes this urgent: whoever takes {quest_focus_the} needs to be ready to defend us.",
         "outro": "Help me claim {quest_stakes_the}, and you will have the ear of the most powerful person in the region. {quest_reward_hint} is only the beginning."
       },
       "objectivePool": [

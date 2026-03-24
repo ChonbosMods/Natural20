@@ -4,7 +4,7 @@
       "id": "crimevengeance_expo_01",
       "dialogueChunks": {
         "intro": "{player_name}, look at what they did. {quest_focus_The} {quest_focus_was} hit last night. I know exactly who is responsible: {quest_threat_the}, born out of {quest_origin}.",
-        "plotStep": "I need you to {quest_action}. {quest_ally} saw someone fleeing {location_hint} just after it happened. That witness knows what really went down: find them and get the truth before {quest_threat_the} silences them.",
+        "plotStep": "I need you to {quest_action}. {quest_ally} saw someone fleeing {location_hint} just after it happened. That witness knows what really went down: find them and get the truth before {quest_threat_the} can silence them.",
         "outro": "They destroyed {quest_stakes_the} out of spite. I will see justice done, one way or another."
       },
       "objectivePool": ["TALK_TO_NPC"],

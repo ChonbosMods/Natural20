@@ -4,7 +4,7 @@
       "id": "expo_discovery_dishonor_01",
       "dialogueChunks": {
         "intro": "I found something in my mentor's workshop that I wish I hadn't, {player_name}. Records that don't add up. Payments to people who shouldn't be receiving them.",
-        "plotStep": "My mentor taught me everything. I trusted them completely. But {quest_focus_the} shows years of skimming, falsifying costs, and cheating everyone who relied on them. {target_npc} may know the truth: they worked alongside my mentor for years and would have seen things.",
+        "plotStep": "My mentor taught me everything. I trusted them completely. But {quest_focus_the} {quest_focus_is} evidence of years of skimming, falsifying costs, and cheating everyone who relied on them. {target_npc} may know the truth: they worked alongside my mentor for years and would have seen things.",
         "outro": "I need someone from outside to {quest_action}. If I'm wrong, I've slandered the person I respect most. If I'm right, {quest_threat_the} {quest_threat_is} worse than anyone imagines. Before {quest_time_pressure}."
       },
       "objectivePool": ["TALK_TO_NPC"],
@@ -29,7 +29,7 @@
       "dialogueChunks": {
         "intro": "The relief fund was supposed to help {quest_stakes_the}, {player_name}. Hundreds of contributions from across the region. The fund is empty.",
         "plotStep": "The administrator, the most respected and trusted person in the settlement, has been diverting donations to their own accounts. {quest_focus_The} {quest_focus_is} staggering in its scale. {quest_stakes_The} who were promised help received nothing. The administrator still gives public speeches about compassion.",
-        "outro": "The records are scattered to avoid detection. Someone needs to {quest_action} and retrieve the ledgers from {location_hint} before they are destroyed. {quest_threat_The} {quest_threat_has} enough influence to silence anyone from within. {quest_reward_hint} might follow if justice is done."
+        "outro": "The records are scattered to avoid detection. Someone needs to {quest_action} and retrieve the ledgers hidden {location_hint} before they are destroyed. {quest_threat_The} {quest_threat_has} enough influence to silence anyone from within. {quest_reward_hint} might follow if justice is done."
       },
       "objectivePool": ["FETCH_ITEM"],
       "objectiveConfig": {

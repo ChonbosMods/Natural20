@@ -20,7 +20,7 @@
     {
       "id": "enigma_expo_02",
       "dialogueChunks": {
-        "intro": "Something near {location_hint} has been behaving strangely. {quest_focus_The} defies explanation: things that should not happen are happening, and it is getting worse.",
+        "intro": "Something {location_hint} has been behaving strangely. {quest_focus_The} defies explanation: things that should not happen are happening, and it is getting worse.",
         "plotStep": "{quest_ally} ventured to the edge and returned shaken. They said the area felt wrong in ways they could not describe. Even the {enemy_type_plural} avoid it. We need someone to talk to {target_npc}, who once ventured there and may know what {quest_threat_the} actually is.",
         "outro": "Something unnatural is happening out there, {player_name}. We need answers before {quest_time_pressure}, or it will reach our walls."
       },
@@ -37,7 +37,7 @@
     {
       "id": "enigma_expo_03",
       "dialogueChunks": {
-        "intro": "Workers digging near {location_hint} broke through into something they were not expecting: {quest_focus_the}, made of materials no one recognizes. They sealed the entrance and came here.",
+        "intro": "Workers digging {location_hint} broke through into something they were not expecting: {quest_focus_the}, made of materials no one recognizes. They sealed the entrance and came here.",
         "plotStep": "They swear it was warm to the touch and humming. {target_npc} thinks it could be a vault, a tomb, or something else entirely. Whatever is inside, we need {quest_item} retrieved before the breach draws more attention from the {enemy_type_plural}.",
         "outro": "It needs someone who can handle surprises. The workers will not go back down. Will you, {player_name}? {quest_reward_hint} may well be waiting inside."
       },

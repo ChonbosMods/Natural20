@@ -21,7 +21,7 @@
       "id": "supplication_expo_02",
       "dialogueChunks": {
         "intro": "{player_name}, thank the stars you are here. {quest_threat_The} {quest_threat_has} been claiming more of us each day, and we cannot hold on much longer.",
-        "plotStep": "We traced the problem back to {quest_focus_the}, but we lack the means to fix it. We desperately need someone to gather {quest_item} from {location_hint}. {quest_ally} says we need a good supply of it to have any chance.",
+        "plotStep": "We traced the problem back to {quest_focus_the}, but we lack the means to fix it. We desperately need someone to gather {quest_item} found {location_hint}. {quest_ally} says we need a good supply of it to have any chance.",
         "outro": "Please, {quest_stakes_the} cannot wait. We need this done before {quest_time_pressure}."
       },
       "objectivePool": [

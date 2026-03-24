@@ -24,7 +24,7 @@
       "id": "pursuit_reso_03",
       "dialogueChunks": {
         "intro": "It is done, {player_name}. After all that effort to {quest_action}, the pursuit has finally ended.",
-        "plotStep": "{quest_threat_The} underestimated your tenacity. {quest_focus_The} stands safe, and {quest_stakes_the} can breathe easy again.",
+        "plotStep": "{quest_threat_The} underestimated your tenacity. {quest_focus_The} {quest_focus_is} safe, and {quest_stakes_the} can breathe easy again.",
         "outro": "The settlement will remember your name. Thank you for seeing this through."
       },
       "objectivePool": [],

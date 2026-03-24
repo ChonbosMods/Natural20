@@ -21,7 +21,7 @@
       "id": "misfortune_expo_02",
       "dialogueChunks": {
         "intro": "It was not an attack, {player_name}. Just bad timing and {quest_threat_the}. {quest_focus_The} gave way and now {quest_stakes_the} {quest_stakes_is} cut off with no way to reach us.",
-        "plotStep": "We need to {quest_action} before {quest_time_pressure}, or they will be stranded. Gather {quest_item} from {location_hint} for the repair. It is the only way to reconnect with {quest_stakes_the}.",
+        "plotStep": "We need to {quest_action} before {quest_time_pressure}, or they will be stranded. Gather {quest_item} found {location_hint} for the repair. It is the only way to reconnect with {quest_stakes_the}.",
         "outro": "Those people cannot survive alone out there. Please hurry."
       },
       "objectivePool": [
@@ -38,7 +38,7 @@
       "id": "misfortune_expo_03",
       "dialogueChunks": {
         "intro": "{player_name}, {quest_threat_animate_the} from {quest_origin} scattered our supplies across the area. {quest_focus_The} {quest_focus_is} buried in the debris and {quest_stakes_the} {quest_stakes_is} at risk.",
-        "plotStep": "We need to {quest_action} before scavengers pick it clean. Recover as many {quest_item} as you can find from {location_hint}. Every piece of it counts.",
+        "plotStep": "We need to {quest_action} before scavengers pick it clean. Recover as many {quest_item} as you can find {location_hint}. Every piece of it counts.",
         "outro": "Without {quest_stakes_the}, we face a long stretch with nothing. You would earn {quest_reward_hint} for helping."
       },
       "objectivePool": [

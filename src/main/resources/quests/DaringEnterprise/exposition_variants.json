@@ -4,7 +4,7 @@
       "id": "daringenterprise_expo_01",
       "dialogueChunks": {
         "intro": "{player_name}, I have been planning something ambitious. {quest_focus_The} may hold something extraordinary, and I finally have a plan to reach it.",
-        "plotStep": "No one has dared to {quest_action} because of {quest_threat_the}. But I have studied the approaches and I believe it can be done. I need you to retrieve {quest_item} from {location_hint} to prepare properly.",
+        "plotStep": "No one has dared to {quest_action} because of {quest_threat_the}. But I have studied the approaches and I believe it can be done. I need you to retrieve {quest_item} found {location_hint} to prepare properly.",
         "outro": "If we succeed, we could change the fortunes of this entire settlement. Others went in blind: we will not make the same mistake."
       },
       "objectivePool": [
@@ -21,7 +21,7 @@
       "id": "daringenterprise_expo_02",
       "dialogueChunks": {
         "intro": "I have spent years researching this, {player_name}. {quest_focus_The} {quest_focus_has} been sealed for generations, and I finally know how to get inside.",
-        "plotStep": "The trick is to {quest_action} without drawing the attention of {quest_threat_the}. I need someone brave enough to retrieve {quest_item} from {location_hint}: it is the key to everything.",
+        "plotStep": "The trick is to {quest_action} without drawing the attention of {quest_threat_the}. I need someone brave enough to retrieve {quest_item} located {location_hint}: it is the key to everything.",
         "outro": "{quest_stakes_The} locked away in there could reshape what we know about this land. And of course, there would be {quest_reward_hint} for your trouble."
       },
       "objectivePool": [

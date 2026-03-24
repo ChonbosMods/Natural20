@@ -5,7 +5,7 @@
       "dialogueChunks": {
         "intro": "{player_name}, the people at the bottom and the people at the top are sharpening things that shouldn't be sharpened. Someone from outside needs to step in.",
         "plotStep": "Since {quest_origin}, the tension around {quest_focus_the} has been building for years. The people in power are eating well while the rest choose between food and firewood. {quest_threat_The} {quest_threat_is} escalating and someone from outside needs to {quest_action} before this turns to bloodshed.",
-        "outro": "Before {quest_time_pressure}. After that, talking won't matter. Protecting {quest_stakes_the} depends on both sides believing they're being heard."
+        "outro": "Before {quest_time_pressure}. After that, talking won't matter. Everything depends on both sides believing they're being heard."
       },
       "objectivePool": [
         "TALK_TO_NPC"
@@ -28,7 +28,7 @@
       "id": "expo_rivalry_sup_inf_03",
       "dialogueChunks": {
         "intro": "Every year, the system claims to reward merit. Every year, the same families win and the rest fail. The pattern isn't subtle anymore, {player_name}.",
-        "plotStep": "{quest_focus_The} {quest_focus_is} designed to keep power in the same hands, dressed up as fairness. The lower ranks work twice as hard and fail on tests they were never given the tools to pass. One of them found proof that {quest_focus_the} changes every time an outsider gets close to succeeding.",
+        "plotStep": "{quest_focus_The} {quest_focus_is} designed to keep power in the same hands, dressed up as fairness. The lower ranks work twice as hard and fail on tests they were never given the tools to pass. One of them found proof that {quest_focus_the} {quest_focus_is} altered every time an outsider gets close to succeeding.",
         "outro": "If someone could {quest_action}, the whole rotten system collapses. But the powerful have influence everywhere. Talk to the people who have suffered under this: find witnesses willing to speak the truth about {quest_stakes_the}. {quest_reward_hint} might follow if justice prevails."
       },
       "objectivePool": [

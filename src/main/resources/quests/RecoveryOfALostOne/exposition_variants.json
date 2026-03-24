@@ -20,7 +20,7 @@
       "id": "expo_recovery_lost_02",
       "dialogueChunks": {
         "intro": "Please, {player_name}, you have to help me. My child wandered off during the {enemy_type} attack and nobody's seen them since.",
-        "plotStep": "When the {enemy_type_plural} hit, everyone scattered. In the chaos, my child was separated from the group. {target_npc} saw them running toward {location_hint}, but nobody could follow because the {enemy_type_plural} were between us. {target_npc} is the last person who saw my child alive. Please, go speak with them and find out exactly where they went.",
+        "plotStep": "When the {enemy_type_plural} hit, everyone scattered. In the chaos, my child was separated from the group. {target_npc} saw them running {location_hint}, but nobody could follow because the {enemy_type_plural} were between us. {target_npc} is the last person who saw my child alive. Please, go speak with them and find out exactly where they went.",
         "outro": "They're young and alone in the wild. Every hour counts. {quest_stakes_The} {quest_stakes_is} all I can think about. Before {quest_time_pressure}."
       },
       "objectivePool": [

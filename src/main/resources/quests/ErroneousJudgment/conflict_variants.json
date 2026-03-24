@@ -5,7 +5,7 @@
       "dialogueChunks": {
         "intro": "The situation just became far more dangerous, {player_name}. Our assumptions were built on sand.",
         "plotStep": "The information we acted on was wrong. Not just incomplete: actively wrong. {target_npc} uncovered that the original report about {quest_focus_the} was based on tampered evidence. The real situation {location_hint} is nothing like what we were told. We need {quest_item} from the site to understand the full picture.",
-        "outro": "We built our strategy on a lie. Now we need to tear it down and start over before {quest_stakes_the} collapses on us."
+        "outro": "We built our strategy on a lie. Now we need to tear it down and start over before everything collapses on us."
       },
       "objectivePool": ["FETCH_ITEM"],
       "objectiveConfig": {

@@ -22,7 +22,7 @@
       "dialogueChunks": {
         "intro": "{player_name}, we found where {target_npc} has been. And the truth is harder than not knowing.",
         "plotStep": "{target_npc} didn't vanish by accident. They were captured by the {enemy_type_plural} and put to work in a labor camp {location_hint}. A refugee who escaped described {target_npc} by name. The camp is guarded, fortified, and deep in hostile territory. You will need to fight through the {enemy_type_plural} guarding the camp to break them out.",
-        "outro": "Alive but captive. That's better than the alternatives, but it means the rescue just became ten times harder. Saving {quest_stakes_the} depends on moving fast."
+        "outro": "Alive but captive. That's better than the alternatives, but it means the rescue just became ten times harder. Everything depends on moving fast."
       },
       "objectivePool": [
         "KILL_MOBS"
