@@ -2,6 +2,8 @@ package com.chonbosmods.topic;
 
 import com.chonbosmods.dialogue.model.*;
 import com.chonbosmods.quest.DialogueResolver;
+import com.chonbosmods.stats.Skill;
+import com.chonbosmods.stats.Stat;
 
 import javax.annotation.Nullable;
 import java.util.*;
@@ -24,24 +26,36 @@ public class TopicGraphBuilder {
         TopicCategory category
     ) {}
 
+    private static final double STAT_CHECK_CHANCE = 0.25;
+    private static final int STAT_CHECK_DC_MIN = 8;
+    private static final int STAT_CHECK_DC_MAX = 16;
+    private static final int STAT_CHECK_PASS_DISPOSITION = 5;
+    private static final int STAT_CHECK_FAIL_DISPOSITION = -3;
+
     private final String npcId;
     private final int defaultDisposition;
     private final String greetingText;
     private final String returnGreetingText;
     private final List<TopicAssignment> assignments;
+    private final TopicPoolRegistry topicPool;
+    private final Random random;
 
     public TopicGraphBuilder(
             String npcId,
             int defaultDisposition,
             String greetingText,
             String returnGreetingText,
-            List<TopicAssignment> assignments
+            List<TopicAssignment> assignments,
+            TopicPoolRegistry topicPool,
+            Random random
     ) {
         this.npcId = npcId;
         this.defaultDisposition = defaultDisposition;
         this.greetingText = greetingText;
         this.returnGreetingText = returnGreetingText;
         this.assignments = assignments;
+        this.topicPool = topicPool;
+        this.random = random;
     }
 
     public DialogueGraph build() {
@@ -90,6 +104,12 @@ public class TopicGraphBuilder {
 
         // Exploratory branches
         buildExploratories(perspective.exploratories(), subjectId, "", bindings, nodes, entryResponses);
+
+        // Skill check injection: non-quest topics with a skillCheckDef get a 25% chance
+        if (assignment.skillCheckDef() != null && !assignment.hasQuest()
+                && random.nextDouble() < STAT_CHECK_CHANCE) {
+            injectSkillCheck(assignment, subjectId, bindings, perspective, nodes);
+        }
 
         // Decisive branch
         TopicTemplate.FollowUp decisive = perspective.decisive();
@@ -243,6 +263,92 @@ public class TopicGraphBuilder {
                 ResponseMode.EXPLORATORY, null, null, null, null
             ));
         }
+    }
+
+    /**
+     * Inject a skill check as a sibling response on a randomly chosen branch's
+     * parent node. Creates SkillCheckNode + pass/fail DialogueTextNodes.
+     * The response option uses skillCheckRef to bypass normal node routing.
+     */
+    private void injectSkillCheck(
+            TopicAssignment assignment,
+            String subjectId,
+            Map<String, String> bindings,
+            TopicTemplate.Perspective perspective,
+            Map<String, DialogueNode> nodes
+    ) {
+        TopicTemplate.SkillCheckDef def = assignment.skillCheckDef();
+        Skill skill = def.skill();
+        Stat stat = skill.getAssociatedStat();
+        TopicCategory category = assignment.category();
+
+        // Pick which top-level branch gets the skill check
+        int branchCount = perspective.exploratories().size();
+        if (branchCount == 0) return;
+        int branchIdx = random.nextInt(branchCount);
+
+        // The parent node of the leaf in the chosen branch
+        String parentNodeId = subjectId + "_exp_" + branchIdx;
+        DialogueNode existing = nodes.get(parentNodeId);
+        if (!(existing instanceof DialogueNode.DialogueTextNode parentNode)) return;
+
+        // Roll DC
+        int baseDC = STAT_CHECK_DC_MIN + random.nextInt(STAT_CHECK_DC_MAX - STAT_CHECK_DC_MIN + 1);
+
+        // Generate text from pools, resolved against bindings
+        String promptText = DialogueResolver.resolve(
+            topicPool.randomStatCheckPrompt(category, skill, random), bindings);
+        String passText = DialogueResolver.resolve(
+            topicPool.randomStatCheckPass(category, skill, random), bindings);
+        String failText = DialogueResolver.resolve(
+            topicPool.randomStatCheckFail(category, skill, random), bindings);
+
+        // Node IDs
+        String checkNodeId = subjectId + "_skill_check";
+        String passNodeId = subjectId + "_skill_pass";
+        String failNodeId = subjectId + "_skill_fail";
+        String checkResponseId = subjectId + "_resp_skill_check";
+
+        // Pass node: disposition bonus, exhausts topic
+        nodes.put(passNodeId, new DialogueNode.DialogueTextNode(
+            passText, List.of(),
+            List.of(Map.of("type", "MODIFY_DISPOSITION", "amount",
+                String.valueOf(STAT_CHECK_PASS_DISPOSITION))),
+            true, false
+        ));
+
+        // Fail node: disposition penalty, exhausts topic
+        nodes.put(failNodeId, new DialogueNode.DialogueTextNode(
+            failText, List.of(),
+            List.of(Map.of("type", "MODIFY_DISPOSITION", "amount",
+                String.valueOf(STAT_CHECK_FAIL_DISPOSITION))),
+            true, false
+        ));
+
+        // Skill check node
+        nodes.put(checkNodeId, new DialogueNode.SkillCheckNode(
+            skill, null, baseDC, true, passNodeId, failNodeId, List.of()
+        ));
+
+        // Response option with skillCheckRef + statPrefix
+        ResponseOption skillCheckResponse = new ResponseOption(
+            checkResponseId,
+            promptText,
+            checkNodeId,
+            ResponseMode.DECISIVE,
+            null,
+            checkNodeId,
+            stat.name(),
+            null
+        );
+
+        // Replace parent node: original responses + skill check response
+        List<ResponseOption> augmented = new ArrayList<>(parentNode.responses());
+        augmented.add(skillCheckResponse);
+        nodes.put(parentNodeId, new DialogueNode.DialogueTextNode(
+            parentNode.speakerText(), augmented, parentNode.onEnter(),
+            parentNode.exhaustsTopic(), parentNode.locksConversation()
+        ));
     }
 
     private static String capitalizeFirst(String text) {

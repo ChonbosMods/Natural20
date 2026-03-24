@@ -160,7 +160,7 @@ public class TopicGenerator {
             String returnGreeting = topicPool.randomReturnGreeting(random);
 
             TopicGraphBuilder builder = new TopicGraphBuilder(
-                npcName, 50, greeting, returnGreeting, assignments
+                npcName, 50, greeting, returnGreeting, assignments, topicPool, random
             );
             DialogueGraph graph = builder.build();
 
