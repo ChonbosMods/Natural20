@@ -28,7 +28,7 @@
       "id": "crimevengeance_expo_03",
       "dialogueChunks": {
         "intro": "{player_name}, {quest_threat_animate_the} broke into {quest_focus_the} and took everything of value. This was not random: it was born out of {quest_origin} and aimed straight at {quest_stakes_the}.",
-        "plotStep": "I need you to {quest_action}. The trail leads {location_hint}. {quest_ally} says the thieves are still nearby. Track them down and put an end to this: the {enemy_type} they hired will not let you pass quietly.",
+        "plotStep": "I need you to {quest_action}. The trail leads {location_hint}. {quest_ally} says the thieves are still nearby. Track them down and put an end to this: the {enemy_type_plural} they hired will not let you pass quietly.",
         "outro": "Bring back what was taken and there will be {quest_reward_hint} for your trouble. But more importantly, bring back our dignity."
       },
       "objectivePool": ["KILL_MOBS"],

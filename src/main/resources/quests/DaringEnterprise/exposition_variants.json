@@ -38,7 +38,7 @@
       "id": "daringenterprise_expo_03",
       "dialogueChunks": {
         "intro": "{player_name}, our current supply lines are failing. I propose something bold: to {quest_action} through {quest_focus_the}.",
-        "plotStep": "The path is treacherous and {quest_threat_the} {quest_threat_has} claimed the area as their own. But if we can clear the route, everything changes. The {enemy_type} have dug in {location_hint} and they need to be driven out before anyone can pass safely.",
+        "plotStep": "The path is treacherous and {quest_threat_the} {quest_threat_has} claimed the area as their own. But if we can clear the route, everything changes. The {enemy_type_plural} have dug in {location_hint} and they need to be driven out before anyone can pass safely.",
         "outro": "{quest_stakes_The} {quest_stakes_is} depending on this. We must act before {quest_time_pressure}, or we lose our window entirely."
       },
       "objectivePool": [

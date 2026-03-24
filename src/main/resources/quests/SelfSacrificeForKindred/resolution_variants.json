@@ -24,7 +24,7 @@
       "id": "reso_sacrifice_kindred_03",
       "dialogueChunks": {
         "intro": "Everyone made it. Every last one. The column arrived ragged, exhausted, and alive. The one who stayed behind... didn't make it.",
-        "plotStep": "They held for nearly a full day before the {enemy_type} realized it was one person. {quest_ally} says they went down fighting. {target_npc} is building a marker at the new settlement's entrance.",
+        "plotStep": "They held for nearly a full day before the {enemy_type_plural} realized it was one person. {quest_ally} says they went down fighting. {target_npc} is building a marker at the new settlement's entrance.",
         "outro": "They gave their people a future by giving up their own. And you made sure that future had a clear road, {player_name}. Their family is safe. That's what they wanted."
       },
       "objectivePool": [],

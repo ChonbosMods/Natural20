@@ -14,7 +14,7 @@
       "compatibleSituations": ["SelfSacrificeForKindred", "CrimesOfLove"],
       "passiveText": "Our cook used to make a remedy broth that could bring people back from the brink. The recipe was lost when the old kitchen burned.",
       "triggerTopicLabel": "The lost remedy recipe",
-      "triggerDialogue": "It wasn't just soup: it was medicine disguised as comfort food. {target_npc} memorized part of the recipe but not all of it. The missing ingredients were rare even before the {enemy_type} moved in. If someone could find those herbs {location_hint}, we could start brewing it again. Might save lives the next time sickness comes knocking.",
+      "triggerDialogue": "It wasn't just soup: it was medicine disguised as comfort food. {target_npc} memorized part of the recipe but not all of it. The missing ingredients were rare even before the {enemy_type_plural} moved in. If someone could find those herbs {location_hint}, we could start brewing it again. Might save lives the next time sickness comes knocking.",
       "catalystSituations": ["SelfSacrificeForKindred", "Supplication"],
       "targetNpcRoles": ["ArtisanCook", "TavernKeeper"]
     }

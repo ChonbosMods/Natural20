@@ -4,7 +4,7 @@
       "id": "conf_slaying_kin_01",
       "dialogueChunks": {
         "intro": "The situation has gotten worse, {player_name}. Another ally was found dead near {location_hint}. The killer was one of our own: still doesn't believe what they did.",
-        "plotStep": "I found tracks leading toward {location_hint} that suggest the {enemy_type} are deliberately provoking these attacks. {quest_focus_The} seems to be the key: whoever controls it can turn anyone against their allies. {target_npc} might know more about how to counter it.",
+        "plotStep": "I found tracks leading toward {location_hint} that suggest the {enemy_type_plural} are deliberately provoking these attacks. {quest_focus_The} seems to be the key: whoever controls it can turn anyone against their allies. {target_npc} might know more about how to counter it.",
         "outro": "We need {quest_item} to break this cycle. Without it, every patrol we send out is a gamble on whether they'll come back as themselves."
       },
       "objectivePool": [
@@ -23,7 +23,7 @@
       "id": "conf_slaying_kin_02",
       "dialogueChunks": {
         "intro": "{player_name}, the guards are refusing to patrol. After what happened, I can't blame them. Nobody wants to be the next one to harm a friend.",
-        "plotStep": "{quest_threat_The} {quest_threat_is} spreading faster than we expected. {quest_ally} confirmed that the {enemy_type} have been planting {quest_item} along our routes: it's what triggers the confusion. {target_npc} thinks there's a way to neutralize the effect, but it requires materials from deep in hostile territory.",
+        "plotStep": "{quest_threat_The} {quest_threat_is} spreading faster than we expected. {quest_ally} confirmed that the {enemy_type_plural} have been planting {quest_item} along our routes: it's what triggers the confusion. {target_npc} thinks there's a way to neutralize the effect, but it requires materials from deep in hostile territory.",
         "outro": "The settlement is paralyzed. If we can't trust our own eyes, we can't defend ourselves. Get to {target_npc} and find out what they need."
       },
       "objectivePool": [
@@ -46,7 +46,7 @@
       "id": "conf_slaying_kin_03",
       "dialogueChunks": {
         "intro": "The guilt is eating this place alive. People sit by the graves of the ones they harmed and won't speak.",
-        "plotStep": "{target_npc} discovered that {quest_threat_the} originates from {location_hint}. The {enemy_type} have been using {quest_focus_the} to turn our people into weapons against each other. It's deliberate and methodical. {quest_ally} is willing to guide you, but even they aren't sure they can trust their own senses anymore.",
+        "plotStep": "{target_npc} discovered that {quest_threat_the} originates from {location_hint}. The {enemy_type_plural} have been using {quest_focus_the} to turn our people into weapons against each other. It's deliberate and methodical. {quest_ally} is willing to guide you, but even they aren't sure they can trust their own senses anymore.",
         "outro": "We have to strike at the source and destroy {quest_focus_the} before there's no one left who trusts anyone."
       },
       "objectivePool": [

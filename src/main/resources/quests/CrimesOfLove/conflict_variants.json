@@ -37,7 +37,7 @@
       "id": "conf_crimes_love_03",
       "dialogueChunks": {
         "intro": "The patrols intercepted a previous shipment. They know someone is smuggling and they've tripled the watch.",
-        "plotStep": "{target_npc} says the smuggler was questioned but didn't crack. They're terrified but thinking about the people who are counting on them. {quest_ally} found a section near {location_hint} where crossing is possible, but it's closer to an {enemy_type} camp. {quest_item} could serve as a distraction to draw the patrols away.",
+        "plotStep": "{target_npc} says the smuggler was questioned but didn't crack. They're terrified but thinking about the people who are counting on them. {quest_ally} found a section near {location_hint} where crossing is possible, but it's closer to a {enemy_type} camp. {quest_item} could serve as a distraction to draw the patrols away.",
         "outro": "The food needs to cross tonight or {quest_stakes} goes another week without. Someone needs to make the run."
       },
       "objectivePool": [

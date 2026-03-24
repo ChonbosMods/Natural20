@@ -5,7 +5,7 @@
       "compatibleSituations": ["Disaster", "Supplication"],
       "passiveText": "We used to have a supply agreement with a settlement to the east, but the disaster severed the road.",
       "triggerTopicLabel": "The supply agreement",
-      "triggerDialogue": "{target_npc} ran a regular trade caravan between {location} and the eastern settlements. Good arrangement: we sent grain, they sent medicine and tools. The disaster destroyed the bridge and scattered {enemy_type} across the only alternative route. If someone could reopen that connection, both settlements would benefit enormously.",
+      "triggerDialogue": "{target_npc} ran a regular trade caravan between {location} and the eastern settlements. Good arrangement: we sent grain, they sent medicine and tools. The disaster destroyed the bridge and scattered {enemy_type_plural} across the only alternative route. If someone could reopen that connection, both settlements would benefit enormously.",
       "catalystSituations": ["Disaster", "DaringEnterprise"],
       "targetNpcRoles": ["Villager", "ArtisanCook"]
     },

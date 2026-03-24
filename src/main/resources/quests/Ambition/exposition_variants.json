@@ -20,7 +20,7 @@
       "id": "expo_ambition_02",
       "dialogueChunks": {
         "intro": "Keep your voice down, {player_name}. What I am offering could make us both very wealthy, or very dead.",
-        "plotStep": "A discovery was made {location_hint} last week. The {enemy_type} have been spotted near the site, which is the only reason nobody else has moved on it yet. {target_npc} has been sniffing around. If they beat me to the claim, {quest_stakes_the} {quest_stakes_is} worthless. I need you to clear the {enemy_type} out before they can organize a defense.",
+        "plotStep": "A discovery was made {location_hint} last week. The {enemy_type_plural} have been spotted near the site, which is the only reason nobody else has moved on it yet. {target_npc} has been sniffing around. If they beat me to the claim, {quest_stakes_the} {quest_stakes_is} worthless. I need you to clear the {enemy_type_plural} out before they can organize a defense.",
         "outro": "Fortune favors the bold, not the cautious. {quest_reward_hint} awaits those who move first."
       },
       "objectivePool": [
@@ -37,7 +37,7 @@
       "id": "expo_ambition_03",
       "dialogueChunks": {
         "intro": "{player_name}, I do not need a hero. I need someone practical who understands that winning is not always clean.",
-        "plotStep": "The current leader is corrupt, but everyone loves them because they smile well and give pretty speeches. {target_npc} has proof of their misdeeds hidden {location_hint}, but getting to it means dealing with the {enemy_type} that have overrun the area. I need {quest_item} from those ruins to expose the truth before {quest_time_pressure}.",
+        "plotStep": "The current leader is corrupt, but everyone loves them because they smile well and give pretty speeches. {target_npc} has proof of their misdeeds hidden {location_hint}, but getting to it means dealing with the {enemy_type_plural} that have overrun the area. I need {quest_item} from those ruins to expose the truth before {quest_time_pressure}.",
         "outro": "This is not about ambition. It is about replacing someone unworthy with someone who is not afraid to make hard choices. {quest_focus_The} demands action, and {quest_stakes_the} {quest_stakes_is} hanging in the balance."
       },
       "objectivePool": [

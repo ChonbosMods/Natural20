@@ -22,7 +22,7 @@
       "dialogueChunks": {
         "intro": "{player_name}, the loss keeps compounding. Another family is leaving.",
         "plotStep": "More families packed up and left in the night. They said they can't raise children in a place where death comes so easily. {target_npc} is trying to hold things together, but every departure takes skills and hope with it. The departing families left behind {quest_item} in their haste {location_hint}. Retrieve what they abandoned before it is lost to the elements.",
-        "outro": "We're bleeding people as surely as if the {enemy_type} were still inside our walls. {quest_stakes_The} depends on having enough hands to work and stand watch."
+        "outro": "We're bleeding people as surely as if the {enemy_type_plural} were still inside our walls. {quest_stakes_The} depends on having enough hands to work and stand watch."
       },
       "objectivePool": [
         "FETCH_ITEM"
@@ -37,8 +37,8 @@
       "id": "conf_loss_loved_03",
       "dialogueChunks": {
         "intro": "Something unexpected happened, {player_name}. The grief brought something else to the surface.",
-        "plotStep": "While searching near {quest_focus_the}, {target_npc} found evidence that the raid wasn't random. The {enemy_type} targeted specific buildings, specific stores, as if guided by someone who knew our layout. There might be a collaborator: someone who traded information about our defenses for personal safety.",
-        "outro": "If someone sold out their neighbors to save themselves, the dead deserve justice and the living deserve the truth. Retrieve {quest_item} from the {enemy_type} camp {location_hint} as proof."
+        "plotStep": "While searching near {quest_focus_the}, {target_npc} found evidence that the raid wasn't random. The {enemy_type_plural} targeted specific buildings, specific stores, as if guided by someone who knew our layout. There might be a collaborator: someone who traded information about our defenses for personal safety.",
+        "outro": "If someone sold out their neighbors to save themselves, the dead deserve justice and the living deserve the truth. Retrieve {quest_item} from the {enemy_type_plural} camp {location_hint} as proof."
       },
       "objectivePool": [
         "FETCH_ITEM"

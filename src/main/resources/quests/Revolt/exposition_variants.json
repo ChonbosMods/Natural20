@@ -4,7 +4,7 @@
       "id": "revolt_expo_01",
       "dialogueChunks": {
         "intro": "{player_name}, for too long {quest_threat_animate_the} {quest_threat_animate_has} ground {quest_stakes_the} into the dirt. {quest_origin} has pushed people past their breaking point.",
-        "plotStep": "We intend to {quest_action} and challenge the authority at {quest_focus_the}. But we cannot do it alone: we need people willing to stand with us. Speak to the workers near {location_hint} and gauge who can be trusted. The {enemy_type} serving the oppressors are watching everyone.",
+        "plotStep": "We intend to {quest_action} and challenge the authority at {quest_focus_the}. But we cannot do it alone: we need people willing to stand with us. Speak to the workers near {location_hint} and gauge who can be trusted. The {enemy_type_plural} serving the oppressors are watching everyone.",
         "outro": "This is not recklessness: it is survival. Without change, there is nothing left for us here."
       },
       "objectivePool": [
@@ -16,7 +16,7 @@
       "id": "revolt_expo_02",
       "dialogueChunks": {
         "intro": "{player_name}, {quest_threat_animate_the} {quest_threat_animate_has} held {quest_stakes_the} under their boot for too long. They rule through fear and force, but they have a weakness.",
-        "plotStep": "We need to {quest_action} before {quest_time_pressure}. Their strength depends on {quest_focus_the}, and without it, their grip loosens. The {enemy_type} guard the area {location_hint}. Cut through them and break their hold.",
+        "plotStep": "We need to {quest_action} before {quest_time_pressure}. Their strength depends on {quest_focus_the}, and without it, their grip loosens. The {enemy_type_plural} guard the area {location_hint}. Cut through them and break their hold.",
         "outro": "If we cut their supply line, the people will find the courage to stand up. This is how it starts."
       },
       "objectivePool": [
@@ -33,7 +33,7 @@
       "id": "revolt_expo_03",
       "dialogueChunks": {
         "intro": "Keep your voice down, {player_name}. Since {quest_origin} began draining us dry, {quest_stakes_human_the} {quest_stakes_human_has} been organizing in secret. {quest_threat_The} {quest_threat_is} everywhere.",
-        "plotStep": "We need someone the patrols do not recognize to {quest_action} near {quest_focus_the}. The {enemy_type} have a garrison {location_hint} that keeps the resistance pinned down. Thin their numbers so our people can move freely.",
+        "plotStep": "We need someone the patrols do not recognize to {quest_action} near {quest_focus_the}. The {enemy_type_plural} have a garrison {location_hint} that keeps the resistance pinned down. Thin their numbers so our people can move freely.",
         "outro": "If {quest_threat_animate_the} intercepts our plans, people will die. But if we break through, everything changes. You would earn {quest_reward_hint}."
       },
       "objectivePool": [

@@ -4,7 +4,7 @@
       "id": "pursuit_expo_01",
       "dialogueChunks": {
         "intro": "{player_name}, {quest_threat_animate_the} struck this morning and made off with {quest_focus_the}. The trail is still fresh but it will not last.",
-        "plotStep": "I need someone who can {quest_action} before the trail goes cold. {quest_ally} spotted tracks heading {location_hint}. The {enemy_type} that escorted them are still in the area: hunt them down and make sure this does not happen again.",
+        "plotStep": "I need someone who can {quest_action} before the trail goes cold. {quest_ally} spotted tracks heading {location_hint}. The {enemy_type_plural} that escorted them are still in the area: hunt them down and make sure this does not happen again.",
         "outro": "{quest_stakes_The} {quest_stakes_is} at risk if word spreads that we cannot protect our own."
       },
       "objectivePool": ["KILL_MOBS"],
@@ -28,7 +28,7 @@
       "id": "pursuit_expo_03",
       "dialogueChunks": {
         "intro": "Since {quest_origin}, {quest_threat_the} {quest_threat_has} not been seen. {player_name}, {quest_focus_the} {quest_focus_was} left wide open and something got through.",
-        "plotStep": "I need you to {quest_action}. Tracks lead {location_hint}. Whatever broke through is still out there, and the {enemy_type} have been emboldened by the gap in our defenses. Find them and put them down before they strike again.",
+        "plotStep": "I need you to {quest_action}. Tracks lead {location_hint}. Whatever broke through is still out there, and the {enemy_type_plural} have been emboldened by the gap in our defenses. Find them and put them down before they strike again.",
         "outro": "{quest_stakes_The} {quest_stakes_has} a gap until we sort this out. Every hour matters."
       },
       "objectivePool": ["KILL_MOBS"],

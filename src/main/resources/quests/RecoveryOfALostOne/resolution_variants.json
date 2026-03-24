@@ -24,7 +24,7 @@
       "id": "reso_recovery_lost_03",
       "dialogueChunks": {
         "intro": "You found the truth, {player_name}. It wasn't the answer I wanted, but it was the one I needed.",
-        "plotStep": "{target_npc} didn't vanish because of the {enemy_type}. They left by choice: overwhelmed by obligations, by the weight of being needed by too many people. You found them living quietly {location_hint}, healthy and at peace. They asked me not to be angry. They sent back {quest_item} and a letter explaining everything.",
+        "plotStep": "{target_npc} didn't vanish because of the {enemy_type_plural}. They left by choice: overwhelmed by obligations, by the weight of being needed by too many people. You found them living quietly {location_hint}, healthy and at peace. They asked me not to be angry. They sent back {quest_item} and a letter explaining everything.",
         "outro": "The answer wasn't tragedy. It was just a person who needed to breathe. The truth was worth more than any rescue."
       },
       "objectivePool": [],

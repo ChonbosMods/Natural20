@@ -3,7 +3,7 @@
     {
       "id": "conf_sacrifice_ideal_01",
       "dialogueChunks": {
-        "intro": "{player_name}, the situation has grown dire. {quest_ally} sent word that the {enemy_type} have doubled their assault. The defenders are holding, but barely.",
+        "intro": "{player_name}, the situation has grown dire. {quest_ally} sent word that the {enemy_type_plural} have doubled their assault. The defenders are holding, but barely.",
         "plotStep": "The veterans are holding the line while the others fall back. {target_npc} tried to convince them to retreat together, but they refused: said {quest_stakes_the} {quest_stakes_is} bigger than any one of them. They need {quest_item} to shore up their position.",
         "outro": "Every hour they hold saves lives. If you can get {quest_item} to them, it might turn hours into days."
       },

@@ -3,7 +3,7 @@
     {
       "id": "ref_crimepursued_repeat_offender",
       "compatibleSituations": ["CrimePursuedByVengeance", "Pursuit"],
-      "passiveText": "The {enemy_type} who did this have struck before. Other settlements have suffered the same way.",
+      "passiveText": "The {enemy_type_plural} who did this have struck before. Other settlements have suffered the same way.",
       "triggerTopicLabel": "The other settlements they hit",
       "triggerDialogue": "{target_npc} in {location} dealt with the same crew six months ago. Lost half their harvest to a raid, and the guards never caught anyone. If we could coordinate with them, share what we know about patrol routes and hiding spots, we might finally corner these raiders for good.",
       "catalystSituations": ["CrimePursuedByVengeance", "VengeanceOfKindred"],

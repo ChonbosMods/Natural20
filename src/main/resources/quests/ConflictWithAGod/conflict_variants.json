@@ -4,7 +4,7 @@
       "id": "conf_conflict_god_01",
       "dialogueChunks": {
         "intro": "The situation is deteriorating, {player_name}. What started {quest_focus_the} is spreading.",
-        "plotStep": "The blight has expanded beyond the original area. The {enemy_type} are behaving strangely: moving in patterns, almost ritualistic. Worse, the {quest_item} you gathered isn't enough. {target_npc} found records describing a second component hidden {location_hint}, protected by something the texts call a 'warden.'",
+        "plotStep": "The blight has expanded beyond the original area. The {enemy_type_plural} are behaving strangely: moving in patterns, almost ritualistic. Worse, the {quest_item} you gathered isn't enough. {target_npc} found records describing a second component hidden {location_hint}, protected by something the texts call a 'warden.'",
         "outro": "We underestimated {quest_threat_the}. It's not just angry. It's organized. {quest_stakes_The} depends on finding the second component."
       },
       "objectivePool": [
@@ -56,7 +56,7 @@
       "id": "conf_conflict_god_03",
       "dialogueChunks": {
         "intro": "It's inside the settlement now, {player_name}. Whatever we disturbed, it's not staying at the edges anymore.",
-        "plotStep": "Buildings cracked from foundation to roof last night. The well tastes of iron and the {enemy_type} have breached the perimeter, drawn inward by {quest_threat_the}. {target_npc} believes the original offense against {quest_focus_the} can only be undone at the source: deep in the ruins {location_hint}. You'll need {quest_item} for the cleansing ritual.",
+        "plotStep": "Buildings cracked from foundation to roof last night. The well tastes of iron and the {enemy_type_plural} have breached the perimeter, drawn inward by {quest_threat_the}. {target_npc} believes the original offense against {quest_focus_the} can only be undone at the source: deep in the ruins {location_hint}. You'll need {quest_item} for the cleansing ritual.",
         "outro": "We can't run from this. The only way out is through. {quest_stakes_The} won't survive the week otherwise."
       },
       "objectivePool": [

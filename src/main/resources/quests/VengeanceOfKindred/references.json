@@ -5,16 +5,16 @@
       "compatibleSituations": ["VengeanceOfKindred", "Supplication"],
       "passiveText": "We're not the only community that's suffered at the hands of these creatures. Others have lost families too.",
       "triggerTopicLabel": "The other communities that suffered",
-      "triggerDialogue": "{target_npc} in {location} lost three relatives to the same band that took our people. They've been gathering survivors and documenting every attack. If we could unite the affected settlements, we'd have the numbers and the will to drive the {enemy_type} out of the region entirely. One settlement alone can grieve. Together, we can act.",
+      "triggerDialogue": "{target_npc} in {location} lost three relatives to the same band that took our people. They've been gathering survivors and documenting every attack. If we could unite the affected settlements, we'd have the numbers and the will to drive the {enemy_type_plural} out of the region entirely. One settlement alone can grieve. Together, we can act.",
       "catalystSituations": ["VengeanceOfKindred", "Revolt"],
       "targetNpcRoles": ["Villager", "Guard"]
     },
     {
       "id": "ref_vengeancekindred_old_feud",
       "compatibleSituations": ["VengeanceOfKindred", "CrimePursuedByVengeance"],
-      "passiveText": "This violence didn't start recently. There's a history between our people and the {enemy_type} that goes back generations.",
+      "passiveText": "This violence didn't start recently. There's a history between our people and the {enemy_type_plural} that goes back generations.",
       "triggerTopicLabel": "The old feud",
-      "triggerDialogue": "{target_npc} keeps the settlement records and says the {enemy_type} have been raiding our lands for decades, each cycle worse than the last. There was a treaty once, brokered by a traveler, but it collapsed after both sides accused the other of breaking terms. Understanding that history might be the key to ending this cycle for good, or at least knowing what we're truly fighting against.",
+      "triggerDialogue": "{target_npc} keeps the settlement records and says the {enemy_type_plural} have been raiding our lands for decades, each cycle worse than the last. There was a treaty once, brokered by a traveler, but it collapsed after both sides accused the other of breaking terms. Understanding that history might be the key to ending this cycle for good, or at least knowing what we're truly fighting against.",
       "catalystSituations": ["VengeanceOfKindred", "TheEnigma"],
       "targetNpcRoles": ["TavernKeeper", "Villager"]
     }

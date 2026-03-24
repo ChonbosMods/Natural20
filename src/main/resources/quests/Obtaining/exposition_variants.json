@@ -4,7 +4,7 @@
       "id": "obtaining_expo_01",
       "dialogueChunks": {
         "intro": "Word has reached us about something valuable {location_hint}: a source of {quest_item} richer than anything we have seen in this region. Word is already spreading.",
-        "plotStep": "The problem is that we are not the only ones who know. The {enemy_type} have been pushing into that area, and {quest_ally} spotted organized groups heading the same direction. If we do not claim {quest_focus_the} first, someone else will.",
+        "plotStep": "The problem is that we are not the only ones who know. The {enemy_type_plural} have been pushing into that area, and {quest_ally} spotted organized groups heading the same direction. If we do not claim {quest_focus_the} first, someone else will.",
         "outro": "I need someone fast and capable to get out there and collect what we need before it is all gone. {player_name}, will you make the trip?"
       },
       "objectivePool": [
@@ -21,7 +21,7 @@
       "id": "obtaining_expo_02",
       "dialogueChunks": {
         "intro": "{target_npc} lost something irreplaceable. Since {quest_origin}, {quest_focus_the} {quest_focus_has} been missing and it means everything to them.",
-        "plotStep": "The ones responsible were not ordinary opportunists. They knew exactly what they wanted. {quest_ally} found tracks leading {location_hint}, and the signs match the {enemy_type} we have seen lurking near the borders.",
+        "plotStep": "The ones responsible were not ordinary opportunists. They knew exactly what they wanted. {quest_ally} found tracks leading {location_hint}, and the signs match the {enemy_type_plural} we have seen lurking near the borders.",
         "outro": "{quest_focus_The} means everything to {target_npc}. Will you track down {quest_threat_the} and bring it back, {player_name}?"
       },
       "objectivePool": [

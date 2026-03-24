@@ -4,7 +4,7 @@
       "id": "reso_conflict_god_01",
       "dialogueChunks": {
         "intro": "The ground is still, {player_name}. For the first time in weeks, the ground is truly still.",
-        "plotStep": "Whatever you did in those ruins worked. The blight receded overnight, the water runs clear, and the {enemy_type} scattered. {target_npc} examined {quest_focus_the} and says the old markings have changed: not angry anymore, but watchful. The first new growth appeared this morning.",
+        "plotStep": "Whatever you did in those ruins worked. The blight receded overnight, the water runs clear, and the {enemy_type_plural} scattered. {target_npc} examined {quest_focus_the} and says the old markings have changed: not angry anymore, but watchful. The first new growth appeared this morning.",
         "outro": "You didn't just save {quest_stakes_the}. You saved our future here. Take this, and know that we remember our debts."
       },
       "objectivePool": [],

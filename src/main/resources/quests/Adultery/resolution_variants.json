@@ -14,7 +14,7 @@
       "id": "reso_adultery_02",
       "dialogueChunks": {
         "intro": "The council confronted the traitor with the evidence. They didn't deny it. Just set down their badge and sat in silence.",
-        "plotStep": "They said the {enemy_type} threatened their family. That the first deal was survival and every deal after was too late to stop. {target_npc} doesn't know whether to believe them. {quest_ally} has taken interim command while trust is rebuilt.",
+        "plotStep": "They said the {enemy_type_plural} threatened their family. That the first deal was survival and every deal after was too late to stop. {target_npc} doesn't know whether to believe them. {quest_ally} has taken interim command while trust is rebuilt.",
         "outro": "Whether the traitor was a victim or a villain, the oath they broke put lives at risk, {player_name}. The new procedures require dual authorization. No single point of betrayal."
       },
       "objectivePool": [],

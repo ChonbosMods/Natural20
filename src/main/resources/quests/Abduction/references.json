@@ -5,7 +5,7 @@
       "compatibleSituations": ["Abduction", "Deliverance"],
       "passiveText": "The abductions in {location} might not be isolated. Other settlements have reported similar disappearances.",
       "triggerTopicLabel": "The other disappearances",
-      "triggerDialogue": "{target_npc} has been corresponding with guards from three other settlements, and the pattern is identical: quiet abductions, no bodies, tracks leading to the same general area {location_hint}. If this is a coordinated operation, the {enemy_type} have been building something big underground: a labor camp, a breeding ground, or worse. Stopping it here won't stop it everywhere unless someone finds the center.",
+      "triggerDialogue": "{target_npc} has been corresponding with guards from three other settlements, and the pattern is identical: quiet abductions, no bodies, tracks leading to the same general area {location_hint}. If this is a coordinated operation, the {enemy_type_plural} have been building something big underground: a labor camp, a breeding ground, or worse. Stopping it here won't stop it everywhere unless someone finds the center.",
       "catalystSituations": ["Abduction", "Deliverance"],
       "targetNpcRoles": ["Guard", "Traveler"]
     },
@@ -14,7 +14,7 @@
       "compatibleSituations": ["Abduction", "Pursuit"],
       "passiveText": "An escapee from a previous abduction passed through here months ago, raving about what they saw underground.",
       "triggerTopicLabel": "The escapee's story",
-      "triggerDialogue": "{target_npc} took the escapee in and listened to their account. They described vast caverns {location_hint} where captives were forced to build structures for the {enemy_type}: walls, bridges, what sounded like fortifications. The escapee was dismissed as traumatized and incoherent, but given what's happening now, their story deserves a second look.",
+      "triggerDialogue": "{target_npc} took the escapee in and listened to their account. They described vast caverns {location_hint} where captives were forced to build structures for the {enemy_type_plural}: walls, bridges, what sounded like fortifications. The escapee was dismissed as traumatized and incoherent, but given what's happening now, their story deserves a second look.",
       "catalystSituations": ["Abduction", "TheEnigma"],
       "targetNpcRoles": ["Villager", "TavernKeeper"]
     }

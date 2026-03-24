@@ -4,7 +4,7 @@
       "id": "expo_obstacles_love_01",
       "dialogueChunks": {
         "intro": "{player_name}, you might be the only person here who doesn't have a stake in this feud. That's exactly why I need you.",
-        "plotStep": "Two groups have been at each other's throats for generations over {quest_origin}. The problem is, {target_npc} from one side and a friend from the other have been cooperating in secret. If their groups find out, both will be cast out. I need {quest_item} from {location_hint} to prove that cooperation works, before the {enemy_type} pressing on our borders make the whole argument pointless.",
+        "plotStep": "Two groups have been at each other's throats for generations over {quest_origin}. The problem is, {target_npc} from one side and a friend from the other have been cooperating in secret. If their groups find out, both will be cast out. I need {quest_item} from {location_hint} to prove that cooperation works, before the {enemy_type_plural} pressing on our borders make the whole argument pointless.",
         "outro": "If those two get caught before we can show their people there's a better way, we lose the only bridge between them, and {quest_stakes_the} will suffer."
       },
       "objectivePool": [
@@ -52,7 +52,7 @@
       "id": "expo_obstacles_love_03",
       "dialogueChunks": {
         "intro": "{player_name}, have you seen the barrier between our settlement and the one across the ridge? It wasn't always there, and it doesn't need to stay.",
-        "plotStep": "Years ago, a dispute over {quest_item} led the elders to build a barrier cutting off the path between the two communities. Families were split apart overnight. {target_npc} has been passing messages through a gap, but guards patrol constantly. If you can find the old passage {location_hint} and clear out the {enemy_type} that have nested in it, we could open a route that no patrol would ever find.",
+        "plotStep": "Years ago, a dispute over {quest_item} led the elders to build a barrier cutting off the path between the two communities. Families were split apart overnight. {target_npc} has been passing messages through a gap, but guards patrol constantly. If you can find the old passage {location_hint} and clear out the {enemy_type_plural} that have nested in it, we could open a route that no patrol would ever find.",
         "outro": "People on both sides are waiting for a chance to see each other again. For {quest_stakes_the}, all that's missing is a door. Before {quest_time_pressure}."
       },
       "objectivePool": [

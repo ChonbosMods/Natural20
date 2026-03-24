@@ -4,7 +4,7 @@
       "id": "expo_slaying_kin_01",
       "dialogueChunks": {
         "intro": "{player_name}, something terrible has happened. People we trusted turned on their own, and they don't even remember doing it.",
-        "plotStep": "Since {quest_origin}, {quest_threat_the} {quest_threat_has} twisted things beyond recognition. Those affected see {enemy_type} where allies stand. We need someone to {quest_action} at {quest_focus_the}. There should be {quest_item} {location_hint} that can help us understand what's happening. Without it, {quest_stakes_the} will only get worse.",
+        "plotStep": "Since {quest_origin}, {quest_threat_the} {quest_threat_has} twisted things beyond recognition. Those affected see {enemy_type_plural} where allies stand. We need someone to {quest_action} at {quest_focus_the}. There should be {quest_item} {location_hint} that can help us understand what's happening. Without it, {quest_stakes_the} will only get worse.",
         "outro": "We're killing our own people and calling it defense. Help us stop this. Before {quest_time_pressure}."
       },
       "objectivePool": [
@@ -46,7 +46,7 @@
       "id": "expo_slaying_kin_03",
       "dialogueChunks": {
         "intro": "We lost one of our own two days ago. The guard captain swore they drew a weapon first. Their partner says they were reaching for a canteen.",
-        "plotStep": "Ever since {quest_origin}, {quest_threat_the} {quest_threat_has} been turning us against each other. {quest_focus_The} {quest_focus_is} at the center of it, and the {enemy_type} seem to be pulling the strings. We need an outsider to {quest_action}. Everyone here suspects everyone else already.",
+        "plotStep": "Ever since {quest_origin}, {quest_threat_the} {quest_threat_has} been turning us against each other. {quest_focus_The} {quest_focus_is} at the center of it, and the {enemy_type_plural} seem to be pulling the strings. We need an outsider to {quest_action}. Everyone here suspects everyone else already.",
         "outro": "If we don't act soon, {quest_stakes_the} will collapse. We'll destroy ourselves without any enemy lifting a finger."
       },
       "objectivePool": [

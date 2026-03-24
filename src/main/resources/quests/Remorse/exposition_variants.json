@@ -4,7 +4,7 @@
       "id": "expo_remorse_01",
       "dialogueChunks": {
         "intro": "{player_name}, I need to tell you something I've never told anyone. Something I did years ago that I can't stop thinking about.",
-        "plotStep": "When this place was under attack by {enemy_type}, I ran. I was supposed to hold the line with {target_npc}, but I abandoned my post and fled. {target_npc} held on alone and was badly injured because of it. They moved to another settlement {location_hint} and haven't spoken to me since. I've been gathering {quest_item} as a peace offering, but the road is dangerous.",
+        "plotStep": "When this place was under attack by {enemy_type_plural}, I ran. I was supposed to hold the line with {target_npc}, but I abandoned my post and fled. {target_npc} held on alone and was badly injured because of it. They moved to another settlement {location_hint} and haven't spoken to me since. I've been gathering {quest_item} as a peace offering, but the road is dangerous.",
         "outro": "I don't deserve forgiveness. But I need to {quest_action}. The fate of {quest_stakes_the} depends on whether I can face what I did. {quest_origin} haunts me every day."
       },
       "objectivePool": [

@@ -21,7 +21,7 @@
       "id": "conf_recovery_lost_02",
       "dialogueChunks": {
         "intro": "{player_name}, we found where {target_npc} has been. And the truth is harder than not knowing.",
-        "plotStep": "{target_npc} didn't vanish by accident. They were captured by the {enemy_type} and put to work in a labor camp {location_hint}. A refugee who escaped described {target_npc} by name. The camp is guarded, fortified, and deep in hostile territory. You will need to fight through the {enemy_type} guarding the camp to break them out.",
+        "plotStep": "{target_npc} didn't vanish by accident. They were captured by the {enemy_type_plural} and put to work in a labor camp {location_hint}. A refugee who escaped described {target_npc} by name. The camp is guarded, fortified, and deep in hostile territory. You will need to fight through the {enemy_type_plural} guarding the camp to break them out.",
         "outro": "Alive but captive. That's better than the alternatives, but it means the rescue just became ten times harder. Saving {quest_stakes_the} depends on moving fast."
       },
       "objectivePool": [
@@ -38,7 +38,7 @@
       "id": "conf_recovery_lost_03",
       "dialogueChunks": {
         "intro": "We found {target_npc}'s shelter, {player_name}. They've been surviving alone this whole time.",
-        "plotStep": "{target_npc} is alive and hiding in a makeshift camp {location_hint}, but they're injured and can't travel. The area is thick with {enemy_type}. We need you to clear the {enemy_type} out of the area so we can get {target_npc} home safely. They say the {enemy_type} move in waves: there's a narrow window between patrols.",
+        "plotStep": "{target_npc} is alive and hiding in a makeshift camp {location_hint}, but they're injured and can't travel. The area is thick with {enemy_type_plural}. We need you to clear the {enemy_type_plural} out of the area so we can get {target_npc} home safely. They say the {enemy_type_plural} move in waves: there's a narrow window between patrols.",
         "outro": "They survived alone for weeks in the wilderness. The least we can do is get them the last mile home."
       },
       "objectivePool": [

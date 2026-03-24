@@ -3,9 +3,9 @@
     {
       "id": "ref_an_enemy_loved_bridge_builder",
       "compatibleSituations": ["AnEnemyLoved", "Remorse", "ErroneousJudgment"],
-      "passiveText": "I've been thinking about whether the {enemy_type} we fought were truly as wicked as everyone says.",
+      "passiveText": "I've been thinking about whether the {enemy_type_plural} we fought were truly as wicked as everyone says.",
       "triggerTopicLabel": "Your doubts about the enemy",
-      "triggerDialogue": "A traveler passed through {location} last month and told me about a place {location_hint} where settlers and {enemy_type} actually trade with each other. Peacefully. {target_npc} didn't believe it, but I keep wondering: if they can do it there, why not here? Maybe someone should go and see how it works.",
+      "triggerDialogue": "A traveler passed through {location} last month and told me about a place {location_hint} where settlers and {enemy_type_plural} actually trade with each other. Peacefully. {target_npc} didn't believe it, but I keep wondering: if they can do it there, why not here? Maybe someone should go and see how it works.",
       "catalystSituations": ["AnEnemyLoved", "Remorse"],
       "targetNpcRoles": ["Traveler", "Guard"]
     }

@@ -14,7 +14,7 @@
       "id": "reso_mistaken_jealousy_02",
       "dialogueChunks": {
         "intro": "{target_npc} has been cleared, {player_name}. But the scars on this community run deep.",
-        "plotStep": "The evidence you recovered proved that the {enemy_type} were responsible, just as I suspected. The council withdrew the charges, and {target_npc} walked free. But the vandalism, the whispers, the isolation: none of that can be taken back. {target_npc} has reopened their workshop, but the customers are slow to return.",
+        "plotStep": "The evidence you recovered proved that the {enemy_type_plural} were responsible, just as I suspected. The council withdrew the charges, and {target_npc} walked free. But the vandalism, the whispers, the isolation: none of that can be taken back. {target_npc} has reopened their workshop, but the customers are slow to return.",
         "outro": "You gave us the truth. What we do with it is on us."
       },
       "objectivePool": [],

@@ -4,7 +4,7 @@
       "id": "enemity_reso_peace_restored",
       "dialogueChunks": {
         "intro": "The truth about {quest_focus_the} is finally out, and it's cleared the air between both sides. The real culprit wasn't who anyone expected.",
-        "plotStep": "{quest_ally} and {target_npc} have sat down together for the first time in weeks. {quest_stakes_the} are intact because you had the patience to uncover the truth rather than pick a side. The {enemy_type} lost their best weapon: our division.",
+        "plotStep": "{quest_ally} and {target_npc} have sat down together for the first time in weeks. {quest_stakes_the} are intact because you had the patience to uncover the truth rather than pick a side. The {enemy_type_plural} lost their best weapon: our division.",
         "outro": "Both settlements owe you a debt, {player_name}. You kept {quest_threat_the} from consuming an alliance that neither side could afford to lose."
       },
       "objectivePool": [],

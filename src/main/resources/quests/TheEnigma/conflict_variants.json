@@ -4,7 +4,7 @@
       "id": "enigma_conf_deeper_puzzle",
       "dialogueChunks": {
         "intro": "The initial investigation raised more questions than answers. {quest_focus_The} {quest_focus_is} connected to something larger, and the clues point toward {location_hint}.",
-        "plotStep": "The {enemy_type} have been guarding a second site near {location_hint}. Whatever {quest_threat_the} is, they seem to understand it better than we do. We need you to retrieve the {quest_item} fragments from that site to piece together the pattern.",
+        "plotStep": "The {enemy_type_plural} have been guarding a second site near {location_hint}. Whatever {quest_threat_the} is, they seem to understand it better than we do. We need you to retrieve the {quest_item} fragments from that site to piece together the pattern.",
         "outro": "Every piece of evidence brings us closer to understanding. Bring back what you can from the guarded area."
       },
       "objectivePool": [

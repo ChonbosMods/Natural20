@@ -5,7 +5,7 @@
       "compatibleSituations": ["ErroneousJudgment", "MistakenJealousy", "AnEnemyLoved"],
       "passiveText": "We've been getting strange reports from the trade roads. Some of them don't add up.",
       "triggerTopicLabel": "The reports that don't add up",
-      "triggerDialogue": "Travelers keep telling us different stories about what's happening {location_hint}. One says the road is crawling with {enemy_type}. Another says it's perfectly safe. {target_npc} thinks someone is deliberately spreading misinformation, maybe to control traffic along the route. Could be worth verifying before anyone acts on bad intelligence again.",
+      "triggerDialogue": "Travelers keep telling us different stories about what's happening {location_hint}. One says the road is crawling with {enemy_type_plural}. Another says it's perfectly safe. {target_npc} thinks someone is deliberately spreading misinformation, maybe to control traffic along the route. Could be worth verifying before anyone acts on bad intelligence again.",
       "catalystSituations": ["ErroneousJudgment", "Pursuit"],
       "targetNpcRoles": ["Guard", "TavernKeeper"]
     }

@@ -14,7 +14,7 @@
       "compatibleSituations": ["Deliverance", "Abduction"],
       "passiveText": "There are whispers that the recent disappearances are connected: not random attacks, but something organized.",
       "triggerTopicLabel": "The connected disappearances",
-      "triggerDialogue": "Three settlements in the region have reported people going missing in the last month. {target_npc} at {location} has been tracking the pattern and believes the {enemy_type} are building a labor camp somewhere {location_hint}. If that's true, this isn't just one rescue: it's the start of something much bigger.",
+      "triggerDialogue": "Three settlements in the region have reported people going missing in the last month. {target_npc} at {location} has been tracking the pattern and believes the {enemy_type_plural} are building a labor camp somewhere {location_hint}. If that's true, this isn't just one rescue: it's the start of something much bigger.",
       "catalystSituations": ["Deliverance", "Abduction"],
       "targetNpcRoles": ["Guard", "Villager"]
     }

@@ -3,9 +3,9 @@
     {
       "id": "conf_sacrifice_kindred_01",
       "dialogueChunks": {
-        "intro": "The group was hit, {player_name}. The {enemy_type} attacked at the narrowest point. The volunteers are holding but they can't last.",
+        "intro": "The group was hit, {player_name}. The {enemy_type_plural} attacked at the narrowest point. The volunteers are holding but they can't last.",
         "plotStep": "One volunteer took a wound and is still pushing forward with one hand. {quest_ally} managed to save part of the supplies, but {quest_item} was scattered when things went wrong. {target_npc} is trying to rally the survivors.",
-        "outro": "If we lose {quest_item}, the trip was for nothing and those people bled for nothing. Help {target_npc} recover what was lost and drive back the {enemy_type}."
+        "outro": "If we lose {quest_item}, the trip was for nothing and those people bled for nothing. Help {target_npc} recover what was lost and drive back the {enemy_type_plural}."
       },
       "objectivePool": [
         "KILL_MOBS",

@@ -4,7 +4,7 @@
       "id": "expo_erroneous_judgment_01",
       "dialogueChunks": {
         "intro": "{player_name}, we're about to make a terrible mistake, and I'm the only one who sees it.",
-        "plotStep": "A scout returned claiming they found an {enemy_type} camp {location_hint}. The militia is arming up. But I spoke to {target_npc}, who traveled that road recently, and they described something very different from what the scout reported. The scout saw what they expected to see, not what was actually there.",
+        "plotStep": "A scout returned claiming they found a {enemy_type} camp {location_hint}. The militia is arming up. But I spoke to {target_npc}, who traveled that road recently, and they described something very different from what the scout reported. The scout saw what they expected to see, not what was actually there.",
         "outro": "I need you to reach {quest_focus_the} before the militia does and bring back {quest_item} as proof of what's really there. If they attack the wrong target, {quest_stakes_the} will pay the price. {quest_reward_hint} could follow."
       },
       "objectivePool": ["FETCH_ITEM"],

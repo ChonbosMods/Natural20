@@ -4,8 +4,8 @@
       "id": "imprudence_expo_01",
       "dialogueChunks": {
         "intro": "{quest_focus_The} collapsed this morning, {player_name}. {quest_stakes_The} {quest_stakes_is} trapped. The worst part: we were warned {quest_threat_the} {quest_threat_was} building, and someone decided to press ahead anyway.",
-        "plotStep": "{quest_ally} tried to stop the recklessness, but {quest_origin} pushed things too far. Now people are in danger. The {enemy_type} have been spotted near the area {location_hint}, drawn by the commotion.",
-        "outro": "Those people do not have long. We need someone to clear the area, drive off the {enemy_type}, and get {quest_item} to stabilize things before {quest_time_pressure}."
+        "plotStep": "{quest_ally} tried to stop the recklessness, but {quest_origin} pushed things too far. Now people are in danger. The {enemy_type_plural} have been spotted near the area {location_hint}, drawn by the commotion.",
+        "outro": "Those people do not have long. We need someone to clear the area, drive off the {enemy_type_plural}, and get {quest_item} to stabilize things before {quest_time_pressure}."
       },
       "objectivePool": [
         "EXPLORE_LOCATION",
@@ -27,7 +27,7 @@
       "id": "imprudence_expo_02",
       "dialogueChunks": {
         "intro": "Someone did something very foolish, {player_name}. {quest_origin} provoked {quest_threat_the}, and now the consequences are raining down on {quest_stakes_the}.",
-        "plotStep": "The {enemy_type} are retaliating with everything they have, and they are heading straight for {quest_focus_the}. {quest_ally} is organizing a defense, but the response is larger than anything we prepared for.",
+        "plotStep": "The {enemy_type_plural} are retaliating with everything they have, and they are heading straight for {quest_focus_the}. {quest_ally} is organizing a defense, but the response is larger than anything we prepared for.",
         "outro": "The ones who caused this are nursing their wounds. We need someone capable to get out {location_hint} and reduce {quest_threat_the} before it overwhelms us."
       },
       "objectivePool": [

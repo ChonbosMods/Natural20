@@ -14,7 +14,7 @@
       "id": "abduction_reso_too_late",
       "dialogueChunks": {
         "intro": "You found the place, but {quest_focus_the} was already moved on. The camp was abandoned in haste. Still, you've shattered {quest_threat_the}'s hold on this region.",
-        "plotStep": "It's not the ending we wanted, but the {enemy_type} lost fighters, supplies, and their element of surprise. {quest_ally} says the intelligence you recovered will help prevent this from happening again.",
+        "plotStep": "It's not the ending we wanted, but the {enemy_type_plural} lost fighters, supplies, and their element of surprise. {quest_ally} says the intelligence you recovered will help prevent this from happening again.",
         "outro": "Sometimes a partial victory is all we get. You did everything you could for {quest_stakes_the}, and that matters."
       },
       "objectivePool": [],
@@ -23,9 +23,9 @@
     {
       "id": "abduction_reso_turned_tables",
       "dialogueChunks": {
-        "intro": "Not only did you free {quest_focus_the}, you turned the captors' own camp against them. The {enemy_type} scattered when they realized they'd lost everything.",
+        "intro": "Not only did you free {quest_focus_the}, you turned the captors' own camp against them. The {enemy_type_plural} scattered when they realized they'd lost everything.",
         "plotStep": "{target_npc} can hardly believe the report. The supplies you seized from {quest_threat_the} will sustain us for weeks. The prisoners you freed are spreading word of what you did.",
-        "outro": "You didn't just solve a problem: you sent a message. {quest_stakes_The} {quest_stakes_is} secure, and the {enemy_type} will think twice before crossing this settlement again."
+        "outro": "You didn't just solve a problem: you sent a message. {quest_stakes_The} {quest_stakes_is} secure, and the {enemy_type_plural} will think twice before crossing this settlement again."
       },
       "objectivePool": [],
       "objectiveConfig": {}

@@ -14,7 +14,7 @@
       "id": "reso_slaying_kin_02",
       "dialogueChunks": {
         "intro": "{player_name}, {quest_focus_the} {quest_focus_is} neutralized. But the cost... more fell before you reached the source.",
-        "plotStep": "The {enemy_type} won't be using this weapon again, at least not here. {target_npc} has already begun analyzing what's left of {quest_item} to develop defenses. But the people who harmed their own kin: they'll carry that weight forever.",
+        "plotStep": "The {enemy_type_plural} won't be using this weapon again, at least not here. {target_npc} has already begun analyzing what's left of {quest_item} to develop defenses. But the people who harmed their own kin: they'll carry that weight forever.",
         "outro": "Some have asked to leave the settlement. They can't face the families of those they harmed. This place will never be the same."
       },
       "objectivePool": [],

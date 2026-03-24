@@ -4,7 +4,7 @@
       "id": "reso_erroneous_judgment_01",
       "dialogueChunks": {
         "intro": "You found the truth, {player_name}. And the truth, as usual, was more complicated than anyone expected.",
-        "plotStep": "The evidence you brought back proved that {quest_focus_the} {quest_focus_was} never what it appeared. The council reversed their decision. {target_npc} was vindicated, and the real source of the problem has been dealt with. The {enemy_type} have retreated now that the deception has been exposed.",
+        "plotStep": "The evidence you brought back proved that {quest_focus_the} {quest_focus_was} never what it appeared. The council reversed their decision. {target_npc} was vindicated, and the real source of the problem has been dealt with. The {enemy_type_plural} have retreated now that the deception has been exposed.",
         "outro": "You proved that the hardest thing to find isn't treasure or monsters: it's the truth."
       },
       "objectivePool": [],
@@ -24,7 +24,7 @@
       "id": "reso_erroneous_judgment_03",
       "dialogueChunks": {
         "intro": "{player_name}, the truth you uncovered saved lives. But it also revealed something about us that nobody wanted to see.",
-        "plotStep": "The council disbanded the group that acted on the false report. {target_npc} is helping rebuild what was damaged. The conversation has shifted: people are asking how they allowed bad information to drive them so far, so fast. The {enemy_type} weren't the real danger. We were, to ourselves.",
+        "plotStep": "The council disbanded the group that acted on the false report. {target_npc} is helping rebuild what was damaged. The conversation has shifted: people are asking how they allowed bad information to drive them so far, so fast. The {enemy_type_plural} weren't the real danger. We were, to ourselves.",
         "outro": "Sometimes the bravest thing you can do is hold up a mirror."
       },
       "objectivePool": [],

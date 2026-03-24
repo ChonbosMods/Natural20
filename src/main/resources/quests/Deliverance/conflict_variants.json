@@ -4,7 +4,7 @@
       "id": "deliverance_conf_01",
       "dialogueChunks": {
         "intro": "{player_name}, your push to {quest_action} stirred them up. {quest_threat_animate_The} {quest_threat_animate_has} tightened their grip on {quest_focus_the}.",
-        "plotStep": "{quest_ally} managed to get a message from {quest_stakes_human_the}: they are alive but desperate. The {enemy_type} have reinforced their positions {location_hint}. We need to fight through before it is too late.",
+        "plotStep": "{quest_ally} managed to get a message from {quest_stakes_human_the}: they are alive but desperate. The {enemy_type_plural} have reinforced their positions {location_hint}. We need to fight through before it is too late.",
         "outro": "We are so close. Kill every one of them standing in your way: do not let them slip away now."
       },
       "objectivePool": ["KILL_MOBS"],
@@ -16,7 +16,7 @@
       "id": "deliverance_conf_02",
       "dialogueChunks": {
         "intro": "Things have gotten worse since you began to {quest_action}, {player_name}. {quest_threat_animate_The} retaliated against {quest_stakes_the}.",
-        "plotStep": "{quest_ally} reports that the {enemy_type} moved {quest_stakes_the} deeper toward {quest_focus_the}. They left a rear guard {location_hint} to slow any pursuit. Cut through them before the main force escapes.",
+        "plotStep": "{quest_ally} reports that the {enemy_type_plural} moved {quest_stakes_the} deeper toward {quest_focus_the}. They left a rear guard {location_hint} to slow any pursuit. Cut through them before the main force escapes.",
         "outro": "This is their last move. Destroy the rear guard and push through to the captives."
       },
       "objectivePool": ["KILL_MOBS"],
@@ -28,7 +28,7 @@
       "id": "deliverance_conf_03",
       "dialogueChunks": {
         "intro": "{player_name}, I have grim news. Your work to {quest_action} revealed that {quest_threat_the} {quest_threat_is} not the only danger at {quest_focus_the}.",
-        "plotStep": "The {enemy_type} are using the area {location_hint} as a staging ground. {quest_ally} believes they plan to move {quest_stakes_the} permanently unless we act now. Scatter their forces and create an opening for the rescue.",
+        "plotStep": "The {enemy_type_plural} are using the area {location_hint} as a staging ground. {quest_ally} believes they plan to move {quest_stakes_the} permanently unless we act now. Scatter their forces and create an opening for the rescue.",
         "outro": "This may be our last chance. Wipe out every {enemy_type} at the staging ground before they can regroup."
       },
       "objectivePool": ["KILL_MOBS"],
@@ -39,7 +39,7 @@
     {
       "id": "deliverance_conf_04",
       "dialogueChunks": {
-        "intro": "The trail to {location_hint} is more dangerous than we expected. {enemy_type} patrols are everywhere, and they have set traps along the path.",
+        "intro": "The trail to {location_hint} is more dangerous than we expected. {enemy_type_plural} patrols are everywhere, and they have set traps along the path.",
         "plotStep": "You will need to fight through their scouts before reaching {quest_focus_the}. {quest_ally} warned that {quest_threat_the} grows stronger the closer you get to their territory.",
         "outro": "Clear the way and press forward. Kill every patrol you encounter: every moment wasted is another moment {quest_focus_the} remains in danger."
       },
@@ -52,7 +52,7 @@
       "id": "deliverance_conf_05",
       "dialogueChunks": {
         "intro": "You have found signs of {quest_threat_the} near {location_hint}. Discarded supplies and cold fire pits mark where they rested with their prisoners.",
-        "plotStep": "The captors split into groups here. A rearguard of {enemy_type} stayed behind to cover the retreat. They are still camped in the area, and they will raise the alarm if they spot you.",
+        "plotStep": "The captors split into groups here. A rearguard of {enemy_type_plural} stayed behind to cover the retreat. They are still camped in the area, and they will raise the alarm if they spot you.",
         "outro": "Wipe out the stragglers before they can warn the others. Once the camp is clear, we can pick up the trail again."
       },
       "objectivePool": ["KILL_MOBS"],
@@ -63,7 +63,7 @@
     {
       "id": "deliverance_conf_06",
       "dialogueChunks": {
-        "intro": "Something does not add up. The {enemy_type} knew too much about {quest_focus_the}: patrol schedules, weak points, who to target. Someone from the inside fed them information.",
+        "intro": "Something does not add up. The {enemy_type_plural} knew too much about {quest_focus_the}: patrol schedules, weak points, who to target. Someone from the inside fed them information.",
         "plotStep": "Talk to {target_npc}. They were the last person to see {quest_focus_the} before {quest_threat_animate_the} struck. Whether they are guilty or simply the last witness, their account matters.",
         "outro": "We need the truth before {quest_stakes_the} {quest_stakes_is} lost forever. Find {target_npc} and get them to tell you everything they know."
       },

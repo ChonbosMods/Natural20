@@ -3,7 +3,7 @@
     {
       "id": "abduction_conf_ambush_trail",
       "dialogueChunks": {
-        "intro": "The trail to {location_hint} is more dangerous than we expected. {enemy_type} patrols are everywhere, and they've set traps along the path.",
+        "intro": "The trail to {location_hint} is more dangerous than we expected. {enemy_type_plural} patrols are everywhere, and they've set traps along the path.",
         "plotStep": "You'll need to fight through their scouts before reaching {quest_focus_the}. {quest_ally} warned that {quest_threat_the} grows stronger the closer you get to their territory.",
         "outro": "Clear the way and press forward. Every moment wasted is another moment {quest_focus_the} remains in danger."
       },
@@ -44,7 +44,7 @@
     {
       "id": "abduction_conf_insider_betrayal",
       "dialogueChunks": {
-        "intro": "Something doesn't add up. The {enemy_type} knew too much about {quest_focus_the}: patrol schedules, weak points, who to target. Someone from the inside fed them information.",
+        "intro": "Something doesn't add up. The {enemy_type_plural} knew too much about {quest_focus_the}: patrol schedules, weak points, who to target. Someone from the inside fed them information.",
         "plotStep": "Talk to {target_npc}. They were the last person to see {quest_focus_the} before {quest_threat_the} struck. Whether they're guilty or simply the last witness, their account matters.",
         "outro": "We need the truth before {quest_stakes_the} {quest_stakes_is} lost forever. Find out what {target_npc} knows, willingly or not."
       },

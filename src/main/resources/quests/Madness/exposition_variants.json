@@ -18,7 +18,7 @@
       "id": "madness_expo_02",
       "dialogueChunks": {
         "intro": "Half the settlement has been afflicted, {player_name}. Something at {quest_focus_the} struck without warning, and {quest_threat_the} {quest_threat_is} spreading faster than we can understand.",
-        "plotStep": "{quest_ally} is one of the affected. They describe identical visions across every victim. This is not coincidence: something near {location_hint} is projecting this. Even the {enemy_type} in the area have been behaving erratically.",
+        "plotStep": "{quest_ally} is one of the affected. They describe identical visions across every victim. This is not coincidence: something near {location_hint} is projecting this. Even the {enemy_type_plural} in the area have been behaving erratically.",
         "outro": "People are terrified. We need to find what is causing {quest_threat_the} and put an end to it before the whole settlement falls apart."
       },
       "objectivePool": [

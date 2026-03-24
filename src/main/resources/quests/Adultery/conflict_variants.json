@@ -4,7 +4,7 @@
       "id": "conf_adultery_01",
       "dialogueChunks": {
         "intro": "{player_name}, the betrayal goes deeper than we thought. The traitor wasn't acting alone. There's a network of compromised officials.",
-        "plotStep": "{target_npc} found correspondence showing that others have been making side deals with the {enemy_type}. {quest_ally} says the whole thing around {quest_focus_the} was rotten from the start: people swearing oaths they never intended to keep. {quest_item} contains the full ledger.",
+        "plotStep": "{target_npc} found correspondence showing that others have been making side deals with the {enemy_type_plural}. {quest_ally} says the whole thing around {quest_focus_the} was rotten from the start: people swearing oaths they never intended to keep. {quest_item} contains the full ledger.",
         "outro": "Get {quest_item} from {location_hint} before the conspirators destroy it. The betrayed need to see the full picture: not just one traitor, but a pattern."
       },
       "objectivePool": [

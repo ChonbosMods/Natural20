@@ -14,7 +14,7 @@
       "id": "reso_necessity_sacrifice_02",
       "dialogueChunks": {
         "intro": "All of them, {player_name}. Every captive. Walking through the gates right now.",
-        "plotStep": "The {enemy_type} didn't expect a strike on both locations simultaneously. {target_npc} coordinated the timing while {quest_ally} led the second effort. It was close: closer than anyone wants to admit. But nobody was left behind. The stores are untouched.",
+        "plotStep": "The {enemy_type_plural} didn't expect a strike on both locations simultaneously. {target_npc} coordinated the timing while {quest_ally} led the second effort. It was close: closer than anyone wants to admit. But nobody was left behind. The stores are untouched.",
         "outro": "You found the third option, {player_name}. The one nobody believed existed. Families are whole tonight because you refused to accept the impossible choice."
       },
       "objectivePool": [],

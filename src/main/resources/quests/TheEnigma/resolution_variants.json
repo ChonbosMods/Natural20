@@ -14,7 +14,7 @@
       "id": "enigma_reso_mystery_endures",
       "dialogueChunks": {
         "intro": "We've learned more than we knew before, but {quest_focus_the} still holds secrets we can't crack. Some mysteries don't yield all at once.",
-        "plotStep": "{quest_ally} has documented everything you found. Even partial understanding of {quest_threat_the} gives us an advantage we didn't have. The {enemy_type} won't find the sites so welcoming now that we know to watch them.",
+        "plotStep": "{quest_ally} has documented everything you found. Even partial understanding of {quest_threat_the} gives us an advantage we didn't have. The {enemy_type_plural} won't find the sites so welcoming now that we know to watch them.",
         "outro": "You didn't solve the whole puzzle, but you gave us the edge pieces. {quest_stakes_The} {quest_stakes_is} safer for your efforts, {player_name}."
       },
       "objectivePool": [],

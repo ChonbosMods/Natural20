@@ -22,8 +22,8 @@
     {
       "id": "treachery_conf_retaliation",
       "dialogueChunks": {
-        "intro": "Your investigation is making someone nervous. The {enemy_type} launched a targeted strike near {location_hint}: aimed directly at the evidence you were tracking for {quest_focus_the}.",
-        "plotStep": "{quest_threat_The} {quest_threat_is} reacting to your progress. The conspirator warned their allies, and the {enemy_type} moved to destroy the proof. {quest_ally} says there may still be evidence at a secondary site near {location_hint}, but time is short.",
+        "intro": "Your investigation is making someone nervous. The {enemy_type_plural} launched a targeted strike near {location_hint}: aimed directly at the evidence you were tracking for {quest_focus_the}.",
+        "plotStep": "{quest_threat_The} {quest_threat_is} reacting to your progress. The conspirator warned their allies, and the {enemy_type_plural} moved to destroy the proof. {quest_ally} says there may still be evidence at a secondary site near {location_hint}, but time is short.",
         "outro": "Get there before they can destroy everything. Fight through whatever they've left guarding the site and recover what remains."
       },
       "objectivePool": [
@@ -42,7 +42,7 @@
       "id": "treachery_conf_trusted_suspect",
       "dialogueChunks": {
         "intro": "The evidence from {quest_focus_the} points to someone no one wants to believe. A person deeply trusted by the settlement stands accused, and the proof is damning.",
-        "plotStep": "{target_npc} insists on their innocence, but {quest_ally} found correspondence near {location_hint} that connects them to {quest_threat_the}. We need final proof: something that confirms guilt or clears their name beyond doubt. The {enemy_type} are watching our confusion closely.",
+        "plotStep": "{target_npc} insists on their innocence, but {quest_ally} found correspondence near {location_hint} that connects them to {quest_threat_the}. We need final proof: something that confirms guilt or clears their name beyond doubt. The {enemy_type_plural} are watching our confusion closely.",
         "outro": "Find the decisive evidence near {location_hint}. Whether it condemns or exonerates, {quest_stakes_the} cannot wait any longer for closure."
       },
       "objectivePool": [

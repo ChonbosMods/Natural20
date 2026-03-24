@@ -3,7 +3,7 @@
     {
       "id": "treachery_expo_01",
       "dialogueChunks": {
-        "intro": "Our patrols have been ambushed repeatedly, {player_name}. The {enemy_type} knew exactly where our people would be and when. Someone is feeding them information.",
+        "intro": "Our patrols have been ambushed repeatedly, {player_name}. The {enemy_type_plural} knew exactly where our people would be and when. Someone is feeding them information.",
         "plotStep": "{quest_ally} reviewed the plans and confirmed they were shared only with trusted members. The leak has to come from within. {quest_focus_The} was found in the wreckage near {location_hint}, written in our own cipher.",
         "outro": "We have a traitor among us. I need someone outside the usual chain of trust to investigate before {quest_threat_the} gets more of our people killed."
       },
@@ -23,7 +23,7 @@
       "id": "treachery_expo_02",
       "dialogueChunks": {
         "intro": "Someone has been issuing orders in our leader's name, {player_name}: orders that divert supplies, reassign guards, and leave key positions unmanned. The forgeries are skillful.",
-        "plotStep": "{quest_ally} intercepted {quest_focus_the} before it could be carried out and recognized the deception. The orders would have left the gate near {location_hint} unguarded while the {enemy_type} are at their most aggressive. This is not carelessness: it is deliberate sabotage.",
+        "plotStep": "{quest_ally} intercepted {quest_focus_the} before it could be carried out and recognized the deception. The orders would have left the gate near {location_hint} unguarded while the {enemy_type_plural} are at their most aggressive. This is not carelessness: it is deliberate sabotage.",
         "outro": "Whoever is behind {quest_threat_the} has connections and patience. Will you help us trace the source before {quest_time_pressure}?"
       },
       "objectivePool": [
@@ -36,7 +36,7 @@
     {
       "id": "treachery_expo_03",
       "dialogueChunks": {
-        "intro": "{quest_ally} saw something unsettling last night, {player_name}: one of our own meeting with {enemy_type} scouts outside the walls. Not fighting. Talking.",
+        "intro": "{quest_ally} saw something unsettling last night, {player_name}: one of our own meeting with {enemy_type_plural} scouts outside the walls. Not fighting. Talking.",
         "plotStep": "It happened near {location_hint}, well away from the usual patrol routes. {quest_focus_The} suggests this was not the first meeting either. Someone in our settlement has been negotiating with {quest_threat_the} behind everyone's backs.",
         "outro": "We need proof before we can act. Investigate the meeting site and find out what terms were being discussed. {quest_stakes_The} may depend on it."
       },

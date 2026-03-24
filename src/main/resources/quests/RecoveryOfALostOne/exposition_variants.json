@@ -4,7 +4,7 @@
       "id": "expo_recovery_lost_01",
       "dialogueChunks": {
         "intro": "{player_name}, my loved one left weeks ago and never arrived at their destination. Nobody's seen them since.",
-        "plotStep": "The last anyone heard, they were camped {location_hint} when trouble hit. I found the campsite a week later: torn apart, supplies scattered, but no body. {target_npc} thinks the {enemy_type} might have taken them. Before anything else, I need you to retrieve {quest_item} from the campsite. It is the only thing that can tell us which way they went.",
+        "plotStep": "The last anyone heard, they were camped {location_hint} when trouble hit. I found the campsite a week later: torn apart, supplies scattered, but no body. {target_npc} thinks the {enemy_type_plural} might have taken them. Before anything else, I need you to retrieve {quest_item} from the campsite. It is the only thing that can tell us which way they went.",
         "outro": "They're out there somewhere. I can feel it. I just need someone brave enough to {quest_action}. {quest_origin} started all of this. {quest_reward_hint} would be my undying gratitude."
       },
       "objectivePool": [
@@ -20,7 +20,7 @@
       "id": "expo_recovery_lost_02",
       "dialogueChunks": {
         "intro": "Please, {player_name}, you have to help me. My child wandered off during the {enemy_type} attack and nobody's seen them since.",
-        "plotStep": "When the {enemy_type} hit, everyone scattered. In the chaos, my child was separated from the group. {target_npc} saw them running toward {location_hint}, but nobody could follow because the {enemy_type} were between us. {target_npc} is the last person who saw my child alive. Please, go speak with them and find out exactly where they went.",
+        "plotStep": "When the {enemy_type_plural} hit, everyone scattered. In the chaos, my child was separated from the group. {target_npc} saw them running toward {location_hint}, but nobody could follow because the {enemy_type_plural} were between us. {target_npc} is the last person who saw my child alive. Please, go speak with them and find out exactly where they went.",
         "outro": "They're young and alone in the wild. Every hour counts. {quest_stakes_The} {quest_stakes_is} all I can think about. Before {quest_time_pressure}."
       },
       "objectivePool": [
