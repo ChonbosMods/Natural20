@@ -1,6 +1,5 @@
 package com.chonbosmods.ui;
 
-import com.hypixel.hytale.logger.HytaleLogger;
 import com.hypixel.hytale.server.core.Message;
 import com.hypixel.hytale.server.core.ui.builder.UICommandBuilder;
 
@@ -19,8 +18,6 @@ import java.util.concurrent.TimeUnit;
  */
 public class DialogueTypewriter {
 
-    private static final HytaleLogger LOGGER = HytaleLogger.get("Nat20|Typewriter");
-
     private static final ScheduledExecutorService SCHEDULER = Executors.newSingleThreadScheduledExecutor(r -> {
         Thread t = new Thread(r, "Nat20-Typewriter");
         t.setDaemon(true);
@@ -32,6 +29,9 @@ public class DialogueTypewriter {
     private static final long DELAY_COMMA = 200;
     private static final long DELAY_SENTENCE_END = 350;
     private static final long DELAY_ELLIPSIS = 500;
+
+    // Smart batching: words this short get bundled with the next word
+    private static final int SHORT_WORD_THRESHOLD = 3;
 
     private final String fullText;
     private final String color;
@@ -83,7 +83,7 @@ public class DialogueTypewriter {
         // Smart batching: if the current word is 3 chars or fewer and there is a next word,
         // bundle them into one reveal. Max 2 words per chunk.
         int advanceCount = 1;
-        if (words[currentIndex].length() <= 3 && currentIndex + 1 < words.length) {
+        if (words[currentIndex].length() <= SHORT_WORD_THRESHOLD && currentIndex + 1 < words.length) {
             advanceCount = 2;
         }
 
@@ -122,24 +122,28 @@ public class DialogueTypewriter {
 
     /**
      * Skip the animation: immediately reveal the full text, mark complete, and fire onComplete.
-     * Safe to call from any thread.
+     * Safe to call from any thread: the actual work is serialized onto the scheduler thread
+     * to avoid racing with an in-flight tick().
      */
     public void skip() {
         if (complete) return;
-        complete = true;
+        SCHEDULER.execute(() -> {
+            if (complete) return;
+            complete = true;
 
-        if (pendingFuture != null) {
-            pendingFuture.cancel(false);
-        }
+            if (pendingFuture != null) {
+                pendingFuture.cancel(false);
+            }
 
-        // Reveal the full text
-        UICommandBuilder cmd = new UICommandBuilder();
-        cmd.set(selector + ".TextSpans", Message.raw(fullText).color(color));
-        page.pushUpdate(cmd);
+            // Reveal the full text
+            UICommandBuilder cmd = new UICommandBuilder();
+            cmd.set(selector + ".TextSpans", Message.raw(fullText).color(color));
+            page.pushUpdate(cmd);
 
-        if (onComplete != null) {
-            onComplete.run();
-        }
+            if (onComplete != null) {
+                onComplete.run();
+            }
+        });
     }
 
     /**
