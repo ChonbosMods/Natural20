@@ -174,6 +174,7 @@ public class QuestGenerator {
                                                       String npcId, String situationId, Random random) {
         Map<String, String> bindings = new HashMap<>();
         bindings.put("quest_giver_name", npcId);
+        bindings.put("player_name", "Traveler"); // Placeholder; resolved to actual name at display time if available
         bindings.put("npc_x", String.valueOf(npcX));
         bindings.put("npc_z", String.valueOf(npcZ));
 
