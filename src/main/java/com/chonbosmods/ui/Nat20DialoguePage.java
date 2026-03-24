@@ -238,7 +238,8 @@ public class Nat20DialoguePage extends InteractiveCustomUIPage<Nat20DialoguePage
     }
 
     private void buildFollowUps(UICommandBuilder cmd, UIEventBuilder events) {
-        cmd.set("#FollowUpArea.Visible", !activeFollowUps.isEmpty() && activeTypewriter == null);
+        // Area is always visible (fixed height in template); hide individual buttons during typewriter
+        boolean showButtons = !activeFollowUps.isEmpty() && activeTypewriter == null;
 
         if (activeFollowUps.size() > MAX_FOLLOW_UPS) {
             LOGGER.atWarning().log("Too many follow-ups: " + activeFollowUps.size() + " (max " + MAX_FOLLOW_UPS + ")");
@@ -246,7 +247,7 @@ public class Nat20DialoguePage extends InteractiveCustomUIPage<Nat20DialoguePage
 
         for (int i = 0; i < MAX_FOLLOW_UPS; i++) {
             String selector = "#FollowUp" + (i + 1);
-            if (i < activeFollowUps.size()) {
+            if (showButtons && i < activeFollowUps.size()) {
                 ActiveFollowUp f = activeFollowUps.get(i);
                 cmd.set(selector + ".Visible", true);
 
@@ -335,12 +336,15 @@ public class Nat20DialoguePage extends InteractiveCustomUIPage<Nat20DialoguePage
         }
     }
 
-    /** Called when typewriter finishes or is skipped: reveal follow-up area. */
+    /** Called when typewriter finishes or is skipped: reveal follow-up buttons. */
     private void onTypewriterComplete() {
         activeTypewriter = null;
         if (!activeFollowUps.isEmpty()) {
             UICommandBuilder cmd = new UICommandBuilder();
-            cmd.set("#FollowUpArea.Visible", true);
+            int count = Math.min(activeFollowUps.size(), MAX_FOLLOW_UPS);
+            for (int i = 0; i < count; i++) {
+                cmd.set("#FollowUp" + (i + 1) + ".Visible", true);
+            }
             pushUpdate(cmd);
         }
     }
