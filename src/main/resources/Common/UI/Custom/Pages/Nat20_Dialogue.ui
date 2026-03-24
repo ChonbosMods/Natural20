@@ -2,6 +2,10 @@ $C = "../Common.ui";
 
 $C.@PageOverlay {}
 
+Group #SkipOverlay {
+  Anchor: (Full: 0);
+}
+
 $C.@Container {
   Anchor: (Width: 850, Height: 590);
 
