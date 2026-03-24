@@ -2,6 +2,7 @@
   "templates": [
     {
       "id": "rumor_danger",
+      "skillCheck": { "skill": "PERCEPTION" },
       "label": "{subject_focus}",
       "perspectives": [
         {
@@ -98,6 +99,7 @@
     },
     {
       "id": "rumor_sighting",
+      "skillCheck": { "skill": "PERCEPTION" },
       "label": "{subject_focus}",
       "perspectives": [
         {
@@ -194,6 +196,7 @@
     },
     {
       "id": "rumor_migration",
+      "skillCheck": { "skill": "INVESTIGATION" },
       "label": "{subject_focus}",
       "perspectives": [
         {
@@ -290,6 +293,7 @@
     },
     {
       "id": "rumor_disappearance",
+      "skillCheck": { "skill": "INSIGHT" },
       "label": "{subject_focus}",
       "perspectives": [
         {
@@ -386,6 +390,7 @@
     },
     {
       "id": "rumor_corruption",
+      "skillCheck": { "skill": "INVESTIGATION" },
       "label": "{subject_focus}",
       "perspectives": [
         {
@@ -482,6 +487,7 @@
     },
     {
       "id": "rumor_omen",
+      "skillCheck": { "skill": "INSIGHT" },
       "label": "{subject_focus}",
       "perspectives": [
         {
@@ -578,6 +584,7 @@
     },
     {
       "id": "rumor_treasure",
+      "skillCheck": { "skill": "INVESTIGATION" },
       "label": "{subject_focus}",
       "perspectives": [
         {
@@ -674,6 +681,7 @@
     },
     {
       "id": "rumor_conflict",
+      "skillCheck": { "skill": "INSIGHT" },
       "label": "{subject_focus}",
       "perspectives": [
         {

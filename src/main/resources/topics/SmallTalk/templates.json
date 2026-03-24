@@ -2,6 +2,7 @@
   "templates": [
     {
       "id": "smalltalk_weather",
+      "skillCheck": { "skill": "PERCEPTION" },
       "label": "{subject_focus}",
       "perspectives": [
         {
@@ -98,6 +99,7 @@
     },
     {
       "id": "smalltalk_trade",
+      "skillCheck": { "skill": "INSIGHT" },
       "label": "{subject_focus}",
       "perspectives": [
         {
@@ -194,6 +196,7 @@
     },
     {
       "id": "smalltalk_craftsmanship",
+      "skillCheck": { "skill": "INSIGHT" },
       "label": "{subject_focus}",
       "perspectives": [
         {
@@ -290,6 +293,7 @@
     },
     {
       "id": "smalltalk_community",
+      "skillCheck": { "skill": "PERSUASION" },
       "label": "{subject_focus}",
       "perspectives": [
         {
@@ -386,6 +390,7 @@
     },
     {
       "id": "smalltalk_nature",
+      "skillCheck": { "skill": "PERCEPTION" },
       "label": "{subject_focus}",
       "perspectives": [
         {
@@ -482,6 +487,7 @@
     },
     {
       "id": "smalltalk_nostalgia",
+      "skillCheck": { "skill": "PERSUASION" },
       "label": "{subject_focus}",
       "perspectives": [
         {
@@ -578,6 +584,7 @@
     },
     {
       "id": "smalltalk_curiosity",
+      "skillCheck": { "skill": "INVESTIGATION" },
       "label": "{subject_focus}",
       "perspectives": [
         {
@@ -674,6 +681,7 @@
     },
     {
       "id": "smalltalk_festival",
+      "skillCheck": { "skill": "PERSUASION" },
       "label": "{subject_focus}",
       "perspectives": [
         {
