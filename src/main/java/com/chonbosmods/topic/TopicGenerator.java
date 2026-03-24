@@ -289,7 +289,9 @@ public class TopicGenerator {
             perspective,
             bindings,
             focus.isVisibleFor(npcName),
-            isQuestBearer && focus.hasQuest()
+            isQuestBearer && focus.hasQuest(),
+            template.skillCheckDef(),
+            focus.getCategory()
         );
     }
 

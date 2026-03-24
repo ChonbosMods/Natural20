@@ -3,6 +3,7 @@ package com.chonbosmods.topic;
 import com.chonbosmods.dialogue.model.*;
 import com.chonbosmods.quest.DialogueResolver;
 
+import javax.annotation.Nullable;
 import java.util.*;
 
 /**
@@ -18,7 +19,9 @@ public class TopicGraphBuilder {
         TopicTemplate.Perspective perspective,
         Map<String, String> bindings,
         boolean startVisible,
-        boolean hasQuest
+        boolean hasQuest,
+        @Nullable TopicTemplate.SkillCheckDef skillCheckDef,
+        TopicCategory category
     ) {}
 
     private final String npcId;
