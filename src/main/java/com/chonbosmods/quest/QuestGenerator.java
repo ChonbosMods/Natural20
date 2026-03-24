@@ -267,13 +267,17 @@ public class QuestGenerator {
         bindings.put("quest_threat_animate_is", animateThreat.plural() ? "are" : "is");
         bindings.put("quest_threat_animate_has", animateThreat.plural() ? "have" : "has");
         bindings.put("quest_threat_animate_the", animateThreat.proper() ? animateThreat.value() : "the " + animateThreat.value());
+        bindings.put("quest_threat_animate_The", animateThreat.proper() ? animateThreat.value() : "The " + animateThreat.value());
+        bindings.put("quest_threat_animate_was", animateThreat.plural() ? "were" : "was");
 
         // Human stakes: for templates using human verbs ("can rest", "will sleep soundly")
         QuestPoolRegistry.NarrativeEntry humanStakes = poolRegistry.randomHumanStakes(random);
         bindings.put("quest_stakes_human", humanStakes.value());
         bindings.put("quest_stakes_human_is", humanStakes.plural() ? "are" : "is");
         bindings.put("quest_stakes_human_has", humanStakes.plural() ? "have" : "has");
+        bindings.put("quest_stakes_human_was", humanStakes.plural() ? "were" : "was");
         bindings.put("quest_stakes_human_the", humanStakes.proper() ? humanStakes.value() : "the " + humanStakes.value());
+        bindings.put("quest_stakes_human_The", humanStakes.proper() ? humanStakes.value() : "The " + humanStakes.value());
 
         // Article-prefixed variants: "the old watchtower" vs bare proper nouns
         bindings.put("quest_focus_the", focus.proper() ? focus.value() : "the " + focus.value());
