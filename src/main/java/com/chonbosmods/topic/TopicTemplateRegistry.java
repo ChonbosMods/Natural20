@@ -1,5 +1,6 @@
 package com.chonbosmods.topic;
 
+import com.chonbosmods.stats.Skill;
 import com.google.common.flogger.FluentLogger;
 import com.google.gson.*;
 
@@ -19,7 +20,8 @@ public class TopicTemplateRegistry {
         "fallback", TopicCategory.RUMORS, "{subject_focus}",
         List.of(new TopicTemplate.Perspective("I've heard about the {subject_focus}.",
             List.of(new TopicTemplate.FollowUp("Tell me more.", "That's all I know, really.", List.of())), null)),
-        List.of()
+        List.of(),
+        null
     );
 
     private final List<TopicTemplate> rumorTemplates = new ArrayList<>();
@@ -85,7 +87,14 @@ public class TopicTemplateRegistry {
             }
         }
 
-        return new TopicTemplate(id, category, label, perspectives, questHooks);
+        TopicTemplate.SkillCheckDef skillCheckDef = null;
+        if (obj.has("skillCheck")) {
+            JsonObject sc = obj.getAsJsonObject("skillCheck");
+            Skill skill = Skill.valueOf(sc.get("skill").getAsString());
+            skillCheckDef = new TopicTemplate.SkillCheckDef(skill);
+        }
+
+        return new TopicTemplate(id, category, label, perspectives, questHooks, skillCheckDef);
     }
 
     private TopicTemplate.Perspective parsePerspective(JsonObject obj) {

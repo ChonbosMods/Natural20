@@ -1,5 +1,6 @@
 package com.chonbosmods.topic;
 
+import com.chonbosmods.stats.Skill;
 import javax.annotation.Nullable;
 import java.util.List;
 
@@ -8,7 +9,8 @@ public record TopicTemplate(
     TopicCategory category,
     String labelTemplate,
     List<Perspective> perspectives,
-    List<Perspective> questHookPerspectives
+    List<Perspective> questHookPerspectives,
+    @Nullable SkillCheckDef skillCheckDef
 ) {
     public record Perspective(
         String intro,
@@ -21,4 +23,6 @@ public record TopicTemplate(
         String response,
         List<FollowUp> exploratories
     ) {}
+
+    public record SkillCheckDef(Skill skill) {}
 }
