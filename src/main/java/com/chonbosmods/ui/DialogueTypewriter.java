@@ -10,12 +10,14 @@ import java.util.concurrent.ScheduledFuture;
 import java.util.concurrent.TimeUnit;
 
 /**
- * Word-by-word reveal engine for NPC dialogue text. Schedules timed callbacks
- * that push partial text updates to a label element on a {@link Nat20DialoguePage}.
+ * Character-by-character reveal engine for NPC dialogue text. Schedules timed
+ * callbacks that push partial text updates to a label element on a
+ * {@link Nat20DialoguePage}.
  *
- * <p>Timing is punctuation-aware: commas pause briefly, sentence-ending punctuation
- * pauses longer, and ellipsis pauses longest. Short words (3 chars or fewer) are
- * batched with the next word to avoid choppy single-preposition reveals.</p>
+ * <p>Timing is punctuation-aware: commas pause briefly, sentence-ending
+ * punctuation pauses longer, and ellipsis pauses longest. Spaces are
+ * consumed instantly (bundled with the next character) so words don't
+ * start with a visible gap.</p>
  */
 public class DialogueTypewriter {
 
@@ -28,18 +30,15 @@ public class DialogueTypewriter {
     });
 
     // Timing constants (milliseconds)
-    private static final long DELAY_DEFAULT = 80;
+    private static final long DELAY_DEFAULT = 30;
     private static final long DELAY_COMMA = 200;
     private static final long DELAY_SENTENCE_END = 350;
     private static final long DELAY_ELLIPSIS = 500;
-
-    // Smart batching: words this short get bundled with the next word
-    private static final int SHORT_WORD_THRESHOLD = 3;
+    private static final long DELAY_SPACE = 0;
 
     private final String fullText;
     private final String color;
     private final String selector;
-    private final String[] words;
     private final Nat20DialoguePage page;
     private final Runnable onTickSound;
     private final Runnable onComplete;
@@ -63,20 +62,17 @@ public class DialogueTypewriter {
      */
     public DialogueTypewriter(String fullText, String color, String selector,
                               Nat20DialoguePage page, Runnable onTickSound, Runnable onComplete) {
-        this.fullText = fullText;
+        this.fullText = (fullText != null) ? fullText : "";
         this.color = color;
         this.selector = selector;
         this.page = page;
         this.onTickSound = onTickSound;
         this.onComplete = onComplete;
-        this.words = (fullText != null && !fullText.isBlank())
-                ? fullText.trim().split("\\s+")
-                : new String[0];
     }
 
     /** Schedule the first tick immediately. If the text is empty, completes right away. */
     public void start() {
-        if (words.length == 0) {
+        if (fullText.isEmpty()) {
             complete = true;
             if (onComplete != null) onComplete.run();
             return;
@@ -84,29 +80,21 @@ public class DialogueTypewriter {
         pendingFuture = SCHEDULER.schedule(this::tick, 0, TimeUnit.MILLISECONDS);
     }
 
-    /** Reveal the next word(s), push the partial text update, and schedule the next tick. */
+    /** Reveal the next character(s), push the partial text update, and schedule the next tick. */
     private void tick() {
-        if (complete || currentIndex >= words.length) return;
+        if (complete || currentIndex >= fullText.length()) return;
 
-        // Smart batching: if the current word is 3 chars or fewer and there is a next word,
-        // bundle them into one reveal. Max 2 words per chunk.
-        int advanceCount = 1;
-        if (words[currentIndex].length() <= SHORT_WORD_THRESHOLD && currentIndex + 1 < words.length) {
-            advanceCount = 2;
+        // Advance at least one character
+        currentIndex++;
+
+        // Skip past spaces: consume them instantly so words don't start with a gap
+        while (currentIndex < fullText.length() && fullText.charAt(currentIndex) == ' ') {
+            currentIndex++;
         }
 
-        currentIndex = Math.min(currentIndex + advanceCount, words.length);
-
-        // Build partial string from words[0..currentIndex)
-        StringBuilder partial = new StringBuilder();
-        for (int i = 0; i < currentIndex; i++) {
-            if (i > 0) partial.append(' ');
-            partial.append(words[i]);
-        }
-
-        // Push update to the UI label (timed for perf tracking)
+        // Push partial text update (timed for perf tracking)
         UICommandBuilder cmd = new UICommandBuilder();
-        cmd.set(selector + ".TextSpans", Message.raw(partial.toString()).color(color));
+        cmd.set(selector + ".TextSpans", Message.raw(fullText.substring(0, currentIndex)).color(color));
         long t0 = System.nanoTime();
         page.pushUpdate(cmd);
         long elapsed = System.nanoTime() - t0;
@@ -120,17 +108,16 @@ public class DialogueTypewriter {
         }
 
         // Check completion
-        if (currentIndex >= words.length) {
+        if (currentIndex >= fullText.length()) {
             complete = true;
             logPerfSummary("completed");
             if (onComplete != null) onComplete.run();
             return;
         }
 
-        // Determine delay based on the last revealed word's trailing punctuation
-        String lastWord = words[currentIndex - 1];
-        long delay = computeDelay(lastWord);
-
+        // Determine delay based on the character just revealed
+        char revealed = fullText.charAt(currentIndex - 1);
+        long delay = computeDelay(revealed);
         pendingFuture = SCHEDULER.schedule(this::tick, delay, TimeUnit.MILLISECONDS);
     }
 
@@ -188,11 +175,13 @@ public class DialogueTypewriter {
                 outcome, updateCount, avgMs, maxMs, fullText.length());
     }
 
-    /** Compute the delay before the next word based on trailing punctuation. */
-    private static long computeDelay(String word) {
-        if (word.endsWith("...")) return DELAY_ELLIPSIS;
-        if (word.endsWith(".") || word.endsWith("?") || word.endsWith("!")) return DELAY_SENTENCE_END;
-        if (word.endsWith(",")) return DELAY_COMMA;
-        return DELAY_DEFAULT;
+    /** Compute the delay after revealing a character based on punctuation. */
+    private static long computeDelay(char ch) {
+        return switch (ch) {
+            case '.' , '?' , '!' -> DELAY_SENTENCE_END;
+            case ',' -> DELAY_COMMA;
+            case ' ' -> DELAY_SPACE;
+            default -> DELAY_DEFAULT;
+        };
     }
 }
