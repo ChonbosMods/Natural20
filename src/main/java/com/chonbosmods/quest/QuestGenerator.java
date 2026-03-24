@@ -210,6 +210,9 @@ public class QuestGenerator {
         } else {
             bindings.put("location_hint", "far away");
         }
+        if (!bindings.containsKey("target_npc")) {
+            bindings.put("target_npc", "someone who might know more");
+        }
 
         // Resolve POI: find nearby cave void for hostile location quests
         CaveVoidRegistry voidRegistry = Natural20.getInstance().getCaveVoidRegistry();
@@ -288,20 +291,26 @@ public class QuestGenerator {
         bindings.put("quest_stakes_the", stakes.proper() ? stakes.value() : "the " + stakes.value());
         bindings.put("quest_stakes_The", stakes.proper() ? stakes.value() : "The " + stakes.value());
 
-        // Optional narrative pools (70% chance each to be included)
+        // Optional narrative pools (probability-gated, with fallbacks for template safety)
         String origin = poolRegistry.randomOrigin(random);
         if (origin != null && random.nextDouble() < 0.7) {
             bindings.put("quest_origin", origin);
+        } else {
+            bindings.put("quest_origin", "what happened before");
         }
 
         String timePressure = poolRegistry.randomTimePressure(random);
         if (timePressure != null && random.nextDouble() < 0.5) {
             bindings.put("quest_time_pressure", timePressure);
+        } else {
+            bindings.put("quest_time_pressure", "time runs out");
         }
 
         String rewardHint = poolRegistry.randomRewardHint(random);
         if (rewardHint != null && random.nextDouble() < 0.4) {
             bindings.put("quest_reward_hint", rewardHint);
+        } else {
+            bindings.put("quest_reward_hint", "something worth your while");
         }
 
         // Override with any exposition-defined bindings (template author can still force specific values)
@@ -323,6 +332,9 @@ public class QuestGenerator {
                 bindings.put("quest_ally", ally.getGeneratedName());
                 bindings.put("quest_ally_role", ally.getRole());
             }
+        }
+        if (!bindings.containsKey("quest_ally")) {
+            bindings.put("quest_ally", "a trusted friend");
         }
 
         bindings.put("quest_location_name", bindings.getOrDefault("quest_focus", "the area"));
