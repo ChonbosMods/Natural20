@@ -61,6 +61,7 @@ public class Nat20DialoguePage extends InteractiveCustomUIPage<Nat20DialoguePage
     private BiConsumer<String, String> onEvent;
     private boolean built;
     private boolean dismissed;
+    private DialogueTypewriter activeTypewriter;
 
     public Nat20DialoguePage(PlayerRef playerRef) {
         super(playerRef, CustomPageLifetime.CanDismiss, EVENT_CODEC);
@@ -143,43 +144,49 @@ public class Nat20DialoguePage extends InteractiveCustomUIPage<Nat20DialoguePage
     }
 
     private void buildLog(UICommandBuilder cmd) {
+        cancelTypewriter();
+
         // Collect renderable log entries
         List<LogLine> lines = new ArrayList<>();
         for (LogEntry entry : log) {
             switch (entry) {
                 case LogEntry.TopicHeader h -> {
                     if (!lines.isEmpty()) {
-                        lines.add(new LogLine(" ", COLOR_TOPIC_HEADER));
+                        lines.add(new LogLine(" ", COLOR_TOPIC_HEADER, false));
                     }
                     if (h.questTopic()) {
-                        lines.add(new LogLine("-- " + h.label() + " --", COLOR_QUEST_BRACKET));
+                        lines.add(new LogLine("-- " + h.label() + " --", COLOR_QUEST_BRACKET, false));
                     } else {
-                        lines.add(new LogLine("-- " + h.label() + " --", COLOR_TOPIC_HEADER));
+                        lines.add(new LogLine("-- " + h.label() + " --", COLOR_TOPIC_HEADER, false));
                     }
                 }
                 case LogEntry.NpcSpeech s ->
-                    lines.add(new LogLine(s.text(), COLOR_NPC_SPEECH));
+                    lines.add(new LogLine(s.text(), COLOR_NPC_SPEECH, true));
                 case LogEntry.SelectedResponse s -> {
                     String clean = cleanText(s.displayText());
                     if (s.statPrefix() != null) {
                         String bracket = "[" + s.statPrefix().replace("[","").replace("]","").trim().toUpperCase() + "]";
-                        lines.add(new LogLine("> " + bracket + " " + clean, COLOR_SELECTED_FOLLOW_UP));
+                        lines.add(new LogLine("> " + bracket + " " + clean, COLOR_SELECTED_FOLLOW_UP, false));
                     } else {
-                        lines.add(new LogLine("> " + clean, COLOR_SELECTED_FOLLOW_UP));
+                        lines.add(new LogLine("> " + clean, COLOR_SELECTED_FOLLOW_UP, false));
                     }
                 }
                 case LogEntry.SystemText s ->
-                    lines.add(new LogLine(s.text(), COLOR_SYSTEM_TEXT));
+                    lines.add(new LogLine(s.text(), COLOR_SYSTEM_TEXT, false));
                 case LogEntry.ReturnGreeting r ->
-                    lines.add(new LogLine(r.text(), COLOR_RETURN_GREETING));
+                    lines.add(new LogLine(r.text(), COLOR_RETURN_GREETING, true));
                 case LogEntry.ReturnDivider ignored ->
-                    lines.add(new LogLine("---", "#555555"));
+                    lines.add(new LogLine("---", "#555555", false));
             }
         }
 
         // Window: show the most recent entries, with overflow indicator if truncated
         boolean overflowed = lines.size() > MAX_LOG_LABELS;
         int startIdx = overflowed ? lines.size() - MAX_LOG_LABELS + 1 : 0;
+
+        // Track the last typewriter-eligible label
+        int typewriterLabelIdx = -1;
+        LogLine typewriterLine = null;
 
         for (int i = 0; i < MAX_LOG_LABELS; i++) {
             String selector = "#Log" + (i + 1);
@@ -192,14 +199,29 @@ public class Nat20DialoguePage extends InteractiveCustomUIPage<Nat20DialoguePage
                     LogLine line = lines.get(lineIdx);
                     cmd.set(selector + ".Visible", true);
                     cmd.set(selector + ".TextSpans", Message.raw(line.text).color(line.color));
+                    if (line.typewriterEligible) {
+                        typewriterLabelIdx = i;
+                        typewriterLine = line;
+                    }
                 } else {
                     cmd.set(selector + ".Visible", false);
                 }
             }
         }
+
+        // Start typewriter on the newest eligible line
+        if (typewriterLine != null && !typewriterLine.text.isEmpty()) {
+            String twSelector = "#Log" + (typewriterLabelIdx + 1);
+            cmd.set(twSelector + ".TextSpans", Message.raw("").color(typewriterLine.color));
+
+            activeTypewriter = new DialogueTypewriter(
+                    typewriterLine.text, typewriterLine.color, twSelector, this,
+                    null, this::onTypewriterComplete);
+            activeTypewriter.start();
+        }
     }
 
-    private record LogLine(String text, String color) {}
+    private record LogLine(String text, String color, boolean typewriterEligible) {}
 
     /** Strip leading ?, >, or special prefixes from display text (legacy data cleanup). */
     private static String cleanText(String text) {
@@ -212,7 +234,7 @@ public class Nat20DialoguePage extends InteractiveCustomUIPage<Nat20DialoguePage
     }
 
     private void buildFollowUps(UICommandBuilder cmd, UIEventBuilder events) {
-        cmd.set("#FollowUpArea.Visible", !activeFollowUps.isEmpty());
+        cmd.set("#FollowUpArea.Visible", !activeFollowUps.isEmpty() && activeTypewriter == null);
 
         if (activeFollowUps.size() > MAX_FOLLOW_UPS) {
             LOGGER.atWarning().log("Too many follow-ups: " + activeFollowUps.size() + " (max " + MAX_FOLLOW_UPS + ")");
@@ -301,6 +323,24 @@ public class Nat20DialoguePage extends InteractiveCustomUIPage<Nat20DialoguePage
         if (built) rebuild();
     }
 
+    /** Cancel any active typewriter (e.g. on rebuild or page close). */
+    private void cancelTypewriter() {
+        if (activeTypewriter != null) {
+            activeTypewriter.cancel();
+            activeTypewriter = null;
+        }
+    }
+
+    /** Called when typewriter finishes or is skipped: reveal follow-up area. */
+    private void onTypewriterComplete() {
+        activeTypewriter = null;
+        if (!activeFollowUps.isEmpty()) {
+            UICommandBuilder cmd = new UICommandBuilder();
+            cmd.set("#FollowUpArea.Visible", true);
+            pushUpdate(cmd);
+        }
+    }
+
     public void updateDisposition(int disposition) {
         this.disposition = disposition;
         UICommandBuilder cmd = new UICommandBuilder();
@@ -338,6 +378,7 @@ public class Nat20DialoguePage extends InteractiveCustomUIPage<Nat20DialoguePage
     @Override
     public void onDismiss(Ref<EntityStore> playerRef, Store<EntityStore> store) {
         LOGGER.atInfo().log("onDismiss");
+        cancelTypewriter();
         dismissed = true;
         if (onEvent != null) {
             BiConsumer<String, String> handler = onEvent;
