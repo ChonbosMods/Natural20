@@ -61,7 +61,7 @@ public class Nat20DialoguePage extends InteractiveCustomUIPage<Nat20DialoguePage
     private BiConsumer<String, String> onEvent;
     private boolean built;
     private boolean dismissed;
-    private DialogueTypewriter activeTypewriter;
+    private volatile DialogueTypewriter activeTypewriter;
     private int lastTypewriterLogSize;
 
     public Nat20DialoguePage(PlayerRef playerRef) {
