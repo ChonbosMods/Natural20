@@ -99,6 +99,13 @@ public class Nat20DialoguePage extends InteractiveCustomUIPage<Nat20DialoguePage
                 EventData.of("Type", "goodbye").append("Id", ""),
                 false);
 
+        // Spacebar skip: captures keypress on the full-page overlay
+        events.addEventBinding(
+                CustomUIEventBindingType.KeyDown,
+                "#SkipOverlay",
+                EventData.of("Type", "skip").append("Id", ""),
+                false);
+
         built = true;
     }
 
@@ -356,6 +363,19 @@ public class Nat20DialoguePage extends InteractiveCustomUIPage<Nat20DialoguePage
         String id = data.getId();
         LOGGER.atInfo().log("handleDataEvent: type='" + type + "', id='" + id + "'");
         if (type == null || type.isEmpty()) return;
+
+        // Skip-only action (spacebar): skip typewriter, no further processing
+        if ("skip".equals(type)) {
+            if (activeTypewriter != null && !activeTypewriter.isComplete()) {
+                activeTypewriter.skip();
+            }
+            return;
+        }
+
+        // Any other interaction while typewriter is running: skip to full reveal first
+        if (activeTypewriter != null && !activeTypewriter.isComplete()) {
+            activeTypewriter.skip();
+        }
 
         // Goodbye button: dismiss the page just like ESC does.
         // onDismiss will fire and handle session cleanup.
