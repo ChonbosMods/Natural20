@@ -1,6 +1,5 @@
 package com.chonbosmods.ui;
 
-import com.hypixel.hytale.logger.HytaleLogger;
 import com.hypixel.hytale.server.core.Message;
 import com.hypixel.hytale.server.core.ui.builder.UICommandBuilder;
 
@@ -20,8 +19,6 @@ import java.util.concurrent.TimeUnit;
  * start with a visible gap.</p>
  */
 public class DialogueTypewriter {
-
-    private static final HytaleLogger LOGGER = HytaleLogger.get("Nat20|Typewriter");
 
     private static final ScheduledExecutorService SCHEDULER = Executors.newSingleThreadScheduledExecutor(r -> {
         Thread t = new Thread(r, "Nat20-Typewriter");
@@ -46,11 +43,6 @@ public class DialogueTypewriter {
     private int currentIndex;
     private volatile boolean complete;
     private ScheduledFuture<?> pendingFuture;
-
-    // Performance tracking (accumulated per-typewriter, logged once at end)
-    private int updateCount;
-    private long totalUpdateNanos;
-    private long maxUpdateNanos;
 
     /**
      * @param fullText    complete NPC speech text
@@ -92,15 +84,10 @@ public class DialogueTypewriter {
             currentIndex++;
         }
 
-        // Push partial text update (timed for perf tracking)
+        // Push partial text update
         UICommandBuilder cmd = new UICommandBuilder();
         cmd.set(selector + ".TextSpans", Message.raw(fullText.substring(0, currentIndex)).color(color));
-        long t0 = System.nanoTime();
         page.pushUpdate(cmd);
-        long elapsed = System.nanoTime() - t0;
-        updateCount++;
-        totalUpdateNanos += elapsed;
-        if (elapsed > maxUpdateNanos) maxUpdateNanos = elapsed;
 
         // Fire sound callback if set
         if (onTickSound != null) {
@@ -110,7 +97,6 @@ public class DialogueTypewriter {
         // Check completion
         if (currentIndex >= fullText.length()) {
             complete = true;
-            logPerfSummary("completed");
             if (onComplete != null) onComplete.run();
             return;
         }
@@ -141,7 +127,6 @@ public class DialogueTypewriter {
             cmd.set(selector + ".TextSpans", Message.raw(fullText).color(color));
             page.pushUpdate(cmd);
 
-            logPerfSummary("skipped");
             if (onComplete != null) {
                 onComplete.run();
             }
@@ -166,13 +151,6 @@ public class DialogueTypewriter {
     /** Returns whether the typewriter has finished or been skipped/cancelled. */
     public boolean isComplete() {
         return complete;
-    }
-
-    private void logPerfSummary(String outcome) {
-        double avgMs = updateCount > 0 ? (totalUpdateNanos / (double) updateCount) / 1_000_000.0 : 0;
-        double maxMs = maxUpdateNanos / 1_000_000.0;
-        LOGGER.atInfo().log("Typewriter %s: %d updates, avg=%.2fms, max=%.2fms, text=%d chars",
-                outcome, updateCount, avgMs, maxMs, fullText.length());
     }
 
     /** Compute the delay after revealing a character based on punctuation. */

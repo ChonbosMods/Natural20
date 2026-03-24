@@ -358,7 +358,6 @@ public class Nat20DialoguePage extends InteractiveCustomUIPage<Nat20DialoguePage
     public void handleDataEvent(Ref<EntityStore> playerRef, Store<EntityStore> store, PageEventData data) {
         String type = data.getType();
         String id = data.getId();
-        LOGGER.atInfo().log("handleDataEvent: type='" + type + "', id='" + id + "'");
         if (type == null || type.isEmpty()) return;
 
         // Any interaction while typewriter is running: skip to full reveal first
