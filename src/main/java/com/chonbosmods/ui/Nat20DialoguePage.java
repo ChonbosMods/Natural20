@@ -62,6 +62,7 @@ public class Nat20DialoguePage extends InteractiveCustomUIPage<Nat20DialoguePage
     private boolean built;
     private boolean dismissed;
     private DialogueTypewriter activeTypewriter;
+    private int lastTypewriterLogSize;
 
     public Nat20DialoguePage(PlayerRef playerRef) {
         super(playerRef, CustomPageLifetime.CanDismiss, EVENT_CODEC);
@@ -216,8 +217,11 @@ public class Nat20DialoguePage extends InteractiveCustomUIPage<Nat20DialoguePage
             }
         }
 
-        // Start typewriter on the newest eligible line
-        if (typewriterLine != null && !typewriterLine.text.isEmpty()) {
+        // Start typewriter on the newest eligible line, but only if the log has grown
+        // (avoids re-animating old speech on topic-only rebuilds)
+        if (typewriterLine != null && !typewriterLine.text.isEmpty()
+                && log.size() > lastTypewriterLogSize) {
+            lastTypewriterLogSize = log.size();
             String twSelector = "#Log" + (typewriterLabelIdx + 1);
             cmd.set(twSelector + ".TextSpans", Message.raw("").color(typewriterLine.color));
 

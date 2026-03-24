@@ -147,8 +147,12 @@ public class DialogueTypewriter {
     }
 
     /**
-     * Cancel without revealing the full text (used on page rebuild).
+     * Cancel without revealing the full text (used on page rebuild/dismiss).
      * Marks complete and cancels the pending future. Does NOT call onComplete.
+     *
+     * <p>Unlike {@link #skip()}, this is not serialized onto the scheduler thread.
+     * A tick() already in-flight may send one final partial update before seeing the
+     * volatile complete flag, which is harmless during rebuild/dismiss cleanup.</p>
      */
     public void cancel() {
         complete = true;
