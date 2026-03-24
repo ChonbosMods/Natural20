@@ -356,6 +356,11 @@ public class Nat20DialoguePage extends InteractiveCustomUIPage<Nat20DialoguePage
         }
     }
 
+    /** Public bridge so {@link DialogueTypewriter} can push partial text updates. */
+    public void pushUpdate(UICommandBuilder cmd) {
+        sendUpdate(cmd);
+    }
+
     // --- Inner event data class ---
 
     public static class PageEventData {
