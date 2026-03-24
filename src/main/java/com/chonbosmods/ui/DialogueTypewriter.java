@@ -31,7 +31,6 @@ public class DialogueTypewriter {
     private static final long DELAY_COMMA = 200;
     private static final long DELAY_SENTENCE_END = 350;
     private static final long DELAY_ELLIPSIS = 500;
-    private static final long DELAY_SPACE = 0;
 
     private final String fullText;
     private final String color;
@@ -101,9 +100,8 @@ public class DialogueTypewriter {
             return;
         }
 
-        // Determine delay based on the character just revealed
-        char revealed = fullText.charAt(currentIndex - 1);
-        long delay = computeDelay(revealed);
+        // Determine delay based on the character just revealed and surrounding context
+        long delay = computeDelay();
         pendingFuture = SCHEDULER.schedule(this::tick, delay, TimeUnit.MILLISECONDS);
     }
 
@@ -153,13 +151,24 @@ public class DialogueTypewriter {
         return complete;
     }
 
-    /** Compute the delay after revealing a character based on punctuation. */
-    private static long computeDelay(char ch) {
-        return switch (ch) {
-            case '.' , '?' , '!' -> DELAY_SENTENCE_END;
-            case ',' -> DELAY_COMMA;
-            case ' ' -> DELAY_SPACE;
-            default -> DELAY_DEFAULT;
-        };
+    /** Compute the delay after the just-revealed character, with ellipsis awareness. */
+    private long computeDelay() {
+        char revealed = fullText.charAt(currentIndex - 1);
+
+        if (revealed == '.' || revealed == '?' || revealed == '!') {
+            // Mid-ellipsis: next char is also '.', don't pause yet
+            if (currentIndex < fullText.length() && fullText.charAt(currentIndex) == '.') {
+                return DELAY_DEFAULT;
+            }
+            // End of ellipsis (3+ dots): long pause
+            if (revealed == '.' && currentIndex >= 3
+                    && fullText.charAt(currentIndex - 2) == '.'
+                    && fullText.charAt(currentIndex - 3) == '.') {
+                return DELAY_ELLIPSIS;
+            }
+            return DELAY_SENTENCE_END;
+        }
+        if (revealed == ',') return DELAY_COMMA;
+        return DELAY_DEFAULT;
     }
 }
