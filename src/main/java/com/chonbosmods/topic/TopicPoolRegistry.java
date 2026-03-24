@@ -1,5 +1,6 @@
 package com.chonbosmods.topic;
 
+import com.chonbosmods.stats.Skill;
 import com.google.common.flogger.FluentLogger;
 import com.google.gson.*;
 
@@ -75,6 +76,11 @@ public class TopicPoolRegistry {
     private final Map<String, List<String>> toneOpeners = new LinkedHashMap<>();
     private final Map<String, List<String>> toneClosers = new LinkedHashMap<>();
 
+    // Stat check pools: outer key = category name ("RUMORS"|"SMALLTALK"), inner key = skill name
+    private final Map<String, Map<String, List<String>>> statCheckPrompts = new LinkedHashMap<>();
+    private final Map<String, Map<String, List<String>>> statCheckPass = new LinkedHashMap<>();
+    private final Map<String, Map<String, List<String>>> statCheckFail = new LinkedHashMap<>();
+
     public void loadAll(@Nullable Path poolsDir) {
         // Load from classpath first (bundled resources)
         loadSubjectPoolFromClasspath(CLASSPATH_PREFIX + "subject_focuses.json");
@@ -132,6 +138,14 @@ public class TopicPoolRegistry {
         loadTonePoolFromClasspath(CLASSPATH_PREFIX + "tone_openers.json", toneOpeners);
         loadTonePoolFromClasspath(CLASSPATH_PREFIX + "tone_closers.json", toneClosers);
 
+        // Stat check pools (per-category)
+        loadSkillPoolFromClasspath("topics/Rumors/pools/stat_check_prompts.json", "RUMORS", statCheckPrompts);
+        loadSkillPoolFromClasspath("topics/Rumors/pools/stat_check_pass.json", "RUMORS", statCheckPass);
+        loadSkillPoolFromClasspath("topics/Rumors/pools/stat_check_fail.json", "RUMORS", statCheckFail);
+        loadSkillPoolFromClasspath("topics/SmallTalk/pools/stat_check_prompts.json", "SMALLTALK", statCheckPrompts);
+        loadSkillPoolFromClasspath("topics/SmallTalk/pools/stat_check_pass.json", "SMALLTALK", statCheckPass);
+        loadSkillPoolFromClasspath("topics/SmallTalk/pools/stat_check_fail.json", "SMALLTALK", statCheckFail);
+
         // Override with filesystem if available
         if (poolsDir != null && Files.isDirectory(poolsDir)) {
             loadSubjectPool(poolsDir.resolve("subject_focuses.json"));
@@ -188,6 +202,15 @@ public class TopicPoolRegistry {
             // Tone pools (bracket-keyed)
             loadTonePool(poolsDir.resolve("tone_openers.json"), toneOpeners);
             loadTonePool(poolsDir.resolve("tone_closers.json"), toneClosers);
+
+            // Stat check pools filesystem override
+            Path topicsDir = poolsDir.getParent();
+            loadSkillPool(topicsDir.resolve("Rumors/pools/stat_check_prompts.json"), "RUMORS", statCheckPrompts);
+            loadSkillPool(topicsDir.resolve("Rumors/pools/stat_check_pass.json"), "RUMORS", statCheckPass);
+            loadSkillPool(topicsDir.resolve("Rumors/pools/stat_check_fail.json"), "RUMORS", statCheckFail);
+            loadSkillPool(topicsDir.resolve("SmallTalk/pools/stat_check_prompts.json"), "SMALLTALK", statCheckPrompts);
+            loadSkillPool(topicsDir.resolve("SmallTalk/pools/stat_check_pass.json"), "SMALLTALK", statCheckPass);
+            loadSkillPool(topicsDir.resolve("SmallTalk/pools/stat_check_fail.json"), "SMALLTALK", statCheckFail);
         }
 
         LOGGER.atInfo().log("Loaded topic pools: %d subjects, %d greetings, %d return greetings",
@@ -286,6 +309,41 @@ public class TopicPoolRegistry {
                 entries.add(el.getAsString());
             }
             target.put(bracket, entries);
+        }
+    }
+
+    private void loadSkillPoolFromClasspath(String resource, String category,
+                                             Map<String, Map<String, List<String>>> target) {
+        try (InputStream is = getClass().getClassLoader().getResourceAsStream(resource)) {
+            if (is == null) return;
+            JsonObject root = JsonParser.parseReader(new InputStreamReader(is, StandardCharsets.UTF_8)).getAsJsonObject();
+            parseSkillPool(root, category, target);
+        } catch (Exception e) {
+            LOGGER.atSevere().withCause(e).log("Failed to load skill pool from classpath: %s", resource);
+        }
+    }
+
+    private void loadSkillPool(Path file, String category,
+                                 Map<String, Map<String, List<String>>> target) {
+        if (!Files.exists(file)) return;
+        try (var reader = Files.newBufferedReader(file, StandardCharsets.UTF_8)) {
+            JsonObject root = JsonParser.parseReader(reader).getAsJsonObject();
+            target.remove(category);
+            parseSkillPool(root, category, target);
+        } catch (Exception e) {
+            LOGGER.atSevere().withCause(e).log("Failed to load skill pool: %s", file);
+        }
+    }
+
+    private void parseSkillPool(JsonObject root, String category,
+                                  Map<String, Map<String, List<String>>> target) {
+        Map<String, List<String>> skillMap = target.computeIfAbsent(category, k -> new LinkedHashMap<>());
+        for (String skill : root.keySet()) {
+            List<String> entries = new ArrayList<>();
+            for (JsonElement el : root.getAsJsonArray(skill)) {
+                entries.add(el.getAsString());
+            }
+            skillMap.put(skill, entries);
         }
     }
 
@@ -552,6 +610,29 @@ public class TopicPoolRegistry {
     public String randomToneCloser(String bracket, Random random) {
         List<String> entries = toneClosers.getOrDefault(bracket, List.of());
         if (entries.isEmpty()) return "";
+        return entries.get(random.nextInt(entries.size()));
+    }
+
+    // --- Stat check pool accessors ---
+
+    public String randomStatCheckPrompt(TopicCategory category, Skill skill, Random random) {
+        Map<String, List<String>> skillMap = statCheckPrompts.getOrDefault(category.name(), Map.of());
+        List<String> entries = skillMap.getOrDefault(skill.name(), List.of());
+        if (entries.isEmpty()) return "Something about this doesn't add up.";
+        return entries.get(random.nextInt(entries.size()));
+    }
+
+    public String randomStatCheckPass(TopicCategory category, Skill skill, Random random) {
+        Map<String, List<String>> skillMap = statCheckPass.getOrDefault(category.name(), Map.of());
+        List<String> entries = skillMap.getOrDefault(skill.name(), List.of());
+        if (entries.isEmpty()) return "...Fine. You got me. There's more to it.";
+        return entries.get(random.nextInt(entries.size()));
+    }
+
+    public String randomStatCheckFail(TopicCategory category, Skill skill, Random random) {
+        Map<String, List<String>> skillMap = statCheckFail.getOrDefault(category.name(), Map.of());
+        List<String> entries = skillMap.getOrDefault(skill.name(), List.of());
+        if (entries.isEmpty()) return "I've told you everything I know.";
         return entries.get(random.nextInt(entries.size()));
     }
 }
