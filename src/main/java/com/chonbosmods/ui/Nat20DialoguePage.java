@@ -238,8 +238,8 @@ public class Nat20DialoguePage extends InteractiveCustomUIPage<Nat20DialoguePage
     }
 
     private void buildFollowUps(UICommandBuilder cmd, UIEventBuilder events) {
-        // Area is always visible (fixed height in template); hide individual buttons during typewriter
-        boolean showButtons = !activeFollowUps.isEmpty() && activeTypewriter == null;
+        // Always set up text and bindings; only defer visibility during typewriter
+        boolean showNow = activeTypewriter == null;
 
         if (activeFollowUps.size() > MAX_FOLLOW_UPS) {
             LOGGER.atWarning().log("Too many follow-ups: " + activeFollowUps.size() + " (max " + MAX_FOLLOW_UPS + ")");
@@ -247,9 +247,9 @@ public class Nat20DialoguePage extends InteractiveCustomUIPage<Nat20DialoguePage
 
         for (int i = 0; i < MAX_FOLLOW_UPS; i++) {
             String selector = "#FollowUp" + (i + 1);
-            if (showButtons && i < activeFollowUps.size()) {
+            if (i < activeFollowUps.size()) {
                 ActiveFollowUp f = activeFollowUps.get(i);
-                cmd.set(selector + ".Visible", true);
+                cmd.set(selector + ".Visible", showNow);
 
                 String clean = cleanText(f.displayText());
                 if (f.grayed()) {
