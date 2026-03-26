@@ -136,9 +136,9 @@ public class ProbeCommand extends AbstractPlayerCommand {
         );
 
         List<ActiveFollowUp> testFollowUps = List.of(
-            new ActiveFollowUp("r1", "How much will it cost?", null, false),
-            new ActiveFollowUp("r2", "I'll find someone cheaper.", "CHA", false),
-            new ActiveFollowUp("r3", "Just do it.", null, false)
+            new ActiveFollowUp("r1", "How much will it cost?", null, null, false),
+            new ActiveFollowUp("r2", "I'll find someone cheaper.", null, "CHA", false),
+            new ActiveFollowUp("r3", "Just do it.", null, null, false)
         );
 
         List<ResolvedTopic> testTopics = List.of(

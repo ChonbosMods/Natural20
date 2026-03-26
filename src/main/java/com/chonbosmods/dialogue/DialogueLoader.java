@@ -188,6 +188,7 @@ public class DialogueLoader {
         return new ResponseOption(
             obj.get("id").getAsString(),
             obj.get("displayText").getAsString(),
+            obj.has("logText") ? obj.get("logText").getAsString() : null,
             obj.has("targetNodeId") ? obj.get("targetNodeId").getAsString() : null,
             obj.has("mode") ? ResponseMode.valueOf(obj.get("mode").getAsString()) : ResponseMode.DECISIVE,
             obj.has("condition") ? parseCondition(obj.getAsJsonObject("condition")) : null,

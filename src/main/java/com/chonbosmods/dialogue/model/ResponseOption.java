@@ -6,6 +6,7 @@ import java.util.List;
 public record ResponseOption(
     String id,
     String displayText,
+    @Nullable String logText,
     String targetNodeId,
     ResponseMode mode,
     @Nullable DialogueCondition condition,

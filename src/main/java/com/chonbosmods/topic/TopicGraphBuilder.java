@@ -148,12 +148,12 @@ public class TopicGraphBuilder {
                 ));
 
                 entryResponses.add(new ResponseOption(
-                    responseId, "[Accept] " + prompt, actionNodeId,
+                    responseId, "[Accept] " + prompt, null, actionNodeId,
                     ResponseMode.DECISIVE, null, null, null, null
                 ));
                 String declineResponseId = subjectId + "_resp_decline";
                 entryResponses.add(new ResponseOption(
-                    declineResponseId, "[Decline] Maybe not right now.", declineNodeId,
+                    declineResponseId, "[Decline] Maybe not right now.", null, declineNodeId,
                     ResponseMode.DECISIVE, null, null, null, null
                 ));
             } else {
@@ -170,7 +170,7 @@ public class TopicGraphBuilder {
                 ));
 
                 entryResponses.add(new ResponseOption(
-                    responseId, prompt, decisiveNodeId,
+                    responseId, prompt, null, decisiveNodeId,
                     ResponseMode.DECISIVE, null, null, null, null
                 ));
             }
@@ -259,7 +259,7 @@ public class TopicGraphBuilder {
             ));
 
             parentResponses.add(new ResponseOption(
-                responseId, prompt, expNodeId,
+                responseId, prompt, null, expNodeId,
                 ResponseMode.EXPLORATORY, null, null, null, null
             ));
         }
@@ -334,6 +334,7 @@ public class TopicGraphBuilder {
         ResponseOption skillCheckResponse = new ResponseOption(
             checkResponseId,
             promptText,
+            null,
             checkNodeId,
             ResponseMode.DECISIVE,
             null,

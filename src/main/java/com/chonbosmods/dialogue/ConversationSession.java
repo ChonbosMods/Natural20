@@ -115,11 +115,11 @@ public class ConversationSession {
                 for (ResponseOption opt : textNode.responses()) {
                     if (pendingSet.contains(opt.id())) {
                         activeFollowUps.add(new ActiveFollowUp(
-                            opt.id(), opt.displayText(), opt.statPrefix(), false));
+                            opt.id(), opt.displayText(), null, opt.statPrefix(), false));
                     } else if (opt.mode() == ResponseMode.EXPLORATORY
                             && savedGrayedExploratories.contains(opt.id())) {
                         activeFollowUps.add(new ActiveFollowUp(
-                            opt.id(), opt.displayText(), opt.statPrefix(), true));
+                            opt.id(), opt.displayText(), null, opt.statPrefix(), true));
                     }
                 }
             }
@@ -361,14 +361,15 @@ public class ConversationSession {
                 pendingFollowUpIds.add(opt.id());
             }
             activeFollowUps.add(new ActiveFollowUp(
-                    opt.id(), opt.displayText(), opt.statPrefix(), grayed));
+                    opt.id(), opt.displayText(), opt.logText(), opt.statPrefix(), grayed));
         }
 
     }
 
     private void markFollowUpSelected(String selectedId, ResponseOption selected) {
         // Record the selection in the conversation log (history only)
-        conversationLog.add(new LogEntry.SelectedResponse(selectedId, selected.displayText(), selected.statPrefix()));
+        String logDisplay = selected.logText() != null ? selected.logText() : selected.displayText();
+        conversationLog.add(new LogEntry.SelectedResponse(selectedId, logDisplay, selected.statPrefix()));
 
         if (selected.mode() == ResponseMode.EXPLORATORY) {
             grayedExploratories.add(selectedId);
