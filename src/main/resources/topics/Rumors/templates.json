@@ -195,7 +195,7 @@
               "response": "{creature_detail}",
               "exploratories": [
                 {
-                  "prompt": "Should we be worried about whatever drove them out?",
+                  "prompt": "Should we worry about what drove them out?",
                   "response": "{danger_assessment}"
                 }
               ]

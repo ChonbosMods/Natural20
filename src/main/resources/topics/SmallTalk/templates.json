@@ -231,7 +231,7 @@
               "response": "{craft_detail}",
               "exploratories": [
                 {
-                  "prompt": "What do people think about the quality these days?",
+                  "prompt": "How is the quality these days?",
                   "response": "{local_opinion}"
                 }
               ]
@@ -434,7 +434,7 @@
               ]
             },
             {
-              "prompt": "Have the creatures in the area changed their behavior?",
+              "prompt": "Are the creatures acting strange?",
               "response": "{creature_detail}",
               "exploratories": [
                 {
@@ -505,7 +505,7 @@
               "response": "{nostalgia_detail}",
               "exploratories": [
                 {
-                  "prompt": "Do people think things could go back to the way they were?",
+                  "prompt": "Could things go back?",
                   "response": "{local_opinion}"
                 }
               ]
@@ -526,7 +526,7 @@
               ]
             },
             {
-              "prompt": "Which part of the settlement has changed the most?",
+              "prompt": "What has changed the most?",
               "response": "{location_detail}",
               "exploratories": [
                 {
@@ -688,7 +688,7 @@
               "response": "{festival_detail}",
               "exploratories": [
                 {
-                  "prompt": "What do people think about keeping the old customs?",
+                  "prompt": "Do people value the old customs?",
                   "response": "{local_opinion}"
                 }
               ]
