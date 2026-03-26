@@ -27,6 +27,8 @@ public class TopicGenerator {
     private static final int MIN_NPCS_PER_SUBJECT = 3;
     private static final double EXTRA_NPC_CHANCE = 0.30;
     private static final double VISIBILITY_CHANCE = 0.40;
+    private static final double OPENER_CHANCE = 0.6;
+    private static final double CLOSER_CHANCE = 0.6;
 
     private final TopicPoolRegistry topicPool;
     private final TopicTemplateRegistry templateRegistry;
@@ -175,6 +177,23 @@ public class TopicGenerator {
         LOGGER.atInfo().log("Generated %d dialogue graphs for settlement %s (%d subjects, %d quests)",
             results.size(), settlement.getCellKey(), subjects.size(), questCandidates.size());
 
+        // Settlement-level label dedup check
+        Map<String, String> labelToSubject = new LinkedHashMap<>();
+        for (var entry : npcAssignments.entrySet()) {
+            for (TopicGraphBuilder.TopicAssignment assignment : entry.getValue()) {
+                String resolvedLabel = DialogueResolver.resolve(assignment.labelPattern(), assignment.bindings());
+                resolvedLabel = capitalizeFirst(resolvedLabel);
+                String existingSubject = labelToSubject.get(resolvedLabel);
+                if (existingSubject != null && !existingSubject.equals(assignment.subjectId())) {
+                    LOGGER.atWarning().log(
+                        "LABEL DEDUP WARNING: label '%s' resolves for both subject '%s' and '%s' in settlement %s",
+                        resolvedLabel, existingSubject, assignment.subjectId(), settlement.getCellKey());
+                } else {
+                    labelToSubject.put(resolvedLabel, assignment.subjectId());
+                }
+            }
+        }
+
         // Debug: log per-subject visibility and quest assignments
         for (SubjectFocus focus : subjects) {
             StringBuilder sb = new StringBuilder();
@@ -317,10 +336,12 @@ public class TopicGenerator {
         bindings.put("time_ref", topicPool.randomTimeRef(random));
         bindings.put("direction", topicPool.randomDirection(random));
 
-        // Tone bindings (bracket-filtered by disposition)
+        // Tone bindings (bracket-filtered by disposition) with floor rule
         String bracket = dispositionBracket(50); // default disposition for generated topics
-        bindings.put("tone_opener", topicPool.randomToneOpener(bracket, random));
-        bindings.put("tone_closer", topicPool.randomToneCloser(bracket, random));
+        boolean openerFired = random.nextDouble() < OPENER_CHANCE;
+        boolean closerFired = openerFired ? (random.nextDouble() < CLOSER_CHANCE) : true;
+        bindings.put("tone_opener", openerFired ? topicPool.randomToneOpener(bracket, random) : "");
+        bindings.put("tone_closer", closerFired ? topicPool.randomToneCloser(bracket, random) : "");
 
         // Fragment pool bindings: Layer 0
         bindings.put("creature_sighting", topicPool.randomCreatureSighting(random));
@@ -465,5 +486,10 @@ public class TopicGenerator {
         if (disposition < 45) return "hostile";
         if (disposition < 60) return "neutral";
         return "friendly";
+    }
+
+    private static String capitalizeFirst(String text) {
+        if (text == null || text.isEmpty()) return text;
+        return Character.toUpperCase(text.charAt(0)) + text.substring(1);
     }
 }
