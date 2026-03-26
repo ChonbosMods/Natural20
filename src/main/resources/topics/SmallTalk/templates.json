@@ -8,78 +8,29 @@
       "perspectives": [
         {
           "intro": "{tone_opener} {weather_observation}. {tone_closer}",
-          "exploratories": [
-            {
-              "prompt": "When did that start?",
-              "response": "{time_ref}. {weather_detail}",
-              "exploratories": [
-                {
-                  "prompt": "What do people make of it?",
-                  "response": "{local_opinion}"
-                }
-              ]
-            },
-            {
-              "prompt": "Where is it worst?",
-              "response": "{location_detail}",
-              "exploratories": [
-                {
-                  "prompt": "Does it worry you?",
-                  "response": "{personal_reaction}"
-                }
-              ]
-            }
-          ]
+          "intents": [
+            { "intent": "detail",  "response": "{weather_detail}" },
+            { "intent": "context", "response": "{location_detail}" },
+            { "intent": "opinion", "response": "{local_opinion}" }
+          ],
+          "deepenerResponse": "{personal_reaction}"
         },
         {
           "intro": "{tone_opener} {weather_observation}. {tone_closer}",
-          "exploratories": [
-            {
-              "prompt": "Is that normal for this area?",
-              "response": "{weather_detail}",
-              "exploratories": [
-                {
-                  "prompt": "How are you handling it?",
-                  "response": "{personal_reaction}"
-                }
-              ]
-            },
-            {
-              "prompt": "Has anyone figured out why?",
-              "response": "{weather_detail}",
-              "exploratories": [
-                {
-                  "prompt": "What are the old-timers saying?",
-                  "response": "{local_opinion}"
-                }
-              ]
-            }
-          ]
+          "intents": [
+            { "intent": "detail",   "response": "{weather_detail}" },
+            { "intent": "reaction", "response": "{personal_reaction}" }
+          ],
+          "deepenerResponse": "{local_opinion}"
         },
         {
           "intro": "{tone_opener} {weather_observation}. {tone_closer}",
-          "exploratories": [
-            {
-              "prompt": "How long has this been going on?",
-              "response": "{time_ref}. {weather_detail}",
-              "exploratories": [
-                {
-                  "prompt": "How do folk feel about it?",
-                  "response": "{local_opinion}"
-                }
-              ]
-            },
-            {
-              "prompt": "Which area gets hit hardest?",
-              "response": "{location_detail}",
-              "exploratories": [
-                {
-                  "prompt": "What is your take on it?",
-                  "response": "{personal_reaction}"
-                }
-              ]
-            }
-          ]
+          "intents": [
+            { "intent": "detail",  "response": "{time_ref}. {weather_detail}" },
+            { "intent": "context", "response": "{location_detail}" },
+            { "intent": "opinion", "response": "{local_opinion}" }
+          ],
+          "deepenerResponse": "{personal_reaction}"
         }
       ],
       "questHookPerspectives": [
@@ -99,78 +50,29 @@
       "perspectives": [
         {
           "intro": "{tone_opener} {trade_gossip}. {tone_closer}",
-          "exploratories": [
-            {
-              "prompt": "What is driving that?",
-              "response": "{trade_detail}",
-              "exploratories": [
-                {
-                  "prompt": "Who benefits most from that?",
-                  "response": "{local_opinion}"
-                }
-              ]
-            },
-            {
-              "prompt": "Where are the goods coming from?",
-              "response": "{location_detail}",
-              "exploratories": [
-                {
-                  "prompt": "Does that concern you?",
-                  "response": "{personal_reaction}"
-                }
-              ]
-            }
-          ]
+          "intents": [
+            { "intent": "detail",  "response": "{trade_detail}" },
+            { "intent": "context", "response": "{location_detail}" },
+            { "intent": "opinion", "response": "{local_opinion}" }
+          ],
+          "deepenerResponse": "{personal_reaction}"
         },
         {
           "intro": "{tone_opener} {trade_gossip}. {tone_closer}",
-          "exploratories": [
-            {
-              "prompt": "How are the merchants handling it?",
-              "response": "{trade_detail}",
-              "exploratories": [
-                {
-                  "prompt": "What is your take on it?",
-                  "response": "{personal_reaction}"
-                }
-              ]
-            },
-            {
-              "prompt": "Has the supply been steady?",
-              "response": "{trade_detail}",
-              "exploratories": [
-                {
-                  "prompt": "What are people saying about the prices?",
-                  "response": "{local_opinion}"
-                }
-              ]
-            }
-          ]
+          "intents": [
+            { "intent": "detail",   "response": "{trade_detail}" },
+            { "intent": "reaction", "response": "{personal_reaction}" }
+          ],
+          "deepenerResponse": "{local_opinion}"
         },
         {
           "intro": "{tone_opener} {trade_gossip}. {tone_closer}",
-          "exploratories": [
-            {
-              "prompt": "When did this start?",
-              "response": "{time_ref}. {trade_detail}",
-              "exploratories": [
-                {
-                  "prompt": "How do folk feel about it?",
-                  "response": "{local_opinion}"
-                }
-              ]
-            },
-            {
-              "prompt": "Which routes are affected?",
-              "response": "{location_detail}",
-              "exploratories": [
-                {
-                  "prompt": "How are you managing?",
-                  "response": "{personal_reaction}"
-                }
-              ]
-            }
-          ]
+          "intents": [
+            { "intent": "detail",  "response": "{time_ref}. {trade_detail}" },
+            { "intent": "context", "response": "{location_detail}" },
+            { "intent": "opinion", "response": "{local_opinion}" }
+          ],
+          "deepenerResponse": "{personal_reaction}"
         }
       ],
       "questHookPerspectives": [
@@ -190,78 +92,29 @@
       "perspectives": [
         {
           "intro": "{tone_opener} {craft_observation}. {tone_closer}",
-          "exploratories": [
-            {
-              "prompt": "What are you working on?",
-              "response": "{craft_detail}",
-              "exploratories": [
-                {
-                  "prompt": "Is there much competition among the crafters?",
-                  "response": "{local_opinion}"
-                }
-              ]
-            },
-            {
-              "prompt": "Where do you get your materials?",
-              "response": "{location_detail}",
-              "exploratories": [
-                {
-                  "prompt": "Does the shortage worry you?",
-                  "response": "{personal_reaction}"
-                }
-              ]
-            }
-          ]
+          "intents": [
+            { "intent": "detail",  "response": "{craft_detail}" },
+            { "intent": "context", "response": "{location_detail}" },
+            { "intent": "opinion", "response": "{local_opinion}" }
+          ],
+          "deepenerResponse": "{personal_reaction}"
         },
         {
           "intro": "{tone_opener} {craft_observation}. {tone_closer}",
-          "exploratories": [
-            {
-              "prompt": "Tell me more.",
-              "response": "{craft_detail}",
-              "exploratories": [
-                {
-                  "prompt": "How are you handling it?",
-                  "response": "{personal_reaction}"
-                }
-              ]
-            },
-            {
-              "prompt": "Are the other crafters seeing the same thing?",
-              "response": "{craft_detail}",
-              "exploratories": [
-                {
-                  "prompt": "How is the quality these days?",
-                  "response": "{local_opinion}"
-                }
-              ]
-            }
-          ]
+          "intents": [
+            { "intent": "detail",   "response": "{craft_detail}" },
+            { "intent": "reaction", "response": "{personal_reaction}" }
+          ],
+          "deepenerResponse": "{local_opinion}"
         },
         {
           "intro": "{tone_opener} {craft_observation}. {tone_closer}",
-          "exploratories": [
-            {
-              "prompt": "How long has this been going on?",
-              "response": "{time_ref}. {craft_detail}",
-              "exploratories": [
-                {
-                  "prompt": "What are the old-timers saying?",
-                  "response": "{local_opinion}"
-                }
-              ]
-            },
-            {
-              "prompt": "Which workshops are affected?",
-              "response": "{location_detail}",
-              "exploratories": [
-                {
-                  "prompt": "What is your take on it?",
-                  "response": "{personal_reaction}"
-                }
-              ]
-            }
-          ]
+          "intents": [
+            { "intent": "detail",  "response": "{time_ref}. {craft_detail}" },
+            { "intent": "context", "response": "{location_detail}" },
+            { "intent": "opinion", "response": "{local_opinion}" }
+          ],
+          "deepenerResponse": "{personal_reaction}"
         }
       ],
       "questHookPerspectives": [
@@ -281,78 +134,28 @@
       "perspectives": [
         {
           "intro": "{tone_opener} {community_observation}. {tone_closer}",
-          "exploratories": [
-            {
-              "prompt": "What started it?",
-              "response": "{community_detail}",
-              "exploratories": [
-                {
-                  "prompt": "Where do you stand on it?",
-                  "response": "{personal_reaction}"
-                }
-              ]
-            },
-            {
-              "prompt": "How is the rest of the settlement taking it?",
-              "response": "{community_detail}",
-              "exploratories": [
-                {
-                  "prompt": "How does it usually get resolved?",
-                  "response": "{local_opinion}"
-                }
-              ]
-            }
-          ]
+          "intents": [
+            { "intent": "detail",   "response": "{community_detail}" },
+            { "intent": "opinion",  "response": "{local_opinion}" },
+            { "intent": "reaction", "response": "{personal_reaction}" }
+          ],
+          "deepenerResponse": "{local_opinion}"
         },
         {
           "intro": "{tone_opener} {community_observation}. {tone_closer}",
-          "exploratories": [
-            {
-              "prompt": "Go on.",
-              "response": "{community_detail}",
-              "exploratories": [
-                {
-                  "prompt": "What do people think?",
-                  "response": "{local_opinion}"
-                }
-              ]
-            },
-            {
-              "prompt": "Where is the tension coming from?",
-              "response": "{location_detail}",
-              "exploratories": [
-                {
-                  "prompt": "How are you handling it?",
-                  "response": "{personal_reaction}"
-                }
-              ]
-            }
-          ]
+          "intents": [
+            { "intent": "detail",  "response": "{community_detail}" },
+            { "intent": "context", "response": "{location_detail}" }
+          ],
+          "deepenerResponse": "{personal_reaction}"
         },
         {
           "intro": "{tone_opener} {community_observation}. {tone_closer}",
-          "exploratories": [
-            {
-              "prompt": "When did this start?",
-              "response": "{time_ref}. {community_detail}",
-              "exploratories": [
-                {
-                  "prompt": "What are the old-timers saying?",
-                  "response": "{local_opinion}"
-                }
-              ]
-            },
-            {
-              "prompt": "Which part of the settlement is most affected?",
-              "response": "{location_detail}",
-              "exploratories": [
-                {
-                  "prompt": "What is your take on it?",
-                  "response": "{personal_reaction}"
-                }
-              ]
-            }
-          ]
+          "intents": [
+            { "intent": "detail",  "response": "{time_ref}. {community_detail}" },
+            { "intent": "opinion", "response": "{local_opinion}" }
+          ],
+          "deepenerResponse": "{personal_reaction}"
         }
       ],
       "questHookPerspectives": [
@@ -372,78 +175,30 @@
       "perspectives": [
         {
           "intro": "{tone_opener} {nature_observation}. {tone_closer}",
-          "exploratories": [
-            {
-              "prompt": "What did you see out there?",
-              "response": "{nature_detail}",
-              "exploratories": [
-                {
-                  "prompt": "What do people make of it?",
-                  "response": "{local_opinion}"
-                }
-              ]
-            },
-            {
-              "prompt": "Have the animals been acting strangely?",
-              "response": "{creature_detail}",
-              "exploratories": [
-                {
-                  "prompt": "Is it dangerous?",
-                  "response": "{danger_assessment}"
-                }
-              ]
-            }
-          ]
+          "intents": [
+            { "intent": "detail",  "response": "{nature_detail}" },
+            { "intent": "context", "response": "{location_detail}" },
+            { "intent": "stakes",  "response": "{danger_assessment}" },
+            { "intent": "opinion", "response": "{local_opinion}" }
+          ],
+          "deepenerResponse": "{personal_reaction}"
         },
         {
           "intro": "{tone_opener} {nature_observation}. {tone_closer}",
-          "exploratories": [
-            {
-              "prompt": "Where exactly?",
-              "response": "{location_detail}",
-              "exploratories": [
-                {
-                  "prompt": "Does it worry you?",
-                  "response": "{personal_reaction}"
-                }
-              ]
-            },
-            {
-              "prompt": "What else have you noticed?",
-              "response": "{nature_detail}",
-              "exploratories": [
-                {
-                  "prompt": "What are the old-timers saying?",
-                  "response": "{local_opinion}"
-                }
-              ]
-            }
-          ]
+          "intents": [
+            { "intent": "detail",   "response": "{nature_detail}" },
+            { "intent": "context",  "response": "{location_detail}" },
+            { "intent": "reaction", "response": "{personal_reaction}" }
+          ],
+          "deepenerResponse": "{local_opinion}"
         },
         {
           "intro": "{tone_opener} {nature_observation}. {tone_closer}",
-          "exploratories": [
-            {
-              "prompt": "Tell me more.",
-              "response": "{nature_detail}",
-              "exploratories": [
-                {
-                  "prompt": "How are you handling it?",
-                  "response": "{personal_reaction}"
-                }
-              ]
-            },
-            {
-              "prompt": "Are the creatures acting strange?",
-              "response": "{creature_detail}",
-              "exploratories": [
-                {
-                  "prompt": "Should I be worried out there?",
-                  "response": "{danger_assessment}"
-                }
-              ]
-            }
-          ]
+          "intents": [
+            { "intent": "detail",  "response": "{nature_detail}" },
+            { "intent": "stakes",  "response": "{danger_assessment}" }
+          ],
+          "deepenerResponse": "{local_opinion}"
         }
       ],
       "questHookPerspectives": [
@@ -464,78 +219,29 @@
       "perspectives": [
         {
           "intro": "{tone_opener} {nostalgia_observation}. {tone_closer}",
-          "exploratories": [
-            {
-              "prompt": "What was it like before?",
-              "response": "{time_ref}. {nostalgia_detail}",
-              "exploratories": [
-                {
-                  "prompt": "Do others around here feel the same way?",
-                  "response": "{local_opinion}"
-                }
-              ]
-            },
-            {
-              "prompt": "Where did all of that happen?",
-              "response": "{location_detail}",
-              "exploratories": [
-                {
-                  "prompt": "You sound like you miss the old days.",
-                  "response": "{personal_reaction}"
-                }
-              ]
-            }
-          ]
+          "intents": [
+            { "intent": "detail",  "response": "{time_ref}. {nostalgia_detail}" },
+            { "intent": "context", "response": "{location_detail}" },
+            { "intent": "opinion", "response": "{local_opinion}" }
+          ],
+          "deepenerResponse": "{personal_reaction}"
         },
         {
           "intro": "{tone_opener} {nostalgia_observation}. {tone_closer}",
-          "exploratories": [
-            {
-              "prompt": "What changed?",
-              "response": "{nostalgia_detail}",
-              "exploratories": [
-                {
-                  "prompt": "That must be hard to watch.",
-                  "response": "{personal_reaction}"
-                }
-              ]
-            },
-            {
-              "prompt": "Does the younger generation know about this?",
-              "response": "{nostalgia_detail}",
-              "exploratories": [
-                {
-                  "prompt": "Could things go back?",
-                  "response": "{local_opinion}"
-                }
-              ]
-            }
-          ]
+          "intents": [
+            { "intent": "detail",   "response": "{nostalgia_detail}" },
+            { "intent": "reaction", "response": "{personal_reaction}" }
+          ],
+          "deepenerResponse": "{local_opinion}"
         },
         {
           "intro": "{tone_opener} {nostalgia_observation}. {tone_closer}",
-          "exploratories": [
-            {
-              "prompt": "When was this?",
-              "response": "{time_ref}. {nostalgia_detail}",
-              "exploratories": [
-                {
-                  "prompt": "How do folk feel about it?",
-                  "response": "{local_opinion}"
-                }
-              ]
-            },
-            {
-              "prompt": "What has changed the most?",
-              "response": "{location_detail}",
-              "exploratories": [
-                {
-                  "prompt": "How are you handling it?",
-                  "response": "{personal_reaction}"
-                }
-              ]
-            }
-          ]
+          "intents": [
+            { "intent": "detail",  "response": "{nostalgia_detail}" },
+            { "intent": "context", "response": "{location_detail}" },
+            { "intent": "opinion", "response": "{local_opinion}" }
+          ],
+          "deepenerResponse": "{personal_reaction}"
         }
       ],
       "questHookPerspectives": [
@@ -556,78 +262,30 @@
       "perspectives": [
         {
           "intro": "{tone_opener} {curiosity_observation}. {tone_closer}",
-          "exploratories": [
-            {
-              "prompt": "What got you thinking about it?",
-              "response": "{curiosity_detail}",
-              "exploratories": [
-                {
-                  "prompt": "Has anyone else noticed?",
-                  "response": "{local_opinion}"
-                }
-              ]
-            },
-            {
-              "prompt": "Where did this happen?",
-              "response": "{location_detail}",
-              "exploratories": [
-                {
-                  "prompt": "Is it dangerous?",
-                  "response": "{danger_assessment}"
-                }
-              ]
-            }
-          ]
+          "intents": [
+            { "intent": "detail",  "response": "{curiosity_detail}" },
+            { "intent": "context", "response": "{location_detail}" },
+            { "intent": "stakes",  "response": "{danger_assessment}" }
+          ],
+          "deepenerResponse": "{local_opinion}"
         },
         {
           "intro": "{tone_opener} {curiosity_observation}. {tone_closer}",
-          "exploratories": [
-            {
-              "prompt": "Tell me more.",
-              "response": "{event_detail}",
-              "exploratories": [
-                {
-                  "prompt": "What is your best guess?",
-                  "response": "{personal_reaction}"
-                }
-              ]
-            },
-            {
-              "prompt": "What do other folk make of it?",
-              "response": "{curiosity_detail}",
-              "exploratories": [
-                {
-                  "prompt": "What are the old-timers saying?",
-                  "response": "{local_opinion}"
-                }
-              ]
-            }
-          ]
+          "intents": [
+            { "intent": "detail",   "response": "{event_detail}" },
+            { "intent": "opinion",  "response": "{local_opinion}" },
+            { "intent": "reaction", "response": "{personal_reaction}" }
+          ],
+          "deepenerResponse": "{local_opinion}"
         },
         {
           "intro": "{tone_opener} {curiosity_observation}. {tone_closer}",
-          "exploratories": [
-            {
-              "prompt": "How long has this been going on?",
-              "response": "{time_ref}. {event_detail}",
-              "exploratories": [
-                {
-                  "prompt": "Does that worry you?",
-                  "response": "{personal_reaction}"
-                }
-              ]
-            },
-            {
-              "prompt": "Which area is it happening in?",
-              "response": "{location_detail}",
-              "exploratories": [
-                {
-                  "prompt": "Should people be more careful out there?",
-                  "response": "{danger_assessment}"
-                }
-              ]
-            }
-          ]
+          "intents": [
+            { "intent": "detail",  "response": "{time_ref}. {event_detail}" },
+            { "intent": "context", "response": "{location_detail}" },
+            { "intent": "stakes",  "response": "{danger_assessment}" }
+          ],
+          "deepenerResponse": "{personal_reaction}"
         }
       ],
       "questHookPerspectives": [
@@ -647,78 +305,29 @@
       "perspectives": [
         {
           "intro": "{tone_opener} {festival_observation}. {tone_closer}",
-          "exploratories": [
-            {
-              "prompt": "What kind of celebration is it?",
-              "response": "{festival_detail}",
-              "exploratories": [
-                {
-                  "prompt": "Does the settlement look forward to it?",
-                  "response": "{local_opinion}"
-                }
-              ]
-            },
-            {
-              "prompt": "Where is it being held?",
-              "response": "{location_detail}",
-              "exploratories": [
-                {
-                  "prompt": "Are you looking forward to it?",
-                  "response": "{personal_reaction}"
-                }
-              ]
-            }
-          ]
+          "intents": [
+            { "intent": "detail",  "response": "{festival_detail}" },
+            { "intent": "context", "response": "{location_detail}" },
+            { "intent": "opinion", "response": "{local_opinion}" }
+          ],
+          "deepenerResponse": "{personal_reaction}"
         },
         {
           "intro": "{tone_opener} {festival_observation}. {tone_closer}",
-          "exploratories": [
-            {
-              "prompt": "Go on.",
-              "response": "{festival_detail}",
-              "exploratories": [
-                {
-                  "prompt": "How are you handling the preparations?",
-                  "response": "{personal_reaction}"
-                }
-              ]
-            },
-            {
-              "prompt": "What traditions are involved?",
-              "response": "{festival_detail}",
-              "exploratories": [
-                {
-                  "prompt": "Do people value the old customs?",
-                  "response": "{local_opinion}"
-                }
-              ]
-            }
-          ]
+          "intents": [
+            { "intent": "detail",   "response": "{festival_detail}" },
+            { "intent": "reaction", "response": "{personal_reaction}" }
+          ],
+          "deepenerResponse": "{local_opinion}"
         },
         {
           "intro": "{tone_opener} {festival_observation}. {tone_closer}",
-          "exploratories": [
-            {
-              "prompt": "When did this start?",
-              "response": "{time_ref}. {festival_detail}",
-              "exploratories": [
-                {
-                  "prompt": "How do folk feel about it?",
-                  "response": "{local_opinion}"
-                }
-              ]
-            },
-            {
-              "prompt": "Which part of the settlement is most involved?",
-              "response": "{location_detail}",
-              "exploratories": [
-                {
-                  "prompt": "What is your take on it?",
-                  "response": "{personal_reaction}"
-                }
-              ]
-            }
-          ]
+          "intents": [
+            { "intent": "detail",  "response": "{time_ref}. {festival_detail}" },
+            { "intent": "context", "response": "{location_detail}" },
+            { "intent": "opinion", "response": "{local_opinion}" }
+          ],
+          "deepenerResponse": "{personal_reaction}"
         }
       ],
       "questHookPerspectives": [

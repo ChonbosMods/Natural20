@@ -7,78 +7,31 @@
       "perspectives": [
         {
           "intro": "{tone_opener} {creature_sighting}. {tone_closer}",
-          "exploratories": [
-            {
-              "prompt": "What did it look like?",
-              "response": "{creature_detail}",
-              "exploratories": [
-                {
-                  "prompt": "Should we be worried?",
-                  "response": "{danger_assessment}"
-                }
-              ]
-            },
-            {
-              "prompt": "Where was this?",
-              "response": "{location_detail}",
-              "exploratories": [
-                {
-                  "prompt": "What do people think?",
-                  "response": "{local_opinion}"
-                }
-              ]
-            }
-          ]
+          "intents": [
+            { "intent": "detail",  "response": "{creature_detail}" },
+            { "intent": "context", "response": "{location_detail}" },
+            { "intent": "source",  "response": "{rumor_source}" },
+            { "intent": "stakes",  "response": "{danger_assessment}" }
+          ],
+          "deepenerResponse": "{local_opinion}"
         },
         {
           "intro": "{tone_opener} {creature_sighting}. {tone_closer}",
-          "exploratories": [
-            {
-              "prompt": "Who saw it?",
-              "response": "{rumor_source}",
-              "exploratories": [
-                {
-                  "prompt": "Do you trust them?",
-                  "response": "{personal_reaction}"
-                }
-              ]
-            },
-            {
-              "prompt": "Tell me more about it.",
-              "response": "{creature_detail}",
-              "exploratories": [
-                {
-                  "prompt": "Has anyone tried to deal with it?",
-                  "response": "{local_opinion}"
-                }
-              ]
-            }
-          ]
+          "intents": [
+            { "intent": "detail",  "response": "{creature_detail}" },
+            { "intent": "stakes",  "response": "{danger_assessment}" },
+            { "intent": "opinion", "response": "{local_opinion}" }
+          ],
+          "deepenerResponse": "{personal_reaction}"
         },
         {
           "intro": "{tone_opener} {creature_sighting}. {tone_closer}",
-          "exploratories": [
-            {
-              "prompt": "Has it attacked anyone?",
-              "response": "{danger_assessment}",
-              "exploratories": [
-                {
-                  "prompt": "How are people reacting?",
-                  "response": "{local_opinion}"
-                }
-              ]
-            },
-            {
-              "prompt": "How close did it get to the settlement?",
-              "response": "{location_detail}",
-              "exploratories": [
-                {
-                  "prompt": "What do you make of it?",
-                  "response": "{personal_reaction}"
-                }
-              ]
-            }
-          ]
+          "intents": [
+            { "intent": "detail",   "response": "{creature_detail}" },
+            { "intent": "context",  "response": "{location_detail}" },
+            { "intent": "reaction", "response": "{personal_reaction}" }
+          ],
+          "deepenerResponse": "{local_opinion}"
         }
       ],
       "questHookPerspectives": [
@@ -98,78 +51,30 @@
       "perspectives": [
         {
           "intro": "{tone_opener} {creature_sighting}. {tone_closer}",
-          "exploratories": [
-            {
-              "prompt": "What was it doing?",
-              "response": "{creature_detail}",
-              "exploratories": [
-                {
-                  "prompt": "Could they have been mistaken?",
-                  "response": "{personal_reaction}"
-                }
-              ]
-            },
-            {
-              "prompt": "Where exactly was it spotted?",
-              "response": "{location_detail}",
-              "exploratories": [
-                {
-                  "prompt": "Is that area normally quiet?",
-                  "response": "{local_opinion}"
-                }
-              ]
-            }
-          ]
+          "intents": [
+            { "intent": "detail",  "response": "{creature_detail}" },
+            { "intent": "context", "response": "{location_detail}" },
+            { "intent": "source",  "response": "{rumor_source}" }
+          ],
+          "deepenerResponse": "{local_opinion}"
         },
         {
           "intro": "{tone_opener} {creature_sighting}. {tone_closer}",
-          "exploratories": [
-            {
-              "prompt": "Who told you about this?",
-              "response": "{rumor_source}",
-              "exploratories": [
-                {
-                  "prompt": "That sounds unusual. Is it?",
-                  "response": "{danger_assessment}"
-                }
-              ]
-            },
-            {
-              "prompt": "Has anyone else seen it since?",
-              "response": "{creature_detail}",
-              "exploratories": [
-                {
-                  "prompt": "Are people avoiding the area?",
-                  "response": "{local_opinion}"
-                }
-              ]
-            }
-          ]
+          "intents": [
+            { "intent": "detail",   "response": "{creature_detail}" },
+            { "intent": "stakes",   "response": "{danger_assessment}" },
+            { "intent": "reaction", "response": "{personal_reaction}" }
+          ],
+          "deepenerResponse": "{local_opinion}"
         },
         {
           "intro": "{tone_opener} {creature_sighting}. {tone_closer}",
-          "exploratories": [
-            {
-              "prompt": "How many were there?",
-              "response": "{creature_detail}",
-              "exploratories": [
-                {
-                  "prompt": "What is your gut feeling about it?",
-                  "response": "{personal_reaction}"
-                }
-              ]
-            },
-            {
-              "prompt": "Did it seem threatening?",
-              "response": "{danger_assessment}",
-              "exploratories": [
-                {
-                  "prompt": "Do they usually appear in groups?",
-                  "response": "{local_opinion}"
-                }
-              ]
-            }
-          ]
+          "intents": [
+            { "intent": "detail",  "response": "{creature_detail}" },
+            { "intent": "context", "response": "{location_detail}" },
+            { "intent": "opinion", "response": "{local_opinion}" }
+          ],
+          "deepenerResponse": "{personal_reaction}"
         }
       ],
       "questHookPerspectives": [
@@ -189,78 +94,30 @@
       "perspectives": [
         {
           "intro": "{tone_opener} {creature_sighting}. {tone_closer}",
-          "exploratories": [
-            {
-              "prompt": "Is this seasonal?",
-              "response": "{creature_detail}",
-              "exploratories": [
-                {
-                  "prompt": "Should we worry about what drove them out?",
-                  "response": "{danger_assessment}"
-                }
-              ]
-            },
-            {
-              "prompt": "Where are they headed?",
-              "response": "{location_detail}",
-              "exploratories": [
-                {
-                  "prompt": "Will they cause trouble when they arrive?",
-                  "response": "{local_opinion}"
-                }
-              ]
-            }
-          ]
+          "intents": [
+            { "intent": "detail",  "response": "{creature_detail}" },
+            { "intent": "context", "response": "{location_detail}" },
+            { "intent": "stakes",  "response": "{danger_assessment}" }
+          ],
+          "deepenerResponse": "{local_opinion}"
         },
         {
           "intro": "{tone_opener} {creature_sighting}. {tone_closer}",
-          "exploratories": [
-            {
-              "prompt": "Describe what was seen.",
-              "response": "{creature_detail}",
-              "exploratories": [
-                {
-                  "prompt": "So what changed?",
-                  "response": "{personal_reaction}"
-                }
-              ]
-            },
-            {
-              "prompt": "How many are we talking about?",
-              "response": "{creature_detail}",
-              "exploratories": [
-                {
-                  "prompt": "Can the settlement handle that?",
-                  "response": "{local_opinion}"
-                }
-              ]
-            }
-          ]
+          "intents": [
+            { "intent": "detail",   "response": "{creature_detail}" },
+            { "intent": "opinion",  "response": "{local_opinion}" },
+            { "intent": "reaction", "response": "{personal_reaction}" }
+          ],
+          "deepenerResponse": "{danger_assessment}"
         },
         {
           "intro": "{tone_opener} {creature_sighting}. {tone_closer}",
-          "exploratories": [
-            {
-              "prompt": "Has this happened before?",
-              "response": "{creature_detail}",
-              "exploratories": [
-                {
-                  "prompt": "What do the old-timers say about it?",
-                  "response": "{local_opinion}"
-                }
-              ]
-            },
-            {
-              "prompt": "Which direction are they moving?",
-              "response": "{location_detail}",
-              "exploratories": [
-                {
-                  "prompt": "Does that worry you?",
-                  "response": "{personal_reaction}"
-                }
-              ]
-            }
-          ]
+          "intents": [
+            { "intent": "detail",  "response": "{creature_detail}" },
+            { "intent": "context", "response": "{location_detail}" },
+            { "intent": "source",  "response": "{rumor_source}" }
+          ],
+          "deepenerResponse": "{local_opinion}"
         }
       ],
       "questHookPerspectives": [
@@ -280,78 +137,30 @@
       "perspectives": [
         {
           "intro": "{tone_opener} {strange_event}. {tone_closer}",
-          "exploratories": [
-            {
-              "prompt": "Who went missing?",
-              "response": "{event_detail}",
-              "exploratories": [
-                {
-                  "prompt": "Did they leave any trace?",
-                  "response": "{personal_reaction}"
-                }
-              ]
-            },
-            {
-              "prompt": "Where were they last seen?",
-              "response": "{location_detail}",
-              "exploratories": [
-                {
-                  "prompt": "Has that area been searched?",
-                  "response": "{local_opinion}"
-                }
-              ]
-            }
-          ]
+          "intents": [
+            { "intent": "detail",  "response": "{event_detail}" },
+            { "intent": "context", "response": "{location_detail}" },
+            { "intent": "stakes",  "response": "{danger_assessment}" }
+          ],
+          "deepenerResponse": "{local_opinion}"
         },
         {
           "intro": "{tone_opener} {strange_event}. {tone_closer}",
-          "exploratories": [
-            {
-              "prompt": "How many have vanished?",
-              "response": "{event_detail}",
-              "exploratories": [
-                {
-                  "prompt": "Is there a pattern?",
-                  "response": "{danger_assessment}"
-                }
-              ]
-            },
-            {
-              "prompt": "Who told you about this?",
-              "response": "{rumor_source}",
-              "exploratories": [
-                {
-                  "prompt": "Do you agree with what they think happened?",
-                  "response": "{personal_reaction}"
-                }
-              ]
-            }
-          ]
+          "intents": [
+            { "intent": "detail",  "response": "{event_detail}" },
+            { "intent": "source",  "response": "{rumor_source}" },
+            { "intent": "opinion", "response": "{local_opinion}" }
+          ],
+          "deepenerResponse": "{personal_reaction}"
         },
         {
           "intro": "{tone_opener} {strange_event}. {tone_closer}",
-          "exploratories": [
-            {
-              "prompt": "When did people first notice?",
-              "response": "{time_ref}. {event_detail}",
-              "exploratories": [
-                {
-                  "prompt": "What do people think is causing it?",
-                  "response": "{local_opinion}"
-                }
-              ]
-            },
-            {
-              "prompt": "Has anyone gone looking for them?",
-              "response": "{location_detail}",
-              "exploratories": [
-                {
-                  "prompt": "How dangerous is the search?",
-                  "response": "{danger_assessment}"
-                }
-              ]
-            }
-          ]
+          "intents": [
+            { "intent": "detail",   "response": "{event_detail}" },
+            { "intent": "context",  "response": "{location_detail}" },
+            { "intent": "reaction", "response": "{personal_reaction}" }
+          ],
+          "deepenerResponse": "{local_opinion}"
         }
       ],
       "questHookPerspectives": [
@@ -371,78 +180,31 @@
       "perspectives": [
         {
           "intro": "{tone_opener} {strange_event}. {tone_closer}",
-          "exploratories": [
-            {
-              "prompt": "What do you mean, not right?",
-              "response": "{event_detail}",
-              "exploratories": [
-                {
-                  "prompt": "How long has it been like this?",
-                  "response": "{personal_reaction}"
-                }
-              ]
-            },
-            {
-              "prompt": "Has anyone gone to look?",
-              "response": "{location_detail}",
-              "exploratories": [
-                {
-                  "prompt": "What did they find?",
-                  "response": "{danger_assessment}"
-                }
-              ]
-            }
-          ]
+          "intents": [
+            { "intent": "detail",  "response": "{event_detail}" },
+            { "intent": "context", "response": "{location_detail}" },
+            { "intent": "stakes",  "response": "{danger_assessment}" },
+            { "intent": "opinion", "response": "{local_opinion}" }
+          ],
+          "deepenerResponse": "{personal_reaction}"
         },
         {
           "intro": "{tone_opener} {strange_event}. {tone_closer}",
-          "exploratories": [
-            {
-              "prompt": "Is it spreading?",
-              "response": "{event_detail}",
-              "exploratories": [
-                {
-                  "prompt": "What do the elders say?",
-                  "response": "{local_opinion}"
-                }
-              ]
-            },
-            {
-              "prompt": "Who told you about this?",
-              "response": "{rumor_source}",
-              "exploratories": [
-                {
-                  "prompt": "Are you frightened?",
-                  "response": "{personal_reaction}"
-                }
-              ]
-            }
-          ]
+          "intents": [
+            { "intent": "detail",   "response": "{event_detail}" },
+            { "intent": "source",   "response": "{rumor_source}" },
+            { "intent": "reaction", "response": "{personal_reaction}" }
+          ],
+          "deepenerResponse": "{local_opinion}"
         },
         {
           "intro": "{tone_opener} {strange_event}. {tone_closer}",
-          "exploratories": [
-            {
-              "prompt": "What makes you so sure?",
-              "response": "{event_detail}",
-              "exploratories": [
-                {
-                  "prompt": "Has anything like this happened before?",
-                  "response": "{local_opinion}"
-                }
-              ]
-            },
-            {
-              "prompt": "What is causing it?",
-              "response": "{danger_assessment}",
-              "exploratories": [
-                {
-                  "prompt": "Can it be reversed?",
-                  "response": "{personal_reaction}"
-                }
-              ]
-            }
-          ]
+          "intents": [
+            { "intent": "detail",  "response": "{event_detail}" },
+            { "intent": "stakes",  "response": "{danger_assessment}" },
+            { "intent": "opinion", "response": "{local_opinion}" }
+          ],
+          "deepenerResponse": "{personal_reaction}"
         }
       ],
       "questHookPerspectives": [
@@ -462,78 +224,30 @@
       "perspectives": [
         {
           "intro": "{tone_opener} {strange_event}. {tone_closer}",
-          "exploratories": [
-            {
-              "prompt": "A sign of what?",
-              "response": "{event_detail}",
-              "exploratories": [
-                {
-                  "prompt": "Do you believe them?",
-                  "response": "{personal_reaction}"
-                }
-              ]
-            },
-            {
-              "prompt": "Where did this happen?",
-              "response": "{location_detail}",
-              "exploratories": [
-                {
-                  "prompt": "Has anything like this been seen before?",
-                  "response": "{local_opinion}"
-                }
-              ]
-            }
-          ]
+          "intents": [
+            { "intent": "detail",  "response": "{event_detail}" },
+            { "intent": "context", "response": "{location_detail}" },
+            { "intent": "opinion", "response": "{local_opinion}" }
+          ],
+          "deepenerResponse": "{personal_reaction}"
         },
         {
           "intro": "{tone_opener} {strange_event}. {tone_closer}",
-          "exploratories": [
-            {
-              "prompt": "What do the elders say?",
-              "response": "{event_detail}",
-              "exploratories": [
-                {
-                  "prompt": "Are they usually right about these things?",
-                  "response": "{local_opinion}"
-                }
-              ]
-            },
-            {
-              "prompt": "Who told you about this?",
-              "response": "{rumor_source}",
-              "exploratories": [
-                {
-                  "prompt": "How are you preparing?",
-                  "response": "{personal_reaction}"
-                }
-              ]
-            }
-          ]
+          "intents": [
+            { "intent": "detail",   "response": "{event_detail}" },
+            { "intent": "source",   "response": "{rumor_source}" },
+            { "intent": "reaction", "response": "{personal_reaction}" }
+          ],
+          "deepenerResponse": "{local_opinion}"
         },
         {
           "intro": "{tone_opener} {strange_event}. {tone_closer}",
-          "exploratories": [
-            {
-              "prompt": "What should we expect?",
-              "response": "{danger_assessment}",
-              "exploratories": [
-                {
-                  "prompt": "What are people saying about it?",
-                  "response": "{local_opinion}"
-                }
-              ]
-            },
-            {
-              "prompt": "What exactly did you notice?",
-              "response": "{event_detail}",
-              "exploratories": [
-                {
-                  "prompt": "And that worries you?",
-                  "response": "{personal_reaction}"
-                }
-              ]
-            }
-          ]
+          "intents": [
+            { "intent": "stakes",  "response": "{danger_assessment}" },
+            { "intent": "detail",  "response": "{event_detail}" },
+            { "intent": "opinion", "response": "{local_opinion}" }
+          ],
+          "deepenerResponse": "{personal_reaction}"
         }
       ],
       "questHookPerspectives": [
@@ -553,78 +267,30 @@
       "perspectives": [
         {
           "intro": "{tone_opener} {treasure_rumor}. {tone_closer}",
-          "exploratories": [
-            {
-              "prompt": "What kind of riches?",
-              "response": "{treasure_detail}",
-              "exploratories": [
-                {
-                  "prompt": "Sounds too good to be true.",
-                  "response": "{personal_reaction}"
-                }
-              ]
-            },
-            {
-              "prompt": "Where is this supposed to be?",
-              "response": "{location_detail}",
-              "exploratories": [
-                {
-                  "prompt": "Do the locals believe it?",
-                  "response": "{local_opinion}"
-                }
-              ]
-            }
-          ]
+          "intents": [
+            { "intent": "detail",  "response": "{treasure_detail}" },
+            { "intent": "context", "response": "{location_detail}" },
+            { "intent": "source",  "response": "{rumor_source}" }
+          ],
+          "deepenerResponse": "{local_opinion}"
         },
         {
           "intro": "{tone_opener} {treasure_rumor}. {tone_closer}",
-          "exploratories": [
-            {
-              "prompt": "Has anyone gone looking?",
-              "response": "{treasure_detail}",
-              "exploratories": [
-                {
-                  "prompt": "What stopped them?",
-                  "response": "{danger_assessment}"
-                }
-              ]
-            },
-            {
-              "prompt": "Who brought this story?",
-              "response": "{rumor_source}",
-              "exploratories": [
-                {
-                  "prompt": "Is the area accessible?",
-                  "response": "{personal_reaction}"
-                }
-              ]
-            }
-          ]
+          "intents": [
+            { "intent": "detail",   "response": "{treasure_detail}" },
+            { "intent": "stakes",   "response": "{danger_assessment}" },
+            { "intent": "reaction", "response": "{personal_reaction}" }
+          ],
+          "deepenerResponse": "{local_opinion}"
         },
         {
           "intro": "{tone_opener} {treasure_rumor}. {tone_closer}",
-          "exploratories": [
-            {
-              "prompt": "What is the old story?",
-              "response": "{treasure_detail}",
-              "exploratories": [
-                {
-                  "prompt": "Do you think there is any truth to it?",
-                  "response": "{local_opinion}"
-                }
-              ]
-            },
-            {
-              "prompt": "How did you hear about it?",
-              "response": "{rumor_source}",
-              "exploratories": [
-                {
-                  "prompt": "Would you go looking yourself?",
-                  "response": "{personal_reaction}"
-                }
-              ]
-            }
-          ]
+          "intents": [
+            { "intent": "detail",  "response": "{treasure_detail}" },
+            { "intent": "source",  "response": "{rumor_source}" },
+            { "intent": "opinion", "response": "{local_opinion}" }
+          ],
+          "deepenerResponse": "{personal_reaction}"
         }
       ],
       "questHookPerspectives": [
@@ -644,78 +310,30 @@
       "perspectives": [
         {
           "intro": "{tone_opener} {conflict_rumor}. {tone_closer}",
-          "exploratories": [
-            {
-              "prompt": "Who is involved?",
-              "response": "{conflict_detail}",
-              "exploratories": [
-                {
-                  "prompt": "Which side are people on?",
-                  "response": "{local_opinion}"
-                }
-              ]
-            },
-            {
-              "prompt": "How did this start?",
-              "response": "{conflict_detail}",
-              "exploratories": [
-                {
-                  "prompt": "Could it have been avoided?",
-                  "response": "{personal_reaction}"
-                }
-              ]
-            }
-          ]
+          "intents": [
+            { "intent": "detail",  "response": "{conflict_detail}" },
+            { "intent": "stakes",  "response": "{danger_assessment}" },
+            { "intent": "opinion", "response": "{local_opinion}" }
+          ],
+          "deepenerResponse": "{personal_reaction}"
         },
         {
           "intro": "{tone_opener} {conflict_rumor}. {tone_closer}",
-          "exploratories": [
-            {
-              "prompt": "Who told you about this?",
-              "response": "{rumor_source}",
-              "exploratories": [
-                {
-                  "prompt": "Is it going to turn violent?",
-                  "response": "{danger_assessment}"
-                }
-              ]
-            },
-            {
-              "prompt": "Where is the tension worst?",
-              "response": "{location_detail}",
-              "exploratories": [
-                {
-                  "prompt": "Can anything be done to calm things down?",
-                  "response": "{local_opinion}"
-                }
-              ]
-            }
-          ]
+          "intents": [
+            { "intent": "detail",   "response": "{conflict_detail}" },
+            { "intent": "source",   "response": "{rumor_source}" },
+            { "intent": "reaction", "response": "{personal_reaction}" }
+          ],
+          "deepenerResponse": "{local_opinion}"
         },
         {
           "intro": "{tone_opener} {conflict_rumor}. {tone_closer}",
-          "exploratories": [
-            {
-              "prompt": "How bad has it gotten?",
-              "response": "{conflict_detail}",
-              "exploratories": [
-                {
-                  "prompt": "What do you think will happen next?",
-                  "response": "{danger_assessment}"
-                }
-              ]
-            },
-            {
-              "prompt": "What sparked the latest trouble?",
-              "response": "{conflict_detail}",
-              "exploratories": [
-                {
-                  "prompt": "How do you feel about it?",
-                  "response": "{personal_reaction}"
-                }
-              ]
-            }
-          ]
+          "intents": [
+            { "intent": "detail",  "response": "{conflict_detail}" },
+            { "intent": "context", "response": "{location_detail}" },
+            { "intent": "opinion", "response": "{local_opinion}" }
+          ],
+          "deepenerResponse": "{personal_reaction}"
         }
       ],
       "questHookPerspectives": [
