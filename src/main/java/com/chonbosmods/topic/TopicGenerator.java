@@ -1,5 +1,6 @@
 package com.chonbosmods.topic;
 
+import com.chonbosmods.dialogue.DispositionBracket;
 import com.chonbosmods.dialogue.model.DialogueGraph;
 import com.chonbosmods.quest.DialogueResolver;
 import com.chonbosmods.quest.QuestPoolRegistry;
@@ -483,9 +484,7 @@ public class TopicGenerator {
     }
 
     private static String dispositionBracket(int disposition) {
-        if (disposition < 45) return "hostile";
-        if (disposition < 60) return "neutral";
-        return "friendly";
+        return DispositionBracket.textPoolFromDisposition(disposition);
     }
 
     private static String capitalizeFirst(String text) {

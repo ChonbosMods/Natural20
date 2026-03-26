@@ -105,6 +105,7 @@ public class Nat20NpcManager {
                     spawnX, spawnY, spawnZ,
                     def.rotation().getX(), def.rotation().getY(), def.rotation().getZ(),
                     def.leashRadius(), name);
+                npcRecord.setDisposition(ThreadLocalRandom.current().nextInt(30, 71));
                 spawned.add(npcRecord);
 
                 // Set nameplate to just the name (dialogue UI shows full name + role)

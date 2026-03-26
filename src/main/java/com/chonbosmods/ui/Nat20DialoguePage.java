@@ -289,17 +289,25 @@ public class Nat20DialoguePage extends InteractiveCustomUIPage<Nat20DialoguePage
         DispositionBracket bracket = DispositionBracket.fromDisposition(disposition);
         String bracketName = switch (bracket) {
             case HOSTILE -> "Hostile";
+            case SCORNFUL -> "Scornful";
             case UNFRIENDLY -> "Unfriendly";
+            case WARY -> "Wary";
             case NEUTRAL -> "Neutral";
+            case CORDIAL -> "Cordial";
             case FRIENDLY -> "Friendly";
-            case ALLIED -> "Allied";
+            case TRUSTED -> "Trusted";
+            case LOYAL -> "Loyal";
         };
         String color = switch (bracket) {
             case HOSTILE -> "#CC4444";
+            case SCORNFUL -> "#CC6644";
             case UNFRIENDLY -> "#CC8844";
+            case WARY -> "#CCAA44";
             case NEUTRAL -> "#CCCC44";
+            case CORDIAL -> "#88CC44";
             case FRIENDLY -> "#44CC44";
-            case ALLIED -> "#4488FF";
+            case TRUSTED -> "#44AACC";
+            case LOYAL -> "#4488FF";
         };
 
         cmd.set("#DispositionLabel.Visible", true);
