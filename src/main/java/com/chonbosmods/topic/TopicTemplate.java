@@ -16,13 +16,26 @@ public record TopicTemplate(
     public record Perspective(
         String intro,
         List<FollowUp> exploratories,
+        @Nullable List<IntentSlot> intents,
+        @Nullable String deepenerResponse,
         @Nullable FollowUp decisive
-    ) {}
+    ) {
+        /** True if this perspective uses the new intent-based format. */
+        public boolean usesIntents() {
+            return intents != null && !intents.isEmpty();
+        }
+    }
 
     public record FollowUp(
         String prompt,
         String response,
         List<FollowUp> exploratories
+    ) {}
+
+    public record IntentSlot(
+        String intent,
+        String response,
+        @Nullable String deepenerResponse
     ) {}
 
     public record SkillCheckDef(Skill skill) {}

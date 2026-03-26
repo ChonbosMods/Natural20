@@ -39,6 +39,7 @@ public class TopicGraphBuilder {
     private final List<TopicAssignment> assignments;
     private final TopicPoolRegistry topicPool;
     private final Random random;
+    private final Set<String> usedDeepeners;
 
     public TopicGraphBuilder(
             String npcId,
@@ -47,7 +48,8 @@ public class TopicGraphBuilder {
             String returnGreetingText,
             List<TopicAssignment> assignments,
             TopicPoolRegistry topicPool,
-            Random random
+            Random random,
+            Set<String> usedDeepeners
     ) {
         this.npcId = npcId;
         this.defaultDisposition = defaultDisposition;
@@ -56,6 +58,7 @@ public class TopicGraphBuilder {
         this.assignments = assignments;
         this.topicPool = topicPool;
         this.random = random;
+        this.usedDeepeners = usedDeepeners;
     }
 
     public DialogueGraph build() {
@@ -103,14 +106,27 @@ public class TopicGraphBuilder {
         List<ResponseOption> entryResponses = new ArrayList<>();
 
         // Exploratory branches: skip for quest-bearing topics (accept/decline only)
+        List<String> l1NodeIds = List.of();
         if (!assignment.hasQuest()) {
-            buildExploratories(perspective.exploratories(), subjectId, "", bindings, nodes, entryResponses);
+            if (perspective.usesIntents()) {
+                l1NodeIds = buildIntentBranches(
+                    perspective.intents(), subjectId, perspective.deepenerResponse(),
+                    bindings, nodes, entryResponses
+                );
+            } else {
+                buildExploratories(perspective.exploratories(), subjectId, "", bindings, nodes, entryResponses);
+            }
         }
 
         // Skill check injection: non-quest topics with a skillCheckDef get a 25% chance
         if (assignment.skillCheckDef() != null && !assignment.hasQuest()
                 && random.nextDouble() < STAT_CHECK_CHANCE) {
-            injectSkillCheck(assignment, subjectId, bindings, perspective, nodes);
+            if (perspective.usesIntents() && !l1NodeIds.isEmpty()) {
+                injectSkillCheckOnNode(assignment, subjectId, bindings, nodes,
+                    l1NodeIds.get(random.nextInt(l1NodeIds.size())));
+            } else {
+                injectSkillCheck(assignment, subjectId, bindings, perspective, nodes);
+            }
         }
 
         // Decisive branch
@@ -201,10 +217,17 @@ public class TopicGraphBuilder {
             );
         }
 
-        // Build recap text: last exploratory response, or decisive response, or intro
+        // Build recap text: deepener response, last exploratory/intent response, or intro
         String recapText;
         if (decisive != null) {
             recapText = DialogueResolver.resolve(decisive.response(), bindings);
+        } else if (perspective.usesIntents()) {
+            if (perspective.deepenerResponse() != null) {
+                recapText = DialogueResolver.resolve(perspective.deepenerResponse(), bindings);
+            } else {
+                var intents = perspective.intents();
+                recapText = DialogueResolver.resolve(intents.getLast().response(), bindings);
+            }
         } else if (!perspective.exploratories().isEmpty()) {
             TopicTemplate.FollowUp lastExp = perspective.exploratories().getLast();
             recapText = DialogueResolver.resolve(lastExp.response(), bindings);
@@ -265,6 +288,90 @@ public class TopicGraphBuilder {
                 ResponseMode.EXPLORATORY, null, null, null, null
             ));
         }
+    }
+
+    /**
+     * Build exploratory nodes from intent slots.
+     * Samples up to maxL1 intents, draws prompts from pools, and optionally
+     * attaches L2 deepener nodes for intents that deepen.
+     *
+     * @return list of created L1 node IDs (for skill check injection)
+     */
+    private List<String> buildIntentBranches(
+            List<TopicTemplate.IntentSlot> intentSlots,
+            String subjectId,
+            @Nullable String perspectiveDeepenerResponse,
+            Map<String, String> bindings,
+            Map<String, DialogueNode> nodes,
+            List<ResponseOption> parentResponses
+    ) {
+        int maxL1 = topicPool.getMaxL1();
+        List<TopicTemplate.IntentSlot> sampled;
+
+        if (intentSlots.size() <= maxL1) {
+            sampled = new ArrayList<>(intentSlots);
+        } else {
+            sampled = new ArrayList<>(intentSlots);
+            Collections.shuffle(sampled, random);
+            sampled = sampled.subList(0, maxL1);
+        }
+
+        List<String> l1NodeIds = new ArrayList<>();
+
+        for (int i = 0; i < sampled.size(); i++) {
+            TopicTemplate.IntentSlot slot = sampled.get(i);
+            TopicPoolRegistry.IntentDef def = topicPool.getIntentDef(slot.intent());
+
+            String expNodeId = subjectId + "_exp_" + i;
+            String responseId = subjectId + "_resp_exp_" + i;
+
+            // Draw prompt from intent pool
+            String prompt = topicPool.randomPromptForIntent(slot.intent(), random);
+
+            // Resolve NPC response from bindings
+            String response = DialogueResolver.resolve(slot.response(), bindings);
+
+            List<ResponseOption> childResponses = new ArrayList<>();
+
+            // If this intent deepens, attach an L2 node
+            if (def != null && def.deepens()) {
+                String deepNodeId = subjectId + "_exp_" + i + "_deep";
+                String deepResponseId = subjectId + "_resp_exp_" + i + "_deep";
+
+                // Draw deepener prompt from generic pool with dedup
+                String deepPrompt = topicPool.randomDeepenerExcluding(usedDeepeners, random);
+                usedDeepeners.add(deepPrompt);
+
+                // Resolve L2 NPC response: per-intent override > perspective default
+                String deepResponsePattern = slot.deepenerResponse() != null
+                    ? slot.deepenerResponse() : perspectiveDeepenerResponse;
+                String deepResponse = deepResponsePattern != null
+                    ? DialogueResolver.resolve(deepResponsePattern, bindings)
+                    : "I've said all I can about it.";
+
+                nodes.put(deepNodeId, new DialogueNode.DialogueTextNode(
+                    deepResponse, List.of(), List.of(), false, false
+                ));
+
+                childResponses.add(new ResponseOption(
+                    deepResponseId, deepPrompt, null, deepNodeId,
+                    ResponseMode.EXPLORATORY, null, null, null, null
+                ));
+            }
+
+            nodes.put(expNodeId, new DialogueNode.DialogueTextNode(
+                response, childResponses, List.of(), false, false
+            ));
+
+            parentResponses.add(new ResponseOption(
+                responseId, prompt, null, expNodeId,
+                ResponseMode.EXPLORATORY, null, null, null, null
+            ));
+
+            l1NodeIds.add(expNodeId);
+        }
+
+        return l1NodeIds;
     }
 
     /**
@@ -347,6 +454,77 @@ public class TopicGraphBuilder {
         );
 
         // Replace parent node: original responses + skill check response
+        List<ResponseOption> augmented = new ArrayList<>(parentNode.responses());
+        augmented.add(skillCheckResponse);
+        nodes.put(parentNodeId, new DialogueNode.DialogueTextNode(
+            parentNode.speakerText(), augmented, parentNode.onEnter(),
+            parentNode.exhaustsTopic(), parentNode.locksConversation()
+        ));
+    }
+
+    /**
+     * Inject a skill check on a specific L1 node (for intent-based perspectives).
+     */
+    private void injectSkillCheckOnNode(
+            TopicAssignment assignment,
+            String subjectId,
+            Map<String, String> bindings,
+            Map<String, DialogueNode> nodes,
+            String parentNodeId
+    ) {
+        TopicTemplate.SkillCheckDef def = assignment.skillCheckDef();
+        Skill skill = def.skill();
+        Stat stat = skill.getAssociatedStat();
+        TopicCategory category = assignment.category();
+
+        DialogueNode existing = nodes.get(parentNodeId);
+        if (!(existing instanceof DialogueNode.DialogueTextNode parentNode)) return;
+
+        int baseDC = STAT_CHECK_DC_MIN + random.nextInt(STAT_CHECK_DC_MAX - STAT_CHECK_DC_MIN + 1);
+        baseDC = Math.max(1, baseDC + skill.getDcOffset());
+
+        String promptText = DialogueResolver.resolve(
+            topicPool.randomStatCheckPrompt(category, skill, random), bindings);
+        String passText = DialogueResolver.resolve(
+            topicPool.randomStatCheckPass(category, skill, random), bindings);
+        String failText = DialogueResolver.resolve(
+            topicPool.randomStatCheckFail(category, skill, random), bindings);
+
+        String checkNodeId = subjectId + "_skill_check";
+        String passNodeId = subjectId + "_skill_pass";
+        String failNodeId = subjectId + "_skill_fail";
+        String checkResponseId = subjectId + "_resp_skill_check";
+
+        nodes.put(passNodeId, new DialogueNode.DialogueTextNode(
+            passText, List.of(),
+            List.of(Map.of("type", "MODIFY_DISPOSITION", "amount",
+                String.valueOf(STAT_CHECK_PASS_DISPOSITION))),
+            true, false
+        ));
+
+        nodes.put(failNodeId, new DialogueNode.DialogueTextNode(
+            failText, List.of(),
+            List.of(Map.of("type", "MODIFY_DISPOSITION", "amount",
+                String.valueOf(STAT_CHECK_FAIL_DISPOSITION))),
+            true, false
+        ));
+
+        nodes.put(checkNodeId, new DialogueNode.SkillCheckNode(
+            skill, null, baseDC, true, passNodeId, failNodeId, List.of()
+        ));
+
+        ResponseOption skillCheckResponse = new ResponseOption(
+            checkResponseId,
+            skill.displayName(),
+            promptText,
+            checkNodeId,
+            ResponseMode.DECISIVE,
+            null,
+            checkNodeId,
+            stat.name(),
+            null
+        );
+
         List<ResponseOption> augmented = new ArrayList<>(parentNode.responses());
         augmented.add(skillCheckResponse);
         nodes.put(parentNodeId, new DialogueNode.DialogueTextNode(

@@ -155,6 +155,7 @@ public class TopicGenerator {
 
         // Build final graphs
         Map<String, DialogueGraph> results = new LinkedHashMap<>();
+        Set<String> usedDeepeners = new HashSet<>();
         for (NpcRecord npc : npcs) {
             String npcName = npc.getGeneratedName();
             List<TopicGraphBuilder.TopicAssignment> assignments = npcAssignments.get(npcName);
@@ -163,7 +164,7 @@ public class TopicGenerator {
             String returnGreeting = topicPool.randomReturnGreeting(random);
 
             TopicGraphBuilder builder = new TopicGraphBuilder(
-                npcName, 50, greeting, returnGreeting, assignments, topicPool, random
+                npcName, 50, greeting, returnGreeting, assignments, topicPool, random, usedDeepeners
             );
             DialogueGraph graph = builder.build();
 
@@ -296,7 +297,7 @@ public class TopicGenerator {
         } else {
             // Fallback: create a minimal perspective
             perspective = new TopicTemplate.Perspective(
-                "I've heard something about {subject_focus}...", List.of(), null
+                "I've heard something about {subject_focus}...", List.of(), null, null, null
             );
         }
 

@@ -20,6 +20,8 @@ public class TopicPoolRegistry {
     public record SubjectEntry(String value, boolean plural, boolean proper, boolean questEligible,
                                 List<String> categories) {}
 
+    public record IntentDef(boolean deepens, String pool) {}
+
     private final List<SubjectEntry> subjectFocuses = new ArrayList<>();
     private final List<String> greetingLines = new ArrayList<>();
     private final List<String> returnGreetingLines = new ArrayList<>();
@@ -80,6 +82,12 @@ public class TopicPoolRegistry {
     private final Map<String, Map<String, List<String>>> statCheckPrompts = new LinkedHashMap<>();
     private final Map<String, Map<String, List<String>>> statCheckPass = new LinkedHashMap<>();
     private final Map<String, Map<String, List<String>>> statCheckFail = new LinkedHashMap<>();
+
+    // Intent definitions and prompt pools
+    private final Map<String, IntentDef> intentDefs = new LinkedHashMap<>();
+    private final Map<String, List<String>> promptPools = new LinkedHashMap<>();
+    private final List<String> deepenerPool = new ArrayList<>();
+    private int maxL1 = 3;
 
     public void loadAll(@Nullable Path poolsDir) {
         // Load from classpath first (bundled resources)
@@ -146,6 +154,9 @@ public class TopicPoolRegistry {
         loadSkillPoolFromClasspath("topics/SmallTalk/pools/stat_check_pass.json", "SMALLTALK", statCheckPass);
         loadSkillPoolFromClasspath("topics/SmallTalk/pools/stat_check_fail.json", "SMALLTALK", statCheckFail);
 
+        // Intent definitions and prompt pools
+        loadIntentDefsFromClasspath("topics/intents.json");
+
         // Override with filesystem if available
         if (poolsDir != null && Files.isDirectory(poolsDir)) {
             loadSubjectPool(poolsDir.resolve("subject_focuses.json"));
@@ -211,6 +222,9 @@ public class TopicPoolRegistry {
             loadSkillPool(topicsDir.resolve("SmallTalk/pools/stat_check_prompts.json"), "SMALLTALK", statCheckPrompts);
             loadSkillPool(topicsDir.resolve("SmallTalk/pools/stat_check_pass.json"), "SMALLTALK", statCheckPass);
             loadSkillPool(topicsDir.resolve("SmallTalk/pools/stat_check_fail.json"), "SMALLTALK", statCheckFail);
+
+            // Intent definitions filesystem override
+            loadIntentDefs(topicsDir.resolve("intents.json"));
         }
 
         LOGGER.atInfo().log("Loaded topic pools: %d subjects, %d greetings, %d return greetings",
@@ -369,6 +383,58 @@ public class TopicPoolRegistry {
     private void parseGreetings(JsonObject root) {
         for (JsonElement el : root.getAsJsonArray("greetings")) greetingLines.add(el.getAsString());
         for (JsonElement el : root.getAsJsonArray("returnGreetings")) returnGreetingLines.add(el.getAsString());
+    }
+
+    private void loadIntentDefsFromClasspath(String resource) {
+        try (InputStream is = getClass().getClassLoader().getResourceAsStream(resource)) {
+            if (is == null) return;
+            JsonObject root = JsonParser.parseReader(new InputStreamReader(is, StandardCharsets.UTF_8)).getAsJsonObject();
+            parseIntentDefs(root);
+        } catch (Exception e) {
+            LOGGER.atSevere().withCause(e).log("Failed to load intent definitions from classpath: %s", resource);
+        }
+    }
+
+    private void loadIntentDefs(Path file) {
+        if (!Files.exists(file)) return;
+        try (var reader = Files.newBufferedReader(file, StandardCharsets.UTF_8)) {
+            JsonObject root = JsonParser.parseReader(reader).getAsJsonObject();
+            intentDefs.clear();
+            promptPools.clear();
+            deepenerPool.clear();
+            parseIntentDefs(root);
+        } catch (Exception e) {
+            LOGGER.atSevere().withCause(e).log("Failed to load intent definitions: %s", file);
+        }
+    }
+
+    private void parseIntentDefs(JsonObject root) {
+        JsonObject intents = root.getAsJsonObject("intents");
+        for (String key : intents.keySet()) {
+            JsonObject def = intents.getAsJsonObject(key);
+            boolean deepens = def.get("deepens").getAsBoolean();
+            String poolName = def.get("pool").getAsString();
+            intentDefs.put(key, new IntentDef(deepens, poolName));
+
+            // Load the prompt pool for this intent
+            List<String> pool = new ArrayList<>();
+            loadStringPoolFromClasspath(CLASSPATH_PREFIX + poolName + ".json", pool);
+            promptPools.put(key, pool);
+        }
+
+        // Load deepener pool
+        if (root.has("deepenerPool")) {
+            String deepenerPoolName = root.get("deepenerPool").getAsString();
+            loadStringPoolFromClasspath(CLASSPATH_PREFIX + deepenerPoolName + ".json", deepenerPool);
+        }
+
+        // Max L1 cap
+        if (root.has("maxL1")) {
+            maxL1 = root.get("maxL1").getAsInt();
+        }
+
+        LOGGER.atInfo().log("Loaded %d intent definitions, %d deepener prompts, maxL1=%d",
+            intentDefs.size(), deepenerPool.size(), maxL1);
     }
 
     // --- Random selection methods ---
@@ -634,5 +700,41 @@ public class TopicPoolRegistry {
         List<String> entries = skillMap.getOrDefault(skill.name(), List.of());
         if (entries.isEmpty()) return "I've told you everything I know.";
         return entries.get(random.nextInt(entries.size()));
+    }
+
+    // --- Intent and prompt pool accessors ---
+
+    public IntentDef getIntentDef(String intent) {
+        return intentDefs.get(intent);
+    }
+
+    public int getMaxL1() {
+        return maxL1;
+    }
+
+    public String randomPromptForIntent(String intent, Random random) {
+        List<String> pool = promptPools.getOrDefault(intent, List.of());
+        if (pool.isEmpty()) return "Tell me more.";
+        return pool.get(random.nextInt(pool.size()));
+    }
+
+    public String randomDeepener(Random random) {
+        if (deepenerPool.isEmpty()) return "What do you make of all that?";
+        return deepenerPool.get(random.nextInt(deepenerPool.size()));
+    }
+
+    /**
+     * Draw a deepener prompt, avoiding entries in the exclusion set.
+     * Falls back to any entry if all have been used.
+     */
+    public String randomDeepenerExcluding(Set<String> used, Random random) {
+        if (deepenerPool.isEmpty()) return "What do you make of all that?";
+        List<String> available = deepenerPool.stream()
+            .filter(d -> !used.contains(d))
+            .toList();
+        if (available.isEmpty()) {
+            return deepenerPool.get(random.nextInt(deepenerPool.size()));
+        }
+        return available.get(random.nextInt(available.size()));
     }
 }

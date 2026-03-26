@@ -19,7 +19,7 @@ public class TopicTemplateRegistry {
     private static final TopicTemplate FALLBACK_TEMPLATE = new TopicTemplate(
         "fallback", TopicCategory.RUMORS, "{subject_focus}", true,
         List.of(new TopicTemplate.Perspective("I've heard about the {subject_focus}.",
-            List.of(new TopicTemplate.FollowUp("Tell me more.", "That's all I know, really.", List.of())), null)),
+            List.of(new TopicTemplate.FollowUp("Tell me more.", "That's all I know, really.", List.of())), null, null, null)),
         List.of(),
         null
     );
@@ -102,10 +102,24 @@ public class TopicTemplateRegistry {
     private TopicTemplate.Perspective parsePerspective(JsonObject obj) {
         String intro = obj.get("intro").getAsString();
 
+        // Old format: "exploratories" array of nested follow-ups
         List<TopicTemplate.FollowUp> exploratories = new ArrayList<>();
         if (obj.has("exploratories")) {
             for (JsonElement el : obj.getAsJsonArray("exploratories")) {
                 exploratories.add(parseFollowUp(el.getAsJsonObject()));
+            }
+        }
+
+        // New format: "intents" array of intent slots
+        List<TopicTemplate.IntentSlot> intents = null;
+        String deepenerResponse = null;
+        if (obj.has("intents")) {
+            intents = new ArrayList<>();
+            for (JsonElement el : obj.getAsJsonArray("intents")) {
+                intents.add(parseIntentSlot(el.getAsJsonObject()));
+            }
+            if (obj.has("deepenerResponse")) {
+                deepenerResponse = obj.get("deepenerResponse").getAsString();
             }
         }
 
@@ -114,7 +128,14 @@ public class TopicTemplateRegistry {
             decisive = parseFollowUp(obj.getAsJsonObject("decisive"));
         }
 
-        return new TopicTemplate.Perspective(intro, exploratories, decisive);
+        return new TopicTemplate.Perspective(intro, exploratories, intents, deepenerResponse, decisive);
+    }
+
+    private TopicTemplate.IntentSlot parseIntentSlot(JsonObject obj) {
+        String intent = obj.get("intent").getAsString();
+        String response = obj.get("response").getAsString();
+        String deepenerResponse = obj.has("deepenerResponse") ? obj.get("deepenerResponse").getAsString() : null;
+        return new TopicTemplate.IntentSlot(intent, response, deepenerResponse);
     }
 
     private TopicTemplate.FollowUp parseFollowUp(JsonObject obj) {
