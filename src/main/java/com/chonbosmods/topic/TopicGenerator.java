@@ -285,7 +285,7 @@ public class TopicGenerator {
 
         return new TopicGraphBuilder.TopicAssignment(
             focus.getSubjectId(),
-            template.labelTemplate(),
+            template.labelPattern(),
             perspective,
             bindings,
             focus.isVisibleFor(npcName),

@@ -17,7 +17,7 @@ public class TopicGraphBuilder {
 
     public record TopicAssignment(
         String subjectId,
-        String labelTemplate,
+        String labelPattern,
         TopicTemplate.Perspective perspective,
         Map<String, String> bindings,
         boolean startVisible,
@@ -187,7 +187,7 @@ public class TopicGraphBuilder {
         ));
 
         // Topic definition
-        String resolvedLabel = DialogueResolver.resolve(assignment.labelTemplate(), bindings);
+        String resolvedLabel = DialogueResolver.resolve(assignment.labelPattern(), bindings);
         resolvedLabel = capitalizeFirst(resolvedLabel);
 
         DialogueCondition condition = null;

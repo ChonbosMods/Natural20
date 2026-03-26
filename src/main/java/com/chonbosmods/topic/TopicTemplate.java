@@ -7,7 +7,8 @@ import java.util.List;
 public record TopicTemplate(
     String id,
     TopicCategory category,
-    String labelTemplate,
+    String labelPattern,
+    boolean subjectRequired,
     List<Perspective> perspectives,
     List<Perspective> questHookPerspectives,
     @Nullable SkillCheckDef skillCheckDef

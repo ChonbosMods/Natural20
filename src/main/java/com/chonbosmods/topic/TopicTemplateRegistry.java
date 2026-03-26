@@ -17,7 +17,7 @@ public class TopicTemplateRegistry {
     private static final FluentLogger LOGGER = FluentLogger.forEnclosingClass();
 
     private static final TopicTemplate FALLBACK_TEMPLATE = new TopicTemplate(
-        "fallback", TopicCategory.RUMORS, "{subject_focus}",
+        "fallback", TopicCategory.RUMORS, "{subject_focus}", true,
         List.of(new TopicTemplate.Perspective("I've heard about the {subject_focus}.",
             List.of(new TopicTemplate.FollowUp("Tell me more.", "That's all I know, really.", List.of())), null)),
         List.of(),
@@ -94,7 +94,9 @@ public class TopicTemplateRegistry {
             skillCheckDef = new TopicTemplate.SkillCheckDef(skill);
         }
 
-        return new TopicTemplate(id, category, label, perspectives, questHooks, skillCheckDef);
+        boolean subjectRequired = !obj.has("subjectRequired") || obj.get("subjectRequired").getAsBoolean();
+
+        return new TopicTemplate(id, category, label, subjectRequired, perspectives, questHooks, skillCheckDef);
     }
 
     private TopicTemplate.Perspective parsePerspective(JsonObject obj) {
