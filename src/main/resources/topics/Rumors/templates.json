@@ -3,7 +3,7 @@
     {
       "id": "rumor_danger",
       "skillCheck": { "skill": "PERCEPTION" },
-      "label": "{subject_focus}",
+      "label": "{subject_focus_The}",
       "perspectives": [
         {
           "intro": "{tone_opener} {creature_sighting}. {tone_closer}",
@@ -84,12 +84,6 @@
       "questHookPerspectives": [
         {
           "intro": "{quest_exposition} The danger from {subject_focus_the} grows with each passing day. {quest_detail}",
-          "exploratories": [
-            {
-              "prompt": "What is at stake?",
-              "response": "{quest_stakes_detail}"
-            }
-          ],
           "decisive": {
             "prompt": "I will handle it.",
             "response": "{quest_accept_response}"
@@ -100,7 +94,7 @@
     {
       "id": "rumor_sighting",
       "skillCheck": { "skill": "PERCEPTION" },
-      "label": "{subject_focus}",
+      "label": "{subject_focus_The}",
       "perspectives": [
         {
           "intro": "{tone_opener} {creature_sighting}. {tone_closer}",
@@ -181,12 +175,6 @@
       "questHookPerspectives": [
         {
           "intro": "{quest_exposition} The sighting of {subject_focus_the} in an area that should have been safe cannot be ignored. {quest_detail}",
-          "exploratories": [
-            {
-              "prompt": "Why does this matter?",
-              "response": "{quest_stakes_detail}"
-            }
-          ],
           "decisive": {
             "prompt": "I will investigate.",
             "response": "{quest_accept_response}"
@@ -196,8 +184,8 @@
     },
     {
       "id": "rumor_migration",
-      "skillCheck": { "skill": "INVESTIGATION" },
-      "label": "{subject_focus}",
+      "skillCheck": { "skill": "DEDUCTION" },
+      "label": "Movement near {subject_focus_the}",
       "perspectives": [
         {
           "intro": "{tone_opener} {creature_sighting}. {tone_closer}",
@@ -278,12 +266,6 @@
       "questHookPerspectives": [
         {
           "intro": "{quest_exposition} The migration of {subject_focus_the} is a sign of something far more troubling. {quest_detail}",
-          "exploratories": [
-            {
-              "prompt": "What do you think is behind it?",
-              "response": "{quest_stakes_detail}"
-            }
-          ],
           "decisive": {
             "prompt": "I will track it to the source.",
             "response": "{quest_accept_response}"
@@ -294,7 +276,7 @@
     {
       "id": "rumor_disappearance",
       "skillCheck": { "skill": "INSIGHT" },
-      "label": "{subject_focus}",
+      "label": "Missing near {subject_focus_the}",
       "perspectives": [
         {
           "intro": "{tone_opener} {strange_event}. {tone_closer}",
@@ -375,12 +357,6 @@
       "questHookPerspectives": [
         {
           "intro": "{quest_exposition} The disappearances linked to {subject_focus_the} cannot be ignored any longer. {quest_detail}",
-          "exploratories": [
-            {
-              "prompt": "What happens if nothing is done?",
-              "response": "{quest_stakes_detail}"
-            }
-          ],
           "decisive": {
             "prompt": "I will find them.",
             "response": "{quest_accept_response}"
@@ -390,8 +366,8 @@
     },
     {
       "id": "rumor_corruption",
-      "skillCheck": { "skill": "INVESTIGATION" },
-      "label": "{subject_focus}",
+      "skillCheck": { "skill": "DEDUCTION" },
+      "label": "Trouble with {subject_focus_the}",
       "perspectives": [
         {
           "intro": "{tone_opener} {strange_event}. {tone_closer}",
@@ -472,12 +448,6 @@
       "questHookPerspectives": [
         {
           "intro": "{quest_exposition} The corruption spreading from {subject_focus_the} will poison everything it touches if left unchecked. {quest_detail}",
-          "exploratories": [
-            {
-              "prompt": "How far has it spread?",
-              "response": "{quest_stakes_detail}"
-            }
-          ],
           "decisive": {
             "prompt": "I will put a stop to it.",
             "response": "{quest_accept_response}"
@@ -488,7 +458,7 @@
     {
       "id": "rumor_omen",
       "skillCheck": { "skill": "INSIGHT" },
-      "label": "{subject_focus}",
+      "label": "Signs at {subject_focus_the}",
       "perspectives": [
         {
           "intro": "{tone_opener} {strange_event}. {tone_closer}",
@@ -569,12 +539,6 @@
       "questHookPerspectives": [
         {
           "intro": "{quest_exposition} The signs surrounding {subject_focus_the} point to something that must be confronted before it is too late. {quest_detail}",
-          "exploratories": [
-            {
-              "prompt": "What are we facing?",
-              "response": "{quest_stakes_detail}"
-            }
-          ],
           "decisive": {
             "prompt": "Tell me what needs doing.",
             "response": "{quest_accept_response}"
@@ -584,8 +548,8 @@
     },
     {
       "id": "rumor_treasure",
-      "skillCheck": { "skill": "INVESTIGATION" },
-      "label": "{subject_focus}",
+      "skillCheck": { "skill": "DEDUCTION" },
+      "label": "Hidden {subject_focus}",
       "perspectives": [
         {
           "intro": "{tone_opener} {treasure_rumor}. {tone_closer}",
@@ -666,12 +630,6 @@
       "questHookPerspectives": [
         {
           "intro": "{quest_exposition} There is something of real value tied to {subject_focus_the}, and it will not stay hidden forever. {quest_detail}",
-          "exploratories": [
-            {
-              "prompt": "What is the catch?",
-              "response": "{quest_stakes_detail}"
-            }
-          ],
           "decisive": {
             "prompt": "I will go after it.",
             "response": "{quest_accept_response}"
@@ -682,7 +640,7 @@
     {
       "id": "rumor_conflict",
       "skillCheck": { "skill": "INSIGHT" },
-      "label": "{subject_focus}",
+      "label": "Trouble at {subject_focus_the}",
       "perspectives": [
         {
           "intro": "{tone_opener} {conflict_rumor}. {tone_closer}",
@@ -763,12 +721,6 @@
       "questHookPerspectives": [
         {
           "intro": "{quest_exposition} The conflict surrounding {subject_focus_the} threatens to spill over into something much worse. {quest_detail}",
-          "exploratories": [
-            {
-              "prompt": "What is the worst that could happen?",
-              "response": "{quest_stakes_detail}"
-            }
-          ],
           "decisive": {
             "prompt": "I will step in before it is too late.",
             "response": "{quest_accept_response}"
