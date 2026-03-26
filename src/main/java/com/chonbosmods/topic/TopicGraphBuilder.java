@@ -102,8 +102,10 @@ public class TopicGraphBuilder {
         // Build response options for the entry node
         List<ResponseOption> entryResponses = new ArrayList<>();
 
-        // Exploratory branches
-        buildExploratories(perspective.exploratories(), subjectId, "", bindings, nodes, entryResponses);
+        // Exploratory branches: skip for quest-bearing topics (accept/decline only)
+        if (!assignment.hasQuest()) {
+            buildExploratories(perspective.exploratories(), subjectId, "", bindings, nodes, entryResponses);
+        }
 
         // Skill check injection: non-quest topics with a skillCheckDef get a 25% chance
         if (assignment.skillCheckDef() != null && !assignment.hasQuest()
@@ -294,6 +296,7 @@ public class TopicGraphBuilder {
 
         // Roll DC
         int baseDC = STAT_CHECK_DC_MIN + random.nextInt(STAT_CHECK_DC_MAX - STAT_CHECK_DC_MIN + 1);
+        baseDC = Math.max(1, baseDC + skill.getDcOffset());
 
         // Generate text from pools, resolved against bindings
         String promptText = DialogueResolver.resolve(
@@ -333,8 +336,8 @@ public class TopicGraphBuilder {
         // Response option with skillCheckRef + statPrefix
         ResponseOption skillCheckResponse = new ResponseOption(
             checkResponseId,
+            skill.displayName(),
             promptText,
-            null,
             checkNodeId,
             ResponseMode.DECISIVE,
             null,
