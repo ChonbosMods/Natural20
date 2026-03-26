@@ -1,17 +1,67 @@
 {
   "PERCEPTION": [
-    "I've told you everything I know. Stop pressing me.",
     "You're seeing things that aren't there. I said what I said.",
-    "I don't know what you think you noticed, but that's all there is to it."
+    "I don't know what you think you noticed, but that's all there is to it.",
+    "Everything looks perfectly normal to me."
   ],
   "INSIGHT": [
-    "I've told you everything I know. Stop pressing me.",
     "You're reading too much into this. It's just a rumor.",
-    "I don't appreciate being interrogated. That's all I have to say."
+    "I don't appreciate being interrogated. That's all I have to say.",
+    "You think you can read people? You are wrong about me."
   ],
-  "INVESTIGATION": [
+  "DEDUCTION": [
     "You're overthinking this. It is what it is.",
     "Not everything has a hidden explanation. Sometimes a rumor is just a rumor.",
     "I've told you what I know. Picking it apart won't change anything."
+  ],
+  "RECALL": [
+    "I don't know what archives you've been reading, but that has nothing to do with this.",
+    "Old stories are just that: stories. This is different.",
+    "Whatever you think you remember, it does not apply here."
+  ],
+  "INTIMIDATION": [
+    "You don't scare me. I've dealt with worse than you.",
+    "Threaten me all you like. I have nothing to say.",
+    "Go ahead. See what happens when you push people around in this town."
+  ],
+  "COMMAND": [
+    "You have no authority over me. This conversation is over.",
+    "I don't take orders from strangers. Walk away.",
+    "Who do you think you are? I answer to no one."
+  ],
+  "PERSUASION": [
+    "Save the heartfelt speeches. I've said all I'm going to say.",
+    "Nice try, but I'm not that easy to sway.",
+    "I can see what you're doing. The answer is no."
+  ],
+  "DECEPTION": [
+    "I don't believe you for a second. Nice try, though.",
+    "That doesn't add up, and we both know it. Stop wasting my time.",
+    "You are a terrible liar. We are done here."
+  ],
+  "CHARM": [
+    "Flattery will get you nowhere with me.",
+    "Save your charm for someone who cares. I'm not interested.",
+    "You think a few kind words will make me talk? Think again."
+  ],
+  "SLEIGHT": [
+    "They catch your hand before you reach the item. The conversation is over.",
+    "You fumble and they notice immediately. Trust is gone.",
+    "Your fingers brush the edge, but they pull it away just in time."
+  ],
+  "REFLEX": [
+    "You react too slowly. The moment passes and there is nothing to show for it.",
+    "Whatever it was, it's gone now. You missed your chance.",
+    "By the time you move, it is already too late."
+  ],
+  "ENDURANCE": [
+    "You gag on the first sip. They smirk and close up.",
+    "You can't take it. They shake their head, clearly unimpressed.",
+    "Your composure breaks and they lose all interest in talking."
+  ],
+  "RESISTANCE": [
+    "The pull is too strong. You find yourself nodding along and forgetting why you came.",
+    "A fog settles over your thoughts. By the time it clears, the conversation has moved on.",
+    "You feel a sudden urge to leave, and before you know it, you are already walking away."
   ]
 }

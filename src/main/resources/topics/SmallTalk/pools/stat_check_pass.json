@@ -1,22 +1,80 @@
 {
-  "PERSUASION": [
-    "You know what, you're easy to talk to. Here's what I really think.",
-    "I don't usually share this, but... you seem genuine. The truth is...",
-    "Alright, since you put it that way. There's something I haven't told anyone."
+  "PERCEPTION": [
+    "I saw tracks: three sets, heading toward the old mine. One was dragging something heavy.",
+    "There is a mark scratched into the back of the tavern door. It matches the ones they found on the missing traders' wagon.",
+    "The smoke you noticed: it comes from a campfire in the ravine north of here. Someone has been living out there for weeks.",
+    "That bruise is from the blacksmith. He grabbed me when I tried to tell the elder what I saw at the bridge."
   ],
   "INSIGHT": [
-    "...You're right. I was dancing around the real issue.",
-    "Sharp. Yes, there's more to this than I was letting on.",
-    "Fine, you saw right through me. Here's what I've been avoiding saying."
+    "You are right. I am terrified. Maren told me if I said anything, my family would pay for it.",
+    "Fine. I was not just passing through that night. I was meeting someone: a courier from the capital with sealed orders.",
+    "The fear is not about the creature. It is about who summoned it. The herbalist has been drawing circles in the grove after dark.",
+    "I lied earlier. I do know where Aldric went. He is hiding in the cellar beneath the old mill, and he is wounded."
   ],
-  "PERCEPTION": [
-    "You noticed that too? Good. Most people miss it entirely.",
-    "I'm glad someone else sees it. I was starting to think I was imagining things.",
-    "So you can see it too. That changes things."
+  "DEDUCTION": [
+    "You figured it out. The fourth person was already inside the ruin: been living there since autumn. Name is Corwin, ex-soldier.",
+    "The well did not dry naturally. Someone packed the channel with clay. I found tool marks when I went down to check.",
+    "You are right about the timing. The fire was set the night before the caravan arrived: to cover what was already taken from the storehouse.",
+    "That symbol means they are marking safe houses. Every door with that sign is part of the smuggling route through the valley."
   ],
-  "INVESTIGATION": [
-    "I... hadn't thought of it that way. But you're right.",
-    "Well reasoned. I suppose the truth was there all along if you looked closely enough.",
-    "You connected dots I missed. Let me tell you what that means."
+  "RECALL": [
+    "That order you mentioned: they were not dissolved. They went underground. The apothecary on Mill Street still wears their ring.",
+    "The old road through the pass: there is still a path if you know where to look. Entrance is behind the waterfall near Crest Rock.",
+    "That other disappearance you recalled: the body turned up six months later in the Thornwood, same injuries as the ones now.",
+    "The poisoned groundwater: there is a buried shrine upstream. The old texts say it was sealed for a reason."
+  ],
+  "INTIMIDATION": [
+    "Please, stop! It was Garrett. He paid us to look the other way when the shipments came through at night.",
+    "I will talk! The stash is under the bridge, wrapped in oilcloth. Three crates of stolen weapons.",
+    "Do not hurt me. The meeting is tonight, at the abandoned chapel past the south gate. They gather at moonrise.",
+    "Fine! The guard captain knows. He takes a cut from every shipment and logs it as lost cargo."
+  ],
+  "COMMAND": [
+    "The courier's name is Sable. She comes every new moon and drops a sealed packet at the well behind the tanner's shop.",
+    "The password to get into the lower market is 'stone and shadow.' They change it on the first of each month.",
+    "Aldric left three days ago heading east on the ridge trail. He had a pack, a short sword, and a stolen map of the garrison.",
+    "There are six of them in the group. They sleep in shifts at the old watchtower and keep a lookout on the western ridge."
+  ],
+  "PERSUASION": [
+    "You are right: if I stay quiet, more people get hurt. The poison is coming from the tannery runoff. Wren has been dumping lye upstream.",
+    "I do care about this town. The elder is planning to sell the grazing rights to an outside guild. The families who farm there will lose everything.",
+    "You promise you will help? The children have been getting sick because the grain store was contaminated. Mold, I think, but nobody will inspect it.",
+    "My family: you are right. The bandits are using the old goat trail behind Fenwick's barn. They come through every third night."
+  ],
+  "DECEPTION": [
+    "If the magistrate already knows, then I might as well tell you the rest. The ledger is hidden in a hollowed-out beam in the council hall attic.",
+    "So you were there? Then you know about the tunnel. It runs from the wine cellar under the inn straight to the river dock.",
+    "If your friend already told you about the meeting, then you know it is at the old forge. What you might not know is that Hella brings the payment in a lockbox each time.",
+    "Fine, if you saw it, you saw it. The body is buried behind the stone wall at the north end of the orchard. Shallow grave, marked with a flat river stone."
+  ],
+  "CHARM": [
+    "You really are easy to talk to. Look: the merchant guild has been fixing prices. I have the tally sheets hidden in my root cellar if you want proof.",
+    "I do not usually trust outsiders, but you are different. The healer has been watering down the tinctures and selling the real stock to traders from the coast.",
+    "Since you seem to genuinely care: the missing girl is not missing. She ran. Her uncle was hurting her. She is staying with a farmer two valleys over.",
+    "You know what, I believe you mean well. The strange lights people keep seeing: they come from the old signal tower. Someone has been relighting the beacon every few nights."
+  ],
+  "SLEIGHT": [
+    "The letter reads: 'Shipment arrives at the north dock, third night after new moon. Burn after reading. -V'",
+    "The key has a smith's mark on it: Brannock's forge, east quarter. It fits a heavy lock, probably a warehouse or cellar door.",
+    "The coin is not standard mint. It bears the crest of a noble house that was supposedly wiped out in the war.",
+    "The brooch has an inscription on the back: 'For service to the Inner Circle.' It is solid silver, not the tin copy the merchants sell."
+  ],
+  "REFLEX": [
+    "Nice catch. They stare at you, then drop their guard. That cup had a false bottom: inside is a tiny rolled-up note with map coordinates.",
+    "You tracked it: a raven, carrying something in its talons. It flew northeast, toward the ruined keep on Ashridge.",
+    "After you save them from the shelf, they owe you. The crates that fell open are full of unmarked weapons: crossbows, short swords, bolt bundles.",
+    "You snatch the scrap from the air. It is a half-burned page: a list of names with amounts next to each. Three of them are town council members."
+  ],
+  "ENDURANCE": [
+    "You finish the brew without blinking. They are impressed. The drink is a local test: anyone who can stomach it gets the real story. The mine collapse was no accident: someone set charges.",
+    "You stood out there the whole time? Most people give up after ten minutes. Fine. The elder's daughter eloped with a Trork scout. That is what all the secrecy is about.",
+    "You handled that cellar better than the last one who tried. Down there, behind the false wall, is a room full of crates stamped with the royal seal. Stolen tax shipments.",
+    "You actually ate it all. My grandmother would have liked you. She used to say only honest folk could finish the bowl. The truth is, the baker has been smuggling letters in his flour deliveries."
+  ],
+  "RESISTANCE": [
+    "You shake off the compulsion. Their eyes widen: that was supposed to make you leave. The words were a ward, and whoever taught it to them did not want anyone asking about the barrow.",
+    "The dread fades. The object on the table is a lodestone pulled from a sealed cairn. The farmer who found it has been hearing voices since, and two of his cattle dropped dead.",
+    "You hold steady against the pull. They sigh and drop the pretense. The pendant is a charm from the old temple: they have been using it to keep people from asking questions about the well.",
+    "The pressure lifts. You stare them down. They confess: a traveling merchant sold them the pendant and told them to wear it when talking to outsiders. The merchant is due back in three days."
   ]
 }

@@ -1,17 +1,80 @@
 {
   "PERCEPTION": [
-    "You keep looking over your shoulder. What did you really see out there?",
-    "I notice your hands are shaking. This is more than a rumor to you.",
-    "Your eyes keep drifting toward the treeline. What are you watching for?"
+    "You spot a fresh bruise on their wrist, half-hidden under their sleeve.",
+    "There are mud tracks leading behind the counter that they clearly tried to sweep away.",
+    "You notice their eyes flick to a loose floorboard every time the subject comes up.",
+    "A faint smell of smoke clings to their clothes, though nothing nearby has been burning."
   ],
   "INSIGHT": [
-    "You're choosing your words carefully. What aren't you telling me?",
-    "There's something you're leaving out. I can tell.",
-    "The way you told that story... you left out the important part, didn't you?"
+    "Your voice changed just now. You were fine until I mentioned the forest.",
+    "You are scared. Not of me: of whoever told you to keep quiet.",
+    "That little pause before you answered: you were deciding how much to lie.",
+    "You keep touching your neck. That is not nervousness: that is guilt."
   ],
-  "INVESTIGATION": [
-    "The details don't add up. What's the real story here?",
-    "You skipped over something. Walk me through it again, slowly.",
-    "There's a piece missing from what you just told me. Think harder."
+  "DEDUCTION": [
+    "The dates do not line up. If the caravan left on the third, it could not have arrived before the fire.",
+    "You said three people went in, but four sets of gear came out. Someone else was already inside.",
+    "If the well dried up on its own, the crops downstream would have failed first. They did not.",
+    "That mark on the door: it is the same symbol they found on the bodies near the quarry."
+  ],
+  "RECALL": [
+    "I have read about this in the archives. That sigil belongs to an order that was dissolved decades ago.",
+    "There was a similar disappearance two winters back in the next valley. Same time of year.",
+    "I remember the old maps. There used to be a road through that pass before the landslide.",
+    "The herbalist's guild published a warning about that flower. It only grows near corrupted groundwater."
+  ],
+  "INTIMIDATION": [
+    "I could make this conversation very unpleasant for you. Your choice.",
+    "You know what happens to people who waste my time? I am running low on patience.",
+    "I have broken tougher people than you. Start talking.",
+    "That is a nice stall you have here. Would be a shame if the magistrate heard about your side business."
+  ],
+  "COMMAND": [
+    "You WILL tell me what you know. Now.",
+    "I am not asking. Sit down and answer my questions.",
+    "Enough stalling. Give me the name.",
+    "You do not get to walk away from this conversation. Talk."
+  ],
+  "PERSUASION": [
+    "People will get hurt if you stay quiet. You know that.",
+    "I am not here to cause trouble. I just want to help, same as you.",
+    "Think about your family. If this spreads, they are in danger too.",
+    "You clearly care about this town. Help me protect it."
+  ],
+  "DECEPTION": [
+    "I already know everything. I just want to hear your side of it.",
+    "Your friend already told me the whole story. I just need you to confirm one detail.",
+    "The magistrate sent me. This is your last chance to cooperate before things get official.",
+    "I was there that night. I saw what happened. So you might as well be honest with me."
+  ],
+  "CHARM": [
+    "You seem like someone who actually cares about what happens here. That is rare.",
+    "I can tell you are not like the others. You have a good heart.",
+    "Between you and me, you are the first person in this town who has made any sense.",
+    "I have to say, you have a real way with words. I bet people confide in you all the time."
+  ],
+  "SLEIGHT": [
+    "You swipe the folded letter off the table while they look away.",
+    "As they gesture, you slip the small key from their belt pouch.",
+    "You palm the coin they set on the counter, replacing it with a copper of your own.",
+    "While shaking their hand, you deftly unpin the brooch from their collar."
+  ],
+  "REFLEX": [
+    "They knock a cup toward the edge of the table: you catch it before it falls.",
+    "Something darts past the window. You spin to track it before they even flinch.",
+    "A shelf gives way behind them: you yank them clear before it crashes down.",
+    "They toss something into the fire. You snatch it from the air before it reaches the flames."
+  ],
+  "ENDURANCE": [
+    "They offer you the local brew. Smells like turpentine. You do not flinch.",
+    "They make you stand in the sun for an hour before they will even talk. You wait without complaint.",
+    "The stench in the cellar is overpowering. You breathe steady and keep your composure.",
+    "They insist you eat the entire bowl of their grandmother's stew. It burns all the way down."
+  ],
+  "RESISTANCE": [
+    "Something about their words pulls at you, urging you to walk away and forget this conversation.",
+    "A sudden wave of dread washes over you when you touch the object on the table.",
+    "Their eyes seem to shimmer, and for a moment you feel compelled to agree with everything they say.",
+    "The pendant around their neck hums faintly. You feel a pressure behind your eyes."
   ]
 }
