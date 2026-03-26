@@ -1,0 +1,12 @@
+{
+  "intents": {
+    "detail":   { "deepens": true,  "pool": "prompt_detail" },
+    "context":  { "deepens": false, "pool": "prompt_context" },
+    "source":   { "deepens": false, "pool": "prompt_source" },
+    "stakes":   { "deepens": true,  "pool": "prompt_stakes" },
+    "opinion":  { "deepens": true,  "pool": "prompt_opinion" },
+    "reaction": { "deepens": false, "pool": "prompt_reaction" }
+  },
+  "deepenerPool": "prompt_deepener",
+  "maxL1": 3
+}
