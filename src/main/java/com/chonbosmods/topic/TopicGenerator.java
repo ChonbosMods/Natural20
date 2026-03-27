@@ -42,7 +42,7 @@ public class TopicGenerator {
     private static final double OPENER_CHANCE_UNFRIENDLY = 0.70;
     private static final double OPENER_CHANCE_NEUTRAL = 0.50;
     private static final double OPENER_CHANCE_FRIENDLY = 0.65;
-    private static final double OPENER_CHANCE_LOYAL = 0.75;
+    private static final double OPENER_CHANCE_LOYAL = 0.60;
 
     private final TopicPoolRegistry topicPool;
     private final TopicTemplateRegistry templateRegistry;
