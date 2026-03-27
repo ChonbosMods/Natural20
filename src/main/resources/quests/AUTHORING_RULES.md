@@ -372,6 +372,15 @@ The generator checks for a situation key first (e.g., `"Supplication"`). If not 
 - Self-contained: no questions expecting replies (except handoff sub-objectives)
 - Match the situation's emotional register
 
+**Voice rules (applies to all NPC dialogue lines; see also `docs/authoring-detail-responses.md` for encyclopedic voice and bias patterns):**
+- Frame information as hearsay where natural: "I've heard," "They say," "Word is." NPCs share gossip, not omniscient narration
+- Play mundane observations straight: NPCs who mention pests, weather, or road conditions do so with genuine conviction, not sarcasm
+- Allow incomplete thoughts and hedging: "It's probably nothing, but..." and trailing uncertainty make NPCs feel like real people thinking out loud (use sparingly: ~15-20% of entries)
+- Match disposition without caricature: desperate quest givers sound strained, not melodramatic. Bold ones sound confident, not arrogant
+- No editorial framing: avoid "interestingly," "believe it or not," "funny story." The NPC is talking, not narrating
+- Let NPCs be biased: when mentioning third parties (the council, guards, traders), give the NPC an opinion about them. "The council finally did something" vs "the council overreacted again." Neutral reporting is for history books
+- Don't smooth disposition extremes: hostile quest givers are genuinely resentful or contemptuous, not merely curt. Desperate ones sound strained and raw, not politely concerned
+
 ### Target NPC pool structure (`responses_target_npc.json`)
 
 This file has TWO sections, not one:
