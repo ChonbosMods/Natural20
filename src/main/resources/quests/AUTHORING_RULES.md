@@ -41,12 +41,18 @@ quests/{SituationName}/
 ```
 quests/pools/
   # World variable pools
-  gather_items.json          # Items: { "id": "...", "label": "..." }
+  collect_resources.json     # Gatherable items: { "id": "...", "label": "..." }
+  evidence_items.json        # Evidence items: { "id": "...", "label": "..." }
+  keepsake_items.json        # Keepsake items: { "id": "...", "label": "..." }
   hostile_mobs.json          # Mobs: { "id": "...", "label": "..." }
   quest_actions.json         # Verb phrases (string array)
-  quest_focuses.json         # Noun phrases: { "value": "...", "plural": bool }
-  quest_stakes.json          # Noun phrases: { "value": "...", "plural": bool }
-  quest_threats.json         # Noun phrases: { "value": "...", "plural": bool }
+  quest_focuses.json         # Noun phrases: { "value": "...", "plural": bool, "proper": bool }
+  quest_stakes.json          # Noun phrases: { "value": "...", "plural": bool, "proper": bool }
+  quest_stakes_abstract.json # Abstract stakes (string array)
+  quest_stakes_human.json    # Human-centric stakes (string array)
+  quest_threats.json         # Noun phrases: { "value": "...", "plural": bool, "proper": bool }
+  quest_threats_abstract.json # Abstract threats (string array)
+  quest_threats_animate.json # Animate threats (string array)
   quest_origins.json         # Backstory phrases (string array)
   quest_time_pressures.json  # Urgency phrases (string array)
   quest_reward_hints.json    # Reward phrases (string array)
@@ -180,9 +186,37 @@ Same structure but:
 | `{location_hint}` | phrase | "north-west, about 200 blocks" | Direct: `"Head {location_hint}."` |
 | `{quest_action}` | verb phrase | "hold the line" | Direct: `"We need to {quest_action}."` |
 | `{quest_giver_name}` | proper noun | "Aldric" | Direct: `"Tell {quest_giver_name} what you found."` |
-| `{quest_focus}` | bare noun | "old watchtower" | ADD "the": `"at the {quest_focus}"` |
-| `{quest_stakes}` | bare noun | "refugee families" | ADD "the": `"the {quest_stakes} depend on us"` |
-| `{quest_threat}` | bare noun | "advancing raiders" | ADD "the": `"the {quest_threat} grows worse"` |
+| `{quest_focus}` | bare noun | "old watchtower" | Use `_the` suffix: `"at {quest_focus_the}"` |
+| `{quest_stakes}` | bare noun | "refugee families" | Use `_the` suffix: `"{quest_stakes_the} depend on us"` |
+| `{quest_threat}` | bare noun | "advancing raiders" | Use `_the` suffix: `"{quest_threat_the} grows worse"` |
+
+### Article Helpers (`_the` suffix)
+
+Pool entries for `quest_focus`, `quest_stakes`, and `quest_threat` have a `proper` boolean. The system generates article-aware bindings:
+
+| Suffix | Resolves to | Example (common) | Example (proper) |
+|---|---|---|---|
+| `_the` | mid-sentence "the X" or proper noun | "the old watchtower" | "Thornfield" |
+| `_The` | sentence-initial "The X" or proper noun | "The old watchtower" | "Thornfield" |
+| (none) | raw value, no article | "old watchtower" | "Thornfield" |
+
+**Prefer `_the`/`_The` over manually writing "the".** This handles proper nouns correctly:
+```
+GOOD: "We must protect {quest_focus_the}."
+      → "We must protect the old watchtower."
+      → "We must protect Thornfield."
+
+BAD:  "We must protect the {quest_focus}."
+      → "We must protect the old watchtower."  (ok)
+      → "We must protect the Thornfield."      (WRONG)
+```
+
+For sentence-initial position:
+```
+GOOD: "{quest_focus_The} {quest_focus_is} under threat."
+      → "The old watchtower is under threat."
+      → "Thornfield is under threat."
+```
 
 ### Verb Conjugation Helpers
 
@@ -192,7 +226,7 @@ Same structure but:
 | `{quest_stakes_is}` / `{quest_stakes_has}` / `{quest_stakes_was}` | is / has / was | are / have / were |
 | `{quest_threat_is}` / `{quest_threat_has}` / `{quest_threat_was}` | is / has / was | are / have / were |
 
-Usage: `"The {quest_stakes} {quest_stakes_is} in danger."` → "The refugee families are in danger." OR "The harvest is in danger."
+Usage: `"{quest_stakes_The} {quest_stakes_is} in danger."` → "The refugee families are in danger." OR "The harvest is in danger."
 
 ### Optional Variables (stripped cleanly if unresolved)
 
@@ -225,17 +259,18 @@ Usage: `"The {quest_stakes} {quest_stakes_is} in danger."` → "The refugee fami
 
 ## Authoring Rules
 
-### Rule 1: Templates add "the", pool values do not
+### Rule 1: Use `_the` suffix for article-aware references
 
 ```
-GOOD: "We must protect the {quest_focus}."
-BAD:  "We must protect {quest_focus}."
+GOOD: "We must protect {quest_focus_the}."
+BAD:  "We must protect the {quest_focus}."   ← breaks on proper nouns
+BAD:  "We must protect {quest_focus}."       ← missing article for common nouns
 ```
 
 ### Rule 2: Use conjugation helpers when pool variable is sentence subject
 
 ```
-GOOD: "The {quest_threat} {quest_threat_has} grown worse."
+GOOD: "{quest_threat_The} {quest_threat_has} grown worse."
 BAD:  "The {quest_threat} has grown worse."
 ```
 
@@ -243,9 +278,9 @@ BAD:  "The {quest_threat} has grown worse."
 
 | Variable | Role | Use as... |
 |---|---|---|
-| `{quest_focus}` | PLACE/THING | "at the {quest_focus}", "near the {quest_focus}" |
-| `{quest_stakes}` | AT-RISK | "the {quest_stakes} will suffer" |
-| `{quest_threat}` | DANGER | "the {quest_threat} grows stronger" |
+| `{quest_focus}` | PLACE/THING | "at {quest_focus_the}", "near {quest_focus_the}" |
+| `{quest_stakes}` | AT-RISK | "{quest_stakes_the} will suffer" |
+| `{quest_threat}` | DANGER | "{quest_threat_the} grows stronger" |
 | `{quest_action}` | TASK | "we need to {quest_action}" |
 
 ### Rule 4: Optional variables in removable clauses
@@ -268,11 +303,13 @@ Use `{quest_giver_name}` for the quest giver, `{target_npc}` for target NPCs, `{
 
 ### Rule 8: Test with 3 substitution sets
 
-**Set A:** action="seal the entrance", focus="collapsed mine", stakes="village children", threat="spreading blight", enemy="Spider", item="bone", quest_giver_name="Aldric", target_npc="Elara Thornwick"
+**Set A:** action="seal the entrance", focus="collapsed mine" (common), stakes="village children" (plural), threat="spreading blight", enemy="Spider", item="bone", quest_giver_name="Aldric", target_npc="Elara Thornwick"
 
-**Set B:** action="protect the caravan", focus="river crossing", stakes="winter supplies", threat="deserter gangs", enemy="Trork Grunt", item="wheat", quest_giver_name="Berta", target_npc="Captain Dregg"
+**Set B:** action="protect the caravan", focus="river crossing" (common), stakes="winter supplies" (plural), threat="deserter gangs" (plural), enemy="Trork Grunt", item="wheat", quest_giver_name="Berta", target_npc="Captain Dregg"
 
-**Set C:** action="root out the corruption", focus="burial ground", stakes="last of our iron", threat="political unrest", enemy="Skeleton", item="cotton fiber", quest_giver_name="Miriel", target_npc="Finn Copperhand"
+**Set C (proper nouns):** action="root out the corruption", focus="Thornfield" (proper), stakes="last of our iron", threat="Blackthorn Company" (proper, plural), enemy="Skeleton", item="cotton fiber", quest_giver_name="Miriel", target_npc="Finn Copperhand"
+
+Set C specifically tests `_the` with proper nouns: `{quest_focus_the}` → "Thornfield" (not "the Thornfield"), `{quest_threat_the}` → "Blackthorn Company" (not "the Blackthorn Company").
 
 ---
 
@@ -302,8 +339,10 @@ Use `{quest_giver_name}` for the quest giver, `{target_npc}` for target NPCs, `{
 
 ### Narrative pools (focuses, stakes, threats)
 ```json
-{ "value": "noun phrase without article", "plural": true/false }
+{ "value": "noun phrase without article", "plural": true/false, "proper": true/false }
 ```
+- `plural`: controls conjugation helpers (`_is`/`_has`/`_was`)
+- `proper`: controls article generation (`_the`/`_The`). Set `true` for named places/people, `false` for common nouns
 
 ### String pools (actions, origins, time pressures, reward hints)
 ```json
@@ -327,8 +366,9 @@ The generator checks for a situation key first (e.g., `"Supplication"`). If not 
 **Rules for all response/dialogue pool entries:**
 - Use `{quest_giver_name}` for the quest giver (NEVER "quest giver" or "your contact")
 - Use `{target_npc}` for the target NPC
-- Add "the" before `{quest_focus}`, `{quest_stakes}`, `{quest_threat}`
-- Use conjugation helpers when these variables are sentence subjects
+- Use `{quest_focus_the}`, `{quest_stakes_the}`, `{quest_threat_the}` for article-aware references (NEVER manually write "the {quest_focus}")
+- Use `{quest_focus_The}` etc. for sentence-initial position
+- Use conjugation helpers (`_is`/`_has`/`_was`) when these variables are sentence subjects
 - Self-contained: no questions expecting replies (except handoff sub-objectives)
 - Match the situation's emotional register
 
@@ -417,20 +457,26 @@ Keyed by stat type:
 ### Template files
 - [ ] No `bindings` object in any variant
 - [ ] No `playerResponses` in any variant
-- [ ] All `{quest_focus}`, `{quest_stakes}`, `{quest_threat}` preceded by "the"
-- [ ] Conjugation helpers used when pool variable is sentence subject
+- [ ] All `{quest_focus}`, `{quest_stakes}`, `{quest_threat}` use `_the`/`_The` suffixes (never manual "the")
+- [ ] Conjugation helpers (`_is`/`_has`/`_was`) used when pool variable is sentence subject
 - [ ] Optional variables in removable clauses
 - [ ] No hardcoded names (use `{quest_giver_name}`, `{target_npc}`, `{quest_ally}`)
 - [ ] Resolution variants have empty `objectivePool` and `objectiveConfig`
 - [ ] Each variant has different phrasing, not different content
-- [ ] Tested mentally with 3 substitution sets
+- [ ] Tested mentally with 3 substitution sets (including at least one proper noun focus)
 - [ ] Valid JSON
 
 ### Response/dialogue pool entries
 - [ ] Uses `{quest_giver_name}` (never "quest giver")
+- [ ] Uses `_the`/`_The` suffixes for focus/stakes/threat references (never manual "the")
 - [ ] Self-contained statements (no unanswered questions)
 - [ ] Matches situation/tone emotional register
-- [ ] Variable tokens used with proper articles and conjugation
+- [ ] Variable tokens used with proper conjugation helpers
 - [ ] Target NPC handoff entries end with a clear sub-objective
 - [ ] Target NPC info entries direct player to return to `{quest_giver_name}`
 - [ ] 3-5 entries per situation key, 5-8 per tone key
+
+### Narrative pool entries
+- [ ] `value` is a bare noun phrase without article
+- [ ] `plural` flag matches the noun's number
+- [ ] `proper` flag is true for named places/people, false for common nouns

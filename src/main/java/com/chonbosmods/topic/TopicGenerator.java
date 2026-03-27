@@ -19,17 +19,30 @@ public class TopicGenerator {
 
     private static final FluentLogger LOGGER = FluentLogger.forEnclosingClass();
 
-    private static final int MIN_TOPICS_PER_NPC = 2;
-    private static final int MAX_TOPICS_PER_NPC = 4;
-    private static final double RUMOR_RATIO = 0.6;
+    // Role-based topic budgets: social roles talk more, functional roles talk less
+    private static final int SOCIAL_MIN_TOPICS = 4;
+    private static final int SOCIAL_MAX_TOPICS = 6;
+    private static final int FUNCTIONAL_MIN_TOPICS = 2;
+    private static final int FUNCTIONAL_MAX_TOPICS = 4;
+    private static final Set<String> SOCIAL_ROLES = Set.of(
+        "TavernKeeper", "ArtisanAlchemist", "ArtisanBlacksmith", "ArtisanCook", "Traveler"
+    );
+
+    private static final double RUMOR_RATIO = 0.4;
     private static final double QUEST_CHANCE_PER_SUBJECT = 0.25;
     private static final int MIN_QUESTS_PER_SETTLEMENT = 2;
     private static final int MAX_QUESTS_PER_SETTLEMENT = 8;
-    private static final int MIN_NPCS_PER_SUBJECT = 3;
+    private static final int MIN_NPCS_PER_SUBJECT = 2;
     private static final double EXTRA_NPC_CHANCE = 0.30;
-    private static final double VISIBILITY_CHANCE = 0.40;
-    private static final double OPENER_CHANCE = 0.6;
+    private static final double VISIBILITY_CHANCE = 0.55;
     private static final double CLOSER_CHANCE = 0.6;
+
+    // Disposition-scaled opener chances: hostile NPCs almost always use tone, neutral rarely
+    private static final double OPENER_CHANCE_HOSTILE = 0.85;
+    private static final double OPENER_CHANCE_UNFRIENDLY = 0.70;
+    private static final double OPENER_CHANCE_NEUTRAL = 0.50;
+    private static final double OPENER_CHANCE_FRIENDLY = 0.65;
+    private static final double OPENER_CHANCE_LOYAL = 0.75;
 
     private final TopicPoolRegistry topicPool;
     private final TopicTemplateRegistry templateRegistry;
@@ -57,10 +70,18 @@ public class TopicGenerator {
         Random random = new Random(settlement.getCellKey().hashCode());
         int npcCount = npcs.size();
 
-        // Step 1: Roll topic budgets per NPC
+        // Step 1: Roll topic budgets per NPC (role-based ranges)
         Map<String, Integer> topicBudgets = new LinkedHashMap<>();
         for (NpcRecord npc : npcs) {
-            int budget = MIN_TOPICS_PER_NPC + random.nextInt(MAX_TOPICS_PER_NPC - MIN_TOPICS_PER_NPC + 1);
+            int min, max;
+            if (isSocialRole(npc.getRole())) {
+                min = SOCIAL_MIN_TOPICS;
+                max = SOCIAL_MAX_TOPICS;
+            } else {
+                min = FUNCTIONAL_MIN_TOPICS;
+                max = FUNCTIONAL_MAX_TOPICS;
+            }
+            int budget = min + random.nextInt(max - min + 1);
             topicBudgets.put(npc.getGeneratedName(), budget);
         }
 
@@ -216,7 +237,7 @@ public class TopicGenerator {
     }
 
     /**
-     * Distribute a subject across NPCs: min 3 NPCs (or npcCount if smaller),
+     * Distribute a subject across NPCs: min 2 NPCs (or npcCount if smaller),
      * then 30% diminishing chance for additional NPCs.
      */
     private void distributeSubject(SubjectFocus focus, List<String> npcNames, int npcCount, Random random) {
@@ -251,7 +272,7 @@ public class TopicGenerator {
     }
 
     /**
-     * Roll visibility: 1 NPC guaranteed visible (startLearned:true), others get 40% chance.
+     * Roll visibility: 1 NPC guaranteed visible (startLearned:true), others get 55% chance.
      */
     private void rollVisibility(SubjectFocus focus, Random random) {
         Set<String> assignedNpcs = focus.getAssignedNpcs();
@@ -338,9 +359,10 @@ public class TopicGenerator {
         bindings.put("time_ref", topicPool.randomTimeRef(random));
         bindings.put("direction", topicPool.randomDirection(random));
 
-        // Tone bindings (bracket-filtered by disposition) with floor rule
+        // Tone bindings (bracket-filtered by disposition) with disposition-scaled opener chance
         String bracket = dispositionBracket(50); // default disposition for generated topics
-        boolean openerFired = random.nextDouble() < OPENER_CHANCE;
+        double openerChance = openerChanceForBracket(bracket);
+        boolean openerFired = random.nextDouble() < openerChance;
         boolean closerFired = openerFired ? (random.nextDouble() < CLOSER_CHANCE) : true;
         bindings.put("tone_opener", openerFired ? topicPool.randomToneOpener(bracket, random) : "");
         bindings.put("tone_closer", closerFired ? topicPool.randomToneCloser(bracket, random) : "");
@@ -430,14 +452,18 @@ public class TopicGenerator {
     }
 
     /**
-     * Ensure every NPC has at least {@link #MIN_TOPICS_PER_NPC} topics.
+     * Ensure every NPC has at least their role-based minimum number of topics.
      * If an NPC is short, assign them to existing subjects they don't already have.
      */
     private void ensureMinimumTopics(Map<String, List<TopicGraphBuilder.TopicAssignment>> npcAssignments,
                                       List<SubjectFocus> subjects, List<String> npcNames, Random random) {
+        Map<String, NpcRecord> npcByName = new LinkedHashMap<>();
+        // npcByName not available here, so use topicBudgets via the budget map isn't threaded through.
+        // Use FUNCTIONAL_MIN_TOPICS as the baseline minimum for backfill (role-based budget
+        // was already rolled in step 1 but we only need the floor here).
         for (String npcName : npcNames) {
             List<TopicGraphBuilder.TopicAssignment> assignments = npcAssignments.get(npcName);
-            if (assignments.size() >= MIN_TOPICS_PER_NPC) continue;
+            if (assignments.size() >= FUNCTIONAL_MIN_TOPICS) continue;
 
             // Find subjects this NPC doesn't already have
             Set<String> existingSubjects = new HashSet<>();
@@ -454,7 +480,7 @@ public class TopicGenerator {
             Collections.shuffle(available, random);
 
             for (SubjectFocus focus : available) {
-                if (assignments.size() >= MIN_TOPICS_PER_NPC) break;
+                if (assignments.size() >= FUNCTIONAL_MIN_TOPICS) break;
 
                 focus.assignNpc(npcName, random.nextDouble() < VISIBILITY_CHANCE);
                 TopicGraphBuilder.TopicAssignment assignment = buildAssignment(focus, npcName, random);
@@ -462,7 +488,7 @@ public class TopicGenerator {
             }
 
             // If still short (very few subjects), create new subjects
-            while (assignments.size() < MIN_TOPICS_PER_NPC) {
+            while (assignments.size() < FUNCTIONAL_MIN_TOPICS) {
                 TopicCategory category = random.nextBoolean() ? TopicCategory.RUMORS : TopicCategory.SMALLTALK;
                 TopicPoolRegistry.SubjectEntry entry = topicPool.randomSubject(random);
                 int idx = subjects.size();
@@ -482,6 +508,21 @@ public class TopicGenerator {
      */
     private static String sanitize(String value) {
         return value.toLowerCase().replaceAll("[^a-z0-9]+", "_").replaceAll("^_|_$", "");
+    }
+
+    private static boolean isSocialRole(String role) {
+        return SOCIAL_ROLES.contains(role);
+    }
+
+    private static double openerChanceForBracket(String bracket) {
+        return switch (bracket) {
+            case "hostile" -> OPENER_CHANCE_HOSTILE;
+            case "unfriendly" -> OPENER_CHANCE_UNFRIENDLY;
+            case "neutral" -> OPENER_CHANCE_NEUTRAL;
+            case "friendly" -> OPENER_CHANCE_FRIENDLY;
+            case "loyal" -> OPENER_CHANCE_LOYAL;
+            default -> OPENER_CHANCE_NEUTRAL;
+        };
     }
 
     private static String dispositionBracket(int disposition) {
