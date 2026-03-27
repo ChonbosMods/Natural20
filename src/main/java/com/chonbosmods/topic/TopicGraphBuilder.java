@@ -345,9 +345,14 @@ public class TopicGraphBuilder {
                 // Resolve L2 NPC response: per-intent override > perspective default
                 String deepResponsePattern = slot.deepenerResponse() != null
                     ? slot.deepenerResponse() : perspectiveDeepenerResponse;
-                String deepResponse = deepResponsePattern != null
-                    ? DialogueResolver.resolve(deepResponsePattern, bindings)
-                    : "I've said all I can about it.";
+                String deepResponse;
+                if (deepResponsePattern != null) {
+                    Map<String, String> freshBindings = new HashMap<>(bindings);
+                    refreshDeepenerBinding(freshBindings, deepResponsePattern);
+                    deepResponse = DialogueResolver.resolve(deepResponsePattern, freshBindings);
+                } else {
+                    deepResponse = "I've said all I can about it.";
+                }
 
                 nodes.put(deepNodeId, new DialogueNode.DialogueTextNode(
                     deepResponse, List.of(), List.of(), false, false
@@ -372,6 +377,24 @@ public class TopicGraphBuilder {
         }
 
         return l1NodeIds;
+    }
+
+    /**
+     * Replace deepener pool variable bindings with fresh draws so each
+     * L2 branch gets a unique NPC response instead of sharing one pre-resolved value.
+     */
+    private void refreshDeepenerBinding(Map<String, String> bindings, String pattern) {
+        if (pattern.contains("{personal_reaction}")) {
+            String bracket = bindings.getOrDefault("_reaction_bracket", "mild");
+            bindings.put("personal_reaction", topicPool.randomPersonalReaction(bracket, random));
+        }
+        if (pattern.contains("{local_opinion}")) {
+            String bracket = bindings.getOrDefault("_reaction_bracket", "mild");
+            bindings.put("local_opinion", topicPool.randomLocalOpinion(bracket, random));
+        }
+        if (pattern.contains("{danger_assessment}")) {
+            bindings.put("danger_assessment", topicPool.randomDangerAssessment(random));
+        }
     }
 
     /**

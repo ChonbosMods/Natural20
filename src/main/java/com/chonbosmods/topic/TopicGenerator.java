@@ -407,6 +407,7 @@ public class TopicGenerator {
         String reactionBracket = (focus.getCategory() == TopicCategory.RUMORS
             || "smalltalk_nature".equals(templateId)
             || "smalltalk_curiosity".equals(templateId)) ? "intense" : "mild";
+        bindings.put("_reaction_bracket", reactionBracket);
         bindings.put("local_opinion", topicPool.randomLocalOpinion(reactionBracket, random));
         bindings.put("personal_reaction", topicPool.randomPersonalReaction(reactionBracket, random));
         bindings.put("danger_assessment", topicPool.randomDangerAssessment(random));
