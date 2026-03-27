@@ -89,6 +89,7 @@
     },
     {
       "id": "rumor_migration",
+      "requiresConcrete": true,
       "skillCheck": { "skill": "DEDUCTION" },
       "label": "Movement near {subject_focus_the}",
       "perspectives": [
@@ -132,6 +133,7 @@
     },
     {
       "id": "rumor_disappearance",
+      "requiresConcrete": true,
       "skillCheck": { "skill": "INSIGHT" },
       "label": "Missing near {subject_focus_the}",
       "perspectives": [
@@ -219,6 +221,7 @@
     },
     {
       "id": "rumor_omen",
+      "requiresConcrete": true,
       "skillCheck": { "skill": "INSIGHT" },
       "label": "Signs at {subject_focus_the}",
       "perspectives": [
@@ -262,6 +265,7 @@
     },
     {
       "id": "rumor_treasure",
+      "requiresConcrete": true,
       "skillCheck": { "skill": "DEDUCTION" },
       "label": "Hidden {subject_focus}",
       "perspectives": [
@@ -305,6 +309,7 @@
     },
     {
       "id": "rumor_conflict",
+      "requiresConcrete": true,
       "skillCheck": { "skill": "INSIGHT" },
       "label": "Trouble at {subject_focus_the}",
       "perspectives": [

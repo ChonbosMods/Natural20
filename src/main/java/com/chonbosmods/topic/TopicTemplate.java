@@ -9,6 +9,7 @@ public record TopicTemplate(
     TopicCategory category,
     String labelPattern,
     boolean subjectRequired,
+    boolean requiresConcrete,
     List<Perspective> perspectives,
     List<Perspective> questHookPerspectives,
     @Nullable SkillCheckDef skillCheckDef

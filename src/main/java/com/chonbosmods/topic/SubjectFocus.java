@@ -14,6 +14,7 @@ public class SubjectFocus {
     private final boolean plural;
     private final boolean proper;
     private final boolean questEligible;
+    private final boolean concrete;
     private final TopicCategory category;
     private final List<String> categories;
     private final Map<String, Boolean> npcVisibility = new LinkedHashMap<>();
@@ -21,12 +22,13 @@ public class SubjectFocus {
     private @Nullable String questSituationId;
 
     public SubjectFocus(String subjectId, String subjectValue, boolean plural, boolean proper,
-                        boolean questEligible, TopicCategory category, List<String> categories) {
+                        boolean questEligible, boolean concrete, TopicCategory category, List<String> categories) {
         this.subjectId = subjectId;
         this.subjectValue = subjectValue;
         this.plural = plural;
         this.proper = proper;
         this.questEligible = questEligible;
+        this.concrete = concrete;
         this.category = category;
         this.categories = categories;
     }
@@ -45,6 +47,7 @@ public class SubjectFocus {
     public boolean isPlural() { return plural; }
     public boolean isProper() { return proper; }
     public boolean isQuestEligible() { return questEligible; }
+    public boolean isConcrete() { return concrete; }
     public TopicCategory getCategory() { return category; }
     public List<String> getCategories() { return categories; }
     public Map<String, Boolean> getNpcVisibility() { return npcVisibility; }

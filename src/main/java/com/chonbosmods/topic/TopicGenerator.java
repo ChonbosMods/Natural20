@@ -95,7 +95,7 @@ public class TopicGenerator {
             TopicCategory category = i < rumorCount ? TopicCategory.RUMORS : TopicCategory.SMALLTALK;
             TopicPoolRegistry.SubjectEntry entry = topicPool.randomSubject(random);
             String subjectId = "subj_" + i + "_" + sanitize(entry.value());
-            subjects.add(new SubjectFocus(subjectId, entry.value(), entry.plural(), entry.proper(), entry.questEligible(), category, entry.categories()));
+            subjects.add(new SubjectFocus(subjectId, entry.value(), entry.plural(), entry.proper(), entry.questEligible(), entry.concrete(), category, entry.categories()));
         }
 
         // Step 3: Roll quest placement (25% per subject, min 2, max 8)
@@ -126,7 +126,7 @@ public class TopicGenerator {
                 TopicPoolRegistry.SubjectEntry eligible = topicPool.randomQuestEligibleSubject(random);
                 String newId = "subj_" + qi + "_" + sanitize(eligible.value());
                 subjects.set(qi, new SubjectFocus(newId, eligible.value(), eligible.plural(),
-                    eligible.proper(), eligible.questEligible(), focus.getCategory(), eligible.categories()));
+                    eligible.proper(), eligible.questEligible(), eligible.concrete(), focus.getCategory(), eligible.categories()));
             }
         }
 
@@ -304,7 +304,7 @@ public class TopicGenerator {
      */
     private TopicGraphBuilder.TopicAssignment buildAssignment(SubjectFocus focus, String npcName, Random random) {
         TopicTemplate template = templateRegistry.randomTemplateForSubject(
-            focus.getCategory(), focus.getCategories(), random);
+            focus.getCategory(), focus.getCategories(), focus.isConcrete(), random);
         boolean isQuestBearer = npcName.equals(focus.getQuestBearingNpc());
 
         // Pick perspective: quest hook for quest bearer, normal for others
@@ -494,7 +494,7 @@ public class TopicGenerator {
                 TopicPoolRegistry.SubjectEntry entry = topicPool.randomSubject(random);
                 int idx = subjects.size();
                 String subjectId = "subj_" + idx + "_" + sanitize(entry.value());
-                SubjectFocus newFocus = new SubjectFocus(subjectId, entry.value(), entry.plural(), entry.proper(), entry.questEligible(), category, entry.categories());
+                SubjectFocus newFocus = new SubjectFocus(subjectId, entry.value(), entry.plural(), entry.proper(), entry.questEligible(), entry.concrete(), category, entry.categories());
                 newFocus.assignNpc(npcName, true);
                 subjects.add(newFocus);
 

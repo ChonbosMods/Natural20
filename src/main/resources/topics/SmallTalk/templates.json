@@ -45,6 +45,7 @@
     },
     {
       "id": "smalltalk_trade",
+      "requiresConcrete": true,
       "skillCheck": { "skill": "INSIGHT" },
       "label": "Trade at {subject_focus_the}",
       "perspectives": [
@@ -129,6 +130,7 @@
     },
     {
       "id": "smalltalk_community",
+      "requiresConcrete": true,
       "skillCheck": { "skill": "PERSUASION" },
       "label": "Life in {subject_focus_the}",
       "perspectives": [
@@ -170,6 +172,7 @@
     },
     {
       "id": "smalltalk_nature",
+      "requiresConcrete": true,
       "skillCheck": { "skill": "PERCEPTION" },
       "label": "The Wilds near {subject_focus_the}",
       "perspectives": [
@@ -300,6 +303,7 @@
     },
     {
       "id": "smalltalk_festival",
+      "requiresConcrete": true,
       "skillCheck": { "skill": "CHARM" },
       "label": "The {subject_focus} Festival",
       "perspectives": [

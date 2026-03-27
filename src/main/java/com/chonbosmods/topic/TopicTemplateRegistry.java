@@ -17,7 +17,7 @@ public class TopicTemplateRegistry {
     private static final FluentLogger LOGGER = FluentLogger.forEnclosingClass();
 
     private static final TopicTemplate FALLBACK_TEMPLATE = new TopicTemplate(
-        "fallback", TopicCategory.RUMORS, "{subject_focus}", true,
+        "fallback", TopicCategory.RUMORS, "{subject_focus}", true, false,
         List.of(new TopicTemplate.Perspective("I've heard about the {subject_focus}.",
             List.of(new TopicTemplate.FollowUp("Tell me more.", "That's all I know, really.", List.of())), null, null, null)),
         List.of(),
@@ -95,8 +95,9 @@ public class TopicTemplateRegistry {
         }
 
         boolean subjectRequired = !obj.has("subjectRequired") || obj.get("subjectRequired").getAsBoolean();
+        boolean requiresConcrete = obj.has("requiresConcrete") && obj.get("requiresConcrete").getAsBoolean();
 
-        return new TopicTemplate(id, category, label, subjectRequired, perspectives, questHooks, skillCheckDef);
+        return new TopicTemplate(id, category, label, subjectRequired, requiresConcrete, perspectives, questHooks, skillCheckDef);
     }
 
     private TopicTemplate.Perspective parsePerspective(JsonObject obj) {
@@ -173,7 +174,8 @@ public class TopicTemplateRegistry {
      * Select a template whose topic matches one of the subject's categories.
      * Falls back to unfiltered random if no matching template is found.
      */
-    public TopicTemplate randomTemplateForSubject(TopicCategory category, List<String> subjectCategories, Random random) {
+    public TopicTemplate randomTemplateForSubject(TopicCategory category, List<String> subjectCategories,
+                                                    boolean subjectConcrete, Random random) {
         if (subjectCategories.isEmpty()) return randomTemplate(category, random);
         List<TopicTemplate> pool = category == TopicCategory.RUMORS ? rumorTemplates : smallTalkTemplates;
         List<TopicTemplate> matching = pool.stream()
@@ -182,6 +184,11 @@ public class TopicTemplateRegistry {
                 return subjectCategories.contains(topic);
             })
             .toList();
+        if (!subjectConcrete) {
+            matching = matching.stream()
+                .filter(t -> !t.requiresConcrete())
+                .toList();
+        }
         if (matching.isEmpty()) return randomTemplate(category, random);
         return matching.get(random.nextInt(matching.size()));
     }
