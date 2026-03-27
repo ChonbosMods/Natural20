@@ -200,8 +200,8 @@ public class Natural20 extends JavaPlugin {
         // Register commands
         getCommandRegistry().registerCommand(new Nat20Command());
 
-        // Register equipment change listener for loot stat modifiers
-        equipmentListener.register(getEventRegistry());
+        // Register equipment change listener for loot stat modifiers (ECS event system)
+        getEntityStoreRegistry().registerSystem(equipmentListener.createSystem());
 
         // Register ECS event systems for EFFECT/ABILITY affix processing (damage + block break)
         lootSystem.registerSystems(getEntityStoreRegistry());

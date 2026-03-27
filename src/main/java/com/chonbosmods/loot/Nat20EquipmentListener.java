@@ -5,13 +5,13 @@ import com.chonbosmods.data.Nat20PlayerData;
 import com.chonbosmods.loot.registry.Nat20LootEntryRegistry;
 import com.chonbosmods.stats.PlayerStats;
 import com.google.common.flogger.FluentLogger;
-import com.hypixel.hytale.component.Ref;
-import com.hypixel.hytale.component.Store;
-import com.hypixel.hytale.event.EventRegistry;
+import com.hypixel.hytale.component.*;
+import com.hypixel.hytale.component.query.Query;
+import com.hypixel.hytale.component.system.EntityEventSystem;
 import com.hypixel.hytale.server.core.asset.type.item.config.Item;
 import com.hypixel.hytale.server.core.entity.entities.Player;
-import com.hypixel.hytale.server.core.event.events.entity.LivingEntityInventoryChangeEvent;
-import com.hypixel.hytale.server.core.inventory.Inventory;
+import com.hypixel.hytale.server.core.inventory.InventoryChangeEvent;
+import com.hypixel.hytale.server.core.inventory.InventoryComponent;
 import com.hypixel.hytale.server.core.inventory.ItemStack;
 import com.hypixel.hytale.server.core.inventory.container.ItemContainer;
 import com.hypixel.hytale.server.core.inventory.transaction.Transaction;
@@ -50,8 +50,11 @@ public class Nat20EquipmentListener {
         this.lootSystem = lootSystem;
     }
 
-    public void register(EventRegistry eventRegistry) {
-        eventRegistry.registerGlobal(LivingEntityInventoryChangeEvent.class, this::onInventoryChange);
+    /**
+     * Create the ECS event system to be registered via entityStoreRegistry.registerSystem().
+     */
+    public Nat20InventoryChangeSystem createSystem() {
+        return new Nat20InventoryChangeSystem();
     }
 
     /**
@@ -61,84 +64,8 @@ public class Nat20EquipmentListener {
         equippedCache.remove(playerId);
     }
 
-    private void onInventoryChange(LivingEntityInventoryChangeEvent event) {
-        if (!(event.getEntity() instanceof Player player)) return;
-
-        Transaction transaction = event.getTransaction();
-        if (!transaction.succeeded()) return;
-
-        Inventory inventory = player.getInventory();
-        ItemContainer changedContainer = event.getItemContainer();
-
-        // Determine which container changed and its slot prefix
-        String slotPrefix;
-        if (changedContainer == inventory.getArmor()) {
-            slotPrefix = ARMOR_PREFIX;
-        } else if (changedContainer == inventory.getHotbar()) {
-            slotPrefix = HOTBAR_PREFIX;
-        } else {
-            return; // Only process armor and hotbar changes
-        }
-
-        // Resolve store and ref once for all component lookups
-        Store<EntityStore> store;
-        Ref<EntityStore> ref;
-        try {
-            store = player.getWorld().getEntityStore().getStore();
-            ref = player.getReference();
-        } catch (Exception e) {
-            LOGGER.atWarning().withCause(e).log("Failed to resolve entity store for player");
-            return;
-        }
-
-        EntityStatMap statMap = store.getComponent(ref, EntityStatMap.getComponentType());
-        if (statMap == null) return;
-
-        UUID playerId = player.getPlayerRef().getUuid();
-        Map<String, EquippedEntry> playerCache = equippedCache.computeIfAbsent(playerId,
-                k -> new ConcurrentHashMap<>());
-
-        // Resolve player stats for scaling
-        Nat20PlayerData playerData = store.getComponent(ref, Natural20.getPlayerDataType());
-        PlayerStats playerStats = playerData != null ? PlayerStats.from(playerData) : null;
-
-        Nat20ModifierManager modifierManager = lootSystem.getModifierManager();
-        Nat20LootEntryRegistry entryRegistry = lootSystem.getLootEntryRegistry();
-        short capacity = changedContainer.getCapacity();
-
-        for (short slot = 0; slot < capacity; slot++) {
-            if (!transaction.wasSlotModified(slot)) continue;
-
-            String slotName = slotPrefix + slot;
-
-            // Remove old modifiers using cached loot data
-            EquippedEntry oldEntry = playerCache.remove(slotName);
-            if (oldEntry != null) {
-                modifierManager.removeModifiers(statMap, slotName, oldEntry.lootData());
-            }
-
-            // Apply new modifiers if the new item has loot data
-            ItemStack newStack = changedContainer.getItemStack(slot);
-            if (newStack == null) continue;
-
-            Nat20LootData newLootData = newStack.getFromMetadataOrNull(Nat20LootData.METADATA_KEY);
-            if (newLootData == null) continue;
-
-            String categoryKey = resolveCategoryKey(entryRegistry, newStack);
-            if (categoryKey == null) continue;
-
-            modifierManager.applyModifiers(statMap, newStack, slotName, categoryKey, playerStats);
-            Nat20ItemDisplayData displayData = lootSystem.getItemRenderer().resolve(newStack, playerStats);
-            playerCache.put(slotName, new EquippedEntry(newLootData, displayData));
-        }
-    }
-
     /**
      * Get the cached display data for a player's equipped item in a given slot.
-     *
-     * @param playerId the player's UUID
-     * @param slotName the slot name (e.g., "armor_0", "hotbar_0")
-     * @return the cached display data, or null if no Nat20 item is equipped in that slot
      */
     @Nullable
     public Nat20ItemDisplayData getEquippedDisplayData(UUID playerId, String slotName) {
@@ -146,6 +73,86 @@ public class Nat20EquipmentListener {
         if (playerCache == null) return null;
         EquippedEntry entry = playerCache.get(slotName);
         return entry != null ? entry.displayData() : null;
+    }
+
+    public class Nat20InventoryChangeSystem extends EntityEventSystem<EntityStore, InventoryChangeEvent> {
+
+        private static final Query<EntityStore> QUERY = Query.any();
+
+        Nat20InventoryChangeSystem() {
+            super(InventoryChangeEvent.class);
+        }
+
+        @Override
+        public Query<EntityStore> getQuery() {
+            return QUERY;
+        }
+
+        @Override
+        public void handle(int entityIndex, ArchetypeChunk<EntityStore> chunk,
+                           Store<EntityStore> store, CommandBuffer<EntityStore> commandBuffer,
+                           InventoryChangeEvent event) {
+            Ref<EntityStore> ref = chunk.getReferenceTo(entityIndex);
+            Player player = store.getComponent(ref, Player.getComponentType());
+            if (player == null) return;
+
+            Transaction transaction = event.getTransaction();
+            if (!transaction.succeeded()) return;
+
+            // Determine which container changed and its slot prefix
+            ComponentType<EntityStore, ?> componentType = event.getComponentType();
+            String slotPrefix;
+            if (componentType == InventoryComponent.Armor.getComponentType()) {
+                slotPrefix = ARMOR_PREFIX;
+            } else if (componentType == InventoryComponent.Hotbar.getComponentType()) {
+                slotPrefix = HOTBAR_PREFIX;
+            } else {
+                return; // Only process armor and hotbar changes
+            }
+
+            ItemContainer changedContainer = event.getItemContainer();
+
+            EntityStatMap statMap = store.getComponent(ref, EntityStatMap.getComponentType());
+            if (statMap == null) return;
+
+            UUID playerId = player.getPlayerRef().getUuid();
+            Map<String, EquippedEntry> playerCache = equippedCache.computeIfAbsent(playerId,
+                    k -> new ConcurrentHashMap<>());
+
+            // Resolve player stats for scaling
+            Nat20PlayerData playerData = store.getComponent(ref, Natural20.getPlayerDataType());
+            PlayerStats playerStats = playerData != null ? PlayerStats.from(playerData) : null;
+
+            Nat20ModifierManager modifierManager = lootSystem.getModifierManager();
+            Nat20LootEntryRegistry entryRegistry = lootSystem.getLootEntryRegistry();
+            short capacity = changedContainer.getCapacity();
+
+            for (short slot = 0; slot < capacity; slot++) {
+                if (!transaction.wasSlotModified(slot)) continue;
+
+                String slotName = slotPrefix + slot;
+
+                // Remove old modifiers using cached loot data
+                EquippedEntry oldEntry = playerCache.remove(slotName);
+                if (oldEntry != null) {
+                    modifierManager.removeModifiers(statMap, slotName, oldEntry.lootData());
+                }
+
+                // Apply new modifiers if the new item has loot data
+                ItemStack newStack = changedContainer.getItemStack(slot);
+                if (newStack == null) continue;
+
+                Nat20LootData newLootData = newStack.getFromMetadataOrNull(Nat20LootData.METADATA_KEY);
+                if (newLootData == null) continue;
+
+                String categoryKey = resolveCategoryKey(entryRegistry, newStack);
+                if (categoryKey == null) continue;
+
+                modifierManager.applyModifiers(statMap, newStack, slotName, categoryKey, playerStats);
+                Nat20ItemDisplayData displayData = lootSystem.getItemRenderer().resolve(newStack, playerStats);
+                playerCache.put(slotName, new EquippedEntry(newLootData, displayData));
+            }
+        }
     }
 
     @Nullable

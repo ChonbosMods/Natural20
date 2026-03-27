@@ -7,10 +7,8 @@ plugins {
 
 hytale {
     usePatchline("release")
-    // Pinned to match ScaffoldIt devtools 0.2.14 (targets 2026.02.18-f3b8fff95).
-    // Server 2026.02.19 causes version mismatch that breaks all entity collision/interaction.
-    // Unpin when ScaffoldIt 0.3.x ships with flexible version checking (issue #11).
-    useVersion("2026.02.18-f3b8fff95")
+    // Update 4 (2026-03-26). Devtools 0.2.14 may emit version mismatch warnings.
+    useVersion("2026.03.26-89796e57b")
 
     repositories {
     }
