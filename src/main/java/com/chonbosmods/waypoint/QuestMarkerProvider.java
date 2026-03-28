@@ -4,15 +4,12 @@ import com.chonbosmods.Natural20;
 import com.chonbosmods.data.Nat20PlayerData;
 import com.chonbosmods.quest.QuestInstance;
 import com.chonbosmods.quest.QuestSystem;
-import com.hypixel.hytale.component.Ref;
-import com.hypixel.hytale.component.Store;
 import com.hypixel.hytale.math.vector.Transform;
 import com.hypixel.hytale.math.vector.Vector3d;
 import com.hypixel.hytale.server.core.entity.entities.Player;
 import com.hypixel.hytale.server.core.universe.PlayerRef;
 import com.hypixel.hytale.server.core.universe.Universe;
 import com.hypixel.hytale.server.core.universe.world.World;
-import com.hypixel.hytale.server.core.universe.world.storage.EntityStore;
 import com.hypixel.hytale.server.core.universe.world.worldmap.WorldMapManager;
 import com.hypixel.hytale.server.core.universe.world.worldmap.markers.MapMarkerBuilder;
 import com.hypixel.hytale.server.core.universe.world.worldmap.markers.MarkersCollector;
@@ -20,8 +17,19 @@ import com.hypixel.hytale.server.core.universe.world.worldmap.markers.MarkersCol
 import com.hypixel.hytale.logger.HytaleLogger;
 
 import javax.annotation.Nonnull;
+import java.util.ArrayList;
+import java.util.List;
 import java.util.Map;
+import java.util.UUID;
+import java.util.concurrent.ConcurrentHashMap;
 
+/**
+ * Emits map/compass markers for active quest POIs. Runs on the WorldMap tick thread (~10Hz).
+ *
+ * Because the ECS Store enforces thread affinity (world thread only), we cannot read
+ * Nat20PlayerData here. Instead, quest marker positions are cached via {@link #updatePlayer}
+ * which must be called from the world thread whenever quest state changes.
+ */
 public class QuestMarkerProvider implements WorldMapManager.MarkerProvider {
 
     public static final QuestMarkerProvider INSTANCE = new QuestMarkerProvider();
@@ -31,61 +39,88 @@ public class QuestMarkerProvider implements WorldMapManager.MarkerProvider {
     private static final String MARKER_ICON = "Home.png";
     private static final HytaleLogger LOGGER = HytaleLogger.get("Nat20|Waypoint");
 
+    /** Marker positions per player, written from world thread, read from map thread. */
+    private final Map<UUID, List<MarkerEntry>> playerMarkers = new ConcurrentHashMap<>();
+
     private QuestMarkerProvider() {}
+
+    /** A cached marker position for one quest. */
+    public record MarkerEntry(String questId, double x, double z) {}
+
+    /**
+     * Update the cached marker list for a player. Call from the world thread
+     * whenever quests are accepted, completed, or abandoned.
+     */
+    public void updatePlayer(UUID playerUuid, List<MarkerEntry> markers) {
+        if (markers == null || markers.isEmpty()) {
+            playerMarkers.remove(playerUuid);
+        } else {
+            playerMarkers.put(playerUuid, List.copyOf(markers));
+        }
+    }
+
+    /** Remove a player's cached markers (e.g., on disconnect). */
+    public void removePlayer(UUID playerUuid) {
+        playerMarkers.remove(playerUuid);
+    }
+
+    /**
+     * Rebuild the marker cache for a player from their current quest data.
+     * Call from the world thread after quest accept/complete/abandon.
+     */
+    public static void refreshMarkers(UUID playerUuid, Nat20PlayerData playerData) {
+        QuestSystem questSystem = Natural20.getInstance().getQuestSystem();
+        if (questSystem == null) return;
+
+        Map<String, QuestInstance> quests = questSystem.getStateManager().getActiveQuests(playerData);
+        List<MarkerEntry> entries = new ArrayList<>();
+
+        for (QuestInstance quest : quests.values()) {
+            Map<String, String> b = quest.getVariableBindings();
+            if (!"true".equals(b.get("poi_available"))) continue;
+
+            String rawCx = b.get("poi_center_x");
+            String rawCz = b.get("poi_center_z");
+            String rawOx = b.get("marker_offset_x");
+            String rawOz = b.get("marker_offset_z");
+            if (rawCx == null || rawCz == null || rawOx == null || rawOz == null) continue;
+
+            try {
+                double mx = Double.parseDouble(rawCx) + Double.parseDouble(rawOx);
+                double mz = Double.parseDouble(rawCz) + Double.parseDouble(rawOz);
+                entries.add(new MarkerEntry(quest.getQuestId(), mx, mz));
+            } catch (NumberFormatException ignored) {}
+        }
+
+        INSTANCE.updatePlayer(playerUuid, entries);
+    }
 
     @Override
     public void update(@Nonnull World world, @Nonnull Player player,
                        @Nonnull MarkersCollector collector) {
         try {
-            updateMarkers(world, player, collector);
+            List<MarkerEntry> markers = playerMarkers.get(player.getUuid());
+            if (markers == null || markers.isEmpty()) return;
+
+            // PlayerRef.getTransform() is safe from any thread
+            PlayerRef playerRef = Universe.get().getPlayer(player.getUuid());
+            if (playerRef == null) return;
+            Transform playerTransform = playerRef.getTransform();
+            if (playerTransform == null) return;
+            Vector3d playerPos = playerTransform.getPosition();
+
+            for (MarkerEntry entry : markers) {
+                double dx = playerPos.getX() - entry.x;
+                double dz = playerPos.getZ() - entry.z;
+                if (dx * dx + dz * dz <= HIDE_RADIUS_SQ) continue;
+
+                collector.addIgnoreViewDistance(
+                        new MapMarkerBuilder("nat20_quest_" + entry.questId, MARKER_ICON,
+                                new Transform(new Vector3d(entry.x, playerPos.getY(), entry.z)))
+                                .build());
+            }
         } catch (Exception e) {
-            // Never let an exception escape: this runs on the WorldMapManager tick thread.
-            // An unhandled exception kills the thread and breaks the entire map.
             LOGGER.atWarning().withCause(e).log("Error updating quest markers");
-        }
-    }
-
-    private void updateMarkers(@Nonnull World world, @Nonnull Player player,
-                               @Nonnull MarkersCollector collector) {
-        QuestSystem questSystem = Natural20.getInstance().getQuestSystem();
-        if (questSystem == null) return;
-
-        PlayerRef playerRef = Universe.get().getPlayer(player.getUuid());
-        if (playerRef == null) return;
-        Ref<EntityStore> ref = playerRef.getReference();
-        if (ref == null || !ref.isValid()) return;
-        Store<EntityStore> store = ref.getStore();
-
-        Nat20PlayerData playerData = store.getComponent(ref, Natural20.getPlayerDataType());
-        if (playerData == null) return;
-
-        Transform playerTransform = playerRef.getTransform();
-        if (playerTransform == null) return;
-        Vector3d playerPos = playerTransform.getPosition();
-
-        Map<String, QuestInstance> quests = questSystem.getStateManager().getActiveQuests(playerData);
-
-        for (QuestInstance quest : quests.values()) {
-            Map<String, String> bindings = quest.getVariableBindings();
-            if (!"true".equals(bindings.get("poi_available"))) continue;
-
-            String rawCx = bindings.get("poi_center_x");
-            String rawCz = bindings.get("poi_center_z");
-            String rawOx = bindings.get("marker_offset_x");
-            String rawOz = bindings.get("marker_offset_z");
-            if (rawCx == null || rawCz == null || rawOx == null || rawOz == null) continue;
-
-            double markerX = Double.parseDouble(rawCx) + Double.parseDouble(rawOx);
-            double markerZ = Double.parseDouble(rawCz) + Double.parseDouble(rawOz);
-
-            double dx = playerPos.getX() - markerX;
-            double dz = playerPos.getZ() - markerZ;
-            if (dx * dx + dz * dz <= HIDE_RADIUS_SQ) continue;
-
-            collector.addIgnoreViewDistance(
-                    new MapMarkerBuilder("nat20_quest_" + quest.getQuestId(), MARKER_ICON,
-                            new Transform(new Vector3d(markerX, playerPos.getY(), markerZ)))
-                            .build());
         }
     }
 }

@@ -13,6 +13,8 @@ import com.hypixel.hytale.server.core.Message;
 import com.hypixel.hytale.server.core.universe.world.World;
 import com.hypixel.hytale.server.core.universe.world.storage.EntityStore;
 
+import com.chonbosmods.waypoint.QuestMarkerProvider;
+
 import java.util.HashMap;
 import java.util.Map;
 import java.util.Random;
@@ -130,6 +132,10 @@ public class DialogueActionRegistry {
                             phase.getReferenceId(), npcX, npcZ);
                     }
                 }
+
+                // Update waypoint marker cache
+                QuestMarkerProvider.refreshMarkers(
+                        ctx.player().getPlayerRef().getUuid(), ctx.playerData());
             } else {
                 LOGGER.atWarning().log("GIVE_QUEST: quest generation returned null for NPC %s (role=%s)", npcId, npcRole);
             }
@@ -145,6 +151,10 @@ public class DialogueActionRegistry {
                 questSystem.getStateManager().markQuestCompleted(ctx.playerData(), questId);
                 questSystem.getReferenceManager().cleanupQuestReferences(ctx.playerData(), quest);
                 ctx.player().sendMessage(Message.raw("Quest completed: " + quest.getSituationId()));
+
+                // Update waypoint marker cache
+                QuestMarkerProvider.refreshMarkers(
+                        ctx.player().getPlayerRef().getUuid(), ctx.playerData());
             }
         });
 
