@@ -3,7 +3,7 @@ package com.chonbosmods.waypoint;
 import com.chonbosmods.Natural20;
 import com.chonbosmods.data.Nat20PlayerData;
 import com.chonbosmods.quest.QuestInstance;
-import com.chonbosmods.quest.QuestStateManager;
+import com.chonbosmods.quest.QuestSystem;
 import com.hypixel.hytale.component.Ref;
 import com.hypixel.hytale.component.Store;
 import com.hypixel.hytale.math.vector.Transform;
@@ -48,9 +48,10 @@ public class QuestMarkerProvider implements WorldMapManager.MarkerProvider {
         if (playerTransform == null) return;
         Vector3d playerPos = playerTransform.getPosition();
 
-        // Get active quests
-        QuestStateManager stateManager = Natural20.getInstance().getQuestSystem().getStateManager();
-        Map<String, QuestInstance> quests = stateManager.getActiveQuests(playerData);
+        // Get active quests (quest system may not be initialized yet during startup)
+        QuestSystem questSystem = Natural20.getInstance().getQuestSystem();
+        if (questSystem == null) return;
+        Map<String, QuestInstance> quests = questSystem.getStateManager().getActiveQuests(playerData);
 
         for (QuestInstance quest : quests.values()) {
             Map<String, String> bindings = quest.getVariableBindings();
