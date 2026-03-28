@@ -15,6 +15,7 @@ import com.hypixel.hytale.server.core.universe.world.storage.EntityStore;
 
 import java.util.HashMap;
 import java.util.Map;
+import java.util.Random;
 import java.util.Set;
 
 public class DialogueActionRegistry {
@@ -89,6 +90,16 @@ public class DialogueActionRegistry {
                 npcRole, npcId, settlementCellKey, npcX, npcZ, completed);
             if (quest != null) {
                 questSystem.getStateManager().addQuest(ctx.playerData(), quest);
+
+                // Compute marker offset for waypoint system (20-60 blocks from POI)
+                if ("true".equals(quest.getVariableBindings().get("poi_available"))) {
+                    Map<String, String> b = quest.getVariableBindings();
+                    Random rng = new Random(quest.getQuestId().hashCode());
+                    double angle = rng.nextDouble() * 2 * Math.PI;
+                    double dist = 20 + rng.nextDouble() * 40;
+                    b.put("marker_offset_x", String.valueOf(dist * Math.cos(angle)));
+                    b.put("marker_offset_z", String.valueOf(dist * Math.sin(angle)));
+                }
 
                 // If quest has a POI, claim the void and place the structure
                 if ("true".equals(quest.getVariableBindings().get("poi_available"))) {
