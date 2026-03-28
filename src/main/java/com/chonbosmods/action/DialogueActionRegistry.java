@@ -91,9 +91,7 @@ public class DialogueActionRegistry {
             QuestInstance quest = questSystem.getGenerator().generate(
                 npcRole, npcId, settlementCellKey, npcX, npcZ, completed);
             if (quest != null) {
-                questSystem.getStateManager().addQuest(ctx.playerData(), quest);
-
-                // Compute marker offset for waypoint system (20-60 blocks from POI)
+                // Compute marker offset BEFORE addQuest so it's serialized with the bindings
                 if ("true".equals(quest.getVariableBindings().get("poi_available"))) {
                     Map<String, String> b = quest.getVariableBindings();
                     Random rng = new Random(quest.getQuestId().hashCode());
@@ -102,6 +100,8 @@ public class DialogueActionRegistry {
                     b.put("marker_offset_x", String.valueOf(dist * Math.cos(angle)));
                     b.put("marker_offset_z", String.valueOf(dist * Math.sin(angle)));
                 }
+
+                questSystem.getStateManager().addQuest(ctx.playerData(), quest);
 
                 // If quest has a POI, claim the void and place the structure
                 if ("true".equals(quest.getVariableBindings().get("poi_available"))) {
