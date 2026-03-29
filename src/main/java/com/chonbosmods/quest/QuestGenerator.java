@@ -102,6 +102,9 @@ public class QuestGenerator {
             phases.add(new PhaseInstance(phaseType, variant.id(), objectives, referenceId));
         }
 
+        // Build objective summary from exposition phase for dialogue templates
+        buildObjectiveSummary(phases.getFirst(), bindings);
+
         String questId = "quest_" + situation.getId().toLowerCase() + "_" + Long.toHexString(questCounter.incrementAndGet());
 
         QuestInstance quest = new QuestInstance(
@@ -217,10 +220,7 @@ public class QuestGenerator {
         // Resolve POI: find nearby cave void for hostile location quests
         CaveVoidRegistry voidRegistry = Natural20.getInstance().getCaveVoidRegistry();
         if (voidRegistry != null) {
-            CaveVoidRecord poi = voidRegistry.findNearbyVoid(npcX, npcZ, 100, 300);
-            if (poi == null) {
-                poi = voidRegistry.findAnyVoid((int) npcX, (int) npcZ);
-            }
+            CaveVoidRecord poi = voidRegistry.findNearbyVoid(npcX, npcZ, 200, 600);
             if (poi != null) {
                 bindings.put("poi_available", "true");
                 bindings.put("poi_center_x", String.valueOf(poi.getCenterX()));
@@ -378,6 +378,30 @@ public class QuestGenerator {
             }
         }
         return nearest;
+    }
+
+    /**
+     * Build a human-readable objective summary from the first phase's objectives.
+     * Stored as {quest_objective_summary} for use in dialogue templates.
+     * Examples: "kill 5 Trorks to the north-east, about 300 blocks"
+     *           "collect 10 Wood Logs"
+     *           "speak with Elara to the south, about 150 blocks"
+     */
+    private void buildObjectiveSummary(PhaseInstance phase, Map<String, String> bindings) {
+        if (phase.getObjectives().isEmpty()) return;
+        ObjectiveInstance obj = phase.getObjectives().getFirst();
+
+        String summary = switch (obj.getType()) {
+            case KILL_MOBS -> "kill " + obj.getRequiredCount() + " " + obj.getTargetLabel()
+                    + (obj.getDirectionHint() != null ? " to the " + obj.getDirectionHint() : "");
+            case COLLECT_RESOURCES -> "collect " + obj.getRequiredCount() + " " + obj.getTargetLabel();
+            case FETCH_ITEM -> "find " + obj.getTargetLabel()
+                    + (obj.getDirectionHint() != null ? " to the " + obj.getDirectionHint() : "");
+            case TALK_TO_NPC -> "speak with " + obj.getTargetLabel()
+                    + (obj.getDirectionHint() != null ? " to the " + obj.getDirectionHint() : "");
+        };
+
+        bindings.put("quest_objective_summary", summary);
     }
 
     private ObjectiveType pickObjectiveType(List<ObjectiveType> pool, @Nullable ObjectiveType lastType, Random random) {
