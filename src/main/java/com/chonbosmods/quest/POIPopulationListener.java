@@ -62,8 +62,10 @@ public class POIPopulationListener {
         }
 
         for (int i = 0; i < count; i++) {
-            double offsetX = (rng.nextDouble() - 0.5) * 8;
-            double offsetZ = (rng.nextDouble() - 0.5) * 8;
+            // Small spread (±1.5 blocks) to avoid spawning into dungeon walls.
+            // The entrance position itself is guaranteed to be air.
+            double offsetX = (rng.nextDouble() - 0.5) * 3;
+            double offsetZ = (rng.nextDouble() - 0.5) * 3;
             Vector3d spawnPos = new Vector3d(poiX + offsetX, poiY + 1.0, poiZ + offsetZ);
             Vector3f rotation = new Vector3f(0, (float)(rng.nextDouble() * 2 - 1), 0);
 

@@ -4,6 +4,7 @@ import com.chonbosmods.Natural20;
 import com.chonbosmods.cave.CaveVoidRecord;
 import com.chonbosmods.cave.CaveVoidRegistry;
 import com.chonbosmods.data.Nat20PlayerData;
+import com.chonbosmods.quest.ObjectiveInstance;
 import com.chonbosmods.quest.PhaseInstance;
 import com.chonbosmods.quest.POIPopulationListener;
 import com.chonbosmods.quest.QuestStateManager;
@@ -230,11 +231,35 @@ public class DialogueActionRegistry {
                 ctx.systemLogger().accept("Quest completed: " + quest.getSituationId());
             } else {
                 quest.advancePhase();
-                questSystem.getStateManager().saveActiveQuests(
-                    ctx.playerData(), questSystem.getStateManager().getActiveQuests(ctx.playerData()));
+
+                // Reset POI mob state for the new phase so proximity system spawns fresh mobs
+                if ("true".equals(quest.getVariableBindings().get("poi_available"))) {
+                    quest.getVariableBindings().put("poi_mob_state", "PENDING");
+                    quest.getVariableBindings().put("poi_mob_uuids", "");
+                    quest.getVariableBindings().remove("poi_detached_uuids");
+                }
+
+                // Build objective summary for the new phase
+                PhaseInstance newPhase = quest.getCurrentPhase();
+                if (newPhase != null && !newPhase.getObjectives().isEmpty()) {
+                    ObjectiveInstance obj = newPhase.getObjectives().getFirst();
+                    String summary = switch (obj.getType()) {
+                        case KILL_MOBS -> "kill " + obj.getRequiredCount() + " " + obj.getTargetLabel();
+                        case COLLECT_RESOURCES -> "collect " + obj.getRequiredCount() + " " + obj.getTargetLabel();
+                        case FETCH_ITEM -> "find " + obj.getTargetLabel();
+                        case TALK_TO_NPC -> "speak with " + obj.getTargetLabel();
+                    };
+                    quest.getVariableBindings().put("quest_objective_summary", summary);
+                }
+
+                // Save with the modified quest re-inserted (getActiveQuests deserializes fresh)
+                Map<String, QuestInstance> allQuests = questSystem.getStateManager().getActiveQuests(ctx.playerData());
+                allQuests.put(quest.getQuestId(), quest);
+                questSystem.getStateManager().saveActiveQuests(ctx.playerData(), allQuests);
+
                 LOGGER.atInfo().log("TURN_IN_PHASE: quest %s advanced to phase %d: %s",
                     quest.getQuestId(), quest.getCurrentPhaseIndex(), quest.getCurrentPhase().getType());
-                ctx.systemLogger().accept("Phase complete: " + quest.getSituationId());
+                ctx.systemLogger().accept("Next: " + quest.getVariableBindings().getOrDefault("quest_objective_summary", "continue the quest"));
             }
 
             // Refresh markers

@@ -124,10 +124,11 @@ public class POIKillTrackingSystem extends DamageEventSystem {
             if (mobUUIDs == null || !mobUUIDs.contains(victimUUID)) continue;
 
             // Found a matching quest: check damage cause
-            if (damage.getCause() == DamageCause.SUFFOCATION) {
-                // Suffocation: don't credit, spawn replacement, remove dead mob UUID
-                LOGGER.atInfo().log("POI mob suffocated: quest=%s victim=%s, spawning replacement",
-                    quest.getQuestId(), victimUUID);
+            DamageCause cause = damage.getCause();
+            if (cause == DamageCause.SUFFOCATION || cause == DamageCause.ENVIRONMENT) {
+                // Terrain/environment damage: don't credit, spawn replacement
+                LOGGER.atInfo().log("POI mob died to %s: quest=%s victim=%s, spawning replacement",
+                    cause.getId(), quest.getQuestId(), victimUUID);
                 removeMobUUID(b, victimUUID);
                 stateManager.saveActiveQuests(playerData, quests);
                 spawnReplacement(quest, b, playerData, quests);
