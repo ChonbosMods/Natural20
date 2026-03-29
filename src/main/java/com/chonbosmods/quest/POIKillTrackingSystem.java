@@ -2,12 +2,14 @@ package com.chonbosmods.quest;
 
 import com.chonbosmods.Natural20;
 import com.chonbosmods.data.Nat20PlayerData;
+import com.chonbosmods.waypoint.QuestMarkerProvider;
 import com.hypixel.hytale.component.ArchetypeChunk;
 import com.hypixel.hytale.component.CommandBuffer;
 import com.hypixel.hytale.component.Ref;
 import com.hypixel.hytale.component.Store;
 import com.hypixel.hytale.component.query.Query;
 import com.hypixel.hytale.logger.HytaleLogger;
+import com.hypixel.hytale.server.core.entity.entities.Player;
 import com.hypixel.hytale.server.core.modules.entity.damage.Damage;
 import com.hypixel.hytale.server.core.modules.entity.damage.DamageEventSystem;
 import com.hypixel.hytale.server.core.modules.entitystats.EntityStatMap;
@@ -94,17 +96,16 @@ public class POIKillTrackingSystem extends DamageEventSystem {
 
                 // Save and check phase completion
                 if (phase.isComplete()) {
-                    boolean isFinalPhase = quest.getCurrentPhaseIndex() >= quest.getPhases().size() - 1;
-                    questSystem.getRewardManager().awardPhaseXP(playerData, phase, isFinalPhase, quest.getPhases().size());
+                    // Set flag instead of advancing: player must return to NPC for turn-in
+                    quest.getVariableBindings().put("phase_objectives_complete", "true");
+                    LOGGER.atInfo().log("Quest %s phase %d objectives complete via POI kill: awaiting turn-in",
+                        quest.getQuestId(), quest.getCurrentPhaseIndex());
+                    stateManager.saveActiveQuests(playerData, quests);
 
-                    if (isFinalPhase) {
-                        LOGGER.atInfo().log("Quest %s completed via POI kill", quest.getQuestId());
-                        stateManager.markQuestCompleted(playerData, quest.getQuestId());
-                    } else {
-                        quest.advancePhase();
-                        LOGGER.atInfo().log("Quest %s advanced to phase %d via POI kill",
-                            quest.getQuestId(), quest.getCurrentPhaseIndex());
-                        stateManager.saveActiveQuests(playerData, quests);
+                    // Refresh markers: swaps POI marker → return marker at settlement
+                    Player player = store.getComponent(killerRef, Player.getComponentType());
+                    if (player != null) {
+                        QuestMarkerProvider.refreshMarkers(player.getPlayerRef().getUuid(), playerData);
                     }
                 } else {
                     stateManager.saveActiveQuests(playerData, quests);

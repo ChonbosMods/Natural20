@@ -2,12 +2,14 @@ package com.chonbosmods.quest;
 
 import com.chonbosmods.Natural20;
 import com.chonbosmods.data.Nat20PlayerData;
+import com.chonbosmods.waypoint.QuestMarkerProvider;
 import com.google.common.flogger.FluentLogger;
 import com.hypixel.hytale.component.Ref;
 import com.hypixel.hytale.component.Store;
 import com.hypixel.hytale.server.core.universe.world.storage.EntityStore;
 
 import java.util.Map;
+import java.util.UUID;
 
 public class QuestTracker {
 
@@ -62,26 +64,16 @@ public class QuestTracker {
 
     private void onPhaseComplete(Ref<EntityStore> playerRef, Store<EntityStore> store,
                                   Nat20PlayerData playerData, QuestInstance quest) {
-        PhaseInstance completedPhase = quest.getCurrentPhase();
-        boolean isFinalPhase = quest.getCurrentPhaseIndex() >= quest.getPhases().size() - 1;
+        // Set flag instead of advancing: player must return to NPC for turn-in
+        quest.getVariableBindings().put("phase_objectives_complete", "true");
+        LOGGER.atInfo().log("Quest %s phase %d objectives complete: awaiting turn-in",
+            quest.getQuestId(), quest.getCurrentPhaseIndex());
 
-        rewardManager.awardPhaseXP(playerData, completedPhase, isFinalPhase, quest.getPhases().size());
-
-        if (completedPhase.getType() == PhaseType.RESOLUTION) {
-            if (isFinalPhase || rewardManager.shouldGiveMidChainReward(quest)) {
-                rewardManager.awardLootReward(playerRef, store, playerData);
-                quest.claimReward(quest.getCurrentPhaseIndex());
-            }
-        }
-
-        if (isFinalPhase) {
-            LOGGER.atInfo().log("Quest %s completed", quest.getQuestId());
-            stateManager.markQuestCompleted(playerData, quest.getQuestId());
-        } else {
-            quest.advancePhase();
-            LOGGER.atInfo().log("Quest %s advanced to phase %d: %s",
-                quest.getQuestId(), quest.getCurrentPhaseIndex(), quest.getCurrentPhase().getType());
-        }
+        // Refresh markers: swaps POI marker → return marker at settlement
+        UUID playerUuid = store.getComponent(playerRef,
+            com.hypixel.hytale.server.core.entity.entities.Player.getComponentType())
+            .getPlayerRef().getUuid();
+        QuestMarkerProvider.refreshMarkers(playerUuid, playerData);
     }
 
     private boolean matchesTarget(ObjectiveInstance obj, String targetId) {

@@ -4,6 +4,8 @@ import com.chonbosmods.Natural20;
 import com.chonbosmods.data.Nat20PlayerData;
 import com.chonbosmods.quest.QuestInstance;
 import com.chonbosmods.quest.QuestSystem;
+import com.chonbosmods.settlement.SettlementRecord;
+import com.chonbosmods.settlement.SettlementRegistry;
 import com.hypixel.hytale.math.vector.Transform;
 import com.hypixel.hytale.math.vector.Vector3d;
 import com.hypixel.hytale.server.core.entity.entities.Player;
@@ -42,9 +44,12 @@ public class QuestMarkerProvider implements WorldMapManager.MarkerProvider {
     private static final double HIDE_RADIUS = 100.0;
     private static final double HIDE_RADIUS_SQ = HIDE_RADIUS * HIDE_RADIUS;
     private static final String CENTER_ICON = "QuestCenter.png";
+    private static final String RETURN_ICON = "QuestReturn.png";
     private static final String RING_ICON = "Quest.png";
     private static final int RING_COUNT = 48;
     private static final HytaleLogger LOGGER = HytaleLogger.get("Nat20|Waypoint");
+
+    public enum MarkerType { POI, RETURN }
 
     /** Marker data per player, written from world thread, read from map thread. */
     private final Map<UUID, List<MarkerEntry>> playerMarkers = new ConcurrentHashMap<>();
@@ -52,7 +57,7 @@ public class QuestMarkerProvider implements WorldMapManager.MarkerProvider {
     private QuestMarkerProvider() {}
 
     /** Cached marker data for one quest. */
-    public record MarkerEntry(String questId, String questName, double x, double z) {}
+    public record MarkerEntry(String questId, String questName, double x, double z, MarkerType type) {}
 
     // Reflection handle for WorldMapTracker.clientHasWorldMapVisible
     private static final Field MAP_VISIBLE_FIELD;
@@ -101,24 +106,38 @@ public class QuestMarkerProvider implements WorldMapManager.MarkerProvider {
 
         for (QuestInstance quest : quests.values()) {
             Map<String, String> b = quest.getVariableBindings();
-            if (!"true".equals(b.get("poi_available"))) continue;
+            boolean objectivesComplete = "true".equals(b.get("phase_objectives_complete"));
+            boolean hasPoi = "true".equals(b.get("poi_available"));
+            String questName = b.getOrDefault("quest_objective_summary",
+                b.getOrDefault("quest_title", quest.getSituationId()));
 
-            String rawCx = b.get("poi_center_x");
-            String rawCz = b.get("poi_center_z");
-            String rawOx = b.get("marker_offset_x");
-            String rawOz = b.get("marker_offset_z");
-            if (rawCx == null || rawCz == null || rawOx == null || rawOz == null) continue;
+            if (objectivesComplete) {
+                // Return marker at settlement origin
+                SettlementRegistry settlements = Natural20.getInstance().getSettlementRegistry();
+                if (settlements != null && quest.getSourceSettlementId() != null) {
+                    SettlementRecord settlement = settlements.getByCell(quest.getSourceSettlementId());
+                    if (settlement != null) {
+                        entries.add(new MarkerEntry(quest.getQuestId(), questName,
+                            settlement.getPosX(), settlement.getPosZ(), MarkerType.RETURN));
+                    }
+                }
+            } else if (hasPoi) {
+                // POI marker at offset from center
+                String rawCx = b.get("poi_center_x");
+                String rawCz = b.get("poi_center_z");
+                String rawOx = b.get("marker_offset_x");
+                String rawOz = b.get("marker_offset_z");
+                if (rawCx == null || rawCz == null || rawOx == null || rawOz == null) continue;
 
-            try {
-                double mx = Double.parseDouble(rawCx) + Double.parseDouble(rawOx);
-                double mz = Double.parseDouble(rawCz) + Double.parseDouble(rawOz);
-                String questName = b.getOrDefault("quest_title", quest.getSituationId());
-                entries.add(new MarkerEntry(quest.getQuestId(), questName, mx, mz));
-                LOGGER.atInfo().log("refreshMarkers: marker at (%.1f, %.1f) for '%s'", mx, mz, questName);
-            } catch (NumberFormatException ignored) {}
+                try {
+                    double mx = Double.parseDouble(rawCx) + Double.parseDouble(rawOx);
+                    double mz = Double.parseDouble(rawCz) + Double.parseDouble(rawOz);
+                    entries.add(new MarkerEntry(quest.getQuestId(), questName, mx, mz, MarkerType.POI));
+                } catch (NumberFormatException ignored) {}
+            }
         }
 
-        LOGGER.atInfo().log("refreshMarkers: caching %d markers for player %s", entries.size(), playerUuid);
+        LOGGER.atFine().log("refreshMarkers: caching %d markers for player %s", entries.size(), playerUuid);
         INSTANCE.updatePlayer(playerUuid, entries);
     }
 
@@ -138,30 +157,38 @@ public class QuestMarkerProvider implements WorldMapManager.MarkerProvider {
             boolean mapOpen = isMapOpen(player);
 
             for (MarkerEntry entry : markers) {
-                double dx = playerPos.getX() - entry.x;
-                double dz = playerPos.getZ() - entry.z;
-                boolean insideRadius = dx * dx + dz * dz <= HIDE_RADIUS_SQ;
-
-                // Center marker: compass + map, hides within radius
-                if (!insideRadius) {
+                if (entry.type == MarkerType.RETURN) {
+                    // Return marker: always visible on compass + map, no ring
                     collector.addIgnoreViewDistance(
-                            new MapMarkerBuilder("nat20_quest_" + entry.questId, CENTER_ICON,
+                            new MapMarkerBuilder("nat20_return_" + entry.questId, RETURN_ICON,
                                     new Transform(new Vector3d(entry.x, playerPos.getY(), entry.z)))
                                     .withCustomName(entry.questName)
                                     .build());
-                }
+                } else {
+                    // POI marker: center icon hides within radius, ring on map only
+                    double dx = playerPos.getX() - entry.x;
+                    double dz = playerPos.getZ() - entry.z;
+                    boolean insideRadius = dx * dx + dz * dz <= HIDE_RADIUS_SQ;
 
-                // Ring markers: only when map UI is open, always visible regardless of proximity
-                if (mapOpen) {
-                    for (int i = 0; i < RING_COUNT; i++) {
-                        double angle = 2.0 * Math.PI * i / RING_COUNT;
-                        double rx = entry.x + HIDE_RADIUS * Math.cos(angle);
-                        double rz = entry.z + HIDE_RADIUS * Math.sin(angle);
+                    if (!insideRadius) {
                         collector.addIgnoreViewDistance(
-                                new MapMarkerBuilder("nat20_ring_" + entry.questId + "_" + i, RING_ICON,
-                                        new Transform(new Vector3d(rx, playerPos.getY(), rz)))
-                                        .withCustomName(".")
+                                new MapMarkerBuilder("nat20_quest_" + entry.questId, CENTER_ICON,
+                                        new Transform(new Vector3d(entry.x, playerPos.getY(), entry.z)))
+                                        .withCustomName(entry.questName)
                                         .build());
+                    }
+
+                    if (mapOpen) {
+                        for (int i = 0; i < RING_COUNT; i++) {
+                            double angle = 2.0 * Math.PI * i / RING_COUNT;
+                            double rx = entry.x + HIDE_RADIUS * Math.cos(angle);
+                            double rz = entry.z + HIDE_RADIUS * Math.sin(angle);
+                            collector.addIgnoreViewDistance(
+                                    new MapMarkerBuilder("nat20_ring_" + entry.questId + "_" + i, RING_ICON,
+                                            new Transform(new Vector3d(rx, playerPos.getY(), rz)))
+                                            .withCustomName(".")
+                                            .build());
+                        }
                     }
                 }
             }

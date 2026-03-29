@@ -3,9 +3,14 @@ package com.chonbosmods.action;
 import com.chonbosmods.Natural20;
 import com.chonbosmods.cave.CaveVoidRecord;
 import com.chonbosmods.cave.CaveVoidRegistry;
+import com.chonbosmods.data.Nat20PlayerData;
+import com.chonbosmods.quest.PhaseInstance;
 import com.chonbosmods.quest.POIPopulationListener;
 import com.chonbosmods.quest.QuestSystem;
 import com.chonbosmods.quest.QuestInstance;
+import com.chonbosmods.settlement.NpcRecord;
+import com.chonbosmods.settlement.SettlementRecord;
+import com.chonbosmods.settlement.SettlementRegistry;
 import com.hypixel.hytale.component.Ref;
 import com.google.common.flogger.FluentLogger;
 import com.hypixel.hytale.component.Store;
@@ -70,10 +75,65 @@ public class DialogueActionRegistry {
                 LOGGER.atWarning().log("GIVE_QUEST: quest system not initialized");
                 return;
             }
-            String npcRole = ctx.npcData() != null ? ctx.npcData().getRoleName() : "Villager";
-            String npcId = ctx.npcId();
-            String settlementCellKey = ctx.npcData() != null ? ctx.npcData().getSettlementCellKey() : "";
 
+            // Look up pre-generated quest from NPC's settlement record
+            String npcName = ctx.npcId();
+            String cellKey = ctx.npcData() != null ? ctx.npcData().getSettlementCellKey() : "";
+            SettlementRegistry settlements = Natural20.getInstance().getSettlementRegistry();
+            if (settlements == null || cellKey.isEmpty()) {
+                LOGGER.atWarning().log("GIVE_QUEST: no settlement registry or cell key for NPC %s", npcName);
+                return;
+            }
+
+            SettlementRecord settlement = settlements.getByCell(cellKey);
+            if (settlement == null) {
+                LOGGER.atWarning().log("GIVE_QUEST: settlement not found for cell %s", cellKey);
+                return;
+            }
+
+            NpcRecord npcRecord = settlement.getNpcByName(npcName);
+            if (npcRecord == null || npcRecord.getPreGeneratedQuest() == null) {
+                LOGGER.atWarning().log("GIVE_QUEST: no pre-generated quest for NPC %s", npcName);
+                return;
+            }
+
+            QuestInstance quest = npcRecord.getPreGeneratedQuest();
+
+            // Check if player already has this quest or completed it
+            Set<String> completedIds = questSystem.getStateManager().getCompletedQuestIds(ctx.playerData());
+            if (completedIds.contains(quest.getQuestId())) {
+                LOGGER.atInfo().log("GIVE_QUEST: player already completed quest %s", quest.getQuestId());
+                return;
+            }
+            if (questSystem.getStateManager().getQuest(ctx.playerData(), quest.getQuestId()) != null) {
+                LOGGER.atInfo().log("GIVE_QUEST: player already has quest %s", quest.getQuestId());
+                return;
+            }
+
+            // Add quest to player's active quests (marker offset computed after POI placement)
+            questSystem.getStateManager().addQuest(ctx.playerData(), quest);
+
+            // Trigger POI placement if applicable
+            if ("true".equals(quest.getVariableBindings().get("poi_available"))) {
+                String popSpec = quest.getVariableBindings().get("poi_population_spec");
+                String mobRole = null;
+                int mobCount = 0;
+                if (popSpec != null && !popSpec.equals("NONE")) {
+                    int firstColon = popSpec.indexOf(':');
+                    int lastColon = popSpec.lastIndexOf(':');
+                    if (firstColon > 0 && lastColon > firstColon) {
+                        mobRole = popSpec.substring(firstColon + 1, lastColon);
+                        mobCount = Integer.parseInt(popSpec.substring(lastColon + 1));
+                    }
+                }
+                triggerPOIPlacement(quest, ctx.store(), ctx.playerRef(), mobRole, mobCount);
+            }
+
+            ctx.systemLogger().accept("Quest accepted: " + quest.getSituationId());
+            LOGGER.atInfo().log("GIVE_QUEST: player %s received quest '%s' from NPC %s",
+                ctx.player().getPlayerRef().getUuid(), quest.getQuestId(), npcName);
+
+            // Inject references
             double npcX = 0, npcZ = 0;
             try {
                 var transform = ctx.store().getComponent(ctx.npcRef(),
@@ -83,62 +143,23 @@ public class DialogueActionRegistry {
                     npcX = pos.getX();
                     npcZ = pos.getZ();
                 }
-            } catch (Exception e) {
-                LOGGER.atWarning().log("GIVE_QUEST: could not get NPC position");
+            } catch (Exception ignored) {}
+
+            for (var phase : quest.getPhases()) {
+                if (phase.getReferenceId() != null) {
+                    questSystem.getReferenceManager().injectReference(
+                        ctx.playerData(), quest.getSituationId(),
+                        phase.getReferenceId(), npcX, npcZ);
+                }
             }
 
-            Set<String> completed = questSystem.getStateManager().getCompletedQuestIds(ctx.playerData());
-            QuestInstance quest = questSystem.getGenerator().generate(
-                npcRole, npcId, settlementCellKey, npcX, npcZ, completed);
-            if (quest != null) {
-                // Compute marker offset BEFORE addQuest so it's serialized with the bindings
-                if ("true".equals(quest.getVariableBindings().get("poi_available"))) {
-                    Map<String, String> b = quest.getVariableBindings();
-                    Random rng = new Random(quest.getQuestId().hashCode());
-                    double angle = rng.nextDouble() * 2 * Math.PI;
-                    double dist = 20 + rng.nextDouble() * 40;
-                    b.put("marker_offset_x", String.valueOf(dist * Math.cos(angle)));
-                    b.put("marker_offset_z", String.valueOf(dist * Math.sin(angle)));
-                }
+            // Consume the pre-generated quest so it can't be given again
+            npcRecord.setPreGeneratedQuest(null);
+            settlements.saveAsync();
 
-                questSystem.getStateManager().addQuest(ctx.playerData(), quest);
-
-                // If quest has a POI, claim the void and place the structure
-                if ("true".equals(quest.getVariableBindings().get("poi_available"))) {
-                    // Parse population spec: "KILL_MOBS:RoleName:count"
-                    String popSpec = quest.getVariableBindings().get("poi_population_spec");
-                    String mobRole = null;
-                    int mobCount = 0;
-                    if (popSpec != null && !popSpec.equals("NONE")) {
-                        int firstColon = popSpec.indexOf(':');
-                        int lastColon = popSpec.lastIndexOf(':');
-                        if (firstColon > 0 && lastColon > firstColon) {
-                            mobRole = popSpec.substring(firstColon + 1, lastColon);
-                            mobCount = Integer.parseInt(popSpec.substring(lastColon + 1));
-                        }
-                    }
-                    triggerPOIPlacement(quest, ctx.store(), ctx.playerRef(), mobRole, mobCount);
-                }
-
-                ctx.systemLogger().accept("Quest accepted: " + quest.getSituationId());
-                LOGGER.atInfo().log("GIVE_QUEST: player %s received quest '%s' (situation=%s, phases=%d) from NPC %s",
-                    ctx.player().getPlayerRef().getUuid(), quest.getQuestId(), quest.getSituationId(),
-                    quest.getPhases().size(), npcId);
-
-                for (var phase : quest.getPhases()) {
-                    if (phase.getReferenceId() != null) {
-                        questSystem.getReferenceManager().injectReference(
-                            ctx.playerData(), quest.getSituationId(),
-                            phase.getReferenceId(), npcX, npcZ);
-                    }
-                }
-
-                // Update waypoint marker cache
-                QuestMarkerProvider.refreshMarkers(
-                        ctx.player().getPlayerRef().getUuid(), ctx.playerData());
-            } else {
-                LOGGER.atWarning().log("GIVE_QUEST: quest generation returned null for NPC %s (role=%s)", npcId, npcRole);
-            }
+            // Update waypoint marker cache
+            QuestMarkerProvider.refreshMarkers(
+                ctx.player().getPlayerRef().getUuid(), ctx.playerData());
         });
 
         register("COMPLETE_QUEST", (ctx, params) -> {
@@ -156,6 +177,68 @@ public class DialogueActionRegistry {
                 QuestMarkerProvider.refreshMarkers(
                         ctx.player().getPlayerRef().getUuid(), ctx.playerData());
             }
+        });
+
+        register("TURN_IN_PHASE", (ctx, params) -> {
+            QuestSystem questSystem = Natural20.getInstance().getQuestSystem();
+            if (questSystem == null) return;
+
+            // Find the quest this NPC gave that has completed objectives
+            String questId = params.get("questId");
+            QuestInstance quest;
+            if (questId != null) {
+                quest = questSystem.getStateManager().getQuest(ctx.playerData(), questId);
+            } else {
+                // Auto-detect: find quest from this NPC with phase_objectives_complete
+                quest = null;
+                for (QuestInstance q : questSystem.getStateManager().getActiveQuests(ctx.playerData()).values()) {
+                    if (ctx.npcId().equals(q.getSourceNpcId())
+                            && "true".equals(q.getVariableBindings().get("phase_objectives_complete"))) {
+                        quest = q;
+                        break;
+                    }
+                }
+            }
+
+            if (quest == null || !"true".equals(quest.getVariableBindings().get("phase_objectives_complete"))) {
+                LOGGER.atWarning().log("TURN_IN_PHASE: no quest ready for turn-in from NPC %s", ctx.npcId());
+                return;
+            }
+
+            PhaseInstance completedPhase = quest.getCurrentPhase();
+            boolean isFinalPhase = quest.getCurrentPhaseIndex() >= quest.getPhases().size() - 1;
+
+            // Award phase rewards
+            questSystem.getRewardManager().awardPhaseXP(
+                ctx.playerData(), completedPhase, isFinalPhase, quest.getPhases().size());
+
+            if (completedPhase.getType() == com.chonbosmods.quest.PhaseType.RESOLUTION) {
+                if (isFinalPhase || questSystem.getRewardManager().shouldGiveMidChainReward(quest)) {
+                    questSystem.getRewardManager().awardLootReward(ctx.playerRef(), ctx.store(), ctx.playerData());
+                    quest.claimReward(quest.getCurrentPhaseIndex());
+                }
+            }
+
+            // Clear flag
+            quest.getVariableBindings().remove("phase_objectives_complete");
+
+            if (isFinalPhase) {
+                LOGGER.atInfo().log("TURN_IN_PHASE: quest %s completed via turn-in", quest.getQuestId());
+                questSystem.getStateManager().markQuestCompleted(ctx.playerData(), quest.getQuestId());
+                questSystem.getReferenceManager().cleanupQuestReferences(ctx.playerData(), quest);
+                ctx.systemLogger().accept("Quest completed: " + quest.getSituationId());
+            } else {
+                quest.advancePhase();
+                questSystem.getStateManager().saveActiveQuests(
+                    ctx.playerData(), questSystem.getStateManager().getActiveQuests(ctx.playerData()));
+                LOGGER.atInfo().log("TURN_IN_PHASE: quest %s advanced to phase %d: %s",
+                    quest.getQuestId(), quest.getCurrentPhaseIndex(), quest.getCurrentPhase().getType());
+                ctx.systemLogger().accept("Phase complete: " + quest.getSituationId());
+            }
+
+            // Refresh markers
+            QuestMarkerProvider.refreshMarkers(
+                ctx.player().getPlayerRef().getUuid(), ctx.playerData());
         });
 
         register("OPEN_SHOP", (ctx, params) -> {
@@ -241,11 +324,32 @@ public class DialogueActionRegistry {
                     bindings.put("poi_y", String.valueOf(entrance.getY()));
                     bindings.put("poi_z", String.valueOf(entrance.getZ()));
 
+                    // Compute marker offset relative to actual entrance (0-80 blocks away)
+                    // The center marker sits at entrance + offset; the 100-block ring circles it.
+                    // Since offset max is 80 and ring radius is 100, the entrance is always inside the ring.
+                    bindings.put("poi_center_x", String.valueOf(entrance.getX()));
+                    bindings.put("poi_center_z", String.valueOf(entrance.getZ()));
+                    Random rng = new Random(quest.getQuestId().hashCode());
+                    double angle = rng.nextDouble() * 2 * Math.PI;
+                    double dist = rng.nextDouble() * 80;
+                    bindings.put("marker_offset_x", String.valueOf(dist * Math.cos(angle)));
+                    bindings.put("marker_offset_z", String.valueOf(dist * Math.sin(angle)));
+
                     // Spawn mobs immediately: chunks are guaranteed loaded after prefab paste
                     if (mobRole != null && mobCount > 0) {
                         Natural20.getInstance().getPOIPopulationListener().populateNow(
                             world, quest, playerRef, entrance.getX(), entrance.getY(), entrance.getZ(),
                             mobRole, mobCount);
+                    }
+
+                    // Refresh markers now that we have the real entrance-relative offset
+                    Nat20PlayerData pd = store.getComponent(playerRef, Natural20.getPlayerDataType());
+                    if (pd != null) {
+                        com.hypixel.hytale.server.core.entity.entities.Player player =
+                            store.getComponent(playerRef, com.hypixel.hytale.server.core.entity.entities.Player.getComponentType());
+                        if (player != null) {
+                            QuestMarkerProvider.refreshMarkers(player.getPlayerRef().getUuid(), pd);
+                        }
                     }
                 });
                 LOGGER.atInfo().log("POI placed for quest %s at (%d, %d, %d)",

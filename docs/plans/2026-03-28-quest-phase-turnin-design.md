@@ -106,8 +106,8 @@ The NPC's dialogue graph needs to detect the turn-in state:
 | Turn-in dialogue templates | Create pool files for turn-in responses |
 | `TopicGenerator.java` | Generate turn-in dialogue nodes |
 
-## Open Questions
+## Design Decisions
 
-- Should the return marker also hide within proximity (like POI markers), or always be visible since the player needs to find the NPC directly?
-- Should the NPC have a visible indicator (nameplate color? particle?) when they have a turn-in available?
-- How does the TALK_TO_NPC objective type interact with this system? (It's already a "go talk to someone" objective)
+- **Return marker visibility**: Always visible, no proximity hide. Normal map/compass marker. The `MarkerEntry` should support a `proximityHide` boolean flag so future objective types can toggle this behavior easily.
+- **NPC visible indicator**: Out of scope.
+- **Objective type support**: Only KILL_MOBS has working tracking (via POIKillTrackingSystem). TALK_TO_NPC (9 variants), FETCH_ITEM (7), and COLLECT_RESOURCES (3) generate objectives but have no progress monitoring. Waypoint lifecycle only needs to work with KILL_MOBS POI quests for now. 109 of 152 variants have empty objective pools (no objectives at all).

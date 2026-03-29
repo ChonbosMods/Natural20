@@ -4,8 +4,10 @@ import com.chonbosmods.Natural20;
 import com.chonbosmods.action.DialogueActionRegistry;
 import com.chonbosmods.data.Nat20NpcData;
 import com.chonbosmods.data.Nat20PlayerData;
-import com.chonbosmods.dialogue.model.DialogueGraph;
-import com.chonbosmods.dialogue.model.LogEntry;
+import com.chonbosmods.dialogue.model.*;
+import com.chonbosmods.quest.PhaseType;
+import com.chonbosmods.quest.QuestInstance;
+import com.chonbosmods.quest.QuestSystem;
 import com.google.gson.JsonParser;
 import com.hypixel.hytale.component.Ref;
 import com.hypixel.hytale.component.Store;
@@ -73,6 +75,9 @@ public class DialogueManager {
         if (playerData == null) {
             playerData = store.addComponent(playerRef, Natural20.getPlayerDataType());
         }
+
+        // Inject turn-in topics for any quests this NPC gave that have completed objectives
+        injectTurnInTopics(graph, npcId, playerData);
 
         // Session cleanup callback
         Runnable onSessionEnd = () -> endSession(playerUuid);
@@ -171,7 +176,7 @@ public class DialogueManager {
             session.endDialogue();
         }
         if (session != null) {
-            LOGGER.atInfo().log("Ended dialogue session for player %s", playerUuid);
+            LOGGER.atFine().log("Ended dialogue session for player %s", playerUuid);
         }
     }
 
@@ -192,5 +197,82 @@ public class DialogueManager {
             }
             return false;
         });
+    }
+
+    /**
+     * Inject turn-in dialogue topics for quests that this NPC gave where
+     * phase objectives are complete. Adds nodes and a priority topic directly
+     * into the mutable graph so the conversation session picks them up.
+     */
+    private void injectTurnInTopics(DialogueGraph graph, String npcId, Nat20PlayerData playerData) {
+        QuestSystem questSystem = Natural20.getInstance().getQuestSystem();
+        if (questSystem == null) return;
+
+        Map<String, QuestInstance> quests = questSystem.getStateManager().getActiveQuests(playerData);
+        for (QuestInstance quest : quests.values()) {
+            if (!npcId.equals(quest.getSourceNpcId())) continue;
+            if (!"true".equals(quest.getVariableBindings().get("phase_objectives_complete"))) continue;
+
+            String questId = quest.getQuestId();
+            Map<String, String> b = quest.getVariableBindings();
+            PhaseType phaseType = quest.getCurrentPhase() != null
+                ? quest.getCurrentPhase().getType() : PhaseType.EXPOSITION;
+            boolean isFinalPhase = quest.getCurrentPhaseIndex() >= quest.getPhases().size() - 1;
+
+            // Build turn-in dialogue text based on phase type
+            String turnInText = buildTurnInText(phaseType, isFinalPhase, b);
+            String topicLabel = "Report: " + b.getOrDefault("quest_title", quest.getSituationId());
+            String topicId = "turnin_" + questId;
+            String entryNodeId = topicId + "_entry";
+            String actionNodeId = topicId + "_action";
+            String confirmNodeId = topicId + "_confirm";
+
+            // Confirmation text after turn-in
+            String confirmText = isFinalPhase
+                ? "Your efforts won't be forgotten. Well done."
+                : "Good. There's more to be done, but you've made progress.";
+
+            // Action node: TURN_IN_PHASE
+            graph.nodes().put(actionNodeId, new DialogueNode.ActionNode(
+                List.of(Map.of("type", "TURN_IN_PHASE", "questId", questId)),
+                confirmNodeId, List.of(), true
+            ));
+
+            // Confirm node: NPC's post-turn-in response
+            graph.nodes().put(confirmNodeId, new DialogueNode.DialogueTextNode(
+                confirmText, List.of(), List.of(), true, false
+            ));
+
+            // Entry node: NPC acknowledges return, player confirms turn-in
+            graph.nodes().put(entryNodeId, new DialogueNode.DialogueTextNode(
+                turnInText,
+                List.of(new ResponseOption(
+                    topicId + "_resp", "[Turn in] Yes, it's done.", null, actionNodeId,
+                    ResponseMode.DECISIVE, null, null, null, null
+                )),
+                List.of(), false, false
+            ));
+
+            // Topic definition: priority (sortOrder -1), always visible, quest-flagged
+            graph.topics().addFirst(new TopicDefinition(
+                topicId, topicLabel, entryNodeId,
+                TopicScope.LOCAL, null, true, null, -1, null, true
+            ));
+
+            LOGGER.atInfo().log("Injected turn-in topic for quest %s (phase: %s, final: %s)",
+                questId, phaseType, isFinalPhase);
+        }
+    }
+
+    private static String buildTurnInText(PhaseType phaseType, boolean isFinalPhase,
+                                           Map<String, String> bindings) {
+        String focus = bindings.getOrDefault("quest_focus", "the task");
+        return switch (phaseType) {
+            case EXPOSITION -> "You're back. Did you find out what you needed about " + focus + "?";
+            case CONFLICT -> isFinalPhase
+                ? "I can see it in your eyes: the threat is dealt with. Tell me everything."
+                : "You've handled it, then? Good. But I don't think we're done yet.";
+            case RESOLUTION -> "You've done it. I wasn't sure you would, but here you are. You've earned this.";
+        };
     }
 }
