@@ -1,5 +1,7 @@
 package com.chonbosmods.settlement;
 
+import com.chonbosmods.quest.QuestInstance;
+
 import java.util.HashMap;
 import java.util.Map;
 import java.util.UUID;
@@ -23,6 +25,7 @@ public class NpcRecord {
     private int disposition;
     private String dialogueState;
     private Map<String, String> flags = new HashMap<>();
+    private QuestInstance preGeneratedQuest;
 
     /** No-arg constructor for Gson deserialization. */
     public NpcRecord() {}
@@ -75,4 +78,7 @@ public class NpcRecord {
 
     public Map<String, String> getFlags() { return flags; }
     public void setFlags(Map<String, String> flags) { this.flags = flags != null ? new HashMap<>(flags) : new HashMap<>(); }
+
+    public QuestInstance getPreGeneratedQuest() { return preGeneratedQuest; }
+    public void setPreGeneratedQuest(QuestInstance quest) { this.preGeneratedQuest = quest; }
 }

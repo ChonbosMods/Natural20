@@ -36,7 +36,7 @@
       ],
       "questHookPerspectives": [
         {
-          "intro": "{quest_exposition} The danger from {subject_focus_the} grows with each passing day. {quest_detail}",
+          "intro": "{quest_exposition} The danger from {subject_focus_the} grows with each passing day. You'll need to {quest_objective_summary}. {quest_detail}",
           "decisive": {
             "prompt": "I will handle it.",
             "response": "{quest_accept_response}"
@@ -79,7 +79,7 @@
       ],
       "questHookPerspectives": [
         {
-          "intro": "{quest_exposition} The sighting of {subject_focus_the} in an area that should have been safe cannot be ignored. {quest_detail}",
+          "intro": "{quest_exposition} The sighting of {subject_focus_the} in an area that should have been safe cannot be ignored. You'll need to {quest_objective_summary}. {quest_detail}",
           "decisive": {
             "prompt": "I will investigate.",
             "response": "{quest_accept_response}"
@@ -123,7 +123,7 @@
       ],
       "questHookPerspectives": [
         {
-          "intro": "{quest_exposition} The migration of {subject_focus_the} is a sign of something far more troubling. {quest_detail}",
+          "intro": "{quest_exposition} The migration of {subject_focus_the} is a sign of something far more troubling. You'll need to {quest_objective_summary}. {quest_detail}",
           "decisive": {
             "prompt": "I will track it to the source.",
             "response": "{quest_accept_response}"
@@ -167,7 +167,7 @@
       ],
       "questHookPerspectives": [
         {
-          "intro": "{quest_exposition} The disappearances linked to {subject_focus_the} cannot be ignored any longer. {quest_detail}",
+          "intro": "{quest_exposition} The disappearances linked to {subject_focus_the} cannot be ignored any longer. You'll need to {quest_objective_summary}. {quest_detail}",
           "decisive": {
             "prompt": "I will find them.",
             "response": "{quest_accept_response}"
@@ -211,7 +211,7 @@
       ],
       "questHookPerspectives": [
         {
-          "intro": "{quest_exposition} The corruption spreading from {subject_focus_the} will poison everything it touches if left unchecked. {quest_detail}",
+          "intro": "{quest_exposition} The corruption spreading from {subject_focus_the} will poison everything it touches if left unchecked. You'll need to {quest_objective_summary}. {quest_detail}",
           "decisive": {
             "prompt": "I will put a stop to it.",
             "response": "{quest_accept_response}"
@@ -255,7 +255,7 @@
       ],
       "questHookPerspectives": [
         {
-          "intro": "{quest_exposition} The signs surrounding {subject_focus_the} point to something that must be confronted before it is too late. {quest_detail}",
+          "intro": "{quest_exposition} The signs surrounding {subject_focus_the} point to something that must be confronted before it is too late. You'll need to {quest_objective_summary}. {quest_detail}",
           "decisive": {
             "prompt": "Tell me what needs doing.",
             "response": "{quest_accept_response}"
@@ -299,7 +299,7 @@
       ],
       "questHookPerspectives": [
         {
-          "intro": "{quest_exposition} There is something of real value tied to {subject_focus_the}, and it will not stay hidden forever. {quest_detail}",
+          "intro": "{quest_exposition} There is something of real value tied to {subject_focus_the}, and it will not stay hidden forever. You'll need to {quest_objective_summary}. {quest_detail}",
           "decisive": {
             "prompt": "I will go after it.",
             "response": "{quest_accept_response}"
@@ -343,7 +343,7 @@
       ],
       "questHookPerspectives": [
         {
-          "intro": "{quest_exposition} The conflict surrounding {subject_focus_the} threatens to spill over into something much worse. {quest_detail}",
+          "intro": "{quest_exposition} The conflict surrounding {subject_focus_the} threatens to spill over into something much worse. You'll need to {quest_objective_summary}. {quest_detail}",
           "decisive": {
             "prompt": "I will step in before it is too late.",
             "response": "{quest_accept_response}"

@@ -1,5 +1,6 @@
 package com.chonbosmods.settlement;
 
+import javax.annotation.Nullable;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.UUID;
@@ -54,6 +55,16 @@ public class SettlementRecord {
     public long getPlacedAt() { return placedAt; }
 
     public List<NpcRecord> getNpcs() { return npcs; }
+
+    /**
+     * Finds an NPC record by generated name, or null if not found.
+     */
+    public @Nullable NpcRecord getNpcByName(String generatedName) {
+        for (NpcRecord npc : npcs) {
+            if (generatedName.equals(npc.getGeneratedName())) return npc;
+        }
+        return null;
+    }
 
     /**
      * Returns the SettlementType enum constant corresponding to the stored type string.

@@ -3,6 +3,8 @@ package com.chonbosmods.topic;
 import com.chonbosmods.dialogue.DispositionBracket;
 import com.chonbosmods.dialogue.model.DialogueGraph;
 import com.chonbosmods.quest.DialogueResolver;
+import com.chonbosmods.quest.QuestGenerator;
+import com.chonbosmods.quest.QuestInstance;
 import com.chonbosmods.quest.QuestPoolRegistry;
 import com.chonbosmods.settlement.NpcRecord;
 import com.chonbosmods.settlement.SettlementRecord;
@@ -47,12 +49,14 @@ public class TopicGenerator {
     private final TopicPoolRegistry topicPool;
     private final TopicTemplateRegistry templateRegistry;
     private final QuestPoolRegistry questPool;
+    private final QuestGenerator questGenerator;
 
     public TopicGenerator(TopicPoolRegistry topicPool, TopicTemplateRegistry templateRegistry,
-                          QuestPoolRegistry questPool) {
+                          QuestPoolRegistry questPool, QuestGenerator questGenerator) {
         this.topicPool = topicPool;
         this.templateRegistry = templateRegistry;
         this.questPool = questPool;
+        this.questGenerator = questGenerator;
     }
 
     /**
@@ -138,14 +142,30 @@ public class TopicGenerator {
         for (int qi : questCandidates) {
             SubjectFocus focus = subjects.get(qi);
             String bearer = npcNames.get(random.nextInt(npcNames.size()));
-            focus.setQuestBearer(bearer, focus.getSubjectId());
-            NpcRecord rec = npcByName.get(bearer);
-            LOGGER.atInfo().log("  QUEST BEARER: %s (%s) holds quest for '%s' | /tp %d %d %d",
-                bearer, rec != null ? rec.getRole() : "?",
-                focus.getSubjectValue(),
-                rec != null ? (int) rec.getSpawnX() : 0,
-                rec != null ? (int) rec.getSpawnY() : 0,
-                rec != null ? (int) rec.getSpawnZ() : 0);
+            NpcRecord bearerRecord = npcByName.get(bearer);
+
+            // Generate quest upfront so bindings are available for dialogue templates
+            QuestInstance preQuest = questGenerator.generate(
+                bearerRecord.getRole(), bearer,
+                settlement.getCellKey(),
+                bearerRecord.getSpawnX(), bearerRecord.getSpawnZ(),
+                Set.of()
+            );
+
+            if (preQuest != null) {
+                bearerRecord.setPreGeneratedQuest(preQuest);
+                focus.setQuestBearer(bearer, preQuest.getSituationId());
+                focus.setQuestBindings(preQuest.getVariableBindings());
+                LOGGER.atInfo().log("  QUEST BEARER: %s (%s) quest=%s | /tp %d %d %d",
+                    bearer, bearerRecord.getRole(),
+                    preQuest.getSituationId(),
+                    (int) bearerRecord.getSpawnX(),
+                    (int) bearerRecord.getSpawnY(),
+                    (int) bearerRecord.getSpawnZ());
+            } else {
+                focus.setQuestBearer(null, null);
+                LOGGER.atWarning().log("  QUEST BEARER: %s failed to generate quest, demoting to normal topic", bearer);
+            }
         }
 
         // Step 4: Distribute subjects across NPCs
@@ -422,25 +442,24 @@ public class TopicGenerator {
             bindings.put("smalltalk_opener", DialogueResolver.resolve(topicPool.randomSmalltalkOpener(random), bindings));
         }
 
-        // Quest bindings for quest bearers
-        if (isQuestBearer && focus.hasQuest()) {
-            QuestPoolRegistry.NarrativeEntry threat = questPool.randomThreat(random);
-            bindings.put("quest_threat", threat.value());
-            bindings.put("quest_threat_is", threat.plural() ? "are" : "is");
-            bindings.put("quest_threat_has", threat.plural() ? "have" : "has");
-            bindings.put("quest_threat_was", threat.plural() ? "were" : "was");
-            bindings.put("quest_threat_the", threat.proper() ? threat.value() : "the " + threat.value());
-            bindings.put("quest_threat_The", threat.proper() ? threat.value() : "The " + threat.value());
+        // Quest bindings for quest bearers: use actual quest instance bindings
+        if (isQuestBearer && focus.hasQuest() && focus.getQuestBindings() != null) {
+            Map<String, String> qb = focus.getQuestBindings();
 
-            QuestPoolRegistry.NarrativeEntry stakes = questPool.randomStakes(random);
-            bindings.put("quest_stakes", stakes.value());
-            bindings.put("quest_stakes_is", stakes.plural() ? "are" : "is");
-            bindings.put("quest_stakes_has", stakes.plural() ? "have" : "has");
-            bindings.put("quest_stakes_was", stakes.plural() ? "were" : "was");
-            bindings.put("quest_stakes_detail", stakes.value());
-            bindings.put("quest_stakes_the", stakes.proper() ? stakes.value() : "the " + stakes.value());
-            bindings.put("quest_stakes_The", stakes.proper() ? stakes.value() : "The " + stakes.value());
+            // Copy quest narrative bindings directly (these come from the real quest)
+            for (String key : List.of(
+                    "quest_threat", "quest_threat_is", "quest_threat_has", "quest_threat_was",
+                    "quest_threat_the", "quest_threat_The",
+                    "quest_stakes", "quest_stakes_is", "quest_stakes_has", "quest_stakes_was",
+                    "quest_stakes_the", "quest_stakes_The",
+                    "quest_focus", "quest_focus_is", "quest_focus_has", "quest_focus_was",
+                    "quest_focus_the", "quest_focus_The",
+                    "quest_objective_summary",
+                    "enemy_type", "enemy_type_plural", "quest_item")) {
+                if (qb.containsKey(key)) bindings.put(key, qb.get(key));
+            }
 
+            // Still draw exposition/detail from pools but resolve against real quest bindings
             bindings.put("quest_exposition", DialogueResolver.resolve(topicPool.randomRumorDetail(random), bindings));
             bindings.put("quest_detail", DialogueResolver.resolve(topicPool.randomPerspectiveDetail(random), bindings));
 

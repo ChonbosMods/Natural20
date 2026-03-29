@@ -30,7 +30,7 @@ public class QuestSystem {
         this.referenceManager = new ReferenceManager(templateRegistry, settlementRegistry, stateManager);
         this.topicPoolRegistry = new TopicPoolRegistry();
         this.topicTemplateRegistry = new TopicTemplateRegistry();
-        this.topicGenerator = new TopicGenerator(topicPoolRegistry, topicTemplateRegistry, poolRegistry);
+        this.topicGenerator = new TopicGenerator(topicPoolRegistry, topicTemplateRegistry, poolRegistry, generator);
     }
 
     public void loadTemplates(Path questDataDir) {

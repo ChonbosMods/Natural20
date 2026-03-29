@@ -72,26 +72,27 @@ public class QuestGenerator {
         // Step 4a: Resolve world bindings
         Map<String, String> bindings = resolveWorldBindings(npcX, npcZ, npcSettlementCellKey, npcId, situation.getId(), random);
 
+        // TODO(MVP): Only KILL_MOBS POI quests for now. Remove this guard when adding other objective types.
+        if (!"true".equals(bindings.get("poi_available"))) {
+            LOGGER.atFine().log("Skipping quest for NPC %s: no POI available (MVP: KILL_MOBS POI only)", npcId);
+            return null;
+        }
+
         // Step 4b: Resolve narrative bindings from exposition variant
         QuestVariant expositionVariant = selectedVariants.getFirst();
         resolveNarrativeBindings(bindings, expositionVariant, situation, npcSettlementCellKey, npcId, random);
 
         // Step 5: Build phase instances with objectives
         List<PhaseInstance> phases = new ArrayList<>();
-        ObjectiveType lastObjectiveType = null;
         for (int i = 0; i < phaseSequence.size(); i++) {
             QuestVariant variant = selectedVariants.get(i);
             PhaseType phaseType = phaseSequence.get(i);
 
-            int objectiveCount = 1 + (random.nextDouble() < 0.4 ? 1 : 0);
-            List<ObjectiveInstance> objectives = new ArrayList<>();
-            for (int j = 0; j < objectiveCount && !variant.objectivePool().isEmpty(); j++) {
-                ObjectiveType objType = pickObjectiveType(variant.objectivePool(), lastObjectiveType, random);
-                ObjectiveConfig config = variant.objectiveConfig().getOrDefault(objType, new ObjectiveConfig(null, null, null));
-                ObjectiveInstance obj = createObjective(objType, config, bindings, random);
-                objectives.add(obj);
-                lastObjectiveType = objType;
-            }
+            // TODO(MVP): Force KILL_MOBS only. Remove when adding other objective types.
+            ObjectiveConfig config = variant.objectiveConfig().getOrDefault(
+                ObjectiveType.KILL_MOBS, new ObjectiveConfig(null, null, null));
+            ObjectiveInstance obj = createObjective(ObjectiveType.KILL_MOBS, config, bindings, random);
+            List<ObjectiveInstance> objectives = List.of(obj);
 
             String referenceId = null;
             if ((phaseType == PhaseType.CONFLICT || phaseType == PhaseType.RESOLUTION)
@@ -383,22 +384,19 @@ public class QuestGenerator {
     /**
      * Build a human-readable objective summary from the first phase's objectives.
      * Stored as {quest_objective_summary} for use in dialogue templates.
-     * Examples: "kill 5 Trorks to the north-east, about 300 blocks"
+     * Examples: "kill 5 Trorks"
      *           "collect 10 Wood Logs"
-     *           "speak with Elara to the south, about 150 blocks"
+     *           "speak with Elara"
      */
     private void buildObjectiveSummary(PhaseInstance phase, Map<String, String> bindings) {
         if (phase.getObjectives().isEmpty()) return;
         ObjectiveInstance obj = phase.getObjectives().getFirst();
 
         String summary = switch (obj.getType()) {
-            case KILL_MOBS -> "kill " + obj.getRequiredCount() + " " + obj.getTargetLabel()
-                    + (obj.getDirectionHint() != null ? " to the " + obj.getDirectionHint() : "");
+            case KILL_MOBS -> "kill " + obj.getRequiredCount() + " " + obj.getTargetLabel();
             case COLLECT_RESOURCES -> "collect " + obj.getRequiredCount() + " " + obj.getTargetLabel();
-            case FETCH_ITEM -> "find " + obj.getTargetLabel()
-                    + (obj.getDirectionHint() != null ? " to the " + obj.getDirectionHint() : "");
-            case TALK_TO_NPC -> "speak with " + obj.getTargetLabel()
-                    + (obj.getDirectionHint() != null ? " to the " + obj.getDirectionHint() : "");
+            case FETCH_ITEM -> "find " + obj.getTargetLabel();
+            case TALK_TO_NPC -> "speak with " + obj.getTargetLabel();
         };
 
         bindings.put("quest_objective_summary", summary);

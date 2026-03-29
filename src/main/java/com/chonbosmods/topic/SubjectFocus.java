@@ -20,6 +20,7 @@ public class SubjectFocus {
     private final Map<String, Boolean> npcVisibility = new LinkedHashMap<>();
     private @Nullable String questBearingNpc;
     private @Nullable String questSituationId;
+    private @Nullable Map<String, String> questBindings;
 
     public SubjectFocus(String subjectId, String subjectValue, boolean plural, boolean proper,
                         boolean questEligible, boolean concrete, TopicCategory category, List<String> categories) {
@@ -53,6 +54,8 @@ public class SubjectFocus {
     public Map<String, Boolean> getNpcVisibility() { return npcVisibility; }
     public @Nullable String getQuestBearingNpc() { return questBearingNpc; }
     public @Nullable String getQuestSituationId() { return questSituationId; }
+    public @Nullable Map<String, String> getQuestBindings() { return questBindings; }
+    public void setQuestBindings(Map<String, String> bindings) { this.questBindings = bindings; }
     public boolean hasQuest() { return questBearingNpc != null; }
 
     public Set<String> getAssignedNpcs() { return npcVisibility.keySet(); }
