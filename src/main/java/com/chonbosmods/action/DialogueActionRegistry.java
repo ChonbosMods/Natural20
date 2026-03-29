@@ -6,6 +6,7 @@ import com.chonbosmods.cave.CaveVoidRegistry;
 import com.chonbosmods.data.Nat20PlayerData;
 import com.chonbosmods.quest.PhaseInstance;
 import com.chonbosmods.quest.POIPopulationListener;
+import com.chonbosmods.quest.QuestStateManager;
 import com.chonbosmods.quest.QuestSystem;
 import com.chonbosmods.quest.QuestInstance;
 import com.chonbosmods.settlement.NpcRecord;
@@ -340,18 +341,18 @@ public class DialogueActionRegistry {
                         Natural20.getInstance().getPOIPopulationListener().writeSpawnDescriptor(
                             quest, entrance.getX(), entrance.getY(), entrance.getZ(),
                             mobRole, mobCount);
-                        // Save the updated quest bindings
-                        Nat20PlayerData pd2 = store.getComponent(playerRef, Natural20.getPlayerDataType());
-                        if (pd2 != null) {
-                            Natural20.getInstance().getQuestSystem().getStateManager()
-                                .saveActiveQuests(pd2, Natural20.getInstance().getQuestSystem()
-                                    .getStateManager().getActiveQuests(pd2));
-                        }
                     }
 
-                    // Refresh markers now that we have the real entrance-relative offset
+                    // Save the modified quest bindings back to storage.
+                    // getActiveQuests() deserializes fresh, so we must re-insert our modified quest.
                     Nat20PlayerData pd = store.getComponent(playerRef, Natural20.getPlayerDataType());
                     if (pd != null) {
+                        QuestStateManager sm = Natural20.getInstance().getQuestSystem().getStateManager();
+                        Map<String, QuestInstance> allQuests = sm.getActiveQuests(pd);
+                        allQuests.put(quest.getQuestId(), quest);
+                        sm.saveActiveQuests(pd, allQuests);
+
+                        // Refresh markers now that we have the real entrance-relative offset
                         com.hypixel.hytale.server.core.entity.entities.Player player =
                             store.getComponent(playerRef, com.hypixel.hytale.server.core.entity.entities.Player.getComponentType());
                         if (player != null) {
