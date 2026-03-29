@@ -14,6 +14,7 @@ import com.chonbosmods.loot.Nat20EquipmentListener;
 import com.chonbosmods.loot.Nat20LootSystem;
 import com.chonbosmods.quest.POIKillTrackingSystem;
 import com.chonbosmods.quest.POIPopulationListener;
+import com.chonbosmods.quest.POIProximitySystem;
 import com.chonbosmods.quest.QuestSystem;
 import com.chonbosmods.npc.BuilderActionNat20StartDialogue;
 import com.chonbosmods.npc.Nat20NpcManager;
@@ -66,6 +67,8 @@ public class Natural20 extends JavaPlugin {
     private CaveVoidScanner caveVoidScanner;
     private UndergroundStructurePlacer structurePlacer;
     private POIPopulationListener poiPopulationListener;
+    private POIProximitySystem poiProximitySystem;
+    private java.util.concurrent.ScheduledExecutorService poiProximityExecutor;
     private Config<Nat20GlobalData> globalConfig;
     private java.util.concurrent.ScheduledExecutorService npcSyncExecutor;
 
@@ -118,6 +121,8 @@ public class Natural20 extends JavaPlugin {
     public UndergroundStructurePlacer getStructurePlacer() { return structurePlacer; }
 
     public POIPopulationListener getPOIPopulationListener() { return poiPopulationListener; }
+
+    public POIProximitySystem getPOIProximitySystem() { return poiProximitySystem; }
 
     private volatile World defaultWorld;
 
@@ -229,18 +234,22 @@ public class Natural20 extends JavaPlugin {
 
         // Clean up on player disconnect
         getEventRegistry().register(PlayerDisconnectEvent.class, event -> {
-            dialogueManager.endSession(event.getPlayerRef().getUuid());
-            equipmentListener.clearPlayer(event.getPlayerRef().getUuid());
-            QuestMarkerProvider.INSTANCE.removePlayer(event.getPlayerRef().getUuid());
+            UUID uuid = event.getPlayerRef().getUuid();
+            dialogueManager.endSession(uuid);
+            equipmentListener.clearPlayer(uuid);
+            QuestMarkerProvider.INSTANCE.removePlayer(uuid);
+            if (poiProximitySystem != null) poiProximitySystem.removePlayer(uuid);
         });
 
-        // Restore quest waypoint markers on player connect
+        // Restore quest waypoint markers on player connect and register for POI proximity tracking
         getEventRegistry().registerGlobal(PlayerReadyEvent.class, event -> {
+            UUID uuid = event.getPlayer().getUuid();
             Nat20PlayerData data = event.getPlayerRef().getStore()
                     .getComponent(event.getPlayerRef(), getPlayerDataType());
             if (data != null) {
-                QuestMarkerProvider.refreshMarkers(event.getPlayer().getUuid(), data);
+                QuestMarkerProvider.refreshMarkers(uuid, data);
             }
+            if (poiProximitySystem != null) poiProximitySystem.addPlayer(uuid);
         });
 
         // Register quest POI marker provider on every world
@@ -280,9 +289,22 @@ public class Natural20 extends JavaPlugin {
             worldGenListener.onChunkLoad(chunk.getWorld(), chunkBlockX, chunkBlockZ);
         });
 
-        // Register POI mob population listener (deferred spawning when player approaches quest POI)
+        // POI population listener (writes spawn descriptors, provides spawnMobs for proximity system)
         poiPopulationListener = new POIPopulationListener();
-        getEventRegistry().registerGlobal(ChunkPreLoadProcessEvent.class, poiPopulationListener::onChunkLoad);
+
+        // POI proximity system: checks player distance to quest POIs every second
+        poiProximitySystem = new POIProximitySystem();
+        poiProximityExecutor = Executors.newSingleThreadScheduledExecutor(r -> {
+            Thread t = new Thread(r, "nat20-poi-proximity");
+            t.setDaemon(true);
+            return t;
+        });
+        poiProximityExecutor.scheduleAtFixedRate(() -> {
+            World w = getDefaultWorld();
+            if (w != null) {
+                w.execute(() -> poiProximitySystem.tick(w));
+            }
+        }, 5, 1, TimeUnit.SECONDS);
 
         // Load dialogue files from plugin data directory
         dialogueLoader.loadAll(getDataDirectory().resolve("dialogues"));
@@ -318,6 +340,9 @@ public class Natural20 extends JavaPlugin {
     @Override
     protected void shutdown() {
         getLogger().atInfo().log("Natural 20 shutting down...");
+        if (poiProximityExecutor != null) {
+            poiProximityExecutor.shutdownNow();
+        }
         if (npcSyncExecutor != null) {
             npcSyncExecutor.shutdownNow();
         }

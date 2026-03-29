@@ -335,11 +335,18 @@ public class DialogueActionRegistry {
                     bindings.put("marker_offset_x", String.valueOf(dist * Math.cos(angle)));
                     bindings.put("marker_offset_z", String.valueOf(dist * Math.sin(angle)));
 
-                    // Spawn mobs immediately: chunks are guaranteed loaded after prefab paste
+                    // Write spawn descriptor: mobs will spawn when player approaches
                     if (mobRole != null && mobCount > 0) {
-                        Natural20.getInstance().getPOIPopulationListener().populateNow(
-                            world, quest, playerRef, entrance.getX(), entrance.getY(), entrance.getZ(),
+                        Natural20.getInstance().getPOIPopulationListener().writeSpawnDescriptor(
+                            quest, entrance.getX(), entrance.getY(), entrance.getZ(),
                             mobRole, mobCount);
+                        // Save the updated quest bindings
+                        Nat20PlayerData pd2 = store.getComponent(playerRef, Natural20.getPlayerDataType());
+                        if (pd2 != null) {
+                            Natural20.getInstance().getQuestSystem().getStateManager()
+                                .saveActiveQuests(pd2, Natural20.getInstance().getQuestSystem()
+                                    .getStateManager().getActiveQuests(pd2));
+                        }
                     }
 
                     // Refresh markers now that we have the real entrance-relative offset

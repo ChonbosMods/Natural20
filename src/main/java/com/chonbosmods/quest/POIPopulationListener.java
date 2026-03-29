@@ -1,144 +1,79 @@
 package com.chonbosmods.quest;
 
-import com.chonbosmods.Natural20;
-import com.chonbosmods.data.Nat20PlayerData;
-import com.hypixel.hytale.component.Ref;
 import com.hypixel.hytale.component.Store;
 import com.hypixel.hytale.logger.HytaleLogger;
 import com.hypixel.hytale.math.vector.Vector3d;
 import com.hypixel.hytale.math.vector.Vector3f;
 import com.hypixel.hytale.server.core.universe.world.World;
-import com.hypixel.hytale.server.core.universe.world.events.ChunkPreLoadProcessEvent;
 import com.hypixel.hytale.server.core.universe.world.storage.EntityStore;
 import com.hypixel.hytale.server.npc.NPCPlugin;
-import com.hypixel.hytale.server.npc.entities.NPCEntity;
-import it.unimi.dsi.fastutil.Pair;
 
+import javax.annotation.Nullable;
 import java.util.*;
-import java.util.concurrent.ConcurrentHashMap;
 
 public class POIPopulationListener {
 
     private static final HytaleLogger LOGGER = HytaleLogger.get("Nat20|POI");
-    private static final int TRIGGER_RADIUS_CHUNKS = 4; // ~128 blocks
 
-    public record PendingPopulation(
-        String questId,
-        int poiX, int poiY, int poiZ,
-        String mobRole, int mobCount,
-        Ref<EntityStore> playerRef
-    ) {}
-
-    private final Map<String, PendingPopulation> pending = new ConcurrentHashMap<>();
-
-    public void register(PendingPopulation pop) {
-        pending.put(pop.questId(), pop);
-        LOGGER.atFine().log("Registered pending population for quest %s at (%d, %d, %d): %s x%d",
-            pop.questId(), pop.poiX(), pop.poiY(), pop.poiZ(), pop.mobRole(), pop.mobCount());
+    public record SpawnDescriptor(String mobRole, int totalCount, int poiX, int poiY, int poiZ) {
+        public static @Nullable SpawnDescriptor parse(String raw) {
+            if (raw == null || raw.isEmpty()) return null;
+            try {
+                String[] parts = raw.split(":");
+                String role = parts[0];
+                int count = Integer.parseInt(parts[1]);
+                String[] coords = parts[2].split(",");
+                return new SpawnDescriptor(role, count,
+                    Integer.parseInt(coords[0]), Integer.parseInt(coords[1]), Integer.parseInt(coords[2]));
+            } catch (Exception e) {
+                return null;
+            }
+        }
     }
 
     /**
-     * Spawn mobs immediately at the given position. Called after prefab placement
-     * when chunks are guaranteed loaded.
+     * Write a spawn descriptor into the quest bindings instead of spawning mobs immediately.
+     * The actual spawning is deferred to POIProximitySystem when the player approaches.
      */
-    public void populateNow(World world, QuestInstance quest, Ref<EntityStore> playerRef,
-                             int poiX, int poiY, int poiZ, String mobRole, int mobCount) {
-        String questId = quest != null ? quest.getQuestId() : "test";
-        PendingPopulation pop = new PendingPopulation(
-            questId, poiX, poiY, poiZ, mobRole, mobCount, playerRef);
-        populate(world, pop);
+    public void writeSpawnDescriptor(QuestInstance quest, int poiX, int poiY, int poiZ,
+                                      String mobRole, int mobCount) {
+        Map<String, String> b = quest.getVariableBindings();
+        b.put("poi_spawn_descriptor", mobRole + ":" + mobCount + ":" + poiX + "," + poiY + "," + poiZ);
+        b.put("poi_mob_state", "PENDING");
+        b.put("poi_mob_uuids", "");
+        b.put("poi_detached_uuids", "");
+        LOGGER.atInfo().log("POI spawn descriptor set for quest %s: %s x%d | /tp %d %d %d",
+            quest.getQuestId(), mobRole, mobCount, poiX, poiY, poiZ);
     }
 
-    public void onChunkLoad(ChunkPreLoadProcessEvent event) {
-        if (pending.isEmpty()) return;
-
-        int chunkX = event.getChunk().getX();
-        int chunkZ = event.getChunk().getZ();
-        int chunkBlockX = chunkX * 32;
-        int chunkBlockZ = chunkZ * 32;
-
-        for (var entry : pending.entrySet()) {
-            PendingPopulation pop = entry.getValue();
-            int dx = Math.abs(chunkBlockX - pop.poiX());
-            int dz = Math.abs(chunkBlockZ - pop.poiZ());
-            if (dx <= TRIGGER_RADIUS_CHUNKS * 32 && dz <= TRIGGER_RADIUS_CHUNKS * 32) {
-                // Two-arg remove ensures only one thread wins if adjacent chunks trigger simultaneously
-                if (pending.remove(entry.getKey(), pop)) {
-                    World world = event.getChunk().getWorld();
-                    if (world != null) {
-                        world.execute(() -> populate(world, pop));
-                    }
-                }
-            }
-        }
-    }
-
-    private void populate(World world, PendingPopulation pop) {
-
+    /**
+     * Spawn mobs at the given POI position. Extracted for use by the proximity system.
+     */
+    public List<String> spawnMobs(World world, String mobRole, int count,
+                                   int poiX, int poiY, int poiZ) {
         Store<EntityStore> store = world.getEntityStore().getStore();
-        List<String> spawnedUUIDs = new ArrayList<>();
+        List<String> uuids = new ArrayList<>();
         Random rng = new Random();
 
-        int roleIndex = NPCPlugin.get().getIndex(pop.mobRole());
+        int roleIndex = NPCPlugin.get().getIndex(mobRole);
         if (roleIndex < 0) {
-            LOGGER.atWarning().log("POI populate: unknown role '%s'", pop.mobRole());
-            return;
+            LOGGER.atWarning().log("POI spawn: unknown role '%s'", mobRole);
+            return uuids;
         }
 
-        for (int i = 0; i < pop.mobCount(); i++) {
-            // Offset mobs within the prefab interior (spread around entrance)
+        for (int i = 0; i < count; i++) {
             double offsetX = (rng.nextDouble() - 0.5) * 8;
             double offsetZ = (rng.nextDouble() - 0.5) * 8;
-            Vector3d spawnPos = new Vector3d(
-                pop.poiX() + offsetX,
-                pop.poiY() + 1.0,
-                pop.poiZ() + offsetZ
-            );
+            Vector3d spawnPos = new Vector3d(poiX + offsetX, poiY + 1.0, poiZ + offsetZ);
             Vector3f rotation = new Vector3f(0, (float)(rng.nextDouble() * 2 - 1), 0);
 
-            Pair<Ref<EntityStore>, NPCEntity> result =
-                NPCPlugin.get().spawnEntity(store, roleIndex, spawnPos, rotation, null, null);
-
+            var result = NPCPlugin.get().spawnEntity(store, roleIndex, spawnPos, rotation, null, null);
             if (result != null) {
-                NPCEntity npcEntity = result.second();
-
-                // Role provides the correct model with proper scale.
-                // Do NOT putComponent(ModelComponent) post-spawn: it persists scale=0.
-
-                spawnedUUIDs.add(npcEntity.getUuid().toString());
-                LOGGER.atFine().log("  Spawned %s at (%.0f, %.0f, %.0f) UUID=%s",
-                    pop.mobRole(), spawnPos.getX(), spawnPos.getY(), spawnPos.getZ(),
-                    npcEntity.getUuid());
+                uuids.add(result.second().getUuid().toString());
             }
         }
 
-        // Update quest bindings with spawned mob UUIDs
-        if (!spawnedUUIDs.isEmpty()) {
-            updateQuestBindings(pop, String.join(",", spawnedUUIDs));
-        }
-    }
-
-    private void updateQuestBindings(PendingPopulation pop, String uuids) {
-        World world = Natural20.getInstance().getDefaultWorld();
-        if (world == null) return;
-        Store<EntityStore> store = world.getEntityStore().getStore();
-        Nat20PlayerData playerData = store.getComponent(pop.playerRef(), Natural20.getPlayerDataType());
-        if (playerData == null) {
-            LOGGER.atWarning().log("updateQuestBindings: player ref stale for quest %s", pop.questId());
-            return;
-        }
-
-        QuestStateManager stateManager = Natural20.getInstance().getQuestSystem().getStateManager();
-        Map<String, QuestInstance> quests = stateManager.getActiveQuests(playerData);
-        QuestInstance quest = quests.get(pop.questId());
-        if (quest == null) return;
-
-        quest.getVariableBindings().put("poi_mob_uuids", uuids);
-        quest.getVariableBindings().put("poi_populated", "true");
-        stateManager.saveActiveQuests(playerData, quests);
-
-        LOGGER.atInfo().log("POI spawned %d %s for quest %s | /tp %d %d %d",
-            uuids.split(",").length, pop.mobRole(), pop.questId(),
-            pop.poiX(), pop.poiY(), pop.poiZ());
+        LOGGER.atInfo().log("POI spawned %d %s | /tp %d %d %d", uuids.size(), mobRole, poiX, poiY, poiZ);
+        return uuids;
     }
 }

@@ -434,10 +434,9 @@ public class CaveVoidsCommand extends AbstractPlayerCommand {
 
                 // Spawn mobs on the world thread
                 world.execute(() -> {
-                    Natural20.getInstance().getPOIPopulationListener().populateNow(
-                        world, null, playerRef,
-                        entrance.getX(), entrance.getY(), entrance.getZ(),
-                        mobRole, mobCount);
+                    Natural20.getInstance().getPOIPopulationListener().spawnMobs(
+                        world, mobRole, mobCount,
+                        entrance.getX(), entrance.getY(), entrance.getZ());
                     context.sendMessage(Message.raw("Done! /tp " +
                         entrance.getX() + " " + entrance.getY() + " " + entrance.getZ()));
                 });
