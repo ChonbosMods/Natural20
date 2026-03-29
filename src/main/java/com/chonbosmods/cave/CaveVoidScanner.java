@@ -68,7 +68,7 @@ public class CaveVoidScanner {
                                 chunkKey
                         );
                         registry.register(record);
-                        LOGGER.atInfo().log("Found cave void: center=(%d,%d,%d) volume=%d span=%dx%d",
+                        LOGGER.atFine().log("Found cave void: center=(%d,%d,%d) volume=%d span=%dx%d",
                                 result.centerX(), result.centerY(), result.centerZ(),
                                 result.volume(), xExtent, zExtent);
                     }
@@ -165,7 +165,7 @@ public class CaveVoidScanner {
                     .filter(e -> e.getKey().startsWith("Fluid_"))
                     .map(Map.Entry::getValue)
                     .collect(Collectors.toSet());
-            LOGGER.atInfo().log("Loaded %d fluid block types for void filtering", fluidTypes.size());
+            LOGGER.atFine().log("Loaded %d fluid block types for void filtering", fluidTypes.size());
         }
         return fluidTypes;
     }

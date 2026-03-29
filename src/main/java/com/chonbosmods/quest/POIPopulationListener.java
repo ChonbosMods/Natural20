@@ -33,7 +33,7 @@ public class POIPopulationListener {
 
     public void register(PendingPopulation pop) {
         pending.put(pop.questId(), pop);
-        LOGGER.atInfo().log("Registered pending population for quest %s at (%d, %d, %d): %s x%d",
+        LOGGER.atFine().log("Registered pending population for quest %s at (%d, %d, %d): %s x%d",
             pop.questId(), pop.poiX(), pop.poiY(), pop.poiZ(), pop.mobRole(), pop.mobCount());
     }
 
@@ -108,7 +108,7 @@ public class POIPopulationListener {
                 // Do NOT putComponent(ModelComponent) post-spawn: it persists scale=0.
 
                 spawnedUUIDs.add(npcEntity.getUuid().toString());
-                LOGGER.atInfo().log("  Spawned %s at (%.0f, %.0f, %.0f) UUID=%s",
+                LOGGER.atFine().log("  Spawned %s at (%.0f, %.0f, %.0f) UUID=%s",
                     pop.mobRole(), spawnPos.getX(), spawnPos.getY(), spawnPos.getZ(),
                     npcEntity.getUuid());
             }

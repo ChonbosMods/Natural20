@@ -120,7 +120,7 @@ public class Nat20NpcManager {
                     equipGuardArmor(npcEntity);
                 }
 
-                LOGGER.atInfo().log("[Nat20] Spawned " + formatDisplayName(name, roleName) + " at " +
+                LOGGER.atFine().log("[Nat20] Spawned " + formatDisplayName(name, roleName) + " at " +
                     (int) spawnX + ", " + (int) spawnY + ", " + (int) spawnZ);
             } else {
                 LOGGER.atWarning().log("[Nat20] Failed to spawn " + roleName + " at " +
@@ -128,7 +128,7 @@ public class Nat20NpcManager {
             }
         }
 
-        LOGGER.atInfo().log("[Nat20] Spawned " + spawned.size() + "/" +
+        LOGGER.atFine().log("[Nat20] Spawned " + spawned.size() + "/" +
             type.getNpcSpawns().size() + " NPCs for " + type);
         return spawned;
     }
@@ -185,7 +185,7 @@ public class Nat20NpcManager {
         UUID newUUID = npcEntity.getUuid();
         record.setEntityUUID(newUUID);
 
-        LOGGER.atInfo().log("Respawned %s (%s) with new UUID %s",
+        LOGGER.atFine().log("Respawned %s (%s) with new UUID %s",
             record.getGeneratedName(), roleName, newUUID);
         return newUUID;
     }
@@ -211,7 +211,7 @@ public class Nat20NpcManager {
 
         applyNpcComponents(store, npcRef, npcEntity, record, cellKey);
 
-        LOGGER.atInfo().log("Reattached components to %s (%s) UUID %s",
+        LOGGER.atFine().log("Reattached components to %s (%s) UUID %s",
             record.getGeneratedName(), record.getRole(), record.getEntityUUID());
         return true;
     }

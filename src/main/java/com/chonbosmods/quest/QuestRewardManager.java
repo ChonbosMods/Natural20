@@ -25,13 +25,13 @@ public class QuestRewardManager {
         }
 
         // TODO: Apply XP to player leveling system when implemented
-        LOGGER.atInfo().log("Awarded %d quest XP (phase: %s, final: %s)", xp, phase.getType(), isFinalPhase);
+        LOGGER.atFine().log("Awarded %d quest XP (phase: %s, final: %s)", xp, phase.getType(), isFinalPhase);
     }
 
     public void awardLootReward(Ref<EntityStore> playerRef, Store<EntityStore> store,
                                  Nat20PlayerData playerData) {
         // TODO: Generate loot via Nat20LootPipeline with +1 rarity tier weight
-        LOGGER.atInfo().log("Quest loot reward stub");
+        LOGGER.atFine().log("Quest loot reward stub");
     }
 
     public boolean shouldGiveMidChainReward(QuestInstance quest) {

@@ -45,7 +45,7 @@ public class SettlementRegistry {
      */
     public void load() {
         if (!Files.exists(savePath)) {
-            LOGGER.atInfo().log("No settlements.json found: starting fresh");
+            LOGGER.atFine().log("No settlements.json found: starting fresh");
             return;
         }
 
@@ -54,7 +54,7 @@ public class SettlementRegistry {
             if (loaded != null) {
                 settlements.putAll(loaded);
             }
-            LOGGER.atInfo().log("Loaded " + settlements.size() + " settlement(s) from " + savePath);
+            LOGGER.atFine().log("Loaded " + settlements.size() + " settlement(s) from " + savePath);
         } catch (IOException e) {
             LOGGER.atSevere().withCause(e).log("Failed to load settlements.json");
         }
@@ -150,7 +150,7 @@ public class SettlementRegistry {
                     try (Writer writer = Files.newBufferedWriter(savePath)) {
                         GSON.toJson(settlements, MAP_TYPE, writer);
                     }
-                    LOGGER.atInfo().log("Saved " + settlements.size() + " settlement(s) to " + savePath);
+                    LOGGER.atFine().log("Saved " + settlements.size() + " settlement(s) to " + savePath);
                 } catch (IOException e) {
                     LOGGER.atSevere().withCause(e).log("Failed to save settlements.json");
                 }

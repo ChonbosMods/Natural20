@@ -70,7 +70,7 @@ public class ReferenceManager {
         refs.put(referenceId, ref);
         stateManager.saveActiveReferences(playerData, refs);
 
-        LOGGER.atInfo().log("Injected reference %s: tier=%s, template=%s, target=%s at %s",
+        LOGGER.atFine().log("Injected reference %s: tier=%s, template=%s, target=%s at %s",
             referenceId, tier, template.id(), targetNpc.getGeneratedName(), targetSettlement.getCellKey());
         return referenceId;
     }
@@ -89,7 +89,7 @@ public class ReferenceManager {
                 String topicId = "ref_topic_" + refCounter.incrementAndGet();
                 ref.setUnlockedTopicId(topicId);
                 changed = true;
-                LOGGER.atInfo().log("Reference %s escalated: PASSIVE -> TRIGGER", ref.getReferenceId());
+                LOGGER.atFine().log("Reference %s escalated: PASSIVE -> TRIGGER", ref.getReferenceId());
             }
         }
 
@@ -107,7 +107,7 @@ public class ReferenceManager {
         if (random.nextDouble() < TRIGGER_TO_CATALYST_CHANCE) {
             ref.setTier(ReferenceTier.CATALYST);
             stateManager.saveActiveReferences(playerData, refs);
-            LOGGER.atInfo().log("Reference %s escalated: TRIGGER -> CATALYST", referenceId);
+            LOGGER.atFine().log("Reference %s escalated: TRIGGER -> CATALYST", referenceId);
             return true;
         }
         return false;

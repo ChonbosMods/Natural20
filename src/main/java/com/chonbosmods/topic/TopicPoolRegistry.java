@@ -227,7 +227,7 @@ public class TopicPoolRegistry {
             loadIntentDefs(topicsDir.resolve("intents.json"));
         }
 
-        LOGGER.atInfo().log("Loaded topic pools: %d subjects, %d greetings, %d return greetings",
+        LOGGER.atFine().log("Loaded topic pools: %d subjects, %d greetings, %d return greetings",
             subjectFocuses.size(), greetingLines.size(), returnGreetingLines.size());
     }
 
@@ -435,7 +435,7 @@ public class TopicPoolRegistry {
             maxL1 = root.get("maxL1").getAsInt();
         }
 
-        LOGGER.atInfo().log("Loaded %d intent definitions, %d deepener prompts, maxL1=%d",
+        LOGGER.atFine().log("Loaded %d intent definitions, %d deepener prompts, maxL1=%d",
             intentDefs.size(), deepenerPool.size(), maxL1);
     }
 

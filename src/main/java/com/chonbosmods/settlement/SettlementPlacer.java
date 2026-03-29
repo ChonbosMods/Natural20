@@ -40,7 +40,7 @@ public class SettlementPlacer {
                 }
                 IPrefabBuffer buffer = PrefabBufferUtil.getCached(prefabPath);
                 prefabs.put(type, buffer);
-                LOGGER.atInfo().log( "[Nat20] Loaded prefab: " + type.getPrefabKey() + " from " + prefabPath);
+                LOGGER.atFine().log( "[Nat20] Loaded prefab: " + type.getPrefabKey() + " from " + prefabPath);
             } catch (Exception e) {
                 LOGGER.atSevere().withCause(e).log("[Nat20] Failed to load prefab: " + type.getPrefabKey());
             }
@@ -67,14 +67,14 @@ public class SettlementPlacer {
                 Path assetsDir = candidate.resolve("assets").resolve("Server").resolve("Prefabs")
                     .resolve(key + ".prefab.json");
                 if (Files.exists(assetsDir)) {
-                    LOGGER.atInfo().log( "[Nat20] Found prefab via fallback path: " + assetsDir);
+                    LOGGER.atFine().log( "[Nat20] Found prefab via fallback path: " + assetsDir);
                     return assetsDir;
                 }
                 // Also check Server/Prefabs directly (in case plugin root IS the assets dir)
                 Path directDir = candidate.resolve("Server").resolve("Prefabs")
                     .resolve(key + ".prefab.json");
                 if (Files.exists(directDir)) {
-                    LOGGER.atInfo().log( "[Nat20] Found prefab via direct path: " + directDir);
+                    LOGGER.atFine().log( "[Nat20] Found prefab via direct path: " + directDir);
                     return directDir;
                 }
                 candidate = candidate.getParent();
@@ -107,7 +107,7 @@ public class SettlementPlacer {
             0,          // setBlockSettings — default
             componentAccessor
         );
-        LOGGER.atInfo().log( "[Nat20] Placed " + type + " at " +
+        LOGGER.atFine().log( "[Nat20] Placed " + type + " at " +
             position.getX() + ", " + position.getY() + ", " + position.getZ());
     }
 

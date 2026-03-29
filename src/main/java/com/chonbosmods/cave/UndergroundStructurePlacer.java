@@ -173,7 +173,7 @@ public class UndergroundStructurePlacer {
             default -> Rotation.None;  // -Z: entrance already faces +Z, away from -Z wall
         };
 
-        LOGGER.atInfo().log("Selected tunnel-mouth at (%d, %d, %d) score=%d wallDir=%s rotation=%s for void at (%d, %d, %d)",
+        LOGGER.atFine().log("Selected tunnel-mouth at (%d, %d, %d) score=%d wallDir=%s rotation=%s for void at (%d, %d, %d)",
                 floorX, floorY, floorZ, bestScore, bestWallDir, rotation, cx, cy, cz);
 
         // 2. Place with anchor aligned to the tunnel-mouth floor
@@ -181,7 +181,7 @@ public class UndergroundStructurePlacer {
         int structY = floorY;
         int structZ = floorZ;
 
-        LOGGER.atInfo().log("Placing structure at (%d, %d, %d) rotation=%s for void at (%d, %d, %d)",
+        LOGGER.atFine().log("Placing structure at (%d, %d, %d) rotation=%s for void at (%d, %d, %d)",
                 structX, structY, structZ, rotation, cx, cy, cz);
 
         // 4. Load the prefab buffer
@@ -201,7 +201,7 @@ public class UndergroundStructurePlacer {
             return result;
         }
 
-        LOGGER.atInfo().log("Loaded prefab buffer: %s (size: %dx%dx%d, anchor: %d,%d,%d, columns: %d)",
+        LOGGER.atFine().log("Loaded prefab buffer: %s (size: %dx%dx%d, anchor: %d,%d,%d, columns: %d)",
                 prefabPath,
                 buffer.getMaxX() - buffer.getMinX(),
                 buffer.getMaxY() - buffer.getMinY(),
@@ -212,7 +212,7 @@ public class UndergroundStructurePlacer {
         // PrefabUtil.paste treats position as the anchor location
         Vector3i pastePos = new Vector3i(structX, structY, structZ);
 
-        LOGGER.atInfo().log("Paste position (anchor at): (%d, %d, %d) rotation=%s",
+        LOGGER.atFine().log("Paste position (anchor at): (%d, %d, %d) rotation=%s",
                 structX, structY, structZ, rotation);
 
         // 5. Pre-load chunks covering the prefab footprint
@@ -229,7 +229,7 @@ public class UndergroundStructurePlacer {
             }
         }
 
-        LOGGER.atInfo().log("Pre-loading %d chunks for prefab placement", chunkFutures.size());
+        LOGGER.atFine().log("Pre-loading %d chunks for prefab placement", chunkFutures.size());
 
         CompletableFuture.allOf(chunkFutures.toArray(new CompletableFuture[0]))
                 .orTimeout(30, TimeUnit.SECONDS)
@@ -246,7 +246,7 @@ public class UndergroundStructurePlacer {
 
                             Random random = new Random();
                             PrefabUtil.paste(buffer, world, pastePos, rotation, true, random, 0, store);
-                            LOGGER.atInfo().log("Pasted prefab at (%d, %d, %d)", structX, structY, structZ);
+                            LOGGER.atFine().log("Pasted prefab at (%d, %d, %d)", structX, structY, structZ);
 
                             result.complete(pastePos);
                         } catch (Exception e) {
@@ -278,14 +278,14 @@ public class UndergroundStructurePlacer {
                 Path assetsDir = candidate.resolve("assets").resolve("Server").resolve("Prefabs")
                         .resolve(TEST_PREFAB_KEY + ".prefab.json");
                 if (Files.exists(assetsDir)) {
-                    LOGGER.atInfo().log("Found prefab via fallback path: %s", assetsDir);
+                    LOGGER.atFine().log("Found prefab via fallback path: %s", assetsDir);
                     return assetsDir;
                 }
                 // Also check Server/Prefabs directly (in case plugin root IS the assets dir)
                 Path directDir = candidate.resolve("Server").resolve("Prefabs")
                         .resolve(TEST_PREFAB_KEY + ".prefab.json");
                 if (Files.exists(directDir)) {
-                    LOGGER.atInfo().log("Found prefab via direct path: %s", directDir);
+                    LOGGER.atFine().log("Found prefab via direct path: %s", directDir);
                     return directDir;
                 }
                 candidate = candidate.getParent();
@@ -328,7 +328,7 @@ public class UndergroundStructurePlacer {
             }
         }
 
-        LOGGER.atInfo().log("Carved tunnel from (%d, %d, %d) to (%d, %d, %d): %d steps",
+        LOGGER.atFine().log("Carved tunnel from (%d, %d, %d) to (%d, %d, %d): %d steps",
                 startX, startY, startZ, endX, endY, endZ, steps);
     }
 
@@ -387,7 +387,7 @@ public class UndergroundStructurePlacer {
             }
         }
 
-        LOGGER.atInfo().log("Carved clearing: %d blocks cleared, %d skipped (entrance zone) in (%d,%d,%d)-(%d,%d,%d)",
+        LOGGER.atFine().log("Carved clearing: %d blocks cleared, %d skipped (entrance zone) in (%d,%d,%d)-(%d,%d,%d)",
                 cleared, skipped, fromX, fromY, fromZ, toX, toY, toZ);
     }
 

@@ -38,7 +38,7 @@ public class TopicTemplateRegistry {
             loadTemplates(topicsDir.resolve("SmallTalk/templates.json"), TopicCategory.SMALLTALK, smallTalkTemplates);
         }
 
-        LOGGER.atInfo().log("Loaded topic templates: %d rumors, %d smalltalk",
+        LOGGER.atFine().log("Loaded topic templates: %d rumors, %d smalltalk",
             rumorTemplates.size(), smallTalkTemplates.size());
     }
 

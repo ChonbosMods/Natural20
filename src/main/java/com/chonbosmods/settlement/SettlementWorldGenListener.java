@@ -66,7 +66,7 @@ public class SettlementWorldGenListener {
             return;
         }
 
-        LOGGER.atInfo().log("Placing settlement at cell " + cellKey +
+        LOGGER.atFine().log("Placing settlement at cell " + cellKey +
             " position " + settlementX + ", " + settlementZ);
 
         // Mark as placed immediately to prevent double-placement
@@ -99,7 +99,7 @@ public class SettlementWorldGenListener {
                 // Generate procedural topic dialogues for the new settlement's NPCs
                 Natural20.getInstance().onSettlementCreated(record, world);
 
-                LOGGER.atInfo().log("Settlement placed at " + settlementX + ", " + groundY + ", " + settlementZ +
+                LOGGER.atFine().log("Settlement placed at " + settlementX + ", " + groundY + ", " + settlementZ +
                     " with " + npcRecords.size() + " NPCs");
             } catch (Exception e) {
                 LOGGER.atSevere().withCause(e).log("Failed to place settlement at cell " + cellKey);
@@ -180,7 +180,7 @@ public class SettlementWorldGenListener {
             }
 
             if (reattached > 0 || respawned > 0) {
-                LOGGER.atInfo().log("Settlement %s: %d intact, %d reattached, %d respawned",
+                LOGGER.atFine().log("Settlement %s: %d intact, %d reattached, %d respawned",
                     cellKey, intact, reattached, respawned);
                 registry.saveAsync();
             }

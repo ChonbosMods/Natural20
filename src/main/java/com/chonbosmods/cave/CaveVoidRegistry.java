@@ -151,7 +151,7 @@ public class CaveVoidRegistry {
      */
     public void load() {
         if (!Files.exists(savePath)) {
-            LOGGER.atInfo().log("No cave_voids.json found: starting fresh");
+            LOGGER.atFine().log("No cave_voids.json found: starting fresh");
             return;
         }
 
@@ -160,7 +160,7 @@ public class CaveVoidRegistry {
             if (loaded != null) {
                 voidsByCell.putAll(loaded);
             }
-            LOGGER.atInfo().log("Loaded " + getCount() + " cave void(s) from " + savePath);
+            LOGGER.atFine().log("Loaded " + getCount() + " cave void(s) from " + savePath);
         } catch (IOException e) {
             LOGGER.atSevere().withCause(e).log("Failed to load cave_voids.json");
         }
@@ -178,7 +178,7 @@ public class CaveVoidRegistry {
                     try (Writer writer = Files.newBufferedWriter(savePath)) {
                         GSON.toJson(voidsByCell, MAP_TYPE, writer);
                     }
-                    LOGGER.atInfo().log("Saved " + getCount() + " cave void(s) to " + savePath);
+                    LOGGER.atFine().log("Saved " + getCount() + " cave void(s) to " + savePath);
                 } catch (IOException e) {
                     LOGGER.atSevere().withCause(e).log("Failed to save cave_voids.json");
                 }

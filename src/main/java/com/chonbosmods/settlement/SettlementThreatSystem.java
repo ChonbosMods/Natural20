@@ -104,7 +104,7 @@ public class SettlementThreatSystem extends DamageEventSystem {
 
         if (isPlayerAttacker) {
             UUID playerUuid = attackerPlayer.getPlayerRef().getUuid();
-            LOGGER.atInfo().log("Player %s attacked settlement NPC '%s': disposition -%d",
+            LOGGER.atFine().log("Player %s attacked settlement NPC '%s': disposition -%d",
                     playerUuid, victimData.getGeneratedName(), Math.abs(DISPOSITION_PER_HIT));
         }
     }

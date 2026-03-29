@@ -197,7 +197,7 @@ public class TopicGenerator {
             }
         }
 
-        LOGGER.atInfo().log("Generated %d dialogue graphs for settlement %s (%d subjects, %d quests)",
+        LOGGER.atFine().log("Generated %d dialogue graphs for settlement %s (%d subjects, %d quests)",
             results.size(), settlement.getCellKey(), subjects.size(), questCandidates.size());
 
         // Settlement-level label dedup check
@@ -230,7 +230,7 @@ public class TopicGenerator {
                 npcEntries.add("%s=%s".formatted(entry.getKey(), entry.getValue() ? "VISIBLE" : "HIDDEN"));
             }
             sb.append(String.join(", ", npcEntries));
-            LOGGER.atInfo().log(sb.toString());
+            LOGGER.atFine().log(sb.toString());
         }
 
         return results;

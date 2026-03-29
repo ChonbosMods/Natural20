@@ -37,7 +37,7 @@ public class QuestTemplateRegistry {
                 LOGGER.atSevere().withCause(e).log("Failed to list quest directories in %s", overrideDir);
             }
         }
-        LOGGER.atInfo().log("Loaded %d quest situation(s)", situations.size());
+        LOGGER.atFine().log("Loaded %d quest situation(s)", situations.size());
     }
 
     private void loadFromClasspath() {
@@ -133,7 +133,7 @@ public class QuestTemplateRegistry {
             situations.put(situationId, new QuestSituation(
                 situationId, exposition, conflict, resolution, references, weights
             ));
-            LOGGER.atInfo().log("Loaded situation: %s (%d expo, %d conf, %d reso, %d refs)",
+            LOGGER.atFine().log("Loaded situation: %s (%d expo, %d conf, %d reso, %d refs)",
                 situationId, exposition.size(), conflict.size(), resolution.size(), references.size());
         } catch (Exception e) {
             LOGGER.atSevere().withCause(e).log("Failed to load situation: %s", situationId);

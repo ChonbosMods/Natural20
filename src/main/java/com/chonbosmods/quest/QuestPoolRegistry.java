@@ -116,7 +116,7 @@ public class QuestPoolRegistry {
             loadSituationTones(poolsDir.resolve("situation_tones.json"));
         }
 
-        LOGGER.atInfo().log("Loaded pools: %d resources, %d evidence, %d keepsakes, %d mobs, %d actions, %d focuses, %d stakes, %d threats, %d origins, %d pressures, %d rewards",
+        LOGGER.atFine().log("Loaded pools: %d resources, %d evidence, %d keepsakes, %d mobs, %d actions, %d focuses, %d stakes, %d threats, %d origins, %d pressures, %d rewards",
             collectResources.size(), evidenceItems.size(), keepsakeItems.size(), hostileMobs.size(), questActions.size(), questFocuses.size(),
             questStakes.size(), questThreats.size(), questOrigins.size(),
             questTimePressures.size(), questRewardHints.size());

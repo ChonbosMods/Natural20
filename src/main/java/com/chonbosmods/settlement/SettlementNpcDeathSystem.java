@@ -105,7 +105,7 @@ public class SettlementNpcDeathSystem extends DamageEventSystem {
 
         String name = npcData.getGeneratedName();
         String role = npcData.getRoleName();
-        LOGGER.atInfo().log("Settlement NPC died: " + name + " (" + role + ") at cell " + cellKey
+        LOGGER.atFine().log("Settlement NPC died: " + name + " (" + role + ") at cell " + cellKey
                 + ": scheduling respawn in " + RESPAWN_DELAY_SECONDS + "s");
 
         // Capture world reference for the scheduled respawn
@@ -122,7 +122,7 @@ public class SettlementNpcDeathSystem extends DamageEventSystem {
 
                         if (newUUID != null) {
                             registry.saveAsync();
-                            LOGGER.atInfo().log("Respawned " + name + " (" + role + ") with new UUID " + newUUID);
+                            LOGGER.atFine().log("Respawned " + name + " (" + role + ") with new UUID " + newUUID);
                         } else {
                             LOGGER.atWarning().log("Failed to respawn " + name + " (" + role + ") at cell " + cellKey);
                         }
