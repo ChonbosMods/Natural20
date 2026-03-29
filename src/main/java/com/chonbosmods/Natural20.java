@@ -24,11 +24,14 @@ import com.chonbosmods.settlement.SettlementRecord;
 import com.chonbosmods.settlement.SettlementRegistry;
 import com.chonbosmods.settlement.SettlementThreatSystem;
 import com.chonbosmods.settlement.SettlementWorldGenListener;
+import com.chonbosmods.waypoint.QuestMarkerProvider;
 import com.hypixel.hytale.component.ComponentType;
 import com.hypixel.hytale.component.Ref;
 import com.hypixel.hytale.server.core.HytaleServer;
 import com.hypixel.hytale.server.core.event.events.player.PlayerDisconnectEvent;
+import com.hypixel.hytale.server.core.event.events.player.PlayerReadyEvent;
 import com.hypixel.hytale.server.core.universe.world.World;
+import com.hypixel.hytale.server.core.universe.world.events.AddWorldEvent;
 import com.hypixel.hytale.server.core.universe.world.events.ChunkPreLoadProcessEvent;
 import com.hypixel.hytale.server.core.plugin.JavaPlugin;
 import com.hypixel.hytale.server.core.plugin.JavaPluginInit;
@@ -228,7 +231,22 @@ public class Natural20 extends JavaPlugin {
         getEventRegistry().register(PlayerDisconnectEvent.class, event -> {
             dialogueManager.endSession(event.getPlayerRef().getUuid());
             equipmentListener.clearPlayer(event.getPlayerRef().getUuid());
+            QuestMarkerProvider.INSTANCE.removePlayer(event.getPlayerRef().getUuid());
         });
+
+        // Restore quest waypoint markers on player connect
+        getEventRegistry().registerGlobal(PlayerReadyEvent.class, event -> {
+            Nat20PlayerData data = event.getPlayerRef().getStore()
+                    .getComponent(event.getPlayerRef(), getPlayerDataType());
+            if (data != null) {
+                QuestMarkerProvider.refreshMarkers(event.getPlayer().getUuid(), data);
+            }
+        });
+
+        // Register quest POI marker provider on every world
+        getEventRegistry().registerGlobal(AddWorldEvent.class, event ->
+                event.getWorld().getWorldMapManager()
+                        .addMarkerProvider("nat20_quests", QuestMarkerProvider.INSTANCE));
     }
 
     @Override

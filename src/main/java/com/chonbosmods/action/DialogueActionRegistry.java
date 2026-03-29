@@ -13,8 +13,11 @@ import com.hypixel.hytale.server.core.Message;
 import com.hypixel.hytale.server.core.universe.world.World;
 import com.hypixel.hytale.server.core.universe.world.storage.EntityStore;
 
+import com.chonbosmods.waypoint.QuestMarkerProvider;
+
 import java.util.HashMap;
 import java.util.Map;
+import java.util.Random;
 import java.util.Set;
 
 public class DialogueActionRegistry {
@@ -88,6 +91,16 @@ public class DialogueActionRegistry {
             QuestInstance quest = questSystem.getGenerator().generate(
                 npcRole, npcId, settlementCellKey, npcX, npcZ, completed);
             if (quest != null) {
+                // Compute marker offset BEFORE addQuest so it's serialized with the bindings
+                if ("true".equals(quest.getVariableBindings().get("poi_available"))) {
+                    Map<String, String> b = quest.getVariableBindings();
+                    Random rng = new Random(quest.getQuestId().hashCode());
+                    double angle = rng.nextDouble() * 2 * Math.PI;
+                    double dist = 20 + rng.nextDouble() * 40;
+                    b.put("marker_offset_x", String.valueOf(dist * Math.cos(angle)));
+                    b.put("marker_offset_z", String.valueOf(dist * Math.sin(angle)));
+                }
+
                 questSystem.getStateManager().addQuest(ctx.playerData(), quest);
 
                 // If quest has a POI, claim the void and place the structure
@@ -119,6 +132,10 @@ public class DialogueActionRegistry {
                             phase.getReferenceId(), npcX, npcZ);
                     }
                 }
+
+                // Update waypoint marker cache
+                QuestMarkerProvider.refreshMarkers(
+                        ctx.player().getPlayerRef().getUuid(), ctx.playerData());
             } else {
                 LOGGER.atWarning().log("GIVE_QUEST: quest generation returned null for NPC %s (role=%s)", npcId, npcRole);
             }
@@ -134,6 +151,10 @@ public class DialogueActionRegistry {
                 questSystem.getStateManager().markQuestCompleted(ctx.playerData(), questId);
                 questSystem.getReferenceManager().cleanupQuestReferences(ctx.playerData(), quest);
                 ctx.player().sendMessage(Message.raw("Quest completed: " + quest.getSituationId()));
+
+                // Update waypoint marker cache
+                QuestMarkerProvider.refreshMarkers(
+                        ctx.player().getPlayerRef().getUuid(), ctx.playerData());
             }
         });
 

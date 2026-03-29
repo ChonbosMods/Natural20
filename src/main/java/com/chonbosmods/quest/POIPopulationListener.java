@@ -102,34 +102,10 @@ public class POIPopulationListener {
                 NPCPlugin.get().spawnEntity(store, roleIndex, spawnPos, rotation, null, null);
 
             if (result != null) {
-                Ref<EntityStore> npcRef = result.first();
                 NPCEntity npcEntity = result.second();
 
-                // Fix ModelComponent scale=0 crash: read the model back, get asset ID,
-                // recreate with explicit scale=1.0 (pattern from RPGMobs)
-                try {
-                    var mc = store.getComponent(npcRef,
-                        com.hypixel.hytale.server.core.modules.entity.component.ModelComponent.getComponentType());
-                    if (mc != null) {
-                        var model = mc.getModel();
-                        if (model != null) {
-                            String assetId = model.getModelAssetId();
-                            if (assetId != null && !assetId.isBlank()) {
-                                var asset = com.hypixel.hytale.server.core.asset.type.model.config.ModelAsset
-                                    .getAssetMap().getAsset(assetId);
-                                if (asset != null) {
-                                    var scaledModel = com.hypixel.hytale.server.core.asset.type.model.config.Model
-                                        .createScaledModel(asset, 1.0f);
-                                    store.putComponent(npcRef,
-                                        com.hypixel.hytale.server.core.modules.entity.component.ModelComponent.getComponentType(),
-                                        new com.hypixel.hytale.server.core.modules.entity.component.ModelComponent(scaledModel));
-                                }
-                            }
-                        }
-                    }
-                } catch (Exception e) {
-                    LOGGER.atWarning().withCause(e).log("Failed to fix model scale for %s", pop.mobRole());
-                }
+                // Role provides the correct model with proper scale.
+                // Do NOT putComponent(ModelComponent) post-spawn: it persists scale=0.
 
                 spawnedUUIDs.add(npcEntity.getUuid().toString());
                 LOGGER.atInfo().log("  Spawned %s at (%.0f, %.0f, %.0f) UUID=%s",
