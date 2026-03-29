@@ -150,7 +150,7 @@ public class SettlementRegistry {
                     try (Writer writer = Files.newBufferedWriter(savePath)) {
                         GSON.toJson(settlements, MAP_TYPE, writer);
                     }
-                    LOGGER.atFine().log("Saved " + settlements.size() + " settlement(s) to " + savePath);
+                    LOGGER.atFinest().log("Saved %d settlement(s)", settlements.size());
                 } catch (IOException e) {
                     LOGGER.atSevere().withCause(e).log("Failed to save settlements.json");
                 }

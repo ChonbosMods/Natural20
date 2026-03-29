@@ -397,7 +397,7 @@ public class Nat20DialoguePage extends InteractiveCustomUIPage<Nat20DialoguePage
 
     @Override
     public void onDismiss(Ref<EntityStore> playerRef, Store<EntityStore> store) {
-        LOGGER.atInfo().log("onDismiss");
+        LOGGER.atFine().log("onDismiss");
         cancelTypewriter();
         dismissed = true;
         if (onEvent != null) {

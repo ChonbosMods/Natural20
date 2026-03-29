@@ -74,8 +74,6 @@ public class POIPopulationListener {
     }
 
     private void populate(World world, PendingPopulation pop) {
-        LOGGER.atInfo().log("Populating POI for quest %s: spawning %d %s at (%d, %d, %d)",
-            pop.questId(), pop.mobCount(), pop.mobRole(), pop.poiX(), pop.poiY(), pop.poiZ());
 
         Store<EntityStore> store = world.getEntityStore().getStore();
         List<String> spawnedUUIDs = new ArrayList<>();
@@ -139,7 +137,8 @@ public class POIPopulationListener {
         quest.getVariableBindings().put("poi_populated", "true");
         stateManager.saveActiveQuests(playerData, quests);
 
-        LOGGER.atInfo().log("POI populated for quest %s: %d mobs, UUIDs=%s",
-            pop.questId(), uuids.split(",").length, uuids);
+        LOGGER.atInfo().log("POI spawned %d %s for quest %s | /tp %d %d %d",
+            uuids.split(",").length, pop.mobRole(), pop.questId(),
+            pop.poiX(), pop.poiY(), pop.poiZ());
     }
 }

@@ -256,7 +256,7 @@ public class PageDialoguePresenter implements DialoguePresenter {
             hudHidden = true;
             player.getHudManager().hideHudComponents(playerRef,
                     HudComponent.Hotbar, HudComponent.Reticle);
-            LOGGER.atInfo().log("HUD hidden");
+            LOGGER.atFine().log("HUD hidden");
         }
     }
 
@@ -265,7 +265,7 @@ public class PageDialoguePresenter implements DialoguePresenter {
             hudHidden = false;
             player.getHudManager().showHudComponents(playerRef,
                     HudComponent.Hotbar, HudComponent.Reticle);
-            LOGGER.atInfo().log("HUD restored");
+            LOGGER.atFine().log("HUD restored");
         }
     }
 }
