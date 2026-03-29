@@ -129,8 +129,8 @@ public class POIKillTrackingSystem extends DamageEventSystem {
                 LOGGER.atInfo().log("POI mob suffocated: quest=%s victim=%s, spawning replacement",
                     quest.getQuestId(), victimUUID);
                 removeMobUUID(b, victimUUID);
-                spawnReplacement(quest, b);
                 stateManager.saveActiveQuests(playerData, quests);
+                spawnReplacement(quest, b, playerData, quests);
                 return true;
             }
 
@@ -188,18 +188,33 @@ public class POIKillTrackingSystem extends DamageEventSystem {
      * Spawn a replacement mob at the POI location using the quest's spawn descriptor.
      * Adds the new mob's UUID to poi_mob_uuids.
      */
-    private void spawnReplacement(QuestInstance quest, Map<String, String> b) {
+    /**
+     * Defer spawning a replacement mob to the next tick.
+     * Cannot spawn from inside a DamageEventSystem handler (store is processing).
+     */
+    private void spawnReplacement(QuestInstance quest, Map<String, String> b,
+                                   Nat20PlayerData playerData, Map<String, QuestInstance> quests) {
         POIPopulationListener.SpawnDescriptor desc =
             POIPopulationListener.SpawnDescriptor.parse(b.get("poi_spawn_descriptor"));
         if (desc == null) return;
         World world = Natural20.getInstance().getDefaultWorld();
         if (world == null) return;
-        List<String> spawned = Natural20.getInstance().getPOIPopulationListener()
-            .spawnMobs(world, desc.mobRole(), 1, desc.poiX(), desc.poiY(), desc.poiZ());
-        if (!spawned.isEmpty()) {
-            String existing = b.getOrDefault("poi_mob_uuids", "");
-            String updated = existing.isEmpty() ? spawned.getFirst() : existing + "," + spawned.getFirst();
-            b.put("poi_mob_uuids", updated);
-        }
+
+        QuestStateManager sm = Natural20.getInstance().getQuestSystem().getStateManager();
+        world.execute(() -> {
+            List<String> spawned = Natural20.getInstance().getPOIPopulationListener()
+                .spawnMobs(world, desc.mobRole(), 1, desc.poiX(), desc.poiY(), desc.poiZ());
+            if (!spawned.isEmpty()) {
+                // Re-read quest bindings since we're on a deferred tick
+                Map<String, QuestInstance> freshQuests = sm.getActiveQuests(playerData);
+                QuestInstance freshQuest = freshQuests.get(quest.getQuestId());
+                if (freshQuest != null) {
+                    String existing = freshQuest.getVariableBindings().getOrDefault("poi_mob_uuids", "");
+                    String updated = existing.isEmpty() ? spawned.getFirst() : existing + "," + spawned.getFirst();
+                    freshQuest.getVariableBindings().put("poi_mob_uuids", updated);
+                    sm.saveActiveQuests(playerData, freshQuests);
+                }
+            }
+        });
     }
 }
