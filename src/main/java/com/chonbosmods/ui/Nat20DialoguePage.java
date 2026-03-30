@@ -36,6 +36,7 @@ public class Nat20DialoguePage extends InteractiveCustomUIPage<Nat20DialoguePage
     private static final int MAX_TOPICS = 10;
     private static final int MAX_FOLLOW_UPS = 6;
     private static final int MAX_LOG_LABELS = 30;
+    private static final int TOPIC_WRAP_CHARS = 22;
 
     // Log rendering colors (per visual polish guide)
     private static final String COLOR_TOPIC_HEADER = "#666666";
@@ -116,19 +117,22 @@ public class Nat20DialoguePage extends InteractiveCustomUIPage<Nat20DialoguePage
                 cmd.set(selector + ".Visible", true);
 
                 if (grayed) {
-                    cmd.set(selector + ".TextSpans", Message.raw(rt.topic().label()).color("#666666"));
+                    cmd.set(selector + ".TextSpans", Message.raw(wrapTopicLabel(rt.topic().label())).color("#666666"));
                 } else if (rt.topic().statPrefix() != null) {
                     String statColor = Stat.colorFor(rt.topic().statPrefix());
                     String bracket = "[" + rt.topic().statPrefix().replace("[","").replace("]","").trim().toUpperCase() + "]";
-                    Message label = Message.raw(bracket).color(statColor)
-                            .insert(Message.raw(" " + rt.topic().label()).color("#FFFFFF"));
-                    cmd.set(selector + ".TextSpans", label);
+                    String fullLabel = bracket + " " + rt.topic().label();
+                    Message label = Message.raw(wrapTopicLabel(fullLabel)).color("#FFFFFF");
+                    // Re-color just the bracket portion via TextSpans
+                    Message coloredLabel = Message.raw(bracket).color(statColor)
+                            .insert(Message.raw(" " + wrapTopicLabel(rt.topic().label())).color("#FFFFFF"));
+                    cmd.set(selector + ".TextSpans", coloredLabel);
                 } else if (rt.topic().questTopic()) {
-                    cmd.set(selector + ".Text", rt.topic().label());
+                    cmd.set(selector + ".Text", wrapTopicLabel(rt.topic().label()));
                     cmd.set(selector + ".Style.Default.LabelStyle.TextColor", COLOR_QUEST_BRACKET);
                     cmd.set(selector + ".Style.Hovered.LabelStyle.TextColor", "#77DDDD");
                 } else {
-                    cmd.set(selector + ".Text", rt.topic().label());
+                    cmd.set(selector + ".Text", wrapTopicLabel(rt.topic().label()));
                 }
 
                 cmd.set(selector + ".Disabled", topicsLocked);
@@ -142,6 +146,18 @@ public class Nat20DialoguePage extends InteractiveCustomUIPage<Nat20DialoguePage
                 cmd.set(selector + ".Visible", false);
             }
         }
+    }
+
+    /**
+     * Insert a newline at the last word boundary before TOPIC_WRAP_CHARS if the label
+     * is longer than TOPIC_WRAP_CHARS. Short labels pass through unchanged.
+     */
+    private static String wrapTopicLabel(String label) {
+        if (label.length() <= TOPIC_WRAP_CHARS) return label;
+        int breakAt = label.lastIndexOf(' ', TOPIC_WRAP_CHARS);
+        if (breakAt <= 0) breakAt = label.indexOf(' ', TOPIC_WRAP_CHARS);
+        if (breakAt <= 0) return label;
+        return label.substring(0, breakAt) + "\n" + label.substring(breakAt + 1);
     }
 
     private void buildLog(UICommandBuilder cmd) {

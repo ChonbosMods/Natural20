@@ -51,61 +51,61 @@ $C.@Container {
 
           $C.@SmallSecondaryTextButton #Topic1 {
             Text: "";
-            Anchor: (Height: 32);
+            Anchor: (Height: 64);
             Visible: false;
           }
 
           $C.@SmallSecondaryTextButton #Topic2 {
             Text: "";
-            Anchor: (Height: 32, Top: 5);
+            Anchor: (Height: 64, Top: 5);
             Visible: false;
           }
 
           $C.@SmallSecondaryTextButton #Topic3 {
             Text: "";
-            Anchor: (Height: 32, Top: 5);
+            Anchor: (Height: 64, Top: 5);
             Visible: false;
           }
 
           $C.@SmallSecondaryTextButton #Topic4 {
             Text: "";
-            Anchor: (Height: 32, Top: 5);
+            Anchor: (Height: 64, Top: 5);
             Visible: false;
           }
 
           $C.@SmallSecondaryTextButton #Topic5 {
             Text: "";
-            Anchor: (Height: 32, Top: 5);
+            Anchor: (Height: 64, Top: 5);
             Visible: false;
           }
 
           $C.@SmallSecondaryTextButton #Topic6 {
             Text: "";
-            Anchor: (Height: 32, Top: 5);
+            Anchor: (Height: 64, Top: 5);
             Visible: false;
           }
 
           $C.@SmallSecondaryTextButton #Topic7 {
             Text: "";
-            Anchor: (Height: 32, Top: 5);
+            Anchor: (Height: 64, Top: 5);
             Visible: false;
           }
 
           $C.@SmallSecondaryTextButton #Topic8 {
             Text: "";
-            Anchor: (Height: 32, Top: 5);
+            Anchor: (Height: 64, Top: 5);
             Visible: false;
           }
 
           $C.@SmallSecondaryTextButton #Topic9 {
             Text: "";
-            Anchor: (Height: 32, Top: 5);
+            Anchor: (Height: 64, Top: 5);
             Visible: false;
           }
 
           $C.@SmallSecondaryTextButton #Topic10 {
             Text: "";
-            Anchor: (Height: 32, Top: 5);
+            Anchor: (Height: 64, Top: 5);
             Visible: false;
           }
         }
