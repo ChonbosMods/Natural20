@@ -29,6 +29,26 @@
       },
       "objectivePool": [],
       "objectiveConfig": {}
+    },
+    {
+      "id": "deliverance_reso_04",
+      "dialogueChunks": {
+        "intro": "{player_name}, the gates opened and they came pouring out. Some were crying. Some were laughing. Most were doing both.",
+        "plotStep": "{quest_focus_The} stands empty now: a husk that will never hold anyone captive again. {quest_ally} counted every head and confirmed that no one was left behind. {quest_threat_The} underestimated what one determined person could do.",
+        "outro": "You gave them back their lives. There is no greater gift than that."
+      },
+      "objectivePool": [],
+      "objectiveConfig": {}
+    },
+    {
+      "id": "deliverance_reso_05",
+      "dialogueChunks": {
+        "intro": "I keep expecting to wake up and find this was a dream. But it is real, {player_name}. They are home.",
+        "plotStep": "The youngest ones do not fully understand what happened, but their parents do. {quest_ally} says the settlement has not been this united since before {quest_origin}. Suffering brought us together, and your courage brought us back.",
+        "outro": "You carried the weight so others did not have to. We will remember."
+      },
+      "objectivePool": [],
+      "objectiveConfig": {}
     }
   ]
 }

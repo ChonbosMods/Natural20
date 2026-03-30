@@ -13,22 +13,21 @@
             { "intent": "context", "response": "{location_detail}" },
             { "intent": "opinion", "response": "{local_opinion}" }
           ],
-          "deepenerResponse": "{personal_reaction}"
-        },
-        {
-          "intro": "{tone_opener} {weather_observation}. {tone_closer}",
-          "intents": [
-            { "intent": "detail",   "response": "{weather_detail}" },
-            { "intent": "reaction", "response": "{personal_reaction}" }
-          ],
           "deepenerResponse": "{local_opinion}"
         },
         {
-          "intro": "{tone_opener} {weather_observation}. {tone_closer}",
+          "intro": "{weather_observation}. {personal_reaction}",
           "intents": [
-            { "intent": "detail",  "response": "{time_ref}. {weather_detail}" },
-            { "intent": "context", "response": "{location_detail}" },
-            { "intent": "opinion", "response": "{local_opinion}" }
+            { "intent": "detail",   "response": "{weather_detail}. {time_ref}." },
+            { "intent": "opinion",  "response": "{local_opinion}" }
+          ],
+          "deepenerResponse": "{personal_reaction}"
+        },
+        {
+          "intro": "{tone_opener} {location_detail}. {weather_observation}. {local_opinion}",
+          "intents": [
+            { "intent": "detail",   "response": "{weather_detail}" },
+            { "intent": "reaction", "response": "{personal_reaction}. {time_ref}." }
           ],
           "deepenerResponse": "{personal_reaction}"
         }
@@ -56,22 +55,21 @@
             { "intent": "context", "response": "{location_detail}" },
             { "intent": "opinion", "response": "{local_opinion}" }
           ],
-          "deepenerResponse": "{personal_reaction}"
-        },
-        {
-          "intro": "{tone_opener} {trade_gossip}. {tone_closer}",
-          "intents": [
-            { "intent": "detail",   "response": "{trade_detail}" },
-            { "intent": "reaction", "response": "{personal_reaction}" }
-          ],
           "deepenerResponse": "{local_opinion}"
         },
         {
-          "intro": "{tone_opener} {trade_gossip}. {tone_closer}",
+          "intro": "{trade_gossip}. {personal_reaction}",
           "intents": [
-            { "intent": "detail",  "response": "{time_ref}. {trade_detail}" },
-            { "intent": "context", "response": "{location_detail}" },
-            { "intent": "opinion", "response": "{local_opinion}" }
+            { "intent": "detail",   "response": "{trade_detail}. {time_ref}." },
+            { "intent": "opinion",  "response": "{local_opinion}" }
+          ],
+          "deepenerResponse": "{personal_reaction}"
+        },
+        {
+          "intro": "{tone_opener} {location_detail}. {trade_gossip}. {local_opinion}",
+          "intents": [
+            { "intent": "detail",   "response": "{trade_detail}" },
+            { "intent": "reaction", "response": "{personal_reaction}. {time_ref}." }
           ],
           "deepenerResponse": "{personal_reaction}"
         }
@@ -98,22 +96,21 @@
             { "intent": "context", "response": "{location_detail}" },
             { "intent": "opinion", "response": "{local_opinion}" }
           ],
-          "deepenerResponse": "{personal_reaction}"
-        },
-        {
-          "intro": "{tone_opener} {craft_observation}. {tone_closer}",
-          "intents": [
-            { "intent": "detail",   "response": "{craft_detail}" },
-            { "intent": "reaction", "response": "{personal_reaction}" }
-          ],
           "deepenerResponse": "{local_opinion}"
         },
         {
-          "intro": "{tone_opener} {craft_observation}. {tone_closer}",
+          "intro": "{craft_observation}. {personal_reaction}",
           "intents": [
-            { "intent": "detail",  "response": "{time_ref}. {craft_detail}" },
-            { "intent": "context", "response": "{location_detail}" },
-            { "intent": "opinion", "response": "{local_opinion}" }
+            { "intent": "detail",   "response": "{craft_detail}. {time_ref}." },
+            { "intent": "opinion",  "response": "{local_opinion}" }
+          ],
+          "deepenerResponse": "{personal_reaction}"
+        },
+        {
+          "intro": "{tone_opener} {location_detail}. {craft_observation}. {local_opinion}",
+          "intents": [
+            { "intent": "detail",   "response": "{craft_detail}" },
+            { "intent": "reaction", "response": "{personal_reaction}. {time_ref}." }
           ],
           "deepenerResponse": "{personal_reaction}"
         }
@@ -137,25 +134,25 @@
         {
           "intro": "{tone_opener} {community_observation}. {tone_closer}",
           "intents": [
-            { "intent": "detail",   "response": "{community_detail}" },
-            { "intent": "opinion",  "response": "{local_opinion}" },
-            { "intent": "reaction", "response": "{personal_reaction}" }
+            { "intent": "detail",  "response": "{community_detail}" },
+            { "intent": "context", "response": "{location_detail}" },
+            { "intent": "opinion", "response": "{local_opinion}" }
           ],
           "deepenerResponse": "{local_opinion}"
         },
         {
-          "intro": "{tone_opener} {community_observation}. {tone_closer}",
+          "intro": "{community_observation}. {personal_reaction}",
           "intents": [
-            { "intent": "detail",  "response": "{community_detail}" },
-            { "intent": "context", "response": "{location_detail}" }
+            { "intent": "detail",   "response": "{community_detail}. {time_ref}." },
+            { "intent": "reaction", "response": "{local_opinion}" }
           ],
           "deepenerResponse": "{personal_reaction}"
         },
         {
-          "intro": "{tone_opener} {community_observation}. {tone_closer}",
+          "intro": "{tone_opener} {location_detail}. {community_observation}. {local_opinion}",
           "intents": [
-            { "intent": "detail",  "response": "{time_ref}. {community_detail}" },
-            { "intent": "opinion", "response": "{local_opinion}" }
+            { "intent": "detail",   "response": "{community_detail}" },
+            { "intent": "reaction", "response": "{personal_reaction}. {time_ref}." }
           ],
           "deepenerResponse": "{personal_reaction}"
         }
@@ -184,24 +181,24 @@
             { "intent": "stakes",  "response": "{danger_assessment}" },
             { "intent": "opinion", "response": "{local_opinion}" }
           ],
+          "deepenerResponse": "{local_opinion}"
+        },
+        {
+          "intro": "{nature_observation}. {personal_reaction}",
+          "intents": [
+            { "intent": "detail",  "response": "{nature_detail}. {creature_detail}." },
+            { "intent": "stakes",  "response": "{danger_assessment}" },
+            { "intent": "opinion", "response": "{local_opinion}" }
+          ],
           "deepenerResponse": "{personal_reaction}"
         },
         {
-          "intro": "{tone_opener} {nature_observation}. {tone_closer}",
-          "intents": [
-            { "intent": "detail",   "response": "{nature_detail}" },
-            { "intent": "context",  "response": "{location_detail}" },
-            { "intent": "reaction", "response": "{personal_reaction}" }
-          ],
-          "deepenerResponse": "{local_opinion}"
-        },
-        {
-          "intro": "{tone_opener} {nature_observation}. {tone_closer}",
+          "intro": "{tone_opener} {location_detail}. {nature_observation}. {local_opinion}",
           "intents": [
             { "intent": "detail",  "response": "{nature_detail}" },
-            { "intent": "stakes",  "response": "{danger_assessment}" }
+            { "intent": "stakes",  "response": "{danger_assessment}. {time_ref}." }
           ],
-          "deepenerResponse": "{local_opinion}"
+          "deepenerResponse": "{personal_reaction}"
         }
       ],
       "questHookPerspectives": [
@@ -223,26 +220,25 @@
         {
           "intro": "{tone_opener} {nostalgia_observation}. {tone_closer}",
           "intents": [
-            { "intent": "detail",  "response": "{time_ref}. {nostalgia_detail}" },
+            { "intent": "detail",  "response": "{nostalgia_detail}" },
             { "intent": "context", "response": "{location_detail}" },
             { "intent": "opinion", "response": "{local_opinion}" }
-          ],
-          "deepenerResponse": "{personal_reaction}"
-        },
-        {
-          "intro": "{tone_opener} {nostalgia_observation}. {tone_closer}",
-          "intents": [
-            { "intent": "detail",   "response": "{nostalgia_detail}" },
-            { "intent": "reaction", "response": "{personal_reaction}" }
           ],
           "deepenerResponse": "{local_opinion}"
         },
         {
-          "intro": "{tone_opener} {nostalgia_observation}. {tone_closer}",
+          "intro": "{nostalgia_observation}. {personal_reaction}",
           "intents": [
-            { "intent": "detail",  "response": "{nostalgia_detail}" },
-            { "intent": "context", "response": "{location_detail}" },
-            { "intent": "opinion", "response": "{local_opinion}" }
+            { "intent": "detail",   "response": "{nostalgia_detail}. {time_ref}." },
+            { "intent": "reaction", "response": "{local_opinion}" }
+          ],
+          "deepenerResponse": "{personal_reaction}"
+        },
+        {
+          "intro": "{tone_opener} {location_detail}. {nostalgia_observation}. {local_opinion}",
+          "intents": [
+            { "intent": "detail",   "response": "{nostalgia_detail}" },
+            { "intent": "reaction", "response": "{personal_reaction}. {time_ref}." }
           ],
           "deepenerResponse": "{personal_reaction}"
         }
@@ -268,25 +264,25 @@
           "intents": [
             { "intent": "detail",  "response": "{curiosity_detail}" },
             { "intent": "context", "response": "{location_detail}" },
-            { "intent": "stakes",  "response": "{danger_assessment}" }
+            { "intent": "stakes",  "response": "{danger_assessment}" },
+            { "intent": "opinion", "response": "{local_opinion}" }
           ],
           "deepenerResponse": "{local_opinion}"
         },
         {
-          "intro": "{tone_opener} {curiosity_observation}. {tone_closer}",
+          "intro": "{curiosity_observation}. {personal_reaction}",
           "intents": [
-            { "intent": "detail",   "response": "{event_detail}" },
-            { "intent": "opinion",  "response": "{local_opinion}" },
-            { "intent": "reaction", "response": "{personal_reaction}" }
+            { "intent": "detail",  "response": "{curiosity_detail}. {event_detail}." },
+            { "intent": "stakes",  "response": "{danger_assessment}" },
+            { "intent": "opinion", "response": "{local_opinion}" }
           ],
-          "deepenerResponse": "{local_opinion}"
+          "deepenerResponse": "{personal_reaction}"
         },
         {
-          "intro": "{tone_opener} {curiosity_observation}. {tone_closer}",
+          "intro": "{tone_opener} {location_detail}. {curiosity_observation}. {local_opinion}",
           "intents": [
-            { "intent": "detail",  "response": "{time_ref}. {event_detail}" },
-            { "intent": "context", "response": "{location_detail}" },
-            { "intent": "stakes",  "response": "{danger_assessment}" }
+            { "intent": "detail", "response": "{curiosity_detail}" },
+            { "intent": "stakes", "response": "{danger_assessment}. {time_ref}." }
           ],
           "deepenerResponse": "{personal_reaction}"
         }
@@ -314,22 +310,21 @@
             { "intent": "context", "response": "{location_detail}" },
             { "intent": "opinion", "response": "{local_opinion}" }
           ],
-          "deepenerResponse": "{personal_reaction}"
-        },
-        {
-          "intro": "{tone_opener} {festival_observation}. {tone_closer}",
-          "intents": [
-            { "intent": "detail",   "response": "{festival_detail}" },
-            { "intent": "reaction", "response": "{personal_reaction}" }
-          ],
           "deepenerResponse": "{local_opinion}"
         },
         {
-          "intro": "{tone_opener} {festival_observation}. {tone_closer}",
+          "intro": "{festival_observation}. {personal_reaction}",
           "intents": [
-            { "intent": "detail",  "response": "{time_ref}. {festival_detail}" },
-            { "intent": "context", "response": "{location_detail}" },
-            { "intent": "opinion", "response": "{local_opinion}" }
+            { "intent": "detail",   "response": "{festival_detail}. {time_ref}." },
+            { "intent": "opinion",  "response": "{local_opinion}" }
+          ],
+          "deepenerResponse": "{personal_reaction}"
+        },
+        {
+          "intro": "{tone_opener} {location_detail}. {festival_observation}. {local_opinion}",
+          "intents": [
+            { "intent": "detail",   "response": "{festival_detail}" },
+            { "intent": "reaction", "response": "{personal_reaction}. {time_ref}." }
           ],
           "deepenerResponse": "{personal_reaction}"
         }

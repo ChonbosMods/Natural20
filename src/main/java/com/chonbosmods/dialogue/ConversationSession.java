@@ -50,6 +50,9 @@ public class ConversationSession {
     private String activeTopicId;
     private boolean ended;
 
+    // Deferred deepener resolution
+    private final DeferredDeepenerResolver deepenerResolver;
+
     // Callbacks
     private final DialoguePresenter presenter;
     private final Runnable onSessionEnd;
@@ -65,6 +68,7 @@ public class ConversationSession {
             Nat20NpcData npcData,
             DialogueActionRegistry actionRegistry,
             ConditionEvaluator conditionEvaluator,
+            DeferredDeepenerResolver deepenerResolver,
             DialoguePresenter presenter,
             Runnable onSessionEnd,
             Runnable onNpcRelease
@@ -80,6 +84,7 @@ public class ConversationSession {
         this.npcData = npcData;
         this.actionRegistry = actionRegistry;
         this.conditionEvaluator = conditionEvaluator;
+        this.deepenerResolver = deepenerResolver;
         this.presenter = presenter;
         this.onSessionEnd = onSessionEnd;
         this.onNpcRelease = onNpcRelease;
@@ -179,6 +184,7 @@ public class ConversationSession {
                         : (entryNode instanceof DialogueNode.DialogueTextNode tn ? tn.speakerText() : null);
                 }
                 if (text != null) {
+                    text = deepenerResolver.resolve(text);
                     conversationLog.add(new LogEntry.TopicHeader(topic.label(), topic.questTopic()));
                     conversationLog.add(new LogEntry.NpcSpeech(text));
                 }
@@ -205,6 +211,7 @@ public class ConversationSession {
                         : (entryNode instanceof DialogueNode.DialogueTextNode tn ? tn.speakerText() : null);
                 }
                 if (text != null) {
+                    text = deepenerResolver.resolve(text);
                     conversationLog.add(new LogEntry.TopicHeader(topic.label(), topic.questTopic()));
                     conversationLog.add(new LogEntry.NpcSpeech(text));
                 }
@@ -283,7 +290,8 @@ public class ConversationSession {
 
         switch (node) {
             case DialogueNode.DialogueTextNode textNode -> {
-                conversationLog.add(new LogEntry.NpcSpeech(textNode.speakerText()));
+                conversationLog.add(new LogEntry.NpcSpeech(
+                    deepenerResolver.resolve(textNode.speakerText())));
                 filterAndDisplayResponses(textNode);
 
                 if (textNode.exhaustsTopic() && activeTopicId != null) {

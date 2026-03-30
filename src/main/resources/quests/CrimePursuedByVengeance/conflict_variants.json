@@ -35,6 +35,42 @@
       "objectiveConfig": {
         "KILL_MOBS": {"countMin": 5, "countMax": 10}
       }
+    },
+    {
+      "id": "crimevengeance_conf_04",
+      "dialogueChunks": {
+        "intro": "They hit us again last night, {player_name}. Retribution for your work to {quest_action}. They are trying to break our will.",
+        "plotStep": "This time they sent {enemy_type_plural} directly at the settlement as a warning. {quest_ally} drove them off, but there are more massing {location_hint}. If we do not strike their staging ground now, the next attack will be worse. {quest_stakes_The} {quest_stakes_is} on the line.",
+        "outro": "Find their camp and destroy it. Show them that vengeance cuts both ways."
+      },
+      "objectivePool": ["KILL_MOBS"],
+      "objectiveConfig": {
+        "KILL_MOBS": {"countMin": 4, "countMax": 8}
+      }
+    },
+    {
+      "id": "crimevengeance_conf_05",
+      "dialogueChunks": {
+        "intro": "{player_name}, {quest_threat_animate_the} is trying to erase the evidence. They sent {enemy_type_plural} to destroy what remains of {quest_focus_the}.",
+        "plotStep": "If those creatures finish the job, there will be nothing left to recover: no proof of the crime, no trace of {quest_stakes_the}. {quest_ally} says the {enemy_type_plural} are already tearing through the area {location_hint}. We need them stopped immediately.",
+        "outro": "Kill them before they destroy everything. Without that evidence, justice becomes impossible."
+      },
+      "objectivePool": ["KILL_MOBS"],
+      "objectiveConfig": {
+        "KILL_MOBS": {"countMin": 3, "countMax": 7}
+      }
+    },
+    {
+      "id": "crimevengeance_conf_06",
+      "dialogueChunks": {
+        "intro": "The criminals are running, {player_name}. Your pursuit has them panicking, and panicked people make dangerous choices.",
+        "plotStep": "They released the {enemy_type_plural} they had been keeping as guard animals: set them loose near {quest_focus_the} {location_hint} as a distraction. The creatures are rampaging through the area. {quest_ally} says we must deal with them before we can follow the trail further.",
+        "outro": "Put down the {enemy_type_plural} they unleashed. Once the chaos is contained, we close in."
+      },
+      "objectivePool": ["KILL_MOBS"],
+      "objectiveConfig": {
+        "KILL_MOBS": {"countMin": 5, "countMax": 9}
+      }
     }
   ]
 }

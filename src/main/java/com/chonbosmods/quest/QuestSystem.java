@@ -51,4 +51,5 @@ public class QuestSystem {
     public QuestRewardManager getRewardManager() { return rewardManager; }
     public ReferenceManager getReferenceManager() { return referenceManager; }
     public TopicGenerator getTopicGenerator() { return topicGenerator; }
+    public TopicPoolRegistry getTopicPoolRegistry() { return topicPoolRegistry; }
 }

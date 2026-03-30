@@ -38,16 +38,67 @@
       "id": "daringenterprise_conf_03",
       "dialogueChunks": {
         "intro": "{player_name}, I will not sugarcoat it. Our attempt to {quest_action} hit a wall. {quest_threat_animate_The} destroyed our preparations.",
-        "plotStep": "We need to start over, and quickly. {quest_ally} says there is an alternate approach through an area {location_hint}, but the {enemy_type_plural} have been seen there. Someone needs to push through and secure {quest_item} for a second attempt.",
+        "plotStep": "We need to start over, and quickly. {quest_ally} says there is an alternate approach through an area {location_hint}, but the {enemy_type_plural} have been seen there in force. Someone needs to push through and eliminate them so we can try a second approach.",
         "outro": "{quest_stakes_The} {quest_stakes_is} slipping further away every day we delay. Are you still with us?"
       },
       "objectivePool": [
-        "FETCH_ITEM"
+        "KILL_MOBS"
       ],
       "objectiveConfig": {
-        "FETCH_ITEM": {
-          "countMin": 1,
-          "countMax": 1
+        "KILL_MOBS": {
+          "countMin": 3,
+          "countMax": 7
+        }
+      }
+    },
+    {
+      "id": "daringenterprise_conf_04",
+      "dialogueChunks": {
+        "intro": "The first breach brought down something worse than expected, {player_name}. {quest_threat_animate_The} was dormant until we disturbed it.",
+        "plotStep": "The deeper chambers near {quest_focus_the} are swarming with {enemy_type_plural} that were not there before. {quest_ally} thinks our activity woke something ancient {location_hint}. The creatures are pouring out of passages we did not know existed.",
+        "outro": "Kill them before they spread beyond the site. If they reach the surface in these numbers, {quest_stakes_the} will be the least of our problems."
+      },
+      "objectivePool": [
+        "KILL_MOBS"
+      ],
+      "objectiveConfig": {
+        "KILL_MOBS": {
+          "countMin": 5,
+          "countMax": 10
+        }
+      }
+    },
+    {
+      "id": "daringenterprise_conf_05",
+      "dialogueChunks": {
+        "intro": "We underestimated the {enemy_type_plural}, {player_name}. They are not mindless. They set a trap near {quest_focus_the}.",
+        "plotStep": "{quest_ally} walked into it and barely escaped. The creatures collapsed the main approach {location_hint} and are using the bottleneck to ambush anyone who tries to get through. We need a different strategy: hunt them from behind while they watch the front.",
+        "outro": "Circle around and hit them where they are not expecting it. {quest_stakes_The} {quest_stakes_is} worth the risk."
+      },
+      "objectivePool": [
+        "KILL_MOBS"
+      ],
+      "objectiveConfig": {
+        "KILL_MOBS": {
+          "countMin": 4,
+          "countMax": 8
+        }
+      }
+    },
+    {
+      "id": "daringenterprise_conf_06",
+      "dialogueChunks": {
+        "intro": "{player_name}, a rival expedition reached the area ahead of us. They failed, and their failure made our job harder.",
+        "plotStep": "Their botched attempt scattered the {enemy_type_plural} across a wider area {location_hint}. {quest_ally} says the creatures are now patrolling aggressively where they were once stationary. We need them thinned out before we can make our own approach to {quest_focus_the}.",
+        "outro": "Their loss, our opportunity: but only if we act fast. Kill the {enemy_type_plural} before they settle into their new positions."
+      },
+      "objectivePool": [
+        "KILL_MOBS"
+      ],
+      "objectiveConfig": {
+        "KILL_MOBS": {
+          "countMin": 4,
+          "countMax": 9
         }
       }
     }

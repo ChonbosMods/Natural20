@@ -4,16 +4,16 @@
       "id": "misfortune_conf_01",
       "dialogueChunks": {
         "intro": "{player_name}, as if things were not bad enough. While you were helping us {quest_action}, {quest_threat_the} worsened and brought new problems.",
-        "plotStep": "{quest_ally} says the disruption near {quest_focus_the} has left supplies exposed {location_hint}. {quest_stakes_The} {quest_stakes_is} running dangerously low. We need you to secure more {quest_item} before what little we have is gone.",
+        "plotStep": "{quest_ally} says the disruption near {quest_focus_the} has attracted even more {enemy_type_plural} {location_hint}. {quest_stakes_The} {quest_stakes_is} running dangerously low on time. We need you to kill the new arrivals before they entrench.",
         "outro": "Misfortune compounds misfortune. But we have to keep fighting."
       },
       "objectivePool": [
-        "COLLECT_RESOURCES"
+        "KILL_MOBS"
       ],
       "objectiveConfig": {
-        "COLLECT_RESOURCES": {
+        "KILL_MOBS": {
           "countMin": 3,
-          "countMax": 8
+          "countMax": 7
         }
       }
     },
@@ -21,16 +21,16 @@
       "id": "misfortune_conf_02",
       "dialogueChunks": {
         "intro": "More misfortune, {player_name}. Your work to {quest_action} was going well until a second wave of {quest_threat_the} undid half your progress.",
-        "plotStep": "{quest_focus_The} {quest_focus_has} been hit again. {quest_ally} managed to salvage some {quest_item}, but we lost most of the stockpile. {quest_stakes_human_The} {quest_stakes_human_is} in desperate need of those resources. Gather what you can {location_hint}.",
+        "plotStep": "{quest_focus_The} {quest_focus_has} been hit again. The {enemy_type_plural} you drove off last time have returned in greater numbers {location_hint}. {quest_stakes_human_The} {quest_stakes_human_is} in desperate need of protection.",
         "outro": "I know this feels like pushing a boulder uphill. But we are close: one more effort."
       },
       "objectivePool": [
-        "COLLECT_RESOURCES"
+        "KILL_MOBS"
       ],
       "objectiveConfig": {
-        "COLLECT_RESOURCES": {
+        "KILL_MOBS": {
           "countMin": 4,
-          "countMax": 10
+          "countMax": 9
         }
       }
     },
@@ -38,16 +38,67 @@
       "id": "misfortune_conf_03",
       "dialogueChunks": {
         "intro": "{player_name}, I hate to ask again. Since you began to {quest_action}, we discovered that {quest_threat_the} caused hidden damage to {quest_focus_the}.",
-        "plotStep": "The situation is more fragile than we thought. {quest_ally} found the damage runs deeper than the surface. We need {quest_item} found {location_hint} to stabilize things before {quest_focus_the} can fail entirely.",
+        "plotStep": "The weakened structure has become a beacon for {enemy_type_plural} {location_hint}. {quest_ally} found the damage runs deeper than the surface, and the creatures are burrowing into the foundations. We need them killed before {quest_focus_the} collapses entirely.",
         "outro": "Without your help, {quest_stakes_the} will be lost to nothing more than bad luck and bad timing."
       },
       "objectivePool": [
-        "COLLECT_RESOURCES"
+        "KILL_MOBS"
       ],
       "objectiveConfig": {
-        "COLLECT_RESOURCES": {
+        "KILL_MOBS": {
+          "countMin": 4,
+          "countMax": 8
+        }
+      }
+    },
+    {
+      "id": "misfortune_conf_04",
+      "dialogueChunks": {
+        "intro": "The bad luck just will not stop, {player_name}. A rockslide exposed a den of {enemy_type_plural} that no one knew was there.",
+        "plotStep": "They spilled out of the hillside near {quest_focus_the} and went straight for the damaged areas {location_hint}. {quest_ally} says they are territorial and will not leave without a fight. {quest_stakes_The} {quest_stakes_is} in their path.",
+        "outro": "Drive them back underground or kill them. We cannot afford another setback."
+      },
+      "objectivePool": [
+        "KILL_MOBS"
+      ],
+      "objectiveConfig": {
+        "KILL_MOBS": {
+          "countMin": 3,
+          "countMax": 7
+        }
+      }
+    },
+    {
+      "id": "misfortune_conf_05",
+      "dialogueChunks": {
+        "intro": "{player_name}, the {enemy_type_plural} have turned opportunistic. They are no longer just lurking near {quest_focus_the}: they are actively raiding.",
+        "plotStep": "Since your efforts to {quest_action}, the creatures learned that we are weakened. They struck a supply wagon {location_hint} and now they are bolder than ever. {quest_ally} says if we do not hit them hard and fast, they will keep pushing until {quest_stakes_the} {quest_stakes_is} lost.",
+        "outro": "Make them fear us again. Hunt them down and kill every one you find near the routes."
+      },
+      "objectivePool": [
+        "KILL_MOBS"
+      ],
+      "objectiveConfig": {
+        "KILL_MOBS": {
           "countMin": 5,
-          "countMax": 12
+          "countMax": 10
+        }
+      }
+    },
+    {
+      "id": "misfortune_conf_06",
+      "dialogueChunks": {
+        "intro": "Just when we thought the worst was over, {player_name}. A freak storm drove a pack of {enemy_type_plural} straight toward {quest_focus_the}.",
+        "plotStep": "The creatures are sheltering in the same ruins we need to rebuild {location_hint}. {quest_ally} says they will not leave on their own: the ruins provide too much cover. {quest_stakes_The} {quest_stakes_is} stalled until we clear them out.",
+        "outro": "Every day those creatures squat in our ruins is a day we fall further behind. Flush them out."
+      },
+      "objectivePool": [
+        "KILL_MOBS"
+      ],
+      "objectiveConfig": {
+        "KILL_MOBS": {
+          "countMin": 3,
+          "countMax": 6
         }
       }
     }

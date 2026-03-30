@@ -29,6 +29,26 @@
       },
       "objectivePool": [],
       "objectiveConfig": {}
+    },
+    {
+      "id": "disaster_reso_04",
+      "dialogueChunks": {
+        "intro": "I can smell cooking fires again, {player_name}. For days it was nothing but dust and smoke. Now it smells like home.",
+        "plotStep": "{quest_ally} organized the first proper meal since {quest_threat_the} struck. People sat together and ate in silence at first, then someone laughed, and then everyone was talking at once. {quest_focus_The} still needs repairs, but {quest_stakes_the} {quest_stakes_is} safe.",
+        "outro": "You fought the disaster and the creatures both. Not many could have done that."
+      },
+      "objectivePool": [],
+      "objectiveConfig": {}
+    },
+    {
+      "id": "disaster_reso_05",
+      "dialogueChunks": {
+        "intro": "{player_name}, the last of the {enemy_type_plural} have fled the area. {quest_focus_The} is ours again.",
+        "plotStep": "The damage from {quest_threat_the} will take seasons to fully repair, but the immediate danger is over. {quest_stakes_human_The} {quest_stakes_human_is} recovering, and {quest_ally} has drawn up plans to rebuild stronger than before.",
+        "outro": "Disasters reveal character, {player_name}. Yours proved to be exactly what we needed."
+      },
+      "objectivePool": [],
+      "objectiveConfig": {}
     }
   ]
 }

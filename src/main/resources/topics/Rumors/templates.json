@@ -16,20 +16,19 @@
           "deepenerResponse": "{local_opinion}"
         },
         {
-          "intro": "{tone_opener} {creature_sighting}. {tone_closer}",
+          "intro": "{creature_sighting}. {personal_reaction}",
           "intents": [
-            { "intent": "detail",  "response": "{creature_detail}" },
+            { "intent": "detail",  "response": "{creature_detail}. {time_ref}." },
             { "intent": "stakes",  "response": "{danger_assessment}" },
             { "intent": "opinion", "response": "{local_opinion}" }
           ],
           "deepenerResponse": "{personal_reaction}"
         },
         {
-          "intro": "{tone_opener} {creature_sighting}. {tone_closer}",
+          "intro": "{tone_opener} {location_detail}. {creature_sighting}. {danger_assessment}",
           "intents": [
-            { "intent": "detail",   "response": "{creature_detail}" },
-            { "intent": "context",  "response": "{location_detail}" },
-            { "intent": "reaction", "response": "{personal_reaction}" }
+            { "intent": "detail", "response": "{creature_detail}" },
+            { "intent": "source", "response": "{rumor_source}. {time_ref}." }
           ],
           "deepenerResponse": "{local_opinion}"
         }
@@ -59,22 +58,21 @@
           "deepenerResponse": "{local_opinion}"
         },
         {
-          "intro": "{tone_opener} {creature_sighting}. {tone_closer}",
+          "intro": "{creature_sighting}. {personal_reaction}",
           "intents": [
-            { "intent": "detail",   "response": "{creature_detail}" },
+            { "intent": "detail",   "response": "{creature_detail}. {time_ref}." },
             { "intent": "stakes",   "response": "{danger_assessment}" },
-            { "intent": "reaction", "response": "{personal_reaction}" }
-          ],
-          "deepenerResponse": "{local_opinion}"
-        },
-        {
-          "intro": "{tone_opener} {creature_sighting}. {tone_closer}",
-          "intents": [
-            { "intent": "detail",  "response": "{creature_detail}" },
-            { "intent": "context", "response": "{location_detail}" },
-            { "intent": "opinion", "response": "{local_opinion}" }
+            { "intent": "reaction", "response": "{local_opinion}" }
           ],
           "deepenerResponse": "{personal_reaction}"
+        },
+        {
+          "intro": "{tone_opener} {location_detail}. {creature_sighting}. {danger_assessment}",
+          "intents": [
+            { "intent": "detail", "response": "{creature_detail}" },
+            { "intent": "source", "response": "{rumor_source}. {time_ref}." }
+          ],
+          "deepenerResponse": "{local_opinion}"
         }
       ],
       "questHookPerspectives": [
@@ -98,27 +96,26 @@
           "intents": [
             { "intent": "detail",  "response": "{creature_detail}" },
             { "intent": "context", "response": "{location_detail}" },
-            { "intent": "stakes",  "response": "{danger_assessment}" }
+            { "intent": "stakes",  "response": "{danger_assessment}" },
+            { "intent": "opinion", "response": "{local_opinion}" }
           ],
           "deepenerResponse": "{local_opinion}"
         },
         {
-          "intro": "{tone_opener} {creature_sighting}. {tone_closer}",
+          "intro": "{creature_sighting}. {personal_reaction}",
           "intents": [
-            { "intent": "detail",   "response": "{creature_detail}" },
-            { "intent": "opinion",  "response": "{local_opinion}" },
-            { "intent": "reaction", "response": "{personal_reaction}" }
+            { "intent": "detail",   "response": "{creature_detail}. {time_ref}." },
+            { "intent": "opinion",  "response": "{local_opinion}" }
           ],
-          "deepenerResponse": "{danger_assessment}"
+          "deepenerResponse": "{personal_reaction}"
         },
         {
-          "intro": "{tone_opener} {creature_sighting}. {tone_closer}",
+          "intro": "{tone_opener} {location_detail}. {creature_sighting}. {danger_assessment}",
           "intents": [
             { "intent": "detail",  "response": "{creature_detail}" },
-            { "intent": "context", "response": "{location_detail}" },
-            { "intent": "source",  "response": "{rumor_source}" }
+            { "intent": "stakes",  "response": "{danger_assessment}. {time_ref}." }
           ],
-          "deepenerResponse": "{local_opinion}"
+          "deepenerResponse": "{personal_reaction}"
         }
       ],
       "questHookPerspectives": [
@@ -142,25 +139,25 @@
           "intents": [
             { "intent": "detail",  "response": "{event_detail}" },
             { "intent": "context", "response": "{location_detail}" },
+            { "intent": "source",  "response": "{rumor_source}" },
             { "intent": "stakes",  "response": "{danger_assessment}" }
           ],
           "deepenerResponse": "{local_opinion}"
         },
         {
-          "intro": "{tone_opener} {strange_event}. {tone_closer}",
+          "intro": "{strange_event}. {personal_reaction}",
           "intents": [
-            { "intent": "detail",  "response": "{event_detail}" },
-            { "intent": "source",  "response": "{rumor_source}" },
+            { "intent": "detail",  "response": "{event_detail}. {time_ref}." },
+            { "intent": "stakes",  "response": "{danger_assessment}" },
             { "intent": "opinion", "response": "{local_opinion}" }
           ],
           "deepenerResponse": "{personal_reaction}"
         },
         {
-          "intro": "{tone_opener} {strange_event}. {tone_closer}",
+          "intro": "{tone_opener} {location_detail}. {strange_event}. {danger_assessment}",
           "intents": [
-            { "intent": "detail",   "response": "{event_detail}" },
-            { "intent": "context",  "response": "{location_detail}" },
-            { "intent": "reaction", "response": "{personal_reaction}" }
+            { "intent": "detail", "response": "{event_detail}" },
+            { "intent": "source", "response": "{rumor_source}. {time_ref}." }
           ],
           "deepenerResponse": "{local_opinion}"
         }
@@ -185,28 +182,27 @@
           "intents": [
             { "intent": "detail",  "response": "{event_detail}" },
             { "intent": "context", "response": "{location_detail}" },
-            { "intent": "stakes",  "response": "{danger_assessment}" },
-            { "intent": "opinion", "response": "{local_opinion}" }
-          ],
-          "deepenerResponse": "{personal_reaction}"
-        },
-        {
-          "intro": "{tone_opener} {strange_event}. {tone_closer}",
-          "intents": [
-            { "intent": "detail",   "response": "{event_detail}" },
-            { "intent": "source",   "response": "{rumor_source}" },
-            { "intent": "reaction", "response": "{personal_reaction}" }
+            { "intent": "source",  "response": "{rumor_source}" },
+            { "intent": "stakes",  "response": "{danger_assessment}" }
           ],
           "deepenerResponse": "{local_opinion}"
         },
         {
-          "intro": "{tone_opener} {strange_event}. {tone_closer}",
+          "intro": "{strange_event}. {personal_reaction}",
           "intents": [
-            { "intent": "detail",  "response": "{event_detail}" },
+            { "intent": "detail",  "response": "{event_detail}. {time_ref}." },
             { "intent": "stakes",  "response": "{danger_assessment}" },
             { "intent": "opinion", "response": "{local_opinion}" }
           ],
           "deepenerResponse": "{personal_reaction}"
+        },
+        {
+          "intro": "{tone_opener} {location_detail}. {strange_event}. {danger_assessment}",
+          "intents": [
+            { "intent": "detail", "response": "{event_detail}" },
+            { "intent": "source", "response": "{rumor_source}. {time_ref}." }
+          ],
+          "deepenerResponse": "{local_opinion}"
         }
       ],
       "questHookPerspectives": [
@@ -230,25 +226,24 @@
           "intents": [
             { "intent": "detail",  "response": "{event_detail}" },
             { "intent": "context", "response": "{location_detail}" },
-            { "intent": "opinion", "response": "{local_opinion}" }
-          ],
-          "deepenerResponse": "{personal_reaction}"
-        },
-        {
-          "intro": "{tone_opener} {strange_event}. {tone_closer}",
-          "intents": [
-            { "intent": "detail",   "response": "{event_detail}" },
-            { "intent": "source",   "response": "{rumor_source}" },
-            { "intent": "reaction", "response": "{personal_reaction}" }
+            { "intent": "source",  "response": "{rumor_source}" }
           ],
           "deepenerResponse": "{local_opinion}"
         },
         {
-          "intro": "{tone_opener} {strange_event}. {tone_closer}",
+          "intro": "{strange_event}. {personal_reaction}",
           "intents": [
-            { "intent": "stakes",  "response": "{danger_assessment}" },
-            { "intent": "detail",  "response": "{event_detail}" },
-            { "intent": "opinion", "response": "{local_opinion}" }
+            { "intent": "detail",   "response": "{event_detail}. {time_ref}." },
+            { "intent": "stakes",   "response": "{danger_assessment}" },
+            { "intent": "reaction", "response": "{local_opinion}" }
+          ],
+          "deepenerResponse": "{personal_reaction}"
+        },
+        {
+          "intro": "{tone_opener} {location_detail}. {strange_event}. {danger_assessment}",
+          "intents": [
+            { "intent": "detail", "response": "{event_detail}" },
+            { "intent": "source", "response": "{rumor_source}. {time_ref}." }
           ],
           "deepenerResponse": "{personal_reaction}"
         }
@@ -274,27 +269,27 @@
           "intents": [
             { "intent": "detail",  "response": "{treasure_detail}" },
             { "intent": "context", "response": "{location_detail}" },
-            { "intent": "source",  "response": "{rumor_source}" }
-          ],
-          "deepenerResponse": "{local_opinion}"
-        },
-        {
-          "intro": "{tone_opener} {treasure_rumor}. {tone_closer}",
-          "intents": [
-            { "intent": "detail",   "response": "{treasure_detail}" },
-            { "intent": "stakes",   "response": "{danger_assessment}" },
-            { "intent": "reaction", "response": "{personal_reaction}" }
-          ],
-          "deepenerResponse": "{local_opinion}"
-        },
-        {
-          "intro": "{tone_opener} {treasure_rumor}. {tone_closer}",
-          "intents": [
-            { "intent": "detail",  "response": "{treasure_detail}" },
             { "intent": "source",  "response": "{rumor_source}" },
-            { "intent": "opinion", "response": "{local_opinion}" }
+            { "intent": "stakes",  "response": "{danger_assessment}" }
+          ],
+          "deepenerResponse": "{local_opinion}"
+        },
+        {
+          "intro": "{treasure_rumor}. {personal_reaction}",
+          "intents": [
+            { "intent": "detail",   "response": "{treasure_detail}. {time_ref}." },
+            { "intent": "opinion",  "response": "{local_opinion}" },
+            { "intent": "reaction", "response": "{danger_assessment}" }
           ],
           "deepenerResponse": "{personal_reaction}"
+        },
+        {
+          "intro": "{tone_opener} {location_detail}. {treasure_rumor}. {danger_assessment}",
+          "intents": [
+            { "intent": "detail", "response": "{treasure_detail}" },
+            { "intent": "source", "response": "{rumor_source}. {time_ref}." }
+          ],
+          "deepenerResponse": "{local_opinion}"
         }
       ],
       "questHookPerspectives": [
@@ -317,28 +312,28 @@
           "intro": "{tone_opener} {conflict_rumor}. {tone_closer}",
           "intents": [
             { "intent": "detail",  "response": "{conflict_detail}" },
-            { "intent": "stakes",  "response": "{danger_assessment}" },
-            { "intent": "opinion", "response": "{local_opinion}" }
-          ],
-          "deepenerResponse": "{personal_reaction}"
-        },
-        {
-          "intro": "{tone_opener} {conflict_rumor}. {tone_closer}",
-          "intents": [
-            { "intent": "detail",   "response": "{conflict_detail}" },
-            { "intent": "source",   "response": "{rumor_source}" },
-            { "intent": "reaction", "response": "{personal_reaction}" }
+            { "intent": "context", "response": "{location_detail}" },
+            { "intent": "source",  "response": "{rumor_source}" },
+            { "intent": "stakes",  "response": "{danger_assessment}" }
           ],
           "deepenerResponse": "{local_opinion}"
         },
         {
-          "intro": "{tone_opener} {conflict_rumor}. {tone_closer}",
+          "intro": "{conflict_rumor}. {personal_reaction}",
           "intents": [
-            { "intent": "detail",  "response": "{conflict_detail}" },
-            { "intent": "context", "response": "{location_detail}" },
-            { "intent": "opinion", "response": "{local_opinion}" }
+            { "intent": "detail",   "response": "{conflict_detail}. {time_ref}." },
+            { "intent": "stakes",   "response": "{danger_assessment}" },
+            { "intent": "opinion",  "response": "{local_opinion}" }
           ],
           "deepenerResponse": "{personal_reaction}"
+        },
+        {
+          "intro": "{tone_opener} {location_detail}. {conflict_rumor}. {danger_assessment}",
+          "intents": [
+            { "intent": "detail", "response": "{conflict_detail}" },
+            { "intent": "source", "response": "{rumor_source}. {time_ref}." }
+          ],
+          "deepenerResponse": "{local_opinion}"
         }
       ],
       "questHookPerspectives": [

@@ -229,6 +229,8 @@ public class TopicPoolRegistry {
 
         LOGGER.atFine().log("Loaded topic pools: %d subjects, %d greetings, %d return greetings",
             subjectFocuses.size(), greetingLines.size(), returnGreetingLines.size());
+
+        validateL0Capitalization();
     }
 
     private void loadSubjectPoolFromClasspath(String resource) {
@@ -453,6 +455,30 @@ public class TopicPoolRegistry {
             .filter(e -> e.categories().contains(category))
             .toList();
         if (matching.isEmpty()) return randomSubject(random); // Fallback to unfiltered
+        return matching.get(random.nextInt(matching.size()));
+    }
+
+    public SubjectEntry randomSubjectForCategory(String targetCategory, Random random) {
+        List<SubjectEntry> matching = subjectFocuses.stream()
+            .filter(s -> s.categories().contains(targetCategory))
+            .toList();
+        if (matching.isEmpty()) return randomSubject(random);
+        return matching.get(random.nextInt(matching.size()));
+    }
+
+    public SubjectEntry randomSubjectForCategoryExcluding(String targetCategory, Set<String> usedValues, Random random) {
+        List<SubjectEntry> matching = subjectFocuses.stream()
+            .filter(s -> s.categories().contains(targetCategory))
+            .filter(s -> !usedValues.contains(s.value()))
+            .toList();
+        if (matching.isEmpty()) {
+            // Fallback: any subject with the target category (even if already used), or any subject at all
+            List<SubjectEntry> anyMatching = subjectFocuses.stream()
+                .filter(s -> s.categories().contains(targetCategory))
+                .toList();
+            if (anyMatching.isEmpty()) return randomSubject(random);
+            return anyMatching.get(random.nextInt(anyMatching.size()));
+        }
         return matching.get(random.nextInt(matching.size()));
     }
 
@@ -738,5 +764,37 @@ public class TopicPoolRegistry {
             return deepenerPool.get(random.nextInt(deepenerPool.size()));
         }
         return available.get(random.nextInt(available.size()));
+    }
+
+    /**
+     * Validate that all L0 pool entries start with an uppercase letter.
+     * Logs a warning for any entry that starts lowercase, which would look
+     * wrong when used at the beginning of a sentence in dialogue.
+     */
+    private void validateL0Capitalization() {
+        Map<String, List<String>> l0Pools = Map.ofEntries(
+            Map.entry("creatureSightings", creatureSightings),
+            Map.entry("strangeEvents", strangeEvents),
+            Map.entry("tradeGossip", tradeGossip),
+            Map.entry("localComplaints", localComplaints),
+            Map.entry("travelerNews", travelerNews),
+            Map.entry("weatherObservations", weatherObservations),
+            Map.entry("craftObservations", craftObservations),
+            Map.entry("communityObservations", communityObservations),
+            Map.entry("natureObservations", natureObservations),
+            Map.entry("nostalgiaObservations", nostalgiaObservations),
+            Map.entry("curiosityObservations", curiosityObservations),
+            Map.entry("festivalObservations", festivalObservations),
+            Map.entry("treasureRumors", treasureRumors),
+            Map.entry("conflictRumors", conflictRumors)
+        );
+
+        for (var entry : l0Pools.entrySet()) {
+            for (String value : entry.getValue()) {
+                if (!value.isEmpty() && Character.isLowerCase(value.charAt(0))) {
+                    LOGGER.atWarning().log("L0 pool entry starts lowercase: '%s' in pool %s", value, entry.getKey());
+                }
+            }
+        }
     }
 }

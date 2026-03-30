@@ -29,6 +29,26 @@
       },
       "objectivePool": [],
       "objectiveConfig": {}
+    },
+    {
+      "id": "misfortune_reso_04",
+      "dialogueChunks": {
+        "intro": "I keep waiting for the next disaster, {player_name}. But {quest_ally} assures me there is nothing left to go wrong. It is truly over.",
+        "plotStep": "The {enemy_type_plural} are gone. {quest_focus_The} is quiet. {quest_stakes_The} {quest_stakes_is} intact, and for the first time since {quest_origin}, people are making plans for the future instead of bracing for the worst.",
+        "outro": "You broke a chain of misfortune that could have consumed us. That took stubbornness as much as bravery."
+      },
+      "objectivePool": [],
+      "objectiveConfig": {}
+    },
+    {
+      "id": "misfortune_reso_05",
+      "dialogueChunks": {
+        "intro": "{player_name}, do you know what people are calling this? The turning. The moment our luck changed.",
+        "plotStep": "They are not wrong. Before you arrived, every day brought a new catastrophe. Now {quest_focus_the} {quest_focus_is} recovering, {quest_stakes_the} {quest_stakes_is} safe, and the {enemy_type_plural} have scattered. {quest_ally} said if you ever pass this way again, you will be welcomed as family.",
+        "outro": "Luck is fickle, but the people you saved are not. This settlement remembers its debts."
+      },
+      "objectivePool": [],
+      "objectiveConfig": {}
     }
   ]
 }

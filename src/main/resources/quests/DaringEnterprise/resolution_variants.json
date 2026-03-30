@@ -29,6 +29,26 @@
       },
       "objectivePool": [],
       "objectiveConfig": {}
+    },
+    {
+      "id": "daringenterprise_reso_04",
+      "dialogueChunks": {
+        "intro": "They laughed when I proposed this, {player_name}. Every single one of them. Nobody is laughing now.",
+        "plotStep": "{quest_focus_The} is open, {quest_stakes_the} {quest_stakes_is} secured, and the {enemy_type_plural} that guarded it are dead or scattered. {quest_ally} is drafting supply routes that will cut travel times by half.",
+        "outro": "You fought through everything this enterprise threw at us. I hope you are as proud as I am."
+      },
+      "objectivePool": [],
+      "objectiveConfig": {}
+    },
+    {
+      "id": "daringenterprise_reso_05",
+      "dialogueChunks": {
+        "intro": "{player_name}, what we found beyond {quest_focus_the} surpasses anything in the old records. This changes the map itself.",
+        "plotStep": "{quest_ally} is still cataloguing what is there, but the early reports are extraordinary. {quest_stakes_The} alone would have justified the risk, but there is more. Much more. {quest_threat_The} nearly stopped us, and without you it would have.",
+        "outro": "Great enterprises need great people. You were ours."
+      },
+      "objectivePool": [],
+      "objectiveConfig": {}
     }
   ]
 }

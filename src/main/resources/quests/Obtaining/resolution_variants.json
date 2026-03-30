@@ -1,31 +1,51 @@
 {
   "variants": [
     {
-      "id": "obtaining_reso_bounty_secured",
+      "id": "obtaining_reso_01",
       "dialogueChunks": {
-        "intro": "You've done it. {quest_focus_The} is ours, and there's more than enough to meet our needs. The settlement can breathe easy now.",
-        "plotStep": "{quest_ally} is already putting the {quest_item} to use. {quest_stakes_The} {quest_stakes_is} no longer a worry thanks to your efforts. Even {target_npc} is impressed with how much you brought back.",
-        "outro": "You've earned every bit of what's coming to you, {player_name}. The settlement won't forget this."
+        "intro": "You have done it, {player_name}. {quest_focus_The} is ours, and there is more than enough to meet our needs. The settlement can breathe easy now.",
+        "plotStep": "{quest_ally} is already putting the {quest_item} to use. {quest_stakes_The} {quest_stakes_is} no longer a worry thanks to your efforts. Even {target_npc} is impressed with what you accomplished.",
+        "outro": "You have earned every bit of what is coming to you, {player_name}. The settlement will not forget this."
       },
       "objectivePool": [],
       "objectiveConfig": {}
     },
     {
-      "id": "obtaining_reso_just_enough",
+      "id": "obtaining_reso_02",
       "dialogueChunks": {
-        "intro": "It was close, but you managed to bring back what we needed. {quest_focus_The} came through, barely.",
-        "plotStep": "The quantity is tight. {quest_ally} says it will cover {quest_stakes_the} if we're careful with rationing. But the fact remains: without you out there fighting through {quest_threat_the}, we'd have nothing at all.",
+        "intro": "It was close, but you managed to secure what we needed. {quest_focus_The} came through, barely.",
+        "plotStep": "The quantity is tight. {quest_ally} says it will cover {quest_stakes_the} if we are careful with rationing. But the fact remains: without you out there fighting through {quest_threat_the}, we would have nothing at all.",
         "outro": "Sometimes scraping by is its own kind of victory. Well done, {player_name}."
       },
       "objectivePool": [],
       "objectiveConfig": {}
     },
     {
-      "id": "obtaining_reso_surplus",
+      "id": "obtaining_reso_03",
       "dialogueChunks": {
-        "intro": "You outdid yourself. Not only did you secure {quest_focus_the}, but the surplus you brought back opens new possibilities for the settlement.",
-        "plotStep": "{target_npc} is already talking about trade opportunities. {quest_ally} says the extra {quest_item} could strengthen our position with neighboring settlements. {quest_stakes_The} {quest_stakes_is} not just met: they're exceeded.",
-        "outro": "You turned a desperate need into an opportunity. {player_name}, you've changed our fortunes."
+        "intro": "You outdid yourself. Not only did you secure {quest_focus_the}, but the surplus opens new possibilities for the settlement.",
+        "plotStep": "{target_npc} is already talking about trade opportunities. {quest_ally} says the extra {quest_item} could strengthen our position with neighboring settlements. {quest_stakes_The} {quest_stakes_is} not just met: it is exceeded.",
+        "outro": "You turned a desperate need into an opportunity. {player_name}, you have changed our fortunes."
+      },
+      "objectivePool": [],
+      "objectiveConfig": {}
+    },
+    {
+      "id": "obtaining_reso_04",
+      "dialogueChunks": {
+        "intro": "The {enemy_type_plural} are gone and {quest_focus_the} is finally accessible. {player_name}, you opened a door that has been shut for too long.",
+        "plotStep": "{quest_ally} sent a team out this morning and they returned loaded down. {quest_stakes_The} {quest_stakes_is} fully secured, and {target_npc} says the supply should last well into the next season. The settlement is already planning how to use the surplus.",
+        "outro": "What you fought for today will feed and shelter people for months. That is a legacy worth having."
+      },
+      "objectivePool": [],
+      "objectiveConfig": {}
+    },
+    {
+      "id": "obtaining_reso_05",
+      "dialogueChunks": {
+        "intro": "{player_name}, the path to {quest_focus_the} is clear for the first time since {quest_origin}. People are already using it.",
+        "plotStep": "The {enemy_type_plural} you destroyed will not be coming back. {quest_ally} confirmed the area is safe for regular travel. {quest_stakes_The} {quest_stakes_is} now a reliable resource instead of a dangerous gamble.",
+        "outro": "You did not just get us what we needed: you made it safe to get more whenever we need it. That changes everything."
       },
       "objectivePool": [],
       "objectiveConfig": {}

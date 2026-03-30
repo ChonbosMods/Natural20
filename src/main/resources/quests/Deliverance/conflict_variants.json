@@ -63,12 +63,14 @@
     {
       "id": "deliverance_conf_06",
       "dialogueChunks": {
-        "intro": "Something does not add up. The {enemy_type_plural} knew too much about {quest_focus_the}: patrol schedules, weak points, who to target. Someone from the inside fed them information.",
-        "plotStep": "Talk to {target_npc}. They were the last person to see {quest_focus_the} before {quest_threat_animate_the} struck. Whether they are guilty or simply the last witness, their account matters.",
-        "outro": "We need the truth before {quest_stakes_the} {quest_stakes_is} lost forever. Find {target_npc} and get them to tell you everything they know."
+        "intro": "Something does not add up. The {enemy_type_plural} knew too much about {quest_focus_the}: patrol schedules, weak points, who to target. Someone gave them inside information.",
+        "plotStep": "{quest_ally} tracked the leak to a meeting point {location_hint} where the informant and the {enemy_type_plural} coordinated. The creatures are still using it as a forward base. Destroy the base and kill every {enemy_type} there before they can relay more intelligence.",
+        "outro": "We need those creatures gone before {quest_stakes_the} {quest_stakes_is} lost forever. Tear that base apart."
       },
-      "objectivePool": ["TALK_TO_NPC"],
-      "objectiveConfig": {}
+      "objectivePool": ["KILL_MOBS"],
+      "objectiveConfig": {
+        "KILL_MOBS": {"countMin": 4, "countMax": 8}
+      }
     }
   ]
 }

@@ -52,11 +52,13 @@
       "id": "deliverance_expo_05",
       "dialogueChunks": {
         "intro": "{target_npc} received a message two days ago: an urgent summons to meet someone {location_hint}. They left at once. They never arrived.",
-        "plotStep": "The message was a forgery. {quest_ally} confirmed it matches none of our couriers. Someone lured {target_npc} out deliberately, and the {enemy_type_plural} were spotted in that direction days before.",
-        "outro": "We fear the worst, but there is still hope. Find {target_npc} and talk to them: they may know who is behind this and where the others are being held."
+        "plotStep": "The message was a forgery. {quest_ally} confirmed it matches none of our couriers. Someone lured {target_npc} out deliberately, and the {enemy_type_plural} were spotted in that direction days before. They are still camped there, guarding whoever they took.",
+        "outro": "We fear the worst, but there is still hope. Hunt down the {enemy_type_plural} {location_hint} and free anyone they are holding."
       },
-      "objectivePool": ["TALK_TO_NPC"],
-      "objectiveConfig": {}
+      "objectivePool": ["KILL_MOBS"],
+      "objectiveConfig": {
+        "KILL_MOBS": {"countMin": 3, "countMax": 7}
+      }
     },
     {
       "id": "deliverance_expo_06",

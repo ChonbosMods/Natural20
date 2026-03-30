@@ -4,36 +4,73 @@
       "id": "disaster_expo_01",
       "dialogueChunks": {
         "intro": "{player_name}, {quest_origin} sent {quest_threat_the} crashing through {quest_focus_the}. Half our homes are ruined and {quest_stakes_the} {quest_stakes_has} nowhere to go.",
-        "plotStep": "We need someone to {quest_action} before it is too late. {quest_item} have been scattered {location_hint} and we desperately need them recovered. Every piece you bring back is one less family going without.",
-        "outro": "People are cold, scared, and hungry. Every bit you recover could save a life."
+        "plotStep": "The destruction attracted {enemy_type_plural} to the wreckage {location_hint}. They are feeding on our misery: looting the ruins and attacking anyone who tries to salvage what is left. We need them driven out before we can begin to recover.",
+        "outro": "People are cold, scared, and hungry. Clear the {enemy_type_plural} so we can start picking up the pieces."
       },
-      "objectivePool": ["COLLECT_RESOURCES"],
+      "objectivePool": ["KILL_MOBS"],
       "objectiveConfig": {
-        "COLLECT_RESOURCES": {"countMin": 6, "countMax": 15}
+        "KILL_MOBS": {"countMin": 4, "countMax": 8}
       }
     },
     {
       "id": "disaster_expo_02",
       "dialogueChunks": {
         "intro": "{player_name}, {quest_threat_animate_the} {quest_threat_animate_is} sweeping toward {quest_stakes_the} and nothing we have done has slowed it. {quest_focus_The} {quest_focus_is} overwhelmed and we are losing ground fast.",
-        "plotStep": "We need to {quest_action} before {quest_time_pressure}. Collect {quest_item} scattered {location_hint} to help shore up our defenses. The wreckage is full of what we need if someone can get to it.",
-        "outro": "If this reaches the settlement, we lose everything. Every moment counts."
+        "plotStep": "The chaos has drawn {enemy_type_plural} out of the wilds {location_hint}. They sense weakness and they are closing in. If we do not thin their numbers now, we will be fighting the disaster and the creatures at the same time.",
+        "outro": "If this reaches the settlement, we lose everything. Kill the {enemy_type_plural} before they overrun us."
       },
-      "objectivePool": ["COLLECT_RESOURCES"],
+      "objectivePool": ["KILL_MOBS"],
       "objectiveConfig": {
-        "COLLECT_RESOURCES": {"countMin": 5, "countMax": 12}
+        "KILL_MOBS": {"countMin": 3, "countMax": 7}
       }
     },
     {
       "id": "disaster_expo_03",
       "dialogueChunks": {
         "intro": "Since {quest_origin}, {player_name}, the danger keeps coming. {quest_focus_The} {quest_focus_is} failing, and {quest_stakes_the} could be lost any day.",
-        "plotStep": "We need to {quest_action} before the next wave finishes what the first one started. Gather {quest_item} scattered {location_hint}. The wreckage still holds enough to keep us going if we can recover it in time.",
-        "outro": "Everything has turned against us. But we will not abandon our home without a fight."
+        "plotStep": "What worries me most is the {enemy_type_plural} that have moved into the damaged areas {location_hint}. They are nesting in the ruins and growing bolder by the day. Until they are cleared, no one can safely reach the areas we need to repair.",
+        "outro": "Everything has turned against us. Deal with the {enemy_type_plural} so we can fight back."
       },
-      "objectivePool": ["COLLECT_RESOURCES"],
+      "objectivePool": ["KILL_MOBS"],
       "objectiveConfig": {
-        "COLLECT_RESOURCES": {"countMin": 8, "countMax": 20}
+        "KILL_MOBS": {"countMin": 5, "countMax": 10}
+      }
+    },
+    {
+      "id": "disaster_expo_04",
+      "dialogueChunks": {
+        "intro": "It happened so fast, {player_name}. One moment everything was normal. Then {quest_threat_the} hit and {quest_focus_the} just... crumbled.",
+        "plotStep": "The survivors scattered, and now {enemy_type_plural} are prowling the debris field {location_hint}. {quest_ally} tried to organize a salvage team, but they were driven back. {quest_stakes_human_The} {quest_stakes_human_is} sheltering in the open with nothing between them and those creatures.",
+        "outro": "Kill the {enemy_type_plural} lurking near {quest_focus_the} so our people can find safe ground."
+      },
+      "objectivePool": ["KILL_MOBS"],
+      "objectiveConfig": {
+        "KILL_MOBS": {"countMin": 3, "countMax": 6}
+      }
+    },
+    {
+      "id": "disaster_expo_05",
+      "dialogueChunks": {
+        "intro": "{player_name}, I have lived here my whole life and I have never seen anything like this. {quest_threat_The} did not just damage {quest_focus_the}: it broke the land itself.",
+        "plotStep": "The upheaval opened passages that were sealed for ages, and {enemy_type_plural} are pouring out of them {location_hint}. They are disoriented and aggressive, attacking anything that moves. {quest_stakes_The} {quest_stakes_is} directly in their path.",
+        "outro": "Seal those breaches with steel. Kill every {enemy_type} that crawled out before they reach the settlement."
+      },
+      "objectivePool": ["KILL_MOBS"],
+      "objectiveConfig": {
+        "KILL_MOBS": {"countMin": 5, "countMax": 9
+        }
+      }
+    },
+    {
+      "id": "disaster_expo_06",
+      "dialogueChunks": {
+        "intro": "We have been through disasters before, {player_name}. This one is different. {quest_threat_The} left {quest_focus_the} in a state that attracts predators.",
+        "plotStep": "{quest_ally} spotted a hunting pack of {enemy_type_plural} circling the ruins {location_hint}. They are not scavenging: they are stalking the survivors. {quest_stakes_human_The} {quest_stakes_human_is} too exhausted and injured to defend themselves.",
+        "outro": "Those people need a fighter, not a builder. Hunt down the {enemy_type_plural} before they pick off anyone else."
+      },
+      "objectivePool": ["KILL_MOBS"],
+      "objectiveConfig": {
+        "KILL_MOBS": {"countMin": 4, "countMax": 8}
       }
     }
   ]

@@ -318,6 +318,7 @@ public class Natural20 extends JavaPlugin {
         // Initialize quest system
         questSystem = new QuestSystem(settlementRegistry);
         questSystem.loadTemplates(getDataDirectory().resolve("quests"));
+        dialogueManager.setTopicPoolRegistry(questSystem.getTopicPoolRegistry());
 
         // Generate procedural topics for all existing settlements
         for (SettlementRecord settlement : settlementRegistry.getAll().values()) {

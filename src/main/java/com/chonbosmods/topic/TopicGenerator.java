@@ -24,8 +24,8 @@ public class TopicGenerator {
     // Role-based topic budgets: social roles talk more, functional roles talk less
     private static final int SOCIAL_MIN_TOPICS = 4;
     private static final int SOCIAL_MAX_TOPICS = 6;
-    private static final int FUNCTIONAL_MIN_TOPICS = 2;
-    private static final int FUNCTIONAL_MAX_TOPICS = 4;
+    private static final int FUNCTIONAL_MIN_TOPICS = 3;
+    private static final int FUNCTIONAL_MAX_TOPICS = 6;
     private static final Set<String> SOCIAL_ROLES = Set.of(
         "TavernKeeper", "ArtisanAlchemist", "ArtisanBlacksmith", "ArtisanCook", "Traveler"
     );
@@ -33,11 +33,26 @@ public class TopicGenerator {
     private static final double RUMOR_RATIO = 0.4;
     private static final double QUEST_CHANCE_PER_SUBJECT = 0.25;
     private static final int MIN_QUESTS_PER_SETTLEMENT = 2;
-    private static final int MAX_QUESTS_PER_SETTLEMENT = 8;
+    private static final int MAX_QUESTS_PER_SETTLEMENT = 5;
     private static final int MIN_NPCS_PER_SUBJECT = 2;
     private static final double EXTRA_NPC_CHANCE = 0.30;
     private static final double VISIBILITY_CHANCE = 0.55;
     private static final double CLOSER_CHANCE = 0.6;
+
+    // Stratified category decks for subject drawing
+    private static final List<String> RUMOR_DECK = List.of(
+        "danger", "sighting", "treasure", "corruption", "conflict", "disappearance", "migration", "omen"
+    );
+    private static final List<String> SMALLTALK_DECK = List.of(
+        "trade", "weather", "craftsmanship", "community", "nature", "nostalgia", "curiosity", "festival"
+    );
+
+    // Rolling window sizes for pool-draw dedup
+    private static final int WINDOW_L0 = 5;   // L0 fragments
+    private static final int WINDOW_L1 = 3;   // L1 fragments
+    private static final int WINDOW_L2 = 2;   // L2 fragments
+    private static final int WINDOW_TONE = 4;  // tone openers/closers
+    private static final int WINDOW_DROPIN = 2; // drop-ins
 
     // Disposition-scaled opener chances: hostile NPCs almost always use tone, neutral rarely
     private static final double OPENER_CHANCE_HOSTILE = 0.85;
@@ -89,17 +104,39 @@ public class TopicGenerator {
             topicBudgets.put(npc.getGeneratedName(), budget);
         }
 
-        // Step 2: Roll shared subjects
+        // Step 2: Roll shared subjects via stratified category drawing
         int subjectCount = (int) Math.ceil(npcCount * 0.6);
         int rumorCount = (int) Math.ceil(subjectCount * RUMOR_RATIO);
         int smallTalkCount = subjectCount - rumorCount;
 
+        // Shuffle category decks deterministically
+        List<String> rumorDeck = new ArrayList<>(RUMOR_DECK);
+        List<String> smalltalkDeck = new ArrayList<>(SMALLTALK_DECK);
+        Collections.shuffle(rumorDeck, random);
+        Collections.shuffle(smalltalkDeck, random);
+
+        Set<String> usedSubjectValues = new LinkedHashSet<>();
         List<SubjectFocus> subjects = new ArrayList<>();
-        for (int i = 0; i < subjectCount; i++) {
-            TopicCategory category = i < rumorCount ? TopicCategory.RUMORS : TopicCategory.SMALLTALK;
-            TopicPoolRegistry.SubjectEntry entry = topicPool.randomSubject(random);
+
+        // Draw rumor subjects: cycle through shuffled rumor deck
+        for (int i = 0; i < rumorCount; i++) {
+            String targetCategory = rumorDeck.get(i % rumorDeck.size());
+            TopicPoolRegistry.SubjectEntry entry = drawUniqueSubject(targetCategory, usedSubjectValues, random);
+            usedSubjectValues.add(entry.value());
             String subjectId = "subj_" + i + "_" + sanitize(entry.value());
-            subjects.add(new SubjectFocus(subjectId, entry.value(), entry.plural(), entry.proper(), entry.questEligible(), entry.concrete(), category, entry.categories()));
+            subjects.add(new SubjectFocus(subjectId, entry.value(), entry.plural(), entry.proper(),
+                entry.questEligible(), entry.concrete(), TopicCategory.RUMORS, entry.categories()));
+        }
+
+        // Draw smalltalk subjects: cycle through shuffled smalltalk deck
+        for (int i = 0; i < smallTalkCount; i++) {
+            String targetCategory = smalltalkDeck.get(i % smalltalkDeck.size());
+            TopicPoolRegistry.SubjectEntry entry = drawUniqueSubject(targetCategory, usedSubjectValues, random);
+            usedSubjectValues.add(entry.value());
+            int subjectIdx = rumorCount + i;
+            String subjectId = "subj_" + subjectIdx + "_" + sanitize(entry.value());
+            subjects.add(new SubjectFocus(subjectId, entry.value(), entry.plural(), entry.proper(),
+                entry.questEligible(), entry.concrete(), TopicCategory.SMALLTALK, entry.categories()));
         }
 
         // Step 3: Roll quest placement (25% per subject, min 2, max 8)
@@ -184,15 +221,18 @@ public class TopicGenerator {
             npcAssignments.put(npc.getGeneratedName(), new ArrayList<>());
         }
 
+        // Rolling window map for pool-draw dedup (shared across all NPC assignments)
+        Map<String, LinkedList<String>> poolWindows = new HashMap<>();
+
         for (SubjectFocus focus : subjects) {
             for (String npcName : focus.getAssignedNpcs()) {
-                TopicGraphBuilder.TopicAssignment assignment = buildAssignment(focus, npcName, random);
+                TopicGraphBuilder.TopicAssignment assignment = buildAssignment(focus, npcName, random, poolWindows);
                 npcAssignments.get(npcName).add(assignment);
             }
         }
 
         // Step 8: Ensure minimum topics per NPC
-        ensureMinimumTopics(npcAssignments, subjects, npcNames, random);
+        ensureMinimumTopics(npcAssignments, subjects, npcNames, random, poolWindows);
 
         // Build final graphs
         Map<String, DialogueGraph> results = new LinkedHashMap<>();
@@ -322,7 +362,8 @@ public class TopicGenerator {
     /**
      * Build a TopicAssignment for a specific NPC on a specific subject.
      */
-    private TopicGraphBuilder.TopicAssignment buildAssignment(SubjectFocus focus, String npcName, Random random) {
+    private TopicGraphBuilder.TopicAssignment buildAssignment(SubjectFocus focus, String npcName, Random random,
+                                                               Map<String, LinkedList<String>> poolWindows) {
         TopicTemplate template = templateRegistry.randomTemplateForSubject(
             focus.getCategory(), focus.getCategories(), focus.isConcrete(), random);
         boolean isQuestBearer = npcName.equals(focus.getQuestBearingNpc());
@@ -343,7 +384,7 @@ public class TopicGenerator {
         }
 
         // Build variable bindings
-        Map<String, String> bindings = buildBindings(focus, npcName, isQuestBearer, template.id(), random);
+        Map<String, String> bindings = buildBindings(focus, npcName, isQuestBearer, template.id(), random, poolWindows);
 
         return new TopicGraphBuilder.TopicAssignment(
             focus.getSubjectId(),
@@ -359,9 +400,11 @@ public class TopicGenerator {
 
     /**
      * Build variable bindings for a topic assignment.
+     * Uses rolling window dedup to reduce repetition across assignments.
      */
     private Map<String, String> buildBindings(SubjectFocus focus, String npcName,
-                                               boolean isQuestBearer, String templateId, Random random) {
+                                               boolean isQuestBearer, String templateId, Random random,
+                                               Map<String, LinkedList<String>> poolWindows) {
         Map<String, String> bindings = new HashMap<>();
 
         // Subject focus bindings
@@ -375,71 +418,83 @@ public class TopicGenerator {
         // NPC name
         bindings.put("npc_name", npcName);
 
-        // New drop-in pool bindings
-        bindings.put("time_ref", topicPool.randomTimeRef(random));
-        bindings.put("direction", topicPool.randomDirection(random));
+        // Drop-in pool bindings (window=2)
+        bindings.put("time_ref", drawWithWindow("time_ref", poolWindows, WINDOW_DROPIN, () -> topicPool.randomTimeRef(random)));
+        bindings.put("direction", drawWithWindow("direction", poolWindows, WINDOW_DROPIN, () -> topicPool.randomDirection(random)));
 
         // Tone bindings (bracket-filtered by disposition) with disposition-scaled opener chance
-        String bracket = dispositionBracket(50); // default disposition for generated topics
+        // MVP: disposition is statically bound to neutral (50) at generation time because
+        // topic graphs are pre-built per settlement, not per player. Dynamic rebinding
+        // would require regenerating tone selections per conversation, which is deferred.
+        String bracket = dispositionBracket(50);
         double openerChance = openerChanceForBracket(bracket);
         boolean openerFired = random.nextDouble() < openerChance;
         boolean closerFired = openerFired ? (random.nextDouble() < CLOSER_CHANCE) : true;
-        bindings.put("tone_opener", openerFired ? topicPool.randomToneOpener(bracket, random) : "");
-        bindings.put("tone_closer", closerFired ? topicPool.randomToneCloser(bracket, random) : "");
+        bindings.put("tone_opener", openerFired
+            ? drawWithWindow("tone_opener", poolWindows, WINDOW_TONE, () -> topicPool.randomToneOpener(bracket, random))
+            : "");
+        bindings.put("tone_closer", closerFired
+            ? drawWithWindow("tone_closer", poolWindows, WINDOW_TONE, () -> topicPool.randomToneCloser(bracket, random))
+            : "");
 
-        // Fragment pool bindings: Layer 0
-        bindings.put("creature_sighting", topicPool.randomCreatureSighting(random));
-        bindings.put("strange_event", topicPool.randomStrangeEvent(random));
-        bindings.put("trade_gossip", topicPool.randomTradeGossip(random));
-        bindings.put("local_complaint", topicPool.randomLocalComplaint(random));
-        bindings.put("traveler_news", topicPool.randomTravelerNews(random));
+        // Fragment pool bindings: Layer 0 (window=5)
+        bindings.put("creature_sighting", drawWithWindow("creature_sighting", poolWindows, WINDOW_L0, () -> topicPool.randomCreatureSighting(random)));
+        bindings.put("strange_event", drawWithWindow("strange_event", poolWindows, WINDOW_L0, () -> topicPool.randomStrangeEvent(random)));
+        bindings.put("trade_gossip", drawWithWindow("trade_gossip", poolWindows, WINDOW_L0, () -> topicPool.randomTradeGossip(random)));
+        bindings.put("local_complaint", drawWithWindow("local_complaint", poolWindows, WINDOW_L0, () -> topicPool.randomLocalComplaint(random)));
+        bindings.put("traveler_news", drawWithWindow("traveler_news", poolWindows, WINDOW_L0, () -> topicPool.randomTravelerNews(random)));
 
-        // Fragment pool bindings: Layer 0 (new topic-matched)
-        bindings.put("weather_observation", topicPool.randomWeatherObservation(random));
-        bindings.put("craft_observation", topicPool.randomCraftObservation(random));
-        bindings.put("community_observation", topicPool.randomCommunityObservation(random));
-        bindings.put("nature_observation", topicPool.randomNatureObservation(random));
-        bindings.put("nostalgia_observation", topicPool.randomNostalgiaObservation(random));
-        bindings.put("curiosity_observation", topicPool.randomCuriosityObservation(random));
-        bindings.put("festival_observation", topicPool.randomFestivalObservation(random));
-        bindings.put("treasure_rumor", topicPool.randomTreasureRumor(random));
-        bindings.put("conflict_rumor", topicPool.randomConflictRumor(random));
+        // Fragment pool bindings: Layer 0 topic-matched (window=5)
+        bindings.put("weather_observation", drawWithWindow("weather_observation", poolWindows, WINDOW_L0, () -> topicPool.randomWeatherObservation(random)));
+        bindings.put("craft_observation", drawWithWindow("craft_observation", poolWindows, WINDOW_L0, () -> topicPool.randomCraftObservation(random)));
+        bindings.put("community_observation", drawWithWindow("community_observation", poolWindows, WINDOW_L0, () -> topicPool.randomCommunityObservation(random)));
+        bindings.put("nature_observation", drawWithWindow("nature_observation", poolWindows, WINDOW_L0, () -> topicPool.randomNatureObservation(random)));
+        bindings.put("nostalgia_observation", drawWithWindow("nostalgia_observation", poolWindows, WINDOW_L0, () -> topicPool.randomNostalgiaObservation(random)));
+        bindings.put("curiosity_observation", drawWithWindow("curiosity_observation", poolWindows, WINDOW_L0, () -> topicPool.randomCuriosityObservation(random)));
+        bindings.put("festival_observation", drawWithWindow("festival_observation", poolWindows, WINDOW_L0, () -> topicPool.randomFestivalObservation(random)));
+        bindings.put("treasure_rumor", drawWithWindow("treasure_rumor", poolWindows, WINDOW_L0, () -> topicPool.randomTreasureRumor(random)));
+        bindings.put("conflict_rumor", drawWithWindow("conflict_rumor", poolWindows, WINDOW_L0, () -> topicPool.randomConflictRumor(random)));
 
-        // Fragment pool bindings: Layer 1
-        bindings.put("creature_detail", topicPool.randomCreatureDetail(random));
-        bindings.put("event_detail", topicPool.randomEventDetail(random));
-        bindings.put("trade_detail", topicPool.randomTradeDetail(random));
-        bindings.put("location_detail", topicPool.randomLocationDetail(random));
+        // Fragment pool bindings: Layer 1 (window=3)
+        bindings.put("creature_detail", drawWithWindow("creature_detail", poolWindows, WINDOW_L1, () -> topicPool.randomCreatureDetail(random)));
+        bindings.put("event_detail", drawWithWindow("event_detail", poolWindows, WINDOW_L1, () -> topicPool.randomEventDetail(random)));
+        bindings.put("trade_detail", drawWithWindow("trade_detail", poolWindows, WINDOW_L1, () -> topicPool.randomTradeDetail(random)));
+        bindings.put("location_detail", drawWithWindow("location_detail", poolWindows, WINDOW_L1, () -> topicPool.randomLocationDetail(random)));
 
-        // Fragment pool bindings: Layer 1 (new topic-matched)
-        bindings.put("weather_detail", topicPool.randomWeatherDetail(random));
-        bindings.put("craft_detail", topicPool.randomCraftDetail(random));
-        bindings.put("community_detail", topicPool.randomCommunityDetail(random));
-        bindings.put("nature_detail", topicPool.randomNatureDetail(random));
-        bindings.put("nostalgia_detail", topicPool.randomNostalgiaDetail(random));
-        bindings.put("curiosity_detail", topicPool.randomCuriosityDetail(random));
-        bindings.put("festival_detail", topicPool.randomFestivalDetail(random));
-        bindings.put("treasure_detail", topicPool.randomTreasureDetail(random));
-        bindings.put("conflict_detail", topicPool.randomConflictDetail(random));
+        // Fragment pool bindings: Layer 1 topic-matched (window=3)
+        bindings.put("weather_detail", drawWithWindow("weather_detail", poolWindows, WINDOW_L1, () -> topicPool.randomWeatherDetail(random)));
+        bindings.put("craft_detail", drawWithWindow("craft_detail", poolWindows, WINDOW_L1, () -> topicPool.randomCraftDetail(random)));
+        bindings.put("community_detail", drawWithWindow("community_detail", poolWindows, WINDOW_L1, () -> topicPool.randomCommunityDetail(random)));
+        bindings.put("nature_detail", drawWithWindow("nature_detail", poolWindows, WINDOW_L1, () -> topicPool.randomNatureDetail(random)));
+        bindings.put("nostalgia_detail", drawWithWindow("nostalgia_detail", poolWindows, WINDOW_L1, () -> topicPool.randomNostalgiaDetail(random)));
+        bindings.put("curiosity_detail", drawWithWindow("curiosity_detail", poolWindows, WINDOW_L1, () -> topicPool.randomCuriosityDetail(random)));
+        bindings.put("festival_detail", drawWithWindow("festival_detail", poolWindows, WINDOW_L1, () -> topicPool.randomFestivalDetail(random)));
+        bindings.put("treasure_detail", drawWithWindow("treasure_detail", poolWindows, WINDOW_L1, () -> topicPool.randomTreasureDetail(random)));
+        bindings.put("conflict_detail", drawWithWindow("conflict_detail", poolWindows, WINDOW_L1, () -> topicPool.randomConflictDetail(random)));
 
-        // Fragment pool bindings: Layer 2
+        // Fragment pool bindings: Layer 2 (window=2)
         // Reaction bracket: rumors + nature + curiosity = intense, all other smalltalk = mild
         String reactionBracket = (focus.getCategory() == TopicCategory.RUMORS
             || "smalltalk_nature".equals(templateId)
             || "smalltalk_curiosity".equals(templateId)) ? "intense" : "mild";
         bindings.put("_reaction_bracket", reactionBracket);
-        bindings.put("local_opinion", topicPool.randomLocalOpinion(reactionBracket, random));
-        bindings.put("personal_reaction", topicPool.randomPersonalReaction(reactionBracket, random));
-        bindings.put("danger_assessment", topicPool.randomDangerAssessment(random));
+        bindings.put("local_opinion", drawWithWindow("local_opinion", poolWindows, WINDOW_L2, () -> topicPool.randomLocalOpinion(reactionBracket, random)));
+        bindings.put("personal_reaction", drawWithWindow("personal_reaction", poolWindows, WINDOW_L2, () -> topicPool.randomPersonalReaction(reactionBracket, random)));
+        bindings.put("danger_assessment", drawWithWindow("danger_assessment", poolWindows, WINDOW_L2, () -> topicPool.randomDangerAssessment(random)));
 
         // Category-specific pool bindings (pre-resolve so nested {subject_focus} etc. are substituted)
+        // Drop-in window size for rumor_source, rumor_detail, perspective_detail, smalltalk_opener
         if (focus.getCategory() == TopicCategory.RUMORS) {
-            bindings.put("rumor_detail", DialogueResolver.resolve(topicPool.randomRumorDetail(random), bindings));
-            bindings.put("rumor_source", DialogueResolver.resolve(topicPool.randomRumorSource(random), bindings));
+            bindings.put("rumor_detail", DialogueResolver.resolve(
+                drawWithWindow("rumor_detail", poolWindows, WINDOW_DROPIN, () -> topicPool.randomRumorDetail(random)), bindings));
+            bindings.put("rumor_source", DialogueResolver.resolve(
+                drawWithWindow("rumor_source", poolWindows, WINDOW_DROPIN, () -> topicPool.randomRumorSource(random)), bindings));
         }
-        bindings.put("perspective_detail", DialogueResolver.resolve(topicPool.randomPerspectiveDetail(random), bindings));
+        bindings.put("perspective_detail", DialogueResolver.resolve(
+            drawWithWindow("perspective_detail", poolWindows, WINDOW_DROPIN, () -> topicPool.randomPerspectiveDetail(random)), bindings));
         if (focus.getCategory() == TopicCategory.SMALLTALK) {
-            bindings.put("smalltalk_opener", DialogueResolver.resolve(topicPool.randomSmalltalkOpener(random), bindings));
+            bindings.put("smalltalk_opener", DialogueResolver.resolve(
+                drawWithWindow("smalltalk_opener", poolWindows, WINDOW_DROPIN, () -> topicPool.randomSmalltalkOpener(random)), bindings));
         }
 
         // Quest bindings for quest bearers: use actual quest instance bindings
@@ -476,7 +531,8 @@ public class TopicGenerator {
      * If an NPC is short, assign them to existing subjects they don't already have.
      */
     private void ensureMinimumTopics(Map<String, List<TopicGraphBuilder.TopicAssignment>> npcAssignments,
-                                      List<SubjectFocus> subjects, List<String> npcNames, Random random) {
+                                      List<SubjectFocus> subjects, List<String> npcNames, Random random,
+                                      Map<String, LinkedList<String>> poolWindows) {
         Map<String, NpcRecord> npcByName = new LinkedHashMap<>();
         // npcByName not available here, so use topicBudgets via the budget map isn't threaded through.
         // Use FUNCTIONAL_MIN_TOPICS as the baseline minimum for backfill (role-based budget
@@ -503,7 +559,7 @@ public class TopicGenerator {
                 if (assignments.size() >= FUNCTIONAL_MIN_TOPICS) break;
 
                 focus.assignNpc(npcName, random.nextDouble() < VISIBILITY_CHANCE);
-                TopicGraphBuilder.TopicAssignment assignment = buildAssignment(focus, npcName, random);
+                TopicGraphBuilder.TopicAssignment assignment = buildAssignment(focus, npcName, random, poolWindows);
                 assignments.add(assignment);
             }
 
@@ -517,10 +573,43 @@ public class TopicGenerator {
                 newFocus.assignNpc(npcName, true);
                 subjects.add(newFocus);
 
-                TopicGraphBuilder.TopicAssignment assignment = buildAssignment(newFocus, npcName, random);
+                TopicGraphBuilder.TopicAssignment assignment = buildAssignment(newFocus, npcName, random, poolWindows);
                 assignments.add(assignment);
             }
         }
+    }
+
+    /**
+     * Draw a subject matching targetCategory, with collision checking against already-used values.
+     * Tries up to 3 times to find an unused subject, then falls back to any matching subject.
+     */
+    private TopicPoolRegistry.SubjectEntry drawUniqueSubject(String targetCategory, Set<String> usedValues, Random random) {
+        for (int attempt = 0; attempt < 3; attempt++) {
+            TopicPoolRegistry.SubjectEntry entry = topicPool.randomSubjectForCategoryExcluding(targetCategory, usedValues, random);
+            if (!usedValues.contains(entry.value())) {
+                return entry;
+            }
+        }
+        // After 3 failures, accept any matching subject (even if duplicate)
+        return topicPool.randomSubjectForCategory(targetCategory, random);
+    }
+
+    /**
+     * Draw a pool value with rolling window dedup: if the drawn value was used within the last
+     * windowSize draws of this pool, redraw up to 2 times before accepting.
+     */
+    private static String drawWithWindow(String poolName, Map<String, LinkedList<String>> windows,
+                                          int windowSize, java.util.function.Supplier<String> drawer) {
+        LinkedList<String> window = windows.computeIfAbsent(poolName, k -> new LinkedList<>());
+        String value = drawer.get();
+        int attempts = 0;
+        while (window.contains(value) && attempts < 2) {
+            value = drawer.get();
+            attempts++;
+        }
+        window.add(value);
+        if (window.size() > windowSize) window.removeFirst();
+        return value;
     }
 
     /**

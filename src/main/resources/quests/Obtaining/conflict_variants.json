@@ -1,53 +1,104 @@
 {
   "variants": [
     {
-      "id": "obtaining_conf_contested_ground",
+      "id": "obtaining_conf_01",
       "dialogueChunks": {
         "intro": "The area around {quest_focus_the} is more contested than expected. The {enemy_type_plural} have established a presence {location_hint} and are not giving ground easily.",
-        "plotStep": "You will need to push past {quest_threat_the} and collect what we need from the area. {quest_ally} estimates the richest deposits are scattered across the contested ground {location_hint}.",
-        "outro": "Gather everything you can carry. {quest_stakes_The} {quest_stakes_is} depending on you pushing past this resistance."
+        "plotStep": "Your efforts to {quest_action} scattered the first wave, but reinforcements have moved in. {quest_ally} estimates there are even more creatures than before. {quest_stakes_The} {quest_stakes_is} depending on you pushing through this resistance.",
+        "outro": "Fight through them. We are too close to turn back now."
       },
       "objectivePool": [
-        "COLLECT_RESOURCES"
+        "KILL_MOBS"
       ],
       "objectiveConfig": {
-        "COLLECT_RESOURCES": {
+        "KILL_MOBS": {
+          "countMin": 4,
+          "countMax": 9
+        }
+      }
+    },
+    {
+      "id": "obtaining_conf_02",
+      "dialogueChunks": {
+        "intro": "The first push was not enough, {player_name}. {quest_ally} says the {enemy_type_plural} have regrouped deeper in their territory {location_hint}.",
+        "plotStep": "{target_npc} warned that the creatures are more dangerous the closer you get to {quest_focus_the}. The ones near the surface were scouts: the real threat is further in. {quest_stakes_The} remains out of reach until the path is clear.",
+        "outro": "Get out there and cut through their defenses. Time is not on our side."
+      },
+      "objectivePool": [
+        "KILL_MOBS"
+      ],
+      "objectiveConfig": {
+        "KILL_MOBS": {
           "countMin": 5,
-          "countMax": 14
+          "countMax": 10
         }
       }
     },
     {
-      "id": "obtaining_conf_supply_chain",
+      "id": "obtaining_conf_03",
       "dialogueChunks": {
-        "intro": "The first batch you brought back was not enough. {quest_ally} says we need more {quest_item} and the only remaining source is {location_hint}, deeper into dangerous territory.",
-        "plotStep": "{target_npc} knows a route {location_hint} that avoids the worst of {quest_threat_the}, but it passes through rough ground where the {enemy_type_plural} forage. You will need to collect supplies from along the way.",
-        "outro": "Get out there and bring back what we need for {quest_stakes_the}. Time is not on our side."
+        "intro": "A complication: {target_npc} says another group is also after {quest_focus_the}. They sent their own fighters, and it stirred the {enemy_type_plural} into a frenzy.",
+        "plotStep": "The area {location_hint} is now a battlefield. The creatures are attacking anything that moves, including each other. {quest_ally} says we can use the chaos to our advantage, but only if someone pushes through and kills the strongest ones while they are distracted.",
+        "outro": "Strike while the {enemy_type_plural} are divided. {quest_stakes_The} cannot wait for negotiations."
       },
       "objectivePool": [
-        "COLLECT_RESOURCES"
+        "KILL_MOBS"
       ],
       "objectiveConfig": {
-        "COLLECT_RESOURCES": {
-          "countMin": 6,
-          "countMax": 20
+        "KILL_MOBS": {
+          "countMin": 3,
+          "countMax": 7
         }
       }
     },
     {
-      "id": "obtaining_conf_bidding_war",
+      "id": "obtaining_conf_04",
       "dialogueChunks": {
-        "intro": "A complication: {target_npc} says another settlement is also after {quest_focus_the}. They have sent their own people to claim it, and they reached the area first.",
-        "plotStep": "We cannot afford to lose this. {quest_ally} suggests we collect what remains from alternate sites {location_hint} while the competition is focused on the main deposit. The {enemy_type_plural} in the area do not care who they attack.",
-        "outro": "Scour the secondary sites and bring back enough to meet our needs. {quest_stakes_The} cannot wait for negotiations."
+        "intro": "{player_name}, the {enemy_type_plural} you drove off are back, and they brought company. The path to {quest_focus_the} is blocked again.",
+        "plotStep": "{quest_ally} says a larger pack has claimed the territory {location_hint}. They are more organized than the last group: sentries posted, patrols running. Breaking through will require more force this time. {quest_stakes_The} {quest_stakes_is} still at stake.",
+        "outro": "Destroy their patrols and break their formation. Once their defenses collapse, {quest_focus_the} is within reach."
       },
       "objectivePool": [
-        "COLLECT_RESOURCES"
+        "KILL_MOBS"
       ],
       "objectiveConfig": {
-        "COLLECT_RESOURCES": {
-          "countMin": 7,
-          "countMax": 18
+        "KILL_MOBS": {
+          "countMin": 5,
+          "countMax": 10
+        }
+      }
+    },
+    {
+      "id": "obtaining_conf_05",
+      "dialogueChunks": {
+        "intro": "Something changed since your last foray, {player_name}. The {enemy_type_plural} near {quest_focus_the} are behaving differently.",
+        "plotStep": "{quest_ally} noticed they are not just defending the area anymore: they are actively expanding their territory {location_hint}. If we do not push them back now, they will cut off every approach to {quest_focus_the}. {quest_stakes_The} {quest_stakes_is} slipping away.",
+        "outro": "Hit them hard before they spread further. Every route they close is one less chance for us."
+      },
+      "objectivePool": [
+        "KILL_MOBS"
+      ],
+      "objectiveConfig": {
+        "KILL_MOBS": {
+          "countMin": 4,
+          "countMax": 8
+        }
+      }
+    },
+    {
+      "id": "obtaining_conf_06",
+      "dialogueChunks": {
+        "intro": "The deeper you push toward {quest_focus_the}, the harder it gets. {quest_ally} was not exaggerating about the danger.",
+        "plotStep": "You cleared the outer perimeter, but the {enemy_type_plural} deeper in {location_hint} are larger and more aggressive. {target_npc} thinks they are protecting a nesting site, which means they will fight to the death. {quest_stakes_The} {quest_stakes_is} just past their territory.",
+        "outro": "One final push. Kill everything between you and {quest_focus_the}."
+      },
+      "objectivePool": [
+        "KILL_MOBS"
+      ],
+      "objectiveConfig": {
+        "KILL_MOBS": {
+          "countMin": 4,
+          "countMax": 9
         }
       }
     }

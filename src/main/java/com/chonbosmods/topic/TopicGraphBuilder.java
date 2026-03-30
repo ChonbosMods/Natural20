@@ -217,13 +217,20 @@ public class TopicGraphBuilder {
             );
         }
 
-        // Build recap text: deepener response, last exploratory/intent response, or intro
+        // Build recap text: deepener response, last exploratory/intent response, or intro.
+        // Deepener recap uses partial resolution to preserve deferred variable tokens.
         String recapText;
         if (decisive != null) {
             recapText = DialogueResolver.resolve(decisive.response(), bindings);
         } else if (perspective.usesIntents()) {
             if (perspective.deepenerResponse() != null) {
-                recapText = DialogueResolver.resolve(perspective.deepenerResponse(), bindings);
+                Map<String, String> deferredBindings = new HashMap<>(bindings);
+                deferredBindings.remove("local_opinion");
+                deferredBindings.remove("personal_reaction");
+                deferredBindings.remove("danger_assessment");
+                recapText = DialogueResolver.resolvePartial(perspective.deepenerResponse(), deferredBindings);
+                String bracket = bindings.getOrDefault("_reaction_bracket", "mild");
+                recapText = embedBracket(recapText, bracket);
             } else {
                 var intents = perspective.intents();
                 recapText = DialogueResolver.resolve(intents.getLast().response(), bindings);
@@ -342,14 +349,23 @@ public class TopicGraphBuilder {
                 String deepPrompt = topicPool.randomDeepenerExcluding(usedDeepeners, random);
                 usedDeepeners.add(deepPrompt);
 
-                // Resolve L2 NPC response: per-intent override > perspective default
+                // Resolve L2 NPC response: per-intent override > perspective default.
+                // Use partial resolution to preserve deepener variable tokens
+                // ({local_opinion}, {personal_reaction}, {danger_assessment}) so they
+                // can be resolved with fresh pool draws at display time.
+                // Bracket-filtered tokens embed their bracket as {name:bracket}
+                // (colon is not a \w char, so DialogueResolver.resolve ignores them).
                 String deepResponsePattern = slot.deepenerResponse() != null
                     ? slot.deepenerResponse() : perspectiveDeepenerResponse;
                 String deepResponse;
                 if (deepResponsePattern != null) {
-                    Map<String, String> freshBindings = new HashMap<>(bindings);
-                    refreshDeepenerBinding(freshBindings, deepResponsePattern);
-                    deepResponse = DialogueResolver.resolve(deepResponsePattern, freshBindings);
+                    Map<String, String> deferredBindings = new HashMap<>(bindings);
+                    deferredBindings.remove("local_opinion");
+                    deferredBindings.remove("personal_reaction");
+                    deferredBindings.remove("danger_assessment");
+                    deepResponse = DialogueResolver.resolvePartial(deepResponsePattern, deferredBindings);
+                    String bracket = bindings.getOrDefault("_reaction_bracket", "mild");
+                    deepResponse = embedBracket(deepResponse, bracket);
                 } else {
                     deepResponse = "I've said all I can about it.";
                 }
@@ -377,24 +393,6 @@ public class TopicGraphBuilder {
         }
 
         return l1NodeIds;
-    }
-
-    /**
-     * Replace deepener pool variable bindings with fresh draws so each
-     * L2 branch gets a unique NPC response instead of sharing one pre-resolved value.
-     */
-    private void refreshDeepenerBinding(Map<String, String> bindings, String pattern) {
-        if (pattern.contains("{personal_reaction}")) {
-            String bracket = bindings.getOrDefault("_reaction_bracket", "mild");
-            bindings.put("personal_reaction", topicPool.randomPersonalReaction(bracket, random));
-        }
-        if (pattern.contains("{local_opinion}")) {
-            String bracket = bindings.getOrDefault("_reaction_bracket", "mild");
-            bindings.put("local_opinion", topicPool.randomLocalOpinion(bracket, random));
-        }
-        if (pattern.contains("{danger_assessment}")) {
-            bindings.put("danger_assessment", topicPool.randomDangerAssessment(random));
-        }
     }
 
     /**
@@ -554,6 +552,20 @@ public class TopicGraphBuilder {
             parentNode.speakerText(), augmented, parentNode.onEnter(),
             parentNode.exhaustsTopic(), parentNode.locksConversation()
         ));
+    }
+
+    /**
+     * Embed the reaction bracket into deferred deepener tokens so the display-time
+     * resolver knows which sub-pool to draw from. Transforms {@code {local_opinion}}
+     * into {@code {local_opinion:bracket}} etc. The colon-based format is invisible
+     * to {@link DialogueResolver#resolve} (which matches {@code \w+} only).
+     */
+    private static String embedBracket(String text, String bracket) {
+        text = text.replace("{local_opinion}", "{local_opinion:" + bracket + "}");
+        text = text.replace("{personal_reaction}", "{personal_reaction:" + bracket + "}");
+        // danger_assessment has no bracket, but normalize to the same format for consistency
+        text = text.replace("{danger_assessment}", "{danger_assessment:}");
+        return text;
     }
 
     private static String capitalizeFirst(String text) {

@@ -4,15 +4,16 @@
       "id": "expo_ambition_01",
       "dialogueChunks": {
         "intro": "{player_name}, opportunity does not knock twice. There is a power vacuum and every schemer is circling the empty chair.",
-        "plotStep": "Since {quest_origin}, I have spent years building connections and waiting for this moment. But my rivals are moving fast. {target_npc} has already started making promises they cannot deliver. I need {quest_item} found {location_hint} to secure key support before {target_npc} gets to them. The {enemy_type} threat makes this urgent: whoever takes {quest_focus_the} needs to be ready to defend us.",
+        "plotStep": "Since {quest_origin}, I have spent years building connections and waiting for this moment. But my rivals are moving fast. {target_npc} has already started making promises they cannot deliver. The {enemy_type_plural} near {quest_focus_the} are the real problem: whoever controls that area controls the outcome. I need you to clear them out {location_hint}.",
         "outro": "Help me claim {quest_stakes_the}, and you will have the ear of the most powerful person in the region. {quest_reward_hint} is only the beginning."
       },
       "objectivePool": [
-        "FETCH_ITEM"
+        "KILL_MOBS"
       ],
       "objectiveConfig": {
-        "FETCH_ITEM": {
-          "locationPreference": "DUNGEON"
+        "KILL_MOBS": {
+          "countMin": 4,
+          "countMax": 8
         }
       }
     },
@@ -37,15 +38,67 @@
       "id": "expo_ambition_03",
       "dialogueChunks": {
         "intro": "{player_name}, I do not need a hero. I need someone practical who understands that winning is not always clean.",
-        "plotStep": "The current leader is corrupt, but everyone loves them because they smile well and give pretty speeches. {target_npc} has proof of their misdeeds hidden {location_hint}, but getting to it means dealing with the {enemy_type_plural} that have overrun the area. I need {quest_item} from those ruins to expose the truth before {quest_time_pressure}.",
+        "plotStep": "The current leader is corrupt, but everyone loves them because they smile well and give pretty speeches. {target_npc} has proof of their misdeeds hidden {location_hint}, but getting to it means dealing with the {enemy_type_plural} that have overrun the area. I need the path cleared so my people can move in.",
         "outro": "This is not about ambition. It is about replacing someone unworthy with someone who is not afraid to make hard choices. {quest_focus_The} demands action, and {quest_stakes_the} {quest_stakes_is} hanging in the balance."
       },
       "objectivePool": [
-        "FETCH_ITEM"
+        "KILL_MOBS"
       ],
       "objectiveConfig": {
-        "FETCH_ITEM": {
-          "locationPreference": "DUNGEON"
+        "KILL_MOBS": {
+          "countMin": 4,
+          "countMax": 8
+        }
+      }
+    },
+    {
+      "id": "expo_ambition_04",
+      "dialogueChunks": {
+        "intro": "{player_name}, I am going to be direct with you. I want power. Not for vanity: for results.",
+        "plotStep": "The settlement's defenses are a joke. {quest_threat_animate_The} {quest_threat_animate_has} been probing our perimeter since {quest_origin}, and the current leadership does nothing but talk. I need to demonstrate what real action looks like. The {enemy_type_plural} have a nest {location_hint} near {quest_focus_the}. Wipe them out, and I will use that victory to rally support.",
+        "outro": "Destroy the {enemy_type_plural} and you hand me the proof I need. In return, {quest_reward_hint} and a powerful ally."
+      },
+      "objectivePool": [
+        "KILL_MOBS"
+      ],
+      "objectiveConfig": {
+        "KILL_MOBS": {
+          "countMin": 5,
+          "countMax": 10
+        }
+      }
+    },
+    {
+      "id": "expo_ambition_05",
+      "dialogueChunks": {
+        "intro": "Everyone wants the same thing, {player_name}. They just lack the nerve to reach for it. I do not.",
+        "plotStep": "{quest_focus_The} {quest_focus_has} been contested since {quest_origin}. {target_npc} laid claim first, but they lack the strength to hold it. The {enemy_type_plural} roaming the area {location_hint} are the wild card: whoever deals with them controls the territory. {quest_stakes_The} {quest_stakes_is} the prize.",
+        "outro": "Clear the {enemy_type_plural} for me and I take the territory. Refuse, and {target_npc} gets it instead: with worse results for everyone."
+      },
+      "objectivePool": [
+        "KILL_MOBS"
+      ],
+      "objectiveConfig": {
+        "KILL_MOBS": {
+          "countMin": 3,
+          "countMax": 7
+        }
+      }
+    },
+    {
+      "id": "expo_ambition_06",
+      "dialogueChunks": {
+        "intro": "{player_name}, the settlement needs a leader who acts instead of deliberating. I intend to be that leader.",
+        "plotStep": "My plan hinges on securing {quest_focus_the}, but {quest_threat_the} stands in the way. The {enemy_type_plural} have infested the area {location_hint} and every failed attempt to clear them makes the current leadership look more capable by comparison. I cannot afford another failure. I need someone who will get it done.",
+        "outro": "Kill the {enemy_type_plural} and you give me the victory I need. {quest_stakes_The} {quest_stakes_is} worth the fight."
+      },
+      "objectivePool": [
+        "KILL_MOBS"
+      ],
+      "objectiveConfig": {
+        "KILL_MOBS": {
+          "countMin": 4,
+          "countMax": 9
         }
       }
     }

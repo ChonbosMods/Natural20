@@ -29,6 +29,26 @@
       },
       "objectivePool": [],
       "objectiveConfig": {}
+    },
+    {
+      "id": "crimevengeance_reso_04",
+      "dialogueChunks": {
+        "intro": "The enforcers are dead, the criminals have fled, and {quest_focus_the} belongs to us again. {player_name}, you brought this to an end.",
+        "plotStep": "I will not pretend the anger is gone entirely. What they did to {quest_stakes_the} left wounds that will take time. But knowing that someone fought for us: that changes how you carry the scar.",
+        "outro": "You gave us closure. That is worth more than any material reward, though you have earned that too."
+      },
+      "objectivePool": [],
+      "objectiveConfig": {}
+    },
+    {
+      "id": "crimevengeance_reso_05",
+      "dialogueChunks": {
+        "intro": "{player_name}, the area around {quest_focus_the} is quiet for the first time since the crime. No more {enemy_type_plural}. No more threats.",
+        "plotStep": "{quest_ally} organized a vigil for what was lost. Even people who were not directly affected came. Seeing the settlement united against {quest_threat_the} reminded everyone what we stand for. {quest_stakes_The} {quest_stakes_is} recovering.",
+        "outro": "You pursued justice when it would have been easier to walk away. This settlement will not forget."
+      },
+      "objectivePool": [],
+      "objectiveConfig": {}
     }
   ]
 }

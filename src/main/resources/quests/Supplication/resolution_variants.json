@@ -29,6 +29,26 @@
       },
       "objectivePool": [],
       "objectiveConfig": {}
+    },
+    {
+      "id": "supplication_reso_04",
+      "dialogueChunks": {
+        "intro": "I never thought I would smile again, {player_name}. Not after what {quest_threat_the} did to us. But here I am.",
+        "plotStep": "{quest_focus_The} {quest_focus_is} quiet for the first time in weeks. {quest_ally} says the {enemy_type_plural} have scattered so far that they pose no danger. {quest_stakes_human_The} {quest_stakes_human_is} already talking about rebuilding.",
+        "outro": "You did not just save us. You gave us a reason to believe people still help each other."
+      },
+      "objectivePool": [],
+      "objectiveConfig": {}
+    },
+    {
+      "id": "supplication_reso_05",
+      "dialogueChunks": {
+        "intro": "The children are playing outside again, {player_name}. That is how I know it is truly over.",
+        "plotStep": "Before you came, every sound made people flinch. Now {quest_focus_the} feels like home again instead of a cage. {quest_ally} organized a gathering to mark the end of {quest_threat_the}, and every person in the settlement came.",
+        "outro": "They asked me to tell you something: you will always have a place here. Always."
+      },
+      "objectivePool": [],
+      "objectiveConfig": {}
     }
   ]
 }

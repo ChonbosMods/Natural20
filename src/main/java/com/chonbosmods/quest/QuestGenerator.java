@@ -16,13 +16,13 @@ import java.util.concurrent.atomic.AtomicLong;
 public class QuestGenerator {
 
     private static final FluentLogger LOGGER = FluentLogger.forEnclosingClass();
-    private static final int MAX_PHASES = 6;
-    private static final double CONFLICT_EXTEND_CHANCE = 0.40;
-    private static final double RESOLUTION_EXTEND_CHANCE = 0.25;
+    private static final int MAX_PHASES = 4;
+    private static final double CONFLICT_EXTEND_CHANCE = 0.25;
+    private static final double RESOLUTION_EXTEND_CHANCE = 0.10;
     private static final double REFERENCE_INJECT_CHANCE = 0.20;
     private static final double QUEST_ALLY_TOPIC_CHANCE = 0.35;
     private static final double STAKES_EQUALS_FOCUS_CHANCE = 0.25;
-    private static final double SHORT_QUEST_CHANCE = 0.10;
+    private static final double SHORT_QUEST_CHANCE = 0.25;
     private static final double TALK_NPC_HANDOFF_CHANCE = 0.75;
     private static final Set<String> INVESTIGATION_SITUATIONS = Set.of(
         "DiscoveryOfDishonor", "ErroneousJudgment", "TheEnigma", "RivalryOfSuperiorVsInferior"
