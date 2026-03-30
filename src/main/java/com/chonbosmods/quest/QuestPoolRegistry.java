@@ -499,6 +499,21 @@ public class QuestPoolRegistry {
         }
     }
 
+    /**
+     * Map a quest pool item ID to its base Nat20 item type for chest spawning.
+     */
+    public static String getBaseItemType(String poolItemId) {
+        if (poolItemId == null) return "nat20:quest_document";
+        if (poolItemId.startsWith("keepsake_")) return "nat20:quest_keepsake";
+        if ("evidence_letter".equals(poolItemId) || "evidence_correspondence".equals(poolItemId))
+            return "nat20:quest_letter";
+        if ("evidence_signet".equals(poolItemId) || "evidence_token".equals(poolItemId)
+                || "evidence_map".equals(poolItemId))
+            return "nat20:quest_treasure";
+        if (poolItemId.startsWith("evidence_")) return "nat20:quest_document";
+        return "nat20:quest_document";
+    }
+
     private void loadSituationTones(Path file) {
         if (!Files.exists(file)) return;
         try (var reader = Files.newBufferedReader(file, StandardCharsets.UTF_8)) {
