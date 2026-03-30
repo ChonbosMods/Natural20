@@ -109,24 +109,48 @@ public class POIProximitySystem {
 
     private boolean transitionToActive(World world, Store<EntityStore> store,
                                         QuestInstance quest, Map<String, String> b) {
+        boolean anySpawned = false;
+
+        // Spawn quest chest for FETCH_ITEM objectives
+        String fetchItemType = b.get("fetch_item_type");
+        if (fetchItemType != null && !"true".equals(b.get("poi_chest_placed"))) {
+            try {
+                int poiX = (int) Double.parseDouble(b.get("poi_x"));
+                int poiY = (int) Double.parseDouble(b.get("poi_y"));
+                int poiZ = (int) Double.parseDouble(b.get("poi_z"));
+                boolean placed = QuestChestPlacer.placeQuestChest(world, poiX, poiY, poiZ,
+                    fetchItemType, b.getOrDefault("fetch_item_label", "quest item"));
+                if (placed) {
+                    b.put("poi_chest_placed", "true");
+                    anySpawned = true;
+                }
+            } catch (NumberFormatException e) {
+                LOGGER.atWarning().log("Bad POI coordinates for FETCH_ITEM quest %s", quest.getQuestId());
+            }
+        }
+
+        // Spawn hostile mobs (KILL_MOBS or hostile FETCH_ITEM variant)
         POIPopulationListener.SpawnDescriptor desc =
             POIPopulationListener.SpawnDescriptor.parse(b.get("poi_spawn_descriptor"));
-        if (desc == null) return false;
+        if (desc != null) {
+            int credited = getKillProgress(quest);
+            int toSpawn = Math.max(0, desc.totalCount() - credited);
+            if (toSpawn > 0) {
+                List<String> uuids = Natural20.getInstance().getPOIPopulationListener()
+                    .spawnMobs(world, desc.mobRole(), toSpawn, desc.poiX(), desc.poiY(), desc.poiZ());
+                b.put("poi_mob_uuids", String.join(",", uuids));
+                anySpawned = true;
+                LOGGER.atInfo().log("PENDING->ACTIVE: quest %s, spawned %d/%d mobs | /tp %d %d %d",
+                    quest.getQuestId(), uuids.size(), toSpawn, desc.poiX(), desc.poiY(), desc.poiZ());
+            }
+        }
 
-        int credited = getKillProgress(quest);
-        int toSpawn = Math.max(0, desc.totalCount() - credited);
-        if (toSpawn <= 0) return false;
+        if (anySpawned) {
+            b.put("poi_mob_state", "ACTIVE");
+            b.remove("poi_detached_uuids");
+        }
 
-        List<String> uuids = Natural20.getInstance().getPOIPopulationListener()
-            .spawnMobs(world, desc.mobRole(), toSpawn, desc.poiX(), desc.poiY(), desc.poiZ());
-
-        b.put("poi_mob_uuids", String.join(",", uuids));
-        b.put("poi_mob_state", "ACTIVE");
-        b.remove("poi_detached_uuids");
-
-        LOGGER.atInfo().log("PENDING->ACTIVE: quest %s, spawned %d/%d mobs | /tp %d %d %d",
-            quest.getQuestId(), uuids.size(), toSpawn, desc.poiX(), desc.poiY(), desc.poiZ());
-        return true;
+        return anySpawned;
     }
 
     private void transitionToDetached(Map<String, String> b) {
