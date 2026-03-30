@@ -455,8 +455,14 @@ public class TopicGenerator {
                 if (qb.containsKey(key)) bindings.put(key, qb.get(key));
             }
 
-            // Still draw exposition/detail from pools but resolve against real quest bindings
-            bindings.put("quest_exposition", DialogueResolver.resolve(topicPool.randomRumorDetail(random), bindings));
+            // Draw exposition from pools: peaceful fetch uses dedicated pools, everything else uses rumor details
+            String rawExposition;
+            if ("peaceful".equals(qb.get("fetch_variant"))) {
+                rawExposition = questPool.randomPeacefulFetchExposition(random);
+            } else {
+                rawExposition = topicPool.randomRumorDetail(random);
+            }
+            bindings.put("quest_exposition", DialogueResolver.resolve(rawExposition, bindings));
             bindings.put("quest_detail", DialogueResolver.resolve(topicPool.randomPerspectiveDetail(random), bindings));
 
             String tone = questPool.getToneForSituation(focus.getQuestSituationId());
