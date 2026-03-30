@@ -42,4 +42,13 @@ public class ObjectiveInstance {
         currentCount = requiredCount;
         complete = true;
     }
+
+    public void setCurrentCount(int count) {
+        this.currentCount = count;
+    }
+
+    public void uncomplete() {
+        this.complete = false;
+        this.currentCount = Math.min(this.currentCount, this.requiredCount - 1);
+    }
 }

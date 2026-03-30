@@ -243,6 +243,24 @@ public class DialogueActionRegistry {
                 }
             }
 
+            // Consume resources for COLLECT_RESOURCES objectives
+            for (ObjectiveInstance obj : completedPhase.getObjectives()) {
+                if (obj.getType() == ObjectiveType.COLLECT_RESOURCES) {
+                    String resourceId = obj.getTargetId();
+                    int requiredCount = obj.getRequiredCount();
+                    if (resourceId != null) {
+                        int consumed = consumeResources(ctx, resourceId, requiredCount);
+                        if (consumed >= requiredCount) {
+                            LOGGER.atInfo().log("TURN_IN_PHASE: consumed %d/%d %s for quest %s",
+                                consumed, requiredCount, resourceId, quest.getQuestId());
+                        } else {
+                            LOGGER.atWarning().log("TURN_IN_PHASE: only consumed %d/%d %s for quest %s (allowing turn-in)",
+                                consumed, requiredCount, resourceId, quest.getQuestId());
+                        }
+                    }
+                }
+            }
+
             // Clear flag
             quest.getVariableBindings().remove("phase_objectives_complete");
 
@@ -448,6 +466,43 @@ public class DialogueActionRegistry {
                 LOGGER.atInfo().log("POI placed for quest %s at (%d, %d, %d)",
                     quest.getQuestId(), entrance.getX(), entrance.getY(), entrance.getZ());
             });
+    }
+
+    /**
+     * Remove up to 'count' items of the given type from the player's hotbar.
+     * Returns the number actually removed.
+     */
+    private static int consumeResources(ActionContext ctx, String itemTypeId, int requiredCount) {
+        try {
+            Player player = ctx.player();
+            if (player == null) return 0;
+
+            ItemContainer hotbar = player.getInventory().getHotbar();
+            short capacity = hotbar.getCapacity();
+            int remaining = requiredCount;
+
+            for (short slot = 0; slot < capacity && remaining > 0; slot++) {
+                ItemStack stack = hotbar.getItemStack(slot);
+                if (stack == null || stack.isEmpty()) continue;
+                if (!itemTypeId.equals(stack.getItemId())) continue;
+
+                int qty = stack.getQuantity();
+                if (qty <= remaining) {
+                    // Take entire stack
+                    hotbar.setItemStackForSlot(slot, null);
+                    remaining -= qty;
+                } else {
+                    // Take partial stack: leave the remainder
+                    hotbar.setItemStackForSlot(slot, new ItemStack(itemTypeId, qty - remaining));
+                    remaining = 0;
+                }
+            }
+
+            return requiredCount - remaining;
+        } catch (Exception e) {
+            LOGGER.atWarning().withCause(e).log("Error consuming resources %s", itemTypeId);
+            return 0;
+        }
     }
 
     private static boolean consumeFetchItem(ActionContext ctx, String itemTypeId) {

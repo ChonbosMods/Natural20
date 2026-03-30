@@ -12,6 +12,7 @@ import com.chonbosmods.dialogue.DialogueLoader;
 import com.chonbosmods.dialogue.DialogueManager;
 import com.chonbosmods.loot.Nat20EquipmentListener;
 import com.chonbosmods.loot.Nat20LootSystem;
+import com.chonbosmods.quest.CollectResourceTrackingSystem;
 import com.chonbosmods.quest.FetchItemTrackingSystem;
 import com.chonbosmods.quest.POIKillTrackingSystem;
 import com.chonbosmods.quest.POIPopulationListener;
@@ -232,6 +233,9 @@ public class Natural20 extends JavaPlugin {
 
         // Register FETCH_ITEM pickup detection system for quest objectives
         getEntityStoreRegistry().registerSystem(new FetchItemTrackingSystem());
+
+        // Register COLLECT_RESOURCES inventory counting system for quest objectives
+        getEntityStoreRegistry().registerSystem(new CollectResourceTrackingSystem());
 
         // Register settlement threat detection system (marks attackers as hostile)
         getEntityStoreRegistry().registerSystem(new SettlementThreatSystem());
