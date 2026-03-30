@@ -31,6 +31,32 @@
             { "intent": "source", "response": "{rumor_source}. {time_ref}." }
           ],
           "deepenerResponse": "{local_opinion}"
+        },
+        {
+          "intro": "I was near {subject_focus_the} when {creature_sighting}. {tone_closer}",
+          "intents": [
+            { "intent": "detail",  "response": "{creature_detail}. {time_ref}." },
+            { "intent": "context", "response": "{location_detail}" },
+            { "intent": "stakes",  "response": "{danger_assessment}" }
+          ],
+          "deepenerResponse": "{personal_reaction}"
+        },
+        {
+          "intro": "{rumor_source}. {creature_sighting}. {personal_reaction}",
+          "intents": [
+            { "intent": "detail",  "response": "{creature_detail}" },
+            { "intent": "opinion", "response": "{local_opinion}" }
+          ],
+          "deepenerResponse": "{local_opinion}"
+        },
+        {
+          "intro": "{tone_opener} {subject_focus_The} {subject_focus_has} always been trouble. {creature_sighting}.",
+          "intents": [
+            { "intent": "detail",  "response": "{time_ref}. {creature_detail}." },
+            { "intent": "source",  "response": "{rumor_source}" },
+            { "intent": "stakes",  "response": "{location_detail}. {danger_assessment}." }
+          ],
+          "deepenerResponse": "{personal_reaction}"
         }
       ],
       "questHookPerspectives": [
@@ -73,6 +99,32 @@
             { "intent": "source", "response": "{rumor_source}. {time_ref}." }
           ],
           "deepenerResponse": "{local_opinion}"
+        },
+        {
+          "intro": "I was near {subject_focus_the} when {creature_sighting}. {tone_closer}",
+          "intents": [
+            { "intent": "detail",  "response": "{creature_detail}. {time_ref}." },
+            { "intent": "context", "response": "{location_detail}" },
+            { "intent": "stakes",  "response": "{danger_assessment}" }
+          ],
+          "deepenerResponse": "{personal_reaction}"
+        },
+        {
+          "intro": "{rumor_source}. {creature_sighting}. {personal_reaction}",
+          "intents": [
+            { "intent": "detail",  "response": "{creature_detail}" },
+            { "intent": "opinion", "response": "{local_opinion}" }
+          ],
+          "deepenerResponse": "{local_opinion}"
+        },
+        {
+          "intro": "{tone_opener} {subject_focus_The} {subject_focus_has} always been trouble. {creature_sighting}.",
+          "intents": [
+            { "intent": "detail",  "response": "{time_ref}. {creature_detail}." },
+            { "intent": "source",  "response": "{rumor_source}" },
+            { "intent": "stakes",  "response": "{location_detail}. {danger_assessment}." }
+          ],
+          "deepenerResponse": "{personal_reaction}"
         }
       ],
       "questHookPerspectives": [
@@ -114,6 +166,32 @@
           "intents": [
             { "intent": "detail",  "response": "{creature_detail}" },
             { "intent": "stakes",  "response": "{danger_assessment}. {time_ref}." }
+          ],
+          "deepenerResponse": "{personal_reaction}"
+        },
+        {
+          "intro": "I was near {subject_focus_the} when {creature_sighting}. {tone_closer}",
+          "intents": [
+            { "intent": "detail",  "response": "{creature_detail}. {time_ref}." },
+            { "intent": "context", "response": "{location_detail}" },
+            { "intent": "stakes",  "response": "{danger_assessment}" }
+          ],
+          "deepenerResponse": "{personal_reaction}"
+        },
+        {
+          "intro": "{rumor_source}. {creature_sighting}. {personal_reaction}",
+          "intents": [
+            { "intent": "detail",  "response": "{creature_detail}" },
+            { "intent": "opinion", "response": "{local_opinion}" }
+          ],
+          "deepenerResponse": "{local_opinion}"
+        },
+        {
+          "intro": "{tone_opener} {subject_focus_The} {subject_focus_has} always drawn them. {creature_sighting}.",
+          "intents": [
+            { "intent": "detail",  "response": "{time_ref}. {creature_detail}." },
+            { "intent": "source",  "response": "{rumor_source}" },
+            { "intent": "stakes",  "response": "{location_detail}. {danger_assessment}." }
           ],
           "deepenerResponse": "{personal_reaction}"
         }
@@ -160,6 +238,32 @@
             { "intent": "source", "response": "{rumor_source}. {time_ref}." }
           ],
           "deepenerResponse": "{local_opinion}"
+        },
+        {
+          "intro": "I was near {subject_focus_the} when {strange_event}. {tone_closer}",
+          "intents": [
+            { "intent": "detail",  "response": "{event_detail}. {time_ref}." },
+            { "intent": "context", "response": "{location_detail}" },
+            { "intent": "stakes",  "response": "{danger_assessment}" }
+          ],
+          "deepenerResponse": "{personal_reaction}"
+        },
+        {
+          "intro": "{rumor_source}. {strange_event}. {personal_reaction}",
+          "intents": [
+            { "intent": "detail",  "response": "{event_detail}" },
+            { "intent": "opinion", "response": "{local_opinion}" }
+          ],
+          "deepenerResponse": "{local_opinion}"
+        },
+        {
+          "intro": "{tone_opener} {subject_focus_The} {subject_focus_has} always been trouble. {strange_event}.",
+          "intents": [
+            { "intent": "detail",  "response": "{time_ref}. {event_detail}." },
+            { "intent": "source",  "response": "{rumor_source}" },
+            { "intent": "stakes",  "response": "{location_detail}. {danger_assessment}." }
+          ],
+          "deepenerResponse": "{personal_reaction}"
         }
       ],
       "questHookPerspectives": [
@@ -203,6 +307,32 @@
             { "intent": "source", "response": "{rumor_source}. {time_ref}." }
           ],
           "deepenerResponse": "{local_opinion}"
+        },
+        {
+          "intro": "I was near {subject_focus_the} when {strange_event}. {tone_closer}",
+          "intents": [
+            { "intent": "detail",  "response": "{event_detail}. {time_ref}." },
+            { "intent": "context", "response": "{location_detail}" },
+            { "intent": "stakes",  "response": "{danger_assessment}" }
+          ],
+          "deepenerResponse": "{personal_reaction}"
+        },
+        {
+          "intro": "{rumor_source}. {strange_event}. {personal_reaction}",
+          "intents": [
+            { "intent": "detail",  "response": "{event_detail}" },
+            { "intent": "opinion", "response": "{local_opinion}" }
+          ],
+          "deepenerResponse": "{local_opinion}"
+        },
+        {
+          "intro": "{tone_opener} {subject_focus_The} {subject_focus_has} always been trouble. {strange_event}.",
+          "intents": [
+            { "intent": "detail",  "response": "{time_ref}. {event_detail}." },
+            { "intent": "source",  "response": "{rumor_source}" },
+            { "intent": "stakes",  "response": "{location_detail}. {danger_assessment}." }
+          ],
+          "deepenerResponse": "{personal_reaction}"
         }
       ],
       "questHookPerspectives": [
@@ -244,6 +374,32 @@
           "intents": [
             { "intent": "detail", "response": "{event_detail}" },
             { "intent": "source", "response": "{rumor_source}. {time_ref}." }
+          ],
+          "deepenerResponse": "{personal_reaction}"
+        },
+        {
+          "intro": "I was near {subject_focus_the} when {strange_event}. {tone_closer}",
+          "intents": [
+            { "intent": "detail",  "response": "{event_detail}. {time_ref}." },
+            { "intent": "context", "response": "{location_detail}" },
+            { "intent": "stakes",  "response": "{danger_assessment}" }
+          ],
+          "deepenerResponse": "{personal_reaction}"
+        },
+        {
+          "intro": "{rumor_source}. {strange_event}. {personal_reaction}",
+          "intents": [
+            { "intent": "detail",  "response": "{event_detail}" },
+            { "intent": "opinion", "response": "{local_opinion}" }
+          ],
+          "deepenerResponse": "{local_opinion}"
+        },
+        {
+          "intro": "{tone_opener} {subject_focus_The} {subject_focus_has} always been trouble. {strange_event}.",
+          "intents": [
+            { "intent": "detail",  "response": "{time_ref}. {event_detail}." },
+            { "intent": "source",  "response": "{rumor_source}" },
+            { "intent": "stakes",  "response": "{location_detail}. {danger_assessment}." }
           ],
           "deepenerResponse": "{personal_reaction}"
         }
@@ -290,6 +446,32 @@
             { "intent": "source", "response": "{rumor_source}. {time_ref}." }
           ],
           "deepenerResponse": "{local_opinion}"
+        },
+        {
+          "intro": "I was near {subject_focus_the} when {treasure_rumor}. {tone_closer}",
+          "intents": [
+            { "intent": "detail",  "response": "{treasure_detail}. {time_ref}." },
+            { "intent": "context", "response": "{location_detail}" },
+            { "intent": "stakes",  "response": "{danger_assessment}" }
+          ],
+          "deepenerResponse": "{personal_reaction}"
+        },
+        {
+          "intro": "{rumor_source}. {treasure_rumor}. {personal_reaction}",
+          "intents": [
+            { "intent": "detail",  "response": "{treasure_detail}" },
+            { "intent": "opinion", "response": "{local_opinion}" }
+          ],
+          "deepenerResponse": "{local_opinion}"
+        },
+        {
+          "intro": "{tone_opener} {subject_focus_The} {subject_focus_has} always been trouble. {treasure_rumor}.",
+          "intents": [
+            { "intent": "detail",  "response": "{time_ref}. {treasure_detail}." },
+            { "intent": "source",  "response": "{rumor_source}" },
+            { "intent": "stakes",  "response": "{location_detail}. {danger_assessment}." }
+          ],
+          "deepenerResponse": "{personal_reaction}"
         }
       ],
       "questHookPerspectives": [
@@ -334,6 +516,32 @@
             { "intent": "source", "response": "{rumor_source}. {time_ref}." }
           ],
           "deepenerResponse": "{local_opinion}"
+        },
+        {
+          "intro": "I was near {subject_focus_the} when {conflict_rumor}. {tone_closer}",
+          "intents": [
+            { "intent": "detail",  "response": "{conflict_detail}. {time_ref}." },
+            { "intent": "context", "response": "{location_detail}" },
+            { "intent": "stakes",  "response": "{danger_assessment}" }
+          ],
+          "deepenerResponse": "{personal_reaction}"
+        },
+        {
+          "intro": "{rumor_source}. {conflict_rumor}. {personal_reaction}",
+          "intents": [
+            { "intent": "detail",  "response": "{conflict_detail}" },
+            { "intent": "opinion", "response": "{local_opinion}" }
+          ],
+          "deepenerResponse": "{local_opinion}"
+        },
+        {
+          "intro": "{tone_opener} {subject_focus_The} {subject_focus_has} always been trouble. {conflict_rumor}.",
+          "intents": [
+            { "intent": "detail",  "response": "{time_ref}. {conflict_detail}." },
+            { "intent": "source",  "response": "{rumor_source}" },
+            { "intent": "stakes",  "response": "{location_detail}. {danger_assessment}." }
+          ],
+          "deepenerResponse": "{personal_reaction}"
         }
       ],
       "questHookPerspectives": [

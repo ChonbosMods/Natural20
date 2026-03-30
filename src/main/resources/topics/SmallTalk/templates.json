@@ -30,6 +30,32 @@
             { "intent": "reaction", "response": "{personal_reaction}. {time_ref}." }
           ],
           "deepenerResponse": "{personal_reaction}"
+        },
+        {
+          "intro": "Everyone's been talking about {subject_focus_the}. {weather_observation}. {tone_closer}",
+          "intents": [
+            { "intent": "detail",   "response": "{weather_detail}. {time_ref}." },
+            { "intent": "opinion",  "response": "{local_opinion}" },
+            { "intent": "reaction", "response": "{personal_reaction}" }
+          ],
+          "deepenerResponse": "{local_opinion}"
+        },
+        {
+          "intro": "{weather_observation}. {local_opinion}",
+          "intents": [
+            { "intent": "detail",  "response": "{weather_detail}" },
+            { "intent": "context", "response": "{location_detail}. {time_ref}." }
+          ],
+          "deepenerResponse": "{personal_reaction}"
+        },
+        {
+          "intro": "{tone_opener} {subject_focus_The} {subject_focus_is} not what it used to be. {weather_observation}.",
+          "intents": [
+            { "intent": "detail",  "response": "{time_ref}. {weather_detail}." },
+            { "intent": "opinion", "response": "{local_opinion}" },
+            { "intent": "reaction", "response": "{personal_reaction}" }
+          ],
+          "deepenerResponse": "{personal_reaction}"
         }
       ],
       "questHookPerspectives": [
@@ -70,6 +96,32 @@
           "intents": [
             { "intent": "detail",   "response": "{trade_detail}" },
             { "intent": "reaction", "response": "{personal_reaction}. {time_ref}." }
+          ],
+          "deepenerResponse": "{personal_reaction}"
+        },
+        {
+          "intro": "Everyone's been talking about {subject_focus_the}. {trade_gossip}. {tone_closer}",
+          "intents": [
+            { "intent": "detail",   "response": "{trade_detail}. {time_ref}." },
+            { "intent": "opinion",  "response": "{local_opinion}" },
+            { "intent": "reaction", "response": "{personal_reaction}" }
+          ],
+          "deepenerResponse": "{local_opinion}"
+        },
+        {
+          "intro": "{trade_gossip}. {local_opinion}",
+          "intents": [
+            { "intent": "detail",  "response": "{trade_detail}" },
+            { "intent": "context", "response": "{location_detail}. {time_ref}." }
+          ],
+          "deepenerResponse": "{personal_reaction}"
+        },
+        {
+          "intro": "{tone_opener} {subject_focus_The} {subject_focus_is} not what it used to be. {trade_gossip}.",
+          "intents": [
+            { "intent": "detail",  "response": "{time_ref}. {trade_detail}." },
+            { "intent": "opinion", "response": "{local_opinion}" },
+            { "intent": "reaction", "response": "{personal_reaction}" }
           ],
           "deepenerResponse": "{personal_reaction}"
         }
@@ -113,6 +165,32 @@
             { "intent": "reaction", "response": "{personal_reaction}. {time_ref}." }
           ],
           "deepenerResponse": "{personal_reaction}"
+        },
+        {
+          "intro": "Everyone's been talking about {subject_focus_the}. {craft_observation}. {tone_closer}",
+          "intents": [
+            { "intent": "detail",   "response": "{craft_detail}. {time_ref}." },
+            { "intent": "opinion",  "response": "{local_opinion}" },
+            { "intent": "reaction", "response": "{personal_reaction}" }
+          ],
+          "deepenerResponse": "{local_opinion}"
+        },
+        {
+          "intro": "{craft_observation}. {local_opinion}",
+          "intents": [
+            { "intent": "detail",  "response": "{craft_detail}" },
+            { "intent": "context", "response": "{location_detail}. {time_ref}." }
+          ],
+          "deepenerResponse": "{personal_reaction}"
+        },
+        {
+          "intro": "{tone_opener} {subject_focus_The} {subject_focus_is} not what it used to be. {craft_observation}.",
+          "intents": [
+            { "intent": "detail",  "response": "{time_ref}. {craft_detail}." },
+            { "intent": "opinion", "response": "{local_opinion}" },
+            { "intent": "reaction", "response": "{personal_reaction}" }
+          ],
+          "deepenerResponse": "{personal_reaction}"
         }
       ],
       "questHookPerspectives": [
@@ -153,6 +231,32 @@
           "intents": [
             { "intent": "detail",   "response": "{community_detail}" },
             { "intent": "reaction", "response": "{personal_reaction}. {time_ref}." }
+          ],
+          "deepenerResponse": "{personal_reaction}"
+        },
+        {
+          "intro": "Everyone's been talking about {subject_focus_the}. {community_observation}. {tone_closer}",
+          "intents": [
+            { "intent": "detail",   "response": "{community_detail}. {time_ref}." },
+            { "intent": "opinion",  "response": "{local_opinion}" },
+            { "intent": "reaction", "response": "{personal_reaction}" }
+          ],
+          "deepenerResponse": "{local_opinion}"
+        },
+        {
+          "intro": "{community_observation}. {local_opinion}",
+          "intents": [
+            { "intent": "detail",  "response": "{community_detail}" },
+            { "intent": "context", "response": "{location_detail}. {time_ref}." }
+          ],
+          "deepenerResponse": "{personal_reaction}"
+        },
+        {
+          "intro": "{tone_opener} {subject_focus_The} {subject_focus_is} not what it used to be. {community_observation}.",
+          "intents": [
+            { "intent": "detail",  "response": "{time_ref}. {community_detail}." },
+            { "intent": "opinion", "response": "{local_opinion}" },
+            { "intent": "reaction", "response": "{personal_reaction}" }
           ],
           "deepenerResponse": "{personal_reaction}"
         }
@@ -199,6 +303,32 @@
             { "intent": "stakes",  "response": "{danger_assessment}. {time_ref}." }
           ],
           "deepenerResponse": "{personal_reaction}"
+        },
+        {
+          "intro": "Everyone's been talking about {subject_focus_the}. {nature_observation}. {tone_closer}",
+          "intents": [
+            { "intent": "detail",   "response": "{nature_detail}. {time_ref}." },
+            { "intent": "opinion",  "response": "{local_opinion}" },
+            { "intent": "stakes",   "response": "{danger_assessment}" }
+          ],
+          "deepenerResponse": "{local_opinion}"
+        },
+        {
+          "intro": "{nature_observation}. {local_opinion}",
+          "intents": [
+            { "intent": "detail",  "response": "{nature_detail}" },
+            { "intent": "context", "response": "{location_detail}. {time_ref}." }
+          ],
+          "deepenerResponse": "{personal_reaction}"
+        },
+        {
+          "intro": "{tone_opener} {subject_focus_The} {subject_focus_is} not what it used to be. {nature_observation}.",
+          "intents": [
+            { "intent": "detail",   "response": "{time_ref}. {nature_detail}." },
+            { "intent": "opinion",  "response": "{local_opinion}" },
+            { "intent": "stakes",   "response": "{danger_assessment}" }
+          ],
+          "deepenerResponse": "{personal_reaction}"
         }
       ],
       "questHookPerspectives": [
@@ -239,6 +369,32 @@
           "intents": [
             { "intent": "detail",   "response": "{nostalgia_detail}" },
             { "intent": "reaction", "response": "{personal_reaction}. {time_ref}." }
+          ],
+          "deepenerResponse": "{personal_reaction}"
+        },
+        {
+          "intro": "Everyone's been talking about {subject_focus_the}. {nostalgia_observation}. {tone_closer}",
+          "intents": [
+            { "intent": "detail",   "response": "{nostalgia_detail}. {time_ref}." },
+            { "intent": "opinion",  "response": "{local_opinion}" },
+            { "intent": "reaction", "response": "{personal_reaction}" }
+          ],
+          "deepenerResponse": "{local_opinion}"
+        },
+        {
+          "intro": "{nostalgia_observation}. {local_opinion}",
+          "intents": [
+            { "intent": "detail",  "response": "{nostalgia_detail}" },
+            { "intent": "context", "response": "{location_detail}. {time_ref}." }
+          ],
+          "deepenerResponse": "{personal_reaction}"
+        },
+        {
+          "intro": "{tone_opener} {subject_focus_The} {subject_focus_is} not what it used to be. {nostalgia_observation}.",
+          "intents": [
+            { "intent": "detail",  "response": "{time_ref}. {nostalgia_detail}." },
+            { "intent": "opinion", "response": "{local_opinion}" },
+            { "intent": "reaction", "response": "{personal_reaction}" }
           ],
           "deepenerResponse": "{personal_reaction}"
         }
@@ -285,6 +441,32 @@
             { "intent": "stakes", "response": "{danger_assessment}. {time_ref}." }
           ],
           "deepenerResponse": "{personal_reaction}"
+        },
+        {
+          "intro": "Everyone's been talking about {subject_focus_the}. {curiosity_observation}. {tone_closer}",
+          "intents": [
+            { "intent": "detail",   "response": "{curiosity_detail}. {time_ref}." },
+            { "intent": "opinion",  "response": "{local_opinion}" },
+            { "intent": "stakes",   "response": "{danger_assessment}" }
+          ],
+          "deepenerResponse": "{local_opinion}"
+        },
+        {
+          "intro": "{curiosity_observation}. {local_opinion}",
+          "intents": [
+            { "intent": "detail",  "response": "{curiosity_detail}" },
+            { "intent": "context", "response": "{location_detail}. {time_ref}." }
+          ],
+          "deepenerResponse": "{personal_reaction}"
+        },
+        {
+          "intro": "{tone_opener} {subject_focus_The} {subject_focus_is} not what it used to be. {curiosity_observation}.",
+          "intents": [
+            { "intent": "detail",   "response": "{time_ref}. {curiosity_detail}." },
+            { "intent": "opinion",  "response": "{local_opinion}" },
+            { "intent": "stakes",   "response": "{danger_assessment}" }
+          ],
+          "deepenerResponse": "{personal_reaction}"
         }
       ],
       "questHookPerspectives": [
@@ -325,6 +507,32 @@
           "intents": [
             { "intent": "detail",   "response": "{festival_detail}" },
             { "intent": "reaction", "response": "{personal_reaction}. {time_ref}." }
+          ],
+          "deepenerResponse": "{personal_reaction}"
+        },
+        {
+          "intro": "Everyone's been talking about {subject_focus_the}. {festival_observation}. {tone_closer}",
+          "intents": [
+            { "intent": "detail",   "response": "{festival_detail}. {time_ref}." },
+            { "intent": "opinion",  "response": "{local_opinion}" },
+            { "intent": "reaction", "response": "{personal_reaction}" }
+          ],
+          "deepenerResponse": "{local_opinion}"
+        },
+        {
+          "intro": "{festival_observation}. {local_opinion}",
+          "intents": [
+            { "intent": "detail",  "response": "{festival_detail}" },
+            { "intent": "context", "response": "{location_detail}. {time_ref}." }
+          ],
+          "deepenerResponse": "{personal_reaction}"
+        },
+        {
+          "intro": "{tone_opener} {subject_focus_The} {subject_focus_is} not what it used to be. {festival_observation}.",
+          "intents": [
+            { "intent": "detail",  "response": "{time_ref}. {festival_detail}." },
+            { "intent": "opinion", "response": "{local_opinion}" },
+            { "intent": "reaction", "response": "{personal_reaction}" }
           ],
           "deepenerResponse": "{personal_reaction}"
         }
