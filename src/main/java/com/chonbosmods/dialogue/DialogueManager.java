@@ -7,6 +7,7 @@ import com.chonbosmods.data.Nat20PlayerData;
 import com.chonbosmods.dialogue.model.*;
 import com.chonbosmods.quest.ObjectiveInstance;
 import com.chonbosmods.quest.PhaseInstance;
+import com.chonbosmods.quest.ObjectiveType;
 import com.chonbosmods.quest.PhaseType;
 import com.chonbosmods.quest.QuestInstance;
 import com.chonbosmods.quest.QuestSystem;
@@ -90,6 +91,8 @@ public class DialogueManager {
 
         // Inject turn-in topics for any quests this NPC gave that have completed objectives
         injectTurnInTopics(graph, npcId, playerData);
+        // Inject talk-to-NPC topics for any quests targeting this NPC
+        injectTalkToNpcTopics(graph, npcId, playerData);
 
         // Session cleanup callback
         Runnable onSessionEnd = () -> endSession(playerUuid);
@@ -319,5 +322,77 @@ public class DialogueManager {
                 : "You've handled it, then? Good. But I don't think we're done yet.";
             case RESOLUTION -> "You've done it. I wasn't sure you would, but here you are. You've earned this.";
         };
+    }
+
+    /**
+     * If this NPC is the target of a TALK_TO_NPC objective, inject a quest dialogue topic
+     * that, when selected, marks the objective complete and sets phase_objectives_complete.
+     */
+    private void injectTalkToNpcTopics(DialogueGraph graph, String npcId, Nat20PlayerData playerData) {
+        QuestSystem questSystem = Natural20.getInstance().getQuestSystem();
+        if (questSystem == null) return;
+
+        Map<String, QuestInstance> quests = questSystem.getStateManager().getActiveQuests(playerData);
+        for (QuestInstance quest : quests.values()) {
+            Map<String, String> b = quest.getVariableBindings();
+
+            // Skip if objectives already complete (awaiting turn-in at quest giver)
+            if ("true".equals(b.get("phase_objectives_complete"))) continue;
+
+            PhaseInstance phase = quest.getCurrentPhase();
+            if (phase == null) continue;
+
+            for (ObjectiveInstance obj : phase.getObjectives()) {
+                if (obj.getType() != ObjectiveType.TALK_TO_NPC) continue;
+                if (obj.isComplete()) continue;
+
+                // Match: targetId is the NPC's generated name
+                if (!npcId.equals(obj.getTargetId())) continue;
+
+                // This NPC is the target. Inject a quest dialogue topic.
+                String questId = quest.getQuestId();
+                String targetDialogue = b.getOrDefault("target_npc_dialogue",
+                    "You're looking into the situation? I can tell you what I know.");
+                String questTitle = b.getOrDefault("quest_title", quest.getSituationId());
+                String questGiver = quest.getSourceNpcId();
+
+                String topicId = "talknpc_" + questId;
+                String entryNodeId = topicId + "_entry";
+                String actionNodeId = topicId + "_action";
+                String confirmNodeId = topicId + "_confirm";
+
+                // Action: COMPLETE_TALK_TO_NPC
+                graph.nodes().put(actionNodeId, new DialogueNode.ActionNode(
+                    List.of(Map.of("type", "COMPLETE_TALK_TO_NPC", "questId", questId)),
+                    confirmNodeId, List.of(), true
+                ));
+
+                // Confirm: direct player back to quest giver
+                String confirmText = "Tell " + questGiver + " what I've told you. They'll want to hear it.";
+                graph.nodes().put(confirmNodeId, new DialogueNode.DialogueTextNode(
+                    confirmText, List.of(), List.of(), true, false
+                ));
+
+                // Entry: target NPC delivers their dialogue
+                String topicLabel = "About " + questTitle;
+                graph.nodes().put(entryNodeId, new DialogueNode.DialogueTextNode(
+                    targetDialogue,
+                    List.of(new ResponseOption(
+                        topicId + "_resp", "I'll pass that along.", null, actionNodeId,
+                        ResponseMode.DECISIVE, null, null, null, null
+                    )),
+                    List.of(), false, false
+                ));
+
+                // Topic: priority sort, always visible, quest-flagged
+                graph.topics().addFirst(new TopicDefinition(
+                    topicId, topicLabel, entryNodeId,
+                    TopicScope.LOCAL, null, true, null, 0, null, true
+                ));
+
+                LOGGER.atInfo().log("Injected TALK_TO_NPC topic for quest %s on NPC %s",
+                    questId, npcId);
+            }
+        }
     }
 }
