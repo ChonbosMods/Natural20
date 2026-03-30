@@ -22,6 +22,10 @@ import com.hypixel.hytale.server.core.universe.world.storage.EntityStore;
 
 import com.chonbosmods.waypoint.QuestMarkerProvider;
 
+import com.hypixel.hytale.server.core.entity.entities.Player;
+import com.hypixel.hytale.server.core.inventory.container.ItemContainer;
+import com.hypixel.hytale.server.core.inventory.ItemStack;
+
 import java.util.HashMap;
 import java.util.Map;
 import java.util.Random;
@@ -221,6 +225,23 @@ public class DialogueActionRegistry {
                 }
             }
 
+            // Consume quest item for FETCH_ITEM objectives
+            for (ObjectiveInstance obj : completedPhase.getObjectives()) {
+                if (obj.getType() == com.chonbosmods.quest.ObjectiveType.FETCH_ITEM) {
+                    String fetchItemType = quest.getVariableBindings().get("fetch_item_type");
+                    if (fetchItemType != null) {
+                        boolean consumed = consumeFetchItem(ctx, fetchItemType);
+                        if (consumed) {
+                            LOGGER.atInfo().log("TURN_IN_PHASE: consumed quest item %s for quest %s",
+                                fetchItemType, quest.getQuestId());
+                        } else {
+                            LOGGER.atWarning().log("TURN_IN_PHASE: quest item %s not found in inventory for quest %s (allowing turn-in anyway)",
+                                fetchItemType, quest.getQuestId());
+                        }
+                    }
+                }
+            }
+
             // Clear flag
             quest.getVariableBindings().remove("phase_objectives_complete");
 
@@ -387,6 +408,27 @@ public class DialogueActionRegistry {
                 LOGGER.atInfo().log("POI placed for quest %s at (%d, %d, %d)",
                     quest.getQuestId(), entrance.getX(), entrance.getY(), entrance.getZ());
             });
+    }
+
+    private static boolean consumeFetchItem(ActionContext ctx, String itemTypeId) {
+        try {
+            Player player = ctx.player();
+            if (player == null) return false;
+
+            ItemContainer hotbar = player.getInventory().getHotbar();
+            short capacity = hotbar.getCapacity();
+            for (short slot = 0; slot < capacity; slot++) {
+                ItemStack stack = hotbar.getItemStack(slot);
+                if (stack != null && !stack.isEmpty() && itemTypeId.equals(stack.getItemId())) {
+                    hotbar.setItemStackForSlot(slot, null);
+                    return true;
+                }
+            }
+            return false;
+        } catch (Exception e) {
+            LOGGER.atWarning().withCause(e).log("Error consuming fetch item %s", itemTypeId);
+            return false;
+        }
     }
 
     public void register(String type, DialogueAction action) {
