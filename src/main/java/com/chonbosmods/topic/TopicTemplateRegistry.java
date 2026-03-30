@@ -189,7 +189,15 @@ public class TopicTemplateRegistry {
                 .filter(t -> !t.requiresConcrete())
                 .toList();
         }
-        if (matching.isEmpty()) return randomTemplate(category, random);
+        if (matching.isEmpty()) {
+            // Fallback: pick any template from the category, still respecting concrete constraint
+            List<TopicTemplate> fallback = pool;
+            if (!subjectConcrete) {
+                fallback = pool.stream().filter(t -> !t.requiresConcrete()).toList();
+            }
+            if (fallback.isEmpty()) return FALLBACK_TEMPLATE;
+            return fallback.get(random.nextInt(fallback.size()));
+        }
         return matching.get(random.nextInt(matching.size()));
     }
 }

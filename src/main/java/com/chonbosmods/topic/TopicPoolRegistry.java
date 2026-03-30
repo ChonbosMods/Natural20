@@ -367,6 +367,10 @@ public class TopicPoolRegistry {
     private void parseSubjects(JsonObject root) {
         for (JsonElement el : root.getAsJsonArray("subjects")) {
             JsonObject obj = el.getAsJsonObject();
+            String value = obj.get("value").getAsString();
+            if (!obj.has("proper")) {
+                LOGGER.atWarning().log("Subject entry '%s' missing 'proper' field, defaulting to false", value);
+            }
             List<String> categories = new ArrayList<>();
             if (obj.has("categories")) {
                 for (JsonElement cat : obj.getAsJsonArray("categories")) {
@@ -382,7 +386,7 @@ public class TopicPoolRegistry {
                 }
             }
             subjectFocuses.add(new SubjectEntry(
-                obj.get("value").getAsString(),
+                value,
                 obj.has("plural") && obj.get("plural").getAsBoolean(),
                 obj.has("proper") && obj.get("proper").getAsBoolean(),
                 obj.has("questEligible") && obj.get("questEligible").getAsBoolean(),

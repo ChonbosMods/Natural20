@@ -32,9 +32,6 @@ public class TopicGenerator {
 
     private static final double RUMOR_RATIO = 0.4;
     private static final double QUEST_CHANCE_PER_SUBJECT = 0.40;
-    private static final int MIN_NPCS_PER_SUBJECT = 2;
-    private static final double EXTRA_NPC_CHANCE = 0.30;
-    private static final double VISIBILITY_CHANCE = 0.55;
     private static final double CLOSER_CHANCE = 0.6;
 
     // Stratified category decks for subject drawing
@@ -45,10 +42,11 @@ public class TopicGenerator {
         "trade", "weather", "craftsmanship", "community", "nature", "nostalgia", "curiosity", "festival"
     );
 
+
     // Rolling window sizes for pool-draw dedup
     private static final int WINDOW_L0 = 5;   // L0 fragments
     private static final int WINDOW_L1 = 3;   // L1 fragments
-    private static final int WINDOW_L2 = 2;   // L2 fragments
+    private static final int WINDOW_L2 = 8;   // L2 fragments (settlement-scoped, sized to cover cross-NPC draws)
     private static final int WINDOW_TONE = 4;  // tone openers/closers
     private static final int WINDOW_DROPIN = 2; // drop-ins
 
@@ -102,90 +100,113 @@ public class TopicGenerator {
             topicBudgets.put(npc.getGeneratedName(), budget);
         }
 
-        // Step 2: Roll shared subjects via stratified category drawing
-        int subjectCount = (int) Math.ceil(npcCount * 0.6);
-        int rumorCount = (int) Math.ceil(subjectCount * RUMOR_RATIO);
-        int smallTalkCount = subjectCount - rumorCount;
-
-        // Shuffle category decks deterministically
-        List<String> rumorDeck = new ArrayList<>(RUMOR_DECK);
-        List<String> smalltalkDeck = new ArrayList<>(SMALLTALK_DECK);
-        Collections.shuffle(rumorDeck, random);
-        Collections.shuffle(smalltalkDeck, random);
-
+        // Step 2: Each NPC draws their own subjects independently
+        // Settlement-wide dedup prevents the same subject appearing on multiple NPCs
         Set<String> usedSubjectValues = new LinkedHashSet<>();
-        List<SubjectFocus> subjects = new ArrayList<>();
+        List<SubjectFocus> allSubjects = new ArrayList<>();
+        Map<String, List<SubjectFocus>> npcSubjects = new LinkedHashMap<>();
+        Map<String, NpcRecord> npcByName = new LinkedHashMap<>();
+        for (NpcRecord npc : npcs) npcByName.put(npc.getGeneratedName(), npc);
 
-        // Draw rumor subjects: cycle through shuffled rumor deck
-        for (int i = 0; i < rumorCount; i++) {
-            String targetCategory = rumorDeck.get(i % rumorDeck.size());
-            TopicPoolRegistry.SubjectEntry entry = drawUniqueSubject(targetCategory, usedSubjectValues, random);
-            usedSubjectValues.add(entry.value());
-            String subjectId = "subj_" + i + "_" + sanitize(entry.value());
-            subjects.add(new SubjectFocus(subjectId, entry.value(), entry.plural(), entry.proper(),
-                entry.questEligible(), entry.concrete(), TopicCategory.RUMORS, entry.categories(),
-                entry.poiType(), entry.questAffinities()));
-        }
+        for (int npcIdx = 0; npcIdx < npcs.size(); npcIdx++) {
+            NpcRecord npc = npcs.get(npcIdx);
+            String npcName = npc.getGeneratedName();
+            int budget = topicBudgets.get(npcName);
 
-        // Draw smalltalk subjects: cycle through shuffled smalltalk deck
-        for (int i = 0; i < smallTalkCount; i++) {
-            String targetCategory = smalltalkDeck.get(i % smalltalkDeck.size());
-            TopicPoolRegistry.SubjectEntry entry = drawUniqueSubject(targetCategory, usedSubjectValues, random);
-            usedSubjectValues.add(entry.value());
-            int subjectIdx = rumorCount + i;
-            String subjectId = "subj_" + subjectIdx + "_" + sanitize(entry.value());
-            subjects.add(new SubjectFocus(subjectId, entry.value(), entry.plural(), entry.proper(),
-                entry.questEligible(), entry.concrete(), TopicCategory.SMALLTALK, entry.categories(),
-                entry.poiType(), entry.questAffinities()));
+            // Per-NPC deck shuffle (seeded from settlement key + NPC index for determinism)
+            Random deckRandom = new Random(settlement.getCellKey().hashCode() ^ ((long) npcIdx * 31));
+            int rumorCount = (int) Math.ceil(budget * RUMOR_RATIO);
+            int smallTalkCount = budget - rumorCount;
+
+            List<String> rumorDeck = new ArrayList<>(RUMOR_DECK);
+            List<String> smalltalkDeck = new ArrayList<>(SMALLTALK_DECK);
+            Collections.shuffle(rumorDeck, deckRandom);
+            Collections.shuffle(smalltalkDeck, deckRandom);
+
+            List<SubjectFocus> npcTopics = new ArrayList<>();
+            int subjectBase = allSubjects.size();
+
+            for (int i = 0; i < rumorCount; i++) {
+                String targetCategory = rumorDeck.get(i % rumorDeck.size());
+                TopicPoolRegistry.SubjectEntry entry = drawUniqueSubject(targetCategory, usedSubjectValues, random);
+                usedSubjectValues.add(entry.value());
+                String subjectId = "subj_" + (subjectBase + i) + "_" + sanitize(entry.value());
+                SubjectFocus focus = new SubjectFocus(subjectId, entry.value(), entry.plural(), entry.proper(),
+                    entry.questEligible(), entry.concrete(), TopicCategory.RUMORS, entry.categories(),
+                    entry.poiType(), entry.questAffinities());
+                npcTopics.add(focus);
+                allSubjects.add(focus);
+            }
+
+            for (int i = 0; i < smallTalkCount; i++) {
+                String targetCategory = smalltalkDeck.get(i % smalltalkDeck.size());
+                TopicPoolRegistry.SubjectEntry entry = drawUniqueSubject(targetCategory, usedSubjectValues, random);
+                usedSubjectValues.add(entry.value());
+                String subjectId = "subj_" + (subjectBase + rumorCount + i) + "_" + sanitize(entry.value());
+                SubjectFocus focus = new SubjectFocus(subjectId, entry.value(), entry.plural(), entry.proper(),
+                    entry.questEligible(), entry.concrete(), TopicCategory.SMALLTALK, entry.categories(),
+                    entry.poiType(), entry.questAffinities());
+                npcTopics.add(focus);
+                allSubjects.add(focus);
+            }
+
+            npcSubjects.put(npcName, npcTopics);
         }
 
         // Step 3: Roll quest placement (40% per subject, clamped by settlement size)
+        // Build a mapping from subject index to owning NPC for quest generation
+        Map<Integer, String> subjectOwners = new LinkedHashMap<>();
+        int idx = 0;
+        for (var entry : npcSubjects.entrySet()) {
+            for (SubjectFocus ignored : entry.getValue()) {
+                subjectOwners.put(idx++, entry.getKey());
+            }
+        }
+
         int minQuests = Math.max(1, (int) Math.floor(npcCount * 0.25));
         int maxQuests = Math.max(2, (int) Math.floor(npcCount * 0.5));
 
         List<Integer> questCandidates = new ArrayList<>();
-        for (int i = 0; i < subjects.size(); i++) {
+        for (int i = 0; i < allSubjects.size(); i++) {
             if (random.nextDouble() < QUEST_CHANCE_PER_SUBJECT) {
                 questCandidates.add(i);
             }
         }
 
-        // Enforce minimum quests: add random subjects until we have enough
-        while (questCandidates.size() < minQuests && questCandidates.size() < subjects.size()) {
-            int idx = random.nextInt(subjects.size());
-            if (!questCandidates.contains(idx)) {
-                questCandidates.add(idx);
+        while (questCandidates.size() < minQuests && questCandidates.size() < allSubjects.size()) {
+            int qi = random.nextInt(allSubjects.size());
+            if (!questCandidates.contains(qi)) {
+                questCandidates.add(qi);
             }
         }
 
-        // Enforce maximum quests
         while (questCandidates.size() > maxQuests) {
             questCandidates.remove(random.nextInt(questCandidates.size()));
         }
 
         // Quest subjects must use quest-eligible values: swap out non-eligible entries
         for (int qi : questCandidates) {
-            SubjectFocus focus = subjects.get(qi);
+            SubjectFocus focus = allSubjects.get(qi);
             if (!focus.isQuestEligible()) {
                 TopicPoolRegistry.SubjectEntry eligible = topicPool.randomQuestEligibleSubject(random);
                 String newId = "subj_" + qi + "_" + sanitize(eligible.value());
-                subjects.set(qi, new SubjectFocus(newId, eligible.value(), eligible.plural(),
-                    eligible.proper(), eligible.questEligible(), eligible.concrete(), focus.getCategory(), eligible.categories(),
-                    eligible.poiType(), eligible.questAffinities()));
+                SubjectFocus replacement = new SubjectFocus(newId, eligible.value(), eligible.plural(),
+                    eligible.proper(), eligible.questEligible(), eligible.concrete(), focus.getCategory(),
+                    eligible.categories(), eligible.poiType(), eligible.questAffinities());
+                allSubjects.set(qi, replacement);
+                // Update the NPC's subject list too
+                String ownerNpc = subjectOwners.get(qi);
+                List<SubjectFocus> ownerTopics = npcSubjects.get(ownerNpc);
+                ownerTopics.set(ownerTopics.indexOf(focus), replacement);
             }
         }
 
-        // Mark quest bearers: assign to a random NPC
-        List<String> npcNames = npcs.stream().map(NpcRecord::getGeneratedName).toList();
-        Map<String, NpcRecord> npcByName = new LinkedHashMap<>();
-        for (NpcRecord npc : npcs) npcByName.put(npc.getGeneratedName(), npc);
-
+        // Generate quests: bearer is the NPC who owns the subject
         for (int qi : questCandidates) {
-            SubjectFocus focus = subjects.get(qi);
-            String bearer = npcNames.get(random.nextInt(npcNames.size()));
+            SubjectFocus focus = allSubjects.get(qi);
+            String bearer = subjectOwners.get(qi);
             NpcRecord bearerRecord = npcByName.get(bearer);
 
-            // Generate quest upfront so bindings are available for dialogue templates
             QuestInstance preQuest = questGenerator.generate(
                 bearerRecord.getRole(), bearer,
                 settlement.getCellKey(),
@@ -212,34 +233,28 @@ public class TopicGenerator {
             }
         }
 
-        // Step 4: Distribute subjects across NPCs
-        for (SubjectFocus focus : subjects) {
-            distributeSubject(focus, npcNames, npcCount, random);
-        }
-
-        // Step 5: Roll visibility per subject/NPC
-        for (SubjectFocus focus : subjects) {
-            rollVisibility(focus, random);
-        }
-
-        // Step 6 & 7: Generate perspectives and build graphs per NPC
+        // Step 4: Build assignments per NPC, deduplicating resolved labels settlement-wide.
+        // If two topics resolve to the same label (e.g. two NPCs both get "The Weather Lately"),
+        // the second one is skipped.
         Map<String, List<TopicGraphBuilder.TopicAssignment>> npcAssignments = new LinkedHashMap<>();
-        for (NpcRecord npc : npcs) {
-            npcAssignments.put(npc.getGeneratedName(), new ArrayList<>());
-        }
-
-        // Rolling window map for pool-draw dedup (shared across all NPC assignments)
         Map<String, LinkedList<String>> poolWindows = new HashMap<>();
+        Set<String> usedLabels = new HashSet<>();
 
-        for (SubjectFocus focus : subjects) {
-            for (String npcName : focus.getAssignedNpcs()) {
+        for (NpcRecord npc : npcs) {
+            String npcName = npc.getGeneratedName();
+            List<TopicGraphBuilder.TopicAssignment> assignments = new ArrayList<>();
+            for (SubjectFocus focus : npcSubjects.get(npcName)) {
                 TopicGraphBuilder.TopicAssignment assignment = buildAssignment(focus, npcName, random, poolWindows);
-                npcAssignments.get(npcName).add(assignment);
+                String resolvedLabel = capitalizeFirst(
+                    DialogueResolver.resolve(assignment.labelPattern(), assignment.bindings()));
+                if (usedLabels.contains(resolvedLabel)) {
+                    continue; // Skip duplicate label
+                }
+                usedLabels.add(resolvedLabel);
+                assignments.add(assignment);
             }
+            npcAssignments.put(npcName, assignments);
         }
-
-        // Step 8: Ensure minimum topics per NPC
-        ensureMinimumTopics(npcAssignments, subjects, npcNames, random, poolWindows);
 
         // Build final graphs
         Map<String, DialogueGraph> results = new LinkedHashMap<>();
@@ -265,105 +280,18 @@ public class TopicGenerator {
         }
 
         LOGGER.atFine().log("Generated %d dialogue graphs for settlement %s (%d subjects, %d quests)",
-            results.size(), settlement.getCellKey(), subjects.size(), questCandidates.size());
+            results.size(), settlement.getCellKey(), allSubjects.size(), questCandidates.size());
 
-        // Settlement-level label dedup check
-        Map<String, String> labelToSubject = new LinkedHashMap<>();
-        for (var entry : npcAssignments.entrySet()) {
-            for (TopicGraphBuilder.TopicAssignment assignment : entry.getValue()) {
-                String resolvedLabel = DialogueResolver.resolve(assignment.labelPattern(), assignment.bindings());
-                resolvedLabel = capitalizeFirst(resolvedLabel);
-                String existingSubject = labelToSubject.get(resolvedLabel);
-                if (existingSubject != null && !existingSubject.equals(assignment.subjectId())) {
-                    LOGGER.atWarning().log(
-                        "LABEL DEDUP WARNING: label '%s' resolves for both subject '%s' and '%s' in settlement %s",
-                        resolvedLabel, existingSubject, assignment.subjectId(), settlement.getCellKey());
-                } else {
-                    labelToSubject.put(resolvedLabel, assignment.subjectId());
-                }
+        // Debug: log per-NPC subject assignments
+        for (var npcEntry : npcSubjects.entrySet()) {
+            for (SubjectFocus focus : npcEntry.getValue()) {
+                String questTag = focus.hasQuest() ? " [QUEST]" : "";
+                LOGGER.atFine().log("  %s: '%s' (%s)%s",
+                    npcEntry.getKey(), focus.getSubjectValue(), focus.getCategory(), questTag);
             }
-        }
-
-        // Debug: log per-subject visibility and quest assignments
-        for (SubjectFocus focus : subjects) {
-            StringBuilder sb = new StringBuilder();
-            sb.append("  Subject '%s' (%s)".formatted(focus.getSubjectValue(), focus.getCategory()));
-            if (focus.hasQuest()) {
-                sb.append(" [QUEST bearer=%s]".formatted(focus.getQuestBearingNpc()));
-            }
-            sb.append(": ");
-            List<String> npcEntries = new ArrayList<>();
-            for (var entry : focus.getNpcVisibility().entrySet()) {
-                npcEntries.add("%s=%s".formatted(entry.getKey(), entry.getValue() ? "VISIBLE" : "HIDDEN"));
-            }
-            sb.append(String.join(", ", npcEntries));
-            LOGGER.atFine().log(sb.toString());
         }
 
         return results;
-    }
-
-    /**
-     * Distribute a subject across NPCs: min 2 NPCs (or npcCount if smaller),
-     * then 30% diminishing chance for additional NPCs.
-     */
-    private void distributeSubject(SubjectFocus focus, List<String> npcNames, int npcCount, Random random) {
-        int minAssign = Math.min(MIN_NPCS_PER_SUBJECT, npcCount);
-
-        // Shuffle a copy to randomize which NPCs get assigned
-        List<String> shuffled = new ArrayList<>(npcNames);
-        Collections.shuffle(shuffled, random);
-
-        // If this subject has a quest bearer, ensure they're in the first minAssign
-        String bearer = focus.getQuestBearingNpc();
-        if (bearer != null) {
-            shuffled.remove(bearer);
-            shuffled.addFirst(bearer);
-        }
-
-        // Assign minimum NPCs
-        int assigned = 0;
-        for (int i = 0; i < minAssign && i < shuffled.size(); i++) {
-            focus.assignNpc(shuffled.get(i), false);
-            assigned++;
-        }
-
-        // Extra NPCs with 30% diminishing chance
-        for (int i = assigned; i < shuffled.size(); i++) {
-            if (random.nextDouble() < EXTRA_NPC_CHANCE) {
-                focus.assignNpc(shuffled.get(i), false);
-            } else {
-                break; // Diminishing: stop on first failure
-            }
-        }
-    }
-
-    /**
-     * Roll visibility: 1 NPC guaranteed visible (startLearned:true), others get 55% chance.
-     */
-    private void rollVisibility(SubjectFocus focus, Random random) {
-        Set<String> assignedNpcs = focus.getAssignedNpcs();
-        if (assignedNpcs.isEmpty()) return;
-
-        // Pick one guaranteed visible NPC
-        List<String> npcList = new ArrayList<>(assignedNpcs);
-        String guaranteedVisible = npcList.get(random.nextInt(npcList.size()));
-
-        // Re-assign all with visibility flags
-        Map<String, Boolean> visibilityMap = new LinkedHashMap<>();
-        for (String npc : npcList) {
-            if (npc.equals(guaranteedVisible)) {
-                visibilityMap.put(npc, true);
-            } else {
-                visibilityMap.put(npc, random.nextDouble() < VISIBILITY_CHANCE);
-            }
-        }
-
-        // Clear and re-add with correct visibility (SubjectFocus.assignNpc replaces)
-        // Since assignNpc uses a LinkedHashMap, re-assigning overwrites the entry
-        for (var entry : visibilityMap.entrySet()) {
-            focus.assignNpc(entry.getKey(), entry.getValue());
-        }
     }
 
     /**
@@ -373,7 +301,7 @@ public class TopicGenerator {
                                                                Map<String, LinkedList<String>> poolWindows) {
         TopicTemplate template = templateRegistry.randomTemplateForSubject(
             focus.getCategory(), focus.getCategories(), focus.isConcrete(), random);
-        boolean isQuestBearer = npcName.equals(focus.getQuestBearingNpc());
+        boolean isQuestBearer = focus.hasQuest();
 
         // Pick perspective: quest hook for quest bearer, normal for others
         TopicTemplate.Perspective perspective;
@@ -398,8 +326,8 @@ public class TopicGenerator {
             template.labelPattern(),
             perspective,
             bindings,
-            focus.isVisibleFor(npcName),
-            isQuestBearer && focus.hasQuest(),
+            true,
+            isQuestBearer,
             template.skillCheckDef(),
             focus.getCategory()
         );
@@ -415,12 +343,18 @@ public class TopicGenerator {
         Map<String, String> bindings = new HashMap<>();
 
         // Subject focus bindings
-        bindings.put("subject_focus", focus.getSubjectValue());
+        String subjectValue = focus.getSubjectValue();
+        boolean startsWithThe = subjectValue.toLowerCase().startsWith("the ");
+        String bareValue = startsWithThe ? subjectValue.substring(4) : subjectValue;
+
+        bindings.put("subject_focus", subjectValue);
+        bindings.put("subject_focus_bare", bareValue);
         bindings.put("subject_focus_is", focus.isPlural() ? "are" : "is");
         bindings.put("subject_focus_has", focus.isPlural() ? "have" : "has");
         bindings.put("subject_focus_was", focus.isPlural() ? "were" : "was");
-        bindings.put("subject_focus_the", focus.isProper() ? focus.getSubjectValue() : "the " + focus.getSubjectValue());
-        bindings.put("subject_focus_The", focus.isProper() ? focus.getSubjectValue() : "The " + focus.getSubjectValue());
+        bindings.put("subject_focus_the", (focus.isProper() || startsWithThe) ? subjectValue : "the " + subjectValue);
+        bindings.put("subject_focus_The", focus.isProper() ? subjectValue
+            : startsWithThe ? "T" + subjectValue.substring(1) : "The " + subjectValue);
 
         // NPC name
         bindings.put("npc_name", npcName);
@@ -531,59 +465,6 @@ public class TopicGenerator {
         }
 
         return bindings;
-    }
-
-    /**
-     * Ensure every NPC has at least their role-based minimum number of topics.
-     * If an NPC is short, assign them to existing subjects they don't already have.
-     */
-    private void ensureMinimumTopics(Map<String, List<TopicGraphBuilder.TopicAssignment>> npcAssignments,
-                                      List<SubjectFocus> subjects, List<String> npcNames, Random random,
-                                      Map<String, LinkedList<String>> poolWindows) {
-        Map<String, NpcRecord> npcByName = new LinkedHashMap<>();
-        // npcByName not available here, so use topicBudgets via the budget map isn't threaded through.
-        // Use FUNCTIONAL_MIN_TOPICS as the baseline minimum for backfill (role-based budget
-        // was already rolled in step 1 but we only need the floor here).
-        for (String npcName : npcNames) {
-            List<TopicGraphBuilder.TopicAssignment> assignments = npcAssignments.get(npcName);
-            if (assignments.size() >= FUNCTIONAL_MIN_TOPICS) continue;
-
-            // Find subjects this NPC doesn't already have
-            Set<String> existingSubjects = new HashSet<>();
-            for (TopicGraphBuilder.TopicAssignment a : assignments) {
-                existingSubjects.add(a.subjectId());
-            }
-
-            List<SubjectFocus> available = new ArrayList<>();
-            for (SubjectFocus focus : subjects) {
-                if (!existingSubjects.contains(focus.getSubjectId())) {
-                    available.add(focus);
-                }
-            }
-            Collections.shuffle(available, random);
-
-            for (SubjectFocus focus : available) {
-                if (assignments.size() >= FUNCTIONAL_MIN_TOPICS) break;
-
-                focus.assignNpc(npcName, random.nextDouble() < VISIBILITY_CHANCE);
-                TopicGraphBuilder.TopicAssignment assignment = buildAssignment(focus, npcName, random, poolWindows);
-                assignments.add(assignment);
-            }
-
-            // If still short (very few subjects), create new subjects
-            while (assignments.size() < FUNCTIONAL_MIN_TOPICS) {
-                TopicCategory category = random.nextBoolean() ? TopicCategory.RUMORS : TopicCategory.SMALLTALK;
-                TopicPoolRegistry.SubjectEntry entry = topicPool.randomSubject(random);
-                int idx = subjects.size();
-                String subjectId = "subj_" + idx + "_" + sanitize(entry.value());
-                SubjectFocus newFocus = new SubjectFocus(subjectId, entry.value(), entry.plural(), entry.proper(), entry.questEligible(), entry.concrete(), category, entry.categories(), entry.poiType(), entry.questAffinities());
-                newFocus.assignNpc(npcName, true);
-                subjects.add(newFocus);
-
-                TopicGraphBuilder.TopicAssignment assignment = buildAssignment(newFocus, npcName, random, poolWindows);
-                assignments.add(assignment);
-            }
-        }
     }
 
     /**

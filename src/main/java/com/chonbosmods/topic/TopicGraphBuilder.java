@@ -340,44 +340,41 @@ public class TopicGraphBuilder {
 
             List<ResponseOption> childResponses = new ArrayList<>();
 
-            // If this intent deepens, attach an L2 node
+            // If this intent deepens AND a deepener response pattern is available, attach an L2 node.
+            // Skip L2 entirely when no pattern is provided: the perspective controls whether
+            // deepening occurs by including or omitting deepenerResponse.
             if (def != null && def.deepens()) {
-                String deepNodeId = subjectId + "_exp_" + i + "_deep";
-                String deepResponseId = subjectId + "_resp_exp_" + i + "_deep";
-
-                // Draw deepener prompt from generic pool with dedup
-                String deepPrompt = topicPool.randomDeepenerExcluding(usedDeepeners, random);
-                usedDeepeners.add(deepPrompt);
-
-                // Resolve L2 NPC response: per-intent override > perspective default.
-                // Use partial resolution to preserve deepener variable tokens
-                // ({local_opinion}, {personal_reaction}, {danger_assessment}) so they
-                // can be resolved with fresh pool draws at display time.
-                // Bracket-filtered tokens embed their bracket as {name:bracket}
-                // (colon is not a \w char, so DialogueResolver.resolve ignores them).
                 String deepResponsePattern = slot.deepenerResponse() != null
                     ? slot.deepenerResponse() : perspectiveDeepenerResponse;
-                String deepResponse;
+
                 if (deepResponsePattern != null) {
+                    String deepNodeId = subjectId + "_exp_" + i + "_deep";
+                    String deepResponseId = subjectId + "_resp_exp_" + i + "_deep";
+
+                    String deepPrompt = topicPool.randomDeepenerExcluding(usedDeepeners, random);
+                    usedDeepeners.add(deepPrompt);
+
+                    // Partial resolution preserves deferred deepener variable tokens
+                    // ({local_opinion}, {personal_reaction}, {danger_assessment}) for
+                    // display-time resolution. Bracket-filtered tokens embed their bracket
+                    // as {name:bracket} (colon is not a \w char, so resolve ignores them).
                     Map<String, String> deferredBindings = new HashMap<>(bindings);
                     deferredBindings.remove("local_opinion");
                     deferredBindings.remove("personal_reaction");
                     deferredBindings.remove("danger_assessment");
-                    deepResponse = DialogueResolver.resolvePartial(deepResponsePattern, deferredBindings);
+                    String deepResponse = DialogueResolver.resolvePartial(deepResponsePattern, deferredBindings);
                     String bracket = bindings.getOrDefault("_reaction_bracket", "mild");
                     deepResponse = embedBracket(deepResponse, bracket);
-                } else {
-                    deepResponse = "I've said all I can about it.";
+
+                    nodes.put(deepNodeId, new DialogueNode.DialogueTextNode(
+                        deepResponse, List.of(), List.of(), false, false
+                    ));
+
+                    childResponses.add(new ResponseOption(
+                        deepResponseId, deepPrompt, null, deepNodeId,
+                        ResponseMode.EXPLORATORY, null, null, null, null
+                    ));
                 }
-
-                nodes.put(deepNodeId, new DialogueNode.DialogueTextNode(
-                    deepResponse, List.of(), List.of(), false, false
-                ));
-
-                childResponses.add(new ResponseOption(
-                    deepResponseId, deepPrompt, null, deepNodeId,
-                    ResponseMode.EXPLORATORY, null, null, null, null
-                ));
             }
 
             nodes.put(expNodeId, new DialogueNode.DialogueTextNode(

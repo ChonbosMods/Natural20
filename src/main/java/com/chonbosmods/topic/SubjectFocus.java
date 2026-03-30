@@ -4,8 +4,8 @@ import javax.annotation.Nullable;
 import java.util.*;
 
 /**
- * A shared subject distributed across multiple NPCs in a settlement.
- * Tracks per-NPC visibility and optional quest binding.
+ * A subject focus assigned to a single NPC in a settlement.
+ * Tracks optional quest binding.
  */
 public class SubjectFocus {
 
@@ -19,7 +19,6 @@ public class SubjectFocus {
     private final List<String> categories;
     private final String poiType;
     private final List<String> questAffinities;
-    private final Map<String, Boolean> npcVisibility = new LinkedHashMap<>();
     private @Nullable String questBearingNpc;
     private @Nullable String questSituationId;
     private @Nullable Map<String, String> questBindings;
@@ -39,10 +38,6 @@ public class SubjectFocus {
         this.questAffinities = questAffinities;
     }
 
-    public void assignNpc(String npcGeneratedName, boolean startVisible) {
-        npcVisibility.put(npcGeneratedName, startVisible);
-    }
-
     public void setQuestBearer(String npcGeneratedName, String situationId) {
         this.questBearingNpc = npcGeneratedName;
         this.questSituationId = situationId;
@@ -58,16 +53,9 @@ public class SubjectFocus {
     public List<String> getCategories() { return categories; }
     public String getPoiType() { return poiType; }
     public List<String> getQuestAffinities() { return questAffinities; }
-    public Map<String, Boolean> getNpcVisibility() { return npcVisibility; }
     public @Nullable String getQuestBearingNpc() { return questBearingNpc; }
     public @Nullable String getQuestSituationId() { return questSituationId; }
     public @Nullable Map<String, String> getQuestBindings() { return questBindings; }
     public void setQuestBindings(Map<String, String> bindings) { this.questBindings = bindings; }
     public boolean hasQuest() { return questBearingNpc != null; }
-
-    public Set<String> getAssignedNpcs() { return npcVisibility.keySet(); }
-
-    public boolean isVisibleFor(String npcGeneratedName) {
-        return npcVisibility.getOrDefault(npcGeneratedName, false);
-    }
 }
