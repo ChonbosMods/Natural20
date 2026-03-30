@@ -246,7 +246,7 @@ public class DialogueActionRegistry {
                     String summary = switch (obj.getType()) {
                         case KILL_MOBS -> "kill " + obj.getRequiredCount() + " " + obj.getTargetLabel();
                         case COLLECT_RESOURCES -> "collect " + obj.getRequiredCount() + " " + obj.getTargetLabel();
-                        case FETCH_ITEM -> "find " + obj.getTargetLabel();
+                        case FETCH_ITEM -> "retrieve " + obj.getTargetLabel();
                         case TALK_TO_NPC -> "speak with " + obj.getTargetLabel();
                     };
                     quest.getVariableBindings().put("quest_objective_summary", summary);

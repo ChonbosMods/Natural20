@@ -457,10 +457,34 @@ public class QuestGenerator {
                 yield null;
             }
             case FETCH_ITEM -> {
+                // Store quest item base type for chest spawning
+                bindings.put("fetch_item_type", QuestPoolRegistry.getBaseItemType(bindings.get("gather_item_id")));
+                bindings.put("fetch_item_label", bindings.getOrDefault("quest_item", "a quest item"));
+
                 if (poiAvailable) {
+                    bindings.put("fetch_variant", "hostile");
                     yield createPOIObjective(type, bindings, config, random);
                 }
-                // FETCH_ITEM can fall back to non-POI variant
+
+                // Peaceful fetch: target a nearby settlement
+                bindings.put("fetch_variant", "peaceful");
+                String targetSettlement = bindings.get("location");
+                if (targetSettlement != null) {
+                    SettlementRecord target = settlementRegistry.getByCell(targetSettlement);
+                    if (target != null) {
+                        bindings.put("poi_available", "true");
+                        bindings.put("poi_center_x", String.valueOf(target.getPosX()));
+                        bindings.put("poi_center_z", String.valueOf(target.getPosZ()));
+                        bindings.put("marker_offset_x", "0");
+                        bindings.put("marker_offset_z", "0");
+                        bindings.put("poi_x", String.valueOf(target.getPosX()));
+                        bindings.put("poi_y", String.valueOf(target.getPosY()));
+                        bindings.put("poi_z", String.valueOf(target.getPosZ()));
+                        bindings.put("poi_mob_state", "PENDING");
+                        bindings.put("poi_type", "settlement");
+                    }
+                }
+
                 yield new ObjectiveInstance(
                     type, bindings.get("gather_item_id"), bindings.get("quest_item"),
                     1, bindings.get("location_hint"), bindings.get("location")
