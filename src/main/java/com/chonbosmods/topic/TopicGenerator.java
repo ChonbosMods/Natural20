@@ -24,16 +24,14 @@ public class TopicGenerator {
     // Role-based topic budgets: social roles talk more, functional roles talk less
     private static final int SOCIAL_MIN_TOPICS = 4;
     private static final int SOCIAL_MAX_TOPICS = 6;
-    private static final int FUNCTIONAL_MIN_TOPICS = 3;
-    private static final int FUNCTIONAL_MAX_TOPICS = 6;
+    private static final int FUNCTIONAL_MIN_TOPICS = 2;
+    private static final int FUNCTIONAL_MAX_TOPICS = 4;
     private static final Set<String> SOCIAL_ROLES = Set.of(
         "TavernKeeper", "ArtisanAlchemist", "ArtisanBlacksmith", "ArtisanCook", "Traveler"
     );
 
     private static final double RUMOR_RATIO = 0.4;
-    private static final double QUEST_CHANCE_PER_SUBJECT = 0.25;
-    private static final int MIN_QUESTS_PER_SETTLEMENT = 2;
-    private static final int MAX_QUESTS_PER_SETTLEMENT = 5;
+    private static final double QUEST_CHANCE_PER_SUBJECT = 0.40;
     private static final int MIN_NPCS_PER_SUBJECT = 2;
     private static final double EXTRA_NPC_CHANCE = 0.30;
     private static final double VISIBILITY_CHANCE = 0.55;
@@ -141,7 +139,10 @@ public class TopicGenerator {
                 entry.poiType(), entry.questAffinities()));
         }
 
-        // Step 3: Roll quest placement (25% per subject, min 2, max 8)
+        // Step 3: Roll quest placement (40% per subject, clamped by settlement size)
+        int minQuests = Math.max(1, (int) Math.floor(npcCount * 0.25));
+        int maxQuests = Math.max(2, (int) Math.floor(npcCount * 0.5));
+
         List<Integer> questCandidates = new ArrayList<>();
         for (int i = 0; i < subjects.size(); i++) {
             if (random.nextDouble() < QUEST_CHANCE_PER_SUBJECT) {
@@ -150,7 +151,7 @@ public class TopicGenerator {
         }
 
         // Enforce minimum quests: add random subjects until we have enough
-        while (questCandidates.size() < MIN_QUESTS_PER_SETTLEMENT && questCandidates.size() < subjects.size()) {
+        while (questCandidates.size() < minQuests && questCandidates.size() < subjects.size()) {
             int idx = random.nextInt(subjects.size());
             if (!questCandidates.contains(idx)) {
                 questCandidates.add(idx);
@@ -158,7 +159,7 @@ public class TopicGenerator {
         }
 
         // Enforce maximum quests
-        while (questCandidates.size() > MAX_QUESTS_PER_SETTLEMENT) {
+        while (questCandidates.size() > maxQuests) {
             questCandidates.remove(random.nextInt(questCandidates.size()));
         }
 
