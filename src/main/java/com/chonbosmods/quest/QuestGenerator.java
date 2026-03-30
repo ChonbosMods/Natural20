@@ -43,7 +43,10 @@ public class QuestGenerator {
     public @Nullable QuestInstance generate(String npcRole, String npcId,
                                              String npcSettlementCellKey,
                                              double npcX, double npcZ,
-                                             Set<String> completedIds) {
+                                             Set<String> completedIds,
+                                             List<String> subjectAffinities,
+                                             String subjectPoiType,
+                                             String subjectValue) {
         Random random = new Random();
 
         QuestSituation situation = templateRegistry.selectForRole(npcRole, random);
@@ -71,12 +74,8 @@ public class QuestGenerator {
 
         // Step 4a: Resolve world bindings
         Map<String, String> bindings = resolveWorldBindings(npcX, npcZ, npcSettlementCellKey, npcId, situation.getId(), random);
-
-        // TODO(MVP): Only KILL_MOBS POI quests for now. Remove this guard when adding other objective types.
-        if (!"true".equals(bindings.get("poi_available"))) {
-            LOGGER.atFine().log("Skipping quest for NPC %s: no POI available (MVP: KILL_MOBS POI only)", npcId);
-            return null;
-        }
+        bindings.put("subject_poi_type", subjectPoiType != null ? subjectPoiType : "unknown");
+        bindings.put("subject_name", subjectValue != null ? subjectValue : npcId);
 
         // Step 4b: Resolve narrative bindings from exposition variant
         QuestVariant expositionVariant = selectedVariants.getFirst();
@@ -88,10 +87,38 @@ public class QuestGenerator {
             QuestVariant variant = selectedVariants.get(i);
             PhaseType phaseType = phaseSequence.get(i);
 
-            // TODO(MVP): Force KILL_MOBS only. Remove when adding other objective types.
+            // Select objective type from variant's pool, filtered by subject affinities
+            List<ObjectiveType> variantPool = variant.objectivePool();
+            List<ObjectiveType> validTypes;
+            if (subjectAffinities != null && !subjectAffinities.isEmpty()) {
+                Set<String> affinitySet = new HashSet<>(subjectAffinities);
+                validTypes = variantPool.stream()
+                    .filter(t -> affinitySet.contains(t.name()))
+                    .toList();
+                if (validTypes.isEmpty()) {
+                    // Fallback: use any subject affinity that has a config
+                    validTypes = subjectAffinities.stream()
+                        .map(a -> { try { return ObjectiveType.valueOf(a); } catch (Exception e) { return null; } })
+                        .filter(Objects::nonNull)
+                        .toList();
+                }
+            } else {
+                validTypes = variantPool;
+            }
+            if (validTypes.isEmpty()) validTypes = List.of(ObjectiveType.KILL_MOBS); // ultimate fallback
+
+            ObjectiveType selectedType = validTypes.size() == 1
+                ? validTypes.getFirst()
+                : validTypes.get(random.nextInt(validTypes.size()));
+
             ObjectiveConfig config = variant.objectiveConfig().getOrDefault(
-                ObjectiveType.KILL_MOBS, new ObjectiveConfig(null, null, null));
-            ObjectiveInstance obj = createObjective(ObjectiveType.KILL_MOBS, config, bindings, random);
+                selectedType, new ObjectiveConfig(null, null, null));
+            ObjectiveInstance obj = createObjective(selectedType, config, bindings, random);
+            if (obj == null) {
+                LOGGER.atInfo().log("Skipping quest: objective type %s not yet fully implemented for subject %s (poiType: %s)",
+                    selectedType, npcId, bindings.getOrDefault("subject_poi_type", "unknown"));
+                return null;
+            }
             List<ObjectiveInstance> objectives = List.of(obj);
 
             String referenceId = null;
@@ -410,9 +437,10 @@ public class QuestGenerator {
         return filtered.get(random.nextInt(filtered.size()));
     }
 
-    private ObjectiveInstance createObjective(ObjectiveType type, ObjectiveConfig config,
-                                              Map<String, String> bindings, Random random) {
+    private @Nullable ObjectiveInstance createObjective(ObjectiveType type, ObjectiveConfig config,
+                                                         Map<String, String> bindings, Random random) {
         boolean poiAvailable = "true".equals(bindings.get("poi_available"));
+        String npcId = bindings.getOrDefault("quest_giver_name", "unknown");
 
         return switch (type) {
             case COLLECT_RESOURCES -> new ObjectiveInstance(
@@ -423,25 +451,33 @@ public class QuestGenerator {
                 if (poiAvailable) {
                     yield createPOIObjective(type, bindings, config, random);
                 }
-                yield new ObjectiveInstance(
-                    type, bindings.get("enemy_type_id"), bindings.get("enemy_type"),
-                    config.rollCount(random), null, null
-                );
+                // KILL_MOBS requires a POI for spawning hostile mobs
+                LOGGER.atInfo().log("Skipping KILL_MOBS objective for %s: no POI available (poiType: %s)",
+                    npcId, bindings.getOrDefault("subject_poi_type", "unknown"));
+                yield null;
             }
             case FETCH_ITEM -> {
                 if (poiAvailable) {
                     yield createPOIObjective(type, bindings, config, random);
                 }
+                // FETCH_ITEM can fall back to non-POI variant
                 yield new ObjectiveInstance(
                     type, bindings.get("gather_item_id"), bindings.get("quest_item"),
                     1, bindings.get("location_hint"), bindings.get("location")
                 );
             }
-            case TALK_TO_NPC -> new ObjectiveInstance(
-                type, bindings.getOrDefault("target_npc", "an NPC"),
-                bindings.getOrDefault("target_npc", "an NPC"),
-                1, bindings.get("location_hint"), bindings.get("target_npc_settlement")
-            );
+            case TALK_TO_NPC -> {
+                String targetNpc = bindings.get("target_npc");
+                if (targetNpc == null || "someone who might know more".equals(targetNpc)) {
+                    LOGGER.atInfo().log("Skipping TALK_TO_NPC objective for %s: no valid target NPC found",
+                        npcId);
+                    yield null;
+                }
+                yield new ObjectiveInstance(
+                    type, targetNpc, targetNpc,
+                    1, bindings.get("location_hint"), bindings.get("target_npc_settlement")
+                );
+            }
         };
     }
 

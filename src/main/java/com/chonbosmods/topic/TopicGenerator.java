@@ -125,7 +125,8 @@ public class TopicGenerator {
             usedSubjectValues.add(entry.value());
             String subjectId = "subj_" + i + "_" + sanitize(entry.value());
             subjects.add(new SubjectFocus(subjectId, entry.value(), entry.plural(), entry.proper(),
-                entry.questEligible(), entry.concrete(), TopicCategory.RUMORS, entry.categories()));
+                entry.questEligible(), entry.concrete(), TopicCategory.RUMORS, entry.categories(),
+                entry.poiType(), entry.questAffinities()));
         }
 
         // Draw smalltalk subjects: cycle through shuffled smalltalk deck
@@ -136,7 +137,8 @@ public class TopicGenerator {
             int subjectIdx = rumorCount + i;
             String subjectId = "subj_" + subjectIdx + "_" + sanitize(entry.value());
             subjects.add(new SubjectFocus(subjectId, entry.value(), entry.plural(), entry.proper(),
-                entry.questEligible(), entry.concrete(), TopicCategory.SMALLTALK, entry.categories()));
+                entry.questEligible(), entry.concrete(), TopicCategory.SMALLTALK, entry.categories(),
+                entry.poiType(), entry.questAffinities()));
         }
 
         // Step 3: Roll quest placement (25% per subject, min 2, max 8)
@@ -167,7 +169,8 @@ public class TopicGenerator {
                 TopicPoolRegistry.SubjectEntry eligible = topicPool.randomQuestEligibleSubject(random);
                 String newId = "subj_" + qi + "_" + sanitize(eligible.value());
                 subjects.set(qi, new SubjectFocus(newId, eligible.value(), eligible.plural(),
-                    eligible.proper(), eligible.questEligible(), eligible.concrete(), focus.getCategory(), eligible.categories()));
+                    eligible.proper(), eligible.questEligible(), eligible.concrete(), focus.getCategory(), eligible.categories(),
+                    eligible.poiType(), eligible.questAffinities()));
             }
         }
 
@@ -186,7 +189,10 @@ public class TopicGenerator {
                 bearerRecord.getRole(), bearer,
                 settlement.getCellKey(),
                 bearerRecord.getSpawnX(), bearerRecord.getSpawnZ(),
-                Set.of()
+                Set.of(),
+                focus.getQuestAffinities(),
+                focus.getPoiType(),
+                focus.getSubjectValue()
             );
 
             if (preQuest != null) {
@@ -569,7 +575,7 @@ public class TopicGenerator {
                 TopicPoolRegistry.SubjectEntry entry = topicPool.randomSubject(random);
                 int idx = subjects.size();
                 String subjectId = "subj_" + idx + "_" + sanitize(entry.value());
-                SubjectFocus newFocus = new SubjectFocus(subjectId, entry.value(), entry.plural(), entry.proper(), entry.questEligible(), entry.concrete(), category, entry.categories());
+                SubjectFocus newFocus = new SubjectFocus(subjectId, entry.value(), entry.plural(), entry.proper(), entry.questEligible(), entry.concrete(), category, entry.categories(), entry.poiType(), entry.questAffinities());
                 newFocus.assignNpc(npcName, true);
                 subjects.add(newFocus);
 

@@ -108,8 +108,10 @@ public class QuestMarkerProvider implements WorldMapManager.MarkerProvider {
             Map<String, String> b = quest.getVariableBindings();
             boolean objectivesComplete = "true".equals(b.get("phase_objectives_complete"));
             boolean hasPoi = "true".equals(b.get("poi_available"));
-            String questName = b.getOrDefault("quest_objective_summary",
-                b.getOrDefault("quest_title", quest.getSituationId()));
+            // Use named POI subject as waypoint label, fall back to objective summary
+            String questName = b.getOrDefault("subject_name",
+                b.getOrDefault("quest_objective_summary",
+                    b.getOrDefault("quest_title", quest.getSituationId())));
 
             if (objectivesComplete) {
                 // Return marker at settlement origin

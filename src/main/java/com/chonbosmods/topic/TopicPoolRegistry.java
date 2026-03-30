@@ -18,7 +18,8 @@ public class TopicPoolRegistry {
     private static final String CLASSPATH_PREFIX = "topics/pools/";
 
     public record SubjectEntry(String value, boolean plural, boolean proper, boolean questEligible,
-                                boolean concrete, List<String> categories) {}
+                                boolean concrete, List<String> categories,
+                                String poiType, List<String> questAffinities) {}
 
     public record IntentDef(boolean deepens, String pool) {}
 
@@ -373,13 +374,22 @@ public class TopicPoolRegistry {
                 }
             }
             boolean concrete = !obj.has("concrete") || obj.get("concrete").getAsBoolean();
+            String poiType = obj.has("poiType") ? obj.get("poiType").getAsString() : "narrative_only";
+            List<String> questAffinities = new ArrayList<>();
+            if (obj.has("questAffinities")) {
+                for (JsonElement aff : obj.getAsJsonArray("questAffinities")) {
+                    questAffinities.add(aff.getAsString());
+                }
+            }
             subjectFocuses.add(new SubjectEntry(
                 obj.get("value").getAsString(),
                 obj.has("plural") && obj.get("plural").getAsBoolean(),
                 obj.has("proper") && obj.get("proper").getAsBoolean(),
                 obj.has("questEligible") && obj.get("questEligible").getAsBoolean(),
                 concrete,
-                categories
+                categories,
+                poiType,
+                questAffinities
             ));
         }
     }
@@ -444,7 +454,7 @@ public class TopicPoolRegistry {
     // --- Random selection methods ---
 
     public SubjectEntry randomSubject(Random random) {
-        if (subjectFocuses.isEmpty()) return new SubjectEntry("strange occurrence", false, false, false, true, List.of());
+        if (subjectFocuses.isEmpty()) return new SubjectEntry("strange occurrence", false, false, false, true, List.of(), "narrative_only", List.of());
         return subjectFocuses.get(random.nextInt(subjectFocuses.size()));
     }
 

@@ -17,13 +17,16 @@ public class SubjectFocus {
     private final boolean concrete;
     private final TopicCategory category;
     private final List<String> categories;
+    private final String poiType;
+    private final List<String> questAffinities;
     private final Map<String, Boolean> npcVisibility = new LinkedHashMap<>();
     private @Nullable String questBearingNpc;
     private @Nullable String questSituationId;
     private @Nullable Map<String, String> questBindings;
 
     public SubjectFocus(String subjectId, String subjectValue, boolean plural, boolean proper,
-                        boolean questEligible, boolean concrete, TopicCategory category, List<String> categories) {
+                        boolean questEligible, boolean concrete, TopicCategory category, List<String> categories,
+                        String poiType, List<String> questAffinities) {
         this.subjectId = subjectId;
         this.subjectValue = subjectValue;
         this.plural = plural;
@@ -32,6 +35,8 @@ public class SubjectFocus {
         this.concrete = concrete;
         this.category = category;
         this.categories = categories;
+        this.poiType = poiType;
+        this.questAffinities = questAffinities;
     }
 
     public void assignNpc(String npcGeneratedName, boolean startVisible) {
@@ -51,6 +56,8 @@ public class SubjectFocus {
     public boolean isConcrete() { return concrete; }
     public TopicCategory getCategory() { return category; }
     public List<String> getCategories() { return categories; }
+    public String getPoiType() { return poiType; }
+    public List<String> getQuestAffinities() { return questAffinities; }
     public Map<String, Boolean> getNpcVisibility() { return npcVisibility; }
     public @Nullable String getQuestBearingNpc() { return questBearingNpc; }
     public @Nullable String getQuestSituationId() { return questSituationId; }
