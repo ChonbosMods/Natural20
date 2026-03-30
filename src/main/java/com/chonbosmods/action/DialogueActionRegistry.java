@@ -259,7 +259,6 @@ public class DialogueActionRegistry {
 
                 LOGGER.atInfo().log("TURN_IN_PHASE: quest %s advanced to phase %d: %s",
                     quest.getQuestId(), quest.getCurrentPhaseIndex(), quest.getCurrentPhase().getType());
-                ctx.systemLogger().accept("Next: " + quest.getVariableBindings().getOrDefault("quest_objective_summary", "continue the quest"));
             }
 
             // Refresh markers

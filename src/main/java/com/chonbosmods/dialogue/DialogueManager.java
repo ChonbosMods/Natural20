@@ -5,6 +5,8 @@ import com.chonbosmods.action.DialogueActionRegistry;
 import com.chonbosmods.data.Nat20NpcData;
 import com.chonbosmods.data.Nat20PlayerData;
 import com.chonbosmods.dialogue.model.*;
+import com.chonbosmods.quest.ObjectiveInstance;
+import com.chonbosmods.quest.PhaseInstance;
 import com.chonbosmods.quest.PhaseType;
 import com.chonbosmods.quest.QuestInstance;
 import com.chonbosmods.quest.QuestSystem;
@@ -227,10 +229,15 @@ public class DialogueManager {
             String actionNodeId = topicId + "_action";
             String confirmNodeId = topicId + "_confirm";
 
-            // Confirmation text after turn-in
-            String confirmText = isFinalPhase
-                ? "Your efforts won't be forgotten. Well done."
-                : "Good. There's more to be done, but you've made progress.";
+            // Build confirm text: final phase gets completion line,
+            // mid-quest gets confirm + next phase briefing in one speech
+            String confirmText;
+            if (isFinalPhase) {
+                confirmText = "Your efforts won't be forgotten. Well done.";
+            } else {
+                String briefing = buildNextPhaseBriefing(quest);
+                confirmText = "Good. " + briefing;
+            }
 
             // Action node: TURN_IN_PHASE
             graph.nodes().put(actionNodeId, new DialogueNode.ActionNode(
@@ -238,7 +245,7 @@ public class DialogueManager {
                 confirmNodeId, List.of(), true
             ));
 
-            // Confirm node: NPC's post-turn-in response
+            // Confirm node: NPC's post-turn-in response (with next-phase briefing if applicable)
             graph.nodes().put(confirmNodeId, new DialogueNode.DialogueTextNode(
                 confirmText, List.of(), List.of(), true, false
             ));
@@ -262,6 +269,28 @@ public class DialogueManager {
             LOGGER.atInfo().log("Injected turn-in topic for quest %s (phase: %s, final: %s)",
                 questId, phaseType, isFinalPhase);
         }
+    }
+
+    private static String buildNextPhaseBriefing(QuestInstance quest) {
+        int nextIndex = quest.getCurrentPhaseIndex() + 1;
+        if (nextIndex >= quest.getPhases().size()) return "We'll see what comes next.";
+
+        PhaseInstance nextPhase = quest.getPhases().get(nextIndex);
+        if (nextPhase.getObjectives().isEmpty()) return "There's still work ahead.";
+
+        ObjectiveInstance obj = nextPhase.getObjectives().getFirst();
+        String task = switch (obj.getType()) {
+            case KILL_MOBS -> "You'll need to kill " + obj.getRequiredCount() + " " + obj.getTargetLabel() + ".";
+            case COLLECT_RESOURCES -> "I need you to collect " + obj.getRequiredCount() + " " + obj.getTargetLabel() + ".";
+            case FETCH_ITEM -> "I need you to find " + obj.getTargetLabel() + ".";
+            case TALK_TO_NPC -> "Go speak with " + obj.getTargetLabel() + ".";
+        };
+
+        return switch (nextPhase.getType()) {
+            case EXPOSITION -> "But first, I need more information. " + task;
+            case CONFLICT -> "The real work starts now. " + task;
+            case RESOLUTION -> "We're close to the end. " + task;
+        };
     }
 
     private static String buildTurnInText(PhaseType phaseType, boolean isFinalPhase,
