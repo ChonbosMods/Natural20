@@ -5,6 +5,7 @@ import com.chonbosmods.cave.CaveVoidRecord;
 import com.chonbosmods.cave.CaveVoidRegistry;
 import com.chonbosmods.data.Nat20PlayerData;
 import com.chonbosmods.quest.ObjectiveInstance;
+import com.chonbosmods.quest.ObjectiveType;
 import com.chonbosmods.quest.PhaseInstance;
 import com.chonbosmods.quest.POIPopulationListener;
 import com.chonbosmods.quest.QuestStateManager;
@@ -287,6 +288,43 @@ public class DialogueActionRegistry {
             // Refresh markers
             QuestMarkerProvider.refreshMarkers(
                 ctx.player().getPlayerRef().getUuid(), ctx.playerData());
+        });
+
+        register("COMPLETE_TALK_TO_NPC", (ctx, params) -> {
+            String questId = params.get("questId");
+            QuestSystem questSystem = Natural20.getInstance().getQuestSystem();
+            if (questSystem == null || questId == null) return;
+
+            QuestInstance quest = questSystem.getStateManager().getQuest(ctx.playerData(), questId);
+            if (quest == null) return;
+
+            // Mark the TALK_TO_NPC objective complete
+            PhaseInstance phase = quest.getCurrentPhase();
+            if (phase == null) return;
+
+            for (ObjectiveInstance obj : phase.getObjectives()) {
+                if (obj.getType() == ObjectiveType.TALK_TO_NPC && !obj.isComplete()) {
+                    obj.markComplete();
+                    break;
+                }
+            }
+
+            // Check if all phase objectives are now complete
+            if (phase.isComplete()) {
+                quest.getVariableBindings().put("phase_objectives_complete", "true");
+            }
+
+            // Save quest state
+            Map<String, QuestInstance> allQuests = questSystem.getStateManager().getActiveQuests(ctx.playerData());
+            allQuests.put(quest.getQuestId(), quest);
+            questSystem.getStateManager().saveActiveQuests(ctx.playerData(), allQuests);
+
+            // Refresh markers: TARGET_NPC marker disappears, RETURN marker appears
+            QuestMarkerProvider.refreshMarkers(
+                ctx.player().getPlayerRef().getUuid(), ctx.playerData());
+
+            LOGGER.atInfo().log("COMPLETE_TALK_TO_NPC: quest %s objective complete, return to %s",
+                questId, quest.getSourceNpcId());
         });
 
         register("OPEN_SHOP", (ctx, params) -> {
