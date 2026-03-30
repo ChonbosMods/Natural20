@@ -45,11 +45,12 @@ public class QuestMarkerProvider implements WorldMapManager.MarkerProvider {
     private static final double HIDE_RADIUS_SQ = HIDE_RADIUS * HIDE_RADIUS;
     private static final String CENTER_ICON = "QuestCenter.png";
     private static final String RETURN_ICON = "QuestReturn.png";
+    private static final String TARGET_ICON = "QuestTarget.png";
     private static final String RING_ICON = "Quest.png";
     private static final int RING_COUNT = 48;
     private static final HytaleLogger LOGGER = HytaleLogger.get("Nat20|Waypoint");
 
-    public enum MarkerType { POI, RETURN }
+    public enum MarkerType { POI, RETURN, TARGET_NPC }
 
     /** Marker data per player, written from world thread, read from map thread. */
     private final Map<UUID, List<MarkerEntry>> playerMarkers = new ConcurrentHashMap<>();
@@ -136,6 +137,20 @@ public class QuestMarkerProvider implements WorldMapManager.MarkerProvider {
                     double mz = Double.parseDouble(rawCz) + Double.parseDouble(rawOz);
                     entries.add(new MarkerEntry(quest.getQuestId(), questName, mx, mz, MarkerType.POI));
                 } catch (NumberFormatException ignored) {}
+            } else {
+                // TARGET_NPC marker for TALK_TO_NPC objectives: "!" at target settlement
+                String targetSettlement = b.get("target_npc_settlement");
+                if (targetSettlement != null && b.containsKey("target_npc")) {
+                    SettlementRegistry settlements = Natural20.getInstance().getSettlementRegistry();
+                    if (settlements != null) {
+                        SettlementRecord target = settlements.getByCell(targetSettlement);
+                        if (target != null) {
+                            String targetLabel = "Speak with " + b.get("target_npc");
+                            entries.add(new MarkerEntry(quest.getQuestId(), targetLabel,
+                                target.getPosX(), target.getPosZ(), MarkerType.TARGET_NPC));
+                        }
+                    }
+                }
             }
         }
 
@@ -163,6 +178,13 @@ public class QuestMarkerProvider implements WorldMapManager.MarkerProvider {
                     // Return marker: always visible on compass + map, no ring
                     collector.addIgnoreViewDistance(
                             new MapMarkerBuilder("nat20_return_" + entry.questId, RETURN_ICON,
+                                    new Transform(new Vector3d(entry.x, playerPos.getY(), entry.z)))
+                                    .withCustomName(entry.questName)
+                                    .build());
+                } else if (entry.type == MarkerType.TARGET_NPC) {
+                    // Target NPC marker: always visible on compass + map, no ring
+                    collector.addIgnoreViewDistance(
+                            new MapMarkerBuilder("nat20_target_" + entry.questId, TARGET_ICON,
                                     new Transform(new Vector3d(entry.x, playerPos.getY(), entry.z)))
                                     .withCustomName(entry.questName)
                                     .build());
