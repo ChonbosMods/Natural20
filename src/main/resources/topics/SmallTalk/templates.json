@@ -27,7 +27,7 @@
       ],
       "questHookPerspectives": [
         {
-          "intro": "{quest_exposition} The weather around {subject_focus_the} is not natural. You'll need to {quest_objective_summary}. {quest_detail}",
+          "intro": "{quest_exposition}. You'll need to {quest_objective_summary}.",
           "decisive": {
             "prompt": "I will look into the source.",
             "response": "{quest_accept_response}"
@@ -62,7 +62,7 @@
       ],
       "questHookPerspectives": [
         {
-          "intro": "{quest_exposition} The trade situation around {subject_focus_the} has reached a breaking point. You'll need to {quest_objective_summary}. {quest_detail}",
+          "intro": "{quest_exposition}. You'll need to {quest_objective_summary}.",
           "decisive": {
             "prompt": "I will see what I can do about the route.",
             "response": "{quest_accept_response}"
@@ -96,7 +96,7 @@
       ],
       "questHookPerspectives": [
         {
-          "intro": "{quest_exposition} The crafting situation around {subject_focus_the} has put livelihoods at risk. You'll need to {quest_objective_summary}. {quest_detail}",
+          "intro": "{quest_exposition}. You'll need to {quest_objective_summary}.",
           "decisive": {
             "prompt": "I will sort out the supply for you.",
             "response": "{quest_accept_response}"
@@ -131,7 +131,7 @@
       ],
       "questHookPerspectives": [
         {
-          "intro": "{quest_exposition} The trouble within the community over {subject_focus_the} has gone beyond words. You'll need to {quest_objective_summary}. {quest_detail}",
+          "intro": "{quest_exposition}. You'll need to {quest_objective_summary}.",
           "decisive": {
             "prompt": "I will take care of it.",
             "response": "{quest_accept_response}"
@@ -167,7 +167,7 @@
       ],
       "questHookPerspectives": [
         {
-          "intro": "{quest_exposition} The changes in the wilds near {subject_focus_the} are not slowing down. You'll need to {quest_objective_summary}. {quest_detail}",
+          "intro": "{quest_exposition}. You'll need to {quest_objective_summary}.",
           "decisive": {
             "prompt": "I will go see for myself.",
             "response": "{quest_accept_response}"
@@ -202,7 +202,7 @@
       ],
       "questHookPerspectives": [
         {
-          "intro": "{quest_exposition} The way things are going with {subject_focus_the}, the old days will not come back on their own. You'll need to {quest_objective_summary}. {quest_detail}",
+          "intro": "{quest_exposition}. You'll need to {quest_objective_summary}.",
           "decisive": {
             "prompt": "I will see what can be done.",
             "response": "{quest_accept_response}"
@@ -238,7 +238,7 @@
       ],
       "questHookPerspectives": [
         {
-          "intro": "{quest_exposition} The oddity surrounding {subject_focus_the} cannot be ignored any longer. You'll need to {quest_objective_summary}. {quest_detail}",
+          "intro": "{quest_exposition}. You'll need to {quest_objective_summary}.",
           "decisive": {
             "prompt": "I will look into it properly.",
             "response": "{quest_accept_response}"
@@ -273,7 +273,7 @@
       ],
       "questHookPerspectives": [
         {
-          "intro": "{quest_exposition} The festivities are threatened by the situation with {subject_focus_the}. You'll need to {quest_objective_summary}. {quest_detail}",
+          "intro": "{quest_exposition}. You'll need to {quest_objective_summary}.",
           "decisive": {
             "prompt": "I will make sure it goes ahead.",
             "response": "{quest_accept_response}"
