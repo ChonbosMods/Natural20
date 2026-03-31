@@ -160,8 +160,8 @@
         {
           "intro": "{tone_opener} {nature_observation}. {tone_closer}",
           "intents": [
-            { "intent": "detail", "response": "{nature_detail}." },
-            { "intent": "stakes", "response": "{danger_assessment}.", "deepenerResponse": "{local_opinion}." }
+            { "intent": "stakes", "response": "{danger_assessment}.", "deepenerResponse": "{local_opinion}." },
+            { "intent": "detail", "response": "{nature_detail}." }
           ]
         }
       ],
@@ -231,8 +231,8 @@
         {
           "intro": "{tone_opener} {curiosity_observation}. {tone_closer}",
           "intents": [
-            { "intent": "detail", "response": "{curiosity_detail}." },
-            { "intent": "stakes", "response": "{danger_assessment}.", "deepenerResponse": "{local_opinion}." }
+            { "intent": "stakes", "response": "{danger_assessment}.", "deepenerResponse": "{local_opinion}." },
+            { "intent": "detail", "response": "{curiosity_detail}." }
           ]
         }
       ],
