@@ -32,8 +32,6 @@ public class TopicGenerator {
 
     private static final double RUMOR_RATIO = 0.4;
     private static final double QUEST_CHANCE_PER_SUBJECT = 0.40;
-    private static final double CLOSER_CHANCE = 0.6;
-
     // Stratified category decks for subject drawing
     private static final List<String> RUMOR_DECK = List.of(
         "danger", "sighting", "treasure", "corruption", "conflict", "disappearance", "migration", "omen"
@@ -49,13 +47,6 @@ public class TopicGenerator {
     private static final int WINDOW_L2 = 8;   // L2 fragments (settlement-scoped, sized to cover cross-NPC draws)
     private static final int WINDOW_TONE = 4;  // tone openers/closers
     private static final int WINDOW_DROPIN = 2; // drop-ins
-
-    // Disposition-scaled opener chances: hostile NPCs almost always use tone, neutral rarely
-    private static final double OPENER_CHANCE_HOSTILE = 0.85;
-    private static final double OPENER_CHANCE_UNFRIENDLY = 0.70;
-    private static final double OPENER_CHANCE_NEUTRAL = 0.50;
-    private static final double OPENER_CHANCE_FRIENDLY = 0.65;
-    private static final double OPENER_CHANCE_LOYAL = 0.60;
 
     private final TopicPoolRegistry topicPool;
     private final TopicTemplateRegistry templateRegistry;
@@ -244,7 +235,7 @@ public class TopicGenerator {
             String npcName = npc.getGeneratedName();
             List<TopicGraphBuilder.TopicAssignment> assignments = new ArrayList<>();
             for (SubjectFocus focus : npcSubjects.get(npcName)) {
-                TopicGraphBuilder.TopicAssignment assignment = buildAssignment(focus, npcName, random, poolWindows);
+                TopicGraphBuilder.TopicAssignment assignment = buildAssignment(focus, npc, random, poolWindows);
                 String resolvedLabel = capitalizeFirst(
                     DialogueResolver.resolve(assignment.labelPattern(), assignment.bindings()));
                 if (usedLabels.contains(resolvedLabel)) {
@@ -267,7 +258,7 @@ public class TopicGenerator {
             String returnGreeting = topicPool.randomReturnGreeting(random);
 
             TopicGraphBuilder builder = new TopicGraphBuilder(
-                npcName, 50, greeting, returnGreeting, assignments, topicPool, random, usedDeepeners
+                npcName, npc.getDisposition(), greeting, returnGreeting, assignments, topicPool, random, usedDeepeners
             );
             DialogueGraph graph = builder.build();
 
@@ -297,7 +288,7 @@ public class TopicGenerator {
     /**
      * Build a TopicAssignment for a specific NPC on a specific subject.
      */
-    private TopicGraphBuilder.TopicAssignment buildAssignment(SubjectFocus focus, String npcName, Random random,
+    private TopicGraphBuilder.TopicAssignment buildAssignment(SubjectFocus focus, NpcRecord npc, Random random,
                                                                Map<String, LinkedList<String>> poolWindows) {
         TopicTemplate template = templateRegistry.randomTemplateForSubject(
             focus.getCategory(), focus.getCategories(), focus.isConcrete(), random);
@@ -319,7 +310,8 @@ public class TopicGenerator {
         }
 
         // Build variable bindings
-        Map<String, String> bindings = buildBindings(focus, npcName, isQuestBearer, template.id(), random, poolWindows);
+        String npcName = npc.getGeneratedName();
+        Map<String, String> bindings = buildBindings(focus, npcName, npc.getDisposition(), isQuestBearer, template.id(), random, poolWindows);
 
         return new TopicGraphBuilder.TopicAssignment(
             focus.getSubjectId(),
@@ -337,7 +329,7 @@ public class TopicGenerator {
      * Build variable bindings for a topic assignment.
      * Uses rolling window dedup to reduce repetition across assignments.
      */
-    private Map<String, String> buildBindings(SubjectFocus focus, String npcName,
+    private Map<String, String> buildBindings(SubjectFocus focus, String npcName, int disposition,
                                                boolean isQuestBearer, String templateId, Random random,
                                                Map<String, LinkedList<String>> poolWindows) {
         Map<String, String> bindings = new HashMap<>();
@@ -363,18 +355,14 @@ public class TopicGenerator {
         bindings.put("time_ref", drawWithWindow("time_ref", poolWindows, WINDOW_DROPIN, () -> topicPool.randomTimeRef(random)));
         bindings.put("direction", drawWithWindow("direction", poolWindows, WINDOW_DROPIN, () -> topicPool.randomDirection(random)));
 
-        // Tone bindings (bracket-filtered by disposition) with disposition-scaled opener chance
-        // MVP: disposition is statically bound to neutral (50) at generation time because
-        // topic graphs are pre-built per settlement, not per player. Dynamic rebinding
-        // would require regenerating tone selections per conversation, which is deferred.
-        String bracket = dispositionBracket(50);
-        double openerChance = openerChanceForBracket(bracket);
-        boolean openerFired = random.nextDouble() < openerChance;
-        boolean closerFired = openerFired ? (random.nextDouble() < CLOSER_CHANCE) : true;
-        bindings.put("tone_opener", openerFired
+        // Tone bindings: roll a single FramingShape from disposition bracket weights.
+        // Quest bearers always use BARE so the hook intro isn't cluttered with tone framing.
+        String bracket = dispositionBracket(disposition);
+        FramingShape shape = isQuestBearer ? FramingShape.BARE : FramingShape.roll(bracket, random);
+        bindings.put("tone_opener", shape.hasOpener()
             ? drawWithWindow("tone_opener", poolWindows, WINDOW_TONE, () -> topicPool.randomToneOpener(bracket, random))
             : "");
-        bindings.put("tone_closer", closerFired
+        bindings.put("tone_closer", shape.hasCloser()
             ? drawWithWindow("tone_closer", poolWindows, WINDOW_TONE, () -> topicPool.randomToneCloser(bracket, random))
             : "");
 
@@ -518,17 +506,6 @@ public class TopicGenerator {
 
     private static boolean isSocialRole(String role) {
         return SOCIAL_ROLES.contains(role);
-    }
-
-    private static double openerChanceForBracket(String bracket) {
-        return switch (bracket) {
-            case "hostile" -> OPENER_CHANCE_HOSTILE;
-            case "unfriendly" -> OPENER_CHANCE_UNFRIENDLY;
-            case "neutral" -> OPENER_CHANCE_NEUTRAL;
-            case "friendly" -> OPENER_CHANCE_FRIENDLY;
-            case "loyal" -> OPENER_CHANCE_LOYAL;
-            default -> OPENER_CHANCE_NEUTRAL;
-        };
     }
 
     private static String dispositionBracket(int disposition) {
