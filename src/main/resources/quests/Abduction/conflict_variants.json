@@ -8,8 +8,7 @@
         "outro": "Clear the way and press forward. Every moment wasted is another moment {quest_focus_the} remains in danger."
       },
       "objectivePool": [
-        "KILL_MOBS",
-        "EXPLORE_LOCATION"
+        "KILL_MOBS"
       ],
       "objectiveConfig": {
         "KILL_MOBS": {
@@ -27,7 +26,6 @@
       },
       "objectivePool": [
         "COLLECT_RESOURCES",
-        "EXPLORE_LOCATION",
         "KILL_MOBS"
       ],
       "objectiveConfig": {
@@ -49,8 +47,7 @@
         "outro": "We need the truth before {quest_stakes_the} {quest_stakes_is} lost forever. Find out what {target_npc} knows, willingly or not."
       },
       "objectivePool": [
-        "TALK_TO_NPC",
-        "EXPLORE_LOCATION"
+        "TALK_TO_NPC"
       ],
       "objectiveConfig": {}
     }

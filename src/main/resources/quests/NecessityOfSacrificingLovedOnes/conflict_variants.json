@@ -32,8 +32,7 @@
       },
       "objectivePool": [
         "FETCH_ITEM",
-        "KILL_MOBS",
-        "EXPLORE_LOCATION"
+        "KILL_MOBS"
       ],
       "objectiveConfig": {
         "KILL_MOBS": {
@@ -50,9 +49,7 @@
         "outro": "Clear the patrols and mark the path with {quest_item}. If {quest_focus_the} fails before everyone crosses, the alternate route is their only chance."
       },
       "objectivePool": [
-        "KILL_MOBS",
-        "EXPLORE_LOCATION",
-        "DELIVER_ITEM"
+        "KILL_MOBS"
       ],
       "objectiveConfig": {
         "KILL_MOBS": {

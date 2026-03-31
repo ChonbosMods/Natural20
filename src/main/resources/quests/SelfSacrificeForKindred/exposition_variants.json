@@ -8,9 +8,7 @@
         "outro": "They leave at dawn. {quest_threat_The} will be waiting somewhere along the way. Help me make sure their courage isn't wasted."
       },
       "objectivePool": [
-        "KILL_MOBS",
-        "EXPLORE_LOCATION",
-        "DELIVER_ITEM"
+        "KILL_MOBS"
       ],
       "objectiveConfig": {
         "KILL_MOBS": {
@@ -27,9 +25,7 @@
         "outro": "Saving {quest_stakes_the} depends on whether the effort holds. {quest_item} {location_hint} could make the difference."
       },
       "objectivePool": [
-        "COLLECT_RESOURCES",
-        "EXPLORE_LOCATION",
-        "DELIVER_ITEM"
+        "COLLECT_RESOURCES"
       ],
       "objectiveConfig": {
         "COLLECT_RESOURCES": {
@@ -47,7 +43,6 @@
       },
       "objectivePool": [
         "KILL_MOBS",
-        "EXPLORE_LOCATION",
         "TALK_TO_NPC"
       ],
       "objectiveConfig": {

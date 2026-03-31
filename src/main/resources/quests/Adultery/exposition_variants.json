@@ -8,7 +8,6 @@
         "outro": "Without that gesture, {quest_threat_the} {quest_threat_is} all we have to look forward to. {quest_stakes_The} depends on whether trust can be rebuilt."
       },
       "objectivePool": [
-        "EXPLORE_LOCATION",
         "FETCH_ITEM",
         "KILL_MOBS"
       ],
@@ -27,7 +26,6 @@
         "outro": "If the defenders learn about this from their own ranks, it'll tear the unit apart. Hard evidence is the only way to remove the traitor without destroying {quest_stakes_the}. Before {quest_time_pressure}."
       },
       "objectivePool": [
-        "EXPLORE_LOCATION",
         "TALK_TO_NPC",
         "FETCH_ITEM"
       ],
@@ -41,7 +39,6 @@
         "outro": "{quest_threat_The} starts at the end of the week. {quest_stakes_The} have nowhere to go. {quest_item} {location_hint} might hold the key to proving the fraud."
       },
       "objectivePool": [
-        "EXPLORE_LOCATION",
         "FETCH_ITEM",
         "TALK_TO_NPC"
       ],

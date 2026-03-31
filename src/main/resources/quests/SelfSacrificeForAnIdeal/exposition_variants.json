@@ -8,9 +8,7 @@
         "outro": "Every hour matters for {quest_stakes_the}. Those people chose their oath over their own safety. Don't let that choice be wasted."
       },
       "objectivePool": [
-        "EXPLORE_LOCATION",
-        "KILL_MOBS",
-        "DELIVER_ITEM"
+        "KILL_MOBS"
       ],
       "objectiveConfig": {
         "KILL_MOBS": {
@@ -27,9 +25,7 @@
         "outro": "The sacrifice was made to protect something worth protecting. It would be a tragedy if that sacrifice was wasted. {quest_reward_hint} might come of it."
       },
       "objectivePool": [
-        "FETCH_ITEM",
-        "EXPLORE_LOCATION",
-        "DELIVER_ITEM"
+        "FETCH_ITEM"
       ],
       "objectiveConfig": {}
     },
@@ -42,7 +38,6 @@
       },
       "objectivePool": [
         "COLLECT_RESOURCES",
-        "DELIVER_ITEM",
         "FETCH_ITEM"
       ],
       "objectiveConfig": {

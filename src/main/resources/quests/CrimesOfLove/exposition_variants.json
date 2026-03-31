@@ -8,8 +8,6 @@
         "outro": "Someone needs to {quest_action} before {quest_time_pressure}. They committed a crime because {quest_stakes_the} matters more to them than their freedom. {quest_item} {location_hint} is what's needed."
       },
       "objectivePool": [
-        "DELIVER_ITEM",
-        "EXPLORE_LOCATION",
         "COLLECT_RESOURCES"
       ],
       "objectiveConfig": {
@@ -27,7 +25,6 @@
         "outro": "If someone could {quest_action} and buy them time, they'll turn themselves in willingly. They said: 'They can punish me after. I just need three days.' {quest_stakes} hangs on those three days."
       },
       "objectivePool": [
-        "EXPLORE_LOCATION",
         "TALK_TO_NPC",
         "KILL_MOBS"
       ],
@@ -46,8 +43,6 @@
         "outro": "The next shipment needs to cross tonight. They can't make the run because {quest_threat_the} {quest_threat_has} doubled patrols. They need someone to {quest_action}. It's illegal, it's dangerous, and it will feed people for a week. {quest_reward_hint} might follow."
       },
       "objectivePool": [
-        "DELIVER_ITEM",
-        "EXPLORE_LOCATION",
         "KILL_MOBS"
       ],
       "objectiveConfig": {

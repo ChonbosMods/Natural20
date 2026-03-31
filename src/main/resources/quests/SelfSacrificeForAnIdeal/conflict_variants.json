@@ -8,7 +8,6 @@
         "outro": "Every hour they hold saves lives. If you can get {quest_item} to them, it might turn hours into days."
       },
       "objectivePool": [
-        "DELIVER_ITEM",
         "KILL_MOBS",
         "FETCH_ITEM"
       ],
@@ -28,8 +27,7 @@
       },
       "objectivePool": [
         "FETCH_ITEM",
-        "KILL_MOBS",
-        "EXPLORE_LOCATION"
+        "KILL_MOBS"
       ],
       "objectiveConfig": {
         "KILL_MOBS": {
@@ -47,8 +45,7 @@
       },
       "objectivePool": [
         "COLLECT_RESOURCES",
-        "FETCH_ITEM",
-        "DELIVER_ITEM"
+        "FETCH_ITEM"
       ],
       "objectiveConfig": {
         "COLLECT_RESOURCES": {

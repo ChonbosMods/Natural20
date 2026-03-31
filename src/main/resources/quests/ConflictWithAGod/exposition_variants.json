@@ -9,17 +9,12 @@
       },
       "objectivePool": [
         "COLLECT_RESOURCES",
-        "EXPLORE_LOCATION",
         "KILL_MOBS"
       ],
       "objectiveConfig": {
         "COLLECT_RESOURCES": {
           "countMin": 5,
           "countMax": 10
-        },
-        "EXPLORE_LOCATION": {
-          "countMin": 1,
-          "countMax": 3
         },
         "KILL_MOBS": {
           "countMin": 3,
@@ -36,16 +31,11 @@
       },
       "objectivePool": [
         "FETCH_ITEM",
-        "EXPLORE_LOCATION",
         "KILL_MOBS"
       ],
       "objectiveConfig": {
         "FETCH_ITEM": {
           "locationPreference": "DUNGEON"
-        },
-        "EXPLORE_LOCATION": {
-          "countMin": 2,
-          "countMax": 3
         },
         "KILL_MOBS": {
           "countMin": 2,
@@ -61,15 +51,10 @@
         "outro": "We violated something we didn't understand, and now {quest_stakes_the} {quest_stakes_is} paying for it. We need {quest_item} to purify the source. Before {quest_time_pressure}."
       },
       "objectivePool": [
-        "EXPLORE_LOCATION",
         "KILL_MOBS",
         "FETCH_ITEM"
       ],
       "objectiveConfig": {
-        "EXPLORE_LOCATION": {
-          "countMin": 2,
-          "countMax": 3
-        },
         "KILL_MOBS": {
           "countMin": 4,
           "countMax": 8

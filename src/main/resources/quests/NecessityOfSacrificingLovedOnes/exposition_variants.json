@@ -8,7 +8,6 @@
         "outro": "I can't just watch them be abandoned. Not while there's still a chance."
       },
       "objectivePool": [
-        "EXPLORE_LOCATION",
         "FETCH_ITEM",
         "KILL_MOBS"
       ],
@@ -27,7 +26,6 @@
         "outro": "There might be a third option. {quest_origin} is where they're being held. If someone could {quest_action} before the deadline, we wouldn't have to choose which of our people to sacrifice. {quest_item} {location_hint} could give us the edge we need."
       },
       "objectivePool": [
-        "EXPLORE_LOCATION",
         "KILL_MOBS",
         "TALK_TO_NPC"
       ],
@@ -46,7 +44,6 @@
         "outro": "If there's another way through, somewhere beyond {quest_focus_the}, those people have a chance. Someone needs to {quest_action} before {quest_time_pressure}. Once the order is given, there's no going back."
       },
       "objectivePool": [
-        "EXPLORE_LOCATION",
         "TALK_TO_NPC",
         "KILL_MOBS"
       ],

@@ -32,8 +32,7 @@
       },
       "objectivePool": [
         "KILL_MOBS",
-        "COLLECT_RESOURCES",
-        "EXPLORE_LOCATION"
+        "COLLECT_RESOURCES"
       ],
       "objectiveConfig": {
         "KILL_MOBS": {
@@ -54,7 +53,6 @@
         "outro": "Go to the secondary site near {location_hint}. Clear it, gather what {target_npc} needs, and make sure we don't lose anything else."
       },
       "objectivePool": [
-        "EXPLORE_LOCATION",
         "KILL_MOBS",
         "COLLECT_RESOURCES"
       ],

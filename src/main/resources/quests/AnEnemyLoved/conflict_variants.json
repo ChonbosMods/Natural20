@@ -9,17 +9,12 @@
       },
       "objectivePool": [
         "COLLECT_RESOURCES",
-        "EXPLORE_LOCATION",
         "KILL_MOBS"
       ],
       "objectiveConfig": {
         "COLLECT_RESOURCES": {
           "countMin": 4,
           "countMax": 8
-        },
-        "EXPLORE_LOCATION": {
-          "countMin": 1,
-          "countMax": 2
         },
         "KILL_MOBS": {
           "countMin": 3,
@@ -61,14 +56,9 @@
         "outro": "We need someone to reach the {enemy_type} camp and confirm the offer is genuine before {quest_threat_the} turns this into a massacre. If their offer is real, {quest_action} could end years of bloodshed."
       },
       "objectivePool": [
-        "EXPLORE_LOCATION",
         "TALK_TO_NPC"
       ],
       "objectiveConfig": {
-        "EXPLORE_LOCATION": {
-          "countMin": 2,
-          "countMax": 3
-        },
         "TALK_TO_NPC": {
           "countMin": 1,
           "countMax": 1

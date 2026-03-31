@@ -9,16 +9,11 @@
       },
       "objectivePool": [
         "FETCH_ITEM",
-        "EXPLORE_LOCATION",
         "TALK_TO_NPC"
       ],
       "objectiveConfig": {
         "FETCH_ITEM": {
           "locationPreference": "WILDERNESS"
-        },
-        "EXPLORE_LOCATION": {
-          "countMin": 1,
-          "countMax": 2
         },
         "TALK_TO_NPC": {
           "countMin": 1,
@@ -56,14 +51,9 @@
         "outro": "People on both sides are waiting for a chance to see each other again. For {quest_stakes_the}, all that's missing is a door. Before {quest_time_pressure}."
       },
       "objectivePool": [
-        "EXPLORE_LOCATION",
         "KILL_MOBS"
       ],
       "objectiveConfig": {
-        "EXPLORE_LOCATION": {
-          "countMin": 2,
-          "countMax": 3
-        },
         "KILL_MOBS": {
           "countMin": 3,
           "countMax": 7

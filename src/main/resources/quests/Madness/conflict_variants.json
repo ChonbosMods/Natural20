@@ -9,8 +9,7 @@
       },
       "objectivePool": [
         "KILL_MOBS",
-        "COLLECT_RESOURCES",
-        "EXPLORE_LOCATION"
+        "COLLECT_RESOURCES"
       ],
       "objectiveConfig": {
         "KILL_MOBS": {
@@ -32,8 +31,7 @@
       },
       "objectivePool": [
         "KILL_MOBS",
-        "FETCH_ITEM",
-        "EXPLORE_LOCATION"
+        "FETCH_ITEM"
       ],
       "objectiveConfig": {
         "KILL_MOBS": {
@@ -51,8 +49,7 @@
       },
       "objectivePool": [
         "COLLECT_RESOURCES",
-        "KILL_MOBS",
-        "EXPLORE_LOCATION"
+        "KILL_MOBS"
       ],
       "objectiveConfig": {
         "COLLECT_RESOURCES": {

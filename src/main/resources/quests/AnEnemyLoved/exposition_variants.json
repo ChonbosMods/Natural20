@@ -29,15 +29,10 @@
         "outro": "If it's real, we could survive something neither side can face alone. If it's a trap, we lose everything. {quest_focus_The} demands someone investigate. {quest_reward_hint} could follow."
       },
       "objectivePool": [
-        "EXPLORE_LOCATION",
         "TALK_TO_NPC",
         "KILL_MOBS"
       ],
       "objectiveConfig": {
-        "EXPLORE_LOCATION": {
-          "countMin": 2,
-          "countMax": 3
-        },
         "TALK_TO_NPC": {
           "countMin": 1,
           "countMax": 1
@@ -56,16 +51,11 @@
         "outro": "I can't hand it over to be killed, and I can't keep hiding it forever. {quest_stakes_The} depends on what we do next. {quest_origin} started all of this."
       },
       "objectivePool": [
-        "FETCH_ITEM",
-        "EXPLORE_LOCATION"
+        "FETCH_ITEM"
       ],
       "objectiveConfig": {
         "FETCH_ITEM": {
           "locationPreference": "WILDERNESS"
-        },
-        "EXPLORE_LOCATION": {
-          "countMin": 1,
-          "countMax": 3
         }
       }
     }

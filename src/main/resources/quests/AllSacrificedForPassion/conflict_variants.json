@@ -8,7 +8,6 @@
         "outro": "If you found the original {quest_item}, bring it now. They're past the point of reason and the next shortcut might be the one that kills them."
       },
       "objectivePool": [
-        "DELIVER_ITEM",
         "TALK_TO_NPC",
         "FETCH_ITEM"
       ],
@@ -23,8 +22,7 @@
       },
       "objectivePool": [
         "FETCH_ITEM",
-        "KILL_MOBS",
-        "EXPLORE_LOCATION"
+        "KILL_MOBS"
       ],
       "objectiveConfig": {
         "KILL_MOBS": {
@@ -41,7 +39,6 @@
         "outro": "The final piece was last traced to {location_hint}. Find it. Not for them: for the family that's watching them disappear into {quest_focus_the} one day at a time."
       },
       "objectivePool": [
-        "EXPLORE_LOCATION",
         "FETCH_ITEM",
         "KILL_MOBS"
       ],

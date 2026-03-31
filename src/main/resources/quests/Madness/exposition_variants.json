@@ -9,7 +9,6 @@
       },
       "objectivePool": [
         "TALK_TO_NPC",
-        "EXPLORE_LOCATION",
         "FETCH_ITEM"
       ],
       "objectiveConfig": {}
@@ -22,7 +21,6 @@
         "outro": "People are terrified. We need to find what is causing {quest_threat_the} and put an end to it before the whole settlement falls apart."
       },
       "objectivePool": [
-        "EXPLORE_LOCATION",
         "KILL_MOBS",
         "COLLECT_RESOURCES"
       ],
@@ -46,7 +44,6 @@
       },
       "objectivePool": [
         "COLLECT_RESOURCES",
-        "EXPLORE_LOCATION",
         "KILL_MOBS"
       ],
       "objectiveConfig": {

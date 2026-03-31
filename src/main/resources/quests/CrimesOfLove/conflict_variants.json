@@ -8,8 +8,6 @@
         "outro": "The delivery route is compromised. {target_npc} knows a back path, but it adds hours. {quest_stakes_The} may not have hours. Choose the route and hope it's the right one."
       },
       "objectivePool": [
-        "DELIVER_ITEM",
-        "EXPLORE_LOCATION",
         "KILL_MOBS"
       ],
       "objectiveConfig": {
@@ -28,7 +26,6 @@
       },
       "objectivePool": [
         "FETCH_ITEM",
-        "EXPLORE_LOCATION",
         "TALK_TO_NPC"
       ],
       "objectiveConfig": {}
@@ -41,9 +38,7 @@
         "outro": "The food needs to cross tonight or {quest_stakes} goes another week without. Someone needs to make the run."
       },
       "objectivePool": [
-        "DELIVER_ITEM",
-        "KILL_MOBS",
-        "EXPLORE_LOCATION"
+        "KILL_MOBS"
       ],
       "objectiveConfig": {
         "KILL_MOBS": {

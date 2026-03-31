@@ -8,7 +8,6 @@
         "outro": "Cut through the misdirection. Search the area near {location_hint} for the evidence they couldn't fake. {quest_stakes_The} won't survive much more of this uncertainty."
       },
       "objectivePool": [
-        "EXPLORE_LOCATION",
         "COLLECT_RESOURCES",
         "TALK_TO_NPC"
       ],
@@ -28,7 +27,6 @@
       },
       "objectivePool": [
         "KILL_MOBS",
-        "EXPLORE_LOCATION",
         "FETCH_ITEM"
       ],
       "objectiveConfig": {
@@ -46,7 +44,6 @@
         "outro": "Find the decisive evidence near {location_hint}. Whether it condemns or exonerates, {quest_stakes_the} cannot wait any longer for closure."
       },
       "objectivePool": [
-        "EXPLORE_LOCATION",
         "TALK_TO_NPC",
         "COLLECT_RESOURCES"
       ],

@@ -8,15 +8,10 @@
         "outro": "{quest_stakes_The} {quest_stakes_is} crumbling by the hour. If we don't produce the truth soon, {target_npc} won't have a home to return to."
       },
       "objectivePool": [
-        "EXPLORE_LOCATION",
         "FETCH_ITEM",
         "KILL_MOBS"
       ],
       "objectiveConfig": {
-        "EXPLORE_LOCATION": {
-          "countMin": 2,
-          "countMax": 3
-        },
         "FETCH_ITEM": {
           "locationPreference": "WILDERNESS"
         },
@@ -34,15 +29,10 @@
         "outro": "Someone wants {target_npc} gone badly enough to frame them. We need to find out who before the council votes. {quest_threat_The} {quest_threat_is} feeding on itself."
       },
       "objectivePool": [
-        "EXPLORE_LOCATION",
         "KILL_MOBS",
         "TALK_TO_NPC"
       ],
       "objectiveConfig": {
-        "EXPLORE_LOCATION": {
-          "countMin": 2,
-          "countMax": 3
-        },
         "KILL_MOBS": {
           "countMin": 3,
           "countMax": 7
@@ -62,8 +52,7 @@
       },
       "objectivePool": [
         "FETCH_ITEM",
-        "KILL_MOBS",
-        "EXPLORE_LOCATION"
+        "KILL_MOBS"
       ],
       "objectiveConfig": {
         "FETCH_ITEM": {
@@ -72,10 +61,6 @@
         "KILL_MOBS": {
           "countMin": 4,
           "countMax": 8
-        },
-        "EXPLORE_LOCATION": {
-          "countMin": 1,
-          "countMax": 2
         }
       }
     }

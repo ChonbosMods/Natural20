@@ -9,7 +9,6 @@
       },
       "objectivePool": [
         "TALK_TO_NPC",
-        "EXPLORE_LOCATION",
         "COLLECT_RESOURCES"
       ],
       "objectiveConfig": {
@@ -27,7 +26,6 @@
         "outro": "Whoever is behind {quest_threat_the} has connections and patience. Will you help us trace the source before {quest_time_pressure}?"
       },
       "objectivePool": [
-        "EXPLORE_LOCATION",
         "TALK_TO_NPC",
         "FETCH_ITEM"
       ],
@@ -41,7 +39,6 @@
         "outro": "We need proof before we can act. Investigate the meeting site and find out what terms were being discussed. {quest_stakes_The} may depend on it."
       },
       "objectivePool": [
-        "EXPLORE_LOCATION",
         "COLLECT_RESOURCES",
         "TALK_TO_NPC"
       ],

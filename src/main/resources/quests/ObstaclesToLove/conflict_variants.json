@@ -9,8 +9,7 @@
       },
       "objectivePool": [
         "FETCH_ITEM",
-        "TALK_TO_NPC",
-        "EXPLORE_LOCATION"
+        "TALK_TO_NPC"
       ],
       "objectiveConfig": {
         "FETCH_ITEM": {
@@ -19,10 +18,6 @@
         "TALK_TO_NPC": {
           "countMin": 1,
           "countMax": 1
-        },
-        "EXPLORE_LOCATION": {
-          "countMin": 1,
-          "countMax": 2
         }
       }
     },
@@ -34,15 +29,10 @@
         "outro": "There's a traitor among us, and the clock is ticking on {quest_stakes_the}."
       },
       "objectivePool": [
-        "EXPLORE_LOCATION",
         "KILL_MOBS",
         "FETCH_ITEM"
       ],
       "objectiveConfig": {
-        "EXPLORE_LOCATION": {
-          "countMin": 2,
-          "countMax": 3
-        },
         "KILL_MOBS": {
           "countMin": 3,
           "countMax": 6

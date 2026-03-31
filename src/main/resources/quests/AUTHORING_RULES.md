@@ -150,7 +150,7 @@ When a TALK_TO_NPC objective is rolled, the full flow is:
         "plotStep": "The core ask. Uses variables for specifics.",
         "outro": "Closing line. Motivates player to act."
       },
-      "objectivePool": ["COLLECT_RESOURCES", "KILL_MOBS", "EXPLORE_LOCATION"],
+      "objectivePool": ["COLLECT_RESOURCES", "KILL_MOBS", "FETCH_ITEM"],
       "objectiveConfig": {
         "COLLECT_RESOURCES": { "countMin": 5, "countMax": 12 },
         "KILL_MOBS": { "countMin": 3, "countMax": 8 }
@@ -232,7 +232,7 @@ Usage: `"{quest_stakes_The} {quest_stakes_is} in danger."` → "The refugee fami
 
 | Token | Example | Notes |
 |---|---|---|
-| `{target_npc}` | "Elara Thornwick" | Required for TALK_TO_NPC/DELIVER_ITEM |
+| `{target_npc}` | "Elara Thornwick" | Required for TALK_TO_NPC |
 | `{quest_ally}` | "Old Maren" | NPC in same settlement |
 | `{quest_origin}` | "last winter's famine" | Full phrase with article |
 | `{quest_time_pressure}` | "before the next storm" | Full phrase |
@@ -319,8 +319,6 @@ Set C specifically tests `_the` with proper nouns: `{quest_focus_the}` → "Thor
 |---|---|---|
 | `COLLECT_RESOURCES` | Collect resources | `countMin` (3-8), `countMax` (10-20) |
 | `KILL_MOBS` | Kill hostile mobs | `countMin` (2-5), `countMax` (5-10) |
-| `DELIVER_ITEM` | Bring item to NPC | none |
-| `EXPLORE_LOCATION` | Visit a location | none |
 | `FETCH_ITEM` | Retrieve from chest | `locationPreference`: `"DUNGEON"`/`"SETTLEMENT"` (optional) |
 | `TALK_TO_NPC` | Talk to target NPC | none (triggers send-to-NPC + target NPC dialogue flow) |
 | `KILL_NPC` | Eliminate target NPC | none |

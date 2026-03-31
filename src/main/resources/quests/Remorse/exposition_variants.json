@@ -9,16 +9,11 @@
       },
       "objectivePool": [
         "FETCH_ITEM",
-        "EXPLORE_LOCATION",
         "KILL_MOBS"
       ],
       "objectiveConfig": {
         "FETCH_ITEM": {
           "locationPreference": "WILDERNESS"
-        },
-        "EXPLORE_LOCATION": {
-          "countMin": 2,
-          "countMax": 3
         },
         "KILL_MOBS": {
           "countMin": 3,
@@ -34,16 +29,11 @@
         "outro": "I stole from someone who trusted me. The least I can do is risk my pride to give it back. {quest_action} is the only way to start. I owe it to {quest_stakes_the}. {quest_origin} started this."
       },
       "objectivePool": [
-        "FETCH_ITEM",
-        "EXPLORE_LOCATION"
+        "FETCH_ITEM"
       ],
       "objectiveConfig": {
         "FETCH_ITEM": {
           "locationPreference": "DUNGEON"
-        },
-        "EXPLORE_LOCATION": {
-          "countMin": 1,
-          "countMax": 3
         }
       }
     },
@@ -55,15 +45,10 @@
         "outro": "Every day that passes with {target_npc} in exile is another day my lie draws breath. Help me {quest_action}. Before {quest_time_pressure}. Everything about {quest_stakes_the} depends on the truth."
       },
       "objectivePool": [
-        "EXPLORE_LOCATION",
         "TALK_TO_NPC",
         "KILL_MOBS"
       ],
       "objectiveConfig": {
-        "EXPLORE_LOCATION": {
-          "countMin": 2,
-          "countMax": 3
-        },
         "TALK_TO_NPC": {
           "countMin": 1,
           "countMax": 1

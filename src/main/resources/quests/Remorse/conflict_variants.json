@@ -9,8 +9,7 @@
       },
       "objectivePool": [
         "COLLECT_RESOURCES",
-        "KILL_MOBS",
-        "EXPLORE_LOCATION"
+        "KILL_MOBS"
       ],
       "objectiveConfig": {
         "COLLECT_RESOURCES": {
@@ -20,10 +19,6 @@
         "KILL_MOBS": {
           "countMin": 3,
           "countMax": 7
-        },
-        "EXPLORE_LOCATION": {
-          "countMin": 1,
-          "countMax": 2
         }
       }
     },
@@ -36,8 +31,7 @@
       },
       "objectivePool": [
         "FETCH_ITEM",
-        "KILL_MOBS",
-        "EXPLORE_LOCATION"
+        "KILL_MOBS"
       ],
       "objectiveConfig": {
         "FETCH_ITEM": {
@@ -46,10 +40,6 @@
         "KILL_MOBS": {
           "countMin": 4,
           "countMax": 8
-        },
-        "EXPLORE_LOCATION": {
-          "countMin": 1,
-          "countMax": 2
         }
       }
     },
@@ -62,17 +52,12 @@
       },
       "objectivePool": [
         "KILL_MOBS",
-        "EXPLORE_LOCATION",
         "FETCH_ITEM"
       ],
       "objectiveConfig": {
         "KILL_MOBS": {
           "countMin": 4,
           "countMax": 9
-        },
-        "EXPLORE_LOCATION": {
-          "countMin": 2,
-          "countMax": 3
         },
         "FETCH_ITEM": {
           "locationPreference": "WILDERNESS"

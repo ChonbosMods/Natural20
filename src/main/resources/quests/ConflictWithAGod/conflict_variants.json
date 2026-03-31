@@ -8,15 +8,10 @@
         "outro": "We underestimated {quest_threat_the}. It's not just angry. It's organized. {quest_stakes_The} depends on finding the second component."
       },
       "objectivePool": [
-        "EXPLORE_LOCATION",
         "KILL_MOBS",
         "FETCH_ITEM"
       ],
       "objectiveConfig": {
-        "EXPLORE_LOCATION": {
-          "countMin": 2,
-          "countMax": 3
-        },
         "KILL_MOBS": {
           "countMin": 4,
           "countMax": 9
@@ -34,15 +29,10 @@
         "outro": "Submission or defiance: both have costs. We need a third option, and you might be the one to find it."
       },
       "objectivePool": [
-        "EXPLORE_LOCATION",
         "FETCH_ITEM",
         "COLLECT_RESOURCES"
       ],
       "objectiveConfig": {
-        "EXPLORE_LOCATION": {
-          "countMin": 2,
-          "countMax": 3
-        },
         "FETCH_ITEM": {
           "locationPreference": "DUNGEON"
         },
@@ -61,17 +51,12 @@
       },
       "objectivePool": [
         "KILL_MOBS",
-        "EXPLORE_LOCATION",
         "COLLECT_RESOURCES"
       ],
       "objectiveConfig": {
         "KILL_MOBS": {
           "countMin": 5,
           "countMax": 10
-        },
-        "EXPLORE_LOCATION": {
-          "countMin": 2,
-          "countMax": 3
         },
         "COLLECT_RESOURCES": {
           "countMin": 3,

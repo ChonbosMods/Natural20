@@ -8,15 +8,10 @@
         "outro": "If I don't find proof of who actually took the goods before the council meets, {target_npc} gets banished. {quest_stakes_The} {quest_stakes_is} at stake. {quest_threat_The} {quest_threat_is} poisoning everything. {quest_reward_hint} awaits if we set things right."
       },
       "objectivePool": [
-        "EXPLORE_LOCATION",
         "FETCH_ITEM",
         "TALK_TO_NPC"
       ],
       "objectiveConfig": {
-        "EXPLORE_LOCATION": {
-          "countMin": 2,
-          "countMax": 3
-        },
         "FETCH_ITEM": {
           "locationPreference": "WILDERNESS"
         },
@@ -34,17 +29,12 @@
         "outro": "One misunderstood kindness is about to destroy a good person's reputation. Saving {quest_stakes_the} depends on setting the record straight. {quest_threat_The} only grows worse on its own."
       },
       "objectivePool": [
-        "TALK_TO_NPC",
-        "EXPLORE_LOCATION"
+        "TALK_TO_NPC"
       ],
       "objectiveConfig": {
         "TALK_TO_NPC": {
           "countMin": 1,
           "countMax": 1
-        },
-        "EXPLORE_LOCATION": {
-          "countMin": 1,
-          "countMax": 3
         }
       }
     },
@@ -57,8 +47,7 @@
       },
       "objectivePool": [
         "FETCH_ITEM",
-        "KILL_MOBS",
-        "EXPLORE_LOCATION"
+        "KILL_MOBS"
       ],
       "objectiveConfig": {
         "FETCH_ITEM": {
@@ -67,10 +56,6 @@
         "KILL_MOBS": {
           "countMin": 3,
           "countMax": 7
-        },
-        "EXPLORE_LOCATION": {
-          "countMin": 1,
-          "countMax": 2
         }
       }
     }

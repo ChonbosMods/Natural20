@@ -8,7 +8,6 @@
         "outro": "I need someone brave enough to follow those tracks before {quest_time_pressure}. The captors have a head start, but they are moving slow with prisoners. Will you help us?"
       },
       "objectivePool": [
-        "EXPLORE_LOCATION",
         "KILL_MOBS",
         "COLLECT_RESOURCES"
       ],
@@ -31,7 +30,6 @@
         "outro": "We fear the worst, but there is still hope. {target_npc} may still be alive. Will you search for them, {player_name}?"
       },
       "objectivePool": [
-        "EXPLORE_LOCATION",
         "TALK_TO_NPC",
         "KILL_MOBS"
       ],
@@ -51,7 +49,6 @@
       },
       "objectivePool": [
         "KILL_MOBS",
-        "EXPLORE_LOCATION",
         "FETCH_ITEM"
       ],
       "objectiveConfig": {

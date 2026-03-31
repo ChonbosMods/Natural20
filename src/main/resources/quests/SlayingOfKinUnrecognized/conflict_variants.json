@@ -9,8 +9,7 @@
       },
       "objectivePool": [
         "FETCH_ITEM",
-        "KILL_MOBS",
-        "EXPLORE_LOCATION"
+        "KILL_MOBS"
       ],
       "objectiveConfig": {
         "KILL_MOBS": {
@@ -50,7 +49,6 @@
         "outro": "We have to strike at the source and destroy {quest_focus_the} before there's no one left who trusts anyone."
       },
       "objectivePool": [
-        "EXPLORE_LOCATION",
         "KILL_MOBS",
         "KILL_NPC"
       ],

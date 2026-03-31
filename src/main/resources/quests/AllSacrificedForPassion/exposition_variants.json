@@ -9,8 +9,7 @@
       },
       "objectivePool": [
         "FETCH_ITEM",
-        "KILL_MOBS",
-        "EXPLORE_LOCATION"
+        "KILL_MOBS"
       ],
       "objectiveConfig": {
         "KILL_MOBS": {
@@ -50,7 +49,6 @@
         "outro": "At least let {quest_focus_the} mean something. {quest_item} {location_hint} might be the final piece."
       },
       "objectivePool": [
-        "EXPLORE_LOCATION",
         "FETCH_ITEM",
         "TALK_TO_NPC"
       ],

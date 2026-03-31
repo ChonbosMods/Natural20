@@ -28,7 +28,6 @@
       },
       "objectivePool": [
         "FETCH_ITEM",
-        "EXPLORE_LOCATION",
         "TALK_TO_NPC"
       ],
       "objectiveConfig": {}
@@ -41,7 +40,6 @@
         "outro": "Without {quest_item}, even the real document can be questioned. Track them down and recover the seal before {quest_threat_the} becomes permanent."
       },
       "objectivePool": [
-        "EXPLORE_LOCATION",
         "TALK_TO_NPC",
         "KILL_NPC"
       ],
