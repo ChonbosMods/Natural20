@@ -444,14 +444,19 @@ public class TopicGenerator {
             }
 
             // Draw exposition from pools: peaceful fetch uses dedicated pools,
-            // COLLECT_RESOURCES uses category-specific pools, everything else uses rumor details
+            // COLLECT_RESOURCES uses category-specific pools, everything else uses situation-specific exposition
             String rawExposition;
             if ("peaceful".equals(qb.get("fetch_variant"))) {
                 rawExposition = questPool.randomPeacefulFetchExposition(random);
             } else if (qb.containsKey("gather_category")) {
                 rawExposition = questPool.randomCollectExposition(qb.get("gather_category"), random);
             } else {
-                rawExposition = topicPool.randomRumorDetail(random);
+                String situationId = focus.getQuestSituationId();
+                rawExposition = questPool.randomExpositionForSituation(situationId, random);
+                if (rawExposition == null || rawExposition.isEmpty()) {
+                    LOGGER.atWarning().log("No exposition variant for situation '%s', using generic fallback", situationId);
+                    rawExposition = "Something has gone wrong and the settlement needs help";
+                }
             }
             bindings.put("quest_exposition", DialogueResolver.resolve(rawExposition, bindings));
             bindings.put("quest_detail", DialogueResolver.resolve(topicPool.randomPerspectiveDetail(random), bindings));

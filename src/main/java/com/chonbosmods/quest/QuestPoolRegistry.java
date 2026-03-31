@@ -6,6 +6,9 @@ import com.google.gson.JsonElement;
 import com.google.gson.JsonObject;
 import com.google.gson.JsonParser;
 
+import com.chonbosmods.quest.model.QuestSituation;
+import com.chonbosmods.quest.model.QuestVariant;
+
 import javax.annotation.Nullable;
 import java.io.IOException;
 import java.io.InputStream;
@@ -65,6 +68,11 @@ public class QuestPoolRegistry {
     private final Map<String, List<String>> sendToNpcResponses = new HashMap<>();
     private final Map<String, List<String>> collectExpoByCategory = new HashMap<>();
     private final Map<String, String> situationTones = new HashMap<>();
+    private @Nullable QuestTemplateRegistry templateRegistry;
+
+    public void setTemplateRegistry(QuestTemplateRegistry templateRegistry) {
+        this.templateRegistry = templateRegistry;
+    }
 
     public void loadAll(@Nullable Path poolsDir) {
         // Load from classpath first (bundled resources)
@@ -432,6 +440,24 @@ public class QuestPoolRegistry {
             return pool.get(random.nextInt(pool.size()));
         }
         return "The settlement needs supplies and cannot wait for the usual sources";
+    }
+
+    /**
+     * Draw a random exposition intro for the given quest situation.
+     * Looks up the situation's exposition variants in QuestTemplateRegistry
+     * and returns the intro dialogue chunk from a randomly selected variant.
+     *
+     * @return the intro text, or null if no exposition variants exist for this situation
+     */
+    public @Nullable String randomExpositionForSituation(String situationId, Random random) {
+        if (templateRegistry == null || situationId == null) return null;
+        QuestSituation situation = templateRegistry.get(situationId);
+        if (situation == null) return null;
+        List<QuestVariant> variants = situation.getExpositionVariants();
+        if (variants == null || variants.isEmpty()) return null;
+        QuestVariant variant = variants.get(random.nextInt(variants.size()));
+        String intro = variant.dialogueChunks().intro();
+        return (intro != null && !intro.isEmpty()) ? intro : null;
     }
 
     public String getToneForSituation(String situationId) {

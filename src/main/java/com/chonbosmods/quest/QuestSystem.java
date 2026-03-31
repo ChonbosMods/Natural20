@@ -23,6 +23,7 @@ public class QuestSystem {
     public QuestSystem(SettlementRegistry settlementRegistry) {
         this.templateRegistry = new QuestTemplateRegistry();
         this.poolRegistry = new QuestPoolRegistry();
+        this.poolRegistry.setTemplateRegistry(templateRegistry);
         this.stateManager = new QuestStateManager();
         this.rewardManager = new QuestRewardManager();
         this.tracker = new QuestTracker(stateManager, rewardManager);
