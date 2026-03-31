@@ -12,13 +12,13 @@
           ]
         },
         {
-          "intro": "{creature_sighting}.",
+          "intro": "{tone_opener} {creature_sighting}. {tone_closer}",
           "intents": [
             { "intent": "reaction", "response": "{personal_reaction}." }
           ]
         },
         {
-          "intro": "{tone_opener} {creature_sighting}.",
+          "intro": "{tone_opener} {creature_sighting}. {tone_closer}",
           "intents": [
             { "intent": "detail", "response": "{creature_detail}.", "deepenerResponse": "{local_opinion}." },
             { "intent": "source", "response": "{rumor_source}. {time_ref}." }
@@ -47,13 +47,13 @@
           ]
         },
         {
-          "intro": "{creature_sighting}.",
+          "intro": "{tone_opener} {creature_sighting}. {tone_closer}",
           "intents": [
             { "intent": "reaction", "response": "{personal_reaction}." }
           ]
         },
         {
-          "intro": "{tone_opener} {creature_sighting}.",
+          "intro": "{tone_opener} {creature_sighting}. {tone_closer}",
           "intents": [
             { "intent": "source", "response": "{rumor_source}. {time_ref}." }
           ]
@@ -82,13 +82,13 @@
           ]
         },
         {
-          "intro": "{creature_sighting}.",
+          "intro": "{tone_opener} {creature_sighting}. {tone_closer}",
           "intents": [
             { "intent": "reaction", "response": "{personal_reaction}." }
           ]
         },
         {
-          "intro": "{tone_opener} {creature_sighting}.",
+          "intro": "{tone_opener} {creature_sighting}. {tone_closer}",
           "intents": [
             { "intent": "source", "response": "{rumor_source}. {time_ref}." }
           ]
@@ -117,13 +117,13 @@
           ]
         },
         {
-          "intro": "{strange_event}.",
+          "intro": "{tone_opener} {strange_event}. {tone_closer}",
           "intents": [
             { "intent": "reaction", "response": "{personal_reaction}." }
           ]
         },
         {
-          "intro": "{tone_opener} {strange_event}.",
+          "intro": "{tone_opener} {strange_event}. {tone_closer}",
           "intents": [
             { "intent": "detail", "response": "{event_detail}.", "deepenerResponse": "{local_opinion}." },
             { "intent": "source", "response": "{rumor_source}. {time_ref}." }
@@ -152,13 +152,13 @@
           ]
         },
         {
-          "intro": "{strange_event}.",
+          "intro": "{tone_opener} {strange_event}. {tone_closer}",
           "intents": [
             { "intent": "reaction", "response": "{personal_reaction}." }
           ]
         },
         {
-          "intro": "{tone_opener} {strange_event}.",
+          "intro": "{tone_opener} {strange_event}. {tone_closer}",
           "intents": [
             { "intent": "source", "response": "{rumor_source}. {time_ref}." }
           ]
@@ -187,13 +187,13 @@
           ]
         },
         {
-          "intro": "{strange_event}.",
+          "intro": "{tone_opener} {strange_event}. {tone_closer}",
           "intents": [
             { "intent": "reaction", "response": "{personal_reaction}." }
           ]
         },
         {
-          "intro": "{tone_opener} {strange_event}.",
+          "intro": "{tone_opener} {strange_event}. {tone_closer}",
           "intents": [
             { "intent": "source", "response": "{rumor_source}. {time_ref}." }
           ]
@@ -222,13 +222,13 @@
           ]
         },
         {
-          "intro": "{treasure_rumor}.",
+          "intro": "{tone_opener} {treasure_rumor}. {tone_closer}",
           "intents": [
             { "intent": "reaction", "response": "{personal_reaction}." }
           ]
         },
         {
-          "intro": "{tone_opener} {treasure_rumor}.",
+          "intro": "{tone_opener} {treasure_rumor}. {tone_closer}",
           "intents": [
             { "intent": "source", "response": "{rumor_source}. {time_ref}." }
           ]
@@ -257,13 +257,13 @@
           ]
         },
         {
-          "intro": "{conflict_rumor}.",
+          "intro": "{tone_opener} {conflict_rumor}. {tone_closer}",
           "intents": [
             { "intent": "reaction", "response": "{personal_reaction}." }
           ]
         },
         {
-          "intro": "{tone_opener} {conflict_rumor}.",
+          "intro": "{tone_opener} {conflict_rumor}. {tone_closer}",
           "intents": [
             { "intent": "source", "response": "{rumor_source}. {time_ref}." }
           ]

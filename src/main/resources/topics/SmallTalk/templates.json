@@ -13,13 +13,13 @@
           ]
         },
         {
-          "intro": "{weather_observation}.",
+          "intro": "{tone_opener} {weather_observation}. {tone_closer}",
           "intents": [
             { "intent": "reaction", "response": "{personal_reaction}." }
           ]
         },
         {
-          "intro": "{tone_opener} {weather_observation}.",
+          "intro": "{tone_opener} {weather_observation}. {tone_closer}",
           "intents": [
             { "intent": "context", "response": "{location_detail}." }
           ]
@@ -48,13 +48,13 @@
           ]
         },
         {
-          "intro": "{trade_gossip}.",
+          "intro": "{tone_opener} {trade_gossip}. {tone_closer}",
           "intents": [
             { "intent": "reaction", "response": "{personal_reaction}." }
           ]
         },
         {
-          "intro": "{tone_opener} {trade_gossip}.",
+          "intro": "{tone_opener} {trade_gossip}. {tone_closer}",
           "intents": [
             { "intent": "context", "response": "{location_detail}." }
           ]
@@ -82,7 +82,7 @@
           ]
         },
         {
-          "intro": "{craft_observation}.",
+          "intro": "{tone_opener} {craft_observation}. {tone_closer}",
           "intents": [
             { "intent": "reaction", "response": "{personal_reaction}." }
           ]
@@ -117,7 +117,7 @@
           ]
         },
         {
-          "intro": "{community_observation}.",
+          "intro": "{tone_opener} {community_observation}. {tone_closer}",
           "intents": [
             { "intent": "reaction", "response": "{personal_reaction}." }
           ]
@@ -152,13 +152,13 @@
           ]
         },
         {
-          "intro": "{nature_observation}.",
+          "intro": "{tone_opener} {nature_observation}. {tone_closer}",
           "intents": [
             { "intent": "reaction", "response": "{personal_reaction}." }
           ]
         },
         {
-          "intro": "{tone_opener} {nature_observation}.",
+          "intro": "{tone_opener} {nature_observation}. {tone_closer}",
           "intents": [
             { "intent": "detail", "response": "{nature_detail}." },
             { "intent": "stakes", "response": "{danger_assessment}.", "deepenerResponse": "{local_opinion}." }
@@ -188,7 +188,7 @@
           ]
         },
         {
-          "intro": "{nostalgia_observation}.",
+          "intro": "{tone_opener} {nostalgia_observation}. {tone_closer}",
           "intents": [
             { "intent": "reaction", "response": "{personal_reaction}." }
           ]
@@ -223,13 +223,13 @@
           ]
         },
         {
-          "intro": "{curiosity_observation}.",
+          "intro": "{tone_opener} {curiosity_observation}. {tone_closer}",
           "intents": [
             { "intent": "reaction", "response": "{personal_reaction}." }
           ]
         },
         {
-          "intro": "{tone_opener} {curiosity_observation}.",
+          "intro": "{tone_opener} {curiosity_observation}. {tone_closer}",
           "intents": [
             { "intent": "detail", "response": "{curiosity_detail}." },
             { "intent": "stakes", "response": "{danger_assessment}.", "deepenerResponse": "{local_opinion}." }
@@ -259,7 +259,7 @@
           ]
         },
         {
-          "intro": "{festival_observation}.",
+          "intro": "{tone_opener} {festival_observation}. {tone_closer}",
           "intents": [
             { "intent": "reaction", "response": "{personal_reaction}." }
           ]
