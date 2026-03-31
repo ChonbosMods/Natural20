@@ -220,6 +220,10 @@ public class QuestGenerator {
         }
         bindings.put("quest_item", gatherItem.label());
         bindings.put("gather_item_id", gatherItem.id());
+        if (gatherItem.countMin() > 0 && gatherItem.countMax() > 0) {
+            bindings.put("gather_count_min", String.valueOf(gatherItem.countMin()));
+            bindings.put("gather_count_max", String.valueOf(gatherItem.countMax()));
+        }
 
         QuestPoolRegistry.ItemEntry enemyMob = poolRegistry.randomHostileMob(random);
         bindings.put("enemy_type", enemyMob.label());
@@ -445,10 +449,23 @@ public class QuestGenerator {
         String npcId = bindings.getOrDefault("quest_giver_name", "unknown");
 
         return switch (type) {
-            case COLLECT_RESOURCES -> new ObjectiveInstance(
-                type, bindings.get("gather_item_id"), bindings.get("quest_item"),
-                config.rollCount(random), null, null
-            );
+            case COLLECT_RESOURCES -> {
+                // Use per-item count range from pool if available, otherwise fall back to variant config
+                int count;
+                String minStr = bindings.get("gather_count_min");
+                String maxStr = bindings.get("gather_count_max");
+                if (minStr != null && maxStr != null) {
+                    int min = Integer.parseInt(minStr);
+                    int max = Integer.parseInt(maxStr);
+                    count = min + random.nextInt(max - min + 1);
+                } else {
+                    count = config.rollCount(random);
+                }
+                yield new ObjectiveInstance(
+                    type, bindings.get("gather_item_id"), bindings.get("quest_item"),
+                    count, null, null
+                );
+            }
             case KILL_MOBS -> {
                 if (poiAvailable) {
                     yield createPOIObjective(type, bindings, config, random);

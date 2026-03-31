@@ -25,7 +25,11 @@ public class QuestPoolRegistry {
     private static final String CLASSPATH_PREFIX = "quests/pools/";
 
     /** Entry with id + label + optional plural label for items/mobs. */
-    public record ItemEntry(String id, String label, String labelPlural) {}
+    public record ItemEntry(String id, String label, String labelPlural, int countMin, int countMax) {
+        public ItemEntry(String id, String label, String labelPlural) {
+            this(id, label, labelPlural, 0, 0);
+        }
+    }
 
     /** Entry with value + plural flag for narrative pools. */
     public record NarrativeEntry(String value, boolean plural, boolean proper) {}
@@ -239,8 +243,10 @@ public class QuestPoolRegistry {
             JsonObject obj = el.getAsJsonObject();
             String id = obj.get("id").getAsString();
             String label = obj.get("label").getAsString();
-            String labelPlural = obj.has("labelPlural") ? obj.get("labelPlural").getAsString() : label + "s";
-            target.add(new ItemEntry(id, label, labelPlural));
+            String labelPlural = obj.has("labelPlural") ? obj.get("labelPlural").getAsString() : label;
+            int countMin = obj.has("countMin") ? obj.get("countMin").getAsInt() : 0;
+            int countMax = obj.has("countMax") ? obj.get("countMax").getAsInt() : 0;
+            target.add(new ItemEntry(id, label, labelPlural, countMin, countMax));
         }
     }
 
