@@ -32,6 +32,20 @@
             "prompt": "I will look into the source.",
             "response": "{quest_accept_response}"
           }
+        },
+        {
+          "intro": "{quest_exposition}. You'll need to {quest_objective_summary}.",
+          "decisive": {
+            "prompt": "I can check the area.",
+            "response": "{quest_accept_response}"
+          }
+        },
+        {
+          "intro": "{quest_exposition}. You'll need to {quest_objective_summary}.",
+          "decisive": {
+            "prompt": "People should not have to live like this.",
+            "response": "{quest_accept_response}"
+          }
         }
       ]
     },
@@ -65,6 +79,20 @@
           "intro": "{quest_exposition}. You'll need to {quest_objective_summary}.",
           "decisive": {
             "prompt": "I will see what I can do about the route.",
+            "response": "{quest_accept_response}"
+          }
+        },
+        {
+          "intro": "{quest_exposition}. You'll need to {quest_objective_summary}.",
+          "decisive": {
+            "prompt": "I can look into the supply issue.",
+            "response": "{quest_accept_response}"
+          }
+        },
+        {
+          "intro": "{quest_exposition}. You'll need to {quest_objective_summary}.",
+          "decisive": {
+            "prompt": "These people depend on that trade.",
             "response": "{quest_accept_response}"
           }
         }
@@ -101,6 +129,20 @@
             "prompt": "I will sort out the supply for you.",
             "response": "{quest_accept_response}"
           }
+        },
+        {
+          "intro": "{quest_exposition}. You'll need to {quest_objective_summary}.",
+          "decisive": {
+            "prompt": "I can track down what you need.",
+            "response": "{quest_accept_response}"
+          }
+        },
+        {
+          "intro": "{quest_exposition}. You'll need to {quest_objective_summary}.",
+          "decisive": {
+            "prompt": "Good work should not be held back by shortages.",
+            "response": "{quest_accept_response}"
+          }
         }
       ]
     },
@@ -134,6 +176,20 @@
           "intro": "{quest_exposition}. You'll need to {quest_objective_summary}.",
           "decisive": {
             "prompt": "I will take care of it.",
+            "response": "{quest_accept_response}"
+          }
+        },
+        {
+          "intro": "{quest_exposition}. You'll need to {quest_objective_summary}.",
+          "decisive": {
+            "prompt": "I can speak to the people involved.",
+            "response": "{quest_accept_response}"
+          }
+        },
+        {
+          "intro": "{quest_exposition}. You'll need to {quest_objective_summary}.",
+          "decisive": {
+            "prompt": "This place deserves better.",
             "response": "{quest_accept_response}"
           }
         }
@@ -172,6 +228,20 @@
             "prompt": "I will go see for myself.",
             "response": "{quest_accept_response}"
           }
+        },
+        {
+          "intro": "{quest_exposition}. You'll need to {quest_objective_summary}.",
+          "decisive": {
+            "prompt": "I can scout the area.",
+            "response": "{quest_accept_response}"
+          }
+        },
+        {
+          "intro": "{quest_exposition}. You'll need to {quest_objective_summary}.",
+          "decisive": {
+            "prompt": "The wilds should not be this unsettled.",
+            "response": "{quest_accept_response}"
+          }
         }
       ]
     },
@@ -205,6 +275,20 @@
           "intro": "{quest_exposition}. You'll need to {quest_objective_summary}.",
           "decisive": {
             "prompt": "I will see what can be done.",
+            "response": "{quest_accept_response}"
+          }
+        },
+        {
+          "intro": "{quest_exposition}. You'll need to {quest_objective_summary}.",
+          "decisive": {
+            "prompt": "I can look into restoring things.",
+            "response": "{quest_accept_response}"
+          }
+        },
+        {
+          "intro": "{quest_exposition}. You'll need to {quest_objective_summary}.",
+          "decisive": {
+            "prompt": "Some things are worth holding onto.",
             "response": "{quest_accept_response}"
           }
         }
@@ -243,6 +327,20 @@
             "prompt": "I will look into it properly.",
             "response": "{quest_accept_response}"
           }
+        },
+        {
+          "intro": "{quest_exposition}. You'll need to {quest_objective_summary}.",
+          "decisive": {
+            "prompt": "I can investigate.",
+            "response": "{quest_accept_response}"
+          }
+        },
+        {
+          "intro": "{quest_exposition}. You'll need to {quest_objective_summary}.",
+          "decisive": {
+            "prompt": "Unanswered questions have a way of becoming problems.",
+            "response": "{quest_accept_response}"
+          }
         }
       ]
     },
@@ -276,6 +374,20 @@
           "intro": "{quest_exposition}. You'll need to {quest_objective_summary}.",
           "decisive": {
             "prompt": "I will make sure it goes ahead.",
+            "response": "{quest_accept_response}"
+          }
+        },
+        {
+          "intro": "{quest_exposition}. You'll need to {quest_objective_summary}.",
+          "decisive": {
+            "prompt": "I can help with the preparations.",
+            "response": "{quest_accept_response}"
+          }
+        },
+        {
+          "intro": "{quest_exposition}. You'll need to {quest_objective_summary}.",
+          "decisive": {
+            "prompt": "People need something to celebrate.",
             "response": "{quest_accept_response}"
           }
         }

@@ -32,6 +32,20 @@
             "prompt": "I will handle it.",
             "response": "{quest_accept_response}"
           }
+        },
+        {
+          "intro": "{quest_exposition}. You'll need to {quest_objective_summary}.",
+          "decisive": {
+            "prompt": "Point me in the right direction.",
+            "response": "{quest_accept_response}"
+          }
+        },
+        {
+          "intro": "{quest_exposition}. You'll need to {quest_objective_summary}.",
+          "decisive": {
+            "prompt": "No one else should have to face that.",
+            "response": "{quest_accept_response}"
+          }
         }
       ]
     },
@@ -65,6 +79,20 @@
           "intro": "{quest_exposition}. You'll need to {quest_objective_summary}.",
           "decisive": {
             "prompt": "I will investigate.",
+            "response": "{quest_accept_response}"
+          }
+        },
+        {
+          "intro": "{quest_exposition}. You'll need to {quest_objective_summary}.",
+          "decisive": {
+            "prompt": "I can take a look.",
+            "response": "{quest_accept_response}"
+          }
+        },
+        {
+          "intro": "{quest_exposition}. You'll need to {quest_objective_summary}.",
+          "decisive": {
+            "prompt": "If it is out there, I will find it.",
             "response": "{quest_accept_response}"
           }
         }
@@ -103,6 +131,20 @@
             "prompt": "I will track it to the source.",
             "response": "{quest_accept_response}"
           }
+        },
+        {
+          "intro": "{quest_exposition}. You'll need to {quest_objective_summary}.",
+          "decisive": {
+            "prompt": "I can follow the trail.",
+            "response": "{quest_accept_response}"
+          }
+        },
+        {
+          "intro": "{quest_exposition}. You'll need to {quest_objective_summary}.",
+          "decisive": {
+            "prompt": "Whatever drove them here, I will find out.",
+            "response": "{quest_accept_response}"
+          }
         }
       ]
     },
@@ -139,6 +181,20 @@
             "prompt": "I will find them.",
             "response": "{quest_accept_response}"
           }
+        },
+        {
+          "intro": "{quest_exposition}. You'll need to {quest_objective_summary}.",
+          "decisive": {
+            "prompt": "I can start looking.",
+            "response": "{quest_accept_response}"
+          }
+        },
+        {
+          "intro": "{quest_exposition}. You'll need to {quest_objective_summary}.",
+          "decisive": {
+            "prompt": "They deserve someone searching for them.",
+            "response": "{quest_accept_response}"
+          }
         }
       ]
     },
@@ -172,6 +228,20 @@
           "intro": "{quest_exposition}. You'll need to {quest_objective_summary}.",
           "decisive": {
             "prompt": "I will put a stop to it.",
+            "response": "{quest_accept_response}"
+          }
+        },
+        {
+          "intro": "{quest_exposition}. You'll need to {quest_objective_summary}.",
+          "decisive": {
+            "prompt": "Show me where it started.",
+            "response": "{quest_accept_response}"
+          }
+        },
+        {
+          "intro": "{quest_exposition}. You'll need to {quest_objective_summary}.",
+          "decisive": {
+            "prompt": "This cannot be allowed to spread.",
             "response": "{quest_accept_response}"
           }
         }
@@ -210,6 +280,20 @@
             "prompt": "Tell me what needs doing.",
             "response": "{quest_accept_response}"
           }
+        },
+        {
+          "intro": "{quest_exposition}. You'll need to {quest_objective_summary}.",
+          "decisive": {
+            "prompt": "I can look into the signs.",
+            "response": "{quest_accept_response}"
+          }
+        },
+        {
+          "intro": "{quest_exposition}. You'll need to {quest_objective_summary}.",
+          "decisive": {
+            "prompt": "If something is coming, I want to be ready.",
+            "response": "{quest_accept_response}"
+          }
         }
       ]
     },
@@ -246,6 +330,20 @@
             "prompt": "I will go after it.",
             "response": "{quest_accept_response}"
           }
+        },
+        {
+          "intro": "{quest_exposition}. You'll need to {quest_objective_summary}.",
+          "decisive": {
+            "prompt": "I can check the location.",
+            "response": "{quest_accept_response}"
+          }
+        },
+        {
+          "intro": "{quest_exposition}. You'll need to {quest_objective_summary}.",
+          "decisive": {
+            "prompt": "It should not fall into the wrong hands.",
+            "response": "{quest_accept_response}"
+          }
         }
       ]
     },
@@ -280,6 +378,20 @@
           "intro": "{quest_exposition}. You'll need to {quest_objective_summary}.",
           "decisive": {
             "prompt": "I will step in before it is too late.",
+            "response": "{quest_accept_response}"
+          }
+        },
+        {
+          "intro": "{quest_exposition}. You'll need to {quest_objective_summary}.",
+          "decisive": {
+            "prompt": "I can mediate.",
+            "response": "{quest_accept_response}"
+          }
+        },
+        {
+          "intro": "{quest_exposition}. You'll need to {quest_objective_summary}.",
+          "decisive": {
+            "prompt": "People are going to get hurt if this continues.",
             "response": "{quest_accept_response}"
           }
         }
