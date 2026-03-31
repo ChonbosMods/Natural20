@@ -25,9 +25,9 @@ public class QuestPoolRegistry {
     private static final String CLASSPATH_PREFIX = "quests/pools/";
 
     /** Entry with id + label + optional plural label for items/mobs. */
-    public record ItemEntry(String id, String label, String labelPlural, int countMin, int countMax) {
+    public record ItemEntry(String id, String label, String labelPlural, String category, int countMin, int countMax) {
         public ItemEntry(String id, String label, String labelPlural) {
-            this(id, label, labelPlural, 0, 0);
+            this(id, label, labelPlural, null, 0, 0);
         }
     }
 
@@ -63,6 +63,7 @@ public class QuestPoolRegistry {
     private final Map<String, List<String>> targetNpcInfoResponses = new HashMap<>();
     private final Map<String, List<String>> targetNpcHandoffResponses = new HashMap<>();
     private final Map<String, List<String>> sendToNpcResponses = new HashMap<>();
+    private final Map<String, List<String>> collectExpoByCategory = new HashMap<>();
     private final Map<String, String> situationTones = new HashMap<>();
 
     public void loadAll(@Nullable Path poolsDir) {
@@ -86,6 +87,12 @@ public class QuestPoolRegistry {
         loadStringPoolFromClasspath(CLASSPATH_PREFIX + "peaceful_fetch_return.json", peacefulFetchReturn);
         loadStringPoolFromClasspath(CLASSPATH_PREFIX + "peaceful_fetch_borrowing.json", peacefulFetchBorrowing);
         loadStringPoolFromClasspath(CLASSPATH_PREFIX + "peaceful_fetch_misplacement.json", peacefulFetchMisplacement);
+
+        for (String cat : List.of("farming", "hunting", "mining", "cooking", "woodcraft", "smithing", "textiles", "fishing")) {
+            List<String> pool = new ArrayList<>();
+            loadStringPoolFromClasspath(CLASSPATH_PREFIX + "collect_expo_" + cat + ".json", pool);
+            if (!pool.isEmpty()) collectExpoByCategory.put(cat, pool);
+        }
 
         loadTonedResponsesFromClasspath(CLASSPATH_PREFIX + "responses_accept.json", acceptResponses);
         loadTonedResponsesFromClasspath(CLASSPATH_PREFIX + "responses_decline.json", declineResponses);
@@ -119,6 +126,11 @@ public class QuestPoolRegistry {
             loadStringPool(poolsDir.resolve("peaceful_fetch_return.json"), peacefulFetchReturn);
             loadStringPool(poolsDir.resolve("peaceful_fetch_borrowing.json"), peacefulFetchBorrowing);
             loadStringPool(poolsDir.resolve("peaceful_fetch_misplacement.json"), peacefulFetchMisplacement);
+
+            for (String cat : List.of("farming", "hunting", "mining", "cooking", "woodcraft", "smithing", "textiles", "fishing")) {
+                List<String> pool = collectExpoByCategory.computeIfAbsent(cat, k -> new ArrayList<>());
+                loadStringPool(poolsDir.resolve("collect_expo_" + cat + ".json"), pool);
+            }
 
             loadTonedResponses(poolsDir.resolve("responses_accept.json"), acceptResponses);
             loadTonedResponses(poolsDir.resolve("responses_decline.json"), declineResponses);
@@ -244,9 +256,10 @@ public class QuestPoolRegistry {
             String id = obj.get("id").getAsString();
             String label = obj.get("label").getAsString();
             String labelPlural = obj.has("labelPlural") ? obj.get("labelPlural").getAsString() : label;
+            String category = obj.has("category") ? obj.get("category").getAsString() : null;
             int countMin = obj.has("countMin") ? obj.get("countMin").getAsInt() : 0;
             int countMax = obj.has("countMax") ? obj.get("countMax").getAsInt() : 0;
-            target.add(new ItemEntry(id, label, labelPlural, countMin, countMax));
+            target.add(new ItemEntry(id, label, labelPlural, category, countMin, countMax));
         }
     }
 
@@ -407,6 +420,18 @@ public class QuestPoolRegistry {
         if (available.isEmpty()) return "Someone has something that isn't theirs";
         List<String> lane = available.get(random.nextInt(available.size()));
         return lane.get(random.nextInt(lane.size()));
+    }
+
+    /**
+     * Draw a collect resource exposition line for the given resource category.
+     * Falls back to a generic line if no category-specific pool exists.
+     */
+    public String randomCollectExposition(String category, Random random) {
+        List<String> pool = collectExpoByCategory.get(category);
+        if (pool != null && !pool.isEmpty()) {
+            return pool.get(random.nextInt(pool.size()));
+        }
+        return "The settlement needs supplies and cannot wait for the usual sources";
     }
 
     public String getToneForSituation(String situationId) {

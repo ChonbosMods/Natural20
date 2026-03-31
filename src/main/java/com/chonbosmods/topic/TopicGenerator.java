@@ -455,10 +455,13 @@ public class TopicGenerator {
                 if (qb.containsKey(key)) bindings.put(key, qb.get(key));
             }
 
-            // Draw exposition from pools: peaceful fetch uses dedicated pools, everything else uses rumor details
+            // Draw exposition from pools: peaceful fetch uses dedicated pools,
+            // COLLECT_RESOURCES uses category-specific pools, everything else uses rumor details
             String rawExposition;
             if ("peaceful".equals(qb.get("fetch_variant"))) {
                 rawExposition = questPool.randomPeacefulFetchExposition(random);
+            } else if (qb.containsKey("gather_category")) {
+                rawExposition = questPool.randomCollectExposition(qb.get("gather_category"), random);
             } else {
                 rawExposition = topicPool.randomRumorDetail(random);
             }

@@ -220,6 +220,9 @@ public class QuestGenerator {
         }
         bindings.put("quest_item", gatherItem.label());
         bindings.put("gather_item_id", gatherItem.id());
+        if (gatherItem.category() != null) {
+            bindings.put("gather_category", gatherItem.category());
+        }
         if (gatherItem.countMin() > 0 && gatherItem.countMax() > 0) {
             bindings.put("gather_count_min", String.valueOf(gatherItem.countMin()));
             bindings.put("gather_count_max", String.valueOf(gatherItem.countMax()));
