@@ -20,8 +20,8 @@
         {
           "intro": "{tone_opener} {creature_sighting}. {tone_closer}",
           "intents": [
-            { "intent": "detail", "response": "{creature_detail}.", "deepenerResponse": "{local_opinion}." },
-            { "intent": "source", "response": "{rumor_source}. {time_ref}." }
+            { "intent": "source", "response": "{rumor_source}. {time_ref}." },
+            { "intent": "detail", "response": "{creature_detail}.", "deepenerResponse": "{local_opinion}." }
           ]
         }
       ],
@@ -49,13 +49,14 @@
         {
           "intro": "{tone_opener} {creature_sighting}. {tone_closer}",
           "intents": [
-            { "intent": "reaction", "response": "{personal_reaction}." }
+            { "intent": "source", "response": "{rumor_source}. {time_ref}." }
           ]
         },
         {
           "intro": "{tone_opener} {creature_sighting}. {tone_closer}",
           "intents": [
-            { "intent": "source", "response": "{rumor_source}. {time_ref}." }
+            { "intent": "reaction", "response": "{personal_reaction}." },
+            { "intent": "detail", "response": "{creature_detail}.", "deepenerResponse": "{local_opinion}." }
           ]
         }
       ],
@@ -78,7 +79,7 @@
         {
           "intro": "{tone_opener} {creature_sighting}. {tone_closer}",
           "intents": [
-            { "intent": "detail", "response": "{creature_detail}." }
+            { "intent": "source", "response": "{rumor_source}. {time_ref}." }
           ]
         },
         {
@@ -90,7 +91,8 @@
         {
           "intro": "{tone_opener} {creature_sighting}. {tone_closer}",
           "intents": [
-            { "intent": "source", "response": "{rumor_source}. {time_ref}." }
+            { "intent": "detail", "response": "{creature_detail}." },
+            { "intent": "source", "response": "{rumor_source}. {time_ref}.", "deepenerResponse": "{local_opinion}." }
           ]
         }
       ],
@@ -125,8 +127,8 @@
         {
           "intro": "{tone_opener} {strange_event}. {tone_closer}",
           "intents": [
-            { "intent": "detail", "response": "{event_detail}.", "deepenerResponse": "{local_opinion}." },
-            { "intent": "source", "response": "{rumor_source}. {time_ref}." }
+            { "intent": "source", "response": "{rumor_source}. {time_ref}." },
+            { "intent": "detail", "response": "{event_detail}.", "deepenerResponse": "{local_opinion}." }
           ]
         }
       ],
@@ -148,19 +150,20 @@
         {
           "intro": "{tone_opener} {strange_event}. {tone_closer}",
           "intents": [
-            { "intent": "detail", "response": "{event_detail}." }
-          ]
-        },
-        {
-          "intro": "{tone_opener} {strange_event}. {tone_closer}",
-          "intents": [
             { "intent": "reaction", "response": "{personal_reaction}." }
           ]
         },
         {
           "intro": "{tone_opener} {strange_event}. {tone_closer}",
           "intents": [
-            { "intent": "source", "response": "{rumor_source}. {time_ref}." }
+            { "intent": "detail", "response": "{event_detail}." }
+          ]
+        },
+        {
+          "intro": "{tone_opener} {strange_event}. {tone_closer}",
+          "intents": [
+            { "intent": "source", "response": "{rumor_source}. {time_ref}." },
+            { "intent": "detail", "response": "{event_detail}.", "deepenerResponse": "{local_opinion}." }
           ]
         }
       ],
@@ -189,13 +192,14 @@
         {
           "intro": "{tone_opener} {strange_event}. {tone_closer}",
           "intents": [
-            { "intent": "reaction", "response": "{personal_reaction}." }
+            { "intent": "source", "response": "{rumor_source}. {time_ref}." }
           ]
         },
         {
           "intro": "{tone_opener} {strange_event}. {tone_closer}",
           "intents": [
-            { "intent": "source", "response": "{rumor_source}. {time_ref}." }
+            { "intent": "reaction", "response": "{personal_reaction}." },
+            { "intent": "detail", "response": "{event_detail}.", "deepenerResponse": "{local_opinion}." }
           ]
         }
       ],
@@ -218,7 +222,7 @@
         {
           "intro": "{tone_opener} {treasure_rumor}. {tone_closer}",
           "intents": [
-            { "intent": "detail", "response": "{treasure_detail}." }
+            { "intent": "source", "response": "{rumor_source}. {time_ref}." }
           ]
         },
         {
@@ -230,7 +234,8 @@
         {
           "intro": "{tone_opener} {treasure_rumor}. {tone_closer}",
           "intents": [
-            { "intent": "source", "response": "{rumor_source}. {time_ref}." }
+            { "intent": "detail", "response": "{treasure_detail}." },
+            { "intent": "source", "response": "{rumor_source}. {time_ref}.", "deepenerResponse": "{local_opinion}." }
           ]
         }
       ],
@@ -253,12 +258,6 @@
         {
           "intro": "{tone_opener} {conflict_rumor}. {tone_closer}",
           "intents": [
-            { "intent": "detail", "response": "{conflict_detail}." }
-          ]
-        },
-        {
-          "intro": "{tone_opener} {conflict_rumor}. {tone_closer}",
-          "intents": [
             { "intent": "reaction", "response": "{personal_reaction}." }
           ]
         },
@@ -266,6 +265,13 @@
           "intro": "{tone_opener} {conflict_rumor}. {tone_closer}",
           "intents": [
             { "intent": "source", "response": "{rumor_source}. {time_ref}." }
+          ]
+        },
+        {
+          "intro": "{tone_opener} {conflict_rumor}. {tone_closer}",
+          "intents": [
+            { "intent": "detail", "response": "{conflict_detail}." },
+            { "intent": "reaction", "response": "{personal_reaction}.", "deepenerResponse": "{local_opinion}." }
           ]
         }
       ],
