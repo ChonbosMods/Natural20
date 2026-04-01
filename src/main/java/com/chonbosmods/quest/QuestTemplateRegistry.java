@@ -257,6 +257,25 @@ public class QuestTemplateRegistry {
         return situations.get(situationId);
     }
 
+    /**
+     * Look up a specific variant by situation, phase type, and variant ID.
+     */
+    public @Nullable QuestVariant getVariant(String situationId, PhaseType phaseType, String variantId) {
+        QuestSituation situation = situations.get(situationId);
+        if (situation == null) return null;
+
+        List<QuestVariant> pool = switch (phaseType) {
+            case EXPOSITION -> situation.getExpositionVariants();
+            case CONFLICT -> situation.getConflictVariants();
+            case RESOLUTION -> situation.getResolutionVariants();
+        };
+
+        for (QuestVariant v : pool) {
+            if (variantId.equals(v.id())) return v;
+        }
+        return null;
+    }
+
     public Collection<QuestSituation> getAll() {
         return situations.values();
     }

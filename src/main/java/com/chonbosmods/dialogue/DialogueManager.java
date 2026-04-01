@@ -9,8 +9,10 @@ import com.chonbosmods.quest.ObjectiveInstance;
 import com.chonbosmods.quest.PhaseInstance;
 import com.chonbosmods.quest.ObjectiveType;
 import com.chonbosmods.quest.PhaseType;
+import com.chonbosmods.quest.DialogueResolver;
 import com.chonbosmods.quest.QuestInstance;
 import com.chonbosmods.quest.QuestSystem;
+import com.chonbosmods.quest.QuestTemplateRegistry;
 import com.google.gson.JsonParser;
 import com.hypixel.hytale.component.Ref;
 import com.hypixel.hytale.component.Store;
@@ -285,6 +287,22 @@ public class DialogueManager {
         if (nextIndex >= quest.getPhases().size()) return "We'll see what comes next.";
 
         PhaseInstance nextPhase = quest.getPhases().get(nextIndex);
+
+        // Try to load the next variant's intro for narrative continuity
+        QuestSystem questSystem = Natural20.getInstance().getQuestSystem();
+        if (questSystem != null && nextPhase.getVariantId() != null) {
+            QuestTemplateRegistry templateRegistry = questSystem.getTemplateRegistry();
+            var nextVariant = templateRegistry.getVariant(
+                quest.getSituationId(), nextPhase.getType(), nextPhase.getVariantId());
+            if (nextVariant != null && nextVariant.dialogueChunks() != null
+                    && nextVariant.dialogueChunks().intro() != null
+                    && !nextVariant.dialogueChunks().intro().isBlank()) {
+                return DialogueResolver.resolve(
+                    nextVariant.dialogueChunks().intro(), quest.getVariableBindings());
+            }
+        }
+
+        // Fallback to hardcoded objective-type text
         if (nextPhase.getObjectives().isEmpty()) return "There's still work ahead.";
 
         ObjectiveInstance obj = nextPhase.getObjectives().getFirst();
