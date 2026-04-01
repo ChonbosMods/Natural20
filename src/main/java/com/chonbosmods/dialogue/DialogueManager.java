@@ -11,7 +11,6 @@ import com.chonbosmods.quest.ObjectiveType;
 import com.chonbosmods.quest.PhaseType;
 import com.chonbosmods.quest.QuestInstance;
 import com.chonbosmods.quest.QuestSystem;
-import com.chonbosmods.topic.TopicPoolRegistry;
 import com.google.gson.JsonParser;
 import com.hypixel.hytale.component.Ref;
 import com.hypixel.hytale.component.Store;
@@ -31,20 +30,11 @@ public class DialogueManager {
     private final DialogueActionRegistry actionRegistry;
     private final ConditionEvaluator conditionEvaluator;
     private final Map<UUID, ConversationSession> activeSessions = new ConcurrentHashMap<>();
-    private TopicPoolRegistry topicPoolRegistry;
 
     public DialogueManager(DialogueLoader dialogueLoader, DialogueActionRegistry actionRegistry) {
         this.dialogueLoader = dialogueLoader;
         this.actionRegistry = actionRegistry;
         this.conditionEvaluator = new ConditionEvaluator();
-    }
-
-    /**
-     * Set the topic pool registry for deferred deepener resolution.
-     * Must be called after the quest system is initialized.
-     */
-    public void setTopicPoolRegistry(TopicPoolRegistry topicPoolRegistry) {
-        this.topicPoolRegistry = topicPoolRegistry;
     }
 
     public void startSession(Ref<EntityStore> playerRef, Ref<EntityStore> npcRef, Store<EntityStore> store, Runnable onNpcRelease) {
@@ -102,17 +92,11 @@ public class DialogueManager {
         PageDialoguePresenter presenter = new PageDialoguePresenter(
                 player, player.getPlayerRef(), playerRef, store, this, displayName);
 
-        // Create per-session deferred deepener resolver (non-deterministic Random per session)
-        DeferredDeepenerResolver deepenerResolver = topicPoolRegistry != null
-                ? new DeferredDeepenerResolver(topicPoolRegistry)
-                : new DeferredDeepenerResolver(new TopicPoolRegistry());
-
         // Create session
         ConversationSession session = new ConversationSession(
                 player, playerRef, npcRef,
                 store, graph, playerData, npcData,
                 actionRegistry, conditionEvaluator,
-                deepenerResolver,
                 presenter, onSessionEnd, onNpcRelease);
 
         activeSessions.put(playerUuid, session);

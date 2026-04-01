@@ -50,9 +50,6 @@ public class ConversationSession {
     private String activeTopicId;
     private boolean ended;
 
-    // Deferred deepener resolution
-    private final DeferredDeepenerResolver deepenerResolver;
-
     // Callbacks
     private final DialoguePresenter presenter;
     private final Runnable onSessionEnd;
@@ -68,7 +65,6 @@ public class ConversationSession {
             Nat20NpcData npcData,
             DialogueActionRegistry actionRegistry,
             ConditionEvaluator conditionEvaluator,
-            DeferredDeepenerResolver deepenerResolver,
             DialoguePresenter presenter,
             Runnable onSessionEnd,
             Runnable onNpcRelease
@@ -84,7 +80,6 @@ public class ConversationSession {
         this.npcData = npcData;
         this.actionRegistry = actionRegistry;
         this.conditionEvaluator = conditionEvaluator;
-        this.deepenerResolver = deepenerResolver;
         this.presenter = presenter;
         this.onSessionEnd = onSessionEnd;
         this.onNpcRelease = onNpcRelease;
@@ -184,7 +179,7 @@ public class ConversationSession {
                         : (entryNode instanceof DialogueNode.DialogueTextNode tn ? tn.speakerText() : null);
                 }
                 if (text != null) {
-                    text = deepenerResolver.resolve(text);
+
                     conversationLog.add(new LogEntry.TopicHeader(topic.label(), topic.questTopic()));
                     conversationLog.add(new LogEntry.NpcSpeech(text));
                 }
@@ -211,7 +206,7 @@ public class ConversationSession {
                         : (entryNode instanceof DialogueNode.DialogueTextNode tn ? tn.speakerText() : null);
                 }
                 if (text != null) {
-                    text = deepenerResolver.resolve(text);
+
                     conversationLog.add(new LogEntry.TopicHeader(topic.label(), topic.questTopic()));
                     conversationLog.add(new LogEntry.NpcSpeech(text));
                 }
@@ -296,8 +291,7 @@ public class ConversationSession {
                     displayText = textNode.reactionPool().get(
                         new java.util.Random().nextInt(textNode.reactionPool().size()));
                 } else {
-                    // V1/normal: use speakerText with deferred deepener resolution
-                    displayText = deepenerResolver.resolve(textNode.speakerText());
+                    displayText = textNode.speakerText();
                 }
                 conversationLog.add(new LogEntry.NpcSpeech(displayText));
                 filterAndDisplayResponses(textNode);
