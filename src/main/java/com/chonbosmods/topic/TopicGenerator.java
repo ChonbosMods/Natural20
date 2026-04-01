@@ -132,7 +132,7 @@ public class TopicGenerator {
                 usedSubjectValues.add(entry.value());
                 String subjectId = "subj_" + (subjectBase + i) + "_" + sanitize(entry.value());
                 SubjectFocus focus = new SubjectFocus(subjectId, entry.value(), entry.plural(), entry.proper(),
-                    entry.questEligible(), entry.concrete(), TopicCategory.RUMORS, entry.categories(),
+                    entry.questEligible(), entry.concrete(), entry.categories(),
                     entry.poiType(), entry.questAffinities());
                 npcTopics.add(focus);
                 allSubjects.add(focus);
@@ -144,7 +144,7 @@ public class TopicGenerator {
                 usedSubjectValues.add(entry.value());
                 String subjectId = "subj_" + (subjectBase + rumorCount + i) + "_" + sanitize(entry.value());
                 SubjectFocus focus = new SubjectFocus(subjectId, entry.value(), entry.plural(), entry.proper(),
-                    entry.questEligible(), entry.concrete(), TopicCategory.SMALLTALK, entry.categories(),
+                    entry.questEligible(), entry.concrete(), entry.categories(),
                     entry.poiType(), entry.questAffinities());
                 npcTopics.add(focus);
                 allSubjects.add(focus);
@@ -191,7 +191,7 @@ public class TopicGenerator {
                 TopicPoolRegistry.SubjectEntry eligible = topicPool.randomQuestEligibleSubject(random);
                 String newId = "subj_" + qi + "_" + sanitize(eligible.value());
                 SubjectFocus replacement = new SubjectFocus(newId, eligible.value(), eligible.plural(),
-                    eligible.proper(), eligible.questEligible(), eligible.concrete(), focus.getCategory(),
+                    eligible.proper(), eligible.questEligible(), eligible.concrete(),
                     eligible.categories(), eligible.poiType(), eligible.questAffinities());
                 allSubjects.set(qi, replacement);
                 // Update the NPC's subject list too
@@ -287,7 +287,7 @@ public class TopicGenerator {
             for (SubjectFocus focus : npcEntry.getValue()) {
                 String questTag = focus.hasQuest() ? " [QUEST]" : "";
                 LOGGER.atFine().log("  %s: '%s' (%s)%s",
-                    npcEntry.getKey(), focus.getSubjectValue(), focus.getCategory(), questTag);
+                    npcEntry.getKey(), focus.getSubjectValue(), focus.getCategories(), questTag);
             }
         }
 
@@ -300,7 +300,7 @@ public class TopicGenerator {
     private TopicGraphBuilder.TopicAssignment buildAssignment(SubjectFocus focus, String npcName, Random random,
                                                                Map<String, LinkedList<String>> poolWindows) {
         TopicTemplate template = templateRegistry.randomTemplateForSubject(
-            focus.getCategory(), focus.getCategories(), focus.isConcrete(), random);
+            focus.getCategories(), focus.isConcrete(), random);
         boolean isQuestBearer = focus.hasQuest();
 
         // Pick perspective: quest hook for quest bearer, normal for others
@@ -329,7 +329,7 @@ public class TopicGenerator {
             true,
             isQuestBearer,
             template.skillCheckDef(),
-            focus.getCategory()
+            null, null, null
         );
     }
 
@@ -414,29 +414,27 @@ public class TopicGenerator {
         bindings.put("conflict_detail", drawWithWindow("conflict_detail", poolWindows, WINDOW_L1, () -> topicPool.randomConflictDetail(random)));
 
         // Fragment pool bindings: Layer 2 (window=2)
-        // Reaction bracket: rumors + nature + curiosity = intense, all other smalltalk = mild
-        String reactionBracket = (focus.getCategory() == TopicCategory.RUMORS
-            || "smalltalk_nature".equals(templateId)
-            || "smalltalk_curiosity".equals(templateId)) ? "intense" : "mild";
+        // Reaction bracket: rumor templates + nature + curiosity = intense, all other = mild
+        String reactionBracket = (templateId.startsWith("rumor_")
+            || "nature".equals(templateId) || "smalltalk_nature".equals(templateId)
+            || "curiosity".equals(templateId) || "smalltalk_curiosity".equals(templateId))
+            ? "intense" : "mild";
         bindings.put("_reaction_bracket", reactionBracket);
         bindings.put("local_opinion", drawWithWindow("local_opinion", poolWindows, WINDOW_L2, () -> topicPool.randomLocalOpinion(reactionBracket, random)));
         bindings.put("personal_reaction", drawWithWindow("personal_reaction", poolWindows, WINDOW_L2, () -> topicPool.randomPersonalReaction(reactionBracket, random)));
         bindings.put("danger_assessment", drawWithWindow("danger_assessment", poolWindows, WINDOW_L2, () -> topicPool.randomDangerAssessment(random)));
 
         // Category-specific pool bindings (pre-resolve so nested {subject_focus} etc. are substituted)
-        // Drop-in window size for rumor_source, rumor_detail, perspective_detail, smalltalk_opener
-        if (focus.getCategory() == TopicCategory.RUMORS) {
-            bindings.put("rumor_detail", DialogueResolver.resolve(
-                drawWithWindow("rumor_detail", poolWindows, WINDOW_DROPIN, () -> topicPool.randomRumorDetail(random)), bindings));
-            bindings.put("rumor_source", DialogueResolver.resolve(
-                drawWithWindow("rumor_source", poolWindows, WINDOW_DROPIN, () -> topicPool.randomRumorSource(random)), bindings));
-        }
+        // During transition, all old bindings are drawn unconditionally so both rumor and
+        // smalltalk templates can resolve their variables regardless of category.
+        bindings.put("rumor_detail", DialogueResolver.resolve(
+            drawWithWindow("rumor_detail", poolWindows, WINDOW_DROPIN, () -> topicPool.randomRumorDetail(random)), bindings));
+        bindings.put("rumor_source", DialogueResolver.resolve(
+            drawWithWindow("rumor_source", poolWindows, WINDOW_DROPIN, () -> topicPool.randomRumorSource(random)), bindings));
         bindings.put("perspective_detail", DialogueResolver.resolve(
             drawWithWindow("perspective_detail", poolWindows, WINDOW_DROPIN, () -> topicPool.randomPerspectiveDetail(random)), bindings));
-        if (focus.getCategory() == TopicCategory.SMALLTALK) {
-            bindings.put("smalltalk_opener", DialogueResolver.resolve(
-                drawWithWindow("smalltalk_opener", poolWindows, WINDOW_DROPIN, () -> topicPool.randomSmalltalkOpener(random)), bindings));
-        }
+        bindings.put("smalltalk_opener", DialogueResolver.resolve(
+            drawWithWindow("smalltalk_opener", poolWindows, WINDOW_DROPIN, () -> topicPool.randomSmalltalkOpener(random)), bindings));
 
         // Quest bindings for quest bearers: use actual quest instance bindings
         if (isQuestBearer && focus.hasQuest() && focus.getQuestBindings() != null) {

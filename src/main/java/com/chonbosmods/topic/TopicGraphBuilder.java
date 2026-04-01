@@ -18,12 +18,15 @@ public class TopicGraphBuilder {
     public record TopicAssignment(
         String subjectId,
         String labelPattern,
-        TopicTemplate.Perspective perspective,
+        @Nullable TopicTemplate.Perspective perspective,
         Map<String, String> bindings,
         boolean startVisible,
         boolean hasQuest,
         @Nullable TopicTemplate.SkillCheckDef skillCheckDef,
-        TopicCategory category
+        // v2 fields
+        @Nullable Skill skill,
+        @Nullable TopicTemplate template,
+        @Nullable PoolEntry entry
     ) {}
 
     private static final double STAT_CHECK_CHANCE = 0.25;
@@ -407,7 +410,6 @@ public class TopicGraphBuilder {
         TopicTemplate.SkillCheckDef def = assignment.skillCheckDef();
         Skill skill = def.skill();
         Stat stat = skill.getAssociatedStat();
-        TopicCategory category = assignment.category();
 
         // Pick which top-level branch gets the skill check
         int branchCount = perspective.exploratories().size();
@@ -423,13 +425,14 @@ public class TopicGraphBuilder {
         int baseDC = STAT_CHECK_DC_MIN + random.nextInt(STAT_CHECK_DC_MAX - STAT_CHECK_DC_MIN + 1);
         baseDC = Math.max(1, baseDC + skill.getDcOffset());
 
-        // Generate text from pools, resolved against bindings
+        // Generate text from pools, resolved against bindings.
+        // Use RUMORS pool as fallback: rumor and smalltalk share the same stat check content.
         String promptText = DialogueResolver.resolve(
-            topicPool.randomStatCheckPrompt(category, skill, random), bindings);
+            topicPool.randomStatCheckPrompt(TopicCategory.RUMORS, skill, random), bindings);
         String passText = DialogueResolver.resolve(
-            topicPool.randomStatCheckPass(category, skill, random), bindings);
+            topicPool.randomStatCheckPass(TopicCategory.RUMORS, skill, random), bindings);
         String failText = DialogueResolver.resolve(
-            topicPool.randomStatCheckFail(category, skill, random), bindings);
+            topicPool.randomStatCheckFail(TopicCategory.RUMORS, skill, random), bindings);
 
         // Node IDs
         String checkNodeId = subjectId + "_skill_check";
@@ -493,7 +496,6 @@ public class TopicGraphBuilder {
         TopicTemplate.SkillCheckDef def = assignment.skillCheckDef();
         Skill skill = def.skill();
         Stat stat = skill.getAssociatedStat();
-        TopicCategory category = assignment.category();
 
         DialogueNode existing = nodes.get(parentNodeId);
         if (!(existing instanceof DialogueNode.DialogueTextNode parentNode)) return;
@@ -501,12 +503,13 @@ public class TopicGraphBuilder {
         int baseDC = STAT_CHECK_DC_MIN + random.nextInt(STAT_CHECK_DC_MAX - STAT_CHECK_DC_MIN + 1);
         baseDC = Math.max(1, baseDC + skill.getDcOffset());
 
+        // Use RUMORS pool as fallback: rumor and smalltalk share the same stat check content.
         String promptText = DialogueResolver.resolve(
-            topicPool.randomStatCheckPrompt(category, skill, random), bindings);
+            topicPool.randomStatCheckPrompt(TopicCategory.RUMORS, skill, random), bindings);
         String passText = DialogueResolver.resolve(
-            topicPool.randomStatCheckPass(category, skill, random), bindings);
+            topicPool.randomStatCheckPass(TopicCategory.RUMORS, skill, random), bindings);
         String failText = DialogueResolver.resolve(
-            topicPool.randomStatCheckFail(category, skill, random), bindings);
+            topicPool.randomStatCheckFail(TopicCategory.RUMORS, skill, random), bindings);
 
         String checkNodeId = subjectId + "_skill_check";
         String passNodeId = subjectId + "_skill_pass";

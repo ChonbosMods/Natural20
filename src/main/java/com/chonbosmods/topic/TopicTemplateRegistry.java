@@ -180,16 +180,26 @@ public class TopicTemplateRegistry {
 
     /**
      * Select a template whose topic matches one of the subject's categories.
+     * Searches across all template lists (rumors, smalltalk, unified).
      * Falls back to unfiltered random if no matching template is found.
      */
-    public TopicTemplate randomTemplateForSubject(TopicCategory category, List<String> subjectCategories,
+    public TopicTemplate randomTemplateForSubject(List<String> subjectCategories,
                                                     boolean subjectConcrete, Random random) {
-        if (subjectCategories.isEmpty()) return randomTemplate(category, random);
-        List<TopicTemplate> pool = category == TopicCategory.RUMORS ? rumorTemplates : smallTalkTemplates;
-        List<TopicTemplate> matching = pool.stream()
+        // Build a combined pool from all template sources
+        List<TopicTemplate> allTemplates = new ArrayList<>(rumorTemplates.size() + smallTalkTemplates.size() + unifiedTemplates.size());
+        allTemplates.addAll(rumorTemplates);
+        allTemplates.addAll(smallTalkTemplates);
+        allTemplates.addAll(unifiedTemplates);
+
+        if (subjectCategories.isEmpty()) {
+            if (allTemplates.isEmpty()) return FALLBACK_TEMPLATE;
+            return allTemplates.get(random.nextInt(allTemplates.size()));
+        }
+
+        List<TopicTemplate> matching = allTemplates.stream()
             .filter(t -> {
                 String topic = t.id().contains("_") ? t.id().substring(t.id().indexOf('_') + 1) : t.id();
-                return subjectCategories.contains(topic);
+                return subjectCategories.contains(topic) || subjectCategories.contains(t.id());
             })
             .toList();
         if (!subjectConcrete) {
@@ -198,10 +208,10 @@ public class TopicTemplateRegistry {
                 .toList();
         }
         if (matching.isEmpty()) {
-            // Fallback: pick any template from the category, still respecting concrete constraint
-            List<TopicTemplate> fallback = pool;
+            // Fallback: pick any template, still respecting concrete constraint
+            List<TopicTemplate> fallback = allTemplates;
             if (!subjectConcrete) {
-                fallback = pool.stream().filter(t -> !t.requiresConcrete()).toList();
+                fallback = allTemplates.stream().filter(t -> !t.requiresConcrete()).toList();
             }
             if (fallback.isEmpty()) return FALLBACK_TEMPLATE;
             return fallback.get(random.nextInt(fallback.size()));
