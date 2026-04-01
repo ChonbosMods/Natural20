@@ -70,10 +70,10 @@ public class TopicGraphBuilder {
         String returnGreetingNodeId = "return_greeting";
 
         nodes.put(greetingNodeId, new DialogueNode.DialogueTextNode(
-            greetingText, List.of(), List.of(), false, false
+            greetingText, null, List.of(), List.of(), false, false
         ));
         nodes.put(returnGreetingNodeId, new DialogueNode.DialogueTextNode(
-            returnGreetingText, List.of(), List.of(), false, false
+            returnGreetingText, null, List.of(), List.of(), false, false
         ));
 
         // Build each topic
@@ -158,11 +158,11 @@ public class TopicGraphBuilder {
                     acceptActions, confirmNodeId, List.of(), false
                 ));
                 nodes.put(confirmNodeId, new DialogueNode.DialogueTextNode(
-                    confirmText, List.of(), List.of(), true, false
+                    confirmText, null, List.of(), List.of(), true, false
                 ));
                 nodes.put(terminalNodeId, new DialogueNode.TerminalNode(List.of(), false));
                 nodes.put(declineNodeId, new DialogueNode.DialogueTextNode(
-                    "I understand. Perhaps another time.", List.of(), declineActions, true, false
+                    "I understand. Perhaps another time.", null, List.of(), declineActions, true, false
                 ));
 
                 entryResponses.add(new ResponseOption(
@@ -184,7 +184,7 @@ public class TopicGraphBuilder {
                 );
 
                 nodes.put(decisiveNodeId, new DialogueNode.DialogueTextNode(
-                    responseText, List.of(), decisiveOnEnter, true, false
+                    responseText, null, List.of(), decisiveOnEnter, true, false
                 ));
 
                 entryResponses.add(new ResponseOption(
@@ -201,7 +201,7 @@ public class TopicGraphBuilder {
 
         // Entry dialogue node
         nodes.put(entryNodeId, new DialogueNode.DialogueTextNode(
-            introText, entryResponses, entryOnEnter, false, false
+            introText, null, entryResponses, entryOnEnter, false, false
         ));
 
         // Topic definition
@@ -287,7 +287,7 @@ public class TopicGraphBuilder {
             }
 
             nodes.put(expNodeId, new DialogueNode.DialogueTextNode(
-                response, childResponses, List.of(), false, false
+                response, null, childResponses, List.of(), false, false
             ));
 
             parentResponses.add(new ResponseOption(
@@ -367,7 +367,7 @@ public class TopicGraphBuilder {
                     deepResponse = embedBracket(deepResponse, bracket);
 
                     nodes.put(deepNodeId, new DialogueNode.DialogueTextNode(
-                        deepResponse, List.of(), List.of(), false, false
+                        deepResponse, null, List.of(), List.of(), false, false
                     ));
 
                     childResponses.add(new ResponseOption(
@@ -378,7 +378,7 @@ public class TopicGraphBuilder {
             }
 
             nodes.put(expNodeId, new DialogueNode.DialogueTextNode(
-                response, childResponses, List.of(), false, false
+                response, null, childResponses, List.of(), false, false
             ));
 
             parentResponses.add(new ResponseOption(
@@ -439,7 +439,7 @@ public class TopicGraphBuilder {
 
         // Pass node: disposition bonus, exhausts topic
         nodes.put(passNodeId, new DialogueNode.DialogueTextNode(
-            passText, List.of(),
+            passText, null, List.of(),
             List.of(Map.of("type", "MODIFY_DISPOSITION", "amount",
                 String.valueOf(STAT_CHECK_PASS_DISPOSITION))),
             true, false
@@ -447,7 +447,7 @@ public class TopicGraphBuilder {
 
         // Fail node: disposition penalty, exhausts topic
         nodes.put(failNodeId, new DialogueNode.DialogueTextNode(
-            failText, List.of(),
+            failText, null, List.of(),
             List.of(Map.of("type", "MODIFY_DISPOSITION", "amount",
                 String.valueOf(STAT_CHECK_FAIL_DISPOSITION))),
             true, false
@@ -475,7 +475,7 @@ public class TopicGraphBuilder {
         List<ResponseOption> augmented = new ArrayList<>(parentNode.responses());
         augmented.add(skillCheckResponse);
         nodes.put(parentNodeId, new DialogueNode.DialogueTextNode(
-            parentNode.speakerText(), augmented, parentNode.onEnter(),
+            parentNode.speakerText(), parentNode.reactionPool(), augmented, parentNode.onEnter(),
             parentNode.exhaustsTopic(), parentNode.locksConversation()
         ));
     }
@@ -514,14 +514,14 @@ public class TopicGraphBuilder {
         String checkResponseId = subjectId + "_resp_skill_check";
 
         nodes.put(passNodeId, new DialogueNode.DialogueTextNode(
-            passText, List.of(),
+            passText, null, List.of(),
             List.of(Map.of("type", "MODIFY_DISPOSITION", "amount",
                 String.valueOf(STAT_CHECK_PASS_DISPOSITION))),
             true, false
         ));
 
         nodes.put(failNodeId, new DialogueNode.DialogueTextNode(
-            failText, List.of(),
+            failText, null, List.of(),
             List.of(Map.of("type", "MODIFY_DISPOSITION", "amount",
                 String.valueOf(STAT_CHECK_FAIL_DISPOSITION))),
             true, false
@@ -546,7 +546,7 @@ public class TopicGraphBuilder {
         List<ResponseOption> augmented = new ArrayList<>(parentNode.responses());
         augmented.add(skillCheckResponse);
         nodes.put(parentNodeId, new DialogueNode.DialogueTextNode(
-            parentNode.speakerText(), augmented, parentNode.onEnter(),
+            parentNode.speakerText(), parentNode.reactionPool(), augmented, parentNode.onEnter(),
             parentNode.exhaustsTopic(), parentNode.locksConversation()
         ));
     }

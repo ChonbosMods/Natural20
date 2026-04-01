@@ -272,12 +272,12 @@ public class DialogueManager {
 
             // Confirm node: NPC's post-turn-in response (with next-phase briefing if applicable)
             graph.nodes().put(confirmNodeId, new DialogueNode.DialogueTextNode(
-                confirmText, List.of(), List.of(), true, false
+                confirmText, null, List.of(), List.of(), true, false
             ));
 
             // Entry node: NPC acknowledges return, player confirms turn-in
             graph.nodes().put(entryNodeId, new DialogueNode.DialogueTextNode(
-                turnInText,
+                turnInText, null,
                 List.of(new ResponseOption(
                     topicId + "_resp", "[Turn in] Yes, it's done.", null, actionNodeId,
                     ResponseMode.DECISIVE, null, null, null, null
@@ -376,13 +376,13 @@ public class DialogueManager {
                 // Confirm: direct player back to quest giver
                 String confirmText = "Tell " + questGiver + " what I've told you. They'll want to hear it.";
                 graph.nodes().put(confirmNodeId, new DialogueNode.DialogueTextNode(
-                    confirmText, List.of(), List.of(), true, false
+                    confirmText, null, List.of(), List.of(), true, false
                 ));
 
                 // Entry: target NPC delivers their dialogue
                 String topicLabel = "About " + questTitle;
                 graph.nodes().put(entryNodeId, new DialogueNode.DialogueTextNode(
-                    targetDialogue,
+                    targetDialogue, null,
                     List.of(new ResponseOption(
                         topicId + "_resp", "I'll pass that along.", null, actionNodeId,
                         ResponseMode.DECISIVE, null, null, null, null
