@@ -50,9 +50,6 @@ public class ConversationSession {
     private String activeTopicId;
     private boolean ended;
 
-    // Deferred deepener resolution
-    private final DeferredDeepenerResolver deepenerResolver;
-
     // Callbacks
     private final DialoguePresenter presenter;
     private final Runnable onSessionEnd;
@@ -68,7 +65,6 @@ public class ConversationSession {
             Nat20NpcData npcData,
             DialogueActionRegistry actionRegistry,
             ConditionEvaluator conditionEvaluator,
-            DeferredDeepenerResolver deepenerResolver,
             DialoguePresenter presenter,
             Runnable onSessionEnd,
             Runnable onNpcRelease
@@ -84,7 +80,6 @@ public class ConversationSession {
         this.npcData = npcData;
         this.actionRegistry = actionRegistry;
         this.conditionEvaluator = conditionEvaluator;
-        this.deepenerResolver = deepenerResolver;
         this.presenter = presenter;
         this.onSessionEnd = onSessionEnd;
         this.onNpcRelease = onNpcRelease;
@@ -184,7 +179,7 @@ public class ConversationSession {
                         : (entryNode instanceof DialogueNode.DialogueTextNode tn ? tn.speakerText() : null);
                 }
                 if (text != null) {
-                    text = deepenerResolver.resolve(text);
+
                     conversationLog.add(new LogEntry.TopicHeader(topic.label(), topic.questTopic()));
                     conversationLog.add(new LogEntry.NpcSpeech(text));
                 }
@@ -211,7 +206,7 @@ public class ConversationSession {
                         : (entryNode instanceof DialogueNode.DialogueTextNode tn ? tn.speakerText() : null);
                 }
                 if (text != null) {
-                    text = deepenerResolver.resolve(text);
+
                     conversationLog.add(new LogEntry.TopicHeader(topic.label(), topic.questTopic()));
                     conversationLog.add(new LogEntry.NpcSpeech(text));
                 }
@@ -290,8 +285,15 @@ public class ConversationSession {
 
         switch (node) {
             case DialogueNode.DialogueTextNode textNode -> {
-                conversationLog.add(new LogEntry.NpcSpeech(
-                    deepenerResolver.resolve(textNode.speakerText())));
+                String displayText;
+                if (textNode.reactionPool() != null && !textNode.reactionPool().isEmpty()) {
+                    // V2: pick a random reaction from the pool each session visit
+                    displayText = textNode.reactionPool().get(
+                        new java.util.Random().nextInt(textNode.reactionPool().size()));
+                } else {
+                    displayText = textNode.speakerText();
+                }
+                conversationLog.add(new LogEntry.NpcSpeech(displayText));
                 filterAndDisplayResponses(textNode);
 
                 if (textNode.exhaustsTopic() && activeTopicId != null) {
@@ -339,6 +341,15 @@ public class ConversationSession {
     // --- Skill Check Completion ---
 
     public void handleSkillCheckResult(SkillCheckResult result, DialogueNode.SkillCheckNode checkNode) {
+        // Emit skill check result to dialogue log
+        com.chonbosmods.stats.Skill skill = checkNode.skill();
+        com.chonbosmods.stats.Stat stat = skill.getStat();
+
+        conversationLog.add(new LogEntry.SkillCheckResult(
+            stat.name(), skill.displayName(), result.totalRoll(),
+            result.passed(), result.critical()
+        ));
+
         String nextNodeId = result.passed() ? checkNode.passNodeId() : checkNode.failNodeId();
         processNode(nextNodeId);
         presenter.refreshTopics(resolveVisibleTopics());
@@ -614,6 +625,14 @@ public class ConversationSession {
                 }
                 case LogEntry.ReturnDivider ignored -> {
                     logObj.addProperty("type", "ReturnDivider");
+                }
+                case LogEntry.SkillCheckResult r -> {
+                    logObj.addProperty("type", "SkillCheckResult");
+                    logObj.addProperty("statAbbreviation", r.statAbbreviation());
+                    logObj.addProperty("skillName", r.skillName());
+                    logObj.addProperty("totalRoll", r.totalRoll());
+                    logObj.addProperty("passed", r.passed());
+                    logObj.addProperty("critical", r.critical());
                 }
             }
             logArray.add(logObj);

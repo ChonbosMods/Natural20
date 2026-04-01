@@ -1,0 +1,78 @@
+{
+  "pool": "conflict",
+  "version": 2,
+  "entries": [
+    {
+      "id": 0,
+      "intro": "The two families near {subject_focus_the} have been feuding over the boundary stone again. This time it's gone past shouting.",
+      "details": [
+        "Someone moved the stone three paces east during the night. Both sides deny doing it, and both sides are furious.",
+        "The younger son from one family punched the eldest from the other at the market yesterday. Took four people to pull them apart.",
+        "They used to share harvest duties. Now they won't even draw water at the same time."
+      ],
+      "reactions": [
+        "It's been generations of this. Every few years the stone moves, the blood heats up, and we all have to live with the tension.",
+        "The elder tried to mediate. They both told him to mind his own business. Politely, but firmly."
+      ],
+      "statCheck": {
+        "pass": "I checked the ground around the stone. The drag marks come from the south, not from either family's property. Someone else moved it: someone who wants them fighting.",
+        "fail": "You examine the ground near the stone, but it's been trampled by both families arguing over it. Any useful evidence is long gone."
+      }
+    },
+    {
+      "id": 1,
+      "intro": "The hunters and the woodcutters near {subject_focus_the} are at each other's throats. The cutters are pushing deeper into the forest, and the hunters say it's driving the game away.",
+      "details": [
+        "The hunters blocked a logging road with felled trees last week. The cutters cleared it and came back with twice as many wagons.",
+        "Both groups have people on the village council. Meetings have gotten loud."
+      ],
+      "reactions": [
+        "They're both right, which is the problem. The village needs timber and it needs meat. Nobody's figured out how to have both.",
+        "I'm worried it'll go beyond shouting. There are axes on both sides of this argument."
+      ]
+    },
+    {
+      "id": 2,
+      "intro": "The fishing crews near {subject_focus_the} split into two camps over netting rights. The river can't support both crews fishing the same stretch.",
+      "details": [
+        "The upstream crew claims first rights because they've been there longer. The downstream crew says the fish belong to whoever catches them.",
+        "Someone cut the upstream crew's nets two nights ago. Clean cuts, done with a blade.",
+        "The downstream crew denies it, but they were the only ones at the dock that night."
+      ],
+      "reactions": [
+        "Half the village eats what those crews bring in. If they stop working, we all go hungry.",
+        "I tried suggesting they alternate days. Both sides looked at me like I'd insulted their mothers."
+      ],
+      "statCheck": {
+        "pass": "I talked to the dock boy who sleeps by the boats. He saw someone at the nets that night, but it wasn't anyone from either crew. Someone from outside town.",
+        "fail": "You ask around the docks, but everyone has a different story and none of them line up. Too much anger clouding the facts."
+      }
+    },
+    {
+      "id": 3,
+      "intro": "A group of newcomers settled near {subject_focus_the} and they've been farming a patch of common land that the village has always shared.",
+      "details": [
+        "They fenced it off without asking. Put up posts and wire like they owned it.",
+        "The village charter says common land is for everyone, but the newcomers say they've improved it and that gives them a claim.",
+        "Some of the village folk want to tear the fence down. Others say that'll just make things worse."
+      ],
+      "reactions": [
+        "They're not bad people. They came here with nothing and they're trying to build something. But you can't just take what belongs to everyone.",
+        "It's going to come to a head soon. People are already choosing sides."
+      ]
+    },
+    {
+      "id": 4,
+      "intro": "Two craftsmen near {subject_focus_the} are undercutting each other's prices so badly that neither one is making a living anymore.",
+      "details": [
+        "It started when the newer one set up shop across the street. The established one dropped his prices. Then the new one dropped lower.",
+        "They're both doing shoddy work now because they can't afford proper materials at the prices they're charging.",
+        "The newer one's wife came to {npc_name} last week, worried. They're burning through savings and pride won't let either man stop."
+      ],
+      "reactions": [
+        "The whole village is getting worse goods because two stubborn men would rather go broke than share a market.",
+        "Someone needs to knock their heads together. But that someone will make an enemy of whichever side feels slighted."
+      ]
+    }
+  ]
+}

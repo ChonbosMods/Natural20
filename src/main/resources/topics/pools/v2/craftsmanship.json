@@ -1,0 +1,83 @@
+{
+  "pool": "craftsmanship",
+  "version": 2,
+  "entries": [
+    {
+      "id": 0,
+      "intro": "The old potter near {subject_focus_the} made a set of bowls last week that ring like bells when you tap them. She says she doesn't know how.",
+      "details": [
+        "Same clay, same kiln, same glaze she's used for thirty years. But these bowls vibrate with a clear tone when struck.",
+        "Each bowl rings at a different pitch. If you line them up, they form a scale.",
+        "She's tried to replicate it four times since. Every new batch comes out normal."
+      ],
+      "reactions": [
+        "People are buying them as curiosities. She could charge triple and still sell out.",
+        "She's more bothered than pleased. A craftsman who can't explain their own work is a craftsman who can't repeat it."
+      ],
+      "statCheck": {
+        "pass": "I examined the clay she used that day. It had a streak of something different mixed in: a thin vein of reddish mineral that isn't in her normal supply. It must have washed into the clay pit during the last rain.",
+        "fail": "You tap the bowls and hear the tones, but the clay and glaze look identical to her normal work. Whatever's different is beyond what you can see."
+      }
+    },
+    {
+      "id": 1,
+      "intro": "A traveling smith passed through {subject_focus_the} and repaired the village gate hinges in a way nobody here can figure out. They move like they're oiled, but they're dry.",
+      "details": [
+        "He worked for two hours and refused payment. Said the work itself was payment enough.",
+        "The joints have no visible pins or rivets. The metal pieces interlock in a way that shouldn't be possible to assemble from the outside.",
+        "The hinges don't rust. It's been raining all week and they still gleam."
+      ],
+      "reactions": [
+        "Our smith studied them for a full day and said she'd need to take them apart to understand the technique. But she can't figure out how to take them apart.",
+        "Generous stranger or not, I'd like to know who he was. Nobody works that well and travels alone without a reputation."
+      ]
+    },
+    {
+      "id": 2,
+      "intro": "The weaver near {subject_focus_the} found a loom pattern in her late mother's trunk. She tried it, and the cloth it produces repels water completely.",
+      "details": [
+        "Pour a bucket on it and every drop rolls right off. The fibers stay bone dry.",
+        "It's the same wool she always uses. The pattern is the difference: a tight, complex weave that takes three times as long to produce.",
+        "Her mother never mentioned it. There are notes alongside the pattern, but they're in a shorthand nobody can read."
+      ],
+      "reactions": [
+        "She could make a fortune selling waterproof cloth, but the pattern takes so long that she can only produce a few yards a week.",
+        "I offered to help her decode the notes. Some of the symbols look like the marks on the old bridge stones, which is odd."
+      ],
+      "statCheck": {
+        "pass": "I studied the notes more carefully. They're not shorthand: they're an old technical notation for tension and twist. The water resistance comes from the specific angle of each thread crossing. It's engineering, not magic.",
+        "fail": "You look at the mother's notes, but the symbols don't match any writing system you know. Could be personal notation or could be something older."
+      }
+    },
+    {
+      "id": 3,
+      "intro": "The carpenter near {subject_focus_the} has been building with a wood nobody can identify. Says he found a fallen tree after the last storm and the timber is unlike anything he's worked before.",
+      "details": [
+        "The grain is so tight you can barely see it. Takes an edge like metal and holds a joint without glue.",
+        "It's heavy: heavier than oak, almost as heavy as stone. But it shapes easily under a sharp blade.",
+        "The sawdust smells like honey and copper. Strange combination, but not unpleasant."
+      ],
+      "reactions": [
+        "He's made a chair from it that I'd swear will outlast the house it sits in.",
+        "He went back to where the tree fell to look for more. Found the stump, but no roots. Like the tree had been placed there, not grown."
+      ],
+      "statCheck": {
+        "pass": "I took a sliver and burned it. The flame was green and the ash was metalite: dense and black. This wood has mineral content woven through its fibers. It grew somewhere with very unusual soil.",
+        "fail": "You examine a piece of the wood closely, but it looks and feels like extremely high-quality hardwood. Without tools, you can't tell what makes it special."
+      }
+    },
+    {
+      "id": 4,
+      "intro": "An apprentice glassblower near {subject_focus_the} accidentally created a lens that lets you see things that aren't there. Or things that are there but shouldn't be visible.",
+      "details": [
+        "Look through it at the old foundation stones and you can see markings that aren't visible to the naked eye: carved lines that glow faintly blue.",
+        "Look through it at the sky at dusk and you can see thin threads of light connecting the hilltops, like a web.",
+        "The apprentice tried to make another one. Same sand, same temperature. The second lens is just normal glass."
+      ],
+      "reactions": [
+        "The master glassblower wants to smash it. Says it's a flawed piece and giving people ideas. The apprentice hid it.",
+        "I looked through it once. I saw enough to know I don't want to look again. Some things are invisible for a reason."
+      ]
+    }
+  ]
+}

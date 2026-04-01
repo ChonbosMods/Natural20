@@ -1,0 +1,79 @@
+{
+  "pool": "festival",
+  "version": 2,
+  "entries": [
+    {
+      "id": 0,
+      "intro": "The harvest festival near {subject_focus_the} is coming up and this year the village is going all out. Three days of feasting, competitions, and music.",
+      "details": [
+        "The brewers have been working overtime. There are seven different ales lined up for tasting, and the rivalry between the two main brewers is getting personal.",
+        "The strong-arm competition draws folks from three villages over. Last year's champion is a shepherd named Gritt who doesn't look like much until he lifts a barrel over his head with one arm.",
+        "The bonfire is the centerpiece. They've been stacking wood for weeks: it'll be tall as a house this year."
+      ],
+      "reactions": [
+        "It's the one time of year everyone puts their grievances aside. Hard to stay angry at your neighbor when you're both singing off-key around a fire.",
+        "I've been baking for three days straight. My back aches, my hands are raw, and I wouldn't trade it for anything."
+      ]
+    },
+    {
+      "id": 1,
+      "intro": "There's a lantern walk near {subject_focus_the} every year on the longest night. Everyone carries a light from the village square to the hilltop and back.",
+      "details": [
+        "It started generations ago, during a winter so harsh people needed a reason to step outside. Now it's tradition.",
+        "Each family makes their own lantern. Some are simple candles in jars. Others are elaborate: cut paper, colored glass, carved wood.",
+        "From the hilltop, looking back at the village, you can see every light moving together. It looks like a river of stars flowing uphill."
+      ],
+      "reactions": [
+        "Last year my daughter carried the lantern for the first time. Held it with both hands, concentrating so hard she forgot to be cold.",
+        "The walk is quiet. Nobody speaks. It's the only tradition I know where silence is the whole point."
+      ],
+      "statCheck": {
+        "pass": "The eldest grandmother told me the real origin: the walk follows the exact path that the village founders took when they first arrived here, carrying torches through the dark to find this valley. It's a remembrance, not just a tradition.",
+        "fail": "You ask about the history of the lantern walk, but everyone just says it's always been this way. The origin is lost to time, or at least to memory."
+      }
+    },
+    {
+      "id": 2,
+      "intro": "The spring planting near {subject_focus_the} is treated like a celebration. The whole village turns out, and the first seed goes in the ground with a speech from the eldest farmer.",
+      "details": [
+        "The speech is supposed to be short: a blessing on the soil and a hope for rain. Last year the eldest farmer talked for forty minutes. People love him, but their knees didn't.",
+        "After the first seed, everyone plants together. Children get the easy rows. By midday the main fields are done and the food comes out.",
+        "There's a tradition where the youngest child plants the last seed. This year it's the miller's boy: he's three and very serious about the responsibility."
+      ],
+      "reactions": [
+        "It's hard work dressed up as a party, which is the best kind of tradition. Everyone contributes and everyone eats.",
+        "The food afterward is always the same: bread, cheese, dried fruit, and whatever pickle survived the winter. Simple, but it tastes better shared."
+      ]
+    },
+    {
+      "id": 3,
+      "intro": "Every midsummer, the village near {subject_focus_the} holds a storytelling contest. Anyone can enter. The prize is a crown of wildflowers and bragging rights for a year.",
+      "details": [
+        "The rules are simple: one story, told from memory, no props, no notes. The crowd votes by applause.",
+        "The blacksmith has won three years running with tales about her apprenticeship that nobody believes but everyone loves.",
+        "Last year a traveler entered and told a story so strange and beautiful that the whole square went silent for a full minute after she finished. She still lost to the blacksmith."
+      ],
+      "reactions": [
+        "I entered once. Told a true story about the time I got lost in the woods as a child. Came in dead last. Apparently truth isn't as entertaining as fiction.",
+        "{npc_name} is thinking about entering this year. I've been practicing on anyone who'll listen, and a few who won't."
+      ],
+      "statCheck": {
+        "pass": "The traveler who nearly won last year left her story written down at the inn. I read it: it describes a place that matches the ruins north of here perfectly, except in her version, the ruins were alive and inhabited. She wasn't making it up. She was describing what it used to be.",
+        "fail": "You ask about the traveler's story, but nobody remembers the details clearly. Just that it was beautiful and strange. The feeling lingered more than the words."
+      }
+    },
+    {
+      "id": 4,
+      "intro": "The first frost near {subject_focus_the} is marked with a tradition: everyone leaves a bowl of warm cider on their doorstep overnight.",
+      "details": [
+        "By morning the cider is frozen solid. The children crack the ice and eat it like candy. It's sweet and sharp and one of my favorite memories from growing up.",
+        "The tradition says the cider is for travelers who might be passing through in the cold. In practice, nobody ever takes it. But the gesture matters.",
+        "My mother always added a cinnamon stick and a slice of apple. Some houses add honey. You can tell a lot about a family by how they dress their frost cider."
+      ],
+      "reactions": [
+        "It's a small thing. Nobody would notice if you skipped it. But nobody skips it. That tells you something about this place.",
+        "I walked past every doorstep last frost morning, just looking at the bowls. Every single one was full. Some things about this village are exactly right."
+      ]
+    }
+  ]
+}

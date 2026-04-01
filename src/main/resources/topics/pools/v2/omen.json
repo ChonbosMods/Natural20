@@ -1,0 +1,80 @@
+{
+  "pool": "omen",
+  "version": 2,
+  "entries": [
+    {
+      "id": 0,
+      "intro": "The standing stone near {subject_focus_the} started humming three nights ago. Low, steady, like a note from a horn that never stops.",
+      "details": [
+        "You can feel the vibration if you put your hand on the surface. It pulses, almost like a heartbeat.",
+        "The moss on the north side died overnight. Just that side. The rest of the stone is unchanged.",
+        "At midnight the hum gets louder. Not by much, but enough that you notice."
+      ],
+      "reactions": [
+        "The elders say the stones have always been quiet. This is new, and new things from old stones make people nervous.",
+        "Some folks have started leaving offerings at the base: bread, coins, flowers. Can't hurt, I suppose."
+      ],
+      "statCheck": {
+        "pass": "I pressed my ear to the stone at midnight. Underneath the hum, there's a rhythm: three short, one long, repeating. It's not random. It's a pattern.",
+        "fail": "You lean close to the stone and hear the hum, but it all sounds the same to you. Just a low drone with no variation you can detect."
+      }
+    },
+    {
+      "id": 1,
+      "intro": "Every dog in {subject_focus_the} started howling at the same moment last night. All of them, at once, facing the same direction.",
+      "details": [
+        "It lasted exactly as long as it takes to count to sixty. Then they all stopped, at the same time, and went back to sleep.",
+        "They were facing the old burial mound on the western hill. Every single one."
+      ],
+      "reactions": [
+        "My grandmother would have called that a summoning. The dead calling to the living through the animals that guard them.",
+        "I don't put stock in superstition. But I'll admit I didn't sleep well after that."
+      ]
+    },
+    {
+      "id": 2,
+      "intro": "A crow landed on the village well near {subject_focus_the} and hasn't moved in two days. Won't eat, won't drink, just sits there staring south.",
+      "details": [
+        "People have tried shooing it away. It flutters up, circles once, and lands right back in the same spot.",
+        "Its eyes are clouded over, like cataracts, but it's not old. Young bird, healthy plumage.",
+        "Other crows gather in the trees nearby but won't come closer. They watch the one on the well like they're waiting."
+      ],
+      "reactions": [
+        "The washerwomen won't use the well until it leaves. They're hauling water from the stream instead.",
+        "I know it's just a bird. But the way it stares south without blinking makes my skin crawl."
+      ],
+      "statCheck": {
+        "pass": "I followed its gaze due south. There's nothing there but open field, but the grass in that direction has started growing in a spiral pattern. Tight, deliberate spirals.",
+        "fail": "You look south where the crow is staring but see nothing unusual. Fields, trees, sky. Whatever it's watching, you can't see it."
+      }
+    },
+    {
+      "id": 3,
+      "intro": "The moon was the wrong color near {subject_focus_the} two nights ago. Not red like a blood moon: green. Faint, but unmistakable.",
+      "details": [
+        "It lasted about an hour, starting just after midnight. Then it faded back to normal like nothing happened.",
+        "The air smelled different while it lasted. Sweet, like overripe fruit, but colder than the night air should have been."
+      ],
+      "reactions": [
+        "Half the village saw it. The other half says we were dreaming. Hard to argue when the sky looks normal now.",
+        "The old records keeper is digging through the archives. She says there might be mention of something similar from centuries ago."
+      ],
+      "statCheck": {
+        "pass": "The records keeper found it: a passage describing a green moon that appeared before the founding of the old watchtower. The text calls it \"the herald's lantern\" and says it marked the opening of something.",
+        "fail": "You ask the records keeper if she found anything, but the old texts are faded and written in a dialect that's hard to parse. No clear answers yet."
+      }
+    },
+    {
+      "id": 4,
+      "intro": "The fire in the village hearth near {subject_focus_the} burned blue for an entire evening last week. Same wood, same hearth, but the flames were ice-blue from dusk to midnight.",
+      "details": [
+        "The heat was the same. Food cooked fine. But the light it cast made everything look like it was underwater.",
+        "When it turned back to orange at midnight, there was a single white stone sitting in the ashes that wasn't there before. Smooth, round, warm."
+      ],
+      "reactions": [
+        "The stone is sitting on the mantle now. Nobody wants to touch it and nobody wants to throw it away.",
+        "Blue fire means different things depending on who you ask. None of the meanings are comforting."
+      ]
+    }
+  ]
+}

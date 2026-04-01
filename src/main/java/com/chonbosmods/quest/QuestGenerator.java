@@ -130,6 +130,18 @@ public class QuestGenerator {
             phases.add(new PhaseInstance(phaseType, variant.id(), objectives, referenceId));
         }
 
+        // Store exposition variant's dialogueChunks for multi-node quest dialogue
+        if (expositionVariant.dialogueChunks() != null) {
+            String plotStep = expositionVariant.dialogueChunks().plotStep();
+            if (plotStep != null && !plotStep.isBlank()) {
+                bindings.put("quest_plot_step", plotStep);
+            }
+            String outro = expositionVariant.dialogueChunks().outro();
+            if (outro != null && !outro.isBlank()) {
+                bindings.put("quest_outro", outro);
+            }
+        }
+
         // Build objective summary from exposition phase for dialogue templates
         buildObjectiveSummary(phases.getFirst(), bindings);
 

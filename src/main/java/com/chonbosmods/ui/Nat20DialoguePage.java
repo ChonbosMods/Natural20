@@ -194,6 +194,17 @@ public class Nat20DialoguePage extends InteractiveCustomUIPage<Nat20DialoguePage
                     lines.add(new LogLine(r.text(), COLOR_RETURN_GREETING, true));
                 case LogEntry.ReturnDivider ignored ->
                     lines.add(new LogLine("---", "#555555", false));
+                case LogEntry.SkillCheckResult r -> {
+                    String condition;
+                    if (r.critical() && r.passed()) condition = "Critical Success";
+                    else if (r.critical() && !r.passed()) condition = "Critical Failure";
+                    else if (r.passed()) condition = "Success";
+                    else condition = "Failure";
+                    String color = r.passed() ? "#66BB77" : "#CC4444";
+                    String text = "[" + r.statAbbreviation() + "] " + r.skillName()
+                        + " " + r.totalRoll() + " : " + condition;
+                    lines.add(new LogLine(text, color, false));
+                }
             }
         }
 

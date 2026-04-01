@@ -49,34 +49,4 @@ public class DialogueResolver {
         return result.trim();
     }
 
-    /**
-     * Partial resolve: replace {variable} tokens that have bindings, but PRESERVE
-     * unresolved tokens as literal {@code {variable}} text instead of replacing them
-     * with empty string. Used for deferred resolution where some variables will be
-     * resolved later at display time.
-     */
-    public static String resolvePartial(String template, Map<String, String> bindings) {
-        if (template == null || template.isEmpty()) return template;
-
-        Matcher matcher = VAR_PATTERN.matcher(template);
-        StringBuilder sb = new StringBuilder();
-        while (matcher.find()) {
-            String key = matcher.group(1);
-            String value = bindings.get(key);
-            if (value != null) {
-                matcher.appendReplacement(sb, Matcher.quoteReplacement(value));
-            } else {
-                // Preserve the original {variable} token
-                matcher.appendReplacement(sb, Matcher.quoteReplacement(matcher.group(0)));
-            }
-        }
-        matcher.appendTail(sb);
-
-        String result = sb.toString();
-        result = DOUBLE_ARTICLE.matcher(result).replaceAll("$1");
-        result = DANGLING_PUNCT.matcher(result).replaceAll("$1");
-        result = EMPTY_PARENS.matcher(result).replaceAll("");
-        result = DOUBLE_SPACE.matcher(result).replaceAll(" ");
-        return result.trim();
-    }
 }

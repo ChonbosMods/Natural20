@@ -1,0 +1,79 @@
+{
+  "pool": "community",
+  "version": 2,
+  "entries": [
+    {
+      "id": 0,
+      "intro": "The well near {subject_focus_the} needs rebuilding and nobody can agree on who should pay for it. It's been three meetings and counting.",
+      "details": [
+        "The north side of the village uses it most, but the south side owns the land it sits on. Both sides think the other should foot the bill.",
+        "Meanwhile the well wall is crumbling. Another season and we'll be fishing stones out of our drinking water.",
+        "The mason offered to do it at cost if they'd just decide. They're still deciding."
+      ],
+      "reactions": [
+        "It's not really about the well. It's about the road dispute from two years ago that never got resolved. The well is just the latest battlefield.",
+        "I told them I'd pay a share myself if it'd break the deadlock. Both sides said they appreciated the gesture and went right back to arguing."
+      ]
+    },
+    {
+      "id": 1,
+      "intro": "A family of refugees showed up at {subject_focus_the} last week. Eight people, two carts, everything they own packed into bundles.",
+      "details": [
+        "They say their village was abandoned after the river changed course. No water, no crops, no choice but to move.",
+        "The elders offered them the empty plot near the mill, but some of the village folk aren't happy about sharing resources with strangers.",
+        "The father is a skilled tanner. He's already started helping at the leather shop without being asked."
+      ],
+      "reactions": [
+        "We've got room and we've got food. Turning people away when they've lost everything isn't who we are.",
+        "I understand the worry. Resources are tight enough without eight more mouths. But tight and impossible are different things."
+      ],
+      "statCheck": {
+        "pass": "I talked to the father quietly. He mentioned their village wasn't just abandoned: they were the last to leave. Others left months ago, heading the same direction. Something is pushing people out of the lowlands.",
+        "fail": "You ask the family about their journey, but they're tired and guarded. They share the basics but keep the details close."
+      }
+    },
+    {
+      "id": 2,
+      "intro": "The old meeting hall near {subject_focus_the} burned down last month, and rebuilding it has turned into the biggest project this village has seen in years.",
+      "details": [
+        "Everyone's contributing something: timber, labor, nails. Even the children are carrying water for the workers.",
+        "The new design is bigger than the old one. Someone suggested adding a second floor for storage, and somehow it stuck.",
+        "The carpenter and the mason haven't agreed on a single thing yet, but the building keeps going up anyway."
+      ],
+      "reactions": [
+        "It's the most united I've seen this village in a decade. Nothing brings people together like a common project.",
+        "I've been cooking for the work crews. It's not much, but someone has to keep these people fed."
+      ]
+    },
+    {
+      "id": 3,
+      "intro": "The baker near {subject_focus_the} has been leaving bread on doorsteps for the families who can't afford it. She won't admit to it, but everybody knows.",
+      "details": [
+        "She bakes an extra batch every evening and it's gone by morning. Always the same households: the widow, the old soldier, the family with six children.",
+        "She uses her own flour for it. Won't take donations. Says it's just surplus that would go stale.",
+        "The widow tried to thank her once. She pretended not to know what the woman was talking about."
+      ],
+      "reactions": [
+        "In a village this size, a quiet kindness like that holds more weight than people realize. It sets a standard.",
+        "The miller has started giving her a discount on flour. His way of contributing without making a fuss about it."
+      ]
+    },
+    {
+      "id": 4,
+      "intro": "The youth near {subject_focus_the} have been leaving. One or two a season, heading for the cities. The village is getting older every year.",
+      "details": [
+        "Three left this spring alone. The tanner's apprentice, the farrier's daughter, and the best young hunter we had.",
+        "They write letters home sometimes. The city work pays better, but the letters sound tired.",
+        "The village council talked about offering land grants to keep young people here, but there's not enough good land left to offer."
+      ],
+      "reactions": [
+        "I don't blame them for wanting more. I blame us for not finding a way to give them a reason to stay.",
+        "Every skill that walks out the gate is a skill we might not get back. The blacksmith is sixty-two and has no apprentice."
+      ],
+      "statCheck": {
+        "pass": "I spoke with the farrier's daughter before she left. She said it wasn't the money: it was the feeling that nothing here would ever change. She wanted to matter somewhere. That hit harder than I expected.",
+        "fail": "You ask around about why the young people are leaving, but everyone just shrugs and says it's always been this way. Maybe it has."
+      }
+    }
+  ]
+}

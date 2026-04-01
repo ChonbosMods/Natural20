@@ -1,0 +1,80 @@
+{
+  "pool": "treasure",
+  "version": 2,
+  "entries": [
+    {
+      "id": 0,
+      "intro": "A prospector came through {subject_focus_the} last month claiming he found a vein of something he'd never seen before. Blue-green, harder than iron, and warm to the touch.",
+      "details": [
+        "He showed a sliver of it to the blacksmith. She said it scratched her best steel without leaving a mark on itself.",
+        "He wouldn't say where the vein was, but he was coming from the northwest and his boots were caked in red clay."
+      ],
+      "reactions": [
+        "Three different people have offered to buy the location off him. He turned them all down flat.",
+        "He left town the next day heading back the way he came. Haven't seen him since."
+      ],
+      "statCheck": {
+        "pass": "Red clay like that only sits in one stretch of the northwest hills: the old river gorge near the collapsed bridge. Narrows it down considerably.",
+        "fail": "You think about the red clay, but half the northwestern hills have clay deposits. Could be anywhere up there."
+      }
+    },
+    {
+      "id": 1,
+      "intro": "There's a ruin near {subject_focus_the} that everyone avoids. Last week a piece of the outer wall crumbled and something glinted underneath the stonework.",
+      "details": [
+        "The stones were packed with some kind of metallic thread, woven through the mortar like veins in a leaf.",
+        "The thread doesn't tarnish. Whatever alloy it is, it's been in that wall since the ruin was built, and it still shines.",
+        "There's more of it deeper in, where the walls are still intact. You can see it peeking through cracks."
+      ],
+      "reactions": [
+        "The mason says it would take days to extract without destroying it. And the ruin isn't exactly stable.",
+        "I'm no historian, but if they built entire walls with that stuff, they must have had a lot of it."
+      ]
+    },
+    {
+      "id": 2,
+      "intro": "A fisherman near {subject_focus_the} pulled up a chest in his net. Small, sealed tight with wax, and heavier than it looked.",
+      "details": [
+        "He cracked it open and found a set of coins nobody recognized. Wrong shape, wrong markings, wrong metal.",
+        "The coins have a face stamped on one side and a constellation on the other. Not any constellation we know."
+      ],
+      "reactions": [
+        "He tried to spend one at the market. The merchant just turned it over in his hands and gave it back.",
+        "Personally, I'm more interested in where it came from than what the coins are worth. Someone sealed that chest and put it in the water on purpose."
+      ],
+      "statCheck": {
+        "pass": "The wax seal had a pattern pressed into it: a wave over a mountain. That's the old mark of the river traders who disappeared two centuries ago.",
+        "fail": "You turn the coins over a few times, but the markings are worn and the metal is unfamiliar. Nothing clicks."
+      }
+    },
+    {
+      "id": 3,
+      "intro": "An old cellar collapsed near {subject_focus_the} after the rains, and it opened up a chamber underneath that nobody knew was there.",
+      "details": [
+        "The chamber has carved walls. Not rough: precise, with repeating geometric patterns that go floor to ceiling.",
+        "There's a stone table in the center with slots cut into the surface. Five slots, evenly spaced, each one shaped differently.",
+        "The air down there is dry and still. No dust, no cobwebs. Like it's been sealed perfectly for a very long time."
+      ],
+      "reactions": [
+        "The owner of the cellar is charging people a silver to look. Smart man.",
+        "I went down there myself. It felt like standing in a room that was waiting for something."
+      ]
+    },
+    {
+      "id": 4,
+      "intro": "Someone found a map scratched into the bark of a dead tree near {subject_focus_the}. Not carved recently: the bark healed over it, then the tree died.",
+      "details": [
+        "The lines show a path from the old well to something marked with three circles. Nobody knows what the circles mean.",
+        "There are symbols along the path that match no writing I've seen, but they repeat at regular intervals."
+      ],
+      "reactions": [
+        "A few folks followed the path. It leads to a clearing with a flat boulder, and that's where they lost the trail.",
+        "Could be nothing. Could be some shepherd's joke from fifty years ago. But those symbols looked deliberate."
+      ],
+      "statCheck": {
+        "pass": "The three circles match a symbol I've seen in old survey records: it was used to mark underground water sources. Whatever's at the end of that path, it's below ground.",
+        "fail": "You study the scratched symbols, but they could be anything: trail markers, property boundaries, or just idle carving. Hard to say without more context."
+      }
+    }
+  ]
+}

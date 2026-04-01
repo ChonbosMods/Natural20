@@ -1,0 +1,82 @@
+{
+  "pool": "curiosity",
+  "version": 2,
+  "entries": [
+    {
+      "id": 0,
+      "intro": "There's a spot near {subject_focus_the} where sound doesn't work right. Stand in the middle of it and you can hear conversations from a mile away, clear as day.",
+      "details": [
+        "It's a patch of flat ground between two ridges. About twenty paces across. Step outside the boundary and everything goes back to normal.",
+        "I stood there at dawn and heard the baker kneading bread in the village. Every slap of dough on the counter.",
+        "Voices from multiple directions overlap. You have to concentrate to pick out a single thread."
+      ],
+      "reactions": [
+        "The herders discovered it years ago and kept it quiet. They use it to listen for predators near their flocks.",
+        "I'm not sure I like the idea of a place where secrets carry. Makes you think twice about what you say outdoors."
+      ],
+      "statCheck": {
+        "pass": "I tested the boundaries carefully. The listening zone is a perfect oval, oriented north-south. The ridges on either side have matching concave surfaces: they're acting like a pair of enormous ears, focusing sound to a point.",
+        "fail": "You try to map the edges of the effect, but it seems to shift depending on the wind. You can't pin down a consistent boundary."
+      }
+    },
+    {
+      "id": 1,
+      "intro": "The sundial near {subject_focus_the} has been telling the wrong time. Not drifting: it's exactly one hour ahead, and it's been that way for a month.",
+      "details": [
+        "It was accurate for decades. The mason who built it knew his craft. Nothing about the dial has changed.",
+        "Other sundials in the area read correctly. It's just this one, and only since the last new moon."
+      ],
+      "reactions": [
+        "The practical explanation is that something shifted the base. But I've checked: it hasn't moved a hair.",
+        "An hour ahead. Like it's seeing the sun in a position it won't reach for another sixty minutes. That's not how shadows work."
+      ],
+      "statCheck": {
+        "pass": "I brought a compass to the sundial and the needle spins: not a full rotation, just a wobble, about thirty degrees off true north. There's something under the ground here that's interfering with direction itself.",
+        "fail": "You examine the sundial's base and gnomon, but everything is precisely where it should be. The stone hasn't shifted, the angle hasn't changed. No obvious explanation."
+      }
+    },
+    {
+      "id": 2,
+      "intro": "A well near {subject_focus_the} has started echoing back words that nobody spoke. Drop a stone and instead of a splash, you hear a voice.",
+      "details": [
+        "It's not a clear voice: more like a whisper, broken up by the echo. But the rhythm is speech, not water.",
+        "Different times of day give different responses. Morning whispers are calm. Evening ones sound urgent.",
+        "The water level hasn't changed. The well is functioning normally in every way except for the sounds it makes."
+      ],
+      "reactions": [
+        "The children think it's ghosts. The adults think it's acoustics. I think both explanations are equally unsatisfying.",
+        "I lowered a lantern down the shaft to look. Everything seemed normal. But the whisper said something as I pulled the lantern back up. I couldn't make out the words."
+      ],
+      "statCheck": {
+        "pass": "I recorded the rhythm of the whispers over several days. They repeat: the same sequence of sounds every three days. It's not random chatter. It's a message on a loop.",
+        "fail": "You listen at the well for a while, but the whispers are too faint and fractured to make out. Sounds like speech, but you can't confirm it."
+      }
+    },
+    {
+      "id": 3,
+      "intro": "Compasses near {subject_focus_the} have been pointing to different norths depending on where you stand. Move ten paces and the needle swings twenty degrees.",
+      "details": [
+        "It started about two weeks ago. Before that, every compass in the village agreed.",
+        "The worst spot is near the old foundation. Stand there and the needle spins slowly, never settling.",
+        "Travelers have been getting lost on the approach road because their instruments go unreliable within a mile of the village."
+      ],
+      "reactions": [
+        "The cartographer is furious. He can't take accurate measurements for his survey work.",
+        "We've gone back to navigating by landmarks and sun position. It works, but it feels like a step backward."
+      ]
+    },
+    {
+      "id": 4,
+      "intro": "There's a cave near {subject_focus_the} where your shadow doesn't follow you. You walk in and your shadow stays at the entrance.",
+      "details": [
+        "I brought a torch and my shadow appeared on the wall behind me, pointing out. Not inward like it should. The light was in front of me, but my shadow fell toward it.",
+        "Other people's shadows do the same thing. Objects too: hold up a stick and its shadow points the wrong direction.",
+        "The cave is shallow: maybe thirty paces deep. Nothing unusual about the stone or the shape."
+      ],
+      "reactions": [
+        "The children dare each other to go in. The adults generally don't. There's something deeply wrong about seeing your own shadow disobey.",
+        "A scholar visited and spent an hour inside with measuring tools. He left without saying anything and I haven't seen him since."
+      ]
+    }
+  ]
+}

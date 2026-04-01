@@ -1,0 +1,81 @@
+{
+  "pool": "corruption",
+  "version": 2,
+  "entries": [
+    {
+      "id": 0,
+      "intro": "The new tax collector near {subject_focus_the} has been taking more than his share. Everyone knows it, but nobody's willing to say it to the right people.",
+      "details": [
+        "He marks down one number in his ledger and collects a different amount. Seen it myself twice now.",
+        "The surplus doesn't go to the treasury. He's got a private lockbox he keeps under guard at the inn.",
+        "He hired two men from out of town to watch his door. They don't talk to anyone and they don't look friendly."
+      ],
+      "reactions": [
+        "The baker tried to confront him and found her permit to sell bread suddenly needed \"renewal.\" Funny how that works.",
+        "I'm not brave enough to say it louder than a whisper. Last person who complained found their stall shut down."
+      ],
+      "statCheck": {
+        "pass": "I did some quiet asking around. His appointment came with a letter from someone high up, but the seal on the letter was wrong: slightly different from the real one.",
+        "fail": "You try to poke around his ledger when he's not looking, but his guards keep a tight circle. No chance to get close."
+      }
+    },
+    {
+      "id": 1,
+      "intro": "The council near {subject_focus_the} voted to redirect the irrigation channel last month. Funny thing: it now waters the chairman's fields first and everyone else gets what's left.",
+      "details": [
+        "Three families downstream have had their crops wilt. The chairman's wheat is the tallest it's ever been.",
+        "The vote was five to two. The three who swung it all got new fences built the week after. Paid for by nobody in particular, apparently."
+      ],
+      "reactions": [
+        "It's not even subtle. That's the part that gets me: they don't bother hiding it because they don't think anyone will push back.",
+        "The downstream families are talking about pooling coin to dig their own channel. Shouldn't have to come to that."
+      ]
+    },
+    {
+      "id": 2,
+      "intro": "There's a merchant near {subject_focus_the} who's been buying up land from families in debt. Offering a fraction of what it's worth and pressuring people to take it.",
+      "details": [
+        "He targets anyone who owes money to the mill or the grain store. Waits until they're desperate, then makes his offer.",
+        "Three families sold this season alone. He's got more acreage now than the village commons.",
+        "I heard he's got an arrangement with the grain store: they call in debts early when he picks a target."
+      ],
+      "reactions": [
+        "The families don't talk about it. They're ashamed, and he knows that keeps them quiet.",
+        "{npc_name} tried to warn the last family before they signed. The merchant sent someone to have a word with me. Polite, but the message was clear."
+      ],
+      "statCheck": {
+        "pass": "I got hold of one of the sale contracts. There's a clause buried at the bottom: the merchant gets mineral rights too. He's not after the farmland. He's after what's underneath it.",
+        "fail": "You ask around about the sale terms, but the families who sold won't share the details. Too embarrassed or too scared."
+      }
+    },
+    {
+      "id": 3,
+      "intro": "The guard captain near {subject_focus_the} has been looking the other way when certain wagons come through at night. Wagons that don't stop at the checkpoint.",
+      "details": [
+        "They come once a week, always after midnight, always the same two covered wagons. The guards on duty suddenly find reasons to be elsewhere.",
+        "One of the younger guards asked about it and got reassigned to latrine duty for a month. Nobody's asked since."
+      ],
+      "reactions": [
+        "I don't know what's in those wagons, but if it were legitimate, they'd come through during the day like everyone else.",
+        "The captain's living better than his salary explains. New boots, new cloak, and he's drinking at the expensive tavern now."
+      ],
+      "statCheck": {
+        "pass": "I followed one of the wagons at a distance once. It went to a warehouse at the edge of town that's supposed to be empty. It was not empty.",
+        "fail": "You try staying up to spot the wagons, but either they didn't come tonight or you dozed off at the wrong time. Hard to catch ghosts."
+      }
+    },
+    {
+      "id": 4,
+      "intro": "The healer near {subject_focus_the} used to treat everyone for what they could afford. Then someone from the capital visited, and now she charges triple and only sees certain people.",
+      "details": [
+        "The visitor left her a supply of rare herbs. The kind you can't get without connections. Now she's dependent on his shipments.",
+        "She won't treat anyone who's spoken against the trade guild. It's not official policy: she just always seems to be busy when they come by.",
+        "She looks tired. Not greedy: tired. Like she's doing something she doesn't want to do."
+      ],
+      "reactions": [
+        "I don't blame her entirely. When someone has leverage over your livelihood, your choices narrow fast.",
+        "The people who can't afford her now are going without treatment. A child broke his arm last week and the family had to set it themselves."
+      ]
+    }
+  ]
+}

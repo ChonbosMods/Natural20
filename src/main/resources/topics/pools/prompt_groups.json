@@ -1,0 +1,47 @@
+{
+  "prompt_groups": {
+    "ask_more": [
+      "Tell me more.",
+      "Go on.",
+      "What else?",
+      "I am listening.",
+      "And then?"
+    ],
+    "press_details": [
+      "Can you describe what you saw?",
+      "What exactly happened?",
+      "Walk me through it.",
+      "Give me the details."
+    ],
+    "press_source": [
+      "How did you find out?",
+      "Who told you this?",
+      "Where did you hear that?",
+      "How do you know?"
+    ],
+    "ask_context": [
+      "What is the situation there?",
+      "How long has this been going on?",
+      "When did this start?",
+      "What changed?"
+    ],
+    "ask_opinion": [
+      "What do you make of it?",
+      "What do you think?",
+      "How do you feel about that?",
+      "Does that worry you?"
+    ],
+    "ask_feeling": [
+      "Are you alright?",
+      "How are people handling it?",
+      "Is anyone doing something about it?",
+      "What are people saying?"
+    ],
+    "end_topic": [
+      "I have heard enough.",
+      "Thank you for telling me.",
+      "I will keep that in mind.",
+      "Good to know."
+    ]
+  }
+}

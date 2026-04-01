@@ -1,0 +1,80 @@
+{
+  "pool": "migration",
+  "version": 2,
+  "entries": [
+    {
+      "id": 0,
+      "intro": "The deer herds near {subject_focus_the} are moving east, weeks ahead of schedule. Not a gradual drift: a full migration, all at once.",
+      "details": [
+        "Usually they stay through the end of the warm season. This year they broke camp, so to speak, right in the middle of it.",
+        "They're not following their usual routes either. They're cutting through farmland, straight-line, like something's pushing them."
+      ],
+      "reactions": [
+        "The hunters are scrambling. Half their season's yield just walked away overnight.",
+        "Animals know things we don't. When the whole herd agrees it's time to leave, I pay attention."
+      ],
+      "statCheck": {
+        "pass": "I followed the herd's trail back to where they started running. There's a stretch of dead grass in a wide band, like something passed through and killed everything it touched.",
+        "fail": "You backtrack along the herd's trail, but it merges with so many game paths that you lose the origin point."
+      }
+    },
+    {
+      "id": 1,
+      "intro": "The fish in the river near {subject_focus_the} are swimming upstream, and it's not spawning season. Every species, all heading the same direction.",
+      "details": [
+        "The current is strong this time of year. They're fighting it hard, packed so tight you could almost walk across their backs.",
+        "The fishermen downstream haven't caught a thing in a week. It's like someone rang a bell only the fish can hear.",
+        "Even the bottom-feeders are moving. Catfish, crayfish, everything. That never happens."
+      ],
+      "reactions": [
+        "My grandfather told stories about this happening once before, when he was young. He said it meant the water downstream was dying.",
+        "It's beautiful to watch, honestly. But beautiful things that don't make sense tend to be warnings."
+      ]
+    },
+    {
+      "id": 2,
+      "intro": "Swarms of insects have been moving through {subject_focus_the} for the past three days. Not attacking anything: just passing through in enormous clouds.",
+      "details": [
+        "They're some kind of beetle I've never seen. Black shells with a green stripe. Thousands of them, maybe more.",
+        "They follow the road, which is the strangest part. They stick to the path like they know where they're going."
+      ],
+      "reactions": [
+        "The children think it's fascinating. The farmers are terrified they'll eat the crops. So far they haven't touched a leaf.",
+        "I've lived here forty years and never seen anything like it. When nature does something new, it usually means something changed."
+      ],
+      "statCheck": {
+        "pass": "I caught a few and showed them to the old naturalist. She said they're a deep-forest species that never comes to open ground. Something drove them out of the canopy.",
+        "fail": "You try to examine the beetles, but they move fast and don't hold still. You can't tell much beyond the obvious: there are a lot of them."
+      }
+    },
+    {
+      "id": 3,
+      "intro": "The wolves near {subject_focus_the} have abandoned their territory. Every pack, gone within a week. Left their dens, their cached kills, everything.",
+      "details": [
+        "We found three dens with pups still in them, abandoned. The mothers just left. That goes against every instinct a wolf has.",
+        "The packs were heading northwest, into the high mountains where there's less prey, not more. It makes no sense as a survival move."
+      ],
+      "reactions": [
+        "Some people are celebrating. No more wolves, no more livestock losses. I think they're fools.",
+        "The wolves kept the rabbit and rodent population in check. We're going to see the consequences in our grain stores soon enough."
+      ],
+      "statCheck": {
+        "pass": "I visited one of the abandoned dens. The ground around the entrance is saturated with a smell I can't place: sharp, chemical, not natural. Something contaminated their home ground.",
+        "fail": "You check one of the dens, but it just looks like a hole in a hillside. Whatever drove the wolves out, it's not visible to you."
+      }
+    },
+    {
+      "id": 4,
+      "intro": "Birds near {subject_focus_the} have changed their nesting patterns. Species that usually spread out are all clustering together in one grove.",
+      "details": [
+        "Hawks, songbirds, crows: all in the same stand of oaks. Normally they'd drive each other off, but they're tolerating the proximity.",
+        "The noise is incredible. You can hear the grove from half a mile away.",
+        "Every other tree in the area is empty. They all chose the same spot, and I'd give a lot to know why."
+      ],
+      "reactions": [
+        "The children love it. They sit at the edge of the grove and watch for hours.",
+        "A traveling scholar said he'd seen this behavior once before, near a fault line, a week before the ground shook. I hope he's wrong."
+      ]
+    }
+  ]
+}

@@ -15,7 +15,6 @@ public class SubjectFocus {
     private final boolean proper;
     private final boolean questEligible;
     private final boolean concrete;
-    private final TopicCategory category;
     private final List<String> categories;
     private final String poiType;
     private final List<String> questAffinities;
@@ -24,7 +23,7 @@ public class SubjectFocus {
     private @Nullable Map<String, String> questBindings;
 
     public SubjectFocus(String subjectId, String subjectValue, boolean plural, boolean proper,
-                        boolean questEligible, boolean concrete, TopicCategory category, List<String> categories,
+                        boolean questEligible, boolean concrete, List<String> categories,
                         String poiType, List<String> questAffinities) {
         this.subjectId = subjectId;
         this.subjectValue = subjectValue;
@@ -32,7 +31,6 @@ public class SubjectFocus {
         this.proper = proper;
         this.questEligible = questEligible;
         this.concrete = concrete;
-        this.category = category;
         this.categories = categories;
         this.poiType = poiType;
         this.questAffinities = questAffinities;
@@ -49,7 +47,6 @@ public class SubjectFocus {
     public boolean isProper() { return proper; }
     public boolean isQuestEligible() { return questEligible; }
     public boolean isConcrete() { return concrete; }
-    public TopicCategory getCategory() { return category; }
     public List<String> getCategories() { return categories; }
     public String getPoiType() { return poiType; }
     public List<String> getQuestAffinities() { return questAffinities; }

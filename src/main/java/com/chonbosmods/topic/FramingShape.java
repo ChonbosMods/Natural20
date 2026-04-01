@@ -3,73 +3,48 @@ package com.chonbosmods.topic;
 import java.util.Random;
 
 /**
- * Determines the framing structure of a topic intro: which combination of
- * tone opener and closer wraps the L0 fragment.
- *
- * <p>Probability weights are disposition-bracket-scaled so that hostile NPCs
- * lean toward openers (gruff lead-ins) while neutral NPCs often go bare.</p>
+ * Controls which tone framing elements (opener, closer) appear in a topic's dialogue.
+ * Quest bearers always use BARE (no framing), while normal topics roll based on
+ * disposition bracket probabilities.
  */
 public enum FramingShape {
-    /** No framing: just the L0 fragment. */
-    BARE,
-    /** Tone opener before L0. */
-    OPENER_ONLY,
-    /** Tone closer after L0. */
-    CLOSER_ONLY,
-    /** Full sandwich: opener + L0 + closer. */
-    BOTH;
+    BARE(false, false),
+    OPENER_ONLY(true, false),
+    CLOSER_ONLY(false, true),
+    BOTH(true, true);
 
-    // Rows: hostile, unfriendly, neutral, friendly, loyal
-    // Cols: BARE, OPENER_ONLY, CLOSER_ONLY, BOTH
-    private static final int[][] WEIGHTS = {
-        { 15, 40, 15, 30 }, // hostile
-        { 25, 30, 20, 25 }, // unfriendly
-        { 40, 25, 25, 10 }, // neutral
-        { 30, 25, 30, 15 }, // friendly
-        { 25, 25, 30, 20 }, // loyal
-    };
+    private final boolean opener;
+    private final boolean closer;
 
-    private static final FramingShape[] VALUES = values();
+    FramingShape(boolean opener, boolean closer) {
+        this.opener = opener;
+        this.closer = closer;
+    }
+
+    public boolean hasOpener() { return opener; }
+    public boolean hasCloser() { return closer; }
 
     /**
-     * Roll a framing shape using disposition-scaled probability weights.
-     *
-     * @param bracket disposition bracket name (hostile, unfriendly, neutral, friendly, loyal)
-     * @param random  random source
-     * @return the rolled framing shape
+     * Roll a framing shape based on disposition bracket.
+     * Hostile NPCs lean toward openers, friendly toward closers.
      */
     public static FramingShape roll(String bracket, Random random) {
-        int row = bracketIndex(bracket);
-        int[] w = WEIGHTS[row];
-        int roll = random.nextInt(100);
-
-        int cumulative = 0;
-        for (int i = 0; i < w.length; i++) {
-            cumulative += w[i];
-            if (roll < cumulative) {
-                return VALUES[i];
-            }
-        }
-        // Should never reach here since weights sum to 100, but guard anyway.
-        return BARE;
-    }
-
-    public boolean hasOpener() {
-        return this == OPENER_ONLY || this == BOTH;
-    }
-
-    public boolean hasCloser() {
-        return this == CLOSER_ONLY || this == BOTH;
-    }
-
-    private static int bracketIndex(String bracket) {
-        return switch (bracket) {
-            case "hostile" -> 0;
-            case "unfriendly" -> 1;
-            case "neutral" -> 2;
-            case "friendly" -> 3;
-            case "loyal" -> 4;
-            default -> 2; // neutral fallback
+        double openerChance = switch (bracket) {
+            case "hostile" -> 0.85;
+            case "unfriendly" -> 0.70;
+            case "neutral" -> 0.50;
+            case "friendly" -> 0.65;
+            case "loyal" -> 0.60;
+            default -> 0.50;
         };
+        double closerChance = 0.6;
+
+        boolean hasOpener = random.nextDouble() < openerChance;
+        boolean hasCloser = hasOpener ? (random.nextDouble() < closerChance) : true;
+
+        if (hasOpener && hasCloser) return BOTH;
+        if (hasOpener) return OPENER_ONLY;
+        if (hasCloser) return CLOSER_ONLY;
+        return BARE;
     }
 }

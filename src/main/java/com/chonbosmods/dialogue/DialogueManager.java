@@ -15,7 +15,6 @@ import com.chonbosmods.quest.QuestSystem;
 import com.chonbosmods.quest.QuestTemplateRegistry;
 import com.chonbosmods.quest.model.DialogueChunks;
 import com.chonbosmods.quest.model.QuestVariant;
-import com.chonbosmods.topic.TopicPoolRegistry;
 import com.google.gson.JsonParser;
 import com.hypixel.hytale.component.Ref;
 import com.hypixel.hytale.component.Store;
@@ -35,8 +34,6 @@ public class DialogueManager {
     private final DialogueActionRegistry actionRegistry;
     private final ConditionEvaluator conditionEvaluator;
     private final Map<UUID, ConversationSession> activeSessions = new ConcurrentHashMap<>();
-    private volatile TopicPoolRegistry topicPoolRegistry;
-    private volatile boolean ready;
 
     public DialogueManager(DialogueLoader dialogueLoader, DialogueActionRegistry actionRegistry) {
         this.dialogueLoader = dialogueLoader;
@@ -44,25 +41,7 @@ public class DialogueManager {
         this.conditionEvaluator = new ConditionEvaluator();
     }
 
-    /**
-     * Set the topic pool registry for deferred deepener resolution and mark
-     * the manager as ready to accept sessions. Must be called after the quest
-     * system is initialized.
-     */
-    public void setTopicPoolRegistry(TopicPoolRegistry topicPoolRegistry) {
-        if (topicPoolRegistry == null) {
-            LOGGER.atSevere().log("setTopicPoolRegistry called with null: dialogue deepener resolution will fail");
-        }
-        this.topicPoolRegistry = topicPoolRegistry;
-        this.ready = true;
-    }
-
     public void startSession(Ref<EntityStore> playerRef, Ref<EntityStore> npcRef, Store<EntityStore> store, Runnable onNpcRelease) {
-        if (!ready) {
-            LOGGER.atWarning().log("DialogueManager not ready: setTopicPoolRegistry has not been called yet");
-            return;
-        }
-
         // Resolve Player from entity ref
         Player player = store.getComponent(playerRef, Player.getComponentType());
         if (player == null) {
@@ -102,7 +81,7 @@ public class DialogueManager {
                 new java.util.ArrayList<>(),
                 new java.util.LinkedHashMap<>(java.util.Map.of(
                     "fallback_greeting", new DialogueNode.DialogueTextNode(
-                        "...", java.util.List.of(), java.util.List.of(), false, false)
+                        "...", null, java.util.List.of(), java.util.List.of(), false, false)
                 ))
             );
         }
@@ -130,18 +109,11 @@ public class DialogueManager {
         PageDialoguePresenter presenter = new PageDialoguePresenter(
                 player, player.getPlayerRef(), playerRef, store, this, displayName);
 
-        // Create per-session deferred deepener resolver (non-deterministic Random per session)
-        if (topicPoolRegistry == null) {
-            LOGGER.atSevere().log("TopicPoolRegistry is null: deepener tokens will not resolve");
-        }
-        DeferredDeepenerResolver deepenerResolver = new DeferredDeepenerResolver(topicPoolRegistry);
-
         // Create session
         ConversationSession session = new ConversationSession(
                 player, playerRef, npcRef,
                 store, graph, playerData, npcData,
                 actionRegistry, conditionEvaluator,
-                deepenerResolver,
                 presenter, onSessionEnd, onNpcRelease);
 
         activeSessions.put(playerUuid, session);
@@ -156,7 +128,26 @@ public class DialogueManager {
                 List<LogEntry> savedLog = new ArrayList<>();
                 if (savedData.has("log")) {
                     for (var el : savedData.getAsJsonArray("log")) {
-                        LogEntry entry = LogEntry.fromJson(el.getAsJsonObject());
+                        var logObj = el.getAsJsonObject();
+                        String logType = logObj.get("type").getAsString();
+                        LogEntry entry = switch (logType) {
+                            case "TopicHeader" -> new LogEntry.TopicHeader(logObj.get("label").getAsString(), logObj.has("questTopic") && logObj.get("questTopic").getAsBoolean());
+                            case "NpcSpeech" -> new LogEntry.NpcSpeech(logObj.get("text").getAsString());
+                            case "SelectedResponse" -> new LogEntry.SelectedResponse(
+                                    logObj.get("responseId").getAsString(),
+                                    logObj.get("displayText").getAsString(),
+                                    logObj.has("statPrefix") ? logObj.get("statPrefix").getAsString() : null);
+                            case "SystemText" -> new LogEntry.SystemText(logObj.get("text").getAsString());
+                            case "ReturnGreeting" -> new LogEntry.ReturnGreeting(logObj.get("text").getAsString());
+                            case "ReturnDivider" -> new LogEntry.ReturnDivider();
+                            case "SkillCheckResult" -> new LogEntry.SkillCheckResult(
+                                    logObj.get("statAbbreviation").getAsString(),
+                                    logObj.get("skillName").getAsString(),
+                                    logObj.get("totalRoll").getAsInt(),
+                                    logObj.get("passed").getAsBoolean(),
+                                    logObj.has("critical") && logObj.get("critical").getAsBoolean());
+                            default -> null;
+                        };
                         if (entry != null) savedLog.add(entry);
                     }
                 }
@@ -307,7 +298,7 @@ public class DialogueManager {
                 String transitionText = outroText + " " + briefing;
 
                 graph.nodes().put(transitionNodeId, new DialogueNode.DialogueTextNode(
-                    transitionText, List.of(), List.of(), true, false
+                    transitionText, null, List.of(), List.of(), true, false
                 ));
 
                 // Bridge node: no-op action that auto-advances from plot to transition
@@ -317,7 +308,7 @@ public class DialogueManager {
 
                 // Plot node: plotStep text with a continue response leading to bridge
                 graph.nodes().put(plotNodeId, new DialogueNode.DialogueTextNode(
-                    plotStepText,
+                    plotStepText, null,
                     List.of(new ResponseOption(
                         topicId + "_continue", "[Continue]", null, bridgeNodeId,
                         ResponseMode.DECISIVE, null, null, null, null
@@ -342,19 +333,19 @@ public class DialogueManager {
                 }
 
                 graph.nodes().put(plotNodeId, new DialogueNode.DialogueTextNode(
-                    confirmText, List.of(), List.of(), true, false
+                    confirmText, null, List.of(), List.of(), true, false
                 ));
             }
 
             // Action node: TURN_IN_PHASE
             graph.nodes().put(actionNodeId, new DialogueNode.ActionNode(
-                List.of(Map.of("type", DialogueActionRegistry.TURN_IN_PHASE, "questId", questId)),
+                List.of(Map.of("type", "TURN_IN_PHASE", "questId", questId)),
                 afterActionNodeId, List.of(), true
             ));
 
             // Entry node: NPC acknowledges return, player confirms turn-in
             graph.nodes().put(entryNodeId, new DialogueNode.DialogueTextNode(
-                turnInText,
+                turnInText, null,
                 List.of(new ResponseOption(
                     topicId + "_resp", "[Turn in] Yes, it's done.", null, actionNodeId,
                     ResponseMode.DECISIVE, null, null, null, null
@@ -379,6 +370,22 @@ public class DialogueManager {
         if (nextIndex >= quest.getPhases().size()) return "We'll see what comes next.";
 
         PhaseInstance nextPhase = quest.getPhases().get(nextIndex);
+
+        // Try to load the next variant's intro for narrative continuity
+        QuestSystem questSystem = Natural20.getInstance().getQuestSystem();
+        if (questSystem != null && nextPhase.getVariantId() != null) {
+            QuestTemplateRegistry templateRegistry = questSystem.getTemplateRegistry();
+            var nextVariant = templateRegistry.getVariant(
+                quest.getSituationId(), nextPhase.getType(), nextPhase.getVariantId());
+            if (nextVariant != null && nextVariant.dialogueChunks() != null
+                    && nextVariant.dialogueChunks().intro() != null
+                    && !nextVariant.dialogueChunks().intro().isBlank()) {
+                return DialogueResolver.resolve(
+                    nextVariant.dialogueChunks().intro(), quest.getVariableBindings());
+            }
+        }
+
+        // Fallback to hardcoded objective-type text
         if (nextPhase.getObjectives().isEmpty()) return "There's still work ahead.";
 
         ObjectiveInstance obj = nextPhase.getObjectives().getFirst();
@@ -454,20 +461,20 @@ public class DialogueManager {
 
                 // Action: COMPLETE_TALK_TO_NPC
                 graph.nodes().put(actionNodeId, new DialogueNode.ActionNode(
-                    List.of(Map.of("type", DialogueActionRegistry.COMPLETE_TALK_TO_NPC, "questId", questId)),
+                    List.of(Map.of("type", "COMPLETE_TALK_TO_NPC", "questId", questId)),
                     confirmNodeId, List.of(), true
                 ));
 
                 // Confirm: direct player back to quest giver
                 String confirmText = "Tell " + questGiver + " what I've told you. They'll want to hear it.";
                 graph.nodes().put(confirmNodeId, new DialogueNode.DialogueTextNode(
-                    confirmText, List.of(), List.of(), true, false
+                    confirmText, null, List.of(), List.of(), true, false
                 ));
 
                 // Entry: target NPC delivers their dialogue
                 String topicLabel = "About " + questTitle;
                 graph.nodes().put(entryNodeId, new DialogueNode.DialogueTextNode(
-                    targetDialogue,
+                    targetDialogue, null,
                     List.of(new ResponseOption(
                         topicId + "_resp", "I'll pass that along.", null, actionNodeId,
                         ResponseMode.DECISIVE, null, null, null, null

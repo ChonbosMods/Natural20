@@ -1,0 +1,81 @@
+{
+  "pool": "sighting",
+  "version": 2,
+  "entries": [
+    {
+      "id": 0,
+      "intro": "I saw something moving through the trees near {subject_focus_the} two nights ago. Tall, thin, walking upright but not like any person I know.",
+      "details": [
+        "It moved between the trunks without making a sound. Not even the leaves rustled when it passed.",
+        "The shape was wrong: arms too long, head too narrow. Like someone stretched a person out and forgot to stop.",
+        "It paused once and turned toward me. I couldn't see a face, but I could feel it looking."
+      ],
+      "reactions": [
+        "I've lived near those woods my whole life. I know every animal that walks through them. That wasn't one.",
+        "I told my neighbor and she just went quiet. Then she said her boy saw the same thing last week."
+      ],
+      "statCheck": {
+        "pass": "When it turned, I caught a glint: something reflective where its eyes should be, like polished metal catching moonlight.",
+        "fail": "You scan the tree line carefully, but in the dark everything looks like it could be something. Nothing stands out."
+      }
+    },
+    {
+      "id": 1,
+      "intro": "A group of us spotted what looked like a massive elk near {subject_focus_the}, but it had too many antler points. Way too many.",
+      "details": [
+        "We counted at least thirty points before it moved behind the ridge. A normal bull might have twelve.",
+        "Its antlers had a faint shimmer to them, like frost, but it was the middle of a warm afternoon."
+      ],
+      "reactions": [
+        "The hunters are excited. {npc_name} thinks it's bad luck. I'm somewhere in between.",
+        "It didn't run when it saw us. Just stood there, chewing, like we weren't worth worrying about."
+      ]
+    },
+    {
+      "id": 2,
+      "intro": "There's been a creature drinking from the stream near {subject_focus_the} at dawn. Nobody can agree on what it is.",
+      "details": [
+        "The farmer says it's a wolf. The trapper says it's too big for a wolf. The tanner says it's got scales.",
+        "It comes at the same time every morning, drinks for exactly as long as it takes to count to twenty, then leaves.",
+        "It always approaches from the east and leaves heading west. Never varies the route."
+      ],
+      "reactions": [
+        "I set up early one morning to see it myself. Overslept. Typical.",
+        "Whatever it is, it hasn't bothered anyone yet. But I'd like to know what I'm sharing a water source with."
+      ],
+      "statCheck": {
+        "pass": "I found tracks at the stream bank. They're canine, but with a fifth toe set higher up, like a thumb. I've never seen that on any wolf.",
+        "fail": "You check the stream bank, but so many animals drink there that the mud is a mess of overlapping prints. Can't isolate anything unusual."
+      }
+    },
+    {
+      "id": 3,
+      "intro": "Something flew over {subject_focus_the} last night. Big enough to block out the stars as it passed.",
+      "details": [
+        "No wingbeats. It just glided, silent, from the north ridge to the southern tree line in about ten seconds.",
+        "The shadow it cast was wider than a barn. My lantern flickered when it went overhead."
+      ],
+      "reactions": [
+        "I keep telling myself it was a cloud. Clouds don't move that fast in a straight line, though.",
+        "The goats were huddled in the corner of the pen this morning. They don't huddle unless something scared them."
+      ]
+    },
+    {
+      "id": 4,
+      "intro": "A child near {subject_focus_the} says she's been playing with a fox that talks. We all laughed until she started repeating things no child her age should know.",
+      "details": [
+        "She described the layout of the abandoned mine in detail. She's never been there. None of us have taken her.",
+        "She says the fox has silver fur and only comes when she's alone. It taught her a song in a language nobody here recognizes.",
+        "The song, when she hums it, makes the dogs whine and leave the room."
+      ],
+      "reactions": [
+        "Her mother is terrified. Her father thinks she has a good imagination. I think the father is wrong.",
+        "I went to the spot where she says they play. Found small paw prints, but they were oddly deep for something fox-sized."
+      ],
+      "statCheck": {
+        "pass": "I had the elder listen to the child's song. He went pale and said it was an old warding chant: one that hasn't been spoken in this region for generations.",
+        "fail": "You listen to the child hum the melody, but it sounds like any other made-up tune. Without context, you can't tell if it means anything."
+      }
+    }
+  ]
+}
