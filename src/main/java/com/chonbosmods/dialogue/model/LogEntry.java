@@ -19,4 +19,12 @@ public sealed interface LogEntry {
     record ReturnGreeting(String text) implements LogEntry {}
 
     record ReturnDivider() implements LogEntry {}
+
+    record SkillCheckResult(
+        String statAbbreviation,  // "WIS", "CHA", "INT", etc.
+        String skillName,         // "Perception", "Persuasion", etc.
+        int totalRoll,            // final roll value
+        boolean passed,           // true = success
+        boolean critical          // true = nat 1 or nat 20
+    ) implements LogEntry {}
 }

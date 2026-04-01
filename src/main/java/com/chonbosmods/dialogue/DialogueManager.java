@@ -139,6 +139,12 @@ public class DialogueManager {
                             case "SystemText" -> new LogEntry.SystemText(logObj.get("text").getAsString());
                             case "ReturnGreeting" -> new LogEntry.ReturnGreeting(logObj.get("text").getAsString());
                             case "ReturnDivider" -> new LogEntry.ReturnDivider();
+                            case "SkillCheckResult" -> new LogEntry.SkillCheckResult(
+                                    logObj.get("statAbbreviation").getAsString(),
+                                    logObj.get("skillName").getAsString(),
+                                    logObj.get("totalRoll").getAsInt(),
+                                    logObj.get("passed").getAsBoolean(),
+                                    logObj.has("critical") && logObj.get("critical").getAsBoolean());
                             default -> null;
                         };
                         if (entry != null) savedLog.add(entry);

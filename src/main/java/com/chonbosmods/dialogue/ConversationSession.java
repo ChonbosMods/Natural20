@@ -615,6 +615,14 @@ public class ConversationSession {
                 case LogEntry.ReturnDivider ignored -> {
                     logObj.addProperty("type", "ReturnDivider");
                 }
+                case LogEntry.SkillCheckResult r -> {
+                    logObj.addProperty("type", "SkillCheckResult");
+                    logObj.addProperty("statAbbreviation", r.statAbbreviation());
+                    logObj.addProperty("skillName", r.skillName());
+                    logObj.addProperty("totalRoll", r.totalRoll());
+                    logObj.addProperty("passed", r.passed());
+                    logObj.addProperty("critical", r.critical());
+                }
             }
             logArray.add(logObj);
         }
