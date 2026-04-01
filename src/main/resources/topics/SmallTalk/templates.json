@@ -213,7 +213,7 @@
     {
       "id": "smalltalk_curiosity",
       "subjectRequired": false,
-      "skillCheck": { "skill": "DEDUCTION" },
+      "skillCheck": { "skill": "INVESTIGATION" },
       "label": "Something Strange",
       "perspectives": [
         {
@@ -249,7 +249,7 @@
     {
       "id": "smalltalk_festival",
       "requiresConcrete": true,
-      "skillCheck": { "skill": "CHARM" },
+      "skillCheck": { "skill": "PERFORMANCE" },
       "label": "The {subject_focus_bare} Festival",
       "perspectives": [
         {

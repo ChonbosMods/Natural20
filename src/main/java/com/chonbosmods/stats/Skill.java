@@ -1,42 +1,40 @@
 package com.chonbosmods.stats;
 
 public enum Skill {
-    INTIMIDATION(Stat.STR, -1),
-    COMMAND(Stat.STR, -2),
-    SLEIGHT(Stat.DEX, -2),
-    REFLEX(Stat.DEX, -2),
-    ENDURANCE(Stat.CON, -2),
-    RESISTANCE(Stat.CON, -2),
-    DEDUCTION(Stat.INT, -1),
-    RECALL(Stat.INT, -1),
-    PERCEPTION(Stat.WIS, 0),
-    INSIGHT(Stat.WIS, 0),
-    PERSUASION(Stat.CHA, 0),
-    DECEPTION(Stat.CHA, -1),
-    CHARM(Stat.CHA, -1);
+    // CHA
+    PERSUASION(Stat.CHA, "Persuasion"),
+    DECEPTION(Stat.CHA, "Deception"),
+    INTIMIDATION(Stat.CHA, "Intimidation"),
+    PERFORMANCE(Stat.CHA, "Performance"),
+    // WIS
+    INSIGHT(Stat.WIS, "Insight"),
+    PERCEPTION(Stat.WIS, "Perception"),
+    // INT
+    INVESTIGATION(Stat.INT, "Investigation"),
+    ARCANA(Stat.INT, "Arcana"),
+    RELIGION(Stat.INT, "Religion"),
+    HISTORY(Stat.INT, "History"),
+    NATURE(Stat.INT, "Nature"),
+    // STR
+    ATHLETICS(Stat.STR, "Athletics"),
+    // DEX
+    STEALTH(Stat.DEX, "Stealth"),
+    SLEIGHT_OF_HAND(Stat.DEX, "Sleight of Hand"),
+    ACROBATICS(Stat.DEX, "Acrobatics");
 
-    private final Stat associatedStat;
-    private final int dcOffset;
+    private final Stat stat;
+    private final String displayName;
 
-    Skill(Stat associatedStat, int dcOffset) {
-        this.associatedStat = associatedStat;
-        this.dcOffset = dcOffset;
+    Skill(Stat stat, String displayName) {
+        this.stat = stat;
+        this.displayName = displayName;
     }
 
-    public Stat getAssociatedStat() {
-        return associatedStat;
-    }
+    public Stat getStat() { return stat; }
+    public String displayName() { return displayName; }
+    public String buttonText() { return "[" + stat.name() + "] " + displayName; }
 
-    public int getDcOffset() {
-        return dcOffset;
-    }
-
-    public String displayName() {
-        String lower = name().toLowerCase();
-        return Character.toUpperCase(lower.charAt(0)) + lower.substring(1);
-    }
-
-    public boolean isValidFor(Stat stat) {
-        return this.associatedStat == stat;
-    }
+    @Deprecated public Stat getAssociatedStat() { return stat; }
+    @Deprecated public int getDcOffset() { return 0; }
+    @Deprecated public boolean isValidFor(Stat stat) { return this.stat == stat; }
 }

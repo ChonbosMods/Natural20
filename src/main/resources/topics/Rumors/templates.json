@@ -72,7 +72,7 @@
     {
       "id": "rumor_migration",
       "requiresConcrete": true,
-      "skillCheck": { "skill": "DEDUCTION" },
+      "skillCheck": { "skill": "INVESTIGATION" },
       "label": "Movement near {subject_focus_the}",
       "perspectives": [
         {
@@ -142,7 +142,7 @@
     },
     {
       "id": "rumor_corruption",
-      "skillCheck": { "skill": "DEDUCTION" },
+      "skillCheck": { "skill": "INVESTIGATION" },
       "label": "Trouble with {subject_focus_the}",
       "perspectives": [
         {
@@ -212,7 +212,7 @@
     {
       "id": "rumor_treasure",
       "requiresConcrete": true,
-      "skillCheck": { "skill": "DEDUCTION" },
+      "skillCheck": { "skill": "INVESTIGATION" },
       "label": "Hidden {subject_focus_bare}",
       "perspectives": [
         {
