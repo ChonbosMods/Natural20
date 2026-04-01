@@ -290,8 +290,16 @@ public class ConversationSession {
 
         switch (node) {
             case DialogueNode.DialogueTextNode textNode -> {
-                conversationLog.add(new LogEntry.NpcSpeech(
-                    deepenerResolver.resolve(textNode.speakerText())));
+                String displayText;
+                if (textNode.reactionPool() != null && !textNode.reactionPool().isEmpty()) {
+                    // V2: pick a random reaction from the pool each session visit
+                    displayText = textNode.reactionPool().get(
+                        new java.util.Random().nextInt(textNode.reactionPool().size()));
+                } else {
+                    // V1/normal: use speakerText with deferred deepener resolution
+                    displayText = deepenerResolver.resolve(textNode.speakerText());
+                }
+                conversationLog.add(new LogEntry.NpcSpeech(displayText));
                 filterAndDisplayResponses(textNode);
 
                 if (textNode.exhaustsTopic() && activeTopicId != null) {
@@ -339,6 +347,15 @@ public class ConversationSession {
     // --- Skill Check Completion ---
 
     public void handleSkillCheckResult(SkillCheckResult result, DialogueNode.SkillCheckNode checkNode) {
+        // Emit skill check result to dialogue log
+        com.chonbosmods.stats.Skill skill = checkNode.skill();
+        com.chonbosmods.stats.Stat stat = skill.getStat();
+
+        conversationLog.add(new LogEntry.SkillCheckResult(
+            stat.name(), skill.displayName(), result.totalRoll(),
+            result.passed(), result.critical()
+        ));
+
         String nextNodeId = result.passed() ? checkNode.passNodeId() : checkNode.failNodeId();
         processNode(nextNodeId);
         presenter.refreshTopics(resolveVisibleTopics());
