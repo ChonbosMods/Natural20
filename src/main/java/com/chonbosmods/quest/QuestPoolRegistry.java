@@ -434,6 +434,16 @@ public class QuestPoolRegistry {
         return "The settlement needs supplies and cannot wait for the usual sources";
     }
 
+    /**
+     * Draw an exposition line for a specific quest situation.
+     * Falls back to a generic line if no situation-specific pool exists.
+     */
+    public String randomExpositionForSituation(String situationId, Random random) {
+        // Situation-specific exposition pools are not yet authored.
+        // Return null to let the caller use its own fallback.
+        return null;
+    }
+
     public String getToneForSituation(String situationId) {
         return situationTones.getOrDefault(situationId, "somber");
     }

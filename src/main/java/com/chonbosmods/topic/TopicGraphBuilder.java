@@ -43,6 +43,7 @@ public class TopicGraphBuilder {
     private final TopicPoolRegistry topicPool;
     private final Random random;
     private final Set<String> usedDeepeners;
+    private final PromptGroupRegistry promptGroups;
 
     public TopicGraphBuilder(
             String npcId,
@@ -52,7 +53,8 @@ public class TopicGraphBuilder {
             List<TopicAssignment> assignments,
             TopicPoolRegistry topicPool,
             Random random,
-            Set<String> usedDeepeners
+            Set<String> usedDeepeners,
+            PromptGroupRegistry promptGroups
     ) {
         this.npcId = npcId;
         this.defaultDisposition = defaultDisposition;
@@ -62,6 +64,7 @@ public class TopicGraphBuilder {
         this.topicPool = topicPool;
         this.random = random;
         this.usedDeepeners = usedDeepeners;
+        this.promptGroups = promptGroups;
     }
 
     public DialogueGraph build() {

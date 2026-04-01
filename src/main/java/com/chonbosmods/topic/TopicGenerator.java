@@ -8,6 +8,7 @@ import com.chonbosmods.quest.QuestInstance;
 import com.chonbosmods.quest.QuestPoolRegistry;
 import com.chonbosmods.settlement.NpcRecord;
 import com.chonbosmods.settlement.SettlementRecord;
+import com.chonbosmods.stats.Skill;
 import com.google.common.flogger.FluentLogger;
 
 import java.util.*;
@@ -21,11 +22,11 @@ public class TopicGenerator {
 
     private static final FluentLogger LOGGER = FluentLogger.forEnclosingClass();
 
-    // Role-based topic budgets: social roles talk more, functional roles talk less
-    private static final int SOCIAL_MIN_TOPICS = 4;
-    private static final int SOCIAL_MAX_TOPICS = 6;
-    private static final int FUNCTIONAL_MIN_TOPICS = 2;
-    private static final int FUNCTIONAL_MAX_TOPICS = 4;
+    // Role-based topic budgets: v2 uses lower budgets with richer per-topic content
+    private static final int SOCIAL_MIN_TOPICS = 2;
+    private static final int SOCIAL_MAX_TOPICS = 4;
+    private static final int FUNCTIONAL_MIN_TOPICS = 0;
+    private static final int FUNCTIONAL_MAX_TOPICS = 2;
     private static final Set<String> SOCIAL_ROLES = Set.of(
         "TavernKeeper", "ArtisanAlchemist", "ArtisanBlacksmith", "ArtisanCook", "Traveler"
     );
@@ -61,13 +62,16 @@ public class TopicGenerator {
     private final TopicTemplateRegistry templateRegistry;
     private final QuestPoolRegistry questPool;
     private final QuestGenerator questGenerator;
+    private final PromptGroupRegistry promptGroups;
 
     public TopicGenerator(TopicPoolRegistry topicPool, TopicTemplateRegistry templateRegistry,
-                          QuestPoolRegistry questPool, QuestGenerator questGenerator) {
+                          QuestPoolRegistry questPool, QuestGenerator questGenerator,
+                          PromptGroupRegistry promptGroups) {
         this.topicPool = topicPool;
         this.templateRegistry = templateRegistry;
         this.questPool = questPool;
         this.questGenerator = questGenerator;
+        this.promptGroups = promptGroups;
     }
 
     /**
@@ -237,14 +241,14 @@ public class TopicGenerator {
         // If two topics resolve to the same label (e.g. two NPCs both get "The Weather Lately"),
         // the second one is skipped.
         Map<String, List<TopicGraphBuilder.TopicAssignment>> npcAssignments = new LinkedHashMap<>();
-        Map<String, LinkedList<String>> poolWindows = new HashMap<>();
+        PercentageDedup dedup = new PercentageDedup();
         Set<String> usedLabels = new HashSet<>();
 
         for (NpcRecord npc : npcs) {
             String npcName = npc.getGeneratedName();
             List<TopicGraphBuilder.TopicAssignment> assignments = new ArrayList<>();
             for (SubjectFocus focus : npcSubjects.get(npcName)) {
-                TopicGraphBuilder.TopicAssignment assignment = buildAssignment(focus, npcName, random, poolWindows);
+                TopicGraphBuilder.TopicAssignment assignment = buildAssignmentV2(focus, npc, random, dedup);
                 String resolvedLabel = capitalizeFirst(
                     DialogueResolver.resolve(assignment.labelPattern(), assignment.bindings()));
                 if (usedLabels.contains(resolvedLabel)) {
@@ -267,7 +271,7 @@ public class TopicGenerator {
             String returnGreeting = topicPool.randomReturnGreeting(random);
 
             TopicGraphBuilder builder = new TopicGraphBuilder(
-                npcName, 50, greeting, returnGreeting, assignments, topicPool, random, usedDeepeners
+                npcName, 50, greeting, returnGreeting, assignments, topicPool, random, usedDeepeners, promptGroups
             );
             DialogueGraph graph = builder.build();
 
@@ -331,6 +335,135 @@ public class TopicGenerator {
             template.skillCheckDef(),
             null, null, null
         );
+    }
+
+    /**
+     * Build a TopicAssignment using the v2 coherent-entry pipeline.
+     * Draws one PoolEntry per topic via PercentageDedup, picks a skill from the template,
+     * and builds simplified bindings without L0/L1/L2 fragment draws.
+     */
+    private TopicGraphBuilder.TopicAssignment buildAssignmentV2(
+            SubjectFocus focus, NpcRecord npc, Random random,
+            PercentageDedup dedup) {
+
+        TopicTemplate template = templateRegistry.randomUnifiedTemplateForSubject(
+            focus.getCategories(), focus.isConcrete(), random);
+
+        boolean isQuestBearer = focus.hasQuest();
+
+        // Draw coherent entry from template's pool
+        List<PoolEntry> pool = topicPool.getCoherentPool(template.id());
+        PoolEntry entry;
+        if (!pool.isEmpty()) {
+            int idx = dedup.draw(template.id(), pool.size(), random);
+            entry = pool.get(idx);
+        } else {
+            entry = new PoolEntry(0, "I have heard something about {subject_focus}...",
+                List.of("That is all I know, really."), List.of("Make of it what you will."), null);
+        }
+
+        // Pick skill from template's skills array
+        Skill skill = null;
+        if (template.skills() != null && !template.skills().isEmpty()) {
+            String skillName = template.skills().get(random.nextInt(template.skills().size()));
+            try { skill = Skill.valueOf(skillName); }
+            catch (IllegalArgumentException ignored) {}
+        }
+
+        Map<String, String> bindings = buildBindingsV2(
+            focus, npc.getGeneratedName(), npc.getDisposition(),
+            isQuestBearer, template, entry, dedup, random);
+
+        return new TopicGraphBuilder.TopicAssignment(
+            focus.getSubjectId(), template.labelPattern(),
+            null,  // no perspective for v2
+            bindings, true, isQuestBearer,
+            null,  // no SkillCheckDef for v2
+            skill, template, entry
+        );
+    }
+
+    /**
+     * Build simplified v2 bindings: subject focus, NPC name, drop-ins, tone framing,
+     * entry content, and quest bindings. No L0/L1/L2 fragment draws.
+     */
+    private Map<String, String> buildBindingsV2(SubjectFocus focus, String npcName, int disposition,
+                                                 boolean isQuestBearer, TopicTemplate template,
+                                                 PoolEntry entry, PercentageDedup dedup, Random random) {
+        Map<String, String> bindings = new HashMap<>();
+
+        // Subject focus bindings
+        String subjectValue = focus.getSubjectValue();
+        boolean startsWithThe = subjectValue.toLowerCase().startsWith("the ");
+        String bareValue = startsWithThe ? subjectValue.substring(4) : subjectValue;
+        bindings.put("subject_focus", subjectValue);
+        bindings.put("subject_focus_bare", bareValue);
+        bindings.put("subject_focus_is", focus.isPlural() ? "are" : "is");
+        bindings.put("subject_focus_has", focus.isPlural() ? "have" : "has");
+        bindings.put("subject_focus_was", focus.isPlural() ? "were" : "was");
+        bindings.put("subject_focus_the", (focus.isProper() || startsWithThe) ? subjectValue : "the " + subjectValue);
+        bindings.put("subject_focus_The", focus.isProper() ? subjectValue
+            : startsWithThe ? "T" + subjectValue.substring(1) : "The " + subjectValue);
+
+        bindings.put("npc_name", npcName);
+
+        // Drop-ins via percentage dedup
+        bindings.put("time_ref", dedup.drawFrom("time_refs", topicPool.getTimeRefs(), random));
+        bindings.put("direction", dedup.drawFrom("directions", topicPool.getDirections(), random));
+
+        // Tone framing
+        String bracket = dispositionBracket(disposition);
+        FramingShape shape = isQuestBearer ? FramingShape.BARE : FramingShape.roll(bracket, random);
+        bindings.put("tone_opener", shape.hasOpener()
+            ? dedup.drawFrom("tone_opener_" + bracket, topicPool.getToneOpeners(bracket), random) + " "
+            : "");
+        bindings.put("tone_closer", shape.hasCloser()
+            ? " " + dedup.drawFrom("tone_closer_" + bracket, topicPool.getToneClosers(bracket), random)
+            : "");
+
+        // Entry content
+        bindings.put("entry_intro", entry.intro());
+        if (!entry.reactions().isEmpty()) {
+            bindings.put("entry_reaction", entry.reactions().getFirst());
+        }
+
+        // Quest bindings for quest bearers
+        if (isQuestBearer && focus.hasQuest() && focus.getQuestBindings() != null) {
+            Map<String, String> qb = focus.getQuestBindings();
+            for (String key : List.of(
+                    "quest_threat", "quest_threat_is", "quest_threat_has", "quest_threat_was",
+                    "quest_threat_the", "quest_threat_The",
+                    "quest_stakes", "quest_stakes_is", "quest_stakes_has", "quest_stakes_was",
+                    "quest_stakes_the", "quest_stakes_The",
+                    "quest_focus", "quest_focus_is", "quest_focus_has", "quest_focus_was",
+                    "quest_focus_the", "quest_focus_The",
+                    "quest_objective_summary",
+                    "enemy_type", "enemy_type_plural", "quest_item")) {
+                if (qb.containsKey(key)) bindings.put(key, qb.get(key));
+            }
+
+            String rawExposition;
+            if ("peaceful".equals(qb.get("fetch_variant"))) {
+                rawExposition = questPool.randomPeacefulFetchExposition(random);
+            } else if (qb.containsKey("gather_category")) {
+                rawExposition = questPool.randomCollectExposition(qb.get("gather_category"), random);
+            } else {
+                String situationId = focus.getQuestSituationId();
+                rawExposition = questPool.randomExpositionForSituation(situationId, random);
+                if (rawExposition == null || rawExposition.isEmpty()) {
+                    rawExposition = "Something has gone wrong and the settlement needs help";
+                }
+            }
+            bindings.put("quest_exposition", DialogueResolver.resolve(rawExposition, bindings));
+            bindings.put("quest_detail", DialogueResolver.resolve(
+                topicPool.randomPerspectiveDetail(random), bindings));
+
+            String tone = questPool.getToneForSituation(focus.getQuestSituationId());
+            bindings.put("quest_accept_response",
+                questPool.randomCounterAccept(focus.getQuestSituationId(), tone, random));
+        }
+
+        return bindings;
     }
 
     /**
