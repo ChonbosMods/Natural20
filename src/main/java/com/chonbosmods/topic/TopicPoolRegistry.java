@@ -90,6 +90,9 @@ public class TopicPoolRegistry {
     private final List<String> deepenerPool = new ArrayList<>();
     private int maxL1 = 3;
 
+    // Coherent triplet pools (v2)
+    private final Map<String, List<PoolEntry>> coherentPools = new LinkedHashMap<>();
+
     public void loadAll(@Nullable Path poolsDir) {
         // Load from classpath first (bundled resources)
         loadSubjectPoolFromClasspath(CLASSPATH_PREFIX + "subject_focuses.json");
@@ -227,6 +230,9 @@ public class TopicPoolRegistry {
             // Intent definitions filesystem override
             loadIntentDefs(topicsDir.resolve("intents.json"));
         }
+
+        // Coherent triplet pools (v2)
+        loadCoherentPools(poolsDir);
 
         LOGGER.atFine().log("Loaded topic pools: %d subjects, %d greetings, %d return greetings",
             subjectFocuses.size(), greetingLines.size(), returnGreetingLines.size());
@@ -778,6 +784,81 @@ public class TopicPoolRegistry {
             return deepenerPool.get(random.nextInt(deepenerPool.size()));
         }
         return available.get(random.nextInt(available.size()));
+    }
+
+    // --- Coherent triplet pool methods (v2) ---
+
+    public void loadCoherentPools(@Nullable Path poolsDir) {
+        String[] templateIds = {
+            "danger", "sighting", "treasure", "corruption", "conflict",
+            "disappearance", "migration", "omen", "weather", "trade",
+            "craftsmanship", "community", "nature", "nostalgia", "curiosity", "festival"
+        };
+        for (String id : templateIds) {
+            loadCoherentPool(id, poolsDir);
+        }
+        LOGGER.atFine().log("Loaded %d coherent pools (%d total entries)",
+            coherentPools.size(),
+            coherentPools.values().stream().mapToInt(List::size).sum());
+    }
+
+    private void loadCoherentPool(String templateId, @Nullable Path poolsDir) {
+        String classpathResource = "topics/pools/v2/" + templateId + ".json";
+        if (poolsDir != null) {
+            Path file = poolsDir.resolve("v2/" + templateId + ".json");
+            if (Files.exists(file)) {
+                try (var reader = Files.newBufferedReader(file, StandardCharsets.UTF_8)) {
+                    parseCoherentPool(templateId, JsonParser.parseReader(reader).getAsJsonObject());
+                    return;
+                } catch (Exception e) {
+                    LOGGER.atSevere().withCause(e).log("Failed to load coherent pool: %s", file);
+                }
+            }
+        }
+        try (InputStream is = getClass().getClassLoader().getResourceAsStream(classpathResource)) {
+            if (is == null) return;
+            parseCoherentPool(templateId, JsonParser.parseReader(
+                new InputStreamReader(is, StandardCharsets.UTF_8)).getAsJsonObject());
+        } catch (Exception e) {
+            LOGGER.atSevere().withCause(e).log("Failed to load coherent pool from classpath: %s", classpathResource);
+        }
+    }
+
+    private void parseCoherentPool(String templateId, JsonObject root) {
+        JsonArray entries = root.getAsJsonArray("entries");
+        if (entries == null) return;
+        List<PoolEntry> pool = new ArrayList<>();
+        for (JsonElement el : entries) {
+            JsonObject obj = el.getAsJsonObject();
+            int id = obj.get("id").getAsInt();
+            String intro = obj.get("intro").getAsString();
+            List<String> details = new ArrayList<>();
+            for (JsonElement d : obj.getAsJsonArray("details")) details.add(d.getAsString());
+            List<String> reactions = new ArrayList<>();
+            for (JsonElement r : obj.getAsJsonArray("reactions")) reactions.add(r.getAsString());
+            PoolEntry.StatCheck statCheck = null;
+            if (obj.has("statCheck")) {
+                JsonObject sc = obj.getAsJsonObject("statCheck");
+                statCheck = new PoolEntry.StatCheck(sc.get("pass").getAsString(), sc.get("fail").getAsString());
+            }
+            pool.add(new PoolEntry(id, intro, details, reactions, statCheck));
+        }
+        coherentPools.put(templateId, pool);
+    }
+
+    public List<PoolEntry> getCoherentPool(String templateId) {
+        return coherentPools.getOrDefault(templateId, List.of());
+    }
+
+    // --- List accessors for shared pools ---
+
+    public List<String> getTimeRefs() { return timeRefs; }
+    public List<String> getDirections() { return directions; }
+    public List<String> getToneOpeners(String bracket) {
+        return toneOpeners.getOrDefault(bracket, List.of());
+    }
+    public List<String> getToneClosers(String bracket) {
+        return toneClosers.getOrDefault(bracket, List.of());
     }
 
     /**
