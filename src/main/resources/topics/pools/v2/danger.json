@@ -1,0 +1,153 @@
+{
+  "entries": [
+    {
+      "id": 0,
+      "intro": "Something's been leaving tracks near {subject_focus_the}. Big ones, deep into the mud, and they don't match anything I've seen in thirty years of living here.",
+      "details": [
+        "Three toes, clawed, wider than my hand spread flat. The stride between prints is longer than I am tall.",
+        "They circle the same area every night. Whatever it is, it's watching something.",
+        "The tracks stop at the tree line and don't come back out. Like it just vanished."
+      ],
+      "reactions": [
+        "I don't scare easy, but I stopped walking that path after dark.",
+        "People keep saying it's a bear. It's not a bear. Bears don't walk in circles."
+      ],
+      "statCheck": {
+        "pass": "There were smaller tracks alongside the big ones, just for a stretch. Like something was being led.",
+        "fail": "You crouch down to study the tracks more closely, but the mud's too churned up to make out anything I didn't already tell you."
+      }
+    },
+    {
+      "id": 1,
+      "intro": "A shepherd went missing near {subject_focus_the} about a week ago. His flock came back on their own, but he didn't.",
+      "details": [
+        "His crook was found stuck in the ground, straight up, like someone planted it there on purpose.",
+        "The sheep were calm when they wandered back. Not spooked at all. That's the part that bothers me.",
+        "His dog showed up two days later. Won't stop whimpering and won't go near the eastern ridge."
+      ],
+      "reactions": [
+        "His wife keeps a candle lit for him. I don't have the heart to tell her what I think happened.",
+        "We sent a search party, but nobody wanted to go past the ridge. Can't say I blame them."
+      ]
+    },
+    {
+      "id": 2,
+      "intro": "Found three deer near {subject_focus_the}, all dead in a line. No wounds, no blood. Just lying there like they dropped mid-step.",
+      "details": [
+        "Their eyes were open. All three facing the same direction, toward the old stone circle.",
+        "No scavengers touched them. Not a single crow, not a fox. Three days and nothing."
+      ],
+      "reactions": [
+        "I've hunted these woods my whole life. Animals don't just die like that.",
+        "The butcher wouldn't take the meat. Said it smelled wrong, even though it looked fresh."
+      ],
+      "statCheck": {
+        "pass": "I didn't mention this to anyone else, but the grass under the deer was dead too. A perfect outline, like their shadow burned into the ground.",
+        "fail": "You look over the area where the deer were found, but whatever was there has been rained on and trampled since. Nothing new to see."
+      }
+    },
+    {
+      "id": 3,
+      "intro": "There's a sound coming from the caves near {subject_focus_the} at night. Low and steady, like breathing, but too slow and too deep to be anything alive.",
+      "details": [
+        "It starts just after sundown and fades before first light. Every single night for the past two weeks.",
+        "The ground near the cave mouth vibrates when it happens. You can feel it through your boots."
+      ],
+      "reactions": [
+        "The children think it's a sleeping giant. I wish I could believe something that simple.",
+        "Two of the miners refuse to go back in until someone explains it. I can't say I disagree with them."
+      ],
+      "statCheck": {
+        "pass": "I listened carefully one night and realized the rhythm changes: it speeds up when someone gets close to the entrance, then slows again when they back off.",
+        "fail": "You strain to hear something in the ambient noise, but whatever pattern exists is too faint to pick out from this distance."
+      }
+    },
+    {
+      "id": 4,
+      "intro": "The well water near {subject_focus_the} turned bitter overnight. Not just off-tasting: animals won't drink it, and the ones that did got sick.",
+      "details": [
+        "Two goats and a mule drank from the trough before anyone noticed. The goats recovered, but the mule hasn't stood up since.",
+        "There's a faint sheen on the surface, oily-looking, and it doesn't mix when you stir it.",
+        "The deeper wells are fine for now. But the shallow ones all went bad at the same time."
+      ],
+      "reactions": [
+        "We're hauling water from the river until someone figures it out. It's manageable, but it's a lot of extra work.",
+        "I keep thinking about what could poison three wells at once. Nothing good comes to mind."
+      ]
+    },
+    {
+      "id": 5,
+      "intro": "There was a fire near {subject_focus_the} three nights ago. Burned a perfect circle into the hilltop, about twenty paces across. No lightning, no campfire, no explanation.",
+      "details": [
+        "The ash is white, not gray. And the soil underneath is baked hard as pottery.",
+        "Everything inside the circle burned completely, but the grass right at the edge wasn't even singed."
+      ],
+      "reactions": [
+        "Some people are calling it a sign. I'm calling it a reason to sleep with one eye open.",
+        "I've seen wildfires and I've seen lightning strikes. This wasn't either of those."
+      ],
+      "statCheck": {
+        "pass": "I went back to the circle at dusk and the ground was warm. Not from the sun: the warmth was coming from below, from deep down.",
+        "fail": "You poke around the edges of the burn circle, but the ash has been scattered by wind and foot traffic. Hard to tell much from what's left."
+      }
+    },
+    {
+      "id": 6,
+      "intro": "The wolves near {subject_focus_the} have been acting wrong. Not aggressive: the opposite. They sit at the edge of the village at night and just watch.",
+      "details": [
+        "Six of them, every night, same spot by the tree line. They don't hunt, don't howl. Just sit there.",
+        "When you walk toward them, they don't run. They stand up, look at you, then sit back down.",
+        "The pack used to stay deep in the hills. Something drove them closer, and whatever it is, they seem more afraid of it than they are of us."
+      ],
+      "reactions": [
+        "It's the stillness that gets to me. Wolves are supposed to move. These ones just stare.",
+        "Half the village thinks they're protecting us. The other half thinks they're waiting for something. Neither option helps me sleep."
+      ]
+    },
+    {
+      "id": 7,
+      "intro": "A merchant heading through {subject_focus_the} turned back halfway and warned everyone not to take the eastern road. Wouldn't say why.",
+      "details": [
+        "He was pale and his hands were shaking. This is a man who runs the northern passes in winter: he doesn't rattle easy.",
+        "He just said the road was wrong. That's the word he used: wrong. Not blocked, not dangerous. Wrong."
+      ],
+      "reactions": [
+        "Two other traders have since gone around the long way without anyone asking them to. That tells me he wasn't exaggerating.",
+        "I pressed him for details over a drink, but he just shook his head and changed the subject."
+      ],
+      "statCheck": {
+        "pass": "After a few drinks he let one thing slip: he said the road was there, but the landmarks were in the wrong places. Like the land itself had shifted.",
+        "fail": "You try to get him talking again, but the merchant just gives you a long look and says he's already said more than he should have."
+      }
+    },
+    {
+      "id": 8,
+      "intro": "The birds around {subject_focus_the} left. All of them, all at once, three mornings ago. Haven't seen a single one since.",
+      "details": [
+        "It wasn't migration: wrong season, wrong direction. They went south in a hurry, every species at once.",
+        "The nests are still full. Eggs, chicks, everything abandoned. They didn't plan to leave."
+      ],
+      "reactions": [
+        "My grandmother used to say when the birds go quiet, you listen. When they leave, you follow.",
+        "The silence is the worst part. You don't realize how much noise they made until it's gone."
+      ]
+    },
+    {
+      "id": 9,
+      "intro": "Someone found claw marks on the watchtower near {subject_focus_the}. High up, about fifteen feet off the ground, gouged deep into the stone.",
+      "details": [
+        "Four parallel grooves, each one as wide as my finger. The stone around them is cracked like it was hit with a chisel.",
+        "They're only on the north face. Whatever made them came from one direction and didn't bother going around.",
+        "The guard on duty that night says he heard scraping but thought it was the wind. He's not sleeping well."
+      ],
+      "reactions": [
+        "Stone doesn't scratch easy. Whatever did that had strength and intent. That combination worries me.",
+        "We doubled the night watch. Not because anyone thinks it'll help: because nobody wants to be alone up there."
+      ],
+      "statCheck": {
+        "pass": "I climbed up to look at the marks myself. There's a residue in the grooves: dark, almost like dried sap, but it smells like iron.",
+        "fail": "You squint up at the marks from below, but from the ground they just look like weathered stone. You'd need to climb up there to see anything useful."
+      }
+    }
+  ]
+}
