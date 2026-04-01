@@ -16,7 +16,7 @@
       ],
       "statCheck": {
         "pass": "I checked the ground around the stone. The drag marks come from the south, not from either family's property. Someone else moved it: someone who wants them fighting.",
-        "fail": "You examine the ground near the stone, but it's been trampled by both families arguing over it. Any useful evidence is long gone."
+        "fail": "Too many boots trampling the ground from all the arguing. If there was anything to find, it is long gone."
       }
     },
     {
@@ -45,7 +45,7 @@
       ],
       "statCheck": {
         "pass": "I talked to the dock boy who sleeps by the boats. He saw someone at the nets that night, but it wasn't anyone from either crew. Someone from outside town.",
-        "fail": "You ask around the docks, but everyone has a different story and none of them line up. Too much anger clouding the facts."
+        "fail": "Everyone at the docks has a different story and none of them line up. Too much anger clouding the facts."
       }
     },
     {
@@ -67,7 +67,7 @@
       "details": [
         "It started when the newer one set up shop across the street. The established one dropped his prices. Then the new one dropped lower.",
         "They're both doing shoddy work now because they can't afford proper materials at the prices they're charging.",
-        "The newer one's wife came to {npc_name} last week, worried. They're burning through savings and pride won't let either man stop."
+        "The newer one's wife came to me last week, worried. They're burning through savings and pride won't let either man stop."
       ],
       "reactions": [
         "The whole village is getting worse goods because two stubborn men would rather go broke than share a market.",

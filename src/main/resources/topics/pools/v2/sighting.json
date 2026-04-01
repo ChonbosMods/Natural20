@@ -16,7 +16,7 @@
       ],
       "statCheck": {
         "pass": "When it turned, I caught a glint: something reflective where its eyes should be, like polished metal catching moonlight.",
-        "fail": "You scan the tree line carefully, but in the dark everything looks like it could be something. Nothing stands out."
+        "fail": "In the dark, everything looks like it could be something. I have scanned that tree line a dozen times since and nothing stands out."
       }
     },
     {
@@ -27,7 +27,7 @@
         "Its antlers had a faint shimmer to them, like frost, but it was the middle of a warm afternoon."
       ],
       "reactions": [
-        "The hunters are excited. {npc_name} thinks it's bad luck. I'm somewhere in between.",
+        "The hunters are excited. I think it's bad luck, personally. Hard to say for certain.",
         "It didn't run when it saw us. Just stood there, chewing, like we weren't worth worrying about."
       ]
     },
@@ -45,7 +45,7 @@
       ],
       "statCheck": {
         "pass": "I found tracks at the stream bank. They're canine, but with a fifth toe set higher up, like a thumb. I've never seen that on any wolf.",
-        "fail": "You check the stream bank, but so many animals drink there that the mud is a mess of overlapping prints. Can't isolate anything unusual."
+        "fail": "So many animals drink there that the mud is a mess of overlapping prints. Cannot isolate anything unusual."
       }
     },
     {
@@ -74,7 +74,7 @@
       ],
       "statCheck": {
         "pass": "I had the elder listen to the child's song. He went pale and said it was an old warding chant: one that hasn't been spoken in this region for generations.",
-        "fail": "You listen to the child hum the melody, but it sounds like any other made-up tune. Without context, you can't tell if it means anything."
+        "fail": "It sounds like any other made-up tune, honestly. Without context, there is no telling if it means anything."
       }
     }
   ]

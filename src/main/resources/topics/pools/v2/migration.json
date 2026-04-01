@@ -15,7 +15,7 @@
       ],
       "statCheck": {
         "pass": "I followed the herd's trail back to where they started running. There's a stretch of dead grass in a wide band, like something passed through and killed everything it touched.",
-        "fail": "You backtrack along the herd's trail, but it merges with so many game paths that you lose the origin point."
+        "fail": "The trail merges with so many game paths that the origin point is lost. I tried following it back myself and gave up."
       }
     },
     {
@@ -44,7 +44,7 @@
       ],
       "statCheck": {
         "pass": "I caught a few and showed them to the old naturalist. She said they're a deep-forest species that never comes to open ground. Something drove them out of the canopy.",
-        "fail": "You try to examine the beetles, but they move fast and don't hold still. You can't tell much beyond the obvious: there are a lot of them."
+        "fail": "They move fast and do not hold still. Not much to tell beyond the obvious: there are a lot of them."
       }
     },
     {
@@ -60,7 +60,7 @@
       ],
       "statCheck": {
         "pass": "I visited one of the abandoned dens. The ground around the entrance is saturated with a smell I can't place: sharp, chemical, not natural. Something contaminated their home ground.",
-        "fail": "You check one of the dens, but it just looks like a hole in a hillside. Whatever drove the wolves out, it's not visible to you."
+        "fail": "The dens just look like holes in a hillside. Whatever drove the wolves out, it is not something I can see."
       }
     },
     {

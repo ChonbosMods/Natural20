@@ -16,7 +16,7 @@
       ],
       "statCheck": {
         "pass": "I spoke with a peddler who still travels the route. He said the merchants aren't afraid of bandits: they're afraid of something at the river crossing. He wouldn't elaborate, but he's been fording upstream instead.",
-        "fail": "You ask passing travelers about the caravan situation, but everyone has a different theory and none of them have firsthand information."
+        "fail": "Everyone has a different theory about the caravans and none of them have firsthand information. I have asked around plenty myself."
       }
     },
     {
@@ -46,7 +46,7 @@
       ],
       "statCheck": {
         "pass": "I followed one of the wagons at a distance. It didn't go to any town on the north road. It turned off onto a track I didn't know existed, heading toward the mountains.",
-        "fail": "You try to follow the wagon's tracks, but the north road is well-traveled and you lose them in the general traffic."
+        "fail": "The north road is well-traveled. The wagon tracks disappear into the general traffic almost immediately."
       }
     },
     {
@@ -76,7 +76,7 @@
       ],
       "statCheck": {
         "pass": "I compared the bad coins closely. They all have a tiny notch on the rim that the good coins don't: a filing mark. Someone is swapping real coins for counterfeits and marking which ones they've touched.",
-        "fail": "You look at the bad coins next to the good ones, but they seem identical except for the discoloration. Whatever the difference is, it's not visible to the eye."
+        "fail": "The bad coins look identical to the good ones except for the discoloration. Whatever the difference is, it is not visible to the eye."
       }
     }
   ]

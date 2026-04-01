@@ -29,7 +29,7 @@
       ],
       "statCheck": {
         "pass": "The eldest grandmother told me the real origin: the walk follows the exact path that the village founders took when they first arrived here, carrying torches through the dark to find this valley. It's a remembrance, not just a tradition.",
-        "fail": "You ask about the history of the lantern walk, but everyone just says it's always been this way. The origin is lost to time, or at least to memory."
+        "fail": "Nobody remembers how it started. Everyone just says it has always been this way. The origin is lost to time, or at least to memory."
       }
     },
     {
@@ -55,11 +55,11 @@
       ],
       "reactions": [
         "I entered once. Told a true story about the time I got lost in the woods as a child. Came in dead last. Apparently truth isn't as entertaining as fiction.",
-        "{npc_name} is thinking about entering this year. I've been practicing on anyone who'll listen, and a few who won't."
+        "I am thinking about entering this year. I have been practicing on anyone who will listen, and a few who won't."
       ],
       "statCheck": {
         "pass": "The traveler who nearly won last year left her story written down at the inn. I read it: it describes a place that matches the ruins north of here perfectly, except in her version, the ruins were alive and inhabited. She wasn't making it up. She was describing what it used to be.",
-        "fail": "You ask about the traveler's story, but nobody remembers the details clearly. Just that it was beautiful and strange. The feeling lingered more than the words."
+        "fail": "Nobody remembers the details of her story clearly. Just that it was beautiful and strange. The feeling lingered more than the words."
       }
     },
     {

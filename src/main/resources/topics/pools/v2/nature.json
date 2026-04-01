@@ -16,7 +16,7 @@
       ],
       "statCheck": {
         "pass": "I dug at the base of the oak. About a foot down, the soil shifts to something unusual: a layer of fine, silver-gray powder that isn't natural to this area. It's concentrated around the root system.",
-        "fail": "You examine the tree's roots and soil, but everything looks like normal forest floor. Whatever is causing the bloom isn't on the surface."
+        "fail": "Everything around the roots looks like normal forest floor. Whatever is causing the bloom is not on the surface."
       }
     },
     {
@@ -45,7 +45,7 @@
       ],
       "statCheck": {
         "pass": "I marked the center point and came back the next day. An eighth circle had appeared, and the center point had shifted about three paces north. The whole pattern is moving.",
-        "fail": "You look at the mushroom circles, but without knowing what species they are, you can't tell whether this is unusual growth or just a strange coincidence."
+        "fail": "Without knowing what species they are, there is no telling whether this is unusual growth or just a strange coincidence."
       }
     },
     {
@@ -75,7 +75,7 @@
       ],
       "statCheck": {
         "pass": "The smooth stones have faint markings on their undersides. I turned a few over and found the same symbol repeated: a tree with roots that mirror its branches. It's a consecration mark from the old religion.",
-        "fail": "You climb down into the hollow and look at the stones, but they're smooth and featureless. If there was ever anything else here, it's long gone."
+        "fail": "The stones are smooth and featureless. If there was ever anything else down there, it is long gone."
       }
     }
   ]

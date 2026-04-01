@@ -26,6 +26,17 @@ public class TopicGraphBuilder {
         @Nullable PoolEntry entry
     ) {}
 
+    // --- Topic shape probabilities ---
+    /** Chance each detail branch is included (rolled independently per detail). */
+    private static final double DETAIL_INCLUDE_CHANCE = 0.70;
+    /** Chance a detail branch gets a reaction follow-up (rolled per included detail). */
+    private static final double REACTION_FOLLOWUP_CHANCE = 0.30;
+    /** Chance the stat check appears when the entry has one authored. */
+    private static final double STAT_CHECK_CHANCE = 0.60;
+    /** Max detail branches on the entry node (hard cap before probability rolls). */
+    private static final int MAX_DETAILS = 2;
+
+    // --- Stat check tuning ---
     private static final int STAT_CHECK_DC_MIN = 8;
     private static final int STAT_CHECK_DC_MAX = 16;
     private static final int STAT_CHECK_PASS_DISPOSITION = 5;
@@ -115,28 +126,34 @@ public class TopicGraphBuilder {
                 .map(r -> DialogueResolver.resolve(r, bindings))
                 .toList();
 
-            // Detail branches
-            for (int i = 0; i < entry.details().size(); i++) {
+            // Detail branches: each detail has an independent chance of appearing.
+            // Keeps topic shape varied: some topics get 0 details, most get 1-2.
+            int detailCap = Math.min(entry.details().size(), MAX_DETAILS);
+            for (int i = 0; i < detailCap; i++) {
+                if (random.nextDouble() >= DETAIL_INCLUDE_CHANCE) continue;
+
                 String detailNodeId = subjectId + "_detail_" + i;
                 String detailResponseId = subjectId + "_resp_detail_" + i;
-                String reactionNodeId = subjectId + "_reaction_" + i;
-                String reactionResponseId = subjectId + "_resp_reaction_" + i;
 
                 String detailText = DialogueResolver.resolve(entry.details().get(i), bindings);
 
-                // Reaction node: holds full reactionPool, first reaction as fallback speakerText
-                String reactionFallback = resolvedReactions.isEmpty() ? detailText : resolvedReactions.getFirst();
-                nodes.put(reactionNodeId, new DialogueNode.DialogueTextNode(
-                    reactionFallback, resolvedReactions, List.of(), List.of(), false, false
-                ));
-
-                // Reaction response option on the detail node
-                String reactionPrompt = pickPromptFromGroups(template.reactionPrompts());
+                // Independent chance of a reaction follow-up on this detail
                 List<ResponseOption> detailChildResponses = new ArrayList<>();
-                detailChildResponses.add(new ResponseOption(
-                    reactionResponseId, reactionPrompt, null, reactionNodeId,
-                    ResponseMode.EXPLORATORY, null, null, null, null
-                ));
+                if (!resolvedReactions.isEmpty() && random.nextDouble() < REACTION_FOLLOWUP_CHANCE) {
+                    String reactionNodeId = subjectId + "_reaction_" + i;
+                    String reactionResponseId = subjectId + "_resp_reaction_" + i;
+
+                    String reactionFallback = resolvedReactions.getFirst();
+                    nodes.put(reactionNodeId, new DialogueNode.DialogueTextNode(
+                        reactionFallback, resolvedReactions, List.of(), List.of(), false, false
+                    ));
+
+                    String reactionPrompt = pickPromptFromGroups(template.reactionPrompts());
+                    detailChildResponses.add(new ResponseOption(
+                        reactionResponseId, reactionPrompt, null, reactionNodeId,
+                        ResponseMode.EXPLORATORY, null, null, null, null
+                    ));
+                }
 
                 // Detail node
                 nodes.put(detailNodeId, new DialogueNode.DialogueTextNode(
@@ -151,8 +168,9 @@ public class TopicGraphBuilder {
                 ));
             }
 
-            // Stat check (if entry has statCheck and assignment has skill)
-            if (entry.statCheck() != null && assignment.skill() != null) {
+            // Stat check: independent chance even when the entry has one authored
+            if (entry.statCheck() != null && assignment.skill() != null
+                    && random.nextDouble() < STAT_CHECK_CHANCE) {
                 Skill skill = assignment.skill();
                 Stat stat = skill.getStat();
 
@@ -188,9 +206,10 @@ public class TopicGraphBuilder {
                 ));
 
                 // Skill check response on entry node
+                // displayText is just the skill name; the UI prepends a color-coded [STAT] bracket from statPrefix
                 entryResponses.add(new ResponseOption(
                     checkResponseId,
-                    skill.buttonText(),
+                    skill.displayName(),
                     null,
                     checkNodeId,
                     ResponseMode.EXPLORATORY,
@@ -201,29 +220,9 @@ public class TopicGraphBuilder {
                 ));
             }
 
-            // Decisive branch
-            if (template.decisive() != null) {
-                String decisiveNodeId = subjectId + "_decisive";
-                String decisiveResponseId = subjectId + "_resp_decisive";
-
-                String decisivePrompt = pickPromptFromGroups(
-                    template.decisive().prompt() != null ? List.of(template.decisive().prompt()) : null
-                );
-                String decisiveResponseText = DialogueResolver.resolve(template.decisive().response(), bindings);
-
-                List<Map<String, String>> decisiveOnEnter = List.of(
-                    Map.of("type", "UNLOCK_TOPIC", "topicId", subjectId, "scope", "GLOBAL")
-                );
-
-                nodes.put(decisiveNodeId, new DialogueNode.DialogueTextNode(
-                    decisiveResponseText, null, List.of(), decisiveOnEnter, true, false
-                ));
-
-                entryResponses.add(new ResponseOption(
-                    decisiveResponseId, decisivePrompt, null, decisiveNodeId,
-                    ResponseMode.DECISIVE, null, null, null, null
-                ));
-            }
+            // No decisive response: topic exhausts naturally when all exploratories
+            // are grayed (ConversationSession.returnCheck handles this).
+            // UNLOCK_TOPIC fires on entry so the topic is globally available.
         } else {
             // Quest-bearer: explorable chain through dialogueChunks (intro -> plotStep -> outro)
             // with accept/decline at every level
@@ -320,9 +319,12 @@ public class TopicGraphBuilder {
             ));
         }
 
-        // Entry node
+        // Entry node: UNLOCK_TOPIC on enter so the topic is globally available
+        List<Map<String, String>> entryOnEnter = assignment.hasQuest()
+            ? List.of()
+            : List.of(Map.of("type", "UNLOCK_TOPIC", "topicId", subjectId, "scope", "GLOBAL"));
         nodes.put(entryNodeId, new DialogueNode.DialogueTextNode(
-            introText, null, entryResponses, List.of(), false, false
+            introText, null, entryResponses, entryOnEnter, false, false
         ));
 
         // Topic definition

@@ -17,11 +17,18 @@ import com.hypixel.hytale.server.core.entity.entities.Player;
 import com.hypixel.hytale.server.core.universe.world.storage.EntityStore;
 
 import java.util.*;
+import java.util.concurrent.locks.ReentrantLock;
 
 public class ConversationSession {
 
     private static final FluentLogger LOGGER = FluentLogger.forEnclosingClass();
     private static final int MAX_ACTION_CHAIN = 10;
+
+    /** Guards all mutable session state. Held by public entry points so that
+     *  the SCHEDULER thread (dice roll continuation, page reopen) and the
+     *  main server thread (topic/follow-up selection) never mutate state
+     *  concurrently. */
+    private final ReentrantLock lock = new ReentrantLock();
 
     // Identity
     private final String npcId;
@@ -92,66 +99,83 @@ public class ConversationSession {
     // --- Lifecycle ---
 
     public void start() {
-        processNode(graph.greetingNodeId());
-        presenter.openInitialPage(resolveVisibleTopics(), disposition);
+        lock.lock();
+        try {
+            processNode(graph.greetingNodeId());
+            presenter.openInitialPage(resolveVisibleTopics(), disposition);
+        } finally {
+            lock.unlock();
+        }
     }
 
     public void startFromSaved(List<LogEntry> savedLog, String savedActiveNodeId,
                                 String savedActiveTopicId,
                                 List<String> savedPendingFollowUps,
                                 Set<String> savedGrayedExploratories) {
-        conversationLog.addAll(savedLog);
-        grayedExploratories.addAll(savedGrayedExploratories);
-        activeTopicId = savedActiveTopicId;
+        lock.lock();
+        try {
+            conversationLog.addAll(savedLog);
+            grayedExploratories.addAll(savedGrayedExploratories);
+            activeTopicId = savedActiveTopicId;
 
-        if (!savedPendingFollowUps.isEmpty()) {
-            pendingFollowUpIds.addAll(savedPendingFollowUps);
-            activeNodeId = savedActiveNodeId;
+            if (!savedPendingFollowUps.isEmpty()) {
+                pendingFollowUpIds.addAll(savedPendingFollowUps);
+                activeNodeId = savedActiveNodeId;
 
-            DialogueNode node = graph.getNode(savedActiveNodeId);
-            if (node instanceof DialogueNode.DialogueTextNode textNode) {
-                topicsLocked = textNode.locksConversation();
-                Set<String> pendingSet = new HashSet<>(pendingFollowUpIds);
-                for (ResponseOption opt : textNode.responses()) {
-                    if (pendingSet.contains(opt.id())) {
-                        activeFollowUps.add(new ActiveFollowUp(
-                            opt.id(), opt.displayText(), null, opt.statPrefix(), false));
-                    } else if (opt.mode() == ResponseMode.EXPLORATORY
-                            && savedGrayedExploratories.contains(opt.id())) {
-                        activeFollowUps.add(new ActiveFollowUp(
-                            opt.id(), opt.displayText(), null, opt.statPrefix(), true));
+                DialogueNode node = graph.getNode(savedActiveNodeId);
+                if (node instanceof DialogueNode.DialogueTextNode textNode) {
+                    topicsLocked = textNode.locksConversation();
+                    Set<String> pendingSet = new HashSet<>(pendingFollowUpIds);
+                    for (ResponseOption opt : textNode.responses()) {
+                        if (pendingSet.contains(opt.id())) {
+                            activeFollowUps.add(new ActiveFollowUp(
+                                opt.id(), opt.displayText(), null, opt.statPrefix(), false));
+                        } else if (opt.mode() == ResponseMode.EXPLORATORY
+                                && savedGrayedExploratories.contains(opt.id())) {
+                            activeFollowUps.add(new ActiveFollowUp(
+                                opt.id(), opt.displayText(), null, opt.statPrefix(), true));
+                        }
                     }
                 }
             }
-        }
 
-        presenter.refreshLog(conversationLog);
-        presenter.refreshFollowUps(activeFollowUps);
-        presenter.openInitialPage(resolveVisibleTopics(), disposition);
+            presenter.refreshLog(conversationLog);
+            presenter.refreshFollowUps(activeFollowUps);
+            presenter.openInitialPage(resolveVisibleTopics(), disposition);
+        } finally {
+            lock.unlock();
+        }
     }
 
     public void endDialogue() {
-        if (ended) return;
-        ended = true;
+        lock.lock();
+        try {
+            if (ended) return;
+            ended = true;
 
-        playerData.setDispositionFor(npcId, disposition);
+            playerData.setDispositionFor(npcId, disposition);
 
-        if (!pendingFollowUpIds.isEmpty()) {
-            saveSession();
-        } else {
-            playerData.clearSavedSession(npcId);
+            if (!pendingFollowUpIds.isEmpty()) {
+                saveSession();
+            } else {
+                playerData.clearSavedSession(npcId);
+            }
+
+            presenter.close();
+            if (onNpcRelease != null) {
+                onNpcRelease.run();
+            }
+            onSessionEnd.run();
+        } finally {
+            lock.unlock();
         }
-
-        presenter.close();
-        if (onNpcRelease != null) {
-            onNpcRelease.run();
-        }
-        onSessionEnd.run();
     }
 
     // --- Topic Selection ---
 
     public void handleTopicSelected(String topicId) {
+        lock.lock();
+        try {
         if (topicsLocked || ended) return;
 
         TopicDefinition topic = graph.topics().stream()
@@ -233,32 +257,40 @@ public class ConversationSession {
         processNode(entryNodeId);
         presenter.refreshTopics(resolveVisibleTopics());
         presenter.flushUpdates();
+        } finally {
+            lock.unlock();
+        }
     }
 
     // --- Follow-Up Selection ---
 
     public void handleFollowUpSelected(String responseId) {
-        if (ended) return;
+        lock.lock();
+        try {
+            if (ended) return;
 
-        DialogueNode node = graph.getNode(activeNodeId);
-        if (!(node instanceof DialogueNode.DialogueTextNode textNode)) return;
+            DialogueNode node = graph.getNode(activeNodeId);
+            if (!(node instanceof DialogueNode.DialogueTextNode textNode)) return;
 
-        ResponseOption selected = textNode.responses().stream()
-            .filter(r -> r.id().equals(responseId))
-            .findFirst().orElse(null);
-        if (selected == null) return;
+            ResponseOption selected = textNode.responses().stream()
+                .filter(r -> r.id().equals(responseId))
+                .findFirst().orElse(null);
+            if (selected == null) return;
 
-        markFollowUpSelected(responseId, selected);
+            markFollowUpSelected(responseId, selected);
 
-        if (selected.skillCheckRef() != null) {
-            processNode(selected.skillCheckRef());
+            if (selected.skillCheckRef() != null) {
+                processNode(selected.skillCheckRef());
+                presenter.flushUpdates();
+                return;
+            }
+
+            processNode(selected.targetNodeId());
+            presenter.refreshTopics(resolveVisibleTopics());
             presenter.flushUpdates();
-            return;
+        } finally {
+            lock.unlock();
         }
-
-        processNode(selected.targetNodeId());
-        presenter.refreshTopics(resolveVisibleTopics());
-        presenter.flushUpdates();
     }
 
     // --- Node Processing ---
@@ -341,19 +373,24 @@ public class ConversationSession {
     // --- Skill Check Completion ---
 
     public void handleSkillCheckResult(SkillCheckResult result, DialogueNode.SkillCheckNode checkNode) {
-        // Emit skill check result to dialogue log
-        com.chonbosmods.stats.Skill skill = checkNode.skill();
-        com.chonbosmods.stats.Stat stat = skill.getStat();
+        lock.lock();
+        try {
+            // Emit skill check result to dialogue log
+            com.chonbosmods.stats.Skill skill = checkNode.skill();
+            com.chonbosmods.stats.Stat stat = skill.getStat();
 
-        conversationLog.add(new LogEntry.SkillCheckResult(
-            stat.name(), skill.displayName(), result.totalRoll(),
-            result.passed(), result.critical()
-        ));
+            conversationLog.add(new LogEntry.SkillCheckResult(
+                stat.name(), skill.displayName(), result.totalRoll(),
+                result.passed(), result.critical()
+            ));
 
-        String nextNodeId = result.passed() ? checkNode.passNodeId() : checkNode.failNodeId();
-        processNode(nextNodeId);
-        presenter.refreshTopics(resolveVisibleTopics());
-        presenter.flushUpdates();
+            String nextNodeId = result.passed() ? checkNode.passNodeId() : checkNode.failNodeId();
+            processNode(nextNodeId);
+            presenter.refreshTopics(resolveVisibleTopics());
+            presenter.flushUpdates();
+        } finally {
+            lock.unlock();
+        }
     }
 
     // --- Internal Helpers ---
@@ -386,9 +423,12 @@ public class ConversationSession {
     }
 
     private void markFollowUpSelected(String selectedId, ResponseOption selected) {
-        // Record the selection in the conversation log (history only)
-        String logDisplay = selected.logText() != null ? selected.logText() : selected.displayText();
-        conversationLog.add(new LogEntry.SelectedResponse(selectedId, logDisplay, selected.statPrefix()));
+        // Record the selection in the conversation log (history only).
+        // Skip for skill checks: their result is logged as SkillCheckResult instead.
+        if (selected.skillCheckRef() == null) {
+            String logDisplay = selected.logText() != null ? selected.logText() : selected.displayText();
+            conversationLog.add(new LogEntry.SelectedResponse(selectedId, logDisplay, selected.statPrefix()));
+        }
 
         if (selected.mode() == ResponseMode.EXPLORATORY) {
             grayedExploratories.add(selectedId);
@@ -598,44 +638,7 @@ public class ConversationSession {
         // Serialize conversation log
         var logArray = new JsonArray();
         for (LogEntry entry : conversationLog) {
-            var logObj = new JsonObject();
-            switch (entry) {
-                case LogEntry.TopicHeader h -> {
-                    logObj.addProperty("type", "TopicHeader");
-                    logObj.addProperty("label", h.label());
-                    if (h.questTopic()) logObj.addProperty("questTopic", true);
-                }
-                case LogEntry.NpcSpeech s -> {
-                    logObj.addProperty("type", "NpcSpeech");
-                    logObj.addProperty("text", s.text());
-                }
-                case LogEntry.SelectedResponse s -> {
-                    logObj.addProperty("type", "SelectedResponse");
-                    logObj.addProperty("responseId", s.responseId());
-                    logObj.addProperty("displayText", s.displayText());
-                    if (s.statPrefix() != null) logObj.addProperty("statPrefix", s.statPrefix());
-                }
-                case LogEntry.SystemText s -> {
-                    logObj.addProperty("type", "SystemText");
-                    logObj.addProperty("text", s.text());
-                }
-                case LogEntry.ReturnGreeting r -> {
-                    logObj.addProperty("type", "ReturnGreeting");
-                    logObj.addProperty("text", r.text());
-                }
-                case LogEntry.ReturnDivider ignored -> {
-                    logObj.addProperty("type", "ReturnDivider");
-                }
-                case LogEntry.SkillCheckResult r -> {
-                    logObj.addProperty("type", "SkillCheckResult");
-                    logObj.addProperty("statAbbreviation", r.statAbbreviation());
-                    logObj.addProperty("skillName", r.skillName());
-                    logObj.addProperty("totalRoll", r.totalRoll());
-                    logObj.addProperty("passed", r.passed());
-                    logObj.addProperty("critical", r.critical());
-                }
-            }
-            logArray.add(logObj);
+            logArray.add(LogEntry.toJson(entry));
         }
         json.add("log", logArray);
 

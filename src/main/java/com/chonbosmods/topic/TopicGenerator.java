@@ -363,10 +363,11 @@ public class TopicGenerator {
             ? " " + dedup.drawFrom("tone_closer_" + bracket, topicPool.getToneClosers(bracket), random)
             : "");
 
-        // Entry content
-        bindings.put("entry_intro", entry.intro());
+        // Entry content: pre-resolve variables in pool text so nested tokens
+        // like {subject_focus_the} inside entry.intro() get substituted.
+        bindings.put("entry_intro", DialogueResolver.resolve(entry.intro(), bindings));
         if (!entry.reactions().isEmpty()) {
-            bindings.put("entry_reaction", entry.reactions().getFirst());
+            bindings.put("entry_reaction", DialogueResolver.resolve(entry.reactions().getFirst(), bindings));
         }
 
         // Quest bindings for quest bearers

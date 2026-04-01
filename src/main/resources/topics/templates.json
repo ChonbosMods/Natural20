@@ -9,9 +9,7 @@
       "reactionIntensity": "intense",
       "intro": "{tone_opener}{entry_intro}{tone_closer}",
       "detailPrompts": ["ask_more", "press_details"],
-      "reactionPrompts": ["ask_opinion", "ask_feeling"],
-      "decisive": { "prompt": "end_topic", "response": "{entry_reaction}" }
-    },
+      "reactionPrompts": ["ask_opinion", "ask_feeling"]    },
     {
       "id": "sighting",
       "label": "{subject_focus_The}",
@@ -20,9 +18,7 @@
       "reactionIntensity": "intense",
       "intro": "{tone_opener}{entry_intro}{tone_closer}",
       "detailPrompts": ["ask_more", "press_source"],
-      "reactionPrompts": ["ask_opinion"],
-      "decisive": { "prompt": "end_topic", "response": "{entry_reaction}" }
-    },
+      "reactionPrompts": ["ask_opinion"]    },
     {
       "id": "treasure",
       "label": "{subject_focus_The}",
@@ -31,9 +27,7 @@
       "reactionIntensity": "intense",
       "intro": "{tone_opener}{entry_intro}{tone_closer}",
       "detailPrompts": ["ask_more", "press_details"],
-      "reactionPrompts": ["ask_opinion", "ask_feeling"],
-      "decisive": { "prompt": "end_topic", "response": "{entry_reaction}" }
-    },
+      "reactionPrompts": ["ask_opinion", "ask_feeling"]    },
     {
       "id": "corruption",
       "label": "{subject_focus_The}",
@@ -42,9 +36,7 @@
       "reactionIntensity": "intense",
       "intro": "{tone_opener}{entry_intro}{tone_closer}",
       "detailPrompts": ["ask_more", "press_details"],
-      "reactionPrompts": ["ask_opinion", "ask_feeling"],
-      "decisive": { "prompt": "end_topic", "response": "{entry_reaction}" }
-    },
+      "reactionPrompts": ["ask_opinion", "ask_feeling"]    },
     {
       "id": "conflict",
       "label": "{subject_focus_The}",
@@ -53,9 +45,7 @@
       "reactionIntensity": "intense",
       "intro": "{tone_opener}{entry_intro}{tone_closer}",
       "detailPrompts": ["ask_more", "press_details"],
-      "reactionPrompts": ["ask_opinion", "ask_feeling"],
-      "decisive": { "prompt": "end_topic", "response": "{entry_reaction}" }
-    },
+      "reactionPrompts": ["ask_opinion", "ask_feeling"]    },
     {
       "id": "disappearance",
       "label": "{subject_focus_The}",
@@ -64,9 +54,7 @@
       "reactionIntensity": "intense",
       "intro": "{tone_opener}{entry_intro}{tone_closer}",
       "detailPrompts": ["ask_more", "press_details"],
-      "reactionPrompts": ["ask_opinion", "ask_feeling"],
-      "decisive": { "prompt": "end_topic", "response": "{entry_reaction}" }
-    },
+      "reactionPrompts": ["ask_opinion", "ask_feeling"]    },
     {
       "id": "migration",
       "label": "{subject_focus_The}",
@@ -75,9 +63,7 @@
       "reactionIntensity": "intense",
       "intro": "{tone_opener}{entry_intro}{tone_closer}",
       "detailPrompts": ["ask_more", "press_source"],
-      "reactionPrompts": ["ask_opinion"],
-      "decisive": { "prompt": "end_topic", "response": "{entry_reaction}" }
-    },
+      "reactionPrompts": ["ask_opinion"]    },
     {
       "id": "omen",
       "label": "{subject_focus_The}",
@@ -86,9 +72,7 @@
       "reactionIntensity": "intense",
       "intro": "{tone_opener}{entry_intro}{tone_closer}",
       "detailPrompts": ["ask_more", "press_details"],
-      "reactionPrompts": ["ask_opinion", "ask_feeling"],
-      "decisive": { "prompt": "end_topic", "response": "{entry_reaction}" }
-    },
+      "reactionPrompts": ["ask_opinion", "ask_feeling"]    },
     {
       "id": "weather",
       "label": "The Weather Lately",
@@ -97,9 +81,7 @@
       "reactionIntensity": "mild",
       "intro": "{tone_opener}{entry_intro}{tone_closer}",
       "detailPrompts": ["ask_more", "ask_context"],
-      "reactionPrompts": ["ask_opinion"],
-      "decisive": { "prompt": "end_topic", "response": "{entry_reaction}" }
-    },
+      "reactionPrompts": ["ask_opinion"]    },
     {
       "id": "trade",
       "label": "Trade at {subject_focus_the}",
@@ -108,9 +90,7 @@
       "reactionIntensity": "mild",
       "intro": "{tone_opener}{entry_intro}{tone_closer}",
       "detailPrompts": ["ask_more", "ask_context"],
-      "reactionPrompts": ["ask_opinion", "ask_feeling"],
-      "decisive": { "prompt": "end_topic", "response": "{entry_reaction}" }
-    },
+      "reactionPrompts": ["ask_opinion", "ask_feeling"]    },
     {
       "id": "craftsmanship",
       "label": "{subject_focus_The}",
@@ -119,9 +99,7 @@
       "reactionIntensity": "mild",
       "intro": "{tone_opener}{entry_intro}{tone_closer}",
       "detailPrompts": ["ask_more", "press_details"],
-      "reactionPrompts": ["ask_opinion"],
-      "decisive": { "prompt": "end_topic", "response": "{entry_reaction}" }
-    },
+      "reactionPrompts": ["ask_opinion"]    },
     {
       "id": "community",
       "label": "{subject_focus_The}",
@@ -130,9 +108,7 @@
       "reactionIntensity": "mild",
       "intro": "{tone_opener}{entry_intro}{tone_closer}",
       "detailPrompts": ["ask_more", "ask_context"],
-      "reactionPrompts": ["ask_opinion", "ask_feeling"],
-      "decisive": { "prompt": "end_topic", "response": "{entry_reaction}" }
-    },
+      "reactionPrompts": ["ask_opinion", "ask_feeling"]    },
     {
       "id": "nature",
       "label": "{subject_focus_The}",
@@ -141,9 +117,7 @@
       "reactionIntensity": "intense",
       "intro": "{tone_opener}{entry_intro}{tone_closer}",
       "detailPrompts": ["ask_more", "press_details"],
-      "reactionPrompts": ["ask_opinion"],
-      "decisive": { "prompt": "end_topic", "response": "{entry_reaction}" }
-    },
+      "reactionPrompts": ["ask_opinion"]    },
     {
       "id": "nostalgia",
       "label": "{subject_focus_The}",
@@ -152,9 +126,7 @@
       "reactionIntensity": "mild",
       "intro": "{tone_opener}{entry_intro}{tone_closer}",
       "detailPrompts": ["ask_more", "ask_context"],
-      "reactionPrompts": ["ask_opinion", "ask_feeling"],
-      "decisive": { "prompt": "end_topic", "response": "{entry_reaction}" }
-    },
+      "reactionPrompts": ["ask_opinion", "ask_feeling"]    },
     {
       "id": "curiosity",
       "label": "{subject_focus_The}",
@@ -163,9 +135,7 @@
       "reactionIntensity": "intense",
       "intro": "{tone_opener}{entry_intro}{tone_closer}",
       "detailPrompts": ["ask_more", "press_details"],
-      "reactionPrompts": ["ask_opinion"],
-      "decisive": { "prompt": "end_topic", "response": "{entry_reaction}" }
-    },
+      "reactionPrompts": ["ask_opinion"]    },
     {
       "id": "festival",
       "label": "{subject_focus_The}",
@@ -174,8 +144,6 @@
       "reactionIntensity": "mild",
       "intro": "{tone_opener}{entry_intro}{tone_closer}",
       "detailPrompts": ["ask_more", "ask_context"],
-      "reactionPrompts": ["ask_opinion", "ask_feeling"],
-      "decisive": { "prompt": "end_topic", "response": "{entry_reaction}" }
-    }
+      "reactionPrompts": ["ask_opinion", "ask_feeling"]    }
   ]
 }

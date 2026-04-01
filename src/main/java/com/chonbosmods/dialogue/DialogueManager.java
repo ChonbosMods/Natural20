@@ -128,26 +128,7 @@ public class DialogueManager {
                 List<LogEntry> savedLog = new ArrayList<>();
                 if (savedData.has("log")) {
                     for (var el : savedData.getAsJsonArray("log")) {
-                        var logObj = el.getAsJsonObject();
-                        String logType = logObj.get("type").getAsString();
-                        LogEntry entry = switch (logType) {
-                            case "TopicHeader" -> new LogEntry.TopicHeader(logObj.get("label").getAsString(), logObj.has("questTopic") && logObj.get("questTopic").getAsBoolean());
-                            case "NpcSpeech" -> new LogEntry.NpcSpeech(logObj.get("text").getAsString());
-                            case "SelectedResponse" -> new LogEntry.SelectedResponse(
-                                    logObj.get("responseId").getAsString(),
-                                    logObj.get("displayText").getAsString(),
-                                    logObj.has("statPrefix") ? logObj.get("statPrefix").getAsString() : null);
-                            case "SystemText" -> new LogEntry.SystemText(logObj.get("text").getAsString());
-                            case "ReturnGreeting" -> new LogEntry.ReturnGreeting(logObj.get("text").getAsString());
-                            case "ReturnDivider" -> new LogEntry.ReturnDivider();
-                            case "SkillCheckResult" -> new LogEntry.SkillCheckResult(
-                                    logObj.get("statAbbreviation").getAsString(),
-                                    logObj.get("skillName").getAsString(),
-                                    logObj.get("totalRoll").getAsInt(),
-                                    logObj.get("passed").getAsBoolean(),
-                                    logObj.has("critical") && logObj.get("critical").getAsBoolean());
-                            default -> null;
-                        };
+                        LogEntry entry = LogEntry.fromJson(el.getAsJsonObject());
                         if (entry != null) savedLog.add(entry);
                     }
                 }

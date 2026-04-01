@@ -16,7 +16,7 @@
       ],
       "statCheck": {
         "pass": "I did some quiet asking around. His appointment came with a letter from someone high up, but the seal on the letter was wrong: slightly different from the real one.",
-        "fail": "You try to poke around his ledger when he's not looking, but his guards keep a tight circle. No chance to get close."
+        "fail": "His guards keep a tight circle. Believe me, others have tried to get a look at those ledgers."
       }
     },
     {
@@ -41,11 +41,11 @@
       ],
       "reactions": [
         "The families don't talk about it. They're ashamed, and he knows that keeps them quiet.",
-        "{npc_name} tried to warn the last family before they signed. The merchant sent someone to have a word with me. Polite, but the message was clear."
+        "I tried to warn the last family before they signed. The merchant sent someone to have a word with me. Polite, but the message was clear."
       ],
       "statCheck": {
         "pass": "I got hold of one of the sale contracts. There's a clause buried at the bottom: the merchant gets mineral rights too. He's not after the farmland. He's after what's underneath it.",
-        "fail": "You ask around about the sale terms, but the families who sold won't share the details. Too embarrassed or too scared."
+        "fail": "The families who sold won't share the details. Too embarrassed or too scared, I think."
       }
     },
     {
@@ -61,7 +61,7 @@
       ],
       "statCheck": {
         "pass": "I followed one of the wagons at a distance once. It went to a warehouse at the edge of town that's supposed to be empty. It was not empty.",
-        "fail": "You try staying up to spot the wagons, but either they didn't come tonight or you dozed off at the wrong time. Hard to catch ghosts."
+        "fail": "I have tried staying up to spot them myself. Either they do not come every night or I doze off at the wrong time. Hard to catch ghosts."
       }
     },
     {

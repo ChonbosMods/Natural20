@@ -28,12 +28,12 @@
       ],
       "statCheck": {
         "pass": "I actually found my father's old fortune-telling cards in a trunk last month. There's a map drawn on the back of one: he marked every stall location from the original market layout. We could rebuild it exactly as it was.",
-        "fail": "You ask about the old market layout, but memories differ. Everyone remembers their own stall and not much else."
+        "fail": "Memories differ. Everyone remembers their own stall and not much else. I could not piece together the full layout from what people told me."
       }
     },
     {
       "id": 2,
-      "intro": "The village near {subject_focus_the} used to have a storyteller. Old woman named Maren who sat by the fire every evening and told tales until the children fell asleep.",
+      "intro": "The village near {subject_focus_the} used to have a storyteller. An old woman who sat by the fire every evening and told tales until the children fell asleep.",
       "details": [
         "She knew hundreds of stories. Some from books, some from travelers, some she made up on the spot. You could never tell which was which.",
         "She had a way of looking at you while she spoke, like the story was just for you, even when twenty people were listening.",
@@ -58,7 +58,7 @@
       ],
       "statCheck": {
         "pass": "Our old carved tree is still alive, barely. But the carving has grown over and the bark has healed around it. If you peel back a layer, you can still read the names. Mine, and three friends who've all moved away.",
-        "fail": "You look at the tree, but it's just an old tree at the edge of a field. Whatever was carved there is hidden under years of growth."
+        "fail": "It is just an old tree at the edge of a field now. Whatever was carved there is hidden under years of growth."
       }
     },
     {
