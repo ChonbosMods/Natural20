@@ -1,0 +1,82 @@
+{
+  "pool": "nature",
+  "version": 2,
+  "entries": [
+    {
+      "id": 0,
+      "intro": "The old oak near {subject_focus_the} bloomed out of season. Full white blossoms in the dead of autumn, like it forgot what month it was.",
+      "details": [
+        "The blossoms smell different from spring oak flowers: sweeter, almost like jasmine. Never smelled anything like it from a tree.",
+        "Bees are swarming it despite the cold. They shouldn't be active this late in the year, but they're working those blossoms like it's midsummer.",
+        "The petals glow faintly at dusk. Not bright, just a soft warmth, like embers cooling."
+      ],
+      "reactions": [
+        "The herbalist collected some blossoms and dried them. She says they have properties she can't identify yet.",
+        "Beautiful or not, trees don't bloom in autumn without a reason. Something in the soil changed, or something is acting on that tree specifically."
+      ],
+      "statCheck": {
+        "pass": "I dug at the base of the oak. About a foot down, the soil shifts to something unusual: a layer of fine, silver-gray powder that isn't natural to this area. It's concentrated around the root system.",
+        "fail": "You examine the tree's roots and soil, but everything looks like normal forest floor. Whatever is causing the bloom isn't on the surface."
+      }
+    },
+    {
+      "id": 1,
+      "intro": "The creek near {subject_focus_the} reversed direction for about an hour last Tuesday. Water flowing uphill, steady and calm, like it was the most natural thing in the world.",
+      "details": [
+        "I was washing clothes when I noticed the current pushing my linens the wrong way. Thought I was losing my mind.",
+        "The fish didn't seem bothered. They just turned around and swam with the new current."
+      ],
+      "reactions": [
+        "My neighbor saw it too, so at least I know I'm not imagining things.",
+        "Water doesn't flow uphill. I've said that sentence to myself about fifty times since Tuesday and it doesn't help."
+      ]
+    },
+    {
+      "id": 2,
+      "intro": "Mushrooms near {subject_focus_the} have been growing in perfect circles. Not fairy rings: actual geometric circles, evenly spaced, like someone planted them with a compass.",
+      "details": [
+        "There are seven circles so far, each one larger than the last, all centered on the same point in the clearing.",
+        "They're a species nobody here has seen before. Pale blue caps with gold stems. Almost too pretty to be real.",
+        "They appeared overnight. The clearing was bare at sunset and covered by dawn."
+      ],
+      "reactions": [
+        "The herbalist won't touch them until she knows what they are. Smart policy with anything that shows up overnight.",
+        "I've heard of fairy rings, but these are too precise. Fairy rings are rough circles. These look measured."
+      ],
+      "statCheck": {
+        "pass": "I marked the center point and came back the next day. An eighth circle had appeared, and the center point had shifted about three paces north. The whole pattern is moving.",
+        "fail": "You look at the mushroom circles, but without knowing what species they are, you can't tell whether this is unusual growth or just a strange coincidence."
+      }
+    },
+    {
+      "id": 3,
+      "intro": "The wildflowers near {subject_focus_the} are growing in one color only this year. Every species, every patch: solid red. No yellow, no blue, no white.",
+      "details": [
+        "The clover is red. The daisies are red. Even the forget-me-nots, which should be blue, came up red.",
+        "It's only in this valley. Walk an hour in any direction and the flowers are normal colors.",
+        "The bees don't seem to mind. They visit the red flowers the same as always."
+      ],
+      "reactions": [
+        "The dye-maker is thrilled: best red pigment she's ever extracted. Everyone else is unsettled.",
+        "My daughter picked me a bouquet. It's beautiful, honestly. But it looks like every flower in the valley is bleeding."
+      ]
+    },
+    {
+      "id": 4,
+      "intro": "A massive tree fell near {subject_focus_the} during calm weather. No wind, no rot, no reason. It just toppled over at noon on a clear day.",
+      "details": [
+        "The trunk was solid: no disease, no insect damage, nothing wrong with it at all.",
+        "Where the roots pulled up, there's a hollow space underneath. Not a burrow: a chamber, lined with smooth stones.",
+        "The stones are arranged in concentric rings. At the center there's a depression in the earth, shaped like something used to sit there."
+      ],
+      "reactions": [
+        "The tree was easily three hundred years old. Whatever was under it has been there even longer.",
+        "I keep wondering what used to sit in that depression. Something was placed there on purpose, and at some point, someone or something took it back."
+      ],
+      "statCheck": {
+        "pass": "The smooth stones have faint markings on their undersides. I turned a few over and found the same symbol repeated: a tree with roots that mirror its branches. It's a consecration mark from the old religion.",
+        "fail": "You climb down into the hollow and look at the stones, but they're smooth and featureless. If there was ever anything else here, it's long gone."
+      }
+    }
+  ]
+}

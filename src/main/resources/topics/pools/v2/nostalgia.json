@@ -1,0 +1,78 @@
+{
+  "pool": "nostalgia",
+  "version": 2,
+  "entries": [
+    {
+      "id": 0,
+      "intro": "My grandfather built the first bridge near {subject_focus_the} with his own hands. Took him an entire summer, working dawn to dusk, alone.",
+      "details": [
+        "He used timber from the grove that's gone now. Cut each beam himself and fitted them without nails: all joints and pegs.",
+        "People told him it wouldn't hold. First winter storm came through and every other structure lost shingles. The bridge didn't move.",
+        "It stood for forty years before they replaced it with stone. He watched them tear it down and didn't say a word."
+      ],
+      "reactions": [
+        "The stone bridge is better, I suppose. But there was something about knowing one man built something that served a whole village.",
+        "He taught me that the work is the point. Not the praise, not the legacy: just doing the thing well because you can."
+      ]
+    },
+    {
+      "id": 1,
+      "intro": "There used to be a night market near {subject_focus_the} when I was young. Lanterns strung between the posts, music until midnight, the smell of roasted chestnuts in every direction.",
+      "details": [
+        "Every family had a stall. My mother sold honey cakes and my father told fortunes for a copper. He was terrible at it, but people lined up anyway because he was funny.",
+        "The last one was maybe fifteen years ago. People got busy, the young folk left for the cities, and one year nobody organized it."
+      ],
+      "reactions": [
+        "I walk through the market square at night sometimes and I can almost smell the chestnuts. Almost.",
+        "Someone suggested bringing it back last year. Everyone agreed it was a wonderful idea and then nobody did anything about it."
+      ],
+      "statCheck": {
+        "pass": "I actually found my father's old fortune-telling cards in a trunk last month. There's a map drawn on the back of one: he marked every stall location from the original market layout. We could rebuild it exactly as it was.",
+        "fail": "You ask about the old market layout, but memories differ. Everyone remembers their own stall and not much else."
+      }
+    },
+    {
+      "id": 2,
+      "intro": "The village near {subject_focus_the} used to have a storyteller. Old woman named Maren who sat by the fire every evening and told tales until the children fell asleep.",
+      "details": [
+        "She knew hundreds of stories. Some from books, some from travelers, some she made up on the spot. You could never tell which was which.",
+        "She had a way of looking at you while she spoke, like the story was just for you, even when twenty people were listening.",
+        "She passed on about five years ago. Nobody replaced her. Nobody could."
+      ],
+      "reactions": [
+        "The fire pit is still there. People sit around it sometimes, but it's quiet now. Conversations, not stories.",
+        "I've tried to remember her tales and write them down. I get the plots right but I can't capture her voice. Some things don't survive the page."
+      ]
+    },
+    {
+      "id": 3,
+      "intro": "When I was a child, the forest near {subject_focus_the} was twice the size it is now. You could walk for a whole day under the canopy and never see the sky.",
+      "details": [
+        "We built forts in the deep woods, my friends and I. Secret places with passwords and carved signs on the trees.",
+        "The logging started when the new road went through. Took about ten years to cut the forest back to where it is now.",
+        "I went looking for our old fort last year. Found the tree we'd carved our names into. It's on the edge of a field now. No forest around it at all."
+      ],
+      "reactions": [
+        "Progress, they called it. I understand the need, but understanding doesn't make the loss smaller.",
+        "My daughter asked me why I was sad about a tree. I told her it wasn't the tree: it was everything the tree remembered."
+      ],
+      "statCheck": {
+        "pass": "Our old carved tree is still alive, barely. But the carving has grown over and the bark has healed around it. If you peel back a layer, you can still read the names. Mine, and three friends who've all moved away.",
+        "fail": "You look at the tree, but it's just an old tree at the edge of a field. Whatever was carved there is hidden under years of growth."
+      }
+    },
+    {
+      "id": 4,
+      "intro": "There was a bell in the tower near {subject_focus_the} that rang every morning at dawn. The whole village woke to it for generations.",
+      "details": [
+        "It had a tone you could feel in your chest. Deep and warm, not sharp. It didn't jolt you awake: it called you gently.",
+        "The bell cracked during a storm eight years ago. They took it down and never replaced it.",
+        "The tower is still there, but it's quiet. The village uses a horn now. It works, but it's not the same."
+      ],
+      "reactions": [
+        "Some mornings I wake at dawn anyway, expecting to hear it. The silence where the bell should be is the loudest sound I know.",
+        "The cracked bell is sitting behind the blacksmith's shop. I walk past it sometimes and put my hand on it, just to remember the feel of the metal."
+      ]
+    }
+  ]
+}

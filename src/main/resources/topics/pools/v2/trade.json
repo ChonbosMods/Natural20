@@ -1,0 +1,83 @@
+{
+  "pool": "trade",
+  "version": 2,
+  "entries": [
+    {
+      "id": 0,
+      "intro": "The merchant caravans that used to pass through {subject_focus_the} have stopped coming. Last three were supposed to arrive weeks ago.",
+      "details": [
+        "We rely on those caravans for iron, cloth, and spices. Our own stores are running thin.",
+        "A rider came through saying the southern road is still open, but the merchants won't say why they've rerouted.",
+        "The last caravan leader who came through was nervous. Kept looking behind him and left before dawn."
+      ],
+      "reactions": [
+        "We can manage without spices. Iron is another matter. The smith is rationing what he has.",
+        "If the caravans don't come back soon, we'll have to send our own people to the trading post. That's a five-day journey each way."
+      ],
+      "statCheck": {
+        "pass": "I spoke with a peddler who still travels the route. He said the merchants aren't afraid of bandits: they're afraid of something at the river crossing. He wouldn't elaborate, but he's been fording upstream instead.",
+        "fail": "You ask passing travelers about the caravan situation, but everyone has a different theory and none of them have firsthand information."
+      }
+    },
+    {
+      "id": 1,
+      "intro": "A new trader set up near {subject_focus_the} selling goods nobody can identify. Beautiful things, but nobody knows what they're made of or where they come from.",
+      "details": [
+        "The fabrics shimmer like silk but they're tougher than leather. The dyes don't fade, even in rain.",
+        "He pays in standard coin but won't say where he sources his stock. Just smiles and says it's a trade secret.",
+        "His prices are suspiciously fair. Almost too good. The established merchants are losing customers fast."
+      ],
+      "reactions": [
+        "I bought a scarf from him. It's the finest thing I've ever owned and it cost less than a meal. Something about that doesn't sit right.",
+        "The old merchants are furious. They're calling for the council to inspect his goods, but nobody can find anything actually wrong with them."
+      ]
+    },
+    {
+      "id": 2,
+      "intro": "The grain prices near {subject_focus_the} have tripled in two weeks, and it's not because of a bad harvest. Someone is buying up the supply.",
+      "details": [
+        "Three wagons of grain left the village heading north two days apart. Bought at market rate, sold at who knows what.",
+        "The buyer is a woman nobody recognizes. She pays in gold, not silver. Nobody around here uses gold for grain.",
+        "She's not hoarding it locally: the wagons don't come back. The grain is going somewhere else."
+      ],
+      "reactions": [
+        "We'll have enough if we're careful, but the poorer families are already feeling the squeeze.",
+        "I don't mind someone buying grain. I mind someone draining our supply and vanishing with it. That feels like a setup."
+      ],
+      "statCheck": {
+        "pass": "I followed one of the wagons at a distance. It didn't go to any town on the north road. It turned off onto a track I didn't know existed, heading toward the mountains.",
+        "fail": "You try to follow the wagon's tracks, but the north road is well-traveled and you lose them in the general traffic."
+      }
+    },
+    {
+      "id": 3,
+      "intro": "The blacksmith near {subject_focus_the} received a shipment of ore she didn't order. Arrived on a cart with no driver, no invoice, no markings.",
+      "details": [
+        "The ore is high quality: better than anything she normally gets from her suppliers. Practically smelts itself.",
+        "There's a symbol stamped on each ingot: a hammer inside a circle. She doesn't recognize the maker's mark.",
+        "She's used some of it already. Says the metal works differently: holds an edge longer, takes less heat to shape."
+      ],
+      "reactions": [
+        "Free materials sound good until you wonder who wants a blacksmith in their debt.",
+        "She's half-grateful and half-suspicious. Smart woman. I'd feel the same way."
+      ]
+    },
+    {
+      "id": 4,
+      "intro": "Trade at {subject_focus_the} has shifted to barter because nobody trusts the coin anymore. Three people found their silver pieces turning black overnight.",
+      "details": [
+        "It's not tarnish: the metal itself is changing. The coins lose weight and become brittle.",
+        "Only coins from the last few months are affected. Older silver is fine.",
+        "The assayer tested a bad coin and said the silver content is less than half what it should be. Someone's been debasing the mint."
+      ],
+      "reactions": [
+        "We've gone back to trading goods for goods. It works, but it's slow and it's hard to agree on fair value.",
+        "Whoever debased the coins made a lot of money in the short term. The rest of us pay for it now."
+      ],
+      "statCheck": {
+        "pass": "I compared the bad coins closely. They all have a tiny notch on the rim that the good coins don't: a filing mark. Someone is swapping real coins for counterfeits and marking which ones they've touched.",
+        "fail": "You look at the bad coins next to the good ones, but they seem identical except for the discoloration. Whatever the difference is, it's not visible to the eye."
+      }
+    }
+  ]
+}

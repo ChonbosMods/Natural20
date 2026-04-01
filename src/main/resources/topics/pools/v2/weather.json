@@ -1,0 +1,81 @@
+{
+  "pool": "weather",
+  "version": 2,
+  "entries": [
+    {
+      "id": 0,
+      "intro": "It rained salt near {subject_focus_the} yesterday. Not a figure of speech: actual salt crystals fell from the sky for about twenty minutes.",
+      "details": [
+        "The ground was white after. Tasted it myself: bitter, gritty, unmistakably salt.",
+        "The garden plots are damaged. Anything with shallow roots is wilting already.",
+        "The rain came from one cloud. Just one, sitting low and dark while the rest of the sky was clear."
+      ],
+      "reactions": [
+        "We're the closest settlement to the coast, but it's still forty miles. Salt doesn't just ride the wind that far in crystal form.",
+        "The farmers are trying to flush their soil with fresh water. It's going to be a lean season if they can't."
+      ],
+      "statCheck": {
+        "pass": "I collected some of the salt and compared it to sea salt and mine salt. It matches neither. The crystal structure is different: more geometric, like it was grown, not evaporated.",
+        "fail": "You taste the residue on a leaf and confirm it's salty, but beyond that it just seems like salt. Nothing you can learn without proper tools."
+      }
+    },
+    {
+      "id": 1,
+      "intro": "There's been fog near {subject_focus_the} every morning for three weeks straight. Not unusual on its own, except it doesn't behave like fog.",
+      "details": [
+        "It rolls in from the east at exactly the same time each morning and burns off at exactly the same time. Down to the minute.",
+        "Sound doesn't carry through it. Stand ten paces from someone and you can't hear them shout."
+      ],
+      "reactions": [
+        "The children play in it, which terrifies their parents. Hard to keep track of someone you can't hear.",
+        "I've walked through morning fog my whole life. This fog feels different. Heavier. Like walking through water that isn't wet."
+      ],
+      "statCheck": {
+        "pass": "I stood at the edge and watched it roll in. It doesn't spread evenly: it follows the road, fills the low ground, and stops at a clean line along the eastern hill. Like it knows where the boundaries are.",
+        "fail": "You stand in the fog and try to observe its behavior, but once you're inside it, visibility drops to nothing. You can't see the edges from within."
+      }
+    },
+    {
+      "id": 2,
+      "intro": "Lightning struck the same tree near {subject_focus_the} four nights in a row. The same tree, during four separate storms.",
+      "details": [
+        "The tree is a massive old oak at the top of the south ridge. After four strikes it's still standing, which shouldn't be possible.",
+        "Each strike left a different pattern in the bark. The fourth one looks almost like writing, if you squint.",
+        "The ground around the base is fused: dirt and stone melted together into a glassy ring."
+      ],
+      "reactions": [
+        "The woodcutter says to leave it alone. You don't cut down a tree that lightning keeps choosing.",
+        "Some of the children have started calling it the thunder tree. They dare each other to touch it."
+      ]
+    },
+    {
+      "id": 3,
+      "intro": "The wind near {subject_focus_the} has been blowing in a circle for the past week. Not a storm, not a tornado: just a steady breeze that goes in a loop around the village.",
+      "details": [
+        "If you hang a ribbon anywhere in the village, it points clockwise. Step outside the village boundary and the air is perfectly still.",
+        "Smoke from the chimneys spirals instead of rising straight. It makes the whole village look like it's breathing."
+      ],
+      "reactions": [
+        "People are used to it now, which worries me more than the wind itself. We shouldn't get comfortable with things that don't make sense.",
+        "The miller loves it. His wheel hasn't stopped turning in a week. Best production he's ever had."
+      ],
+      "statCheck": {
+        "pass": "I walked the boundary where the wind starts. It's a perfect circle, centered on the old well in the village square. Something about that well is anchoring this.",
+        "fail": "You try to map where the wind starts and stops, but it shifts subtly and you lose the pattern. Close, but not precise enough to pin down."
+      }
+    },
+    {
+      "id": 4,
+      "intro": "It snowed near {subject_focus_the} for an hour last week. In the middle of summer. Then it stopped and the temperature went right back to normal.",
+      "details": [
+        "Big, heavy flakes. Accumulated about an inch before it quit. Then it melted within the hour.",
+        "The snow only fell on the village. The fields on either side stayed dry. Clear boundary, like a wall.",
+        "It wasn't cold enough to snow. The air was warm and the snow was warm. It should have been rain, but it wasn't."
+      ],
+      "reactions": [
+        "The children loved it. The adults did not.",
+        "I caught some on my tongue. It tasted like spring water: clean, sweet, not like normal snow at all. That bothered me more than the snow itself."
+      ]
+    }
+  ]
+}

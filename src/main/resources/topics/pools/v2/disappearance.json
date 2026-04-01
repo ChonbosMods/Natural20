@@ -1,0 +1,81 @@
+{
+  "pool": "disappearance",
+  "version": 2,
+  "entries": [
+    {
+      "id": 0,
+      "intro": "A tinker who passed through {subject_focus_the} every season hasn't shown up in three months. He was reliable as the sunrise.",
+      "details": [
+        "He always arrived on the first market day of the season with his cart of tools and trinkets. This time, nothing.",
+        "His usual route takes him through the hill pass. Someone found his cart up there, abandoned, with the mule still hitched and grazing.",
+        "Everything was still in the cart. His tools, his wares, his coin purse. Nothing taken."
+      ],
+      "reactions": [
+        "A man doesn't walk away from his livelihood and his coin. Something took him or something scared him badly enough to run without it.",
+        "I keep expecting to see him roll in any day now with a story. But each week that passes makes that harder to believe."
+      ],
+      "statCheck": {
+        "pass": "I went up to where the cart was found. His footprints lead off the road to the east, toward the ravine, and they were spaced far apart: he was running.",
+        "fail": "You visit the spot where the cart was found, but the trail has been rained on twice since then. Nothing useful remains."
+      }
+    },
+    {
+      "id": 1,
+      "intro": "Two children from {subject_focus_the} wandered off three days ago. They told their mother they were going to pick wildflowers by the creek.",
+      "details": [
+        "We found the flowers they'd already picked, bundled neatly and left on a rock by the water. Like they set them down and meant to come back.",
+        "The dogs tracked them to the edge of the old orchard and then lost the scent completely. Not gradually: just gone."
+      ],
+      "reactions": [
+        "The whole village has been searching. We've covered every trail within half a day's walk.",
+        "Their mother hasn't slept. I sit with her in the evenings because nobody should wait alone like that."
+      ],
+      "statCheck": {
+        "pass": "I found a third set of footprints by the flowers. Smaller than an adult but too large for either child. Someone else was there.",
+        "fail": "You search the area carefully, but so many people have trampled through during the search that any original tracks are gone."
+      }
+    },
+    {
+      "id": 2,
+      "intro": "The night watchman at {subject_focus_the} stopped showing up four days ago. His post was found empty, lantern still burning.",
+      "details": [
+        "His supper was half-eaten on the stool beside the watch fire. Bread torn, soup still in the bowl.",
+        "His sword was in its sheath, leaning against the wall. Whatever happened, he didn't have time to draw it.",
+        "No struggle marks, no blood. Like he just stood up and walked into the dark."
+      ],
+      "reactions": [
+        "Nobody wants the night watch now. Can't say I blame them.",
+        "His wife says he'd been hearing things on the wind the past few weeks. She thought he was just tired."
+      ]
+    },
+    {
+      "id": 3,
+      "intro": "An herbalist who lived alone near {subject_focus_the} hasn't been seen in over a week. Her door was open, her fire was out, and her cat was starving.",
+      "details": [
+        "She had a routine: gather in the morning, dry herbs in the afternoon, sell at the market every third day. She never missed a market day in ten years.",
+        "Her journal was open on the table. The last entry mentions a plant she found that she couldn't identify, growing in a place she'd never explored before."
+      ],
+      "reactions": [
+        "She knew those hills better than anyone alive. If she got lost out there, the rest of us wouldn't stand a chance.",
+        "I've been feeding her cat. Feels wrong to do anything else with it."
+      ],
+      "statCheck": {
+        "pass": "The journal mentions a landmark: a split boulder shaped like a hand. I know that spot. It's near the old mine shaft that caved in years ago. Or was supposed to have caved in.",
+        "fail": "You read through the journal, but her descriptions of the area are vague: she used personal shorthand that doesn't mean much to an outsider."
+      }
+    },
+    {
+      "id": 4,
+      "intro": "A whole family packed up and left {subject_focus_the} in the middle of the night without telling a soul. Five people, gone by morning.",
+      "details": [
+        "They left most of their furniture. Took clothes, food, and their strongbox. Nothing else.",
+        "The father was agitated for days before. Kept looking over his shoulder at the market and cut conversations short.",
+        "Their youngest told a friend they were going somewhere safe. The friend didn't think much of it until they were gone."
+      ],
+      "reactions": [
+        "People don't uproot a family of five at midnight because things are fine. They were afraid of something specific.",
+        "I've asked around about what might have spooked them. Nobody's talking, which tells me some people know and won't say."
+      ]
+    }
+  ]
+}
