@@ -1,0 +1,181 @@
+{
+  "version": 2,
+  "templates": [
+    {
+      "id": "danger",
+      "label": "{subject_focus_The}",
+      "requiresConcrete": false,
+      "skills": ["PERCEPTION", "INSIGHT"],
+      "reactionIntensity": "intense",
+      "intro": "{tone_opener}{entry_intro}{tone_closer}",
+      "detailPrompts": ["ask_more", "press_details"],
+      "reactionPrompts": ["ask_opinion", "ask_feeling"],
+      "decisive": { "prompt": "end_topic", "response": "{entry_reaction}" }
+    },
+    {
+      "id": "sighting",
+      "label": "{subject_focus_The}",
+      "requiresConcrete": true,
+      "skills": ["PERCEPTION", "NATURE"],
+      "reactionIntensity": "intense",
+      "intro": "{tone_opener}{entry_intro}{tone_closer}",
+      "detailPrompts": ["ask_more", "press_source"],
+      "reactionPrompts": ["ask_opinion"],
+      "decisive": { "prompt": "end_topic", "response": "{entry_reaction}" }
+    },
+    {
+      "id": "treasure",
+      "label": "{subject_focus_The}",
+      "requiresConcrete": false,
+      "skills": ["INVESTIGATION", "HISTORY"],
+      "reactionIntensity": "intense",
+      "intro": "{tone_opener}{entry_intro}{tone_closer}",
+      "detailPrompts": ["ask_more", "press_details"],
+      "reactionPrompts": ["ask_opinion", "ask_feeling"],
+      "decisive": { "prompt": "end_topic", "response": "{entry_reaction}" }
+    },
+    {
+      "id": "corruption",
+      "label": "{subject_focus_The}",
+      "requiresConcrete": false,
+      "skills": ["INSIGHT", "INVESTIGATION"],
+      "reactionIntensity": "intense",
+      "intro": "{tone_opener}{entry_intro}{tone_closer}",
+      "detailPrompts": ["ask_more", "press_details"],
+      "reactionPrompts": ["ask_opinion", "ask_feeling"],
+      "decisive": { "prompt": "end_topic", "response": "{entry_reaction}" }
+    },
+    {
+      "id": "conflict",
+      "label": "{subject_focus_The}",
+      "requiresConcrete": false,
+      "skills": ["INSIGHT", "PERSUASION"],
+      "reactionIntensity": "intense",
+      "intro": "{tone_opener}{entry_intro}{tone_closer}",
+      "detailPrompts": ["ask_more", "press_details"],
+      "reactionPrompts": ["ask_opinion", "ask_feeling"],
+      "decisive": { "prompt": "end_topic", "response": "{entry_reaction}" }
+    },
+    {
+      "id": "disappearance",
+      "label": "{subject_focus_The}",
+      "requiresConcrete": false,
+      "skills": ["INVESTIGATION", "PERCEPTION"],
+      "reactionIntensity": "intense",
+      "intro": "{tone_opener}{entry_intro}{tone_closer}",
+      "detailPrompts": ["ask_more", "press_details"],
+      "reactionPrompts": ["ask_opinion", "ask_feeling"],
+      "decisive": { "prompt": "end_topic", "response": "{entry_reaction}" }
+    },
+    {
+      "id": "migration",
+      "label": "{subject_focus_The}",
+      "requiresConcrete": false,
+      "skills": ["NATURE", "PERCEPTION"],
+      "reactionIntensity": "intense",
+      "intro": "{tone_opener}{entry_intro}{tone_closer}",
+      "detailPrompts": ["ask_more", "press_source"],
+      "reactionPrompts": ["ask_opinion"],
+      "decisive": { "prompt": "end_topic", "response": "{entry_reaction}" }
+    },
+    {
+      "id": "omen",
+      "label": "{subject_focus_The}",
+      "requiresConcrete": false,
+      "skills": ["ARCANA", "RELIGION"],
+      "reactionIntensity": "intense",
+      "intro": "{tone_opener}{entry_intro}{tone_closer}",
+      "detailPrompts": ["ask_more", "press_details"],
+      "reactionPrompts": ["ask_opinion", "ask_feeling"],
+      "decisive": { "prompt": "end_topic", "response": "{entry_reaction}" }
+    },
+    {
+      "id": "weather",
+      "label": "The Weather Lately",
+      "subjectRequired": false,
+      "skills": ["NATURE", "PERCEPTION"],
+      "reactionIntensity": "mild",
+      "intro": "{tone_opener}{entry_intro}{tone_closer}",
+      "detailPrompts": ["ask_more", "ask_context"],
+      "reactionPrompts": ["ask_opinion"],
+      "decisive": { "prompt": "end_topic", "response": "{entry_reaction}" }
+    },
+    {
+      "id": "trade",
+      "label": "Trade at {subject_focus_the}",
+      "requiresConcrete": true,
+      "skills": ["PERSUASION", "INVESTIGATION"],
+      "reactionIntensity": "mild",
+      "intro": "{tone_opener}{entry_intro}{tone_closer}",
+      "detailPrompts": ["ask_more", "ask_context"],
+      "reactionPrompts": ["ask_opinion", "ask_feeling"],
+      "decisive": { "prompt": "end_topic", "response": "{entry_reaction}" }
+    },
+    {
+      "id": "craftsmanship",
+      "label": "{subject_focus_The}",
+      "requiresConcrete": false,
+      "skills": ["INSIGHT", "HISTORY"],
+      "reactionIntensity": "mild",
+      "intro": "{tone_opener}{entry_intro}{tone_closer}",
+      "detailPrompts": ["ask_more", "press_details"],
+      "reactionPrompts": ["ask_opinion"],
+      "decisive": { "prompt": "end_topic", "response": "{entry_reaction}" }
+    },
+    {
+      "id": "community",
+      "label": "{subject_focus_The}",
+      "requiresConcrete": false,
+      "skills": ["PERSUASION", "INSIGHT"],
+      "reactionIntensity": "mild",
+      "intro": "{tone_opener}{entry_intro}{tone_closer}",
+      "detailPrompts": ["ask_more", "ask_context"],
+      "reactionPrompts": ["ask_opinion", "ask_feeling"],
+      "decisive": { "prompt": "end_topic", "response": "{entry_reaction}" }
+    },
+    {
+      "id": "nature",
+      "label": "{subject_focus_The}",
+      "requiresConcrete": false,
+      "skills": ["NATURE", "PERCEPTION"],
+      "reactionIntensity": "intense",
+      "intro": "{tone_opener}{entry_intro}{tone_closer}",
+      "detailPrompts": ["ask_more", "press_details"],
+      "reactionPrompts": ["ask_opinion"],
+      "decisive": { "prompt": "end_topic", "response": "{entry_reaction}" }
+    },
+    {
+      "id": "nostalgia",
+      "label": "{subject_focus_The}",
+      "requiresConcrete": false,
+      "skills": ["HISTORY", "INSIGHT"],
+      "reactionIntensity": "mild",
+      "intro": "{tone_opener}{entry_intro}{tone_closer}",
+      "detailPrompts": ["ask_more", "ask_context"],
+      "reactionPrompts": ["ask_opinion", "ask_feeling"],
+      "decisive": { "prompt": "end_topic", "response": "{entry_reaction}" }
+    },
+    {
+      "id": "curiosity",
+      "label": "{subject_focus_The}",
+      "requiresConcrete": false,
+      "skills": ["INVESTIGATION", "ARCANA"],
+      "reactionIntensity": "intense",
+      "intro": "{tone_opener}{entry_intro}{tone_closer}",
+      "detailPrompts": ["ask_more", "press_details"],
+      "reactionPrompts": ["ask_opinion"],
+      "decisive": { "prompt": "end_topic", "response": "{entry_reaction}" }
+    },
+    {
+      "id": "festival",
+      "label": "{subject_focus_The}",
+      "requiresConcrete": false,
+      "skills": ["PERFORMANCE", "PERSUASION"],
+      "reactionIntensity": "mild",
+      "intro": "{tone_opener}{entry_intro}{tone_closer}",
+      "detailPrompts": ["ask_more", "ask_context"],
+      "reactionPrompts": ["ask_opinion", "ask_feeling"],
+      "decisive": { "prompt": "end_topic", "response": "{entry_reaction}" }
+    }
+  ]
+}
