@@ -5,12 +5,16 @@ import com.chonbosmods.action.DialogueActionRegistry;
 import com.chonbosmods.data.Nat20NpcData;
 import com.chonbosmods.data.Nat20PlayerData;
 import com.chonbosmods.dialogue.model.*;
+import com.chonbosmods.quest.DialogueResolver;
 import com.chonbosmods.quest.ObjectiveInstance;
 import com.chonbosmods.quest.PhaseInstance;
 import com.chonbosmods.quest.ObjectiveType;
 import com.chonbosmods.quest.PhaseType;
 import com.chonbosmods.quest.QuestInstance;
 import com.chonbosmods.quest.QuestSystem;
+import com.chonbosmods.quest.QuestTemplateRegistry;
+import com.chonbosmods.quest.model.DialogueChunks;
+import com.chonbosmods.quest.model.QuestVariant;
 import com.chonbosmods.topic.TopicPoolRegistry;
 import com.google.gson.JsonParser;
 import com.hypixel.hytale.component.Ref;
@@ -31,7 +35,8 @@ public class DialogueManager {
     private final DialogueActionRegistry actionRegistry;
     private final ConditionEvaluator conditionEvaluator;
     private final Map<UUID, ConversationSession> activeSessions = new ConcurrentHashMap<>();
-    private TopicPoolRegistry topicPoolRegistry;
+    private volatile TopicPoolRegistry topicPoolRegistry;
+    private volatile boolean ready;
 
     public DialogueManager(DialogueLoader dialogueLoader, DialogueActionRegistry actionRegistry) {
         this.dialogueLoader = dialogueLoader;
@@ -40,14 +45,24 @@ public class DialogueManager {
     }
 
     /**
-     * Set the topic pool registry for deferred deepener resolution.
-     * Must be called after the quest system is initialized.
+     * Set the topic pool registry for deferred deepener resolution and mark
+     * the manager as ready to accept sessions. Must be called after the quest
+     * system is initialized.
      */
     public void setTopicPoolRegistry(TopicPoolRegistry topicPoolRegistry) {
+        if (topicPoolRegistry == null) {
+            LOGGER.atSevere().log("setTopicPoolRegistry called with null: dialogue deepener resolution will fail");
+        }
         this.topicPoolRegistry = topicPoolRegistry;
+        this.ready = true;
     }
 
     public void startSession(Ref<EntityStore> playerRef, Ref<EntityStore> npcRef, Store<EntityStore> store, Runnable onNpcRelease) {
+        if (!ready) {
+            LOGGER.atWarning().log("DialogueManager not ready: setTopicPoolRegistry has not been called yet");
+            return;
+        }
+
         // Resolve Player from entity ref
         Player player = store.getComponent(playerRef, Player.getComponentType());
         if (player == null) {
@@ -78,9 +93,18 @@ public class DialogueManager {
             graph = dialogueLoader.getGraphForNpc(npcId);
         }
         if (graph == null) {
-            player.sendMessage(Message.raw("[Nat20] No dialogue found for: " +
-                (npcData.getGeneratedName() != null ? npcData.getGeneratedName() : npcData.getRoleName())));
-            return;
+            // No authored or generated graph: create a minimal fallback so the
+            // NPC is still interactable (quest topics may still be injected).
+            String displayId = npcData.getGeneratedName() != null ? npcData.getGeneratedName() : npcData.getRoleName();
+            LOGGER.atWarning().log("No dialogue graph for NPC '%s': using fallback", displayId);
+            graph = new DialogueGraph(
+                npcId, 50, "fallback_greeting", null,
+                new java.util.ArrayList<>(),
+                new java.util.LinkedHashMap<>(java.util.Map.of(
+                    "fallback_greeting", new DialogueNode.DialogueTextNode(
+                        "...", java.util.List.of(), java.util.List.of(), false, false)
+                ))
+            );
         }
 
         // Get or create player data
@@ -88,6 +112,10 @@ public class DialogueManager {
         if (playerData == null) {
             playerData = store.addComponent(playerRef, Natural20.getPlayerDataType());
         }
+
+        // Defensive copy: quest injection mutates the graph, so each session
+        // gets its own copy to prevent cross-session state bleed.
+        graph = graph.mutableCopy();
 
         // Inject turn-in topics for any quests this NPC gave that have completed objectives
         injectTurnInTopics(graph, npcId, playerData);
@@ -103,9 +131,10 @@ public class DialogueManager {
                 player, player.getPlayerRef(), playerRef, store, this, displayName);
 
         // Create per-session deferred deepener resolver (non-deterministic Random per session)
-        DeferredDeepenerResolver deepenerResolver = topicPoolRegistry != null
-                ? new DeferredDeepenerResolver(topicPoolRegistry)
-                : new DeferredDeepenerResolver(new TopicPoolRegistry());
+        if (topicPoolRegistry == null) {
+            LOGGER.atSevere().log("TopicPoolRegistry is null: deepener tokens will not resolve");
+        }
+        DeferredDeepenerResolver deepenerResolver = new DeferredDeepenerResolver(topicPoolRegistry);
 
         // Create session
         ConversationSession session = new ConversationSession(
@@ -127,20 +156,7 @@ public class DialogueManager {
                 List<LogEntry> savedLog = new ArrayList<>();
                 if (savedData.has("log")) {
                     for (var el : savedData.getAsJsonArray("log")) {
-                        var logObj = el.getAsJsonObject();
-                        String logType = logObj.get("type").getAsString();
-                        LogEntry entry = switch (logType) {
-                            case "TopicHeader" -> new LogEntry.TopicHeader(logObj.get("label").getAsString(), logObj.has("questTopic") && logObj.get("questTopic").getAsBoolean());
-                            case "NpcSpeech" -> new LogEntry.NpcSpeech(logObj.get("text").getAsString());
-                            case "SelectedResponse" -> new LogEntry.SelectedResponse(
-                                    logObj.get("responseId").getAsString(),
-                                    logObj.get("displayText").getAsString(),
-                                    logObj.has("statPrefix") ? logObj.get("statPrefix").getAsString() : null);
-                            case "SystemText" -> new LogEntry.SystemText(logObj.get("text").getAsString());
-                            case "ReturnGreeting" -> new LogEntry.ReturnGreeting(logObj.get("text").getAsString());
-                            case "ReturnDivider" -> new LogEntry.ReturnDivider();
-                            default -> null;
-                        };
+                        LogEntry entry = LogEntry.fromJson(el.getAsJsonObject());
                         if (entry != null) savedLog.add(entry);
                     }
                 }
@@ -229,6 +245,8 @@ public class DialogueManager {
         QuestSystem questSystem = Natural20.getInstance().getQuestSystem();
         if (questSystem == null) return;
 
+        QuestTemplateRegistry templateRegistry = questSystem.getTemplateRegistry();
+
         Map<String, QuestInstance> quests = questSystem.getStateManager().getActiveQuests(playerData);
         for (QuestInstance quest : quests.values()) {
             if (!npcId.equals(quest.getSourceNpcId())) continue;
@@ -236,37 +254,102 @@ public class DialogueManager {
 
             String questId = quest.getQuestId();
             Map<String, String> b = quest.getVariableBindings();
-            PhaseType phaseType = quest.getCurrentPhase() != null
-                ? quest.getCurrentPhase().getType() : PhaseType.EXPOSITION;
+            PhaseInstance currentPhase = quest.getCurrentPhase();
+            PhaseType phaseType = currentPhase != null ? currentPhase.getType() : PhaseType.EXPOSITION;
             boolean isFinalPhase = quest.getCurrentPhaseIndex() >= quest.getPhases().size() - 1;
 
-            // Build turn-in dialogue text based on phase type
-            String turnInText = buildTurnInText(phaseType, isFinalPhase, b);
+            // Try to load variant dialogueChunks for richer narrative
+            QuestVariant variant = null;
+            if (currentPhase != null && currentPhase.getVariantId() != null) {
+                variant = templateRegistry.getVariant(
+                    quest.getSituationId(), phaseType, currentPhase.getVariantId());
+            }
+            DialogueChunks chunks = variant != null ? variant.dialogueChunks() : null;
+
+            // Entry node text: variant intro or hardcoded fallback
+            String turnInText = resolveChunkOrFallback(
+                chunks != null ? chunks.intro() : null, b,
+                buildTurnInText(phaseType, isFinalPhase, b));
+
             String topicLabel = "Report: " + b.getOrDefault("quest_title", quest.getSituationId());
             String topicId = "turnin_" + questId;
             String entryNodeId = topicId + "_entry";
             String actionNodeId = topicId + "_action";
-            String confirmNodeId = topicId + "_confirm";
+            String plotNodeId = topicId + "_plot";
+            String bridgeNodeId = topicId + "_bridge";
+            String transitionNodeId = topicId + "_transition";
 
-            // Build confirm text: final phase gets completion line,
-            // mid-quest gets confirm + next phase briefing in one speech
-            String confirmText;
-            if (isFinalPhase) {
-                confirmText = "Your efforts won't be forgotten. Well done.";
-            } else {
+            // Build the post-action narrative from variant chunks
+            // plotStep: narrative advancement after turn-in action
+            String plotStepText = resolveChunkOrFallback(
+                chunks != null ? chunks.plotStep() : null, b,
+                isFinalPhase
+                    ? "Your efforts won't be forgotten. Well done."
+                    : "Good. " + buildNextPhaseBriefing(quest));
+
+            // outro: transition to next phase (only for mid-quest)
+            String outroText = null;
+            if (!isFinalPhase && chunks != null && chunks.outro() != null && !chunks.outro().isBlank()) {
+                outroText = DialogueResolver.resolve(chunks.outro(), b);
+                if (outroText.isBlank()) outroText = null;
+            }
+
+            // Determine the node after the action node
+            // If we have both plotStep and outro, chain: action -> plot -> bridge -> transition
+            // If only plotStep (final phase or no outro), chain: action -> plot
+            String afterActionNodeId;
+            if (outroText != null) {
+                // Chain: action -> plot -> bridge (no-op action) -> transition
+                afterActionNodeId = plotNodeId;
+
+                // Transition node: outro text + next-phase briefing (exhausts topic)
                 String briefing = buildNextPhaseBriefing(quest);
-                confirmText = "Good. " + briefing;
+                String transitionText = outroText + " " + briefing;
+
+                graph.nodes().put(transitionNodeId, new DialogueNode.DialogueTextNode(
+                    transitionText, List.of(), List.of(), true, false
+                ));
+
+                // Bridge node: no-op action that auto-advances from plot to transition
+                graph.nodes().put(bridgeNodeId, new DialogueNode.ActionNode(
+                    List.of(), transitionNodeId, List.of(), false
+                ));
+
+                // Plot node: plotStep text with a continue response leading to bridge
+                graph.nodes().put(plotNodeId, new DialogueNode.DialogueTextNode(
+                    plotStepText,
+                    List.of(new ResponseOption(
+                        topicId + "_continue", "[Continue]", null, bridgeNodeId,
+                        ResponseMode.DECISIVE, null, null, null, null
+                    )),
+                    List.of(), false, false
+                ));
+            } else {
+                // No outro: action goes straight to plot (which serves as confirm)
+                afterActionNodeId = plotNodeId;
+
+                // Append next-phase briefing to plotStep for mid-quest if using fallback
+                String confirmText;
+                if (isFinalPhase) {
+                    confirmText = plotStepText;
+                } else if (chunks == null) {
+                    // Fallback path: plotStepText already contains "Good. " + briefing
+                    confirmText = plotStepText;
+                } else {
+                    // Variant plotStep but no outro: append briefing
+                    String briefing = buildNextPhaseBriefing(quest);
+                    confirmText = plotStepText + " " + briefing;
+                }
+
+                graph.nodes().put(plotNodeId, new DialogueNode.DialogueTextNode(
+                    confirmText, List.of(), List.of(), true, false
+                ));
             }
 
             // Action node: TURN_IN_PHASE
             graph.nodes().put(actionNodeId, new DialogueNode.ActionNode(
-                List.of(Map.of("type", "TURN_IN_PHASE", "questId", questId)),
-                confirmNodeId, List.of(), true
-            ));
-
-            // Confirm node: NPC's post-turn-in response (with next-phase briefing if applicable)
-            graph.nodes().put(confirmNodeId, new DialogueNode.DialogueTextNode(
-                confirmText, List.of(), List.of(), true, false
+                List.of(Map.of("type", DialogueActionRegistry.TURN_IN_PHASE, "questId", questId)),
+                afterActionNodeId, List.of(), true
             ));
 
             // Entry node: NPC acknowledges return, player confirms turn-in
@@ -285,8 +368,9 @@ public class DialogueManager {
                 TopicScope.LOCAL, null, true, null, -1, null, true
             ));
 
-            LOGGER.atInfo().log("Injected turn-in topic for quest %s (phase: %s, final: %s)",
-                questId, phaseType, isFinalPhase);
+            LOGGER.atInfo().log("Injected turn-in topic for quest %s (phase: %s, final: %s, variant: %s)",
+                questId, phaseType, isFinalPhase,
+                variant != null ? variant.id() : "fallback");
         }
     }
 
@@ -322,6 +406,13 @@ public class DialogueManager {
                 : "You've handled it, then? Good. But I don't think we're done yet.";
             case RESOLUTION -> "You've done it. I wasn't sure you would, but here you are. You've earned this.";
         };
+    }
+
+    private static String resolveChunkOrFallback(String chunkText, Map<String, String> bindings,
+                                                  String fallback) {
+        if (chunkText == null || chunkText.isBlank()) return fallback;
+        String resolved = DialogueResolver.resolve(chunkText, bindings);
+        return resolved.isBlank() ? fallback : resolved;
     }
 
     /**
@@ -363,7 +454,7 @@ public class DialogueManager {
 
                 // Action: COMPLETE_TALK_TO_NPC
                 graph.nodes().put(actionNodeId, new DialogueNode.ActionNode(
-                    List.of(Map.of("type", "COMPLETE_TALK_TO_NPC", "questId", questId)),
+                    List.of(Map.of("type", DialogueActionRegistry.COMPLETE_TALK_TO_NPC, "questId", questId)),
                     confirmNodeId, List.of(), true
                 ));
 
