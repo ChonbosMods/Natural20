@@ -380,6 +380,7 @@ public class TopicGenerator {
                     "quest_focus", "quest_focus_is", "quest_focus_has", "quest_focus_was",
                     "quest_focus_the", "quest_focus_The",
                     "quest_objective_summary",
+                    "quest_plot_step", "quest_outro",
                     "enemy_type", "enemy_type_plural", "quest_item")) {
                 if (qb.containsKey(key)) bindings.put(key, qb.get(key));
             }
@@ -399,6 +400,14 @@ public class TopicGenerator {
             bindings.put("quest_exposition", DialogueResolver.resolve(rawExposition, bindings));
             bindings.put("quest_detail", DialogueResolver.resolve(
                 topicPool.randomPerspectiveDetail(random), bindings));
+
+            // Resolve plotStep and outro through variable substitution
+            if (bindings.containsKey("quest_plot_step")) {
+                bindings.put("quest_plot_step", DialogueResolver.resolve(bindings.get("quest_plot_step"), bindings));
+            }
+            if (bindings.containsKey("quest_outro")) {
+                bindings.put("quest_outro", DialogueResolver.resolve(bindings.get("quest_outro"), bindings));
+            }
 
             String tone = questPool.getToneForSituation(focus.getQuestSituationId());
             bindings.put("quest_accept_response",

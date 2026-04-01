@@ -225,7 +225,8 @@ public class TopicGraphBuilder {
                 ));
             }
         } else {
-            // Quest-bearer: accept/decline
+            // Quest-bearer: explorable chain through dialogueChunks (intro -> plotStep -> outro)
+            // with accept/decline at every level
             String questExpo = bindings.getOrDefault("quest_exposition", "I need your help.");
             String questSummary = bindings.getOrDefault("quest_objective_summary", "");
             if (!questSummary.isEmpty()) {
@@ -255,6 +256,60 @@ public class TopicGraphBuilder {
                 true, false
             ));
 
+            // Build explorable chain if plotStep and outro are available
+            String plotStep = bindings.get("quest_plot_step");
+            String outro = bindings.get("quest_outro");
+
+            if (plotStep != null && !plotStep.isBlank()) {
+                // Entry -> [explore] plotStep node -> [explore] outro node (if available)
+                // Accept/decline available at every level
+
+                String plotNodeId = subjectId + "_plot";
+                List<ResponseOption> plotResponses = new ArrayList<>();
+
+                if (outro != null && !outro.isBlank()) {
+                    // Plot -> outro chain
+                    String outroNodeId = subjectId + "_outro";
+                    List<ResponseOption> outroResponses = new ArrayList<>();
+                    outroResponses.add(new ResponseOption(
+                        subjectId + "_resp_outro_accept", "[Accept] I will handle it.", null, actionNodeId,
+                        ResponseMode.DECISIVE, null, null, null, null
+                    ));
+                    outroResponses.add(new ResponseOption(
+                        subjectId + "_resp_outro_decline", "[Decline] Maybe not right now.", null, declineNodeId,
+                        ResponseMode.DECISIVE, null, null, null, null
+                    ));
+                    nodes.put(outroNodeId, new DialogueNode.DialogueTextNode(
+                        outro, null, outroResponses, List.of(), false, false
+                    ));
+
+                    plotResponses.add(new ResponseOption(
+                        subjectId + "_resp_outro", "Is there anything else?", null, outroNodeId,
+                        ResponseMode.EXPLORATORY, null, null, null, null
+                    ));
+                }
+
+                plotResponses.add(new ResponseOption(
+                    subjectId + "_resp_plot_accept", "[Accept] I will handle it.", null, actionNodeId,
+                    ResponseMode.DECISIVE, null, null, null, null
+                ));
+                plotResponses.add(new ResponseOption(
+                    subjectId + "_resp_plot_decline", "[Decline] Maybe not right now.", null, declineNodeId,
+                    ResponseMode.DECISIVE, null, null, null, null
+                ));
+
+                nodes.put(plotNodeId, new DialogueNode.DialogueTextNode(
+                    plotStep, null, plotResponses, List.of(), false, false
+                ));
+
+                // Exploratory link from entry to plot
+                entryResponses.add(new ResponseOption(
+                    subjectId + "_resp_plot", "What happened?", null, plotNodeId,
+                    ResponseMode.EXPLORATORY, null, null, null, null
+                ));
+            }
+
+            // Accept/decline on entry node (always present)
             entryResponses.add(new ResponseOption(
                 subjectId + "_resp_accept", "[Accept] I will handle it.", null, actionNodeId,
                 ResponseMode.DECISIVE, null, null, null, null
