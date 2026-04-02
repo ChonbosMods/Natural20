@@ -41,6 +41,7 @@ public class Nat20PlayerData implements Component<EntityStore> {
             .addField(new KeyedCodec<>("ConsumedDecisives", STRING_MAP_CODEC), Nat20PlayerData::setConsumedDecisivesRaw, Nat20PlayerData::getConsumedDecisivesRaw)
             .addField(new KeyedCodec<>("TopicEntryOverrides", STRING_MAP_CODEC), Nat20PlayerData::setTopicEntryOverridesRaw, Nat20PlayerData::getTopicEntryOverridesRaw)
             .addField(new KeyedCodec<>("TopicRecapNodes", STRING_MAP_CODEC), Nat20PlayerData::setTopicRecapNodesRaw, Nat20PlayerData::getTopicRecapNodesRaw)
+            .addField(new KeyedCodec<>("NpcClosingValences", STRING_MAP_CODEC), Nat20PlayerData::setNpcClosingValencesRaw, Nat20PlayerData::getNpcClosingValencesRaw)
             .build();
 
     // Index order: STR=0, DEX=1, CON=2, INT=3, WIS=4, CHA=5
@@ -61,6 +62,9 @@ public class Nat20PlayerData implements Component<EntityStore> {
 
     // Dirty-exit session save (only when leaving mid-follow-up)
     private Map<String, String> savedSessions = new HashMap<>();          // NPC ID -> serialized JSON
+
+    // Per-NPC closing valence for valence drift between conversations
+    private Map<String, String> npcClosingValences = new HashMap<>();     // NPC ID -> valence name
 
     public Nat20PlayerData() {
     }
@@ -260,6 +264,24 @@ public class Nat20PlayerData implements Component<EntityStore> {
         savedSessions.remove(npcId);
     }
 
+    // --- NPC Closing Valences ---
+
+    Map<String, String> getNpcClosingValencesRaw() {
+        return npcClosingValences;
+    }
+
+    void setNpcClosingValencesRaw(Map<String, String> raw) {
+        this.npcClosingValences = raw != null ? new HashMap<>(raw) : new HashMap<>();
+    }
+
+    public String getClosingValence(String npcId) {
+        return npcClosingValences.get(npcId);
+    }
+
+    public void setClosingValence(String npcId, String valence) {
+        npcClosingValences.put(npcId, valence);
+    }
+
     // --- Consumed Decisives ---
     // Stored as Map<String, String> in codec (topicId=id1|id2,topicId=id1|id2), exposed as 3-level map
 
@@ -450,6 +472,7 @@ public class Nat20PlayerData implements Component<EntityStore> {
         }
         copy.learnedGlobalTopics = new HashSet<>(this.learnedGlobalTopics);
         copy.savedSessions = new HashMap<>(this.savedSessions);
+        copy.npcClosingValences = new HashMap<>(this.npcClosingValences);
         return copy;
     }
 }

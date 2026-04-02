@@ -56,6 +56,7 @@ public class ConversationSession {
     private boolean topicsLocked;
     private String activeTopicId;
     private boolean ended;
+    private ValenceTracker valenceTracker;
 
     // Callbacks
     private final DialoguePresenter presenter;
@@ -94,6 +95,7 @@ public class ConversationSession {
             ? npcData.getDefaultDisposition()
             : graph.defaultDisposition();
         this.disposition = playerData.getDispositionFor(npcId, defaultDisp);
+        this.valenceTracker = new ValenceTracker();
     }
 
     // --- Lifecycle ---
@@ -154,6 +156,10 @@ public class ConversationSession {
             ended = true;
 
             playerData.setDispositionFor(npcId, disposition);
+
+            if (valenceTracker.hasRecordedLines()) {
+                playerData.setClosingValence(npcId, valenceTracker.getCurrentValence().name());
+            }
 
             if (!pendingFollowUpIds.isEmpty()) {
                 saveSession();
@@ -326,6 +332,8 @@ public class ConversationSession {
                     displayText = textNode.speakerText();
                 }
                 conversationLog.add(new LogEntry.NpcSpeech(displayText));
+                ValenceType lineValence = textNode.valence() != null ? textNode.valence() : ValenceType.NEUTRAL;
+                valenceTracker.recordNpcLine(lineValence);
                 filterAndDisplayResponses(textNode);
 
                 if (textNode.exhaustsTopic() && activeTopicId != null) {
@@ -642,6 +650,13 @@ public class ConversationSession {
         }
         json.add("log", logArray);
 
+        // Serialize valence tracker state
+        ValenceTracker.State valenceState = valenceTracker.getState();
+        var valenceArr = new JsonArray();
+        for (ValenceType v : valenceState.recentValences()) valenceArr.add(v.name());
+        json.add("valenceRecentValences", valenceArr);
+        json.addProperty("valenceTrajectoryScore", valenceState.trajectoryScore());
+
         String serialized = json.toString();
         playerData.setSavedSession(npcId, serialized);
         LOGGER.atInfo().log("Saved session for NPC %s, player %s", npcId, playerId);
@@ -663,4 +678,11 @@ public class ConversationSession {
     public String getActiveNodeId() { return activeNodeId; }
     public boolean isEnded() { return ended; }
     public DialogueGraph getGraph() { return graph; }
+    public ValenceTracker getValenceTracker() { return valenceTracker; }
+
+    /** Seed the valence tracker with an opening valence derived from drift evaluation.
+     *  Must be called before start() or startFromSaved(). */
+    void seedValenceTracker(ValenceType openingValence) {
+        this.valenceTracker = new ValenceTracker(openingValence);
+    }
 }
