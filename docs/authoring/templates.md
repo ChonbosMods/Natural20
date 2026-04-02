@@ -220,6 +220,33 @@ These variables are available in pool entry text:
 Proper nouns skip the "the" prefix automatically. Plural subjects get correct verb conjugation.
 
 
+## Stat Distribution Target
+
+Across all templates, the aggregate stat distribution for skill checks should approximate:
+
+| Stat | Target % | Role |
+|------|----------|------|
+| CHA | ~50% | Dialogue is fundamentally a social system: persuasion, charm, deception, performance |
+| WIS | ~25% | Observation and reading people: perception, insight |
+| INT | ~15% | Knowledge and analysis: investigation, history, arcana |
+| STR, DEX, CON | ~10% combined | Physical stats appear rarely in conversation: intimidation, reflex, endurance |
+
+This distribution reflects that NPC dialogue is a social encounter. CHA-dominant builds should feel rewarded for engaging in conversation, while physical-stat builds still get occasional checks.
+
+When assigning `skills` to a new template, check the aggregate distribution across all 16 templates and bias toward CHA-mapped skills (PERSUASION, CHARM, DECEPTION, PERFORMANCE) unless the category strongly demands otherwise.
+
+**Skill-to-stat mapping:**
+
+| Stat | Skills |
+|------|--------|
+| STR | INTIMIDATION, COMMAND |
+| DEX | SLEIGHT, REFLEX |
+| CON | ENDURANCE, RESISTANCE |
+| INT | DEDUCTION, RECALL |
+| WIS | PERCEPTION, INSIGHT |
+| CHA | PERSUASION, DECEPTION, CHARM |
+
+
 ## Adding a New Template
 
 To add a new topic category beyond the current 16:

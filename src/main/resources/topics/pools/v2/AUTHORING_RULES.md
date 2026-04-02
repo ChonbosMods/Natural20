@@ -22,7 +22,8 @@ Each entry: `id` (int), `intro` (string), `details` (2-3 strings), `reactions` (
 7. statCheck pass/fail text is NPC dialogue, never second-person narration.
 8. statCheck pass reveals hidden information. statCheck fail deflects naturally.
 9. Author 2-3 details per entry. System shows 0-2 (70% chance each, max 2).
-10. Write natural, conversational NPC speech. Short sentences. Concrete observations.
-11. Each entry in a pool should feel distinct: different angles of the theme.
-12. Biome-neutral: universal terrain features only.
-13. `{npc_name}` is for mentioning OTHER NPCs, never self-reference.
+10. Stat distribution target: CHA ~50%, WIS ~25%, INT ~15%, STR/DEX/CON ~10%. Write statCheck text to match the template's skill type.
+11. Write natural, conversational NPC speech. Short sentences. Concrete observations.
+12. Each entry in a pool should feel distinct: different angles of the theme.
+13. Biome-neutral: universal terrain features only.
+14. `{npc_name}` is for mentioning OTHER NPCs, never self-reference.

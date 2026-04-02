@@ -200,31 +200,35 @@ The NPC either didn't notice the attempt, brushes it off, or redirects. Never na
 - Good: `"In the dark, everything looks like it could be something. I have scanned that tree line a dozen times since and nothing stands out."`
 - Bad: `"You squint into the fog but see nothing unusual."`
 
-### 10. Author 2-3 details and 2-3 reactions per entry
+### 10. statCheck stat distribution
+
+The skill used for each stat check comes from the template's `skills` array (see `templates.md`). Across all dialogue, the target stat distribution is: CHA ~50%, WIS ~25%, INT ~15%, STR/DEX/CON ~10% combined. When writing statCheck pass/fail text, consider what skill is likely to trigger it based on the template's skills list, and write the NPC's response to match that type of competence (social insight for CHA, observation for WIS, knowledge for INT, physical presence for STR).
+
+### 11. Author 2-3 details and 2-3 reactions per entry
 
 The system randomly includes each detail (70% chance per detail, hard cap of 2 shown). A topic might display 0, 1, or 2 details. Author enough that any subset works independently. There is no end-topic response: topics exhaust naturally when the player has explored all available options.
 
 Reactions work similarly: the system draws from the reactions pool, so each reaction must stand on its own without depending on another reaction having been shown first.
 
-### 11. Write as a real NPC speaks
+### 12. Write as a real NPC speaks
 
 Natural, conversational, not flowery or overwrought. Short sentences. Concrete observations over abstract commentary. Contractions are allowed and encouraged where natural ("I've", "don't", "there's").
 
 - Good: `"The farmer says it's a wolf. The trapper says it's too big for a wolf. The tanner says it's got scales."`
 - Bad: `"A most peculiar creature of uncertain taxonomy has been observed by the local populace."`
 
-### 12. Each entry in a pool should feel distinct
+### 13. Each entry in a pool should feel distinct
 
 Cover different angles of the theme: different causes, different witnesses, different evidence, different emotional responses. Two entries about "animal sighted near the subject" with different adjectives is not enough variety. One should be about tracks, another about a flying shape, another about sounds at night.
 
-### 13. Biome-neutral
+### 14. Biome-neutral
 
 Reference universal terrain: ridges, ruins, paths, walls, water sources, old structures. Not biome-specific features (specific tree types, sand, snow, jungle). The same pool serves all settlements regardless of biome.
 
 - Good: `"near the old wall"`, `"down by the water"`, `"past the ridge"`
 - Bad: `"in the pine forest"`, `"across the dunes"`, `"through the snow"`
 
-### 14. No hardcoded conjugation after variable-plurality nouns
+### 15. No hardcoded conjugation after variable-plurality nouns
 
 If an entry uses `{subject_focus}` or any subject variable as a sentence subject, use the conjugation helper. If the subject is not the grammatical subject, restructure the sentence.
 
@@ -232,7 +236,7 @@ If an entry uses `{subject_focus}` or any subject variable as a sentence subject
 - Good: `"{subject_focus_The} {subject_focus_is} getting worse."`
 - Good: `"Things are getting worse with {subject_focus_the}."`
 
-### 15. Subject-referencing entries must work with named POIs
+### 16. Subject-referencing entries must work with named POIs
 
 Test mentally with a proper noun like "Blackrock Mine" or "The Greyveil Tower." The sentence `"Nobody goes near {subject_focus_the} anymore"` works with both "the old watchtower" and "Blackrock Mine." The sentence `"The place near {subject_focus_the} is cursed"` works with "the ridge" but reads oddly with "The Greyveil Tower" ("The place near The Greyveil Tower is cursed"). Use `{subject_focus_the}` (lowercase) to avoid this: it suppresses the article for proper nouns.
 
