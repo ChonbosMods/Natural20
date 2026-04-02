@@ -6,6 +6,7 @@ import com.chonbosmods.data.Nat20NpcData;
 import com.chonbosmods.data.Nat20PlayerData;
 import com.chonbosmods.dialogue.model.*;
 import com.chonbosmods.dialogue.model.ActiveFollowUp;
+import com.chonbosmods.topic.PostureSelection;
 import com.chonbosmods.dice.SkillCheckResult;
 import com.chonbosmods.stats.PlayerStats;
 import com.google.common.flogger.FluentLogger;
@@ -56,6 +57,8 @@ public class ConversationSession {
     private boolean topicsLocked;
     private String activeTopicId;
     private boolean ended;
+    private final List<String> recentPostures = new ArrayList<>();
+    private static final int MAX_RECENT_POSTURES = 5;
 
     // Callbacks
     private final DialoguePresenter presenter;
@@ -293,6 +296,44 @@ public class ConversationSession {
         }
     }
 
+    /**
+     * Called by the presenter when a posture-type follow-up is selected.
+     * Applies disposition delta immediately and updates recency buffer.
+     * Must be called BEFORE handleFollowUpSelected for the same response.
+     */
+    public void onPostureSelected(PostureSelection.ResolvedPrompt prompt) {
+        lock.lock();
+        try {
+            modifyDisposition(prompt.dispositionModifier());
+
+            recentPostures.add(prompt.groupName());
+            while (recentPostures.size() > MAX_RECENT_POSTURES) {
+                recentPostures.removeFirst();
+            }
+        } finally {
+            lock.unlock();
+        }
+    }
+
+    /**
+     * Override the display text of the most recently logged SelectedResponse.
+     * Used by the presenter to fill in posture-resolved text after the fact.
+     */
+    public void overrideLastResponseLogText(String resolvedText) {
+        lock.lock();
+        try {
+            for (int i = conversationLog.size() - 1; i >= 0; i--) {
+                if (conversationLog.get(i) instanceof LogEntry.SelectedResponse sr) {
+                    conversationLog.set(i, new LogEntry.SelectedResponse(
+                        sr.responseId(), resolvedText, sr.statPrefix()));
+                    break;
+                }
+            }
+        } finally {
+            lock.unlock();
+        }
+    }
+
     // --- Node Processing ---
 
     private void processNode(String nodeId) {
@@ -417,7 +458,8 @@ public class ConversationSession {
                 pendingFollowUpIds.add(opt.id());
             }
             activeFollowUps.add(new ActiveFollowUp(
-                    opt.id(), opt.displayText(), opt.logText(), opt.statPrefix(), grayed));
+                    opt.id(), opt.displayText(), opt.logText(), opt.statPrefix(), grayed,
+                    opt.responseType()));
         }
 
     }
@@ -426,7 +468,9 @@ public class ConversationSession {
         // Record the selection in the conversation log (history only).
         // Skip for skill checks: their result is logged as SkillCheckResult instead.
         if (selected.skillCheckRef() == null) {
-            String logDisplay = selected.logText() != null ? selected.logText() : selected.displayText();
+            String logDisplay = selected.logText() != null ? selected.logText()
+                : selected.displayText() != null ? selected.displayText()
+                : "...";
             conversationLog.add(new LogEntry.SelectedResponse(selectedId, logDisplay, selected.statPrefix()));
         }
 
@@ -663,4 +707,5 @@ public class ConversationSession {
     public String getActiveNodeId() { return activeNodeId; }
     public boolean isEnded() { return ended; }
     public DialogueGraph getGraph() { return graph; }
+    public List<String> getRecentPostures() { return Collections.unmodifiableList(recentPostures); }
 }
