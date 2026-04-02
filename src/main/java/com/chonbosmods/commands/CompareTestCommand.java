@@ -14,7 +14,8 @@ import com.hypixel.hytale.server.core.command.system.CommandContext;
 import com.hypixel.hytale.server.core.command.system.basecommands.AbstractPlayerCommand;
 import com.hypixel.hytale.server.core.entity.entities.Player;
 import com.hypixel.hytale.server.core.inventory.ItemStack;
-import com.hypixel.hytale.server.core.inventory.container.ItemContainer;
+import com.hypixel.hytale.server.core.inventory.InventoryComponent;
+import com.hypixel.hytale.server.core.inventory.container.CombinedItemContainer;
 import com.hypixel.hytale.server.core.universe.PlayerRef;
 import com.hypixel.hytale.server.core.universe.world.World;
 import com.hypixel.hytale.server.core.universe.world.storage.EntityStore;
@@ -41,7 +42,7 @@ public class CompareTestCommand extends AbstractPlayerCommand {
             return;
         }
 
-        ItemStack held = player.getInventory().getActiveHotbarItem();
+        ItemStack held = InventoryComponent.getItemInHand(store, ref);
         if (held == null || held.isEmpty()) {
             context.sendMessage(Message.raw("No item in hand."));
             return;
@@ -58,7 +59,7 @@ public class CompareTestCommand extends AbstractPlayerCommand {
         }
 
         // Find first equipped Nat20 item to compare against
-        Nat20ItemDisplayData equippedDisplay = findFirstEquipped(player, renderer, playerStats);
+        Nat20ItemDisplayData equippedDisplay = findFirstEquipped(store, ref, renderer, playerStats);
         if (equippedDisplay == null) {
             context.sendMessage(Message.raw("No equipped Nat20 item found for comparison. Showing tooltip without deltas:"));
             playerRef.sendMessage(Nat20TooltipBuilder.build(hoveredDisplay, null));
@@ -71,18 +72,17 @@ public class CompareTestCommand extends AbstractPlayerCommand {
     }
 
     @Nullable
-    private Nat20ItemDisplayData findFirstEquipped(Player player, Nat20ItemRenderer renderer,
+    private Nat20ItemDisplayData findFirstEquipped(Store<EntityStore> store, Ref<EntityStore> ref,
+                                                    Nat20ItemRenderer renderer,
                                                     @Nullable PlayerStats playerStats) {
-        // Check armor slots first, then hotbar
-        for (ItemContainer container : new ItemContainer[]{
-                player.getInventory().getArmor(),
-                player.getInventory().getHotbar()}) {
-            for (short i = 0; i < container.getCapacity(); i++) {
-                ItemStack stack = container.getItemStack(i);
-                if (stack == null || stack.isEmpty()) continue;
-                Nat20ItemDisplayData display = renderer.resolve(stack, playerStats);
-                if (display != null) return display;
-            }
+        CombinedItemContainer combined = InventoryComponent.getCombined(
+                store, ref, InventoryComponent.ARMOR_HOTBAR_UTILITY_STORAGE);
+        if (combined == null) return null;
+        for (short i = 0; i < combined.getCapacity(); i++) {
+            ItemStack stack = combined.getItemStack(i);
+            if (stack == null || stack.isEmpty()) continue;
+            Nat20ItemDisplayData display = renderer.resolve(stack, playerStats);
+            if (display != null) return display;
         }
         return null;
     }
