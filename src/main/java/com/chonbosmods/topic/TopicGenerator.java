@@ -46,16 +46,13 @@ public class TopicGenerator {
     private final TopicTemplateRegistry templateRegistry;
     private final QuestPoolRegistry questPool;
     private final QuestGenerator questGenerator;
-    private final PromptGroupRegistry promptGroups;
 
     public TopicGenerator(TopicPoolRegistry topicPool, TopicTemplateRegistry templateRegistry,
-                          QuestPoolRegistry questPool, QuestGenerator questGenerator,
-                          PromptGroupRegistry promptGroups) {
+                          QuestPoolRegistry questPool, QuestGenerator questGenerator) {
         this.topicPool = topicPool;
         this.templateRegistry = templateRegistry;
         this.questPool = questPool;
         this.questGenerator = questGenerator;
-        this.promptGroups = promptGroups;
     }
 
     /**
@@ -254,7 +251,7 @@ public class TopicGenerator {
             String returnGreeting = topicPool.randomReturnGreeting(random);
 
             TopicGraphBuilder builder = new TopicGraphBuilder(
-                npcName, 50, greeting, returnGreeting, assignments, topicPool, random, promptGroups
+                npcName, 50, greeting, returnGreeting, assignments, topicPool, random
             );
             DialogueGraph graph = builder.build();
 
