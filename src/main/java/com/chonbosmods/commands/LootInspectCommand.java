@@ -16,7 +16,7 @@ import com.hypixel.hytale.server.core.Message;
 import com.hypixel.hytale.server.core.command.system.CommandContext;
 import com.hypixel.hytale.server.core.command.system.basecommands.AbstractPlayerCommand;
 import com.hypixel.hytale.server.core.entity.entities.Player;
-import com.hypixel.hytale.server.core.inventory.Inventory;
+import com.hypixel.hytale.server.core.inventory.InventoryComponent;
 import com.hypixel.hytale.server.core.inventory.ItemStack;
 import com.hypixel.hytale.server.core.universe.PlayerRef;
 import com.hypixel.hytale.server.core.universe.world.World;
@@ -45,8 +45,7 @@ public class LootInspectCommand extends AbstractPlayerCommand {
             return;
         }
 
-        Inventory inv = player.getInventory();
-        ItemStack held = inv.getActiveHotbarItem();
+        ItemStack held = InventoryComponent.getItemInHand(store, ref);
         if (held == null || held.isEmpty()) {
             context.sendMessage(Message.raw("No item in hand."));
             return;
