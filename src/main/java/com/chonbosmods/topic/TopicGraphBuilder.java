@@ -50,8 +50,6 @@ public class TopicGraphBuilder {
     private final List<TopicAssignment> assignments;
     private final TopicPoolRegistry topicPool;
     private final Random random;
-    private final PromptGroupRegistry promptGroups;
-
     public TopicGraphBuilder(
             String npcId,
             int defaultDisposition,
@@ -59,8 +57,7 @@ public class TopicGraphBuilder {
             String returnGreetingText,
             List<TopicAssignment> assignments,
             TopicPoolRegistry topicPool,
-            Random random,
-            PromptGroupRegistry promptGroups
+            Random random
     ) {
         this.npcId = npcId;
         this.defaultDisposition = defaultDisposition;
@@ -69,7 +66,6 @@ public class TopicGraphBuilder {
         this.assignments = assignments;
         this.topicPool = topicPool;
         this.random = random;
-        this.promptGroups = promptGroups;
     }
 
     public DialogueGraph build() {
@@ -150,10 +146,10 @@ public class TopicGraphBuilder {
                         reactionFallback, resolvedReactions, List.of(), List.of(), false, false, entryValence
                     ));
 
-                    String reactionPrompt = pickPromptFromGroups(template.reactionPrompts());
                     detailChildResponses.add(new ResponseOption(
-                        reactionResponseId, reactionPrompt, null, reactionNodeId,
-                        ResponseMode.EXPLORATORY, null, null, null, null
+                        reactionResponseId, null, null, reactionNodeId,
+                        ResponseMode.EXPLORATORY, null, null, null, null,
+                        ResponseType.POSTURE
                     ));
                 }
 
@@ -163,10 +159,10 @@ public class TopicGraphBuilder {
                 ));
 
                 // Detail response option on entry node
-                String detailPrompt = pickPromptFromGroups(template.detailPrompts());
                 entryResponses.add(new ResponseOption(
-                    detailResponseId, detailPrompt, null, detailNodeId,
-                    ResponseMode.EXPLORATORY, null, null, null, null
+                    detailResponseId, null, null, detailNodeId,
+                    ResponseMode.EXPLORATORY, null, null, null, null,
+                    ResponseType.POSTURE
                 ));
             }
 
@@ -340,16 +336,6 @@ public class TopicGraphBuilder {
             TopicScope.GLOBAL, null, assignment.startVisible(),
             null, sortOrder, recapText, assignment.hasQuest()
         ));
-    }
-
-    /**
-     * Pick a random prompt string from named prompt groups.
-     * Falls back to "Tell me more." if no groups or no prompts found.
-     */
-    private String pickPromptFromGroups(@Nullable List<String> groupNames) {
-        if (groupNames == null || groupNames.isEmpty()) return "Tell me more.";
-        String group = groupNames.get(random.nextInt(groupNames.size()));
-        return promptGroups.random(group, random);
     }
 
     private static String capitalizeFirst(String text) {

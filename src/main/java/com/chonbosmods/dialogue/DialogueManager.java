@@ -15,6 +15,7 @@ import com.chonbosmods.quest.QuestSystem;
 import com.chonbosmods.quest.QuestTemplateRegistry;
 import com.chonbosmods.quest.model.DialogueChunks;
 import com.chonbosmods.quest.model.QuestVariant;
+import com.chonbosmods.topic.PostureResolver;
 import com.google.gson.JsonParser;
 import com.hypixel.hytale.component.Ref;
 import com.hypixel.hytale.component.Store;
@@ -34,11 +35,16 @@ public class DialogueManager {
     private final DialogueActionRegistry actionRegistry;
     private final ConditionEvaluator conditionEvaluator;
     private final Map<UUID, ConversationSession> activeSessions = new ConcurrentHashMap<>();
+    private PostureResolver postureResolver;
 
     public DialogueManager(DialogueLoader dialogueLoader, DialogueActionRegistry actionRegistry) {
         this.dialogueLoader = dialogueLoader;
         this.actionRegistry = actionRegistry;
         this.conditionEvaluator = new ConditionEvaluator();
+    }
+
+    public void setPostureResolver(PostureResolver postureResolver) {
+        this.postureResolver = postureResolver;
     }
 
     public void startSession(Ref<EntityStore> playerRef, Ref<EntityStore> npcRef, Store<EntityStore> store, Runnable onNpcRelease) {
@@ -107,7 +113,8 @@ public class DialogueManager {
         // Create presenter
         String displayName = npcData.getGeneratedName() != null ? npcData.getGeneratedName() : npcId;
         PageDialoguePresenter presenter = new PageDialoguePresenter(
-                player, player.getPlayerRef(), playerRef, store, this, displayName);
+                player, player.getPlayerRef(), playerRef, store, this, displayName,
+                postureResolver);
 
         // Create session
         ConversationSession session = new ConversationSession(
