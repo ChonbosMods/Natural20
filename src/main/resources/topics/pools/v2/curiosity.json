@@ -17,7 +17,8 @@
       "statCheck": {
         "pass": "I tested the boundaries carefully. The listening zone is a perfect oval, oriented north-south. The ridges on either side have matching concave surfaces: they're acting like a pair of enormous ears, focusing sound to a point.",
         "fail": "The edges seem to shift depending on the wind. I have tried to map it myself and could never pin down a consistent boundary."
-      }
+      },
+      "valence": "neutral"
     },
     {
       "id": 1,
@@ -34,7 +35,8 @@
       "statCheck": {
         "pass": "I brought a compass to the sundial and the needle spins: not a full rotation, just a wobble, about thirty degrees off true north. There's something under the ground here that's interfering with direction itself.",
         "fail": "Everything on that sundial is precisely where it should be. The stone has not shifted, the angle has not changed. No obvious explanation."
-      }
+      },
+      "valence": "neutral"
     },
     {
       "id": 2,
@@ -51,7 +53,8 @@
       "statCheck": {
         "pass": "I recorded the rhythm of the whispers over several days. They repeat: the same sequence of sounds every three days. It's not random chatter. It's a message on a loop.",
         "fail": "The whispers are too faint and fractured to make out. It sounds like speech, but I cannot confirm it and neither can anyone else."
-      }
+      },
+      "valence": "neutral"
     },
     {
       "id": 3,
@@ -64,7 +67,8 @@
       "reactions": [
         "The cartographer is furious. He can't take accurate measurements for his survey work.",
         "We've gone back to navigating by landmarks and sun position. It works, but it feels like a step backward."
-      ]
+      ],
+      "valence": "negative"
     },
     {
       "id": 4,
@@ -77,7 +81,8 @@
       "reactions": [
         "The children dare each other to go in. The adults generally don't. There's something deeply wrong about seeing your own shadow disobey.",
         "A scholar visited and spent an hour inside with measuring tools. He left without saying anything and I haven't seen him since."
-      ]
+      ],
+      "valence": "neutral"
     },
     {
       "id": 5,
@@ -94,7 +99,8 @@
       "statCheck": {
         "pass": "I dug around the base of one. The warmth goes deep: at least an arm's length down, the soil is warm too. And the rock underneath is a different color than the local stone. These were brought here from somewhere else.",
         "fail": "I thought maybe there was a hot spring underneath, but there is no steam, no moisture, no smell. The heat just exists without a source I can identify."
-      }
+      },
+      "valence": "positive"
     },
     {
       "id": 6,
@@ -111,7 +117,8 @@
       "statCheck": {
         "pass": "I tested it methodically: spoke single words from different positions in the field. The echoes always return from the same three directions regardless of where you stand. Those directions point to three old marker stones, each one buried and barely visible above the grass.",
         "fail": "I have stood in that field and listened more times than I can count. The echoes are real, but I cannot explain what they are bouncing off of."
-      }
+      },
+      "valence": "neutral"
     },
     {
       "id": 7,
@@ -128,7 +135,8 @@
       "statCheck": {
         "pass": "I compared the unknown script against old records in the archive. Some of the letter shapes match a notation system used by surveyors centuries ago: measurements and boundary markers. Whatever is writing those pages may be recording the dimensions of something.",
         "fail": "The script does not match anything in the archive or any trade language I have seen. Without more samples there is no way to even guess what it means."
-      }
+      },
+      "valence": "neutral"
     },
     {
       "id": 8,
@@ -145,7 +153,8 @@
       "statCheck": {
         "pass": "I noticed the sorting follows a system: each night's arrangement matches a different cataloging method. Weight, then composition, then age. Whatever is doing this is cycling through classification schemes, like it's studying the collection.",
         "fail": "The arrangements look purposeful, but I cannot figure out the logic behind which grouping appears on which night. It might be random for all I can tell."
-      }
+      },
+      "valence": "positive"
     },
     {
       "id": 9,
@@ -162,7 +171,8 @@
       "statCheck": {
         "pass": "I measured the spot carefully. There's a slight difference in temperature at that exact point: the air is about two degrees cooler in a band no wider than a hand span. It's as if something invisible is crossing the road at ankle height.",
         "fail": "I have walked that stretch a dozen times trying to figure it out. I trip every time. There is nothing on the ground, nothing underfoot. My legs just buckle at that spot."
-      }
+      },
+      "valence": "neutral"
     },
     {
       "id": 10,
@@ -179,7 +189,8 @@
       "statCheck": {
         "pass": "I opened the door twelve times and catalogued what I saw. The rooms repeat on a cycle of seven. Always the same sequence: storage, chamber, hallway, workshop, garden, cellar, empty dark. Then it starts over.",
         "fail": "I opened it three times and saw three different things. Whether there is a pattern or it is truly random, I cannot say based on so few observations."
-      }
+      },
+      "valence": "neutral"
     },
     {
       "id": 11,
@@ -196,7 +207,8 @@
       "statCheck": {
         "pass": "I measured the stride length and the foot shape. The proportions don't match any age of human: the arch is too high and the toes are evenly spaced, not tapered. This isn't a person's foot. It just looks close enough that most people assume it is.",
         "fail": "They look like ordinary footprints to me. Small, barefoot, nothing distinctive. Without catching whatever makes them in the act, there is not much more to learn from the marks alone."
-      }
+      },
+      "valence": "neutral"
     },
     {
       "id": 12,
@@ -213,7 +225,8 @@
       "statCheck": {
         "pass": "I stayed awake all night watching it. The turn happens in the moment between looking away and looking back. I blinked, and it had shifted. Whatever moves it does not operate in continuous motion: it simply is facing one way, and then it is facing another.",
         "fail": "I sat up watching it for hours but fell asleep before dawn. By the time I woke, it had already turned. I cannot say when it happens."
-      }
+      },
+      "valence": "neutral"
     },
     {
       "id": 13,
@@ -230,7 +243,8 @@
       "statCheck": {
         "pass": "I examined the stone inside the channel. The surface has been polished smooth, but there are faint marks scored into the bottom: tiny, repeating symbols running the full length. Some kind of inscription too small to read without a lens. The channel isn't just carved: it's written on.",
         "fail": "The stone inside the channel looks the same as the stone outside it. If there is a mechanism at work, it is not visible to me."
-      }
+      },
+      "valence": "neutral"
     },
     {
       "id": 14,
@@ -247,7 +261,8 @@
       "statCheck": {
         "pass": "I got a look at the second letter. It contains precise measurements of the settlement boundaries: distances, angles, elevations. The measurements are accurate. I checked them against our own surveys. But the letter describes the settlement as it was before the eastern quarter was built, which was over a century ago.",
         "fail": "The archivist will not let anyone read them, and the seal is too unfamiliar to trace. Without access to the contents, all I can tell you is that they exist."
-      }
+      },
+      "valence": "neutral"
     },
     {
       "id": 15,
@@ -264,7 +279,8 @@
       "statCheck": {
         "pass": "I brought a candle into the room and the flame burned perfectly still. No flicker at all. The air in there isn't just cold: it's completely motionless. No convection, no draft, nothing. Still air at that temperature should not exist in an enclosed stone room.",
         "fail": "I have felt the cold myself. It is real, and it is contained to that room, but I cannot explain why. Cold rooms happen in old buildings. This one just happens more than it should."
-      }
+      },
+      "valence": "neutral"
     },
     {
       "id": 16,
@@ -281,7 +297,8 @@
       "statCheck": {
         "pass": "I asked the bellwright directly what could cause this. She hesitated, then said one thing could do it: if the density of the metal changed without the shape changing. Same bell, same size, but heavier. She weighed it. It's gained about two pounds since the last record, with no visible addition.",
         "fail": "The bellwright insists there is no physical explanation. The bell is the same bell. She has checked it three times and the only thing different is the sound it makes."
-      }
+      },
+      "valence": "neutral"
     },
     {
       "id": 17,
@@ -298,7 +315,8 @@
       "statCheck": {
         "pass": "I mapped exactly where the absorption starts and stops. The boundary is sharp: within a finger's width, sound goes from normal to nothing. And the silent zone is expanding. I measured it a week apart and it had grown by two hand-widths on each end.",
         "fail": "The wall looks and feels exactly like every other section of the building. Without specialized instruments, there is no way to determine what makes those fifteen paces different."
-      }
+      },
+      "valence": "neutral"
     },
     {
       "id": 18,
@@ -315,7 +333,8 @@
       "statCheck": {
         "pass": "I dug down in the center of the circle. About two feet down, the soil changes. It's compacted into a flat layer, perfectly level, hard as fired clay. Something underneath is sealed, and the circle above it is exactly the same diameter.",
         "fail": "I dug a shallow hole in the patch and found nothing unusual. Just soil, same as anywhere else. Whatever is preventing growth, it is not something you can see or touch."
-      }
+      },
+      "valence": "neutral"
     },
     {
       "id": 19,
@@ -332,7 +351,8 @@
       "statCheck": {
         "pass": "I traced the outline and measured it against several different rains. The shape is identical each time, down to the proportions. And the hand is left-handed. The thumb position and finger taper are anatomically consistent with a specific left hand, not a generic shape.",
         "fail": "It looks like a hand, but so do a lot of puddles if you stare at them long enough. I am not sure I can prove it is the same shape every time rather than a trick of memory."
-      }
+      },
+      "valence": "neutral"
     },
     {
       "id": 20,
@@ -349,7 +369,8 @@
       "statCheck": {
         "pass": "I compared the new symbols against the old ones and found a pattern. The originals are pictographic: each one represents something observable. The new ones use the same visual language but describe things that don't exist around here. Structures, landforms, something that looks like a map of a place I've never seen.",
         "fail": "The new symbols look similar in style to the old ones, but I do not know what any of them mean. Without a key to the original carvings, the new additions are equally unreadable."
-      }
+      },
+      "valence": "neutral"
     },
     {
       "id": 21,
@@ -366,7 +387,8 @@
       "statCheck": {
         "pass": "I plotted the weight changes against the time of day for a week. The curve isn't random: it peaks exactly when the sun is highest and troughs at midnight. And the magnitude of the shift has been increasing slowly. Two months ago, the difference was barely noticeable. Now it's enough to throw off a merchant's scale.",
         "fail": "The weight changes are real, but they are small enough that each individual measurement could be chalked up to instrument error. It is only the consistency of the pattern that makes it hard to dismiss."
-      }
+      },
+      "valence": "neutral"
     },
     {
       "id": 22,
@@ -383,7 +405,8 @@
       "statCheck": {
         "pass": "The stonemason identified the specific technique: it's a foundation-laying method used for deep structures, meant for building downward rather than upward. Whatever these sounds represent, the construction is going underground.",
         "fail": "The sounds are too diffuse to analyze in detail. They sound like construction, but without a direction to follow or a source to examine, that observation does not lead anywhere useful."
-      }
+      },
+      "valence": "neutral"
     },
     {
       "id": 23,
@@ -400,7 +423,8 @@
       "statCheck": {
         "pass": "I checked the foundation records in the archive. That wall predates the building by two centuries, not one. And there's a note in a survey from that era describing the door as 'sealed by agreement, not to be opened until the signal.' No record of what the signal is.",
         "fail": "The building records don't go back far enough to explain what is behind that door. The current owners inherited the property and were told never to open it. That is all anyone knows."
-      }
+      },
+      "valence": "negative"
     },
     {
       "id": 24,
@@ -417,7 +441,8 @@
       "statCheck": {
         "pass": "I brought a plumb line and held it at the edge of the area. Inside the zone, the line hangs at a slight angle: about two degrees off vertical, leaning inward toward the center. Whatever is slowing the fall isn't reducing gravity. It's redirecting it slightly toward a point underground.",
         "fail": "I can see the delay with my own eyes, but I do not have the tools to measure the difference precisely. It could be a draft, an updraft, some trick of the terrain. I just do not believe it is."
-      }
+      },
+      "valence": "neutral"
     },
     {
       "id": 25,
@@ -434,7 +459,8 @@
       "statCheck": {
         "pass": "I sketched everything visible in the reflected room and brought the sketch to the archivist. She recognized the layout: it matches the floor plan of a study that existed in that building before it was renovated, over eighty years ago. The mirror is reflecting the room as it used to be.",
         "fail": "The reflected room is detailed and consistent each time I look, but I cannot determine whether it corresponds to anything real or is simply an illusion of old glass."
-      }
+      },
+      "valence": "neutral"
     },
     {
       "id": 26,
@@ -451,7 +477,8 @@
       "statCheck": {
         "pass": "I synchronized a clock inside the village with one outside, half a mile away. The village clock lost four minutes. The outside clock did not. Whatever is taking that time, it's confined to a specific area. And that area matches the old village boundary markers exactly.",
         "fail": "Four minutes is such a small amount that each individual instance could be mechanical error. It is only because every clock agrees that anyone believes it is real."
-      }
+      },
+      "valence": "neutral"
     },
     {
       "id": 27,
@@ -468,7 +495,8 @@
       "statCheck": {
         "pass": "I sealed the crack with clay as a test. The smoke stopped for exactly one day, then resumed from the same spot, pushing through the clay like it wasn't there. The clay wasn't broken or disturbed: the smoke passed through solid material.",
         "fail": "I have watched that smoke for hours and it never changes. Without being able to reach the source through such a narrow crack, there is no way to determine what is producing it."
-      }
+      },
+      "valence": "neutral"
     },
     {
       "id": 28,
@@ -485,7 +513,8 @@
       "statCheck": {
         "pass": "I counted the ripple intervals over a full day. They aren't constant: the rhythm slows slightly at night and quickens at midday. The pattern matches a resting heartbeat at night and an active one during the day. Whatever this basin is connected to, it keeps a schedule.",
         "fail": "The ripples are perfectly regular as far as I can tell. I have no explanation for what drives them. The basin has no moving parts and the water is ordinary."
-      }
+      },
+      "valence": "neutral"
     },
     {
       "id": 29,
@@ -502,7 +531,8 @@
       "statCheck": {
         "pass": "I brought a rope and measured the total length of the staircase from top to bottom, then bottom to top. The rope says the distance is the same both ways. The steps are the same height. The total is the same distance. But the count is different. Something is wrong with the counting itself, not the stairs.",
         "fail": "I have counted those steps more times than is reasonable. The numbers are different each direction and I cannot determine why. The stairs look normal. They just refuse to add up."
-      }
+      },
+      "valence": "neutral"
     }
   ]
 }

@@ -17,7 +17,8 @@
       "statCheck": {
         "pass": "I did some quiet asking around. His appointment came with a letter from someone high up, but the seal on the letter was wrong: slightly different from the real one.",
         "fail": "His guards keep a tight circle. Believe me, others have tried to get a look at those ledgers."
-      }
+      },
+      "valence": "negative"
     },
     {
       "id": 1,
@@ -30,7 +31,8 @@
       "reactions": [
         "It's not even subtle. That's the part that gets me: they don't bother hiding it because they don't think anyone will push back.",
         "The downstream families are talking about pooling coin to dig their own channel. Shouldn't have to come to that."
-      ]
+      ],
+      "valence": "negative"
     },
     {
       "id": 2,
@@ -47,7 +49,8 @@
       "statCheck": {
         "pass": "I got hold of one of the sale contracts. There's a clause buried at the bottom: the merchant gets mineral rights too. He's not after the farmland. He's after what's underneath it.",
         "fail": "The families who sold won't share the details. Too embarrassed or too scared, I think."
-      }
+      },
+      "valence": "negative"
     },
     {
       "id": 3,
@@ -64,7 +67,8 @@
       "statCheck": {
         "pass": "I followed one of the wagons at a distance once. It went to a warehouse at the edge of town that's supposed to be empty. It was not empty.",
         "fail": "I have tried staying up to spot them myself. Either they do not come every night or I doze off at the wrong time. Hard to catch ghosts."
-      }
+      },
+      "valence": "negative"
     },
     {
       "id": 4,
@@ -77,7 +81,8 @@
       "reactions": [
         "I don't blame her entirely. When someone has leverage over your livelihood, your choices narrow fast.",
         "The people who can't afford her now are going without treatment. A child broke his arm last week and the family had to set it themselves."
-      ]
+      ],
+      "valence": "negative"
     },
     {
       "id": 5,
@@ -94,7 +99,8 @@
       "statCheck": {
         "pass": "You're sharp to ask about the timing. All of these strange votes started after the council chair's brother moved back to town. The brother has no official role, but he attends every closed session.",
         "fail": "Council proceedings are public in theory, but the closed sessions have gotten longer and more frequent. I can't tell you what happens behind those doors."
-      }
+      },
+      "valence": "negative"
     },
     {
       "id": 6,
@@ -111,7 +117,8 @@
       "statCheck": {
         "pass": "I noticed the grain sacks in his warehouse have a stamp from the communal harvest. Those are supposed to be public stores. He didn't buy that grain: he diverted it.",
         "fail": "The warehouse has no windows and only one door. Whatever is in there, he's made sure nobody gets a clear look."
-      }
+      },
+      "valence": "negative"
     },
     {
       "id": 7,
@@ -128,7 +135,8 @@
       "statCheck": {
         "pass": "I kept count for a month. The morning shift processes half as many carts but reports no delays. The numbers don't lie: they're throttling traffic on purpose to create demand for the shortcut.",
         "fail": "It's all done with a nod and a quiet word. Nothing written, nothing witnessed by anyone who would talk. Very tidy."
-      }
+      },
+      "valence": "negative"
     },
     {
       "id": 8,
@@ -145,7 +153,8 @@
       "statCheck": {
         "pass": "You can read people, I'll give you that. The elder isn't acting alone. He has a backer outside town who benefits from this agreement. The elder gets a cut: I've seen the courier who brings it.",
         "fail": "The elder's been careful. He never threatens anyone directly. Everything happens through channels, through process, through timing. Nothing you could point to and call proof."
-      }
+      },
+      "valence": "negative"
     },
     {
       "id": 9,
@@ -162,7 +171,8 @@
       "statCheck": {
         "pass": "I compared the ink on the amendments to the ink in the rest of the ledger. Different shade, different consistency. Those changes were made well after the original entries, not at the same time.",
         "fail": "The records room is locked most days and only the clerk and the council chair have keys. I haven't been able to examine them closely enough to see what's been changed."
-      }
+      },
+      "valence": "negative"
     },
     {
       "id": 10,
@@ -179,7 +189,8 @@
       "statCheck": {
         "pass": "You know what's interesting? The treasurer's report mentions a supplier by name. That supplier doesn't exist. I checked with every material dealer within three days' travel. Nobody has heard of them.",
         "fail": "The financial records are the treasurer's to keep, and he doesn't share them outside assembly reports. Whatever the truth is, he's the only one with the full picture."
-      }
+      },
+      "valence": "negative"
     },
     {
       "id": 11,
@@ -197,7 +208,8 @@
       "statCheck": {
         "pass": "You see it too? Watch who agrees with the patriarch at assembly and then count who owes him money. The overlap is exact. Every vote goes his way because half the room is in his ledger.",
         "fail": "It all looks perfectly normal on the surface. Favors between neighbors, debts between friends. You'd have to live here for years to see the pattern."
-      }
+      },
+      "valence": "negative"
     },
     {
       "id": 12,
@@ -214,7 +226,8 @@
       "statCheck": {
         "pass": "I traced the last rumor back to its source. It started with a woman who works for the trader's household. When I confronted her, she went pale and said she was told to say it. Wouldn't say by whom, but we both know.",
         "fail": "Rumors don't leave footprints. By the time you hear one, it's been through four mouths and nobody remembers where it started."
-      }
+      },
+      "valence": "negative"
     },
     {
       "id": 13,
@@ -231,7 +244,8 @@
       "statCheck": {
         "pass": "I got a look at the original contract and the foreman's work log. The hours don't match, and neither do the pay amounts. He's shaving a quarter of the wages off the top and recording it as material costs.",
         "fail": "The foreman keeps his records close and his workers closer. Nobody wants to risk their position by talking to outsiders about the details."
-      }
+      },
+      "valence": "negative"
     },
     {
       "id": 14,
@@ -248,7 +262,8 @@
       "statCheck": {
         "pass": "You're good at reading between the lines. The alderman's extension used the same timber supplier that was listed in the orphan fund's expenses. Same wood, same quantities, same delivery date. He built his house with their money.",
         "fail": "The alderman's records are his own, and he answers questions at assembly with just enough detail to avoid suspicion. Without access to his books, it's all circumstantial."
-      }
+      },
+      "valence": "negative"
     },
     {
       "id": 15,
@@ -265,7 +280,8 @@
       "statCheck": {
         "pass": "I noticed the men skip certain stalls entirely. The ones they skip? All connected to the same family on the council. That family is either running this or being paid to look away.",
         "fail": "They're careful about who they talk to and when. The whole thing runs on nods and quiet words. Nothing you could take to anyone official."
-      }
+      },
+      "valence": "negative"
     },
     {
       "id": 16,
@@ -282,7 +298,8 @@
       "statCheck": {
         "pass": "Here's something most people don't realize: the well master's appointment was supposed to be temporary. The original charter says the position rotates yearly. He's been in it for six years. Nobody's enforced the rotation because nobody remembers the rule.",
         "fail": "He runs that well like it's his personal property, and nobody with the authority to overrule him seems interested in doing so. The system protects its own."
-      }
+      },
+      "valence": "negative"
     },
     {
       "id": 17,
@@ -299,7 +316,8 @@
       "statCheck": {
         "pass": "The buyer at those auctions? He's the brother-in-law of the council clerk who processed the seizure orders. They're not even trying to hide the connection if you know where to look.",
         "fail": "The seizure orders look legitimate on paper. Proper stamps, proper signatures. If there's fraud, it's buried deep in procedure where most people wouldn't think to look."
-      }
+      },
+      "valence": "negative"
     },
     {
       "id": 18,
@@ -316,7 +334,8 @@
       "statCheck": {
         "pass": "One of the struck members kept her original enrollment receipt. It's dated, signed, and stamped. Her removal from the rolls happened the day before the election: not a clerical error. A deliberate act.",
         "fail": "Guild records are internal. Unless you're a member in good standing, you don't get to see the rolls, the ballots, or the minutes. And good standing is whatever the guild leader says it is."
-      }
+      },
+      "valence": "negative"
     },
     {
       "id": 19,
@@ -333,7 +352,8 @@
       "statCheck": {
         "pass": "I started feeding different information to different people to see where it surfaced. Only one version made it outside: the one I told to the courier's assistant. She's been passing messages both directions.",
         "fail": "I've been watching, but whoever it is, they're careful. The leaks keep happening and I can't narrow it down. Everyone looks guilty when you're suspicious enough."
-      }
+      },
+      "valence": "negative"
     },
     {
       "id": 20,
@@ -350,7 +370,8 @@
       "statCheck": {
         "pass": "I checked the appointment records. His position was terminated, but nobody revoked his badge or his authority seal. He's operating on paperwork that should have been collected two years ago. Anyone with the authority to stop him either doesn't know or doesn't care.",
         "fail": "He has a badge and he has a post. From the outside, it all looks official. You'd have to dig through the administrative records to see that his authority expired, and nobody bothers with that."
-      }
+      },
+      "valence": "negative"
     },
     {
       "id": 21,
@@ -367,7 +388,8 @@
       "statCheck": {
         "pass": "You're perceptive. The clerk's visitor log: I got a glimpse of it once. Every ruling correlates with a visit the night before from the winning party. Every single one. That's not coincidence. That's a price list.",
         "fail": "The magistrate is careful to justify every ruling with proper precedent. On paper, each decision looks sound. You'd need access to records he keeps very private to prove otherwise."
-      }
+      },
+      "valence": "negative"
     },
     {
       "id": 22,
@@ -384,7 +406,8 @@
       "statCheck": {
         "pass": "I noticed she receives a sealed letter every few weeks from a courier who doesn't stop anywhere else in town. Someone outside is feeding her the information. She's not the source: she's the instrument.",
         "fail": "She keeps her leverage private and her methods quiet. The people she's pressuring won't talk about it, and she certainly won't. It's a closed circle."
-      }
+      },
+      "valence": "negative"
     },
     {
       "id": 23,
@@ -401,7 +424,8 @@
       "statCheck": {
         "pass": "The man who does the visiting? He's not from here. I followed him after his last visit. He reports to someone at the merchant house directly: walked in the back entrance like he belonged there.",
         "fail": "The witnesses won't admit they were pressured. They've been made to feel like recanting was their own decision. Without them willing to say otherwise, there's nothing to work with."
-      }
+      },
+      "valence": "negative"
     },
     {
       "id": 24,
@@ -418,7 +442,8 @@
       "statCheck": {
         "pass": "I marked a sack I donated with a scratch on the tie cord. I found that same sack at the warden's own residence, tucked in with his household stores. Not even repackaged. Just taken.",
         "fail": "The warden controls the inventory log and does the distribution himself. Without someone on the inside willing to compare notes, the numbers he reports are the only numbers anyone sees."
-      }
+      },
+      "valence": "negative"
     },
     {
       "id": 25,
@@ -435,7 +460,8 @@
       "statCheck": {
         "pass": "I compared the winning bids to the actual costs of materials. Her brother's bids are impossibly low: lower than material costs alone. They're underbidding to win, then billing overruns after the fact. The final cost always ends up higher than the second-lowest bid.",
         "fail": "The bidding records are filed with the council and she's the one who reviews them. Asking to audit her own decisions hasn't gotten anyone very far."
-      }
+      },
+      "valence": "negative"
     },
     {
       "id": 26,
@@ -452,7 +478,8 @@
       "statCheck": {
         "pass": "I spoke to the carter who hauls disposals to the midden. He says he hasn't picked up spoiled provisions from the stores in over a year. Whatever left those shelves, it didn't go to the dump.",
         "fail": "The stores are kept locked and the committee does its own inspections. I'm going on secondhand accounts because nobody outside the committee gets to count the barrels."
-      }
+      },
+      "valence": "negative"
     },
     {
       "id": 27,
@@ -469,7 +496,8 @@
       "statCheck": {
         "pass": "I asked around about his previous posting. He was let go from a school two settlements over for the same thing: using the classroom to promote the interests of whoever was paying him. The council chair knew this when he appointed him.",
         "fail": "He's careful with his words in front of adults. The bias shows in the classroom, but a visitor sitting in wouldn't catch it. You'd have to hear what the children say to each other afterward."
-      }
+      },
+      "valence": "negative"
     },
     {
       "id": 28,
@@ -486,7 +514,8 @@
       "statCheck": {
         "pass": "I talked to one of the road wardens after a few drinks. He gets paid double his official wage by the merchant group for reporting cart traffic. He feels bad about it, he says, but not bad enough to stop. At least he was honest about that.",
         "fail": "The arrangement isn't written down anywhere. It's all handshake deals and understood boundaries. You'd need someone on the inside willing to talk, and the profit is good enough to keep everyone quiet."
-      }
+      },
+      "valence": "negative"
     },
     {
       "id": 29,
@@ -503,7 +532,8 @@
       "statCheck": {
         "pass": "I matched the dates of the night meetings with the council agenda. Every contentious vote was preceded by a meeting the night before. And every one of those votes went the same direction: in favor of the merchant families who attend that back room.",
         "fail": "It's hard to prove a meeting happened when everyone involved says they were home in bed. Without someone who was in that room willing to talk, it's just my suspicion against their word."
-      }
+      },
+      "valence": "negative"
     }
   ]
 }

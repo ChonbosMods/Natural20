@@ -13,7 +13,8 @@
       "reactions": [
         "It's the one time of year everyone puts their grievances aside. Hard to stay angry at your neighbor when you're both singing off-key around a fire.",
         "I've been baking for three days straight. My back aches, my hands are raw, and I wouldn't trade it for anything."
-      ]
+      ],
+      "valence": "positive"
     },
     {
       "id": 1,
@@ -30,7 +31,8 @@
       "statCheck": {
         "pass": "The eldest grandmother told me the real origin: the walk follows the exact path that the village founders took when they first arrived here, carrying torches through the dark to find this valley. It's a remembrance, not just a tradition.",
         "fail": "Nobody remembers how it started. Everyone just says it has always been this way. The origin is lost to time, or at least to memory."
-      }
+      },
+      "valence": "positive"
     },
     {
       "id": 2,
@@ -43,7 +45,8 @@
       "reactions": [
         "It's hard work dressed up as a party, which is the best kind of tradition. Everyone contributes and everyone eats.",
         "The food afterward is always the same: bread, cheese, dried fruit, and whatever pickle survived the winter. Simple, but it tastes better shared."
-      ]
+      ],
+      "valence": "positive"
     },
     {
       "id": 3,
@@ -60,7 +63,8 @@
       "statCheck": {
         "pass": "The traveler who nearly won last year left her story written down at the inn. I read it: it describes a place that matches the ruins north of here perfectly, except in her version, the ruins were alive and inhabited. She wasn't making it up. She was describing what it used to be.",
         "fail": "Nobody remembers the details of her story clearly. Just that it was beautiful and strange. The feeling lingered more than the words."
-      }
+      },
+      "valence": "positive"
     },
     {
       "id": 4,
@@ -73,7 +77,8 @@
       "reactions": [
         "It's a small thing. Nobody would notice if you skipped it. But nobody skips it. That tells you something about this place.",
         "I walked past every doorstep last frost morning, just looking at the bowls. Every single one was full. Some things about this village are exactly right."
-      ]
+      ],
+      "valence": "positive"
     },
     {
       "id": 5,
@@ -90,7 +95,8 @@
       "statCheck": {
         "pass": "You have an ear for these things. The name they're choosing has old roots: it belonged to the founder of the original settlement. Nobody's used it in four generations. That's a statement, whether they mean it to be or not.",
         "fail": "I've heard a few guesses floating around, but nothing solid. The parents are keeping it close."
-      }
+      },
+      "valence": "positive"
     },
     {
       "id": 6,
@@ -107,7 +113,8 @@
       "statCheck": {
         "pass": "You read the room well. The real argument isn't about the bonfire. The eldest naming a successor in public like that is how leadership transitions happen here. Some families feel passed over, and the fire is just the excuse.",
         "fail": "People are worked up, but it'll sort itself out. It always does once the fire is actually burning."
-      }
+      },
+      "valence": "neutral"
     },
     {
       "id": 7,
@@ -124,7 +131,8 @@
       "statCheck": {
         "pass": "You've got a showman's eye. Notice how the best vendors arrange their goods at an angle, not flat? It catches the eye of people walking past and makes a small inventory look abundant. The baker figured that out first, and now everyone copies her.",
         "fail": "It's a market. People buy, people sell, people talk. I don't see much more to it than that."
-      }
+      },
+      "valence": "positive"
     },
     {
       "id": 8,
@@ -141,7 +149,8 @@
       "statCheck": {
         "pass": "You have an artistic eye. The trick to winning isn't the most complex piece: it's the one that makes people feel something when they see it. The bird won because everyone imagined it flying. The technically better pieces just sat there, admired but not loved.",
         "fail": "I couldn't tell you what makes one entry better than another. People like what they like."
-      }
+      },
+      "valence": "positive"
     },
     {
       "id": 9,
@@ -158,7 +167,8 @@
       "statCheck": {
         "pass": "You understand performance. The fiddler isn't just keeping time: he's reading the crowd. When attention drifts, he shifts key. When the energy peaks, he pulls back to let someone else shine. He's conducting without anyone knowing it.",
         "fail": "It's just music. Some nights are good, some aren't. I don't think there's much more to it."
-      }
+      },
+      "valence": "positive"
     },
     {
       "id": 10,
@@ -175,7 +185,8 @@
       "statCheck": {
         "pass": "You noticed the candle placement isn't random? Each family puts theirs in the same spot every year. The wall is mapped by grief: the oldest families' wax is at the top, layered so thick it's become part of the stone. It's an unspoken record of everyone we've lost.",
         "fail": "The candles all look the same to me. People bring what they have. I haven't paid attention to the arrangement."
-      }
+      },
+      "valence": "negative"
     },
     {
       "id": 11,
@@ -192,7 +203,8 @@
       "statCheck": {
         "pass": "You caught the tension underneath? The one who started early was the new family. They were trying to show they belong, but they jumped the custom by a week and now the old families feel upstaged. Nobody will say it directly, but the garlands are a power play.",
         "fail": "People are just eager this year. No particular reason that I can see."
-      }
+      },
+      "valence": "positive"
     },
     {
       "id": 12,
@@ -209,7 +221,8 @@
       "statCheck": {
         "pass": "You know how to read a crowd. The real tradition isn't the stew: it's the negotiation. Families send their children to spy on what others are bringing so they can adjust their ingredient. By the time the pot's full, half the village has quietly coordinated without admitting it.",
         "fail": "It's stew. Everyone adds something, it cooks, we eat. Not much mystery to it."
-      }
+      },
+      "valence": "positive"
     },
     {
       "id": 13,
@@ -226,7 +239,8 @@
       "statCheck": {
         "pass": "You can see the leverage at work. The one pushing the gate fee is the same person who paid for the square repairs out of pocket last time. She wants to be reimbursed, but she's framing it as a public good. Smart, but people have noticed.",
         "fail": "It's a lot of opinions in a small space. Someone will sort it out eventually, or it'll sort itself out the hard way."
-      }
+      },
+      "valence": "neutral"
     },
     {
       "id": 14,
@@ -243,7 +257,8 @@
       "statCheck": {
         "pass": "You've got an eye for showmanship. The stone carry isn't really about strength: the boulder is heavy, but manageable for anyone with proper technique. The four who carried it all used the same hip-pivot method. Everyone else tries to muscle it straight up, and that's where they fail.",
         "fail": "It's a stone. You pick it up or you don't. I've never thought much about technique."
-      }
+      },
+      "valence": "positive"
     },
     {
       "id": 15,
@@ -260,7 +275,8 @@
       "statCheck": {
         "pass": "You have a performer's instinct. The secret is that the elder doesn't just count steps: she judges style. Two people can do the same move, and she'll nod for one and not the other. It's not about accuracy. It's about whether you mean it when you dance.",
         "fail": "I can barely remember three steps in a row. I wouldn't know what separates a good performance from a lucky one."
-      }
+      },
+      "valence": "positive"
     },
     {
       "id": 16,
@@ -277,7 +293,8 @@
       "statCheck": {
         "pass": "You picked up on the words. I asked the eldest once, and she said the blessing isn't asking for protection: it's a warning. The old language is addressed to whatever might be living in the ground beneath, telling it the building above is spoken for. She said it very matter-of-factly.",
         "fail": "The words sound solemn, but I couldn't tell you what they mean. The eldest learned them from her mother, and that's all she'll say."
-      }
+      },
+      "valence": "neutral"
     },
     {
       "id": 17,
@@ -294,7 +311,8 @@
       "statCheck": {
         "pass": "You can read what people aren't saying. The real reason they're leaving is quieter than anyone admits. The father had a disagreement with the council about water rights last spring. It was settled, officially. But he hasn't spoken to the elder since. Some things get resolved without being healed.",
         "fail": "They say it's for opportunity elsewhere. People always say that. Whether there's more to it, I couldn't tell you."
-      }
+      },
+      "valence": "negative"
     },
     {
       "id": 18,
@@ -311,7 +329,8 @@
       "statCheck": {
         "pass": "You understand how these things work. The gathering isn't random: there's a quiet signal. Whoever decides to go first leaves a stone on the fountain rim that afternoon. If you see the stone, you know it's on. It's been that way for years, and nobody talks about it.",
         "fail": "People just show up. There's no system to it that I've ever noticed."
-      }
+      },
+      "valence": "positive"
     },
     {
       "id": 19,
@@ -328,7 +347,8 @@
       "statCheck": {
         "pass": "You have an artist's eye for alignment. The light doesn't just hit the center stone: if you stand at the right angle, you can see it pass through a second gap and illuminate a smaller mark on the stone behind it. Nobody notices because everyone faces forward. There's a second layer to the arrangement that only works if you know where to stand.",
         "fail": "The light hits the stone. It's impressive, but I've never studied the arrangement closely enough to say more."
-      }
+      },
+      "valence": "positive"
     },
     {
       "id": 20,
@@ -345,7 +365,8 @@
       "statCheck": {
         "pass": "You've got a showman's instinct. The hidden compartment isn't a risk: the carpenter's apprentice showed me the mechanism. It's a sliding dovetail joint that locks with a quarter-turn. Her master taught her the base technique last year. She took it further than he imagined. He's going to weep when he sees it.",
         "fail": "The apprentices seem ready. Beyond that, I don't know enough about their crafts to judge the work."
-      }
+      },
+      "valence": "positive"
     },
     {
       "id": 21,
@@ -362,7 +383,8 @@
       "statCheck": {
         "pass": "You can read the social game underneath. The animal show isn't really about animals: it's the one event where families from the outskirts get equal standing with the village center. A farmer on the edge of the territory can win best in show and outrank the council chair's prized mare. The leveling matters more than the ribbons.",
         "fail": "It's animals and ribbons. Fun to watch, but I don't read much deeper into it."
-      }
+      },
+      "valence": "positive"
     },
     {
       "id": 22,
@@ -379,7 +401,8 @@
       "statCheck": {
         "pass": "You've got an eye for what's beneath the surface. The old weaver's interlocking circles aren't abstract: they're a map. Each circle represents a settlement that used to exist in this valley. She weaves the pattern every year because the number of circles has never changed, even though three of those settlements are gone. She's keeping count.",
         "fail": "The patterns are beautiful, but I couldn't tell you what separates a good weave from a great one. I just know what I like."
-      }
+      },
+      "valence": "neutral"
     },
     {
       "id": 23,
@@ -396,7 +419,8 @@
       "statCheck": {
         "pass": "You noticed the blue glaze? That wasn't a fluke. The potter told me privately that she's been experimenting with a mineral additive. She put a small dish of it inside the kiln to see if the vapors would affect nearby pieces. It worked, but she's not telling anyone yet. She wants to understand it before she shares.",
         "fail": "The kiln does what it does. Sometimes pieces surprise you, sometimes they crack. I don't know enough about firing to explain why."
-      }
+      },
+      "valence": "positive"
     },
     {
       "id": 24,
@@ -413,7 +437,8 @@
       "statCheck": {
         "pass": "You can read people's strategies. The winner every year isn't the best fisher: it's the one who picks the right spot. There's a deep pool where the water turns dark, and whoever gets there first has the advantage. The trick is that the spot changes slightly each season as the bank shifts. Last year's winner spent three mornings before the derby mapping the current.",
         "fail": "Fish are where they are. Some people are lucky, some aren't. I've never analyzed it beyond that."
-      }
+      },
+      "valence": "positive"
     },
     {
       "id": 25,
@@ -430,7 +455,8 @@
       "statCheck": {
         "pass": "You have a sharp eye. She mentioned something to me afterward that she didn't share with the group: the formation we watched isn't just rare. According to her chart, it appeared the last time the ruins near here were still inhabited. She doesn't believe in omens, but she circled the date twice.",
         "fail": "Stars are stars. She seems to see meaning in the arrangement, but I couldn't tell you what separates one pattern from another."
-      }
+      },
+      "valence": "positive"
     },
     {
       "id": 26,
@@ -447,7 +473,8 @@
       "statCheck": {
         "pass": "You see the social leverage at play. The one who proposed blind judging is the new family's mother. She's an excellent baker, but she's lost three years in a row to the head baker's reputation. This isn't about fairness: it's about getting a fair shot. And she's right, which makes it harder for anyone to object.",
         "fail": "Someone wanted a change and got it. These things happen in villages. I don't think there's more to read into it."
-      }
+      },
+      "valence": "positive"
     },
     {
       "id": 27,
@@ -464,7 +491,8 @@
       "statCheck": {
         "pass": "You understand ritual. The vigil isn't really about the fire: it's the only setting in this village where age, status, and family name don't matter. The youngest and the oldest sit as equals for one night. Conversations happen at the vigil that wouldn't happen anywhere else. Grudges get resolved over that fire more often than at any council meeting.",
         "fail": "People stay up, keep the fire going, and then sleep half the next day. I've never seen the point, honestly."
-      }
+      },
+      "valence": "positive"
     },
     {
       "id": 28,
@@ -481,7 +509,8 @@
       "statCheck": {
         "pass": "You can see the social dynamics. Nobody can cut a toast without insulting whoever added it. The harvest toast was the elder's idea. The trades toast was the guild leader's. The children's toast was the schoolteacher's. Each one is a claim to importance at the table. Cutting any toast means telling that person they don't matter enough. It's a ladder, not a list.",
         "fail": "People like to talk before they drink. It's gotten long, but I don't think there's a deeper reason."
-      }
+      },
+      "valence": "positive"
     },
     {
       "id": 29,
@@ -499,7 +528,8 @@
       "statCheck": {
         "pass": "You can read what's really happening. The seating argument was a proxy. Both families have been competing for influence on the council for over a year. The head table is symbolic: whoever sits there is seen as the village's leading family. The real fight is about who speaks for this community, and the gathering just made it public.",
         "fail": "Two families had a disagreement and it got loud. Beyond that, I try not to pick sides."
-      }
+      },
+      "valence": "negative"
     }
   ]
 }

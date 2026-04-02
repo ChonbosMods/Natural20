@@ -17,7 +17,8 @@
       "statCheck": {
         "pass": "Red clay like that only sits in one stretch of the northwest hills: the old river gorge near the collapsed bridge. Narrows it down considerably.",
         "fail": "Half the northwestern hills have clay deposits. Could be anywhere up there."
-      }
+      },
+      "valence": "neutral"
     },
     {
       "id": 1,
@@ -30,7 +31,8 @@
       "reactions": [
         "The mason says it would take days to extract without destroying it. And the ruin isn't exactly stable.",
         "I'm no historian, but if they built entire walls with that stuff, they must have had a lot of it."
-      ]
+      ],
+      "valence": "neutral"
     },
     {
       "id": 2,
@@ -47,7 +49,8 @@
       "statCheck": {
         "pass": "The wax seal had a pattern pressed into it: a wave over a mountain. That's the old mark of the river traders who disappeared two centuries ago.",
         "fail": "The markings are worn and the metal is unfamiliar. Nothing clicks, no matter how long I look at them."
-      }
+      },
+      "valence": "neutral"
     },
     {
       "id": 3,
@@ -60,7 +63,8 @@
       "reactions": [
         "The owner of the cellar is charging people a silver to look. Smart man.",
         "I went down there myself. It felt like standing in a room that was waiting for something."
-      ]
+      ],
+      "valence": "neutral"
     },
     {
       "id": 4,
@@ -77,7 +81,8 @@
       "statCheck": {
         "pass": "The three circles match a symbol I've seen in old survey records: it was used to mark underground water sources. Whatever's at the end of that path, it's below ground.",
         "fail": "The symbols could be anything: trail markers, property boundaries, or just idle carving. Hard to say without more context."
-      }
+      },
+      "valence": "neutral"
     },
     {
       "id": 5,
@@ -94,7 +99,8 @@
       "statCheck": {
         "pass": "That circular depression isn't decorative: it's a lock plate. I've read about those in old survey journals. They used a specific stone disc as a key, ground to fit exactly one door.",
         "fail": "The depression could be damage, could be a handle, could be anything. Hard to tell with stonework this old."
-      }
+      },
+      "valence": "neutral"
     },
     {
       "id": 6,
@@ -111,7 +117,8 @@
       "statCheck": {
         "pass": "Rivets clustered in threes like that are an old military pattern. That's not a merchant's lockbox: it's a field cache. Whatever's inside, someone meant to come back for it.",
         "fail": "Rivets are rivets. I can't tell a soldier's work from a tinker's just by looking at them."
-      }
+      },
+      "valence": "neutral"
     },
     {
       "id": 7,
@@ -128,7 +135,8 @@
       "statCheck": {
         "pass": "The cloth wrapping uses a specific fold pattern: overlapping corners sealed with tallow. That's a preservation method used by the old trade guilds for high-value goods in transit. Whoever packed those bundles knew what they were protecting.",
         "fail": "It's oiled cloth. People wrap all sorts of things in oiled cloth. Doesn't narrow it down much."
-      }
+      },
+      "valence": "neutral"
     },
     {
       "id": 8,
@@ -145,7 +153,8 @@
       "statCheck": {
         "pass": "That symbol: two crossed lines in a circle. I've seen it once before, on a keystone over a sealed doorway in the hills. If this key goes to that door, someone hid the key a long way from the lock on purpose.",
         "fail": "The symbol doesn't match anything I can place. Could be a maker's mark, could be a house seal. Without more context it's just a shape."
-      }
+      },
+      "valence": "neutral"
     },
     {
       "id": 9,
@@ -162,7 +171,8 @@
       "statCheck": {
         "pass": "Channels like that in old stonework served two purposes: drainage or guiding light from above. If they're drainage, there's a cistern somewhere below. If they're for light, there's a chamber with an opening that's since been buried.",
         "fail": "Old stonework has grooves for all sorts of reasons. Could be structural, could be decorative. I wouldn't read too much into them."
-      }
+      },
+      "valence": "neutral"
     },
     {
       "id": 10,
@@ -179,7 +189,8 @@
       "statCheck": {
         "pass": "Layered steel with that kind of grain pattern requires a forge technique that went out of practice generations ago. If the tools are genuine, the structure he found them in predates anything we've built around here by centuries.",
         "fail": "Fine steel is fine steel. Some smiths are just better than others. I wouldn't assume old means valuable."
-      }
+      },
+      "valence": "neutral"
     },
     {
       "id": 11,
@@ -196,7 +207,8 @@
       "statCheck": {
         "pass": "If the flood opened a deposit, it would scatter stones randomly. These were clustered in a thirty-pace stretch, which means they came from the same container: a pouch, a box, something that broke apart. That's not a natural deposit. Someone stashed them upstream.",
         "fail": "Floods move things around. They could have come from anywhere between here and the headwaters."
-      }
+      },
+      "valence": "neutral"
     },
     {
       "id": 12,
@@ -213,7 +225,8 @@
       "statCheck": {
         "pass": "That diamond-and-line stamp is a waypoint marker. It was used by couriers who moved high-value goods in stages: one person carries to a cache point, a different person picks up and carries to the next. If nobody collected, the chain broke somewhere.",
         "fail": "It's a stamp I haven't seen before. Without knowing the source, I can't tell you what's in them or who they belong to."
-      }
+      },
+      "valence": "neutral"
     },
     {
       "id": 13,
@@ -230,7 +243,8 @@
       "statCheck": {
         "pass": "Twelve notches could be distance markers. If each notch represents a day's travel on foot, the X mark is about nine days from here. That lines up with the old trade route that was abandoned when the pass collapsed.",
         "fail": "Notches on bone could mean anything: tally marks, a counting system, decoration. Without a reference point, the map is just a drawing."
-      }
+      },
+      "valence": "neutral"
     },
     {
       "id": 14,
@@ -247,7 +261,8 @@
       "statCheck": {
         "pass": "A hammer inside a shield: that's the mark of the garrison smiths from the old border posts. They made strongboxes for payroll transport. If this is one of those, it was lost in transit and the river carried it here over years.",
         "fail": "A smith's mark tells you who made it, not what's inside. Could be coins, could be tools, could be records. No way to know without opening it."
-      }
+      },
+      "valence": "neutral"
     },
     {
       "id": 15,
@@ -264,7 +279,8 @@
       "statCheck": {
         "pass": "The gems being removed tells a story. Someone came through after the shrine was abandoned and took only the stones, leaving the metalwork. That means they had a buyer for gems specifically, or they knew what the gems were and valued them above everything else.",
         "fail": "Gems fall out of old settings all the time. Tarnish weakens the prongs. I wouldn't read too much into it."
-      }
+      },
+      "valence": "neutral"
     },
     {
       "id": 16,
@@ -281,7 +297,8 @@
       "statCheck": {
         "pass": "Three locks on a single box usually means three different keyholders. It's a safeguarding practice: no one person can open it alone. That tells you this belonged to a group, not an individual. A council, a guild, a partnership.",
         "fail": "Three locks is unusual, but some merchants are just cautious. Without the keys, it's hard to say whether it means anything."
-      }
+      },
+      "valence": "neutral"
     },
     {
       "id": 17,
@@ -298,7 +315,8 @@
       "statCheck": {
         "pass": "Five jars in a line is a boundary marker tradition. Each jar would contain something representative: grain, ash, metal filings, herb powder, salt. They weren't burial goods. They were defining the edge of something. Whatever's significant is on one side of that line, not under it.",
         "fail": "Old jars in a field usually mean someone buried them to preserve the contents. Could be stores, could be ritual. Without more finds, it's guesswork."
-      }
+      },
+      "valence": "neutral"
     },
     {
       "id": 18,
@@ -315,7 +333,8 @@
       "statCheck": {
         "pass": "That blue-green glaze is specific. It was used by apothecaries who needed containers that wouldn't react with their preparations. If these are apothecary stores, some of those jars could hold compounds that aren't made anymore because the ingredients are gone.",
         "fail": "Good pottery lasts. A dry cellar with sealed jars could preserve almost anything. Without knowing the symbols, the contents could be medicine, dye, or just fancy cooking oil."
-      }
+      },
+      "valence": "neutral"
     },
     {
       "id": 19,
@@ -332,7 +351,8 @@
       "statCheck": {
         "pass": "If the trail ends at a rocky outcrop, the destination might be the outcrop itself. Some of these old marker systems led to cave entrances or cleft passages that have since been obscured by rockfall. Worth looking at the base of those rocks.",
         "fail": "Waymarkers that lead nowhere could mean the path changed, the landmark was destroyed, or the whole thing was abandoned mid-project. Without a fifth marker, the trail is a dead end."
-      }
+      },
+      "valence": "neutral"
     },
     {
       "id": 20,
@@ -349,7 +369,8 @@
       "statCheck": {
         "pass": "A flat, rectangular shape sitting on a ledge, not the bottom: that's not something that fell in. Things that fall settle at the lowest point. Something placed on a ledge was put there deliberately, and the cold spring-fed water would preserve metal almost indefinitely.",
         "fail": "Shiny things in water look more interesting than they usually are. Wet stone, mica, even certain types of clay can catch light from the right angle."
-      }
+      },
+      "valence": "neutral"
     },
     {
       "id": 21,
@@ -366,7 +387,8 @@
       "statCheck": {
         "pass": "That folded metal sheet with scratched markings: if it's soft enough to fold and hard enough to survive centuries, it might be a record. Some old builders used thin metal sheets instead of parchment for anything that needed to outlast a building. Those scratches could be readable with the right light.",
         "fail": "Old foundations turn up all sorts of things. People have been building on the same ground for generations. Not everything hidden was hidden for a reason."
-      }
+      },
+      "valence": "neutral"
     },
     {
       "id": 22,
@@ -383,7 +405,8 @@
       "statCheck": {
         "pass": "Iron hooks in the ceiling and a drain in the floor: that's a curing room. For preserving meat, treating hides, or drying herbs in bulk. The sealed door and bricked window kept the temperature constant. It wasn't sinister: it was practical, and whatever was stored in there last might still be in the drain channel.",
         "fail": "An old room behind a wall could have been anything. Storage, a workshop, living space. Without more to go on, the purpose is anyone's guess."
-      }
+      },
+      "valence": "neutral"
     },
     {
       "id": 23,
@@ -400,7 +423,8 @@
       "statCheck": {
         "pass": "A circle with a dot at the end of a corridor: that's a universal symbol for a destination or a terminus. It marks where you're meant to end up. The multiple valid arrangements might be intentional: the map shows different routes to the same point, depending on which entrance you use.",
         "fail": "Lines on stones could be a map, could be a game board, could be an artist's exercise. Without knowing what it's a map of, the arrangement doesn't tell us much."
-      }
+      },
+      "valence": "neutral"
     },
     {
       "id": 24,
@@ -417,7 +441,8 @@
       "statCheck": {
         "pass": "A needle that always points the same direction regardless of position: it's not magnetic, or it would drift near iron. Something at the destination is pulling it. If you could get hold of that stone and walk the direction it points, you'd walk right to whatever it was made to find.",
         "fail": "Some metals behave strangely near certain kinds of rock. Could be a natural oddity dressed up to look deliberate."
-      }
+      },
+      "valence": "neutral"
     },
     {
       "id": 25,
@@ -434,7 +459,8 @@
       "statCheck": {
         "pass": "Worn stone floors inside a sealed cave mean regular use over a long period, followed by a deliberate closure. The people who used this path didn't want anyone following them in after they left. That suggests the cave leads somewhere worth protecting, not somewhere dangerous.",
         "fail": "Caves get blocked by rockfall all the time. Sometimes people stack stones to keep animals out. I wouldn't assume there's more to it."
-      }
+      },
+      "valence": "neutral"
     },
     {
       "id": 26,
@@ -451,7 +477,8 @@
       "statCheck": {
         "pass": "Those bronze weights in a fitted case: that's a standard trading kit, but the stamps use an older measurement standard that fell out of use when the trade roads shifted. This cache predates the current road system entirely. The path above it isn't the original route: it was built later, right on top, without anyone knowing.",
         "fail": "Traders stash goods along their routes all the time. Some get forgotten. It's useful to have, but it doesn't point to anything larger."
-      }
+      },
+      "valence": "neutral"
     },
     {
       "id": 27,
@@ -468,7 +495,8 @@
       "statCheck": {
         "pass": "Arched passages with water channels are aqueduct construction. The water isn't a leak: the passage was built to carry it. If you can trace where the channel leads, you'll find either a cistern or a collection basin. And wherever that is, there will be more construction around it.",
         "fail": "Old stonework underground could be anything: a collapsed building, a buried wall, foundations from something that used to stand here. Without getting down there, all you've got is what you can see from above."
-      }
+      },
+      "valence": "neutral"
     },
     {
       "id": 28,
@@ -485,7 +513,8 @@
       "statCheck": {
         "pass": "If the seam maintains its width and polish deep into the hillside, it may be the edge of something larger: a slab, a wall, a sealed face. The polish could be a finished surface that was buried when the hill formed around it. What's behind the seam is the real question.",
         "fail": "Unusual mineral veins crop up in quarries sometimes. Quartz forms straight lines under the right conditions. I'd need to see it myself before drawing conclusions."
-      }
+      },
+      "valence": "neutral"
     },
     {
       "id": 29,
@@ -502,7 +531,8 @@
       "statCheck": {
         "pass": "Steps worn smooth in the center but not at the edges: that tells you single-file traffic, in one direction more than the other. The wear is heaviest on the downward-facing side of each step. More people went down than came back up. Either they left by another exit, or whatever's at the bottom was worth staying for.",
         "fail": "Old stairs go to old rooms. Could be a cellar, could be a cistern, could be a root store. Without going down, there's no telling."
-      }
+      },
+      "valence": "neutral"
     }
   ]
 }

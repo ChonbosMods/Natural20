@@ -13,7 +13,8 @@
       "reactions": [
         "It's not really about the well. It's about the road dispute from two years ago that never got resolved. The well is just the latest battlefield.",
         "I told them I'd pay a share myself if it'd break the deadlock. Both sides said they appreciated the gesture and went right back to arguing."
-      ]
+      ],
+      "valence": "negative"
     },
     {
       "id": 1,
@@ -30,7 +31,8 @@
       "statCheck": {
         "pass": "I talked to the father quietly. He mentioned their village wasn't just abandoned: they were the last to leave. Others left months ago, heading the same direction. Something is pushing people out of the lowlands.",
         "fail": "They are tired and guarded, that family. I asked a few questions myself and got the basics, nothing more. They keep the details close."
-      }
+      },
+      "valence": "neutral"
     },
     {
       "id": 2,
@@ -43,7 +45,8 @@
       "reactions": [
         "It's the most united I've seen this village in a decade. Nothing brings people together like a common project.",
         "I've been cooking for the work crews. It's not much, but someone has to keep these people fed."
-      ]
+      ],
+      "valence": "positive"
     },
     {
       "id": 3,
@@ -56,7 +59,8 @@
       "reactions": [
         "In a village this size, a quiet kindness like that holds more weight than people realize. It sets a standard.",
         "The miller has started giving her a discount on flour. His way of contributing without making a fuss about it."
-      ]
+      ],
+      "valence": "positive"
     },
     {
       "id": 4,
@@ -73,7 +77,8 @@
       "statCheck": {
         "pass": "I spoke with the farrier's daughter before she left. She said it wasn't the money: it was the feeling that nothing here would ever change. She wanted to matter somewhere. That hit harder than I expected.",
         "fail": "Everyone just shrugs when you bring it up. Says it's always been this way. Maybe it has."
-      }
+      },
+      "valence": "negative"
     },
     {
       "id": 5,
@@ -90,7 +95,8 @@
       "statCheck": {
         "pass": "The break-in at the elder's storehouse was an inside job. His own nephew was caught selling grain on the side road two days later. The curfew is cover: it's easier than admitting the problem is family.",
         "fail": "People have their theories about the break-in, but nobody wants to say them out loud. The elder's family carries too much influence."
-      }
+      },
+      "valence": "negative"
     },
     {
       "id": 6,
@@ -107,7 +113,8 @@
       "statCheck": {
         "pass": "The real reason it collapsed is simpler than people admit. Two families had a falling out over a property line, and once they stopped speaking, neither would sit at a table with the other. Everyone else picked sides quietly.",
         "fail": "Everyone blames someone else for letting it die. I've heard five versions and none of them agree on the details."
-      }
+      },
+      "valence": "negative"
     },
     {
       "id": 7,
@@ -124,7 +131,8 @@
       "statCheck": {
         "pass": "I noticed the father speaks with an accent from the eastern provinces. Those families don't leave voluntarily: the eastern districts have been under levy pressure for months. They may be avoiding conscription.",
         "fail": "They don't say much about where they came from. I've tried making conversation a few times and it goes nowhere."
-      }
+      },
+      "valence": "neutral"
     },
     {
       "id": 8,
@@ -141,7 +149,8 @@
       "statCheck": {
         "pass": "One of the regular watchers told me something interesting: on the nights nobody shows up, he's started noting which households have their lamps out earliest. The pattern matches the families closest to the council. They know they won't be fined.",
         "fail": "It is hard to fault people for not wanting to stand in the cold all night. The system just doesn't work without some kind of enforcement."
-      }
+      },
+      "valence": "negative"
     },
     {
       "id": 9,
@@ -158,7 +167,8 @@
       "statCheck": {
         "pass": "I've watched both candidates closely. The merchant is competent but he owes favors to three of the wealthier families. The apprentice is honest but she doesn't realize the council seat comes with debts she can't see yet. Neither choice is clean.",
         "fail": "Everyone has an opinion on who should win, but the reasoning is mostly personal. People vote for the one they like, not the one they've evaluated."
-      }
+      },
+      "valence": "negative"
     },
     {
       "id": 10,
@@ -175,7 +185,8 @@
       "statCheck": {
         "pass": "The old potter whispered something to the mother after the ceremony that nobody else caught. I asked her about it later. She said she told her the same words her own mother spoke when she was named: a blessing in the old tongue that most people have forgotten.",
         "fail": "The ceremony followed tradition. Beyond that, I couldn't tell you what the old words mean. Nobody explains them anymore."
-      }
+      },
+      "valence": "positive"
     },
     {
       "id": 11,
@@ -192,7 +203,8 @@
       "statCheck": {
         "pass": "His daughter confided in me. She said he knows. He told her one evening that the words don't come like they used to, and asked her to be ready. He's waiting for the right moment to hand it over himself. He just hasn't found it yet.",
         "fail": "Nobody talks about it directly. They speak in circles: 'He's tired lately,' 'He's earned a rest.' Everyone knows what they mean."
-      }
+      },
+      "valence": "negative"
     },
     {
       "id": 12,
@@ -209,7 +221,8 @@
       "statCheck": {
         "pass": "The herbalist told me something she hasn't shared with the parents. She's not just teaching reading and numbers: she's been watching for children with aptitude. One of them has a natural gift for identifying plants by smell alone. She wants to take that child on as an apprentice, but she's afraid the family will refuse.",
         "fail": "The lessons seem straightforward enough. Reading, numbers, plant identification. Whatever else goes on in that cottage, the children seem happy."
-      }
+      },
+      "valence": "positive"
     },
     {
       "id": 13,
@@ -226,7 +239,8 @@
       "statCheck": {
         "pass": "I checked the original survey records in the council archive. The boundaries don't match what's on the ground now, and they haven't matched for at least three years. This isn't new: someone has been doing it gradually, a pace at a time, for seasons.",
         "fail": "Boundary disputes are common enough. Everyone remembers their own lines differently, and soil shifts the markers over time. Hard to prove anything deliberate."
-      }
+      },
+      "valence": "negative"
     },
     {
       "id": 14,
@@ -243,7 +257,8 @@
       "statCheck": {
         "pass": "The family that took the extra shifts told me privately that they've been keeping a ledger. Every feeding, every cost, every hour. They're building a case to claim ownership of the flock outright. The communal arrangement is about to get a lot less communal.",
         "fail": "Everyone agrees the goats are important. Everyone disagrees on who should do the work. It is the oldest argument in village life."
-      }
+      },
+      "valence": "negative"
     },
     {
       "id": 15,
@@ -260,7 +275,8 @@
       "statCheck": {
         "pass": "I spoke with the trader who broke his axle. He told me something our council doesn't know: the other village already started repairs on their half. They're not waiting for agreement. Our side of the road is going to look embarrassing by comparison.",
         "fail": "Road maintenance is everyone's problem and nobody's responsibility. Same conversation every year, same result."
-      }
+      },
+      "valence": "negative"
     },
     {
       "id": 16,
@@ -277,7 +293,8 @@
       "statCheck": {
         "pass": "I've been watching the storehouse path at odd hours. The shortages always follow council meeting nights, when the square is busy and nobody watches the back lane. Whoever is doing this knows the village schedule better than a stranger would.",
         "fail": "Grain goes missing in any village with a shared storehouse. Could be rats, could be miscounts, could be something else. Nobody has caught anyone."
-      }
+      },
+      "valence": "negative"
     },
     {
       "id": 17,
@@ -294,7 +311,8 @@
       "statCheck": {
         "pass": "I talked to the family that took the sunny plots. They didn't just arrive first: they knew the layout in advance because their cousin drew up the garden plan for the council. The whole thing was tilted before a seed went in the ground.",
         "fail": "Every family has a different version of what was agreed. Without written records, it is just one person's memory against another's."
-      }
+      },
+      "valence": "negative"
     },
     {
       "id": 18,
@@ -311,7 +329,8 @@
       "statCheck": {
         "pass": "The argument that killed the fire circle wasn't really about harvest shares. It was about the elder's son getting a larger allocation without earning it. Nobody wanted to say it to the elder's face, so it came out sideways as a general grievance. The real issue was never addressed.",
         "fail": "People drifted away gradually. If there was a single reason, nobody's willing to name it."
-      }
+      },
+      "valence": "negative"
     },
     {
       "id": 19,
@@ -328,7 +347,8 @@
       "statCheck": {
         "pass": "The rumor didn't start from someone who saw her. It started from someone who owed her husband money and wanted leverage. I traced it back through three retellings to the original source: a neighbor with a debt and a grudge.",
         "fail": "Rumors have a life of their own. By the time you try to trace one, it has been told so many times the origin is lost."
-      }
+      },
+      "valence": "negative"
     },
     {
       "id": 20,
@@ -345,7 +365,8 @@
       "statCheck": {
         "pass": "I found a rubbing someone made of the stone twenty years ago, tucked into the council records. Every name is legible on the paper. If they'd let me compare it to the stone, we could restore the names without guessing: but the elder who holds the records won't let anyone touch them.",
         "fail": "The inscription was clearer a decade ago. Now it takes someone who already knows the names to read them, which defeats the purpose."
-      }
+      },
+      "valence": "neutral"
     },
     {
       "id": 21,
@@ -362,7 +383,8 @@
       "statCheck": {
         "pass": "One of the women told me she's documenting everything in a journal: recipes, timing, temperatures, which methods work for which foods. She's not just teaching the current students: she's making sure the knowledge survives even if she doesn't. That's the kind of thinking a village needs.",
         "fail": "They're good teachers from what I can tell. Beyond the basics of what they're showing, I don't know the details of their methods."
-      }
+      },
+      "valence": "positive"
     },
     {
       "id": 22,
@@ -379,7 +401,8 @@
       "statCheck": {
         "pass": "The holdout is almost always the same person: the merchant's brother. He doesn't block things because he disagrees. He blocks things because the council once overruled him on a property matter, and he's been making them pay for it ever since. Every delay is revenge.",
         "fail": "Everyone blames 'the process' as if it's something that happens to them. Nobody wants to be the one to say the process itself is the problem."
-      }
+      },
+      "valence": "negative"
     },
     {
       "id": 23,
@@ -396,7 +419,8 @@
       "statCheck": {
         "pass": "I spoke with the young woman from the second arrangement. She isn't opposed to the match itself: she's angry because her father made the deal to settle a debt he owes the other family. She's a payment, not a bride. The matchmaker doesn't know that part.",
         "fail": "Marriage arrangements are private family business. People share the celebrations, not the negotiations behind them."
-      }
+      },
+      "valence": "neutral"
     },
     {
       "id": 24,
@@ -413,7 +437,8 @@
       "statCheck": {
         "pass": "I paid attention to when the pile grows. It's always after market day, and the waste is mostly spoiled produce and rendering fat: materials from the food stalls. The market vendors are using the tanner's back wall as their personal dump because the council doesn't inspect after breakdown.",
         "fail": "Nobody admits to dumping there, and nobody has been caught in the act. It keeps growing, so someone is doing it regularly."
-      }
+      },
+      "valence": "negative"
     },
     {
       "id": 25,
@@ -430,7 +455,8 @@
       "statCheck": {
         "pass": "I compared the handwriting on several of the worst slips. At least four of the most personal attacks were written by the same person: same letter shapes, same ink. Someone is using the board to wage a private campaign under cover of anonymity.",
         "fail": "Anonymous complaints all look the same after a while. There is no way to tell who wrote what without catching them in the act."
-      }
+      },
+      "valence": "negative"
     },
     {
       "id": 26,
@@ -447,7 +473,8 @@
       "statCheck": {
         "pass": "The healer told me something she won't say publicly. She tested both of them without either knowing: asked them each to help with a difficult case and watched how they responded. The girl knew the right answer but panicked under pressure. The boy didn't know, admitted it, and asked what to do. She said that honesty under pressure is the one thing she can't teach.",
         "fail": "The healer has her reasons and she keeps them close. I trust her judgment, but I can't explain it to the families who feel passed over."
-      }
+      },
+      "valence": "neutral"
     },
     {
       "id": 27,
@@ -464,7 +491,8 @@
       "statCheck": {
         "pass": "The father told me quietly that he knows why his request for help was ignored. He voted against the elder's tax proposal last year: the only dissenting vote. The help that should have come was never going to come. His family is paying for his honesty.",
         "fail": "Help requests fall through for all kinds of reasons: busy seasons, short supplies, forgetfulness. It is hard to say why this one was overlooked."
-      }
+      },
+      "valence": "negative"
     },
     {
       "id": 28,
@@ -481,7 +509,8 @@
       "statCheck": {
         "pass": "The arrangement is doing something nobody planned. The families that were feuding over the property boundaries are now in the same joinery class. They started out sitting on opposite sides of the workshop. Last week they were sharing tools. Nobody forced it: it just happened when they had something in common besides a fence line.",
         "fail": "It seems to be working well. People are learning, people are socializing. Whether it has deeper effects I couldn't say."
-      }
+      },
+      "valence": "positive"
     },
     {
       "id": 29,
@@ -498,7 +527,8 @@
       "statCheck": {
         "pass": "The urgency isn't just about weather signs. The elder got a message from a settlement further north warning that their harvest failed completely. She hasn't told the village because she doesn't want panic, but she's the one who pushed for the early preparations. She's sheltering us from the real reason.",
         "fail": "The old-timers predict a hard winter every year. This time people are listening, which suggests something feels different. I just can't put my finger on what."
-      }
+      },
+      "valence": "positive"
     }
   ]
 }

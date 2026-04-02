@@ -17,7 +17,8 @@
       "statCheck": {
         "pass": "I collected some of the salt and compared it to sea salt and mine salt. It matches neither. The crystal structure is different: more geometric, like it was grown, not evaporated.",
         "fail": "Beyond confirming it is salty, there is nothing to learn without proper tools. It just seems like salt."
-      }
+      },
+      "valence": "negative"
     },
     {
       "id": 1,
@@ -34,7 +35,8 @@
       "statCheck": {
         "pass": "I stood at the edge and watched it roll in. It doesn't spread evenly: it follows the road, fills the low ground, and stops at a clean line along the eastern hill. Like it knows where the boundaries are.",
         "fail": "Once inside the fog, visibility drops to nothing. I tried watching from within and could not see the edges at all."
-      }
+      },
+      "valence": "negative"
     },
     {
       "id": 2,
@@ -47,7 +49,8 @@
       "reactions": [
         "The woodcutter says to leave it alone. You don't cut down a tree that lightning keeps choosing.",
         "Some of the children have started calling it the thunder tree. They dare each other to touch it."
-      ]
+      ],
+      "valence": "neutral"
     },
     {
       "id": 3,
@@ -64,7 +67,8 @@
       "statCheck": {
         "pass": "I walked the boundary where the wind starts. It's a perfect circle, centered on the old well in the village square. Something about that well is anchoring this.",
         "fail": "It shifts subtly and the pattern slips away. Close, but not precise enough to pin down."
-      }
+      },
+      "valence": "neutral"
     },
     {
       "id": 4,
@@ -77,7 +81,8 @@
       "reactions": [
         "The children loved it. The adults did not.",
         "I caught some on my tongue. It tasted like spring water: clean, sweet, not like normal snow at all. That bothered me more than the snow itself."
-      ]
+      ],
+      "valence": "neutral"
     },
     {
       "id": 5,
@@ -94,7 +99,8 @@
       "statCheck": {
         "pass": "I collected some in a jar and let it sit. By morning, there was a thin film on the surface: faintly iridescent, like oil but thinner. Normal rain doesn't leave residue.",
         "fail": "It felt like rain. Warm rain, but rain. I could not tell you what made it different beyond the temperature."
-      }
+      },
+      "valence": "negative"
     },
     {
       "id": 6,
@@ -111,7 +117,8 @@
       "statCheck": {
         "pass": "I watched them at dawn when the light comes in low. The clouds cast a shadow on the ground that doesn't match their shape. The shadow is circular, but the clouds aren't. Something above the clouds is casting the real shadow.",
         "fail": "Clouds are clouds. I am no scholar of the sky. They look wrong, but I cannot explain why beyond that."
-      }
+      },
+      "valence": "negative"
     },
     {
       "id": 7,
@@ -128,7 +135,8 @@
       "statCheck": {
         "pass": "I scraped some of the residue off a stone slab and looked at it closely. It has a grain to it, like fine powder suspended in the water. Whatever is in the air at night, it's settling with the moisture.",
         "fail": "It washes off skin easily enough, and it doesn't seem to cause harm. Beyond the staining, there is nothing obvious to find."
-      }
+      },
+      "valence": "negative"
     },
     {
       "id": 8,
@@ -145,7 +153,8 @@
       "statCheck": {
         "pass": "I held a candle over the crack at different times of day. The flame leans in the morning and pushes out in the evening. Whatever is down there, it breathes on a cycle.",
         "fail": "Wind from underground is unusual, but caves do that sometimes. I could not tell you whether this is natural or not without going below."
-      }
+      },
+      "valence": "negative"
     },
     {
       "id": 9,
@@ -162,7 +171,8 @@
       "statCheck": {
         "pass": "I went out and listened carefully. The sound wasn't coming from the sky. It was coming from the ground, vibrating upward through the earth and being mistaken for thunder. Something beneath the surface is moving.",
         "fail": "Sound travels strangely at night. It could have come from a storm miles away that we simply couldn't see."
-      }
+      },
+      "valence": "negative"
     },
     {
       "id": 10,
@@ -179,7 +189,8 @@
       "statCheck": {
         "pass": "I noticed the grass inside the spot is growing faster than the grass around it. Not dying from cold: thriving. Whatever is causing the chill, it isn't hurting things. It's feeding them.",
         "fail": "It is cold. Genuinely cold. Beyond that, I have no theory. Cold air sinks, but it doesn't just park itself in one spot forever."
-      }
+      },
+      "valence": "neutral"
     },
     {
       "id": 11,
@@ -196,7 +207,8 @@
       "statCheck": {
         "pass": "I did sketch a piece before it vanished. Showed it to the mason, who went quiet. He said it looked like foundation markings: the kind you scratch into stone before laying walls. Something is trying to build.",
         "fail": "The frost melted before I could study it properly. All I have is my memory of it, and memory is not the most reliable tool."
-      }
+      },
+      "valence": "negative"
     },
     {
       "id": 12,
@@ -213,7 +225,8 @@
       "statCheck": {
         "pass": "I saved a cup of the metallic rain and a cup of the normal rain that came after. Held them up to sunlight. The metallic sample has a faint reddish tint you can only see in a thin layer. Something carried fine particles down with it.",
         "fail": "Rain can pick up dust and pollen on the way down. It is probably nothing more than that, though I admit it was unsettling."
-      }
+      },
+      "valence": "negative"
     },
     {
       "id": 13,
@@ -230,7 +243,8 @@
       "statCheck": {
         "pass": "I marked the direction carefully and checked it against the terrain. The glow was coming from a depression in the lowlands that's been dry for years. There's nothing there to burn, and nothing there to glow.",
         "fail": "At that distance, light plays tricks. It could have been anything refracting off low clouds. I would not want to guess."
-      }
+      },
+      "valence": "negative"
     },
     {
       "id": 14,
@@ -247,7 +261,8 @@
       "statCheck": {
         "pass": "I noticed the moisture isn't uniform. The stone buildings are wetter than the wooden ones, and the older structures are wetter than the newer ones. Whatever is in the air, it's drawn to age. To permanence.",
         "fail": "Humidity is humidity. It happens in low valleys, near water, in certain seasons. This is more persistent than usual, but I could not call it unnatural."
-      }
+      },
+      "valence": "negative"
     },
     {
       "id": 15,
@@ -264,7 +279,8 @@
       "statCheck": {
         "pass": "I tracked the timing. The animals didn't react to the storm: they reacted to something that preceded it. The storm came from the west. The animals faced east. They weren't bracing for weather. They were watching something else.",
         "fail": "Animals are sensitive. More so than we are. Whatever they felt, it came and went with the weather."
-      }
+      },
+      "valence": "negative"
     },
     {
       "id": 16,
@@ -281,7 +297,8 @@
       "statCheck": {
         "pass": "I cracked one open before it melted. There was a dark speck at the center, like a seed or a grain of something. Every stone I checked had one. Something was seeded into the ice before it fell.",
         "fail": "They melted quickly. Whatever they were made of, it was just ice as far as I could tell."
-      }
+      },
+      "valence": "negative"
     },
     {
       "id": 17,
@@ -298,7 +315,8 @@
       "statCheck": {
         "pass": "I got down on my knees and looked into it. There are faint lights inside, drifting with the current. Tiny, pale, barely visible. Like embers that give off cold instead of heat.",
         "fail": "It looks like fog. It feels like fog. The only odd thing is how perfectly it stays at that height, but I have no explanation for that."
-      }
+      },
+      "valence": "neutral"
     },
     {
       "id": 18,
@@ -315,7 +333,8 @@
       "statCheck": {
         "pass": "I held up a piece of colored glass and looked at the sun through it. There's a faint ring around it that wasn't there before: not a halo from moisture, but something tighter, closer. Like the light is being held back at the source.",
         "fail": "The sky is clear and the sun is where it should be. If the light is weaker, I cannot see why. It could be my imagination."
-      }
+      },
+      "valence": "negative"
     },
     {
       "id": 19,
@@ -332,7 +351,8 @@
       "statCheck": {
         "pass": "I counted the columns and mapped where they rose. They're evenly spaced along an old stone foundation that runs under the bank. The steam rises from the stones, not the water. Whatever is below those stones is warm.",
         "fail": "Temperature differences between water and air create steam. It happens. The shapes are probably just my mind making patterns from randomness."
-      }
+      },
+      "valence": "neutral"
     },
     {
       "id": 20,
@@ -349,7 +369,8 @@
       "statCheck": {
         "pass": "I dug a shallow trench from one puddle to drain it. The water ran off, and within an hour the puddle had refilled to exactly the same level. The water is coming from somewhere beneath the surface, and it's being held at a precise depth.",
         "fail": "Puddles in shade can last a while. These are mostly in open ground, but the soil might hold moisture differently here. I cannot rule out a natural explanation."
-      }
+      },
+      "valence": "neutral"
     },
     {
       "id": 21,
@@ -366,7 +387,8 @@
       "statCheck": {
         "pass": "I tracked the timing. The reversals are regular: forward for about twelve seconds, pause for two, backward for twelve. It's a rhythm, not chaos. Something is driving this like a bellows.",
         "fail": "Terrain can funnel wind in odd ways. Valleys and ridges do strange things to airflow. It is probably just the landscape."
-      }
+      },
+      "valence": "negative"
     },
     {
       "id": 22,
@@ -383,7 +405,8 @@
       "statCheck": {
         "pass": "I marked the edges of the strip where the rain fell. It runs in a perfectly straight line, northeast to southwest. Rain doesn't fall in straight lines. Something shaped the area where it was allowed to fall.",
         "fail": "High-altitude moisture can sometimes release without visible cloud cover. It is unusual but documented. Probably nothing more."
-      }
+      },
+      "valence": "neutral"
     },
     {
       "id": 23,
@@ -400,7 +423,8 @@
       "statCheck": {
         "pass": "I examined the wood under where the ice formed. The grain has shifted. The rings that were tight and even are now spiraling, as if the wood grew years' worth of grain overnight. The ice isn't freezing the surface: it's drawing something out of the wood.",
         "fail": "Condensation can freeze in the right conditions, even when the air feels warm. The selectivity is odd, but I would not call it impossible."
-      }
+      },
+      "valence": "negative"
     },
     {
       "id": 24,
@@ -417,7 +441,8 @@
       "statCheck": {
         "pass": "I mapped a shadow's movement against its cloud for half a day. The shadow is not cast by the cloud at all. It moves as though the light source is below, not above. Something on the ground is casting upward, and the clouds are just where we happen to see the result.",
         "fail": "Clouds at different heights can create misleading shadow patterns. The angles are confusing, but atmospheric optics are not my strength."
-      }
+      },
+      "valence": "negative"
     },
     {
       "id": 25,
@@ -434,7 +459,8 @@
       "statCheck": {
         "pass": "The moment it happened, every flame in the village went out. Candles, hearths, lanterns: all of them, simultaneously. Something pulled the air itself for an instant, and the fire couldn't survive it.",
         "fail": "Pressure shifts happen for many reasons. Without instruments to measure it, all I have is how it felt, and feelings are not evidence."
-      }
+      },
+      "valence": "negative"
     },
     {
       "id": 26,
@@ -451,7 +477,8 @@
       "statCheck": {
         "pass": "I paced the spacing between lines. Exactly seven feet apart. Every line, every gap. You don't get mathematical precision from weather. This was placed, not fallen.",
         "fail": "Wind can do odd things to falling rain, creating streaks and gaps. With the right terrain and gusts, lines are not impossible."
-      }
+      },
+      "valence": "neutral"
     },
     {
       "id": 27,
@@ -468,7 +495,8 @@
       "statCheck": {
         "pass": "I timed the cycles carefully. The cold sweeps come from the same direction each time, and they move at a walking pace. You can actually see the boundary approach: the air shimmers slightly at the edge, like heat haze in reverse.",
         "fail": "Terrain can trap and release heat in bursts. The cycles are unusual but not beyond what geography might explain."
-      }
+      },
+      "valence": "negative"
     },
     {
       "id": 28,
@@ -485,7 +513,8 @@
       "statCheck": {
         "pass": "I had someone stand at the north boundary and shout while I listened from the village. Nothing. Then the wind picked up and I heard the bell again, clear as anything. The wind isn't carrying real sound. It's producing it.",
         "fail": "Sound can refract over long distances in the right conditions. What I heard was probably carried from farther than I think."
-      }
+      },
+      "valence": "negative"
     },
     {
       "id": 29,
@@ -502,7 +531,8 @@
       "statCheck": {
         "pass": "I timed every transition for three days. They're shifting earlier: six minutes per day. Whatever is driving the cycle is accelerating. If the pattern continues, the phases will start overlapping soon. Frost and heat at the same time. I don't know what that looks like.",
         "fail": "Micro-seasons happen in mountainous terrain. The regularity is odd, but I would need more than a week of observation to call it unnatural."
-      }
+      },
+      "valence": "negative"
     }
   ]
 }

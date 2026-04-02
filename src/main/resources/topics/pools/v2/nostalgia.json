@@ -17,7 +17,8 @@
       "statCheck": {
         "pass": "What I never told anyone is that I watched him the last day they tore it down. He waited until the workers left, walked out to the bank, and pulled one peg from the rubble. Kept it in his coat pocket until the day he died. I have it now. He never once said he was proud of that bridge, but that peg tells you everything.",
         "fail": "It was a long time ago. I barely remember the bridge itself, honestly. Just the idea of it: one man, one summer. That's enough."
-      }
+      },
+      "valence": "positive"
     },
     {
       "id": 1,
@@ -34,7 +35,8 @@
       "statCheck": {
         "pass": "I actually found my father's old fortune-telling cards in a trunk last month. There's a map drawn on the back of one: he marked every stall location from the original market layout. We could rebuild it exactly as it was.",
         "fail": "Memories differ. Everyone remembers their own stall and not much else. I could not piece together the full layout from what people told me."
-      }
+      },
+      "valence": "negative"
     },
     {
       "id": 2,
@@ -51,7 +53,8 @@
       "statCheck": {
         "pass": "The truth is, I've been trying to do what she did. Some evenings I sit by the fire and start talking, telling one of her stories from memory. People listen for a few minutes, then drift off. I keep going anyway. I think she'd want someone to keep the fire warm, even if the stories aren't as good.",
         "fail": "I don't think about it much anymore. The fire pit is just a fire pit. People remember her fondly, and that's enough."
-      }
+      },
+      "valence": "negative"
     },
     {
       "id": 3,
@@ -68,7 +71,8 @@
       "statCheck": {
         "pass": "Our old carved tree is still alive, barely. But the carving has grown over and the bark has healed around it. If you peel back a layer, you can still read the names. Mine, and three friends who've all moved away.",
         "fail": "It is just an old tree at the edge of a field now. Whatever was carved there is hidden under years of growth."
-      }
+      },
+      "valence": "negative"
     },
     {
       "id": 4,
@@ -85,7 +89,8 @@
       "statCheck": {
         "pass": "I looked at the crack once, really looked. It follows an old flaw line in the casting: the bell was imperfect from the day it was made. It rang true for decades with that weakness hiding inside it. The storm just finished what was always going to happen. There's something in that: a thing can be flawed and still serve beautifully for a long time.",
         "fail": "A bell cracked, they took it down. That's the whole story, really. I'm not sure there's more to say about it."
-      }
+      },
+      "valence": "negative"
     },
     {
       "id": 5,
@@ -102,7 +107,8 @@
       "statCheck": {
         "pass": "I think what really bothers me is that I'm not trying to bake bread. I'm trying to sit at her table again. Every time I pull a loaf from the oven and it's not right, it's not the bread that disappoints me: it's that the kitchen doesn't feel the way it used to. She made that room warm just by being in it.",
         "fail": "I keep trying the recipe. Some weeks are closer than others. I'd rather not dwell on why it matters so much."
-      }
+      },
+      "valence": "negative"
     },
     {
       "id": 6,
@@ -119,7 +125,8 @@
       "statCheck": {
         "pass": "You understand how a trade dies, then. It's not dramatic: it's just one person deciding not to learn what one person knew. The cooper told me once that he'd learned from his father, and his father from his. Five generations of the same hands working the same wood. All of it gone because three young people found something easier.",
         "fail": "I suppose it does not mean much to someone who has never watched a skill vanish. It's a slow thing. You don't notice until it's over."
-      }
+      },
+      "valence": "negative"
     },
     {
       "id": 7,
@@ -136,7 +143,8 @@
       "statCheck": {
         "pass": "You've been reading the old markers, haven't you? There are distance stones along the road, half-buried. The spacing tells you the route was surveyed and maintained by all three villages jointly: shared labor, shared cost. That kind of cooperation doesn't just fade. Something broke the agreement before the river ever moved.",
         "fail": "It's just an old road now. Grass and ruts. You'd have to have walked it in its good years to understand what it meant."
-      }
+      },
+      "valence": "negative"
     },
     {
       "id": 8,
@@ -153,7 +161,8 @@
       "statCheck": {
         "pass": "Honestly, what I miss isn't the game. It's the arguing. Six children standing in a chalk circle, red-faced, shouting about whether a stone landed on the line or past it. We cared so much about something that didn't matter at all. That's what childhood is, I think: caring fiercely about small things. I can't seem to do that anymore.",
         "fail": "It was a children's game. I get sentimental about it sometimes, but there's not much more to say."
-      }
+      },
+      "valence": "negative"
     },
     {
       "id": 9,
@@ -170,7 +179,8 @@
       "statCheck": {
         "pass": "You have that look: someone who pays attention to what grows where. She kept a garden behind her house, and some of those plants are still growing wild along the old fence line. The knowledge isn't entirely gone: it's just scattered, waiting for someone to piece it back together.",
         "fail": "It's hard to explain what we lost if you didn't see her work. It looked simple when she did it. That was the trick of it."
-      }
+      },
+      "valence": "negative"
     },
     {
       "id": 10,
@@ -187,7 +197,8 @@
       "statCheck": {
         "pass": "The trees they cut weren't just any trees. They were nesting pines: old growth, tall enough that the birds felt safe from ground predators. The lumber crew didn't know what they were taking down. Or maybe they did and the timber price was too good. Either way, you can't replant a hundred-year-old roost. The birds knew that before we did.",
         "fail": "Trees got cut, birds left. Not much mystery to it, I suppose."
-      }
+      },
+      "valence": "negative"
     },
     {
       "id": 11,
@@ -204,7 +215,8 @@
       "statCheck": {
         "pass": "You're asking the right question. One of the support posts is still standing in the bank, half-buried. Some of the oldest ribbons are underneath the moss: faded to nothing, but the knots are still tight. Whoever tied those meant it to last.",
         "fail": "The bank has overgrown completely. If there's anything left from the old bridge, it's buried under years of mud and roots."
-      }
+      },
+      "valence": "negative"
     },
     {
       "id": 12,
@@ -221,7 +233,8 @@
       "statCheck": {
         "pass": "You see it too, don't you? The new family wasn't the real reason. The tradition was already cracking: people had started talking over each other, holding the stone and giving speeches instead of speaking truths. The custom died from the inside. That family just gave everyone permission to stop pretending.",
         "fail": "It was a simple custom. Worked until it didn't. I could not tell you exactly when people stopped believing in it."
-      }
+      },
+      "valence": "negative"
     },
     {
       "id": 13,
@@ -238,7 +251,8 @@
       "statCheck": {
         "pass": "You pick up on things, don't you? She didn't just move away. The last year she was here, her predictions started failing. The weather was changing in ways her father's methods couldn't account for. I think she left because she couldn't bear being wrong in front of people who depended on her.",
         "fail": "People leave for their own reasons. She never explained, and nobody felt right asking."
-      }
+      },
+      "valence": "negative"
     },
     {
       "id": 14,
@@ -255,7 +269,8 @@
       "statCheck": {
         "pass": "You know your metalwork, I can tell. The old smith left a few unfinished pieces on a rack in the back. There's a set of joinery brackets he was developing: interlocking teeth, no pins needed. Nobody here can figure out how they were meant to fit. If you've got the eye for it, they're still there.",
         "fail": "Unless you work a forge yourself, it's hard to appreciate what was lost. It's not just the skill: it's having someone nearby who can fix what breaks."
-      }
+      },
+      "valence": "negative"
     },
     {
       "id": 15,
@@ -272,7 +287,8 @@
       "statCheck": {
         "pass": "You read people well. The seating dispute was a surface crack. The real fracture was older: two families had been feuding quietly for years, and the gathering was the last place they had to pretend to get along. Once one walked out, everyone who'd been holding their tongue found an excuse to stay home the next year.",
         "fail": "One bad evening and the whole thing fell apart. That is all I know. The reasons underneath were never something people discussed openly."
-      }
+      },
+      "valence": "negative"
     },
     {
       "id": 16,
@@ -289,7 +305,8 @@
       "statCheck": {
         "pass": "You see what I see in those records. The three unfair deals were all with the same trading company, spread over twenty years. He tracked them quietly, never made a fuss. But the pattern is there if you know how to read a ledger: the same outfit, the same shortchanging, each time a little bolder.",
         "fail": "It's just columns and numbers to most people. Without knowing the man behind the ink, the ledger doesn't say much."
-      }
+      },
+      "valence": "neutral"
     },
     {
       "id": 17,
@@ -306,7 +323,8 @@
       "statCheck": {
         "pass": "The original agreement wasn't just about water. I found a mention of it in the old council minutes: the two families also shared grazing land, firewood collection rights, and harvest labor. The water schedule was one piece of a much larger compact built on mutual dependence. When the families split into smaller households, they kept the water rule but forgot the rest. Without the full arrangement, the balance fell apart.",
         "fail": "Two families shared a well and it got complicated. That's about as much as anyone can tell you now."
-      }
+      },
+      "valence": "negative"
     },
     {
       "id": 18,
@@ -323,7 +341,8 @@
       "statCheck": {
         "pass": "You understand what was lost, then. Those marks weren't just initials: the symbols follow an old tradition where each family recorded what they contributed to a communal build. Materials, labor, days worked. The wall was a public ledger. Now the only record of who built this place is sealed behind a foot of new stone.",
         "fail": "They were marks on a wall. Names and dates, mostly. Without knowing the families, they would not mean much to an outsider."
-      }
+      },
+      "valence": "negative"
     },
     {
       "id": 19,
@@ -340,7 +359,8 @@
       "statCheck": {
         "pass": "You've noticed the old bank line, haven't you? The soil is different where the water used to run: darker, richer. If you follow it, you can trace the entire old course. And there's something else: the foundations of the oldest houses are oriented toward the old bank, not the current one. The village was built facing a river that isn't there anymore.",
         "fail": "The old riverbed is all brush and scrub now. You wouldn't know water ever ran there unless someone told you."
-      }
+      },
+      "valence": "negative"
     },
     {
       "id": 20,
@@ -357,7 +377,8 @@
       "statCheck": {
         "pass": "You know something about growing things, I can tell. She wasn't just grafting for flavor. Those wild rootstocks were resistant to a blight that's been creeping through cultivated orchards for years. Her trees would have survived what's coming. Every other orchard in the region is vulnerable now, and nobody saved a single cutting.",
         "fail": "Apples are apples to most people. The difference between her trees and any other orchard isn't something you'd notice unless you'd tasted both."
-      }
+      },
+      "valence": "negative"
     },
     {
       "id": 21,
@@ -374,7 +395,8 @@
       "statCheck": {
         "pass": "You know the old names, don't you? The Shepherd's Hook: that's not just our village's name. I met a trader once who called it the same thing, and he was from three weeks' travel east. The names are older than any of us thought. They're part of a navigation tradition that stretches across regions, passed mouth to mouth for longer than anyone can trace.",
         "fail": "Stars are stars. If you did not grow up learning them from someone who pointed and named, they are just lights."
-      }
+      },
+      "valence": "negative"
     },
     {
       "id": 22,
@@ -391,7 +413,8 @@
       "statCheck": {
         "pass": "You noticed the writing behind the banner. Most people walk right past it. His last lesson is still up there: it's a list of local plants and their uses, cross-referenced with the old healer's knowledge. He was trying to preserve her work in a form that would survive them both. Nobody ever finished copying it down.",
         "fail": "The hall has been rearranged so many times that most traces of the school are gone. People who weren't there wouldn't recognize what it used to be."
-      }
+      },
+      "valence": "negative"
     },
     {
       "id": 23,
@@ -408,7 +431,8 @@
       "statCheck": {
         "pass": "I never told anyone this, but I dream in those melodies sometimes. I wake up and for a few seconds I remember a whole verse I can't recall when I'm awake. The words are in there somewhere, locked behind something I can't reach. I think my hands remember her better than my mind does: when I'm kneading dough or mending cloth, the humming starts on its own, and for a moment the words almost come.",
         "fail": "They're old songs. I hum them, I can't sing them properly. There's not much more to tell."
-      }
+      },
+      "valence": "negative"
     },
     {
       "id": 24,
@@ -425,7 +449,8 @@
       "statCheck": {
         "pass": "The rockslide wasn't natural. The council had the upper path blocked on purpose after a child slipped near the edge. They didn't announce it: just hired two men to push loose stone across the trail. Safer, maybe. But they took away the one place in this village where a person could go to be alone with their grief, and they didn't even ask us.",
         "fail": "Rocks fell, path closed. Nobody's been up there in years. I try not to think about it too much."
-      }
+      },
+      "valence": "negative"
     },
     {
       "id": 25,
@@ -442,7 +467,8 @@
       "statCheck": {
         "pass": "You notice the glaze, don't you? That blue-gray color comes from the specific clay in the riverbank behind her house. The mineral content is unique to that spot: I checked. Her kiln temperature was calibrated to that exact clay. Someone with the right knowledge could rebuild the kiln and work the same source. The technique isn't entirely lost: it's just waiting for hands that understand it.",
         "fail": "A bowl is a bowl to most people. You have to hold one of hers and then hold one from a trader to feel the difference, and even then some people shrug."
-      }
+      },
+      "valence": "negative"
     },
     {
       "id": 26,
@@ -459,7 +485,8 @@
       "statCheck": {
         "pass": "You see through things the way he did. The shaking hands weren't the real reason he stepped down. He told me privately: the village was splitting into factions, and both sides wanted him to take theirs. He left because staying neutral had become impossible, and a biased leader was worse than no leader at all.",
         "fail": "He was a private man. Whatever his reasons were beyond the hands, he kept them to himself."
-      }
+      },
+      "valence": "positive"
     },
     {
       "id": 27,
@@ -476,7 +503,8 @@
       "statCheck": {
         "pass": "It started around the same time they drained the marsh east of the village for farmland. Nobody connected the two things at the time: the insects breed in standing water, and when the water went, so did they. It was a trade: more grain, less noise. Nobody asked whether the trade was worth it. Nobody even knew they were making one.",
         "fail": "The insects left gradually. I couldn't tell you why. Just one of those changes that happens so slowly you only notice when it's done."
-      }
+      },
+      "valence": "negative"
     },
     {
       "id": 28,
@@ -493,7 +521,8 @@
       "statCheck": {
         "pass": "You see through these things, don't you? The real cause wasn't a land boundary or a wedding slight. I found a letter in the old records: the founding family claimed water rights that cut the other off during a drought. People died. The survivors never forgave it. Everything after was just the wound festering under a story nobody wanted to tell straight.",
         "fail": "People say it was about land, or pride, or something at a wedding. The truth got buried under too many retellings. Even the families themselves couldn't give you a straight answer."
-      }
+      },
+      "valence": "positive"
     },
     {
       "id": 29,
@@ -510,7 +539,8 @@
       "statCheck": {
         "pass": "The old storehouse didn't just collapse. The foundation had been undermined by water runoff from the new irrigation channel the council dug two years before. I mentioned it at the time: the channel runs too close to the building, the ground is softening. They said it would be fine. When the wall buckled, nobody brought up the irrigation. They just moved the grain and called it solved. We lost the gathering hall to fix a problem we created and never admitted to.",
         "fail": "Storehouse fell, they needed the space. Practical decision. I understand it, even if I don't like it."
-      }
+      },
+      "valence": "negative"
     }
   ]
 }

@@ -17,7 +17,8 @@
       "statCheck": {
         "pass": "I followed the herd's trail back to where they started running. There's a stretch of dead grass in a wide band, like something passed through and killed everything it touched.",
         "fail": "The trail merges with so many game paths that the origin point is lost. I tried following it back myself and gave up."
-      }
+      },
+      "valence": "negative"
     },
     {
       "id": 1,
@@ -34,7 +35,8 @@
       "statCheck": {
         "pass": "Fish don't fight a strong current unless what's behind them is worse than exhaustion. This is a flight response: something downstream changed the water chemistry, and they're running from it the only way a fish can.",
         "fail": "I've watched them for hours and I can't make sense of it. Fish are fish. They do what they do and I'm just guessing at the rest."
-      }
+      },
+      "valence": "negative"
     },
     {
       "id": 2,
@@ -51,7 +53,8 @@
       "statCheck": {
         "pass": "I caught a few and showed them to the old naturalist. She said they're a deep-forest species that never comes to open ground. Something drove them out of the canopy.",
         "fail": "They move fast and do not hold still. Not much to tell beyond the obvious: there are a lot of them."
-      }
+      },
+      "valence": "negative"
     },
     {
       "id": 3,
@@ -68,7 +71,8 @@
       "statCheck": {
         "pass": "I visited one of the abandoned dens. The ground around the entrance is saturated with a smell I can't place: sharp, chemical, not natural. Something contaminated their home ground.",
         "fail": "The dens just look like holes in a hillside. Whatever drove the wolves out, it is not something I can see."
-      }
+      },
+      "valence": "negative"
     },
     {
       "id": 4,
@@ -85,7 +89,8 @@
       "statCheck": {
         "pass": "I noticed something at the grove's center: the bark on the oldest oak has fresh scratch marks from dozens of species. They're not just clustering. They're using the tree as a marker. Birds do this when they're establishing a shared refuge point: it means every other territory has been abandoned.",
         "fail": "They're all in one place and I can't explain why. Could be food, could be shelter, could be something else entirely."
-      }
+      },
+      "valence": "negative"
     },
     {
       "id": 5,
@@ -102,7 +107,8 @@
       "statCheck": {
         "pass": "I put my ear to the ground near one of the collapsed burrows. There's a vibration down there, faint but constant. Not footsteps, not digging: more like a low hum, coming from deep below.",
         "fail": "The burrows are too narrow to see into, and too many of them have collapsed. Whatever's happening underground, I cannot get to it from up here."
-      }
+      },
+      "valence": "negative"
     },
     {
       "id": 6,
@@ -119,7 +125,8 @@
       "statCheck": {
         "pass": "You know your animals. Snakes don't migrate like this unless the ground itself becomes unlivable: flooding, contamination, something deep. The soil on the far side of the road smells clean. The soil they're leaving has a sour tang to it.",
         "fail": "Snakes are snakes. I can tell you which ones will bite, but beyond that, their reasons are their own."
-      }
+      },
+      "valence": "negative"
     },
     {
       "id": 7,
@@ -136,7 +143,8 @@
       "statCheck": {
         "pass": "Those flat sheet webs aren't hunting webs: they're sensing webs. Spiders use them to detect vibrations across a wide area. The spiders aren't trying to catch anything. They're listening. Something is putting out a vibration they want to track.",
         "fail": "Spiders build webs. That's what they do. Why they changed the shape and then left, I couldn't begin to tell you."
-      }
+      },
+      "valence": "negative"
     },
     {
       "id": 8,
@@ -153,7 +161,8 @@
       "statCheck": {
         "pass": "I went into the cave mouth after they left. There's a new smell in there: damp and metallic, like wet iron. Something changed in the cave itself, and whatever it is, the bats can't tolerate it.",
         "fail": "I don't go into caves. Whatever is driving the bats out, I'll let someone braver than me investigate."
-      }
+      },
+      "valence": "negative"
     },
     {
       "id": 9,
@@ -170,7 +179,8 @@
       "statCheck": {
         "pass": "You've got a sharp eye for this. The worms are all surfacing from the same depth: about two hands down. Whatever they're fleeing, it's in a specific layer of soil, not the surface and not the bedrock. That narrows it.",
         "fail": "Worms are worms. I know they matter for the soil, but I can't tell you why they do what they do."
-      }
+      },
+      "valence": "negative"
     },
     {
       "id": 10,
@@ -187,7 +197,8 @@
       "statCheck": {
         "pass": "I noticed something the others missed: the water in the ponds has the faintest vibration on the surface, like something deep below is humming at a frequency too low to hear. The frogs can feel it. That's why they've stopped.",
         "fail": "Frogs are hard to read. They call when they want to, and they stop when they want to. I can't tell you what changed."
-      }
+      },
+      "valence": "negative"
     },
     {
       "id": 11,
@@ -204,7 +215,8 @@
       "statCheck": {
         "pass": "I tracked the group to a hilltop where they all stopped and faced the same direction: toward the lowlands. Whatever they're sensing, the source is down there. Every animal in this area seems to know it except us.",
         "fail": "By the time I got to where the hunter said he saw them, they'd moved on. Nothing left but a jumble of prints."
-      }
+      },
+      "valence": "negative"
     },
     {
       "id": 12,
@@ -221,7 +233,8 @@
       "statCheck": {
         "pass": "I asked each traveler to point on a map to where the animal movement was thickest. The three points form a rough arc, all at about the same distance from here. Something is tightening around this area like a noose.",
         "fail": "Travelers exaggerate. I believe they saw something, but how much and how far is anyone's guess."
-      }
+      },
+      "valence": "negative"
     },
     {
       "id": 13,
@@ -238,7 +251,8 @@
       "statCheck": {
         "pass": "I found a note in one of the houses, tucked under a loose board. Just four words: 'The ground is wrong.' I don't know what it means, but they thought it was worth writing down before they ran.",
         "fail": "I looked through the houses myself. They cleaned out everything personal. Whatever their reason was, they took it with them."
-      }
+      },
+      "valence": "negative"
     },
     {
       "id": 14,
@@ -255,7 +269,8 @@
       "statCheck": {
         "pass": "I checked the ruts on the old trade road. The last caravan that came through left tracks that veered sharply off the path at one point, then corrected. Something on the road startled the draft animals badly enough to spook the whole team. Traders don't reroute over inconvenience: they reroute over risk.",
         "fail": "Traders are secretive about their routes for competitive reasons. Could be danger, could be business. I have no way to tell from here."
-      }
+      },
+      "valence": "negative"
     },
     {
       "id": 15,
@@ -272,7 +287,8 @@
       "statCheck": {
         "pass": "One of the younger ones, a boy, drew a picture in the dirt when he thought no one was watching. It showed a village with a dark line cutting through it. When I asked about it, he scuffed it out with his foot and wouldn't speak.",
         "fail": "They're guarded. Every question gets a short answer or a long silence. I can't blame them, but I also can't help what I don't understand."
-      }
+      },
+      "valence": "negative"
     },
     {
       "id": 16,
@@ -289,7 +305,8 @@
       "statCheck": {
         "pass": "Livestock won't graze where the ground gives off the wrong scent. I walked the ridge line and the grass below it has a faint yellowish tinge at the base of the blades: not dead, but stressed. Something in the soil changed, and the animals smelled it before anyone saw it.",
         "fail": "Animals are stubborn. Once they decide they don't like a spot, good luck changing their minds. I couldn't tell you what set them off."
-      }
+      },
+      "valence": "negative"
     },
     {
       "id": 17,
@@ -306,7 +323,8 @@
       "statCheck": {
         "pass": "I went into the root cellar and followed the tunnel as far as I dared. The air about fifty paces in has a warmth to it that shouldn't be there: not hot, but blood-warm, and it pulses. Like breathing.",
         "fail": "I'm not going underground to find out. Whatever chased those creatures up is welcome to stay down there as far as I'm concerned."
-      }
+      },
+      "valence": "negative"
     },
     {
       "id": 18,
@@ -323,7 +341,8 @@
       "statCheck": {
         "pass": "I tracked a straggler swarm about two miles out. They'd settled on a dead branch, barely moving, like they were exhausted. The interesting part: every swarm I could find had fled in the same direction. They weren't scattered. They were retreating.",
         "fail": "Bees are beyond me. I know they're important, but I couldn't tell you why one hive thrives and another empties."
-      }
+      },
+      "valence": "negative"
     },
     {
       "id": 19,
@@ -340,7 +359,8 @@
       "statCheck": {
         "pass": "I sat out after dark to see what was different. Around midnight, there was a faint pressure in the air: not a sound exactly, but something you feel behind your eyes. The kind of thing animals would be more sensitive to than we are.",
         "fail": "I'm not much for staying up all night. Whatever's happening after dark, I'll leave that to someone with more patience."
-      }
+      },
+      "valence": "negative"
     },
     {
       "id": 20,
@@ -357,7 +377,8 @@
       "statCheck": {
         "pass": "I followed them on horseback once, as far as I could. They converge on a point about three miles west: a rocky outcrop with nothing on it. They land, sit silent for hours, then disperse. I couldn't see what they were gathering around, but the ground beneath them was warm.",
         "fail": "They fly too fast and too high to follow on foot. I lose them over the first ridge every time."
-      }
+      },
+      "valence": "negative"
     },
     {
       "id": 21,
@@ -374,7 +395,8 @@
       "statCheck": {
         "pass": "The merchant mentioned one more thing that he didn't tell anyone else: the fish were all pointed upstream. Not drifting with the current. Facing against it, as if they died still trying to swim away from whatever was behind them.",
         "fail": "It's secondhand. I trust the man, but I wasn't there to see it myself. Could be worse than he said, could be less."
-      }
+      },
+      "valence": "negative"
     },
     {
       "id": 22,
@@ -391,7 +413,8 @@
       "statCheck": {
         "pass": "The scratch marks at the western gate all face outward and they're deep: claws digging in for traction, not sharpening. These animals were running, not wandering. And every set of marks points the same direction. They knew exactly where they needed to go.",
         "fail": "Strays come and go. I noticed they were gone, but I could not tell you when exactly or why. They just weren't there anymore."
-      }
+      },
+      "valence": "negative"
     },
     {
       "id": 23,
@@ -408,7 +431,8 @@
       "statCheck": {
         "pass": "You're thinking what I'm thinking. Ants build high before flooding, but there's no rain in the forecast and the river is low. Whatever they're preparing for, it isn't water. It's something else that moves along the ground.",
         "fail": "I know ants are supposed to be predictors of something, but I could never remember what. Wish I'd paid more attention to the old stories."
-      }
+      },
+      "valence": "negative"
     },
     {
       "id": 24,
@@ -425,7 +449,8 @@
       "statCheck": {
         "pass": "I borrowed a lodestone and walked south from the pastures. About a mile out, the needle started drifting. Not spinning, just slowly pulling off true north. Something to the south is interfering with the stone itself.",
         "fail": "I don't pretend to understand why animals do what they do. I just watch them and try to stay on the same side as the instincts."
-      }
+      },
+      "valence": "negative"
     },
     {
       "id": 25,
@@ -442,7 +467,8 @@
       "statCheck": {
         "pass": "Processionary caterpillars follow pheromone trails laid by the leader. But this line has no leader: I watched the front for an hour and they rotate. They're following a chemical gradient in the soil itself, not each other. Something underground is drawing them uphill.",
         "fail": "Caterpillars follow each other. Beyond that I could not tell you what decides their path. Insects are a mystery to me."
-      }
+      },
+      "valence": "negative"
     },
     {
       "id": 26,
@@ -459,7 +485,8 @@
       "statCheck": {
         "pass": "I watched the pattern for a full hour and noticed something: the pulses aren't random. There's a short-long-short sequence that repeats. Whatever is driving the synchronization, it's structured. That isn't natural behavior: that's a signal.",
         "fail": "Fireflies do strange things sometimes. I've seen them swarm before, though never quite like this. Could just be the season."
-      }
+      },
+      "valence": "negative"
     },
     {
       "id": 27,
@@ -476,7 +503,8 @@
       "statCheck": {
         "pass": "I timed the howling against the moon's position over several nights. It doesn't start when the moon clears the ridge: it starts about two minutes before. The dogs are reacting to something that precedes the moonrise. A vibration, a pressure change, something we can't perceive that arrives just ahead of the light.",
         "fail": "Dogs howl at the moon. It's what dogs do. I can't pretend to know what makes this time different from any other."
-      }
+      },
+      "valence": "negative"
     },
     {
       "id": 28,
@@ -493,7 +521,8 @@
       "statCheck": {
         "pass": "I went up there at night and held my hand over the center of the circle. There's warmth rising from the ground: faint, but steady. And my palm tingled afterward for about an hour. Whatever is down there, the moths can sense it and we almost can't.",
         "fail": "I stood there for a while and felt nothing unusual. Maybe you have to be a moth to understand what the attraction is."
-      }
+      },
+      "valence": "negative"
     },
     {
       "id": 29,
@@ -510,7 +539,8 @@
       "statCheck": {
         "pass": "I hummed the three-note phrase to the old herbalist. She went very still and said it matches a fragment of a melody carved into a standing stone about two days' walk from here. A stone that predates the settlement by centuries.",
         "fail": "A bird call is a bird call. I can tell a wren from a lark by sound, but beyond that, the fine details are lost on me."
-      }
+      },
+      "valence": "negative"
     }
   ]
 }

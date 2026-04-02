@@ -17,7 +17,8 @@
       "statCheck": {
         "pass": "I went up to where the cart was found. His footprints lead off the road to the east, toward the ravine, and they were spaced far apart: he was running.",
         "fail": "The trail has been rained on twice since then. I went up there myself and nothing useful remains."
-      }
+      },
+      "valence": "negative"
     },
     {
       "id": 1,
@@ -34,7 +35,8 @@
       "statCheck": {
         "pass": "I found a third set of footprints by the flowers. Smaller than an adult but too large for either child. Someone else was there.",
         "fail": "So many people have trampled through during the search that any original tracks are gone. I wish we had looked more carefully before the whole village came through."
-      }
+      },
+      "valence": "negative"
     },
     {
       "id": 2,
@@ -47,7 +49,8 @@
       "reactions": [
         "Nobody wants the night watch now. Can't say I blame them.",
         "His wife says he'd been hearing things on the wind the past few weeks. She thought he was just tired."
-      ]
+      ],
+      "valence": "negative"
     },
     {
       "id": 3,
@@ -64,7 +67,8 @@
       "statCheck": {
         "pass": "The journal mentions a landmark: a split boulder shaped like a hand. I know that spot. It's near the old mine shaft that caved in years ago. Or was supposed to have caved in.",
         "fail": "Her descriptions are vague: she used personal shorthand that does not mean much to an outsider. I could not make sense of it either."
-      }
+      },
+      "valence": "negative"
     },
     {
       "id": 4,
@@ -77,7 +81,8 @@
       "reactions": [
         "People don't uproot a family of five at midnight because things are fine. They were afraid of something specific.",
         "I've asked around about what might have spooked them. Nobody's talking, which tells me some people know and won't say."
-      ]
+      ],
+      "valence": "negative"
     },
     {
       "id": 5,
@@ -94,7 +99,8 @@
       "statCheck": {
         "pass": "I looked at the pen more carefully after the last one. The ground inside the fence is pressed flat in a circle, about four paces wide. Not hoofprints: something pushed the dirt down evenly, all at once.",
         "fail": "The pen is just dirt and straw. I've looked a dozen times and there's nothing to read in it."
-      }
+      },
+      "valence": "negative"
     },
     {
       "id": 6,
@@ -111,7 +117,8 @@
       "statCheck": {
         "pass": "I dusted the workbench with fine ash before closing up. In the morning, two punches were gone but the ash was undisturbed. No hand touched that bench.",
         "fail": "I've tried staying up to watch, but nothing happens when you're looking. It only happens on the nights nobody pays attention."
-      }
+      },
+      "valence": "negative"
     },
     {
       "id": 7,
@@ -128,7 +135,8 @@
       "statCheck": {
         "pass": "I marked the sacks with charcoal lines and measured the levels each morning. The grain is lower, but the marks haven't been disturbed. It's draining from the bottom somehow.",
         "fail": "I've watched the stores myself and the levels seem normal until I count again days later. I can't catch the moment it happens."
-      }
+      },
+      "valence": "negative"
     },
     {
       "id": 8,
@@ -145,7 +153,8 @@
       "statCheck": {
         "pass": "The second pair noticed something I missed when they told me: the bedrolls were laid out for sleep, but neither had been slept in. They made camp and then left everything behind before nightfall.",
         "fail": "The camp was clean. Too clean, maybe. But I don't know what to make of that."
-      }
+      },
+      "valence": "negative"
     },
     {
       "id": 9,
@@ -162,7 +171,8 @@
       "statCheck": {
         "pass": "You're right to look at the net. The strands aren't torn: they're cut. Clean cuts, evenly spaced, like something sharp passed through them deliberately.",
         "fail": "The boat's been brought in and picked over by half the village. Anything that might have told us something is long gone."
-      }
+      },
+      "valence": "negative"
     },
     {
       "id": 10,
@@ -179,7 +189,8 @@
       "statCheck": {
         "pass": "There was a note under the coin stack, just two words in her handwriting: \"it called.\" Nobody knows what it refers to.",
         "fail": "Her house is exactly as she left it. Nothing out of place, nothing to suggest where or why. Just absence."
-      }
+      },
+      "valence": "negative"
     },
     {
       "id": 11,
@@ -196,7 +207,8 @@
       "statCheck": {
         "pass": "I checked the collars. They weren't unbuckled or broken: the leather was intact, still fastened at the same notch. Nothing pulled free of them. The dogs just weren't inside them anymore.",
         "fail": "Dogs wander, collars slip. There are a dozen explanations and none of them satisfy me, but I can't point to anything specific."
-      }
+      },
+      "valence": "negative"
     },
     {
       "id": 12,
@@ -213,7 +225,8 @@
       "statCheck": {
         "pass": "I left an offering myself and hid nearby to watch. Right before dawn, the air above the stone shimmered like heat off a road, and when it cleared, the offering was gone. Nothing approached.",
         "fail": "I tried watching the shrine one night but fell asleep before anything happened. By morning it was cleaned out as usual."
-      }
+      },
+      "valence": "negative"
     },
     {
       "id": 13,
@@ -230,7 +243,8 @@
       "statCheck": {
         "pass": "I lowered a lantern down the shaft last night. The water was ten feet below where it should be, and there were ripples moving across the surface. No wind down there. Something is pulling it.",
         "fail": "Wells do strange things sometimes. I have been checking the level each morning but the numbers alone do not tell me the cause."
-      }
+      },
+      "valence": "negative"
     },
     {
       "id": 14,
@@ -247,7 +261,8 @@
       "statCheck": {
         "pass": "I looked at the letter. The last line reads: \"The sound from the cellar has not stopped for three days and I believe it knows I am here.\" The cellar was empty when they checked.",
         "fail": "The letter was personal and nobody felt right reading past the first few lines. I cannot say what it contained."
-      }
+      },
+      "valence": "negative"
     },
     {
       "id": 15,
@@ -264,7 +279,8 @@
       "statCheck": {
         "pass": "You're sharp to notice: the footprints aren't sinking in like someone walking normally. They get lighter with each step, like he was weighing less as he approached the water. The last print barely dented the mud.",
         "fail": "The bank has been walked over by too many people since then. Whatever the mud might have shown is gone."
-      }
+      },
+      "valence": "negative"
     },
     {
       "id": 16,
@@ -281,7 +297,8 @@
       "statCheck": {
         "pass": "I went inside myself. On the floor by the back door, there are scuff marks: two sets of heels dragged toward the threshold. They didn't walk out. They were pulled.",
         "fail": "The house is undisturbed. That is the problem: there is nothing wrong in there, which means there is nothing to learn from it."
-      }
+      },
+      "valence": "negative"
     },
     {
       "id": 17,
@@ -298,7 +315,8 @@
       "statCheck": {
         "pass": "The archivist remembered one detail: all the missing documents reference the same area, a stretch of land east of here that the old surveys labeled 'yielded ground.' She doesn't know what that means. Neither do I.",
         "fail": "The catalog is incomplete and the archivist's memory is only so precise. She knows what is missing but not what pattern connects it."
-      }
+      },
+      "valence": "negative"
     },
     {
       "id": 18,
@@ -315,7 +333,8 @@
       "statCheck": {
         "pass": "The healer told me something she hasn't shared with others: the empty jars don't smell like the tinctures that were in them. They smell like clean glass. Whatever removed the contents didn't pour them out: it undid them.",
         "fail": "An empty shelf is an empty shelf. Without knowing who took it or how, there is nothing to work from."
-      }
+      },
+      "valence": "negative"
     },
     {
       "id": 19,
@@ -332,7 +351,8 @@
       "statCheck": {
         "pass": "I picked up the lantern. The stone underneath was cold on every side except where the lantern sat: that spot was warm, but not from the flame. The heat was coming up from the ground, not down from the fire.",
         "fail": "A lantern on a rock. I've turned it over in my head a dozen times and I can't make it tell me anything more than what I've already said."
-      }
+      },
+      "valence": "negative"
     },
     {
       "id": 20,
@@ -349,7 +369,8 @@
       "statCheck": {
         "pass": "I knelt at the final print and noticed: the toe is pressed deeper than the heel. Like he was leaning forward, shifting his weight to take the next step. He didn't stop. His foot just never came down.",
         "fail": "It is a clear print in soft earth. I cannot tell you more than what it looks like: a man walking who was suddenly not walking."
-      }
+      },
+      "valence": "negative"
     },
     {
       "id": 21,
@@ -366,7 +387,8 @@
       "statCheck": {
         "pass": "I walked the path myself. At the spot where his pack was found, the trail feels wrong: the air is heavy there, like before a storm, but only for about ten paces. Before and after, nothing.",
         "fail": "It is a hill with a path on it. I have walked it myself and nothing about it stands out. Whatever happened there didn't leave a mark I can read."
-      }
+      },
+      "valence": "negative"
     },
     {
       "id": 22,
@@ -383,7 +405,8 @@
       "statCheck": {
         "pass": "I walked that stretch in daylight and counted my steps: forty-two paces between the walls. The patrol leader says his count from the same walk was thirty-eight. The path shouldn't change length.",
         "fail": "In daylight it looks like any other trail. Walls, packed earth, a few weeds. Nothing that explains what happens there at night."
-      }
+      },
+      "valence": "negative"
     },
     {
       "id": 23,
@@ -400,7 +423,8 @@
       "statCheck": {
         "pass": "I opened one of the empties and turned it inside out. The inner cloth has a faint residue: not grain dust, something darker, almost like soot. But it doesn't wipe off. It's in the weave itself.",
         "fail": "An empty sack is an empty sack. I cannot tell you where the grain went by staring at the cloth."
-      }
+      },
+      "valence": "negative"
     },
     {
       "id": 24,
@@ -417,7 +441,8 @@
       "statCheck": {
         "pass": "I went to the collapsed section. The rubble everyone says blocks the path has been moved: not cleared, but rearranged, with a narrow gap just wide enough for one person to slip through. It wasn't there before.",
         "fail": "The ruins are unstable and I was told not to go poking around in them. The rubble is too heavy to shift without a crew."
-      }
+      },
+      "valence": "negative"
     },
     {
       "id": 25,
@@ -434,7 +459,8 @@
       "statCheck": {
         "pass": "I noticed something the families didn't think to mention: in every case, the bedroom was colder than it should have been. Not drafty cold. Still cold. Like the warmth had been taken along with the blanket.",
         "fail": "I asked around but the details are so strange that everyone tells the story differently. I cannot sort the facts from the embellishments."
-      }
+      },
+      "valence": "negative"
     },
     {
       "id": 26,
@@ -451,7 +477,8 @@
       "statCheck": {
         "pass": "You noticed: four remaining, not six. I went and checked the others. Two more are gone and nobody realized it because they're further out. Whatever is taking them is working from the edges in.",
         "fail": "It is a hole where a stone used to be. The ground tells me nothing I haven't already said."
-      }
+      },
+      "valence": "negative"
     },
     {
       "id": 27,
@@ -468,7 +495,8 @@
       "statCheck": {
         "pass": "I checked the log slates both captains keep lashed to the tiller. One was blank: wiped clean, not just unused. The other had a single mark scratched into the wax, over and over: a circle with a line through it. Neither captain used that symbol before.",
         "fail": "The boats are in order. Nothing broken, nothing out of place. That is the whole problem: there is too much order and not enough explanation."
-      }
+      },
+      "valence": "negative"
     },
     {
       "id": 28,
@@ -485,7 +513,8 @@
       "statCheck": {
         "pass": "I counted the extra shadows across the settlement over three afternoons. There are more each day. First it was one. Then three. Yesterday I counted seven. Something is arriving, one at a time.",
         "fail": "Shadows shift with the light. I have spent enough time staring at the ground to feel foolish, but I cannot tell you what is normal and what is not."
-      }
+      },
+      "valence": "negative"
     },
     {
       "id": 29,
@@ -502,7 +531,8 @@
       "statCheck": {
         "pass": "I spoke to all four families separately. In every case, the rearranged items were things associated with memory: portraits, heirlooms, gifts from the dead. Nothing practical was touched. Whoever is doing this knows what things mean to people.",
         "fail": "People misremember where they leave things. I cannot say for certain that anything was moved at all, only that people believe it was."
-      }
+      },
+      "valence": "negative"
     }
   ]
 }

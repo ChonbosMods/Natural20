@@ -15,7 +15,8 @@
       "statCheck": {
         "pass": "There were smaller tracks alongside the big ones, just for a stretch. Like something was being led.",
         "fail": "The mud is too churned up out there. I already told you everything worth seeing."
-      }
+      },
+      "valence": "negative"
     },
     {
       "id": 1,
@@ -28,7 +29,8 @@
       "reactions": [
         "His wife keeps a candle lit for him. I don't have the heart to tell her what I think happened.",
         "We sent a search party, but nobody wanted to go past the ridge. Can't say I blame them."
-      ]
+      ],
+      "valence": "negative"
     },
     {
       "id": 2,
@@ -45,7 +47,8 @@
       "statCheck": {
         "pass": "I didn't mention this to anyone else, but the grass under the deer was dead too. A perfect outline, like their shadow burned into the ground.",
         "fail": "Whatever was there has been rained on and trampled since. I went back myself and there was nothing new to see."
-      }
+      },
+      "valence": "negative"
     },
     {
       "id": 3,
@@ -62,7 +65,8 @@
       "statCheck": {
         "pass": "I listened carefully one night and realized the rhythm changes: it speeds up when someone gets close to the entrance, then slows again when they back off.",
         "fail": "Whatever pattern exists is too faint to pick out from this distance. I have listened for hours and gotten nothing more."
-      }
+      },
+      "valence": "negative"
     },
     {
       "id": 4,
@@ -75,7 +79,8 @@
       "reactions": [
         "We're hauling water from the river until someone figures it out. It's manageable, but it's a lot of extra work.",
         "I keep thinking about what could poison three wells at once. Nothing good comes to mind."
-      ]
+      ],
+      "valence": "negative"
     },
     {
       "id": 5,
@@ -92,7 +97,8 @@
       "statCheck": {
         "pass": "I went back to the circle at dusk and the ground was warm. Not from the sun: the warmth was coming from below, from deep down.",
         "fail": "The ash has been scattered by wind and foot traffic. Hard to tell much from what is left now."
-      }
+      },
+      "valence": "negative"
     },
     {
       "id": 6,
@@ -105,7 +111,8 @@
       "reactions": [
         "It's the stillness that gets to me. Wolves are supposed to move. These ones just stare.",
         "Half the village thinks they're protecting us. The other half thinks they're waiting for something. Neither option helps me sleep."
-      ]
+      ],
+      "valence": "negative"
     },
     {
       "id": 7,
@@ -122,7 +129,8 @@
       "statCheck": {
         "pass": "After a few drinks he let one thing slip: he said the road was there, but the landmarks were in the wrong places. Like the land itself had shifted.",
         "fail": "He will not say more. I pressed him once and he just gave me a long look and said he had already said more than he should have."
-      }
+      },
+      "valence": "negative"
     },
     {
       "id": 8,
@@ -135,7 +143,8 @@
       "reactions": [
         "My grandmother used to say when the birds go quiet, you listen. When they leave, you follow.",
         "The silence is the worst part. You don't realize how much noise they made until it's gone."
-      ]
+      ],
+      "valence": "negative"
     },
     {
       "id": 9,
@@ -152,7 +161,8 @@
       "statCheck": {
         "pass": "I climbed up to look at the marks myself. There's a residue in the grooves: dark, almost like dried sap, but it smells like iron.",
         "fail": "From the ground they just look like weathered stone. Someone would need to climb up there to see anything useful."
-      }
+      },
+      "valence": "negative"
     },
     {
       "id": 10,
@@ -169,7 +179,8 @@
       "statCheck": {
         "pass": "I looked at the collapsed stones closely. The cracks on the base aren't random: they follow the same curving line, like something pressed up from underneath.",
         "fail": "It's a pile of rubble now. I wouldn't know what to look for even if the stones were still in place."
-      }
+      },
+      "valence": "negative"
     },
     {
       "id": 11,
@@ -186,7 +197,8 @@
       "statCheck": {
         "pass": "I followed the creek upstream for half a day. There's a new channel feeding into it that wasn't there a month ago. The water is coming from underground, somewhere past the old ruins.",
         "fail": "I'm no expert on water or land. It rose, and it hasn't gone down. That's all I can tell you."
-      }
+      },
+      "valence": "negative"
     },
     {
       "id": 12,
@@ -203,7 +215,8 @@
       "statCheck": {
         "pass": "You're right to look at their hands. The rash started on the palms and spread outward: they all touched the same thing. I think it's in the soil near those old stones.",
         "fail": "Sickness is sickness. I'm not a healer and I wouldn't know what symptoms to watch for beyond the obvious."
-      }
+      },
+      "valence": "negative"
     },
     {
       "id": 13,
@@ -220,7 +233,8 @@
       "statCheck": {
         "pass": "You've got a keen eye. The cuts on the rope are angled: left-handed, and shallow enough to miss on a quick inspection. That narrows things down.",
         "fail": "Rope wears, axles crack. I know what I think, but I can't prove the difference between sabotage and bad luck just by looking."
-      }
+      },
+      "valence": "negative"
     },
     {
       "id": 14,
@@ -237,7 +251,8 @@
       "statCheck": {
         "pass": "I checked the pen posts that morning. There's a thin scrape along the top rail, almost invisible: something slid over the fence without climbing it. Smooth and continuous, like a body being dragged across.",
         "fail": "The pen looks normal from where I stood. I didn't get close enough to examine every board and I'm not sure I'd know what to look for."
-      }
+      },
+      "valence": "negative"
     },
     {
       "id": 15,
@@ -254,7 +269,8 @@
       "statCheck": {
         "pass": "I watched it carefully at sunset. The smoke doesn't cast a shadow. Everything else out there does, but the column has no shadow at all.",
         "fail": "From this distance it could be anything: a cookfire, a brush pile, heat shimmer. I can't make out more than the shape."
-      }
+      },
+      "valence": "negative"
     },
     {
       "id": 16,
@@ -271,7 +287,8 @@
       "statCheck": {
         "pass": "I noticed something else: the swarm is denser at the center, right over a spot where the ground is slightly sunken. Like something underneath is drawing them.",
         "fail": "Bugs swarm. They just do. I don't have the knowledge to tell you why these ones picked that spot."
-      }
+      },
+      "valence": "negative"
     },
     {
       "id": 17,
@@ -288,7 +305,8 @@
       "statCheck": {
         "pass": "I knelt by one of the cracks and put my ear to the stone. There's a faint vibration: irregular, like tapping. It's coming from deep below the road bed.",
         "fail": "Stone cracks for all kinds of reasons: frost, settling, age. I can't tell you which one this is just by looking."
-      }
+      },
+      "valence": "negative"
     },
     {
       "id": 18,
@@ -305,7 +323,8 @@
       "statCheck": {
         "pass": "I stood at the edge and watched carefully. The leaves inside the silent stretch are still moving: the wind is there, it just makes no sound. Something is swallowing the noise itself.",
         "fail": "Quiet woods aren't unusual after a frost or a predator passing through. Could be a dozen explanations that have nothing to do with anything strange."
-      }
+      },
+      "valence": "negative"
     },
     {
       "id": 19,
@@ -322,7 +341,8 @@
       "statCheck": {
         "pass": "You picked up on it too? The tracks don't just stop: the last footprint is deeper on the toe, like they were lifted. Pulled upward, not forward.",
         "fail": "Old camps are common enough out there. Without knowing who set it, there's no way to know why they left."
-      }
+      },
+      "valence": "negative"
     },
     {
       "id": 20,
@@ -339,7 +359,8 @@
       "statCheck": {
         "pass": "I dropped a stone into the gap under the fence post. It took a long time to hit bottom. Whatever cavity is under there, it's deep: deeper than any root cellar or mine I know of.",
         "fail": "Ground settles for all sorts of reasons. Could be an old burrow collapsing, could be drainage. I wouldn't know where to start looking."
-      }
+      },
+      "valence": "negative"
     },
     {
       "id": 21,
@@ -356,7 +377,8 @@
       "statCheck": {
         "pass": "I went to the spring mouth at night and put my hand on the rock. It was warm. Not sun-warm: the stone was radiating heat from inside, steady and even.",
         "fail": "Water does strange things underground. Shifts, finds new channels. I don't have the knowledge to say why this one stopped."
-      }
+      },
+      "valence": "negative"
     },
     {
       "id": 22,
@@ -373,7 +395,8 @@
       "statCheck": {
         "pass": "I compared markings from two different sites. The scratches get deeper and wider the closer they are to the settlement. Whatever is making them is getting bolder.",
         "fail": "Scratches on rocks could be anything: animals sharpening claws, weather cracking the surface. I can't tell the difference without more time."
-      }
+      },
+      "valence": "negative"
     },
     {
       "id": 23,
@@ -390,7 +413,8 @@
       "statCheck": {
         "pass": "I counted the intervals between knocks over three nights. The spacing is getting shorter: not by much, but it's measurable. Whatever the pattern is, it's accelerating.",
         "fail": "Sound carries strangely at night, especially near old stone. I've heard plenty of odd noises and most of them turned out to be nothing."
-      }
+      },
+      "valence": "negative"
     },
     {
       "id": 24,
@@ -407,7 +431,8 @@
       "statCheck": {
         "pass": "You're right to keep your distance. I broke a leaf off with a stick and the sap was dark red: thick, almost like blood. The stick started to discolor where the sap touched it.",
         "fail": "Plants grow where they want to grow. I'm not the person to ask about what species it is or where it came from."
-      }
+      },
+      "valence": "negative"
     },
     {
       "id": 25,
@@ -424,7 +449,8 @@
       "statCheck": {
         "pass": "I pressed my palm flat on the foundation wall. There's a pulse: faint, rhythmic, nothing like settling or wind. Something underneath that building is moving.",
         "fail": "Old buildings crack. It's what they do. Without a mason's eye, I can't say whether these cracks are normal or not."
-      }
+      },
+      "valence": "negative"
     },
     {
       "id": 26,
@@ -441,7 +467,8 @@
       "statCheck": {
         "pass": "You've got a good nose for what matters. The smell was strongest near the back wall, where the stone meets the earth. There's a hairline gap there now that wasn't there before.",
         "fail": "The cellar's been cleaned out and restocked already. Whatever was down there left no sign I could recognize."
-      }
+      },
+      "valence": "negative"
     },
     {
       "id": 27,
@@ -458,7 +485,8 @@
       "statCheck": {
         "pass": "He mentioned one more thing he didn't tell the others: there was a smell right before the heat. Like hot stone and rust. And the air shimmered, even though it was overcast.",
         "fail": "Burns are burns. I don't know enough about what causes them to say anything useful beyond what the healer already told us."
-      }
+      },
+      "valence": "negative"
     },
     {
       "id": 28,
@@ -475,7 +503,8 @@
       "statCheck": {
         "pass": "I stayed up one night to watch. Never saw anything. But in the morning, the posts were out again: and my boot prints from the night showed I'd been standing twenty paces closer to the fence than I remembered. I must have fallen asleep, but I don't remember sleeping.",
         "fail": "Could be livestock rubbing against the posts, could be the soil being too loose. I've seen both cause fence trouble before."
-      }
+      },
+      "valence": "negative"
     },
     {
       "id": 29,
@@ -492,7 +521,8 @@
       "statCheck": {
         "pass": "I checked both rooftops myself. The thatch isn't just scraped: there are impressions pressed into it. Long, narrow, too evenly spaced to be random. Something with reach was lying flat against the roof.",
         "fail": "Rooftops make all kinds of noises, especially old ones. Beams settle, animals nest. Without seeing it happen, I wouldn't know what to blame."
-      }
+      },
+      "valence": "negative"
     }
   ]
 }

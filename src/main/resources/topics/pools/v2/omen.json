@@ -17,7 +17,8 @@
       "statCheck": {
         "pass": "I pressed my ear to the stone at midnight. Underneath the hum, there's a rhythm: three short, one long, repeating. It's not random. It's a pattern.",
         "fail": "It all sounds the same: just a low drone with no variation anyone can detect. I have listened for hours myself."
-      }
+      },
+      "valence": "negative"
     },
     {
       "id": 1,
@@ -30,7 +31,8 @@
       "reactions": [
         "My grandmother would have called that a summoning. The dead calling to the living through the animals that guard them.",
         "I don't put stock in superstition. But I'll admit I didn't sleep well after that."
-      ]
+      ],
+      "valence": "negative"
     },
     {
       "id": 2,
@@ -47,7 +49,8 @@
       "statCheck": {
         "pass": "I followed its gaze due south. There's nothing there but open field, but the grass in that direction has started growing in a spiral pattern. Tight, deliberate spirals.",
         "fail": "I have stared in that direction myself. Fields, trees, sky. Whatever that bird is watching, neither of us can see it."
-      }
+      },
+      "valence": "negative"
     },
     {
       "id": 3,
@@ -64,7 +67,8 @@
       "statCheck": {
         "pass": "The records keeper found it: a passage describing a green moon that appeared before the founding of the old watchtower. The text calls it \"the herald's lantern\" and says it marked the opening of something.",
         "fail": "The old texts are faded and written in a dialect that is hard to parse. She is still working through them, but no clear answers yet."
-      }
+      },
+      "valence": "negative"
     },
     {
       "id": 4,
@@ -77,7 +81,8 @@
       "reactions": [
         "The stone is sitting on the mantle now. Nobody wants to touch it and nobody wants to throw it away.",
         "Blue fire means different things depending on who you ask. None of the meanings are comforting."
-      ]
+      ],
+      "valence": "negative"
     },
     {
       "id": 5,
@@ -94,7 +99,8 @@
       "statCheck": {
         "pass": "You've heard of shadow binding? The old texts describe it: a ward that anchors a person's shadow to a fixed point, usually as a marker. Someone or something has marked you for a reason.",
         "fail": "Shadows do strange things near tall structures. I wouldn't read too much into it without more to go on."
-      }
+      },
+      "valence": "negative"
     },
     {
       "id": 6,
@@ -111,7 +117,8 @@
       "statCheck": {
         "pass": "There is a concept in the old ward-texts called a stilling circle: a zone where natural transitions are suspended. Water won't boil, bread won't rise, wounds won't close. If that is what this is, the boundary will keep shrinking.",
         "fail": "It could be something in the water, or something in the soil. Without a way to test it properly, all we can do is haul pots and wait."
-      }
+      },
+      "valence": "negative"
     },
     {
       "id": 7,
@@ -129,7 +136,8 @@
       "statCheck": {
         "pass": "Inverted flame is mentioned in the old sealing rites: it marks a point where something was bound beneath the surface. Whatever is under that hall, the binding may be weakening.",
         "fail": "I've asked around and nobody has a good explanation. Drafts, bad wax, damp wicks: none of it holds up when you actually think about it."
-      }
+      },
+      "valence": "negative"
     },
     {
       "id": 8,
@@ -146,7 +154,8 @@
       "statCheck": {
         "pass": "Shared dreaming appears in the old consecration texts. It's described as a summons: not to the dreamers, but through them. Someone is using their sleep as a channel to reach something else.",
         "fail": "Dreams travel through stories. Someone tells a vivid one at market, and suddenly half the village has the same nightmare. It happens."
-      }
+      },
+      "valence": "negative"
     },
     {
       "id": 9,
@@ -163,7 +172,8 @@
       "statCheck": {
         "pass": "In the old devotional texts, animal prostration is called a recognition: a response to the presence of something sacred or something that once was sacred. Those foundation stones may be what remains of a shrine.",
         "fail": "Herd animals do strange things sometimes. They follow each other without thinking. It could be one goat started and the rest copied."
-      }
+      },
+      "valence": "negative"
     },
     {
       "id": 10,
@@ -180,7 +190,8 @@
       "statCheck": {
         "pass": "There is a passage in the old rites about death-blooming: when the boundary between states becomes thin, dead things resume their last living act. It's not the flowers that matter. It's what thinned the boundary.",
         "fail": "Strange soil, strange weather, strange results. I'm no herbalist, so I can't say what would cause a dead plant to flower again."
-      }
+      },
+      "valence": "negative"
     },
     {
       "id": 11,
@@ -198,7 +209,8 @@
       "statCheck": {
         "pass": "Delayed reflections appear in the old binding catalogs. The mirror isn't broken: it's become a window. Something on the other side is learning to mimic what it sees, and it's getting better at it.",
         "fail": "Old glass warps. Light bends. There's probably a simple explanation, but I'll admit I haven't found one that makes me feel better."
-      }
+      },
+      "valence": "negative"
     },
     {
       "id": 12,
@@ -215,7 +227,8 @@
       "statCheck": {
         "pass": "A settling is more than a story. The old ritual texts describe it as a suppression field: living processes slow near a threshold event. Fermentation, growth, healing. If bread won't rise, check whether cuts are taking longer to close.",
         "fail": "Bad yeast, bad weather, bad luck. It happens in clusters sometimes. I wouldn't know what else to look for."
-      }
+      },
+      "valence": "negative"
     },
     {
       "id": 13,
@@ -232,7 +245,8 @@
       "statCheck": {
         "pass": "There are old accounts of this in texts about consecrated ground. Near certain sacred sites, worked metal loses its purpose: edges dull, locks won't hold, chains go slack. It's not decay. It's rejection.",
         "fail": "Could be something in the water they're quenching with, or the air near the forge. I'm not a smith, so I can only repeat what he told me."
-      }
+      },
+      "valence": "negative"
     },
     {
       "id": 14,
@@ -249,7 +263,8 @@
       "statCheck": {
         "pass": "In the old consecration records, a bell ringing without a striker is called a voice from the threshold. It means something is close enough to interact with objects in our world but not close enough to be seen. Three rings specifically means an approach.",
         "fail": "Wind, vibration from the ground, animals in the rafters. There are explanations, but none of them explain the timing or the clarity of the sound."
-      }
+      },
+      "valence": "negative"
     },
     {
       "id": 15,
@@ -266,7 +281,8 @@
       "statCheck": {
         "pass": "I showed the tracings to a traveling scholar. She recognized the angles: they're fragments of old ward notation, the kind used to mark boundaries. Something is writing warnings on every surface it can reach.",
         "fail": "The shapes could mean anything or nothing. Ice crystals follow the grain of the surface they form on. Without someone who can read old scripts, it's just frost."
-      }
+      },
+      "valence": "negative"
     },
     {
       "id": 16,
@@ -284,7 +300,8 @@
       "statCheck": {
         "pass": "Simultaneous sightings of the same figure are described in the old annals as echo-walking: a projection sent out by something testing the boundaries of a place. It's not a person. It's a survey.",
         "fail": "Travelers pass through all the time. People see what they expect to see, and three similar-looking strangers on the same day isn't impossible. Just unlikely."
-      }
+      },
+      "valence": "negative"
     },
     {
       "id": 17,
@@ -301,7 +318,8 @@
       "statCheck": {
         "pass": "Synchronized imagery in children appears in the old texts as a resonance event: a signal strong enough that unguarded minds receive it directly. Whatever the children are drawing, it's broadcasting.",
         "fail": "Children share stories at market, in the fields, wherever they gather. A striking image gets passed around and everyone draws the same thing. It's unsettling, but it could be ordinary."
-      }
+      },
+      "valence": "negative"
     },
     {
       "id": 18,
@@ -318,7 +336,8 @@
       "statCheck": {
         "pass": "The old texts describe compass deviation near what they call lodestone wells: places where something buried exerts a pull stronger than the poles. These wells are usually dormant. If the compasses are responding, it woke up.",
         "fail": "Iron deposits in the ground can pull a needle. Could be an ore vein nobody knew about. That's the most comfortable explanation, anyway."
-      }
+      },
+      "valence": "negative"
     },
     {
       "id": 19,
@@ -336,7 +355,8 @@
       "statCheck": {
         "pass": "Cyclical suppression is documented in the old ritual texts. Certain wards operate on intervals: active, dormant, active. If healing fails on a pattern, something nearby is cycling through states. On the active days, living processes near it are paused.",
         "fail": "The herbalist has theories but won't share them. She says she needs more data. I think she has enough data and doesn't like what it tells her."
-      }
+      },
+      "valence": "negative"
     },
     {
       "id": 20,
@@ -353,7 +373,8 @@
       "statCheck": {
         "pass": "Chromatic shift in written marks is listed among the signs of a thinning: the boundary between here and somewhere else wearing down. The old texts say that when ink changes, the air itself is carrying trace elements from the other side.",
         "fail": "Humidity, mineral dust, something in the local water they mix the ink with. The records keeper has tried everything obvious and none of it explains it, but there could be a mundane cause we're missing."
-      }
+      },
+      "valence": "negative"
     },
     {
       "id": 21,
@@ -370,7 +391,8 @@
       "statCheck": {
         "pass": "A false celestial body is called a beacon in the old astrological texts. It's not the moon: it's a projection, a signal fire for something traveling a long distance. It marks a destination. This place was the destination.",
         "fail": "Atmospheric tricks can make the moon appear at odd times or in odd colors. I'm no astronomer, but I know enough to know the sky doesn't always behave the way we expect."
-      }
+      },
+      "valence": "negative"
     },
     {
       "id": 22,
@@ -387,7 +409,8 @@
       "statCheck": {
         "pass": "The old texts call it a sky-shift: a momentary alignment with a different sphere. For one night, you weren't seeing your sky. You were seeing someone else's. The question is whose.",
         "fail": "Stars drift over centuries. Maybe something sped up a process we usually can't perceive. I'm reaching, I know. But what else can I say?"
-      }
+      },
+      "valence": "negative"
     },
     {
       "id": 23,
@@ -404,7 +427,8 @@
       "statCheck": {
         "pass": "What you're describing is called a responsive boundary in the old ward literature. The echo isn't reflecting sound: something on the other side is hearing you and replying. It's been listening long enough to start forming responses.",
         "fail": "Wind currents, rock formations, overlapping sound waves. There are acoustic explanations for strange echoes. Whether they apply here, I honestly don't know."
-      }
+      },
+      "valence": "negative"
     },
     {
       "id": 24,
@@ -421,7 +445,8 @@
       "statCheck": {
         "pass": "Reversed time-markers appear in the old records as symptoms of what the texts call an unwinding: a process or entity moving against the current of time. The sundial isn't broken. It's responding to a different flow.",
         "fail": "A tilted base could cause odd shadow behavior. Maybe the ground shifted. I'm not sure that explains it moving backward, but I don't have a better answer."
-      }
+      },
+      "valence": "negative"
     },
     {
       "id": 25,
@@ -439,7 +464,8 @@
       "statCheck": {
         "pass": "A voice from deep water is called a summons-through-stone in the old liturgical texts. The well shaft acts as a channel. Whatever is speaking isn't in the water: it's beneath the bedrock, and it's patient enough to speak continuously.",
         "fail": "Underground water creates strange acoustics. Air pockets, resonance, vibrations from distant sources. The mind fills in patterns and hears words that aren't there."
-      }
+      },
+      "valence": "negative"
     },
     {
       "id": 26,
@@ -456,7 +482,8 @@
       "statCheck": {
         "pass": "The old texts describe impression marks at sites where something crossed between planes: the stone was briefly malleable because the boundary was open. One step through, one mark left behind. The geometry of the sole isn't decorative. It's structural: part of a seal.",
         "fail": "Natural erosion can create patterns that look deliberate. Wind, water, freezing and thawing. It could be a natural formation that happens to resemble a print."
-      }
+      },
+      "valence": "negative"
     },
     {
       "id": 27,
@@ -473,7 +500,8 @@
       "statCheck": {
         "pass": "The old watchkeeper texts describe false-dawn responses in animals near sites of emergence. The roosters aren't confused: they're reacting to a pulse of energy that passes through the area at midnight. To them, it registers as light. To us, it's invisible.",
         "fail": "Animals have their own rhythms. Stress, weather changes, disturbances in the night. A spooked rooster sets off the rest, and suddenly the whole village is awake."
-      }
+      },
+      "valence": "negative"
     },
     {
       "id": 28,
@@ -490,7 +518,8 @@
       "statCheck": {
         "pass": "Mass unlocking is described in the old texts as a release event: an echo of a seal breaking somewhere deep. Every bound thing in the area responds in sympathy. The locks didn't fail. Something else opened, and they answered.",
         "fail": "A bad batch of metal, thermal expansion on a cold night, old mechanisms giving way. Any one lock opening is explainable. All of them at once is harder, but stranger things have happened."
-      }
+      },
+      "valence": "negative"
     },
     {
       "id": 29,
@@ -507,7 +536,8 @@
       "statCheck": {
         "pass": "Autonomous shadow movement is described in the old texts as convergence: shadows drawn to a focal point by something that feeds on darkness or uses it as a medium. The fact that they're gathering at the center of the settlement means whatever is drawing them is already here.",
         "fail": "Heat shimmer, atmospheric refraction, the way tired eyes play tricks in the late afternoon. I keep telling myself that, but I'm running out of conviction."
-      }
+      },
+      "valence": "negative"
     }
   ]
 }

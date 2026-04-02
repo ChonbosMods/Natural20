@@ -17,7 +17,8 @@
       "statCheck": {
         "pass": "I dug at the base of the oak. About a foot down, the soil shifts to something unusual: a layer of fine, silver-gray powder that isn't natural to this area. It's concentrated around the root system.",
         "fail": "Everything around the roots looks like normal forest floor. Whatever is causing the bloom is not on the surface."
-      }
+      },
+      "valence": "neutral"
     },
     {
       "id": 1,
@@ -30,7 +31,8 @@
       "reactions": [
         "My neighbor saw it too, so at least I know I'm not imagining things.",
         "Water doesn't flow uphill. I've said that sentence to myself about fifty times since Tuesday and it doesn't help."
-      ]
+      ],
+      "valence": "neutral"
     },
     {
       "id": 2,
@@ -47,7 +49,8 @@
       "statCheck": {
         "pass": "I marked the center point and came back the next day. An eighth circle had appeared, and the center point had shifted about three paces north. The whole pattern is moving.",
         "fail": "Without knowing what species they are, there is no telling whether this is unusual growth or just a strange coincidence."
-      }
+      },
+      "valence": "neutral"
     },
     {
       "id": 3,
@@ -60,7 +63,8 @@
       "reactions": [
         "The dye-maker is thrilled: best red pigment she's ever extracted. Everyone else is unsettled.",
         "My daughter picked me a bouquet. It's beautiful, honestly. But it looks like every flower in the valley is bleeding."
-      ]
+      ],
+      "valence": "neutral"
     },
     {
       "id": 4,
@@ -77,7 +81,8 @@
       "statCheck": {
         "pass": "The smooth stones have faint markings on their undersides. I turned a few over and found the same symbol repeated: a tree with roots that mirror its branches. It's a consecration mark from the old religion.",
         "fail": "The stones are smooth and featureless. If there was ever anything else down there, it is long gone."
-      }
+      },
+      "valence": "neutral"
     },
     {
       "id": 5,
@@ -94,7 +99,8 @@
       "statCheck": {
         "pass": "You've got an eye for this. The roots are all growing in the same direction: northeast. Every single one. That's not random. Something in the ground is pulling them.",
         "fail": "Roots do strange things sometimes. I wouldn't know what's unusual and what's just a bad season."
-      }
+      },
+      "valence": "negative"
     },
     {
       "id": 6,
@@ -111,7 +117,8 @@
       "statCheck": {
         "pass": "I tasted it. There's a faint sweetness to it now, like sap. Stream water shouldn't taste sweet. Something is dissolving into it from the source, and whatever it is, it's settling the sediment.",
         "fail": "Water is water. I can tell you it looks different but I couldn't say why."
-      }
+      },
+      "valence": "negative"
     },
     {
       "id": 7,
@@ -128,7 +135,8 @@
       "statCheck": {
         "pass": "You noticed the spacing? It's not random. Each line is exactly the same distance from the next. I measured it with cord. That's not growth: that's placement.",
         "fail": "Moss is moss. It grows where conditions are right. I wouldn't read too much into the shape."
-      }
+      },
+      "valence": "neutral"
     },
     {
       "id": 8,
@@ -145,7 +153,8 @@
       "statCheck": {
         "pass": "I sat out there one night with a lantern. At exactly midnight, the light shifted: not the lantern, the moonlight itself. It got brighter, warmer, almost golden. Just for a few minutes. The birds responded to it like sunrise.",
         "fail": "I've lost track of what's normal at this point. The schedule is all wrong but I can't pin down when exactly it changed."
-      }
+      },
+      "valence": "negative"
     },
     {
       "id": 9,
@@ -162,7 +171,8 @@
       "statCheck": {
         "pass": "Here's what nobody else has put together yet: it's not just the trees. The grass is laying flat in the same direction. The reeds by the water, the scrub on the hillside. Everything rooted is being pulled east.",
         "fail": "Wind does strange things over time. I wouldn't know if this is unusual or just gradual."
-      }
+      },
+      "valence": "negative"
     },
     {
       "id": 10,
@@ -179,7 +189,8 @@
       "statCheck": {
         "pass": "I pulled a clump up by the roots. The roots go deep: much deeper than normal grass. And at the bottom, about a forearm's length down, they're knotted together in a mesh. Like a net. The whole circle is one connected root system.",
         "fail": "Soil conditions vary. One patch getting more water, more sun: could be anything. I'm not a farmer."
-      }
+      },
+      "valence": "neutral"
     },
     {
       "id": 11,
@@ -196,7 +207,8 @@
       "statCheck": {
         "pass": "I rubbed some between my fingers. It stains, and the stain doesn't wash out with water. Only vinegar takes it off. That's not normal clay or iron deposits: those wash clean. This is something the soil is producing.",
         "fail": "Soil does all sorts of things. Changes with the rain, the runoff. I couldn't tell you what's natural and what isn't."
-      }
+      },
+      "valence": "negative"
     },
     {
       "id": 12,
@@ -213,7 +225,8 @@
       "statCheck": {
         "pass": "You know your plants, I can tell. These vines have no root system visible at the surface. I traced one all the way down and it just keeps going into the rock, like it grew from deep underground and pushed up through the stone.",
         "fail": "I'm no herbalist. It's a vine with thorns: beyond that I couldn't tell you anything useful."
-      }
+      },
+      "valence": "negative"
     },
     {
       "id": 13,
@@ -230,7 +243,8 @@
       "statCheck": {
         "pass": "I pressed my ear to the ground in the middle of the warm patch. There's a low vibration: barely a sound, more of a pulse. Steady, rhythmic, like breathing. Something under there is alive, or at least active.",
         "fail": "Heat rises, heat dissipates. Could be geothermal, could be something else. I wouldn't know how to tell the difference."
-      }
+      },
+      "valence": "negative"
     },
     {
       "id": 14,
@@ -247,7 +261,8 @@
       "statCheck": {
         "pass": "I cracked one of the shelves open. The inside has fine threads running through it, almost like veins, and they pulse with a faint amber light if you watch long enough. This fungus is channeling something: not feeding on the tree, but using it as an anchor.",
         "fail": "Mushrooms grow where mushrooms grow. I know enough not to eat the unfamiliar ones, but beyond that I'm no expert."
-      }
+      },
+      "valence": "neutral"
     },
     {
       "id": 15,
@@ -264,7 +279,8 @@
       "statCheck": {
         "pass": "I brought a handful of that soil indoors and set a seed on it. Nothing happened. Took it back outside, planted the same seed: sprouted in two hours. The soil isn't the cause. Something in the area is the cause, and the soil is just the medium.",
         "fail": "Rich soil does strange things. Good compost can speed germination up. I wouldn't know what's normal for this area."
-      }
+      },
+      "valence": "neutral"
     },
     {
       "id": 16,
@@ -281,7 +297,8 @@
       "statCheck": {
         "pass": "You're observant. The pattern isn't just on the surface. I chipped off a piece of rock behind the lichen and the shape continues into the stone itself, etched about a finger's width deep. The lichen isn't creating the pattern: it's revealing one that was already there.",
         "fail": "I've seen lichen do odd things before. Without knowing the species it's hard to say what's unusual growth and what's just unfamiliar."
-      }
+      },
+      "valence": "neutral"
     },
     {
       "id": 17,
@@ -298,7 +315,8 @@
       "statCheck": {
         "pass": "I pulled one of the shoots free and the dead wood underneath was threaded with something: thin filaments, almost like spider silk, running through the grain. Whatever is growing, it colonized the dead wood from inside before it ever broke the surface.",
         "fail": "Dead wood sprouts sometimes. Moisture, dormant seeds: nature reclaims things. I wouldn't know if this is that or something different."
-      }
+      },
+      "valence": "neutral"
     },
     {
       "id": 18,
@@ -315,7 +333,8 @@
       "statCheck": {
         "pass": "I followed the spring upstream to where it emerges from the rock. The stone around the outlet is discolored now: a greenish tint that wasn't there a month ago. Something is leaching into the water at the source, and it's mineral I've never seen in this terrain.",
         "fail": "Underground water does what it wants. Channels shift, temperatures change. I'm no geologist."
-      }
+      },
+      "valence": "neutral"
     },
     {
       "id": 19,
@@ -332,7 +351,8 @@
       "statCheck": {
         "pass": "You've got sharp eyes. Look at the soil in the center of the clearing: there's a fine residue, almost like dust, but it glitters faintly in direct light. It's not pollen, not mineral. I collected some and it doesn't dissolve in water. Whatever it is, that's what's keeping them out.",
         "fail": "Insects are fickle. A dry season, a bad hatch: could be any number of reasons. I wouldn't know what to look for."
-      }
+      },
+      "valence": "negative"
     },
     {
       "id": 20,
@@ -349,7 +369,8 @@
       "statCheck": {
         "pass": "I ran my hand along the split face. There are faint lines running through the stone in a pattern: not natural grain, not mineral veins. They look like roots. As if something grew through the interior of the rock and then contracted, pulling it apart from inside.",
         "fail": "Rock splits along weak points. Frost, pressure, settling ground: it happens. Without tools I couldn't tell you if this is unusual."
-      }
+      },
+      "valence": "neutral"
     },
     {
       "id": 21,
@@ -366,7 +387,8 @@
       "statCheck": {
         "pass": "I filled a bowl with water and set it on the ground in the vibration zone. The water doesn't just ripple: it forms a pattern. Concentric rings, evenly spaced, holding their shape. That's not random vibration. That's a signal.",
         "fail": "Ground vibration happens near underground water sometimes, or old mine shafts settling. Hard to know what is down there without digging."
-      }
+      },
+      "valence": "negative"
     },
     {
       "id": 22,
@@ -383,7 +405,8 @@
       "statCheck": {
         "pass": "The lines aren't just parallel. I mapped them with stakes and cord and they converge if you extend them far enough. They all point to the same spot, about a hundred paces uphill. Whatever is killing the moss is radiating from a single source.",
         "fail": "Could be runoff, could be mineral deposits. Without digging up the hillside there's no way to tell."
-      }
+      },
+      "valence": "neutral"
     },
     {
       "id": 23,
@@ -400,7 +423,8 @@
       "statCheck": {
         "pass": "You've studied plants. Look at the stem structure: each flower is connected underground. I dug carefully around one and the roots join a network just below the surface. It's not a ring of individual plants. It's one organism.",
         "fail": "Pretty flowers in a circle. Could be a natural seed pattern, wind distribution. I'm no botanist."
-      }
+      },
+      "valence": "neutral"
     },
     {
       "id": 24,
@@ -417,7 +441,8 @@
       "statCheck": {
         "pass": "I let a cup of it sit overnight. By morning a thin film had formed on the surface: iridescent, like oil. Whatever is sweetening the water isn't food-safe. It's a substance I've never encountered, and it concentrates when the water sits still.",
         "fail": "Mineral springs can change the taste of water. Without testing I couldn't say whether this is harmful or just different."
-      }
+      },
+      "valence": "negative"
     },
     {
       "id": 25,
@@ -434,7 +459,8 @@
       "statCheck": {
         "pass": "I tried pulling a vine free from the mortar. It resisted, hard. And where I yanked it out, the mortar had changed color: darker, denser, as if the vine had been feeding something back into the stone. The wall is actually stronger where the vine grew through it.",
         "fail": "Vines grow fast in good conditions. A warm night and wet soil can produce surprising results. I'm no expert on growth rates."
-      }
+      },
+      "valence": "neutral"
     },
     {
       "id": 26,
@@ -451,7 +477,8 @@
       "statCheck": {
         "pass": "I hardened a sample of the sap in sunlight and cracked it open. Inside there are tiny structures: geometric, repeating, like the lattice of a crystal. But they're organic. The sap isn't just leaking: the tree is producing something, and the sap is how it delivers it into the soil.",
         "fail": "Sap flows when pressure builds in the trunk. Heavy rain, temperature swings. It happens. I wouldn't know how much is too much."
-      }
+      },
+      "valence": "negative"
     },
     {
       "id": 27,
@@ -468,7 +495,8 @@
       "statCheck": {
         "pass": "You're right to find that strange. I held a blade between my fingers and plucked it like a bowstring while it was still rooted. No tone, no vibration. The blade moved but produced no sound. It's not that the sound is absorbed: the grass itself doesn't generate it. Something has changed the plant at a fundamental level.",
         "fail": "Soft grass in soft soil: it happens. I've walked through meadows that barely whispered. I wouldn't call it unnatural."
-      }
+      },
+      "valence": "neutral"
     },
     {
       "id": 28,
@@ -485,7 +513,8 @@
       "statCheck": {
         "pass": "I dug into the center of the ring, about a foot down. The soil changes: becomes almost powdery, with a faint warmth. And at the bottom of the hole, I found fragments of something white and smooth, like bone but too regular. Perfectly flat shards, evenly thick. Something is buried under there, and it's what's sterilizing the surface.",
         "fail": "Bare patches happen. Compacted soil, drainage problems, old fire pits. Without digging I couldn't tell you what's causing it."
-      }
+      },
+      "valence": "negative"
     },
     {
       "id": 29,
@@ -502,7 +531,8 @@
       "statCheck": {
         "pass": "I pressed my ear to the largest trunk for a full minute. The hum isn't random: it pulses. Short, long, short short, long. Over and over. The same pattern, repeating. That's not resonance or wind vibration. Something is using the trees to transmit a signal.",
         "fail": "Trees creak, wood resonates. Old trunks make sounds in certain weather. I wouldn't be able to tell natural noise from something unusual."
-      }
+      },
+      "valence": "neutral"
     }
   ]
 }
