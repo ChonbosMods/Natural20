@@ -116,6 +116,14 @@ public class DialogueManager {
                 actionRegistry, conditionEvaluator,
                 presenter, onSessionEnd, onNpcRelease);
 
+        // Evaluate valence drift for returning conversations
+        String storedValence = playerData.getClosingValence(graph.npcId());
+        if (storedValence != null) {
+            ValenceType stored = ValenceType.fromString(storedValence);
+            ValenceType opening = ValenceTracker.evaluateDrift(stored, new java.util.Random().nextDouble());
+            session.seedValenceTracker(opening);
+        }
+
         activeSessions.put(playerUuid, session);
 
         // Check for saved session (dirty exit resume)
