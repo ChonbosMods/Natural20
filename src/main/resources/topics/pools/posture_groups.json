@@ -5,84 +5,154 @@
       "trust": 3,
       "valence_affinity": ["positive", "negative", "neutral"],
       "disposition_modifier": 0,
-      "prompts": [
-        "Go on.",
-        "Tell me more.",
-        "I'm listening.",
-        "You have my attention.",
-        "Interesting.",
-        "Continue."
-      ]
+      "prompts": {
+        "positive": [
+          "That's something, at least.",
+          "Good. What else?",
+          "A welcome change."
+        ],
+        "negative": [
+          "I see. Go on.",
+          "Noted. Continue.",
+          "Understood."
+        ],
+        "neutral": [
+          "Go on.",
+          "Tell me more.",
+          "I'm listening.",
+          "You have my attention.",
+          "Interesting.",
+          "Continue."
+        ]
+      }
     },
     "direct": {
       "warmth": 2,
       "trust": 3,
       "valence_affinity": ["positive", "negative", "neutral"],
       "disposition_modifier": -1,
-      "prompts": [
-        "Get to the point.",
-        "And what of it?",
-        "Enough preamble.",
-        "Out with it, then.",
-        "Skip ahead.",
-        "So?"
-      ]
+      "prompts": {
+        "positive": [
+          "Fine. What else?",
+          "Good for them. Move on.",
+          "And the rest?"
+        ],
+        "negative": [
+          "What can be done about it?",
+          "Then what happens next?",
+          "Get to the remedy."
+        ],
+        "neutral": [
+          "Get to the point.",
+          "And what of it?",
+          "Enough preamble.",
+          "Out with it, then.",
+          "Skip ahead.",
+          "So?"
+        ]
+      }
     },
     "attentive": {
       "warmth": 5,
       "trust": 4,
       "valence_affinity": ["negative", "neutral"],
       "disposition_modifier": 2,
-      "prompts": [
-        "That sounds rough.",
-        "You've been through a lot.",
-        "Hard times all around.",
-        "That can't be easy.",
-        "I'm sorry to hear that.",
-        "That's a heavy burden."
-      ]
+      "prompts": {
+        "positive": [],
+        "negative": [
+          "That sounds rough.",
+          "You've been through a lot.",
+          "Hard times all around.",
+          "That can't be easy.",
+          "I'm sorry to hear that.",
+          "That's a heavy burden."
+        ],
+        "neutral": [
+          "Tell me everything.",
+          "I want to understand.",
+          "Take your time.",
+          "I'm here. Keep going.",
+          "You have my full attention."
+        ]
+      }
     },
     "cheerful": {
       "warmth": 5,
       "trust": 4,
       "valence_affinity": ["positive", "neutral"],
       "disposition_modifier": 1,
-      "prompts": [
-        "That's good to hear.",
-        "Things are looking up.",
-        "Glad to hear it.",
-        "Well, that's a relief.",
-        "Sounds like good fortune.",
-        "Cheers to that."
-      ]
+      "prompts": {
+        "positive": [
+          "That's good to hear.",
+          "Things are looking up.",
+          "Glad to hear it.",
+          "Well, that's a relief.",
+          "Sounds like good fortune.",
+          "Cheers to that."
+        ],
+        "negative": [],
+        "neutral": [
+          "That's quite something.",
+          "I like the sound of that.",
+          "Well, isn't that interesting.",
+          "Now that's a story.",
+          "You seem proud of it."
+        ]
+      }
     },
     "skeptical": {
       "warmth": 2,
       "trust": 1,
       "valence_affinity": ["positive", "negative", "neutral"],
       "disposition_modifier": -1,
-      "prompts": [
-        "Why should I believe that?",
-        "Something doesn't add up.",
-        "That so?",
-        "Convenient story.",
-        "Who benefits from that?",
-        "Sounds too good to be true."
-      ]
+      "prompts": {
+        "positive": [
+          "Sounds too good to be true.",
+          "Who benefits from that?",
+          "There's always a catch.",
+          "If you say so."
+        ],
+        "negative": [
+          "Are you sure about that?",
+          "That doesn't quite add up.",
+          "Says who, exactly?",
+          "Seems like more to the story."
+        ],
+        "neutral": [
+          "Why should I believe that?",
+          "Something doesn't add up.",
+          "That so?",
+          "Convenient story.",
+          "I'll believe it when I see it.",
+          "Hmm. Maybe."
+        ]
+      }
     },
     "dismissive": {
       "warmth": 1,
       "trust": 2,
       "valence_affinity": ["positive", "negative", "neutral"],
       "disposition_modifier": -3,
-      "prompts": [
-        "Not my problem.",
-        "I've heard enough.",
-        "Spare me.",
-        "Save your breath.",
-        "Moving on.",
-        "I don't care."
-      ]
+      "prompts": {
+        "positive": [
+          "Good for you.",
+          "Thrilling.",
+          "How nice."
+        ],
+        "negative": [
+          "Not my concern.",
+          "Everyone has problems.",
+          "You'll manage."
+        ],
+        "neutral": [
+          "Not my problem.",
+          "I've heard enough.",
+          "Spare me.",
+          "Save your breath.",
+          "Moving on.",
+          "I don't care."
+        ]
+      }
     }
   }
 }

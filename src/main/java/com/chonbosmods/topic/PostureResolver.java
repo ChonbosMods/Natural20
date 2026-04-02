@@ -37,7 +37,7 @@ public class PostureResolver {
         // Step 2: Single prompt
         if (maxPrompts <= 1 || eligible.size() < 2) {
             PostureGroup picked = eligible.get(random.nextInt(eligible.size()));
-            String text = picked.prompts().get(random.nextInt(picked.prompts().size()));
+            String text = picked.selectPrompt(npcValence, random);
             return new PostureSelection(List.of(
                 new PostureSelection.ResolvedPrompt(picked.name(), text, picked.dispositionModifier())
             ));
@@ -57,7 +57,7 @@ public class PostureResolver {
             Collections.shuffle(eligible, random);
             PostureGroup a = eligible.get(0);
             PostureGroup b = eligible.get(1);
-            return buildSelection(a, b, random);
+            return buildSelection(a, b, npcValence, random);
         }
 
         // Step 4: Weight pairs
@@ -97,7 +97,7 @@ public class PostureResolver {
         int selected = weightedRandom(weights, random);
         PostureGroup a = validPairs.get(selected)[0];
         PostureGroup b = validPairs.get(selected)[1];
-        return buildSelection(a, b, random);
+        return buildSelection(a, b, npcValence, random);
     }
 
     static boolean canPair(PostureGroup a, PostureGroup b) {
@@ -105,9 +105,9 @@ public class PostureResolver {
             || Math.abs(a.trust() - b.trust()) >= 2;
     }
 
-    private static PostureSelection buildSelection(PostureGroup a, PostureGroup b, Random random) {
-        String textA = a.prompts().get(random.nextInt(a.prompts().size()));
-        String textB = b.prompts().get(random.nextInt(b.prompts().size()));
+    private static PostureSelection buildSelection(PostureGroup a, PostureGroup b, String npcValence, Random random) {
+        String textA = a.selectPrompt(npcValence, random);
+        String textB = b.selectPrompt(npcValence, random);
         return new PostureSelection(List.of(
             new PostureSelection.ResolvedPrompt(a.name(), textA, a.dispositionModifier()),
             new PostureSelection.ResolvedPrompt(b.name(), textB, b.dispositionModifier())

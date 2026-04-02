@@ -61,9 +61,24 @@ public class PostureGroupRegistry {
                 valenceAffinity.add(el.getAsString());
             }
 
-            List<String> prompts = new ArrayList<>();
-            for (JsonElement el : obj.getAsJsonArray("prompts")) {
-                prompts.add(el.getAsString());
+            Map<String, List<String>> prompts = new LinkedHashMap<>();
+            JsonElement promptsEl = obj.get("prompts");
+            if (promptsEl.isJsonObject()) {
+                // Nested valence lanes format
+                for (var lane : promptsEl.getAsJsonObject().entrySet()) {
+                    List<String> entries = new ArrayList<>();
+                    for (JsonElement el : lane.getValue().getAsJsonArray()) {
+                        entries.add(el.getAsString());
+                    }
+                    prompts.put(lane.getKey(), entries);
+                }
+            } else if (promptsEl.isJsonArray()) {
+                // Legacy flat array: treat all as neutral
+                List<String> entries = new ArrayList<>();
+                for (JsonElement el : promptsEl.getAsJsonArray()) {
+                    entries.add(el.getAsString());
+                }
+                prompts.put("neutral", entries);
             }
 
             groups.put(name, new PostureGroup(name, warmth, trust, valenceAffinity, dispositionModifier, prompts));
