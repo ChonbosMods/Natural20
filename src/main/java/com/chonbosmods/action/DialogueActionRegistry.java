@@ -24,7 +24,9 @@ import com.hypixel.hytale.server.core.universe.world.storage.EntityStore;
 import com.chonbosmods.waypoint.QuestMarkerProvider;
 
 import com.hypixel.hytale.server.core.entity.entities.Player;
-import com.hypixel.hytale.server.core.inventory.container.ItemContainer;
+import com.hypixel.hytale.component.ComponentType;
+import com.hypixel.hytale.server.core.inventory.InventoryComponent;
+import com.hypixel.hytale.server.core.inventory.container.CombinedItemContainer;
 import com.hypixel.hytale.server.core.inventory.ItemStack;
 
 import java.util.HashMap;
@@ -35,33 +37,51 @@ import java.util.Set;
 public class DialogueActionRegistry {
 
     private static final FluentLogger LOGGER = FluentLogger.forEnclosingClass();
+
+    // Action type constants: use these instead of raw strings when building
+    // dialogue nodes or checking action types programmatically.
+    public static final String SET_FLAG = "SET_FLAG";
+    public static final String MODIFY_DISPOSITION = "MODIFY_DISPOSITION";
+    public static final String GIVE_ITEM = "GIVE_ITEM";
+    public static final String REMOVE_ITEM = "REMOVE_ITEM";
+    public static final String UNLOCK_TOPIC = "UNLOCK_TOPIC";
+    public static final String EXECUTE_COMMAND = "EXECUTE_COMMAND";
+    public static final String GIVE_QUEST = "GIVE_QUEST";
+    public static final String COMPLETE_QUEST = "COMPLETE_QUEST";
+    public static final String TURN_IN_PHASE = "TURN_IN_PHASE";
+    public static final String COMPLETE_TALK_TO_NPC = "COMPLETE_TALK_TO_NPC";
+    public static final String OPEN_SHOP = "OPEN_SHOP";
+    public static final String CHANGE_REPUTATION = "CHANGE_REPUTATION";
+    public static final String EXHAUST_TOPIC = "EXHAUST_TOPIC";
+    public static final String REACTIVATE_TOPIC = "REACTIVATE_TOPIC";
+
     private final Map<String, DialogueAction> actions = new HashMap<>();
 
     public DialogueActionRegistry() {
-        register("SET_FLAG", (ctx, params) -> {
+        register(SET_FLAG, (ctx, params) -> {
             String flagId = params.get("flagId");
             String value = params.getOrDefault("value", "true");
             ctx.playerData().getGlobalFlags().put(flagId, value);
         });
 
-        register("MODIFY_DISPOSITION", (ctx, params) -> {
+        register(MODIFY_DISPOSITION, (ctx, params) -> {
             int amount = Integer.parseInt(params.getOrDefault("amount", "0"));
             ctx.dispositionUpdater().accept(amount);
         });
 
-        register("GIVE_ITEM", (ctx, params) -> {
+        register(GIVE_ITEM, (ctx, params) -> {
             String itemId = params.get("itemId");
             int quantity = Integer.parseInt(params.getOrDefault("quantity", "1"));
             LOGGER.atInfo().log("GIVE_ITEM stub: %s x%d to %s", itemId, quantity, ctx.player().getPlayerRef().getUuid());
         });
 
-        register("REMOVE_ITEM", (ctx, params) -> {
+        register(REMOVE_ITEM, (ctx, params) -> {
             String itemId = params.get("itemId");
             int quantity = Integer.parseInt(params.getOrDefault("quantity", "1"));
             LOGGER.atInfo().log("REMOVE_ITEM stub: %s x%d from %s", itemId, quantity, ctx.player().getPlayerRef().getUuid());
         });
 
-        register("UNLOCK_TOPIC", (ctx, params) -> {
+        register(UNLOCK_TOPIC, (ctx, params) -> {
             String topicId = params.get("topicId");
             String scope = params.getOrDefault("scope", "LOCAL");
             if ("GLOBAL".equals(scope)) {
@@ -71,12 +91,12 @@ public class DialogueActionRegistry {
             }
         });
 
-        register("EXECUTE_COMMAND", (ctx, params) -> {
+        register(EXECUTE_COMMAND, (ctx, params) -> {
             String command = params.getOrDefault("command", "");
             LOGGER.atInfo().log("EXECUTE_COMMAND stub: %s", command);
         });
 
-        register("GIVE_QUEST", (ctx, params) -> {
+        register(GIVE_QUEST, (ctx, params) -> {
             QuestSystem questSystem = Natural20.getInstance().getQuestSystem();
             if (questSystem == null) {
                 LOGGER.atWarning().log("GIVE_QUEST: quest system not initialized");
@@ -169,7 +189,7 @@ public class DialogueActionRegistry {
                 ctx.player().getPlayerRef().getUuid(), ctx.playerData());
         });
 
-        register("COMPLETE_QUEST", (ctx, params) -> {
+        register(COMPLETE_QUEST, (ctx, params) -> {
             String questId = params.get("questId");
             QuestSystem questSystem = Natural20.getInstance().getQuestSystem();
             if (questSystem == null || questId == null) return;
@@ -186,7 +206,7 @@ public class DialogueActionRegistry {
             }
         });
 
-        register("TURN_IN_PHASE", (ctx, params) -> {
+        register(TURN_IN_PHASE, (ctx, params) -> {
             QuestSystem questSystem = Natural20.getInstance().getQuestSystem();
             if (questSystem == null) return;
 
@@ -308,7 +328,7 @@ public class DialogueActionRegistry {
                 ctx.player().getPlayerRef().getUuid(), ctx.playerData());
         });
 
-        register("COMPLETE_TALK_TO_NPC", (ctx, params) -> {
+        register(COMPLETE_TALK_TO_NPC, (ctx, params) -> {
             String questId = params.get("questId");
             QuestSystem questSystem = Natural20.getInstance().getQuestSystem();
             if (questSystem == null || questId == null) return;
@@ -345,23 +365,23 @@ public class DialogueActionRegistry {
                 questId, quest.getSourceNpcId());
         });
 
-        register("OPEN_SHOP", (ctx, params) -> {
+        register(OPEN_SHOP, (ctx, params) -> {
             LOGGER.atInfo().log("OPEN_SHOP stub for %s", ctx.player().getPlayerRef().getUuid());
         });
 
-        register("CHANGE_REPUTATION", (ctx, params) -> {
+        register(CHANGE_REPUTATION, (ctx, params) -> {
             String factionId = params.get("factionId");
             int amount = Integer.parseInt(params.getOrDefault("amount", "0"));
             var rep = ctx.playerData().getReputation();
             rep.put(factionId, rep.getOrDefault(factionId, 0) + amount);
         });
 
-        register("EXHAUST_TOPIC", (ctx, params) -> {
+        register(EXHAUST_TOPIC, (ctx, params) -> {
             String topicId = params.get("topicId");
             ctx.topicExhauster().accept(topicId);
         });
 
-        register("REACTIVATE_TOPIC", (ctx, params) -> {
+        register(REACTIVATE_TOPIC, (ctx, params) -> {
             String topicId = params.get("topicId");
             if (topicId == null || topicId.isEmpty()) {
                 LOGGER.atWarning().log("REACTIVATE_TOPIC: missing required topicId");
@@ -472,12 +492,13 @@ public class DialogueActionRegistry {
      * Remove up to 'count' items of the given type from the player's hotbar.
      * Returns the number actually removed.
      */
+    @SuppressWarnings("unchecked")
     private static int consumeResources(ActionContext ctx, String itemTypeId, int requiredCount) {
         try {
-            Player player = ctx.player();
-            if (player == null) return 0;
-
-            ItemContainer hotbar = player.getInventory().getHotbar();
+            CombinedItemContainer hotbar = InventoryComponent.getCombined(
+                    ctx.store(), ctx.playerRef(),
+                    new ComponentType[]{InventoryComponent.Hotbar.getComponentType()});
+            if (hotbar == null) return 0;
             short capacity = hotbar.getCapacity();
             int remaining = requiredCount;
 
@@ -505,12 +526,13 @@ public class DialogueActionRegistry {
         }
     }
 
+    @SuppressWarnings("unchecked")
     private static boolean consumeFetchItem(ActionContext ctx, String itemTypeId) {
         try {
-            Player player = ctx.player();
-            if (player == null) return false;
-
-            ItemContainer hotbar = player.getInventory().getHotbar();
+            CombinedItemContainer hotbar = InventoryComponent.getCombined(
+                    ctx.store(), ctx.playerRef(),
+                    new ComponentType[]{InventoryComponent.Hotbar.getComponentType()});
+            if (hotbar == null) return false;
             short capacity = hotbar.getCapacity();
             for (short slot = 0; slot < capacity; slot++) {
                 ItemStack stack = hotbar.getItemStack(slot);
