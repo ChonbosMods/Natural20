@@ -30,9 +30,9 @@ public class TopicPoolRegistry {
     private final List<String> timeRefs = new ArrayList<>();
     private final List<String> directions = new ArrayList<>();
 
-    // Tone pools (bracket-keyed)
-    private final Map<String, List<String>> toneOpeners = new LinkedHashMap<>();
-    private final Map<String, List<String>> toneClosers = new LinkedHashMap<>();
+    // Tone pools (bracket-keyed, valence-nested)
+    private final Map<String, Map<String, List<String>>> toneOpeners = new LinkedHashMap<>();
+    private final Map<String, Map<String, List<String>>> toneClosers = new LinkedHashMap<>();
 
     // Coherent triplet pools (v2)
     private final Map<String, List<PoolEntry>> coherentPools = new LinkedHashMap<>();
@@ -137,7 +137,7 @@ public class TopicPoolRegistry {
         }
     }
 
-    private void loadTonePoolFromClasspath(String resource, Map<String, List<String>> target) {
+    private void loadTonePoolFromClasspath(String resource, Map<String, Map<String, List<String>>> target) {
         try (InputStream is = getClass().getClassLoader().getResourceAsStream(resource)) {
             if (is == null) return;
             JsonObject root = JsonParser.parseReader(new InputStreamReader(is, StandardCharsets.UTF_8)).getAsJsonObject();
@@ -147,7 +147,7 @@ public class TopicPoolRegistry {
         }
     }
 
-    private void loadTonePool(Path file, Map<String, List<String>> target) {
+    private void loadTonePool(Path file, Map<String, Map<String, List<String>>> target) {
         if (!Files.exists(file)) return;
         try (var reader = Files.newBufferedReader(file, StandardCharsets.UTF_8)) {
             JsonObject root = JsonParser.parseReader(reader).getAsJsonObject();
@@ -158,13 +158,33 @@ public class TopicPoolRegistry {
         }
     }
 
-    private void parseTonePool(JsonObject root, Map<String, List<String>> target) {
+    private void parseTonePool(JsonObject root, Map<String, Map<String, List<String>>> target) {
         for (String bracket : root.keySet()) {
-            List<String> entries = new ArrayList<>();
-            for (JsonElement el : root.getAsJsonArray(bracket)) {
-                entries.add(el.getAsString());
+            JsonElement bracketEl = root.get(bracket);
+            if (bracketEl.isJsonObject()) {
+                // Nested valence lanes format
+                JsonObject valenceObj = bracketEl.getAsJsonObject();
+                Map<String, List<String>> lanes = new LinkedHashMap<>();
+                for (String valence : valenceObj.keySet()) {
+                    List<String> entries = new ArrayList<>();
+                    for (JsonElement el : valenceObj.getAsJsonArray(valence)) {
+                        entries.add(el.getAsString());
+                    }
+                    lanes.put(valence, entries);
+                }
+                target.put(bracket, lanes);
+            } else if (bracketEl.isJsonArray()) {
+                // Legacy flat array format: treat all as neutral
+                Map<String, List<String>> lanes = new LinkedHashMap<>();
+                List<String> entries = new ArrayList<>();
+                for (JsonElement el : bracketEl.getAsJsonArray()) {
+                    entries.add(el.getAsString());
+                }
+                lanes.put("neutral", entries);
+                lanes.put("positive", new ArrayList<>());
+                lanes.put("negative", new ArrayList<>());
+                target.put(bracket, lanes);
             }
-            target.put(bracket, entries);
         }
     }
 
@@ -271,18 +291,53 @@ public class TopicPoolRegistry {
         return directions.get(random.nextInt(directions.size()));
     }
 
-    // --- Tone pool accessors (bracket-filtered) ---
+    // --- Tone pool accessors (bracket + valence filtered) ---
 
-    public String randomToneOpener(String bracket, Random random) {
-        List<String> entries = toneOpeners.getOrDefault(bracket, List.of());
-        if (entries.isEmpty()) return "";
-        return entries.get(random.nextInt(entries.size()));
+    /**
+     * Select a tone opener with valence fallback chain:
+     * requested valence lane -> neutral lane -> all entries in bracket.
+     */
+    public String randomToneOpener(String bracket, ValenceType valence, Random random) {
+        return selectFromTonePool(toneOpeners, bracket, valence, random);
     }
 
+    public String randomToneCloser(String bracket, ValenceType valence, Random random) {
+        return selectFromTonePool(toneClosers, bracket, valence, random);
+    }
+
+    /** Legacy overload (no valence): defaults to NEUTRAL. */
+    public String randomToneOpener(String bracket, Random random) {
+        return randomToneOpener(bracket, ValenceType.NEUTRAL, random);
+    }
+
+    /** Legacy overload (no valence): defaults to NEUTRAL. */
     public String randomToneCloser(String bracket, Random random) {
-        List<String> entries = toneClosers.getOrDefault(bracket, List.of());
-        if (entries.isEmpty()) return "";
-        return entries.get(random.nextInt(entries.size()));
+        return randomToneCloser(bracket, ValenceType.NEUTRAL, random);
+    }
+
+    private String selectFromTonePool(Map<String, Map<String, List<String>>> pool,
+                                       String bracket, ValenceType valence, Random random) {
+        Map<String, List<String>> lanes = pool.get(bracket);
+        if (lanes == null) return "";
+
+        // Try requested valence lane
+        String valenceKey = valence.name().toLowerCase();
+        List<String> lane = lanes.get(valenceKey);
+        if (lane != null && !lane.isEmpty()) {
+            return lane.get(random.nextInt(lane.size()));
+        }
+
+        // Fallback: neutral lane
+        List<String> neutralLane = lanes.get("neutral");
+        if (neutralLane != null && !neutralLane.isEmpty()) {
+            return neutralLane.get(random.nextInt(neutralLane.size()));
+        }
+
+        // Final fallback: all entries across all lanes
+        List<String> all = new ArrayList<>();
+        for (List<String> l : lanes.values()) all.addAll(l);
+        if (all.isEmpty()) return "";
+        return all.get(random.nextInt(all.size()));
     }
 
     // --- Coherent triplet pool methods ---
@@ -358,9 +413,16 @@ public class TopicPoolRegistry {
     public List<String> getTimeRefs() { return timeRefs; }
     public List<String> getDirections() { return directions; }
     public List<String> getToneOpeners(String bracket) {
-        return toneOpeners.getOrDefault(bracket, List.of());
+        return flattenLanes(toneOpeners.get(bracket));
     }
     public List<String> getToneClosers(String bracket) {
-        return toneClosers.getOrDefault(bracket, List.of());
+        return flattenLanes(toneClosers.get(bracket));
+    }
+
+    private List<String> flattenLanes(Map<String, List<String>> lanes) {
+        if (lanes == null) return List.of();
+        List<String> all = new ArrayList<>();
+        for (List<String> l : lanes.values()) all.addAll(l);
+        return all;
     }
 }
