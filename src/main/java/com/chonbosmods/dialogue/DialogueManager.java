@@ -81,7 +81,7 @@ public class DialogueManager {
                 new java.util.ArrayList<>(),
                 new java.util.LinkedHashMap<>(java.util.Map.of(
                     "fallback_greeting", new DialogueNode.DialogueTextNode(
-                        "...", null, java.util.List.of(), java.util.List.of(), false, false)
+                        "...", null, java.util.List.of(), java.util.List.of(), false, false, null)
                 ))
             );
         }
@@ -279,7 +279,7 @@ public class DialogueManager {
                 String transitionText = outroText + " " + briefing;
 
                 graph.nodes().put(transitionNodeId, new DialogueNode.DialogueTextNode(
-                    transitionText, null, List.of(), List.of(), true, false
+                    transitionText, null, List.of(), List.of(), true, false, null
                 ));
 
                 // Bridge node: no-op action that auto-advances from plot to transition
@@ -294,7 +294,7 @@ public class DialogueManager {
                         topicId + "_continue", "[Continue]", null, bridgeNodeId,
                         ResponseMode.DECISIVE, null, null, null, null
                     )),
-                    List.of(), false, false
+                    List.of(), false, false, null
                 ));
             } else {
                 // No outro: action goes straight to plot (which serves as confirm)
@@ -314,7 +314,7 @@ public class DialogueManager {
                 }
 
                 graph.nodes().put(plotNodeId, new DialogueNode.DialogueTextNode(
-                    confirmText, null, List.of(), List.of(), true, false
+                    confirmText, null, List.of(), List.of(), true, false, null
                 ));
             }
 
@@ -331,7 +331,7 @@ public class DialogueManager {
                     topicId + "_resp", "[Turn in] Yes, it's done.", null, actionNodeId,
                     ResponseMode.DECISIVE, null, null, null, null
                 )),
-                List.of(), false, false
+                List.of(), false, false, null
             ));
 
             // Topic definition: priority (sortOrder -1), always visible, quest-flagged
@@ -449,7 +449,7 @@ public class DialogueManager {
                 // Confirm: direct player back to quest giver
                 String confirmText = "Tell " + questGiver + " what I've told you. They'll want to hear it.";
                 graph.nodes().put(confirmNodeId, new DialogueNode.DialogueTextNode(
-                    confirmText, null, List.of(), List.of(), true, false
+                    confirmText, null, List.of(), List.of(), true, false, null
                 ));
 
                 // Entry: target NPC delivers their dialogue
@@ -460,7 +460,7 @@ public class DialogueManager {
                         topicId + "_resp", "I'll pass that along.", null, actionNodeId,
                         ResponseMode.DECISIVE, null, null, null, null
                     )),
-                    List.of(), false, false
+                    List.of(), false, false, null
                 ));
 
                 // Topic: priority sort, always visible, quest-flagged

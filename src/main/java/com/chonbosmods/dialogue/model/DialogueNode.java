@@ -1,5 +1,6 @@
 package com.chonbosmods.dialogue.model;
 
+import com.chonbosmods.dialogue.ValenceType;
 import com.chonbosmods.stats.Skill;
 import com.chonbosmods.stats.Stat;
 
@@ -17,7 +18,8 @@ public sealed interface DialogueNode {
         List<ResponseOption> responses,
         List<Map<String, String>> onEnter,
         boolean exhaustsTopic,
-        boolean locksConversation
+        boolean locksConversation,
+        @Nullable ValenceType valence
     ) implements DialogueNode {}
 
     record SkillCheckNode(

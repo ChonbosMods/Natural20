@@ -80,10 +80,10 @@ public class TopicGraphBuilder {
         String returnGreetingNodeId = "return_greeting";
 
         nodes.put(greetingNodeId, new DialogueNode.DialogueTextNode(
-            greetingText, null, List.of(), List.of(), false, false
+            greetingText, null, List.of(), List.of(), false, false, null
         ));
         nodes.put(returnGreetingNodeId, new DialogueNode.DialogueTextNode(
-            returnGreetingText, null, List.of(), List.of(), false, false
+            returnGreetingText, null, List.of(), List.of(), false, false, null
         ));
 
         // Build each topic
@@ -145,7 +145,7 @@ public class TopicGraphBuilder {
 
                     String reactionFallback = resolvedReactions.getFirst();
                     nodes.put(reactionNodeId, new DialogueNode.DialogueTextNode(
-                        reactionFallback, resolvedReactions, List.of(), List.of(), false, false
+                        reactionFallback, resolvedReactions, List.of(), List.of(), false, false, null
                     ));
 
                     String reactionPrompt = pickPromptFromGroups(template.reactionPrompts());
@@ -157,7 +157,7 @@ public class TopicGraphBuilder {
 
                 // Detail node
                 nodes.put(detailNodeId, new DialogueNode.DialogueTextNode(
-                    detailText, null, detailChildResponses, List.of(), false, false
+                    detailText, null, detailChildResponses, List.of(), false, false, null
                 ));
 
                 // Detail response option on entry node
@@ -189,7 +189,7 @@ public class TopicGraphBuilder {
                     passText, null, List.of(),
                     List.of(Map.of("type", "MODIFY_DISPOSITION", "amount",
                         String.valueOf(STAT_CHECK_PASS_DISPOSITION))),
-                    true, false
+                    true, false, null
                 ));
 
                 // Fail node: disposition penalty, exhausts topic
@@ -197,7 +197,7 @@ public class TopicGraphBuilder {
                     failText, null, List.of(),
                     List.of(Map.of("type", "MODIFY_DISPOSITION", "amount",
                         String.valueOf(STAT_CHECK_FAIL_DISPOSITION))),
-                    true, false
+                    true, false, null
                 ));
 
                 // Skill check node
@@ -247,12 +247,12 @@ public class TopicGraphBuilder {
                 ), confirmNodeId, List.of(), false
             ));
             nodes.put(confirmNodeId, new DialogueNode.DialogueTextNode(
-                confirmText, null, List.of(), List.of(), true, false
+                confirmText, null, List.of(), List.of(), true, false, null
             ));
             nodes.put(declineNodeId, new DialogueNode.DialogueTextNode(
                 "I understand. Perhaps another time.", null, List.of(),
                 List.of(Map.of("type", "UNLOCK_TOPIC", "topicId", subjectId, "scope", "GLOBAL")),
-                true, false
+                true, false, null
             ));
 
             // Build explorable chain if plotStep and outro are available
@@ -279,7 +279,7 @@ public class TopicGraphBuilder {
                         ResponseMode.DECISIVE, null, null, null, null
                     ));
                     nodes.put(outroNodeId, new DialogueNode.DialogueTextNode(
-                        outro, null, outroResponses, List.of(), false, false
+                        outro, null, outroResponses, List.of(), false, false, null
                     ));
 
                     plotResponses.add(new ResponseOption(
@@ -298,7 +298,7 @@ public class TopicGraphBuilder {
                 ));
 
                 nodes.put(plotNodeId, new DialogueNode.DialogueTextNode(
-                    plotStep, null, plotResponses, List.of(), false, false
+                    plotStep, null, plotResponses, List.of(), false, false, null
                 ));
 
                 // Exploratory link from entry to plot
@@ -324,7 +324,7 @@ public class TopicGraphBuilder {
             ? List.of()
             : List.of(Map.of("type", "UNLOCK_TOPIC", "topicId", subjectId, "scope", "GLOBAL"));
         nodes.put(entryNodeId, new DialogueNode.DialogueTextNode(
-            introText, null, entryResponses, entryOnEnter, false, false
+            introText, null, entryResponses, entryOnEnter, false, false, null
         ));
 
         // Topic definition
