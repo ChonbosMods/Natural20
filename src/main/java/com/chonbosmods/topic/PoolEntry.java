@@ -1,5 +1,7 @@
 package com.chonbosmods.topic;
 
+import com.chonbosmods.dialogue.ValenceType;
+
 import javax.annotation.Nullable;
 import java.util.List;
 
@@ -12,7 +14,8 @@ public record PoolEntry(
     String intro,
     List<String> details,
     List<String> reactions,
-    @Nullable StatCheck statCheck
+    @Nullable StatCheck statCheck,
+    ValenceType valence
 ) {
     public record StatCheck(
         String pass,

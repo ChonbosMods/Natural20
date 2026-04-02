@@ -1,6 +1,7 @@
 package com.chonbosmods.topic;
 
 import com.chonbosmods.dialogue.DispositionBracket;
+import com.chonbosmods.dialogue.ValenceType;
 import com.chonbosmods.dialogue.model.DialogueGraph;
 import com.chonbosmods.quest.DialogueResolver;
 import com.chonbosmods.quest.QuestGenerator;
@@ -303,7 +304,7 @@ public class TopicGenerator {
             entry = pool.get(idx);
         } else {
             entry = new PoolEntry(0, "I have heard something about {subject_focus}...",
-                List.of("That is all I know, really."), List.of("Make of it what you will."), null);
+                List.of("That is all I know, really."), List.of("Make of it what you will."), null, ValenceType.NEUTRAL);
         }
 
         // Pick skill from template's skills array

@@ -1,5 +1,6 @@
 package com.chonbosmods.topic;
 
+import com.chonbosmods.dialogue.ValenceType;
 import com.google.common.flogger.FluentLogger;
 import com.google.gson.*;
 
@@ -339,7 +340,11 @@ public class TopicPoolRegistry {
                 JsonObject sc = obj.getAsJsonObject("statCheck");
                 statCheck = new PoolEntry.StatCheck(sc.get("pass").getAsString(), sc.get("fail").getAsString());
             }
-            pool.add(new PoolEntry(id, intro, details, reactions, statCheck));
+            ValenceType valence = ValenceType.NEUTRAL;
+            if (obj.has("valence")) {
+                valence = ValenceType.fromString(obj.get("valence").getAsString());
+            }
+            pool.add(new PoolEntry(id, intro, details, reactions, statCheck, valence));
         }
         coherentPools.put(templateId, pool);
     }
