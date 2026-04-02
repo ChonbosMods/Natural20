@@ -78,6 +78,9 @@ public class DialogueTypewriter {
         // Advance at least one character
         currentIndex++;
 
+        // Remember the character just revealed (before space-skipping shifts the index)
+        int revealedIndex = currentIndex - 1;
+
         // Skip past spaces: consume them instantly so words don't start with a gap
         while (currentIndex < fullText.length() && fullText.charAt(currentIndex) == ' ') {
             currentIndex++;
@@ -101,7 +104,7 @@ public class DialogueTypewriter {
         }
 
         // Determine delay based on the character just revealed and surrounding context
-        long delay = computeDelay();
+        long delay = computeDelay(revealedIndex);
         pendingFuture = SCHEDULER.schedule(this::tick, delay, TimeUnit.MILLISECONDS);
     }
 
@@ -152,18 +155,18 @@ public class DialogueTypewriter {
     }
 
     /** Compute the delay after the just-revealed character, with ellipsis awareness. */
-    private long computeDelay() {
-        char revealed = fullText.charAt(currentIndex - 1);
+    private long computeDelay(int revealedIndex) {
+        char revealed = fullText.charAt(revealedIndex);
 
         if (revealed == '.' || revealed == '?' || revealed == '!') {
             // Mid-ellipsis: next char is also '.', don't pause yet
-            if (currentIndex < fullText.length() && fullText.charAt(currentIndex) == '.') {
+            if (revealedIndex + 1 < fullText.length() && fullText.charAt(revealedIndex + 1) == '.') {
                 return DELAY_DEFAULT;
             }
             // End of ellipsis (3+ dots): long pause
-            if (revealed == '.' && currentIndex >= 3
-                    && fullText.charAt(currentIndex - 2) == '.'
-                    && fullText.charAt(currentIndex - 3) == '.') {
+            if (revealed == '.' && revealedIndex >= 2
+                    && fullText.charAt(revealedIndex - 1) == '.'
+                    && fullText.charAt(revealedIndex - 2) == '.') {
                 return DELAY_ELLIPSIS;
             }
             return DELAY_SENTENCE_END;
