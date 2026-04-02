@@ -1,5 +1,6 @@
 package com.chonbosmods.topic;
 
+import com.chonbosmods.dialogue.ValenceType;
 import com.chonbosmods.dialogue.model.*;
 import com.chonbosmods.quest.DialogueResolver;
 import com.chonbosmods.stats.Skill;
@@ -111,6 +112,7 @@ public class TopicGraphBuilder {
         Map<String, String> bindings = assignment.bindings();
         TopicTemplate template = assignment.template();
         PoolEntry entry = assignment.entry();
+        ValenceType entryValence = entry.valence();
 
         String entryNodeId = subjectId + "_entry";
 
@@ -145,7 +147,7 @@ public class TopicGraphBuilder {
 
                     String reactionFallback = resolvedReactions.getFirst();
                     nodes.put(reactionNodeId, new DialogueNode.DialogueTextNode(
-                        reactionFallback, resolvedReactions, List.of(), List.of(), false, false, null
+                        reactionFallback, resolvedReactions, List.of(), List.of(), false, false, entryValence
                     ));
 
                     String reactionPrompt = pickPromptFromGroups(template.reactionPrompts());
@@ -157,7 +159,7 @@ public class TopicGraphBuilder {
 
                 // Detail node
                 nodes.put(detailNodeId, new DialogueNode.DialogueTextNode(
-                    detailText, null, detailChildResponses, List.of(), false, false, null
+                    detailText, null, detailChildResponses, List.of(), false, false, entryValence
                 ));
 
                 // Detail response option on entry node
@@ -189,7 +191,7 @@ public class TopicGraphBuilder {
                     passText, null, List.of(),
                     List.of(Map.of("type", "MODIFY_DISPOSITION", "amount",
                         String.valueOf(STAT_CHECK_PASS_DISPOSITION))),
-                    true, false, null
+                    true, false, entryValence
                 ));
 
                 // Fail node: disposition penalty, exhausts topic
@@ -197,7 +199,7 @@ public class TopicGraphBuilder {
                     failText, null, List.of(),
                     List.of(Map.of("type", "MODIFY_DISPOSITION", "amount",
                         String.valueOf(STAT_CHECK_FAIL_DISPOSITION))),
-                    true, false, null
+                    true, false, entryValence
                 ));
 
                 // Skill check node
@@ -324,7 +326,7 @@ public class TopicGraphBuilder {
             ? List.of()
             : List.of(Map.of("type", "UNLOCK_TOPIC", "topicId", subjectId, "scope", "GLOBAL"));
         nodes.put(entryNodeId, new DialogueNode.DialogueTextNode(
-            introText, null, entryResponses, entryOnEnter, false, false, null
+            introText, null, entryResponses, entryOnEnter, false, false, entryValence
         ));
 
         // Topic definition
