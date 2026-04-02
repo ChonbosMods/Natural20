@@ -354,14 +354,15 @@ public class TopicGenerator {
         bindings.put("time_ref", dedup.drawFrom("time_refs", topicPool.getTimeRefs(), random));
         bindings.put("direction", dedup.drawFrom("directions", topicPool.getDirections(), random));
 
-        // Tone framing
+        // Tone framing (valence-aware)
         String bracket = dispositionBracket(disposition);
         FramingShape shape = isQuestBearer ? FramingShape.BARE : FramingShape.roll(bracket, random);
+        ValenceType entryValence = entry.valence();
         bindings.put("tone_opener", shape.hasOpener()
-            ? dedup.drawFrom("tone_opener_" + bracket, topicPool.getToneOpeners(bracket), random) + " "
+            ? topicPool.randomToneOpener(bracket, entryValence, random) + " "
             : "");
         bindings.put("tone_closer", shape.hasCloser()
-            ? " " + dedup.drawFrom("tone_closer_" + bracket, topicPool.getToneClosers(bracket), random)
+            ? " " + topicPool.randomToneCloser(bracket, entryValence, random)
             : "");
 
         // Entry content: pre-resolve variables in pool text so nested tokens
