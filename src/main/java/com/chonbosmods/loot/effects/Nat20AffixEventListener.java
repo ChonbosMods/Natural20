@@ -21,9 +21,10 @@ import com.hypixel.hytale.component.query.Query;
 import com.hypixel.hytale.component.system.EntityEventSystem;
 import com.hypixel.hytale.server.core.entity.entities.Player;
 import com.hypixel.hytale.server.core.event.events.ecs.BreakBlockEvent;
-import com.hypixel.hytale.server.core.inventory.Inventory;
+import com.hypixel.hytale.component.ComponentType;
+import com.hypixel.hytale.server.core.inventory.InventoryComponent;
 import com.hypixel.hytale.server.core.inventory.ItemStack;
-import com.hypixel.hytale.server.core.inventory.container.ItemContainer;
+import com.hypixel.hytale.server.core.inventory.container.CombinedItemContainer;
 import com.hypixel.hytale.server.core.modules.entity.damage.Damage;
 import com.hypixel.hytale.server.core.modules.entity.damage.DamageEventSystem;
 import com.hypixel.hytale.server.core.universe.world.storage.EntityStore;
@@ -101,7 +102,7 @@ public class Nat20AffixEventListener {
         PlayerStats playerStats = resolvePlayerStats(attacker.getReference(), store);
 
         // Get the player's active hotbar item (the weapon used to attack)
-        ItemStack weapon = attacker.getInventory().getActiveHotbarItem();
+        ItemStack weapon = InventoryComponent.getItemInHand(store, attacker.getReference());
         if (weapon == null || weapon.isEmpty()) return;
 
         Nat20LootData lootData = weapon.getFromMetadataOrNull(Nat20LootData.METADATA_KEY);
@@ -121,8 +122,10 @@ public class Nat20AffixEventListener {
 
         PlayerStats playerStats = resolvePlayerStats(targetRef, store);
 
-        Inventory inventory = target.getInventory();
-        ItemContainer armorContainer = inventory.getArmor();
+        @SuppressWarnings("unchecked")
+        CombinedItemContainer armorContainer = InventoryComponent.getCombined(
+                store, targetRef, new ComponentType[]{InventoryComponent.Armor.getComponentType()});
+        if (armorContainer == null) return;
         short armorCapacity = armorContainer.getCapacity();
 
         for (short slot = 0; slot < armorCapacity; slot++) {
