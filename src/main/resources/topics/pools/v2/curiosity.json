@@ -24,7 +24,8 @@
       "intro": "The sundial near {subject_focus_the} has been telling the wrong time. Not drifting: it's exactly one hour ahead, and it's been that way for a month.",
       "details": [
         "It was accurate for decades. The mason who built it knew his craft. Nothing about the dial has changed.",
-        "Other sundials in the area read correctly. It's just this one, and only since the last new moon."
+        "Other sundials in the area read correctly. It's just this one, and only since the last new moon.",
+        "A merchant set his hourglass beside it to compare. The sand runs at the same pace as always, but the shadow moves faster. It gains that hour gradually, all through the day."
       ],
       "reactions": [
         "The practical explanation is that something shifted the base. But I've checked: it hasn't moved a hair.",
@@ -77,6 +78,431 @@
         "The children dare each other to go in. The adults generally don't. There's something deeply wrong about seeing your own shadow disobey.",
         "A scholar visited and spent an hour inside with measuring tools. He left without saying anything and I haven't seen him since."
       ]
+    },
+    {
+      "id": 5,
+      "intro": "There's a cluster of stones near {subject_focus_the} that are always warm to the touch. Middle of winter, frost on the ground, and those stones feel like they've been sitting in the sun all day.",
+      "details": [
+        "Five of them, arranged in a rough circle. Each one about the size of a chair. The warmth is even across the surface: no hot spots, no cool edges.",
+        "Animals sleep near them in cold weather. You'll find foxes, rabbits, even birds huddled around them at dawn.",
+        "The ground between the stones is dry when everything else is muddy. Whatever is warming them keeps the soil baked."
+      ],
+      "reactions": [
+        "I've been here my whole life and they've always been warm. My parents said the same. Nobody remembers them being cold.",
+        "It's pleasant, honestly. I sit there on cold mornings sometimes. But I can never shake the question of where the heat comes from."
+      ],
+      "statCheck": {
+        "pass": "I dug around the base of one. The warmth goes deep: at least an arm's length down, the soil is warm too. And the rock underneath is a different color than the local stone. These were brought here from somewhere else.",
+        "fail": "I thought maybe there was a hot spring underneath, but there is no steam, no moisture, no smell. The heat just exists without a source I can identify."
+      }
+    },
+    {
+      "id": 6,
+      "intro": "There's an open field near {subject_focus_the} where you hear echoes. No walls, no cliffs, nothing for the sound to bounce off. But shout and your voice comes back to you from three directions.",
+      "details": [
+        "The echoes aren't delayed the same amount. One comes back almost immediately, another a half second later, the third after a full second. Like they're bouncing off things at different distances.",
+        "It only works with human voices. I've clapped, banged a pot, thrown rocks. Nothing echoes but speech.",
+        "The echoes are quieter than the original sound, but they're clear. You can make out individual words in the return."
+      ],
+      "reactions": [
+        "The practical people say it's some trick of the terrain. But I've walked every direction from that spot, and there is nothing to bounce sound off for a quarter mile.",
+        "It's oddly comforting in a way. Like someone is answering you. Until you start wondering who."
+      ],
+      "statCheck": {
+        "pass": "I tested it methodically: spoke single words from different positions in the field. The echoes always return from the same three directions regardless of where you stand. Those directions point to three old marker stones, each one buried and barely visible above the grass.",
+        "fail": "I have stood in that field and listened more times than I can count. The echoes are real, but I cannot explain what they are bouncing off of."
+      }
+    },
+    {
+      "id": 7,
+      "intro": "Someone near {subject_focus_the} left a blank journal on a shelf overnight. In the morning, three pages were covered in writing. Neat, careful handwriting that doesn't match anyone in the household.",
+      "details": [
+        "The writing is legible but the language is unfamiliar. Letters that look almost like common script but with extra strokes and marks that don't belong to any alphabet I know.",
+        "It happened twice more after that. Different shelves, different rooms, same handwriting.",
+        "The ink is real: you can smudge it with a wet thumb. Whatever wrote those pages used actual ink, not some trick of the paper."
+      ],
+      "reactions": [
+        "The family started locking their blank paper in a chest at night. In the morning, the writing appeared on the inside of the chest lid instead.",
+        "I want to say it's a prank. I really do. But nobody in that house can write that neatly, and the doors were barred from inside."
+      ],
+      "statCheck": {
+        "pass": "I compared the unknown script against old records in the archive. Some of the letter shapes match a notation system used by surveyors centuries ago: measurements and boundary markers. Whatever is writing those pages may be recording the dimensions of something.",
+        "fail": "The script does not match anything in the archive or any trade language I have seen. Without more samples there is no way to even guess what it means."
+      }
+    },
+    {
+      "id": 8,
+      "intro": "A set of tools near {subject_focus_the} keeps rearranging itself overnight. The smith leaves them in one order, comes back in the morning to find them sorted by size, handles all facing the same direction.",
+      "details": [
+        "It's not random. The arrangement is deliberate: hammers grouped by weight, tongs by jaw width, files by tooth count. Someone who knew the tools organized them.",
+        "The smith tried scattering them before locking up. By morning, they were sorted again. Different grouping this time: by metal type instead of size.",
+        "Nothing else in the shop is disturbed. The forge is cold, the door is latched, the floor is clean. Only the tools move."
+      ],
+      "reactions": [
+        "The smith isn't frightened. She says whoever is doing it has good taste in organization. But she does check the lock twice now.",
+        "If something wants to sort my tools for me, I'm not about to complain. That's more help than I get from most people."
+      ],
+      "statCheck": {
+        "pass": "I noticed the sorting follows a system: each night's arrangement matches a different cataloging method. Weight, then composition, then age. Whatever is doing this is cycling through classification schemes, like it's studying the collection.",
+        "fail": "The arrangements look purposeful, but I cannot figure out the logic behind which grouping appears on which night. It might be random for all I can tell."
+      }
+    },
+    {
+      "id": 9,
+      "intro": "There's a stretch of road near {subject_focus_the} where people stumble. Not on anything: the road is flat and well-kept. But everyone who walks that section trips at the same spot.",
+      "details": [
+        "I watched three different people walk through on the same day. Each one stumbled at exactly the same point, about forty paces past the old boundary marker.",
+        "Wagons roll through fine. Animals walk through without a hitch. It only affects people on foot.",
+        "Some folk have started stepping over the spot deliberately, like there's a threshold they can't see. That seems to work."
+      ],
+      "reactions": [
+        "It's funny until it isn't. A woman carrying a water jug fell hard enough to cut her knee. The road didn't do anything wrong: it's perfectly smooth.",
+        "The children turned it into a game. They run through and see who can keep their footing. Nobody can."
+      ],
+      "statCheck": {
+        "pass": "I measured the spot carefully. There's a slight difference in temperature at that exact point: the air is about two degrees cooler in a band no wider than a hand span. It's as if something invisible is crossing the road at ankle height.",
+        "fail": "I have walked that stretch a dozen times trying to figure it out. I trip every time. There is nothing on the ground, nothing underfoot. My legs just buckle at that spot."
+      }
+    },
+    {
+      "id": 10,
+      "intro": "There's a door in an old wall near {subject_focus_the} that opens to a different room each time. Same door, same handle, but the space behind it changes.",
+      "details": [
+        "First time I opened it, there was a storage room with shelves. Second time, it was an empty chamber with a dirt floor. Third time, a hallway that went further than the wall should allow.",
+        "The door itself is unremarkable: old wood, iron hinges, no lock. The wall it's set in is solid stone, about three paces thick.",
+        "If you step through and close the door behind you, it opens back to where you came from. The room only exists while the door is open."
+      ],
+      "reactions": [
+        "I stopped opening it after the fourth time. The hallway I saw was longer than the entire building. That's not possible, and I don't want to find out what's at the end.",
+        "Most people walk past it without a second look. You have to already know it's strange before you notice anything wrong."
+      ],
+      "statCheck": {
+        "pass": "I opened the door twelve times and catalogued what I saw. The rooms repeat on a cycle of seven. Always the same sequence: storage, chamber, hallway, workshop, garden, cellar, empty dark. Then it starts over.",
+        "fail": "I opened it three times and saw three different things. Whether there is a pattern or it is truly random, I cannot say based on so few observations."
+      }
+    },
+    {
+      "id": 11,
+      "intro": "Footprints keep appearing on the floors near {subject_focus_the} overnight. Clean stone in the evening, barefoot prints in dust by morning. And nobody walks those halls at night.",
+      "details": [
+        "The prints are small: a child's size, maybe. Always barefoot, always the same path from the north wall to the hearth and back.",
+        "The caretaker sweeps every evening. She's started placing a thread across the doorway before she leaves. The thread is never broken, but the prints appear anyway.",
+        "They only appear on stone floors. The wooden sections of the building never show any marks."
+      ],
+      "reactions": [
+        "The caretaker doesn't seem bothered. She says she's been sweeping those same prints for years. It's just part of the routine now.",
+        "I placed my own foot next to one of the prints. They're too narrow: wrong proportions. Whatever is making them doesn't walk like a person."
+      ],
+      "statCheck": {
+        "pass": "I measured the stride length and the foot shape. The proportions don't match any age of human: the arch is too high and the toes are evenly spaced, not tapered. This isn't a person's foot. It just looks close enough that most people assume it is.",
+        "fail": "They look like ordinary footprints to me. Small, barefoot, nothing distinctive. Without catching whatever makes them in the act, there is not much more to learn from the marks alone."
+      }
+    },
+    {
+      "id": 12,
+      "intro": "There's a statue near {subject_focus_the} that faces a different direction each morning. Nobody sees it move, nobody hears it move, but every dawn it's turned.",
+      "details": [
+        "It's carved from a single block of stone. Heavy enough that four men couldn't shift it. And yet the base shows no scrape marks, no signs of dragging.",
+        "I marked its position with chalk three nights running. Each morning the chalk line was wrong by exactly ninety degrees. A quarter turn, every time.",
+        "It faces the four cardinal directions in order: north, east, south, west. Then starts again. It has never faced any direction in between."
+      ],
+      "reactions": [
+        "The first few times, people thought someone was playing a trick. Then they tried to move it themselves and couldn't. That quieted the jokes.",
+        "I find myself checking it each morning like it's a clock. North today means east tomorrow. There's a strange comfort in the consistency."
+      ],
+      "statCheck": {
+        "pass": "I stayed awake all night watching it. The turn happens in the moment between looking away and looking back. I blinked, and it had shifted. Whatever moves it does not operate in continuous motion: it simply is facing one way, and then it is facing another.",
+        "fail": "I sat up watching it for hours but fell asleep before dawn. By the time I woke, it had already turned. I cannot say when it happens."
+      }
+    },
+    {
+      "id": 13,
+      "intro": "There's a channel cut into the rock near {subject_focus_the} where water flows uphill. Not fast, not dramatic: a slow, steady trickle moving up an incline that shouldn't allow it.",
+      "details": [
+        "The channel is about as wide as two fingers and carved deliberately. Straight edges, even depth. Someone made this a long time ago.",
+        "I poured dye into the lower end. It crawled up the channel and pooled at the top, about ten paces higher than where I started.",
+        "Other water in the area flows normally. Streams, puddles, rainfall: all obey gravity. It's only this channel."
+      ],
+      "reactions": [
+        "The practical explanation would be some kind of siphon effect, but the channel is open to the air the entire way. There's nothing sealed, nothing pressurized.",
+        "I poured water on the ground next to the channel. It ran downhill as expected. Whatever is happening only works inside those carved walls."
+      ],
+      "statCheck": {
+        "pass": "I examined the stone inside the channel. The surface has been polished smooth, but there are faint marks scored into the bottom: tiny, repeating symbols running the full length. Some kind of inscription too small to read without a lens. The channel isn't just carved: it's written on.",
+        "fail": "The stone inside the channel looks the same as the stone outside it. If there is a mechanism at work, it is not visible to me."
+      }
+    },
+    {
+      "id": 14,
+      "intro": "Sealed letters have been appearing in the archive near {subject_focus_the}. Nobody delivers them. They're just there in the morning, tucked between existing documents like they've always been there.",
+      "details": [
+        "The wax seal doesn't match any family or office in the region. A mark like a spiral with a line through it.",
+        "The paper is old: yellowed, brittle at the edges. But the ink is fresh. Dark and sharp, as if it were written yesterday on paper that's been aging for decades.",
+        "Three letters so far, spaced about a week apart. Each one is longer than the last."
+      ],
+      "reactions": [
+        "The archivist has them locked away now. She won't say what they contain. Just that the contents are 'detailed' and leaves it at that.",
+        "Whoever is sending them knows the archive well enough to file them in the correct section. The first appeared between two land surveys. The second between census records."
+      ],
+      "statCheck": {
+        "pass": "I got a look at the second letter. It contains precise measurements of the settlement boundaries: distances, angles, elevations. The measurements are accurate. I checked them against our own surveys. But the letter describes the settlement as it was before the eastern quarter was built, which was over a century ago.",
+        "fail": "The archivist will not let anyone read them, and the seal is too unfamiliar to trace. Without access to the contents, all I can tell you is that they exist."
+      }
+    },
+    {
+      "id": 15,
+      "intro": "There's a room in the old building near {subject_focus_the} that is always colder than the rooms around it. Not drafty: there's no wind. The air itself is just ten degrees lower than it should be.",
+      "details": [
+        "The walls are the same thickness as every other room. Same stone, same construction. No windows, no cracks, no reason for the cold.",
+        "Breath fogs in that room even on warm days. You can step through the doorway and watch your breath appear and disappear as you cross the threshold.",
+        "Objects left in the room get cold too. I left a mug of water in there overnight and it had a skin of ice by morning, while the hall outside was comfortable."
+      ],
+      "reactions": [
+        "Nobody uses it for anything anymore. It was a storeroom once, but the cold spoiled the grain in ways that regular winter cold doesn't.",
+        "I don't mind the cold itself. What I mind is that it has boundaries. Cold doesn't stop at a doorframe. This cold does."
+      ],
+      "statCheck": {
+        "pass": "I brought a candle into the room and the flame burned perfectly still. No flicker at all. The air in there isn't just cold: it's completely motionless. No convection, no draft, nothing. Still air at that temperature should not exist in an enclosed stone room.",
+        "fail": "I have felt the cold myself. It is real, and it is contained to that room, but I cannot explain why. Cold rooms happen in old buildings. This one just happens more than it should."
+      }
+    },
+    {
+      "id": 16,
+      "intro": "The old bell near {subject_focus_the} started ringing a note it wasn't cast for. Same bell, same clapper, but the tone is about two steps lower than it has ever been.",
+      "details": [
+        "A bellwright examined it and said the metal is unchanged. No cracks, no corrosion, no physical reason for the pitch to shift.",
+        "The new tone resonates differently through the buildings. You can feel it in your chest where the old note sat in your ears.",
+        "It changed overnight, about three weeks ago. The morning ringer pulled the rope and the whole village noticed something was wrong before the second stroke."
+      ],
+      "reactions": [
+        "The bellwright was rattled. She said a bell's pitch is determined by its shape and mass. To change the note, you'd have to change the bell. But the bell hasn't changed.",
+        "People have gotten used to it. But sometimes in the evening, just before it rings, I catch myself bracing for a note that no longer comes."
+      ],
+      "statCheck": {
+        "pass": "I asked the bellwright directly what could cause this. She hesitated, then said one thing could do it: if the density of the metal changed without the shape changing. Same bell, same size, but heavier. She weighed it. It's gained about two pounds since the last record, with no visible addition.",
+        "fail": "The bellwright insists there is no physical explanation. The bell is the same bell. She has checked it three times and the only thing different is the sound it makes."
+      }
+    },
+    {
+      "id": 17,
+      "intro": "There's a stretch of wall near {subject_focus_the} that absorbs sound completely. Stand next to it and talk, and your voice just dies. No echo, no resonance, nothing comes back.",
+      "details": [
+        "It's about fifteen paces of wall, stone, same as the rest of the building. But the stone in that section swallows every sound that hits it.",
+        "I clapped my hands an inch from the surface. Normally you'd hear the slap bounce off the stone. Nothing. The sound went in and didn't come out.",
+        "If you press your ear against it, you can hear a faint hum from inside the wall. Low and constant, like the stone itself is vibrating at a frequency just below hearing."
+      ],
+      "reactions": [
+        "The builders checked the mortar and the stonework. Everything is solid. There are no cavities, no voids, no reason for the wall to behave differently from the sections on either side.",
+        "Standing next to it is deeply unsettling. You don't realize how much you depend on ambient sound until it vanishes."
+      ],
+      "statCheck": {
+        "pass": "I mapped exactly where the absorption starts and stops. The boundary is sharp: within a finger's width, sound goes from normal to nothing. And the silent zone is expanding. I measured it a week apart and it had grown by two hand-widths on each end.",
+        "fail": "The wall looks and feels exactly like every other section of the building. Without specialized instruments, there is no way to determine what makes those fifteen paces different."
+      }
+    },
+    {
+      "id": 18,
+      "intro": "There's a bare patch of ground near {subject_focus_the} where nothing will grow. Not a big spot: about the size of a cart wheel. But the soil is dead in a perfect circle.",
+      "details": [
+        "The soil looks healthy. Dark, moist, full of the same minerals as the ground around it. But seeds planted there won't sprout. Cuttings wither within a day.",
+        "Weeds grow right up to the edge and stop. The boundary is so clean it looks like someone drew a line.",
+        "A gardener tested the soil and said there's nothing wrong with it. Proper acidity, good drainage, no toxins. It should grow anything."
+      ],
+      "reactions": [
+        "A child planted a sunflower seed there as a test. We watched it for two weeks. The soil around the seed was fine, but the seed itself just sat there, unchanged. Didn't rot, didn't sprout. Like time stopped for it.",
+        "It's easy to walk past without noticing. Just a bare spot in the ground. But once you know it's a perfect circle, you can't unsee it."
+      ],
+      "statCheck": {
+        "pass": "I dug down in the center of the circle. About two feet down, the soil changes. It's compacted into a flat layer, perfectly level, hard as fired clay. Something underneath is sealed, and the circle above it is exactly the same diameter.",
+        "fail": "I dug a shallow hole in the patch and found nothing unusual. Just soil, same as anywhere else. Whatever is preventing growth, it is not something you can see or touch."
+      }
+    },
+    {
+      "id": 19,
+      "intro": "Rain near {subject_focus_the} always pools in the same shape. Every puddle in one particular low spot forms the outline of a closed hand. Every time it rains, without fail.",
+      "details": [
+        "The ground is flat there: no ruts, no depressions that would channel the water. And yet the puddle forms the same five-fingered shape every time.",
+        "I scraped the dirt flat with a board and let it rain on fresh ground. Same shape. The water finds the pattern regardless of the surface.",
+        "It dries from the fingertips inward. The palm is the last section to evaporate, always."
+      ],
+      "reactions": [
+        "The first time I noticed, I thought I was imagining it. The second time, I brought a neighbor. She saw it too. We stood there in the rain staring at a puddle shaped like a fist.",
+        "It doesn't mean anything, probably. Water does strange things in low ground. But water doesn't usually do the same strange thing twice."
+      ],
+      "statCheck": {
+        "pass": "I traced the outline and measured it against several different rains. The shape is identical each time, down to the proportions. And the hand is left-handed. The thumb position and finger taper are anatomically consistent with a specific left hand, not a generic shape.",
+        "fail": "It looks like a hand, but so do a lot of puddles if you stare at them long enough. I am not sure I can prove it is the same shape every time rather than a trick of memory."
+      }
+    },
+    {
+      "id": 20,
+      "intro": "New carvings have been appearing on the old stones near {subject_focus_the}. Marks that weren't there last season, cut deep into the surface like they've been there for years.",
+      "details": [
+        "The style matches the original carvings: same depth, same tool marks, same weathering pattern. But I know every mark on those stones and these are new.",
+        "Three new symbols so far. They've appeared one at a time, about two weeks apart. Each one on a different stone in the circle.",
+        "The stone dust from the carving is gone. When you cut into rock, there should be grit, fragments, debris. Nothing. The marks appear clean."
+      ],
+      "reactions": [
+        "I've been sketching those stones for years. My older drawings don't show these marks. Someone is adding to a work that's been untouched for centuries, and they're doing it in the original hand.",
+        "I'd blame a stonemason with a strange sense of humor, except nobody around here has the tools or the skill to match that kind of detail. The original carver knew techniques we've lost."
+      ],
+      "statCheck": {
+        "pass": "I compared the new symbols against the old ones and found a pattern. The originals are pictographic: each one represents something observable. The new ones use the same visual language but describe things that don't exist around here. Structures, landforms, something that looks like a map of a place I've never seen.",
+        "fail": "The new symbols look similar in style to the old ones, but I do not know what any of them mean. Without a key to the original carvings, the new additions are equally unreadable."
+      }
+    },
+    {
+      "id": 21,
+      "intro": "Objects near {subject_focus_the} weigh differently at different times of day. The same sack of flour is heavier at noon than it is at midnight. Every scale in the village agrees.",
+      "details": [
+        "The difference is small but consistent: about a fistful of grain's worth of change between the lightest and heaviest reading. It follows a curve through the day.",
+        "The merchants noticed it first. Goods sold at morning market weighed less than the same goods at the afternoon check. Caused three arguments in one week.",
+        "It's not the scales. I weighed the same stone on four different scales at the same time and they all gave the same reading. They all drift together."
+      ],
+      "reactions": [
+        "The market master had to set a standard weighing hour. Everyone trades at the same time of day now, which at least makes it fair, even if nobody understands why it's necessary.",
+        "I try not to think about what it means for something's weight to change. Weight is weight. It's the one thing that isn't supposed to shift."
+      ],
+      "statCheck": {
+        "pass": "I plotted the weight changes against the time of day for a week. The curve isn't random: it peaks exactly when the sun is highest and troughs at midnight. And the magnitude of the shift has been increasing slowly. Two months ago, the difference was barely noticeable. Now it's enough to throw off a merchant's scale.",
+        "fail": "The weight changes are real, but they are small enough that each individual measurement could be chalked up to instrument error. It is only the consistency of the pattern that makes it hard to dismiss."
+      }
+    },
+    {
+      "id": 22,
+      "intro": "People near {subject_focus_the} keep hearing construction sounds: hammering, sawing, stone being dragged. But there's no construction anywhere in the area.",
+      "details": [
+        "It comes and goes. A few hours in the afternoon, mostly. Sounds like a crew of workers: rhythmic hammering, the scrape of planks, someone calling out measurements.",
+        "The sound has no direction. You can't walk toward it: move left and it seems to come from the right. Move forward and it's behind you. It fills the area evenly.",
+        "A stonemason listened carefully and said the techniques she's hearing are old. The rhythm of the hammering matches a method that hasn't been used in generations."
+      ],
+      "reactions": [
+        "At first everyone assumed there was a building crew working beyond the ridge. Three people went to look. Nothing. Open ground in every direction.",
+        "I've gotten used to it, honestly. It's oddly reassuring: sounds of building, sounds of work. Whatever is being constructed, at least someone is busy."
+      ],
+      "statCheck": {
+        "pass": "The stonemason identified the specific technique: it's a foundation-laying method used for deep structures, meant for building downward rather than upward. Whatever these sounds represent, the construction is going underground.",
+        "fail": "The sounds are too diffuse to analyze in detail. They sound like construction, but without a direction to follow or a source to examine, that observation does not lead anywhere useful."
+      }
+    },
+    {
+      "id": 23,
+      "intro": "A door near {subject_focus_the} that's been sealed shut for as long as anyone remembers has started getting warm. The wood feels like it's been in direct sunlight, but it faces north and sits in shade all day.",
+      "details": [
+        "The warmth started about a month ago. At first, only noticeable if you touched the handle. Now the whole door radiates heat you can feel from two paces away.",
+        "The wall around it is cool. The hinges are cool. Only the wooden panels and the iron handle are warm. Whatever is heating it is coming through the door, not from outside.",
+        "Nobody knows what's behind it. The door is set into a foundation wall that predates the current building by a century or more. There are no other entrances to whatever space lies beyond."
+      ],
+      "reactions": [
+        "The owner of the building put a heavy shelf in front of it. She doesn't want anyone opening it, warm or not. Says some doors are closed for a reason.",
+        "I pressed my ear against it once. Couldn't hear anything. But the heat against my cheek made me pull away. It felt personal somehow, like standing too close to someone breathing."
+      ],
+      "statCheck": {
+        "pass": "I checked the foundation records in the archive. That wall predates the building by two centuries, not one. And there's a note in a survey from that era describing the door as 'sealed by agreement, not to be opened until the signal.' No record of what the signal is.",
+        "fail": "The building records don't go back far enough to explain what is behind that door. The current owners inherited the property and were told never to open it. That is all anyone knows."
+      }
+    },
+    {
+      "id": 24,
+      "intro": "There's a spot near {subject_focus_the} where dropped objects fall slower than they should. Not dramatically: just enough that you notice if you're paying attention. A stone takes a heartbeat longer to hit the ground.",
+      "details": [
+        "It's a small area, maybe ten paces across. Outside it, everything falls normally. Inside, there's a hesitation: like the air is thicker, but it doesn't feel any different to breathe.",
+        "The effect is consistent. I dropped the same rock from the same height twenty times. Each drop took the same slightly-too-long interval.",
+        "Heavier objects seem more affected than light ones. A pebble falls almost normally. A brick hangs in the air for a noticeable moment before it hits."
+      ],
+      "reactions": [
+        "The first person who noticed was a mason who dropped a chisel. He caught it by reflex, then realized he shouldn't have had time to react. That's when he started testing.",
+        "It's subtle enough that most people don't believe you until you show them. Then they drop something and go very quiet."
+      ],
+      "statCheck": {
+        "pass": "I brought a plumb line and held it at the edge of the area. Inside the zone, the line hangs at a slight angle: about two degrees off vertical, leaning inward toward the center. Whatever is slowing the fall isn't reducing gravity. It's redirecting it slightly toward a point underground.",
+        "fail": "I can see the delay with my own eyes, but I do not have the tools to measure the difference precisely. It could be a draft, an updraft, some trick of the terrain. I just do not believe it is."
+      }
+    },
+    {
+      "id": 25,
+      "intro": "A mirror in the old building near {subject_focus_the} shows a room that doesn't match the room it's in. Same shape, same size, but the furniture is different. Arranged for a life nobody here lives.",
+      "details": [
+        "The reflection shows a writing desk where there's actually a bench. Bookshelves where there's bare wall. A window where there's solid stone.",
+        "Your reflection is accurate: same clothes, same movements. It's only the room behind you that's wrong.",
+        "The reflected room has a candle burning on the desk. The flame moves. It flickers in drafts that don't exist on this side of the glass."
+      ],
+      "reactions": [
+        "I covered it with a cloth after the third time I looked. Something about seeing a room that's almost right but not quite makes the real room feel like the wrong one.",
+        "A visitor looked into it and didn't notice anything strange. When I pointed out the desk, she said she saw a bench. The mirror might show different people different things."
+      ],
+      "statCheck": {
+        "pass": "I sketched everything visible in the reflected room and brought the sketch to the archivist. She recognized the layout: it matches the floor plan of a study that existed in that building before it was renovated, over eighty years ago. The mirror is reflecting the room as it used to be.",
+        "fail": "The reflected room is detailed and consistent each time I look, but I cannot determine whether it corresponds to anything real or is simply an illusion of old glass."
+      }
+    },
+    {
+      "id": 26,
+      "intro": "Every clock near {subject_focus_the} loses exactly four minutes between midnight and dawn. Then runs perfectly for the rest of the day. Mechanical, water, candle: doesn't matter the type.",
+      "details": [
+        "The clockmaker checked three of them and swore they were running perfectly. Then he watched one through the night. Four minutes, gone. He couldn't explain it.",
+        "It's not a gradual loss. The clocks run normally until sometime around the third hour, then skip forward. As if four minutes simply didn't happen.",
+        "People who stay awake through the night don't notice anything. Time feels normal. But the clocks all agree that four minutes went somewhere."
+      ],
+      "reactions": [
+        "It's been happening for at least a month. Probably longer, but nobody keeps track of four minutes unless they have a reason to look.",
+        "The clockmaker refuses to discuss it now. She says the clocks are working correctly and the problem is with time, not with the instruments. I'm not sure that's more comforting."
+      ],
+      "statCheck": {
+        "pass": "I synchronized a clock inside the village with one outside, half a mile away. The village clock lost four minutes. The outside clock did not. Whatever is taking that time, it's confined to a specific area. And that area matches the old village boundary markers exactly.",
+        "fail": "Four minutes is such a small amount that each individual instance could be mechanical error. It is only because every clock agrees that anyone believes it is real."
+      }
+    },
+    {
+      "id": 27,
+      "intro": "A thread of smoke near {subject_focus_the} rises from a crack in the ground, straight up, day and night. No fire below, no heat, no smell. Just a thin line of white smoke that never stops.",
+      "details": [
+        "It's about as thick as a piece of twine. Rises perfectly vertical no matter the wind. I've seen it hold steady in storms that bent trees sideways.",
+        "The crack is narrow: you couldn't fit a blade into it. And the stone around it is cold. Whatever is producing the smoke isn't burning.",
+        "It reaches about thirty feet before it disperses. Same height every day. Like something above it is dissolving it at a specific altitude."
+      ],
+      "reactions": [
+        "The old-timers say it's been there as long as anyone can remember. Their parents mentioned it. Their grandparents mentioned it. It's just part of the landscape now.",
+        "I held my hand in the smoke once. It felt dry and slightly cool, like mist in reverse. My skin tingled for about an hour afterward, but no marks."
+      ],
+      "statCheck": {
+        "pass": "I sealed the crack with clay as a test. The smoke stopped for exactly one day, then resumed from the same spot, pushing through the clay like it wasn't there. The clay wasn't broken or disturbed: the smoke passed through solid material.",
+        "fail": "I have watched that smoke for hours and it never changes. Without being able to reach the source through such a narrow crack, there is no way to determine what is producing it."
+      }
+    },
+    {
+      "id": 28,
+      "intro": "The water in a basin near {subject_focus_the} ripples on its own. No wind, no vibration, no one touching it. The surface shivers in a steady rhythm, like something underneath is breathing.",
+      "details": [
+        "The ripples start from the center and move outward. Perfectly circular, evenly spaced. One every three seconds, like a heartbeat.",
+        "I placed the basin on different surfaces: stone, wood, packed earth. The ripples continued on each one. It's not vibration from the ground.",
+        "Fresh water from any source does the same thing once it's in that basin. Pour it out into a different container and it goes still. Pour it back and the ripples resume."
+      ],
+      "reactions": [
+        "The basin is old: carved from a single piece of dark stone. Nobody knows who made it or when. It was here when the first settlers arrived.",
+        "I've been using it as a water dish for years. The animals drink from it without concern. Whatever is causing the ripples, it doesn't seem to affect the water itself."
+      ],
+      "statCheck": {
+        "pass": "I counted the ripple intervals over a full day. They aren't constant: the rhythm slows slightly at night and quickens at midday. The pattern matches a resting heartbeat at night and an active one during the day. Whatever this basin is connected to, it keeps a schedule.",
+        "fail": "The ripples are perfectly regular as far as I can tell. I have no explanation for what drives them. The basin has no moving parts and the water is ordinary."
+      }
+    },
+    {
+      "id": 29,
+      "intro": "A staircase in the old foundation near {subject_focus_the} has more steps going down than it does coming back up. I've counted three times. Down is seventeen steps. Up is fourteen.",
+      "details": [
+        "The staircase is straight: no curves, no landings, no branches. Cut into solid stone. There is nowhere for steps to hide.",
+        "Other people have counted and they get different numbers, but it's always more going down than coming up. The difference varies between two and four steps.",
+        "I marked every third step with chalk going down. Coming back up, the chalk marks were on every fourth step. The spacing changed while I was at the bottom."
+      ],
+      "reactions": [
+        "I've started taking the long way around rather than using those stairs. Stairs should be the same in both directions. That's not an opinion: that's geometry.",
+        "A builder examined the staircase and measured each step with a rod. Every measurement was identical. Uniform height, uniform depth. The numbers just don't agree."
+      ],
+      "statCheck": {
+        "pass": "I brought a rope and measured the total length of the staircase from top to bottom, then bottom to top. The rope says the distance is the same both ways. The steps are the same height. The total is the same distance. But the count is different. Something is wrong with the counting itself, not the stairs.",
+        "fail": "I have counted those steps more times than is reasonable. The numbers are different each direction and I cannot determine why. The stairs look normal. They just refuse to add up."
+      }
     }
   ]
 }

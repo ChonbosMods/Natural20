@@ -24,7 +24,8 @@
       "intro": "There's been fog near {subject_focus_the} every morning for three weeks straight. Not unusual on its own, except it doesn't behave like fog.",
       "details": [
         "It rolls in from the east at exactly the same time each morning and burns off at exactly the same time. Down to the minute.",
-        "Sound doesn't carry through it. Stand ten paces from someone and you can't hear them shout."
+        "Sound doesn't carry through it. Stand ten paces from someone and you can't hear them shout.",
+        "It leaves a residue when it lifts. A thin film on every surface, slightly oily to the touch. Wipes off easily, but it's there every morning."
       ],
       "reactions": [
         "The children play in it, which terrifies their parents. Hard to keep track of someone you can't hear.",
@@ -53,7 +54,8 @@
       "intro": "The wind near {subject_focus_the} has been blowing in a circle for the past week. Not a storm, not a tornado: just a steady breeze that goes in a loop around the village.",
       "details": [
         "If you hang a ribbon anywhere in the village, it points clockwise. Step outside the village boundary and the air is perfectly still.",
-        "Smoke from the chimneys spirals instead of rising straight. It makes the whole village look like it's breathing."
+        "Smoke from the chimneys spirals instead of rising straight. It makes the whole village look like it's breathing.",
+        "Loose papers and light cloth get caught in the loop if you leave them out. They drift in slow circles and never land until you grab them."
       ],
       "reactions": [
         "People are used to it now, which worries me more than the wind itself. We shouldn't get comfortable with things that don't make sense.",
@@ -76,6 +78,431 @@
         "The children loved it. The adults did not.",
         "I caught some on my tongue. It tasted like spring water: clean, sweet, not like normal snow at all. That bothered me more than the snow itself."
       ]
+    },
+    {
+      "id": 5,
+      "intro": "The rain near {subject_focus_the} fell warm two nights ago. Not lukewarm: warm like water left sitting in the sun all afternoon.",
+      "details": [
+        "It came down steady for about an hour. You could feel the heat on your skin. People stood outside just to make sure they weren't imagining it.",
+        "The puddles stayed warm until morning. I checked before dawn and they were still noticeably warmer than the air.",
+        "It smelled different too. Not the usual clean rain smell. Something faintly mineral, like hot stone after you pour water on it."
+      ],
+      "reactions": [
+        "Rain is supposed to cool things down. This did the opposite. The air got heavier after it stopped, not lighter.",
+        "I kept expecting it to burn, or sting, or do something awful. It didn't. It was just warm. Somehow that's worse."
+      ],
+      "statCheck": {
+        "pass": "I collected some in a jar and let it sit. By morning, there was a thin film on the surface: faintly iridescent, like oil but thinner. Normal rain doesn't leave residue.",
+        "fail": "It felt like rain. Warm rain, but rain. I could not tell you what made it different beyond the temperature."
+      }
+    },
+    {
+      "id": 6,
+      "intro": "There's a patch of clouds near {subject_focus_the} that hasn't moved in five days. Everything else drifts past, but those clouds just sit there.",
+      "details": [
+        "They're low and flat, like someone painted them on the sky. Not storm clouds. Not rain clouds. Just a gray patch that won't budge.",
+        "The wind at ground level is normal. Flags move, leaves blow, everything behaves. But those clouds are anchored to nothing and going nowhere.",
+        "At night you can see the stars around them: a clear ring, then the patch, then clear sky again. It's like a hole that isn't a hole."
+      ],
+      "reactions": [
+        "I keep looking up. Everyone does. You tell yourself to stop checking, but then you glance up and they're still there.",
+        "The old farmer down the lane says he's seen it before, years ago. Says they stayed for a month and then vanished overnight. He won't say what happened next."
+      ],
+      "statCheck": {
+        "pass": "I watched them at dawn when the light comes in low. The clouds cast a shadow on the ground that doesn't match their shape. The shadow is circular, but the clouds aren't. Something above the clouds is casting the real shadow.",
+        "fail": "Clouds are clouds. I am no scholar of the sky. They look wrong, but I cannot explain why beyond that."
+      }
+    },
+    {
+      "id": 7,
+      "intro": "The morning dew near {subject_focus_the} has been leaving stains. Brownish marks on anything it touches: skin, cloth, stone.",
+      "details": [
+        "I left a shirt out overnight and it came back with spots that won't wash out. Looks like rust, but the fabric has no metal in it.",
+        "The grass has a brownish tinge by midmorning now. Fades once the sun dries everything, but comes back every dawn.",
+        "Animals won't drink from the dew. The goats step around the wet patches. The dogs lick their paws clean after walking through it."
+      ],
+      "reactions": [
+        "People have started covering everything at night. Carts, tools, drying racks. It's become another chore nobody asked for.",
+        "My hands had marks for two days after I pulled weeds at sunrise. Not painful, just there. That bothers me in a way I can't put words to."
+      ],
+      "statCheck": {
+        "pass": "I scraped some of the residue off a stone slab and looked at it closely. It has a grain to it, like fine powder suspended in the water. Whatever is in the air at night, it's settling with the moisture.",
+        "fail": "It washes off skin easily enough, and it doesn't seem to cause harm. Beyond the staining, there is nothing obvious to find."
+      }
+    },
+    {
+      "id": 8,
+      "intro": "There's a spot near {subject_focus_the} where the wind comes from underground. You can feel it blowing up through the cracks in the rock.",
+      "details": [
+        "It's steady, not gusting. Like something below is breathing out. You hold a leaf over the crack and it lifts straight up.",
+        "The air coming up is cooler than the surface air in summer, warmer in the cold months. It has its own temperature.",
+        "It smells earthy but not like soil. More like old stone, the kind you smell in deep cellars or cave mouths."
+      ],
+      "reactions": [
+        "People walk around that spot now. Not because anyone told them to: they just do. Something about standing over it feels wrong.",
+        "A child dropped a pebble into the widest crack and counted. She got to eight before giving up. That's a long way down."
+      ],
+      "statCheck": {
+        "pass": "I held a candle over the crack at different times of day. The flame leans in the morning and pushes out in the evening. Whatever is down there, it breathes on a cycle.",
+        "fail": "Wind from underground is unusual, but caves do that sometimes. I could not tell you whether this is natural or not without going below."
+      }
+    },
+    {
+      "id": 9,
+      "intro": "We had thunder near {subject_focus_the} last night. Clear sky, full moon, not a cloud anywhere. Just thunder, rolling across for the better part of an hour.",
+      "details": [
+        "It came from the north. Deep and low, the kind you feel in your chest. But there was nothing to see: no flash, no cloud, no storm on the horizon.",
+        "The animals reacted badly. Dogs howling, birds scattering in the dark. Whatever they heard, it wasn't just noise to them.",
+        "It faded slowly, like it was moving away. But north of here is open ground for miles. There's nothing out there to make that sound."
+      ],
+      "reactions": [
+        "I've heard thunder without lightning before. It happens. But thunder without clouds? I don't have an explanation for that.",
+        "Nobody slept well. Not because it was loud: it wasn't. Because it felt close, even though there was nothing there."
+      ],
+      "statCheck": {
+        "pass": "I went out and listened carefully. The sound wasn't coming from the sky. It was coming from the ground, vibrating upward through the earth and being mistaken for thunder. Something beneath the surface is moving.",
+        "fail": "Sound travels strangely at night. It could have come from a storm miles away that we simply couldn't see."
+      }
+    },
+    {
+      "id": 10,
+      "intro": "The temperature near {subject_focus_the} drops in one specific spot. Walk three paces in any direction and it's normal, but stand right there and you can see your breath.",
+      "details": [
+        "It's about the size of a market stall. You step in and the cold hits you immediately. Step out and it's gone.",
+        "I left a bucket of water in the spot overnight. By morning the surface was frozen. The bucket I left ten paces away was fine.",
+        "It's been there for at least a week. Doesn't move, doesn't grow, doesn't shrink. Just sits there being cold."
+      ],
+      "reactions": [
+        "The children think it's funny. They run in and out, watching their breath appear and disappear. The adults keep their distance.",
+        "I don't like things that stay in one place when they shouldn't. Weather moves. This doesn't."
+      ],
+      "statCheck": {
+        "pass": "I noticed the grass inside the spot is growing faster than the grass around it. Not dying from cold: thriving. Whatever is causing the chill, it isn't hurting things. It's feeding them.",
+        "fail": "It is cold. Genuinely cold. Beyond that, I have no theory. Cold air sinks, but it doesn't just park itself in one spot forever."
+      }
+    },
+    {
+      "id": 11,
+      "intro": "The frost near {subject_focus_the} this morning was laid out in patterns. Not random crystals: straight lines, right angles, shapes that repeated.",
+      "details": [
+        "It covered the flat stones near the square. The lines were thin and precise, like someone had drawn them with a rule.",
+        "The pattern repeated every few feet. Same shapes, same spacing, same orientation. I counted twelve repetitions before the sun burned it away.",
+        "No frost anywhere else that morning. Just those stones, just those patterns. The wooden surfaces nearby were dry."
+      ],
+      "reactions": [
+        "Frost does make patterns. Everyone knows that. But frost doesn't make the same pattern twelve times in a row on separate stones.",
+        "I thought about drawing it before it melted, but honestly, I didn't want to. Something about copying it down felt like a bad idea."
+      ],
+      "statCheck": {
+        "pass": "I did sketch a piece before it vanished. Showed it to the mason, who went quiet. He said it looked like foundation markings: the kind you scratch into stone before laying walls. Something is trying to build.",
+        "fail": "The frost melted before I could study it properly. All I have is my memory of it, and memory is not the most reliable tool."
+      }
+    },
+    {
+      "id": 12,
+      "intro": "The rain near {subject_focus_the} smelled like metal two days ago. Sharp, like holding old iron to your nose.",
+      "details": [
+        "It wasn't just a hint. You could taste it in the air before the first drops fell. The kind of metallic tang that makes your teeth ache.",
+        "The puddles left behind had a faint sheen. Not oily exactly, but the surface caught the light differently than clean water.",
+        "It lasted about thirty minutes, then the smell faded and the rest of the rain was normal. Like something passed through and moved on."
+      ],
+      "reactions": [
+        "I've smelled iron in well water before. That's groundwater picking up minerals. But rain comes from above. There's no iron in clouds.",
+        "People drank it. Not on purpose: they were caught outside and opened their mouths out of habit. Nobody's been sick, but I've been watching."
+      ],
+      "statCheck": {
+        "pass": "I saved a cup of the metallic rain and a cup of the normal rain that came after. Held them up to sunlight. The metallic sample has a faint reddish tint you can only see in a thin layer. Something carried fine particles down with it.",
+        "fail": "Rain can pick up dust and pollen on the way down. It is probably nothing more than that, though I admit it was unsettling."
+      }
+    },
+    {
+      "id": 13,
+      "intro": "The horizon near {subject_focus_the} was glowing last night. Not sunset: it was well past midnight and the east was lit up like early dawn.",
+      "details": [
+        "The glow lasted about two hours. Faint orange, low on the horizon, steady. Not flickering like a fire would.",
+        "There are no settlements in that direction for a long distance. No forges, no camps, nothing that should produce light at that scale.",
+        "It faded gradually, starting from the edges and closing inward until the last point of light went out. Like an eye closing."
+      ],
+      "reactions": [
+        "A few of us watched from the ridge. Nobody spoke. There's a particular silence that settles over people when they're all seeing something they can't explain.",
+        "The guard on watch logged it as a distant fire. I think he knows it wasn't, but what else do you write down?"
+      ],
+      "statCheck": {
+        "pass": "I marked the direction carefully and checked it against the terrain. The glow was coming from a depression in the lowlands that's been dry for years. There's nothing there to burn, and nothing there to glow.",
+        "fail": "At that distance, light plays tricks. It could have been anything refracting off low clouds. I would not want to guess."
+      }
+    },
+    {
+      "id": 14,
+      "intro": "The air near {subject_focus_the} has been so humid this past week that surfaces are coated. Stone, wood, metal: everything has a thin film of moisture on it.",
+      "details": [
+        "You run your hand along a wall and it comes away wet. Tools left out overnight are damp by morning even under cover.",
+        "The leather goods are suffering. The tanner says he's losing stock to mildew faster than he can treat it.",
+        "It's not raining. The sky is clear. The moisture is just there, hanging in the air, settling on everything."
+      ],
+      "reactions": [
+        "The worst part is the feel of it. You're never dry. Your clothes cling, your hair sticks, and no amount of wiping changes anything.",
+        "I keep expecting it to break. A good storm, a dry wind, something. But it just sits. Day after day, the same wet nothing."
+      ],
+      "statCheck": {
+        "pass": "I noticed the moisture isn't uniform. The stone buildings are wetter than the wooden ones, and the older structures are wetter than the newer ones. Whatever is in the air, it's drawn to age. To permanence.",
+        "fail": "Humidity is humidity. It happens in low valleys, near water, in certain seasons. This is more persistent than usual, but I could not call it unnatural."
+      }
+    },
+    {
+      "id": 15,
+      "intro": "The animals near {subject_focus_the} started acting strange two days before the storm hit. Every single one of them.",
+      "details": [
+        "The dogs refused to go outside. Not just reluctant: they dug in, whined, and would not cross the threshold.",
+        "The birds left. Not some of them: all of them. For a full day before the first clouds appeared, there was not a single bird in the sky.",
+        "The goats pressed themselves against the far wall of their pen, facing east. All of them, same direction, same posture, like they were bracing for something."
+      ],
+      "reactions": [
+        "Animals sense pressure changes. Everyone knows that. But two full days before a storm? That's not instinct. That's knowing.",
+        "The storm that followed was ordinary. Strong wind, heavy rain, nothing remarkable. Which makes the reaction stranger, not less."
+      ],
+      "statCheck": {
+        "pass": "I tracked the timing. The animals didn't react to the storm: they reacted to something that preceded it. The storm came from the west. The animals faced east. They weren't bracing for weather. They were watching something else.",
+        "fail": "Animals are sensitive. More so than we are. Whatever they felt, it came and went with the weather."
+      }
+    },
+    {
+      "id": 16,
+      "intro": "We had hail near {subject_focus_the} for about fifteen minutes yesterday. In the warmest stretch of the season, out of a sky that had been clear all morning.",
+      "details": [
+        "The stones were small but came down hard. Punched holes in the canvas awnings over the market stalls.",
+        "The hail only fell in the village. The road leading out was dry. You could stand at the edge and watch the stones hit the ground three paces ahead while nothing touched you.",
+        "It stopped as suddenly as it started. No tapering off, no transition to rain. Full hail, then silence."
+      ],
+      "reactions": [
+        "The merchants lost goods. Not a lot, but enough to be angry about. You can't insure against weather that doesn't make sense.",
+        "I picked up a few of the hailstones before they melted. They were perfectly round. Not jagged, not lumpy: smooth as river stones. Hail doesn't form that way."
+      ],
+      "statCheck": {
+        "pass": "I cracked one open before it melted. There was a dark speck at the center, like a seed or a grain of something. Every stone I checked had one. Something was seeded into the ice before it fell.",
+        "fail": "They melted quickly. Whatever they were made of, it was just ice as far as I could tell."
+      }
+    },
+    {
+      "id": 17,
+      "intro": "There's a fog near {subject_focus_the} that only rises to about ankle height. Been there every evening for a week, hugging the ground like poured milk.",
+      "details": [
+        "You walk through it and your boots disappear. The rest of you is in clear air, looking down at a white floor.",
+        "It flows. You can watch it move, slowly, following the slope of the ground. It pools in low spots and leaves the high ground bare.",
+        "It's cold. Noticeably colder than the air above it. Step through a patch and your ankles go numb for a moment."
+      ],
+      "reactions": [
+        "The children stomp through it and watch it swirl. The adults pretend not to be unsettled. I'm somewhere in between.",
+        "Ground fog happens. I know that. But this is too even, too consistent, too low. Real fog doesn't have a ceiling."
+      ],
+      "statCheck": {
+        "pass": "I got down on my knees and looked into it. There are faint lights inside, drifting with the current. Tiny, pale, barely visible. Like embers that give off cold instead of heat.",
+        "fail": "It looks like fog. It feels like fog. The only odd thing is how perfectly it stays at that height, but I have no explanation for that."
+      }
+    },
+    {
+      "id": 18,
+      "intro": "The sun near {subject_focus_the} has looked dimmer for the past several days. Not clouded over: the sky is clear. The light is just weaker.",
+      "details": [
+        "Midday looks like late afternoon. The shadows are softer, the colors are muted. Everything has a grayish cast to it.",
+        "The crops are bending toward the light more than usual. The sunflowers are leaning so far they're nearly sideways, chasing brightness that isn't there.",
+        "At night the stars look the same. Moon is the same. It's only the sun that's changed, which makes no sense if it were just haze."
+      ],
+      "reactions": [
+        "I keep wiping my eyes, thinking something's wrong with my vision. It's not me. Everyone sees it.",
+        "The farmers are worried. Plants need light. A few dim days is tolerable, but if this stretches into weeks, we'll lose yield."
+      ],
+      "statCheck": {
+        "pass": "I held up a piece of colored glass and looked at the sun through it. There's a faint ring around it that wasn't there before: not a halo from moisture, but something tighter, closer. Like the light is being held back at the source.",
+        "fail": "The sky is clear and the sun is where it should be. If the light is weaker, I cannot see why. It could be my imagination."
+      }
+    },
+    {
+      "id": 19,
+      "intro": "There's steam rising off the creek near {subject_focus_the} in the early mornings. Not from warm water: the creek is cold. The steam rises in shapes.",
+      "details": [
+        "Columns, mostly. Thin wisps that go straight up, evenly spaced along the bank. Not drifting: rising vertical and dissolving at the same height.",
+        "The shapes hold for longer than steam should. A few seconds at least before they break apart. You can almost count them.",
+        "The water itself is normal. Cold, clear, running at the usual pace. There's nothing warm feeding into it that I can find."
+      ],
+      "reactions": [
+        "I went down three mornings in a row to make sure I wasn't imagining things. Same columns, same spacing, same height. It's consistent.",
+        "It's beautiful, honestly. And that makes me more nervous than if it were ugly. Beautiful things in nature don't usually repeat with that kind of precision."
+      ],
+      "statCheck": {
+        "pass": "I counted the columns and mapped where they rose. They're evenly spaced along an old stone foundation that runs under the bank. The steam rises from the stones, not the water. Whatever is below those stones is warm.",
+        "fail": "Temperature differences between water and air create steam. It happens. The shapes are probably just my mind making patterns from randomness."
+      }
+    },
+    {
+      "id": 20,
+      "intro": "There are puddles near {subject_focus_the} from the last rain that haven't evaporated. It's been four days of clear sky and dry air, and they're still full.",
+      "details": [
+        "The ground around them is bone dry. Cracked, even. But the puddles sit there like they're being fed from below.",
+        "I marked the water level on a stone with chalk. Same level every morning. Not rising, not falling. Just holding.",
+        "The water looks normal. Tastes normal. I dropped a leaf in one and it floated and drifted like any puddle. Nothing strange about the water itself."
+      ],
+      "reactions": [
+        "Water evaporates. That's not an opinion: it's how the world works. Except here, apparently.",
+        "People have started using them. Filling buckets, watering gardens. Nobody's questioned where the water is coming from, which worries me more than the puddles themselves."
+      ],
+      "statCheck": {
+        "pass": "I dug a shallow trench from one puddle to drain it. The water ran off, and within an hour the puddle had refilled to exactly the same level. The water is coming from somewhere beneath the surface, and it's being held at a precise depth.",
+        "fail": "Puddles in shade can last a while. These are mostly in open ground, but the soil might hold moisture differently here. I cannot rule out a natural explanation."
+      }
+    },
+    {
+      "id": 21,
+      "intro": "The wind near {subject_focus_the} has been reversing mid-gust. Blows one direction, stops dead, and pushes back the way it came. Over and over.",
+      "details": [
+        "The flags on the market stalls are impossible. They snap one way, go limp, then snap the other way. The merchants have given up trying to keep them straight.",
+        "It's not gusting from different directions: it's the same channel of air, pushing and pulling along the same line. Like breathing.",
+        "The leaves on the ground shuffle back and forth in the same spot. They don't blow away. They just rock in place."
+      ],
+      "reactions": [
+        "Wind has direction. That's the whole point of wind. This can't decide what it is, and it's making everything feel unsteady.",
+        "I've lived through bad storms, strange weather, dry spells. But wind that pulls back? I have no frame for that."
+      ],
+      "statCheck": {
+        "pass": "I tracked the timing. The reversals are regular: forward for about twelve seconds, pause for two, backward for twelve. It's a rhythm, not chaos. Something is driving this like a bellows.",
+        "fail": "Terrain can funnel wind in odd ways. Valleys and ridges do strange things to airflow. It is probably just the landscape."
+      }
+    },
+    {
+      "id": 22,
+      "intro": "It rained near {subject_focus_the} for about ten minutes yesterday while the sky was completely clear. Not a single cloud, just water falling out of blue sky.",
+      "details": [
+        "Big drops, widely spaced. You could watch each one fall and track it all the way down from nothing. No cloud, no mist, just drops appearing.",
+        "The rain only covered a strip about thirty paces wide. You could walk to the edge and stand dry while watching it fall beside you.",
+        "It stopped cleanly. Last drop fell, and then nothing. No trailing mist, no tapering. Done."
+      ],
+      "reactions": [
+        "I've heard of sunshowers. They happen. But they happen with clouds somewhere. This was different. There was nothing up there.",
+        "The water was clean. Cool, tasteless, perfectly ordinary water. That's the part that stays with me: the water was normal. Everything else about it wasn't."
+      ],
+      "statCheck": {
+        "pass": "I marked the edges of the strip where the rain fell. It runs in a perfectly straight line, northeast to southwest. Rain doesn't fall in straight lines. Something shaped the area where it was allowed to fall.",
+        "fail": "High-altitude moisture can sometimes release without visible cloud cover. It is unusual but documented. Probably nothing more."
+      }
+    },
+    {
+      "id": 23,
+      "intro": "I found ice on the fence posts near {subject_focus_the} yesterday morning. Thin, clear ice, and the air temperature was warm enough to dry laundry.",
+      "details": [
+        "Only the wooden posts. The metal gate, the stone wall, the leather harnesses hanging nearby: all dry. The ice chose the wood.",
+        "It wasn't frost. Frost is white and feathery. This was clear, smooth, and hard. Like someone dipped each post in cold water and let it freeze.",
+        "It melted slowly even in full sun. Took most of the morning. Normal ice that thin would be gone in minutes."
+      ],
+      "reactions": [
+        "I touched it and my fingertip went numb for an hour. Not cold-numb: dead numb. Like the feeling had been pulled out.",
+        "People are leaving their fences alone until it passes. Nobody wants to grip a post and find out what else it does."
+      ],
+      "statCheck": {
+        "pass": "I examined the wood under where the ice formed. The grain has shifted. The rings that were tight and even are now spiraling, as if the wood grew years' worth of grain overnight. The ice isn't freezing the surface: it's drawing something out of the wood.",
+        "fail": "Condensation can freeze in the right conditions, even when the air feels warm. The selectivity is odd, but I would not call it impossible."
+      }
+    },
+    {
+      "id": 24,
+      "intro": "The clouds near {subject_focus_the} have been casting shadows that don't match their shapes. The cloud is round, the shadow on the ground is long and thin. The cloud drifts east, the shadow moves north.",
+      "details": [
+        "I spent an afternoon watching. The shadows move independently, like they belong to something else entirely.",
+        "At one point, a small cloud cast a shadow larger than the village square. The geometry is wrong. The sun can't produce that angle.",
+        "Other people have noticed but nobody wants to talk about it. You see them glancing up, then looking away quickly."
+      ],
+      "reactions": [
+        "Shadows follow rules. They have to. If shadows stop making sense, then what you thought you understood about the sky isn't true.",
+        "I catch myself avoiding the dark patches now. Standing in sunlight on purpose. It's irrational, but I can't stop doing it."
+      ],
+      "statCheck": {
+        "pass": "I mapped a shadow's movement against its cloud for half a day. The shadow is not cast by the cloud at all. It moves as though the light source is below, not above. Something on the ground is casting upward, and the clouds are just where we happen to see the result.",
+        "fail": "Clouds at different heights can create misleading shadow patterns. The angles are confusing, but atmospheric optics are not my strength."
+      }
+    },
+    {
+      "id": 25,
+      "intro": "The air pressure near {subject_focus_the} changed suddenly two nights ago. No storm, no wind, just a feeling like going underwater for a moment.",
+      "details": [
+        "My ears popped. Everyone's ears popped. The whole village at the same time, like the air pressed down on us and then let go.",
+        "Jars with loose lids cracked. The pressure sealed them shut and then released. Three people lost preserves.",
+        "It lasted about ten seconds. Then everything went back to normal. No one could explain what had just happened."
+      ],
+      "reactions": [
+        "I've felt that sensation on high ridges and in deep valleys. But not standing in the middle of flat ground with clear sky above.",
+        "What unsettles me is the timing. Everyone felt it at the same moment. If it were natural, wouldn't it ripple outward? This was everywhere at once."
+      ],
+      "statCheck": {
+        "pass": "The moment it happened, every flame in the village went out. Candles, hearths, lanterns: all of them, simultaneously. Something pulled the air itself for an instant, and the fire couldn't survive it.",
+        "fail": "Pressure shifts happen for many reasons. Without instruments to measure it, all I have is how it felt, and feelings are not evidence."
+      }
+    },
+    {
+      "id": 26,
+      "intro": "The rain near {subject_focus_the} last week fell in a strange pattern. It wasn't sheets or scattered drops: it fell in lines, like someone was drawing on the ground with water.",
+      "details": [
+        "Parallel lines, about an arm's width apart. The ground between them stayed dry. You could walk between the lines and stay untouched.",
+        "The lines ran north to south, perfectly straight. I followed one for fifty paces before it ended at the village boundary.",
+        "It lasted maybe twenty minutes. When normal rain came after, it fell everywhere like it should, and washed the lines away."
+      ],
+      "reactions": [
+        "Rain falls from clouds. Clouds don't have grids. Whatever organized that water, it wasn't weather.",
+        "The strange part is how calm everyone was about it. Like they were waiting for it. I might be the only one who found it alarming."
+      ],
+      "statCheck": {
+        "pass": "I paced the spacing between lines. Exactly seven feet apart. Every line, every gap. You don't get mathematical precision from weather. This was placed, not fallen.",
+        "fail": "Wind can do odd things to falling rain, creating streaks and gaps. With the right terrain and gusts, lines are not impossible."
+      }
+    },
+    {
+      "id": 27,
+      "intro": "The temperature near {subject_focus_the} has been swinging wildly. Warm enough to sweat at noon, cold enough to see your breath by mid-afternoon, and back to warm by evening.",
+      "details": [
+        "It's not gradual. The shift takes about ten minutes. You feel it sweep through like a wave, warm to cold, no in-between.",
+        "The swings follow a pattern: warm, cold, warm, cold. Three cycles yesterday, each one roughly four hours apart.",
+        "The plants are confused. Half the garden is blooming, the other half has gone dormant. They can't decide what season it is."
+      ],
+      "reactions": [
+        "People are dressing in layers they can shed in minutes. It's become a joke, but nobody's really laughing.",
+        "Weather changes. I know that. But it changes over hours, or days, or at least with clouds moving in. This is something turning a dial."
+      ],
+      "statCheck": {
+        "pass": "I timed the cycles carefully. The cold sweeps come from the same direction each time, and they move at a walking pace. You can actually see the boundary approach: the air shimmers slightly at the edge, like heat haze in reverse.",
+        "fail": "Terrain can trap and release heat in bursts. The cycles are unusual but not beyond what geography might explain."
+      }
+    },
+    {
+      "id": 28,
+      "intro": "Something is wrong with the wind near {subject_focus_the}. It carries sound from places it shouldn't.",
+      "details": [
+        "Yesterday I heard a bell ringing from the north. There is no bell to the north. The nearest one is to the south, in the opposite direction.",
+        "Two nights ago, voices on the wind. Faint, but clear enough to know they were words. No one was out there. I checked.",
+        "The wind itself is normal: direction, strength, temperature, all fine. It's just carrying things that have no source."
+      ],
+      "reactions": [
+        "I stopped sitting outside in the evenings. Not because I'm afraid, but because listening to sounds that shouldn't exist wears on you.",
+        "The worst part is recognizing the sounds. That bell tone is familiar. Those voices almost sound like people I know. Almost."
+      ],
+      "statCheck": {
+        "pass": "I had someone stand at the north boundary and shout while I listened from the village. Nothing. Then the wind picked up and I heard the bell again, clear as anything. The wind isn't carrying real sound. It's producing it.",
+        "fail": "Sound can refract over long distances in the right conditions. What I heard was probably carried from farther than I think."
+      }
+    },
+    {
+      "id": 29,
+      "intro": "The weather near {subject_focus_the} has been cycling through seasons in a single day. Morning frost, midday heat, afternoon rain, evening calm. Every day for a week now, same sequence.",
+      "details": [
+        "It's not subtle. The frost is real frost: ice crystals on the ground. The heat is real heat: sweat-through-your-shirt hot. Then the rain is steady and soaking.",
+        "The transitions are sharp. Fifteen minutes of overlap at most, then you're fully in the next phase. Like the sky is running through a schedule.",
+        "The evening calm is the strangest part. The air goes completely still. No breeze, no ambient movement at all. It's the silence of a held breath."
+      ],
+      "reactions": [
+        "The first day, people talked about it. By the third day, they stopped. By the fifth, they were planning their chores around it. That adaptation is what frightens me.",
+        "We're adjusting to something that shouldn't be happening. Once you accept impossible weather as routine, what else do you stop questioning?"
+      ],
+      "statCheck": {
+        "pass": "I timed every transition for three days. They're shifting earlier: six minutes per day. Whatever is driving the cycle is accelerating. If the pattern continues, the phases will start overlapping soon. Frost and heat at the same time. I don't know what that looks like.",
+        "fail": "Micro-seasons happen in mountainous terrain. The regularity is odd, but I would need more than a week of observation to call it unnatural."
+      }
     }
   ]
 }
