@@ -1,6 +1,6 @@
 package com.chonbosmods.settlement;
 
-import com.chonbosmods.npc.Nat20NameGenerator;
+import com.chonbosmods.npc.Nat20PlaceNameGenerator;
 
 import javax.annotation.Nullable;
 import java.util.ArrayList;
@@ -86,6 +86,6 @@ public class SettlementRecord {
     public String deriveName() {
         if (name != null && !name.isEmpty()) return name;
         // Generate deterministically from cell key so the same settlement always gets the same name
-        return Nat20NameGenerator.generatePlaceName(cellKey.hashCode());
+        return Nat20PlaceNameGenerator.generate(cellKey.hashCode());
     }
 }
