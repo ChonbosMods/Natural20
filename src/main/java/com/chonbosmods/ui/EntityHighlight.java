@@ -72,16 +72,23 @@ public final class EntityHighlight {
         if (text == null || text.isEmpty()) return Message.raw("").color(baseColor);
 
         List<Span> spans = parse(text);
-        if (spans.size() == 1 && !spans.getFirst().highlighted) {
-            return Message.raw(spans.getFirst().text).color(baseColor);
+        if (spans.isEmpty()) return Message.raw("").color(baseColor);
+
+        // Single span with no highlights: simple colored message
+        if (spans.size() == 1) {
+            return Message.raw(spans.getFirst().text)
+                .color(spans.getFirst().highlighted ? HIGHLIGHT_COLOR : baseColor);
         }
 
-        Message root = Message.raw("");
-        for (Span span : spans) {
+        // Multiple spans: build chain starting from the first span
+        Message msg = Message.raw(spans.getFirst().text)
+            .color(spans.getFirst().highlighted ? HIGHLIGHT_COLOR : baseColor);
+        for (int i = 1; i < spans.size(); i++) {
+            Span span = spans.get(i);
             if (span.text.isEmpty()) continue;
-            root = root.insert(Message.raw(span.text).color(span.highlighted ? HIGHLIGHT_COLOR : baseColor));
+            msg = msg.insert(Message.raw(span.text).color(span.highlighted ? HIGHLIGHT_COLOR : baseColor));
         }
-        return root;
+        return msg;
     }
 
     /**
