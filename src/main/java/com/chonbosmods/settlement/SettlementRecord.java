@@ -72,4 +72,14 @@ public class SettlementRecord {
     public SettlementType getSettlementType() {
         return SettlementType.valueOf(type);
     }
+
+    /**
+     * Derive a display name from the cell key.
+     * Cell keys are formatted as "name_coordinates": extract and capitalize the name part.
+     */
+    public String deriveName() {
+        String raw = cellKey.split("_")[0];
+        if (raw == null || raw.isEmpty()) return "Unknown";
+        return Character.toUpperCase(raw.charAt(0)) + raw.substring(1);
+    }
 }
