@@ -1,0 +1,539 @@
+{
+  "pool": "sighting",
+  "version": 2,
+  "entries": [
+    {
+      "id": 0,
+      "intro": "I saw something moving through the trees near {subject_focus_the} two nights ago. Tall, thin, walking upright but not like any person I know.",
+      "details": [
+        "It moved between the trunks without making a sound. Not even the leaves rustled when it passed.",
+        "The shape was wrong: arms too long, head too narrow. Like someone stretched a person out and forgot to stop.",
+        "It paused once and turned toward me. I couldn't see a face, but I could feel it looking."
+      ],
+      "reactions": [
+        "I've lived near those woods my whole life. I know every animal that walks through them. That wasn't one.",
+        "I told my neighbor and she just went quiet. Then she said her boy saw the same thing last week."
+      ],
+      "statCheck": {
+        "pass": "When it turned, I caught a glint: something reflective where its eyes should be, like polished metal catching moonlight.",
+        "fail": "In the dark, everything looks like it could be something. I have scanned that tree line a dozen times since and nothing stands out."
+      },
+      "valence": "negative"
+    },
+    {
+      "id": 1,
+      "intro": "A group of us spotted what looked like a massive elk near {subject_focus_the}, but it had too many antler points. Way too many.",
+      "details": [
+        "We counted at least thirty points before it moved behind the ridge. A normal bull might have twelve.",
+        "Its antlers had a faint shimmer to them, like frost, but it was the middle of a warm afternoon.",
+        "It made no sound when it moved. An animal that size should crack branches, rustle brush. This one crossed the ridge like it weighed nothing at all."
+      ],
+      "reactions": [
+        "The hunters are excited. I think it's bad luck, personally. Hard to say for certain.",
+        "It didn't run when it saw us. Just stood there, chewing, like we weren't worth worrying about."
+      ],
+      "valence": "neutral"
+    },
+    {
+      "id": 2,
+      "intro": "There's been a creature drinking from the stream near {subject_focus_the} at dawn. Nobody can agree on what it is.",
+      "details": [
+        "The farmer says it's a wolf. The trapper says it's too big for a wolf. The tanner says it's got scales.",
+        "It comes at the same time every morning, drinks for exactly as long as it takes to count to twenty, then leaves.",
+        "It always approaches from the east and leaves heading west. Never varies the route."
+      ],
+      "reactions": [
+        "I set up early one morning to see it myself. Overslept. Typical.",
+        "Whatever it is, it hasn't bothered anyone yet. But I'd like to know what I'm sharing a water source with."
+      ],
+      "statCheck": {
+        "pass": "I found tracks at the stream bank. They're canine, but with a fifth toe set higher up, like a thumb. I've never seen that on any wolf.",
+        "fail": "So many animals drink there that the mud is a mess of overlapping prints. Cannot isolate anything unusual."
+      },
+      "valence": "neutral"
+    },
+    {
+      "id": 3,
+      "intro": "Something flew over {subject_focus_the} last night. Big enough to block out the stars as it passed.",
+      "details": [
+        "No wingbeats. It just glided, silent, from the north ridge to the southern tree line in about ten seconds.",
+        "The shadow it cast was wider than a barn. My lantern flickered when it went overhead.",
+        "The air dropped cold for a few seconds as it passed. Not wind: just a sudden chill that settled and lifted, like something pulled the warmth out of the sky."
+      ],
+      "reactions": [
+        "I keep telling myself it was a cloud. Clouds don't move that fast in a straight line, though.",
+        "The goats were huddled in the corner of the pen this morning. They don't huddle unless something scared them."
+      ],
+      "valence": "negative"
+    },
+    {
+      "id": 4,
+      "intro": "A child near {subject_focus_the} says she's been playing with a fox that talks. We all laughed until she started repeating things no child her age should know.",
+      "details": [
+        "She described the layout of the abandoned mine in detail. She's never been there. None of us have taken her.",
+        "She says the fox has silver fur and only comes when she's alone. It taught her a song in a language nobody here recognizes.",
+        "The song, when she hums it, makes the dogs whine and leave the room."
+      ],
+      "reactions": [
+        "Her mother is terrified. Her father thinks she has a good imagination. I think the father is wrong.",
+        "I went to the spot where she says they play. Found small paw prints, but they were oddly deep for something fox-sized."
+      ],
+      "statCheck": {
+        "pass": "I had the elder listen to the child's song. He went pale and said it was an old warding chant: one that hasn't been spoken in this region for generations.",
+        "fail": "It sounds like any other made-up tune, honestly. Without context, there is no telling if it means anything."
+      },
+      "valence": "negative"
+    },
+    {
+      "id": 5,
+      "intro": "There's a light near {subject_focus_the} that shows up after midnight. Not a campfire, not a lantern. It's the wrong color.",
+      "details": [
+        "It's pale green, steady, not flickering. A fire flickers. A lantern sways. This just hangs there, about chest height off the ground.",
+        "It stays in the same spot for an hour or so, then drifts slowly toward the old ruins. Always the same direction.",
+        "I watched it three nights in a row. On the third night, there were two of them."
+      ],
+      "reactions": [
+        "A couple of us went out to look the next morning. Found nothing: no ash, no scorch marks, no trampled ground. Just grass.",
+        "I told the watch captain and he shrugged. Said if it isn't hurting anyone, it's not his problem. Easy for him to say."
+      ],
+      "statCheck": {
+        "pass": "You have sharp eyes. There's something I left out: on the third night, the two lights moved in unison. Not drifting. Pacing. Like something was carrying them.",
+        "fail": "Could be swamp gas. Could be a reflection off something. I've been staring at it too long to think clearly about it anymore."
+      },
+      "valence": "negative"
+    },
+    {
+      "id": 6,
+      "intro": "Something left tracks around {subject_focus_the} in a perfect circle. Not an animal path: a circle, like someone drew it with a compass.",
+      "details": [
+        "The prints are hooved, about the size of a goat's, but the stride is too even. Every step is the same distance apart. Animals don't walk like that.",
+        "The circle is about forty paces across. Nothing inside it is disturbed: no prints, no bent grass, nothing.",
+        "I went back the next morning and the circle had moved. Same size, same prints, but about fifty paces to the west."
+      ],
+      "reactions": [
+        "I've tracked animals my whole life. They wander, they stop, they change pace. This thing walked like it was measuring something.",
+        "The shepherds won't graze their flocks near {subject_focus_the} anymore. I can't blame them."
+      ],
+      "statCheck": {
+        "pass": "You know your tracks. Here's the thing that rattled me: the hooves are split into three sections, not two. No animal around here has a three-part hoof.",
+        "fail": "Hard to say much from prints alone. The soil out there holds a shape but not much detail."
+      },
+      "valence": "negative"
+    },
+    {
+      "id": 7,
+      "intro": "I keep hearing something at night near {subject_focus_the}. Not an animal call: a low humming, steady, like a voice holding one note.",
+      "details": [
+        "It starts about an hour after sundown and runs until just before dawn. Always the same pitch, never wavers.",
+        "I tried walking toward it once. The closer I got, the harder it was to tell which direction it was coming from. Like it was everywhere.",
+        "My neighbor hears it too. She says it's lower on some nights, higher on others. I haven't noticed a pattern yet."
+      ],
+      "reactions": [
+        "The strange part is you get used to it. I catch myself humming along sometimes and then stop, because that feels wrong.",
+        "Nobody else seems bothered. Maybe they can't hear it. Maybe I'm losing my mind. Either way, it keeps me up."
+      ],
+      "statCheck": {
+        "pass": "You've got a good ear for these things. The hum isn't random: it rises on clear nights and drops when it's overcast. Whatever it is, it's responding to the sky.",
+        "fail": "Wind through the rocks can sound like anything if you listen long enough. I've talked myself in circles about it."
+      },
+      "valence": "negative"
+    },
+    {
+      "id": 8,
+      "intro": "A fisherman pulled up his net near {subject_focus_the} and found claw marks gouged into the lead weights. Something underwater had grabbed on and held.",
+      "details": [
+        "The marks are deep: four parallel lines, evenly spaced, cut right through the metal coating. Whatever did it had serious grip.",
+        "His net was dragged sideways for about thirty paces before it went slack. He said it felt like pulling against a rooted tree.",
+        "He's fished that stretch for years. Says the water there has gotten darker lately: not muddy, just dark, like looking into a well."
+      ],
+      "reactions": [
+        "He won't go back to that spot. Uses a different stretch now, catches less, doesn't complain.",
+        "A few of us looked at the weights. Those aren't tooth marks and they aren't from scraping rocks. Something did that on purpose."
+      ],
+      "statCheck": {
+        "pass": "You've seen marks like these before? Good. The spacing between the grooves: it's too wide for any fish. That's a hand span. Something with fingers did this.",
+        "fail": "Could be an anchor snag or a sharp rock shelf. The water moves things around down there. Hard to know for certain."
+      },
+      "valence": "negative"
+    },
+    {
+      "id": 9,
+      "intro": "We found a nest near {subject_focus_the}, if you can call it that. Branches woven together in a bowl shape, wider than a wagon wheel, sitting in a clearing.",
+      "details": [
+        "The weaving is deliberate: over, under, tucked and locked. Not piled up like a bird's nest. Someone or something took time with it.",
+        "There were bones inside. Small ones: mice, voles, a few birds. All cleaned perfectly, not a scrap of meat left on them.",
+        "The branches used were all the same length, snapped cleanly at both ends. Not broken off: snapped, like someone measured and cut them."
+      ],
+      "reactions": [
+        "I showed the trapper and she went very quiet. Said she'd seen something similar years ago, further upland, but much smaller.",
+        "Whatever built it hasn't come back, as far as we know. But I keep checking."
+      ],
+      "statCheck": {
+        "pass": "You know what's strange? The branches are from six different kinds of tree, but they're woven in a repeating pattern: one type, then the next, then the next. That's not instinct. That's selection.",
+        "fail": "Plenty of large birds build big nests. Without seeing the builder, there's not much else to read from a pile of sticks."
+      },
+      "valence": "negative"
+    },
+    {
+      "id": 10,
+      "intro": "Something has been watching {subject_focus_the} from the ridge at dusk. A figure, standing still, just a silhouette against the sky.",
+      "details": [
+        "It's there every evening for about ten minutes, right as the sun drops below the hills. Then it steps back and it's gone.",
+        "Too tall for a person, or at least it looks that way from here. Hard to judge size at that distance, but it doesn't feel right.",
+        "I tried climbing up to the ridge one evening. By the time I got there, nothing. No footprints, no flattened ground where it stood."
+      ],
+      "reactions": [
+        "It's the consistency that bothers me. Every evening, same spot, same time. Animals don't keep appointments.",
+        "Most people think I'm imagining it. Then I stood with the butcher last week and pointed when it appeared. He doesn't think I'm imagining it anymore."
+      ],
+      "statCheck": {
+        "pass": "When the light is right, you can see it isn't standing on the ridge. It's standing just behind it, and only the upper half is showing. That means it's much taller than it looks.",
+        "fail": "At that distance, a dead tree could look like a figure. The light plays tricks at dusk. I understand why people are skeptical."
+      },
+      "valence": "negative"
+    },
+    {
+      "id": 11,
+      "intro": "The dogs won't go near the old path by {subject_focus_the} anymore. Every one of them stops at the same point and refuses to move.",
+      "details": [
+        "It's not a scent they're reacting to: they don't sniff or growl. They just plant their feet and look at you like you're the one who's lost your mind.",
+        "I walked the path myself and felt nothing. But I noticed something: the birds go quiet about twenty paces past where the dogs stop.",
+        "A herder tried dragging his dog past the spot on a lead. The animal twisted free and bolted home. Wouldn't come out of the house for two days."
+      ],
+      "reactions": [
+        "Dogs know things we don't. When every dog in the area agrees on something, I pay attention.",
+        "Nobody's been hurt. Nothing's happened. But there's something on that path that the animals understand and we don't, and that unsettles me."
+      ],
+      "statCheck": {
+        "pass": "You notice how the insects behave? Past that point, no flies, no gnats, nothing buzzing. It's not just the dogs: everything living avoids that stretch.",
+        "fail": "Dogs are funny creatures. Could be a dead animal buried shallow, or an old predator den they can still smell. Hard to say."
+      },
+      "valence": "negative"
+    },
+    {
+      "id": 12,
+      "intro": "I was crossing the bridge near {subject_focus_the} at night and saw my reflection in the water below. Except it wasn't doing what I was doing.",
+      "details": [
+        "I stopped and looked down. My reflection kept walking: two, three, four more steps before it stopped and looked back up at me.",
+        "It was me, exactly: same build, same clothes, same pack on my shoulder. But the expression was wrong. I was scared. It wasn't.",
+        "I stepped back from the railing and it stayed where it was, standing in the middle of the water's surface, watching."
+      ],
+      "reactions": [
+        "I ran. I don't run from much, but I ran. Haven't crossed that bridge at night since.",
+        "I told {npc_name} about it and they said I should stay away from the water after dark. Didn't explain why. Just said it firmly.",
+        "I keep thinking about the expression on its face. Not angry, not threatening. Curious. That's almost worse."
+      ],
+      "statCheck": {
+        "pass": "You know water, don't you. Here's what I didn't want to say: the water was perfectly still that night. No current, no ripple. Water in a moving stream doesn't go still like that. Something stopped it.",
+        "fail": "Reflections do strange things at night, especially with lantern light on moving water. I know how it sounds."
+      },
+      "valence": "negative"
+    },
+    {
+      "id": 13,
+      "intro": "There's a smell near {subject_focus_the} that comes and goes. Sweet, heavy, like overripe fruit, but there's nothing growing out there that could produce it.",
+      "details": [
+        "It rolls in like a fog: hits you suddenly, holds for a minute or two, then vanishes. No wind change, no reason for it to clear.",
+        "The ground where the smell is strongest has a faint discoloration: yellowish, in patches, like something soaked into the soil.",
+        "I've noticed it happens most often in the early morning, just before sunrise. By the time the sun is fully up, it's gone."
+      ],
+      "reactions": [
+        "It's not unpleasant, and that's what worries me. If it smelled like rot, I'd know what to think. This smells almost inviting.",
+        "A few of the gatherers have started avoiding that stretch. They won't say it scares them. They just take the long way around."
+      ],
+      "statCheck": {
+        "pass": "You know your plants. The yellowing on the soil: I've seen that before, on wood that's been colonized by deep fungus. But there's no wood there. Whatever is producing this is underground.",
+        "fail": "Flowers bloom at odd times. An underground spring could carry minerals that smell strange. Nature does unexpected things."
+      },
+      "valence": "negative"
+    },
+    {
+      "id": 14,
+      "intro": "Somebody, or something, has been stacking stones near {subject_focus_the}. Small cairns, about knee-high, appearing overnight.",
+      "details": [
+        "There are seven of them now. Started with one about two weeks ago, and a new one appears every couple of days.",
+        "Each cairn uses exactly five stones, balanced perfectly. I've tried knocking one over and rebuilding it: can't get the balance right.",
+        "They form a line, roughly straight, pointing from {subject_focus_the} toward the old ruins to the east."
+      ],
+      "reactions": [
+        "Could be a traveler marking a path. But travelers don't build cairns that precise, and they don't come back every two days to add another.",
+        "I left one of the cairns alone but cleared the area around it, swept it clean. Next morning, new cairn, and my sweep marks were undisturbed. Whatever placed it didn't walk there."
+      ],
+      "statCheck": {
+        "pass": "You've got a surveyor's eye. The spacing between cairns isn't equal: it's increasing. Each one is placed slightly farther from the last than the gap before. Something is counting.",
+        "fail": "Kids build cairns all the time. Could be a game, could be someone with too much idle time. Without catching them at it, who knows."
+      },
+      "valence": "negative"
+    },
+    {
+      "id": 15,
+      "intro": "A trader passing through {subject_focus_the} swore she saw something large moving under the surface of the pond. Not swimming: walking along the bottom.",
+      "details": [
+        "She said the water bulged upward as it passed, like something wide was displacing it from below. A slow, steady wake with nothing breaking the surface.",
+        "The pond is only about waist deep near the edges, but nobody's ever measured the center. Locals say it's deeper than it should be.",
+        "She watched it cross from one side to the other in about two minutes. Then the water went flat and stayed flat."
+      ],
+      "reactions": [
+        "The pond has always been there. Calm, quiet, unremarkable. Now I look at it differently.",
+        "I've drunk from that pond a hundred times. Probably will again. But I might stand a little farther back."
+      ],
+      "statCheck": {
+        "pass": "You've been near that pond? Then you might have noticed: the reeds at the far edge are bent inward, toward the water. Reeds don't grow that way. Something pulls at them from below.",
+        "fail": "Large fish can cause strange wakes. A snapping turtle the right size could displace water like that. Probably nothing exotic."
+      },
+      "valence": "negative"
+    },
+    {
+      "id": 16,
+      "intro": "I found a patch of ground near {subject_focus_the} where every blade of grass is bent in the same direction. Flat, pressed down, all pointing north.",
+      "details": [
+        "The patch is roughly circular, about twenty paces across. The grass isn't dead: it's alive, still green, just permanently bent.",
+        "I pulled a handful and it sprang back upright in my hand. But the moment I pressed it into the soil again, it bent north, like it was being pulled.",
+        "There's no impression in the center: no weight mark, no compaction. Whatever did this didn't land on it."
+      ],
+      "reactions": [
+        "Wind doesn't do that. Wind bends grass while it's blowing and the grass comes back when it stops. This grass stays bent.",
+        "I showed the herbalist and she plucked a few samples. Hasn't said anything yet, but she keeps going back to look at the patch."
+      ],
+      "statCheck": {
+        "pass": "You know your terrain. The patch isn't the only one: I found a second, smaller one about two hundred paces north. Same pattern, same direction. They're connected somehow.",
+        "fail": "Heavy rain can flatten grass in odd ways, especially if the drainage pulls in one direction. Strange, but probably natural."
+      },
+      "valence": "neutral"
+    },
+    {
+      "id": 17,
+      "intro": "Something scratched symbols into the rock face near {subject_focus_the}. They weren't there a week ago.",
+      "details": [
+        "The marks are shallow but precise: lines and curves scored into hard stone. Not carved with a chisel. More like dragged with a claw or a very hard point.",
+        "There are about a dozen of them, arranged in two rows. They're not letters I recognize, and nobody in the village claims to know them either.",
+        "The stone dust from the scratching was still on the ledge below, undisturbed. Whatever made them did it recently and nothing has come by since."
+      ],
+      "reactions": [
+        "If someone's playing a joke, they went to a lot of effort. That stone is hard enough that I can't scratch it with my belt knife.",
+        "The elder took a long look and said nothing. Which, from her, is the same as saying too much."
+      ],
+      "statCheck": {
+        "pass": "You can read marks like a tracker reads prints. The scratches go deep on the downstrokes and shallow on the curves, always left to right. Whatever wrote them was right-handed. That's not an animal.",
+        "fail": "Natural fractures in stone can look deliberate. Frost-cracking produces lines that could pass for symbols if you're already expecting to see them."
+      },
+      "valence": "negative"
+    },
+    {
+      "id": 18,
+      "intro": "I was out before dawn near {subject_focus_the} and heard footsteps behind me on the path. Turned around and there was nothing. Kept walking, and they started again.",
+      "details": [
+        "Heavy steps, evenly spaced, on packed dirt. Not an echo: the rhythm was different from mine. Slower, deliberate.",
+        "I stopped three times. Each time, the steps behind me stopped a beat after mine, like whatever it was needed a moment to react.",
+        "When the sun broke the horizon, the footsteps stopped and didn't come back. I stood there for ten minutes waiting. Silence."
+      ],
+      "reactions": [
+        "I'm not a nervous person. I walk that path every morning. But I've started going later now, after the sun is up.",
+        "I mentioned it to a peddler passing through and she just nodded. Said she'd heard the same thing on the road further east. Didn't seem surprised."
+      ],
+      "statCheck": {
+        "pass": "You're paying attention, good. Here's what I didn't want to think about: the footsteps had a slight drag to them, like a lame leg. But the interval between steps was perfectly even. Something lame that doesn't limp.",
+        "fail": "Sound carries strangely in the early hours. The ground is harder before dawn and your own footsteps can bounce off a rock wall and come back delayed."
+      },
+      "valence": "negative"
+    },
+    {
+      "id": 19,
+      "intro": "A shadow passed across the wall of my house near {subject_focus_the} in broad daylight. Nothing between me and the sun that could have cast it.",
+      "details": [
+        "It moved slowly, right to left, across the entire wall. Took about five seconds. Clear edges, not a cloud shadow: clouds are soft at the borders.",
+        "The shape was roughly oval, narrower at one end, like something long and tapered was passing overhead. But the sky was empty.",
+        "It happened twice that afternoon. Same direction, same speed. The second time, I was watching the sky the entire time. There was nothing up there."
+      ],
+      "reactions": [
+        "I told myself it was a bird too high to see. But birds cast small shadows, not ones that cover an entire wall.",
+        "The children didn't notice. Nobody else on the street noticed. I'm starting to wonder if I'm the only one looking up."
+      ],
+      "statCheck": {
+        "pass": "You understand light well. The shadow moved right to left, but the sun was to my east. For that shadow to track that direction, the source would have to be moving against the sun's arc. That's not a bird.",
+        "fail": "Clouds at high altitude can be hard to see from directly below. A thin wisp in the right position could cast a sharper shadow than you'd expect."
+      },
+      "valence": "negative"
+    },
+    {
+      "id": 20,
+      "intro": "There's a spot near {subject_focus_the} where the ground is warm. Not hot: warm, like a sleeping animal. In the middle of open ground.",
+      "details": [
+        "The warm patch is about three paces across, circular. The grass there grows faster and greener than everything around it.",
+        "I pressed my hand flat on the soil. It's a steady warmth, not pulsing, not changing. Like the ground itself is holding a temperature.",
+        "A digger tested the spot with a spade. Said the soil gets warmer the deeper you go, not cooler. That's backwards from everything I know about dirt."
+      ],
+      "reactions": [
+        "Could be a hot spring under the surface. Except there's no water, no steam, no mineral smell. Just heat.",
+        "The livestock like it. They'll stand on that patch in the evening. Honestly, I'd probably sit there myself if it didn't make me uneasy."
+      ],
+      "statCheck": {
+        "pass": "You've seen thermal vents? This isn't one. Vents have mineral deposits around the edges. This patch has a ring of dead earthworms: hundreds of them, dried out, forming a perfect circle. Something drove them to the surface.",
+        "fail": "Underground geology does strange things. A pocket of decomposing material could generate heat. It's unusual, but the earth has its own logic."
+      },
+      "valence": "negative"
+    },
+    {
+      "id": 21,
+      "intro": "A hunter found a tree near {subject_focus_the} with deep gouges in the trunk, about eight feet up. Too high for a bear, too wide for antler rubs.",
+      "details": [
+        "Five parallel grooves, raked downward, exposing the white wood underneath. The bark was peeled away in long strips.",
+        "The sap in the grooves was still fresh: sticky, clear. Whatever did it had been there within a day or so of her finding it.",
+        "She found the same marks on three other trees, all facing the same direction, like something walked between them and marked each one as it passed."
+      ],
+      "reactions": [
+        "Bears mark trees, but not that high and not that cleanly. These aren't territorial scratches: they look more like grip marks.",
+        "She's a seasoned hunter and she came back pale. That's what convinced me to take it seriously."
+      ],
+      "statCheck": {
+        "pass": "You know animal markings. The grooves taper at the bottom and widen at the top: whatever made them was reaching up and pulling down. That means the claws were above eight feet. Think about how tall that makes the shoulder.",
+        "fail": "Dead branches scraping in a storm can leave marks like that. The height is unusual but not impossible with a strong enough wind."
+      },
+      "valence": "negative"
+    },
+    {
+      "id": 22,
+      "intro": "I keep finding feathers near {subject_focus_the}. Black ones, longer than my forearm, from no bird anyone here can name.",
+      "details": [
+        "They're stiff along the shaft but soft at the edges, and they have an iridescent sheen: green and purple when the light hits them at an angle.",
+        "I've found nine so far, always in the same general area. Never in a cluster: one at a time, like they're being dropped deliberately.",
+        "The quill end is thick as my thumb. I tried to snap one and couldn't. Tough as leather."
+      ],
+      "reactions": [
+        "A crow's feather is maybe a hand's length. A heron's, a bit more. These are something else entirely.",
+        "I've been collecting them. Don't know why. They feel important. That probably sounds foolish."
+      ],
+      "statCheck": {
+        "pass": "You know plumage. Look at the barb pattern: each feather has a slightly different count of barbs along the leading edge. They're from different feathers on the same wing. That means one creature, not many, and its wingspan would be enormous.",
+        "fail": "Exotic birds pass through during unusual weather. Could be a species from further south blown off course. It happens, rarely."
+      },
+      "valence": "neutral"
+    },
+    {
+      "id": 23,
+      "intro": "The water in the creek near {subject_focus_the} has been flowing uphill for two days. Slowly, but uphill.",
+      "details": [
+        "I dropped a leaf in and watched it drift upstream: against the grade, against the slope, smooth and steady. Not pushed by wind.",
+        "The section where it happens is about fifty paces long. Before that stretch and after it, the water flows normally.",
+        "A few of us dammed the upstream end with stones. The water pooled behind our dam and then started flowing uphill past it. Like the dam wasn't there."
+      ],
+      "reactions": [
+        "Water doesn't go uphill. I know that. You know that. But there it is, doing it anyway.",
+        "People come by, watch it for a while, and leave quiet. Nobody has an explanation, and nobody likes not having one."
+      ],
+      "statCheck": {
+        "pass": "You notice the temperature? The water in that stretch is colder than the rest of the creek: much colder, almost icy. Something is pulling it, and whatever it is, it's cold.",
+        "fail": "An underground channel could create strange hydraulic pressure. Water takes the path of least resistance, even when that path looks wrong to us."
+      },
+      "valence": "negative"
+    },
+    {
+      "id": 24,
+      "intro": "I saw something standing in the fog near {subject_focus_the} three mornings ago. It was the right shape for a person, but it didn't move the way a person moves.",
+      "details": [
+        "It swayed slightly: not like breathing, more like a tall reed in a slow current. Side to side, perfectly rhythmic.",
+        "The fog was thick enough that I couldn't make out features, just the outline. When it shifted, the motion was smooth: no joints bending, no steps. Like it was sliding.",
+        "It was there for about five minutes. When the fog thinned, it wasn't gone: it was further away, much further, without having taken a step."
+      ],
+      "reactions": [
+        "I don't believe in ghosts. But I also don't have a better word for what I saw.",
+        "The fog gets heavy near {subject_focus_the} most mornings. I used to like the quiet of it. Not anymore."
+      ],
+      "statCheck": {
+        "pass": "You've watched fog before: you know how shapes form and dissolve in it. This wasn't fog condensation. The outline cast a shadow on the ground, faint but there. Fog doesn't cast shadows.",
+        "fail": "Fog does strange things to shapes. A fence post, a young tree: anything vertical becomes a figure if the fog is thick enough and you're already nervous."
+      },
+      "valence": "negative"
+    },
+    {
+      "id": 25,
+      "intro": "We've been finding dead insects near {subject_focus_the}: hundreds of them, all in one spot, in a perfect line about thirty paces long.",
+      "details": [
+        "Beetles, moths, a few dragonflies: all different kinds, all dead, arranged nose to tail in a straight row. Like a procession.",
+        "None of them are crushed or damaged. They look like they landed, folded up, and died in place. Intact, in order.",
+        "The line points directly at {subject_focus_the}. I checked with a straightedge. Perfectly aligned."
+      ],
+      "reactions": [
+        "Insects die. That's normal. Insects dying in a straight line pointing at something specific is not normal.",
+        "I swept the line away yesterday. This morning, a new one had started forming in the same spot. Shorter, but growing."
+      ],
+      "statCheck": {
+        "pass": "You see what I missed at first. The insects get larger the closer they are to {subject_focus_the}: smallest at the far end, largest at the near end. Sorted by size. No natural process does that.",
+        "fail": "A chemical spill or a toxic plant could kill insects that pass through an area. The line could just be a trail they followed before the toxin took effect."
+      },
+      "valence": "negative"
+    },
+    {
+      "id": 26,
+      "intro": "There's a hollow near {subject_focus_the} where sound doesn't work right. You speak and your voice comes back a half-second later, but the words are different.",
+      "details": [
+        "It's not an echo. I said my name and what came back was a word I didn't recognize. Same pitch, same tone, but not my name.",
+        "The distortion only happens inside the hollow: about ten paces across, ringed by old stones. Step outside it and sound is normal again.",
+        "I clapped my hands and heard the clap come back as two distinct sounds, one after the other, with a gap. Like a heartbeat."
+      ],
+      "reactions": [
+        "The children think it's a game. They shout into it and laugh at what comes back. The adults don't go near it.",
+        "I've lived here my whole life and that hollow has always been quiet ground. This started about a month ago. Something changed."
+      ],
+      "statCheck": {
+        "pass": "You're listening carefully: good. The returned sounds aren't random. I went back with the healer and we tested it. Single syllables come back as single syllables, two syllables as two. It mirrors the structure. It's answering.",
+        "fail": "Rock formations can create strange acoustics. A cavity underground in the right shape could distort sound in unexpected ways."
+      },
+      "valence": "negative"
+    },
+    {
+      "id": 27,
+      "intro": "A traveler near {subject_focus_the} says she saw her own campfire from above: looking down at it from a ridge she hadn't climbed.",
+      "details": [
+        "She'd made camp in a gulley, lit a fire, and settled in. Then she looked up and saw herself sitting by the fire, from maybe a hundred paces above and behind.",
+        "She says the perspective lasted about three seconds, then snapped back. She was in the gulley again, hands on her knees, heart pounding.",
+        "Her fire had gone out when she came back to herself. She says she'd only just lit it, but the embers were cold. Hours had passed."
+      ],
+      "reactions": [
+        "She's not the type to make things up. Practical, experienced, no patience for stories. Which is why she's so shaken.",
+        "She packed up before dawn and came straight here. Won't go back that way. Says the gulley felt like it was watching her."
+      ],
+      "statCheck": {
+        "pass": "You've heard of something like this? She mentioned one more thing she didn't want spread around: when she looked down at herself from above, she could see something else in the gulley with her. Standing just outside the firelight.",
+        "fail": "Exhaustion and firelight can produce vivid hallucinations. Travelers push themselves hard, and the mind fills in gaps when the body is spent."
+      },
+      "valence": "negative"
+    },
+    {
+      "id": 28,
+      "intro": "The well near {subject_focus_the} has started making noise. A faint tapping from deep below, irregular but persistent.",
+      "details": [
+        "It comes in clusters: three or four taps, a pause, then three or four more. Not rhythmic enough to be mechanical, not random enough to be natural.",
+        "I lowered a lantern on a rope and the light reflected off the water about forty feet down. The tapping got louder when the light was in the shaft, and stopped when I pulled it back up.",
+        "The water level hasn't changed. Temperature's the same. Everything about the well is normal except the sound."
+      ],
+      "reactions": [
+        "We still draw water from it because we need to. But nobody lingers at the well anymore. You haul your bucket and leave.",
+        "I keep telling myself it's settling stones or trapped air. But trapped air doesn't respond to light."
+      ],
+      "statCheck": {
+        "pass": "You understand acoustics. The tapping isn't coming from the water: I dropped a weighted line and the vibrations are in the stone walls of the shaft itself, about halfway down. Something is inside the rock.",
+        "fail": "Old wells shift as the ground settles. Stone on stone can produce tapping sounds, especially when temperature changes cause expansion."
+      },
+      "valence": "negative"
+    },
+    {
+      "id": 29,
+      "intro": "Something has been digging near {subject_focus_the}. Not burrows: long, shallow trenches, perfectly straight, about a hand's width across.",
+      "details": [
+        "There are four of them so far, all parallel, spaced exactly the same distance apart. Each one is about sixty paces long.",
+        "The soil from the trenches is gone. Not piled beside them like you'd expect: gone. Removed entirely.",
+        "The bottom of each trench is smooth, almost polished. I ran my fingers along it and it felt like river-worn stone, not freshly exposed dirt."
+      ],
+      "reactions": [
+        "If a person dug those, they did it in one night without anyone hearing a thing. And they carried off a lot of soil without leaving footprints.",
+        "I keep walking past them expecting the next one to appear. I've started counting the days between them: six so far, and holding."
+      ],
+      "statCheck": {
+        "pass": "You've dug enough ground to see what I see. The trenches aren't cut from the surface: the edges curl inward slightly at the top. Something pushed up from below and broke through. These were dug from underneath.",
+        "fail": "Runoff channels can carve surprisingly clean lines when the slope and soil type cooperate. It's been a wet season."
+      },
+      "valence": "negative"
+    }
+  ]
+}

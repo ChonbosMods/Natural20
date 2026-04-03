@@ -4,531 +4,115 @@
   "entries": [
     {
       "id": 0,
-      "intro": "The well near {subject_focus_the} needs rebuilding and nobody can agree on who should pay for it. It's been three meetings and counting.",
+      "intro": "My neighbor's been keeping chickens again. I can hear them at dawn every single morning.",
       "details": [
-        "The north side of the village uses it most, but the south side owns the land it sits on. Both sides think the other should foot the bill.",
-        "Meanwhile the well wall is crumbling. Another season and we'll be fishing stones out of our drinking water.",
-        "The mason offered to do it at cost if they'd just decide. They're still deciding."
+        "I mentioned it to him and he said the rooster has a mind of its own. That's not really an answer.",
+        "The eggs are good, though. He brought some over last week as a peace offering."
       ],
       "reactions": [
-        "It's not really about the well. It's about the road dispute from two years ago that never got resolved. The well is just the latest battlefield.",
-        "I told them I'd pay a share myself if it'd break the deadlock. Both sides said they appreciated the gesture and went right back to arguing."
+        "I can't stay mad about it. He's a decent neighbor otherwise."
+      ],
+      "valence": "neutral"
+    },
+    {
+      "id": 1,
+      "intro": "Folks around here have been helping each other more than usual. Someone fixed the old woman's fence without being asked.",
+      "details": [
+        "The carpenter did the fence, the baker left bread on her step, and someone else stacked her firewood. All in one week.",
+        "She's been here longer than anyone. I think people just want to make sure she's comfortable."
+      ],
+      "reactions": [
+        "That's the kind of thing that makes a place worth living in."
+      ],
+      "valence": "positive"
+    },
+    {
+      "id": 2,
+      "intro": "There's been a property argument going on for weeks now. Two families can't agree on where one lot ends and the other begins.",
+      "details": [
+        "The old boundary marker fell over ages ago and nobody can agree where it stood.",
+        "They've dragged the whole settlement into it. Everyone's got an opinion, and none of them match."
+      ],
+      "reactions": [
+        "It'll sort itself out eventually. Usually with a lot of grumbling."
+      ],
+      "statCheck": {
+        "pass": "The original boundary was paced off by the elder's father. I've seen the marks on the old post: it's about three steps east of where they're arguing.",
+        "fail": "I wasn't around when the line was drawn. Your guess is as good as mine."
+      },
+      "valence": "negative"
+    },
+    {
+      "id": 3,
+      "intro": "Someone's dog keeps getting into the root cellar down the lane. Third time this month.",
+      "details": [
+        "It ate through half a wheel of cheese last time. The owner just said the dog has good taste.",
+        "Everyone knows whose dog it is, but nobody wants to be the one to make a fuss about it."
+      ],
+      "reactions": [
+        "You'd think after three times someone would fix the latch. But no."
       ],
       "valence": "negative"
     },
     {
-      "id": 1,
-      "intro": "A family of refugees showed up at {subject_focus_the} last week. Eight people, two carts, everything they own packed into bundles.",
-      "details": [
-        "They say their village was abandoned after the river changed course. No water, no crops, no choice but to move.",
-        "The elders offered them the empty plot near the mill, but some of the village folk aren't happy about sharing resources with strangers.",
-        "The father is a skilled tanner. He's already started helping at the leather shop without being asked."
-      ],
-      "reactions": [
-        "We've got room and we've got food. Turning people away when they've lost everything isn't who we are.",
-        "I understand the worry. Resources are tight enough without eight more mouths. But tight and impossible are different things."
-      ],
-      "statCheck": {
-        "pass": "I talked to the father quietly. He mentioned their village wasn't just abandoned: they were the last to leave. Others left months ago, heading the same direction. Something is pushing people out of the lowlands.",
-        "fail": "They are tired and guarded, that family. I asked a few questions myself and got the basics, nothing more. They keep the details close."
-      },
-      "valence": "neutral"
-    },
-    {
-      "id": 2,
-      "intro": "The old meeting hall near {subject_focus_the} burned down last month, and rebuilding it has turned into the biggest project this village has seen in years.",
-      "details": [
-        "Everyone's contributing something: timber, labor, nails. Even the children are carrying water for the workers.",
-        "The new design is bigger than the old one. Someone suggested adding a second floor for storage, and somehow it stuck.",
-        "The carpenter and the mason haven't agreed on a single thing yet, but the building keeps going up anyway."
-      ],
-      "reactions": [
-        "It's the most united I've seen this village in a decade. Nothing brings people together like a common project.",
-        "I've been cooking for the work crews. It's not much, but someone has to keep these people fed."
-      ],
-      "valence": "positive"
-    },
-    {
-      "id": 3,
-      "intro": "The baker near {subject_focus_the} has been leaving bread on doorsteps for the families who can't afford it. She won't admit to it, but everybody knows.",
-      "details": [
-        "She bakes an extra batch every evening and it's gone by morning. Always the same households: the widow, the old soldier, the family with six children.",
-        "She uses her own flour for it. Won't take donations. Says it's just surplus that would go stale.",
-        "The widow tried to thank her once. She pretended not to know what the woman was talking about."
-      ],
-      "reactions": [
-        "In a village this size, a quiet kindness like that holds more weight than people realize. It sets a standard.",
-        "The miller has started giving her a discount on flour. His way of contributing without making a fuss about it."
-      ],
-      "valence": "positive"
-    },
-    {
       "id": 4,
-      "intro": "The youth near {subject_focus_the} have been leaving. One or two a season, heading for the cities. The village is getting older every year.",
+      "intro": "The well on the east side needs fixing. The rope's been fraying for weeks and everyone just keeps using it anyway.",
       "details": [
-        "Three left this spring alone. The tanner's apprentice, the farrier's daughter, and the best young hunter we had.",
-        "They write letters home sometimes. The city work pays better, but the letters sound tired.",
-        "The village council talked about offering land grants to keep young people here, but there's not enough good land left to offer."
+        "I said something about it to the smith and he said he'd get to it. That was two weeks ago.",
+        "Somebody tied a knot in the worst part as a temporary fix. It's holding, but barely."
       ],
       "reactions": [
-        "I don't blame them for wanting more. I blame us for not finding a way to give them a reason to stay.",
-        "Every skill that walks out the gate is a skill we might not get back. The blacksmith is sixty-two and has no apprentice."
+        "One of these days the rope's going to snap and the bucket's going down for good. But that's apparently a future problem."
       ],
       "statCheck": {
-        "pass": "I spoke with the farrier's daughter before she left. She said it wasn't the money: it was the feeling that nothing here would ever change. She wanted to matter somewhere. That hit harder than I expected.",
-        "fail": "Everyone just shrugs when you bring it up. Says it's always been this way. Maybe it has."
+        "pass": "Hemp rope lasts about two seasons of heavy use. This one's been on there for three. It's overdue, not just worn.",
+        "fail": "I'm no expert on ropes. It looks bad, that's all I know."
       },
       "valence": "negative"
     },
     {
       "id": 5,
-      "intro": "The council near {subject_focus_the} voted to impose a curfew after dark. Half the village thinks it's overdue, the other half thinks it's tyranny.",
+      "intro": "The kids have been playing in the square every evening. Running around screaming until dark.",
       "details": [
-        "The official reason is safety: two incidents on the roads at night in the past month. But the real push came from the elder's family after their storehouse was broken into.",
-        "The curfew starts at sundown and the guards are supposed to enforce it. Most of them think it's ridiculous and barely bother.",
-        "The evening gatherings at the square have stopped entirely. People who used to sit and talk after supper now eat alone and close their shutters."
+        "I remember doing the same thing at their age. Felt like the world was the size of that square.",
+        "One of them knocked over a flower pot yesterday. The owner wasn't happy, but she didn't stay angry long."
       ],
       "reactions": [
-        "A rule nobody enforces is worse than no rule at all. It just teaches people that rules don't matter.",
-        "I miss the evenings. That was when this village actually felt like a village, not just a collection of houses."
+        "It's noisy, but it means things are good. Kids don't play like that when times are hard."
       ],
-      "statCheck": {
-        "pass": "The break-in at the elder's storehouse was an inside job. His own nephew was caught selling grain on the side road two days later. The curfew is cover: it's easier than admitting the problem is family.",
-        "fail": "People have their theories about the break-in, but nobody wants to say them out loud. The elder's family carries too much influence."
-      },
-      "valence": "negative"
+      "valence": "positive"
     },
     {
       "id": 6,
-      "intro": "The communal meal near {subject_focus_the} used to happen every seventh day. Somewhere along the way it stopped, and nobody can agree on whose fault that is.",
+      "intro": "Nobody wants to clean out the drainage ditch by the path. It's been clogged up for a month and the water's just sitting there.",
       "details": [
-        "It started as a harvest tradition: everyone brings a dish, the tables go out in the square, you eat with whoever sits next to you. Simple as that.",
-        "The last few attempts fell apart because the same four families did all the cooking while everyone else showed up with an appetite and nothing else.",
-        "Someone put up a sign-up board for contributions. It stayed empty for three weeks before someone took it down out of embarrassment."
+        "Every time it rains the path floods because the runoff has nowhere to go.",
+        "I brought it up at the last gathering and everyone suddenly had somewhere else to look."
       ],
       "reactions": [
-        "You can't force people to care about each other. But you can notice when they stop.",
-        "The meal was never about the food. It was the only time the whole village sat at the same table. Now we don't even have that."
+        "I suppose I'll end up doing it myself. That's usually how these things go."
       ],
       "statCheck": {
-        "pass": "The real reason it collapsed is simpler than people admit. Two families had a falling out over a property line, and once they stopped speaking, neither would sit at a table with the other. Everyone else picked sides quietly.",
-        "fail": "Everyone blames someone else for letting it die. I've heard five versions and none of them agree on the details."
+        "pass": "It's just leaves and silt. An hour's work with a shovel would sort the whole thing out.",
+        "fail": "I have no idea what's blocking it. Could be anything down there."
       },
-      "valence": "negative"
+      "valence": "neutral"
     },
     {
       "id": 7,
-      "intro": "There's a new family near {subject_focus_the} that arrived two months ago. They keep to themselves, which has people talking.",
+      "intro": "There's been a lot of gossip going around lately. I try not to listen, but you can't help it in a place this small.",
       "details": [
-        "They fixed up the abandoned cottage on the east side without asking anyone for help. Did a good job of it too: the place looks better than it has in years.",
-        "The mother is a weaver. She set up a loom in the front room and you can hear it clacking from the path, but she hasn't sold anything locally yet.",
-        "Their children don't play with the other children. They sit in the yard and read. I've never seen village children read that much."
+        "Everyone knows everyone's business. Who bought what, who argued with who, who was seen walking where.",
+        "The baker is the worst for it. She knows more about this settlement than anyone, and she'll tell you all of it."
       ],
       "reactions": [
-        "People mistake quiet for unfriendly. Some folk just need time to settle in before they open up.",
-        "I brought them a basket of vegetables the first week. The mother thanked me politely and closed the door. Didn't invite me in, didn't ask my name."
+        "Small places are like that. You give up a little privacy for knowing your neighbors have your back."
       ],
       "statCheck": {
-        "pass": "I noticed the father speaks with an accent from the eastern provinces. Those families don't leave voluntarily: the eastern districts have been under levy pressure for months. They may be avoiding conscription.",
-        "fail": "They don't say much about where they came from. I've tried making conversation a few times and it goes nowhere."
+        "pass": "Most of the gossip's harmless. People just like to talk: it's how they feel connected.",
+        "fail": "I try to stay out of it. The less I know, the less trouble I'm in."
       },
       "valence": "neutral"
-    },
-    {
-      "id": 8,
-      "intro": "The night watch near {subject_focus_the} has fallen to the same three people every single night for months. Nobody else will volunteer.",
-      "details": [
-        "The roster was supposed to rotate: every able adult takes a turn. After the first month, people started finding excuses. Bad back. Sick child. Early morning chores.",
-        "The three who stuck with it are exhausted. You can see it in their faces. One of them fell asleep at the well last week in broad daylight.",
-        "The council says they'll start fining people who skip their turn. They've been saying that for six weeks."
-      ],
-      "reactions": [
-        "The village expects safety but won't share the cost of it. Three people can't protect a whole settlement indefinitely.",
-        "I took a shift last week to give one of them a break. Longest night of my life, standing in the dark listening to nothing. I understand why people dodge it."
-      ],
-      "statCheck": {
-        "pass": "One of the regular watchers told me something interesting: on the nights nobody shows up, he's started noting which households have their lamps out earliest. The pattern matches the families closest to the council. They know they won't be fined.",
-        "fail": "It is hard to fault people for not wanting to stand in the cold all night. The system just doesn't work without some kind of enforcement."
-      },
-      "valence": "negative"
-    },
-    {
-      "id": 9,
-      "intro": "There's an empty seat on the village council near {subject_focus_the} and the two people running for it haven't spoken a civil word to each other in weeks.",
-      "details": [
-        "The old councilwoman stepped down after her health declined. She held that seat for nineteen years and everyone respected her judgment.",
-        "One candidate is the merchant who runs the general store: practical, good with numbers, not much warmth. The other is the healer's apprentice: well-liked, idealistic, no experience governing.",
-        "The arguments have gotten personal. Someone started a rumor that the merchant has been skimming from the communal fund. He says the apprentice's supporters spread it."
-      ],
-      "reactions": [
-        "The seat matters less than what the fight is doing to the village. We're splitting into camps over a chair.",
-        "I respected the old councilwoman because she never wanted the position. She took it because nobody else would. These two want it too badly."
-      ],
-      "statCheck": {
-        "pass": "I've watched both candidates closely. The merchant is competent but he owes favors to three of the wealthier families. The apprentice is honest but she doesn't realize the council seat comes with debts she can't see yet. Neither choice is clean.",
-        "fail": "Everyone has an opinion on who should win, but the reasoning is mostly personal. People vote for the one they like, not the one they've evaluated."
-      },
-      "valence": "negative"
-    },
-    {
-      "id": 10,
-      "intro": "The naming ceremony near {subject_focus_the} for the blacksmith's new daughter turned into the biggest gathering this village has had in a year.",
-      "details": [
-        "Tradition says the eldest resident speaks the name aloud for the first time. The old potter did it: her hands were shaking, but her voice was steady as iron.",
-        "Everyone brought something: blankets, carved toys, dried herbs for the cradle. The table was so full the family had to stack gifts on the floor.",
-        "The father cried in front of everyone. First time anyone has seen that man show emotion in twenty years of knowing him."
-      ],
-      "reactions": [
-        "A new child in a village this size isn't just a family event. It's proof that the place has a future. People needed that.",
-        "I've been to naming ceremonies that felt like obligations. This one felt like relief."
-      ],
-      "statCheck": {
-        "pass": "The old potter whispered something to the mother after the ceremony that nobody else caught. I asked her about it later. She said she told her the same words her own mother spoke when she was named: a blessing in the old tongue that most people have forgotten.",
-        "fail": "The ceremony followed tradition. Beyond that, I couldn't tell you what the old words mean. Nobody explains them anymore."
-      },
-      "valence": "positive"
-    },
-    {
-      "id": 11,
-      "intro": "The eldest councilman near {subject_focus_the} has been forgetting things. Small things at first, but it's getting harder to ignore.",
-      "details": [
-        "He repeated the same announcement at two meetings in a row. Word for word. Nobody corrected him because nobody wanted to be the one.",
-        "His daughter has been sitting in on sessions, quietly filling in the gaps when he loses his thread. She's doing the job without the title.",
-        "The other council members are talking in private about what to do. There's no tradition for asking someone to step down gracefully."
-      ],
-      "reactions": [
-        "He gave this village forty years of fair judgment. He deserves better than being pushed aside, but the village deserves competent leadership too. There's no good answer.",
-        "I watched his daughter steer a discussion last week without anyone noticing. She has the mind for it. But asking her father to step aside would break his heart."
-      ],
-      "statCheck": {
-        "pass": "His daughter confided in me. She said he knows. He told her one evening that the words don't come like they used to, and asked her to be ready. He's waiting for the right moment to hand it over himself. He just hasn't found it yet.",
-        "fail": "Nobody talks about it directly. They speak in circles: 'He's tired lately,' 'He's earned a rest.' Everyone knows what they mean."
-      },
-      "valence": "negative"
-    },
-    {
-      "id": 12,
-      "intro": "The children near {subject_focus_the} have been going to the herbalist's cottage for lessons. It started as one afternoon a week and now it's nearly every day.",
-      "details": [
-        "She teaches them to read using plant labels and recipe books. Not the usual method, but they can sound out words faster than the previous teacher managed.",
-        "The parents didn't organize it. The children just started showing up, and the herbalist didn't have the heart to turn them away.",
-        "She's teaching them numbers too, through measuring and weighing ingredients. One of the older children can calculate a tincture ratio better than most adults."
-      ],
-      "reactions": [
-        "We've needed a proper teacher for two years since the last one left. The herbalist fell into it by accident, and she's better than anyone we could have hired.",
-        "Some parents worry she's filling their heads with odd ideas. I say any idea is better than the nothing they were getting before."
-      ],
-      "statCheck": {
-        "pass": "The herbalist told me something she hasn't shared with the parents. She's not just teaching reading and numbers: she's been watching for children with aptitude. One of them has a natural gift for identifying plants by smell alone. She wants to take that child on as an apprentice, but she's afraid the family will refuse.",
-        "fail": "The lessons seem straightforward enough. Reading, numbers, plant identification. Whatever else goes on in that cottage, the children seem happy."
-      },
-      "valence": "positive"
-    },
-    {
-      "id": 13,
-      "intro": "Somebody near {subject_focus_the} has been moving the property boundary stones. Three families found their markers shifted overnight.",
-      "details": [
-        "The stones are heavy: two people at minimum to lift one. Someone is making an effort, not just a prank.",
-        "Each marker was moved inward by about two paces, always toward the smaller plot. The larger landholders are gaining ground, literally.",
-        "The affected families brought it to the council. The council said they'd survey, but the surveyor is the brother of one of the larger landholders."
-      ],
-      "reactions": [
-        "Two paces doesn't sound like much until it's your garden that shrinks. Those families grow food on every handspan they have.",
-        "If this doesn't get resolved fairly, people will start guarding their markers at night. That's how neighbors become enemies."
-      ],
-      "statCheck": {
-        "pass": "I checked the original survey records in the council archive. The boundaries don't match what's on the ground now, and they haven't matched for at least three years. This isn't new: someone has been doing it gradually, a pace at a time, for seasons.",
-        "fail": "Boundary disputes are common enough. Everyone remembers their own lines differently, and soil shifts the markers over time. Hard to prove anything deliberate."
-      },
-      "valence": "negative"
-    },
-    {
-      "id": 14,
-      "intro": "The village near {subject_focus_the} shares a flock of goats, and the argument over who feeds them on rest days has been going on longer than anyone cares to admit.",
-      "details": [
-        "The rotation was simple: each family takes a week. But some families feed them scraps and table waste, while others give them proper grain. The goats know the difference.",
-        "One family got so tired of the bickering that they volunteered to take every rest day. Now they're resentful and everyone else feels guilty but not guilty enough to help.",
-        "The goats have started wandering into the market square during feeding disputes. Nothing like a herd of goats knocking over a pottery display to focus a community's priorities."
-      ],
-      "reactions": [
-        "The goats give us milk, cheese, and wool. They cost us nothing but time and attention, and we can't even agree on that.",
-        "I've suggested selling the flock and splitting the proceeds. You'd think I proposed burning down the village from the reaction I got."
-      ],
-      "statCheck": {
-        "pass": "The family that took the extra shifts told me privately that they've been keeping a ledger. Every feeding, every cost, every hour. They're building a case to claim ownership of the flock outright. The communal arrangement is about to get a lot less communal.",
-        "fail": "Everyone agrees the goats are important. Everyone disagrees on who should do the work. It is the oldest argument in village life."
-      },
-      "valence": "negative"
-    },
-    {
-      "id": 15,
-      "intro": "The road between {subject_focus_the} and the next village is washing out, and the council can't agree on whether it's their problem or the other village's.",
-      "details": [
-        "The worst section is right at the midpoint: a low spot that floods every time it rains. Carts have been getting stuck there for months.",
-        "A trader broke an axle there last week and swore he'd take the long way around from now on. If others follow, both villages lose traffic.",
-        "The other village sent a letter proposing a shared repair. Our council hasn't replied because they're still debating who should pay more."
-      ],
-      "reactions": [
-        "While two councils argue about responsibility, the road gets worse and the traders find other routes. We're negotiating ourselves into irrelevance.",
-        "I've watched three carts struggle through that mud this week. None of them had to: there's a longer route. We're losing people's patience."
-      ],
-      "statCheck": {
-        "pass": "I spoke with the trader who broke his axle. He told me something our council doesn't know: the other village already started repairs on their half. They're not waiting for agreement. Our side of the road is going to look embarrassing by comparison.",
-        "fail": "Road maintenance is everyone's problem and nobody's responsibility. Same conversation every year, same result."
-      },
-      "valence": "negative"
-    },
-    {
-      "id": 16,
-      "intro": "The communal storehouse near {subject_focus_the} has been coming up short at inventory. Not by a lot, but consistently.",
-      "details": [
-        "Every count for the past three months shows less grain than what went in. Small amounts: a sack here, a half-barrel there. Easy to miss if you're not paying attention.",
-        "The storehouse has two keys. The keeper has one and the council chair has the other. Both swear they've secured the door every time.",
-        "Someone suggested putting a seal on the lock: wax that would break if tampered with. The keeper agreed immediately. The council chair called it an insult."
-      ],
-      "reactions": [
-        "A sack of grain doesn't walk out on its own. Somebody is taking it, and the longer we pretend otherwise the more we lose.",
-        "I don't want to accuse anyone. But I also don't want to be hungry come winter because we were too polite to ask hard questions."
-      ],
-      "statCheck": {
-        "pass": "I've been watching the storehouse path at odd hours. The shortages always follow council meeting nights, when the square is busy and nobody watches the back lane. Whoever is doing this knows the village schedule better than a stranger would.",
-        "fail": "Grain goes missing in any village with a shared storehouse. Could be rats, could be miscounts, could be something else. Nobody has caught anyone."
-      },
-      "valence": "negative"
-    },
-    {
-      "id": 17,
-      "intro": "The village near {subject_focus_the} decided to build a communal garden. It lasted about six weeks before the arguments started.",
-      "details": [
-        "The plan was beautiful: shared plots, shared water, shared harvest. Everyone agreed in the meeting. Then planting season arrived.",
-        "Three families planted root vegetables on the sunny side and left the shaded plots for everyone else. When the others complained, they said first come, first planted.",
-        "The worst part is the weeding. Some people tend their section daily. Others let the weeds creep into neighboring plots and act surprised when confronted."
-      ],
-      "reactions": [
-        "A shared garden only works if everyone shares the same definition of fairness. We don't, and now we've got proof.",
-        "I still think it was a good idea. The execution just needed rules we were all too friendly to write down."
-      ],
-      "statCheck": {
-        "pass": "I talked to the family that took the sunny plots. They didn't just arrive first: they knew the layout in advance because their cousin drew up the garden plan for the council. The whole thing was tilted before a seed went in the ground.",
-        "fail": "Every family has a different version of what was agreed. Without written records, it is just one person's memory against another's."
-      },
-      "valence": "negative"
-    },
-    {
-      "id": 18,
-      "intro": "The evening fire circle near {subject_focus_the} used to draw a dozen people after supper. Now it's down to three or four, and they're always the same ones.",
-      "details": [
-        "People say they're too tired, too busy, too cold. But the real reason is that the conversations turned sour a few months back when politics crept in.",
-        "One evening the discussion about harvest shares turned into shouting. Two neighbors who'd been friends for years stopped speaking. The fire circle never recovered.",
-        "The ones who still show up are careful now. They talk about weather and animals, safe subjects. The old openness is gone."
-      ],
-      "reactions": [
-        "You don't realize what you had until the seats are empty. That fire was where problems got solved before they became problems. Now they just simmer.",
-        "I go every night, even when it's just me and the fire. Someone has to keep the habit alive or it dies for good."
-      ],
-      "statCheck": {
-        "pass": "The argument that killed the fire circle wasn't really about harvest shares. It was about the elder's son getting a larger allocation without earning it. Nobody wanted to say it to the elder's face, so it came out sideways as a general grievance. The real issue was never addressed.",
-        "fail": "People drifted away gradually. If there was a single reason, nobody's willing to name it."
-      },
-      "valence": "negative"
-    },
-    {
-      "id": 19,
-      "intro": "A rumor near {subject_focus_the} has been circulating about the potter's family, and it's not true but it's spreading fast.",
-      "details": [
-        "Someone said the potter's wife was seen trading with outsiders at night. All she was doing was delivering a commission to a late-arriving customer.",
-        "By the time the story got around the market, she'd been accused of smuggling, hoarding, and worse. Three days, three versions, each worse than the last.",
-        "The potter confronted the source and was told it was just idle talk. As if idle talk hasn't ruined people before."
-      ],
-      "reactions": [
-        "In a village this size, a rumor reaches every ear in a day. The correction takes a month, if it catches up at all.",
-        "I've been defending her when I hear it repeated. Most people listen. Some have already decided what they believe."
-      ],
-      "statCheck": {
-        "pass": "The rumor didn't start from someone who saw her. It started from someone who owed her husband money and wanted leverage. I traced it back through three retellings to the original source: a neighbor with a debt and a grudge.",
-        "fail": "Rumors have a life of their own. By the time you try to trace one, it has been told so many times the origin is lost."
-      },
-      "valence": "negative"
-    },
-    {
-      "id": 20,
-      "intro": "The village near {subject_focus_the} is trying to figure out what to do about the old memorial stone. It's cracked, the inscription is wearing off, and nobody can agree on whether to repair it or replace it.",
-      "details": [
-        "The stone was carved two generations ago to honor the families who founded the settlement. Half the names are illegible now.",
-        "The mason says he can re-carve the letters, but the original stone is too brittle. It'll crack further if he works on it.",
-        "Some people want a new stone with all the names re-inscribed. Others say the original stone is the memorial, cracks and all. Replacing it erases the thing it's supposed to preserve."
-      ],
-      "reactions": [
-        "My grandmother's name is on that stone. I'd rather see it worn and real than sharp and new. The weathering is part of the memory.",
-        "We're arguing about stone while the people it honors are being forgotten. The names matter more than what they're carved into."
-      ],
-      "statCheck": {
-        "pass": "I found a rubbing someone made of the stone twenty years ago, tucked into the council records. Every name is legible on the paper. If they'd let me compare it to the stone, we could restore the names without guessing: but the elder who holds the records won't let anyone touch them.",
-        "fail": "The inscription was clearer a decade ago. Now it takes someone who already knows the names to read them, which defeats the purpose."
-      },
-      "valence": "neutral"
-    },
-    {
-      "id": 21,
-      "intro": "Two of the older women near {subject_focus_the} have been teaching the younger folk to preserve food for winter. It started quietly and now it's practically a school.",
-      "details": [
-        "They've got a whole system: smoking, salting, drying, pickling. The younger generation never learned because the market always had what they needed. Until it didn't.",
-        "Last winter was lean and several families ran short. These two women fed half the street from their own preserves without asking for anything in return.",
-        "Now they've got eight students and a waiting list. They teach in one of the women's kitchens, which is barely big enough for four people, let alone ten."
-      ],
-      "reactions": [
-        "Skills that skip a generation are the hardest to recover. These two are saving knowledge that was almost lost.",
-        "The irony is they offered to teach years ago and nobody was interested. It took a hungry winter to make people listen."
-      ],
-      "statCheck": {
-        "pass": "One of the women told me she's documenting everything in a journal: recipes, timing, temperatures, which methods work for which foods. She's not just teaching the current students: she's making sure the knowledge survives even if she doesn't. That's the kind of thinking a village needs.",
-        "fail": "They're good teachers from what I can tell. Beyond the basics of what they're showing, I don't know the details of their methods."
-      },
-      "valence": "positive"
-    },
-    {
-      "id": 22,
-      "intro": "Every decision near {subject_focus_the} takes three meetings now. People are exhausted from talking and nothing changes.",
-      "details": [
-        "The bridge repair took four meetings. The well allocation took five. The question of who cleans the market square after fair day is still unresolved after six.",
-        "The council insists on full consensus, which means one holdout can stall everything. And there's always one.",
-        "People have stopped attending meetings. The last one had eight people in a hall built for forty. They spent an hour arguing about whether they had enough attendance to vote."
-      ],
-      "reactions": [
-        "Consensus sounds noble until you need to fix a bridge before the next rain. Sometimes you just need someone to decide and do it.",
-        "I've watched good ideas die in committee three times this season. The people with energy to act are running out of patience with the people who only want to discuss."
-      ],
-      "statCheck": {
-        "pass": "The holdout is almost always the same person: the merchant's brother. He doesn't block things because he disagrees. He blocks things because the council once overruled him on a property matter, and he's been making them pay for it ever since. Every delay is revenge.",
-        "fail": "Everyone blames 'the process' as if it's something that happens to them. Nobody wants to be the one to say the process itself is the problem."
-      },
-      "valence": "negative"
-    },
-    {
-      "id": 23,
-      "intro": "The matchmaker near {subject_focus_the} has been busier than usual. Three arrangements this season, and not all of them are welcome.",
-      "details": [
-        "The first match was popular: two families that get along, two young people who clearly wanted to be together. Everyone celebrated.",
-        "The second raised eyebrows. The families have old grievances, and the young woman told her friends she wasn't consulted before the arrangement was announced.",
-        "The third is between a local farmer's son and a newcomer's daughter. Half the village thinks it's a sign of acceptance. The other half thinks the newcomers are maneuvering."
-      ],
-      "reactions": [
-        "Matches aren't just about two people. They're about which families gain standing and which lose it. Everyone is doing the math, even if they pretend they're just happy for the couple.",
-        "I've seen good matches made for bad reasons and bad matches turn out well. The matchmaker's judgment has been sound before, but this season feels political."
-      ],
-      "statCheck": {
-        "pass": "I spoke with the young woman from the second arrangement. She isn't opposed to the match itself: she's angry because her father made the deal to settle a debt he owes the other family. She's a payment, not a bride. The matchmaker doesn't know that part.",
-        "fail": "Marriage arrangements are private family business. People share the celebrations, not the negotiations behind them."
-      },
-      "valence": "neutral"
-    },
-    {
-      "id": 24,
-      "intro": "Someone near {subject_focus_the} has been dumping ash and scraps behind the tanner's workshop instead of using the waste pit. The smell is becoming a problem.",
-      "details": [
-        "The waste pit is a ten-minute walk from the village center. The spot behind the tanner's is thirty steps from the back doors. Laziness has a predictable geography.",
-        "The tanner complained to the council twice. The first time they promised to investigate. The second time they told him to handle it himself.",
-        "Three households downhill from the dump site say their well water tastes wrong. Whether that's connected or coincidence, nobody is testing."
-      ],
-      "reactions": [
-        "It's not glamorous work, hauling waste to the proper pit. But the alternative is living next to a heap that poisons the ground. We're choosing short-term ease over long-term health.",
-        "The tanner has been here longer than most of us. He didn't build his shop next to a dump: someone made it one after the fact."
-      ],
-      "statCheck": {
-        "pass": "I paid attention to when the pile grows. It's always after market day, and the waste is mostly spoiled produce and rendering fat: materials from the food stalls. The market vendors are using the tanner's back wall as their personal dump because the council doesn't inspect after breakdown.",
-        "fail": "Nobody admits to dumping there, and nobody has been caught in the act. It keeps growing, so someone is doing it regularly."
-      },
-      "valence": "negative"
-    },
-    {
-      "id": 25,
-      "intro": "The grievance board near {subject_focus_the} was supposed to give people a fair way to raise complaints. Instead it's become a wall of accusations.",
-      "details": [
-        "The original idea was simple: write your concern on a slip, pin it to the board, the council reviews them weekly. Dignified and orderly.",
-        "Within a month, the slips went from 'the drainage ditch needs clearing' to personal attacks. Someone called the baker dishonest. Someone else accused a neighbor of stealing firewood.",
-        "The council stopped reading the board after a complaint named three families by description, if not by name. The board is still up, but it's just a monument to bad feeling now."
-      ],
-      "reactions": [
-        "Give people a way to complain anonymously and you'll learn more about their resentments than their problems. The board showed us who we are when nobody's watching.",
-        "The idea was good. People need a voice. But a voice without a face behind it turns bitter fast."
-      ],
-      "statCheck": {
-        "pass": "I compared the handwriting on several of the worst slips. At least four of the most personal attacks were written by the same person: same letter shapes, same ink. Someone is using the board to wage a private campaign under cover of anonymity.",
-        "fail": "Anonymous complaints all look the same after a while. There is no way to tell who wrote what without catching them in the act."
-      },
-      "valence": "negative"
-    },
-    {
-      "id": 26,
-      "intro": "The old healer near {subject_focus_the} announced she's training a replacement. The trouble is she picked someone nobody expected.",
-      "details": [
-        "Everyone assumed the apprentice would be the herbalist's daughter, who has been helping in the shop since she could walk. Instead the healer chose a quiet boy from one of the poorer families.",
-        "She says he has the hands for it: steady and patient. The herbalist's daughter is bright but rushes. In healing, rushing costs lives.",
-        "The herbalist's family took it as a slight. They've been cold to the healer ever since, which is uncomfortable in a village where everyone depends on both of them."
-      ],
-      "reactions": [
-        "Choosing a successor is the most important decision a skilled person makes. She's earned the right to choose well, even if people don't like the choice.",
-        "The boy is terrified. He told me he doesn't understand why she picked him. I told him that's exactly why she did."
-      ],
-      "statCheck": {
-        "pass": "The healer told me something she won't say publicly. She tested both of them without either knowing: asked them each to help with a difficult case and watched how they responded. The girl knew the right answer but panicked under pressure. The boy didn't know, admitted it, and asked what to do. She said that honesty under pressure is the one thing she can't teach.",
-        "fail": "The healer has her reasons and she keeps them close. I trust her judgment, but I can't explain it to the families who feel passed over."
-      },
-      "valence": "neutral"
-    },
-    {
-      "id": 27,
-      "intro": "The village near {subject_focus_the} has been arguing about where to house a family whose cottage collapsed in the last storm.",
-      "details": [
-        "The cottage was old and everyone knew it was in poor shape. The family asked for help reinforcing the walls two seasons ago and got promises that never materialized.",
-        "They're sleeping in the meeting hall for now, which means no meetings can happen. The council is conducting business in the market square, which everybody can hear.",
-        "Two families offered spare rooms, but the displaced family has five children. No single household can absorb that many without strain."
-      ],
-      "reactions": [
-        "We knew the cottage was failing. We could have spent a day shoring it up and prevented all of this. Now we're spending weeks dealing with the fallout.",
-        "Those children haven't complained once. They treat the meeting hall like an adventure. It breaks my heart because they shouldn't have to be that resilient."
-      ],
-      "statCheck": {
-        "pass": "The father told me quietly that he knows why his request for help was ignored. He voted against the elder's tax proposal last year: the only dissenting vote. The help that should have come was never going to come. His family is paying for his honesty.",
-        "fail": "Help requests fall through for all kinds of reasons: busy seasons, short supplies, forgetfulness. It is hard to say why this one was overlooked."
-      },
-      "valence": "negative"
-    },
-    {
-      "id": 28,
-      "intro": "The skill-sharing arrangement near {subject_focus_the} has been one of the best things to happen here in years. People are teaching each other trades on rest days.",
-      "details": [
-        "The carpenter teaches joinery on seventh-day mornings. The potter gives evening lessons in glazing. The old fisherman shows anyone who'll listen how to mend nets and read the water.",
-        "It started when the farrier offered to show the baker how to fix her own oven grate. She offered bread-making lessons in return. Word spread and others joined.",
-        "The most popular sessions are the healer's herb walks. She takes people out at dawn and teaches identification, dosage, and what never to mix. Practical knowledge that could save a life."
-      ],
-      "reactions": [
-        "A village where everyone knows a little of every trade is a village that survives hard times. Specialists are valuable, but generalists are resilient.",
-        "The real gift isn't the skill. It's the respect: a master taking time to teach means they see you as worth investing in. That changes how people treat each other."
-      ],
-      "statCheck": {
-        "pass": "The arrangement is doing something nobody planned. The families that were feuding over the property boundaries are now in the same joinery class. They started out sitting on opposite sides of the workshop. Last week they were sharing tools. Nobody forced it: it just happened when they had something in common besides a fence line.",
-        "fail": "It seems to be working well. People are learning, people are socializing. Whether it has deeper effects I couldn't say."
-      },
-      "valence": "positive"
-    },
-    {
-      "id": 29,
-      "intro": "The seasonal preparations near {subject_focus_the} have started early this year. Root cellars are being dug, wood is being stacked, and nobody is wasting time.",
-      "details": [
-        "The old-timers say the signs point to a hard winter: the birds are grouping earlier than usual and the creek is running colder than it should be this time of year.",
-        "The council organized work crews for the first time: one group splits wood, one group repairs roofing, one group checks the storehouse seals. Surprisingly, people actually showed up.",
-        "The cooper has a backlog of barrel orders for the first time in years. Everyone wants to store more than usual. People are preparing like their grandparents did, not like they've done in recent memory."
-      ],
-      "reactions": [
-        "I'd rather prepare and be wrong than be right and be hungry. The work keeps people busy and the busyness keeps the worry manageable.",
-        "There's something about shared labor that reminds you these are your neighbors, not your rivals. We've been better to each other these past weeks than we have all year."
-      ],
-      "statCheck": {
-        "pass": "The urgency isn't just about weather signs. The elder got a message from a settlement further north warning that their harvest failed completely. She hasn't told the village because she doesn't want panic, but she's the one who pushed for the early preparations. She's sheltering us from the real reason.",
-        "fail": "The old-timers predict a hard winter every year. This time people are listening, which suggests something feels different. I just can't put my finger on what."
-      },
-      "valence": "positive"
     }
   ]
 }

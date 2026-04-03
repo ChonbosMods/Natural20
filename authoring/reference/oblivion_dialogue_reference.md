@@ -1,0 +1,4066 @@
+# Oblivion NPC Dialogue Reference
+
+## Purpose
+
+This file contains generic NPC dialogue extracted from The Elder Scrolls IV: Oblivion.
+It is organized by category for use as a stylistic reference when authoring Natural 20 pool entries.
+Study the tone, length, specificity level, and personality of these lines.
+
+**Key patterns to notice:**
+- One thought per line, rarely more than two sentences
+- Personal opinions and feelings, not information briefings
+- References to specific named NPCs, real locations, and real institutions
+- Mundane concerns: food, weather, neighbors, work, town pride
+- Personality through voice: grumpy, cheerful, worried, boastful, petty
+- No mystery setups, no quest hooks, no narrative arcs
+
+---
+
+## City Talk: Anvil
+
+*NPCs talking about life in their town — personal, opinionated, grounded.*
+
+(54 lines)
+
+- Ships sail from Anvil harbor for ports-of-call in Hammerfell, Summerset Isle, Yokuda, and the Western Isles.
+- The Count went missing about ten years ago. No one knows what happened to him. Lady Millona rules County Anvil.
+- Her Ladyship has no intention of remarrying. Liked her first Count well-enough, I guess, and doesn't fancy a replacement.
+- The Count went missing about ten years ago... but just recently he reappeared. It's a bit of a mystery, but the Countess seems pleased.
+- Best shops in Anvil? Norbert Lelles handles rare books, exotic ingredients, and gems, and they have fine weapons at Morvayn's Peacemakers.
+- Buildings here look different. Why? This is the Gold Coast style, like in Hammerfell. Eastern towns look grey and dull to me.
+- Take some advice? Go down to the sea, stand a while. Watch the sun rise and set. Think on the distant lands across the water.
+- Many of Anvil's folk are directly or indirectly associated with ships and sailing...
+- ... sailors, ship-owners, men made rich and poor by the sea trade, and the lonely wives of men who follow the sea.
+- Anvil's a port town. That's why you'll see items here you won't find in the Imperial City. The captains keep an eye out for special items for me.
+- Nice, friendly folk in Anvil, even the Countess greets me in the street. Well, except for that Newheim the Portly. He's a mean old scroat.
+- Been here thirty years, and I expect I'll last another ten or so. When I'm gone, gods willing, my apprentice, Enilroth, will tend the smithy.
+- Varel Morvay's been a good master. I like the town and the people. No reason why I wouldn't want to be here for many years... just like the master.
+- Dibella has shed her special blessings on Anvil. We greet travelers with hospitality, and the needy with an open hand.
+- Restless folks like you don't much like town life. Too slow and easy. For you, the life of the rover... gold and glory, blood and treasure.
+- They say that I was selected as Dibella's Primate in large part because of my loving nature and my striking looks.
+- You can best know Anvil by walking its streets and speaking with its people. My favorite time is the harbor at sunset, the sun and sea to the west.
+- The Countess deserves all the credit. I do things my way, indeed, but she gives me the authority and support.
+- Our gracious Countess funds my research. I ward tame rats with resistance spells, then shower them with elemental attacks.
+- Pretty, isn't it? And quiet. Not much work for us.
+- Our Fighters Guild chapter here is big, primarily because we're a training center, which earns us each a good living.
+- Are you kidding? I came here to get away from the mountains and snow. You ever spent a winter in Skyrim? Or Bruma? Give me the Gold Coast any day.
+- I worry sometimes I'll go soft here, training mostly, and living easy. So now and then I go out along the coast on my own, just to stay in shape.
+- You're not from around here, are you? Just a warning... be careful if you go swimming. It's the slaughterfish. They'll swarm you.
+- You notice all the Nords around here? It's partly because Nords like ships and sailing. Mostly, we're sick of freezing our asses off in Skyrim.
+- I'm from Morrowind, north coast of Vvardenfell, near Khuul, so I like it here on the Gold Coast. Sometimes I miss home, but not too much.
+- Get outside of town, if you get a chance, and hike north along the coast. Great views and good hunting.
+- The Anvil Mages Guild is proud to follow the example Hannibal Traven sets for us: mastery and scholarship free of the dark arts.
+- I believe some people think of Anvil as a slow, sleepy place compared to eastern Cyrodiil, but there's plenty of trouble up north to be found.
+- If you're looking for hard-to-find ingredients, try Lelles' Quality Merchandise, outside the walls facing the harbor.
+- Carahil inherited the Anvil Mages Guild chapter from Hannibal Traven, the Archmage. She runs a clean hall, just like Traven did.
+- Watch yourself around the Fo'c's'le. Sailors despise landsmen, and won't hesitate to treat them to a good beating when they're in their cups.
+- You see a sailor in the streets of Anvil, best step out of his way. If it's in his mind to raise hell, a little jail time is just fair payment.
+- You are stupid if you come to chatter. If you want to train, and you pay me, then that is not so stupid.
+- Why don't you just walk around and look for yourself? You need someone to explain everything to you?
+- It's a big town. Hell, it's a big county. You stick to your part, I stick to mine, all right?
+- Mother's coming for me in the dragon ships. I don't like these itchy clothes, but I have to wear them or it frightens the fish.
+- I've gone aground in ports all over the Abecean Sea, and Anvil's far from the worst. Got the Fo'c's'le for my hammock, and Mirabelle to keep it warm.
+- Anvil wouldn't be my choice for a refit. No proper yard, neither spars nor scantlings in good supply. But, it's ill-luck to complain.
+- The life of a sailor's wife isn't an easy one. Heinrich is at sea nine months out of ten. But Anvil's a friendly town, and the Nine console me.
+- Plenty of deer, wolf, boar, mountain lion, bear in the county. Just need to know where to look for 'em.
+- Well, if you don't mind scruffy sailors smelling like bilge, it's a lovely town. The men are all the same, drunk and shiftless.
+- My husband is down south in Anvil County, working the Valenwood line, hunting down bandits and smugglers.
+- Traffic through Anvil harbor comes mostly in exotic, high-profit goods easy to transport by road or Mages Guild couriers to eastern markets.
+- You can't imagine the fuss some people make. My rats are no problem for anyone.
+- Between the sailors and shipmen of the port, and my little local circle of friends, I have plenty of yarns for knitting up my tales.
+- Sorry. I'm new in town. Don't know a soul.
+- I like it here. People are very friendly. Much nicer than in the Imperial City.
+- I am currently employed at the Count's Arms, but I'm working on a piece I hope will gain me the patronage of a certain countess.
+- I've got a few hot prospects. I'm sure something will come through for me. Soon. Really soon.
+- While you're in Anvil, we'll treat your horse like an honored guest.
+- I used to be a knacker. That's how I fancy my horses. Ripe, stiff and silent. Hate it when they stare at me. Dumb beasts.
+- I saw a big statue of Malacath, west of Fort Sutch, west of the Gold Road to Hammerfell. Looked like Daedra worshippers to me.
+- There's a Malacath shrine west of Fort Sutch, west of the Gold Road to Hammerfell. But I stay away. I like my skin on the outside, in one piece.
+
+---
+
+## City Talk: Bravil
+
+(43 lines)
+
+- You MUST have a fast horse! Travel quickly to ruined forts and caves nearby! It will pay for itself in precious time saved!
+- The Count was once a tournament champion. Now he's a loafer and skirt-chaser. And his son, Gellius, is a spoiled good-for-nothing skooma-sucker.
+- A local woman, Ursanne Loche, has a missing husband. She might appreciate some help from someone like you.
+- My neighbor, Dro'shanji, is worried. He's seen creatures around the house lately. Why don't you talk to Dro'shanji, see if you can help?
+- Have you looked around? Bravil is Tamriel's cloaca. Silverhome is the only decent place in town. Don't know why I stay here.
+- It is a terrible responsibility, being Bravil's First Citizen of the Ale Tub, but I suffer under the burden like a Sure-Green Orc.
+- What's a pretty young thing like me doing in this swamp town? I inherited the business from my late husband, and I aim to make it work.
+- There are two ruined forts south of Bravil. One is close to the road to Leyawiin. The other is out on a point of land that projects into Niben Bay.
+- I have nothing to say about the Count and his son. The rest of the town is a little rough. But I don't mind. I like it that way.
+- Mara guides and protects Bravil, like she protects any good family. Like any good family, we have our problems.
+- I came to Bravil because Mara called me. Bravil is not my home. I miss Black Marsh. But I shall serve here, so long as Mara needs me.
+- Uravasa and Marz leave me little to do here in Bravil. That leaves me free to devote my time to Mara's ministry throughout the Empire.
+- My task is to know and love the people of Bravil as if they were my own children. If you have ever been a parent, you know what a challenge that is.
+- Yes, yes, Count of Bravil. Are you a foreigner? Do yourself a favor. Learn the basics about the places you visit. There. Problem solved.
+- The Count is too preoccupied with his pastimes to spend time on county affairs. So the burden lies on me.
+- Far be it from me to criticize my patron and sovereign. Bravil obviously flourishes under his wise and beneficent rule.
+- I was with the Count when he was young, and a shining star on the tournament path. I only wish he'd straighten his son out.
+- Yes. Bravil. How clever of you. You've already learned the name of the town and county. I see a great future for you in public service.
+- The Renrijra Krin are Khajiit bandits and smugglers posing as guerillas and freedom fighters.
+- The Count used to be a great man, but power and idleness have spoilt him. However, we remain loyal in memory of past kindnesses, and to serve Bravil.
+- The Fighters Guild is good enough to encourage me in sharing the inner peace and spiritual harmony of the martial arts.
+- There's a lot of adventuring action from here south to Blackwood, and everyone comes to me with their gear.
+- I take my duties as chapter head very seriously... unlike SOME guild mages. It infuriates me how casual some guild heads are about common civility.
+- I'm afraid I'm not very social. So I really don't know very much about the people here.
+- Bravil is an important trade center, and a rich melting pot of Imperial, Khajiit, and Argonian cultures. And, yes, a bit shabby and shopworn.
+- I love my work. Fire, frost, shock, poison... little presents for Kynareth's cute little woodland creatures.
+- Bravil? Good points? Cheap to live. Unpretentious. Free-wheeling. Bad points? Culturally, a hole. Count's a clown and his son's a skooma-sucker.
+- Old, worn, and wicked. Wet, wounded, and wild. Empty as the eastern horizon, dusk on the Niben. Solemn and bitter as the grave.
+- The Ayelid ruin of Anutwyll is nearby. I can spend a few days on site, then return here for the comforts of home and my library.
+- Bravil is perhaps not so nice. But Bravil Castle, and castle gardens, they are jewels, are they not?
+- Well, perhaps, yes, one hears such things, what is one to believe? That S'krivva collects goods of untestable provenance? Pshaw. Rumors.
+- Bravil perhaps presents little scope for an ambitious member of our guild. Perhaps you may find the castle entertaining. Little else.
+- Ha! Members of the Thieves Guild in our fair town? What makes you think that? Never! Absurd! Such fine law-abiding citizens are we all!
+- What? You have not eyes to see? The castle, of course! The only challenge worthy of a swift sneaker.
+- Excuse me. I stay to myself. I have always found the wrong sort of friends. Now I do without.
+- Other Bravil trainers? City-Swimmer teaches Sneak. Dro'shanji teaches Security. Varon Vamori teaches Speechcraft.
+- You are stupid, so I'll make myself clear... you are stupid. Go away. I don't want your blood and puke all over me.
+- R'vanni just wants to get along. No trouble. Anything you want. R'vanni's know-nothing, good-for-nothing. Ask anyone. Just don't hurt R'vanni.
+- Been here. Right here! All day! Last night, too! I wasn't there! Not there at all! I can totally prove it! Ask anyone!
+- Me? I got no problem with Bravil. Lovely town. That little prince, the count's boy, he's sweet with the sugar. EEEA-sy Street, all the way.
+- Then you want to know about the Gray Fox.
+- You are most welcome.
+- Want to learn more? Visit the Waterfront District of the Imperial City. Find the Garden of Dareloth at midnight. Then ask your questions.
+
+---
+
+## City Talk: Bruma
+
+(34 lines)
+
+- Sorry. All I have is paints. Serviceable beasts, but nothing special. We Nords are no great fanciers of horse flesh, except in stews, I'm afraid.
+- I'm new here in Bruma myself. I'm from down Heartland way. Nords up here... no offense... don't work as hard as us Imperial Heartlanders.
+- The Countess is Heartland Nibenean, and so are most guildsmen and chapelmen, but most others are as Nordish as you'll find.
+- Lyra Rosentia collects Akaviri artifacts. She might have a project in mind. Her house is west of the chapel.
+- Nords who drink either get friendly or mean. I'm here to deal with the mean ones.
+- We're still in Cyrodiil here in Bruma, but just barely. We build for the cold, just like in Skyrim.
+- No need to go to the Imperial City. Bruma may look like a Skyrim town, but we've got all the comforts of the warm Nibenean south.
+- We drink because we're happy. We're Nords. It's just the thick tongue and fat head the day after that makes me unhappy.
+- Just like Skyrim, except for all the tight-ass Heartlanders around. All work and chapel... no wonder they're so sour.
+- I work hard. Folks like Skjorta and Olfand give us Nords a bad name, drinking and carrying on until all hours.
+- We're trying to bring the comfort of the Chapel to the Nords here, but Bruma's Nords stick to their heathen gods and uncivilized practices.
+- The Chapel has made enemies here in the past. The Nords prefer their dragon Ysmir to our Father Akatosh.
+- I'm here to show Bruma's errant Nords the path to the true faith. They must put aside their heathen gods and worship the Nine.
+- Some see only the conflicts between northern and southern cultures, but I see the way they are stronger when woven together.
+- Captain Burd and I make a good pair. He understands Nords and the North, while I appreciate the subtleties of southern culture and politics.
+- I make sure my guards treat the local Nords and their ways with respect.
+- As Captain Burd says, we have to stay on the good side of the local Nords. It ain't their fault they're ignorant barbarians.
+- This is my first posting after Arcane University. The Countess and Burd like my work well enough.
+- You get used to the cold. Got a good set of fur boots to keep my feet warm. Give a Nord a good thumping to keep the blood flowing, khah-khah-khah.
+- Yeah, you think Bruma's cold, try a winter in the Wrothgarians. Bruma's a day at the beach.
+- You know what it's like. Make lots of friends, and look busy. Same as anywhere.
+- It's a little too rugged up here for me. Add a couple hairs to a Nord and you've got a bear.
+- Well, sometimes I feel we're not welcome here. The Nords don't like Heartlanders very much.
+- Plenty of mineral desposits in the Jerall Mountains. I'm out for weeks at a time by myself, but I don't mind it.
+- Bruma's a funny place... half Cyrodiil and half Skyrim. I'm old Nord all the way. I keep the old songs and stories alive.
+- Istirus and I used to be adventurers, but we've retired here. Bruma is far from civilization, but we're ready for a little peace and quiet.
+- Bruma is a perfect town for a Nord man of leisure. Bracing mountain air, good food and drink, and lively Nord fellowship.
+- I'm sorry, but I really don't know much about the town itself.  I spend my time outdoors, walking the ridges and valleys.
+- I can't help myself. I'm just a sucker for well-heeled men. That Olav, for example, at the Tap and Tack. He's dreamy. And successful, too.
+- I hate it here. Came here with Edla. All these snooty Southerners. And damn guards won't let anyone have any fun.
+- One place is pretty much like another. Regner hates it, but Regner hates everything.
+- All I need is a roof, some bread, and blessings of the Nine. Bruma is Gods' country, and the Gods are good to me.
+- I'm retired from public practice. I only take students in Alchemy to support my hobbies.
+- She holds public audience in the Great Hall on weekday mornings. If you need to speak to her, that's the time to do it.
+
+---
+
+## City Talk: Cheydinhal
+
+(54 lines)
+
+- I could tell you our blacks are the fastest, toughest, most reliable horses in Cyrodiil.
+- Tovas knows his horses, and I'll stay with him and these beautiful creatures. Forever.
+- Here you have your Chapel-going Imperials, and your Chapel-dodging Dark Elves, and never shall the twain meet.
+- The Imperials have the gold, houses, and top spots. Dark Elves like me left Morrowind and the whole priest-ridden Tribunal nightmare...
+- ... and we take the whole patriotic 'Imperial Mission' attitude with a dose of salt.
+- The Count, Andel Indarys, is a Hlaalu parvenu, but his steward, Naspia Cosma, does her best to coach him on the finer points of Imperial etiquette.
+- Our most celebrated citizen is Rythe Lythandas, the famous painter. Speak to his wife, and she might let you take a peek into his studio.
+- I'm retired from adventuring... but you might try the old mine they call 'Rickety Mine' out east along the Blue Road.
+- Another possibility in that direction might be Kemen. It's an old Ayleid ruin.
+- You might also look at Quickwater Cave to the north. I cleared it out, but I haven't been there in years. It might have new tenants.
+- Treasure holes near Cheydinhal?  Not close by.
+- Fort Naso and Fort Facian, though... bad news. Undead, and then some. But far out and foul enough, you'll get plenty of action.
+- Imperials hate Dark Elves; Dark Elves hate Imperials. Imperials hate that a no-name Hlaalu trader got made into a count.
+- Andel Indarys doesn't help his case by having a prat for a son, and a wife that dies in very suspicious circumstances.
+- Our Dark Elves left Morrowind to get away from the Church and State, and they don't like it when Imperials get all holy and patriotic with them.
+- Of course, local Dark Elves tend to be money-grubbing, alcoholic low-brows with little education or culture.
+- Since I read a lot, and speak well, and don't drink brandy from milk pails, I guess I qualify as an Imperial.
+- But on the whole, I like Cheydinhal's Dark Elves better than I like the Imperials, so go figure....
+- Did you know we have the finest horses in Cyrodiil, right here in town? Black Waterside Stables... the best thoroughbred blacks.
+- I came here because I love nature. And because I didn't want to serve as a boot wizard in a mountain legion in Skyrim.
+- I'm happy to be of service in any way I can, in any place I can. There are so many who need help, and so few to offer it.
+- It's a scandal that the Mages Guild has tolerated practice of the Black Arts among its members for so long.
+- The current Arch-Mage, Hannibal Traven, is true and bold to prohibit necromancy, reversing the Guild's shameful past policies of official tolerance.
+- I closely supervise the priests and healers of Cheydinhal Chapel, so they might more closely approach the sacred ideals of our faith.
+- Just look around. Is not Cheydinhal the model of civic rule? No... don't bow! I am just a humble servant of the people.
+- To be frank, I'd prefer a career in the Arena to this paper-pusher's position.
+- You worship the Nine Divines, perhaps? Have they ever helped or harmed you? Of course not.
+- Now, worship a Daedra Lord, and you get effects... bad ones, of course, but clear and measurable effects.
+- Ra'qanar is your friend, no? Your servant? Whatever you require? Ra'qanar knows nothing... less, even. But Ra'qanar wishes to please.
+- The Guild is going to hell in a hogcart. Look at what they give me? Keld of the Isles? Ohtimbar? Both Guardian rank? Phah! Useless.
+- I've settled down here. Nice place. A little slow, but it suits me. Burz gro-Khash is a bear sometimes, but I got thick skin. Doesn't bother me.
+- I worked the Arena in the Imperial City for a while. Got up to Gladiator, then took a powder. A guy could get hurt, you know.
+- I am the chapter head of the Cheydinhal Mages Guild. It is quite an honor... but they had no choice, since I'm the only semi-competent one here.
+- It's all right. The Guild here, that is. That's what you meant, right? It's fine. I'm doing fine here.
+- I'm very fond of Cheydinhal. It's where I met my love, Eilonwy. Our lives are quite long, and choosing the right partner is very important.
+- Perhaps it seems silly, but our love is the most important thing in all creation. Orintur and I spend all our time together, in the High Elf way.
+- My progress through the ranks here will be slow. My prejudices against certain types of magic limit my chances for advancement.
+- Well, to be honest, I don't think we have much of a team in the Cheydinhal guildhall. We lack leadership, and individually, we aren't very skilled.
+- Look. A fly. Buzz, buzz. Hey. Look everybody! I'm talking to a fly! Buzz, buzz, buzz!
+- You stupid or something? What are you doing here? Go back where you came from. We don't like your kind here.
+- You're not on my list. And that's all I have to say. If you were somebody, I'd know. But I don't, so you aren't.
+- He pays peanuts. And thinks it entitles him to chew us out 18 hours a day? Sometimes I wonder if I made a mistake coming here.
+- Lots of us Dark Elves came to Cyrodiil to get away from the Temple. We're sick of living under the thumb of the priests, and scraping by on the dole.
+- Voranil got parties near about every night, and there's plenty of cooking and cleaning and preparing to be done. If you don't mind.
+- It's a grand house, Riverside, and they have grand parties there. All the rich swongs and swells of the town come in. Leave a right mess, they do.
+- You got your people, and you got your dogs. Dogs are loyal and stupid. People are smart and devious. I'll stick with dogs.
+- What are you asking me for? Do I look like Vile's dog or something? Go on. Knit a doily or play a flute or something.
+- Boss uglies in Cheydinhal are the Orums. Don't mean nothing to you. You is the Outside. Just stay Outside, and everything's Mister Tinker. Got me?
+- Daedra cults aren't necessarily evil, of course. In nearby Morrowind, for example, they worship Daedra in the Temple.
+- The Azura shrine north of town, up Lake Arrius way, for instance. I know a Dark Elf there. Nothing evil about him.
+- The Azura coven in the Jeralls north of Cheydinhal... nice folks. Nothing like the blood-drinking Daedra worshippers everyone raves about.
+- A waste of time, of course, worshipping gods in the first place. But at least they're not raving lunatics.
+- A shrine to Azura lies in the Jerall Mountains, far to the north, towards the Skyrim border.
+- And I think there's a shrine to Boethia high in the Valus Mountains southeast of Cheydinhal.
+
+---
+
+## City Talk: Chorrol
+
+(53 lines)
+
+- He's Captain of the Chorrol Guard. During the day, you can usually find him on patrol with us around the city.
+- Brother Piner is a fine young monk, zealous and energetic. In time, I hope he may add patience and prudence to his list of virtues.
+- In Chorrol, we Highlanders treat our Gods' teachings as rules to live by. Our lives are governed by the Ten Commands.
+- Glistel and me, we keep an eye on things here in Chorrol for certain interested parties... as a public service, like.
+- My housemate, Malintus Ancus, and I are well-known in certain circles here. But, you don't travel in those circles, do you?
+- Rena and I moved to Chorrol so we could have a nice, comfortable home for our dogs. It's a lovely town. And our dogs are so happy here.
+- They probably call us 'the Dog People' here in town. Rimalus and I love dogs. We have quite a few. So sweet and well-behaved, you wouldn't believe.
+- You need a place to sleep in Chorrol? Well, why don't you just join the Fighters Guild, or Mages Guild? Sleep for free around Cyrodiil!
+- It's good that you've joined one of our local organizations. It helps you make the right connections.
+- If you're thinking of making Chorrol your home, you should join a guild. It's hard work, but steady money. And people get to know you.
+- We're simple, Gods-fearing folk here in County Chorrol. Easterners worship their wallets and their fat bellies.
+- Are you a student of the Arcane Arts? My husband, Alberic, is an Advanced Trainer in Conjuration at the Mages Guild.
+- Chorrol's got plenty to eat, and good, thick walls, and that suits me fine. I don't know what's going on out there in the woods, and I don't need to.
+- Yeah. I used to be Fighters Guild here in Chorrol, but I done some incarceration for Trespassing and Theft. Couple of times.
+- You know, they kick you out of the guild if you get caught doing some incarceration. How many? I forget. But I did a lot.
+- The Oak and Crosier is the place of choice for well-bred visitors to Chorrol. The Grey Mare is more suitable for... others.
+- I'm not from Chorrol. I'm afraid I can't tell you anything at all about the town.
+- Chorrol? That's where we are, right? Really? Great. I don't care. And I'm not interested. But it's sure nice of you to let me know.
+- I've never been here before. And I won't be back, unless the boss wants me here.
+- If I don't have what you need, you might try the other Chorrol merchants. Renoit's has books. Fire and Steel for your armor and weapons.
+- Nice town. But you need money here to live well. Head out of town and do some hunting. Sell the skins. Or, you can loot old caves and ruins.
+- There are a lot of fine-looking women in Chorrol. But they're all... kind of snooty. And not very nice.
+- Dogs are an orc's best friend. Good protection, good companions, good eats. The Bruiants have dogs. Lots of 'em.
+- You can PAY for a bed at the Grey Mare or the Oak and Crosier. But if you get a bed for free at a guild, why would you pay for one?
+- Smart thing is to join a guild. Any guild. Gets you a place to sleep for free.  No muss, no fuss, no crummy tavern food and lice-ridden beds.
+- I'm sorry. I'm new in town, and don't know anyone.
+- I hear that Emfrid and Captain Bittneld are spending a lot of time together. You wouldn't have anything to do with that, would you?
+- Who is the fairest of them all? Other than myself? The proprietor of the Grey Mare is lovely. She and the guard captain would be a nice couple....
+- In Chorrol, we don't think much about what goes on in the Imperial Palace. But these murders... the emperor and all his sons dead... what's next?
+- The deer here are skittish. Need to get them quick, or they'll lead you a merry chase. Poison on your arrows can help, and it won't hurt the meat.
+- We're a mountain people, tough, independent. County Chorrol is rich in mines and timber, wool and mutton, and hard-working people.
+- Dar-Ma is the daugher of Seed-Neeus, the owner of Northern Goods and Trade.  You'll often find her out taking the air near the Great Oak.
+- Ah, the comely Argonian lass.  You may have met her if you've ever been in her mother's shop, Northern Goods and Trade.
+- Surprised by Eronor's uncanny way with sheep?
+- Perhaps it would interest you to know that Eronor's sister, Dagail, in Leyawiin, is an accomplished spellcrafter.
+- He sleeps here in the Priory House.
+- He's usually praying in the Priory chapel at this time of day.
+- You'll most likely find him in the library.
+- He sleeps with us here in the Priory House.
+- Oh. Yes. He'll be in the Priory House somewhere.
+- Brother Jauffre? He should be in the Priory House, I think.
+- If he's not in the Priory House, you may find him praying in the chapel.
+- He'll be sleeping, like anyone with a lick of sense... in the Priory House.
+- If he's not sleeping or eating, he'll be fussing with his books, I reckon, over in the Priory House.
+- The old fellow? At Weynon Priory? It's a small community outside the walls, southeast of the Chorrol gate, on the Black Road.
+- An old cleric with that name comes in now and then. Lives southeast of town on the Black Road at Weynon Priory.
+- A great man, and a true believer, deep in faith and wisdom.
+- He's not part of our community here, but a resident of Weynon Priory, the monastery southeast of town.
+- From what I've heard, Kvatch is gone. Completely. Burned to the ground.
+- It's all rumor, sure. I haven't seen it. But I haven't heard anyone say otherwise.
+- Weynon Priory is a monastery devoted to the praise and worship of Talos and the Nine Divines.
+- Brother Piner, Father Jauffre, and I are members of the Order of Talos.
+- Eronor, a lay brother, tends after the sheep and our little farm.
+
+---
+
+## City Talk: Imperial City
+
+(165 lines)
+
+- I can think of three. The Hircine shrine is south of town, northeast of Bravil, between the Upper Niben and the Green Road.
+- The Mephala shrine is northeast of the junction of the Red Ring Road and the Silver Road.
+- I've heard there's a Vaermina shrine at the headwaters of the Reed River, though I've never been there myself.
+- It is a wonderful city, and I'm proud to have served her for 40 years. But I'm ready to retire, let the young folks take over the reins.
+- Never compromise. Never blink. Never wink at injustice. Never quit trying to make this a better city for everyone.
+- I aim to keep an eye on things here in the city. Take it slow, get to know the people. Try not to get off on the wrong foot.
+- When the city is quiet, everybody is happy. Right? If you like noise, maybe you're in the wrong place.
+- Before the Arcane University was founded in the second era, Crystal Tower on Summerset Isle was the source of all magical learning.
+- Since then, the Imperial City has been Tamriel's foremost magical research center.
+- You know, of course, the Imperial Palace is Ayleid. White Gold Tower, they called it, back in the Middle Merethic, when the Aldmeri ruled Tamriel.
+- How quaint. You seek to educate yourself. At the expense of my precious time. Go. Shoo. Bother someone else.
+- I rarely leave the University, as I have all I need right here. If you need ingredients, try Ogier Georick at 'The Main Ingredient.'
+- What? There's a city out there? You don't say. What good is it, eh? Dirt. Horses. Idiots. Be my guest.
+- Too big for me. Loud. Dirty. Clowns, fools, brutes and thieves everywhere. I want to throw my gold away, I just dump it in Lake Rumare, save time.
+- Other arcane trainers in the City? Just one. Dovyn Aren. In the Market District. Basic instructor in Alteration.
+- Enchanting city. A real eye-full. Just walk and gawk. Stroll along the Greenway and around the Palace.
+- I like cities, and this is the biggest and the best. All races, cultures, cuisines, crafts... the City has them all.
+- I like to walk. You can walk for hours in the city. Always something to look at, someone to talk to.
+- The orrery here is the only one in Cyrodiil. There's one more in Hammerfell... the old one at Stros M'Kai.
+- If I don't have what you need, try Claudette Perrick at 'The Gilded Carafe'. That's right here in the Market District.
+- This is the only book store in the city. There's also Renoit's Books in Chorrol, Mach-Na's in Cheydinhal, and Southern Books in Leyawiin.
+- My advice is take your time, walk around the Market District, see what's on offer. Don't buy until you've seen it all. Take your time.
+- You want to buy or sell, the City is great. You want free? Go down the holes, kill some monsters. Sell your loot back in the city!
+- I have the best prices in town? Why? I'm smart, and you're smart. We know the right people, we get the best deals.
+- While you're in the Market District, see  Rohssan's weapons at A Fighting Chance, and see Varnado and Maro Rufus at The Best Defense for armor.
+- Look. It's big, see. REALLY big. Only way to learn it is to walk it. Look at everything, talk to everyone.
+- Crime in the City? You hear a lot of complaining, but it's really not so bad. The Thieves Guild is smart; they don't want any trouble with the Watch.
+- Everyone comes to the Big City to buy and sell. Why not? More stores, better selection, better prices.
+- It's a beautiful city. But stay away from the Waterfront. It's not dangerous, but it's dirty, and the beggars are a nuisance.
+- The Black Horse Courier is run by three Khajiit brothers. They buy freelance stories with an Imperial stipend, and give the papers away for free.
+- It would be perfect... if the Watch could just get rid of the damn Thieves Guild. You don't have this problem in Anvil or Bruma.
+- Anyone can wear clothes. But the RIGHT clothes? That is not so easy. Go to any castle. They wear Palonirya's designs, or they're nobody.
+- No one can experience the City for you. You must go, walk, touch, see, feel, talk to everyone.
+- Where else? You have to be here. This is THE City. The BIG City. Why waste time in little places?
+- Also try my friend, Ogier Georick, The Main Ingredient, here in the District.
+- Well, if you MUST have Heavy Armor, see Varnado. So heavy, so ugly... but it's your choice.
+- You want Light Armor? Pah! Why wear fluffy flutter, when you can wear real armor? But if you MUST have Light Armor, talk to Maro Rufus. Idiot.
+- Varnado and Maro Rufus? They don't get along. I don't understand it. I just make the armor, and keep it in good shape.
+- The Black Horse Courier brings the news of the people to the people. We are funded by the Empire, so our broadsheets are always free!
+- You see Khajiit always running through the City? You see Ra'Jiradh and his brothers! We bring the Black Horse Courier to the good citizens, yes?
+- We operate throughout the Imperial City and Cyrodiil. Very fast, very accurate. News happens? The Black Horse Courier is there!
+- You have complaints against merchants here? You file complaints with me. I fill out lots of forms, which go to a lot of people who ignore them.
+- So what else did you expect? Justice? Go to the Chapel. Talk to Zenithar. He'll take care of everything.
+- A wealthy gentleman in the Talos Plaza district named Umbacano collects Ayleid artifacts. Perhaps he has use for someone like you.
+- Where can you find a bed in the City? I hear the Tiber Septim Hotel in Talos Plaza is very nice.
+- In the Elven Gardens, Luther Broad's Boarding House may suit less discriminating customers.
+- Fighters Guild has no accommodations in town. Mages Guild members have their own quarters at the Arcane University.
+- I can't recommend the Bloated Float on the Waterfront. The Waterfront is not a very desirable location.
+- The Sintavs have always been one of the leading families in the City. We will refrain from contact with the Atius, unless provoked.
+- You just have to know the right people. Look up Ida Vlinorman and Othrelos in the Elven Gardens. They're the right people.
+- To know the right things, you have to know the right people. Ida Vlinorman, Mandil, Samuel Bantien, and Othrelos are the right people.
+- What Iniel says, goes. He says, lay off the Atius, I lay off the Atius. Simple.
+- Things have been very quiet with the Atius. That suits me just fine. All this fighting is stupid. What are they fighting about? Just stupid pride.
+- Daedric shrines nearby? I know of two. North of the city, south of Bruma, east of the Silver Road, is a Mephala shrine.
+- East of the city, at the head of the Red River, is a shrine to Vaermina.
+- You got to be careful. You don't want people taking notice. Just keep quiet, keep your head down.
+- I was in the Thieves Guild. But I'm out now. I retired. Too old for that foolishness. I don't keep up contacts. You get out? You stay out.
+- It's just a sport. Chapel climbing. The Watch doesn't like it, but you don't climb chapels while the Watch is standing around.
+- This city life is killing me. Work all day long. Drop dead, and they toss you in Lake Rumare. Just need to make my money at the Arena and live easy.
+- The Watch can't touch me. I'm careful, private-like. Don't like people following me. Sure, it makes people nervous, seeing me sneak around. Too bad.
+- It pays to know about locks and lockpicks. It's just a hobby, of course, but the average citizen feels more secure when he understands his own locks.
+- I like the ladies. It's been my weakness. But now I've got Romana, I stay away from the fleshpots.
+- It is SO hard to find a man you can trust in this big city. Sure, Tertius has had his share of girls. Just look at him. But all that's changed now.
+- The Watch is so completely on my ass. So I got to lay low for a while. I got some dosh stashed, so I'm fine for now.
+- Ra'jhan used to share a house, but not now. Ra'jhan is very proud, work so hard, now has house all his own.
+- Irene Metrick and I spend a lot of time together, true. We're just good friends. But don't tell Elisa. She wouldn't understand.
+- Roderic is looking around for a business to invest in. I know he'll find something soon.
+- Whatever Uncle Iniel says. 'Lay off the Atius bastards,' he says, so we lay off.
+- I'm a Sintav, and we Sintavs stick together. Uncle Iniel got us swell jobs and a house. It's a family thing.
+- If we work hard, Uncle Iniel says he'll set us up in business together, maybe a little fruit orchard, or maybe tomatoes.
+- I'm sick of all this fighting with the Atius clan. I'm glad Uncle Iniel put his foot down.
+- The Sintav clan is very close. We watch out for each other, and Uncle Iniel, he knows everything, and takes care of us.
+- It is a beautiful city. I love to walk, talk with everyone, hear the news, share the little stories of the day.
+- Argonians stick mostly to the river trade. We know boats and the water. We're not fussy about the sewers, either. Water cleans it all.
+- To earn gold, Argonians must come to the city. It is a strange life, shaped stones and whiteskins everywhere.
+- But in the water, we are the masters, and whiteskins pay well for our skills.
+- A short stay in our lovely Imperial Prison should cool your enthusiasm for a life of crime. The drunk tank in particular has a unique aroma.
+- Where can you find some fun? That depends on your idea of fun. You can bet, fight, or both at the Arena.
+- There are plenty of sights to see, and plenty of places to shop, but the Watch frowns on brawling and adventuring in the city.
+- The Tiber Septim Hotel is clean, comfortable, and quite exclusive. I don't mind paying a little extra for a little privacy.
+- I agree with the Watch Captain. This Atius-Sintav feud has gone on long enough. I can control my people. I hope Iniel can control his.
+- It wasn't my fault. Cyronin Sintav started it. But I'm the one who got caught, so I'm the one who has to cool his heels.
+- I'm content here. Some day I hope to meet the right man, but not a seaman. Never.
+- I only do the training any more. None of the rigs and tricks. Rochelle and me just want the settled life nowadays.
+- Samuel was a bit wild as a young man. The City will do that to you. Bad company, bad influences.
+- Master Umbacano is a fine gentleman. Mad for old Ayleid stuff, true, but he's got the dosh, so it's all right, ain't it?
+- If I don't find something soon, I'm going to have to try my luck at adventuring. My pals say there's a lot of caves and ruins west towards Skingrad.
+- I supply many fine city merchants with goods. All sorts of things. Whatever I can buy cheap and sell dear.
+- I spent 40 years at the Arcane University. Good years, but I don't miss it. Now I'm completely useless, and proud of it.
+- I don't miss Morrowind. All that sour Tribunal grumbling and old-fashioned ancestor worship. Good riddance.
+- Morrowind is still living in the Second Era. I can't believe how they treat Khajiit and Argonians. Here, we are Imperial citizens, nothing less.
+- It's the city of Tiber Septim, youngest of the gods. Go to the Palace and the Temple of the One. Stand on the stones where Talos stood.
+- Thamriel says she hears voices. All the men and women who lived and died here for thousands of years... maybe they left ghosts behind.
+- I beg your pardon. The city? Here's the city. All around us. A thousand stones, a thousand souls.
+- I hear them all. Sometimes. But not right now. They're all quiet. Did you frighten them away?
+- I got no beds here. You need a bed in the Imperial City, you got four choices. The King and Queens and Luther Broads are in the Gardens.
+- The Tiber Septim Hotel is very nice, but very expensive. There's the Bloated Float at the Waterfront. Sleep on a boat. And cheap, too.
+- I don't know. Just take a walk around. Buy something. Plenty of stores. Why'd you come in the first place?
+- My favorite thing is fresh slaughterfish, caught fresh from the docks on the Waterfront.
+- I'm fed up with the senseless feuding, blood spilled for no good reason. Glad the Watch put a stop to it.
+- S'rathad learns the city by walking, talking, seeing it all. S'rathad thinks this is the best way for you, too.
+- It is well known in the City that I collect Ayleid antiquities. It's true, but I desire only very specific items.
+- There are many people in the city who interest me, and you are not one of them.
+- It is so kind of you to favor me with your attention. Please excuse me if I seem unappreciative of the honor.
+- ... Was I insufficiently clear? I beg your pardon. You do not interest me. We will not be having further social discourse.
+- The Earl is perhaps not well known in the city. He is a private man, and keeps to himself.
+- I'm not in the habit of answering questions for strangers. No offense intended.
+- Where to sleep? The Tiber Septim Hotel in Talos Plaza is nice but expensive. Luther Broad's Boarding House in Elven Gardens is just okay.
+- The Bloated Float on the Waterfront is cheap... and a bit too interesting for my tastes.
+- We rarely get real trouble here. The Watch puts a stop to rough stuff damn quick. I'm mostly ornamental at the Bloated Float. Makes folks happy.
+- You'll find a lot of orcs serving as private guards. Watch work is too dull. Lots of folks say, 'Oooh, there's an orc, she's scary'. Makes it easy.
+- I'm here because I'm a loafer. And the city's an easy place for a loafer to get by. I do odd jobs, a little adventuring, build up a little pile....
+- Akatosh speaks to us all, but we never listen. Go to the Temple of the One. Read the Covenants. Praise the Nine!
+- St. Alessia has blessed our city and all its people. Visit the Temple of the One, and renew your faith.
+- Mara's blessing on you, and on all her children. Speak to her at the Temple of the One. Ask Mother Mara; she will shower your heart with love.
+- Big city. I really LOVE the lights at night, shoo-shoo. The City of Love. Got it? Love? Light? Night? Big. Big, big, big, BIG!
+- Look around. Count the true believers. How many of these people really have faith? It's easy to have faith when everything's fine.
+- The Nine say each of us is special, but that's just a lie. I don't mind, but it just sounds stupid.
+- It's not safe, talking to strangers. I don't know what's going on, but I have to be careful.
+- The Arboretum. That's where J'mhad likes to go. Always quiet, always green.
+- I'm here in the city for access to the Temple libraries, and for the bookstores... especially the First Edition in the Market District.
+- I find things to do. I manage the house, make sure Amantius doesn't starve or run out of ink.
+- Soon, the Elder Council must choose a new emperor, and then I suppose they'll sort out my commission. Until then, I just have to keep on working.
+- It's so sad. Salomon was to compose a symphony for Uriel Septim, to be performed for the whole city in the Arena.
+- I'm sorry, but my studies keep me indoors for the most part. I know little of the rest of the city.
+- One must be very careful in the Imperial City. There are things... dangerous things... that cannot abide the light.
+- I'm quite behind on current events, I'm afraid. I can't be of any help to you.
+- You're very curious. Perhaps too curious for your own good.
+- It's terrible. I just can't walk past a bookstore. The First Edition, in the Market District, is the worst.
+- The Temple District is by far the most desirable address in the city. Why? Because I live here, of course. Don't you agree?
+- My housemates and I were lucky to find this house in the Temple District. It costs a little more, but it's a very good address.
+- It's not that I'm lazy. I'm just not very ambitious. You can live comfortably in the city very cheaply. So why work yourself to death?
+- It is a very fashionable address, of course, but we live simply.
+- I made quite a lot of gold from my last expedition. I bought this house, invested the rest, and now I'm just living the life of the city gentleman.
+- The Bloated Float rents beds. Only place on the waterfront. Cheap. And it's safe.
+- The lighthouse is mostly for show. You'd have to be an idiot to try to navigate here by night.
+- We store goods here until the buyer can collect them, or until the ships come in.
+- A little tip. People who ask a lot of questions around here tend to be not very popular.
+- I think I'll do just fine. I'm a natural. Finder's keepers, right? And I'm a pretty good finder.
+- Lots of us on the Waterfront are down. We can't do that dungeon stuff like you adventurers. We got no money, and no skills. Nobody wants us.
+- I'll get mine. Folks in this city got plenty of gold. Take from the rich and give to the poor, if you catch my drift.
+- People in the city, they get stuff and forget to pay. So I help 'em remember. You talk to 'em, lean on 'em a bit, and they remember right away.
+- Hard to find an Orc girl in this city like Umog gra-Marad. Smart, tough, got a good trade. Nice-looking, too. So I got to make my intentions clear.
+- You have to watch out for pickpockets in the city. You'd be surprised how many waterfronters earn a good income that way.
+- I share my good fortunes with the poor and needy. And you ain't neither. Life isn't easy on the waterfront. But we look out for each other.
+- I've worked on the docks as long as Vlanarus, but he thinks he's the expert. He's always looking over my shoulder, do it this way, do it that way.
+- Kastav says he works. Ha! Flies land on him, he's too lazy to brush them off. I'm sick of taking abuse for him, even if he is my brother.
+- I do my part on the docks, just like Bronsila and Vlanarus. Why should I kill myself? They don't pay me any more. For what I get paid, I work plenty.
+- I signed on for the Raven Rock colony. Went there as a builder. Hung around afterwards, but the money ran out.
+- I helped build Raven Rock. Had a bad run-in with the law, so here I am. Pretty soon I'll head out for the Imperial Reserve, try my luck there.
+- The Chestnut Handy Stables used to sell horses. But they're gone. Our horses. All gone. Big mystery. No idea where they went. [burp]
+- We stable horses for folks in the Imperial City. We'd sell horses, too. Except... we can't seem to keep track of them.
+- Sure. Some folks here think horses are for riding. Then again, some of us are Orcs. Snak gra-Bura, she prefers eating stew to riding horses.
+- My master has not returned from his expedition to Nenalata.
+- I fear the worst, but Umbacano Manor remains in my charge, and I will keep it in readiness for his return.
+- My master is not available at the moment. Perhaps you can call again another day.
+- Shall I show you up?
+- I'm sorry, but my master is not receiving visitors at this hour. If you come back in the morning, I'm sure he would be glad to see you.
+- You know, I haven't seen him around for a while. But I'm still getting paid, so what do I care?
+- I got no complaints. Kind of an arrogant bastard if you get right down to it, but he pays us well enough.
+- I am one of his guard dogs, no more, no less. He pays us well to guard his many treasures. This is enough for me.
+- You know, sometimes I get thirsty during the night shift. Duck out to the Tiber Septim for a quick drink.
+- Not like anyone would notice. I mean, what are the chances a thief would choose that moment to try to break in?
+- I keep an eye on his place. Stuffed full of treasure, you know? But no dirty thief's getting in while I'm on duty.
+- A bit eccentric. Loves old things. He's practically got a museum upstairs. But he'd never let anybody else see it, oh no!
+
+---
+
+## City Talk: Leyawiin
+
+(87 lines)
+
+- You mean the shrine to Nocturnal? That's north of Leyawiin, east of the Lower Niben.
+- Why do Khajiit lick their butts?
+- Oh. Well. I heard lots of others, only I can't remember them.
+- So much dirt, and so little time... pause but a moment, and you'll be drowned in the tide... Trash! Mud! Dust!
+- We all love Count Marius, and his father before him... Arkay bless his soul... such a fine young man...
+- ... And now, his new wife, so beautiful, so fine. And wise? Oh, yes! The new Lady Leyawiin is daughter to Countess Arriana Valga, County Chorrol...
+- ... and so she knows just how the county should be run.  Lady Alessia tells Count Marius exactly what to do... and he does as she says...
+- ... But listen to me! Cawing and chattering like an old fishcrow...
+- Did you hear about the Blackwood Company? They were all mad murderers hopped up on hist? And crooked, thieving frauds?
+- They're gone now. Fighters Guild took care of them. And about time the Guild showed some sand. They are 'fighters', aren't they?
+- People are beginning to have second thoughts about the Blackwood Company after the Azani Blackheart hoax.
+- Sounds like they were in it with Blackheart. As folks learn more about the Blackwood Company's methods, they aren't so eager to hire them.
+- Blackwood Company is putting the Fighters Guild to shame. They're a new mercenary company, competing with the guild.
+- Beast people and other savages. Work cheap and fast. "No job too tough." Not fussy, either. Fighters Guild better watch out...
+- It's a pretty town, and everyone is really friendly, except maybe some Khajiit and Argonians who are upset about the Trans-Niben.
+- I think it's a shame how they took that land from Elsweyr, and Argonians are afraid it could happen to them, too.
+- I cook here. And live here. With Shuravi and Shamada. We're sisters. Three. Shuravi - one. Shamada - two. And me - three.
+- I like Leyawiin. That Count got you to help me. Damn nice. Both of you. Think I'll stick around. Maybe do some good deeds here.
+- Best prices? Right here at Gundalas' Best Goods and Guarantees! Never an unhappy customer! Huge discounts... to qualifying patrons!
+- I am SICK of Orcs coming in here and giving me the business. 'Ooh. Bugak got a book store. Ooh. Bugak's a sissy scroll-scribbler!'
+- I make all the weapons and armor for the guard. Damn good stuff. Pop you open like a ripe melon.
+- I used to be a priest of the Tribunal Temple in Kragenmoor. After the collapse, I drifted for a while, until I joined the Chapel.
+- The beggars and the wicked Thieves Guild still trouble me. I wish the Nine Divines offered charity and comfort to the poor like the Temple did.
+- May you find healing here for your wounds, and for your troubled spirit. There's a peace here in the Chapel for all who seek it.
+- I believe in the transforming power of honest work. I honor your vocation as adventurer. By your labors and their fruits, you praise Zenithar.
+- I am proud of my family's tradition of service to Leyawiin and its people. We face many challenges, but Gods willing, we shall prevail.
+- In these difficult times, we must count on persons such as you to secure our borders from bandits and rabble-rousers.
+- We all profit by your lawful pursuit of the unlawful, and we encourage you to attack, burn, loot, and destroy them wherever you can.
+- Leyawiin is in a state of transition. It has long been a respected county making moderate cultural and economic contributions to the Empire.
+- However, Leyawiin must move towards the mainstream of Imperial culture, both in trade and in political affairs.
+- Leyawiin has always been a melting pot of races and cultures. Of course, racial and cultural conflicts produce inefficiencies and confusion...
+- I fear Lady Leyawiin and Hlidara Mothril plan to push the minorities aside and establish a bland, Imperial-dominated culture here in Leyawiin.
+- I came to Leyawiin after a tour in the Legions. Poor Mother. She hoped I'd choose the chapel or civil service, or perhaps even marry well.
+- I have been happy enough in the Count's service. But I am not so happy about his lovely wife, and her Nibenean advisor.
+- Lady Alessia is uncomfortable with Khajiit ways. And Argonian ways. And Dunmer ways. She is only comfortable with pure white-bread Nibeneans.
+- Blackwood Company's a problem. Not for me. I mostly do training. But we don't see many contracts in Leyawiin guildhall. Blackwood gets them all.
+- Well, you sorted out the Blackwood boys, all right. Nice work. Now maybe we'll see a little more guild contract work here in Leyawiin.
+- If you need a blade, go see Tun-Zeeus at the Dividing Line. Does repairs, too. He does go on and on, sometimes. But he's the Genuine Orc in Leyawiin.
+- Let me see your hand. I see the City in the Hand, and the Hand in the Stars.
+- The Tower guards the Gate, but the Gate holds the Key.
+- The King is the Key, and the Hand guards the King.
+- I am the best alchemist in Leyawiin. But if you need Advanced Training, you'll need Brotch Calus in Bruma or Ardaline in Bravil.
+- The Leyawiin chapter is just drifting along. Dagail isn't much of a mentor or leader. She isn't even coherent most of the time.
+- I take care of what little administrative work there is. Dagail isn't interested. I do it because it has to be done, and no one else wants to do it.
+- Want to hear a Khajiit joke?
+- Some clown keeps tossing meat out in my backyard, and it attracts dogs from Necrom to Daggerfall.
+- My neighbors grumble a lot, but what can they do? No law against practicing my skills.
+- Thinking about sticking your paw in my pocket? Go ahead. I'll blow you to cream corn, and the Law will love me for it.
+- The Blackwood Company is proud of our beastfolk heritage, and we are solely owned and operated by Khajiit and Argonians.
+- We speak West-fashion for the comfort of our Western clients, but we invest the fierce pride of our ancient races in each of our mercenary contracts.
+- 'Blackwood' refers in part to Blackwood Forest, but it also carries a reference to the 'thoghatt', of 'charcoal warriors' of Khajiit tradition.
+- My duties are primarily... administrative. They keep me busy here in the Leyawiin barracks.
+- Here I train our skirmishing specialists. You know, perhaps, that Argonians may be gifted spellcasters.
+- We, of course, have no use for the specialized skills of assassination. It is my task, instead, to train our agents in various aspects of stealth.
+- Gods are my witness! I give that man the simplest list of things to do, and somehow he forgets half of it and gets the rest wrong.
+- There are things I like to do. Does this never occur to her? Does she think I live each minute to run her errands for her?
+- She wonders why she cannot find me? Doesn't it occur to her? That I am hiding from her?
+- I'm sure there's an abundance of exotic ingredients to be gathered nearby. In Blackwood, for example, or along the Niben.
+- I think it's a disgrace that Argonians can swagger around Leyawiin, boasting how they whupped this Khajitt silly, and beat that Khajjit to a pulp.
+- I think it's a disgrace that Khajjit can swagger around Leyawiin, boasting how they whupped this Argonian silly, and beat that Argonian to a pulp.
+- Have you SEEN all the rats around here? It's making me CRAZY. First, this guy decides he's gonna make a million, opens a fancy restaurant.
+- Rats in a Cream Sauce. Rat Flambe. Rat Necrom, with Bone Meal Gravy. Deep Fried Rat. Lemon Rat and Wild Rice. Rat Ragu, with Powdered Deer Penis!
+- Of course, when the Guard found out, they ran his sorry butt right out of town. But they left the rats! RATS!!!
+- Maybe Weebam-Na told you how we got all the rats here in Leyawiin? It's not so bad. He's been killing them for months.
+- There's crime everywhere! I'm always on the lookout... ehr... WE're always on the lookout. No crime shall go undetected! That's our motto.
+- So many greenskins here... they smell, do they not? Ahdarji won't drink the water, no. The Argonians SWIM in it.
+- You will not stay in Leyawiin. You just visit. Of course. Too many Argonians here. Already. People here don't like Argonians. Too many already.
+- Okay, okay! I'll tell you! It is so great! I sneak into people's houses, take things off their tables and shelves, and put them into barrels!
+- Hahaha! Isn't that rich? They think the things are stolen, but no! They are right there! They just don't know!
+- I've lived in Leyawiin all my life, and I must say, the Count has found himself a pretty little bride...and a smart one, too.
+- We need some law-and-order... bring in the Legions. 'Leyawiin for the Imperials,' I say. No sense coddling those Renrijra Krin bandits.
+- Well, I don't know much about politics, but I think Lady Alessia's right. We've got to put a stop to all these bandits and rabble in the Trans-Niben.
+- I know the Khajiit are all upset that the Council took away their land and gave it to us, but they just have to get over it! It's our land, now.
+- Well, stranger, anyone ever tell you the story of Torval the Pilot, the High Elf who discovered the Niben? The patron saint of Leyawiin?
+- I'm the Count's man's-man in all occasions... have been for donkey's years. I run the Count's errands and do whatever's required.
+- Januarius and I have been in service to three generations of Caros. We're very proud of Count Marius and his lovely new bride.
+- Everyone in town knows about my hobby... collecting unusual examples of the arcane crafts. My husband left me quite comfortable, bless his cinders.
+- What will I do with my collection of curiosities when I go? Donate them to the Castle, of course.
+- Okay. Just being friendly...
+- Oh. No sense of humor? Your loss.
+- Have you seen the statue? It's in the southwest corner of the town. That's the High Elf explorer, Torval the Pilot.
+- Back in the Merethic, he charted the sea lanes and explored the River Niben. Torval sailed all the way from Topal Bay up the Niben Valley.
+- He purchased the Eight Islands... the site of White Gold Tower and the Imperial City... from the beastfolk natives for the secret of literacy.
+- Pretty soon, the beastfolk all knew how to read and write... which was handy, since it made them better slaves for the Ayleids, hahaha.
+- To get the taste of Khajiit cooking out of their mouths! Hahaha!
+- A real thigh-slapper, that one, eh? Phew. I heard lots others, only I can't remember them.
+- Oh. Sorry. The old memory is not what it used to be.
+
+---
+
+## City Talk: Skingrad
+
+(63 lines)
+
+- Her house is almost directly across the street from mine, southwest of the Great Chapel. Coincidence? I don't think so.
+- What makes you think I'd know anything about that...
+- ... But it just so happens I've run into some Sanguine worshippers up in the Imperial Reserve, a long way north-north-west of Skingrad.
+- Can't give you any better directions, unfortunately. Traveled mostly at night with a guide, and didn't see much on the way.
+- Yes, in fact, up in the Imperial Reserve, a long way north-north-west of Skingrad, I came upon a Sanguine shrine.
+- Gave it a wide berth. I'm a goblin hunter. Don't want to tangle with those Daedra worshippers.
+- The Surilie house is right next door to mine. A large house with a backyard conveniently located to observe my every move.
+- Well. Good. I really don't care, either. I just get sick of all the god-talk. Might as well pray to rocks and lamp posts.
+- Thanks anyway.
+- Let's assume 'no'.
+- Certainly so. Captain Dione knows her business. And no enemy has ever made it over Skingrad's walls.
+- I'm not worried about the Gates. We'll be safe enough inside the walls.
+- Don't count on seeing the Count at the castle. He's a great sorcerer, but he doesn't like visitors.
+- Count Skingrad has ruled here all my life. The county is quiet and prosperous.
+- In the old days, the Colovian Estates were always in the thick of some war or rebellion. But that's ancient history.
+- What do people do here? In town, shopkeepers, smiths, priests... the usual. Fighters and Mages Guild.
+- The rest are farmers or herders. Wines are a Skingrad specialty, and the Surilie and Tamika Vineyards are famous all over Cyrodiil.
+- Ask me what I think about chapels, praying, the Nine Divines. Go ahead. Ask me.
+- I like Skingrad just fine. Folks are a little quiet by Skyrim standards, but they're friendly and loyal when they get to know you.
+- I'm the only alchemist in Skingrad. Not much business here, but I can't go back to Morrowind. It's just like anywhere else in the Empire.
+- By the way... do you happen to know what the fine is here in Cyrodiil for necrophilia? Just asking.
+- Well, the local wine is great. It isn't cheap. But I don't bother with beer or ale any more, and for a Nord, that's saying something.
+- The Chapel of Julianos is always open for worship and contemplation. Perhaps you should speak to Marie Palielle, our healer and Restoration trainer.
+- The town is very nice, but I advise you get out and see the countryside... the vineyards and farms, pastures and sheepfolds. Lovely mountain country.
+- A primate has better things to do than provide tourist information. Beggars have plenty of time on their hands. I'm sure you'll have much in common.
+- Perhaps you'd better speak to my steward. I'm afraid I have little time to spend with visitors to Skingrad.
+- Count Skingrad is a very private person. I handle all the county's public affairs, and consult with the Count when necessary.
+- Wander the streets, fields, and public places of Skingrad to your heart's content. Just don't include me in your social explorations.
+- Try our wines and cheeses, and Salmo's sweetrolls. See the castle... but don't expect to see the Count. He doesn't mix with strangers.
+- If it's not one thing, it's another. The Count is very particular about his food and drink. Everything must be just so.
+- I'm captain of the Castle Guard, and Dion is captain of the town guard. It's simple. I don't care what goes on in town... that's Dion's problem.
+- The whole West Weald is pretty good goblin hunting country. They're thick here in Colovia, along the Valenwood and Elsweyr borders.
+- What brings you to Skingrad? Hunting goblins? Sure, they're thick in the West Weald, but you'll find their holes all over Cyrodiil.
+- Actually, underground goblin lairs are no more common here in the West Weald than anywhere else in Cyrodiil.
+- What? You want a tour? Can't you see I have a lot on my mind? Go bother a beggar or guard... they stand around and chatter all day.
+- Have you met Adrienne Berene, our Skingrad Mages Guild head? Not the most pleasant person, I'll admit. Don't mind her.
+- Interested in training? I do the Conjuration courses, and Druja does the Mysticism.
+- It's a town, like any other. Well, go outside, and there's the mountains and wines and sheep. Here in town, though, nothing special.
+- Well, it's a bit rugged. Nothing like the Arcane University. Have to go to the Imperial City to buy anything. But it's good enough, I suppose.
+- Perhaps you should seek out a priest. Perhaps a beggar. Or guardsman. You and I, we have nothing common. What could we possibly talk about?
+- I could never leave Skingrad. All my good friends here would die without my sweetrolls. The rest of the world must suffer as best it can without me.
+- Fadus Calidus at the Fighters Guild also teaches Block, but he'd be the first to admit I'm his superior in every way.
+- I served as a Legion Marksman for twenty years. I retired here to Skingrad, work in the vineyards, and supplement my income as an advanced trainer.
+- You wouldn't think it, but our rocky soil is perfect for tomatoes. The same ground that produces our glorious wines produces my splendid tomatoes.
+- Where can you get sheep's cheese but in Skingrad? And why? Because only in Skingrad is Uuras, Master of Sheep's Cheese!
+- I can also teach a bit of Athletics. Why, you ask? Because I am the mountain sheep's brother, and I must dash with him from crag to crag.
+- I've lived here all my life. Grown grapes. It's all I know. Fresh air, mountains, the grapes on the vine. It's just... beautiful.
+- Reman Broder... he works Surilie's vineyard, I work Tamika's vineyard... Reman spent 20 years in the legion, and he's an advanced Marksman trainer.
+- Gaston and I make great wines, reasonably priced. Skingrad has two great vintners - Tamika and Surilie. I'll never say a word against Tamika's wines.
+- Skingrad is the wine-producing capital of Tamriel. You must sample our local wines. You'll never taste better.
+- The 415 vintages were particularly good. The 399... well... a once-in-a-lifetime experience... IF you can find a bottle.
+- Skingrad's wines are the best in Tamriel. I  invite you... try them for yourself. Here, it is perfect for grapes, and perfect for wine.
+- The sun and soil here are like my native Hammerfell, but the climate is milder, and the rainfall more reliable.
+- There's so much I could tell you... so many secrets... but then you'd be in danger, too. It's best if we're not seen talking.
+- That's nothing compared to Morrowind. Thanks.
+- He lives in the large house between the Low Gate and the East Bridge. Alone -- suspicious, don't you think?
+- My sister, Ugak gra-Mogakh, runs the Grateful Pass Stables. She's the quiet one. I'm the talker.
+- Oh. Nothing. I was just wondering.
+- Well. The guards must've been careless. But Captain Dione has the guard on full alert. We'll be safe.
+- The gods don't do a damn thing. Do they even exist? How could anyone tell?
+- Daedra Lords, sure. They exist. They do things. Bad things, mostly, but things you can see. The gods? They don't do a damn thing.
+- So why do we build big chapels and sit around and mumble, and ask them to save us from this and that?
+- It's stupid. And chapels and priests and folks groveling on their knees, they're stupid, too.
+
+---
+
+## Gossip About People: Anvil
+
+*NPC opinions about other NPCs and local institutions — the core of idle conversation.*
+
+(34 lines)
+
+- I've eaten many meals there, and I've always been satisfied.
+- I like the Flowing Bowl. Maenlorn and his brother are excellent hosts.
+- I enjoy a good bottle of wine, and Wilbur always has a nice selection.
+- I've had many good meals at the Count's Arms. I've had even more good bottles of wine there.
+- He's a nice fellow, but he couldn't even get the sign for his store spelled right.
+- He's not the smartest man, but he's a nice guy. I just hope he can keep his business afloat.
+- I've never wanted to join up, but I understand Azzan is a good man.
+- I've heard Azzan is an excellent fighter. I'm not planning on joining up, but if I did, I'd like to work for him.
+- I understand he's good, but you have to be a member of the Fighters Guild for him to train you.
+- I don't really have any interest in learning how to use a blunt weapon, but I understand he's very good.
+- I wouldn't mind learning something, but I don't want to join the Fighters Guild to do it.
+- You can never know too much about how to handle a sword.
+- He's quite the pugilist.
+- I wouldn't want to mix it up with him.
+- A little skill with a shield can save your life. Of course, she'll only train other Fighters Guild members.
+- I know that skill with a shield can be invaluable. I don't think I want to join the Fighters Guild to learn, though.
+- I just don't trust those mages. I especially don't trust ones who can play with your mind like that.
+- From what I know, Carahil is a powerful mage. I suppose she should be, if she's going to be in the Mages Guild.
+- Learning a bit about alchemy would be handy, but you have to be in the Mages Guild for Felen to train you.
+- It might be nice to learn how to make better potions.
+- Those Destruction spells are dangerous. I hope the Mages Guild keeps a tight lid on that.
+- Destruction spells can cause a lot of damage. Knowing enough could make you a dangerous person.
+- I've heard that Mirabelle spends a lot of time with the sailors. A lot of personal time with them.
+- I've heard a lot of stories about the Fo'c's'le. None of them good.
+- He's in great shape, that's for sure. Maybe he could teach me something about his training regimen.
+- He's an odd one. Drinks like a fish, but runs like a rabbit.
+- You don't see a lot of Human-Bosmer marriages. I don't know if it's even legal in Cyrodiil.
+- I don't know what would possess him to do that. Marrying a Bosmer is just wrong.
+- Pinarus is an impressive tracker. I'd like to see if he can teach me a bit about using a bow.
+- You could learn a lot from Pinarus.
+- That woman is a bit off-kilter. I don't even want to know what she's got in her basement.
+- She's a nut. Whatever's going on in that house, I don't want to know about it.
+- She travels a lot to research her books. She's in great shape from all that travel. Maybe she'd teach me a bit about getting into shape.
+- She seems like a good person to talk to. I imagine she could teach me a lot.
+
+---
+
+## Gossip About People: Bravil
+
+(55 lines)
+
+- She really is a gifted orator. I wish she'd teach me how to do that.
+- Uravasa is an excellent speaker. Her sermons are always quite enlightening.
+- I understand Marz wants to return to Black Marsh. She only stays because she feels needed here.
+- I've been told that she really wants to return to Argonia, but her services are so useful here, she feels compelled to stay.
+- I don't have a lot of interest in Conjuration, myself. I suppose if I did, I'd want to talk to Fathis.
+- It's impressive. I imagine he'd be a good person to talk to about it, if you wanted to learn the skill.
+- Nahsi is quite a character, and quite an impressive fighter.
+- I always enjoy speaking with Nahsi. His views on the world are different than most.
+- I've heard Tadrose Helas does excellent work. Perhaps that's why she's always so busy.
+- Tadrose is a fine smith, but I understand she only offers services to other Fighters Guild members.
+- I believe Kud-Ei is in charge of the Mages Guild here in Bravil. She seems very well liked by other members.
+- I've heard she's quite a talented mage, with an extensive knowledge of illusory spells.
+- Ardaline makes excellent potions. I imagine she would, since she teaches Alchemy at the Mages Guild.
+- She's an excellent alchemist. I understand she teaches the trade for Mages Guild members.
+- Perhaps she grew bored with studying nothing but enchantments and spells. I know I would.
+- I would assume she's travelled extensively. Must have been some time ago, though, since she never seems to leave the guild hall now.
+- Her skills with Destruction spells are supposedly impressive. I understand Kud-Ei has her teaching them at the Mages Guild.
+- I know Kud-Ei will keep her in check. She even has her teaching her spells to other Mages Guild members.
+- I believe he's always looking for new members, but I don't think it's for me.
+- Yes. He's a very clever man. Something not quite trustworthy about him, though.
+- I don't know him well. I've heard he's a nice enough fellow.
+- I've seen her in the canals a number of times. Other times, I've seen her sneaking around the city.
+- She's a bit strange, but I've heard she's rather good at not being seen, if you know what I mean.
+- I hear she's a very private person. I also heard she knows a lot about using light armor.
+- She tends to keep to herself, that's for sure. That's too bad.
+- It should be burned to the ground. All those skooma-muddled Khajiit laying around all day... it's disgraceful.
+- I can't believe nothing has been done yet. The place is a skooma den, pure and simple.
+- He obviously takes great pride in the lodge.
+- The Lonely Suitor certainly seems to be a source of great pride for him.
+- He doesn't seem particularly happy. I think he'd rather spend his time painting.
+- I've heard that he'd rather be a painter. Still, he runs the place well.
+- She is very well-spoken. I understand she teaches those skills as well.
+- She certainly has a talent for speaking. Plus, she's willing to teach others this skill.
+- Marz is a gifted healer, and teacher. I know that she longs to return to the swamps, though.
+- Were I injured, I'd seek out Marz.
+- I've heard he's a talented mage.
+- I don't have any interest in learning about Conjuration, but I hear he's very good.
+- He's an interesting man, and an amazing fighter.
+- I've spoken to him a number of times about inner peace and spiritual harmony. I'm not sure I understood it all.
+- She's always busy, that's for sure. I have heard she's a good teacher, though.
+- She probably takes on more than she should. Between smithing and training, she's always hard at work.
+- I understand that Kud-Ei takes good care of her sisters in the Mages Guild.
+- I've heard she'll do anything for other guild members, and that she's an excellent trainer.
+- It seems a bit odd. I don't know how Ardaline feels about it.
+- I've noticed the same thing. I wonder what's going on there.
+- Surprising, don't you think, since she never seems to leave that guild hall.
+- There's no doubt that she knows a lot. Years of studying all sorts of things, I'd expect.
+- I've heard she's quite skilled in Destruction, and is a favorite of Kud-Ei's.
+- I'm sure Kud-Ei will keep her in check. I know she has Jend teaching other mages now.
+- He has a way with words, that's for sure. You could learn a lot from him.
+- I don't know him too well, but I have heard he's a smooth talker.
+- I've heard that City-Swimmer has learned the value of not being seen. Quite impressive, and she'll teach it to others.
+- She's a sly one. I understand she's quite sneaky.
+- Knowing how to use your armor can save your life. Perhaps I should talk to her.
+- She's a very private person, but I've heard she has a lot of knowledge to share.
+
+---
+
+## Gossip About People: Bruma
+
+(51 lines)
+
+- I've had many a good night in the place.
+- Olav makes everyone feel welcome.
+- It's hard to complain. The food is good, and the service is excellent.
+- Hafid takes care of his customers. It's a bit expensive, though.
+- She's ridiculous. I suppose some may find it amusing, but not me.
+- It's awful. I feel terrible for her husband. He must be so ashamed.
+- I don't know how he does it. It's no wonder he spends so much time at the Tap and Tack, though.
+- He's a saint. Sure, he spends a bit of time at the Tap and Tack, but you can't blame him.
+- He's good. We're lucky to have him.
+- A good healer makes for a happy town. And Cirroc almost seems like another Nord to me!
+- It seems an odd skill for a priest.
+- Not your average skill for a priest, but I suppose there are those who will always want to learn.
+- Right-Wind certainly can handle a blade. No wonder he trains other Fighters Guild members.
+- He seems gifted with a blade. Can't blame the Fighters Guild for having him train others.
+- She moves really well in that armor, that's for sure.
+- She seems skilled in its use. I can see why the Fighters Guild has her training others.
+- I've heard that J'skar has great skill at making things explode.
+- Those are dangerous skills for a novice. I hope he trains people well.
+- I've heard many of Alga's stories. She's got a real gift for telling a tale.
+- She's the best bard I've ever met. Of course, being a bard is almost as bad as being a pilgrim. There's no future in it.
+- Can't say I know him well. I understand he'll train people to cast illusions, for a price.
+- I wouldn't call him a friend. Still, if I wanted to learn more about illusions, he's the one I'd ask.
+- I've heard a number of stories, none of them good. I understand she might have been a hired assassin.
+- Apparently, she was wanted in Skyrim for murder. Shot a man dead from over 300 yards. Hard to believe.
+- He must really know all the fighters by now. And, from what I've heard, he knows a good bit about alchemy as well.
+- It's a fine place, and Olav treats people well.
+- I've had many meals there. Olav is an excellent innkeeper.
+- Hafid has a nice inn. I wonder if he doesn't drink away most of his profits, though.
+- It's a good place to stay. Hafid is quite a good proprietor.
+- I don't know why the guards haven't taken care of her yet.
+- She's a disgrace to our whole city. Poor Olfand.
+- He's sure got his hands full, between smithing and training in light armor. I don't know how he does it.
+- He keeps busy. Repairing weapons, training light armor techniques, keeping track of Skjorta....
+- He's certainly become more like a Nord over the years. Quite a competent healer, too.
+- It's almost as if he grew up in Skyrim. I don't think the church likes it, but his healing skills are invaluable.
+- It hardly seems appropriate for a priest of the Nine Divines, but they put up with it.
+- Seems odd, given his vocation. Still, I suppose there's no harm.
+- He's talented. The Fighters Guild could do a lot worse.
+- I can imagine he's a good teacher. The Fighters Guild should be proud of him.
+- She's quite a warrior. It's amazing how well she moves in heavy armor.
+- It takes a skilled fighter to move well in armor that heavy.
+- I suppose that's just the kind of person you want training other mages.
+- I wouldn't cross him. I've heard he's very skilled.
+- Much as I dislike bards, I wouldn't mind learning a thing or two from her.
+- She can spin a yarn, that's for sure.
+- I've heard he can teach his skills to others, for a price.
+- I understand he's willing to train others, but it can cost more than a few gold.
+- I'm not surprised, with the way she handles a bow.
+- I don't know about her past. All I know is that she's really good with a bow. I wouldn't mind learning a bit from her.
+- He loves the place. I've also heard he's quite an accomplished alchemist.
+- It certainly seems to be his passion. I understand he used to be quite an alchemist. I wonder if he'd teach me more about that.
+
+---
+
+## Gossip About People: Cheydinhal
+
+(42 lines)
+
+- I've bought a few things at Mach-Na's, but he's always so surly.
+- He runs a nice store, but Mach-Na is a grouchy old man.
+- Rumor has it he joined the priesthood to avoid military service. What a coward.
+- I heard he became a priest to avoid becoming a soldier.
+- I find her annoying. She's way too full of herself. Quite the big talker.
+- I don't like to talk to her. All she wants to talk about is herself.
+- I hope she takes care of herself as well as she takes care of others.
+- She's very dedicated. We would be lucky to have more people like her around.
+- I've heard that she's always wanted to compete, but her parents are against it.
+- He's quite an accomplished brawler. I wonder if he'd teach me something about it.
+- He's good with his fists, no doubt about it. He'll teach you something, for the right price.
+- Deetsan loves to talk about his guild. It's good that he's proud of his work.
+- He's always wanted to be in the guild. Good that he was finally made a member.
+- They're obviously very fond of one another.
+- It's clear that they're in love. Good for them.
+- I can't imagine why someone would act the way he does.
+- He's an ass. There's no excuse for his behavior.
+- She loves her dogs. No question about it.
+- I'm impressed with how she handles dogs. She handles people pretty well, too.
+- There's something about that place that's just a bit off.
+- I don't even like to walk by that place.
+- She certainly does take pride in the Newlands.
+- She runs a good inn, and she's proud of it.
+- I'd like to bet, but I don't want to be told that what I'm doing is sinful.
+- I don't mind betting, but it's not worth having to hear a lecture about it.
+- He's not the friendliest person around, but he can teach you a lot about running a business.
+- He knows a lot about running his store. Of course, he's not the easiest person to talk to.
+- She's pretty shy, unless you get her talking about armor.
+- Her knowledge of armor is really impressive.
+- I heard he learned about Alteration because he's too scared to fight. Pathetic.
+- I've heard he joined the priesthood to avoid serving in the military. What a coward.
+- Gruiand is a bit high and mighty. She does have a way with words, though.
+- She's silver-tongued, but I don't want to listen to her.
+- Everyone is very fond of Ohtesse. And her healing skills are simply excellent.
+- Ohtesse is the most dedicated person I know. She really needs to take better care of herself, though.
+- I understand her parents are against her competing. Quite a shame.
+- There's something about him I don't trust. He's quite a brawler though. I wouldn't want to tangle with him.
+- I would hate to be on his bad side. He's really good with his fists.
+- I've heard him talk at length about the Mages Guild. I understand he's been teaching members about Illusion, as well.
+- He goes on and on about the guild. He's very proud of it. I understand he teaches Illusion there now, as well.
+- Ganredhel does seem to love her dogs. She taught me a little something about acrobatics, though, which was helpful.
+- She's a very demanding teacher. You can learn a lot from her, if you're willing to try.
+
+---
+
+## Gossip About People: Chorrol
+
+(80 lines)
+
+- No, I haven't. I've heard that he really knows his way around, though.
+- I spoke to him recently. He really knows his way around. Knows every tree, rock, and cave in the area.
+- I don't see a problem with those two. It's a bit odd, but that's their business.
+- It is awful. Her poor mother. What is Glistel thinking?
+- I've never run into her there, but I can't blame her for enjoying the matches. Almost everyone likes them.
+- Have I seen her there? Of course! She certainly loves a good fight.
+- I was in there just a few days ago. Rasheda's prices are very reasonable.
+- I haven't been in a while, but it's always nice to stop in and chat with Rasheda. Plus, she always gives a better deal to her friends.
+- Odd noises? No, I haven't. That sounds a bit troublesome.
+- I thought I heard something the other night. It's none of my business, though.
+- Odd folks, the way they dote on those dogs. They're not hurting anyone, though, so it's no concern of mine.
+- I've seen them. Everyone likes a good dog, but they're an odd couple.
+- I've made some bets. Won some, lost some.
+- Not much for wagering, myself. Of course, I always seem to lose....
+- I've made a few bets. Made some good money, actually!
+- I haven't done too much betting. Can't say I know enough about the folks fighting to make a smart wager.
+- Do I like the fights? Of course! Everyone likes the fights! The thrill of battle, the sting of defeat. A wonderful time.
+- Horrible things, those Arena matches. Simply bloodshed for the sake of bloodshed. Barbaric, I tell you.
+- I thought about it when I was younger, but it just wasn't for me.
+- I never really thought about it. They just didn't seem like the sort of folks I wanted to spend time with.
+- I've often thought about joining the Fighters Guild. I've heard you can make a good living there.
+- I've never really thought about it. I've heard the money is good, but that's a bit too much risk for me.
+- Well, of course. I mean, there's always something there I need. And Seed-Neeus gives a fair price.
+- I haven't needed anything there in a while. I'm sure I will soon, though.
+- Certainly I've spent time there. Talasma runs a good, quiet Inn.
+- I've had many meals at the Oak and Crosier. Sure, it may not be the best in all Cyrodiil, but it suits me fine.
+- I bought a fine mare from him once. A fine, fine animal.
+- I'm not much of a rider. I've heard others swear by his animals, though.
+- He did? Excellent. I wonder if he got "The Lusty Argonian Maid" in. I've been dying to read that.
+- New books? Who has the money to afford all those books? I know I don't.
+- Yes, I've heard the Fighters Guild offers some wonderful opportunities.
+- Hmmm... I've never had much interest in the Fighters Guild.
+- Must we talk about the Fighters Guild now?
+- The Mages Guild is, indeed, a fine organization.
+- Yes, I've heard some of the finest mages in Tamriel belong to the Mages Guild.
+- I've never been that interested in the Mages Guild, myself.
+- Chorrol is a wonderful town.
+- I know Chorrol is the best town I've spent time in.
+- It's true. Chorrol has almost everything you could need.
+- Yes, Renoit does have a fine assortment of books.
+- I should visit Renoit's more often.
+- I've heard that Renoit has a good selection, and at reasonable prices.
+- I'm not much of a reader, myself.
+- I had heard he was looking for some help.
+- Yes. I like the Grey Mare as well.
+- It's a fine place.
+- It's true. Some fine horses he has.
+- I've heard he knows his way around.
+- People say he's very familiar with the area.
+- It is a nice place, and you're right about Talasma.
+- I've always liked the Oak and Crosier. I don't know Talasma that well, though.
+- I've always been happy with the weapons I've bought there.
+- Rasheda does a good job keeping Fire and Steel stocked with good weapons. Maybe not the best in Tamriel, but good.
+- Luckily, I haven't had to make use of their services. Still, it's good to know the Chapel is there.
+- It's a fine chapel. And a fine group of healers, as well.
+- Do you think? I've never noticed anything.
+- I've suspected that as well. Still, it's not a bad place.
+- Very true. You can find almost anything you need there.
+- I can't say I've done a lot of shopping there, but I've heard good things.
+- No question about it. And Seed-Neeus is an excellent proprietor.
+- Not a bad idea if you're looking for work.
+- Not me. I've got plenty to do at home.
+- I don't know much about the man, but I've heard he is an excellent warrior.
+- I haven't really spent any time around him. I find him a little frightening, actually.
+- I've heard there are good trainers there. Costs a bit of coin, though. I'd rather go out and practice on my own.
+- It's not always easy to find a good trainer. That's a good place to look.
+- I've heard good things about the mage trainers there.
+- I've never spent time at the Mages Guild. I've thought about it, though.
+- I haven't done much betting, but I hear some folks have made a good bit of money.
+- Hmmm... maybe I should start betting with Hundolin as well.
+- I like dogs, but it's a bit excessive with those two folks.
+- I've never been a huge dog lover myself, but some people really love them.
+- Can't say I've heard anything myself. Still, that's odd.
+- Strange noises, you say? How very odd. I haven't heard it myself.
+- Strange noises? They should have the guards look into that.
+- I've liked some of Scribonia's work. Haven't read everything, though.
+- I'd like to read Scribonia's work. I just wish I had more time to do it.
+- The whole thing is a big shame. She's such a nice young girl.
+- I don't see a problem with it. Perhaps they're in love.
+- You're right. It's shameful. Still, what is anyone supposed to do? It's her life.
+
+---
+
+## Gossip About People: Imperial City
+
+(112 lines)
+
+- I've never used his services, but I hear he's a good teacher.
+- I'd rather have someone else just repair it. I'd hate to have to take time to repair my armor when I'm doing something else.
+- She's certainly good. I'm glad she's willing to teach others.
+- She's the best in the city. And, she'll teach others. It'll cost you, though.
+- He's as good as you'll find in the city when it comes to heavy armor.
+- If you want to learn about heavy armor, Varnado is the one to talk to.
+- The King and Queen is a nice place. The Marillins treat everyone well.
+- They say they treat all their patrons like royalty. From what I've seen, it's the truth.
+- If you need to learn how to use light armor, gro-Shug is the one to talk to.
+- He can teach you a lot about using light armor.
+- She's something else. I've heard she'll train others, as well.
+- She's impressive, and she'll train others.
+- He still teaches, though he lost his passion for it after the Levitation Act was passed. Can't say I blame him.
+- He's getting up in years, but he's still a good Alteration teacher.
+- She's nuts. Her hobby is falling from high places.
+- If you want to learn to fall off a building, she's the one to talk to.
+- He's a sneaky one. I understand he'll teach others to be sneaky, too.
+- If you can find him, he can teach you a lot.
+- I've heard he's good with a lockpick.
+- Rumor has it that he'll teach others to pick locks.
+- It's the finest place in the city. Simply an excellent inn.
+- If you're looking for luxury, there's no better place to stay.
+- Apparently, he can teach you the basics of lockpicking.
+- If you're just learning how to pick a lock, he's a good man to talk to.
+- I've heard there's no one in the city better at opening locks.
+- He can teach you how to steal the boot right off a lich.
+- Can't say I've spent much time there. I hear it's nice, though.
+- It's the best place in the city for alchemical ingredients.
+- It's the only place to go for books.
+- Phintias has a good selection, and he'll find some rare books as well.
+- I've never bought one there, but I've heard many mages swear by the place.
+- I imagine it must be good, since it's been in business so long.
+- There are some things you shouldn't skimp on. Spells are one of them.
+- Discount spells. I'd just as soon buy a "slightly used" shield.
+- I've sold some things there. Thoronir is an odd one.
+- If you can get used to Thoronir, you can find some good deals there.
+- If you're looking for a shield, there's no place better than Stonewall.
+- Stonewall is the best in the city when it comes to shields.
+- I try not to eat there. At least since the last time.
+- It's not my favorite place, but if I'm really hungry, it'll do.
+- One man's trash soon becomes another man's trash, I suppose.
+- Jensine's isn't bad, especially if you need to make a quick couple of septims.
+- Cicero, Sergius, and Tertullian run a good shop.
+- I've shopped there many times. The brothers never fail to please.
+- I've shopped there a few times. If you're looking for soul gems, that's the place to go.
+- I haven't spent too much time there. I hear it's the place to go for enchanting supplies, though.
+- No real question what Urbul is going for there. He's got weapons. Big weapons.
+- It's an apt name. He's got big maces and big axes. Urbul is a big fan of killing things thoroughly.
+- I've never shopped there, but I know she carries good alchemy equipment.
+- I've browsed Claudette's shop, but I haven't spent a lot of time there.
+- I've heard it's the best light armor in the city.
+- I haven't spent time there, but if you're looking for light armor, Best Defense is the place to go.
+- I've read it. Terribly written, sensationalistic tripe, if you ask me.
+- I read the thing once in a while. Mostly, I use it for kindling. There's no telling whether anything in it is actually true.
+- I understand that Vinicia takes a lot of complaints, but nothing ever comes of them.
+- Vinicia may have the worst job in Cyrodiil. She takes complaints all day, and nothing ever comes of them.
+- I've heard he'll teach his skills, for the right price.
+- He's certainly a talented smith. I'm glad he'll train others in the skill.
+- She's the best I know. Luckily, she'll teach you some of her tricks.
+- I've never met tougher. She did offer to teach me some of her bargaining tricks, though.
+- He'll train you in how to use heavy armor, if you can pay for his time.
+- He knows a lot about it. Plus, he'll teach others how to use heavy armor.
+- The King and Queen is a fine place, and it's much more reasonable than other places in town.
+- The Marillins say that they treat everyone like royalty at the King and Queen.
+- I understand he'll teach light armor skills.
+- He's really skilled at using light armor. Luckily, he's willing to train others to use it, as well.
+- She jumps like a toad. She'll also teach others how to do it.
+- She's pretty amazing. Plus, she teaches others how to do it.
+- He's getting older, but he can still teach a bit about Alteration. He's been teaching it since before the Levitation Act of 421.
+- He still teaches others, though. Of course, you have to try to avoid all the Old Man Dust.
+- She likes jumping off things. That's because she's an idiot.
+- Maybe she could teach me how to fall off things. That's a useful skill! Much better than, say, swinging a sword or casting a fireball.
+- I heard that he stood in one place for hours, just to teach himself how to be sneakier. Sounds boring, but whatever works for you.
+- I saw him once. Then I didn't. How about that.
+- I understand he'll teach others to pick locks. If everyone knew how, we wouldn't have to carry around so many keys.
+- I'm glad he's willing to teach others. Lockpicking has gotten so much harder recently. It's more interesting, but it's harder.
+- It's probably the finest inn in all of Cyrodiil.
+- I can't imagine that there's a finer establishment in the entire city.
+- He's calmed down a lot. Can still teach you how to pick a lock, though.
+- It's true that he's settled down. Still, he can teach you the basics of lockpicking.
+- He's forgotten more about picking locks than most people will ever know.
+- If he'll train you in picking locks, you're probably already pretty good at it.
+- Ogier runs a good shop. His ingredient selection is excellent.
+- If you need ingredients, it's a great place to shop.
+- It's a shame all the smaller bookstores are gone. I guess they just couldn't compete.
+- It's a fine place, but I miss the personal attention I got at the smaller bookstores.
+- If you're looking for a staff, that's the place to go.
+- Rindir always keeps a fine selection on hand. It's almost as if he knows my skill level perfectly.
+- I'm not buying a discount spell. That's just a bad idea.
+- Seems to me, some things are worth paying full price for.
+- Thoronir isn't too picky, which is nice.
+- Thoronir is quite a character. He's dirty and underhanded, but he provides a service.
+- No question about it: Stonewall shields has the best pieces of steel to hide yourself behind.
+- I suppose if you need a shield, that's the place to go.
+- You'll always leave stuffed, assuming you can keep it down.
+- They sure do sell food. Yup. You can buy food there.
+- She gives good prices for your old equipment.
+- It's good to know that there's a pawnbroker around.
+- All three of them are nice folks.
+- I don't know which is which. Still, it's a good shop they run.
+- He has a good selection of soul gems and other things.
+- He supports all of your enchanting needs.
+- Urbul keeps a lot of axes and maces. He seems to like big weapons.
+- Lots of big weapons there. Urbul always has some in stock.
+- Claudette does a good job. Still, she should rename the place.
+- It's a nice store, at least for alchemists.
+- It's the finest light armor selection in the city.
+- If that's what you're looking for, there's no one better to talk to than Maro.
+- I prefer to just listen to people talk. Some of the conversations they have are truly remarkable.
+- We could just listen to people talking. It's uncanny how informed people are.
+- She takes all the complaints, but nothing ever seems to happen.
+- She must hate her job, people complaining to her all day.
+
+---
+
+## Gossip About People: Leyawiin
+
+(36 lines)
+
+- Terrible jokes. Just terrible.
+- I've heard them. They're pretty stupid.
+- He pays his debts, but his love of dogs is just odd. I've heard he leaves meat in his backyard to attract them.
+- He's a bit crazy for dogs, from what I hear. He pays bets on time, though.
+- I've heard the dogs that J'bari keeps drive her crazy. I've also heard she knows a lot about acrobatics.
+- Tsrava says the sound of J'bari's dogs drives her to distraction. Can't say I blame her.
+- I understand they've been taking a lot of the contracts that used to go to the Fighters Guild.
+- I don't trust them. I've heard they're effective, but they're brutal.
+- They argue a lot, but that's just their way. I don't think they're ever really angry with one another.
+- I've heard them, but I think they just do it for fun. They seem to enjoy it, and it's all in good fun.
+- I've heard him talk, and talk, and talk. Haven't heard anything useful yet, though.
+- He goes on and on. I'm not sure he's ever said anything useful, though.
+- She knows a lot about doing business. I don't like to bother her, though. She's a bit touchy when you do.
+- She's a smart one. You could learn a lot from her.
+- He's always trying to stir things up. I don't think he means any real harm, though.
+- I think he's just playing around. I don't think he means anything by it.
+- She's ridiculous. I don't know what her problem with Argonians is, but she's always trying to start something.
+- I don't know what her problem with Argonians is. She's going to cause some real problems, if she's not careful.
+- The Five Claws is a very clean place. Witseidutsei wouldn't have it any other way.
+- Witseidutsei takes great pains to keep that place clean. She doesn't tolerate people messing it up.
+- She really doesn't seem to like her sisters. Sad, really.
+- She seems to have real issues with her sisters. I can't imagine why. Shamada is lovely, and Shomara is very sweet.
+- He has a wonderful collection of books. I don't know why he needs to act so tough all the time.
+- He's an aggressive one, that's for sure. Has a good book selection, though.
+- I try not to talk to him. I don't have that kind of time.
+- All day long, stories about severed heads and lopped off limbs. I can do without it.
+- I've heard if you're in the Fighters Guild, you can learn a lot from him.
+- Knowing how to use heavy armor isn't a bad idea. Kind of odd to learn it from a Bosmer, though.
+- She certainly can handle a blade. A bit of a show-off, if you ask me.
+- She does love to show off her skill. I suppose you can learn a lot from her, though.
+- I've heard he knows more about Mysticism than almost anyone. Strange about the sheep, though.
+- I don't understand the fascination with sheep. Certainly seems to know everything about Mysticism, though.
+- I've heard he never leaves his laboratory. He's certainly dedicated to his craft.
+- He's a very hard worker. Sometimes I wonder if he ever gets out.
+- Vanashti is a frightening one. I've heard she likes the skooma a bit much.
+- I understand Vashanti has some problems with the skooma. That can't be good for her fighters.
+
+---
+
+## Gossip About People: Skingrad
+
+(71 lines)
+
+- Well, if it was Ugak, you can be sure she had some good animals.
+- The sisters are hard to tell apart. It's Ugak you'll want to find if you need a mount, though.
+- The Two Sisters is a fine place, and the two sisters themselves are nice people, too.
+- I've always liked the place. Mog does a nice job, although I sometimes confuse her with Ugak.
+- Yes, the West Weald is a nice place. Just stay away from Erina when she's in a mood.
+- I like the West Weald itself, but I'd rather avoid its proprietor.
+- I wouldn't mind making a few bets, but I'm not sure about Graklak. He seems a bit slick to me.
+- I'll stay away from the topic with her.
+- Religion is definitely not a topic to bring up around Else. Swords, on the other hand, she'll talk about.
+- Colovian Traders is a good shop. Perhaps I'll visit Gunder soon.
+- I've bought a number of things from Gunder. I've always been satisfied.
+- There's just something wrong with that guy. And he has an odd smell about him.
+- I'd stay away from him if I were you. There's something very wrong with that man.
+- It's a shame such a good smith wastes her life in the bottle.
+- She can drink all she wants as long as she keeps doing such fine work.
+- Tumindil does excellent work. I always feel comfortable in his care.
+- It's good to know that if I'm sick, I can head to Tumindil.
+- No one works harder than Marie.
+- The world needs more folks like Marie.
+- You'd be better off praying for a miracle than going to see Valandrus.
+- I think I'd rather take my chances with a disease than have that man try to heal me.
+- I've heard rumors about him, but I don't believe they're true.
+- Maybe there's something strange going on, but Skingrad is a well-run city.
+- He's a tough one, that's for sure. I wouldn't want to cross him.
+- He's all business. That's probably good in his line of work, though.
+- It's a bit strange, but Castle Skingrad is an odd place.
+- I can't imagine it. Still, it's better than not having a butler at all.
+- I don't think he's that impressive. There's no telling him that, though.
+- I can't stand someone who's so full of himself. Someone needs to teach him a lesson.
+- I'm glad he's doing it. Those things are disgusting, a menace to us all.
+- Goblins are filth. More power to him.
+- That's good to know. You can never be too careful.
+- I've heard that about Fadus. He's quite impressive.
+- The more folks hunting goblins, the better. That's what I say.
+- If Parwen wants to spend all day hunting goblins, I think it's great. Those things are a menace.
+- I've got no interest in talking about some snooty mage.
+- That's so typical for a mage.
+- All that conjuring gives me the creeps. There are plenty of scary things in this world without bringing more around.
+- I don't want to learn how to conjure things. I want to learn how to get rid of things.
+- I wouldn't mind learning a bit about Mysticism. Seems like a useful skill.
+- Mysticism? Seems interesting, but not particularly useful.
+- I'll keep that in mind the next time I need something recharged. Not that it's something that happens every day, of course.
+- I've never used his services. I mean, how many people have enchanted things just lying around? Outside of the guild, of course.
+- That's just what this town needs: another reckless mage.
+- He should be kicked out of town before one of his experiments turns this place into a wasteland.
+- He's a moron. One of these days, he'll be taught a lesson.
+- What a fool. I hope he's happy with himself.
+- I can't imagine who'd want to hurt Toutius.
+- I'm sure it's just a rumor. I can't think of a reason why anyone would want to hurt Toutius.
+- Salmo's baking is fantastic. And her sweetrolls are unbeatable.
+- I could eat nothing but Salmo's baking for the rest of my life. That'd be fine with me.
+- If I could use a shield as well as Ambrose, I'd charge people for training, too.
+- I've heard he's the best in town with a shield. If you want to learn, go to him.
+- You can never be too good with a bow. I know I'm not.
+- I've heard that Reman is good with a bow. Apparently, he's the best in all of Skingrad.
+- Can't say I like tomatoes. I'm sure Undena's are good, though.
+- To-MAY-to. To-MAH-to. DAY-dra. DEE-dra. It's all the same to me.
+- No doubt about it, the man loves cheese. And sheep. Just cheese and sheep.
+- I like cheese. Not more than sheep, though. I'm not sure about Uuras.
+- She's a hard worker, and they make some fine wine.
+- I've heard she works long hours. It's worth it, though. That's some fine wine.
+- I've heard he's good with his bow, and he'll train you, for a price. I like the wine he makes, too.
+- With all that time in the vineyard, it's a wonder he has time to practice his marksmanship.
+- The Surilie Brothers wine is some of the best in Tamriel, if you ask me.
+- No doubt, they make a fine wine at the Surilie Vineyards.
+- Gaston and his brother produce quality wines. I'll have to pick up some more.
+- I don't know Gaston well, but I helped him drink his wine. And he always has a mighty fine wine.
+- He's got some issues, that's for sure. Personally, I'd just steer clear of him.
+- He is a bit nutty. Probably just a harmless old fool, though.
+- Her wines are excellent, and she's a fine person as well.
+- I'll have to buy a bit more of her wine. It's just excellent. A fine choice for any meal.
+
+---
+
+## NPC-to-NPC Questions
+
+*What NPCs ask each other about — the topics people actually bring up in conversation.*
+
+(151 lines)
+
+- That Honditar sure knows his way around this area. Have you spoken with him recently?
+- Have you seen Glistel and Malintus Ancrus together? Isn't it awful?
+- I heard there's a new shipment of weapons at Fire and Steel. Have you been recently?
+- Have you heard the odd noises coming from Eugal Belette's place?
+- Have you seen the Bruiants and their dogs?
+- Have you ever been interested in joining the Mages Guild?
+- Have you ever thought of joining the Fighters Guild?
+- Do you ever do any shopping at Northern Goods?
+- Do you ever spend time in the Oak and Crosier?
+- Have you ever bought a horse from Bongond?
+- Have you heard Renoit got some new books in stock?
+- Have you ever shopped at Mach-Na's Books?
+- Don't you think Mach-Na runs an excellent bookstore?
+- Have you heard about why Hil the Tall joined the priesthood?
+- Do you know why Hil the Tall became a priest?
+- Have you ever spoken to Gruiand Garrana?
+- Have you heard Gruiand Garrana talking about herself again?
+- Ohtesse works constantly. Don't you worry about her sometimes?
+- Have you ever spoken with Ohtesse? She's really a dedicated person.
+- Did you see the fight that Ra'qanar got into the other night?
+- Have you ever seen Ra'qanar get into a fight?
+- Have you ever spoken to Deetsan about the Mages Guild?
+- Did you hear Deetsan talking about the Mages Guild again?
+- Have you ever seen a couple more in love than Orintur and Eilonwy?
+- Have you seen Orintur and Eilonwy recently? They're always together.
+- Voranil is such a fool. Have you seen how he treats his servants?
+- Have you seen the way that Voranil treats his servants? What a lout.
+- Have you ever spoken to Ganredhel about dog training?
+- Did you see Ganredhel training her dogs yesterday? She's got a knack for it.
+- Isn't that abandoned house a bit spooky?
+- Doesn't something seem wrong with that abandoned house in town?
+- Have you heard any of Dar Jee's jokes?
+- What do you think of the Khajiit jokes Dar Jee has been telling?
+- Have you ever made any bets with J'bari?
+- Have you seen how upset Tsrava gets by all the dogs near her house?
+- Did you hear how upset Tsrava is about all the dogs that J'bari has in his yard?
+- Have you heard about how the Blackwood Company is growing?
+- Heard anything more about the Blackwood Company?
+- Have you heard the Derics arguing?
+- Have you seen the Derics recently? They're always bickering with one another.
+- Have you ever spoken to Margarte? She knows a lot about running a business, and about alchemy.
+- Has Margarte ever talked to you about running a business?
+- Did you hear Eitar stirring things up again?
+- Have you seen Eitar making trouble again with the Khajiits and Argonians?
+- Have you seen Ahdarji trying to start trouble?
+- Did you hear about Ahdarji picking another fight with an Argonian?
+- Do you enjoy spending time at Olav's Tap and Tack?
+- Isn't the Tap and Tack a relaxing place to visit?
+- Don't you think Hafid Hollowleg does a good job at Jerall View?
+- Is there a more gracious host in Bruma than Hafid Hollowleg?
+- What do you think about all of Skjorta's antics?
+- Can you believe how Skjorta acts?
+- How does Olfand manage to be a smith, trainer, and babysitter?
+- Isn't Olfand amazing? He's an excellent smith and good at teaching light armor skills.
+- Isn't Cirroc an excellent healer?
+- Aren't we lucky to have a skilled healer in town?
+- Have you heard that Arentus Falvius can summon creatures?
+- Is it true that Arentus Falvius will teach people conjuration?
+- Have you seen Right-Wind practicing with his sword? Very impressive.
+- Isn't Right-Wind an impressive swordsman?
+- Is there a better person to learn heavy armor skills from than Bumph gra-Gash?
+- Did you know that Bumph gra-Gash will train you to use heavy armor, but only if you're a Fighters Guild member?
+- Did you know that J'skar trains other Mages Guild members in Destruction?
+- Have you ever wanted to learn to use destructive magic? I hear J'skar can teach you.
+- Have you ever heard Alga tell her tales?
+- Isn't Alga a good storyteller?
+- Have you ever spoken to Jantus Brolus?
+- Do you know Jantus Brolus, the spellsword?
+- Do you know anything about Edla Dark-Heart's past?
+- Have you heard the rumors about why Edla Dark-Heart left Skyrim?
+- Have you ever listened to one of Uravasa Othrelas' sermons?
+- Uravasa Othrelas is an excellent speaker, don't you think?
+- Marz is an excellent healer, but doesn't she seem sad to be here?
+- Have you ever talked to Marz at the chapel? She seems sad to me.
+- Have you ever seen Fathis Aren conjure up a creature?
+- Don't you find Fathis Aren's skill in Conjuration impressive?
+- Have you ever spoken with Nahsi about hand-to-hand combat?
+- Is there anyone in Bravil more at peace than Nahsi? And he's such an impressive fighter, as well.
+- Has Tadrose Helas ever fixed a weapon for you?
+- Is there a busier smith in Tamriel than Tadrose Helas?
+- Have you ever spoken with Kud-Ei in the Mages Guild?
+- Did you know that Kud-Ei also teaches at the Mages Guild here in Bravil?
+- Have you ever bought a potion from Ardaline?
+- Have you heard what a good alchemist Ardaline is?
+- Do you think anyone in Bravil knows more about Tamriel than Ita Rienus?
+- How does Ita Rienus know so much about Tamriel?
+- Have you heard about Delphine Jend, and her skills in spellcasting?
+- Does Delphine Jend make you a bit nervous?
+- Have you ever spoken to Varon Vamori?
+- Have you seen Varon Vamori recently?
+- Did you see City-Swimmer swimming in the canals again?
+- City-Swimmer is a bit odd, don't you think?
+- Have you ever met Luciana Galena?
+- Is something wrong with Luciana Galena? She rarely leaves home.
+- Isn't that abandoned house awful?
+- Shouldn't something be done about that abandoned house?
+- Have you ever spoken to Rohssan about learning to be an armorer?
+- Have any interest in learning to repair weapons and armor? Rohssan can help.
+- Have you ever met anyone who barters better than Palonirya?
+- Is there a tougher person to get a deal from than Palonirya?
+- Is there anyone in the city who knows more about heavy armor than Varnado?
+- Have you ever spoken with Varnado at The Best Defense?
+- Have you ever been to the King and Queen Tavern?
+- Have you ever spent the night at the King and Queen Tavern?
+- Do you know Dul gro-Shug? I understand he's good with light armor.
+- Have you ever spoken to Dul gro-Shug about wearing light armor?
+- Have you ever seen Irene Metrick move? Amazing.
+- Isn't Irene Metrick graceful?
+- Do you want to learn about Alteration? Speak with Dovyn Aren.
+- Does Dovyn Aren still teach Alteration?
+- Isn't Ida Vlinorman an agile one?
+- Isn't it uncanny how Ida Vlinorman moves?
+- Have you seen Othrelos moving around? It's like he sometimes just disappears.
+- Do you know Othrelos? I'd like to learn how he gets around without being seen.
+- Do you know Mandil? I hear he's good with locks.
+- Is it true that Mandil can open almost any lock?
+- Have you had the pleasure of staying at the Tiber Septim?
+- Ever spent a night in the Tiber Septim?
+- Is it true that Samuel Bantien used to be a thief?
+- Have you heard that Samuel Bantien has a bit of a checkered past?
+- Do you know Areldil? I understand he has some unique skills.
+- Do you ever buy ingredients from The Main Ingredient?
+- Have you ever shopped at The Main Ingredient?
+- Is there a better bookseller in the city than Phintias?
+- Can you think of anyplace better to buy books than First Edition?
+- Have you ever shopped at Rindir's?
+- Have you ever bought a magic staff at Rindir's?
+- Isn't there something just wrong about buying "discount" spells?
+- Have you ever shopped at Edgar's Discount Spells?
+- Do you ever go to the Copious Coinpurse?
+- Have you ever done any shopping at Thoronir's store?
+- Have you shopped for a shield at Stonewall?
+- Have you seen the selection at Stonewall Shields?
+- Have you ever had a meal at The Feed Bag?
+- Have you eaten at The Feed Bag recently?
+- Ever needed cash in a hurry? You should try Jensine's.
+- Have you looked around Jensine's? It's amazing what people will get rid of.
+- Don't the Verus brothers run a good shop?
+- Have you ever browsed the goods at Three Brothers Trade Goods?
+- Do you ever buy soul gems from Calindil?
+- Ever bought enchanting supplies from Calindil?
+- Can you think of a more appropriate name for a store than Slash 'N Smash?
+- Slash 'N Smash. Doesn't the name say it all?
+- Isn't the Guilded Carafe a nice shop?
+- Have you shopped at the Guilded Carafe?
+- Have you ever bought light armor at Best Defense?
+- Do you know Maro Rufus? He specializes in light armor at Best Defense.
+- Have you read the latest Black Horse Courier?
+- Have you seen the latest Black Horse Courier? Quite a story, don't you think?
+- Have you ever had a complaint about a merchant?
+- Did you know you can officially complain about the merchants in town?
+
+---
+
+## General Rumors
+
+*Non-quest-reactive rumors — world flavor, opinions, mundane observations.*
+
+(1795 lines)
+
+- You're talking to me, and I don't like you. Goodbye.
+- I see no reason to talk to you.
+- I don't like you and don't want to talk to you.
+- I'm not listening to you. It's because I don't like you.
+- You're still speaking. Stop.
+- The news from Anvil is terrible! Have you heard about the attack on the Chapel there?
+- They say that the priests and priestesses of the Chapel of Dibella have all been murdered! No one even knows who did it!
+- I don't know what to think about the attack on the Chapel. Things seem to go from bad to worse, don't they?
+- I still can't believe what happened at the Chapel. Trevaia, Laralthir, Dumania... all dead.
+- Everybody's talking about the Prophet. After the attack on the Chapel, people are inclined to believe almost anything.
+- Still no news out of Aleswell since everybody vanished. Strange business.
+- I understand that the Blackwood Company works cheaper than the Fighters Guild. And they'll do any job.
+- Rumor has it that the Fighters Guild is losing members to the Blackwood Company.
+- I heard that the Fighters Guild botched a job. They lost a bunch of men in the raid.
+- I've heard that the Fighters Guild has been having some problems with their contracts recently. That's not like them.
+- I've heard the Fighters Guild has managed to recruit a few new members. Good thing.
+- Hey. Check out the new associate. Not bad, if you know what I mean.
+- It may take a while, but with the Blackwood Company gone, the new master can rebuild the Fighters Guild to its former glory.
+- Good riddance to the Blackwood Company, and good luck to the Fighters Guild.
+- The Blackwood Company were taking bad hist from a sick tree. No wonder they fought blood-mad and fearless.
+- So Argonians get this 'hist' stuff from licking hist trees, and the Blackwood Company got bad hist that made them crazy.
+- Goodbye, Blackwood Company. The Fighters Guild has a new master, and Oreyn is back.
+- The Blackwood Company is gone. They were working high on Hist sap. That's why there were so many terrible 'accidents'.
+- The Blackwood Company has a terrible reputation. But with the Fighters Guild in trouble, who else is there?
+- The Fighters Guild still gets a little work from old friends, but the Blackwood Company gets all the big contracts.
+- The Blackwood Company gets the contracts because the Fighters Guild is coming apart at the seams.
+- The Blackwood Company seems to be winning the battle for mercenary contracts in Cyrodiil, but I wouldn't count the Fighters Guild out just yet.
+- Maybe the Fighters Guild will recover from its troubles. And maybe not.
+- The Blackwood Company is not popular, but they're still cheap and effective.
+- Everyone feels sorry for the Fighters Guild, but they can't function without leadership.
+- I bet the Blackwood Company had something to do with Viranus Donton's death.
+- Modryn Oreyn got kicked out, and Vilena Donton thinks only about her dead sons. The Fighters Guild is finished.
+- With Modryn Oreyn gone, and Vilena Donton mourning her lost sons, who's left to lead the Fighters Guild?
+- Viranus, the Fighters Guild son-and-heir, is dead, and Vilena kicked Modryn Oreyn out of the guild. The Fighters Guild is falling apart.
+- It sure sounds like the Blackwood Company double-crossed Argoth and helped Azani Blackheart murder him. Hard to prove it, though.
+- The Fighters Guild got Azani Blackheart's ring. Not the Blackwood Company. Apparently the Blackwood Company made the whole thing up.
+- So. The Fighters Guild got Azani Blackheart. Blackwood Company said they did him, but apparently they were mistaken. Or stretching the truth, maybe?
+- I don't like a lot of what I hear about the Blackwood Company. But they complete their contracts on time.
+- Blackwood Company takes any and all contracts, and always completes them. Hard to beat that.
+- The Fighters Guild hasn't actually defaulted on any contracts. But still, all the confusion and delays are going to hurt them.
+- Vilena Donton hasn't been very aggressive as head of the Fighters Guild. Maybe her son Viranus will show a bit more spunk.
+- Vilena Donton needs to set a fire under the Fighters Guild if they expect to compete with the Blackwood Company.
+- The Fighters Guild is a family business. With Vitellus dead, Viranus is in line to succeed his mother.
+- You heard about the Fighters Guild members tearing up a tavern in Leyawiin. As if they didn't have enough problems with the Blackwood Company.
+- Sure, the Fighters Guild is established and reliable. But they just aren't as aggressive as the Blackwood Company.
+- The Blackwood Company is just plain mean. They've got a bad reputation, but that won't hurt business in their line of work, will it?
+- Nobody likes the Blackwood Company. They're brutes, plain and simple.  But they get the job done.
+- The Blackwood Company people are more hard-core than the fighters from the Guild.
+- The Fighters Guild needs to get aggressive if they're going to compete with the Blackwood Company in Leyawiin.
+- Of course the Blackwood Company is violent. That's what fighting is, isn't it? Violent?
+- The Blackwood Company takes any job, no matter how tough. Fighters Guild is more fussy.
+- The Fighters Guild has competition in Leyawiin. Called 'The Blackwood Company'. Very tough. Maybe too tough.
+- There's some kind of cover-up going on with the Fighters Guild's Fallen Rock Cave contract.
+- It's a simple job. Go get a journal from Fallen Rock Cave. Shouldn't that be a cinch for a Fighter Guild contract?
+- I heard Fighters Guild got the Fallen Rock contract, but the guy is just sitting around drinking beer.
+- They say the Fighters Guild got all the trolls in Swampy Cave, but I'm still not going anywhere near Harlun's Watch.
+- No one's going out to Harlun's Watch after what the Fighters Guild found there.
+- Fighters Guild is still better for sensitive jobs, and you know it.
+- If you wanted your daughter rescued, who would you hire? Blackwood Company? Not me. Can't trust them.
+- The Fighters Guild got Lady Rogbut out safe and sound. With the Blackwood Company, you never know....
+- If Lord Rugdumph had used the Blackwood Company, who knows how it would have turned out.
+- I bet someone sold the Bravil jailbreakers down the river. How else could the Fighters Guild have found their hideout?
+- Those guys that broke out of Bravil jail were tough customers. But the Fighters Guild got them, didn't they.
+- Sure, the Fighters Guild raided a family tomb, but they did it for a family member. What's wrong with that?
+- The Fighters Guild thing at Desolate Mine went perfectly, didn't it? They cleared out the goblins, and no one got hurt.
+- I heard the Fighters Guild thing at Desolate Mine went wrong. They cleared out the goblins, but they lost some people.
+- They call it the 'Stone of Alessia'. And they got it back. That's all I know.
+- The Fighters Guild recovered the Stone of Alessia? I didn't know it was lost. Is it magical or something?
+- Elante of Alinor? She's the Daedric scholar, right? She'll live to write again, thanks to the Fighters Guild.
+- The rookies took care of all the thieves. How many was it? Seven? Eight?
+- Did you hear about the pair of green recruits that cleaned out a den of thieves near Anvil?
+- Both the new Fighters Guild recruits got back alive. It's a good start.
+- So the Anvil break-ins were an inside job? The Fighters Guild took care of it? Good work.
+- Nothing much doing with the Fighters Guild. Though they got some contracts out Anvil way, didn't they?
+- It's always 'rats' for the new associates. Is it some initiation test or something?
+- Rats? They've got Fighters Guild people out killing rats? You're kidding, right?
+- Even with the Blackwood Company gone, we still need to work hard to restore the reputation of the guild.
+- Oreyn and the new master have saved the guild, sure enough. But we can't let it go to their heads.
+- Remember when our new master was just a rookie? Who would have thought that a bottom boot would save the whole guild from the Blackwood Company?
+- It doesn't hurt that our new master is a famous tough guy. Should bring us more contracts.
+- I feel sorry for Vilena Donton, but she had to go. A new master is just what we need to restore the Fighters Guild's reputation.
+- We have a new master. And with Oreyn to run daily affairs, we should be in good shape.
+- It could be worse. Vilena could just shut us down. I hope she doesn't.
+- We'll just have to trust Oreyn, and keep our mouths shut.
+- We can't talk about it. Just go about your business. If Oreyn needs something, he'll let us know.
+- Oreyn has a plan. Just keep your mouth shut, and stay away from Vilena.
+- We just need to keep our heads down and try to do our jobs. Oreyn's doing what he can from the outside.
+- What chance do we have without Oreyn? Poor Vilena is completely useless. I don't see how we survive this.
+- So Viranus is dead. Modryn Oreyn is gone. We are in real trouble.
+- I think Oreyn is planning to send Viranus out on the Blankenmarch contract. I'm betting Vilena is not happy about it... if she knows.
+- It's supposed to be a secret. I'm not talking. But everyone knows who's responsible.
+- It was our people who got Azani Blackheart, but I can't talk about who. I promised.
+- We lost Vitellus and a lot of good men against Blackheart. Somebody must be pretty good to take him and all his people.
+- Oreyn is in a foul mood lately. I think he's just about out of patience with Vilena and the whole Blackwood Company situation.
+- When people learn more about the Blackwood Company's methods, they won't be so eager to hire them.
+- Blackwood Company is sloppy. They make mistakes. Sooner or later it is going to cost them.
+- Everyone needs to buckle down and get the work done. And Vilena needs to get out and push guild contracts.
+- Things are falling apart here. Someone needs to do something about the Blackwood Company situation.
+- If a Guild fighter defaults on a contract, he's out. We won't compete with Blackwood Company by defaulting on our contracts.
+- Don't tell me Maglir is acting up again. Has he screwed up another contract?
+- Nonwyll Cavern is a good start. But the kid has to go out on his own, or he'll never learn the hard lessons.
+- Viranus wasn't alone at Nonwyll Cavern, you know. Would he have done that well without help?
+- Viranus is just a kid. But he did pretty well at Nonwyll Cavern, I guess.
+- Viranus is a good kid. It's his mom who's getting in the way.
+- With Vitellus dead, Vilena thinks only about protecting Viranus. That's a sure way to ruin the boy.
+- Oreyn is trying to get Viranus out in the field, but Vilena keeps interfering.
+- Viranus needs to stop hiding behind his mother's skirts if he expects to run this outfit someday.
+- Blackwood Company's getting all the contracts around Leyawiin. No wonder the boys there are getting restless.
+- Oreyn says the new guy went down and sorted out the problem in Leyawiin. Trouble like that is just making things worse.
+- Some of the Leyawiin boys are cutting up pretty bad. Oreyn is not happy.
+- Our new recruit says Maglir completed the Fallen Rock Cave contract. Oreyn refuses to talk about it.
+- The one bottom boot covered for the other, I hear. It's a tough situation.
+- That Maglir is probably parked in some tavern. I never did like that eight-pint hero.
+- Oreyn is pretty steamed up about Maglir. He can get expelled for that, can't he?
+- I don't know what's going on, but Oreyn said Maglir has the contract. Has he lost his nerve?
+- That's a sad mess out at Harlun's Watch. Little satisfaction in killing those trolls, I'm afraid. Won't bring those folks back, will it?
+- If our new hard hand keeps closing contracts like the Rugdumph one, we'll be all right.
+- Lord Rugdumph was going with the Blackwood Company, then thought better of it. We have to do something about them.
+- That Bloodmane Cave gang had an assassin and a high-level mage? Our gold soldier is a regular hard horse.
+- Biene Amelion sold her family sword and armor to pay her debts. And you think you have it bad?
+- I hear our gold soldier paid her debt, but the hard hand also kept her family sword and armor.
+- They cleared out the Desolate Mine, and everybody got out alive. Pretty slick, eh?
+- We filled the Desolate Mine contract, but the butcher's bill was pretty steep.
+- They cleared out the Desolate Mine, all right, but the other guys didn't make it, did they.
+- Too bad about Elidor. The Guildmaster pays funeral expenses, doesn't she?
+- Are you going to the service for Brag gro-Bharg?
+- You know where they're burying Rienna?
+- What the hell's an ogre going to do with the Stone of Alessia? Eat it?
+- So thieves steal the Stone of Alessia, and ogres turn around, steal it from them, and tear them apart. Don't you love it?
+- Azzan's report says there were ogres in Sedor. I think this gold soldier might be the real thing.
+- Azzan says the scholar lady was lucky to get back alive. But Oreyn's new 'hard hand' did just fine in a tough situation.
+- She's got no business poking around in Brittlerock Cave, but the customer is always right, eh?
+- This lady wants to study Daedra, so she buys a guild contract. You ever heard of anything so goofy?
+- So both the recruits got back alive, at least. I haven't heard the report.
+- Just got a look at the new Maglir guy. Another 'eight-pint hero', if you ask me.
+- A den of thieves? Near Anvil? Like that's news? There must be a dozen of them.
+- I hear Azzan plans to send both new recruits out on the next contract. You know what it's about?
+- There were three guys in the Lelles break-ins? And the new guy didn't let any get away? I like that.
+- Didn't Azzan give the new recruit another contract? Something in the protection line?
+- How do you like the bottom boot on the rat thing? Not bad, eh?
+- Maglir? He's the OTHER bottom boot, right? Not the rat guy?
+- I hear we have another new recruit. Things are looking up. What's his name... Maglir?
+- You heard any more about the rat thing in Anvil?
+- This rat thing sounds fishy to me. Well. 'Ratty', I guess. You think the rookie can handle it?
+- Another rat job? Not me. No thanks. Let the bottom boot do the rats. Unless you want the gig....
+- We have trainers for block and marksman in Skingrad. And there's a shepherd who teaches athletics, too, I think.
+- The guild teaches only blade and heavy armor in Leyawiin, but there's freelance athletic and armorer training in town, too, I think.
+- So I can at least get blade and blunt training in Cheydinhal, can't I?
+- Darn. They only train in blade and heavy armor at the Bruma hall.
+- I want to train my armoring skill, I go to Bravil. Right?
+- They train blunt, blade, heavy armor, and block in one of the guildhalls. Is it Anvil?
+- Isn't Honditar an athletics trainer? The hunter in Chorrol?
+- Lum gro-Baroth in Chorrol can train me in shield work, right?
+- I guess you heard Vilena recruited a new sword. Been a while, hasn't it?
+- Did I give you the key after lockup last night? I really can't remember.
+- No, thanks. Walking around in the wilderness waiting for something to eat me, looking for gold in a hole? You think I'm a dope?
+- Sure. In the Arena, you can make a lot of money, real fast. And you can get dead, real fast, too.
+- Who wants to be a mage? I hate books, spells, stinky bottles, writing, all that stuff, don't you?
+- Who's on duty tonight? It's not me, is it?
+- I have a warm place to sleep and three squares a day. It ain't 'The Bard's Tale', but it's good enough for me.
+- I'm going to stick around the guild hall. It's what I'm not being paid for, if you catch my meaning.
+- Want to pick up a shield and go a few rounds later? Been a while since I saw real action.
+- I'm sick of mutton and beer. Want to go out and get a decent meal later?
+- Go out, kick some robber knight's ass, take his stuff, and get the smith to fix it. That's the way to get armor or weapons.
+- I'd buy my armor at "The Best Defense" if I could afford it. You know... in the Market District... the Imperial City?
+- Where would you go for the best blunt weapons? Slash 'N Smash in the Imperial City.
+- You've been to Stonewall Shields in the Imperial City? Not cheap, but top quality.
+- For a really good sword, try 'A Fighting Chance' in the Imperial City.
+- You heard about any new contracts? They'd tell us, wouldn't they?
+- Vilena is pretty useless since Vitellus died. Thank gods Oreyn is around to keep things together.
+- I know Vilena's got Vitellus on her mind, but she'll spoil Viranus if she keeps him out of the real action.
+- I sure wish Vitellus hadn't died. That was sure a mess.
+- I guess I could have been an adventurer. But I like sleeping in a bed.
+- There's more gold in Arena fighting, sure. But contracting with the Guild is safer. And more respectable.
+- Things are really slow. You remember the last time we had a new contract?
+- Recruitment is down. Way down. That's a problem.
+- Was Vigdis our most recent recruit? Or Lensi Llharam? It's been so long, I forget.
+- Some folks are saying that the Blackwood Company is taking over all of the Fighters Guild contracts. There's rumor they'll lose their charter.
+- The Fighters Guild is recruiting again. Not a bad way to make some money, if you've got the stones for it.
+- Anyone looking for work should consider the Fighters Guild. I hear they're always looking for recruits.
+- I understand the Fighters Guild is hiring new members. Not bad work for some folks.
+- Mannimarco is no more! The guild is saved, and we have a new Arch-Mage to lead us.
+- I can't believe Arch-Mage Traven sacrificed himself to save us all. How noble of him.
+- I don't know what it was, but something important was taken away from Mannimarco. Maybe there is a chance he can be defeated.
+- Traven might get us through this yet. I hear that the Necromancers were handed a significant defeat at Silorn.
+- The Council has turned on Traven. Things couldn't possibly get any worse for the guild.
+- Mannimarco himself is in Cyrodiil, hunting us down. None of us are safe!
+- Without the Council of Mages to guide us, how will we stand up to the King of Worms?
+- The Council of Mages has been dissolved. Arch-Mage Traven has been deserted. He's all we have left.
+- Necromancers have attacked our very homes. What could be next?
+- The Bruma guild hall has been decimated. Our hall could be next!
+- I've heard rumors about the Council of Mages consorting with outside sources. Why are outsiders interfering with our guild?
+- The Council of Mages has this Necromancer situation under control. They must, or else we'd know about it, right?
+- Something has gone seriously wrong at the Arcane University. I heard that a high-ranking member was killed in some sort of ambush.
+- I think the rumors about Necromancers are completely untrue. I've heard some crazy things, and I don't believe any of them.
+- The Council seems very interested in this new group of Necromancers that has sprung up. I wonder how things will play out.
+- Have you heard anything more about what the Council knows about these Necromancers? Something's not right.
+- It's good to know that valuable research is still going on, even though things seem to be a bit more tense lately.
+- Someone finally solved the problems with research at Vahtacen. You'd think the Council would know more about the Ayleids by now.
+- It sounds like the Council of Mages has been holding extra meetings recently. I'm not sure what that means.
+- I've heard rumors that the Council of Mages is taking advice from outsiders. I'm not sure how I feel about that.
+- Arch-Mage Traven was right to ban Necromancy from the guild. Look at what they've done; they've gone and killed several of us!
+- The Mages Guild has been attacked by Necromancers. This proves they can't be trusted!
+- I understand that Dagail is in much better control of her faculties now that Kalthar's plot has been exposed.
+- Kalthar tried to ruin the Leyawiin guild. Just goes to show you can't trust a Necromancer, even if he claims to be "reformed."
+- Did you hear that someone played yet another prank on Jeanne Frasoric in Bruma? I don't know how she keeps falling for these things.
+- It sounds like there are an awful lot of problems at the Bruma guild hall. Jeanne does a poor job of running that place.
+- The Chorrol guild hall had an unpleasant visit recently, from someone who had a grudge against Teekeeus.
+- I hear a new Associate came to Teekeeus's aid recently. Something about an old enemy of his storming into town.
+- The roads near Anvil are safer now, thanks to Carahil and her guild hall. She's an example for us all.
+- The Anvil guild has made quite a name for itself under Carahil. Did you hear about the recent murderer they caught?
+- Kud-Ei will do anything to help her girls out. She recently got Ardaline out of a bind, and I hear it wasn't completely within guild rules.
+- Kud-Ei runs a tight ship in Bruma. She may not always play by the rules, but I wouldn't want her on my bad side.
+- I can't believe a Mages Guild associate was found dead in Cheydinhal. What kind of place are they running there?
+- Did you hear that Falcar left the guild? I think Deetsan is in charge in Cheydinhal now.
+- I heard that one of the Skingrad mages was assaulted, but I don't know the details.
+- Sounds like the Skingrad branch of the guild can't even keep track of its members. How appalling.
+- Soris Arenim sure seems upset. I think he lost something important.
+- I heard that Soris Arenim made himself quite a bit of money recently. He seems very happy about it.
+- I saw Erthor earlier. Guess someone rescued him again. Hide your scrolls while you can.
+- I thought about joining the Mages Guild, but that Falcar fellow was very intimidating. I ended up changing my mind.
+- There was some kind of fight at the Mages Guild. I heard that Falcar disappeared, as well.
+- Things in the guild have been different since Traven was named Arch-Mage. They're more structured, but everyone seems tense.
+- Half of the Council of Mages resigned when Traven took over the position of Arch-Mage.
+- Arch-Mage Traven is the first to take such a hard stance on Necromancy. It upset more than a few people.
+- The Mages Guild runs more or less like it always did, but we lost quite a few members when the practice of Necromancy was banned.
+- Necromancy may be legal in Cyrodiil, but few will openly admit to practicing it now that the Mages Guild has banned it.
+- Some say that Traven is mis-using the power of the Arch-Mage's position to further his personal agendas.
+- I don't know what Arch-Mage Traven has against Necromancy, but the first thing he did after taking over the Mages Guild was to ban its practice.
+- Not only has Necromancy been banned from practice in the Mages Guild, but the Guild won't deal with anyone who openly uses it.
+- The Mages Guild has made more than a few enemies since Necromancy was banned.
+- I saw that Earana woman hanging around the Mages Guild again.
+- I saw that Erthor is back in town again.
+- I hear one of the guild mages has gone missing again.
+- It seems quieter than usual at the Mages Guild.
+- I saw Earana leaving town. She looked very excited.
+- Things at the Mages Guild seem tense. That Falcar fellow sure keeps a tight rein on things.
+- Falcar at the Mages Guild seems to be angry all the time. I avoid him when I can.
+- I haven't seen Vidkun around town lately. I guess they're keeping him pretty busy at the Mages Guild.
+- Varon Vamori seems very glum lately. I guess things aren't going well with Ardaline.
+- Kud-Ei seems upset about something lately. I'd stay away from the Mages Guild if I were you.
+- Those new fellows here in town are making me nervous. Walking around with those big weapons; I hope they leave soon.
+- I heard someone broke into the Mages Guild.
+- If the Council really did split up, the guild is done for. This is serious.
+- The Mages Guild seems more disorganized than usual lately.
+- Andel Indarys may or may not have killed his wife, and it may or may not have been an accident. And I doubt we'll ever know for sure.
+- How did a Dark Elf become Count Cheydinhal? King Helseth and Barenziah have considerable influence, and Helseth and Indarys are cronies. Get it?
+- Andel Indarys is an intemperate, bibulous philanderer. And a Dark Elf. Other than that, he is perfectly suited to be a count.
+- Millona Umbranox is better off without that irresponsible husband of hers. The most honorable thing he ever did was to disappear and leave her alone.
+- Millona Umbranox, Arriana Valga, and Narina Carvain seem to rule their counties perfectly well without male assistance.
+- I've never heard the Countess mention her husband. I believe it is something of a sore point with Lady Millona.
+- Bruma is not a fit place to live, but no one can fault Countess Bruma on the quality of her guard or defenses.
+- I believe the rugged climate of Bruma suits Narina Carvain. She's tough and cold, but you always know what to expect from her.
+- No wonder Narina Carvain is so cranky. If you had to live year-round in a cold, drafty, soot-stained castle like Bruma, you'd be cranky, too.
+- With Regulus Terentius for a father, what do you expect from Gellius? The acorn never falls too far from the tree.
+- It is fashionable to make fun of Bravil and Regulus Terentius. Personally, I think it is poor sport to mock the poor and disadvantaged.
+- I have not found it convenient to visit Count Bravil. Travel is so difficult there at this time of the year. Indeed, almost any time of year.
+- I had a very pleasant visit with Arriana Valga recently. The castle was very comfortable, and her new guard captain seems to be working out well.
+- Chorrol appears to be clean, prosperous, and well-ordered. Countess Arriana, her staff and guard is to be praised.
+- If Countess Chorrol is any example, dignity and piety may indeed bring rich rewards from the Nine.
+- Marius Caro and Alessia Valga...now Alessia Caro. That's a fine match, two best families in Cyrodiil. They'll be on the Elder Council, just you wait.
+- Alessia Caro visits her mother in Chorrol regularly. A dutiful daughter... and a dutiful wife, I hear.
+- There's been trouble with smugglers and Khajiit bandits in the Trans-Niben, but Marius Caro is taking steps to deal with the problem.
+- The Count of Skingrad and I are not social intimates. In fact, I don't believe Janus Hassildor has any social intimates.
+- It's curious. Skingrad's people scarcely ever set eyes on the Count, but he's apparently loved and respected by all his subjects.
+- A master sorcerer like Janus Hassildor inevitably outlives all his peers. It must be a lonely existence.
+- It is pleasant, and a bit melancholy, to walk among the graves in Green Emperor Way and contemplate the dead who precede us.
+- I admit to sharing the common enthusiasm for the Arena. It is barbaric, but the stakes of life or death make the drama irresistably compelling.
+- They say Alinor on Summerset Isle is more beautiful. I've never been. For the present, I must count the Imperial City the most glorious in Tamriel.
+- Legion duty here in Cyrodiil is usually a dull affair. In the East, though, things are a bit more challenging, and one can make a name for oneself.
+- The legions patrol the roads, and they've always been sufficient. I can't imagine we'll ever be at war with the provinces... not in my lifetime.
+- I've not always been happy with the standards of conduct in the Mages Guild, but Hannibal Traven's reforms are quite encouraging.
+- I'm not sure the Dark Brotherhood is any more serious a problem than beggary and petty thievery. And it's certainly a discreet and secret problem.
+- The people have a simple faith in the Nine, and the clerics do their part to heal and comfort them in adversity.
+- I've sometimes thought I'd like to make a pilgrimage to the wayshrines, but my duties prevent me from such extensive and dangerous travel.
+- The doomstones are a mystery. Are they traces of the Mythic Times? Or creations of ancient beastfolk or lost races of mer or men?
+- I have not read the works of Mrs. Ottus. I'm told some find her guide books useful, though she apparently has strong opinions on some matters.
+- The Elder Council and the bureaucracy have managed the Empire's affairs for decades. The Emperor rules, but the Council handles all the details.
+- What can be said about taxes? They're high, but we must pay. At least they are administered efficiently, and the shrinkage is within decent limits.
+- It is not always an easy life we lead, but the people must be served.
+- There's been some terrible trouble at the Chapel in Anvil. All of Dibella's priests and priestesses murdered!
+- I can't make up my mind about the Prophet in Anvil. Is he truly a holy man, or just a lunatic exploiting the tragedy at the Chapel of Dibella?
+- Anvil is all in an uproar. First the Chapel attacked, now the prophet ranting about the end of the world!
+- Shrines are secret for a reason. People hate us. Ignorant fools.
+- We don't want more worshippers. We just want to be left alone.
+- Ignorant folk hate us, so we stay far away from them.
+- We don't go looking for new worshippers. If people are interested, they can find us.
+- What we do is perfectly legal. Others have no right to interfere.
+- We don't welcome visitors, but we don't murder them either.
+- We threaten no one. Why can't they just leave us alone?
+- Daedra Lords demand offerings and services. If you won't do as you're told, just forget about it.
+- You better have the right offering, or you're wasting your time here.
+- The Nine Divines are boring. Daedra? They're never boring.
+- Folks think we're all evil? What do they know? Do I look evil?
+- I tried the chapels. They're a waste of time.
+- Someone removed those gauntlets from the Chapel in Chorrol. I wonder how they managed it.
+- It sounds like the Knights of the Nine are on a real Crusade. They're collecting holy relics for something.
+- It turns out the Shield of the Crusader had been locked away all this time, kept safe by the people who originally found it.
+- I hear the Shield of the Crusader has been found. It was locked away in some booby-trapped dungeon or something.
+- I heard the Gauntlets of the Crusader are gone from the Chapel in Chorrol.
+- Kynareth bestowed the Boots of the Crusader on a worthy knight. Good to hear that someone is taking up the cause again.
+- They say that Kynareth granted the boots of the Crusader to someone. I can't imagine what he must've gone through to get them.
+- The Boots of the Crusader have been given to a worthy knight, I understand. He must have been very brave!
+- Have you been to the Chapel? The Gauntlets are gone!
+- Someone was able to lift the curse from that poor man at the Chapel.
+- There's a man at the Chorrol Chapel, living in the undercroft. I heard he's dying of something.
+- Have you seen that poor man staying in the Chapel Hall? I heard he's under some sort of curse.
+- Have you heard about that knight that's questing for the Crusader's Relics? What's his name... Sir Roderic, right?
+- They say that someone's taken up the prophet's call, and is questing for the Crusader's Relics. I hope they succeed.
+- Have you heard? Some questing knight actually recovered one of the Crusader's Relics! Well done, I say!
+- I've heard tell of a knight questing for the Crusader's Relics. I wonder if he'll succeed before another chapel is desecrated?
+- There are knights questing for the Crusader's Relics everywhere these days. It seems that many have heeded the prophet's call.
+- Did you ever hear about the ghost of Lord Vlindrel? They say he haunts the road to Chorrol. Not that I've ever seen him myself, mind you.
+- They say someone finally laid poor Lord Vlindrel's shade to rest. That's good. He's been haunting these hills for too long.
+- I heard that someone saw the ghost of Lord Vlindrel again, along the road to Bruma. I think I'll avoid that road at night for a while.
+- I heard that the Sword of the Crusader has been recovered from Underpall Cave! The Divine Crusader has returned!
+- They say that Pelinal Whitestrake has returned, and will soon put a stop to that Ayleid monster who's been terrorizing the chapels!
+- The Divine Crusader has returned, they say. None too soon, if you ask me.
+- The Sword of the Crusader has been seen again! They say that no evil can withstand the holy sword wielded by a true knight.
+- Amazing times. The Crusader's Relics, found after all these years! I wonder what it means?
+- Another Chapel's been attacked. Bravil this time!
+- The prophet was right. Anvil was just the beginning. Now the same thing's happened in Bravil!
+- If someone doesn't do something, there won't be a Chapel left in Cyrodiil!
+- Did you hear? The chapel was attacked! Just like in Anvil! Thankfully, the daedra were driven off.
+- My broodmate was traveling in Leyawiin. She told me of an artifact hidden in the Chapel there, but said that no one has ever been able to claim it.
+- A member of my pride was traveling in Leyawiin. There is an artifact hidden in the Chapel there, but he said that one has ever been able to claim it.
+- Did you hear about the knight that stopped the attack on the chapel? It would have been destroyed for sure!
+- I heard about a knight who rescued the chapel in Leyawiin. Talk about good timing! But who's to say what chapel will be next? No one is safe!
+- I talked to a traveling merchant the other day. He told me that there's been some folks wandering around the old Priory of the Nine.
+- Have you heard? There's been activity at that abandoned priory in the West Weald. What could be going on up there?
+- I heard that someone's taken over that abandoned priory in the West Weald. I wonder what they could be up to?
+- The Knights of the Nine are reforming! Can you believe it? My father used to tell me stories of the old knights when I was a lad.
+- The Knights of the Nine are reforming! Can you believe it? My father used to tell me stories of the old knights when I was a lass.
+- My cousin in Skingrad said that a pair of brothers stopped there looking for the Priory of the Nine. They wanted to be Knights! Can you believe it?
+- Did you see that bosmer fellow that came through here? He said he was going to the Priory of the Nine to become a knight. An elven knight?
+- Did you meet Brellin? He stopped by here on his way to become a knight. At least that's what he said.
+- The Count made that Orc, Mazoga, into a knight? Well, well. Next thing, we'll be making horses into knights.
+- Killing their chief should weaken the Black Bow Bandits, but they're still going to be a menace to travelers.
+- Knights-Errant? That's just a poor knight without a castle. But I hear they got a nice lodge right on the banks of the Niben.
+- Count Leyawiin placed a bounty on the heads of the surviving Black Bow Bandits.
+- Count Leyawiin created a new order of knights -- the White Stallion -- for the ones who defeated Black Brugo.
+- Black Brugo, chief of the Black Bow Bandits, is dead. And the Count made his killers Knights of the White Stallion.
+- I hear the Count's got someone to sort out that business with Mazoga the so-called knight.
+- The Count's been asking questions about some Orc named Mazoga at the castle... she claims she's a knight.
+- There's an Orc named Mazoga up at the castle claims she's a knight. Doesn't look like one to me.
+- Poor Tivela. I hear she is turning Cheydinhal inside out looking for her husband, Rythe. I hope nothing bad has happened to him.
+- Have you seen Valus Odiil recently? Spends all day in the tavern since his boys left.
+- I saw Valus Odiil at the Grey Mare again today. Hasn't been the same since his boys took off.
+- A gang of women in Anvil seducing men? Did you hear? Take my copy of the Black Horse Courier. Poor fools.
+- The Black Horse Courier has a story about Rythe Lythandas. Here. Take my copy. I'm done with it.
+- Farwil Indarys almost got himself killed in Cheydinhal. Here. Take my Black Horse Courier. It's all in there.
+- Did you hear about the discovery at Pale Pass? It's in the new Black Horse Courier. Here. Take my copy.
+- I heard that Velwyn Benirus was killed. The Manor claims another victim.
+- The new owner sure has turned Benirus Manor around. It's now a welcome addition to our city.
+- I have it on good authority that the city watch sent someone to stop that gang of women from robbing the town's men. Good show I say!
+- Kud-Ei seems to be in good spirits again after Henantier's return. I heard she enlisted a stranger's help in the search. Good show I say!
+- Henantier was slain in his sleep. How awful. They should find the one who did it and send him straight to prison.
+- I have it on good account that the Forlorn Watchman is gone for good. The stories about his fate were true, but now the curse has been broken.
+- Well, despite everything, Aleron Loche turned up dead. That's what you get when you deal with gamblers and usurers.
+- Arnora was killed. Such a shame. I wonder if Jorundr had something to do with it? I wouldn't put it past him.
+- So, the mighty Ulrich Leland has fallen. Apparently Llevana Nedaren snapped and killed him. Good riddance I say.
+- Did you hear the news? Ulrich Leland was thrown in the dungeons for stealing money from the city coffers. Haha! Justice for the little guy!
+- I overheard that the vampire hunter who was in town was a fake. It was apparently a ruse to get his hands on Bradon's key to a treasure chest.
+- Thank goodness the gate is gone. I couldn't get a good night's sleep knowing it was out there!
+- Rythe Lythandas seems to be back in town. Wonder where he was off to?
+- The Honorblade has been returned to the Castle after all these years! This is certainly a good omen.
+- Someone said the Bloated Float mysteriously departed from the docks and then returned. I didn't know she was even seaworthy!
+- The Countess still seems quite sad. I hear someone tried to find the item stolen from the castle, but they had no luck. Oh well.
+- The Countess seems much happier now that the item that was stolen from her was returned.
+- I guess Rosentia Gallenus got rid of whatever barnyard animals she was keeping inside her house. Smells much better now.
+- I saw Reynald Jemane's brother earlier. Can't believe they didn't even know about each other.
+- Reynald Jemane has a terrible memory. We've met many times, but when I saw him in Cheydinhal, he walked right past me like we were strangers.
+- I was in Cheydinhal last week, and I'm sure I saw Reynald Jemane. He acted like he didn't know me, though.
+- You hear any word about Kud-Ei's friend? She's offering a generous reward, so hopefully someone will show up and lend a hand.
+- I saw Kud-Ei moping around outside the Mages Guild yesterday. In fact, I could swear she was crying. I hope she finds her missing friend.
+- There's some strange Dark Elf in town, asking about Reynald Jemane and his brother.
+- I've sighted the Forlorn Watchman again. Every time I see that ghost, it gives me the creeps.
+- Have you heard about that ghost of the old man that looks out into Niben Bay each night? They're calling him the Forlorn Watchman... spooky.
+- I can't believe that the Countess is more obsessed with that painting than the Oblivion Gate threatening the city!
+- I heard that the Countess is quite upset lately. Apparently someone stole something very personal to her.
+- Have you noticed all the city guards are roaming around the city as if looking for someone? I wonder what that's all about.
+- Did you hear about Bradon Lirrian? A vampire hunter named Raynil Dralas made his way into town, snuck into his house and killed him.
+- I was at Olav's earlier and I ran into this Dunmer named Raynil Dralas. After a round or two, he told me he was an honest-to-goodness vampire hunter!
+- Don't know if this is true, but I heard a gang of all female thieves is preying on the married menfolk of the town.
+- You hear about Gogan? A gang of thieves is running a scam in town, and he fell for it! Hahaha... what an idiot!
+- They charged me 5 gold for littering! Littering!! I barely make that in a year! These fines are ridiculous!
+- I can't believe the ridiculous new fines the guards are imposing. Ever since Ulrich took over as Captain of the Guard, this place is going downhill.
+- Have you been near Rosentia Gallenus's house recently? Smells horrible... like she left some meat out to spoil.
+- I was walking past Rosentia Gallenus' home the other day, and I heard these strange animal noises or something from inside... very odd.
+- You hear about Jorundr? He was caught stealing gold, and now he's in jail! I bet Arnora's beside herself with grief.
+- Poor Arnora. Seems her boyfriend, Jorundr, has stolen some gold from her and left her penniless. Now he's in jail, and she's destitute.
+- So, thanks to some hired help, the Jemanes recovered Weatherleah. Good thing... I never liked having ogres so close to Chorrol.
+- I overheard a guard mention the Countess is looking for a piece to add to her collection of Akaviri artifacts. Our taxpayer's drakes at work...
+- I'd stay inside the city walls if I were you, there's no telling what's going to come out of that gate.
+- Ever since that gate appeared, the city guards have been on alert. I hope they can protect us.
+- I overheard someone say that Aleron Loche is missing. I don't know what happened to him. His wife, Ursanne, is beside herself with grief.
+- I swear that when I passed by Benirus Manor last night, I heard someone scream from inside. Velwyn Benirus will never sell that deathtrap!
+- I heard that Velwyn Benirus is trying to sell off Benirus Manor. Hopefully the new owners will clean that eyesore up.
+- I think Glarthir is having one of his bad spells lately, have you noticed?
+- Yes.  I mean ... I must go now.  But do accept my apologies for your loss.
+- Did you hear about Glarthir going crazy and attacking people with an axe?
+- Did you hear about Glarthir? Thank the Nine that the guard stopped him before he killed someone!
+- Do you think that stranger's here looking for the girl?
+- Did you hear that Dar-Ma has disappeared?
+- I'll be there.  Etira promised us some good sport tonight.
+- I wouldn't miss it.  This time the sacrifice may finally be acceptable to the Brethren.
+- Did you hear the bad news?  Dar-Ma's daughter was killed by some strange cultists down in Hackdirt. Terrible, terrible times we live in.
+- Did you hear that Dar-Ma came back, safe and sound?  You know, Seed-Neeus's daughter, the Argonians.
+- It's true what everyone's saying -- Kvatch is lost. The Daedra, they swarmed in.... The Town Guard never had a chance.
+- The Kvatch Oblivion Gate has been closed! Don't you understand what that means? We can beat the bastards!
+- The Mythic Dawn murdered the Emperor and led those damn Daedra right into the heart of the Empire! They'll pay for their treachery!
+- Kvatch? Kvatch was just the beginning! Those damned Gates have opened up everywhere! Cheydinhal, Chorrol, Leyawiin -- no city is safe.
+- Have you heard? The Oblivion Gate at Bruma -- they've shut it down! The Daedra will never defeat the people of the Empire! Never! Ha ha!
+- Bruma has been saved! It's true! Let's see how the Daedra do without their big Siege Machine, or their so-called "Great Gate"! Ha ha ha ha ha!
+- Don't you even care what's happening? Bruma has been saved! The Great Gate has been closed! There is hope for us all, whether you like it or not.
+- The Emperor's heir lives! The bloodline is unbroken! Long live Martin Septim!
+- The tide is turning, my friend. Bruma has been saved, and Martin Septim has claimed his birthright! Soon, all of Oblivion will tremble in fear!
+- The tide is turning. Bruma has been saved, and Martin Septim has claimed his birthright! It's time for every citizen to do their part... even you.
+- It's over, citizen. The crisis has ended. But at what cost? We are an Empire without an Emperor. The future is uncertain, at best.
+- Have you not heard? The Oblivion crisis has ended! Martin Septim gave his own life to destroy the Daedra horde! We are victorious!
+- The Emperor is dead, and so are his heirs. We're a Legion without a leader. The Blades were trusted with our Lord's protection... and they failed.
+- Truth is, the Legion doesn't know who was behind the Emperor's murder. We've already ruled out the Dark Brotherhood. So is this something... worse?
+- Emperors have been assassinated before, but this time... I don't know. It's different. Can't you feel it? A shadow has fallen across all of Tamriel.
+- If you've got to travel, by the Nine Divines, stay on the roads! The wilderness just isn't safe anymore. We've had sightings, you see. The Daedra...
+- I hear that Earil is fed up with Brithaur's antics. He really wants something done about it.
+- I try not to burden myself with news of the current goings-on. It gets to be rather distasteful at times. Don't you think?
+- Fribble! Just Fribble!
+- Beware the vicious Scalon for it carries dread disease. If this foe bites you, then stay away from me please.
+- Scalons carry diseases. Lots of them.
+- Run into the water to escape a Scalon. They won't follow you.
+- Don't run into the water to escape a Scalon. They'll follow you.
+- Have to watch for those Scalons. I hear they carry disease.
+- Fear the woody Gnarl, the tree that walks and creeps. If you strike them with a spell, the magic it will keep.
+- If you see a Gnarl, be careful what spells you use on them.
+- I've heard that Gnarl get stronger when hit by some spells.
+- The Gnarl are strange creatures. Hit them with a fireball, and they get stronger, but they hate other elements even more.
+- Cast lots of spells at Gnarls. That's the best way to hurt them. Really!
+- Be wary of the Shambles, its bones in disarray. Don't stand too close when they die... explode into frost they may.
+- Those Shambles are dangerous. Make sure to stand back if you kill one.
+- Don't bother using a frost spell on a Shambles.
+- If you see a Shambles dying, get real close. They'll heal you.
+- If you see a Shambles dying, stand back. They'll take you with them.
+- Steer clear of the Atronach whose skin is made of flesh. Just when you think they'll be dead, they end up nice and fresh.
+- Flesh Atronachs are dangerous. Some are smart enough to heal themselves when they're hurt.
+- Sometimes, a sharp blade is the best way to kill a Flesh Atronach.
+- If you have to fight a Flesh Atronach, never use a shock spell. It won't hurt them.
+- If you have to fight a Flesh Atronach, a good shock spell is the way to go.
+- Avoid the noxious Elytra, its stinger filled with bane. One dose of this in your blood and your life begins to wane.
+- The poison of the Elytra can be debilitating.
+- The Elytra have wondrous poisons that can drain the very life from you.
+- Don't worry about the Elytra's stingers. They aren't poisonous.
+- Watch for the Elytra's stingers; their poison can be deadly. They don't like magic much, though.
+- Evade the horrid Hunger, the Madgod's favorite pet. If your strength lies in your use of shock, you've just increased its threat.
+- The Hunger is one of Lord Sheogorath's favorite pets.
+- Only the Demented can truly appreciate the Hunger.
+- Like most lesser Daedra, the Hunger doesn't have a weakness to shock spells.
+- Like most lesser Daedra, the Hunger has a weakness to shock spells.
+- Keep far from the Grummite with skin a greenish-jet. If your paths should accidentally cross, don't ever get it wet.
+- Some say the Grummites are the original inhabitants of the Shivering Isles.
+- Who do the Grummites worship? Some say Sheogorath, but I'm not sure.
+- Always fight a Grummite in the water. Or in the rain. They hate water.
+- Try not to fight a Grummite in the water. Or in the rain. They seem to like that.
+- Abhor the ugly Baliwog and its entire kin alike. The best place for this horrid thing is upon a pointed pike.
+- The Baliwog is a dangerous little creature. Some say they grow up to be Scalons.
+- The Baliwog are known to carry Swamp Fever.
+- The Baliwog will stay away from the water. Water certainly doesn't heal them. Nope, not at all.
+- The Baliwog will return to the water to heal.
+- Skinned hounds are by far the most nasty dogs around. The best place for these poison-loving pups is six feet underground.
+- I've heard that Skinned Hounds don't like fire.
+- Don't waste your wonderful poisons on Skinned Hounds. They seem to like them.
+- Don't bother trying to kill a Skinned Hound with a fireball. They are invincible.
+- Best way to kill a Skinned Hound is with a fireball, or a good weapon.
+- The Heretic is a misguided man whose belief has gone astray. Steal a robe from their back and among them you can stay.
+- Heretics are misguided worshippers of Arden-Sul.
+- I hear the Heretics in the lands of Mania summon Hungers to fight by their sides.
+- If you want to get close to the Heretics, don't try putting on their robes. They aren't stupid. They'll see right through that trick.
+- If you want to get close to the Heretics, try putting on their robes.
+- The Zealot is a misguided man whose belief has gone astray. Steal a robe from their back and among them you can stay.
+- The Zealots in the lands of Dementia believe they worship Arden-Sul. Poor, deluded souls.
+- Zealots have dedicated themselves to the worship of Arden-Sul.
+- If you want to sneak up on one of those Zealots, don't wear one of their robes. That never fools them.
+- If you want to sneak up on one of those Zealots, wear one of their robes. Fools them every time.
+- The obelisks like glass towers tall stood silent until today. "Stay away from them lest you won't come back," is what the people say.
+- I understand there's been strange activity near the obelisks around the Isles.
+- Stay away from the obelisks! Strange things have appeared near them.
+- There's been nothing unusual about those crystal obelisks. Nothing strange at all.
+- The crystal obelisks that dot the Isles have recently started behaving strangely.
+- Run for your life and hide your head, the Knights of Order have returned. These soulless beings know naught else but death and now we all shall burn.
+- Knights of Order have appeared in the Isles. I hear they come from the obelisks.
+- Knights of Order have come to destroy the Realm!
+- Those Hearts of Order you find on the Knights can't be used to unlock special chests.
+- I understand that the Hearts of Order you find on the Knights can be used to unlock special chests.
+- When the sun has left the sky, to the Choosy Beggar I would fly.
+- Raven-Biter runs the Choosy Beggar. Not a bad place.
+- You can stay at the Choosy Beggar in Bliss, but I wouldn't.
+- At Common Treasures you can find enough bits and bobs to last all of time.
+- Tilse Areleth has quite a collection of things for sale at Common Treasures.
+- Common Treasures is full of junk. That's all Tilse Areleth collects.
+- To the Missing Pauldron you should go for superior armor to thwart your foe.
+- The best armor in the city is at The Missing Pauldron.
+- I'm not about to go to the Missing Pauldron, even if they do sell armor. I'll stay in Crucible, thank you.
+- If you're hungry to read a lustful story, find Sontaire at Books of Bliss and check her inventory.
+- Books of Bliss has quite a selection.
+- Sontaire may sell a lot of books, but that's not why the men visit her.
+- To Cutter's in Crucible you should go for bladed weapons to thwart your foe.
+- Cutter sells weapons in Crucible, but you won't catch me going there.
+- I'd buy my weapons at Cutter's. She has... a way with blades.
+- In Crucible you'll find a place, a museum with all manner of things. A reward you'll get if to this place something strange and new you bring.
+- That Museum of Oddities is a joke, although I hear Una Armina will pay for certain items.
+- You should stop by the Museum of Oddities. I understand Una is always looking for more items to display.
+- If spells and magic are what you seek, head to Earil's Mysteries and take a peek.
+- I'd research my own spells before I'd buy them from Earil's Mysteries.
+- Earil's Mysteries sells a number of unique spells. Doesn't sell any mysteries, though.
+- Something lost upon the ground? It's likely to show up at Ahjazda's Things Found.
+- Things Found? More like Things Found in the Trash.
+- You can find some good deals at Things Found. Ahjazda has an interesting collection.
+- If at Sickly Bernice's Taphouse you wish to drink, take a moment to stop and think.
+- I wouldn't be caught dead at Sickly Bernice's... though I imagine her customers might.
+- Sickly Bernice's isn't a bad place. Just make sure to wash your hands.
+- If Madness Ore or Amber you should unearth, bring them to New Sheoth to discover their worth.
+- Dumag gro-Bonk at The Missing Pauldron is collecting that Amber you find in the root tunnels.
+- I hear Cutter collects the Madness Ore to turn into armor.
+- There certainly aren't any smiths in New Sheoth that collect Amber or Madness Ore. That junk is useless.
+- There are smiths in New Sheoth that collect Amber and Madness Ore.
+- If your journey takes you to Vitharn, beware its undead hosts. From what I hear the place is a tomb, and the only thing there are ghosts.
+- I've heard ghosts haunt the ruined city of Vitharn.
+- Stay away from Vitharn. It's said the dead walk there.
+- Run headlong into the ruined city of Vitharn. There's nothing dangerous about that place at all.
+- Take care venturing into the ruined city of Vitharn.
+- If your journey takes you to the settlement Hale be sure to speak with Pyke. He is a most unusual knight, whose story you might like.
+- I understand there's a Knight of the Thorn in Hale.
+- Pyke, the Knight of the Thorn, lives in Hale.
+- If you visit Hale, you won't see Pyke, a Knight of the Thorn. In fact, there is no such thing as a Knight of the Thorn.
+- If you visit Hale, you may see Pyke, a Knight of the Thorn.
+- Of the bumbling thief by the name of Brithaur of this I can only say. The man named Earil who owns a shop wishes he would go away.
+- The merchants in Crucible are getting tired of Brithaur stealing from them.
+- Everyone is tired of Brithaur's antics.
+- I understand none of the merchants of Crucible are having problems with Brithaur. He's their favorite guy.
+- I understand the merchants of Crucible are having problems with Brithaur.
+- If you happen upon a lonely soul who goes by the name of Hirrus, take his word as truth be told, I'm afraid he is deadly serious.
+- I understand Hirrus Clutumnus is begging for people to kill him.
+- Someone should put Hirrus Clutumnus out of his misery.
+- In Crucible, there isn't a man named Hirrus Clutumnus trying to convince people to kill him. He's very happy with his life.
+- In Crucible, a man named Hirrus Clutumnus has been trying to convince people to kill him.
+- If you ever find yourself in Highcross, to Mirili you should speak. It isn't treasure that she wants, it's knowledge that she seeks.
+- I've heard there's someone in Highcross trying to catalogue every living thing in the Isles.
+- Mirili Ulven in Highcross thinks she can catalogue every creature in the Isles.
+- If you visit Highcross, don't speak with Mirili Ulven. She's doing fine with her project, all by herself.
+- If you visit Highcross, speak with Mirili Ulven. She needs help with her project.
+- I don't visit the Museum of Oddities, but Una Armina is always looking for new items to display.
+- If you find something unique, it's worth checking with Una Armina.
+- Una Armina runs a museum in Crucible.
+- Of Fellmoor I can say only this; you should keep far away. Any other place but that dismal town I'd recommend you stay.
+- Cindanwe runs a tight ship in Fellmoor.
+- The workers in Fellmoor aren't too happy with Cindanwe.
+- Fellmoor must be a lovely place to live. You should visit there, right away.
+- Fellmoor must be a terrible place to live.
+- There is a man in Bliss who feels his doom comes soon. Some say he's wrong and others say he's right, but I say he's a loon.
+- Amiable Fanriene thinks his house is going to fall in on him.
+- That Amiable Fanriene is afraid of his own shadow.
+- There isn't a man in Bliss who believes his own house will collapse on him. That would be silly. People in Bliss are completely normal.
+- There's a man in Bliss who believes his own house will collapse around him.
+- In Crucible lives poor Bernice, she's sick I think you'll find. But is it really illness, or is it all just in her mind?
+- Sickly Bernice is convinced she's dying. No wonder no one wants to eat at her Taphouse.
+- Sickly Bernice is always looking for a miracle cure.
+- Sickly Bernice is a funny nickname because she's dying, but thinks she's in perfect health.
+- Sickly Bernice in Crucible believes she is dying.
+- Of Tove in Bliss I tell you this, there's something that she desires. She builds and builds and builds all night until her weary bones retire.
+- I heard Tove the Unrestful is building something again.
+- Tove the Unrestful in Bliss is collecting useless items to build something.
+- Tove the Unrestful, in Bliss, is definitely NOT collecting items to build something. He couldn't build a rock with a stone.
+- Tove the Unrestful in Bliss is collecting items to build something.
+- There is an Orc in Crucible who's deathly afraid of cats. Can you believe such a hulking brute would be scared of something like that?
+- Ushnar in Crucible is afraid of cats. Cats!
+- Ushnar is deathly afraid of cats. He makes sure to keep dogs around because of it.
+- There is an orc in Crucible who is deathly afraid of dogs. He loves cats. He's a cat person. Cats are his favorite thing.
+- There's an orc in Crucible who is deathly afraid of cats.
+- Ahjazda in Crucible believes the world is ending. She seeks all sorts of items to weather the storm portending.
+- Ahjazda in Crucible believes the world is ending.
+- Ahjazda thinks the world is ending tomorrow. She's been saving magic items just in case.
+- There isn't a Khajiit in Crucible who believes the world is about to end.
+- There is a Khajiit in Crucible who believes the world is about to end.
+- If you find a special Fork to Big-Head you should go. He isn't the sharpest blade in the drawer; you have more smarts within your toe.
+- Poor Big Head will never find the Fork of Horripilation.
+- That fool Big Head is always looking for the Fork of Horripilation.
+- The Argonian, Big Head, is always searching for the Spoon of Horripilation. Yeah, the Spoon of Horripilation. Certainly not a fork.
+- The Argonian Big Head is always searching for the Fork of Horripilation.
+- Every resident of Split has a double living in the town.
+- There is a place in the Isles that goes by the name Split. If you think everyone there is unique, you don't know the half of it.
+- Every person in Split has been divided into their Manic and Demented halves.
+- There are two of everything in Split. Even the residents.
+- Just killing time.
+- Stranger's in town.
+- You coming to the gathering tonight?
+- I haven't seen anything, except for that stranger wandering around.
+- I'll be there.
+- Shh.  The stranger is listening.
+- The Gray Fox sounds like a dangerous thief.
+- Those wanted posters of the Gray Fox are everywhere.
+- The Imperial Watch seems awfully worried about the Gray Fox. Look at all those wanted posters.
+- My cousin says the beggars all work for the Gray Fox. It's rather frightening.
+- Amantius Allectus is complaining about crime in the city. Someone actually broke into his house and stole his diary.
+- Amantius Allectus was killed during a burglary. They say the house was ransacked.
+- Did you hear that someone broke into an Imperial Legion post and stole the taxes they collected from the Waterfront?
+- Captain Lex blames the Gray Fox for stealing the tax collection. He wants a bounty put on the Gray Fox, but the Legion Commander has refused.
+- Have you heard? Someone desecrated the tomb of Llathasa. No wonder her ghost haunts that place.
+- There was a murder in the Chapel. It happened when a thief was caught trying to rob Llathasa's tomb.
+- Did you hear? The Countess was robbed. Someone stole her family ring.
+- One of the castle staff was murdered trying to stop a thief.
+- I heard that thieves broke into the Arcane University, the Imperial Legion Compound, and the Temple, all on the same night!
+- The Gray Fox made a fool of Hieronymus Lex. While half the Watch was in the Waterfront, thieves made off with half the rest of the city.
+- Did you hear? Hieronymus Lex was reassigned to Anvil.
+- Someone told me that Hieronymus Lex is gone. Reassigned to Anvil. That can't be true!
+- Lady Umbranox has hired a new Captain of the guard.
+- Is there a new Captain of the guard? I thought I saw him walking the rounds.
+- I heard that someone broke into the wizard's tower. What kind of a fool would take on Fathis Aren?
+- Did you hear what happened? Someone robbed the wizard's tower. Fathis Aren got what he deserved, if you ask me.
+- Did you hear that the Earl of Imbel's house was robbed?
+- The Earl of Imbel was attacked and killed in his own home. I heard the body burned in the sunlight.
+- Can you believe that a thief broke into the Imperial Palace itself!
+- They say a thief actually stole one of the Elder Scrolls from the Imperial Library. Who would have thought it was even possible?
+- There are rumors that there is a new Gray Fox. Nobody knows what happened to the old one.
+- Count Umbranox has returned! After eleven years, he just walked back into Anvil.
+- Your pardon, citizen. I must return to my post.
+- This Mazken must return to duty.
+- Duty calls, citizen. Madgod's blessings upon you.
+- Apologies, citizen, but I must return to my post.
+- Blessings of the Madgod, citizen. Walk without fear.
+- The Aureal do not waste time chatting with mortals.
+- Away, mortal. I haven't time for your chatter.
+- Cease your prattling.
+- Do not bother the Aureal with your petty conversation.
+- Leave me, mortal. Your words hold no meaning for me.
+- I saw Ugak gra-Mogakh earlier. At least, I think it was her. Perhaps it was her sister.
+- Ugak has some good horses to sell. I sometimes can't tell her from her sister, though.
+- Mog gra-Mogakh runs a fine establishment at the Two Sisters Lodge. And her sister has some quality horses.
+- I like the Two Sisters Lodge, and Mog does a good job running the place. She and her sister are both fine people.
+- Erina Jeranus isn't the most social inkeeper in the world, but she runs a good, clean house.
+- The West Weald is a good place. Erina Jeranus isn't the friendliest person in the world, but not a bad sort when you get to know her.
+- That Else God-Hater sure has a chip on her shoulder. Great with a blade, but she really holds a grudge against the church.
+- Don't bring up religion around Else God-Hater. She's likely to use that sword of hers on you.
+- I've bought a good number of things at Colovian Traders. And Gunder is a friendly sort.
+- I need to head over to Colovian Traders and pick up a few things from Gunder. He's got a nice selection.
+- Maybe it's just me, but I find Falanu Hlaalu really odd. And I've seen him hanging around the graveyard with a strange smile on his face.
+- I saw Agnete out drinking late again last night. It's no wonder they call her "the Pickled." She sure can repair armor, though.
+- Hammer and Tongs is a good place to get your armor repaired. Just don't go early in the morning. Agnete usually isn't feeling so well then.
+- I went to the Chapel to get rid of a rash I'd picked up. Tumindil healed me right away.
+- I don't know if Tumindil ever leaves the chapel. That man works day and night to take care of all of us.
+- Marie Palielle is quite a hard worker. She's in the chapel day and night, tending to the sick and injured.
+- Marie Palielle seems very happy working at the chapel. She's always working, but she's always got a smile on her face.
+- I went to the chapel yesterday, but Valandrus was the only one there. I figured I'd come back another time.
+- I have no idea why Valandrus Abor even serves at the chapel. He's not very good, though you'd hear differently from him.
+- I suppose Count Hassildor keeps Skingrad running smoothly, but you hardly ever see the man.
+- I've heard some strange stories about Count Hassildor. I'm sure they couldn't be true, though.
+- Dion takes his job as Guard Captain very seriously. He's all business when he's working.
+- I hope nobody tries to get away with anything when Captain Dion is around. He's a tough customer.
+- Shum gro-Yarug is the butler in Castle Skingrad. Who ever heard of an Orc butler. Plus, he's in that "Orc Social Club." What a joke.
+- I wouldn't want an Orc butler, but apparently the Count doesn't mind. Shum gro-Yarug has been there for years.
+- That Danus Artellian is a little too full of himself. Sure, he's a Captain of the Guard, but I'm not impressed.
+- I don't like that Danus Artellian. He's a bit stuck-up for my tastes.
+- I heard Ah-Mahlz was out hunting goblins again. Good. They're vermin.
+- Ah-Malz at the Fighters Guild has gotten to be an expert on goblin hunting. He just hates the things.
+- If you need to learn how to use a shield, you should talk to Fadus Calidius at the Fighters Guild.
+- Fadus Calidius sure can use a shield. I've never seen him take a hit!
+- Parwen is another one of those goblin hunters at the Fighters Guild. She's always talking about her "goblin killing tactics."
+- Parwen has really got a thing for goblins. I think she and Ah-Malz keep a running tally of who has killed more.
+- I think Adrienne Berene is the ranking mage at the Mages Guild in town. Typical snooty mage.
+- I hear Adrienne Berene is quite a mage. Of course, it's not like she'd bother to stop to talk to you in the street.
+- If you're looking to learn a bit about Conjuration, Sulinus Vassinus is a good person to talk to.
+- I saw Sulinus Vassinus at the Mages Guild conjure up some sort of creature, right there in the street. Guards took care of it.
+- If you don't know much about Mysticism, Druja is a good person to talk to. She's at the Mages Guild.
+- If I were in the Mages Guild, I think I'd study Mysticism. Druja was telling me a bit about it, and it sounds interesting.
+- Must be nice being in the Mages Guild. If they need something recharged, they just talk to Vigge the Cautious, and poof! All done.
+- Vigge the Cautious is responsible for enchanted item recharge at the Mages Guild. Good thing he's cautious. I'd hate to have something go wrong.
+- Erthor is causing trouble at the Mages Guild again. Seems his experiments are always blowing up.
+- I smelled a strange odor coming from the Mages Guild yesterday. Erthor must have been doing another experiment.
+- I've had about enough of Sir Lazare. He thinks he's so much better than everyone else.
+- I heard Lazare Milvan challenged someone else to a duel. The man is ridiculous.
+- I've heard that someone has it out for Toutius Sextius. Who'd want to hurt him?
+- I've heard rumors that someone has been keeping a close eye on Toutius Sextius. Seems harmless enough.
+- I love walking by Salmo's place. The smell of her bread baking is amazing.
+- I'll buy sweetrolls from Salmo the Baker any day. Once, I was carrying a sweetroll when three thugs attacked me. So, I took the sweetroll....
+- Ambroise Canne is really good with his shield. Even better than Falus Calidus, I think.
+- I learned quite a bit about how to use a shield from Ambrose Canne. Cost me a bit, but it was worth it.
+- Reman Broder is great with a bow. I think he could shoot the grapes off the vines, which is handy, since he works at the vineyard.
+- You know, if you need to get better at archery, you should talk to Reman Broder. He's quite a good shot.
+- Undena Orethi grows some good tomatoes. Yep. They sure are good tomatoes.
+- Undena Orethi has got some fine tomatoes. Some of the finest in Cyrodiil.
+- Uuras the Shepherd sure takes care of his sheep. And, boy, does he like cheese! I mean, he really likes cheese.
+- Uuras is a good shepherd, but his real love is cheese. Of course, there's no money in herding cheese.
+- Bernadette Peneles works over at the Tamika Winery. They make a quality wine there.
+- I think Bernadette Peneles seems like a nice woman. I know she works tirelessly over at the Tamika Vineyards.
+- I've seen Shameer at the Tamika Vineyards practicing archery. He's really good. I might try to get some pointers from him.
+- Not only does Shameer make a good wine at the Tamika Vineyards, but he's really good with his bow, too. I heard he'll train you, for a fee.
+- Davide Surilie and his brother make some fine wines. It's a really impressive vineyard.
+- I bought some wine from Davide Surilie. Excellent body. He's a fine vintner.
+- Gaston Surilie and his brother Davide own one of the finest vineyards in all of Cyrodiil.
+- I bought some wine from Gaston Surilie a few days ago. I was very impressed by it.
+- Something is just a bit off about Glarthir. Someone needs to keep an eye on him.
+- Old Glarthir is a bit out of his mind, I think. He's convinced everyone is out to get him.
+- Tamika makes some truly fine wines at her winery. I think they're every bit as good as the Surilie Brothers wines.
+- I enjoy the wines that Tamika makes at her vineyard. And they're reasonably priced, as well.
+- Rohssan is a talented smith. One of the best around, if you ask me.
+- If you go to the Fighting Chance, make sure to speak with Rohssan about repairing armor.
+- I don't know that anyone in Cyrodiil drives a harder bargain than Palonirya at Divine Elegance.
+- Wow. Palonirya is a tough negotiator. Hard to get her prices down.
+- Varnado at The Best Defense knows a lot about Heavy Armor.
+- If I had a question about heavy armor, I'd probably ask Varnado at The Best Defense.
+- I have friends visiting soon, so I told them to stay at the King and Queen Tavern.
+- The King and Queen Tavern isn't a bad place to stay if you're visiting the city.
+- Dul gro-Shug always seems at ease in light armor. He moves well in it.
+- If you want to learn more about light armor, you might talk to Dul gro-Shug.
+- Irene Metrick moves with such grace. I wonder what it is she does.
+- I saw Irene Metrick recently. She jumped clear over a table at the inn.
+- I understand old Dovyn Aren can still teach a bit about Alteration.
+- I know that Dovyn Aren is getting up there in years, but he still knows a bit about Alteration.
+- I understand Ida Vlinorman enjoys jumping off high things. Like buildings.
+- There's something strange about Ida Vlinorman. I heard she was climbing up the chapel, just so she could jump off.
+- I understand that Othrelos isn't a bad man to talk to, if you need to learn how not to be seen.
+- Othrelos is a sneaky one. Kind of makes you wonder what he's up to.
+- I understand Mandil has some rather nimble fingers.
+- Lose the key to your house? Find Mandil. He can get in, I'll bet.
+- The Tiber Septim Hotel is a nice place. It's not cheap, though.
+- If you want luxury, there's nowhere better than the Tiber Septim Hotel.
+- Samuel Bantien used to be a wild one. They say he used to be quite the "locksmith."
+- Samuel Bantien used to be able to pick any lock in the city. He's settled down now, though.
+- I understand Areldil is good at getting into places other people can't.
+- If you're an alchemist, The Main Ingredient is a good place to shop.
+- Ogier Georick has a good selection of ingredients at The Main Ingredient.
+- If you're looking for books, First Edition is the only place in the city to find them.
+- Phintias has the best bookstore in the city. Of course, First Edition is the only bookstore in the city.
+- A lot of mages swear by Rindir's Staffs.
+- Rindir's Staffs is the best place in the city to buy a magical staff. Or is it Rindir's Staves....
+- If you're looking to buy cheap spells, Edgar's is the place to look.
+- I understand money is tight, but buying discount spells seems like a bad idea.
+- Thoronir will buy almost anything. And I mean anything.
+- If you need to get rid of something quickly, check out the Copious Coinpurse.
+- If you're looking for a shield, Stonewall shields has a fine selection.
+- Viator Accius has a good shield selection at Stonewall Shields.
+- The Feed Bag isn't fancy, but it fills you up.
+- You'll never leave the Feed Bag on an empty stomach.
+- I needed some cash, so I went to see Jensine.
+- If you need money fast, try Jensine's. You can sell almost anything there.
+- Three Brothers have some good merchandise. Don't know if I've met all three brothers, though.
+- I shopped at Three Brothers a couple of days ago. Not sure which one I talked to, though.
+- If you need something enchanted, Calindil has the goods.
+- Calindil runs a nice place at the Mystic Emporium.
+- You've gotta like a store named Slash 'N Smash.
+- Looking for an axe or a mace? Head to Slash 'N Smash. The name says it all.
+- Claudette Perrick runs a fine alchemy shop. You should check out The Gilded Carafe.
+- The Gilded Carafe. A fine store with a terrible name.
+- If you need light armor, talk to Maro Rufus at The Best Defense.
+- There's some fine light armor at The Best Defense. Talk to Maro Rufus.
+- Good thing we have the Black Horse Courier. I don't know how we'd get our news without it.
+- If there's a complaint about a merchant, speak to Vinicia Melissaeia.
+- Vinivia Melissaeia takes all the merchant complaints in the city.
+- Dervera Romalen is sure proud of the Newlands lodge. I think she's especially happy that the Red Queen drinks there.
+- Dervera Romalen seems pleased that so many folks drink at the Newlands lodge. She takes great pride in it.
+- Mach-Na runs a good business. He's a grumpy old man, though.
+- There are some quality books at Mach-Na's. Just don't catch him when he's in a bad mood.
+- If you're looking for armor, you should speak with Tertia Viducia.
+- I think Tertia Viducia has a good supply of light armor.
+- I've heard that Hil the Tall knows a lot about Alteration, how to cast shields and that sort of thing.
+- I understand Hil the Tall will teach Alteration to anyone willing to pay.
+- Gruiand Garrana can talk her way out of anything. Of course, all she usually talks about is herself.
+- That Gruiand Garrana is really full of herself. She'll talk your ear off, if you let her.
+- Ohtesse is a wonderfully gifted healer. I sometimes worry that she spends too much time taking care of others, and not enough on herself.
+- I hope Ohtesse is taking care of herself. She's a gifted healer, and she spends all her time helping others.
+- I've heard that Naspia Cosma would rather be fighting in the Arena than spending time at the castle. She's excellent with a blade.
+- Naspia Cosma is really skilled with her blade. It's a shame she doesn't compete in the Arena.
+- That Ra'qanar seems a bit shady to me. He does a good job on the horses at the castle, though.
+- There's something about Ra'qanar I just don't trust.
+- I spoke with Deetsan at the Mages Guild recently. I've never seen someone so happy about being in the guild.
+- Deetsan must be the happiest Mages Guild member in all of Tamriel. I think it was always his dream to join.
+- Ganredhel sure does have a knack for training dogs. I've heard that she will train people as well, for a price.
+- Ganredhel can teach you about Acrobatics, for a price. Of course, she'd rather be training her dogs.
+- Olav's Tap and Tack is a good, inexpensive place for travelers.
+- The Tap and Tack is a good place to get a quick bite, and Olav is a good man.
+- Jerall View is a nice place for visitors to stay. Hafid makes everyone feel welcome.
+- Hafid Hollowleg says that Jerall View has been doing good business.
+- Skjorta is a nuisance. She was running around town, drunk and naked again.
+- Someone needs to get Skjorta under control. You'd think Olfand would be the one to do it.
+- Olfand really has his hands full with Skjorta. I don't know how he has time for business.
+- Poor Olfand. I don't know how he manages to live with Skjorta.
+- Cirroc is a good healer. He's a Redguard, but you'd think he was a Nord, the way he acts.
+- Good that we have a healer in town. Cirroc can fix most anything that ails you. After all these years, he almost seems like a Nord himself.
+- I've heard that Arentus Falvius at the chapel can conjure up creatures.
+- Apparently, Arentus Falvius at the chapel is quite a conjurer. He'll even teach the skill to those he likes.
+- I've heard Right-Wind is good with a blade. No wonder he's in the Fighters Guild.
+- Apparently, Right-Wind teaches his blade skills to other Fighters Guild members.
+- Bumph gra-Gash is very skilled in heavy armor use. I wouldn't want to get on her bad side.
+- I understand Bumph gra-Gash trains other Fighters Guild members on the proper use of heavy armors.
+- I heard that J'skar at the Mages Guild is quite good at blowing things up.
+- Don't get on J'skar's bad side. You'll likely get a fireball in your face for your troubles.
+- Alga sure can tell a good story. I'm not normally a big fan of bard's tales, but she's got some good ones.
+- Alga has a lot of good tales to tell. I wish I could tell a story like she does.
+- I've heard that Jantus Brolus is skilled with both magic and steel.
+- Jantus Brolus is apparently an excellent mage.
+- Rumor has it that Edla Dark-Heart left Skyrim with the law right behind her.
+- I've heard Edla Dark-Heart was once an assassin!
+- I think all Bogrum gro-Galash cares about is the Lonely Suitor Lodge. He really puts everything into it.
+- The Lonely Suitor is a fine place. Bogrum gro-Galash is very focused on making it a success.
+- I don't think that Gilgondrin really wants to run Silverhome-on-the-Water. He never seems happy when he's there.
+- Gilgondrin inherited Silverhome from his parents. I understand he only runs it out of a sense of duty.
+- Uravasa Othrelas has a way with words. I wish she could teach me how to speak that well.
+- It's always a pleasure to hear Uravasa Othrelas speak at chapel. She has a real way with words.
+- Marz is an excellent healer, but I understand she longs to return to the swamps of Black Marsh.
+- I'm glad Marz lives here in Bravil. She's an excellent healer.
+- If you're looking to learn about conjuring creatures, you should try to speak with Fathis Aren.
+- I understand that Fathis Aren is quite the conjurer.
+- Nahsi at the Fighters Guild seems very at peace with himself. He says that's what allows him to be such an amazing martial artist.
+- If you want to learn a bit about hand-to-hand fighting, talk to Nahsi at the Fighters Guild.
+- I understand Tadrose Helas has more jobs than she knows what to do with. She's very eager to help out her guild.
+- Tadrose Helas teaches smithing at the Fighters Guild. Well, when she has the time.
+- Kud-Ei is very protective of her sisters in the Mages Guild. And she's quite skilled at creating illusions.
+- Mages Guild members have said that Kud-Ei is an excellent teacher, as well as a very loyal guildmember.
+- Something strange is going on with Ardaline and Varon Vamori. I always see him hanging around her.
+- Seems to me that Ardaline has an admirer in Varon Vamori.
+- Ita Rienus knows more about the geography of Tamriel than anyone I've ever met. Apparently, she knows quite a bit about Mysticism as well.
+- I heard Ita Rienus talking about the geography of Tamriel again. She's very knowledgeable.
+- That Delphine Jend seems dangerous to me. She's very skilled, but I think she's reckless.
+- I understand Delphine Jend has some other mages worried. She's skilled, but a bit unpredictable.
+- Varon Vamori really has a silver tongue.
+- Varon Vamori can be really charming. Of course, there's something a bit odd about him as well.
+- City-Swimmer certainly lives up to her name. I've seen her in the canals many times.
+- Keep your eyes on City-Swimmer. I don't know where she goes when she's not in the canals.
+- She doesn't leave home much, but apparently Luciana Galena has a lot of experience fighting in light armor.
+- Witseidutsei runs a clean establishment. She really hates it when people mess up her place.
+- The Five Claws Lodge is a nice, clean place. Witseidutsei makes sure of it.
+- The Three Sisters Inn is a nice place, but that Shuravi sure is grumpy. I don't think she likes anyone.
+- Shuravi runs a good inn, but she's awful with her sisters.
+- Bugak gro-Bol has some good books at Southern Books. He's an odd one, though. Always seems ready for a fight.
+- Bugok gro-Bol always seems ready for a fight. Seems odd for a bookseller.
+- I've heard Tun-Zeeus has some fine blades at the Dividing Line. Of course, he'll talk your ear off about them if you let him.
+- The Dividing Line is a good place to buy a sharp blade. Of course, you're likely to hear some of Tun-Zeeus' stories if you hang around.
+- I've heard Brodras at the Fighters Guild is well-versed in using heavy armor, especially for a wood elf.
+- Brodras has been teaching Fighters Guild members how to better use heavy armor. Odd for a Bosmer, but he's apparently good at it.
+- Sherina is good with a blade. She knows it, too.
+- Fighters Guild members have been going to Sherina to learn blade skills. She's good, and she'll be the first to tell you so.
+- I've heard that Dagail knows a lot about Mysticism. And sheep.
+- Dagail has been training high ranking mages more about mysticism. And he's also been researching sheep, from what I hear.
+- I understand that S'drassa is still trying to create a potion to cure skooma addiction.
+- When S'drassa isn't teaching alchemy, he spends all of his time researching a cure for skooma addiction.
+- Maenlorn and his brother run a nice establishment at the Flowing Bowl.
+- I like eating at the Flowing Bowl. Maenlorn runs a quality inn.
+- Have you spoken to Wilbur at the Count's Arms? He knows a lot about fine wines.
+- The Count's Arms is a very nice place for a meal. And Wilbur has an extensive knowledge of wines.
+- Norbert Lelles runs a fine store, but he's not the brightest fellow.
+- I feel sorry for Norbert Lelles. He's a good man, but he gets taken in so easily.
+- Azzan at the Fighters Guild is a fine warrior. I understand he can sign you up, if you're interested.
+- I've heard Azzan can sign you up for the Fighters Guild. That's someone I wouldn't mind working for.
+- Have you seen Rhano at the Fighters Guild use his sword? Impressive. He could teach us all a thing or two.
+- Rhano is quite the swordsman. I've heard he'll train you for the right amount of money.
+- Rufrius Vinicius is good with his fists. I've seen him in action, and it's impressive.
+- I saw Rufrius Vinicius knock a man down with one punch. I wish he'd teach me a bit about hand-to-hand combat.
+- I understand that Vigdis at the Fighters Guild has some skill with blunt weapons. He's been training other Fighters Guild members.
+- If you want to learn to use a mace, you should speak to Vigdis. Of course, to speak to Vigdis, you'll have to join the Fighters Guild.
+- I saw Huurwen practicing shield technique at the Fighters Guild the other day. She could teach me a thing or two.
+- Huurwen was sparring with some other Fighters Guild members recently. I don't think any of them could get a hit through her shield.
+- I've heard Carahil is a powerful illusionist. No wonder she's the ranking mage here in Anvil.
+- I understand Carahil knows more about Illusion than any other mage in Anvil. Of course, she only shares that knowledge with the Mages Guild.
+- If you're looking to learn a bit about potion-making, you should speak to Felen Ralas at the Mages Guild.
+- I've heard that Feren Relas knows quite a bit about alchemy.
+- Marc Gulitte knows more about how to cast a fireball than anyone in Anvil. I try to stay on his good side.
+- March Gulitte is a dangerous one. He teaches mages about the Destruction school of magic.
+- Mirabelle Monet is quite a woman. Ask any of the sailors down at the Fo'c's'le.
+- Mirabelle Monet runs quite a boarding house. I understand all of the sailors leave very satisfied.
+- For someone who drinks so much, Hauls-Ropes-Faster is in peak physical condition. You could learn a lot from him.
+- Hauls-Ropes-Faster can run faster than anyone I've ever seen. Of course, he can't often walk a straight line.
+- Heinrich Oaken-Hull is married to a Bosmer? I suppose the women are less annoying than the men.
+- The shipmaster, Heinrich Oaken-Hull, has a wood elf for a wife. I'd rather sleep with my horse.
+- Pinarus Inventius is quite the hunter. He can track about anything, and he's deadly with his bow.
+- I saw that Pinarus Inventius was out hunting again. He can shoot a bird on the wing without really trying.
+- Arvena Thelas is an odd one. I've heard some strange noises coming from her basement.
+- Something about Arvena Thelas is a bit odd. I've heard she keeps strange things in her basement.
+- I've never read any of Quill-Weave's writings. I've heard they're fairly good, though.
+- Quill-Weave does a lot of traveling to research her books. She must have a lot of experience to share.
+- I've made you a little pumpkin bread... something to keep up your strength on those long night watches.
+- I've put aside a little mead for you. I know you like it.
+- The bread's hot and fresh, with a nice crust, and butter and honey, just like you like it.
+- It's been a long day. Quite pleasant to look forward to seeing you here.
+- I really must thank the one who recommended you -- and the Grey Mare. Always a splendid feast for my spirits. And the food is good, too.
+- After a long day up at the castle, it's refreshing to spend a time with someone as charming and thoughtful as you.
+- I enjoy being in the Fighters Guild, though there haven't been quite as many contracts lately.
+- It's good to be a Fighters Guild member, don't you think?
+- I get paid to kill things. That's why I like the Fighters Guild.
+- Ah... pure magic. Research. Knowledge. That's why I love the Mages Guild.
+- Good thing I joined the Mages Guild when I did. There's nothing better than enchanting your own clothes.
+- I sure am glad I don't live in Leyawiin. Too many foreigners.
+- I found some good pauldrons at the armorer.
+- The local tavern is a good place to find work.
+- Picked up a good book at Renoit's this week. Sure wish I could read it.
+- I'm thinking of heading over to Renoit's to buy some books. There's quite a selection.
+- The Grey Mare isn't a bad place to stay, especially if you're low on Septims.
+- You know, Bongond has got some fine horses for sale over at the Grey Mare. Too bad he's such a pushy man.
+- You ever talk to Honditar? Odd fellow, but he seems to know his way around these parts.
+- The Oak and Crosier is a nice place, but that Talasma seems rather stuck-up to me.
+- I'm going over to Northern Goods and Trade. There's always something I need at that place.
+- Been to Fire and Steel recently? Rasheda has some nice new swords in there. And she's a friendly one, she is.
+- Thank Stendarr for the chapel here in Chorrol. A lovely place, and the healers are excellent.
+- I could be wrong, but it seems to me there's something shady going on at the Oak and Crosier.
+- Northern Goods and Trade is an excellent place to buy supplies.
+- That Modryn Oreyn has got no sense of humor. Hell of a warrior, though. No wonder he's done so well in the Fighters Guild.
+- Have you met Modryn Oreyn? Quiet man, but apparently he's an incredible fighter.
+- The Fighters Guild is a good place to go if you need weapons training.
+- I wanted to get a little practice in with my sword, so I headed to the Fighters Guild. Turns out you have to be a member to train there.
+- I'd like to learn more about spellcasting. Might have to head over to the Mages Guild and see if they're accepting new members.
+- I've heard they have good magic trainers over at the Mages Guild.
+- That Rimalus Bruiant sure loves his dogs. A little too much, if you ask me.
+- I saw Rimalus Bruiant walking his dogs today. And yesterday. And the day before. I swear that's all he does.
+- Eugal Belette is an odd one... and I swear I heard strange noises coming from his basement not long ago.
+- I'm not so sure about that Eugal Belette. An odd fellow, and people have said there are strange noises coming from his house at all hours.
+- I read one of Casta Scribonia's books not long ago. Terrible stuff, if you ask me. But, some folks seem to like it.
+- Casta Scribonia has finished a new book. Nothing that interests me, though.
+- I don't understand what Glistel is doing with Malintus Ancrus. I mean, have you seen her? And have you seen him? I just don't get it.
+- I'm sure you've heard that Glistel and Malintus Ancrus are living together. Simply shameful.
+- I can't believe that Glistel would live with that Malintus Ancrus. Shameful, and her being such a lovely girl.
+- I think Rena Bruiant may actually love dogs more than her husband. Strange couple, those two.
+- I saw Rena Bruiant talking to her dogs the other day. I think she thinks they understand her.
+- Hard to complain about living in Chorrol. We've got everything you need.
+- Ah, Chorrol. Easy access to all the other cities of Cyrodiil.
+- Sometimes I just go look at the Great Oak. Magnificent, don't you think?
+- You have to admit, this is a good place to live. Friendly folks, I think.
+- You know, I think the mutton here in Chorrol is the best in all the Empire. Mmmm... that's good mutton.
+- Lots of dogs in this town. Lots of sheep, too. Of course, I prefer the taste of sheep.
+- Don't know why anyone would visit the other cities of Cyrodill. Chorrol has it all. And a fairly low murder rate!
+- I lived in the Imperial City for a while, but city life just isn't for me. I'm much happier in Chorrol.
+- I just feel safe living here in Chorrol. I mean, we have the head of the Fighters Guild right here in town!
+- Vilena Donton just hasn't been the same since her eldest son died. Still, she does a good job of running the Fighters Guild.
+- It's good to know we've got such a strong Fighters Guild presence here in town.
+- I understand the Fighters Guild is looking for new members. Seems a bit odd, but that's what I hear.
+- Don't get too many folks passing through here these days.
+- I'm thinking of doing some traveling. Just to see the world a bit.
+- I heard there is a good smith in Chorrol.
+- M'aiq longs for a Colovian Fur Helm. Practical, yet stylish. M'aiq is very sad he does not have one.
+- M'aiq wishes he had a stick made out of fishies to give to you. Sadly, he does not.
+- M'aiq believes the children are our future. But he doesn't want them ruining all of our fun.
+- M'aiq thinks his people are beautiful. The Argonian people are beautiful as well. They look better than ever before.
+- Some people wish to throw their weapons. That seems foolish to M'aiq. If you hold your weapon, you only need one.
+- Feet are for walking. Hands are for hitting. Or shaking. Or waving. Sometimes for clapping.
+- M'aiq prefers to adventure alone. Others just get in the way. And they talk, talk, talk.
+- People always enjoy a good fable. M'aiq has yet to find one, though. Perhaps one day.
+- Some people want special bows that take too long to load and need special arrows called bolts. M'aiq thinks they are idiots.
+- So much easier to get around these days. Not like the old days. Too much walking. Of course, nothing stops M'aiq from walking when he wants.
+- M'aiq is glad he has a compass. Makes it easy to find things. Much better than wandering around like a fool.
+- Why would one want to swing a staff? A mace hurts more. Or a sword. Can't shoot a fireball from a sword, though.
+- I do not wish to fight on horseback. It is a good way to ruin a perfectly good horse... which is, to say, a perfectly good dinner.
+- Levitation is for fools. Why would we want to levitate? Once you are up high, there is nowhere to go but down.
+- It is good the people wear clothing. M'aiq wears clothing. Who would want to see M'aiq naked? Sick, sick people. Very sad.
+- I don't know why one would want to destroy a building. It takes time to make it. Much time.
+- I have seen dragons. Perhaps you will see a dragon. I won't say where I saw one. Perhaps I did not.
+- Werewolves? Where? Wolves? Men that are wolves? Many wolves. Everywhere. Many men. That is enough for M'aiq.
+- The will-o-the-wisp is a luminous being. It has naturalized residences to many types of spells.
+- I am resident to encounter the minotaur. Its horny protuberants cause me great conflagrations.
+- Trolls, I have been foretold, are particular to unflammable weapons.
+- Though I am replicant to spread rumors, I am led to believe the philogy of skeletous beings makes them resistive to magic.
+- Ancient Wayshrines of the Nine are scattered through the wilderness. The righteous who pray there receive powerful divine blessings.
+- If you've done good deeds, the Nine will bless you and cure diseases when you visit their wayshrines.
+- Wayshrines of the Nine in the wilderness confer blessings on the righteous and faithful.
+- Those famous for good deeds may receive Blessings of Intelligence and Magicka when they visit Wayshrines of Julianos.
+- Virtuous visitors to Wayshrines of Kynareth may receive Blessings of Agility.
+- When you visit a Wayshrine of Zenithar, and you've lived a good life by the Nine, you may receive a Blessing of Luck.
+- Those who live by the Commands of the Nine receive Blessings of Strength when they visit Wayshrines of Tiber Septim.
+- A good man who honors the Nine may visit the Wayshrines of Akatosh for Blessings of Speed and Magicka.
+- If you've been good, Wayshrines of Dibella may bless your Personality.
+- Wayshrines of Arkay confer Blessings of Health on those who've pleased the Nine by righteous acts.
+- Please the Nine with good works, and visit Wayshrines of Stendarr for Blessings of Endurance.
+- You've seen wayshrines in the wilderness? Those who've pleased the Nine may receive Blessings of Willpower at the Wayshrines of Mara.
+- The Heartlands and Nibenean Valley are the agricultural breadbaskets of Cyrodiil.
+- Where does our food come from? The Heartlands. And the Nibenean Valley. And Skingrad? Great wines, cheeses, and tomatoes.
+- The lowlands of the Great Forest rise to the upland plateau of the Colovian West.
+- The Great Forest was cleared for agriculture around Lake Rumare, but it's mostly wilderness outside of that.
+- The Colovian Highlands are barren wastelands along the border with Hammerfell.
+- The Colovian Highlands? Near the Hammerfell border? No one lives there. That's barren wastelands.
+- High mountain ranges rise to the borders in the north and east, and marshes and rainforests extend to the southeast borders.
+- It's our natural barriers that keep us safe, mostly. Mountain borders north and east, open sea to the west, and bogs and rainforest to south.
+- Cyrodiil is surrounded to the north and east by the lofty Jerall and Valus mountain ranges.
+- No one wants to live in the Jerall Mountains. Well, maybe in Bruma, but they're like Nords. They don't feel the cold.
+- Western Cyrodiil is called 'Colovia,' and includes the Gold Coast, West Weald, and Colovian Highlands regions.
+- In the west, in Old Colovia, that's where men are men. That's the Gold Coast, West Weald, and Colovian Highlands.
+- Nibenay is a region of mixed farmland, parkland, and forest.
+- With all the farms in Nibenay, there's still plenty of forest and wilderness open for settlement.
+- Nibenay is bordered on north and east by rugged mountains and to the south by marshes and rainforest.
+- The people of Nibenay consider themselves to be more civilized and sophisticated than Colovians.
+- I'm not saying Colovians are dumb. They're just hard-headed.
+- The Nibeneans think they're slick. 'Slippery' is more like it.
+- Colovia is a land of rugged wastes and highland forests.
+- Colovia is dotted with isolated farms and settlements, with most of the population in the coastal margin.
+- The Colovians are proud of their reputation for being independent, rough, and rebellious.
+- The Imperial City is located on a large island surrounded by Lake Rumare.
+- The Imperial City is densely urbanized, with a few large parks and waterside dock areas.
+- The Imperial City itself is a walled city, with separate inner walls protecting the Imperial palace.
+- The prettiest town in Cyrodiil? Don't know, but the ugliest is Bravil. Shabby, tumbledown shacks. They're big shacks, though.
+- Where to buy weapons? Where to buy anything, if you can afford to travel, is the Market District in the Imperial City.
+- My favorite town? Anvil. Lovely old stone buildings, and the harbor at sunset is beautiful.
+- Ayleid ruins? The big thing is to watch out for the traps. Thousands of years old, and still working. Amazing.
+- I've seen plenty of Ayleid ruins. You'd think they'd be picked clean after 2000 years, but, no, there's still great treasures there.
+- It's still pretty wild east of the Niben. Few people, except for bandits, but at least it hasn't been picked clean by treasure-hunters.
+- Nobody goes into the mountains but hunters and thieves on the lam. Food and shelter is hard to come by.
+- Blackwood isn't so bad, once you get used to the flies. And being lost all the time. And the zombies and will-o-the-wisps.
+- There's islands in Niben Bay no one has visited in a hundred years. No telling what you'll find.
+- Well, it's no problem traveling from the Imperial City to Leyawiin... if you're a wizard and can walk on water. I'd stay off the roads, though.
+- If you're all alone in the woods and you see a troll coming, you run. Problem solved. Next question?
+- Fighting's easy. Just lead them out on the water and shoot them full of holes. If you've got a bow, of course, and can walk on water.
+- The Arena's faked. You think those guys are getting killed? Really? It's just berry syrup and ham-acting.
+- Have you ever met anyone who got rich betting on the Arena? Didn't think so.
+- The Council runs the Arena to amuse the masses, and it pays for itself, with all the fools who lose their shirts gambling.
+- If you're on a road, you can usually outrun anything. If you're in good shape, and not wearing a tin suit.
+- Orcs don't ride horses. They eat horses. And sometimes I think they're the smart ones. Wait, maybe it's Dunmer who eat horses.
+- Take Cheydinhal, for example. Pretty little town. But the Count's a Dark Elf, and it's crawling with Orc thugs and gangsters.
+- The lands surrounding Lake Rumare are studded with small settlements, farms, and woodland game reserves.
+- The Nibenay Basin grades from rolling farmlands by the river east to the rugged uplands of the Valus Mountains.
+- On Cyrodiil's northern border is the sparsely populated mountain wilderness called the Valus Mountains.
+- You can't be too careful out in the wilderness. Almost any creature you find is liable to give you a disease.
+- Watch yourself around goblins. Some of the nastier ones will toss spells at you.
+- Imps. I hate 'em. Little buggers flitting around, tossing fireballs at you!
+- I saw a wraith once. It threw a curse on me I'll never forget.
+- Have you seen a land dreugh? We call them "Billies." Don't know why. Steer clear of them, though.
+- I ran across a ghost once. Seemed to suck the energy right out of me.
+- Watch for minotaurs in the forests. Aggressive beasts. They'll tear right through your armor, too.
+- Mudcrabs. What's the point? Annoying buggers, though the meat isn't bad.
+- Only thing worse than an ogre is two ogres. Tough bastards, and spells seem to bounce right off of 'em.
+- Is there anywhere in Tamriel you can avoid rats? Disease spreading little nuisances.
+- Best way to take out a skeleton is with a big weapon. Forget spells. Just smack them and watch the bones fly!
+- I might swim more if it weren't for the slaughterfish. Sharp teeth, and some carry disease.
+- Spriggans. "Nature's guardians" my foot! Mean things. They'll curse you, or they might call a bear to tear you apart.
+- All that stuff about having to set trolls on fire is a bunch of hooey. They don't like fire, but a good sword will cut them up fine.
+- I don't even know what a will-o-the-wisp is, much less how to kill one. I think they're just swamp gas, myself.
+- I don't like to think about zombies. Missing arms, legs, heads. They smell awful, and they're hard to kill.
+- Try combining aloe vera leaves with some venison. It's said to have some restorative properties.
+- You can find Cairn Bolete growing in caves. They're said to mark the place someone has died.
+- It's said that eating taproot can bring you good luck.
+- Make sure not to eat nightshade. It's very poisonous.
+- I hear there's someone new in the Isles... they should have stayed away. This whole place is coming down on our heads!
+- A new face in the Isles. Brings the Fork, perhaps?
+- How glorious, a newcomer to the Isles! Perhaps they will see the ways of Arden-Sul and join us.
+- People are talking about a new adventurer who is seeking to get into the Isles. Mama warned me, "Only go where you've been invited."
+- How awful. An adventurer trying to get into our fine land? I hope they stay far from the palace.
+- Another adventurer is trying to get into the Shivering Isles. If it's a Breton, it'll be the first one in 3.7 years.
+- A new visitor to our home. How wonderful. Better stay away from my wife....
+- A new adventurer may set foot in the Shivering Isles, I hear. Perhaps I will bake him a fine treat in case our paths should cross.
+- Someone new in the Isles? Don't care. Plenty to drink for everyone.
+- So, a newcomer may arrive in the Isles? I hope it's a guy and I hope he's cute. It's slim pickings around here.
+- Someone new comes to the Isles. Much more interesting than someone old.
+- There's someone new in town, I hear. Finally, someone with a wider perspective who can appreciate my art!
+- A stranger in the Isles is interesting news. Perhaps this stranger has interesting things...?
+- I heard there's a new adventurer trying to get into the Shivering Isles. No real matter to me, unless he can build a boat.
+- Another of my brood finally returns to the Isles. Oh, I wonder what this one will be like!
+- The Gatekeeper's dead? Probably got killed by the Gates of Madness falling down on his head.
+- The Gatekeeper is no more. The Fork is missing. These are difficult times.
+- Arden-Sul has willed it to be... the Gatekeeper is dead and the newcomer to the Isles will join us in praising his name!
+- The Gatekeeper is dead, you know. Now, that was a truly ugly creature. Perhaps now a handsome adventurer will come to steal me away.
+- Oh my! The Gatekeeper is dead! I must hurry back to Thadon's side. He must be protected!
+- Did you know that the Gatekeeper had only a three percent chance of failing? Most interesting that he was defeated.
+- I can't believe the Gatekeeper is gone. He kept out all those other men.
+- So, this mystery adventurer has breached our defenses. I better prepare a special dish to commemorate this event.
+- The Gatekeeper dead. Let's drink to the Gatekeeper!
+- Ohhh, the big strong adventurer killed the Gatekeeper. How interesting.
+- Gatekeeper's gone. For good. Or not. Might just be on holiday. We'll see.
+- I wonder...  now that the Gatekeeper is dead, perhaps my fame will finally spread far beyond the Shivering Isles!
+- Sad about the Gatekeeper. I wonder if he had anything worth keeping?
+- Heard the Gatekeeper was killed. Waste of a creature that size anyway, if you ask me.
+- I heard the Gatekeeper was killed. I do hope one of my hatchlings wasn't responsible. That'd be ever so embarrassing.
+- I heard there's an ancient ruin that lures adventurers into it, then it kills them. It's old, so those walls can't be safe.
+- The Resonator of Judgment sings again! Singing, singing!
+- The Resonator has been reactivated, and the Isles are no longer open to invasion. Arden-Sul works in mysterious ways.
+- Mama always said, "You catch more flies with honey than salt." Like that thing that sucks in the adventurers.
+- Oh thank goodness! The Resonator of Judgment has saved us!
+- I can't help but wonder what the percentage chance of the Resonator attracting a particular individual is. Riveting stuff, really.
+- Let the Resonator draw the adventurers. Better it, than my dear Sheer-Meedish.
+- I feel safer now that the Resonator of Judgment has been restored. I was beginning to worry.
+- Again the Resonator draws men near. Screw 'em! I drink to their health. Healths. Whatever.
+- The only thing I know that resonates around here are the sounds from my bedchambers.
+- The Resonator sings its sweet song once more. Promises of riches and fame, fulfilled with death and madness. How delightful.
+- I'm calling my new act "The Restoration of the Resonator." But, I don't think my public is ready for it yet. It's very cutting edge.
+- The Resonator draws adventurers to it once again. I suppose they won't need their belongings.
+- I heard the Resonator of Judgment is working again. Can't say that it affects me much, so I'll just go about my business.
+- The Resonator is working again, I understand. I do hope it doesn't confuse any of my brood, returning to me after all these years.
+- Thadon is not so moody lately. Do you think that wall is about to fall on me? It seems awfully unstable.
+- Thadon with his Chalice. No Fork for Big Head. Songs of sadness.
+- My heart fills with joy that Lord Thadon has finally recovered from his doldrums.
+- Thadon's in a much better mood lately. If he weren't so in love with the Felldew, I might invite him over to inspect my "wares" some time.
+- I'm so relieved that the Chalice is back in Lord Thadon's capable hands. He seems to be himself again.
+- With his Chalice returned, Thadon seems to smile at least four times as often. That's just an estimation, of course.
+- Thadon got his Chalice back. I heard he uses it around women. Better steer clear of mine.
+- So, Thadon has the Chalice again? I wish I had time to loaf about and drink Felldew.
+- A Chalice for Thadon! I like chalices. And mugs. And steins. Cups are good, too.
+- Why would Thadon need a stupid Chalice when he could simply have me as a refreshment?
+- The Chalice is once again in its rightful place. And places are rightfully mine. And Chalices. Right?
+- Now that Duke Thadon's happy again, I'm sure he'll invite me to the palace to perform! Oh, who am I kidding....
+- Good that Thadon got his Chalice back. I'd hate if someone took mine. Or anything else, for that matter.
+- Thadon seems upbeat again. I know how hard it is to get anything done when you're not feeling up to it.
+- Master Thadon has his Chalice again. Happy days for us all.
+- Syl's torturing people again? I'd hate to be locked up in a tiny cell. That'd be torture enough.
+- Conspiracy in the House of Dementia. Sad, sad songs. Songs of missing things.
+- It is a sad day in this fine city when the stench of torture poisons our spirits.
+- I hear something is amiss again in the House of Dementia. I wonder what it is. I love a good scandal. Don't you?
+- Syl has tortured her courtiers again, I hear. Poor things.
+- It takes an average of three attempts to inflict pain before someone will give up useful information, you know.
+- More conspiracy in the House of Dementia. People are always sneaking around there....
+- I never understood Syl's methods. Wouldn't a nice talk and a basket of hot biscuits get her the information she needs?
+- Syl had folks tortured again. So what? Real torture is my mug being empty.
+- Syl torturing her own staff? Kinky.
+- My, my, my. Seems we're all anxious to know something, even if we already know it. Or, Syl knows it. Or not.
+- Syl has gone on another one of her rampages in Crucible. I'm certainly glad I live on the right side of the wall.
+- Another conspiracy in Crucible. That's fine. Just stay away from my things.
+- I've no time for conspiracies. Get in the way, they do. Glad I wasn't involved at all.
+- The court of Dementia is in disarray once more. Good that Thadon is such a better ruler than Syl.
+- That giant torch is on fire now. Great. The thing's likely to fall over and land on somebody. Me, probably. It's not safe walking around anymore.
+- The Torch relit! It sings of things returned!
+- May we all bask in the warm safe glow of the Great Torch.
+- The Great Torch is lit. A romantic symbol, isn't it? I always hoped my first kiss would be in the glow of a torch.
+- When I heard the Great Torch atop the Sacellum was ignited, I literally jumped for joy. It's nice to feel safe for a change.
+- The Great Torch burns at a temperature 13 times hotter than the average fire.
+- The Torch burns brightly again. Like my love for dear Sheer-Meedish.
+- Like the hearth in my kitchen, the Great Torch burns once more. This makes me as happy as a batch of sweetrolls.
+- Let's celebrate the relighting of the Torch! Drinks for everyone!
+- I would bet my life that the Great Torch isn't nearly as hot as I can get any man.
+- A torch is lit. The light is lighted. Or lit. It's a Great Torch. Much better than most.
+- I'm working on a very unusual new juggling routine to commemorate the relighting of the Torch. But you'd probably hate it.
+- The Torch alight! There's hope for us all.
+- Too much to do. No time to talk about the Great Torch being relighted.
+- The Great Torch burns once more! This is good news for Thadon, I hope.
+- Maybe the ruler of Mania will fix all these walls that threaten to fall on top of us all the time.
+- Dementia has a new ruler! Perhaps a new fork for Big Head as well!
+- By the grace of Arden-Sul a new successor has been selected to rule. Joy to Arden-Sul and Maniacs!
+- Is the new ruler of Dementia lovely, I hope?
+- The Ritual is completed, and a new ruler presides over Dementia.
+- There was a 21 percent chance that Dementia would get a new ruler.
+- Syl has been replaced. I should tell Sheer-Meedish.
+- I hadn't heard that Syl was replaced, I was too busy prefecting my latest culinary creation.
+- Cheers to the new ruler of Dementia! Drinks all around!
+- So, the mighty Syl has fallen. Well then, that's one less woman to worry about... more men for me!
+- I wonder if the new Duke of Dementia is a patron of the arts. Perhaps he will be more appreciative of my act than Lady Syl.
+- Syl replaced. I wouldn't have guessed I'd see it.
+- Even if you don't agree with the method, you have to respect the hard work it takes to replace a Duchess.
+- I tell you, we can't expect much from people who have to murder each other to get into power. Not very civilized, is it?
+- Maybe the ruler of Dementia will fix all these walls that threaten to fall on top of us all the time.
+- Mania has a new ruler! Perhaps Big Head will hear songs of good fortune as well.
+- I can't believe Thadon is gone. He was a lovely man.
+- My master has partaken of the Greenmote and passed his post onto another. Now a new rule begins in the House of Mania.
+- There was only a 16 percent chance Thadon's heart would explode.
+- Thadon is dead, and a new ruler is in his place. Sheer-Meedish must be excited.
+- I hadn't heard that Thadon was replaced, I was too busy perfecting my latest culinary creation.
+- Thadon is dead. I drink to his health. Or... whatever.
+- Poor Thadon, he was such a handsome man... I enjoyed our midnight meetings. I hope the new ruler of Mania is ready for me.
+- I'm so excited! I expect an invitation to perform at the installation of the new ruler of Mania any day now!
+- Thadon is gone. I wonder if he left anything worth keeping...
+- Even if you don't agree with the method, you have to respect the hard work it takes to replace a Duke.
+- See, I told you! These buildings just aren't safe. A huge Obelisk fell over and destroyed Passwall.
+- Passwall attacked by Order. In all the destruction, no sign of the Fork.
+- The Knights of Order have returned as foretold. Arden-Sul save us!
+- Souless Knights on the prowl, they say. Better carry a weapon with you. Wouldn't want you to get hurt.
+- I've heard The Fringe has been attacked. I hope the residents were able to escape in time.
+- I heard the Fringe was attacked. I don't yet know exactly how many were lost, but I'll have to find out.
+- I heard the Fringe was under attack. Sheer-Meedish is probably worried. I should talk to her.
+- Oh, my word! The Fringe, gone? Luckily, Sheogorath will protect us. He always does.
+- I heard Passwall has been destroyed. Damn shame. Used to drink with some of those folks.
+- The Fringe attacked? This may be our last day alive. Let's make the most of it.
+- During these terrible times, I think people need juggling more than ever to take their minds off their troubles.
+- Passwall is in ruins. I should see what they left behind.
+- The Fringe has been destroyed. Who knows what could happen next? I'll have to work quickly to get my affairs in order.
+- The Fringe has been laid to waste! I do hope none of my poor children were caught up in it.
+- Heard there's a new Gatekeeper. Spends all day by that huge wall. It's bound to fall in on him.
+- Gatekeeper at the Gates! Singing songs of gatekeeping!
+- Arden-Sul has heard our plea, and delivered the Gatekeeper back to us. We're saved!
+- I guess things will go back to normal now that there is a new Gatekeeper. Oh well, I was looking forward to some drama.
+- Between the Gatekeeper and the Resonator of Judgment, I feel much safer in New Sheoth right now.
+- I understand there's a new Gatekeeper. Rebuilt much faster this time around, unless I'm mistaken. And I never am.
+- The Gatekeeper walks again. He'll help keep Sheer-Meedish safe.
+- So, the Gatekeeper is back at its post... good. Now we all may be able to get things done around here.
+- Let's drink to the health of the new Gatekeeper!
+- Yes, I know the Gatekeeper is back, but so what? He's missing the best parts, so what's the point?
+- I'm working on a new act where I juggle arms and legs -- in honor of the new Gatekeeper, you see.
+- The Gatekeeper has been reborn. I wonder if there are pieces left over....
+- They can build a new Gatekeeper, but I can't manage to get anything done. I'm over-tasked, I tell you.
+- I should speak to someone about the new Gatekeeper. Don't want him killing any of my little ones trying to return to me.
+- Lord Sheogorath's armies are back! Maybe they'll fix some of these buildings so they don't collapse on people.
+- Armies of Our Lord are singing again! Bells ringing! Singing! Singing!
+- Armies restored or not, I will not let an enemy of the Maniacs set foot in the Sacellum.
+- Those Golden Saint and Dark Seducer men are dreamy aren't they? Glad to have them back.
+- Lord Sheogorath's mood seems improved now that he has an army at his back.
+- Good to see the armies back. Did you know that the average Saint is exactly six feet tall?
+- Sheogorath's armies again can protect sweet Sheer-Meedish.
+- Armies, war? Bah! When it comes to a man's heart, a basket of sweetrolls can be as effective as a sword.
+- Our Lord's armies are at full strength. A toast to Our Lord!
+- Army, eh? Ohhhh... that means it's time to play "interrogate the innocent female prisoner" again! Great.
+- I'll soon be unveiling an entirely new act. "Silence Over Brellach: A Juggling Epic." I think you'll agree it's my finest work.
+- Sheogorath's armies have returned. They'll protect me while I protect my belongings.
+- Perhaps now that our guards are restored, things will quiet down and I'll actually be able to get something done.
+- I can rest easier now, knowing that my children are all better protected.
+- Even Sheogorath knows it's not safe here. Probably afraid of the buildings falling in on him.
+- Where is Our Lord? Does he go to get the Fork?
+- Sheogorath has left us to think for ourselves and to turn to Arden-Sul's teachings for enlightenment.
+- Where has Sheogorath gone? Mama always said, "The Prince of Madness is a basket of riddles."
+- Sheogorath may be gone, but I will still serve the House of Mania until my death.
+- I'm rather curious about this disappearance of Sheogorath's. Is he incorporeal, invisible, or has he moved to another plane?
+- Where has Sheogorath gone? Does he not realize the danger Sheer-Meedish is in?
+- Sheogorath has vanished? I certainly hope it had nothing to do with the Greenmote Upsidedown Cake I sent to the Castle.
+- Sheogorath is missing. A drink in his order is in honor. Honor is in order. Whatever.
+- Sheogorath gone? I'd check the bedchambers of every maiden in town... you'll find Him eventually.
+- All my patrons keep disappearing! It's impossible to create important art under these conditions!
+- Our Lord is missing? Perhaps I should get his things. To keep them safe.
+- Maybe it's not worth doing any more work. I mean, it certainly seems like we're all doomed. What's the point?
+- I've tried to tell all my children to flee the Realm while they still can, but none listen to me!
+- The Greymarch is over. Sheogorath has defeated Jyggalag! The whole world almost collapsed on us! But it didn't!
+- Order is defeated! Triumph for us all! Songs of gladness!
+- Order has been destroyed and we still stand! Joy and tidings to all!
+- Order has been defeated. I'm glad that's over. Mama always said, "The end of the world only happens once."
+- The Greymarch is complete and the House of Mania still stands tall.
+- I lost track of the number of times I looked at the sky, waiting for the world to end.
+- Order is defeated, and Sheer-Meedish is safe. Praise Sheogorath!
+- The day is ours! Come and celebrate, we will feast and dine until we can eat no more!
+- A toast to Sheogorath! Order is no more.
+- Now that this is all over, I feel like celebrating. Care to take a number?
+- Art has triumphed! I plan to dedicate my next juggling epic to Sheogorath's glorious victory!
+- Order is gone! They didn't leave anything interesting behind, though.
+- Finally, all this mess is sorted out. I can get back to my work. Oh, I've lost so much time.
+- The Realm is a safe haven for all my hatchlings once more. If only I could get them to appreciate me.
+- A new adventurer in the Isles. Perhaps it's a sign?
+- Someone new in the Isles? Oh no, I don't want that. Perhaps Syl will put a stop to it.
+- Any new entry to the Shivering Isles is the chance for a new convert. I welcome it.
+- Newcomers are entering the Shivering Isles. With new people comes new treasure!
+- A new adventurer in the Isles. Perhaps this adventurer has some Skooma?
+- There's a new person in the Isles. I wonder what his blood tastes like?
+- I've heard that there are new adventurers coming. I wonder what new discoveries they will bring to us.
+- I hear there's someone new in the Shivering Isles. I do so enjoy making new friends.
+- I heard about this new person in the Isles. There's one more person who'll come to hate my guts. I hope he kills me.
+- The last thing the Realm needs is one more vagabond sneaking in.
+- Someone new is trying to get into the Shivering Isles. I'd better hide what little I have left.
+- I hear there's someone trying to get into the Shivering Isles. It's all part of a plot to overthrow the Realm. You'll see.
+- Someone different come to the Isles? Don't like to think what kind of diseases came along.
+- Rumor has it there's another adventurer trying to get into the Realm. One more person to take up arms against me!
+- That newcomer... I know I heard his name the other day, but I can't seem to remember....
+- Someone new around? Not one of those horrible cats, I hope.
+- The Gatekeeper dead. Can the rest of us be far behind?
+- The Gatekeeper, dead! This could be the end for all of us!
+- The new arrival to our land has slain the Gatekeeper! A fine candidate for the Demented!
+- They're saying that the Gatekeeper has been killed. Was it you? Did you do it? Did you get anything good from him?
+- The Gatekeeper has been slain. That calls for a bit of Skooma, don't you think? I need a fix of Skooma! Please! You got some Skooma?
+- It's only a matter of time before adventurers swarm the Isles now that the Gatekeeper is killed. You'll need a sharp blade to bleed them.
+- It's a shame, really. The Gatekeeper was a beautiful specimen. Now he'll just rot and fade like everything else.
+- The Gatekeeper's been killed, I hear. Now who knows what new faces I'll get a chance to mangle.
+- Someone killed the Gatekeeper? Do you know who? Maybe he'll kill me too. Do you think? I hope so. Someone put me out of my misery, please!
+- The Gatekeeper is dead. One more sign that the Realm is being run into the ground. This never should've happened.
+- I heard the Gatekeeper is dead. He didn't have any of my things on him, though, so it's no matter.
+- The Gatekeeper's been killed, you know. Uncle Leo is most distressed, but I'm thrilled. Can't wait to find out who's behind it.
+- The Gatekeeper has died. Wonder what got him. Collywobbles? Greenspore?
+- The Gatekeeper's been killed. This is only the first step; they'll be coming for me next.
+- I would love to get a piece of the old Gatekeeper for my Museum. His head maybe, or an arm... he certainly was a unique specimen.
+- The Gatekeeper is dead? Who will keep out the cats? They'll be everywhere!
+- The Resonator has been reactivated. Why, if not to protect us from the coming storm?
+- Hearing that the Resonator works again almost makes up for losing the Gatekeeper. We're still not safe, though.
+- Once more the Isles are protected by the will of Arden-Sul.
+- The Resonator is fixed again. What a shame. I looked forward to meeting new people. They always have such nice things.
+- That Adventurer-Attractor-Thingy is working again. You know what's attracting me? The Skooma!
+- I wonder if the Resonator of Judgment hurts those inside?
+- The Resonator of Judgment is fixed! How horrid! New adventurers mean new exhibits!
+- I had rather enjoyed the Resonator being broken. Greater opportunity for meeting someone new.
+- Now with the Resonator of Judgment working, there won't be any adventurers running around. Who am I going to find to kill me now?
+- The Resonator was my idea, you know. People never remember that, but it was. I'm glad it's working again.
+- If the Resonator is working, it means fewer people to steal my things. More of a chance to find what I've lost. Good in my book.
+- So the Resonator is working. But who fixed it? Why was it broken in the first place? Why is no one asking these questions?
+- The Resonator is active once again? Perhaps it will draw the disease from my body.
+- Lord Sheogorath would do well to stop bothering with the Resonator, and just send everyone away.
+- That Xedilian place just sounds positively stuffed with Oddities. Surely something could be spared for my museum?
+- Again the Resonator pulls men to it. But cats? No! Why? It should draw them far from here!
+- The Chalice has been returned to Thadon. He should use it while there is still time.
+- If Thadon has his Chalice back, maybe that will smooth things over between the two Houses.
+- Bah. I liked when Thadon was in a bad mood. Foolish Maniac.
+- Thadon has his Chalice back. I wonder if he'll let me take a look at it....
+- Thadon must be back on the Felldew... he's never tried the skooma though. Say, you got any skooma you can spare, friend?
+- Thadon's blood is so tainted. He needs to be cut open so he can let some of the toxin out.
+- This Chalice of Reversal sounds like a horrid device. Who would want to spend their time under the effects of some... chemical?
+- Thadon has his Chalice. That'll anger Syl, I'm sure, which means more work for me.
+- I hear Thadon's happy again. Dammit! Why is everyone so happy all the time? It's not fair. I just want to die. Is that too much to ask?
+- Thadon has one less excuse for his sloppy rule over Bliss, now that he has his Chalice again.
+- Thadon has his Chalice back. Why won't anyone help me replace what I've lost?
+- Thadon had outside help getting his Chalice back. Something sneaky going on there.
+- How can Thadon drink from that Chalice? Who knows what germs are on it?
+- Thadon and his Chalice can both rot in Hell, for all I care.
+- Too bad someone didn't bring me this Chalice for my Museum. Would have made a fine addition to my collection.
+- Chalices? Who can think about chalices with the cat problem around here? Nasty beasts.
+- Syl once again tortures her courtiers. Soon, we will all suffer.
+- I don't know what happened. I didn't do anything to Syl, so why was I punished?
+- Torture and pain abound in Crucible, glory be!
+- I once met Herdir after a misunderstanding about some candlesticks in Syl's great hall. He's not a bad fellow, actually.
+- Syl's rounding up people again. I better go stash my Skooma. Or... I would if I had some. You have any?
+- Syl is a paranoid fool. She could torture me as much as she'd like, though. Cut intricate patterns into my skin. I shiver just thinking about it.
+- All this talk of torture has me thinking -- would it be possible to hold someone in time during their most painful moment?
+- My, but it has been busy here lately. I do so enjoy a good conspiracy.
+- Syl's torturing people? To death, I hope? It was me. I did it, whatever it was. Come take me away and kill me. I'm the culprit.
+- This is preposterous. Were I in charge, the culprits would've been found and executed immediately.
+- I don't suppose during all this torture anyone asked about where my things have gotten to. Or who stole them.
+- I had just been telling Uncle Leo that something big was coming, and now this conspiracy. And they thought me part of it!
+- I heard something strange happened in the House of Dementia. Probably disease-related.
+- The conspiracy has been discovered and eliminated. That is all you need know.
+- I could have told Syl who the traitor was, if only I could remember! Damn my failing mind!
+- Torture in the House of Dementia? I'm constantly tortured! Cats everywhere.
+- The Torch extinguished and relit? This does not bode well.
+- The Great Torch is lit once more. Maybe we might be safe here after all.
+- Once again, the Great Torch burns bright as Arden-Sul foretold.
+- The Torch is relit. Wonderful. Just makes it a bit tougher to sneak around.
+- The Great Torch is lit! This calls for a celebration. Break out the Skooma! You brought the Skooma, right?
+- I wonder if the Great Torch being lit will stop the unrest. I was getting excited about the prospect of more bloodshed. Oh, well.
+- So, the Torch is lit. Can a flame be captured in time? Would it still burn?
+- The Great Torch burns again. That'll boost spirits around here. A shame, really.
+- The Great Torch is on fire again. I wonder if someone might accidentally knock me into it. Do I look flammable to you? I hope I'm flammable.
+- The Great Torch burning again is a sign that things aren't completely hopeless. Means someone is doing something right.
+- I used to have a Great Torch. Where did I put it? That one is relit, which is a good thing. Mine's still missing.
+- My whole family is happy about the Torch being lit. Unless it's all part of some bit plot.
+- The Great Torch burns once more. Perhaps there's hope for all. Except me. Can't shake this cold....
+- The Torch burns again. This can't bode well.
+- The question is, who gains from the Torch being relit? And who loses? That's what you should be asking yourself.
+- I'm glad the Great Torch burns again. Cats hate fire.
+- A new ruler for Dementia. Certainly the end times are upon us.
+- Crucible has a new ruler. Perhaps I can continue to find shelter in the House of Dementia, else what will I do?
+- The Ritual is complete. Arden-Sul's will is done.
+- It's a shame Syl's gone. She didn't pay a lot of attention to what was going on.
+- Now that Syl is gone, perhaps Skooma will once again be legal!
+- A new ruler for Dementia! Perhaps blood was spilled. Great deals of blood. Syl's blood. Lovely blood.
+- A new ruler of Dementia. Excellent. If I could only freeze this moment in time.
+- Oh, I must say I was sorry to see Syl go. She always kept me busy, and when I'm busy, I'm ever so happy.
+- I've been bad, really bad. Perhaps the new leader of Dementia can sentence me to death for my crimes! Where do I sign up for that?
+- I no longer serve Lady Syl. Crucible has a new ruler.
+- Perhaps the new head of Dementia can do something to help people protect what's really theirs.
+- A replacement for the Duchess of Dementia could put the wrong people in positions of power, if you get my drift.
+- Syl is gone, and a new ruler presides over the House of Dementia. Perhaps they can cure my malady.
+- I was always perfectly loyal to the old Duchess. As I am to the new Duke, whoever it may be.
+- Perhaps the new ruler of Dementia will do something about the cat problem.
+- Thadon is gone! Perhaps things are looking up.
+- Thank Sheogorath it was Thadon who was killed, not Syl.
+- Thadon gone.... I wonder if his quarters are still guarded.
+- I heard Thadon's heart exploded. There would have been a great deal of blood. Sweet, sweet heart's blood.
+- Thadon has been replaced. It is a moment worth capturing forever.
+- Thadon has died. I hope he didn't go quietly.
+- Thadon is dead. Lucky bastard.
+- Thadon is dead. Bliss will be even more of a mess than before.
+- Now that Thadon is dead, I should see if he had my things in his quarters.
+- I heard Thadon is dead. Nothing wrong with that.
+- Thadon has passed the mantle. I heard he was in bad health, anyway, and I know how that is.
+- Thadon is dead. I wonder if he had anything interesting for the museum....
+- A new ruler for Mania? Great. They don't have the same cat problems we have in Dementia.
+- Passwall has been destroyed. Can the rest of the Isles be far behind?
+- The Fringe gone. We're next. I'm sure of it.
+- Arden-Sul preserve us! The Fringe has been destroyed!
+- Did you hear? The Fringe was attacked! How horrible!
+- Strange knights in the Fringe? Well, I'll drink to that!
+- Strange creatures have appeared in the Fringe... perhaps you need a new blade? A Madness blade?
+- They say that invaders have come to the Shivering Isles. Of course, "they" say a lot of things, don't they?
+- The Fringe has been attacked. I'm more than willing to help find out who's responsible.
+- Do you think those Knights will come here? I hope they do! I'd be the first to fall before them!
+- I helped save the Fringe, you know. Not directly, really, but it was ultimately thanks to me.
+- The End is coming. You just wait, you'll see. Time to gather up your things while you can.
+- It's all tied together, I'm telling you. The Fringe, the weather we've been having, the price of cheese... it's all connected!
+- Order has attacked Passwall. Probably brought horrible disease with them, as well.
+- Of course the Fringe was destroyed. This is how the Greymarch always begins, you know.
+- The Fringe is under attack! Probably a cat conspiracy.
+- The Gatekeeper protects us once again. But, can he protect us from the coming horror?
+- The Gatekeeper has been rebuilt, which means the Realm is a little safer for now.
+- The Gatekeeper has returned to its former glory... Arden-Sul blesses us once more.
+- The Gatekeeper has been rebuilt. I wonder if I could get a little piece of the old one.
+- There's a new Gatekeeper. That calls for a toast. Pass the Skooma!
+- I've heard that the new Gatekeeper is fearsome. The ground will soon be red with the blood of those that would challenge him.
+- That flesh monstrosity that patrols the Fringe has been rebuilt. Better to let it stay dead if you ask me.
+- Quite a shame that there's a new Gatekeeper. I'd been hoping to meet a few more friendly faces.
+- A new Gatekeeper, eh? I'll bet he'd be willing to kill me!
+- Rebuilding the Gatekeeper is one of the few things that has gone right lately.
+- They built a new Gatekeeper, did they? Hope they didn't use anything of mine when putting him back together.
+- There's a new Gatekeeper guarding the Realm. Uncle Leo thinks it's too little, too late, but I disagree.
+- A new Gatekeeper protects the Fringe. But he does nothing to stop the spread of disease.
+- Always nice to have a new Gatekeeper. I hope that when this one gets killed, someone thinks to bring me something for the Museum.
+- The new Gatekeeper will keep out those horrible Khajiit.
+- Sheogorath's armies are at full strength once more. They will be needed in times ahead.
+- The realm has regained an army. Let's hope it can protect us.
+- By the grace of Arden-Sul, the armies have returned.
+- The armies of Sheogorath march again!
+- The armies are restored? That calls for a celebration!
+- Our Lord has His armies restored. They carry such wonderfully sharp blades.
+- If the newly restored armies need conscripts, I could be persuaded to enlist a few of my exhibits.
+- No precious army will bring back Lady Syl. Without her, who will let me do what I do best?
+- Sheogorath's army is restored? I should find them. They'd be sure to kill me.
+- I'm not saying I couldn't do a better job, but at least someone is in charge who can get things done.
+- It's about time someone restores some order around here.
+- Who would want an entire army destroyed, and for what purpose? I know there's something big going on.
+- The Daedric armies are whole again. If only I could live to see them in battle. The chills are getting worse, though.
+- It was truly shocking. The guards just dropped dead, all across the city! I'm glad it's over, but it makes you wonder, doesn't it?
+- The armies of Sheogorath are renewed. Let them march now on the horrible cats! Wipe them from the Isles!
+- Sheogorath is gone. This can only mean the end is near.
+- Maybe there really is no place left to hide. We are truly doomed if the attempts to find Him fail.
+- Have we been forsaken? What has happened to Sheogorath? Arden-Sul, guide me in this time of need!
+- Sheogorath is gone? If he is gone, then who is watching us?
+- They say our Lord just took off. Can you believe that? I need a drink. I need the Skooma.
+- Sheogorath is gone. Better carry a blade, just in case. Use it on your enemies, if things get bad. Or on yourself, if things get worse.
+- The Madgod has vanished? Perhaps He simply stepped out of our time until the Greymarch passes.
+- With the whole Realm in jeopardy, my days of work may be at an end. How truly sad.
+- Sheogorath is gone. Maybe I kidnapped him. That would merit a death sentence!
+- I can say without hesitation that none of this is my fault. Could've told you it was coming, though.
+- Just when I thought I was making some progress, I hear that Sheogorath himself has gone missing. Is this the end?
+- I know what the next sign is. You'll see it, mark my words. All efforts to save us will fail, because that's how this will all end.
+- Sheogorath gone, and me not far behind. I think this cold will finally be the death of me.
+- Sheogorath hasn't disappeared. Did you know that he and Jyggalag are the same person? It's all very hard to understand.
+- Where has Sheogorath gone? Who will save us from the cats? Won't someone think of the cats?
+- The forces of Order are no more. What horror will replace them?
+- The Greymarch is over. At least I'll be able to sleep a little safer now.
+- So, the story has been rewritten and the Greymarch is at a new ending. Arden-Sul's will be done.
+- Do you know the best part about the end of a war? Picking the bodies clean of their treasure.
+- Victory over Order! That calls for a grand celebration. Break out the casks of Skooma!
+- I thought we were all doomed for a while there. I carved my last will and testament, but I won't say where.
+- The Greymarch is over, the war has been won, but at what cost? This timeline will never be the same.
+- Now that things are returning to normal, it's high time I prepare my chamber for some new visitors.
+- An invading army sweeps the land, there's a giant battle in the palace, and yet I'm still alive. How did I not die during all that? It's not fair.
+- You know, of course, that the Realm would still be in jeopardy were it not for me.
+- Just because the Isles didn't come crashing down around our heads doesn't mean everything is fine.
+- I suspect this whole Greymarch fiasco is a cover-up for something more sinister. I can't prove it just yet, though.
+- Order is defeated! I think I actually feel a little better. No... I don't.
+- I hope someone saved a piece of Jyggalag's armor. Just the thing for my museum!
+- Order is defeated, but the cats still prey on us all.
+- I certainly haven't heard there's a new adventurer trying to get into the Realm.
+- Some dashing new hero has stolen into the Realm!
+- There's someone new in the Shivering Isles. One more person to worry about.
+- I hear the newcomer made a real mess in Passwall. I sure hope he stays out of Highcross.
+- Newcomers to the isles, you say? Bah! Unless they're here to work my farms, I couldn't care less.
+- A new person in town? Maybe someone to talk to on long, sleepless nights.
+- There's someone new in the Realm. One more interloper to watch out for.
+- Whoever this new person in the Isles is, he'd better steer clear of Deepwallow.
+- A new person wandering around? Did anyone check to see if this person was diseased?
+- A door has opened to the Realm, and a single man steps through. Will he come to us full of lies, or will his intentions be true?
+- Some new person has arrived. It'd be polite to introduce myself, but I'm feeling more tired than usual.
+- I've heard some new person has arrived in the Realm. I simply don't have the time to meet somebody new.
+- There's a new adventurer in the Isles. I've only counted three dead adventurers before. Maybe this one will make one more.
+- 1, 2.. A new person has come to the Isles... 4, 5... recently.
+- Any new adventurer trying to get into the Isles will have a tough time going up against the Gatekeeper.
+- What do you want? You a big mouthed gossip? Fine. I hear there's a new arrival. You happy now? Why don't you bother someone else?
+- Why'd the adventurer walk through the Gates of Madness? To get to the other side!
+- The new adventurers! I've seen them! One is as tall as a mountain! Another is composed of pure sound and light!
+- They say there's a newcomer about. I wonder where he's from?
+- The Gatekeeper should take care of anyone who doesn't belong.
+- New adventurers? New slaves for Cindanwe, you mean. If you see them, tell them to steer clear of Fellmoor.
+- Newcomers mean new pests. New pests mean more blood! More blood means a very busy Relan....
+- My child will smash to a bloody pulp any adventurer who tries to get into the realm.
+- Have you met the newcomer, yet? Rich, maybe? Kindhearted, or just another skinflint?
+- I'd like to see this new adventurer try to make it past the Gatekeeper.
+- Who cares if a new adventurer will be in our Realm soon, he wouldn't wish to hear what I have to say anyway.
+- Don't hurt me, okay? Do you want a bone? I'll tell you a secret. They say a new adventurer has come. Don't bite me!
+- I hear a new puppy dog has arrived on the Isles. I bet he's really cute and cuddly. Like you!
+- I don't have time to deal with adventurers entering the Isles, I have a painting to finish!
+- That Gatekeeper is tough. He's still alive. He killed that adventurer trying to get in. So, we're all still perfectly safe.
+- The Gatekeeper's dead. Must have had some curse or weakness. There always is. Heroes kill monsters by exploiting a weakness.
+- The Gatekeeper's been killed. Now we're even more exposed to attack.
+- With the Gatekeeper gone, it's only a matter of time before we have every manner of riff-raff swarming into the Isles.
+- This business with the Gatekeeper is appalling. Can no one maintain order around here?
+- Business isn't going to be the same, now that anyone can just wander into the Isles.
+- With the Gatekeeper dead, there's one less line of defense against these damnable Scalons.
+- You know who's responsible for killing the Gatekeeper, don't you? It's Them.
+- The Gatekeeper has been slain. I bet he died of a disease. I hope someone takes care of his corpse. Can you imagine how disgusting that will be?
+- The great guardian is dead and gone, his spirit passed away. I wonder if the stranger and I shall cross paths soon some day.
+- The Gatekeeper is dead. Just great. Who's going to protect us now? I sure hope I don't have to move. I hate moving. It's depressing.
+- Whoever killed the Gatekeeper must have been dedicated and hard working. That reminds me... it's time I get back to work.
+- I've never seen a dead Gatekeeper. I should add him to my list. Did I ever tell you I've counted over a 900 dead rats...?
+- 1, 2... Did you hear? The Gatekeeper is dead.... 4, 5... That's bad news... 7, 8.
+- The Gatekeeper is dead. He's got really big bones.
+- Some idiot killed the Gatekeeper. Now we'll be swamped with morons coming and bothering us. Present company not excluded.
+- What do you get when you cross an adventurer with the Gatekeeper? A dead Gatekeeper!
+- Do you want to know a secret? It was I who killed the Gatekeeper. I poisoned him with an apple!
+- I'll have to update my encyclopedia. I had an entire volume devoted to the Gatekeeper, and now he's dead.
+- The Gatekeeper's dead. I hope I get to help rebuild a new one.
+- People keep saying that the Gatekeeper is dead. I have no idea what that means. Do you know?
+- Mighty warrior, the fallen Gatekeeper. Relan wonders if he would be able to do the same.
+- Someone killed my poor child! And my Lord cares little. So be it. Let the adventurers in. I don't care anymore.
+- Hey, did you hear the Gatekeeper is dead? That's valuable information, don't you think? Worth a few coins?
+- The Gatekeeper was killed. Nobody asked me if I thought that was a good idea. Well, I do.
+- The mighty Gatekeeper has fallen. Fallen like my heart on a cold winter's day.
+- The Gatekeeper is dead. Did you kill him? You've got awfully sharp looking teeth. Don't eat me. Please!
+- Aren't you a cute little caterpillar! The Gatekeeper is dead. But he won't turn into a butterfly. No, he won't. Will he?
+- Perhaps I should dedicate a portrait to the Gatekeeper in honor of his death.
+- The Resonator is still broken. It never worked. And it never will.
+- The Resonator of Judgment is back on. I read about that somewhere. It helps keep the Realm clean of vagrants and ne'er-do-wells.
+- I wish we had a Resonator of something-or-other. We're certainly not safe as it is.
+- I'm glad that the Resonator is working again. Enough riff-raff around this place already.
+- Everyone is talking about that damned Resonator of Judgment -- talking instead of working.
+- The Resonator of Judgment is working again. I guess, since the Gatekeeper's dead now, that's a good thing.
+- Resonator of Judgment is working again. Big deal; if it doesn't work on Scalons, doesn't do us a lick of good.
+- Even if the Resonator of Judgment is working again, I bet it won't deter Them. I'm still not safe.
+- That Resonator is up and running again. It traps adventurers like the disease-infected rats that they are.
+- The Resonator sings again, drawing strangers near. Protecting us, our lives, our homes, and all that we hold dear.
+- Someone managed to turn the Resonator back on. I guess that's a good thing. Though it sounds like a lot of work for little pay off to me.
+- Glad they got the Resonator of Judgment turned back on. Was getting less done with all the hubbub about adventurers running amok.
+- I bet there's plenty of corpses to count in Xedilian.
+- 1, 2... Adventurers are being sucked up into that dungeon again... 5, 6.
+- That Resonator keeps adventurers trapped until they die. Lots of bones in there.
+- I hate gossips. If I tell you something, will you go away? Fine. The Resonator of Judgment is on again. Blah.
+- So the moral of the story is: don't count your adventurers until they hatch! Ha!
+- Truth be told, the Resonator of Judgment doesn't actually do anything. Who cares if it's been reactivated?
+- I suspect that the Resonator is affecting the migration patterns of baliwogs, but it's going to take years of study to be sure.
+- It's good that Resonator of Judgment is working again, what with the Gatekeeper dead and everything. Did you hear that noise?
+- Did you hear? The Resonator of Judgment is active once again. I don't trust anything that can influence the thoughts of others.
+- People are talking about a Resonator. Unless it makes more pests to kill, Relan does not care.
+- Foolish adventurers are being pulled into the Resonator of Judgment.
+- This Resonator thing-a-ma-jig. I don't get it. What's it for, anyway?
+- Adventurers are being sucked up by that Xedilian place again.
+- Just when I look forward to company, they activate the Resonator. Tall-Trees-Falling is so alone.
+- Yikes! To bad that Resonator of Judgment doesn't get rid of troublesome beasts. I bet you could swallow me whole, couldn't you?
+- The Resonator is attracting again. Aren't you a cute little thing? Do you want me to scratch behind your ears?
+- I began a painting of the Resonator of Judgment many years ago. I wonder if I ever finished it?
+- Thadon isn't really addicted to Felldew. Felldew is perfectly safe. There's nothing magical about his special cup either.
+- Thadon has his Chalice back. In the stories, men are always off in search of some sword or a cup of some kind.
+- Will Thadon's Chalice make Deepwallow any safer for me? No? Then I don't care.
+- Duke Thadon's got his happy juice back, I hear. Good for him. He's always kept things very orderly. I like him.
+- Honestly, who cares if that noble brat Thadon has his toy Chalice?
+- I wonder if people dream when they take Felldew. Hmmm.
+- The Chalice of Reversal is back in Thadon's hands, I hear. Wonder if it could be used as a blunt weapon.
+- Must be nice to be Duke of Mania, and have your biggest problem surround some missing cup.
+- Thadon better not drink out of that Chalice. Who knows how many people have used it while it was missing? Reusing cups is the best way to get sick.
+- The cup of Thadon is back in hand, a vessel full of dew. It seems someone helped him find it, someone who is new.
+- You know, I need to get me a habit like Thadon. Might take the edge off. Life can be so hard. Makes me want to cry all the time.
+- Thadon's got his cup back? Isn't that nice? I certainly can't lay around drifting on Felldew all day. I've got too many important things to do.
+- Thadon's back to his old self, I hear. He gets moody when he's not on the Felldew. He had two people killed. I know. I counted them.
+- 5, 6... Thadon's back on the Felldew... 7, 8... without the downer... 10, 11.
+- They say Thadon is addicted to some drug. I can understand what that's like. The bones call to me like his drug calls to him.
+- Thadon's got his cup. The world's back in order. I get it. So then why the hell are you still here bothering me? Get lost!
+- So the addict says to the whore, "Gimme back my Chalice of Reversal!" Ha ha!
+- There is more to Thadon and Syl than they let on. Let's just say... well. You know.
+- Everyone's talking about Duke Thadon and his Chalice. How tedious. Don't people understand I have important work to finish?
+- Thadon is addicted to Felldew. I stay away from drugs. A sorceress needs a clear mind. Hey, do you hear those dogs barking? They're so loud!
+- Thadon finally has his precious Chalice. But, such things do not matter to those of us who work for a living.
+- Relan hears of this Reversal Chalice. It makes blood special, yes? Relan would like special blood.
+- Thadon's a fool. Who cares about his precious Chalice?
+- Here's one you haven't heard, I bet. The Duke's got his Chalice back. Hmm? See what I mean? Now, what can you do for me?
+- Thadon has his Chalice back. Doesn't he know a good leader doesn't need any of that? Just his native intelligence. I would know.
+- Thadon is in high spirits now? I'm glad someone is.
+- Did Thadon send you? Oh... I forgot he's happy again. Well, who sent you then? My word, your pinchers are huge! Stay back!
+- Oh, listen to you... a talking bird! How sweet. Did you know that Thadon's back to his old self? Fly away now! Be free!
+- Thadon's new mood after recovering his Chalice is quite nice.
+- Syl never has anyone tortured. She's a gentle and kind leader. She trusts everyone, and is therefore trustworthy.
+- There's another mystery in House Dementia. Someone needs to write a book about that place. It'd be a best seller. Lots of intrigue!
+- Another round of torture in Crucible? At least if you're in a cell, no one can sneak up on you.
+- The Paranoid Duchess is at it again, from what I hear. If you ask me, we could do for a little more law and order around here, too.
+- The petty worries of lords and dukes mean nothing to me. Syl could torture her entire court to death for all I care.
+- If you go to New Sheoth, beware. Syl has been rounding people up and asking them strange questions.
+- Why can't they send someone here to torture the Scalons? More important than courtiers, if you ask me.
+- If I thought I could make the trip safely, I'd go to Crucible and find out if the torture revealed anything about Them.
+- Syl has been known to round up people for "questioning" from time to time. Torture devices are known to spread disease.
+- Once again, the Lady Syl strikes hard among her own. Her paranoia hasn't faded, in fact it's greatly grown.
+- Syl likes torturing people, doesn't she? But, there's really no point in lying. I mean, it takes too much energy to keep it all straight.
+- I can't imagine how anyone can get anything done in Crucible, if they keep getting dragged off for questioning by Syl.
+- I was once in Syl's interrogation cell. I counted 35 dead rats in there. Of course, I had to kill a couple to get the count that high.
+- 8, 9... Syl's rounding people up again. 10, 11... It's hard to count when you are being tortured.
+- They round up people like animals in New Sheoth. I should hunt those nobles. That's what I should do.
+- Look. I don't like you. Why are you bothering me? Maybe I'll ask Syl to round you up for questioning. Would you like that? Go away.
+- So the spy says to her, "You're not paranoid if everyone's out to get you!" Ha! Like Syl! Paranoid! Ha!
+- I think that I would like to be tortured. Perhaps I should go see Syl.
+- The palace intrigues of the House of Dementia are of no interest to me.
+- Syl likes torturing people. She's got nothing on the methods of Sorceress Verenim, though. She's a genius with pain.
+- Once again, Syl uses pain to get what she wants. How long before every one of us is forced to visit Herdir's chamber?
+- Relan hears of Syl's torture. Relan likes what he hears. Syl is good.
+- Syl enjoys having people tortured. She's a rank amateur. I could teach her a few things.
+- This'd be a good time to have a friend with an ear to the ground, what with all the crazy goings-ons in Crucible, you know what I mean?
+- Syl's really suspicious of other people. I bet she's the one with something to hide.
+- Hearing rumors of Syl's madness makes me glad I live outside the walls of New Sheoth.
+- Ugh. Not again. Whatever Syl accused me of, I'm innocent. Don't hurt me. Wow, I've never seen such a big wolf before! Scary.
+- A little bird told me that Syl is rounding up people again. That's silly, isn't it? Would you like some milk, little kitty? You look thirsty.
+- I don't have time to deal with Syl and her paranoid ways.
+- The Great Torch is out again! I bet you didn't know that!
+- The Great Torch is lit in the Sacellum Arden-Sul. Have you read the book about Arden-Sul? It's fascinating!
+- Someone relit the torch of Arden-Sul. Maybe they'll come here next and save us.
+- The Great Torch has been relit. I wonder if that's a good sign, or a bad sign?
+- I hope everyone keeps working and doesn't take the time to go see the Great Torch.
+- Maybe I should get a Great Torch like in New Sheoth. I'll bet it would help keep me awake.
+- So the Great Torch has been lit again. If it doesn't kill Scalons, it doesn't mean much to me.
+- I heard someone relit the Torch at the Sacellum Arden-Sul. Good news, unless... what if someone is just trying to trick us?
+- That torch in New Sheoth is lit. Hopefully, that will burn off some of the airborne germs. It won't get all of them, though.
+- The burning flame of the Great Torch casts a peaceful glow, but will the flame stay ablaze or will it one day go?
+- I hear you light that big torch in the city by setting yourself on fire. Now there's an idea. I'd like to see that, but the city is so far away.
+- What do I care about a big torch in the city? I'm too busy to worry about the games of city-folk. A giant garden, that'd be something.
+- The Great Torch in New Sheoth is lit. Should be easier to count the dead bodies that get dumped on the city street at night now.
+- 2, 3... That big ol' torch in... 4, 5... New Sheoth is finally lit... 7, 8.
+- I've heard the Great Torch is lit once more. City dwellers. Such useless folk. I've got no use for them. A giant torch? Really?
+- The Great Torch, the Great Torch! Why's everyone bothering me about that? I've got a Great Torch for you, right here.
+- So she says, "Is that a Great Torch in your pocket, or are you just happy to see me?" Ha!
+- There is no Great Torch. And it isn't ablaze once more.
+- People are all excited about the Great Torch being relit. Personally, I don't pay any attention to politics.
+- The Great Torch is lit in the city. Do you hear it? I do.
+- The Torch lights the city once again. Fat lot of good it does those of use working out here.
+- Relan understands the Great Torch burns again. Relan thinks this is a good sign.
+- So, the Great Torch burns. I know something about burning. The human body makes a pretty good torch, especially the fattier parts.
+- The Great Torch is burning again! This calls for a celebration! You can spot me, right? Just a few gold?
+- Some fool lit himself on fire in the city.
+- The Great Torch burns once more -- a beacon of comfort that only serves to mock my existence.
+- Stay back! Where'd you come from? The big torch in the city? Back away, I say. Back!
+- Oh, what a pretty colored moth you are! Don't fly into the city. There's a big torch there. Bad news for little moths.
+- The Great Torch burns with such vibrant color. I should try and incorporate the hues in my next work.
+- The city isn't ruled by Dukes. It's ruled by elected representatives. And they wear funny hats.
+- A new ruler for Dementia! This is the stuff epic novels are made of.
+- Power changes hands in Crucible, which means even less stability for the Realm. Just what we needed.
+- A new ruler in Crucible? It doesn't concern me.
+- A new ruler in Dementia is no reason to lay about.
+- A new ruler in Crucible? One more thing to keep me up at night.
+- The lands of Dementia have a new ruler. Perhaps we'll finally take care of this Scalon problem once and for all.
+- So we have a new ruler of Dementia. How do I know this one isn't in league with Them?
+- Someone has replaced the Duchess!  I bet she got sick and died.
+- The circle has completed, the Ritual has been done. A new leader sits upon the throne, the royal post is won.
+- Running Crucible must take a lot of energy. I'd rather just sit here. No reason to do anything else.
+- What do I care of the intrigues of the city? Old Duke, new Duke. I'm too busy to keep track of all that nonsense.
+- Has the new ruler of Crucible thought about setting up a city morgue? I'd keep track of all the bodies!
+- 12, 13... A new ruler for Crucible... 14, 15.
+- Someone new is running Crucible. Can't say I care.
+- There's a new Duke in the city? Who cares? Go kiss his ass, for all I care. Go on! Go!
+- So the new duke turns to him and says, "Wrecked him? Damn near killed him!"
+- Syl isn't dead. She's living on an island nearby.
+- I understand Dementia has a new leader. Not my area of interest, honestly.
+- I heard there's a new ruler in Crucible. Of course, I hear lots of things. Like that! Did you hear that?
+- With Syl gone, perhaps someone will help us out here.
+- Relan hears there's a new ruler in Crucible. Relan finds this interesting.
+- A new Duke in Crucible? They're all just bags of meat to me.
+- I know we're not part of Dementia, but I think their new Duke still deserves a toast, don't you? You're buying, right?
+- I bet I'd make a better Duke than the new one.
+- Like the leaves of a tree, Syl has fallen from Sheogorath's grace and no longer rules Dementia.
+- Whoa, look at the fangs on you! There's a new ruler in Crucible. Don't bite me!
+- Horsey! Did you hear about the new ruler in Crucible? Did you? Good horsey.
+- The Duchess of Dementia has been assassinated? Well, no need to finish her portrait then.
+- Thadon isn't dead. He's just hiding.
+- Thadon is dead. Quite a tragedy. Perhaps someone will write about it.
+- A new ruler of Mania. It doesn't sound good to me.
+- A new ruler in Bliss? It doesn't concern me.
+- I don't expect anyone to be working any less just because of Thadon's death. Take a moment to mourn, then back to work.
+- Thadon is dead? I had a nightmare about that once.
+- Hmmm... perhaps the new ruler of Mania will take care of the Scalons.
+- Someone new on the throne of Mania? I hope it's not one of Them.
+- Someone has replaced the Duke. I bet he got sick and died.
+- Running Bliss must take a lot of energy. I'd rather just sit here. No reason to do anything else.
+- Has the new ruler of Bliss thought about setting up a city morgue? I'd keep track of all the bodies!
+- 12, 13... A new ruler for Bliss... 14, 15.
+- Someone new is running Bliss. Can't say I care.
+- Thadon's dead? So what? He annoyed me as much as you do.
+- ...and he says, "Eat the Greenmote, drag Thadon. Eat the Greenmote, drag Thadon." Ha!
+- Thadon's not dead. He lives underground. In a house made of cheese.
+- I understand Mania has a new leader. Not my area of interest, honestly.
+- I heard there's a new ruler in Bliss. Of course, I hear lots of things. Like that! Did you hear that?
+- With Thadon gone, perhaps someone will help us out here.
+- Relan hears there's a new ruler in Bliss. Relan finds this interesting.
+- Thadon's dead? They're all just bags of meat to me.
+- Not every day we get a new Duke! Let's celebrate, you and me! Whaddya say you buy the first round?
+- Like the leaves of a tree, Thadon has fallen from Sheogorath's grace and no longer rules Mania.
+- Whoa, look at the fangs on you! There's a new ruler in Bliss. Don't bite me!
+- Horsey! Did you hear about the new ruler in Bliss? Did you? Good horsey.
+- The Duke of Mania has been assassinated? Well, no need to finish his portrait, then....
+- The Knights of Order are here to protect us.
+- Knights of Order? These aren't the valiant knights from the epic tales!
+- I've always known we're not truly safe in the Isles. Perhaps now more people will listen.
+- I'm not saying I like the idea of these Knights and all, but the Shivering Isles could really use a dose of Order.
+- Attacks in Passwall? Invaders roaming the lands? You see, this is what happens when leadership is lax.
+- It's worse than my nightmares! In fact, it's like my worst nightmares come true!
+- The Fringe can fend for itself. We have our own problems.
+- They're coming for me. Those Knights. I should have seen it coming.
+- Those strange Knights probably have diseases from wherever they came from. Best stay away from them.
+- The Knights have returned with a vengeance, their blades stained with blood. Who will be able to stop them, to stem this deadly flood?
+- Life might be easier if Order wipes everything out. Everything would be grey and plain. Like my life.
+- I hope those Knights of Order stay away from my garden. I'd hate to have to start all over again.
+- I've never counted a Knight of Order corpse. I wonder what they look like.
+- 1, 2... sad about Passwall. 3, 4... I wonder if they will rebuild it. ...5, 6.
+- Damn Knights! Scaring away all the beasts!
+- I wish those Knights of Order would come here and wipe everyone out. I'd finally get some piece and quiet!
+- Why did the Knights of Order cross the Fringe? No one knows.
+- These invaders that everyone is afraid of don't even exist. I swear, why would someone start a rumor to create panic?
+- All my work on the Fringe... wasted. I'll have to begin my research all over again.
+- If the old Gatekeeper were still around, those Knights wouldn't have caused such trouble.
+- Invaders? You don't... you don't suppose that they've come for ME do you?
+- Visit Passwall once, Relan did. Good that it burned. People there deserve pain.
+- With the Gatekeeper gone, the Knights of Order have been causing trouble in the Fringe.
+- The Fringe was destroyed! Did you hear? Gone. Everything turned to dust! You don't think that could happen here, do you?
+- Those Knights of Order are always causing trouble. Don't worry, though. I'll figure out what to do.
+- The day has finally arrived, a day of doom and despair. Whatever shall we do?
+- Don't eat me! You're worse than those knights in the Fringe!
+- Those creatures in the Fringe are scary. Not like you, you fuzzy little rascal!
+- I must make my way to The Fringe and capture its destruction on canvas. We can't let history be forgotten.
+- The Gatekeeper is still dead. That's fine. He never did anything useful, anyway.
+- The Gatekeeper will keep out those adventurers again. Too bad. Some of them had exciting stories to tell.
+- The Gatekeeper walks once more, but what good does that do me? Who knows what's already inside the Realm.
+- Have you seen the new Gatekeeper? I hear they built him with four arms and no head! Or was it four heads and no arms?
+- I have to admit that when he's not dead, the Gatekeeper seems to do an excellent job. Perhaps Relan could learn from it.
+- The new Gatekeeper will keep more adventurers in the Fringe. More business for my inn.
+- They can build a new Gatekeeper, but they can't send someone to aid me in fighting these Scalons?
+- I hear there's a new Gatekeeper. What if They tamper with him, and send him after me?
+- There's a new Gatekeeper. I hope this one doesn't get sick and die like the first one.
+- Stronger than ever, and ever before. The new Gatekeeper is the ultimate ward.
+- They made a new Gatekeeper. I'd go see him, but that would take effort.
+- I'm glad the Gatekeeper is back. Lets me focus on my work.
+- There's probably a growing pile of bodies near that new Gatekeeper. I should go count them.
+- 7, 8... There's a new Gatekeeper in the Fringe. 9, 10.
+- A new Gatekeeper is in the Fringe now. That's good. Fewer adventurers means more creatures for me to hunt.
+- When you're done boring me, why don't you go have a chat with the new Gatekeeper? Run along now!
+- So then Sorceress says to the new Gatekeeper, "But in the morning, you'll still be ugly!"
+- Did you hear? I helped rebuild the Gatekeeper! He has my eyes.... What? I got new ones!
+- I'd be very interested in taking a look at this new Gatekeeper. An entirely new form of life!
+- I wish I'd been able to help construct the new Gatekeeper.
+- Now that the Gatekeeper lives again, I have to ask... is he there to keep others out, or to keep us in? Think about it.
+- Relan is jealous of the Gatekeeper. Relan wishes that he had swords for arms.
+- My new Gatekeeper is a miracle. He's perfect.
+- What do you say we drink a toast to the new Gatekeeper together? Hey, could you spot me, just this once?
+- The rebuilt the Gatekeeper. I thought they should have done that a long time ago.
+- Why build the Gatekeeper again, if he will one day fall? Seems so sad and pointless.
+- You're more fearsome than the new Gatekeeper. Look at the teeth on you!
+- They built a new Gatekeeper! Yes they did. Yes they did. Aren't you just precious?
+- The Gatekeeper's return can only mean one thing... time to begin a new painting of him.
+- Those aren't Sheogorath's real armies that have returned. The real ones are being held in a secret underground compound.
+- Read your histories: a strong army guarantees a strong Realm. Good thing Sheogorath's armies are back to full strength.
+- What do I care of armies that I never see? They don't ever set foot here, do they? We have to protect ourselves.
+- The new Duke is really taking charge of things. Maybe there is hope for the Realm.
+- So, the armies have been restored. They'd better not show up here looking to procure my crops.
+- The armies have returned. Thank the Madgod! I've had nightmares about them disappearing.
+- A whole army restored, and still these Scalons run free. Must I do everything myself?
+- Armies are well and good, but only if you know who you're fighting.
+- The armies of Sheogorath have returned? Putting lots of people in the same place is known to spread disease. I hope they keep the barracks far away.
+- The Madgod's army has returned, their weapons primed to slay. Could this mean our downfall, or will we win the day?
+- So we have armies again? I wouldn't want to be in an army. All that physical exertion. Better to just sit and regain your strength.
+- Sheogorath's army is restored? That's good. You learn discipline in the army, something folks around here are lacking.
+- Do you suppose the armies will start killing people now? I'd keep an accurate count of all the corpses.
+- 1, 2... Sheogorath's got his army... 3, 4... in the barracks... 5, 6.
+- The armies are back in order? I've got no use for armies. Killing is personal, not political.
+- I hear the army is restored. You should go see if they need a target dummy to practice on.
+- Do you know where Sheogorath keeps his armies? In his sleevies! Ah hahaha!
+- I hear that my army has been restored. Perhaps I should join up again....
+- The tedious to-ings and fro-ings of the armies of Sheogorath are of no interest to me.
+- Armies with steel are good, but armies can be destroyed. Magic is better. Magic can bring armies back to life.
+- People keep telling me that the armies of Sheogorath are reassembled... as if this is something that we should be happy about.
+- Armies? Pah! Armies are worthless. Killing is best by one man alone. In the dark. Sneak. Sneak. Then blood.
+- The power of Sheogorath doesn't lie in armies. Power comes from the willingness to do things others won't.
+- They SAY the armies have been restored. But you think that's the whole story? Not by half, just you wait and see.
+- The armies are back together now, I hear. I'd never have let them get lost in the first place.
+- Armies can only mean one thing... more sorrow and more death.
+- Leave me alone. Sheogorath's armies are coming. You better run away!
+- The armies are restored, you say? My, what a smart little thing you are!
+- Now there's an army to protect us? Ugh, and I almost had begun to paint "The Gatekeeper in Repose." Oh well, time to start again.
+- I know where Sheogorath is. He's hiding in my house. In a cupboard. But he's invisible.
+- Sheogorath has left. Where did he go? It's a mystery! I love mystery stories. I wonder how this one will end.
+- The whole Realm is at risk. Finally everyone can understand what it's like living under a blanket of fear.
+- We're doomed. The Greymarch can't be stopped. We'll all be Ordered like the old tales tell.
+- Just like Sheogorath to abandon us in our time of need. He has been ever fickle.
+- Sheogorath has disappeared. This is worse than my nightmares.
+- Perhaps I was wrong. Maybe the Scalons aren't the worst thing that could happen to us. I mean... Sheogorath himself has vanished.
+- I'm telling you, They're behind all of this. All of it! No one is going to listen to me until it's too late!
+- Where did Sheogorath go? Great. I bet he got sick and died. We're all going to die now!
+- The Mad One has vanished from the Isles, fear sits heavy on the brow. All our hopes go with one, but can he save us now?
+- Sheogorath's gone. I wish I could just disappear that way. Sometimes I feel invisible. But, that's not the same. I need a nap.
+- I guess even our Lord Sheogorath needs to take a vacation once in a while. Not me, though. I'm happy to keep working.
+- Do you think Sheogorath died? I know He's missing. I want to see His corpse if He's dead.
+- 5, 4... Sheogorath has left us alone in this terrible time. 3, 2, 1.
+- Even the great Lord Sheogorath forsakes us. The bones are getting louder.
+- Maybe you're the reason Sheogorath left. Probably are. You make me want to leave whenever I see you.
+- Knock, knock. Who's there? Not Sheogorath.
+- I know where Sheogorath has gone! Of course, I'm not going to tell you.
+- People act like Sheogorath's disappearance is of some grave significance. But the Shivering Isles are the same as ever, I assure you.
+- Where has our Lord gone? I hope He returns soon.
+- Sheogorath has vanished? Another already seeks his throne. One tyrant passes and another rises. To the void with them.
+- The Madgod is gone. Can he die?
+- Our Lord is too scared to face the Greymarch, is he? Coward! Good riddance.
+- Sheogorath gone. The Duke gone. This whole thing is making me really, really nervous. I need to calm down.
+- Sheogorath leaves in the middle of the Greymarch. Perhaps I should take over ruling the Realm.
+- Oh! Our Lord has abandoned us! What will be our fate?
+- I wish I could vanish like Sheogorath, right about now. Please don't hurt me.
+- Have you come to cheer me up? I'm worried about Lord Sheogorath. Are you worried, you little darling?
+- Sheogorath has disappeared! How can I be expected to paint at a time like this?
+- We're all doomed. Jyggalag has won. Sheogorath is dead. The forces of Order are victorious.
+- We're all still here. It's a miracle! Someone really needs to write a book about this. Perhaps I should....
+- The world didn't end. Today, at least. That doesn't mean we're safe tomorrow. Doesn't really mean we're safe now, either.
+- It's... unbelievable. Order was defeated? All the old tales say that's impossible.
+- I'm glad that this war business is over and done with. There are those of us who have work to do.
+- The forces Order have been defeated. Perhaps now I can sleep.
+- Fine, fine. So the Realm still stands. That doesn't mean there are any fewer Scalons in the Isles.
+- It seems They have been thwarted for now. I know They're still plotting against me, though. It's only a matter of time.
+- Jyggalag is gone, but I bet he brought a ton of diseases with him. We still aren't safe.
+- Now the day has ended, the battle has been won. A new day dawns on the Isles, the past has been undone.
+- I suppose I should be glad the world didn't end. But, in some ways, I wish it had. It would be easier than... this.
+- That was close, but Sheogorath has won. I'd better get back to work.
+- I wonder how many corpses line the palace grounds. Perhaps I should count them.
+- 1, 2...  the Greymarch is over. 4, 5... Thank Sheogorath... 6, 7.
+- I'm glad Jyggalag is defeated. Can't imagine a grey world.
+- I suppose you think we should celebrate Jyggalag's defeat? The enemy of my enemy and all that? You're wrong.
+- What do you call the time between one victory dance and another? The Jig-lag! Get it?
+- Behold the new god of madness! It is I, Kishashi, who has defeated the forces of Jyggalag!
+- With the Greymarch ended, I need to devote some serious study to the obelisks. They have proven more interesting than I had thought.
+- Jyggalag's forces have been defeated. Perhaps Order is simply an inferior element.
+- Don't think for a second that this war is actually over. Stay on your guard. The agents of the enemy lurk everywhere.
+- Much blood has come and gone. Relan is sad. Relan was stuck in Fellmoor for all the war... no blood... no war... poor Relan.
+- Maybe now that Jyggalag is gone, Sheogorath will finally return my affections.
+- Victory calls for celebration, don't you think? I wish I had the coin to drink a toast to Sheogorath.
+- Jyggalag's defeated. Took them long enough to get rid of him.
+- What's the point in being happy that the Greymarch has ended? Tomorrow something new will arise to destroy us.
+- It seems the world is safe again... unless you're going to eat me. You're not going to eat me, are you? Are you? Please don't!
+- Look at you wag your tail! You're happy Jyggalag is gone too, aren't you? Yes you are! Yes you are!
+- Finally, some peace and quiet around here... now I can get some serious work done.
+- Did you really have some important reason for interrupting me? I thought not.
+- How many times have I told you to leave me alone?
+- Cretin! Nincompoop! Halfwit! Now I have to start all over again. Happy?
+
+---
+
+## Event-Reactive Rumors
+
+*How NPCs talk about major events — notice the personal framing, not news-reporter tone.*
+
+(92 lines)
+
+- Everyone's talking about the assassination, of course. Here. Take my copy of the new Black Horse Courier. Go ahead. Keep it.
+- Everyone's talking about the victory over Mehrunes Dagon! I can hardly believe that the great Oblivion Crisis is over.
+- They say that Akatosh appeared and killed Mehrunes Dagon, right in the middle of the Temple of the One! Do you believe it?
+- I'm glad that the Oblivion Crisis is over, of course, but I can't help wondering... what happens to the Empire now?
+- All the bards are busy composing songs about the battle! "The Fall of Dagon" is my favorite so far.
+- Have you heard "The Fall of Dagon" yet? "Take heart, the mighty hero cried! He looked up at Dagon and cursed his foul name..."
+- All else is put aside to celebrate of our deliverance from evil. Thanks to Akatosh and his servant Martin.
+- Everyone wants to know what really happened in the Temple. What happened to Martin? Was the fiery dragon really Akatosh?
+- Have you heard? That big galleon down at the Waterfront? Someone killed the captain! Right there on the ship!
+- Poor Gromm. I wonder what he'll do now that Baenlin is dead. Serving that old man was the joy of his life, or so I've heard.
+- Oh, have you heard? Old Baenlin is dead! They say he was murdered! Right in his own home!
+- Oh, have you heard? About old Baenlin? It was a horrible accident. A stuffed minotaur head fell off the wall and crushed him to death! Tragic...
+- Francois Motierre hasn't left his house in days. Hasn't come down to the tavern, refuses to have visitors. I think the man's gone batty.
+- You won't believe what's happened! Francois Motierre has been killed! Murdered by the Dark Brotherhood! It's true, I saw the body myself.
+- A friend of mine is a member of the Legion. He said some Altmer nobleman was murdered, right here in the city! Faelian, I think his name was.
+- They say there are a bunch of people holed up in Summitmist Manor. Locked in. Some kind of weird party or something.
+- Everyone in Summitmist Manor is dead! There was some kind of party that went horribly awry, or so I hear.
+- Have you heard? Adamus Phillida has been killed! Murdered by the Dark Brotherhood!
+- So, Adamus Phillida is finally retiring from the Imperial Legion. Spent his life fighting the Dark Brotherhood. Time for a well-earned rest, I'd say.
+- Oh, how horrible! You know Caelia Draconis? That nice Watch officer stationed at the castle? She's been murdered!
+- Hey, did you hear about that murder in the Talos Plaza District? I think the man's name was Draconis. Yeah, cut down in the prime of his life.
+- Between you and me? Ysabel is completely in love with me. But I'm just not a one-woman guy. Nope, the life of the bachelor suits me just fine...
+- Agronak is good, yeah. Too good. He says he's only half Orc. What I want to know is, what's the other half? Cause it sure ain't human...
+- I heard a rumor that you're an idiot. Any truth to that?
+- Would you believe Owyn once asked for my hand in marriage? It's true! Poor bastard was heart-broken when I turned him down. I'm old, not desperate.
+- I heard there's a new Arena Champion. Sure it takes a lot of skill to make it that far, but they'd be crazy to challenge the Gray Prince.
+- Have you heard about Agronak gro-Malog? Turns out he's not a noble at all. He's really the son of a vampire! It's almost too horrible to believe.
+- The Gray Prince is nothing but a fake. Haven't you heard? His father was a vampire! He's no Orc. He's a monster. Someone should put him down.
+- I can't believe it! The Gray Prince has been beaten! There's a new Arena Grand Champion now, someone called the Spellslinger!
+- I can't believe it! The Gray Prince has been beaten! There's a new Arena Grand Champion now, someone called the Butcher!
+- I can't believe it! The Gray Prince has been beaten! There's a new Arena Grand Champion now, someone called Shadowstep!
+- I can't believe it! The Gray Prince has been beaten! There's a new Arena Grand Champion now, someone called the Black Arrow!
+- I can't believe it! The Gray Prince has been beaten! There's a new Arena Grand Champion now, someone called Skullcrusher!
+- I can't believe it! The Gray Prince has been beaten! There's a new Arena Grand Champion now, someone called the Divine Avenger!
+- I can't believe it! The Gray Prince has been beaten! There's a new Arena Grand Champion now, someone called the Messenger of Death!
+- I can't believe it! The Gray Prince has been beaten! There's a new Arena Grand Champion now, someone called the Crimson Blade!
+- I can't believe it! The Gray Prince has been beaten! There's a new Arena Grand Champion now, someone called Man o' War!
+- I can't believe it! The Gray Prince has been beaten! There's a new Arena Grand Champion now, someone called Sir Slaughter!
+- I can't believe it! The Gray Prince has been beaten! There's a new Arena Grand Champion now, someone called the Tamriel Terror!
+- I can't believe it! The Gray Prince has been beaten! There's a new Arena Grand Champion now, someone called Dragonheart!
+- I can't believe it! The Gray Prince has been beaten! There's a new Arena Grand Champion now, someone called Lady Luck!
+- I can't believe it! The Gray Prince has been beaten! There's a new Arena Grand Champion now, someone called the Iron Maiden!
+- Dear Brother, I do not spread rumors. I create them.
+- Are you mad? My life is on the line and the entire Brotherhood is at stake! We don't have time for this nonsense!
+- Dear Sister, I do not spread rumors. I create them.
+- There are whispers in the halls of the Sanctuary. Some say there is a traitor among us. That the Brotherhood has been... compromised.
+- The Count of Skingrad is not all he seems. Let's just say I'm not the only one who enjoys his evenings...
+- Oh, I shouldn't... well, all right. Gogron had a pet rabbit as a child! He petted the thing so hard he crushed its skull! Ha ha ha! What a brute!
+- Don't tell anyone else, but some day I'm going to have Ocheeva's position. Just you wait and see. Lucien Lachance knows real talent when he sees it.
+- I... I've heard some talk. This past year, some family members have been found... murdered! Could there be an assassin among assassins?
+- I have it on good authority that the newest addition to the Brotherhood is an annoying whelp unworthy of licking my boots. How's that for gossip?
+- The Black Hand is trying to keep it very hush hush, but one of their own has been assassinated! It would seem the Brotherhood has been infiltrated.
+- Hey, I don't like to tell stories, but Telaendril and me... you know. Don't believe me? I've got her undergarments to prove it! Ha ha ha ha ha!
+- Rumors? Oh! Well... Um... I... I heard you're the one who killed Adamus Phillida! The skill you must possess!
+- I... I heard what they did to Lucien Lachance... Is it true that Arquen feasted on his entrails?
+- Well, the others and I have been talking.... Is it true? About the traitor? It's frightening to think he infiltrated the Brotherhood so easily.
+- This is no time for gossip mongering. A dark destiny awaits us.
+- The latest Black Horse Courier is upsetting. Apparently, more and more people have been trying to contact the Dark Brotherhood. See for yourself.
+- Haven't you heard? Baenlin's been killed! The Black Horse Courier has a special edition with the story. Here, take my copy.
+- The Dark Brotherhood! They've actually murdered Adamus Phillida, the Imperial Legion commander! It's in the latest Black Horse Courier. Here.
+- They say that when you murder someone, the Dark Brotherhood comes to you in your sleep. It's how they recruit new members.
+- There's a new ship moored up in the Waterfront District. The Marie Elena. It's a galleon, I think.
+- Old Baenlin is dead! I hear it was a horrible accident. He was resting in his chair and BOOM -- a stuffed head fell on him!
+- The assassinations. What else is there to talk about? Perfectly planned and executed... the Blades perfectly useless... a complete disaster.
+- We're all talking about the emperor's murder. We have no emperor. And no heir. That's never happened before. I suppose we should all be worried.
+- People are subdued. Troubled. A crisis like this tests the people's faith.
+- I think we're in for some hard times. The death of Uriel Septim and his heirs changes everything.
+- The Emperor and his three sons, dead, right under the noses of the Imperial Guard. It's a disgrace.
+- Have you heard about Kvatch? They say that daedra came from Oblivion and burned the whole city to the ground!
+- Everyone's saying there's trouble in Kvatch. The whole town destroyed. Only a few survivors.
+- Do you think what happened to Kvatch could happen here?
+- I heard that the Kvatch Guard is driving back the daedra! Maybe there's hope after all.
+- Everybody's talking about the Hero of Kvatch! They say he actually went into an Oblivion Gate and destroyed it.
+- Everybody's talking about the Hero of Kvatch! They say she actually went into an Oblivion Gate and destroyed it.
+- Hey, you're the one they call the Hero of Kvatch, aren't you? The one that closed the Oblivion Gate and saved the city?
+- Good news from Kvatch for a change. The last of the daedra have been driven out.
+- Do you believe any of that talk about more Oblivion Gates opening all over the place?
+- I've been hearing disturbing tales about Oblivion Gates opening all across Cyrodiil. I hope it's just wild talk.
+- They say that Oblivion Gates have opened outside cities all across Tamriel! Gods preserve us!
+- With those Oblivion Gates opening everywhere, it's only a matter of time before another city goes the way of Kvatch.
+- Did you hear? The lost heir of Uriel Septim rallied the Guard and smashed a horde of daedra outside Bruma!
+- They say a lost son of Uriel Septim has reappeared in Bruma. Troops are flocking to his banner from all over Cyrodiil!
+- I heard that some cult called the Mythic Dawn is behind the Emperor's assassination.
+- They're saying some cult murdered the Emperor and are opening the Oblivion Gates. Do you think any of it's true?
+- Thank Akatosh the Oblivion Crisis is over! Although with no Emperor and no heir, I wonder what will happen to the Empire?
+- I plan to visit the Imperial City soon to pay my respects at the Temple of the One. They say the Dragon Statue is 100 feet high!
+- I'm sure the Elder Council will find some way to hold the Empire together. At least the Oblivion invasion is over!
+- I heard that some of the provinces were talking about seceding from the Empire. Probably just talk though. Everything's a bit unsettled now.
+- Most people consider Martin's... transformation... a religious or political event, but what interests me is its metaphysical implications.
+- I wish I had witnessed the avatar of divine Akatosh myself. Imagine! Upon the very altar of the Temple of the One!
+- I confess, I didn't think we had a chance against the daedra. But Martin proved himself a true heir of Talos on that day.
+- To think that Bruma was where Martin Septim chose to reveal himself as the true heir to the throne for the first time!
+
+---
+
+## Guard Dialogue
+
+*Guard-specific voice — authority, duty, local knowledge.*
+
+(189 lines)
+
+- What are you looking for?
+- Well then, it's back to the open road for us, eh? Stay safe, my friend. And stay clear of those Goblins. Little buggers have been getting cocky...
+- All right. The pickpockets and pilferers ain't going to catch themselves. We'd best be off.
+- Hey, did you hear that? Thought I heard someone calling for a guard. I guess that's our cue.
+- Well, I should go. If you need any backup, just give me a shout.
+- We'd best get back to work now, hmm? Captain catches us gabbin', it'll be our heads.
+- Just remember, my sword's here if you need it. You run into any trouble, just holler.
+- Back to the watch then, eh? Don't forget to stop by the barracks later. I'll show you those new greaves. The Mithril ones. Until then...
+- No talking. And, by the way, we execute escaping prisoners. Just a friendly reminder.
+- Crime doesn't pay. We have long memories. We won't forget.
+- Crime don't pay. My cells is full of fools thinkin' it did. I might just sees ya there soon.
+- What can I do fer ya, sir?
+- Morning, sir.
+- Morning, ma'am.
+- What can I do fer ya, ma'am?
+- Visitors ain't allowed down heres.
+- You're new here in Skingrad? Fine. I'll make sure the captain knows we have a stranger in town.
+- Please keep your weapons sheathed, and use your best manners.
+- We're a bit suspicious of strangers here. Don't give us anything to be suspicious about, will you, please?
+- Welcome to Anvil. If you need a guard, just look around.
+- That's why things are so peaceful here. Just look around... and there's a town guard. Prevents all sorts of misunderstandings.
+- Twelve midnight, and all's well. Hope it stays that way, ma'am.
+- Eleven of the evening watch, and all's well. Long day, ma'am.
+- Ten of the evening watch, and all's well. Everything okay, ma'am?
+- Nine of the evening watch, and all's well. Good to see you, ma'am.
+- Eight of the evening watch, and all's well. And you, too, ma'am.
+- Seven of the evening watch, and all's well. Everything's fine, ma'am.
+- Six of the day's dusk, and all's well. Good evening, ma'am.
+- Five of the afternoon watch, and all's well. No problems, ma'am.
+- Four of the afternoon watch, and all's well. Have a nice day, ma'am.
+- Three of the afternoon watch, and all's well. The way I like it, ma'am.
+- Two of the afternoon watch, and all's well. All's well with you, ma'am?
+- One of the afternoon watch, and all's well. I hope I see you well, ma'am.
+- Twelve noon, and all's well. Everything all right, ma'am?
+- Eleven of the morning watch, and all's well. Good day, ma'am.
+- Ten of the morning watch, and all's well. How are you, ma'am?
+- Nine of the morning watch, and all's well. Good morning to you, ma'am.
+- Eight of the morning watch, and all's well. Good day, ma'am.
+- Seven of the morning watch, and all's well. Top of the morning to you, ma'am.
+- Six of the day's dawn, and all's well. Good morning, ma'am.
+- Five of the night watch, and all's well. You're out late, ma'am.
+- Four of the night watch, and all's well. Wish I was in bed, ma'am.
+- Three of the night watch, and all's well. Good night, ma'am.
+- Two of the night watch, and all's well. Rest easy, ma'am.
+- One of the night watch, and all's well. Take care, ma'am.
+- Twelve midnight, and all's well. Hope it stays that way, sir.
+- Eleven of the evening watch, and all's well. Long day, sir.
+- Ten of the evening watch, and all's well. Everything okay, sir?
+- Nine of the evening watch, and all's well. Good to see you, sir.
+- Eight of the evening watch, and all's well. And you, too, sir.
+- Seven of the evening watch, and all's well. Everything's fine, sir.
+- Six of the day's dusk, and all's well. Good evening, sir.
+- Five of the afternoon watch, and all's well. No problems, sir.
+- Four of the afternoon watch, and all's well. Have a nice day, sir.
+- Three of the afternoon watch, and all's well. The way I like it, sir.
+- Two of the afternoon watch, and all's well. All's well with you, sir?
+- One of the afternoon watch, and all's well. I hope I see you well, sir.
+- Twelve noon, and all's well. Everything all right, sir?
+- Eleven of the morning watch, and all's well. Good day, sir.
+- Ten of the morning watch, and all's well. How are you, sir?
+- Nine of the morning watch, and all's well. Good morning to you, sir.
+- Eight of the morning watch, and all's well. Good day, sir.
+- Seven of the morning watch, and all's well. Top of the morning to you, sir.
+- Six of the day's dawn, and all's well. Good morning, sir.
+- Five of the night watch, and all's well. You're out late, sir.
+- Four of the night watch, and all's well. Wish I was in bed, sir.
+- Three of the night watch, and all's well. Good night, sir.
+- Two of the night watch, and all's well. Rest easy, sir.
+- One of the night watch, and all's well. Take care, sir.
+- What is it, sir?
+- Is there a problem, ma'am?
+- Excuse me. I'm on duty.
+- There's no problem, is there?
+- You're out late, sir.
+- You're out late, ma'am.
+- Evening, sir.
+- Evening, ma'am.
+- Afternoon, sir.
+- Afternoon, ma'am.
+- Yes?
+- What do you need?
+- State your business.
+- Can I help you?
+- Is there a problem.
+- We're here to serve.
+- We're always on duty.
+- What seems to be the problem?
+- We're here to help.
+- Duty calls.
+- Is there a problem, citizen?
+- Something I can help you with?
+- Speak, citizen.
+- Protect and serve. It's what we do.
+- What can I do for you?
+- Something to report?
+- Sir?
+- Ma'am?
+- It's about time.
+- My feet are killing me.
+- Another day, another septim.
+- Good. I'm hungry.
+- Spotted a minotaur out by the ridge. He nearly had my poor Bessie here for lunch! Fear not, the monster's now rotting in a ditch, I assure you.
+- Had something of a false alarm earlier. Some Khajiit, acting suspicious. Turns out he was just grooming his tail.
+- Remember that Argonian? The one from yesterday? Little bugger pulled a knife on me earlier. I had to put him down.
+- Didn't you hear the explosion? Some damn drunk of a wizard started hurling fireballs at passersby. Took four guards to haul him in.
+- Getting hungry, and could do with a drink. But I'm still sharp, don't you worry.
+- The Gray Fox has been spotted! Some of the men gave chase, but he eluded them. Don't worry, we'll bring that scoundrel in, no matter what it takes!
+- Word's come down from the captain. No breaks until further notice. You ask me, he knows something. There's trouble brewin'.
+- Got called in on a murder. There's been some talk. Some of the men think it was... You know... the Dark Brotherhood!
+- So goes the life of a rider, hmm? Come what may, at least we're not rotting on the streets of some gods-forsaken city like Bravil, or Leyawiin!
+- Well, things are bound to get worse before they get better. They always do. Keep your eyes peeled for trouble.
+- Aye, it's a thankless job sometimes, but we wouldn't trade it for the world, now would we. He he he he.
+- Don't forget, my friend -- you and I are what stand between order and chaos. Without us, the Empire would crumble.
+- Just keep one hand on your hilt and both eyes on the crowd. There's something sinister lurking out there. I can feel it.
+- No heroics now, all right? Remember your training and do what you have to do, but don't take any unnecessary risks.
+- You're a good man. We could use more like you, that's for damned sure. You ask me, you'll be getting that promotion in no time.
+- The Moth Priests seem agitated today.
+- I pulled duty outside the Imperial Libray tonight. Curse my luck. Being that close to the Elder Scrolls gives me the creeps.
+- I don't see how the Empire can survive without an emperor.
+- I'm here to relieve you.
+- I'm your relief.
+- You're off duty now.
+- Go take your break.
+- All citizens are welcome in the Imperial Palace, at least on the first two floors.
+- Remember, trespassing in the Imperial Palace is a serious crime. Do not venture beyond the first and second floors.
+- Please show your respect for the Imperial Palace by keeping your voice down.
+- All visitors to the Imperial Palace are asked to keep their voices down, especially if the Council is in session.
+- Step back, plague bearer.
+- Take your flies and your sores over there.
+- Get a cure! And keep your distance.
+- Gods! Pox and rot! Get away from me!
+- Shoo! Flies, lice and disease? No, thank you.
+- All's quiet, eh? Times like this I think the thieves are all away on holiday.
+- Hail, fellow horseman! All's quiet in your stretch of the wild, I hope.
+- So? What do you have to report?
+- You look tired, my friend. I hope you're holding up all right.
+- What do you say, pal? Seen any action?
+- How goes it, friend? Keeping the killers and cutpurses at bay?
+- This is where the Emperor lives, when there is one. The council meets on the first floor.
+- The first and second floors are public. All other parts of the palace are strictly off limits.
+- Don't get too close to the prisoners.
+- Prisoners may not accept gifts.
+- No touching the locks.
+- I haven't got all day.
+- The docks, harbor, lighthouse, and castle are outside the walls to the south.
+- Inside the walls, the chapel is in the east, the residences in the west, and the guilds in between.
+- The castle is east. The chapel is northwest. The shops and guilds are mostly along the north wall and river. The port is over a bridge to the south.
+- The castle is north, on the hill. The guilds and shops are west of the river. The homes are east of the river.
+- The castle is to the west, the chapel and houses to the south, and guilds and shops to the north.
+- The castle is to the east. Inns are near the gate and fountain. Guilds are north, by the Great Oak.
+- Shops are near the fountain and up the street west to the chapel.
+- Weynon Priory is outside the south gate, just past the stables.
+- The castle's to the east, and the chapel near the west gate.
+- Shops, guilds, and inns are south of the chapel, and some shops are by the north wall.
+- The castle is on a hill outside the walls, south of town.
+- Shops and guilds are mostly inside the north walls, while the chapel, homes, and one inn are inside the south walls.
+- The Imperial Palace is at the center. The six districts are arranged around the Palace like spokes of a wheel.
+- Starting in the northeast, moving clockwise, you have the Market, Arena, Arboretum, Temple, Talos Plaza, and Elven Gardens districts.
+- The Waterfront is south of Temple District. The Arcane University is south of the Arboretum. The Imperial Prison is north of Market District.
+- Certainly. I'll unlock the door for you. Of course I have to stay with you in there.
+- I'll get the lock. Don't be touchin' any of them. I'll be keeping a close eye on you.
+- If you must. Don't try anything funny though. I'll be following you.
+- What a bother. Don't be too long about it. I gotta stay with you so there isn't any funny business.
+- I suppose I have to. Keep your hands to yourself in there. I'll be right next to you the whole time.
+- What for? Never mind. I don't really care. Oh, and I have to be with you. Them's the rules.
+- Since we don't have any Argonians, I can allow it. The Countess won't allow visitors to Argonian prisoners. I'll be watching though.
+- The guilds are near the north wall, Fighters Guild west of the north gate, and Mages Guild to the east.
+- The Fighters Guild is east, by the bridge to the castle. The Mages Guild is south, by the bridge to the port.
+- The guilds are in a row, in the center of town below the terraces, north of the chapel.
+- The guilds are west of the river, south of the west gate.
+- The guilds are north, near the Great Oak.
+- The Mages Guild is south of the chapel, by the west wall. The Fighters Guild is across the street from the Mages Guild.
+- The guilds are inside the north walls, to the west.
+- There are no guild halls in the City, but the Arcane University is on an island outside the walls, south of the Arboretum.
+- The smith is next to the north gate. The general trader is in Harborside, outside the wall.
+- The smith is near the harbor. The general trader is to the east, by the river. The mage's shop is between the castle bridge and the harbor bridge.
+- The general trader and clothier and armorer are on the terraces to the west. The smith is north, next to the wall.
+- A smith, book shop, and general trader are west of the river, near the west gate.
+- The general trader and smith are near the fountain. The book store is up the street towards the chapel.
+- The smith, alchemist, and general trader are centrally located inside the north walls.
+- You'll find smiths, alchemists, booksellers, mage shops, clothiers, armorers, and general traders in the Market District.
+- The Count's Arms is next to the north gate.
+- Silverhome-on-the-Water is where the north wall meets the river. The Lonely Suitor Lodge is in the port, across the south bridge.
+- The Jerall View is on the terraces, near the castle gate and facing the chapel. Olav's is next to the east gate.
+- Both inns are next to the west gate.
+- The Oak and Crosier and the Grey Mare are near the gate and fountain.
+- The West Weald Inn is across from the guilds inside the north walls. Two Sisters' Lodge is inside the south walls, in the west, near the gate.
+- Merchant's Inn in the Market, King and Queen in Elven Gardens, the Tiber Septim in Talos Plaza, and All-Saints in Temple District.
+- There's also the Bloated Float on the Waterfront, but that's not a very nice neighborhood.
+
+---
+
+## Wilderness Dialogue
+
+*Traveler/outdoor NPC voice.*
+
+(30 lines)
+
+- In Chorrol, we don't trust people we don't know. But if you're respectable -- if you hang with respectable people -- we're not so unfriendly.
+- You joined the Mages Guild? Excellent. Good people. Substantial.
+- You joined the Fighters Guild? Very good. Hard-working, trustworthy folk.
+- I'm glad you took my advice. Have you noticed how people are more friendly, now you're established in the community?
+- It's like I said. Join the guilds or the Chapel. In Chorrol, we like what we know.
+- The Sisters of Gottlesfont gather Steel Blue Entoloma and Lady's Mantle Leaves. Take what you need, and you're welcome to gather mushrooms nearby.
+- Lady's Mantle Leaves are helpful in healing wounds, whether applied directly or compounded in potions. We have plenty. Help yourself.
+- Cat-Face. Yes, that's right. That's what they call me. Because they can't pronounce my Black Marsh name, I guess...
+- ... and, supposedly, because my face looks like a cat. Don't see it, myself.
+- Must be a joke. Don't get the joke, either... but the customer is always right.
+- But, as I was going to say, welcome to Five Riders Stable. Five? Riders? I don't see them, either...
+- ... But that's what they call the stable when I buy it, and what do I care what they call it...?
+- Where was I? Oh. Yes. We sell paints. Good horses. Good enough, anyway...
+- ... good eating... they tell me...
+- That's a joke. I wouldn't eat one of these horses. Nothing wrong with them, of course...
+- ...but that's a pile of money for horse steaks, isn't it?
+- I'm Atahba. But if you want a horse, you got to talk to Cat-Face.
+- I'll take good care of your horses when you're in Skingrad. I'm Ugak gra-Mogakh, ostler of Grateful Pass Stables.
+- My name's Bongond. I can see you know horses. So do I, and I know I have just what you need.
+- I am Sister Angrond of Gottlesfont Priory. We gather and prepare healing herbs and mushrooms.
+- I'm Phebe Jeanard, a charity sister of Gottlesfont Priory. Are you looking for alchemical ingredients?
+- West of the Niben, with all the troubles, many bandits. West of town I know two lairs where bandits hide... Telepe and Undertow Caverns.
+- North along the Green Road is another hide-out... Rockmilk Cave. Like to hunt bandits? Steal from those who steal? Such a sweet joke, yes?
+- Well, if you want to know what I think, I think it stinks. The Elder Council takes the Trans-Niben and just gives it to Cyrodiil!
+- Have you ever seen a map with the Trans-Niben in Cyrodiil? No! Because there's never been one like that.
+- Damn crooked Councilor. Some men rob you with a sword; others rob you with a goose quill pen.
+- You're the one who closed the Skingrad gate? You must be... the Hero of Kvatch.
+- Gates are opening outside the towns all over Cyrodiil. One opened right here in Skingrad. [pending implementation and flag for Skingrad gate status]
+- I heard there's trouble on the Gold Road, near Kvatch... if you're heading that way.
+- Maybe you'd better talk to my sister, Mog gra-Mogakh. She runs the Two Sisters Lodge. She's the talker in the family.
+
+---
+
+## Beggar Voice
+
+*How poverty and desperation color dialogue.*
+
+(33 lines)
+
+- Blessings of Julianos upon ye.
+- Blessings of Akatosh upon ye.
+- Blessings of the Shadow upon ye.
+- Blessings of Anu upon ye.
+- Blessings of Mystara upon ye.
+- Blessings of Arkay upon ye.
+- Blessings of Stendarr upon ye.
+- Are you looking for him?
+- He's a fairy tale. The Imperial Watch pretends there is a thief king named the Gray Fox who controls all the thieves in Cyrodiil.
+- Of course it's all just made up to give them an excuse to keep us down.
+- I'm only askin' for enough to feed me kids.
+- One more coin and I can git a pair of shoes.
+- Please be generous, kind sir.
+- I can see you are a kind soul, gentle lady.
+- I'm so hungry.
+- I can eat for a day with a single coin.
+- Me children will thank ya for yer help.
+- I'm savin' up enough for some medicine.
+- Thank you kind sir!
+- Thank you kind lady!
+- Can ya spare a coin?
+- Have pity sir. I gots nothin' ta eat.
+- Have pity beautiful lady, I gots nothin' ta eat.
+- A coin for an old beggar?
+- Me children are starving. Please help.
+- Have pity on an old war veteran.
+- Spare a coin for the infirm?
+- I'm only asking for a single coin.
+- Who will help an old beggar?
+- Have mercy. Just one coin.
+- I don't blame you. He's a menace to society. Let me know if you find out anything.
+- I think I trust you enough to tell you this secret.
+- To learn more about the Gray Fox, go to the Garden of Dareloth at midnight. Look in the Waterfront District of the Imperial City. I can say no more.
+
+---
+
+## City Greetings
+
+*How NPCs open conversations — brief, personality-forward.*
+
+(543 lines)
+
+- I'm not easily impressed, but even I would think twice before going into one of those Oblivion Gates. Well done.
+- You are the toast of Anvil, my friend! It may be only a temporary respite, but everyone feels better with that Gate closed.
+- Going into that Oblivion Gate was an impressive feat of derring-do. I salute you!
+- Perhaps Anvil will not go the way of Kvatch, thanks to you. Well done.
+- You sure gave those damned daedra what for! It makes us all feel better to have someone like you around.
+- I'm Ernest. This is the Horse Whisperer, Anvil's only stable. Park your nag here, or leave him for the wolves. Your choice.
+- Aye. I'm Ulfgar Fog-Eye, master of the Anvil lighthouse. Visit the lighthouse any time. Fine view of the town and harbor.
+- Welcome to the Flowing Bowl. I'm Maenlorn. My twin's name is Caenlorn. How to tell us apart? I'm in brown. He's in blue. Simple, really.
+- I'm Maenlorn. I'm the twin in brown, remember?
+- Welcome to the Flowing Bowl. I'm Caenlorn, the one in blue. My twin Maenlorn is the brown one. Can we rent you a bed?
+- Okay. Guess who I am. Caenlorn? Or Maenlorn?
+- I'm Wilbur, owner and proprietor of The Count's Arms. We make beds and food available to guests. Can I help you?
+- S'shani. The old sea captain and rover... now a shipowner and fatcat. Pleased to meet you.
+- I'm Norbert Lelles. I let my merchandise speak for itself. Look around. If you see something you like, we'll talk about a price.
+- They call me 'Wilhelm the Worm,' because dirt suits me fine. Town lets me live in the warehouse to keep out the rats.
+- Varel Morvayn. Been making weapons and arms here in Anvil for 30 years. People say I do good work, and I don't aim to argue with them.
+- Enilroth, Morvayn's apprentice.
+- Give yourself to love, pilgrim. I'm Trevaia, priestess of Dibella, and this is Anvil's Chapel of Dibella.
+- Me? I'm just Laralthir. I wish I were the Countess of Anvil, to tell you the truth. That Millona Umbranox, she's got it made... [Sigh.]
+- Dumania Jirich, Primate of Anvil. I speak with the voice of Dibella, and greet you with love.
+- I am Millona Umbranox, Countess of Anvil. I hope you enjoy your visit. I trust you will give us no cause to regret our hospitality to strangers.
+- I'm Dairihill, steward of Castle Anvil. We do things differently in Anvil. And the difference shows in the comfort and trust of its people.
+- I'm Baeralorn, Anvil's castle mage. Perhaps you've heard of my work on magical resistances.
+- Langley, captain of the Anvil guard.
+- I'm Azzan, head of the Anvil Fighters Guild chapter, and Advanced Blunt Weapons trainer.
+- Vigdis, Fighters Guild.
+- Rhano. I'm Anvil's Advanced Trainer in Blade Weapons.
+- I'm Rufrius Vinicius, Fighters Guild Hand-to-Hand trainer.
+- Everyone calls me Sten the Ugly. I got tired of beating people up for it. So go ahead. Live it up.
+- Llensi Llaram. Fighters Guild, through and through.
+- Huurwen of the Fighters Guild. Health and fortune.
+- I'm the Wizard Carahil, Mages Guild, master of the Anvil chapter.
+- I greet you. Thaurron, Journeyman of the Mages Guild.
+- I'm Felen Relas of the Mages Guild. I handle Alchemy training for the Anvil chapter.
+- Marc Gulitte, Mages Guild Evoker, Advanced Instructor in the Arts of Destruction.
+- I'm Mirabelle Monet. I run the Fo'c's'le, a boarding house for sailors. Sorry. I reserve my beds for seamen.
+- I'm Krognak gro-Brok, landsman, and I don't much care who you are.
+- They call me 'Hauls-Ropes-Faster'. I don't care. They can't pronounce my Black Marsh name, anyway.
+- I'm Isolde, mate... not that it's any of your business.
+- I don't know you, you don't know me, everybody's happy.
+- I'm Thurindil, son of Julianos and Mohi-Titona, Queen of Akavir. These slugs climbing my spine itch something fierce. Like to dance?
+- Timothee LaRouche, late of the Black Dog, able seaman. I'll be staying ashore 'til my stash runs out, then it's off to sea once more.
+- Heinrich Oaken-Hull, captain and shipmaster. My ship, the Serpent's Wake, is in for refitting, so I'm high and dry for a while.
+- I'm Hasathil, Heinrich Oaken-Hull's wife.
+- Pinarus Inventius, hunter, woodsman, and marksman, at your service.
+- Astia Inventius. Wife of the woodsman, Pinarus Inventius. Always out hunting. Anything to avoid doing a little work around the house.
+- I'm Rusia Bradus. My husband is General Silgor Bradus, one of County Anvil's commanders in the field.
+- I'm Newheim, Anvil harbormaster. I'm responsible for all harbor traffic, docks, duties and fees in Anvil harbor.
+- I'm Arvena Thelas. They call me 'the rat lady', on account of all my pet rats.
+- My name's Quill-Weave. I've had some success selling stories about the lives of the lower and criminal classes.
+- Hi, I'm Gogan. How's it going?
+- I'm Maelona. Gogan's wife.
+- Jesan Sextius, singer, composer, and storyteller extraordinaire. Glad to meet you.
+- Gorgo gro-Shura. Soldier of fortune. Which means, more-or-less, unemployed and thoroughly pauperized.
+- I'm Clesa. My husband and I run the Horse Whisperer, the finest stables in Anvil County.
+- Didier Aumilie, ship's clerk. At present, I'm spending my time and gold on the pleasures of the Gold Coast.
+- Let me introduce myself. I am Hieronymus Lex, the new captain of guard here in Anvil. You look familiar.
+- Brave deeds, friend. Taking the fight to Oblivion itself! I salute you.
+- We're all in your debt for closing that Oblivion Gate outside the city. Well done.
+- It's good to have a bit of good news in these dark times. What can I do for you, Hero of Chorrol?
+- Chorrol breathes easier thanks to you. We are all in your debt.
+- I bet you hear this all the time, but thanks for closing that Oblivion Gate! We were all so worried.
+- Right, sister. We know who's been naughty and nice. And you've been naughty. So watch yourself.
+- Good day, ma'am, and welcome to Chorrol. You're under the watchful eye of the Chorrol Guard, so don't you worry. We keep the peace, and keep it nice.
+- Right, mister. We know who's been naughty and nice. And you've been naughty. So watch yourself.
+- Good day, sir, and welcome to Chorrol. You're under the watchful eye of the Chorrol Guard. We keep the peace, and keep it nice and pretty.
+- Welcome to Chorrol. Keep your nose clean, and we'll be good friends. Make a mistake, and the Chorrol Guard will be all over you like a cheap cuirass.
+- Welcome to Weynon Priory, a monastic retreat dedicated to Talos and the Nine Divines.
+- I'm Prior Maborel, head of our community, and responsible for all our religious and secular affairs.
+- Welcome to the Oak and Crosier. This one is Talasma, your hostess. Our rooms and food are at your disposal.
+- I'm Glistel. What do you need?
+- I'm Malintus Ancrus. How are you doing?
+- Hello. I'm Casta Scribonia. The writer. Author of 'Woman Gone Wild'.
+- My name is Eugal Belette. I'm pretty new here -- don't know a soul.
+- I'm Carmen Litte. Perhaps you know my husband? Alberic Litte, the Mages Guild sorcerer? What can I do for you?
+- I'm Rena Bruiant. I love dogs. Doesn't everyone?
+- I'm Rimalus Bruiant. Perhaps you've met my wife, Rena? And our dogs, Bailey and Kezu?
+- I'm Contumeliorus Florius. I'm in charge of enchanted item recharge in the Mages Guild here in Chorrol. Get it? "In charge!"
+- I am Alberic Litte of the Mages Guild. I am pleased to make your acquaintance.
+- A pleasure to make your acquaintance. I'm Athragar of the Mages Guild. How can I serve you?
+- Excuse me. My name is Angalmo. Can I help you?
+- Welcome to the Mages Guild. I'm Teekeeus. What can I do for you?
+- Well, hello there. Sabine Laul, guild smith -- real happy to meet you. So. What can I do for you?
+- Things could always be worse. And probably will be. I'm Kurz gro-Baroth. What can I do for you?
+- I'm Lum gro-Baroth. The cheerful one. My brother, Kurz? He's not so cheerful.
+- I'm the Fighters Guild Champion, Modryn Oreyn. I don't believe we've met.
+- Vilena Donton, Master of the Fighters Guild. Please excuse the mess. Paperwork. But what can I do for you?
+- I'm the Master of the Fighters Guild -- Vilena Donton. Can I help you?
+- A visitor. What a treat. So go ahead. Whoever you are. They call me Orgnolf Hairy-Legs. Because I got hairy legs. Am I going too fast for you?
+- I'm Chanel, Chorrol Castle Mage. You'll tell me what you're here for. Right?
+- I'm Bittneld the Curse-Bringer, captain of the Chorrol Guard. What can I do for you?
+- I am Orok gro-Ghoth, steward to Countess Arriana Valga, Countess of Chorrol. I manage her affairs, and the castle is in my keeping.
+- I am Arriana Valga, Countess of Chorrol.
+- I'm Otius Loran, Primate of Stendarr. You stand before Gods' servant, in the house of the Nine. Be humble, and show respect.
+- I'm the chapel healer, Gureryne Selvilo. We're glad to see you paying your respects here at the chapel.
+- Blessings. I'm Orag gra-Bargol, servant of Stendarr. May you grow in the Faith.
+- Hello. I'm Rasheda -- the smith -- and this is Fire and Steel. Quality armor and weapons, repairs, too. What can I do for you?
+- I conduct business here. No offense, but I haven't got time for small talk.
+- Perhaps I wasn't clear. I cannot spare time to talk with you. Would you be so kind as to leave me alone?
+- Sorry, buddy. I'm with Hides-His-Heart, and I can't be distracted.
+- Look. I don't want to talk. So leave me alone.
+- I'm busy, here, okay? You mind giving us some privacy?
+- I got stuff to do. Don't bother me.
+- Only the finest wares to buy and barter at Northern Goods and Trades. I'm Seed-Neeus, the proprietor. How can I help you?
+- Welcome to Renoit's Books. I'm the owner, Estelle Renoit. Look around. If you don't see what you want, please ask.
+- Honditar is the name. I'm a hunter and mountain man.
+- Well, ain't you the high-tom-titty? You want something, I guess, or you wouldn't be messing up my air.
+- An honor to serve you. I'm Emfrid, owner and publican of the Grey Mare, at your service. A room? Or food? Whatever you wish.
+- I'm the shepherd here. Eronor's the name. And this is Weynon Priory.
+- Certainly. What do you need?
+- Yes?
+- Welcome, good citizen. I'm Brother Piner, and this is Weynon Priory. A monastery. Can I help you?
+- The gate may be closed, but some say you slew the Count's son in the process. Is this what defines a hero?
+- Cheydinhal sleeps more soundly tonight, thanks to you, friend. What can I do for you?
+- Even a small bit of good news is refreshing in these grim times. I salute your courage, Savior of Cheydinhal!
+- Cheydinhal is in your debt, friend. That Oblivion Gate had us all living in fear.
+- Your reputation precedes you, Gate-Closer, Scourge of Oblivion, Hero of Kvatch!
+- Thank you for closing the Oblivion Gate. We all took heart when we heard the news.
+- Books. I sell books. Go ahead. Look. Buy some.
+- Welcome to Black Waterside Stables. Finest horses in all Cyrodiil. And I'm speaking literally. I'm Tovas Selvan, the owner.
+- Well, yes, my name.... Mivryna Arano. Excuse me, but I don't speak much. With people, that is.
+- Welcome to Newlands Lodge, the best place to drink in Cheydinhal. Not counting the Chapel... haha. I'm Dervera Romalen.
+- This is a Dark Elf bar. Cursing, spitting, and screaming? No problem.
+- Fighting is fine with me, too, only the Guard objects, and they'll fine you or lock you up. Not my call.
+- Mariana Ancharia, hostess of Cheydinhal Bridge Inn. We provide beds and food to persons of quality in the Cheydinhal community.
+- Borba gra-Uzgash. We've got everything the adventurer needs. I'm an old adventurer myself, and I know what's wanted.
+- Me? I'm Magub gro-Orum. Borba and me, we were pals in the adventuring trade. Now I help him run the store.
+- The March Rider sells and repairs weapons and armor. Can I help you? I'm Tertia Viducia.
+- Praise Arkay, and all her little woodland creatures! I'm Hil the Tall, Priest of Arkay.
+- I'm also a trainer in the arts of Alteration. I love magic, too. I love everything. And everyone. You, too.
+- Blessings of the Nine. I'm Ohtesse the Healer. By the grace of Mara, I offer Advanced Training in the Restoration Arts.
+- I'm Errandil, Living Saint of Arkay, and the Chapel's chief crusader against the wicked practice of necromancy.
+- I am Gruiand Garrana, Primate of Arkay, and spiritual leader of the Cheydinhal Chapel.
+- In that capacity, I am pleased to offer Advanced Training in Speechcraft, that the faithful might better spread the word of Gods' graces.
+- I am Andel Indarys, Count Cheydinhal. There is no more generous or just ruler in Cyrodiil, if I say so myself.
+- I am Naspia Cosma, Cheydinhal's Steward. I offer introductory training with Blades, and may condescend to accept you as a student.
+- I'm Ulene Hlervu, Castle Mage. Perhaps you've been warned off me as a scandalous, blasphemous scoffer and cynic.
+- The characterization is completely accurate. I despise the gods and those who bow before them.
+- It is just Ra'qanar, the poor porter. Do you wish to beat me? Punish me? Of course,  Ra'qanar deserves your scorn... but pity this one, please.
+- I'm Burz gro-Khash, and I'm in charge of this St. Jiub's Fair. All I need is clowns, monkeys, and jugglers. No. Wait... just need jugglers....
+- Yeah. This is the Cheydinhal Fighter's Guild. Look around. See any fighters? Right. That's the problem. No fighters, no guild.
+- Keld of the Isles. Guardian of the Fighters Guild. And how did I achieve that high rank, you ask?
+- Patience. Caution. Slow and steady wins the race, my father always said. Careless fighters get one last white shirt and a box. Not me.
+- Ohtimbar, Fighters Guild Guardian. Maybe you saw me in the Arena, couple years ago? I was a contender.
+- I got out while I still had the original set of legs, arms, and eyes. Fighters Guild is a perfect place for me now.
+- What are you doing in here? Wander in by mistake? This is the Mages Guild. You want a barn or sheep pen or something.
+- Oh, dear. A budding spellcaster. How charming. I'm Falcar. I'm what a real wizard looks like.
+- I'm Deetsan. Magician. Mages Guild, that is.
+- I'm Magician Orintur of the Mages Guild. I divide my time between the Cheydinhal Guild and my own private studies at Willow Bank.
+- I'm Eilonwy. I'm only a conjurer, but Orintur is a full Magician. Isn't he wonderful?
+- I'm Trayvond the Redguard, Mages Guild Evoker. Surprised? Yes, you don't see many Redguards in the Mages Guild.
+- We don't much like spellcasters in Hammerfell. Wizards steal souls and tamper with minds. If you use magic, you're weak or wicked.
+- My family didn't approve of my vocation, so I had to come to Cyrodiil for my education.
+- I admit... I still have strong prejudices against necromancy, summoning, and illusion.
+- Profaning the remains or souls of the dead is just wrong. And I'm uneasy about tampering with other's minds and trafficking with Daedra.
+- Uurwen the Evoker. I'm responsible for enchanted item recharge for the Cheydinhal guildhall.
+- Get lost. Or I'll pull your arm off.
+- You don't listen? You stupid? Crot. I'm wasting my breath. Then go ahead. Stand there. Talk all you want. You're a fly. Go ahead and buzz.
+- Buzz, buzz, buzz. Go away, little fly.
+- Yeah? I don't care who you are. I ain't talking to you. You ain't from around here. So push off.
+- I'm done talking to you. You ain't listening. I got better things to do.
+- I'm Voranil. I'm guessing you're angling for an invitation to one of my super parties.
+- Well, forget about it. Invitation only. And no invitation for you, stranger.
+- I'm Tolisi Girith. I'm a maid at Riverview. And it's no picnic, I'll tell you.
+- I'm the charwoman at Riverside. Tanasa Arano. I clean up after Voranil and his parties.
+- I'm the cook of Riverside, Rogmesh gra-Coblug. I don't get paid to chat, if you don't mind.
+- I'm Maknok gro-Coblug, the Riverside groundskeeper. Rogmesh, my wife, is the cook at the Big House.
+- Ganredhel. I train dogs. And people. Prefer dogs.
+- People, I teach them Advanced Acrobatics. Up and jump. Dogs, I teach them to bite people.
+- Yeah? You're who? And why do I care, exactly?
+- Yeah. I don't need you. So go away, huh? I'm asking real nice, because my mom brought me up right.
+- Yeah! I'm Bazur gro-Gharz. I got protection from the Orum Gang. So don't mess with me. Or they'll fillet you real good.
+- I salute you for your daring, Hero of Kvatch! You've proven yourself once again here at Skingrad.
+- While the Guard hid behind the walls, you took the fight to Oblivion itself! Maybe your example will inspire others.
+- Allow me to extend my congratulations on your daring victory over the evil forces of Oblivion. I am at your service.
+- That Oblivion Gate threatened us all, yet only you took action to destroy it. You have my thanks, Hero.
+- Your bravery is the talk of Skingrad. Well done!
+- I'm Mog gra-Mogakh, proprietor of Two Sisters Lodge. My sister and I own the place... 'Two Sisters', see? Need a bed? Good food?
+- Welcome to the West Weald Inn. I'm Erina Jeranus, the proprietor. If you'd like food or a bed, speak to me.
+- I'm Else God-Hater. Yes. I hate the gods. All gods. They can all bite my garters. And if you don't like it, YOU can bite my garters, too.
+- Welcome to Colovian Traders, Skingrad's finest selection of general merchandise. I'm Gunder. Just let me know what you want.
+- Me? I'm Falanu. House Hlaalu. As if that matters here.
+- Not so loud, please. What a headache I've got. I'm Agnete the Smith. 'The Pickled' they call me. Sure wish I was pickled right now.
+- Blessings of the Nine. My name is Tumindil. I'm the chapel priest. I'm sure you can find your way around the chapel by yourself.
+- Hello. We haven't met, have we? I'm Sister Marie Palielle, the chapel healer, and trainer in the Restoration Arts.
+- I'm Valandrus Abor, Primate of Julianos. You may address me as 'Your Eminence'.
+- I'm sorry. We've not met. I'm Janus Hassildor, Count Skingrad.
+- I'm Hal-Liurz, Count Skingrad's steward. The Count does not accept unsolicited visitors, I'm afraid. I apologize for the inconvenience.
+- The Count will not see you now. Not now, not ever. He sees no one. I'm Mercator Hosidus, his steward. I believe that's all you need to know.
+- I'm Dion, captain of the Skingrad Guard.
+- Sorry. You want me? I'm Shum gro-Yarug, the Count's butler.
+- Danus Artellian, captain of the guard. The Count's Guard. Castle Guard. Dion's captain of the town guard. That's nothing to do with me.
+- Ah-Malz of the Fighters Guild. Welcome to Skingrad County. Come hunting goblins, have you?
+- I'm in the Fighters Guild, yes, and I can train for weapon and shield parries. Fadus Calidius is the name.
+- I'm Parwen of the Fighters Guild. I'm not a great archer, but I seem to have a knack for teaching. And I've bagged my share of goblins.
+- I'm in charge here. Adrienne Berene. Do you have Mages Guild business?
+- I'm Sulinus Vassinus of the Mages Guild, and I'm so pleased to make your acquaintance.
+- What? Who are you? Oh... who cares. I'm Druja. You want something? Or you just practicing your Cyrodilic?
+- You want me? You sure? I'm Vigge. I'm Mages Guild, but I don't train or anything.
+- You have obviously made a mistake. Sir Lazare Milvan would never speak with someone of your low birth.
+- You are obviously of low birth. Unless you dispute my judgement... and you would press your suit at the end of a sword.
+- You are talking again. You will stop.
+- You're new here, or you'd know me. Toutius Sextius. My people have lived in Skingrad since the Dawn. Father and the Count were best of friends.
+- A sweetroll? But, of course, Salmo is famous for his sweetrolls! One taste, and you are in heaven... on top of the world, yes!
+- I am Ambroise Canne, grape-grower for Surilie Brothers. I'm also an advanced trainer for weapon and shield parries.
+- Reman Broder, retired Archer, presently a grape-grower for the Surilies, at your service. Are you looking for advanced training?
+- A perfect tomato... one taste, and it is gone forever. And then... a lifetime of searching for the next one.
+- Undena Orethi. I am a pilgrim in search of the perfect tomato. It is my grail, and I shall follow it all my life.
+- It is all in the nose. Yes, of course, it is also in the mouth!
+- The fragrance, the sharp, startling odor... the sheep's cheese... ambrosia! Nectar!
+- Yes. I am the Shepherd, Uuras. And it is my sheep, and my deft hand and sharp nose, which produce the glorious cheeses of Skingrad.
+- I'm Bernadette Peneles. I work for Tamika. I grow grapes. For her wines.
+- I'm a fair hand at grapes and bows. Shameer, grower and trainer. But I suspect you want to shoot, not grow grapes. Am I right?
+- I'm Davide, of Surilie Brothers Vineyard. Gaston is my brother. From our vineyards come the finest wines in Tamriel.
+- I'm Gaston Surilie. Perhaps you've met my brother, Davide? Together, we are the Surilie Brothers Winery.
+- I'm Tamika. We grow our own grapes, and make fine wines.
+- Hannibal Traven, Arch-Mage of the Mages Guild. Welcome to the Arcane University.
+- Excuse me. I'm Irlav Jarol, a researcher for Arcane University. Ayleids are my specialty.
+- Greetings. I am Raminus Polus, Consul for the Mages Guild. Welcome to the Arcane University.
+- I'm Caranya, master wizard, and far too important to be talking to you. So go about your business, please?
+- Julienne Fanis. I'm the Alchemy Expert. At least, the best the Mages Guild has.
+- Borissean. Master Spellmaker for the Mages Guild. Guildsmen, only, of course.
+- Master Spellmaker Gaspar Stegine, at your service. New spells. Old spells. Good spells. Bad spells. They're all fun for me.
+- Tar-Meena. This is my Mystic Archives. Keep it neat. Keep it quiet. No eating in the stacks.
+- Yes. I'm Boderi Farano, Mages Guild. You want Advanced Training in Mysticism? I think I can fit you in...
+- Enchanted to meet you. Delmar, Enchanter Extraordinaire to the Mages Guild! At your service. Got some enchanting in mind?
+- Martina Floria, Master Enchanter for the Mages Guild. Welcome to the Chironasium. Enchanting, isn't it?
+- Renald Viernis. I'm the Practice Room Proctor. No horseplay or foolishness. This is for serious exercises.
+- Welcome to the Orrery. I'm Bothiel, and the Orrery is my baby.
+- Welcome to 'A Fighting Chance'. I'm Rohssan, proprietor. I sell the best swords in the City, and I offer Advanced Training for Armorers.
+- Welcome to 'The Main Ingredient'. Ogier Georick. If you're an alchemist, then you've come to the right place.
+- I'm Phintias, owner and proprietor of the First Edition. Look around. If I don't have it, maybe I can get it.
+- You're in Rindir's Staffs. And I'm Rindir. I sell magical staffs. Imagine that.
+- Edgar Vautrine. You don't want the very best. You want cheap. And I got cheap.
+- Thoronir welcomes you to The Copious Coinpurse. Such a pleasure. How can I serve you?
+- Stonewall Shields. We specialize in shields. Viator Accius, your servant.
+- Put on The Feed Bag! I'm Delos Fandas. We got food and drink, and lots of it.
+- I'm Gelephor, the watchman. I keep an eye on things.
+- Welcome to Jensine's 'Good as New' Merchandise. I'm Jensine. Take your time. I'll be right here.
+- Tertullian, Sergius, and Cicero... the Three Verus Brothers. I'm Tertullian.
+- Tertullian, Sergius, and Cicero... the Three Verus Brothers. I'm Sergius.
+- Tertullian, Sergius, and Cicero... the Three Verus Brothers. I'm Cicero.
+- You've come to Divine Elegance because you care about what you wear. And Palonirya has what you want... or no one has.
+- Welcome to the Mystic Emporium. Calindil is here, with all your needs, under one roof. Look, and buy. Nothing could be easier.
+- Urbul gro-Orkulg knows you NEED axes and blunt weapons. BIG ones. So he makes them and sells them here...
+- ... Slash 'N Smash... the BIG Orc Weapon Shop. BIG weapons. For BIG heroes.
+- The Gilded Carafe, for all your alchemical needs. Claudette Perrick, service with a smile.
+- The Best Defense! That's me, Maro Rufus! Light Armor! The very best!
+- I'm Varnado. I handle the Heavy Armor at 'The Best Defense'. I'm also an Advanced Trainer in Heavy Armor, so I know what I'm talking about.
+- I'm Gin-Wulm. I just work here. You want to buy, talk to Varnado or Maro Rufus.
+- Urjabhi helps his brothers, Ra'Jiradh and Hassiri, to run the Black Horse Courier. Others write. We organize, we deliver. The news never stops!
+- Ra'Jiradh greets you. His brothers are Hassiri and Urjabhi. The Black Horse Courier is our Imperial news service, chartered by the Elder Council.
+- The Black Horse Courier. Brothers Urjabhi and Ra'Jiradh, and I, Hassiri. We bring the news of the Empire to the people of the Empire! Fast, fast!
+- Here, have a copy. It's free! Always free! We're funded by the Elder Council, so I don't mind, really. He he he he.
+- Vinicia Melissaeia, Office of Imperial Commerce. You got complaints? Of course you got complaints. Who doesn't?
+- Welcome to The King and Queen Tavern. We treat all our patrons like royalty! I'm Ley Marillin, your loyal seneschal.
+- Welcome to The King and Queen Tavern. We treat all our patrons like royalty! I'm Pista Marillin, your faithful lady-in-waiting.
+- I am Iniel Sintav, head of the Sintav clan.
+- Dul gro-Shug. I could show you a thing or two about Security... for a small consideration.
+- I'm Irene Metrick. If you needed to know more, you'd already know.
+- Cyronin Sintav. I'm a Sintav. That's all you need to know.
+- I'm Carmana Sintav. Cyronin is my husband. Excuse him, please. He's a little irritable.
+- Luther Broad's Boarding House. I'm Luther. You want beds or food, see me.
+- Winson. I just work for Luther. I don't want no trouble.
+- Dovyn Aren. Yeah, I still do training. I'm not what I used to be, but I can still teach Alteration just fine.
+- Well, well. You interested in Acrobatics training? You'd be quite a challenge. I'm Ida Vlinorman.
+- Marinus Catiotus. Ida Vlinorman and me, we're associates. Same interests, same styles.
+- Othrelos. I'm a Sneak... Advanced Sneak, in fact. And I train Sneaks. No law against it.
+- I'm Mandil. I'm a lady of leisure, but I do some Advanced Training in Security. Just a hobby, of course.
+- Tertius Favonius. Romana and me have set up housekeeping. She's a real doll, isn't she?
+- Isn't Tertius a dreamboat? I'm Romana Faleria. I'm such a lucky girl.
+- Herminia Cinna. Amateur scholar of the ancient Elves, dabbler in the arcane arts. How can I help you?
+- Ra'jhan has a fine house in Elven Gardens. Yes? It costs Ra'jhan many golds. But it is very fine, yes?
+- I'm Roderic Pierrane.
+- I'm Elisa Pierrane. Father bought us this lovely house in the City.
+- Kastus Sintav. Uncle Iniel got us good jobs gardening. We're very grateful.
+- I'm Beran. Kastus, Vontan, and me, we take care of gardens and trees and grass. Hard work, but it pays.
+- I'm Vontan Sintav. Kastus, Beran, and me got this house from Uncle Iniel. Nice, huh?
+- Jastia Sintav. Jena's my sister.
+- Jena Sintav. I have a house with Jastia, my sister.
+- Fathis Ules. I've got a nice house. I have a little income... quite comfortable. Time is light on my hands.
+- I am Wumeek. Gods commend you.
+- I am Geem Jasaiin. We come from Black Marsh to the city to work the water ways and water trades.
+- Itius Hayn, Guard Captain. You don't want to know me. Stay on the right side of the law, and we can stay perfect strangers.
+- Welcome, friend, to the Tiber Septim Hotel. I am Augusta Calidia, your hostess.
+- My name is Atraena. How do you do?
+- Sevarius Atius. We will comply with the Watch's orders. The Atius family will stay clear of the Sintavs... if they stay clear of us.
+- Helvo Atius. Sevarius says I have to stay out of sight. So I'm stuck here until things blow over.
+- Angelie Blakeley. This is my father's house. He was lost at sea, many years ago.
+- Samuel Bantien. You want to learn a few tricks about Security, I'm your man.
+- Rochelle Bantien. Samuel's wife. I'm glad he's settled down to training and the quiet life.
+- My name is Lurio Maenius. I share a house with Matthias Draconis. I'm between jobs as a private guard.
+- I'm Agarmir. And I'm a very busy man. Are you just fishing around, or do you have business with me?
+- Ontus Vanin, retired. Sleep late, and read trashy books. I don't keep up with Mages Guild affairs any more.
+- Ulen Athram. Of the Kragenmoor Athrams. Made my fortune in the flin trade, and now I'm here in the city, living the life of ease.
+- Dralora Athram. I came here with Ulen fifteen years ago. Best thing we ever did.
+- Health and fortune, traveler. I'm Dynari Amnis. May the Nine bless your dreams.
+- Thamriel of Tamriel. What are all those strange creatures in the garden? Where are all the white birds?
+- My name is Elragail. I look after Thamriel. He's a little strange. 'Touched by the Gods', they say.
+- Welcome to the Foaming Flask. Good food, good drink. I'm Ernest Manis. Let me know what you need.
+- Good day, stranger. Soris Arenim is my name.
+- I'm Erissare Arenim. Soris is my husband.
+- Astinia Atius. I want no part of the Sintav-Atius squabbles. I mind my own business.
+- I work as a guard at Umbacano Manor. My name is Usheeja.
+- S'rathad greets you.
+- Yes. My name is Umbacano.
+- I don't believe I know you. And I don't need any new friends, thank you very much.
+- Jakben, Earl of Imbel. We do not know one another. And, given your modest social standing, I doubt we ever shall.
+- I am Gemellus Axius, Earl Jakben's manservant. He did not inform me of your visit.
+- Areldil. We don't have any business, do we? Then, perhaps, will you excuse me?
+- Welcome to the All-Saints Inn. I'm Willet, the publican.
+- Graman gro-Marad. I'm a bouncer for the Bloated Float. My wife, Umog, is a night guard for Master Umbacano.
+- My name is Umog gra-Marad. I'm employed by Master Umbacano as a night guard.
+- You're talking to Algot the Northerner. Guess you've got nothing better to do.
+- My name is Hastrel Ottus, and I'd like to talk about Akatosh.
+- My name is Alessia Ottus, and I'd like to talk about the Nine Divines.
+- My name is Ida Ottus, and I'd like to talk about Mother Mara.
+- Wo! You SCARED me! I was off in my happy place, and you just popped in and wrecked my whole thing!
+- Stantus Varrid. I'm not a priest any more... just a private seeker in search of white light.
+- I'm Curtis. I'm nobody special.
+- I don't know you. Just stay away from me.
+- J'mhad keeps the grounds of the Temple nice and neat. Other things, J'mhad does, when they ask.
+- I'm Amantius Allectus, the writer. I'm working on a new edition of 'Lives of the Saints'.
+- I'm Caula Allectus. My job is making sure my husband Amantius doesn't go out with his clothes on backwards.
+- It's cute, really. Such a genius, and can't find his own socks. It's a full-time job keeping him in matching outfits.
+- Salomon Geonette. I'm a musician. I had a commission from the Emperor to compose a symphony...
+- ... But now, with the emperor dead, everything is at sixes and sevens.
+- Renee Geonette. My husband, Salomon, has a court commission to compose a symphony.
+- Good day. My name is Seridur. I don't believe we've met.
+- Hearth and fortune. Grey-Throat, I am called. You are not known to me.
+- I'm sorry. Luronk gro-Glurzog is my name. I don't get about very much. For various reasons.
+- I'm Ruslan. Not that it's any of your business.
+- My name is Hagaer. I don't get out much. Too many books to read.
+- Marana Rian. I am very fond of nice things. How fortunate that I can afford them.
+- Surius Afranius. I'm a guard for Umbacano.
+- My name is Ancus Afranius. I do whatever comes to hand. Or nothing, when I can afford it.
+- I'm Praxedes Afranius. My brothers and I share a house in the Temple District.
+- Pennus Mallius, adventurer-at-large. Just between adventures at present, I'm afraid.
+- Graman gro-Marad. I'm the night man on the Bloated Float.
+- I'm the lighthouse keeper, Velan Andus.
+- I'm the warehouse watchman, Damian Magius.
+- My name is Methredhel. I've come to the Imperial City to make my fortunes.
+- I'm Adanrel. I'm discouraged.
+- My name is Carwen. Remember. I'll be rich and famous one day.
+- I'm Myvryna Arano. I... persuade people.
+- Uzul gro-Grulam. I'm courting Myvryna Arano, so stay away from her. I got matrimony on my mind.
+- I'm Jair. I'm a dip...
+- ... a pickpocket. But relax. You're safe from me. You look like you might take offense. Too risky.
+- They call me Isleif the Open-Handed. Because I'm so generous...
+- ... Well, don't expect a handout from ME. You certainly don't need it.
+- I'm Bronsila Kvinchal. And I'm so sick of that Vlanarus, I could scream.
+- Vlanarus Kvinchal. Kastav is my brother, all right, but I'm nothing like that deadbeat.
+- I'm Kastav Kvinchal. And, if you listen to that witch of a sister of mine, Bronsila, I'm also a dog and a pig.
+- Dranas Llethro. I just got back from Solstheim. Boy, was that a mess. And now I'm out of work.
+- You can call me Hillod the Outlaw. Because I'm on the lam.
+- If you'll just follow me, I will take you directly to my master.
+- Good to see you again, ma'am. Shall I escort you upstairs to see my master?
+- Good to see you again, sir. Shall I escort you upstairs to see my master?
+- Jollring, the butler. I've served Master Umbacano for many years.
+- Snak gra-Bura, owner and proprietor. We board horses. And... well... we don't actually sell horses. Anymore, that is.
+- Yeah. Restita Statlilia. I work at the Chestnut Handy Stables. Have you seen our horses wandering around? No? Okay. It's just that they're missing.
+- I'm Brielus Gawey. And no, we don't sell horses. But we do eat well. The stables are owned by an Orc. And you know... Orcs and horses.
+- We all owe you our lives. From what I've heard, the battle was hanging in the balance until you destroyed that horrible daedric machine.
+- You should have heard the cheer when you came out of that monster Gate with that Siege Machine right on your heels.
+- We were all watching from the walls, and to be honest it was looking bad. I thought we were going to have to fight 'em street by street.
+- We lost a lot of good men that day. But Bruma is still standing. That's what counts.
+- Anyway, sorry to go on so long. I'm sure you've got things to do. Just wanted to thank you personally.
+- Hey, you look just like your statue! What can I do for you?
+- Hail, Savior of Bruma!
+- I am honored to speak to the hero of the Battle of Bruma. What can I do for you?
+- Destroying the Great Gate was a deed worthy of the mightest heroes of song and legend! You dealt the daedra a heavy blow that day, my friend!
+- To think, it was here at Bruma where the tide finally turned against the Oblivion Invasion!
+- Now we're counting on you to help Martin claim the throne and put an end to this terrible war. I know you won't fail us.
+- A mighty feat of arms! The bards of Cyrodiil will be singing of the Fall of the Great Gate for years to come!
+- I heard that you helped the Guard close that Oblivion Gate. Thanks. We were getting worried about that damn thing.
+- Everybody's talking about how you and Captain Burd closed that Oblivion Gate outside town. You're a real hero around here!
+- I'm sure all of Bruma joins me in saluting your help in keeping the hordes of Oblivion at bay.
+- Well done. Bruma will never fall while you and our intrepid Captain Burd are on duty!
+- Hey, you're the one that helped Captain Burd destroy that damned Oblivion Gate! Well done, friend, well done!
+- You and Captain Burd sure gave them daedra a good kick in the teeth. I wish I had been there to see it!
+- I'm Petrine. This is Wildeye Stables. I look after folk's horses while they're here in Bruma.
+- Humilis Nonius. Wildeye Stables can board your horse, or sell you one, if you like.
+- Welcome to Bruma, stranger. Hafid Hollowleg. I'm your host at Jerall View. Bed, food, whatever you need.
+- I'm Logvaar. Hafid pays me to stand around and keep things quiet.
+- I'm Snar the Cook. We've got genuine Skyrim cuisine... fresh, simple, big helpings... just like Mom used to make.
+- I'm Suurootan, proud owner of Novaroma, a little piece of Heartland Empire here in the lofty Jeralls.
+- Skjorta. Nord Winds. We've got clothes and armor. And I've got a headache, so keep your voice down, please.
+- I'm Olfand, the Light Armor trainer. Skjorta and I run North Winds. Please excuse us. We had a little drink-up last night. Still a little muzzy.
+- Fjotreid. You need armor or weapons, new or repair, come to Hammer and Axe.
+- The Nine welcome you to Bruma. I'm Isa Raman, priestess of Talos.
+- I'm Cirroc, Bruma's Chapel Healer.
+- Praise Akatosh! Praise the Nine! I'm Arentus Falvius, primate of Talos, High Priest of Bruma Chapel.
+- Lady Narina Carvain, Countess Bruma. Welcome. You'll excuse me if I keep this brief, but affairs of the county await me.
+- I'm Yvara Channitte, Countess Bruma's steward. The Countess makes policy, leaving the details of administration to me.
+- I'm Captain Burd, commander of the Bruma Guard.
+- Lieutenant Gerich Senarel of the Bruma Guard.
+- I'm Gan Luseph, Castle Mage and Healer.
+- Actually, I'm not much of a healer. I can blow the meat off you, but I'm not much good at sticking it back on.
+- Volanaro, at your service. Need a spell? Need an item recharged? Need a witty practical joke played on someone? I can handle it all.
+- My name is Selena Orania. I'm a Mages Guild Journeyman.
+- I'm Honmund. I'm a prospector. Alga's my woman, Nord-style. None of that Chapel wedding nonsense.
+- I'm Alga. I'm a bard and a Speechcraft trainer.
+- Honmund is my live-in partner. No offense, but I don't want to hear about any 'Mara Mother Mild' and Chapel family business.
+- Honmund and I live together in the old Nord way. Good enough for my Fa and Ma, and good enough for me.
+- I'm Jantus Brolus. I'm the Illusion Trainer.
+- Ongar the World-Weary, they call me. I've been everywhere, and done everything. Now I'm settled down for a good long rest.
+- I'm Jearl. I spend most of my time down south, but I keep a house in Bruma for the mountain air.
+- I'm Regner. You want anything? Talk to Edla. She's in charge.
+- Edla. Edla Dark-Heart. If you want to be a Marksman, I can train you. If you can breathe, I can teach you.
+- Helvius Cecia. I do a little of this, a little of that. And I serve the Nine. Praise their Names!
+- Brotch Calus, Alchemist. Advanced Training, available by appointment.
+- Hero of Kvatch? How about the Hero of Bravil! No need to be modest, my friend!
+- We all owe you a debt of gratitude for closing that Oblivion Gate. Thank you.
+- At least the Oblivion Gate outside the city is gone. Although news from the rest of the Empire is still just as bad as ever.
+- It was you that closed that Oblivion Gate, wasn't it? That was a brave thing to do!
+- Welcome, my friend! I am Isabeau Bienne, the ostler of Bay Roan Stables. And today I can sell you such a very fine bay horse!
+- Antoine Branck. I just work here. If you want a horse, go inside and talk to Isabeau.
+- I'm Bogrum Gro-Galash, your host at the Lonely Suitor Lodge. It may not look like much outside, but that's just the weathered Bravil look.
+- Gilgondorin. Silverhome-on-the-Water has beds and food. What's your pleasure?
+- Brokil gro-Shatur, Lord High Warden of the Taps, Gilgondorin's most prized customer. I taste everything. Over and over. And over again...
+- You'll always get a fair deal here. I'm Nilawen. What can I get you?
+- Take a chance on the Warlock's Luck!
+- Heh-heh. Just kidding. Everything is all perfectly safe. Tested it myself. Ungarion, retired adventurer. You may have heard of me?
+- The Archer's Paradox. Because a perfect arrow flies forever, and that's impossible. I'm Daenlin, and I have no perfect arrows.
+- I'm Uravasa Othrelas, priest of Mara. I'm also a Speechcraft trainer. I can help you make... different mistakes, at least.
+- I am the healer, Marz of Black Marsh. By the grace of Mara, I am available as an Advanced Trainer in Restoration.
+- I am Mara's Primate, Chana Mona. I  take care of the Chapel's affairs in Bravil Parish, and speak for Mara in the Council of the Nine.
+- I am Olava the Fair, Mara's Living Saint. It is my responsibility not to preach, but to live Mara's commands as an example to others.
+- Regulus Terentius, Count Bravil. Good of you to introduce yourself, stranger, but no point, really.
+- I'm the count, and you have no business talking to the count, right? Good. All straightened out. Off with you, then.
+- Dro'Nahrah. I'm Count Bravil's steward. I'm sorry, but please, I have too much on my mind to talk.
+- I'm Fathis Aren, Count Bravil's staff wizard. I can teach you Conjuration... anything to relieve the tedium of castle patronage.
+- Hans Black-Nail, Castle Smith. It's a comfortable post. Gives me plenty of time to offer services to the public.
+- Surely... you must know who I am! The Count's son. Do you mind? I have no desire to be further acquainted with every visitor to Bravil.
+- Drels Theran. I'm the count's Special Inquisitor in charge of suppressing the Renrijra Krin insurgents.
+- I'm Viera Lerus, captain of the Bravil Guard.
+- Nahsi, your humble servant, and humble servant of the Nine. I offer training in the marital arts of Hand-to-Hand fighting.
+- How do you do? I'm Tadrose Helas, Smith of the Bravil Fighters Guild chapter and trainer for Armorers.
+- Kud-Ei. I'm in charge here, and an Advanced Trainer in Illusion to boot, so I don't have a lot of time to stand around and chat.
+- I'm Ardaline. I'm the guild's Advanced Trainer in Alchemy here in Bravil.
+- Ita Rienus, Spells, Recharging and Training in Mysticism. And idle chatter. At your service.
+- Delphine Jend. Creator of the celebrated 'Enemies Explode' spell. Advanced Trainer in Destruction. And Mage Destined for Great Things.
+- Aryarie. Your friendly Guild Alchemist. Satisfaction guaranteed. No free samples.
+- Yes. I am Varon Vamori, Wit and Wordsmith. Bravil's foremost Bard and Advanced Trainer in Speechcraft.
+- Carandial. Mage-trained. Scholar by inclination. Student of our Aldmeri ancestors, the Ayleids.
+- Dro'shanji greets you. His work is the castle grounds, grand gardens green. Dro'shanji also is Advanced Trainer in Security.
+- Yes. S'krivva gives you greeting. Luxury imports, exports are S'krivva's fair game.
+- Ah. S'krivva hears of you. Welcome, and well-fare in your craft and trade.
+- Does anyone see City-Swimmer? Is he gliding beneath the silver water? Is he creeping 'round a corner, hugging a wall, silent as a shadow in the dark?
+- No! I am here! I stand proud before you, City-Swimmer, trainer of the prospective Sneaker, the sly sliding unseen!
+- Ranaline. I cook at the Lonely Suitor.
+- Hello, stranger. Luciana Galena. I'm Bravil's Advanced Trainer for the Light Armor discipline.
+- I'm J'zin-Dar. I tell you, so you can tell everyone who kicked the crap out of you. J'zin-Dar. Get it right.
+- What you want? It's okay. R'vanni doesn't mind. R'vanni likes it....
+- Hey! That's me you're talking to! Reistr the Rotted! Hear me? Reistr! Wow! I got this a-MAZ-ing itch right on my thigh! Can't touch it! It's rough!
+- Hello. I'm Roxanne Brigette. I help the boys. They get a little squirrelly sometimes, find it hard to cope. So I help out.
+- An impressive feat of arms, closing that Oblivion Gate outside Leyawiin. What can I do for you?
+- Thank you for closing that Oblivion Gate. Despite what the Count may say, we're all in your debt.
+- If it isn't the toast of Leyawiin! How can I help you?
+- The common folk of Leyawiin recognize your valor, even if Count Terentius does not. What do you need, friend?
+- The Count always says that Leyawiin stands alone, but your actions proved him wrong. Well done.
+- I am Januarius Aurunceia, the Count's footman and boot-puller.
+- I am Janonia Aurunceia, chief maid-servant of Castle Leyawiin.
+- Welcome, stranger, to the Five Claws. Food and beds, cheap and good, but most of all, your hostess promises, always clean!
+- Witseidutsei gives you her guarantee! Everything, clean, always, or you do not pay!
+- Well, you've found the Three Sisters. Beds and food. Not cheap, but you get what you pay for.
+- I'm Shuravi, the sister-that-works-and-worries. Shamada is sweet and decorative. Shomara is dumb as a post. But she can cook, at least.
+- I'm Shamada, hostess of the Three Sister Inn. Speak to Shuravi if you need beds or meals.
+- Sorry, sorry, sorry. Got to get cooking. I'm the cooking sister. I'm Shomara. The cooking sister.
+- Gundalas guarantees! Everything... almost free! At Best Goods and Guarantees, retail service at warehouse prices!
+- Yeah. Buy a goddam book. It's a bookstore, ain't it? Don't just go peeking at them! Buy one!
+- I'm Bugak gro-Bol, and I say you better buy a goddam book. And right away, dammit!
+- The Dividing Line between a live hero and a dead one is a sharp sword. Get the best you can afford from Tun-Zeeus...
+- ... Because you don't want to be on the dead guy side of the line, do you?
+- I'm Avrus Adas. I'm the priest of Zenithar at the Leyawiin Chapel.
+- Silana Blandia, Healer of the Leyawiin Chapel. Bless the Nine, and all the faithful.
+- Kantav Cheynoslin. I am the Primate of Leywiin, and Zenithar's Advocate.
+- Marius Caro, by grace of the Nine, Count Leyawiin. You are a stranger to me, but well-met.
+- I'm sure you have many pressing affairs. I won't keep you.
+- I am Countess Alessia Caro, wife to Count Marius.
+- I think Leyawiin would be better off if we removed all the dirty Argonians such as yourself. You wouldn't have a problem with that, would you?
+- Welcome to Leyawiin. I am Alessia Caro, and I have the honor to be the wife of the Count, Marius Caro.
+- I am Hlidara Mothril, Lady Leyawiin's chaplain and chief advisor.
+- I assist Her Ladyship so that her enlightened policies might achieve the greatest  possible influence upon the affairs of County Leyawiin.
+- On-Staya Sundew. Castle Leyawiin's steward. And chief advisor to Count Marius Caro. In theory...
+- I'm Caelia Draconis, Captain of the Leyawiin Guard. I hope we will not meet in my official capacity... ha-ha.
+- Tsavi, Count's Mage and Castle Healer, your servant.
+- Brodras of the Fighters Guild. I don't do contracts much. Mostly I'm a trainer. Heavy Armor.
+- And look. No jokes about the Heavy Armor, eh? Not every Bosmer sneaks around with bows and arrows. I'm as tough and beefy as any Orc. Got it?
+- Hey, baby? You fancy some training? Sherina's the name, and blades are the game.
+- S'Drassa of the Mages Guild, Evoker and Alchemist. And also, in his scant free time, a Trainer in Alchemy.
+- Alves Uvenim, Journeyman of the Guild. Welcome to Leyawiin. I don't believe we've been introduced.
+- My name is Agata. I'm responsible for enchanted item recharge for the Guild here in Leyawiin.
+- I'm Dar Jee. I'm a Khajiit in disguise. Want to see me lick my butt?
+- Hahaha! That one never gets old!
+- I'm Tsrava. I'm an Advanced Trainer in Acrobatics. Did I mention I hate dogs?
+- So keep your dogs away from me... unless they want some advanced lessons in plunging from great heights...
+- Alval Uvani. I'm an evil wizard. I like blowing things up.
+- And I have LOTS of time on my hands, since I'm LOADED with gold.
+- So I blow things up. And burn them. And frost them. And shock the living daylights out of them.
+- But I'm a smart, law-abiding evil wizard, because I only blow up my own stuff.
+- So don't get any ideas about murdering me and looting my gold...
+- Aside from the fact that I'll kick your ass... it's against the law, and you'll rot in jail for it.
+- So how do like THEM apples?
+- I am Ri'zakar, Pakseech of the Blackwood Company. The Company provides expert jihatt for selected customers. Very discreet.
+- Commander Ja'Fazir. Your servant. I am second-in-command of the Blackwood Company.
+- The Company provides expert jihatt for selected customers. Very discreet.
+- Lieutenant Rana, Blackwood Company.
+- I am Geel. Sergeant-of-Sharpshooters, Blackwood Company.
+- Oleed-Ei, Blackwood Company Master-of-Assassins.
+- My name is Numeen.  Have you seen that no-good rascal husband of mine, Mahei? Gods know what he is up to this time...
+- I am Mahei... that poor fellow who is chased everywhere by that nagging fishwife, Numeen.
+- Please. Just don't mention me to her, or she will burst into one of her tirades...
+- My name is Margarte. Professionally, I'm a trade consultant... I offer Advanced Mercantile training, by the way...
+- ... But my real passion is alchemy. I love brewing up new and interesting potions... just for fun!
+- It's a pity my busy consulting and training schedule leaves me little time for gathering ingredients...
+- ... And heavens forfend that my husband, Eitar, devote a few minutes from his all-consuming hobby...
+- ... stirring up trouble between Khajiits and Argonians, to help me find ingredients.
+- I'm Eitar. Say. Did you hear what that Argonian said? What's-his-name? You know who I'm talking about...
+- He said any Argonian can kick any Khajiit's butt to breakfast any day of the week. You believe that?
+- I think he's wrong. I KNOW Khajiit can kick Argonian butt. Any time. Any where. And you can tell everyone I said so.
+- I'm Eitar. Say. Did you hear what that Khajiit said? What's-his-name? You know who I'm talking about...
+- He said any Khajiit can kick any Argonian's butt to breakfast any day of the week. You believe that?
+- I think he's wrong. I KNOW Argonians can kick Khajiit butt. Any time. Any where. And you can tell everyone I said so.
+- Rats. Hate them. HATE them. Every one. Gonna hunt them down and chop them all to tiny bits.
+- Oh. Did I say that out loud? Excuse me. I'm Weebam-Na, the hunter. You got to excuse me. I got rats on the mind.
+- I'm Bejeen. I'm a hunter, and Weebam-Na's partner. I hope he didn't bother you about the rat thing. He's gone totally rat-cuckoo, I'm afraid.
+- I'm Cingor. I'm the Captain of the Leyawiin Neighborhood Watch.
+- Actually, Captain, President, Vice-President, Secretary, Treasurer, and Sergeant-at-Arms.
+- We're a small, select organization of crime fighters. We're going after the crimes and criminals the Guard overlooks.
+- Yes. Ahdarji is the name. Poor Ahdarji, all alone, now that Qa-Dar is gone. Poor widow Ahdarji...
+- Ahdarji trains, yes. Light Armor is the skill. Ahdarji must work very hard, now she is all alone in the world.
+- I'm Otumeel. But I didn't do anything. Really. It wasn't me.
+- Hahaha! No! Really! It wasn't me! Never!
+- Betto Plotius. I'm a faithful servant of Leyawiin and the Emperor... Gods rest his soul.
+- Julitta Plotius. I'm Betto's wife.
+- Decentius Opsius, Captain of the Coast Guard. Pleased to meet you.
+- I don't really feel comfortable talking to you right now.
+- Leave me alone!  I can't talk right now!
+- Yes, I think ... no.  Wait.  Never mind.  I must go now.
+- What are you doing in here. This is the headquarters for the Knights of the Thorn. No one else is allowed inside.
+- If you stay here, and Lord Farwil finds out when he gets back from his latest quest, he will have me thrown out of here. Please, leave at once.
+- Excuse me, the Empire doesn't run itself, you know. Submit a complaint to the usual department and I'm sure someone will take care of it.
+
+---
+
+
+**Total extracted lines: 3867**

@@ -1,0 +1,154 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "title": "Pool Entry (V3 Authoring Schema)",
+  "description": "Schema for a single pool entry in the dialogue smalltalk system. Extends the existing V2 format consumed by TopicGraphBuilder with new authoring metadata fields. Existing fields (id, intro, details, reactions, statCheck, valence) are unchanged; new fields (topic_category, required_entities, location_scope, quest_trigger) are added alongside them.",
+
+  "type": "object",
+  "required": ["id", "intro", "details", "reactions", "valence", "topic_category", "required_entities", "location_scope"],
+  "properties": {
+
+    "id": {
+      "type": "integer",
+      "description": "Unique entry ID within the pool file. Sequential, starting from 0."
+    },
+
+    "intro": {
+      "type": "string",
+      "description": "The NPC's opening line on this topic. Maximum 2 sentences. Must sound like a person talking, not a narrator. First person or direct address only.",
+      "maxLength": 300
+    },
+
+    "details": {
+      "type": "array",
+      "description": "Follow-up lines the NPC can say if the player explores this topic. Each is a tangent or personal aside, NOT an escalation or Act 2. System shows 0-2 of these (70% chance each, max 2).",
+      "items": {
+        "type": "string",
+        "maxLength": 300
+      },
+      "minItems": 2,
+      "maxItems": 3
+    },
+
+    "reactions": {
+      "type": "array",
+      "description": "The NPC's feelings or opinions about what they just said. NOT calls to action. These close the emotional arc, they don't open a new one.",
+      "items": {
+        "type": "string",
+        "maxLength": 300
+      },
+      "minItems": 1,
+      "maxItems": 3
+    },
+
+    "statCheck": {
+      "type": ["object", "null"],
+      "description": "Optional skill check with pass/fail NPC dialogue. Pass reveals a hidden personal observation. Fail deflects naturally. Both are NPC speech, never second-person narration.",
+      "properties": {
+        "pass": {
+          "type": "string",
+          "description": "What the NPC says if the player passes the skill check. A personal insight or observation, not a lore dump.",
+          "maxLength": 350
+        },
+        "fail": {
+          "type": "string",
+          "description": "What the NPC says if the player fails. A natural deflection, not 'you failed to learn anything.'",
+          "maxLength": 350
+        }
+      },
+      "required": ["pass", "fail"]
+    },
+
+    "valence": {
+      "type": "string",
+      "enum": ["positive", "negative", "neutral"],
+      "description": "Dominant emotional weight of the entry. Determines which tone openers/closers are used at runtime."
+    },
+
+    "topic_category": {
+      "type": "string",
+      "enum": [
+        "mundane_daily_life",
+        "npc_opinions",
+        "settlement_pride",
+        "poi_awareness",
+        "creature_complaints",
+        "distant_rumors"
+      ],
+      "description": "Which category this entry belongs to. See topic_categories.md for definitions and target percentages."
+    },
+
+    "required_entities": {
+      "type": "array",
+      "description": "Entity types from the registry that this entry depends on. Empty array for universal entries (weather, philosophy). Examples: ['npc'] for gossip about one NPC, ['npc', 'npc'] for gossip comparing two NPCs, ['poi:mine'] for mine-related talk, ['mob:goblins'] for creature complaints.",
+      "items": {
+        "type": "string",
+        "pattern": "^(npc|poi(:[a-z_]+)?|mob(:[a-z_]+)?|settlement)$"
+      }
+    },
+
+    "location_scope": {
+      "type": "string",
+      "enum": ["local", "regional", "universal"],
+      "description": "local: requires entities from this settlement. regional: references other settlements. universal: no entity dependencies (weather, philosophy, daily grumbling)."
+    },
+
+    "quest_trigger": {
+      "type": ["object", "null"],
+      "default": null,
+      "description": "EXTENSION POINT (not populated in current sprint). Future event-reactive dialogue: entries that activate only after specific quest events. Schema TBD when event-reactive system is built.",
+      "properties": {
+        "event_type": {
+          "type": "string",
+          "description": "Placeholder: type of quest event that activates this entry."
+        },
+        "quest_id": {
+          "type": "string",
+          "description": "Placeholder: quest identifier this entry reacts to."
+        }
+      }
+    }
+  },
+
+  "_v3_note": "V3 entries do not use {subject_focus} template variables. All entry text (intro, details, reactions, statCheck) is fully self-contained.",
+
+  "_compatibility_note": "The runtime pool loader (TopicPoolRegistry.parseCoherentPool) currently reads: id, intro, details, reactions, statCheck, valence. New fields (topic_category, required_entities, location_scope, quest_trigger) are authoring metadata: they are present in the JSON files but ignored by the parser until filtering logic is added. No existing code changes required to ship new pool entries with these fields.",
+
+  "_example_entries": [
+    {
+      "_category": "mundane_daily_life (universal, neutral)",
+      "id": 0,
+      "intro": "Slept through half the morning. First time in weeks I didn't have something pulling me out of bed before dawn.",
+      "details": [
+        "The bread I had for breakfast was stale, but I ate it anyway. Waste is waste.",
+        "I keep meaning to fix the hinge on my door. It's been squeaking for a month."
+      ],
+      "reactions": [
+        "Some days are just quiet days. Nothing wrong with that."
+      ],
+      "statCheck": null,
+      "valence": "neutral",
+      "topic_category": "mundane_daily_life",
+      "required_entities": [],
+      "location_scope": "universal",
+      "quest_trigger": null
+    },
+    {
+      "_category": "npc_opinions (local, negative)",
+      "id": 1,
+      "intro": "{npc_name} borrowed my best saw three weeks ago and hasn't said a word about returning it.",
+      "details": [
+        "I've asked twice. Both times the answer was 'soon.' Soon is starting to sound a lot like never.",
+        "It's not the saw. It's the principle. You don't take a person's tools and go quiet about it."
+      ],
+      "reactions": [
+        "I like {npc_name} well enough, but this is the kind of thing that wears on you."
+      ],
+      "statCheck": null,
+      "valence": "negative",
+      "topic_category": "npc_opinions",
+      "required_entities": ["npc"],
+      "location_scope": "local",
+      "quest_trigger": null
+    }
+  ]
+}

@@ -25,26 +25,23 @@ public enum FramingShape {
     public boolean hasCloser() { return closer; }
 
     /**
-     * Roll a framing shape based on disposition bracket.
-     * Hostile NPCs lean toward openers, friendly toward closers.
+     * Roll a framing shape: 75% bare, 25% either opener or closer (never both).
+     * When framing appears, disposition bracket biases toward opener or closer.
      */
     public static FramingShape roll(String bracket, Random random) {
-        double openerChance = switch (bracket) {
-            case "hostile" -> 0.85;
-            case "unfriendly" -> 0.70;
+        if (random.nextDouble() < 0.75) return BARE;
+
+        // 25% of the time: pick opener or closer based on disposition bracket.
+        // Hostile NPCs lean toward openers, friendly toward closers.
+        double openerBias = switch (bracket) {
+            case "hostile" -> 0.80;
+            case "unfriendly" -> 0.65;
             case "neutral" -> 0.50;
-            case "friendly" -> 0.65;
-            case "loyal" -> 0.60;
+            case "friendly" -> 0.35;
+            case "loyal" -> 0.20;
             default -> 0.50;
         };
-        double closerChance = 0.6;
 
-        boolean hasOpener = random.nextDouble() < openerChance;
-        boolean hasCloser = hasOpener ? (random.nextDouble() < closerChance) : true;
-
-        if (hasOpener && hasCloser) return BOTH;
-        if (hasOpener) return OPENER_ONLY;
-        if (hasCloser) return CLOSER_ONLY;
-        return BARE;
+        return random.nextDouble() < openerBias ? OPENER_ONLY : CLOSER_ONLY;
     }
 }

@@ -35,6 +35,28 @@ public class TopicGenerator {
     private static final double RUMOR_RATIO = 0.4;
     private static final double QUEST_CHANCE_PER_SUBJECT = 0.40;
 
+    // Template-derived topic labels for generated (non-quest) topics.
+    // These replace subject-focus-derived labels: pool entries are self-contained
+    // and no longer reference {subject_focus} variables.
+    private static final Map<String, String> TEMPLATE_LABELS = Map.ofEntries(
+        Map.entry("danger", "Trouble"),
+        Map.entry("sighting", "Sighting"),
+        Map.entry("treasure", "Finds"),
+        Map.entry("corruption", "Complaints"),
+        Map.entry("conflict", "Disputes"),
+        Map.entry("disappearance", "Missing Things"),
+        Map.entry("migration", "Comings and Goings"),
+        Map.entry("omen", "Old Sayings"),
+        Map.entry("weather", "The Weather"),
+        Map.entry("trade", "Trade"),
+        Map.entry("craftsmanship", "Crafts"),
+        Map.entry("community", "Around Town"),
+        Map.entry("nature", "The Outdoors"),
+        Map.entry("nostalgia", "Old Times"),
+        Map.entry("curiosity", "Idle Thoughts"),
+        Map.entry("festival", "Celebrations")
+    );
+
     // Stratified category decks for subject drawing
     private static final List<String> RUMOR_DECK = List.of(
         "danger", "sighting", "treasure", "corruption", "conflict", "disappearance", "migration", "omen"
@@ -219,25 +241,18 @@ public class TopicGenerator {
             }
         }
 
-        // Step 4: Build assignments per NPC, deduplicating resolved labels settlement-wide.
-        // If two topics resolve to the same label (e.g. two NPCs both get "The Weather Lately"),
-        // the second one is skipped.
+        // Step 4: Build assignments per NPC. No settlement-wide label dedup:
+        // generated topics use template-derived labels (e.g. "Around Town", "Trade")
+        // and different NPCs can independently have topics with the same label
+        // since they'll draw different pool entries.
         Map<String, List<TopicGraphBuilder.TopicAssignment>> npcAssignments = new LinkedHashMap<>();
         PercentageDedup dedup = new PercentageDedup();
-        Set<String> usedLabels = new HashSet<>();
 
         for (NpcRecord npc : npcs) {
             String npcName = npc.getGeneratedName();
             List<TopicGraphBuilder.TopicAssignment> assignments = new ArrayList<>();
             for (SubjectFocus focus : npcSubjects.get(npcName)) {
-                TopicGraphBuilder.TopicAssignment assignment = buildAssignment(focus, npc, random, dedup);
-                String resolvedLabel = capitalizeFirst(
-                    DialogueResolver.resolve(assignment.labelPattern(), assignment.bindings()));
-                if (usedLabels.contains(resolvedLabel)) {
-                    continue; // Skip duplicate label
-                }
-                usedLabels.add(resolvedLabel);
-                assignments.add(assignment);
+                assignments.add(buildAssignment(focus, npc, random, dedup));
             }
             npcAssignments.put(npcName, assignments);
         }
@@ -300,8 +315,8 @@ public class TopicGenerator {
             int idx = dedup.draw(template.id(), pool.size(), random);
             entry = pool.get(idx);
         } else {
-            entry = new PoolEntry(0, "I have heard something about {subject_focus}...",
-                List.of("That is all I know, really."), List.of("Make of it what you will."), null, ValenceType.NEUTRAL);
+            entry = new PoolEntry(0, "I had something on my mind, but it's slipped away.",
+                List.of("Happens more often than I'd like to admit."), List.of("Getting old, I suppose."), null, ValenceType.NEUTRAL);
         }
 
         // Pick skill from template's skills array
@@ -316,34 +331,44 @@ public class TopicGenerator {
             focus, npc.getGeneratedName(), npc.getDisposition(),
             isQuestBearer, template, entry, dedup, random);
 
+        // Quest bearers keep the template's subject-derived label pattern.
+        // Generated smalltalk uses a static template-derived label.
+        String labelPattern = isQuestBearer
+            ? template.labelPattern()
+            : TEMPLATE_LABELS.getOrDefault(template.id(), template.id());
+
         return new TopicGraphBuilder.TopicAssignment(
-            focus.getSubjectId(), template.labelPattern(),
+            focus.getSubjectId(), labelPattern,
             bindings, true, isQuestBearer,
             skill, template, entry
         );
     }
 
     /**
-     * Build simplified v2 bindings: subject focus, NPC name, drop-ins, tone framing,
-     * entry content, and quest bindings. No L0/L1/L2 fragment draws.
+     * Build bindings for template resolution. Generated smalltalk entries are self-contained
+     * (no subject_focus variables). Quest bearers still get subject focus bindings for
+     * quest exposition text.
      */
     private Map<String, String> buildBindings(SubjectFocus focus, String npcName, int disposition,
                                                  boolean isQuestBearer, TopicTemplate template,
                                                  PoolEntry entry, PercentageDedup dedup, Random random) {
         Map<String, String> bindings = new HashMap<>();
 
-        // Subject focus bindings
-        String subjectValue = focus.getSubjectValue();
-        boolean startsWithThe = subjectValue.toLowerCase().startsWith("the ");
-        String bareValue = startsWithThe ? subjectValue.substring(4) : subjectValue;
-        bindings.put("subject_focus", subjectValue);
-        bindings.put("subject_focus_bare", bareValue);
-        bindings.put("subject_focus_is", focus.isPlural() ? "are" : "is");
-        bindings.put("subject_focus_has", focus.isPlural() ? "have" : "has");
-        bindings.put("subject_focus_was", focus.isPlural() ? "were" : "was");
-        bindings.put("subject_focus_the", (focus.isProper() || startsWithThe) ? subjectValue : "the " + subjectValue);
-        bindings.put("subject_focus_The", focus.isProper() ? subjectValue
-            : startsWithThe ? "T" + subjectValue.substring(1) : "The " + subjectValue);
+        // Subject focus bindings: only for quest bearers (quest exposition text uses them).
+        // Generated smalltalk pool entries are self-contained and don't reference {subject_focus}.
+        if (isQuestBearer) {
+            String subjectValue = focus.getSubjectValue();
+            boolean startsWithThe = subjectValue.toLowerCase().startsWith("the ");
+            String bareValue = startsWithThe ? subjectValue.substring(4) : subjectValue;
+            bindings.put("subject_focus", subjectValue);
+            bindings.put("subject_focus_bare", bareValue);
+            bindings.put("subject_focus_is", focus.isPlural() ? "are" : "is");
+            bindings.put("subject_focus_has", focus.isPlural() ? "have" : "has");
+            bindings.put("subject_focus_was", focus.isPlural() ? "were" : "was");
+            bindings.put("subject_focus_the", (focus.isProper() || startsWithThe) ? subjectValue : "the " + subjectValue);
+            bindings.put("subject_focus_The", focus.isProper() ? subjectValue
+                : startsWithThe ? "T" + subjectValue.substring(1) : "The " + subjectValue);
+        }
 
         bindings.put("npc_name", npcName);
 

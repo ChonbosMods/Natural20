@@ -1,0 +1,535 @@
+{
+  "pool": "festival",
+  "version": 2,
+  "entries": [
+    {
+      "id": 0,
+      "intro": "The harvest festival near {subject_focus_the} is coming up and this year the village is going all out. Three days of feasting, competitions, and music.",
+      "details": [
+        "The brewers have been working overtime. There are seven different ales lined up for tasting, and the rivalry between the two main brewers is getting personal.",
+        "The strong-arm competition draws folks from three villages over. Last year's champion is a shepherd named Gritt who doesn't look like much until he lifts a barrel over his head with one arm.",
+        "The bonfire is the centerpiece. They've been stacking wood for weeks: it'll be tall as a house this year."
+      ],
+      "reactions": [
+        "It's the one time of year everyone puts their grievances aside. Hard to stay angry at your neighbor when you're both singing off-key around a fire.",
+        "I've been baking for three days straight. My back aches, my hands are raw, and I wouldn't trade it for anything."
+      ],
+      "valence": "positive"
+    },
+    {
+      "id": 1,
+      "intro": "There's a lantern walk near {subject_focus_the} every year on the longest night. Everyone carries a light from the village square to the hilltop and back.",
+      "details": [
+        "It started generations ago, during a winter so harsh people needed a reason to step outside. Now it's tradition.",
+        "Each family makes their own lantern. Some are simple candles in jars. Others are elaborate: cut paper, colored glass, carved wood.",
+        "From the hilltop, looking back at the village, you can see every light moving together. It looks like a river of stars flowing uphill."
+      ],
+      "reactions": [
+        "Last year my daughter carried the lantern for the first time. Held it with both hands, concentrating so hard she forgot to be cold.",
+        "The walk is quiet. Nobody speaks. It's the only tradition I know where silence is the whole point."
+      ],
+      "statCheck": {
+        "pass": "The eldest grandmother told me the real origin: the walk follows the exact path that the village founders took when they first arrived here, carrying torches through the dark to find this valley. It's a remembrance, not just a tradition.",
+        "fail": "Nobody remembers how it started. Everyone just says it has always been this way. The origin is lost to time, or at least to memory."
+      },
+      "valence": "positive"
+    },
+    {
+      "id": 2,
+      "intro": "The spring planting near {subject_focus_the} is treated like a celebration. The whole village turns out, and the first seed goes in the ground with a speech from the eldest farmer.",
+      "details": [
+        "The speech is supposed to be short: a blessing on the soil and a hope for rain. Last year the eldest farmer talked for forty minutes. People love him, but their knees didn't.",
+        "After the first seed, everyone plants together. Children get the easy rows. By midday the main fields are done and the food comes out.",
+        "There's a tradition where the youngest child plants the last seed. This year it's the miller's boy: he's three and very serious about the responsibility."
+      ],
+      "reactions": [
+        "It's hard work dressed up as a party, which is the best kind of tradition. Everyone contributes and everyone eats.",
+        "The food afterward is always the same: bread, cheese, dried fruit, and whatever pickle survived the winter. Simple, but it tastes better shared."
+      ],
+      "valence": "positive"
+    },
+    {
+      "id": 3,
+      "intro": "Every midsummer, the village near {subject_focus_the} holds a storytelling contest. Anyone can enter. The prize is a crown of wildflowers and bragging rights for a year.",
+      "details": [
+        "The rules are simple: one story, told from memory, no props, no notes. The crowd votes by applause.",
+        "The blacksmith has won three years running with tales about her apprenticeship that nobody believes but everyone loves.",
+        "Last year a traveler entered and told a story so strange and beautiful that the whole square went silent for a full minute after she finished. She still lost to the blacksmith."
+      ],
+      "reactions": [
+        "I entered once. Told a true story about the time I got lost in the woods as a child. Came in dead last. Apparently truth isn't as entertaining as fiction.",
+        "I am thinking about entering this year. I have been practicing on anyone who will listen, and a few who won't."
+      ],
+      "statCheck": {
+        "pass": "The traveler who nearly won last year left her story written down at the inn. I read it: it describes a place that matches the ruins north of here perfectly, except in her version, the ruins were alive and inhabited. She wasn't making it up. She was describing what it used to be.",
+        "fail": "Nobody remembers the details of her story clearly. Just that it was beautiful and strange. The feeling lingered more than the words."
+      },
+      "valence": "positive"
+    },
+    {
+      "id": 4,
+      "intro": "The first frost near {subject_focus_the} is marked with a tradition: everyone leaves a bowl of warm cider on their doorstep overnight.",
+      "details": [
+        "By morning the cider is frozen solid. The children crack the ice and eat it like candy. It's sweet and sharp and one of my favorite memories from growing up.",
+        "The tradition says the cider is for travelers who might be passing through in the cold. In practice, nobody ever takes it. But the gesture matters.",
+        "My mother always added a cinnamon stick and a slice of apple. Some houses add honey. You can tell a lot about a family by how they dress their frost cider."
+      ],
+      "reactions": [
+        "It's a small thing. Nobody would notice if you skipped it. But nobody skips it. That tells you something about this place.",
+        "I walked past every doorstep last frost morning, just looking at the bowls. Every single one was full. Some things about this village are exactly right."
+      ],
+      "valence": "positive"
+    },
+    {
+      "id": 5,
+      "intro": "The naming ceremony for the new baby near {subject_focus_the} is set for next week. The whole village turns out for these: it's considered bad luck not to.",
+      "details": [
+        "The parents carry the child to the village square at dawn. The eldest speaks the name aloud three times, and the crowd repeats it each time.",
+        "Afterward, every household brings a small gift: a wooden spoon, a knitted cap, a jar of preserves. The pile gets absurdly large for one infant.",
+        "The name isn't revealed until that morning. The parents keep it secret for weeks. People place bets at the tavern on what it'll be."
+      ],
+      "reactions": [
+        "There hasn't been a naming in over a year. People are more excited than they're letting on.",
+        "I remember my own child's naming. The sound of the whole village saying her name at once: that stays with you."
+      ],
+      "statCheck": {
+        "pass": "You have an ear for these things. The name they're choosing has old roots: it belonged to the founder of the original settlement. Nobody's used it in four generations. That's a statement, whether they mean it to be or not.",
+        "fail": "I've heard a few guesses floating around, but nothing solid. The parents are keeping it close."
+      },
+      "valence": "positive"
+    },
+    {
+      "id": 6,
+      "intro": "The midsummer bonfire near {subject_focus_the} is two nights away, and there's already an argument about who gets to light it.",
+      "details": [
+        "Traditionally the honor goes to the eldest, but the eldest says her hands shake too much and she wants to pass it to the youngest adult. Some people think that breaks the custom.",
+        "The woodpile is already stacked taller than a person. They soak the base in tallow so it catches fast and burns bright for hours.",
+        "People travel from neighboring villages just to watch the lighting. There's a circle of stones around the pit that's been there longer than anyone can remember."
+      ],
+      "reactions": [
+        "It's funny how a celebration meant to bring people together always starts with a squabble about the details.",
+        "I don't care who lights it. I care that it gets lit and that we all stand around it together. The rest is just noise."
+      ],
+      "statCheck": {
+        "pass": "You read the room well. The real argument isn't about the bonfire. The eldest naming a successor in public like that is how leadership transitions happen here. Some families feel passed over, and the fire is just the excuse.",
+        "fail": "People are worked up, but it'll sort itself out. It always does once the fire is actually burning."
+      },
+      "valence": "neutral"
+    },
+    {
+      "id": 7,
+      "intro": "Market day near {subject_focus_the} is turning into a proper tradition. What started as a weekly swap of goods now draws vendors from three settlements over.",
+      "details": [
+        "The baker sets up a table with samples before dawn. By the time the crowd arrives, there's a line twenty people deep just for the spiced rolls.",
+        "Someone hung ribbons between the stalls last month as a joke. Now everyone expects them, and the stall without ribbons looks out of place.",
+        "There's an unspoken rule: the first trade of the day is done at a loss. It's a goodwill gesture. Sets the tone for everything after."
+      ],
+      "reactions": [
+        "A village that trades well together stays together. That's not poetry: it's economics.",
+        "I like the noise of it. For one morning a week, this place sounds like it's thriving."
+      ],
+      "statCheck": {
+        "pass": "You've got a showman's eye. Notice how the best vendors arrange their goods at an angle, not flat? It catches the eye of people walking past and makes a small inventory look abundant. The baker figured that out first, and now everyone copies her.",
+        "fail": "It's a market. People buy, people sell, people talk. I don't see much more to it than that."
+      },
+      "valence": "positive"
+    },
+    {
+      "id": 8,
+      "intro": "The crafting competition near {subject_focus_the} is next month and people are already working in secret. Shutters closed, doors locked, nobody sharing a thing.",
+      "details": [
+        "The rules are simple: make one object, any material, any technique. The village votes by placing a stone beside the piece they admire most.",
+        "Last year's winner was a carved wooden bird so detailed you could count the feathers. The carver spent three months on it and then gave it away to a child the next day.",
+        "The competition gets taken seriously. Two neighbors stopped speaking for a season after one accused the other of copying a design."
+      ],
+      "reactions": [
+        "The secrecy is my favorite part. Grown adults sneaking materials home like children hiding sweets.",
+        "I entered a pair of leather gloves two years ago. Not a single stone. I still wear the gloves, though, so who really won?"
+      ],
+      "statCheck": {
+        "pass": "You have an artistic eye. The trick to winning isn't the most complex piece: it's the one that makes people feel something when they see it. The bird won because everyone imagined it flying. The technically better pieces just sat there, admired but not loved.",
+        "fail": "I couldn't tell you what makes one entry better than another. People like what they like."
+      },
+      "valence": "positive"
+    },
+    {
+      "id": 9,
+      "intro": "There's a music night near {subject_focus_the} every new moon. Anyone with an instrument shows up at the square, and they play until people stop listening.",
+      "details": [
+        "There's no set list and no rehearsal. Someone starts a tune and the others join in or wait for the next one. It sounds like chaos for the first few songs, then something clicks.",
+        "The old fiddler anchors the whole thing. He barely moves, plays with his eyes closed, and somehow every other player follows his tempo without being told.",
+        "Last month a woman brought a drum made from a hollowed log. When she played, you could feel it in your chest from across the square."
+      ],
+      "reactions": [
+        "Nobody calls it a performance. It's just neighbors making noise together. But some nights it's the most beautiful thing I've ever heard.",
+        "I can't play a thing. I just sit on the wall and listen. That's enough."
+      ],
+      "statCheck": {
+        "pass": "You understand performance. The fiddler isn't just keeping time: he's reading the crowd. When attention drifts, he shifts key. When the energy peaks, he pulls back to let someone else shine. He's conducting without anyone knowing it.",
+        "fail": "It's just music. Some nights are good, some aren't. I don't think there's much more to it."
+      },
+      "valence": "positive"
+    },
+    {
+      "id": 10,
+      "intro": "The remembrance ceremony near {subject_focus_the} is held every autumn. Families who lost someone that year speak their name aloud and light a candle at the old wall.",
+      "details": [
+        "The candles burn through the night. By morning, the wall is covered in wax trails, layered from years of ceremonies before.",
+        "Nobody is required to attend. Nobody is required to speak. Some families come every year, even when they have no new name to say. They stand for the ones whose names they spoke before.",
+        "The youngest child in the village rings a small bell after each name. She takes it very seriously: stands perfectly still between each ring."
+      ],
+      "reactions": [
+        "It's the heaviest night of the year, but people leave it lighter. Saying a name out loud to a crowd that listens: there's power in that.",
+        "I spoke my father's name two years ago. My voice broke on the second syllable. Nobody pretended not to notice, and nobody looked away. That's what this village does right."
+      ],
+      "statCheck": {
+        "pass": "You noticed the candle placement isn't random? Each family puts theirs in the same spot every year. The wall is mapped by grief: the oldest families' wax is at the top, layered so thick it's become part of the stone. It's an unspoken record of everyone we've lost.",
+        "fail": "The candles all look the same to me. People bring what they have. I haven't paid attention to the arrangement."
+      },
+      "valence": "negative"
+    },
+    {
+      "id": 11,
+      "intro": "The seasonal decorations near {subject_focus_the} went up early this year. Someone started hanging garlands a full week ahead of schedule, and now everyone's rushing to keep up.",
+      "details": [
+        "The tradition is dried flowers and woven grasses strung between the houses. Simple, but when the whole village is connected by the same thread, it looks like a web catching the light.",
+        "There's an unspoken competition over who makes the longest garland. The tanner's family holds the record: theirs stretches from their door to the well and back.",
+        "The early start caused problems. Half the flowers weren't fully dried, so they're wilting on the line. People are too proud to take them down and start over."
+      ],
+      "reactions": [
+        "I like the mess of it. Perfect decorations are for temples. Ours look like people actually made them, because they did.",
+        "My neighbor strung hers so low that the goats keep eating it. She's replaced it twice and refuses to raise it. The goats will learn, she says."
+      ],
+      "statCheck": {
+        "pass": "You caught the tension underneath? The one who started early was the new family. They were trying to show they belong, but they jumped the custom by a week and now the old families feel upstaged. Nobody will say it directly, but the garlands are a power play.",
+        "fail": "People are just eager this year. No particular reason that I can see."
+      },
+      "valence": "positive"
+    },
+    {
+      "id": 12,
+      "intro": "The communal stew near {subject_focus_the} is a tradition I never get tired of. Every household adds one ingredient to the pot, and nobody knows what it'll taste like until it's done.",
+      "details": [
+        "The pot is enormous: it sits over a fire pit in the square and takes half a day to come to a boil. The cook stirs it with a paddle the length of her arm.",
+        "There are rules. One ingredient per family, no repeats, no spoiled goods. Beyond that, anything goes. Someone added fish last year and it was either brilliant or terrible, depending on who you ask.",
+        "The first bowl goes to whoever traveled the farthest to be there. It's a welcome gesture. The second bowl goes to the cook, because she earned it."
+      ],
+      "reactions": [
+        "The stew is never good, exactly. But it's always honest. Every family's contribution is in there, and you taste the whole village in one bowl.",
+        "I added rosemary last year. I'll add it again this year. Consistency is my contribution to the chaos."
+      ],
+      "statCheck": {
+        "pass": "You know how to read a crowd. The real tradition isn't the stew: it's the negotiation. Families send their children to spy on what others are bringing so they can adjust their ingredient. By the time the pot's full, half the village has quietly coordinated without admitting it.",
+        "fail": "It's stew. Everyone adds something, it cooks, we eat. Not much mystery to it."
+      },
+      "valence": "positive"
+    },
+    {
+      "id": 13,
+      "intro": "The trading fair near {subject_focus_the} is being organized for the first time in five years. People are excited, but the planning is a disaster.",
+      "details": [
+        "Three people claimed the right to assign stall positions, and none of them will back down. The square has three conflicting layout plans pinned to the notice board.",
+        "The last fair drew visitors for two days straight. The inn ran out of beds, the tavern ran out of ale, and two merchants got into a fistfight over a bolt of cloth.",
+        "Someone suggested charging a gate fee this year to pay for repairs to the square. Half the village thinks it's sensible. The other half thinks it's an insult to hospitality."
+      ],
+      "reactions": [
+        "We need this fair. Trade has been slow, and people need a reason to spend and be spent on. But if the organizers can't agree on a layout, we won't have tables, let alone visitors.",
+        "I volunteered to help and was immediately assigned to three different committees. I'm on none of them now."
+      ],
+      "statCheck": {
+        "pass": "You can see the leverage at work. The one pushing the gate fee is the same person who paid for the square repairs out of pocket last time. She wants to be reimbursed, but she's framing it as a public good. Smart, but people have noticed.",
+        "fail": "It's a lot of opinions in a small space. Someone will sort it out eventually, or it'll sort itself out the hard way."
+      },
+      "valence": "neutral"
+    },
+    {
+      "id": 14,
+      "intro": "The athletic competition near {subject_focus_the} draws a bigger crowd every year. What started as a few races has turned into a full day of events.",
+      "details": [
+        "The centerpiece is the stone carry: a boulder that sits in the square year-round, and once a year someone tries to carry it from one end to the other. Only four people have ever managed it.",
+        "The footrace goes around the perimeter of the village. The course changes slightly every year because someone always argues the old route favored one side of town.",
+        "The children's events run alongside the adult ones. The egg-and-spoon race is more competitive than any of the strength events. Parents get more heated than the children."
+      ],
+      "reactions": [
+        "I pulled something in the relay two years ago and haven't entered since. I cheer loudly from a comfortable seat now.",
+        "The competitions are fine, but the real event is afterward: everyone sitting in the grass, too tired to argue about anything. That's the peace I look forward to."
+      ],
+      "statCheck": {
+        "pass": "You've got an eye for showmanship. The stone carry isn't really about strength: the boulder is heavy, but manageable for anyone with proper technique. The four who carried it all used the same hip-pivot method. Everyone else tries to muscle it straight up, and that's where they fail.",
+        "fail": "It's a stone. You pick it up or you don't. I've never thought much about technique."
+      },
+      "valence": "positive"
+    },
+    {
+      "id": 15,
+      "intro": "There's a dance tradition near {subject_focus_the} that happens at every gathering: a circle dance where each person adds a step and the next person has to repeat all the steps before adding their own.",
+      "details": [
+        "The dance starts simple: a stomp, a clap, a turn. By the tenth person it's a full routine that nobody can follow. That's when the laughing starts.",
+        "The record is twenty-two steps before the chain broke. A traveling merchant holds it, which the locals find both impressive and embarrassing.",
+        "The village elder refuses to participate but watches from her chair and keeps count. If she nods, the step was done correctly. If she doesn't, the dancer is out."
+      ],
+      "reactions": [
+        "It's the one tradition where failing is more fun than succeeding. The best nights are when the chain breaks early and everyone just dances freely.",
+        "I've memorized the first twelve steps from watching so many times. I could do them in my sleep. I still refuse to enter the circle."
+      ],
+      "statCheck": {
+        "pass": "You have a performer's instinct. The secret is that the elder doesn't just count steps: she judges style. Two people can do the same move, and she'll nod for one and not the other. It's not about accuracy. It's about whether you mean it when you dance.",
+        "fail": "I can barely remember three steps in a row. I wouldn't know what separates a good performance from a lucky one."
+      },
+      "valence": "positive"
+    },
+    {
+      "id": 16,
+      "intro": "The blessing ceremony for the new storehouse near {subject_focus_the} is set for this week. Every new building gets one, and people take it seriously.",
+      "details": [
+        "The eldest walks the perimeter of the building three times, speaking words that nobody fully understands anymore. The language is old: older than anyone living here.",
+        "Each household brings a handful of grain to scatter at the threshold. The idea is that the building's first offering should come from everyone, not just the owner.",
+        "The builder stands inside during the ceremony and doesn't come out until it's finished. It's considered bad luck to leave your own building before it's been blessed."
+      ],
+      "reactions": [
+        "I don't know if the blessing does anything, but the buildings that skip it always seem to have problems. Leaks, settling, a door that won't close right. Coincidence, probably.",
+        "It's less about the building and more about the village agreeing to protect what's inside it. The grain at the threshold means we all have a stake in it."
+      ],
+      "statCheck": {
+        "pass": "You picked up on the words. I asked the eldest once, and she said the blessing isn't asking for protection: it's a warning. The old language is addressed to whatever might be living in the ground beneath, telling it the building above is spoken for. She said it very matter-of-factly.",
+        "fail": "The words sound solemn, but I couldn't tell you what they mean. The eldest learned them from her mother, and that's all she'll say."
+      },
+      "valence": "neutral"
+    },
+    {
+      "id": 17,
+      "intro": "A farewell gathering near {subject_focus_the} is being planned for a family that's leaving at the end of the month. The mood is strange: half celebration, half mourning.",
+      "details": [
+        "The tradition is that the departing family walks through the village one last time while everyone stands in their doorway. No words, just presence. Then the eldest speaks a short farewell at the gate.",
+        "The family's children grew up here. Their friends have been coming by every day with small gifts: carved animals, pressed flowers, stones from favorite places.",
+        "The father built the well cover that everyone uses. The mother taught half the children in the village to read. They're not easy people to replace."
+      ],
+      "reactions": [
+        "People leave. It happens. But this one feels different. They're not leaving because they have to. They're leaving because they want something else. That's harder to accept.",
+        "I've said goodbye to enough people in this village that I should be used to it. I'm not."
+      ],
+      "statCheck": {
+        "pass": "You can read what people aren't saying. The real reason they're leaving is quieter than anyone admits. The father had a disagreement with the council about water rights last spring. It was settled, officially. But he hasn't spoken to the elder since. Some things get resolved without being healed.",
+        "fail": "They say it's for opportunity elsewhere. People always say that. Whether there's more to it, I couldn't tell you."
+      },
+      "valence": "negative"
+    },
+    {
+      "id": 18,
+      "intro": "There's a moonlight gathering near {subject_focus_the} on every full moon. Nothing formal: people just drift to the hill after dark and sit together.",
+      "details": [
+        "Nobody organizes it. Nobody announces it. But every full moon, the same dozen people end up on the same hill, wrapped in blankets, watching the sky.",
+        "Someone always brings tea. Nobody knows who started that, and the person who brings it changes without any arrangement. It just happens.",
+        "The conversations up there are different from the ones in the village. Quieter, slower. People say things on that hill they wouldn't say in daylight."
+      ],
+      "reactions": [
+        "It's the closest thing we have to a ritual that nobody calls a ritual. If you named it, you'd kill it.",
+        "I missed one gathering last month because I fell asleep. Woke up feeling like I'd lost something I couldn't name."
+      ],
+      "statCheck": {
+        "pass": "You understand how these things work. The gathering isn't random: there's a quiet signal. Whoever decides to go first leaves a stone on the fountain rim that afternoon. If you see the stone, you know it's on. It's been that way for years, and nobody talks about it.",
+        "fail": "People just show up. There's no system to it that I've ever noticed."
+      },
+      "valence": "positive"
+    },
+    {
+      "id": 19,
+      "intro": "The solstice observation near {subject_focus_the} is the most formal tradition the village has. Twice a year, everyone gathers at the old stones at dawn and watches the light move across the carvings.",
+      "details": [
+        "The stones are positioned so that the first light of the solstice falls through a gap and strikes a specific mark on the center stone. It takes about ten minutes, and the whole village watches in silence.",
+        "The carvings on the stones don't match anything else in the region. Nobody knows who placed them or when. They were here before the village was.",
+        "After the light passes, the eldest speaks a single sentence that changes every year. Last year's was: 'The light found us again.' Simple, but it hit harder than I expected."
+      ],
+      "reactions": [
+        "I've watched it twelve times now and it still catches me off guard. The precision of the light on the mark: whoever placed those stones understood something we've forgotten.",
+        "Some people come for the tradition. I come because for ten minutes, nobody is arguing, nobody is worried, and the whole village is looking at the same thing."
+      ],
+      "statCheck": {
+        "pass": "You have an artist's eye for alignment. The light doesn't just hit the center stone: if you stand at the right angle, you can see it pass through a second gap and illuminate a smaller mark on the stone behind it. Nobody notices because everyone faces forward. There's a second layer to the arrangement that only works if you know where to stand.",
+        "fail": "The light hits the stone. It's impressive, but I've never studied the arrangement closely enough to say more."
+      },
+      "valence": "positive"
+    },
+    {
+      "id": 20,
+      "intro": "The apprentice graduation near {subject_focus_the} is tomorrow, and the whole village is preparing. Three young people finish their training this year.",
+      "details": [
+        "Each apprentice presents a finished piece to their master in front of the crowd. The master examines it in silence, then either nods or gives it back for rework. Nobody has been sent back in six years.",
+        "The families of the graduates have been cooking for days. There's a feast afterward where the new craftspeople sit at the head of the table for the first and only time.",
+        "The carpenter's apprentice is nervous: she's built a cabinet with a hidden compartment that she's kept secret from her master. She wants to surprise him. It's either going to be the highlight or a disaster."
+      ],
+      "reactions": [
+        "I remember my own graduation. The moment the master nodded, I felt taller. Sounds foolish, but that nod meant more than any title.",
+        "Three new skilled hands in the village. That's not just ceremony: that's the future of this place. We need every one of them."
+      ],
+      "statCheck": {
+        "pass": "You've got a showman's instinct. The hidden compartment isn't a risk: the carpenter's apprentice showed me the mechanism. It's a sliding dovetail joint that locks with a quarter-turn. Her master taught her the base technique last year. She took it further than he imagined. He's going to weep when he sees it.",
+        "fail": "The apprentices seem ready. Beyond that, I don't know enough about their crafts to judge the work."
+      },
+      "valence": "positive"
+    },
+    {
+      "id": 21,
+      "intro": "The animal show near {subject_focus_the} is in three days, and the preparations are louder than usual. Literally: someone's prize rooster won't stop crowing.",
+      "details": [
+        "Every family brings their best animal for display. The judging is done by a panel of three elders who take it exactly as seriously as you'd expect: far too seriously.",
+        "The shepherd's border collie won best in show last year by herding six ducks through a gate on command. Nobody could follow that, and nobody's going to try.",
+        "The real competition is in the grooming. People brush, braid, and oil their animals until they shine. I saw a goat wearing a ribbon collar that probably cost more than my boots."
+      ],
+      "reactions": [
+        "It's ridiculous and wonderful. A village full of adults arguing about whose chicken looks healthiest. I wouldn't miss it.",
+        "The animals don't care about the ribbons. They care about the extra food they get for a week beforehand. Smartest creatures at the fair, if you think about it."
+      ],
+      "statCheck": {
+        "pass": "You can read the social game underneath. The animal show isn't really about animals: it's the one event where families from the outskirts get equal standing with the village center. A farmer on the edge of the territory can win best in show and outrank the council chair's prized mare. The leveling matters more than the ribbons.",
+        "fail": "It's animals and ribbons. Fun to watch, but I don't read much deeper into it."
+      },
+      "valence": "positive"
+    },
+    {
+      "id": 22,
+      "intro": "There's a weaving competition near {subject_focus_the} every spring, and this year's theme is 'something lost.' The entries are supposed to depict something the weaver misses.",
+      "details": [
+        "The looms are set up in the open air so everyone can watch the work in progress. Some weavers cover theirs with a cloth between sessions to keep the design secret.",
+        "The old weaver on the hill has entered every year for twenty years. She's never won, and she's never changed her pattern: the same interlocking circles, every time. People respect her consistency more than any prize could convey.",
+        "Last year's winning piece showed a doorway with light coming through it but nobody standing in it. The weaver said it was about her sister who moved away. It made three people cry during the judging."
+      ],
+      "reactions": [
+        "A competition about loss sounds heavy, but it brings out the most honest work. People weave things they can't say out loud.",
+        "I don't weave, but I go every year to watch the faces of the people looking at the finished pieces. That's where the real art is: in the recognition."
+      ],
+      "statCheck": {
+        "pass": "You've got an eye for what's beneath the surface. The old weaver's interlocking circles aren't abstract: they're a map. Each circle represents a settlement that used to exist in this valley. She weaves the pattern every year because the number of circles has never changed, even though three of those settlements are gone. She's keeping count.",
+        "fail": "The patterns are beautiful, but I couldn't tell you what separates a good weave from a great one. I just know what I like."
+      },
+      "valence": "neutral"
+    },
+    {
+      "id": 23,
+      "intro": "There's a pottery firing near {subject_focus_the} once a season where the whole village brings their pieces to the communal kiln. It's turned into a celebration of its own.",
+      "details": [
+        "The kiln is ancient: stone walls thick as a forearm, a chimney that leans slightly but has never fallen. It holds heat for two days straight.",
+        "Everyone marks their pieces with a family symbol before they go in. When the kiln is opened, it's like a gift exchange: you know what you put in, but you never know exactly how it'll come out.",
+        "The potter's children hand out cups of broth while the kiln runs. Standing around a hot kiln for hours is thirsty work, and the broth has become as much a tradition as the firing."
+      ],
+      "reactions": [
+        "I love the moment when the kiln opens and the steam clears. There's always one piece that turned out better than anyone expected. Last season it was a simple water jug that came out with a blue glaze nobody planned.",
+        "The kiln doesn't care who made what. A novice's bowl sits next to a master's vase and they both get the same heat. There's something fair about that."
+      ],
+      "statCheck": {
+        "pass": "You noticed the blue glaze? That wasn't a fluke. The potter told me privately that she's been experimenting with a mineral additive. She put a small dish of it inside the kiln to see if the vapors would affect nearby pieces. It worked, but she's not telling anyone yet. She wants to understand it before she shares.",
+        "fail": "The kiln does what it does. Sometimes pieces surprise you, sometimes they crack. I don't know enough about firing to explain why."
+      },
+      "valence": "positive"
+    },
+    {
+      "id": 24,
+      "intro": "The fishing derby near {subject_focus_the} is the most contested event of the year. People who are neighbors the other three hundred and sixty days become ruthless competitors for one afternoon.",
+      "details": [
+        "The rules are strict: one line, no nets, three hours. Biggest catch by weight wins. Ties are broken by the judge's personal preference, which everyone agrees is corrupt and nobody actually challenges.",
+        "Last year's winner pulled a fish so large that three people had to help carry it. She insists she did it alone and refuses to share her bait recipe.",
+        "The losers throw the winner into the water at the end. It's tradition. The winner pretends to resist. Nobody has ever actually resisted."
+      ],
+      "reactions": [
+        "I've entered four times and placed second twice. Second place gets nothing: no prize, no respect, just the memory of almost winning. It's a terrible feeling and I'll be back next year.",
+        "The fishing itself is almost beside the point. It's three hours of people sitting quietly by the water, pretending they're not watching everyone else's line."
+      ],
+      "statCheck": {
+        "pass": "You can read people's strategies. The winner every year isn't the best fisher: it's the one who picks the right spot. There's a deep pool where the water turns dark, and whoever gets there first has the advantage. The trick is that the spot changes slightly each season as the bank shifts. Last year's winner spent three mornings before the derby mapping the current.",
+        "fail": "Fish are where they are. Some people are lucky, some aren't. I've never analyzed it beyond that."
+      },
+      "valence": "positive"
+    },
+    {
+      "id": 25,
+      "intro": "There's a stargazing tradition near {subject_focus_the} on the clearest night each season. The village scholar sets up on the high ground and anyone who wants to learn comes along.",
+      "details": [
+        "She has a chart passed down from her teacher that maps the stars as they were sixty years ago. Some of the positions have shifted slightly, and she marks the differences with red ink.",
+        "The children are the most eager. They give the stars their own names because the old ones are too hard to pronounce. The scholar doesn't correct them: she writes the new names in the margin of her chart.",
+        "Last clear night, she pointed out a formation that only appears at this latitude once every several years. We sat for an hour waiting for it to clear the ridge. When it did, nobody spoke."
+      ],
+      "reactions": [
+        "I know nothing about stars, but I know what it feels like to sit next to someone who does. Her certainty about things so far away makes the things nearby feel more manageable.",
+        "The sky looks the same every night until someone shows you what to look for. Then you can't stop seeing patterns."
+      ],
+      "statCheck": {
+        "pass": "You have a sharp eye. She mentioned something to me afterward that she didn't share with the group: the formation we watched isn't just rare. According to her chart, it appeared the last time the ruins near here were still inhabited. She doesn't believe in omens, but she circled the date twice.",
+        "fail": "Stars are stars. She seems to see meaning in the arrangement, but I couldn't tell you what separates one pattern from another."
+      },
+      "valence": "positive"
+    },
+    {
+      "id": 26,
+      "intro": "The bread-baking competition near {subject_focus_the} drew twice the usual entries this year. Someone suggested a new rule that's causing problems: blind judging.",
+      "details": [
+        "Traditionally, the judges knew whose bread was whose, and everyone accepted that reputations carried weight. Blind judging means the bread speaks for itself, and some of the old champions are nervous.",
+        "The head baker has won six times running with her rye loaf. She's publicly in favor of blind judging, but her apprentice told me she's been experimenting with new recipes for weeks.",
+        "The entries are displayed on a long table covered in cloth, each with a number instead of a name. The reveal at the end is half the entertainment."
+      ],
+      "reactions": [
+        "Blind judging is fairer. It's also meaner. When you lose anonymously, there's nobody to blame and no story to tell. Just bread that wasn't good enough.",
+        "I think the person who suggested it knows exactly what they're doing. The old winners have been coasting on reputation, and someone wants to shake the table."
+      ],
+      "statCheck": {
+        "pass": "You see the social leverage at play. The one who proposed blind judging is the new family's mother. She's an excellent baker, but she's lost three years in a row to the head baker's reputation. This isn't about fairness: it's about getting a fair shot. And she's right, which makes it harder for anyone to object.",
+        "fail": "Someone wanted a change and got it. These things happen in villages. I don't think there's more to read into it."
+      },
+      "valence": "positive"
+    },
+    {
+      "id": 27,
+      "intro": "The dawn vigil near {subject_focus_the} happens once a year on the shortest night. A few volunteers stay awake from dusk to dawn and keep the village fire burning until the sun returns.",
+      "details": [
+        "There's no practical reason for it anymore. The fire doesn't ward off anything. But the idea that someone is watching while the village sleeps: people find comfort in that.",
+        "The vigil keepers pass the time with quiet conversation and strong tea. By the last hour before dawn, nobody's talking. They just stare at the fire and wait for the light.",
+        "A different group volunteers each year. This year the youngest is fifteen, the oldest is seventy-three. They've never spoken before. By morning, they'll know each other's life stories."
+      ],
+      "reactions": [
+        "I did the vigil once. The hour before dawn is the longest of your life. The sky gets lighter in degrees so small you think you're imagining it. Then all at once, it's morning.",
+        "Some traditions exist because they're useful. This one exists because it's meaningful. Those are harder to explain and harder to stop."
+      ],
+      "statCheck": {
+        "pass": "You understand ritual. The vigil isn't really about the fire: it's the only setting in this village where age, status, and family name don't matter. The youngest and the oldest sit as equals for one night. Conversations happen at the vigil that wouldn't happen anywhere else. Grudges get resolved over that fire more often than at any council meeting.",
+        "fail": "People stay up, keep the fire going, and then sleep half the next day. I've never seen the point, honestly."
+      },
+      "valence": "positive"
+    },
+    {
+      "id": 28,
+      "intro": "The toasting tradition near {subject_focus_the} is getting out of hand. Every gathering now starts with at least six rounds of toasts before anyone actually drinks.",
+      "details": [
+        "The custom was one toast: to the village, spoken by the eldest. Then someone added a toast to the harvest. Then the trades. Then the children. Then the departed. Now it takes longer to toast than to pour.",
+        "The real problem started when the brewer began making a special batch for toasting that's stronger than the regular stock. By the time the toasts are done, half the room is already gone.",
+        "Last gathering, a visitor tried to add a seventh toast and was shouted down so enthusiastically that he thought he'd caused offense. He hadn't: people were just thirsty."
+      ],
+      "reactions": [
+        "I love this village's traditions, but we've taken a simple gesture and turned it into an endurance test. Someone needs to say something, but nobody wants to be the one who cuts a toast.",
+        "The irony is that the toasts are all about gratitude and togetherness, but by the fifth one, people are rolling their eyes. The form has outgrown the feeling."
+      ],
+      "statCheck": {
+        "pass": "You can see the social dynamics. Nobody can cut a toast without insulting whoever added it. The harvest toast was the elder's idea. The trades toast was the guild leader's. The children's toast was the schoolteacher's. Each one is a claim to importance at the table. Cutting any toast means telling that person they don't matter enough. It's a ladder, not a list.",
+        "fail": "People like to talk before they drink. It's gotten long, but I don't think there's a deeper reason."
+      },
+      "valence": "positive"
+    },
+    {
+      "id": 29,
+      "intro": "The end-of-summer gathering near {subject_focus_the} turned sour this year. What was supposed to be a celebration became a public argument that people are still talking about.",
+      "details": [
+        "It started over seating. Two families both claimed the head table, and neither would move. The organizer tried to split the difference and ended up offending both.",
+        "The argument escalated when someone brought up an old debt that had nothing to do with seating. Once that door opened, three other grievances followed. The feast went cold while people shouted.",
+        "The children kept playing in the square the whole time, completely unaware. That image stuck with me: the adults ruining the evening while the children had the best night of their summer."
+      ],
+      "reactions": [
+        "A celebration is fragile. It takes weeks to plan and seconds to break. One wrong word at the wrong moment and the whole thing curdles.",
+        "I don't blame the families. I blame the things we leave unsaid for months that come out sideways at exactly the wrong time. The feast didn't cause the fight: it just gave it a stage.",
+        "Someone needs to fix this before the next gathering, or people will stop coming. And once people stop coming, the tradition dies."
+      ],
+      "statCheck": {
+        "pass": "You can read what's really happening. The seating argument was a proxy. Both families have been competing for influence on the council for over a year. The head table is symbolic: whoever sits there is seen as the village's leading family. The real fight is about who speaks for this community, and the gathering just made it public.",
+        "fail": "Two families had a disagreement and it got loud. Beyond that, I try not to pick sides."
+      },
+      "valence": "negative"
+    }
+  ]
+}

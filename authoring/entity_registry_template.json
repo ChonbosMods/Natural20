@@ -1,0 +1,110 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "title": "Settlement Entity Registry",
+  "description": "Populated at authoring time with real game data for a specific settlement. The sub-agent receives one of these per settlement and must only reference entities that appear here.",
+
+  "type": "object",
+  "required": ["settlement", "npcs", "poi_types", "mob_types", "nearby_settlements"],
+  "properties": {
+
+    "settlement": {
+      "type": "object",
+      "description": "The settlement this registry describes.",
+      "required": ["name", "type"],
+      "properties": {
+        "name": {
+          "type": "string",
+          "description": "Procedurally generated settlement name. Referenced in pool entries via {settlement_name}."
+        },
+        "type": {
+          "type": "string",
+          "enum": ["TOWN", "OUTPOST", "CART"],
+          "description": "Settlement size category. Affects NPC count and POI availability."
+        }
+      }
+    },
+
+    "npcs": {
+      "type": "array",
+      "description": "All named NPCs in this settlement. Referenced in pool entries via {npc_name}, {npc_name_2}, etc.",
+      "items": {
+        "type": "object",
+        "required": ["name", "role"],
+        "properties": {
+          "name": {
+            "type": "string",
+            "description": "NPC's procedurally generated name."
+          },
+          "role": {
+            "type": "string",
+            "enum": ["Villager", "Guard", "TavernKeeper", "ArtisanAlchemist", "ArtisanBlacksmith", "ArtisanCook", "Traveler"],
+            "description": "NPC's functional role in the settlement."
+          },
+          "disposition": {
+            "type": "integer",
+            "description": "Base disposition (0-100). Higher = friendlier. Affects tone framing, not pool entry content."
+          }
+        }
+      }
+    },
+
+    "poi_types": {
+      "type": "array",
+      "description": "POI types present in or near the settlement. Referenced in pool entries via {poi_type}. Only the type is known: no interior details, no sub-features.",
+      "items": {
+        "type": "string",
+        "examples": ["mine", "farm", "market", "shrine", "tavern", "blacksmith", "mill", "well", "watchtower"]
+      }
+    },
+
+    "mob_types": {
+      "type": "array",
+      "description": "Creature/enemy types that spawn in the area around this settlement. Referenced in pool entries via {mob_type}.",
+      "items": {
+        "type": "string",
+        "examples": ["goblins", "wolves", "skeletons", "spiders", "bandits", "slimes"]
+      }
+    },
+
+    "nearby_settlements": {
+      "type": "array",
+      "description": "Names of other settlements the NPC might have heard of. Referenced in pool entries via {other_settlement}.",
+      "items": {
+        "type": "string"
+      }
+    }
+  },
+
+  "_template_variables": {
+    "description": "Reference for variable syntax used in pool entry text. All variables use {curly_brace} syntax and are resolved at runtime by DialogueResolver.",
+    "variables": {
+      "{settlement_name}": "This settlement's name.",
+      "{npc_name}": "Name of another NPC in the same settlement (first reference).",
+      "{npc_name_2}": "Name of a second NPC (when entry references two NPCs).",
+      "{poi_type}": "A POI type from the registry (e.g., 'mine', 'farm'). Use as a common noun, not a proper name.",
+      "{mob_type}": "A mob type from the registry (e.g., 'goblins', 'wolves'). Use as a common noun.",
+      "{other_settlement}": "Name of a nearby settlement.",
+      "{time_ref}": "Vague time reference (existing drop-in pool).",
+      "{direction}": "Vague direction reference (existing drop-in pool)."
+    }
+  },
+
+  "_example_populated": {
+    "description": "Example of a fully populated registry for one settlement.",
+    "settlement": {
+      "name": "Thornfield",
+      "type": "TOWN"
+    },
+    "npcs": [
+      { "name": "Marta Greaves", "role": "TavernKeeper", "disposition": 65 },
+      { "name": "Rodwin Ash", "role": "ArtisanBlacksmith", "disposition": 55 },
+      { "name": "Elia Strand", "role": "Villager", "disposition": 72 },
+      { "name": "Garret Hollow", "role": "Guard", "disposition": 40 },
+      { "name": "Bren Oakes", "role": "Villager", "disposition": 60 },
+      { "name": "Sienna Moss", "role": "ArtisanCook", "disposition": 78 }
+    ],
+    "poi_types": ["mine", "farm", "tavern", "blacksmith", "well"],
+    "mob_types": ["goblins", "wolves"],
+    "nearby_settlements": ["Millhaven", "Ashwick"]
+  }
+}
