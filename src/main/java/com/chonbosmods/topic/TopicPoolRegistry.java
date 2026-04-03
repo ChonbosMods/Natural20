@@ -392,23 +392,34 @@ public class TopicPoolRegistry {
     // --- Coherent triplet pool methods ---
 
     public void loadCoherentPools(@Nullable Path poolsDir) {
-        String[] templateIds = {
+        // V2 pools (archived, still loaded for backward compatibility)
+        String[] v2Ids = {
             "danger", "sighting", "treasure", "corruption", "conflict",
             "disappearance", "migration", "omen", "weather", "trade",
             "craftsmanship", "community", "nature", "nostalgia", "curiosity", "festival"
         };
-        for (String id : templateIds) {
-            loadCoherentPool(id, poolsDir);
+        for (String id : v2Ids) {
+            loadCoherentPool(id, "v2", poolsDir);
         }
+
+        // V3 pools (new category system with template variables)
+        String[] v3Ids = {
+            "mundane_daily_life", "npc_opinions", "settlement_pride",
+            "poi_awareness", "creature_complaints", "distant_rumors"
+        };
+        for (String id : v3Ids) {
+            loadCoherentPool(id, "v3", poolsDir);
+        }
+
         LOGGER.atFine().log("Loaded %d coherent pools (%d total entries)",
             coherentPools.size(),
             coherentPools.values().stream().mapToInt(List::size).sum());
     }
 
-    private void loadCoherentPool(String templateId, @Nullable Path poolsDir) {
-        String classpathResource = "topics/pools/v2/" + templateId + ".json";
+    private void loadCoherentPool(String templateId, String versionDir, @Nullable Path poolsDir) {
+        String classpathResource = "topics/pools/" + versionDir + "/" + templateId + ".json";
         if (poolsDir != null) {
-            Path file = poolsDir.resolve("v2/" + templateId + ".json");
+            Path file = poolsDir.resolve(versionDir + "/" + templateId + ".json");
             if (Files.exists(file)) {
                 try (var reader = Files.newBufferedReader(file, StandardCharsets.UTF_8)) {
                     parseCoherentPool(templateId, JsonParser.parseReader(reader).getAsJsonObject());

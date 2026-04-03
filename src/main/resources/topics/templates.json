@@ -144,6 +144,66 @@
       "reactionIntensity": "mild",
       "intro": "{tone_opener}{entry_intro}{tone_closer}",
       "detailPrompts": ["ask_more", "ask_context"],
-      "reactionPrompts": ["ask_opinion", "ask_feeling"]    }
+      "reactionPrompts": ["ask_opinion", "ask_feeling"]    },
+    {
+      "id": "mundane_daily_life",
+      "label": "Daily Life",
+      "subjectRequired": false,
+      "skills": ["INSIGHT", "PERCEPTION"],
+      "reactionIntensity": "mild",
+      "intro": "{tone_opener}{entry_intro}{tone_closer}",
+      "detailPrompts": ["ask_more", "ask_context"],
+      "reactionPrompts": ["ask_opinion"]
+    },
+    {
+      "id": "npc_opinions",
+      "label": "Around Town",
+      "subjectRequired": false,
+      "skills": ["PERSUASION", "INSIGHT"],
+      "reactionIntensity": "mild",
+      "intro": "{tone_opener}{entry_intro}{tone_closer}",
+      "detailPrompts": ["ask_more", "ask_context"],
+      "reactionPrompts": ["ask_opinion", "ask_feeling"]
+    },
+    {
+      "id": "settlement_pride",
+      "label": "Life Here",
+      "subjectRequired": false,
+      "skills": ["PERSUASION", "HISTORY"],
+      "reactionIntensity": "mild",
+      "intro": "{tone_opener}{entry_intro}{tone_closer}",
+      "detailPrompts": ["ask_more", "ask_context"],
+      "reactionPrompts": ["ask_opinion", "ask_feeling"]
+    },
+    {
+      "id": "poi_awareness",
+      "label": "Local Happenings",
+      "subjectRequired": false,
+      "skills": ["PERCEPTION", "INVESTIGATION"],
+      "reactionIntensity": "mild",
+      "intro": "{tone_opener}{entry_intro}{tone_closer}",
+      "detailPrompts": ["ask_more", "press_details"],
+      "reactionPrompts": ["ask_opinion"]
+    },
+    {
+      "id": "creature_complaints",
+      "label": "Trouble",
+      "subjectRequired": false,
+      "skills": ["NATURE", "PERCEPTION"],
+      "reactionIntensity": "mild",
+      "intro": "{tone_opener}{entry_intro}{tone_closer}",
+      "detailPrompts": ["ask_more", "press_details"],
+      "reactionPrompts": ["ask_opinion"]
+    },
+    {
+      "id": "distant_rumors",
+      "label": "Word from Outside",
+      "subjectRequired": false,
+      "skills": ["INSIGHT", "PERSUASION"],
+      "reactionIntensity": "mild",
+      "intro": "{tone_opener}{entry_intro}{tone_closer}",
+      "detailPrompts": ["ask_more", "ask_context"],
+      "reactionPrompts": ["ask_opinion"]
+    }
   ]
 }

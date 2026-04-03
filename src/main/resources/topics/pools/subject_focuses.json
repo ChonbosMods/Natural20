@@ -482,6 +482,46 @@
       "poiType": "narrative_only",
       "questAffinities": [],
       "categories": ["community", "conflict"]
-    }
+    },
+
+    {"value": "the morning routine", "plural": false, "proper": false, "questEligible": false, "concrete": false, "poiType": "narrative_only", "questAffinities": [], "categories": ["mundane_daily_life"]},
+    {"value": "the weather lately", "plural": false, "proper": false, "questEligible": false, "concrete": false, "poiType": "narrative_only", "questAffinities": [], "categories": ["mundane_daily_life"]},
+    {"value": "the daily grind", "plural": false, "proper": false, "questEligible": false, "concrete": false, "poiType": "narrative_only", "questAffinities": [], "categories": ["mundane_daily_life"]},
+    {"value": "passing time", "plural": false, "proper": false, "questEligible": false, "concrete": false, "poiType": "narrative_only", "questAffinities": [], "categories": ["mundane_daily_life"]},
+    {"value": "getting by", "plural": false, "proper": false, "questEligible": false, "concrete": false, "poiType": "narrative_only", "questAffinities": [], "categories": ["mundane_daily_life"]},
+    {"value": "another day", "plural": false, "proper": false, "questEligible": false, "concrete": false, "poiType": "narrative_only", "questAffinities": [], "categories": ["mundane_daily_life"]},
+    {"value": "small comforts", "plural": true, "proper": false, "questEligible": false, "concrete": false, "poiType": "narrative_only", "questAffinities": [], "categories": ["mundane_daily_life"]},
+    {"value": "aches and pains", "plural": true, "proper": false, "questEligible": false, "concrete": false, "poiType": "narrative_only", "questAffinities": [], "categories": ["mundane_daily_life"]},
+
+    {"value": "a neighbor", "plural": false, "proper": false, "questEligible": false, "concrete": false, "poiType": "narrative_only", "questAffinities": [], "categories": ["npc_opinions"]},
+    {"value": "the folks around here", "plural": true, "proper": false, "questEligible": false, "concrete": false, "poiType": "narrative_only", "questAffinities": [], "categories": ["npc_opinions"]},
+    {"value": "someone I know", "plural": false, "proper": false, "questEligible": false, "concrete": false, "poiType": "narrative_only", "questAffinities": [], "categories": ["npc_opinions"]},
+    {"value": "people in town", "plural": true, "proper": false, "questEligible": false, "concrete": false, "poiType": "narrative_only", "questAffinities": [], "categories": ["npc_opinions"]},
+    {"value": "the locals", "plural": true, "proper": false, "questEligible": false, "concrete": false, "poiType": "narrative_only", "questAffinities": [], "categories": ["npc_opinions"]},
+    {"value": "a certain someone", "plural": false, "proper": false, "questEligible": false, "concrete": false, "poiType": "narrative_only", "questAffinities": [], "categories": ["npc_opinions"]},
+
+    {"value": "this place", "plural": false, "proper": false, "questEligible": false, "concrete": false, "poiType": "narrative_only", "questAffinities": [], "categories": ["settlement_pride"]},
+    {"value": "home", "plural": false, "proper": false, "questEligible": false, "concrete": false, "poiType": "narrative_only", "questAffinities": [], "categories": ["settlement_pride"]},
+    {"value": "where I live", "plural": false, "proper": false, "questEligible": false, "concrete": false, "poiType": "narrative_only", "questAffinities": [], "categories": ["settlement_pride"]},
+    {"value": "the settlement", "plural": false, "proper": false, "questEligible": false, "concrete": false, "poiType": "narrative_only", "questAffinities": [], "categories": ["settlement_pride"]},
+    {"value": "our little corner", "plural": false, "proper": false, "questEligible": false, "concrete": false, "poiType": "narrative_only", "questAffinities": [], "categories": ["settlement_pride"]},
+
+    {"value": "the local trade", "plural": false, "proper": false, "questEligible": false, "concrete": false, "poiType": "narrative_only", "questAffinities": [], "categories": ["poi_awareness"]},
+    {"value": "the worksite", "plural": false, "proper": false, "questEligible": false, "concrete": false, "poiType": "narrative_only", "questAffinities": [], "categories": ["poi_awareness"]},
+    {"value": "the facilities", "plural": true, "proper": false, "questEligible": false, "concrete": false, "poiType": "narrative_only", "questAffinities": [], "categories": ["poi_awareness"]},
+    {"value": "what keeps us busy", "plural": false, "proper": false, "questEligible": false, "concrete": false, "poiType": "narrative_only", "questAffinities": [], "categories": ["poi_awareness"]},
+    {"value": "the operation", "plural": false, "proper": false, "questEligible": false, "concrete": false, "poiType": "narrative_only", "questAffinities": [], "categories": ["poi_awareness"]},
+
+    {"value": "the local wildlife", "plural": false, "proper": false, "questEligible": false, "concrete": false, "poiType": "narrative_only", "questAffinities": [], "categories": ["creature_complaints"]},
+    {"value": "pests", "plural": true, "proper": false, "questEligible": false, "concrete": false, "poiType": "narrative_only", "questAffinities": [], "categories": ["creature_complaints"]},
+    {"value": "critters", "plural": true, "proper": false, "questEligible": false, "concrete": false, "poiType": "narrative_only", "questAffinities": [], "categories": ["creature_complaints"]},
+    {"value": "things in the dark", "plural": true, "proper": false, "questEligible": false, "concrete": false, "poiType": "narrative_only", "questAffinities": [], "categories": ["creature_complaints"]},
+    {"value": "what lurks outside", "plural": false, "proper": false, "questEligible": false, "concrete": false, "poiType": "narrative_only", "questAffinities": [], "categories": ["creature_complaints"]},
+
+    {"value": "news from elsewhere", "plural": false, "proper": false, "questEligible": false, "concrete": false, "poiType": "narrative_only", "questAffinities": [], "categories": ["distant_rumors"]},
+    {"value": "word from outside", "plural": false, "proper": false, "questEligible": false, "concrete": false, "poiType": "narrative_only", "questAffinities": [], "categories": ["distant_rumors"]},
+    {"value": "travelers' tales", "plural": true, "proper": false, "questEligible": false, "concrete": false, "poiType": "narrative_only", "questAffinities": [], "categories": ["distant_rumors"]},
+    {"value": "what I heard", "plural": false, "proper": false, "questEligible": false, "concrete": false, "poiType": "narrative_only", "questAffinities": [], "categories": ["distant_rumors"]},
+    {"value": "the road", "plural": false, "proper": false, "questEligible": false, "concrete": false, "poiType": "narrative_only", "questAffinities": [], "categories": ["distant_rumors"]}
   ]
 }
