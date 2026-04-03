@@ -2,6 +2,7 @@ package com.chonbosmods.settlement;
 
 import com.chonbosmods.Natural20;
 import com.chonbosmods.data.Nat20NpcData;
+import com.chonbosmods.npc.Nat20NameGenerator;
 import com.hypixel.hytale.component.Ref;
 import com.hypixel.hytale.logger.HytaleLogger;
 import com.hypixel.hytale.math.vector.Vector3d;
@@ -74,6 +75,7 @@ public class SettlementWorldGenListener {
             cellKey, worldUUID,
             settlementX, 0, settlementZ,
             SettlementType.TOWN);
+        record.setName(Nat20NameGenerator.generatePlaceName(cellKey.hashCode()));
         registry.register(record);
 
         // Place structure and spawn NPCs on world thread

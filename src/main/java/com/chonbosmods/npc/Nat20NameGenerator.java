@@ -423,4 +423,35 @@ public final class Nat20NameGenerator {
         String last = LAST_NAMES.get(rng.nextInt(LAST_NAMES.size()));
         return first + " " + last;
     }
+
+    // --- Settlement place name generation ---
+
+    private static final List<String> PLACE_PREFIXES = List.of(
+        "Ash", "Black", "Bright", "Broad", "Cinder", "Cold", "Copper", "Dark",
+        "Deep", "Dry", "Dusk", "Elder", "Far", "Flat", "Frost", "Gold",
+        "Green", "Grey", "Hallow", "Hart", "High", "Hollow", "Iron", "Long",
+        "Moss", "Oak", "Old", "Pine", "Red", "River", "Rock", "Rye",
+        "Salt", "Sand", "Shadow", "Silver", "Slate", "Stone", "Storm", "Thorn",
+        "West", "White", "Wild", "Wind", "Winter", "Wolf", "Wood"
+    );
+
+    private static final List<String> PLACE_SUFFIXES = List.of(
+        "barrow", "bridge", "brook", "bury", "cliff", "crest", "cross", "dale",
+        "dell", "fall", "fen", "field", "ford", "gate", "glen", "grove",
+        "guard", "hall", "haven", "heath", "helm", "hill", "hold", "hollow",
+        "keep", "knoll", "landing", "march", "mead", "mere", "mill", "moor",
+        "point", "pond", "port", "reach", "rest", "ridge", "shire", "side",
+        "stead", "stone", "vale", "wall", "watch", "well", "wick", "wood"
+    );
+
+    /**
+     * Generate a deterministic settlement place name from a seed.
+     * Produces names like "Thornfield", "Ashbrook", "Ironkeep".
+     */
+    public static String generatePlaceName(long seed) {
+        Random rng = new Random(seed);
+        String prefix = PLACE_PREFIXES.get(rng.nextInt(PLACE_PREFIXES.size()));
+        String suffix = PLACE_SUFFIXES.get(rng.nextInt(PLACE_SUFFIXES.size()));
+        return prefix + suffix;
+    }
 }

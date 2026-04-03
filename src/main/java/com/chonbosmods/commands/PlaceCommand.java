@@ -1,6 +1,7 @@
 package com.chonbosmods.commands;
 
 import com.chonbosmods.Natural20;
+import com.chonbosmods.npc.Nat20NameGenerator;
 import com.chonbosmods.settlement.NpcRecord;
 import com.chonbosmods.settlement.SettlementRecord;
 import com.chonbosmods.settlement.SettlementType;
@@ -79,6 +80,7 @@ public class PlaceCommand extends AbstractPlayerCommand {
             SettlementRecord record = new SettlementRecord(
                 cellKey, UUID.nameUUIDFromBytes(world.getName().getBytes()),
                 blockPos.getX(), blockPos.getY(), blockPos.getZ(), type);
+            record.setName(Nat20NameGenerator.generatePlaceName(cellKey.hashCode()));
             record.getNpcs().addAll(npcRecords);
             Natural20.getInstance().getSettlementRegistry().register(record);
         });
