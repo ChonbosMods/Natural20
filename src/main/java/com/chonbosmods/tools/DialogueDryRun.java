@@ -217,7 +217,7 @@ public class DialogueDryRun {
             List<TopicGraphBuilder.TopicAssignment> assignments = new ArrayList<>();
             for (SubjectFocus focus : npcSubjects.get(npcName)) {
                 assignments.add(buildAssignment(
-                    focus, npc, nearby, random, dedup, topicPool, templateRegistry));
+                    focus, npc, primary, nearby, random, dedup, topicPool, templateRegistry));
             }
             npcAssignments.put(npcName, assignments);
         }
@@ -248,7 +248,8 @@ public class DialogueDryRun {
     }
 
     private static TopicGraphBuilder.TopicAssignment buildAssignment(
-            SubjectFocus focus, NpcRecord npc, SettlementRecord nearby,
+            SubjectFocus focus, NpcRecord npc,
+            SettlementRecord primary, SettlementRecord nearby,
             Random random, PercentageDedup dedup,
             TopicPoolRegistry topicPool, TopicTemplateRegistry templateRegistry) {
 
@@ -275,8 +276,8 @@ public class DialogueDryRun {
         }
 
         Map<String, String> bindings = buildBindings(
-            focus, npc.getGeneratedName(), npc.getDisposition(),
-            nearby, template, entry, dedup, topicPool, random);
+            focus, npc.getGeneratedName(), npc.getRole(), npc.getDisposition(),
+            primary, nearby, template, entry, dedup, topicPool, random);
 
         String label = TEMPLATE_LABELS.getOrDefault(template.id(), template.id());
 
@@ -287,9 +288,11 @@ public class DialogueDryRun {
     }
 
     private static Map<String, String> buildBindings(
-            SubjectFocus focus, String npcName, int disposition,
-            SettlementRecord nearby, TopicTemplate template,
-            PoolEntry entry, PercentageDedup dedup,
+            SubjectFocus focus, String npcName, String roleName,
+            int disposition,
+            SettlementRecord primary, SettlementRecord nearby,
+            TopicTemplate template, PoolEntry entry,
+            PercentageDedup dedup,
             TopicPoolRegistry topicPool, Random random) {
 
         Map<String, String> bindings = new HashMap<>();
@@ -297,6 +300,52 @@ public class DialogueDryRun {
         // No subject_focus bindings: generated smalltalk entries are self-contained.
         bindings.put("npc_name", npcName);
         bindings.put("other_settlement", capitalizeFirst(nearby.getCellKey().split("_")[0]));
+
+        // Settlement name
+        bindings.put("settlement_name", capitalizeFirst(primary.getCellKey().split("_")[0]));
+
+        // Second NPC (use another NPC from the primary settlement if available)
+        List<NpcRecord> allNpcs = primary.getNpcs();
+        List<NpcRecord> otherNpcsForRef = allNpcs.stream()
+            .filter(n -> !n.getGeneratedName().equals(npcName))
+            .toList();
+        if (otherNpcsForRef.size() >= 2) {
+            bindings.put("npc_name_2", otherNpcsForRef.get(random.nextInt(otherNpcsForRef.size())).getGeneratedName());
+        } else if (otherNpcsForRef.size() == 1) {
+            bindings.put("npc_name_2", otherNpcsForRef.getFirst().getGeneratedName());
+        }
+
+        // POI type
+        List<String> poiTypes = primary.getSettlementType().getPoiTypes();
+        if (!poiTypes.isEmpty()) {
+            bindings.put("poi_type", poiTypes.get(random.nextInt(poiTypes.size())));
+        }
+
+        // Mob type
+        List<String> mobTypes = primary.getSettlementType().getMobTypes();
+        if (!mobTypes.isEmpty()) {
+            bindings.put("mob_type", mobTypes.get(random.nextInt(mobTypes.size())));
+        }
+
+        // Role variables
+        bindings.put("self_role", TopicGenerator.roleDisplayName(roleName));
+        String refNpcName = bindings.get("npc_name");
+        if (refNpcName != null) {
+            NpcRecord refNpc = primary.getNpcByName(refNpcName);
+            if (refNpc != null) {
+                bindings.put("npc_role", TopicGenerator.roleDisplayName(refNpc.getRole()));
+            }
+        }
+
+        // Flavor pools
+        bindings.put("food_type", dedup.drawFrom("food_types", topicPool.getFoodTypes(), random));
+        bindings.put("crop_type", dedup.drawFrom("crop_types", topicPool.getCropTypes(), random));
+        bindings.put("wildlife_type", dedup.drawFrom("wildlife_types", topicPool.getWildlifeTypes(), random));
+        String poiKey = bindings.getOrDefault("poi_type", "general");
+        bindings.put("resource_type", dedup.drawFrom(
+            "resource_types_" + poiKey,
+            topicPool.getResourceTypes(poiKey),
+            random));
 
         // Drop-ins
         bindings.put("time_ref", dedup.drawFrom("time_refs", topicPool.getTimeRefs(), random));
