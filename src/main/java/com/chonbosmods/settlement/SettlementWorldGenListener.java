@@ -115,7 +115,7 @@ public class SettlementWorldGenListener {
      */
     private final java.util.concurrent.ConcurrentHashMap<String, Long> lastCheckTime =
         new java.util.concurrent.ConcurrentHashMap<>();
-    private static final long CHECK_COOLDOWN_MS = 2_000;
+    private static final long CHECK_COOLDOWN_MS = 500;
 
     /**
      * Check NPCs for an existing settlement and recover them if needed.
