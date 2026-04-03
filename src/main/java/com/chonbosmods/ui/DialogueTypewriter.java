@@ -39,7 +39,8 @@ public class DialogueTypewriter {
     private final Runnable onTickSound;
     private final Runnable onComplete;
 
-    private int currentIndex;
+    private final int totalVisible;
+    private int visibleRevealed;
     private volatile boolean complete;
     private ScheduledFuture<?> pendingFuture;
 
@@ -59,6 +60,7 @@ public class DialogueTypewriter {
         this.page = page;
         this.onTickSound = onTickSound;
         this.onComplete = onComplete;
+        this.totalVisible = EntityHighlight.visibleLength(this.fullText);
     }
 
     /** Schedule the first tick immediately. If the text is empty, completes right away. */
@@ -71,40 +73,46 @@ public class DialogueTypewriter {
         pendingFuture = SCHEDULER.schedule(this::tick, 0, TimeUnit.MILLISECONDS);
     }
 
-    /** Reveal the next character(s), push the partial text update, and schedule the next tick. */
+    /** Reveal the next visible character(s), push the partial text update, and schedule the next tick. */
     private void tick() {
-        if (complete || currentIndex >= fullText.length()) return;
+        if (complete || visibleRevealed >= totalVisible) return;
 
-        // Advance at least one character
-        currentIndex++;
+        // Advance one visible character
+        visibleRevealed++;
 
-        // Remember the character just revealed (before space-skipping shifts the index)
-        int revealedIndex = currentIndex - 1;
+        // Map visible count to raw string index (skipping highlight markers)
+        int rawEnd = EntityHighlight.rawIndexForVisibleCount(fullText, visibleRevealed);
+
+        // Remember the visible character just revealed for delay calculation
+        String stripped = EntityHighlight.stripMarkers(fullText);
+        int revealedIndex = visibleRevealed - 1;
 
         // Skip past spaces: consume them instantly so words don't start with a gap
-        while (currentIndex < fullText.length() && fullText.charAt(currentIndex) == ' ') {
-            currentIndex++;
+        while (visibleRevealed < totalVisible && revealedIndex + 1 < stripped.length()
+                && stripped.charAt(revealedIndex + 1) == ' ') {
+            visibleRevealed++;
+            rawEnd = EntityHighlight.rawIndexForVisibleCount(fullText, visibleRevealed);
+            revealedIndex = visibleRevealed - 1;
         }
 
-        // Push partial text update
+        // Push partial text update with colored entity spans
         UICommandBuilder cmd = new UICommandBuilder();
-        cmd.set(selector + ".TextSpans", Message.raw(fullText.substring(0, currentIndex)).color(color));
+        cmd.set(selector + ".TextSpans", EntityHighlight.toMessageSubstring(fullText, rawEnd, color));
         page.pushUpdate(cmd);
 
-        // Fire sound callback if set
         if (onTickSound != null) {
             onTickSound.run();
         }
 
         // Check completion
-        if (currentIndex >= fullText.length()) {
+        if (visibleRevealed >= totalVisible) {
             complete = true;
             if (onComplete != null) onComplete.run();
             return;
         }
 
-        // Determine delay based on the character just revealed and surrounding context
-        long delay = computeDelay(revealedIndex);
+        // Determine delay based on the visible character just revealed
+        long delay = computeDelayFromStripped(stripped, revealedIndex);
         pendingFuture = SCHEDULER.schedule(this::tick, delay, TimeUnit.MILLISECONDS);
     }
 
@@ -123,9 +131,9 @@ public class DialogueTypewriter {
                 pendingFuture.cancel(false);
             }
 
-            // Reveal the full text
+            // Reveal the full text with entity highlighting
             UICommandBuilder cmd = new UICommandBuilder();
-            cmd.set(selector + ".TextSpans", Message.raw(fullText).color(color));
+            cmd.set(selector + ".TextSpans", EntityHighlight.toMessage(fullText, color));
             page.pushUpdate(cmd);
 
             if (onComplete != null) {
@@ -155,18 +163,17 @@ public class DialogueTypewriter {
     }
 
     /** Compute the delay after the just-revealed character, with ellipsis awareness. */
-    private long computeDelay(int revealedIndex) {
-        char revealed = fullText.charAt(revealedIndex);
+    private long computeDelayFromStripped(String stripped, int revealedIndex) {
+        if (revealedIndex < 0 || revealedIndex >= stripped.length()) return DELAY_DEFAULT;
+        char revealed = stripped.charAt(revealedIndex);
 
         if (revealed == '.' || revealed == '?' || revealed == '!') {
-            // Mid-ellipsis: next char is also '.', don't pause yet
-            if (revealedIndex + 1 < fullText.length() && fullText.charAt(revealedIndex + 1) == '.') {
+            if (revealedIndex + 1 < stripped.length() && stripped.charAt(revealedIndex + 1) == '.') {
                 return DELAY_DEFAULT;
             }
-            // End of ellipsis (3+ dots): long pause
             if (revealed == '.' && revealedIndex >= 2
-                    && fullText.charAt(revealedIndex - 1) == '.'
-                    && fullText.charAt(revealedIndex - 2) == '.') {
+                    && stripped.charAt(revealedIndex - 1) == '.'
+                    && stripped.charAt(revealedIndex - 2) == '.') {
                 return DELAY_ELLIPSIS;
             }
             return DELAY_SENTENCE_END;

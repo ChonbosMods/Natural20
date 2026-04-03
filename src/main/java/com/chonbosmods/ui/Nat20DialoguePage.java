@@ -226,7 +226,7 @@ public class Nat20DialoguePage extends InteractiveCustomUIPage<Nat20DialoguePage
                 if (lineIdx >= 0 && lineIdx < lines.size()) {
                     LogLine line = lines.get(lineIdx);
                     cmd.set(selector + ".Visible", true);
-                    cmd.set(selector + ".TextSpans", Message.raw(line.text).color(line.color));
+                    cmd.set(selector + ".TextSpans", EntityHighlight.toMessage(line.text, line.color));
                     if (line.typewriterEligible) {
                         typewriterLabelIdx = i;
                         typewriterLine = line;

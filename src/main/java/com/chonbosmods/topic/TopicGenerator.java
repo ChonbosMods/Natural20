@@ -10,6 +10,7 @@ import com.chonbosmods.quest.QuestPoolRegistry;
 import com.chonbosmods.settlement.NpcRecord;
 import com.chonbosmods.settlement.SettlementRecord;
 import com.chonbosmods.stats.Skill;
+import com.chonbosmods.ui.EntityHighlight;
 import com.google.common.flogger.FluentLogger;
 
 import java.util.*;
@@ -352,8 +353,8 @@ public class TopicGenerator {
                 : startsWithThe ? "T" + subjectValue.substring(1) : "The " + subjectValue);
         }
 
-        // Phase 0: settlement context variables
-        bindings.put("settlement_name", ctx.settlementName());
+        // Phase 0: settlement context variables (entity names wrapped for purple highlighting)
+        bindings.put("settlement_name", EntityHighlight.wrap(ctx.settlementName()));
 
         // NPC name references: {npc_name} = another NPC (not speaker), {npc_name_2} = a second other NPC
         List<SettlementContext.NpcRef> otherNpcs = ctx.npcs().stream()
@@ -361,20 +362,18 @@ public class TopicGenerator {
             .toList();
         if (otherNpcs.size() >= 2) {
             SettlementContext.NpcRef firstOther = otherNpcs.get(random.nextInt(otherNpcs.size()));
-            bindings.put("npc_name", firstOther.name());
+            bindings.put("npc_name", EntityHighlight.wrap(firstOther.name()));
             List<SettlementContext.NpcRef> secondCandidates = otherNpcs.stream()
                 .filter(n -> !n.name().equals(firstOther.name()))
                 .toList();
             if (!secondCandidates.isEmpty()) {
-                bindings.put("npc_name_2", secondCandidates.get(random.nextInt(secondCandidates.size())).name());
+                bindings.put("npc_name_2", EntityHighlight.wrap(
+                    secondCandidates.get(random.nextInt(secondCandidates.size())).name()));
             }
         } else if (otherNpcs.size() == 1) {
-            bindings.put("npc_name", otherNpcs.getFirst().name());
-            // Only one other NPC: reuse for npc_name_2 (same person can be mentioned twice)
-            bindings.put("npc_name_2", otherNpcs.getFirst().name());
+            bindings.put("npc_name", EntityHighlight.wrap(otherNpcs.getFirst().name()));
+            bindings.put("npc_name_2", EntityHighlight.wrap(otherNpcs.getFirst().name()));
         }
-        // No else: when no other NPCs exist (CART), leave {npc_name} unbound.
-        // Pool entries using {npc_name} won't be authored for CART settlements.
 
         // POI type
         if (!ctx.poiTypes().isEmpty()) {
@@ -388,13 +387,13 @@ public class TopicGenerator {
 
         // Other settlement
         if (!ctx.nearbySettlementNames().isEmpty()) {
-            bindings.put("other_settlement",
-                ctx.nearbySettlementNames().get(random.nextInt(ctx.nearbySettlementNames().size())));
+            bindings.put("other_settlement", EntityHighlight.wrap(
+                ctx.nearbySettlementNames().get(random.nextInt(ctx.nearbySettlementNames().size()))));
         }
 
         // Tier 1: role variables
         bindings.put("self_role", roleDisplayName(npcRole));
-        String referencedNpcName = bindings.get("npc_name");
+        String referencedNpcName = EntityHighlight.stripMarkers(bindings.get("npc_name"));
         if (referencedNpcName != null && !referencedNpcName.equals(npcName)) {
             for (SettlementContext.NpcRef ref : ctx.npcs()) {
                 if (ref.name().equals(referencedNpcName)) {

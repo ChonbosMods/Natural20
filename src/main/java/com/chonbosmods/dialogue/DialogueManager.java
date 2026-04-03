@@ -16,6 +16,7 @@ import com.chonbosmods.quest.QuestTemplateRegistry;
 import com.chonbosmods.quest.model.DialogueChunks;
 import com.chonbosmods.quest.model.QuestVariant;
 import com.chonbosmods.topic.PostureResolver;
+import com.chonbosmods.ui.EntityHighlight;
 import com.google.gson.JsonParser;
 import com.hypixel.hytale.component.Ref;
 import com.hypixel.hytale.component.Store;
@@ -255,7 +256,8 @@ public class DialogueManager {
         }
         if (!nearbyNames.isEmpty()) {
             var random = new Random(cellKey.hashCode());
-            bindings.put("other_settlement", nearbyNames.get(random.nextInt(nearbyNames.size())));
+            bindings.put("other_settlement",
+                EntityHighlight.wrap(nearbyNames.get(random.nextInt(nearbyNames.size()))));
         }
 
         // POI and mob types from settlement type (in case they were empty at generation)
@@ -271,7 +273,7 @@ public class DialogueManager {
         }
 
         // Settlement name
-        bindings.put("settlement_name", settlement.deriveName());
+        bindings.put("settlement_name", EntityHighlight.wrap(settlement.deriveName()));
 
         return bindings;
     }
