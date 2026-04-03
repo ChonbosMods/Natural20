@@ -72,9 +72,10 @@ public class PlaceCommand extends AbstractPlayerCommand {
             // Generate a cell key for manual placements
             String cellKey = "manual_" + blockPos.getX() + "_" + blockPos.getZ();
 
+            long nameSalt = System.currentTimeMillis();
             List<NpcRecord> npcRecords =
                 Natural20.getInstance().getNpcManager()
-                    .spawnSettlementNpcs(store, world, type, origin, cellKey);
+                    .spawnSettlementNpcs(store, world, type, origin, cellKey, nameSalt);
 
             // Register in settlement registry
             SettlementRecord record = new SettlementRecord(

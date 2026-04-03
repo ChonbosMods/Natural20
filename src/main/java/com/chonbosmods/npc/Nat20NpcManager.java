@@ -52,7 +52,7 @@ public class Nat20NpcManager {
      */
     public List<NpcRecord> spawnSettlementNpcs(
             Store<EntityStore> store, World world,
-            SettlementType type, Vector3d origin, String cellKey) {
+            SettlementType type, Vector3d origin, String cellKey, long nameSalt) {
 
         List<NpcRecord> spawned = new ArrayList<>();
         List<String> usedArtisans = new ArrayList<>();
@@ -74,8 +74,8 @@ public class Nat20NpcManager {
 
             Vector3d spawnPos = new Vector3d(spawnX, spawnY, spawnZ);
 
-            // Generate name deterministically from settlement + NPC index (known before spawn)
-            String name = Nat20NameGenerator.generate(java.util.Objects.hash(cellKey, npcIndex));
+            // Generate name deterministically from settlement + NPC index + world-unique salt
+            String name = Nat20NameGenerator.generate(cellKey.hashCode() * 31L + npcIndex + nameSalt);
             npcIndex++;
 
             // Create model from unmodified skin: engine serialization breaks

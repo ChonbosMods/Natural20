@@ -92,7 +92,7 @@ public class SettlementWorldGenListener {
 
                 Vector3d origin = new Vector3d(settlementX, groundY, settlementZ);
                 List<NpcRecord> npcRecords = Natural20.getInstance().getNpcManager()
-                    .spawnSettlementNpcs(store, world, SettlementType.TOWN, origin, cellKey);
+                    .spawnSettlementNpcs(store, world, SettlementType.TOWN, origin, cellKey, record.getPlacedAt());
 
                 record.setPosY(groundY);
                 record.getNpcs().addAll(npcRecords);
