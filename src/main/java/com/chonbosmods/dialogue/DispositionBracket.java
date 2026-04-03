@@ -11,6 +11,20 @@ public enum DispositionBracket {
     TRUSTED(80, 89, -3),
     LOYAL(90, 100, -4);
 
+    // --- Text pool boundary thresholds (used in textPoolFromDisposition) ---
+
+    /** Disposition below this value maps to "unfriendly" text pool (below = "hostile"). */
+    private static final int TEXT_POOL_UNFRIENDLY_MIN = 20;
+    /** Disposition below this value maps to "neutral" text pool. */
+    private static final int TEXT_POOL_NEUTRAL_MIN = 40;
+    /** Disposition below this value maps to "friendly" text pool. */
+    private static final int TEXT_POOL_FRIENDLY_MIN = 60;
+    /** Disposition below this value maps to "loyal" text pool. */
+    private static final int TEXT_POOL_LOYAL_MIN = 80;
+
+    /** Maximum effective DC after disposition modifier is applied. */
+    private static final int MAX_EFFECTIVE_DC = 30;
+
     private final int minDisposition;
     private final int maxDisposition;
     private final int dcModifier;
@@ -42,17 +56,17 @@ public enum DispositionBracket {
      */
     public static String textPoolFromDisposition(int disposition) {
         int clamped = Math.clamp(disposition, 0, 100);
-        if (clamped < 20) return "hostile";
-        if (clamped < 40) return "unfriendly";
-        if (clamped < 60) return "neutral";
-        if (clamped < 80) return "friendly";
+        if (clamped < TEXT_POOL_UNFRIENDLY_MIN) return "hostile";
+        if (clamped < TEXT_POOL_NEUTRAL_MIN) return "unfriendly";
+        if (clamped < TEXT_POOL_FRIENDLY_MIN) return "neutral";
+        if (clamped < TEXT_POOL_LOYAL_MIN) return "friendly";
         return "loyal";
     }
 
     public static int effectiveDC(int baseDC, int disposition, boolean dispositionScaling) {
         if (!dispositionScaling) return baseDC;
         int modifier = fromDisposition(disposition).dcModifier;
-        return Math.clamp(baseDC + modifier, 1, 30);
+        return Math.clamp(baseDC + modifier, 1, MAX_EFFECTIVE_DC);
     }
 
     public static int clampDisposition(int value) {

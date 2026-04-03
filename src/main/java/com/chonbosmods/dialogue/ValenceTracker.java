@@ -25,6 +25,23 @@ public class ValenceTracker {
 
     private static final int DISPOSITION_DELTA_CLAMP = 5;
 
+    /** Number of recent NPC lines considered for dominant valence calculation. */
+    private static final int VALENCE_WINDOW_SIZE = 3;
+    /** Minimum occurrences within the window to establish a dominant valence. */
+    private static final int DOMINANT_VALENCE_MIN_COUNT = 2;
+
+    /** Momentum weight applied to the dominant valence direction. */
+    private static final double MOMENTUM_WEIGHT_SAME = 1.5;
+    /** Momentum weight applied to the opposite (non-neutral) valence direction. */
+    private static final double MOMENTUM_WEIGHT_OPPOSITE = 0.7;
+
+    /** Probability that a non-neutral closing valence drifts toward neutral between conversations. */
+    private static final double DRIFT_TO_NEUTRAL_PROBABILITY = 0.25;
+    /** Probability that a neutral closing valence drifts to positive. */
+    private static final double DRIFT_NEUTRAL_TO_POSITIVE = 0.15;
+    /** Cumulative threshold: neutral drifts to negative if roll is below this (but above positive threshold). */
+    private static final double DRIFT_NEUTRAL_TO_NEGATIVE_CUMULATIVE = 0.30;
+
     private final List<ValenceType> recentValences;
     private int trajectoryScore;
 
@@ -82,7 +99,7 @@ public class ValenceTracker {
         int size = recentValences.size();
         if (size == 0) return null;
 
-        int window = Math.min(3, size);
+        int window = Math.min(VALENCE_WINDOW_SIZE, size);
         Map<ValenceType, Integer> counts = new EnumMap<>(ValenceType.class);
         for (int i = size - window; i < size; i++) {
             counts.merge(recentValences.get(i), 1, Integer::sum);
@@ -97,8 +114,8 @@ public class ValenceTracker {
             }
         }
 
-        // Ambiguous if all different (window=3, bestCount=1) or tie
-        if (bestCount < 2 && window >= 3) return null;
+        // Ambiguous if all different (full window, bestCount=1) or tie
+        if (bestCount < DOMINANT_VALENCE_MIN_COUNT && window >= VALENCE_WINDOW_SIZE) return null;
         return best;
     }
 
@@ -114,11 +131,11 @@ public class ValenceTracker {
         Map<ValenceType, Double> weights = new EnumMap<>(ValenceType.class);
         for (ValenceType v : ValenceType.values()) {
             if (v == dominant) {
-                weights.put(v, 1.5);
+                weights.put(v, MOMENTUM_WEIGHT_SAME);
             } else if (v == ValenceType.NEUTRAL) {
                 weights.put(v, 1.0);
             } else {
-                weights.put(v, 0.7);
+                weights.put(v, MOMENTUM_WEIGHT_OPPOSITE);
             }
         }
         return weights;
@@ -162,11 +179,11 @@ public class ValenceTracker {
     public static ValenceType evaluateDrift(ValenceType storedClosing, double roll) {
         if (storedClosing == null) return ValenceType.NEUTRAL;
         return switch (storedClosing) {
-            case POSITIVE -> roll < 0.25 ? ValenceType.NEUTRAL : ValenceType.POSITIVE;
-            case NEGATIVE -> roll < 0.25 ? ValenceType.NEUTRAL : ValenceType.NEGATIVE;
+            case POSITIVE -> roll < DRIFT_TO_NEUTRAL_PROBABILITY ? ValenceType.NEUTRAL : ValenceType.POSITIVE;
+            case NEGATIVE -> roll < DRIFT_TO_NEUTRAL_PROBABILITY ? ValenceType.NEUTRAL : ValenceType.NEGATIVE;
             case NEUTRAL -> {
-                if (roll < 0.15) yield ValenceType.POSITIVE;
-                if (roll < 0.30) yield ValenceType.NEGATIVE;
+                if (roll < DRIFT_NEUTRAL_TO_POSITIVE) yield ValenceType.POSITIVE;
+                if (roll < DRIFT_NEUTRAL_TO_NEGATIVE_CUMULATIVE) yield ValenceType.NEGATIVE;
                 yield ValenceType.NEUTRAL;
             }
         };

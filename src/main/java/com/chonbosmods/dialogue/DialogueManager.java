@@ -31,6 +31,9 @@ public class DialogueManager {
 
     private static final HytaleLogger LOGGER = HytaleLogger.get("Nat20|DialogueManager");
 
+    /** Default disposition used for fallback dialogue graphs when no authored graph exists. */
+    private static final int FALLBACK_DEFAULT_DISPOSITION = 50;
+
     private final DialogueLoader dialogueLoader;
     private final DialogueActionRegistry actionRegistry;
     private final ConditionEvaluator conditionEvaluator;
@@ -83,7 +86,7 @@ public class DialogueManager {
             String displayId = npcData.getGeneratedName() != null ? npcData.getGeneratedName() : npcData.getRoleName();
             LOGGER.atWarning().log("No dialogue graph for NPC '%s': using fallback", displayId);
             graph = new DialogueGraph(
-                npcId, 50, "fallback_greeting", null,
+                npcId, FALLBACK_DEFAULT_DISPOSITION, "fallback_greeting", null,
                 new java.util.ArrayList<>(),
                 new java.util.LinkedHashMap<>(java.util.Map.of(
                     "fallback_greeting", new DialogueNode.DialogueTextNode(

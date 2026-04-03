@@ -10,6 +10,9 @@ public class PostureResolver {
     private static final double RECENCY_ONE_PENALTY = 0.3;
     private static final double RECENCY_BOTH_PENALTY = 0.1;
 
+    /** Minimum warmth or trust difference required for two posture groups to be paired. */
+    private static final int PAIR_DISTANCE_THRESHOLD = 2;
+
     private static final Set<String> WARM_GROUPS = Set.of("attentive", "cheerful");
     private static final Set<String> COLD_GROUPS = Set.of("skeptical", "dismissive");
 
@@ -101,8 +104,8 @@ public class PostureResolver {
     }
 
     static boolean canPair(PostureGroup a, PostureGroup b) {
-        return Math.abs(a.warmth() - b.warmth()) >= 2
-            || Math.abs(a.trust() - b.trust()) >= 2;
+        return Math.abs(a.warmth() - b.warmth()) >= PAIR_DISTANCE_THRESHOLD
+            || Math.abs(a.trust() - b.trust()) >= PAIR_DISTANCE_THRESHOLD;
     }
 
     private static PostureSelection buildSelection(PostureGroup a, PostureGroup b, String npcValence, Random random) {
