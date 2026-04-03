@@ -83,7 +83,7 @@ public class TopicGenerator {
      *
      * @return map of NPC generated name to their DialogueGraph
      */
-    public Map<String, DialogueGraph> generate(SettlementRecord settlement) {
+    public Map<String, DialogueGraph> generate(SettlementRecord settlement, List<String> nearbySettlementNames) {
         List<NpcRecord> npcs = settlement.getNpcs();
         if (npcs.isEmpty()) {
             LOGGER.atWarning().log("Settlement %s has no NPCs, skipping topic generation", settlement.getCellKey());
@@ -91,6 +91,20 @@ public class TopicGenerator {
         }
 
         Random random = new Random(settlement.getCellKey().hashCode());
+
+        // Build settlement context for template variable resolution
+        List<SettlementContext.NpcRef> npcRefs = new ArrayList<>();
+        for (NpcRecord npc : npcs) {
+            npcRefs.add(new SettlementContext.NpcRef(npc.getGeneratedName(), npc.getRole()));
+        }
+        SettlementContext ctx = new SettlementContext(
+            settlement.deriveName(),
+            npcRefs,
+            settlement.getSettlementType().getPoiTypes(),
+            settlement.getSettlementType().getMobTypes(),
+            nearbySettlementNames
+        );
+
         int npcCount = npcs.size();
 
         // Step 1: Roll topic budgets per NPC (role-based ranges)
@@ -252,7 +266,7 @@ public class TopicGenerator {
             String npcName = npc.getGeneratedName();
             List<TopicGraphBuilder.TopicAssignment> assignments = new ArrayList<>();
             for (SubjectFocus focus : npcSubjects.get(npcName)) {
-                assignments.add(buildAssignment(focus, npc, random, dedup));
+                assignments.add(buildAssignment(focus, npc, random, dedup, ctx));
             }
             npcAssignments.put(npcName, assignments);
         }
@@ -301,7 +315,7 @@ public class TopicGenerator {
      */
     private TopicGraphBuilder.TopicAssignment buildAssignment(
             SubjectFocus focus, NpcRecord npc, Random random,
-            PercentageDedup dedup) {
+            PercentageDedup dedup, SettlementContext ctx) {
 
         TopicTemplate template = templateRegistry.randomTemplateForSubject(
             focus.getCategories(), focus.isConcrete(), random);
@@ -328,8 +342,8 @@ public class TopicGenerator {
         }
 
         Map<String, String> bindings = buildBindings(
-            focus, npc.getGeneratedName(), npc.getDisposition(),
-            isQuestBearer, template, entry, dedup, random);
+            focus, npc.getGeneratedName(), npc.getRole(), npc.getDisposition(),
+            isQuestBearer, template, entry, dedup, random, ctx);
 
         // Quest bearers keep the template's subject-derived label pattern.
         // Generated smalltalk uses a static template-derived label.
@@ -349,9 +363,11 @@ public class TopicGenerator {
      * (no subject_focus variables). Quest bearers still get subject focus bindings for
      * quest exposition text.
      */
-    private Map<String, String> buildBindings(SubjectFocus focus, String npcName, int disposition,
-                                                 boolean isQuestBearer, TopicTemplate template,
-                                                 PoolEntry entry, PercentageDedup dedup, Random random) {
+    private Map<String, String> buildBindings(SubjectFocus focus, String npcName, String npcRole,
+                                                 int disposition, boolean isQuestBearer,
+                                                 TopicTemplate template, PoolEntry entry,
+                                                 PercentageDedup dedup, Random random,
+                                                 SettlementContext ctx) {
         Map<String, String> bindings = new HashMap<>();
 
         // Subject focus bindings: only for quest bearers (quest exposition text uses them).
@@ -370,11 +386,69 @@ public class TopicGenerator {
                 : startsWithThe ? "T" + subjectValue.substring(1) : "The " + subjectValue);
         }
 
-        bindings.put("npc_name", npcName);
+        // Phase 0: settlement context variables
+        bindings.put("settlement_name", ctx.settlementName());
 
-        // Drop-ins via percentage dedup
+        // NPC name references: {npc_name} = another NPC (not speaker), {npc_name_2} = a second other NPC
+        List<SettlementContext.NpcRef> otherNpcs = ctx.npcs().stream()
+            .filter(n -> !n.name().equals(npcName))
+            .toList();
+        if (otherNpcs.size() >= 2) {
+            SettlementContext.NpcRef firstOther = otherNpcs.get(random.nextInt(otherNpcs.size()));
+            bindings.put("npc_name", firstOther.name());
+            List<SettlementContext.NpcRef> secondCandidates = otherNpcs.stream()
+                .filter(n -> !n.name().equals(firstOther.name()))
+                .toList();
+            if (!secondCandidates.isEmpty()) {
+                bindings.put("npc_name_2", secondCandidates.get(random.nextInt(secondCandidates.size())).name());
+            }
+        } else if (otherNpcs.size() == 1) {
+            bindings.put("npc_name", otherNpcs.getFirst().name());
+        } else {
+            bindings.put("npc_name", npcName);
+        }
+
+        // POI type
+        if (!ctx.poiTypes().isEmpty()) {
+            bindings.put("poi_type", ctx.poiTypes().get(random.nextInt(ctx.poiTypes().size())));
+        }
+
+        // Mob type
+        if (!ctx.mobTypes().isEmpty()) {
+            bindings.put("mob_type", ctx.mobTypes().get(random.nextInt(ctx.mobTypes().size())));
+        }
+
+        // Other settlement
+        if (!ctx.nearbySettlementNames().isEmpty()) {
+            bindings.put("other_settlement",
+                ctx.nearbySettlementNames().get(random.nextInt(ctx.nearbySettlementNames().size())));
+        }
+
+        // Tier 1: role variables
+        bindings.put("self_role", roleDisplayName(npcRole));
+        String referencedNpcName = bindings.get("npc_name");
+        if (referencedNpcName != null && !referencedNpcName.equals(npcName)) {
+            for (SettlementContext.NpcRef ref : ctx.npcs()) {
+                if (ref.name().equals(referencedNpcName)) {
+                    bindings.put("npc_role", roleDisplayName(ref.role()));
+                    break;
+                }
+            }
+        }
+
+        // Drop-ins (existing)
         bindings.put("time_ref", dedup.drawFrom("time_refs", topicPool.getTimeRefs(), random));
         bindings.put("direction", dedup.drawFrom("directions", topicPool.getDirections(), random));
+
+        // Tier 3: flavor pool variables
+        bindings.put("food_type", dedup.drawFrom("food_types", topicPool.getFoodTypes(), random));
+        bindings.put("crop_type", dedup.drawFrom("crop_types", topicPool.getCropTypes(), random));
+        bindings.put("wildlife_type", dedup.drawFrom("wildlife_types", topicPool.getWildlifeTypes(), random));
+        String poiKey = bindings.getOrDefault("poi_type", "general");
+        bindings.put("resource_type", dedup.drawFrom(
+            "resource_types_" + poiKey,
+            topicPool.getResourceTypes(poiKey),
+            random));
 
         // Tone framing (valence-aware)
         String bracket = dispositionBracket(disposition);
@@ -475,5 +549,18 @@ public class TopicGenerator {
     private static String capitalizeFirst(String text) {
         if (text == null || text.isEmpty()) return text;
         return Character.toUpperCase(text.charAt(0)) + text.substring(1);
+    }
+
+    /**
+     * Map internal role name to lowercase natural-language display string.
+     */
+    public static String roleDisplayName(String role) {
+        return switch (role) {
+            case "ArtisanBlacksmith" -> "blacksmith";
+            case "ArtisanAlchemist" -> "alchemist";
+            case "ArtisanCook" -> "cook";
+            case "TavernKeeper" -> "tavern keeper";
+            default -> role.toLowerCase();
+        };
     }
 }

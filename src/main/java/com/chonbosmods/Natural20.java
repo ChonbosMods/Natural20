@@ -45,6 +45,8 @@ import com.hypixel.hytale.server.core.util.Config;
 
 import javax.annotation.Nonnull;
 import java.nio.file.Path;
+import java.util.ArrayList;
+import java.util.List;
 import java.util.Map;
 import java.util.UUID;
 import java.util.concurrent.Executors;
@@ -139,7 +141,7 @@ public class Natural20 extends JavaPlugin {
      */
     public void onSettlementCreated(SettlementRecord settlement, World world) {
         if (questSystem != null) {
-            var topicGraphs = questSystem.getTopicGenerator().generate(settlement);
+            var topicGraphs = questSystem.getTopicGenerator().generate(settlement, deriveNearbyNames(settlement));
             dialogueLoader.registerGeneratedGraphs(topicGraphs);
         }
 
@@ -332,7 +334,7 @@ public class Natural20 extends JavaPlugin {
 
         // Generate procedural topics for all existing settlements
         for (SettlementRecord settlement : settlementRegistry.getAll().values()) {
-            var topicGraphs = questSystem.getTopicGenerator().generate(settlement);
+            var topicGraphs = questSystem.getTopicGenerator().generate(settlement, deriveNearbyNames(settlement));
             dialogueLoader.registerGeneratedGraphs(topicGraphs);
         }
         getLogger().atInfo().log("Generated procedural topics for %d settlement(s)", settlementRegistry.getAll().size());
@@ -365,6 +367,16 @@ public class Natural20 extends JavaPlugin {
         if (caveVoidRegistry != null) {
             caveVoidRegistry.saveAsync().join();
         }
+    }
+
+    private List<String> deriveNearbyNames(SettlementRecord settlement) {
+        List<String> names = new ArrayList<>();
+        for (SettlementRecord other : settlementRegistry.getAll().values()) {
+            if (!other.getCellKey().equals(settlement.getCellKey())) {
+                names.add(other.deriveName());
+            }
+        }
+        return names;
     }
 
     /**
