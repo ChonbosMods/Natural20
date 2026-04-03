@@ -57,17 +57,24 @@ After reviewing individual entries, check the batch as a whole:
 - [ ] At least 60% of entries feel "boring" in the right way: mundane, personal, forgettable
 - [ ] The genuinely notable entries (POI, creatures) stand out because of the mundane baseline
 - [ ] statCheck is present on roughly 40-60% of entries
-- [ ] Template variables are used correctly: `{npc_name}` for other NPCs (never self), no `{subject_focus}` variants
-- [ ] Entry does not use any `{subject_focus}` template variables (`subject_focus`, `subject_focus_the`, `subject_focus_The`, `subject_focus_is`, `subject_focus_has`, `subject_focus_was`)
+- [ ] `{npc_name}` always references other NPCs, never the speaker (speaker is "I" or "me")
+- [ ] No `{subject_focus}` variables anywhere in the batch
+- [ ] `mundane_daily_life` entries are the least variable-dense category: mostly plain text, a few with `{food_type}` or `{self_role}` at most
+- [ ] `{npc_role}` used sparingly: only where the role is the point, not as a default name-tag pattern
 
 ## Template Variables
 
-- [ ] `{self_role}` only used for self-referential dialogue (not "the {self_role} over there")
-- [ ] `{npc_role}` only used alongside `{npc_name}` (never orphaned without naming who)
+- [ ] No `{subject_focus}` variables or any of its variants (`{subject_focus_the}`, `{subject_focus_The}`, `{subject_focus_is}`, `{subject_focus_has}`, `{subject_focus_was}`)
+- [ ] Max 2 template variables per line
+- [ ] `{self_role}` only used when NPC is reflecting on their own work life, not as a label
+- [ ] `{npc_role}` only used when the role is the point of the observation ("You'd think the guard would..."), NOT as an appositive name tag ("{npc_name}, the blacksmith, said...")
+- [ ] Most `npc_opinions` entries use `{npc_name}` alone without `{npc_role}`
 - [ ] `{wildlife_type}` not used with hostile framing ("a {wildlife_type} attacked")
+- [ ] `{mob_type}` not used with peaceful framing ("a {mob_type} grazing by the river")
 - [ ] `{food_type}` and `{crop_type}` not used in same line (redundant)
 - [ ] `{resource_type}` and `{crop_type}` not used in same line (redundant)
-- [ ] Max 2 template variables per line
+- [ ] No invented food, drink, or creature names: real items only via pool variables
+- [ ] `mundane_daily_life` entries are mostly variable-free (sleep, weather, aches, boredom): at most 2-3 per batch use `{food_type}` or `{self_role}`
 
 ---
 

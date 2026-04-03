@@ -47,7 +47,7 @@ A JSON object matching the pool file format:
 
 Each entry must match `pool_entry_schema.json`. IDs are sequential starting from 0 within each batch.
 
-**Important:** Entries are fully self-contained. Do not reference `{subject_focus}` variables (`{subject_focus}`, `{subject_focus_the}`, `{subject_focus_The}`, `{subject_focus_is}`, `{subject_focus_has}`, `{subject_focus_was}`). Every word the NPC says is written directly in the entry.
+**Important:** Entries are fully self-contained. The following variables are **forbidden** and must never appear in pool entries: `{subject_focus}`, `{subject_focus_the}`, `{subject_focus_The}`, `{subject_focus_is}`, `{subject_focus_has}`, `{subject_focus_was}`. These are legacy variables from an older system. Every word the NPC says must be written directly in the entry text. If you find yourself wanting a variable that describes "what this topic is about," you're writing a quest hook, not smalltalk.
 
 ---
 
@@ -63,44 +63,53 @@ Study these examples carefully. They are drawn from Oblivion's generic NPC dialo
 
 ### Few-Shot Examples
 
-**Mundane daily life (neutral):**
+The examples below show the voice and variable density for each category. Notice that `mundane_daily_life` entries are mostly variable-free: they're about universal human experience (sleep, weather, aches, boredom, small satisfactions). The plainest entries make the richer ones stand out.
+
+**Mundane daily life (neutral, no variables):**
 > "I've got a few hot prospects. I'm sure something will come through for me. Soon. Really soon."
 
-**Mundane daily life (positive):**
-> "I like it here. People are very friendly. Much nicer than in the Imperial City."
+**Mundane daily life (neutral, no variables):**
+> "Slept through half the morning. First time in weeks I didn't have something pulling me out of bed before dawn."
 
-**Mundane daily life (negative):**
-> "Too big for me. Loud. Dirty. I want to throw my gold away, I just dump it in Lake Rumare, save time."
+**Mundane daily life (positive, no variables):**
+> "I like it here. People are very friendly."
+
+**Mundane daily life (negative, no variables):**
+> "My back's been killing me. Too much lifting, not enough rest. That's the life, I suppose."
+
+**Mundane daily life (neutral, no variables):**
+> "The mornings have been cold. Not winter cold, just that kind of cold that makes you want another hour under the blankets."
+
+**Mundane daily life (neutral, with food: occasional, not default):**
+> "Had a good stew last night. Simple: just {food_type} and salt. Sometimes simple is best."
+
+**Mundane daily life (neutral, self-role: reflecting on work):**
+> "I've been {self_role} long enough to know when the weather's about to turn."
+
+Most `mundane_daily_life` entries should have zero variables. A few per batch can reference `{food_type}` or `{self_role}`, but these should be the exception, not the pattern.
 
 **NPC opinions (positive):**
 > "Say what you will about {npc_name}, when my roof leaked last autumn, that was the first person at my door with tools."
 
-Adapted from: "Vilena Donton just hasn't been the same since her eldest son died. Still, she does a good job of running the Fighters Guild."
-
 **NPC opinions (negative):**
 > "{npc_name} talks too much. You ask a simple question and get the whole history of the province."
-
-Adapted from: "I find her annoying. She's way too full of herself. Quite the big talker."
 
 **NPC opinions (negative, petty):**
 > "Nice, friendly folk in {settlement_name}, even {npc_name} greets me in the street. Well, except for {npc_name_2}. Mean old scroat."
 
-Adapted from: "Nice, friendly folk in Anvil, even the Countess greets me in the street. Well, except for that Newheim the Portly. He's a mean old scroat."
-
 **NPC opinions (neutral, observational):**
 > "{npc_name} and {npc_name_2} have been spending a lot of time together. I don't see a problem with it, but it's their business."
 
-Adapted from: "I don't see a problem with those two. It's a bit odd, but that's their business."
+**NPC opinions (negative, role is the point):**
+> "You'd think the {npc_role} would keep things quieter around here."
+
+Most `npc_opinions` entries use `{npc_name}` alone. The player already knows who that NPC is from talking to them. The NPC's *opinion* is more interesting than the other NPC's job description. Only use `{npc_role}` when the role is the point of the observation: "You'd think the guard would..." works because the complaint is about the role's job. "{npc_name}, the blacksmith, borrowed my saw" does not: the borrowing has nothing to do with blacksmithing.
 
 **Settlement pride (positive):**
 > "Hard to complain about living in {settlement_name}. We've got everything you need."
 
-Adapted from: "Hard to complain about living in Chorrol. We've got everything you need."
-
 **Settlement pride (negative):**
 > "Have you looked around? {settlement_name} isn't exactly a jewel. But I suppose it's home."
-
-Adapted from: "Have you looked around? Bravil is Tamriel's cloaca."
 
 **Settlement pride (neutral, comparative):**
 > "I've heard things are good in {other_settlement}. Can't say the same for here, but we get by."
@@ -108,42 +117,26 @@ Adapted from: "Have you looked around? Bravil is Tamriel's cloaca."
 **POI awareness (neutral):**
 > "The {poi_type}'s been busy lately. More coming and going than usual."
 
-Adapted from: "There's a lot of adventuring action from here south to Blackwood, and everyone comes to me with their gear."
+**POI awareness (positive, with resource):**
+> "The {poi_type}'s been pulling up good {resource_type} lately. Keeps people busy."
 
-**POI awareness (positive):**
-> "I used to work at the {poi_type} when I was younger. Hard work, but honest. I miss it sometimes."
+**POI awareness (neutral, self-role):**
+> "Being a {self_role} isn't glamorous, but it's steady work."
 
 **Creature complaints (negative):**
 > "{mob_type} and rats. Seems like they're everywhere this season."
 
-Adapted from: "Watch yourself around goblins. Some of the nastier ones will toss spells at you."
-
 **Creature complaints (neutral, resigned):**
 > "Used to be you could walk the roads without worrying about {mob_type}. Times change, I suppose."
+
+**Creature complaints (neutral, wildlife: mild grumbling about pests):**
+> "A {wildlife_type} got into the stores again. Third time this month."
 
 **Distant rumors (neutral):**
 > "A trader from {other_settlement} came through last week. Said business is slow everywhere."
 
 **Distant rumors (positive):**
 > "I've got a cousin in {other_settlement}. Last I heard, they're doing well. Good for them."
-
-**Mundane daily life with food:**
-> "Had some {food_type} last night. Simple, but it hit the spot."
-
-**Mundane daily life with self-role:**
-> "Being a {self_role} isn't glamorous, but it's honest work."
-
-**NPC opinions with role:**
-> "{npc_name}, the {npc_role}, has been in a mood lately. I just stay out of the way."
-
-**POI awareness with resource:**
-> "The {poi_type}'s been pulling up good {resource_type} lately. Keeps people busy."
-
-**Mundane daily life with wildlife:**
-> "Saw a {wildlife_type} {direction} the other day. Didn't bother anyone."
-
-**Mundane daily life with crop:**
-> "The {crop_type} came in well this year. Better than last, anyway."
 
 ---
 
@@ -194,12 +187,27 @@ Why this fails: The game knows a mine exists. It doesn't generate collapsed tunn
 **Anti-example 9: Invented food**
 > "Had some dragonberry wine with honeycake at the tavern."
 
-Why this fails: "dragonberry wine" and "honeycake" are not game items. Use {food_type} for real items.
+Why this fails: "dragonberry wine" and "honeycake" are not game items. Use `{food_type}` to draw from real items (bread, cheese, grilled fish, apple pie, etc.). (Rule R1)
 
 **Anti-example 10: Wrong wildlife/mob split**
 > "Saw a {mob_type} grazing by the river."
 
-Why this fails: {mob_type} is for hostile creatures. Use {wildlife_type} for passive animals.
+Why this fails: `{mob_type}` resolves to hostile creatures (goblins, wolves, skeletons). Passive animals are `{wildlife_type}` (deer, fox, owl, rabbit, etc.). (Rule R25)
+
+**Anti-example 11: Role as appositive label**
+> "{npc_name}, the {npc_role}, borrowed my best saw three weeks ago."
+
+Why this fails: the borrowing has nothing to do with the NPC's job. "{npc_name} borrowed my best saw" is better: the player already knows who they are. Use `{npc_role}` only when the role is the point: "You'd think the {npc_role} would keep better order around here." (Rule R27)
+
+**Anti-example 12: Subject focus variable**
+> "{subject_focus_the} has been causing problems near the {poi_type}."
+
+Why this fails: `{subject_focus}` and all its variants (`{subject_focus_the}`, `{subject_focus_The}`, `{subject_focus_is}`, `{subject_focus_has}`, `{subject_focus_was}`) are forbidden in pool entries. Every word the NPC says must be written directly in the entry text. (Rule R21)
+
+**Anti-example 13: Over-decorated mundane entry**
+> "Had some {food_type} after a long day of being a {self_role}. Saw a {wildlife_type} on the walk home."
+
+Why this fails: three variables in a mundane daily life entry. This category is about universal human experience: sleep, weather, aches, boredom. The plainest entries make the richer entries stand out. Most mundane entries should have zero variables. (Rule R28)
 
 ---
 
@@ -240,9 +248,11 @@ Before outputting each entry, verify:
 
 - [ ] Every proper noun resolves to a template variable from the entity registry
 - [ ] No invented locations, events, characters, or POI details
+- [ ] No `{subject_focus}` variables or any of its variants
 - [ ] Intro is at most 2 sentences
 - [ ] Each detail is at most 2 sentences
 - [ ] Each reaction is at most 2 sentences
+- [ ] Max 2 template variables per line
 - [ ] The entry sounds like a person talking, not a narrator or briefing
 - [ ] The detail does not escalate the intro
 - [ ] The reaction is not a call to action
@@ -252,6 +262,10 @@ Before outputting each entry, verify:
 - [ ] `location_scope` is correct for the category
 - [ ] `topic_category` matches the entry's content
 - [ ] The entry is boring in the right way: personal, mundane, opinionated
+- [ ] If `mundane_daily_life`: mostly variable-free (sleep, weather, aches, boredom)
+- [ ] If using `{npc_role}`: the role is the point of the observation, not a name tag
+- [ ] If using `{wildlife_type}`: not framed as hostile or threatening
+- [ ] No invented food, drink, or creature names: use `{food_type}`, `{wildlife_type}`, etc.
 
 ---
 
