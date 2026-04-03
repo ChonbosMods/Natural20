@@ -8,12 +8,22 @@
         "outro": "I need someone fast and capable to get out there and deal with the {enemy_type_plural} before it is too late. {player_name}, will you handle it?"
       },
       "objectivePool": [
-        "KILL_MOBS"
+        "KILL_MOBS",
+        "COLLECT_RESOURCES",
+        "FETCH_ITEM"
       ],
       "objectiveConfig": {
         "KILL_MOBS": {
           "countMin": 4,
           "countMax": 8
+        },
+        "COLLECT_RESOURCES": {
+          "countMin": 4,
+          "countMax": 8
+        },
+        "FETCH_ITEM": {
+          "countMin": 1,
+          "countMax": 1
         }
       }
     },
@@ -25,12 +35,22 @@
         "outro": "{quest_focus_The} means everything to {target_npc}. Kill the {enemy_type_plural} guarding it and bring it back, {player_name}."
       },
       "objectivePool": [
-        "KILL_MOBS"
+        "KILL_MOBS",
+        "COLLECT_RESOURCES",
+        "FETCH_ITEM"
       ],
       "objectiveConfig": {
         "KILL_MOBS": {
           "countMin": 3,
           "countMax": 6
+        },
+        "COLLECT_RESOURCES": {
+          "countMin": 3,
+          "countMax": 6
+        },
+        "FETCH_ITEM": {
+          "countMin": 1,
+          "countMax": 1
         }
       }
     },
@@ -42,12 +62,22 @@
         "outro": "Without clearing those {enemy_type_plural}, {quest_stakes_the} {quest_stakes_is} in mortal danger. {player_name}, will you fight through before {quest_time_pressure}?"
       },
       "objectivePool": [
-        "KILL_MOBS"
+        "KILL_MOBS",
+        "COLLECT_RESOURCES",
+        "FETCH_ITEM"
       ],
       "objectiveConfig": {
         "KILL_MOBS": {
           "countMin": 4,
           "countMax": 9
+        },
+        "COLLECT_RESOURCES": {
+          "countMin": 4,
+          "countMax": 9
+        },
+        "FETCH_ITEM": {
+          "countMin": 1,
+          "countMax": 1
         }
       }
     },
@@ -59,12 +89,22 @@
         "outro": "Kill the {enemy_type_plural} holding the approach and {quest_stakes_the} is ours. There will be {quest_reward_hint} for your trouble."
       },
       "objectivePool": [
-        "KILL_MOBS"
+        "KILL_MOBS",
+        "COLLECT_RESOURCES",
+        "FETCH_ITEM"
       ],
       "objectiveConfig": {
         "KILL_MOBS": {
           "countMin": 5,
           "countMax": 10
+        },
+        "COLLECT_RESOURCES": {
+          "countMin": 5,
+          "countMax": 10
+        },
+        "FETCH_ITEM": {
+          "countMin": 1,
+          "countMax": 1
         }
       }
     },
@@ -76,12 +116,22 @@
         "outro": "Strike now while they are still disorganized. Kill enough {enemy_type_plural} to break their hold on the area."
       },
       "objectivePool": [
-        "KILL_MOBS"
+        "KILL_MOBS",
+        "COLLECT_RESOURCES",
+        "FETCH_ITEM"
       ],
       "objectiveConfig": {
         "KILL_MOBS": {
           "countMin": 3,
           "countMax": 7
+        },
+        "COLLECT_RESOURCES": {
+          "countMin": 3,
+          "countMax": 7
+        },
+        "FETCH_ITEM": {
+          "countMin": 1,
+          "countMax": 1
         }
       }
     },
@@ -93,12 +143,22 @@
         "outro": "Eliminate the {enemy_type_plural} standing guard and we secure something that could transform this settlement's future."
       },
       "objectivePool": [
-        "KILL_MOBS"
+        "KILL_MOBS",
+        "COLLECT_RESOURCES",
+        "FETCH_ITEM"
       ],
       "objectiveConfig": {
         "KILL_MOBS": {
           "countMin": 4,
           "countMax": 8
+        },
+        "COLLECT_RESOURCES": {
+          "countMin": 4,
+          "countMax": 8
+        },
+        "FETCH_ITEM": {
+          "countMin": 1,
+          "countMax": 1
         }
       }
     }

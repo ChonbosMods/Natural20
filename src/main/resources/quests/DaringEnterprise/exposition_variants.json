@@ -8,12 +8,17 @@
         "outro": "If we succeed, we could change the fortunes of this entire settlement. Others went in blind: we will not make the same mistake."
       },
       "objectivePool": [
-        "KILL_MOBS"
+        "KILL_MOBS",
+        "FETCH_ITEM"
       ],
       "objectiveConfig": {
         "KILL_MOBS": {
           "countMin": 4,
           "countMax": 8
+        },
+        "FETCH_ITEM": {
+          "countMin": 1,
+          "countMax": 1
         }
       }
     },
@@ -25,12 +30,17 @@
         "outro": "{quest_stakes_The} locked away in there could reshape what we know about this land. And of course, there would be {quest_reward_hint} for your trouble."
       },
       "objectivePool": [
-        "KILL_MOBS"
+        "KILL_MOBS",
+        "FETCH_ITEM"
       ],
       "objectiveConfig": {
         "KILL_MOBS": {
           "countMin": 3,
           "countMax": 6
+        },
+        "FETCH_ITEM": {
+          "countMin": 1,
+          "countMax": 1
         }
       }
     },
@@ -42,12 +52,17 @@
         "outro": "{quest_stakes_The} {quest_stakes_is} depending on this. We must act before {quest_time_pressure}, or we lose our window entirely."
       },
       "objectivePool": [
-        "KILL_MOBS"
+        "KILL_MOBS",
+        "FETCH_ITEM"
       ],
       "objectiveConfig": {
         "KILL_MOBS": {
           "countMin": 3,
           "countMax": 6
+        },
+        "FETCH_ITEM": {
+          "countMin": 1,
+          "countMax": 1
         }
       }
     },
@@ -59,12 +74,17 @@
         "outro": "This is the kind of enterprise that makes legends, {player_name}. Kill those {enemy_type_plural} and the path to glory opens wide."
       },
       "objectivePool": [
-        "KILL_MOBS"
+        "KILL_MOBS",
+        "FETCH_ITEM"
       ],
       "objectiveConfig": {
         "KILL_MOBS": {
           "countMin": 5,
           "countMax": 9
+        },
+        "FETCH_ITEM": {
+          "countMin": 1,
+          "countMax": 1
         }
       }
     },
@@ -76,12 +96,17 @@
         "outro": "Are you the kind of person who sees a challenge and walks toward it? Then deal with those {enemy_type_plural} and earn {quest_reward_hint}."
       },
       "objectivePool": [
-        "KILL_MOBS"
+        "KILL_MOBS",
+        "FETCH_ITEM"
       ],
       "objectiveConfig": {
         "KILL_MOBS": {
           "countMin": 4,
           "countMax": 8
+        },
+        "FETCH_ITEM": {
+          "countMin": 1,
+          "countMax": 1
         }
       }
     },
@@ -93,12 +118,17 @@
         "outro": "I need you to clear those {enemy_type_plural} out. What we find on the other side could change everything."
       },
       "objectivePool": [
-        "KILL_MOBS"
+        "KILL_MOBS",
+        "FETCH_ITEM"
       ],
       "objectiveConfig": {
         "KILL_MOBS": {
           "countMin": 4,
           "countMax": 7
+        },
+        "FETCH_ITEM": {
+          "countMin": 1,
+          "countMax": 1
         }
       }
     }

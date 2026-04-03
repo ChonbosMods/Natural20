@@ -8,12 +8,17 @@
         "outro": "We have come too far to turn back now. {quest_stakes_The} {quest_stakes_is} within reach."
       },
       "objectivePool": [
-        "KILL_MOBS"
+        "KILL_MOBS",
+        "FETCH_ITEM"
       ],
       "objectiveConfig": {
         "KILL_MOBS": {
           "countMin": 4,
           "countMax": 9
+        },
+        "FETCH_ITEM": {
+          "countMin": 1,
+          "countMax": 1
         }
       }
     },
@@ -25,12 +30,17 @@
         "outro": "We are so close. Clear the way and {quest_stakes_the} will be ours."
       },
       "objectivePool": [
-        "KILL_MOBS"
+        "KILL_MOBS",
+        "FETCH_ITEM"
       ],
       "objectiveConfig": {
         "KILL_MOBS": {
           "countMin": 5,
           "countMax": 10
+        },
+        "FETCH_ITEM": {
+          "countMin": 1,
+          "countMax": 1
         }
       }
     },
@@ -42,12 +52,17 @@
         "outro": "{quest_stakes_The} {quest_stakes_is} slipping further away every day we delay. Are you still with us?"
       },
       "objectivePool": [
-        "KILL_MOBS"
+        "KILL_MOBS",
+        "FETCH_ITEM"
       ],
       "objectiveConfig": {
         "KILL_MOBS": {
           "countMin": 3,
           "countMax": 7
+        },
+        "FETCH_ITEM": {
+          "countMin": 1,
+          "countMax": 1
         }
       }
     },
@@ -59,12 +74,17 @@
         "outro": "Kill them before they spread beyond the site. If they reach the surface in these numbers, {quest_stakes_the} will be the least of our problems."
       },
       "objectivePool": [
-        "KILL_MOBS"
+        "KILL_MOBS",
+        "FETCH_ITEM"
       ],
       "objectiveConfig": {
         "KILL_MOBS": {
           "countMin": 5,
           "countMax": 10
+        },
+        "FETCH_ITEM": {
+          "countMin": 1,
+          "countMax": 1
         }
       }
     },
@@ -76,12 +96,17 @@
         "outro": "Circle around and hit them where they are not expecting it. {quest_stakes_The} {quest_stakes_is} worth the risk."
       },
       "objectivePool": [
-        "KILL_MOBS"
+        "KILL_MOBS",
+        "FETCH_ITEM"
       ],
       "objectiveConfig": {
         "KILL_MOBS": {
           "countMin": 4,
           "countMax": 8
+        },
+        "FETCH_ITEM": {
+          "countMin": 1,
+          "countMax": 1
         }
       }
     },
@@ -93,12 +118,17 @@
         "outro": "Their loss, our opportunity: but only if we act fast. Kill the {enemy_type_plural} before they settle into their new positions."
       },
       "objectivePool": [
-        "KILL_MOBS"
+        "KILL_MOBS",
+        "FETCH_ITEM"
       ],
       "objectiveConfig": {
         "KILL_MOBS": {
           "countMin": 4,
           "countMax": 9
+        },
+        "FETCH_ITEM": {
+          "countMin": 1,
+          "countMax": 1
         }
       }
     }

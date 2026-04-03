@@ -7,9 +7,10 @@
         "plotStep": "The destruction attracted {enemy_type_plural} to the wreckage {location_hint}. They are feeding on our misery: looting the ruins and attacking anyone who tries to salvage what is left. We need them driven out before we can begin to recover.",
         "outro": "People are cold, scared, and hungry. Clear the {enemy_type_plural} so we can start picking up the pieces."
       },
-      "objectivePool": ["KILL_MOBS"],
+      "objectivePool": ["KILL_MOBS", "COLLECT_RESOURCES"],
       "objectiveConfig": {
-        "KILL_MOBS": {"countMin": 4, "countMax": 8}
+        "KILL_MOBS": {"countMin": 4, "countMax": 8},
+        "COLLECT_RESOURCES": {"countMin": 4, "countMax": 8}
       }
     },
     {
@@ -19,9 +20,10 @@
         "plotStep": "The chaos has drawn {enemy_type_plural} out of the wilds {location_hint}. They sense weakness and they are closing in. If we do not thin their numbers now, we will be fighting the disaster and the creatures at the same time.",
         "outro": "If this reaches the settlement, we lose everything. Kill the {enemy_type_plural} before they overrun us."
       },
-      "objectivePool": ["KILL_MOBS"],
+      "objectivePool": ["KILL_MOBS", "COLLECT_RESOURCES"],
       "objectiveConfig": {
-        "KILL_MOBS": {"countMin": 3, "countMax": 7}
+        "KILL_MOBS": {"countMin": 3, "countMax": 7},
+        "COLLECT_RESOURCES": {"countMin": 3, "countMax": 7}
       }
     },
     {
@@ -31,9 +33,10 @@
         "plotStep": "What worries me most is the {enemy_type_plural} that have moved into the damaged areas {location_hint}. They are nesting in the ruins and growing bolder by the day. Until they are cleared, no one can safely reach the areas we need to repair.",
         "outro": "Everything has turned against us. Deal with the {enemy_type_plural} so we can fight back."
       },
-      "objectivePool": ["KILL_MOBS"],
+      "objectivePool": ["KILL_MOBS", "COLLECT_RESOURCES"],
       "objectiveConfig": {
-        "KILL_MOBS": {"countMin": 5, "countMax": 10}
+        "KILL_MOBS": {"countMin": 5, "countMax": 10},
+        "COLLECT_RESOURCES": {"countMin": 5, "countMax": 10}
       }
     },
     {
@@ -43,9 +46,10 @@
         "plotStep": "The survivors scattered, and now {enemy_type_plural} are prowling the debris field {location_hint}. {quest_ally} tried to organize a salvage team, but they were driven back. {quest_stakes_human_The} {quest_stakes_human_is} sheltering in the open with nothing between them and those creatures.",
         "outro": "Kill the {enemy_type_plural} lurking near {quest_focus_the} so our people can find safe ground."
       },
-      "objectivePool": ["KILL_MOBS"],
+      "objectivePool": ["KILL_MOBS", "COLLECT_RESOURCES"],
       "objectiveConfig": {
-        "KILL_MOBS": {"countMin": 3, "countMax": 6}
+        "KILL_MOBS": {"countMin": 3, "countMax": 6},
+        "COLLECT_RESOURCES": {"countMin": 3, "countMax": 6}
       }
     },
     {
@@ -55,10 +59,10 @@
         "plotStep": "The upheaval opened passages that were sealed for ages, and {enemy_type_plural} are pouring out of them {location_hint}. They are disoriented and aggressive, attacking anything that moves. {quest_stakes_The} {quest_stakes_is} directly in their path.",
         "outro": "Seal those breaches with steel. Kill every {enemy_type} that crawled out before they reach the settlement."
       },
-      "objectivePool": ["KILL_MOBS"],
+      "objectivePool": ["KILL_MOBS", "COLLECT_RESOURCES"],
       "objectiveConfig": {
-        "KILL_MOBS": {"countMin": 5, "countMax": 9
-        }
+        "KILL_MOBS": {"countMin": 5, "countMax": 9},
+        "COLLECT_RESOURCES": {"countMin": 5, "countMax": 9}
       }
     },
     {
@@ -68,9 +72,10 @@
         "plotStep": "{quest_ally} spotted a hunting pack of {enemy_type_plural} circling the ruins {location_hint}. They are not scavenging: they are stalking the survivors. {quest_stakes_human_The} {quest_stakes_human_is} too exhausted and injured to defend themselves.",
         "outro": "Those people need a fighter, not a builder. Hunt down the {enemy_type_plural} before they pick off anyone else."
       },
-      "objectivePool": ["KILL_MOBS"],
+      "objectivePool": ["KILL_MOBS", "COLLECT_RESOURCES"],
       "objectiveConfig": {
-        "KILL_MOBS": {"countMin": 4, "countMax": 8}
+        "KILL_MOBS": {"countMin": 4, "countMax": 8},
+        "COLLECT_RESOURCES": {"countMin": 4, "countMax": 8}
       }
     }
   ]

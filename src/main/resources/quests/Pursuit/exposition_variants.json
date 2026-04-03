@@ -7,9 +7,10 @@
         "plotStep": "I need someone who can {quest_action} before the trail goes cold. {quest_ally} spotted tracks heading {location_hint}. The {enemy_type_plural} that escorted them are still in the area: hunt them down and make sure this does not happen again.",
         "outro": "{quest_stakes_The} {quest_stakes_is} at risk if word spreads that we cannot protect our own."
       },
-      "objectivePool": ["KILL_MOBS"],
+      "objectivePool": ["KILL_MOBS", "FETCH_ITEM"],
       "objectiveConfig": {
-        "KILL_MOBS": {"countMin": 3, "countMax": 7}
+        "KILL_MOBS": {"countMin": 3, "countMax": 7},
+        "FETCH_ITEM": {"countMin": 1, "countMax": 1}
       }
     },
     {
@@ -19,9 +20,10 @@
         "plotStep": "We need to {quest_action} and deal with this before it circles back. The {enemy_type} was last seen {location_hint}. Track them down and eliminate the threat before it returns.",
         "outro": "This must be done before {quest_time_pressure}. The longer we wait, the more dangerous it becomes."
       },
-      "objectivePool": ["KILL_MOBS"],
+      "objectivePool": ["KILL_MOBS", "FETCH_ITEM"],
       "objectiveConfig": {
-        "KILL_MOBS": {"countMin": 2, "countMax": 5}
+        "KILL_MOBS": {"countMin": 2, "countMax": 5},
+        "FETCH_ITEM": {"countMin": 1, "countMax": 1}
       }
     },
     {
@@ -31,9 +33,10 @@
         "plotStep": "I need you to {quest_action}. Tracks lead {location_hint}. Whatever broke through is still out there, and the {enemy_type_plural} have been emboldened by the gap in our defenses. Find them and put them down before they strike again.",
         "outro": "{quest_stakes_The} {quest_stakes_has} a gap until we sort this out. Every hour matters."
       },
-      "objectivePool": ["KILL_MOBS"],
+      "objectivePool": ["KILL_MOBS", "FETCH_ITEM"],
       "objectiveConfig": {
-        "KILL_MOBS": {"countMin": 3, "countMax": 6}
+        "KILL_MOBS": {"countMin": 3, "countMax": 6},
+        "FETCH_ITEM": {"countMin": 1, "countMax": 1}
       }
     }
   ]

@@ -8,12 +8,22 @@
         "outro": "Fight through them. We are too close to turn back now."
       },
       "objectivePool": [
-        "KILL_MOBS"
+        "KILL_MOBS",
+        "COLLECT_RESOURCES",
+        "FETCH_ITEM"
       ],
       "objectiveConfig": {
         "KILL_MOBS": {
           "countMin": 4,
           "countMax": 9
+        },
+        "COLLECT_RESOURCES": {
+          "countMin": 4,
+          "countMax": 9
+        },
+        "FETCH_ITEM": {
+          "countMin": 1,
+          "countMax": 1
         }
       }
     },
@@ -25,12 +35,22 @@
         "outro": "Get out there and cut through their defenses. Time is not on our side."
       },
       "objectivePool": [
-        "KILL_MOBS"
+        "KILL_MOBS",
+        "COLLECT_RESOURCES",
+        "FETCH_ITEM"
       ],
       "objectiveConfig": {
         "KILL_MOBS": {
           "countMin": 5,
           "countMax": 10
+        },
+        "COLLECT_RESOURCES": {
+          "countMin": 5,
+          "countMax": 10
+        },
+        "FETCH_ITEM": {
+          "countMin": 1,
+          "countMax": 1
         }
       }
     },
@@ -42,12 +62,22 @@
         "outro": "Strike while the {enemy_type_plural} are divided. {quest_stakes_The} cannot wait for negotiations."
       },
       "objectivePool": [
-        "KILL_MOBS"
+        "KILL_MOBS",
+        "COLLECT_RESOURCES",
+        "FETCH_ITEM"
       ],
       "objectiveConfig": {
         "KILL_MOBS": {
           "countMin": 3,
           "countMax": 7
+        },
+        "COLLECT_RESOURCES": {
+          "countMin": 3,
+          "countMax": 7
+        },
+        "FETCH_ITEM": {
+          "countMin": 1,
+          "countMax": 1
         }
       }
     },
@@ -59,12 +89,22 @@
         "outro": "Destroy their patrols and break their formation. Once their defenses collapse, {quest_focus_the} is within reach."
       },
       "objectivePool": [
-        "KILL_MOBS"
+        "KILL_MOBS",
+        "COLLECT_RESOURCES",
+        "FETCH_ITEM"
       ],
       "objectiveConfig": {
         "KILL_MOBS": {
           "countMin": 5,
           "countMax": 10
+        },
+        "COLLECT_RESOURCES": {
+          "countMin": 5,
+          "countMax": 10
+        },
+        "FETCH_ITEM": {
+          "countMin": 1,
+          "countMax": 1
         }
       }
     },
@@ -76,12 +116,22 @@
         "outro": "Hit them hard before they spread further. Every route they close is one less chance for us."
       },
       "objectivePool": [
-        "KILL_MOBS"
+        "KILL_MOBS",
+        "COLLECT_RESOURCES",
+        "FETCH_ITEM"
       ],
       "objectiveConfig": {
         "KILL_MOBS": {
           "countMin": 4,
           "countMax": 8
+        },
+        "COLLECT_RESOURCES": {
+          "countMin": 4,
+          "countMax": 8
+        },
+        "FETCH_ITEM": {
+          "countMin": 1,
+          "countMax": 1
         }
       }
     },
@@ -93,12 +143,22 @@
         "outro": "One final push. Kill everything between you and {quest_focus_the}."
       },
       "objectivePool": [
-        "KILL_MOBS"
+        "KILL_MOBS",
+        "COLLECT_RESOURCES",
+        "FETCH_ITEM"
       ],
       "objectiveConfig": {
         "KILL_MOBS": {
           "countMin": 4,
           "countMax": 9
+        },
+        "COLLECT_RESOURCES": {
+          "countMin": 4,
+          "countMax": 9
+        },
+        "FETCH_ITEM": {
+          "countMin": 1,
+          "countMax": 1
         }
       }
     }

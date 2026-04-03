@@ -25,12 +25,17 @@
         "outro": "We lay our people to rest soon. I want to tell them it is done."
       },
       "objectivePool": [
-        "KILL_MOBS"
+        "KILL_MOBS",
+        "FETCH_ITEM"
       ],
       "objectiveConfig": {
         "KILL_MOBS": {
           "countMin": 5,
           "countMax": 10
+        },
+        "FETCH_ITEM": {
+          "countMin": 1,
+          "countMax": 1
         }
       }
     },

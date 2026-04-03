@@ -7,9 +7,10 @@
         "plotStep": "{quest_threat_The} doubled back toward {quest_focus_the}. The {enemy_type_plural} are providing cover, and they have been massing {location_hint}. We need to push through them to pick up the trail again.",
         "outro": "{quest_stakes_The} cannot wait. If we lose the trail now, we lose everything."
       },
-      "objectivePool": ["KILL_MOBS"],
+      "objectivePool": ["KILL_MOBS", "FETCH_ITEM"],
       "objectiveConfig": {
-        "KILL_MOBS": {"countMin": 4, "countMax": 8}
+        "KILL_MOBS": {"countMin": 4, "countMax": 8},
+        "FETCH_ITEM": {"countMin": 1, "countMax": 1}
       }
     },
     {
@@ -19,9 +20,10 @@
         "plotStep": "{quest_ally} nearly walked into it. The {enemy_type_plural} have fortified the area {location_hint}. We need to clear them out before anyone else gets hurt.",
         "outro": "They are trying to discourage us. Let us show them it will not work."
       },
-      "objectivePool": ["KILL_MOBS"],
+      "objectivePool": ["KILL_MOBS", "FETCH_ITEM"],
       "objectiveConfig": {
-        "KILL_MOBS": {"countMin": 3, "countMax": 7}
+        "KILL_MOBS": {"countMin": 3, "countMax": 7},
+        "FETCH_ITEM": {"countMin": 1, "countMax": 1}
       }
     },
     {
@@ -31,9 +33,10 @@
         "plotStep": "It is personal now. {quest_ally} confirmed that {enemy_type_plural} were sent to {quest_focus_the} as a distraction while the real target fled {location_hint}. We need to cut through them and end this.",
         "outro": "End this pursuit once and for all. I am counting on you."
       },
-      "objectivePool": ["KILL_MOBS"],
+      "objectivePool": ["KILL_MOBS", "FETCH_ITEM"],
       "objectiveConfig": {
-        "KILL_MOBS": {"countMin": 3, "countMax": 8}
+        "KILL_MOBS": {"countMin": 3, "countMax": 8},
+        "FETCH_ITEM": {"countMin": 1, "countMax": 1}
       }
     }
   ]

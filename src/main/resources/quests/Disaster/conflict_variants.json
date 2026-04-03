@@ -7,9 +7,10 @@
         "plotStep": "{quest_ally} reports that {quest_focus_the} {quest_focus_is} under renewed pressure. The {enemy_type_plural} are taking advantage of the chaos {location_hint}. We need to deal with them before they overrun what is left of {quest_stakes_the}.",
         "outro": "We are fighting on two fronts: nature and creatures. We need you now more than ever."
       },
-      "objectivePool": ["KILL_MOBS"],
+      "objectivePool": ["KILL_MOBS", "COLLECT_RESOURCES"],
       "objectiveConfig": {
-        "KILL_MOBS": {"countMin": 4, "countMax": 8}
+        "KILL_MOBS": {"countMin": 4, "countMax": 8},
+        "COLLECT_RESOURCES": {"countMin": 4, "countMax": 8}
       }
     },
     {
@@ -19,9 +20,10 @@
         "plotStep": "{quest_focus_The} {quest_focus_is} compromised and {quest_stakes_the} {quest_stakes_is} at risk of total loss. {quest_ally} found that {enemy_type_plural} have nested in the wreckage {location_hint}. We need to clear them out before we can salvage anything.",
         "outro": "If we lose {quest_stakes_the}, there is nothing left to rebuild."
       },
-      "objectivePool": ["KILL_MOBS"],
+      "objectivePool": ["KILL_MOBS", "COLLECT_RESOURCES"],
       "objectiveConfig": {
-        "KILL_MOBS": {"countMin": 3, "countMax": 7}
+        "KILL_MOBS": {"countMin": 3, "countMax": 7},
+        "COLLECT_RESOURCES": {"countMin": 3, "countMax": 7}
       }
     },
     {
@@ -31,9 +33,10 @@
         "plotStep": "The area around {quest_focus_the} is now crawling with displaced {enemy_type_plural} {location_hint}. People cannot get close enough to continue repairs. Someone needs to secure the perimeter and drive them out.",
         "outro": "{quest_stakes_The} {quest_stakes_is} hanging by a thread. We need the area safe before we can save anything."
       },
-      "objectivePool": ["KILL_MOBS"],
+      "objectivePool": ["KILL_MOBS", "COLLECT_RESOURCES"],
       "objectiveConfig": {
-        "KILL_MOBS": {"countMin": 5, "countMax": 10}
+        "KILL_MOBS": {"countMin": 5, "countMax": 10},
+        "COLLECT_RESOURCES": {"countMin": 5, "countMax": 10}
       }
     },
     {
@@ -43,9 +46,10 @@
         "plotStep": "{quest_ally} counted twice as many creatures as before. They are spreading across the area {location_hint}, and our makeshift defenses will not hold. {quest_stakes_The} {quest_stakes_is} exposed on three sides.",
         "outro": "Thin their numbers before they realize how vulnerable we are. Every one you kill is one less threat to the survivors."
       },
-      "objectivePool": ["KILL_MOBS"],
+      "objectivePool": ["KILL_MOBS", "COLLECT_RESOURCES"],
       "objectiveConfig": {
-        "KILL_MOBS": {"countMin": 5, "countMax": 10}
+        "KILL_MOBS": {"countMin": 5, "countMax": 10},
+        "COLLECT_RESOURCES": {"countMin": 5, "countMax": 10}
       }
     },
     {
@@ -55,9 +59,10 @@
         "plotStep": "This time they are bolder. {quest_ally} says they have been feeding on debris and they are larger, more aggressive. They attacked a patrol near {quest_focus_the} and injured two people. {quest_stakes_human_The} {quest_stakes_human_is} demanding we do something before the next attack.",
         "outro": "Track them through the wreckage and finish what you started. We cannot rebuild while predators circle our walls."
       },
-      "objectivePool": ["KILL_MOBS"],
+      "objectivePool": ["KILL_MOBS", "COLLECT_RESOURCES"],
       "objectiveConfig": {
-        "KILL_MOBS": {"countMin": 4, "countMax": 9}
+        "KILL_MOBS": {"countMin": 4, "countMax": 9},
+        "COLLECT_RESOURCES": {"countMin": 4, "countMax": 9}
       }
     },
     {
@@ -67,9 +72,10 @@
         "plotStep": "They swarmed the eastern approach to {quest_focus_the} and are denning in what used to be our storehouse {location_hint}. {quest_ally} says we cannot access any of our reserves until the area is cleared. {quest_stakes_The} {quest_stakes_is} running out of supplies.",
         "outro": "Reclaim the storehouse. Kill anything that has made a home in our ruins."
       },
-      "objectivePool": ["KILL_MOBS"],
+      "objectivePool": ["KILL_MOBS", "COLLECT_RESOURCES"],
       "objectiveConfig": {
-        "KILL_MOBS": {"countMin": 3, "countMax": 7}
+        "KILL_MOBS": {"countMin": 3, "countMax": 7},
+        "COLLECT_RESOURCES": {"countMin": 3, "countMax": 7}
       }
     }
   ]
