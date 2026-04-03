@@ -25,6 +25,7 @@ import com.chonbosmods.settlement.NpcRecord;
 import com.chonbosmods.settlement.SettlementNpcDeathSystem;
 import com.chonbosmods.settlement.SettlementPlacer;
 import com.chonbosmods.settlement.SettlementRecord;
+import com.chonbosmods.settlement.SettlementDiscoverySystem;
 import com.chonbosmods.settlement.SettlementRegistry;
 import com.chonbosmods.settlement.SettlementThreatSystem;
 import com.chonbosmods.settlement.SettlementWorldGenListener;
@@ -73,6 +74,7 @@ public class Natural20 extends JavaPlugin {
     private UndergroundStructurePlacer structurePlacer;
     private POIPopulationListener poiPopulationListener;
     private POIProximitySystem poiProximitySystem;
+    private SettlementDiscoverySystem settlementDiscoverySystem;
     private java.util.concurrent.ScheduledExecutorService poiProximityExecutor;
     private Config<Nat20GlobalData> globalConfig;
     private java.util.concurrent.ScheduledExecutorService npcSyncExecutor;
@@ -250,6 +252,7 @@ public class Natural20 extends JavaPlugin {
             equipmentListener.clearPlayer(uuid);
             QuestMarkerProvider.INSTANCE.removePlayer(uuid);
             if (poiProximitySystem != null) poiProximitySystem.removePlayer(uuid);
+            if (settlementDiscoverySystem != null) settlementDiscoverySystem.removePlayer(uuid);
         });
 
         // Restore quest waypoint markers on player connect and register for POI proximity tracking
@@ -261,6 +264,7 @@ public class Natural20 extends JavaPlugin {
                 QuestMarkerProvider.refreshMarkers(uuid, data);
             }
             if (poiProximitySystem != null) poiProximitySystem.addPlayer(uuid);
+            if (settlementDiscoverySystem != null) settlementDiscoverySystem.addPlayer(uuid);
         });
 
         // Register quest POI marker provider on every world
@@ -305,6 +309,7 @@ public class Natural20 extends JavaPlugin {
 
         // POI proximity system: checks player distance to quest POIs every second
         poiProximitySystem = new POIProximitySystem();
+        settlementDiscoverySystem = new SettlementDiscoverySystem();
         poiProximityExecutor = Executors.newSingleThreadScheduledExecutor(r -> {
             Thread t = new Thread(r, "nat20-poi-proximity");
             t.setDaemon(true);
@@ -313,7 +318,10 @@ public class Natural20 extends JavaPlugin {
         poiProximityExecutor.scheduleAtFixedRate(() -> {
             World w = getDefaultWorld();
             if (w != null) {
-                w.execute(() -> poiProximitySystem.tick(w));
+                w.execute(() -> {
+                    poiProximitySystem.tick(w);
+                    settlementDiscoverySystem.tick(w);
+                });
             }
         }, 5, 1, TimeUnit.SECONDS);
 

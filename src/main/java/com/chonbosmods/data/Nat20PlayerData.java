@@ -42,6 +42,7 @@ public class Nat20PlayerData implements Component<EntityStore> {
             .addField(new KeyedCodec<>("TopicEntryOverrides", STRING_MAP_CODEC), Nat20PlayerData::setTopicEntryOverridesRaw, Nat20PlayerData::getTopicEntryOverridesRaw)
             .addField(new KeyedCodec<>("TopicRecapNodes", STRING_MAP_CODEC), Nat20PlayerData::setTopicRecapNodesRaw, Nat20PlayerData::getTopicRecapNodesRaw)
             .addField(new KeyedCodec<>("NpcClosingValences", STRING_MAP_CODEC), Nat20PlayerData::setNpcClosingValencesRaw, Nat20PlayerData::getNpcClosingValencesRaw)
+            .addField(new KeyedCodec<>("DiscoveredSettlements", STRING_SET_CODEC), Nat20PlayerData::setDiscoveredSettlements, Nat20PlayerData::getDiscoveredSettlements)
             .build();
 
     // Index order: STR=0, DEX=1, CON=2, INT=3, WIS=4, CHA=5
@@ -65,6 +66,9 @@ public class Nat20PlayerData implements Component<EntityStore> {
 
     // Per-NPC closing valence for valence drift between conversations
     private Map<String, String> npcClosingValences = new HashMap<>();     // NPC ID -> valence name
+
+    // Settlement discovery tracking (cellKeys of settlements this player has visited)
+    private Set<String> discoveredSettlements = new HashSet<>();
 
     public Nat20PlayerData() {
     }
@@ -440,6 +444,24 @@ public class Nat20PlayerData implements Component<EntityStore> {
         }
     }
 
+    // --- Discovered Settlements ---
+
+    public Set<String> getDiscoveredSettlements() {
+        return discoveredSettlements;
+    }
+
+    public void setDiscoveredSettlements(Set<String> discoveredSettlements) {
+        this.discoveredSettlements = discoveredSettlements != null ? new HashSet<>(discoveredSettlements) : new HashSet<>();
+    }
+
+    public boolean hasDiscoveredSettlement(String cellKey) {
+        return discoveredSettlements.contains(cellKey);
+    }
+
+    public void discoverSettlement(String cellKey) {
+        discoveredSettlements.add(cellKey);
+    }
+
     @Override
     public Nat20PlayerData clone() {
         Nat20PlayerData copy = new Nat20PlayerData();
@@ -473,6 +495,7 @@ public class Nat20PlayerData implements Component<EntityStore> {
         copy.learnedGlobalTopics = new HashSet<>(this.learnedGlobalTopics);
         copy.savedSessions = new HashMap<>(this.savedSessions);
         copy.npcClosingValences = new HashMap<>(this.npcClosingValences);
+        copy.discoveredSettlements = new HashSet<>(this.discoveredSettlements);
         return copy;
     }
 }
