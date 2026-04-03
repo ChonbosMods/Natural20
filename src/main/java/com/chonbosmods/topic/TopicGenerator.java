@@ -404,9 +404,11 @@ public class TopicGenerator {
             }
         } else if (otherNpcs.size() == 1) {
             bindings.put("npc_name", otherNpcs.getFirst().name());
-        } else {
-            bindings.put("npc_name", npcName);
+            // Only one other NPC: reuse for npc_name_2 (same person can be mentioned twice)
+            bindings.put("npc_name_2", otherNpcs.getFirst().name());
         }
+        // No else: when no other NPCs exist (CART), leave {npc_name} unbound.
+        // Pool entries using {npc_name} won't be authored for CART settlements.
 
         // POI type
         if (!ctx.poiTypes().isEmpty()) {
