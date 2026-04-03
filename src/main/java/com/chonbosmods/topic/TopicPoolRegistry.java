@@ -30,6 +30,12 @@ public class TopicPoolRegistry {
     private final List<String> timeRefs = new ArrayList<>();
     private final List<String> directions = new ArrayList<>();
 
+    // Flavor pools (expanded template variables)
+    private final List<String> foodTypes = new ArrayList<>();
+    private final List<String> cropTypes = new ArrayList<>();
+    private final List<String> wildlifeTypes = new ArrayList<>();
+    private final Map<String, List<String>> resourceTypesByPoi = new LinkedHashMap<>();
+
     // Tone pools (bracket-keyed, valence-nested)
     private final Map<String, Map<String, List<String>>> toneOpeners = new LinkedHashMap<>();
     private final Map<String, Map<String, List<String>>> toneClosers = new LinkedHashMap<>();
@@ -47,6 +53,12 @@ public class TopicPoolRegistry {
         loadStringPoolFromClasspath(CLASSPATH_PREFIX + "time_refs.json", timeRefs);
         loadStringPoolFromClasspath(CLASSPATH_PREFIX + "directions.json", directions);
 
+        // Flavor pools
+        loadStringPoolFromClasspath(CLASSPATH_PREFIX + "food_types.json", foodTypes);
+        loadStringPoolFromClasspath(CLASSPATH_PREFIX + "crop_types.json", cropTypes);
+        loadStringPoolFromClasspath(CLASSPATH_PREFIX + "wildlife_types.json", wildlifeTypes);
+        loadResourceTypesFromClasspath(CLASSPATH_PREFIX + "resource_types.json");
+
         // Tone pools (bracket-keyed)
         loadTonePoolFromClasspath(CLASSPATH_PREFIX + "tone_openers.json", toneOpeners);
         loadTonePoolFromClasspath(CLASSPATH_PREFIX + "tone_closers.json", toneClosers);
@@ -60,6 +72,12 @@ public class TopicPoolRegistry {
             // Drop-in pools
             loadStringPool(poolsDir.resolve("time_refs.json"), timeRefs);
             loadStringPool(poolsDir.resolve("directions.json"), directions);
+
+            // Flavor pools
+            loadStringPool(poolsDir.resolve("food_types.json"), foodTypes);
+            loadStringPool(poolsDir.resolve("crop_types.json"), cropTypes);
+            loadStringPool(poolsDir.resolve("wildlife_types.json"), wildlifeTypes);
+            loadResourceTypes(poolsDir.resolve("resource_types.json"));
 
             // Tone pools (bracket-keyed)
             loadTonePool(poolsDir.resolve("tone_openers.json"), toneOpeners);
@@ -134,6 +152,37 @@ public class TopicPoolRegistry {
             for (JsonElement el : arr) target.add(el.getAsString());
         } catch (Exception e) {
             LOGGER.atSevere().withCause(e).log("Failed to load string pool: %s", file);
+        }
+    }
+
+    private void loadResourceTypesFromClasspath(String resource) {
+        try (InputStream is = getClass().getClassLoader().getResourceAsStream(resource)) {
+            if (is == null) return;
+            JsonObject root = JsonParser.parseReader(new InputStreamReader(is, StandardCharsets.UTF_8)).getAsJsonObject();
+            parseResourceTypes(root);
+        } catch (Exception e) {
+            LOGGER.atSevere().withCause(e).log("Failed to load resource types from classpath: %s", resource);
+        }
+    }
+
+    private void loadResourceTypes(Path file) {
+        if (!Files.exists(file)) return;
+        try (var reader = Files.newBufferedReader(file, StandardCharsets.UTF_8)) {
+            JsonObject root = JsonParser.parseReader(reader).getAsJsonObject();
+            resourceTypesByPoi.clear();
+            parseResourceTypes(root);
+        } catch (Exception e) {
+            LOGGER.atSevere().withCause(e).log("Failed to load resource types: %s", file);
+        }
+    }
+
+    private void parseResourceTypes(JsonObject root) {
+        for (var entry : root.entrySet()) {
+            List<String> pool = new ArrayList<>();
+            for (JsonElement el : entry.getValue().getAsJsonArray()) {
+                pool.add(el.getAsString());
+            }
+            resourceTypesByPoi.put(entry.getKey(), pool);
         }
     }
 
@@ -412,6 +461,13 @@ public class TopicPoolRegistry {
 
     public List<String> getTimeRefs() { return timeRefs; }
     public List<String> getDirections() { return directions; }
+    public List<String> getFoodTypes() { return foodTypes; }
+    public List<String> getCropTypes() { return cropTypes; }
+    public List<String> getWildlifeTypes() { return wildlifeTypes; }
+    public List<String> getResourceTypes(String poiKey) {
+        List<String> pool = resourceTypesByPoi.get(poiKey);
+        return (pool != null && !pool.isEmpty()) ? pool : resourceTypesByPoi.getOrDefault("general", List.of());
+    }
     public List<String> getToneOpeners(String bracket) {
         return flattenLanes(toneOpeners.get(bracket));
     }
