@@ -258,6 +258,11 @@ public class PageDialoguePresenter implements DialoguePresenter {
                         }
                     }
                     manager.handleFollowUpSelected(uuid, id);
+                    // Apply posture text override after the log entry is created.
+                    // Do NOT call refreshLog+flushUpdates here: handleFollowUpSelected
+                    // already flushed. A second flush restarts the typewriter and
+                    // truncates NPC text to one character. The override is picked up
+                    // on the next rebuild (next player interaction).
                     if (posture != null) {
                         ConversationSession session = manager.getSession(uuid);
                         if (session != null) {
