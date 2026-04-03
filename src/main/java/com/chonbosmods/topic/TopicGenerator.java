@@ -34,6 +34,11 @@ public class TopicGenerator {
 
     private static final double RUMOR_RATIO = 0.30;
     private static final double QUEST_CHANCE_PER_SUBJECT = 0.40;
+    private static final double MIN_QUEST_RATIO = 0.25;
+    private static final double MAX_QUEST_RATIO = 0.50;
+    private static final int MIN_QUEST_FLOOR = 1;
+    private static final int MAX_QUEST_FLOOR = 2;
+    private static final int MAX_SUBJECT_DRAW_ATTEMPTS = 3;
 
     // Template-derived topic labels for generated (non-quest) topics.
     // These replace subject-focus-derived labels: pool entries are self-contained
@@ -175,8 +180,8 @@ public class TopicGenerator {
             }
         }
 
-        int minQuests = Math.max(1, (int) Math.floor(npcCount * 0.25));
-        int maxQuests = Math.max(2, (int) Math.floor(npcCount * 0.5));
+        int minQuests = Math.max(MIN_QUEST_FLOOR, (int) Math.floor(npcCount * MIN_QUEST_RATIO));
+        int maxQuests = Math.max(MAX_QUEST_FLOOR, (int) Math.floor(npcCount * MAX_QUEST_RATIO));
 
         List<Integer> questCandidates = new ArrayList<>();
         for (int i = 0; i < allSubjects.size(); i++) {
@@ -271,7 +276,7 @@ public class TopicGenerator {
             String returnGreeting = topicPool.randomReturnGreeting(random);
 
             TopicGraphBuilder builder = new TopicGraphBuilder(
-                npcName, 50, greeting, returnGreeting, assignments, topicPool, random
+                npcName, npc.getDisposition(), greeting, returnGreeting, assignments, topicPool, random
             );
             DialogueGraph graph = builder.build();
 
@@ -513,7 +518,7 @@ public class TopicGenerator {
      * Tries up to 3 times to find an unused subject, then falls back to any matching subject.
      */
     private TopicPoolRegistry.SubjectEntry drawUniqueSubject(String targetCategory, Set<String> usedValues, Random random) {
-        for (int attempt = 0; attempt < 3; attempt++) {
+        for (int attempt = 0; attempt < MAX_SUBJECT_DRAW_ATTEMPTS; attempt++) {
             TopicPoolRegistry.SubjectEntry entry = topicPool.randomSubjectForCategoryExcluding(targetCategory, usedValues, random);
             if (!usedValues.contains(entry.value())) {
                 return entry;
