@@ -105,6 +105,10 @@ public class DialogueManager {
         // gets its own copy to prevent cross-session state bleed.
         graph = graph.mutableCopy();
 
+        // Late-resolve any {tokens} that were unresolvable at generation time
+        // (e.g., {other_settlement} when no neighbors existed yet).
+        graph.lateResolve(buildLateBindings(npcData));
+
         // Inject turn-in topics for any quests this NPC gave that have completed objectives
         injectTurnInTopics(graph, npcId, playerData);
         // Inject talk-to-NPC topics for any quests targeting this NPC
@@ -224,6 +228,52 @@ public class DialogueManager {
             }
             return false;
         });
+    }
+
+    /**
+     * Build bindings for late-resolving {tokens} that were unresolvable at generation time.
+     * Uses the current settlement registry so {other_settlement} etc. resolve to real data
+     * even if the NPC's settlement was the first created.
+     */
+    private Map<String, String> buildLateBindings(Nat20NpcData npcData) {
+        Map<String, String> bindings = new HashMap<>();
+        var registry = Natural20.getInstance().getSettlementRegistry();
+        if (registry == null) return bindings;
+
+        String cellKey = npcData.getSettlementCellKey();
+        if (cellKey == null) return bindings;
+
+        var settlement = registry.getByCell(cellKey);
+        if (settlement == null) return bindings;
+
+        // Other settlement names (the most common late-binding case)
+        List<String> nearbyNames = new ArrayList<>();
+        for (var other : registry.getAll().values()) {
+            if (!other.getCellKey().equals(cellKey)) {
+                nearbyNames.add(other.deriveName());
+            }
+        }
+        if (!nearbyNames.isEmpty()) {
+            var random = new Random(cellKey.hashCode());
+            bindings.put("other_settlement", nearbyNames.get(random.nextInt(nearbyNames.size())));
+        }
+
+        // POI and mob types from settlement type (in case they were empty at generation)
+        var poiTypes = settlement.getSettlementType().getPoiTypes();
+        if (!poiTypes.isEmpty()) {
+            var random = new Random(cellKey.hashCode() ^ 7);
+            bindings.put("poi_type", poiTypes.get(random.nextInt(poiTypes.size())));
+        }
+        var mobTypes = settlement.getSettlementType().getMobTypes();
+        if (!mobTypes.isEmpty()) {
+            var random = new Random(cellKey.hashCode() ^ 13);
+            bindings.put("mob_type", mobTypes.get(random.nextInt(mobTypes.size())));
+        }
+
+        // Settlement name
+        bindings.put("settlement_name", settlement.deriveName());
+
+        return bindings;
     }
 
     /**

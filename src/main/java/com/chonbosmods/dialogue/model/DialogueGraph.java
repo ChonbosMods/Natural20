@@ -1,5 +1,6 @@
 package com.chonbosmods.dialogue.model;
 
+import com.chonbosmods.quest.DialogueResolver;
 import com.google.common.flogger.FluentLogger;
 
 import java.util.ArrayList;
@@ -26,6 +27,34 @@ public record DialogueGraph(
             npcId, defaultDisposition, greetingNodeId, returnGreetingNodeId,
             new ArrayList<>(topics), new LinkedHashMap<>(nodes)
         );
+    }
+
+    /**
+     * Resolve any remaining {tokens} in all text nodes using the given bindings.
+     * Called at conversation start with fresh entity data so variables that were
+     * unresolvable at generation time (e.g., no nearby settlements yet) get filled in.
+     * Must be called on a mutableCopy() since it replaces node entries.
+     */
+    public void lateResolve(Map<String, String> bindings) {
+        for (var entry : new ArrayList<>(nodes.entrySet())) {
+            DialogueNode node = entry.getValue();
+            if (node instanceof DialogueNode.DialogueTextNode text) {
+                String resolvedSpeaker = DialogueResolver.resolve(text.speakerText(), bindings);
+                List<String> resolvedReactions = text.reactionPool() != null
+                    ? text.reactionPool().stream().map(r -> DialogueResolver.resolve(r, bindings)).toList()
+                    : null;
+                List<ResponseOption> resolvedResponses = text.responses().stream()
+                    .map(r -> new ResponseOption(
+                        r.id(), DialogueResolver.resolve(r.displayText(), bindings),
+                        r.logText() != null ? DialogueResolver.resolve(r.logText(), bindings) : null,
+                        r.targetNodeId(), r.mode(), r.condition(),
+                        r.skillCheckRef(), r.statPrefix(), r.linkedResponses(), r.responseType()))
+                    .toList();
+                nodes.put(entry.getKey(), new DialogueNode.DialogueTextNode(
+                    resolvedSpeaker, resolvedReactions, resolvedResponses,
+                    text.onEnter(), text.exhaustsTopic(), text.locksConversation(), text.valence()));
+            }
+        }
     }
 
     public DialogueNode getNode(String nodeId) {

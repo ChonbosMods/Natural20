@@ -32,7 +32,8 @@ public class DialogueResolver {
             if (value != null) {
                 matcher.appendReplacement(sb, Matcher.quoteReplacement(value));
             } else {
-                matcher.appendReplacement(sb, "");
+                // Preserve unresolved tokens: late binding resolves them at display time
+                matcher.appendReplacement(sb, Matcher.quoteReplacement(matcher.group(0)));
             }
         }
         matcher.appendTail(sb);
