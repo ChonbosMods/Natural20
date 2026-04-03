@@ -28,32 +28,13 @@ import java.util.*;
  */
 public class DialogueDryRun {
 
-    // Role-based topic budgets (mirrored from TopicGenerator)
-    private static final int SOCIAL_MIN_TOPICS = 2;
-    private static final int SOCIAL_MAX_TOPICS = 4;
-    private static final int FUNCTIONAL_MIN_TOPICS = 0;
-    private static final int FUNCTIONAL_MAX_TOPICS = 2;
-    private static final Set<String> SOCIAL_ROLES = Set.of(
-        "TavernKeeper", "ArtisanAlchemist", "ArtisanBlacksmith", "ArtisanCook", "Traveler"
-    );
-
-    private static final double RUMOR_RATIO = 0.30;
-
-    private static final Map<String, String> TEMPLATE_LABELS = Map.ofEntries(
-        Map.entry("mundane_daily_life", "Daily Life"),
-        Map.entry("npc_opinions", "Around Town"),
-        Map.entry("settlement_pride", "Life Here"),
-        Map.entry("poi_awareness", "Local Happenings"),
-        Map.entry("creature_complaints", "Trouble"),
-        Map.entry("distant_rumors", "Word from Outside")
-    );
-
-    private static final List<String> RUMOR_DECK = List.of(
-        "poi_awareness", "creature_complaints", "distant_rumors"
-    );
-    private static final List<String> SMALLTALK_DECK = List.of(
-        "mundane_daily_life", "npc_opinions", "settlement_pride"
-    );
+    // Topic constants shared with TopicGenerator
+    private static final int SOCIAL_MIN_TOPICS = TopicConstants.SOCIAL_MIN_TOPICS;
+    private static final int SOCIAL_MAX_TOPICS = TopicConstants.SOCIAL_MAX_TOPICS;
+    private static final int FUNCTIONAL_MIN_TOPICS = TopicConstants.FUNCTIONAL_MIN_TOPICS;
+    private static final int FUNCTIONAL_MAX_TOPICS = TopicConstants.FUNCTIONAL_MAX_TOPICS;
+    private static final Set<String> SOCIAL_ROLES = TopicConstants.SOCIAL_ROLES;
+    private static final double RUMOR_RATIO = TopicConstants.RUMOR_RATIO;
 
     public static void main(String[] args) {
         // Parse CLI args
@@ -167,8 +148,8 @@ public class DialogueDryRun {
             int rumorCount = (int) Math.ceil(budget * RUMOR_RATIO);
             int smallTalkCount = budget - rumorCount;
 
-            List<String> rumorDeck = new ArrayList<>(RUMOR_DECK);
-            List<String> smalltalkDeck = new ArrayList<>(SMALLTALK_DECK);
+            List<String> rumorDeck = new ArrayList<>(TopicConstants.RUMOR_DECK);
+            List<String> smalltalkDeck = new ArrayList<>(TopicConstants.SMALLTALK_DECK);
             Collections.shuffle(rumorDeck, deckRandom);
             Collections.shuffle(smalltalkDeck, deckRandom);
 
@@ -269,7 +250,7 @@ public class DialogueDryRun {
             focus, npc.getGeneratedName(), npc.getRole(), npc.getDisposition(),
             primary, nearby, template, entry, dedup, topicPool, random);
 
-        String label = TEMPLATE_LABELS.getOrDefault(template.id(), template.id());
+        String label = TopicConstants.TEMPLATE_LABELS.getOrDefault(template.id(), template.id());
 
         return new TopicGraphBuilder.TopicAssignment(
             focus.getSubjectId(), label,

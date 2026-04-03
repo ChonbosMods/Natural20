@@ -23,42 +23,13 @@ public class TopicGenerator {
 
     private static final FluentLogger LOGGER = FluentLogger.forEnclosingClass();
 
-    // Role-based topic budgets: v2 uses lower budgets with richer per-topic content
-    private static final int SOCIAL_MIN_TOPICS = 2;
-    private static final int SOCIAL_MAX_TOPICS = 4;
-    private static final int FUNCTIONAL_MIN_TOPICS = 0;
-    private static final int FUNCTIONAL_MAX_TOPICS = 2;
-    private static final Set<String> SOCIAL_ROLES = Set.of(
-        "TavernKeeper", "ArtisanAlchemist", "ArtisanBlacksmith", "ArtisanCook", "Traveler"
-    );
-
-    private static final double RUMOR_RATIO = 0.30;
+    // Quest tuning (not shared with dry run)
     private static final double QUEST_CHANCE_PER_SUBJECT = 0.40;
     private static final double MIN_QUEST_RATIO = 0.25;
     private static final double MAX_QUEST_RATIO = 0.50;
     private static final int MIN_QUEST_FLOOR = 1;
     private static final int MAX_QUEST_FLOOR = 2;
     private static final int MAX_SUBJECT_DRAW_ATTEMPTS = 3;
-
-    // Template-derived topic labels for generated (non-quest) topics.
-    // These replace subject-focus-derived labels: pool entries are self-contained
-    // and no longer reference {subject_focus} variables.
-    private static final Map<String, String> TEMPLATE_LABELS = Map.ofEntries(
-        Map.entry("mundane_daily_life", "Daily Life"),
-        Map.entry("npc_opinions", "Around Town"),
-        Map.entry("settlement_pride", "Life Here"),
-        Map.entry("poi_awareness", "Local Happenings"),
-        Map.entry("creature_complaints", "Trouble"),
-        Map.entry("distant_rumors", "Word from Outside")
-    );
-
-    // Stratified category decks for subject drawing
-    private static final List<String> RUMOR_DECK = List.of(
-        "poi_awareness", "creature_complaints", "distant_rumors"
-    );
-    private static final List<String> SMALLTALK_DECK = List.of(
-        "mundane_daily_life", "npc_opinions", "settlement_pride"
-    );
 
     private final TopicPoolRegistry topicPool;
     private final TopicTemplateRegistry templateRegistry;
@@ -107,11 +78,11 @@ public class TopicGenerator {
         for (NpcRecord npc : npcs) {
             int min, max;
             if (isSocialRole(npc.getRole())) {
-                min = SOCIAL_MIN_TOPICS;
-                max = SOCIAL_MAX_TOPICS;
+                min = TopicConstants.SOCIAL_MIN_TOPICS;
+                max = TopicConstants.SOCIAL_MAX_TOPICS;
             } else {
-                min = FUNCTIONAL_MIN_TOPICS;
-                max = FUNCTIONAL_MAX_TOPICS;
+                min = TopicConstants.FUNCTIONAL_MIN_TOPICS;
+                max = TopicConstants.FUNCTIONAL_MAX_TOPICS;
             }
             int budget = min + random.nextInt(max - min + 1);
             topicBudgets.put(npc.getGeneratedName(), budget);
@@ -132,11 +103,11 @@ public class TopicGenerator {
 
             // Per-NPC deck shuffle (seeded from settlement key + NPC index for determinism)
             Random deckRandom = new Random(settlement.getCellKey().hashCode() ^ ((long) npcIdx * 31));
-            int rumorCount = (int) Math.ceil(budget * RUMOR_RATIO);
+            int rumorCount = (int) Math.ceil(budget * TopicConstants.RUMOR_RATIO);
             int smallTalkCount = budget - rumorCount;
 
-            List<String> rumorDeck = new ArrayList<>(RUMOR_DECK);
-            List<String> smalltalkDeck = new ArrayList<>(SMALLTALK_DECK);
+            List<String> rumorDeck = new ArrayList<>(TopicConstants.RUMOR_DECK);
+            List<String> smalltalkDeck = new ArrayList<>(TopicConstants.SMALLTALK_DECK);
             Collections.shuffle(rumorDeck, deckRandom);
             Collections.shuffle(smalltalkDeck, deckRandom);
 
@@ -344,7 +315,7 @@ public class TopicGenerator {
         // Generated smalltalk uses a static template-derived label.
         String labelPattern = isQuestBearer
             ? template.labelPattern()
-            : TEMPLATE_LABELS.getOrDefault(template.id(), template.id());
+            : TopicConstants.TEMPLATE_LABELS.getOrDefault(template.id(), template.id());
 
         return new TopicGraphBuilder.TopicAssignment(
             focus.getSubjectId(), labelPattern,
@@ -536,7 +507,7 @@ public class TopicGenerator {
     }
 
     private static boolean isSocialRole(String role) {
-        return SOCIAL_ROLES.contains(role);
+        return TopicConstants.SOCIAL_ROLES.contains(role);
     }
 
     private static String dispositionBracket(int disposition) {
