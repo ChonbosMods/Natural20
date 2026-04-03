@@ -80,7 +80,8 @@ public class PlaceCommand extends AbstractPlayerCommand {
             SettlementRecord record = new SettlementRecord(
                 cellKey, UUID.nameUUIDFromBytes(world.getName().getBytes()),
                 blockPos.getX(), blockPos.getY(), blockPos.getZ(), type);
-            record.setName(Nat20PlaceNameGenerator.generate(cellKey.hashCode()));
+            record.setName(Nat20PlaceNameGenerator.generate(cellKey.hashCode(),
+                Natural20.getInstance().getSettlementRegistry().getUsedNames()));
             record.getNpcs().addAll(npcRecords);
             Natural20.getInstance().getSettlementRegistry().register(record);
         });

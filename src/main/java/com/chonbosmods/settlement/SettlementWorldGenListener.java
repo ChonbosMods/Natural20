@@ -75,7 +75,7 @@ public class SettlementWorldGenListener {
             cellKey, worldUUID,
             settlementX, 0, settlementZ,
             SettlementType.TOWN);
-        record.setName(Nat20PlaceNameGenerator.generate(cellKey.hashCode()));
+        record.setName(Nat20PlaceNameGenerator.generate(cellKey.hashCode(), registry.getUsedNames()));
         registry.register(record);
 
         // Place structure and spawn NPCs on world thread

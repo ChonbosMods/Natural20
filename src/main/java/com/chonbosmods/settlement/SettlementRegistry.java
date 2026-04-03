@@ -121,6 +121,20 @@ public class SettlementRegistry {
     }
 
     /**
+     * Collect all settlement names currently in use across all settlements.
+     */
+    public java.util.Set<String> getUsedNames() {
+        java.util.Set<String> used = new java.util.HashSet<>();
+        for (SettlementRecord record : settlements.values()) {
+            String name = record.getName();
+            if (name != null && !name.isEmpty()) {
+                used.add(name);
+            }
+        }
+        return used;
+    }
+
+    /**
      * Cache a World reference keyed by its derived UUID
      * (UUID.nameUUIDFromBytes(world.getName().getBytes())).
      * Called by SettlementWorldGenListener when a world is first encountered.
