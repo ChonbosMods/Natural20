@@ -376,20 +376,26 @@ public class TopicGenerator {
         // No else: when no other NPCs exist (CART), leave {npc_name} unbound.
         // Pool entries using {npc_name} won't be authored for CART settlements.
 
-        // POI type
+        // POI type (fallback prevents broken text in entries using {poi_type})
         if (!ctx.poiTypes().isEmpty()) {
             bindings.put("poi_type", ctx.poiTypes().get(random.nextInt(ctx.poiTypes().size())));
+        } else {
+            bindings.put("poi_type", "workshop");
         }
 
         // Mob type
         if (!ctx.mobTypes().isEmpty()) {
             bindings.put("mob_type", ctx.mobTypes().get(random.nextInt(ctx.mobTypes().size())));
+        } else {
+            bindings.put("mob_type", "critters");
         }
 
         // Other settlement
         if (!ctx.nearbySettlementNames().isEmpty()) {
             bindings.put("other_settlement",
                 ctx.nearbySettlementNames().get(random.nextInt(ctx.nearbySettlementNames().size())));
+        } else {
+            bindings.put("other_settlement", "the next town over");
         }
 
         // Tier 1: role variables
