@@ -451,7 +451,7 @@ public class TopicPoolRegistry {
             List<String> reactions = new ArrayList<>();
             for (JsonElement r : obj.getAsJsonArray("reactions")) reactions.add(r.getAsString());
             PoolEntry.StatCheck statCheck = null;
-            if (obj.has("statCheck")) {
+            if (obj.has("statCheck") && !obj.get("statCheck").isJsonNull()) {
                 JsonObject sc = obj.getAsJsonObject("statCheck");
                 statCheck = new PoolEntry.StatCheck(sc.get("pass").getAsString(), sc.get("fail").getAsString());
             }

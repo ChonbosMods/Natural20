@@ -37,32 +37,22 @@ public class DialogueDryRun {
         "TavernKeeper", "ArtisanAlchemist", "ArtisanBlacksmith", "ArtisanCook", "Traveler"
     );
 
-    private static final double RUMOR_RATIO = 0.4;
+    private static final double RUMOR_RATIO = 0.30;
 
     private static final Map<String, String> TEMPLATE_LABELS = Map.ofEntries(
-        Map.entry("danger", "Trouble"),
-        Map.entry("sighting", "Sighting"),
-        Map.entry("treasure", "Finds"),
-        Map.entry("corruption", "Complaints"),
-        Map.entry("conflict", "Disputes"),
-        Map.entry("disappearance", "Missing Things"),
-        Map.entry("migration", "Comings and Goings"),
-        Map.entry("omen", "Old Sayings"),
-        Map.entry("weather", "The Weather"),
-        Map.entry("trade", "Trade"),
-        Map.entry("craftsmanship", "Crafts"),
-        Map.entry("community", "Around Town"),
-        Map.entry("nature", "The Outdoors"),
-        Map.entry("nostalgia", "Old Times"),
-        Map.entry("curiosity", "Idle Thoughts"),
-        Map.entry("festival", "Celebrations")
+        Map.entry("mundane_daily_life", "Daily Life"),
+        Map.entry("npc_opinions", "Around Town"),
+        Map.entry("settlement_pride", "Life Here"),
+        Map.entry("poi_awareness", "Local Happenings"),
+        Map.entry("creature_complaints", "Trouble"),
+        Map.entry("distant_rumors", "Word from Outside")
     );
 
     private static final List<String> RUMOR_DECK = List.of(
-        "danger", "sighting", "treasure", "corruption", "conflict", "disappearance", "migration", "omen"
+        "poi_awareness", "creature_complaints", "distant_rumors"
     );
     private static final List<String> SMALLTALK_DECK = List.of(
-        "trade", "weather", "craftsmanship", "community", "nature", "nostalgia", "curiosity", "festival"
+        "mundane_daily_life", "npc_opinions", "settlement_pride"
     );
 
     public static void main(String[] args) {
