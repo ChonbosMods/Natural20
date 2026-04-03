@@ -3,7 +3,10 @@ package com.chonbosmods.commands;
 import com.chonbosmods.Natural20;
 import com.chonbosmods.data.Nat20NpcData;
 import com.chonbosmods.npc.Nat20NameGenerator;
+import com.chonbosmods.npc.Nat20NpcManager;
 import com.hypixel.hytale.component.Ref;
+import com.hypixel.hytale.server.core.asset.type.model.config.Model;
+import com.hypixel.hytale.server.core.modules.entity.component.PersistentModel;
 import com.hypixel.hytale.component.Store;
 import com.hypixel.hytale.math.vector.Vector3d;
 import com.hypixel.hytale.math.vector.Vector3f;
@@ -83,12 +86,12 @@ public class SpawnNpcCommand extends AbstractPlayerCommand {
         Vector3d spawnPos = new Vector3d(pos.getX() + 2, pos.getY(), pos.getZ());
         Vector3f rotation = new Vector3f(0, 0, 0);
 
-        // Pre-compute skin/model so we can pass Model to spawnEntity
-        // (avoids ModelComponent scale=0 crash on chunk reload)
+        // Create model from unmodified skin: engine serialization breaks
+        // on modified skins (beard/hair changes cause scale=0 on chunk reload)
         String preName = Nat20NameGenerator.generate(Objects.hash(roleName, System.nanoTime()));
         Random rng = new Random(preName.hashCode());
-        com.hypixel.hytale.protocol.PlayerSkin skin = CosmeticsModule.get().generateRandomSkin(rng);
-        Model model = CosmeticsModule.get().createModel(skin, 1.0f);
+        Model model = CosmeticsModule.get().createModel(
+            CosmeticsModule.get().generateRandomSkin(rng), 1.0f);
 
         Pair<Ref<EntityStore>, NPCEntity> result =
             NPCPlugin.get().spawnEntity(store, roleIndex, spawnPos, rotation, model, null);
@@ -96,6 +99,11 @@ public class SpawnNpcCommand extends AbstractPlayerCommand {
         if (result != null) {
             Ref<EntityStore> npcRef = result.first();
             NPCEntity npcEntity = result.second();
+
+            // Fix PersistentModel: spawnEntity calls model.toReference() which returns
+            // DEFAULT_PLAYER_MODEL (scale=-1.0f) for Player models, crashing on chunk
+            // reload. Remove PersistentModel so SetRenderedModel never fires.
+            store.removeComponentIfExists(npcRef, PersistentModel.getComponentType());
 
             // Attach Nat20NpcData so dialogue system can identify this NPC
             String name = Nat20NameGenerator.generate(npcEntity.getUuid().getMostSignificantBits());
@@ -107,9 +115,11 @@ public class SpawnNpcCommand extends AbstractPlayerCommand {
             String displayName = name + " the " + formatDisplayRole(roleName);
             store.putComponent(npcRef, Nameplate.getComponentType(), new Nameplate(displayName));
 
-            // Apply skin component (model already set via spawnEntity)
+            // Apply modified skin (beard reduction, hair color matching)
+            com.hypixel.hytale.protocol.PlayerSkin displaySkin =
+                Nat20NpcManager.generateNpcSkin(new Random(name.hashCode()));
             store.putComponent(npcRef, PlayerSkinComponent.getComponentType(),
-                    new PlayerSkinComponent(skin));
+                    new PlayerSkinComponent(displaySkin));
 
             context.sendMessage(Message.raw("Spawned " + displayName + " at " +
                 (int) spawnPos.getX() + ", " + (int) spawnPos.getY() + ", " + (int) spawnPos.getZ()));

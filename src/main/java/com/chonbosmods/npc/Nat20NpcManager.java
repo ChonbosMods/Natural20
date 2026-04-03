@@ -11,8 +11,10 @@ import com.hypixel.hytale.math.vector.Vector3f;
 import com.hypixel.hytale.logger.HytaleLogger;
 import com.hypixel.hytale.protocol.BlockMaterial;
 import com.hypixel.hytale.server.core.asset.type.blocktype.config.BlockType;
+import com.hypixel.hytale.server.core.asset.type.model.config.Model;
 import com.hypixel.hytale.server.core.cosmetics.CosmeticsModule;
 import com.hypixel.hytale.server.core.entity.nameplate.Nameplate;
+import com.hypixel.hytale.server.core.modules.entity.component.PersistentModel;
 import com.hypixel.hytale.server.core.modules.entity.player.PlayerSkinComponent;
 import com.hypixel.hytale.server.core.universe.world.World;
 import com.hypixel.hytale.server.core.universe.world.storage.EntityStore;
@@ -76,12 +78,13 @@ public class Nat20NpcManager {
             String name = Nat20NameGenerator.generate(java.util.Objects.hash(cellKey, npcIndex));
             npcIndex++;
 
-            // Pre-compute skin model so we can pass it to spawnEntity
-            // (avoids ModelComponent scale=0 crash on chunk reload)
+            // Create model from unmodified skin: engine serialization breaks
+            // on modified skins (beard/hair changes cause scale=0 on chunk reload)
             Random skinRng = new Random(name.hashCode());
-            com.hypixel.hytale.protocol.PlayerSkin skin = CosmeticsModule.get().generateRandomSkin(skinRng);
+            com.hypixel.hytale.protocol.PlayerSkin baseSkin =
+                CosmeticsModule.get().generateRandomSkin(skinRng);
             com.hypixel.hytale.server.core.asset.type.model.config.Model model =
-                CosmeticsModule.get().createModel(skin, 1.0f);
+                CosmeticsModule.get().createModel(baseSkin, 1.0f);
 
             Pair<Ref<EntityStore>, NPCEntity> result =
                 NPCPlugin.get().spawnEntity(store, roleIndex, spawnPos, def.rotation(), model, null);
@@ -90,35 +93,26 @@ public class Nat20NpcManager {
                 Ref<EntityStore> npcRef = result.first();
                 NPCEntity npcEntity = result.second();
 
-                // Attach Nat20NpcData component with generated name
-                Nat20NpcData npcData = store.addComponent(npcRef, Natural20.getNpcDataType());
-                npcData.setGeneratedName(name);
-                npcData.setRoleName(roleName);
-                npcData.setSettlementCellKey(cellKey);
+                // Fix PersistentModel: spawnEntity calls model.toReference() which returns
+                // DEFAULT_PLAYER_MODEL (scale=-1.0f) for Player models, crashing on chunk
+                // reload. Remove PersistentModel so SetRenderedModel never fires. NPCs that
+                // lose their ModelComponent on chunk unload get full-respawned by reconciliation.
+                store.removeComponentIfExists(npcRef, PersistentModel.getComponentType());
 
-                // Set leash point so NPC stays near spawn
-                npcEntity.setLeashPoint(spawnPos);
-
-                // Create NpcRecord for persistence
                 NpcRecord npcRecord = new NpcRecord(
                     roleName, npcEntity.getUuid(),
                     spawnX, spawnY, spawnZ,
                     def.rotation().getX(), def.rotation().getY(), def.rotation().getZ(),
                     def.leashRadius(), name);
-                npcRecord.setDisposition(ThreadLocalRandom.current().nextInt(10, 91));
+                int dispMin = Math.max(0, def.dispositionMin());
+                int dispMax = Math.min(100, def.dispositionMax());
+                if (dispMax < dispMin) dispMax = dispMin;
+                npcRecord.setDisposition(dispMin == dispMax
+                    ? dispMin
+                    : ThreadLocalRandom.current().nextInt(dispMin, dispMax + 1));
+
+                applyNpcComponents(store, npcRef, npcEntity, npcRecord, cellKey);
                 spawned.add(npcRecord);
-
-                // Set nameplate to just the name (dialogue UI shows full name + role)
-                store.putComponent(npcRef, Nameplate.getComponentType(), new Nameplate(name));
-
-                // Apply skin component (model already set via spawnEntity)
-                store.putComponent(npcRef, PlayerSkinComponent.getComponentType(),
-                        new PlayerSkinComponent(skin));
-
-                // Equip guard armor
-                if (roleName.equals("Guard")) {
-                    equipGuardArmor(npcEntity);
-                }
 
                 LOGGER.atFine().log("[Nat20] Spawned " + formatDisplayName(name, roleName) + " at " +
                     (int) spawnX + ", " + (int) spawnY + ", " + (int) spawnZ);
@@ -162,12 +156,13 @@ public class Nat20NpcManager {
         Vector3d spawnPos = new Vector3d(record.getSpawnX(), record.getSpawnY(), record.getSpawnZ());
         Vector3f rotation = new Vector3f(record.getRotX(), record.getRotY(), record.getRotZ());
 
-        // Pre-compute skin/model so we can pass Model to spawnEntity
-        // (avoids ModelComponent scale=0 crash on chunk reload)
+        // Create model from unmodified skin: engine serialization breaks
+        // on modified skins (beard/hair changes cause scale=0 on chunk reload)
         Random skinRng = new Random(record.getGeneratedName().hashCode());
-        com.hypixel.hytale.protocol.PlayerSkin skin = CosmeticsModule.get().generateRandomSkin(skinRng);
+        com.hypixel.hytale.protocol.PlayerSkin baseSkin =
+            CosmeticsModule.get().generateRandomSkin(skinRng);
         com.hypixel.hytale.server.core.asset.type.model.config.Model model =
-            CosmeticsModule.get().createModel(skin, 1.0f);
+            CosmeticsModule.get().createModel(baseSkin, 1.0f);
 
         Pair<Ref<EntityStore>, NPCEntity> result =
             NPCPlugin.get().spawnEntity(store, roleIndex, spawnPos, rotation, model, null);
@@ -179,6 +174,10 @@ public class Nat20NpcManager {
 
         Ref<EntityStore> npcRef = result.first();
         NPCEntity npcEntity = result.second();
+
+        // Fix PersistentModel: spawnEntity stores DEFAULT_PLAYER_MODEL (scale=-1.0f)
+        store.putComponent(npcRef, PersistentModel.getComponentType(),
+            new PersistentModel(new Model.ModelReference("Player", 1.0f, null)));
 
         applyNpcComponents(store, npcRef, npcEntity, record, settlementCellKey);
 
@@ -245,7 +244,7 @@ public class Nat20NpcManager {
 
         // Skin (deterministic from name hash)
         Random skinRng = new Random(name.hashCode());
-        com.hypixel.hytale.protocol.PlayerSkin skin = CosmeticsModule.get().generateRandomSkin(skinRng);
+        com.hypixel.hytale.protocol.PlayerSkin skin = generateNpcSkin(skinRng);
         store.putComponent(npcRef, PlayerSkinComponent.getComponentType(),
                 new PlayerSkinComponent(skin));
 
@@ -257,6 +256,51 @@ public class Nat20NpcManager {
         if (roleName.equals("Guard")) {
             equipGuardArmor(npcEntity);
         }
+    }
+
+    /**
+     * Generate a random player skin with reduced beard chance (~20% instead of SDK's ~50%)
+     * and forced hair color matching between haircut, eyebrows, and facial hair.
+     */
+    public static com.hypixel.hytale.protocol.PlayerSkin generateNpcSkin(Random rng) {
+        com.hypixel.hytale.protocol.PlayerSkin skin = CosmeticsModule.get().generateRandomSkin(rng);
+
+        // Reduce beard chance: SDK gives ~50%, we want ~20%
+        if (skin.facialHair != null && rng.nextInt(5) != 0) {
+            skin.facialHair = null;
+        }
+
+        // Force hair color matching: copy haircut's texture onto eyebrows and facialHair
+        if (skin.haircut != null) {
+            String hairTexture = extractTexture(skin.haircut);
+            if (hairTexture != null) {
+                if (skin.eyebrows != null) {
+                    skin.eyebrows = replaceTexture(skin.eyebrows, hairTexture);
+                }
+                if (skin.facialHair != null) {
+                    skin.facialHair = replaceTexture(skin.facialHair, hairTexture);
+                }
+            }
+        }
+
+        return skin;
+    }
+
+    /** Extract the texture portion (second dot-segment) from a skin part string like "assetId.textureId" or "assetId.textureId.variantId". */
+    private static String extractTexture(String partString) {
+        String[] parts = partString.split("\\.");
+        return parts.length >= 2 ? parts[1] : null;
+    }
+
+    /** Replace the texture portion of a skin part string, preserving asset and variant. */
+    private static String replaceTexture(String partString, String newTexture) {
+        String[] parts = partString.split("\\.");
+        if (parts.length >= 3) {
+            return parts[0] + "." + newTexture + "." + parts[2];
+        } else if (parts.length == 2) {
+            return parts[0] + "." + newTexture;
+        }
+        return partString;
     }
 
     /**
