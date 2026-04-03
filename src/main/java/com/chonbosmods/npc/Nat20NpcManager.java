@@ -93,12 +93,6 @@ public class Nat20NpcManager {
                 Ref<EntityStore> npcRef = result.first();
                 NPCEntity npcEntity = result.second();
 
-                // Fix PersistentModel: spawnEntity calls model.toReference() which returns
-                // DEFAULT_PLAYER_MODEL (scale=-1.0f) for Player models, crashing on chunk
-                // reload. Remove PersistentModel so SetRenderedModel never fires. NPCs that
-                // lose their ModelComponent on chunk unload get full-respawned by reconciliation.
-                store.removeComponentIfExists(npcRef, PersistentModel.getComponentType());
-
                 NpcRecord npcRecord = new NpcRecord(
                     roleName, npcEntity.getUuid(),
                     spawnX, spawnY, spawnZ,
@@ -111,7 +105,7 @@ public class Nat20NpcManager {
                     ? dispMin
                     : ThreadLocalRandom.current().nextInt(dispMin, dispMax + 1));
 
-                applyNpcComponents(store, npcRef, npcEntity, npcRecord, cellKey);
+                applyNpcComponents(store, npcRef, npcEntity, npcRecord, cellKey, false);
                 spawned.add(npcRecord);
 
                 LOGGER.atFine().log("[Nat20] Spawned " + formatDisplayName(name, roleName) + " at " +
@@ -175,11 +169,7 @@ public class Nat20NpcManager {
         Ref<EntityStore> npcRef = result.first();
         NPCEntity npcEntity = result.second();
 
-        // Fix PersistentModel: spawnEntity stores DEFAULT_PLAYER_MODEL (scale=-1.0f)
-        store.putComponent(npcRef, PersistentModel.getComponentType(),
-            new PersistentModel(new Model.ModelReference("Player", 1.0f, null)));
-
-        applyNpcComponents(store, npcRef, npcEntity, record, settlementCellKey);
+        applyNpcComponents(store, npcRef, npcEntity, record, settlementCellKey, false);
 
         UUID newUUID = npcEntity.getUuid();
         record.setEntityUUID(newUUID);
@@ -208,7 +198,7 @@ public class Nat20NpcManager {
             return false;
         }
 
-        applyNpcComponents(store, npcRef, npcEntity, record, cellKey);
+        applyNpcComponents(store, npcRef, npcEntity, record, cellKey, false);
 
         LOGGER.atFine().log("Reattached components to %s (%s) UUID %s",
             record.getGeneratedName(), record.getRole(), record.getEntityUUID());
@@ -218,9 +208,14 @@ public class Nat20NpcManager {
     /**
      * Apply all custom components to an NPC entity from its NpcRecord.
      * Used by spawn, respawn, and reattach flows.
+     *
+     * @param reapplyModel if true, re-creates and applies ModelComponent. Needed after
+     *                     chunk reload (PersistentModel reconstructs a bare Player model).
+     *                     Should be false on initial spawn (spawnEntity already set up the model).
      */
     private void applyNpcComponents(Store<EntityStore> store, Ref<EntityStore> npcRef,
-                                     NPCEntity npcEntity, NpcRecord record, String cellKey) {
+                                     NPCEntity npcEntity, NpcRecord record, String cellKey,
+                                     boolean reapplyModel) {
         String name = record.getGeneratedName();
         String roleName = record.getRole();
 
@@ -242,11 +237,24 @@ public class Nat20NpcManager {
         // Nameplate
         store.putComponent(npcRef, Nameplate.getComponentType(), new Nameplate(name));
 
-        // Skin (deterministic from name hash)
+        if (reapplyModel) {
+            // Re-apply model after chunk reload (PersistentModel reconstructs
+            // a bare Player model that lacks skin data and attachments)
+            Random skinRng = new Random(name.hashCode());
+            com.hypixel.hytale.protocol.PlayerSkin baseSkin =
+                CosmeticsModule.get().generateRandomSkin(skinRng);
+            com.hypixel.hytale.server.core.asset.type.model.config.Model model =
+                CosmeticsModule.get().createModel(baseSkin, 1.0f);
+            store.putComponent(npcRef,
+                com.hypixel.hytale.server.core.modules.entity.component.ModelComponent.getComponentType(),
+                new com.hypixel.hytale.server.core.modules.entity.component.ModelComponent(model));
+        }
+
+        // Skin with cosmetic modifications (beard reduction, hair color matching)
         Random skinRng = new Random(name.hashCode());
-        com.hypixel.hytale.protocol.PlayerSkin skin = generateNpcSkin(skinRng);
+        com.hypixel.hytale.protocol.PlayerSkin displaySkin = generateNpcSkin(skinRng);
         store.putComponent(npcRef, PlayerSkinComponent.getComponentType(),
-                new PlayerSkinComponent(skin));
+                new PlayerSkinComponent(displaySkin));
 
         // Leash
         Vector3d spawnPos = new Vector3d(record.getSpawnX(), record.getSpawnY(), record.getSpawnZ());

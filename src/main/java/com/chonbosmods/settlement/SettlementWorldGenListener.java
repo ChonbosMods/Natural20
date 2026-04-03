@@ -115,7 +115,7 @@ public class SettlementWorldGenListener {
      */
     private final java.util.concurrent.ConcurrentHashMap<String, Long> lastCheckTime =
         new java.util.concurrent.ConcurrentHashMap<>();
-    private static final long CHECK_COOLDOWN_MS = 30_000;
+    private static final long CHECK_COOLDOWN_MS = 2_000;
 
     /**
      * Check NPCs for an existing settlement and recover them if needed.
@@ -146,6 +146,17 @@ public class SettlementWorldGenListener {
                     continue;
                 }
 
+                // Skip reconciliation if the NPC's chunk isn't loaded yet.
+                // Prevents duplicate spawns when reconciliation runs before
+                // the NPC's chunk has loaded (getEntityRef returns null for
+                // entities in unloaded chunks, triggering a false Tier 3 respawn).
+                int npcChunkX = (int) Math.floor(npc.getSpawnX()) >> 5;
+                int npcChunkZ = (int) Math.floor(npc.getSpawnZ()) >> 5;
+                long chunkKey = ((long) npcChunkX << 32) | (npcChunkZ & 0xFFFFFFFFL);
+                if (world.getChunkIfLoaded(chunkKey) == null) {
+                    continue;
+                }
+
                 Ref<EntityStore> npcRef = null;
                 boolean entityExists = false;
                 try {
@@ -158,7 +169,11 @@ public class SettlementWorldGenListener {
                     // Entity survived: check if custom data is intact
                     Nat20NpcData npcData = store.getComponent(npcRef, Natural20.getNpcDataType());
                     if (npcData != null && npcData.getGeneratedName() != null) {
-                        // Tier 1: fully intact
+                        // Tier 1: entity and data intact. Re-apply skin because
+                        // chunk reload reconstructs a bare Player model from
+                        // PersistentModel, stripping skin/attachments.
+                        Natural20.getInstance().getNpcManager()
+                            .reattachNpc(store, npcRef, npc, cellKey);
                         intact++;
                     } else {
                         // Tier 2: entity exists but lost custom components, reattach

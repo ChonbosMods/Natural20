@@ -100,11 +100,6 @@ public class SpawnNpcCommand extends AbstractPlayerCommand {
             Ref<EntityStore> npcRef = result.first();
             NPCEntity npcEntity = result.second();
 
-            // Fix PersistentModel: spawnEntity calls model.toReference() which returns
-            // DEFAULT_PLAYER_MODEL (scale=-1.0f) for Player models, crashing on chunk
-            // reload. Remove PersistentModel so SetRenderedModel never fires.
-            store.removeComponentIfExists(npcRef, PersistentModel.getComponentType());
-
             // Attach Nat20NpcData so dialogue system can identify this NPC
             String name = Nat20NameGenerator.generate(npcEntity.getUuid().getMostSignificantBits());
             Nat20NpcData npcData = store.addComponent(npcRef, Natural20.getNpcDataType());
