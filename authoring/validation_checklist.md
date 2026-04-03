@@ -60,6 +60,15 @@ After reviewing individual entries, check the batch as a whole:
 - [ ] Template variables are used correctly: `{npc_name}` for other NPCs (never self), no `{subject_focus}` variants
 - [ ] Entry does not use any `{subject_focus}` template variables (`subject_focus`, `subject_focus_the`, `subject_focus_The`, `subject_focus_is`, `subject_focus_has`, `subject_focus_was`)
 
+## Template Variables
+
+- [ ] `{self_role}` only used for self-referential dialogue (not "the {self_role} over there")
+- [ ] `{npc_role}` only used alongside `{npc_name}` (never orphaned without naming who)
+- [ ] `{wildlife_type}` not used with hostile framing ("a {wildlife_type} attacked")
+- [ ] `{food_type}` and `{crop_type}` not used in same line (redundant)
+- [ ] `{resource_type}` and `{crop_type}` not used in same line (redundant)
+- [ ] Max 2 template variables per line
+
 ---
 
 ## Red Flags

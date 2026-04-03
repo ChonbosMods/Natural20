@@ -127,6 +127,24 @@ Adapted from: "Watch yourself around goblins. Some of the nastier ones will toss
 **Distant rumors (positive):**
 > "I've got a cousin in {other_settlement}. Last I heard, they're doing well. Good for them."
 
+**Mundane daily life with food:**
+> "Had some {food_type} last night. Simple, but it hit the spot."
+
+**Mundane daily life with self-role:**
+> "Being a {self_role} isn't glamorous, but it's honest work."
+
+**NPC opinions with role:**
+> "{npc_name}, the {npc_role}, has been in a mood lately. I just stay out of the way."
+
+**POI awareness with resource:**
+> "The {poi_type}'s been pulling up good {resource_type} lately. Keeps people busy."
+
+**Mundane daily life with wildlife:**
+> "Saw a {wildlife_type} {direction} the other day. Didn't bother anyone."
+
+**Mundane daily life with crop:**
+> "The {crop_type} came in well this year. Better than last, anyway."
+
 ---
 
 ## Anti-Examples: What NOT to Write
@@ -172,6 +190,16 @@ Why this fails: Marek isn't in the NPC roster. He doesn't exist. (Rule R6)
 > "There's a collapsed tunnel on the {poi_type}'s east face that nobody talks about."
 
 Why this fails: The game knows a mine exists. It doesn't generate collapsed tunnels on east faces. (Rule R5)
+
+**Anti-example 9: Invented food**
+> "Had some dragonberry wine with honeycake at the tavern."
+
+Why this fails: "dragonberry wine" and "honeycake" are not game items. Use {food_type} for real items.
+
+**Anti-example 10: Wrong wildlife/mob split**
+> "Saw a {mob_type} grazing by the river."
+
+Why this fails: {mob_type} is for hostile creatures. Use {wildlife_type} for passive animals.
 
 ---
 

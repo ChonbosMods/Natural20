@@ -29,7 +29,7 @@
       "description": "All named NPCs in this settlement. Referenced in pool entries via {npc_name}, {npc_name_2}, etc.",
       "items": {
         "type": "object",
-        "required": ["name", "role"],
+        "required": ["name", "role", "role_display"],
         "properties": {
           "name": {
             "type": "string",
@@ -39,6 +39,10 @@
             "type": "string",
             "enum": ["Villager", "Guard", "TavernKeeper", "ArtisanAlchemist", "ArtisanBlacksmith", "ArtisanCook", "Traveler"],
             "description": "NPC's functional role in the settlement."
+          },
+          "role_display": {
+            "type": "string",
+            "description": "Human-readable role as a common noun (e.g., 'tavern keeper', 'blacksmith'). Pre-computed from role."
           },
           "disposition": {
             "type": "integer",
@@ -81,11 +85,17 @@
       "{settlement_name}": "This settlement's name.",
       "{npc_name}": "Name of another NPC in the same settlement (first reference).",
       "{npc_name_2}": "Name of a second NPC (when entry references two NPCs).",
+      "{self_role}": "The speaking NPC's own role as a common noun (e.g., 'cook', 'guard'). Use for self-referential job talk.",
+      "{npc_role}": "Role of the NPC referenced by {npc_name} (e.g., 'guard', 'blacksmith'). Always resolves to the correct role for whichever NPC {npc_name} resolves to.",
       "{poi_type}": "A POI type from the registry (e.g., 'mine', 'farm'). Use as a common noun, not a proper name.",
       "{mob_type}": "A mob type from the registry (e.g., 'goblins', 'wolves'). Use as a common noun.",
       "{other_settlement}": "Name of a nearby settlement.",
       "{time_ref}": "Vague time reference (existing drop-in pool).",
-      "{direction}": "Vague direction reference (existing drop-in pool)."
+      "{direction}": "Vague direction reference (existing drop-in pool).",
+      "{food_type}": "A food item (drop-in pool: bread, cheese, grilled fish, apple pie, etc.). Use in mundane daily life.",
+      "{crop_type}": "A farmable crop (drop-in pool: wheat, corn, carrots, etc.). Best with farm POI context.",
+      "{wildlife_type}": "A passive animal or bird (drop-in pool: deer, fox, owl, etc.). NOT hostile mobs.",
+      "{resource_type}": "A resource or material (drop-in pool, filtered by POI: iron for mine, flour for mill, etc.). Falls back to general pool without POI context."
     }
   },
 
@@ -96,12 +106,12 @@
       "type": "TOWN"
     },
     "npcs": [
-      { "name": "Marta Greaves", "role": "TavernKeeper", "disposition": 65 },
-      { "name": "Rodwin Ash", "role": "ArtisanBlacksmith", "disposition": 55 },
-      { "name": "Elia Strand", "role": "Villager", "disposition": 72 },
-      { "name": "Garret Hollow", "role": "Guard", "disposition": 40 },
-      { "name": "Bren Oakes", "role": "Villager", "disposition": 60 },
-      { "name": "Sienna Moss", "role": "ArtisanCook", "disposition": 78 }
+      { "name": "Marta Greaves", "role": "TavernKeeper", "role_display": "tavern keeper", "disposition": 65 },
+      { "name": "Rodwin Ash", "role": "ArtisanBlacksmith", "role_display": "blacksmith", "disposition": 55 },
+      { "name": "Elia Strand", "role": "Villager", "role_display": "villager", "disposition": 72 },
+      { "name": "Garret Hollow", "role": "Guard", "role_display": "guard", "disposition": 40 },
+      { "name": "Bren Oakes", "role": "Villager", "role_display": "villager", "disposition": 60 },
+      { "name": "Sienna Moss", "role": "ArtisanCook", "role_display": "cook", "disposition": 78 }
     ],
     "poi_types": ["mine", "farm", "tavern", "blacksmith", "well"],
     "mob_types": ["goblins", "wolves"],

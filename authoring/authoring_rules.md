@@ -66,13 +66,19 @@ Hard constraints for pool entry authoring. These are not suggestions. Every entr
 
 ## Template Variable Rules
 
-20. **Use existing variable syntax.** Variables use `{curly_brace}` syntax: `{npc_name}`, `{poi_type}`, `{mob_type}`, `{settlement_name}`, `{other_settlement}`. See `entity_registry_template.json` for the full list.
+20. **Use existing variable syntax.** Variables use `{curly_brace}` syntax: `{npc_name}`, `{npc_role}`, `{self_role}`, `{poi_type}`, `{mob_type}`, `{settlement_name}`, `{other_settlement}`, `{food_type}`, `{crop_type}`, `{wildlife_type}`, `{resource_type}`. See `entity_registry_template.json` for the full list.
 
 21. **Do not use `{subject_focus}` or any subject focus variables.** Pool entries must be fully self-contained text. No `{subject_focus}`, `{subject_focus_the}`, `{subject_focus_The}`, `{subject_focus_is}`, `{subject_focus_has}`, or `{subject_focus_was}`.
 
 22. **`{npc_name}` is for other NPCs.** Never use `{npc_name}` as self-reference. The NPC speaking is "I" or "me." `{npc_name}` refers to someone else in the settlement.
 
 23. **POI and mob types are common nouns.** Write "the {poi_type}" and "{mob_type}" as common nouns in natural speech. "The mine's been busy" not "Mine is experiencing increased activity."
+
+24. **Variable limit per line.** Maximum 2 template variables per intro/detail/reaction line. Variables in different lines of the same entry are fine. Three or more variables in a single line produces mad-libs.
+
+25. **Wildlife vs. mob distinction.** `{wildlife_type}` is for passive animals (deer, fox, owl). `{mob_type}` is for hostile creatures (goblins, wolves, skeletons). Do not use hostile framing with `{wildlife_type}` or peaceful framing with `{mob_type}`.
+
+26. **Resource-POI coherence.** When an entry uses both `{resource_type}` and `{poi_type}`, the resource should make sense for the POI. The system handles this via filtered pools, but authors should be aware: a mine produces ore, a farm produces crops, a blacksmith works metal.
 
 ---
 
