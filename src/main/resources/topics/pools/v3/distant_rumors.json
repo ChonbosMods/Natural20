@@ -1,0 +1,255 @@
+{
+  "pool": "distant_rumors",
+  "version": 3,
+  "entries": [
+    {
+      "id": 0,
+      "intro": "A trader from {other_settlement} passed through a few days ago. Said things are tense over there.",
+      "details": [
+        "Didn't go into details, but you could tell from the way they talked that they were glad to be away for a bit.",
+        "They bought more supplies than usual too. Stocked up like they weren't sure when they'd be back."
+      ],
+      "reactions": [
+        "Not our problem, but you can't help wondering."
+      ],
+      "statCheck": {
+        "pass": "Reading between the lines, it sounds like a leadership dispute. Those things tend to sort themselves out, but not always cleanly.",
+        "fail": "Hard to say what's going on from secondhand accounts."
+      },
+      "valence": "negative",
+      "topic_category": "distant_rumors",
+      "required_entities": [
+        "settlement"
+      ],
+      "location_scope": "regional",
+      "quest_trigger": null
+    },
+    {
+      "id": 1,
+      "intro": "Word is {other_settlement} had a good harvest this year. Better than ours, anyway.",
+      "details": [
+        "Their soil's different over there, richer supposedly. Or maybe they just got luckier with the rain.",
+        "A couple of our farmers have been grumbling about it. Nobody likes being second best."
+      ],
+      "reactions": [
+        "Good for them, honestly. A surplus there means cheaper trade goods for everyone."
+      ],
+      "statCheck": null,
+      "valence": "neutral",
+      "topic_category": "distant_rumors",
+      "required_entities": [
+        "settlement"
+      ],
+      "location_scope": "regional",
+      "quest_trigger": null
+    },
+    {
+      "id": 2,
+      "intro": "I've got a cousin in {other_settlement}. Says the place has really come together in the last year.",
+      "details": [
+        "New buildings going up, more people moving in, trade picking up. Sounds like things are going well.",
+        "They even invited me to visit. I've been meaning to make the trip."
+      ],
+      "reactions": [
+        "It's good to hear about a place doing well for a change."
+      ],
+      "statCheck": null,
+      "valence": "positive",
+      "topic_category": "distant_rumors",
+      "required_entities": [
+        "settlement"
+      ],
+      "location_scope": "regional",
+      "quest_trigger": null
+    },
+    {
+      "id": 3,
+      "intro": "A trader from {other_settlement} said they've had three bad harvests in a row. Rough deal.",
+      "details": [
+        "The soil there apparently goes thin if you don't rotate crops, and they didn't.",
+        "Some families have been trading labor for food. That's never a good sign."
+      ],
+      "reactions": [
+        "Makes you grateful for what you've got, even on the lean days."
+      ],
+      "statCheck": {
+        "pass": "Monoculture does that: the land needs variety or it gives out. A few seasons of clover would bring it back.",
+        "fail": "Farming's not my area. I just hope they sort it out."
+      },
+      "valence": "negative",
+      "topic_category": "distant_rumors",
+      "required_entities": [
+        "settlement"
+      ],
+      "location_scope": "regional",
+      "quest_trigger": null
+    },
+    {
+      "id": 4,
+      "intro": "Word is {other_settlement} has a new elder. Younger than the last one by twenty years.",
+      "details": [
+        "People seem split on whether that's a good thing. Fresh ideas versus inexperience, the usual debate.",
+        "The old elder apparently stepped down willingly. That's rare enough to be notable."
+      ],
+      "reactions": [
+        "New leadership always shakes things up for a while. Usually settles down after a season."
+      ],
+      "statCheck": null,
+      "valence": "neutral",
+      "topic_category": "distant_rumors",
+      "required_entities": [
+        "settlement"
+      ],
+      "location_scope": "regional",
+      "quest_trigger": null
+    },
+    {
+      "id": 5,
+      "intro": "Someone passing through said {other_settlement} just finished building a new common hall. Big one, apparently.",
+      "details": [
+        "Took them the better part of a year. The whole settlement pitched in on the construction.",
+        "The traveler said it's the nicest building for a day's ride in any direction."
+      ],
+      "reactions": [
+        "Good for them. A proper gathering place changes how a community feels about itself."
+      ],
+      "statCheck": {
+        "pass": "A common hall doubles as shelter in emergencies: practical, not just morale. Smart investment.",
+        "fail": "I've never built anything that big. Must've been quite an effort."
+      },
+      "valence": "positive",
+      "topic_category": "distant_rumors",
+      "required_entities": [
+        "settlement"
+      ],
+      "location_scope": "regional",
+      "quest_trigger": null
+    },
+    {
+      "id": 6,
+      "intro": "I keep hearing different things about {other_settlement}. One person says it's thriving, another says it's falling apart.",
+      "details": [
+        "A trader last week said they're building new houses. The one before that said half the shops were boarded up.",
+        "Hard to know what's true when everyone passing through has a different story."
+      ],
+      "reactions": [
+        "I'll believe whatever I see with my own eyes, if I ever bother to go."
+      ],
+      "statCheck": {
+        "pass": "Both could be true: a place can grow in one quarter and shrink in another. Depends on which road you come in on.",
+        "fail": "I've never been, so I can't sort the truth from the talk."
+      },
+      "valence": "neutral",
+      "topic_category": "distant_rumors",
+      "required_entities": [
+        "settlement"
+      ],
+      "location_scope": "regional",
+      "quest_trigger": null
+    },
+    {
+      "id": 7,
+      "intro": "Someone from here packed up and moved to {other_settlement} last season. Haven't heard from them since.",
+      "details": [
+        "They said the work was better there. Steadier, more coin, that sort of promise.",
+        "People who leave always say they'll write. They almost never do."
+      ],
+      "reactions": [
+        "I hope it worked out. But the silence doesn't fill you with confidence."
+      ],
+      "statCheck": null,
+      "valence": "negative",
+      "topic_category": "distant_rumors",
+      "required_entities": [
+        "settlement"
+      ],
+      "location_scope": "regional",
+      "quest_trigger": null
+    },
+    {
+      "id": 8,
+      "intro": "The cloth that comes from {other_settlement} used to be decent. Last few shipments have been rough and thin.",
+      "details": [
+        "I'm not the only one who's noticed. The tailor complained about it for half an hour yesterday.",
+        "Could be new weavers, could be worse materials. Either way, we're paying the same price for less."
+      ],
+      "reactions": [
+        "If it keeps up we'll have to find another source. Nobody wants to, but quality matters."
+      ],
+      "statCheck": {
+        "pass": "Thread count's dropped noticeably. They're probably using a coarser fiber to cut costs: same loom, cheaper wool.",
+        "fail": "I'm no weaver. I just know it doesn't feel the same as it used to."
+      },
+      "valence": "negative",
+      "topic_category": "distant_rumors",
+      "required_entities": [
+        "settlement"
+      ],
+      "location_scope": "regional",
+      "quest_trigger": null
+    },
+    {
+      "id": 9,
+      "intro": "A trader from {other_settlement} told me their harvest was twice ours this year. I'm not sure I believe that.",
+      "details": [
+        "Traders exaggerate. It's how they set prices: make their home sound like paradise so their goods seem worth more.",
+        "I've talked to three different people from {other_settlement} and gotten three different stories."
+      ],
+      "reactions": [
+        "I'll believe it when I see it myself. Which will be never, most likely."
+      ],
+      "statCheck": {
+        "pass": "Traders inflate figures to justify their markup. A 'double harvest' usually means ten percent better, if that.",
+        "fail": "I don't know enough about their land to say either way."
+      },
+      "valence": "neutral",
+      "topic_category": "distant_rumors",
+      "required_entities": [
+        "settlement"
+      ],
+      "location_scope": "regional",
+      "quest_trigger": null
+    },
+    {
+      "id": 10,
+      "intro": "I used to envy people from {other_settlement}. Bigger market, wider roads, more of everything.",
+      "details": [
+        "Then I thought about what I'd actually miss if I left. The answer was: most of it.",
+        "It's easy to want what you don't have. Harder to notice what you do."
+      ],
+      "reactions": [
+        "I'm content. It took a while to get here, but I am."
+      ],
+      "statCheck": null,
+      "valence": "positive",
+      "topic_category": "distant_rumors",
+      "required_entities": [
+        "settlement"
+      ],
+      "location_scope": "regional",
+      "quest_trigger": null
+    },
+    {
+      "id": 11,
+      "intro": "Someone from here visited {other_settlement} for a season and came back different. Quieter.",
+      "details": [
+        "They don't talk about what they saw there. Just said it wasn't what they expected.",
+        "They used to complain about how boring things are here. They don't complain anymore."
+      ],
+      "reactions": [
+        "Sometimes the best thing about leaving is finding out you want to come back."
+      ],
+      "statCheck": {
+        "pass": "People romanticize other places until they actually live there. The reality is always more complicated than the stories.",
+        "fail": "I don't know what happened. They just seem like they got it out of their system."
+      },
+      "valence": "negative",
+      "topic_category": "distant_rumors",
+      "required_entities": [
+        "settlement"
+      ],
+      "location_scope": "regional",
+      "quest_trigger": null
+    }
+  ]
+}

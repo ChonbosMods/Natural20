@@ -1,0 +1,322 @@
+{
+  "pool": "settlement_pride",
+  "version": 3,
+  "entries": [
+    {
+      "id": 0,
+      "intro": "I'm proud to call {settlement_name} home. It's not perfect, but it's ours.",
+      "details": [
+        "We built most of what you see here with our own hands. Every building has a story.",
+        "It's quiet, it's safe enough, and the people look out for each other. What more do you need?"
+      ],
+      "reactions": [
+        "I've thought about leaving, sure. But I always come back to the same answer."
+      ],
+      "statCheck": null,
+      "valence": "positive",
+      "topic_category": "settlement_pride",
+      "required_entities": [
+        "settlement"
+      ],
+      "location_scope": "local",
+      "quest_trigger": null
+    },
+    {
+      "id": 1,
+      "intro": "{settlement_name} could use some work, if I'm being honest.",
+      "details": [
+        "Half the fences need mending and the paths turn to mud the second it rains.",
+        "It's not that nobody cares. Everyone's just busy keeping their own place together."
+      ],
+      "reactions": [
+        "It's home, though. For better or worse."
+      ],
+      "statCheck": {
+        "pass": "The real problem is drainage. The ground slopes the wrong way and nobody planned for it when they laid the paths.",
+        "fail": "I'm no builder. I just know it looks rough."
+      },
+      "valence": "negative",
+      "topic_category": "settlement_pride",
+      "required_entities": [
+        "settlement"
+      ],
+      "location_scope": "local",
+      "quest_trigger": null
+    },
+    {
+      "id": 2,
+      "intro": "I like how {settlement_name} feels at dusk. Everything quiets down and the light turns golden.",
+      "details": [
+        "People finish up their work and you can hear conversations drifting from open windows.",
+        "It's the kind of thing you don't notice until you've been away and come back."
+      ],
+      "reactions": [
+        "Not every place has that. We're lucky."
+      ],
+      "statCheck": null,
+      "valence": "positive",
+      "topic_category": "settlement_pride",
+      "required_entities": [
+        "settlement"
+      ],
+      "location_scope": "local",
+      "quest_trigger": null
+    },
+    {
+      "id": 3,
+      "intro": "I heard {other_settlement} has twice the market stalls we do. Makes you think.",
+      "details": [
+        "Not that I'm jealous. More selection would be nice, though.",
+        "A bigger market means more strangers, more noise, more problems. Maybe what we've got is fine."
+      ],
+      "reactions": [
+        "Grass is always greener, I suppose."
+      ],
+      "statCheck": null,
+      "valence": "neutral",
+      "topic_category": "settlement_pride",
+      "required_entities": [
+        "settlement"
+      ],
+      "location_scope": "regional",
+      "quest_trigger": null
+    },
+    {
+      "id": 4,
+      "intro": "I wake up some mornings and just think: I'm glad I ended up in {settlement_name}.",
+      "details": [
+        "It's not perfect, but the people look out for each other. That counts for a lot.",
+        "I've lived in places where you didn't know your neighbor's name after a year. This isn't that."
+      ],
+      "reactions": [
+        "You don't appreciate a good home until you've had a bad one."
+      ],
+      "statCheck": null,
+      "valence": "positive",
+      "topic_category": "settlement_pride",
+      "required_entities": [
+        "settlement"
+      ],
+      "location_scope": "local",
+      "quest_trigger": null
+    },
+    {
+      "id": 5,
+      "intro": "{settlement_name} could use a proper drainage system. Every heavy rain turns the square into a pond.",
+      "details": [
+        "Twice this season I've had water seeping under the door. The threshold needs raising.",
+        "People keep talking about fixing it, but talk doesn't dig ditches."
+      ],
+      "reactions": [
+        "I'd rather live with a fixable problem than move somewhere with unfixable ones."
+      ],
+      "statCheck": {
+        "pass": "A graded channel toward the east slope would handle most of it. The grade is already there: just needs digging.",
+        "fail": "I'm no engineer. I just know water shouldn't be where I sleep."
+      },
+      "valence": "negative",
+      "topic_category": "settlement_pride",
+      "required_entities": [
+        "settlement"
+      ],
+      "location_scope": "local",
+      "quest_trigger": null
+    },
+    {
+      "id": 6,
+      "intro": "I wonder sometimes what people in {other_settlement} think of {settlement_name}.",
+      "details": [
+        "We probably seem small and quiet to outsiders. That's not necessarily a bad reputation.",
+        "The traders who come through always seem comfortable here. That has to mean something."
+      ],
+      "reactions": [
+        "We are what we are. No point dressing it up."
+      ],
+      "statCheck": null,
+      "valence": "neutral",
+      "topic_category": "settlement_pride",
+      "required_entities": [
+        "settlement"
+      ],
+      "location_scope": "regional",
+      "quest_trigger": null
+    },
+    {
+      "id": 7,
+      "intro": "There's a smell in {settlement_name} when the wind comes right: woodsmoke and something sweet from the ovens. I never get tired of it.",
+      "details": [
+        "My first morning here, that smell is what made me think I could stay.",
+        "You don't notice it after a while, but when you come back from traveling it hits you all at once."
+      ],
+      "reactions": [
+        "Home is mostly a feeling. That smell is where mine starts."
+      ],
+      "statCheck": null,
+      "valence": "positive",
+      "topic_category": "settlement_pride",
+      "required_entities": [
+        "settlement"
+      ],
+      "location_scope": "local",
+      "quest_trigger": null
+    },
+    {
+      "id": 8,
+      "intro": "If I ever left {settlement_name}, I think I'd miss the mornings most. The way the light comes over the ridge.",
+      "details": [
+        "There's about ten minutes where everything turns gold. The rooftops, the smoke from the chimneys, the water in the troughs.",
+        "I've lived here long enough that I almost stopped noticing. Almost."
+      ],
+      "reactions": [
+        "You don't realize what makes a place home until you imagine it gone."
+      ],
+      "statCheck": null,
+      "valence": "positive",
+      "topic_category": "settlement_pride",
+      "required_entities": [
+        "settlement"
+      ],
+      "location_scope": "local",
+      "quest_trigger": null
+    },
+    {
+      "id": 9,
+      "intro": "Every visitor who comes through {settlement_name} says the same thing: it's smaller than they expected.",
+      "details": [
+        "Then they stay a night, eat a meal, and suddenly they're asking how much a plot of land costs.",
+        "Size was never the point. We've got what we need and not much that we don't."
+      ],
+      "reactions": [
+        "Let them underestimate us. We know what we've got."
+      ],
+      "statCheck": null,
+      "valence": "positive",
+      "topic_category": "settlement_pride",
+      "required_entities": [
+        "settlement"
+      ],
+      "location_scope": "local",
+      "quest_trigger": null
+    },
+    {
+      "id": 10,
+      "intro": "The well in {settlement_name} has needed a new winch for months. Nobody wants to pay for it.",
+      "details": [
+        "Everyone uses it, nobody wants to fund it. That's the eternal problem with shared things.",
+        "There was a meeting about it last week that lasted an hour: no decision, typical."
+      ],
+      "reactions": [
+        "We'll fix it when the rope finally snaps. That's how decisions get made around here."
+      ],
+      "statCheck": {
+        "pass": "The real issue is the axle bearing, not the rope. Replace that and the winch would last another five years.",
+        "fail": "I'm no engineer. I just know it squeals when you turn it."
+      },
+      "valence": "negative",
+      "topic_category": "settlement_pride",
+      "required_entities": [
+        "settlement"
+      ],
+      "location_scope": "local",
+      "quest_trigger": null
+    },
+    {
+      "id": 11,
+      "intro": "People from outside {settlement_name} always comment on how quiet it is. Like they've never heard silence before.",
+      "details": [
+        "To us it's not quiet at all. I can hear the wind, the animals, someone hammering across the way.",
+        "I think they mean there's no crowd noise. No constant background of people doing things they'd rather not."
+      ],
+      "reactions": [
+        "I suppose quiet is a luxury if you're not used to it."
+      ],
+      "statCheck": null,
+      "valence": "neutral",
+      "topic_category": "settlement_pride",
+      "required_entities": [
+        "settlement"
+      ],
+      "location_scope": "local",
+      "quest_trigger": null
+    },
+    {
+      "id": 12,
+      "intro": "There's a time of evening in {settlement_name} when everything just goes quiet. Right before the lamps come on.",
+      "details": [
+        "The work's done, the fires are lit, and for a few minutes nobody's asking anything of anybody.",
+        "You can hear the wind through the trees and nothing else. It only lasts a moment."
+      ],
+      "reactions": [
+        "That's the part they don't tell you about when they talk about living here. It's the best part."
+      ],
+      "statCheck": null,
+      "valence": "positive",
+      "topic_category": "settlement_pride",
+      "required_entities": [
+        "settlement"
+      ],
+      "location_scope": "local",
+      "quest_trigger": null
+    },
+    {
+      "id": 13,
+      "intro": "Outsiders always say {settlement_name} is too quiet. Like that's a complaint.",
+      "details": [
+        "They come through expecting excitement and leave disappointed. Good.",
+        "Quiet means nothing's gone wrong. I'll take that over interesting any day."
+      ],
+      "reactions": [
+        "They don't understand it because they haven't earned it."
+      ],
+      "statCheck": null,
+      "valence": "neutral",
+      "topic_category": "settlement_pride",
+      "required_entities": [
+        "settlement"
+      ],
+      "location_scope": "local",
+      "quest_trigger": null
+    },
+    {
+      "id": 14,
+      "intro": "{settlement_name} isn't much to look at. I know that.",
+      "details": [
+        "The buildings lean, the roads are mud half the year, and the well cover doesn't close right.",
+        "But every board was put up by someone I know, and every path goes somewhere I've walked a hundred times."
+      ],
+      "reactions": [
+        "It's ours. That's enough."
+      ],
+      "statCheck": null,
+      "valence": "positive",
+      "topic_category": "settlement_pride",
+      "required_entities": [
+        "settlement"
+      ],
+      "location_scope": "local",
+      "quest_trigger": null
+    },
+    {
+      "id": 15,
+      "intro": "People from {other_settlement} think we don't know how things are done properly in {settlement_name}. We know, we just don't care.",
+      "details": [
+        "They built their roads straighter and their roofs steeper. Good for them.",
+        "We built ours the way that works here. Different ground, different weather, different problems."
+      ],
+      "reactions": [
+        "Let them think what they want. We're doing fine."
+      ],
+      "statCheck": {
+        "pass": "Building styles follow local materials and terrain. What works in one place fails in another: that's not ignorance, it's adaptation.",
+        "fail": "I don't know the technical reasons. I just know our way holds up."
+      },
+      "valence": "negative",
+      "topic_category": "settlement_pride",
+      "required_entities": [
+        "settlement"
+      ],
+      "location_scope": "local",
+      "quest_trigger": null
+    }
+  ]
+}

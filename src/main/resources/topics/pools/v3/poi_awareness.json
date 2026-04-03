@@ -1,0 +1,261 @@
+{
+  "pool": "poi_awareness",
+  "version": 3,
+  "entries": [
+    {
+      "id": 0,
+      "intro": "The {poi_type}'s been busier than usual. People going in and out all day.",
+      "details": [
+        "I don't know if that means business is good or everyone's just restless.",
+        "Either way, it's nice to see some activity. Beats the place sitting empty."
+      ],
+      "reactions": [
+        "Keeps the settlement feeling alive, at least."
+      ],
+      "statCheck": {
+        "pass": "I think it's the seasonal shift. People stock up around this time every year, and the {poi_type} is where they go first.",
+        "fail": "No idea what's driving it. Just more people than usual."
+      },
+      "valence": "neutral",
+      "topic_category": "poi_awareness",
+      "required_entities": [
+        "poi"
+      ],
+      "location_scope": "local",
+      "quest_trigger": null
+    },
+    {
+      "id": 1,
+      "intro": "Good {resource_type} coming out of the {poi_type} these days. Better than it's been in a while.",
+      "details": [
+        "The quality's been steady all season. People are noticing.",
+        "Keeps everyone in work, which keeps everyone in a decent mood."
+      ],
+      "reactions": [
+        "Long may it last."
+      ],
+      "statCheck": {
+        "pass": "The vein they're working is deeper than the last one. Richer material down there, takes more effort to get at it but the yield is worth it.",
+        "fail": "I don't know the details. I just know what I see coming out."
+      },
+      "valence": "positive",
+      "topic_category": "poi_awareness",
+      "required_entities": [
+        "poi"
+      ],
+      "location_scope": "local",
+      "quest_trigger": null
+    },
+    {
+      "id": 2,
+      "intro": "The {poi_type} hasn't been pulling its weight lately. You can feel it around town.",
+      "details": [
+        "Output's down and people are starting to worry. Not panicking, but the mood's shifted.",
+        "It's the kind of slowdown that creeps up on you. One week it's fine, the next you're counting what's left."
+      ],
+      "reactions": [
+        "These things come and go. Hopefully it picks back up before anyone gets desperate."
+      ],
+      "statCheck": {
+        "pass": "The equipment's old, half the tools need replacing and nobody's budgeted for it. That's the real bottleneck.",
+        "fail": "Couldn't tell you why. I just know things aren't what they were."
+      },
+      "valence": "negative",
+      "topic_category": "poi_awareness",
+      "required_entities": [
+        "poi"
+      ],
+      "location_scope": "local",
+      "quest_trigger": null
+    },
+    {
+      "id": 3,
+      "intro": "Walked past the {poi_type} yesterday and there was nobody around. Completely empty.",
+      "details": [
+        "Usually there's at least someone there. Felt strange seeing it quiet like that.",
+        "I checked back later and things were normal again. Must have just hit an odd hour."
+      ],
+      "reactions": [
+        "Probably nothing. But you notice when a familiar place feels different."
+      ],
+      "statCheck": {
+        "pass": "The shift patterns changed recently. There's a gap in the middle of the day now where nobody's assigned.",
+        "fail": "I don't keep track of who works where. Just seemed odd."
+      },
+      "valence": "neutral",
+      "topic_category": "poi_awareness",
+      "required_entities": [
+        "poi"
+      ],
+      "location_scope": "local",
+      "quest_trigger": null
+    },
+    {
+      "id": 4,
+      "intro": "The {poi_type} has been pulling in good {resource_type} lately. Better than usual, actually.",
+      "details": [
+        "I don't know if it's the season or if someone figured out a better method.",
+        "Either way, people seem less stressed about supplies. Makes a difference in the mood around here."
+      ],
+      "reactions": [
+        "When the basics are covered, everything else gets a little easier."
+      ],
+      "statCheck": null,
+      "valence": "positive",
+      "topic_category": "poi_awareness",
+      "required_entities": [
+        "poi"
+      ],
+      "location_scope": "local",
+      "quest_trigger": null
+    },
+    {
+      "id": 5,
+      "intro": "Something needs doing about the path to the {poi_type}. It's been getting worse all season.",
+      "details": [
+        "Tree roots have buckled the stones and nobody's relaid them. You have to watch every step.",
+        "I nearly turned my ankle there last week carrying a load. Not ideal."
+      ],
+      "reactions": [
+        "It's one of those jobs that keeps getting put off because it's not urgent. Until someone falls."
+      ],
+      "statCheck": {
+        "pass": "Cutting back the two biggest roots and repacking the base would hold for another few years. Half a day's work at most.",
+        "fail": "I wouldn't know where to start with stonework. I just know the path is bad."
+      },
+      "valence": "negative",
+      "topic_category": "poi_awareness",
+      "required_entities": [
+        "poi"
+      ],
+      "location_scope": "local",
+      "quest_trigger": null
+    },
+    {
+      "id": 6,
+      "intro": "The {poi_type} smells different depending on the season. Right now it's that sharp, earthy smell: almost metallic.",
+      "details": [
+        "In summer it's drier, more like dust and warm stone. In the wet months the whole area has this rich, heavy scent.",
+        "I've been walking past it for years and I still notice it every time. Some smells you don't get used to."
+      ],
+      "reactions": [
+        "It's one of those things that tells you where you are without looking."
+      ],
+      "statCheck": {
+        "pass": "That metallic scent usually means {resource_type} deposits are close to the surface. Moisture brings the mineral smell out.",
+        "fail": "I don't know what causes the smell. It just is what it is."
+      },
+      "valence": "neutral",
+      "topic_category": "poi_awareness",
+      "required_entities": [
+        "poi"
+      ],
+      "location_scope": "local",
+      "quest_trigger": null
+    },
+    {
+      "id": 7,
+      "intro": "The {poi_type} used to look different. The trees around it were thicker, the path less worn.",
+      "details": [
+        "More people passing through each year wears a place down. Wider trails, fewer wildflowers, more bare dirt.",
+        "I remember when you had to push through brush to get there. Now you could drive a cart through."
+      ],
+      "reactions": [
+        "It's not ruined or anything, just different. Places change the same as people."
+      ],
+      "statCheck": {
+        "pass": "Foot traffic compacts the soil and kills the ground cover. Once the roots go, erosion does the rest faster than you'd think.",
+        "fail": "I don't know why it's changed so much. Time, I guess."
+      },
+      "valence": "neutral",
+      "topic_category": "poi_awareness",
+      "required_entities": [
+        "poi"
+      ],
+      "location_scope": "local",
+      "quest_trigger": null
+    },
+    {
+      "id": 8,
+      "intro": "If you stand near the {poi_type} at dusk, you can hear everything. Water, birds, the wind through the stones.",
+      "details": [
+        "During the day there's too much going on to notice. But in the evening the place has its own sound.",
+        "I went out there once just to listen and ended up staying until it was fully dark. Lost track of time."
+      ],
+      "reactions": [
+        "Not everywhere has that. Some places are just noisier than they are anything else."
+      ],
+      "statCheck": null,
+      "valence": "positive",
+      "topic_category": "poi_awareness",
+      "required_entities": [
+        "poi"
+      ],
+      "location_scope": "local",
+      "quest_trigger": null
+    },
+    {
+      "id": 9,
+      "intro": "The {poi_type} looks different in the rain: quieter, almost peaceful if you don't mind getting soaked.",
+      "details": [
+        "Most people avoid it in bad weather. I like going when nobody's there.",
+        "The stone darkens when it's wet and the sound of rain on the roof makes the whole place feel smaller."
+      ],
+      "reactions": [
+        "I don't work there. I just like how it feels when it's empty."
+      ],
+      "statCheck": null,
+      "valence": "positive",
+      "topic_category": "poi_awareness",
+      "required_entities": [
+        "poi"
+      ],
+      "location_scope": "local",
+      "quest_trigger": null
+    },
+    {
+      "id": 10,
+      "intro": "I've never worked at the {poi_type} but I walk past it every day. It's become part of my routine.",
+      "details": [
+        "I know the sounds it makes at different times of day: clanging in the morning, quiet by afternoon.",
+        "The people who work there wave at me now. I think they think I'm inspecting something."
+      ],
+      "reactions": [
+        "It's just on my way. But I'd notice if it were gone."
+      ],
+      "statCheck": {
+        "pass": "Places take on rhythm from the people who use them. You can read a lot about a trade just by listening to its workspace.",
+        "fail": "I don't know what half the sounds mean. I just know the schedule."
+      },
+      "valence": "neutral",
+      "topic_category": "poi_awareness",
+      "required_entities": [
+        "poi"
+      ],
+      "location_scope": "local",
+      "quest_trigger": null
+    },
+    {
+      "id": 11,
+      "intro": "The {crop_type} near the {poi_type} is coming in well this season. You can see it from the road.",
+      "details": [
+        "The rows are straight and the color is good. Whoever's tending it knows what they're doing.",
+        "I tried growing {crop_type} once and gave up after the first year. It's harder than it looks."
+      ],
+      "reactions": [
+        "I'll stick to what I'm good at and buy theirs."
+      ],
+      "statCheck": {
+        "pass": "That soil near the {poi_type} drains well and gets good sun. Perfect conditions for {crop_type} if you time the planting right.",
+        "fail": "I don't know much about farming. It looks healthy to me, but what do I know."
+      },
+      "valence": "positive",
+      "topic_category": "poi_awareness",
+      "required_entities": [
+        "poi"
+      ],
+      "location_scope": "local",
+      "quest_trigger": null
+    }
+  ]
+}

@@ -1,0 +1,660 @@
+{
+  "pool": "mundane_daily_life",
+  "version": 3,
+  "entries": [
+    {
+      "id": 0,
+      "intro": "Slept wrong last night. Woke up with my neck locked to one side like a rusty hinge.",
+      "details": [
+        "I've been tilting my head all morning trying to work it out. People keep asking me what I'm looking at.",
+        "It's the kind of thing that shouldn't ruin your day, but it absolutely does."
+      ],
+      "reactions": [
+        "I'll be fine by tomorrow. Probably."
+      ],
+      "statCheck": null,
+      "valence": "negative",
+      "topic_category": "mundane_daily_life",
+      "required_entities": [],
+      "location_scope": "universal",
+      "quest_trigger": null
+    },
+    {
+      "id": 1,
+      "intro": "Beautiful morning today. The kind where you just stand outside for a minute before doing anything.",
+      "details": [
+        "There was frost on the grass but the sun burned it off quick. Everything had that clean smell.",
+        "I almost didn't want to go inside and start working."
+      ],
+      "reactions": [
+        "Days like this make the rough ones easier to forget."
+      ],
+      "statCheck": null,
+      "valence": "positive",
+      "topic_category": "mundane_daily_life",
+      "required_entities": [],
+      "location_scope": "universal",
+      "quest_trigger": null
+    },
+    {
+      "id": 2,
+      "intro": "I've been craving {food_type} all week. Can't get it out of my head.",
+      "details": [
+        "Had some at a market stall ages ago and I've been chasing that memory ever since.",
+        "Nothing I make at home comes out right. It's missing something."
+      ],
+      "reactions": [
+        "One of these days I'll figure out what I'm doing wrong."
+      ],
+      "statCheck": {
+        "pass": "I think the trick is the spice ratio. The stall vendor was heavy-handed with the seasoning, way more than any recipe would tell you.",
+        "fail": "I'm no cook. I just know what I like."
+      },
+      "valence": "neutral",
+      "topic_category": "mundane_daily_life",
+      "required_entities": [],
+      "location_scope": "universal",
+      "quest_trigger": null
+    },
+    {
+      "id": 3,
+      "intro": "Couldn't sleep last night. Lay there for hours just staring at the ceiling.",
+      "details": [
+        "It's not that anything's wrong, exactly. My head just wouldn't quiet down.",
+        "I got up and sat outside for a while. The stars were nice, at least."
+      ],
+      "reactions": [
+        "I'll pay for it later today, but right now I'm running on stubbornness."
+      ],
+      "statCheck": null,
+      "valence": "neutral",
+      "topic_category": "mundane_daily_life",
+      "required_entities": [],
+      "location_scope": "universal",
+      "quest_trigger": null
+    },
+    {
+      "id": 4,
+      "intro": "Found a coin under my floorboards this morning. No idea how long it's been there.",
+      "details": [
+        "I was sweeping and the broom caught on a loose board. There it was, just sitting in the dust.",
+        "It's old. The face on it is worn smooth."
+      ],
+      "reactions": [
+        "Not exactly a fortune, but it felt like a good sign."
+      ],
+      "statCheck": {
+        "pass": "The minting mark is from two rulers back. That coin's been under there for decades at least.",
+        "fail": "I couldn't tell you how old it is. Old enough, I suppose."
+      },
+      "valence": "neutral",
+      "topic_category": "mundane_daily_life",
+      "required_entities": [],
+      "location_scope": "universal",
+      "quest_trigger": null
+    },
+    {
+      "id": 5,
+      "intro": "Rain again. Third day in a row.",
+      "details": [
+        "Everything's soggy. My boots haven't dried out since yesterday.",
+        "The mud's getting deep enough that the paths are turning into streams."
+      ],
+      "reactions": [
+        "At least the wells won't run low anytime soon."
+      ],
+      "statCheck": {
+        "pass": "Wind's been coming from the south all week. When it shifts back north, it'll clear up fast.",
+        "fail": "I've got no sense for weather patterns. Just hoping it stops."
+      },
+      "valence": "neutral",
+      "topic_category": "mundane_daily_life",
+      "required_entities": [],
+      "location_scope": "universal",
+      "quest_trigger": null
+    },
+    {
+      "id": 6,
+      "intro": "Nothing much going on today. Just the usual.",
+      "details": [
+        "Same chores, same view, same people walking past. Not complaining, just noticing.",
+        "Sometimes a quiet day is exactly what you need. Other times it drags."
+      ],
+      "reactions": [
+        "I suppose not every day needs to be memorable."
+      ],
+      "statCheck": null,
+      "valence": "neutral",
+      "topic_category": "mundane_daily_life",
+      "required_entities": [],
+      "location_scope": "universal",
+      "quest_trigger": null
+    },
+    {
+      "id": 7,
+      "intro": "Managed to fix that squeaky door I've been ignoring for months.",
+      "details": [
+        "All it needed was a bit of grease. Took less than a minute.",
+        "I've been putting it off so long I forgot what silence sounded like when I opened it."
+      ],
+      "reactions": [
+        "Funny how the small victories feel the best."
+      ],
+      "statCheck": null,
+      "valence": "neutral",
+      "topic_category": "mundane_daily_life",
+      "required_entities": [],
+      "location_scope": "universal",
+      "quest_trigger": null
+    },
+    {
+      "id": 8,
+      "intro": "Being a {self_role} isn't glamorous, but the work keeps you honest.",
+      "details": [
+        "You show up, you do the thing, you go home tired. There's a rhythm to it.",
+        "Some days I wonder what I'd be doing if I'd picked a different path. But not for long."
+      ],
+      "reactions": [
+        "It's a living. That's more than some can say."
+      ],
+      "statCheck": null,
+      "valence": "neutral",
+      "topic_category": "mundane_daily_life",
+      "required_entities": [],
+      "location_scope": "universal",
+      "quest_trigger": null
+    },
+    {
+      "id": 9,
+      "intro": "The wind's been pushing from the south all week. Makes the shutters rattle something awful.",
+      "details": [
+        "I stuffed a rag in the gap and it helped for about an hour. Then it worked itself loose again.",
+        "At least it's drying the mud out. The paths were getting slippery."
+      ],
+      "reactions": [
+        "Could be worse. Southerly wind usually means the heat's coming."
+      ],
+      "statCheck": null,
+      "valence": "neutral",
+      "topic_category": "mundane_daily_life",
+      "required_entities": [],
+      "location_scope": "universal",
+      "quest_trigger": null
+    },
+    {
+      "id": 10,
+      "intro": "Slept wrong last night and now my shoulder won't stop clicking.",
+      "details": [
+        "I tried stretching it out this morning. Made it worse, honestly.",
+        "It's the kind of thing where you just have to wait a few days and hope it sorts itself out."
+      ],
+      "reactions": [
+        "Getting older is just a series of new sounds your body makes."
+      ],
+      "statCheck": null,
+      "valence": "negative",
+      "topic_category": "mundane_daily_life",
+      "required_entities": [],
+      "location_scope": "universal",
+      "quest_trigger": null
+    },
+    {
+      "id": 11,
+      "intro": "Have you noticed how bright the stars have been? Clear skies three nights running.",
+      "details": [
+        "I sat outside after supper last night just looking up. Hadn't done that in months.",
+        "My grandmother used to name the constellations. I can only remember two of them now."
+      ],
+      "reactions": [
+        "Nights like that remind you there's more going on than your little patch of ground."
+      ],
+      "statCheck": {
+        "pass": "The brightest cluster near the horizon only shows this time of year. Old sailors used it to mark the turning of seasons.",
+        "fail": "I just know they're pretty. Never learned what any of them are called."
+      },
+      "valence": "positive",
+      "topic_category": "mundane_daily_life",
+      "required_entities": [],
+      "location_scope": "universal",
+      "quest_trigger": null
+    },
+    {
+      "id": 12,
+      "intro": "I found a comb I'd been missing for three weeks. It was under the dresser the whole time.",
+      "details": [
+        "I'd already convinced myself someone took it. Felt a bit guilty about that.",
+        "The dust under that dresser was embarrassing. I cleaned the whole corner while I was down there."
+      ],
+      "reactions": [
+        "Funny how losing something small can bother you more than a real problem."
+      ],
+      "statCheck": null,
+      "valence": "neutral",
+      "topic_category": "mundane_daily_life",
+      "required_entities": [],
+      "location_scope": "universal",
+      "quest_trigger": null
+    },
+    {
+      "id": 13,
+      "intro": "I spent the whole morning patching a hole in the fence. Should've done it weeks ago.",
+      "details": [
+        "The old posts were so rotten I had to dig two of them out and start fresh.",
+        "It's not pretty work, but it's done. One less thing on the list."
+      ],
+      "reactions": [
+        "Always more chores behind the one you just finished. That's how it goes."
+      ],
+      "statCheck": null,
+      "valence": "neutral",
+      "topic_category": "mundane_daily_life",
+      "required_entities": [],
+      "location_scope": "universal",
+      "quest_trigger": null
+    },
+    {
+      "id": 14,
+      "intro": "I can't decide if I'm hungry or just bored. Happens a lot around midday.",
+      "details": [
+        "I ate a decent breakfast so I shouldn't be starving. But here I am, thinking about {food_type}.",
+        "When there's nothing pressing to do, my mind goes straight to the pantry."
+      ],
+      "reactions": [
+        "I should probably find something useful to do with my hands instead."
+      ],
+      "statCheck": null,
+      "valence": "neutral",
+      "topic_category": "mundane_daily_life",
+      "required_entities": [],
+      "location_scope": "universal",
+      "quest_trigger": null
+    },
+    {
+      "id": 15,
+      "intro": "The heat today is unbearable. I've been drinking water all morning and I'm still parched.",
+      "details": [
+        "Even the animals are just lying in the shade. Nobody wants to move.",
+        "The stones on the south wall are warm to the touch by noon. You could cook on them."
+      ],
+      "reactions": [
+        "Days like this, you just do what needs doing early and sit the rest out."
+      ],
+      "statCheck": {
+        "pass": "The trick is soaking a cloth and draping it over your neck. Keeps you going another couple hours.",
+        "fail": "I don't have any clever solutions. I just suffer through it."
+      },
+      "valence": "negative",
+      "topic_category": "mundane_daily_life",
+      "required_entities": [],
+      "location_scope": "universal",
+      "quest_trigger": null
+    },
+    {
+      "id": 16,
+      "intro": "Been a quiet week, actually. Nothing's broken, nobody's argued, nothing's caught fire.",
+      "details": [
+        "I keep waiting for something to go wrong because weeks like this don't last.",
+        "I reorganized my storage shelves just to have something to do. That's how calm it's been."
+      ],
+      "reactions": [
+        "I should enjoy it instead of being suspicious about it."
+      ],
+      "statCheck": null,
+      "valence": "neutral",
+      "topic_category": "mundane_daily_life",
+      "required_entities": [],
+      "location_scope": "universal",
+      "quest_trigger": null
+    },
+    {
+      "id": 17,
+      "intro": "Being a {self_role} means you learn to live with sore hands. Comes with the work.",
+      "details": [
+        "Some mornings I can barely close my fist until I've been moving for an hour.",
+        "You get used to it, or you stop noticing: same thing, really."
+      ],
+      "reactions": [
+        "Wouldn't trade it, though. Idle hands would drive me mad."
+      ],
+      "statCheck": {
+        "pass": "Comfrey salve before bed helps more than most people realize. Old trick, but it works.",
+        "fail": "I've tried a dozen remedies. None of them do much."
+      },
+      "valence": "neutral",
+      "topic_category": "mundane_daily_life",
+      "required_entities": [],
+      "location_scope": "universal",
+      "quest_trigger": null
+    },
+    {
+      "id": 18,
+      "intro": "My shoulders have been aching since yesterday. Spent the whole day hauling stone and now I'm paying for it.",
+      "details": [
+        "I used to be able to do that kind of work without thinking about it. Now every load reminds me it's there.",
+        "I sat down to rest halfway through and almost didn't get back up. The ground felt too comfortable."
+      ],
+      "reactions": [
+        "It'll pass. It always does: just takes longer than it used to."
+      ],
+      "statCheck": null,
+      "valence": "neutral",
+      "topic_category": "mundane_daily_life",
+      "required_entities": [],
+      "location_scope": "universal",
+      "quest_trigger": null
+    },
+    {
+      "id": 19,
+      "intro": "I haven't slept properly in days. I lie down tired and then just stare at the ceiling.",
+      "details": [
+        "It's not worry or noise. My body's tired but my head won't stop going over the same nothing.",
+        "I tried warm milk, counting breaths, walking until my legs gave out. Nothing works."
+      ],
+      "reactions": [
+        "I'll sleep eventually: you always do. It just makes the days feel longer in the meantime."
+      ],
+      "statCheck": {
+        "pass": "It's usually when my routine changes. New season, different light: the body takes a while to adjust.",
+        "fail": "Wish I knew the trick to it. If you figure it out, tell me."
+      },
+      "valence": "negative",
+      "topic_category": "mundane_daily_life",
+      "required_entities": [],
+      "location_scope": "universal",
+      "quest_trigger": null
+    },
+    {
+      "id": 20,
+      "intro": "I've been putting off mending the back fence for three weeks now. Every morning I look at it and say tomorrow.",
+      "details": [
+        "It's not even hard work: two posts and a cracked rail, an afternoon at most.",
+        "The longer I wait, the more I dread it, which makes me wait longer. It's a perfect little trap I've built for myself."
+      ],
+      "reactions": [
+        "One of these days I'll just do it and wonder why I wasted all that time not doing it."
+      ],
+      "statCheck": null,
+      "valence": "neutral",
+      "topic_category": "mundane_daily_life",
+      "required_entities": [],
+      "location_scope": "universal",
+      "quest_trigger": null
+    },
+    {
+      "id": 21,
+      "intro": "I sat outside last night just watching the sky. No reason: just felt like it.",
+      "details": [
+        "There was no moon, so the stars were out in full. I don't know most of their names but I like looking anyway.",
+        "It was cold enough that I could see my breath, but I stayed out longer than I meant to."
+      ],
+      "reactions": [
+        "Sometimes you need to just sit still and let the day drain out of you."
+      ],
+      "statCheck": {
+        "pass": "Clear nights like that usually mean high pressure settling in. Good weather for the next few days, most likely.",
+        "fail": "I don't read the sky. I just enjoy looking at it."
+      },
+      "valence": "positive",
+      "topic_category": "mundane_daily_life",
+      "required_entities": [],
+      "location_scope": "universal",
+      "quest_trigger": null
+    },
+    {
+      "id": 22,
+      "intro": "I finished patching the hole in my roof this morning. Took all week, but it's done.",
+      "details": [
+        "I kept finding more rot once I pulled the first board. One thing always leads to another with old buildings.",
+        "Tested it by dumping a bucket of water over the spot: dry underneath, best feeling I've had all month."
+      ],
+      "reactions": [
+        "It's a small thing, but finishing it feels like setting down something heavy."
+      ],
+      "statCheck": null,
+      "valence": "positive",
+      "topic_category": "mundane_daily_life",
+      "required_entities": [],
+      "location_scope": "universal",
+      "quest_trigger": null
+    },
+    {
+      "id": 23,
+      "intro": "I keep hearing sounds at night. Creaking, settling, the odd pop from the walls.",
+      "details": [
+        "First few times I got up to check and found nothing. Now I just lie there and listen to the house talk to itself.",
+        "Wood expands and contracts with the temperature, and I know that. Doesn't stop the sound from waking me up."
+      ],
+      "reactions": [
+        "An old building has its own voice. You learn to live with it or you don't sleep."
+      ],
+      "statCheck": {
+        "pass": "Timber frames do that when the day's heat leaves the wood. The joints shift a fraction and that's the pop you hear.",
+        "fail": "I don't know why buildings make noise. They just do."
+      },
+      "valence": "neutral",
+      "topic_category": "mundane_daily_life",
+      "required_entities": [],
+      "location_scope": "universal",
+      "quest_trigger": null
+    },
+    {
+      "id": 24,
+      "intro": "Made a proper {food_type} for the first time in a while. Sat down and actually tasted it instead of just eating.",
+      "details": [
+        "I've been eating the same quick meals for weeks. Standing up, barely chewing, just getting it done.",
+        "Something about taking the time to cook properly makes everything else slow down too."
+      ],
+      "reactions": [
+        "I should do that more often. It's easy to forget that food can be something you enjoy."
+      ],
+      "statCheck": null,
+      "valence": "neutral",
+      "topic_category": "mundane_daily_life",
+      "required_entities": [],
+      "location_scope": "universal",
+      "quest_trigger": null
+    },
+    {
+      "id": 25,
+      "intro": "My back seized up this morning when I bent down to pick up a bucket. Just a bucket.",
+      "details": [
+        "I stood there bent over like a fool for a full minute waiting for it to release. Couldn't straighten up.",
+        "I've been lifting heavier things all week with no trouble. It's always the small motion that gets you."
+      ],
+      "reactions": [
+        "I'm fine now, mostly. Just moving carefully and hoping it doesn't come back."
+      ],
+      "statCheck": null,
+      "valence": "negative",
+      "topic_category": "mundane_daily_life",
+      "required_entities": [],
+      "location_scope": "universal",
+      "quest_trigger": null
+    },
+    {
+      "id": 26,
+      "intro": "Spent the morning just sitting on the step watching people walk by. Didn't feel like doing anything else.",
+      "details": [
+        "Everybody's got somewhere to go. I could see who was running late by how fast they were moving.",
+        "A cat sat down next to me for a while. We had the same plan, apparently."
+      ],
+      "reactions": [
+        "Not every day has to be productive. Some days you're just the person sitting on the step."
+      ],
+      "statCheck": null,
+      "valence": "neutral",
+      "topic_category": "mundane_daily_life",
+      "required_entities": [],
+      "location_scope": "universal",
+      "quest_trigger": null
+    },
+    {
+      "id": 27,
+      "intro": "I keep finding gray hairs and pretending they've always been there.",
+      "details": [
+        "My hands don't look the way I remember them either. Rougher, thinner skin over the knuckles.",
+        "I caught my reflection in a bucket last week and didn't recognize myself for a second."
+      ],
+      "reactions": [
+        "It happens so gradually you barely notice until one day you really do."
+      ],
+      "statCheck": {
+        "pass": "It's the small changes that add up. You don't notice a single gray hair, but one day the whole picture is different.",
+        "fail": "I try not to think about it too much. It is what it is."
+      },
+      "valence": "neutral",
+      "topic_category": "mundane_daily_life",
+      "required_entities": [],
+      "location_scope": "universal",
+      "quest_trigger": null
+    },
+    {
+      "id": 28,
+      "intro": "I've been having the same dream for weeks. I'm walking through a market but every stall sells the same thing and I can never tell what it is.",
+      "details": [
+        "It's not frightening or anything. Just dull and confusing, same as being awake.",
+        "I wake up tired from all the walking. That shouldn't be possible, but here we are."
+      ],
+      "reactions": [
+        "It'll pass eventually. They always do."
+      ],
+      "statCheck": null,
+      "valence": "neutral",
+      "topic_category": "mundane_daily_life",
+      "required_entities": [],
+      "location_scope": "universal",
+      "quest_trigger": null
+    },
+    {
+      "id": 29,
+      "intro": "I patched the fence behind the house again. Third time this season.",
+      "details": [
+        "The same post keeps leaning. I straighten it, pack the dirt, and two weeks later it's tilting again.",
+        "At this point I think the fence is doing it on purpose."
+      ],
+      "reactions": [
+        "I'll fix it again next week. That's just how it goes."
+      ],
+      "statCheck": {
+        "pass": "That post is probably sitting on a root system underground. The roots shift with moisture and push it out of true.",
+        "fail": "I don't know why it keeps happening. The dirt looks fine to me."
+      },
+      "valence": "negative",
+      "topic_category": "mundane_daily_life",
+      "required_entities": [],
+      "location_scope": "universal",
+      "quest_trigger": null
+    },
+    {
+      "id": 30,
+      "intro": "There's nothing quite like the smell of wood smoke on a cold morning. It means someone's already up and working.",
+      "details": [
+        "I can tell whose fire is going by the smell. Oak is heavy, pine is sharp, birch is barely there.",
+        "Some mornings the smoke just hangs in the air and the whole settlement smells like a hearth."
+      ],
+      "reactions": [
+        "It's one of those small things I'd miss if it were gone."
+      ],
+      "statCheck": null,
+      "valence": "neutral",
+      "topic_category": "mundane_daily_life",
+      "required_entities": [],
+      "location_scope": "universal",
+      "quest_trigger": null
+    },
+    {
+      "id": 31,
+      "intro": "I eat the same breakfast every morning. Same bowl, same spot at the table.",
+      "details": [
+        "People say that sounds boring. I say it sounds like knowing exactly what you want.",
+        "If the bowl's dirty I'll wash it before I use another one. I know that's strange."
+      ],
+      "reactions": [
+        "Routines aren't a rut. They're a choice you've already made."
+      ],
+      "statCheck": {
+        "pass": "Habits reduce the number of decisions you have to make. It's not mindless: it's efficient.",
+        "fail": "I don't have a reason for it. It's just what I do."
+      },
+      "valence": "neutral",
+      "topic_category": "mundane_daily_life",
+      "required_entities": [],
+      "location_scope": "universal",
+      "quest_trigger": null
+    },
+    {
+      "id": 32,
+      "intro": "A stranger helped me carry a crate last week without being asked. Didn't say a word, just grabbed the other end.",
+      "details": [
+        "By the time I turned around to thank them they were already gone. Never even got a name.",
+        "It wasn't heavy enough that I needed help. But it was a long walk and I appreciated the company."
+      ],
+      "reactions": [
+        "That kind of thing sticks with you longer than you'd think."
+      ],
+      "statCheck": null,
+      "valence": "positive",
+      "topic_category": "mundane_daily_life",
+      "required_entities": [],
+      "location_scope": "universal",
+      "quest_trigger": null
+    },
+    {
+      "id": 33,
+      "intro": "I remember more about my childhood lately than I do about last week.",
+      "details": [
+        "I can picture the yard behind the house I grew up in perfectly. Every stone, every weed.",
+        "But ask me what I had for supper three days ago and I couldn't tell you."
+      ],
+      "reactions": [
+        "I suppose the old memories had longer to settle in."
+      ],
+      "statCheck": {
+        "pass": "Old memories get reinforced every time you revisit them. Recent ones haven't been rehearsed enough to stick.",
+        "fail": "I don't know why my memory works that way. Seems backward."
+      },
+      "valence": "neutral",
+      "topic_category": "mundane_daily_life",
+      "required_entities": [],
+      "location_scope": "universal",
+      "quest_trigger": null
+    },
+    {
+      "id": 34,
+      "intro": "I've been meaning to sharpen my knives for a month. Every day I say tomorrow.",
+      "details": [
+        "They still cut well enough if you push hard. That's my excuse anyway.",
+        "The whetstone is right there on the shelf. It takes ten minutes."
+      ],
+      "reactions": [
+        "Tomorrow. Definitely tomorrow."
+      ],
+      "statCheck": {
+        "pass": "A dull blade is more dangerous than a sharp one. You press harder, it slips, and that's how you lose a finger.",
+        "fail": "They're not that dull. Probably."
+      },
+      "valence": "neutral",
+      "topic_category": "mundane_daily_life",
+      "required_entities": [],
+      "location_scope": "universal",
+      "quest_trigger": null
+    },
+    {
+      "id": 35,
+      "intro": "I tried making {food_type} the way my mother used to. Came out wrong, but in a way I kind of liked better.",
+      "details": [
+        "She'd say I was doing it all wrong. She'd be right, too.",
+        "The funny thing is I can't remember what hers tasted like exactly. Just that it was better."
+      ],
+      "reactions": [
+        "I'll keep making it my way. She'd roll her eyes, but she'd eat it."
+      ],
+      "statCheck": null,
+      "valence": "neutral",
+      "topic_category": "mundane_daily_life",
+      "required_entities": [],
+      "location_scope": "universal",
+      "quest_trigger": null
+    }
+  ]
+}

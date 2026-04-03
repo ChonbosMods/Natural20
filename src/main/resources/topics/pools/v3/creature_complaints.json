@@ -1,0 +1,262 @@
+{
+  "pool": "creature_complaints",
+  "version": 3,
+  "entries": [
+    {
+      "id": 0,
+      "intro": "{mob_type} got into the stores again last night. Third time this season.",
+      "details": [
+        "Knocked over a whole shelf of provisions. Took what they wanted and left the rest scattered.",
+        "We patched the gap they came through last time, but they found another way in."
+      ],
+      "reactions": [
+        "At this rate we'll spend more time repairing than storing."
+      ],
+      "statCheck": {
+        "pass": "They're coming from the same direction every time. There's a den or a nest out that way, has to be.",
+        "fail": "I don't know where they come from. They just show up."
+      },
+      "valence": "negative",
+      "topic_category": "creature_complaints",
+      "required_entities": [
+        "mob"
+      ],
+      "location_scope": "local",
+      "quest_trigger": null
+    },
+    {
+      "id": 1,
+      "intro": "I keep seeing {wildlife_type} around the garden. Cute, but they're eating everything.",
+      "details": [
+        "I planted extra this year thinking I'd have plenty. I'm barely breaking even thanks to them.",
+        "Built a little fence and they just go around it. Persistent creatures."
+      ],
+      "reactions": [
+        "I can't even be properly angry. They're just doing what they do."
+      ],
+      "statCheck": null,
+      "valence": "negative",
+      "topic_category": "creature_complaints",
+      "required_entities": [],
+      "location_scope": "universal",
+      "quest_trigger": null
+    },
+    {
+      "id": 2,
+      "intro": "Haven't seen {mob_type} around lately. That's either good news or they've moved somewhere worse.",
+      "details": [
+        "For a while there you couldn't walk the outer paths without spotting tracks.",
+        "Now it's been quiet for weeks. I'm not complaining, but the silence makes me nervous."
+      ],
+      "reactions": [
+        "I'll take it while it lasts."
+      ],
+      "statCheck": {
+        "pass": "Could be seasonal. They tend to pull back when food is easier to find deeper in the wilds.",
+        "fail": "I'm no tracker. Just glad they're not here."
+      },
+      "valence": "positive",
+      "topic_category": "creature_complaints",
+      "required_entities": [
+        "mob"
+      ],
+      "location_scope": "local",
+      "quest_trigger": null
+    },
+    {
+      "id": 3,
+      "intro": "I keep finding {wildlife_type} droppings near my back door. Every single morning.",
+      "details": [
+        "I've chased them off twice now and they just come back. They're not even afraid of me.",
+        "Whatever they're eating back there, they're clearly finding plenty of it."
+      ],
+      "reactions": [
+        "It's more annoying than anything. I just wish they'd pick a different spot."
+      ],
+      "statCheck": {
+        "pass": "They're probably after grubs in the loose soil by the foundation. Move the compost pile and they'll lose interest.",
+        "fail": "Animals do what they want. I've given up trying to understand why."
+      },
+      "valence": "negative",
+      "topic_category": "creature_complaints",
+      "required_entities": [
+        "mob"
+      ],
+      "location_scope": "local",
+      "quest_trigger": null
+    },
+    {
+      "id": 4,
+      "intro": "The {mob_type} have been getting bolder. Found tracks closer to the paths than I'd like.",
+      "details": [
+        "Used to be you'd only see signs of them well past the tree line. Not anymore.",
+        "I mentioned it to a few people and they shrugged it off. That bothers me more than the tracks do."
+      ],
+      "reactions": [
+        "I'm not panicking about it. But I'm paying attention."
+      ],
+      "statCheck": {
+        "pass": "When prey moves closer to settlements, predators follow. It's not aggression: it's just the food chain shifting.",
+        "fail": "I don't know why they're coming closer. I just know I don't like it."
+      },
+      "valence": "negative",
+      "topic_category": "creature_complaints",
+      "required_entities": [
+        "mob"
+      ],
+      "location_scope": "local",
+      "quest_trigger": null
+    },
+    {
+      "id": 5,
+      "intro": "The {mob_type} have been quiet lately: almost suspiciously quiet.",
+      "details": [
+        "Nobody's reported any trouble for weeks. The night patrols have been uneventful.",
+        "I should be relieved, and I mostly am. But quiet spells make me nervous."
+      ],
+      "reactions": [
+        "I'll take the peace while it lasts and not complain about it."
+      ],
+      "statCheck": null,
+      "valence": "neutral",
+      "topic_category": "creature_complaints",
+      "required_entities": [
+        "mob"
+      ],
+      "location_scope": "local",
+      "quest_trigger": null
+    },
+    {
+      "id": 6,
+      "intro": "A {mob_type} got into the livestock pen last week. Didn't kill anything: just panicked the animals and knocked over a trough.",
+      "details": [
+        "By the time I got outside it was already gone. The goats were just standing there looking offended.",
+        "I found the hole in the fence where it got in. Chewed straight through a post like it was nothing."
+      ],
+      "reactions": [
+        "More annoying than scary, honestly. Spent the afternoon fixing the fence instead of doing what I'd planned."
+      ],
+      "statCheck": {
+        "pass": "The chew marks were low on the post: young one, probably. Adults go over fences, not through them.",
+        "fail": "I couldn't tell you how old it was or where it went. Just that it made a mess."
+      },
+      "valence": "neutral",
+      "topic_category": "creature_complaints",
+      "required_entities": [
+        "mob"
+      ],
+      "location_scope": "local",
+      "quest_trigger": null
+    },
+    {
+      "id": 7,
+      "intro": "We lost two chickens to a {wildlife_type} this month. Found feathers but nothing else.",
+      "details": [
+        "My neighbor said I should've built a covered run. Easy to say when it's not your chickens or your lumber.",
+        "The worst part is not knowing when it'll come back. You just wait and check every morning."
+      ],
+      "reactions": [
+        "It's not the {wildlife_type}'s fault: it's hungry, same as anything. I'm just tired of being the one it's hungry for."
+      ],
+      "statCheck": {
+        "pass": "If it took two in one month from the same spot, it's denning nearby. Probably within a few hundred paces of the pen.",
+        "fail": "I wouldn't know where to start looking. The woods are thick out there."
+      },
+      "valence": "negative",
+      "topic_category": "creature_complaints",
+      "required_entities": [
+        "mob"
+      ],
+      "location_scope": "local",
+      "quest_trigger": null
+    },
+    {
+      "id": 8,
+      "intro": "Found {mob_type} tracks right behind the house yesterday. Fresh ones, pressed deep in the mud.",
+      "details": [
+        "I check back there every morning now. Haven't seen anything since, but the tracks were clear enough.",
+        "Told my neighbor about it and she said she'd seen prints near her woodpile too. So it's been making the rounds."
+      ],
+      "reactions": [
+        "It's more unsettling than dangerous, but I lock up the shed now. Better cautious than sorry."
+      ],
+      "statCheck": {
+        "pass": "Deep prints like that mean it was moving slowly: exploring, not running. It's comfortable in the area, which isn't great.",
+        "fail": "I'm no tracker. I just know what {mob_type} prints look like because I've seen them before."
+      },
+      "valence": "negative",
+      "topic_category": "creature_complaints",
+      "required_entities": [
+        "mob"
+      ],
+      "location_scope": "local",
+      "quest_trigger": null
+    },
+    {
+      "id": 9,
+      "intro": "I've accepted that the {mob_type} are just part of living here. Like rain, or taxes.",
+      "details": [
+        "You take precautions, you keep your distance, and most of the time they leave you alone.",
+        "It's the newcomers who panic. The rest of us just work around them."
+      ],
+      "reactions": [
+        "They were here before us and they'll be here after. Might as well get along."
+      ],
+      "statCheck": {
+        "pass": "Most {mob_type} follow patterns. Learn the patterns and you can coexist without much trouble.",
+        "fail": "I just stay out of their way. That's the extent of my strategy."
+      },
+      "valence": "neutral",
+      "topic_category": "creature_complaints",
+      "required_entities": [
+        "mob"
+      ],
+      "location_scope": "local",
+      "quest_trigger": null
+    },
+    {
+      "id": 10,
+      "intro": "A {mob_type} chased me around a tree for ten minutes last week. Just going in circles, both of us.",
+      "details": [
+        "I don't know who looked more ridiculous. Probably me, since I was the one screaming.",
+        "It eventually got bored and wandered off. I sat down and didn't move for a while."
+      ],
+      "reactions": [
+        "I can laugh about it now. Couldn't at the time."
+      ],
+      "statCheck": {
+        "pass": "{mob_type} chase in straight lines and give up once they lose sight of you. Circling a tree is actually a decent strategy if you keep the trunk between you.",
+        "fail": "I don't know why it stopped. Maybe it got dizzy."
+      },
+      "valence": "negative",
+      "topic_category": "creature_complaints",
+      "required_entities": [
+        "mob"
+      ],
+      "location_scope": "local",
+      "quest_trigger": null
+    },
+    {
+      "id": 11,
+      "intro": "The {wildlife_type} got into the food stores again. Cleaned out half a shelf before anyone noticed.",
+      "details": [
+        "We've tried blocking the gaps, setting traps, even leaving scraps outside as a distraction. Nothing works for long.",
+        "At this point I think they know the layout better than I do."
+      ],
+      "reactions": [
+        "I'm starting to budget for what they take. It's just an operating cost now."
+      ],
+      "statCheck": {
+        "pass": "{wildlife_type} can squeeze through gaps half their size. You'd need to line the walls with sheet metal to actually keep them out.",
+        "fail": "I have no idea how they keep getting in. It's like they walk through walls."
+      },
+      "valence": "negative",
+      "topic_category": "creature_complaints",
+      "required_entities": [
+        "mob"
+      ],
+      "location_scope": "local",
+      "quest_trigger": null
+    }
+  ]
+}
