@@ -8,15 +8,9 @@
         "outro": "Their family asked me to find someone to {quest_action} before {quest_threat_the} finishes what the obsession started. {quest_reward_hint} might come of it, but the real goal is ending the spiral."
       },
       "objectivePool": [
-        "FETCH_ITEM",
-        "KILL_MOBS"
+        "FETCH_ITEM"
       ],
-      "objectiveConfig": {
-        "KILL_MOBS": {
-          "countMin": 3,
-          "countMax": 7
-        }
-      }
+      "objectiveConfig": {}
     },
     {
       "id": "expo_all_sacrificed_02",
@@ -26,20 +20,9 @@
         "outro": "They won't stop. They can't. Getting {quest_item} back from the {enemy_type_plural} is the only way to prevent catastrophe."
       },
       "objectivePool": [
-        "FETCH_ITEM",
-        "KILL_MOBS",
-        "COLLECT_RESOURCES"
+        "FETCH_ITEM"
       ],
-      "objectiveConfig": {
-        "KILL_MOBS": {
-          "countMin": 2,
-          "countMax": 6
-        },
-        "COLLECT_RESOURCES": {
-          "countMin": 4,
-          "countMax": 10
-        }
-      }
+      "objectiveConfig": {}
     },
     {
       "id": "expo_all_sacrificed_03",

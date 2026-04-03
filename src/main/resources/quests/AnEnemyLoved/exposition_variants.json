@@ -29,17 +29,12 @@
         "outro": "If it's real, we could survive something neither side can face alone. If it's a trap, we lose everything. {quest_focus_The} demands someone investigate. {quest_reward_hint} could follow."
       },
       "objectivePool": [
-        "TALK_TO_NPC",
-        "KILL_MOBS"
+        "TALK_TO_NPC"
       ],
       "objectiveConfig": {
         "TALK_TO_NPC": {
           "countMin": 1,
           "countMax": 1
-        },
-        "KILL_MOBS": {
-          "countMin": 2,
-          "countMax": 5
         }
       }
     },

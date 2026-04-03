@@ -9,15 +9,9 @@
       },
       "objectivePool": [
         "FETCH_ITEM",
-        "KILL_MOBS",
         "TALK_TO_NPC"
       ],
-      "objectiveConfig": {
-        "KILL_MOBS": {
-          "countMin": 3,
-          "countMax": 7
-        }
-      }
+      "objectiveConfig": {}
     },
     {
       "id": "conf_adultery_02",

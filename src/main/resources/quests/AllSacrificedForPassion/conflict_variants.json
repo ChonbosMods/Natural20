@@ -21,15 +21,9 @@
         "outro": "Get {quest_item} before they try again with something worse. The next attempt might not leave anything standing."
       },
       "objectivePool": [
-        "FETCH_ITEM",
-        "KILL_MOBS"
+        "FETCH_ITEM"
       ],
-      "objectiveConfig": {
-        "KILL_MOBS": {
-          "countMin": 3,
-          "countMax": 8
-        }
-      }
+      "objectiveConfig": {}
     },
     {
       "id": "conf_all_sacrificed_03",
@@ -39,15 +33,9 @@
         "outro": "The final piece was last traced to {location_hint}. Find it. Not for them: for the family that's watching them disappear into {quest_focus_the} one day at a time."
       },
       "objectivePool": [
-        "FETCH_ITEM",
-        "KILL_MOBS"
+        "FETCH_ITEM"
       ],
-      "objectiveConfig": {
-        "KILL_MOBS": {
-          "countMin": 2,
-          "countMax": 5
-        }
-      }
+      "objectiveConfig": {}
     }
   ]
 }

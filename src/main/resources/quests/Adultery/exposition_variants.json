@@ -8,15 +8,9 @@
         "outro": "Without that gesture, {quest_threat_the} {quest_threat_is} all we have to look forward to. {quest_stakes_The} depends on whether trust can be rebuilt."
       },
       "objectivePool": [
-        "FETCH_ITEM",
-        "KILL_MOBS"
+        "FETCH_ITEM"
       ],
-      "objectiveConfig": {
-        "KILL_MOBS": {
-          "countMin": 3,
-          "countMax": 7
-        }
-      }
+      "objectiveConfig": {}
     },
     {
       "id": "expo_adultery_02",

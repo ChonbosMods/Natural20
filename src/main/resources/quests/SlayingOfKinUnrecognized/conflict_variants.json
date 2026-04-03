@@ -49,8 +49,7 @@
         "outro": "We have to strike at the source and destroy {quest_focus_the} before there's no one left who trusts anyone."
       },
       "objectivePool": [
-        "KILL_MOBS",
-        "KILL_NPC"
+        "KILL_MOBS"
       ],
       "objectiveConfig": {
         "KILL_MOBS": {

@@ -48,8 +48,8 @@
         "outro": "If we don't act soon, {quest_stakes_the} will collapse. We'll destroy ourselves without any enemy lifting a finger."
       },
       "objectivePool": [
-        "TALK_TO_NPC",
-        "KILL_NPC"
+        "COLLECT_RESOURCES",
+        "FETCH_ITEM"
       ],
       "objectiveConfig": {}
     }

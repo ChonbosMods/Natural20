@@ -8,17 +8,12 @@
         "outro": "We didn't mean to trespass on something sacred. But intentions don't matter when {quest_stakes_the} {quest_stakes_is} at risk. {quest_reward_hint} might come of setting things right."
       },
       "objectivePool": [
-        "COLLECT_RESOURCES",
-        "KILL_MOBS"
+        "COLLECT_RESOURCES"
       ],
       "objectiveConfig": {
         "COLLECT_RESOURCES": {
           "countMin": 5,
           "countMax": 10
-        },
-        "KILL_MOBS": {
-          "countMin": 3,
-          "countMax": 7
         }
       }
     },
@@ -30,16 +25,11 @@
         "outro": "{quest_stakes_The} needs this resolved. I'm asking you because everyone else is too frightened to go near {quest_focus_the}. {quest_reward_hint} would be a welcome outcome."
       },
       "objectivePool": [
-        "FETCH_ITEM",
-        "KILL_MOBS"
+        "FETCH_ITEM"
       ],
       "objectiveConfig": {
         "FETCH_ITEM": {
           "locationPreference": "DUNGEON"
-        },
-        "KILL_MOBS": {
-          "countMin": 2,
-          "countMax": 6
         }
       }
     },

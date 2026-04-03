@@ -46,16 +46,11 @@
         "outro": "{quest_threat_The} {quest_threat_has} made everyone suspicious. Proof that nobody is cheating will calm things down. Protecting {quest_stakes_the} depends on it. Before {quest_time_pressure}."
       },
       "objectivePool": [
-        "FETCH_ITEM",
-        "KILL_MOBS"
+        "FETCH_ITEM"
       ],
       "objectiveConfig": {
         "FETCH_ITEM": {
           "locationPreference": "WILDERNESS"
-        },
-        "KILL_MOBS": {
-          "countMin": 3,
-          "countMax": 7
         }
       }
     }

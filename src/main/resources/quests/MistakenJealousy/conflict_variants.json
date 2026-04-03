@@ -8,16 +8,11 @@
         "outro": "{quest_stakes_The} {quest_stakes_is} crumbling by the hour. If we don't produce the truth soon, {target_npc} won't have a home to return to."
       },
       "objectivePool": [
-        "FETCH_ITEM",
-        "KILL_MOBS"
+        "FETCH_ITEM"
       ],
       "objectiveConfig": {
         "FETCH_ITEM": {
           "locationPreference": "WILDERNESS"
-        },
-        "KILL_MOBS": {
-          "countMin": 3,
-          "countMax": 6
         }
       }
     },
@@ -51,16 +46,11 @@
         "outro": "Three days, {player_name}. That's all {quest_stakes_the} {quest_stakes_has} left."
       },
       "objectivePool": [
-        "FETCH_ITEM",
-        "KILL_MOBS"
+        "FETCH_ITEM"
       ],
       "objectiveConfig": {
         "FETCH_ITEM": {
           "locationPreference": "DUNGEON"
-        },
-        "KILL_MOBS": {
-          "countMin": 4,
-          "countMax": 8
         }
       }
     }
