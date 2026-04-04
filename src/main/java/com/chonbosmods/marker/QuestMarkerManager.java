@@ -1,6 +1,13 @@
 package com.chonbosmods.marker;
 
+import com.chonbosmods.Natural20;
+import com.chonbosmods.data.Nat20PlayerData;
 import com.chonbosmods.marker.QuestMarkerComponent.MarkerType;
+import com.chonbosmods.quest.QuestInstance;
+import com.chonbosmods.quest.QuestStateManager;
+import com.chonbosmods.settlement.NpcRecord;
+import com.chonbosmods.settlement.SettlementRecord;
+import com.chonbosmods.settlement.SettlementRegistry;
 import com.hypixel.hytale.component.AddReason;
 import com.hypixel.hytale.component.CommandBuffer;
 import com.hypixel.hytale.component.Holder;
@@ -11,6 +18,7 @@ import com.hypixel.hytale.logger.HytaleLogger;
 import com.hypixel.hytale.math.vector.Vector3d;
 import com.hypixel.hytale.math.vector.Vector3f;
 import com.hypixel.hytale.server.core.entity.UUIDComponent;
+import com.hypixel.hytale.server.core.entity.entities.Player;
 import com.hypixel.hytale.server.core.inventory.ItemStack;
 import com.hypixel.hytale.server.core.modules.entity.component.EntityScaleComponent;
 import com.hypixel.hytale.server.core.modules.entity.component.Intangible;
@@ -19,13 +27,18 @@ import com.hypixel.hytale.server.core.modules.entity.component.TransformComponen
 import com.hypixel.hytale.server.core.modules.entity.item.ItemComponent;
 import com.hypixel.hytale.server.core.modules.entity.item.PreventItemMerging;
 import com.hypixel.hytale.server.core.modules.entity.tracker.NetworkId;
+import com.hypixel.hytale.server.core.universe.world.World;
 import com.hypixel.hytale.server.core.universe.world.storage.EntityStore;
 
 import java.nio.charset.StandardCharsets;
 import java.util.EnumMap;
+import java.util.EnumSet;
 import java.util.HashMap;
+import java.util.HashSet;
 import java.util.Map;
+import java.util.Set;
 import java.util.UUID;
+import java.util.concurrent.ConcurrentHashMap;
 
 /**
  * Singleton manager for quest marker entities that float above NPCs.
@@ -51,6 +64,9 @@ public class QuestMarkerManager {
 
     /** Active markers keyed by NPC UUID, each NPC can have one marker per type. */
     private final Map<UUID, EnumMap<MarkerType, Ref<EntityStore>>> activeMarkers = new HashMap<>();
+
+    /** Thread-safe queue of NPC UUIDs that need marker recalculation. */
+    private final Set<UUID> pendingRecalculations = ConcurrentHashMap.newKeySet();
 
     private QuestMarkerManager() {}
 
@@ -227,6 +243,157 @@ public class QuestMarkerManager {
      */
     public void clearAll() {
         activeMarkers.clear();
+        pendingRecalculations.clear();
+    }
+
+    // ---- quest state resolution ----
+
+    /**
+     * Determine which marker type a specific player should see for a specific NPC.
+     * Returns null if no marker should be shown.
+     *
+     * <p>Priority order:
+     * <ol>
+     *   <li>Player has active quest from this NPC with objectives complete: QUEST_TURN_IN</li>
+     *   <li>Player has active quest from this NPC (not yet complete): null (hide both)</li>
+     *   <li>NPC has a pre-generated quest and player hasn't accepted/completed it: QUEST_AVAILABLE</li>
+     *   <li>Otherwise: null</li>
+     * </ol>
+     *
+     * @param playerData the player's persistent data
+     * @param npcRecord  the NPC record to check
+     * @return the marker type to show, or null for no marker
+     */
+    public static MarkerType resolveMarkerForPlayer(Nat20PlayerData playerData, NpcRecord npcRecord) {
+        QuestStateManager stateManager = Natural20.getInstance().getQuestSystem().getStateManager();
+        String npcName = npcRecord.getGeneratedName();
+
+        Map<String, QuestInstance> activeQuests = stateManager.getActiveQuests(playerData);
+
+        // Check active quests from this NPC
+        for (QuestInstance quest : activeQuests.values()) {
+            if (!npcName.equals(quest.getSourceNpcId())) continue;
+
+            // Priority 1: objectives complete -> turn-in marker
+            if ("true".equals(quest.getVariableBindings().get("phase_objectives_complete"))) {
+                return MarkerType.QUEST_TURN_IN;
+            }
+
+            // Priority 2: active quest in progress -> hide both markers
+            return null;
+        }
+
+        // Priority 3: NPC has a pre-generated quest the player hasn't accepted or completed
+        QuestInstance preGenerated = npcRecord.getPreGeneratedQuest();
+        if (preGenerated != null) {
+            String questId = preGenerated.getQuestId();
+            Set<String> completed = stateManager.getCompletedQuestIds(playerData);
+            if (!completed.contains(questId) && !activeQuests.containsKey(questId)) {
+                return MarkerType.QUEST_AVAILABLE;
+            }
+        }
+
+        // (Future) NPC triggered unlockedNewQuest -> QUEST_AVAILABLE
+
+        return null;
+    }
+
+    /**
+     * Compute the union of needed marker types across all online players for a
+     * specific NPC, then spawn missing and despawn unneeded markers.
+     *
+     * @param store         the entity store
+     * @param commandBuffer the command buffer for entity creation/removal
+     * @param world         the world (used to iterate online players)
+     * @param npcUuid       the NPC's entity UUID
+     * @param npcRecord     the NPC record
+     * @param npcPos        the NPC's current position
+     */
+    public void recalculateNpcMarkers(Store<EntityStore> store, CommandBuffer<EntityStore> commandBuffer,
+                                      World world, UUID npcUuid, NpcRecord npcRecord, Vector3d npcPos) {
+        EnumSet<MarkerType> needed = EnumSet.noneOf(MarkerType.class);
+
+        // Iterate all online players and union the needed marker types
+        @SuppressWarnings("removal")
+        var players = world.getPlayers();
+        for (Player player : players) {
+            @SuppressWarnings("removal")
+            UUID playerUuid = player.getPlayerRef().getUuid();
+            Ref<EntityStore> playerRef = world.getEntityRef(playerUuid);
+            if (playerRef == null) continue;
+            Nat20PlayerData playerData = store.getComponent(playerRef, Natural20.getPlayerDataType());
+            if (playerData == null) continue;
+
+            MarkerType type = resolveMarkerForPlayer(playerData, npcRecord);
+            if (type != null) {
+                needed.add(type);
+            }
+        }
+
+        // Spawn missing markers and despawn unneeded ones
+        for (MarkerType type : MarkerType.values()) {
+            if (needed.contains(type)) {
+                spawnMarker(store, commandBuffer, npcUuid, type, npcPos);
+            } else {
+                despawnMarker(store, commandBuffer, npcUuid, type);
+            }
+        }
+    }
+
+    /**
+     * Request a recalculation for a specific NPC. Safe to call from any thread
+     * (event handlers, etc.). The actual recalculation will be processed on the
+     * next ECS tick by {@link #processPendingRecalculations}.
+     *
+     * @param npcUuid the NPC's entity UUID
+     */
+    public void requestRecalculation(UUID npcUuid) {
+        pendingRecalculations.add(npcUuid);
+    }
+
+    /**
+     * Request recalculation for ALL known NPCs across all settlements.
+     * Used on player join/leave when any player's quest state affects which
+     * markers should be visible globally.
+     */
+    public void requestFullRecalculation() {
+        SettlementRegistry registry = Natural20.getInstance().getSettlementRegistry();
+        for (SettlementRecord settlement : registry.getAll().values()) {
+            for (NpcRecord npc : settlement.getNpcs()) {
+                if (npc.getEntityUUID() != null) {
+                    pendingRecalculations.add(npc.getEntityUUID());
+                }
+            }
+        }
+    }
+
+    /**
+     * Process any pending recalculations. Must be called from an ECS tick context
+     * with a valid CommandBuffer. Drains the pending queue and recalculates markers
+     * for each NPC.
+     *
+     * @param store         the entity store
+     * @param commandBuffer the command buffer
+     * @param world         the world (for player iteration)
+     */
+    public void processPendingRecalculations(Store<EntityStore> store,
+                                             CommandBuffer<EntityStore> commandBuffer,
+                                             World world) {
+        if (pendingRecalculations.isEmpty()) return;
+
+        Set<UUID> batch = new HashSet<>(pendingRecalculations);
+        pendingRecalculations.removeAll(batch);
+
+        SettlementRegistry registry = Natural20.getInstance().getSettlementRegistry();
+        for (UUID npcUuid : batch) {
+            NpcRecord npc = registry.getNpcByUUID(npcUuid);
+            if (npc == null) {
+                despawnAllMarkers(store, commandBuffer, npcUuid);
+                continue;
+            }
+            Vector3d npcPos = new Vector3d(npc.getSpawnX(), npc.getSpawnY(), npc.getSpawnZ());
+            recalculateNpcMarkers(store, commandBuffer, world, npcUuid, npc, npcPos);
+        }
     }
 
     // ---- internal helpers ----
