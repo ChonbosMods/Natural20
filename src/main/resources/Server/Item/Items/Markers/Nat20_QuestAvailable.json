@@ -1,0 +1,10 @@
+{
+  "TranslationProperties": {
+    "Name": "server.items.nat20_quest_available.name",
+    "Description": "server.items.nat20_quest_available.description"
+  },
+  "Categories": ["Markers"],
+  "Quality": "nat20_common",
+  "MaxStack": 1,
+  "Light": { "Level": 1, "Color": "#DDB711" }
+}
