@@ -327,17 +327,17 @@ public class TopicGraphBuilder {
                 }
             }
 
-            // Override entry valence for quest topics
-            entryValence = ValenceType.NEGATIVE;
+            // Set introText to first beat (entry node text)
             introText = beatTexts.getFirst();
         }
 
         // Entry node: UNLOCK_TOPIC on enter so the topic is globally available
+        ValenceType finalEntryValence = assignment.hasQuest() ? ValenceType.NEGATIVE : entryValence;
         List<Map<String, String>> entryOnEnter = assignment.hasQuest()
             ? List.of()
             : List.of(Map.of("type", "UNLOCK_TOPIC", "topicId", subjectId, "scope", "GLOBAL"));
         nodes.put(entryNodeId, new DialogueNode.DialogueTextNode(
-            introText, null, entryResponses, entryOnEnter, false, false, entryValence
+            introText, null, entryResponses, entryOnEnter, false, false, finalEntryValence
         ));
 
         // Topic definition
