@@ -651,6 +651,3339 @@
       ],
       "location_scope": "local",
       "quest_trigger": null
+    },
+    {
+      "id": 32,
+      "intro": "{npc_name} walked right past me yesterday without a word. I know they saw me.",
+      "details": [
+        "We made eye contact and everything. Just kept walking like I was part of the fence.",
+        "I replayed the last few days trying to figure out if I said something wrong. I came up empty."
+      ],
+      "reactions": [
+        "It stings more than it should. I thought we were fine."
+      ],
+      "statCheck": null,
+      "valence": "negative",
+      "topic_category": "npc_opinions",
+      "required_entities": [
+        "npc"
+      ],
+      "location_scope": "local",
+      "quest_trigger": null
+    },
+    {
+      "id": 33,
+      "intro": "{npc_name} has the best laugh in {settlement_name}. You can hear it from three houses away.",
+      "details": [
+        "It's not loud on purpose: it's just genuine. The kind that makes you smile even when you don't know the joke.",
+        "I've seen strangers stop in the road just because they heard it."
+      ],
+      "reactions": [
+        "A place with laughter like that can't be all bad."
+      ],
+      "statCheck": null,
+      "valence": "positive",
+      "topic_category": "npc_opinions",
+      "required_entities": [
+        "npc"
+      ],
+      "location_scope": "local",
+      "quest_trigger": null
+    },
+    {
+      "id": 34,
+      "intro": "I lent {npc_name} a hand with the well repair, and they didn't even say thanks.",
+      "details": [
+        "I was there for two hours hauling stones. At the end they just nodded and walked off.",
+        "Maybe they thought it was expected. Maybe I'm being petty. Either way it sat wrong."
+      ],
+      "reactions": [
+        "I'll think twice before volunteering next time."
+      ],
+      "statCheck": {
+        "pass": "I don't think it's rudeness exactly. Some people show gratitude through actions later: I just haven't seen it yet.",
+        "fail": "I don't know what to make of it. I just know how it felt."
+      },
+      "valence": "negative",
+      "topic_category": "npc_opinions",
+      "required_entities": [
+        "npc"
+      ],
+      "location_scope": "local",
+      "quest_trigger": null
+    },
+    {
+      "id": 35,
+      "intro": "{npc_name} brought me soup when I was sick last week. Didn't ask, just showed up with it.",
+      "details": [
+        "It wasn't fancy. Just broth and whatever greens were around. But it was warm and that's what mattered.",
+        "Stayed a few minutes to make sure I ate some, then left without making a fuss."
+      ],
+      "reactions": [
+        "That's the kind of thing you don't forget."
+      ],
+      "statCheck": null,
+      "valence": "positive",
+      "topic_category": "npc_opinions",
+      "required_entities": [
+        "npc"
+      ],
+      "location_scope": "local",
+      "quest_trigger": null
+    },
+    {
+      "id": 36,
+      "intro": "I think {npc_name} talks about me when I'm not around. I can't prove it, but I feel it.",
+      "details": [
+        "Conversations go quiet when I walk up sometimes. {npc_name} is usually right in the middle of them.",
+        "I've caught a look or two that seemed guilty. Could be nothing."
+      ],
+      "reactions": [
+        "I'm not going to confront anyone without proof. But I'm watching."
+      ],
+      "statCheck": {
+        "pass": "{npc_name} does this with everyone: talks freely behind backs but clams up face to face. It's a pattern.",
+        "fail": "Could be in my head. Hard to tell gossip from coincidence."
+      },
+      "valence": "negative",
+      "topic_category": "npc_opinions",
+      "required_entities": [
+        "npc"
+      ],
+      "location_scope": "local",
+      "quest_trigger": null
+    },
+    {
+      "id": 37,
+      "intro": "{npc_name} fixed the hinge on my door without being asked. I didn't even know it was broken.",
+      "details": [
+        "I came home and it just... worked properly. Took me a minute to realize what had changed.",
+        "When I thanked them they looked confused, like fixing things for people was just what you do."
+      ],
+      "reactions": [
+        "The world needs more people who notice the little things."
+      ],
+      "statCheck": null,
+      "valence": "positive",
+      "topic_category": "npc_opinions",
+      "required_entities": [
+        "npc"
+      ],
+      "location_scope": "local",
+      "quest_trigger": null
+    },
+    {
+      "id": 38,
+      "intro": "I've never seen anyone eat as fast as {npc_name}. It's almost impressive.",
+      "details": [
+        "A whole bowl of stew gone in the time it takes me to find my spoon.",
+        "They don't even seem to chew. It just vanishes."
+      ],
+      "reactions": [
+        "I'm not judging. I'm just fascinated."
+      ],
+      "statCheck": null,
+      "valence": "neutral",
+      "topic_category": "npc_opinions",
+      "required_entities": [
+        "npc"
+      ],
+      "location_scope": "local",
+      "quest_trigger": null
+    },
+    {
+      "id": 39,
+      "intro": "{npc_name} keeps starting projects and never finishing them. There's half-built things all over.",
+      "details": [
+        "There's a shelf with no brackets, a fence with one post, and something near the well I can't even identify.",
+        "Every week it's a new idea. Last week's project just sits there gathering rain."
+      ],
+      "reactions": [
+        "I've learned not to get excited when they say they're building something."
+      ],
+      "statCheck": {
+        "pass": "They lose interest the moment the problem-solving part is done. The building is the boring part for them.",
+        "fail": "I don't know why they never finish. Maybe they just get bored."
+      },
+      "valence": "negative",
+      "topic_category": "npc_opinions",
+      "required_entities": [
+        "npc"
+      ],
+      "location_scope": "local",
+      "quest_trigger": null
+    },
+    {
+      "id": 40,
+      "intro": "I trust {npc_name} more than just about anyone here. They've earned it.",
+      "details": [
+        "When I told them something in confidence last year, it stayed between us. Not a whisper to anyone.",
+        "That sounds basic, but you'd be surprised how rare it actually is."
+      ],
+      "reactions": [
+        "Real trust takes years to build. I don't hand it out lightly."
+      ],
+      "statCheck": null,
+      "valence": "positive",
+      "topic_category": "npc_opinions",
+      "required_entities": [
+        "npc"
+      ],
+      "location_scope": "local",
+      "quest_trigger": null
+    },
+    {
+      "id": 41,
+      "intro": "{npc_name} always has an opinion about how I do my work. Always.",
+      "details": [
+        "Yesterday it was the angle of my cuts. Day before that, the way I sort my materials.",
+        "I've been doing this job since before {npc_name} moved here."
+      ],
+      "reactions": [
+        "One of these days I'm going to smile, nod, and do it my way. Same as always."
+      ],
+      "statCheck": null,
+      "valence": "negative",
+      "topic_category": "npc_opinions",
+      "required_entities": [
+        "npc"
+      ],
+      "location_scope": "local",
+      "quest_trigger": null
+    },
+    {
+      "id": 42,
+      "intro": "{npc_name} and {npc_name_2} are practically inseparable these days.",
+      "details": [
+        "You see one, the other's not far behind. They've got their own shorthand and inside jokes already.",
+        "I don't know when it started, but they've become a unit."
+      ],
+      "reactions": [
+        "Good for them. Everyone needs someone they can count on."
+      ],
+      "statCheck": null,
+      "valence": "positive",
+      "topic_category": "npc_opinions",
+      "required_entities": [
+        "npc",
+        "npc"
+      ],
+      "location_scope": "local",
+      "quest_trigger": null
+    },
+    {
+      "id": 43,
+      "intro": "{npc_name} complains about everything, and I mean everything.",
+      "details": [
+        "Too hot, too cold, too early, too late. The bread's too dry, the water's too wet.",
+        "I timed it once: four complaints before finishing a cup of tea."
+      ],
+      "reactions": [
+        "I've started treating it like weather. It's just background noise at this point."
+      ],
+      "statCheck": {
+        "pass": "I think complaining is how they process the world. It's not anger: it's narration. Everything gets a critique.",
+        "fail": "I have no idea why they do it. Some people just run on grievance."
+      },
+      "valence": "negative",
+      "topic_category": "npc_opinions",
+      "required_entities": [
+        "npc"
+      ],
+      "location_scope": "local",
+      "quest_trigger": null
+    },
+    {
+      "id": 44,
+      "intro": "{npc_name} remembered my birthday when I'd forgotten it myself.",
+      "details": [
+        "Left a little bundle of dried herbs on my doorstep with a note. Nothing big, but thoughtful.",
+        "I didn't even know they knew when it was."
+      ],
+      "reactions": [
+        "It's the noticing that matters more than the gift."
+      ],
+      "statCheck": null,
+      "valence": "positive",
+      "topic_category": "npc_opinions",
+      "required_entities": [
+        "npc"
+      ],
+      "location_scope": "local",
+      "quest_trigger": null
+    },
+    {
+      "id": 45,
+      "intro": "I don't think {npc_name} likes me very much, and honestly, the feeling is mutual.",
+      "details": [
+        "We're civil. We nod. We keep it short. That's about the best either of us can manage.",
+        "It's been that way since we disagreed about the well placement. Some grudges just settle in."
+      ],
+      "reactions": [
+        "We don't have to be friends. We just have to coexist."
+      ],
+      "statCheck": null,
+      "valence": "negative",
+      "topic_category": "npc_opinions",
+      "required_entities": [
+        "npc"
+      ],
+      "location_scope": "local",
+      "quest_trigger": null
+    },
+    {
+      "id": 46,
+      "intro": "{npc_name} was singing while washing clothes this morning. Caught me off guard.",
+      "details": [
+        "I don't think they knew anyone was listening. I stood there a bit longer than I needed to.",
+        "Old song, something about rivers. The kind your grandmother would know."
+      ],
+      "reactions": [
+        "I couldn't tell you if it was good or not. But it stuck with me."
+      ],
+      "statCheck": null,
+      "valence": "neutral",
+      "topic_category": "npc_opinions",
+      "required_entities": [
+        "npc"
+      ],
+      "location_scope": "local",
+      "quest_trigger": null
+    },
+    {
+      "id": 47,
+      "intro": "I asked {npc_name} a simple yes-or-no question and got a twenty-minute answer.",
+      "details": [
+        "By the end I'd forgotten what I asked. I think they had too.",
+        "It's not that they're boring: they just can't find the off switch once they get going."
+      ],
+      "reactions": [
+        "Next time I'll ask when I'm already walking somewhere."
+      ],
+      "statCheck": null,
+      "valence": "neutral",
+      "topic_category": "npc_opinions",
+      "required_entities": [
+        "npc"
+      ],
+      "location_scope": "local",
+      "quest_trigger": null
+    },
+    {
+      "id": 48,
+      "intro": "{npc_name} is the first person I'd go to in an emergency. No question about it.",
+      "details": [
+        "Calm head, steady hands, doesn't waste time panicking. They just start solving the problem.",
+        "I've seen it twice now and both times they were the reason things didn't get worse."
+      ],
+      "reactions": [
+        "You don't know who the reliable ones are until something goes wrong."
+      ],
+      "statCheck": null,
+      "valence": "positive",
+      "topic_category": "npc_opinions",
+      "required_entities": [
+        "npc"
+      ],
+      "location_scope": "local",
+      "quest_trigger": null
+    },
+    {
+      "id": 49,
+      "intro": "{npc_name} has a way of making everything sound like a competition.",
+      "details": [
+        "I mentioned I gathered a full basket of mushrooms and suddenly they'd gathered two last week.",
+        "It's exhausting. You can't share good news without it turning into a contest."
+      ],
+      "reactions": [
+        "I've started keeping things to myself. It's just easier."
+      ],
+      "statCheck": {
+        "pass": "I think they're insecure and overcompensate. It's not malice: it's a need to feel capable.",
+        "fail": "I don't know why they do it. Maybe they just can't help themselves."
+      },
+      "valence": "negative",
+      "topic_category": "npc_opinions",
+      "required_entities": [
+        "npc"
+      ],
+      "location_scope": "local",
+      "quest_trigger": null
+    },
+    {
+      "id": 50,
+      "intro": "I found out {npc_name} has been watering my garden plot while I've been laid up. Never mentioned it.",
+      "details": [
+        "I only know because {npc_name_2} saw them out there at dawn and told me.",
+        "The plants look better than when I tend them myself, honestly."
+      ],
+      "reactions": [
+        "Some kindness is best when it's quiet."
+      ],
+      "statCheck": null,
+      "valence": "positive",
+      "topic_category": "npc_opinions",
+      "required_entities": [
+        "npc",
+        "npc"
+      ],
+      "location_scope": "local",
+      "quest_trigger": null
+    },
+    {
+      "id": 51,
+      "intro": "{npc_name} never looks you in the eye when they're talking. Makes me uneasy.",
+      "details": [
+        "Always looking past you, or down, or at something over your shoulder.",
+        "I've tried shifting position to catch their gaze. They just shift too."
+      ],
+      "reactions": [
+        "Probably just how they are. Not everyone's comfortable with eye contact."
+      ],
+      "statCheck": null,
+      "valence": "neutral",
+      "topic_category": "npc_opinions",
+      "required_entities": [
+        "npc"
+      ],
+      "location_scope": "local",
+      "quest_trigger": null
+    },
+    {
+      "id": 52,
+      "intro": "{npc_name} volunteered to take my night watch shift so I could rest. Didn't want anything for it.",
+      "details": [
+        "I'd been up two nights running and it must have shown. They just said 'go sleep, I've got it.'",
+        "Came back in the morning and everything was in order. No fuss."
+      ],
+      "reactions": [
+        "I won't forget that."
+      ],
+      "statCheck": null,
+      "valence": "positive",
+      "topic_category": "npc_opinions",
+      "required_entities": [
+        "npc"
+      ],
+      "location_scope": "local",
+      "quest_trigger": null
+    },
+    {
+      "id": 53,
+      "intro": "I caught {npc_name} going through the supply shed at a strange hour. I didn't say anything, but I noticed.",
+      "details": [
+        "Could have been perfectly innocent. People need things at odd times.",
+        "But they were jumpy when they heard me coming. That part felt off."
+      ],
+      "reactions": [
+        "I'm not making accusations. I'm just paying more attention now."
+      ],
+      "statCheck": {
+        "pass": "I've seen them do it twice now, both times late evening. Whatever they're after, they'd rather no one see.",
+        "fail": "It was dark and I was tired. Might have read the whole thing wrong."
+      },
+      "valence": "negative",
+      "topic_category": "npc_opinions",
+      "required_entities": [
+        "npc"
+      ],
+      "location_scope": "local",
+      "quest_trigger": null
+    },
+    {
+      "id": 54,
+      "intro": "{npc_name} is the kind of person who listens when you talk. Actually listens.",
+      "details": [
+        "They don't interrupt. They don't start thinking about what they're going to say next.",
+        "I told them about a problem I was having and a week later they checked in on it. Remembered every detail."
+      ],
+      "reactions": [
+        "Most people hear you. {npc_name} pays attention."
+      ],
+      "statCheck": null,
+      "valence": "positive",
+      "topic_category": "npc_opinions",
+      "required_entities": [
+        "npc"
+      ],
+      "location_scope": "local",
+      "quest_trigger": null
+    },
+    {
+      "id": 55,
+      "intro": "{npc_name} borrowed my good knife and returned it duller than a river stone.",
+      "details": [
+        "I spent an hour at the whetstone getting the edge back. An hour I'll never get back.",
+        "They handed it over like nothing was wrong. I don't think they even noticed."
+      ],
+      "reactions": [
+        "I'm putting my name on my tools from now on. All of them."
+      ],
+      "statCheck": {
+        "pass": "They were using it to pry something: I can tell from the nick pattern on the edge. That's not what a knife is for.",
+        "fail": "I don't know what they did to it. Doesn't matter: the damage is done."
+      },
+      "valence": "negative",
+      "topic_category": "npc_opinions",
+      "required_entities": [
+        "npc"
+      ],
+      "location_scope": "local",
+      "quest_trigger": null
+    },
+    {
+      "id": 56,
+      "intro": "I've noticed {npc_name} always makes sure the elderly folk have what they need. Quietly, without anyone asking.",
+      "details": [
+        "Carrying water, stacking wood by their doors, checking in after storms.",
+        "Most people around here barely notice. But I see it."
+      ],
+      "reactions": [
+        "That tells you everything about a person's character."
+      ],
+      "statCheck": null,
+      "valence": "positive",
+      "topic_category": "npc_opinions",
+      "required_entities": [
+        "npc"
+      ],
+      "location_scope": "local",
+      "quest_trigger": null
+    },
+    {
+      "id": 57,
+      "intro": "{npc_name} has a habit of standing too close when they talk to you.",
+      "details": [
+        "I take a step back, they take a step forward. We've crossed entire rooms this way.",
+        "I don't think they realize they're doing it."
+      ],
+      "reactions": [
+        "I've started having conversations near walls. Nowhere left to advance."
+      ],
+      "statCheck": null,
+      "valence": "neutral",
+      "topic_category": "npc_opinions",
+      "required_entities": [
+        "npc"
+      ],
+      "location_scope": "local",
+      "quest_trigger": null
+    },
+    {
+      "id": 58,
+      "intro": "{npc_name} told {npc_name_2} something I said in confidence. I found out the hard way.",
+      "details": [
+        "{npc_name_2} brought it up casually like everyone already knew. My stomach dropped.",
+        "It wasn't anything terrible, but that's not the point."
+      ],
+      "reactions": [
+        "Trust broken is trust broken, no matter how small the secret."
+      ],
+      "statCheck": null,
+      "valence": "negative",
+      "topic_category": "npc_opinions",
+      "required_entities": [
+        "npc",
+        "npc"
+      ],
+      "location_scope": "local",
+      "quest_trigger": null
+    },
+    {
+      "id": 59,
+      "intro": "{npc_name} takes tea very seriously. I've never seen someone put that much thought into a cup.",
+      "details": [
+        "There's something about the way they brew it: slow, patient, always the right temperature.",
+        "I've tried to copy it at home and it's never the same."
+      ],
+      "reactions": [
+        "I can't tell if it's a skill or just a personality trait at this point."
+      ],
+      "statCheck": null,
+      "valence": "neutral",
+      "topic_category": "npc_opinions",
+      "required_entities": [
+        "npc"
+      ],
+      "location_scope": "local",
+      "quest_trigger": null
+    },
+    {
+      "id": 60,
+      "intro": "{npc_name} acts differently around {npc_name_2} than everyone else. I've noticed.",
+      "details": [
+        "With the rest of us it's all confidence and big talk. Around {npc_name_2} they go quiet and fidgety.",
+        "It's been going on for weeks. I'm not the only one who's picked up on it."
+      ],
+      "reactions": [
+        "Not my business. But it's hard not to notice."
+      ],
+      "statCheck": {
+        "pass": "I think they admire {npc_name_2} and don't quite know how to show it. It comes out as awkwardness.",
+        "fail": "No idea what's behind it. People are strange sometimes."
+      },
+      "valence": "neutral",
+      "topic_category": "npc_opinions",
+      "required_entities": [
+        "npc",
+        "npc"
+      ],
+      "location_scope": "local",
+      "quest_trigger": null
+    },
+    {
+      "id": 61,
+      "intro": "{npc_name} always volunteers for the worst jobs. The muddy, cold, thankless ones.",
+      "details": [
+        "Ditch clearing, roof patching in the rain, hauling waste. Never complains about any of it.",
+        "I asked why once and they just shrugged and said somebody has to."
+      ],
+      "reactions": [
+        "I respect that more than all the big talk from people who never lift a finger."
+      ],
+      "statCheck": null,
+      "valence": "positive",
+      "topic_category": "npc_opinions",
+      "required_entities": [
+        "npc"
+      ],
+      "location_scope": "local",
+      "quest_trigger": null
+    },
+    {
+      "id": 62,
+      "intro": "{npc_name} has been avoiding me and I have no idea why.",
+      "details": [
+        "They changed direction twice when they saw me coming. Both times they pretended to be going somewhere else.",
+        "I went over what I've said and done recently and nothing stands out."
+      ],
+      "reactions": [
+        "If I did something wrong, I'd rather just hear it."
+      ],
+      "statCheck": {
+        "pass": "I noticed it started right after the gathering last week. Maybe something happened there that I missed.",
+        "fail": "I've got nothing. Completely in the dark."
+      },
+      "valence": "negative",
+      "topic_category": "npc_opinions",
+      "required_entities": [
+        "npc"
+      ],
+      "location_scope": "local",
+      "quest_trigger": null
+    },
+    {
+      "id": 63,
+      "intro": "{npc_name} sat with me during that thunderstorm when the roof was leaking and we couldn't sleep.",
+      "details": [
+        "We just talked about nothing for hours. Childhood, food we missed, places we'd never been.",
+        "By morning the storm had passed and I felt like I'd known them my whole life."
+      ],
+      "reactions": [
+        "Some friendships start in the strangest moments."
+      ],
+      "statCheck": null,
+      "valence": "positive",
+      "topic_category": "npc_opinions",
+      "required_entities": [
+        "npc"
+      ],
+      "location_scope": "local",
+      "quest_trigger": null
+    },
+    {
+      "id": 64,
+      "intro": "{npc_name} has this way of sighing that makes you feel like you've disappointed them personally.",
+      "details": [
+        "It's a deep one, from the chest. Usually aimed at whatever you've just said.",
+        "I don't think they know they do it. Or maybe they do and that's worse."
+      ],
+      "reactions": [
+        "I've started second-guessing myself before I even open my mouth around them."
+      ],
+      "statCheck": {
+        "pass": "It's a habit from their upbringing, I think. Where they grew up, sighing was just how people expressed thought: not disapproval.",
+        "fail": "No idea if it's intentional. Either way, the effect is the same."
+      },
+      "valence": "negative",
+      "topic_category": "npc_opinions",
+      "required_entities": [
+        "npc"
+      ],
+      "location_scope": "local",
+      "quest_trigger": null
+    },
+    {
+      "id": 65,
+      "intro": "When things go sideways, {npc_name} is the one cracking jokes to keep everyone steady.",
+      "details": [
+        "Not in a dismissive way. More like they know people need something to hold onto besides worry.",
+        "Last time the creek flooded, they had us laughing while we sandbagged. Made it bearable."
+      ],
+      "reactions": [
+        "Humor like that is a kind of strength. Most people don't see it that way, but it is."
+      ],
+      "statCheck": null,
+      "valence": "positive",
+      "topic_category": "npc_opinions",
+      "required_entities": [
+        "npc"
+      ],
+      "location_scope": "local",
+      "quest_trigger": null
+    },
+    {
+      "id": 66,
+      "intro": "{npc_name} chews with their mouth open and it's all I can hear at mealtimes.",
+      "details": [
+        "I've moved seats. I've tried eating at different times. They always end up nearby.",
+        "Nobody else seems bothered. I might be losing my mind."
+      ],
+      "reactions": [
+        "It's such a stupid thing to be annoyed about. And yet."
+      ],
+      "statCheck": null,
+      "valence": "negative",
+      "topic_category": "npc_opinions",
+      "required_entities": [
+        "npc"
+      ],
+      "location_scope": "local",
+      "quest_trigger": null
+    },
+    {
+      "id": 67,
+      "intro": "I used to think {npc_name} didn't like me. Now I think they're just shy.",
+      "details": [
+        "Once we actually talked, properly talked, I realized the coldness was probably just nerves.",
+        "We get along better now. But it took me longer to figure them out than most."
+      ],
+      "reactions": [
+        "First impressions aren't always the right ones. I try to remember that."
+      ],
+      "statCheck": null,
+      "valence": "neutral",
+      "topic_category": "npc_opinions",
+      "required_entities": [
+        "npc"
+      ],
+      "location_scope": "local",
+      "quest_trigger": null
+    },
+    {
+      "id": 68,
+      "intro": "{npc_name} cracks their knuckles constantly. I mean constantly.",
+      "details": [
+        "Every finger, one by one, then both hands at once. Multiple times an hour.",
+        "I flinch every single time. They find that funny, which doesn't help."
+      ],
+      "reactions": [
+        "Small habits shouldn't bother you this much. But some do."
+      ],
+      "statCheck": null,
+      "valence": "neutral",
+      "topic_category": "npc_opinions",
+      "required_entities": [
+        "npc"
+      ],
+      "location_scope": "local",
+      "quest_trigger": null
+    },
+    {
+      "id": 69,
+      "intro": "I ran into {npc_name} at the worst moment of my week. They said exactly the right thing.",
+      "details": [
+        "Nothing grand. Just 'it'll keep' and a firm nod. But somehow it was enough.",
+        "I don't even think they knew how bad my day was. Some people just sense it."
+      ],
+      "reactions": [
+        "The right words at the right time can carry you further than you'd think."
+      ],
+      "statCheck": null,
+      "valence": "positive",
+      "topic_category": "npc_opinions",
+      "required_entities": [
+        "npc"
+      ],
+      "location_scope": "local",
+      "quest_trigger": null
+    },
+    {
+      "id": 70,
+      "intro": "{npc_name} agreed to split the cost of new fencing with me and then backed out.",
+      "details": [
+        "Said the price was too high after we'd already agreed. Left me holding the full bill.",
+        "The fence still needs building. I'm doing it alone now."
+      ],
+      "reactions": [
+        "An agreement should mean something. Otherwise what are words for?"
+      ],
+      "statCheck": null,
+      "valence": "negative",
+      "topic_category": "npc_opinions",
+      "required_entities": [
+        "npc"
+      ],
+      "location_scope": "local",
+      "quest_trigger": null
+    },
+    {
+      "id": 71,
+      "intro": "{npc_name} always waves when they see me. Every single time, without fail.",
+      "details": [
+        "Across the road, through a window, from the other end of the field. Always a wave.",
+        "I'm not sure if they do it with everyone or if it's just me."
+      ],
+      "reactions": [
+        "I wave back. What else are you going to do?"
+      ],
+      "statCheck": null,
+      "valence": "neutral",
+      "topic_category": "npc_opinions",
+      "required_entities": [
+        "npc"
+      ],
+      "location_scope": "local",
+      "quest_trigger": null
+    },
+    {
+      "id": 72,
+      "intro": "I heard {npc_name} and {npc_name_2} had a shouting match behind the storehouse.",
+      "details": [
+        "Didn't catch what it was about, but you could hear them from the road.",
+        "By evening they were sitting together like nothing happened. I'll never understand those two."
+      ],
+      "reactions": [
+        "Some people fight loud and forgive fast. Better than holding grudges, I suppose."
+      ],
+      "statCheck": null,
+      "valence": "neutral",
+      "topic_category": "npc_opinions",
+      "required_entities": [
+        "npc",
+        "npc"
+      ],
+      "location_scope": "local",
+      "quest_trigger": null
+    },
+    {
+      "id": 73,
+      "intro": "{npc_name} takes everything personally. You can't give the mildest feedback without it becoming a crisis.",
+      "details": [
+        "I suggested a different way to hang the lanterns and you'd have thought I insulted their family.",
+        "Spent the rest of the day barely speaking to anyone."
+      ],
+      "reactions": [
+        "I've learned to phrase things very, very carefully around them."
+      ],
+      "statCheck": {
+        "pass": "I think they tie their self-worth to their work. Any criticism of the work feels like criticism of them.",
+        "fail": "I don't know why they're so sensitive. Some people just are."
+      },
+      "valence": "negative",
+      "topic_category": "npc_opinions",
+      "required_entities": [
+        "npc"
+      ],
+      "location_scope": "local",
+      "quest_trigger": null
+    },
+    {
+      "id": 74,
+      "intro": "There's something steady about {npc_name}. Like a tree that's been there longer than the path.",
+      "details": [
+        "They don't get rattled. Good news, bad news: same calm face, same measured response.",
+        "When everyone else is running around in circles, {npc_name} is the one standing still and thinking."
+      ],
+      "reactions": [
+        "Steadiness like that is undervalued. Until you need it."
+      ],
+      "statCheck": null,
+      "valence": "positive",
+      "topic_category": "npc_opinions",
+      "required_entities": [
+        "npc"
+      ],
+      "location_scope": "local",
+      "quest_trigger": null
+    },
+    {
+      "id": 75,
+      "intro": "{npc_name} only talks to you when they need something. I've been keeping track.",
+      "details": [
+        "Three conversations this month. Every one ended with a favor being asked.",
+        "Between those it's like I don't exist. I could be a fence post."
+      ],
+      "reactions": [
+        "Next time they come around with that friendly opening, I'll know what's coming."
+      ],
+      "statCheck": null,
+      "valence": "negative",
+      "topic_category": "npc_opinions",
+      "required_entities": [
+        "npc"
+      ],
+      "location_scope": "local",
+      "quest_trigger": null
+    },
+    {
+      "id": 76,
+      "intro": "{npc_name} walked me home in the dark last week when the path was icy. Wouldn't let me go alone.",
+      "details": [
+        "I said I'd be fine and they said 'probably, but I'm going that way anyway.' They weren't.",
+        "We walked in comfortable silence most of the way."
+      ],
+      "reactions": [
+        "Small kindnesses like that stick with you."
+      ],
+      "statCheck": null,
+      "valence": "positive",
+      "topic_category": "npc_opinions",
+      "required_entities": [
+        "npc"
+      ],
+      "location_scope": "local",
+      "quest_trigger": null
+    },
+    {
+      "id": 77,
+      "intro": "{npc_name} leaves their things everywhere. The common areas look like a storm hit.",
+      "details": [
+        "Boots by the door, tools on the bench, a coat draped over something new every day.",
+        "I moved a pair of gloves once and got asked why I was touching their stuff."
+      ],
+      "reactions": [
+        "Shared space means shared responsibility. Apparently not everyone got that message."
+      ],
+      "statCheck": {
+        "pass": "They spread out because they're always mid-task on three things at once. The mess is a map of their day.",
+        "fail": "I can't explain it. Some people just don't see clutter."
+      },
+      "valence": "negative",
+      "topic_category": "npc_opinions",
+      "required_entities": [
+        "npc"
+      ],
+      "location_scope": "local",
+      "quest_trigger": null
+    },
+    {
+      "id": 78,
+      "intro": "I genuinely look forward to seeing {npc_name} each day. They brighten the place up.",
+      "details": [
+        "Always a kind word, always interested in how you're doing. And they mean it: you can tell.",
+        "Some mornings just hearing them say 'good morning' properly resets my whole mood."
+      ],
+      "reactions": [
+        "People who spread warmth without trying are rare. I don't take it for granted."
+      ],
+      "statCheck": null,
+      "valence": "positive",
+      "topic_category": "npc_opinions",
+      "required_entities": [
+        "npc"
+      ],
+      "location_scope": "local",
+      "quest_trigger": null
+    },
+    {
+      "id": 79,
+      "intro": "{npc_name} exaggerates everything. A light rain becomes a flood, a scratch becomes a wound.",
+      "details": [
+        "Last week a cat knocked over a cup and to hear them tell it, the whole shelf came down.",
+        "You learn to divide every story by three and you're closer to the truth."
+      ],
+      "reactions": [
+        "They're entertaining, I'll give them that. Just not reliable as a source."
+      ],
+      "statCheck": null,
+      "valence": "neutral",
+      "topic_category": "npc_opinions",
+      "required_entities": [
+        "npc"
+      ],
+      "location_scope": "local",
+      "quest_trigger": null
+    },
+    {
+      "id": 80,
+      "intro": "{npc_name} taught me how to tie a proper knot last month. I still use it.",
+      "details": [
+        "Showed me three times. Patient about it, which I didn't expect.",
+        "It's one of those things: simple once you know it, but someone has to show you."
+      ],
+      "reactions": [
+        "Funny how a small skill from a random afternoon sticks around longer than most conversations."
+      ],
+      "statCheck": null,
+      "valence": "neutral",
+      "topic_category": "npc_opinions",
+      "required_entities": [
+        "npc"
+      ],
+      "location_scope": "local",
+      "quest_trigger": null
+    },
+    {
+      "id": 81,
+      "intro": "{npc_name} has been playing favorites and I'm clearly not on the list.",
+      "details": [
+        "Certain people get help, certain people get smiles. The rest of us get leftovers.",
+        "I noticed whose roof got patched first after the last storm. Wasn't random."
+      ],
+      "reactions": [
+        "Fair treatment shouldn't depend on who you eat lunch with."
+      ],
+      "statCheck": {
+        "pass": "It's not deliberate cruelty: it's just that some people are in the inner circle and some aren't. Doesn't make it fair.",
+        "fail": "Maybe I'm reading too much into it. Hard to know from the outside."
+      },
+      "valence": "negative",
+      "topic_category": "npc_opinions",
+      "required_entities": [
+        "npc"
+      ],
+      "location_scope": "local",
+      "quest_trigger": null
+    },
+    {
+      "id": 82,
+      "intro": "{npc_name} gave me advice once that completely changed how I approach my work.",
+      "details": [
+        "It was offhand, not even a proper conversation. But it solved a problem I'd been wrestling with for weeks.",
+        "I don't think they even remember saying it."
+      ],
+      "reactions": [
+        "Funny how the biggest insights come from the smallest moments."
+      ],
+      "statCheck": null,
+      "valence": "positive",
+      "topic_category": "npc_opinions",
+      "required_entities": [
+        "npc"
+      ],
+      "location_scope": "local",
+      "quest_trigger": null
+    },
+    {
+      "id": 83,
+      "intro": "I'm pretty sure {npc_name} ate the last of the preserved fruit and blamed it on animals.",
+      "details": [
+        "The jar was on a high shelf. No animal I know has thumbs and a stool.",
+        "I didn't press it. But I'm not making more until I get a straight answer."
+      ],
+      "reactions": [
+        "Just own up to it. That's all I ask."
+      ],
+      "statCheck": {
+        "pass": "There were crumbs on the worktable and {npc_name}'s cup was still wet. The timing fits perfectly.",
+        "fail": "I can't prove it. But I know what I know."
+      },
+      "valence": "negative",
+      "topic_category": "npc_opinions",
+      "required_entities": [
+        "npc"
+      ],
+      "location_scope": "local",
+      "quest_trigger": null
+    },
+    {
+      "id": 84,
+      "intro": "{npc_name} is one of those rare people who apologizes when they're wrong. Actually means it too.",
+      "details": [
+        "No hedging, no 'sorry if you felt that way.' Just a plain 'I was wrong, I'm sorry.'",
+        "It happened once over a scheduling mix-up and I've respected them more ever since."
+      ],
+      "reactions": [
+        "That kind of honesty takes more courage than most people realize."
+      ],
+      "statCheck": null,
+      "valence": "positive",
+      "topic_category": "npc_opinions",
+      "required_entities": [
+        "npc"
+      ],
+      "location_scope": "local",
+      "quest_trigger": null
+    },
+    {
+      "id": 85,
+      "intro": "{npc_name} has a different excuse every time something doesn't get done.",
+      "details": [
+        "Monday it's the weather. Tuesday it's their back. By the end of the week they've run out of reasons and just shrug.",
+        "The work still needs doing. Excuses don't patch roofs."
+      ],
+      "reactions": [
+        "At some point you stop asking and start planning around them."
+      ],
+      "statCheck": null,
+      "valence": "negative",
+      "topic_category": "npc_opinions",
+      "required_entities": [
+        "npc"
+      ],
+      "location_scope": "local",
+      "quest_trigger": null
+    },
+    {
+      "id": 86,
+      "intro": "I used to keep my distance from {npc_name}. Now I'd call them a friend.",
+      "details": [
+        "Took a while. We rubbed each other wrong at first: different habits, different rhythms.",
+        "Then one day we ended up stuck waiting out rain under the same overhang, and something shifted."
+      ],
+      "reactions": [
+        "Some of the best friendships aren't instant. They take seasoning."
+      ],
+      "statCheck": null,
+      "valence": "positive",
+      "topic_category": "npc_opinions",
+      "required_entities": [
+        "npc"
+      ],
+      "location_scope": "local",
+      "quest_trigger": null
+    },
+    {
+      "id": 87,
+      "intro": "{npc_name} watches everyone. Not in a threatening way, just... always observing.",
+      "details": [
+        "You'll look up and find them sitting there, taking it all in. Quiet as a cat on a windowsill.",
+        "I asked what they're thinking about once and they said 'nothing in particular.' I doubt that."
+      ],
+      "reactions": [
+        "I can't decide if it's comforting or unsettling. Depends on the day."
+      ],
+      "statCheck": null,
+      "valence": "neutral",
+      "topic_category": "npc_opinions",
+      "required_entities": [
+        "npc"
+      ],
+      "location_scope": "local",
+      "quest_trigger": null
+    },
+    {
+      "id": 88,
+      "intro": "{npc_name} wakes up before everyone else. I've never once beaten them to the well.",
+      "details": [
+        "Dawn's barely cracking and they've already got water drawn and a fire going.",
+        "I tried getting up early to surprise them once. They were already done."
+      ],
+      "reactions": [
+        "I don't know when they sleep. Maybe they don't."
+      ],
+      "statCheck": {
+        "pass": "I've seen a candle in their window at odd hours. I think they sleep in short bursts, not one long stretch.",
+        "fail": "No idea how they manage it. Some people just need less sleep."
+      },
+      "valence": "neutral",
+      "topic_category": "npc_opinions",
+      "required_entities": [
+        "npc"
+      ],
+      "location_scope": "local",
+      "quest_trigger": null
+    },
+    {
+      "id": 89,
+      "intro": "{npc_name} sided with {npc_name_2} over me during the path dispute, and I haven't forgotten.",
+      "details": [
+        "I laid out my reasoning clear as day. {npc_name} just nodded along and then voted the other way.",
+        "It's not about the path. It's about not being heard."
+      ],
+      "reactions": [
+        "We're civil. But there's a distance now that wasn't there before."
+      ],
+      "statCheck": null,
+      "valence": "negative",
+      "topic_category": "npc_opinions",
+      "required_entities": [
+        "npc",
+        "npc"
+      ],
+      "location_scope": "local",
+      "quest_trigger": null
+    },
+    {
+      "id": 90,
+      "intro": "{npc_name} shares their harvest without keeping score. I've never seen them ask for anything back.",
+      "details": [
+        "Good season, bad season: there's always something at your door if you need it.",
+        "I've tried to repay them and they wave it off like it's nothing."
+      ],
+      "reactions": [
+        "Generosity without conditions is the rarest kind."
+      ],
+      "statCheck": null,
+      "valence": "positive",
+      "topic_category": "npc_opinions",
+      "required_entities": [
+        "npc"
+      ],
+      "location_scope": "local",
+      "quest_trigger": null
+    },
+    {
+      "id": 91,
+      "intro": "{npc_name} corrected me in front of everyone yesterday. Could have pulled me aside.",
+      "details": [
+        "I know I was wrong about the measurements. That's not the issue.",
+        "The issue is making someone feel small in front of others when a quiet word would do."
+      ],
+      "reactions": [
+        "I'll get over it. But I'll remember how it felt."
+      ],
+      "statCheck": null,
+      "valence": "negative",
+      "topic_category": "npc_opinions",
+      "required_entities": [
+        "npc"
+      ],
+      "location_scope": "local",
+      "quest_trigger": null
+    },
+    {
+      "id": 92,
+      "intro": "You know what I like about {npc_name}? They admit when they don't know something.",
+      "details": [
+        "No bluffing, no making things up. Just a straight 'I don't know' and then they go find out.",
+        "In a world of people pretending to have answers, that's refreshing."
+      ],
+      "reactions": [
+        "Honesty about ignorance is its own kind of wisdom."
+      ],
+      "statCheck": null,
+      "valence": "positive",
+      "topic_category": "npc_opinions",
+      "required_entities": [
+        "npc"
+      ],
+      "location_scope": "local",
+      "quest_trigger": null
+    },
+    {
+      "id": 93,
+      "intro": "{npc_name} snores so loud you can hear it through the walls. I'm losing sleep over it.",
+      "details": [
+        "I've tried stuffing cloth in my ears. I've tried sleeping at the other end of the house. Nothing works.",
+        "Brought it up once and they said they don't snore. I wanted to laugh."
+      ],
+      "reactions": [
+        "If I look tired, now you know why."
+      ],
+      "statCheck": {
+        "pass": "It gets worse when they sleep on their back. If someone nudged them to roll over it would stop. But nobody wants that job.",
+        "fail": "I have no remedy. I've tried everything short of moving."
+      },
+      "valence": "negative",
+      "topic_category": "npc_opinions",
+      "required_entities": [
+        "npc"
+      ],
+      "location_scope": "local",
+      "quest_trigger": null
+    },
+    {
+      "id": 94,
+      "intro": "{npc_name} defended me when people were talking behind my back. I only heard about it later.",
+      "details": [
+        "Someone was saying unfair things and {npc_name} shut it down. Didn't even tell me they'd done it.",
+        "I found out through someone else who was there."
+      ],
+      "reactions": [
+        "That's loyalty. The real kind, not the kind that needs an audience."
+      ],
+      "statCheck": null,
+      "valence": "positive",
+      "topic_category": "npc_opinions",
+      "required_entities": [
+        "npc"
+      ],
+      "location_scope": "local",
+      "quest_trigger": null
+    },
+    {
+      "id": 95,
+      "intro": "I'm fairly sure {npc_name} is the reason my fence keeps getting knocked loose.",
+      "details": [
+        "It happens on the side closest to their property. Same boards, every time.",
+        "I've repaired it three times this month. At some point that stops being coincidence."
+      ],
+      "reactions": [
+        "I'm not starting a fight over fence boards. But I'm watching."
+      ],
+      "statCheck": {
+        "pass": "Their goat gets out at night: I've seen the tracks. It's probably the goat, not {npc_name} themselves.",
+        "fail": "Could be weather, could be animals. Could be carelessness. I just don't know."
+      },
+      "valence": "negative",
+      "topic_category": "npc_opinions",
+      "required_entities": [
+        "npc"
+      ],
+      "location_scope": "local",
+      "quest_trigger": null
+    },
+    {
+      "id": 96,
+      "intro": "{npc_name} can tell what's wrong with you before you've said a word. It's uncanny.",
+      "details": [
+        "I walked in feeling off and before I sat down they said 'rough night?' Just from looking at me.",
+        "They do it with everyone. It's like they read faces the way some people read tracks."
+      ],
+      "reactions": [
+        "Part of me finds it comforting. Part of me finds it alarming."
+      ],
+      "statCheck": {
+        "pass": "They watch body language closely: the way you walk, how you hold your shoulders. That's how they do it.",
+        "fail": "I have no idea how they know. Some people are just perceptive."
+      },
+      "valence": "neutral",
+      "topic_category": "npc_opinions",
+      "required_entities": [
+        "npc"
+      ],
+      "location_scope": "local",
+      "quest_trigger": null
+    },
+    {
+      "id": 97,
+      "intro": "I think {npc_name} is lonely but too proud to say so.",
+      "details": [
+        "They linger at the end of conversations like they don't want them to stop.",
+        "I've noticed them sitting alone more often than not, always looking like they're about to get up and join someone but never quite doing it."
+      ],
+      "reactions": [
+        "Maybe I should make more of an effort. It costs nothing to sit down next to someone."
+      ],
+      "statCheck": {
+        "pass": "Pride and loneliness feed each other. The more isolated you get, the harder it is to reach out.",
+        "fail": "Could be they just like their own company. Not everyone who sits alone is lonely."
+      },
+      "valence": "neutral",
+      "topic_category": "npc_opinions",
+      "required_entities": [
+        "npc"
+      ],
+      "location_scope": "local",
+      "quest_trigger": null
+    },
+    {
+      "id": 98,
+      "intro": "{npc_name} left a nasty comment about my cooking and pretended it was a joke.",
+      "details": [
+        "Said the stew tasted like pond water and laughed like that made it fine.",
+        "Everyone else went quiet. That tells you it wasn't funny."
+      ],
+      "reactions": [
+        "Call it what it is. A joke is something both people laugh at."
+      ],
+      "statCheck": null,
+      "valence": "negative",
+      "topic_category": "npc_opinions",
+      "required_entities": [
+        "npc"
+      ],
+      "location_scope": "local",
+      "quest_trigger": null
+    },
+    {
+      "id": 99,
+      "intro": "{npc_name} and I don't agree on much, but I respect them all the same.",
+      "details": [
+        "We see things differently on almost everything: how to run things, what matters, what doesn't.",
+        "But they're honest about where they stand and they don't play games. That counts for a lot."
+      ],
+      "reactions": [
+        "Disagreement doesn't have to mean disrespect."
+      ],
+      "statCheck": null,
+      "valence": "positive",
+      "topic_category": "npc_opinions",
+      "required_entities": [
+        "npc"
+      ],
+      "location_scope": "local",
+      "quest_trigger": null
+    },
+    {
+      "id": 100,
+      "intro": "{npc_name} whistles the same three notes over and over while they work. It's burned into my brain.",
+      "details": [
+        "Three notes up, pause, three notes up again. All day long.",
+        "I caught myself doing it in the bath yesterday. I'm infected."
+      ],
+      "reactions": [
+        "If I start whistling near you, I apologize in advance."
+      ],
+      "statCheck": null,
+      "valence": "neutral",
+      "topic_category": "npc_opinions",
+      "required_entities": [
+        "npc"
+      ],
+      "location_scope": "local",
+      "quest_trigger": null
+    },
+    {
+      "id": 101,
+      "intro": "I misjudged {npc_name} when they first arrived. I'm still not sure I've got them figured out.",
+      "details": [
+        "They seemed standoffish at first. Turns out they were just overwhelmed and didn't know anyone.",
+        "We get along better now, but I still can't tell what they're thinking half the time."
+      ],
+      "reactions": [
+        "First impressions lie more often than they tell the truth. I try to keep that in mind."
+      ],
+      "statCheck": null,
+      "valence": "neutral",
+      "topic_category": "npc_opinions",
+      "required_entities": [
+        "npc"
+      ],
+      "location_scope": "local",
+      "quest_trigger": null
+    },
+    {
+      "id": 102,
+      "intro": "{npc_name} talks to everyone like they're slightly stupid. I don't think they realize it.",
+      "details": [
+        "Slow words, small ideas, always explaining things you already understand.",
+        "It's not just me. I've watched them do it to people twice as experienced."
+      ],
+      "reactions": [
+        "One day someone less patient than me is going to call them on it."
+      ],
+      "statCheck": {
+        "pass": "I think they used to teach younger folk wherever they came from. The habit stuck: they talk to everyone like students.",
+        "fail": "No idea where it comes from. Maybe they just think they're the smartest person in the room."
+      },
+      "valence": "negative",
+      "topic_category": "npc_opinions",
+      "required_entities": [
+        "npc"
+      ],
+      "location_scope": "local",
+      "quest_trigger": null
+    },
+    {
+      "id": 103,
+      "intro": "I asked {npc_name} to teach me how they do their leatherwork. They spent the whole afternoon showing me.",
+      "details": [
+        "Didn't rush, didn't hold anything back. Let me make mistakes and then showed me why they happened.",
+        "I'm nowhere near their level, but I can do the basics now. That's more than I had yesterday."
+      ],
+      "reactions": [
+        "People who teach willingly leave something behind that lasts."
+      ],
+      "statCheck": null,
+      "valence": "positive",
+      "topic_category": "npc_opinions",
+      "required_entities": [
+        "npc"
+      ],
+      "location_scope": "local",
+      "quest_trigger": null
+    },
+    {
+      "id": 104,
+      "intro": "{npc_name} never owns up to mistakes. It's always somebody else's fault.",
+      "details": [
+        "The gate was left open and we lost a day's work rounding up animals. Somehow that was my problem.",
+        "I was there. I saw who left it open. It wasn't me."
+      ],
+      "reactions": [
+        "Accountability costs nothing. But apparently it's too expensive for some."
+      ],
+      "statCheck": null,
+      "valence": "negative",
+      "topic_category": "npc_opinions",
+      "required_entities": [
+        "npc"
+      ],
+      "location_scope": "local",
+      "quest_trigger": null
+    },
+    {
+      "id": 105,
+      "intro": "{npc_name} always seems to know who needs a break. They just appear with two cups and a place to sit.",
+      "details": [
+        "No big announcement. They just show up and say 'take a minute' like it's the most natural thing.",
+        "I've seen them do it for people they barely know."
+      ],
+      "reactions": [
+        "Noticing when someone's running on empty is a skill. {npc_name} has it in spades."
+      ],
+      "statCheck": null,
+      "valence": "positive",
+      "topic_category": "npc_opinions",
+      "required_entities": [
+        "npc"
+      ],
+      "location_scope": "local",
+      "quest_trigger": null
+    },
+    {
+      "id": 106,
+      "intro": "I'm starting to think {npc_name} enjoys arguing more than being right.",
+      "details": [
+        "They'll take the opposite side of anything you say, just to see where it goes.",
+        "I tested it once: changed my position halfway through. They changed theirs too."
+      ],
+      "reactions": [
+        "It's sport to them. I find it tiring."
+      ],
+      "statCheck": null,
+      "valence": "neutral",
+      "topic_category": "npc_opinions",
+      "required_entities": [
+        "npc"
+      ],
+      "location_scope": "local",
+      "quest_trigger": null
+    },
+    {
+      "id": 107,
+      "intro": "{npc_name} left wildflowers on the communal table this morning. No note, no claim.",
+      "details": [
+        "Just a rough little bundle in a clay cup, sitting there for no apparent reason.",
+        "I don't know for certain it was them, but I saw dirt on their hands at breakfast."
+      ],
+      "reactions": [
+        "I noticed it. Wasn't sure what to make of it."
+      ],
+      "statCheck": null,
+      "valence": "neutral",
+      "topic_category": "npc_opinions",
+      "required_entities": [
+        "npc"
+      ],
+      "location_scope": "local",
+      "quest_trigger": null
+    },
+    {
+      "id": 108,
+      "intro": "{npc_name} makes promises like they're free. I've learned to wait and see.",
+      "details": [
+        "'I'll be there.' 'I'll take care of it.' 'You can count on me.' All said with total confidence.",
+        "Maybe half of them actually happen."
+      ],
+      "reactions": [
+        "I judge people by what they do, not what they say they'll do."
+      ],
+      "statCheck": null,
+      "valence": "negative",
+      "topic_category": "npc_opinions",
+      "required_entities": [
+        "npc"
+      ],
+      "location_scope": "local",
+      "quest_trigger": null
+    },
+    {
+      "id": 109,
+      "intro": "When my tools were stolen, {npc_name} lent me theirs without a moment's hesitation.",
+      "details": [
+        "Said 'use them as long as you need' and meant it. Wouldn't take payment.",
+        "I had them for three weeks and not once did they ask for them back or make me feel bad about it."
+      ],
+      "reactions": [
+        "There's generous, and then there's whatever {npc_name} is. A step beyond."
+      ],
+      "statCheck": null,
+      "valence": "positive",
+      "topic_category": "npc_opinions",
+      "required_entities": [
+        "npc"
+      ],
+      "location_scope": "local",
+      "quest_trigger": null
+    },
+    {
+      "id": 110,
+      "intro": "{npc_name} interrupts every conversation. You can't finish a thought around them.",
+      "details": [
+        "You'll be mid-sentence and they jump in like they've been waiting for a gap that wasn't there.",
+        "I've tried pausing to let them go first. They take the pause and then interrupt again later anyway."
+      ],
+      "reactions": [
+        "I've resorted to talking faster. It doesn't help."
+      ],
+      "statCheck": {
+        "pass": "It's excitement, not disrespect. Their brain moves faster than the conversation and they can't hold it back.",
+        "fail": "I can't tell if they don't notice or don't care. The result is the same either way."
+      },
+      "valence": "negative",
+      "topic_category": "npc_opinions",
+      "required_entities": [
+        "npc"
+      ],
+      "location_scope": "local",
+      "quest_trigger": null
+    },
+    {
+      "id": 111,
+      "intro": "{npc_name} has this calm about them that puts everyone at ease. Like nothing's ever urgent.",
+      "details": [
+        "Even when something IS urgent, they handle it at the same steady pace. And somehow it works.",
+        "I've tried to copy that energy. Lasted about half a morning."
+      ],
+      "reactions": [
+        "I envy that composure. Genuinely."
+      ],
+      "statCheck": null,
+      "valence": "positive",
+      "topic_category": "npc_opinions",
+      "required_entities": [
+        "npc"
+      ],
+      "location_scope": "local",
+      "quest_trigger": null
+    },
+    {
+      "id": 112,
+      "intro": "{npc_name} somehow always gets the better end of any deal. Every single time.",
+      "details": [
+        "You walk away thinking it was fair, and then two days later you realize you got the short end.",
+        "I don't think they're cheating exactly. They're just better at this than the rest of us."
+      ],
+      "reactions": [
+        "I've started bringing someone with me when I trade with them. An extra pair of eyes helps."
+      ],
+      "statCheck": {
+        "pass": "They anchor the conversation with an extreme starting point, then make the compromise feel generous. Classic technique.",
+        "fail": "I don't know how they do it. They just have a knack."
+      },
+      "valence": "negative",
+      "topic_category": "npc_opinions",
+      "required_entities": [
+        "npc"
+      ],
+      "location_scope": "local",
+      "quest_trigger": null
+    },
+    {
+      "id": 113,
+      "intro": "{npc_name} checks on everyone after a storm. Every door, every household.",
+      "details": [
+        "Doesn't matter how tired they are. They make the rounds before they rest.",
+        "Last time they found a blocked chimney nobody else had noticed. Could have gone badly."
+      ],
+      "reactions": [
+        "That's not a job anyone gave them. They gave it to themselves."
+      ],
+      "statCheck": null,
+      "valence": "positive",
+      "topic_category": "npc_opinions",
+      "required_entities": [
+        "npc"
+      ],
+      "location_scope": "local",
+      "quest_trigger": null
+    },
+    {
+      "id": 114,
+      "intro": "{npc_name} managed to offend {npc_name_2} and me in the same conversation. That takes talent.",
+      "details": [
+        "Started with an innocent comment about dinner, veered into criticism of our work, and ended with opinions about our housekeeping.",
+        "I looked at {npc_name_2} and we both had the same expression."
+      ],
+      "reactions": [
+        "At least it brought {npc_name_2} and me closer. Nothing bonds like shared annoyance."
+      ],
+      "statCheck": null,
+      "valence": "negative",
+      "topic_category": "npc_opinions",
+      "required_entities": [
+        "npc",
+        "npc"
+      ],
+      "location_scope": "local",
+      "quest_trigger": null
+    },
+    {
+      "id": 115,
+      "intro": "{npc_name} can make anyone laugh. Even people having the worst day of their lives.",
+      "details": [
+        "It's not rehearsed or clever. They just see the absurd side of things and point at it.",
+        "I've seen them cheer up people I thought were beyond reaching."
+      ],
+      "reactions": [
+        "That kind of gift is worth more than most people realize."
+      ],
+      "statCheck": null,
+      "valence": "positive",
+      "topic_category": "npc_opinions",
+      "required_entities": [
+        "npc"
+      ],
+      "location_scope": "local",
+      "quest_trigger": null
+    },
+    {
+      "id": 116,
+      "intro": "{npc_name} takes credit for things other people did. It's happened more than once.",
+      "details": [
+        "The drainage ditch was {npc_name_2}'s idea from start to finish. But ask {npc_name} and you'd think they planned the whole thing.",
+        "I watched it happen in real time and said nothing. I should have."
+      ],
+      "reactions": [
+        "Credit matters. People need to know their work is seen."
+      ],
+      "statCheck": null,
+      "valence": "negative",
+      "topic_category": "npc_opinions",
+      "required_entities": [
+        "npc",
+        "npc"
+      ],
+      "location_scope": "local",
+      "quest_trigger": null
+    },
+    {
+      "id": 117,
+      "intro": "{npc_name} always saves me a seat when we gather for meals. Small thing, but I notice it.",
+      "details": [
+        "Even when they arrive first and the table fills up, there's a spot with my cup already there.",
+        "It's the kind of thoughtfulness that doesn't announce itself."
+      ],
+      "reactions": [
+        "Being thought of is a good feeling. I try to return it."
+      ],
+      "statCheck": null,
+      "valence": "positive",
+      "topic_category": "npc_opinions",
+      "required_entities": [
+        "npc"
+      ],
+      "location_scope": "local",
+      "quest_trigger": null
+    },
+    {
+      "id": 118,
+      "intro": "{npc_name} turns every communal decision into a debate that lasts twice as long as it should.",
+      "details": [
+        "We were deciding where to stack the firewood. Should have taken five minutes. Took an hour.",
+        "Every option gets a twenty-point analysis. Some decisions just don't need that."
+      ],
+      "reactions": [
+        "Thoroughness is a virtue. But so is knowing when good enough is good enough."
+      ],
+      "statCheck": null,
+      "valence": "neutral",
+      "topic_category": "npc_opinions",
+      "required_entities": [
+        "npc"
+      ],
+      "location_scope": "local",
+      "quest_trigger": null
+    },
+    {
+      "id": 119,
+      "intro": "{npc_name} noticed I was struggling before I even knew I was. Sat down and asked the right questions.",
+      "details": [
+        "Didn't push. Didn't pry. Just opened a door and waited to see if I'd walk through it.",
+        "I ended up talking for an hour. I didn't mean to, but they made it easy."
+      ],
+      "reactions": [
+        "Sometimes you don't know you need to talk until someone gives you the space."
+      ],
+      "statCheck": null,
+      "valence": "positive",
+      "topic_category": "npc_opinions",
+      "required_entities": [
+        "npc"
+      ],
+      "location_scope": "local",
+      "quest_trigger": null
+    },
+    {
+      "id": 120,
+      "intro": "{npc_name} is always the last to pitch in and the first to leave when work is done.",
+      "details": [
+        "They drift in after the hard part's over, do the easy bits, and somehow look busy the whole time.",
+        "I've mentioned it to others and everyone's noticed. Nobody wants to be the one to say something."
+      ],
+      "reactions": [
+        "In a small settlement, everyone sees who's pulling their weight. Everyone."
+      ],
+      "statCheck": {
+        "pass": "They position themselves where the visible work is. Not the important work: the visible work. It's calculated.",
+        "fail": "Maybe they just don't see the problem. Some people genuinely don't."
+      },
+      "valence": "negative",
+      "topic_category": "npc_opinions",
+      "required_entities": [
+        "npc"
+      ],
+      "location_scope": "local",
+      "quest_trigger": null
+    },
+    {
+      "id": 121,
+      "intro": "{npc_name} carved a little figure for a child here who'd been having a hard time. Never said a word about it.",
+      "details": [
+        "Just left it where the kid would find it. Rough little thing, shaped like a bird.",
+        "The kid carries it everywhere now. {npc_name} pretends not to notice."
+      ],
+      "reactions": [
+        "Kindness aimed at children tells you everything about a person."
+      ],
+      "statCheck": null,
+      "valence": "positive",
+      "topic_category": "npc_opinions",
+      "required_entities": [
+        "npc"
+      ],
+      "location_scope": "local",
+      "quest_trigger": null
+    },
+    {
+      "id": 122,
+      "intro": "{npc_name} told me one thing and told {npc_name_2} something completely different.",
+      "details": [
+        "We compared stories by accident and neither version matched.",
+        "Maybe there's a good explanation. But I can't think of one."
+      ],
+      "reactions": [
+        "It's hard to trust someone who gives different answers to different people."
+      ],
+      "statCheck": {
+        "pass": "They tailor their version to what each person wants to hear. It's people-pleasing, not dishonesty: but the effect is the same.",
+        "fail": "I don't understand why they'd do it. Seems like more trouble than being straight."
+      },
+      "valence": "negative",
+      "topic_category": "npc_opinions",
+      "required_entities": [
+        "npc",
+        "npc"
+      ],
+      "location_scope": "local",
+      "quest_trigger": null
+    },
+    {
+      "id": 123,
+      "intro": "{npc_name} always makes sure there's enough for everyone before they take their share.",
+      "details": [
+        "Food, supplies, seats by the fire: they always serve themselves last.",
+        "I've watched people not even notice because it's so quiet and consistent."
+      ],
+      "reactions": [
+        "The ones who put others first are usually the last to be thanked. That's backwards."
+      ],
+      "statCheck": null,
+      "valence": "positive",
+      "topic_category": "npc_opinions",
+      "required_entities": [
+        "npc"
+      ],
+      "location_scope": "local",
+      "quest_trigger": null
+    },
+    {
+      "id": 124,
+      "intro": "{npc_name} has a cold stare that could freeze a pond. I don't know if they mean to do it.",
+      "details": [
+        "Mid-conversation they'll go blank and just look at you. No expression, no warmth.",
+        "Lasts a second or two and then they're back to normal. But that second or two sticks."
+      ],
+      "reactions": [
+        "Probably just their thinking face. Still throws me every time."
+      ],
+      "statCheck": null,
+      "valence": "neutral",
+      "topic_category": "npc_opinions",
+      "required_entities": [
+        "npc"
+      ],
+      "location_scope": "local",
+      "quest_trigger": null
+    },
+    {
+      "id": 125,
+      "intro": "I think {npc_name} is smarter than they let on. They play it down on purpose.",
+      "details": [
+        "They'll say something offhand that cuts right to the heart of a problem nobody else has solved.",
+        "Then they shrug it off like anyone could have seen it."
+      ],
+      "reactions": [
+        "I don't know why they hide it. Maybe it's easier than dealing with expectations."
+      ],
+      "statCheck": {
+        "pass": "People who've been burned for being clever learn to keep it quiet. I think that's what happened.",
+        "fail": "Hard to say whether it's humility or strategy."
+      },
+      "valence": "neutral",
+      "topic_category": "npc_opinions",
+      "required_entities": [
+        "npc"
+      ],
+      "location_scope": "local",
+      "quest_trigger": null
+    },
+    {
+      "id": 126,
+      "intro": "{npc_name} and I used to be close. I'm not sure what changed.",
+      "details": [
+        "No big fight, no dramatic falling out. We just drifted. The conversations got shorter, the visits less frequent.",
+        "I still wave, they still wave back. But there's a gap there now."
+      ],
+      "reactions": [
+        "Not all losses are sudden. Some just slip away while you're not watching."
+      ],
+      "statCheck": null,
+      "valence": "negative",
+      "topic_category": "npc_opinions",
+      "required_entities": [
+        "npc"
+      ],
+      "location_scope": "local",
+      "quest_trigger": null
+    },
+    {
+      "id": 127,
+      "intro": "{npc_name} tells you the truth even when you don't want to hear it. I value that.",
+      "details": [
+        "I showed them a project I was proud of and they pointed out two flaws I'd missed. They were right.",
+        "It stung in the moment, but the end result was better because of it."
+      ],
+      "reactions": [
+        "People who make you better aren't always the ones who make you feel good."
+      ],
+      "statCheck": null,
+      "valence": "positive",
+      "topic_category": "npc_opinions",
+      "required_entities": [
+        "npc"
+      ],
+      "location_scope": "local",
+      "quest_trigger": null
+    },
+    {
+      "id": 128,
+      "intro": "{npc_name} agreed to trade shifts with me and then claimed they never said that.",
+      "details": [
+        "I had plans. I organized my whole week around it. Then they looked at me like I was making things up.",
+        "No witnesses. My word against theirs."
+      ],
+      "reactions": [
+        "Next time I'll get it in writing. Or just not bother asking."
+      ],
+      "statCheck": null,
+      "valence": "negative",
+      "topic_category": "npc_opinions",
+      "required_entities": [
+        "npc"
+      ],
+      "location_scope": "local",
+      "quest_trigger": null
+    },
+    {
+      "id": 129,
+      "intro": "{npc_name} has been teaching the younger folk how to mend nets. Patient as stone about it too.",
+      "details": [
+        "I watched for a bit. Same explanation, fourth time, same calm voice. Not a flicker of frustration.",
+        "The kids actually listen to them, which is more than most of us can say."
+      ],
+      "reactions": [
+        "Patience like that is a gift. Especially with young hands that haven't learned yet."
+      ],
+      "statCheck": null,
+      "valence": "positive",
+      "topic_category": "npc_opinions",
+      "required_entities": [
+        "npc"
+      ],
+      "location_scope": "local",
+      "quest_trigger": null
+    },
+    {
+      "id": 130,
+      "intro": "{npc_name} never asks how I'm doing. Not once in all the time we've been neighbors.",
+      "details": [
+        "They'll talk about the weather, the chores, what needs doing. Never about people.",
+        "I've tested it. I volunteer something personal and the subject changes within ten seconds."
+      ],
+      "reactions": [
+        "Maybe that's just how they are. But it makes me feel like furniture."
+      ],
+      "statCheck": {
+        "pass": "I think personal questions feel intrusive to them. They show they care through actions, not words. Different language.",
+        "fail": "I don't understand it. Maybe they're just not curious about people."
+      },
+      "valence": "negative",
+      "topic_category": "npc_opinions",
+      "required_entities": [
+        "npc"
+      ],
+      "location_scope": "local",
+      "quest_trigger": null
+    },
+    {
+      "id": 131,
+      "intro": "{npc_name} gets excited about the oddest things. A sunset, a stone, a particular cloud shape.",
+      "details": [
+        "They'll stop what they're doing just to point something out. 'Look at that,' they'll say, like they've never seen rain before.",
+        "I can't always tell if it's genuine wonder or if they're just easily distracted."
+      ],
+      "reactions": [
+        "It's different. I'll give them that."
+      ],
+      "statCheck": null,
+      "valence": "neutral",
+      "topic_category": "npc_opinions",
+      "required_entities": [
+        "npc"
+      ],
+      "location_scope": "local",
+      "quest_trigger": null
+    },
+    {
+      "id": 132,
+      "intro": "{npc_name} keeps rearranging the common workspace without asking anyone. It's maddening.",
+      "details": [
+        "I put a tool down, turn around, and it's been moved to a 'better' spot that makes no sense.",
+        "They think they're organizing. The rest of us can't find anything."
+      ],
+      "reactions": [
+        "Shared spaces need shared rules. Not one person's vision imposed on everyone."
+      ],
+      "statCheck": null,
+      "valence": "negative",
+      "topic_category": "npc_opinions",
+      "required_entities": [
+        "npc"
+      ],
+      "location_scope": "local",
+      "quest_trigger": null
+    },
+    {
+      "id": 133,
+      "intro": "I admire how {npc_name} handled the disagreement with the trader last week.",
+      "details": [
+        "Stayed firm without raising their voice. Made their point clearly and walked away when it was done.",
+        "Most people either fold or blow up. {npc_name} did neither."
+      ],
+      "reactions": [
+        "Standing your ground calmly is harder than people think."
+      ],
+      "statCheck": null,
+      "valence": "positive",
+      "topic_category": "npc_opinions",
+      "required_entities": [
+        "npc"
+      ],
+      "location_scope": "local",
+      "quest_trigger": null
+    },
+    {
+      "id": 134,
+      "intro": "{npc_name} lets their animals wander into everyone's garden. We've all said something. Nothing changes.",
+      "details": [
+        "I found tracks through my herb bed again this morning. Third time this season.",
+        "The apology is always sincere. The fence is never fixed."
+      ],
+      "reactions": [
+        "Sincerity without follow-through is just noise."
+      ],
+      "statCheck": {
+        "pass": "The fence post on the north side is rotted through. That's where they escape. A single repair would solve it.",
+        "fail": "I don't know why the animals keep getting out. I just know they do."
+      },
+      "valence": "negative",
+      "topic_category": "npc_opinions",
+      "required_entities": [
+        "npc"
+      ],
+      "location_scope": "local",
+      "quest_trigger": null
+    },
+    {
+      "id": 135,
+      "intro": "{npc_name} said something kind about me to {npc_name_2}, and {npc_name_2} passed it along.",
+      "details": [
+        "It wasn't anything big. Just that I'd been doing good work and they'd noticed.",
+        "But hearing that someone says nice things about you behind your back: that's different from hearing it to your face."
+      ],
+      "reactions": [
+        "I've been smiling about it all week."
+      ],
+      "statCheck": null,
+      "valence": "positive",
+      "topic_category": "npc_opinions",
+      "required_entities": [
+        "npc",
+        "npc"
+      ],
+      "location_scope": "local",
+      "quest_trigger": null
+    },
+    {
+      "id": 136,
+      "intro": "{npc_name} always manages to make group decisions about what they want. Subtle, but effective.",
+      "details": [
+        "They phrase things so the choice they prefer sounds like the obvious one. By the time you notice, everyone's already agreed.",
+        "I've pointed it out to others and they say 'no, that was everyone's decision.' It wasn't."
+      ],
+      "reactions": [
+        "Influence isn't bad on its own. But it should be transparent."
+      ],
+      "statCheck": {
+        "pass": "They seed the idea early, then let others arrive at it 'independently.' It's masterful, honestly, even if it bothers me.",
+        "fail": "I can feel it happening but I can't quite describe how they do it."
+      },
+      "valence": "negative",
+      "topic_category": "npc_opinions",
+      "required_entities": [
+        "npc"
+      ],
+      "location_scope": "local",
+      "quest_trigger": null
+    },
+    {
+      "id": 137,
+      "intro": "{npc_name} found my lost cat and carried it home. In the rain. Without complaining.",
+      "details": [
+        "I'd been looking for hours and had given up. They showed up at my door soaking wet, cat under one arm.",
+        "Just said 'I think this belongs to you' and handed it over."
+      ],
+      "reactions": [
+        "I owe them one. A real one."
+      ],
+      "statCheck": null,
+      "valence": "positive",
+      "topic_category": "npc_opinions",
+      "required_entities": [
+        "npc"
+      ],
+      "location_scope": "local",
+      "quest_trigger": null
+    },
+    {
+      "id": 138,
+      "intro": "{npc_name} is impossible to pin down for a straight answer. It's like catching fog.",
+      "details": [
+        "I asked if they'd help with the fence on Thursday. Got 'we'll see how the week goes.'",
+        "That means no. But they'll never say no. They just let it dissolve."
+      ],
+      "reactions": [
+        "I'd rather hear 'no' than chase a maybe all week."
+      ],
+      "statCheck": null,
+      "valence": "negative",
+      "topic_category": "npc_opinions",
+      "required_entities": [
+        "npc"
+      ],
+      "location_scope": "local",
+      "quest_trigger": null
+    },
+    {
+      "id": 139,
+      "intro": "{npc_name} remembers things about me that I've forgotten I ever told them.",
+      "details": [
+        "Last week they asked about something I mentioned in passing months ago. I had to think hard to even recall saying it.",
+        "It's not just me: they do it with everyone. Like they file away every conversation."
+      ],
+      "reactions": [
+        "Being remembered that well is either flattering or slightly worrying. I choose flattering."
+      ],
+      "statCheck": null,
+      "valence": "neutral",
+      "topic_category": "npc_opinions",
+      "required_entities": [
+        "npc"
+      ],
+      "location_scope": "local",
+      "quest_trigger": null
+    },
+    {
+      "id": 140,
+      "intro": "{npc_name} is the quiet backbone of this place. Most people don't even see it.",
+      "details": [
+        "They handle the unglamorous work: scheduling, supplies, making sure things don't run out.",
+        "Nobody thanks them because nobody notices what doesn't break."
+      ],
+      "reactions": [
+        "I try to say thank you when I remember. It's not often enough."
+      ],
+      "statCheck": null,
+      "valence": "positive",
+      "topic_category": "npc_opinions",
+      "required_entities": [
+        "npc"
+      ],
+      "location_scope": "local",
+      "quest_trigger": null
+    },
+    {
+      "id": 141,
+      "intro": "{npc_name} has been dropping hints about something for days and I can't figure out what.",
+      "details": [
+        "Vague comments about 'changes coming' and 'things being different soon.' Always with a knowing look.",
+        "I've asked directly and they just smile and say 'you'll see.'"
+      ],
+      "reactions": [
+        "It's probably nothing important. But the mystery of it is annoying me."
+      ],
+      "statCheck": null,
+      "valence": "neutral",
+      "topic_category": "npc_opinions",
+      "required_entities": [
+        "npc"
+      ],
+      "location_scope": "local",
+      "quest_trigger": null
+    },
+    {
+      "id": 142,
+      "intro": "{npc_name} makes this clicking sound with their tongue when they're thinking. I hear it in my sleep.",
+      "details": [
+        "Click click click. Three in a row, then a pause, then three more.",
+        "I don't think they're aware of it. I've watched other people flinch at it too."
+      ],
+      "reactions": [
+        "Some sounds just get under your skin. This is mine."
+      ],
+      "statCheck": null,
+      "valence": "neutral",
+      "topic_category": "npc_opinions",
+      "required_entities": [
+        "npc"
+      ],
+      "location_scope": "local",
+      "quest_trigger": null
+    },
+    {
+      "id": 143,
+      "intro": "{npc_name} wrote down every recipe they know and handed copies out to anyone who'd take one.",
+      "details": [
+        "Pages and pages, all in neat handwriting. Every measurement, every step.",
+        "Said they didn't want those recipes to disappear if something happened to them."
+      ],
+      "reactions": [
+        "I'm not sure if it's thoughtful or morbid. Maybe both."
+      ],
+      "statCheck": null,
+      "valence": "neutral",
+      "topic_category": "npc_opinions",
+      "required_entities": [
+        "npc"
+      ],
+      "location_scope": "local",
+      "quest_trigger": null
+    },
+    {
+      "id": 144,
+      "intro": "{npc_name} somehow always knows the gossip before everyone else.",
+      "details": [
+        "I'll mention something that just happened and they already know. Sometimes they knew yesterday.",
+        "I don't know who their sources are, but the network is impressive."
+      ],
+      "reactions": [
+        "Useful person to know. But I'm careful what I say around them."
+      ],
+      "statCheck": {
+        "pass": "They're the kind of person everyone talks to without realizing how much they're revealing. It's the listening, not the asking.",
+        "fail": "I have no idea how they do it. Maybe they just have very good ears."
+      },
+      "valence": "neutral",
+      "topic_category": "npc_opinions",
+      "required_entities": [
+        "npc"
+      ],
+      "location_scope": "local",
+      "quest_trigger": null
+    },
+    {
+      "id": 145,
+      "intro": "{npc_name} tried to tell me how to do my own {self_role} work. I've been at it for years.",
+      "details": [
+        "Came over like they'd just invented the wheel and started explaining basics I learned as a child.",
+        "I smiled and nodded and waited for it to end. That felt like the polite option."
+      ],
+      "reactions": [
+        "Knowing something doesn't mean everyone needs to hear it from you."
+      ],
+      "statCheck": null,
+      "valence": "negative",
+      "topic_category": "npc_opinions",
+      "required_entities": [
+        "npc"
+      ],
+      "location_scope": "local",
+      "quest_trigger": null
+    },
+    {
+      "id": 146,
+      "intro": "{npc_name} stays up later than everyone else, keeping the fire going. I think they do it for all of us.",
+      "details": [
+        "By the time I wake up for my early shift, the embers are still warm. That doesn't happen by accident.",
+        "They've never mentioned it. I only noticed because I couldn't sleep one night."
+      ],
+      "reactions": [
+        "Invisible work is still work. And it still matters."
+      ],
+      "statCheck": null,
+      "valence": "positive",
+      "topic_category": "npc_opinions",
+      "required_entities": [
+        "npc"
+      ],
+      "location_scope": "local",
+      "quest_trigger": null
+    },
+    {
+      "id": 147,
+      "intro": "I genuinely can't tell if {npc_name} likes living here or hates it.",
+      "details": [
+        "Some days they're talking about improvements they want to make. Other days they're staring at the horizon like they're planning an escape.",
+        "When you ask, they give different answers depending on the weather, apparently."
+      ],
+      "reactions": [
+        "Most of us feel both ways sometimes. {npc_name} just shows it more."
+      ],
+      "statCheck": null,
+      "valence": "neutral",
+      "topic_category": "npc_opinions",
+      "required_entities": [
+        "npc"
+      ],
+      "location_scope": "local",
+      "quest_trigger": null
+    },
+    {
+      "id": 148,
+      "intro": "{npc_name} picks wildflowers on walks and lines them up on the windowsill. Been doing it all season.",
+      "details": [
+        "Different ones each time, arranged in some order I can't figure out.",
+        "Nobody asked them to. I don't think they've explained it to anyone either."
+      ],
+      "reactions": [
+        "Everyone's got their rituals, I suppose."
+      ],
+      "statCheck": null,
+      "valence": "neutral",
+      "topic_category": "npc_opinions",
+      "required_entities": [
+        "npc"
+      ],
+      "location_scope": "local",
+      "quest_trigger": null
+    },
+    {
+      "id": 149,
+      "intro": "{npc_name} has been short with everyone lately. Not just me: everyone.",
+      "details": [
+        "One-word answers, clipped tone, walks away mid-conversation.",
+        "I asked {npc_name_2} if they knew what was going on. They didn't."
+      ],
+      "reactions": [
+        "Something's eating at them. I just wish they'd let someone help."
+      ],
+      "statCheck": {
+        "pass": "I've noticed it lines up with the supply shortages. They might be carrying more worry about provisions than they let on.",
+        "fail": "No clue what's behind it. People have their seasons."
+      },
+      "valence": "negative",
+      "topic_category": "npc_opinions",
+      "required_entities": [
+        "npc",
+        "npc"
+      ],
+      "location_scope": "local",
+      "quest_trigger": null
+    },
+    {
+      "id": 150,
+      "intro": "{npc_name} keeps their workspace spotless. I've never seen a single thing out of place.",
+      "details": [
+        "Every tool has a spot, every surface is clean. It's almost unsettling how orderly it is.",
+        "I tried organizing mine the same way once. Lasted three hours."
+      ],
+      "reactions": [
+        "Some people's minds work like that: everything in its place. I'm quietly jealous."
+      ],
+      "statCheck": null,
+      "valence": "neutral",
+      "topic_category": "npc_opinions",
+      "required_entities": [
+        "npc"
+      ],
+      "location_scope": "local",
+      "quest_trigger": null
+    },
+    {
+      "id": 151,
+      "intro": "{npc_name} included me when I first arrived here. I hadn't earned it yet. They didn't care.",
+      "details": [
+        "Made introductions, showed me around, sat with me at meals so I wouldn't eat alone.",
+        "I was a stranger and they treated me like I'd always been here."
+      ],
+      "reactions": [
+        "That kind of welcome shapes how you feel about a place forever."
+      ],
+      "statCheck": null,
+      "valence": "positive",
+      "topic_category": "npc_opinions",
+      "required_entities": [
+        "npc"
+      ],
+      "location_scope": "local",
+      "quest_trigger": null
+    },
+    {
+      "id": 152,
+      "intro": "{npc_name} uses up shared supplies and doesn't replace them. I've noticed.",
+      "details": [
+        "The oil was low yesterday. The salt was out last week. Always after {npc_name} has been through.",
+        "It's not malicious: they just take what they need and don't think about what comes next."
+      ],
+      "reactions": [
+        "Living together means thinking about the person who comes after you. That's the whole deal."
+      ],
+      "statCheck": {
+        "pass": "They grew up in a large household where supplies just appeared. Nobody taught them to track what's running low.",
+        "fail": "I don't know if they don't notice or don't care. The outcome's the same."
+      },
+      "valence": "negative",
+      "topic_category": "npc_opinions",
+      "required_entities": [
+        "npc"
+      ],
+      "location_scope": "local",
+      "quest_trigger": null
+    },
+    {
+      "id": 153,
+      "intro": "{npc_name} always cleans up after communal meals. First one clearing plates, last one to sit down.",
+      "details": [
+        "I've never once seen them leave a mess for someone else.",
+        "Tried to help once and they shooed me off. Said I'd earned my rest."
+      ],
+      "reactions": [
+        "People who clean without being asked are holding everything together."
+      ],
+      "statCheck": null,
+      "valence": "positive",
+      "topic_category": "npc_opinions",
+      "required_entities": [
+        "npc"
+      ],
+      "location_scope": "local",
+      "quest_trigger": null
+    },
+    {
+      "id": 154,
+      "intro": "{npc_name} scratches the back of their neck when they're lying. I've confirmed it three times now.",
+      "details": [
+        "Every single time. Ask them something they don't want to answer honestly: hand goes to neck.",
+        "I haven't told anyone else. Feels like useful information to keep."
+      ],
+      "reactions": [
+        "Everyone has a tell. Most people just don't watch closely enough."
+      ],
+      "statCheck": {
+        "pass": "It's a stress response. The body betrays what the mouth won't say. Classic sign.",
+        "fail": "I could be wrong. Maybe they just have an itchy neck."
+      },
+      "valence": "neutral",
+      "topic_category": "npc_opinions",
+      "required_entities": [
+        "npc"
+      ],
+      "location_scope": "local",
+      "quest_trigger": null
+    },
+    {
+      "id": 155,
+      "intro": "I caught {npc_name} smiling at nothing the other day. Just standing in the sun, grinning.",
+      "details": [
+        "No one around, nothing happening. Just standing there with this look on their face.",
+        "I didn't interrupt. Didn't want to ruin whatever was going on in their head."
+      ],
+      "reactions": [
+        "People are strange sometimes. Not in a bad way: just strange."
+      ],
+      "statCheck": null,
+      "valence": "neutral",
+      "topic_category": "npc_opinions",
+      "required_entities": [
+        "npc"
+      ],
+      "location_scope": "local",
+      "quest_trigger": null
+    },
+    {
+      "id": 156,
+      "intro": "{npc_name} has no sense of personal space and no sense that they lack it.",
+      "details": [
+        "They'll lean over your shoulder to see what you're working on, breathing on your neck.",
+        "I've put my arm out as a barrier. They walked around it."
+      ],
+      "reactions": [
+        "I know it's not intentional. That almost makes it worse."
+      ],
+      "statCheck": null,
+      "valence": "negative",
+      "topic_category": "npc_opinions",
+      "required_entities": [
+        "npc"
+      ],
+      "location_scope": "local",
+      "quest_trigger": null
+    },
+    {
+      "id": 157,
+      "intro": "{npc_name} and I don't talk much. But when we do, it picks up like no time has passed.",
+      "details": [
+        "No awkwardness, no explanations. Just straight back into it.",
+        "I can't tell if that means we're good friends or just not close enough to notice the gap."
+      ],
+      "reactions": [
+        "Some relationships just exist in a middle ground. Comfortable, but hard to label."
+      ],
+      "statCheck": null,
+      "valence": "neutral",
+      "topic_category": "npc_opinions",
+      "required_entities": [
+        "npc"
+      ],
+      "location_scope": "local",
+      "quest_trigger": null
+    },
+    {
+      "id": 158,
+      "intro": "{npc_name} tried to barter with me using something that clearly wasn't theirs to trade.",
+      "details": [
+        "I recognized the item. It belongs to someone else here and they definitely didn't give permission.",
+        "I didn't take the trade. I didn't say why either. Just shook my head."
+      ],
+      "reactions": [
+        "I'm debating whether to mention it to the owner. That's a conversation I don't look forward to."
+      ],
+      "statCheck": {
+        "pass": "Could be a misunderstanding: maybe they were asked to trade it on someone's behalf. But the way they dodged my eye says otherwise.",
+        "fail": "I might be wrong about whose it is. I'd hate to accuse someone over a mistake."
+      },
+      "valence": "negative",
+      "topic_category": "npc_opinions",
+      "required_entities": [
+        "npc"
+      ],
+      "location_scope": "local",
+      "quest_trigger": null
+    },
+    {
+      "id": 159,
+      "intro": "{npc_name} drew a little map of {settlement_name} for a traveler who was lost. Took real time with it.",
+      "details": [
+        "Marked every building, every path, even where the good mushrooms grow.",
+        "The traveler looked genuinely moved. You could tell they hadn't expected that kind of care from a stranger."
+      ],
+      "reactions": [
+        "Hospitality like that is what puts a settlement on people's good side."
+      ],
+      "statCheck": null,
+      "valence": "positive",
+      "topic_category": "npc_opinions",
+      "required_entities": [
+        "npc"
+      ],
+      "location_scope": "local",
+      "quest_trigger": null
+    },
+    {
+      "id": 160,
+      "intro": "{npc_name} talks about the old days like they were better. Every single time.",
+      "details": [
+        "'It used to be this way, it used to be that way.' As if the past was a golden age and we ruined it.",
+        "I've been here the same amount of time. The old days were harder, not better."
+      ],
+      "reactions": [
+        "Memory has a way of sanding down the rough edges. Doesn't make it true."
+      ],
+      "statCheck": null,
+      "valence": "neutral",
+      "topic_category": "npc_opinions",
+      "required_entities": [
+        "npc"
+      ],
+      "location_scope": "local",
+      "quest_trigger": null
+    },
+    {
+      "id": 161,
+      "intro": "{npc_name} offered to cover for me so I could take a day to just do nothing. Nobody does that.",
+      "details": [
+        "Didn't ask what I needed the time for. Just said 'go, I'll handle it.'",
+        "I didn't even realize how much I needed it until I had it."
+      ],
+      "reactions": [
+        "Recognizing when someone needs rest before they ask: that's a gift."
+      ],
+      "statCheck": null,
+      "valence": "positive",
+      "topic_category": "npc_opinions",
+      "required_entities": [
+        "npc"
+      ],
+      "location_scope": "local",
+      "quest_trigger": null
+    },
+    {
+      "id": 162,
+      "intro": "{npc_name} points out problems but never offers solutions. It's exhausting.",
+      "details": [
+        "'The path's eroding. The well cap is loose. The woodpile's low.' Yes: we know.",
+        "Identifying the issue takes ten seconds. Fixing it takes hours. I know which part {npc_name} prefers."
+      ],
+      "reactions": [
+        "I've started responding with 'great, let's fix it together.' The silence afterward says everything."
+      ],
+      "statCheck": null,
+      "valence": "negative",
+      "topic_category": "npc_opinions",
+      "required_entities": [
+        "npc"
+      ],
+      "location_scope": "local",
+      "quest_trigger": null
+    },
+    {
+      "id": 163,
+      "intro": "{npc_name} always knows when I need to be left alone. Never takes it personally.",
+      "details": [
+        "They'll start to come over, read the look on my face, and just give a nod from a distance.",
+        "Next day they check in like nothing happened. No guilt, no questions."
+      ],
+      "reactions": [
+        "Respecting someone's space without being told: that's real emotional skill."
+      ],
+      "statCheck": null,
+      "valence": "positive",
+      "topic_category": "npc_opinions",
+      "required_entities": [
+        "npc"
+      ],
+      "location_scope": "local",
+      "quest_trigger": null
+    },
+    {
+      "id": 164,
+      "intro": "{npc_name} spent twenty minutes telling me about a dream they had. I still don't know why.",
+      "details": [
+        "Something about a river and a door and a very specific type of bread. I couldn't follow it.",
+        "They looked at me expectantly when they finished, like it was supposed to mean something."
+      ],
+      "reactions": [
+        "I nodded and said 'interesting.' What else can you do?"
+      ],
+      "statCheck": null,
+      "valence": "neutral",
+      "topic_category": "npc_opinions",
+      "required_entities": [
+        "npc"
+      ],
+      "location_scope": "local",
+      "quest_trigger": null
+    },
+    {
+      "id": 165,
+      "intro": "{npc_name} and {npc_name_2} have started finishing each other's sentences. It's either sweet or terrifying.",
+      "details": [
+        "One starts a thought and the other lands it. Perfectly. Without hesitation.",
+        "I've been watching for cracks in it: signals, looks. Nothing. They're just that in sync."
+      ],
+      "reactions": [
+        "I don't know whether to be impressed or concerned."
+      ],
+      "statCheck": null,
+      "valence": "neutral",
+      "topic_category": "npc_opinions",
+      "required_entities": [
+        "npc",
+        "npc"
+      ],
+      "location_scope": "local",
+      "quest_trigger": null
+    },
+    {
+      "id": 166,
+      "intro": "You'd think being the {npc_role} would humble {npc_name} a bit. If anything it's made them worse.",
+      "details": [
+        "Every conversation circles back to their work like it's the most important thing happening.",
+        "The rest of us have jobs too. We just don't build shrines to them."
+      ],
+      "reactions": [
+        "I try to be patient. Some people just need their work to be seen."
+      ],
+      "statCheck": {
+        "pass": "I think the role is the only thing that gives them a sense of purpose. Without it, they'd feel invisible.",
+        "fail": "I don't know what drives the ego. Some people just have it."
+      },
+      "valence": "negative",
+      "topic_category": "npc_opinions",
+      "required_entities": [
+        "npc"
+      ],
+      "location_scope": "local",
+      "quest_trigger": null
+    },
+    {
+      "id": 167,
+      "intro": "{npc_name} found a bird with a broken wing and spent a week nursing it back to health.",
+      "details": [
+        "Built a little nest out of rags, fed it by hand, kept it warm near the fire.",
+        "When it finally flew off, I swear they looked both happy and heartbroken."
+      ],
+      "reactions": [
+        "The way someone treats a helpless thing says everything about them."
+      ],
+      "statCheck": null,
+      "valence": "positive",
+      "topic_category": "npc_opinions",
+      "required_entities": [
+        "npc"
+      ],
+      "location_scope": "local",
+      "quest_trigger": null
+    },
+    {
+      "id": 168,
+      "intro": "{npc_name} is the type who has to have the last word. Every conversation, every disagreement.",
+      "details": [
+        "You can walk away and they'll follow you for three steps to deliver one more point.",
+        "I've tried agreeing with them just to end it. They still find something to add."
+      ],
+      "reactions": [
+        "I've started counting. My record is seven 'last words' in a single exchange."
+      ],
+      "statCheck": null,
+      "valence": "negative",
+      "topic_category": "npc_opinions",
+      "required_entities": [
+        "npc"
+      ],
+      "location_scope": "local",
+      "quest_trigger": null
+    },
+    {
+      "id": 169,
+      "intro": "{npc_name} makes everyone feel like the most important person in the room when they're talking to you.",
+      "details": [
+        "Full attention. No glancing around, no fidgeting. Just you and them and whatever you're saying.",
+        "I've seen them give the same focus to a child's rambling story as to a serious discussion."
+      ],
+      "reactions": [
+        "Attention like that is rarer than gold and worth more."
+      ],
+      "statCheck": null,
+      "valence": "positive",
+      "topic_category": "npc_opinions",
+      "required_entities": [
+        "npc"
+      ],
+      "location_scope": "local",
+      "quest_trigger": null
+    },
+    {
+      "id": 170,
+      "intro": "I watched {npc_name} throw out perfectly good food because it wasn't 'fresh enough.' Meanwhile some of us stretch every meal.",
+      "details": [
+        "A whole pot of soup. Barely a day old. Gone.",
+        "I didn't say anything in the moment but it's been gnawing at me since."
+      ],
+      "reactions": [
+        "Waste like that is hard to stomach when you know what scarcity feels like."
+      ],
+      "statCheck": {
+        "pass": "I think they got sick from old food once and overcorrect now. Fear does that: makes you throw out what's still good.",
+        "fail": "I don't understand the logic. Food is food."
+      },
+      "valence": "negative",
+      "topic_category": "npc_opinions",
+      "required_entities": [
+        "npc"
+      ],
+      "location_scope": "local",
+      "quest_trigger": null
+    },
+    {
+      "id": 171,
+      "intro": "{npc_name} and I played a game of stones the other night. They let me win and thought I wouldn't notice.",
+      "details": [
+        "Obvious misplays, bad trades they'd never make normally. I saw every one.",
+        "I think they were trying to be kind. It just felt patronizing."
+      ],
+      "reactions": [
+        "I'd rather lose honestly than win on charity."
+      ],
+      "statCheck": {
+        "pass": "I think they assumed I needed the boost. Good intention, poor read of the situation.",
+        "fail": "Maybe they were just tired. I could be overthinking it."
+      },
+      "valence": "neutral",
+      "topic_category": "npc_opinions",
+      "required_entities": [
+        "npc"
+      ],
+      "location_scope": "local",
+      "quest_trigger": null
+    },
+    {
+      "id": 172,
+      "intro": "{npc_name} left a jar of honey at my door after I had a rough week. No note, no fuss.",
+      "details": [
+        "I knew it was them because nobody else keeps bees around here.",
+        "Didn't bring it up later. Didn't need thanks. Just wanted me to have something sweet."
+      ],
+      "reactions": [
+        "Kindness like that restores something in you."
+      ],
+      "statCheck": null,
+      "valence": "positive",
+      "topic_category": "npc_opinions",
+      "required_entities": [
+        "npc"
+      ],
+      "location_scope": "local",
+      "quest_trigger": null
+    },
+    {
+      "id": 173,
+      "intro": "I get the sense {npc_name} doesn't think much of the way things are run around here.",
+      "details": [
+        "They never say it outright. Just a raised eyebrow, a pause before agreeing, a tone that's a half-shade off.",
+        "It's the kind of criticism that never comes into the open where you can actually address it."
+      ],
+      "reactions": [
+        "If you have something to say, say it. The silent judgment is worse."
+      ],
+      "statCheck": {
+        "pass": "They're comparing {settlement_name} to wherever they came from. The comparison doesn't favor us.",
+        "fail": "Could be reading into nothing. Expressions aren't evidence."
+      },
+      "valence": "negative",
+      "topic_category": "npc_opinions",
+      "required_entities": [
+        "npc"
+      ],
+      "location_scope": "local",
+      "quest_trigger": null
+    },
+    {
+      "id": 174,
+      "intro": "{npc_name} has this ability to calm an argument just by walking into the room.",
+      "details": [
+        "I've seen it happen twice. Voices raised, tension thick, and then they show up and everyone lowers their volume.",
+        "It's not authority: it's presence. They just carry themselves in a way that cools things down."
+      ],
+      "reactions": [
+        "I wish I had that. Some people are just peacemakers by nature."
+      ],
+      "statCheck": null,
+      "valence": "positive",
+      "topic_category": "npc_opinions",
+      "required_entities": [
+        "npc"
+      ],
+      "location_scope": "local",
+      "quest_trigger": null
+    },
+    {
+      "id": 175,
+      "intro": "{npc_name} compares everyone to people they used to know. 'You remind me of so-and-so' all the time.",
+      "details": [
+        "Apparently I remind them of three different people depending on the day.",
+        "I don't want to be compared. I want to be known as myself."
+      ],
+      "reactions": [
+        "I think they miss where they came from more than they admit."
+      ],
+      "statCheck": null,
+      "valence": "neutral",
+      "topic_category": "npc_opinions",
+      "required_entities": [
+        "npc"
+      ],
+      "location_scope": "local",
+      "quest_trigger": null
+    },
+    {
+      "id": 176,
+      "intro": "{npc_name} stood between me and trouble once. Didn't think twice about it.",
+      "details": [
+        "A disagreement with a passing trader was getting heated and {npc_name} just stepped in. Calm, firm, not aggressive.",
+        "The whole thing dissolved in a minute. I don't know what would have happened without them."
+      ],
+      "reactions": [
+        "Some people step forward when everyone else steps back. That's {npc_name}."
+      ],
+      "statCheck": null,
+      "valence": "positive",
+      "topic_category": "npc_opinions",
+      "required_entities": [
+        "npc"
+      ],
+      "location_scope": "local",
+      "quest_trigger": null
+    },
+    {
+      "id": 177,
+      "intro": "{npc_name} stacks the communal woodpile in a way that makes it impossible for anyone else to pull from.",
+      "details": [
+        "Everything's wedged in tight at the wrong angle. You pull one log and the whole thing shifts.",
+        "I've restacked it twice. By the next day it's back to the impossible arrangement."
+      ],
+      "reactions": [
+        "I don't know if it's deliberate or just a profound misunderstanding of how wood piles work."
+      ],
+      "statCheck": null,
+      "valence": "negative",
+      "topic_category": "npc_opinions",
+      "required_entities": [
+        "npc"
+      ],
+      "location_scope": "local",
+      "quest_trigger": null
+    },
+    {
+      "id": 178,
+      "intro": "{npc_name} asked about my family the other day. Nobody here ever asks about my family.",
+      "details": [
+        "Wanted to know if I had siblings, where I grew up, whether I missed home.",
+        "I talked for longer than I should have. It felt good to remember out loud."
+      ],
+      "reactions": [
+        "Some questions open doors you didn't know were closed."
+      ],
+      "statCheck": null,
+      "valence": "positive",
+      "topic_category": "npc_opinions",
+      "required_entities": [
+        "npc"
+      ],
+      "location_scope": "local",
+      "quest_trigger": null
+    },
+    {
+      "id": 179,
+      "intro": "{npc_name} does this thing where they agree with you to your face and then do the exact opposite.",
+      "details": [
+        "Nods along, says 'makes sense,' then goes and does whatever they were going to do anyway.",
+        "I've watched it happen to three different people this week. It's a system."
+      ],
+      "reactions": [
+        "I'd rather have someone argue with me than pretend to agree."
+      ],
+      "statCheck": null,
+      "valence": "negative",
+      "topic_category": "npc_opinions",
+      "required_entities": [
+        "npc"
+      ],
+      "location_scope": "local",
+      "quest_trigger": null
+    },
+    {
+      "id": 180,
+      "intro": "{npc_name} keeps a little garden patch behind their house that's the envy of the whole settlement.",
+      "details": [
+        "Everything grows for them. Same soil, same rain as the rest of us, twice the yield.",
+        "I've asked for tips and they share freely. It just never works the same for me."
+      ],
+      "reactions": [
+        "Some people have green hands. The rest of us just have dirt."
+      ],
+      "statCheck": {
+        "pass": "I've watched their routine: it's the timing. They water at dawn and mulch at specific intervals. Precision makes the difference.",
+        "fail": "I swear it's sorcery. Nothing else explains it."
+      },
+      "valence": "neutral",
+      "topic_category": "npc_opinions",
+      "required_entities": [
+        "npc"
+      ],
+      "location_scope": "local",
+      "quest_trigger": null
+    },
+    {
+      "id": 181,
+      "intro": "{npc_name} has been working themselves to the bone and won't accept help from anyone.",
+      "details": [
+        "Dark circles, short temper, skipping meals. Everyone can see it.",
+        "I offered to take on half their load and got a flat 'no' before I finished the sentence."
+      ],
+      "reactions": [
+        "Stubbornness dressed up as self-reliance is still stubbornness."
+      ],
+      "statCheck": {
+        "pass": "I think accepting help feels like failure to them. It's pride, and it's going to cost them if they don't bend.",
+        "fail": "I don't know what drives them to refuse. Maybe it's a trust thing."
+      },
+      "valence": "neutral",
+      "topic_category": "npc_opinions",
+      "required_entities": [
+        "npc"
+      ],
+      "location_scope": "local",
+      "quest_trigger": null
+    },
+    {
+      "id": 182,
+      "intro": "{npc_name} said 'I'm proud of you' to me after I finished the wall repair. I wasn't ready for that.",
+      "details": [
+        "It caught me completely off guard. I don't hear that kind of thing very often.",
+        "It was just a wall. But the way they said it made it feel like more."
+      ],
+      "reactions": [
+        "Words like that from the right person at the right time can carry you for weeks."
+      ],
+      "statCheck": null,
+      "valence": "positive",
+      "topic_category": "npc_opinions",
+      "required_entities": [
+        "npc"
+      ],
+      "location_scope": "local",
+      "quest_trigger": null
+    },
+    {
+      "id": 183,
+      "intro": "I caught {npc_name} reading through the supply list and making changes without telling anyone.",
+      "details": [
+        "Scratched out some items, added others. Just unilaterally decided what we needed.",
+        "When I asked about it they said they were 'adjusting priorities.' Whose priorities?"
+      ],
+      "reactions": [
+        "If we're making decisions together, they need to actually be made together."
+      ],
+      "statCheck": null,
+      "valence": "negative",
+      "topic_category": "npc_opinions",
+      "required_entities": [
+        "npc"
+      ],
+      "location_scope": "local",
+      "quest_trigger": null
+    },
+    {
+      "id": 184,
+      "intro": "{npc_name} helped me replant my entire herb bed after the frost took everything. Spent the whole day at it.",
+      "details": [
+        "Their knees were in the mud same as mine. Didn't leave until the last seedling was in.",
+        "When we were done they looked at the rows and said 'that'll do nicely.' Understatement of the year."
+      ],
+      "reactions": [
+        "People who show up with their hands, not just their words: those are the ones you keep."
+      ],
+      "statCheck": null,
+      "valence": "positive",
+      "topic_category": "npc_opinions",
+      "required_entities": [
+        "npc"
+      ],
+      "location_scope": "local",
+      "quest_trigger": null
+    },
+    {
+      "id": 185,
+      "intro": "{npc_name} has been giving me the cold shoulder ever since I disagreed with them about the water route.",
+      "details": [
+        "It was a practical discussion. I had a different view. That should be allowed.",
+        "Apparently not. Three days of silence over irrigation."
+      ],
+      "reactions": [
+        "If a relationship can't survive a disagreement, it wasn't much of one."
+      ],
+      "statCheck": null,
+      "valence": "negative",
+      "topic_category": "npc_opinions",
+      "required_entities": [
+        "npc"
+      ],
+      "location_scope": "local",
+      "quest_trigger": null
+    },
+    {
+      "id": 186,
+      "intro": "{npc_name} keeps finding excuses to walk past {npc_name_2}'s place. I've counted: three times today.",
+      "details": [
+        "Once could be a coincidence. Twice is a stretch. Three times is a route change.",
+        "I haven't said anything to either of them. It's more fun to watch."
+      ],
+      "reactions": [
+        "People are transparent when they don't know they're being observed."
+      ],
+      "statCheck": null,
+      "valence": "neutral",
+      "topic_category": "npc_opinions",
+      "required_entities": [
+        "npc",
+        "npc"
+      ],
+      "location_scope": "local",
+      "quest_trigger": null
+    },
+    {
+      "id": 187,
+      "intro": "{npc_name} is the most consistently kind person I know. Not flashy about it: just steady.",
+      "details": [
+        "Every day, every interaction. A kind word, a small gesture, an offered hand. Without exception.",
+        "I've watched for a bad day, a slip, anything. It doesn't come."
+      ],
+      "reactions": [
+        "Consistency is the hardest part of being good. {npc_name} makes it look easy."
+      ],
+      "statCheck": null,
+      "valence": "positive",
+      "topic_category": "npc_opinions",
+      "required_entities": [
+        "npc"
+      ],
+      "location_scope": "local",
+      "quest_trigger": null
+    },
+    {
+      "id": 188,
+      "intro": "{npc_name} laughed at something I said in front of everyone. Not with me: at me.",
+      "details": [
+        "I'd mispronounced something and they repeated it loudly like it was the funniest thing they'd heard all week.",
+        "The table went quiet and {npc_name} didn't seem to notice or care."
+      ],
+      "reactions": [
+        "A laugh at someone's expense stops being a joke the moment they're not laughing."
+      ],
+      "statCheck": null,
+      "valence": "negative",
+      "topic_category": "npc_opinions",
+      "required_entities": [
+        "npc"
+      ],
+      "location_scope": "local",
+      "quest_trigger": null
+    },
+    {
+      "id": 189,
+      "intro": "I think {npc_name} and I could be better friends if we tried. We just haven't made the effort.",
+      "details": [
+        "We get along fine when we cross paths. Pleasant, easy. But neither of us ever seeks the other out.",
+        "I've thought about inviting them for tea but keep putting it off for no good reason."
+      ],
+      "reactions": [
+        "Friendships don't always need a spark. Sometimes they just need someone to take the first step."
+      ],
+      "statCheck": null,
+      "valence": "neutral",
+      "topic_category": "npc_opinions",
+      "required_entities": [
+        "npc"
+      ],
+      "location_scope": "local",
+      "quest_trigger": null
+    },
+    {
+      "id": 190,
+      "intro": "When I was going through a hard stretch, {npc_name} left food at my door every morning for a week.",
+      "details": [
+        "I never saw them do it. Just woke up and it was there: bread, fruit, sometimes a jar of something warm.",
+        "I cried the third morning. Not from sadness: from being looked after."
+      ],
+      "reactions": [
+        "Some debts you repay by passing them on."
+      ],
+      "statCheck": null,
+      "valence": "positive",
+      "topic_category": "npc_opinions",
+      "required_entities": [
+        "npc"
+      ],
+      "location_scope": "local",
+      "quest_trigger": null
+    },
+    {
+      "id": 191,
+      "intro": "{npc_name} plays favorites with information. Certain people know things the rest of us don't.",
+      "details": [
+        "Plans get discussed in little huddles. By the time the rest of us hear about it, decisions are already made.",
+        "When you ask why you weren't told, you get a shrug and 'it came up naturally.'"
+      ],
+      "reactions": [
+        "Information is power, and some people hoard it. {npc_name} is one of them."
+      ],
+      "statCheck": {
+        "pass": "They build a circle of trust and use it to control the flow of news. It's not accidental: it's how they stay central.",
+        "fail": "Maybe it's not deliberate. Maybe some people are just better at being in the right place."
+      },
+      "valence": "negative",
+      "topic_category": "npc_opinions",
+      "required_entities": [
+        "npc"
+      ],
+      "location_scope": "local",
+      "quest_trigger": null
+    },
+    {
+      "id": 192,
+      "intro": "{npc_name} and {npc_name_2} have been trading recipes all week. The kitchen's become their territory.",
+      "details": [
+        "New spices, different preparations. Last night's stew had something in it I couldn't identify.",
+        "They've taken over the cooking schedule without exactly asking."
+      ],
+      "reactions": [
+        "The food's different. Whether it's better depends on who you ask."
+      ],
+      "statCheck": null,
+      "valence": "neutral",
+      "topic_category": "npc_opinions",
+      "required_entities": [
+        "npc",
+        "npc"
+      ],
+      "location_scope": "local",
+      "quest_trigger": null
+    },
+    {
+      "id": 193,
+      "intro": "{npc_name} stared at me during the whole meeting and didn't contribute a single word.",
+      "details": [
+        "Arms crossed, eyes fixed on me like they were keeping score.",
+        "When it was over they left without comment. I have no idea what that was about."
+      ],
+      "reactions": [
+        "Silence can be louder than words. And more unsettling."
+      ],
+      "statCheck": null,
+      "valence": "negative",
+      "topic_category": "npc_opinions",
+      "required_entities": [
+        "npc"
+      ],
+      "location_scope": "local",
+      "quest_trigger": null
+    },
+    {
+      "id": 194,
+      "intro": "{npc_name} collects smooth stones. Has a whole shelf of them, all different colors.",
+      "details": [
+        "They pick them up on walks and hold each one up to the light before deciding to keep it.",
+        "I asked what makes a stone worth keeping and they said 'you just know.' Very helpful."
+      ],
+      "reactions": [
+        "Odd hobbies are the best kind. At least it's harmless."
+      ],
+      "statCheck": null,
+      "valence": "neutral",
+      "topic_category": "npc_opinions",
+      "required_entities": [
+        "npc"
+      ],
+      "location_scope": "local",
+      "quest_trigger": null
+    },
+    {
+      "id": 195,
+      "intro": "{npc_name} mended my coat and left it on the hook without a word. I only noticed because the stitching style was different.",
+      "details": [
+        "Neat work too. Better than I could have done myself.",
+        "I thanked them and they looked embarrassed, like they'd been caught doing something silly."
+      ],
+      "reactions": [
+        "Quiet acts of care are worth more than grand gestures."
+      ],
+      "statCheck": null,
+      "valence": "positive",
+      "topic_category": "npc_opinions",
+      "required_entities": [
+        "npc"
+      ],
+      "location_scope": "local",
+      "quest_trigger": null
+    },
+    {
+      "id": 196,
+      "intro": "I think {npc_name} resents how much work I get done. I've seen the looks.",
+      "details": [
+        "When someone mentions my progress, their jaw tightens. Barely noticeable, but it's there.",
+        "They've never said a hostile word. They don't have to."
+      ],
+      "reactions": [
+        "I'm not going to slow down to make someone else comfortable. But it makes things awkward."
+      ],
+      "statCheck": {
+        "pass": "They measure themselves against everyone around them. It's not about me specifically: I just happen to be visible.",
+        "fail": "I could be wrong. Body language is easy to misread."
+      },
+      "valence": "negative",
+      "topic_category": "npc_opinions",
+      "required_entities": [
+        "npc"
+      ],
+      "location_scope": "local",
+      "quest_trigger": null
+    },
+    {
+      "id": 197,
+      "intro": "{npc_name} tells stories about their own mistakes like they're proud of them.",
+      "details": [
+        "Had us laughing about the time they built a shelf upside down and didn't notice for a week.",
+        "I can't tell if it's genuine humility or just a way to control the narrative."
+      ],
+      "reactions": [
+        "Either way, it works. People warm up to someone who doesn't take themselves too seriously."
+      ],
+      "statCheck": null,
+      "valence": "neutral",
+      "topic_category": "npc_opinions",
+      "required_entities": [
+        "npc"
+      ],
+      "location_scope": "local",
+      "quest_trigger": null
+    },
+    {
+      "id": 198,
+      "intro": "{npc_name} has been whispering with {npc_name_2} a lot lately and they go quiet when anyone approaches.",
+      "details": [
+        "It could be nothing. People have private conversations. But the timing feels deliberate.",
+        "Both of them have been acting slightly off since it started."
+      ],
+      "reactions": [
+        "I'm telling myself it's not about me. Mostly I believe that."
+      ],
+      "statCheck": {
+        "pass": "I think they're planning something for the settlement: possibly a surprise for someone. The secrecy has that flavor.",
+        "fail": "I have no clue. Could be anything from a gift to a grievance."
+      },
+      "valence": "neutral",
+      "topic_category": "npc_opinions",
+      "required_entities": [
+        "npc",
+        "npc"
+      ],
+      "location_scope": "local",
+      "quest_trigger": null
+    },
+    {
+      "id": 199,
+      "intro": "{npc_name} is proof that good people exist. Plain and simple.",
+      "details": [
+        "No agenda, no score-keeping. They're kind because it's how they're built.",
+        "I've watched them long enough to know it's not an act. Some people are just decent to the bone."
+      ],
+      "reactions": [
+        "Hold onto people like that. They're the reason the rest of us keep trying."
+      ],
+      "statCheck": null,
+      "valence": "positive",
+      "topic_category": "npc_opinions",
+      "required_entities": [
+        "npc"
+      ],
+      "location_scope": "local",
+      "quest_trigger": null
     }
   ]
 }

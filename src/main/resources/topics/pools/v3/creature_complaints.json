@@ -257,6 +257,1670 @@
       ],
       "location_scope": "local",
       "quest_trigger": null
+    },
+    {
+      "id": 12,
+      "intro": "Something's been digging under the back fence at night. I'm pretty sure it's {mob_type}.",
+      "details": [
+        "The holes are too big for anything normal. Whatever it is, it's strong.",
+        "I filled them in twice already and they just get dug out again by morning."
+      ],
+      "reactions": [
+        "I'm running out of dirt and patience in equal measure."
+      ],
+      "statCheck": null,
+      "valence": "negative",
+      "topic_category": "creature_complaints",
+      "required_entities": [
+        "mob"
+      ],
+      "location_scope": "local",
+      "quest_trigger": null
+    },
+    {
+      "id": 13,
+      "intro": "A {wildlife_type} has been sitting on my roof every morning this week. Just staring.",
+      "details": [
+        "I'll come outside and there it is, perched right on the edge, looking down at me.",
+        "My kids think it's funny. I think it's unsettling."
+      ],
+      "reactions": [
+        "It's harmless, I know. But I don't like being watched by anything while I eat breakfast."
+      ],
+      "statCheck": null,
+      "valence": "neutral",
+      "topic_category": "creature_complaints",
+      "required_entities": [],
+      "location_scope": "local",
+      "quest_trigger": null
+    },
+    {
+      "id": 14,
+      "intro": "Woke up to {mob_type} noises coming from the direction of the {poi_type}. Couldn't get back to sleep after that.",
+      "details": [
+        "It went on for maybe an hour. Growling, scratching, something heavy dragging.",
+        "Nobody else seems to have heard it, or they just don't want to talk about it."
+      ],
+      "reactions": [
+        "I keep my shutters closed now. Doesn't help with the sound, but it helps with the feeling."
+      ],
+      "statCheck": {
+        "pass": "{mob_type} are mostly nocturnal hunters. The noises were probably territorial: claiming ground, not looking for trouble with us.",
+        "fail": "I don't know what they were doing out there. I just know I didn't like it."
+      },
+      "valence": "negative",
+      "topic_category": "creature_complaints",
+      "required_entities": [
+        "mob"
+      ],
+      "location_scope": "local",
+      "quest_trigger": null
+    },
+    {
+      "id": 15,
+      "intro": "The {wildlife_type} around here have gotten so bold. One walked right up to my table while I was eating outside.",
+      "details": [
+        "Just stood there looking at my plate like it was waiting to be served.",
+        "I shooed it off and it went about three steps, then turned around and came back."
+      ],
+      "reactions": [
+        "I suppose that's what I get for eating outdoors."
+      ],
+      "statCheck": null,
+      "valence": "neutral",
+      "topic_category": "creature_complaints",
+      "required_entities": [],
+      "location_scope": "local",
+      "quest_trigger": null
+    },
+    {
+      "id": 16,
+      "intro": "Haven't had a single {mob_type} sighting in weeks. I'm cautiously optimistic.",
+      "details": [
+        "Last season was terrible: tracks everywhere, livestock on edge, people nervous.",
+        "This stretch of quiet feels earned, honestly."
+      ],
+      "reactions": [
+        "I'll enjoy it while it lasts and try not to jinx it."
+      ],
+      "statCheck": null,
+      "valence": "positive",
+      "topic_category": "creature_complaints",
+      "required_entities": [
+        "mob"
+      ],
+      "location_scope": "local",
+      "quest_trigger": null
+    },
+    {
+      "id": 17,
+      "intro": "The smell coming from the woods {direction} has been awful lately. I think something the {mob_type} killed is rotting out there.",
+      "details": [
+        "When the wind shifts you can catch it from across the field. Makes your eyes water.",
+        "Nobody wants to go check. Can't blame them, really."
+      ],
+      "reactions": [
+        "It'll pass on its own eventually. Just wish the wind would cooperate."
+      ],
+      "statCheck": null,
+      "valence": "negative",
+      "topic_category": "creature_complaints",
+      "required_entities": [
+        "mob"
+      ],
+      "location_scope": "local",
+      "quest_trigger": null
+    },
+    {
+      "id": 18,
+      "intro": "{wildlife_type} have been nesting in my firewood stack. Found a whole family in there yesterday.",
+      "details": [
+        "I went to grab a log and nearly put my hand right on top of one. We both screamed, I think.",
+        "They've been building in there for a while, judging by the mess."
+      ],
+      "reactions": [
+        "Now I have to relocate the whole pile. That's my afternoon gone."
+      ],
+      "statCheck": {
+        "pass": "They nest in stacked wood because it mimics hollow trees. Move the pile away from the wall and they'll find somewhere else.",
+        "fail": "I have no idea how to discourage them. They seem pretty committed."
+      },
+      "valence": "negative",
+      "topic_category": "creature_complaints",
+      "required_entities": [],
+      "location_scope": "local",
+      "quest_trigger": null
+    },
+    {
+      "id": 19,
+      "intro": "I've been keeping a tally of how many times I see {mob_type} tracks near the settlement. It's getting worse.",
+      "details": [
+        "Started doing it after that bad week last month. Three times in seven days so far.",
+        "I showed my count to a few neighbors and they thought I was being dramatic."
+      ],
+      "reactions": [
+        "I'm not dramatic: I'm thorough."
+      ],
+      "statCheck": null,
+      "valence": "negative",
+      "topic_category": "creature_complaints",
+      "required_entities": [
+        "mob"
+      ],
+      "location_scope": "local",
+      "quest_trigger": null
+    },
+    {
+      "id": 20,
+      "intro": "Found claw marks on the side of my shed this morning. Has to be {mob_type}.",
+      "details": [
+        "Deep scratches, right at about shoulder height. Whatever did it was big.",
+        "The shed was locked, so they didn't get in. Small victories."
+      ],
+      "reactions": [
+        "I'm reinforcing the door tonight whether I'm tired or not."
+      ],
+      "statCheck": {
+        "pass": "Claw marks at that height usually mean scent-marking. It's claiming territory, not trying to break in.",
+        "fail": "I don't want to think about why it was scratching my shed. Nothing good."
+      },
+      "valence": "negative",
+      "topic_category": "creature_complaints",
+      "required_entities": [
+        "mob"
+      ],
+      "location_scope": "local",
+      "quest_trigger": null
+    },
+    {
+      "id": 21,
+      "intro": "A {wildlife_type} got tangled in the laundry line and pulled everything into the dirt.",
+      "details": [
+        "I'd just washed those sheets. Spent the whole morning on them.",
+        "The {wildlife_type} seemed more upset about it than I was, honestly. Thrashing around in a bedsheet."
+      ],
+      "reactions": [
+        "I untangled it and let it go. Then I washed everything again."
+      ],
+      "statCheck": null,
+      "valence": "negative",
+      "topic_category": "creature_complaints",
+      "required_entities": [],
+      "location_scope": "local",
+      "quest_trigger": null
+    },
+    {
+      "id": 22,
+      "intro": "I actually don't mind the {wildlife_type} that come around. They're good company when you're working alone.",
+      "details": [
+        "There's one that shows up most mornings while I'm in the garden. Just does its thing nearby.",
+        "My neighbor thinks I'm soft for not chasing them off. Maybe I am."
+      ],
+      "reactions": [
+        "Not everything that shows up uninvited is a problem."
+      ],
+      "statCheck": null,
+      "valence": "positive",
+      "topic_category": "creature_complaints",
+      "required_entities": [],
+      "location_scope": "local",
+      "quest_trigger": null
+    },
+    {
+      "id": 23,
+      "intro": "The {mob_type} were howling all last night. Just constant noise from {direction}.",
+      "details": [
+        "Couldn't tell how close they were. Sound carries strangely at night.",
+        "The dog wouldn't stop barking back at them, so nobody slept."
+      ],
+      "reactions": [
+        "I'm running on two hours of sleep and my mood matches."
+      ],
+      "statCheck": {
+        "pass": "That kind of sustained howling is usually pack communication, not hunting calls. They were probably spread out and regrouping.",
+        "fail": "I don't speak {mob_type}. All I know is it sounded like a lot of them."
+      },
+      "valence": "negative",
+      "topic_category": "creature_complaints",
+      "required_entities": [
+        "mob"
+      ],
+      "location_scope": "local",
+      "quest_trigger": null
+    },
+    {
+      "id": 24,
+      "intro": "My goats have been nervous all week. I think {mob_type} are prowling the edges at night.",
+      "details": [
+        "They cluster in the corner of the pen and won't eat properly. That only happens when something's out there.",
+        "I've walked the perimeter twice and found nothing, but the goats know things I don't."
+      ],
+      "reactions": [
+        "I trust the goats more than I trust my own eyes at this point."
+      ],
+      "statCheck": null,
+      "valence": "negative",
+      "topic_category": "creature_complaints",
+      "required_entities": [
+        "mob"
+      ],
+      "location_scope": "local",
+      "quest_trigger": null
+    },
+    {
+      "id": 25,
+      "intro": "{wildlife_type} got into the root cellar and made a mess of the turnips. Not a single one left whole.",
+      "details": [
+        "They didn't even eat most of them. Just chewed a bit of each one and moved on.",
+        "Like they were sampling. Very discerning tastes, apparently."
+      ],
+      "reactions": [
+        "I spent the afternoon salvaging what I could. It wasn't much."
+      ],
+      "statCheck": null,
+      "valence": "negative",
+      "topic_category": "creature_complaints",
+      "required_entities": [],
+      "location_scope": "local",
+      "quest_trigger": null
+    },
+    {
+      "id": 26,
+      "intro": "Interesting thing: the {mob_type} haven't come near the south fields since we started burning pine cuttings out there.",
+      "details": [
+        "Could be coincidence, but it's been three weeks and not a single track.",
+        "A few of us started doing it after old Marta mentioned the smoke bothers them."
+      ],
+      "reactions": [
+        "If it works, it works. I don't need to understand why."
+      ],
+      "statCheck": {
+        "pass": "Pine smoke carries compounds that irritate their scent glands. They avoid areas that smell strongly of it.",
+        "fail": "Might be the smoke, might be luck. Either way I'll keep burning."
+      },
+      "valence": "positive",
+      "topic_category": "creature_complaints",
+      "required_entities": [
+        "mob"
+      ],
+      "location_scope": "local",
+      "quest_trigger": null
+    },
+    {
+      "id": 27,
+      "intro": "I swear the {wildlife_type} around here are getting fatter every season. They're eating better than I am.",
+      "details": [
+        "Saw one yesterday that could barely run. Just waddled off when I came outside.",
+        "Between the gardens and the grain stores, they've got an all-you-can-eat situation going."
+      ],
+      "reactions": [
+        "Good for them, I guess. Less good for my pantry."
+      ],
+      "statCheck": null,
+      "valence": "neutral",
+      "topic_category": "creature_complaints",
+      "required_entities": [],
+      "location_scope": "local",
+      "quest_trigger": null
+    },
+    {
+      "id": 28,
+      "intro": "Found a dead {wildlife_type} near the well this morning. Something got to it during the night.",
+      "details": [
+        "Wasn't pretty. Whatever did it didn't even finish eating: just left it there.",
+        "Had to clean it up before the kids saw. Not the start to the day I wanted."
+      ],
+      "reactions": [
+        "It's nature, I know. Doesn't mean I have to like finding it on my doorstep."
+      ],
+      "statCheck": {
+        "pass": "That kind of kill pattern: taking a bite and leaving the rest: is typical of something marking territory. The predator's wasting food to send a message.",
+        "fail": "I don't know what got it. Something big enough that I'd rather not meet."
+      },
+      "valence": "negative",
+      "topic_category": "creature_complaints",
+      "required_entities": [
+        "mob"
+      ],
+      "location_scope": "local",
+      "quest_trigger": null
+    },
+    {
+      "id": 29,
+      "intro": "A {mob_type} walked right through the middle of the settlement yesterday. Broad daylight.",
+      "details": [
+        "Everyone just froze and watched it go. It didn't seem bothered by us at all.",
+        "It walked past three houses, sniffed at a cart, and kept going toward the woods."
+      ],
+      "reactions": [
+        "That was too close for comfort. Even the people who say not to worry looked shaken."
+      ],
+      "statCheck": {
+        "pass": "Daylight boldness usually means it's been pushed out of its territory by a bigger predator. It's desperate, not aggressive.",
+        "fail": "I have no explanation for why it came through here. It shouldn't have."
+      },
+      "valence": "negative",
+      "topic_category": "creature_complaints",
+      "required_entities": [
+        "mob"
+      ],
+      "location_scope": "local",
+      "quest_trigger": null
+    },
+    {
+      "id": 30,
+      "intro": "The chickens won't go outside their coop anymore. I think {mob_type} have been circling at dawn.",
+      "details": [
+        "Normally they're out the second I open the door. Now they just huddle inside and cluck nervously.",
+        "I found scuff marks in the dirt near the coop. Something's been pacing."
+      ],
+      "reactions": [
+        "Chickens are smarter than people give them credit for. If they're scared, I'm paying attention."
+      ],
+      "statCheck": null,
+      "valence": "negative",
+      "topic_category": "creature_complaints",
+      "required_entities": [
+        "mob"
+      ],
+      "location_scope": "local",
+      "quest_trigger": null
+    },
+    {
+      "id": 31,
+      "intro": "There's a {wildlife_type} that keeps following me when I walk to the {poi_type}. Same one every time.",
+      "details": [
+        "It keeps its distance but it's definitely following. Stops when I stop, moves when I move.",
+        "I tried throwing it a crust of bread once and it just looked at me like I'd insulted it."
+      ],
+      "reactions": [
+        "I've started talking to it. We have a routine now."
+      ],
+      "statCheck": null,
+      "valence": "positive",
+      "topic_category": "creature_complaints",
+      "required_entities": [],
+      "location_scope": "local",
+      "quest_trigger": null
+    },
+    {
+      "id": 32,
+      "intro": "Something killed a sheep in the outer pasture last night. The marks look like {mob_type}.",
+      "details": [
+        "Dragged it almost to the fence line before abandoning it. Must've gotten spooked.",
+        "The rest of the flock is skittish. Won't graze near that corner anymore."
+      ],
+      "reactions": [
+        "One sheep I can absorb. I just hope it's not the start of a pattern."
+      ],
+      "statCheck": {
+        "pass": "A single kill with a drag trail means a lone hunter, not a pack. If it got spooked, it probably won't come back to the same spot.",
+        "fail": "I can't tell if it was one or several. I just know the sheep's dead."
+      },
+      "valence": "negative",
+      "topic_category": "creature_complaints",
+      "required_entities": [
+        "mob"
+      ],
+      "location_scope": "local",
+      "quest_trigger": null
+    },
+    {
+      "id": 33,
+      "intro": "{wildlife_type} have been digging up the garden beds again. Every seedling I planted last week is gone.",
+      "details": [
+        "They don't even eat the roots: they just dig them up and leave them on the surface to dry out.",
+        "I've tried burying the seeds deeper. They just dig deeper."
+      ],
+      "reactions": [
+        "I'm replanting for the third time this season. My enthusiasm is running thin."
+      ],
+      "statCheck": null,
+      "valence": "negative",
+      "topic_category": "creature_complaints",
+      "required_entities": [],
+      "location_scope": "local",
+      "quest_trigger": null
+    },
+    {
+      "id": 34,
+      "intro": "Saw {mob_type} tracks on the path between here and the {poi_type} this morning.",
+      "details": [
+        "Fresh ones, too. They crossed the path and kept going toward the ridge.",
+        "I turned around and took the long way. Not worth the risk."
+      ],
+      "reactions": [
+        "I'll try again tomorrow morning. Hopefully they've moved on."
+      ],
+      "statCheck": null,
+      "valence": "negative",
+      "topic_category": "creature_complaints",
+      "required_entities": [
+        "mob"
+      ],
+      "location_scope": "local",
+      "quest_trigger": null
+    },
+    {
+      "id": 35,
+      "intro": "My cat dragged a live {wildlife_type} into the kitchen this morning.",
+      "details": [
+        "It was more confused than hurt. Just stood there in the middle of the floor looking around.",
+        "The cat seemed very proud of itself. I was less impressed."
+      ],
+      "reactions": [
+        "I put it back outside and it hopped off like nothing happened. The cat sulked for an hour."
+      ],
+      "statCheck": null,
+      "valence": "neutral",
+      "topic_category": "creature_complaints",
+      "required_entities": [],
+      "location_scope": "local",
+      "quest_trigger": null
+    },
+    {
+      "id": 36,
+      "intro": "The {mob_type} have been staying well clear of us this season. Best stretch we've had in years.",
+      "details": [
+        "Nobody's reported tracks, noises, or missing livestock in over a month.",
+        "People are actually relaxing. You can feel it."
+      ],
+      "reactions": [
+        "I keep waiting for the other boot to drop, but maybe things are just genuinely good right now."
+      ],
+      "statCheck": null,
+      "valence": "positive",
+      "topic_category": "creature_complaints",
+      "required_entities": [
+        "mob"
+      ],
+      "location_scope": "local",
+      "quest_trigger": null
+    },
+    {
+      "id": 37,
+      "intro": "I left the window open last night and a {wildlife_type} got into the house. Found it sleeping on my chair.",
+      "details": [
+        "It didn't even wake up when I came in. Just kept snoring away like it owned the place.",
+        "I stood there for a solid minute trying to figure out how this was my life."
+      ],
+      "reactions": [
+        "I closed the window, went back to bed, and dealt with it in the morning. I was too tired to care."
+      ],
+      "statCheck": null,
+      "valence": "neutral",
+      "topic_category": "creature_complaints",
+      "required_entities": [],
+      "location_scope": "local",
+      "quest_trigger": null
+    },
+    {
+      "id": 38,
+      "intro": "I can hear {mob_type} fighting each other most nights now. Awful sounds, coming from the woods {direction}.",
+      "details": [
+        "Snarling and crashing through the brush. Goes on for a while, then sudden silence.",
+        "I pulled the blanket over my head like a child. Not proud of it, but there it is."
+      ],
+      "reactions": [
+        "As long as they're fighting each other and not coming here, I suppose I can live with the noise."
+      ],
+      "statCheck": {
+        "pass": "Territorial disputes are a good sign, in a way. It means the area has enough of them that they're competing: and competing {mob_type} don't usually expand outward.",
+        "fail": "I don't know what they're fighting about and I don't intend to find out firsthand."
+      },
+      "valence": "negative",
+      "topic_category": "creature_complaints",
+      "required_entities": [
+        "mob"
+      ],
+      "location_scope": "local",
+      "quest_trigger": null
+    },
+    {
+      "id": 39,
+      "intro": "{wildlife_type} keep getting into the grain silo through that crack in the foundation.",
+      "details": [
+        "I've patched it three times now. They chew through whatever I use within a week.",
+        "At this point they've probably eaten more of this year's harvest than we have."
+      ],
+      "reactions": [
+        "I need to replace the whole foundation stone and that's not a one-person job."
+      ],
+      "statCheck": {
+        "pass": "Try mixing crusite powder into the mortar. The taste deters them and it hardens like iron.",
+        "fail": "I'm out of ideas. If anyone has a suggestion, I'm listening."
+      },
+      "valence": "negative",
+      "topic_category": "creature_complaints",
+      "required_entities": [],
+      "location_scope": "local",
+      "quest_trigger": null
+    },
+    {
+      "id": 40,
+      "intro": "The {mob_type} got into the compost heap and scattered it across the yard. Lovely.",
+      "details": [
+        "Rotting vegetable scraps everywhere. On the walkway, on the steps, in the flower bed.",
+        "It took them maybe five minutes to undo a month of composting."
+      ],
+      "reactions": [
+        "I'm building a lid for the heap. Should've done it ages ago."
+      ],
+      "statCheck": null,
+      "valence": "negative",
+      "topic_category": "creature_complaints",
+      "required_entities": [
+        "mob"
+      ],
+      "location_scope": "local",
+      "quest_trigger": null
+    },
+    {
+      "id": 41,
+      "intro": "I actually saw a {wildlife_type} chasing a {wildlife_type} across the field yesterday. Pure chaos.",
+      "details": [
+        "They went back and forth three times before disappearing into the hedge.",
+        "No idea what the dispute was about, but they were committed to it."
+      ],
+      "reactions": [
+        "Best entertainment I've had in weeks. Beat anything the tavern has to offer."
+      ],
+      "statCheck": null,
+      "valence": "positive",
+      "topic_category": "creature_complaints",
+      "required_entities": [],
+      "location_scope": "local",
+      "quest_trigger": null
+    },
+    {
+      "id": 42,
+      "intro": "Something has been knocking over the rain barrels at night. I'm blaming {mob_type} until proven otherwise.",
+      "details": [
+        "Three barrels tipped over this week. That's a lot of collected water lost.",
+        "I can see where something large leaned against them. The wood is scratched up."
+      ],
+      "reactions": [
+        "I've started weighting the barrels with stones. It helps, but it's one more thing to deal with."
+      ],
+      "statCheck": null,
+      "valence": "negative",
+      "topic_category": "creature_complaints",
+      "required_entities": [
+        "mob"
+      ],
+      "location_scope": "local",
+      "quest_trigger": null
+    },
+    {
+      "id": 43,
+      "intro": "Walked out this morning and there were {wildlife_type} tracks all over the fresh snow. Hundreds of them.",
+      "details": [
+        "They must've been through in a big group overnight. The yard looked like a festival ground.",
+        "Every single vegetable cover was knocked aside. Just trampled right through."
+      ],
+      "reactions": [
+        "At least the snow melts. The garden damage is another story."
+      ],
+      "statCheck": null,
+      "valence": "negative",
+      "topic_category": "creature_complaints",
+      "required_entities": [],
+      "location_scope": "local",
+      "quest_trigger": null
+    },
+    {
+      "id": 44,
+      "intro": "The {mob_type} took a swipe at somebody's drying rack last night. Pulled the whole thing down.",
+      "details": [
+        "Jerky, fish, some herbs: all dragged off into the dark. Nothing left but the broken frame.",
+        "The owner found it at dawn and just stood there shaking his head."
+      ],
+      "reactions": [
+        "You can't leave food out overnight anymore. That's just the reality now."
+      ],
+      "statCheck": null,
+      "valence": "negative",
+      "topic_category": "creature_complaints",
+      "required_entities": [
+        "mob"
+      ],
+      "location_scope": "local",
+      "quest_trigger": null
+    },
+    {
+      "id": 45,
+      "intro": "I've noticed fewer {wildlife_type} around lately. The garden's actually thriving for once.",
+      "details": [
+        "Usually by this point in the season I've lost half my lettuce. This year it's all still there.",
+        "I almost feel suspicious about it. Things don't usually go this well."
+      ],
+      "reactions": [
+        "I'll take it. First good growing season in three years."
+      ],
+      "statCheck": null,
+      "valence": "positive",
+      "topic_category": "creature_complaints",
+      "required_entities": [],
+      "location_scope": "local",
+      "quest_trigger": null
+    },
+    {
+      "id": 46,
+      "intro": "There's a {mob_type} den somewhere near the {poi_type}. You can smell it when the wind's right.",
+      "details": [
+        "That musky, sour smell that gets in your clothes. Unmistakable once you've smelled it before.",
+        "A few of us have been avoiding the area. Takes longer to go around, but at least you can breathe."
+      ],
+      "reactions": [
+        "I keep hoping they'll move on by winter. They usually do."
+      ],
+      "statCheck": {
+        "pass": "That smell means an active, occupied den. They won't abandon it until the young are old enough to travel: probably two more months.",
+        "fail": "I can't tell a den from a burrow. All I know is something lives there and it stinks."
+      },
+      "valence": "negative",
+      "topic_category": "creature_complaints",
+      "required_entities": [
+        "mob"
+      ],
+      "location_scope": "local",
+      "quest_trigger": null
+    },
+    {
+      "id": 47,
+      "intro": "A {wildlife_type} got into the smokehouse and made off with half a ham. Half a ham.",
+      "details": [
+        "I didn't even know they could push that door open. It's supposed to be latched.",
+        "The drag marks went out the back and into the bushes. Gone."
+      ],
+      "reactions": [
+        "That ham was supposed to last us through next month. Now I'm figuring out alternatives."
+      ],
+      "statCheck": null,
+      "valence": "negative",
+      "topic_category": "creature_complaints",
+      "required_entities": [],
+      "location_scope": "local",
+      "quest_trigger": null
+    },
+    {
+      "id": 48,
+      "intro": "I keep a tally stick by the door for {mob_type} sightings. Haven't added a notch in three weeks.",
+      "details": [
+        "The stick was looking pretty crowded before. Twenty-some notches in one season.",
+        "Now it's been blank for a while. Longest gap since I started keeping track."
+      ],
+      "reactions": [
+        "That stick sitting there unmarked is the most reassuring thing in my house right now."
+      ],
+      "statCheck": null,
+      "valence": "positive",
+      "topic_category": "creature_complaints",
+      "required_entities": [
+        "mob"
+      ],
+      "location_scope": "local",
+      "quest_trigger": null
+    },
+    {
+      "id": 49,
+      "intro": "The {mob_type} knocked over the outhouse. Just tipped the whole thing right over.",
+      "details": [
+        "I came out at dawn and it was lying on its side in the mud. Door hanging open.",
+        "Had to get two neighbors to help me stand it back up."
+      ],
+      "reactions": [
+        "I'd be angry if it wasn't so absurd. My neighbor laughed so hard she couldn't help lift."
+      ],
+      "statCheck": null,
+      "valence": "neutral",
+      "topic_category": "creature_complaints",
+      "required_entities": [
+        "mob"
+      ],
+      "location_scope": "local",
+      "quest_trigger": null
+    },
+    {
+      "id": 50,
+      "intro": "{wildlife_type} have been drinking from the horse trough again. The horses don't seem to mind.",
+      "details": [
+        "I'll come out and there'll be three or four of them lined up alongside the mare, all drinking together.",
+        "The mare just looks at me like I'm the odd one out."
+      ],
+      "reactions": [
+        "As long as the horses are calm about it, I suppose I am too."
+      ],
+      "statCheck": null,
+      "valence": "neutral",
+      "topic_category": "creature_complaints",
+      "required_entities": [],
+      "location_scope": "local",
+      "quest_trigger": null
+    },
+    {
+      "id": 51,
+      "intro": "I set snares for {wildlife_type} near the garden and caught my own boot. The boot I was wearing.",
+      "details": [
+        "Tripped the wire walking out to check the traps. Went face-first into the lettuce.",
+        "The {wildlife_type} watched the whole thing from the fence."
+      ],
+      "reactions": [
+        "I'm done with snares. They win."
+      ],
+      "statCheck": null,
+      "valence": "neutral",
+      "topic_category": "creature_complaints",
+      "required_entities": [],
+      "location_scope": "local",
+      "quest_trigger": null
+    },
+    {
+      "id": 52,
+      "intro": "A {mob_type} tried to get into the chicken coop last night. The rooster fought it off, somehow.",
+      "details": [
+        "I heard the commotion and by the time I got out there, the {mob_type} was already retreating.",
+        "The rooster was standing in the doorway puffed up to twice his size, absolutely furious."
+      ],
+      "reactions": [
+        "That rooster gets double rations from now on. He's earned it."
+      ],
+      "statCheck": null,
+      "valence": "neutral",
+      "topic_category": "creature_complaints",
+      "required_entities": [
+        "mob"
+      ],
+      "location_scope": "local",
+      "quest_trigger": null
+    },
+    {
+      "id": 53,
+      "intro": "The mud around the {poi_type} is covered in {mob_type} prints. More than I've ever seen in one spot.",
+      "details": [
+        "They're overlapping: different sizes, different depths. Looks like a whole group passed through.",
+        "Nobody noticed until the mud dried and the prints set. They'd been and gone by then."
+      ],
+      "reactions": [
+        "It's one thing to know they're around. It's another to see proof of that many in one place."
+      ],
+      "statCheck": {
+        "pass": "Overlapping prints in mud often look like more than they are. Could be the same few individuals passing back and forth over several nights.",
+        "fail": "I can't read tracks well enough to say how many there were. It just looks like a lot."
+      },
+      "valence": "negative",
+      "topic_category": "creature_complaints",
+      "required_entities": [
+        "mob"
+      ],
+      "location_scope": "local",
+      "quest_trigger": null
+    },
+    {
+      "id": 54,
+      "intro": "I've started leaving scraps out for the {wildlife_type} away from the garden. Seems to be working.",
+      "details": [
+        "They go for the easy meal instead of digging up my vegetables. Mostly.",
+        "My neighbor says I'm just training them to come around more. She might be right."
+      ],
+      "reactions": [
+        "It's either this or lose the garden again. I'll take the tradeoff."
+      ],
+      "statCheck": {
+        "pass": "Redirecting their attention works short-term, but they'll start expecting the scraps and get aggressive if you stop. Better to use the time to build proper barriers.",
+        "fail": "Seems to work. I'm not going to overthink it."
+      },
+      "valence": "neutral",
+      "topic_category": "creature_complaints",
+      "required_entities": [],
+      "location_scope": "local",
+      "quest_trigger": null
+    },
+    {
+      "id": 55,
+      "intro": "The {mob_type} left something dead on the path near the {poi_type}. Like a gift nobody asked for.",
+      "details": [
+        "Half-eaten carcass right in the middle of the walkway. Flies everywhere by the time I found it.",
+        "Had to move it off the path with a shovel. Unpleasant doesn't begin to cover it."
+      ],
+      "reactions": [
+        "They don't do it to bother us. But it bothers us all the same."
+      ],
+      "statCheck": null,
+      "valence": "negative",
+      "topic_category": "creature_complaints",
+      "required_entities": [
+        "mob"
+      ],
+      "location_scope": "local",
+      "quest_trigger": null
+    },
+    {
+      "id": 56,
+      "intro": "Every spring the {wildlife_type} come back like they never left. Right on schedule, right in my yard.",
+      "details": [
+        "You'd think I'd be used to it by now. Six years of the same thing.",
+        "They make a mess, they eat what they can, and by summer they've moved on."
+      ],
+      "reactions": [
+        "It's seasonal damage at this point. I plan for it the way I plan for weather."
+      ],
+      "statCheck": null,
+      "valence": "neutral",
+      "topic_category": "creature_complaints",
+      "required_entities": [],
+      "location_scope": "local",
+      "quest_trigger": null
+    },
+    {
+      "id": 57,
+      "intro": "{mob_type} got into a neighbor's root cellar and didn't leave for two days.",
+      "details": [
+        "Just holed up down there eating whatever it could find. Nobody wanted to go in after it.",
+        "Eventually it came out on its own, looking very well fed and completely unbothered."
+      ],
+      "reactions": [
+        "My neighbor's still furious. I'd be too, if my entire winter store was gone."
+      ],
+      "statCheck": null,
+      "valence": "negative",
+      "topic_category": "creature_complaints",
+      "required_entities": [
+        "mob"
+      ],
+      "location_scope": "local",
+      "quest_trigger": null
+    },
+    {
+      "id": 58,
+      "intro": "I heard scratching under the floorboards last night. Pretty sure {wildlife_type} have moved in under the house.",
+      "details": [
+        "Little feet pattering back and forth. Right under where I sleep, of course.",
+        "I tapped on the floor and they went quiet for about ten seconds, then started right back up."
+      ],
+      "reactions": [
+        "I'll deal with it this weekend. For now we're cohabiting, whether I like it or not."
+      ],
+      "statCheck": null,
+      "valence": "negative",
+      "topic_category": "creature_complaints",
+      "required_entities": [],
+      "location_scope": "local",
+      "quest_trigger": null
+    },
+    {
+      "id": 59,
+      "intro": "I used to worry about {mob_type} all the time. Now I just check the fences and get on with my day.",
+      "details": [
+        "You can't spend your whole life afraid of what might come out of the tree line.",
+        "I take reasonable precautions. That's all anyone can do."
+      ],
+      "reactions": [
+        "The worry was worse than any actual encounter I've had, honestly."
+      ],
+      "statCheck": null,
+      "valence": "neutral",
+      "topic_category": "creature_complaints",
+      "required_entities": [
+        "mob"
+      ],
+      "location_scope": "local",
+      "quest_trigger": null
+    },
+    {
+      "id": 60,
+      "intro": "Something big pushed through the hedge behind the {poi_type} last night. You can see where the branches are all bent.",
+      "details": [
+        "Whatever it was didn't go around. Just shouldered right through like the hedge wasn't there.",
+        "I found tufts of fur caught on the thorns. Dark, coarse stuff."
+      ],
+      "reactions": [
+        "I'm going around the other way until that hedge grows back."
+      ],
+      "statCheck": {
+        "pass": "Coarse dark fur like that is typical of {mob_type}. A big one, too, given the height of the break.",
+        "fail": "Could've been anything. I'm just going to avoid that spot."
+      },
+      "valence": "negative",
+      "topic_category": "creature_complaints",
+      "required_entities": [
+        "mob"
+      ],
+      "location_scope": "local",
+      "quest_trigger": null
+    },
+    {
+      "id": 61,
+      "intro": "The {wildlife_type} have been unusually loud at dawn lately. I'm awake before I want to be every single morning.",
+      "details": [
+        "It starts before sunrise and goes on for an hour. Right outside the window.",
+        "I've tried closing the shutters. They don't care."
+      ],
+      "reactions": [
+        "I love nature. I just wish nature would start at a more reasonable hour."
+      ],
+      "statCheck": null,
+      "valence": "negative",
+      "topic_category": "creature_complaints",
+      "required_entities": [],
+      "location_scope": "local",
+      "quest_trigger": null
+    },
+    {
+      "id": 62,
+      "intro": "{mob_type} scattered the woodpile last night. Logs everywhere, like something had a tantrum.",
+      "details": [
+        "I'd just finished stacking it the day before. Took me all afternoon.",
+        "You could see where they'd been rooting around at the base. Looking for grubs, probably."
+      ],
+      "reactions": [
+        "I'll stack it again. What else can I do."
+      ],
+      "statCheck": null,
+      "valence": "negative",
+      "topic_category": "creature_complaints",
+      "required_entities": [
+        "mob"
+      ],
+      "location_scope": "local",
+      "quest_trigger": null
+    },
+    {
+      "id": 63,
+      "intro": "Watched a {wildlife_type} steal an entire loaf of bread off the windowsill. Bold as anything.",
+      "details": [
+        "I turned my back for maybe two minutes. Came back and it was gone: bread and all.",
+        "I could see it retreating across the yard with the loaf in its mouth, struggling with the weight."
+      ],
+      "reactions": [
+        "I should be mad. I'm mostly just impressed by the audacity."
+      ],
+      "statCheck": null,
+      "valence": "neutral",
+      "topic_category": "creature_complaints",
+      "required_entities": [],
+      "location_scope": "local",
+      "quest_trigger": null
+    },
+    {
+      "id": 64,
+      "intro": "The fence posts near the south field have been chewed to nothing by {mob_type}. I'll need to replace three of them.",
+      "details": [
+        "It's the same ones every time. Something about those particular posts appeals to them.",
+        "I replaced them with harder wood last year and they chewed through that too."
+      ],
+      "reactions": [
+        "At this rate I should just fence with stone and be done with it."
+      ],
+      "statCheck": {
+        "pass": "They chew posts to file their teeth down: it's maintenance, not mischief. Posts treated with bitter oil get left alone.",
+        "fail": "I don't know why they pick those posts specifically. Some kind of preference I don't understand."
+      },
+      "valence": "negative",
+      "topic_category": "creature_complaints",
+      "required_entities": [
+        "mob"
+      ],
+      "location_scope": "local",
+      "quest_trigger": null
+    },
+    {
+      "id": 65,
+      "intro": "I've been watching a pair of {wildlife_type} raise their young near the garden. It's been surprisingly nice.",
+      "details": [
+        "The little ones stumble around in the grass while the parents keep watch. Entertaining stuff.",
+        "They still eat my vegetables. But they're less annoying when you know the names you've given them."
+      ],
+      "reactions": [
+        "I've gone soft and I don't care."
+      ],
+      "statCheck": null,
+      "valence": "positive",
+      "topic_category": "creature_complaints",
+      "required_entities": [],
+      "location_scope": "local",
+      "quest_trigger": null
+    },
+    {
+      "id": 66,
+      "intro": "{mob_type} dug up the latrine pit behind the old storehouse. The smell reached three houses.",
+      "details": [
+        "Nobody knows why they'd do that. There's nothing of value in a latrine pit.",
+        "We had to re-dig and cover the whole thing. A full day's work for something nobody should have to do."
+      ],
+      "reactions": [
+        "Of all the things they could destroy, they chose the one that punished everyone equally."
+      ],
+      "statCheck": null,
+      "valence": "negative",
+      "topic_category": "creature_complaints",
+      "required_entities": [
+        "mob"
+      ],
+      "location_scope": "local",
+      "quest_trigger": null
+    },
+    {
+      "id": 67,
+      "intro": "The path to the {poi_type} has been clear of {mob_type} signs all season. First time in memory.",
+      "details": [
+        "I used to have to check for tracks before heading out. Now I just walk.",
+        "Other people have noticed too. It's become a safe route again."
+      ],
+      "reactions": [
+        "Simple things like walking without looking over your shoulder: you forget how good that feels."
+      ],
+      "statCheck": null,
+      "valence": "positive",
+      "topic_category": "creature_complaints",
+      "required_entities": [
+        "mob"
+      ],
+      "location_scope": "local",
+      "quest_trigger": null
+    },
+    {
+      "id": 68,
+      "intro": "A {wildlife_type} fell into the well. Had to fish it out with a bucket on a rope.",
+      "details": [
+        "It was paddling around down there looking very sorry for itself.",
+        "Took three attempts. The first two times it jumped off the bucket before I got it up."
+      ],
+      "reactions": [
+        "We built a cover for the well after that. Should've had one ages ago.",
+        "The {wildlife_type} came back the next day and sat by the well like it was waiting for another swim."
+      ],
+      "statCheck": null,
+      "valence": "neutral",
+      "topic_category": "creature_complaints",
+      "required_entities": [],
+      "location_scope": "local",
+      "quest_trigger": null
+    },
+    {
+      "id": 69,
+      "intro": "The {mob_type} have been coming in from the {direction} more often. That's new.",
+      "details": [
+        "Used to be all the sightings were from the tree line to the north. Now it's shifting.",
+        "Could mean their territory's expanding, or they've been pushed out from somewhere else."
+      ],
+      "reactions": [
+        "Either way, it means watching a direction we didn't used to have to worry about."
+      ],
+      "statCheck": {
+        "pass": "When they shift approach direction, something changed in their range: new predator, depleted food, collapsed den. They're adapting, not targeting us specifically.",
+        "fail": "I don't know what drives them to change routes. I just know they have."
+      },
+      "valence": "negative",
+      "topic_category": "creature_complaints",
+      "required_entities": [
+        "mob"
+      ],
+      "location_scope": "local",
+      "quest_trigger": null
+    },
+    {
+      "id": 70,
+      "intro": "I stepped on a {wildlife_type} in the dark last night. Scared both of us half to death.",
+      "details": [
+        "It was sleeping right in front of the door. I didn't see it until I was already on top of it.",
+        "The noise it made: and the noise I made: probably woke up the whole street."
+      ],
+      "reactions": [
+        "We both survived. My dignity didn't."
+      ],
+      "statCheck": null,
+      "valence": "neutral",
+      "topic_category": "creature_complaints",
+      "required_entities": [],
+      "location_scope": "local",
+      "quest_trigger": null
+    },
+    {
+      "id": 71,
+      "intro": "The livestock have been restless every night this week. I think {mob_type} are circling closer than usual.",
+      "details": [
+        "The cows bunch up, the goats pace, the chickens won't settle. Animals know things.",
+        "I've been sitting up later, keeping a lantern lit near the pen. It seems to help."
+      ],
+      "reactions": [
+        "I'm tired, the animals are tired, and we're all just waiting for whatever's out there to move on."
+      ],
+      "statCheck": null,
+      "valence": "negative",
+      "topic_category": "creature_complaints",
+      "required_entities": [
+        "mob"
+      ],
+      "location_scope": "local",
+      "quest_trigger": null
+    },
+    {
+      "id": 72,
+      "intro": "{wildlife_type} dug a burrow right in the middle of the walking path. Someone's going to twist an ankle.",
+      "details": [
+        "It's a proper burrow too, not just a scrape. Deep enough to catch a boot.",
+        "I filled it in and by the next morning there was a new one two paces over."
+      ],
+      "reactions": [
+        "They're determined. I'll give them that."
+      ],
+      "statCheck": null,
+      "valence": "negative",
+      "topic_category": "creature_complaints",
+      "required_entities": [],
+      "location_scope": "local",
+      "quest_trigger": null
+    },
+    {
+      "id": 73,
+      "intro": "I found a {mob_type} sleeping behind the hay bales in the barn this morning.",
+      "details": [
+        "Just curled up like it belonged there. Didn't even wake up when I opened the door.",
+        "I backed out very slowly and very quietly. My hands were shaking the whole time."
+      ],
+      "reactions": [
+        "I left the barn door open and waited. It wandered out an hour later on its own."
+      ],
+      "statCheck": {
+        "pass": "If it was sleeping that deeply near people, it's probably old or sick. Healthy ones don't let their guard down like that.",
+        "fail": "I don't care why it was sleeping there. I just care that it's gone."
+      },
+      "valence": "negative",
+      "topic_category": "creature_complaints",
+      "required_entities": [
+        "mob"
+      ],
+      "location_scope": "local",
+      "quest_trigger": null
+    },
+    {
+      "id": 74,
+      "intro": "The {wildlife_type} have completely taken over the abandoned shed at the edge of town.",
+      "details": [
+        "Nobody's used that shed in years, but now it's like a whole colony in there.",
+        "You can hear them from the path. Scratching, chittering, general chaos."
+      ],
+      "reactions": [
+        "As long as they stay in the shed and not in my house, we have an understanding."
+      ],
+      "statCheck": null,
+      "valence": "neutral",
+      "topic_category": "creature_complaints",
+      "required_entities": [],
+      "location_scope": "local",
+      "quest_trigger": null
+    },
+    {
+      "id": 75,
+      "intro": "I'm convinced the {mob_type} can tell when someone's been walking the patrol route. They avoid the fresh paths.",
+      "details": [
+        "The nights we patrol, nothing. The nights we skip, fresh tracks everywhere.",
+        "It's like they're watching us to figure out the schedule."
+      ],
+      "reactions": [
+        "We've started varying the times. Seems to confuse them, which is satisfying."
+      ],
+      "statCheck": {
+        "pass": "{mob_type} track scent trails: fresh human scent on a path tells them it's active, so they avoid the path rather than the people specifically.",
+        "fail": "I don't know if they're smart or just lucky. Either way, they're annoying."
+      },
+      "valence": "negative",
+      "topic_category": "creature_complaints",
+      "required_entities": [
+        "mob"
+      ],
+      "location_scope": "local",
+      "quest_trigger": null
+    },
+    {
+      "id": 76,
+      "intro": "Something's been chewing the leather straps on every tool left outside. {mob_type}, I assume.",
+      "details": [
+        "Axe handles, harnesses, even the cart ties. Anything leather is fair game.",
+        "I've started bringing everything inside at night, which is a pain."
+      ],
+      "reactions": [
+        "It's the little inconveniences that wear you down more than the big scares."
+      ],
+      "statCheck": null,
+      "valence": "negative",
+      "topic_category": "creature_complaints",
+      "required_entities": [
+        "mob"
+      ],
+      "location_scope": "local",
+      "quest_trigger": null
+    },
+    {
+      "id": 77,
+      "intro": "A {wildlife_type} built a nest right above the front door. Every time I go in or out, there's a commotion overhead.",
+      "details": [
+        "Twigs falling, things rustling, the occasional aggrieved squawk when I close the door too hard.",
+        "My neighbor said to knock it down. I can't bring myself to do it."
+      ],
+      "reactions": [
+        "They'll leave when the season turns. I can use the back door until then."
+      ],
+      "statCheck": null,
+      "valence": "neutral",
+      "topic_category": "creature_complaints",
+      "required_entities": [],
+      "location_scope": "local",
+      "quest_trigger": null
+    },
+    {
+      "id": 78,
+      "intro": "We found {mob_type} droppings inside the {poi_type}. That's a new low.",
+      "details": [
+        "It means they got in through a gap we didn't know about. That's the worrying part.",
+        "We've been checking all the walls and windows trying to find where they entered."
+      ],
+      "reactions": [
+        "Bad enough when they're outside. Inside is a different conversation entirely."
+      ],
+      "statCheck": {
+        "pass": "Check the roof line. {mob_type} are better climbers than people realize: they come in from above more often than through walls.",
+        "fail": "We couldn't find the entry point. That means we can't block it."
+      },
+      "valence": "negative",
+      "topic_category": "creature_complaints",
+      "required_entities": [
+        "mob"
+      ],
+      "location_scope": "local",
+      "quest_trigger": null
+    },
+    {
+      "id": 79,
+      "intro": "I've learned to read the {wildlife_type} behavior like a weather forecast. When they disappear, rain's coming.",
+      "details": [
+        "They clear out about half a day before a storm. Every time, without fail.",
+        "I've started using them to plan my work. More reliable than watching the clouds."
+      ],
+      "reactions": [
+        "For all the grief they cause the garden, at least they're useful for something."
+      ],
+      "statCheck": null,
+      "valence": "positive",
+      "topic_category": "creature_complaints",
+      "required_entities": [],
+      "location_scope": "local",
+      "quest_trigger": null
+    },
+    {
+      "id": 80,
+      "intro": "A {mob_type} charged at me while I was gathering firewood near the tree line. Stopped about ten paces short and just stood there.",
+      "details": [
+        "My heart was going so fast I could hear it in my ears. We just stared at each other.",
+        "Then it snorted and turned around. Walked away like nothing happened."
+      ],
+      "reactions": [
+        "I dropped the firewood and didn't go back for it. Someone else can get it."
+      ],
+      "statCheck": {
+        "pass": "That's a bluff charge: they do it to establish dominance without committing to a fight. Standing your ground is actually the right response, even though every instinct says run.",
+        "fail": "I thought I was dead. I genuinely thought that was it."
+      },
+      "valence": "negative",
+      "topic_category": "creature_complaints",
+      "required_entities": [
+        "mob"
+      ],
+      "location_scope": "local",
+      "quest_trigger": null
+    },
+    {
+      "id": 81,
+      "intro": "The {wildlife_type} ate through the rope holding up the gate. It swung open overnight and the goats got out.",
+      "details": [
+        "Spent three hours rounding up goats in the dark. Found the last one asleep under a bush.",
+        "The rope was chewed clean through. Neat as a knife, almost."
+      ],
+      "reactions": [
+        "I'm using chain now. Let them try chewing through that."
+      ],
+      "statCheck": null,
+      "valence": "negative",
+      "topic_category": "creature_complaints",
+      "required_entities": [],
+      "location_scope": "local",
+      "quest_trigger": null
+    },
+    {
+      "id": 82,
+      "intro": "Found {mob_type} fur caught on the garden gate this morning. They were in the yard at some point last night.",
+      "details": [
+        "Nothing damaged, nothing missing. They came through and kept going, apparently.",
+        "Still, knowing they were that close while I was sleeping doesn't sit right."
+      ],
+      "reactions": [
+        "I've started latching the gate even though it's never stopped them before. It makes me feel better."
+      ],
+      "statCheck": null,
+      "valence": "negative",
+      "topic_category": "creature_complaints",
+      "required_entities": [
+        "mob"
+      ],
+      "location_scope": "local",
+      "quest_trigger": null
+    },
+    {
+      "id": 83,
+      "intro": "The new torch posts along the path seem to be keeping {mob_type} at bay. Haven't seen tracks since we put them up.",
+      "details": [
+        "It was someone's idea to keep the outer paths lit through the night. Simple, but it's working.",
+        "The firelight doesn't reach far, but it doesn't have to. They just don't like it."
+      ],
+      "reactions": [
+        "Best use of lamp oil we've ever managed."
+      ],
+      "statCheck": null,
+      "valence": "positive",
+      "topic_category": "creature_complaints",
+      "required_entities": [
+        "mob"
+      ],
+      "location_scope": "local",
+      "quest_trigger": null
+    },
+    {
+      "id": 84,
+      "intro": "{wildlife_type} keep getting tangled in the fishing nets I leave out to dry. Third time this month.",
+      "details": [
+        "By the time I find them, they've thrashed around enough to ruin a good section of net.",
+        "It takes hours to mend. Meanwhile they just wriggle free and run off."
+      ],
+      "reactions": [
+        "I'm spending more time fixing nets than actually fishing."
+      ],
+      "statCheck": null,
+      "valence": "negative",
+      "topic_category": "creature_complaints",
+      "required_entities": [],
+      "location_scope": "local",
+      "quest_trigger": null
+    },
+    {
+      "id": 85,
+      "intro": "Heard {mob_type} sniffing at the door last night. I could see the shadow under the gap.",
+      "details": [
+        "I held my breath. Just stood there in the dark watching its shadow move back and forth.",
+        "After a minute it lost interest and padded off. I didn't open the door until well after sunrise."
+      ],
+      "reactions": [
+        "I've never been so grateful for a thick door in my life."
+      ],
+      "statCheck": null,
+      "valence": "negative",
+      "topic_category": "creature_complaints",
+      "required_entities": [
+        "mob"
+      ],
+      "location_scope": "local",
+      "quest_trigger": null
+    },
+    {
+      "id": 86,
+      "intro": "A {wildlife_type} had babies under the porch. Now there's a whole litter of them living down there.",
+      "details": [
+        "You can hear them squeaking at night. Tiny little voices, actually kind of sweet.",
+        "The mother gives me a dirty look every time I use my own front steps."
+      ],
+      "reactions": [
+        "I'm leaving them alone until the babies are big enough to move on. It won't be long."
+      ],
+      "statCheck": null,
+      "valence": "neutral",
+      "topic_category": "creature_complaints",
+      "required_entities": [],
+      "location_scope": "local",
+      "quest_trigger": null
+    },
+    {
+      "id": 87,
+      "intro": "{mob_type} tore the thatching off the corner of the roof. Just ripped it right out.",
+      "details": [
+        "I didn't hear it happen, which is the scary part. I only noticed the daylight coming through.",
+        "Rain got in and soaked the bedding before I could patch it."
+      ],
+      "reactions": [
+        "Fixing a roof because of weather is one thing. Fixing it because something peeled it open is another."
+      ],
+      "statCheck": null,
+      "valence": "negative",
+      "topic_category": "creature_complaints",
+      "required_entities": [
+        "mob"
+      ],
+      "location_scope": "local",
+      "quest_trigger": null
+    },
+    {
+      "id": 88,
+      "intro": "I think a {wildlife_type} has been using the empty barrel by the back door as a home. It smells like it, anyway.",
+      "details": [
+        "I tipped it and there was nesting material in the bottom. Grass, fur, bits of cloth.",
+        "That cloth looked suspiciously like the dishrag I lost last week."
+      ],
+      "reactions": [
+        "I want my dishrag back. The barrel they can keep."
+      ],
+      "statCheck": null,
+      "valence": "neutral",
+      "topic_category": "creature_complaints",
+      "required_entities": [],
+      "location_scope": "local",
+      "quest_trigger": null
+    },
+    {
+      "id": 89,
+      "intro": "The {mob_type} have figured out how to knock the lids off the storage bins. Nothing is safe anymore.",
+      "details": [
+        "They wedge their claws under the rim and just pop it open. Seen the marks.",
+        "We've tried heavier lids, tied-down lids, weighted lids. They solve each one within a week."
+      ],
+      "reactions": [
+        "I'm starting to think they're smarter than half the people I know."
+      ],
+      "statCheck": {
+        "pass": "Latch the lids with a pin through a hasp. They can push and pull, but they can't work a mechanism that requires lifting and sliding at the same time.",
+        "fail": "I've exhausted my ideas. They out-think everything I try."
+      },
+      "valence": "negative",
+      "topic_category": "creature_complaints",
+      "required_entities": [
+        "mob"
+      ],
+      "location_scope": "local",
+      "quest_trigger": null
+    },
+    {
+      "id": 90,
+      "intro": "There's a {wildlife_type} that visits the same spot in the yard every evening. Right at sunset, like clockwork.",
+      "details": [
+        "It sits there for about ten minutes, looks around, and leaves. Every single evening.",
+        "I've started timing my tea break to watch it. It's become part of my routine."
+      ],
+      "reactions": [
+        "There's something calming about a creature that knows exactly where it wants to be."
+      ],
+      "statCheck": null,
+      "valence": "positive",
+      "topic_category": "creature_complaints",
+      "required_entities": [],
+      "location_scope": "local",
+      "quest_trigger": null
+    },
+    {
+      "id": 91,
+      "intro": "I slipped in {mob_type} droppings on the path this morning. Right in front of everyone at the {poi_type}.",
+      "details": [
+        "Went down hard. Landed on my back with my legs in the air.",
+        "Three people saw. One of them is still laughing about it."
+      ],
+      "reactions": [
+        "I'll recover from the bruise. The embarrassment is going to last longer."
+      ],
+      "statCheck": null,
+      "valence": "negative",
+      "topic_category": "creature_complaints",
+      "required_entities": [
+        "mob"
+      ],
+      "location_scope": "local",
+      "quest_trigger": null
+    },
+    {
+      "id": 92,
+      "intro": "{wildlife_type} chewed through the handle of my best broom. The one I've had for years.",
+      "details": [
+        "It was leaning against the wall outside and they gnawed it clean through overnight.",
+        "I know it's just a broom, but I liked that broom. The new one doesn't sweep the same."
+      ],
+      "reactions": [
+        "Everything goes inside at night now. Everything."
+      ],
+      "statCheck": null,
+      "valence": "negative",
+      "topic_category": "creature_complaints",
+      "required_entities": [],
+      "location_scope": "local",
+      "quest_trigger": null
+    },
+    {
+      "id": 93,
+      "intro": "The torches we set out actually seem to bother the {mob_type} less than they used to. They're getting used to the light.",
+      "details": [
+        "Found tracks this morning right under a torch that was burning all night.",
+        "Whatever advantage the fire gave us, it's fading."
+      ],
+      "reactions": [
+        "We might need to think of something new. They adapt faster than we do."
+      ],
+      "statCheck": {
+        "pass": "Constant light stops being threatening once they learn nothing happens when they approach it. Intermittent light: something that flickers or moves: keeps them uncertain.",
+        "fail": "I thought fire was supposed to keep them away. Apparently not."
+      },
+      "valence": "negative",
+      "topic_category": "creature_complaints",
+      "required_entities": [
+        "mob"
+      ],
+      "location_scope": "local",
+      "quest_trigger": null
+    },
+    {
+      "id": 94,
+      "intro": "I noticed {wildlife_type} tracks leading right up to the window and then back again. Like it was looking inside.",
+      "details": [
+        "The tracks were in the mud below the kitchen window. Stood there a while, judging by the depth.",
+        "I can't decide if that's funny or creepy."
+      ],
+      "reactions": [
+        "Probably just saw its reflection. At least, that's what I'm telling myself."
+      ],
+      "statCheck": null,
+      "valence": "neutral",
+      "topic_category": "creature_complaints",
+      "required_entities": [],
+      "location_scope": "local",
+      "quest_trigger": null
+    },
+    {
+      "id": 95,
+      "intro": "The dogs in the settlement have been barking at {mob_type} every night. Nobody's getting any rest.",
+      "details": [
+        "It's a chain reaction: one dog starts, then they all join in. Goes on for an hour sometimes.",
+        "The {mob_type} are probably long gone by the time the barking starts, but the dogs don't know that."
+      ],
+      "reactions": [
+        "Between the {mob_type} and the dogs, I'm not sure which is the bigger nuisance right now."
+      ],
+      "statCheck": null,
+      "valence": "negative",
+      "topic_category": "creature_complaints",
+      "required_entities": [
+        "mob"
+      ],
+      "location_scope": "local",
+      "quest_trigger": null
+    },
+    {
+      "id": 96,
+      "intro": "A {wildlife_type} stole a sock right off the drying line. Watched it happen and couldn't do a thing about it.",
+      "details": [
+        "It yanked it free and bolted. Fastest I've ever seen one move.",
+        "That was part of my only good pair. I'm walking around mismatched now."
+      ],
+      "reactions": [
+        "Somewhere out there, a {wildlife_type} has a very comfortable nest thanks to me."
+      ],
+      "statCheck": null,
+      "valence": "negative",
+      "topic_category": "creature_complaints",
+      "required_entities": [],
+      "location_scope": "local",
+      "quest_trigger": null
+    },
+    {
+      "id": 97,
+      "intro": "The {mob_type} knocked over a stack of lumber by the {poi_type}. Took half a day to restack it.",
+      "details": [
+        "You could see where they'd been rubbing against it. Scent marking, or just itchy, who knows.",
+        "The boards at the bottom had claw gouges in them. Those aren't usable anymore."
+      ],
+      "reactions": [
+        "Every bit of damage adds up. It's never one big thing: it's a hundred small ones."
+      ],
+      "statCheck": null,
+      "valence": "negative",
+      "topic_category": "creature_complaints",
+      "required_entities": [
+        "mob"
+      ],
+      "location_scope": "local",
+      "quest_trigger": null
+    },
+    {
+      "id": 98,
+      "intro": "I think the {wildlife_type} actually help keep the insect population down around here. The mosquitoes are worse in years when we don't see as many.",
+      "details": [
+        "Last summer we had hardly any {wildlife_type} around and the bugs were unbearable.",
+        "This year they're back in force and I haven't been bitten in weeks."
+      ],
+      "reactions": [
+        "They eat the garden, sure. But they eat the things that eat me, so it balances out."
+      ],
+      "statCheck": null,
+      "valence": "positive",
+      "topic_category": "creature_complaints",
+      "required_entities": [],
+      "location_scope": "local",
+      "quest_trigger": null
+    },
+    {
+      "id": 99,
+      "intro": "I keep finding tufts of {mob_type} fur on the fence posts. They're using our fence as a scratching post.",
+      "details": [
+        "Every morning there's a fresh clump of coarse hair stuck to the wood. Same three posts.",
+        "The posts are getting worn down from it. They'll need replacing sooner than they should."
+      ],
+      "reactions": [
+        "It's not the worst thing they could do to my fence, but it's still annoying."
+      ],
+      "statCheck": {
+        "pass": "Scratching posts are territorial markers. The same three posts means one individual claiming this stretch of fence as its boundary line.",
+        "fail": "I don't know what the fur means beyond something big and hairy leaning on my fence."
+      },
+      "valence": "negative",
+      "topic_category": "creature_complaints",
+      "required_entities": [
+        "mob"
+      ],
+      "location_scope": "local",
+      "quest_trigger": null
     }
   ]
 }

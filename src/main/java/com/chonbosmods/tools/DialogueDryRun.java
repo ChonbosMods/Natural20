@@ -34,7 +34,7 @@ public class DialogueDryRun {
     private static final int FUNCTIONAL_MIN_TOPICS = TopicConstants.FUNCTIONAL_MIN_TOPICS;
     private static final int FUNCTIONAL_MAX_TOPICS = TopicConstants.FUNCTIONAL_MAX_TOPICS;
     private static final Set<String> SOCIAL_ROLES = TopicConstants.SOCIAL_ROLES;
-    private static final double RUMOR_RATIO = TopicConstants.RUMOR_RATIO;
+    // Label system constants are accessed directly from TopicConstants
 
     public static void main(String[] args) {
         // Parse CLI args
@@ -134,8 +134,7 @@ public class DialogueDryRun {
                 + "): budget=" + budget);
         }
 
-        // Step 2: Draw subjects (settlement-wide dedup)
-        Set<String> usedSubjectValues = new LinkedHashSet<>();
+        // Step 2: Assign topic labels and categories per NPC
         Map<String, List<SubjectFocus>> npcSubjects = new LinkedHashMap<>();
 
         int subjectIdx = 0;
@@ -145,36 +144,23 @@ public class DialogueDryRun {
             int budget = topicBudgets.get(npcName);
 
             Random deckRandom = new Random(seed ^ ((long) npcIdx * 31));
-            int rumorCount = (int) Math.ceil(budget * RUMOR_RATIO);
-            int smallTalkCount = budget - rumorCount;
 
-            List<String> rumorDeck = new ArrayList<>(TopicConstants.RUMOR_DECK);
-            List<String> smalltalkDeck = new ArrayList<>(TopicConstants.SMALLTALK_DECK);
-            Collections.shuffle(rumorDeck, deckRandom);
-            Collections.shuffle(smalltalkDeck, deckRandom);
+            // Select 2-3 labels based on role
+            List<String> roleLabels = TopicConstants.ROLE_LABELS.getOrDefault(
+                npc.getRole(), TopicConstants.DEFAULT_LABELS);
+            int labelCount = Math.min(budget, Math.min(3, roleLabels.size()));
+            List<String> selectedLabels = new ArrayList<>(roleLabels.subList(0, labelCount));
 
             List<SubjectFocus> npcTopics = new ArrayList<>();
 
-            for (int i = 0; i < rumorCount; i++) {
-                String category = rumorDeck.get(i % rumorDeck.size());
-                TopicPoolRegistry.SubjectEntry entry =
-                    drawUniqueSubject(topicPool, category, usedSubjectValues, random);
-                usedSubjectValues.add(entry.value());
-                String subjectId = "subj_" + (subjectIdx++) + "_" + sanitize(entry.value());
-                npcTopics.add(new SubjectFocus(subjectId, entry.value(), entry.plural(),
-                    entry.proper(), entry.questEligible(), entry.concrete(),
-                    entry.categories(), entry.poiType(), entry.questAffinities()));
-            }
+            for (int i = 0; i < budget; i++) {
+                String label = selectedLabels.get(i % selectedLabels.size());
+                List<String> categories = TopicConstants.LABEL_CATEGORIES.get(label);
+                String category = categories.get(deckRandom.nextInt(categories.size()));
 
-            for (int i = 0; i < smallTalkCount; i++) {
-                String category = smalltalkDeck.get(i % smalltalkDeck.size());
-                TopicPoolRegistry.SubjectEntry entry =
-                    drawUniqueSubject(topicPool, category, usedSubjectValues, random);
-                usedSubjectValues.add(entry.value());
-                String subjectId = "subj_" + (subjectIdx++) + "_" + sanitize(entry.value());
-                npcTopics.add(new SubjectFocus(subjectId, entry.value(), entry.plural(),
-                    entry.proper(), entry.questEligible(), entry.concrete(),
-                    entry.categories(), entry.poiType(), entry.questAffinities()));
+                String subjectId = "topic_" + (subjectIdx++) + "_" + category;
+                npcTopics.add(new SubjectFocus(subjectId, category, false, false,
+                    false, false, List.of(category), "narrative_only", List.of()));
             }
 
             npcSubjects.put(npcName, npcTopics);
@@ -250,7 +236,7 @@ public class DialogueDryRun {
             focus, npc.getGeneratedName(), npc.getRole(), npc.getDisposition(),
             primary, nearby, template, entry, dedup, topicPool, random);
 
-        String label = TopicConstants.TEMPLATE_LABELS.getOrDefault(template.id(), template.id());
+        String label = TopicConstants.CATEGORY_LABEL.getOrDefault(template.id(), template.id());
 
         return new TopicGraphBuilder.TopicAssignment(
             focus.getSubjectId(), label,
@@ -572,17 +558,6 @@ public class DialogueDryRun {
     }
 
     // ---- Utilities ----
-
-    private static TopicPoolRegistry.SubjectEntry drawUniqueSubject(
-            TopicPoolRegistry topicPool, String targetCategory,
-            Set<String> usedValues, Random random) {
-        for (int attempt = 0; attempt < 3; attempt++) {
-            TopicPoolRegistry.SubjectEntry entry =
-                topicPool.randomSubjectForCategoryExcluding(targetCategory, usedValues, random);
-            if (!usedValues.contains(entry.value())) return entry;
-        }
-        return topicPool.randomSubjectForCategory(targetCategory, random);
-    }
 
     private static String sanitize(String value) {
         return value.toLowerCase().replaceAll("[^a-z0-9]+", "_").replaceAll("^_|_$", "");

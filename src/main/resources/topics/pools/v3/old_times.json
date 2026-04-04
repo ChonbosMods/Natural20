@@ -1,0 +1,2664 @@
+{
+  "pool": "old_times",
+  "version": 3,
+  "entries": [
+    {
+      "id": 0,
+      "intro": "{settlement_name} used to be smaller. Just a handful of buildings and everyone knew everyone.",
+      "details": [
+        "My parents could name every person who lived here. I can barely manage half.",
+        "I'm not saying it was better. Just different. Quieter, maybe."
+      ],
+      "reactions": [
+        "Places grow. That's not a bad thing, even when it changes what you're used to."
+      ],
+      "statCheck": null,
+      "valence": "neutral",
+      "topic_category": "old_times",
+      "required_entities": [],
+      "location_scope": "universal",
+      "quest_trigger": null
+    },
+    {
+      "id": 1,
+      "intro": "My grandfather used to say {other_settlement} was nothing but a crossroads and a well. Look at it now.",
+      "details": [
+        "He wouldn't recognize the place. Markets, buildings, people everywhere.",
+        "I wonder if they say the same about us."
+      ],
+      "reactions": [
+        "Everything was small once. That's easy to forget."
+      ],
+      "statCheck": null,
+      "valence": "neutral",
+      "topic_category": "old_times",
+      "required_entities": [],
+      "location_scope": "universal",
+      "quest_trigger": null
+    },
+    {
+      "id": 2,
+      "intro": "We used to leave our doors unlocked. Everyone did. It wasn't bravery, it just didn't occur to anyone.",
+      "details": [
+        "If you needed something from a neighbor's house and they weren't home, you'd just walk in and leave a note.",
+        "Try that now and people look at you like you've lost your mind."
+      ],
+      "reactions": [
+        "I still forget to lock mine half the time. Old habits."
+      ],
+      "statCheck": null,
+      "valence": "neutral",
+      "topic_category": "old_times",
+      "required_entities": [],
+      "location_scope": "universal",
+      "quest_trigger": null
+    },
+    {
+      "id": 3,
+      "intro": "My mother could mend anything. Clothes, tools, furniture. She'd look at something broken and just know how to fix it.",
+      "details": [
+        "She learned from her mother, who learned from hers. Nobody sat down and taught it formally.",
+        "I picked up maybe a third of it. My kids will get less."
+      ],
+      "reactions": [
+        "Some skills just thin out over generations until they're gone."
+      ],
+      "statCheck": null,
+      "valence": "negative",
+      "topic_category": "old_times",
+      "required_entities": [],
+      "location_scope": "universal",
+      "quest_trigger": null
+    },
+    {
+      "id": 4,
+      "intro": "The harvest festival used to go on for three days. Now we're lucky if we get an afternoon.",
+      "details": [
+        "People came from all over. There was music, contests, food you only got once a year.",
+        "Everyone's too busy now. Or maybe we just ran out of people who remembered how to organize it."
+      ],
+      "reactions": [
+        "I keep saying we should bring it back properly. Nobody disagrees, nobody volunteers either."
+      ],
+      "statCheck": null,
+      "valence": "negative",
+      "topic_category": "old_times",
+      "required_entities": [],
+      "location_scope": "universal",
+      "quest_trigger": null
+    },
+    {
+      "id": 5,
+      "intro": "I remember when the big oak near the square was barely taller than me. Now it shades half the road.",
+      "details": [
+        "My father planted it the year I was born. Said every child should have a tree.",
+        "I sat under it yesterday and it hit me how much time that trunk represents."
+      ],
+      "reactions": [
+        "Trees don't lie about how long something's been. They just keep growing."
+      ],
+      "statCheck": null,
+      "valence": "positive",
+      "topic_category": "old_times",
+      "required_entities": [],
+      "location_scope": "universal",
+      "quest_trigger": null
+    },
+    {
+      "id": 6,
+      "intro": "There used to be an old woman here who could predict rain three days out just by the way the wind smelled.",
+      "details": [
+        "Nobody believed her until she was right seven seasons in a row.",
+        "She tried to teach a few of us. I can sort of tell when it's coming, but nothing like she could."
+      ],
+      "reactions": [
+        "That kind of knowing comes from a whole life spent paying attention. You can't shortcut it."
+      ],
+      "statCheck": {
+        "pass": "It's not magic. It's pattern recognition built over decades. The humidity, the pressure, the way certain flowers close up. She just read it all at once.",
+        "fail": "I couldn't explain how she did it if you paid me. It just looked like she knew."
+      },
+      "valence": "positive",
+      "topic_category": "old_times",
+      "required_entities": [],
+      "location_scope": "universal",
+      "quest_trigger": null
+    },
+    {
+      "id": 7,
+      "intro": "My grandmother told me {settlement_name} used to flood every spring. The whole lower end, knee-deep.",
+      "details": [
+        "They dug drainage channels eventually. Took years of people arguing about where to put them.",
+        "Now you'd never guess. The ground's bone dry."
+      ],
+      "reactions": [
+        "Hard to appreciate a problem someone else already solved for you."
+      ],
+      "statCheck": null,
+      "valence": "neutral",
+      "topic_category": "old_times",
+      "required_entities": [],
+      "location_scope": "universal",
+      "quest_trigger": null
+    },
+    {
+      "id": 8,
+      "intro": "I miss the sound this place used to make. Quieter, but not silent. More natural, I guess.",
+      "details": [
+        "Birds in the morning, wind in the trees, maybe a hammer from the smithy. That was the whole soundtrack.",
+        "Now there's always someone coming or going, carts on the road, voices."
+      ],
+      "reactions": [
+        "It's the sound of people living here. I know that. Doesn't mean I don't miss the quiet."
+      ],
+      "statCheck": null,
+      "valence": "negative",
+      "topic_category": "old_times",
+      "required_entities": [],
+      "location_scope": "universal",
+      "quest_trigger": null
+    },
+    {
+      "id": 9,
+      "intro": "Used to be you'd trade favors, not goods. I'd fix your fence, you'd help me with my roof.",
+      "details": [
+        "Nobody kept track. You just knew who owed what because everyone remembered.",
+        "It only works when a place is small enough that you can't hide from your debts."
+      ],
+      "reactions": [
+        "Coins are simpler. I won't pretend the old way didn't come with its own problems."
+      ],
+      "statCheck": {
+        "pass": "The favor economy works on social debt. When everyone knows everyone, reputation is the currency. Default on a favor and the whole settlement adjusts how they treat you.",
+        "fail": "It worked because it worked. I couldn't tell you the rules. There weren't any written down."
+      },
+      "valence": "neutral",
+      "topic_category": "old_times",
+      "required_entities": [],
+      "location_scope": "universal",
+      "quest_trigger": null
+    },
+    {
+      "id": 10,
+      "intro": "When I was small, the night sky looked like someone spilled a bag of diamonds. I swear there were more stars.",
+      "details": [
+        "We'd lie in the grass after supper and my father would make up names for the patterns. Different ones every night.",
+        "The stars haven't changed. I just stopped looking."
+      ],
+      "reactions": [
+        "Maybe I'll go out tonight and see if they're still there. Bet they are."
+      ],
+      "statCheck": null,
+      "valence": "positive",
+      "topic_category": "old_times",
+      "required_entities": [],
+      "location_scope": "universal",
+      "quest_trigger": null
+    },
+    {
+      "id": 11,
+      "intro": "There was a man who used to come through {settlement_name} every autumn with a cart full of stories and cheap wine.",
+      "details": [
+        "He'd set up near the square and talk until midnight. Half of it was lies, but the good kind.",
+        "One year he just didn't come. Nobody knew why."
+      ],
+      "reactions": [
+        "I still think about some of those stories. The ones I can remember, anyway."
+      ],
+      "statCheck": null,
+      "valence": "negative",
+      "topic_category": "old_times",
+      "required_entities": [],
+      "location_scope": "universal",
+      "quest_trigger": null
+    },
+    {
+      "id": 12,
+      "intro": "My hands used to be smoother. I look at them now and I see my father's hands.",
+      "details": [
+        "Same calluses in the same places. Same crack across the left thumb in winter.",
+        "He used to say you could read a person's whole life in their hands. I thought that was dramatic."
+      ],
+      "reactions": [
+        "Turns out he was right about most things. I just had to get old enough to notice."
+      ],
+      "statCheck": null,
+      "valence": "negative",
+      "topic_category": "old_times",
+      "required_entities": [],
+      "location_scope": "universal",
+      "quest_trigger": null
+    },
+    {
+      "id": 13,
+      "intro": "We used to have a midwinter bonfire right in the middle of town. Everyone brought something to burn and something to eat.",
+      "details": [
+        "The fire got so big you could feel the heat from three houses away. Kids loved it.",
+        "Someone's roof almost caught once and that was more or less the end of it."
+      ],
+      "reactions": [
+        "Probably for the best. But I do miss that heat."
+      ],
+      "statCheck": null,
+      "valence": "positive",
+      "topic_category": "old_times",
+      "required_entities": [],
+      "location_scope": "universal",
+      "quest_trigger": null
+    },
+    {
+      "id": 14,
+      "intro": "People used to know how to thatch a roof properly. The real way, the way that lasts twenty years.",
+      "details": [
+        "Now everyone uses whatever's fast. It leaks in five and needs patching in three.",
+        "There was one family that did it for generations. When the last one moved away, the knowledge went with him."
+      ],
+      "reactions": [
+        "You don't notice a skill is gone until you need it and nobody can do it."
+      ],
+      "statCheck": {
+        "pass": "It's the layering technique that matters. You stagger the bundles so water runs off instead of soaking through. Simple in theory, but the angle has to be exact.",
+        "fail": "I watched them do it once. Looked easy. Tried it myself and the whole thing slid off in a week."
+      },
+      "valence": "negative",
+      "topic_category": "old_times",
+      "required_entities": [],
+      "location_scope": "universal",
+      "quest_trigger": null
+    },
+    {
+      "id": 15,
+      "intro": "I caught myself telling a story the other day that I realized was my grandmother's story, not mine.",
+      "details": [
+        "I'd heard her tell it so many times that at some point I started remembering it like it happened to me.",
+        "Funny how that works. Her memories became mine without either of us meaning it."
+      ],
+      "reactions": [
+        "I suppose that's how the past survives. It just jumps from one person to the next."
+      ],
+      "statCheck": null,
+      "valence": "neutral",
+      "topic_category": "old_times",
+      "required_entities": [],
+      "location_scope": "universal",
+      "quest_trigger": null
+    },
+    {
+      "id": 16,
+      "intro": "The road to {other_settlement} used to take a full day on foot. Now it's half that, with the new path.",
+      "details": [
+        "I remember when the trip felt like an expedition. You'd pack food and plan your stops.",
+        "My kids think it's nothing. Just a walk."
+      ],
+      "reactions": [
+        "Shorter isn't always better. That old road had good views."
+      ],
+      "statCheck": null,
+      "valence": "neutral",
+      "topic_category": "old_times",
+      "required_entities": [],
+      "location_scope": "universal",
+      "quest_trigger": null
+    },
+    {
+      "id": 17,
+      "intro": "People from {other_settlement} used to look down on us. Called us backwater. Used to sting.",
+      "details": [
+        "There was real bad feeling for a while. Farmers from here wouldn't sell to traders from there.",
+        "Seems silly now. Most people don't even remember what started it."
+      ],
+      "reactions": [
+        "Old grudges die when the people carrying them do. That's about the only good thing about time passing."
+      ],
+      "statCheck": null,
+      "valence": "neutral",
+      "topic_category": "old_times",
+      "required_entities": [],
+      "location_scope": "universal",
+      "quest_trigger": null
+    },
+    {
+      "id": 18,
+      "intro": "My father built our house with his own hands. Took him two summers.",
+      "details": [
+        "He cut every beam, shaped every joint. You can still see his chisel marks if you look close.",
+        "The walls are crooked in places but they've outlasted half the newer buildings."
+      ],
+      "reactions": [
+        "I couldn't do what he did. Different skills for a different time."
+      ],
+      "statCheck": null,
+      "valence": "positive",
+      "topic_category": "old_times",
+      "required_entities": [],
+      "location_scope": "universal",
+      "quest_trigger": null
+    },
+    {
+      "id": 19,
+      "intro": "We used to dry fish on racks outside. The whole settlement smelled like the sea for weeks.",
+      "details": [
+        "Everyone complained but everyone ate it come winter. Funny how that works.",
+        "You'd know the season was starting just by the smell on the wind."
+      ],
+      "reactions": [
+        "Nobody does it that way anymore. Easier methods now. The smell I don't miss."
+      ],
+      "statCheck": {
+        "pass": "Salt concentration and air flow are the whole game. Too much salt and the fish is leather. Too little and it rots. The racks had to face the wind just right.",
+        "fail": "I just remember the smell and the waiting. My father handled the actual technique."
+      },
+      "valence": "neutral",
+      "topic_category": "old_times",
+      "required_entities": [],
+      "location_scope": "universal",
+      "quest_trigger": null
+    },
+    {
+      "id": 20,
+      "intro": "There's a wall on the east side that my grandfather helped build. His initials are still on one of the stones.",
+      "details": [
+        "He carved them when no one was looking. My grandmother told me the foreman would've been furious.",
+        "I go look at them sometimes. Just to remind myself he was real and not just a collection of stories."
+      ],
+      "reactions": [
+        "It's a small mark. But it's lasted longer than anything else he made."
+      ],
+      "statCheck": null,
+      "valence": "positive",
+      "topic_category": "old_times",
+      "required_entities": [],
+      "location_scope": "universal",
+      "quest_trigger": null
+    },
+    {
+      "id": 21,
+      "intro": "Winters used to be harder. Or maybe I was just smaller and felt the cold more.",
+      "details": [
+        "We'd pile every blanket in the house on one bed and the whole family would sleep together.",
+        "The mornings were brutal. You could see your breath inside the house."
+      ],
+      "reactions": [
+        "I'd rather be warm now than tough then. No shame in comfort."
+      ],
+      "statCheck": null,
+      "valence": "neutral",
+      "topic_category": "old_times",
+      "required_entities": [],
+      "location_scope": "universal",
+      "quest_trigger": null
+    },
+    {
+      "id": 22,
+      "intro": "My uncle used to carve little animals out of scrap wood. Gave one to every kid in {settlement_name}.",
+      "details": [
+        "I had a fox. Kept it on a shelf above my bed for years until I lost it in a move.",
+        "I think about that fox more than I should. It wasn't valuable. Just meant something."
+      ],
+      "reactions": [
+        "The things you lose always matter more than the things you keep."
+      ],
+      "statCheck": null,
+      "valence": "negative",
+      "topic_category": "old_times",
+      "required_entities": [],
+      "location_scope": "universal",
+      "quest_trigger": null
+    },
+    {
+      "id": 23,
+      "intro": "People used to sing while they worked. Not performances, just humming and half-remembered songs.",
+      "details": [
+        "You'd walk through town and hear different melodies from every window. Made the place feel alive.",
+        "I don't hear it anymore. Maybe people still do it, just quieter."
+      ],
+      "reactions": [
+        "I hum sometimes when I think nobody's listening. Old songs I can't even name."
+      ],
+      "statCheck": null,
+      "valence": "negative",
+      "topic_category": "old_times",
+      "required_entities": [],
+      "location_scope": "universal",
+      "quest_trigger": null
+    },
+    {
+      "id": 24,
+      "intro": "I remember the first time someone from far away settled in {settlement_name}. Everyone talked about it for weeks.",
+      "details": [
+        "Now people come and go all the time and nobody blinks. Different world.",
+        "That first newcomer was treated like a curiosity. Must've been strange for them."
+      ],
+      "reactions": [
+        "We're better about it now. Growth means new faces, and that's mostly good."
+      ],
+      "statCheck": null,
+      "valence": "positive",
+      "topic_category": "old_times",
+      "required_entities": [],
+      "location_scope": "universal",
+      "quest_trigger": null
+    },
+    {
+      "id": 25,
+      "intro": "The well in the square used to be the center of everything. You'd go for water and come back an hour later with all the news.",
+      "details": [
+        "My mother called it the gossip fountain. She wasn't wrong.",
+        "Nobody goes there much now. There are better wells closer to the new houses."
+      ],
+      "reactions": [
+        "We lost a meeting place without realizing we needed one."
+      ],
+      "statCheck": null,
+      "valence": "negative",
+      "topic_category": "old_times",
+      "required_entities": [],
+      "location_scope": "universal",
+      "quest_trigger": null
+    },
+    {
+      "id": 26,
+      "intro": "My grandmother could name every wildflower within a day's walk. She'd quiz me on our way to the fields.",
+      "details": [
+        "I remember maybe a dozen. The rest are just colors now, no names.",
+        "She'd be disappointed. She thought knowing a thing's name meant respecting it."
+      ],
+      "reactions": [
+        "Maybe she was right. You pay attention differently when you can name what you're seeing."
+      ],
+      "statCheck": {
+        "pass": "I remember more than I let on. The purple ones near the stream are valerian. The yellow clusters by the path are tansy. It comes back when I see them.",
+        "fail": "I can picture them all perfectly. Just can't put names to most of them."
+      },
+      "valence": "negative",
+      "topic_category": "old_times",
+      "required_entities": [],
+      "location_scope": "universal",
+      "quest_trigger": null
+    },
+    {
+      "id": 27,
+      "intro": "We had a neighbor who kept bees when I was growing up. Best honey I've ever tasted.",
+      "details": [
+        "He'd leave jars on people's doorsteps in summer. Never asked for anything in return.",
+        "After he passed, his son tried to keep them going. Lasted one season before the whole hive just left."
+      ],
+      "reactions": [
+        "Bees know who cares for them. You can't inherit that."
+      ],
+      "statCheck": null,
+      "valence": "neutral",
+      "topic_category": "old_times",
+      "required_entities": [],
+      "location_scope": "universal",
+      "quest_trigger": null
+    },
+    {
+      "id": 28,
+      "intro": "I used to think {settlement_name} was the biggest place in the world. I was ten before I realized it wasn't.",
+      "details": [
+        "My father took me to a market town and I couldn't believe how many people there were. I held his hand the entire time.",
+        "Coming home felt like breathing out. Everything was the right size again."
+      ],
+      "reactions": [
+        "I still feel that way sometimes. This place is the right size for me."
+      ],
+      "statCheck": null,
+      "valence": "positive",
+      "topic_category": "old_times",
+      "required_entities": [],
+      "location_scope": "universal",
+      "quest_trigger": null
+    },
+    {
+      "id": 29,
+      "intro": "There used to be a tradition where the oldest person in town would light the first fire of autumn.",
+      "details": [
+        "Everyone would gather and someone would say a few words about the summer that was ending.",
+        "It petered out when nobody could agree who was actually the oldest. Sounds stupid, but that's what happened."
+      ],
+      "reactions": [
+        "Most traditions don't die in a dramatic way. They just get awkward and people stop showing up."
+      ],
+      "statCheck": null,
+      "valence": "negative",
+      "topic_category": "old_times",
+      "required_entities": [],
+      "location_scope": "universal",
+      "quest_trigger": null
+    },
+    {
+      "id": 30,
+      "intro": "The bread here used to taste different. I know that sounds like I'm making it up, but it's true.",
+      "details": [
+        "The old baker used a starter her family had kept alive for generations. When she retired, it died.",
+        "Everything since then has been fine. Good, even. Just not the same."
+      ],
+      "reactions": [
+        "Maybe I'm tasting my own childhood and calling it better bread."
+      ],
+      "statCheck": {
+        "pass": "A sourdough starter develops its own local yeast culture over decades. The flavor is literally unrepeatable once it's lost. It's not nostalgia, it's biology.",
+        "fail": "All I know is it tasted different. I can't explain why."
+      },
+      "valence": "neutral",
+      "topic_category": "old_times",
+      "required_entities": [],
+      "location_scope": "universal",
+      "quest_trigger": null
+    },
+    {
+      "id": 31,
+      "intro": "I've lived here my whole life and I've watched the treeline retreat. Slowly, but it's happened.",
+      "details": [
+        "When I was young, the forest started right behind the last house. Now there are fields where those trees stood.",
+        "We needed the land. I understand that."
+      ],
+      "reactions": [
+        "I just wish I'd paid more attention to what it looked like before."
+      ],
+      "statCheck": null,
+      "valence": "negative",
+      "topic_category": "old_times",
+      "required_entities": [],
+      "location_scope": "universal",
+      "quest_trigger": null
+    },
+    {
+      "id": 32,
+      "intro": "My grandfather had a saying for everything. Half of them made no sense and the other half were brilliant.",
+      "details": [
+        "He used to say a fence that lasts is built by someone who likes their neighbor. I still don't know what he meant.",
+        "But his advice about reading weather by watching the animals has saved my crops more than once."
+      ],
+      "reactions": [
+        "I catch myself repeating his words sometimes. Even the ones I don't understand."
+      ],
+      "statCheck": null,
+      "valence": "positive",
+      "topic_category": "old_times",
+      "required_entities": [],
+      "location_scope": "universal",
+      "quest_trigger": null
+    },
+    {
+      "id": 33,
+      "intro": "Children used to play in the streets until it was too dark to see. No one worried.",
+      "details": [
+        "If you fell and cut your knee, you went to the nearest house and someone's mother patched you up.",
+        "Every adult was everyone's parent, in a way. You couldn't get away with anything."
+      ],
+      "reactions": [
+        "It wasn't that the world was safer. We just all kept an eye on each other."
+      ],
+      "statCheck": null,
+      "valence": "positive",
+      "topic_category": "old_times",
+      "required_entities": [],
+      "location_scope": "universal",
+      "quest_trigger": null
+    },
+    {
+      "id": 34,
+      "intro": "There's a patch of ground behind my house where nothing grows. My father said it was a forge pit once, years ago.",
+      "details": [
+        "The soil's still dark with soot if you dig down a few inches.",
+        "I tried planting there once out of stubbornness. Everything came up stunted."
+      ],
+      "reactions": [
+        "The land remembers things we've forgotten. You just have to know where to look."
+      ],
+      "statCheck": null,
+      "valence": "neutral",
+      "topic_category": "old_times",
+      "required_entities": [],
+      "location_scope": "universal",
+      "quest_trigger": null
+    },
+    {
+      "id": 35,
+      "intro": "We used to gather herbs as a community. Everyone went out together in early summer.",
+      "details": [
+        "The older women knew exactly where to look and what to pick. The rest of us carried baskets.",
+        "It was half work, half excuse to spend a day outside talking."
+      ],
+      "reactions": [
+        "People just buy what they need now. Faster, but you lose the day out."
+      ],
+      "statCheck": {
+        "pass": "The timing matters more than people realize. Same plant picked a week early or late has completely different potency. The old gatherers knew the exact window.",
+        "fail": "I tagged along but I couldn't tell one leaf from another. I was just there for the company."
+      },
+      "valence": "neutral",
+      "topic_category": "old_times",
+      "required_entities": [],
+      "location_scope": "universal",
+      "quest_trigger": null
+    },
+    {
+      "id": 36,
+      "intro": "I found an old tool in my shed last week. Took me a while to even figure out what it was for.",
+      "details": [
+        "It's a leather burnishing stone. My grandmother used it to finish hides.",
+        "Beautiful thing, worn smooth from use. Nobody works leather by hand like that anymore."
+      ],
+      "reactions": [
+        "I kept it. Not useful, but it feels wrong to throw away something that was held that many times."
+      ],
+      "statCheck": null,
+      "valence": "neutral",
+      "topic_category": "old_times",
+      "required_entities": [],
+      "location_scope": "universal",
+      "quest_trigger": null
+    },
+    {
+      "id": 37,
+      "intro": "My mother used to tell me stories about a great storm that hit {settlement_name} before I was born.",
+      "details": [
+        "Took the roof off three houses and turned the main road into a river. People worked together for weeks to fix everything.",
+        "She said it was terrible and wonderful at the same time. Terrible because of the damage, wonderful because of how people responded."
+      ],
+      "reactions": [
+        "We don't get tested like that anymore. I'm not sure if that's lucky or if we're just softer now."
+      ],
+      "statCheck": {
+        "pass": "Collective labor after a disaster builds social bonds stronger than anything else. The shared effort resets hierarchies and debts. Everyone's equal when there's mud to shovel.",
+        "fail": "I just know people talk about that storm like it was almost a good thing. Strange, but I get it."
+      },
+      "valence": "neutral",
+      "topic_category": "old_times",
+      "required_entities": [],
+      "location_scope": "universal",
+      "quest_trigger": null
+    },
+    {
+      "id": 38,
+      "intro": "I'm one of the older ones around here now. That happened without me noticing.",
+      "details": [
+        "People ask me about the past like I'm some kind of record keeper. I just lived here.",
+        "Half my memories are probably wrong. But they're the only version left."
+      ],
+      "reactions": [
+        "Getting old doesn't make you wise. It just makes you the last one standing."
+      ],
+      "statCheck": null,
+      "valence": "neutral",
+      "topic_category": "old_times",
+      "required_entities": [],
+      "location_scope": "universal",
+      "quest_trigger": null
+    },
+    {
+      "id": 39,
+      "intro": "I remember when the nights here were truly dark. No lanterns on the path, no light from neighbors.",
+      "details": [
+        "You'd step outside after sundown and it was like being swallowed. Just you and the stars.",
+        "Scared me as a child. Now I think it was beautiful."
+      ],
+      "reactions": [
+        "All the new light is practical. I just miss being able to see the sky properly."
+      ],
+      "statCheck": null,
+      "valence": "negative",
+      "topic_category": "old_times",
+      "required_entities": [],
+      "location_scope": "universal",
+      "quest_trigger": null
+    },
+    {
+      "id": 40,
+      "intro": "There was a swimming hole about a mile from here that every kid in {settlement_name} knew about.",
+      "details": [
+        "Cold as anything, even in summer. We'd dare each other to jump from the high rock.",
+        "A tree fell across it a few years back and silted the whole thing up. Just a muddy patch now."
+      ],
+      "reactions": [
+        "I keep meaning to take my kids there and then I remember there's nothing to show them."
+      ],
+      "statCheck": null,
+      "valence": "negative",
+      "topic_category": "old_times",
+      "required_entities": [],
+      "location_scope": "universal",
+      "quest_trigger": null
+    },
+    {
+      "id": 41,
+      "intro": "My grandmother never threw anything away. She had jars of buttons sorted by color, decades old.",
+      "details": [
+        "She'd pull one out and tell you what garment it came from, who wore it, what year.",
+        "Every button was a bookmark in someone's life."
+      ],
+      "reactions": [
+        "I throw things away too easily. Probably the opposite problem."
+      ],
+      "statCheck": null,
+      "valence": "positive",
+      "topic_category": "old_times",
+      "required_entities": [],
+      "location_scope": "universal",
+      "quest_trigger": null
+    },
+    {
+      "id": 42,
+      "intro": "People used to know the land around {settlement_name} like the back of their hand. Every boulder, every stream bend.",
+      "details": [
+        "My father could navigate by landmarks alone. No trails needed, just memory.",
+        "I get turned around if I go more than an hour in any direction."
+      ],
+      "reactions": [
+        "The paths are better marked now. But the knowing is thinner."
+      ],
+      "statCheck": {
+        "pass": "It's spatial memory. When you walk the same ground every day for decades, you build an internal map that's more detailed than anything you could draw.",
+        "fail": "He just knew where he was. I asked him once how, and he couldn't explain it. Said it was like asking how you find your own front door."
+      },
+      "valence": "neutral",
+      "topic_category": "old_times",
+      "required_entities": [],
+      "location_scope": "universal",
+      "quest_trigger": null
+    },
+    {
+      "id": 43,
+      "intro": "I helped tear down a wall last season that my own grandfather helped build. That felt strange.",
+      "details": [
+        "The stones were solid. Could have lasted another hundred years.",
+        "But it was in the way of the new road. Progress, they said."
+      ],
+      "reactions": [
+        "I kept one of the stones. It's in my garden now. Holding down nothing."
+      ],
+      "statCheck": null,
+      "valence": "negative",
+      "topic_category": "old_times",
+      "required_entities": [],
+      "location_scope": "universal",
+      "quest_trigger": null
+    },
+    {
+      "id": 44,
+      "intro": "The best apples I ever ate came from a tree that doesn't exist anymore. Blew down in a storm.",
+      "details": [
+        "Tart and sweet at the same time, with this crunch that you could hear. Nothing in any market has ever matched them.",
+        "My mother made a pie from those apples that people still talk about."
+      ],
+      "reactions": [
+        "Could be I'm remembering them better than they were. But I don't think so."
+      ],
+      "statCheck": null,
+      "valence": "positive",
+      "topic_category": "old_times",
+      "required_entities": [],
+      "location_scope": "universal",
+      "quest_trigger": null
+    },
+    {
+      "id": 45,
+      "intro": "I learned to read from my mother. She'd trace the letters in the dirt with a stick.",
+      "details": [
+        "We didn't have books. She taught me using labels on jars and signs on the road.",
+        "I didn't realize until much later that she was teaching herself at the same time."
+      ],
+      "reactions": [
+        "She never admitted she was learning alongside me. That kind of pride I understand."
+      ],
+      "statCheck": null,
+      "valence": "positive",
+      "topic_category": "old_times",
+      "required_entities": [],
+      "location_scope": "universal",
+      "quest_trigger": null
+    },
+    {
+      "id": 46,
+      "intro": "People from {other_settlement} and people from here used to compete every harvest. Biggest pumpkin, tallest corn, that sort of thing.",
+      "details": [
+        "It was fierce but friendly. Mostly. There was one year someone accused the other side of cheating and it got ugly.",
+        "We won more often than they did. At least, that's how I remember it."
+      ],
+      "reactions": [
+        "Nobody does it anymore. Shame, really. Gave people something to brag about that was harmless."
+      ],
+      "statCheck": null,
+      "valence": "positive",
+      "topic_category": "old_times",
+      "required_entities": [],
+      "location_scope": "universal",
+      "quest_trigger": null
+    },
+    {
+      "id": 47,
+      "intro": "There's a door in this settlement that's been repaired so many times it's more patch than original.",
+      "details": [
+        "Every generation adds a new board. The hinges have been replaced twice.",
+        "People keep fixing it instead of just making a new one. Nobody wants to be the one who lets it go."
+      ],
+      "reactions": [
+        "There's something nice about that. The door outlives the people, one repair at a time."
+      ],
+      "statCheck": null,
+      "valence": "positive",
+      "topic_category": "old_times",
+      "required_entities": [],
+      "location_scope": "universal",
+      "quest_trigger": null
+    },
+    {
+      "id": 48,
+      "intro": "I remember the day the last of the old guard passed on. Felt like a page turning.",
+      "details": [
+        "She was the only one left who remembered the founding families. All those connections, gone.",
+        "People paid their respects, said kind words. Then life went on, as it does."
+      ],
+      "reactions": [
+        "We're all carrying someone's memory forward whether we realize it or not."
+      ],
+      "statCheck": null,
+      "valence": "negative",
+      "topic_category": "old_times",
+      "required_entities": [],
+      "location_scope": "universal",
+      "quest_trigger": null
+    },
+    {
+      "id": 49,
+      "intro": "I used to think the people before me had it figured out. Turns out they were just making it up as they went, same as us.",
+      "details": [
+        "My father told me he spent his whole life feeling one step behind. That shocked me. He always seemed so certain.",
+        "I think every generation looks at the last one and sees confidence that wasn't really there."
+      ],
+      "reactions": [
+        "Knowing that actually helps. The past isn't a standard to live up to. It's just people doing their best."
+      ],
+      "statCheck": null,
+      "valence": "positive",
+      "topic_category": "old_times",
+      "required_entities": [],
+      "location_scope": "universal",
+      "quest_trigger": null
+    },
+    {
+      "id": 50,
+      "intro": "There used to be a market day every week. Not the kind with stalls and awnings, just people laying things on blankets.",
+      "details": [
+        "You'd trade preserves for candles, wool for grain. Whatever people had too much of.",
+        "It was half social, half practical. You went as much for the company as the goods."
+      ],
+      "reactions": [
+        "We stopped needing it when the traders started coming through regularly. But the company part never got replaced."
+      ],
+      "statCheck": null,
+      "valence": "negative",
+      "topic_category": "old_times",
+      "required_entities": [],
+      "location_scope": "universal",
+      "quest_trigger": null
+    },
+    {
+      "id": 51,
+      "intro": "I keep finding old nails in the ground near my house. Square ones, hand-forged. Nobody makes them like that anymore.",
+      "details": [
+        "There must have been a workshop here once. The soil is full of little metal fragments.",
+        "Each one took someone time to make. Now you buy a bag of a hundred for nothing."
+      ],
+      "reactions": [
+        "It's better this way. I don't romanticize making nails one at a time. But the craft was real."
+      ],
+      "statCheck": {
+        "pass": "Hand-forged nails were tapered on all four sides. Machine-made ones are round. You can tell the age of a building by checking which kind it used.",
+        "fail": "I just know they look different from modern ones. Heavier, rougher."
+      },
+      "valence": "neutral",
+      "topic_category": "old_times",
+      "required_entities": [],
+      "location_scope": "universal",
+      "quest_trigger": null
+    },
+    {
+      "id": 52,
+      "intro": "My mother used to say the weather in {settlement_name} had a rhythm you could feel in your bones.",
+      "details": [
+        "She planned her whole year around it. Planting, preserving, mending: all tied to what the sky was doing.",
+        "I follow a calendar. She followed the world."
+      ],
+      "reactions": [
+        "I think her way was better. But it takes a lifetime to learn, and I started late."
+      ],
+      "statCheck": null,
+      "valence": "neutral",
+      "topic_category": "old_times",
+      "required_entities": [],
+      "location_scope": "universal",
+      "quest_trigger": null
+    },
+    {
+      "id": 53,
+      "intro": "I miss being bored. Real bored, the way you are as a kid with nothing to do and nowhere to go.",
+      "details": [
+        "You'd lie in the grass and count clouds. Make up games with sticks. Hours would just evaporate.",
+        "Now every moment has a job attached to it."
+      ],
+      "reactions": [
+        "I don't think boredom was the enemy everyone made it out to be. It taught you to sit with yourself."
+      ],
+      "statCheck": {
+        "pass": "Unstructured time is when the mind does its best consolidation. Rest isn't laziness, it's maintenance. The old way of stopping when the work was done had real wisdom in it.",
+        "fail": "I couldn't explain why it mattered. I just know the way time felt then was different."
+      },
+      "valence": "neutral",
+      "topic_category": "old_times",
+      "required_entities": [],
+      "location_scope": "universal",
+      "quest_trigger": null
+    },
+    {
+      "id": 54,
+      "intro": "My grandfather could sharpen a blade so fine you could shave with an axe. People brought tools from miles around.",
+      "details": [
+        "He had this old whetstone he'd used for forty years. Wore a groove into it shaped exactly like his thumb.",
+        "I tried to learn. I can get things sharp enough to work, but not like he could."
+      ],
+      "reactions": [
+        "There's a difference between sharp enough and truly sharp. He knew the difference. I only know it exists."
+      ],
+      "statCheck": {
+        "pass": "It's all about the angle and consistency. You need the same pressure, the same stroke count, the same wrist position every time. The metal remembers mistakes.",
+        "fail": "He made it look effortless. That's usually a sign that something is extremely hard."
+      },
+      "valence": "positive",
+      "topic_category": "old_times",
+      "required_entities": [],
+      "location_scope": "universal",
+      "quest_trigger": null
+    },
+    {
+      "id": 55,
+      "intro": "There used to be an enormous beehive in the eaves of the old storehouse. Generations of bees, all in the same spot.",
+      "details": [
+        "You could hear the humming from twenty paces. In summer the whole wall was warm to the touch.",
+        "Someone tore it out to fix the roof. Practical, but the quiet that followed felt wrong."
+      ],
+      "reactions": [
+        "I liked knowing they were there. It was like the building had a heartbeat."
+      ],
+      "statCheck": null,
+      "valence": "negative",
+      "topic_category": "old_times",
+      "required_entities": [],
+      "location_scope": "universal",
+      "quest_trigger": null
+    },
+    {
+      "id": 56,
+      "intro": "I remember learning to cook by watching, not by instruction. My mother never measured anything.",
+      "details": [
+        "A handful of this, a splash of that. If it looked right, it was right.",
+        "I burned my first ten meals trying to replicate what she did without thinking."
+      ],
+      "reactions": [
+        "I cook fine now. But I measure everything. She'd find that funny."
+      ],
+      "statCheck": null,
+      "valence": "positive",
+      "topic_category": "old_times",
+      "required_entities": [],
+      "location_scope": "universal",
+      "quest_trigger": null
+    },
+    {
+      "id": 57,
+      "intro": "There was a rivalry between {settlement_name} and {other_settlement} over whose ale was better. Went on for decades.",
+      "details": [
+        "Every gathering turned into a blind taste test. People took it personally.",
+        "The truth is both were just okay. But admitting that would've been treason."
+      ],
+      "reactions": [
+        "Looking back, the arguing was the point. The ale was just an excuse."
+      ],
+      "statCheck": null,
+      "valence": "positive",
+      "topic_category": "old_times",
+      "required_entities": [],
+      "location_scope": "universal",
+      "quest_trigger": null
+    },
+    {
+      "id": 58,
+      "intro": "My grandmother had a blanket she'd been mending since before I was born. More thread than original fabric.",
+      "details": [
+        "Every patch had a story. This one from when the dog tore it, that one from a candle accident.",
+        "She could have made a new one in a tenth of the time. But it wasn't about the blanket."
+      ],
+      "reactions": [
+        "I understand now. Some things you keep fixing because letting go would mean something you're not ready for."
+      ],
+      "statCheck": null,
+      "valence": "neutral",
+      "topic_category": "old_times",
+      "required_entities": [],
+      "location_scope": "universal",
+      "quest_trigger": null
+    },
+    {
+      "id": 59,
+      "intro": "There used to be a path through the meadow that everyone used. You could see it worn into the grass.",
+      "details": [
+        "When the new road went in, people stopped using it. The grass grew back in a single season.",
+        "I walked where it used to be last week. You'd never know anyone had been there."
+      ],
+      "reactions": [
+        "That's how fast things disappear when you stop tending them."
+      ],
+      "statCheck": null,
+      "valence": "negative",
+      "topic_category": "old_times",
+      "required_entities": [],
+      "location_scope": "universal",
+      "quest_trigger": null
+    },
+    {
+      "id": 60,
+      "intro": "I grew up eating whatever was in season and nothing else. You wanted berries in winter, you were out of luck.",
+      "details": [
+        "We preserved what we could, but mostly you just waited. Anticipation made everything taste better.",
+        "First strawberries of summer felt like a holiday."
+      ],
+      "reactions": [
+        "Having everything available all the time is nice. But nothing feels special anymore."
+      ],
+      "statCheck": null,
+      "valence": "neutral",
+      "topic_category": "old_times",
+      "required_entities": [],
+      "location_scope": "universal",
+      "quest_trigger": null
+    },
+    {
+      "id": 61,
+      "intro": "My father kept a journal. One line a day, every day, for thirty years.",
+      "details": [
+        "Mostly weather and what he did. 'Rain. Fixed fence. Good supper.' That kind of thing.",
+        "I found it after he died. Thirty years of ordinary days, and I couldn't stop reading."
+      ],
+      "reactions": [
+        "An ordinary life written down becomes extraordinary. I should start writing mine."
+      ],
+      "statCheck": null,
+      "valence": "positive",
+      "topic_category": "old_times",
+      "required_entities": [],
+      "location_scope": "universal",
+      "quest_trigger": null
+    },
+    {
+      "id": 62,
+      "intro": "People don't sit on their porches anymore. Used to be every evening, up and down the road.",
+      "details": [
+        "You'd wave to your neighbors, shout conversations across the lane. Kids running between the houses.",
+        "Now everyone's inside by sundown. The evenings are quiet."
+      ],
+      "reactions": [
+        "I still sit out sometimes. Mostly alone, but the air's the same."
+      ],
+      "statCheck": null,
+      "valence": "negative",
+      "topic_category": "old_times",
+      "required_entities": [],
+      "location_scope": "universal",
+      "quest_trigger": null
+    },
+    {
+      "id": 63,
+      "intro": "The old bridge used to creak when you crossed it. Every plank had a different note.",
+      "details": [
+        "You could tell who was crossing just by the rhythm. Heavy boots or light feet, fast or slow.",
+        "They replaced it with stone. Quieter, stronger, and completely without personality."
+      ],
+      "reactions": [
+        "I don't miss the danger of rotten planks. Just the sound."
+      ],
+      "statCheck": null,
+      "valence": "negative",
+      "topic_category": "old_times",
+      "required_entities": [],
+      "location_scope": "universal",
+      "quest_trigger": null
+    },
+    {
+      "id": 64,
+      "intro": "My grandmother said when she was young, wolves came close to {settlement_name} every winter.",
+      "details": [
+        "They'd hear them at night, right at the edge of the firelight. Made everyone sleep with one ear open.",
+        "Haven't heard a wolf near here in my lifetime."
+      ],
+      "reactions": [
+        "I'm glad they're gone. But she told it like losing them meant losing something important."
+      ],
+      "statCheck": {
+        "pass": "Wolves keep the deer population honest. Without them, herds grow too large and strip the land bare. She understood that balance even if she didn't name it.",
+        "fail": "She never explained what she meant. Maybe she just liked knowing the wild was still close."
+      },
+      "valence": "neutral",
+      "topic_category": "old_times",
+      "required_entities": [],
+      "location_scope": "universal",
+      "quest_trigger": null
+    },
+    {
+      "id": 65,
+      "intro": "We used to know our neighbors' routines better than our own. If someone's chimney wasn't smoking by sunrise, you checked on them.",
+      "details": [
+        "Not because anyone asked. It was just what you did.",
+        "People are more private now. I understand it, but I don't always like it."
+      ],
+      "reactions": [
+        "Privacy is a luxury that comes with a cost nobody mentions."
+      ],
+      "statCheck": null,
+      "valence": "negative",
+      "topic_category": "old_times",
+      "required_entities": [],
+      "location_scope": "universal",
+      "quest_trigger": null
+    },
+    {
+      "id": 66,
+      "intro": "When I was a kid, someone carved a face into the big rock at the crossroads. It's still there, worn smooth.",
+      "details": [
+        "Nobody knows who did it. People said it was ancient, but my uncle swore it was a farmer who got bored one afternoon.",
+        "Doesn't matter who carved it. It's been there longer than anyone's memory."
+      ],
+      "reactions": [
+        "Give anything enough time and it becomes tradition."
+      ],
+      "statCheck": null,
+      "valence": "positive",
+      "topic_category": "old_times",
+      "required_entities": [],
+      "location_scope": "universal",
+      "quest_trigger": null
+    },
+    {
+      "id": 67,
+      "intro": "I remember when every household kept chickens. The morning noise was unbelievable.",
+      "details": [
+        "Roosters competing to be loudest, starting before the sun was even up. You got used to it.",
+        "Now only a few families bother. Mornings are quieter. Not better, just quieter."
+      ],
+      "reactions": [
+        "I kind of miss waking up to that chaos. At least you knew the day had started."
+      ],
+      "statCheck": {
+        "pass": "Roosters don't just crow at dawn. They respond to light changes, noise, each other. A village full of them creates a cascading alarm system that starts earlier than any single bird would.",
+        "fail": "All I know is they were loud and early. Beyond that, chickens are a mystery to me."
+      },
+      "valence": "neutral",
+      "topic_category": "old_times",
+      "required_entities": [],
+      "location_scope": "universal",
+      "quest_trigger": null
+    },
+    {
+      "id": 68,
+      "intro": "My mother kept a garden that was the pride of {settlement_name}. People would detour just to walk past it.",
+      "details": [
+        "Flowers in front, vegetables in back, herbs along the fence. Everything exactly where she wanted it.",
+        "I tried to keep it up after she passed. Managed one season before I admitted I didn't have her touch."
+      ],
+      "reactions": [
+        "The garden's still there but it's simpler now. It's mine, not hers, and that's alright."
+      ],
+      "statCheck": null,
+      "valence": "neutral",
+      "topic_category": "old_times",
+      "required_entities": [],
+      "location_scope": "universal",
+      "quest_trigger": null
+    },
+    {
+      "id": 69,
+      "intro": "You know what I miss? The smell of woodsmoke on a cold morning. Everyone burning the same wood, the whole town smelling like a campfire.",
+      "details": [
+        "You'd step outside and the air was blue with it. Heavy and warm somehow, even when it was freezing.",
+        "Some of the new houses use different fuel. Works fine, but it doesn't have that smell."
+      ],
+      "reactions": [
+        "Smell is the strongest memory there is. One whiff of oak smoke and I'm ten years old again."
+      ],
+      "statCheck": null,
+      "valence": "positive",
+      "topic_category": "old_times",
+      "required_entities": [],
+      "location_scope": "universal",
+      "quest_trigger": null
+    },
+    {
+      "id": 70,
+      "intro": "There was a woman who used to weave baskets so tight they could hold water. I watched her once and couldn't follow her hands.",
+      "details": [
+        "She said her mother taught her, who learned from her mother. Hundreds of years of the same technique.",
+        "Nobody picked it up after her. Her children had other plans."
+      ],
+      "reactions": [
+        "Can't blame them for wanting something different. But the baskets were something else."
+      ],
+      "statCheck": {
+        "pass": "The weave pattern interlocks the fibers so they swell when wet, creating a seal. It's ingenious engineering disguised as craft.",
+        "fail": "I couldn't tell you how she did it. Her fingers just moved and the basket appeared."
+      },
+      "valence": "negative",
+      "topic_category": "old_times",
+      "required_entities": [],
+      "location_scope": "universal",
+      "quest_trigger": null
+    },
+    {
+      "id": 71,
+      "intro": "My father always said the soil around {settlement_name} was the best he'd ever worked. Rich and dark.",
+      "details": [
+        "He moved here for it, actually. Left his family's land because this dirt was better.",
+        "I never thought about soil having quality until I tried farming somewhere else. He was right."
+      ],
+      "reactions": [
+        "Some things you don't appreciate until you leave and come back."
+      ],
+      "statCheck": null,
+      "valence": "positive",
+      "topic_category": "old_times",
+      "required_entities": [],
+      "location_scope": "universal",
+      "quest_trigger": null
+    },
+    {
+      "id": 72,
+      "intro": "I have a scar on my shin from falling off a wall I shouldn't have been climbing. My mother told me not to. Twice.",
+      "details": [
+        "I remember the fall more clearly than most things from that age. The slow realization mid-air that this was going to hurt.",
+        "She didn't say anything when she bandaged me. Didn't need to."
+      ],
+      "reactions": [
+        "Every kid has a scar with a story like that. The body keeps its own records."
+      ],
+      "statCheck": null,
+      "valence": "neutral",
+      "topic_category": "old_times",
+      "required_entities": [],
+      "location_scope": "universal",
+      "quest_trigger": null
+    },
+    {
+      "id": 73,
+      "intro": "People used to walk everywhere. Not for exercise, just because that's how you got around.",
+      "details": [
+        "My grandmother thought nothing of walking two hours to visit someone. She'd chat for an hour and walk back.",
+        "Four hours of walking for one hour of company. And she did it every week."
+      ],
+      "reactions": [
+        "We've gotten faster at getting places but I'm not sure we arrive any better."
+      ],
+      "statCheck": null,
+      "valence": "negative",
+      "topic_category": "old_times",
+      "required_entities": [],
+      "location_scope": "universal",
+      "quest_trigger": null
+    },
+    {
+      "id": 74,
+      "intro": "There used to be an apple orchard where the new houses are now. Oldest trees around.",
+      "details": [
+        "They cut them down to make room. Got some good wood out of it, but that wasn't the point.",
+        "Those trees took fifty years to grow and an afternoon to remove."
+      ],
+      "reactions": [
+        "People needed homes. I get it. Just wish they'd found another spot."
+      ],
+      "statCheck": null,
+      "valence": "negative",
+      "topic_category": "old_times",
+      "required_entities": [],
+      "location_scope": "universal",
+      "quest_trigger": null
+    },
+    {
+      "id": 75,
+      "intro": "I keep thinking about something my father said: that every settlement gets the shape its people give it.",
+      "details": [
+        "He meant that {settlement_name} looks the way it does because of who lived here and what they needed.",
+        "The new parts are different because the new people are different. It's not wrong, it's just visible."
+      ],
+      "reactions": [
+        "In a hundred years someone will look at what we built and feel the same way I do now."
+      ],
+      "statCheck": null,
+      "valence": "neutral",
+      "topic_category": "old_times",
+      "required_entities": [],
+      "location_scope": "universal",
+      "quest_trigger": null
+    },
+    {
+      "id": 76,
+      "intro": "We had a cold snap one year that froze the stream solid. You could walk across it.",
+      "details": [
+        "I was eight or nine. We spent the whole day sliding on it, falling, laughing until it hurt.",
+        "Hasn't frozen like that since. I check every winter, hoping."
+      ],
+      "reactions": [
+        "Some memories only happen once. That's what makes them stick."
+      ],
+      "statCheck": null,
+      "valence": "positive",
+      "topic_category": "old_times",
+      "required_entities": [],
+      "location_scope": "universal",
+      "quest_trigger": null
+    },
+    {
+      "id": 77,
+      "intro": "My grandfather refused to use the new road when they built it. Kept walking the old way out of principle.",
+      "details": [
+        "Added twenty minutes to every trip. My grandmother was furious.",
+        "He did it for three years and then quietly started using the new road without ever admitting it."
+      ],
+      "reactions": [
+        "Stubbornness runs in the family. I like to think I got the version that eventually gives in."
+      ],
+      "statCheck": null,
+      "valence": "positive",
+      "topic_category": "old_times",
+      "required_entities": [],
+      "location_scope": "universal",
+      "quest_trigger": null
+    },
+    {
+      "id": 78,
+      "intro": "I found a drawing I did as a child. {settlement_name}, from the hill. The proportions are all wrong but the feeling is right.",
+      "details": [
+        "Everything's bigger in the drawing. The houses, the trees, the spaces between things.",
+        "That's honestly how it felt. The whole world was enormous when you were small enough."
+      ],
+      "reactions": [
+        "I should go back to that hill and draw it again. See what I'd make of it now."
+      ],
+      "statCheck": null,
+      "valence": "positive",
+      "topic_category": "old_times",
+      "required_entities": [],
+      "location_scope": "universal",
+      "quest_trigger": null
+    },
+    {
+      "id": 79,
+      "intro": "People used to fix things until they couldn't be fixed anymore. Now they replace things that still work.",
+      "details": [
+        "My father repaired the same shovel for fifteen years. Handle twice, blade once.",
+        "I bought a new one last month because the grip was wearing down. He would've wrapped it in leather and kept going."
+      ],
+      "reactions": [
+        "I'm not sure his way was better. But it was more honest about what things cost."
+      ],
+      "statCheck": {
+        "pass": "A tool that's been repaired knows its stress points. Each fix reinforces a weakness. After enough repairs, the tool is actually stronger at its failure points than a new one would be.",
+        "fail": "I know it's wasteful to replace things that work. I just don't have the patience for fixing."
+      },
+      "valence": "neutral",
+      "topic_category": "old_times",
+      "required_entities": [],
+      "location_scope": "universal",
+      "quest_trigger": null
+    },
+    {
+      "id": 80,
+      "intro": "My grandmother had a superstition about everything. Don't sweep after dark, don't count stars, never step on a threshold with your left foot first.",
+      "details": [
+        "I used to roll my eyes. Now I catch myself following the same rules without thinking.",
+        "I don't believe any of it. But stopping feels like tempting fate, which is exactly the kind of thinking she'd approve of."
+      ],
+      "reactions": [
+        "That's how superstitions survive. Not because people believe, but because they're afraid to stop."
+      ],
+      "statCheck": null,
+      "valence": "neutral",
+      "topic_category": "old_times",
+      "required_entities": [],
+      "location_scope": "universal",
+      "quest_trigger": null
+    },
+    {
+      "id": 81,
+      "intro": "I remember when news traveled at the speed of whoever was walking between here and {other_settlement}.",
+      "details": [
+        "Something could happen a day's walk away and you wouldn't know for a week.",
+        "The world felt bigger then. Each place was its own little island."
+      ],
+      "reactions": [
+        "Now you hear everything fast and it's mostly things you can't do anything about."
+      ],
+      "statCheck": null,
+      "valence": "neutral",
+      "topic_category": "old_times",
+      "required_entities": [],
+      "location_scope": "universal",
+      "quest_trigger": null
+    },
+    {
+      "id": 82,
+      "intro": "We used to have a storyteller. Not officially: just an old man who sat by the fire and talked.",
+      "details": [
+        "Same stories every year, but somehow different each time. He'd add details, change the ending, make you the hero if he liked you.",
+        "Kids would beg for the scary ones. Adults pretended they weren't listening. Everyone was."
+      ],
+      "reactions": [
+        "When he died, the stories went with him. Turns out nobody else had the voice for it."
+      ],
+      "statCheck": null,
+      "valence": "negative",
+      "topic_category": "old_times",
+      "required_entities": [],
+      "location_scope": "universal",
+      "quest_trigger": null
+    },
+    {
+      "id": 83,
+      "intro": "I used to know every dog in {settlement_name} by name. Now I pass ones I've never seen.",
+      "details": [
+        "When I was young there were maybe five dogs in the whole place. They all had jobs and opinions.",
+        "The yellow one guarded the storehouse. The gray one followed children. Everyone knew them."
+      ],
+      "reactions": [
+        "More people means more dogs. That's fine. I just miss knowing them all."
+      ],
+      "statCheck": null,
+      "valence": "neutral",
+      "topic_category": "old_times",
+      "required_entities": [],
+      "location_scope": "universal",
+      "quest_trigger": null
+    },
+    {
+      "id": 84,
+      "intro": "My mother had a way of making do that I've never been able to match. Five ingredients and she'd feed ten people.",
+      "details": [
+        "She grew up with less. That teaches you what matters and what's decoration.",
+        "I have more than she ever did and I still feel like I'm running out of things."
+      ],
+      "reactions": [
+        "Abundance doesn't make you feel abundant. That surprised me more than it should have."
+      ],
+      "statCheck": null,
+      "valence": "negative",
+      "topic_category": "old_times",
+      "required_entities": [],
+      "location_scope": "universal",
+      "quest_trigger": null
+    },
+    {
+      "id": 85,
+      "intro": "There's a bend in the river where we used to set fish traps every spring. The technique was specific to this area.",
+      "details": [
+        "You'd weave the trap from willow branches in a shape that funneled fish in but not out.",
+        "My uncle showed me how. I showed it to my kids. They weren't interested."
+      ],
+      "reactions": [
+        "The river's still there. The willows are still there. Just the knowledge is drying up."
+      ],
+      "statCheck": {
+        "pass": "The cone shape exploits how fish navigate current. They follow the narrowing channel instinctively and can't reverse against the funnel. It's simple but the proportions matter.",
+        "fail": "My uncle could build one in an hour. I take all morning and mine still leak."
+      },
+      "valence": "negative",
+      "topic_category": "old_times",
+      "required_entities": [],
+      "location_scope": "universal",
+      "quest_trigger": null
+    },
+    {
+      "id": 86,
+      "intro": "I think about how different bedtime was when I was young. The whole house went quiet at once.",
+      "details": [
+        "One candle, maybe two. You couldn't stay up because there was nothing to do in the dark.",
+        "I'd lie there listening to my parents murmur in the next room. Safest sound in the world."
+      ],
+      "reactions": [
+        "You can't go back to that kind of quiet. But you can remember what it felt like."
+      ],
+      "statCheck": null,
+      "valence": "positive",
+      "topic_category": "old_times",
+      "required_entities": [],
+      "location_scope": "universal",
+      "quest_trigger": null
+    },
+    {
+      "id": 87,
+      "intro": "There used to be a footrace at every gathering. Young folks, old folks, didn't matter. You ran if you wanted to.",
+      "details": [
+        "My aunt won three years in a row when she was younger. Nobody could believe it because she was tiny.",
+        "She said the secret was not caring about looking dignified. She just ran like something was chasing her."
+      ],
+      "reactions": [
+        "We stopped having them. Not sure when or why. One year they just didn't happen and nobody brought it back."
+      ],
+      "statCheck": null,
+      "valence": "positive",
+      "topic_category": "old_times",
+      "required_entities": [],
+      "location_scope": "universal",
+      "quest_trigger": null
+    },
+    {
+      "id": 88,
+      "intro": "My grandfather claimed he could tell where someone was from by how they stacked firewood.",
+      "details": [
+        "People from {other_settlement} stack it flat. People from here stack it in rounds. Or so he said.",
+        "I've never been able to tell the difference, but I stack mine in rounds just in case."
+      ],
+      "reactions": [
+        "Half of what the old folks told us was wisdom. The other half was just personality."
+      ],
+      "statCheck": {
+        "pass": "Round stacking actually dries wood faster because of air circulation. Flat stacking holds more volume. There's a practical reason behind the regional difference.",
+        "fail": "Firewood is firewood to me. I just pile it where it fits."
+      },
+      "valence": "positive",
+      "topic_category": "old_times",
+      "required_entities": [],
+      "location_scope": "universal",
+      "quest_trigger": null
+    },
+    {
+      "id": 89,
+      "intro": "The first settlers here must have been brave or desperate. This wasn't exactly a gentle place to start.",
+      "details": [
+        "My grandmother told me the ground was full of rocks and the nearest help was days away.",
+        "They cleared it by hand. No shortcuts, just work."
+      ],
+      "reactions": [
+        "We inherited something that cost them everything. I try to remember that when I complain."
+      ],
+      "statCheck": {
+        "pass": "Clearing land by hand changes your relationship with it. Every rock you move, every root you pull, you learn what the soil is made of. That knowledge shaped how they farmed for generations.",
+        "fail": "I can't imagine the work. I just know I'm grateful someone else did it."
+      },
+      "valence": "neutral",
+      "topic_category": "old_times",
+      "required_entities": [],
+      "location_scope": "universal",
+      "quest_trigger": null
+    },
+    {
+      "id": 90,
+      "intro": "I miss the way {settlement_name} smelled in autumn. Woodsmoke, fallen leaves, and whatever everyone was preserving.",
+      "details": [
+        "The whole place had this warm, spiced smell. You'd breathe deep and know exactly what time of year it was.",
+        "It's faded. Fewer people preserve their own food now. The leaf piles get cleared faster."
+      ],
+      "reactions": [
+        "Seasons should have a smell. Otherwise how do you know one ended and another began?"
+      ],
+      "statCheck": null,
+      "valence": "negative",
+      "topic_category": "old_times",
+      "required_entities": [],
+      "location_scope": "universal",
+      "quest_trigger": null
+    },
+    {
+      "id": 91,
+      "intro": "I was thinking about the old meeting hall. Cramped, drafty, bench seats that hurt your back.",
+      "details": [
+        "But when everyone was packed in for a decision, the energy was something. You felt like you were part of something.",
+        "The new hall is better in every way. Except that one."
+      ],
+      "reactions": [
+        "Discomfort has a way of making people bond. Can't build that into a nicer building."
+      ],
+      "statCheck": null,
+      "valence": "neutral",
+      "topic_category": "old_times",
+      "required_entities": [],
+      "location_scope": "universal",
+      "quest_trigger": null
+    },
+    {
+      "id": 92,
+      "intro": "My father never locked his workshop. Said a thief who needed tools that badly deserved them.",
+      "details": [
+        "Nothing ever went missing. I think people respected the trust more than the tools.",
+        "I lock mine. Not because I distrust anyone specifically. Just because times are different."
+      ],
+      "reactions": [
+        "Trust is easier when you know everyone's name. Harder in a bigger place."
+      ],
+      "statCheck": null,
+      "valence": "neutral",
+      "topic_category": "old_times",
+      "required_entities": [],
+      "location_scope": "universal",
+      "quest_trigger": null
+    },
+    {
+      "id": 93,
+      "intro": "I remember the year the creek changed course after heavy rains. Ran right through where {npc_name}'s family used to have a garden.",
+      "details": [
+        "Three days of rain and the water just decided to go somewhere new. Nothing you can do about that.",
+        "They moved the garden. The old path of the creek is still visible if you know where to look."
+      ],
+      "reactions": [
+        "Water goes where it wants. The land just rearranges around it."
+      ],
+      "statCheck": null,
+      "valence": "neutral",
+      "topic_category": "old_times",
+      "required_entities": [],
+      "location_scope": "universal",
+      "quest_trigger": null
+    },
+    {
+      "id": 94,
+      "intro": "We used to make our own soap. Terrible stuff, stripped your skin raw, but it worked.",
+      "details": [
+        "The whole process was an all-day affair involving lye and rendered fat. The smell was something else.",
+        "My mother would do it once a year and it would last until the next time."
+      ],
+      "reactions": [
+        "The soap you buy now is better in every way. I don't miss making it. I miss the day together."
+      ],
+      "statCheck": {
+        "pass": "The lye concentration is what matters. Too strong and it burns, too weak and you just have greasy water. Getting it right was genuine chemistry, even if nobody called it that.",
+        "fail": "I just remember the smell and the stirring. Hours of stirring."
+      },
+      "valence": "neutral",
+      "topic_category": "old_times",
+      "required_entities": [],
+      "location_scope": "universal",
+      "quest_trigger": null
+    },
+    {
+      "id": 95,
+      "intro": "There was a time when everyone in {settlement_name} knew the same songs. Every single person.",
+      "details": [
+        "You'd hear the same melody from three different houses on the same night. Harmonizing without meaning to.",
+        "New people brought new songs. The old ones faded because nobody was teaching them on purpose."
+      ],
+      "reactions": [
+        "A shared song is a kind of bond. When it's gone, the bond loosens too."
+      ],
+      "statCheck": null,
+      "valence": "negative",
+      "topic_category": "old_times",
+      "required_entities": [],
+      "location_scope": "universal",
+      "quest_trigger": null
+    },
+    {
+      "id": 96,
+      "intro": "I'm the same age now that my grandmother was when I thought she was ancient. She wasn't. She was just tired.",
+      "details": [
+        "She worked harder than I ever have. Up before dawn, done after dark, every day until the end.",
+        "I used to think her wrinkles were from age. Now I think they were from squinting at mending in bad light."
+      ],
+      "reactions": [
+        "I understand her better now than I ever did when she was alive. That's the cruelest part of growing up."
+      ],
+      "statCheck": null,
+      "valence": "negative",
+      "topic_category": "old_times",
+      "required_entities": [],
+      "location_scope": "universal",
+      "quest_trigger": null
+    },
+    {
+      "id": 97,
+      "intro": "The fireflies used to come every summer. Hundreds of them, drifting through the fields at dusk.",
+      "details": [
+        "We'd catch them in jars and pretend they were lanterns. Then let them go because my mother said they'd die otherwise.",
+        "I haven't seen more than a handful in years."
+      ],
+      "reactions": [
+        "Things disappear so gradually you don't notice until you're trying to show your children something that isn't there anymore."
+      ],
+      "statCheck": null,
+      "valence": "negative",
+      "topic_category": "old_times",
+      "required_entities": [],
+      "location_scope": "universal",
+      "quest_trigger": null
+    },
+    {
+      "id": 98,
+      "intro": "My father used to trade with a man from {other_settlement} who he couldn't stand personally. They did business for twenty years.",
+      "details": [
+        "They'd argue about prices, insult each other's goods, and shake hands at the end every single time.",
+        "When the man retired, my father said it was like losing an opponent. Not a friend, but something just as real."
+      ],
+      "reactions": [
+        "Some relationships only make sense to the people in them."
+      ],
+      "statCheck": null,
+      "valence": "neutral",
+      "topic_category": "old_times",
+      "required_entities": [],
+      "location_scope": "universal",
+      "quest_trigger": null
+    },
+    {
+      "id": 99,
+      "intro": "I found my mother's recipe for preserving plums in vinegar. Tried it. Exactly as I remembered.",
+      "details": [
+        "The taste hit me so hard I had to sit down. Not because it was good or bad, but because it was hers.",
+        "I made a whole batch. Most of it's still in the cellar. I just wanted to know I could do it."
+      ],
+      "reactions": [
+        "Sometimes keeping a recipe alive is enough. It doesn't have to feed anyone."
+      ],
+      "statCheck": null,
+      "valence": "positive",
+      "topic_category": "old_times",
+      "required_entities": [],
+      "location_scope": "universal",
+      "quest_trigger": null
+    },
+    {
+      "id": 100,
+      "intro": "The old storehouse had writing on the beams. Names, dates, little marks from everyone who'd used it.",
+      "details": [
+        "When they tore it down, I went and read as many as I could. Some were older than anyone living.",
+        "All those people, reduced to a scratched initial and a year."
+      ],
+      "reactions": [
+        "It's not much. But it's more than most people leave behind."
+      ],
+      "statCheck": null,
+      "valence": "negative",
+      "topic_category": "old_times",
+      "required_entities": [],
+      "location_scope": "universal",
+      "quest_trigger": null
+    },
+    {
+      "id": 101,
+      "intro": "I was the youngest of five. By the time I got anything, it had already been worn by everyone else.",
+      "details": [
+        "My boots had three sets of patches in them before I ever put them on. I thought that was normal.",
+        "I give my own kids new things and they don't even notice. As it should be, I suppose."
+      ],
+      "reactions": [
+        "I don't want to go back to hand-me-downs. But I learned to value things from having so few."
+      ],
+      "statCheck": {
+        "pass": "Clothing that's been worn by multiple people develops a flexibility that new fabric doesn't have. The fibers soften and the stitching settles. Hand-me-downs are actually more comfortable, if you can get past the principle.",
+        "fail": "Worn-out boots are worn-out boots. I didn't see any hidden benefit at the time."
+      },
+      "valence": "neutral",
+      "topic_category": "old_times",
+      "required_entities": [],
+      "location_scope": "universal",
+      "quest_trigger": null
+    },
+    {
+      "id": 102,
+      "intro": "The old couples in {settlement_name} used to walk together every evening. Same route, same time, for years.",
+      "details": [
+        "You could set your routine by them. If they hadn't passed your window, it wasn't quite sundown yet.",
+        "One by one they've all stopped. The route is just a path now."
+      ],
+      "reactions": [
+        "I wonder if my wife and I will do that when we're old. I'd like to think so."
+      ],
+      "statCheck": null,
+      "valence": "negative",
+      "topic_category": "old_times",
+      "required_entities": [],
+      "location_scope": "universal",
+      "quest_trigger": null
+    },
+    {
+      "id": 103,
+      "intro": "People around here used to make their own dye from berries and bark. Beautiful colors, no two batches the same.",
+      "details": [
+        "Every household had slightly different shades. You could tell who made a cloth just by the tint.",
+        "Now everything matches. Looks cleaner, I suppose, but less interesting."
+      ],
+      "reactions": [
+        "Uniformity is practical. I just liked when things carried the mark of who made them."
+      ],
+      "statCheck": {
+        "pass": "Berry dyes fade fast without a proper mordant to fix them. The bark dyes last longer because of the tannins. The old dyers knew which combinations held up to washing.",
+        "fail": "I tried it once. Everything came out a muddy brown. Clearly there's more to it than crushing berries."
+      },
+      "valence": "neutral",
+      "topic_category": "old_times",
+      "required_entities": [],
+      "location_scope": "universal",
+      "quest_trigger": null
+    },
+    {
+      "id": 104,
+      "intro": "I had a friend growing up who moved to {other_settlement}. We said we'd visit all the time. We didn't.",
+      "details": [
+        "First year we traded messages. Second year it was just at festivals. After that, nothing.",
+        "I saw him years later and we talked like strangers who used to know each other. Which is exactly what we were."
+      ],
+      "reactions": [
+        "Distance does what it does. No one's to blame."
+      ],
+      "statCheck": null,
+      "valence": "negative",
+      "topic_category": "old_times",
+      "required_entities": [],
+      "location_scope": "universal",
+      "quest_trigger": null
+    },
+    {
+      "id": 105,
+      "intro": "My grandmother used to say that {settlement_name} was protected by its own stubbornness. Too tough to fail, too small to bother with.",
+      "details": [
+        "She meant it as a compliment. The people here endured things that would've scattered a less stubborn group.",
+        "I think she was right. We're still here. Not because we're special, but because we're persistent."
+      ],
+      "reactions": [
+        "Persistence isn't glamorous. But it's the thing that actually keeps a place alive."
+      ],
+      "statCheck": null,
+      "valence": "positive",
+      "topic_category": "old_times",
+      "required_entities": [],
+      "location_scope": "universal",
+      "quest_trigger": null
+    },
+    {
+      "id": 106,
+      "intro": "I used to climb onto the roof of our house to watch the sunset. Got caught every single time.",
+      "details": [
+        "My father would stand below and count to three, like that was going to make me come down faster.",
+        "I went up there again last year. The view's the same. My knees, however, are not."
+      ],
+      "reactions": [
+        "Some things are better left to the version of you that could do them without groaning."
+      ],
+      "statCheck": null,
+      "valence": "positive",
+      "topic_category": "old_times",
+      "required_entities": [],
+      "location_scope": "universal",
+      "quest_trigger": null
+    },
+    {
+      "id": 107,
+      "intro": "We used to have a lantern-lighting at the equinox. Everyone brought one and lined the main road.",
+      "details": [
+        "The whole path would glow for one night. Kids would run up and down it like it was some kind of magic road.",
+        "Someone forgot to organize it one year and it just never came back."
+      ],
+      "reactions": [
+        "Traditions need a keeper. Without one, they're just memories waiting to become stories."
+      ],
+      "statCheck": null,
+      "valence": "negative",
+      "topic_category": "old_times",
+      "required_entities": [],
+      "location_scope": "universal",
+      "quest_trigger": null
+    },
+    {
+      "id": 108,
+      "intro": "My mother could tell what was growing in someone's garden just by the way it smelled when she walked past.",
+      "details": [
+        "She'd sniff the air and say 'someone's got basil coming up early' and she'd be right.",
+        "I'm nose-blind to most of it. Plants all smell like green to me."
+      ],
+      "reactions": [
+        "Attention is a skill. She practiced it her whole life without calling it that."
+      ],
+      "statCheck": {
+        "pass": "Different herbs release volatile oils at different rates as they grow. If you know the growth stages, you can identify them by scent before they're even visible.",
+        "fail": "To me it was practically a magic trick. She just breathed in and knew things."
+      },
+      "valence": "positive",
+      "topic_category": "old_times",
+      "required_entities": [],
+      "location_scope": "universal",
+      "quest_trigger": null
+    },
+    {
+      "id": 109,
+      "intro": "People from {other_settlement} used to come here for the fishing. Our stretch of river was famous, in a small way.",
+      "details": [
+        "They'd set up for the day and the locals would pretend to be bothered but secretly loved the company.",
+        "The fish aren't what they were. Neither is the traffic."
+      ],
+      "reactions": [
+        "Being known for one good thing was nice while it lasted."
+      ],
+      "statCheck": null,
+      "valence": "neutral",
+      "topic_category": "old_times",
+      "required_entities": [],
+      "location_scope": "universal",
+      "quest_trigger": null
+    },
+    {
+      "id": 110,
+      "intro": "I realized the other day that I'm the only one who remembers what the old fence line looked like. The one before they moved it.",
+      "details": [
+        "It ran crooked because the original builder followed the natural slope. Made more sense than the straight one we have now.",
+        "In a few years nobody will even know it was ever different."
+      ],
+      "reactions": [
+        "I'm not sure why that bothers me. It's a fence. But it does."
+      ],
+      "statCheck": null,
+      "valence": "negative",
+      "topic_category": "old_times",
+      "required_entities": [],
+      "location_scope": "universal",
+      "quest_trigger": null
+    },
+    {
+      "id": 111,
+      "intro": "My grandfather ate the same breakfast every morning for fifty years. Porridge, honey, and a boiled egg.",
+      "details": [
+        "He said it was the one decision he didn't have to make each day. Freed up his mind for other things.",
+        "I thought it was boring. Now I eat the same thing every morning too."
+      ],
+      "reactions": [
+        "There's a quiet wisdom in routine that young people can't see. I couldn't."
+      ],
+      "statCheck": null,
+      "valence": "positive",
+      "topic_category": "old_times",
+      "required_entities": [],
+      "location_scope": "universal",
+      "quest_trigger": null
+    },
+    {
+      "id": 112,
+      "intro": "The cemetery at the edge of town is where half my family rests. I visit when I need to think.",
+      "details": [
+        "The oldest stones are unreadable now. Just shapes in the ground with no names left.",
+        "In another generation mine will look the same. That's not sad, just true."
+      ],
+      "reactions": [
+        "Stones wear down. But someone always knows who's there, at least for a while."
+      ],
+      "statCheck": {
+        "pass": "Limestone erodes at roughly a millimeter per century in this climate. You can estimate a stone's age by how much detail has been lost from the carving.",
+        "fail": "I don't know how old the oldest ones are. Old enough that the names are just bumps."
+      },
+      "valence": "neutral",
+      "topic_category": "old_times",
+      "required_entities": [],
+      "location_scope": "universal",
+      "quest_trigger": null
+    },
+    {
+      "id": 113,
+      "intro": "My uncle could whittle anything. Hand him a stick and ten minutes later it was a bird, a fish, a little person.",
+      "details": [
+        "He said the shape was already in the wood. He just took away what didn't belong.",
+        "His hands shook in his last years. He couldn't do it anymore and he never talked about it."
+      ],
+      "reactions": [
+        "Losing a skill you've had your whole life must feel like going deaf in one ear. The world's still there, just quieter."
+      ],
+      "statCheck": null,
+      "valence": "negative",
+      "topic_category": "old_times",
+      "required_entities": [],
+      "location_scope": "universal",
+      "quest_trigger": null
+    },
+    {
+      "id": 114,
+      "intro": "Harvest day used to feel like the whole year came to a point. Everything led to it and everything followed from it.",
+      "details": [
+        "Good harvest and the mood carried through winter. Bad harvest and you could feel the worry like a weight.",
+        "We're less dependent on a single day now. That's better. But the rhythm is gone."
+      ],
+      "reactions": [
+        "Life without seasons is comfortable. But it's also flat."
+      ],
+      "statCheck": null,
+      "valence": "neutral",
+      "topic_category": "old_times",
+      "required_entities": [],
+      "location_scope": "universal",
+      "quest_trigger": null
+    },
+    {
+      "id": 115,
+      "intro": "I have a chair that my great-grandfather made. Simple thing, not pretty, but perfectly balanced.",
+      "details": [
+        "Four legs, a back, a seat. Nothing extra. And after all this time, not a single wobble.",
+        "I've bought fancier chairs that fell apart in two years."
+      ],
+      "reactions": [
+        "There's something to be said for making one thing and making it right."
+      ],
+      "statCheck": {
+        "pass": "He mortised the joints, which means they tighten under the sitter's weight instead of loosening. That's not just craft, it's engineering. A nailed joint would have failed decades ago.",
+        "fail": "I don't know how he did it. I just know that chair will outlast everything I own."
+      },
+      "valence": "positive",
+      "topic_category": "old_times",
+      "required_entities": [],
+      "location_scope": "universal",
+      "quest_trigger": null
+    },
+    {
+      "id": 116,
+      "intro": "When someone in {settlement_name} was sick, the whole community felt it. People brought food, took over chores, checked in daily.",
+      "details": [
+        "Not because anyone organized it. People just showed up.",
+        "That still happens, but only for the families everyone knows. Newer people sometimes struggle alone."
+      ],
+      "reactions": [
+        "A community that's too big to notice someone struggling has a problem it doesn't know how to name."
+      ],
+      "statCheck": null,
+      "valence": "negative",
+      "topic_category": "old_times",
+      "required_entities": [],
+      "location_scope": "universal",
+      "quest_trigger": null
+    },
+    {
+      "id": 117,
+      "intro": "I still remember the first time I beat my father at arm wrestling. The look on his face.",
+      "details": [
+        "He tried to pretend he let me win. I knew he didn't. He knew I knew.",
+        "It was the moment I realized he was getting older and I was getting stronger. Happy and sad at the same time."
+      ],
+      "reactions": [
+        "Every child passes that point with their parents. You just don't recognize it as a milestone until later."
+      ],
+      "statCheck": {
+        "pass": "Grip strength peaks around thirty and declines steadily after that. There's a specific year for every parent where the crossover happens. It's biology, not symbolism, but it feels like symbolism.",
+        "fail": "I don't know when exactly it shifted. Just that one day it did and we both knew."
+      },
+      "valence": "neutral",
+      "topic_category": "old_times",
+      "required_entities": [],
+      "location_scope": "universal",
+      "quest_trigger": null
+    },
+    {
+      "id": 118,
+      "intro": "There's a stone wall at the north end that everybody adds to. Started as a property boundary and now it's just tradition.",
+      "details": [
+        "You find a good stone, you put it on the wall. Nobody assigned this. It just happens.",
+        "It's the most unplanned, unnecessary, beautiful thing in {settlement_name}."
+      ],
+      "reactions": [
+        "Not everything needs a purpose. Some things just need people to keep doing them."
+      ],
+      "statCheck": null,
+      "valence": "positive",
+      "topic_category": "old_times",
+      "required_entities": [],
+      "location_scope": "universal",
+      "quest_trigger": null
+    },
+    {
+      "id": 119,
+      "intro": "I used to hate the quiet here when I was young. Thought it meant nothing was happening.",
+      "details": [
+        "I wanted to go somewhere louder, bigger, with more people and more to do.",
+        "Took me years to realize the quiet was the whole point. It's where you hear yourself think."
+      ],
+      "reactions": [
+        "Young people always want to leave. Some of them come back. The ones who don't aren't wrong either."
+      ],
+      "statCheck": null,
+      "valence": "positive",
+      "topic_category": "old_times",
+      "required_entities": [],
+      "location_scope": "universal",
+      "quest_trigger": null
+    },
+    {
+      "id": 120,
+      "intro": "My grandmother kept every letter she ever received. Stacked in a box under her bed, tied with string.",
+      "details": [
+        "After she died we read them. Mostly ordinary things: weather reports, birth announcements, small news.",
+        "But together they told the story of a whole life in a way no single letter could."
+      ],
+      "reactions": [
+        "Nobody writes letters anymore. I wonder what we'll leave behind instead."
+      ],
+      "statCheck": {
+        "pass": "Written correspondence preserves the voice of the writer in a way oral memory can't. The word choices, the phrasing, the things they thought worth mentioning: it's a direct window.",
+        "fail": "They were just letters. But reading them felt like hearing her talk again."
+      },
+      "valence": "negative",
+      "topic_category": "old_times",
+      "required_entities": [],
+      "location_scope": "universal",
+      "quest_trigger": null
+    },
+    {
+      "id": 121,
+      "intro": "We used to mark the kids' heights on the doorframe. Every birthday, a new line.",
+      "details": [
+        "My mother's house still has them. Twenty years of children growing, scratched into the wood.",
+        "When she offered to repaint the frame I nearly had a fit."
+      ],
+      "reactions": [
+        "She painted around the marks. She understood, even if she thought I was being sentimental."
+      ],
+      "statCheck": null,
+      "valence": "positive",
+      "topic_category": "old_times",
+      "required_entities": [],
+      "location_scope": "universal",
+      "quest_trigger": null
+    },
+    {
+      "id": 122,
+      "intro": "I remember when the biggest decision in {settlement_name} was where to dig a new well. People argued for weeks.",
+      "details": [
+        "Now there are bigger concerns, more voices, more complications.",
+        "Part of me misses when the problems were that simple."
+      ],
+      "reactions": [
+        "Simple problems don't mean simple times. They just mean smaller stakes."
+      ],
+      "statCheck": null,
+      "valence": "neutral",
+      "topic_category": "old_times",
+      "required_entities": [],
+      "location_scope": "universal",
+      "quest_trigger": null
+    },
+    {
+      "id": 123,
+      "intro": "My father planted a row of trees along the lane when I was born. They're taller than any building now.",
+      "details": [
+        "He said he wanted me to always know how old I was. Just count the rings if you cut one down.",
+        "I won't be cutting them down. They're the best thing he left."
+      ],
+      "reactions": [
+        "Planting a tree for a child is the most optimistic thing a person can do."
+      ],
+      "statCheck": null,
+      "valence": "positive",
+      "topic_category": "old_times",
+      "required_entities": [],
+      "location_scope": "universal",
+      "quest_trigger": null
+    },
+    {
+      "id": 124,
+      "intro": "There's a recipe for seed cake that every family here used to make. Each version was slightly different.",
+      "details": [
+        "My mother's had caraway. The neighbors used anise. Down the lane they added honey.",
+        "Same basic cake, a dozen versions. You could taste whose house you were in."
+      ],
+      "reactions": [
+        "That kind of small difference is what makes a place feel like home instead of just somewhere you live."
+      ],
+      "statCheck": {
+        "pass": "The seed choice actually affects the rise. Caraway releases oils during baking that slow the leavening slightly, giving a denser crumb. Anise does the opposite. Each family's version baked differently for a real reason.",
+        "fail": "I just know they all tasted different. I liked my mother's best, naturally."
+      },
+      "valence": "positive",
+      "topic_category": "old_times",
+      "required_entities": [],
+      "location_scope": "universal",
+      "quest_trigger": null
+    },
+    {
+      "id": 125,
+      "intro": "I've been here long enough to see the same arguments happen three times. Different people, same positions, same heat.",
+      "details": [
+        "The old folks argued about water rights. Their children argued about land use. Now the grandchildren argue about trade.",
+        "The shape of the disagreement stays the same. Only the details change."
+      ],
+      "reactions": [
+        "If I told them they were repeating their grandparents they'd be offended. But they are."
+      ],
+      "statCheck": null,
+      "valence": "neutral",
+      "topic_category": "old_times",
+      "required_entities": [],
+      "location_scope": "universal",
+      "quest_trigger": null
+    },
+    {
+      "id": 126,
+      "intro": "The smell of fresh-split oak takes me back forty years. My father chopping wood, me stacking it.",
+      "details": [
+        "He'd split and I'd carry. We barely talked. Didn't need to.",
+        "The rhythm of it was enough. Swing, crack, thud. Over and over until the pile was done."
+      ],
+      "reactions": [
+        "Some of the best conversations I've had were silent."
+      ],
+      "statCheck": null,
+      "valence": "positive",
+      "topic_category": "old_times",
+      "required_entities": [],
+      "location_scope": "universal",
+      "quest_trigger": null
+    },
+    {
+      "id": 127,
+      "intro": "My mother used to say every house in {settlement_name} had its own voice. She meant the sounds they made.",
+      "details": [
+        "Creaking floors, rattling shutters, the way the wind found different gaps. You could tell which house you were in with your eyes closed.",
+        "New builds are tighter. Better insulated. But they're all quiet in the same way."
+      ],
+      "reactions": [
+        "I know which floorboard in my house creaks. That creak is as much home as anything."
+      ],
+      "statCheck": null,
+      "valence": "negative",
+      "topic_category": "old_times",
+      "required_entities": [],
+      "location_scope": "universal",
+      "quest_trigger": null
+    },
+    {
+      "id": 128,
+      "intro": "I used to think adults had answers to everything. Turns out they were just better at hiding uncertainty.",
+      "details": [
+        "My parents would make decisions that seemed so confident. Years later my mother admitted they were guessing half the time.",
+        "She said the trick was committing to the guess. Hesitation scared kids more than a wrong choice."
+      ],
+      "reactions": [
+        "I do the same thing now. Pretend I know, then figure it out quietly."
+      ],
+      "statCheck": {
+        "pass": "Decision-making under uncertainty is a skill you get better at with practice. The confidence wasn't fake: it was earned through a lifetime of making choices and surviving the wrong ones.",
+        "fail": "They seemed sure. That was enough for me as a kid."
+      },
+      "valence": "neutral",
+      "topic_category": "old_times",
+      "required_entities": [],
+      "location_scope": "universal",
+      "quest_trigger": null
+    },
+    {
+      "id": 129,
+      "intro": "There was a time when autumn meant everyone was outside, working together to get the harvest in before frost.",
+      "details": [
+        "Didn't matter whose field it was. If the weather was turning, you helped whoever needed it most.",
+        "I remember sleeping like the dead after those days. Good tired, the kind you earn."
+      ],
+      "reactions": [
+        "We still help each other. Just not with that same urgency. I think the urgency was the part that mattered."
+      ],
+      "statCheck": null,
+      "valence": "positive",
+      "topic_category": "old_times",
+      "required_entities": [],
+      "location_scope": "universal",
+      "quest_trigger": null
+    },
+    {
+      "id": 130,
+      "intro": "I wonder sometimes if the people who built {settlement_name} would recognize it. Probably not.",
+      "details": [
+        "The bones are the same: the hill, the stream, the way the road curves. But everything on top has changed.",
+        "My grandmother said that's how it should be. A place that doesn't change is a place that's dying."
+      ],
+      "reactions": [
+        "She was right. Doesn't make it easier to watch."
+      ],
+      "statCheck": null,
+      "valence": "neutral",
+      "topic_category": "old_times",
+      "required_entities": [],
+      "location_scope": "universal",
+      "quest_trigger": null
+    },
+    {
+      "id": 131,
+      "intro": "There was a couple here who'd been married so long they finished each other's sentences. Not in a cute way: in an efficient way.",
+      "details": [
+        "One would start talking and the other would wave them off and deliver the second half. Like a relay.",
+        "They bickered constantly and were inseparable. I never understood it and I never needed to."
+      ],
+      "reactions": [
+        "That kind of partnership takes decades to build. You can't rush it."
+      ],
+      "statCheck": null,
+      "valence": "positive",
+      "topic_category": "old_times",
+      "required_entities": [],
+      "location_scope": "universal",
+      "quest_trigger": null
+    },
+    {
+      "id": 132,
+      "intro": "I dug up an old horseshoe in my garden. Heavy, hand-forged, probably older than the house.",
+      "details": [
+        "We haven't had horses around here in years. This belonged to another time entirely.",
+        "I cleaned it up and hung it on my door. Couldn't tell you why."
+      ],
+      "reactions": [
+        "Sometimes you keep a thing because throwing it away feels like agreeing that the past doesn't matter."
+      ],
+      "statCheck": {
+        "pass": "Hand-forged shoes have hammer marks and an uneven thickness that tells you about the smith's technique. This one was made by someone who knew what they were doing.",
+        "fail": "It's just a horseshoe. But it's heavy in a way that feels deliberate."
+      },
+      "valence": "neutral",
+      "topic_category": "old_times",
+      "required_entities": [],
+      "location_scope": "universal",
+      "quest_trigger": null
+    },
+    {
+      "id": 133,
+      "intro": "My grandmother never wasted water. Not a drop. She'd reuse wash water on the garden, save rain in barrels.",
+      "details": [
+        "She grew up during a drought that nearly emptied {settlement_name}. The habit stuck for life.",
+        "I'm more careless with it than she'd approve of."
+      ],
+      "reactions": [
+        "Her generation carried their hardships in their habits. You could read their history in the small things they did."
+      ],
+      "statCheck": {
+        "pass": "Behavioral conditioning from scarcity persists even when the scarcity ends. The neural pathways for conservation get reinforced so often they become automatic. Her generation couldn't waste water even if they tried.",
+        "fail": "She just couldn't bring herself to let water go to waste. It was in her bones."
+      },
+      "valence": "neutral",
+      "topic_category": "old_times",
+      "required_entities": [],
+      "location_scope": "universal",
+      "quest_trigger": null
+    },
+    {
+      "id": 134,
+      "intro": "The sound of a hand-pumped bellows used to be background noise here. Constant, rhythmic, part of the day.",
+      "details": [
+        "The smith worked every day but rest days. You could feel the ground vibrate near his shop.",
+        "When he stopped, the silence was louder than the noise had been."
+      ],
+      "reactions": [
+        "You don't appreciate a sound until it's gone. Then you hear the hole it left."
+      ],
+      "statCheck": null,
+      "valence": "negative",
+      "topic_category": "old_times",
+      "required_entities": [],
+      "location_scope": "universal",
+      "quest_trigger": null
+    },
+    {
+      "id": 135,
+      "intro": "I've started saying things my mother used to say. The exact same phrases, the same tone of voice.",
+      "details": [
+        "I caught myself saying 'well, that's that then' exactly the way she did, with the same sigh at the end.",
+        "My daughter pointed it out. Said I sounded just like her grandmother."
+      ],
+      "reactions": [
+        "The dead live on in the mouths of the living. I heard that somewhere and dismissed it. Now I am the proof."
+      ],
+      "statCheck": null,
+      "valence": "positive",
+      "topic_category": "old_times",
+      "required_entities": [],
+      "location_scope": "universal",
+      "quest_trigger": null
+    },
+    {
+      "id": 136,
+      "intro": "There's a spot near the old mill where the stone is worn into a smooth curve. Generations of people sat there waiting.",
+      "details": [
+        "Waiting for grain to be ground, waiting for someone to come back, waiting for nothing in particular.",
+        "The stone remembers all that sitting even if nobody else does."
+      ],
+      "reactions": [
+        "I sat there myself last week. Added my weight to the curve."
+      ],
+      "statCheck": null,
+      "valence": "neutral",
+      "topic_category": "old_times",
+      "required_entities": [],
+      "location_scope": "universal",
+      "quest_trigger": null
+    },
+    {
+      "id": 137,
+      "intro": "We used to know when people from {other_settlement} were visiting because their accents were different. You could hear it immediately.",
+      "details": [
+        "Now everyone sounds more or less the same. The mixing smoothed the edges.",
+        "My grandmother had a way of saying certain words that I've never heard anywhere else. That's gone with her."
+      ],
+      "reactions": [
+        "Languages blend when people do. It's natural. But each lost accent takes a little color with it."
+      ],
+      "statCheck": {
+        "pass": "Accent drift follows trade routes. When two settlements start trading heavily, their speech converges within a generation. It's one of the fastest cultural changes there is.",
+        "fail": "I can barely hear the difference anymore. My grandmother would have caught it in a heartbeat."
+      },
+      "valence": "negative",
+      "topic_category": "old_times",
+      "required_entities": [],
+      "location_scope": "universal",
+      "quest_trigger": null
+    },
+    {
+      "id": 138,
+      "intro": "My father said the best thing about getting older was that you stopped caring what people thought of you.",
+      "details": [
+        "He'd say exactly what was on his mind and not apologize. People either loved him or avoided him.",
+        "He was happier in his last years than he ever was as a young man. I believe him."
+      ],
+      "reactions": [
+        "I'm getting there. Each year I care a little less. It's actually a relief."
+      ],
+      "statCheck": null,
+      "valence": "positive",
+      "topic_category": "old_times",
+      "required_entities": [],
+      "location_scope": "universal",
+      "quest_trigger": null
+    },
+    {
+      "id": 139,
+      "intro": "There's a crack in our foundation that's been there since before I was born. My father pointed it out when I was a child.",
+      "details": [
+        "He said it hadn't grown in twenty years and it hasn't grown in the twenty since. It just exists.",
+        "Every spring I check it. Every spring, same crack, same length."
+      ],
+      "reactions": [
+        "That crack is the most reliable thing in my life."
+      ],
+      "statCheck": null,
+      "valence": "neutral",
+      "topic_category": "old_times",
+      "required_entities": [],
+      "location_scope": "universal",
+      "quest_trigger": null
+    },
+    {
+      "id": 140,
+      "intro": "I was cleaning out the attic and found my grandfather's spectacles. Worn smooth at the nose.",
+      "details": [
+        "I held them up and looked through them. Everything was blurry, but it was his blur, his view of the world.",
+        "Strange thing to keep. But I couldn't put them in the rubbish."
+      ],
+      "reactions": [
+        "Objects hold the shape of the people who used them. That's not superstition, it's just wear."
+      ],
+      "statCheck": {
+        "pass": "Lens prescriptions tell you about the person's vision. His were for farsightedness, which worsens with age. The wear pattern on the nose bridge shows he pushed them up constantly: a habit I remember.",
+        "fail": "They're just old spectacles. But they sat on his face every day for decades. That means something."
+      },
+      "valence": "neutral",
+      "topic_category": "old_times",
+      "required_entities": [],
+      "location_scope": "universal",
+      "quest_trigger": null
+    },
+    {
+      "id": 141,
+      "intro": "Rain used to mean a day off. Everything stopped. You'd sit inside and watch it come down.",
+      "details": [
+        "My mother would do mending, my father would sharpen tools. I'd do nothing at all.",
+        "Now a rainy day is just a wet version of a normal day. You work through it."
+      ],
+      "reactions": [
+        "We lost something when we stopped letting the weather decide our schedule."
+      ],
+      "statCheck": null,
+      "valence": "negative",
+      "topic_category": "old_times",
+      "required_entities": [],
+      "location_scope": "universal",
+      "quest_trigger": null
+    },
+    {
+      "id": 142,
+      "intro": "The old root cellar under our house still smells the same as it did when I was five. Damp earth and old potatoes.",
+      "details": [
+        "Some smells don't change. The walls are the same stone, the air moves the same way.",
+        "Every time I go down there I'm briefly a child again, reaching up to a shelf I can now reach easily."
+      ],
+      "reactions": [
+        "The cellar doesn't know I've aged. It just keeps being itself."
+      ],
+      "statCheck": null,
+      "valence": "positive",
+      "topic_category": "old_times",
+      "required_entities": [],
+      "location_scope": "universal",
+      "quest_trigger": null
+    },
+    {
+      "id": 143,
+      "intro": "We used to share a single oven between four households. You'd sign up for a time and wait your turn.",
+      "details": [
+        "It taught patience and coordination. Also, you could smell what your neighbor was baking and feel jealous.",
+        "Everyone has their own now. More convenient, but the bread doesn't taste as social."
+      ],
+      "reactions": [
+        "Inconvenience forced us together. Convenience lets us stay apart."
+      ],
+      "statCheck": {
+        "pass": "Communal ovens actually produce better results because they retain heat from continuous use. The thermal mass stays consistent. Home ovens cycle up and down.",
+        "fail": "I just remember the bread being better. Could be the memory is doing the seasoning."
+      },
+      "valence": "neutral",
+      "topic_category": "old_times",
+      "required_entities": [],
+      "location_scope": "universal",
+      "quest_trigger": null
+    },
+    {
+      "id": 144,
+      "intro": "My mother always said {settlement_name} chose its people, not the other way around.",
+      "details": [
+        "She meant that the ones who stayed were the ones who could handle the winters, the isolation, the work.",
+        "Some tried and left. She never judged them for it. Said the place simply wasn't theirs."
+      ],
+      "reactions": [
+        "I've thought about leaving. Never seriously. This place and I suit each other."
+      ],
+      "statCheck": null,
+      "valence": "positive",
+      "topic_category": "old_times",
+      "required_entities": [],
+      "location_scope": "universal",
+      "quest_trigger": null
+    },
+    {
+      "id": 145,
+      "intro": "There used to be a huge argument every year about when to start planting. Same argument, same people, same outcome.",
+      "details": [
+        "One side said early, one said late. They'd debate for days and then plant on the same date they always did.",
+        "The argument was the tradition. The planting date was beside the point."
+      ],
+      "reactions": [
+        "People need something to disagree about. Take that away and they'll find something worse."
+      ],
+      "statCheck": {
+        "pass": "The optimal planting window depends on soil temperature, not calendar date. Both sides were right in different years, which is why neither ever won the argument.",
+        "fail": "I stayed out of it. Gardening debates are the one war I refuse to join."
+      },
+      "valence": "positive",
+      "topic_category": "old_times",
+      "required_entities": [],
+      "location_scope": "universal",
+      "quest_trigger": null
+    },
+    {
+      "id": 146,
+      "intro": "I remember the last really bad winter. Not cold, just long. It felt like spring would never come.",
+      "details": [
+        "People got short-tempered. Supplies ran low. The mood in {settlement_name} was grim by the end.",
+        "When the thaw finally came, people stood outside just to feel warm air on their faces. Some were crying."
+      ],
+      "reactions": [
+        "Hardship bonds people in a way nothing else does. I've never felt closer to my neighbors than that spring."
+      ],
+      "statCheck": null,
+      "valence": "negative",
+      "topic_category": "old_times",
+      "required_entities": [],
+      "location_scope": "universal",
+      "quest_trigger": null
+    },
+    {
+      "id": 147,
+      "intro": "My father taught me that the way you treat a tool tells people everything about you.",
+      "details": [
+        "He cleaned his at the end of every day. Oiled the blades, hung them in order. Same routine for thirty years.",
+        "I'm less careful. My tools work fine, but they don't look loved."
+      ],
+      "reactions": [
+        "He'd look at my shed and shake his head. Then he'd quietly organize it when he thought I wasn't watching."
+      ],
+      "statCheck": {
+        "pass": "A properly maintained edge stays sharp three times longer than a neglected one. It's not fussiness, it's economy. Every minute of maintenance saves ten minutes of work.",
+        "fail": "I know he was right. I'm just lazier than he was."
+      },
+      "valence": "neutral",
+      "topic_category": "old_times",
+      "required_entities": [],
+      "location_scope": "universal",
+      "quest_trigger": null
+    },
+    {
+      "id": 148,
+      "intro": "I think the past looks better because we already know how it turned out. No uncertainty. Just memory.",
+      "details": [
+        "When I was living through those times they were just as messy and confusing as now.",
+        "My mother used to say the good old days are just the bad old days with the edges sanded off."
+      ],
+      "reactions": [
+        "She had a point. I miss things, sure. But I try to be honest about what I'm actually missing."
+      ],
+      "statCheck": null,
+      "valence": "positive",
+      "topic_category": "old_times",
+      "required_entities": [],
+      "location_scope": "universal",
+      "quest_trigger": null
+    },
+    {
+      "id": 149,
+      "intro": "I wake up some mornings and for just a second, before I'm fully awake, I think I'm in my childhood home.",
+      "details": [
+        "The light comes through the window the same way. The birds sound the same.",
+        "Then I open my eyes fully and I'm here, in my own house, decades later. The feeling fades but it leaves something behind."
+      ],
+      "reactions": [
+        "You carry every place you've ever lived inside you. They surface when you're not guarding against it."
+      ],
+      "statCheck": null,
+      "valence": "neutral",
+      "topic_category": "old_times",
+      "required_entities": [],
+      "location_scope": "universal",
+      "quest_trigger": null
+    }
+  ]
+}

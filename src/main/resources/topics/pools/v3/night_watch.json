@@ -1,0 +1,1798 @@
+{
+  "pool": "night_watch",
+  "version": 3,
+  "entries": [
+    {
+      "id": 0,
+      "intro": "Something was scratching at the side of the house last night. Went out with a lantern and it was just a {wildlife_type}.",
+      "details": [
+        "Heart was pounding for nothing. It looked at me like I was the one being unreasonable.",
+        "I stood there in my nightclothes feeling foolish while it wandered off."
+      ],
+      "reactions": [
+        "The dark makes everything sound worse than it is."
+      ],
+      "statCheck": null,
+      "valence": "neutral",
+      "topic_category": "night_watch",
+      "required_entities": [],
+      "location_scope": "universal",
+      "quest_trigger": null
+    },
+    {
+      "id": 1,
+      "intro": "I heard {mob_type} {direction} last night. Couldn't see anything, but the sound carries.",
+      "details": [
+        "It's that low growling noise that makes your skin prickle even when you know they're far off.",
+        "I checked the locks twice before I went back to bed."
+      ],
+      "reactions": [
+        "Probably nothing close. But I slept lighter after that."
+      ],
+      "statCheck": null,
+      "valence": "negative",
+      "topic_category": "night_watch",
+      "required_entities": [
+        "mob"
+      ],
+      "location_scope": "universal",
+      "quest_trigger": null
+    },
+    {
+      "id": 2,
+      "intro": "Couldn't sleep, so I sat outside for a while. The stars were incredible last night.",
+      "details": [
+        "You forget how many there are when you're always inside by dark. Just thousands of them, all at once.",
+        "It was cold enough to see my breath, but I didn't want to go in."
+      ],
+      "reactions": [
+        "Sometimes the best part of a bad night is what you see when you give up on sleeping."
+      ],
+      "statCheck": null,
+      "valence": "positive",
+      "topic_category": "night_watch",
+      "required_entities": [],
+      "location_scope": "universal",
+      "quest_trigger": null
+    },
+    {
+      "id": 3,
+      "intro": "The wind was howling through the shutters all night. Sounded like someone trying to get in.",
+      "details": [
+        "Every time I'd start to drift off, another gust would rattle the whole frame.",
+        "I finally stuffed a blanket into the gap. Didn't stop the noise, but it muffled it enough."
+      ],
+      "reactions": [
+        "I'm exhausted today and I've got nothing to show for it except bags under my eyes."
+      ],
+      "statCheck": {
+        "pass": "The latch is worn down and doesn't seat properly. A new pin would fix it: ten minutes of work, tops.",
+        "fail": "I don't know why they won't stay shut. The wind finds every weakness."
+      },
+      "valence": "negative",
+      "topic_category": "night_watch",
+      "required_entities": [],
+      "location_scope": "universal",
+      "quest_trigger": null
+    },
+    {
+      "id": 4,
+      "intro": "Heard footsteps on the gravel outside my window around midnight. Just someone heading to the privy, probably.",
+      "details": [
+        "But they stopped right outside for a long moment. Just stood there.",
+        "By the time I got up to look, nobody was there."
+      ],
+      "reactions": [
+        "I'm sure it was nothing. People walk at night. That's normal."
+      ],
+      "statCheck": null,
+      "valence": "negative",
+      "topic_category": "night_watch",
+      "required_entities": [],
+      "location_scope": "universal",
+      "quest_trigger": null
+    },
+    {
+      "id": 5,
+      "intro": "An owl's been nesting somewhere near the {poi_type}. You can hear it every night now.",
+      "details": [
+        "It's a deep, steady sound. Almost soothing once you get used to it.",
+        "My neighbor hates it. Says it keeps her up. I think it's the one honest voice out there after dark."
+      ],
+      "reactions": [
+        "I'd miss it if it left."
+      ],
+      "statCheck": null,
+      "valence": "neutral",
+      "topic_category": "night_watch",
+      "required_entities": [],
+      "location_scope": "universal",
+      "quest_trigger": null
+    },
+    {
+      "id": 6,
+      "intro": "I woke up to complete silence last night. No wind, no insects, nothing.",
+      "details": [
+        "You don't realize how much background sound there usually is until it all stops.",
+        "I lay there for a while just listening to my own heartbeat. Felt like the whole world was holding its breath."
+      ],
+      "reactions": [
+        "It passed after a few minutes, but I didn't sleep well after that."
+      ],
+      "statCheck": null,
+      "valence": "negative",
+      "topic_category": "night_watch",
+      "required_entities": [],
+      "location_scope": "universal",
+      "quest_trigger": null
+    },
+    {
+      "id": 7,
+      "intro": "The moon was so bright last night I could see my shadow on the floor through the window.",
+      "details": [
+        "Everything outside had this silver edge to it. The rooftops, the fences, even the mud puddles looked nice.",
+        "I almost went for a walk, but I thought better of it."
+      ],
+      "reactions": [
+        "Moonlight makes everything look like a different place."
+      ],
+      "statCheck": null,
+      "valence": "positive",
+      "topic_category": "night_watch",
+      "required_entities": [],
+      "location_scope": "universal",
+      "quest_trigger": null
+    },
+    {
+      "id": 8,
+      "intro": "Took a guard shift last night. Mostly just me and the cold.",
+      "details": [
+        "You'd think standing still in the dark would be boring, but your mind wanders to strange places.",
+        "Every shadow looks like something until you stare at it long enough."
+      ],
+      "reactions": [
+        "I was glad when the sun came up. More glad than usual."
+      ],
+      "statCheck": {
+        "pass": "The trick is to stay moving. Walk a slow circuit. Keeps the blood warm and the eyes sharp.",
+        "fail": "I just stood there. Probably wasn't doing it right."
+      },
+      "valence": "negative",
+      "topic_category": "night_watch",
+      "required_entities": [],
+      "location_scope": "universal",
+      "quest_trigger": null
+    },
+    {
+      "id": 9,
+      "intro": "A {wildlife_type} ran across the path in front of me last night. Nearly jumped out of my skin.",
+      "details": [
+        "It came out of nowhere, just a blur of movement and then gone.",
+        "I dropped my lantern and had to fumble around in the dark for it."
+      ],
+      "reactions": [
+        "I laughed about it afterward. At the time I definitely did not laugh."
+      ],
+      "statCheck": null,
+      "valence": "neutral",
+      "topic_category": "night_watch",
+      "required_entities": [],
+      "location_scope": "universal",
+      "quest_trigger": null
+    },
+    {
+      "id": 10,
+      "intro": "Someone left a door banging open at the {poi_type} last night. Woke half the street.",
+      "details": [
+        "Just slamming back and forth in the wind for an hour before anyone went and fixed it.",
+        "You'd think the person responsible would've heard it too. Maybe they sleep heavier than the rest of us."
+      ],
+      "reactions": [
+        "I'm not angry. I'm just tired."
+      ],
+      "statCheck": null,
+      "valence": "negative",
+      "topic_category": "night_watch",
+      "required_entities": [],
+      "location_scope": "universal",
+      "quest_trigger": null
+    },
+    {
+      "id": 11,
+      "intro": "There's a dog that howls every night around the same time. Every single night.",
+      "details": [
+        "It starts low and builds up to this long, wavering note. Then silence. Then it goes again.",
+        "I've tried putting a pillow over my head. Doesn't help.",
+        "The owner claims it never howls. I think they're just too deep a sleeper to hear it."
+      ],
+      "reactions": [
+        "I feel bad for the dog, honestly. It sounds lonely. But I also feel bad for me."
+      ],
+      "statCheck": null,
+      "valence": "negative",
+      "topic_category": "night_watch",
+      "required_entities": [],
+      "location_scope": "universal",
+      "quest_trigger": null
+    },
+    {
+      "id": 12,
+      "intro": "I've been waking up at the same hour every night this week. Right around the middle of the dark.",
+      "details": [
+        "No noise, no bad dreams. Just suddenly wide awake, staring at the ceiling.",
+        "I get water, lie back down, and it takes forever to fall asleep again."
+      ],
+      "reactions": [
+        "It's wearing me down. I feel like I'm getting half a night's rest at best.",
+        "And then I worry about not sleeping, which makes it even harder to sleep."
+      ],
+      "statCheck": null,
+      "valence": "negative",
+      "topic_category": "night_watch",
+      "required_entities": [],
+      "location_scope": "universal",
+      "quest_trigger": null
+    },
+    {
+      "id": 13,
+      "intro": "Watched a {wildlife_type} from my window last night, just sitting in the moonlight like it owned the place.",
+      "details": [
+        "It was perfectly still for the longest time. Then it turned its head, looked right at my window, and trotted off.",
+        "There's something about seeing an animal at night. They look like they belong there more than we do."
+      ],
+      "reactions": [
+        "I liked it. Felt like I saw something I wasn't supposed to."
+      ],
+      "statCheck": null,
+      "valence": "positive",
+      "topic_category": "night_watch",
+      "required_entities": [],
+      "location_scope": "universal",
+      "quest_trigger": null
+    },
+    {
+      "id": 14,
+      "intro": "I heard something heavy moving around {direction} last night. Dragging sounds.",
+      "details": [
+        "Couldn't tell what it was. Too dark to see, and I wasn't about to go investigate alone.",
+        "It went on for a while, then stopped. No idea what could make a sound like that."
+      ],
+      "reactions": [
+        "I told myself it was probably someone moving firewood at a stupid hour. That's what I'm going with."
+      ],
+      "statCheck": {
+        "pass": "Sounded too heavy for an animal and too steady for something being blown around. My guess is someone hauling a cart.",
+        "fail": "I don't know what it was and I'd rather not find out."
+      },
+      "valence": "negative",
+      "topic_category": "night_watch",
+      "required_entities": [],
+      "location_scope": "universal",
+      "quest_trigger": null
+    },
+    {
+      "id": 15,
+      "intro": "The settlement looks different at night. Smaller, somehow.",
+      "details": [
+        "All the spaces between buildings that feel normal during the day turn into these dark gaps you'd rather not look into.",
+        "Even the familiar paths feel longer when you can't see the end of them."
+      ],
+      "reactions": [
+        "It's still home. It just doesn't feel like it in the dark."
+      ],
+      "statCheck": null,
+      "valence": "negative",
+      "topic_category": "night_watch",
+      "required_entities": [],
+      "location_scope": "universal",
+      "quest_trigger": null
+    },
+    {
+      "id": 16,
+      "intro": "Fireflies were out last night. Hundreds of them, all drifting through the grass.",
+      "details": [
+        "My kid ran out to chase them before I could stop her. Came back with her hands cupped around one, grinning.",
+        "They only come out when it's warm and still. Feels like a gift when they do."
+      ],
+      "reactions": [
+        "Some nights the dark gives you something beautiful instead of something to worry about."
+      ],
+      "statCheck": null,
+      "valence": "neutral",
+      "topic_category": "night_watch",
+      "required_entities": [],
+      "location_scope": "universal",
+      "quest_trigger": null
+    },
+    {
+      "id": 17,
+      "intro": "I found fresh {mob_type} tracks near the fence this morning. They came through in the night.",
+      "details": [
+        "The tracks went right along the perimeter and then back out toward the tree line.",
+        "Nothing was damaged, nothing taken. They were just passing through, I think."
+      ],
+      "reactions": [
+        "Still doesn't sit right. That's closer than I'd like them getting."
+      ],
+      "statCheck": {
+        "pass": "Single set of tracks, moving fast. Probably a scout or a loner, not a raiding group.",
+        "fail": "Tracks are tracks. I don't know how to read much from them."
+      },
+      "valence": "negative",
+      "topic_category": "night_watch",
+      "required_entities": [
+        "mob"
+      ],
+      "location_scope": "universal",
+      "quest_trigger": null
+    },
+    {
+      "id": 18,
+      "intro": "There's a creaking sound in my roof at night that I can't figure out. It's not the wind.",
+      "details": [
+        "It happens at random intervals. Sometimes twice in a row, sometimes nothing for an hour.",
+        "I've checked the rafters three times and everything looks solid."
+      ],
+      "reactions": [
+        "It's probably just the wood settling. But it sounds like something walking up there."
+      ],
+      "statCheck": {
+        "pass": "Timber joints shift when the temperature drops at night. The wood contracts unevenly and the pegs pop in their holes.",
+        "fail": "Houses make noises. I wish this one would stop."
+      },
+      "valence": "negative",
+      "topic_category": "night_watch",
+      "required_entities": [],
+      "location_scope": "universal",
+      "quest_trigger": null
+    },
+    {
+      "id": 19,
+      "intro": "Fell asleep outside by the fire last night. Woke up with dew on my face and a stiff back.",
+      "details": [
+        "The embers were still going. Everything smelled like woodsmoke and wet grass.",
+        "There was a {wildlife_type} about ten paces away, just watching me. We looked at each other for a moment."
+      ],
+      "reactions": [
+        "Worst sleep I've had in weeks, but the waking up part was oddly nice."
+      ],
+      "statCheck": null,
+      "valence": "neutral",
+      "topic_category": "night_watch",
+      "required_entities": [],
+      "location_scope": "universal",
+      "quest_trigger": null
+    },
+    {
+      "id": 20,
+      "intro": "The night guard said he saw lights moving {direction}. Not torches: something fainter.",
+      "details": [
+        "He pointed them out but by the time I looked, they were gone. Could've been anything.",
+        "He seemed rattled, though. And he's not the jumpy type."
+      ],
+      "reactions": [
+        "Probably swamp gas or someone's lantern bobbing behind the trees. Probably."
+      ],
+      "statCheck": {
+        "pass": "Could be foxfire on rotting wood. It glows faintly in damp conditions and can look like it's moving if the light shifts.",
+        "fail": "I don't know what makes lights in the dark. Nothing good, I'd imagine."
+      },
+      "valence": "negative",
+      "topic_category": "night_watch",
+      "required_entities": [],
+      "location_scope": "universal",
+      "quest_trigger": null
+    },
+    {
+      "id": 21,
+      "intro": "My neighbor snores so loud I can hear it through the wall. Every night, without fail.",
+      "details": [
+        "It's this deep, rumbling drone that you can feel in your chest if you're lying against the shared wall.",
+        "I've rearranged my bed twice trying to get away from it."
+      ],
+      "reactions": [
+        "I can't even bring it up without sounding petty. But I'm losing sleep over it."
+      ],
+      "statCheck": null,
+      "valence": "negative",
+      "topic_category": "night_watch",
+      "required_entities": [],
+      "location_scope": "universal",
+      "quest_trigger": null
+    },
+    {
+      "id": 22,
+      "intro": "Woke up to rain hammering the roof in the middle of the night. Lay there and just listened.",
+      "details": [
+        "There's something about rain at night when you're warm in bed. Makes you feel properly sheltered.",
+        "I almost felt guilty for enjoying it. Someone was probably out in it."
+      ],
+      "reactions": [
+        "Best sleep I've had in ages, actually."
+      ],
+      "statCheck": null,
+      "valence": "positive",
+      "topic_category": "night_watch",
+      "required_entities": [],
+      "location_scope": "universal",
+      "quest_trigger": null
+    },
+    {
+      "id": 23,
+      "intro": "I keep my window cracked at night for the air. Last night I heard {mob_type} snarling somewhere out past the fields.",
+      "details": [
+        "It was distant, but sound travels when everything else is quiet. That ugly, wet snarling noise.",
+        "I got up and closed the window. Didn't help: I could still hear it faintly through the walls."
+      ],
+      "reactions": [
+        "I hate knowing they're out there while I'm trying to sleep."
+      ],
+      "statCheck": null,
+      "valence": "negative",
+      "topic_category": "night_watch",
+      "required_entities": [
+        "mob"
+      ],
+      "location_scope": "universal",
+      "quest_trigger": null
+    },
+    {
+      "id": 24,
+      "intro": "The sunset last night was this deep orange that held for ages. Made the whole sky look like it was on fire.",
+      "details": [
+        "Everyone just sort of stopped what they were doing and watched. Even the kids went quiet for a minute.",
+        "By the time it faded, the first stars were already out."
+      ],
+      "reactions": [
+        "We don't get those very often. Felt like the day ending properly for once."
+      ],
+      "statCheck": null,
+      "valence": "positive",
+      "topic_category": "night_watch",
+      "required_entities": [],
+      "location_scope": "universal",
+      "quest_trigger": null
+    },
+    {
+      "id": 25,
+      "intro": "Took a walk after dark last night to clear my head. Bad idea.",
+      "details": [
+        "Every noise made me flinch. A branch snapping, something rustling in the bushes.",
+        "I turned around after about five minutes and walked back twice as fast as I'd gone out.",
+        "My heart was still going when I got home. From a walk. On a path I've taken a hundred times."
+      ],
+      "reactions": [
+        "I don't know what I was thinking. Nighttime walks are for braver people than me."
+      ],
+      "statCheck": null,
+      "valence": "negative",
+      "topic_category": "night_watch",
+      "required_entities": [],
+      "location_scope": "universal",
+      "quest_trigger": null
+    },
+    {
+      "id": 26,
+      "intro": "The torches along the main path keep going out. Every morning at least two are dead.",
+      "details": [
+        "We relight them and they're fine during the day. But overnight something snuffs them.",
+        "Could be the wind. Could be they're not sheltered enough. Either way, it leaves gaps in the light."
+      ],
+      "reactions": [
+        "Nobody wants to walk through those dark patches. I've seen people take the long way around."
+      ],
+      "statCheck": {
+        "pass": "The oil's probably pooling unevenly in the cold. A longer wick would keep them burning through the temperature drop.",
+        "fail": "I don't know how torches work. I just know they should stay lit."
+      },
+      "valence": "negative",
+      "topic_category": "night_watch",
+      "required_entities": [],
+      "location_scope": "universal",
+      "quest_trigger": null
+    },
+    {
+      "id": 27,
+      "intro": "I dreamed about the {poi_type} last night. In the dream it was huge and I couldn't find the door.",
+      "details": [
+        "I kept walking around the outside and every wall looked the same. Just the same boards over and over.",
+        "Then I heard someone inside laughing, and I woke up."
+      ],
+      "reactions": [
+        "Dreams are nonsense. But I walked past the {poi_type} today and gave it a funny look anyway."
+      ],
+      "statCheck": null,
+      "valence": "neutral",
+      "topic_category": "night_watch",
+      "required_entities": [],
+      "location_scope": "universal",
+      "quest_trigger": null
+    },
+    {
+      "id": 28,
+      "intro": "Thunder woke me last night and the lightning was right on top of us. You could feel it in your teeth.",
+      "details": [
+        "The flash and the crack came at the same time: close enough that I was out of bed before I was awake.",
+        "I found a scorch mark on the big oak this morning. Hit it dead center."
+      ],
+      "reactions": [
+        "I don't mind storms, but that one was personal."
+      ],
+      "statCheck": null,
+      "valence": "negative",
+      "topic_category": "night_watch",
+      "required_entities": [],
+      "location_scope": "universal",
+      "quest_trigger": null
+    },
+    {
+      "id": 29,
+      "intro": "I can always tell when someone's walking past my house at night. The floorboards outside creak in a specific order.",
+      "details": [
+        "Left board, middle board, right board. Then footsteps on dirt.",
+        "Most nights it's the guard making rounds. But sometimes the pattern is different: slower, or stopping partway."
+      ],
+      "reactions": [
+        "I've gotten too good at listening for things I probably shouldn't be tracking."
+      ],
+      "statCheck": null,
+      "valence": "negative",
+      "topic_category": "night_watch",
+      "required_entities": [],
+      "location_scope": "universal",
+      "quest_trigger": null
+    },
+    {
+      "id": 30,
+      "intro": "Stepped outside at dawn and the fog was so thick I couldn't see the fence three paces away.",
+      "details": [
+        "Everything was muffled. Sounds came from weird directions. A rooster crowed and I couldn't tell which house it was from.",
+        "It burned off by mid-morning, but for a while there the settlement felt like it had shrunk to the size of my yard."
+      ],
+      "reactions": [
+        "It's disorienting when you can't see a place you know by heart."
+      ],
+      "statCheck": null,
+      "valence": "neutral",
+      "topic_category": "night_watch",
+      "required_entities": [],
+      "location_scope": "universal",
+      "quest_trigger": null
+    },
+    {
+      "id": 31,
+      "intro": "Night shift at the {poi_type} is the loneliest job in the settlement.",
+      "details": [
+        "It's just you and the sounds for hours. The building talks to itself: settling, ticking, groaning in the cold.",
+        "You start having conversations in your head just to keep company."
+      ],
+      "reactions": [
+        "I don't mind it most nights. But some nights it gets to you."
+      ],
+      "statCheck": null,
+      "valence": "negative",
+      "topic_category": "night_watch",
+      "required_entities": [],
+      "location_scope": "universal",
+      "quest_trigger": null
+    },
+    {
+      "id": 32,
+      "intro": "Something knocked over the water barrel outside my door last night. Made a tremendous crash.",
+      "details": [
+        "I came out expecting trouble and found a soaking wet {wildlife_type} looking very confused about three feet away.",
+        "The barrel was on its side, water everywhere, and this animal just standing in the middle of the mess."
+      ],
+      "reactions": [
+        "I yelled at it. It didn't care. I went back to bed."
+      ],
+      "statCheck": null,
+      "valence": "neutral",
+      "topic_category": "night_watch",
+      "required_entities": [],
+      "location_scope": "universal",
+      "quest_trigger": null
+    },
+    {
+      "id": 33,
+      "intro": "I've noticed the {mob_type} are noisier after a new moon. When it's truly dark out there, they get restless.",
+      "details": [
+        "You can hear them moving and calling to each other more than usual. Like the dark makes them bolder.",
+        "The guards say the same thing. Moonless nights are the tense ones."
+      ],
+      "reactions": [
+        "I keep an eye on the moon cycle now. Never used to care about it before."
+      ],
+      "statCheck": {
+        "pass": "Makes sense. Their prey can't see them coming in the full dark, so they hunt more actively.",
+        "fail": "I don't know why the dark changes them. It just does."
+      },
+      "valence": "negative",
+      "topic_category": "night_watch",
+      "required_entities": [
+        "mob"
+      ],
+      "location_scope": "universal",
+      "quest_trigger": null
+    },
+    {
+      "id": 34,
+      "intro": "My cat brought something inside last night. Heard her crunching on it under the bed.",
+      "details": [
+        "I didn't want to look. The sounds were enough to paint the picture."
+      ],
+      "reactions": [
+        "Good cat. Terrible housemate."
+      ],
+      "statCheck": null,
+      "valence": "neutral",
+      "topic_category": "night_watch",
+      "required_entities": [],
+      "location_scope": "universal",
+      "quest_trigger": null
+    },
+    {
+      "id": 35,
+      "intro": "The crickets were so loud last night I thought they'd drive me mad. Just this wall of chirping from every direction.",
+      "details": [
+        "You'd think you'd get used to it, but it's the kind of noise that sits right behind your eyes.",
+        "I actually got up and closed the window, which meant no breeze. So I was hot and annoyed instead of just annoyed."
+      ],
+      "reactions": [
+        "Summer nights: can't sleep with the window open, can't sleep without it."
+      ],
+      "statCheck": {
+        "pass": "They chirp faster when it's warmer. If you count the chirps you can actually estimate the temperature. Useless knowledge at three in the morning.",
+        "fail": "I don't know why they're so loud. I just know I want them to stop."
+      },
+      "valence": "negative",
+      "topic_category": "night_watch",
+      "required_entities": [],
+      "location_scope": "universal",
+      "quest_trigger": null
+    },
+    {
+      "id": 36,
+      "intro": "Sat on the porch last night and watched the bats come out. Dozens of them pouring out of the eaves.",
+      "details": [
+        "They're fast. You only see them when they cross in front of something lighter: the sky, a torch, the moon.",
+        "They do this swooping thing where they fold and drop, then open up again. Like they're playing."
+      ],
+      "reactions": [
+        "Ugly things up close, but at a distance in the dusk they're kind of graceful."
+      ],
+      "statCheck": null,
+      "valence": "negative",
+      "topic_category": "night_watch",
+      "required_entities": [],
+      "location_scope": "universal",
+      "quest_trigger": null
+    },
+    {
+      "id": 37,
+      "intro": "I left a candle burning in the window last night and woke up to find it had guttered out hours ago. House was pitch dark.",
+      "details": [
+        "That moment when you wake up and can't see anything at all: takes your breath away for a second."
+      ],
+      "reactions": [
+        "I should keep a spare candle closer to the bed."
+      ],
+      "statCheck": null,
+      "valence": "negative",
+      "topic_category": "night_watch",
+      "required_entities": [],
+      "location_scope": "universal",
+      "quest_trigger": null
+    },
+    {
+      "id": 38,
+      "intro": "There was a group of people talking outside late last night. Couldn't make out the words, just the murmur.",
+      "details": [
+        "Voices at night carry differently. You hear the rhythm of conversation without any of the meaning.",
+        "They laughed once, all at the same time, and then it went quiet. Must've gone inside."
+      ],
+      "reactions": [
+        "Made me feel oddly left out. Which is ridiculous: I was trying to sleep."
+      ],
+      "statCheck": null,
+      "valence": "negative",
+      "topic_category": "night_watch",
+      "required_entities": [],
+      "location_scope": "universal",
+      "quest_trigger": null
+    },
+    {
+      "id": 39,
+      "intro": "The guard dogs were barking at something {direction} for nearly an hour last night.",
+      "details": [
+        "Started with one, then they all joined in. That frantic, high-pitched barking that means they see something.",
+        "Nobody found anything when they checked. The dogs calmed down eventually but they were twitchy the rest of the night."
+      ],
+      "reactions": [
+        "When the dogs are upset, I'm upset. They know things we don't."
+      ],
+      "statCheck": {
+        "pass": "Dogs will react to {mob_type} scent on the wind even when the creatures are nowhere close. The smell alone is enough.",
+        "fail": "Could've been anything. I trust the dogs' noses more than my guesses."
+      },
+      "valence": "negative",
+      "topic_category": "night_watch",
+      "required_entities": [],
+      "location_scope": "universal",
+      "quest_trigger": null
+    },
+    {
+      "id": 40,
+      "intro": "I've started keeping a lantern lit all night. Costs me in oil, but I sleep better with a little glow.",
+      "details": [
+        "The shadows still move when the flame flickers, which isn't ideal. But it's better than total dark.",
+        "I used to think people who needed a light at night were being childish. Not anymore.",
+        "My partner complains the light keeps them up. So now one of us is always awake anyway."
+      ],
+      "reactions": [
+        "Sleep is sleep. I'll pay whatever it costs to get some."
+      ],
+      "statCheck": null,
+      "valence": "negative",
+      "topic_category": "night_watch",
+      "required_entities": [],
+      "location_scope": "universal",
+      "quest_trigger": null
+    },
+    {
+      "id": 41,
+      "intro": "Full moon last night and the whole settlement was lit up like early morning. You could read a sign from fifty paces.",
+      "details": [
+        "The shadows were sharp and deep. Every post and rail threw a line of black on the ground.",
+        "Someone's chickens were confused and started clucking like it was dawn."
+      ],
+      "reactions": [
+        "I prefer the bright nights. Everything you can see is a thing you don't have to imagine."
+      ],
+      "statCheck": null,
+      "valence": "neutral",
+      "topic_category": "night_watch",
+      "required_entities": [],
+      "location_scope": "universal",
+      "quest_trigger": null
+    },
+    {
+      "id": 42,
+      "intro": "Heard a {wildlife_type} calling out in the dark last night. Went on and on, this long repeating cry.",
+      "details": [
+        "Sounded lonesome. Like it was looking for another one and not finding it.",
+        "After a while a second one answered from further off, and the first one went quiet."
+      ],
+      "reactions": [
+        "There was something relieving about the answer coming. Even though it's just animals."
+      ],
+      "statCheck": null,
+      "valence": "neutral",
+      "topic_category": "night_watch",
+      "required_entities": [],
+      "location_scope": "universal",
+      "quest_trigger": null
+    },
+    {
+      "id": 43,
+      "intro": "I accidentally slammed my door going out for water last night. Woke up at least two neighbors.",
+      "details": [
+        "I saw candles light up in two windows and felt absolutely terrible.",
+        "Tried to creep back inside but the hinges squealed anyway."
+      ],
+      "reactions": [
+        "I owe them an apology. And possibly some quiet hinges."
+      ],
+      "statCheck": null,
+      "valence": "negative",
+      "topic_category": "night_watch",
+      "required_entities": [],
+      "location_scope": "universal",
+      "quest_trigger": null
+    },
+    {
+      "id": 44,
+      "intro": "The night sky was clear enough to see the band of stars that runs across the middle. Haven't seen it that bright in months.",
+      "details": [
+        "My grandmother used to call it the river. Said the dead sail along it to wherever they're going.",
+        "I don't know about all that, but it's something to look at when sleep won't come."
+      ],
+      "reactions": [
+        "Makes you feel small, but not in a bad way."
+      ],
+      "statCheck": null,
+      "valence": "neutral",
+      "topic_category": "night_watch",
+      "required_entities": [],
+      "location_scope": "universal",
+      "quest_trigger": null
+    },
+    {
+      "id": 45,
+      "intro": "Something got into the chicken coop overnight. Lost two birds.",
+      "details": [
+        "Feathers everywhere this morning, and a hole chewed through the back corner.",
+        "The rest of the chickens are spooked. Won't come out, won't eat, just huddled in the corner."
+      ],
+      "reactions": [
+        "I worked hard to build that coop right. Apparently not right enough."
+      ],
+      "statCheck": {
+        "pass": "The teeth marks on the wood are small and sharp: probably a weasel or a marten. They can squeeze through a gap you wouldn't believe.",
+        "fail": "Something with teeth and determination. That's all I can tell."
+      },
+      "valence": "negative",
+      "topic_category": "night_watch",
+      "required_entities": [],
+      "location_scope": "universal",
+      "quest_trigger": null
+    },
+    {
+      "id": 46,
+      "intro": "The frost was thick enough this morning that everything crunched underfoot. Must've dropped hard after midnight.",
+      "details": [
+        "The rooftops were white and the grass looked like it was made of glass.",
+        "Every spider web between the fences was outlined in ice crystals. Actually beautiful, if you weren't freezing."
+      ],
+      "reactions": [
+        "Cold nights make for pretty mornings, at least."
+      ],
+      "statCheck": null,
+      "valence": "neutral",
+      "topic_category": "night_watch",
+      "required_entities": [],
+      "location_scope": "universal",
+      "quest_trigger": null
+    },
+    {
+      "id": 47,
+      "intro": "I keep hearing this tapping at my window at night. Regular as a heartbeat.",
+      "details": [
+        "First few times I jumped up to check. Nothing. Just the dark and the glass.",
+        "I finally figured out it's a branch from the vine that grew up the wall. Hits the glass whenever there's the slightest breeze."
+      ],
+      "reactions": [
+        "I should cut that vine back. But now that I know what it is, it's almost comforting."
+      ],
+      "statCheck": null,
+      "valence": "neutral",
+      "topic_category": "night_watch",
+      "required_entities": [],
+      "location_scope": "universal",
+      "quest_trigger": null
+    },
+    {
+      "id": 48,
+      "intro": "Pulled guard duty near the {poi_type} last night and heard {mob_type} moving in the brush beyond the perimeter.",
+      "details": [
+        "They weren't coming closer, just parallel to the fence line. You could track them by the sound.",
+        "I kept my torch up and my back to the wall. They moved on after a while."
+      ],
+      "reactions": [
+        "My shift ended two hours later and it felt like ten."
+      ],
+      "statCheck": {
+        "pass": "They were skirting the firelight. {mob_type} avoid open flame when they can, especially torches. The perimeter's working.",
+        "fail": "They were close. That's all I know and that's enough."
+      },
+      "valence": "negative",
+      "topic_category": "night_watch",
+      "required_entities": [
+        "mob"
+      ],
+      "location_scope": "universal",
+      "quest_trigger": null
+    },
+    {
+      "id": 49,
+      "intro": "I heard singing last night, very faint, coming from somewhere {direction}. Couldn't place it.",
+      "details": [
+        "It wasn't a tune I recognized. Just a voice, rising and falling, almost like humming.",
+        "When I opened the window wider to hear better, it stopped."
+      ],
+      "reactions": [
+        "Probably someone who couldn't sleep. The night carries voices further than people think."
+      ],
+      "statCheck": null,
+      "valence": "negative",
+      "topic_category": "night_watch",
+      "required_entities": [],
+      "location_scope": "universal",
+      "quest_trigger": null
+    },
+    {
+      "id": 50,
+      "intro": "My roof leaks in one spot and last night the dripping started around midnight. Right over my head.",
+      "details": [
+        "I put a pot under it and then had to listen to that plinking sound all night instead."
+      ],
+      "reactions": [
+        "I traded a leak for a headache. That's not a solution, that's a different problem.",
+        "I'll patch it tomorrow. I've been saying that for a week."
+      ],
+      "statCheck": null,
+      "valence": "negative",
+      "topic_category": "night_watch",
+      "required_entities": [],
+      "location_scope": "universal",
+      "quest_trigger": null
+    },
+    {
+      "id": 51,
+      "intro": "The best thing about warm nights is leaving the door open and feeling the air move through the house.",
+      "details": [
+        "You get the smell of the fields and the sound of the night insects. It's like sleeping outside without the bugs.",
+        "Woke up with a {wildlife_type} sitting in my doorway this morning, bold as anything."
+      ],
+      "reactions": [
+        "Maybe I'll start closing the door again."
+      ],
+      "statCheck": null,
+      "valence": "neutral",
+      "topic_category": "night_watch",
+      "required_entities": [],
+      "location_scope": "universal",
+      "quest_trigger": null
+    },
+    {
+      "id": 52,
+      "intro": "The guard on the east side fell asleep on his shift last night. Someone found him propped against the post, snoring.",
+      "details": [
+        "I can't really blame him. Those overnight shifts are brutal, especially the cold ones.",
+        "But it means there was a gap in the watch for who knows how long."
+      ],
+      "reactions": [
+        "We need more people on rotation. The ones we have are stretched too thin."
+      ],
+      "statCheck": null,
+      "valence": "negative",
+      "topic_category": "night_watch",
+      "required_entities": [],
+      "location_scope": "universal",
+      "quest_trigger": null
+    },
+    {
+      "id": 53,
+      "intro": "I swear the shadows move differently on cloudy nights. When there's no moon, everything shifts.",
+      "details": [
+        "With moonlight, shadows stay put. You know what's casting them. Without it, every dark patch feels alive.",
+        "I caught myself staring at a fence post for a full minute last night, convinced it had moved."
+      ],
+      "reactions": [
+        "It's just your eyes trying to make sense of nothing. Doesn't make it less unsettling."
+      ],
+      "statCheck": {
+        "pass": "Your eyes switch to a different kind of vision in low light. It's blurrier, catches movement better, but invents motion where there isn't any.",
+        "fail": "I don't know why the dark plays tricks. It just does."
+      },
+      "valence": "negative",
+      "topic_category": "night_watch",
+      "required_entities": [],
+      "location_scope": "universal",
+      "quest_trigger": null
+    },
+    {
+      "id": 54,
+      "intro": "Woke up before dawn and made tea in the dark. Sat on the step and watched the sky change color.",
+      "details": [
+        "It goes from black to deep blue to this thin line of gold at the edge, so slowly you almost don't notice.",
+        "The birds start before the light does. First one, then a few more, then suddenly all of them."
+      ],
+      "reactions": [
+        "I should do that more often. There's a whole part of the day most people just sleep through."
+      ],
+      "statCheck": null,
+      "valence": "positive",
+      "topic_category": "night_watch",
+      "required_entities": [],
+      "location_scope": "universal",
+      "quest_trigger": null
+    },
+    {
+      "id": 55,
+      "intro": "Heard a crash from the {poi_type} last night. Turned out a shelf collapsed under its own weight.",
+      "details": [
+        "Nobody was hurt, but the noise in the dark was enough to send half the street running over.",
+        "We all stood there in our nightclothes looking at a pile of broken wood and feeling foolish."
+      ],
+      "reactions": [
+        "Nice to know people show up when there's trouble. Even if the trouble was just gravity."
+      ],
+      "statCheck": null,
+      "valence": "neutral",
+      "topic_category": "night_watch",
+      "required_entities": [],
+      "location_scope": "universal",
+      "quest_trigger": null
+    },
+    {
+      "id": 56,
+      "intro": "The temperature dropped so fast last night I could hear the timbers in the walls popping and cracking.",
+      "details": [
+        "Every few minutes: crack. Like someone snapping a stick inside the wall.",
+        "I know it's just the wood contracting. But when you're half asleep, your brain doesn't care about explanations."
+      ],
+      "reactions": [
+        "I'd rather have the cold than the heat, but I could do without the sound effects."
+      ],
+      "statCheck": {
+        "pass": "Green timber does that more than seasoned wood. Whoever built this place used fresh-cut lumber and it's been complaining about it ever since.",
+        "fail": "Wood cracks when it's cold. That's the extent of what I know about it."
+      },
+      "valence": "negative",
+      "topic_category": "night_watch",
+      "required_entities": [],
+      "location_scope": "universal",
+      "quest_trigger": null
+    },
+    {
+      "id": 57,
+      "intro": "A shooting star went right across the sky last night. Bright enough to light up the yard for a second.",
+      "details": [
+        "I almost missed it. Happened to be looking up at the right moment.",
+        "It left this faint green trail that faded before I could even point at it."
+      ],
+      "reactions": [
+        "You never see those when other people are around. It's always just you."
+      ],
+      "statCheck": null,
+      "valence": "neutral",
+      "topic_category": "night_watch",
+      "required_entities": [],
+      "location_scope": "universal",
+      "quest_trigger": null
+    },
+    {
+      "id": 58,
+      "intro": "I left laundry on the line overnight and something dragged half of it into the yard.",
+      "details": [
+        "Found a shirt on the ground with muddy paw prints on it. Looked like a {wildlife_type} used it as a bed.",
+        "Another piece was just gone entirely. No idea where it ended up."
+      ],
+      "reactions": [
+        "I'm more confused than angry. What does a {wildlife_type} want with my laundry?"
+      ],
+      "statCheck": null,
+      "valence": "negative",
+      "topic_category": "night_watch",
+      "required_entities": [],
+      "location_scope": "universal",
+      "quest_trigger": null
+    },
+    {
+      "id": 59,
+      "intro": "The frogs down by the water start up every night the moment the sun goes down. The noise is incredible.",
+      "details": [
+        "It's hundreds of them, all going at once. This pulsing, throbbing chorus that fills the whole valley.",
+        "Some nights it fades into the background. Other nights it's all you can hear."
+      ],
+      "reactions": [
+        "My partner says it's soothing. I say it's relentless."
+      ],
+      "statCheck": null,
+      "valence": "neutral",
+      "topic_category": "night_watch",
+      "required_entities": [],
+      "location_scope": "universal",
+      "quest_trigger": null
+    },
+    {
+      "id": 60,
+      "intro": "Found muddy boot prints on my porch this morning. Someone was standing right outside my door in the night.",
+      "details": [
+        "Two prints, side by side, facing the door. Like they stood there and then left.",
+        "Could've been anyone checking on something. Could've been the guard. But nobody mentioned it."
+      ],
+      "reactions": [
+        "I'm not jumping to conclusions. But I am going to start latching the door."
+      ],
+      "statCheck": {
+        "pass": "The tread pattern is the guard's standard issue boots. Probably just doing a door check and moved on.",
+        "fail": "Boots are boots. I can't tell one pair from another."
+      },
+      "valence": "negative",
+      "topic_category": "night_watch",
+      "required_entities": [],
+      "location_scope": "universal",
+      "quest_trigger": null
+    },
+    {
+      "id": 61,
+      "intro": "There's always that one moment at night when the last light goes out in the settlement and it's truly dark.",
+      "details": [
+        "You can feel it happen even from inside. The quality of the dark changes through the walls."
+      ],
+      "reactions": [
+        "I don't love that moment. It feels like a door closing."
+      ],
+      "statCheck": null,
+      "valence": "negative",
+      "topic_category": "night_watch",
+      "required_entities": [],
+      "location_scope": "universal",
+      "quest_trigger": null
+    },
+    {
+      "id": 62,
+      "intro": "Heard two {wildlife_type} fighting outside my window at some ungodly hour. Screeching and thumping.",
+      "details": [
+        "By the time I got to the window they'd moved on, but you could hear them carrying the argument down the lane.",
+        "Found tufts of fur on the ground this morning. Someone lost that fight."
+      ],
+      "reactions": [
+        "Animals have their own dramas. They just stage them at midnight."
+      ],
+      "statCheck": null,
+      "valence": "neutral",
+      "topic_category": "night_watch",
+      "required_entities": [],
+      "location_scope": "universal",
+      "quest_trigger": null
+    },
+    {
+      "id": 63,
+      "intro": "The wind changed direction around midnight last night. Brought a smell with it: earthy, damp, almost sweet.",
+      "details": [
+        "It was coming from {direction}. Smelled like wet leaves and turned soil.",
+        "Pleasant at first, but it had this undercurrent to it. Like something rotting under the sweet part."
+      ],
+      "reactions": [
+        "Probably just the marsh. But at night your nose tells you stories the same way your eyes do."
+      ],
+      "statCheck": {
+        "pass": "That's decomposing vegetation from the low ground. Wind rarely comes from that direction unless the pressure is dropping: rain by tomorrow, probably.",
+        "fail": "Smelled wrong. That's all I've got."
+      },
+      "valence": "negative",
+      "topic_category": "night_watch",
+      "required_entities": [],
+      "location_scope": "universal",
+      "quest_trigger": null
+    },
+    {
+      "id": 64,
+      "intro": "I made the mistake of having tea too late last night. Was awake until the early hours.",
+      "details": [
+        "Tried lying down, tried reading, tried counting my breaths. Nothing worked.",
+        "Ended up reorganizing my pantry shelf by lantern light just to have something to do."
+      ],
+      "reactions": [
+        "At least the pantry looks good. The rest of me does not."
+      ],
+      "statCheck": null,
+      "valence": "negative",
+      "topic_category": "night_watch",
+      "required_entities": [],
+      "location_scope": "universal",
+      "quest_trigger": null
+    },
+    {
+      "id": 65,
+      "intro": "On clear nights you can see torchlight from the next settlement over. Just this little warm dot on the horizon.",
+      "details": [
+        "It flickers in and out behind the trees. Some nights it's steady, some nights it's just a glimmer.",
+        "There are people over there going about their own business, completely unaware I'm watching their light."
+      ],
+      "reactions": [
+        "It's comforting to know someone else is awake out there."
+      ],
+      "statCheck": null,
+      "valence": "neutral",
+      "topic_category": "night_watch",
+      "required_entities": [],
+      "location_scope": "universal",
+      "quest_trigger": null
+    },
+    {
+      "id": 66,
+      "intro": "A moth the size of my palm got into the house last night. Went straight for the lantern and wouldn't leave it alone.",
+      "details": [
+        "It was throwing itself at the glass over and over. This soft, insistent thudding.",
+        "I tried to shoo it out but it kept circling back. Eventually I just put the lantern outside and let it have what it wanted."
+      ],
+      "reactions": [
+        "Then I was in the dark. Which I suppose was the moth's plan all along."
+      ],
+      "statCheck": null,
+      "valence": "neutral",
+      "topic_category": "night_watch",
+      "required_entities": [],
+      "location_scope": "universal",
+      "quest_trigger": null
+    },
+    {
+      "id": 67,
+      "intro": "I can hear the river from my bed if the night is quiet enough. Just barely.",
+      "details": [
+        "It's this low, constant shushing sound at the very edge of hearing. Most people probably wouldn't notice it.",
+        "On windy nights it disappears completely. I miss it when it's gone."
+      ],
+      "reactions": [
+        "It's the most reliable sound in the settlement. Everything else stops at some point: the river never does."
+      ],
+      "statCheck": null,
+      "valence": "positive",
+      "topic_category": "night_watch",
+      "required_entities": [],
+      "location_scope": "universal",
+      "quest_trigger": null
+    },
+    {
+      "id": 68,
+      "intro": "The outhouse door doesn't latch properly and it bangs in the wind all night. I've mentioned it three times.",
+      "details": [
+        "It's not loud enough to justify getting up about, but it's too regular to ignore.",
+        "Bang. Pause. Bang. Pause. For hours."
+      ],
+      "reactions": [
+        "I'm going to fix it myself tomorrow. I should've done it a week ago.",
+        "A tiny problem that ruins a whole night's sleep somehow feels like the biggest problem in the world."
+      ],
+      "statCheck": null,
+      "valence": "negative",
+      "topic_category": "night_watch",
+      "required_entities": [],
+      "location_scope": "universal",
+      "quest_trigger": null
+    },
+    {
+      "id": 69,
+      "intro": "Watched a storm roll in from {direction} last night. You could see the lightning in the clouds long before the rain hit.",
+      "details": [
+        "The sky would light up for a second and you'd see the outlines of everything: the hills, the trees, the rooftops. Then dark again.",
+        "When the thunder finally reached us it was this deep, rolling rumble that went on and on."
+      ],
+      "reactions": [
+        "I watched the whole thing from the porch. Felt like a show put on just for me."
+      ],
+      "statCheck": null,
+      "valence": "neutral",
+      "topic_category": "night_watch",
+      "required_entities": [],
+      "location_scope": "universal",
+      "quest_trigger": null
+    },
+    {
+      "id": 70,
+      "intro": "There's a cat that sits on the wall behind the {poi_type} every night. Never moves, never makes a sound.",
+      "details": [
+        "Its eyes catch the torchlight and glow this eerie green. You'd swear it was a statue if it didn't blink.",
+        "I've tried to pet it during the day and it won't come near me. But at night it sits there like a sentry."
+      ],
+      "reactions": [
+        "I've decided it's good luck. That's easier than being unnerved by it."
+      ],
+      "statCheck": null,
+      "valence": "neutral",
+      "topic_category": "night_watch",
+      "required_entities": [],
+      "location_scope": "universal",
+      "quest_trigger": null
+    },
+    {
+      "id": 71,
+      "intro": "Night guard found {mob_type} scratches on the outer fence posts this morning. Fresh ones.",
+      "details": [
+        "Deep gouges, about chest height. Whatever made them was big enough to reach the top rail.",
+        "The posts held, but a few more nights of that and they won't."
+      ],
+      "reactions": [
+        "We need to reinforce that section. Sooner rather than later."
+      ],
+      "statCheck": {
+        "pass": "The claw spacing suggests a single large one, not a group. Territorial marking, most likely: they scratch to claim boundaries.",
+        "fail": "Big scratches, big creature. That's as much as I can figure."
+      },
+      "valence": "negative",
+      "topic_category": "night_watch",
+      "required_entities": [
+        "mob"
+      ],
+      "location_scope": "universal",
+      "quest_trigger": null
+    },
+    {
+      "id": 72,
+      "intro": "I love the smell of woodsmoke at night. Someone always has their fire going late.",
+      "details": [
+        "You step outside and the air has that warm, dry edge to it. Mixes with the cold in this perfect way.",
+        "You can trace the smoke trail up if the moon's bright enough. It just curls and dissolves."
+      ],
+      "reactions": [
+        "It's the smell of people being home and safe. Hard to be anxious when you're breathing that in."
+      ],
+      "statCheck": null,
+      "valence": "neutral",
+      "topic_category": "night_watch",
+      "required_entities": [],
+      "location_scope": "universal",
+      "quest_trigger": null
+    },
+    {
+      "id": 73,
+      "intro": "Had a nightmare about the {poi_type} being on fire. Woke up smelling smoke and panicked.",
+      "details": [
+        "Ran outside barefoot before I was properly awake. Everything was fine: it was just someone's chimney.",
+        "Stood there with my heart hammering while two people stared at me from across the lane."
+      ],
+      "reactions": [
+        "Dreams shouldn't follow you out of bed like that."
+      ],
+      "statCheck": null,
+      "valence": "negative",
+      "topic_category": "night_watch",
+      "required_entities": [],
+      "location_scope": "universal",
+      "quest_trigger": null
+    },
+    {
+      "id": 74,
+      "intro": "There's a stretch of fence where the torchlight doesn't quite reach. I walk past it fast every time.",
+      "details": [
+        "It's maybe ten paces of shadow between two pools of light. Nothing's ever been there."
+      ],
+      "reactions": [
+        "I've been meaning to suggest we move one of the torches. Just haven't brought it up.",
+        "Grown adults walking fast through a shadow. That's what the dark does to people."
+      ],
+      "statCheck": null,
+      "valence": "negative",
+      "topic_category": "night_watch",
+      "required_entities": [],
+      "location_scope": "universal",
+      "quest_trigger": null
+    },
+    {
+      "id": 75,
+      "intro": "Last night was the first warm enough to sleep with the window full open. Felt like a turning point.",
+      "details": [
+        "The night air was soft and you could smell the blossoms from the trees along the fence.",
+        "Fell asleep to crickets and woke up to birds. That's the best kind of night."
+      ],
+      "reactions": [
+        "Winter's finally letting go. About time."
+      ],
+      "statCheck": null,
+      "valence": "neutral",
+      "topic_category": "night_watch",
+      "required_entities": [],
+      "location_scope": "universal",
+      "quest_trigger": null
+    },
+    {
+      "id": 76,
+      "intro": "Someone's rooster doesn't know what time it is. Crowed at midnight, then again at two, then again at four.",
+      "details": [
+        "By the time it actually crowed at dawn I was already awake and angry about it.",
+        "Half the settlement was up because of that bird. You could hear people grumbling from their windows."
+      ],
+      "reactions": [
+        "That rooster has made more enemies in one night than most people make in a lifetime."
+      ],
+      "statCheck": {
+        "pass": "Roosters crow at any bright light, not just dawn. A torch being carried past the coop at the wrong angle would set it off every time.",
+        "fail": "The bird's broken. That's my diagnosis."
+      },
+      "valence": "negative",
+      "topic_category": "night_watch",
+      "required_entities": [],
+      "location_scope": "universal",
+      "quest_trigger": null
+    },
+    {
+      "id": 77,
+      "intro": "I was on watch last night and a {wildlife_type} walked right through the gate like it belonged here.",
+      "details": [
+        "Just strolled past me, calm as anything. Sniffed around the water trough and then walked back out.",
+        "I stood there with my torch raised feeling like I should've done something. But what do you do?"
+      ],
+      "reactions": [
+        "At least it wasn't something with teeth."
+      ],
+      "statCheck": {
+        "pass": "They've learned the settlement means easy water and food scraps. We're part of their territory now, in a way.",
+        "fail": "Animals go where they want. We just happen to be in the way."
+      },
+      "valence": "neutral",
+      "topic_category": "night_watch",
+      "required_entities": [],
+      "location_scope": "universal",
+      "quest_trigger": null
+    },
+    {
+      "id": 78,
+      "intro": "The well chain rattles in the wind at night. Sounds exactly like someone drawing water when no one's there.",
+      "details": [
+        "The first time I heard it I went out to check who was at the well past midnight. Nobody.",
+        "Now I know what it is, but my stomach still tightens when I hear it."
+      ],
+      "reactions": [
+        "I've thought about tying the chain down. But then I'd have to untie it every morning."
+      ],
+      "statCheck": null,
+      "valence": "negative",
+      "topic_category": "night_watch",
+      "required_entities": [],
+      "location_scope": "universal",
+      "quest_trigger": null
+    },
+    {
+      "id": 79,
+      "intro": "I overslept this morning because I was up half the night listening to {mob_type} {direction}.",
+      "details": [
+        "They were making that racket they make when they're fighting over something. Went on for ages.",
+        "Eventually it stopped and I must've passed out from exhaustion, because the next thing I knew it was bright outside."
+      ],
+      "reactions": [
+        "Lost half my morning and all of my patience."
+      ],
+      "statCheck": null,
+      "valence": "negative",
+      "topic_category": "night_watch",
+      "required_entities": [
+        "mob"
+      ],
+      "location_scope": "universal",
+      "quest_trigger": null
+    },
+    {
+      "id": 80,
+      "intro": "The dew was so heavy this morning that every spider web in the settlement was visible. Hundreds of them.",
+      "details": [
+        "Every fence rail, every post, every gap in the woodwork. All threaded with these perfect little webs, all glittering.",
+        "They'd been there all along, but you only see them when the conditions are right."
+      ],
+      "reactions": [
+        "Makes you wonder what else is there that you just can't see yet."
+      ],
+      "statCheck": null,
+      "valence": "neutral",
+      "topic_category": "night_watch",
+      "required_entities": [],
+      "location_scope": "universal",
+      "quest_trigger": null
+    },
+    {
+      "id": 81,
+      "intro": "I keep a knife by the bed now. Started after I heard {mob_type} close to the walls last month.",
+      "details": [
+        "I've never had to use it. Probably never will. But my hand reaches for it every time I hear something.",
+        "My partner thinks I'm overreacting. Maybe I am."
+      ],
+      "reactions": [
+        "I'd rather have it and not need it than the other way around."
+      ],
+      "statCheck": null,
+      "valence": "negative",
+      "topic_category": "night_watch",
+      "required_entities": [
+        "mob"
+      ],
+      "location_scope": "universal",
+      "quest_trigger": null
+    },
+    {
+      "id": 82,
+      "intro": "There's a gap under my door that lets in a cold draft all night. I can feel it from the bed.",
+      "details": [
+        "I stuffed rags in there but they shift around and it comes back.",
+        "Some mornings there's actually a line of frost on the floor where the draft comes through."
+      ],
+      "reactions": [
+        "It's on the list of things to fix. It's a long list.",
+        "Every night I tell myself I'll deal with it tomorrow. Every morning I forget."
+      ],
+      "statCheck": null,
+      "valence": "negative",
+      "topic_category": "night_watch",
+      "required_entities": [],
+      "location_scope": "universal",
+      "quest_trigger": null
+    },
+    {
+      "id": 83,
+      "intro": "Shared a watch shift with the old guard last night. He barely talked, just stood there scanning the dark.",
+      "details": [
+        "He's been doing it for years. Knows every sound, every shadow, every rhythm of the night out here.",
+        "At one point he held up his hand and said 'deer' without even looking. Sure enough, a {wildlife_type} crossed the path."
+      ],
+      "reactions": [
+        "I want to be that calm about it. I'm not there yet."
+      ],
+      "statCheck": null,
+      "valence": "neutral",
+      "topic_category": "night_watch",
+      "required_entities": [],
+      "location_scope": "universal",
+      "quest_trigger": null
+    },
+    {
+      "id": 84,
+      "intro": "The stars were so clear last night I tried to count them. Got to forty before I gave up.",
+      "details": [
+        "Every time I'd focus on one area, I'd notice more in my peripheral vision. They just kept going.",
+        "My neck hurt from looking up. Lay down in the grass and that was better but colder."
+      ],
+      "reactions": [
+        "There's always more than you think. That's the thing about stars."
+      ],
+      "statCheck": null,
+      "valence": "positive",
+      "topic_category": "night_watch",
+      "required_entities": [],
+      "location_scope": "universal",
+      "quest_trigger": null
+    },
+    {
+      "id": 85,
+      "intro": "Something was digging near the {poi_type} overnight. Found fresh holes this morning.",
+      "details": [
+        "Three holes, all the same size, along the foundation. Shallow, like something was rooting for grubs.",
+        "Dirt scattered everywhere. Whoever has to clean that up is going to be in a mood."
+      ],
+      "reactions": [
+        "It's the kind of thing that's harmless but feels like a violation."
+      ],
+      "statCheck": {
+        "pass": "Looks like a badger or something similar. They dig for beetles in soft ground near foundations where the soil stays warm.",
+        "fail": "Something was hungry enough to dig for it. That's all I've got."
+      },
+      "valence": "negative",
+      "topic_category": "night_watch",
+      "required_entities": [],
+      "location_scope": "universal",
+      "quest_trigger": null
+    },
+    {
+      "id": 86,
+      "intro": "I burned my hand on the lantern last night trying to relight it in a hurry. Heard something outside and panicked.",
+      "details": [
+        "Fumbled with the tinderbox, caught the wrong part of the frame, and now I've got a blister across two fingers.",
+        "The thing outside turned out to be a branch falling. Just a branch."
+      ],
+      "reactions": [
+        "My hand hurts and my dignity hurts worse."
+      ],
+      "statCheck": null,
+      "valence": "negative",
+      "topic_category": "night_watch",
+      "required_entities": [],
+      "location_scope": "universal",
+      "quest_trigger": null
+    },
+    {
+      "id": 87,
+      "intro": "I don't mind the dark itself. It's the sounds in the dark that get to me.",
+      "details": [
+        "During the day you hear a noise and you look at what made it. At night you hear a noise and you imagine what made it."
+      ],
+      "reactions": [
+        "I'd sleep better if I was deaf, honestly."
+      ],
+      "statCheck": null,
+      "valence": "negative",
+      "topic_category": "night_watch",
+      "required_entities": [],
+      "location_scope": "universal",
+      "quest_trigger": null
+    },
+    {
+      "id": 88,
+      "intro": "We had a bonfire last night. Half the settlement came out and we sat around it until well past dark.",
+      "details": [
+        "The fire pops and sends sparks up into the black sky and everyone watches them go. Like tiny stars falling upward.",
+        "People talk more honestly by firelight, I think. Something about the dark around you makes you focus on whoever's in the glow."
+      ],
+      "reactions": [
+        "Those are the good nights. Makes you remember why you live where people are."
+      ],
+      "statCheck": null,
+      "valence": "positive",
+      "topic_category": "night_watch",
+      "required_entities": [],
+      "location_scope": "universal",
+      "quest_trigger": null
+    },
+    {
+      "id": 89,
+      "intro": "A bat flew into my house through the open window last night. Absolute chaos.",
+      "details": [
+        "It was bouncing off the walls, knocking things over, and I was ducking and swinging a broom like a fool.",
+        "Took me fifteen minutes to herd it back out the window. The whole time it was screaming. I was also screaming."
+      ],
+      "reactions": [
+        "My voice is still hoarse and my kitchen is a wreck."
+      ],
+      "statCheck": null,
+      "valence": "negative",
+      "topic_category": "night_watch",
+      "required_entities": [],
+      "location_scope": "universal",
+      "quest_trigger": null
+    },
+    {
+      "id": 90,
+      "intro": "Last night was so still you could hear the torch flames hissing from twenty paces away.",
+      "details": [
+        "No wind, no insects, just this soft, steady sizzle from the oil burning."
+      ],
+      "reactions": [
+        "Quiet like that should be peaceful. Instead it just makes you more aware of every little thing.",
+        "I ended up walking louder on purpose just to break the silence."
+      ],
+      "statCheck": null,
+      "valence": "neutral",
+      "topic_category": "night_watch",
+      "required_entities": [],
+      "location_scope": "universal",
+      "quest_trigger": null
+    },
+    {
+      "id": 91,
+      "intro": "I watched the clouds swallow the moon last night. Like something eating it from the edge.",
+      "details": [
+        "One moment the yard was bright, the next it was gone. Just swallowed up.",
+        "The dark felt heavier after that. Like the moon had been holding something back."
+      ],
+      "reactions": [
+        "I went inside and didn't come back out."
+      ],
+      "statCheck": {
+        "pass": "Weather front moving in from the coast. When clouds eat the moon that fast, it usually means heavy cover by morning.",
+        "fail": "Clouds came, moon went. That's all I saw."
+      },
+      "valence": "negative",
+      "topic_category": "night_watch",
+      "required_entities": [],
+      "location_scope": "universal",
+      "quest_trigger": null
+    },
+    {
+      "id": 92,
+      "intro": "There was a fight between two people outside the {poi_type} last night. Shouting and carrying on.",
+      "details": [
+        "Couldn't make out what it was about. Just raised voices, that sharp tone people get when they're past the point of caring who hears.",
+        "It ended with a door slamming and then silence. The whole street was probably lying awake pretending they didn't hear."
+      ],
+      "reactions": [
+        "None of my business. But I lost twenty minutes of sleep to other people's problems."
+      ],
+      "statCheck": null,
+      "valence": "negative",
+      "topic_category": "night_watch",
+      "required_entities": [],
+      "location_scope": "universal",
+      "quest_trigger": null
+    },
+    {
+      "id": 93,
+      "intro": "I found a {wildlife_type} sleeping under my porch this morning. Must've been there all night.",
+      "details": [
+        "It had made a little nest of leaves and just curled up in there. Didn't even wake up when I walked over it.",
+        "I left some water out and went about my day. It was gone by noon."
+      ],
+      "reactions": [
+        "Can't blame it for wanting a roof. We all want the same thing at night."
+      ],
+      "statCheck": null,
+      "valence": "neutral",
+      "topic_category": "night_watch",
+      "required_entities": [],
+      "location_scope": "universal",
+      "quest_trigger": null
+    },
+    {
+      "id": 94,
+      "intro": "The watch bell rang once last night. Just once, then nothing.",
+      "details": [
+        "One ring means 'alert': someone saw something. But nobody called out and the second ring never came.",
+        "I lay there for an hour waiting for the follow-up. It never came."
+      ],
+      "reactions": [
+        "Probably a false alarm. But that's a long hour when you're waiting for the second bell."
+      ],
+      "statCheck": {
+        "pass": "Single ring with no follow-up usually means the guard spotted movement but couldn't confirm it. Standard procedure is to hold and observe.",
+        "fail": "I don't know the bell codes well enough. One ring could mean a lot of things."
+      },
+      "valence": "negative",
+      "topic_category": "night_watch",
+      "required_entities": [],
+      "location_scope": "universal",
+      "quest_trigger": null
+    },
+    {
+      "id": 95,
+      "intro": "There's something about the hour just before dawn. The sky isn't dark anymore but it's not light either.",
+      "details": [
+        "Everything is this flat grey-blue. No shadows, no color. Like the world hasn't decided what it is yet.",
+        "The air is always coldest right then. One last bite before the sun takes over."
+      ],
+      "reactions": [
+        "It's a lonely hour. But there's a promise in it."
+      ],
+      "statCheck": null,
+      "valence": "neutral",
+      "topic_category": "night_watch",
+      "required_entities": [],
+      "location_scope": "universal",
+      "quest_trigger": null
+    },
+    {
+      "id": 96,
+      "intro": "I heard {mob_type} howling last night. Not close, but not far enough.",
+      "details": [
+        "That sound goes right through the walls. Right through the blankets. Right into your bones.",
+        "I lay there rigid until it stopped, and even then I couldn't relax for another hour."
+      ],
+      "reactions": [
+        "There's no getting used to that sound. I don't care what anyone says."
+      ],
+      "statCheck": {
+        "pass": "Howling usually means they're calling to regroup, not hunt. If they were close and hunting, you wouldn't hear them at all.",
+        "fail": "All I know is I don't like it. The why doesn't make it easier to hear."
+      },
+      "valence": "negative",
+      "topic_category": "night_watch",
+      "required_entities": [
+        "mob"
+      ],
+      "location_scope": "universal",
+      "quest_trigger": null
+    },
+    {
+      "id": 97,
+      "intro": "Woke up to the smell of bread baking. Someone at the {poi_type} starts before dawn every day.",
+      "details": [
+        "It drifts through the whole settlement while it's still dark out. This warm, yeasty smell that doesn't belong to nighttime.",
+        "I lay there half awake just breathing it in. Felt like the morning reaching back to get me."
+      ],
+      "reactions": [
+        "That might be my favorite smell in the world. Especially at that hour."
+      ],
+      "statCheck": null,
+      "valence": "positive",
+      "topic_category": "night_watch",
+      "required_entities": [],
+      "location_scope": "universal",
+      "quest_trigger": null
+    },
+    {
+      "id": 98,
+      "intro": "The settlement gate squeaks every time the guard opens it for patrol. I can track their whole route by the sound.",
+      "details": [
+        "Squeak out. Footsteps on gravel. Long pause. Footsteps back. Squeak in.",
+        "It happens about every hour, all night. Like a clock made of hinges and boots."
+      ],
+      "reactions": [
+        "Someone should oil that gate. But honestly, I'd miss the routine."
+      ],
+      "statCheck": {
+        "pass": "A squeaky gate is almost a feature. You can't open it quietly, which means nobody sneaks through unheard.",
+        "fail": "I never thought about it that way. I just thought it needed oil."
+      },
+      "valence": "neutral",
+      "topic_category": "night_watch",
+      "required_entities": [],
+      "location_scope": "universal",
+      "quest_trigger": null
+    },
+    {
+      "id": 99,
+      "intro": "I lay awake last night thinking about things that don't bother me during the day. The dark makes worries bigger.",
+      "details": [
+        "Stuff that seems manageable in the morning turns into this looming weight at two in the morning.",
+        "I know it's not real. I know the problems are the same size they were at noon. But my brain doesn't care."
+      ],
+      "reactions": [
+        "The best thing about morning is that everything shrinks back to its actual size."
+      ],
+      "statCheck": null,
+      "valence": "negative",
+      "topic_category": "night_watch",
+      "required_entities": [],
+      "location_scope": "universal",
+      "quest_trigger": null
+    }
+  ]
+}

@@ -256,6 +256,2731 @@
       ],
       "location_scope": "local",
       "quest_trigger": null
+    },
+    {
+      "id": 12,
+      "intro": "The {poi_type} always has a line of people outside first thing in the morning. Every single day.",
+      "details": [
+        "You'd think they'd spread out, but no. Everyone wants to be first.",
+        "I stopped trying to beat the rush. I just go after lunch when it's quiet."
+      ],
+      "reactions": [
+        "It's not worth the headache. Let the early risers fight over it."
+      ],
+      "statCheck": null,
+      "valence": "neutral",
+      "topic_category": "poi_awareness",
+      "required_entities": [
+        "poi"
+      ],
+      "location_scope": "local",
+      "quest_trigger": null
+    },
+    {
+      "id": 13,
+      "intro": "Someone left a cart outside the {poi_type} for three days. Just sitting there blocking the way.",
+      "details": [
+        "Nobody claimed it, nobody moved it. We all just walked around it like it belonged there."
+      ],
+      "reactions": [
+        "Eventually it disappeared. I still don't know whose it was."
+      ],
+      "statCheck": null,
+      "valence": "negative",
+      "topic_category": "poi_awareness",
+      "required_entities": [
+        "poi"
+      ],
+      "location_scope": "local",
+      "quest_trigger": null
+    },
+    {
+      "id": 14,
+      "intro": "I like the {poi_type} best in winter. The smoke from the chimney, the frost on the stones.",
+      "details": [
+        "Everything looks sharper when it's cold. The colors stand out more against the grey.",
+        "People move quicker in winter too. Less standing around chatting, more getting things done."
+      ],
+      "reactions": [
+        "Summer's fine, but winter gives a place character."
+      ],
+      "statCheck": null,
+      "valence": "positive",
+      "topic_category": "poi_awareness",
+      "required_entities": [
+        "poi"
+      ],
+      "location_scope": "local",
+      "quest_trigger": null
+    },
+    {
+      "id": 15,
+      "intro": "There's a dog that hangs around the {poi_type}. Nobody owns it, but everybody feeds it.",
+      "details": [
+        "It knows exactly when people take breaks. Shows up right on time, every time.",
+        "I think it sleeps under the eaves. I've seen it curled up there in the evenings."
+      ],
+      "reactions": [
+        "Honestly, that dog has a better schedule than I do."
+      ],
+      "statCheck": null,
+      "valence": "positive",
+      "topic_category": "poi_awareness",
+      "required_entities": [
+        "poi"
+      ],
+      "location_scope": "local",
+      "quest_trigger": null
+    },
+    {
+      "id": 16,
+      "intro": "The {poi_type} needs a new roof. You can see the sag from the road.",
+      "details": [
+        "It's been like that for months. Every rainstorm I expect the whole thing to give.",
+        "Nobody wants to pay for it, and nobody wants to be the one to bring it up at a meeting."
+      ],
+      "reactions": [
+        "It'll get fixed when it collapses. That's how things work around here."
+      ],
+      "statCheck": {
+        "pass": "The main beam is bowing under the load. If they sister a new timber alongside it, the rest of the structure is still sound.",
+        "fail": "I'm not a roofer. I just know it looks bad."
+      },
+      "valence": "negative",
+      "topic_category": "poi_awareness",
+      "required_entities": [
+        "poi"
+      ],
+      "location_scope": "local",
+      "quest_trigger": null
+    },
+    {
+      "id": 17,
+      "intro": "You ever notice how loud the {poi_type} gets around midday? You can hear it from three streets over.",
+      "details": [
+        "Hammering, shouting, carts moving. The whole area just comes alive.",
+        "It quiets down by evening, but for a few hours it's the loudest place in town."
+      ],
+      "reactions": [
+        "I don't mind it: a working sound means things are happening."
+      ],
+      "statCheck": null,
+      "valence": "neutral",
+      "topic_category": "poi_awareness",
+      "required_entities": [
+        "poi"
+      ],
+      "location_scope": "local",
+      "quest_trigger": null
+    },
+    {
+      "id": 18,
+      "intro": "The ground around the {poi_type} is always muddy. Even in dry weather there's a soft patch by the entrance.",
+      "details": [
+        "I think there's a spring underneath, or a pipe that leaks. Something's feeding water into that spot.",
+        "People track it everywhere. You can follow the muddy footprints halfway across town."
+      ],
+      "reactions": [
+        "Someone should dig a channel or lay some gravel. It's been like this for years."
+      ],
+      "statCheck": {
+        "pass": "There's definitely groundwater seeping up through the foundation. The soil there is clay, so it holds every drop.",
+        "fail": "I don't know why it's wet. It just always is."
+      },
+      "valence": "negative",
+      "topic_category": "poi_awareness",
+      "required_entities": [
+        "poi"
+      ],
+      "location_scope": "local",
+      "quest_trigger": null
+    },
+    {
+      "id": 19,
+      "intro": "I brought some {resource_type} home from the {poi_type} last week. Best batch they've had in ages.",
+      "details": [
+        "Clean, good weight, no waste. You could tell just by looking at it.",
+        "I don't usually get excited about {resource_type}, but this lot was something else."
+      ],
+      "reactions": [
+        "Makes you appreciate the people who do the actual work."
+      ],
+      "statCheck": null,
+      "valence": "positive",
+      "topic_category": "poi_awareness",
+      "required_entities": [
+        "poi"
+      ],
+      "location_scope": "local",
+      "quest_trigger": null
+    },
+    {
+      "id": 20,
+      "intro": "{npc_name} works at the {poi_type} and always looks exhausted. I worry about that one.",
+      "details": [
+        "They're there before dawn and I still see them coming home after dark.",
+        "I offered to help once and they just waved me off. Too proud or too tired to accept."
+      ],
+      "reactions": [
+        "There's a difference between hard work and running yourself into the ground."
+      ],
+      "statCheck": null,
+      "valence": "negative",
+      "topic_category": "poi_awareness",
+      "required_entities": [
+        "poi"
+      ],
+      "location_scope": "local",
+      "quest_trigger": null
+    },
+    {
+      "id": 21,
+      "intro": "The {poi_type} has been running smoothly. No complaints from anyone, which is rare.",
+      "details": [
+        "Usually somebody has a gripe about output or hours or quality. But lately, nothing.",
+        "I think the crew there finally found a rhythm that works."
+      ],
+      "reactions": [
+        "When nobody's complaining, that's the highest praise you'll get around here."
+      ],
+      "statCheck": null,
+      "valence": "positive",
+      "topic_category": "poi_awareness",
+      "required_entities": [
+        "poi"
+      ],
+      "location_scope": "local",
+      "quest_trigger": null
+    },
+    {
+      "id": 22,
+      "intro": "I keep meaning to stop by the {poi_type} and I keep putting it off. No real reason.",
+      "details": [
+        "It's not far. I just never get around to it before the day runs out."
+      ],
+      "reactions": [
+        "Tomorrow, probably. I keep saying that."
+      ],
+      "statCheck": null,
+      "valence": "neutral",
+      "topic_category": "poi_awareness",
+      "required_entities": [
+        "poi"
+      ],
+      "location_scope": "local",
+      "quest_trigger": null
+    },
+    {
+      "id": 23,
+      "intro": "There's a crack in the wall at the {poi_type}. I noticed it last week and it's definitely bigger now.",
+      "details": [
+        "It runs from the foundation up to the window. You can fit a finger in it.",
+        "I mentioned it to someone and they shrugged. Said it's been there forever."
+      ],
+      "reactions": [
+        "Forever or not, cracks don't stop growing on their own."
+      ],
+      "statCheck": {
+        "pass": "That's a settling crack: the foundation on the east side is probably on softer ground than the west. Fixable, but not cheap.",
+        "fail": "I don't know much about masonry. It just looks worrying to me."
+      },
+      "valence": "negative",
+      "topic_category": "poi_awareness",
+      "required_entities": [
+        "poi"
+      ],
+      "location_scope": "local",
+      "quest_trigger": null
+    },
+    {
+      "id": 24,
+      "intro": "The {poi_type} smells like woodsmoke today. They must be burning something different.",
+      "details": [
+        "Usually it's a sharper smell, more like pine. This is heavier, almost sweet.",
+        "I don't mind it. Reminds me of autumn."
+      ],
+      "reactions": [
+        "You learn to read a place by its smoke."
+      ],
+      "statCheck": {
+        "pass": "That's applewood or cherry: burns slower and cooler than pine. Better for steady work, worse for quick heat.",
+        "fail": "I couldn't tell you what wood it is. Just that it smells different."
+      },
+      "valence": "neutral",
+      "topic_category": "poi_awareness",
+      "required_entities": [
+        "poi"
+      ],
+      "location_scope": "local",
+      "quest_trigger": null
+    },
+    {
+      "id": 25,
+      "intro": "I saw kids playing near the {poi_type} again. They're always climbing on things they shouldn't.",
+      "details": [
+        "One of them was up on the fence post pretending to be a knight. Charming until someone falls.",
+        "The workers don't seem to mind. I think they like the company."
+      ],
+      "reactions": [
+        "We all did the same thing at that age. You just worry more when you're the adult watching."
+      ],
+      "statCheck": null,
+      "valence": "neutral",
+      "topic_category": "poi_awareness",
+      "required_entities": [
+        "poi"
+      ],
+      "location_scope": "local",
+      "quest_trigger": null
+    },
+    {
+      "id": 26,
+      "intro": "The {poi_type} had a good week. You can tell by the mood of the people coming out of there.",
+      "details": [
+        "Smiles, whistling, nobody dragging their feet. That only happens when output is up.",
+        "Even {npc_name} seemed cheerful, and they're usually the grumpy one."
+      ],
+      "reactions": [
+        "A good week at the {poi_type} means a good week for the whole settlement."
+      ],
+      "statCheck": null,
+      "valence": "positive",
+      "topic_category": "poi_awareness",
+      "required_entities": [
+        "poi"
+      ],
+      "location_scope": "local",
+      "quest_trigger": null
+    },
+    {
+      "id": 27,
+      "intro": "The lantern outside the {poi_type} has been out for days. Makes that whole stretch dark at night.",
+      "details": [
+        "I nearly tripped over a barrel walking past in the dark. No warning, just suddenly on the ground.",
+        "It's an easy fix. Someone just needs to bother doing it."
+      ],
+      "reactions": [
+        "I'd fix it myself if I could reach the bracket."
+      ],
+      "statCheck": null,
+      "valence": "negative",
+      "topic_category": "poi_awareness",
+      "required_entities": [
+        "poi"
+      ],
+      "location_scope": "local",
+      "quest_trigger": null
+    },
+    {
+      "id": 28,
+      "intro": "The {poi_type} looks good from the hill to the {direction}. You can see the whole layout.",
+      "details": [
+        "It fits into the landscape well. Like it grew there instead of being built.",
+        "I go up there sometimes just to see the settlement from above. The {poi_type} always catches my eye first."
+      ],
+      "reactions": [
+        "Whoever chose that spot knew what they were doing."
+      ],
+      "statCheck": null,
+      "valence": "positive",
+      "topic_category": "poi_awareness",
+      "required_entities": [
+        "poi"
+      ],
+      "location_scope": "local",
+      "quest_trigger": null
+    },
+    {
+      "id": 29,
+      "intro": "The {poi_type} gets cold drafts something terrible. You can feel the wind cutting through the walls.",
+      "details": [
+        "In summer it's actually pleasant, keeps the place cool. But winter is miserable.",
+        "The workers stuff rags in the gaps every year and every year the wind pulls them out."
+      ],
+      "reactions": [
+        "Glad I don't have to spend my days in there."
+      ],
+      "statCheck": {
+        "pass": "The mortar between the lower stones has crumbled. Cold air follows the path of least resistance, and those gaps are getting wider each freeze cycle.",
+        "fail": "I don't know why it's so drafty. Old buildings just are, I suppose."
+      },
+      "valence": "negative",
+      "topic_category": "poi_awareness",
+      "required_entities": [
+        "poi"
+      ],
+      "location_scope": "local",
+      "quest_trigger": null
+    },
+    {
+      "id": 30,
+      "intro": "I've started timing my walks to go past the {poi_type} in the late afternoon. The light is perfect then.",
+      "details": [
+        "The sun hits the stonework at just the right angle and the whole place glows warm.",
+        "It only lasts about half an hour before the shadow of the ridge swallows it."
+      ],
+      "reactions": [
+        "Small pleasures. You take them where you find them."
+      ],
+      "statCheck": null,
+      "valence": "positive",
+      "topic_category": "poi_awareness",
+      "required_entities": [
+        "poi"
+      ],
+      "location_scope": "local",
+      "quest_trigger": null
+    },
+    {
+      "id": 31,
+      "intro": "Somebody painted the {poi_type}'s door. Bright red, out of nowhere.",
+      "details": [
+        "Nobody asked for it, nobody voted on it. Just showed up one morning.",
+        "Half the people love it, the other half want it back the way it was."
+      ],
+      "reactions": [
+        "I think it looks fine, but I'm staying out of that argument."
+      ],
+      "statCheck": null,
+      "valence": "neutral",
+      "topic_category": "poi_awareness",
+      "required_entities": [
+        "poi"
+      ],
+      "location_scope": "local",
+      "quest_trigger": null
+    },
+    {
+      "id": 32,
+      "intro": "The well water near the {poi_type} has tasted off this week. Not bad, just different.",
+      "details": [
+        "A bit more mineral, maybe. Like sucking on a stone.",
+        "Nobody's gotten sick or anything. It's just not the same as usual."
+      ],
+      "reactions": [
+        "Probably just seasonal runoff changing the groundwater. Happens every year."
+      ],
+      "statCheck": {
+        "pass": "Heavy rain upstream shifts the mineral content. Iron-rich soil seeps into the aquifer and you taste it for a week or two until it flushes.",
+        "fail": "I'm not a well-digger. Could be anything."
+      },
+      "valence": "neutral",
+      "topic_category": "poi_awareness",
+      "required_entities": [
+        "poi"
+      ],
+      "location_scope": "local",
+      "quest_trigger": null
+    },
+    {
+      "id": 33,
+      "intro": "The {poi_type} is the first place I check when I need to know what kind of day it's going to be.",
+      "details": [
+        "If it's busy and noisy, it's a good day. If it's quiet and the door's shut, something's off.",
+        "It's like a weathervane for the whole settlement's mood."
+      ],
+      "reactions": [
+        "I don't even think about it anymore. I just look and I know."
+      ],
+      "statCheck": null,
+      "valence": "neutral",
+      "topic_category": "poi_awareness",
+      "required_entities": [
+        "poi"
+      ],
+      "location_scope": "local",
+      "quest_trigger": null
+    },
+    {
+      "id": 34,
+      "intro": "The {resource_type} from the {poi_type} hasn't been great lately. Thinner than it should be.",
+      "details": [
+        "People are making do, but you can tell it's not up to the usual standard.",
+        "When the basics slip, everything downstream suffers."
+      ],
+      "reactions": [
+        "Hopefully it's a rough patch and not a trend."
+      ],
+      "statCheck": {
+        "pass": "The top layer's been worked too hard. They need to go deeper or shift to a new section, but that takes time and labor nobody has spare.",
+        "fail": "I don't know the details. I just know what I'm getting isn't as good."
+      },
+      "valence": "negative",
+      "topic_category": "poi_awareness",
+      "required_entities": [
+        "poi"
+      ],
+      "location_scope": "local",
+      "quest_trigger": null
+    },
+    {
+      "id": 35,
+      "intro": "The flowers near the {poi_type} are blooming. Whole patch of them, bright purple and yellow.",
+      "details": [
+        "I don't think anyone planted them. They just showed up one spring and kept coming back.",
+        "The bees love them. You can hear the buzzing from the path."
+      ],
+      "reactions": [
+        "Nice to have something pretty next to a working place."
+      ],
+      "statCheck": null,
+      "valence": "positive",
+      "topic_category": "poi_awareness",
+      "required_entities": [
+        "poi"
+      ],
+      "location_scope": "local",
+      "quest_trigger": null
+    },
+    {
+      "id": 36,
+      "intro": "I can always tell when the {poi_type} is shutting down for the day. The sounds change.",
+      "details": [
+        "Tools being put away, doors closing, the clatter fading out. It's a specific rhythm.",
+        "Then it goes quiet and you hear the birds again."
+      ],
+      "reactions": [
+        "There's something satisfying about the end-of-day quiet."
+      ],
+      "statCheck": null,
+      "valence": "neutral",
+      "topic_category": "poi_awareness",
+      "required_entities": [
+        "poi"
+      ],
+      "location_scope": "local",
+      "quest_trigger": null
+    },
+    {
+      "id": 37,
+      "intro": "The {poi_type} draws a lot of traffic from the {direction}. More than it used to.",
+      "details": [
+        "I keep seeing unfamiliar faces heading that way. Not travelers exactly, just people from neighboring areas.",
+        "Word must have gotten around about the quality of what they're producing."
+      ],
+      "reactions": [
+        "Good for business. Less good for the path, which is taking a beating."
+      ],
+      "statCheck": null,
+      "valence": "neutral",
+      "topic_category": "poi_awareness",
+      "required_entities": [
+        "poi"
+      ],
+      "location_scope": "local",
+      "quest_trigger": null
+    },
+    {
+      "id": 38,
+      "intro": "The {poi_type}'s chimney was smoking funny this morning. Thick and dark, not the usual wisp.",
+      "details": [
+        "I watched it for a while to make sure nothing was actually wrong. It cleared up eventually.",
+        "Probably just damp fuel. Still makes your heart jump for a second."
+      ],
+      "reactions": [
+        "Fire is the one thing nobody takes lightly around here."
+      ],
+      "statCheck": {
+        "pass": "Damp wood produces incomplete combustion: more soot, more creosote. If the chimney hasn't been swept this season, that's a real risk.",
+        "fail": "I don't know much about chimneys. I just know dark smoke is usually bad."
+      },
+      "valence": "negative",
+      "topic_category": "poi_awareness",
+      "required_entities": [
+        "poi"
+      ],
+      "location_scope": "local",
+      "quest_trigger": null
+    },
+    {
+      "id": 39,
+      "intro": "I helped carry supplies to the {poi_type} last week. Heavier load than I expected.",
+      "details": [
+        "They're stocking up for something. More {resource_type} than usual, stacked to the ceiling.",
+        "Nobody explained why, and I didn't ask. I just carried what they pointed at."
+      ],
+      "reactions": [
+        "Not my business, but it was a lot."
+      ],
+      "statCheck": null,
+      "valence": "neutral",
+      "topic_category": "poi_awareness",
+      "required_entities": [
+        "poi"
+      ],
+      "location_scope": "local",
+      "quest_trigger": null
+    },
+    {
+      "id": 40,
+      "intro": "There's a tree next to the {poi_type} that's been leaning more each year. One good storm and it's coming down.",
+      "details": [
+        "The roots are half out of the ground on one side. You can see where the soil has washed away.",
+        "If it falls toward the building, that's a real problem."
+      ],
+      "reactions": [
+        "Better to take it down on purpose than wait for nature to decide when."
+      ],
+      "statCheck": {
+        "pass": "The root ball is compromised on the downhill side. A controlled fell with two guide ropes would drop it safely away from the structure.",
+        "fail": "I'm no woodsman. I just know which way it's leaning."
+      },
+      "valence": "negative",
+      "topic_category": "poi_awareness",
+      "required_entities": [
+        "poi"
+      ],
+      "location_scope": "local",
+      "quest_trigger": null
+    },
+    {
+      "id": 41,
+      "intro": "{npc_name} told me the {poi_type} is producing more than ever. Said it with a grin, too.",
+      "details": [
+        "I don't usually take boasting at face value, but the evidence is hard to argue with.",
+        "There's more {resource_type} coming through town than I've seen in a long while."
+      ],
+      "reactions": [
+        "Good for them. And good for the rest of us."
+      ],
+      "statCheck": null,
+      "valence": "positive",
+      "topic_category": "poi_awareness",
+      "required_entities": [
+        "poi"
+      ],
+      "location_scope": "local",
+      "quest_trigger": null
+    },
+    {
+      "id": 42,
+      "intro": "I stood outside the {poi_type} this morning and just listened. There's a rhythm to it.",
+      "details": [
+        "Clang, pause, clang, scrape, over and over. It's almost musical if you're in the right mood.",
+        "I think the workers don't even notice it anymore. It's just the sound of their day."
+      ],
+      "reactions": [
+        "Every trade has its own beat. You just have to stand still long enough to hear it."
+      ],
+      "statCheck": null,
+      "valence": "neutral",
+      "topic_category": "poi_awareness",
+      "required_entities": [
+        "poi"
+      ],
+      "location_scope": "local",
+      "quest_trigger": null
+    },
+    {
+      "id": 43,
+      "intro": "The {poi_type} was shut for two days last week. Nobody told us why.",
+      "details": [
+        "People were milling around with nothing to do. You don't realize how much depends on that place until it stops.",
+        "When it reopened, everything went back to normal like nothing happened."
+      ],
+      "reactions": [
+        "I'd just like to know when these things are planned. A little warning goes a long way."
+      ],
+      "statCheck": null,
+      "valence": "negative",
+      "topic_category": "poi_awareness",
+      "required_entities": [
+        "poi"
+      ],
+      "location_scope": "local",
+      "quest_trigger": null
+    },
+    {
+      "id": 44,
+      "intro": "There's a spot behind the {poi_type} where you can sit and nobody bothers you. I go there sometimes.",
+      "details": [
+        "Just a flat stone against the back wall. Gets sun in the afternoon.",
+        "The workers know I sit there and they leave me be. It's an understanding."
+      ],
+      "reactions": [
+        "Everyone needs a quiet spot. That one's mine."
+      ],
+      "statCheck": null,
+      "valence": "positive",
+      "topic_category": "poi_awareness",
+      "required_entities": [
+        "poi"
+      ],
+      "location_scope": "local",
+      "quest_trigger": null
+    },
+    {
+      "id": 45,
+      "intro": "I think the {poi_type} could use another pair of hands. The people there are stretched thin.",
+      "details": [
+        "They're doing the work of five with three. You can see it in how tired they look by midweek.",
+        "Nobody's volunteering, though. Everyone's got their own work to worry about."
+      ],
+      "reactions": [
+        "It's not sustainable. Something's going to give eventually."
+      ],
+      "statCheck": null,
+      "valence": "negative",
+      "topic_category": "poi_awareness",
+      "required_entities": [
+        "poi"
+      ],
+      "location_scope": "local",
+      "quest_trigger": null
+    },
+    {
+      "id": 46,
+      "intro": "The morning fog sits heavy around the {poi_type}. Makes the whole place look like it's floating.",
+      "details": [
+        "You can barely see the building, just the outline and the glow of lanterns inside.",
+        "By midmorning it burns off and it's just a building again. But for an hour it's something else."
+      ],
+      "reactions": [
+        "I'm a sucker for a good fog. Makes everything feel like a story."
+      ],
+      "statCheck": null,
+      "valence": "neutral",
+      "topic_category": "poi_awareness",
+      "required_entities": [
+        "poi"
+      ],
+      "location_scope": "local",
+      "quest_trigger": null
+    },
+    {
+      "id": 47,
+      "intro": "The road to the {poi_type} from the {direction} has gotten wider. More ruts, more wear.",
+      "details": [
+        "Heavy carts do that. The edges crumble and the center dips until you've got a trench.",
+        "Last rain it was ankle-deep in mud. I had to go around through the grass."
+      ],
+      "reactions": [
+        "Roads don't fix themselves. Someone needs to lay some stone before winter."
+      ],
+      "statCheck": {
+        "pass": "The drainage is the real issue. A shallow ditch on either side would channel the water and keep the surface from turning to soup every time it rains.",
+        "fail": "I don't know road building. I just know it's getting worse."
+      },
+      "valence": "negative",
+      "topic_category": "poi_awareness",
+      "required_entities": [
+        "poi"
+      ],
+      "location_scope": "local",
+      "quest_trigger": null
+    },
+    {
+      "id": 48,
+      "intro": "The {poi_type} is the best-maintained building in town and it's not even close.",
+      "details": [
+        "Clean walls, solid roof, tidy surroundings. Whoever runs it takes pride in the place.",
+        "I wish some of the houses looked half as good."
+      ],
+      "reactions": [
+        "Sets a standard, whether people want to admit it or not."
+      ],
+      "statCheck": null,
+      "valence": "positive",
+      "topic_category": "poi_awareness",
+      "required_entities": [
+        "poi"
+      ],
+      "location_scope": "local",
+      "quest_trigger": null
+    },
+    {
+      "id": 49,
+      "intro": "I traded some {resource_type} at the {poi_type} yesterday. Fair deal, no haggling.",
+      "details": [
+        "That's how it should be. You know what things are worth, they know what things are worth.",
+        "I've had worse dealings at bigger markets."
+      ],
+      "reactions": [
+        "Honest work for honest pay. Can't ask for more than that."
+      ],
+      "statCheck": null,
+      "valence": "positive",
+      "topic_category": "poi_awareness",
+      "required_entities": [
+        "poi"
+      ],
+      "location_scope": "local",
+      "quest_trigger": null
+    },
+    {
+      "id": 50,
+      "intro": "I heard the {poi_type} is running low on {resource_type}. Not out, but getting there.",
+      "details": [
+        "People start hoarding when they hear that. Makes the problem worse.",
+        "I'm trying not to worry about it. These things usually sort themselves out."
+      ],
+      "reactions": [
+        "Panic is always worse than the actual shortage."
+      ],
+      "statCheck": {
+        "pass": "The supply line from the {direction} has been slow. A single delayed shipment can ripple through the whole stock if there's no buffer built in.",
+        "fail": "I don't know the logistics. I just heard what I heard."
+      },
+      "valence": "negative",
+      "topic_category": "poi_awareness",
+      "required_entities": [
+        "poi"
+      ],
+      "location_scope": "local",
+      "quest_trigger": null
+    },
+    {
+      "id": 51,
+      "intro": "The shade near the {poi_type} is the best in town during summer. Big old tree just blocks the worst of it.",
+      "details": [
+        "People gather there during the hottest part of the day. Almost like an unofficial meeting spot.",
+        "The roots have heaved the path a bit, but nobody wants to cut the tree for that."
+      ],
+      "reactions": [
+        "Some things are worth a bumpy path."
+      ],
+      "statCheck": null,
+      "valence": "positive",
+      "topic_category": "poi_awareness",
+      "required_entities": [
+        "poi"
+      ],
+      "location_scope": "local",
+      "quest_trigger": null
+    },
+    {
+      "id": 52,
+      "intro": "The noise from the {poi_type} kept me up last night. They were working late, way past sundown.",
+      "details": [
+        "I don't know what was so urgent. Banging and scraping until I gave up trying to sleep.",
+        "My window faces right that way, so I get the full concert."
+      ],
+      "reactions": [
+        "I'll survive. But I wish they'd warn people when they plan to go late."
+      ],
+      "statCheck": null,
+      "valence": "negative",
+      "topic_category": "poi_awareness",
+      "required_entities": [
+        "poi"
+      ],
+      "location_scope": "local",
+      "quest_trigger": null
+    },
+    {
+      "id": 53,
+      "intro": "The {poi_type} always smells like work. Sweat, dust, warm metal, whatever they're burning that day.",
+      "details": [
+        "It's not pleasant exactly, but it's honest. You walk past and you know things are getting done.",
+        "My clothes pick up the smell if I stand there too long."
+      ],
+      "reactions": [
+        "I'd rather smell work than nothing at all."
+      ],
+      "statCheck": null,
+      "valence": "neutral",
+      "topic_category": "poi_awareness",
+      "required_entities": [
+        "poi"
+      ],
+      "location_scope": "local",
+      "quest_trigger": null
+    },
+    {
+      "id": 54,
+      "intro": "I watched them unloading {resource_type} at the {poi_type} this morning. Must have been a big haul.",
+      "details": [
+        "Cart after cart, and the workers were grinning. That's always a good sign.",
+        "Haven't seen a delivery that size in months."
+      ],
+      "reactions": [
+        "The settlement eats when the {poi_type} produces. Simple as that."
+      ],
+      "statCheck": null,
+      "valence": "positive",
+      "topic_category": "poi_awareness",
+      "required_entities": [
+        "poi"
+      ],
+      "location_scope": "local",
+      "quest_trigger": null
+    },
+    {
+      "id": 55,
+      "intro": "The {poi_type} has a weathervane on top that squeaks in the wind. Drives me up the wall.",
+      "details": [
+        "On a still day it's fine. But any breeze at all and it starts up: eee, eee, eee, all day long.",
+        "I mentioned it once and was told it's been squeaking since before I was born."
+      ],
+      "reactions": [
+        "A single drop of oil: that's all it would take."
+      ],
+      "statCheck": null,
+      "valence": "negative",
+      "topic_category": "poi_awareness",
+      "required_entities": [
+        "poi"
+      ],
+      "location_scope": "local",
+      "quest_trigger": null
+    },
+    {
+      "id": 56,
+      "intro": "The sunset behind the {poi_type} last night was spectacular. Orange and pink all along the ridge.",
+      "details": [
+        "The silhouette of the building against that sky was something you'd want to paint.",
+        "I stood there like an idiot just staring until the color faded."
+      ],
+      "reactions": [
+        "Doesn't cost anything to look up once in a while."
+      ],
+      "statCheck": null,
+      "valence": "positive",
+      "topic_category": "poi_awareness",
+      "required_entities": [
+        "poi"
+      ],
+      "location_scope": "local",
+      "quest_trigger": null
+    },
+    {
+      "id": 57,
+      "intro": "{npc_name} has been spending a lot of time at the {poi_type}. More than their share, I'd say.",
+      "details": [
+        "I see them going in early and coming out late. Not sure if they're dedicated or avoiding something.",
+        "The others there don't seem to mind. Might even be grateful for the extra help."
+      ],
+      "reactions": [
+        "None of my business, really. Just something I've noticed."
+      ],
+      "statCheck": null,
+      "valence": "neutral",
+      "topic_category": "poi_awareness",
+      "required_entities": [
+        "poi"
+      ],
+      "location_scope": "local",
+      "quest_trigger": null
+    },
+    {
+      "id": 58,
+      "intro": "The {poi_type} looks lonely at night. Just a dark shape against the sky with no lights.",
+      "details": [
+        "During the day it's full of life, but after hours it's like a different place entirely.",
+        "I walked past it once after midnight and it felt like the building was watching me."
+      ],
+      "reactions": [
+        "Buildings don't have moods. But try telling yourself that in the dark."
+      ],
+      "statCheck": null,
+      "valence": "neutral",
+      "topic_category": "poi_awareness",
+      "required_entities": [
+        "poi"
+      ],
+      "location_scope": "local",
+      "quest_trigger": null
+    },
+    {
+      "id": 59,
+      "intro": "Rain collects on the {poi_type}'s roof and pours off in one spot. Made a little gully in the ground.",
+      "details": [
+        "There's no gutter on that side, so all the water channels to the low point and dumps.",
+        "In a heavy rain it's like a waterfall: kids love it, but the foundation probably doesn't."
+      ],
+      "reactions": [
+        "Another thing on the list nobody's getting to."
+      ],
+      "statCheck": {
+        "pass": "That concentrated water flow is undermining the footing. A simple rain barrel or splash block would redirect it before it does real damage.",
+        "fail": "I don't know building stuff. Just seems like a lot of water in one spot."
+      },
+      "valence": "negative",
+      "topic_category": "poi_awareness",
+      "required_entities": [
+        "poi"
+      ],
+      "location_scope": "local",
+      "quest_trigger": null
+    },
+    {
+      "id": 60,
+      "intro": "I bumped into {npc_name} coming out of the {poi_type}. They seemed pleased with themselves.",
+      "details": [
+        "Wouldn't say what about. Just had that look, like they knew something good that I didn't.",
+        "I'll probably find out in a few days. News doesn't stay quiet long around here."
+      ],
+      "reactions": [
+        "Good for them. I could use a day like that myself."
+      ],
+      "statCheck": null,
+      "valence": "neutral",
+      "topic_category": "poi_awareness",
+      "required_entities": [
+        "poi"
+      ],
+      "location_scope": "local",
+      "quest_trigger": null
+    },
+    {
+      "id": 61,
+      "intro": "The {poi_type} is the heart of this place, whether people admit it or not.",
+      "details": [
+        "Take it away and half the settlement wouldn't know what to do with themselves.",
+        "It's where people meet, where work happens, where news spreads. Everything flows through it."
+      ],
+      "reactions": [
+        "You don't think about it until you imagine it gone. Then you realize."
+      ],
+      "statCheck": null,
+      "valence": "neutral",
+      "topic_category": "poi_awareness",
+      "required_entities": [
+        "poi"
+      ],
+      "location_scope": "local",
+      "quest_trigger": null
+    },
+    {
+      "id": 62,
+      "intro": "The fence around the {poi_type} is falling apart. Posts leaning, boards missing.",
+      "details": [
+        "It's more decoration than barrier at this point. A stiff breeze could flatten it.",
+        "I think the last repair was years ago. You can see where someone patched it with mismatched wood."
+      ],
+      "reactions": [
+        "At some point patching stops making sense and you just need to start over."
+      ],
+      "statCheck": {
+        "pass": "The posts are rotting at ground level where moisture sits. Replacing them with stone footings would add twenty years to the life of the fence.",
+        "fail": "I'm no carpenter. It just looks rough."
+      },
+      "valence": "negative",
+      "topic_category": "poi_awareness",
+      "required_entities": [
+        "poi"
+      ],
+      "location_scope": "local",
+      "quest_trigger": null
+    },
+    {
+      "id": 63,
+      "intro": "Mornings at the {poi_type} are the best time to visit. Everyone's fresh, nobody's grumpy yet.",
+      "details": [
+        "There's energy in the air. People actually say hello instead of grunting.",
+        "By afternoon the mood shifts. Better to get your business done early."
+      ],
+      "reactions": [
+        "I try to handle anything {poi_type}-related before noon. Life's easier that way."
+      ],
+      "statCheck": null,
+      "valence": "positive",
+      "topic_category": "poi_awareness",
+      "required_entities": [
+        "poi"
+      ],
+      "location_scope": "local",
+      "quest_trigger": null
+    },
+    {
+      "id": 64,
+      "intro": "The {poi_type} put out a bad batch of {resource_type} last week. People weren't happy.",
+      "details": [
+        "It wasn't dangerous or anything, just poor quality. Below what anyone expected.",
+        "The crew there looked embarrassed. You could tell they knew."
+      ],
+      "reactions": [
+        "Everyone has an off week. I just hope it's not a pattern."
+      ],
+      "statCheck": {
+        "pass": "The raw material was fine. I think the processing was rushed: they tried to push through too much volume and cut corners on the finishing.",
+        "fail": "I wouldn't know good technique from bad. I just know the result wasn't up to scratch."
+      },
+      "valence": "negative",
+      "topic_category": "poi_awareness",
+      "required_entities": [
+        "poi"
+      ],
+      "location_scope": "local",
+      "quest_trigger": null
+    },
+    {
+      "id": 65,
+      "intro": "There's a bench near the {poi_type} where the old-timers sit. They've been doing it for as long as anyone remembers.",
+      "details": [
+        "Same spot every day, watching people come and go. They know everyone's business.",
+        "If you want to know what's really happening in this settlement, sit on that bench for an hour."
+      ],
+      "reactions": [
+        "I'll be on that bench someday. It's not the worst retirement plan."
+      ],
+      "statCheck": null,
+      "valence": "neutral",
+      "topic_category": "poi_awareness",
+      "required_entities": [
+        "poi"
+      ],
+      "location_scope": "local",
+      "quest_trigger": null
+    },
+    {
+      "id": 66,
+      "intro": "The wind funnels through the gap between the {poi_type} and the building next to it. Howls like a wolf.",
+      "details": [
+        "On a calm day you'd never know. But when the wind picks up from the {direction}, the whole area moans.",
+        "First time I heard it I thought something was wrong. Now I barely notice."
+      ],
+      "reactions": [
+        "Visitors always ask about it. We've all stopped hearing it."
+      ],
+      "statCheck": {
+        "pass": "The gap is just the right width to accelerate the airflow: wider wouldn't do it, narrower would block it. An accident of building placement.",
+        "fail": "I don't know why it does that. Something about the shape of the gap."
+      },
+      "valence": "neutral",
+      "topic_category": "poi_awareness",
+      "required_entities": [
+        "poi"
+      ],
+      "location_scope": "local",
+      "quest_trigger": null
+    },
+    {
+      "id": 67,
+      "intro": "I brought visitors past the {poi_type} last month. They were impressed.",
+      "details": [
+        "Said their settlement doesn't have anything like it. Made me see the place with fresh eyes.",
+        "You stop noticing what you see every day until someone else points it out."
+      ],
+      "reactions": [
+        "We do all right here. Easy to forget that sometimes."
+      ],
+      "statCheck": null,
+      "valence": "positive",
+      "topic_category": "poi_awareness",
+      "required_entities": [
+        "poi"
+      ],
+      "location_scope": "local",
+      "quest_trigger": null
+    },
+    {
+      "id": 68,
+      "intro": "Dust kicks up around the {poi_type} in dry weather. Gets in your eyes, your clothes, everything.",
+      "details": [
+        "The ground there is all loose grit. No grass to hold it down.",
+        "By the end of a dry spell everything within fifty paces has a layer of dust on it."
+      ],
+      "reactions": [
+        "I try to avoid walking that way when it hasn't rained. Not always possible."
+      ],
+      "statCheck": null,
+      "valence": "negative",
+      "topic_category": "poi_awareness",
+      "required_entities": [
+        "poi"
+      ],
+      "location_scope": "local",
+      "quest_trigger": null
+    },
+    {
+      "id": 69,
+      "intro": "The {poi_type} echoes at night. Sounds carry differently when nobody's working.",
+      "details": [
+        "A loose shutter banging, something settling in the walls. Normal stuff that sounds eerie after dark.",
+        "I've heard people say the place is haunted, but it's not. Old buildings just creak."
+      ],
+      "reactions": [
+        "Everything sounds bigger in the quiet."
+      ],
+      "statCheck": null,
+      "valence": "neutral",
+      "topic_category": "poi_awareness",
+      "required_entities": [
+        "poi"
+      ],
+      "location_scope": "local",
+      "quest_trigger": null
+    },
+    {
+      "id": 70,
+      "intro": "The {poi_type} got new tools recently. You can tell by the way the work sounds different.",
+      "details": [
+        "Cleaner strikes, less scraping. The old equipment must have been in worse shape than anyone admitted.",
+        "Morale seems up too. People work better when their tools work properly."
+      ],
+      "reactions": [
+        "Should have done it sooner, honestly."
+      ],
+      "statCheck": {
+        "pass": "Good tools reduce waste and fatigue. A sharp blade does the work of three dull ones, and the worker goes home with energy to spare.",
+        "fail": "I don't use that kind of equipment. I just know new sounds better than old."
+      },
+      "valence": "positive",
+      "topic_category": "poi_awareness",
+      "required_entities": [
+        "poi"
+      ],
+      "location_scope": "local",
+      "quest_trigger": null
+    },
+    {
+      "id": 71,
+      "intro": "There's always a pile of waste material outside the {poi_type}. It grows all week and vanishes on rest day.",
+      "details": [
+        "Offcuts, shavings, broken bits. The usual byproducts of work.",
+        "I've seen people pick through it for useful scraps before the cleanup crew comes."
+      ],
+      "reactions": [
+        "One person's waste is another's project material. That's just how it works."
+      ],
+      "statCheck": null,
+      "valence": "neutral",
+      "topic_category": "poi_awareness",
+      "required_entities": [
+        "poi"
+      ],
+      "location_scope": "local",
+      "quest_trigger": null
+    },
+    {
+      "id": 72,
+      "intro": "I avoid the {poi_type} at lunchtime. Everyone crowds the entrance and you can't get through.",
+      "details": [
+        "Workers spill out with their meals and suddenly the path is a dining hall.",
+        "They're perfectly friendly about it, but navigating around twenty people eating is a chore."
+      ],
+      "reactions": [
+        "I just take a different route. Easier than asking people to move."
+      ],
+      "statCheck": null,
+      "valence": "negative",
+      "topic_category": "poi_awareness",
+      "required_entities": [
+        "poi"
+      ],
+      "location_scope": "local",
+      "quest_trigger": null
+    },
+    {
+      "id": 73,
+      "intro": "The {poi_type} has held up well through the years. Sturdy construction, that.",
+      "details": [
+        "The walls are still plumb, the doors still hang true. Whoever built it knew their trade.",
+        "Most buildings around here show their age. The {poi_type} wears it well."
+      ],
+      "reactions": [
+        "Good bones make all the difference."
+      ],
+      "statCheck": {
+        "pass": "The foundation is set on bedrock, and the timber framing uses mortise-and-tenon joints throughout. That's old-school craftsmanship: built to last generations.",
+        "fail": "I don't know construction. It just seems solid to me."
+      },
+      "valence": "positive",
+      "topic_category": "poi_awareness",
+      "required_entities": [
+        "poi"
+      ],
+      "location_scope": "local",
+      "quest_trigger": null
+    },
+    {
+      "id": 74,
+      "intro": "The {crop_type} field near the {poi_type} has been struggling. Yellowing at the tips.",
+      "details": [
+        "It looked fine a few weeks ago. Something changed and now the whole plot looks tired.",
+        "The person tending it has been out there every day, but you can only do so much."
+      ],
+      "reactions": [
+        "Farming is a gamble. Sometimes the land just doesn't cooperate."
+      ],
+      "statCheck": {
+        "pass": "Yellowing tips usually means a nitrogen deficiency. The soil's been planted too many seasons without a fallow year, and it's exhausted.",
+        "fail": "I know nothing about crops. It just looks off."
+      },
+      "valence": "negative",
+      "topic_category": "poi_awareness",
+      "required_entities": [
+        "poi"
+      ],
+      "location_scope": "local",
+      "quest_trigger": null
+    },
+    {
+      "id": 75,
+      "intro": "I can smell the {poi_type} before I see it most days. It's a warm, heavy smell.",
+      "details": [
+        "Depending on the wind, you catch it from two streets away. Some people hate it.",
+        "I don't mind. It smells like productivity to me."
+      ],
+      "reactions": [
+        "You get used to the smell of your own settlement. It's everyone else's that seems strong."
+      ],
+      "statCheck": null,
+      "valence": "neutral",
+      "topic_category": "poi_awareness",
+      "required_entities": [
+        "poi"
+      ],
+      "location_scope": "local",
+      "quest_trigger": null
+    },
+    {
+      "id": 76,
+      "intro": "The {poi_type} is the one building I'd hate to see damaged. We'd feel it immediately.",
+      "details": [
+        "Everything else could be rebuilt slowly. The {poi_type} going down would stop daily life in its tracks.",
+        "I think about that sometimes when the weather turns bad."
+      ],
+      "reactions": [
+        "Probably why people maintain it better than their own houses."
+      ],
+      "statCheck": null,
+      "valence": "neutral",
+      "topic_category": "poi_awareness",
+      "required_entities": [
+        "poi"
+      ],
+      "location_scope": "local",
+      "quest_trigger": null
+    },
+    {
+      "id": 77,
+      "intro": "Someone planted herbs along the south wall of the {poi_type}. They're thriving.",
+      "details": [
+        "Rosemary, thyme, something purple I can't name. The whole area smells wonderful now.",
+        "Whoever did it didn't ask permission. Nobody's complained."
+      ],
+      "reactions": [
+        "The best improvements are the ones nobody argues about."
+      ],
+      "statCheck": null,
+      "valence": "positive",
+      "topic_category": "poi_awareness",
+      "required_entities": [
+        "poi"
+      ],
+      "location_scope": "local",
+      "quest_trigger": null
+    },
+    {
+      "id": 78,
+      "intro": "The {poi_type} runs on routine: same people, same hours, same output. Boring, but reliable.",
+      "details": [
+        "I've never seen a day where it didn't open on time. Not once.",
+        "There's something comforting about that. You always know where you stand."
+      ],
+      "reactions": [
+        "Reliability isn't exciting, but it's the thing you miss most when it's gone."
+      ],
+      "statCheck": null,
+      "valence": "positive",
+      "topic_category": "poi_awareness",
+      "required_entities": [
+        "poi"
+      ],
+      "location_scope": "local",
+      "quest_trigger": null
+    },
+    {
+      "id": 79,
+      "intro": "The sign on the {poi_type} has faded so much you can barely read it anymore.",
+      "details": [
+        "The paint's peeled down to bare wood. Looks like nobody's touched it in years.",
+        "Everyone knows what it is by now, so I suppose a sign is just for visitors."
+      ],
+      "reactions": [
+        "Still, a fresh coat of paint wouldn't kill anyone."
+      ],
+      "statCheck": null,
+      "valence": "negative",
+      "topic_category": "poi_awareness",
+      "required_entities": [
+        "poi"
+      ],
+      "location_scope": "local",
+      "quest_trigger": null
+    },
+    {
+      "id": 80,
+      "intro": "I used to work at the {poi_type}. Miss it sometimes, but my back doesn't.",
+      "details": [
+        "It's honest work, but hard on the body. You feel every year of it in your joints.",
+        "The people there now are younger and faster. Good for them."
+      ],
+      "reactions": [
+        "I did my time. No regrets."
+      ],
+      "statCheck": null,
+      "valence": "neutral",
+      "topic_category": "poi_awareness",
+      "required_entities": [
+        "poi"
+      ],
+      "location_scope": "local",
+      "quest_trigger": null
+    },
+    {
+      "id": 81,
+      "intro": "A cat has claimed the {poi_type} as its territory. Sits on the windowsill and judges everyone.",
+      "details": [
+        "It hisses at strangers and purrs at regulars. Better security than any lock.",
+        "The workers give it scraps. I think it's the real boss of that operation."
+      ],
+      "reactions": [
+        "Every workplace needs a cat. Keeps the mice and the morale in check."
+      ],
+      "statCheck": null,
+      "valence": "positive",
+      "topic_category": "poi_awareness",
+      "required_entities": [
+        "poi"
+      ],
+      "location_scope": "local",
+      "quest_trigger": null
+    },
+    {
+      "id": 82,
+      "intro": "Water was pooling inside the {poi_type} after the last storm. They were bailing buckets for hours.",
+      "details": [
+        "The drainage can't handle heavy downpours. Everything backs up and floods the lower area.",
+        "Lost some {resource_type} too. Anything stored on the floor was ruined."
+      ],
+      "reactions": [
+        "They'll fix it after the next flood, and the one after that. We've been through this before."
+      ],
+      "statCheck": {
+        "pass": "The grade around the building slopes inward instead of away. Regrading the first two paces out from the wall would solve it permanently.",
+        "fail": "I don't understand drainage. I just know water goes where it wants."
+      },
+      "valence": "negative",
+      "topic_category": "poi_awareness",
+      "required_entities": [
+        "poi"
+      ],
+      "location_scope": "local",
+      "quest_trigger": null
+    },
+    {
+      "id": 83,
+      "intro": "The light inside the {poi_type} is always warm. Even on grey days it looks inviting from outside.",
+      "details": [
+        "I think they use tallow candles or fat lamps. Whatever it is, it casts a golden glow.",
+        "On cold evenings you can see it through the windows and it makes you want to go in."
+      ],
+      "reactions": [
+        "A well-lit space feels alive. A dark one feels abandoned even if it's not."
+      ],
+      "statCheck": null,
+      "valence": "neutral",
+      "topic_category": "poi_awareness",
+      "required_entities": [
+        "poi"
+      ],
+      "location_scope": "local",
+      "quest_trigger": null
+    },
+    {
+      "id": 84,
+      "intro": "The {poi_type} goes through {resource_type} faster than you'd expect. The consumption is staggering.",
+      "details": [
+        "I helped with an inventory count once and the numbers shocked me. Mountains of material in, a trickle out.",
+        "Most of it's processing loss. Waste is just the cost of the trade."
+      ],
+      "reactions": [
+        "Makes you appreciate what comes out the other end."
+      ],
+      "statCheck": {
+        "pass": "Yield ratios depend on the quality of the raw input. Better starting material means less waste, but it costs more up front: always a tradeoff.",
+        "fail": "I don't understand the process. I just know a lot goes in and less comes out."
+      },
+      "valence": "neutral",
+      "topic_category": "poi_awareness",
+      "required_entities": [
+        "poi"
+      ],
+      "location_scope": "local",
+      "quest_trigger": null
+    },
+    {
+      "id": 85,
+      "intro": "The {poi_type} is where all the arguments happen. Something about that place draws disagreements.",
+      "details": [
+        "I think it's because everyone has an opinion about how things should be done there.",
+        "Two people will walk in friendly and come out red-faced. Happens at least once a week."
+      ],
+      "reactions": [
+        "Passion about the work, I suppose. Better than nobody caring."
+      ],
+      "statCheck": null,
+      "valence": "neutral",
+      "topic_category": "poi_awareness",
+      "required_entities": [
+        "poi"
+      ],
+      "location_scope": "local",
+      "quest_trigger": null
+    },
+    {
+      "id": 86,
+      "intro": "The {poi_type} is starting to look its age. Nothing's falling down, but you can see the wear.",
+      "details": [
+        "Scuff marks on the doorframe, grooves worn into the floor, stains that won't come out.",
+        "It's the kind of aging that comes from heavy use. Not neglect, just life."
+      ],
+      "reactions": [
+        "A place that shows its use is a place that matters. Pristine means unused."
+      ],
+      "statCheck": null,
+      "valence": "neutral",
+      "topic_category": "poi_awareness",
+      "required_entities": [
+        "poi"
+      ],
+      "location_scope": "local",
+      "quest_trigger": null
+    },
+    {
+      "id": 87,
+      "intro": "I heard singing coming from the {poi_type} the other day. Someone in there has a nice voice.",
+      "details": [
+        "It was faint, just carrying on the breeze. One of the workers humming while they went about it.",
+        "I stopped walking just to listen for a minute."
+      ],
+      "reactions": [
+        "People who sing while they work are doing all right."
+      ],
+      "statCheck": null,
+      "valence": "positive",
+      "topic_category": "poi_awareness",
+      "required_entities": [
+        "poi"
+      ],
+      "location_scope": "local",
+      "quest_trigger": null
+    },
+    {
+      "id": 88,
+      "intro": "There's a drainage ditch near the {poi_type} that hasn't been cleaned in ages. It's backing up.",
+      "details": [
+        "Leaves, muck, bits of broken tools. Everything ends up in there.",
+        "When it overflows it sends dirty water right across the path."
+      ],
+      "reactions": [
+        "I'd do it myself but nobody asked me, and volunteering for ditch cleaning is a slippery slope."
+      ],
+      "statCheck": null,
+      "valence": "negative",
+      "topic_category": "poi_awareness",
+      "required_entities": [
+        "poi"
+      ],
+      "location_scope": "local",
+      "quest_trigger": null
+    },
+    {
+      "id": 89,
+      "intro": "The view from the {poi_type} toward the {direction} is lovely on a clear day.",
+      "details": [
+        "You can see the tree line and the hills beyond. Sometimes hawks circling up high.",
+        "I think the workers there don't even notice anymore. Too busy looking at their hands."
+      ],
+      "reactions": [
+        "Wasted on the people who work there. They should charge admission for the view."
+      ],
+      "statCheck": null,
+      "valence": "positive",
+      "topic_category": "poi_awareness",
+      "required_entities": [
+        "poi"
+      ],
+      "location_scope": "local",
+      "quest_trigger": null
+    },
+    {
+      "id": 90,
+      "intro": "The {poi_type} has been open since before most of us were born. Hard to imagine this place without it.",
+      "details": [
+        "My parents talked about it the same way I do. Same building, same purpose, different hands.",
+        "The walls have heard more conversations than any person alive."
+      ],
+      "reactions": [
+        "Some things should just keep going. The {poi_type} is one of them."
+      ],
+      "statCheck": null,
+      "valence": "neutral",
+      "topic_category": "poi_awareness",
+      "required_entities": [
+        "poi"
+      ],
+      "location_scope": "local",
+      "quest_trigger": null
+    },
+    {
+      "id": 91,
+      "intro": "The {poi_type} had rats last month. Took a week to sort it out.",
+      "details": [
+        "They got into the stored {resource_type} and ruined a good portion of it.",
+        "The crew there was furious. Can't blame them: that's a lot of work eaten by vermin."
+      ],
+      "reactions": [
+        "It happens. Doesn't make it any less frustrating."
+      ],
+      "statCheck": {
+        "pass": "Rats follow the food supply: if the storage wasn't sealed properly, it's an open invitation. Clay-lined bins with weighted lids would solve it.",
+        "fail": "I don't know rat behavior. I just know they ate our stuff."
+      },
+      "valence": "negative",
+      "topic_category": "poi_awareness",
+      "required_entities": [
+        "poi"
+      ],
+      "location_scope": "local",
+      "quest_trigger": null
+    },
+    {
+      "id": 92,
+      "intro": "I like the {poi_type} in the early morning before anyone else arrives. It's calm.",
+      "details": [
+        "The door's usually unlocked, the tools are all in their places, everything waiting to be used.",
+        "There's a peacefulness to a workspace before the work begins."
+      ],
+      "reactions": [
+        "I'd never tell the workers I sneak in early just to enjoy the quiet. They'd think I was strange."
+      ],
+      "statCheck": null,
+      "valence": "positive",
+      "topic_category": "poi_awareness",
+      "required_entities": [
+        "poi"
+      ],
+      "location_scope": "local",
+      "quest_trigger": null
+    },
+    {
+      "id": 93,
+      "intro": "The {poi_type} is the one building everyone can find with their eyes closed. It's that central.",
+      "details": [
+        "You could lead a blindfolded person there by sound and smell alone.",
+        "Every direction in town is described relative to it. Left of the {poi_type}, past the {poi_type}, behind the {poi_type}."
+      ],
+      "reactions": [
+        "It's not the fanciest building. It's just the one that matters."
+      ],
+      "statCheck": null,
+      "valence": "neutral",
+      "topic_category": "poi_awareness",
+      "required_entities": [
+        "poi"
+      ],
+      "location_scope": "local",
+      "quest_trigger": null
+    },
+    {
+      "id": 94,
+      "intro": "Birds nest in the eaves of the {poi_type} every spring. Makes a terrible mess.",
+      "details": [
+        "Droppings on the entrance stones, straw falling from above, chirping at dawn.",
+        "The workers complained last year but nobody wanted to be the one to knock the nests down."
+      ],
+      "reactions": [
+        "They'll be gone by autumn. Easier to wait than to fight nature."
+      ],
+      "statCheck": null,
+      "valence": "neutral",
+      "topic_category": "poi_awareness",
+      "required_entities": [
+        "poi"
+      ],
+      "location_scope": "local",
+      "quest_trigger": null
+    },
+    {
+      "id": 95,
+      "intro": "The {poi_type} has been surprisingly quiet this week. Less output, fewer people around.",
+      "details": [
+        "I don't know if it's planned or if something's wrong. Nobody's said anything.",
+        "It's unsettling when a busy place goes still."
+      ],
+      "reactions": [
+        "Probably just a slow stretch. Doesn't stop me from worrying, though."
+      ],
+      "statCheck": null,
+      "valence": "negative",
+      "topic_category": "poi_awareness",
+      "required_entities": [
+        "poi"
+      ],
+      "location_scope": "local",
+      "quest_trigger": null
+    },
+    {
+      "id": 96,
+      "intro": "Frost covered the {poi_type} this morning. Every surface was white and glittering.",
+      "details": [
+        "The workers were scraping ice off their tools before they could start. Cold hands and stiff joints.",
+        "It was beautiful to look at, though. Like the building had been sugar-coated."
+      ],
+      "reactions": [
+        "Pretty for me. Miserable for the people who have to work there."
+      ],
+      "statCheck": null,
+      "valence": "neutral",
+      "topic_category": "poi_awareness",
+      "required_entities": [
+        "poi"
+      ],
+      "location_scope": "local",
+      "quest_trigger": null
+    },
+    {
+      "id": 97,
+      "intro": "The {poi_type} draws the best workers in the settlement. People want to be assigned there.",
+      "details": [
+        "It's not the easiest post, but the people who run it treat their crew fairly.",
+        "That makes a difference. Word gets around."
+      ],
+      "reactions": [
+        "Good leadership pulls good people. It's that simple."
+      ],
+      "statCheck": null,
+      "valence": "positive",
+      "topic_category": "poi_awareness",
+      "required_entities": [
+        "poi"
+      ],
+      "location_scope": "local",
+      "quest_trigger": null
+    },
+    {
+      "id": 98,
+      "intro": "I swear the {poi_type} is louder on certain days. Maybe it depends on the wind direction.",
+      "details": [
+        "Some mornings I can hear every clang and shout. Other days it's barely a murmur.",
+        "Wind from the {direction} seems to carry the sound right to my door."
+      ],
+      "reactions": [
+        "Not much I can do about wind. Just close the shutters and deal with it."
+      ],
+      "statCheck": {
+        "pass": "Sound carries farther in cold, dense air, and a shift in wind direction changes which parts of town get the noise. Just physics.",
+        "fail": "I don't know why some days are louder. It just seems random."
+      },
+      "valence": "neutral",
+      "topic_category": "poi_awareness",
+      "required_entities": [
+        "poi"
+      ],
+      "location_scope": "local",
+      "quest_trigger": null
+    },
+    {
+      "id": 99,
+      "intro": "Someone stacked firewood along the whole back wall of the {poi_type}. Looks like they're expecting a long winter.",
+      "details": [
+        "It's piled higher than the windows. Must have taken days to cut and haul all that.",
+        "Either they know something about the weather that I don't, or they're just thorough."
+      ],
+      "reactions": [
+        "Better too much than too little. You don't want to be scrounging for fuel in a cold snap."
+      ],
+      "statCheck": null,
+      "valence": "neutral",
+      "topic_category": "poi_awareness",
+      "required_entities": [
+        "poi"
+      ],
+      "location_scope": "local",
+      "quest_trigger": null
+    },
+    {
+      "id": 100,
+      "intro": "I like the {poi_type} in autumn best. The color of the trees around it, the cooler air.",
+      "details": [
+        "Everything looks warmer somehow, even though the temperature is dropping.",
+        "The smoke from the chimney stands out sharper against the blue sky."
+      ],
+      "reactions": [
+        "Autumn makes everything look the way I feel about this place."
+      ],
+      "statCheck": null,
+      "valence": "positive",
+      "topic_category": "poi_awareness",
+      "required_entities": [
+        "poi"
+      ],
+      "location_scope": "local",
+      "quest_trigger": null
+    },
+    {
+      "id": 101,
+      "intro": "I noticed the {poi_type} left its doors open all night last week. Anyone could have walked in.",
+      "details": [
+        "I didn't go in or anything. Just saw it on my way home and thought that's careless.",
+        "Nothing went missing, apparently. But it could have."
+      ],
+      "reactions": [
+        "We're lucky we live in a place where an open door doesn't mean disaster. Not everywhere is like that."
+      ],
+      "statCheck": null,
+      "valence": "neutral",
+      "topic_category": "poi_awareness",
+      "required_entities": [
+        "poi"
+      ],
+      "location_scope": "local",
+      "quest_trigger": null
+    },
+    {
+      "id": 102,
+      "intro": "The people at the {poi_type} have been working weekends. Whatever they're rushing for, it's urgent.",
+      "details": [
+        "They look tired: short tempers, not much chatting. Just heads down and working.",
+        "I asked {npc_name} what was going on and they just shrugged. Tight-lipped about it."
+      ],
+      "reactions": [
+        "If it were bad news, we'd know. Probably just a big order to fill."
+      ],
+      "statCheck": null,
+      "valence": "neutral",
+      "topic_category": "poi_awareness",
+      "required_entities": [
+        "poi"
+      ],
+      "location_scope": "local",
+      "quest_trigger": null
+    },
+    {
+      "id": 103,
+      "intro": "The steps at the {poi_type} are worn smooth from years of foot traffic. Almost slippery.",
+      "details": [
+        "The stone has dipped in the center where everyone walks. You can feel the groove.",
+        "That's thousands of people's footsteps carved into rock. There's something to that."
+      ],
+      "reactions": [
+        "I always step to the side. Force of habit."
+      ],
+      "statCheck": null,
+      "valence": "neutral",
+      "topic_category": "poi_awareness",
+      "required_entities": [
+        "poi"
+      ],
+      "location_scope": "local",
+      "quest_trigger": null
+    },
+    {
+      "id": 104,
+      "intro": "The {poi_type} was the first place I visited when I moved here. First impression of the whole settlement.",
+      "details": [
+        "I remember thinking: if this place takes care of its {poi_type}, it takes care of its people.",
+        "I wasn't wrong, as it turned out."
+      ],
+      "reactions": [
+        "You can tell a lot about a community by the state of its working buildings."
+      ],
+      "statCheck": null,
+      "valence": "positive",
+      "topic_category": "poi_awareness",
+      "required_entities": [
+        "poi"
+      ],
+      "location_scope": "local",
+      "quest_trigger": null
+    },
+    {
+      "id": 105,
+      "intro": "There's a leak in the {poi_type}'s water supply: small but steady. You can see the damp patch spreading.",
+      "details": [
+        "They've been ignoring it because it's not gushing. But slow leaks cause the most damage.",
+        "The wood around the wet spot is starting to darken. That's rot waiting to happen."
+      ],
+      "reactions": [
+        "Fix it now or rebuild later. That's always the choice with water damage."
+      ],
+      "statCheck": {
+        "pass": "Water follows gravity and the path of least resistance. That damp patch means the leak source is higher and further back than where you see the stain.",
+        "fail": "I don't understand plumbing. I just see the wet spot getting bigger."
+      },
+      "valence": "negative",
+      "topic_category": "poi_awareness",
+      "required_entities": [
+        "poi"
+      ],
+      "location_scope": "local",
+      "quest_trigger": null
+    },
+    {
+      "id": 106,
+      "intro": "The {poi_type} always has the first fire lit in the morning. I can see the smoke from my window.",
+      "details": [
+        "I use it as my alarm, honestly. Smoke rising means it's time to get moving.",
+        "Whoever starts that fire is up before the sun. Dedicated, or just can't sleep."
+      ],
+      "reactions": [
+        "There's comfort in knowing the day has started somewhere, even when you're not ready for it."
+      ],
+      "statCheck": null,
+      "valence": "neutral",
+      "topic_category": "poi_awareness",
+      "required_entities": [
+        "poi"
+      ],
+      "location_scope": "local",
+      "quest_trigger": null
+    },
+    {
+      "id": 107,
+      "intro": "A fight broke out near the {poi_type} yesterday. Nothing serious, just two people disagreeing loudly.",
+      "details": [
+        "Something about who was responsible for a missed delivery. Voices carried across the whole area.",
+        "It blew over fast. They were sharing a drink by evening."
+      ],
+      "reactions": [
+        "That's how it goes. You argue, you sort it, you move on."
+      ],
+      "statCheck": null,
+      "valence": "neutral",
+      "topic_category": "poi_awareness",
+      "required_entities": [
+        "poi"
+      ],
+      "location_scope": "local",
+      "quest_trigger": null
+    },
+    {
+      "id": 108,
+      "intro": "The ground near the {poi_type} freezes before anywhere else in town. Something about the shade.",
+      "details": [
+        "The building blocks the morning sun, so the frost lingers there until almost noon.",
+        "I've slipped on that patch twice this year already."
+      ],
+      "reactions": [
+        "You'd think I'd learn. But every year I forget until I'm on the ground."
+      ],
+      "statCheck": {
+        "pass": "North-facing ground in building shadow gets no direct sun from autumn through early spring. The soil there never fully thaws in winter.",
+        "fail": "I don't know why it's always icy there. It just is."
+      },
+      "valence": "negative",
+      "topic_category": "poi_awareness",
+      "required_entities": [
+        "poi"
+      ],
+      "location_scope": "local",
+      "quest_trigger": null
+    },
+    {
+      "id": 109,
+      "intro": "The {poi_type} produces enough {resource_type} to keep us comfortable. Not rich, but comfortable.",
+      "details": [
+        "There's always enough to go around, with a little left over for trade.",
+        "That's all you can really ask for from a place this size."
+      ],
+      "reactions": [
+        "Comfortable is underrated. People always want more, but comfortable is plenty."
+      ],
+      "statCheck": null,
+      "valence": "positive",
+      "topic_category": "poi_awareness",
+      "required_entities": [
+        "poi"
+      ],
+      "location_scope": "local",
+      "quest_trigger": null
+    },
+    {
+      "id": 110,
+      "intro": "I tried explaining to a traveler where the {poi_type} was. They walked right past it twice.",
+      "details": [
+        "It doesn't look like much from the road. You have to know what you're looking for.",
+        "I ended up just walking them there. Easier than giving directions."
+      ],
+      "reactions": [
+        "We know every stone of this place. Easy to forget that nobody else does."
+      ],
+      "statCheck": null,
+      "valence": "neutral",
+      "topic_category": "poi_awareness",
+      "required_entities": [
+        "poi"
+      ],
+      "location_scope": "local",
+      "quest_trigger": null
+    },
+    {
+      "id": 111,
+      "intro": "The {poi_type} could really use a coat of whitewash. It's looking drab.",
+      "details": [
+        "The color's gone from warm cream to grey-brown. Just from weather and time.",
+        "It wouldn't take long. A day's work, maybe two."
+      ],
+      "reactions": [
+        "Appearances matter more than people think. A clean-looking building lifts the whole area."
+      ],
+      "statCheck": null,
+      "valence": "negative",
+      "topic_category": "poi_awareness",
+      "required_entities": [
+        "poi"
+      ],
+      "location_scope": "local",
+      "quest_trigger": null
+    },
+    {
+      "id": 112,
+      "intro": "I dropped off some food at the {poi_type} for the workers. They seemed grateful.",
+      "details": [
+        "They don't always remember to eat, especially when they're focused on a big job.",
+        "A warm meal in the middle of a long shift does more than people realize."
+      ],
+      "reactions": [
+        "Small gestures. That's how a settlement holds together."
+      ],
+      "statCheck": null,
+      "valence": "positive",
+      "topic_category": "poi_awareness",
+      "required_entities": [
+        "poi"
+      ],
+      "location_scope": "local",
+      "quest_trigger": null
+    },
+    {
+      "id": 113,
+      "intro": "The {poi_type} has a loose shutter that bangs every time the wind blows. It's maddening if you're nearby.",
+      "details": [
+        "Bang, pause, bang: all day, every windy day.",
+        "I counted once: fourteen bangs in a minute before I gave up."
+      ],
+      "reactions": [
+        "A nail and a hammer. That's literally all it would take."
+      ],
+      "statCheck": null,
+      "valence": "negative",
+      "topic_category": "poi_awareness",
+      "required_entities": [
+        "poi"
+      ],
+      "location_scope": "local",
+      "quest_trigger": null
+    },
+    {
+      "id": 114,
+      "intro": "The afternoon shadow of the {poi_type} stretches all the way across the square. Like a sundial.",
+      "details": [
+        "You can tell the time by where the shadow's edge falls. I do it without thinking.",
+        "When it reaches the well, it's mid-afternoon. When it hits the houses, supper's close."
+      ],
+      "reactions": [
+        "People had clocks before they had clocks. You just use what's around you."
+      ],
+      "statCheck": null,
+      "valence": "neutral",
+      "topic_category": "poi_awareness",
+      "required_entities": [
+        "poi"
+      ],
+      "location_scope": "local",
+      "quest_trigger": null
+    },
+    {
+      "id": 115,
+      "intro": "The {poi_type} was extra productive this month. People are in good spirits about it.",
+      "details": [
+        "More {resource_type} than we've seen in a long time. Surplus, even.",
+        "When there's enough to share, the whole settlement feels lighter."
+      ],
+      "reactions": [
+        "Months like this make the lean ones worth pushing through."
+      ],
+      "statCheck": null,
+      "valence": "positive",
+      "topic_category": "poi_awareness",
+      "required_entities": [
+        "poi"
+      ],
+      "location_scope": "local",
+      "quest_trigger": null
+    },
+    {
+      "id": 116,
+      "intro": "I heard {npc_name} complaining about the {poi_type} again. They're never satisfied.",
+      "details": [
+        "Always something: the hours, the quality, the noise, the location. Pick a gripe, they've got it.",
+        "Meanwhile, the rest of us are getting on fine."
+      ],
+      "reactions": [
+        "Some people just need something to be unhappy about."
+      ],
+      "statCheck": null,
+      "valence": "neutral",
+      "topic_category": "poi_awareness",
+      "required_entities": [
+        "poi"
+      ],
+      "location_scope": "local",
+      "quest_trigger": null
+    },
+    {
+      "id": 117,
+      "intro": "I helped repair a hinge at the {poi_type} yesterday. Small job, felt good to contribute.",
+      "details": [
+        "The door had been sticking for weeks. Ten minutes with a file and some grease and it swings smooth.",
+        "The workers acted like I'd rebuilt the whole building."
+      ],
+      "reactions": [
+        "That's the kind of thing I can actually help with. I'll leave the hard labor to others."
+      ],
+      "statCheck": null,
+      "valence": "positive",
+      "topic_category": "poi_awareness",
+      "required_entities": [
+        "poi"
+      ],
+      "location_scope": "local",
+      "quest_trigger": null
+    },
+    {
+      "id": 118,
+      "intro": "The {poi_type} is getting cluttered. Supplies stacked everywhere, no clear walkway.",
+      "details": [
+        "Used to be organized. Now it looks like everything just gets dropped wherever there's space.",
+        "Sooner or later someone's going to trip over something and get hurt."
+      ],
+      "reactions": [
+        "A messy workspace is a slow workspace. But nobody asked me."
+      ],
+      "statCheck": null,
+      "valence": "negative",
+      "topic_category": "poi_awareness",
+      "required_entities": [
+        "poi"
+      ],
+      "location_scope": "local",
+      "quest_trigger": null
+    },
+    {
+      "id": 119,
+      "intro": "Spring runoff flows right past the {poi_type}. You can hear the water rushing from the path.",
+      "details": [
+        "It only happens for a few weeks, but when it does the whole area sounds like a creek.",
+        "The ground goes soft and the earthworms surface. The birds follow."
+      ],
+      "reactions": [
+        "I look forward to it every year. The sound of meltwater means winter's done."
+      ],
+      "statCheck": null,
+      "valence": "positive",
+      "topic_category": "poi_awareness",
+      "required_entities": [
+        "poi"
+      ],
+      "location_scope": "local",
+      "quest_trigger": null
+    },
+    {
+      "id": 120,
+      "intro": "The {poi_type}'s output has been inconsistent. Good one week, poor the next.",
+      "details": [
+        "You can't plan around that. People need to know what they're going to get.",
+        "I think the problem is they're trying new methods and not sticking to what works."
+      ],
+      "reactions": [
+        "Experimentation is fine, but not when people are depending on you."
+      ],
+      "statCheck": {
+        "pass": "Inconsistency usually comes from variable input quality: if the raw {resource_type} varies batch to batch, the output will too. They need a grading step at intake.",
+        "fail": "I don't know the trade well enough to diagnose it. Just that the results keep changing."
+      },
+      "valence": "negative",
+      "topic_category": "poi_awareness",
+      "required_entities": [
+        "poi"
+      ],
+      "location_scope": "local",
+      "quest_trigger": null
+    },
+    {
+      "id": 121,
+      "intro": "There's a cistern near the {poi_type} that collects rainwater. It's been full all season.",
+      "details": [
+        "Clean water, always available. It saves trips to the well, especially for the workers.",
+        "Someone rigged a clever lid that keeps the debris out but lets the rain in."
+      ],
+      "reactions": [
+        "Simple solutions are the best ones. Nobody argues with free water."
+      ],
+      "statCheck": null,
+      "valence": "positive",
+      "topic_category": "poi_awareness",
+      "required_entities": [
+        "poi"
+      ],
+      "location_scope": "local",
+      "quest_trigger": null
+    },
+    {
+      "id": 122,
+      "intro": "I miss how the {poi_type} used to run. It felt more organized, more purposeful.",
+      "details": [
+        "I can't point to a single thing that changed. It's more of a feeling.",
+        "The work still gets done. It just seems like more effort for the same result."
+      ],
+      "reactions": [
+        "Could be me, could be the place. Probably a bit of both."
+      ],
+      "statCheck": null,
+      "valence": "negative",
+      "topic_category": "poi_awareness",
+      "required_entities": [
+        "poi"
+      ],
+      "location_scope": "local",
+      "quest_trigger": null
+    },
+    {
+      "id": 123,
+      "intro": "The chimney at the {poi_type} sends up the most beautiful smoke on cold mornings. Straight and white.",
+      "details": [
+        "Against a blue winter sky it's like a column of cotton. I never get tired of seeing it.",
+        "You can tell the temperature by the smoke. The colder it is, the straighter it rises."
+      ],
+      "reactions": [
+        "Simple pleasure, watching smoke in still air."
+      ],
+      "statCheck": {
+        "pass": "Cold air is denser, so smoke rises faster and straighter. Wind shear from temperature differences causes it to bend on warmer days.",
+        "fail": "I don't know why smoke behaves differently. It just does."
+      },
+      "valence": "positive",
+      "topic_category": "poi_awareness",
+      "required_entities": [
+        "poi"
+      ],
+      "location_scope": "local",
+      "quest_trigger": null
+    },
+    {
+      "id": 124,
+      "intro": "The {poi_type} is too dark inside. I don't know how the workers see what they're doing.",
+      "details": [
+        "Two small windows and a doorway. That's all the light they get.",
+        "I went in at noon and still had to wait for my eyes to adjust."
+      ],
+      "reactions": [
+        "A couple of skylights would change everything. But that means cutting through the roof."
+      ],
+      "statCheck": {
+        "pass": "South-facing clerestory windows would bring in natural light without compromising the roof structure. The rafters have enough spacing for it.",
+        "fail": "I'm no architect. I just know it's gloomy in there."
+      },
+      "valence": "negative",
+      "topic_category": "poi_awareness",
+      "required_entities": [
+        "poi"
+      ],
+      "location_scope": "local",
+      "quest_trigger": null
+    },
+    {
+      "id": 125,
+      "intro": "Every season the {poi_type} looks a little different. The ivy grows, the wood weathers, the path shifts.",
+      "details": [
+        "If I compared it to five years ago I'd barely recognize the details, even though the building hasn't changed.",
+        "It's like watching someone age. The shape stays the same but everything softens."
+      ],
+      "reactions": [
+        "I find it comforting: nothing stays still, and that's not a bad thing."
+      ],
+      "statCheck": null,
+      "valence": "neutral",
+      "topic_category": "poi_awareness",
+      "required_entities": [
+        "poi"
+      ],
+      "location_scope": "local",
+      "quest_trigger": null
+    },
+    {
+      "id": 126,
+      "intro": "I offered to bring {resource_type} to the {poi_type} and they turned me down. Said they were full up.",
+      "details": [
+        "First time I can remember them refusing a delivery. Storage must be packed.",
+        "That's a good problem to have, I suppose."
+      ],
+      "reactions": [
+        "Better to have too much than too little."
+      ],
+      "statCheck": null,
+      "valence": "positive",
+      "topic_category": "poi_awareness",
+      "required_entities": [
+        "poi"
+      ],
+      "location_scope": "local",
+      "quest_trigger": null
+    },
+    {
+      "id": 127,
+      "intro": "A section of the path to the {poi_type} collapsed after the rains. Whole edge just slid away.",
+      "details": [
+        "It's still passable if you keep to the far side, but it's narrower now.",
+        "Nobody's done anything about it. We all just walk around the gap like it's normal."
+      ],
+      "reactions": [
+        "Give it another storm and the whole path will be gone. But sure, let's wait."
+      ],
+      "statCheck": {
+        "pass": "The soil there is undermined by water runoff from the slope above. Without a retaining wall, each rain will take more of the edge.",
+        "fail": "I don't know why it collapsed. The rain, probably."
+      },
+      "valence": "negative",
+      "topic_category": "poi_awareness",
+      "required_entities": [
+        "poi"
+      ],
+      "location_scope": "local",
+      "quest_trigger": null
+    },
+    {
+      "id": 128,
+      "intro": "There's a wildflower that only grows near the {poi_type}. I've never seen it anywhere else around here.",
+      "details": [
+        "Small blue thing, clusters of five petals. It comes up in late spring between the stones.",
+        "I asked around and nobody knows what it's called."
+      ],
+      "reactions": [
+        "Nice to have something that makes a spot feel unique."
+      ],
+      "statCheck": {
+        "pass": "Certain plants thrive in disturbed soil with specific mineral content. The runoff from the {poi_type} probably creates exactly the conditions it needs.",
+        "fail": "I don't know anything about botany. I just think it's pretty."
+      },
+      "valence": "neutral",
+      "topic_category": "poi_awareness",
+      "required_entities": [
+        "poi"
+      ],
+      "location_scope": "local",
+      "quest_trigger": null
+    },
+    {
+      "id": 129,
+      "intro": "The {poi_type} has a reputation outside our settlement now. People from the {direction} come specifically for it.",
+      "details": [
+        "The {resource_type} quality has spread by word of mouth. You see unfamiliar faces asking directions.",
+        "It's flattering, in a way. We built something worth traveling for."
+      ],
+      "reactions": [
+        "Good problem to have. As long as the demand doesn't outstrip what we can produce."
+      ],
+      "statCheck": null,
+      "valence": "positive",
+      "topic_category": "poi_awareness",
+      "required_entities": [
+        "poi"
+      ],
+      "location_scope": "local",
+      "quest_trigger": null
+    },
+    {
+      "id": 130,
+      "intro": "The {poi_type} always falls quiet right before a storm. Like it knows what's coming.",
+      "details": [
+        "The workers pack up faster, the animals nearby get restless, and then everything goes still.",
+        "Twenty minutes later the sky opens. Every time."
+      ],
+      "reactions": [
+        "I trust the {poi_type}'s instinct more than I trust the sky's color."
+      ],
+      "statCheck": {
+        "pass": "Animals sense the pressure drop before a storm front. The workers there read the same signs: wind shift, temperature change, the way sound carries differently in dense air.",
+        "fail": "I don't know how they always know. I just know they're never wrong."
+      },
+      "valence": "neutral",
+      "topic_category": "poi_awareness",
+      "required_entities": [
+        "poi"
+      ],
+      "location_scope": "local",
+      "quest_trigger": null
+    },
+    {
+      "id": 131,
+      "intro": "The storage area at the {poi_type} is overflowing. There's {resource_type} stacked outside under tarps.",
+      "details": [
+        "It's been like that for weeks. They've outgrown the space.",
+        "Rain got under the covering last time and damaged some of the stock. Preventable waste."
+      ],
+      "reactions": [
+        "Either expand the storage or slow down production. Leaving it outside is asking for trouble."
+      ],
+      "statCheck": null,
+      "valence": "negative",
+      "topic_category": "poi_awareness",
+      "required_entities": [
+        "poi"
+      ],
+      "location_scope": "local",
+      "quest_trigger": null
+    },
+    {
+      "id": 132,
+      "intro": "I sat with {npc_name} outside the {poi_type} last evening. Just talked about nothing for an hour.",
+      "details": [
+        "The work was done, the sky was clear, and neither of us had anywhere to be.",
+        "We watched the stars come out over the roof. Didn't need to say much."
+      ],
+      "reactions": [
+        "That's what a good place does. It gives people a reason to linger."
+      ],
+      "statCheck": null,
+      "valence": "positive",
+      "topic_category": "poi_awareness",
+      "required_entities": [
+        "poi"
+      ],
+      "location_scope": "local",
+      "quest_trigger": null
+    },
+    {
+      "id": 133,
+      "intro": "There are boot prints worn into the stone at the {poi_type}'s threshold. Decades of the same footsteps.",
+      "details": [
+        "Right foot, then left, in and out. Thousands of times until the stone remembers.",
+        "You don't notice it until someone points it out. Then you can't unsee it."
+      ],
+      "reactions": [
+        "That's not wear and tear. That's history."
+      ],
+      "statCheck": null,
+      "valence": "neutral",
+      "topic_category": "poi_awareness",
+      "required_entities": [
+        "poi"
+      ],
+      "location_scope": "local",
+      "quest_trigger": null
+    },
+    {
+      "id": 134,
+      "intro": "The {poi_type} wasted a whole day's {resource_type} on a botched job last week. People are annoyed.",
+      "details": [
+        "The material was fine going in. Something went wrong during processing and it all had to be scrapped.",
+        "In a settlement this size, a full day's loss hurts."
+      ],
+      "reactions": [
+        "Mistakes happen. But that's a lot of work gone for nothing."
+      ],
+      "statCheck": {
+        "pass": "From what I heard, the temperature wasn't regulated properly. Too hot or too cold by a narrow margin and the whole batch is ruined.",
+        "fail": "I don't understand the process well enough to say what went wrong."
+      },
+      "valence": "negative",
+      "topic_category": "poi_awareness",
+      "required_entities": [
+        "poi"
+      ],
+      "location_scope": "local",
+      "quest_trigger": null
+    },
+    {
+      "id": 135,
+      "intro": "I saw a hawk perched on top of the {poi_type} this morning. Just sitting there surveying everything.",
+      "details": [
+        "It must like the height. Best vantage point in the settlement.",
+        "The workers came out and it didn't move. Just stared at them and they stared back."
+      ],
+      "reactions": [
+        "Even the wildlife knows the {poi_type} is the center of things."
+      ],
+      "statCheck": null,
+      "valence": "neutral",
+      "topic_category": "poi_awareness",
+      "required_entities": [
+        "poi"
+      ],
+      "location_scope": "local",
+      "quest_trigger": null
+    },
+    {
+      "id": 136,
+      "intro": "The smell of {crop_type} drying near the {poi_type} fills the whole street. Rich and sweet.",
+      "details": [
+        "They hang it on racks in the sun and by afternoon the aroma drifts halfway across town.",
+        "I find myself taking the long way just to walk through it."
+      ],
+      "reactions": [
+        "There are worse problems than a settlement that smells like a harvest."
+      ],
+      "statCheck": null,
+      "valence": "positive",
+      "topic_category": "poi_awareness",
+      "required_entities": [
+        "poi"
+      ],
+      "location_scope": "local",
+      "quest_trigger": null
+    },
+    {
+      "id": 137,
+      "intro": "The {poi_type} lost a worker last month. They haven't replaced them yet.",
+      "details": [
+        "Not dead, just moved on. Found something better, I suppose.",
+        "The ones left are covering the gap. They're managing, but only just."
+      ],
+      "reactions": [
+        "People leaving is always harder on the ones who stay."
+      ],
+      "statCheck": null,
+      "valence": "negative",
+      "topic_category": "poi_awareness",
+      "required_entities": [
+        "poi"
+      ],
+      "location_scope": "local",
+      "quest_trigger": null
+    },
+    {
+      "id": 138,
+      "intro": "The door at the {poi_type} has marks on the frame where they measure the harvest each year. Goes back ages.",
+      "details": [
+        "Some years the marks are high, some are barely there. You can read the settlement's history in those scratches.",
+        "The best years have deep, confident notches. The lean years are faint, like nobody wanted to record them."
+      ],
+      "reactions": [
+        "We're adding to that record whether we think about it or not."
+      ],
+      "statCheck": null,
+      "valence": "neutral",
+      "topic_category": "poi_awareness",
+      "required_entities": [
+        "poi"
+      ],
+      "location_scope": "local",
+      "quest_trigger": null
+    },
+    {
+      "id": 139,
+      "intro": "The {poi_type} creaks in the heat. The timbers expand and the whole building groans.",
+      "details": [
+        "In midsummer you can hear it popping and ticking all afternoon as the sun bakes the roof.",
+        "The workers say they tune it out. I don't know how."
+      ],
+      "reactions": [
+        "Buildings talk. You just have to learn the language."
+      ],
+      "statCheck": {
+        "pass": "Timber expands and contracts with temperature, and the joints flex: that's what you hear. It's actually a sign the structure is well-built, since rigid framing would crack instead.",
+        "fail": "I don't know why buildings make noise. The heat, I assume."
+      },
+      "valence": "neutral",
+      "topic_category": "poi_awareness",
+      "required_entities": [
+        "poi"
+      ],
+      "location_scope": "local",
+      "quest_trigger": null
+    },
+    {
+      "id": 140,
+      "intro": "I brought my child to see the {poi_type} for the first time last week. They were fascinated.",
+      "details": [
+        "Asked a hundred questions about what everything was for. The workers were patient about it.",
+        "Seeing it through a child's eyes made me realize how remarkable the everyday really is."
+      ],
+      "reactions": [
+        "We forget to be impressed by things we see every day."
+      ],
+      "statCheck": null,
+      "valence": "positive",
+      "topic_category": "poi_awareness",
+      "required_entities": [
+        "poi"
+      ],
+      "location_scope": "local",
+      "quest_trigger": null
+    },
+    {
+      "id": 141,
+      "intro": "Ants have built a nest under the foundation of the {poi_type}. Huge colony, sand piling up everywhere.",
+      "details": [
+        "You can see the mounds along the base of the wall. Must be thousands of them.",
+        "Nobody's sure if they're actually damaging anything or just living there."
+      ],
+      "reactions": [
+        "Tiny tenants. Probably been there longer than we have."
+      ],
+      "statCheck": {
+        "pass": "If they're excavating under the footing, they can undermine the load-bearing capacity over time. Small creatures, big consequences if left unchecked.",
+        "fail": "I don't know if ants can hurt a building. Seems unlikely, but what do I know."
+      },
+      "valence": "neutral",
+      "topic_category": "poi_awareness",
+      "required_entities": [
+        "poi"
+      ],
+      "location_scope": "local",
+      "quest_trigger": null
+    },
+    {
+      "id": 142,
+      "intro": "The new crew at the {poi_type} is faster than the last one. You can see the difference in the output.",
+      "details": [
+        "They're younger, stronger, and they work like they've got something to prove.",
+        "The old-timers grumble about it, but the results speak for themselves."
+      ],
+      "reactions": [
+        "Fresh energy is exactly what that place needed."
+      ],
+      "statCheck": null,
+      "valence": "positive",
+      "topic_category": "poi_awareness",
+      "required_entities": [
+        "poi"
+      ],
+      "location_scope": "local",
+      "quest_trigger": null
+    },
+    {
+      "id": 143,
+      "intro": "The {poi_type} always gets a breeze from the {direction}. Even on still days there's air moving through.",
+      "details": [
+        "In summer it's a blessing. In winter it's a curse.",
+        "The building's positioned right in a natural wind channel. Nothing to be done about it."
+      ],
+      "reactions": [
+        "I suppose the original builders either didn't notice or didn't care."
+      ],
+      "statCheck": {
+        "pass": "The gap between the hillside and the ridge funnels prevailing winds directly through that area. It's a topographic effect: the land shapes the airflow.",
+        "fail": "I don't know why it's always breezy there. Just the way it is."
+      },
+      "valence": "neutral",
+      "topic_category": "poi_awareness",
+      "required_entities": [
+        "poi"
+      ],
+      "location_scope": "local",
+      "quest_trigger": null
+    },
+    {
+      "id": 144,
+      "intro": "I dream about the {poi_type} sometimes. Just standing there, nobody else around.",
+      "details": [
+        "It's always the same: the building's there, the light's wrong, and I feel like I'm supposed to do something.",
+        "I wake up and nothing's different: just a building. But the feeling lingers."
+      ],
+      "reactions": [
+        "You spend enough time near a place, it follows you home."
+      ],
+      "statCheck": null,
+      "valence": "neutral",
+      "topic_category": "poi_awareness",
+      "required_entities": [
+        "poi"
+      ],
+      "location_scope": "local",
+      "quest_trigger": null
+    },
+    {
+      "id": 145,
+      "intro": "The {resource_type} coming out of the {poi_type} has a reputation. People ask for it by name.",
+      "details": [
+        "There's something about the process there that gives it an edge over what you'd get elsewhere.",
+        "I couldn't tell you the difference myself, but people who know swear by it."
+      ],
+      "reactions": [
+        "Reputation is earned slowly and lost fast. They've earned theirs."
+      ],
+      "statCheck": null,
+      "valence": "positive",
+      "topic_category": "poi_awareness",
+      "required_entities": [
+        "poi"
+      ],
+      "location_scope": "local",
+      "quest_trigger": null
+    },
+    {
+      "id": 146,
+      "intro": "I keep finding nails on the path near the {poi_type}. Someone's dropping them.",
+      "details": [
+        "Third time this month I've stepped on one. Didn't go through my boot, but it could have.",
+        "I've started collecting them in a jar. Got quite the pile now."
+      ],
+      "reactions": [
+        "I should return them. Or just keep collecting and see how many I get by winter."
+      ],
+      "statCheck": null,
+      "valence": "negative",
+      "topic_category": "poi_awareness",
+      "required_entities": [
+        "poi"
+      ],
+      "location_scope": "local",
+      "quest_trigger": null
+    },
+    {
+      "id": 147,
+      "intro": "The {poi_type} is the warmest building in the settlement during winter. People find excuses to go in.",
+      "details": [
+        "The fires they keep for work throw off enough heat to warm the whole place.",
+        "I've seen people linger near the entrance just to catch the warmth drifting out."
+      ],
+      "reactions": [
+        "Can't blame them. I've done the same."
+      ],
+      "statCheck": null,
+      "valence": "positive",
+      "topic_category": "poi_awareness",
+      "required_entities": [
+        "poi"
+      ],
+      "location_scope": "local",
+      "quest_trigger": null
+    },
+    {
+      "id": 148,
+      "intro": "The {poi_type} has moss growing on the north wall. Thick and green, like velvet.",
+      "details": [
+        "It's been creeping up for years. Now it covers the whole face from ground to window.",
+        "Some people think it looks neglected. I think it looks natural."
+      ],
+      "reactions": [
+        "A building that the forest wants to reclaim is a building in the right place."
+      ],
+      "statCheck": {
+        "pass": "Moss holds moisture against the stone, which accelerates weathering. It looks pretty, but it's slowly eating the mortar.",
+        "fail": "I don't know if moss damages stone. It seems harmless."
+      },
+      "valence": "neutral",
+      "topic_category": "poi_awareness",
+      "required_entities": [
+        "poi"
+      ],
+      "location_scope": "local",
+      "quest_trigger": null
+    },
+    {
+      "id": 149,
+      "intro": "The {poi_type} is the last place to go dark at night and the first to light up in the morning.",
+      "details": [
+        "You can track the workday by its windows: lit means someone's there, dark means rest.",
+        "I find it reassuring, seeing that glow when I can't sleep. Like a heartbeat for the settlement."
+      ],
+      "reactions": [
+        "As long as the lights keep coming on, we're doing all right."
+      ],
+      "statCheck": null,
+      "valence": "positive",
+      "topic_category": "poi_awareness",
+      "required_entities": [
+        "poi"
+      ],
+      "location_scope": "local",
+      "quest_trigger": null
     }
   ]
 }

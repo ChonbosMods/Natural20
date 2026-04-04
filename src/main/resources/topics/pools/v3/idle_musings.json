@@ -1,0 +1,1767 @@
+{
+  "pool": "idle_musings",
+  "version": 3,
+  "entries": [
+    {
+      "id": 0,
+      "intro": "Ever notice how the days you have nothing to do feel longer than the ones where you're busy from dawn to dark?",
+      "details": [
+        "I had a whole afternoon free yesterday and it felt like a week. Today I haven't stopped moving and it's already evening.",
+        "Time's got a sense of humor, I think."
+      ],
+      "reactions": [
+        "I don't know why that is. But I'd like to."
+      ],
+      "statCheck": null,
+      "valence": "neutral",
+      "topic_category": "idle_musings",
+      "required_entities": [],
+      "location_scope": "universal",
+      "quest_trigger": null
+    },
+    {
+      "id": 1,
+      "intro": "Do you think animals dream? I watched my neighbor's dog twitching in its sleep and I wondered.",
+      "details": [
+        "Its legs were moving like it was running somewhere. I'd love to know where.",
+        "Seems cruel if they don't dream. Nothing to look forward to when you close your eyes."
+      ],
+      "reactions": [
+        "I think about strange things when I'm idle. This is what happens when there's no work to do."
+      ],
+      "statCheck": null,
+      "valence": "neutral",
+      "topic_category": "idle_musings",
+      "required_entities": [],
+      "location_scope": "universal",
+      "quest_trigger": null
+    },
+    {
+      "id": 2,
+      "intro": "I wonder if fish know they're wet.",
+      "details": [
+        "Like, is water just air to them? Do they notice it at all?",
+        "I pulled one out of a stream once and it looked so confused. Maybe that's the first time it ever felt dry."
+      ],
+      "reactions": [
+        "These are the things you think about when the work's done and the sun's still up."
+      ],
+      "statCheck": null,
+      "valence": "neutral",
+      "topic_category": "idle_musings",
+      "required_entities": [],
+      "location_scope": "universal",
+      "quest_trigger": null
+    },
+    {
+      "id": 3,
+      "intro": "Do you ever wonder what birds think about up there?",
+      "details": [
+        "They just circle around for hours. Can't all be hunting. Sometimes I think they're just enjoying the view.",
+        "Must be something, seeing the whole world laid out like a quilt."
+      ],
+      "reactions": [
+        "I'd give a lot to see things from that high up, even just once."
+      ],
+      "statCheck": null,
+      "valence": "positive",
+      "topic_category": "idle_musings",
+      "required_entities": [],
+      "location_scope": "universal",
+      "quest_trigger": null
+    },
+    {
+      "id": 4,
+      "intro": "I was thinking about luck today. Whether it's a real thing or just something we say.",
+      "details": [
+        "Some people fall into good fortune over and over. Others work twice as hard and get nothing.",
+        "If luck's not real, that's a hard thing to explain."
+      ],
+      "reactions": [
+        "I've gone back and forth on it for years and I'm no closer to an answer."
+      ],
+      "statCheck": null,
+      "valence": "neutral",
+      "topic_category": "idle_musings",
+      "required_entities": [],
+      "location_scope": "universal",
+      "quest_trigger": null
+    },
+    {
+      "id": 5,
+      "intro": "What do you think dreams are for? I had the strangest one last night and I can't shake it.",
+      "details": [
+        "I was in my house but all the doors opened to places I've never been. Felt completely normal at the time.",
+        "Woke up and spent half the morning trying to figure out what it meant."
+      ],
+      "reactions": [
+        "Probably means nothing. But it felt like it meant something."
+      ],
+      "statCheck": null,
+      "valence": "neutral",
+      "topic_category": "idle_musings",
+      "required_entities": [],
+      "location_scope": "universal",
+      "quest_trigger": null
+    },
+    {
+      "id": 6,
+      "intro": "Why do we yawn? And why does watching someone else yawn make you do it too?",
+      "details": [
+        "I yawned at the market this morning and three people around me yawned right after. Like a disease.",
+        "It can't be tiredness. I was wide awake."
+      ],
+      "reactions": [
+        "Sorry if I just made you yawn by talking about it."
+      ],
+      "statCheck": {
+        "pass": "A healer told me once it's the body trying to cool the brain. And the spreading part is some kind of sympathy between people, like how flocks move together.",
+        "fail": "I've got no explanation. It just happens and nobody questions it."
+      },
+      "valence": "neutral",
+      "topic_category": "idle_musings",
+      "required_entities": [],
+      "location_scope": "universal",
+      "quest_trigger": null
+    },
+    {
+      "id": 7,
+      "intro": "I can never decide whether it's better to know a hard truth or be happy not knowing.",
+      "details": [
+        "There's things I could find out that would probably upset me. But not knowing itches too.",
+        "I think most people say they want honesty but they actually want comfort."
+      ],
+      "reactions": [
+        "I go back and forth. Depends on the day, I suppose."
+      ],
+      "statCheck": null,
+      "valence": "neutral",
+      "topic_category": "idle_musings",
+      "required_entities": [],
+      "location_scope": "universal",
+      "quest_trigger": null
+    },
+    {
+      "id": 8,
+      "intro": "What counts as old, do you think? I used to think thirty was ancient. Now I'm not so sure.",
+      "details": [
+        "There's people twice my age running circles around me. And some younger folk who act like they're already worn out."
+      ],
+      "reactions": [
+        "I think old is more about how you carry it than the number.",
+        "Ask me again in ten years and I'll probably have a different answer."
+      ],
+      "statCheck": null,
+      "valence": "neutral",
+      "topic_category": "idle_musings",
+      "required_entities": [],
+      "location_scope": "universal",
+      "quest_trigger": null
+    },
+    {
+      "id": 9,
+      "intro": "I've been wondering: does worrying about something actually help?",
+      "details": [
+        "I worry plenty, and I can't think of a single time it made things turn out better.",
+        "But I can't seem to stop doing it either. It's like my brain thinks it's useful."
+      ],
+      "reactions": [
+        "Feels like carrying a heavy pack on a road you're walking anyway."
+      ],
+      "statCheck": null,
+      "valence": "negative",
+      "topic_category": "idle_musings",
+      "required_entities": [],
+      "location_scope": "universal",
+      "quest_trigger": null
+    },
+    {
+      "id": 10,
+      "intro": "You ever stare at a word so long it stops looking like a word?",
+      "details": [
+        "I was writing a list this morning and wrote 'barley' four times. By the end it looked like nonsense.",
+        "Had to walk away and come back just to convince myself I'd spelled it right."
+      ],
+      "reactions": [
+        "Brains are strange things when they've got nothing better to chew on."
+      ],
+      "statCheck": null,
+      "valence": "neutral",
+      "topic_category": "idle_musings",
+      "required_entities": [],
+      "location_scope": "universal",
+      "quest_trigger": null
+    },
+    {
+      "id": 11,
+      "intro": "I had a thought this morning: what if the color I see as blue isn't the same blue you see?",
+      "details": [
+        "We both call the sky blue. But maybe your blue looks like my green, and we'd never know.",
+        "There's no way to check. You can't crawl behind someone else's eyes."
+      ],
+      "reactions": [
+        "It's the kind of thing that once you think about it, you can't un-think it."
+      ],
+      "statCheck": {
+        "pass": "Some scholars say the eye works like water in a lens: bending light into different hues. If everyone's lenses are slightly different, the colors really could shift.",
+        "fail": "I don't know enough about how eyes work to say more. Just a feeling."
+      },
+      "valence": "neutral",
+      "topic_category": "idle_musings",
+      "required_entities": [],
+      "location_scope": "universal",
+      "quest_trigger": null
+    },
+    {
+      "id": 12,
+      "intro": "I keep wondering: were things actually better when we were younger, or do we just remember them that way?",
+      "details": [
+        "Everything from back then has this golden shine to it. But I know for a fact some of those days were terrible.",
+        "Maybe memory files the edges off."
+      ],
+      "reactions": [
+        "I think the past feels better because we already know how it ends."
+      ],
+      "statCheck": null,
+      "valence": "neutral",
+      "topic_category": "idle_musings",
+      "required_entities": [],
+      "location_scope": "universal",
+      "quest_trigger": null
+    },
+    {
+      "id": 13,
+      "intro": "What's the point of itching? If nothing's wrong, why does my arm decide to itch?",
+      "details": [
+        "No bug bite. No rash. Just an itch that showed up out of nowhere and ruined my afternoon.",
+        "And the more you scratch, the more it spreads. It's a trap."
+      ],
+      "reactions": [
+        "Bodies do a lot of things that seem like bad design, honestly."
+      ],
+      "statCheck": null,
+      "valence": "negative",
+      "topic_category": "idle_musings",
+      "required_entities": [],
+      "location_scope": "universal",
+      "quest_trigger": null
+    },
+    {
+      "id": 14,
+      "intro": "Ever think about how trust works? You meet someone and at some point you just... decide to believe them.",
+      "details": [
+        "There's no moment where it happens. One day they're a stranger, and then they're not.",
+        "But it only takes one lie to undo the whole thing."
+      ],
+      "reactions": [
+        "Fragile when you think about it. We just don't think about it much."
+      ],
+      "statCheck": null,
+      "valence": "neutral",
+      "topic_category": "idle_musings",
+      "required_entities": [],
+      "location_scope": "universal",
+      "quest_trigger": null
+    },
+    {
+      "id": 15,
+      "intro": "I wonder sometimes if animals judge us.",
+      "details": [
+        "My neighbor's cat stares at me when I eat. Not hungry, just watching. Like it's forming an opinion.",
+        "Cows do it too. You walk past a field and they all turn their heads. They're definitely thinking something."
+      ],
+      "reactions": [
+        "I hope they're kind about it. I'd hate to know what a goat really thinks of me."
+      ],
+      "statCheck": null,
+      "valence": "neutral",
+      "topic_category": "idle_musings",
+      "required_entities": [],
+      "location_scope": "universal",
+      "quest_trigger": null
+    },
+    {
+      "id": 16,
+      "intro": "I've decided that the best feeling in the world is getting into bed when you're truly tired.",
+      "details": [
+        "Not just sleepy. I mean bone-tired, where your body thanks you for lying down.",
+        "Every other comfort is a distant second."
+      ],
+      "reactions": [
+        "I'm looking forward to it already and the day's barely started."
+      ],
+      "statCheck": null,
+      "valence": "positive",
+      "topic_category": "idle_musings",
+      "required_entities": [],
+      "location_scope": "universal",
+      "quest_trigger": null
+    },
+    {
+      "id": 17,
+      "intro": "Do you think there's a limit to how many people you can really know?",
+      "details": [
+        "I mean truly know, not just recognize. I've got maybe a dozen people I'd say I understand.",
+        "Everyone else is just a face with a name attached."
+      ],
+      "reactions": [
+        "Makes you wonder how many people think they know you but really don't."
+      ],
+      "statCheck": null,
+      "valence": "neutral",
+      "topic_category": "idle_musings",
+      "required_entities": [],
+      "location_scope": "universal",
+      "quest_trigger": null
+    },
+    {
+      "id": 18,
+      "intro": "I wonder what the first person to eat a mushroom was thinking.",
+      "details": [
+        "Half of them will kill you and the other half are delicious. Somebody had to find out which was which.",
+        "Same with berries. Someone, at some point, just took the gamble."
+      ],
+      "reactions": [
+        "We owe a lot to people brave enough to eat things that look suspicious."
+      ],
+      "statCheck": {
+        "pass": "I've heard healers say there are signs: the ones with bright caps and a smell like soil are usually safe. But the real deadly ones look innocent.",
+        "fail": "I don't know the first thing about telling good mushrooms from bad. I buy mine from people who do."
+      },
+      "valence": "neutral",
+      "topic_category": "idle_musings",
+      "required_entities": [],
+      "location_scope": "universal",
+      "quest_trigger": null
+    },
+    {
+      "id": 19,
+      "intro": "You know what I think about sometimes? Whether everyone gets the same amount of happiness in their life, just spread out differently.",
+      "details": [
+        "Some people get it all up front and then struggle later. Others have a rough start and bloom late.",
+        "Maybe it all evens out in the end."
+      ],
+      "reactions": [
+        "Probably not true. But it's a nice thought when things are hard."
+      ],
+      "statCheck": null,
+      "valence": "neutral",
+      "topic_category": "idle_musings",
+      "required_entities": [],
+      "location_scope": "universal",
+      "quest_trigger": null
+    },
+    {
+      "id": 20,
+      "intro": "I've been thinking about why some people talk to plants. And whether the plants care.",
+      "details": [
+        "My grandmother swore her tomatoes grew better when she spoke to them. Said kind words helped.",
+        "I tried it once. Felt like an idiot, but the crop was decent."
+      ],
+      "reactions": [
+        "Could've been the weather. Could've been the words. I'll never know."
+      ],
+      "statCheck": {
+        "pass": "Plants do respond to things you wouldn't expect: vibrations, warmth, even the moisture in your breath when you speak. It's not the words, but the talking might help all the same.",
+        "fail": "I don't know the first thing about what plants can feel, if anything. I just water them and hope."
+      },
+      "valence": "neutral",
+      "topic_category": "idle_musings",
+      "required_entities": [],
+      "location_scope": "universal",
+      "quest_trigger": null
+    },
+    {
+      "id": 21,
+      "intro": "Is it worse to be bored or to be too busy? I genuinely can't decide.",
+      "details": [
+        "When I'm busy I want to rest. When I'm resting I get restless after an hour.",
+        "There's supposed to be a sweet spot somewhere in between but I've never found it."
+      ],
+      "reactions": [
+        "Maybe the answer is that people just like complaining no matter what."
+      ],
+      "statCheck": null,
+      "valence": "neutral",
+      "topic_category": "idle_musings",
+      "required_entities": [],
+      "location_scope": "universal",
+      "quest_trigger": null
+    },
+    {
+      "id": 22,
+      "intro": "I wonder if anyone remembers exactly the right number of things they've lost in their life.",
+      "details": [
+        "Buttons, coins, tools, gloves. There's probably a pile somewhere of everything I've ever dropped and forgotten about.",
+        "Some of it's still out there, just buried under leaves or stuck behind something."
+      ],
+      "reactions": [
+        "I'd like to see that pile. Bet it'd be bigger than I expect."
+      ],
+      "statCheck": null,
+      "valence": "neutral",
+      "topic_category": "idle_musings",
+      "required_entities": [],
+      "location_scope": "universal",
+      "quest_trigger": null
+    },
+    {
+      "id": 23,
+      "intro": "Something about watching a fire makes you stop thinking. In a good way.",
+      "details": [
+        "You just sit there and stare and your mind goes quiet. Better than any herb or drink for calming down.",
+        "I don't know what it is. The movement, the light, the warmth. All of it, maybe."
+      ],
+      "reactions": [
+        "If I could bottle that feeling, I'd never have a bad night again."
+      ],
+      "statCheck": null,
+      "valence": "positive",
+      "topic_category": "idle_musings",
+      "required_entities": [],
+      "location_scope": "universal",
+      "quest_trigger": null
+    },
+    {
+      "id": 24,
+      "intro": "I was thinking: does anyone actually like the sound of their own voice?",
+      "details": [
+        "I heard myself talking once in a way that echoed off a wall and I didn't recognize it. Sounded nothing like what I hear in my head."
+      ],
+      "reactions": [
+        "Makes you wonder what everyone else has been hearing this whole time.",
+        "Maybe it's better not to know."
+      ],
+      "statCheck": null,
+      "valence": "negative",
+      "topic_category": "idle_musings",
+      "required_entities": [],
+      "location_scope": "universal",
+      "quest_trigger": null
+    },
+    {
+      "id": 25,
+      "intro": "Why do some days feel like they matter and others don't?",
+      "details": [
+        "Nothing different happens. Same routine, same people, same weather. But some mornings you wake up and there's a weight to the day.",
+        "Other mornings it's like you're just passing through."
+      ],
+      "reactions": [
+        "I'd like to know what makes the difference."
+      ],
+      "statCheck": null,
+      "valence": "neutral",
+      "topic_category": "idle_musings",
+      "required_entities": [],
+      "location_scope": "universal",
+      "quest_trigger": null
+    },
+    {
+      "id": 26,
+      "intro": "I think the most honest moment in anyone's day is the minute right after they wake up. Before they remember who they're supposed to be.",
+      "details": [
+        "There's this little gap where you're just a person with no plans and no worries. Then it all comes flooding back.",
+        "Children live in that gap. That's why they seem so free."
+      ],
+      "reactions": [
+        "I wish I could stretch that minute out longer."
+      ],
+      "statCheck": null,
+      "valence": "neutral",
+      "topic_category": "idle_musings",
+      "required_entities": [],
+      "location_scope": "universal",
+      "quest_trigger": null
+    },
+    {
+      "id": 27,
+      "intro": "Have you ever noticed that advice is much easier to give than to follow?",
+      "details": [
+        "I told my friend yesterday not to worry about things he can't control. Then I went home and worried about my roof all night.",
+        "I knew exactly what I should do. I just didn't do it."
+      ],
+      "reactions": [
+        "We're all hypocrites about something. The trick is knowing which something."
+      ],
+      "statCheck": null,
+      "valence": "neutral",
+      "topic_category": "idle_musings",
+      "required_entities": [],
+      "location_scope": "universal",
+      "quest_trigger": null
+    },
+    {
+      "id": 28,
+      "intro": "I wonder how many conversations I've forgotten that the other person still remembers.",
+      "details": [
+        "Someone might be carrying something I said years ago and I wouldn't even know I'd said it.",
+        "Works the other way too. I remember things people said to me that they've clearly forgotten."
+      ],
+      "reactions": [
+        "Words are heavier than people treat them."
+      ],
+      "statCheck": null,
+      "valence": "negative",
+      "topic_category": "idle_musings",
+      "required_entities": [],
+      "location_scope": "universal",
+      "quest_trigger": null
+    },
+    {
+      "id": 29,
+      "intro": "Is it possible to be nostalgic for something that hasn't ended yet?",
+      "details": [
+        "Sometimes I look at a regular afternoon: sun out, people talking, nothing special happening. And I get sad, like I already miss it.",
+        "Like I can feel it becoming a memory while it's still happening."
+      ],
+      "reactions": [
+        "That's a strange kind of sadness. Not the bad kind, exactly. But it sticks."
+      ],
+      "statCheck": null,
+      "valence": "negative",
+      "topic_category": "idle_musings",
+      "required_entities": [],
+      "location_scope": "universal",
+      "quest_trigger": null
+    },
+    {
+      "id": 30,
+      "intro": "Why is it that the best naps happen when you're not trying to sleep?",
+      "details": [
+        "Sit down for five minutes in the sun and you're out cold. But lie in bed at night and your brain won't shut up.",
+        "It's like sleep is a cat. It only comes when you stop chasing it."
+      ],
+      "reactions": [
+        "I've given up trying to understand it. I just nap when the nap finds me."
+      ],
+      "statCheck": null,
+      "valence": "neutral",
+      "topic_category": "idle_musings",
+      "required_entities": [],
+      "location_scope": "universal",
+      "quest_trigger": null
+    },
+    {
+      "id": 31,
+      "intro": "I wonder if trees get bored. They stand in one spot for a hundred years.",
+      "details": [
+        "Maybe they're patient in a way we can't understand. Or maybe time feels different when you're that big and slow.",
+        "The oldest one near the village has seen more seasons than anyone alive. I wonder what it would say."
+      ],
+      "reactions": [
+        "Probably 'stop leaning on me.'"
+      ],
+      "statCheck": {
+        "pass": "Their roots spread out underground as wide as their branches above. They're connected to each other through the soil, sharing water and nutrients. They're not alone, even if they look it.",
+        "fail": "I don't know what goes on inside a tree. Probably nothing. But who's to say for certain?"
+      },
+      "valence": "positive",
+      "topic_category": "idle_musings",
+      "required_entities": [],
+      "location_scope": "universal",
+      "quest_trigger": null
+    },
+    {
+      "id": 32,
+      "intro": "Do you think honesty is always the right choice? I go back and forth.",
+      "details": [
+        "Sometimes telling the truth hurts someone more than a small lie would. And the lie would cost you nothing.",
+        "But then you're carrying it. And they're trusting you based on something false."
+      ],
+      "reactions": [
+        "I think it depends on who it's for. If the lie is for their sake, maybe. If it's for yours, no."
+      ],
+      "statCheck": {
+        "pass": "There's a difference between deception and mercy. Knowing which one you're doing is what matters.",
+        "fail": "I'm no philosopher. I just know it's not as simple as people make it sound."
+      },
+      "valence": "neutral",
+      "topic_category": "idle_musings",
+      "required_entities": [],
+      "location_scope": "universal",
+      "quest_trigger": null
+    },
+    {
+      "id": 33,
+      "intro": "There's a certain smell right before rain. I noticed it this morning.",
+      "details": [
+        "It's not the rain itself. It's the air changing. Like the sky is drawing a breath.",
+        "I can never describe it to anyone. You just have to know it."
+      ],
+      "reactions": [
+        "One of those things that makes you feel connected to something bigger. Even if you can't name what."
+      ],
+      "statCheck": null,
+      "valence": "positive",
+      "topic_category": "idle_musings",
+      "required_entities": [],
+      "location_scope": "universal",
+      "quest_trigger": null
+    },
+    {
+      "id": 34,
+      "intro": "I think patience might be the hardest skill there is. Harder than any trade.",
+      "details": [
+        "You can't practice it on purpose. It only shows up when you don't want it to.",
+        "Every time I think I'm patient, something comes along and proves me wrong."
+      ],
+      "reactions": [
+        "I'm getting better, though. Slowly. Which I suppose is the point."
+      ],
+      "statCheck": null,
+      "valence": "neutral",
+      "topic_category": "idle_musings",
+      "required_entities": [],
+      "location_scope": "universal",
+      "quest_trigger": null
+    },
+    {
+      "id": 35,
+      "intro": "Have you ever had a day where you can't stop thinking about something embarrassing you did years ago?",
+      "details": [
+        "Nobody else remembers. I'm certain of that. But my brain decided to replay it in perfect detail this morning.",
+        "I actually winced out loud. Alone. In my own kitchen."
+      ],
+      "reactions": [
+        "Brains are supposed to help you survive, not torment you with things from a decade ago."
+      ],
+      "statCheck": null,
+      "valence": "negative",
+      "topic_category": "idle_musings",
+      "required_entities": [],
+      "location_scope": "universal",
+      "quest_trigger": null
+    },
+    {
+      "id": 36,
+      "intro": "I wonder how many times a day I do something for the last time without knowing it.",
+      "details": [
+        "Last time I'll visit a certain place, last time I'll talk to a certain person. You never know which time is the last one.",
+        "It's not a sad thought, exactly. More like a reason to pay attention."
+      ],
+      "reactions": [
+        "Can't dwell on it too much or you'd never do anything normal."
+      ],
+      "statCheck": null,
+      "valence": "neutral",
+      "topic_category": "idle_musings",
+      "required_entities": [],
+      "location_scope": "universal",
+      "quest_trigger": null
+    },
+    {
+      "id": 37,
+      "intro": "Why does food taste better when someone else makes it? Even if it's the same recipe.",
+      "details": [
+        "I can make the exact same stew and it's fine. But when my neighbor makes it, using my ingredients, it's somehow twice as good.",
+        "There's something about not knowing what's coming next in each bite."
+      ],
+      "reactions": [
+        "Maybe cooking is one of those things that's better to receive than to do."
+      ],
+      "statCheck": null,
+      "valence": "positive",
+      "topic_category": "idle_musings",
+      "required_entities": [],
+      "location_scope": "universal",
+      "quest_trigger": null
+    },
+    {
+      "id": 38,
+      "intro": "I can't figure out if courage is about not being afraid, or being afraid and doing it anyway.",
+      "details": [
+        "I've met people who genuinely don't feel fear. That doesn't seem like bravery to me. That's just wiring.",
+        "The people who shake and sweat and still step forward: that's the real thing."
+      ],
+      "reactions": [
+        "Either way, I'm not sure I've got much of it."
+      ],
+      "statCheck": null,
+      "valence": "neutral",
+      "topic_category": "idle_musings",
+      "required_entities": [],
+      "location_scope": "universal",
+      "quest_trigger": null
+    },
+    {
+      "id": 39,
+      "intro": "Ever wonder what your life looks like from the outside?",
+      "details": [
+        "I mean to a stranger passing through. What do they see? Some person standing around, maybe.",
+        "They'd never guess what I'm thinking about, or what kind of week I've had."
+      ],
+      "reactions": [
+        "Everyone's got a whole world inside them that nobody else can see. That's lonelier than it sounds."
+      ],
+      "statCheck": null,
+      "valence": "negative",
+      "topic_category": "idle_musings",
+      "required_entities": [],
+      "location_scope": "universal",
+      "quest_trigger": null
+    },
+    {
+      "id": 40,
+      "intro": "I've been wondering: do we choose our habits, or do they choose us?",
+      "details": [
+        "I always take the same path to the well. Same time, same side of the road. I never decided to do that. It just happened.",
+        "Try changing a habit on purpose and you'll see how stubborn they are."
+      ],
+      "reactions": [
+        "We're more like rivers than we think. We follow the path that's already carved."
+      ],
+      "statCheck": {
+        "pass": "A physician once told me the body builds grooves for repeated actions, like cart ruts in a road. The more you do something, the deeper the rut. That's why breaking a habit feels like steering uphill.",
+        "fail": "I couldn't tell you why habits form. I just know they're sticky."
+      },
+      "valence": "neutral",
+      "topic_category": "idle_musings",
+      "required_entities": [],
+      "location_scope": "universal",
+      "quest_trigger": null
+    },
+    {
+      "id": 41,
+      "intro": "Funny how a song can take you right back to a moment. Instant, like magic.",
+      "details": [
+        "Heard someone humming something this morning that my mother used to sing. For a second I was six years old again, sitting in her kitchen.",
+        "Smells do it too, but not as fast."
+      ],
+      "reactions": [
+        "The mind hides things in strange places."
+      ],
+      "statCheck": null,
+      "valence": "positive",
+      "topic_category": "idle_musings",
+      "required_entities": [],
+      "location_scope": "universal",
+      "quest_trigger": null
+    },
+    {
+      "id": 42,
+      "intro": "I think the worst kind of tired is the kind where you're tired but can't rest.",
+      "details": [
+        "Not from work. From carrying things in your head. Worries, decisions, things left unsaid.",
+        "You lie down and your body is still. Your mind isn't."
+      ],
+      "reactions": [
+        "That kind of tired doesn't fix itself with sleep."
+      ],
+      "statCheck": null,
+      "valence": "negative",
+      "topic_category": "idle_musings",
+      "required_entities": [],
+      "location_scope": "universal",
+      "quest_trigger": null
+    },
+    {
+      "id": 43,
+      "intro": "Why is it so satisfying to skip a stone across water?",
+      "details": [
+        "It doesn't accomplish anything. No one benefits. But every time one bounces more than twice, I feel like I've won something.",
+        "I was at the river yesterday and spent a good hour on it."
+      ],
+      "reactions": [
+        "Some of the best things in life don't have a purpose. They just feel right."
+      ],
+      "statCheck": null,
+      "valence": "positive",
+      "topic_category": "idle_musings",
+      "required_entities": [],
+      "location_scope": "universal",
+      "quest_trigger": null
+    },
+    {
+      "id": 44,
+      "intro": "I wonder if people a hundred years from now will think we were foolish.",
+      "details": [
+        "We look back on our grandparents and shake our heads at half the things they believed. No reason to think we're any different.",
+        "There's probably something we're all doing right now that future people will find ridiculous."
+      ],
+      "reactions": [
+        "I hope they're kind about it, at least."
+      ],
+      "statCheck": {
+        "pass": "Every age thinks it's the smart one. History says otherwise. The pattern repeats too cleanly for us to be the exception.",
+        "fail": "I don't know enough about history to say for sure. Just a hunch."
+      },
+      "valence": "neutral",
+      "topic_category": "idle_musings",
+      "required_entities": [],
+      "location_scope": "universal",
+      "quest_trigger": null
+    },
+    {
+      "id": 45,
+      "intro": "There's something about a really clear night sky that makes you feel small. But in a good way.",
+      "details": [
+        "All those stars. Each one a fire burning somewhere impossibly far away.",
+        "Makes your problems feel more manageable when you think about the scale of things."
+      ],
+      "reactions": [
+        "I should look up more often."
+      ],
+      "statCheck": null,
+      "valence": "positive",
+      "topic_category": "idle_musings",
+      "required_entities": [],
+      "location_scope": "universal",
+      "quest_trigger": null
+    },
+    {
+      "id": 46,
+      "intro": "I've been thinking about forgetting. How it's mostly invisible. You don't know what you've lost.",
+      "details": [
+        "There are people I've met whose names I can't recall. Conversations I've had that are just gone.",
+        "My whole childhood is maybe a dozen scenes. The rest is empty space."
+      ],
+      "reactions": [
+        "It's like a leaky bucket. You keep filling it but you can't see the drip."
+      ],
+      "statCheck": null,
+      "valence": "negative",
+      "topic_category": "idle_musings",
+      "required_entities": [],
+      "location_scope": "universal",
+      "quest_trigger": null
+    },
+    {
+      "id": 47,
+      "intro": "Have you ever noticed that doing nothing is harder than doing something?",
+      "details": [
+        "Give me a task and I'll do it. Tell me to sit still and wait and I'll go mad within the hour.",
+        "There's a guilt that comes with idleness, even when there's nothing that needs doing."
+      ],
+      "reactions": [
+        "I don't know where that guilt comes from. Nobody's keeping score."
+      ],
+      "statCheck": null,
+      "valence": "neutral",
+      "topic_category": "idle_musings",
+      "required_entities": [],
+      "location_scope": "universal",
+      "quest_trigger": null
+    },
+    {
+      "id": 48,
+      "intro": "I wonder what animals think we are.",
+      "details": [
+        "We're huge, we build things, we make fire. From a rabbit's perspective we must look like something out of a nightmare.",
+        "Or maybe they don't think about us at all. Maybe we're just weather to them."
+      ],
+      "reactions": [
+        "I hope 'loud but mostly harmless' is the consensus."
+      ],
+      "statCheck": null,
+      "valence": "neutral",
+      "topic_category": "idle_musings",
+      "required_entities": [],
+      "location_scope": "universal",
+      "quest_trigger": null
+    },
+    {
+      "id": 49,
+      "intro": "Do you ever pick up a stone and wonder how long it's been sitting in that exact spot?",
+      "details": [
+        "Could be a hundred years. Could be a thousand. Just sitting there in the dirt while the whole world changed around it.",
+        "And I come along and move it six feet to the left."
+      ],
+      "reactions": [
+        "Makes you realize how briefly we're here, compared to the things we walk past every day."
+      ],
+      "statCheck": {
+        "pass": "Some river stones take centuries to wear smooth. The round ones by the creek have been tumbling since before this village existed.",
+        "fail": "I don't know anything about how long stones sit there. I just wonder about it."
+      },
+      "valence": "neutral",
+      "topic_category": "idle_musings",
+      "required_entities": [],
+      "location_scope": "universal",
+      "quest_trigger": null
+    },
+    {
+      "id": 50,
+      "intro": "I had this thought yesterday: we spend most of our lives indoors but we call it 'going outside' like that's the exception.",
+      "details": [
+        "Outside was here first. We're the ones who built walls and then acted like the other side of them is the special part.",
+        "A fox never 'goes outside.' It just lives."
+      ],
+      "reactions": [
+        "Maybe that's why fresh air feels so good. We weren't meant for all this indoors."
+      ],
+      "statCheck": null,
+      "valence": "neutral",
+      "topic_category": "idle_musings",
+      "required_entities": [],
+      "location_scope": "universal",
+      "quest_trigger": null
+    },
+    {
+      "id": 51,
+      "intro": "Isn't it strange how you can be in a room full of people and still feel alone?",
+      "details": [
+        "Everyone's talking, laughing. You're right there in the middle of it. But sometimes the noise just bounces off you.",
+        "And then other times you're completely alone and feel perfectly fine."
+      ],
+      "reactions": [
+        "Loneliness has nothing to do with headcount. It's something else entirely."
+      ],
+      "statCheck": null,
+      "valence": "negative",
+      "topic_category": "idle_musings",
+      "required_entities": [],
+      "location_scope": "universal",
+      "quest_trigger": null
+    },
+    {
+      "id": 52,
+      "intro": "I had a perfect morning today. Nothing special about it. Just everything lined up.",
+      "details": [
+        "Woke up rested, breakfast tasted right, the light through the window was warm. Small things, all of them.",
+        "But stacked together they made the first hour of the day feel like a gift."
+      ],
+      "reactions": [
+        "Tomorrow it'll probably be different. That's what makes today nice."
+      ],
+      "statCheck": null,
+      "valence": "positive",
+      "topic_category": "idle_musings",
+      "required_entities": [],
+      "location_scope": "universal",
+      "quest_trigger": null
+    },
+    {
+      "id": 53,
+      "intro": "Why is it that the things you're looking for are always in the last place you check?",
+      "details": [
+        "Obviously, because you stop looking. But it always feels like the universe is hiding things from you on purpose.",
+        "I lost my good knife for three days. It was in my boot."
+      ],
+      "reactions": [
+        "I swear objects move when you're not watching."
+      ],
+      "statCheck": null,
+      "valence": "neutral",
+      "topic_category": "idle_musings",
+      "required_entities": [],
+      "location_scope": "universal",
+      "quest_trigger": null
+    },
+    {
+      "id": 54,
+      "intro": "I think gratitude is one of those things everyone agrees is good but nobody actually practices.",
+      "details": [
+        "Including me. I know I should be thankful for what I have. But mostly I'm thinking about what I don't.",
+        "It takes effort to notice the good things. The bad ones just announce themselves."
+      ],
+      "reactions": [
+        "I'm trying to be better about it. Some days I even manage."
+      ],
+      "statCheck": null,
+      "valence": "neutral",
+      "topic_category": "idle_musings",
+      "required_entities": [],
+      "location_scope": "universal",
+      "quest_trigger": null
+    },
+    {
+      "id": 55,
+      "intro": "Have you ever wondered how many people are thinking the exact same thought as you right now?",
+      "details": [
+        "Not the same words, maybe. But the same feeling. Same worry, same wish, same idle wondering.",
+        "Somewhere out there, someone just asked the same question."
+      ],
+      "reactions": [
+        "That should be comforting, I think. We're not as alone in our heads as we feel."
+      ],
+      "statCheck": null,
+      "valence": "positive",
+      "topic_category": "idle_musings",
+      "required_entities": [],
+      "location_scope": "universal",
+      "quest_trigger": null
+    },
+    {
+      "id": 56,
+      "intro": "I think most people are doing their best. Even the ones who don't seem like it.",
+      "details": [
+        "You never know what someone's carrying. Their 'worst' might be them just barely holding it together.",
+        "I've had days where my best was pretty miserable by anyone's standard."
+      ],
+      "reactions": [
+        "I try to remember that before I judge. I don't always succeed."
+      ],
+      "statCheck": null,
+      "valence": "neutral",
+      "topic_category": "idle_musings",
+      "required_entities": [],
+      "location_scope": "universal",
+      "quest_trigger": null
+    },
+    {
+      "id": 57,
+      "intro": "There's a certain kind of cloud that looks like it was painted on. Thin and wispy, barely there.",
+      "details": [
+        "I watched one this morning for a good while. It changed shape so slowly you couldn't see it moving, but when I looked back five minutes later it was completely different.",
+        "Like watching something alive that moves on a timescale I can't feel."
+      ],
+      "reactions": [
+        "Staring at clouds is underrated. People should do it more."
+      ],
+      "statCheck": null,
+      "valence": "positive",
+      "topic_category": "idle_musings",
+      "required_entities": [],
+      "location_scope": "universal",
+      "quest_trigger": null
+    },
+    {
+      "id": 58,
+      "intro": "I've decided that regret is the most useless emotion there is.",
+      "details": [
+        "It can't change anything. It doesn't teach you anything you didn't already know. It just sits there, making you feel bad about something that's done.",
+        "But try telling your brain that."
+      ],
+      "reactions": [
+        "If I could pick one feeling to switch off, that'd be the one."
+      ],
+      "statCheck": null,
+      "valence": "negative",
+      "topic_category": "idle_musings",
+      "required_entities": [],
+      "location_scope": "universal",
+      "quest_trigger": null
+    },
+    {
+      "id": 59,
+      "intro": "Why do we like stories so much? We know they're not real. But we feel things anyway.",
+      "details": [
+        "Someone tells a tale around the fire and your heart races like it's happening to you.",
+        "The characters aren't real but the feelings are. That's a strange trick."
+      ],
+      "reactions": [
+        "Maybe that's the whole point of being human. Caring about things that aren't right in front of you."
+      ],
+      "statCheck": {
+        "pass": "I've heard scholars say stories are how we practice for things we've never faced. A way of rehearsing without the risk.",
+        "fail": "I couldn't explain why they work. I just know they do."
+      },
+      "valence": "neutral",
+      "topic_category": "idle_musings",
+      "required_entities": [],
+      "location_scope": "universal",
+      "quest_trigger": null
+    },
+    {
+      "id": 60,
+      "intro": "You know what nobody talks about? The feeling when you walk into a room and forget why you went in there.",
+      "details": [
+        "Happens to me at least once a day. I stand in the doorway like a lost sheep until it comes back.",
+        "Sometimes it doesn't come back and I just give up and go sit down."
+      ],
+      "reactions": [
+        "I'd blame age but it's been happening since I was young."
+      ],
+      "statCheck": null,
+      "valence": "neutral",
+      "topic_category": "idle_musings",
+      "required_entities": [],
+      "location_scope": "universal",
+      "quest_trigger": null
+    },
+    {
+      "id": 61,
+      "intro": "I think most fights between people start because they're both saying the same thing in different words.",
+      "details": [
+        "They agree on what matters but they're so caught up in how they said it that they can't hear each other.",
+        "I've watched two neighbors argue for an hour and they were both right."
+      ],
+      "reactions": [
+        "Listening is harder than talking. Always has been."
+      ],
+      "statCheck": {
+        "pass": "There's a trick to it: repeat back what someone said before you respond. Most arguments end right there.",
+        "fail": "I'm no peacemaker. I just notice patterns."
+      },
+      "valence": "neutral",
+      "topic_category": "idle_musings",
+      "required_entities": [],
+      "location_scope": "universal",
+      "quest_trigger": null
+    },
+    {
+      "id": 62,
+      "intro": "I think rain sounds different depending on your mood.",
+      "details": [
+        "When you're content it sounds cozy. When you're sad it sounds lonely. Same rain.",
+        "We put our feelings on everything, even weather."
+      ],
+      "reactions": [
+        "The world is just the world. We're the ones adding meaning."
+      ],
+      "statCheck": null,
+      "valence": "neutral",
+      "topic_category": "idle_musings",
+      "required_entities": [],
+      "location_scope": "universal",
+      "quest_trigger": null
+    },
+    {
+      "id": 63,
+      "intro": "There's a spot by the creek where the water sounds like it's talking. I sat there for a while today.",
+      "details": [
+        "If you half-close your ears it almost sounds like words. Mumbling, mostly, like someone thinking out loud.",
+        "I know it's just rocks and current. But it's a nice thought."
+      ],
+      "reactions": [
+        "I think we're wired to hear voices in things. Keeps us company."
+      ],
+      "statCheck": null,
+      "valence": "positive",
+      "topic_category": "idle_musings",
+      "required_entities": [],
+      "location_scope": "universal",
+      "quest_trigger": null
+    },
+    {
+      "id": 64,
+      "intro": "I was thinking about how strange sleep is. We just lie down and lose consciousness for hours. Every night.",
+      "details": [
+        "And we all agreed this is normal. If you described it to someone who'd never done it, they'd think you were mad.",
+        "You just shut off and hope you turn back on. That's the plan."
+      ],
+      "reactions": [
+        "And yet the alternative is worse. Try going without and see how long you last."
+      ],
+      "statCheck": {
+        "pass": "I've heard that the body repairs itself during sleep. Bones knit, wounds close faster, the mind sorts through the day's mess. We're not just resting, we're rebuilding.",
+        "fail": "I don't know what happens when we sleep. I just know I need it."
+      },
+      "valence": "neutral",
+      "topic_category": "idle_musings",
+      "required_entities": [],
+      "location_scope": "universal",
+      "quest_trigger": null
+    },
+    {
+      "id": 65,
+      "intro": "Do you think there's such a thing as a perfect day? Or is 'good enough' the best we get?",
+      "details": [
+        "I've had days I'd call great. But perfect? There's always one small thing that wasn't quite right.",
+        "Maybe the trick is lowering the bar just enough."
+      ],
+      "reactions": [
+        "I'd settle for a week of 'pretty good' days in a row."
+      ],
+      "statCheck": null,
+      "valence": "neutral",
+      "topic_category": "idle_musings",
+      "required_entities": [],
+      "location_scope": "universal",
+      "quest_trigger": null
+    },
+    {
+      "id": 66,
+      "intro": "I've always thought it was funny how we tell children not to talk to strangers but adults do it all the time.",
+      "details": [
+        "I'm doing it right now, arguably. And half the people I'd call friends started as strangers I happened to talk to.",
+        "I suppose the rule is more about caution than silence."
+      ],
+      "reactions": [
+        "Most strangers are just people you haven't met yet. A few aren't. That's the gamble."
+      ],
+      "statCheck": null,
+      "valence": "neutral",
+      "topic_category": "idle_musings",
+      "required_entities": [],
+      "location_scope": "universal",
+      "quest_trigger": null
+    },
+    {
+      "id": 67,
+      "intro": "Something about autumn makes me want to slow down. Like the world is giving permission to rest.",
+      "details": [
+        "The light goes golden, the air gets sharp, everything starts winding down. Even the birds seem calmer.",
+        "It's the only season that feels like an exhale."
+      ],
+      "reactions": [
+        "I wish the whole year moved at autumn speed."
+      ],
+      "statCheck": null,
+      "valence": "positive",
+      "topic_category": "idle_musings",
+      "required_entities": [],
+      "location_scope": "universal",
+      "quest_trigger": null
+    },
+    {
+      "id": 68,
+      "intro": "Have you noticed how we only appreciate quiet after it's been noisy?",
+      "details": [
+        "A busy morning ends and suddenly the silence hits like a physical thing. It's wonderful.",
+        "But if it's been quiet all day you don't even notice. You just feel restless."
+      ],
+      "reactions": [
+        "We need the contrast, I think. Can't enjoy one without the other."
+      ],
+      "statCheck": null,
+      "valence": "neutral",
+      "topic_category": "idle_musings",
+      "required_entities": [],
+      "location_scope": "universal",
+      "quest_trigger": null
+    },
+    {
+      "id": 69,
+      "intro": "I wonder what the world smells like to a dog. They seem to find every spot fascinating.",
+      "details": [
+        "A patch of dirt that looks like nothing to me has a dog riveted for five minutes. Sniffing like it's reading a book.",
+        "There's a whole layer of the world we're missing because our noses aren't good enough."
+      ],
+      "reactions": [
+        "Maybe ignorance is bliss on that one. Some things are better not smelled in detail."
+      ],
+      "statCheck": {
+        "pass": "A tracker once told me dogs can smell where someone walked hours after they've gone. They read trails in the air like we read footprints in mud. Their world is layered in ways ours isn't.",
+        "fail": "I don't know the details. Just that their noses are better than ours by a long way."
+      },
+      "valence": "neutral",
+      "topic_category": "idle_musings",
+      "required_entities": [],
+      "location_scope": "universal",
+      "quest_trigger": null
+    },
+    {
+      "id": 70,
+      "intro": "I think the kindest thing anyone can do is remember something small about you.",
+      "details": [
+        "Not your name or your job. Something little, like how you take your drink or that you don't like crowds.",
+        "It means they were paying attention when they didn't have to."
+      ],
+      "reactions": [
+        "I try to do that for others. It costs nothing and means everything."
+      ],
+      "statCheck": null,
+      "valence": "positive",
+      "topic_category": "idle_musings",
+      "required_entities": [],
+      "location_scope": "universal",
+      "quest_trigger": null
+    },
+    {
+      "id": 71,
+      "intro": "Is there a word for the feeling when you know you should be happy but you're not?",
+      "details": [
+        "Everything's fine. Nothing's wrong. The sun is out, the work is done. But there's just this flatness.",
+        "It's not sadness exactly. It's the absence of the good feeling you expected."
+      ],
+      "reactions": [
+        "Maybe feelings don't follow logic. They arrive when they want to, not when they should."
+      ],
+      "statCheck": null,
+      "valence": "negative",
+      "topic_category": "idle_musings",
+      "required_entities": [],
+      "location_scope": "universal",
+      "quest_trigger": null
+    },
+    {
+      "id": 72,
+      "intro": "I've been watching ants today. They never seem to stop.",
+      "details": [
+        "Every one of them moving with purpose, carrying things twice their size, never sitting down.",
+        "I don't know if that's admirable or depressing."
+      ],
+      "reactions": [
+        "At least they don't seem bothered by it. Maybe purpose is its own reward."
+      ],
+      "statCheck": null,
+      "valence": "neutral",
+      "topic_category": "idle_musings",
+      "required_entities": [],
+      "location_scope": "universal",
+      "quest_trigger": null
+    },
+    {
+      "id": 73,
+      "intro": "Why is it that the moment you decide to go to sleep, your brain starts having its best ideas?",
+      "details": [
+        "All day: nothing. Lie down, close your eyes, and suddenly you've solved three problems and remembered something from ten years ago.",
+        "By morning, of course, it's all gone."
+      ],
+      "reactions": [
+        "I should keep something to write with by my bed. I've been saying that for years."
+      ],
+      "statCheck": null,
+      "valence": "neutral",
+      "topic_category": "idle_musings",
+      "required_entities": [],
+      "location_scope": "universal",
+      "quest_trigger": null
+    },
+    {
+      "id": 74,
+      "intro": "There's a satisfaction in finishing something that's hard to get any other way.",
+      "details": [
+        "Not a big thing, necessarily. Even mending a fence or clearing a path. Just the feeling of done.",
+        "I think half the reason we feel restless is because we've got things hanging unfinished."
+      ],
+      "reactions": [
+        "I should go finish something. That'd cure this mood."
+      ],
+      "statCheck": null,
+      "valence": "positive",
+      "topic_category": "idle_musings",
+      "required_entities": [],
+      "location_scope": "universal",
+      "quest_trigger": null
+    },
+    {
+      "id": 75,
+      "intro": "I think the most underrated pleasure is drinking cold water when you're really thirsty.",
+      "details": [
+        "Not fancy. Not special. Just water. But at the right moment it's the best thing in the world.",
+        "You forget about it as soon as you're not thirsty anymore. Taken completely for granted."
+      ],
+      "reactions": [
+        "Simple things. That's where the real good stuff hides."
+      ],
+      "statCheck": null,
+      "valence": "positive",
+      "topic_category": "idle_musings",
+      "required_entities": [],
+      "location_scope": "universal",
+      "quest_trigger": null
+    },
+    {
+      "id": 76,
+      "intro": "Do you think we're more honest with ourselves than with other people, or less?",
+      "details": [
+        "I catch myself lying to my own head sometimes. Telling myself I'm fine when I'm not, or that I don't care about something I clearly do.",
+        "If I can't even be straight with myself, what chance does anyone else have?"
+      ],
+      "reactions": [
+        "Probably less honest, if I'm being honest. Which proves the point, I suppose."
+      ],
+      "statCheck": null,
+      "valence": "negative",
+      "topic_category": "idle_musings",
+      "required_entities": [],
+      "location_scope": "universal",
+      "quest_trigger": null
+    },
+    {
+      "id": 77,
+      "intro": "I wonder who decided which direction was north.",
+      "details": [
+        "Someone, at some point, picked a direction and said: this one's north. Everyone else just agreed.",
+        "Could've been south. Could've been anything. We'd never know the difference."
+      ],
+      "reactions": [
+        "The things we treat as facts that are really just agreements: there's more of them than you'd think."
+      ],
+      "statCheck": {
+        "pass": "Lodestones always point the same way. A clever person followed the stone and called that direction north. Nature decided; we just named it.",
+        "fail": "I've got no idea how compasses work. I just know someone made a choice and we stuck with it."
+      },
+      "valence": "neutral",
+      "topic_category": "idle_musings",
+      "required_entities": [],
+      "location_scope": "universal",
+      "quest_trigger": null
+    },
+    {
+      "id": 78,
+      "intro": "Silence at night is different from silence during the day. I noticed that last night.",
+      "details": [
+        "Daytime silence is just the absence of noise. Night silence has a texture to it. It presses in.",
+        "You hear your own breathing, the house settling. Things you'd never notice with the sun up."
+      ],
+      "reactions": [
+        "It can be peaceful or it can be unsettling. Depends entirely on your state of mind."
+      ],
+      "statCheck": null,
+      "valence": "neutral",
+      "topic_category": "idle_musings",
+      "required_entities": [],
+      "location_scope": "universal",
+      "quest_trigger": null
+    },
+    {
+      "id": 79,
+      "intro": "I think the worst part of waiting isn't the time. It's the not knowing.",
+      "details": [
+        "Tell me something will take three days and I'm fine. Tell me 'we'll see' and I'll lose sleep every night.",
+        "It's uncertainty that eats at you. Time by itself is harmless."
+      ],
+      "reactions": [
+        "I'd take bad news over no news, every time."
+      ],
+      "statCheck": null,
+      "valence": "negative",
+      "topic_category": "idle_musings",
+      "required_entities": [],
+      "location_scope": "universal",
+      "quest_trigger": null
+    },
+    {
+      "id": 80,
+      "intro": "Ever think about how strange hands are?",
+      "details": [
+        "Five little branching bits at the end of your arms. They can tie knots, crack eggs, hold a baby, throw a punch.",
+        "The same hand does all of that. Most versatile thing on your whole body."
+      ],
+      "reactions": [
+        "I've been staring at mine for a minute now and they look stranger the longer I look."
+      ],
+      "statCheck": null,
+      "valence": "neutral",
+      "topic_category": "idle_musings",
+      "required_entities": [],
+      "location_scope": "universal",
+      "quest_trigger": null
+    },
+    {
+      "id": 81,
+      "intro": "Why do we feel guilty about resting? Nobody's keeping a ledger.",
+      "details": [
+        "I sat down for twenty minutes this afternoon and felt like I was stealing something.",
+        "The work was done. There was nothing urgent. But still, that little voice: 'you should be doing something.'"
+      ],
+      "reactions": [
+        "I think we've confused being busy with being good. They're not the same thing."
+      ],
+      "statCheck": null,
+      "valence": "neutral",
+      "topic_category": "idle_musings",
+      "required_entities": [],
+      "location_scope": "universal",
+      "quest_trigger": null
+    },
+    {
+      "id": 82,
+      "intro": "I've always been curious about what the first snow of winter means. If it means anything at all.",
+      "details": [
+        "People say early snow means a hard winter. Others say it means a short one. Can't both be right.",
+        "I think it means it snowed and everything else is just us wanting patterns."
+      ],
+      "reactions": [
+        "Still pretty, though. No matter what it means or doesn't."
+      ],
+      "statCheck": {
+        "pass": "The old farmers watch the geese and the thickness of caterpillar coats. Early snow on its own doesn't predict much, but the animal signs are more reliable than people give them credit for.",
+        "fail": "I'm no weather reader. I just know I've heard ten different theories and none of them agree."
+      },
+      "valence": "neutral",
+      "topic_category": "idle_musings",
+      "required_entities": [],
+      "location_scope": "universal",
+      "quest_trigger": null
+    },
+    {
+      "id": 83,
+      "intro": "I wonder if anyone has ever had a completely original thought.",
+      "details": [
+        "Everything I think feels new to me, but someone somewhere probably thought it first. Ages ago.",
+        "And they probably thought they were being original too."
+      ],
+      "reactions": [
+        "Doesn't make the thought less valuable, I suppose. Just less special."
+      ],
+      "statCheck": null,
+      "valence": "neutral",
+      "topic_category": "idle_musings",
+      "required_entities": [],
+      "location_scope": "universal",
+      "quest_trigger": null
+    },
+    {
+      "id": 84,
+      "intro": "Do you think courage and stupidity are related? I've been going back and forth.",
+      "details": [
+        "Some of the bravest things I've seen were done by people who didn't fully understand the danger.",
+        "And some of the smartest people I know are the most cautious. Almost paralyzed by knowing too much."
+      ],
+      "reactions": [
+        "Maybe the trick is knowing just enough to act but not enough to freeze."
+      ],
+      "statCheck": {
+        "pass": "There's wisdom in knowing the difference. A soldier who charges knowing the risk is brave. One who charges without knowing is lucky.",
+        "fail": "I'm probably not the right person to judge. I've been both brave and stupid, and sometimes I can't tell which was which."
+      },
+      "valence": "neutral",
+      "topic_category": "idle_musings",
+      "required_entities": [],
+      "location_scope": "universal",
+      "quest_trigger": null
+    },
+    {
+      "id": 85,
+      "intro": "I find it comforting that the sun comes up every morning without anyone asking it to.",
+      "details": [
+        "No matter what happens down here: arguments, bad harvests, sleepless nights. The sun doesn't care. It just shows up.",
+        "There's a reliability to it that makes everything else feel manageable."
+      ],
+      "reactions": [
+        "Nice to know something in this world is consistent."
+      ],
+      "statCheck": null,
+      "valence": "positive",
+      "topic_category": "idle_musings",
+      "required_entities": [],
+      "location_scope": "universal",
+      "quest_trigger": null
+    },
+    {
+      "id": 86,
+      "intro": "Why do we say 'killing time' like it's something we do to the hours? Time kills us, if anything.",
+      "details": [
+        "We've got a limited supply of it and we spend half our lives trying to make it pass faster.",
+        "That's a strange arrangement when you think about it."
+      ],
+      "reactions": [
+        "I should probably spend less time thinking about time. But here we are."
+      ],
+      "statCheck": {
+        "pass": "I read once that different cultures measure time differently. Some count by moons, others by harvests, others by the lives of rulers. The hours we use are just one way of slicing it up.",
+        "fail": "I don't know much about how time works. I just know it keeps going whether I like it or not."
+      },
+      "valence": "neutral",
+      "topic_category": "idle_musings",
+      "required_entities": [],
+      "location_scope": "universal",
+      "quest_trigger": null
+    },
+    {
+      "id": 87,
+      "intro": "I was watching a spider build a web this morning. Incredible, really.",
+      "details": [
+        "No plan, no tools, just instinct. And the thing came out symmetrical. Better than most things I build with both hands and a ruler.",
+        "And then a bird flew through it and wrecked the whole thing. Started over immediately."
+      ],
+      "reactions": [
+        "There's a lesson in there somewhere. Build, lose it, build again."
+      ],
+      "statCheck": null,
+      "valence": "positive",
+      "topic_category": "idle_musings",
+      "required_entities": [],
+      "location_scope": "universal",
+      "quest_trigger": null
+    },
+    {
+      "id": 88,
+      "intro": "I wonder if I've already lived the best day of my life and didn't know it at the time.",
+      "details": [
+        "You never think 'this is the peak' while it's happening. It only becomes obvious later, looking back.",
+        "Or maybe it hasn't happened yet. No way to know."
+      ],
+      "reactions": [
+        "I hope it hasn't happened yet. I'd like to think there's still a best day coming."
+      ],
+      "statCheck": null,
+      "valence": "negative",
+      "topic_category": "idle_musings",
+      "required_entities": [],
+      "location_scope": "universal",
+      "quest_trigger": null
+    },
+    {
+      "id": 89,
+      "intro": "Why does everyone have a different opinion on what's comfortable?",
+      "details": [
+        "I like my chair hard and my bread soft. My neighbor's the opposite on both counts.",
+        "Comfort seems like it should be universal. But it's as personal as a thumbprint."
+      ],
+      "reactions": [
+        "At least it means we're not all fighting over the same chair."
+      ],
+      "statCheck": null,
+      "valence": "neutral",
+      "topic_category": "idle_musings",
+      "required_entities": [],
+      "location_scope": "universal",
+      "quest_trigger": null
+    },
+    {
+      "id": 90,
+      "intro": "I think laughter might be the strangest human thing there is.",
+      "details": [
+        "Something strikes you funny and your body just starts making noise and shaking. You can't stop it.",
+        "And it spreads. One person laughs and suddenly everyone's doing it, even if they missed the joke."
+      ],
+      "reactions": [
+        "Whatever it is, it works. I always feel better after."
+      ],
+      "statCheck": {
+        "pass": "I've heard that laughing works muscles in your belly and chest, and releases something in your blood that eases pain. The body rewards you for doing it, like it wants you to keep going.",
+        "fail": "I don't know what happens inside when you laugh. I just know I feel lighter after."
+      },
+      "valence": "positive",
+      "topic_category": "idle_musings",
+      "required_entities": [],
+      "location_scope": "universal",
+      "quest_trigger": null
+    },
+    {
+      "id": 91,
+      "intro": "I've noticed that the things I dread doing are almost never as bad as I imagined.",
+      "details": [
+        "I'll put something off for weeks, stomach in knots. Then I do it and it takes ten minutes.",
+        "The dread was worse than the thing. It always is."
+      ],
+      "reactions": [
+        "You'd think I'd learn. But next time I'll dread it just the same."
+      ],
+      "statCheck": null,
+      "valence": "neutral",
+      "topic_category": "idle_musings",
+      "required_entities": [],
+      "location_scope": "universal",
+      "quest_trigger": null
+    },
+    {
+      "id": 92,
+      "intro": "I find it oddly calming that somewhere out there, a river is flowing right now that no one's looking at.",
+      "details": [
+        "It doesn't need an audience. It just does what it does. Day and night, rain or shine.",
+        "Most of the world is happening without us watching."
+      ],
+      "reactions": [
+        "Makes me feel less important, which is strangely a relief."
+      ],
+      "statCheck": null,
+      "valence": "positive",
+      "topic_category": "idle_musings",
+      "required_entities": [],
+      "location_scope": "universal",
+      "quest_trigger": null
+    },
+    {
+      "id": 93,
+      "intro": "Why can't I ever remember my good dreams? The bad ones stick around for hours.",
+      "details": [
+        "Woke up this morning knowing I'd had a wonderful dream. The feeling was still there. But the details were already gone.",
+        "Meanwhile I had a nightmare two weeks ago that I could still describe in detail."
+      ],
+      "reactions": [
+        "The mind's got a bias toward bad news, I think. Even in sleep."
+      ],
+      "statCheck": null,
+      "valence": "negative",
+      "topic_category": "idle_musings",
+      "required_entities": [],
+      "location_scope": "universal",
+      "quest_trigger": null
+    },
+    {
+      "id": 94,
+      "intro": "I've been thinking about how different the world must look to someone very tall versus very short.",
+      "details": [
+        "They're in the same place but seeing it from a completely different angle. Different shelves they can reach, different things at eye level.",
+        "A child's world must look like a forest of legs and table edges."
+      ],
+      "reactions": [
+        "Perspective changes everything and we're all stuck in just the one."
+      ],
+      "statCheck": null,
+      "valence": "neutral",
+      "topic_category": "idle_musings",
+      "required_entities": [],
+      "location_scope": "universal",
+      "quest_trigger": null
+    },
+    {
+      "id": 95,
+      "intro": "There's a window of about ten minutes in the evening where everything turns gold. Then it's gone.",
+      "details": [
+        "The light hits the buildings and the fields and for a moment everything looks like a painting.",
+        "You can't hold onto it. By the time you stop to notice, it's already fading."
+      ],
+      "reactions": [
+        "I think the best things in life are the ones you can't keep."
+      ],
+      "statCheck": null,
+      "valence": "positive",
+      "topic_category": "idle_musings",
+      "required_entities": [],
+      "location_scope": "universal",
+      "quest_trigger": null
+    },
+    {
+      "id": 96,
+      "intro": "I've been wondering whether people change or whether they just get more like themselves.",
+      "details": [
+        "The grumpy ones get grumpier. The kind ones get kinder. Like everyone's just turning up their own dial over time.",
+        "I knew someone gentle when they were young and they're the gentlest person alive now."
+      ],
+      "reactions": [
+        "Makes me wonder which dial I'm turning."
+      ],
+      "statCheck": {
+        "pass": "I think the seeds are planted early. What you water is what grows. A person's nature is set young; their choices just reveal it over time.",
+        "fail": "I couldn't tell you what shapes a person. I just watch it happen."
+      },
+      "valence": "neutral",
+      "topic_category": "idle_musings",
+      "required_entities": [],
+      "location_scope": "universal",
+      "quest_trigger": null
+    },
+    {
+      "id": 97,
+      "intro": "Ever notice how being warm and dry feels like nothing, but being cold and wet feels like everything?",
+      "details": [
+        "You don't notice comfort until it's taken away. Then it's all you can think about.",
+        "I walked home in the rain last week and the moment I stepped inside and toweled off, I felt rich."
+      ],
+      "reactions": [
+        "A dry pair of socks after a wet day. That's real wealth right there."
+      ],
+      "statCheck": null,
+      "valence": "neutral",
+      "topic_category": "idle_musings",
+      "required_entities": [],
+      "location_scope": "universal",
+      "quest_trigger": null
+    },
+    {
+      "id": 98,
+      "intro": "I wonder if the moon gets lonely up there.",
+      "details": [
+        "Just sitting in the dark, watching us. No one to talk to. Same view every night.",
+        "I know it's a rock. But on certain nights, when it's full and low, it looks like it's thinking."
+      ],
+      "reactions": [
+        "I'm projecting. I know I'm projecting. But still."
+      ],
+      "statCheck": null,
+      "valence": "neutral",
+      "topic_category": "idle_musings",
+      "required_entities": [],
+      "location_scope": "universal",
+      "quest_trigger": null
+    },
+    {
+      "id": 99,
+      "intro": "I think the strangest thing about being alive is that we all know it ends, and we mostly just carry on anyway.",
+      "details": [
+        "You'd think knowing that would make everything feel urgent. But it doesn't. We still waste afternoons and put off things that matter.",
+        "Maybe that's the only sane response. If you thought about it too hard, you'd never get out of bed."
+      ],
+      "reactions": [
+        "Life's better lived than examined, I think. Most of the time.",
+        "Sorry. Got a bit deep there. That's what idle time does to me."
+      ],
+      "statCheck": {
+        "pass": "I've read that the wisest people aren't the ones who fear death. They're the ones who let that knowledge sharpen how they live, like a whetstone.",
+        "fail": "I don't have answers for the big questions. I barely manage the small ones."
+      },
+      "valence": "neutral",
+      "topic_category": "idle_musings",
+      "required_entities": [],
+      "location_scope": "universal",
+      "quest_trigger": null
+    }
+  ]
+}

@@ -1,0 +1,3550 @@
+{
+  "pool": "work_life",
+  "version": 3,
+  "entries": [
+    {
+      "id": 0,
+      "intro": "Being a {self_role} isn't glamorous, but the work keeps you honest.",
+      "details": [
+        "You show up, you do the thing, you go home tired. There's a rhythm to it.",
+        "Some days I wonder what I'd be doing if I'd picked a different path. But not for long."
+      ],
+      "reactions": [
+        "It's a living. That's more than some can say."
+      ],
+      "statCheck": null,
+      "valence": "neutral",
+      "topic_category": "work_life",
+      "required_entities": [],
+      "location_scope": "universal",
+      "quest_trigger": null
+    },
+    {
+      "id": 1,
+      "intro": "I ruined a whole batch today because I wasn't paying attention. Just a moment of distraction and it's wasted.",
+      "details": [
+        "The frustrating part is I know better. I've done this a thousand times.",
+        "You can't take it back. You just start over and try not to think about the time you lost."
+      ],
+      "reactions": [
+        "At least nobody else saw. Small mercy."
+      ],
+      "statCheck": null,
+      "valence": "negative",
+      "topic_category": "work_life",
+      "required_entities": [],
+      "location_scope": "universal",
+      "quest_trigger": null
+    },
+    {
+      "id": 2,
+      "intro": "Got everything done early today. That almost never happens for a {self_role}.",
+      "details": [
+        "I just hit a groove where every step flowed into the next. No hiccups, no distractions.",
+        "Finished before the sun even started going down."
+      ],
+      "reactions": [
+        "Feels like I cheated somehow. But I'll take it."
+      ],
+      "statCheck": null,
+      "valence": "positive",
+      "topic_category": "work_life",
+      "required_entities": [],
+      "location_scope": "universal",
+      "quest_trigger": null
+    },
+    {
+      "id": 3,
+      "intro": "My hands are so sore I can barely close them. Long day.",
+      "details": [
+        "The kind of tired where you sit down and realize you can't get back up.",
+        "I should've taken a break earlier, but once I'm in it I don't like stopping."
+      ],
+      "reactions": [
+        "Hot water and sleep. That's the only cure I know."
+      ],
+      "statCheck": null,
+      "valence": "negative",
+      "topic_category": "work_life",
+      "required_entities": [],
+      "location_scope": "universal",
+      "quest_trigger": null
+    },
+    {
+      "id": 4,
+      "intro": "There's a trick to working with {resource_type} that took me years to figure out.",
+      "details": [
+        "Nobody tells you when you're starting out. You just make the same mistake over and over until it clicks.",
+        "Once you feel it, though, you can't unfeel it. Your hands just know."
+      ],
+      "reactions": [
+        "I wish someone had shown me sooner, but I'm not sure I would've understood."
+      ],
+      "statCheck": {
+        "pass": "The grain of {resource_type} has a direction to it, even when you can't see it. Work with it, not against it, and everything goes smoother.",
+        "fail": "I couldn't explain it if I tried. It's more of a feel thing."
+      },
+      "valence": "neutral",
+      "topic_category": "work_life",
+      "required_entities": [],
+      "location_scope": "universal",
+      "quest_trigger": null
+    },
+    {
+      "id": 5,
+      "intro": "I actually looked forward to getting started this morning. That hasn't happened in a while.",
+      "details": [
+        "Something about the weather, or maybe I just slept well. Everything felt lighter.",
+        "Even the boring parts didn't bother me."
+      ],
+      "reactions": [
+        "Should bottle that feeling for the days when I'm dragging."
+      ],
+      "statCheck": null,
+      "valence": "positive",
+      "topic_category": "work_life",
+      "required_entities": [],
+      "location_scope": "universal",
+      "quest_trigger": null
+    },
+    {
+      "id": 6,
+      "intro": "Every time I think I've got the {self_role} routine down, something changes.",
+      "details": [
+        "New tools, new methods, somebody wants it done a different way. You adapt or you fall behind.",
+        "I'm not against change. I just wish it'd slow down enough for me to catch my breath."
+      ],
+      "reactions": [
+        "Complaining about it won't help, so I just adjust."
+      ],
+      "statCheck": null,
+      "valence": "neutral",
+      "topic_category": "work_life",
+      "required_entities": [],
+      "location_scope": "universal",
+      "quest_trigger": null
+    },
+    {
+      "id": 7,
+      "intro": "Woke up before dawn again. The work doesn't wait for you to feel ready.",
+      "details": [
+        "I used to hate early mornings, but now I don't even think about it. My body just gets up.",
+        "There's something peaceful about being the only one moving around that early, though."
+      ],
+      "reactions": [
+        "You'd be surprised how much you can get done before most people open their eyes."
+      ],
+      "statCheck": {
+        "pass": "The body's temperature cycle dips lowest around the fourth hour after midnight. If you push past that trough, the natural warming wakes you better than any alarm.",
+        "fail": "I don't know why mornings get easier. They just do, eventually."
+      },
+      "valence": "neutral",
+      "topic_category": "work_life",
+      "required_entities": [],
+      "location_scope": "universal",
+      "quest_trigger": null
+    },
+    {
+      "id": 8,
+      "intro": "Broke my favorite tool today. The one I've had for years.",
+      "details": [
+        "It wasn't even doing anything unusual: just snapped, worn through I guess.",
+        "I've got others, but none of them feel right the same way."
+      ],
+      "reactions": [
+        "Shouldn't get attached to things that wear out. But you do."
+      ],
+      "statCheck": null,
+      "valence": "negative",
+      "topic_category": "work_life",
+      "required_entities": [],
+      "location_scope": "universal",
+      "quest_trigger": null
+    },
+    {
+      "id": 9,
+      "intro": "Someone told me I make {self_role} work look easy. I didn't know how to take that.",
+      "details": [
+        "It's not easy. I've just been doing it long enough that the hard parts don't show.",
+        "I wanted to say thanks, but also: you have no idea what this costs."
+      ],
+      "reactions": [
+        "I guess that's what practice looks like from the outside."
+      ],
+      "statCheck": null,
+      "valence": "neutral",
+      "topic_category": "work_life",
+      "required_entities": [],
+      "location_scope": "universal",
+      "quest_trigger": null
+    },
+    {
+      "id": 10,
+      "intro": "I've been working with {resource_type} all week. My workspace smells like nothing else now.",
+      "details": [
+        "You stop noticing after the first hour, but everyone who walks in mentions it.",
+        "It gets in your clothes, your hair. Follows you home."
+      ],
+      "reactions": [
+        "Part of the job. You either get used to it or you don't last."
+      ],
+      "statCheck": null,
+      "valence": "neutral",
+      "topic_category": "work_life",
+      "required_entities": [],
+      "location_scope": "universal",
+      "quest_trigger": null
+    },
+    {
+      "id": 11,
+      "intro": "Finished a piece of {self_role} work today that I'm actually proud of. Doesn't happen every time.",
+      "details": [
+        "Everything lined up: the measurements, the timing, even the weather cooperated.",
+        "I stood back and just looked at it for a minute before moving on."
+      ],
+      "reactions": [
+        "That's why you keep at it. For the ones that come out right."
+      ],
+      "statCheck": null,
+      "valence": "positive",
+      "topic_category": "work_life",
+      "required_entities": [],
+      "location_scope": "universal",
+      "quest_trigger": null
+    },
+    {
+      "id": 12,
+      "intro": "The monotony is the hardest part. Not the labor, not the hours: the sameness.",
+      "details": [
+        "Same motions, same order, same result. Day after day.",
+        "I try to find small things to keep it interesting, but some weeks there's nothing to find."
+      ],
+      "reactions": [
+        "You learn to live with it, or it eats you alive."
+      ],
+      "statCheck": null,
+      "valence": "negative",
+      "topic_category": "work_life",
+      "required_entities": [],
+      "location_scope": "universal",
+      "quest_trigger": null
+    },
+    {
+      "id": 13,
+      "intro": "I trained someone new this week. Forgot how much I take for granted.",
+      "details": [
+        "They kept asking 'why' about steps I do without thinking. Made me actually consider my own process.",
+        "Watching them struggle with the basics reminded me how far I've come."
+      ],
+      "reactions": [
+        "Teaching someone is strange. You learn things about your own work that you never noticed."
+      ],
+      "statCheck": {
+        "pass": "The best way to test your own understanding is to explain it to someone new. If you can't break it into simple steps, you don't know it as well as you think.",
+        "fail": "I just showed them what I do and hoped they'd pick it up."
+      },
+      "valence": "neutral",
+      "topic_category": "work_life",
+      "required_entities": [],
+      "location_scope": "universal",
+      "quest_trigger": null
+    },
+    {
+      "id": 14,
+      "intro": "Bad {resource_type} today. The whole shipment was off.",
+      "details": [
+        "You can't make good work out of bad materials, no matter how skilled you are.",
+        "I spent half the day sorting through it, trying to salvage what I could."
+      ],
+      "reactions": [
+        "Waste of my time. But I can't exactly conjure better supplies out of thin air."
+      ],
+      "statCheck": {
+        "pass": "You can tell the quality by the weight and color before you even start. This batch was wrong from the moment I picked it up.",
+        "fail": "I just know it's bad when the results come out wrong. Can't always tell ahead of time."
+      },
+      "valence": "negative",
+      "topic_category": "work_life",
+      "required_entities": [],
+      "location_scope": "universal",
+      "quest_trigger": null
+    },
+    {
+      "id": 15,
+      "intro": "There's a satisfaction to cleaning up the {self_role} workspace at day's end. Putting everything back where it belongs.",
+      "details": [
+        "It's like closing a chapter. The mess is proof you did something, and the clean is proof you finished.",
+        "I know people who skip that step. Their workspace looks like a disaster zone."
+      ],
+      "reactions": [
+        "Start clean, end clean. That's how I was taught and it stuck."
+      ],
+      "statCheck": null,
+      "valence": "positive",
+      "topic_category": "work_life",
+      "required_entities": [],
+      "location_scope": "universal",
+      "quest_trigger": null
+    },
+    {
+      "id": 16,
+      "intro": "Had someone come in wanting {self_role} work done by tomorrow. You'd think I can bend time.",
+      "details": [
+        "I told them what I could do and how long it'd take. They weren't happy.",
+        "Quality takes time. I'm not going to rush and hand over something I'm ashamed of."
+      ],
+      "reactions": [
+        "They'll come back when they realize the fast option was worse."
+      ],
+      "statCheck": null,
+      "valence": "negative",
+      "topic_category": "work_life",
+      "required_entities": [],
+      "location_scope": "universal",
+      "quest_trigger": null
+    },
+    {
+      "id": 17,
+      "intro": "My back's been killing me. Years of {self_role} work will do that.",
+      "details": [
+        "I stretch in the morning, I stretch at night. Helps a little.",
+        "Some days are fine. Then I'll turn wrong and it locks up for a week."
+      ],
+      "reactions": [
+        "The body keeps a tally of everything you've done to it. Payment comes due eventually."
+      ],
+      "statCheck": {
+        "pass": "Keeping your core strong helps more than any poultice. Most back pain is about the muscles around the spine, not the spine itself.",
+        "fail": "I've tried everything people have suggested. Nothing fixes it permanently."
+      },
+      "valence": "negative",
+      "topic_category": "work_life",
+      "required_entities": [],
+      "location_scope": "universal",
+      "quest_trigger": null
+    },
+    {
+      "id": 18,
+      "intro": "I've noticed I hum while I work. Didn't realize I was doing it until {npc_name} pointed it out.",
+      "details": [
+        "Apparently I've been doing it for years. Same three or four songs, over and over.",
+        "It's like my body has its own soundtrack. Picks the tune based on what I'm doing."
+      ],
+      "reactions": [
+        "At least it's not singing. Nobody wants to hear that."
+      ],
+      "statCheck": null,
+      "valence": "neutral",
+      "topic_category": "work_life",
+      "required_entities": [],
+      "location_scope": "universal",
+      "quest_trigger": null
+    },
+    {
+      "id": 19,
+      "intro": "First real day off in I don't know how long. Didn't know what to do with myself.",
+      "details": [
+        "I just wandered around the house for an hour. Kept thinking of things I should be doing.",
+        "Eventually I sat down and realized I'd forgotten how to relax."
+      ],
+      "reactions": [
+        "That probably says something about me that I don't want to examine too closely."
+      ],
+      "statCheck": null,
+      "valence": "neutral",
+      "topic_category": "work_life",
+      "required_entities": [],
+      "location_scope": "universal",
+      "quest_trigger": null
+    },
+    {
+      "id": 20,
+      "intro": "Funny thing about being a {self_role}: everyone thinks they know how to do your job better.",
+      "details": [
+        "They'll stand right there and tell you what you should be doing differently. While you're doing it.",
+        "I smile and nod. Then I do it the way I know works."
+      ],
+      "reactions": [
+        "If it were that easy, they'd be doing it themselves."
+      ],
+      "statCheck": null,
+      "valence": "negative",
+      "topic_category": "work_life",
+      "required_entities": [],
+      "location_scope": "universal",
+      "quest_trigger": null
+    },
+    {
+      "id": 21,
+      "intro": "Good day today. The kind where you look up and hours have passed without you noticing.",
+      "details": [
+        "I was just in it, completely focused. Didn't even stop to eat.",
+        "That's when the work feels like more than just work."
+      ],
+      "reactions": [
+        "Wish every day felt like that, but then I suppose it wouldn't be special."
+      ],
+      "statCheck": null,
+      "valence": "positive",
+      "topic_category": "work_life",
+      "required_entities": [],
+      "location_scope": "universal",
+      "quest_trigger": null
+    },
+    {
+      "id": 22,
+      "intro": "I learned the {self_role} trade from watching, not from being taught. Nobody sat me down and explained anything.",
+      "details": [
+        "You just stood nearby and paid attention. If you asked too many questions, they'd shoo you off.",
+        "I picked up habits I didn't even know I had until I caught myself doing them."
+      ],
+      "reactions": [
+        "I try to be better about explaining things to the younger ones. They shouldn't have to guess."
+      ],
+      "statCheck": null,
+      "valence": "neutral",
+      "topic_category": "work_life",
+      "required_entities": [],
+      "location_scope": "universal",
+      "quest_trigger": null
+    },
+    {
+      "id": 23,
+      "intro": "Cut myself today. Not badly, but enough to be annoyed about it.",
+      "details": [
+        "It's always when you're rushing. Your hand moves before your brain catches up.",
+        "Wrapped it up and kept going. Can't exactly stop for a scratch."
+      ],
+      "reactions": [
+        "Another scar to add to the collection."
+      ],
+      "statCheck": null,
+      "valence": "negative",
+      "topic_category": "work_life",
+      "required_entities": [],
+      "location_scope": "universal",
+      "quest_trigger": null
+    },
+    {
+      "id": 24,
+      "intro": "I've got this one task I've been putting off for days. It's not even hard, I just don't want to do it.",
+      "details": [
+        "The longer I wait, the bigger it feels. Which is stupid because it's probably an hour of work.",
+        "I keep finding other things that suddenly seem urgent."
+      ],
+      "reactions": [
+        "I'll do it tomorrow. I've said that three times now, but I mean it this time."
+      ],
+      "statCheck": null,
+      "valence": "neutral",
+      "topic_category": "work_life",
+      "required_entities": [],
+      "location_scope": "universal",
+      "quest_trigger": null
+    },
+    {
+      "id": 25,
+      "intro": "Someone actually thanked me for my {self_role} work today. Not just a nod: a real, genuine thank you.",
+      "details": [
+        "You'd think that wouldn't matter after all these years. But it does.",
+        "I don't do this for the praise, but hearing it once in a while reminds you that people notice."
+      ],
+      "reactions": [
+        "Made the whole day feel worthwhile."
+      ],
+      "statCheck": null,
+      "valence": "positive",
+      "topic_category": "work_life",
+      "required_entities": [],
+      "location_scope": "universal",
+      "quest_trigger": null
+    },
+    {
+      "id": 26,
+      "intro": "The heat is miserable today. Makes every task take twice as long.",
+      "details": [
+        "I keep having to stop and wipe my face. Can't grip anything properly with sweaty hands.",
+        "And the {resource_type} behaves differently in this heat. Everything warps or softens."
+      ],
+      "reactions": [
+        "Winter I complain about the cold, summer I complain about the heat. There's no winning."
+      ],
+      "statCheck": {
+        "pass": "Working in short bursts with shade breaks is more efficient than pushing through. You lose less time to breaks than to heat-addled mistakes.",
+        "fail": "I don't have a strategy. I just suffer through it and drink water."
+      },
+      "valence": "negative",
+      "topic_category": "work_life",
+      "required_entities": [],
+      "location_scope": "universal",
+      "quest_trigger": null
+    },
+    {
+      "id": 27,
+      "intro": "I tried a different approach to {self_role} work today. Something I've been thinking about for a while.",
+      "details": [
+        "It worked better than the old way, actually. Faster, cleaner results.",
+        "Took some nerve to break the routine, but I'm glad I did."
+      ],
+      "reactions": [
+        "You get stuck in your ways if you're not careful. Good to shake things up."
+      ],
+      "statCheck": {
+        "pass": "The principle is simple: reduce the number of steps by combining two stages into one. Fewer transitions means fewer chances for error.",
+        "fail": "I can't really explain why it works better. It just does."
+      },
+      "valence": "positive",
+      "topic_category": "work_life",
+      "required_entities": [],
+      "location_scope": "universal",
+      "quest_trigger": null
+    },
+    {
+      "id": 28,
+      "intro": "I keep finding {npc_name}'s tools mixed in with mine. Drives me mad.",
+      "details": [
+        "I've told them a dozen times: my bench, my tools. Their bench, their tools.",
+        "But no. I reach for something and it's not there because they borrowed it and forgot."
+      ],
+      "reactions": [
+        "I'm not angry. I'm just tired of looking for things that should be right where I left them."
+      ],
+      "statCheck": null,
+      "valence": "negative",
+      "topic_category": "work_life",
+      "required_entities": [],
+      "location_scope": "universal",
+      "quest_trigger": null
+    },
+    {
+      "id": 29,
+      "intro": "My work area is a mess right now. I know where everything is, though.",
+      "details": [
+        "It looks chaotic to anyone else, but there's a system. I know exactly which pile has what.",
+        "If someone cleaned it up, I'd be lost for a week."
+      ],
+      "reactions": [
+        "Organized chaos. That's what I call it, anyway."
+      ],
+      "statCheck": null,
+      "valence": "neutral",
+      "topic_category": "work_life",
+      "required_entities": [],
+      "location_scope": "universal",
+      "quest_trigger": null
+    },
+    {
+      "id": 30,
+      "intro": "Slow day being a {self_role}. The kind where you're just waiting for something to come in.",
+      "details": [
+        "I straightened up, sharpened a few things, checked my supplies twice. Still nothing.",
+        "There's a guilt to being idle when you're used to being busy."
+      ],
+      "reactions": [
+        "Should enjoy the rest while it lasts. Tomorrow will probably be chaos."
+      ],
+      "statCheck": null,
+      "valence": "neutral",
+      "topic_category": "work_life",
+      "required_entities": [],
+      "location_scope": "universal",
+      "quest_trigger": null
+    },
+    {
+      "id": 31,
+      "intro": "I've been a {self_role} long enough to know when something's going to go wrong before it does.",
+      "details": [
+        "There's a feeling in the materials. A sound, a resistance that's slightly off.",
+        "When I was younger I'd push through it. Now I stop and check."
+      ],
+      "reactions": [
+        "Saved myself a lot of wasted effort that way. Experience counts for something."
+      ],
+      "statCheck": {
+        "pass": "It's about reading the feedback. Every material tells you something if you're paying attention: the sound, the flex, the way it takes pressure.",
+        "fail": "I can't really put it into words. I just get a feeling."
+      },
+      "valence": "neutral",
+      "topic_category": "work_life",
+      "required_entities": [],
+      "location_scope": "universal",
+      "quest_trigger": null
+    },
+    {
+      "id": 32,
+      "intro": "Helped someone carry a load to the {poi_type} this morning. Wasn't my job, but they were struggling.",
+      "details": [
+        "We got to talking on the way. Turns out they've been at it since before sunup.",
+        "Makes you realize everyone's fighting their own version of a long day."
+      ],
+      "reactions": [
+        "Didn't take me more than twenty minutes. Worth it."
+      ],
+      "statCheck": null,
+      "valence": "positive",
+      "topic_category": "work_life",
+      "required_entities": [],
+      "location_scope": "universal",
+      "quest_trigger": null
+    },
+    {
+      "id": 33,
+      "intro": "My hands don't look like they used to: calluses, scars, a knuckle that won't straighten.",
+      "details": [
+        "They're ugly, honestly. But they can do things they couldn't do ten years ago.",
+        "Every mark is a lesson I don't have to learn again."
+      ],
+      "reactions": [
+        "I'd rather have capable hands than pretty ones."
+      ],
+      "statCheck": {
+        "pass": "Calluses form thickest where friction is highest. You can read someone's trade by their hands: where the pressure falls tells you what tools they use.",
+        "fail": "I don't think about what they look like. They work, and that's enough."
+      },
+      "valence": "neutral",
+      "topic_category": "work_life",
+      "required_entities": [],
+      "location_scope": "universal",
+      "quest_trigger": null
+    },
+    {
+      "id": 34,
+      "intro": "I overheard someone say being a {self_role} is simple. Simple work, they said.",
+      "details": [
+        "I wanted to invite them to try it for a day. See how simple they find it after eight hours.",
+        "People confuse 'I understand the concept' with 'I could actually do this.'"
+      ],
+      "reactions": [
+        "I let it go. No point arguing with someone who's already decided."
+      ],
+      "statCheck": null,
+      "valence": "negative",
+      "topic_category": "work_life",
+      "required_entities": [],
+      "location_scope": "universal",
+      "quest_trigger": null
+    },
+    {
+      "id": 35,
+      "intro": "The cold makes everything harder. My fingers don't want to cooperate.",
+      "details": [
+        "I keep a pot of warm water nearby just to dip my hands in between tasks.",
+        "The {resource_type} gets brittle in the cold too. You have to work slower or it cracks."
+      ],
+      "reactions": [
+        "I count the days until the weather turns. Every year."
+      ],
+      "statCheck": {
+        "pass": "Cold reduces blood flow to the extremities. Keeping the core warm matters more than warming the hands directly: the body opens up circulation when the trunk is warm.",
+        "fail": "I just dip my hands in warm water and hope for the best."
+      },
+      "valence": "negative",
+      "topic_category": "work_life",
+      "required_entities": [],
+      "location_scope": "universal",
+      "quest_trigger": null
+    },
+    {
+      "id": 36,
+      "intro": "There's one part of {self_role} work that I still genuinely enjoy, even after all this time.",
+      "details": [
+        "The rest of it is routine, necessary but not exciting. This one thing, though, still has a spark to it.",
+        "I'd do it for free if someone else handled the boring parts."
+      ],
+      "reactions": [
+        "Everyone's got that one task that makes the rest bearable."
+      ],
+      "statCheck": null,
+      "valence": "positive",
+      "topic_category": "work_life",
+      "required_entities": [],
+      "location_scope": "universal",
+      "quest_trigger": null
+    },
+    {
+      "id": 37,
+      "intro": "Almost dropped something today that would've taken a week to replace. Caught it at the last second.",
+      "details": [
+        "My heart was pounding for a good five minutes after, just standing there holding it with shaking hands.",
+        "That's the kind of close call that makes you pay attention for the rest of the day."
+      ],
+      "reactions": [
+        "Luck, pure luck. I'm not going to test it twice."
+      ],
+      "statCheck": null,
+      "valence": "negative",
+      "topic_category": "work_life",
+      "required_entities": [],
+      "location_scope": "universal",
+      "quest_trigger": null
+    },
+    {
+      "id": 38,
+      "intro": "I've been a {self_role} so long that I dream about the work. My hands keep going while I sleep.",
+      "details": [
+        "I'll wake up and my fingers are twitching, going through the motions.",
+        "It's not a nightmare. It's just my brain refusing to clock out."
+      ],
+      "reactions": [
+        "My body doesn't know the difference between work and rest anymore."
+      ],
+      "statCheck": null,
+      "valence": "neutral",
+      "topic_category": "work_life",
+      "required_entities": [],
+      "location_scope": "universal",
+      "quest_trigger": null
+    },
+    {
+      "id": 39,
+      "intro": "Rearranged my whole workspace today. Everything's in a better spot now.",
+      "details": [
+        "Should've done it months ago. I was walking back and forth for things I use constantly.",
+        "Amazing what a small change in layout can do for your speed."
+      ],
+      "reactions": [
+        "Feels like a new place. Same work, but somehow lighter."
+      ],
+      "statCheck": null,
+      "valence": "positive",
+      "topic_category": "work_life",
+      "required_entities": [],
+      "location_scope": "universal",
+      "quest_trigger": null
+    },
+    {
+      "id": 40,
+      "intro": "I used to think speed was the most important thing, getting it done fast. I know better now.",
+      "details": [
+        "Fast and sloppy just means you do it twice. Once wrong, once right.",
+        "The people who last in this trade are the ones who find a pace that's both steady and careful."
+      ],
+      "reactions": [
+        "Slow is smooth, smooth is fast. Took me years to believe that."
+      ],
+      "statCheck": {
+        "pass": "Speed comes from eliminating hesitation, not from rushing execution. A confident, deliberate pace beats a frantic one every time.",
+        "fail": "I can't explain the mechanics of it. I just know that rushing makes things worse."
+      },
+      "valence": "neutral",
+      "topic_category": "work_life",
+      "required_entities": [],
+      "location_scope": "universal",
+      "quest_trigger": null
+    },
+    {
+      "id": 41,
+      "intro": "Ran out of {resource_type} halfway through a job. Had to stop and figure out alternatives.",
+      "details": [
+        "I should've checked my supply before starting. Rookie mistake.",
+        "Ended up improvising with what I had on hand. It's not ideal, but it works."
+      ],
+      "reactions": [
+        "Lesson learned, again. You'd think I'd remember by now."
+      ],
+      "statCheck": null,
+      "valence": "negative",
+      "topic_category": "work_life",
+      "required_entities": [],
+      "location_scope": "universal",
+      "quest_trigger": null
+    },
+    {
+      "id": 42,
+      "intro": "The best part of being a {self_role} is that people need what I do. There's security in that.",
+      "details": [
+        "Trends come and go, but the basics are always in demand.",
+        "As long as there are people around, there's work for someone with my skills."
+      ],
+      "reactions": [
+        "I sleep well knowing I'm useful. Not everyone can say that."
+      ],
+      "statCheck": null,
+      "valence": "positive",
+      "topic_category": "work_life",
+      "required_entities": [],
+      "location_scope": "universal",
+      "quest_trigger": null
+    },
+    {
+      "id": 43,
+      "intro": "I keep a count in my head of how many {self_role} jobs I've finished this week. Keeps me motivated.",
+      "details": [
+        "It's not about the number, exactly. It's about seeing progress when the days blur together.",
+        "When I lose count, that's when I know I need a rest."
+      ],
+      "reactions": [
+        "Small victories. That's how you get through."
+      ],
+      "statCheck": null,
+      "valence": "neutral",
+      "topic_category": "work_life",
+      "required_entities": [],
+      "location_scope": "universal",
+      "quest_trigger": null
+    },
+    {
+      "id": 44,
+      "intro": "Someone brought back something I made last season. Said it broke.",
+      "details": [
+        "I looked at it and they'd clearly been using it wrong. But try telling them that.",
+        "So I fixed it, bit my tongue, and sent them on their way."
+      ],
+      "reactions": [
+        "The customer isn't always right, but they're always the customer."
+      ],
+      "statCheck": null,
+      "valence": "negative",
+      "topic_category": "work_life",
+      "required_entities": [],
+      "location_scope": "universal",
+      "quest_trigger": null
+    },
+    {
+      "id": 45,
+      "intro": "I've got a system for rainy days. Different work, slower pace, but I don't stop entirely.",
+      "details": [
+        "There's always something that needs doing under a roof. Sorting, mending, planning the next job.",
+        "The rain actually helps me think. Quiets everything down."
+      ],
+      "reactions": [
+        "You work around the weather, not against it."
+      ],
+      "statCheck": null,
+      "valence": "neutral",
+      "topic_category": "work_life",
+      "required_entities": [],
+      "location_scope": "universal",
+      "quest_trigger": null
+    },
+    {
+      "id": 46,
+      "intro": "My shoulders are up around my ears by midday every day. I don't even notice until the pain starts.",
+      "details": [
+        "It's tension. From concentrating, from gripping, from holding the same posture for hours.",
+        "I have to consciously remind myself to relax. Drop the shoulders, unclench the jaw."
+      ],
+      "reactions": [
+        "The work takes a piece of you whether you notice or not."
+      ],
+      "statCheck": {
+        "pass": "Regular stretching between tasks helps. Even just lifting your arms overhead and rolling your neck: it breaks the cycle before it sets in.",
+        "fail": "I know I should do something about it, but I always forget until it's already bad."
+      },
+      "valence": "negative",
+      "topic_category": "work_life",
+      "required_entities": [],
+      "location_scope": "universal",
+      "quest_trigger": null
+    },
+    {
+      "id": 47,
+      "intro": "There's something satisfying about a full day's work when you can see what you've accomplished.",
+      "details": [
+        "A stack of finished goods, a cleared workspace, a project that was nothing this morning and is something now.",
+        "That's the reward. Not the pay: the proof that you did something with your day."
+      ],
+      "reactions": [
+        "I need that feeling. Without it, the days feel hollow."
+      ],
+      "statCheck": null,
+      "valence": "positive",
+      "topic_category": "work_life",
+      "required_entities": [],
+      "location_scope": "universal",
+      "quest_trigger": null
+    },
+    {
+      "id": 48,
+      "intro": "I made a mistake early on in my career that I still think about.",
+      "details": [
+        "Not a disaster. Just a moment where I should have known better and didn't.",
+        "It taught me more than any success ever did, but the memory still stings."
+      ],
+      "reactions": [
+        "You don't forget the bad ones. That's probably the point."
+      ],
+      "statCheck": null,
+      "valence": "negative",
+      "topic_category": "work_life",
+      "required_entities": [],
+      "location_scope": "universal",
+      "quest_trigger": null
+    },
+    {
+      "id": 49,
+      "intro": "Found a shortcut today that saves me a good bit of effort. Can't believe I didn't think of it sooner.",
+      "details": [
+        "It's embarrassingly obvious in hindsight. I've been doing an extra step that wasn't necessary.",
+        "Just goes to show: you can do something a thousand times and still not see the better way."
+      ],
+      "reactions": [
+        "I'll keep this one to myself for a while. Let people think I'm just getting faster."
+      ],
+      "statCheck": {
+        "pass": "Most inefficiencies come from steps that made sense when you first learned but stopped being necessary once your skill improved. Worth auditing your process now and then.",
+        "fail": "Honestly, I stumbled into it by accident. Can't take credit for being clever."
+      },
+      "valence": "positive",
+      "topic_category": "work_life",
+      "required_entities": [],
+      "location_scope": "universal",
+      "quest_trigger": null
+    },
+    {
+      "id": 50,
+      "intro": "I talk to my work sometimes. Just little things: 'Come on, cooperate.'",
+      "details": [
+        "It's not madness. It's concentration taking a weird form.",
+        "The {resource_type} doesn't listen, obviously. But I swear it helps me focus."
+      ],
+      "reactions": [
+        "If anyone heard me they'd worry. But they probably do the same thing."
+      ],
+      "statCheck": null,
+      "valence": "neutral",
+      "topic_category": "work_life",
+      "required_entities": [],
+      "location_scope": "universal",
+      "quest_trigger": null
+    },
+    {
+      "id": 51,
+      "intro": "The worst {self_role} requests are the ones where they say 'just make it nice.' That's not a specification.",
+      "details": [
+        "Nice how? Show me something, describe something, give me anything to work with.",
+        "Then when you guess wrong, it's your fault for not reading their mind."
+      ],
+      "reactions": [
+        "I've learned to ask a lot of questions upfront. Saves grief later."
+      ],
+      "statCheck": null,
+      "valence": "negative",
+      "topic_category": "work_life",
+      "required_entities": [],
+      "location_scope": "universal",
+      "quest_trigger": null
+    },
+    {
+      "id": 52,
+      "intro": "I smell like my work all the time. Even after washing, it clings.",
+      "details": [
+        "Smoke, oil, earth, whatever the material of the day is. It gets into your skin.",
+        "My family's used to it. Visitors scrunch their nose, though."
+      ],
+      "reactions": [
+        "It's the smell of honest labor. I've made my peace with it."
+      ],
+      "statCheck": null,
+      "valence": "neutral",
+      "topic_category": "work_life",
+      "required_entities": [],
+      "location_scope": "universal",
+      "quest_trigger": null
+    },
+    {
+      "id": 53,
+      "intro": "Got a compliment from {npc_name} on a job I did. That one means something because they're hard to impress.",
+      "details": [
+        "They looked it over carefully, which is more attention than most people give. Then they nodded.",
+        "From {npc_name}, a nod is practically a standing ovation."
+      ],
+      "reactions": [
+        "I'll ride that for a week, honestly."
+      ],
+      "statCheck": null,
+      "valence": "positive",
+      "topic_category": "work_life",
+      "required_entities": [],
+      "location_scope": "universal",
+      "quest_trigger": null
+    },
+    {
+      "id": 54,
+      "intro": "Some days the work just fights you. Everything that can go wrong does.",
+      "details": [
+        "Measurements are off, materials don't behave, your hands won't do what your brain tells them.",
+        "On those days, I remind myself that quitting mid-task always makes it worse tomorrow."
+      ],
+      "reactions": [
+        "You push through. That's all there is to it."
+      ],
+      "statCheck": null,
+      "valence": "negative",
+      "topic_category": "work_life",
+      "required_entities": [],
+      "location_scope": "universal",
+      "quest_trigger": null
+    },
+    {
+      "id": 55,
+      "intro": "I have a routine I do every morning before I start. Same order, same steps, every day.",
+      "details": [
+        "Check my tools, check my supplies, plan my first task. Only then do I begin.",
+        "It takes ten minutes that I could be working, but those ten minutes save me hours of confusion."
+      ],
+      "reactions": [
+        "Discipline isn't exciting. But it's the reason I'm still doing this."
+      ],
+      "statCheck": {
+        "pass": "Routines offload decisions to habit, which frees the mind for the work itself. The consistency isn't rigid: it's a foundation that lets you improvise later.",
+        "fail": "I don't have a reason beyond 'it works.' That's good enough for me."
+      },
+      "valence": "neutral",
+      "topic_category": "work_life",
+      "required_entities": [],
+      "location_scope": "universal",
+      "quest_trigger": null
+    },
+    {
+      "id": 56,
+      "intro": "I miss being able to recover overnight from {self_role} work. Used to wake up fine no matter how hard the day was.",
+      "details": [
+        "Now a tough day follows me into the next morning. Takes two days to bounce back from what used to take a night's sleep.",
+        "I pace myself more carefully than I used to. Can't afford not to."
+      ],
+      "reactions": [
+        "Getting older is learning to work smarter because working harder stops being an option."
+      ],
+      "statCheck": null,
+      "valence": "negative",
+      "topic_category": "work_life",
+      "required_entities": [],
+      "location_scope": "universal",
+      "quest_trigger": null
+    },
+    {
+      "id": 57,
+      "intro": "Somebody asked me what I'd do if I wasn't a {self_role}. I honestly couldn't answer.",
+      "details": [
+        "This is all I know. I've been doing it so long it's just who I am.",
+        "I suppose I could learn something else, but the thought of starting over from nothing is exhausting."
+      ],
+      "reactions": [
+        "I'm not unhappy. I just can't imagine being anything else."
+      ],
+      "statCheck": null,
+      "valence": "neutral",
+      "topic_category": "work_life",
+      "required_entities": [],
+      "location_scope": "universal",
+      "quest_trigger": null
+    },
+    {
+      "id": 58,
+      "intro": "Best investment I ever made as a {self_role} was a proper set of tools. Changed everything.",
+      "details": [
+        "For years I made do with cheap ones that slipped or dulled or broke at the worst times.",
+        "The day I got real quality tools, my work improved overnight. Not my skill: just the tools."
+      ],
+      "reactions": [
+        "Costs more upfront, but you save in frustration. And frustration has a high price."
+      ],
+      "statCheck": {
+        "pass": "Good tools don't make a good worker, but they remove the friction that makes a good worker look average. The tool should never be the bottleneck.",
+        "fail": "I don't have a deep philosophy about it. Good tools just feel better."
+      },
+      "valence": "positive",
+      "topic_category": "work_life",
+      "required_entities": [],
+      "location_scope": "universal",
+      "quest_trigger": null
+    },
+    {
+      "id": 59,
+      "intro": "Had to turn down a job today. Didn't have the materials or the time.",
+      "details": [
+        "The person wasn't pleased. Acted like I was being difficult on purpose.",
+        "I'd rather say no than say yes and deliver something terrible."
+      ],
+      "reactions": [
+        "My reputation is all I have. I'm not going to wreck it for one job."
+      ],
+      "statCheck": null,
+      "valence": "negative",
+      "topic_category": "work_life",
+      "required_entities": [],
+      "location_scope": "universal",
+      "quest_trigger": null
+    },
+    {
+      "id": 60,
+      "intro": "I keep a tally of things I need to restock. The list never gets shorter.",
+      "details": [
+        "Use one thing up, two more run low. It's a constant cycle.",
+        "Half my planning time is just figuring out what I'm about to run out of."
+      ],
+      "reactions": [
+        "Supply is its own job on top of the actual job."
+      ],
+      "statCheck": null,
+      "valence": "neutral",
+      "topic_category": "work_life",
+      "required_entities": [],
+      "location_scope": "universal",
+      "quest_trigger": null
+    },
+    {
+      "id": 61,
+      "intro": "I like working alone. No chatter, no interruptions, just me and the task.",
+      "details": [
+        "People think it's lonely, but it's not. It's quiet, which is different.",
+        "When someone comes to talk, I lose my rhythm and it takes a while to get it back."
+      ],
+      "reactions": [
+        "I'm not antisocial. I just focus better in silence."
+      ],
+      "statCheck": null,
+      "valence": "neutral",
+      "topic_category": "work_life",
+      "required_entities": [],
+      "location_scope": "universal",
+      "quest_trigger": null
+    },
+    {
+      "id": 62,
+      "intro": "Taught myself a new technique last week. Messed it up five times before it worked once.",
+      "details": [
+        "Those five failures were maddening. But the one success made them all worth it.",
+        "Now I just need to do it another hundred times until it's second nature."
+      ],
+      "reactions": [
+        "Progress is ugly in the middle. Only looks clean from a distance."
+      ],
+      "statCheck": {
+        "pass": "A new skill follows a curve: rapid initial failure, a breakthrough, then a long plateau of refinement. Most people quit during the plateau because it feels like stalling.",
+        "fail": "I don't track my learning. I just keep failing until I stop failing."
+      },
+      "valence": "positive",
+      "topic_category": "work_life",
+      "required_entities": [],
+      "location_scope": "universal",
+      "quest_trigger": null
+    },
+    {
+      "id": 63,
+      "intro": "There's a pace to every material. Rush {resource_type} and it lets you know.",
+      "details": [
+        "You can feel the resistance change when you're pushing too hard. Like the material is saying 'slow down.'",
+        "Respect the pace and you get clean results. Fight it and you get a mess."
+      ],
+      "reactions": [
+        "Patience isn't a virtue in this trade. It's a requirement."
+      ],
+      "statCheck": {
+        "pass": "Every material has an optimal working speed based on its density and grain structure. Learn to feel the threshold and you'll waste far less.",
+        "fail": "I go by feel. Couldn't tell you the science behind it."
+      },
+      "valence": "neutral",
+      "topic_category": "work_life",
+      "required_entities": [],
+      "location_scope": "universal",
+      "quest_trigger": null
+    },
+    {
+      "id": 64,
+      "intro": "I get a knot in my stomach every time I start a new {self_role} project. Even after all these years.",
+      "details": [
+        "It's not fear, exactly. More like awareness of all the ways it could go wrong.",
+        "Once I'm into it, the feeling passes. But those first few minutes are always tense."
+      ],
+      "reactions": [
+        "Maybe that nervousness is what keeps me careful. I'd worry more if I stopped feeling it."
+      ],
+      "statCheck": null,
+      "valence": "neutral",
+      "topic_category": "work_life",
+      "required_entities": [],
+      "location_scope": "universal",
+      "quest_trigger": null
+    },
+    {
+      "id": 65,
+      "intro": "I worked straight through lunch today without realizing it. My stomach reminded me around sunset.",
+      "details": [
+        "When I'm focused, the body's signals just get filed away. I'll deal with you later.",
+        "Not healthy, I know. But the work was going so well I didn't want to break the spell."
+      ],
+      "reactions": [
+        "Ate twice as much at dinner. Body always collects what it's owed."
+      ],
+      "statCheck": null,
+      "valence": "neutral",
+      "topic_category": "work_life",
+      "required_entities": [],
+      "location_scope": "universal",
+      "quest_trigger": null
+    },
+    {
+      "id": 66,
+      "intro": "A {self_role}'s work never really ends. You just pause it until tomorrow.",
+      "details": [
+        "There's always one more thing to prepare, one more thing to check.",
+        "The trick is knowing when to walk away. Otherwise you'll be there until midnight."
+      ],
+      "reactions": [
+        "I used to feel guilty about stopping. Now I know the work will be there in the morning."
+      ],
+      "statCheck": null,
+      "valence": "neutral",
+      "topic_category": "work_life",
+      "required_entities": [],
+      "location_scope": "universal",
+      "quest_trigger": null
+    },
+    {
+      "id": 67,
+      "intro": "My worst days as a {self_role} are still better than having no work at all.",
+      "details": [
+        "I went through a stretch once where there was nothing coming in. Just idle hands and worry.",
+        "That feeling of uselessness was worse than any difficult customer or failed batch."
+      ],
+      "reactions": [
+        "I don't take busy days for granted anymore."
+      ],
+      "statCheck": null,
+      "valence": "neutral",
+      "topic_category": "work_life",
+      "required_entities": [],
+      "location_scope": "universal",
+      "quest_trigger": null
+    },
+    {
+      "id": 68,
+      "intro": "I can tell you exactly where every bruise on my arms came from this week.",
+      "details": [
+        "This one's from catching a crate. That one's from leaning against the workbench too long.",
+        "They don't hurt much individually. But by the end of the week, everything's tender."
+      ],
+      "reactions": [
+        "Battle scars, I suppose. Though the battle's not very glamorous."
+      ],
+      "statCheck": null,
+      "valence": "negative",
+      "topic_category": "work_life",
+      "required_entities": [],
+      "location_scope": "universal",
+      "quest_trigger": null
+    },
+    {
+      "id": 69,
+      "intro": "The light was perfect in my workspace today. Made everything easier to see.",
+      "details": [
+        "You don't realize how much you depend on good light until you have it. Every detail just pops.",
+        "I should figure out a way to keep that angle going longer in the day."
+      ],
+      "reactions": [
+        "Funny how something so simple can make or break your output."
+      ],
+      "statCheck": null,
+      "valence": "positive",
+      "topic_category": "work_life",
+      "required_entities": [],
+      "location_scope": "universal",
+      "quest_trigger": null
+    },
+    {
+      "id": 70,
+      "intro": "I keep meaning to fix the wobble on my main workbench. It's been like that for months.",
+      "details": [
+        "I jam a wedge under it every morning and it holds well enough.",
+        "The cobbler's children have no shoes, as they say. I fix things for everyone but myself."
+      ],
+      "reactions": [
+        "One of these days I'll get to it. After everything else."
+      ],
+      "statCheck": null,
+      "valence": "neutral",
+      "topic_category": "work_life",
+      "required_entities": [],
+      "location_scope": "universal",
+      "quest_trigger": null
+    },
+    {
+      "id": 71,
+      "intro": "I worked with {npc_name} today. We've got a good rhythm together.",
+      "details": [
+        "They handle the parts I'm weaker at, and I handle what they don't enjoy. It just works.",
+        "We barely even talk while we're at it. Just nods and gestures."
+      ],
+      "reactions": [
+        "A good working partner is worth more than most people realize."
+      ],
+      "statCheck": null,
+      "valence": "positive",
+      "topic_category": "work_life",
+      "required_entities": [],
+      "location_scope": "universal",
+      "quest_trigger": null
+    },
+    {
+      "id": 72,
+      "intro": "Had to redo something from scratch today. The whole thing was wrong from the start and I didn't catch it.",
+      "details": [
+        "That sinking feeling when you realize three hours in that the foundation is off. Just awful.",
+        "Nothing to do but rip it apart and begin again."
+      ],
+      "reactions": [
+        "Measure twice, cut once: I know the saying, I just don't always follow it."
+      ],
+      "statCheck": null,
+      "valence": "negative",
+      "topic_category": "work_life",
+      "required_entities": [],
+      "location_scope": "universal",
+      "quest_trigger": null
+    },
+    {
+      "id": 73,
+      "intro": "I don't mind hard work: what I mind is pointless work, effort that leads nowhere.",
+      "details": [
+        "If I'm exhausted at the end of the day and something good came of it, I'm fine. More than fine.",
+        "But if I'm exhausted and there's nothing to show for it, that's soul-crushing."
+      ],
+      "reactions": [
+        "Purpose makes the difference between labor and suffering."
+      ],
+      "statCheck": null,
+      "valence": "neutral",
+      "topic_category": "work_life",
+      "required_entities": [],
+      "location_scope": "universal",
+      "quest_trigger": null
+    },
+    {
+      "id": 74,
+      "intro": "I caught myself doing something the old way today, the way I was taught. There's a better method now.",
+      "details": [
+        "It's muscle memory. My hands go to the old habit before my brain remembers the new one.",
+        "Takes a conscious effort to override years of practice."
+      ],
+      "reactions": [
+        "Bad habits are sticky. Good ones take constant reinforcement."
+      ],
+      "statCheck": {
+        "pass": "Retraining a physical habit takes about three weeks of consistent practice before the new way becomes default. The old pattern never fully disappears: it just fades.",
+        "fail": "I don't know why old habits are so hard to break. Just how the body works, I guess."
+      },
+      "valence": "neutral",
+      "topic_category": "work_life",
+      "required_entities": [],
+      "location_scope": "universal",
+      "quest_trigger": null
+    },
+    {
+      "id": 75,
+      "intro": "The sound of rain on the roof while I'm working is one of my favorite things.",
+      "details": [
+        "It's like a rhythm section for whatever I'm doing. Steady, constant, calming.",
+        "Makes me feel sealed off from the world in a good way. Just me and the work."
+      ],
+      "reactions": [
+        "Can't explain why, but I always produce my best work when it's raining."
+      ],
+      "statCheck": null,
+      "valence": "positive",
+      "topic_category": "work_life",
+      "required_entities": [],
+      "location_scope": "universal",
+      "quest_trigger": null
+    },
+    {
+      "id": 76,
+      "intro": "There's a difference between being tired and being done. I'm tired, but I'm not done.",
+      "details": [
+        "Still got a few hours of work ahead of me. My body's protesting but my list doesn't care.",
+        "I'll keep going until it's finished or I literally can't anymore."
+      ],
+      "reactions": [
+        "Stubbornness is an underrated professional skill."
+      ],
+      "statCheck": null,
+      "valence": "negative",
+      "topic_category": "work_life",
+      "required_entities": [],
+      "location_scope": "universal",
+      "quest_trigger": null
+    },
+    {
+      "id": 77,
+      "intro": "I saw some of my old work recently, from years back. It was terrible.",
+      "details": [
+        "At the time, I thought it was good. I was proud of it, even.",
+        "Now I can see every flaw, every shortcut, every sign of inexperience."
+      ],
+      "reactions": [
+        "I suppose that means I've improved. Doesn't make it less embarrassing."
+      ],
+      "statCheck": null,
+      "valence": "neutral",
+      "topic_category": "work_life",
+      "required_entities": [],
+      "location_scope": "universal",
+      "quest_trigger": null
+    },
+    {
+      "id": 78,
+      "intro": "I get more done in the first two hours of the day than the last four combined.",
+      "details": [
+        "The morning brain is sharp. Everything's clear, decisions come fast.",
+        "By afternoon I'm just going through motions. The precision drops off."
+      ],
+      "reactions": [
+        "I save the important work for morning and the mindless stuff for later. Only way to manage it."
+      ],
+      "statCheck": {
+        "pass": "The mind's ability to make fine distinctions degrades with sustained effort. It's called decision fatigue: you make worse choices the more choices you've already made.",
+        "fail": "I just know I'm sharper in the morning. Don't know why exactly."
+      },
+      "valence": "neutral",
+      "topic_category": "work_life",
+      "required_entities": [],
+      "location_scope": "universal",
+      "quest_trigger": null
+    },
+    {
+      "id": 79,
+      "intro": "Nothing's worse than a tool that almost works. The ones that fail completely you just replace.",
+      "details": [
+        "But the ones that work sometimes and fail randomly? Those are the dangerous ones.",
+        "You never know if this is the time it'll slip or snap or give out."
+      ],
+      "reactions": [
+        "I finally threw it away. Should've done it weeks ago."
+      ],
+      "statCheck": null,
+      "valence": "negative",
+      "topic_category": "work_life",
+      "required_entities": [],
+      "location_scope": "universal",
+      "quest_trigger": null
+    },
+    {
+      "id": 80,
+      "intro": "Took on too much {self_role} work this week. I know better, but I said yes to everything anyway.",
+      "details": [
+        "When work's available, there's this fear that it won't last. So you grab all of it.",
+        "Now I'm three days behind and working until my eyes won't stay open."
+      ],
+      "reactions": [
+        "Next time I'll pace myself. Probably."
+      ],
+      "statCheck": null,
+      "valence": "negative",
+      "topic_category": "work_life",
+      "required_entities": [],
+      "location_scope": "universal",
+      "quest_trigger": null
+    },
+    {
+      "id": 81,
+      "intro": "I made something today that I'd actually keep for myself. That's how I know it's good.",
+      "details": [
+        "Most of what I produce, I see the flaws and move on. This one, though: I couldn't find any.",
+        "I stared at it from every angle, looking for the thing that's always wrong. It wasn't there."
+      ],
+      "reactions": [
+        "Of course, someone else will get it: that's the job. But I'll remember this one."
+      ],
+      "statCheck": null,
+      "valence": "positive",
+      "topic_category": "work_life",
+      "required_entities": [],
+      "location_scope": "universal",
+      "quest_trigger": null
+    },
+    {
+      "id": 82,
+      "intro": "I've started marking my work. Not a signature, just a small mark where nobody looks.",
+      "details": [
+        "It's for me. So I know which ones are mine when I see them out in the world.",
+        "Nobody else would even notice. But I know it's there."
+      ],
+      "reactions": [
+        "Quiet pride. The kind that doesn't need anyone else to see it."
+      ],
+      "statCheck": null,
+      "valence": "positive",
+      "topic_category": "work_life",
+      "required_entities": [],
+      "location_scope": "universal",
+      "quest_trigger": null
+    },
+    {
+      "id": 83,
+      "intro": "The {poi_type} needed some work done that nobody else wanted to deal with. So I did it.",
+      "details": [
+        "Wasn't glamorous. The kind of task where you get dirty and sore and nobody thanks you.",
+        "But it needed doing, and now it's done."
+      ],
+      "reactions": [
+        "Someone's got to do the ungrateful jobs. Might as well be me."
+      ],
+      "statCheck": null,
+      "valence": "neutral",
+      "topic_category": "work_life",
+      "required_entities": [],
+      "location_scope": "universal",
+      "quest_trigger": null
+    },
+    {
+      "id": 84,
+      "intro": "The quality of {resource_type} from the {poi_type} has been getting worse lately.",
+      "details": [
+        "It used to be reliable. Now every shipment is a gamble.",
+        "I spend as much time sorting the bad from the good as I do actually working."
+      ],
+      "reactions": [
+        "Might need to find a new source. Hate changing what works, but it's not working anymore."
+      ],
+      "statCheck": {
+        "pass": "When a supply drops in quality, it usually means the easy sources are depleted and they're pulling from deeper or further. The fundamentals of the material change.",
+        "fail": "I don't know what's going on with their supply. I just know what shows up at my door."
+      },
+      "valence": "negative",
+      "topic_category": "work_life",
+      "required_entities": [],
+      "location_scope": "universal",
+      "quest_trigger": null
+    },
+    {
+      "id": 85,
+      "intro": "I keep a scrap pile. Things that went wrong, pieces I couldn't use.",
+      "details": [
+        "Every now and then I dig through it and find something that works for a different project.",
+        "Nothing's truly wasted if you're patient enough."
+      ],
+      "reactions": [
+        "Some of my best solutions came from that pile."
+      ],
+      "statCheck": {
+        "pass": "Offcuts from one project often have the exact dimensions another project needs. Keeping scraps sorted by size and type turns waste into a secondary supply.",
+        "fail": "I just toss things in a heap and rummage when I need something small."
+      },
+      "valence": "neutral",
+      "topic_category": "work_life",
+      "required_entities": [],
+      "location_scope": "universal",
+      "quest_trigger": null
+    },
+    {
+      "id": 86,
+      "intro": "Being a {self_role} means your schedule is never really your own.",
+      "details": [
+        "Work comes when it comes. Some weeks you're drowning, others you're idle.",
+        "You can't plan around it. You just respond."
+      ],
+      "reactions": [
+        "I've stopped making plans that depend on having free time. It's easier that way."
+      ],
+      "statCheck": null,
+      "valence": "negative",
+      "topic_category": "work_life",
+      "required_entities": [],
+      "location_scope": "universal",
+      "quest_trigger": null
+    },
+    {
+      "id": 87,
+      "intro": "I sharpened all my tools today. It's meditative, almost.",
+      "details": [
+        "Slow, repetitive strokes. The metal sings a little when you get the angle right.",
+        "Takes about an hour for everything, and after that the world feels slightly more manageable."
+      ],
+      "reactions": [
+        "Sharp tools, clear head. There's a connection there."
+      ],
+      "statCheck": {
+        "pass": "The angle matters more than the pressure. Fifteen to twenty degrees for most blades, consistent across the whole edge. Let the stone do the work.",
+        "fail": "I just go by feel. Run my thumb across the edge and if it bites, it's good."
+      },
+      "valence": "positive",
+      "topic_category": "work_life",
+      "required_entities": [],
+      "location_scope": "universal",
+      "quest_trigger": null
+    },
+    {
+      "id": 88,
+      "intro": "Stayed late tonight to finish a job. The dark walk home was the payment for procrastinating.",
+      "details": [
+        "I could've finished earlier if I'd started when I should have. But I dragged my feet all morning.",
+        "The work was fine. The self-discipline was not."
+      ],
+      "reactions": [
+        "At least it's done. That's what matters."
+      ],
+      "statCheck": null,
+      "valence": "negative",
+      "topic_category": "work_life",
+      "required_entities": [],
+      "location_scope": "universal",
+      "quest_trigger": null
+    },
+    {
+      "id": 89,
+      "intro": "I know a {self_role} over in the next settlement who does the same work I do. Completely different method.",
+      "details": [
+        "We compared approaches once. Both get to the same result, just from opposite directions.",
+        "Made me realize there's no single right way. Just the way that works for your hands."
+      ],
+      "reactions": [
+        "I stole one of their tricks, though. Won't lie about that."
+      ],
+      "statCheck": null,
+      "valence": "neutral",
+      "topic_category": "work_life",
+      "required_entities": [],
+      "location_scope": "universal",
+      "quest_trigger": null
+    },
+    {
+      "id": 90,
+      "intro": "My workspace has a draft that I cannot find the source of. It drives me mad in winter.",
+      "details": [
+        "I've checked every wall, every window, every join: the cold air just appears.",
+        "I've stuffed rags into every crack I can see. Still cold."
+      ],
+      "reactions": [
+        "I've accepted it: the draft stays and I wear an extra layer."
+      ],
+      "statCheck": {
+        "pass": "Drafts like that usually come from the floor or the roof, not the walls. Check where the joists meet the foundation: that's where air finds its way.",
+        "fail": "If I could find it, I'd fix it. At this point I think the building is just haunted."
+      },
+      "valence": "negative",
+      "topic_category": "work_life",
+      "required_entities": [],
+      "location_scope": "universal",
+      "quest_trigger": null
+    },
+    {
+      "id": 91,
+      "intro": "First warm day of the season. I moved my work outside and it made everything better.",
+      "details": [
+        "Fresh air, good light, space to spread out. Why don't I do this more often?",
+        "Even the materials seemed more cooperative. Or maybe I was just happier."
+      ],
+      "reactions": [
+        "I'll be chasing this feeling for the next few months."
+      ],
+      "statCheck": null,
+      "valence": "positive",
+      "topic_category": "work_life",
+      "required_entities": [],
+      "location_scope": "universal",
+      "quest_trigger": null
+    },
+    {
+      "id": 92,
+      "intro": "I measure everything twice now: I didn't used to, and that lesson was expensive.",
+      "details": [
+        "Confidence and carelessness look the same until something goes wrong.",
+        "Now I check, then check again. The extra thirty seconds has saved me more times than I can count."
+      ],
+      "reactions": [
+        "Caution isn't slow. It's accurate."
+      ],
+      "statCheck": {
+        "pass": "Errors compound: a small mistake at the start gets amplified with every subsequent step. Catching it early costs seconds; catching it late costs the whole piece.",
+        "fail": "I don't have a theory about it. I just got burned enough times to learn."
+      },
+      "valence": "neutral",
+      "topic_category": "work_life",
+      "required_entities": [],
+      "location_scope": "universal",
+      "quest_trigger": null
+    },
+    {
+      "id": 93,
+      "intro": "I've been asked to do something I've never tried before as a {self_role}. Half excited, half terrified.",
+      "details": [
+        "The concept is clear in my head. Whether my hands can deliver is another question.",
+        "If it works, it'll be the most interesting thing I've done in months."
+      ],
+      "reactions": [
+        "Nothing grows skill like a challenge you're not sure you can meet."
+      ],
+      "statCheck": null,
+      "valence": "neutral",
+      "topic_category": "work_life",
+      "required_entities": [],
+      "location_scope": "universal",
+      "quest_trigger": null
+    },
+    {
+      "id": 94,
+      "intro": "I eat the same lunch every day and don't even taste it anymore. It's just fuel.",
+      "details": [
+        "Bread, something on it, eaten in five minutes. Back to work.",
+        "I used to sit down and actually enjoy meals. Now they're just interruptions."
+      ],
+      "reactions": [
+        "That's probably not healthy. But the day's only so long."
+      ],
+      "statCheck": null,
+      "valence": "neutral",
+      "topic_category": "work_life",
+      "required_entities": [],
+      "location_scope": "universal",
+      "quest_trigger": null
+    },
+    {
+      "id": 95,
+      "intro": "Watched an apprentice at the {poi_type} today. Clumsy, slow, constantly asking questions.",
+      "details": [
+        "Reminded me of myself at that age. I was probably worse.",
+        "There's a eagerness to beginners that you lose somewhere along the way."
+      ],
+      "reactions": [
+        "I hope they stick with it. The world needs more people willing to learn."
+      ],
+      "statCheck": null,
+      "valence": "neutral",
+      "topic_category": "work_life",
+      "required_entities": [],
+      "location_scope": "universal",
+      "quest_trigger": null
+    },
+    {
+      "id": 96,
+      "intro": "A good {self_role} finds new uses for old scraps. Nothing goes to waste if you're creative about it.",
+      "details": [
+        "A piece of {resource_type} I was about to throw out became the best part of a project last week.",
+        "The imperfections sometimes add character that you can't plan."
+      ],
+      "reactions": [
+        "Waste offends me on a level I can't quite explain."
+      ],
+      "statCheck": null,
+      "valence": "positive",
+      "topic_category": "work_life",
+      "required_entities": [],
+      "location_scope": "universal",
+      "quest_trigger": null
+    },
+    {
+      "id": 97,
+      "intro": "I had a {self_role} job today where the person stood and watched me the entire time.",
+      "details": [
+        "Just stood there, arms crossed, watching every move I made.",
+        "I can work under pressure, but being observed like that makes my hands clumsy."
+      ],
+      "reactions": [
+        "I nearly asked them to leave. Should have, probably."
+      ],
+      "statCheck": null,
+      "valence": "negative",
+      "topic_category": "work_life",
+      "required_entities": [],
+      "location_scope": "universal",
+      "quest_trigger": null
+    },
+    {
+      "id": 98,
+      "intro": "I love the smell of fresh-cut {resource_type}. It's one of the perks nobody tells you about.",
+      "details": [
+        "Different materials have different scents. You learn to associate the smell with the work.",
+        "Sometimes a passing whiff of it takes me right back to my first day learning."
+      ],
+      "reactions": [
+        "Small pleasures make up for a lot."
+      ],
+      "statCheck": null,
+      "valence": "positive",
+      "topic_category": "work_life",
+      "required_entities": [],
+      "location_scope": "universal",
+      "quest_trigger": null
+    },
+    {
+      "id": 99,
+      "intro": "Had a disagreement with {npc_name} about the right way to do something. We were both right, technically.",
+      "details": [
+        "Their way works and my way works. We just prioritize different things.",
+        "We agreed to disagree, which is about the best you can hope for."
+      ],
+      "reactions": [
+        "The stubbornness of skilled people is something else."
+      ],
+      "statCheck": null,
+      "valence": "neutral",
+      "topic_category": "work_life",
+      "required_entities": [],
+      "location_scope": "universal",
+      "quest_trigger": null
+    },
+    {
+      "id": 100,
+      "intro": "I've got calluses on my calluses. My hands stopped being soft years ago.",
+      "details": [
+        "There are spots where the skin is thick enough to press hot things without flinching.",
+        "It happened so gradually I didn't notice until someone shook my hand and commented on it."
+      ],
+      "reactions": [
+        "Working hands. Not pretty, but they get the job done."
+      ],
+      "statCheck": {
+        "pass": "Calluses are the skin's way of building armor where you need it most. Filing them down a bit prevents cracking, which is actually worse than no callus at all.",
+        "fail": "I don't maintain them. They just are what they are."
+      },
+      "valence": "neutral",
+      "topic_category": "work_life",
+      "required_entities": [],
+      "location_scope": "universal",
+      "quest_trigger": null
+    },
+    {
+      "id": 101,
+      "intro": "I sometimes wonder if {self_role} work matters in the long run. If anyone will remember it in twenty years.",
+      "details": [
+        "Most of what I make gets used up, worn out, replaced. That's the nature of it.",
+        "I don't do it for legacy. But the thought creeps in on quiet days."
+      ],
+      "reactions": [
+        "I suppose it matters to the person who needs it right now. That should be enough."
+      ],
+      "statCheck": null,
+      "valence": "neutral",
+      "topic_category": "work_life",
+      "required_entities": [],
+      "location_scope": "universal",
+      "quest_trigger": null
+    },
+    {
+      "id": 102,
+      "intro": "There's a particular sound my workspace makes when everything's running right. Hard to describe.",
+      "details": [
+        "A hum, almost. The rhythm of tools, materials, movement: all in sync.",
+        "When it's there, I know I'm in a good flow. When it's not, something's off."
+      ],
+      "reactions": [
+        "You develop an ear for your own work. It tells you more than your eyes sometimes."
+      ],
+      "statCheck": null,
+      "valence": "positive",
+      "topic_category": "work_life",
+      "required_entities": [],
+      "location_scope": "universal",
+      "quest_trigger": null
+    },
+    {
+      "id": 103,
+      "intro": "I've been a {self_role} for so many years that I've stopped counting.",
+      "details": [
+        "It wasn't a grand choice. More of a gradual slide into the only thing I was decent at.",
+        "But decent became good, and good became habit, and now here I am."
+      ],
+      "reactions": [
+        "Could've been worse. Could've been decent at something I hated."
+      ],
+      "statCheck": null,
+      "valence": "neutral",
+      "topic_category": "work_life",
+      "required_entities": [],
+      "location_scope": "universal",
+      "quest_trigger": null
+    },
+    {
+      "id": 104,
+      "intro": "I dread the {self_role} days when three people need something at the same time.",
+      "details": [
+        "Each one acts like theirs is the only job that exists. And each one needs it yesterday.",
+        "I can only work as fast as I work. No amount of urgency changes that."
+      ],
+      "reactions": [
+        "I've gotten better at saying 'it'll be ready when it's ready.' Most accept it."
+      ],
+      "statCheck": null,
+      "valence": "negative",
+      "topic_category": "work_life",
+      "required_entities": [],
+      "location_scope": "universal",
+      "quest_trigger": null
+    },
+    {
+      "id": 105,
+      "intro": "A fresh start in the morning is the best feeling in this trade.",
+      "details": [
+        "Clean bench, sharp tools, a plan for the day. Everything's possible.",
+        "By noon that optimism fades, but for those first couple hours, the day is yours."
+      ],
+      "reactions": [
+        "I try to hold onto that morning energy as long as I can."
+      ],
+      "statCheck": null,
+      "valence": "positive",
+      "topic_category": "work_life",
+      "required_entities": [],
+      "location_scope": "universal",
+      "quest_trigger": null
+    },
+    {
+      "id": 106,
+      "intro": "You can always tell a newcomer by how they handle their tools. Too tight, too careful.",
+      "details": [
+        "They grip everything like they're afraid it'll fly away. All tension, no feel.",
+        "Takes a while to learn that a light hand gets better results than a strong one."
+      ],
+      "reactions": [
+        "I was the same. Everyone is, at the start."
+      ],
+      "statCheck": {
+        "pass": "Tension in the hand transfers to the work. A relaxed grip lets you feel the feedback from the material, which is where the real information is.",
+        "fail": "I just know a relaxed grip works better. Can't tell you the mechanics of it."
+      },
+      "valence": "neutral",
+      "topic_category": "work_life",
+      "required_entities": [],
+      "location_scope": "universal",
+      "quest_trigger": null
+    },
+    {
+      "id": 107,
+      "intro": "I collect the dust from my work at the end of each day. A whole bucket, sometimes.",
+      "details": [
+        "All that material that was something before I shaped it. Now it's shavings and powder.",
+        "The useful thing shrinks and the waste pile grows. That's the nature of making things."
+      ],
+      "reactions": [
+        "At least I know I was busy."
+      ],
+      "statCheck": null,
+      "valence": "neutral",
+      "topic_category": "work_life",
+      "required_entities": [],
+      "location_scope": "universal",
+      "quest_trigger": null
+    },
+    {
+      "id": 108,
+      "intro": "I traded tips with a traveler who does similar work. Different place, same problems.",
+      "details": [
+        "They deal with the same material shortages, the same impatient customers, the same aching joints.",
+        "Comforting in a strange way. We're all fighting the same battles."
+      ],
+      "reactions": [
+        "The trade connects people more than most things do."
+      ],
+      "statCheck": null,
+      "valence": "neutral",
+      "topic_category": "work_life",
+      "required_entities": [],
+      "location_scope": "universal",
+      "quest_trigger": null
+    },
+    {
+      "id": 109,
+      "intro": "I've been putting off maintenance on my {self_role} equipment. Everything's held together with hope right now.",
+      "details": [
+        "A strap that needs replacing, a handle that's loose, a surface that needs refinishing.",
+        "Each one is a small job, but together they add up to a day I don't have."
+      ],
+      "reactions": [
+        "I'll do it on the next slow day. If one ever comes."
+      ],
+      "statCheck": null,
+      "valence": "negative",
+      "topic_category": "work_life",
+      "required_entities": [],
+      "location_scope": "universal",
+      "quest_trigger": null
+    },
+    {
+      "id": 110,
+      "intro": "I found a technique in an old book that nobody uses anymore and tried it. It's actually good.",
+      "details": [
+        "Slower than the modern way, but the result has a quality to it that you can't get otherwise.",
+        "I wonder why people stopped doing it this way."
+      ],
+      "reactions": [
+        "Maybe speed isn't always an improvement."
+      ],
+      "statCheck": {
+        "pass": "Older methods often used more steps to achieve what we now shortcut. The shortcuts save time but they skip stages that added resilience or finish quality.",
+        "fail": "No idea why it works better. Maybe the old timers knew something we forgot."
+      },
+      "valence": "positive",
+      "topic_category": "work_life",
+      "required_entities": [],
+      "location_scope": "universal",
+      "quest_trigger": null
+    },
+    {
+      "id": 111,
+      "intro": "The thing about {self_role} work is that you can't fake it. The results speak.",
+      "details": [
+        "You can talk a good game all day, but the work either holds or it doesn't.",
+        "I like that honesty. There's no bluffing your way through a poorly made joint."
+      ],
+      "reactions": [
+        "It keeps you humble. Or it should, anyway."
+      ],
+      "statCheck": null,
+      "valence": "neutral",
+      "topic_category": "work_life",
+      "required_entities": [],
+      "location_scope": "universal",
+      "quest_trigger": null
+    },
+    {
+      "id": 112,
+      "intro": "Customers who come in knowing exactly what they want are a gift.",
+      "details": [
+        "Clear description, reasonable timeline, fair price. That's all I need.",
+        "When everything's defined upfront, the work practically does itself."
+      ],
+      "reactions": [
+        "If only every request came in that clean."
+      ],
+      "statCheck": null,
+      "valence": "positive",
+      "topic_category": "work_life",
+      "required_entities": [],
+      "location_scope": "universal",
+      "quest_trigger": null
+    },
+    {
+      "id": 113,
+      "intro": "I pulled a muscle in my arm reaching for something I should've walked over to get.",
+      "details": [
+        "Laziness costs. One dumb stretch and now I'm working one-handed for the rest of the week.",
+        "The thing I was reaching for wasn't even important."
+      ],
+      "reactions": [
+        "My body is filing formal complaints about my judgment."
+      ],
+      "statCheck": null,
+      "valence": "negative",
+      "topic_category": "work_life",
+      "required_entities": [],
+      "location_scope": "universal",
+      "quest_trigger": null
+    },
+    {
+      "id": 114,
+      "intro": "There's a satisfaction in handing over finished work and seeing the person's face.",
+      "details": [
+        "That moment where they turn it over in their hands and you can tell they're pleased.",
+        "They might not say much, but you can see it."
+      ],
+      "reactions": [
+        "That reaction is the real payment."
+      ],
+      "statCheck": null,
+      "valence": "positive",
+      "topic_category": "work_life",
+      "required_entities": [],
+      "location_scope": "universal",
+      "quest_trigger": null
+    },
+    {
+      "id": 115,
+      "intro": "The days blur together sometimes. I have to think hard to remember what I did on which day.",
+      "details": [
+        "Was that job yesterday or the day before? Did I fix that issue this week or last?",
+        "The sameness of the routine erases the individual days."
+      ],
+      "reactions": [
+        "That's not a complaint, exactly. Just an observation about what repetition does to time."
+      ],
+      "statCheck": null,
+      "valence": "neutral",
+      "topic_category": "work_life",
+      "required_entities": [],
+      "location_scope": "universal",
+      "quest_trigger": null
+    },
+    {
+      "id": 116,
+      "intro": "I've worked through a headache today. Not the smart choice, but the necessary one.",
+      "details": [
+        "Every sound was too loud. Every detail took three times the focus.",
+        "But the deadline doesn't care about my headache."
+      ],
+      "reactions": [
+        "I'll pay for this tonight. But at least the work got done."
+      ],
+      "statCheck": null,
+      "valence": "negative",
+      "topic_category": "work_life",
+      "required_entities": [],
+      "location_scope": "universal",
+      "quest_trigger": null
+    },
+    {
+      "id": 117,
+      "intro": "I've been eyeing a particular piece of {resource_type} all week. Saving it for the right project.",
+      "details": [
+        "The grain on it is perfect, not a flaw anywhere. It'd be a waste to use it on something ordinary.",
+        "I keep picking it up, turning it over, then putting it back."
+      ],
+      "reactions": [
+        "When the right job comes along, I'll know."
+      ],
+      "statCheck": {
+        "pass": "Premium material wants to be showcased. Using it on a mundane piece means the quality of the material is carrying work the design doesn't deserve.",
+        "fail": "I just want to use it for something special. No deep reason."
+      },
+      "valence": "neutral",
+      "topic_category": "work_life",
+      "required_entities": [],
+      "location_scope": "universal",
+      "quest_trigger": null
+    },
+    {
+      "id": 118,
+      "intro": "The first thing I ever made in this trade still exists. I check on it sometimes.",
+      "details": [
+        "It's rough, uneven, nothing to be proud of by today's standards.",
+        "But it's held up. That counts for something."
+      ],
+      "reactions": [
+        "I'd never show it to anyone. But I'd never throw it away, either."
+      ],
+      "statCheck": {
+        "pass": "Durability and aesthetics are different skills. A beginner often over-builds, using more material than needed, which ironically makes the result last longer.",
+        "fail": "I'm surprised it survived this long, honestly. Maybe I was doing something right without knowing it."
+      },
+      "valence": "neutral",
+      "topic_category": "work_life",
+      "required_entities": [],
+      "location_scope": "universal",
+      "quest_trigger": null
+    },
+    {
+      "id": 119,
+      "intro": "I've learned to read {npc_name}'s mood by how they greet me in the morning. Today was a grunt.",
+      "details": [
+        "That means they had a bad night and I should keep conversations short.",
+        "We all have signals like that. The trick is paying attention to them."
+      ],
+      "reactions": [
+        "Working near people long enough, you learn their rhythms."
+      ],
+      "statCheck": null,
+      "valence": "neutral",
+      "topic_category": "work_life",
+      "required_entities": [],
+      "location_scope": "universal",
+      "quest_trigger": null
+    },
+    {
+      "id": 120,
+      "intro": "Every {self_role} has a thing they hate doing. For me, it's the cleanup.",
+      "details": [
+        "The work itself is fine. The aftermath of sorting, sweeping, putting away: it drains me.",
+        "I rush through it and the next day I pay for it with a cluttered start."
+      ],
+      "reactions": [
+        "If I could hire someone just for the cleanup, I'd be a happier person."
+      ],
+      "statCheck": null,
+      "valence": "negative",
+      "topic_category": "work_life",
+      "required_entities": [],
+      "location_scope": "universal",
+      "quest_trigger": null
+    },
+    {
+      "id": 121,
+      "intro": "Good day at the {poi_type}. Got everything sorted that needed sorting.",
+      "details": [
+        "No surprises, no arguments, no setbacks. Just steady work from start to finish.",
+        "Those days are rarer than they should be."
+      ],
+      "reactions": [
+        "I'll take boring and productive over exciting and chaotic any time."
+      ],
+      "statCheck": null,
+      "valence": "positive",
+      "topic_category": "work_life",
+      "required_entities": [],
+      "location_scope": "universal",
+      "quest_trigger": null
+    },
+    {
+      "id": 122,
+      "intro": "I've got a burn on my forearm from yesterday that's already blistering.",
+      "details": [
+        "Wasn't paying attention to where I put my arm down. Half a second of contact and this.",
+        "I've had worse. But it's right where my sleeve rubs, which makes it impossible to ignore."
+      ],
+      "reactions": [
+        "Occupational hazard. You accept it or you find a desk."
+      ],
+      "statCheck": null,
+      "valence": "negative",
+      "topic_category": "work_life",
+      "required_entities": [],
+      "location_scope": "universal",
+      "quest_trigger": null
+    },
+    {
+      "id": 123,
+      "intro": "I've started planning my work the night before. Makes the mornings so much smoother.",
+      "details": [
+        "Just a few minutes thinking about what I'll tackle first, what needs what.",
+        "The day doesn't ambush me anymore. I ambush it."
+      ],
+      "reactions": [
+        "Such a simple change. Wish I'd started years ago."
+      ],
+      "statCheck": null,
+      "valence": "positive",
+      "topic_category": "work_life",
+      "required_entities": [],
+      "location_scope": "universal",
+      "quest_trigger": null
+    },
+    {
+      "id": 124,
+      "intro": "People think {self_role}s sit around when there's no visible work happening. We don't.",
+      "details": [
+        "Half the job is preparation, maintenance, planning. Things that don't look like work but absolutely are.",
+        "If I only worked when people could see me working, everything would fall apart."
+      ],
+      "reactions": [
+        "The invisible work holds the visible work together."
+      ],
+      "statCheck": null,
+      "valence": "neutral",
+      "topic_category": "work_life",
+      "required_entities": [],
+      "location_scope": "universal",
+      "quest_trigger": null
+    },
+    {
+      "id": 125,
+      "intro": "I tried to teach {npc_name} a technique I use. They couldn't get it.",
+      "details": [
+        "Not because they're slow. Because my explanation was terrible.",
+        "Knowing how to do something and knowing how to explain it are completely different skills."
+      ],
+      "reactions": [
+        "I need to think about how I actually do it before I try to teach it again."
+      ],
+      "statCheck": null,
+      "valence": "neutral",
+      "topic_category": "work_life",
+      "required_entities": [],
+      "location_scope": "universal",
+      "quest_trigger": null
+    },
+    {
+      "id": 126,
+      "intro": "The wind knocked over a stack of my work today. Just swept through and toppled everything.",
+      "details": [
+        "I stood there watching it fall in slow motion. Nothing I could do.",
+        "Some of it survived. Some didn't."
+      ],
+      "reactions": [
+        "I should've secured it better, I know that. Doesn't make it less infuriating."
+      ],
+      "statCheck": null,
+      "valence": "negative",
+      "topic_category": "work_life",
+      "required_entities": [],
+      "location_scope": "universal",
+      "quest_trigger": null
+    },
+    {
+      "id": 127,
+      "intro": "There's a point in every project where it looks terrible before it starts looking good.",
+      "details": [
+        "Right in the middle, when everything's half-done and nothing's finished. It's ugly.",
+        "You have to trust the process and keep going. The panic passes."
+      ],
+      "reactions": [
+        "I've learned to stop judging my work until it's actually complete."
+      ],
+      "statCheck": {
+        "pass": "Every craft has that ugly middle phase. It's where raw material meets intent but the refinement hasn't happened yet. The skill is trusting that the next steps will resolve it.",
+        "fail": "I don't have wisdom about it. I just panic a little every time and then it turns out fine."
+      },
+      "valence": "neutral",
+      "topic_category": "work_life",
+      "required_entities": [],
+      "location_scope": "universal",
+      "quest_trigger": null
+    },
+    {
+      "id": 128,
+      "intro": "Water got into my workspace last night. Had to spend the morning mopping up instead of working.",
+      "details": [
+        "Lost a few things that were sitting on the floor. My own fault for not storing them higher.",
+        "The smell of damp will take days to leave."
+      ],
+      "reactions": [
+        "Nature doesn't care about your schedule."
+      ],
+      "statCheck": null,
+      "valence": "negative",
+      "topic_category": "work_life",
+      "required_entities": [],
+      "location_scope": "universal",
+      "quest_trigger": null
+    },
+    {
+      "id": 129,
+      "intro": "I traded work with {npc_name} today. Fixed something of theirs, they helped with something of mine.",
+      "details": [
+        "No coin changed hands. Just skill for skill.",
+        "That's how it should work more often."
+      ],
+      "reactions": [
+        "You don't always need money when you've got something people need."
+      ],
+      "statCheck": null,
+      "valence": "positive",
+      "topic_category": "work_life",
+      "required_entities": [],
+      "location_scope": "universal",
+      "quest_trigger": null
+    },
+    {
+      "id": 130,
+      "intro": "There's always someone who wants {self_role} work cheaper. Always.",
+      "details": [
+        "They'll tell you what the last person charged, or what they think it should cost.",
+        "I quote my price and stick to it. The work is worth what it's worth."
+      ],
+      "reactions": [
+        "If you keep discounting, you're telling people your work isn't valuable. I won't do that."
+      ],
+      "statCheck": null,
+      "valence": "negative",
+      "topic_category": "work_life",
+      "required_entities": [],
+      "location_scope": "universal",
+      "quest_trigger": null
+    },
+    {
+      "id": 131,
+      "intro": "I fixed something today that was about to fail and nobody even noticed.",
+      "details": [
+        "That's the thing about preventive work. If you do it right, nothing happens.",
+        "The absence of a problem is invisible. But it took real effort."
+      ],
+      "reactions": [
+        "Thankless work is still important work."
+      ],
+      "statCheck": null,
+      "valence": "neutral",
+      "topic_category": "work_life",
+      "required_entities": [],
+      "location_scope": "universal",
+      "quest_trigger": null
+    },
+    {
+      "id": 132,
+      "intro": "I've built up a stock of finished pieces for when orders dry up. Insurance, basically.",
+      "details": [
+        "If nobody comes in for a week, I've got things to sell or trade. Keeps me from panicking.",
+        "Making stock isn't exciting, but it buys peace of mind."
+      ],
+      "reactions": [
+        "Preparation is the only way I know to deal with uncertainty."
+      ],
+      "statCheck": {
+        "pass": "Stock pieces should be the most universally needed items in your trade: the ones that sell regardless of season. Specializing your stock defeats the purpose of having a buffer.",
+        "fail": "I just make a bit of everything and hope it moves."
+      },
+      "valence": "neutral",
+      "topic_category": "work_life",
+      "required_entities": [],
+      "location_scope": "universal",
+      "quest_trigger": null
+    },
+    {
+      "id": 133,
+      "intro": "I keep a mental list of my best and worst {self_role} work. The worst list is longer.",
+      "details": [
+        "Not because I'm bad at what I do. Because mistakes stick harder than successes.",
+        "I can tell you exactly what went wrong on a dozen jobs. The good ones blur together."
+      ],
+      "reactions": [
+        "Maybe that's how you improve: by remembering every failure in vivid detail."
+      ],
+      "statCheck": null,
+      "valence": "neutral",
+      "topic_category": "work_life",
+      "required_entities": [],
+      "location_scope": "universal",
+      "quest_trigger": null
+    },
+    {
+      "id": 134,
+      "intro": "Evenings after a good day of {self_role} work are the best evenings. Everything tastes better, sleep comes easier.",
+      "details": [
+        "Your body's earned the rest: no guilt, no restlessness.",
+        "It's the closest thing to contentment I know."
+      ],
+      "reactions": [
+        "Honest exhaustion is underrated."
+      ],
+      "statCheck": null,
+      "valence": "positive",
+      "topic_category": "work_life",
+      "required_entities": [],
+      "location_scope": "universal",
+      "quest_trigger": null
+    },
+    {
+      "id": 135,
+      "intro": "I don't like working when I'm angry. The results are always worse.",
+      "details": [
+        "Your grip's too tight, your decisions are rushed, your patience disappears.",
+        "I've learned to walk away for a few minutes when I'm heated. Come back when my head's clear."
+      ],
+      "reactions": [
+        "Emotion has no place in precision work."
+      ],
+      "statCheck": null,
+      "valence": "neutral",
+      "topic_category": "work_life",
+      "required_entities": [],
+      "location_scope": "universal",
+      "quest_trigger": null
+    },
+    {
+      "id": 136,
+      "intro": "I just reorganized my supply of {resource_type}. It's satisfying to see it all lined up and sorted.",
+      "details": [
+        "By type, by size, by quality. Everything has its place now.",
+        "Give it a week and it'll be chaos again, but right now it's beautiful."
+      ],
+      "reactions": [
+        "Order is temporary. But it's nice while it lasts."
+      ],
+      "statCheck": null,
+      "valence": "positive",
+      "topic_category": "work_life",
+      "required_entities": [],
+      "location_scope": "universal",
+      "quest_trigger": null
+    },
+    {
+      "id": 137,
+      "intro": "Some days I'm faster than I expect. The hands move before the brain catches up.",
+      "details": [
+        "It's muscle memory taking over. The body knows the sequence even when the mind wanders.",
+        "That's when years of practice actually show."
+      ],
+      "reactions": [
+        "I don't question those days. I just ride them."
+      ],
+      "statCheck": {
+        "pass": "That's the transition from conscious competence to unconscious competence. The skill has been so deeply encoded that conscious attention becomes optional for routine tasks.",
+        "fail": "I don't analyze it. Good days are good days."
+      },
+      "valence": "positive",
+      "topic_category": "work_life",
+      "required_entities": [],
+      "location_scope": "universal",
+      "quest_trigger": null
+    },
+    {
+      "id": 138,
+      "intro": "I resent the paperwork side of things: logs, records, tallies. I just want to work.",
+      "details": [
+        "But if I don't track what I've used and what I'm owed, things fall apart quickly.",
+        "It's a necessary evil that takes up time I'd rather spend with my hands."
+      ],
+      "reactions": [
+        "Nobody becomes a {self_role} because they love record-keeping."
+      ],
+      "statCheck": null,
+      "valence": "negative",
+      "topic_category": "work_life",
+      "required_entities": [],
+      "location_scope": "universal",
+      "quest_trigger": null
+    },
+    {
+      "id": 139,
+      "intro": "I had an idea in the middle of the night. Got up to sketch it out before I forgot.",
+      "details": [
+        "It's rough, but the concept is there. A better way to join two pieces that's been bugging me.",
+        "Half the time these midnight ideas are useless in daylight. But sometimes they're gold."
+      ],
+      "reactions": [
+        "The brain works on problems whether you ask it to or not."
+      ],
+      "statCheck": null,
+      "valence": "neutral",
+      "topic_category": "work_life",
+      "required_entities": [],
+      "location_scope": "universal",
+      "quest_trigger": null
+    },
+    {
+      "id": 140,
+      "intro": "I dropped something heavy on my foot today. The kind of pain that makes you see white for a second.",
+      "details": [
+        "I sat down, cursed at the ceiling for a minute, then got back up.",
+        "It's already swelling. Walking is going to be fun tomorrow."
+      ],
+      "reactions": [
+        "Could've been worse. Could've landed on the project instead."
+      ],
+      "statCheck": null,
+      "valence": "negative",
+      "topic_category": "work_life",
+      "required_entities": [],
+      "location_scope": "universal",
+      "quest_trigger": null
+    },
+    {
+      "id": 141,
+      "intro": "Working near the {poi_type} has its perks. Easy access to what I need.",
+      "details": [
+        "I can restock in minutes instead of waiting for deliveries.",
+        "The convenience is worth the noise and the traffic."
+      ],
+      "reactions": [
+        "Location matters more than most people realize in this trade."
+      ],
+      "statCheck": null,
+      "valence": "positive",
+      "topic_category": "work_life",
+      "required_entities": [],
+      "location_scope": "universal",
+      "quest_trigger": null
+    },
+    {
+      "id": 142,
+      "intro": "There's a piece I've been working on for weeks. Little bits at a time, between other jobs.",
+      "details": [
+        "It's not for anyone, just a personal project. Something I want to see if I can do.",
+        "Every time I add to it, I learn something new about my own limits."
+      ],
+      "reactions": [
+        "Personal projects keep the craft alive when the routine work can't."
+      ],
+      "statCheck": null,
+      "valence": "positive",
+      "topic_category": "work_life",
+      "required_entities": [],
+      "location_scope": "universal",
+      "quest_trigger": null
+    },
+    {
+      "id": 143,
+      "intro": "I've noticed my left hand is weaker than it used to be. Keeps cramping up.",
+      "details": [
+        "I grip things unevenly now. The right does most of the heavy work.",
+        "I compensate, but it slows me down and I notice the imbalance."
+      ],
+      "reactions": [
+        "The body wears unevenly. You favor one side for years and eventually it shows."
+      ],
+      "statCheck": {
+        "pass": "Repetitive strain weakens the overused muscles and neglects the others. Alternating hands for routine tasks helps, even if it feels awkward at first.",
+        "fail": "I don't know why it happens. Just another thing to deal with."
+      },
+      "valence": "negative",
+      "topic_category": "work_life",
+      "required_entities": [],
+      "location_scope": "universal",
+      "quest_trigger": null
+    },
+    {
+      "id": 144,
+      "intro": "I catch myself comparing my {self_role} work to what others produce. That way lies misery.",
+      "details": [
+        "Someone will always be faster, more creative, more precise. That's just how it is.",
+        "The only useful comparison is between what I did last year and what I do now."
+      ],
+      "reactions": [
+        "I've made progress and I can see it. That has to be enough."
+      ],
+      "statCheck": null,
+      "valence": "neutral",
+      "topic_category": "work_life",
+      "required_entities": [],
+      "location_scope": "universal",
+      "quest_trigger": null
+    },
+    {
+      "id": 145,
+      "intro": "There's a customer who always comes in at the worst possible moment. Every time.",
+      "details": [
+        "Right when I'm in the middle of something delicate. Without fail.",
+        "They're a good customer, so I smile and stop what I'm doing. But inside I'm screaming."
+      ],
+      "reactions": [
+        "Timing is nobody's strong suit but mine, apparently."
+      ],
+      "statCheck": null,
+      "valence": "negative",
+      "topic_category": "work_life",
+      "required_entities": [],
+      "location_scope": "universal",
+      "quest_trigger": null
+    },
+    {
+      "id": 146,
+      "intro": "I've been experimenting with mixing different types of {resource_type}. The results are interesting.",
+      "details": [
+        "Some combinations I never would've tried, but desperation is a great teacher.",
+        "A few turned out surprisingly well. Others were disasters I'd rather not discuss."
+      ],
+      "reactions": [
+        "Innovation is just mistakes that happen to work out."
+      ],
+      "statCheck": {
+        "pass": "Different grades and types often complement each other: one provides flexibility, the other strength. The trick is finding the right ratio for the application.",
+        "fail": "I was just trying things. Got lucky on a couple."
+      },
+      "valence": "neutral",
+      "topic_category": "work_life",
+      "required_entities": [],
+      "location_scope": "universal",
+      "quest_trigger": null
+    },
+    {
+      "id": 147,
+      "intro": "My {self_role} workspace is the one place where I feel completely in control. Everything makes sense there.",
+      "details": [
+        "Outside, the world is unpredictable. Inside, I know every surface, every tool, every sound.",
+        "It's not much to look at, but it's mine."
+      ],
+      "reactions": [
+        "Everyone needs a place where they feel competent. That's mine."
+      ],
+      "statCheck": null,
+      "valence": "positive",
+      "topic_category": "work_life",
+      "required_entities": [],
+      "location_scope": "universal",
+      "quest_trigger": null
+    },
+    {
+      "id": 148,
+      "intro": "I've been overcharging myself on {resource_type}. Found a better supplier last week.",
+      "details": [
+        "Same quality, noticeably less cost. I was too comfortable with the old source to look around.",
+        "All those years of extra expense because I didn't bother to compare."
+      ],
+      "reactions": [
+        "Complacency is expensive. I should question my assumptions more often."
+      ],
+      "statCheck": null,
+      "valence": "neutral",
+      "topic_category": "work_life",
+      "required_entities": [],
+      "location_scope": "universal",
+      "quest_trigger": null
+    },
+    {
+      "id": 149,
+      "intro": "I'll know it's time to quit when I stop caring about the finish. When 'good enough' becomes the goal.",
+      "details": [
+        "Right now, I still fuss over the last details. Still check the parts nobody sees.",
+        "The day I stop doing that is the day I hang it up."
+      ],
+      "reactions": [
+        "Pride in the invisible work is what separates good from adequate."
+      ],
+      "statCheck": {
+        "pass": "The hidden joints and internal surfaces are what determine longevity. A piece that's beautiful on the outside but sloppy inside won't last half as long.",
+        "fail": "I just feel wrong if I don't finish every part properly. Call it stubbornness."
+      },
+      "valence": "neutral",
+      "topic_category": "work_life",
+      "required_entities": [],
+      "location_scope": "universal",
+      "quest_trigger": null
+    },
+    {
+      "id": 150,
+      "intro": "A day where everything goes right is suspicious. I keep waiting for the other boot to drop.",
+      "details": [
+        "Perfect materials, no interruptions, clean results. Something's going to go wrong soon.",
+        "Maybe that's pessimism. Or maybe it's just experience."
+      ],
+      "reactions": [
+        "I'll enjoy it while it lasts, quietly, so as not to jinx it."
+      ],
+      "statCheck": null,
+      "valence": "neutral",
+      "topic_category": "work_life",
+      "required_entities": [],
+      "location_scope": "universal",
+      "quest_trigger": null
+    },
+    {
+      "id": 151,
+      "intro": "The rhythm of this work has become like breathing. I don't think about it anymore.",
+      "details": [
+        "My body moves through the steps while my mind wanders elsewhere.",
+        "That's either mastery or mindlessness. Depends on the day."
+      ],
+      "reactions": [
+        "There's comfort in autopilot. Also danger."
+      ],
+      "statCheck": null,
+      "valence": "neutral",
+      "topic_category": "work_life",
+      "required_entities": [],
+      "location_scope": "universal",
+      "quest_trigger": null
+    },
+    {
+      "id": 152,
+      "intro": "I got a splinter today that went under the nail. The specific agony of that is hard to overstate.",
+      "details": [
+        "Took me twenty minutes to get it out. My eyes were watering the entire time.",
+        "And then back to work like nothing happened."
+      ],
+      "reactions": [
+        "The glamorous life of a {self_role}."
+      ],
+      "statCheck": null,
+      "valence": "negative",
+      "topic_category": "work_life",
+      "required_entities": [],
+      "location_scope": "universal",
+      "quest_trigger": null
+    },
+    {
+      "id": 153,
+      "intro": "Sometimes the best thing you can do for a project is walk away from it for a day.",
+      "details": [
+        "I was stuck on a problem all afternoon and couldn't figure it out. Went home frustrated.",
+        "Came back this morning and the solution was obvious. Just needed fresh eyes."
+      ],
+      "reactions": [
+        "Your brain keeps working when you stop. You just have to let it."
+      ],
+      "statCheck": {
+        "pass": "It's called incubation: the subconscious continues processing a problem after conscious effort stops. Rest isn't the absence of work; it's a different kind of it.",
+        "fail": "I don't know the science. I just know walking away sometimes fixes things."
+      },
+      "valence": "neutral",
+      "topic_category": "work_life",
+      "required_entities": [],
+      "location_scope": "universal",
+      "quest_trigger": null
+    },
+    {
+      "id": 154,
+      "intro": "The dust in here is terrible. I breathe in more {resource_type} than air some days.",
+      "details": [
+        "I tie a cloth over my face but it still gets through.",
+        "You'd think after years of this I'd have lungs made of the stuff."
+      ],
+      "reactions": [
+        "It's the one part of the job I genuinely worry about long-term."
+      ],
+      "statCheck": {
+        "pass": "Wetting the material before working it cuts the dust by half. Also, a bowl of water near the work catches airborne particles. Simple but effective.",
+        "fail": "I don't have a good solution. Just endure it and hope for the best."
+      },
+      "valence": "negative",
+      "topic_category": "work_life",
+      "required_entities": [],
+      "location_scope": "universal",
+      "quest_trigger": null
+    },
+    {
+      "id": 155,
+      "intro": "I've trained my hands to feel differences that my eyes can't see.",
+      "details": [
+        "A surface that looks smooth has bumps you can only find by running your fingertips over it.",
+        "Years of that and now my hands catch things automatically."
+      ],
+      "reactions": [
+        "The fingers are more honest than the eyes. They don't get fooled by good light."
+      ],
+      "statCheck": {
+        "pass": "The fingertip has more nerve endings per square inch than almost any other part of the body. Trained hands can detect irregularities down to a fraction of a hair's width.",
+        "fail": "I can't explain how sensitive they've gotten. I just trust them."
+      },
+      "valence": "neutral",
+      "topic_category": "work_life",
+      "required_entities": [],
+      "location_scope": "universal",
+      "quest_trigger": null
+    },
+    {
+      "id": 156,
+      "intro": "People ask me for advice about becoming a {self_role}. I never know what to tell them.",
+      "details": [
+        "The truth is: it's hard, the pay is modest, and your body will hate you in fifteen years.",
+        "But it's also honest and there's dignity in it. That's not nothing."
+      ],
+      "reactions": [
+        "I tell them to try it for a month. If they come back, they've got the temperament."
+      ],
+      "statCheck": null,
+      "valence": "neutral",
+      "topic_category": "work_life",
+      "required_entities": [],
+      "location_scope": "universal",
+      "quest_trigger": null
+    },
+    {
+      "id": 157,
+      "intro": "I've started noticing small improvements in my {self_role} work, week to week. They're real, even if they're tiny.",
+      "details": [
+        "Slightly cleaner joins, slightly faster prep, slightly less waste.",
+        "None of them are dramatic. But stacked together they add up to something."
+      ],
+      "reactions": [
+        "Growth doesn't announce itself. You just look back and see it."
+      ],
+      "statCheck": null,
+      "valence": "positive",
+      "topic_category": "work_life",
+      "required_entities": [],
+      "location_scope": "universal",
+      "quest_trigger": null
+    },
+    {
+      "id": 158,
+      "intro": "I made a mistake in front of someone today. Small one, but they noticed.",
+      "details": [
+        "Nothing that affected the result. But the look they gave me: doubt.",
+        "That's the problem with being watched. One slip and suddenly you're not the expert anymore."
+      ],
+      "reactions": [
+        "I'll be thinking about that look for the rest of the week."
+      ],
+      "statCheck": null,
+      "valence": "negative",
+      "topic_category": "work_life",
+      "required_entities": [],
+      "location_scope": "universal",
+      "quest_trigger": null
+    },
+    {
+      "id": 159,
+      "intro": "I cleaned out an old storage area today and found tools I forgot I owned.",
+      "details": [
+        "Some of them are in great shape. I've been buying replacements for things I already had.",
+        "It's like a gift from my past self."
+      ],
+      "reactions": [
+        "I really need to keep better track of my things."
+      ],
+      "statCheck": null,
+      "valence": "positive",
+      "topic_category": "work_life",
+      "required_entities": [],
+      "location_scope": "universal",
+      "quest_trigger": null
+    },
+    {
+      "id": 160,
+      "intro": "I've been doing this work so long that I can do it in dim light just by feel.",
+      "details": [
+        "On cloudy days when the light's bad, I barely slow down. The hands remember what the eyes can't see.",
+        "Took years to build that confidence. Early on, I needed every bit of light available."
+      ],
+      "reactions": [
+        "One of those skills nobody asks about but separates the seasoned from the new."
+      ],
+      "statCheck": {
+        "pass": "Touch becomes the primary sense when vision is limited. Experienced hands develop sensitivity to texture variations that eyes would miss anyway.",
+        "fail": "My hands just know what to do at this point. I stopped questioning it."
+      },
+      "valence": "neutral",
+      "topic_category": "work_life",
+      "required_entities": [],
+      "location_scope": "universal",
+      "quest_trigger": null
+    },
+    {
+      "id": 161,
+      "intro": "A repeat customer came in today: they only ever come to me. That means something.",
+      "details": [
+        "They could go anywhere. The fact that they come back is the best review I could ask for.",
+        "Didn't even need to discuss details. They trust me to know what they need."
+      ],
+      "reactions": [
+        "Loyalty like that is earned one good job at a time."
+      ],
+      "statCheck": null,
+      "valence": "positive",
+      "topic_category": "work_life",
+      "required_entities": [],
+      "location_scope": "universal",
+      "quest_trigger": null
+    },
+    {
+      "id": 162,
+      "intro": "The worst part of {self_role} seasonal work is the off-season. Nothing to do but wait.",
+      "details": [
+        "I try to use the time for maintenance and improvement, but the restlessness is real.",
+        "You go from too-busy to too-idle with no middle ground."
+      ],
+      "reactions": [
+        "I save what I can during the busy months. It's the only way to survive the slow ones."
+      ],
+      "statCheck": null,
+      "valence": "negative",
+      "topic_category": "work_life",
+      "required_entities": [],
+      "location_scope": "universal",
+      "quest_trigger": null
+    },
+    {
+      "id": 163,
+      "intro": "I woke up this morning already thinking about a problem from yesterday. Couldn't turn it off.",
+      "details": [
+        "My mind was halfway through a solution before my feet hit the floor.",
+        "I went straight to work without eating. Had to try the idea while it was fresh."
+      ],
+      "reactions": [
+        "It worked, by the way: the solution. So I'll forgive the skipped breakfast."
+      ],
+      "statCheck": null,
+      "valence": "neutral",
+      "topic_category": "work_life",
+      "required_entities": [],
+      "location_scope": "universal",
+      "quest_trigger": null
+    },
+    {
+      "id": 164,
+      "intro": "I'm particular about where things go. Every tool has a spot, and it goes there when I'm done.",
+      "details": [
+        "People call it fussy. I call it knowing where things are when I need them.",
+        "Thirty seconds putting something away saves ten minutes hunting for it later."
+      ],
+      "reactions": [
+        "Organization isn't personality. It's efficiency."
+      ],
+      "statCheck": null,
+      "valence": "neutral",
+      "topic_category": "work_life",
+      "required_entities": [],
+      "location_scope": "universal",
+      "quest_trigger": null
+    },
+    {
+      "id": 165,
+      "intro": "A job that should've been straightforward turned into a nightmare today. Nothing lined up.",
+      "details": [
+        "The measurements were fine on paper but wrong in practice. The material had warped overnight.",
+        "I had to improvise the entire second half of the project."
+      ],
+      "reactions": [
+        "Plans are suggestions. Reality does what it wants."
+      ],
+      "statCheck": {
+        "pass": "Materials shift with humidity and temperature. Always let them acclimate to your workspace for a day before measuring: the dimensions will settle.",
+        "fail": "I should've accounted for it somehow, but I didn't. Lesson learned."
+      },
+      "valence": "negative",
+      "topic_category": "work_life",
+      "required_entities": [],
+      "location_scope": "universal",
+      "quest_trigger": null
+    },
+    {
+      "id": 166,
+      "intro": "I spent today doing nothing but prep work. All setup, no execution.",
+      "details": [
+        "It feels unproductive, but tomorrow I'll fly through the actual work because everything's ready.",
+        "The preparation is work. Even if it doesn't look like it."
+      ],
+      "reactions": [
+        "Future me is going to be very grateful to present me."
+      ],
+      "statCheck": null,
+      "valence": "neutral",
+      "topic_category": "work_life",
+      "required_entities": [],
+      "location_scope": "universal",
+      "quest_trigger": null
+    },
+    {
+      "id": 167,
+      "intro": "I've watched three people try being a {self_role} and quit within a season. It's not for everyone.",
+      "details": [
+        "The ones who leave always say the same thing: too much repetition, not enough reward.",
+        "They're not wrong. But for some of us, the repetition is the reward."
+      ],
+      "reactions": [
+        "You have to love the process, not just the result. Otherwise it'll grind you down."
+      ],
+      "statCheck": null,
+      "valence": "neutral",
+      "topic_category": "work_life",
+      "required_entities": [],
+      "location_scope": "universal",
+      "quest_trigger": null
+    },
+    {
+      "id": 168,
+      "intro": "The thing I'm proudest of this year as a {self_role} isn't a specific piece. It's just that I showed up every day.",
+      "details": [
+        "Some of those days I didn't want to. Some of them were terrible.",
+        "But the bench was open every morning and I was there. That's consistency."
+      ],
+      "reactions": [
+        "Showing up is more than half the battle."
+      ],
+      "statCheck": null,
+      "valence": "positive",
+      "topic_category": "work_life",
+      "required_entities": [],
+      "location_scope": "universal",
+      "quest_trigger": null
+    },
+    {
+      "id": 169,
+      "intro": "I burned through my best {resource_type} on an order that got cancelled. They changed their mind.",
+      "details": [
+        "Can't unshape what's been shaped. Can't uncut what's been cut.",
+        "Now I've got custom pieces that fit nothing and a hole in my supplies."
+      ],
+      "reactions": [
+        "Next time, I take payment upfront. Lesson learned the hard way."
+      ],
+      "statCheck": null,
+      "valence": "negative",
+      "topic_category": "work_life",
+      "required_entities": [],
+      "location_scope": "universal",
+      "quest_trigger": null
+    },
+    {
+      "id": 170,
+      "intro": "I've started stretching before I begin work. Makes a real difference by the end of the day.",
+      "details": [
+        "Just five minutes of loosening up. Arms, back, hands.",
+        "I used to dive right in and pay for it by evening. This is better."
+      ],
+      "reactions": [
+        "Small habits, big returns. Should've started years ago."
+      ],
+      "statCheck": {
+        "pass": "Cold muscles are less elastic and more prone to strain. Even gentle movement before loading them prevents the micro-tears that accumulate into chronic pain.",
+        "fail": "I don't know the reasoning. I just know I feel better when I stretch first."
+      },
+      "valence": "positive",
+      "topic_category": "work_life",
+      "required_entities": [],
+      "location_scope": "universal",
+      "quest_trigger": null
+    },
+    {
+      "id": 171,
+      "intro": "I worked alongside my parent as a {self_role} before I could see over the workbench.",
+      "details": [
+        "They never forced it on me. I just wanted to be near them, and the work came naturally.",
+        "Half the things I do are their habits living on through my hands."
+      ],
+      "reactions": [
+        "I don't think they realized how much I was absorbing. I didn't either, at the time."
+      ],
+      "statCheck": null,
+      "valence": "neutral",
+      "topic_category": "work_life",
+      "required_entities": [],
+      "location_scope": "universal",
+      "quest_trigger": null
+    },
+    {
+      "id": 172,
+      "intro": "People underestimate how much thinking goes into {self_role} work. It's not just muscle.",
+      "details": [
+        "Every step has a decision behind it. Angle, pressure, timing, sequence.",
+        "The hands move, but the brain is driving."
+      ],
+      "reactions": [
+        "Calling it 'unskilled labor' says more about the person saying it than the labor itself."
+      ],
+      "statCheck": null,
+      "valence": "neutral",
+      "topic_category": "work_life",
+      "required_entities": [],
+      "location_scope": "universal",
+      "quest_trigger": null
+    },
+    {
+      "id": 173,
+      "intro": "I'm sore in places I didn't know could get sore. Tried a new technique and used muscles I normally don't.",
+      "details": [
+        "My body is protesting the unfamiliar movement. Every stretch reminds me.",
+        "I'll have to build up to it gradually. Can't just change twenty years of habit overnight."
+      ],
+      "reactions": [
+        "New skills come with new aches. That's the price."
+      ],
+      "statCheck": null,
+      "valence": "negative",
+      "topic_category": "work_life",
+      "required_entities": [],
+      "location_scope": "universal",
+      "quest_trigger": null
+    },
+    {
+      "id": 174,
+      "intro": "I saw a piece of finished work at the {poi_type} that was clearly done by someone who cared.",
+      "details": [
+        "You can tell the difference. The edges, the finish, the small touches that nobody asked for.",
+        "Whoever made it took the extra time. That always shows."
+      ],
+      "reactions": [
+        "I respect that. I try to be that person with my own work."
+      ],
+      "statCheck": null,
+      "valence": "positive",
+      "topic_category": "work_life",
+      "required_entities": [],
+      "location_scope": "universal",
+      "quest_trigger": null
+    },
+    {
+      "id": 175,
+      "intro": "I've developed a twitch in my eye from squinting at fine details all day.",
+      "details": [
+        "It comes and goes. Worse on days with bad light or long sessions.",
+        "My eyes aren't what they were. I've started leaning in closer to compensate."
+      ],
+      "reactions": [
+        "The trade takes its toll in specific, annoying ways."
+      ],
+      "statCheck": {
+        "pass": "Eye strain is cumulative. Taking a break every hour to focus on something distant resets the muscles. Most people only do this when the damage is already done.",
+        "fail": "I've got no remedy. Just endure it and squint harder."
+      },
+      "valence": "negative",
+      "topic_category": "work_life",
+      "required_entities": [],
+      "location_scope": "universal",
+      "quest_trigger": null
+    },
+    {
+      "id": 176,
+      "intro": "I did something today purely because I've always done it that way. Then I stopped and asked myself why.",
+      "details": [
+        "Couldn't come up with a reason. It was just tradition, passed down without question.",
+        "I tried skipping the step and the result was identical. Years of unnecessary effort."
+      ],
+      "reactions": [
+        "Tradition is just peer pressure from the past. Sometimes wisdom, sometimes waste."
+      ],
+      "statCheck": null,
+      "valence": "neutral",
+      "topic_category": "work_life",
+      "required_entities": [],
+      "location_scope": "universal",
+      "quest_trigger": null
+    },
+    {
+      "id": 177,
+      "intro": "The person who taught me this trade would be horrified by some of the methods I use now.",
+      "details": [
+        "They were strict traditionalists. Every step had to be done a certain way.",
+        "I've kept what works and replaced what doesn't. They'd call it disrespectful, but I call it progress."
+      ],
+      "reactions": [
+        "You honor a teacher best by surpassing them, not by copying them forever."
+      ],
+      "statCheck": null,
+      "valence": "neutral",
+      "topic_category": "work_life",
+      "required_entities": [],
+      "location_scope": "universal",
+      "quest_trigger": null
+    },
+    {
+      "id": 178,
+      "intro": "I had a perfect streak going: five jobs in a row without a single issue. Then today happened.",
+      "details": [
+        "Everything that could go sideways did. The streak is over spectacularly.",
+        "Felt like the world was reminding me not to get comfortable."
+      ],
+      "reactions": [
+        "Streaks end. That's what makes them streaks."
+      ],
+      "statCheck": null,
+      "valence": "negative",
+      "topic_category": "work_life",
+      "required_entities": [],
+      "location_scope": "universal",
+      "quest_trigger": null
+    },
+    {
+      "id": 179,
+      "intro": "I've worn a groove in my floor from standing in the same spot day after day.",
+      "details": [
+        "Right in front of the workbench. A shallow dip where my weight settles.",
+        "That's years of standing, compressed into a worn patch of stone."
+      ],
+      "reactions": [
+        "It fits my feet perfectly now. Nobody else could stand in my spot comfortably."
+      ],
+      "statCheck": null,
+      "valence": "neutral",
+      "topic_category": "work_life",
+      "required_entities": [],
+      "location_scope": "universal",
+      "quest_trigger": null
+    },
+    {
+      "id": 180,
+      "intro": "There's a kid who watches me work from the doorway sometimes. Doesn't say anything, just watches.",
+      "details": [
+        "I remember being that kid. Standing at the edge of someone else's skill, trying to absorb it.",
+        "I leave the door open on purpose now."
+      ],
+      "reactions": [
+        "If they want to learn, they'll ask eventually. No rush."
+      ],
+      "statCheck": null,
+      "valence": "positive",
+      "topic_category": "work_life",
+      "required_entities": [],
+      "location_scope": "universal",
+      "quest_trigger": null
+    },
+    {
+      "id": 181,
+      "intro": "I keep spare supplies hidden away that nobody knows about. Emergency stock.",
+      "details": [
+        "If the supply line dries up for a week, I can still work. That's the point.",
+        "Maybe that's paranoid, but I've seen shortages before and they come without warning."
+      ],
+      "reactions": [
+        "Better to have it and not need it."
+      ],
+      "statCheck": null,
+      "valence": "neutral",
+      "topic_category": "work_life",
+      "required_entities": [],
+      "location_scope": "universal",
+      "quest_trigger": null
+    },
+    {
+      "id": 182,
+      "intro": "The satisfaction of solving a problem mid-job is like nothing else.",
+      "details": [
+        "Something unexpected comes up, you pause, think, and find a way through it.",
+        "That improvisation: that's where real skill lives. Not in the routine parts."
+      ],
+      "reactions": [
+        "Anyone can follow a plan. Adapting when the plan fails: that's the craft."
+      ],
+      "statCheck": {
+        "pass": "Problem-solving under constraints is actually easier than with unlimited options. The limitations narrow your choices to the ones most likely to work.",
+        "fail": "I don't have a method. I just stare at the problem until something occurs to me."
+      },
+      "valence": "positive",
+      "topic_category": "work_life",
+      "required_entities": [],
+      "location_scope": "universal",
+      "quest_trigger": null
+    },
+    {
+      "id": 183,
+      "intro": "I had to refuse work from {npc_name} today. Not because I couldn't do it, but because I'm buried already.",
+      "details": [
+        "They understood, which was a relief. Some people take it personally.",
+        "Saying no when you're at capacity isn't laziness. It's knowing your limits."
+      ],
+      "reactions": [
+        "I'd rather do fewer things well than many things poorly."
+      ],
+      "statCheck": null,
+      "valence": "neutral",
+      "topic_category": "work_life",
+      "required_entities": [],
+      "location_scope": "universal",
+      "quest_trigger": null
+    },
+    {
+      "id": 184,
+      "intro": "Something I finished months ago came back through. Still in perfect shape.",
+      "details": [
+        "That's the test, right? Not how it looks new, but how it holds up with use.",
+        "Seeing it still solid after all that time: better than any compliment."
+      ],
+      "reactions": [
+        "I build things to last. That's a promise I make silently every time."
+      ],
+      "statCheck": {
+        "pass": "Durability comes from understanding stress points. Reinforce where the forces concentrate, not where the piece looks weakest: those are often different places.",
+        "fail": "I don't have a formula for it. I just build things solid and hope they hold."
+      },
+      "valence": "positive",
+      "topic_category": "work_life",
+      "required_entities": [],
+      "location_scope": "universal",
+      "quest_trigger": null
+    },
+    {
+      "id": 185,
+      "intro": "I wasted an entire morning on a job that turned out to be unnecessary. They didn't tell me it was sorted.",
+      "details": [
+        "I could've spent those hours on the three other things waiting for me.",
+        "Communication. Is it really that hard?"
+      ],
+      "reactions": [
+        "I'm not angry. I'm just tired of lost time."
+      ],
+      "statCheck": null,
+      "valence": "negative",
+      "topic_category": "work_life",
+      "required_entities": [],
+      "location_scope": "universal",
+      "quest_trigger": null
+    },
+    {
+      "id": 186,
+      "intro": "I've noticed I stand differently than I used to. Shifted my weight to favor my good knee.",
+      "details": [
+        "It happened gradually. Now my whole posture has adjusted around one sore joint.",
+        "The body finds its own solutions, even if they create new problems down the line."
+      ],
+      "reactions": [
+        "I should address it properly instead of just compensating. But not today."
+      ],
+      "statCheck": {
+        "pass": "Compensation patterns cascade: one joint shifts, the hip follows, then the lower back. Addressing the original problem early prevents the chain from getting worse.",
+        "fail": "I know it's probably making things worse. But it's what my body does automatically."
+      },
+      "valence": "negative",
+      "topic_category": "work_life",
+      "required_entities": [],
+      "location_scope": "universal",
+      "quest_trigger": null
+    },
+    {
+      "id": 187,
+      "intro": "I find the sound of my own work comforting. The rhythmic scraping, tapping, whatever it is that day.",
+      "details": [
+        "It's like a heartbeat for the workspace. When it stops, something's wrong.",
+        "Silence in a workshop is either break time or trouble."
+      ],
+      "reactions": [
+        "Every trade has its music. You just have to listen for it."
+      ],
+      "statCheck": null,
+      "valence": "positive",
+      "topic_category": "work_life",
+      "required_entities": [],
+      "location_scope": "universal",
+      "quest_trigger": null
+    },
+    {
+      "id": 188,
+      "intro": "I hate admitting when I'm in over my head as a {self_role}. But today I was.",
+      "details": [
+        "A request came in that's beyond my current skill. I could fumble through it or be honest.",
+        "I was honest. Pointed them to someone who could actually do it right."
+      ],
+      "reactions": [
+        "Turning down work stings. But less than delivering something I'm ashamed of."
+      ],
+      "statCheck": null,
+      "valence": "negative",
+      "topic_category": "work_life",
+      "required_entities": [],
+      "location_scope": "universal",
+      "quest_trigger": null
+    },
+    {
+      "id": 189,
+      "intro": "The end of a big {self_role} project feels hollow sometimes. You'd expect celebration, but it's more like emptiness.",
+      "details": [
+        "All that focused energy suddenly has nowhere to go. What now?",
+        "You start the next thing, but the momentum takes a day to rebuild."
+      ],
+      "reactions": [
+        "Maybe that's why I keep starting new projects immediately. Can't sit with the quiet."
+      ],
+      "statCheck": null,
+      "valence": "neutral",
+      "topic_category": "work_life",
+      "required_entities": [],
+      "location_scope": "universal",
+      "quest_trigger": null
+    },
+    {
+      "id": 190,
+      "intro": "I inherited most of my tools from the person who taught me. Using them feels like carrying on their work.",
+      "details": [
+        "They're old, some of them. Worn to fit hands that aren't mine.",
+        "But they're good tools, and there's a history in them that new ones can't have."
+      ],
+      "reactions": [
+        "When I hold them, I remember how to be patient. That was their best lesson."
+      ],
+      "statCheck": null,
+      "valence": "positive",
+      "topic_category": "work_life",
+      "required_entities": [],
+      "location_scope": "universal",
+      "quest_trigger": null
+    },
+    {
+      "id": 191,
+      "intro": "Every once in a while I catch myself wondering: is this all I'm going to do?",
+      "details": [
+        "Same bench, same tools, same rhythm until I can't do it anymore.",
+        "It's not a crisis. Just a thought that visits on slow afternoons."
+      ],
+      "reactions": [
+        "I shake it off and get back to work. What else is there?"
+      ],
+      "statCheck": null,
+      "valence": "neutral",
+      "topic_category": "work_life",
+      "required_entities": [],
+      "location_scope": "universal",
+      "quest_trigger": null
+    },
+    {
+      "id": 192,
+      "intro": "The summer days are too long for this work. By the time the sun sets I've been going for fourteen hours.",
+      "details": [
+        "In winter it's the opposite problem: not enough daylight to finish everything.",
+        "There's about two months a year where the day length actually matches the workload."
+      ],
+      "reactions": [
+        "You adapt to the seasons or the seasons defeat you."
+      ],
+      "statCheck": {
+        "pass": "The midday break tradition exists for a reason: productivity crashes in the hottest hours. Working early, resting midday, and finishing in the evening gives you more useful hours.",
+        "fail": "I haven't figured out a good schedule for it. I just work until I can't."
+      },
+      "valence": "neutral",
+      "topic_category": "work_life",
+      "required_entities": [],
+      "location_scope": "universal",
+      "quest_trigger": null
+    },
+    {
+      "id": 193,
+      "intro": "A well-made thing doesn't need explaining. You pick it up and it just feels right.",
+      "details": [
+        "The balance, the weight, the way it sits in your hand. Good work communicates through touch.",
+        "That's what I aim for. Not perfection: rightness."
+      ],
+      "reactions": [
+        "If I have to tell you it's good, it probably isn't."
+      ],
+      "statCheck": {
+        "pass": "Ergonomics come from understanding how the human body interacts with objects. The best makers study the user's hand as much as the material.",
+        "fail": "I go by instinct. If it feels wrong to hold, I reshape it until it doesn't."
+      },
+      "valence": "positive",
+      "topic_category": "work_life",
+      "required_entities": [],
+      "location_scope": "universal",
+      "quest_trigger": null
+    },
+    {
+      "id": 194,
+      "intro": "I've been meaning to fix the leak in my roof for a month. Every rainy day I'm reminded.",
+      "details": [
+        "I've got a bucket under it and the bucket works, so the urgency keeps slipping.",
+        "Meanwhile I'm fixing things for everyone else. My own place falls apart."
+      ],
+      "reactions": [
+        "The irony of being skilled: everyone else's problems come before your own."
+      ],
+      "statCheck": null,
+      "valence": "negative",
+      "topic_category": "work_life",
+      "required_entities": [],
+      "location_scope": "universal",
+      "quest_trigger": null
+    },
+    {
+      "id": 195,
+      "intro": "I took the long way home after work today. Needed the walk to clear my head.",
+      "details": [
+        "Something about the transition from work to home requires space. I can't go straight from one to the other.",
+        "By the time I get there, the day's tension has mostly drained out."
+      ],
+      "reactions": [
+        "The walk is part of the work, in a way. It's how I put it down."
+      ],
+      "statCheck": null,
+      "valence": "neutral",
+      "topic_category": "work_life",
+      "required_entities": [],
+      "location_scope": "universal",
+      "quest_trigger": null
+    },
+    {
+      "id": 196,
+      "intro": "I don't get nervous about difficult {self_role} work anymore. I get focused.",
+      "details": [
+        "The nervousness turned into concentration somewhere along the way. Same energy, different shape.",
+        "When something hard comes in, there's actually a thrill to it now."
+      ],
+      "reactions": [
+        "Fear and excitement are the same feeling. Experience just changes the label."
+      ],
+      "statCheck": {
+        "pass": "The physiological response to challenge and to threat is nearly identical: elevated heart rate, heightened focus, adrenaline. The difference is entirely in how you interpret it.",
+        "fail": "I can't explain the shift. Just happened over time."
+      },
+      "valence": "positive",
+      "topic_category": "work_life",
+      "required_entities": [],
+      "location_scope": "universal",
+      "quest_trigger": null
+    },
+    {
+      "id": 197,
+      "intro": "The one thing nobody warns you about being a {self_role} is the loneliness.",
+      "details": [
+        "You're with your work all day, your thoughts, your mistakes. Nobody to bounce ideas off of.",
+        "It's fine most days. Some days it wears on you."
+      ],
+      "reactions": [
+        "That's why I appreciate conversations like this. Reminds me I'm not the only person working."
+      ],
+      "statCheck": null,
+      "valence": "negative",
+      "topic_category": "work_life",
+      "required_entities": [],
+      "location_scope": "universal",
+      "quest_trigger": null
+    },
+    {
+      "id": 198,
+      "intro": "I've been a {self_role} through good years and bad ones. The work doesn't change either way.",
+      "details": [
+        "Prosperity means more orders and hard times mean more repairs. Either way, I'm busy.",
+        "The hands do the same thing regardless of what's happening outside the workshop."
+      ],
+      "reactions": [
+        "There's a strange stability in that. The work is always the work."
+      ],
+      "statCheck": null,
+      "valence": "neutral",
+      "topic_category": "work_life",
+      "required_entities": [],
+      "location_scope": "universal",
+      "quest_trigger": null
+    },
+    {
+      "id": 199,
+      "intro": "At the end of the day, I put my tools down and take one last look at what I've done. Every day.",
+      "details": [
+        "Not to admire it, but to see it clearly: what worked, what didn't, what I'll do different tomorrow.",
+        "That ten seconds of honest looking is worth more than anything else I do."
+      ],
+      "reactions": [
+        "The work teaches you, if you let it."
+      ],
+      "statCheck": null,
+      "valence": "positive",
+      "topic_category": "work_life",
+      "required_entities": [],
+      "location_scope": "universal",
+      "quest_trigger": null
+    }
+  ]
+}

@@ -402,10 +402,12 @@ public class TopicPoolRegistry {
             loadCoherentPool(id, "v2", poolsDir);
         }
 
-        // V3 pools (new category system with template variables)
+        // V3 pools (label-based category system with template variables)
         String[] v3Ids = {
             "mundane_daily_life", "npc_opinions", "settlement_pride",
-            "poi_awareness", "creature_complaints", "distant_rumors"
+            "poi_awareness", "creature_complaints", "distant_rumors",
+            "family_talk", "folk_wisdom", "idle_musings", "food_and_meals",
+            "travelers_and_trade", "night_watch", "work_life", "old_times"
         };
         for (String id : v3Ids) {
             loadCoherentPool(id, "v3", poolsDir);

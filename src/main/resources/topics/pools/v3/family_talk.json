@@ -1,0 +1,2667 @@
+{
+  "pool": "family_talk",
+  "version": 3,
+  "entries": [
+    {
+      "id": 0,
+      "intro": "I tried making {food_type} the way my mother used to. Came out wrong, but in a way I kind of liked better.",
+      "details": [
+        "She'd say I was doing it all wrong. She'd be right, too.",
+        "The funny thing is I can't remember what hers tasted like exactly. Just that it was better."
+      ],
+      "reactions": [
+        "I'll keep making it my way. She'd roll her eyes, but she'd eat it."
+      ],
+      "statCheck": null,
+      "valence": "neutral",
+      "topic_category": "family_talk",
+      "required_entities": [],
+      "location_scope": "universal",
+      "quest_trigger": null
+    },
+    {
+      "id": 1,
+      "intro": "I remember more about my childhood lately than I do about last week.",
+      "details": [
+        "I can picture the yard behind the house I grew up in perfectly. Every stone, every weed.",
+        "But ask me what I had for supper three days ago and I couldn't tell you."
+      ],
+      "reactions": [
+        "I suppose the old memories had longer to settle in."
+      ],
+      "statCheck": null,
+      "valence": "negative",
+      "topic_category": "family_talk",
+      "required_entities": [],
+      "location_scope": "universal",
+      "quest_trigger": null
+    },
+    {
+      "id": 2,
+      "intro": "My father had this way of whistling when he was working. Completely tuneless, but he never stopped.",
+      "details": [
+        "I used to find it annoying when I was young. Now I catch myself doing the same thing.",
+        "It's not any song. Just noise. But it fills the quiet."
+      ],
+      "reactions": [
+        "I wonder if he picked it up from his father, too."
+      ],
+      "statCheck": null,
+      "valence": "positive",
+      "topic_category": "family_talk",
+      "required_entities": [],
+      "location_scope": "universal",
+      "quest_trigger": null
+    },
+    {
+      "id": 3,
+      "intro": "My kid asked me yesterday where rain comes from. I gave an answer, but I don't think it was right.",
+      "details": [
+        "I said something about the clouds getting heavy. That's the gist of it, I think.",
+        "They nodded like I'd explained the whole world. I didn't have the heart to say I was guessing."
+      ],
+      "reactions": [
+        "At some point they'll figure out I'm making half of it up as I go."
+      ],
+      "statCheck": {
+        "pass": "The real answer has to do with heat and vapor. The sun draws water up, the cold air condenses it. Simple once you learn it.",
+        "fail": "I honestly don't know. I just said what sounded reasonable."
+      },
+      "valence": "neutral",
+      "topic_category": "family_talk",
+      "required_entities": [],
+      "location_scope": "universal",
+      "quest_trigger": null
+    },
+    {
+      "id": 4,
+      "intro": "My grandmother used to say that worrying is like paying a debt you don't owe.",
+      "details": [
+        "She had a saying for everything. Most of them were sharper than any advice I've gotten since.",
+        "The woman never went further than the next town in her whole life, but she understood people."
+      ],
+      "reactions": [
+        "I think about her sayings more the older I get."
+      ],
+      "statCheck": null,
+      "valence": "positive",
+      "topic_category": "family_talk",
+      "required_entities": [],
+      "location_scope": "universal",
+      "quest_trigger": null
+    },
+    {
+      "id": 5,
+      "intro": "My brother and I used to fight over everything. Who got the bigger piece, who sat where, whose turn it was.",
+      "details": [
+        "Real scraps, too. Rolling around in the dirt while our mother yelled at us from the doorway.",
+        "Now that he's moved away I'd give anything for one of those arguments."
+      ],
+      "reactions": [
+        "Funny how the things that annoyed you the most are the things you miss."
+      ],
+      "statCheck": {
+        "pass": "You can tell a lot about siblings by which one adapts to distance and which one holds onto it. He adapted. I'm still holding.",
+        "fail": "I don't really understand why some people leave so easily. Maybe he doesn't either."
+      },
+      "valence": "neutral",
+      "topic_category": "family_talk",
+      "required_entities": [],
+      "location_scope": "universal",
+      "quest_trigger": null
+    },
+    {
+      "id": 6,
+      "intro": "My daughter drew a picture of our family last night. She made me twice as tall as the house.",
+      "details": [
+        "I'm standing there like some kind of giant, and the cat is bigger than my partner.",
+        "She was so proud of it. I hung it up where I can see it from the table."
+      ],
+      "reactions": [
+        "I hope she never gets too old to draw things like that."
+      ],
+      "statCheck": null,
+      "valence": "positive",
+      "topic_category": "family_talk",
+      "required_entities": [],
+      "location_scope": "universal",
+      "quest_trigger": null
+    },
+    {
+      "id": 7,
+      "intro": "I look more like my mother every year. Caught my reflection and thought she was staring back at me.",
+      "details": [
+        "Same forehead, same jaw. Even the way I squint when the sun's in my eyes.",
+        "People used to tell me that when I was young and I hated it. Now I don't mind."
+      ],
+      "reactions": [
+        "There are worse faces to grow into."
+      ],
+      "statCheck": null,
+      "valence": "negative",
+      "topic_category": "family_talk",
+      "required_entities": [],
+      "location_scope": "universal",
+      "quest_trigger": null
+    },
+    {
+      "id": 8,
+      "intro": "My uncle used to tell the same three stories at every family gathering. Word for word, same pauses and everything.",
+      "details": [
+        "We'd all groan when he started up, but he never cared. He was having a great time.",
+        "I can still recite every one of those stories from memory."
+      ],
+      "reactions": [
+        "Honestly, I'd sit through all three again right now if I could."
+      ],
+      "statCheck": null,
+      "valence": "positive",
+      "topic_category": "family_talk",
+      "required_entities": [],
+      "location_scope": "universal",
+      "quest_trigger": null
+    },
+    {
+      "id": 9,
+      "intro": "My partner has this habit of leaving cups everywhere. I find them on windowsills, on shelves, by the bed.",
+      "details": [
+        "I picked up four yesterday. Four. From one person.",
+        "I've mentioned it. More than once. Nothing changes."
+      ],
+      "reactions": [
+        "It's not worth a real argument. But some days it comes close."
+      ],
+      "statCheck": null,
+      "valence": "negative",
+      "topic_category": "family_talk",
+      "required_entities": [],
+      "location_scope": "universal",
+      "quest_trigger": null
+    },
+    {
+      "id": 10,
+      "intro": "My sister sends word every few months. She's doing well wherever she ended up.",
+      "details": [
+        "She always was the restless one. Couldn't stand the quiet here.",
+        "Her letters are short. She's not much of a writer, but at least she writes."
+      ],
+      "reactions": [
+        "I'm glad she found what she was looking for. I think."
+      ],
+      "statCheck": null,
+      "valence": "neutral",
+      "topic_category": "family_talk",
+      "required_entities": [],
+      "location_scope": "universal",
+      "quest_trigger": null
+    },
+    {
+      "id": 11,
+      "intro": "My grandfather could fix anything. Didn't matter what it was, he'd figure it out.",
+      "details": [
+        "He'd sit there turning the broken thing over in his hands, not saying a word. Then he'd just start working.",
+        "I never once saw him give up on something. Not once."
+      ],
+      "reactions": [
+        "I wish I'd paid more attention to how he did it instead of just watching."
+      ],
+      "statCheck": {
+        "pass": "He always said the trick was understanding what the thing was supposed to do before you tried to fix what it wasn't doing. Took me years to understand that.",
+        "fail": "I picked up a little from watching him, but not enough. Not nearly enough."
+      },
+      "valence": "positive",
+      "topic_category": "family_talk",
+      "required_entities": [],
+      "location_scope": "universal",
+      "quest_trigger": null
+    },
+    {
+      "id": 12,
+      "intro": "My son won't eat anything green. You'd think I was trying to poison him.",
+      "details": [
+        "He'll eat bread until he bursts, but put a leaf of anything on his plate and it's a personal betrayal.",
+        "I've tried hiding it in stew. He finds it. Every time."
+      ],
+      "reactions": [
+        "I was the same way at his age. My mother waited me out. I suppose I'll do the same."
+      ],
+      "statCheck": null,
+      "valence": "negative",
+      "topic_category": "family_talk",
+      "required_entities": [],
+      "location_scope": "universal",
+      "quest_trigger": null
+    },
+    {
+      "id": 13,
+      "intro": "My father never said he was proud of me. Not in words, anyway.",
+      "details": [
+        "He'd just nod, or clap me on the shoulder. That was his way.",
+        "I didn't understand it when I was young. Thought he didn't care."
+      ],
+      "reactions": [
+        "I try to say it out loud to my own kids. Feels awkward, but I think it matters."
+      ],
+      "statCheck": {
+        "pass": "I've read that children who hear approval directly are steadier when they grow up. The words matter even when the feeling is already there.",
+        "fail": "I just know it felt like something was missing. I'm trying to give my kids what I didn't get."
+      },
+      "valence": "neutral",
+      "topic_category": "family_talk",
+      "required_entities": [],
+      "location_scope": "universal",
+      "quest_trigger": null
+    },
+    {
+      "id": 14,
+      "intro": "My aunt makes the best preserves in the whole region and she knows it.",
+      "details": [
+        "Every harvest she shows up with jars and this look on her face like she's doing you a favor. Which she is.",
+        "She won't share the recipe. Says it'll go to her grave."
+      ],
+      "reactions": [
+        "I've tried to sneak a look while she's cooking. She shoos me out like I'm a cat on the counter."
+      ],
+      "statCheck": null,
+      "valence": "positive",
+      "topic_category": "family_talk",
+      "required_entities": [],
+      "location_scope": "universal",
+      "quest_trigger": null
+    },
+    {
+      "id": 15,
+      "intro": "My kid fell asleep in my lap last night. Just slumped over mid-sentence.",
+      "details": [
+        "They were telling me about something they'd seen outside. Got halfway through and just dropped.",
+        "I didn't move for an hour. My leg went numb but I didn't care."
+      ],
+      "reactions": [
+        "Those moments don't last forever. I know that much."
+      ],
+      "statCheck": null,
+      "valence": "positive",
+      "topic_category": "family_talk",
+      "required_entities": [],
+      "location_scope": "universal",
+      "quest_trigger": null
+    },
+    {
+      "id": 16,
+      "intro": "My mother had a way of knowing when I was lying. Never figured out how.",
+      "details": [
+        "I'd have the whole story planned out and she'd just look at me and say 'Try again.'",
+        "I got better at lying to everyone else. Never fooled her, though."
+      ],
+      "reactions": [
+        "I keep waiting for that same sense to kick in with my own kids. Hasn't happened yet."
+      ],
+      "statCheck": null,
+      "valence": "neutral",
+      "topic_category": "family_talk",
+      "required_entities": [],
+      "location_scope": "universal",
+      "quest_trigger": null
+    },
+    {
+      "id": 17,
+      "intro": "My cousin came to visit last month and stayed three days longer than planned.",
+      "details": [
+        "First day was lovely. Second day was fine. By the fourth I was running out of things to say.",
+        "Love the man, truly. But I also love my quiet."
+      ],
+      "reactions": [
+        "Next time I'll be happy to see him. And happy when he leaves."
+      ],
+      "statCheck": null,
+      "valence": "negative",
+      "topic_category": "family_talk",
+      "required_entities": [],
+      "location_scope": "universal",
+      "quest_trigger": null
+    },
+    {
+      "id": 18,
+      "intro": "I have my father's hands. Big knuckles, short fingers. Built for work, not for writing.",
+      "details": [
+        "I noticed it the other day when I was gripping a tool the same way he used to.",
+        "Strange how the body remembers things the mind doesn't."
+      ],
+      "reactions": [
+        "I don't mind. They're good hands. They've served me well."
+      ],
+      "statCheck": {
+        "pass": "Hand shape runs through bloodlines more reliably than faces do. Bone structure, tendon length, it all carries forward.",
+        "fail": "I don't know why I ended up with his hands and not my mother's. Just how it went."
+      },
+      "valence": "neutral",
+      "topic_category": "family_talk",
+      "required_entities": [],
+      "location_scope": "universal",
+      "quest_trigger": null
+    },
+    {
+      "id": 19,
+      "intro": "My daughter started asking questions I can't answer. Big ones, about why things are the way they are.",
+      "details": [
+        "She wants to know why people get old, why the seasons change, why some people leave and don't come back.",
+        "I do my best, but half the time I'm just making something up that sounds reasonable."
+      ],
+      "reactions": [
+        "The honest answer to most of her questions is 'I don't know either.'"
+      ],
+      "statCheck": null,
+      "valence": "neutral",
+      "topic_category": "family_talk",
+      "required_entities": [],
+      "location_scope": "universal",
+      "quest_trigger": null
+    },
+    {
+      "id": 20,
+      "intro": "My grandmother could tell the weather by her knees. Swore by it.",
+      "details": [
+        "If her left knee ached, rain was coming. If the right one did, it'd be cold by morning.",
+        "We all laughed, but she was right more often than not."
+      ],
+      "reactions": [
+        "My own knees have started giving opinions about the weather. I'm not laughing anymore."
+      ],
+      "statCheck": {
+        "pass": "There's actually something to it. The pressure changes before a storm can make old joints ache. She wasn't guessing.",
+        "fail": "I still don't know if there's any sense behind it. Maybe she was just lucky."
+      },
+      "valence": "neutral",
+      "topic_category": "family_talk",
+      "required_entities": [],
+      "location_scope": "universal",
+      "quest_trigger": null
+    },
+    {
+      "id": 21,
+      "intro": "My partner and I argue about the stupidest things. Last night it was how to fold a blanket.",
+      "details": [
+        "There's apparently a right way and a wrong way, and we each think the other's doing it wrong.",
+        "We went back and forth for ten minutes. Over a blanket."
+      ],
+      "reactions": [
+        "We were both laughing by the end. That's how I know we're alright."
+      ],
+      "statCheck": null,
+      "valence": "positive",
+      "topic_category": "family_talk",
+      "required_entities": [],
+      "location_scope": "universal",
+      "quest_trigger": null
+    },
+    {
+      "id": 22,
+      "intro": "My mother used to hum while she cooked. I don't think she even knew she was doing it.",
+      "details": [
+        "It wasn't any song I recognized. Just this soft little tune that filled up the kitchen.",
+        "The food always tasted better when I could hear her humming. Probably just in my head."
+      ],
+      "reactions": [
+        "I catch myself humming the same tune sometimes. Can never remember where it came from."
+      ],
+      "statCheck": null,
+      "valence": "positive",
+      "topic_category": "family_talk",
+      "required_entities": [],
+      "location_scope": "universal",
+      "quest_trigger": null
+    },
+    {
+      "id": 23,
+      "intro": "My brother thinks he's funny. He's not, but try telling him that.",
+      "details": [
+        "Same kind of jokes every time. Puns, mostly. The worse they are, the more he laughs at his own.",
+        "The rest of us just stare at him while he cracks himself up."
+      ],
+      "reactions": [
+        "I'd never admit it, but one or two of them have actually gotten me."
+      ],
+      "statCheck": null,
+      "valence": "neutral",
+      "topic_category": "family_talk",
+      "required_entities": [],
+      "location_scope": "universal",
+      "quest_trigger": null
+    },
+    {
+      "id": 24,
+      "intro": "I worry about my kid more than I let on. Every time they're out of sight, my mind starts inventing problems.",
+      "details": [
+        "They're fine. They're always fine. But my brain doesn't care about that.",
+        "My mother said she never stopped worrying about me, even when I was grown. I believe her now."
+      ],
+      "reactions": [
+        "I suppose that's just what it is. You love someone and the worrying comes free."
+      ],
+      "statCheck": null,
+      "valence": "negative",
+      "topic_category": "family_talk",
+      "required_entities": [],
+      "location_scope": "universal",
+      "quest_trigger": null
+    },
+    {
+      "id": 25,
+      "intro": "My father taught me to always finish what I start. Even if it's going badly.",
+      "details": [
+        "He'd say quitting is a habit, and once you start you can't stop.",
+        "Harsh, maybe. But I've never left a job half done in my life."
+      ],
+      "reactions": [
+        "Whether that makes me stubborn or disciplined probably depends on who you ask."
+      ],
+      "statCheck": {
+        "pass": "Discipline is a muscle. The more you use it, the stronger it gets. He was training me without me realizing it.",
+        "fail": "I don't know if he was right or just stubborn. But the habit stuck, so maybe it doesn't matter."
+      },
+      "valence": "neutral",
+      "topic_category": "family_talk",
+      "required_entities": [],
+      "location_scope": "universal",
+      "quest_trigger": null
+    },
+    {
+      "id": 26,
+      "intro": "The neighbor's kid keeps coming over to play with mine. I don't mind, except they track mud through the house every single time.",
+      "details": [
+        "I've told them to take their boots off at the door. They nod, say yes, and walk right in with them on.",
+        "Kids don't hear you. They hear the sound of your voice and assume it means 'carry on.'"
+      ],
+      "reactions": [
+        "At least they're having fun. The floor can be mopped."
+      ],
+      "statCheck": null,
+      "valence": "negative",
+      "topic_category": "family_talk",
+      "required_entities": [],
+      "location_scope": "universal",
+      "quest_trigger": null
+    },
+    {
+      "id": 27,
+      "intro": "My grandmother kept every letter anyone ever sent her. Had a whole chest full of them.",
+      "details": [
+        "After she passed, we opened it and found letters going back decades. Some from people none of us had ever heard of.",
+        "Her handwriting was so neat. Like every word mattered enough to get right."
+      ],
+      "reactions": [
+        "I kept a few of them. Don't read them often, but I like knowing they're there."
+      ],
+      "statCheck": null,
+      "valence": "negative",
+      "topic_category": "family_talk",
+      "required_entities": [],
+      "location_scope": "universal",
+      "quest_trigger": null
+    },
+    {
+      "id": 28,
+      "intro": "My sister and I look nothing alike. People never believe we're related.",
+      "details": [
+        "She got all the height. I got all the stubbornness. Fair trade, I suppose.",
+        "We don't even walk the same way. She glides. I stomp."
+      ],
+      "reactions": [
+        "We think the same, though. Finish each other's sentences sometimes and it startles people."
+      ],
+      "statCheck": null,
+      "valence": "neutral",
+      "topic_category": "family_talk",
+      "required_entities": [],
+      "location_scope": "universal",
+      "quest_trigger": null
+    },
+    {
+      "id": 29,
+      "intro": "My son's growing faster than I can keep up with. His trousers are too short again.",
+      "details": [
+        "I just let them out last month. Already need to do it again or get new ones entirely.",
+        "He doesn't notice. Or doesn't care. Either way, I'm the one who has to deal with it."
+      ],
+      "reactions": [
+        "At this rate he'll be taller than me by next year."
+      ],
+      "statCheck": {
+        "pass": "Children grow in bursts. There are stretches where nothing changes and then seemingly overnight they're two inches taller.",
+        "fail": "I have no idea what's happening. He just keeps getting bigger and I keep adjusting."
+      },
+      "valence": "neutral",
+      "topic_category": "family_talk",
+      "required_entities": [],
+      "location_scope": "universal",
+      "quest_trigger": null
+    },
+    {
+      "id": 30,
+      "intro": "My partner snores. Has for years. I've just learned to sleep through it.",
+      "details": [
+        "Some nights it's like sleeping next to a sawmill. Other nights it's barely a whisper.",
+        "I nudge them and they stop for about ten seconds. Then it starts again."
+      ],
+      "reactions": [
+        "I've come to terms with it. Mostly."
+      ],
+      "statCheck": null,
+      "valence": "negative",
+      "topic_category": "family_talk",
+      "required_entities": [],
+      "location_scope": "universal",
+      "quest_trigger": null
+    },
+    {
+      "id": 31,
+      "intro": "My mother always said you can tell a person's character by how they treat animals.",
+      "details": [
+        "She was gentle with every creature she came across. Even the ones most people would shoo away.",
+        "I think she trusted animals more than people, honestly."
+      ],
+      "reactions": [
+        "She wasn't wrong about it. I've never met a cruel person who was kind to animals."
+      ],
+      "statCheck": null,
+      "valence": "positive",
+      "topic_category": "family_talk",
+      "required_entities": [],
+      "location_scope": "universal",
+      "quest_trigger": null
+    },
+    {
+      "id": 32,
+      "intro": "I inherited my grandfather's temper. Quick to flare, quick to fade.",
+      "details": [
+        "He'd go red in the face over nothing, and five minutes later he'd be laughing about it.",
+        "My grandmother used to just wait him out. She had the patience of stone."
+      ],
+      "reactions": [
+        "I've gotten better at catching it before it starts. Most days."
+      ],
+      "statCheck": null,
+      "valence": "negative",
+      "topic_category": "family_talk",
+      "required_entities": [],
+      "location_scope": "universal",
+      "quest_trigger": null
+    },
+    {
+      "id": 33,
+      "intro": "My kid brought home a frog yesterday and asked if we could keep it.",
+      "details": [
+        "It sat on the table staring at us while we had supper. Just sitting there like it belonged.",
+        "I said no, obviously. But I let them keep it for the night."
+      ],
+      "reactions": [
+        "It was gone by morning anyway. Escaped out a window, I think. Or I hope."
+      ],
+      "statCheck": null,
+      "valence": "positive",
+      "topic_category": "family_talk",
+      "required_entities": [],
+      "location_scope": "universal",
+      "quest_trigger": null
+    },
+    {
+      "id": 34,
+      "intro": "My father was a quiet man. You could sit with him for an hour and he wouldn't say ten words.",
+      "details": [
+        "It used to make me nervous as a kid. I'd fill the silence just to fill it.",
+        "I understand it now. Some people don't talk because they don't need to."
+      ],
+      "reactions": [
+        "I've gotten quieter as I've gotten older. Maybe that's his influence too."
+      ],
+      "statCheck": null,
+      "valence": "negative",
+      "topic_category": "family_talk",
+      "required_entities": [],
+      "location_scope": "universal",
+      "quest_trigger": null
+    },
+    {
+      "id": 35,
+      "intro": "My aunt always pinches my cheek when she sees me. I'm a grown adult and she still does it.",
+      "details": [
+        "Doesn't matter who's watching. She grabs my face like I'm six years old.",
+        "I tried ducking once. She got me anyway. She's faster than she looks."
+      ],
+      "reactions": [
+        "I complain about it, but it'd feel wrong if she stopped."
+      ],
+      "statCheck": null,
+      "valence": "positive",
+      "topic_category": "family_talk",
+      "required_entities": [],
+      "location_scope": "universal",
+      "quest_trigger": null
+    },
+    {
+      "id": 36,
+      "intro": "My partner and I have been together long enough that we don't really need to talk at supper anymore.",
+      "details": [
+        "We just sit and eat. Sometimes one of us mentions something. Mostly it's quiet.",
+        "It's not awkward. It's just... settled."
+      ],
+      "reactions": [
+        "I think that's what comfortable looks like. Took a while to get here."
+      ],
+      "statCheck": null,
+      "valence": "positive",
+      "topic_category": "family_talk",
+      "required_entities": [],
+      "location_scope": "universal",
+      "quest_trigger": null
+    },
+    {
+      "id": 37,
+      "intro": "My brother moved away years ago. Don't hear from him much.",
+      "details": [
+        "He's not angry or anything. He just got wrapped up in his own life.",
+        "Sometimes I think about writing to him, and then I don't. He probably does the same."
+      ],
+      "reactions": [
+        "We'll catch up someday. That's what I keep telling myself."
+      ],
+      "statCheck": null,
+      "valence": "negative",
+      "topic_category": "family_talk",
+      "required_entities": [],
+      "location_scope": "universal",
+      "quest_trigger": null
+    },
+    {
+      "id": 38,
+      "intro": "My daughter is stubborn as a mule. Gets that from me, I'm told.",
+      "details": [
+        "Once she decides something, you might as well argue with a wall.",
+        "My partner says it's like watching me fight myself. Which is not the compliment they think it is."
+      ],
+      "reactions": [
+        "She'll need that stubbornness someday. I just wish she'd aim it at something other than bedtime."
+      ],
+      "statCheck": {
+        "pass": "Willfulness in children is actually a sign of strong self-regulation later. It's frustrating now, but it means she'll handle pressure well.",
+        "fail": "I don't know where it comes from. I'd like to think it's a good thing, but mostly it's exhausting."
+      },
+      "valence": "neutral",
+      "topic_category": "family_talk",
+      "required_entities": [],
+      "location_scope": "universal",
+      "quest_trigger": null
+    },
+    {
+      "id": 39,
+      "intro": "My mother could stretch a meal to feed twice as many people as it was meant for.",
+      "details": [
+        "Someone would drop by unannounced and somehow there was always enough. I never understood how.",
+        "It wasn't magic. She just planned for it without telling anyone."
+      ],
+      "reactions": [
+        "I try to do the same. I'm not as good at it, but I'm getting there."
+      ],
+      "statCheck": {
+        "pass": "The trick is in the base. A good stock or stew stretches with water and root vegetables without losing flavor. She knew that instinctively.",
+        "fail": "I still don't know how she managed it. Every time I try to stretch something, it just tastes watered down."
+      },
+      "valence": "positive",
+      "topic_category": "family_talk",
+      "required_entities": [],
+      "location_scope": "universal",
+      "quest_trigger": null
+    },
+    {
+      "id": 40,
+      "intro": "My father used to wake up before dawn every single day. Never needed to, just couldn't help it.",
+      "details": [
+        "He'd be out in the yard by the time anyone else opened their eyes. Already working.",
+        "I asked him once if he ever slept in. He looked at me like I'd asked if he ever flew."
+      ],
+      "reactions": [
+        "I'm the same way now. Eyes open before the sun. Can't fight it."
+      ],
+      "statCheck": null,
+      "valence": "neutral",
+      "topic_category": "family_talk",
+      "required_entities": [],
+      "location_scope": "universal",
+      "quest_trigger": null
+    },
+    {
+      "id": 41,
+      "intro": "My kid told me I'm their favorite person today. Completely unprompted.",
+      "details": [
+        "They just walked up, said it, and walked away. Like it was nothing.",
+        "I stood there for a minute like an idiot trying not to get emotional over it."
+      ],
+      "reactions": [
+        "Best thing anyone's said to me in months. Maybe years."
+      ],
+      "statCheck": null,
+      "valence": "positive",
+      "topic_category": "family_talk",
+      "required_entities": [],
+      "location_scope": "universal",
+      "quest_trigger": null
+    },
+    {
+      "id": 42,
+      "intro": "My grandfather used to carry hard candy in his pocket. Always had a piece for us.",
+      "details": [
+        "He'd make you guess which hand it was in first. Same trick every time, and we fell for it every time.",
+        "The candy was always a bit warm and slightly fuzzy from pocket lint. Didn't matter."
+      ],
+      "reactions": [
+        "I keep a few sweets on me now. Just in case."
+      ],
+      "statCheck": null,
+      "valence": "negative",
+      "topic_category": "family_talk",
+      "required_entities": [],
+      "location_scope": "universal",
+      "quest_trigger": null
+    },
+    {
+      "id": 43,
+      "intro": "My sister is the organized one. She keeps lists for everything.",
+      "details": [
+        "Lists for chores, lists for meals, lists of things she needs to make lists about.",
+        "Meanwhile I can barely remember what day it is."
+      ],
+      "reactions": [
+        "She says I'd fall apart without her. She's probably right."
+      ],
+      "statCheck": null,
+      "valence": "neutral",
+      "topic_category": "family_talk",
+      "required_entities": [],
+      "location_scope": "universal",
+      "quest_trigger": null
+    },
+    {
+      "id": 44,
+      "intro": "My partner brought me wildflowers yesterday. Just a little bunch, nothing fancy.",
+      "details": [
+        "Picked them on the way home. Half of them were weeds, honestly.",
+        "But they thought of me while they were walking, and that's the part that matters."
+      ],
+      "reactions": [
+        "I put them in a cup on the table. They're already wilting, but I'll leave them a while longer."
+      ],
+      "statCheck": null,
+      "valence": "positive",
+      "topic_category": "family_talk",
+      "required_entities": [],
+      "location_scope": "universal",
+      "quest_trigger": null
+    },
+    {
+      "id": 45,
+      "intro": "My mother never let us leave the house angry. She'd make us say something kind before we walked out the door.",
+      "details": [
+        "Even if you were fuming, you had to stop and say one decent thing. It was the rule.",
+        "Most of the time it felt forced. But sometimes it actually worked."
+      ],
+      "reactions": [
+        "I do the same thing with my own family now. It's a good rule."
+      ],
+      "statCheck": null,
+      "valence": "positive",
+      "topic_category": "family_talk",
+      "required_entities": [],
+      "location_scope": "universal",
+      "quest_trigger": null
+    },
+    {
+      "id": 46,
+      "intro": "My son asked me what I wanted to be when I was his age. I didn't have a good answer.",
+      "details": [
+        "The truth is I never had some grand plan. Things just happened and I ended up here.",
+        "He seemed disappointed. He's got big ideas about what he wants to do."
+      ],
+      "reactions": [
+        "I hope he holds onto that. Or at least doesn't end up as confused as I was."
+      ],
+      "statCheck": null,
+      "valence": "neutral",
+      "topic_category": "family_talk",
+      "required_entities": [],
+      "location_scope": "universal",
+      "quest_trigger": null
+    },
+    {
+      "id": 47,
+      "intro": "My grandmother could knit faster than anyone I've ever seen. Her hands were a blur.",
+      "details": [
+        "She'd talk and knit at the same time without ever looking down. Never dropped a stitch.",
+        "She made me a scarf when I was small. I still have it somewhere."
+      ],
+      "reactions": [
+        "I tried to learn from her. Gave up after tangling the yarn into a knot the size of my fist."
+      ],
+      "statCheck": {
+        "pass": "She said the secret was tension: keep it even and your hands learn the rhythm on their own. I never managed to get the feel of it.",
+        "fail": "I have no idea how she did it. My fingers don't work that way."
+      },
+      "valence": "positive",
+      "topic_category": "family_talk",
+      "required_entities": [],
+      "location_scope": "universal",
+      "quest_trigger": null
+    },
+    {
+      "id": 48,
+      "intro": "I catch myself saying things my father used to say. Same words, same tone.",
+      "details": [
+        "The other day I told my kid 'Because I said so' and I heard his voice come out of my mouth.",
+        "I swore I'd never be that kind of parent. And yet here I am."
+      ],
+      "reactions": [
+        "Turns out he wasn't being lazy with that answer. He just didn't have a better one."
+      ],
+      "statCheck": {
+        "pass": "'Because I said so' is actually a boundary statement. It tells the child that some authority doesn't require justification. There's value in that, even if it feels lazy.",
+        "fail": "I still can't come up with a better answer when I'm put on the spot. Maybe there isn't one."
+      },
+      "valence": "negative",
+      "topic_category": "family_talk",
+      "required_entities": [],
+      "location_scope": "universal",
+      "quest_trigger": null
+    },
+    {
+      "id": 49,
+      "intro": "My cousin is one of those people who's good at everything without trying. Drives me mad.",
+      "details": [
+        "Picks up a new skill like it's nothing. Took me months to learn what they figured out in a week.",
+        "They're not even smug about it. That somehow makes it worse."
+      ],
+      "reactions": [
+        "I love them. But standing next to them makes me feel slow."
+      ],
+      "statCheck": null,
+      "valence": "negative",
+      "topic_category": "family_talk",
+      "required_entities": [],
+      "location_scope": "universal",
+      "quest_trigger": null
+    },
+    {
+      "id": 50,
+      "intro": "My father used to take me fishing. We almost never caught anything.",
+      "details": [
+        "We'd sit there for hours in total silence. Just staring at the water.",
+        "At the time I thought it was boring. Now I realize those were some of the best days I ever had."
+      ],
+      "reactions": [
+        "It was never about the fish. Took me a long time to figure that out."
+      ],
+      "statCheck": null,
+      "valence": "positive",
+      "topic_category": "family_talk",
+      "required_entities": [],
+      "location_scope": "universal",
+      "quest_trigger": null
+    },
+    {
+      "id": 51,
+      "intro": "My partner and I can't agree on how to raise the kids. Not on any of it.",
+      "details": [
+        "I think they're too soft. They think I'm too strict. We go back and forth constantly.",
+        "The kids have figured out who to ask for what, of course. They're not stupid."
+      ],
+      "reactions": [
+        "We'll sort it out. Or the kids will sort us out. One of the two."
+      ],
+      "statCheck": null,
+      "valence": "negative",
+      "topic_category": "family_talk",
+      "required_entities": [],
+      "location_scope": "universal",
+      "quest_trigger": null
+    },
+    {
+      "id": 52,
+      "intro": "My mother used to tell me I'd understand when I was older. She was right about everything.",
+      "details": [
+        "At the time I thought she was just avoiding the question. Turns out she was giving me the only honest answer.",
+        "Some things really don't make sense until you've lived through them."
+      ],
+      "reactions": [
+        "I catch myself using the same line now. The cycle continues."
+      ],
+      "statCheck": null,
+      "valence": "neutral",
+      "topic_category": "family_talk",
+      "required_entities": [],
+      "location_scope": "universal",
+      "quest_trigger": null
+    },
+    {
+      "id": 53,
+      "intro": "My uncle is the loudest person in any room he enters. You hear him coming from down the street.",
+      "details": [
+        "He laughs like a thunderclap. There's no ignoring it.",
+        "My aunt says she fell for him because of that laugh. I believe it. You can't forget it."
+      ],
+      "reactions": [
+        "Every gathering he's at turns into his gathering. That's just how it works."
+      ],
+      "statCheck": null,
+      "valence": "neutral",
+      "topic_category": "family_talk",
+      "required_entities": [],
+      "location_scope": "universal",
+      "quest_trigger": null
+    },
+    {
+      "id": 54,
+      "intro": "My kid has started copying everything I do. Every gesture, every phrase.",
+      "details": [
+        "They stand with their hands on their hips the same way. They sigh the same way when they're tired.",
+        "It's like watching a tiny, slightly wrong version of myself."
+      ],
+      "reactions": [
+        "Makes me very aware of my bad habits. I'm being watched."
+      ],
+      "statCheck": {
+        "pass": "Mimicry is how children learn social behavior. They're studying you, not just copying. It's actually a form of respect.",
+        "fail": "I don't know why kids do it. It's flattering and terrifying in equal measure."
+      },
+      "valence": "neutral",
+      "topic_category": "family_talk",
+      "required_entities": [],
+      "location_scope": "universal",
+      "quest_trigger": null
+    },
+    {
+      "id": 55,
+      "intro": "My grandmother always said 'Full bellies make kind hearts.' She wasn't wrong.",
+      "details": [
+        "She'd feed anyone who came through the door. Didn't matter who they were.",
+        "I don't think she ever sat down to eat until everyone else had finished. That was her way."
+      ],
+      "reactions": [
+        "I try to keep the same open door. It's the least I can do."
+      ],
+      "statCheck": null,
+      "valence": "negative",
+      "topic_category": "family_talk",
+      "required_entities": [],
+      "location_scope": "universal",
+      "quest_trigger": null
+    },
+    {
+      "id": 56,
+      "intro": "My daughter talks in her sleep. Full conversations with nobody.",
+      "details": [
+        "Last night she was giving someone very firm instructions about a goat. No idea where that came from.",
+        "She denies all of it in the morning. Doesn't believe me when I tell her."
+      ],
+      "reactions": [
+        "I've started keeping track. Might tell her when she's older. She'll be mortified."
+      ],
+      "statCheck": null,
+      "valence": "positive",
+      "topic_category": "family_talk",
+      "required_entities": [],
+      "location_scope": "universal",
+      "quest_trigger": null
+    },
+    {
+      "id": 57,
+      "intro": "My father never apologized. Not once in my entire childhood.",
+      "details": [
+        "He'd just quietly do something nice the next day. Fix something for you, or make breakfast without being asked.",
+        "That was his apology. You had to learn to read it."
+      ],
+      "reactions": [
+        "I've learned to say the words out loud. It's harder but it's clearer."
+      ],
+      "statCheck": null,
+      "valence": "neutral",
+      "topic_category": "family_talk",
+      "required_entities": [],
+      "location_scope": "universal",
+      "quest_trigger": null
+    },
+    {
+      "id": 58,
+      "intro": "My brother eats like he's afraid someone's going to take his plate. Always has.",
+      "details": [
+        "Food's gone in minutes. Doesn't matter what it is. He barely chews.",
+        "My mother used to beg him to slow down. He'd nod, then keep shoveling."
+      ],
+      "reactions": [
+        "Some things you just can't train out of a person."
+      ],
+      "statCheck": null,
+      "valence": "neutral",
+      "topic_category": "family_talk",
+      "required_entities": [],
+      "location_scope": "universal",
+      "quest_trigger": null
+    },
+    {
+      "id": 59,
+      "intro": "My partner makes this face when they're thinking hard. Brow all scrunched up, lips pressed tight.",
+      "details": [
+        "They don't know they're doing it. If you point it out, they deny it immediately.",
+        "I've seen it so many times I could draw it from memory."
+      ],
+      "reactions": [
+        "It's one of those things you notice because you've been looking at someone for years."
+      ],
+      "statCheck": null,
+      "valence": "positive",
+      "topic_category": "family_talk",
+      "required_entities": [],
+      "location_scope": "universal",
+      "quest_trigger": null
+    },
+    {
+      "id": 60,
+      "intro": "My sister could always make me laugh, even when I was determined to be miserable.",
+      "details": [
+        "She has this way of saying exactly the wrong thing at exactly the right time.",
+        "I'd be sulking about something and she'd make one comment and the whole mood just cracked."
+      ],
+      "reactions": [
+        "Nobody else has ever been able to do that. It's a gift."
+      ],
+      "statCheck": null,
+      "valence": "positive",
+      "topic_category": "family_talk",
+      "required_entities": [],
+      "location_scope": "universal",
+      "quest_trigger": null
+    },
+    {
+      "id": 61,
+      "intro": "I found an old tool of my father's the other day. Still had the grip marks worn into the handle.",
+      "details": [
+        "He used that thing every day for years. You could see exactly where his fingers went.",
+        "It's too worn for real use now, but I can't throw it out."
+      ],
+      "reactions": [
+        "Some things are worth keeping even when they're past their purpose."
+      ],
+      "statCheck": null,
+      "valence": "neutral",
+      "topic_category": "family_talk",
+      "required_entities": [],
+      "location_scope": "universal",
+      "quest_trigger": null
+    },
+    {
+      "id": 62,
+      "intro": "My kid is afraid of the dark. Needs a candle by the bed every night.",
+      "details": [
+        "I've tried explaining there's nothing out there that isn't there during the day. Doesn't help.",
+        "I was the same way. My mother kept a candle going for me until I was older than I'd like to admit."
+      ],
+      "reactions": [
+        "They'll grow out of it. And then one day they'll miss the candlelight."
+      ],
+      "statCheck": {
+        "pass": "Fear of the dark is one of the oldest instincts. It kept our ancestors alive. There's nothing wrong with a child who still has it.",
+        "fail": "I don't know how to help, honestly. I just keep the candle lit and hope they outgrow it."
+      },
+      "valence": "negative",
+      "topic_category": "family_talk",
+      "required_entities": [],
+      "location_scope": "universal",
+      "quest_trigger": null
+    },
+    {
+      "id": 63,
+      "intro": "My mother was always cold. Even in summer she'd have a shawl around her shoulders.",
+      "details": [
+        "She said she had thin blood. I don't know if that's a real thing or just something she told herself.",
+        "Every fireplace in the house ran hot because of her. The rest of us were sweating."
+      ],
+      "reactions": [
+        "I've started getting cold easier myself. Guess the thin blood runs in the family."
+      ],
+      "statCheck": {
+        "pass": "It can be a sign of poor circulation, actually. Runs through bloodlines. Not just an old wives' tale.",
+        "fail": "No idea if there's any truth to it. Cold is cold."
+      },
+      "valence": "neutral",
+      "topic_category": "family_talk",
+      "required_entities": [],
+      "location_scope": "universal",
+      "quest_trigger": null
+    },
+    {
+      "id": 64,
+      "intro": "My son wants to be a {self_role} like me. I don't know if I should encourage it or not.",
+      "details": [
+        "It's honest work, but it's hard. I'd want something easier for him if I'm honest.",
+        "He watches me work with these big eyes like it's the most important thing in the world."
+      ],
+      "reactions": [
+        "I'll let him decide when he's older. No point pushing him either way."
+      ],
+      "statCheck": null,
+      "valence": "neutral",
+      "topic_category": "family_talk",
+      "required_entities": [],
+      "location_scope": "universal",
+      "quest_trigger": null
+    },
+    {
+      "id": 65,
+      "intro": "My grandmother had a garden that could feed the whole street. She worked it every morning without fail.",
+      "details": [
+        "Rain or shine, she was out there on her knees. Said the plants needed to know she cared.",
+        "Everything grew bigger in her garden. I've never been able to figure out why."
+      ],
+      "reactions": [
+        "I think she just paid more attention than most people have patience for."
+      ],
+      "statCheck": {
+        "pass": "Good soil takes years of composting and rotation. She was doing it right for decades before I was even born. You can't rush that.",
+        "fail": "Some people just have a touch for growing things. I'm not one of them."
+      },
+      "valence": "positive",
+      "topic_category": "family_talk",
+      "required_entities": [],
+      "location_scope": "universal",
+      "quest_trigger": null
+    },
+    {
+      "id": 66,
+      "intro": "My partner always knows when something's wrong with me. I don't even have to say anything.",
+      "details": [
+        "I'll walk in the door and they'll just look at me and say 'What happened?'",
+        "I've tried hiding it. Doesn't work. They read me like a book."
+      ],
+      "reactions": [
+        "It's annoying and comforting at the same time. Mostly comforting."
+      ],
+      "statCheck": null,
+      "valence": "positive",
+      "topic_category": "family_talk",
+      "required_entities": [],
+      "location_scope": "universal",
+      "quest_trigger": null
+    },
+    {
+      "id": 67,
+      "intro": "My uncle gave me the worst advice I've ever received. Told me never to trust anyone who smiles too much.",
+      "details": [
+        "I spent years being suspicious of friendly people because of that.",
+        "Turns out he was just grumpy and wanted company in his misery."
+      ],
+      "reactions": [
+        "I love him, but I've learned to filter his wisdom pretty carefully."
+      ],
+      "statCheck": null,
+      "valence": "negative",
+      "topic_category": "family_talk",
+      "required_entities": [],
+      "location_scope": "universal",
+      "quest_trigger": null
+    },
+    {
+      "id": 68,
+      "intro": "My daughter has my mother's eyes. Same shape, same color. It catches me off guard sometimes.",
+      "details": [
+        "She'll look up at me a certain way and for a half second I see my mother looking back.",
+        "It's a strange feeling. Not sad exactly. Just heavy."
+      ],
+      "reactions": [
+        "She'd have loved this girl. That's the part that stings."
+      ],
+      "statCheck": null,
+      "valence": "neutral",
+      "topic_category": "family_talk",
+      "required_entities": [],
+      "location_scope": "universal",
+      "quest_trigger": null
+    },
+    {
+      "id": 69,
+      "intro": "My father believed in eating supper together every night. No exceptions.",
+      "details": [
+        "Didn't matter how busy you were or what you had going on. You were at that table.",
+        "We'd sit there even when nobody had anything to say. Just eating, together."
+      ],
+      "reactions": [
+        "I keep the same rule. My kids grumble about it, but they'll understand later."
+      ],
+      "statCheck": null,
+      "valence": "positive",
+      "topic_category": "family_talk",
+      "required_entities": [],
+      "location_scope": "universal",
+      "quest_trigger": null
+    },
+    {
+      "id": 70,
+      "intro": "My brother once broke a window and blamed it on a bird. My father believed him.",
+      "details": [
+        "I watched the whole thing happen. Stood there in disbelief as he got away with it.",
+        "He still brings it up and laughs. Thirty years later and he's still proud of that lie."
+      ],
+      "reactions": [
+        "I should've said something at the time. But that's what little brothers are for, apparently."
+      ],
+      "statCheck": null,
+      "valence": "neutral",
+      "topic_category": "family_talk",
+      "required_entities": [],
+      "location_scope": "universal",
+      "quest_trigger": null
+    },
+    {
+      "id": 71,
+      "intro": "My kid asked me if I was ever young. Like it was a genuine question.",
+      "details": [
+        "I said yes, obviously. They looked at me like they weren't sure they believed it.",
+        "To be fair, I can barely believe it myself some mornings."
+      ],
+      "reactions": [
+        "One day they'll ask their own kid the same question and feel exactly this way."
+      ],
+      "statCheck": null,
+      "valence": "neutral",
+      "topic_category": "family_talk",
+      "required_entities": [],
+      "location_scope": "universal",
+      "quest_trigger": null
+    },
+    {
+      "id": 72,
+      "intro": "My mother kept the house spotless. You could eat off any surface.",
+      "details": [
+        "If you left something out of place, it was gone by the time you came back. Tidied, moved, or thrown away.",
+        "I once lost a project I was working on because she thought it was rubbish. It sort of was, but still."
+      ],
+      "reactions": [
+        "I'm nowhere near that level. My house is clean enough. Hers was a fortress."
+      ],
+      "statCheck": {
+        "pass": "A clean house reduces sickness and keeps pests away. My mother wasn't just tidy, she was protecting us in her own way.",
+        "fail": "I never thought about why she did it so intensely. Just that she did."
+      },
+      "valence": "neutral",
+      "topic_category": "family_talk",
+      "required_entities": [],
+      "location_scope": "universal",
+      "quest_trigger": null
+    },
+    {
+      "id": 73,
+      "intro": "My grandfather smelled like pipe smoke and cedar. I can still remember it perfectly.",
+      "details": [
+        "He'd hug you and the smell would stick to your clothes for the rest of the day.",
+        "I didn't appreciate it then. Now if I catch a whiff of cedar I stop in my tracks."
+      ],
+      "reactions": [
+        "Funny how a smell can take you back faster than anything else."
+      ],
+      "statCheck": null,
+      "valence": "positive",
+      "topic_category": "family_talk",
+      "required_entities": [],
+      "location_scope": "universal",
+      "quest_trigger": null
+    },
+    {
+      "id": 74,
+      "intro": "My partner forgets things I've told them. Not just small things. Important things.",
+      "details": [
+        "I'll explain something in full detail and two days later they'll ask me about it like it's brand new information.",
+        "I've started wondering if they're even listening or just nodding."
+      ],
+      "reactions": [
+        "It's frustrating. But I probably do the same thing and don't realize it."
+      ],
+      "statCheck": null,
+      "valence": "negative",
+      "topic_category": "family_talk",
+      "required_entities": [],
+      "location_scope": "universal",
+      "quest_trigger": null
+    },
+    {
+      "id": 75,
+      "intro": "My sister always gets the last word. Even if the conversation ended an hour ago, she'll come back with something.",
+      "details": [
+        "You'll be doing something completely different and she'll walk in with 'And another thing.'",
+        "She's been doing it since we were children. I don't think she can help it."
+      ],
+      "reactions": [
+        "I've given up trying to finish an argument with her. She always wins on persistence."
+      ],
+      "statCheck": null,
+      "valence": "neutral",
+      "topic_category": "family_talk",
+      "required_entities": [],
+      "location_scope": "universal",
+      "quest_trigger": null
+    },
+    {
+      "id": 76,
+      "intro": "I taught my son how to tie a proper knot yesterday. Took about twenty tries.",
+      "details": [
+        "His fingers kept fumbling and he'd get frustrated and start over. But he wouldn't quit.",
+        "When he finally got it, you'd have thought he'd won a war."
+      ],
+      "reactions": [
+        "Watching your kid figure something out is better than doing it yourself. Every time."
+      ],
+      "statCheck": null,
+      "valence": "positive",
+      "topic_category": "family_talk",
+      "required_entities": [],
+      "location_scope": "universal",
+      "quest_trigger": null
+    },
+    {
+      "id": 77,
+      "intro": "My mother had strong opinions about everything. You never had to guess where she stood.",
+      "details": [
+        "She'd tell you exactly what she thought whether you asked or not.",
+        "People either loved her or avoided her. There was no middle ground."
+      ],
+      "reactions": [
+        "I respected it, even when I disagreed. There's something to be said for honesty."
+      ],
+      "statCheck": {
+        "pass": "People who speak their mind clearly tend to be more trustworthy. You always know where you stand with them, even when you disagree.",
+        "fail": "I can't tell if she was brave or just didn't care what people thought. Maybe both."
+      },
+      "valence": "neutral",
+      "topic_category": "family_talk",
+      "required_entities": [],
+      "location_scope": "universal",
+      "quest_trigger": null
+    },
+    {
+      "id": 78,
+      "intro": "My kid drew on the wall yesterday. In charcoal. On the good wall.",
+      "details": [
+        "It's a picture of our house, I think. Or possibly a monster. Hard to tell.",
+        "I was angry for about five seconds and then I couldn't help but look at it properly. It's not bad, actually."
+      ],
+      "reactions": [
+        "The wall needed repainting anyway. That's what I'm telling myself."
+      ],
+      "statCheck": null,
+      "valence": "negative",
+      "topic_category": "family_talk",
+      "required_entities": [],
+      "location_scope": "universal",
+      "quest_trigger": null
+    },
+    {
+      "id": 79,
+      "intro": "My father could build anything out of wood. Gave him some planks and he'd figure the rest out.",
+      "details": [
+        "He built most of the furniture in the house I grew up in. Never used plans or drawings.",
+        "It wasn't fancy, but it was solid. That table he made is still standing."
+      ],
+      "reactions": [
+        "I can manage basic repairs, but I'll never have his touch. Some skills skip a generation."
+      ],
+      "statCheck": {
+        "pass": "He always said wood tells you what it wants to be. You just have to read the grain and work with it, not against it.",
+        "fail": "I never picked up enough to know what he was doing differently. Just that the results spoke for themselves."
+      },
+      "valence": "positive",
+      "topic_category": "family_talk",
+      "required_entities": [],
+      "location_scope": "universal",
+      "quest_trigger": null
+    },
+    {
+      "id": 80,
+      "intro": "My aunt sends my kid sweets every chance she gets. Completely undermines everything I'm trying to do.",
+      "details": [
+        "I tell them no sweets before supper and then a package shows up from her. Full of honey cakes.",
+        "She does it on purpose. She thinks I'm too strict. She might be right, but that's not the point."
+      ],
+      "reactions": [
+        "I eat half the cakes myself before the kid sees them. Compromise."
+      ],
+      "statCheck": null,
+      "valence": "negative",
+      "topic_category": "family_talk",
+      "required_entities": [],
+      "location_scope": "universal",
+      "quest_trigger": null
+    },
+    {
+      "id": 81,
+      "intro": "My grandmother lived to a very old age. Outlived almost everyone she knew.",
+      "details": [
+        "She said the secret was spite. Said she'd outlive anyone who annoyed her, and she did.",
+        "Near the end she was still sharp as a blade. Body slowed down but her mind never did."
+      ],
+      "reactions": [
+        "If stubbornness keeps you alive, my family will be around forever."
+      ],
+      "statCheck": null,
+      "valence": "negative",
+      "topic_category": "family_talk",
+      "required_entities": [],
+      "location_scope": "universal",
+      "quest_trigger": null
+    },
+    {
+      "id": 82,
+      "intro": "My partner and I met by accident. Literally bumped into each other.",
+      "details": [
+        "I was carrying something and not watching where I was going. They were doing the same.",
+        "We both apologized, both laughed, and then just stood there talking for an hour."
+      ],
+      "reactions": [
+        "Strangest thing. If I'd left the house one minute earlier, my whole life would be different."
+      ],
+      "statCheck": null,
+      "valence": "negative",
+      "topic_category": "family_talk",
+      "required_entities": [],
+      "location_scope": "universal",
+      "quest_trigger": null
+    },
+    {
+      "id": 83,
+      "intro": "My brother always had to be the bravest one. Climbing the tallest tree, swimming the furthest out.",
+      "details": [
+        "He broke his arm twice before he was ten. Both times doing something our mother told him not to.",
+        "She'd bandage him up and tell him off, and he'd nod seriously and do it again the next week."
+      ],
+      "reactions": [
+        "He hasn't changed much. Still takes risks the rest of us wouldn't."
+      ],
+      "statCheck": null,
+      "valence": "neutral",
+      "topic_category": "family_talk",
+      "required_entities": [],
+      "location_scope": "universal",
+      "quest_trigger": null
+    },
+    {
+      "id": 84,
+      "intro": "My daughter wants to do everything by herself. Won't let me help with anything.",
+      "details": [
+        "She takes three times as long and does it half as well, but she insists.",
+        "If I reach over to help she gives me this look that could curdle milk."
+      ],
+      "reactions": [
+        "I should be proud of her independence. And I am. But it's also incredibly inconvenient."
+      ],
+      "statCheck": {
+        "pass": "Independence at a young age builds competence. She'll make mistakes now, but she'll be capable sooner than most.",
+        "fail": "I don't know if I should push back or let her struggle. Parenting doesn't come with instructions."
+      },
+      "valence": "neutral",
+      "topic_category": "family_talk",
+      "required_entities": [],
+      "location_scope": "universal",
+      "quest_trigger": null
+    },
+    {
+      "id": 85,
+      "intro": "My mother always saved the best food for us kids. Took the smallest portion herself every time.",
+      "details": [
+        "I didn't realize until I was older. Just thought she wasn't very hungry.",
+        "Now that I'm a parent I understand. You do it without thinking."
+      ],
+      "reactions": [
+        "I wish I'd thanked her for it when I could. I don't think she expected thanks, but still."
+      ],
+      "statCheck": null,
+      "valence": "neutral",
+      "topic_category": "family_talk",
+      "required_entities": [],
+      "location_scope": "universal",
+      "quest_trigger": null
+    },
+    {
+      "id": 86,
+      "intro": "My cousin and I got into so much trouble as kids. We were a menace together.",
+      "details": [
+        "Alone we were fine. Together, we fed off each other's bad ideas.",
+        "Our parents learned to keep us separated at family gatherings. Didn't always work."
+      ],
+      "reactions": [
+        "We still laugh about it when we see each other. Which isn't often enough."
+      ],
+      "statCheck": null,
+      "valence": "positive",
+      "topic_category": "family_talk",
+      "required_entities": [],
+      "location_scope": "universal",
+      "quest_trigger": null
+    },
+    {
+      "id": 87,
+      "intro": "My grandfather used to say 'A busy hand is a quiet mind.' I think about that a lot.",
+      "details": [
+        "He was always doing something. Carving, mending, sorting. His hands never stopped.",
+        "I used to think he was just restless. Now I think he was keeping the worries at bay."
+      ],
+      "reactions": [
+        "I do the same thing. When my head gets loud, I find something to do with my hands."
+      ],
+      "statCheck": null,
+      "valence": "negative",
+      "topic_category": "family_talk",
+      "required_entities": [],
+      "location_scope": "universal",
+      "quest_trigger": null
+    },
+    {
+      "id": 88,
+      "intro": "My kid refuses to wear shoes. The moment we're home, they're off and he's running around barefoot.",
+      "details": [
+        "In winter. On cold stone floors. Like it doesn't bother him at all.",
+        "I've given up fighting it. His feet are tougher than my boots at this point."
+      ],
+      "reactions": [
+        "If he wants to grow up with leather soles on his feet, that's his business."
+      ],
+      "statCheck": null,
+      "valence": "neutral",
+      "topic_category": "family_talk",
+      "required_entities": [],
+      "location_scope": "universal",
+      "quest_trigger": null
+    },
+    {
+      "id": 89,
+      "intro": "My partner cooks better than me and we both know it. I just don't like admitting it.",
+      "details": [
+        "Same ingredients, same kitchen. Theirs comes out better every time.",
+        "They try to be diplomatic about it. 'Yours is good too,' they say. It's not. Not compared to theirs."
+      ],
+      "reactions": [
+        "I've accepted my role. I do the cleaning. It's a fair trade."
+      ],
+      "statCheck": null,
+      "valence": "neutral",
+      "topic_category": "family_talk",
+      "required_entities": [],
+      "location_scope": "universal",
+      "quest_trigger": null
+    },
+    {
+      "id": 90,
+      "intro": "My father had this look he'd give you when you'd done something wrong. Didn't need to say a word.",
+      "details": [
+        "Just this slow turn of the head, one eyebrow up. That was enough.",
+        "I feared that look more than any punishment. It went right through you."
+      ],
+      "reactions": [
+        "I've tried it on my own kids. Doesn't work. I must not have the face for it."
+      ],
+      "statCheck": {
+        "pass": "Expressions carry authority when they come from consistent behavior. His look worked because we knew the consequences behind it were real.",
+        "fail": "I've tried to figure out what made it so effective. Never could pin it down."
+      },
+      "valence": "neutral",
+      "topic_category": "family_talk",
+      "required_entities": [],
+      "location_scope": "universal",
+      "quest_trigger": null
+    },
+    {
+      "id": 91,
+      "intro": "My sister used to steal my clothes when we were young. Just took them and wore them like they were hers.",
+      "details": [
+        "I'd see her walking around in my favorite shirt and she'd just shrug. 'It looks better on me.'",
+        "The worst part is she was usually right."
+      ],
+      "reactions": [
+        "She still borrows things. At this point I just plan for it."
+      ],
+      "statCheck": null,
+      "valence": "negative",
+      "topic_category": "family_talk",
+      "required_entities": [],
+      "location_scope": "universal",
+      "quest_trigger": null
+    },
+    {
+      "id": 92,
+      "intro": "My son has this way of asking 'why' after every answer I give. Chains of whys, one after another.",
+      "details": [
+        "Why is the sky blue, why does it rain, why do we eat, why do we sleep. It never ends.",
+        "Eventually I hit a point where the only honest answer is 'I don't know' and he looks disappointed."
+      ],
+      "reactions": [
+        "I'd rather he kept asking than stopped, though. Curiosity's a good thing."
+      ],
+      "statCheck": {
+        "pass": "I've actually started looking into some of his questions before he asks them. Keeps me one step ahead, at least for a few rounds.",
+        "fail": "I run out of answers fast. Most of the time I'm just guessing and hoping he doesn't call me on it."
+      },
+      "valence": "neutral",
+      "topic_category": "family_talk",
+      "required_entities": [],
+      "location_scope": "universal",
+      "quest_trigger": null
+    },
+    {
+      "id": 93,
+      "intro": "My mother used to braid my hair every morning before I left the house.",
+      "details": [
+        "She was gentle but fast. Had a whole system worked out.",
+        "I'd sit on the floor in front of her and she'd hum while she worked. Best part of my morning."
+      ],
+      "reactions": [
+        "I do my daughter's hair the same way now. Same spot, same hum."
+      ],
+      "statCheck": null,
+      "valence": "negative",
+      "topic_category": "family_talk",
+      "required_entities": [],
+      "location_scope": "universal",
+      "quest_trigger": null
+    },
+    {
+      "id": 94,
+      "intro": "My partner talks to the plants. Full conversations. Encouragement, scolding, the whole thing.",
+      "details": [
+        "I walked in on them telling the herbs they needed to 'try harder.' Dead serious.",
+        "I said something about it once. Got a lecture about how plants respond to attention."
+      ],
+      "reactions": [
+        "The garden does look good, so maybe they're onto something. I'm not going to admit that, though."
+      ],
+      "statCheck": null,
+      "valence": "positive",
+      "topic_category": "family_talk",
+      "required_entities": [],
+      "location_scope": "universal",
+      "quest_trigger": null
+    },
+    {
+      "id": 95,
+      "intro": "My father always checked the locks twice before bed. Every single night.",
+      "details": [
+        "He'd do his round, sit down, then get back up and do it again. Like clockwork.",
+        "My mother would say 'They're locked' and he'd say 'I know' and check anyway."
+      ],
+      "reactions": [
+        "I do the same thing now. I know they're locked. I check anyway."
+      ],
+      "statCheck": {
+        "pass": "Routine checking is a way of managing anxiety. The act itself is calming, even if the locks haven't changed. The body needs the ritual.",
+        "fail": "I don't know why I do it. I just feel wrong if I don't."
+      },
+      "valence": "neutral",
+      "topic_category": "family_talk",
+      "required_entities": [],
+      "location_scope": "universal",
+      "quest_trigger": null
+    },
+    {
+      "id": 96,
+      "intro": "My kid told me a secret yesterday and made me promise not to tell anyone.",
+      "details": [
+        "It was the most harmless thing you can imagine. But to them it was serious, so I took it seriously.",
+        "They whispered it like the whole world was listening."
+      ],
+      "reactions": [
+        "I'll take it to my grave. A promise is a promise, even to a child. Especially to a child."
+      ],
+      "statCheck": null,
+      "valence": "positive",
+      "topic_category": "family_talk",
+      "required_entities": [],
+      "location_scope": "universal",
+      "quest_trigger": null
+    },
+    {
+      "id": 97,
+      "intro": "My grandmother always wore the same brooch. Every day, pinned to her collar.",
+      "details": [
+        "I asked her about it once. She said my grandfather gave it to her when they were young. That was all she'd say.",
+        "It wasn't worth much. Just a small thing, a bit tarnished. But she never took it off."
+      ],
+      "reactions": [
+        "I have it now. I keep it in a box. Don't wear it, but I look at it sometimes."
+      ],
+      "statCheck": null,
+      "valence": "neutral",
+      "topic_category": "family_talk",
+      "required_entities": [],
+      "location_scope": "universal",
+      "quest_trigger": null
+    },
+    {
+      "id": 98,
+      "intro": "My brother snores so loud you can hear him through the walls. Used to keep the whole house awake.",
+      "details": [
+        "We shared a room when we were young. I'd throw things at him to make him stop.",
+        "He'd roll over, go quiet for thirty seconds, and start up again louder than before."
+      ],
+      "reactions": [
+        "His partner must be a deep sleeper. Or a saint."
+      ],
+      "statCheck": null,
+      "valence": "negative",
+      "topic_category": "family_talk",
+      "required_entities": [],
+      "location_scope": "universal",
+      "quest_trigger": null
+    },
+    {
+      "id": 99,
+      "intro": "My daughter has started telling me what she thinks I should wear. She's very direct about it.",
+      "details": [
+        "She looked at me yesterday morning and said 'Not that one' with complete authority.",
+        "She's barely old enough to dress herself but apparently she's qualified to dress me."
+      ],
+      "reactions": [
+        "I changed. I don't know why. But I did."
+      ],
+      "statCheck": null,
+      "valence": "positive",
+      "topic_category": "family_talk",
+      "required_entities": [],
+      "location_scope": "universal",
+      "quest_trigger": null
+    },
+    {
+      "id": 100,
+      "intro": "I promised my kid we'd do something fun this week and I still haven't figured out what.",
+      "details": [
+        "They haven't forgotten. They ask me every morning. 'Is today the day?'",
+        "I need to come up with something before they lose faith in me entirely."
+      ],
+      "reactions": [
+        "The worst part is they don't even need much. A walk, a story, anything. I just keep putting it off."
+      ],
+      "statCheck": null,
+      "valence": "negative",
+      "topic_category": "family_talk",
+      "required_entities": [],
+      "location_scope": "universal",
+      "quest_trigger": null
+    },
+    {
+      "id": 101,
+      "intro": "My mother could calm anyone down. Didn't matter how upset you were.",
+      "details": [
+        "She had this quiet voice she'd use. Not soft exactly, just steady. Like nothing could shake her.",
+        "You'd go to her ready to fall apart and come away feeling like everything would be fine."
+      ],
+      "reactions": [
+        "I try to be that for my own family. I'm not as good at it. But I try."
+      ],
+      "statCheck": null,
+      "valence": "positive",
+      "topic_category": "family_talk",
+      "required_entities": [],
+      "location_scope": "universal",
+      "quest_trigger": null
+    },
+    {
+      "id": 102,
+      "intro": "My father snuck us sweets when my mother wasn't looking. Had a whole system worked out.",
+      "details": [
+        "He'd put a finger to his lips and slip us something from his pocket. Like a conspiracy.",
+        "My mother knew the whole time, of course. She just let him think he was getting away with it."
+      ],
+      "reactions": [
+        "I do the same thing with my kids now. My partner pretends not to notice. History repeats."
+      ],
+      "statCheck": null,
+      "valence": "positive",
+      "topic_category": "family_talk",
+      "required_entities": [],
+      "location_scope": "universal",
+      "quest_trigger": null
+    },
+    {
+      "id": 103,
+      "intro": "My partner hates being late to anything. We arrive early to everything.",
+      "details": [
+        "I mean everything. We're the first ones there, standing around waiting for everyone else.",
+        "I used to be the kind of person who showed up when I showed up. Those days are over."
+      ],
+      "reactions": [
+        "I've made my peace with it. At least we never miss anything."
+      ],
+      "statCheck": null,
+      "valence": "neutral",
+      "topic_category": "family_talk",
+      "required_entities": [],
+      "location_scope": "universal",
+      "quest_trigger": null
+    },
+    {
+      "id": 104,
+      "intro": "My grandfather never raised his voice. Not once that I can remember.",
+      "details": [
+        "He'd get quiet when he was angry. Quieter than usual, which was already very quiet.",
+        "That silence was worse than any shouting. You knew exactly what it meant."
+      ],
+      "reactions": [
+        "I've tried to be like that. Haven't managed it. I raise my voice more than I should."
+      ],
+      "statCheck": {
+        "pass": "Silence from a usually quiet person hits differently because it's a change in pattern. We read disruptions in behavior, not volume.",
+        "fail": "I don't understand how quiet can be more intimidating than shouting. But it was."
+      },
+      "valence": "neutral",
+      "topic_category": "family_talk",
+      "required_entities": [],
+      "location_scope": "universal",
+      "quest_trigger": null
+    },
+    {
+      "id": 105,
+      "intro": "My sister writes to me about her garden. Pages of it. Every detail about every plant.",
+      "details": [
+        "I don't care about gardens. Not even a little. But I read every word because it's hers.",
+        "She gets so excited about a new sprout you'd think she'd discovered gold."
+      ],
+      "reactions": [
+        "I write back and ask questions I don't care about the answers to. That's what family is, I think."
+      ],
+      "statCheck": null,
+      "valence": "negative",
+      "topic_category": "family_talk",
+      "required_entities": [],
+      "location_scope": "universal",
+      "quest_trigger": null
+    },
+    {
+      "id": 106,
+      "intro": "My son told his first proper lie the other day. I was almost impressed.",
+      "details": [
+        "It was a terrible lie, full of holes, but he committed to it. Looked me right in the eye.",
+        "I let him think he got away with it. Then brought it up at supper. His face was priceless."
+      ],
+      "reactions": [
+        "He'll get better at it. They always do. I just hope he doesn't use it too often."
+      ],
+      "statCheck": null,
+      "valence": "neutral",
+      "topic_category": "family_talk",
+      "required_entities": [],
+      "location_scope": "universal",
+      "quest_trigger": null
+    },
+    {
+      "id": 107,
+      "intro": "My mother and my aunt didn't speak for a whole year once. Over something so small I can't even remember what it was.",
+      "details": [
+        "The rest of us were caught in the middle, passing messages back and forth like couriers.",
+        "One day they just started talking again like nothing happened. No explanation, no apology."
+      ],
+      "reactions": [
+        "Family feuds are ridiculous. And somehow completely unavoidable."
+      ],
+      "statCheck": null,
+      "valence": "negative",
+      "topic_category": "family_talk",
+      "required_entities": [],
+      "location_scope": "universal",
+      "quest_trigger": null
+    },
+    {
+      "id": 108,
+      "intro": "My kid made me a gift out of sticks and string. It's supposed to be a bird, I think.",
+      "details": [
+        "It looks nothing like a bird. It looks like a bundle of sticks held together with hope.",
+        "But they presented it to me so seriously, like it was the most valuable thing in the world."
+      ],
+      "reactions": [
+        "It's on the shelf next to the door. I'm keeping it forever."
+      ],
+      "statCheck": null,
+      "valence": "positive",
+      "topic_category": "family_talk",
+      "required_entities": [],
+      "location_scope": "universal",
+      "quest_trigger": null
+    },
+    {
+      "id": 109,
+      "intro": "My father could sleep anywhere. On a chair, on the floor, leaning against a wall.",
+      "details": [
+        "He'd nod off mid-conversation if he was tired enough. Just gone. No warning.",
+        "We'd find him in the strangest positions, sleeping like he was in the most comfortable bed in the world."
+      ],
+      "reactions": [
+        "I've never been able to do that. My mind won't shut off that easily."
+      ],
+      "statCheck": {
+        "pass": "Some people have a much faster transition between waking and sleeping states. It's neurological, actually. Runs in families.",
+        "fail": "I've never been able to just switch off like that. Don't know how anyone can."
+      },
+      "valence": "neutral",
+      "topic_category": "family_talk",
+      "required_entities": [],
+      "location_scope": "universal",
+      "quest_trigger": null
+    },
+    {
+      "id": 110,
+      "intro": "My grandmother taught me that 'thank you' and 'I'm sorry' are the two most useful things you can learn to say.",
+      "details": [
+        "She said most problems between people come from forgetting one or the other.",
+        "Simple advice. But the older I get, the more I see she was absolutely right."
+      ],
+      "reactions": [
+        "I pass it on to my own kids. They roll their eyes, same as I did."
+      ],
+      "statCheck": null,
+      "valence": "negative",
+      "topic_category": "family_talk",
+      "required_entities": [],
+      "location_scope": "universal",
+      "quest_trigger": null
+    },
+    {
+      "id": 111,
+      "intro": "My partner has a habit of starting projects and not finishing them. There are three half-done things around the house right now.",
+      "details": [
+        "They start with all this energy, get halfway through, and then something else catches their attention.",
+        "I've stopped asking when things will be done. The answer is always 'soon.'"
+      ],
+      "reactions": [
+        "I'll probably finish them myself eventually. That's how it usually goes."
+      ],
+      "statCheck": null,
+      "valence": "negative",
+      "topic_category": "family_talk",
+      "required_entities": [],
+      "location_scope": "universal",
+      "quest_trigger": null
+    },
+    {
+      "id": 112,
+      "intro": "My mother always knew when I was getting sick before I did. Could see it in my face, she said.",
+      "details": [
+        "I'd feel fine, and she'd start making broth. By evening, she was right every time.",
+        "She'd just look at me and say 'You're coming down with something.' No arguing."
+      ],
+      "reactions": [
+        "I keep watching my own kids' faces for the same signs. Haven't learned to read them as well as she did."
+      ],
+      "statCheck": {
+        "pass": "There are real signs: slight pallor around the eyes, a certain slowness. She was reading her children the way a healer reads a patient.",
+        "fail": "I don't know what she was seeing. She just had an instinct for it."
+      },
+      "valence": "neutral",
+      "topic_category": "family_talk",
+      "required_entities": [],
+      "location_scope": "universal",
+      "quest_trigger": null
+    },
+    {
+      "id": 113,
+      "intro": "The old woman next door treats my kid like her own grandchild. Spoils them rotten.",
+      "details": [
+        "Every time the kid wanders over there, they come back with food and a story.",
+        "I think she's lonely. Having a child around brightens her up."
+      ],
+      "reactions": [
+        "I don't mind it. Takes a village, as they say. And she's good to them."
+      ],
+      "statCheck": null,
+      "valence": "positive",
+      "topic_category": "family_talk",
+      "required_entities": [],
+      "location_scope": "universal",
+      "quest_trigger": null
+    },
+    {
+      "id": 114,
+      "intro": "My brother and I have the same laugh. Exactly the same. It startles people.",
+      "details": [
+        "We'll both start laughing and you can't tell who's who. Even our mother mixed us up by sound.",
+        "It's not a quiet laugh either. You can hear it from across the street."
+      ],
+      "reactions": [
+        "At least one good thing came from the same blood."
+      ],
+      "statCheck": null,
+      "valence": "positive",
+      "topic_category": "family_talk",
+      "required_entities": [],
+      "location_scope": "universal",
+      "quest_trigger": null
+    },
+    {
+      "id": 115,
+      "intro": "I had to tell my kid 'no' about something today and they looked at me like I'd betrayed them.",
+      "details": [
+        "Complete devastation. Like I'd taken the sun away.",
+        "Five minutes later they were fine and doing something else. I was the one still feeling guilty."
+      ],
+      "reactions": [
+        "Being the reasonable one is exhausting. Nobody warns you about that."
+      ],
+      "statCheck": null,
+      "valence": "negative",
+      "topic_category": "family_talk",
+      "required_entities": [],
+      "location_scope": "universal",
+      "quest_trigger": null
+    },
+    {
+      "id": 116,
+      "intro": "My father and my grandfather couldn't be more different. You'd never guess they were related.",
+      "details": [
+        "My grandfather was loud, impulsive, full of big ideas. My father was careful, measured, quiet.",
+        "They clashed constantly when I was young. Two different ways of seeing the world."
+      ],
+      "reactions": [
+        "I think I ended up somewhere between the two. Which means I probably confuse everyone."
+      ],
+      "statCheck": {
+        "pass": "Children of very different parents often develop flexibility. You learn to read multiple approaches and pick what works.",
+        "fail": "I never figured out which one of them was right. Maybe they both were, in different ways."
+      },
+      "valence": "neutral",
+      "topic_category": "family_talk",
+      "required_entities": [],
+      "location_scope": "universal",
+      "quest_trigger": null
+    },
+    {
+      "id": 117,
+      "intro": "My daughter learned to whistle this week and she will not stop.",
+      "details": [
+        "All day. Every waking moment. The same wobbly, off-key whistle.",
+        "She's so proud of herself. Whistles at the table, whistles in bed, whistles at the cat."
+      ],
+      "reactions": [
+        "I should be happy she learned something new. And I am. In very small doses."
+      ],
+      "statCheck": null,
+      "valence": "negative",
+      "topic_category": "family_talk",
+      "required_entities": [],
+      "location_scope": "universal",
+      "quest_trigger": null
+    },
+    {
+      "id": 118,
+      "intro": "My mother made the same meal every harvest day. Same recipe, same order, same everything.",
+      "details": [
+        "Her mother did the same before her, and her mother before that. It goes way back.",
+        "I don't even know why we make it. Nobody remembers who started it."
+      ],
+      "reactions": [
+        "I'll keep doing it. It'd feel wrong not to."
+      ],
+      "statCheck": null,
+      "valence": "negative",
+      "topic_category": "family_talk",
+      "required_entities": [],
+      "location_scope": "universal",
+      "quest_trigger": null
+    },
+    {
+      "id": 119,
+      "intro": "My partner and I built our home together. Every beam, every stone.",
+      "details": [
+        "We argued about everything during the building. Where the windows should go, how high the ceiling.",
+        "It took twice as long as it should have because neither of us would compromise."
+      ],
+      "reactions": [
+        "But it's ours. Every crooked wall and uneven floor. I wouldn't trade it."
+      ],
+      "statCheck": null,
+      "valence": "negative",
+      "topic_category": "family_talk",
+      "required_entities": [],
+      "location_scope": "universal",
+      "quest_trigger": null
+    },
+    {
+      "id": 120,
+      "intro": "My uncle always brings something when he visits. A jar, a tool, a piece of something he found.",
+      "details": [
+        "He can't show up empty-handed. It's a point of pride.",
+        "Half the things in my kitchen came from him. Some useful, some baffling."
+      ],
+      "reactions": [
+        "He means well by it. I just wish I had more shelf space."
+      ],
+      "statCheck": null,
+      "valence": "neutral",
+      "topic_category": "family_talk",
+      "required_entities": [],
+      "location_scope": "universal",
+      "quest_trigger": null
+    },
+    {
+      "id": 121,
+      "intro": "My kid asked me to tell them a story at bedtime and I couldn't think of a single one.",
+      "details": [
+        "My mind went completely blank. I just sat there with my mouth open like a fish.",
+        "I ended up making something up on the spot. It made no sense but they loved it."
+      ],
+      "reactions": [
+        "Now they want me to continue it tonight. I don't remember a word of what I said."
+      ],
+      "statCheck": {
+        "pass": "Improvised stories work better for children because they respond to the teller's energy, not the plot. Your enthusiasm matters more than coherence.",
+        "fail": "I have no idea why they liked it. It was terrible. But they were riveted."
+      },
+      "valence": "neutral",
+      "topic_category": "family_talk",
+      "required_entities": [],
+      "location_scope": "universal",
+      "quest_trigger": null
+    },
+    {
+      "id": 122,
+      "intro": "My mother and I see the world very differently. Always have.",
+      "details": [
+        "She thinks I worry too much. I think she doesn't worry enough.",
+        "We go around and around on it. Neither of us budges."
+      ],
+      "reactions": [
+        "We've learned to agree on the important things and let the rest go. Took us long enough."
+      ],
+      "statCheck": null,
+      "valence": "neutral",
+      "topic_category": "family_talk",
+      "required_entities": [],
+      "location_scope": "universal",
+      "quest_trigger": null
+    },
+    {
+      "id": 123,
+      "intro": "My son has started helping around the house without being asked. I nearly fell over.",
+      "details": [
+        "He just got up and started clearing the table. No prompting, no bribery.",
+        "I wanted to make a big deal of it but my partner said not to or he'd stop."
+      ],
+      "reactions": [
+        "So I just watched in stunned silence. Like witnessing a miracle."
+      ],
+      "statCheck": null,
+      "valence": "positive",
+      "topic_category": "family_talk",
+      "required_entities": [],
+      "location_scope": "universal",
+      "quest_trigger": null
+    },
+    {
+      "id": 124,
+      "intro": "My father told me once that the measure of a person is what they do when nobody's watching.",
+      "details": [
+        "He lived by that. Never cut a corner, even when no one would've known.",
+        "I thought he was being old-fashioned. Now I think he was being honest."
+      ],
+      "reactions": [
+        "I try to hold myself to the same standard. I don't always succeed."
+      ],
+      "statCheck": null,
+      "valence": "positive",
+      "topic_category": "family_talk",
+      "required_entities": [],
+      "location_scope": "universal",
+      "quest_trigger": null
+    },
+    {
+      "id": 125,
+      "intro": "My sister and I write to each other more than we ever talked in person.",
+      "details": [
+        "It's easier to say things on paper somehow. Less awkward.",
+        "We were never the type to share feelings face to face. Letters changed that."
+      ],
+      "reactions": [
+        "I look forward to her letters more than almost anything."
+      ],
+      "statCheck": null,
+      "valence": "negative",
+      "topic_category": "family_talk",
+      "required_entities": [],
+      "location_scope": "universal",
+      "quest_trigger": null
+    },
+    {
+      "id": 126,
+      "intro": "My grandmother used to say she could taste the weather in well water.",
+      "details": [
+        "She'd take a sip from the well and tell you if it would rain by tomorrow.",
+        "Everyone thought she was making it up. She didn't care what anyone thought."
+      ],
+      "reactions": [
+        "I tried it once. Tasted like water to me. Maybe you need her tongue."
+      ],
+      "statCheck": {
+        "pass": "Mineral content changes with groundwater pressure, and storms shift that. She was tasting something real, even if she didn't know the reason.",
+        "fail": "I have no idea what she was tasting. It all tastes the same to me."
+      },
+      "valence": "neutral",
+      "topic_category": "family_talk",
+      "required_entities": [],
+      "location_scope": "universal",
+      "quest_trigger": null
+    },
+    {
+      "id": 127,
+      "intro": "My partner wakes up cheerful. Every single morning. It's almost suspicious.",
+      "details": [
+        "I'm barely conscious and they're already talking about their plans for the day.",
+        "I grunt at them until I've had something warm to drink. They know the routine."
+      ],
+      "reactions": [
+        "One of us has to be the morning person. I'm glad it's not expected to be me."
+      ],
+      "statCheck": null,
+      "valence": "neutral",
+      "topic_category": "family_talk",
+      "required_entities": [],
+      "location_scope": "universal",
+      "quest_trigger": null
+    },
+    {
+      "id": 128,
+      "intro": "My kid wants a pet so badly it's all they talk about. Every conversation circles back to it.",
+      "details": [
+        "They've made arguments, drawn pictures, offered to do extra chores. The full campaign.",
+        "My partner is weakening. I can see it. We'll have something furry in this house within the month."
+      ],
+      "reactions": [
+        "I'll be the one feeding it. We all know that. But I suppose that's fine."
+      ],
+      "statCheck": {
+        "pass": "Children who care for animals develop empathy earlier. There's real benefit to it, even if it means more work for the parents.",
+        "fail": "I don't know if a pet is a good idea or not. I just know I'll be the one dealing with it."
+      },
+      "valence": "neutral",
+      "topic_category": "family_talk",
+      "required_entities": [],
+      "location_scope": "universal",
+      "quest_trigger": null
+    },
+    {
+      "id": 129,
+      "intro": "My father walked me through {settlement_name} when I was small and pointed out every building he'd worked on.",
+      "details": [
+        "He had a hand in half the structures around here. You wouldn't know it to look at him.",
+        "He never bragged about it to anyone else. Just me. Like it was our secret."
+      ],
+      "reactions": [
+        "I walk past those buildings every day and think of him."
+      ],
+      "statCheck": null,
+      "valence": "positive",
+      "topic_category": "family_talk",
+      "required_entities": [],
+      "location_scope": "universal",
+      "quest_trigger": null
+    },
+    {
+      "id": 130,
+      "intro": "My daughter is going through a phase where she only wants to wear one color. Everything has to match.",
+      "details": [
+        "It changes every few weeks. Last month it was green. Now it's brown. Everything brown.",
+        "I don't understand it, but she's very committed."
+      ],
+      "reactions": [
+        "I've learned not to question it. She has her reasons, even if she can't explain them."
+      ],
+      "statCheck": null,
+      "valence": "neutral",
+      "topic_category": "family_talk",
+      "required_entities": [],
+      "location_scope": "universal",
+      "quest_trigger": null
+    },
+    {
+      "id": 131,
+      "intro": "My mother never threw anything away. 'You never know when you'll need it,' she'd say.",
+      "details": [
+        "Bits of cloth, broken handles, bent nails. She saved all of it.",
+        "The maddening part is she was usually right. She'd find a use for something years later."
+      ],
+      "reactions": [
+        "I've inherited the habit. My partner is less understanding about it than my father was."
+      ],
+      "statCheck": {
+        "pass": "There's real wisdom in keeping materials around. A good craftsperson sees future use in scraps most people would toss.",
+        "fail": "It probably does more harm than good in my case. I just end up with piles of junk."
+      },
+      "valence": "neutral",
+      "topic_category": "family_talk",
+      "required_entities": [],
+      "location_scope": "universal",
+      "quest_trigger": null
+    },
+    {
+      "id": 132,
+      "intro": "My partner and I haven't had a real conversation in weeks. Not a proper one.",
+      "details": [
+        "We talk about chores, about the kids, about what needs doing. But that's not the same thing.",
+        "We used to talk for hours. Now we're both too tired by the time the house is quiet."
+      ],
+      "reactions": [
+        "We should make time for it. I keep saying that and then not doing it."
+      ],
+      "statCheck": null,
+      "valence": "negative",
+      "topic_category": "family_talk",
+      "required_entities": [],
+      "location_scope": "universal",
+      "quest_trigger": null
+    },
+    {
+      "id": 133,
+      "intro": "My grandfather told me the secret to a long marriage is selective hearing.",
+      "details": [
+        "He said it right in front of my grandmother. She hit him with a towel.",
+        "He was laughing the whole time. She was too, even though she tried not to."
+      ],
+      "reactions": [
+        "They were married for fifty years. Something must've worked."
+      ],
+      "statCheck": null,
+      "valence": "negative",
+      "topic_category": "family_talk",
+      "required_entities": [],
+      "location_scope": "universal",
+      "quest_trigger": null
+    },
+    {
+      "id": 134,
+      "intro": "My kid is at the age where they think I don't understand anything. Every opinion I have is wrong.",
+      "details": [
+        "I say something sensible and they look at me like I'm speaking another language.",
+        "I remember feeling the same way about my parents. Didn't make it sting any less."
+      ],
+      "reactions": [
+        "They'll come back around. Everyone does. Eventually."
+      ],
+      "statCheck": {
+        "pass": "Adolescent pushback is actually a sign of healthy development. They're testing boundaries to form their own identity. It's normal, even if it hurts.",
+        "fail": "I don't know why they've turned on me. I haven't changed. Something in them has."
+      },
+      "valence": "negative",
+      "topic_category": "family_talk",
+      "required_entities": [],
+      "location_scope": "universal",
+      "quest_trigger": null
+    },
+    {
+      "id": 135,
+      "intro": "My aunt always sends too much food when she cooks for a gathering. Twice what anyone could eat.",
+      "details": [
+        "She cooks like she's feeding an army. There are never enough people to make a dent.",
+        "Everyone goes home with extra. She insists. Will not take no for an answer."
+      ],
+      "reactions": [
+        "I think she'd rather waste food than have anyone go hungry. Can't argue with that."
+      ],
+      "statCheck": null,
+      "valence": "negative",
+      "topic_category": "family_talk",
+      "required_entities": [],
+      "location_scope": "universal",
+      "quest_trigger": null
+    },
+    {
+      "id": 136,
+      "intro": "My son started a fight with another kid yesterday and I had to go sort it out.",
+      "details": [
+        "He said the other kid started it. The other kid said the same. Classic.",
+        "I gave him a talk about keeping his temper. He sat there nodding in a way that tells me nothing sank in."
+      ],
+      "reactions": [
+        "I was the same at his age. That's the part I didn't tell him."
+      ],
+      "statCheck": null,
+      "valence": "negative",
+      "topic_category": "family_talk",
+      "required_entities": [],
+      "location_scope": "universal",
+      "quest_trigger": null
+    },
+    {
+      "id": 137,
+      "intro": "My father used to carry me on his shoulders. I thought I could see the whole world from up there.",
+      "details": [
+        "He made everything feel safe. Like nothing bad could reach me.",
+        "I was probably too old for it by the end but neither of us wanted to stop."
+      ],
+      "reactions": [
+        "I carry my own kid the same way. My back complains, but it's worth it."
+      ],
+      "statCheck": null,
+      "valence": "positive",
+      "topic_category": "family_talk",
+      "required_entities": [],
+      "location_scope": "universal",
+      "quest_trigger": null
+    },
+    {
+      "id": 138,
+      "intro": "My sister can hold a grudge longer than anyone I know. She remembers everything.",
+      "details": [
+        "Slight her once and she'll bring it up ten years later, exact date, exact words.",
+        "She doesn't get angry about it anymore. Just states it as fact. Which is somehow worse."
+      ],
+      "reactions": [
+        "I've learned to be very careful what I say around her. Very careful."
+      ],
+      "statCheck": null,
+      "valence": "negative",
+      "topic_category": "family_talk",
+      "required_entities": [],
+      "location_scope": "universal",
+      "quest_trigger": null
+    },
+    {
+      "id": 139,
+      "intro": "My partner leaves notes around the house. Little reminders, little messages.",
+      "details": [
+        "Some are practical. 'Don't forget to close the shutters.' Some are just kind. 'Hope your day is good.'",
+        "I find them in pockets, in boots, tucked under things."
+      ],
+      "reactions": [
+        "I keep the nice ones. Got a small collection hidden away."
+      ],
+      "statCheck": null,
+      "valence": "positive",
+      "topic_category": "family_talk",
+      "required_entities": [],
+      "location_scope": "universal",
+      "quest_trigger": null
+    },
+    {
+      "id": 140,
+      "intro": "My mother told me once that she almost didn't settle here. Almost went somewhere else entirely.",
+      "details": [
+        "She said it was a coin flip. Could've ended up in a completely different place, different life.",
+        "I'd never have been born here. Or maybe not at all. Strange thing to think about."
+      ],
+      "reactions": [
+        "Makes you realize how much of your life is just chance dressed up as fate."
+      ],
+      "statCheck": {
+        "pass": "Every life is a chain of small accidents. Where you're born, who you meet, which path you take on a given day. None of it was inevitable.",
+        "fail": "I try not to think about it too hard. It makes everything feel fragile."
+      },
+      "valence": "neutral",
+      "topic_category": "family_talk",
+      "required_entities": [],
+      "location_scope": "universal",
+      "quest_trigger": null
+    },
+    {
+      "id": 141,
+      "intro": "My kid asks about my parents sometimes. Wants to know what they were like.",
+      "details": [
+        "I try to describe them but I always feel like I'm leaving the important parts out.",
+        "How do you explain a whole person to someone who never met them?"
+      ],
+      "reactions": [
+        "I tell stories mostly. The little ones. Those seem to paint the truest picture."
+      ],
+      "statCheck": null,
+      "valence": "neutral",
+      "topic_category": "family_talk",
+      "required_entities": [],
+      "location_scope": "universal",
+      "quest_trigger": null
+    },
+    {
+      "id": 142,
+      "intro": "My grandmother could read people instantly. One look and she'd sized you up.",
+      "details": [
+        "She'd meet someone and later tell us exactly what kind of person they were. Dead accurate, every time.",
+        "If she didn't like someone, she was polite about it, but you could tell."
+      ],
+      "reactions": [
+        "I wish I had even half her judgment. I get fooled all the time."
+      ],
+      "statCheck": {
+        "pass": "She was reading body language, tone, and eye contact all at once. Decades of paying attention to people adds up to something that looks like intuition.",
+        "fail": "I never understood how she did it. Some people just see more than the rest of us."
+      },
+      "valence": "positive",
+      "topic_category": "family_talk",
+      "required_entities": [],
+      "location_scope": "universal",
+      "quest_trigger": null
+    },
+    {
+      "id": 143,
+      "intro": "My brother and I split a piece of land our father left us. We still argue about the boundary.",
+      "details": [
+        "It's been years and we still can't agree on where my side ends and his begins.",
+        "There's about three feet of ground that we both claim. Neither of us will give it up."
+      ],
+      "reactions": [
+        "Our father would've knocked our heads together over this. He'd be right to."
+      ],
+      "statCheck": null,
+      "valence": "negative",
+      "topic_category": "family_talk",
+      "required_entities": [],
+      "location_scope": "universal",
+      "quest_trigger": null
+    },
+    {
+      "id": 144,
+      "intro": "My partner always falls asleep first. I lie there listening to them breathe.",
+      "details": [
+        "It's a steady rhythm. In and out, in and out. Like a clock you can't turn off.",
+        "Some nights it annoys me. Most nights it's the most comforting sound in the world."
+      ],
+      "reactions": [
+        "I think I'd have trouble sleeping without it now."
+      ],
+      "statCheck": null,
+      "valence": "positive",
+      "topic_category": "family_talk",
+      "required_entities": [],
+      "location_scope": "universal",
+      "quest_trigger": null
+    },
+    {
+      "id": 145,
+      "intro": "My father never learned to read. It embarrassed him, though he'd never admit it.",
+      "details": [
+        "He'd hand me letters and say 'My eyes are tired.' I knew what he meant.",
+        "He was one of the smartest people I've known. Just never had the chance to learn."
+      ],
+      "reactions": [
+        "I made sure my kids could read before they could do anything else."
+      ],
+      "statCheck": {
+        "pass": "Literacy was a privilege for most of history. The fact that he never learned says nothing about his intelligence and everything about his circumstances.",
+        "fail": "I never judged him for it. He knew things books couldn't teach."
+      },
+      "valence": "neutral",
+      "topic_category": "family_talk",
+      "required_entities": [],
+      "location_scope": "universal",
+      "quest_trigger": null
+    },
+    {
+      "id": 146,
+      "intro": "My daughter has an imaginary friend. Very detailed, very specific rules about where they sit and what they eat.",
+      "details": [
+        "I have to set a place at the table. If I forget, she lets me know about it.",
+        "My partner thinks it's sweet. I think it's slightly unsettling. We're both right."
+      ],
+      "reactions": [
+        "She'll grow out of it. In the meantime, we have an extra mouth to not feed."
+      ],
+      "statCheck": {
+        "pass": "Imaginary companions are linked to creativity and stronger social skills later. It's actually a good sign, even if it looks odd.",
+        "fail": "I have no idea what's going on in her head. I just set the extra plate and don't ask questions."
+      },
+      "valence": "neutral",
+      "topic_category": "family_talk",
+      "required_entities": [],
+      "location_scope": "universal",
+      "quest_trigger": null
+    },
+    {
+      "id": 147,
+      "intro": "My mother always said 'Sleep on it.' Anytime I had a decision to make.",
+      "details": [
+        "She said the morning mind sees clearer than the evening one. No big choices after dark.",
+        "I ignored her plenty of times and regretted it every time."
+      ],
+      "reactions": [
+        "I follow her rule now. Haven't made a bad decision since. Well, fewer of them."
+      ],
+      "statCheck": {
+        "pass": "There's truth in it. The mind works through problems while you sleep. You wake up with clarity you didn't have the night before.",
+        "fail": "I don't know why it works. It just does. Good enough for me."
+      },
+      "valence": "neutral",
+      "topic_category": "family_talk",
+      "required_entities": [],
+      "location_scope": "universal",
+      "quest_trigger": null
+    },
+    {
+      "id": 148,
+      "intro": "My cousin and I look so alike that people in {settlement_name} used to mix us up.",
+      "details": [
+        "Someone would wave at me and call out their name. Happened the other way too.",
+        "We played it up when we were kids. Swapped places a few times and nobody noticed."
+      ],
+      "reactions": [
+        "We've grown apart in looks since then. But it was fun while it lasted."
+      ],
+      "statCheck": null,
+      "valence": "neutral",
+      "topic_category": "family_talk",
+      "required_entities": [],
+      "location_scope": "universal",
+      "quest_trigger": null
+    },
+    {
+      "id": 149,
+      "intro": "My kid hugged me this morning and didn't want to let go. Just held on.",
+      "details": [
+        "No reason for it. They just walked over and wrapped their arms around me and stayed.",
+        "I was in the middle of something. I stopped. Obviously."
+      ],
+      "reactions": [
+        "Whatever I was doing could wait. That couldn't."
+      ],
+      "statCheck": null,
+      "valence": "positive",
+      "topic_category": "family_talk",
+      "required_entities": [],
+      "location_scope": "universal",
+      "quest_trigger": null
+    }
+  ]
+}

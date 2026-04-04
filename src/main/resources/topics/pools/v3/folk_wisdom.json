@@ -1,0 +1,3473 @@
+{
+  "pool": "folk_wisdom",
+  "version": 3,
+  "entries": [
+    {
+      "id": 0,
+      "intro": "My grandmother used to say you can tell a person's character by how they treat animals. I still believe that.",
+      "details": [
+        "I've seen people be perfectly pleasant to your face and then kick a dog when they think nobody's watching.",
+        "It's the things people do when there's no audience that tell you who they really are."
+      ],
+      "reactions": [
+        "I don't go looking for tests. But I notice."
+      ],
+      "statCheck": {
+        "pass": "There's actually something to that. People who show empathy toward animals tend to show it toward people too. It's a pattern, not a coincidence.",
+        "fail": "I can't prove it. Just a feeling backed up by years of watching."
+      },
+      "valence": "neutral",
+      "topic_category": "folk_wisdom",
+      "required_entities": [],
+      "location_scope": "universal",
+      "quest_trigger": null
+    },
+    {
+      "id": 1,
+      "intro": "Never start a job in the afternoon that you wouldn't want to finish in the dark. That's what my father told me.",
+      "details": [
+        "He meant it literally: roof work, fence posts, anything that gets worse if you stop halfway.",
+        "But it applies to arguments too. Don't start one after midday unless you're ready for a long night."
+      ],
+      "reactions": [
+        "I've broken that rule twice. Regretted it both times."
+      ],
+      "statCheck": null,
+      "valence": "neutral",
+      "topic_category": "folk_wisdom",
+      "required_entities": [],
+      "location_scope": "universal",
+      "quest_trigger": null
+    },
+    {
+      "id": 2,
+      "intro": "If somebody tells you who they are, believe them. Don't wait around for proof.",
+      "details": [
+        "People will flat-out warn you and you'll still give them the benefit of the doubt. I've done it myself.",
+        "It's not cynicism. It's just paying attention."
+      ],
+      "reactions": [
+        "Took me a long time to learn that one. Longer than it should have."
+      ],
+      "statCheck": null,
+      "valence": "neutral",
+      "topic_category": "folk_wisdom",
+      "required_entities": [],
+      "location_scope": "universal",
+      "quest_trigger": null
+    },
+    {
+      "id": 3,
+      "intro": "You want to know when rain's coming? Watch the cows. If they're all lying down in the field, it'll rain before evening.",
+      "details": [
+        "My uncle swore by it. Said cows can feel the pressure dropping in their bones.",
+        "I've seen it hold true more often than not, but I've also seen cows lie down because they're lazy."
+      ],
+      "reactions": [
+        "It's not science. But it's not nothing either."
+      ],
+      "statCheck": {
+        "pass": "Animals do react to changes in air pressure. Insects fly lower, which brings the birds down too. The cows might just be following the same cue.",
+        "fail": "I don't know why it works. Maybe it doesn't and I'm just remembering the times it did."
+      },
+      "valence": "neutral",
+      "topic_category": "folk_wisdom",
+      "required_entities": [],
+      "location_scope": "universal",
+      "quest_trigger": null
+    },
+    {
+      "id": 4,
+      "intro": "My mother always said the first person to raise their voice in an argument is the one who knows they're wrong.",
+      "details": [
+        "I didn't believe her when I was young. Now I hear it every time.",
+        "The loud ones aren't confident. They're just hoping volume will do what their point can't."
+      ],
+      "reactions": [
+        "I try to keep my voice level these days. Doesn't always work."
+      ],
+      "statCheck": null,
+      "valence": "neutral",
+      "topic_category": "folk_wisdom",
+      "required_entities": [],
+      "location_scope": "universal",
+      "quest_trigger": null
+    },
+    {
+      "id": 5,
+      "intro": "A sharp knife is safer than a dull one. I know that sounds backwards, but it's true.",
+      "details": [
+        "A dull blade makes you push harder, and that's when it slips. A sharp one goes where you point it.",
+        "Same goes for tools in general. Keep them right and they won't surprise you."
+      ],
+      "reactions": [
+        "My father kept every blade in the house sharp enough to shave with. I thought he was fussy. He was just careful."
+      ],
+      "statCheck": {
+        "pass": "It's about control. A sharp edge needs less force, so your hand stays steady. Physics doesn't care about your intentions.",
+        "fail": "I just know it from experience. Dull knives have given me more scars than sharp ones."
+      },
+      "valence": "positive",
+      "topic_category": "folk_wisdom",
+      "required_entities": [],
+      "location_scope": "universal",
+      "quest_trigger": null
+    },
+    {
+      "id": 6,
+      "intro": "People say you shouldn't plant anything during a new moon. I've always followed that.",
+      "details": [
+        "My grandmother planted by the moon her whole life and her garden put everyone else's to shame.",
+        "Whether it's the moonlight or the moisture or just habit, I'm not about to change what works."
+      ],
+      "reactions": [
+        "Call it superstition if you want. Her tomatoes were the best in the valley."
+      ],
+      "statCheck": {
+        "pass": "Moonlight does affect moisture levels on the soil surface. Seeds planted on a waxing moon get slightly more light for germination. It's marginal but it's not imaginary.",
+        "fail": "Could be the moon, could be that she just had good timing. I follow the tradition either way."
+      },
+      "valence": "neutral",
+      "topic_category": "folk_wisdom",
+      "required_entities": [],
+      "location_scope": "universal",
+      "quest_trigger": null
+    },
+    {
+      "id": 7,
+      "intro": "Never lend something you can't afford to lose. That's a rule I wish I'd learned earlier.",
+      "details": [
+        "Lend a tool and you get it back dull. Lend money and you lose a friend.",
+        "I'm not saying don't be generous. I'm saying be honest with yourself about what you're giving away."
+      ],
+      "reactions": [
+        "I still lend things. I just stopped expecting them back."
+      ],
+      "statCheck": null,
+      "valence": "negative",
+      "topic_category": "folk_wisdom",
+      "required_entities": [],
+      "location_scope": "universal",
+      "quest_trigger": null
+    },
+    {
+      "id": 8,
+      "intro": "There's an old saying: if you can't sleep, it's because you're awake in somebody else's dream.",
+      "details": [
+        "I don't really believe it. But on those nights when you're lying there with your eyes open for no reason, it's a nice thought.",
+        "Better than just thinking your mind won't shut up."
+      ],
+      "reactions": [
+        "I had a lot of sleepless nights last winter. Must be popular in someone's dreams."
+      ],
+      "statCheck": null,
+      "valence": "neutral",
+      "topic_category": "folk_wisdom",
+      "required_entities": [],
+      "location_scope": "universal",
+      "quest_trigger": null
+    },
+    {
+      "id": 9,
+      "intro": "My father used to say: measure twice, cut once. Boring advice. Also completely right.",
+      "details": [
+        "Every shortcut I've ever taken with woodwork has cost me twice the time it saved.",
+        "It's not about being slow. It's about not having to do the same job twice."
+      ],
+      "reactions": [
+        "I say it to myself now every time I pick up a saw. His voice, not mine."
+      ],
+      "statCheck": null,
+      "valence": "positive",
+      "topic_category": "folk_wisdom",
+      "required_entities": [],
+      "location_scope": "universal",
+      "quest_trigger": null
+    },
+    {
+      "id": 10,
+      "intro": "I've learned the hard way that silence after a question is usually a no.",
+      "details": [
+        "People who want to say yes don't hesitate. The pause is them figuring out how to say no politely.",
+        "Once you notice it you can't stop noticing it."
+      ],
+      "reactions": [
+        "Saves time, honestly. I stop waiting for the answer I wanted."
+      ],
+      "statCheck": null,
+      "valence": "negative",
+      "topic_category": "folk_wisdom",
+      "required_entities": [],
+      "location_scope": "universal",
+      "quest_trigger": null
+    },
+    {
+      "id": 11,
+      "intro": "Don't eat mushrooms you can't name. I know that's obvious, but people still do it.",
+      "details": [
+        "Every year someone around here picks the wrong one and spends three days regretting it.",
+        "The worst ones look the most appetizing. That's the whole trick."
+      ],
+      "reactions": [
+        "I stick to the ones I know. Plenty of safe ones if you're not greedy about variety."
+      ],
+      "statCheck": {
+        "pass": "The dangerous ones often have a faint sweet smell and gills that bruise yellow. If you know what to look for, they're easy to avoid.",
+        "fail": "I can't tell the bad ones apart myself. I just don't take chances."
+      },
+      "valence": "neutral",
+      "topic_category": "folk_wisdom",
+      "required_entities": [],
+      "location_scope": "universal",
+      "quest_trigger": null
+    },
+    {
+      "id": 12,
+      "intro": "If a dog doesn't trust someone, I don't trust them either. Dogs know things we don't.",
+      "details": [
+        "I've seen a friendly dog growl at someone who seemed perfectly nice. Turned out the dog was right.",
+        "They're reading something we can't see. Smell, maybe. Or just a feeling we've lost touch with."
+      ],
+      "reactions": [
+        "I'd rather trust an animal's instinct than my own judgment most days."
+      ],
+      "statCheck": null,
+      "valence": "neutral",
+      "topic_category": "folk_wisdom",
+      "required_entities": [],
+      "location_scope": "universal",
+      "quest_trigger": null
+    },
+    {
+      "id": 13,
+      "intro": "People say hard work never killed anybody. That's a lie told by people who've never done hard work.",
+      "details": [
+        "I've seen what it does to people's backs, their hands, their knees. It takes something from you, year after year.",
+        "Work is necessary. But don't let anyone tell you it's harmless."
+      ],
+      "reactions": [
+        "I'm not lazy. I just know the difference between effort and punishment."
+      ],
+      "statCheck": null,
+      "valence": "negative",
+      "topic_category": "folk_wisdom",
+      "required_entities": [],
+      "location_scope": "universal",
+      "quest_trigger": null
+    },
+    {
+      "id": 14,
+      "intro": "Red sky at night, good weather tomorrow. Red sky in the morning, stay close to home.",
+      "details": [
+        "It's one of those things everyone says and nobody knows why it works.",
+        "I've watched the sky my whole life and it's right more often than the farmers' almanac."
+      ],
+      "reactions": [
+        "I check the sky every evening now. It's become a habit I actually enjoy."
+      ],
+      "statCheck": {
+        "pass": "It's about where the weather moves from. The red light at sunset means clear air to the west, which is where tomorrow's weather comes from.",
+        "fail": "Something about the light and the clouds. I don't know the reason, just the rule."
+      },
+      "valence": "positive",
+      "topic_category": "folk_wisdom",
+      "required_entities": [],
+      "location_scope": "universal",
+      "quest_trigger": null
+    },
+    {
+      "id": 15,
+      "intro": "Never argue with someone who has nothing to lose. You can't win.",
+      "details": [
+        "They'll go further than you will because they've got no reason to hold back.",
+        "It's not about being right. It's about having something worth protecting."
+      ],
+      "reactions": [
+        "I've walked away from arguments I could have won. That's not losing, that's choosing."
+      ],
+      "statCheck": null,
+      "valence": "negative",
+      "topic_category": "folk_wisdom",
+      "required_entities": [],
+      "location_scope": "universal",
+      "quest_trigger": null
+    },
+    {
+      "id": 16,
+      "intro": "You can tell how cold the winter will be by how thick the caterpillars are in autumn. Thick and fuzzy means a hard one.",
+      "details": [
+        "I don't know if there's any truth to it, but my mother checked every year and swore by it.",
+        "We'd find the fattest caterpillar we could and use it to plan how much firewood to stack."
+      ],
+      "reactions": [
+        "Last autumn they were thin. The winter was mild. So maybe there's something to it."
+      ],
+      "statCheck": {
+        "pass": "The woolly bands grow wider when the caterpillar eats more in response to earlier cold snaps. So they're reacting to weather that's already happened, which does predict the trend.",
+        "fail": "Could be real, could be coincidence. I just check the caterpillars and plan accordingly."
+      },
+      "valence": "neutral",
+      "topic_category": "folk_wisdom",
+      "required_entities": [],
+      "location_scope": "universal",
+      "quest_trigger": null
+    },
+    {
+      "id": 17,
+      "intro": "The best time to plant a tree was twenty years ago. The second-best time is today.",
+      "details": [
+        "I heard someone say that once and it stuck with me. It's about not being sorry you didn't start sooner.",
+        "You can't fix yesterday. But you can still put something in the ground."
+      ],
+      "reactions": [
+        "I planted one last spring. Won't see it grown, but someone will."
+      ],
+      "statCheck": null,
+      "valence": "positive",
+      "topic_category": "folk_wisdom",
+      "required_entities": [],
+      "location_scope": "universal",
+      "quest_trigger": null
+    },
+    {
+      "id": 18,
+      "intro": "My aunt always said: never go to bed angry. You'll just wake up angry and tired.",
+      "details": [
+        "She and my uncle would sit at the table until they'd talked it through, no matter how late it got.",
+        "Stubbornness kept them up some nights. But they never started a day on bad terms."
+      ],
+      "reactions": [
+        "I've tried it. It's hard. But she wasn't wrong."
+      ],
+      "statCheck": null,
+      "valence": "positive",
+      "topic_category": "folk_wisdom",
+      "required_entities": [],
+      "location_scope": "universal",
+      "quest_trigger": null
+    },
+    {
+      "id": 19,
+      "intro": "If your ears are ringing, someone's talking about you. That's what they say around here.",
+      "details": [
+        "Left ear means they're saying something nice. Right ear means they're not.",
+        "I don't believe it, but I notice every time my ears ring anyway."
+      ],
+      "reactions": [
+        "My right ear rings a lot. I try not to think about it."
+      ],
+      "statCheck": null,
+      "valence": "neutral",
+      "topic_category": "folk_wisdom",
+      "required_entities": [],
+      "location_scope": "universal",
+      "quest_trigger": null
+    },
+    {
+      "id": 20,
+      "intro": "There's a saying: don't count your chickens before they hatch. People always laugh at it, but it's real advice.",
+      "details": [
+        "I've seen folks spend money they hadn't earned yet, celebrate harvests that hadn't come in.",
+        "Hoping is fine. Planning around hope is where it goes wrong."
+      ],
+      "reactions": [
+        "I count mine after I've already sold the eggs. Even then I double-check."
+      ],
+      "statCheck": null,
+      "valence": "neutral",
+      "topic_category": "folk_wisdom",
+      "required_entities": [],
+      "location_scope": "universal",
+      "quest_trigger": null
+    },
+    {
+      "id": 21,
+      "intro": "You know what nobody tells you about getting older? You don't feel different inside. Just stiffer outside.",
+      "details": [
+        "In my head I'm still the same person who used to climb trees. My knees just forgot how.",
+        "The strangest part is catching your reflection and not recognizing yourself for a second."
+      ],
+      "reactions": [
+        "I don't mind it, mostly. The world slows down and you actually see things."
+      ],
+      "statCheck": null,
+      "valence": "negative",
+      "topic_category": "folk_wisdom",
+      "required_entities": [],
+      "location_scope": "universal",
+      "quest_trigger": null
+    },
+    {
+      "id": 22,
+      "intro": "If you want to know what someone's really like, watch how they act when they're tired and hungry.",
+      "details": [
+        "Manners are easy when you've slept well and had a full meal. Take those away and the real person shows up.",
+        "I've caught myself being terrible when I'm worn out. It taught me to eat before making decisions."
+      ],
+      "reactions": [
+        "I keep bread in my pocket now. Half the time I'm angry, I'm just hungry."
+      ],
+      "statCheck": null,
+      "valence": "neutral",
+      "topic_category": "folk_wisdom",
+      "required_entities": [],
+      "location_scope": "universal",
+      "quest_trigger": null
+    },
+    {
+      "id": 23,
+      "intro": "My grandfather said: a fence that leans is a fence that falls. Fix it when it tilts, not when it's flat.",
+      "details": [
+        "He wasn't just talking about fences. He meant anything that starts to go wrong.",
+        "Small problems are easy to fix. Big problems used to be small problems somebody ignored."
+      ],
+      "reactions": [
+        "I check my fences every week. Real ones and otherwise."
+      ],
+      "statCheck": null,
+      "valence": "positive",
+      "topic_category": "folk_wisdom",
+      "required_entities": [],
+      "location_scope": "universal",
+      "quest_trigger": null
+    },
+    {
+      "id": 24,
+      "intro": "Never trust a man who's nice to you but rude to the server at the tavern.",
+      "details": [
+        "That's not kindness, that's a performance. The real person is the one they show to people they think don't matter.",
+        "I'd rather someone be a little gruff with me and decent to everyone else."
+      ],
+      "reactions": [
+        "You see it all the time if you pay attention."
+      ],
+      "statCheck": null,
+      "valence": "negative",
+      "topic_category": "folk_wisdom",
+      "required_entities": [],
+      "location_scope": "universal",
+      "quest_trigger": null
+    },
+    {
+      "id": 25,
+      "intro": "They say a watched pot never boils. I think a watched wound never heals either.",
+      "details": [
+        "Every time I've fussed over a cut it took twice as long to mend. Leave things alone and they sort themselves out.",
+        "Not everything, mind you. Some things need attention. But most things need time more than help."
+      ],
+      "reactions": [
+        "Patience is harder than medicine. But it works better."
+      ],
+      "statCheck": null,
+      "valence": "neutral",
+      "topic_category": "folk_wisdom",
+      "required_entities": [],
+      "location_scope": "universal",
+      "quest_trigger": null
+    },
+    {
+      "id": 26,
+      "intro": "Wet boots by the fire, dry boots by the door. My father drilled that into me.",
+      "details": [
+        "You put wet leather too close to heat and it cracks. Dries it out wrong.",
+        "Slow and steady does it. Stuff them with straw, set them by the door, wear your spare pair tomorrow."
+      ],
+      "reactions": [
+        "I ruined a good pair before I listened. Only had to learn that lesson once."
+      ],
+      "statCheck": {
+        "pass": "Heat pulls the natural oils out of leather too fast and makes it brittle. Slow air drying lets the fibers relax back into shape.",
+        "fail": "All I know is fire-dried boots crack and door-dried boots don't. That's enough for me."
+      },
+      "valence": "neutral",
+      "topic_category": "folk_wisdom",
+      "required_entities": [],
+      "location_scope": "universal",
+      "quest_trigger": null
+    },
+    {
+      "id": 27,
+      "intro": "People say the first frost kills the mosquitoes. I say it just makes them angry.",
+      "details": [
+        "Every autumn I think they're gone and then one finds its way inside and buzzes around my ear all night.",
+        "Maybe the cold kills the weak ones and the survivors are meaner. That would explain a lot."
+      ],
+      "reactions": [
+        "I'll believe they're gone when I go a whole week without a bite."
+      ],
+      "statCheck": null,
+      "valence": "negative",
+      "topic_category": "folk_wisdom",
+      "required_entities": [],
+      "location_scope": "universal",
+      "quest_trigger": null
+    },
+    {
+      "id": 28,
+      "intro": "My mother had a cure for everything: hot water with honey and a bit of ginger root. Sore throat, cold, stomach trouble, all of it.",
+      "details": [
+        "I don't know if it actually worked or if the warmth just made you feel like someone cared.",
+        "Sometimes the remedy doesn't matter as much as the act of someone making it for you."
+      ],
+      "reactions": [
+        "I still make it for myself when I'm feeling low. It helps."
+      ],
+      "statCheck": {
+        "pass": "Honey does coat and soothe a raw throat, and ginger has compounds that settle the stomach. It's not just comfort, there's real benefit.",
+        "fail": "Whether it's medicine or just warmth and attention, the result's the same. You feel better."
+      },
+      "valence": "positive",
+      "topic_category": "folk_wisdom",
+      "required_entities": [],
+      "location_scope": "universal",
+      "quest_trigger": null
+    },
+    {
+      "id": 29,
+      "intro": "An empty sack can't stand up. You've got to eat before you can do anything else.",
+      "details": [
+        "I've tried working on an empty stomach and it always ends badly. Short temper, clumsy hands, poor decisions.",
+        "Feed yourself first. Everything else comes after."
+      ],
+      "reactions": [
+        "Simple advice. Hard to follow when you're busy."
+      ],
+      "statCheck": null,
+      "valence": "neutral",
+      "topic_category": "folk_wisdom",
+      "required_entities": [],
+      "location_scope": "universal",
+      "quest_trigger": null
+    },
+    {
+      "id": 30,
+      "intro": "They say spiders in the house mean good luck. I say spiders in the house mean I need to clean more.",
+      "details": [
+        "But I let them stay in the corners. They eat the flies, and I hate flies more than I dislike spiders.",
+        "My neighbor kills every one she sees. Her house has more flies than mine. Draw your own conclusions."
+      ],
+      "reactions": [
+        "We've got an arrangement, me and the spiders. They stay in their corners, I stay in mine."
+      ],
+      "statCheck": null,
+      "valence": "neutral",
+      "topic_category": "folk_wisdom",
+      "required_entities": [],
+      "location_scope": "universal",
+      "quest_trigger": null
+    },
+    {
+      "id": 31,
+      "intro": "If you have to explain a joke, it wasn't funny. Same goes for apologies: if you have to explain why you're sorry, you probably aren't.",
+      "details": [
+        "A real apology is short. What you did, why it was wrong, and that you won't do it again.",
+        "Everything else is just a speech about yourself dressed up as remorse."
+      ],
+      "reactions": [
+        "I've given bad apologies in my time. I know what they sound like now."
+      ],
+      "statCheck": null,
+      "valence": "neutral",
+      "topic_category": "folk_wisdom",
+      "required_entities": [],
+      "location_scope": "universal",
+      "quest_trigger": null
+    },
+    {
+      "id": 32,
+      "intro": "When the ants start building their hills high, a hard rain's coming. I've watched for it and it holds up.",
+      "details": [
+        "They pile the dirt up steeper right before a big storm. Like they know the water's coming and they're building walls.",
+        "Doesn't work for light rain. Just the real downpours."
+      ],
+      "reactions": [
+        "I trust ants more than clouds for weather. Clouds lie sometimes."
+      ],
+      "statCheck": {
+        "pass": "Ants can sense humidity changes. Higher mounds shed water better, so they reinforce before the pressure drops. It's preparation, not prediction.",
+        "fail": "I don't know how they know. Maybe they can feel something in the ground we can't."
+      },
+      "valence": "neutral",
+      "topic_category": "folk_wisdom",
+      "required_entities": [],
+      "location_scope": "universal",
+      "quest_trigger": null
+    },
+    {
+      "id": 33,
+      "intro": "My father said the best deals are the ones where both people walk away thinking they got the better end.",
+      "details": [
+        "If only one side is happy, it's not a deal. It's a defeat, and the loser remembers.",
+        "Leave a little on the table and the other person comes back next time."
+      ],
+      "reactions": [
+        "Greed makes one good sale. Fairness makes a hundred."
+      ],
+      "statCheck": null,
+      "valence": "positive",
+      "topic_category": "folk_wisdom",
+      "required_entities": [],
+      "location_scope": "universal",
+      "quest_trigger": null
+    },
+    {
+      "id": 34,
+      "intro": "Never make a promise when you're happy and never make a decision when you're angry.",
+      "details": [
+        "Happiness makes you generous with things you can't spare. Anger makes you burn things you'll need later.",
+        "Wait until you're calm and bored. That's when you think clearest."
+      ],
+      "reactions": [
+        "I've learned to say 'let me sleep on it' to almost everything. It's saved me more than once."
+      ],
+      "statCheck": null,
+      "valence": "neutral",
+      "topic_category": "folk_wisdom",
+      "required_entities": [],
+      "location_scope": "universal",
+      "quest_trigger": null
+    },
+    {
+      "id": 35,
+      "intro": "Good soil smells sweet. Bad soil smells sour. Your nose knows more about dirt than your eyes do.",
+      "details": [
+        "Pick up a handful and breathe it in. If it smells like rain and old leaves, you're in business.",
+        "If it smells like nothing or worse, like vinegar, you've got work to do before you plant."
+      ],
+      "reactions": [
+        "People think I'm strange sniffing dirt. But my garden speaks for itself."
+      ],
+      "statCheck": {
+        "pass": "That sweet smell is actinomycetes breaking down organic matter. It means the soil's alive and working. The sour smell means it's gone anaerobic.",
+        "fail": "I can't explain why it works. I just know what good soil smells like after all these years."
+      },
+      "valence": "positive",
+      "topic_category": "folk_wisdom",
+      "required_entities": [],
+      "location_scope": "universal",
+      "quest_trigger": null
+    },
+    {
+      "id": 36,
+      "intro": "Never try to teach a pig to sing. It wastes your time and annoys the pig.",
+      "details": [
+        "Some people aren't going to change no matter how patient you are. That's not giving up on them, it's being honest.",
+        "You can't want something for someone more than they want it for themselves."
+      ],
+      "reactions": [
+        "I spent years trying to change somebody's mind about something. Should've spent that time on my own garden."
+      ],
+      "statCheck": null,
+      "valence": "negative",
+      "topic_category": "folk_wisdom",
+      "required_entities": [],
+      "location_scope": "universal",
+      "quest_trigger": null
+    },
+    {
+      "id": 37,
+      "intro": "You know what keeps better than anything? Grudges. People store those forever.",
+      "details": [
+        "I've seen families where nobody can remember what the original argument was about, but they're still not speaking.",
+        "Forgetting is harder than forgiving. You can decide to forgive and still feel the sting every time."
+      ],
+      "reactions": [
+        "I let go of one a few years back. It was like putting down a bag of rocks I forgot I was carrying."
+      ],
+      "statCheck": null,
+      "valence": "negative",
+      "topic_category": "folk_wisdom",
+      "required_entities": [],
+      "location_scope": "universal",
+      "quest_trigger": null
+    },
+    {
+      "id": 38,
+      "intro": "Stir the pot clockwise for luck. I know it doesn't actually matter, but I can't stop doing it.",
+      "details": [
+        "My grandmother stirred everything clockwise and her stew was the best thing I've ever eaten.",
+        "I tried going the other way once and the whole batch came out wrong. Probably a coincidence."
+      ],
+      "reactions": [
+        "Clockwise. Every time. I don't even think about it anymore."
+      ],
+      "statCheck": null,
+      "valence": "neutral",
+      "topic_category": "folk_wisdom",
+      "required_entities": [],
+      "location_scope": "universal",
+      "quest_trigger": null
+    },
+    {
+      "id": 39,
+      "intro": "The quietest person in the room usually knows the most. That's been my experience.",
+      "details": [
+        "The ones doing all the talking are trying to prove something. The quiet ones are just listening.",
+        "You learn more with your mouth shut than open. Took me a long time to figure that out."
+      ],
+      "reactions": [
+        "I've been trying to talk less. It's harder than you'd think."
+      ],
+      "statCheck": null,
+      "valence": "neutral",
+      "topic_category": "folk_wisdom",
+      "required_entities": [],
+      "location_scope": "universal",
+      "quest_trigger": null
+    },
+    {
+      "id": 40,
+      "intro": "My mother said if you drop a piece of bread butter-side down, the rest of the day's going to be difficult.",
+      "details": [
+        "I don't believe in omens. But I do notice that clumsy mornings tend to lead to clumsy afternoons.",
+        "Maybe it's not the bread. Maybe it's that you're already off-balance and the bread is just the first proof."
+      ],
+      "reactions": [
+        "When I drop something first thing in the morning, I slow down. That's probably the real lesson."
+      ],
+      "statCheck": null,
+      "valence": "neutral",
+      "topic_category": "folk_wisdom",
+      "required_entities": [],
+      "location_scope": "universal",
+      "quest_trigger": null
+    },
+    {
+      "id": 41,
+      "intro": "Good fences make good neighbors. Not because people are bad, but because clear lines prevent confusion.",
+      "details": [
+        "Most arguments between neighbors start because nobody agreed on where one person's business ends and another's begins.",
+        "It's not about keeping people out. It's about knowing what's yours to tend."
+      ],
+      "reactions": [
+        "I built my fence first thing when I moved here. Best decision I ever made."
+      ],
+      "statCheck": null,
+      "valence": "positive",
+      "topic_category": "folk_wisdom",
+      "required_entities": [],
+      "location_scope": "universal",
+      "quest_trigger": null
+    },
+    {
+      "id": 42,
+      "intro": "If a crow follows you, it just means you're walking near its territory. People make too much of crows.",
+      "details": [
+        "Everyone acts like crows are some kind of omen. They're just clever birds that remember faces.",
+        "Be nice to the crows near your house and they'll stop yelling at you. That's not magic, that's just manners."
+      ],
+      "reactions": [
+        "I toss them scraps sometimes. They leave shiny things on my fence. Fair trade."
+      ],
+      "statCheck": {
+        "pass": "Crows can recognize individual human faces and they teach their young who's friendly and who's not. It's memory, not mysticism.",
+        "fail": "They're just smart birds. I don't read anything into it."
+      },
+      "valence": "neutral",
+      "topic_category": "folk_wisdom",
+      "required_entities": [],
+      "location_scope": "universal",
+      "quest_trigger": null
+    },
+    {
+      "id": 43,
+      "intro": "You can't pour from an empty cup. Take care of yourself before you try to take care of everyone else.",
+      "details": [
+        "I used to think that was selfish. Now I understand it's the opposite.",
+        "When you run yourself dry helping others, eventually there's nothing left and everyone suffers."
+      ],
+      "reactions": [
+        "I take a day for myself now and then. No guilt about it."
+      ],
+      "statCheck": null,
+      "valence": "positive",
+      "topic_category": "folk_wisdom",
+      "required_entities": [],
+      "location_scope": "universal",
+      "quest_trigger": null
+    },
+    {
+      "id": 44,
+      "intro": "My grandfather always said: don't trust weather in spring or promises in autumn.",
+      "details": [
+        "Spring weather changes its mind every hour. And people make promises in autumn they forget by winter.",
+        "He wasn't a cynic. He just paid attention to patterns."
+      ],
+      "reactions": [
+        "I carry a cloak in spring and lower my expectations in autumn. Works out."
+      ],
+      "statCheck": null,
+      "valence": "neutral",
+      "topic_category": "folk_wisdom",
+      "required_entities": [],
+      "location_scope": "universal",
+      "quest_trigger": null
+    },
+    {
+      "id": 45,
+      "intro": "Pride's a funny thing. Just enough makes you stand tall. A little too much and you can't bow when you need to.",
+      "details": [
+        "I've watched people lose everything because they wouldn't ask for help. They'd rather sink than admit they were drowning.",
+        "There's no shame in needing a hand. The shame is in letting pride decide for you."
+      ],
+      "reactions": [
+        "I asked for help last winter. Hardest thing I've done. Best thing too."
+      ],
+      "statCheck": null,
+      "valence": "negative",
+      "topic_category": "folk_wisdom",
+      "required_entities": [],
+      "location_scope": "universal",
+      "quest_trigger": null
+    },
+    {
+      "id": 46,
+      "intro": "Salt before tasting is an insult to the cook. My mother would actually take your plate away.",
+      "details": [
+        "She worked hard on her food and if you reached for the salt before you'd even tried it, that was the end of your meal.",
+        "It taught me to try things before assuming they need fixing."
+      ],
+      "reactions": [
+        "Good advice for food. Good advice for people too."
+      ],
+      "statCheck": null,
+      "valence": "neutral",
+      "topic_category": "folk_wisdom",
+      "required_entities": [],
+      "location_scope": "universal",
+      "quest_trigger": null
+    },
+    {
+      "id": 47,
+      "intro": "If you see one mouse, there are ten you don't see. That's true for problems in general.",
+      "details": [
+        "The thing you notice is never the whole thing. It's just the one that got bold enough to show itself.",
+        "By the time a problem is visible, it's been growing in the dark for a while."
+      ],
+      "reactions": [
+        "I don't ignore small signs anymore. A mouse in the pantry means I'm checking the whole foundation."
+      ],
+      "statCheck": null,
+      "valence": "negative",
+      "topic_category": "folk_wisdom",
+      "required_entities": [],
+      "location_scope": "universal",
+      "quest_trigger": null
+    },
+    {
+      "id": 48,
+      "intro": "You know what they say: a stitch in time saves nine. I can't sew, but I understand the principle.",
+      "details": [
+        "Fix the small tear now or mend the whole garment later. Same with roofs, relationships, all of it.",
+        "The people who stay ahead of their problems aren't luckier. They're just quicker with a needle."
+      ],
+      "reactions": [
+        "I patch things the day they break. Laziness costs more than effort."
+      ],
+      "statCheck": null,
+      "valence": "positive",
+      "topic_category": "folk_wisdom",
+      "required_entities": [],
+      "location_scope": "universal",
+      "quest_trigger": null
+    },
+    {
+      "id": 49,
+      "intro": "People round here say if you whistle at night you're calling bad luck to your door.",
+      "details": [
+        "I don't know where it started. But I catch myself humming instead after dark, just in case.",
+        "Funny how superstitions work. You don't believe them, but you follow them anyway."
+      ],
+      "reactions": [
+        "I whistled at night once when I was young. Nothing happened. Still don't do it."
+      ],
+      "statCheck": null,
+      "valence": "neutral",
+      "topic_category": "folk_wisdom",
+      "required_entities": [],
+      "location_scope": "universal",
+      "quest_trigger": null
+    },
+    {
+      "id": 50,
+      "intro": "The best advice I ever got: stop watering dead plants. If something isn't growing, let it go.",
+      "details": [
+        "I spent years trying to save a friendship that was already over. Kept showing up, kept trying.",
+        "Some things end and the kindest thing you can do is accept it."
+      ],
+      "reactions": [
+        "It hurt to stop. But it stopped hurting faster than I expected."
+      ],
+      "statCheck": null,
+      "valence": "negative",
+      "topic_category": "folk_wisdom",
+      "required_entities": [],
+      "location_scope": "universal",
+      "quest_trigger": null
+    },
+    {
+      "id": 51,
+      "intro": "Always sharpen your axe before you start chopping. Half the effort is in the preparation.",
+      "details": [
+        "An hour of sharpening saves three hours of hacking. But people always want to get right to it.",
+        "Preparation feels like wasted time until you see the difference it makes."
+      ],
+      "reactions": [
+        "I spend the first hour of every workday getting my tools right. People think I'm slow, but I finish before they do."
+      ],
+      "statCheck": null,
+      "valence": "positive",
+      "topic_category": "folk_wisdom",
+      "required_entities": [],
+      "location_scope": "universal",
+      "quest_trigger": null
+    },
+    {
+      "id": 52,
+      "intro": "There's a saying: don't mistake kindness for weakness. The people who are gentle by choice are the strongest ones I know.",
+      "details": [
+        "Anyone can be cruel. It takes nothing. Being kind when you don't have to be takes everything.",
+        "The really tough people are the ones who could hurt you and choose not to."
+      ],
+      "reactions": [
+        "I try to remember that when someone's being patient with me."
+      ],
+      "statCheck": null,
+      "valence": "positive",
+      "topic_category": "folk_wisdom",
+      "required_entities": [],
+      "location_scope": "universal",
+      "quest_trigger": null
+    },
+    {
+      "id": 53,
+      "intro": "Moss on the north side of the tree. That's how my father taught me to find my way in the woods.",
+      "details": [
+        "Works most of the time. Unless you're in a thick forest where everything's damp, then moss grows on every side.",
+        "It's a starting point, not a guarantee. Like most advice."
+      ],
+      "reactions": [
+        "I've only been properly lost once. That was enough to make me pay attention to moss forever."
+      ],
+      "statCheck": {
+        "pass": "Moss prefers shade and moisture. In open woodland the north side gets less direct sun, so it stays damper. But in dense canopy the whole trunk is shaded.",
+        "fail": "It just tends to grow on the shady side. Don't ask me why."
+      },
+      "valence": "neutral",
+      "topic_category": "folk_wisdom",
+      "required_entities": [],
+      "location_scope": "universal",
+      "quest_trigger": null
+    },
+    {
+      "id": 54,
+      "intro": "Never eat the first berry you find. Wait and look around: there's usually a better bush nearby.",
+      "details": [
+        "Impatience makes you settle for the first thing you see. But the woods reward people who keep walking.",
+        "My aunt told me that when I was a child and I think about it every time I'm in a hurry to decide something."
+      ],
+      "reactions": [
+        "Sometimes the first berry is fine. But you'll never know what you missed if you stop looking."
+      ],
+      "statCheck": null,
+      "valence": "neutral",
+      "topic_category": "folk_wisdom",
+      "required_entities": [],
+      "location_scope": "universal",
+      "quest_trigger": null
+    },
+    {
+      "id": 55,
+      "intro": "I've learned that people who gossip to you will gossip about you. Without exception.",
+      "details": [
+        "If someone comes to you with tales about other people, you're not special. You're just the next audience.",
+        "The things they say about others when they're not around? That's what they say about you too."
+      ],
+      "reactions": [
+        "I nod and change the subject now. Better to be boring than to be part of it."
+      ],
+      "statCheck": null,
+      "valence": "negative",
+      "topic_category": "folk_wisdom",
+      "required_entities": [],
+      "location_scope": "universal",
+      "quest_trigger": null
+    },
+    {
+      "id": 56,
+      "intro": "The thing about luck is that it's just preparation meeting opportunity. My grandfather told me that and I've never heard anything truer.",
+      "details": [
+        "The 'lucky' people I know are the ones who were ready when the chance came along.",
+        "You can't control when the moment arrives. You can control whether you're ready for it."
+      ],
+      "reactions": [
+        "I keep my nets mended even when the river's frozen. You never know."
+      ],
+      "statCheck": null,
+      "valence": "positive",
+      "topic_category": "folk_wisdom",
+      "required_entities": [],
+      "location_scope": "universal",
+      "quest_trigger": null
+    },
+    {
+      "id": 57,
+      "intro": "If the bees are staying close to the hive, don't go far from home either. Storm's coming.",
+      "details": [
+        "Bees know things about the weather that we'll never figure out. They don't get caught in rain because they don't go out in it.",
+        "I've watched them all morning today and they're out and busy. So I think we're fine."
+      ],
+      "reactions": [
+        "I'd rather take advice from a bee than a weathervane."
+      ],
+      "statCheck": {
+        "pass": "Bees can sense drops in barometric pressure. When a storm approaches, the lower pressure signals them to stay close and protect the hive.",
+        "fail": "I just know they don't fly far before bad weather. Some things you don't need to explain."
+      },
+      "valence": "neutral",
+      "topic_category": "folk_wisdom",
+      "required_entities": [],
+      "location_scope": "universal",
+      "quest_trigger": null
+    },
+    {
+      "id": 58,
+      "intro": "Sleep fixes most things. If you don't know what to do, go to bed and try again tomorrow.",
+      "details": [
+        "Half the problems I've panicked about at night looked completely manageable in the morning.",
+        "Your mind works on things while you sleep. I don't understand it, but I've seen it too many times to doubt it."
+      ],
+      "reactions": [
+        "When someone asks my advice now I usually just tell them to get some rest first."
+      ],
+      "statCheck": {
+        "pass": "Your mind does sort through the day's problems during sleep. It moves things from short memory to long memory, makes connections you missed while awake.",
+        "fail": "I don't know the how of it. I just know things look clearer after rest."
+      },
+      "valence": "positive",
+      "topic_category": "folk_wisdom",
+      "required_entities": [],
+      "location_scope": "universal",
+      "quest_trigger": null
+    },
+    {
+      "id": 59,
+      "intro": "They say you shouldn't speak ill of the dead. I say you shouldn't speak ill of anyone who can't defend themselves.",
+      "details": [
+        "Dead, absent, it doesn't matter. If they're not here to give their side, keep your opinions to yourself.",
+        "Anything you wouldn't say to someone's face shouldn't be said at all."
+      ],
+      "reactions": [
+        "I'm not perfect about it. But I try."
+      ],
+      "statCheck": null,
+      "valence": "neutral",
+      "topic_category": "folk_wisdom",
+      "required_entities": [],
+      "location_scope": "universal",
+      "quest_trigger": null
+    },
+    {
+      "id": 60,
+      "intro": "My mother always told me: finish what's on your plate before you ask for more. She wasn't just talking about food.",
+      "details": [
+        "People want more of everything before they've even used what they have. More land, more tools, more time.",
+        "Use what you've got first. Then see if you still need more."
+      ],
+      "reactions": [
+        "Most of the time you don't. You just weren't paying attention to what was already there."
+      ],
+      "statCheck": null,
+      "valence": "negative",
+      "topic_category": "folk_wisdom",
+      "required_entities": [],
+      "location_scope": "universal",
+      "quest_trigger": null
+    },
+    {
+      "id": 61,
+      "intro": "A door that squeaks gets the oil. My uncle used that as an excuse to complain about everything, but he had a point.",
+      "details": [
+        "The people who speak up are the ones who get attention. The quiet ones get overlooked even when they need help more.",
+        "It's not right, but it's how it works."
+      ],
+      "reactions": [
+        "I try to check on the quiet ones. They're usually the ones who need asking."
+      ],
+      "statCheck": null,
+      "valence": "neutral",
+      "topic_category": "folk_wisdom",
+      "required_entities": [],
+      "location_scope": "universal",
+      "quest_trigger": null
+    },
+    {
+      "id": 62,
+      "intro": "If you can smell rain before it arrives, the soil's going to be good tomorrow. That petrichor means the ground is ready.",
+      "details": [
+        "That earthy smell right before rain is the ground opening up. You can almost feel it breathing.",
+        "Best time to plant is right after a rain like that. The soil's loose and alive."
+      ],
+      "reactions": [
+        "I love that smell. Some people think I'm odd for standing outside sniffing the air before a storm."
+      ],
+      "statCheck": {
+        "pass": "That smell comes from oils released by plants during dry periods mixing with a compound from soil bacteria. Rain releases both at once.",
+        "fail": "I just know the smell. It means something good's about to happen for the garden."
+      },
+      "valence": "positive",
+      "topic_category": "folk_wisdom",
+      "required_entities": [],
+      "location_scope": "universal",
+      "quest_trigger": null
+    },
+    {
+      "id": 63,
+      "intro": "Don't borrow trouble. That was my grandmother's favorite thing to say.",
+      "details": [
+        "She meant stop worrying about problems that haven't happened yet. Half of them never will.",
+        "The other half won't look anything like what you imagined, so the worrying was wasted anyway."
+      ],
+      "reactions": [
+        "I'm still a worrier. But I hear her voice every time and it helps a little."
+      ],
+      "statCheck": null,
+      "valence": "neutral",
+      "topic_category": "folk_wisdom",
+      "required_entities": [],
+      "location_scope": "universal",
+      "quest_trigger": null
+    },
+    {
+      "id": 64,
+      "intro": "The best thing my father taught me: when you don't know what to say, say nothing.",
+      "details": [
+        "Silence isn't empty. It gives people room to think, to feel, to figure things out on their own.",
+        "Half the worst things ever said started with someone who just couldn't stand a quiet moment."
+      ],
+      "reactions": [
+        "I'm comfortable with silence now. Wasn't always. But it's become one of my better qualities."
+      ],
+      "statCheck": null,
+      "valence": "positive",
+      "topic_category": "folk_wisdom",
+      "required_entities": [],
+      "location_scope": "universal",
+      "quest_trigger": null
+    },
+    {
+      "id": 65,
+      "intro": "An owl hooting three times means a death in the family. At least that's what the old women say.",
+      "details": [
+        "I think owls just hoot as many times as they feel like and we attach meaning after the fact.",
+        "But last spring an owl hooted three times outside my window and my uncle passed the next week. I can't explain that."
+      ],
+      "reactions": [
+        "I don't believe in omens. But I listen for them. Just in case."
+      ],
+      "statCheck": null,
+      "valence": "negative",
+      "topic_category": "folk_wisdom",
+      "required_entities": [],
+      "location_scope": "universal",
+      "quest_trigger": null
+    },
+    {
+      "id": 66,
+      "intro": "The first impression isn't always right, but it's right more often than people want to admit.",
+      "details": [
+        "Your gut picks up on things before your brain has a chance to make excuses for them.",
+        "I'm not saying judge everyone at a glance. I'm saying don't ignore what your instincts tell you."
+      ],
+      "reactions": [
+        "I've overridden my first impression plenty of times. Usually regretted it."
+      ],
+      "statCheck": null,
+      "valence": "negative",
+      "topic_category": "folk_wisdom",
+      "required_entities": [],
+      "location_scope": "universal",
+      "quest_trigger": null
+    },
+    {
+      "id": 67,
+      "intro": "There's no such thing as bad weather, only bad clothing. I hate that saying, but it's true.",
+      "details": [
+        "I've worked in every kind of rain and snow and the difference between misery and comfort is always the coat.",
+        "A good pair of boots and a proper cloak and you can handle anything the sky throws at you."
+      ],
+      "reactions": [
+        "I spent too many years being cold before I learned to dress properly. Pure stubbornness."
+      ],
+      "statCheck": null,
+      "valence": "neutral",
+      "topic_category": "folk_wisdom",
+      "required_entities": [],
+      "location_scope": "universal",
+      "quest_trigger": null
+    },
+    {
+      "id": 68,
+      "intro": "My mother said: don't put off until tomorrow what needs doing today, because tomorrow's got its own list.",
+      "details": [
+        "The work doesn't go away just because you ignore it. It piles up and waits for you.",
+        "I've never once woken up glad I put something off. But I've often been glad I didn't."
+      ],
+      "reactions": [
+        "I still procrastinate sometimes. I'm just honest with myself about the cost."
+      ],
+      "statCheck": null,
+      "valence": "neutral",
+      "topic_category": "folk_wisdom",
+      "required_entities": [],
+      "location_scope": "universal",
+      "quest_trigger": null
+    },
+    {
+      "id": 69,
+      "intro": "If someone shows up uninvited and helps without being asked, that's the person you want beside you when things go wrong.",
+      "details": [
+        "Offering to help is nice. Just showing up and doing it is different. It means they noticed and they cared enough to act.",
+        "Those are rare people. Hold onto them."
+      ],
+      "reactions": [
+        "I try to be that person for others. I don't always manage it, but I try."
+      ],
+      "statCheck": null,
+      "valence": "positive",
+      "topic_category": "folk_wisdom",
+      "required_entities": [],
+      "location_scope": "universal",
+      "quest_trigger": null
+    },
+    {
+      "id": 70,
+      "intro": "Don't chase two rabbits at once. You'll lose them both.",
+      "details": [
+        "Focus on one thing and do it well. Split your attention and everything suffers.",
+        "I learned that from actual rabbit chasing, but it applies to everything."
+      ],
+      "reactions": [
+        "I keep a short list these days. One thing at a time."
+      ],
+      "statCheck": null,
+      "valence": "neutral",
+      "topic_category": "folk_wisdom",
+      "required_entities": [],
+      "location_scope": "universal",
+      "quest_trigger": null
+    },
+    {
+      "id": 71,
+      "intro": "If a wound is still bleeding, don't pick at it. That goes for feelings too.",
+      "details": [
+        "People want to poke at their grief, examine it from every angle, talk about it constantly.",
+        "Sometimes you need to leave things alone and let them scab over. The healing happens underneath."
+      ],
+      "reactions": [
+        "It's not avoidance. It's patience. There's a difference."
+      ],
+      "statCheck": null,
+      "valence": "negative",
+      "topic_category": "folk_wisdom",
+      "required_entities": [],
+      "location_scope": "universal",
+      "quest_trigger": null
+    },
+    {
+      "id": 72,
+      "intro": "The river always wins. You can dam it, redirect it, dig channels around it, but water goes where water wants to go.",
+      "details": [
+        "I've watched people fight the same stream for years. Moving rocks, building walls. The water always finds a way through.",
+        "Some things are like that. Easier to work with them than against them."
+      ],
+      "reactions": [
+        "I stopped trying to redirect my garden stream and just planted around it. Best crop I've ever had."
+      ],
+      "statCheck": {
+        "pass": "Water follows the path of least resistance and it never stops. A dam just builds pressure. Eventually the water finds the weakness in any wall.",
+        "fail": "I don't know the details. I just know the stream always wins in the end."
+      },
+      "valence": "neutral",
+      "topic_category": "folk_wisdom",
+      "required_entities": [],
+      "location_scope": "universal",
+      "quest_trigger": null
+    },
+    {
+      "id": 73,
+      "intro": "Throw salt over your left shoulder if you spill it. I know it's silly but I do it every time.",
+      "details": [
+        "My whole family does it. I don't think any of us actually believe it wards off bad luck.",
+        "It's more like a reflex now. Spill salt, toss salt, clean up. It's just part of the routine."
+      ],
+      "reactions": [
+        "My daughter does it too. I never taught her. She just picked it up from watching me."
+      ],
+      "statCheck": null,
+      "valence": "negative",
+      "topic_category": "folk_wisdom",
+      "required_entities": [],
+      "location_scope": "universal",
+      "quest_trigger": null
+    },
+    {
+      "id": 74,
+      "intro": "The more you own, the more owns you. Every single thing in your house needs cleaning, fixing, or worrying about.",
+      "details": [
+        "I used to want a bigger place with more things in it. Then I spent a whole week doing nothing but repairs and changed my mind.",
+        "The happiest people I know have the least stuff."
+      ],
+      "reactions": [
+        "I've been getting rid of things. It feels like breathing deeper."
+      ],
+      "statCheck": null,
+      "valence": "negative",
+      "topic_category": "folk_wisdom",
+      "required_entities": [],
+      "location_scope": "universal",
+      "quest_trigger": null
+    },
+    {
+      "id": 75,
+      "intro": "If the roosters crow early, the weather's changing. That's the one old saying I'd bet my house on.",
+      "details": [
+        "They get restless before a front moves in. Start making noise well before dawn.",
+        "I've tracked it for two years now and it's been right nearly every time."
+      ],
+      "reactions": [
+        "My neighbor thinks I'm reading too much into a noisy bird. But I haven't been caught in an unexpected storm in two years."
+      ],
+      "statCheck": {
+        "pass": "Birds are sensitive to pressure changes. A sudden barometric shift disrupts their internal clock, which is why they vocalize at odd hours.",
+        "fail": "Could be the air, could be something else. I just pay attention to the pattern."
+      },
+      "valence": "neutral",
+      "topic_category": "folk_wisdom",
+      "required_entities": [],
+      "location_scope": "universal",
+      "quest_trigger": null
+    },
+    {
+      "id": 76,
+      "intro": "Grief doesn't get smaller. You just get bigger around it. Someone told me that after my father died and it was the only thing that helped.",
+      "details": [
+        "People say time heals. It doesn't, not really. The hole stays the same size.",
+        "But you build new rooms around it. New memories, new habits. The hole's still there, but it's not the whole house anymore."
+      ],
+      "reactions": [
+        "I think about him every day. But it doesn't knock me flat the way it used to."
+      ],
+      "statCheck": null,
+      "valence": "negative",
+      "topic_category": "folk_wisdom",
+      "required_entities": [],
+      "location_scope": "universal",
+      "quest_trigger": null
+    },
+    {
+      "id": 77,
+      "intro": "Vinegar catches no flies. You want something from people, be sweet about it.",
+      "details": [
+        "I'm not talking about being fake. I'm talking about making it easy for people to say yes.",
+        "A kind word opens more doors than a demand ever will."
+      ],
+      "reactions": [
+        "I used to be blunt about everything. It got me nothing but arguments."
+      ],
+      "statCheck": null,
+      "valence": "neutral",
+      "topic_category": "folk_wisdom",
+      "required_entities": [],
+      "location_scope": "universal",
+      "quest_trigger": null
+    },
+    {
+      "id": 78,
+      "intro": "My grandmother used to put a knife under the bed to cut the pain during labor. She swore by it.",
+      "details": [
+        "I don't think a knife under a mattress does anything medical. But she believed it, and belief does something.",
+        "Half of feeling better is thinking you will. That's not nothing."
+      ],
+      "reactions": [
+        "I keep one under my bed. Not for pain. Just because she did."
+      ],
+      "statCheck": null,
+      "valence": "neutral",
+      "topic_category": "folk_wisdom",
+      "required_entities": [],
+      "location_scope": "universal",
+      "quest_trigger": null
+    },
+    {
+      "id": 79,
+      "intro": "You learn more from losing than winning. Nobody ever sat down after a victory and thought about what to change.",
+      "details": [
+        "Winning tells you what worked. Losing tells you everything: what went wrong, what you missed, where you're weak.",
+        "The people who never lose are the people who never learn."
+      ],
+      "reactions": [
+        "I've lost plenty. I'd like to think it made me better."
+      ],
+      "statCheck": null,
+      "valence": "negative",
+      "topic_category": "folk_wisdom",
+      "required_entities": [],
+      "location_scope": "universal",
+      "quest_trigger": null
+    },
+    {
+      "id": 80,
+      "intro": "My father said: a man who's good to his horse will be good to his family. Never trusted anyone who mistreated their animals.",
+      "details": [
+        "The way someone handles a tired horse tells you everything. Patience or cruelty: it shows up there first.",
+        "Can't fake gentleness with an animal. They know."
+      ],
+      "reactions": [
+        "I judge people by that more than anything they say."
+      ],
+      "statCheck": null,
+      "valence": "neutral",
+      "topic_category": "folk_wisdom",
+      "required_entities": [],
+      "location_scope": "universal",
+      "quest_trigger": null
+    },
+    {
+      "id": 81,
+      "intro": "They say you should never wake a sleepwalker. I don't know if that's wisdom or superstition, but I've never tested it.",
+      "details": [
+        "My brother used to walk in his sleep. My mother would just gently steer him back to bed without waking him.",
+        "He never remembered any of it in the morning. Like a whole secret life happening while he slept."
+      ],
+      "reactions": [
+        "It was unsettling to watch, honestly. Those open eyes seeing something none of us could."
+      ],
+      "statCheck": {
+        "pass": "Waking them suddenly can cause confusion and distress because they're mid-cycle in deep sleep. It's safer to guide them back gently.",
+        "fail": "I've just always heard you shouldn't do it. Never wanted to find out why."
+      },
+      "valence": "neutral",
+      "topic_category": "folk_wisdom",
+      "required_entities": [],
+      "location_scope": "universal",
+      "quest_trigger": null
+    },
+    {
+      "id": 82,
+      "intro": "Change happens slowly and then all at once. Seasons, relationships, rot in a fence post. Same pattern every time.",
+      "details": [
+        "You don't notice the slow part. It's the sudden collapse that gets your attention.",
+        "By then it's too late to do anything except deal with the mess. The time to act was during the slow part."
+      ],
+      "reactions": [
+        "I check my fence posts now. Push on them to see if they give. The ones that wiggle are about to go."
+      ],
+      "statCheck": null,
+      "valence": "negative",
+      "topic_category": "folk_wisdom",
+      "required_entities": [],
+      "location_scope": "universal",
+      "quest_trigger": null
+    },
+    {
+      "id": 83,
+      "intro": "My mother taught me: always keep a little money hidden where nobody knows about it. Not even family.",
+      "details": [
+        "Not a fortune. Just enough to get you through a bad week without asking anyone for help.",
+        "She called it her 'walking away' money. Said every person should have enough to start over if they need to."
+      ],
+      "reactions": [
+        "I've never had to use mine. But knowing it's there helps me sleep."
+      ],
+      "statCheck": null,
+      "valence": "neutral",
+      "topic_category": "folk_wisdom",
+      "required_entities": [],
+      "location_scope": "universal",
+      "quest_trigger": null
+    },
+    {
+      "id": 84,
+      "intro": "Compost tea on the roots, not the leaves. That's the trick everybody gets wrong.",
+      "details": [
+        "You pour it on the leaves and all you do is invite rot. The roots are where the feeding happens.",
+        "My garden's the greenest on the lane because I feed the parts nobody sees."
+      ],
+      "reactions": [
+        "Good advice for people too. Take care of the foundation and the rest follows."
+      ],
+      "statCheck": {
+        "pass": "Wet foliage in warm weather is a breeding ground for fungal disease. Root application delivers nutrients directly to the uptake zone without that risk.",
+        "fail": "I just know it works better that way. Tried it both ways, roots won every time."
+      },
+      "valence": "positive",
+      "topic_category": "folk_wisdom",
+      "required_entities": [],
+      "location_scope": "universal",
+      "quest_trigger": null
+    },
+    {
+      "id": 85,
+      "intro": "If you wouldn't take their advice, don't take their criticism either. You've got to consider the source.",
+      "details": [
+        "Some people spend all their energy telling others what's wrong without fixing anything in their own life.",
+        "A critique from someone you respect is worth hearing. The rest is just noise."
+      ],
+      "reactions": [
+        "Took me years to learn to filter. But once you do, everything gets quieter."
+      ],
+      "statCheck": null,
+      "valence": "neutral",
+      "topic_category": "folk_wisdom",
+      "required_entities": [],
+      "location_scope": "universal",
+      "quest_trigger": null
+    },
+    {
+      "id": 86,
+      "intro": "When the swallows fly low, rain's on the way. When they fly high, the weather's holding.",
+      "details": [
+        "It's the insects they're chasing. Bugs fly lower when the air pressure drops before a storm.",
+        "I watch the swallows every morning. They've never steered me wrong."
+      ],
+      "reactions": [
+        "Simple things. The world tells you everything if you're watching."
+      ],
+      "statCheck": {
+        "pass": "Insects are affected by humidity and pressure. When conditions change they stay closer to the ground, and the swallows follow the food.",
+        "fail": "I've just noticed the pattern over the years. Couldn't tell you the reason."
+      },
+      "valence": "positive",
+      "topic_category": "folk_wisdom",
+      "required_entities": [],
+      "location_scope": "universal",
+      "quest_trigger": null
+    },
+    {
+      "id": 87,
+      "intro": "There's wisdom in knowing when to stop. Not everything needs to be finished.",
+      "details": [
+        "Sometimes a thing is good enough and pushing further just makes it worse. I've overworked a piece of wood until it split.",
+        "Perfection is the enemy of done. My father said that about everything from furniture to conversations."
+      ],
+      "reactions": [
+        "I'm better at stopping now. Younger me would have kept going until something broke."
+      ],
+      "statCheck": null,
+      "valence": "neutral",
+      "topic_category": "folk_wisdom",
+      "required_entities": [],
+      "location_scope": "universal",
+      "quest_trigger": null
+    },
+    {
+      "id": 88,
+      "intro": "Never trust a calm surface. The stillest water is the deepest and the strongest current runs underneath.",
+      "details": [
+        "I've seen people wade into a still-looking river and get swept off their feet. The surface lies.",
+        "Same with people who seem perfectly composed. There might be a lot happening under the surface."
+      ],
+      "reactions": [
+        "I approach still water and still people the same way: carefully."
+      ],
+      "statCheck": {
+        "pass": "Turbulence on the surface actually slows the current down through friction. Smooth water means nothing's breaking the flow, so the full force moves underneath.",
+        "fail": "I just know that calm-looking rivers have pulled people under. Respect the quiet ones."
+      },
+      "valence": "neutral",
+      "topic_category": "folk_wisdom",
+      "required_entities": [],
+      "location_scope": "universal",
+      "quest_trigger": null
+    },
+    {
+      "id": 89,
+      "intro": "My grandmother said: the person who sweeps their own doorstep keeps the village clean.",
+      "details": [
+        "Mind your own business first. Get your own affairs in order before you start telling others how to live.",
+        "Half the problems in this world come from people who can't see the dirt on their own step."
+      ],
+      "reactions": [
+        "I sweep mine every morning. Then I mind my own business."
+      ],
+      "statCheck": null,
+      "valence": "neutral",
+      "topic_category": "folk_wisdom",
+      "required_entities": [],
+      "location_scope": "universal",
+      "quest_trigger": null
+    },
+    {
+      "id": 90,
+      "intro": "When a cat washes its face, company's coming. At least that's what my mother said.",
+      "details": [
+        "Cats wash their faces all the time, so company should be arriving constantly by that logic.",
+        "I think she just liked having an excuse to tidy up. The cat was her cover story."
+      ],
+      "reactions": [
+        "I still glance at the cat when I hear a knock. Old habits."
+      ],
+      "statCheck": null,
+      "valence": "neutral",
+      "topic_category": "folk_wisdom",
+      "required_entities": [],
+      "location_scope": "universal",
+      "quest_trigger": null
+    },
+    {
+      "id": 91,
+      "intro": "Don't build your house on someone else's land. That's true whether it's actual land or something less tangible.",
+      "details": [
+        "I've seen people invest everything in something they didn't own: a job, a relationship, a promise.",
+        "When it gets taken away they've got nothing because nothing was theirs."
+      ],
+      "reactions": [
+        "Own your ground. Everything else is just visiting."
+      ],
+      "statCheck": null,
+      "valence": "negative",
+      "topic_category": "folk_wisdom",
+      "required_entities": [],
+      "location_scope": "universal",
+      "quest_trigger": null
+    },
+    {
+      "id": 92,
+      "intro": "Honey for a cough, willow bark for a fever, garlic for everything else. That's the medicine I grew up on.",
+      "details": [
+        "I don't know if garlic actually cures anything but it makes you feel like you're fighting back.",
+        "The honey and willow bark work, though. I'd stake my life on those two."
+      ],
+      "reactions": [
+        "I keep all three in my pantry year-round. Haven't been properly sick in a long time."
+      ],
+      "statCheck": {
+        "pass": "Willow bark contains a compound similar to what healers use for pain and fever. It's not just folk medicine, there's something real in it.",
+        "fail": "It's what my mother used and it worked for her. That's enough for me."
+      },
+      "valence": "positive",
+      "topic_category": "folk_wisdom",
+      "required_entities": [],
+      "location_scope": "universal",
+      "quest_trigger": null
+    },
+    {
+      "id": 93,
+      "intro": "My father told me: you're the average of the five people you spend the most time with. Choose carefully.",
+      "details": [
+        "Spend time with hard workers and you'll work hard. Spend time with complainers and you'll start complaining.",
+        "It's not even conscious. You just absorb the habits of the people around you."
+      ],
+      "reactions": [
+        "I look at my circle differently now. It matters more than I ever realized."
+      ],
+      "statCheck": null,
+      "valence": "negative",
+      "topic_category": "folk_wisdom",
+      "required_entities": [],
+      "location_scope": "universal",
+      "quest_trigger": null
+    },
+    {
+      "id": 94,
+      "intro": "A full belly in autumn is worth more than a promise in spring. That's just practical thinking.",
+      "details": [
+        "Promises about what's coming next year don't keep you warm right now.",
+        "I'd rather have a modest harvest in hand than someone's word about a great one later."
+      ],
+      "reactions": [
+        "I plan for what I have, not what I'm told I'll get."
+      ],
+      "statCheck": null,
+      "valence": "neutral",
+      "topic_category": "folk_wisdom",
+      "required_entities": [],
+      "location_scope": "universal",
+      "quest_trigger": null
+    },
+    {
+      "id": 95,
+      "intro": "The worst thing about stubbornness is that it feels like strength. You think you're standing firm but you're just stuck.",
+      "details": [
+        "I've held positions I knew were wrong just because I'd already committed to them.",
+        "Changing your mind isn't weakness. It's proof you're still thinking."
+      ],
+      "reactions": [
+        "I try to hold my opinions lightly now. Grip anything too tight and it breaks."
+      ],
+      "statCheck": null,
+      "valence": "negative",
+      "topic_category": "folk_wisdom",
+      "required_entities": [],
+      "location_scope": "universal",
+      "quest_trigger": null
+    },
+    {
+      "id": 96,
+      "intro": "Feed a cold, starve a fever. Or is it the other way around? Nobody ever agrees.",
+      "details": [
+        "I've heard it both ways from people who were absolutely certain they were right.",
+        "I just eat when I'm hungry and rest when I'm tired. That covers both, I figure."
+      ],
+      "reactions": [
+        "The one thing everyone agrees on is broth. You can never go wrong with broth."
+      ],
+      "statCheck": {
+        "pass": "When you're feverish your body's burning energy to fight the illness. Eating gives it fuel. The 'starve a fever' part is probably wrong.",
+        "fail": "I've never figured out which version is true. I just do what feels right."
+      },
+      "valence": "neutral",
+      "topic_category": "folk_wisdom",
+      "required_entities": [],
+      "location_scope": "universal",
+      "quest_trigger": null
+    },
+    {
+      "id": 97,
+      "intro": "Community isn't about liking everyone. It's about showing up for people even when you don't.",
+      "details": [
+        "There are folks here I wouldn't choose to share a meal with. But if their roof caved in, I'd be there with a hammer.",
+        "That's what makes a village work. Not friendship. Obligation. And not the bad kind."
+      ],
+      "reactions": [
+        "We don't have to like each other. We just have to look out for each other."
+      ],
+      "statCheck": null,
+      "valence": "positive",
+      "topic_category": "folk_wisdom",
+      "required_entities": [],
+      "location_scope": "universal",
+      "quest_trigger": null
+    },
+    {
+      "id": 98,
+      "intro": "My mother used to say: if you can't be kind, be quiet. The world doesn't need your opinion on everything.",
+      "details": [
+        "Not every thought needs to be said out loud. Some things are better kept between you and the inside of your skull.",
+        "Speaking up matters when it helps. The rest of the time, silence is a gift you give to everyone around you."
+      ],
+      "reactions": [
+        "I bite my tongue about three times a day. It's never once been the wrong choice."
+      ],
+      "statCheck": null,
+      "valence": "neutral",
+      "topic_category": "folk_wisdom",
+      "required_entities": [],
+      "location_scope": "universal",
+      "quest_trigger": null
+    },
+    {
+      "id": 99,
+      "intro": "Everything looks impossible until someone does it. Then it just looks obvious.",
+      "details": [
+        "People told my father he couldn't grow stonefruit this far from the valley. He did it anyway and now half the lane has trees.",
+        "The trick is ignoring the people who explain why things can't be done."
+      ],
+      "reactions": [
+        "I'd rather fail trying than succeed at giving up."
+      ],
+      "statCheck": null,
+      "valence": "positive",
+      "topic_category": "folk_wisdom",
+      "required_entities": [],
+      "location_scope": "universal",
+      "quest_trigger": null
+    },
+    {
+      "id": 100,
+      "intro": "My mother told me never to lend anything you can't afford to lose. Took me years to understand that wasn't about money.",
+      "details": [
+        "She meant trust, time, patience: the things that don't come back the same way they left.",
+        "I thought she was being cynical. Turns out she was being practical."
+      ],
+      "reactions": [
+        "I still lend things. I just don't expect them back the same."
+      ],
+      "valence": "neutral",
+      "statCheck": null,
+      "topic_category": "folk_wisdom",
+      "required_entities": [],
+      "location_scope": "universal",
+      "quest_trigger": null
+    },
+    {
+      "id": 101,
+      "intro": "They say a fence that's good for your neighbor is good for you. I think there's truth in that.",
+      "details": [
+        "Most disputes I've seen come from boundaries nobody bothered to agree on.",
+        "Clear lines make for easier conversations."
+      ],
+      "reactions": [
+        "It's not about keeping people out. It's about knowing where you stand."
+      ],
+      "valence": "neutral",
+      "statCheck": null,
+      "topic_category": "folk_wisdom",
+      "required_entities": [],
+      "location_scope": "universal",
+      "quest_trigger": null
+    },
+    {
+      "id": 102,
+      "intro": "Luck's just preparation you forgot about. That's what my father used to say, anyway.",
+      "details": [
+        "He'd fix the roof in summer and call himself lucky when autumn storms came.",
+        "I don't know if he believed it or if it just made him feel better about all the work."
+      ],
+      "reactions": [
+        "I'd rather be lucky than right, honestly."
+      ],
+      "valence": "positive",
+      "statCheck": null,
+      "topic_category": "folk_wisdom",
+      "required_entities": [],
+      "location_scope": "universal",
+      "quest_trigger": null
+    },
+    {
+      "id": 103,
+      "intro": "Never borrow from someone who remembers every favor they've done for you. That's not generosity, that's a ledger.",
+      "details": [
+        "The ones who keep count always come collecting at the worst possible time.",
+        "I'd rather go without than owe that kind of person."
+      ],
+      "reactions": [
+        "You learn quick who keeps score around here."
+      ],
+      "valence": "negative",
+      "statCheck": null,
+      "topic_category": "folk_wisdom",
+      "required_entities": [],
+      "location_scope": "universal",
+      "quest_trigger": null
+    },
+    {
+      "id": 104,
+      "intro": "First time you meet someone, watch their hands, not their mouth. Hands don't know how to lie yet.",
+      "details": [
+        "Fidgeting, clenched fists, picking at their nails: tells you more than any greeting.",
+        "My grandmother read people like that. She was almost never wrong about anyone."
+      ],
+      "reactions": [
+        "I'm probably not as good at it as she was. But I try."
+      ],
+      "valence": "neutral",
+      "statCheck": "WIS",
+      "topic_category": "folk_wisdom",
+      "required_entities": [],
+      "location_scope": "universal",
+      "quest_trigger": null
+    },
+    {
+      "id": 105,
+      "intro": "A promise made when you're tired is a promise you'll regret when you're rested.",
+      "details": [
+        "People agree to all sorts of things just to end a conversation.",
+        "I've done it myself more times than I'd like to admit."
+      ],
+      "reactions": [
+        "Now I just say I'll think on it. Nobody's ever been hurt by waiting a day."
+      ],
+      "valence": "negative",
+      "statCheck": null,
+      "topic_category": "folk_wisdom",
+      "required_entities": [],
+      "location_scope": "universal",
+      "quest_trigger": null
+    },
+    {
+      "id": 106,
+      "intro": "The quietest person at the table usually knows the most. Either way, don't underestimate them.",
+      "details": [
+        "Loud people are too busy talking to notice what's actually happening.",
+        "I've learned more from sitting still than I ever did from arguing."
+      ],
+      "reactions": [
+        "I try to be the quiet one more often these days."
+      ],
+      "valence": "neutral",
+      "statCheck": "WIS",
+      "topic_category": "folk_wisdom",
+      "required_entities": [],
+      "location_scope": "universal",
+      "quest_trigger": null
+    },
+    {
+      "id": 107,
+      "intro": "Change comes whether you're ready or not. Might as well face it standing up.",
+      "details": [
+        "I've seen people fight the seasons themselves trying to keep things the way they were.",
+        "Never works. Just wears you out."
+      ],
+      "reactions": [
+        "Doesn't mean I like it. Just means I've stopped arguing with it."
+      ],
+      "valence": "negative",
+      "statCheck": null,
+      "topic_category": "folk_wisdom",
+      "required_entities": [],
+      "location_scope": "universal",
+      "quest_trigger": null
+    },
+    {
+      "id": 108,
+      "intro": "Grief doesn't get smaller: you just get bigger around it. That's the best way I can explain it.",
+      "details": [
+        "People keep telling you it'll pass, but that's not how it works.",
+        "It stays. You just build more life around the edges."
+      ],
+      "reactions": [
+        "I don't mind carrying it anymore. It's part of me now."
+      ],
+      "valence": "negative",
+      "statCheck": null,
+      "topic_category": "folk_wisdom",
+      "required_entities": [],
+      "location_scope": "universal",
+      "quest_trigger": null
+    },
+    {
+      "id": 109,
+      "intro": "Pride's built a lot of nice things in this world. It's also knocked most of them down.",
+      "details": [
+        "There's a line between taking pride in your work and refusing to hear you've done it wrong.",
+        "Most people don't see that line until after they've crossed it."
+      ],
+      "reactions": [
+        "I've been on both sides. The humble side's more comfortable."
+      ],
+      "valence": "negative",
+      "statCheck": null,
+      "topic_category": "folk_wisdom",
+      "required_entities": [],
+      "location_scope": "universal",
+      "quest_trigger": null
+    },
+    {
+      "id": 110,
+      "intro": "Stubbornness and determination are the same thing. Just depends on whether you're right or not.",
+      "details": [
+        "My uncle held out on selling his orchard for twelve years. Everyone called him stubborn.",
+        "Turned out the land was worth triple by the time he was done. Then they called him clever."
+      ],
+      "reactions": [
+        "I guess you only know which one it was after the fact."
+      ],
+      "valence": "neutral",
+      "statCheck": "WIS",
+      "topic_category": "folk_wisdom",
+      "required_entities": [],
+      "location_scope": "universal",
+      "quest_trigger": null
+    },
+    {
+      "id": 111,
+      "intro": "Forgiveness isn't about the other person. It's about putting the rock down so your arm stops hurting.",
+      "details": [
+        "Carrying a grudge takes real effort. People don't realize how much energy it costs.",
+        "I held onto one for six years once. Wasted time, all of it."
+      ],
+      "reactions": [
+        "I'm not saying forget. I'm saying stop hauling it around."
+      ],
+      "valence": "positive",
+      "statCheck": null,
+      "topic_category": "folk_wisdom",
+      "required_entities": [],
+      "location_scope": "universal",
+      "quest_trigger": null
+    },
+    {
+      "id": 112,
+      "intro": "Gossip travels faster than rain. And it ruins just as much if you're not careful.",
+      "details": [
+        "By the time a story's gone through three people, it's barely the same story.",
+        "I've been on the wrong end of it. Wouldn't wish it on anyone."
+      ],
+      "reactions": [
+        "I just stopped repeating things I wasn't there to see."
+      ],
+      "valence": "negative",
+      "statCheck": null,
+      "topic_category": "folk_wisdom",
+      "required_entities": [],
+      "location_scope": "universal",
+      "quest_trigger": null
+    },
+    {
+      "id": 113,
+      "intro": "Children don't listen to what you say: they watch what you do. That's the terrifying part.",
+      "details": [
+        "You can lecture all day and they'll ignore every word.",
+        "But they'll copy exactly the thing you hoped they didn't see."
+      ],
+      "reactions": [
+        "Makes you think about your own habits differently."
+      ],
+      "valence": "negative",
+      "statCheck": null,
+      "topic_category": "folk_wisdom",
+      "required_entities": [],
+      "location_scope": "universal",
+      "quest_trigger": null
+    },
+    {
+      "id": 114,
+      "intro": "Marriage is easy to get into and hard to be good at. Like most things worth doing.",
+      "details": [
+        "The ceremony's the shortest part. Everything after that is the actual work.",
+        "People think love is the foundation. It's more like the roof: it keeps the rain off, but you still need walls."
+      ],
+      "reactions": [
+        "I wouldn't trade it for anything. But I wouldn't lie about it either."
+      ],
+      "valence": "positive",
+      "statCheck": null,
+      "topic_category": "folk_wisdom",
+      "required_entities": [],
+      "location_scope": "universal",
+      "quest_trigger": null
+    },
+    {
+      "id": 115,
+      "intro": "Travel doesn't make you wiser. It just makes you realize how little you knew before you left.",
+      "details": [
+        "Everyone thinks they'll come back changed. Mostly you come back tired and in need of a bath.",
+        "But you do see your own home differently. That part's true."
+      ],
+      "reactions": [
+        "I'm glad I went. I'm gladder I came back."
+      ],
+      "valence": "neutral",
+      "statCheck": null,
+      "topic_category": "folk_wisdom",
+      "required_entities": [],
+      "location_scope": "universal",
+      "quest_trigger": null
+    },
+    {
+      "id": 116,
+      "intro": "Fear's useful. It's the only thing that's ever kept me from doing something truly stupid.",
+      "details": [
+        "People act like being afraid is weakness, but it's your body being smarter than your pride.",
+        "The ones who say they're never afraid are either lying or haven't been paying attention."
+      ],
+      "reactions": [
+        "I'd rather be scared and careful than brave and dead."
+      ],
+      "valence": "neutral",
+      "statCheck": "WIS",
+      "topic_category": "folk_wisdom",
+      "required_entities": [],
+      "location_scope": "universal",
+      "quest_trigger": null
+    },
+    {
+      "id": 117,
+      "intro": "Courage isn't the absence of fear. It's just deciding that something else matters more right then.",
+      "details": [
+        "I've seen the most ordinary people do extraordinary things when someone they loved was in trouble."
+      ],
+      "reactions": [
+        "You never know what you're capable of until you don't have a choice."
+      ],
+      "valence": "positive",
+      "statCheck": null,
+      "topic_category": "folk_wisdom",
+      "required_entities": [],
+      "location_scope": "universal",
+      "quest_trigger": null
+    },
+    {
+      "id": 118,
+      "intro": "Debt's like a hole you dig standing in. The deeper it gets, the harder it is to climb out.",
+      "details": [
+        "Start small and it doesn't seem like much. A little here, a little there.",
+        "Then one day you look up and the sky's just a square above your head."
+      ],
+      "reactions": [
+        "I've been in that hole. Took me a long time to fill it back in."
+      ],
+      "valence": "negative",
+      "statCheck": "INT",
+      "topic_category": "folk_wisdom",
+      "required_entities": [],
+      "location_scope": "universal",
+      "quest_trigger": null
+    },
+    {
+      "id": 119,
+      "intro": "A hungry person makes bad decisions. Feed them before you ask them anything important.",
+      "details": [
+        "Negotiations, arguments, big choices: none of them go well on an empty stomach.",
+        "My mother settled every family dispute after dinner. Never before."
+      ],
+      "reactions": [
+        "Simple advice, but I've never seen it fail."
+      ],
+      "valence": "positive",
+      "statCheck": null,
+      "topic_category": "folk_wisdom",
+      "required_entities": [],
+      "location_scope": "universal",
+      "quest_trigger": null
+    },
+    {
+      "id": 120,
+      "intro": "Cold teaches you who your real friends are. When it's bitter out, notice who still shows up.",
+      "details": [
+        "Anybody will visit in summer. Takes something else to trudge through frost for someone."
+      ],
+      "reactions": [
+        "I keep a short list of those people. They're worth more than gold."
+      ],
+      "valence": "positive",
+      "statCheck": null,
+      "topic_category": "folk_wisdom",
+      "required_entities": [],
+      "location_scope": "universal",
+      "quest_trigger": null
+    },
+    {
+      "id": 121,
+      "intro": "Heat makes people mean. I've learned not to start important conversations on hot days.",
+      "details": [
+        "Tempers rise with the temperature. That's not a saying, it's just a fact.",
+        "Half the arguments in this town happen in midsummer. The other half happen over money."
+      ],
+      "reactions": [
+        "If it can wait until evening, let it wait."
+      ],
+      "valence": "neutral",
+      "statCheck": null,
+      "topic_category": "folk_wisdom",
+      "required_entities": [],
+      "location_scope": "universal",
+      "quest_trigger": null
+    },
+    {
+      "id": 122,
+      "intro": "When you're so tired you can't think straight, the best thing you can do is nothing at all.",
+      "details": [
+        "Every mistake I've made that I truly regret happened when I should've been sleeping.",
+        "Your body's telling you something. You should probably listen."
+      ],
+      "reactions": [
+        "Rest isn't lazy. It's the smartest thing a tired person can do."
+      ],
+      "valence": "neutral",
+      "statCheck": null,
+      "topic_category": "folk_wisdom",
+      "required_entities": [],
+      "location_scope": "universal",
+      "quest_trigger": null
+    },
+    {
+      "id": 123,
+      "intro": "Sunrise is for starting things, sunset is for letting them go. My grandfather lived by that.",
+      "details": [
+        "He wouldn't carry a problem past dark if he could help it.",
+        "Said the night was for rest, not for turning worries over in your head."
+      ],
+      "reactions": [
+        "I'm not as disciplined about it as he was. But I try."
+      ],
+      "valence": "positive",
+      "statCheck": null,
+      "topic_category": "folk_wisdom",
+      "required_entities": [],
+      "location_scope": "universal",
+      "quest_trigger": null
+    },
+    {
+      "id": 124,
+      "intro": "Water always finds the lowest point. Problems are the same way: they settle where the ground is weakest.",
+      "details": [
+        "You can redirect water, but you can't stop it. Same with trouble.",
+        "Better to strengthen the low spots than to build walls that'll just break."
+      ],
+      "reactions": [
+        "I've flooded enough basements to know that."
+      ],
+      "valence": "neutral",
+      "statCheck": "WIS",
+      "topic_category": "folk_wisdom",
+      "required_entities": [],
+      "location_scope": "universal",
+      "quest_trigger": null
+    },
+    {
+      "id": 125,
+      "intro": "A river that moves slow is usually deeper than it looks. Same goes for people.",
+      "details": [
+        "The loud, fast ones are easy to read. It's the calm ones you should pay attention to."
+      ],
+      "reactions": [
+        "I've misjudged a few quiet people in my time. Won't do it again."
+      ],
+      "valence": "neutral",
+      "statCheck": null,
+      "topic_category": "folk_wisdom",
+      "required_entities": [],
+      "location_scope": "universal",
+      "quest_trigger": null
+    },
+    {
+      "id": 126,
+      "intro": "A fire that's not tended goes out. Doesn't matter how big it was when it started.",
+      "details": [
+        "Friendships, skills, anything you care about: they all need feeding.",
+        "You can't just light it and walk away."
+      ],
+      "reactions": [
+        "I've let a few good fires go cold by neglect. I regret every one."
+      ],
+      "valence": "negative",
+      "statCheck": null,
+      "topic_category": "folk_wisdom",
+      "required_entities": [],
+      "location_scope": "universal",
+      "quest_trigger": null
+    },
+    {
+      "id": 127,
+      "intro": "Keep your hearth warm and your head cool. Best advice I ever got.",
+      "details": [
+        "Warm home, calm mind. That's most of what you need to get through anything.",
+        "The people who panic are the ones whose houses are already cold."
+      ],
+      "reactions": [
+        "It sounds too simple, but simple things usually work."
+      ],
+      "valence": "positive",
+      "statCheck": null,
+      "topic_category": "folk_wisdom",
+      "required_entities": [],
+      "location_scope": "universal",
+      "quest_trigger": null
+    },
+    {
+      "id": 128,
+      "intro": "Stones don't hurry. And yet the mountain's still there, isn't it?",
+      "details": [
+        "Everyone's rushing around like the world ends tomorrow. Meanwhile the oldest things in the world just sat still.",
+        "There's something to that. Patience outlasts everything."
+      ],
+      "reactions": [
+        "I'm trying to be more like a stone. Slowly."
+      ],
+      "valence": "positive",
+      "statCheck": null,
+      "topic_category": "folk_wisdom",
+      "required_entities": [],
+      "location_scope": "universal",
+      "quest_trigger": null
+    },
+    {
+      "id": 129,
+      "intro": "Wind tells you more than the sky does. If you want to know what weather's coming, wet your finger and hold it up.",
+      "details": [
+        "Clouds can fool you. Wind direction doesn't lie.",
+        "A shift from south to west means rain by evening, nine times out of ten."
+      ],
+      "reactions": [
+        "Old trick, but it works better than staring at clouds."
+      ],
+      "valence": "neutral",
+      "statCheck": null,
+      "topic_category": "folk_wisdom",
+      "required_entities": [],
+      "location_scope": "universal",
+      "quest_trigger": null
+    },
+    {
+      "id": 130,
+      "intro": "Harvest a day too early and you lose a little. Harvest a day too late and you lose everything.",
+      "details": [
+        "Timing's the whole game with crops. You can do everything else right and still ruin it by waiting.",
+        "My father lost a field of barley to one night of frost because he wanted just a bit more growth."
+      ],
+      "reactions": [
+        "Good enough at the right time beats perfect too late."
+      ],
+      "valence": "negative",
+      "statCheck": null,
+      "topic_category": "folk_wisdom",
+      "required_entities": [],
+      "location_scope": "universal",
+      "quest_trigger": null
+    },
+    {
+      "id": 131,
+      "intro": "An animal that won't eat is telling you something's wrong. Don't wait for the second sign.",
+      "details": [
+        "By the time a sick animal starts looking sick, you've already lost time.",
+        "Watch the appetite first. That's always the first thing to go."
+      ],
+      "reactions": [
+        "Saved a few good animals that way over the years."
+      ],
+      "valence": "neutral",
+      "statCheck": "WIS",
+      "topic_category": "folk_wisdom",
+      "required_entities": [],
+      "location_scope": "universal",
+      "quest_trigger": null
+    },
+    {
+      "id": 132,
+      "intro": "Good fences make good neighbors, but only if both sides agree where the fence goes.",
+      "details": [
+        "Put it up without asking and you've started a war that'll outlast you both.",
+        "I've seen families feud for generations over a fence line that was off by two feet."
+      ],
+      "reactions": [
+        "Talk first, build second. Always."
+      ],
+      "valence": "neutral",
+      "statCheck": null,
+      "topic_category": "folk_wisdom",
+      "required_entities": [],
+      "location_scope": "universal",
+      "quest_trigger": null
+    },
+    {
+      "id": 133,
+      "intro": "The road you know is always shorter than the road you don't. Even when it's longer.",
+      "details": [
+        "Shortcuts through unfamiliar ground cost more time than they save.",
+        "I've learned that the hard way, soaking wet in a ditch at midnight."
+      ],
+      "reactions": [
+        "Now I stick to what I know unless I've got daylight to spare."
+      ],
+      "valence": "neutral",
+      "statCheck": null,
+      "topic_category": "folk_wisdom",
+      "required_entities": [],
+      "location_scope": "universal",
+      "quest_trigger": null
+    },
+    {
+      "id": 134,
+      "intro": "Every path looks easy from the beginning. It's the middle that tests you.",
+      "details": [
+        "Starting's the fun part. The middle is where most people quit.",
+        "That's true of journeys, projects, marriages: all of it."
+      ],
+      "reactions": [
+        "If you can get through the middle, the end usually takes care of itself."
+      ],
+      "valence": "neutral",
+      "statCheck": "CON",
+      "topic_category": "folk_wisdom",
+      "required_entities": [],
+      "location_scope": "universal",
+      "quest_trigger": null
+    },
+    {
+      "id": 135,
+      "intro": "Measure twice, cut once: everyone says it, but almost nobody does it.",
+      "details": [
+        "Including me, about half the time. And I always regret it.",
+        "There's a pile of wasted wood behind my shed that proves the point."
+      ],
+      "reactions": [
+        "Knowing good advice and following it are two completely different things."
+      ],
+      "valence": "positive",
+      "statCheck": null,
+      "topic_category": "folk_wisdom",
+      "required_entities": [],
+      "location_scope": "universal",
+      "quest_trigger": null
+    },
+    {
+      "id": 136,
+      "intro": "Never buy from someone who's in a hurry to sell. Urgency is a warning, not a bargain.",
+      "details": [
+        "If it were worth what they're asking, they wouldn't be rushing to get rid of it.",
+        "The best deals I've made were the ones where nobody was in a rush."
+      ],
+      "reactions": [
+        "Patience at market saves more coin than haggling ever will."
+      ],
+      "valence": "neutral",
+      "statCheck": "INT",
+      "topic_category": "folk_wisdom",
+      "required_entities": [],
+      "location_scope": "universal",
+      "quest_trigger": null
+    },
+    {
+      "id": 137,
+      "intro": "The old ways aren't always better. But they've usually survived for a reason.",
+      "details": [
+        "Young people want to change everything, old people want to keep everything. The truth's usually somewhere in the middle.",
+        "I've seen new methods that were genuinely better. I've also seen plenty that were just different."
+      ],
+      "reactions": [
+        "I try to ask why before I ask why not."
+      ],
+      "valence": "neutral",
+      "statCheck": null,
+      "topic_category": "folk_wisdom",
+      "required_entities": [],
+      "location_scope": "universal",
+      "quest_trigger": null
+    },
+    {
+      "id": 138,
+      "intro": "Luck comes in streaks, good and bad. The trick is not to get cocky during the good ones.",
+      "details": [
+        "When things are going well, people start thinking they deserve it. Then they get sloppy.",
+        "Bad luck humbles you, good luck tests you. I'm not sure which is harder."
+      ],
+      "reactions": [
+        "I just try to stay even either way."
+      ],
+      "valence": "neutral",
+      "statCheck": null,
+      "topic_category": "folk_wisdom",
+      "required_entities": [],
+      "location_scope": "universal",
+      "quest_trigger": null
+    },
+    {
+      "id": 139,
+      "intro": "If someone shows you who they are the first time, believe them. Don't wait for the third or fourth.",
+      "details": [
+        "People tell you exactly what they're like if you pay attention early on.",
+        "The signs are always there. We just choose to ignore them because we want to be wrong."
+      ],
+      "reactions": [
+        "I've wasted too much time giving the benefit of the doubt to people who didn't deserve it."
+      ],
+      "valence": "negative",
+      "statCheck": "WIS",
+      "topic_category": "folk_wisdom",
+      "required_entities": [],
+      "location_scope": "universal",
+      "quest_trigger": null
+    },
+    {
+      "id": 140,
+      "intro": "A promise kept is worth more than a hundred nice words. I measure people by what they actually do.",
+      "details": [
+        "Talk costs nothing. That's why people spend it so freely.",
+        "Following through when it's inconvenient: that's the real test."
+      ],
+      "reactions": [
+        "I'd rather someone promise less and deliver more."
+      ],
+      "valence": "neutral",
+      "statCheck": null,
+      "topic_category": "folk_wisdom",
+      "required_entities": [],
+      "location_scope": "universal",
+      "quest_trigger": null
+    },
+    {
+      "id": 141,
+      "intro": "Silence between two people who are comfortable is the best kind of conversation.",
+      "details": [
+        "If you can sit with someone and not feel the need to fill every quiet moment, that's trust.",
+        "Most people are afraid of silence. I think it's peaceful."
+      ],
+      "reactions": [
+        "I have maybe three people I can be quiet with. That's plenty."
+      ],
+      "valence": "positive",
+      "statCheck": null,
+      "topic_category": "folk_wisdom",
+      "required_entities": [],
+      "location_scope": "universal",
+      "quest_trigger": null
+    },
+    {
+      "id": 142,
+      "intro": "Rumor's the only crop that grows without water or sunlight.",
+      "details": [
+        "Plant one seed of gossip and by next week it's a whole garden of nonsense.",
+        "I've heard stories about myself that I wouldn't even believe."
+      ],
+      "reactions": [
+        "Best thing you can do with a rumor is let it die in your mouth."
+      ],
+      "valence": "negative",
+      "statCheck": null,
+      "topic_category": "folk_wisdom",
+      "required_entities": [],
+      "location_scope": "universal",
+      "quest_trigger": null
+    },
+    {
+      "id": 143,
+      "intro": "Raise your children to leave. That's the hardest part of it, but it's the whole point.",
+      "details": [
+        "You spend twenty years making someone strong enough to not need you.",
+        "It's a strange kind of success when they actually go."
+      ],
+      "reactions": [
+        "I'm proud and I miss them. Both things are true."
+      ],
+      "valence": "negative",
+      "statCheck": null,
+      "topic_category": "folk_wisdom",
+      "required_entities": [],
+      "location_scope": "universal",
+      "quest_trigger": null
+    },
+    {
+      "id": 144,
+      "intro": "Never go to bed angry with someone you love. Not because it's noble, but because you'll sleep terrible.",
+      "details": [
+        "Your mind won't let it go. You'll lie there rehearsing arguments until dawn.",
+        "Settle it first. Even if the settlement is just agreeing to talk tomorrow."
+      ],
+      "reactions": [
+        "Practical advice disguised as romantic advice, really."
+      ],
+      "valence": "neutral",
+      "statCheck": null,
+      "topic_category": "folk_wisdom",
+      "required_entities": [],
+      "location_scope": "universal",
+      "quest_trigger": null
+    },
+    {
+      "id": 145,
+      "intro": "The farther you go from home, the bigger home gets in your mind. It's funny how that works.",
+      "details": [
+        "When I was here, I wanted to leave. When I left, all I thought about was coming back.",
+        "Distance turns ordinary things precious."
+      ],
+      "reactions": [
+        "Maybe we need to miss things to really appreciate them."
+      ],
+      "valence": "positive",
+      "statCheck": null,
+      "topic_category": "folk_wisdom",
+      "required_entities": [],
+      "location_scope": "universal",
+      "quest_trigger": null
+    },
+    {
+      "id": 146,
+      "intro": "The thing about fear is that it's usually bigger than whatever you're actually afraid of.",
+      "details": [
+        "I spent a month dreading a conversation that took five minutes.",
+        "The waiting is always worse than the doing."
+      ],
+      "reactions": [
+        "Now when I'm afraid of something, I try to get it over with fast."
+      ],
+      "valence": "neutral",
+      "statCheck": null,
+      "topic_category": "folk_wisdom",
+      "required_entities": [],
+      "location_scope": "universal",
+      "quest_trigger": null
+    },
+    {
+      "id": 147,
+      "intro": "Bravery's not about being fearless. It's about your knees shaking and walking forward anyway.",
+      "details": [
+        "The people I've known who did truly brave things were all terrified at the time.",
+        "They just decided it mattered more than the fear."
+      ],
+      "reactions": [
+        "I respect honest fear more than I respect false bravery."
+      ],
+      "valence": "positive",
+      "statCheck": "CON",
+      "topic_category": "folk_wisdom",
+      "required_entities": [],
+      "location_scope": "universal",
+      "quest_trigger": null
+    },
+    {
+      "id": 148,
+      "intro": "If you owe one person, that's your problem. If you owe everyone, that's everyone's problem.",
+      "details": [
+        "Small debts spread around add up to a town that doesn't trust you.",
+        "I've seen people become invisible in their own community because nobody wanted to be the next one they asked."
+      ],
+      "reactions": [
+        "Pay what you owe before you buy what you want. That's the rule."
+      ],
+      "valence": "negative",
+      "statCheck": null,
+      "topic_category": "folk_wisdom",
+      "required_entities": [],
+      "location_scope": "universal",
+      "quest_trigger": null
+    },
+    {
+      "id": 149,
+      "intro": "A full belly makes a generous heart. Never ask a favor from someone who hasn't eaten.",
+      "details": [
+        "It's not selfishness: you can't give from empty. Hunger makes everything small and urgent.",
+        "My mother always fed visitors before asking them anything."
+      ],
+      "reactions": [
+        "There's a reason every good deal starts over a meal."
+      ],
+      "valence": "positive",
+      "statCheck": null,
+      "topic_category": "folk_wisdom",
+      "required_entities": [],
+      "location_scope": "universal",
+      "quest_trigger": null
+    },
+    {
+      "id": 150,
+      "intro": "You can tell a lot about a winter by the thickness of the moss on the north side of the oaks.",
+      "details": [
+        "Thick moss means a wet cold, thin means a dry one. Both are miserable, just differently.",
+        "I've been checking since I was a child. It's right more often than not."
+      ],
+      "reactions": [
+        "People laugh at the old signs, but they keep working."
+      ],
+      "valence": "neutral",
+      "statCheck": "WIS",
+      "topic_category": "folk_wisdom",
+      "required_entities": [],
+      "location_scope": "universal",
+      "quest_trigger": null
+    },
+    {
+      "id": 151,
+      "intro": "When the wind shifts twice in one afternoon, stay home if you can. Weather can't make up its mind and neither should you.",
+      "details": [
+        "Indecisive skies mean storms that come from directions you didn't expect."
+      ],
+      "reactions": [
+        "I've been caught out in enough surprise squalls to respect that rule."
+      ],
+      "valence": "neutral",
+      "statCheck": null,
+      "topic_category": "folk_wisdom",
+      "required_entities": [],
+      "location_scope": "universal",
+      "quest_trigger": null
+    },
+    {
+      "id": 152,
+      "intro": "You can't rush a good harvest any more than you can rush a good friendship. Both need their own time.",
+      "details": [
+        "Pulling fruit early gives you something sour. Pushing people gives you something worse.",
+        "I've learned to let things ripen on their own."
+      ],
+      "reactions": [
+        "Patience costs nothing and pays well."
+      ],
+      "valence": "positive",
+      "statCheck": null,
+      "topic_category": "folk_wisdom",
+      "required_entities": [],
+      "location_scope": "universal",
+      "quest_trigger": null
+    },
+    {
+      "id": 153,
+      "intro": "Don't buy a goat from someone who only shows you its good side. Make them turn it around.",
+      "details": [
+        "That goes for animals, land, tools: anything someone's eager for you to buy.",
+        "If they won't let you look closely, there's a reason."
+      ],
+      "reactions": [
+        "I ask twice and look three times before I spend anything these days."
+      ],
+      "valence": "neutral",
+      "statCheck": "INT",
+      "topic_category": "folk_wisdom",
+      "required_entities": [],
+      "location_scope": "universal",
+      "quest_trigger": null
+    },
+    {
+      "id": 154,
+      "intro": "Your neighbor's field always looks greener. But you don't see the rocks they pulled out of it.",
+      "details": [
+        "Everyone's life looks easy from the outside. That's because you only see the results, not the work.",
+        "I used to envy people until I got to know them better."
+      ],
+      "reactions": [
+        "Now I tend my own field and stop looking over the fence."
+      ],
+      "valence": "neutral",
+      "statCheck": null,
+      "topic_category": "folk_wisdom",
+      "required_entities": [],
+      "location_scope": "universal",
+      "quest_trigger": null
+    },
+    {
+      "id": 155,
+      "intro": "The road that everyone takes is smooth for a reason. Doesn't mean it leads where you need to go.",
+      "details": [
+        "Popular paths are popular because they're safe, not because they're right.",
+        "Sometimes the overgrown trail is the one worth taking."
+      ],
+      "reactions": [
+        "But I'd be lying if I said I don't stick to the smooth road most days."
+      ],
+      "valence": "negative",
+      "statCheck": null,
+      "topic_category": "folk_wisdom",
+      "required_entities": [],
+      "location_scope": "universal",
+      "quest_trigger": null
+    },
+    {
+      "id": 156,
+      "intro": "A dull blade is more dangerous than a sharp one. That's true of tools and of minds.",
+      "details": [
+        "Dull tools slip. You push harder, you lose control, and that's when people get hurt.",
+        "Sharp things do exactly what you point them at."
+      ],
+      "reactions": [
+        "I sharpen everything on the first of the month. Haven't cut myself since."
+      ],
+      "valence": "neutral",
+      "statCheck": "INT",
+      "topic_category": "folk_wisdom",
+      "required_entities": [],
+      "location_scope": "universal",
+      "quest_trigger": null
+    },
+    {
+      "id": 157,
+      "intro": "At market, the loudest seller has the worst goods. The one standing quietly in the corner: that's who you want.",
+      "details": [
+        "If your product speaks for itself, you don't need to shout.",
+        "The ones yelling about bargains are the ones most desperate to move their stock."
+      ],
+      "reactions": [
+        "I've saved a lot of coin by shopping with my eyes instead of my ears."
+      ],
+      "valence": "neutral",
+      "statCheck": null,
+      "topic_category": "folk_wisdom",
+      "required_entities": [],
+      "location_scope": "universal",
+      "quest_trigger": null
+    },
+    {
+      "id": 158,
+      "intro": "New ways aren't wrong just for being new. But they aren't right just for being new either.",
+      "details": [
+        "I've seen clever improvements and I've seen people change things that were working fine out of boredom.",
+        "The question isn't old or new. It's whether it actually works better."
+      ],
+      "reactions": [
+        "Show me results and I'll change my mind about anything."
+      ],
+      "valence": "neutral",
+      "statCheck": null,
+      "topic_category": "folk_wisdom",
+      "required_entities": [],
+      "location_scope": "universal",
+      "quest_trigger": null
+    },
+    {
+      "id": 159,
+      "intro": "Never underestimate a person who's been unlucky. They've had more practice dealing with trouble than you have.",
+      "details": [
+        "The person who's failed ten times knows ten things that don't work. That's worth something.",
+        "Easy lives don't build strong people. I've noticed that."
+      ],
+      "reactions": [
+        "Give me someone who's been knocked down and got back up. That's who I want beside me."
+      ],
+      "valence": "positive",
+      "statCheck": null,
+      "topic_category": "folk_wisdom",
+      "required_entities": [],
+      "location_scope": "universal",
+      "quest_trigger": null
+    },
+    {
+      "id": 160,
+      "intro": "When two people argue and neither will back down, it stopped being about the argument a long time ago.",
+      "details": [
+        "It's about pride by then. The original disagreement barely matters.",
+        "I've watched people fight for an hour over something neither of them actually cared about."
+      ],
+      "reactions": [
+        "The first person to stop talking usually wins. They just don't know it yet."
+      ],
+      "valence": "neutral",
+      "statCheck": "WIS",
+      "topic_category": "folk_wisdom",
+      "required_entities": [],
+      "location_scope": "universal",
+      "quest_trigger": null
+    },
+    {
+      "id": 161,
+      "intro": "Forgive quickly and you'll sleep well, hold grudges and you'll sleep alone. My aunt said that at every wedding.",
+      "details": [
+        "She was married forty years, so I figure she knew what she was talking about.",
+        "Not everyone deserves forgiveness, mind. But the ones close to you usually do."
+      ],
+      "reactions": [
+        "I try to forgive before sundown. Don't always manage it, but I try."
+      ],
+      "valence": "positive",
+      "statCheck": null,
+      "topic_category": "folk_wisdom",
+      "required_entities": [],
+      "location_scope": "universal",
+      "quest_trigger": null
+    },
+    {
+      "id": 162,
+      "intro": "A child who asks too many questions is annoying. A child who stops asking questions is worrying.",
+      "details": [
+        "Curiosity means they're still growing. Silence means something got to them.",
+        "I'd rather answer the same question thirty times than wonder why they've gone quiet."
+      ],
+      "reactions": [
+        "Let them ask and answer honestly. That's most of the job."
+      ],
+      "valence": "neutral",
+      "statCheck": null,
+      "topic_category": "folk_wisdom",
+      "required_entities": [],
+      "location_scope": "universal",
+      "quest_trigger": null
+    },
+    {
+      "id": 163,
+      "intro": "If you want to know a person's character, watch how they treat someone who can't do anything for them.",
+      "details": [
+        "Kindness to the useful is just strategy. Kindness to the useless: that's the real thing."
+      ],
+      "reactions": [
+        "I pay attention to that more than anything else about a person."
+      ],
+      "valence": "positive",
+      "statCheck": null,
+      "topic_category": "folk_wisdom",
+      "required_entities": [],
+      "location_scope": "universal",
+      "quest_trigger": null
+    },
+    {
+      "id": 164,
+      "intro": "Sunrise is the most honest time of day. Everything looks exactly the way it is.",
+      "details": [
+        "No shadows to hide in, no darkness to make things mysterious.",
+        "By afternoon everything's got angles and stories. Morning's just facts."
+      ],
+      "reactions": [
+        "I make all my real decisions before noon if I can."
+      ],
+      "valence": "positive",
+      "statCheck": null,
+      "topic_category": "folk_wisdom",
+      "required_entities": [],
+      "location_scope": "universal",
+      "quest_trigger": null
+    },
+    {
+      "id": 165,
+      "intro": "Every sunset you see is one someone else missed. I try to remember that.",
+      "details": [
+        "Makes the ordinary evenings feel a little less ordinary.",
+        "My wife used to stand on the porch every evening just to watch the sky change. I thought she was wasting time, but she wasn't."
+      ],
+      "reactions": [
+        "I stand on that porch now."
+      ],
+      "valence": "negative",
+      "statCheck": null,
+      "topic_category": "folk_wisdom",
+      "required_entities": [],
+      "location_scope": "universal",
+      "quest_trigger": null
+    },
+    {
+      "id": 166,
+      "intro": "Don't cross a river until you can see the bottom. And even then, use a stick.",
+      "details": [
+        "Applies to rivers and to decisions. Test the ground before you commit your weight.",
+        "My brother lost a boot in a crossing he was sure about. Could've been worse."
+      ],
+      "reactions": [
+        "Caution's only slow until you see what it saves you."
+      ],
+      "valence": "neutral",
+      "statCheck": "WIS",
+      "topic_category": "folk_wisdom",
+      "required_entities": [],
+      "location_scope": "universal",
+      "quest_trigger": null
+    },
+    {
+      "id": 167,
+      "intro": "A fire needs three things: fuel, air, and patience. Take away any one and it dies.",
+      "details": [
+        "People smother their fires by piling on too much too fast. You have to let it breathe.",
+        "Same with people, honestly. Give them room to catch."
+      ],
+      "reactions": [
+        "I've burned more good kindling by being impatient than I'd like to admit."
+      ],
+      "valence": "neutral",
+      "statCheck": null,
+      "topic_category": "folk_wisdom",
+      "required_entities": [],
+      "location_scope": "universal",
+      "quest_trigger": null
+    },
+    {
+      "id": 168,
+      "intro": "Stone remembers everything. That's why old walls tell better stories than old people.",
+      "details": [
+        "You can read the history of a place in its stonework if you know how to look.",
+        "Every crack, every repair, every replaced block: it's all there."
+      ],
+      "reactions": [
+        "I like knowing the walls will still be here long after I'm not."
+      ],
+      "valence": "neutral",
+      "statCheck": null,
+      "topic_category": "folk_wisdom",
+      "required_entities": [],
+      "location_scope": "universal",
+      "quest_trigger": null
+    },
+    {
+      "id": 169,
+      "intro": "When the wind blows from the north for three days straight, something's changing. Mark my words.",
+      "details": [
+        "Could be weather, could be something else. But sustained north wind always precedes a shift.",
+        "The animals know it before we do. Watch how restless they get."
+      ],
+      "reactions": [
+        "I don't know why it works. I just know it does."
+      ],
+      "valence": "neutral",
+      "statCheck": "WIS",
+      "topic_category": "folk_wisdom",
+      "required_entities": [],
+      "location_scope": "universal",
+      "quest_trigger": null
+    },
+    {
+      "id": 170,
+      "intro": "Pick your crop a day early and eat well. Pick it a day late and feed the worms.",
+      "details": [
+        "Every farmer thinks they have one more day, and most of the time they do. But the one time they don't wipes out the gain.",
+        "I'd rather have a slightly green apple than no apple at all."
+      ],
+      "reactions": [
+        "Good enough today beats perfect never."
+      ],
+      "valence": "neutral",
+      "statCheck": null,
+      "topic_category": "folk_wisdom",
+      "required_entities": [],
+      "location_scope": "universal",
+      "quest_trigger": null
+    },
+    {
+      "id": 171,
+      "intro": "A chicken that won't roost with the others is either sick or about to be. Separate it before you lose the flock.",
+      "details": [
+        "It's harsh, maybe. But one sick bird can empty a coop in a week.",
+        "The same principle works with people, though I'd never say it out loud."
+      ],
+      "reactions": [
+        "Well. I guess I just did say it out loud."
+      ],
+      "valence": "neutral",
+      "statCheck": null,
+      "topic_category": "folk_wisdom",
+      "required_entities": [],
+      "location_scope": "universal",
+      "quest_trigger": null
+    },
+    {
+      "id": 172,
+      "intro": "Fix the gate before the cow gets out, not after. After is chasing.",
+      "details": [
+        "Prevention is boring. Nobody wants to fix things that aren't broken yet.",
+        "But the person who fixes the gate on a quiet afternoon saves themselves a frantic evening."
+      ],
+      "reactions": [
+        "I try to spend my calm days preparing for the chaotic ones."
+      ],
+      "valence": "positive",
+      "statCheck": null,
+      "topic_category": "folk_wisdom",
+      "required_entities": [],
+      "location_scope": "universal",
+      "quest_trigger": null
+    },
+    {
+      "id": 173,
+      "intro": "A craft you know halfway is more dangerous than a craft you don't know at all.",
+      "details": [
+        "Complete ignorance makes you cautious. A little knowledge makes you reckless.",
+        "The worst mistakes I've seen came from people who knew just enough to be confident."
+      ],
+      "reactions": [
+        "Either learn it all the way or hire someone who has."
+      ],
+      "valence": "negative",
+      "statCheck": "INT",
+      "topic_category": "folk_wisdom",
+      "required_entities": [],
+      "location_scope": "universal",
+      "quest_trigger": null
+    },
+    {
+      "id": 174,
+      "intro": "The price of something and the value of something are rarely the same number.",
+      "details": [
+        "The most expensive thing at market isn't always the best. And the cheapest isn't always a bargain.",
+        "Value is what it's worth to you, not what the seller says it's worth to them."
+      ],
+      "reactions": [
+        "I decide what I need before I see what they're selling. Saves a lot of trouble."
+      ],
+      "valence": "neutral",
+      "statCheck": "INT",
+      "topic_category": "folk_wisdom",
+      "required_entities": [],
+      "location_scope": "universal",
+      "quest_trigger": null
+    },
+    {
+      "id": 175,
+      "intro": "You can learn a new trick at any age. It's just that after forty you need a better reason.",
+      "details": [
+        "Young people learn for curiosity. Old people learn for necessity.",
+        "Both work fine. The old way's just more efficient."
+      ],
+      "reactions": [
+        "I picked up mending last year at fifty-three. My socks have never been better."
+      ],
+      "valence": "positive",
+      "statCheck": null,
+      "topic_category": "folk_wisdom",
+      "required_entities": [],
+      "location_scope": "universal",
+      "quest_trigger": null
+    },
+    {
+      "id": 176,
+      "intro": "Lend tools, not money. A borrowed hammer comes back, but borrowed coin doesn't.",
+      "details": [
+        "And if the hammer comes back broken, at least you know what happened to it.",
+        "Money just vanishes. No explanation, no timeline, no return."
+      ],
+      "reactions": [
+        "I've lost friends over coin. Never lost one over a shovel."
+      ],
+      "valence": "neutral",
+      "statCheck": null,
+      "topic_category": "folk_wisdom",
+      "required_entities": [],
+      "location_scope": "universal",
+      "quest_trigger": null
+    },
+    {
+      "id": 177,
+      "intro": "When somebody tells you they've changed, wait a season. If it's still true after a hard frost, it's real.",
+      "details": [
+        "Anyone can be different when things are easy. Change only counts when it survives pressure.",
+        "I've seen a lot of summer promises melt by winter."
+      ],
+      "reactions": [
+        "I believe in change. I just don't believe in it quickly."
+      ],
+      "valence": "negative",
+      "statCheck": null,
+      "topic_category": "folk_wisdom",
+      "required_entities": [],
+      "location_scope": "universal",
+      "quest_trigger": null
+    },
+    {
+      "id": 178,
+      "intro": "A heavy silence after a question is usually worth more than a quick answer.",
+      "details": [
+        "When someone pauses before they speak, they're actually thinking. That's rare.",
+        "Quick answers come from habit. Slow answers come from consideration."
+      ],
+      "reactions": [
+        "I've started trusting the people who take their time more than the ones with ready answers."
+      ],
+      "valence": "neutral",
+      "statCheck": null,
+      "topic_category": "folk_wisdom",
+      "required_entities": [],
+      "location_scope": "universal",
+      "quest_trigger": null
+    },
+    {
+      "id": 179,
+      "intro": "Grief shared is grief halved. But only if the other person actually listens instead of trying to fix it.",
+      "details": [
+        "Most people hear sadness and immediately want to solve it. That's not what's needed.",
+        "Sometimes you just need someone to sit there and say nothing useful at all."
+      ],
+      "reactions": [
+        "The best comfort I ever got was someone who just brought soup and didn't talk."
+      ],
+      "valence": "negative",
+      "statCheck": null,
+      "topic_category": "folk_wisdom",
+      "required_entities": [],
+      "location_scope": "universal",
+      "quest_trigger": null
+    },
+    {
+      "id": 180,
+      "intro": "Pride tastes good going down and terrible coming back up.",
+      "details": [
+        "It feels wonderful to be right. Right up until the moment you realize you've pushed everyone away.",
+        "I'd rather be kind than correct. Took me far too long to learn that."
+      ],
+      "reactions": [
+        "Swallowing your pride is bitter, but it's better than choking on it."
+      ],
+      "valence": "negative",
+      "statCheck": null,
+      "topic_category": "folk_wisdom",
+      "required_entities": [],
+      "location_scope": "universal",
+      "quest_trigger": null
+    },
+    {
+      "id": 181,
+      "intro": "A stubborn person and a rock have a lot in common. Both are hard to move and neither knows why they're staying.",
+      "details": [
+        "I've been that rock more times than I care to count.",
+        "Sometimes you dig in just because someone told you to move. Not because the spot was worth keeping."
+      ],
+      "reactions": [
+        "Pick your ground carefully. Not every hill is worth standing on."
+      ],
+      "valence": "neutral",
+      "statCheck": null,
+      "topic_category": "folk_wisdom",
+      "required_entities": [],
+      "location_scope": "universal",
+      "quest_trigger": null
+    },
+    {
+      "id": 182,
+      "intro": "If you can't say something in ten words, you probably don't understand it well enough yet.",
+      "details": [
+        "Long explanations usually mean the speaker is figuring it out as they go.",
+        "Clarity is short. Confusion is wordy."
+      ],
+      "reactions": [
+        "I try to keep things brief. Clearly I'm not always successful."
+      ],
+      "valence": "neutral",
+      "statCheck": null,
+      "topic_category": "folk_wisdom",
+      "required_entities": [],
+      "location_scope": "universal",
+      "quest_trigger": null
+    },
+    {
+      "id": 183,
+      "intro": "You find out who really loves you when you have nothing to offer. The rest were just comfortable.",
+      "details": [
+        "Plenty of people around when things are good. Watch how fast a room empties when things go wrong.",
+        "Not blaming them. Just noticing."
+      ],
+      "reactions": [
+        "The ones who stayed during my worst year: those are my people."
+      ],
+      "valence": "negative",
+      "statCheck": null,
+      "topic_category": "folk_wisdom",
+      "required_entities": [],
+      "location_scope": "universal",
+      "quest_trigger": null
+    },
+    {
+      "id": 184,
+      "intro": "Marry someone who makes you laugh. Looks fade, money goes, but someone who can make you laugh at the end of a terrible day is worth everything.",
+      "details": [
+        "My parents weren't wealthy or beautiful, but their kitchen was the loudest room in any house I've been in.",
+        "I think that's what kept them together through the hard parts."
+      ],
+      "reactions": [
+        "I got lucky in that department, at least."
+      ],
+      "valence": "positive",
+      "statCheck": null,
+      "topic_category": "folk_wisdom",
+      "required_entities": [],
+      "location_scope": "universal",
+      "quest_trigger": null
+    },
+    {
+      "id": 185,
+      "intro": "Don't trust someone who agrees with everything you say. They either aren't listening or they want something.",
+      "details": [
+        "Real respect looks like honest disagreement. Someone who cares enough to argue is someone who cares.",
+        "The yes-people disappear when you actually need them."
+      ],
+      "reactions": [
+        "Give me a friend who tells me I'm wrong over one who smiles and nods."
+      ],
+      "valence": "neutral",
+      "statCheck": "WIS",
+      "topic_category": "folk_wisdom",
+      "required_entities": [],
+      "location_scope": "universal",
+      "quest_trigger": null
+    },
+    {
+      "id": 186,
+      "intro": "I've noticed that the people who talk most about loyalty are usually the ones about to betray you.",
+      "details": [
+        "Loyal people don't announce it. They just are.",
+        "It's the ones making speeches about trust who have something to hide."
+      ],
+      "reactions": [
+        "Watch the quiet ones. They're the ones actually keeping their word."
+      ],
+      "valence": "negative",
+      "statCheck": null,
+      "topic_category": "folk_wisdom",
+      "required_entities": [],
+      "location_scope": "universal",
+      "quest_trigger": null
+    },
+    {
+      "id": 187,
+      "intro": "A warm fire in a cold room is worth more than a sack of gold in a warm one.",
+      "details": [
+        "Comfort matters more than wealth when you're actually suffering.",
+        "I've been rich and cold and poor and warm. I know which I preferred."
+      ],
+      "reactions": [
+        "Keep the fire lit. Everything else can wait."
+      ],
+      "valence": "neutral",
+      "statCheck": null,
+      "topic_category": "folk_wisdom",
+      "required_entities": [],
+      "location_scope": "universal",
+      "quest_trigger": null
+    },
+    {
+      "id": 188,
+      "intro": "Rest when you can, not when you need to. By the time you need it, you've already gone too far.",
+      "details": [
+        "I used to push through every tired feeling. Told myself it was discipline.",
+        "Turns out the body keeps a tab, and it always comes collecting."
+      ],
+      "reactions": [
+        "Now I sit down before my legs tell me to. Feels lazy, but it works better."
+      ],
+      "valence": "positive",
+      "statCheck": null,
+      "topic_category": "folk_wisdom",
+      "required_entities": [],
+      "location_scope": "universal",
+      "quest_trigger": null
+    },
+    {
+      "id": 189,
+      "intro": "There's an old saying that a watched pot never boils. I'd add that an unwatched pot always boils over.",
+      "details": [
+        "You've got to find the middle. Check in, but don't hover.",
+        "Applies to cooking, children, and crops."
+      ],
+      "reactions": [
+        "I've burned enough dinners to have earned that wisdom."
+      ],
+      "valence": "neutral",
+      "statCheck": null,
+      "topic_category": "folk_wisdom",
+      "required_entities": [],
+      "location_scope": "universal",
+      "quest_trigger": null
+    },
+    {
+      "id": 190,
+      "intro": "Never make a decision when you're angry. You'll be efficient, sure, but you'll be efficiently wrong.",
+      "details": [
+        "Anger makes everything feel simple and clear. That's the trap: it hides the things you should be thinking about.",
+        "I've fired off words in anger that I'm still paying for years later."
+      ],
+      "reactions": [
+        "If I'm furious, I do something with my hands and decide tomorrow."
+      ],
+      "valence": "neutral",
+      "statCheck": "WIS",
+      "topic_category": "folk_wisdom",
+      "required_entities": [],
+      "location_scope": "universal",
+      "quest_trigger": null
+    },
+    {
+      "id": 191,
+      "intro": "The road doesn't care where you're going: it just goes where it goes. You're the one who has to decide when to leave it.",
+      "details": [
+        "Easy to keep walking just because the path is there. Harder to step off into the grass when you need to.",
+        "I've followed comfortable roads to places I didn't want to be."
+      ],
+      "reactions": [
+        "Sometimes the right move is sideways."
+      ],
+      "valence": "neutral",
+      "statCheck": null,
+      "topic_category": "folk_wisdom",
+      "required_entities": [],
+      "location_scope": "universal",
+      "quest_trigger": null
+    },
+    {
+      "id": 192,
+      "intro": "A good cobbler doesn't argue about boots: they just make better ones than the last pair and let the work talk.",
+      "details": [
+        "Best craftspeople I know don't boast. They just hand you the thing and let you judge.",
+        "If you have to explain why something is good, it probably isn't."
+      ],
+      "reactions": [
+        "I respect people who prove things instead of promising things."
+      ],
+      "valence": "positive",
+      "statCheck": null,
+      "topic_category": "folk_wisdom",
+      "required_entities": [],
+      "location_scope": "universal",
+      "quest_trigger": null
+    },
+    {
+      "id": 193,
+      "intro": "Buy once from a seller and you're a customer. Buy three times and they own you.",
+      "details": [
+        "Loyalty to a merchant should be earned fresh every time, not assumed.",
+        "The moment they think you'll always come back, the quality drops."
+      ],
+      "reactions": [
+        "I shop around even when I'm happy. Keeps everyone honest."
+      ],
+      "valence": "neutral",
+      "statCheck": "INT",
+      "topic_category": "folk_wisdom",
+      "required_entities": [],
+      "location_scope": "universal",
+      "quest_trigger": null
+    },
+    {
+      "id": 194,
+      "intro": "The old ways survived because they worked, not because they were easy. Don't confuse tradition with laziness.",
+      "details": [
+        "Some traditions are dead weight. But the ones that stuck around through hard times earned their place.",
+        "Throwing everything out because it's old is just as foolish as keeping everything because it's familiar."
+      ],
+      "reactions": [
+        "I keep what works and discard what doesn't. Doesn't matter how old it is."
+      ],
+      "valence": "neutral",
+      "statCheck": null,
+      "topic_category": "folk_wisdom",
+      "required_entities": [],
+      "location_scope": "universal",
+      "quest_trigger": null
+    },
+    {
+      "id": 195,
+      "intro": "Bad luck is just a story you tell about things you didn't see coming. Next time, look harder.",
+      "details": [
+        "Not all of it, mind. Some things really are out of your hands.",
+        "But most of what people call bad luck had warning signs they chose to ignore."
+      ],
+      "reactions": [
+        "I'm harder on myself about that than I used to be. Probably too hard."
+      ],
+      "valence": "negative",
+      "statCheck": "WIS",
+      "topic_category": "folk_wisdom",
+      "required_entities": [],
+      "location_scope": "universal",
+      "quest_trigger": null
+    },
+    {
+      "id": 196,
+      "intro": "If the river bends, don't fight it: go where it goes and correct after. Fighting the current just tires you out.",
+      "details": [
+        "Most struggles aren't about the obstacle: they're about insisting on a straight line.",
+        "Work with what's in front of you, not against it."
+      ],
+      "reactions": [
+        "I wasted a lot of years swimming upstream before I figured that out."
+      ],
+      "valence": "neutral",
+      "statCheck": null,
+      "topic_category": "folk_wisdom",
+      "required_entities": [],
+      "location_scope": "universal",
+      "quest_trigger": null
+    },
+    {
+      "id": 197,
+      "intro": "A good rest is worth more than a good plan. Plans need energy, and energy needs sleep.",
+      "details": [
+        "I used to stay up late scheming about tomorrow. Then I'd be too tired to do any of it.",
+        "Now I go to bed early and figure things out in the morning."
+      ],
+      "reactions": [
+        "The best idea I ever had came after ten hours of sleep."
+      ],
+      "valence": "positive",
+      "statCheck": null,
+      "topic_category": "folk_wisdom",
+      "required_entities": [],
+      "location_scope": "universal",
+      "quest_trigger": null
+    },
+    {
+      "id": 198,
+      "intro": "Don't count another person's blessings. You'll always get the number wrong.",
+      "details": [
+        "From the outside, everyone looks like they have it figured out. Nobody does.",
+        "Comparison's a thief. Steals your contentment without giving anything back."
+      ],
+      "reactions": [
+        "I mind my own portion these days. It's enough."
+      ],
+      "valence": "neutral",
+      "statCheck": null,
+      "topic_category": "folk_wisdom",
+      "required_entities": [],
+      "location_scope": "universal",
+      "quest_trigger": null
+    },
+    {
+      "id": 199,
+      "intro": "At the end of the day, the fire doesn't care who lit it. It just warms whoever's sitting closest.",
+      "details": [
+        "People argue about credit and blame and who did what. The fire just burns.",
+        "Good work helps people regardless of who gets the recognition."
+      ],
+      "reactions": [
+        "I've stopped worrying about who gets credit. I just want to be warm."
+      ],
+      "valence": "positive",
+      "statCheck": null,
+      "topic_category": "folk_wisdom",
+      "required_entities": [],
+      "location_scope": "universal",
+      "quest_trigger": null
+    }
+  ]
+}

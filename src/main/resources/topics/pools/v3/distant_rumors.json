@@ -250,6 +250,2729 @@
       ],
       "location_scope": "regional",
       "quest_trigger": null
+    },
+    {
+      "id": 12,
+      "intro": "A peddler from {other_settlement} said their well went dry last month. Whole town sharing one stream now.",
+      "details": [
+        "He said people are hauling water in buckets from half a mile out. That's no way to live.",
+        "They're digging a new one, but nobody knows if they'll hit water before the dry season gets worse."
+      ],
+      "reactions": [
+        "Makes you look at your own well a little differently."
+      ],
+      "statCheck": null,
+      "valence": "negative",
+      "topic_category": "distant_rumors",
+      "required_entities": [
+        "settlement"
+      ],
+      "location_scope": "regional",
+      "quest_trigger": null
+    },
+    {
+      "id": 13,
+      "intro": "I heard {other_settlement} started a communal bakery. Everyone pitches in flour, everyone gets bread.",
+      "details": [
+        "Sounds nice in theory. I wonder how long before someone starts complaining about portions."
+      ],
+      "reactions": [
+        "I like the idea. Whether it works is another question."
+      ],
+      "statCheck": null,
+      "valence": "positive",
+      "topic_category": "distant_rumors",
+      "required_entities": [
+        "settlement"
+      ],
+      "location_scope": "regional",
+      "quest_trigger": null
+    },
+    {
+      "id": 14,
+      "intro": "Word from a carter is that the road to {other_settlement} has gotten bad. Ruts deep enough to snap an axle.",
+      "details": [
+        "Nobody's maintaining it. Both sides figure the other should be doing the work.",
+        "A couple of traders have started taking the long way around instead."
+      ],
+      "reactions": [
+        "Roads don't fix themselves. Somebody's going to have to blink first."
+      ],
+      "statCheck": null,
+      "valence": "negative",
+      "topic_category": "distant_rumors",
+      "required_entities": [
+        "settlement"
+      ],
+      "location_scope": "regional",
+      "quest_trigger": null
+    },
+    {
+      "id": 15,
+      "intro": "A merchant told me {other_settlement} has been buying up all the {resource_type} they can find. Prices are climbing.",
+      "details": [
+        "Whatever they're building over there, it must be big. They're paying above market and not haggling.",
+        "Our own supply is getting thinner because of it."
+      ],
+      "reactions": [
+        "I don't mind competition, but I do mind paying more for what I need."
+      ],
+      "statCheck": {
+        "pass": "That kind of buying pattern usually means a public works project: a wall or a bridge. Bulk demand like that stabilizes after a few months.",
+        "fail": "I don't understand trade well enough to guess what they're up to."
+      },
+      "valence": "negative",
+      "topic_category": "distant_rumors",
+      "required_entities": [
+        "settlement"
+      ],
+      "location_scope": "regional",
+      "quest_trigger": null
+    },
+    {
+      "id": 16,
+      "intro": "Someone said {other_settlement} has a new blacksmith who's actually good. First one in years.",
+      "details": [
+        "Apparently the old one was turning out bent nails and dull blades. People were ordering from elsewhere.",
+        "The new one trained somewhere south, or so the story goes."
+      ],
+      "reactions": [
+        "A good smith changes a whole settlement. Everything works better when your tools do."
+      ],
+      "statCheck": null,
+      "valence": "positive",
+      "topic_category": "distant_rumors",
+      "required_entities": [
+        "settlement"
+      ],
+      "location_scope": "regional",
+      "quest_trigger": null
+    },
+    {
+      "id": 17,
+      "intro": "I heard the folk in {other_settlement} had some kind of sickness go through. Nothing deadly, just miserable.",
+      "details": [
+        "Stomach trouble, mostly. Half the settlement flat on their backs for a week.",
+        "A traveler said it was the water. Someone else blamed bad grain."
+      ],
+      "reactions": [
+        "Glad it stayed over there. That sounds awful."
+      ],
+      "statCheck": {
+        "pass": "If it passed in a week, it was probably food contamination, not the water. Waterborne illness lingers longer.",
+        "fail": "I wouldn't know the first thing about diagnosing that."
+      },
+      "valence": "negative",
+      "topic_category": "distant_rumors",
+      "required_entities": [
+        "settlement"
+      ],
+      "location_scope": "regional",
+      "quest_trigger": null
+    },
+    {
+      "id": 18,
+      "intro": "A trader mentioned that {other_settlement} has been real quiet lately. Fewer people at the market, fewer lights at night.",
+      "details": [
+        "Could be nothing. Could be a bad season. Could be worse.",
+        "He said even the tavern was half empty, which is the part that worried him."
+      ],
+      "reactions": [
+        "A quiet settlement is either very content or very not. Hard to tell from here."
+      ],
+      "statCheck": null,
+      "valence": "neutral",
+      "topic_category": "distant_rumors",
+      "required_entities": [
+        "settlement"
+      ],
+      "location_scope": "regional",
+      "quest_trigger": null
+    },
+    {
+      "id": 19,
+      "intro": "Word is {other_settlement} threw some kind of feast last month. Three days of it.",
+      "details": [
+        "A passing carter said you could smell the roasting meat from the road. Sounded like quite the event.",
+        "Nobody here got an invite, which stings a little if I'm honest."
+      ],
+      "reactions": [
+        "Good for them. We could use something like that ourselves."
+      ],
+      "statCheck": null,
+      "valence": "positive",
+      "topic_category": "distant_rumors",
+      "required_entities": [
+        "settlement"
+      ],
+      "location_scope": "regional",
+      "quest_trigger": null
+    },
+    {
+      "id": 20,
+      "intro": "I keep hearing that {other_settlement} is growing fast. New faces every week, apparently.",
+      "details": [
+        "More people means more trade, but it also means more mouths and more arguments.",
+        "A traveler said they can't build houses fast enough to keep up."
+      ],
+      "reactions": [
+        "Growth sounds good until you're living through it. Then it's just noise and crowding."
+      ],
+      "statCheck": null,
+      "valence": "neutral",
+      "topic_category": "distant_rumors",
+      "required_entities": [
+        "settlement"
+      ],
+      "location_scope": "regional",
+      "quest_trigger": null
+    },
+    {
+      "id": 21,
+      "intro": "A traveler said {other_settlement} lost their healer. Moved on to somewhere bigger.",
+      "details": [
+        "That's the trouble with small places: you can't always keep the people you need most.",
+        "Apparently they've been making do with herb teas and old remedies since."
+      ],
+      "reactions": [
+        "I hope nobody gets seriously hurt over there before they find a new one."
+      ],
+      "statCheck": null,
+      "valence": "negative",
+      "topic_category": "distant_rumors",
+      "required_entities": [
+        "settlement"
+      ],
+      "location_scope": "regional",
+      "quest_trigger": null
+    },
+    {
+      "id": 22,
+      "intro": "Somebody told me {other_settlement} put up a watchtower. First real structure like that they've built.",
+      "details": [
+        "Not sure what they're watching for. Could just be a status thing.",
+        "Or maybe they know something about what's out there that we don't."
+      ],
+      "reactions": [
+        "If they feel like they need a watchtower, maybe we should be paying more attention too."
+      ],
+      "statCheck": {
+        "pass": "A watchtower makes sense at their elevation: you can see two valleys from that ridge. It's practical, not paranoid.",
+        "fail": "I've never been out that way, so I can't say if it's warranted."
+      },
+      "valence": "neutral",
+      "topic_category": "distant_rumors",
+      "required_entities": [
+        "settlement"
+      ],
+      "location_scope": "regional",
+      "quest_trigger": null
+    },
+    {
+      "id": 23,
+      "intro": "I heard the elder in {other_settlement} has been making unpopular decisions. People are grumbling.",
+      "details": [
+        "Something about changing the market rules. The traders are unhappy, which means everyone hears about it.",
+        "A peddler said there was actual shouting at a town meeting last week."
+      ],
+      "reactions": [
+        "Every leader makes decisions people hate. It's whether they make enough good ones to balance it out."
+      ],
+      "statCheck": null,
+      "valence": "negative",
+      "topic_category": "distant_rumors",
+      "required_entities": [
+        "settlement"
+      ],
+      "location_scope": "regional",
+      "quest_trigger": null
+    },
+    {
+      "id": 24,
+      "intro": "A passing merchant said the food in {other_settlement} is better than anything we've got here. I took that personally.",
+      "details": [
+        "He was going on about some stew they make with herbs that grow in their hills. Said it ruined other food for him.",
+        "Merchants will say anything to make conversation, but he seemed sincere."
+      ],
+      "reactions": [
+        "I'll put our bread against theirs any day. The rest, maybe not."
+      ],
+      "statCheck": null,
+      "valence": "neutral",
+      "topic_category": "distant_rumors",
+      "required_entities": [
+        "settlement"
+      ],
+      "location_scope": "regional",
+      "quest_trigger": null
+    },
+    {
+      "id": 25,
+      "intro": "Word is a family from {other_settlement} is thinking about moving here. Looking for a quieter life.",
+      "details": [
+        "They sent word ahead asking about land and trade. Seems serious, not just idle talk.",
+        "We could use more hands around here, honestly."
+      ],
+      "reactions": [
+        "Fresh faces would be welcome. This place could do with some new energy."
+      ],
+      "statCheck": null,
+      "valence": "positive",
+      "topic_category": "distant_rumors",
+      "required_entities": [
+        "settlement"
+      ],
+      "location_scope": "regional",
+      "quest_trigger": null
+    },
+    {
+      "id": 26,
+      "intro": "The {resource_type} coming from {other_settlement} lately has been surprisingly good. Better than what we produce ourselves.",
+      "details": [
+        "I don't know what they're doing differently, but the quality is noticeable.",
+        "A few people here have started buying theirs instead of sourcing local. Can't blame them."
+      ],
+      "reactions": [
+        "Competition keeps everyone honest. If their stuff is better, we need to step up."
+      ],
+      "statCheck": null,
+      "valence": "neutral",
+      "topic_category": "distant_rumors",
+      "required_entities": [
+        "settlement"
+      ],
+      "location_scope": "regional",
+      "quest_trigger": null
+    },
+    {
+      "id": 27,
+      "intro": "I heard a fire went through part of {other_settlement}. Nobody hurt, but a few buildings are gone.",
+      "details": [
+        "A trader said it started in a storage shed and jumped to the neighbor's roof. Dry season.",
+        "They were already clearing rubble and talking about rebuilding when he left."
+      ],
+      "reactions": [
+        "That's the thing about fire: it doesn't care how hard you worked on what it takes."
+      ],
+      "statCheck": {
+        "pass": "If they packed storage sheds tight against houses, that was inevitable. You need firebreaks between structures, even small gaps help.",
+        "fail": "Fires happen. Not much you can do once they start except get out of the way."
+      },
+      "valence": "negative",
+      "topic_category": "distant_rumors",
+      "required_entities": [
+        "settlement"
+      ],
+      "location_scope": "regional",
+      "quest_trigger": null
+    },
+    {
+      "id": 28,
+      "intro": "Somebody passing through said {other_settlement} has the friendliest people they've ever met. Made me feel a bit inadequate.",
+      "details": [
+        "Apparently a stranger can walk in and get offered a meal within the hour. That's uncommon.",
+        "We're not unfriendly here, but we're not exactly rolling out carpets for everyone either."
+      ],
+      "reactions": [
+        "Maybe we could try harder. Or maybe they're just better at pretending."
+      ],
+      "statCheck": null,
+      "valence": "neutral",
+      "topic_category": "distant_rumors",
+      "required_entities": [
+        "settlement"
+      ],
+      "location_scope": "regional",
+      "quest_trigger": null
+    },
+    {
+      "id": 29,
+      "intro": "A carter told me {other_settlement} has been turning traders away. Not buying, not selling. Just closed up.",
+      "details": [
+        "He couldn't get a straight answer about why. Just got waved off at the edge of town.",
+        "That's strange behavior for a place that depends on trade as much as they do."
+      ],
+      "reactions": [
+        "Something's going on over there. People don't shut their doors for no reason."
+      ],
+      "statCheck": {
+        "pass": "Could be quarantine: if sickness went through, closing trade routes is the right move even if it looks hostile.",
+        "fail": "I can't figure it out from this far away."
+      },
+      "valence": "negative",
+      "topic_category": "distant_rumors",
+      "required_entities": [
+        "settlement"
+      ],
+      "location_scope": "regional",
+      "quest_trigger": null
+    },
+    {
+      "id": 30,
+      "intro": "Word is the hunting near {other_settlement} has dried up. Game moving to different grounds.",
+      "details": [
+        "A trapper passing through said the deer have shifted north. Nobody knows why.",
+        "Their hunters are coming back empty-handed more days than not."
+      ],
+      "reactions": [
+        "Animals move when something changes. The question is what changed."
+      ],
+      "statCheck": {
+        "pass": "Could be overhunting, could be a predator moving into the area pushing prey out. Either way, the game won't come back until the pressure eases.",
+        "fail": "I'm no tracker. Animals do what they do."
+      },
+      "valence": "negative",
+      "topic_category": "distant_rumors",
+      "required_entities": [
+        "settlement"
+      ],
+      "location_scope": "regional",
+      "quest_trigger": null
+    },
+    {
+      "id": 31,
+      "intro": "A merchant from {other_settlement} was selling pottery here last week. Beautiful stuff, better than I expected.",
+      "details": [
+        "Glazed with this blue color I've never seen before. She said the clay near their river fires differently.",
+        "Sold out in half a day. People were fighting over the last few pieces."
+      ],
+      "reactions": [
+        "I hope she comes back. I wasn't quick enough to get one."
+      ],
+      "statCheck": null,
+      "valence": "positive",
+      "topic_category": "distant_rumors",
+      "required_entities": [
+        "settlement"
+      ],
+      "location_scope": "regional",
+      "quest_trigger": null
+    },
+    {
+      "id": 32,
+      "intro": "I heard two families in {other_settlement} have been feuding for months. The kind of thing that poisons a whole town.",
+      "details": [
+        "Started over a property line, apparently. Now neither side will speak to anyone who talks to the other.",
+        "A trader said picking a side is practically required if you want to do business there."
+      ],
+      "reactions": [
+        "Feuds like that always seem small from the outside and enormous from the inside."
+      ],
+      "statCheck": null,
+      "valence": "negative",
+      "topic_category": "distant_rumors",
+      "required_entities": [
+        "settlement"
+      ],
+      "location_scope": "regional",
+      "quest_trigger": null
+    },
+    {
+      "id": 33,
+      "intro": "Word is {other_settlement} found a good vein of {resource_type} nearby. Lucky them.",
+      "details": [
+        "A trader said they've already started pulling it out. Should set them up nicely for a while.",
+        "Of course, half the region will want a piece of that before long."
+      ],
+      "reactions": [
+        "Good luck to them. Wealth from the ground has a way of causing as many problems as it solves."
+      ],
+      "statCheck": {
+        "pass": "A new vein means they'll undercut regional prices for a season until supply stabilizes. Good time to buy if you need {resource_type}.",
+        "fail": "I don't know much about mining. Sounds like a windfall though."
+      },
+      "valence": "positive",
+      "topic_category": "distant_rumors",
+      "required_entities": [
+        "settlement"
+      ],
+      "location_scope": "regional",
+      "quest_trigger": null
+    },
+    {
+      "id": 34,
+      "intro": "A traveler mentioned that {other_settlement} has a new teacher. First one the children there have had in a while.",
+      "details": [
+        "Apparently the last one left years ago and nobody replaced them. Kids were learning from whoever had time.",
+        "The new one's young but dedicated, from what I heard."
+      ],
+      "reactions": [
+        "Every settlement needs someone who cares about the next generation. That's how you survive."
+      ],
+      "statCheck": null,
+      "valence": "positive",
+      "topic_category": "distant_rumors",
+      "required_entities": [
+        "settlement"
+      ],
+      "location_scope": "regional",
+      "quest_trigger": null
+    },
+    {
+      "id": 35,
+      "intro": "I heard {other_settlement} had wolves getting into their livestock pens. Third time this season.",
+      "details": [
+        "A herder from there was complaining about it to anyone who'd listen. Lost four sheep in one night.",
+        "They've been building the fences higher, but wolves are patient."
+      ],
+      "reactions": [
+        "That's the kind of problem that gets worse before it gets better."
+      ],
+      "statCheck": null,
+      "valence": "negative",
+      "topic_category": "distant_rumors",
+      "required_entities": [
+        "settlement"
+      ],
+      "location_scope": "regional",
+      "quest_trigger": null
+    },
+    {
+      "id": 36,
+      "intro": "Somebody told me the bridge near {other_settlement} finally collapsed. They'd been patching it for years.",
+      "details": [
+        "Nobody was on it when it went, thank goodness. But now they have to go the long way for everything.",
+        "A trader said the detour adds half a day to any trip through there."
+      ],
+      "reactions": [
+        "That's what happens when you patch instead of rebuild. The thing gives up on you eventually."
+      ],
+      "statCheck": {
+        "pass": "Wooden bridges on running water last about fifteen years if maintained. If they were patching, it was already past its span. Stone footings would've lasted three times as long.",
+        "fail": "Bridges aren't my area. I just know it's bad when they fall down."
+      },
+      "valence": "negative",
+      "topic_category": "distant_rumors",
+      "required_entities": [
+        "settlement"
+      ],
+      "location_scope": "regional",
+      "quest_trigger": null
+    },
+    {
+      "id": 37,
+      "intro": "A merchant said people in {other_settlement} have been talking about us. Apparently we've got a reputation for stubbornness.",
+      "details": [
+        "He said it like it was funny. I'm not sure it was meant as a compliment.",
+        "To be fair, we do tend to dig in when we've made up our minds about something."
+      ],
+      "reactions": [
+        "I'd rather be stubborn than spineless. But maybe that proves his point."
+      ],
+      "statCheck": null,
+      "valence": "neutral",
+      "topic_category": "distant_rumors",
+      "required_entities": [
+        "settlement"
+      ],
+      "location_scope": "regional",
+      "quest_trigger": null
+    },
+    {
+      "id": 38,
+      "intro": "Word is {other_settlement} planted an orchard last spring. They're thinking long term over there.",
+      "details": [
+        "Won't bear fruit for a few years yet, but that's the point. They're planning ahead.",
+        "Apple trees, mostly. Maybe some pear. That's what a traveler said, anyway."
+      ],
+      "reactions": [
+        "Planting trees you won't eat from for years takes a kind of faith I admire."
+      ],
+      "statCheck": null,
+      "valence": "positive",
+      "topic_category": "distant_rumors",
+      "required_entities": [
+        "settlement"
+      ],
+      "location_scope": "regional",
+      "quest_trigger": null
+    },
+    {
+      "id": 39,
+      "intro": "A peddler from {other_settlement} said their nights have been noisy lately. Animals in the woods acting strange.",
+      "details": [
+        "More howling than usual, birds taking off at odd hours. The kind of thing that puts people on edge.",
+        "He didn't seem worried exactly, just unsettled."
+      ],
+      "reactions": [
+        "Animals know things before we do. I'd be paying attention if I lived there."
+      ],
+      "statCheck": {
+        "pass": "Disrupted animal patterns usually mean a new predator in the territory. The smaller creatures react first, then it ripples up.",
+        "fail": "Could be anything. Nature does what it wants."
+      },
+      "valence": "negative",
+      "topic_category": "distant_rumors",
+      "required_entities": [
+        "settlement"
+      ],
+      "location_scope": "regional",
+      "quest_trigger": null
+    },
+    {
+      "id": 40,
+      "intro": "I heard {other_settlement} has a woman who brews the best ale in the region. Traders go out of their way for it.",
+      "details": [
+        "She uses some local grain that only grows in their valley. You can't replicate it elsewhere, or so they claim.",
+        "A carter said he's tasted it twice and both times it was the best thing he'd had all year."
+      ],
+      "reactions": [
+        "I'd try it if I could get my hands on some. But I'm not making a special trip for ale."
+      ],
+      "statCheck": null,
+      "valence": "positive",
+      "topic_category": "distant_rumors",
+      "required_entities": [
+        "settlement"
+      ],
+      "location_scope": "regional",
+      "quest_trigger": null
+    },
+    {
+      "id": 41,
+      "intro": "Somebody from {other_settlement} was asking around here about our water supply. Seemed very interested in our well system.",
+      "details": [
+        "They took notes. Actual notes, on paper. That's more effort than casual curiosity.",
+        "I think their own water situation isn't great and they're looking for ideas."
+      ],
+      "reactions": [
+        "I don't mind sharing what works. No sense in hoarding knowledge about wells."
+      ],
+      "statCheck": null,
+      "valence": "neutral",
+      "topic_category": "distant_rumors",
+      "required_entities": [
+        "settlement"
+      ],
+      "location_scope": "regional",
+      "quest_trigger": null
+    },
+    {
+      "id": 42,
+      "intro": "A trader told me {other_settlement} has more children than they know what to do with. Place is overrun with them.",
+      "details": [
+        "He said you can't walk through their market without tripping over a kid. Sounded chaotic.",
+        "But honestly, a settlement full of children is a settlement with a future."
+      ],
+      "reactions": [
+        "Noisy problem to have, but a good one."
+      ],
+      "statCheck": null,
+      "valence": "neutral",
+      "topic_category": "distant_rumors",
+      "required_entities": [
+        "settlement"
+      ],
+      "location_scope": "regional",
+      "quest_trigger": null
+    },
+    {
+      "id": 43,
+      "intro": "I heard the last two traders from {other_settlement} both showed up looking exhausted. Road must be getting dangerous.",
+      "details": [
+        "One of them said they traveled through the night because they didn't feel safe stopping.",
+        "The other wouldn't talk about it at all, which says more than complaining would."
+      ],
+      "reactions": [
+        "If traders start avoiding a route, the rest of us should take notice."
+      ],
+      "statCheck": null,
+      "valence": "negative",
+      "topic_category": "distant_rumors",
+      "required_entities": [
+        "settlement"
+      ],
+      "location_scope": "regional",
+      "quest_trigger": null
+    },
+    {
+      "id": 44,
+      "intro": "Word is {other_settlement} started a market day. Once a week, open to outsiders.",
+      "details": [
+        "A few of our people have been going. They say the selection is decent, prices fair.",
+        "It's been drawing traders from further out too. Could turn into something real."
+      ],
+      "reactions": [
+        "Markets build connections. If theirs does well, it helps everyone in the area."
+      ],
+      "statCheck": null,
+      "valence": "positive",
+      "topic_category": "distant_rumors",
+      "required_entities": [
+        "settlement"
+      ],
+      "location_scope": "regional",
+      "quest_trigger": null
+    },
+    {
+      "id": 45,
+      "intro": "A merchant mentioned that {other_settlement} owes money to practically every trader in the region.",
+      "details": [
+        "He said they've been buying on credit for months. Always promising to pay next time.",
+        "That only works until people stop believing the promise."
+      ],
+      "reactions": [
+        "Debt catches up with you. It always does."
+      ],
+      "statCheck": {
+        "pass": "Sounds like they overextended after a bad harvest: took on credit expecting the next season to cover it. Risky, but understandable if they had no reserves.",
+        "fail": "I'm not one to judge someone else's finances."
+      },
+      "valence": "negative",
+      "topic_category": "distant_rumors",
+      "required_entities": [
+        "settlement"
+      ],
+      "location_scope": "regional",
+      "quest_trigger": null
+    },
+    {
+      "id": 46,
+      "intro": "I heard {other_settlement} has a new cobbled road running through the center of town. Proper stonework.",
+      "details": [
+        "A traveler said it makes the whole place feel different. More put-together.",
+        "Our paths are still dirt and mud, for reference."
+      ],
+      "reactions": [
+        "A good road's not glamorous, but it matters more than people think."
+      ],
+      "statCheck": null,
+      "valence": "neutral",
+      "topic_category": "distant_rumors",
+      "required_entities": [
+        "settlement"
+      ],
+      "location_scope": "regional",
+      "quest_trigger": null
+    },
+    {
+      "id": 47,
+      "intro": "Someone passing through from {other_settlement} said their beekeeper got stung so many times he quit. No more honey from there.",
+      "details": [
+        "That's one of those jobs where losing the one person who does it affects everyone.",
+        "Apparently nobody else wants to take over. Can't say I blame them."
+      ],
+      "reactions": [
+        "We take honey for granted until there's none. Then suddenly everyone misses it."
+      ],
+      "statCheck": null,
+      "valence": "neutral",
+      "topic_category": "distant_rumors",
+      "required_entities": [
+        "settlement"
+      ],
+      "location_scope": "regional",
+      "quest_trigger": null
+    },
+    {
+      "id": 48,
+      "intro": "A trader from {other_settlement} told me their harvest festival was the best one yet. Went on for two days.",
+      "details": [
+        "Music, contests, more food than anyone could eat. He said even the grumpy old folks were smiling.",
+        "They apparently invited a few families from neighboring areas too."
+      ],
+      "reactions": [
+        "Sounds like they're doing something right over there. A good festival means the year's been kind."
+      ],
+      "statCheck": null,
+      "valence": "positive",
+      "topic_category": "distant_rumors",
+      "required_entities": [
+        "settlement"
+      ],
+      "location_scope": "regional",
+      "quest_trigger": null
+    },
+    {
+      "id": 49,
+      "intro": "I heard someone in {other_settlement} has been hoarding {resource_type}. Buying it all up and sitting on it.",
+      "details": [
+        "A peddler said one person owns more than the rest of the settlement combined. That breeds resentment fast.",
+        "Nobody there wants to confront them about it directly, but people are talking."
+      ],
+      "reactions": [
+        "Hoarding only works until your neighbors decide they've had enough of it."
+      ],
+      "statCheck": null,
+      "valence": "negative",
+      "topic_category": "distant_rumors",
+      "required_entities": [
+        "settlement"
+      ],
+      "location_scope": "regional",
+      "quest_trigger": null
+    },
+    {
+      "id": 50,
+      "intro": "A carter who passes through {other_settlement} regularly said the mood there has lifted. People seem happier than last year.",
+      "details": [
+        "He couldn't point to one reason. Just a general feeling that things were going better.",
+        "Sometimes a place just turns a corner. You don't always know why."
+      ],
+      "reactions": [
+        "That's good to hear. Not everything has to have a dramatic reason behind it."
+      ],
+      "statCheck": null,
+      "valence": "positive",
+      "topic_category": "distant_rumors",
+      "required_entities": [
+        "settlement"
+      ],
+      "location_scope": "regional",
+      "quest_trigger": null
+    },
+    {
+      "id": 51,
+      "intro": "Word is the carpenter in {other_settlement} has been teaching apprentices. Three of them at once.",
+      "details": [
+        "A passing trader said the workshop's so busy you can hear the hammering from the road.",
+        "If those apprentices stick with it, that settlement's going to be well-supplied for a generation."
+      ],
+      "reactions": [
+        "Passing on skills is the most useful thing anyone can do. I respect that."
+      ],
+      "statCheck": null,
+      "valence": "positive",
+      "topic_category": "distant_rumors",
+      "required_entities": [
+        "settlement"
+      ],
+      "location_scope": "regional",
+      "quest_trigger": null
+    },
+    {
+      "id": 52,
+      "intro": "I heard a couple from here split up and one of them moved to {other_settlement}. Awkward for everyone.",
+      "details": [
+        "The one who stayed doesn't talk about it. The one who left apparently tells a very different story.",
+        "A trader from there mentioned it without realizing I knew them. Small world."
+      ],
+      "reactions": [
+        "People's business is their own, but gossip doesn't respect that."
+      ],
+      "statCheck": null,
+      "valence": "neutral",
+      "topic_category": "distant_rumors",
+      "required_entities": [
+        "settlement"
+      ],
+      "location_scope": "regional",
+      "quest_trigger": null
+    },
+    {
+      "id": 53,
+      "intro": "A traveler mentioned that {other_settlement} has started taxing traders passing through. Just a small toll, but still.",
+      "details": [
+        "The traders are furious about it. Some are threatening to bypass the settlement entirely.",
+        "It's a risky move: you want trade, you don't charge for the privilege of showing up."
+      ],
+      "reactions": [
+        "I understand needing coin, but taxing trade is a good way to kill it."
+      ],
+      "statCheck": {
+        "pass": "Small tolls work if the settlement offers something you can't get elsewhere: a safe crossing, a good market. Otherwise traders just route around you.",
+        "fail": "I don't know enough about trade policy to judge."
+      },
+      "valence": "negative",
+      "topic_category": "distant_rumors",
+      "required_entities": [
+        "settlement"
+      ],
+      "location_scope": "regional",
+      "quest_trigger": null
+    },
+    {
+      "id": 54,
+      "intro": "Someone told me {other_settlement} has a garden that's become the pride of the whole place. Flowers and herbs, perfectly kept.",
+      "details": [
+        "One woman tends it, apparently. Gets up before dawn every day to work on it.",
+        "A trader said people come from other settlements just to look at it. That's something."
+      ],
+      "reactions": [
+        "There's value in making something beautiful for its own sake. We forget that sometimes."
+      ],
+      "statCheck": null,
+      "valence": "positive",
+      "topic_category": "distant_rumors",
+      "required_entities": [
+        "settlement"
+      ],
+      "location_scope": "regional",
+      "quest_trigger": null
+    },
+    {
+      "id": 55,
+      "intro": "Word from a peddler is that {other_settlement} can't agree on anything right now. Every decision turns into a fight.",
+      "details": [
+        "He said a simple vote on fixing the market stalls took three meetings and ended in shouting.",
+        "When a place gets like that, nothing gets done and everyone's miserable."
+      ],
+      "reactions": [
+        "We've had stretches like that here too. It passes, but it's exhausting while it lasts."
+      ],
+      "statCheck": null,
+      "valence": "negative",
+      "topic_category": "distant_rumors",
+      "required_entities": [
+        "settlement"
+      ],
+      "location_scope": "regional",
+      "quest_trigger": null
+    },
+    {
+      "id": 56,
+      "intro": "I heard {other_settlement} repaired their grain storage just in time for the harvest. Good timing for once.",
+      "details": [
+        "A trader said the old one was leaking and they lost a quarter of last year's supply to rot.",
+        "This year they reinforced it properly. Should hold."
+      ],
+      "reactions": [
+        "Learning from mistakes: what a concept. More places should try it."
+      ],
+      "statCheck": null,
+      "valence": "positive",
+      "topic_category": "distant_rumors",
+      "required_entities": [
+        "settlement"
+      ],
+      "location_scope": "regional",
+      "quest_trigger": null
+    },
+    {
+      "id": 57,
+      "intro": "A trader claims {other_settlement} has been sending people out to explore the wilds beyond the hills. Scouting for something.",
+      "details": [
+        "He didn't know what they were looking for. New land, resources, maybe just curiosity.",
+        "Our folk don't tend to venture that far. We stay where we know the ground."
+      ],
+      "reactions": [
+        "Ambitious, I suppose. I prefer knowing what's under my feet."
+      ],
+      "statCheck": null,
+      "valence": "neutral",
+      "topic_category": "distant_rumors",
+      "required_entities": [
+        "settlement"
+      ],
+      "location_scope": "regional",
+      "quest_trigger": null
+    },
+    {
+      "id": 58,
+      "intro": "Somebody mentioned {other_settlement} has a storyteller who draws a crowd every evening. Real talented, they say.",
+      "details": [
+        "Travelers detour through just to hear them. That's rare for someone who's not selling anything.",
+        "I've never been much for stories myself, but I understand the appeal."
+      ],
+      "reactions": [
+        "A good storyteller holds a place together in ways you don't notice until they're gone."
+      ],
+      "statCheck": null,
+      "valence": "positive",
+      "topic_category": "distant_rumors",
+      "required_entities": [
+        "settlement"
+      ],
+      "location_scope": "regional",
+      "quest_trigger": null
+    },
+    {
+      "id": 59,
+      "intro": "I heard the soil near {other_settlement} has been getting sandy. Fields that used to produce well are struggling.",
+      "details": [
+        "A farmer from there was talking to one of ours about it. Sounded worried.",
+        "He said the topsoil's just thinner every year. The rain washes more away each spring."
+      ],
+      "reactions": [
+        "Land doesn't give forever. You have to give back to it or it quits on you."
+      ],
+      "statCheck": {
+        "pass": "Erosion like that means they cleared too many trees uphill. The roots were holding the soil. Without them, the rain carries it all downslope.",
+        "fail": "Dirt's dirt to me. But if the farmers are worried, that's worth taking seriously."
+      },
+      "valence": "negative",
+      "topic_category": "distant_rumors",
+      "required_entities": [
+        "settlement"
+      ],
+      "location_scope": "regional",
+      "quest_trigger": null
+    },
+    {
+      "id": 60,
+      "intro": "Word is somebody from {other_settlement} invented a new kind of plow. Cuts deeper with less effort, apparently.",
+      "details": [
+        "A trader said the farmers over there swear by it. Claims it cut their tilling time in half.",
+        "Of course, I've heard about miracle plows before. Usually turns out to be exaggeration."
+      ],
+      "reactions": [
+        "If it's real, I wouldn't mind getting a look at one."
+      ],
+      "statCheck": {
+        "pass": "An angled iron share would do it: cuts under the root layer instead of scraping over it. Simple change, big difference if nobody had thought of it before.",
+        "fail": "I wouldn't know a good plow from a bad one."
+      },
+      "valence": "neutral",
+      "topic_category": "distant_rumors",
+      "required_entities": [
+        "settlement"
+      ],
+      "location_scope": "regional",
+      "quest_trigger": null
+    },
+    {
+      "id": 61,
+      "intro": "A passing traveler said {other_settlement} smells terrible right now. Something about a tanning operation gone wrong.",
+      "details": [
+        "Apparently whoever's tanning hides did something that turned the whole creek foul.",
+        "People downwind are furious. You can smell it from the main road."
+      ],
+      "reactions": [
+        "Tanning always stinks, but there's regular stink and there's something-went-wrong stink."
+      ],
+      "statCheck": null,
+      "valence": "negative",
+      "topic_category": "distant_rumors",
+      "required_entities": [
+        "settlement"
+      ],
+      "location_scope": "regional",
+      "quest_trigger": null
+    },
+    {
+      "id": 62,
+      "intro": "I heard {other_settlement} hosted a wedding that lasted three days. The whole settlement was invited.",
+      "details": [
+        "A merchant who happened to be there said the food alone was worth the trip.",
+        "Two families joining together, apparently. Both well-liked, so everyone celebrated."
+      ],
+      "reactions": [
+        "Nice to hear about something good happening for once."
+      ],
+      "statCheck": null,
+      "valence": "positive",
+      "topic_category": "distant_rumors",
+      "required_entities": [
+        "settlement"
+      ],
+      "location_scope": "regional",
+      "quest_trigger": null
+    },
+    {
+      "id": 63,
+      "intro": "Word is traders from {other_settlement} have been undercutting our prices at every market they visit. It's deliberate.",
+      "details": [
+        "They sell at a loss just to take the business. Can't last forever, but it's hurting our folk now.",
+        "A few of our merchants have started complaining about it to anyone who'll listen."
+      ],
+      "reactions": [
+        "There's competing and then there's sabotage. This feels closer to the second."
+      ],
+      "statCheck": {
+        "pass": "Selling below cost is a short-term strategy: they're trying to establish dominance in the market and bank on loyalty once they raise prices later. Classic move.",
+        "fail": "I don't understand why anyone would sell at a loss on purpose."
+      },
+      "valence": "negative",
+      "topic_category": "distant_rumors",
+      "required_entities": [
+        "settlement"
+      ],
+      "location_scope": "regional",
+      "quest_trigger": null
+    },
+    {
+      "id": 64,
+      "intro": "Somebody said {other_settlement} has a dog that can herd sheep better than most people. It's become famous locally.",
+      "details": [
+        "Travelers mention this dog more than anything else about the place. Says something, doesn't it?",
+        "The owner supposedly just whistles and the whole flock moves exactly where it should."
+      ],
+      "reactions": [
+        "I'd take a good working dog over half the help I've had."
+      ],
+      "statCheck": null,
+      "valence": "neutral",
+      "topic_category": "distant_rumors",
+      "required_entities": [
+        "settlement"
+      ],
+      "location_scope": "regional",
+      "quest_trigger": null
+    },
+    {
+      "id": 65,
+      "intro": "A peddler told me half the young people in {other_settlement} want to leave. Not enough to keep them there.",
+      "details": [
+        "He said the older folk are worried. Once the young ones go, who does the heavy work?",
+        "It's the same story everywhere: small places struggle to hold onto their next generation."
+      ],
+      "reactions": [
+        "You can't make people stay. You can only make the place worth staying in."
+      ],
+      "statCheck": null,
+      "valence": "negative",
+      "topic_category": "distant_rumors",
+      "required_entities": [
+        "settlement"
+      ],
+      "location_scope": "regional",
+      "quest_trigger": null
+    },
+    {
+      "id": 66,
+      "intro": "I heard {other_settlement} found out their storage keeper has been skimming from the communal grain. Bad business.",
+      "details": [
+        "Trust like that is hard to rebuild once it's broken. The whole system depends on honesty.",
+        "A trader said the keeper denied it but the numbers didn't add up."
+      ],
+      "reactions": [
+        "Stealing from the common store is as low as it gets. Everyone suffers for one person's greed."
+      ],
+      "statCheck": null,
+      "valence": "negative",
+      "topic_category": "distant_rumors",
+      "required_entities": [
+        "settlement"
+      ],
+      "location_scope": "regional",
+      "quest_trigger": null
+    },
+    {
+      "id": 67,
+      "intro": "Word is {other_settlement} has been sending more trade goods our way lately. Seems like they want closer ties.",
+      "details": [
+        "Better prices too, almost generous. Makes you wonder what they want in return.",
+        "Or maybe they just have surplus and we're the nearest buyer. Not everything has to be calculated."
+      ],
+      "reactions": [
+        "I'll take good trade wherever it comes from. Motives matter less than results."
+      ],
+      "statCheck": null,
+      "valence": "positive",
+      "topic_category": "distant_rumors",
+      "required_entities": [
+        "settlement"
+      ],
+      "location_scope": "regional",
+      "quest_trigger": null
+    },
+    {
+      "id": 68,
+      "intro": "A traveler from {other_settlement} mentioned they've been getting less rain than usual. Everything's drier over there.",
+      "details": [
+        "The river near them has dropped noticeably. Fields that border it are pulling back from the bank.",
+        "She said people are talking about it but nobody's panicking yet."
+      ],
+      "reactions": [
+        "Dry spells end. But they can take their time about it."
+      ],
+      "statCheck": {
+        "pass": "If the river's dropping, their aquifer is probably lower too. Wells will be next to feel it. They should be rationing now, not when it's critical.",
+        "fail": "Weather's weather. Not much anyone can do but wait."
+      },
+      "valence": "negative",
+      "topic_category": "distant_rumors",
+      "required_entities": [
+        "settlement"
+      ],
+      "location_scope": "regional",
+      "quest_trigger": null
+    },
+    {
+      "id": 69,
+      "intro": "I heard a woodworker from {other_settlement} carved a sign for their entrance gate. Really detailed, apparently.",
+      "details": [
+        "A carter said it's the first thing you see coming in. Makes the place feel established.",
+        "Our entrance is a muddy path between two bushes, for comparison."
+      ],
+      "reactions": [
+        "Small touches like that change how a place feels. We could learn from it."
+      ],
+      "statCheck": null,
+      "valence": "neutral",
+      "topic_category": "distant_rumors",
+      "required_entities": [
+        "settlement"
+      ],
+      "location_scope": "regional",
+      "quest_trigger": null
+    },
+    {
+      "id": 70,
+      "intro": "A merchant said {other_settlement} has been dealing with rats. A real infestation, not just the usual few.",
+      "details": [
+        "He said you can hear them in the walls of the grain store. The cats can't keep up.",
+        "It started after they expanded the storage without sealing the old foundation properly."
+      ],
+      "reactions": [
+        "Rats are the kind of problem that's embarrassing and serious at the same time."
+      ],
+      "statCheck": {
+        "pass": "You need to seal at the foundation level: copper mesh in the gaps. Cats handle scouts, but a real colony needs to be cut off from food, not chased.",
+        "fail": "I'm no expert on pest control. I just know it's a miserable situation."
+      },
+      "valence": "negative",
+      "topic_category": "distant_rumors",
+      "required_entities": [
+        "settlement"
+      ],
+      "location_scope": "regional",
+      "quest_trigger": null
+    },
+    {
+      "id": 71,
+      "intro": "Word is the midwife in {other_settlement} has delivered every baby born there for thirty years. Still going strong.",
+      "details": [
+        "A traveler mentioned it casually, but think about that: thirty years of being the person everyone relies on.",
+        "She's apparently training a replacement, which is smart. Can't do it forever."
+      ],
+      "reactions": [
+        "Some people carry a settlement on their back and never ask for credit. She sounds like one."
+      ],
+      "statCheck": null,
+      "valence": "positive",
+      "topic_category": "distant_rumors",
+      "required_entities": [
+        "settlement"
+      ],
+      "location_scope": "regional",
+      "quest_trigger": null
+    },
+    {
+      "id": 72,
+      "intro": "I heard {other_settlement} refused to help a neighboring village with their flooding. Just turned them away.",
+      "details": [
+        "The story might be exaggerated. But the version I heard makes them sound cold.",
+        "Apparently they had their own problems at the time, which is fair, but still."
+      ],
+      "reactions": [
+        "You help your neighbors because someday you'll need them to help you. That's how it works."
+      ],
+      "statCheck": null,
+      "valence": "negative",
+      "topic_category": "distant_rumors",
+      "required_entities": [
+        "settlement"
+      ],
+      "location_scope": "regional",
+      "quest_trigger": null
+    },
+    {
+      "id": 73,
+      "intro": "A trader told me {other_settlement} has started growing a grain variety we've never seen here. Hardier stuff, apparently.",
+      "details": [
+        "It does well in poor soil, which their land has been leaning toward lately.",
+        "The bread from it is denser, but a farmer's family over there swears by it."
+      ],
+      "reactions": [
+        "If it works for them, maybe we should ask for some seed. Never hurts to have options."
+      ],
+      "statCheck": {
+        "pass": "Hardy grain varieties trade yield for reliability: less per acre, but it survives drought and frost better. Worth having in reserve even if you don't plant it every year.",
+        "fail": "I don't know much about grain varieties. If it makes bread, it's fine by me."
+      },
+      "valence": "neutral",
+      "topic_category": "distant_rumors",
+      "required_entities": [
+        "settlement"
+      ],
+      "location_scope": "regional",
+      "quest_trigger": null
+    },
+    {
+      "id": 74,
+      "intro": "Somebody said a stranger showed up in {other_settlement} last month and just stayed. Nobody knows where they came from.",
+      "details": [
+        "They keep to themselves, apparently. Polite enough, but no answers about their past.",
+        "A peddler said the locals don't know what to make of them."
+      ],
+      "reactions": [
+        "Everyone's from somewhere. They'll talk when they're ready, or they won't."
+      ],
+      "statCheck": null,
+      "valence": "neutral",
+      "topic_category": "distant_rumors",
+      "required_entities": [
+        "settlement"
+      ],
+      "location_scope": "regional",
+      "quest_trigger": null
+    },
+    {
+      "id": 75,
+      "intro": "Word is {other_settlement} cleared a new field for planting. Doubled their growing area in one season.",
+      "details": [
+        "A trader said they had the whole settlement out there with axes and shovels. Real effort.",
+        "That kind of project doesn't happen unless people believe in where they're living."
+      ],
+      "reactions": [
+        "Good for them. Expanding means they plan to be around a while."
+      ],
+      "statCheck": null,
+      "valence": "positive",
+      "topic_category": "distant_rumors",
+      "required_entities": [
+        "settlement"
+      ],
+      "location_scope": "regional",
+      "quest_trigger": null
+    },
+    {
+      "id": 76,
+      "intro": "I heard the fishing near {other_settlement} has been incredible this season. More than they can eat.",
+      "details": [
+        "Salted fish from there is showing up in every trader's cart. Cheap too.",
+        "A merchant said the creek's just full of them. Something about the rains pushing fish upstream."
+      ],
+      "reactions": [
+        "Abundance is nice while it lasts. Smart of them to salt the surplus."
+      ],
+      "statCheck": null,
+      "valence": "positive",
+      "topic_category": "distant_rumors",
+      "required_entities": [
+        "settlement"
+      ],
+      "location_scope": "regional",
+      "quest_trigger": null
+    },
+    {
+      "id": 77,
+      "intro": "A peddler said the people in {other_settlement} argue louder than any place he's been. Every conversation's a debate.",
+      "details": [
+        "He said ordering a meal at their tavern turned into a fifteen-minute discussion about potatoes.",
+        "It was funny to him. I'm not sure the people living there find it as amusing."
+      ],
+      "reactions": [
+        "Some places are just like that. Opinionated people aren't bad people. They're just exhausting."
+      ],
+      "statCheck": null,
+      "valence": "neutral",
+      "topic_category": "distant_rumors",
+      "required_entities": [
+        "settlement"
+      ],
+      "location_scope": "regional",
+      "quest_trigger": null
+    },
+    {
+      "id": 78,
+      "intro": "I heard {other_settlement} has a night watch now. Volunteers walking the perimeter after dark.",
+      "details": [
+        "A trader mentioned it like it was no big deal, but places don't start night watches for fun.",
+        "Apparently a few things went missing and they decided prevention was better than investigation."
+      ],
+      "reactions": [
+        "Could be simple theft, could be something else. Either way, they're taking it seriously."
+      ],
+      "statCheck": null,
+      "valence": "neutral",
+      "topic_category": "distant_rumors",
+      "required_entities": [
+        "settlement"
+      ],
+      "location_scope": "regional",
+      "quest_trigger": null
+    },
+    {
+      "id": 79,
+      "intro": "Word from a carter is that {other_settlement} has the best-maintained fences he's ever seen. Every post straight, every rail tight.",
+      "details": [
+        "He said you can tell a lot about a place by its fences. I think he might be right.",
+        "Ours lean in about four different directions, for what it's worth."
+      ],
+      "reactions": [
+        "Fences are boring until your livestock gets out. Then suddenly they matter a lot."
+      ],
+      "statCheck": null,
+      "valence": "neutral",
+      "topic_category": "distant_rumors",
+      "required_entities": [
+        "settlement"
+      ],
+      "location_scope": "regional",
+      "quest_trigger": null
+    },
+    {
+      "id": 80,
+      "intro": "A merchant told me {other_settlement} lost a good chunk of their hay to a wet season. Roof leaked over the barn.",
+      "details": [
+        "Now they're short on feed going into the cold months. That's a bad position to be in.",
+        "He said they've been trying to buy extra from anywhere that has it."
+      ],
+      "reactions": [
+        "Hay isn't exciting until you don't have it. Then it's the only thing that matters."
+      ],
+      "statCheck": {
+        "pass": "Wet hay doesn't just rot: it generates heat as it breaks down. If it was packed tight, they're lucky the barn didn't catch fire.",
+        "fail": "Farming problems aren't my strength. I just know it's serious."
+      },
+      "valence": "negative",
+      "topic_category": "distant_rumors",
+      "required_entities": [
+        "settlement"
+      ],
+      "location_scope": "regional",
+      "quest_trigger": null
+    },
+    {
+      "id": 81,
+      "intro": "I heard a healer from somewhere far off settled in {other_settlement}. People travel to see them now.",
+      "details": [
+        "Word is they know plants and remedies that nobody around here has heard of.",
+        "A trader said someone with a bad leg walked in limping and walked out straight."
+      ],
+      "reactions": [
+        "Stories like that grow in the telling. But even half true, it's good news for them."
+      ],
+      "statCheck": {
+        "pass": "If they're from a different region, they'd know different plants and techniques. Medicine varies by geography more than people realize.",
+        "fail": "I don't know enough about healing to judge what's real and what's exaggeration."
+      },
+      "valence": "positive",
+      "topic_category": "distant_rumors",
+      "required_entities": [
+        "settlement"
+      ],
+      "location_scope": "regional",
+      "quest_trigger": null
+    },
+    {
+      "id": 82,
+      "intro": "Word is {other_settlement} and another village nearby have stopped speaking. Some kind of falling out.",
+      "details": [
+        "A peddler said it started with a trade dispute and turned personal. Now neither side will deal with the other.",
+        "It's making things awkward for anyone caught in the middle."
+      ],
+      "reactions": [
+        "Settlements need each other. Cutting ties hurts both sides, even if neither will admit it."
+      ],
+      "statCheck": null,
+      "valence": "negative",
+      "topic_category": "distant_rumors",
+      "required_entities": [
+        "settlement"
+      ],
+      "location_scope": "regional",
+      "quest_trigger": null
+    },
+    {
+      "id": 83,
+      "intro": "A trader said {other_settlement} has started pickling everything. Vegetables, fruit, even eggs. They're obsessed.",
+      "details": [
+        "He said their market stalls are half jars now. Some of it's actually good.",
+        "They had a surplus last season and decided preservation was the answer to everything."
+      ],
+      "reactions": [
+        "I'd rather eat fresh, but there's wisdom in putting food aside when you have it."
+      ],
+      "statCheck": null,
+      "valence": "neutral",
+      "topic_category": "distant_rumors",
+      "required_entities": [
+        "settlement"
+      ],
+      "location_scope": "regional",
+      "quest_trigger": null
+    },
+    {
+      "id": 84,
+      "intro": "I heard {other_settlement} got a traveling musician to stay for a whole month. Played every night at their tavern.",
+      "details": [
+        "A carter who was there for a night said the music was the kind that makes you forget what day it is.",
+        "Apparently the musician only left because they had somewhere else to be."
+      ],
+      "reactions": [
+        "Music's one of those things you don't think you need until you hear it done well."
+      ],
+      "statCheck": null,
+      "valence": "positive",
+      "topic_category": "distant_rumors",
+      "required_entities": [
+        "settlement"
+      ],
+      "location_scope": "regional",
+      "quest_trigger": null
+    },
+    {
+      "id": 85,
+      "intro": "Word from {other_settlement} is that their elder is getting old and there's no clear successor. People are nervous.",
+      "details": [
+        "A merchant said three different people think they should be next, and none of them agree on anything.",
+        "Leadership transitions go smooth or they go ugly. Not much in between."
+      ],
+      "reactions": [
+        "I hope they sort it out before it becomes a problem. These things fester."
+      ],
+      "statCheck": null,
+      "valence": "negative",
+      "topic_category": "distant_rumors",
+      "required_entities": [
+        "settlement"
+      ],
+      "location_scope": "regional",
+      "quest_trigger": null
+    },
+    {
+      "id": 86,
+      "intro": "A peddler mentioned that {other_settlement} has been quiet about their troubles lately. Used to complain openly, now they don't.",
+      "details": [
+        "He said it's like they decided to handle things privately. Or maybe they just got tired of talking.",
+        "Silence from a place that used to be chatty makes you wonder."
+      ],
+      "reactions": [
+        "Could mean they fixed their problems. Could mean they stopped thinking they could."
+      ],
+      "statCheck": null,
+      "valence": "neutral",
+      "topic_category": "distant_rumors",
+      "required_entities": [
+        "settlement"
+      ],
+      "location_scope": "regional",
+      "quest_trigger": null
+    },
+    {
+      "id": 87,
+      "intro": "I heard {other_settlement} dug an irrigation channel from the river to their far field. Months of work.",
+      "details": [
+        "A trader said the whole community took turns digging. Even the children carried dirt.",
+        "It means they can farm land that was too dry before. Smart investment."
+      ],
+      "reactions": [
+        "That's the kind of work that doesn't look heroic but changes everything."
+      ],
+      "statCheck": {
+        "pass": "An irrigation channel on even a slight grade will flow by gravity alone: no pumps, no upkeep beyond clearing debris. If they got the angle right, it'll serve them for decades.",
+        "fail": "Digging's digging. I'm sure it was a lot of work."
+      },
+      "valence": "positive",
+      "topic_category": "distant_rumors",
+      "required_entities": [
+        "settlement"
+      ],
+      "location_scope": "regional",
+      "quest_trigger": null
+    },
+    {
+      "id": 88,
+      "intro": "A merchant said the young folk in {other_settlement} have taken to racing each other on horseback through the fields. Farmers aren't happy.",
+      "details": [
+        "Trampled crops and torn-up ground. Fun for them, expensive for everyone else.",
+        "Apparently the elder told them to stop and they just started racing at night instead."
+      ],
+      "reactions": [
+        "Young people need something to do. But maybe not that."
+      ],
+      "statCheck": null,
+      "valence": "neutral",
+      "topic_category": "distant_rumors",
+      "required_entities": [
+        "settlement"
+      ],
+      "location_scope": "regional",
+      "quest_trigger": null
+    },
+    {
+      "id": 89,
+      "intro": "Word is {other_settlement} has started sending scouts along the trade roads to check for trouble. Regular patrols.",
+      "details": [
+        "A trader said he ran into one of them halfway here. Polite, but armed.",
+        "I'm not sure if that makes me feel safer or more worried."
+      ],
+      "reactions": [
+        "If they're patrolling, they've seen reasons to. That's information in itself."
+      ],
+      "statCheck": null,
+      "valence": "neutral",
+      "topic_category": "distant_rumors",
+      "required_entities": [
+        "settlement"
+      ],
+      "location_scope": "regional",
+      "quest_trigger": null
+    },
+    {
+      "id": 90,
+      "intro": "I heard {other_settlement} invited some folks from here to a joint planting. Working each other's fields.",
+      "details": [
+        "It's the kind of thing that builds trust between settlements. Smart move on their part.",
+        "A few of our farmers went and came back saying it was worth the trip."
+      ],
+      "reactions": [
+        "Cooperation like that is how places survive together instead of just side by side."
+      ],
+      "statCheck": null,
+      "valence": "positive",
+      "topic_category": "distant_rumors",
+      "required_entities": [
+        "settlement"
+      ],
+      "location_scope": "regional",
+      "quest_trigger": null
+    },
+    {
+      "id": 91,
+      "intro": "A trader from {other_settlement} looked thinner than last time. I don't think things are going well there.",
+      "details": [
+        "He didn't say anything about it. But you notice when someone's belt is tighter than it should be.",
+        "The goods he was selling were lighter too. Less variety, smaller quantities."
+      ],
+      "reactions": [
+        "Some things you see without being told. I hope their next season is kinder."
+      ],
+      "statCheck": null,
+      "valence": "negative",
+      "topic_category": "distant_rumors",
+      "required_entities": [
+        "settlement"
+      ],
+      "location_scope": "regional",
+      "quest_trigger": null
+    },
+    {
+      "id": 92,
+      "intro": "Somebody told me {other_settlement} has a cat that lives in the grain store and catches every mouse that comes near. The whole town loves it.",
+      "details": [
+        "Apparently it just showed up one day and started working. Nobody trained it.",
+        "A peddler said they feed it better than some of the people."
+      ],
+      "reactions": [
+        "Earning your keep by doing what comes naturally. That cat's got a better deal than most of us."
+      ],
+      "statCheck": null,
+      "valence": "neutral",
+      "topic_category": "distant_rumors",
+      "required_entities": [
+        "settlement"
+      ],
+      "location_scope": "regional",
+      "quest_trigger": null
+    },
+    {
+      "id": 93,
+      "intro": "Word is the tavern in {other_settlement} is under new management. The food's gotten worse and the prices went up.",
+      "details": [
+        "A carter who eats there regularly said he's considering packing his own meals now.",
+        "The old owner was good. The new one seems to think a captive audience means they don't have to try."
+      ],
+      "reactions": [
+        "A bad tavern drags down a whole settlement's reputation with travelers. Short-sighted."
+      ],
+      "statCheck": null,
+      "valence": "negative",
+      "topic_category": "distant_rumors",
+      "required_entities": [
+        "settlement"
+      ],
+      "location_scope": "regional",
+      "quest_trigger": null
+    },
+    {
+      "id": 94,
+      "intro": "I heard {other_settlement} finally fixed the leak in their communal roof. Only took two years of complaining.",
+      "details": [
+        "A merchant laughed about it. Said every time it rained, three people would mention the leak and nobody would do anything.",
+        "Someone new moved in and just fixed it one morning without asking. That was that."
+      ],
+      "reactions": [
+        "Sometimes it takes a fresh pair of eyes to see past the excuses."
+      ],
+      "statCheck": null,
+      "valence": "positive",
+      "topic_category": "distant_rumors",
+      "required_entities": [
+        "settlement"
+      ],
+      "location_scope": "regional",
+      "quest_trigger": null
+    },
+    {
+      "id": 95,
+      "intro": "A traveler mentioned that {other_settlement} has been getting visits from people nobody recognizes. Armed types.",
+      "details": [
+        "He said they ride in, talk to the elder, and leave before dark. Very businesslike.",
+        "Nobody there seems to know who they are or what they want."
+      ],
+      "reactions": [
+        "Armed strangers with business to conduct rarely bring good news. I'd be cautious."
+      ],
+      "statCheck": {
+        "pass": "Sounds like a regional patrol or mercenary company checking supply lines. They visit settlements they might need to use as waypoints.",
+        "fail": "I don't like the sound of it, but I've got no basis for guessing who they are."
+      },
+      "valence": "negative",
+      "topic_category": "distant_rumors",
+      "required_entities": [
+        "settlement"
+      ],
+      "location_scope": "regional",
+      "quest_trigger": null
+    },
+    {
+      "id": 96,
+      "intro": "I heard {other_settlement} has been unusually generous with their surplus this year. Sharing with anyone who needs it.",
+      "details": [
+        "A peddler said they gave grain to a passing family for free. No trade, no obligation.",
+        "That kind of generosity either comes from real abundance or real values. Maybe both."
+      ],
+      "reactions": [
+        "The world could use more of that. It costs nothing to not be selfish when you've got plenty."
+      ],
+      "statCheck": null,
+      "valence": "positive",
+      "topic_category": "distant_rumors",
+      "required_entities": [
+        "settlement"
+      ],
+      "location_scope": "regional",
+      "quest_trigger": null
+    },
+    {
+      "id": 97,
+      "intro": "Word is someone from {other_settlement} claims they saw something strange in the hills. Won't say exactly what.",
+      "details": [
+        "A trader relayed it like a joke, but the person who saw it apparently wasn't laughing.",
+        "They came back pale and didn't go out alone for a week after."
+      ],
+      "reactions": [
+        "People see things in the hills. Most of the time it's shadows and tiredness. Most of the time."
+      ],
+      "statCheck": null,
+      "valence": "neutral",
+      "topic_category": "distant_rumors",
+      "required_entities": [
+        "settlement"
+      ],
+      "location_scope": "regional",
+      "quest_trigger": null
+    },
+    {
+      "id": 98,
+      "intro": "A trader from {other_settlement} said their new well water tastes better than the old one. Sweet, almost.",
+      "details": [
+        "He brought a waterskin of it as proof. I tasted it. He wasn't wrong, actually.",
+        "They hit a different layer of rock this time. Makes all the difference, apparently."
+      ],
+      "reactions": [
+        "It's funny what matters. Good water changes how your whole day feels."
+      ],
+      "statCheck": {
+        "pass": "Limestone filtration: if they punched through to a deeper aquifer that passes through chalk, the water's naturally cleaned and mineralized. Lucky strike.",
+        "fail": "Water tastes like water to me. But I'll take their word for it."
+      },
+      "valence": "positive",
+      "topic_category": "distant_rumors",
+      "required_entities": [
+        "settlement"
+      ],
+      "location_scope": "regional",
+      "quest_trigger": null
+    },
+    {
+      "id": 99,
+      "intro": "I heard {other_settlement} is dealing with a roof beetle problem. Those things eat through thatch like it's nothing.",
+      "details": [
+        "A traveler said half the roofs there need replacing. The beetles got in during the wet season.",
+        "People are sleeping with pots under drip spots while they wait for repairs."
+      ],
+      "reactions": [
+        "Bugs are small but their damage isn't. That's a lot of work to recover from."
+      ],
+      "statCheck": {
+        "pass": "Roof beetles lay eggs in damp thatch. Once they're in, you have to strip the whole layer and replace it with dried material: no half measures work.",
+        "fail": "I've never dealt with roof beetles. Sounds miserable though."
+      },
+      "valence": "negative",
+      "topic_category": "distant_rumors",
+      "required_entities": [
+        "settlement"
+      ],
+      "location_scope": "regional",
+      "quest_trigger": null
+    },
+    {
+      "id": 100,
+      "intro": "A peddler told me {other_settlement} has the most organized storage he's ever seen. Everything labeled, everything counted.",
+      "details": [
+        "He said you could ask for any item and they'd know exactly how much they had and where it was.",
+        "Our storage room has a system too: it's called 'look until you find it.'"
+      ],
+      "reactions": [
+        "Organization sounds boring until you're looking for something in a crisis."
+      ],
+      "statCheck": null,
+      "valence": "neutral",
+      "topic_category": "distant_rumors",
+      "required_entities": [
+        "settlement"
+      ],
+      "location_scope": "regional",
+      "quest_trigger": null
+    },
+    {
+      "id": 101,
+      "intro": "Word is {other_settlement} had a landslide block one of their paths. Took a week to clear it.",
+      "details": [
+        "Nobody was hurt, but it cut off their quickest route to the river.",
+        "A merchant said they'd been warned the hillside was unstable but didn't do anything about it."
+      ],
+      "reactions": [
+        "Warnings only work if someone listens. That's true everywhere, not just there."
+      ],
+      "statCheck": null,
+      "valence": "negative",
+      "topic_category": "distant_rumors",
+      "required_entities": [
+        "settlement"
+      ],
+      "location_scope": "regional",
+      "quest_trigger": null
+    },
+    {
+      "id": 102,
+      "intro": "I heard {other_settlement} started a communal herb garden. Everyone contributes, everyone picks what they need.",
+      "details": [
+        "A traveler said it's right in the center of the settlement. Smells wonderful, apparently.",
+        "The idea came from their healer, who got tired of foraging alone."
+      ],
+      "reactions": [
+        "Practical and pleasant: that's the best kind of idea."
+      ],
+      "statCheck": null,
+      "valence": "positive",
+      "topic_category": "distant_rumors",
+      "required_entities": [
+        "settlement"
+      ],
+      "location_scope": "regional",
+      "quest_trigger": null
+    },
+    {
+      "id": 103,
+      "intro": "A merchant from {other_settlement} told me they've had three elders in two years. Nobody lasts.",
+      "details": [
+        "First one got sick. Second one quit. Third one's hanging on but the stress shows.",
+        "A settlement that can't keep leadership stable can't plan for anything."
+      ],
+      "reactions": [
+        "Leading a settlement sounds thankless. I don't envy anyone who tries."
+      ],
+      "statCheck": null,
+      "valence": "negative",
+      "topic_category": "distant_rumors",
+      "required_entities": [
+        "settlement"
+      ],
+      "location_scope": "regional",
+      "quest_trigger": null
+    },
+    {
+      "id": 104,
+      "intro": "I heard someone in {other_settlement} figured out a way to smoke fish that lasts twice as long. Traders can't get enough.",
+      "details": [
+        "A carter said the flavor's different too. Richer, with a sweetness to it.",
+        "They're keeping the method secret, naturally. Nobody shares a good trick like that."
+      ],
+      "reactions": [
+        "If they can trade on it, good for them. Everybody needs an edge."
+      ],
+      "statCheck": {
+        "pass": "Probably a different wood for the smoke: fruitwood or birch instead of pine. The sugar in the wood changes the preservation chemistry and the taste.",
+        "fail": "I eat smoked fish, I don't make it. Whatever they're doing, it works."
+      },
+      "valence": "positive",
+      "topic_category": "distant_rumors",
+      "required_entities": [
+        "settlement"
+      ],
+      "location_scope": "regional",
+      "quest_trigger": null
+    },
+    {
+      "id": 105,
+      "intro": "Word from a traveler is that {other_settlement} looks rougher than it used to. Buildings need paint, fences are sagging.",
+      "details": [
+        "She said it's not abandoned or anything, just tired-looking. Like nobody has the energy to keep up appearances.",
+        "Could be a bad year. Could be longer than that."
+      ],
+      "reactions": [
+        "When a place stops maintaining itself, it usually means people are too busy surviving to care about looks."
+      ],
+      "statCheck": null,
+      "valence": "negative",
+      "topic_category": "distant_rumors",
+      "required_entities": [
+        "settlement"
+      ],
+      "location_scope": "regional",
+      "quest_trigger": null
+    },
+    {
+      "id": 106,
+      "intro": "A trader said {other_settlement} has a kid who can mend anything. Pots, tools, leather, doesn't matter.",
+      "details": [
+        "Can't be older than fifteen, but people bring their broken things to this kid before anyone else.",
+        "The adults are half proud and half embarrassed about it."
+      ],
+      "reactions": [
+        "Talent shows up where it wants to. Age has nothing to do with it."
+      ],
+      "statCheck": null,
+      "valence": "positive",
+      "topic_category": "distant_rumors",
+      "required_entities": [
+        "settlement"
+      ],
+      "location_scope": "regional",
+      "quest_trigger": null
+    },
+    {
+      "id": 107,
+      "intro": "I heard a tree fell on one of the houses in {other_settlement} during a storm. Went right through the roof.",
+      "details": [
+        "The family got out in time, but the house is wrecked. Whole settlement's helping them rebuild.",
+        "A merchant said it was the biggest tree near the settlement: everyone had said it should be cut down, but nobody wanted to do it."
+      ],
+      "reactions": [
+        "That's the thing about obvious problems: they wait until ignoring them stops being an option."
+      ],
+      "statCheck": null,
+      "valence": "negative",
+      "topic_category": "distant_rumors",
+      "required_entities": [
+        "settlement"
+      ],
+      "location_scope": "regional",
+      "quest_trigger": null
+    },
+    {
+      "id": 108,
+      "intro": "Word is {other_settlement} has been making charcoal and selling it at a good price. Smart use of their surplus wood.",
+      "details": [
+        "They've got more forest than field over there, so it makes sense to work with what they have.",
+        "A trader said the quality is consistent, which matters more than people think."
+      ],
+      "reactions": [
+        "Working with what the land gives you instead of fighting it: that's good thinking."
+      ],
+      "statCheck": null,
+      "valence": "neutral",
+      "topic_category": "distant_rumors",
+      "required_entities": [
+        "settlement"
+      ],
+      "location_scope": "regional",
+      "quest_trigger": null
+    },
+    {
+      "id": 109,
+      "intro": "A traveler said {other_settlement} has put up markers along the paths to their place. Carved stones at every fork.",
+      "details": [
+        "Used to be easy to get lost heading there: the trails all look the same.",
+        "Now anyone can find them, which means more visitors and more trade."
+      ],
+      "reactions": [
+        "A simple thing that makes a real difference. Wish more places thought like that."
+      ],
+      "statCheck": null,
+      "valence": "positive",
+      "topic_category": "distant_rumors",
+      "required_entities": [
+        "settlement"
+      ],
+      "location_scope": "regional",
+      "quest_trigger": null
+    },
+    {
+      "id": 110,
+      "intro": "I heard {other_settlement} and us are being compared by traders. They say we're the steady one and they're the ambitious one.",
+      "details": [
+        "Not sure if that's a compliment or not. 'Steady' can mean reliable or it can mean boring.",
+        "A merchant said both places have their strengths. Diplomatic of him."
+      ],
+      "reactions": [
+        "I'll take steady. You can build on steady. Ambition burns out."
+      ],
+      "statCheck": null,
+      "valence": "neutral",
+      "topic_category": "distant_rumors",
+      "required_entities": [
+        "settlement"
+      ],
+      "location_scope": "regional",
+      "quest_trigger": null
+    },
+    {
+      "id": 111,
+      "intro": "Word is a flood washed out part of the path between here and {other_settlement}. Nobody's fixed it yet.",
+      "details": [
+        "Traders are going the long way until someone decides whose job it is.",
+        "It's been two weeks now. The rains have stopped but the path's still a mess."
+      ],
+      "reactions": [
+        "If nobody claims it, nobody fixes it. That's the problem with things between places."
+      ],
+      "statCheck": null,
+      "valence": "negative",
+      "topic_category": "distant_rumors",
+      "required_entities": [
+        "settlement"
+      ],
+      "location_scope": "regional",
+      "quest_trigger": null
+    },
+    {
+      "id": 112,
+      "intro": "A peddler said {other_settlement} has the cleanest market square he's seen anywhere. Somebody sweeps it every morning.",
+      "details": [
+        "He said it's a small thing but it changes the whole feel of the place.",
+        "Meanwhile our market area has chicken feathers blowing around like tumbleweeds."
+      ],
+      "reactions": [
+        "Pride in the small things adds up. We could stand to care a little more about appearances."
+      ],
+      "statCheck": null,
+      "valence": "neutral",
+      "topic_category": "distant_rumors",
+      "required_entities": [
+        "settlement"
+      ],
+      "location_scope": "regional",
+      "quest_trigger": null
+    },
+    {
+      "id": 113,
+      "intro": "I heard a family left {other_settlement} suddenly. Packed up overnight and nobody knows where they went.",
+      "details": [
+        "A trader said they left behind tools and furniture. That's not normal when you're planning to leave.",
+        "People over there are worried but trying not to show it."
+      ],
+      "reactions": [
+        "When someone vanishes like that, the not-knowing is worse than any explanation would be."
+      ],
+      "statCheck": null,
+      "valence": "negative",
+      "topic_category": "distant_rumors",
+      "required_entities": [
+        "settlement"
+      ],
+      "location_scope": "regional",
+      "quest_trigger": null
+    },
+    {
+      "id": 114,
+      "intro": "Word is {other_settlement} has agreed to share their seed stock with us next planting season. Fair trade, no strings.",
+      "details": [
+        "Their crops do better in clay soil, which is what we've got on the south side.",
+        "It was {npc_name}'s idea to ask, and I'm glad they did."
+      ],
+      "reactions": [
+        "That's the kind of deal that makes both places better off. How it should work."
+      ],
+      "statCheck": null,
+      "valence": "positive",
+      "topic_category": "distant_rumors",
+      "required_entities": [
+        "settlement"
+      ],
+      "location_scope": "regional",
+      "quest_trigger": null
+    },
+    {
+      "id": 115,
+      "intro": "A trader told me the mood in {other_settlement} has soured since a few families left. People feel abandoned.",
+      "details": [
+        "He said it's like the air went out of the place. Everyone's wondering who's next.",
+        "Losing people is harder on a small settlement than a big one. Every gap shows."
+      ],
+      "reactions": [
+        "You can't blame people for leaving, but you can't blame the ones who stay for being hurt by it."
+      ],
+      "statCheck": null,
+      "valence": "negative",
+      "topic_category": "distant_rumors",
+      "required_entities": [
+        "settlement"
+      ],
+      "location_scope": "regional",
+      "quest_trigger": null
+    },
+    {
+      "id": 116,
+      "intro": "I heard {other_settlement} has been experimenting with drying {resource_type} in a new way. Getting more use out of less.",
+      "details": [
+        "A merchant said their dried goods weigh less and keep longer. Smart if it works.",
+        "Could change how far they can trade without spoilage."
+      ],
+      "reactions": [
+        "Solving small problems well is how places get ahead. Not everything has to be dramatic."
+      ],
+      "statCheck": {
+        "pass": "Thin-slicing and rack-drying in moving air pulls moisture faster than sun-drying in bulk. Less surface rot, more even results. Old technique, but effective.",
+        "fail": "I don't know the first thing about drying methods. Results speak for themselves though."
+      },
+      "valence": "neutral",
+      "topic_category": "distant_rumors",
+      "required_entities": [
+        "settlement"
+      ],
+      "location_scope": "regional",
+      "quest_trigger": null
+    },
+    {
+      "id": 117,
+      "intro": "Somebody from {other_settlement} visited and said they envy how quiet it is here. Called it peaceful.",
+      "details": [
+        "Apparently their settlement has gotten noisy with all the growth. Construction, markets, arguments.",
+        "They seemed wistful about it. Grass is always greener."
+      ],
+      "reactions": [
+        "Funny how we envy their activity and they envy our calm."
+      ],
+      "statCheck": null,
+      "valence": "neutral",
+      "topic_category": "distant_rumors",
+      "required_entities": [
+        "settlement"
+      ],
+      "location_scope": "regional",
+      "quest_trigger": null
+    },
+    {
+      "id": 118,
+      "intro": "A carter mentioned that the elder of {other_settlement} personally greets every trader who arrives. Every single one.",
+      "details": [
+        "He said it makes a real impression. You feel like the settlement values your business.",
+        "Our elder barely acknowledges the people who live here, let alone visitors."
+      ],
+      "reactions": [
+        "Small gestures from leaders set the tone for a whole community."
+      ],
+      "statCheck": null,
+      "valence": "neutral",
+      "topic_category": "distant_rumors",
+      "required_entities": [
+        "settlement"
+      ],
+      "location_scope": "regional",
+      "quest_trigger": null
+    },
+    {
+      "id": 119,
+      "intro": "I heard {other_settlement} has been having trouble with flooding in their lower fields. Third year in a row.",
+      "details": [
+        "A farmer there told a trader it's getting worse: the creek changes course a little more each spring.",
+        "They're losing good soil every time it happens."
+      ],
+      "reactions": [
+        "At some point you have to accept the water's winning and plant somewhere else."
+      ],
+      "statCheck": {
+        "pass": "Creeks meander naturally: you can slow it with bank stabilization, but you can't stop it. Moving the fields is cheaper than fighting the river long-term.",
+        "fail": "I'm no expert on water management. I just know flooding's bad for crops."
+      },
+      "valence": "negative",
+      "topic_category": "distant_rumors",
+      "required_entities": [
+        "settlement"
+      ],
+      "location_scope": "regional",
+      "quest_trigger": null
+    },
+    {
+      "id": 120,
+      "intro": "Word is {other_settlement} finished mapping all the trails around their area. Proper paths marked and named.",
+      "details": [
+        "A traveler said you can ask anyone there for directions and they all give the same answer. That's rare.",
+        "Apparently it took one dedicated person two seasons to walk every trail and record them."
+      ],
+      "reactions": [
+        "Knowing your own land thoroughly is a kind of wealth people overlook."
+      ],
+      "statCheck": null,
+      "valence": "positive",
+      "topic_category": "distant_rumors",
+      "required_entities": [
+        "settlement"
+      ],
+      "location_scope": "regional",
+      "quest_trigger": null
+    },
+    {
+      "id": 121,
+      "intro": "A peddler from {other_settlement} was complaining that his neighbors never help each other. Everyone fends for themselves.",
+      "details": [
+        "He said when someone's fence blows down, they fix it alone. Nobody offers.",
+        "Coming from here, where people pitch in, it sounded lonely."
+      ],
+      "reactions": [
+        "A place full of people who won't help each other isn't really a community. Just a location."
+      ],
+      "statCheck": null,
+      "valence": "negative",
+      "topic_category": "distant_rumors",
+      "required_entities": [
+        "settlement"
+      ],
+      "location_scope": "regional",
+      "quest_trigger": null
+    },
+    {
+      "id": 122,
+      "intro": "I heard {other_settlement} traded some of their {resource_type} for a cartload of tools from somewhere west. Upgraded everything at once.",
+      "details": [
+        "New shovels, new axes, new saws. A peddler said the whole settlement looked pleased with themselves.",
+        "Good tools are worth the investment. Ours are held together with rope and hope."
+      ],
+      "reactions": [
+        "Trading smart beats working hard with bad equipment any day."
+      ],
+      "statCheck": null,
+      "valence": "neutral",
+      "topic_category": "distant_rumors",
+      "required_entities": [
+        "settlement"
+      ],
+      "location_scope": "regional",
+      "quest_trigger": null
+    },
+    {
+      "id": 123,
+      "intro": "Somebody told me {other_settlement} has a person who remembers everything. Every trade, every promise, every slight.",
+      "details": [
+        "A trader said negotiating there is terrifying because this person recalls exactly what you said six months ago.",
+        "Nobody tries to go back on a deal twice."
+      ],
+      "reactions": [
+        "Every settlement needs someone like that. Keeps everyone honest."
+      ],
+      "statCheck": null,
+      "valence": "neutral",
+      "topic_category": "distant_rumors",
+      "required_entities": [
+        "settlement"
+      ],
+      "location_scope": "regional",
+      "quest_trigger": null
+    },
+    {
+      "id": 124,
+      "intro": "Word is {other_settlement} built a root cellar big enough for the whole community. Took all summer.",
+      "details": [
+        "A merchant said it stays cool even in the worst heat. Keeps food usable for months longer.",
+        "They dug it into the hillside behind the settlement. Smart use of the terrain."
+      ],
+      "reactions": [
+        "Planning for bad times when things are good: that's how you survive the leans."
+      ],
+      "statCheck": null,
+      "valence": "positive",
+      "topic_category": "distant_rumors",
+      "required_entities": [
+        "settlement"
+      ],
+      "location_scope": "regional",
+      "quest_trigger": null
+    },
+    {
+      "id": 125,
+      "intro": "I heard the {resource_type} we've been sending to {other_settlement} isn't selling anymore. They found a closer source.",
+      "details": [
+        "A trader broke the news gently, but it stings. That was steady income for a few of our people.",
+        "Can't fault them for buying closer: shorter haul means cheaper goods."
+      ],
+      "reactions": [
+        "Losing a trade partner hurts, but clinging to it won't help. We'll find other buyers."
+      ],
+      "statCheck": {
+        "pass": "This is how regional markets shift: when a new source opens closer to the buyer, distance becomes your biggest cost. We'd need to compete on quality, not proximity.",
+        "fail": "Trade isn't really my thing. I just know it means less coin coming in."
+      },
+      "valence": "negative",
+      "topic_category": "distant_rumors",
+      "required_entities": [
+        "settlement"
+      ],
+      "location_scope": "regional",
+      "quest_trigger": null
+    },
+    {
+      "id": 126,
+      "intro": "A trader said {other_settlement} has a woman who weaves the strongest rope anyone's seen. Ships orders as far as the coast.",
+      "details": [
+        "He said he tested a piece by hanging his full weight from it. Didn't stretch, didn't fray.",
+        "She apparently uses a technique her grandmother taught her. Nobody else does it that way."
+      ],
+      "reactions": [
+        "One person's skill can put a whole settlement on the map. That's real value."
+      ],
+      "statCheck": null,
+      "valence": "positive",
+      "topic_category": "distant_rumors",
+      "required_entities": [
+        "settlement"
+      ],
+      "location_scope": "regional",
+      "quest_trigger": null
+    },
+    {
+      "id": 127,
+      "intro": "I heard the creek near {other_settlement} changed color after heavy rain last month. Brown and murky for days.",
+      "details": [
+        "A traveler said people were afraid to drink from it. They don't know what washed in.",
+        "It cleared up eventually, but nobody's forgotten about it."
+      ],
+      "reactions": [
+        "Water you can't trust makes everything harder. You don't think about it until it's gone wrong."
+      ],
+      "statCheck": {
+        "pass": "Heavy rain dislodges upstream sediment: clay deposits, silt, sometimes mineral runoff. If it cleared on its own, it was likely erosion, not contamination. But testing wouldn't hurt.",
+        "fail": "Muddy water could mean anything. I wouldn't know what to look for."
+      },
+      "valence": "negative",
+      "topic_category": "distant_rumors",
+      "required_entities": [
+        "settlement"
+      ],
+      "location_scope": "regional",
+      "quest_trigger": null
+    },
+    {
+      "id": 128,
+      "intro": "Word from {other_settlement} is they've worked out a trade agreement with a place even further out. Expanding their reach.",
+      "details": [
+        "A peddler said it means goods we've never seen before are starting to show up in their market.",
+        "Some of it's interesting: spices, dyed fabric, tools with different designs."
+      ],
+      "reactions": [
+        "Connections bring variety. If their market grows, some of that trade will trickle our way too."
+      ],
+      "statCheck": null,
+      "valence": "positive",
+      "topic_category": "distant_rumors",
+      "required_entities": [
+        "settlement"
+      ],
+      "location_scope": "regional",
+      "quest_trigger": null
+    },
+    {
+      "id": 129,
+      "intro": "A merchant told me {other_settlement} is going through a rough patch with their neighbors. Border disputes about grazing land.",
+      "details": [
+        "Livestock from one side keeps crossing into the other's pasture. The usual argument.",
+        "He said both sides think they're right and neither will move their fence."
+      ],
+      "reactions": [
+        "Grazing disputes are as old as fences. They end when the cows decide, not the people."
+      ],
+      "statCheck": null,
+      "valence": "neutral",
+      "topic_category": "distant_rumors",
+      "required_entities": [
+        "settlement"
+      ],
+      "location_scope": "regional",
+      "quest_trigger": null
+    },
+    {
+      "id": 130,
+      "intro": "I heard {other_settlement} has a well-stocked library. Actual books, not just a few scrolls.",
+      "details": [
+        "A traveler said somebody there collects them. Trades for books the way other people trade for tools.",
+        "Most of us can barely read, but having that knowledge available matters more than you'd think."
+      ],
+      "reactions": [
+        "Books are like good tools: useless if nobody picks them up, but invaluable when someone does."
+      ],
+      "statCheck": null,
+      "valence": "positive",
+      "topic_category": "distant_rumors",
+      "required_entities": [
+        "settlement"
+      ],
+      "location_scope": "regional",
+      "quest_trigger": null
+    },
+    {
+      "id": 131,
+      "intro": "A carter mentioned that {other_settlement} has been expanding their cemetery. I don't know what to make of that.",
+      "details": [
+        "Could be normal growth. Could mean they've had a rough year. He didn't ask.",
+        "It's the kind of detail that sits with you uncomfortably."
+      ],
+      "reactions": [
+        "You can read too much into things. Or not enough. Hard to know which from this distance."
+      ],
+      "statCheck": null,
+      "valence": "neutral",
+      "topic_category": "distant_rumors",
+      "required_entities": [
+        "settlement"
+      ],
+      "location_scope": "regional",
+      "quest_trigger": null
+    },
+    {
+      "id": 132,
+      "intro": "Word is {other_settlement} has a baker whose sourdough people walk miles for. Literally miles.",
+      "details": [
+        "A peddler brought a loaf back once. Dense, chewy, tangy. Best bread I've had in years.",
+        "She bakes twice a week and sells out within the hour both times."
+      ],
+      "reactions": [
+        "Good bread is one of life's simple pleasures. I respect someone who takes it seriously."
+      ],
+      "statCheck": null,
+      "valence": "positive",
+      "topic_category": "distant_rumors",
+      "required_entities": [
+        "settlement"
+      ],
+      "location_scope": "regional",
+      "quest_trigger": null
+    },
+    {
+      "id": 133,
+      "intro": "I heard folks in {other_settlement} have been arguing about whether to build a wall around the settlement. Heated debate.",
+      "details": [
+        "Half say it's protection. Half say it's isolation. Both sides have a point.",
+        "A trader said the meetings about it have gone on longer than the wall would take to build."
+      ],
+      "reactions": [
+        "Walls keep things out but they also keep you in. It's worth thinking about both."
+      ],
+      "statCheck": {
+        "pass": "A perimeter wall only works if you have the people to watch it. Otherwise it's just an expensive fence that gives false confidence.",
+        "fail": "I've never had to make that decision. Sounds like there's no easy answer."
+      },
+      "valence": "neutral",
+      "topic_category": "distant_rumors",
+      "required_entities": [
+        "settlement"
+      ],
+      "location_scope": "regional",
+      "quest_trigger": null
+    },
+    {
+      "id": 134,
+      "intro": "A traveler mentioned that {other_settlement} has the best-trained horses in the region. Strong and calm.",
+      "details": [
+        "Apparently they've been breeding them carefully for years. Picking the best and being patient.",
+        "A trader said even the draft horses there move like they know what they're doing."
+      ],
+      "reactions": [
+        "Good horses are worth more than gold in places like these. You can't rush breeding right."
+      ],
+      "statCheck": null,
+      "valence": "neutral",
+      "topic_category": "distant_rumors",
+      "required_entities": [
+        "settlement"
+      ],
+      "location_scope": "regional",
+      "quest_trigger": null
+    },
+    {
+      "id": 135,
+      "intro": "I heard {other_settlement} has been getting deliveries from somewhere nobody recognizes. Carts with no markings.",
+      "details": [
+        "A peddler noticed it and asked around. Nobody would tell him anything.",
+        "It could be nothing, or it could be something they don't want people knowing about."
+      ],
+      "reactions": [
+        "Secrecy in trade usually means someone's getting an advantage they don't want to share."
+      ],
+      "statCheck": null,
+      "valence": "neutral",
+      "topic_category": "distant_rumors",
+      "required_entities": [
+        "settlement"
+      ],
+      "location_scope": "regional",
+      "quest_trigger": null
+    },
+    {
+      "id": 136,
+      "intro": "Word is {other_settlement} just celebrated the birth of twins. First in that settlement in a decade.",
+      "details": [
+        "A merchant said the whole place was in high spirits about it. People brought gifts for days.",
+        "Twins are lucky in some traditions. Exhausting in all of them."
+      ],
+      "reactions": [
+        "New life is always good news. Especially in a small place where every person matters."
+      ],
+      "statCheck": null,
+      "valence": "positive",
+      "topic_category": "distant_rumors",
+      "required_entities": [
+        "settlement"
+      ],
+      "location_scope": "regional",
+      "quest_trigger": null
+    },
+    {
+      "id": 137,
+      "intro": "I heard someone from {other_settlement} tried to dam the creek near their settlement. Didn't go well.",
+      "details": [
+        "Flooded their own downstream fields when the water backed up. Undid it in a panic.",
+        "A carter said the whole thing was one person's idea and nobody stopped them in time."
+      ],
+      "reactions": [
+        "Ambition without planning is just a mess with extra steps."
+      ],
+      "statCheck": {
+        "pass": "You can't just dam a creek without calculating the watershed volume upstream. The water goes somewhere: if you don't control where, it decides for you.",
+        "fail": "I don't know anything about dams. But flooding your own fields sounds like a lesson learned."
+      },
+      "valence": "negative",
+      "topic_category": "distant_rumors",
+      "required_entities": [
+        "settlement"
+      ],
+      "location_scope": "regional",
+      "quest_trigger": null
+    },
+    {
+      "id": 138,
+      "intro": "A trader from {other_settlement} said their evenings are the best part: people gather, talk, share food. Every night.",
+      "details": [
+        "He said it's not organized. People just drift toward the center when the work's done.",
+        "We used to do something like that here. I'm not sure when it stopped."
+      ],
+      "reactions": [
+        "Community doesn't happen by accident. Or maybe it does, and we just forgot how."
+      ],
+      "statCheck": null,
+      "valence": "positive",
+      "topic_category": "distant_rumors",
+      "required_entities": [
+        "settlement"
+      ],
+      "location_scope": "regional",
+      "quest_trigger": null
+    },
+    {
+      "id": 139,
+      "intro": "Word is someone in {other_settlement} keeps predicting the weather and getting it right. People are spooked and impressed.",
+      "details": [
+        "A peddler said this person told him it would rain in two days. It rained in two days.",
+        "They watch the clouds, the birds, the wind direction. Old methods, apparently."
+      ],
+      "reactions": [
+        "Knowing when rain's coming is worth more than most skills. Especially to farmers."
+      ],
+      "statCheck": {
+        "pass": "Cloud patterns and barometric pressure changes are readable if you know what to look for. It's not magic: it's attention and experience.",
+        "fail": "I look up, see clouds or no clouds, and go from there. Anything more is beyond me."
+      },
+      "valence": "neutral",
+      "topic_category": "distant_rumors",
+      "required_entities": [
+        "settlement"
+      ],
+      "location_scope": "regional",
+      "quest_trigger": null
+    },
+    {
+      "id": 140,
+      "intro": "I heard {other_settlement} had a roof collapse under snow last winter. Two people were inside.",
+      "details": [
+        "They got out with bruises and fright, nothing worse. But the building's a loss.",
+        "A traveler said the beams were old and nobody had checked them."
+      ],
+      "reactions": [
+        "Lucky that's all it was. Snow load is no joke on old timber."
+      ],
+      "statCheck": {
+        "pass": "Softwood beams in a damp climate rot from the inside: they look solid until they're not. Annual inspection with a probe would've caught it before the failure.",
+        "fail": "I don't know much about building. But a collapse is a clear sign something was neglected."
+      },
+      "valence": "negative",
+      "topic_category": "distant_rumors",
+      "required_entities": [
+        "settlement"
+      ],
+      "location_scope": "regional",
+      "quest_trigger": null
+    },
+    {
+      "id": 141,
+      "intro": "A merchant told me {other_settlement} has been putting up birdhouses around their fields. Dozens of them.",
+      "details": [
+        "Apparently the birds eat the insects that eat the crops. Clever natural pest control.",
+        "A farmer there came up with the idea after watching swallows hunt over his field."
+      ],
+      "reactions": [
+        "Working with nature instead of against it: that's the kind of thinking I like."
+      ],
+      "statCheck": null,
+      "valence": "positive",
+      "topic_category": "distant_rumors",
+      "required_entities": [
+        "settlement"
+      ],
+      "location_scope": "regional",
+      "quest_trigger": null
+    },
+    {
+      "id": 142,
+      "intro": "Word is the blacksmith in {other_settlement} is getting old and hasn't taken an apprentice. Worries everyone there.",
+      "details": [
+        "A peddler said the man's hands shake now. Still does good work, but slower.",
+        "When he can't do it anymore, they'll have to import every nail and horseshoe."
+      ],
+      "reactions": [
+        "Losing a trade because nobody learned it: that's a failure of planning, not just bad luck."
+      ],
+      "statCheck": null,
+      "valence": "negative",
+      "topic_category": "distant_rumors",
+      "required_entities": [
+        "settlement"
+      ],
+      "location_scope": "regional",
+      "quest_trigger": null
+    },
+    {
+      "id": 143,
+      "intro": "I heard someone from {other_settlement} walked here and back in a single day to trade for {resource_type}. Must have really needed it.",
+      "details": [
+        "That's a hard walk either way. There and back without resting means they left before dawn.",
+        "A trader saw them heading back at dusk, moving fast."
+      ],
+      "reactions": [
+        "Desperation or determination: hard to tell the difference sometimes."
+      ],
+      "statCheck": null,
+      "valence": "neutral",
+      "topic_category": "distant_rumors",
+      "required_entities": [
+        "settlement"
+      ],
+      "location_scope": "regional",
+      "quest_trigger": null
+    },
+    {
+      "id": 144,
+      "intro": "A peddler mentioned that {other_settlement} has started keeping bees. Smart move if they can manage it.",
+      "details": [
+        "Honey, wax, better pollination for their gardens. Bees earn their keep three ways over.",
+        "He said the first harvest was small but promising."
+      ],
+      "reactions": [
+        "Beekeeping takes patience and a tolerance for getting stung. Not for everyone."
+      ],
+      "statCheck": {
+        "pass": "First-year colonies rarely produce surplus honey: the bees need it themselves. Second year is when the real harvest starts, if the queen's strong and the flowers are plentiful.",
+        "fail": "I don't know much about bees beyond staying away from them."
+      },
+      "valence": "positive",
+      "topic_category": "distant_rumors",
+      "required_entities": [
+        "settlement"
+      ],
+      "location_scope": "regional",
+      "quest_trigger": null
+    },
+    {
+      "id": 145,
+      "intro": "I heard {other_settlement} and a place further east got into a shouting match at a regional market. Almost came to blows.",
+      "details": [
+        "Something about fishing rights on a shared river. Both sides claim the same stretch.",
+        "A trader said it cleared the market for half an hour. Nobody wanted to be nearby."
+      ],
+      "reactions": [
+        "Shared resources always cause fights. Always have, always will."
+      ],
+      "statCheck": null,
+      "valence": "negative",
+      "topic_category": "distant_rumors",
+      "required_entities": [
+        "settlement"
+      ],
+      "location_scope": "regional",
+      "quest_trigger": null
+    },
+    {
+      "id": 146,
+      "intro": "Word is the children in {other_settlement} put on some kind of play for the adults. Had the whole settlement laughing.",
+      "details": [
+        "A merchant happened to see it. Said a girl no older than eight played the elder and nailed every mannerism.",
+        "The real elder apparently laughed hardest of all."
+      ],
+      "reactions": [
+        "A place where kids feel bold enough to tease the adults is a place doing alright."
+      ],
+      "statCheck": null,
+      "valence": "positive",
+      "topic_category": "distant_rumors",
+      "required_entities": [
+        "settlement"
+      ],
+      "location_scope": "regional",
+      "quest_trigger": null
+    },
+    {
+      "id": 147,
+      "intro": "A traveler said the soil around {other_settlement} is the richest he's ever seen. Dark and loamy, practically grows things by itself.",
+      "details": [
+        "He said the gardens there produce twice what ours do with half the effort.",
+        "Geography's not fair. Some places just have better dirt."
+      ],
+      "reactions": [
+        "You can't be jealous of soil. But I am, a little."
+      ],
+      "statCheck": null,
+      "valence": "neutral",
+      "topic_category": "distant_rumors",
+      "required_entities": [
+        "settlement"
+      ],
+      "location_scope": "regional",
+      "quest_trigger": null
+    },
+    {
+      "id": 148,
+      "intro": "I heard {other_settlement} has someone who makes candles that burn twice as long as normal ones. People come from far off to buy them.",
+      "details": [
+        "A peddler bought a dozen and said each one lasted a full week of evening use.",
+        "Apparently it's a specific blend of tallow and beeswax. The ratio is a secret."
+      ],
+      "reactions": [
+        "Light's one of those things you don't value until the sun goes down and you're out of candles."
+      ],
+      "statCheck": {
+        "pass": "A slower-burning candle usually means a thicker wick and harder wax: the flame's smaller but steadier. Trade-off is less light, but more hours of it.",
+        "fail": "Candles are candles to me. If it burns, I'm happy."
+      },
+      "valence": "neutral",
+      "topic_category": "distant_rumors",
+      "required_entities": [
+        "settlement"
+      ],
+      "location_scope": "regional",
+      "quest_trigger": null
+    },
+    {
+      "id": 149,
+      "intro": "Word is {other_settlement} held a remembrance for someone who died this past year. The whole settlement turned out.",
+      "details": [
+        "A trader was passing through and said the gathering was quiet and dignified. No wailing, just presence.",
+        "He said you could tell this person mattered to everyone, not just their family."
+      ],
+      "reactions": [
+        "A settlement that grieves together is one that lives together. Says a lot about a place."
+      ],
+      "statCheck": null,
+      "valence": "neutral",
+      "topic_category": "distant_rumors",
+      "required_entities": [
+        "settlement"
+      ],
+      "location_scope": "regional",
+      "quest_trigger": null
     }
   ]
 }

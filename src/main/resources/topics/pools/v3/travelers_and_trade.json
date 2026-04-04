@@ -1,0 +1,2667 @@
+{
+  "pool": "travelers_and_trade",
+  "version": 3,
+  "entries": [
+    {
+      "id": 0,
+      "intro": "A trader from {other_settlement} passed through a few days ago. Said things are tense over there.",
+      "details": [
+        "Didn't go into details, but you could tell from the way they talked that they were glad to be away for a bit.",
+        "They bought more supplies than usual too. Stocked up like they weren't sure when they'd be back."
+      ],
+      "reactions": [
+        "Not our problem, but you can't help wondering."
+      ],
+      "statCheck": null,
+      "valence": "negative",
+      "topic_category": "travelers_and_trade",
+      "required_entities": [],
+      "location_scope": "universal",
+      "quest_trigger": null
+    },
+    {
+      "id": 1,
+      "intro": "The {resource_type} that comes through here has been better quality lately. Not sure why.",
+      "details": [
+        "The last few shipments have been cleaner, better sorted. Someone's putting in more effort.",
+        "Prices haven't gone up either, which is unusual when quality improves."
+      ],
+      "reactions": [
+        "I'll take it while it lasts."
+      ],
+      "statCheck": null,
+      "valence": "positive",
+      "topic_category": "travelers_and_trade",
+      "required_entities": [],
+      "location_scope": "universal",
+      "quest_trigger": null
+    },
+    {
+      "id": 2,
+      "intro": "Road's been quiet this week. Nobody coming in, nobody going out.",
+      "details": [
+        "Usually you see at least one cart a day, even if it's just somebody passing through.",
+        "Makes you realize how much of the day you spend half-watching the road without thinking about it."
+      ],
+      "reactions": [
+        "It's probably nothing. Still feels strange though."
+      ],
+      "statCheck": null,
+      "valence": "neutral",
+      "topic_category": "travelers_and_trade",
+      "required_entities": [],
+      "location_scope": "universal",
+      "quest_trigger": null
+    },
+    {
+      "id": 3,
+      "intro": "Some outsider was asking a lot of questions yesterday. Wanted to know who lives where, how many of us there are.",
+      "details": [
+        "Didn't buy anything, didn't trade anything. Just walked around looking at things and writing in a little book.",
+        "When I asked what it was about, they said they were surveying the region. Whatever that means."
+      ],
+      "reactions": [
+        "I don't like it when people ask questions without answering any."
+      ],
+      "statCheck": {
+        "pass": "Could be a tax assessor. They do that: count heads, estimate what a place is worth. Never means anything good for us.",
+        "fail": "I don't know what they were after. Just gave me an uneasy feeling."
+      },
+      "valence": "negative",
+      "topic_category": "travelers_and_trade",
+      "required_entities": [],
+      "location_scope": "universal",
+      "quest_trigger": null
+    },
+    {
+      "id": 4,
+      "intro": "The usual {resource_type} trader didn't show up this month. First time in a long while.",
+      "details": [
+        "They've been coming through regularly for as long as I can remember. Always the same route, same time.",
+        "Nobody else has picked up the run either. We're just going without."
+      ],
+      "reactions": [
+        "You don't realize how much you depend on someone until they stop showing up."
+      ],
+      "statCheck": {
+        "pass": "Regular traders who break pattern usually have a reason: road trouble, illness, or they've found a more profitable route. If it's the last one, they're not coming back.",
+        "fail": "Could be anything. No way to know from here."
+      },
+      "valence": "negative",
+      "topic_category": "travelers_and_trade",
+      "required_entities": [],
+      "location_scope": "universal",
+      "quest_trigger": null
+    },
+    {
+      "id": 5,
+      "intro": "Had a merchant through here selling {resource_type} at half the usual price. Everyone was thrilled.",
+      "details": [
+        "Bought more than I should have, honestly. But when is that deal coming around again?",
+        "They said they had a surplus and didn't want to haul it any further."
+      ],
+      "reactions": [
+        "Good days like that even things out."
+      ],
+      "statCheck": null,
+      "valence": "positive",
+      "topic_category": "travelers_and_trade",
+      "required_entities": [],
+      "location_scope": "universal",
+      "quest_trigger": null
+    },
+    {
+      "id": 6,
+      "intro": "I traded some eggs for a new belt buckle with a traveler the other day. Felt like I came out ahead.",
+      "details": [
+        "They seemed confused that I didn't want coins. But what am I going to do with coins out here?",
+        "Nice buckle too. Solid bronze, doesn't tarnish."
+      ],
+      "reactions": [
+        "That's how trade should work. Both people walk away happy."
+      ],
+      "statCheck": null,
+      "valence": "neutral",
+      "topic_category": "travelers_and_trade",
+      "required_entities": [],
+      "location_scope": "universal",
+      "quest_trigger": null
+    },
+    {
+      "id": 7,
+      "intro": "Travelers from {other_settlement} say we charge too much for lodging. As if we have lodging.",
+      "details": [
+        "We let them sleep in the common hall when it rains. They want feather beds and hot water.",
+        "One of them complained about the food too. We fed them the same thing we eat."
+      ],
+      "reactions": [
+        "If they don't like it, the road goes both ways."
+      ],
+      "statCheck": null,
+      "valence": "negative",
+      "topic_category": "travelers_and_trade",
+      "required_entities": [],
+      "location_scope": "universal",
+      "quest_trigger": null
+    },
+    {
+      "id": 8,
+      "intro": "More people passing through lately than I've seen in years. The road's practically busy.",
+      "details": [
+        "Mostly traders, but a few families too. People moving toward {direction}, all of them.",
+        "Some stop to resupply, others just keep going. Barely even slow down."
+      ],
+      "reactions": [
+        "Makes me curious what's drawing them all that way."
+      ],
+      "statCheck": {
+        "pass": "There's probably work opening up somewhere. When one settlement starts building, people migrate toward the opportunity.",
+        "fail": "I don't keep track of these things closely enough to know."
+      },
+      "valence": "neutral",
+      "topic_category": "travelers_and_trade",
+      "required_entities": [],
+      "location_scope": "universal",
+      "quest_trigger": null
+    },
+    {
+      "id": 9,
+      "intro": "Price of {resource_type} keeps climbing. I remember when you could get a decent lot for practically nothing.",
+      "details": [
+        "Every trader who comes through has a different excuse. Supply's low, demand's up, roads are bad.",
+        "Meanwhile we still need the same amount we always did."
+      ],
+      "reactions": [
+        "We'll manage. We always do. Just stings a little more each time."
+      ],
+      "statCheck": null,
+      "valence": "negative",
+      "topic_category": "travelers_and_trade",
+      "required_entities": [],
+      "location_scope": "universal",
+      "quest_trigger": null
+    },
+    {
+      "id": 10,
+      "intro": "A group of travelers set up camp just outside the settlement last night. Kept to themselves.",
+      "details": [
+        "They had a fire going and were singing something I didn't recognize. Sounded nice, actually.",
+        "Gone by morning. Didn't leave a mess or anything."
+      ],
+      "reactions": [
+        "I don't mind people passing through as long as they're respectful about it."
+      ],
+      "statCheck": null,
+      "valence": "neutral",
+      "topic_category": "travelers_and_trade",
+      "required_entities": [],
+      "location_scope": "universal",
+      "quest_trigger": null
+    },
+    {
+      "id": 11,
+      "intro": "The {resource_type} we've been getting from {other_settlement} has been terrible lately.",
+      "details": [
+        "Full of impurities, badly processed. Not worth what they're asking for it.",
+        "I brought it up with the last trader and they just shrugged. Said take it or leave it."
+      ],
+      "reactions": [
+        "Might be time to find another supplier, if there is one."
+      ],
+      "statCheck": null,
+      "valence": "negative",
+      "topic_category": "travelers_and_trade",
+      "required_entities": [],
+      "location_scope": "universal",
+      "quest_trigger": null
+    },
+    {
+      "id": 12,
+      "intro": "I like watching the traders unload. You can tell a lot about a place by what they bring.",
+      "details": [
+        "When the carts come heavy, things are good somewhere. When they come light, somebody's hurting.",
+        "This last one had a lot of preserved food and not much else. That tells a story."
+      ],
+      "reactions": [
+        "You learn to read the carts after a while."
+      ],
+      "statCheck": {
+        "pass": "Heavy on preserved food and light on raw materials means the source settlement is preparing for lean times. They're exporting what stores well and keeping the rest.",
+        "fail": "I just notice patterns. Don't ask me to explain them."
+      },
+      "valence": "neutral",
+      "topic_category": "travelers_and_trade",
+      "required_entities": [],
+      "location_scope": "universal",
+      "quest_trigger": null
+    },
+    {
+      "id": 13,
+      "intro": "A woman came through yesterday selling dyes I've never seen before. Beautiful colors.",
+      "details": [
+        "Deep blues and a red so rich it almost looked wet. She wouldn't say where she got them.",
+        "Bought a small pot of the blue. Cost me more than it should have, but I couldn't resist."
+      ],
+      "reactions": [
+        "Sometimes you have to spend a little on something that just makes you happy."
+      ],
+      "statCheck": null,
+      "valence": "positive",
+      "topic_category": "travelers_and_trade",
+      "required_entities": [],
+      "location_scope": "universal",
+      "quest_trigger": null
+    },
+    {
+      "id": 14,
+      "intro": "I tried bartering with that last merchant and they looked at me like I'd insulted them.",
+      "details": [
+        "Offered good wool for their {resource_type}. Fair trade by any measure.",
+        "They only wanted coins. Said bartering was for backwater folk."
+      ],
+      "reactions": [
+        "Coins rust. Wool keeps you warm. I know which one I'd rather have."
+      ],
+      "statCheck": null,
+      "valence": "negative",
+      "topic_category": "travelers_and_trade",
+      "required_entities": [],
+      "location_scope": "universal",
+      "quest_trigger": null
+    },
+    {
+      "id": 15,
+      "intro": "The road to {other_settlement} washed out again after the rains. Nobody's getting through that way.",
+      "details": [
+        "Happens every year and every year we say we'll fix it properly. Never do.",
+        "The traders will go around, but it adds two days to the trip."
+      ],
+      "reactions": [
+        "Just means everything costs more until it dries out."
+      ],
+      "statCheck": null,
+      "valence": "negative",
+      "topic_category": "travelers_and_trade",
+      "required_entities": [],
+      "location_scope": "universal",
+      "quest_trigger": null
+    },
+    {
+      "id": 16,
+      "intro": "A traveler told me people in {other_settlement} think we're unfriendly. That's rich.",
+      "details": [
+        "We let every stranger who comes through water their animals and rest in the shade.",
+        "Just because we don't throw a feast for every passerby doesn't make us cold."
+      ],
+      "reactions": [
+        "Unfriendly. I'd like to see how they treat strangers who show up unannounced."
+      ],
+      "statCheck": null,
+      "valence": "negative",
+      "topic_category": "travelers_and_trade",
+      "required_entities": [],
+      "location_scope": "universal",
+      "quest_trigger": null
+    },
+    {
+      "id": 17,
+      "intro": "New goods showing up I haven't seen before. Some kind of spice, smells incredible.",
+      "details": [
+        "The trader called it something I can't pronounce. Said it comes from way past {other_settlement}.",
+        "A pinch of it in stew changes everything. I bought what I could afford."
+      ],
+      "reactions": [
+        "It's little things like that which remind you the world's bigger than this settlement."
+      ],
+      "statCheck": null,
+      "valence": "positive",
+      "topic_category": "travelers_and_trade",
+      "required_entities": [],
+      "location_scope": "universal",
+      "quest_trigger": null
+    },
+    {
+      "id": 18,
+      "intro": "We don't produce enough of anything to matter to the big traders. That's the truth of it.",
+      "details": [
+        "The ones who stop here are doing us a favor, and they know it.",
+        "A bigger settlement would have them competing for our business. We just take what shows up."
+      ],
+      "reactions": [
+        "Small places don't get to be choosy."
+      ],
+      "statCheck": {
+        "pass": "The way out is specialization. If you can produce one thing nobody else in the area does well, traders will come to you for that and bring everything else along.",
+        "fail": "I don't know what the answer is. Just making do."
+      },
+      "valence": "neutral",
+      "topic_category": "travelers_and_trade",
+      "required_entities": [],
+      "location_scope": "universal",
+      "quest_trigger": null
+    },
+    {
+      "id": 19,
+      "intro": "I recognized one of the traders who came through: used to live here years ago.",
+      "details": [
+        "Left to make something of themselves, I suppose. Came back with a full cart and new clothes.",
+        "Didn't stay long. Sold what they had and moved on before sundown."
+      ],
+      "reactions": [
+        "Funny how some people only come back when there's profit in it."
+      ],
+      "statCheck": null,
+      "valence": "neutral",
+      "topic_category": "travelers_and_trade",
+      "required_entities": [],
+      "location_scope": "universal",
+      "quest_trigger": null
+    },
+    {
+      "id": 20,
+      "intro": "That merchant with the {resource_type} gave me a fair deal for once. I'm still in shock.",
+      "details": [
+        "Usually they try to squeeze every last bit out of you. This one actually seemed honest.",
+        "Weighed everything in front of me, didn't rush, answered my questions."
+      ],
+      "reactions": [
+        "I hope they come back. I'd rather give my trade to someone decent."
+      ],
+      "statCheck": null,
+      "valence": "positive",
+      "topic_category": "travelers_and_trade",
+      "required_entities": [],
+      "location_scope": "universal",
+      "quest_trigger": null
+    },
+    {
+      "id": 21,
+      "intro": "Somebody stole from one of the traders while they were resting here. Now they won't come back.",
+      "details": [
+        "Wasn't much, just some rope and a few tools. But it's the principle.",
+        "Word gets around among traders. One bad experience and they scratch you off their route."
+      ],
+      "reactions": [
+        "Whoever did it cost us more than they know."
+      ],
+      "statCheck": null,
+      "valence": "negative",
+      "topic_category": "travelers_and_trade",
+      "required_entities": [],
+      "location_scope": "universal",
+      "quest_trigger": null
+    },
+    {
+      "id": 22,
+      "intro": "A stranger asked me for directions to {other_settlement} and I pointed them the wrong way. Honest mistake.",
+      "details": [
+        "Realized it about an hour later and felt terrible. But they were long gone by then.",
+        "The paths all look the same if you're not from here."
+      ],
+      "reactions": [
+        "They'll figure it out eventually. I hope."
+      ],
+      "statCheck": null,
+      "valence": "neutral",
+      "topic_category": "travelers_and_trade",
+      "required_entities": [],
+      "location_scope": "universal",
+      "quest_trigger": null
+    },
+    {
+      "id": 23,
+      "intro": "Travelers keep asking if we have an inn. We have a barn and some spare blankets.",
+      "details": [
+        "I've thought about fixing up the spare room and letting people pay to sleep there.",
+        "But then you've got strangers in your house, and that's a different kind of problem."
+      ],
+      "reactions": [
+        "Maybe someday. When the settlement's bigger. If it gets bigger."
+      ],
+      "statCheck": null,
+      "valence": "neutral",
+      "topic_category": "travelers_and_trade",
+      "required_entities": [],
+      "location_scope": "universal",
+      "quest_trigger": null
+    },
+    {
+      "id": 24,
+      "intro": "Got some {resource_type} from a trader passing through and it's the best I've had in months.",
+      "details": [
+        "They said it came from somewhere past {other_settlement}. Long haul, but worth it.",
+        "I asked if they could bring more next time and they said they'd try."
+      ],
+      "reactions": [
+        "It's nice when something good just falls into your lap."
+      ],
+      "statCheck": null,
+      "valence": "positive",
+      "topic_category": "travelers_and_trade",
+      "required_entities": [],
+      "location_scope": "universal",
+      "quest_trigger": null
+    },
+    {
+      "id": 25,
+      "intro": "I overheard a traveler saying this settlement is smaller than they expected. That bothered me more than it should have.",
+      "details": [
+        "We're not trying to be a city. We're just trying to get by.",
+        "They said it like it was a disappointment, like we'd let them down somehow."
+      ],
+      "reactions": [
+        "We don't exist to impress people who are just passing through."
+      ],
+      "statCheck": null,
+      "valence": "negative",
+      "topic_category": "travelers_and_trade",
+      "required_entities": [],
+      "location_scope": "universal",
+      "quest_trigger": null
+    },
+    {
+      "id": 26,
+      "intro": "{npc_name} made a killing selling smoked meat to that last caravan. Good for them.",
+      "details": [
+        "They've been smoking meat all season, way more than anyone here could eat.",
+        "Turns out they were planning for exactly this. Had everything ready when the traders came through."
+      ],
+      "reactions": [
+        "Smart. I should think ahead like that."
+      ],
+      "statCheck": null,
+      "valence": "positive",
+      "topic_category": "travelers_and_trade",
+      "required_entities": [],
+      "location_scope": "universal",
+      "quest_trigger": null
+    },
+    {
+      "id": 27,
+      "intro": "The last merchant tried to sell me {resource_type} I'm pretty sure was stolen.",
+      "details": [
+        "It still had somebody's mark on it. They hadn't even bothered to scrape it off.",
+        "When I pointed it out, they packed up fast and left."
+      ],
+      "reactions": [
+        "I'm not buying trouble. Cheap goods aren't cheap if they come with consequences."
+      ],
+      "statCheck": {
+        "pass": "That mark was from a guild stamp. Whoever lost those goods will be looking for them.",
+        "fail": "I don't know whose mark it was, but someone's missing their stock."
+      },
+      "valence": "negative",
+      "topic_category": "travelers_and_trade",
+      "required_entities": [],
+      "location_scope": "universal",
+      "quest_trigger": null
+    },
+    {
+      "id": 28,
+      "intro": "Had a traveler stay for three days. Longest anyone's lingered in a while.",
+      "details": [
+        "They helped repair a fence and didn't ask for anything in return. Just seemed to enjoy having something to do.",
+        "By the third day people were actually sad to see them go."
+      ],
+      "reactions": [
+        "Some people just fit in wherever they end up. Wish more travelers were like that."
+      ],
+      "statCheck": null,
+      "valence": "positive",
+      "topic_category": "travelers_and_trade",
+      "required_entities": [],
+      "location_scope": "universal",
+      "quest_trigger": null
+    },
+    {
+      "id": 29,
+      "intro": "The traders from {other_settlement} always look down on us. You can see it in their faces.",
+      "details": [
+        "They speak slowly, like we won't understand normal conversation.",
+        "Their prices are fair enough, I'll give them that. But the attitude grates on you."
+      ],
+      "reactions": [
+        "I buy what I need from them and keep the conversation short."
+      ],
+      "statCheck": null,
+      "valence": "negative",
+      "topic_category": "travelers_and_trade",
+      "required_entities": [],
+      "location_scope": "universal",
+      "quest_trigger": null
+    },
+    {
+      "id": 30,
+      "intro": "We sent {resource_type} to {other_settlement} last week. First time we had enough surplus to export anything.",
+      "details": [
+        "It wasn't a lot, but it was ours. Felt good packing it up and sending it out.",
+        "Got a decent return too. Better than I expected for a first shipment."
+      ],
+      "reactions": [
+        "If we can do that regularly, it changes things for us."
+      ],
+      "statCheck": null,
+      "valence": "positive",
+      "topic_category": "travelers_and_trade",
+      "required_entities": [],
+      "location_scope": "universal",
+      "quest_trigger": null
+    },
+    {
+      "id": 31,
+      "intro": "A traveler warned us the road toward {direction} isn't safe right now. Said they saw signs of trouble.",
+      "details": [
+        "Wouldn't be specific, just said to be careful and stick to the main path.",
+        "They seemed genuinely worried, not the type to exaggerate."
+      ],
+      "reactions": [
+        "We don't go that way often, but it's unsettling to hear."
+      ],
+      "statCheck": {
+        "pass": "If the road's being avoided, bandits are the most likely reason. They set up where traffic is thin and the paths are narrow.",
+        "fail": "Could be anything. I'm not going to find out firsthand."
+      },
+      "valence": "negative",
+      "topic_category": "travelers_and_trade",
+      "required_entities": [],
+      "location_scope": "universal",
+      "quest_trigger": null
+    },
+    {
+      "id": 32,
+      "intro": "We used to get a lot more traffic through here. The road shifted and so did the travelers.",
+      "details": [
+        "When they cleared that new path toward {other_settlement}, everyone started using it instead.",
+        "Now we're off the main route. People only come here on purpose."
+      ],
+      "reactions": [
+        "Quieter, sure. But quiet has a cost when you depend on trade."
+      ],
+      "statCheck": {
+        "pass": "Settlements that lose their main road usually have about two years before the decline really sets in. After that, population drops and the remaining traders stop bothering.",
+        "fail": "I just know it's been getting quieter. The reasons don't change the reality."
+      },
+      "valence": "negative",
+      "topic_category": "travelers_and_trade",
+      "required_entities": [],
+      "location_scope": "universal",
+      "quest_trigger": null
+    },
+    {
+      "id": 33,
+      "intro": "There's something nice about seeing a loaded cart roll in. Means someone thought we were worth the trip.",
+      "details": [
+        "Most traders have their regular stops and we're just one of many. But still.",
+        "When they show up with a full load, it means they expect to do real business here."
+      ],
+      "reactions": [
+        "Small thing, but it matters to me."
+      ],
+      "statCheck": null,
+      "valence": "neutral",
+      "topic_category": "travelers_and_trade",
+      "required_entities": [],
+      "location_scope": "universal",
+      "quest_trigger": null
+    },
+    {
+      "id": 34,
+      "intro": "A merchant tried to pass off dyed leather as something finer. {npc_name} caught it immediately.",
+      "details": [
+        "They'd stained cheap hide to look like quality stock. Looked right until you flexed it.",
+        "{npc_name} just rubbed the surface with a wet thumb and the color came right off."
+      ],
+      "reactions": [
+        "Glad someone around here knows what to look for."
+      ],
+      "statCheck": null,
+      "valence": "neutral",
+      "topic_category": "travelers_and_trade",
+      "required_entities": [],
+      "location_scope": "universal",
+      "quest_trigger": null
+    },
+    {
+      "id": 35,
+      "intro": "I wonder what travelers tell people about us when they get to {other_settlement}.",
+      "details": [
+        "Probably nothing. We're a stop along the way, not a destination.",
+        "But sometimes I catch them looking around with this expression I can't quite read."
+      ],
+      "reactions": [
+        "Probably overthinking it. Most people have their own worries."
+      ],
+      "statCheck": null,
+      "valence": "neutral",
+      "topic_category": "travelers_and_trade",
+      "required_entities": [],
+      "location_scope": "universal",
+      "quest_trigger": null
+    },
+    {
+      "id": 36,
+      "intro": "We've been paying more for {resource_type} than {other_settlement} does. Doesn't seem right.",
+      "details": [
+        "Same trader, same goods, but they charge us extra because we're further out.",
+        "I asked about it and they said the distance justifies it. Maybe, but it adds up."
+      ],
+      "reactions": [
+        "Not much leverage when you're the smaller buyer."
+      ],
+      "statCheck": {
+        "pass": "The markup is real, but it's not just distance. Smaller settlements get worse rates because they can't buy in bulk. Less volume, less bargaining power.",
+        "fail": "I just know it costs more here than it should."
+      },
+      "valence": "negative",
+      "topic_category": "travelers_and_trade",
+      "required_entities": [],
+      "location_scope": "universal",
+      "quest_trigger": null
+    },
+    {
+      "id": 37,
+      "intro": "A family passed through heading toward {direction}. Kids, animals, everything they owned on one cart.",
+      "details": [
+        "They looked tired but not desperate. Just people starting over somewhere new.",
+        "We gave them water and some bread. They were grateful in a quiet way."
+      ],
+      "reactions": [
+        "Takes courage to pull up roots like that."
+      ],
+      "statCheck": null,
+      "valence": "neutral",
+      "topic_category": "travelers_and_trade",
+      "required_entities": [],
+      "location_scope": "universal",
+      "quest_trigger": null
+    },
+    {
+      "id": 38,
+      "intro": "That old trader with the mule is back. Shows up every season like clockwork.",
+      "details": [
+        "Same mule, same goods, same complaints about the road. I look forward to it, honestly.",
+        "They always know what we need before we ask. Been doing this long enough to just know."
+      ],
+      "reactions": [
+        "Reliable people are worth more than cheap prices."
+      ],
+      "statCheck": null,
+      "valence": "positive",
+      "topic_category": "travelers_and_trade",
+      "required_entities": [],
+      "location_scope": "universal",
+      "quest_trigger": null
+    },
+    {
+      "id": 39,
+      "intro": "I sold my extra {resource_type} to a passing trader and immediately wished I'd kept it.",
+      "details": [
+        "Seemed like a good idea at the time. We had more than we needed.",
+        "Then two days later I found a use for it and had nothing left."
+      ],
+      "reactions": [
+        "That's how it always goes. Sell too early, need it too late."
+      ],
+      "statCheck": null,
+      "valence": "negative",
+      "topic_category": "travelers_and_trade",
+      "required_entities": [],
+      "location_scope": "universal",
+      "quest_trigger": null
+    },
+    {
+      "id": 40,
+      "intro": "Outsiders always comment on how quiet it is here. They say it like it's a bad thing.",
+      "details": [
+        "One of them said they couldn't sleep because it was too quiet. Imagine that.",
+        "They're used to noise, I suppose. Traffic, crowds, all of that."
+      ],
+      "reactions": [
+        "The quiet is the best part. They just haven't figured that out yet."
+      ],
+      "statCheck": {
+        "pass": "People from busy settlements associate noise with safety. Silence makes them feel exposed. It's not about preference, it's about what they've learned to rely on.",
+        "fail": "I'll never understand city people."
+      },
+      "valence": "neutral",
+      "topic_category": "travelers_and_trade",
+      "required_entities": [],
+      "location_scope": "universal",
+      "quest_trigger": null
+    },
+    {
+      "id": 41,
+      "intro": "A trader told me {other_settlement} has been buying up all the {resource_type} in the region.",
+      "details": [
+        "Paying above market too, so everyone's selling to them first.",
+        "By the time the traders reach us, they've got nothing left or they want double."
+      ],
+      "reactions": [
+        "We can't compete with that. Frustrating, but that's how it works."
+      ],
+      "statCheck": {
+        "pass": "When a settlement starts hoarding a resource like that, they're either building something big or expecting a shortage. Either way, it drives up costs for everyone nearby.",
+        "fail": "Don't know why they'd need that much. Seems excessive."
+      },
+      "valence": "negative",
+      "topic_category": "travelers_and_trade",
+      "required_entities": [],
+      "location_scope": "universal",
+      "quest_trigger": null
+    },
+    {
+      "id": 42,
+      "intro": "The road's been busier than usual. I've seen three different carts this week alone.",
+      "details": [
+        "Two were heading toward {other_settlement}, one was coming back loaded light.",
+        "More traffic means more news, more goods, more of everything. It's been nice."
+      ],
+      "reactions": [
+        "Busy roads are good roads. Means things are moving."
+      ],
+      "statCheck": null,
+      "valence": "positive",
+      "topic_category": "travelers_and_trade",
+      "required_entities": [],
+      "location_scope": "universal",
+      "quest_trigger": null
+    },
+    {
+      "id": 43,
+      "intro": "Someone from {other_settlement} said we make the best bread in the region. First I've heard of it.",
+      "details": [
+        "They bought three loaves and asked how we do it. I told them it's just flour and water.",
+        "But I suppose our flour is milled different. Never thought about it being special."
+      ],
+      "reactions": [
+        "Nice to be known for something, even if it's just bread."
+      ],
+      "statCheck": null,
+      "valence": "positive",
+      "topic_category": "travelers_and_trade",
+      "required_entities": [],
+      "location_scope": "universal",
+      "quest_trigger": null
+    },
+    {
+      "id": 44,
+      "intro": "I hate haggling. I just want someone to tell me what something costs and that's that.",
+      "details": [
+        "Every trader who comes through wants to do this dance. They ask high, I offer low, we meet in the middle.",
+        "We both know where we're going to end up. Why not just start there?"
+      ],
+      "reactions": [
+        "Life's too short for pretending a fair price isn't already obvious."
+      ],
+      "statCheck": {
+        "pass": "Haggling exists because information is unequal. The trader knows what they paid, you don't. If both sides had the same numbers, you'd just agree on a margin and be done.",
+        "fail": "I just want a straight answer. Is that too much to ask?"
+      },
+      "valence": "neutral",
+      "topic_category": "travelers_and_trade",
+      "required_entities": [],
+      "location_scope": "universal",
+      "quest_trigger": null
+    },
+    {
+      "id": 45,
+      "intro": "A traveler asked if we had a blacksmith. When I said no, they looked at me like I said we don't have water.",
+      "details": [
+        "We share tools and fix what we can ourselves. Been doing it that way for years.",
+        "They couldn't believe nobody here works a forge full time."
+      ],
+      "reactions": [
+        "Not every place needs one of everything. We get by."
+      ],
+      "statCheck": null,
+      "valence": "neutral",
+      "topic_category": "travelers_and_trade",
+      "required_entities": [],
+      "location_scope": "universal",
+      "quest_trigger": null
+    },
+    {
+      "id": 46,
+      "intro": "The {resource_type} coming out of {other_settlement} used to be reliable. Not anymore.",
+      "details": [
+        "Last three shipments have been short. Not by much, but enough to notice.",
+        "The traders blame weather, labor problems, everything but themselves."
+      ],
+      "reactions": [
+        "Something's off over there and it's trickling down to us."
+      ],
+      "statCheck": null,
+      "valence": "negative",
+      "topic_category": "travelers_and_trade",
+      "required_entities": [],
+      "location_scope": "universal",
+      "quest_trigger": null
+    },
+    {
+      "id": 47,
+      "intro": "I met a traveler who's been to places I'll never see. Made me a little jealous, honestly.",
+      "details": [
+        "They talked about coastlines and forests so thick you can't see the sky. All of it just casually, like it was normal.",
+        "Meanwhile I've spent my whole life within a day's walk of where I was born."
+      ],
+      "reactions": [
+        "I don't regret staying. But sometimes I wonder what I'm missing."
+      ],
+      "statCheck": null,
+      "valence": "neutral",
+      "topic_category": "travelers_and_trade",
+      "required_entities": [],
+      "location_scope": "universal",
+      "quest_trigger": null
+    },
+    {
+      "id": 48,
+      "intro": "We got cheated on a {resource_type} deal last month. Still angry about it.",
+      "details": [
+        "The trader weighed it on their scale, which was off by a good margin. We didn't realize until later.",
+        "By then they were long gone. No way to fix it."
+      ],
+      "reactions": [
+        "Next time I'm bringing my own scale."
+      ],
+      "statCheck": {
+        "pass": "Old trick. They put a wedge under the pan so it reads heavy on their side. Always insist on a flat surface and your own counterweights.",
+        "fail": "I should've paid more attention. Won't happen again."
+      },
+      "valence": "negative",
+      "topic_category": "travelers_and_trade",
+      "required_entities": [],
+      "location_scope": "universal",
+      "quest_trigger": null
+    },
+    {
+      "id": 49,
+      "intro": "A caravan stopped here overnight and the whole settlement came out to see what they had.",
+      "details": [
+        "It was like a little market right in the road. People trading, talking, catching up on news.",
+        "The caravan master said we were the friendliest stop on their route."
+      ],
+      "reactions": [
+        "We don't get many chances to feel like that. It was a good night."
+      ],
+      "statCheck": null,
+      "valence": "positive",
+      "topic_category": "travelers_and_trade",
+      "required_entities": [],
+      "location_scope": "universal",
+      "quest_trigger": null
+    },
+    {
+      "id": 50,
+      "intro": "I've been saving up to buy a proper set of tools from the next trader who comes through.",
+      "details": [
+        "The ones I have now are worn down to nothing. Patched and re-handled more times than I can count.",
+        "If the price is right, I'll finally replace them. If not, another season of making do."
+      ],
+      "reactions": [
+        "Funny how your whole mood can hinge on whether a cart shows up this week."
+      ],
+      "statCheck": null,
+      "valence": "neutral",
+      "topic_category": "travelers_and_trade",
+      "required_entities": [],
+      "location_scope": "universal",
+      "quest_trigger": null
+    },
+    {
+      "id": 51,
+      "intro": "A traveler brought news that {other_settlement} has a new leader. Change like that always ripples outward.",
+      "details": [
+        "New leadership usually means new trade terms. Sometimes better, sometimes worse.",
+        "The traveler seemed hopeful about it, but they're not the ones who have to renegotiate prices."
+      ],
+      "reactions": [
+        "We'll see how it shakes out. Nothing to do but wait."
+      ],
+      "statCheck": {
+        "pass": "New leaders usually consolidate first: tighten what they control, then slowly open up trade once they're secure. We should expect a quiet period before things normalize.",
+        "fail": "Politics aren't my area. I just hope the prices stay reasonable."
+      },
+      "valence": "neutral",
+      "topic_category": "travelers_and_trade",
+      "required_entities": [],
+      "location_scope": "universal",
+      "quest_trigger": null
+    },
+    {
+      "id": 52,
+      "intro": "I gave a traveler a hot meal and they left me a small bag of {resource_type} as thanks. Didn't have to do that.",
+      "details": [
+        "They were drenched from the rain, so I invited them in. Just seemed like the right thing.",
+        "The {resource_type} is good quality too. Better than what we usually get."
+      ],
+      "reactions": [
+        "Kindness has a way of coming back around."
+      ],
+      "statCheck": null,
+      "valence": "positive",
+      "topic_category": "travelers_and_trade",
+      "required_entities": [],
+      "location_scope": "universal",
+      "quest_trigger": null
+    },
+    {
+      "id": 53,
+      "intro": "Nobody's come through from {direction} in weeks. That path is usually one of the busier ones.",
+      "details": [
+        "Could be the season, could be road conditions. Hard to say without going to check.",
+        "But we're not going to send someone a day's walk just to find out why traders stopped coming."
+      ],
+      "reactions": [
+        "You just wait and hope it sorts itself out."
+      ],
+      "statCheck": null,
+      "valence": "negative",
+      "topic_category": "travelers_and_trade",
+      "required_entities": [],
+      "location_scope": "universal",
+      "quest_trigger": null
+    },
+    {
+      "id": 54,
+      "intro": "The best thing about traders isn't the goods. It's the news.",
+      "details": [
+        "We don't hear anything out here unless someone brings it. A trader's gossip is as valuable as their cargo.",
+        "I always ask what's happening in {other_settlement}. Just to know."
+      ],
+      "reactions": [
+        "Information travels by cart out here. Always has."
+      ],
+      "statCheck": null,
+      "valence": "neutral",
+      "topic_category": "travelers_and_trade",
+      "required_entities": [],
+      "location_scope": "universal",
+      "quest_trigger": null
+    },
+    {
+      "id": 55,
+      "intro": "A trader offered me a beautiful knife for way less than it was worth. That made me suspicious.",
+      "details": [
+        "Good steel, solid handle. The kind of thing you'd expect to cost three times what they asked.",
+        "I didn't buy it. Something felt wrong about the whole deal."
+      ],
+      "reactions": [
+        "When something's too good to be true out here, it usually is."
+      ],
+      "statCheck": {
+        "pass": "They probably needed to offload it fast. Stolen goods or debts: either way, buying it makes you part of someone else's problem.",
+        "fail": "My gut said no. That's enough for me."
+      },
+      "valence": "negative",
+      "topic_category": "travelers_and_trade",
+      "required_entities": [],
+      "location_scope": "universal",
+      "quest_trigger": null
+    },
+    {
+      "id": 56,
+      "intro": "{npc_name} thinks we should start a proper market day. Get traders to come on a set schedule.",
+      "details": [
+        "The idea is that if people know when to show up, more of them will. Regular traffic, regular trade.",
+        "Problem is we'd need something to draw them in, and right now we don't have much to offer."
+      ],
+      "reactions": [
+        "Good idea in theory. Getting there is the hard part."
+      ],
+      "statCheck": null,
+      "valence": "neutral",
+      "topic_category": "travelers_and_trade",
+      "required_entities": [],
+      "location_scope": "universal",
+      "quest_trigger": null
+    },
+    {
+      "id": 57,
+      "intro": "An old merchant told me the secret to fair trade is remembering that both sides need the deal.",
+      "details": [
+        "If only one side needs it, that's not trade. That's desperation.",
+        "They said the best merchants make you feel like equals, even when they know they have the upper hand."
+      ],
+      "reactions": [
+        "Wise words. Haven't met many traders who live by them, though."
+      ],
+      "statCheck": null,
+      "valence": "neutral",
+      "topic_category": "travelers_and_trade",
+      "required_entities": [],
+      "location_scope": "universal",
+      "quest_trigger": null
+    },
+    {
+      "id": 58,
+      "intro": "We had a traveler come through who spoke with an accent I've never heard before.",
+      "details": [
+        "Couldn't place where they were from. Somewhere far, based on their clothes and the way they carried themselves.",
+        "They didn't speak much of our language but managed well enough with gestures."
+      ],
+      "reactions": [
+        "Makes you realize how far the roads actually stretch."
+      ],
+      "statCheck": null,
+      "valence": "neutral",
+      "topic_category": "travelers_and_trade",
+      "required_entities": [],
+      "location_scope": "universal",
+      "quest_trigger": null
+    },
+    {
+      "id": 59,
+      "intro": "I'm tired of being the last stop on every trade route. By the time goods reach us, the good stuff's picked over.",
+      "details": [
+        "The merchants arrive with half-empty carts and expect us to be grateful for what's left.",
+        "{other_settlement} gets first pick of everything. We get the scraps."
+      ],
+      "reactions": [
+        "Location matters more than people admit."
+      ],
+      "statCheck": null,
+      "valence": "negative",
+      "topic_category": "travelers_and_trade",
+      "required_entities": [],
+      "location_scope": "universal",
+      "quest_trigger": null
+    },
+    {
+      "id": 60,
+      "intro": "A trader brought a small music box from somewhere far off. Played the prettiest little tune.",
+      "details": [
+        "Everyone gathered around to listen. You'd think none of us had ever heard music before.",
+        "They wanted too much for it, so nobody bought it. But we all got to hear it, at least."
+      ],
+      "reactions": [
+        "Some things are worth the moment even if you can't keep them."
+      ],
+      "statCheck": null,
+      "valence": "positive",
+      "topic_category": "travelers_and_trade",
+      "required_entities": [],
+      "location_scope": "universal",
+      "quest_trigger": null
+    },
+    {
+      "id": 61,
+      "intro": "The last trader to come through was in a real hurry. Sold fast, bought nothing, and left.",
+      "details": [
+        "Didn't even stop to water the animals properly. Just tossed some coins and loaded up.",
+        "I asked where the rush was and they just shook their head."
+      ],
+      "reactions": [
+        "Something spooked them. People don't move like that for no reason."
+      ],
+      "statCheck": {
+        "pass": "If a trader skips rest stops and doesn't bargain, they're either running from something or trying to beat someone to a destination. Either way, not our concern.",
+        "fail": "No idea what that was about."
+      },
+      "valence": "negative",
+      "topic_category": "travelers_and_trade",
+      "required_entities": [],
+      "location_scope": "universal",
+      "quest_trigger": null
+    },
+    {
+      "id": 62,
+      "intro": "The {resource_type} prices have actually dropped a bit this season. First time in a while.",
+      "details": [
+        "The trader said there's been a good year for production. Surplus everywhere.",
+        "I bought extra while it's cheap. No telling how long it'll last."
+      ],
+      "reactions": [
+        "A good season for someone else can be a good season for us too."
+      ],
+      "statCheck": null,
+      "valence": "positive",
+      "topic_category": "travelers_and_trade",
+      "required_entities": [],
+      "location_scope": "universal",
+      "quest_trigger": null
+    },
+    {
+      "id": 63,
+      "intro": "Some travelers stopped to sketch the settlement. Just sat on the hill and drew pictures of our buildings.",
+      "details": [
+        "I walked up and asked what they were doing. They said they document settlements along the trade routes.",
+        "Felt odd seeing our homes through someone else's eyes. They made it look nicer than it is."
+      ],
+      "reactions": [
+        "Or maybe I've just stopped noticing what it looks like."
+      ],
+      "statCheck": null,
+      "valence": "neutral",
+      "topic_category": "travelers_and_trade",
+      "required_entities": [],
+      "location_scope": "universal",
+      "quest_trigger": null
+    },
+    {
+      "id": 64,
+      "intro": "I tried sending goods to {other_settlement} through a trader and they never paid me.",
+      "details": [
+        "Gave them a crate of dried herbs on consignment. Said they'd bring the money back next trip.",
+        "That was two months ago. No sign of them since."
+      ],
+      "reactions": [
+        "Expensive lesson. Don't trust what you can't verify."
+      ],
+      "statCheck": null,
+      "valence": "negative",
+      "topic_category": "travelers_and_trade",
+      "required_entities": [],
+      "location_scope": "universal",
+      "quest_trigger": null
+    },
+    {
+      "id": 65,
+      "intro": "A merchant complimented our {resource_type}. Said it was as good as what {other_settlement} produces.",
+      "details": [
+        "I don't think they were just being polite either. They asked if we could supply them regularly.",
+        "We can't, not in the quantities they want. But it's good to know we're not far off."
+      ],
+      "reactions": [
+        "Maybe one day. For now it's enough to know we're making something worth noticing."
+      ],
+      "statCheck": null,
+      "valence": "positive",
+      "topic_category": "travelers_and_trade",
+      "required_entities": [],
+      "location_scope": "universal",
+      "quest_trigger": null
+    },
+    {
+      "id": 66,
+      "intro": "Two traders showed up on the same day for the first time ever. Felt like a festival.",
+      "details": [
+        "They started competing for our business right there in the road. Undercutting each other on prices.",
+        "We came out ahead for once. Both of them left with lighter carts and we got good deals."
+      ],
+      "reactions": [
+        "If only that happened every time."
+      ],
+      "statCheck": null,
+      "valence": "positive",
+      "topic_category": "travelers_and_trade",
+      "required_entities": [],
+      "location_scope": "universal",
+      "quest_trigger": null
+    },
+    {
+      "id": 67,
+      "intro": "A traveler left behind a worn-out pair of boots when they moved on. Good leather, just needed resoling.",
+      "details": [
+        "I fixed them up and they fit well enough. Better than what I was wearing.",
+        "It's funny what people discard. One person's trash, I suppose."
+      ],
+      "reactions": [
+        "I'm not too proud for secondhand. Not when they're this comfortable."
+      ],
+      "statCheck": null,
+      "valence": "neutral",
+      "topic_category": "travelers_and_trade",
+      "required_entities": [],
+      "location_scope": "universal",
+      "quest_trigger": null
+    },
+    {
+      "id": 68,
+      "intro": "People from {other_settlement} keep saying we should consolidate trade. Pool our resources with them.",
+      "details": [
+        "Sounds nice until you realize they'd be setting the terms. Bigger settlement, bigger say.",
+        "We'd end up doing the work and they'd set the prices."
+      ],
+      "reactions": [
+        "I'd rather have less and keep our independence than have more on someone else's terms."
+      ],
+      "statCheck": {
+        "pass": "It's the oldest trick in regional trade. The bigger settlement 'partners' with smaller ones and slowly absorbs their surplus. You lose autonomy one deal at a time.",
+        "fail": "I just don't trust arrangements where the other side has all the advantages."
+      },
+      "valence": "negative",
+      "topic_category": "travelers_and_trade",
+      "required_entities": [],
+      "location_scope": "universal",
+      "quest_trigger": null
+    },
+    {
+      "id": 69,
+      "intro": "Watched a young trader try to negotiate with {npc_name}. They didn't stand a chance.",
+      "details": [
+        "{npc_name} just sat there smiling while this kid sweated through every offer.",
+        "By the end the trader was practically giving things away. It was impressive, honestly."
+      ],
+      "reactions": [
+        "Experience beats enthusiasm every time."
+      ],
+      "statCheck": null,
+      "valence": "neutral",
+      "topic_category": "travelers_and_trade",
+      "required_entities": [],
+      "location_scope": "universal",
+      "quest_trigger": null
+    },
+    {
+      "id": 70,
+      "intro": "A caravan heading toward {direction} stopped for water and the teamster told us stories about the road.",
+      "details": [
+        "Bridges out, paths overgrown, and one stretch where a tree fell across the whole road and nobody's moved it.",
+        "They're spending half their time finding detours. Adds days to every trip."
+      ],
+      "reactions": [
+        "Bad roads hurt everyone. The traders, the settlements, all of us."
+      ],
+      "statCheck": null,
+      "valence": "negative",
+      "topic_category": "travelers_and_trade",
+      "required_entities": [],
+      "location_scope": "universal",
+      "quest_trigger": null
+    },
+    {
+      "id": 71,
+      "intro": "I traded some {resource_type} with a merchant from {other_settlement} and we both walked away satisfied.",
+      "details": [
+        "No haggling, no games. They named a price, I countered once, we shook on it.",
+        "That's how every deal should go."
+      ],
+      "reactions": [
+        "When both sides are fair, trade doesn't have to be a fight."
+      ],
+      "statCheck": null,
+      "valence": "positive",
+      "topic_category": "travelers_and_trade",
+      "required_entities": [],
+      "location_scope": "universal",
+      "quest_trigger": null
+    },
+    {
+      "id": 72,
+      "intro": "A traveler asked me why anyone would choose to live here. Like it was a serious question.",
+      "details": [
+        "They looked around at the fields and the buildings and genuinely couldn't figure it out.",
+        "I told them this is home. They nodded like they understood, but I don't think they did."
+      ],
+      "reactions": [
+        "Some people can't imagine staying in one place. That's their loss."
+      ],
+      "statCheck": null,
+      "valence": "neutral",
+      "topic_category": "travelers_and_trade",
+      "required_entities": [],
+      "location_scope": "universal",
+      "quest_trigger": null
+    },
+    {
+      "id": 73,
+      "intro": "{npc_name} says we should stockpile {resource_type} while it's cheap and sell it when prices go back up.",
+      "details": [
+        "In theory it makes sense. Buy low, wait, sell high.",
+        "But we barely have storage for what we need now, let alone extra to hold onto."
+      ],
+      "reactions": [
+        "Good plans need resources to execute. We're not there yet."
+      ],
+      "statCheck": null,
+      "valence": "neutral",
+      "topic_category": "travelers_and_trade",
+      "required_entities": [],
+      "location_scope": "universal",
+      "quest_trigger": null
+    },
+    {
+      "id": 74,
+      "intro": "The salt trader didn't come this season. I really hope they show up soon.",
+      "details": [
+        "We use salt for preserving and we're almost out. Can't just substitute something else.",
+        "If they don't come in the next few weeks, someone's going to have to make the trip to {other_settlement}."
+      ],
+      "reactions": [
+        "Funny how one missing trader can throw everything off."
+      ],
+      "statCheck": {
+        "pass": "Salt has no substitute for preservation. Smoking helps extend meat, but for everything else you need salt or you lose the stores. It's the one supply that can't wait.",
+        "fail": "All I know is we need it and we don't have it."
+      },
+      "valence": "negative",
+      "topic_category": "travelers_and_trade",
+      "required_entities": [],
+      "location_scope": "universal",
+      "quest_trigger": null
+    },
+    {
+      "id": 75,
+      "intro": "I've started keeping a list of everything we buy from traders. The numbers are sobering.",
+      "details": [
+        "We import more than I realized. {resource_type}, tools, cloth, seasonings. Most of what we use daily.",
+        "If the trade routes closed tomorrow, we'd manage for a month. Maybe two."
+      ],
+      "reactions": [
+        "We're more dependent on outsiders than we like to admit."
+      ],
+      "statCheck": {
+        "pass": "Every small settlement is one disrupted supply line away from a hard season. The smart move is diversifying what we produce locally, even if it's less efficient.",
+        "fail": "Just looking at the list makes me nervous."
+      },
+      "valence": "negative",
+      "topic_category": "travelers_and_trade",
+      "required_entities": [],
+      "location_scope": "universal",
+      "quest_trigger": null
+    },
+    {
+      "id": 76,
+      "intro": "A traveler gave me a recipe they'd picked up in {other_settlement}. Turns out it's delicious.",
+      "details": [
+        "It uses ingredients we already have, just combined differently. I'd never thought to do it that way.",
+        "I've made it three times this week already."
+      ],
+      "reactions": [
+        "Sometimes the best thing a stranger brings isn't goods. It's ideas."
+      ],
+      "statCheck": null,
+      "valence": "positive",
+      "topic_category": "travelers_and_trade",
+      "required_entities": [],
+      "location_scope": "universal",
+      "quest_trigger": null
+    },
+    {
+      "id": 77,
+      "intro": "I caught a merchant shortchanging {npc_name} and said something. The merchant didn't appreciate that.",
+      "details": [
+        "They were counting out coins fast, skipping every fourth or fifth one. Old trick.",
+        "{npc_name} hadn't noticed, but I was standing close enough to see."
+      ],
+      "reactions": [
+        "The merchant won't be happy next time they come through, but I don't care. You don't cheat people."
+      ],
+      "statCheck": null,
+      "valence": "negative",
+      "topic_category": "travelers_and_trade",
+      "required_entities": [],
+      "location_scope": "universal",
+      "quest_trigger": null
+    },
+    {
+      "id": 78,
+      "intro": "A group of traders pooled their goods and set up a little market for an afternoon. Best day we've had in ages.",
+      "details": [
+        "There were fabrics, spices, tools, preserved fruits. More variety than we see in a whole year.",
+        "Everyone spent too much and nobody regretted it."
+      ],
+      "reactions": [
+        "Moments like that keep a place going."
+      ],
+      "statCheck": null,
+      "valence": "positive",
+      "topic_category": "travelers_and_trade",
+      "required_entities": [],
+      "location_scope": "universal",
+      "quest_trigger": null
+    },
+    {
+      "id": 79,
+      "intro": "I keep hearing that {other_settlement} wants to tax goods coming through here. Not sure how they think that works.",
+      "details": [
+        "They don't own the road. Nobody owns the road.",
+        "But if they start turning traders back or charging them to pass, it affects everyone downstream."
+      ],
+      "reactions": [
+        "Politics between settlements always ends up costing the little places."
+      ],
+      "statCheck": {
+        "pass": "Taxing a trade route is how bigger settlements assert control without sending soldiers. If traders comply, the revenue stream is worth more than any raid.",
+        "fail": "I don't understand the politics. I just know it'll cost us somehow."
+      },
+      "valence": "negative",
+      "topic_category": "travelers_and_trade",
+      "required_entities": [],
+      "location_scope": "universal",
+      "quest_trigger": null
+    },
+    {
+      "id": 80,
+      "intro": "There's a trader who always brings something small for the children. Carved animals, little puzzles.",
+      "details": [
+        "Doesn't charge for them either. Just hands them out when they arrive.",
+        "The children run to meet the cart every time now. You can hear them shouting from the fields."
+      ],
+      "reactions": [
+        "That person understands something about goodwill that most merchants never learn."
+      ],
+      "statCheck": null,
+      "valence": "positive",
+      "topic_category": "travelers_and_trade",
+      "required_entities": [],
+      "location_scope": "universal",
+      "quest_trigger": null
+    },
+    {
+      "id": 81,
+      "intro": "Had to turn away a trader yesterday because we simply couldn't afford what they were asking.",
+      "details": [
+        "They had good {resource_type}, exactly what we needed. But the price was just out of reach.",
+        "They shrugged and moved on. We watched them go and that was that."
+      ],
+      "reactions": [
+        "Hard to watch what you need roll away on someone else's cart."
+      ],
+      "statCheck": null,
+      "valence": "negative",
+      "topic_category": "travelers_and_trade",
+      "required_entities": [],
+      "location_scope": "universal",
+      "quest_trigger": null
+    },
+    {
+      "id": 82,
+      "intro": "A traveler told me they'd been walking for six days straight. Looked every bit of it.",
+      "details": [
+        "Blistered feet, sunburn, clothes stiff with dust. But they were smiling.",
+        "Said the walking was the whole point. They were seeing the world one step at a time."
+      ],
+      "reactions": [
+        "I don't understand it, but I respect it."
+      ],
+      "statCheck": null,
+      "valence": "neutral",
+      "topic_category": "travelers_and_trade",
+      "required_entities": [],
+      "location_scope": "universal",
+      "quest_trigger": null
+    },
+    {
+      "id": 83,
+      "intro": "The wool merchants have started coming less often. I think they found better buyers elsewhere.",
+      "details": [
+        "We never bought much from them, honestly. Small orders, nothing worth a special trip.",
+        "Can't blame them for going where the money is, but it leaves us scrambling."
+      ],
+      "reactions": [
+        "You can't expect loyalty from someone when business is business."
+      ],
+      "statCheck": {
+        "pass": "A trader's route is pure math. Each stop has to justify the time and risk. If our orders don't cover their costs for the detour, we get dropped. The fix is combining orders with neighbors.",
+        "fail": "Traders go where the coin is. That's all I know."
+      },
+      "valence": "negative",
+      "topic_category": "travelers_and_trade",
+      "required_entities": [],
+      "location_scope": "universal",
+      "quest_trigger": null
+    },
+    {
+      "id": 84,
+      "intro": "I helped a lost trader find the path toward {other_settlement}. They'd been going in circles.",
+      "details": [
+        "Somehow they'd passed the same boulder three times without noticing. The trail markers had faded.",
+        "I walked them to the fork and pointed them right. They were embarrassingly grateful."
+      ],
+      "reactions": [
+        "Those trail markers really do need refreshing."
+      ],
+      "statCheck": null,
+      "valence": "neutral",
+      "topic_category": "travelers_and_trade",
+      "required_entities": [],
+      "location_scope": "universal",
+      "quest_trigger": null
+    },
+    {
+      "id": 85,
+      "intro": "The lumber that came through last week smelled incredible. Fresh-cut, still had sap on it.",
+      "details": [
+        "I bought a few boards just because I liked the smell. Not even sure what I'll use them for.",
+        "The trader said it came from old growth trees toward {direction}. The grain is beautiful."
+      ],
+      "reactions": [
+        "There's something about good wood that makes you want to build something."
+      ],
+      "statCheck": null,
+      "valence": "neutral",
+      "topic_category": "travelers_and_trade",
+      "required_entities": [],
+      "location_scope": "universal",
+      "quest_trigger": null
+    },
+    {
+      "id": 86,
+      "intro": "A merchant told me we're marked on maps now. Apparently someone charted all the settlements in the region.",
+      "details": [
+        "Just a dot with our name next to it, but still. We exist on paper somewhere.",
+        "The merchant showed me a copy. Our dot was tiny, but it was there."
+      ],
+      "reactions": [
+        "Shouldn't matter, but it made me smile."
+      ],
+      "statCheck": null,
+      "valence": "neutral",
+      "topic_category": "travelers_and_trade",
+      "required_entities": [],
+      "location_scope": "universal",
+      "quest_trigger": null
+    },
+    {
+      "id": 87,
+      "intro": "I've started trading preserves for {resource_type}. Better return than selling them for coins.",
+      "details": [
+        "The traders prefer it too. They can resell preserves at their next stop.",
+        "Everyone saves on the middleman. Direct trade just makes more sense at our scale."
+      ],
+      "reactions": [
+        "Money is one way to do things. Not always the best way."
+      ],
+      "statCheck": null,
+      "valence": "neutral",
+      "topic_category": "travelers_and_trade",
+      "required_entities": [],
+      "location_scope": "universal",
+      "quest_trigger": null
+    },
+    {
+      "id": 88,
+      "intro": "A stranger showed up yesterday with nothing. No goods, no cart, no story. Just asked to rest.",
+      "details": [
+        "Sat under the oak for an hour, drank some water, and left without a word.",
+        "Didn't ask for food, didn't try to trade. Just needed to stop for a while."
+      ],
+      "reactions": [
+        "Not everyone who passes through has a reason you'll ever know about."
+      ],
+      "statCheck": null,
+      "valence": "neutral",
+      "topic_category": "travelers_and_trade",
+      "required_entities": [],
+      "location_scope": "universal",
+      "quest_trigger": null
+    },
+    {
+      "id": 89,
+      "intro": "The iron coming through lately has been soft. Bends too easy, doesn't hold an edge.",
+      "details": [
+        "The trader swears it's the same supplier, but something's changed in how they're smelting it.",
+        "I made a hinge from the last batch and it's already sagging."
+      ],
+      "reactions": [
+        "Bad iron wastes your time and your money. I'd rather pay more for something that actually works."
+      ],
+      "statCheck": {
+        "pass": "Soft iron usually means they're rushing the smelt. Not enough heat, not enough time. Corners get cut when demand outpaces production.",
+        "fail": "All I know is it's not up to standard."
+      },
+      "valence": "negative",
+      "topic_category": "travelers_and_trade",
+      "required_entities": [],
+      "location_scope": "universal",
+      "quest_trigger": null
+    },
+    {
+      "id": 90,
+      "intro": "A trader shared a drink with me after we finished our deal. Sat by the fire and talked until dark.",
+      "details": [
+        "No business, no angles. Just two people talking about weather and food and the places they'd been.",
+        "It's rare to have a conversation like that with someone who isn't from here."
+      ],
+      "reactions": [
+        "Evenings like that stick with you."
+      ],
+      "statCheck": null,
+      "valence": "positive",
+      "topic_category": "travelers_and_trade",
+      "required_entities": [],
+      "location_scope": "universal",
+      "quest_trigger": null
+    },
+    {
+      "id": 91,
+      "intro": "Three people from {other_settlement} came to look at our land. Said they might want to set up a trade post here.",
+      "details": [
+        "Walked around measuring things, talking quietly to each other.",
+        "They didn't ask us what we thought about it. Just looked and left."
+      ],
+      "reactions": [
+        "If someone's going to build something here, they could at least have a conversation about it."
+      ],
+      "statCheck": {
+        "pass": "A trade post would mean regular traffic and access to goods. But it also means {other_settlement} gets a foothold here and starts dictating terms. It's never just a building.",
+        "fail": "I don't know what to make of it. Felt like we were being sized up."
+      },
+      "valence": "negative",
+      "topic_category": "travelers_and_trade",
+      "required_entities": [],
+      "location_scope": "universal",
+      "quest_trigger": null
+    },
+    {
+      "id": 92,
+      "intro": "A merchant told me our {resource_type} is underpriced. Said we could charge more and still find buyers.",
+      "details": [
+        "They were honest about it, which surprised me. Most traders would just buy cheap and not say a word.",
+        "Maybe they want us to be a reliable supplier. Hard to do that if we're selling at a loss."
+      ],
+      "reactions": [
+        "Nice to meet someone who thinks long-term."
+      ],
+      "statCheck": null,
+      "valence": "positive",
+      "topic_category": "travelers_and_trade",
+      "required_entities": [],
+      "location_scope": "universal",
+      "quest_trigger": null
+    },
+    {
+      "id": 93,
+      "intro": "I don't trust the new traders that have been coming through. Too smooth, too quick with the compliments.",
+      "details": [
+        "They call you friend before they know your name. Everything's the best deal you'll ever see.",
+        "The old traders were gruff and honest. These new ones smile too much."
+      ],
+      "reactions": [
+        "Give me someone rude and fair over someone charming and crooked."
+      ],
+      "statCheck": null,
+      "valence": "negative",
+      "topic_category": "travelers_and_trade",
+      "required_entities": [],
+      "location_scope": "universal",
+      "quest_trigger": null
+    },
+    {
+      "id": 94,
+      "intro": "We've been sending {npc_name} to {other_settlement} to trade for us. They're surprisingly good at it.",
+      "details": [
+        "They have this way of being patient that just wears the other side down. Never raises their voice, never rushes.",
+        "Came back last time with better prices than we've gotten in years."
+      ],
+      "reactions": [
+        "Some people are born negotiators. The rest of us just overpay."
+      ],
+      "statCheck": null,
+      "valence": "positive",
+      "topic_category": "travelers_and_trade",
+      "required_entities": [],
+      "location_scope": "universal",
+      "quest_trigger": null
+    },
+    {
+      "id": 95,
+      "intro": "Saw a trader's cart break an axle right outside the settlement. They were stuck here for two days.",
+      "details": [
+        "We helped them fix it. Found a replacement beam and got them rolling again.",
+        "They were so relieved they sold us goods at cost. Everyone won."
+      ],
+      "reactions": [
+        "Helping someone in a bind isn't charity. It's how you build a reputation."
+      ],
+      "statCheck": null,
+      "valence": "positive",
+      "topic_category": "travelers_and_trade",
+      "required_entities": [],
+      "location_scope": "universal",
+      "quest_trigger": null
+    },
+    {
+      "id": 96,
+      "intro": "A traveler said the path from {direction} is getting overgrown. Soon it won't be passable.",
+      "details": [
+        "Nobody maintains it because nobody claims it. It's everyone's road and no one's responsibility.",
+        "A few more seasons of neglect and it'll disappear entirely."
+      ],
+      "reactions": [
+        "Losing a road is losing a connection. That worries me."
+      ],
+      "statCheck": null,
+      "valence": "negative",
+      "topic_category": "travelers_and_trade",
+      "required_entities": [],
+      "location_scope": "universal",
+      "quest_trigger": null
+    },
+    {
+      "id": 97,
+      "intro": "I swapped stories with a merchant all afternoon. Didn't buy a single thing.",
+      "details": [
+        "They'd been everywhere. Had opinions about every settlement in the region.",
+        "Said ours was the quietest but one of the only places they actually relaxed."
+      ],
+      "reactions": [
+        "Good conversation costs nothing and leaves you richer."
+      ],
+      "statCheck": null,
+      "valence": "neutral",
+      "topic_category": "travelers_and_trade",
+      "required_entities": [],
+      "location_scope": "universal",
+      "quest_trigger": null
+    },
+    {
+      "id": 98,
+      "intro": "Every time the price of {resource_type} goes up, someone says it'll come back down. It never does.",
+      "details": [
+        "We just get used to the new price and stop complaining. Then it goes up again.",
+        "The traders act like it's not their fault. Supply and demand, they say."
+      ],
+      "reactions": [
+        "Supply and demand is just a polite way of saying we need it and they know it."
+      ],
+      "statCheck": {
+        "pass": "Prices in small settlements almost never come down because there's no competition to drive them. Once a price floor is established, it only moves in one direction.",
+        "fail": "I'm not an economist. I just know things cost more every year."
+      },
+      "valence": "negative",
+      "topic_category": "travelers_and_trade",
+      "required_entities": [],
+      "location_scope": "universal",
+      "quest_trigger": null
+    },
+    {
+      "id": 99,
+      "intro": "A pair of travelers stopped here on their way to get married in {other_settlement}. Sweet couple.",
+      "details": [
+        "They were nervous and happy at the same time. Kept finishing each other's sentences.",
+        "We gave them flowers from the garden. Seemed like the thing to do."
+      ],
+      "reactions": [
+        "Hope it works out for them."
+      ],
+      "statCheck": null,
+      "valence": "positive",
+      "topic_category": "travelers_and_trade",
+      "required_entities": [],
+      "location_scope": "universal",
+      "quest_trigger": null
+    },
+    {
+      "id": 100,
+      "intro": "The leather trader who used to come through here retired, apparently. Their apprentice took over.",
+      "details": [
+        "The apprentice doesn't know the routes as well. Shows up at odd times, sometimes not at all.",
+        "The quality is the same, but the reliability isn't. And reliability is half of trade."
+      ],
+      "reactions": [
+        "It takes years to build trust, and one transition to unsettle it."
+      ],
+      "statCheck": {
+        "pass": "Trade relationships are personal. The old trader knew our schedules, our needs, what to bring and when. The apprentice is starting from scratch. Give them a year and they'll either learn or we'll find someone else.",
+        "fail": "I just miss the old routine. The new one hasn't found their rhythm yet."
+      },
+      "valence": "neutral",
+      "topic_category": "travelers_and_trade",
+      "required_entities": [],
+      "location_scope": "universal",
+      "quest_trigger": null
+    },
+    {
+      "id": 101,
+      "intro": "I asked a traveler what people in {other_settlement} think of us. They hesitated, which says enough.",
+      "details": [
+        "Eventually they said people don't think about us much at all. We're just a name on the road.",
+        "That's worse than being disliked, somehow."
+      ],
+      "reactions": [
+        "I'd rather be thought of badly than not thought of at all."
+      ],
+      "statCheck": null,
+      "valence": "negative",
+      "topic_category": "travelers_and_trade",
+      "required_entities": [],
+      "location_scope": "universal",
+      "quest_trigger": null
+    },
+    {
+      "id": 102,
+      "intro": "We finally have enough surplus to trade properly. For the first time, we're not just buying.",
+      "details": [
+        "The harvest was good, the stores are full, and there's extra. Real extra, not just leftovers.",
+        "I packed crates for the next trader. It felt different being on the selling side."
+      ],
+      "reactions": [
+        "This is what progress actually looks like. Slow, but real."
+      ],
+      "statCheck": null,
+      "valence": "positive",
+      "topic_category": "travelers_and_trade",
+      "required_entities": [],
+      "location_scope": "universal",
+      "quest_trigger": null
+    },
+    {
+      "id": 103,
+      "intro": "A merchant showed me a map of all the trade routes in the region. We're barely on it.",
+      "details": [
+        "A thin dotted line leading to our settlement and stopping dead. Not even connected to the next road.",
+        "Every other settlement had thick lines going in all directions."
+      ],
+      "reactions": [
+        "Lines on a map shouldn't bother me this much. But they do."
+      ],
+      "statCheck": null,
+      "valence": "negative",
+      "topic_category": "travelers_and_trade",
+      "required_entities": [],
+      "location_scope": "universal",
+      "quest_trigger": null
+    },
+    {
+      "id": 104,
+      "intro": "I bartered some preserved fruit for a warm cloak from a traveler. Best trade I've ever made.",
+      "details": [
+        "The fruit was from a bumper crop. I had more than I could eat anyway.",
+        "The cloak is thick, well-stitched, and keeps the wind out completely."
+      ],
+      "reactions": [
+        "Trade like that makes you believe in the whole system again."
+      ],
+      "statCheck": null,
+      "valence": "positive",
+      "topic_category": "travelers_and_trade",
+      "required_entities": [],
+      "location_scope": "universal",
+      "quest_trigger": null
+    },
+    {
+      "id": 105,
+      "intro": "A traveler called our settlement quaint. I'm still not sure if that was a compliment.",
+      "details": [
+        "They said it with a smile, but quaint usually means small and old-fashioned, doesn't it?",
+        "I wanted to say something back but just nodded and let them walk on."
+      ],
+      "reactions": [
+        "Words like that stick in your head longer than they should."
+      ],
+      "statCheck": null,
+      "valence": "neutral",
+      "topic_category": "travelers_and_trade",
+      "required_entities": [],
+      "location_scope": "universal",
+      "quest_trigger": null
+    },
+    {
+      "id": 106,
+      "intro": "The copper trader brought their whole family this time. Kids running around everywhere.",
+      "details": [
+        "The children got into {npc_name}'s garden and pulled up half the herbs. They meant no harm.",
+        "The trader was mortified. Offered a discount on the copper, which {npc_name} accepted gracefully."
+      ],
+      "reactions": [
+        "Children don't know the difference between a weed and an herb. Can't blame them."
+      ],
+      "statCheck": null,
+      "valence": "neutral",
+      "topic_category": "travelers_and_trade",
+      "required_entities": [],
+      "location_scope": "universal",
+      "quest_trigger": null
+    },
+    {
+      "id": 107,
+      "intro": "We're one bad season away from having nothing to trade. That thought keeps me up sometimes.",
+      "details": [
+        "If the crops fail or the stores run low, we go from trading partners to beggars overnight.",
+        "There's no cushion. No reserve. Just what we produce and what we can sell."
+      ],
+      "reactions": [
+        "Everyone acts like things will keep going the way they are. But they might not."
+      ],
+      "statCheck": {
+        "pass": "The smart settlements keep a three-season reserve. We're running season to season with no buffer. One drought, one blight, and the math stops working.",
+        "fail": "I don't need numbers to know we're stretched thin."
+      },
+      "valence": "negative",
+      "topic_category": "travelers_and_trade",
+      "required_entities": [],
+      "location_scope": "universal",
+      "quest_trigger": null
+    },
+    {
+      "id": 108,
+      "intro": "A traveler left a book behind when they moved on. Just a small one, handwritten.",
+      "details": [
+        "It's a journal of their travels. Descriptions of every place they stopped, including ours.",
+        "They called our bread excellent and our hospitality genuine. That was nice to read."
+      ],
+      "reactions": [
+        "I should try to return it if they come back through. But I've read it twice already."
+      ],
+      "statCheck": null,
+      "valence": "neutral",
+      "topic_category": "travelers_and_trade",
+      "required_entities": [],
+      "location_scope": "universal",
+      "quest_trigger": null
+    },
+    {
+      "id": 109,
+      "intro": "The {resource_type} supply has been erratic. Lots one month, nothing the next.",
+      "details": [
+        "You can't plan around something that unreliable. We end up either overstocked or desperate.",
+        "The traders can't explain it. They just deliver what's available when it's available."
+      ],
+      "reactions": [
+        "Predictability is a luxury we don't have."
+      ],
+      "statCheck": {
+        "pass": "Erratic supply usually traces back to a single point of failure somewhere in the chain. One producer having problems, one road being seasonal. Find the bottleneck and you find the fix.",
+        "fail": "It is what it is. We just deal with it."
+      },
+      "valence": "negative",
+      "topic_category": "travelers_and_trade",
+      "required_entities": [],
+      "location_scope": "universal",
+      "quest_trigger": null
+    },
+    {
+      "id": 110,
+      "intro": "I've never left the region. Everything I know about the wider world comes from people passing through.",
+      "details": [
+        "Some of it's probably exaggerated. Traders love a good story.",
+        "But even the plain truths are enough to make me curious."
+      ],
+      "reactions": [
+        "My world is as big as the next person who comes down that road."
+      ],
+      "statCheck": null,
+      "valence": "neutral",
+      "topic_category": "travelers_and_trade",
+      "required_entities": [],
+      "location_scope": "universal",
+      "quest_trigger": null
+    },
+    {
+      "id": 111,
+      "intro": "A caravan guard told me the roads have been getting safer. Fewer incidents, more patrols.",
+      "details": [
+        "If that's true, it should mean cheaper goods eventually. Less risk means lower costs.",
+        "Haven't seen it in the prices yet, but maybe it takes time."
+      ],
+      "reactions": [
+        "Safer roads help everyone, even if the savings are slow to arrive."
+      ],
+      "statCheck": {
+        "pass": "Traders pocket the savings from reduced risk long before they pass them on. It'll take competition to actually drive prices down.",
+        "fail": "I hope they're right. Cheaper goods would be welcome."
+      },
+      "valence": "positive",
+      "topic_category": "travelers_and_trade",
+      "required_entities": [],
+      "location_scope": "universal",
+      "quest_trigger": null
+    },
+    {
+      "id": 112,
+      "intro": "A trader offered to take a letter to {other_settlement} for me. Charged me two eggs for the trouble.",
+      "details": [
+        "I've been meaning to write to someone there for months. Never had a way to send it.",
+        "Two eggs is a bargain for peace of mind."
+      ],
+      "reactions": [
+        "The little services matter as much as the big ones."
+      ],
+      "statCheck": null,
+      "valence": "neutral",
+      "topic_category": "travelers_and_trade",
+      "required_entities": [],
+      "location_scope": "universal",
+      "quest_trigger": null
+    },
+    {
+      "id": 113,
+      "intro": "We had a traveler try to pay for a meal with a coin nobody here recognized.",
+      "details": [
+        "Looked official enough, but the markings were from somewhere none of us could place.",
+        "We fed them anyway and called it even. A meal isn't worth an argument."
+      ],
+      "reactions": [
+        "If you can't spend it here, it's not money. It's a souvenir."
+      ],
+      "statCheck": {
+        "pass": "Some of the far settlements mint their own coinage. It's technically worth something, but only where they recognize it. Outside that region, it's just metal.",
+        "fail": "Could be from anywhere. We don't see enough currency to know."
+      },
+      "valence": "neutral",
+      "topic_category": "travelers_and_trade",
+      "required_entities": [],
+      "location_scope": "universal",
+      "quest_trigger": null
+    },
+    {
+      "id": 114,
+      "intro": "The last thing we need from outside is {resource_type}, and if we could source that locally, we'd be nearly self-sufficient.",
+      "details": [
+        "Everything else we produce ourselves, one way or another.",
+        "But that one thing keeps us tied to the trade routes."
+      ],
+      "reactions": [
+        "Independence is always just one problem away."
+      ],
+      "statCheck": null,
+      "valence": "neutral",
+      "topic_category": "travelers_and_trade",
+      "required_entities": [],
+      "location_scope": "universal",
+      "quest_trigger": null
+    },
+    {
+      "id": 115,
+      "intro": "A merchant brought a stack of fabrics dyed in colors I've only seen in sunsets. Couldn't afford a single one.",
+      "details": [
+        "Just stood there touching them like a fool while the merchant watched.",
+        "They were meant for {other_settlement}, not for us. We just got to look."
+      ],
+      "reactions": [
+        "There's a cruelty to beautiful things you can't have passing right through your hands."
+      ],
+      "statCheck": null,
+      "valence": "negative",
+      "topic_category": "travelers_and_trade",
+      "required_entities": [],
+      "location_scope": "universal",
+      "quest_trigger": null
+    },
+    {
+      "id": 116,
+      "intro": "A traveler patched their shirt with the exact same cloth we use for our curtains. Made me laugh.",
+      "details": [
+        "They must've gotten it from the same supplier. Same pattern, same weave.",
+        "I pointed it out and they didn't know what to make of it."
+      ],
+      "reactions": [
+        "Funny how the same goods end up in completely different places living completely different lives."
+      ],
+      "statCheck": null,
+      "valence": "neutral",
+      "topic_category": "travelers_and_trade",
+      "required_entities": [],
+      "location_scope": "universal",
+      "quest_trigger": null
+    },
+    {
+      "id": 117,
+      "intro": "{npc_name} won't buy from the trader who comes from {direction}. Says they were rude to them once.",
+      "details": [
+        "It was years ago apparently, but {npc_name} has a memory like a ledger. Nothing gets erased.",
+        "The rest of us still trade with them. The prices are decent enough."
+      ],
+      "reactions": [
+        "Grudges and trade don't mix well, but try telling {npc_name} that."
+      ],
+      "statCheck": null,
+      "valence": "neutral",
+      "topic_category": "travelers_and_trade",
+      "required_entities": [],
+      "location_scope": "universal",
+      "quest_trigger": null
+    },
+    {
+      "id": 118,
+      "intro": "We got word that a new road is being cut toward {direction}. If it passes near us, everything changes.",
+      "details": [
+        "More traffic, more traders, more opportunities. We could grow.",
+        "But if it goes around us, we lose what little traffic we have."
+      ],
+      "reactions": [
+        "Our whole future might depend on which way a road curves. Isn't that something."
+      ],
+      "statCheck": {
+        "pass": "Roads follow geography and money. If there's nothing geographic in the way, they'll route toward the settlement that can provide the most labor for construction. That usually favors the bigger places.",
+        "fail": "I don't know how those decisions get made. Just hoping for the best."
+      },
+      "valence": "neutral",
+      "topic_category": "travelers_and_trade",
+      "required_entities": [],
+      "location_scope": "universal",
+      "quest_trigger": null
+    },
+    {
+      "id": 119,
+      "intro": "A traveler was surprised we still use the old measuring standards here. Apparently {other_settlement} switched to something new.",
+      "details": [
+        "Every time settlements change how they weigh and measure, there's a period where nothing quite adds up.",
+        "Traders have to carry two sets of weights. It's a mess."
+      ],
+      "reactions": [
+        "If it works, leave it alone. That's my feeling."
+      ],
+      "statCheck": null,
+      "valence": "neutral",
+      "topic_category": "travelers_and_trade",
+      "required_entities": [],
+      "location_scope": "universal",
+      "quest_trigger": null
+    },
+    {
+      "id": 120,
+      "intro": "The {resource_type} merchant showed up a week early this time. Something about avoiding bad weather.",
+      "details": [
+        "We weren't ready for them. Hadn't gathered our goods or counted our coins yet.",
+        "Still managed to make a deal, but it was rushed. Felt like we left something on the table."
+      ],
+      "reactions": [
+        "Preparation matters. You can't trade well when you're scrambling."
+      ],
+      "statCheck": {
+        "pass": "Some traders shift their schedule on purpose to catch buyers unprepared. An unready buyer accepts worse terms because they're afraid the trader won't come back.",
+        "fail": "Maybe they really were dodging weather. I'll give them the benefit of the doubt."
+      },
+      "valence": "negative",
+      "topic_category": "travelers_and_trade",
+      "required_entities": [],
+      "location_scope": "universal",
+      "quest_trigger": null
+    },
+    {
+      "id": 121,
+      "intro": "I love the smell that comes with the spice traders. You can smell them before you see them.",
+      "details": [
+        "The whole cart is fragrant. Cinnamon, pepper, things I can't name but my nose recognizes.",
+        "They let me sample a pinch of something golden last time. Couldn't stop thinking about it."
+      ],
+      "reactions": [
+        "Some traders bring goods. The spice ones bring the whole world with them."
+      ],
+      "statCheck": null,
+      "valence": "positive",
+      "topic_category": "travelers_and_trade",
+      "required_entities": [],
+      "location_scope": "universal",
+      "quest_trigger": null
+    },
+    {
+      "id": 122,
+      "intro": "A merchant told me that {other_settlement} started producing their own {resource_type}. That's going to hurt our sales.",
+      "details": [
+        "We've been one of the few local sources. Now there's competition.",
+        "And they can produce it cheaper because they're bigger. Scale always wins."
+      ],
+      "reactions": [
+        "We'll have to find something else to be good at. Or accept being smaller."
+      ],
+      "statCheck": null,
+      "valence": "negative",
+      "topic_category": "travelers_and_trade",
+      "required_entities": [],
+      "location_scope": "universal",
+      "quest_trigger": null
+    },
+    {
+      "id": 123,
+      "intro": "Helped unload a trader's cart yesterday. They had something wrapped in cloth that clanked like metal but weighed almost nothing.",
+      "details": [
+        "They wouldn't show me what it was. Said it was a special order for someone in {other_settlement}.",
+        "I'm curious, but prying into a trader's cargo is a good way to stop getting traders."
+      ],
+      "reactions": [
+        "Everyone's entitled to their business. Even if my curiosity says otherwise."
+      ],
+      "statCheck": {
+        "pass": "Lightweight metal could be tin alloy or even aluminum if someone's figured out how to work it. Special orders like that mean someone with money is experimenting.",
+        "fail": "No idea what it was. Something unusual, that's all I know."
+      },
+      "valence": "neutral",
+      "topic_category": "travelers_and_trade",
+      "required_entities": [],
+      "location_scope": "universal",
+      "quest_trigger": null
+    },
+    {
+      "id": 124,
+      "intro": "The cloth we get from {other_settlement} has been coming pre-dyed now. Used to be raw.",
+      "details": [
+        "The colors are fine, but I liked choosing my own dye. Now I take what they give me.",
+        "It costs the same, so I can't complain about the price. Just the loss of choice."
+      ],
+      "reactions": [
+        "Small freedoms disappear quietly and nobody notices until they're gone."
+      ],
+      "statCheck": null,
+      "valence": "neutral",
+      "topic_category": "travelers_and_trade",
+      "required_entities": [],
+      "location_scope": "universal",
+      "quest_trigger": null
+    },
+    {
+      "id": 125,
+      "intro": "A trader told me they make more profit from us than from {other_settlement}. We're their best stop.",
+      "details": [
+        "That sounds like flattery, but I think they meant we overpay.",
+        "They're probably right. We don't have enough traders coming through to know what fair looks like."
+      ],
+      "reactions": [
+        "Being someone's best customer isn't always the compliment it sounds like."
+      ],
+      "statCheck": {
+        "pass": "Settlements without market competition always overpay. It's not stupidity, it's isolation. The only fix is more traders or better information about regional prices.",
+        "fail": "Hard to know the right price when you've got nothing to compare to."
+      },
+      "valence": "negative",
+      "topic_category": "travelers_and_trade",
+      "required_entities": [],
+      "location_scope": "universal",
+      "quest_trigger": null
+    },
+    {
+      "id": 126,
+      "intro": "A young traveler wanted to apprentice here. Said they were tired of the road.",
+      "details": [
+        "They looked barely old enough to be out on their own. Earnest, though.",
+        "We couldn't take them on. Barely enough work for the people already here."
+      ],
+      "reactions": [
+        "I felt bad turning them away, but you can't promise what you don't have."
+      ],
+      "statCheck": null,
+      "valence": "neutral",
+      "topic_category": "travelers_and_trade",
+      "required_entities": [],
+      "location_scope": "universal",
+      "quest_trigger": null
+    },
+    {
+      "id": 127,
+      "intro": "The rope that came in from {other_settlement} is excellent this year. Tough, well-braided.",
+      "details": [
+        "Last year's batch frayed in weeks. This stuff feels like it'll outlast me.",
+        "The trader said they switched suppliers. Smart move."
+      ],
+      "reactions": [
+        "Good rope might not sound exciting, but when you need it, nothing matters more."
+      ],
+      "statCheck": null,
+      "valence": "positive",
+      "topic_category": "travelers_and_trade",
+      "required_entities": [],
+      "location_scope": "universal",
+      "quest_trigger": null
+    },
+    {
+      "id": 128,
+      "intro": "A traveler told me about a settlement two days east that nobody here has ever heard of.",
+      "details": [
+        "They said it's smaller than ours but older. Been there for generations.",
+        "Never traded with us, never sent anyone this way. Just out there, doing their own thing."
+      ],
+      "reactions": [
+        "Strange to think there are neighbors we've never met."
+      ],
+      "statCheck": null,
+      "valence": "neutral",
+      "topic_category": "travelers_and_trade",
+      "required_entities": [],
+      "location_scope": "universal",
+      "quest_trigger": null
+    },
+    {
+      "id": 129,
+      "intro": "I sold some firewood to a passing trader and they paid in salt. Best deal I've made in months.",
+      "details": [
+        "We have more wood than we can burn. They had more salt than they could carry.",
+        "The kind of trade where both sides feel like they got away with something."
+      ],
+      "reactions": [
+        "Perfect trades are rare. I'll be riding this good mood for a while."
+      ],
+      "statCheck": null,
+      "valence": "positive",
+      "topic_category": "travelers_and_trade",
+      "required_entities": [],
+      "location_scope": "universal",
+      "quest_trigger": null
+    },
+    {
+      "id": 130,
+      "intro": "A merchant warned me that {resource_type} prices are about to spike. Said to stock up now.",
+      "details": [
+        "Could be real advice or just a sales push to clear their inventory faster.",
+        "But the last time someone warned me like that, they were right."
+      ],
+      "reactions": [
+        "I bought what I could. Better cautious than caught short."
+      ],
+      "statCheck": {
+        "pass": "Traders who warn about price spikes are usually trying to liquidate before their own costs go up. The warning is real, but the timing benefits them more than you.",
+        "fail": "I don't have the knowledge to judge these things. Just acted on instinct."
+      },
+      "valence": "negative",
+      "topic_category": "travelers_and_trade",
+      "required_entities": [],
+      "location_scope": "universal",
+      "quest_trigger": null
+    },
+    {
+      "id": 131,
+      "intro": "One of the regular traders brought their dog this time. Friendliest animal you've ever seen.",
+      "details": [
+        "The whole settlement was petting it. Even {npc_name}, who doesn't like dogs.",
+        "The trader said it keeps thieves away from the cart. Hard to believe, that tail never stopped wagging."
+      ],
+      "reactions": [
+        "That dog is doing more for their reputation than their prices ever could."
+      ],
+      "statCheck": null,
+      "valence": "neutral",
+      "topic_category": "travelers_and_trade",
+      "required_entities": [],
+      "location_scope": "universal",
+      "quest_trigger": null
+    },
+    {
+      "id": 132,
+      "intro": "We're getting undercut by {other_settlement} on everything we produce. They just do it bigger and cheaper.",
+      "details": [
+        "Our {resource_type} is better, I'll say that. But better doesn't always win against cheaper.",
+        "Traders buy from them first and only come to us if they have room left in the cart."
+      ],
+      "reactions": [
+        "Quality doesn't matter if nobody can afford to care."
+      ],
+      "statCheck": null,
+      "valence": "negative",
+      "topic_category": "travelers_and_trade",
+      "required_entities": [],
+      "location_scope": "universal",
+      "quest_trigger": null
+    },
+    {
+      "id": 133,
+      "intro": "A traveler told me the stars look different from where they come from. Made me realize how far they'd walked.",
+      "details": [
+        "We talked about constellations for a while. They pointed out ones I couldn't see.",
+        "Different skies, different roads, different lives. All ending up at the same fire for one night."
+      ],
+      "reactions": [
+        "Conversations like that are what make the passing-through people worth welcoming."
+      ],
+      "statCheck": null,
+      "valence": "positive",
+      "topic_category": "travelers_and_trade",
+      "required_entities": [],
+      "location_scope": "universal",
+      "quest_trigger": null
+    },
+    {
+      "id": 134,
+      "intro": "I found out the merchant who's been selling us {resource_type} has been watering it down. Literally.",
+      "details": [
+        "The honey had water mixed in, the oil was diluted. Right under our noses.",
+        "{npc_name} figured it out when they tried to preserve meat and it spoiled in half the time."
+      ],
+      "reactions": [
+        "We've been cheated for who knows how long. That's the part that burns."
+      ],
+      "statCheck": null,
+      "valence": "negative",
+      "topic_category": "travelers_and_trade",
+      "required_entities": [],
+      "location_scope": "universal",
+      "quest_trigger": null
+    },
+    {
+      "id": 135,
+      "intro": "A caravan passed through carrying {resource_type} from three different regions. You could see the quality difference side by side.",
+      "details": [
+        "The stuff from toward {direction} was the best. Cleaner, more consistent.",
+        "The caravan master let me compare them. Educational, honestly."
+      ],
+      "reactions": [
+        "Nice to actually see the options instead of just taking whatever shows up."
+      ],
+      "statCheck": {
+        "pass": "Regional quality differences usually come down to water and soil. What grows well in one place may struggle in another, and that shows in the end product.",
+        "fail": "Some places just make better stuff. I don't know why."
+      },
+      "valence": "neutral",
+      "topic_category": "travelers_and_trade",
+      "required_entities": [],
+      "location_scope": "universal",
+      "quest_trigger": null
+    },
+    {
+      "id": 136,
+      "intro": "I've been meaning to go to {other_settlement} myself, but there's never a good time to leave.",
+      "details": [
+        "Somebody always needs something here. The animals, the work, the daily grind.",
+        "The traders make the trip look easy, but they don't have a home holding them down."
+      ],
+      "reactions": [
+        "One of these days I'll just go. Tell everyone I'll be back in a week."
+      ],
+      "statCheck": null,
+      "valence": "neutral",
+      "topic_category": "travelers_and_trade",
+      "required_entities": [],
+      "location_scope": "universal",
+      "quest_trigger": null
+    },
+    {
+      "id": 137,
+      "intro": "That trader with the painted cart is back. The one with the bells on the harness.",
+      "details": [
+        "You can hear them coming from a long way off. The whole settlement perks up at the sound.",
+        "They always bring something unexpected. Last time it was glass beads, time before that it was smoked fish."
+      ],
+      "reactions": [
+        "Some traders just know how to make an arrival feel like an event."
+      ],
+      "statCheck": null,
+      "valence": "positive",
+      "topic_category": "travelers_and_trade",
+      "required_entities": [],
+      "location_scope": "universal",
+      "quest_trigger": null
+    },
+    {
+      "id": 138,
+      "intro": "A traveler warned me not to drink the water in {other_settlement}. Said half the town was sick.",
+      "details": [
+        "They looked healthy enough themselves, but they were also carrying their own water.",
+        "If their well went bad, that could slow trade for the whole region."
+      ],
+      "reactions": [
+        "Makes you appreciate good water. We take ours for granted."
+      ],
+      "statCheck": {
+        "pass": "A settlement with bad water loses workers, loses productivity, and eventually loses trade. If {other_settlement} doesn't fix it fast, their merchants will start routing through us instead.",
+        "fail": "I hope they sort it out. Sick people is bad for everyone."
+      },
+      "valence": "negative",
+      "topic_category": "travelers_and_trade",
+      "required_entities": [],
+      "location_scope": "universal",
+      "quest_trigger": null
+    },
+    {
+      "id": 139,
+      "intro": "I'm getting better at reading traders. You can tell what they want before they say it.",
+      "details": [
+        "The ones who talk up your goods are about to lowball you. The quiet ones usually offer fair.",
+        "If they start with a compliment about the settlement, they're softening you up for something."
+      ],
+      "reactions": [
+        "Years of practice. I've been played enough times to learn the patterns."
+      ],
+      "statCheck": null,
+      "valence": "neutral",
+      "topic_category": "travelers_and_trade",
+      "required_entities": [],
+      "location_scope": "universal",
+      "quest_trigger": null
+    },
+    {
+      "id": 140,
+      "intro": "We sent some {resource_type} to {other_settlement} and got back three times what we expected.",
+      "details": [
+        "Apparently there's a shortage there and they're paying premium for any supply they can get.",
+        "I almost felt guilty about the markup. Almost."
+      ],
+      "reactions": [
+        "Supply and demand works both ways. Nice when it works in our favor for once."
+      ],
+      "statCheck": null,
+      "valence": "positive",
+      "topic_category": "travelers_and_trade",
+      "required_entities": [],
+      "location_scope": "universal",
+      "quest_trigger": null
+    },
+    {
+      "id": 141,
+      "intro": "A traveler asked if we had any healers here. Said they'd been feeling ill since the last settlement.",
+      "details": [
+        "We don't have a healer, but {npc_name} knows a few remedies. Made them a tea that seemed to help.",
+        "They rested for a day and moved on looking better."
+      ],
+      "reactions": [
+        "Even a little help goes a long way when you're on the road and far from home."
+      ],
+      "statCheck": null,
+      "valence": "neutral",
+      "topic_category": "travelers_and_trade",
+      "required_entities": [],
+      "location_scope": "universal",
+      "quest_trigger": null
+    },
+    {
+      "id": 142,
+      "intro": "Overheard two traders arguing about whose route was more profitable. Ours didn't come up.",
+      "details": [
+        "They were debating the merits of the northern and southern roads. We're on neither.",
+        "Just stood there filling my water jug, pretending I wasn't listening."
+      ],
+      "reactions": [
+        "You learn to accept that you're a footnote in other people's plans."
+      ],
+      "statCheck": null,
+      "valence": "negative",
+      "topic_category": "travelers_and_trade",
+      "required_entities": [],
+      "location_scope": "universal",
+      "quest_trigger": null
+    },
+    {
+      "id": 143,
+      "intro": "A merchant gave me a sample of {resource_type} from a supplier I'd never heard of. It's excellent.",
+      "details": [
+        "If I order through them regularly, the prices would actually be lower than what we pay now.",
+        "The catch is minimum quantities, and we don't use enough on our own."
+      ],
+      "reactions": [
+        "Always a catch. But this one might be worth working around."
+      ],
+      "statCheck": null,
+      "valence": "neutral",
+      "topic_category": "travelers_and_trade",
+      "required_entities": [],
+      "location_scope": "universal",
+      "quest_trigger": null
+    },
+    {
+      "id": 144,
+      "intro": "Some travelers camped near the settlement and left their fire burning when they moved on. Irresponsible.",
+      "details": [
+        "I had to go out and put it out myself. The grass was dry enough to catch.",
+        "No thought for the people who live here. Just moved on and left their mess."
+      ],
+      "reactions": [
+        "Not all travelers deserve the welcome we give them."
+      ],
+      "statCheck": null,
+      "valence": "negative",
+      "topic_category": "travelers_and_trade",
+      "required_entities": [],
+      "location_scope": "universal",
+      "quest_trigger": null
+    },
+    {
+      "id": 145,
+      "intro": "The honey from {other_settlement} that came through last week was the best I've ever tasted.",
+      "details": [
+        "Dark, thick, and floral. Completely different from what we get locally.",
+        "I bought two jars and I'm already rationing the second one."
+      ],
+      "reactions": [
+        "That's the beauty of trade. Somebody else's ordinary is your extraordinary."
+      ],
+      "statCheck": null,
+      "valence": "positive",
+      "topic_category": "travelers_and_trade",
+      "required_entities": [],
+      "location_scope": "universal",
+      "quest_trigger": null
+    },
+    {
+      "id": 146,
+      "intro": "A merchant told me business is slowing down across the whole region. People are buying less.",
+      "details": [
+        "Everyone's tightening up, spending only on what they need. No extras, no luxuries.",
+        "They said even {other_settlement} is cutting back, and they usually spend freely."
+      ],
+      "reactions": [
+        "When the whole region slows down, you just hold on and wait for it to turn."
+      ],
+      "statCheck": {
+        "pass": "Trade contractions are cyclical. Overproduction leads to surplus, surplus drops prices, dropped prices squeeze producers, and spending tightens until balance returns. Usually takes a season or two.",
+        "fail": "I don't understand the bigger picture. Just know that things are tight."
+      },
+      "valence": "negative",
+      "topic_category": "travelers_and_trade",
+      "required_entities": [],
+      "location_scope": "universal",
+      "quest_trigger": null
+    },
+    {
+      "id": 147,
+      "intro": "A traveler from {other_settlement} said they'd move here if they could. Liked the pace of things.",
+      "details": [
+        "They said where they're from, everyone's always rushing. No time to just sit and talk.",
+        "I told them we have plenty of sitting and talking. Too much, some days."
+      ],
+      "reactions": [
+        "The grass is always greener. But it was nice to hear someone envy what we have."
+      ],
+      "statCheck": null,
+      "valence": "positive",
+      "topic_category": "travelers_and_trade",
+      "required_entities": [],
+      "location_scope": "universal",
+      "quest_trigger": null
+    },
+    {
+      "id": 148,
+      "intro": "We've started marking the days between trader visits. It helps us plan, but the gaps are getting longer.",
+      "details": [
+        "Used to be every ten days or so. Now it's closer to twenty.",
+        "Nobody's said anything official, but the pattern is clear."
+      ],
+      "reactions": [
+        "Longer gaps mean less choice and higher prices. The math isn't complicated."
+      ],
+      "statCheck": null,
+      "valence": "negative",
+      "topic_category": "travelers_and_trade",
+      "required_entities": [],
+      "location_scope": "universal",
+      "quest_trigger": null
+    },
+    {
+      "id": 149,
+      "intro": "A trader brought their apprentice along this trip. Young, eager, asked questions about everything.",
+      "details": [
+        "They wanted to know what we grow, what we need, how far we are from the next stop.",
+        "The trader kept shushing them, but I didn't mind. Curiosity is a good quality in a merchant."
+      ],
+      "reactions": [
+        "Give them a few years and they'll either be the best trader on this route or they'll burn out."
+      ],
+      "statCheck": null,
+      "valence": "neutral",
+      "topic_category": "travelers_and_trade",
+      "required_entities": [],
+      "location_scope": "universal",
+      "quest_trigger": null
+    }
+  ]
+}

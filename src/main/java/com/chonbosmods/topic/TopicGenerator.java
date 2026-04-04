@@ -30,8 +30,6 @@ public class TopicGenerator {
     private static final double MAX_QUEST_RATIO = 0.50;
     private static final int MIN_QUEST_FLOOR = 1;
     private static final int MAX_QUEST_FLOOR = 2;
-    private static final int MAX_SUBJECT_DRAW_ATTEMPTS = 3;
-
     private final TopicPoolRegistry topicPool;
     private final TopicTemplateRegistry templateRegistry;
     private final QuestPoolRegistry questPool;
@@ -89,9 +87,8 @@ public class TopicGenerator {
             topicBudgets.put(npc.getGeneratedName(), budget);
         }
 
-        // Step 2: Each NPC draws their own subjects independently
-        // Settlement-wide dedup prevents the same subject appearing on multiple NPCs
-        Set<String> usedSubjectValues = new LinkedHashSet<>();
+        // Step 2: Each NPC gets 2-3 topic labels based on role, then draws
+        // categories from those labels to fill their topic budget.
         List<SubjectFocus> allSubjects = new ArrayList<>();
         Map<String, List<SubjectFocus>> npcSubjects = new LinkedHashMap<>();
         Map<String, NpcRecord> npcByName = new LinkedHashMap<>();
@@ -102,39 +99,27 @@ public class TopicGenerator {
             String npcName = npc.getGeneratedName();
             int budget = topicBudgets.get(npcName);
 
-            // Per-NPC deck shuffle (seeded from settlement key + NPC index for determinism)
+            // Per-NPC seeded random for deterministic label/category selection
             Random deckRandom = new Random(settlement.getCellKey().hashCode() ^ ((long) npcIdx * 31));
-            int rumorCount = (int) Math.ceil(budget * TopicConstants.RUMOR_RATIO);
-            int smallTalkCount = budget - rumorCount;
 
-            List<String> rumorDeck = new ArrayList<>(TopicConstants.RUMOR_DECK);
-            List<String> smalltalkDeck = new ArrayList<>(TopicConstants.SMALLTALK_DECK);
-            Collections.shuffle(rumorDeck, deckRandom);
-            Collections.shuffle(smalltalkDeck, deckRandom);
+            // Select 2-3 labels based on role
+            List<String> roleLabels = TopicConstants.ROLE_LABELS.getOrDefault(
+                npc.getRole(), TopicConstants.DEFAULT_LABELS);
+            int labelCount = Math.min(budget, Math.min(3, roleLabels.size()));
+            List<String> selectedLabels = new ArrayList<>(roleLabels.subList(0, labelCount));
 
             List<SubjectFocus> npcTopics = new ArrayList<>();
             int subjectBase = allSubjects.size();
 
-            for (int i = 0; i < rumorCount; i++) {
-                String targetCategory = rumorDeck.get(i % rumorDeck.size());
-                TopicPoolRegistry.SubjectEntry entry = drawUniqueSubject(targetCategory, usedSubjectValues, random);
-                usedSubjectValues.add(entry.value());
-                String subjectId = "subj_" + (subjectBase + i) + "_" + sanitize(entry.value());
-                SubjectFocus focus = new SubjectFocus(subjectId, entry.value(), entry.plural(), entry.proper(),
-                    entry.questEligible(), entry.concrete(), entry.categories(),
-                    entry.poiType(), entry.questAffinities());
-                npcTopics.add(focus);
-                allSubjects.add(focus);
-            }
+            for (int i = 0; i < budget; i++) {
+                // Round-robin across selected labels
+                String label = selectedLabels.get(i % selectedLabels.size());
+                List<String> categories = TopicConstants.LABEL_CATEGORIES.get(label);
+                String category = categories.get(deckRandom.nextInt(categories.size()));
 
-            for (int i = 0; i < smallTalkCount; i++) {
-                String targetCategory = smalltalkDeck.get(i % smalltalkDeck.size());
-                TopicPoolRegistry.SubjectEntry entry = drawUniqueSubject(targetCategory, usedSubjectValues, random);
-                usedSubjectValues.add(entry.value());
-                String subjectId = "subj_" + (subjectBase + rumorCount + i) + "_" + sanitize(entry.value());
-                SubjectFocus focus = new SubjectFocus(subjectId, entry.value(), entry.plural(), entry.proper(),
-                    entry.questEligible(), entry.concrete(), entry.categories(),
-                    entry.poiType(), entry.questAffinities());
+                String subjectId = "topic_" + (subjectBase + i) + "_" + category;
+                SubjectFocus focus = new SubjectFocus(subjectId, category, false, false,
+                    false, false, List.of(category), "narrative_only", List.of());
                 npcTopics.add(focus);
                 allSubjects.add(focus);
             }
@@ -313,10 +298,10 @@ public class TopicGenerator {
             isQuestBearer, template, entry, dedup, random, ctx);
 
         // Quest bearers keep the template's subject-derived label pattern.
-        // Generated smalltalk uses a static template-derived label.
+        // Non-quest topics use the parent topic label (e.g., "Local", "People").
         String labelPattern = isQuestBearer
             ? template.labelPattern()
-            : TopicConstants.TEMPLATE_LABELS.getOrDefault(template.id(), template.id());
+            : TopicConstants.CATEGORY_LABEL.getOrDefault(template.id(), template.id());
 
         return new TopicGraphBuilder.TopicAssignment(
             focus.getSubjectId(), labelPattern,
@@ -481,21 +466,6 @@ public class TopicGenerator {
         }
 
         return bindings;
-    }
-
-    /**
-     * Draw a subject matching targetCategory, with collision checking against already-used values.
-     * Tries up to 3 times to find an unused subject, then falls back to any matching subject.
-     */
-    private TopicPoolRegistry.SubjectEntry drawUniqueSubject(String targetCategory, Set<String> usedValues, Random random) {
-        for (int attempt = 0; attempt < MAX_SUBJECT_DRAW_ATTEMPTS; attempt++) {
-            TopicPoolRegistry.SubjectEntry entry = topicPool.randomSubjectForCategoryExcluding(targetCategory, usedValues, random);
-            if (!usedValues.contains(entry.value())) {
-                return entry;
-            }
-        }
-        // After 3 failures, accept any matching subject (even if duplicate)
-        return topicPool.randomSubjectForCategory(targetCategory, random);
     }
 
     /**

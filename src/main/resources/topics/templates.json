@@ -204,6 +204,86 @@
       "intro": "{tone_opener}{entry_intro}{tone_closer}",
       "detailPrompts": ["ask_more", "ask_context"],
       "reactionPrompts": ["ask_opinion"]
+    },
+    {
+      "id": "family_talk",
+      "label": "People",
+      "subjectRequired": false,
+      "skills": ["INSIGHT", "PERSUASION"],
+      "reactionIntensity": "mild",
+      "intro": "{tone_opener}{entry_intro}{tone_closer}",
+      "detailPrompts": ["ask_more", "ask_context"],
+      "reactionPrompts": ["ask_opinion", "ask_feeling"]
+    },
+    {
+      "id": "folk_wisdom",
+      "label": "Advice",
+      "subjectRequired": false,
+      "skills": ["INSIGHT", "HISTORY"],
+      "reactionIntensity": "mild",
+      "intro": "{tone_opener}{entry_intro}{tone_closer}",
+      "detailPrompts": ["ask_more", "ask_context"],
+      "reactionPrompts": ["ask_opinion"]
+    },
+    {
+      "id": "idle_musings",
+      "label": "Advice",
+      "subjectRequired": false,
+      "skills": ["INSIGHT", "PERCEPTION"],
+      "reactionIntensity": "mild",
+      "intro": "{tone_opener}{entry_intro}{tone_closer}",
+      "detailPrompts": ["ask_more", "ask_context"],
+      "reactionPrompts": ["ask_opinion"]
+    },
+    {
+      "id": "food_and_meals",
+      "label": "Advice",
+      "subjectRequired": false,
+      "skills": ["NATURE", "INSIGHT"],
+      "reactionIntensity": "mild",
+      "intro": "{tone_opener}{entry_intro}{tone_closer}",
+      "detailPrompts": ["ask_more", "ask_context"],
+      "reactionPrompts": ["ask_opinion", "ask_feeling"]
+    },
+    {
+      "id": "travelers_and_trade",
+      "label": "Rumors",
+      "subjectRequired": false,
+      "skills": ["INSIGHT", "PERSUASION"],
+      "reactionIntensity": "mild",
+      "intro": "{tone_opener}{entry_intro}{tone_closer}",
+      "detailPrompts": ["ask_more", "ask_context"],
+      "reactionPrompts": ["ask_opinion"]
+    },
+    {
+      "id": "night_watch",
+      "label": "Rumors",
+      "subjectRequired": false,
+      "skills": ["PERCEPTION", "NATURE"],
+      "reactionIntensity": "mild",
+      "intro": "{tone_opener}{entry_intro}{tone_closer}",
+      "detailPrompts": ["ask_more", "press_details"],
+      "reactionPrompts": ["ask_opinion"]
+    },
+    {
+      "id": "work_life",
+      "label": "Work",
+      "subjectRequired": false,
+      "skills": ["INSIGHT", "PERCEPTION"],
+      "reactionIntensity": "mild",
+      "intro": "{tone_opener}{entry_intro}{tone_closer}",
+      "detailPrompts": ["ask_more", "ask_context"],
+      "reactionPrompts": ["ask_opinion", "ask_feeling"]
+    },
+    {
+      "id": "old_times",
+      "label": "History",
+      "subjectRequired": false,
+      "skills": ["HISTORY", "INSIGHT"],
+      "reactionIntensity": "mild",
+      "intro": "{tone_opener}{entry_intro}{tone_closer}",
+      "detailPrompts": ["ask_more", "ask_context"],
+      "reactionPrompts": ["ask_opinion", "ask_feeling"]
     }
   ]
 }

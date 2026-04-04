@@ -1,0 +1,2646 @@
+{
+  "pool": "food_and_meals",
+  "version": 3,
+  "entries": [
+    {
+      "id": 0,
+      "intro": "Made a proper {food_type} for the first time in a while. Sat down and actually tasted it instead of just eating.",
+      "details": [
+        "I've been eating the same quick meals for weeks. Standing up, barely chewing, just getting it done.",
+        "Something about taking the time to cook properly makes everything else slow down too."
+      ],
+      "reactions": [
+        "I should do that more often. It's easy to forget that food can be something you enjoy."
+      ],
+      "statCheck": null,
+      "valence": "neutral",
+      "topic_category": "food_and_meals",
+      "required_entities": [],
+      "location_scope": "universal",
+      "quest_trigger": null
+    },
+    {
+      "id": 1,
+      "intro": "{npc_name} cooked for a few of us last night. Best meal I've had in weeks.",
+      "details": [
+        "Some kind of roasted root dish with herbs I couldn't name. Simple, but perfect.",
+        "We sat around the table long after the food was gone, just talking. Felt like old times."
+      ],
+      "reactions": [
+        "A shared meal does more for people than most things."
+      ],
+      "statCheck": null,
+      "valence": "positive",
+      "topic_category": "food_and_meals",
+      "required_entities": [],
+      "location_scope": "universal",
+      "quest_trigger": null
+    },
+    {
+      "id": 2,
+      "intro": "Burned the stew last night. The whole house still smells like charcoal.",
+      "details": [
+        "I stepped outside for one minute. One minute. Came back to a black pot and smoke everywhere.",
+        "Had to scrub the pot for an hour and eat bread for dinner instead."
+      ],
+      "reactions": [
+        "I'm not a bad cook, but the pot might disagree with me right now."
+      ],
+      "statCheck": null,
+      "valence": "negative",
+      "topic_category": "food_and_meals",
+      "required_entities": [],
+      "location_scope": "universal",
+      "quest_trigger": null
+    },
+    {
+      "id": 3,
+      "intro": "I've been eating {food_type} nearly every day this week. Not tired of it yet.",
+      "details": [
+        "Some people need variety. I just need something that works.",
+        "If it fills me up and tastes decent, I don't see the point of changing."
+      ],
+      "reactions": [
+        "I'll switch when I get bored. No reason to force it."
+      ],
+      "statCheck": null,
+      "valence": "neutral",
+      "topic_category": "food_and_meals",
+      "required_entities": [],
+      "location_scope": "universal",
+      "quest_trigger": null
+    },
+    {
+      "id": 4,
+      "intro": "There's nothing like the smell of bread baking. Makes the whole morning feel right.",
+      "details": [
+        "I get up early just for that. The house is cold, the fire's just catching, and then that warm smell fills everything.",
+        "My mother used to bake every morning. I think that's why it hits me so hard."
+      ],
+      "reactions": [
+        "Some smells carry more than flavor. They carry whole pieces of your life."
+      ],
+      "statCheck": null,
+      "valence": "positive",
+      "topic_category": "food_and_meals",
+      "required_entities": [],
+      "location_scope": "universal",
+      "quest_trigger": null
+    },
+    {
+      "id": 5,
+      "intro": "I tried making {food_type} from scratch yesterday and it went badly.",
+      "details": [
+        "Looked nothing like what I was going for. Tasted fine, actually, but the texture was all wrong.",
+        "I think I rushed the prep. You can't skip steps with cooking and expect it to forgive you."
+      ],
+      "reactions": [
+        "I'll try again next week. Can't get worse."
+      ],
+      "statCheck": {
+        "pass": "I think the issue was heat: too high, too early. The outside cooked before the inside had a chance.",
+        "fail": "Honestly I just guessed at most of it. No real method."
+      },
+      "valence": "neutral",
+      "topic_category": "food_and_meals",
+      "required_entities": [],
+      "location_scope": "universal",
+      "quest_trigger": null
+    },
+    {
+      "id": 6,
+      "intro": "Ate too much last night and paid for it all morning. Could barely move.",
+      "details": [
+        "It was one of those meals where everything was good and I just kept going.",
+        "My belt's still on the last notch. I'm not proud."
+      ],
+      "reactions": [
+        "There's a lesson in there somewhere, but I'll probably ignore it next time too."
+      ],
+      "statCheck": null,
+      "valence": "negative",
+      "topic_category": "food_and_meals",
+      "required_entities": [],
+      "location_scope": "universal",
+      "quest_trigger": null
+    },
+    {
+      "id": 7,
+      "intro": "The {crop_type} came in beautifully this season. I'm eating better than I have in months.",
+      "details": [
+        "Big, healthy, full of flavor. Some years you just get lucky with the growing conditions.",
+        "I've been putting them in everything: soups, roasts, even just eating them raw."
+      ],
+      "reactions": [
+        "A good harvest changes your whole mood. You feel rich in the way that actually matters."
+      ],
+      "statCheck": null,
+      "valence": "positive",
+      "topic_category": "food_and_meals",
+      "required_entities": [],
+      "location_scope": "universal",
+      "quest_trigger": null
+    },
+    {
+      "id": 8,
+      "intro": "I eat alone most nights. It's not sad, it's just quiet.",
+      "details": [
+        "I set one plate, sit down, eat, clean up. The whole thing takes maybe twenty minutes.",
+        "Sometimes I catch myself staring at the empty chair across from me, but that's just habit."
+      ],
+      "reactions": [
+        "I don't mind it, really. But I notice it."
+      ],
+      "statCheck": null,
+      "valence": "neutral",
+      "topic_category": "food_and_meals",
+      "required_entities": [],
+      "location_scope": "universal",
+      "quest_trigger": null
+    },
+    {
+      "id": 9,
+      "intro": "Had {food_type} at {npc_name}'s place last week. I keep thinking about it.",
+      "details": [
+        "I don't know what they did differently. Same ingredients I'd use, but it tasted twice as good.",
+        "I asked for the recipe but they just shrugged and said they didn't measure anything."
+      ],
+      "reactions": [
+        "That's the most frustrating kind of good cook: the kind that can't teach you."
+      ],
+      "statCheck": null,
+      "valence": "positive",
+      "topic_category": "food_and_meals",
+      "required_entities": [],
+      "location_scope": "universal",
+      "quest_trigger": null
+    },
+    {
+      "id": 10,
+      "intro": "Porridge again this morning. Third day in a row.",
+      "details": [
+        "I'm not complaining, exactly. It keeps me going. But it's not exciting.",
+        "I stare at the bowl and the bowl stares back. We have an understanding."
+      ],
+      "reactions": [
+        "One day I'll do something different for breakfast. One day."
+      ],
+      "statCheck": null,
+      "valence": "neutral",
+      "topic_category": "food_and_meals",
+      "required_entities": [],
+      "location_scope": "universal",
+      "quest_trigger": null
+    },
+    {
+      "id": 11,
+      "intro": "I found a way to make {food_type} that actually works with what we've got around here.",
+      "details": [
+        "Had to substitute a few things, but the flavor's close enough that I'm happy with it.",
+        "Took about four tries to get there. The first three were edible, but only just."
+      ],
+      "reactions": [
+        "Cooking is mostly stubbornness with a little luck mixed in."
+      ],
+      "statCheck": {
+        "pass": "The key was using the drippings as a base instead of water. Adds body to the whole thing.",
+        "fail": "I couldn't tell you exactly what made it work this time. I just kept adjusting."
+      },
+      "valence": "positive",
+      "topic_category": "food_and_meals",
+      "required_entities": [],
+      "location_scope": "universal",
+      "quest_trigger": null
+    },
+    {
+      "id": 12,
+      "intro": "Someone brought over a loaf of bread yesterday. Still warm when they handed it to me.",
+      "details": [
+        "I didn't even put anything on it. Just tore off a piece and ate it standing in the doorway.",
+        "Good bread doesn't need anything else. It's complete on its own."
+      ],
+      "reactions": [
+        "That might've been the best thing I've eaten all month."
+      ],
+      "statCheck": null,
+      "valence": "positive",
+      "topic_category": "food_and_meals",
+      "required_entities": [],
+      "location_scope": "universal",
+      "quest_trigger": null
+    },
+    {
+      "id": 13,
+      "intro": "I can't stand {food_type}: the texture alone makes me uneasy.",
+      "details": [
+        "People act like I'm being difficult, but some foods just don't agree with you.",
+        "I've tried it cooked different ways. Doesn't matter. My mouth knows and it says no."
+      ],
+      "reactions": [
+        "There's no amount of seasoning that can fix a food you genuinely dislike."
+      ],
+      "statCheck": null,
+      "valence": "negative",
+      "topic_category": "food_and_meals",
+      "required_entities": [],
+      "location_scope": "universal",
+      "quest_trigger": null
+    },
+    {
+      "id": 14,
+      "intro": "We had a big meal together a few nights back. Must have been ten of us around the table.",
+      "details": [
+        "Everyone brought something. Most of it was simple, but together it made a real spread.",
+        "The kids ate first and then ran off. The rest of us just sat and talked until the candles burned down."
+      ],
+      "reactions": [
+        "That's what meals are supposed to be. Not just food: an excuse to sit together."
+      ],
+      "statCheck": null,
+      "valence": "positive",
+      "topic_category": "food_and_meals",
+      "required_entities": [],
+      "location_scope": "universal",
+      "quest_trigger": null
+    },
+    {
+      "id": 15,
+      "intro": "My soup came out wrong today. Thin, bland, barely worth the effort.",
+      "details": [
+        "I followed the same steps I always do. Same pot, same fire, same vegetables.",
+        "Sometimes cooking just doesn't cooperate. Like the food decided to be difficult."
+      ],
+      "reactions": [
+        "I ate it anyway. Bad soup is still soup."
+      ],
+      "statCheck": null,
+      "valence": "negative",
+      "topic_category": "food_and_meals",
+      "required_entities": [],
+      "location_scope": "universal",
+      "quest_trigger": null
+    },
+    {
+      "id": 16,
+      "intro": "I've started adding herbs to everything. Even things that probably don't need them.",
+      "details": [
+        "A little rosemary here, some thyme there. It makes even plain food feel like you tried.",
+        "I've got a patch growing by the door now. Easiest garden I've ever kept."
+      ],
+      "reactions": [
+        "Fresh herbs are one of those small things that make life noticeably better."
+      ],
+      "statCheck": {
+        "pass": "Timing matters more than quantity: add them at the end of cooking, not the start. Heat kills the flavor.",
+        "fail": "I just throw them in whenever. Seems to work out."
+      },
+      "valence": "positive",
+      "topic_category": "food_and_meals",
+      "required_entities": [],
+      "location_scope": "universal",
+      "quest_trigger": null
+    },
+    {
+      "id": 17,
+      "intro": "I skipped breakfast today and regretted it by midmorning. Could barely think straight.",
+      "details": [
+        "I told myself I'd eat later, but later never came. Just kept working until my hands were shaking.",
+        "By the time I finally sat down, I ate too fast and felt sick."
+      ],
+      "reactions": [
+        "You'd think I'd learn. But I do this to myself at least once a week."
+      ],
+      "statCheck": null,
+      "valence": "negative",
+      "topic_category": "food_and_meals",
+      "required_entities": [],
+      "location_scope": "universal",
+      "quest_trigger": null
+    },
+    {
+      "id": 18,
+      "intro": "The {crop_type} this year tastes different. Not bad, just not what I expected.",
+      "details": [
+        "Could be the soil, could be the rain we had. Growing conditions change things more than people realize.",
+        "I've been adjusting my recipes to account for it. A little more salt, a little less cook time."
+      ],
+      "reactions": [
+        "You work with what the season gives you. That's just how it is."
+      ],
+      "statCheck": null,
+      "valence": "neutral",
+      "topic_category": "food_and_meals",
+      "required_entities": [],
+      "location_scope": "universal",
+      "quest_trigger": null
+    },
+    {
+      "id": 19,
+      "intro": "I cook the same three meals in rotation. It's not laziness: it's efficiency.",
+      "details": [
+        "I know the portions, I know the timing, I know exactly what to buy. No waste, no guessing.",
+        "People give me a hard time about it, but my meals are consistently decent. Can they say the same?"
+      ],
+      "reactions": [
+        "There's a kind of freedom in not having to think about what's for dinner."
+      ],
+      "statCheck": null,
+      "valence": "neutral",
+      "topic_category": "food_and_meals",
+      "required_entities": [],
+      "location_scope": "universal",
+      "quest_trigger": null
+    },
+    {
+      "id": 20,
+      "intro": "Roasted some {crop_type} with just salt and a bit of fat. Sometimes that's all you need.",
+      "details": [
+        "I used to think good food had to be complicated. Turns out the opposite is usually true.",
+        "Hot, crisp on the outside, soft in the middle. Perfect."
+      ],
+      "reactions": [
+        "The best meals I've ever had were the simplest ones."
+      ],
+      "statCheck": null,
+      "valence": "positive",
+      "topic_category": "food_and_meals",
+      "required_entities": [],
+      "location_scope": "universal",
+      "quest_trigger": null
+    },
+    {
+      "id": 21,
+      "intro": "I tried to pickle some {crop_type} last week. The results were questionable.",
+      "details": [
+        "The brine tasted right going in, but something went off. The whole jar has a strange color now.",
+        "I opened it this morning and the smell was... assertive."
+      ],
+      "reactions": [
+        "I'm going to give it another day and then make a decision I might regret."
+      ],
+      "statCheck": {
+        "pass": "I think the jar wasn't sealed properly. Air got in and the fermentation went sideways.",
+        "fail": "Pickling is supposed to be simple. I don't know where I went wrong."
+      },
+      "valence": "negative",
+      "topic_category": "food_and_meals",
+      "required_entities": [],
+      "location_scope": "universal",
+      "quest_trigger": null
+    },
+    {
+      "id": 22,
+      "intro": "There's a certain time of evening when the whole settlement smells like cooking fires and dinner. I love that.",
+      "details": [
+        "Everyone's making something different, and it all blends together into this warm, smoky cloud.",
+        "You can almost guess who's cooking what by the direction the smell comes from."
+      ],
+      "reactions": [
+        "That smell is what a settlement is supposed to feel like."
+      ],
+      "statCheck": null,
+      "valence": "positive",
+      "topic_category": "food_and_meals",
+      "required_entities": [],
+      "location_scope": "universal",
+      "quest_trigger": null
+    },
+    {
+      "id": 23,
+      "intro": "I don't understand people who eat in a hurry. What's the rush?",
+      "details": [
+        "Meals are the one time of day you're supposed to sit down and just exist for a while.",
+        "I take my time. Chew properly. Look out the window. It's not wasting time: it's using it."
+      ],
+      "reactions": [
+        "If you can't enjoy a meal, what exactly are you working so hard for?"
+      ],
+      "statCheck": null,
+      "valence": "neutral",
+      "topic_category": "food_and_meals",
+      "required_entities": [],
+      "location_scope": "universal",
+      "quest_trigger": null
+    },
+    {
+      "id": 24,
+      "intro": "Tried {food_type} for the first time recently. I've been missing out.",
+      "details": [
+        "I always assumed I wouldn't like it, so I never bothered. Turns out I was wrong.",
+        "Now I want to try making it myself, which is probably going to end badly."
+      ],
+      "reactions": [
+        "Funny how you can go years avoiding something and then wonder why you waited."
+      ],
+      "statCheck": null,
+      "valence": "positive",
+      "topic_category": "food_and_meals",
+      "required_entities": [],
+      "location_scope": "universal",
+      "quest_trigger": null
+    },
+    {
+      "id": 25,
+      "intro": "My kitchen's a disaster right now. Every pot I own is dirty.",
+      "details": [
+        "I got ambitious with dinner and used everything. The food was great, but the aftermath is grim.",
+        "The stack of dishes is taller than the table. I've been avoiding eye contact with it."
+      ],
+      "reactions": [
+        "Cooking is fun. Cleaning up after cooking is punishment."
+      ],
+      "statCheck": null,
+      "valence": "neutral",
+      "topic_category": "food_and_meals",
+      "required_entities": [],
+      "location_scope": "universal",
+      "quest_trigger": null
+    },
+    {
+      "id": 26,
+      "intro": "I keep a jar of honey on the shelf and a little bit in porridge changes everything.",
+      "details": [
+        "You don't need much. Just enough to take the edge off the blandness.",
+        "I go through it slowly, so it lasts. A jar can get me through most of a season."
+      ],
+      "reactions": [
+        "Small luxuries are the ones that really count."
+      ],
+      "statCheck": null,
+      "valence": "positive",
+      "topic_category": "food_and_meals",
+      "required_entities": [],
+      "location_scope": "universal",
+      "quest_trigger": null
+    },
+    {
+      "id": 27,
+      "intro": "The bread I made yesterday didn't rise. Just a flat, dense brick.",
+      "details": [
+        "I think the yeast was old. Or the water was too hot. Or both.",
+        "I sliced it thin and toasted it over the fire. Made it almost acceptable."
+      ],
+      "reactions": [
+        "Failed bread teaches you more than successful bread, honestly."
+      ],
+      "statCheck": {
+        "pass": "The water temperature is the tricky part. Too hot kills the yeast outright. You want warm, not hot.",
+        "fail": "Bread is one of those things that's either right or it's not. I haven't figured out the line yet."
+      },
+      "valence": "negative",
+      "topic_category": "food_and_meals",
+      "required_entities": [],
+      "location_scope": "universal",
+      "quest_trigger": null
+    },
+    {
+      "id": 28,
+      "intro": "Cold nights call for soup. I don't make the rules.",
+      "details": [
+        "Something about a hot bowl when the air's biting just makes everything okay for a while.",
+        "I keep a pot going most of the evening. Ladle out a bowl whenever I want one."
+      ],
+      "reactions": [
+        "Soup is the most honest food there is. No pretension, just warmth."
+      ],
+      "statCheck": null,
+      "valence": "positive",
+      "topic_category": "food_and_meals",
+      "required_entities": [],
+      "location_scope": "universal",
+      "quest_trigger": null
+    },
+    {
+      "id": 29,
+      "intro": "I watched {npc_name} eat an entire loaf of bread in one sitting.",
+      "details": [
+        "No butter, no topping, just tearing off chunks and going at it. Didn't even slow down.",
+        "I wasn't sure if I should be concerned or impressed."
+      ],
+      "reactions": [
+        "Sometimes hunger doesn't care about manners. Fair enough."
+      ],
+      "statCheck": null,
+      "valence": "neutral",
+      "topic_category": "food_and_meals",
+      "required_entities": [],
+      "location_scope": "universal",
+      "quest_trigger": null
+    },
+    {
+      "id": 30,
+      "intro": "I've been experimenting with smoking meat. It's slower than I thought, but worth the wait.",
+      "details": [
+        "You have to keep the fire low and steady for hours. There's no rushing it.",
+        "The flavor you get from proper smoking is something you just can't replicate any other way."
+      ],
+      "reactions": [
+        "Patience is the best seasoning. I'm only now starting to believe that."
+      ],
+      "statCheck": {
+        "pass": "The wood matters as much as the meat. Different woods give completely different flavors.",
+        "fail": "I'm still learning the basics. It's more art than science."
+      },
+      "valence": "positive",
+      "topic_category": "food_and_meals",
+      "required_entities": [],
+      "location_scope": "universal",
+      "quest_trigger": null
+    },
+    {
+      "id": 31,
+      "intro": "I ate something yesterday that didn't agree with me. Spent the night regretting every bite.",
+      "details": [
+        "It tasted fine going down, which is the worst part. No warning at all.",
+        "I'm sticking to plain bread and water today. My stomach's not ready for anything ambitious."
+      ],
+      "reactions": [
+        "Trust your nose, not your hunger. That's what I should've done."
+      ],
+      "statCheck": null,
+      "valence": "negative",
+      "topic_category": "food_and_meals",
+      "required_entities": [],
+      "location_scope": "universal",
+      "quest_trigger": null
+    },
+    {
+      "id": 32,
+      "intro": "I made extra stew last night and dropped a bowl off at {npc_name}'s door.",
+      "details": [
+        "They've been working long hours and I doubt they're cooking for themselves right now.",
+        "Didn't knock or anything. Just left it on the step. They'll know who it's from."
+      ],
+      "reactions": [
+        "Feeding someone who's too busy to feed themselves is one of the easiest good things you can do."
+      ],
+      "statCheck": null,
+      "valence": "positive",
+      "topic_category": "food_and_meals",
+      "required_entities": [],
+      "location_scope": "universal",
+      "quest_trigger": null
+    },
+    {
+      "id": 33,
+      "intro": "I've been craving {food_type} all week. Can't get it out of my head.",
+      "details": [
+        "Had some ages ago at a gathering and I've been chasing that memory ever since.",
+        "Nothing I make comes out right. It's missing something I can't put my finger on."
+      ],
+      "reactions": [
+        "One of these days I'll figure out what I'm doing wrong. Or I'll just give up and enjoy the longing."
+      ],
+      "statCheck": {
+        "pass": "I think the trick is the fat content. More butter than you'd expect: that's what gives it the richness.",
+        "fail": "I'm no expert. I just know what I like and this isn't it yet."
+      },
+      "valence": "neutral",
+      "topic_category": "food_and_meals",
+      "required_entities": [],
+      "location_scope": "universal",
+      "quest_trigger": null
+    },
+    {
+      "id": 34,
+      "intro": "My neighbor dries {crop_type} on a rack outside their house. The smell drifts over all afternoon.",
+      "details": [
+        "It's a warm, earthy kind of smell. Not unpleasant, just constant.",
+        "They've been doing it every season for as long as I can remember. It's practically a landmark."
+      ],
+      "reactions": [
+        "You get used to it. Eventually it just smells like home."
+      ],
+      "statCheck": null,
+      "valence": "neutral",
+      "topic_category": "food_and_meals",
+      "required_entities": [],
+      "location_scope": "universal",
+      "quest_trigger": null
+    },
+    {
+      "id": 35,
+      "intro": "Breakfast is the meal I care about most. Get that right and the day follows.",
+      "details": [
+        "I'm useless until I've eaten. Can't plan, can't focus, can barely hold a conversation.",
+        "It doesn't have to be fancy. Just something warm and solid to start on."
+      ],
+      "reactions": [
+        "Anyone who says they skip breakfast is either lying or a different species than me."
+      ],
+      "statCheck": null,
+      "valence": "neutral",
+      "topic_category": "food_and_meals",
+      "required_entities": [],
+      "location_scope": "universal",
+      "quest_trigger": null
+    },
+    {
+      "id": 36,
+      "intro": "Made a big pot of stew with {crop_type} from the garden. Fed me for three days.",
+      "details": [
+        "It actually got better each day. The flavors kept deepening as it sat.",
+        "By day three I was scraping the bottom of the pot and considering licking it."
+      ],
+      "reactions": [
+        "Stew that lasts is one of the great comforts of living alone."
+      ],
+      "statCheck": null,
+      "valence": "positive",
+      "topic_category": "food_and_meals",
+      "required_entities": [],
+      "location_scope": "universal",
+      "quest_trigger": null
+    },
+    {
+      "id": 37,
+      "intro": "I cut my finger chopping vegetables last night. Bled right into the soup.",
+      "details": [
+        "It wasn't bad enough to stop cooking, but bad enough to be annoying.",
+        "I fished out the piece that got blood on it and kept going. What else was I going to do?"
+      ],
+      "reactions": [
+        "Every cook has scars. The knife doesn't care how experienced you are."
+      ],
+      "statCheck": null,
+      "valence": "negative",
+      "topic_category": "food_and_meals",
+      "required_entities": [],
+      "location_scope": "universal",
+      "quest_trigger": null
+    },
+    {
+      "id": 38,
+      "intro": "There's something satisfying about peeling vegetables. Mindless in a good way.",
+      "details": [
+        "Your hands do the work and your mind just drifts. It's almost meditative.",
+        "I do the prep work in the afternoon, cook in the evening. Gives the day a shape."
+      ],
+      "reactions": [
+        "People underestimate how much peace there is in simple kitchen work."
+      ],
+      "statCheck": null,
+      "valence": "positive",
+      "topic_category": "food_and_meals",
+      "required_entities": [],
+      "location_scope": "universal",
+      "quest_trigger": null
+    },
+    {
+      "id": 39,
+      "intro": "I don't cook with {crop_type}. I know everyone else does, but I just don't like the taste.",
+      "details": [
+        "People look at me like I've said something offensive. It's just a preference.",
+        "I've tried it prepared every way imaginable. The answer is still no."
+      ],
+      "reactions": [
+        "Life's too short to eat things you don't enjoy just because everyone else does."
+      ],
+      "statCheck": null,
+      "valence": "neutral",
+      "topic_category": "food_and_meals",
+      "required_entities": [],
+      "location_scope": "universal",
+      "quest_trigger": null
+    },
+    {
+      "id": 40,
+      "intro": "I found my grandmother's recipe for {food_type} written on a scrap of cloth. Almost threw it away.",
+      "details": [
+        "The measurements are all wrong by modern standards: 'a handful of this, a pinch of that.'",
+        "But I followed it as best I could, and the taste brought back a room I haven't been in for twenty years."
+      ],
+      "reactions": [
+        "Food is memory. Sometimes the recipe is worth more than the meal."
+      ],
+      "statCheck": null,
+      "valence": "positive",
+      "topic_category": "food_and_meals",
+      "required_entities": [],
+      "location_scope": "universal",
+      "quest_trigger": null
+    },
+    {
+      "id": 41,
+      "intro": "Dinner was so bad last night I went to bed hungry instead of finishing it.",
+      "details": [
+        "I oversalted everything. There was no saving it.",
+        "The worst part is I saw myself reaching for the salt and thought 'that's enough' and then added more anyway."
+      ],
+      "reactions": [
+        "Sometimes your own hands betray you in the kitchen."
+      ],
+      "statCheck": null,
+      "valence": "negative",
+      "topic_category": "food_and_meals",
+      "required_entities": [],
+      "location_scope": "universal",
+      "quest_trigger": null
+    },
+    {
+      "id": 42,
+      "intro": "I keep meaning to learn how to bake properly, but I never get around to it.",
+      "details": [
+        "Cooking I can do: you adjust as you go. Baking is exact. You have to measure, you have to wait.",
+        "I don't have the temperament for that kind of precision."
+      ],
+      "reactions": [
+        "Maybe that's why bakers are the way they are. Patient people make patient food."
+      ],
+      "statCheck": null,
+      "valence": "neutral",
+      "topic_category": "food_and_meals",
+      "required_entities": [],
+      "location_scope": "universal",
+      "quest_trigger": null
+    },
+    {
+      "id": 43,
+      "intro": "{npc_name} brought over some {food_type} they made. I didn't have the heart to tell them it was terrible.",
+      "details": [
+        "I smiled and said it was lovely while I tried to swallow without tasting.",
+        "They were so proud of it. Sometimes kindness means suffering quietly."
+      ],
+      "reactions": [
+        "I'll never mention it. Some things are better left unsaid."
+      ],
+      "statCheck": null,
+      "valence": "negative",
+      "topic_category": "food_and_meals",
+      "required_entities": [],
+      "location_scope": "universal",
+      "quest_trigger": null
+    },
+    {
+      "id": 44,
+      "intro": "I always cook more than I need. Just feels wrong to make a small portion.",
+      "details": [
+        "Grew up in a big family. My hands still measure for six even though I'm feeding one.",
+        "The leftovers keep well enough. And there's always someone nearby who could use a meal."
+      ],
+      "reactions": [
+        "Old habits from big tables are hard to break. I'm not sure I want to."
+      ],
+      "statCheck": null,
+      "valence": "neutral",
+      "topic_category": "food_and_meals",
+      "required_entities": [],
+      "location_scope": "universal",
+      "quest_trigger": null
+    },
+    {
+      "id": 45,
+      "intro": "Fresh {crop_type} straight from the ground is a completely different thing from stored ones.",
+      "details": [
+        "The flavor is brighter, the texture's firmer. It's like tasting it for the first time.",
+        "By the time it's been sitting in a cellar for weeks, it's lost half of what made it special."
+      ],
+      "reactions": [
+        "There's an argument for eating with the seasons. This is it."
+      ],
+      "statCheck": {
+        "pass": "The sugars start converting almost immediately after harvest. That's why fresh always tastes sweeter.",
+        "fail": "I can't explain why, exactly. It just tastes better when it's fresh."
+      },
+      "valence": "positive",
+      "topic_category": "food_and_meals",
+      "required_entities": [],
+      "location_scope": "universal",
+      "quest_trigger": null
+    },
+    {
+      "id": 46,
+      "intro": "I overheard {npc_name} bragging about their cooking, but the confidence is unearned.",
+      "details": [
+        "They served me something last month that I'm still not sure was fully cooked.",
+        "But they had this look of absolute pride the whole time. Who am I to crush that?"
+      ],
+      "reactions": [
+        "Confidence in the kitchen matters more than skill, I suppose. At least for the cook."
+      ],
+      "statCheck": null,
+      "valence": "neutral",
+      "topic_category": "food_and_meals",
+      "required_entities": [],
+      "location_scope": "universal",
+      "quest_trigger": null
+    },
+    {
+      "id": 47,
+      "intro": "I keep a pot of water on the fire most of the day. Ready for tea, soup, whatever comes up.",
+      "details": [
+        "It's a habit from my parents. They always had a kettle going.",
+        "There's comfort in knowing hot water is always ready. Makes the kitchen feel alive."
+      ],
+      "reactions": [
+        "A warm kitchen is a warm house. That's just how it works."
+      ],
+      "statCheck": null,
+      "valence": "positive",
+      "topic_category": "food_and_meals",
+      "required_entities": [],
+      "location_scope": "universal",
+      "quest_trigger": null
+    },
+    {
+      "id": 48,
+      "intro": "I used to hate cooking. Now it's the one part of my day I actually look forward to.",
+      "details": [
+        "When did that change? I'm not sure. Somewhere between necessity and habit, it became something I enjoy.",
+        "I think it's the control. Everything else in life is messy, but in the kitchen, I decide what happens."
+      ],
+      "reactions": [
+        "Cooking might be the only craft where you get to eat your results."
+      ],
+      "statCheck": null,
+      "valence": "positive",
+      "topic_category": "food_and_meals",
+      "required_entities": [],
+      "location_scope": "universal",
+      "quest_trigger": null
+    },
+    {
+      "id": 49,
+      "intro": "The {food_type} I made turned out better than expected. I might actually be getting good at this.",
+      "details": [
+        "The seasoning was right, the cook time was right, even the presentation looked decent.",
+        "I sat there eating it with a stupid grin on my face."
+      ],
+      "reactions": [
+        "Small victories in the kitchen count. Nobody can take that away from me."
+      ],
+      "statCheck": null,
+      "valence": "positive",
+      "topic_category": "food_and_meals",
+      "required_entities": [],
+      "location_scope": "universal",
+      "quest_trigger": null
+    },
+    {
+      "id": 50,
+      "intro": "I ran out of salt last week and you don't realize how much you depend on it until it's gone.",
+      "details": [
+        "Everything tasted flat. Vegetables, meat, even bread felt wrong without it.",
+        "I rationed the last pinch across three meals. Felt like I was guarding treasure."
+      ],
+      "reactions": [
+        "Salt might be the most important thing in any kitchen. It's the difference between food and just fuel."
+      ],
+      "statCheck": null,
+      "valence": "negative",
+      "topic_category": "food_and_meals",
+      "required_entities": [],
+      "location_scope": "universal",
+      "quest_trigger": null
+    },
+    {
+      "id": 51,
+      "intro": "Ate lunch sitting on the fence today. Just bread and cheese in the sun.",
+      "details": [
+        "A bird landed next to me and stared like it wanted a share. I gave it a crumb.",
+        "That might've been the most peaceful fifteen minutes I've had all week."
+      ],
+      "reactions": [
+        "You don't need a table to have a good meal. Sometimes you just need a nice spot."
+      ],
+      "statCheck": null,
+      "valence": "positive",
+      "topic_category": "food_and_meals",
+      "required_entities": [],
+      "location_scope": "universal",
+      "quest_trigger": null
+    },
+    {
+      "id": 52,
+      "intro": "I've been trying to use up the last of the {crop_type} before they go bad. It's a race against time.",
+      "details": [
+        "Soup, roasted, mashed, in everything. I'm running out of ideas.",
+        "I'd give some away but everyone else is in the same position. Harvest brings abundance and panic."
+      ],
+      "reactions": [
+        "There's a strange stress in having too much food and knowing it won't last."
+      ],
+      "statCheck": null,
+      "valence": "neutral",
+      "topic_category": "food_and_meals",
+      "required_entities": [],
+      "location_scope": "universal",
+      "quest_trigger": null
+    },
+    {
+      "id": 53,
+      "intro": "I've started eating dinner earlier. By the time the sun sets, I want to be done.",
+      "details": [
+        "Eating late used to feel festive. Now it just feels like work.",
+        "An early meal, a quiet evening, in bed before the cold really sets in. That's the good life."
+      ],
+      "reactions": [
+        "I'm getting older, and my stomach knows it even if I don't always admit it."
+      ],
+      "statCheck": null,
+      "valence": "neutral",
+      "topic_category": "food_and_meals",
+      "required_entities": [],
+      "location_scope": "universal",
+      "quest_trigger": null
+    },
+    {
+      "id": 54,
+      "intro": "There's a trick to making {food_type} that nobody tells you about. You have to be patient with it.",
+      "details": [
+        "Most people rush it. They get impatient and pull it off the fire too soon.",
+        "The last few minutes of cooking are where all the flavor develops. You have to wait."
+      ],
+      "reactions": [
+        "Good food rewards patience. That's a lesson that applies to more than cooking."
+      ],
+      "statCheck": {
+        "pass": "Resting time after cooking matters too. Let it sit and the juices redistribute. Cutting too early lets everything run out.",
+        "fail": "I can't explain the details, I just know it works when I wait longer."
+      },
+      "valence": "neutral",
+      "topic_category": "food_and_meals",
+      "required_entities": [],
+      "location_scope": "universal",
+      "quest_trigger": null
+    },
+    {
+      "id": 55,
+      "intro": "I don't care what anyone says: cold leftover stew for breakfast is perfectly acceptable.",
+      "details": [
+        "It's already made, it's already seasoned, and I'm already hungry. The logic is airtight.",
+        "Porridge takes effort. Leftovers take a spoon."
+      ],
+      "reactions": [
+        "There are no rules about what you eat for breakfast. Anyone who says otherwise is a tyrant."
+      ],
+      "statCheck": null,
+      "valence": "neutral",
+      "topic_category": "food_and_meals",
+      "required_entities": [],
+      "location_scope": "universal",
+      "quest_trigger": null
+    },
+    {
+      "id": 56,
+      "intro": "Someone gave me a jar of preserved {food_type} and I've been savoring it slowly.",
+      "details": [
+        "A tiny spoonful each day. It feels luxurious even though it's probably just ordinary.",
+        "I hide the jar in the back of the shelf so I don't eat it all at once in a moment of weakness."
+      ],
+      "reactions": [
+        "Having something to look forward to at the end of a meal: that's worth more than a full plate."
+      ],
+      "statCheck": null,
+      "valence": "positive",
+      "topic_category": "food_and_meals",
+      "required_entities": [],
+      "location_scope": "universal",
+      "quest_trigger": null
+    },
+    {
+      "id": 57,
+      "intro": "I traded some {crop_type} for a bag of dried spices. Best deal I've made in a long time.",
+      "details": [
+        "Just a small bag, but the smell when I opened it was incredible.",
+        "A little goes a long way. I've been adding a pinch to everything and it transforms even the dullest pot."
+      ],
+      "reactions": [
+        "Spices are proof that small things can have outsized impact."
+      ],
+      "statCheck": null,
+      "valence": "positive",
+      "topic_category": "food_and_meals",
+      "required_entities": [],
+      "location_scope": "universal",
+      "quest_trigger": null
+    },
+    {
+      "id": 58,
+      "intro": "I dropped a whole bowl of stew on the floor last night. Just slipped right out of my hands.",
+      "details": [
+        "Stood there looking at it for a solid ten seconds before my brain caught up.",
+        "Cleaned it up, made bread instead, and tried not to think about it."
+      ],
+      "reactions": [
+        "Some days the universe just doesn't want you to eat hot food."
+      ],
+      "statCheck": null,
+      "valence": "negative",
+      "topic_category": "food_and_meals",
+      "required_entities": [],
+      "location_scope": "universal",
+      "quest_trigger": null
+    },
+    {
+      "id": 59,
+      "intro": "I made {food_type} for {npc_name} and they actually asked for the recipe. Made my whole day.",
+      "details": [
+        "It's not a complicated dish. I've just been making it long enough to get it right.",
+        "There's a certain pride in feeding someone well. Better than any compliment about anything else."
+      ],
+      "reactions": [
+        "Cooking for someone who appreciates it is its own reward."
+      ],
+      "statCheck": null,
+      "valence": "positive",
+      "topic_category": "food_and_meals",
+      "required_entities": [],
+      "location_scope": "universal",
+      "quest_trigger": null
+    },
+    {
+      "id": 60,
+      "intro": "I keep my knives sharp. A dull knife in the kitchen is worse than no knife at all.",
+      "details": [
+        "You press harder, you slip, you mangle the food. Everything takes twice as long.",
+        "I sharpen mine every few days. Five minutes of maintenance saves an hour of frustration."
+      ],
+      "reactions": [
+        "The tools matter. People who say they don't haven't cooked with good ones."
+      ],
+      "statCheck": {
+        "pass": "The angle matters: about fifteen degrees on each side. Too steep and the edge chips, too shallow and it won't hold.",
+        "fail": "I just drag it across the stone until it bites. Works for me."
+      },
+      "valence": "neutral",
+      "topic_category": "food_and_meals",
+      "required_entities": [],
+      "location_scope": "universal",
+      "quest_trigger": null
+    },
+    {
+      "id": 61,
+      "intro": "I've been growing {crop_type} in a little patch out back. It's not much, but it's mine.",
+      "details": [
+        "There's something different about eating food you grew yourself. It tastes like effort.",
+        "The yields are small, but I know exactly what went into every bite."
+      ],
+      "reactions": [
+        "Even a tiny garden changes the way you think about meals."
+      ],
+      "statCheck": null,
+      "valence": "positive",
+      "topic_category": "food_and_meals",
+      "required_entities": [],
+      "location_scope": "universal",
+      "quest_trigger": null
+    },
+    {
+      "id": 62,
+      "intro": "I don't like eating with too many people. The noise ruins the food for me.",
+      "details": [
+        "Everyone's talking, reaching, clattering. I can barely taste what's on my plate.",
+        "Give me two or three people at most. Enough for conversation, not enough for chaos."
+      ],
+      "reactions": [
+        "That probably makes me difficult. I've made my peace with it."
+      ],
+      "statCheck": null,
+      "valence": "neutral",
+      "topic_category": "food_and_meals",
+      "required_entities": [],
+      "location_scope": "universal",
+      "quest_trigger": null
+    },
+    {
+      "id": 63,
+      "intro": "Had fresh fish today, cooked over an open flame with nothing but salt.",
+      "details": [
+        "The skin crisped up perfectly. The flesh just fell apart at the touch.",
+        "You can't get that from anything that's been sitting around. It has to be fresh."
+      ],
+      "reactions": [
+        "Days like this remind me that the best food comes from the simplest methods."
+      ],
+      "statCheck": null,
+      "valence": "positive",
+      "topic_category": "food_and_meals",
+      "required_entities": [],
+      "location_scope": "universal",
+      "quest_trigger": null
+    },
+    {
+      "id": 64,
+      "intro": "Winter meals are a test of creativity. Same stored vegetables, different arrangements.",
+      "details": [
+        "By midwinter I've made every combination of root soup I can think of.",
+        "You start getting desperate. Adding things that don't belong together just to feel something new."
+      ],
+      "reactions": [
+        "Surviving winter with your taste buds intact is an underrated achievement."
+      ],
+      "statCheck": {
+        "pass": "Dried herbs saved from summer make a real difference: rosemary and thyme can make the same root soup taste new each time.",
+        "fail": "I just eat what's there. Variety is a luxury I can't always manage in the cold months."
+      },
+      "valence": "neutral",
+      "topic_category": "food_and_meals",
+      "required_entities": [],
+      "location_scope": "universal",
+      "quest_trigger": null
+    },
+    {
+      "id": 65,
+      "intro": "I forgot about a pot on the fire and the whole bottom scorched. The smell lingered for days.",
+      "details": [
+        "That acrid, burned-food smell gets into everything: the curtains, your clothes, even the wood.",
+        "I've scrubbed the pot three times and there's still a dark stain at the bottom."
+      ],
+      "reactions": [
+        "Every pot I own has a story. Most of those stories involve me forgetting about them."
+      ],
+      "statCheck": null,
+      "valence": "negative",
+      "topic_category": "food_and_meals",
+      "required_entities": [],
+      "location_scope": "universal",
+      "quest_trigger": null
+    },
+    {
+      "id": 66,
+      "intro": "I think the secret to a good meal is knowing when to stop adding things.",
+      "details": [
+        "Most people keep throwing ingredients in, hoping more is better. It's not.",
+        "Three or four things done well beats ten things fighting each other on the plate."
+      ],
+      "reactions": [
+        "Restraint in the kitchen is hard. But it's usually the right call."
+      ],
+      "statCheck": {
+        "pass": "If you can taste every ingredient distinctly, you've done it right. Muddled flavors mean you've gone too far.",
+        "fail": "I can't always explain why some dishes work and others don't. I just know it when I taste it."
+      },
+      "valence": "neutral",
+      "topic_category": "food_and_meals",
+      "required_entities": [],
+      "location_scope": "universal",
+      "quest_trigger": null
+    },
+    {
+      "id": 67,
+      "intro": "I've been eating a lot of {food_type} lately. I go through phases.",
+      "details": [
+        "One week I can't get enough of it, the next week I can't look at it.",
+        "Right now I'm in the obsession phase. Every meal, every excuse to include it."
+      ],
+      "reactions": [
+        "I'll burn out on it eventually. Then I'll miss it. The cycle continues."
+      ],
+      "statCheck": null,
+      "valence": "neutral",
+      "topic_category": "food_and_meals",
+      "required_entities": [],
+      "location_scope": "universal",
+      "quest_trigger": null
+    },
+    {
+      "id": 68,
+      "intro": "Cheese is the most underappreciated food there is. I will defend this position.",
+      "details": [
+        "Good cheese on decent bread with maybe an apple: that's a meal. You don't need more.",
+        "The variety alone proves my point. Hard, soft, sharp, mild. There's one for every mood."
+      ],
+      "reactions": [
+        "If I could only pick one food for the rest of my life, the decision would take about two seconds."
+      ],
+      "statCheck": null,
+      "valence": "positive",
+      "topic_category": "food_and_meals",
+      "required_entities": [],
+      "location_scope": "universal",
+      "quest_trigger": null
+    },
+    {
+      "id": 69,
+      "intro": "I cooked for myself the night after a really hard day. Just the act of it helped.",
+      "details": [
+        "Chopping, stirring, waiting. It forced my brain to focus on something immediate instead of circling.",
+        "The food was nothing special. But making it was exactly what I needed."
+      ],
+      "reactions": [
+        "Cooking when you're upset isn't about the food. It's about having something to do with your hands."
+      ],
+      "statCheck": null,
+      "valence": "neutral",
+      "topic_category": "food_and_meals",
+      "required_entities": [],
+      "location_scope": "universal",
+      "quest_trigger": null
+    },
+    {
+      "id": 70,
+      "intro": "The eggs have been good this season. Rich yolks, deep color.",
+      "details": [
+        "When the hens eat well, you eat well. That's the chain.",
+        "I've been frying them with a bit of fat and some bread on the side. Nothing else needed."
+      ],
+      "reactions": [
+        "Simple food done right: that's the quiet luxury nobody talks about."
+      ],
+      "statCheck": null,
+      "valence": "positive",
+      "topic_category": "food_and_meals",
+      "required_entities": [],
+      "location_scope": "universal",
+      "quest_trigger": null
+    },
+    {
+      "id": 71,
+      "intro": "I found weevils in the flour yesterday. Had to throw the whole sack out.",
+      "details": [
+        "Opened it up and there they were, crawling around like they owned the place.",
+        "That was my last sack. I'm eating rice and root vegetables until I can get more."
+      ],
+      "reactions": [
+        "Nothing ruins your mood faster than bugs in your food supply."
+      ],
+      "statCheck": null,
+      "valence": "negative",
+      "topic_category": "food_and_meals",
+      "required_entities": [],
+      "location_scope": "universal",
+      "quest_trigger": null
+    },
+    {
+      "id": 72,
+      "intro": "I've learned to cook {food_type} from {npc_name}. They make it look so easy.",
+      "details": [
+        "Watching them, every step seems obvious. When I do it myself, I realize how much I'm guessing.",
+        "Mine is edible but not quite right. Theirs has something extra I can't replicate."
+      ],
+      "reactions": [
+        "Practice, I suppose. Years of making the same thing until your hands just know."
+      ],
+      "statCheck": {
+        "pass": "I think it's the order of operations: they add the seasoning at a specific point in the process that changes how it absorbs.",
+        "fail": "Maybe it's just experience. You can't shortcut years of doing the same thing."
+      },
+      "valence": "neutral",
+      "topic_category": "food_and_meals",
+      "required_entities": [],
+      "location_scope": "universal",
+      "quest_trigger": null
+    },
+    {
+      "id": 73,
+      "intro": "I've been putting {crop_type} in everything this season. It just goes well with anything.",
+      "details": [
+        "Stews, pies, roasted on the side. Even raw with a bit of salt.",
+        "When something's in season and abundant, you use it. That's the whole philosophy."
+      ],
+      "reactions": [
+        "Cooking with what's available is the oldest skill there is, and it still works."
+      ],
+      "statCheck": null,
+      "valence": "positive",
+      "topic_category": "food_and_meals",
+      "required_entities": [],
+      "location_scope": "universal",
+      "quest_trigger": null
+    },
+    {
+      "id": 74,
+      "intro": "Last night's meal was one of those rare ones where everything just worked.",
+      "details": [
+        "The meat was tender, the vegetables had bite, even the bread came out with a proper crust.",
+        "I sat there afterward feeling genuinely proud. Doesn't happen often enough."
+      ],
+      "reactions": [
+        "Meals like that make up for all the bad ones."
+      ],
+      "statCheck": null,
+      "valence": "positive",
+      "topic_category": "food_and_meals",
+      "required_entities": [],
+      "location_scope": "universal",
+      "quest_trigger": null
+    },
+    {
+      "id": 75,
+      "intro": "I've started salting meat to keep it through the winter. Messy work, but it's worth it.",
+      "details": [
+        "You pack it in salt, press it down, and then forget about it for weeks. When you pull it out, it's transformed.",
+        "The first time I tried it, I used too little salt and lost the whole batch. Expensive lesson."
+      ],
+      "reactions": [
+        "Preserving food is an act of faith. You do the work now and trust it'll pay off later."
+      ],
+      "statCheck": {
+        "pass": "The ratio is about a quarter weight of salt to meat. Any less and bacteria win. Any more and it's inedible.",
+        "fail": "I follow the method someone showed me. I don't really understand the why behind it."
+      },
+      "valence": "neutral",
+      "topic_category": "food_and_meals",
+      "required_entities": [],
+      "location_scope": "universal",
+      "quest_trigger": null
+    },
+    {
+      "id": 76,
+      "intro": "Eating alone on a rainy evening isn't sad. It's peaceful.",
+      "details": [
+        "Rain on the roof, a warm bowl in my hands, nowhere to be. That's all I need some nights.",
+        "The fire pops, the stew steams. The world outside is cold and I am not."
+      ],
+      "reactions": [
+        "There's a version of solitude that's a gift, and it usually comes with soup."
+      ],
+      "statCheck": null,
+      "valence": "positive",
+      "topic_category": "food_and_meals",
+      "required_entities": [],
+      "location_scope": "universal",
+      "quest_trigger": null
+    },
+    {
+      "id": 77,
+      "intro": "I used to hate {food_type} as a child. Now it's one of my favorites.",
+      "details": [
+        "Funny how your taste changes as you get older. Things you swore you'd never eat become regular meals.",
+        "I think it's partly that I cook it better than my parents did. No offense to them."
+      ],
+      "reactions": [
+        "Growing up means giving things a second chance. Even food."
+      ],
+      "statCheck": null,
+      "valence": "neutral",
+      "topic_category": "food_and_meals",
+      "required_entities": [],
+      "location_scope": "universal",
+      "quest_trigger": null
+    },
+    {
+      "id": 78,
+      "intro": "I made way too much food for dinner. My eyes were bigger than my stomach.",
+      "details": [
+        "I cooked like I was feeding the whole street. There's only me.",
+        "I've been eating leftovers all day and I'm still not through half of it."
+      ],
+      "reactions": [
+        "At least I won't have to cook for two days. That's one way to look at it."
+      ],
+      "statCheck": null,
+      "valence": "neutral",
+      "topic_category": "food_and_meals",
+      "required_entities": [],
+      "location_scope": "universal",
+      "quest_trigger": null
+    },
+    {
+      "id": 79,
+      "intro": "Someone told me that {food_type} is better cold, and they're completely wrong.",
+      "details": [
+        "I tried it their way just to be fair. It was lifeless. No warmth, no aroma, nothing.",
+        "Some foods are meant to be hot. That's not an opinion, that's a fact."
+      ],
+      "reactions": [
+        "I won't be taking food advice from that person again."
+      ],
+      "statCheck": null,
+      "valence": "neutral",
+      "topic_category": "food_and_meals",
+      "required_entities": [],
+      "location_scope": "universal",
+      "quest_trigger": null
+    },
+    {
+      "id": 80,
+      "intro": "I've been cooking with more fat than I probably should. Everything just tastes better with it.",
+      "details": [
+        "A bit of butter, a glug of oil, rendered drippings. It adds richness you can't get any other way.",
+        "I know I should use less. But then I taste the result and all my resolve disappears."
+      ],
+      "reactions": [
+        "Health and flavor are in constant negotiation in my kitchen. Flavor usually wins."
+      ],
+      "statCheck": null,
+      "valence": "neutral",
+      "topic_category": "food_and_meals",
+      "required_entities": [],
+      "location_scope": "universal",
+      "quest_trigger": null
+    },
+    {
+      "id": 81,
+      "intro": "The first meal after a day of hard work is something special. You've earned every bite.",
+      "details": [
+        "Everything tastes better when you're genuinely hungry from labor, not just boredom.",
+        "I could eat plain bread after a day like that and it would feel like a feast."
+      ],
+      "reactions": [
+        "Hunger is the best seasoning. That's not clever: it's just true."
+      ],
+      "statCheck": null,
+      "valence": "positive",
+      "topic_category": "food_and_meals",
+      "required_entities": [],
+      "location_scope": "universal",
+      "quest_trigger": null
+    },
+    {
+      "id": 82,
+      "intro": "I keep a crock of sauerkraut fermenting in the cellar. The smell is something else.",
+      "details": [
+        "Tangy, sour, slightly aggressive. It fills the whole downstairs.",
+        "But when it's ready and you serve it with meat? Worth every day of that smell."
+      ],
+      "reactions": [
+        "Good food doesn't always come from pleasant processes."
+      ],
+      "statCheck": {
+        "pass": "You need to keep it submerged in its own brine: any exposure to air invites mold. Weight it down with a clean stone.",
+        "fail": "I just pack it in, seal it, and hope. It's worked so far."
+      },
+      "valence": "neutral",
+      "topic_category": "food_and_meals",
+      "required_entities": [],
+      "location_scope": "universal",
+      "quest_trigger": null
+    },
+    {
+      "id": 83,
+      "intro": "I miss the meals we used to have when I was younger. Big table, loud voices, food everywhere.",
+      "details": [
+        "My mother would spend all day cooking and then pretend she wasn't tired.",
+        "We'd fight over the best pieces and she'd just watch us and smile."
+      ],
+      "reactions": [
+        "You don't realize those were the best meals of your life until they're behind you."
+      ],
+      "statCheck": null,
+      "valence": "neutral",
+      "topic_category": "food_and_meals",
+      "required_entities": [],
+      "location_scope": "universal",
+      "quest_trigger": null
+    },
+    {
+      "id": 84,
+      "intro": "I tried a new way to prepare {food_type} and it actually turned out incredible.",
+      "details": [
+        "Slower than my usual method, but the depth of flavor was completely different.",
+        "I'm never going back to the old way. This is how it's supposed to taste."
+      ],
+      "reactions": [
+        "It's humbling to realize you've been doing something wrong for years and didn't know."
+      ],
+      "statCheck": {
+        "pass": "The trick was browning it first in a dry pan before adding liquid. That caramelization changes everything.",
+        "fail": "I'm not sure what specifically made the difference. I just tried something new and it clicked."
+      },
+      "valence": "positive",
+      "topic_category": "food_and_meals",
+      "required_entities": [],
+      "location_scope": "universal",
+      "quest_trigger": null
+    },
+    {
+      "id": 85,
+      "intro": "Dinner was interrupted by a fight between two neighbors last night. Food went cold.",
+      "details": [
+        "Nothing serious, just raised voices over some boundary dispute. But the mood was gone.",
+        "I sat back down and ate cold stew in silence. Not the same."
+      ],
+      "reactions": [
+        "A ruined meal feels personal, even when it's not your fault."
+      ],
+      "statCheck": null,
+      "valence": "negative",
+      "topic_category": "food_and_meals",
+      "required_entities": [],
+      "location_scope": "universal",
+      "quest_trigger": null
+    },
+    {
+      "id": 86,
+      "intro": "Apples are at their best right now. Crisp, sweet, just right.",
+      "details": [
+        "I've been eating two or three a day. Just biting into one feels like autumn.",
+        "Some I eat fresh, some I'll cook down for winter. But the fresh ones are the real prize."
+      ],
+      "reactions": [
+        "Every food has its perfect window. Apples right now are in it."
+      ],
+      "statCheck": null,
+      "valence": "positive",
+      "topic_category": "food_and_meals",
+      "required_entities": [],
+      "location_scope": "universal",
+      "quest_trigger": null
+    },
+    {
+      "id": 87,
+      "intro": "{npc_name} eats the same thing every single day. Doesn't it drive them mad?",
+      "details": [
+        "Same bread, same cheese, same order. I've watched them do it for months.",
+        "They seem perfectly content. Maybe there's wisdom in that kind of routine."
+      ],
+      "reactions": [
+        "I couldn't do it. But I respect the commitment."
+      ],
+      "statCheck": null,
+      "valence": "neutral",
+      "topic_category": "food_and_meals",
+      "required_entities": [],
+      "location_scope": "universal",
+      "quest_trigger": null
+    },
+    {
+      "id": 88,
+      "intro": "I stretched a single chicken into four meals this week. Pretty proud of that.",
+      "details": [
+        "Roasted it first, then picked the meat for stew, then boiled the bones for broth.",
+        "By the fourth meal it was just flavored broth with bread, but it still counted."
+      ],
+      "reactions": [
+        "Getting every last bit of use from your food feels like a small victory."
+      ],
+      "statCheck": {
+        "pass": "The bones give the best flavor if you crack them before boiling: the marrow adds richness you can't get otherwise.",
+        "fail": "I just throw everything in the pot and see what comes out. Usually works."
+      },
+      "valence": "positive",
+      "topic_category": "food_and_meals",
+      "required_entities": [],
+      "location_scope": "universal",
+      "quest_trigger": null
+    },
+    {
+      "id": 89,
+      "intro": "The milk went sour before I could use it. Should've been more careful.",
+      "details": [
+        "Left it too close to the fire. My own fault.",
+        "I poured it out and the smell stayed in the jar for two days."
+      ],
+      "reactions": [
+        "Small mistakes, small losses. But they add up when you're not paying attention."
+      ],
+      "statCheck": null,
+      "valence": "negative",
+      "topic_category": "food_and_meals",
+      "required_entities": [],
+      "location_scope": "universal",
+      "quest_trigger": null
+    },
+    {
+      "id": 90,
+      "intro": "I tried cooking without a recipe for the first time in a while. Just instinct.",
+      "details": [
+        "Grabbed what looked right, seasoned by taste, pulled it when it smelled done.",
+        "It wasn't perfect, but it was mine in a way that following instructions never is."
+      ],
+      "reactions": [
+        "Cooking by feel is a skill. You don't learn it from recipes: you learn it from failures."
+      ],
+      "statCheck": null,
+      "valence": "neutral",
+      "topic_category": "food_and_meals",
+      "required_entities": [],
+      "location_scope": "universal",
+      "quest_trigger": null
+    },
+    {
+      "id": 91,
+      "intro": "Nothing beats {food_type} on a cold morning. Warms you from the inside out.",
+      "details": [
+        "I had a bowl before sunrise today. By the time I stepped outside, the cold barely touched me.",
+        "It's the kind of food that hugs you. I don't know how else to describe it."
+      ],
+      "reactions": [
+        "Comfort food isn't a luxury. In winter, it's a necessity."
+      ],
+      "statCheck": null,
+      "valence": "positive",
+      "topic_category": "food_and_meals",
+      "required_entities": [],
+      "location_scope": "universal",
+      "quest_trigger": null
+    },
+    {
+      "id": 92,
+      "intro": "I keep a few dried sausages hanging in the pantry. They last forever and they're always there when I need them.",
+      "details": [
+        "Quick to slice, good on bread, fills you up. The perfect emergency food.",
+        "I made them myself last autumn. They've only gotten better with time."
+      ],
+      "reactions": [
+        "Future you will thank past you for preparing. That's the whole idea behind preservation."
+      ],
+      "statCheck": {
+        "pass": "The casing needs to breathe or moisture gets trapped and it spoils from the inside. Hang them in moving air, not a closed box.",
+        "fail": "I just follow the same method I was taught. The details are a bit fuzzy."
+      },
+      "valence": "positive",
+      "topic_category": "food_and_meals",
+      "required_entities": [],
+      "location_scope": "universal",
+      "quest_trigger": null
+    },
+    {
+      "id": 93,
+      "intro": "I can tell what {npc_name} is cooking from across the path. They use too much garlic.",
+      "details": [
+        "Not that I'm complaining. Garlic is wonderful. But there's a line, and they crossed it a while ago.",
+        "Their whole side of the road smells like a garlic field. Even the birds avoid it."
+      ],
+      "reactions": [
+        "I admire the commitment, honestly. That's a person who knows what they like."
+      ],
+      "statCheck": null,
+      "valence": "neutral",
+      "topic_category": "food_and_meals",
+      "required_entities": [],
+      "location_scope": "universal",
+      "quest_trigger": null
+    },
+    {
+      "id": 94,
+      "intro": "We had the first fresh greens of spring yesterday. After months of stored food, it was like waking up.",
+      "details": [
+        "Just a handful of young leaves in a bowl with some oil and vinegar. Nothing fancy.",
+        "But the flavor was so alive compared to what we've been eating. My body practically cheered."
+      ],
+      "reactions": [
+        "Spring greens are the best argument for surviving winter."
+      ],
+      "statCheck": null,
+      "valence": "positive",
+      "topic_category": "food_and_meals",
+      "required_entities": [],
+      "location_scope": "universal",
+      "quest_trigger": null
+    },
+    {
+      "id": 95,
+      "intro": "I ate too many berries yesterday and paid for it. My stomach had opinions.",
+      "details": [
+        "They were so ripe and sweet I just kept going. Lost count somewhere around the second handful.",
+        "Turns out my body has a limit for berries and I found it."
+      ],
+      "reactions": [
+        "Moderation is a lesson I apparently need to relearn every berry season."
+      ],
+      "statCheck": null,
+      "valence": "negative",
+      "topic_category": "food_and_meals",
+      "required_entities": [],
+      "location_scope": "universal",
+      "quest_trigger": null
+    },
+    {
+      "id": 96,
+      "intro": "A good meal makes you generous. I've noticed that about people.",
+      "details": [
+        "Feed someone well and they'll laugh easier, forgive quicker, talk longer.",
+        "An empty stomach makes everyone sharp. A full one softens the edges."
+      ],
+      "reactions": [
+        "If I were in charge of anything, I'd start every meeting with food."
+      ],
+      "statCheck": null,
+      "valence": "neutral",
+      "topic_category": "food_and_meals",
+      "required_entities": [],
+      "location_scope": "universal",
+      "quest_trigger": null
+    },
+    {
+      "id": 97,
+      "intro": "I burned my tongue on soup again. You'd think I'd learn to wait.",
+      "details": [
+        "Every time I tell myself to let it cool. Every time I ignore myself.",
+        "Now everything I eat for the next two days will taste slightly wrong."
+      ],
+      "reactions": [
+        "Impatience and hot food are a bad combination. I'm living proof."
+      ],
+      "statCheck": null,
+      "valence": "negative",
+      "topic_category": "food_and_meals",
+      "required_entities": [],
+      "location_scope": "universal",
+      "quest_trigger": null
+    },
+    {
+      "id": 98,
+      "intro": "I finally figured out how to get the crust right on bread. Took me months.",
+      "details": [
+        "It's about steam in the oven. I put a pan of water in the bottom and it changed everything.",
+        "Golden, crackling crust outside, soft inside. Exactly what bread should be."
+      ],
+      "reactions": [
+        "Breakthroughs in the kitchen feel just as good as breakthroughs anywhere else."
+      ],
+      "statCheck": {
+        "pass": "The steam keeps the surface moist during the first part of baking so it can expand before the crust sets. Without it, it sets too early and stays dense.",
+        "fail": "I'm not sure why the water works. I just know it does."
+      },
+      "valence": "positive",
+      "topic_category": "food_and_meals",
+      "required_entities": [],
+      "location_scope": "universal",
+      "quest_trigger": null
+    },
+    {
+      "id": 99,
+      "intro": "Whoever first decided to put {food_type} and cheese together was a genius.",
+      "details": [
+        "Some combinations just work. You don't question them, you just accept the gift.",
+        "I had it for dinner last night and thought about how grateful I am to anonymous cooks throughout history."
+      ],
+      "reactions": [
+        "The best recipes are the ones nobody invented: they just happened."
+      ],
+      "statCheck": null,
+      "valence": "positive",
+      "topic_category": "food_and_meals",
+      "required_entities": [],
+      "location_scope": "universal",
+      "quest_trigger": null
+    },
+    {
+      "id": 100,
+      "intro": "I've been trying to eat less in the evenings. It's not going well.",
+      "details": [
+        "I tell myself a light supper will do. Then the pot's on the fire and I'm adding more ingredients.",
+        "By the time I sit down, it's a full meal again. My willpower dissolves the moment I smell cooking."
+      ],
+      "reactions": [
+        "The spirit is willing but the appetite is strong."
+      ],
+      "statCheck": null,
+      "valence": "neutral",
+      "topic_category": "food_and_meals",
+      "required_entities": [],
+      "location_scope": "universal",
+      "quest_trigger": null
+    },
+    {
+      "id": 101,
+      "intro": "Stored {crop_type} from the cellar are finally running out. Just in time for the new season.",
+      "details": [
+        "The last few are always a bit soft, a bit tired. You can taste the age in them.",
+        "But they got me through, and I'm grateful for every one."
+      ],
+      "reactions": [
+        "There's a rhythm to eating with the seasons. The cellar empties just as the garden fills."
+      ],
+      "statCheck": null,
+      "valence": "neutral",
+      "topic_category": "food_and_meals",
+      "required_entities": [],
+      "location_scope": "universal",
+      "quest_trigger": null
+    },
+    {
+      "id": 102,
+      "intro": "I made {food_type} for the first time today. Complete disaster, but I learned something.",
+      "details": [
+        "The outside looked fine. The inside was raw. Classic mistake, apparently.",
+        "I cut it open, stared at it in betrayal, and put it back over the fire."
+      ],
+      "reactions": [
+        "First attempts are never supposed to work. They're supposed to teach."
+      ],
+      "statCheck": {
+        "pass": "Lower heat and longer time: that's the fix. High heat cooks the surface too fast and the center never catches up.",
+        "fail": "I'll figure it out eventually. For now I'm just guessing."
+      },
+      "valence": "neutral",
+      "topic_category": "food_and_meals",
+      "required_entities": [],
+      "location_scope": "universal",
+      "quest_trigger": null
+    },
+    {
+      "id": 103,
+      "intro": "There's a difference between eating to live and eating to enjoy. I try to do both.",
+      "details": [
+        "Most days it's fuel. Quick, practical, gets the job done.",
+        "But a few times a week I make something properly, sit down, and pay attention to every bite."
+      ],
+      "reactions": [
+        "You need both kinds of meals. The quick ones and the ones that matter."
+      ],
+      "statCheck": null,
+      "valence": "neutral",
+      "topic_category": "food_and_meals",
+      "required_entities": [],
+      "location_scope": "universal",
+      "quest_trigger": null
+    },
+    {
+      "id": 104,
+      "intro": "I gave {npc_name} some of my {crop_type} and they came back the next day with a pie made from it.",
+      "details": [
+        "I gave them raw ingredients and they returned with art. That's not a fair trade.",
+        "The pie was flaky and perfectly seasoned. I felt outclassed."
+      ],
+      "reactions": [
+        "Some people turn simple things into something special. I just eat them raw."
+      ],
+      "statCheck": null,
+      "valence": "positive",
+      "topic_category": "food_and_meals",
+      "required_entities": [],
+      "location_scope": "universal",
+      "quest_trigger": null
+    },
+    {
+      "id": 105,
+      "intro": "My fire went out halfway through cooking. Dinner was lukewarm at best.",
+      "details": [
+        "The wood was too damp. I knew it when I stacked it but I was lazy about finding dry stock.",
+        "Lukewarm stew is a special kind of disappointing. Not hot enough to enjoy, not cold enough to give up on."
+      ],
+      "reactions": [
+        "Every shortcut in the kitchen comes back to bite you."
+      ],
+      "statCheck": null,
+      "valence": "negative",
+      "topic_category": "food_and_meals",
+      "required_entities": [],
+      "location_scope": "universal",
+      "quest_trigger": null
+    },
+    {
+      "id": 106,
+      "intro": "I've been putting vinegar on more things lately. It wakes everything up.",
+      "details": [
+        "A splash on roasted vegetables, a drizzle on stew right before eating. It adds a brightness.",
+        "I didn't used to care for it, but once you start noticing what acid does to food, you can't stop."
+      ],
+      "reactions": [
+        "Understanding vinegar might be the difference between decent cooking and good cooking."
+      ],
+      "statCheck": {
+        "pass": "Acid balances richness: that's the principle. If a dish tastes flat but has enough salt, it probably needs acid, not more seasoning.",
+        "fail": "I just know it tastes better. I couldn't tell you the science behind it."
+      },
+      "valence": "neutral",
+      "topic_category": "food_and_meals",
+      "required_entities": [],
+      "location_scope": "universal",
+      "quest_trigger": null
+    },
+    {
+      "id": 107,
+      "intro": "We're well into autumn and the {crop_type} are just about done for the year.",
+      "details": [
+        "I pulled the last ones yesterday. Smaller than the early harvest, but still good.",
+        "Time to start thinking about what'll keep through winter and what needs eating soon."
+      ],
+      "reactions": [
+        "The change of seasons always feels most real in the kitchen."
+      ],
+      "statCheck": null,
+      "valence": "neutral",
+      "topic_category": "food_and_meals",
+      "required_entities": [],
+      "location_scope": "universal",
+      "quest_trigger": null
+    },
+    {
+      "id": 108,
+      "intro": "I found an old iron pot at the bottom of a storage pile. Cleaned it up and it cooks beautifully.",
+      "details": [
+        "Took hours of scrubbing and oiling. But the weight and heat distribution are perfect.",
+        "Some things just get better with age and use. This pot has decades of meals baked into it."
+      ],
+      "reactions": [
+        "A good pot is a companion. I don't care if that sounds strange."
+      ],
+      "statCheck": null,
+      "valence": "positive",
+      "topic_category": "food_and_meals",
+      "required_entities": [],
+      "location_scope": "universal",
+      "quest_trigger": null
+    },
+    {
+      "id": 109,
+      "intro": "I don't understand people who don't season their food. What's the point?",
+      "details": [
+        "I watched {npc_name} eat boiled vegetables with nothing on them. Just plain, bland nothing.",
+        "They seemed perfectly content. Meanwhile I was suffering on their behalf."
+      ],
+      "reactions": [
+        "To each their own, but I genuinely don't understand how that's enjoyable."
+      ],
+      "statCheck": null,
+      "valence": "neutral",
+      "topic_category": "food_and_meals",
+      "required_entities": [],
+      "location_scope": "universal",
+      "quest_trigger": null
+    },
+    {
+      "id": 110,
+      "intro": "I traded recipes with someone passing through last week. Got a good one for {food_type}.",
+      "details": [
+        "They described it and my mouth was watering before they finished talking.",
+        "I tried it that same evening. Not quite right yet, but the bones of it are solid."
+      ],
+      "reactions": [
+        "Recipes travel further than the people who carry them. That's a nice thought."
+      ],
+      "statCheck": {
+        "pass": "They mentioned resting the dough overnight in a cool place: that develops flavor you can't rush.",
+        "fail": "I took notes but I'm not sure I got all the details right. Trial and error from here."
+      },
+      "valence": "positive",
+      "topic_category": "food_and_meals",
+      "required_entities": [],
+      "location_scope": "universal",
+      "quest_trigger": null
+    },
+    {
+      "id": 111,
+      "intro": "I woke up in the middle of the night hungry. Ate cold bread in the dark like some kind of animal.",
+      "details": [
+        "Didn't even sit down. Just stood in the pantry tearing off chunks.",
+        "Went back to bed with crumbs on my shirt. Not my finest moment."
+      ],
+      "reactions": [
+        "Nobody's dignified at two in the morning with an empty stomach."
+      ],
+      "statCheck": null,
+      "valence": "neutral",
+      "topic_category": "food_and_meals",
+      "required_entities": [],
+      "location_scope": "universal",
+      "quest_trigger": null
+    },
+    {
+      "id": 112,
+      "intro": "I roasted some {crop_type} with honey yesterday and it was probably the best thing I've made all month.",
+      "details": [
+        "The sweetness caramelized at the edges while the center stayed tender.",
+        "I ate the whole tray myself. No regrets whatsoever."
+      ],
+      "reactions": [
+        "Sometimes the simplest ideas produce the best results."
+      ],
+      "statCheck": null,
+      "valence": "positive",
+      "topic_category": "food_and_meals",
+      "required_entities": [],
+      "location_scope": "universal",
+      "quest_trigger": null
+    },
+    {
+      "id": 113,
+      "intro": "A mouse got into the pantry last night. Chewed through the grain sack.",
+      "details": [
+        "I found the hole this morning, grain scattered everywhere, tiny footprints in the flour.",
+        "I salvaged what I could but had to toss a good portion. Can't be sure what was touched."
+      ],
+      "reactions": [
+        "One mouse can undo a week's worth of careful storing. I need to fix that crack in the wall."
+      ],
+      "statCheck": null,
+      "valence": "negative",
+      "topic_category": "food_and_meals",
+      "required_entities": [],
+      "location_scope": "universal",
+      "quest_trigger": null
+    },
+    {
+      "id": 114,
+      "intro": "I like cooking in the morning when everything's quiet. Best part of my day.",
+      "details": [
+        "The house is still, the light's soft, and there's no rush. Just me and the ingredients.",
+        "By the time anyone else is moving around, I've already had a good hour with my thoughts and my kitchen."
+      ],
+      "reactions": [
+        "Early mornings and cooking go together. Both are better before the world gets loud."
+      ],
+      "statCheck": null,
+      "valence": "positive",
+      "topic_category": "food_and_meals",
+      "required_entities": [],
+      "location_scope": "universal",
+      "quest_trigger": null
+    },
+    {
+      "id": 115,
+      "intro": "{npc_name} and I have different opinions about how to cook {food_type}. It's become a thing.",
+      "details": [
+        "They swear by one method, I swear by another. We've argued about it more times than I can count.",
+        "Last time we each made our version side by side. I won. They disagree."
+      ],
+      "reactions": [
+        "Food arguments are the best kind. Nobody really loses."
+      ],
+      "statCheck": null,
+      "valence": "neutral",
+      "topic_category": "food_and_meals",
+      "required_entities": [],
+      "location_scope": "universal",
+      "quest_trigger": null
+    },
+    {
+      "id": 116,
+      "intro": "I salted and dried some fish last week. It's ready now and it's exactly what I hoped.",
+      "details": [
+        "Firm, savory, keeps for ages. Perfect for when I don't feel like cooking a proper meal.",
+        "A few pieces with bread and some pickled vegetables: that's a meal that takes no effort."
+      ],
+      "reactions": [
+        "Planning ahead pays off. Especially when the payoff is not having to cook."
+      ],
+      "statCheck": {
+        "pass": "The thickness of the cut matters: too thin and it dries to leather, too thick and the center doesn't cure properly.",
+        "fail": "I followed the method a fisherman showed me. Can't say I fully understand it."
+      },
+      "valence": "positive",
+      "topic_category": "food_and_meals",
+      "required_entities": [],
+      "location_scope": "universal",
+      "quest_trigger": null
+    },
+    {
+      "id": 117,
+      "intro": "I've got a sweet tooth that won't quit. If there's anything sweet in the house, it's gone by morning.",
+      "details": [
+        "Honey, dried fruit, anything with sugar. I have no willpower.",
+        "I've started hiding things from myself. It works about half the time."
+      ],
+      "reactions": [
+        "Everybody has a weakness. Mine just happens to be edible."
+      ],
+      "statCheck": null,
+      "valence": "neutral",
+      "topic_category": "food_and_meals",
+      "required_entities": [],
+      "location_scope": "universal",
+      "quest_trigger": null
+    },
+    {
+      "id": 118,
+      "intro": "Had to eat raw {crop_type} for lunch because I didn't have time to cook. Not ideal.",
+      "details": [
+        "Just bit into it like an apple. Functional, I suppose, but not enjoyable.",
+        "I got a few looks from people walking by. I didn't care. I was hungry."
+      ],
+      "reactions": [
+        "Desperate times call for desperate vegetables."
+      ],
+      "statCheck": null,
+      "valence": "negative",
+      "topic_category": "food_and_meals",
+      "required_entities": [],
+      "location_scope": "universal",
+      "quest_trigger": null
+    },
+    {
+      "id": 119,
+      "intro": "I believe that the person who cooks should never have to clean up. That's the rule.",
+      "details": [
+        "You spend all that time and effort making food for people: the least they can do is wash a plate.",
+        "When I cook for others, I make a point of sitting down after serving. The kitchen is someone else's problem."
+      ],
+      "reactions": [
+        "A fair division of labor is what keeps kitchens running and friendships intact."
+      ],
+      "statCheck": null,
+      "valence": "neutral",
+      "topic_category": "food_and_meals",
+      "required_entities": [],
+      "location_scope": "universal",
+      "quest_trigger": null
+    },
+    {
+      "id": 120,
+      "intro": "I tried making {food_type} with a recipe {npc_name} swore by. It was good, actually.",
+      "details": [
+        "I was skeptical going in. Some of the steps seemed unnecessary.",
+        "But I followed it exactly, and by the end I understood why each step mattered."
+      ],
+      "reactions": [
+        "Trust the recipe, at least the first time. You can improvise later."
+      ],
+      "statCheck": {
+        "pass": "The resting step in the middle is what makes the difference: lets the flavors meld before the final cook.",
+        "fail": "I'm not sure which step was the important one. I'll just do all of them again next time."
+      },
+      "valence": "positive",
+      "topic_category": "food_and_meals",
+      "required_entities": [],
+      "location_scope": "universal",
+      "quest_trigger": null
+    },
+    {
+      "id": 121,
+      "intro": "I don't trust anyone who says they've never burned food. They're lying.",
+      "details": [
+        "I've scorched bread, ruined stew, charred meat beyond recognition. Multiple times each.",
+        "That's just cooking. If you've never failed at it, you've never actually tried."
+      ],
+      "reactions": [
+        "Burnt food is the tax you pay for learning to cook well."
+      ],
+      "statCheck": null,
+      "valence": "neutral",
+      "topic_category": "food_and_meals",
+      "required_entities": [],
+      "location_scope": "universal",
+      "quest_trigger": null
+    },
+    {
+      "id": 122,
+      "intro": "I harvested {crop_type} from the garden this morning and cooked them within the hour. That's living.",
+      "details": [
+        "From the ground to the pot to the plate in less time than most people take to wake up.",
+        "The freshness changes everything. You can taste the soil, the sun, all of it."
+      ],
+      "reactions": [
+        "That connection between growing and eating: that's something you can't buy."
+      ],
+      "statCheck": null,
+      "valence": "positive",
+      "topic_category": "food_and_meals",
+      "required_entities": [],
+      "location_scope": "universal",
+      "quest_trigger": null
+    },
+    {
+      "id": 123,
+      "intro": "Leftovers are an art form. Anyone who throws them away is a fool.",
+      "details": [
+        "Yesterday's roast becomes today's stew. Tonight's vegetables become tomorrow's filling.",
+        "A good cook wastes nothing. That's not thrift: it's respect for the food."
+      ],
+      "reactions": [
+        "The second life of a meal is often better than the first."
+      ],
+      "statCheck": {
+        "pass": "The trick is adding a fresh element to old ingredients: fresh herbs, a squeeze of something acidic. It bridges the gap.",
+        "fail": "I just heat everything up and hope for the best. Usually decent."
+      },
+      "valence": "neutral",
+      "topic_category": "food_and_meals",
+      "required_entities": [],
+      "location_scope": "universal",
+      "quest_trigger": null
+    },
+    {
+      "id": 124,
+      "intro": "I had to cook for eight people with barely enough food for three. It was stressful.",
+      "details": [
+        "Made a lot of soup. Soup is forgiving: you can stretch it further than almost anything.",
+        "Added extra bread and nobody complained. But I was counting portions the entire time."
+      ],
+      "reactions": [
+        "Feeding many with little is a skill born from necessity. I wish I didn't need it."
+      ],
+      "statCheck": null,
+      "valence": "negative",
+      "topic_category": "food_and_meals",
+      "required_entities": [],
+      "location_scope": "universal",
+      "quest_trigger": null
+    },
+    {
+      "id": 125,
+      "intro": "Hot food on a cold day, cold food on a hot day: that's the whole philosophy.",
+      "details": [
+        "People overthink meals. Match the weather and you're already halfway to a good one.",
+        "Stew in winter, fresh salad in summer. It's not complicated."
+      ],
+      "reactions": [
+        "The seasons know what you should eat better than any recipe does."
+      ],
+      "statCheck": null,
+      "valence": "neutral",
+      "topic_category": "food_and_meals",
+      "required_entities": [],
+      "location_scope": "universal",
+      "quest_trigger": null
+    },
+    {
+      "id": 126,
+      "intro": "I can make a decent {food_type} now. Took about a dozen attempts, but I'm there.",
+      "details": [
+        "The first few were embarrassing. I don't even want to talk about attempt number four.",
+        "But persistence won out. My latest batch was genuinely good."
+      ],
+      "reactions": [
+        "Twelve failures and one success is still a success."
+      ],
+      "statCheck": null,
+      "valence": "positive",
+      "topic_category": "food_and_meals",
+      "required_entities": [],
+      "location_scope": "universal",
+      "quest_trigger": null
+    },
+    {
+      "id": 127,
+      "intro": "I ate standing up again tonight. Couldn't even be bothered to sit down.",
+      "details": [
+        "Just leaned against the counter, bowl in hand, and shoveled it in.",
+        "I used to sit at the table properly. I'm not sure when I stopped."
+      ],
+      "reactions": [
+        "Something about eating standing up makes the food matter less. I should fix that."
+      ],
+      "statCheck": null,
+      "valence": "neutral",
+      "topic_category": "food_and_meals",
+      "required_entities": [],
+      "location_scope": "universal",
+      "quest_trigger": null
+    },
+    {
+      "id": 128,
+      "intro": "I added {crop_type} to my bread dough last time and it worked surprisingly well.",
+      "details": [
+        "Grated them fine and folded them in. The bread came out moist and slightly sweet.",
+        "It's not traditional, but when has that ever stopped me?"
+      ],
+      "reactions": [
+        "Experimenting in the kitchen is how new traditions start."
+      ],
+      "statCheck": {
+        "pass": "You have to squeeze out the excess moisture first, otherwise the dough gets too wet and won't hold its shape.",
+        "fail": "I just threw it in and it happened to work. I'd call that beginner's luck."
+      },
+      "valence": "positive",
+      "topic_category": "food_and_meals",
+      "required_entities": [],
+      "location_scope": "universal",
+      "quest_trigger": null
+    },
+    {
+      "id": 129,
+      "intro": "There's a satisfaction to a clean kitchen after cooking. Everything put away, surfaces wiped, pot scrubbed.",
+      "details": [
+        "The meal is done, the mess is gone, and the room smells like soap and lingering spices.",
+        "That quiet moment when you've cooked, eaten, and cleaned: that's completeness."
+      ],
+      "reactions": [
+        "A clean kitchen means the day is properly finished."
+      ],
+      "statCheck": null,
+      "valence": "positive",
+      "topic_category": "food_and_meals",
+      "required_entities": [],
+      "location_scope": "universal",
+      "quest_trigger": null
+    },
+    {
+      "id": 130,
+      "intro": "I tried {npc_name}'s cooking once and I'm still not sure what I ate.",
+      "details": [
+        "They called it stew but the consistency was... uncertain. Somewhere between soup and paste.",
+        "I finished the whole bowl because I'm polite. But my stomach had questions afterward."
+      ],
+      "reactions": [
+        "Not everyone's gifts lie in the kitchen. And that's fine. Truly."
+      ],
+      "statCheck": null,
+      "valence": "negative",
+      "topic_category": "food_and_meals",
+      "required_entities": [],
+      "location_scope": "universal",
+      "quest_trigger": null
+    },
+    {
+      "id": 131,
+      "intro": "I keep a small stock of {food_type} for when I need something quick. It's a lifesaver on busy days.",
+      "details": [
+        "No cooking, no prep: just grab it and eat. Sometimes that's all you have time for.",
+        "It's not a meal I'd choose if I had time, but it keeps me going."
+      ],
+      "reactions": [
+        "Having something ready-made in the pantry is basic survival planning."
+      ],
+      "statCheck": null,
+      "valence": "neutral",
+      "topic_category": "food_and_meals",
+      "required_entities": [],
+      "location_scope": "universal",
+      "quest_trigger": null
+    },
+    {
+      "id": 132,
+      "intro": "The best thing about autumn is the food. Everything tastes richer, deeper.",
+      "details": [
+        "Roasted roots, warm spices, dense bread. The whole season is built for eating well.",
+        "Something about the cold air makes you appreciate warm food more."
+      ],
+      "reactions": [
+        "If autumn were a meal, it would be a hearty stew with good bread on the side."
+      ],
+      "statCheck": null,
+      "valence": "positive",
+      "topic_category": "food_and_meals",
+      "required_entities": [],
+      "location_scope": "universal",
+      "quest_trigger": null
+    },
+    {
+      "id": 133,
+      "intro": "I've been drinking more broth lately. Just sipping it from a mug through the day.",
+      "details": [
+        "It's not really a meal, but it keeps the cold out and settles the stomach.",
+        "I make a big pot and just reheat mugs of it whenever I pass through the kitchen."
+      ],
+      "reactions": [
+        "Broth is the most underrated thing in any kitchen. It's medicine, comfort, and warmth in one."
+      ],
+      "statCheck": null,
+      "valence": "neutral",
+      "topic_category": "food_and_meals",
+      "required_entities": [],
+      "location_scope": "universal",
+      "quest_trigger": null
+    },
+    {
+      "id": 134,
+      "intro": "I caught {npc_name} eating {food_type} at dawn the other day. No judgment, just surprise.",
+      "details": [
+        "They looked at me like they'd been caught committing a crime. I just waved and kept walking.",
+        "Whatever gets you through the morning, I suppose."
+      ],
+      "reactions": [
+        "People eat strange things at strange hours. That's their business."
+      ],
+      "statCheck": null,
+      "valence": "neutral",
+      "topic_category": "food_and_meals",
+      "required_entities": [],
+      "location_scope": "universal",
+      "quest_trigger": null
+    },
+    {
+      "id": 135,
+      "intro": "Made a meal tonight that I wished someone else was there to share. It was too good for just me.",
+      "details": [
+        "Everything came together perfectly: the timing, the flavor, even the way it looked on the plate.",
+        "I sat there alone, eating something wonderful, and felt oddly hollow about it."
+      ],
+      "reactions": [
+        "Good food shared is a celebration. Good food alone is just... food."
+      ],
+      "statCheck": null,
+      "valence": "neutral",
+      "topic_category": "food_and_meals",
+      "required_entities": [],
+      "location_scope": "universal",
+      "quest_trigger": null
+    },
+    {
+      "id": 136,
+      "intro": "I tried making jam from berries I picked. It set too hard and now it's basically candy.",
+      "details": [
+        "I cooked it too long. You're supposed to stop before you think it's done, apparently.",
+        "It's edible, just... very chewy for a spread."
+      ],
+      "reactions": [
+        "I'll call it a preserve and pretend I meant to do that."
+      ],
+      "statCheck": {
+        "pass": "The pectin continues to set as it cools: so you pull it off the heat when it's still slightly runny. Counter-intuitive, but that's the trick.",
+        "fail": "I don't really understand the chemistry. I just cooked until it looked thick and overshot."
+      },
+      "valence": "neutral",
+      "topic_category": "food_and_meals",
+      "required_entities": [],
+      "location_scope": "universal",
+      "quest_trigger": null
+    },
+    {
+      "id": 137,
+      "intro": "I cooked {food_type} tonight and the whole house smelled incredible for hours afterward.",
+      "details": [
+        "That lingering aroma: spices, fat, heat. It soaks into the walls.",
+        "I opened the window and I'm sure the neighbors could smell it too."
+      ],
+      "reactions": [
+        "The smell of good cooking might be better than the meal itself."
+      ],
+      "statCheck": null,
+      "valence": "positive",
+      "topic_category": "food_and_meals",
+      "required_entities": [],
+      "location_scope": "universal",
+      "quest_trigger": null
+    },
+    {
+      "id": 138,
+      "intro": "I'm convinced that the people who say they don't care about food are lying.",
+      "details": [
+        "Everyone cares. Some just won't admit it. Put a good meal in front of anyone and watch their face change.",
+        "Even the most indifferent eater has something they love. Something that makes them pause."
+      ],
+      "reactions": [
+        "Food is universal. It's the one thing nobody can pretend doesn't matter."
+      ],
+      "statCheck": null,
+      "valence": "neutral",
+      "topic_category": "food_and_meals",
+      "required_entities": [],
+      "location_scope": "universal",
+      "quest_trigger": null
+    },
+    {
+      "id": 139,
+      "intro": "I used the last of my {crop_type} in tonight's dinner. No idea when I'll get more.",
+      "details": [
+        "Made it count, though. Slow-cooked with onions and a bit of stock.",
+        "Eating the last of something always makes it taste a little better. And a little sadder."
+      ],
+      "reactions": [
+        "Scarcity is its own seasoning."
+      ],
+      "statCheck": null,
+      "valence": "neutral",
+      "topic_category": "food_and_meals",
+      "required_entities": [],
+      "location_scope": "universal",
+      "quest_trigger": null
+    },
+    {
+      "id": 140,
+      "intro": "I made enough bread to share with the neighbors this week. Felt generous.",
+      "details": [
+        "Wrapped the loaves in cloth and left them on doorsteps. Nothing fancy, just a bit of kindness.",
+        "Got a jar of preserved fruit back from one house. That wasn't why I did it, but I'm not complaining."
+      ],
+      "reactions": [
+        "A community that feeds each other is a community that'll survive anything."
+      ],
+      "statCheck": null,
+      "valence": "positive",
+      "topic_category": "food_and_meals",
+      "required_entities": [],
+      "location_scope": "universal",
+      "quest_trigger": null
+    },
+    {
+      "id": 141,
+      "intro": "Overcooked the meat last night. Dry as old leather.",
+      "details": [
+        "I got distracted and left it on the fire about ten minutes too long.",
+        "Chewing through it was an exercise in determination. Even the gravy couldn't save it."
+      ],
+      "reactions": [
+        "The line between perfectly done and ruined is thinner than people think."
+      ],
+      "statCheck": null,
+      "valence": "negative",
+      "topic_category": "food_and_meals",
+      "required_entities": [],
+      "location_scope": "universal",
+      "quest_trigger": null
+    },
+    {
+      "id": 142,
+      "intro": "I eat with my hands more often than I probably should. Fork seems like unnecessary ceremony sometimes.",
+      "details": [
+        "Bread, cheese, dried meat: none of that needs a utensil.",
+        "There's something honest about eating with your hands. Direct. No pretension."
+      ],
+      "reactions": [
+        "If the food fits in your hand, a fork is just showing off."
+      ],
+      "statCheck": null,
+      "valence": "neutral",
+      "topic_category": "food_and_meals",
+      "required_entities": [],
+      "location_scope": "universal",
+      "quest_trigger": null
+    },
+    {
+      "id": 143,
+      "intro": "I've been making {food_type} every week for a year now. I think I've finally perfected my version.",
+      "details": [
+        "Fifty-two attempts, roughly. Each one slightly different from the last.",
+        "The one I made yesterday was the one I've been chasing all along. Exactly how I wanted it."
+      ],
+      "reactions": [
+        "A year of practice for one perfect meal. Somehow that feels like a fair trade."
+      ],
+      "statCheck": {
+        "pass": "The final adjustment was salt timing: early in the cooking, not at the end. It penetrates deeper and the flavor is rounder.",
+        "fail": "I couldn't point to any single change. It was the accumulation of all the small ones."
+      },
+      "valence": "positive",
+      "topic_category": "food_and_meals",
+      "required_entities": [],
+      "location_scope": "universal",
+      "quest_trigger": null
+    },
+    {
+      "id": 144,
+      "intro": "I haven't had a proper meal in two days. Just been too busy.",
+      "details": [
+        "Handfuls of dried fruit, a bit of bread here and there. Nothing you'd call eating.",
+        "My body's running on fumes and stubbornness at this point."
+      ],
+      "reactions": [
+        "Skipping meals catches up with you. I'm about to pay the toll."
+      ],
+      "statCheck": null,
+      "valence": "negative",
+      "topic_category": "food_and_meals",
+      "required_entities": [],
+      "location_scope": "universal",
+      "quest_trigger": null
+    },
+    {
+      "id": 145,
+      "intro": "I think about food more than most people. It's not obsession: it's appreciation.",
+      "details": [
+        "I plan meals in my head while I work. Think about flavors, combinations, what would go well tonight.",
+        "By the time I get to the kitchen, I've already cooked the meal three times in my imagination."
+      ],
+      "reactions": [
+        "Caring about what you eat is caring about how you live. They're the same thing."
+      ],
+      "statCheck": null,
+      "valence": "neutral",
+      "topic_category": "food_and_meals",
+      "required_entities": [],
+      "location_scope": "universal",
+      "quest_trigger": null
+    },
+    {
+      "id": 146,
+      "intro": "Baked {food_type} for the first time using {npc_name}'s oven. Mine isn't big enough.",
+      "details": [
+        "Theirs holds twice the capacity and the heat is more even. The results were dramatically better.",
+        "Made me jealous, honestly. A good oven is something you don't appreciate until you use one."
+      ],
+      "reactions": [
+        "Equipment matters. I can admit that without it being an excuse."
+      ],
+      "statCheck": {
+        "pass": "Consistent heat is the real advantage: their oven holds temperature where mine spikes and drops. That's why baking is unreliable for me at home.",
+        "fail": "Their oven is just better. I don't know the technical reasons, but you can taste the difference."
+      },
+      "valence": "positive",
+      "topic_category": "food_and_meals",
+      "required_entities": [],
+      "location_scope": "universal",
+      "quest_trigger": null
+    },
+    {
+      "id": 147,
+      "intro": "I gave away the last of my {food_type} yesterday. Didn't regret it until this morning.",
+      "details": [
+        "Someone needed it more than I did. At least, that's what I told myself.",
+        "Now I'm staring at an empty shelf and wishing I'd kept half."
+      ],
+      "reactions": [
+        "Generosity feels noble right up until you're hungry."
+      ],
+      "statCheck": null,
+      "valence": "neutral",
+      "topic_category": "food_and_meals",
+      "required_entities": [],
+      "location_scope": "universal",
+      "quest_trigger": null
+    },
+    {
+      "id": 148,
+      "intro": "The first warm meal after days of travel hits different. Nothing in the world tastes that good.",
+      "details": [
+        "Doesn't matter what it is. Could be the plainest stew ever made. If you've been cold and moving for days, it's a revelation.",
+        "I sat down, took one spoonful, and nearly cried. That's not dramatic: that's just what exhaustion does."
+      ],
+      "reactions": [
+        "You don't understand comfort food until you've genuinely needed comfort."
+      ],
+      "statCheck": null,
+      "valence": "positive",
+      "topic_category": "food_and_meals",
+      "required_entities": [],
+      "location_scope": "universal",
+      "quest_trigger": null
+    },
+    {
+      "id": 149,
+      "intro": "I taught myself to cook out of necessity. Somewhere along the way it became something I actually love.",
+      "details": [
+        "Started with survival: boiling things until they were edible. No skill, no care, just feeding myself.",
+        "Now I think about presentation, about timing, about balance. I became a cook without meaning to."
+      ],
+      "reactions": [
+        "The things you're forced to learn often become the things you're grateful for."
+      ],
+      "statCheck": {
+        "pass": "The turning point was understanding heat: that a gentle simmer does what a hard boil can't. Control changed everything.",
+        "fail": "I can't point to when it clicked. One day I just realized I was enjoying it."
+      },
+      "valence": "positive",
+      "topic_category": "food_and_meals",
+      "required_entities": [],
+      "location_scope": "universal",
+      "quest_trigger": null
+    }
+  ]
+}
