@@ -439,8 +439,8 @@ public class QuestGenerator {
         ObjectiveInstance obj = phase.getObjectives().getFirst();
 
         String summary = switch (obj.getType()) {
-            case KILL_MOBS -> "kill " + obj.getRequiredCount() + " " + obj.getTargetLabel();
-            case COLLECT_RESOURCES -> "collect " + obj.getRequiredCount() + " " + obj.getTargetLabel();
+            case KILL_MOBS -> "kill " + obj.getRequiredCount() + " " + obj.getEffectiveLabel();
+            case COLLECT_RESOURCES -> "collect " + obj.getRequiredCount() + " " + obj.getEffectiveLabel();
             case FETCH_ITEM -> "hostile".equals(bindings.get("fetch_variant"))
                 ? "retrieve " + obj.getTargetLabel() + " from " + bindings.getOrDefault("subject_name", "the area")
                 : "recover " + obj.getTargetLabel();
@@ -476,10 +476,12 @@ public class QuestGenerator {
                 } else {
                     count = config.rollCount(random);
                 }
-                yield new ObjectiveInstance(
+                ObjectiveInstance collectObj = new ObjectiveInstance(
                     type, bindings.get("gather_item_id"), bindings.get("quest_item"),
                     count, null, null
                 );
+                collectObj.setTargetLabelPlural(bindings.get("quest_item"));
+                yield collectObj;
             }
             case KILL_MOBS -> {
                 if (poiAvailable) {
@@ -580,7 +582,13 @@ public class QuestGenerator {
             default -> "a cave dungeon";
         };
 
-        return new ObjectiveInstance(type, poiLocationId, targetLabel,
+        ObjectiveInstance poiObj = new ObjectiveInstance(type, poiLocationId, targetLabel,
                 requiredCount, hint, poiLocationId);
+        if (type == ObjectiveType.KILL_MOBS) {
+            poiObj.setTargetLabelPlural(bindings.get("enemy_type_plural"));
+        } else if (type == ObjectiveType.FETCH_ITEM) {
+            poiObj.setTargetLabelPlural(bindings.get("quest_item"));
+        }
+        return poiObj;
     }
 }

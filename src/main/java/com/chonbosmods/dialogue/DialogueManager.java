@@ -309,6 +309,11 @@ public class DialogueManager {
             PhaseType phaseType = currentPhase != null ? currentPhase.getType() : PhaseType.EXPOSITION;
             boolean isFinalPhase = quest.getCurrentPhaseIndex() >= quest.getPhases().size() - 1;
 
+            ValenceType turnInValence = switch (phaseType) {
+                case EXPOSITION, CONFLICT -> ValenceType.NEGATIVE;
+                case RESOLUTION -> ValenceType.POSITIVE;
+            };
+
             // Try to load variant dialogueChunks for richer narrative
             QuestVariant variant = null;
             if (currentPhase != null && currentPhase.getVariantId() != null) {
@@ -358,7 +363,7 @@ public class DialogueManager {
                 String transitionText = outroText + " " + briefing;
 
                 graph.nodes().put(transitionNodeId, new DialogueNode.DialogueTextNode(
-                    transitionText, null, List.of(), List.of(), true, false, null
+                    transitionText, null, List.of(), List.of(), true, false, turnInValence
                 ));
 
                 // Bridge node: no-op action that auto-advances from plot to transition
@@ -373,7 +378,7 @@ public class DialogueManager {
                         topicId + "_continue", "[Continue]", null, bridgeNodeId,
                         ResponseMode.DECISIVE, null, null, null, null
                     )),
-                    List.of(), false, false, null
+                    List.of(), false, false, ValenceType.POSITIVE
                 ));
             } else {
                 // No outro: action goes straight to plot (which serves as confirm)
@@ -393,7 +398,7 @@ public class DialogueManager {
                 }
 
                 graph.nodes().put(plotNodeId, new DialogueNode.DialogueTextNode(
-                    confirmText, null, List.of(), List.of(), true, false, null
+                    confirmText, null, List.of(), List.of(), true, false, ValenceType.POSITIVE
                 ));
             }
 
@@ -410,7 +415,7 @@ public class DialogueManager {
                     topicId + "_resp", "[Turn in] Yes, it's done.", null, actionNodeId,
                     ResponseMode.DECISIVE, null, null, null, null
                 )),
-                List.of(), false, false, null
+                List.of(), false, false, turnInValence
             ));
 
             // Topic definition: priority (sortOrder -1), always visible, quest-flagged
@@ -450,8 +455,8 @@ public class DialogueManager {
 
         ObjectiveInstance obj = nextPhase.getObjectives().getFirst();
         String task = switch (obj.getType()) {
-            case KILL_MOBS -> "You'll need to kill " + obj.getRequiredCount() + " " + obj.getTargetLabel() + ".";
-            case COLLECT_RESOURCES -> "I need you to collect " + obj.getRequiredCount() + " " + obj.getTargetLabel() + ".";
+            case KILL_MOBS -> "You'll need to kill " + obj.getRequiredCount() + " " + obj.getEffectiveLabel() + ".";
+            case COLLECT_RESOURCES -> "I need you to collect " + obj.getRequiredCount() + " " + obj.getEffectiveLabel() + ".";
             case FETCH_ITEM -> "I need you to find " + obj.getTargetLabel() + ".";
             case TALK_TO_NPC -> "Go speak with " + obj.getTargetLabel() + ".";
         };
@@ -528,7 +533,7 @@ public class DialogueManager {
                 // Confirm: direct player back to quest giver
                 String confirmText = "Tell " + questGiver + " what I've told you. They'll want to hear it.";
                 graph.nodes().put(confirmNodeId, new DialogueNode.DialogueTextNode(
-                    confirmText, null, List.of(), List.of(), true, false, null
+                    confirmText, null, List.of(), List.of(), true, false, ValenceType.NEUTRAL
                 ));
 
                 // Entry: target NPC delivers their dialogue
@@ -539,7 +544,7 @@ public class DialogueManager {
                         topicId + "_resp", "I'll pass that along.", null, actionNodeId,
                         ResponseMode.DECISIVE, null, null, null, null
                     )),
-                    List.of(), false, false, null
+                    List.of(), false, false, ValenceType.NEUTRAL
                 ));
 
                 // Topic: priority sort, always visible, quest-flagged

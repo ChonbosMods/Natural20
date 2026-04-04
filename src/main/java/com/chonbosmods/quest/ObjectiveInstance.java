@@ -4,6 +4,7 @@ public class ObjectiveInstance {
     private ObjectiveType type;
     private String targetId;
     private String targetLabel;
+    private String targetLabelPlural;
     private int requiredCount;
     private int currentCount;
     private boolean complete;
@@ -28,6 +29,9 @@ public class ObjectiveInstance {
     public ObjectiveType getType() { return type; }
     public String getTargetId() { return targetId; }
     public String getTargetLabel() { return targetLabel; }
+    public String getTargetLabelPlural() { return targetLabelPlural; }
+    public void setTargetLabelPlural(String targetLabelPlural) { this.targetLabelPlural = targetLabelPlural; }
+    public String getEffectiveLabel() { return requiredCount != 1 && targetLabelPlural != null ? targetLabelPlural : targetLabel; }
     public int getRequiredCount() { return requiredCount; }
     public int getCurrentCount() { return currentCount; }
     public boolean isComplete() { return complete; }
