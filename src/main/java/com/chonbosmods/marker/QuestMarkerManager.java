@@ -29,7 +29,7 @@ public class QuestMarkerManager {
     public static final QuestMarkerManager INSTANCE = new QuestMarkerManager();
 
     private static final HytaleLogger LOGGER = HytaleLogger.get("Nat20|QuestMarker");
-    private static final float MARKER_Y_OFFSET = 2.6f;
+    private static final float MARKER_Y_OFFSET = 2.3f;
     private static final String PARTICLE_QUEST_AVAILABLE = "Quest_Available";
     private static final String PARTICLE_QUEST_TURN_IN = "Quest_TurnIn";
     private static final int TICK_INTERVAL = 1;
