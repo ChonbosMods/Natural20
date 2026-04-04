@@ -27,21 +27,9 @@ public class TopicGraphBuilder {
         @Nullable PoolEntry entry
     ) {}
 
-    // --- Topic shape probabilities ---
-    /** Chance each detail branch is included (rolled independently per detail). */
-    private static final double DETAIL_INCLUDE_CHANCE = 0.70;
-    /** Chance a detail branch gets a reaction follow-up (rolled per included detail). */
-    private static final double REACTION_FOLLOWUP_CHANCE = 0.30;
-    /** Chance the stat check appears when the entry has one authored. */
-    private static final double STAT_CHECK_CHANCE = 0.60;
-    /** Max detail branches on the entry node (hard cap before probability rolls). */
-    private static final int MAX_DETAILS = 2;
-
     // --- Stat check tuning ---
     private static final int STAT_CHECK_DC_MIN = 8;
     private static final int STAT_CHECK_DC_MAX = 16;
-    private static final int STAT_CHECK_PASS_DISPOSITION = 5;
-    private static final int STAT_CHECK_FAIL_DISPOSITION = -3;
 
     private final String npcId;
     private final int defaultDisposition;
@@ -119,108 +107,132 @@ public class TopicGraphBuilder {
         List<ResponseOption> entryResponses = new ArrayList<>();
 
         if (!assignment.hasQuest()) {
-            // Resolve all reactions once for reactionPool sharing
-            List<String> resolvedReactions = entry.reactions().stream()
-                .map(r -> DialogueResolver.resolve(r, bindings))
-                .toList();
+            // --- Simplified mundane flow: linear CONTINUE chain ---
 
-            // Detail branches: each detail has an independent chance of appearing.
-            // Keeps topic shape varied: some topics get 0 details, most get 1-2.
-            int detailCap = Math.min(entry.details().size(), MAX_DETAILS);
-            for (int i = 0; i < detailCap; i++) {
-                if (random.nextDouble() >= DETAIL_INCLUDE_CHANCE) continue;
-
-                String detailNodeId = subjectId + "_detail_" + i;
-                String detailResponseId = subjectId + "_resp_detail_" + i;
-
-                String detailText = DialogueResolver.resolve(entry.details().get(i), bindings);
-
-                // Independent chance of a reaction follow-up on this detail
-                List<ResponseOption> detailChildResponses = new ArrayList<>();
-                if (!resolvedReactions.isEmpty() && random.nextDouble() < REACTION_FOLLOWUP_CHANCE) {
-                    String reactionNodeId = subjectId + "_reaction_" + i;
-                    String reactionResponseId = subjectId + "_resp_reaction_" + i;
-
-                    String reactionFallback = resolvedReactions.getFirst();
-                    nodes.put(reactionNodeId, new DialogueNode.DialogueTextNode(
-                        reactionFallback, resolvedReactions, List.of(), List.of(), false, false, entryValence
-                    ));
-
-                    detailChildResponses.add(new ResponseOption(
-                        reactionResponseId, null, null, reactionNodeId,
-                        ResponseMode.EXPLORATORY, null, null, null, null,
-                        ResponseType.POSTURE
-                    ));
-                }
-
-                // Detail node
-                nodes.put(detailNodeId, new DialogueNode.DialogueTextNode(
-                    detailText, null, detailChildResponses, List.of(), false, false, entryValence
-                ));
-
-                // Detail response option on entry node
-                entryResponses.add(new ResponseOption(
-                    detailResponseId, null, null, detailNodeId,
-                    ResponseMode.EXPLORATORY, null, null, null, null,
-                    ResponseType.POSTURE
-                ));
+            // 1. Collect ALL detail and reaction lines (no probabilistic filtering)
+            List<String> remainingBeats = new ArrayList<>();
+            for (String detail : entry.details()) {
+                remainingBeats.add(DialogueResolver.resolve(detail, bindings));
+            }
+            for (String reaction : entry.reactions()) {
+                remainingBeats.add(DialogueResolver.resolve(reaction, bindings));
             }
 
-            // Stat check: independent chance even when the entry has one authored
-            if (entry.statCheck() != null && assignment.skill() != null
-                    && random.nextDouble() < STAT_CHECK_CHANCE) {
+            // 2. Shuffle with deterministic seed
+            long shuffleSeed = Objects.hash(npcId, entry.id(), "shuffle");
+            Collections.shuffle(remainingBeats, new Random(shuffleSeed));
+
+            // 3. Determine stat check timing (if entry has one and skill is available)
+            boolean statCheckApproved = entry.statCheck() != null
+                    && assignment.skill() != null
+                    && random.nextDouble() < MundaneDispositionConstants.STAT_CHECK_INCLUSION_CHANCE;
+
+            int statCheckFirstBeat = -1; // -1 means no stat check
+            if (statCheckApproved) {
+                int totalBeats = 1 + remainingBeats.size(); // intro + shuffled
+                Random timingRng = new Random(Objects.hash(npcId, entry.id(), "statcheck"));
+                for (int b = 0; b < totalBeats; b++) {
+                    if (b == totalBeats - 1) {
+                        // Guaranteed on last beat if not yet shown
+                        statCheckFirstBeat = b;
+                        break;
+                    }
+                    if (timingRng.nextDouble() < MundaneDispositionConstants.STAT_CHECK_PER_BEAT_CHANCE) {
+                        statCheckFirstBeat = b;
+                        break;
+                    }
+                }
+            }
+
+            // 4. Build stat check side-branch nodes (if approved)
+            String checkNodeId = null;
+            if (statCheckApproved) {
                 Skill skill = assignment.skill();
                 Stat stat = skill.getStat();
-
                 int baseDC = STAT_CHECK_DC_MIN + random.nextInt(STAT_CHECK_DC_MAX - STAT_CHECK_DC_MIN + 1);
 
-                String checkNodeId = subjectId + "_skill_check";
+                checkNodeId = subjectId + "_skill_check";
                 String passNodeId = subjectId + "_skill_pass";
                 String failNodeId = subjectId + "_skill_fail";
-                String checkResponseId = subjectId + "_resp_skill_check";
 
                 String passText = DialogueResolver.resolve(entry.statCheck().pass(), bindings);
                 String failText = DialogueResolver.resolve(entry.statCheck().fail(), bindings);
 
-                // Pass node: disposition bonus, exhausts topic
+                // Pass/fail nodes: empty mutable response lists.
+                // ConversationSession will inject CONTINUE responses at runtime
+                // pointing to the next beat in the chain.
                 nodes.put(passNodeId, new DialogueNode.DialogueTextNode(
-                    passText, null, List.of(),
+                    passText, null, new ArrayList<>(),
                     List.of(Map.of("type", "MODIFY_DISPOSITION", "amount",
-                        String.valueOf(STAT_CHECK_PASS_DISPOSITION))),
-                    true, false, entryValence
+                        String.valueOf(MundaneDispositionConstants.STAT_CHECK_PASS))),
+                    false, false, entryValence
                 ));
-
-                // Fail node: disposition penalty, exhausts topic
                 nodes.put(failNodeId, new DialogueNode.DialogueTextNode(
-                    failText, null, List.of(),
+                    failText, null, new ArrayList<>(),
                     List.of(Map.of("type", "MODIFY_DISPOSITION", "amount",
-                        String.valueOf(STAT_CHECK_FAIL_DISPOSITION))),
-                    true, false, entryValence
+                        String.valueOf(MundaneDispositionConstants.STAT_CHECK_FAIL))),
+                    false, false, entryValence
                 ));
-
-                // Skill check node
                 nodes.put(checkNodeId, new DialogueNode.SkillCheckNode(
                     skill, null, baseDC, true, passNodeId, failNodeId, List.of()
                 ));
+            }
 
-                // Skill check response on entry node
-                // displayText is just the skill name; the UI prepends a color-coded [STAT] bracket from statPrefix
-                entryResponses.add(new ResponseOption(
-                    checkResponseId,
-                    skill.displayName(),
-                    null,
-                    checkNodeId,
-                    ResponseMode.EXPLORATORY,
-                    null,
-                    checkNodeId,
-                    stat.name(),
-                    null
+            // 5. Build the linear chain: intro -> shuffled[0] -> shuffled[1] -> ...
+            List<String> chainNodeIds = new ArrayList<>();
+            chainNodeIds.add(entryNodeId);
+
+            for (int i = 0; i < remainingBeats.size(); i++) {
+                String beatNodeId = subjectId + "_beat_" + i;
+                chainNodeIds.add(beatNodeId);
+                nodes.put(beatNodeId, new DialogueNode.DialogueTextNode(
+                    remainingBeats.get(i), null, new ArrayList<>(),
+                    List.of(), false, false, entryValence
                 ));
             }
 
-            // No decisive response: topic exhausts naturally when all exploratories
-            // are grayed (ConversationSession.returnCheck handles this).
-            // UNLOCK_TOPIC fires on entry so the topic is globally available.
+            // 6. Wire CONTINUE responses and stat check responses
+            for (int i = 0; i < chainNodeIds.size(); i++) {
+                boolean isLastBeat = (i == chainNodeIds.size() - 1);
+                List<ResponseOption> responses;
+
+                if (i == 0) {
+                    // Entry node: entryResponses (created earlier, currently empty)
+                    responses = entryResponses;
+                } else {
+                    // Beat node: get the mutable response list
+                    DialogueNode.DialogueTextNode beatNode =
+                        (DialogueNode.DialogueTextNode) nodes.get(chainNodeIds.get(i));
+                    responses = (List<ResponseOption>) beatNode.responses();
+                }
+
+                // CONTINUE to next beat (not on last beat)
+                if (!isLastBeat) {
+                    String nextNodeId = chainNodeIds.get(i + 1);
+                    responses.add(new ResponseOption(
+                        subjectId + "_continue_" + i, "CONTINUE", null, nextNodeId,
+                        ResponseMode.DECISIVE, null, null, null, null,
+                        ResponseType.CONTINUE
+                    ));
+                }
+
+                // Stat check response (persists from first appearance onwards)
+                if (statCheckApproved && i >= statCheckFirstBeat) {
+                    Skill skill = assignment.skill();
+                    Stat stat = skill.getStat();
+                    responses.add(new ResponseOption(
+                        subjectId + "_resp_skill_check",
+                        skill.displayName(),
+                        null,
+                        checkNodeId,
+                        ResponseMode.DECISIVE,
+                        null,
+                        checkNodeId,
+                        stat.name(),
+                        null
+                    ));
+                }
+            }
         } else {
             // Quest-bearer: intro beat (full pitch + objective), optional detail beat (30%)
             String questExpo = DialogueResolver.resolve(
