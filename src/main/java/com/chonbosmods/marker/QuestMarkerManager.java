@@ -9,6 +9,7 @@ import com.hypixel.hytale.server.core.modules.entity.component.TransformComponen
 import com.hypixel.hytale.server.core.universe.world.ParticleUtil;
 import com.hypixel.hytale.server.core.universe.world.World;
 import com.hypixel.hytale.server.core.universe.world.storage.EntityStore;
+import com.hypixel.hytale.server.npc.entities.NPCEntity;
 
 import java.util.Iterator;
 import java.util.Map;
@@ -17,11 +18,11 @@ import java.util.concurrent.ConcurrentHashMap;
 
 /**
  * Manages floating quest marker particles above NPCs.
- * Uses Hytale's built-in NPC emotion particles:
- * "Alerted" (!) for quest available, "Question" (?) for quest turn-in.
+ * Uses custom particle systems based on Hytale's NPC emotion particles:
+ * gold "!" (Quest_Available) for quest available, green "?" (Quest_TurnIn) for turn-in.
  *
- * Particles are fire-and-forget with short lifespans (1s and 3s respectively),
- * so they're re-spawned on each tick (~1Hz) to maintain visibility.
+ * Particles have a 5s system lifespan and are re-spawned every 5s.
+ * Markers are hidden when the NPC is in a busy state (combat, alerted, interaction).
  */
 public class QuestMarkerManager {
 
@@ -29,17 +30,18 @@ public class QuestMarkerManager {
 
     private static final HytaleLogger LOGGER = HytaleLogger.get("Nat20|QuestMarker");
     private static final float MARKER_Y_OFFSET = 2.0f;
-    private static final String PARTICLE_QUEST_AVAILABLE = "Alerted";
-    private static final String PARTICLE_QUEST_TURN_IN = "Question";
+    private static final String PARTICLE_QUEST_AVAILABLE = "Quest_Available";
+    private static final String PARTICLE_QUEST_TURN_IN = "Quest_TurnIn";
+    private static final int TICK_INTERVAL = 5;
 
     /** NPC entity UUID → quest marker state */
     private final Map<UUID, QuestMarkerState> activeMarkers = new ConcurrentHashMap<>();
+    private int tickCounter;
 
     private QuestMarkerManager() {}
 
     /**
      * Register or clear quest marker state for an NPC.
-     * Called from applyNpcComponents and updateSettlementNameplates.
      */
     public void syncMarker(UUID npcUuid, QuestMarkerState state) {
         if (state == QuestMarkerState.NONE) {
@@ -50,11 +52,15 @@ public class QuestMarkerManager {
     }
 
     /**
-     * Spawn particle indicators above all tracked NPCs.
-     * Call periodically from the world thread (~1Hz).
+     * Spawn particle indicators above tracked NPCs.
+     * Called every 1s from the proximity executor; only fires particles every TICK_INTERVAL calls.
+     * Skips NPCs in busy states (combat, alerted, interaction).
      */
     public void tickMarkers(World world) {
         if (activeMarkers.isEmpty()) return;
+
+        tickCounter++;
+        if (tickCounter % TICK_INTERVAL != 0) return;
 
         Store<EntityStore> store = world.getEntityStore().getStore();
         Iterator<Map.Entry<UUID, QuestMarkerState>> it = activeMarkers.entrySet().iterator();
@@ -66,8 +72,14 @@ public class QuestMarkerManager {
 
             Ref<EntityStore> npcRef = world.getEntityRef(npcUuid);
             if (npcRef == null) {
-                // NPC entity gone (died, chunk unloaded), stop tracking
                 it.remove();
+                continue;
+            }
+
+            // Skip if NPC is busy (combat, alerted, interacting)
+            NPCEntity npcEntity = store.getComponent(npcRef, NPCEntity.getComponentType());
+            if (npcEntity != null && npcEntity.getRole() != null
+                    && npcEntity.getRole().getStateSupport().isInBusyState()) {
                 continue;
             }
 
@@ -86,9 +98,6 @@ public class QuestMarkerManager {
         }
     }
 
-    /**
-     * Remove all tracked markers. Call on shutdown.
-     */
     public void clear() {
         activeMarkers.clear();
     }

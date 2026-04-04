@@ -1,0 +1,10 @@
+{
+  "Spawners": [
+    {
+      "SpawnerId": "Quest_TurnIn",
+      "PositionOffset": { "Y": 0.4 }
+    }
+  ],
+  "LifeSpan": 5,
+  "CullDistance": 100
+}

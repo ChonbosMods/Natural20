@@ -186,6 +186,17 @@ public class DialogueActionRegistry {
             npcRecord.setPreGeneratedQuest(null);
             settlements.saveAsync();
 
+            // Clear quest marker particle above this NPC
+            if (npcRecord.getEntityUUID() != null) {
+                if (ctx.npcData() != null) {
+                    ctx.npcData().setQuestMarkerState(
+                        com.chonbosmods.data.Nat20NpcData.QuestMarkerState.NONE);
+                }
+                com.chonbosmods.marker.QuestMarkerManager.INSTANCE.syncMarker(
+                    npcRecord.getEntityUUID(),
+                    com.chonbosmods.data.Nat20NpcData.QuestMarkerState.NONE);
+            }
+
             // Update waypoint marker cache
             QuestMarkerProvider.refreshMarkers(
                 ctx.player().getPlayerRef().getUuid(), ctx.playerData());
