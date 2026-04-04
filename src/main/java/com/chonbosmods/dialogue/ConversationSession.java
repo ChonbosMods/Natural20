@@ -445,7 +445,11 @@ public class ConversationSession {
                             && continueChainIndex >= continueChainNodeIds.size() - 1) {
                         modifyDisposition(MundaneDispositionConstants.TOPIC_COMPLETED);
                     }
-                    returnCheck();
+                    // Skip returnCheck for stat check side-beats: handleSkillCheckResult
+                    // injects a CONTINUE response and handles the display after processNode.
+                    if (statCheckResumeNodeId == null) {
+                        returnCheck();
+                    }
                 }
 
                 presenter.refreshLog(conversationLog);
