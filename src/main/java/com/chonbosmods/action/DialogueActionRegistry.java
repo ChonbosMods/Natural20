@@ -9,6 +9,7 @@ import com.chonbosmods.quest.ObjectiveType;
 import com.chonbosmods.quest.PhaseInstance;
 import com.chonbosmods.quest.POIPopulationListener;
 import com.chonbosmods.quest.QuestStateManager;
+import com.chonbosmods.quest.QuestDispositionConstants;
 import com.chonbosmods.quest.QuestSystem;
 import com.chonbosmods.quest.QuestInstance;
 import com.chonbosmods.settlement.NpcRecord;
@@ -139,6 +140,7 @@ public class DialogueActionRegistry {
 
             // Add quest to player's active quests (marker offset computed after POI placement)
             questSystem.getStateManager().addQuest(ctx.playerData(), quest);
+            ctx.dispositionUpdater().accept(QuestDispositionConstants.QUEST_ACCEPTED);
 
             // Trigger POI placement if applicable
             if ("true".equals(quest.getVariableBindings().get("poi_available"))) {
@@ -257,6 +259,11 @@ public class DialogueActionRegistry {
                     questSystem.getRewardManager().awardLootReward(ctx.playerRef(), ctx.store(), ctx.playerData());
                     quest.claimReward(quest.getCurrentPhaseIndex());
                 }
+            }
+
+            ctx.dispositionUpdater().accept(QuestDispositionConstants.QUEST_PHASE_TURNED_IN);
+            if (isFinalPhase) {
+                ctx.dispositionUpdater().accept(QuestDispositionConstants.QUEST_COMPLETED);
             }
 
             // Consume quest item for FETCH_ITEM objectives
