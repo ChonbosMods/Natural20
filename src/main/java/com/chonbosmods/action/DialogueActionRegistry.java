@@ -156,7 +156,9 @@ public class DialogueActionRegistry {
                 triggerPOIPlacement(quest, ctx.store(), ctx.playerRef(), mobRole, mobCount);
             }
 
-            ctx.systemLogger().accept("Quest accepted: " + quest.getSituationId());
+            String questLabel = quest.getVariableBindings().getOrDefault("quest_objective_summary",
+                quest.getSituationId());
+            ctx.systemLogger().accept("Quest accepted: " + questLabel);
             LOGGER.atInfo().log("GIVE_QUEST: player %s received quest '%s' from NPC %s",
                 ctx.player().getPlayerRef().getUuid(), quest.getQuestId(), npcName);
 
@@ -304,8 +306,8 @@ public class DialogueActionRegistry {
                 if (newPhase != null && !newPhase.getObjectives().isEmpty()) {
                     ObjectiveInstance obj = newPhase.getObjectives().getFirst();
                     String summary = switch (obj.getType()) {
-                        case KILL_MOBS -> "kill " + obj.getRequiredCount() + " " + obj.getTargetLabel();
-                        case COLLECT_RESOURCES -> "collect " + obj.getRequiredCount() + " " + obj.getTargetLabel();
+                        case KILL_MOBS -> "kill " + obj.getRequiredCount() + " " + obj.getEffectiveLabel();
+                        case COLLECT_RESOURCES -> "collect " + obj.getRequiredCount() + " " + obj.getEffectiveLabel();
                         case FETCH_ITEM -> "hostile".equals(quest.getVariableBindings().get("fetch_variant"))
                             ? "retrieve " + obj.getTargetLabel() + " from " + quest.getVariableBindings().getOrDefault("subject_name", "the area")
                             : "recover " + obj.getTargetLabel();

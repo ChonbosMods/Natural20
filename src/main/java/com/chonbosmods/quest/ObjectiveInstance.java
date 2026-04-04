@@ -9,6 +9,7 @@ public class ObjectiveInstance {
     private boolean complete;
     private String directionHint;
     private String locationId;
+    private String targetLabelPlural;
 
     public ObjectiveInstance() {}
 
@@ -32,6 +33,9 @@ public class ObjectiveInstance {
     public boolean isComplete() { return complete; }
     public String getDirectionHint() { return directionHint; }
     public String getLocationId() { return locationId; }
+    public String getTargetLabelPlural() { return targetLabelPlural; }
+    public void setTargetLabelPlural(String targetLabelPlural) { this.targetLabelPlural = targetLabelPlural; }
+    public String getEffectiveLabel() { return requiredCount != 1 && targetLabelPlural != null ? targetLabelPlural : targetLabel; }
 
     public void incrementProgress(int amount) {
         currentCount = Math.min(currentCount + amount, requiredCount);

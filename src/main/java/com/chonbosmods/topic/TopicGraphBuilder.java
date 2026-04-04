@@ -222,21 +222,43 @@ public class TopicGraphBuilder {
             // are grayed (ConversationSession.returnCheck handles this).
             // UNLOCK_TOPIC fires on entry so the topic is globally available.
         } else {
-            // Quest-bearer: explorable chain through dialogueChunks (intro -> plotStep -> outro)
-            // with accept/decline at every level
-            String questExpo = bindings.getOrDefault("quest_exposition", "I need your help.");
+            // Quest-bearer: intro beat (full pitch + objective), optional detail beat (30%)
+            String questExpo = DialogueResolver.resolve(
+                bindings.getOrDefault("quest_exposition", "I need your help."), bindings);
             String questSummary = bindings.getOrDefault("quest_objective_summary", "");
             if (!questSummary.isEmpty()) {
-                introText = questExpo + " You'll need to " + questSummary + ".";
-            } else {
-                introText = questExpo;
+                questExpo = questExpo + " You'll need to " + questSummary + ".";
             }
 
+            // Optional detail beat: merge plotStep + outro, include 30% of the time
+            String plotStep = bindings.get("quest_plot_step");
+            String outro = bindings.get("quest_outro");
+            String detailText = null;
+            if (plotStep != null && !plotStep.isBlank()) {
+                detailText = DialogueResolver.resolve(plotStep, bindings);
+                if (outro != null && !outro.isBlank()) {
+                    detailText = detailText + " " + DialogueResolver.resolve(outro, bindings);
+                }
+            } else if (outro != null && !outro.isBlank()) {
+                detailText = DialogueResolver.resolve(outro, bindings);
+            }
+            boolean includeDetail = detailText != null && random.nextDouble() < 0.30;
+
+            List<String> beatTexts = new ArrayList<>();
+            beatTexts.add(questExpo);
+            if (includeDetail) beatTexts.add(detailText);
+
+            // Tone-keyed response text
+            String acceptText = "[Accept] " + bindings.getOrDefault("response_accept", "I will handle it.");
+            String declineText = "[Decline] " + bindings.getOrDefault("response_decline", "Maybe not right now.");
+
+            // Shared action/confirm/decline nodes
             String actionNodeId = subjectId + "_action_decisive";
             String confirmNodeId = subjectId + "_confirm_decisive";
             String declineNodeId = subjectId + "_decline";
 
-            String confirmText = bindings.getOrDefault("quest_accept_response", "Good. Be careful out there.");
+            String confirmText = bindings.getOrDefault("counter_accept", "Good. Be careful out there.");
+            String declineNpcText = bindings.getOrDefault("counter_decline", "I understand. Perhaps another time.");
 
             nodes.put(actionNodeId, new DialogueNode.ActionNode(
                 List.of(
@@ -245,76 +267,57 @@ public class TopicGraphBuilder {
                 ), confirmNodeId, List.of(), false
             ));
             nodes.put(confirmNodeId, new DialogueNode.DialogueTextNode(
-                confirmText, null, List.of(), List.of(), true, false, null
+                confirmText, null, List.of(), List.of(), true, false, ValenceType.POSITIVE
             ));
             nodes.put(declineNodeId, new DialogueNode.DialogueTextNode(
-                "I understand. Perhaps another time.", null, List.of(),
+                declineNpcText, null, List.of(),
                 List.of(Map.of("type", "UNLOCK_TOPIC", "topicId", subjectId, "scope", "GLOBAL")),
-                true, false, null
+                true, false, ValenceType.NEUTRAL
             ));
 
-            // Build explorable chain if plotStep and outro are available
-            String plotStep = bindings.get("quest_plot_step");
-            String outro = bindings.get("quest_outro");
+            // Build beat node IDs
+            List<String> beatNodeIds = new ArrayList<>();
+            for (int i = 0; i < beatTexts.size(); i++) {
+                beatNodeIds.add(i == 0 ? entryNodeId : subjectId + "_beat_" + i);
+            }
 
-            if (plotStep != null && !plotStep.isBlank()) {
-                // Entry -> [explore] plotStep node -> [explore] outro node (if available)
-                // Accept/decline available at every level
+            // Create beat nodes: Accept/Decline/"Tell me more." at every beat
+            for (int i = 0; i < beatTexts.size(); i++) {
+                boolean isLast = (i == beatTexts.size() - 1);
+                List<ResponseOption> responses = new ArrayList<>();
 
-                String plotNodeId = subjectId + "_plot";
-                List<ResponseOption> plotResponses = new ArrayList<>();
-
-                if (outro != null && !outro.isBlank()) {
-                    // Plot -> outro chain
-                    String outroNodeId = subjectId + "_outro";
-                    List<ResponseOption> outroResponses = new ArrayList<>();
-                    outroResponses.add(new ResponseOption(
-                        subjectId + "_resp_outro_accept", "[Accept] I will handle it.", null, actionNodeId,
-                        ResponseMode.DECISIVE, null, null, null, null
-                    ));
-                    outroResponses.add(new ResponseOption(
-                        subjectId + "_resp_outro_decline", "[Decline] Maybe not right now.", null, declineNodeId,
-                        ResponseMode.DECISIVE, null, null, null, null
-                    ));
-                    nodes.put(outroNodeId, new DialogueNode.DialogueTextNode(
-                        outro, null, outroResponses, List.of(), false, false, null
-                    ));
-
-                    plotResponses.add(new ResponseOption(
-                        subjectId + "_resp_outro", "Is there anything else?", null, outroNodeId,
-                        ResponseMode.EXPLORATORY, null, null, null, null
+                // "Tell me more." (CONTINUE): not on last beat
+                if (!isLast) {
+                    responses.add(new ResponseOption(
+                        subjectId + "_continue_" + i, "Tell me more.", null, beatNodeIds.get(i + 1),
+                        ResponseMode.DECISIVE, null, null, null, null, ResponseType.CONTINUE
                     ));
                 }
 
-                plotResponses.add(new ResponseOption(
-                    subjectId + "_resp_plot_accept", "[Accept] I will handle it.", null, actionNodeId,
-                    ResponseMode.DECISIVE, null, null, null, null
-                ));
-                plotResponses.add(new ResponseOption(
-                    subjectId + "_resp_plot_decline", "[Decline] Maybe not right now.", null, declineNodeId,
+                // Accept
+                responses.add(new ResponseOption(
+                    subjectId + "_accept_" + i, acceptText, null, actionNodeId,
                     ResponseMode.DECISIVE, null, null, null, null
                 ));
 
-                nodes.put(plotNodeId, new DialogueNode.DialogueTextNode(
-                    plotStep, null, plotResponses, List.of(), false, false, null
+                // Decline
+                responses.add(new ResponseOption(
+                    subjectId + "_decline_" + i, declineText, null, declineNodeId,
+                    ResponseMode.DECISIVE, null, null, null, null
                 ));
 
-                // Exploratory link from entry to plot
-                entryResponses.add(new ResponseOption(
-                    subjectId + "_resp_plot", "What happened?", null, plotNodeId,
-                    ResponseMode.EXPLORATORY, null, null, null, null
-                ));
+                if (i == 0) {
+                    entryResponses.addAll(responses);
+                } else {
+                    nodes.put(beatNodeIds.get(i), new DialogueNode.DialogueTextNode(
+                        beatTexts.get(i), null, responses, List.of(), false, false, ValenceType.NEGATIVE
+                    ));
+                }
             }
 
-            // Accept/decline on entry node (always present)
-            entryResponses.add(new ResponseOption(
-                subjectId + "_resp_accept", "[Accept] I will handle it.", null, actionNodeId,
-                ResponseMode.DECISIVE, null, null, null, null
-            ));
-            entryResponses.add(new ResponseOption(
-                subjectId + "_resp_decline", "[Decline] Maybe not right now.", null, declineNodeId,
-                ResponseMode.DECISIVE, null, null, null, null
-            ));
+            // Override entry valence for quest topics
+            entryValence = ValenceType.NEGATIVE;
+            introText = beatTexts.getFirst();
         }
 
         // Entry node: UNLOCK_TOPIC on enter so the topic is globally available
