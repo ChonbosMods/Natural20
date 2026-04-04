@@ -32,7 +32,7 @@ public class QuestMarkerManager {
     private static final float MARKER_Y_OFFSET = 2.6f;
     private static final String PARTICLE_QUEST_AVAILABLE = "Quest_Available";
     private static final String PARTICLE_QUEST_TURN_IN = "Quest_TurnIn";
-    private static final int TICK_INTERVAL = 5;
+    private static final int TICK_INTERVAL = 1;
 
     /** NPC entity UUID → quest marker state */
     private final Map<UUID, QuestMarkerState> activeMarkers = new ConcurrentHashMap<>();
