@@ -2,6 +2,7 @@ package com.chonbosmods.npc;
 
 import com.chonbosmods.Natural20;
 import com.chonbosmods.data.Nat20NpcData;
+import com.chonbosmods.marker.QuestMarkerManager;
 import com.chonbosmods.settlement.NpcRecord;
 import com.chonbosmods.settlement.SettlementType;
 import com.hypixel.hytale.component.Ref;
@@ -106,6 +107,7 @@ public class Nat20NpcManager {
                     : ThreadLocalRandom.current().nextInt(dispMin, dispMax + 1));
 
                 applyNpcComponents(store, npcRef, npcEntity, npcRecord, cellKey, false);
+                QuestMarkerManager.INSTANCE.requestRecalculation(npcEntity.getUuid());
                 spawned.add(npcRecord);
 
                 LOGGER.atFine().log("[Nat20] Spawned " + formatDisplayName(name, roleName) + " at " +
@@ -173,6 +175,7 @@ public class Nat20NpcManager {
 
         UUID newUUID = npcEntity.getUuid();
         record.setEntityUUID(newUUID);
+        QuestMarkerManager.INSTANCE.requestRecalculation(newUUID);
 
         LOGGER.atFine().log("Respawned %s (%s) with new UUID %s",
             record.getGeneratedName(), roleName, newUUID);
@@ -199,6 +202,7 @@ public class Nat20NpcManager {
         }
 
         applyNpcComponents(store, npcRef, npcEntity, record, cellKey, false);
+        QuestMarkerManager.INSTANCE.requestRecalculation(record.getEntityUUID());
 
         LOGGER.atFine().log("Reattached components to %s (%s) UUID %s",
             record.getGeneratedName(), record.getRole(), record.getEntityUUID());

@@ -8,6 +8,8 @@ import com.chonbosmods.data.Nat20GlobalData;
 import com.chonbosmods.data.Nat20NpcData;
 import com.chonbosmods.data.Nat20PlayerData;
 import com.chonbosmods.marker.QuestMarkerComponent;
+import com.chonbosmods.marker.QuestMarkerManager;
+import com.chonbosmods.marker.QuestMarkerVisibilitySystem;
 import com.chonbosmods.action.DialogueActionRegistry;
 import com.chonbosmods.dialogue.DialogueLoader;
 import com.chonbosmods.dialogue.DialogueManager;
@@ -36,6 +38,8 @@ import com.hypixel.hytale.component.Ref;
 import com.hypixel.hytale.server.core.HytaleServer;
 import com.hypixel.hytale.server.core.event.events.player.PlayerDisconnectEvent;
 import com.hypixel.hytale.server.core.event.events.player.PlayerReadyEvent;
+import com.hypixel.hytale.server.core.entity.UUIDComponent;
+import com.hypixel.hytale.server.core.modules.entity.EntityModule;
 import com.hypixel.hytale.server.core.universe.world.World;
 import com.hypixel.hytale.server.core.universe.world.events.AddWorldEvent;
 import com.hypixel.hytale.server.core.universe.world.events.ChunkPreLoadProcessEvent;
@@ -249,12 +253,18 @@ public class Natural20 extends JavaPlugin {
         // Register settlement threat detection system (marks attackers as hostile)
         getEntityStoreRegistry().registerSystem(new SettlementThreatSystem());
 
+        // Register quest marker visibility system (per-player filtering + pending recalculation drain)
+        getEntityStoreRegistry().registerSystem(new QuestMarkerVisibilitySystem(
+                EntityModule.get().getEntityViewerComponentType(),
+                UUIDComponent.getComponentType()));
+
         // Clean up on player disconnect
         getEventRegistry().register(PlayerDisconnectEvent.class, event -> {
             UUID uuid = event.getPlayerRef().getUuid();
             dialogueManager.endSession(uuid);
             equipmentListener.clearPlayer(uuid);
             QuestMarkerProvider.INSTANCE.removePlayer(uuid);
+            QuestMarkerManager.INSTANCE.requestFullRecalculation();
             if (poiProximitySystem != null) poiProximitySystem.removePlayer(uuid);
             if (settlementDiscoverySystem != null) settlementDiscoverySystem.removePlayer(uuid);
         });
@@ -267,6 +277,7 @@ public class Natural20 extends JavaPlugin {
             if (data != null) {
                 QuestMarkerProvider.refreshMarkers(uuid, data);
             }
+            QuestMarkerManager.INSTANCE.requestFullRecalculation();
             if (poiProximitySystem != null) poiProximitySystem.addPlayer(uuid);
             if (settlementDiscoverySystem != null) settlementDiscoverySystem.addPlayer(uuid);
         });
