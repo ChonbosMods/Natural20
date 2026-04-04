@@ -6,6 +6,7 @@ import com.chonbosmods.data.Nat20NpcData;
 import com.chonbosmods.data.Nat20PlayerData;
 import com.chonbosmods.dialogue.model.*;
 import com.chonbosmods.dialogue.model.ActiveFollowUp;
+import com.chonbosmods.topic.MundaneDispositionConstants;
 import com.chonbosmods.topic.PostureSelection;
 import com.chonbosmods.dice.SkillCheckResult;
 import com.chonbosmods.stats.PlayerStats;
@@ -60,6 +61,13 @@ public class ConversationSession {
     private ValenceTracker valenceTracker;
     private final List<String> recentPostures = new ArrayList<>();
     private static final int MAX_RECENT_POSTURES = 5;
+
+    // --- CONTINUE chain state (mundane topics only) ---
+    private List<String> continueChainNodeIds;
+    private int continueChainIndex;
+    private boolean statCheckAvailable;
+    private String statCheckResponseId;
+    private String statCheckResumeNodeId;
 
     // Callbacks
     private final DialoguePresenter presenter;
@@ -158,6 +166,12 @@ public class ConversationSession {
             if (ended) return;
             ended = true;
 
+            // CONTINUE chain: apply abandonment delta if ending mid-chain
+            if (continueChainNodeIds != null
+                    && continueChainIndex < continueChainNodeIds.size() - 1) {
+                modifyDisposition(MundaneDispositionConstants.TOPIC_ABANDONED);
+            }
+
             playerData.setDispositionFor(npcId, disposition);
 
             if (valenceTracker.hasRecordedLines()) {
@@ -252,11 +266,22 @@ public class ConversationSession {
             return;
         }
 
+        // CONTINUE chain: apply abandonment delta if switching away mid-chain
+        if (continueChainNodeIds != null && activeTopicId != null
+                && !activeTopicId.equals(topicId)) {
+            modifyDisposition(MundaneDispositionConstants.TOPIC_ABANDONED);
+        }
+
         // Normal topic selection: clear stale follow-ups from previous topic
         activeFollowUps = new ArrayList<>();
         pendingFollowUpIds.clear();
         topicsLocked = false;
         exhaustTopicFired = false;
+        continueChainNodeIds = null;
+        continueChainIndex = 0;
+        statCheckAvailable = false;
+        statCheckResponseId = null;
+        statCheckResumeNodeId = null;
         activeTopicId = topicId;
         conversationLog.add(new LogEntry.TopicHeader(topic.label(), topic.questTopic()));
         presenter.refreshLog(conversationLog);
@@ -264,6 +289,17 @@ public class ConversationSession {
 
         String entryNodeId = resolveEntryNodeId(topic);
         processNode(entryNodeId);
+
+        // Detect CONTINUE flow
+        DialogueNode entryNode = graph.getNode(entryNodeId);
+        if (entryNode instanceof DialogueNode.DialogueTextNode textNode) {
+            boolean hasContinue = textNode.responses().stream()
+                .anyMatch(r -> r.responseType() == ResponseType.CONTINUE);
+            if (hasContinue) {
+                initContinueChain(entryNodeId, textNode);
+            }
+        }
+
         presenter.refreshTopics(resolveVisibleTopics());
         presenter.flushUpdates();
         } finally {
@@ -287,6 +323,23 @@ public class ConversationSession {
             if (selected == null) return;
 
             markFollowUpSelected(responseId, selected);
+
+            // CONTINUE chain: advance index and handle stat check
+            if (continueChainNodeIds != null) {
+                if (selected.responseType() == ResponseType.CONTINUE) {
+                    continueChainIndex++;
+                }
+
+                if (selected.skillCheckRef() != null && statCheckAvailable) {
+                    // Player clicked stat check: record resume point and mark used
+                    statCheckAvailable = false;
+                    // Find the CONTINUE target on this same node (next beat in chain)
+                    ResponseOption continueOpt = textNode.responses().stream()
+                        .filter(r -> r.responseType() == ResponseType.CONTINUE)
+                        .findFirst().orElse(null);
+                    statCheckResumeNodeId = continueOpt != null ? continueOpt.targetNodeId() : null;
+                }
+            }
 
             if (selected.skillCheckRef() != null) {
                 processNode(selected.skillCheckRef());
@@ -387,6 +440,11 @@ public class ConversationSession {
                 topicsLocked = textNode.locksConversation();
 
                 if (pendingFollowUpIds.isEmpty()) {
+                    // CONTINUE chain: apply completion delta at last beat
+                    if (continueChainNodeIds != null
+                            && continueChainIndex >= continueChainNodeIds.size() - 1) {
+                        modifyDisposition(MundaneDispositionConstants.TOPIC_COMPLETED);
+                    }
                     returnCheck();
                 }
 
@@ -437,6 +495,27 @@ public class ConversationSession {
 
             String nextNodeId = result.passed() ? checkNode.passNodeId() : checkNode.failNodeId();
             processNode(nextNodeId);
+
+            // CONTINUE chain: inject CONTINUE on the pass/fail node to resume the chain
+            if (continueChainNodeIds != null && statCheckResumeNodeId != null) {
+                DialogueNode passFailNode = graph.getNode(nextNodeId);
+                if (passFailNode instanceof DialogueNode.DialogueTextNode pfText) {
+                    @SuppressWarnings("unchecked")
+                    List<ResponseOption> pfResponses = (List<ResponseOption>) pfText.responses();
+                    if (pfResponses.isEmpty()) {
+                        pfResponses.add(new ResponseOption(
+                            "stat_check_resume", "CONTINUE", null, statCheckResumeNodeId,
+                            ResponseMode.DECISIVE, null, null, null, null,
+                            ResponseType.CONTINUE
+                        ));
+                        // Re-display responses since we just added one
+                        filterAndDisplayResponses(pfText);
+                        presenter.refreshFollowUps(activeFollowUps);
+                    }
+                }
+                statCheckResumeNodeId = null;
+            }
+
             presenter.refreshTopics(resolveVisibleTopics());
             presenter.flushUpdates();
         } finally {
@@ -456,6 +535,7 @@ public class ConversationSession {
         List<ResponseOption> surviving = textNode.responses().stream()
             .filter(r -> !consumed.contains(r.id()))
             .filter(r -> conditionEvaluator.evaluate(r.condition(), condCtx))
+            .filter(r -> statCheckResponseId == null || !r.id().equals(statCheckResponseId) || statCheckAvailable)
             .toList();
 
         pendingFollowUpIds.clear();
@@ -477,7 +557,10 @@ public class ConversationSession {
     private void markFollowUpSelected(String selectedId, ResponseOption selected) {
         // Record the selection in the conversation log (history only).
         // Skip for skill checks: their result is logged as SkillCheckResult instead.
-        if (selected.skillCheckRef() == null) {
+        // CONTINUE responses show as a divider rather than "> CONTINUE".
+        if (selected.responseType() == ResponseType.CONTINUE) {
+            conversationLog.add(new LogEntry.ReturnDivider());
+        } else if (selected.skillCheckRef() == null) {
             String logDisplay = selected.logText() != null ? selected.logText()
                 : selected.displayText() != null ? selected.displayText()
                 : "...";
@@ -506,6 +589,24 @@ public class ConversationSession {
 
     private void returnCheck() {
         if (activeTopicId == null) return;
+
+        // CONTINUE chain: mark topic done when chain is complete
+        if (continueChainNodeIds != null) {
+            if (continueChainIndex >= continueChainNodeIds.size() - 1) {
+                playerData.setTopicExhaustion(npcId, activeTopicId, ExhaustionState.GRAYED);
+                playerData.setTopicRecapNode(npcId, activeTopicId, activeNodeId);
+                activeFollowUps = List.of();
+                pendingFollowUpIds.clear();
+                activeTopicId = null;
+                topicsLocked = false;
+                continueChainNodeIds = null;
+            }
+            presenter.refreshLog(conversationLog);
+            presenter.refreshFollowUps(activeFollowUps);
+            presenter.refreshTopics(resolveVisibleTopics());
+            presenter.refreshDisposition(disposition);
+            return;
+        }
 
         // Step 1: Was EXHAUST_TOPIC fired?
         if (exhaustTopicFired) {
@@ -572,6 +673,40 @@ public class ConversationSession {
     private void redisplayEntryNodeOptions(DialogueNode.DialogueTextNode entryTextNode) {
         conversationLog.add(new LogEntry.ReturnDivider());
         filterAndDisplayResponses(entryTextNode);
+    }
+
+    private void initContinueChain(String entryNodeId, DialogueNode.DialogueTextNode entryNode) {
+        continueChainNodeIds = new ArrayList<>();
+        continueChainNodeIds.add(entryNodeId);
+        continueChainIndex = 0;
+
+        // Walk the CONTINUE chain to collect all node IDs
+        DialogueNode.DialogueTextNode current = entryNode;
+        while (true) {
+            ResponseOption continueOpt = current.responses().stream()
+                .filter(r -> r.responseType() == ResponseType.CONTINUE)
+                .findFirst().orElse(null);
+            if (continueOpt == null) break;
+            String nextId = continueOpt.targetNodeId();
+            continueChainNodeIds.add(nextId);
+            DialogueNode nextNode = graph.getNode(nextId);
+            if (nextNode instanceof DialogueNode.DialogueTextNode nextText) {
+                current = nextText;
+            } else {
+                break;
+            }
+        }
+
+        // Detect if stat check is available
+        statCheckAvailable = false;
+        statCheckResponseId = null;
+        for (ResponseOption r : entryNode.responses()) {
+            if (r.skillCheckRef() != null) {
+                statCheckAvailable = true;
+                statCheckResponseId = r.id();
+                break;
+            }
+        }
     }
 
     private String resolveEntryNodeId(TopicDefinition topic) {
@@ -688,6 +823,12 @@ public class ConversationSession {
         var grayed = new JsonArray();
         for (String id : grayedExploratories) grayed.add(id);
         json.add("grayedExploratories", grayed);
+
+        if (continueChainNodeIds != null) {
+            json.addProperty("continueChainIndex", continueChainIndex);
+            json.addProperty("statCheckAvailable", statCheckAvailable);
+            if (statCheckResponseId != null) json.addProperty("statCheckResponseId", statCheckResponseId);
+        }
 
         // Serialize conversation log
         var logArray = new JsonArray();
