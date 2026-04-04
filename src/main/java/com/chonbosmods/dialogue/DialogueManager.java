@@ -115,6 +115,15 @@ public class DialogueManager {
         // Inject talk-to-NPC topics for any quests targeting this NPC
         injectTalkToNpcTopics(graph, npcId, playerData);
 
+        // Clear exhaustion for all quest topics so declined quests reappear fresh.
+        // Quest topics are re-injected each session, so any prior HIDDEN/GRAYED
+        // state from a previous decline should not persist.
+        for (TopicDefinition topic : graph.topics()) {
+            if (topic.questTopic()) {
+                playerData.removeTopicExhaustion(npcId, topic.id());
+            }
+        }
+
         // Session cleanup callback
         Runnable onSessionEnd = () -> endSession(playerUuid);
 
