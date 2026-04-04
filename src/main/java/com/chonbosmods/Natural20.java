@@ -7,6 +7,7 @@ import com.chonbosmods.commands.Nat20Command;
 import com.chonbosmods.data.Nat20GlobalData;
 import com.chonbosmods.data.Nat20NpcData;
 import com.chonbosmods.data.Nat20PlayerData;
+import com.chonbosmods.marker.QuestMarkerComponent;
 import com.chonbosmods.action.DialogueActionRegistry;
 import com.chonbosmods.dialogue.DialogueLoader;
 import com.chonbosmods.dialogue.DialogueManager;
@@ -204,6 +205,9 @@ public class Natural20 extends JavaPlugin {
                 Nat20NpcData.class, "nat20_npc_data", Nat20NpcData.CODEC, true);
         playerDataType = getEntityStoreRegistry().registerComponent(
                 Nat20PlayerData.class, "nat20_player_data", Nat20PlayerData.CODEC, true);
+        QuestMarkerComponent.setComponentType(
+                getEntityStoreRegistry().registerComponent(
+                        QuestMarkerComponent.class, "nat20_quest_marker", null, false));
 
         // Register custom NPC instruction list action for dialogue
         // Requires Hytale:NPC dependency in manifest.json so NPCPlugin loads first
