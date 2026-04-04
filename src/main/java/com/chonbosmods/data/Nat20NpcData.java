@@ -12,6 +12,12 @@ import java.util.Map;
 
 public class Nat20NpcData implements Component<EntityStore> {
 
+    public enum QuestMarkerState {
+        NONE,
+        QUEST_AVAILABLE,
+        QUEST_TURN_IN
+    }
+
     public static final BuilderCodec<Nat20NpcData> CODEC = BuilderCodec.builder(Nat20NpcData.class, Nat20NpcData::new)
             .addField(new KeyedCodec<>("GeneratedName", Codec.STRING), Nat20NpcData::setGeneratedName, Nat20NpcData::getGeneratedName)
             .addField(new KeyedCodec<>("RoleName", Codec.STRING), Nat20NpcData::setRoleName, Nat20NpcData::getRoleName)
@@ -27,6 +33,7 @@ public class Nat20NpcData implements Component<EntityStore> {
     private String dialogueState;
     private Map<String, String> flags = new HashMap<>();
     private String settlementCellKey;
+    private QuestMarkerState questMarkerState = QuestMarkerState.NONE;
 
     public Nat20NpcData() {
     }
@@ -79,6 +86,14 @@ public class Nat20NpcData implements Component<EntityStore> {
         this.settlementCellKey = settlementCellKey;
     }
 
+    public QuestMarkerState getQuestMarkerState() {
+        return questMarkerState;
+    }
+
+    public void setQuestMarkerState(QuestMarkerState questMarkerState) {
+        this.questMarkerState = questMarkerState;
+    }
+
     @Override
     public Nat20NpcData clone() {
         Nat20NpcData copy = new Nat20NpcData();
@@ -88,6 +103,7 @@ public class Nat20NpcData implements Component<EntityStore> {
         copy.dialogueState = this.dialogueState;
         copy.flags = new HashMap<>(this.flags);
         copy.settlementCellKey = this.settlementCellKey;
+        copy.questMarkerState = this.questMarkerState;
         return copy;
     }
 }

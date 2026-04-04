@@ -7,10 +7,7 @@ import com.chonbosmods.commands.Nat20Command;
 import com.chonbosmods.data.Nat20GlobalData;
 import com.chonbosmods.data.Nat20NpcData;
 import com.chonbosmods.data.Nat20PlayerData;
-import com.chonbosmods.marker.QuestMarkerComponent;
 import com.chonbosmods.marker.QuestMarkerManager;
-import com.chonbosmods.marker.QuestMarkerVisibilitySystem;
-import com.hypixel.hytale.codec.builder.BuilderCodec;
 import com.chonbosmods.action.DialogueActionRegistry;
 import com.chonbosmods.dialogue.DialogueLoader;
 import com.chonbosmods.dialogue.DialogueManager;
@@ -36,11 +33,10 @@ import com.chonbosmods.settlement.SettlementWorldGenListener;
 import com.chonbosmods.waypoint.QuestMarkerProvider;
 import com.hypixel.hytale.component.ComponentType;
 import com.hypixel.hytale.component.Ref;
+import com.hypixel.hytale.component.Store;
 import com.hypixel.hytale.server.core.HytaleServer;
 import com.hypixel.hytale.server.core.event.events.player.PlayerDisconnectEvent;
 import com.hypixel.hytale.server.core.event.events.player.PlayerReadyEvent;
-import com.hypixel.hytale.server.core.entity.UUIDComponent;
-import com.hypixel.hytale.server.core.modules.entity.EntityModule;
 import com.hypixel.hytale.server.core.universe.world.World;
 import com.hypixel.hytale.server.core.universe.world.events.AddWorldEvent;
 import com.hypixel.hytale.server.core.universe.world.events.ChunkPreLoadProcessEvent;
@@ -144,6 +140,29 @@ public class Natural20 extends JavaPlugin {
     }
 
     /**
+     * Sync NPC nameplate colors based on quest state for all NPCs in a settlement.
+     * Dispatches to the world thread since store access is required.
+     */
+    public void updateSettlementNameplates(SettlementRecord settlement, World world) {
+        world.execute(() -> {
+            Store<EntityStore> store = world.getEntityStore().getStore();
+            for (NpcRecord npc : settlement.getNpcs()) {
+                if (npc.getEntityUUID() == null) continue;
+                Ref<EntityStore> npcRef = world.getEntityRef(npc.getEntityUUID());
+                if (npcRef == null) continue;
+                Nat20NpcData npcData = store.getComponent(npcRef, getNpcDataType());
+                if (npcData == null) continue;
+                if (npc.getPreGeneratedQuest() != null) {
+                    npcData.setQuestMarkerState(Nat20NpcData.QuestMarkerState.QUEST_AVAILABLE);
+                } else {
+                    npcData.setQuestMarkerState(Nat20NpcData.QuestMarkerState.NONE);
+                }
+                QuestMarkerManager.updateNameplate(store, npcRef, npcData);
+            }
+        });
+    }
+
+    /**
      * Called when a new settlement is created during world generation.
      * Generates procedural topic dialogue graphs and scans for nearby cave voids.
      */
@@ -152,6 +171,9 @@ public class Natural20 extends JavaPlugin {
             var topicGraphs = questSystem.getTopicGenerator().generate(settlement, deriveNearbyNames(settlement));
             dialogueLoader.registerGeneratedGraphs(topicGraphs);
         }
+
+        // Update NPC nameplates AFTER quest generation completes
+        updateSettlementNameplates(settlement, world);
 
         // Scan for cave voids near the settlement so POI quests have targets
         // Batched on the world thread: scans one row of chunks per tick to avoid blocking
@@ -210,12 +232,6 @@ public class Natural20 extends JavaPlugin {
                 Nat20NpcData.class, "nat20_npc_data", Nat20NpcData.CODEC, true);
         playerDataType = getEntityStoreRegistry().registerComponent(
                 Nat20PlayerData.class, "nat20_player_data", Nat20PlayerData.CODEC, true);
-        QuestMarkerComponent.setComponentType(
-                getEntityStoreRegistry().registerComponent(
-                        QuestMarkerComponent.class, "nat20_quest_marker",
-                        BuilderCodec.builder(QuestMarkerComponent.class, () -> new QuestMarkerComponent(new java.util.UUID(0, 0), QuestMarkerComponent.MarkerType.QUEST_AVAILABLE)).build(),
-                        false));
-
         // Register custom NPC instruction list action for dialogue
         // Requires Hytale:NPC dependency in manifest.json so NPCPlugin loads first
         NPCPlugin.get().registerCoreComponentType(
@@ -256,18 +272,12 @@ public class Natural20 extends JavaPlugin {
         // Register settlement threat detection system (marks attackers as hostile)
         getEntityStoreRegistry().registerSystem(new SettlementThreatSystem());
 
-        // Register quest marker visibility system (per-player filtering + pending recalculation drain)
-        getEntityStoreRegistry().registerSystem(new QuestMarkerVisibilitySystem(
-                EntityModule.get().getEntityViewerComponentType(),
-                UUIDComponent.getComponentType()));
-
         // Clean up on player disconnect
         getEventRegistry().register(PlayerDisconnectEvent.class, event -> {
             UUID uuid = event.getPlayerRef().getUuid();
             dialogueManager.endSession(uuid);
             equipmentListener.clearPlayer(uuid);
             QuestMarkerProvider.INSTANCE.removePlayer(uuid);
-            QuestMarkerManager.INSTANCE.requestFullRecalculation();
             if (poiProximitySystem != null) poiProximitySystem.removePlayer(uuid);
             if (settlementDiscoverySystem != null) settlementDiscoverySystem.removePlayer(uuid);
         });
@@ -280,7 +290,6 @@ public class Natural20 extends JavaPlugin {
             if (data != null) {
                 QuestMarkerProvider.refreshMarkers(uuid, data);
             }
-            QuestMarkerManager.INSTANCE.requestFullRecalculation();
             if (poiProximitySystem != null) poiProximitySystem.addPlayer(uuid);
             if (settlementDiscoverySystem != null) settlementDiscoverySystem.addPlayer(uuid);
         });

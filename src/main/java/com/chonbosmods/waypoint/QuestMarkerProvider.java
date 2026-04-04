@@ -2,7 +2,6 @@ package com.chonbosmods.waypoint;
 
 import com.chonbosmods.Natural20;
 import com.chonbosmods.data.Nat20PlayerData;
-import com.chonbosmods.marker.QuestMarkerManager;
 import com.chonbosmods.quest.QuestInstance;
 import com.chonbosmods.quest.QuestSystem;
 import com.chonbosmods.settlement.SettlementRecord;
@@ -157,9 +156,6 @@ public class QuestMarkerProvider implements WorldMapManager.MarkerProvider {
 
         LOGGER.atFine().log("refreshMarkers: caching %d markers for player %s", entries.size(), playerUuid);
         INSTANCE.updatePlayer(playerUuid, entries);
-
-        // Recalculate floating quest markers for this player's NPC relationships
-        QuestMarkerManager.INSTANCE.requestFullRecalculation();
     }
 
     @Override

@@ -107,7 +107,6 @@ public class Nat20NpcManager {
                     : ThreadLocalRandom.current().nextInt(dispMin, dispMax + 1));
 
                 applyNpcComponents(store, npcRef, npcEntity, npcRecord, cellKey, false);
-                QuestMarkerManager.INSTANCE.requestRecalculation(npcEntity.getUuid());
                 spawned.add(npcRecord);
 
                 LOGGER.atFine().log("[Nat20] Spawned " + formatDisplayName(name, roleName) + " at " +
@@ -175,7 +174,6 @@ public class Nat20NpcManager {
 
         UUID newUUID = npcEntity.getUuid();
         record.setEntityUUID(newUUID);
-        QuestMarkerManager.INSTANCE.requestRecalculation(newUUID);
 
         LOGGER.atFine().log("Respawned %s (%s) with new UUID %s",
             record.getGeneratedName(), roleName, newUUID);
@@ -202,7 +200,6 @@ public class Nat20NpcManager {
         }
 
         applyNpcComponents(store, npcRef, npcEntity, record, cellKey, false);
-        QuestMarkerManager.INSTANCE.requestRecalculation(record.getEntityUUID());
 
         LOGGER.atFine().log("Reattached components to %s (%s) UUID %s",
             record.getGeneratedName(), record.getRole(), record.getEntityUUID());
@@ -238,8 +235,13 @@ public class Nat20NpcManager {
         npcData.setDialogueState(record.getDialogueState());
         npcData.setFlags(record.getFlags());
 
-        // Nameplate
-        store.putComponent(npcRef, Nameplate.getComponentType(), new Nameplate(name));
+        // Sync quest marker state from NpcRecord and set nameplate with color
+        if (record.getPreGeneratedQuest() != null) {
+            npcData.setQuestMarkerState(Nat20NpcData.QuestMarkerState.QUEST_AVAILABLE);
+        } else if (npcData.getQuestMarkerState() == Nat20NpcData.QuestMarkerState.QUEST_AVAILABLE) {
+            npcData.setQuestMarkerState(Nat20NpcData.QuestMarkerState.NONE);
+        }
+        QuestMarkerManager.updateNameplate(store, npcRef, npcData);
 
         if (reapplyModel) {
             // Re-apply model after chunk reload (PersistentModel reconstructs
