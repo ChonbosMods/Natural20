@@ -105,7 +105,17 @@ public class QuestGenerator {
             } else {
                 validTypes = variantPool;
             }
-            if (validTypes.isEmpty()) validTypes = List.of(ObjectiveType.KILL_MOBS); // ultimate fallback
+            String referenceId = null;
+            if ((phaseType == PhaseType.CONFLICT || phaseType == PhaseType.RESOLUTION)
+                    && random.nextDouble() < REFERENCE_INJECT_CHANCE) {
+                referenceId = "ref_" + questCounter.incrementAndGet();
+            }
+
+            if (validTypes.isEmpty()) {
+                // Dialogue-only phase (e.g., resolution): no objectives
+                phases.add(new PhaseInstance(phaseType, variant.id(), List.of(), referenceId));
+                continue;
+            }
 
             ObjectiveType selectedType = validTypes.size() == 1
                 ? validTypes.getFirst()
@@ -120,12 +130,6 @@ public class QuestGenerator {
                 return null;
             }
             List<ObjectiveInstance> objectives = List.of(obj);
-
-            String referenceId = null;
-            if ((phaseType == PhaseType.CONFLICT || phaseType == PhaseType.RESOLUTION)
-                    && random.nextDouble() < REFERENCE_INJECT_CHANCE) {
-                referenceId = "ref_" + questCounter.incrementAndGet();
-            }
 
             phases.add(new PhaseInstance(phaseType, variant.id(), objectives, referenceId));
         }
