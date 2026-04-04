@@ -11,6 +11,7 @@ import com.chonbosmods.quest.PhaseInstance;
 import com.chonbosmods.quest.ObjectiveType;
 import com.chonbosmods.quest.PhaseType;
 import com.chonbosmods.quest.QuestInstance;
+import com.chonbosmods.quest.QuestPoolRegistry;
 import com.chonbosmods.quest.QuestSystem;
 import com.chonbosmods.quest.QuestTemplateRegistry;
 import com.chonbosmods.quest.model.DialogueChunks;
@@ -342,6 +343,16 @@ public class DialogueManager {
                 isFinalPhase
                     ? "Your efforts won't be forgotten. Well done."
                     : "Good. " + buildNextPhaseBriefing(quest));
+
+            // Append a tone-keyed closer phrase on final phase turn-in
+            if (isFinalPhase) {
+                QuestPoolRegistry poolRegistry = questSystem.getPoolRegistry();
+                String tone = poolRegistry.getToneForSituation(quest.getSituationId());
+                String closer = poolRegistry.randomCloser(tone, new Random());
+                if (closer != null && !closer.isEmpty()) {
+                    plotStepText = plotStepText + " " + closer;
+                }
+            }
 
             // outro: transition to next phase (only for mid-quest)
             String outroText = null;

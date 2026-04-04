@@ -68,6 +68,7 @@ public class QuestPoolRegistry {
     private final Map<String, List<String>> sendToNpcResponses = new HashMap<>();
     private final Map<String, List<String>> collectExpoByCategory = new HashMap<>();
     private final Map<String, String> situationTones = new HashMap<>();
+    private final Map<String, List<String>> closerPhrases = new HashMap<>();
     private @Nullable QuestTemplateRegistry templateRegistry;
 
     public void setTemplateRegistry(QuestTemplateRegistry templateRegistry) {
@@ -112,6 +113,7 @@ public class QuestPoolRegistry {
         loadTargetNpcResponsesFromClasspath(CLASSPATH_PREFIX + "responses_target_npc.json");
         loadTonedResponsesFromClasspath(CLASSPATH_PREFIX + "responses_send_to_npc.json", sendToNpcResponses);
         loadSituationTonesFromClasspath(CLASSPATH_PREFIX + "situation_tones.json");
+        loadTonedResponsesFromClasspath(CLASSPATH_PREFIX + "closers.json", closerPhrases);
 
         // Override with filesystem if available
         if (poolsDir != null && Files.isDirectory(poolsDir)) {
@@ -150,6 +152,7 @@ public class QuestPoolRegistry {
             loadTargetNpcResponses(poolsDir.resolve("responses_target_npc.json"));
             loadTonedResponses(poolsDir.resolve("responses_send_to_npc.json"), sendToNpcResponses);
             loadSituationTones(poolsDir.resolve("situation_tones.json"));
+            loadTonedResponses(poolsDir.resolve("closers.json"), closerPhrases);
         }
 
         LOGGER.atFine().log("Loaded pools: %d resources, %d evidence, %d keepsakes, %d mobs, %d actions, %d focuses, %d stakes, %d threats, %d origins, %d pressures, %d rewards",
@@ -462,6 +465,16 @@ public class QuestPoolRegistry {
 
     public String getToneForSituation(String situationId) {
         return situationTones.getOrDefault(situationId, "somber");
+    }
+
+    /**
+     * Pick a random closer phrase for the given tone (used at quest resolution).
+     * Returns null if no closers are available for the tone.
+     */
+    public @Nullable String randomCloser(String tone, Random random) {
+        List<String> pool = closerPhrases.get(tone);
+        if (pool == null || pool.isEmpty()) return null;
+        return pool.get(random.nextInt(pool.size()));
     }
 
     /**
