@@ -12,10 +12,8 @@ import com.hypixel.hytale.math.vector.Vector3f;
 import com.hypixel.hytale.logger.HytaleLogger;
 import com.hypixel.hytale.protocol.BlockMaterial;
 import com.hypixel.hytale.server.core.asset.type.blocktype.config.BlockType;
-import com.hypixel.hytale.server.core.asset.type.model.config.Model;
 import com.hypixel.hytale.server.core.cosmetics.CosmeticsModule;
 import com.hypixel.hytale.server.core.entity.nameplate.Nameplate;
-import com.hypixel.hytale.server.core.modules.entity.component.PersistentModel;
 import com.hypixel.hytale.server.core.modules.entity.player.PlayerSkinComponent;
 import com.hypixel.hytale.server.core.universe.world.World;
 import com.hypixel.hytale.server.core.universe.world.storage.EntityStore;
@@ -106,7 +104,7 @@ public class Nat20NpcManager {
                     ? dispMin
                     : ThreadLocalRandom.current().nextInt(dispMin, dispMax + 1));
 
-                applyNpcComponents(store, npcRef, npcEntity, npcRecord, cellKey, false);
+                applyNpcComponents(store, npcRef, npcEntity, npcRecord, cellKey, false, world);
                 spawned.add(npcRecord);
 
                 LOGGER.atFine().log("[Nat20] Spawned " + formatDisplayName(name, roleName) + " at " +
@@ -170,7 +168,7 @@ public class Nat20NpcManager {
         Ref<EntityStore> npcRef = result.first();
         NPCEntity npcEntity = result.second();
 
-        applyNpcComponents(store, npcRef, npcEntity, record, settlementCellKey, false);
+        applyNpcComponents(store, npcRef, npcEntity, record, settlementCellKey, false, world);
 
         UUID newUUID = npcEntity.getUuid();
         record.setEntityUUID(newUUID);
@@ -191,7 +189,7 @@ public class Nat20NpcManager {
      * @return true if reattach succeeded
      */
     public boolean reattachNpc(Store<EntityStore> store, Ref<EntityStore> npcRef,
-                                NpcRecord record, String cellKey) {
+                                NpcRecord record, String cellKey, World world) {
         NPCEntity npcEntity = store.getComponent(npcRef, NPCEntity.getComponentType());
         if (npcEntity == null) {
             LOGGER.atWarning().log("Cannot reattach: entity has no NPCEntity component for %s",
@@ -199,7 +197,7 @@ public class Nat20NpcManager {
             return false;
         }
 
-        applyNpcComponents(store, npcRef, npcEntity, record, cellKey, false);
+        applyNpcComponents(store, npcRef, npcEntity, record, cellKey, false, world);
 
         LOGGER.atFine().log("Reattached components to %s (%s) UUID %s",
             record.getGeneratedName(), record.getRole(), record.getEntityUUID());
@@ -216,7 +214,7 @@ public class Nat20NpcManager {
      */
     private void applyNpcComponents(Store<EntityStore> store, Ref<EntityStore> npcRef,
                                      NPCEntity npcEntity, NpcRecord record, String cellKey,
-                                     boolean reapplyModel) {
+                                     boolean reapplyModel, World world) {
         String name = record.getGeneratedName();
         String roleName = record.getRole();
 
@@ -235,13 +233,20 @@ public class Nat20NpcManager {
         npcData.setDialogueState(record.getDialogueState());
         npcData.setFlags(record.getFlags());
 
-        // Sync quest marker state from NpcRecord and set nameplate with color
+        // Sync quest marker state from NpcRecord
         if (record.getPreGeneratedQuest() != null) {
             npcData.setQuestMarkerState(Nat20NpcData.QuestMarkerState.QUEST_AVAILABLE);
         } else if (npcData.getQuestMarkerState() == Nat20NpcData.QuestMarkerState.QUEST_AVAILABLE) {
             npcData.setQuestMarkerState(Nat20NpcData.QuestMarkerState.NONE);
         }
-        QuestMarkerManager.updateNameplate(store, npcRef, npcData);
+
+        // Set plain nameplate (floating marker entity handles "!" / "?")
+        if (name != null) {
+            store.putComponent(npcRef, Nameplate.getComponentType(), new Nameplate(name));
+        }
+
+        // Spawn or remove floating quest marker hologram
+        QuestMarkerManager.INSTANCE.syncMarker(world, store, npcRef, npcEntity.getUuid(), npcData);
 
         if (reapplyModel) {
             // Re-apply model after chunk reload (PersistentModel reconstructs

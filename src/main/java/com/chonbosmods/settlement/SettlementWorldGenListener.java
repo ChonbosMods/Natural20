@@ -173,12 +173,12 @@ public class SettlementWorldGenListener {
                         // chunk reload reconstructs a bare Player model from
                         // PersistentModel, stripping skin/attachments.
                         Natural20.getInstance().getNpcManager()
-                            .reattachNpc(store, npcRef, npc, cellKey);
+                            .reattachNpc(store, npcRef, npc, cellKey, world);
                         intact++;
                     } else {
                         // Tier 2: entity exists but lost custom components, reattach
                         boolean ok = Natural20.getInstance().getNpcManager()
-                            .reattachNpc(store, npcRef, npc, cellKey);
+                            .reattachNpc(store, npcRef, npc, cellKey, world);
                         if (ok) {
                             reattached++;
                         } else {
