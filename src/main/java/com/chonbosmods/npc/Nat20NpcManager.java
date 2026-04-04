@@ -240,13 +240,13 @@ public class Nat20NpcManager {
             npcData.setQuestMarkerState(Nat20NpcData.QuestMarkerState.NONE);
         }
 
-        // Set plain nameplate (floating marker entity handles "!" / "?")
+        // Set nameplate
         if (name != null) {
             store.putComponent(npcRef, Nameplate.getComponentType(), new Nameplate(name));
         }
 
-        // Spawn or remove floating quest marker hologram
-        QuestMarkerManager.INSTANCE.syncMarker(world, store, npcRef, npcEntity.getUuid(), npcData);
+        // Register quest marker state for particle indicator
+        QuestMarkerManager.INSTANCE.syncMarker(npcEntity.getUuid(), npcData.getQuestMarkerState());
 
         if (reapplyModel) {
             // Re-apply model after chunk reload (PersistentModel reconstructs

@@ -157,15 +157,8 @@ public class Natural20 extends JavaPlugin {
                 } else {
                     npcData.setQuestMarkerState(Nat20NpcData.QuestMarkerState.NONE);
                 }
-                // Set plain nameplate
-                String name = npcData.getGeneratedName();
-                if (name != null) {
-                    store.putComponent(npcRef,
-                        com.hypixel.hytale.server.core.entity.nameplate.Nameplate.getComponentType(),
-                        new com.hypixel.hytale.server.core.entity.nameplate.Nameplate(name));
-                }
-                // Sync floating quest marker hologram
-                QuestMarkerManager.INSTANCE.syncMarker(world, store, npcRef, npc.getEntityUUID(), npcData);
+                // Register quest marker state for particle indicator
+                QuestMarkerManager.INSTANCE.syncMarker(npc.getEntityUUID(), npcData.getQuestMarkerState());
             }
         });
     }
@@ -356,7 +349,7 @@ public class Natural20 extends JavaPlugin {
                 w.execute(() -> {
                     poiProximitySystem.tick(w);
                     settlementDiscoverySystem.tick(w);
-                    QuestMarkerManager.INSTANCE.tickPositions(w);
+                    QuestMarkerManager.INSTANCE.tickMarkers(w);
                 });
             }
         }, 5, 1, TimeUnit.SECONDS);
@@ -403,11 +396,8 @@ public class Natural20 extends JavaPlugin {
         if (npcSyncExecutor != null) {
             npcSyncExecutor.shutdownNow();
         }
-        // Clean up floating marker entities
-        World w = getDefaultWorld();
-        if (w != null) {
-            QuestMarkerManager.INSTANCE.removeAllMarkers(w);
-        }
+        // Clear marker state
+        QuestMarkerManager.INSTANCE.clear();
         if (settlementRegistry != null) {
             // Final sync before save
             syncAllNpcState();
