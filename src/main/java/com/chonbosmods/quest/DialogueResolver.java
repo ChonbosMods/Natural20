@@ -41,6 +41,9 @@ public class DialogueResolver {
         String result = sb.toString();
         // Collapse double articles: "the the old watchtower" -> "the old watchtower"
         result = DOUBLE_ARTICLE.matcher(result).replaceAll("$1");
+        // a/an correction: "a apple" -> "an apple", "A owl" -> "An owl"
+        result = result.replaceAll("\\ba ([aeiouAEIOU])", "an $1");
+        result = result.replaceAll("\\bA ([aeiouAEIOU])", "An $1");
         // Clean dangling punctuation: "from ," -> "from,"
         result = DANGLING_PUNCT.matcher(result).replaceAll("$1");
         // Clean empty parentheses
