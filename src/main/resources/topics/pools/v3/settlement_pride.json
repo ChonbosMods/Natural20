@@ -363,8 +363,8 @@
       "id": 18,
       "intro": "I wouldn't trade {settlement_name} for anywhere. I mean that.",
       "details": [
-        "It's got its problems, sure. What place doesn't?",
-        "But I know every path, every face, every creak in every door. That's home."
+        "It's got its problems, sure, but I know every path, every face, every creak in every door. That's home.",
+        "I've had offers to move on. Better land, easier living. None of it tempted me for long."
       ],
       "reactions": [
         "People who keep moving never find what they're looking for. I stopped and it was right here."
@@ -442,7 +442,8 @@
       "id": 22,
       "intro": "Something about the air in {settlement_name} after it rains. Clean and green and alive.",
       "details": [
-        "Everything smells like wet earth and fresh leaves. Even the mud smells good, somehow."
+        "Everything smells like wet earth and fresh leaves. Even the mud smells good, somehow.",
+        "I like to walk the paths right after a storm when the dust is gone and everything looks washed clean."
       ],
       "reactions": [
         "Little things like that are what keep you in a place."
@@ -542,7 +543,8 @@
       "id": 27,
       "intro": "The sunsets from {settlement_name} are something else. I've never seen them so red anywhere else.",
       "details": [
-        "It's the way the land falls away to the west. You get this wide open sky and the light just pours across it."
+        "It's the way the land falls away to the west. You get this wide open sky and the light just pours across it.",
+        "Some evenings half the settlement just stops what they're doing and watches. Nobody has to say anything."
       ],
       "reactions": [
         "People pay good money for a view like that. We just step outside."
@@ -617,7 +619,8 @@
       "id": 31,
       "intro": "I know every bird that nests around {settlement_name} by its song. Took me years but I know them all.",
       "details": [
-        "There's one that only sings right before dawn. I've never even seen it, but I know exactly when it starts."
+        "There's one that only sings right before dawn. I've never even seen it, but I know exactly when it starts.",
+        "The pair that nests above the storehouse has come back three seasons running. I'd notice if they didn't."
       ],
       "reactions": [
         "That kind of knowing only comes from staying put. It's its own reward."
@@ -676,7 +679,8 @@
       "id": 34,
       "intro": "Nobody in {settlement_name} locks their doors. I love that about us.",
       "details": [
-        "You leave something on your porch, it's still there in the morning. Try that in {other_settlement}."
+        "You leave something on your porch, it's still there in the morning. Try that in {other_settlement}.",
+        "I left my tools out all last week without thinking about it. They were right where I put them every time."
       ],
       "reactions": [
         "Trust like that doesn't come from rules. It comes from knowing your neighbors."
@@ -716,7 +720,8 @@
       "id": 36,
       "intro": "I've watched {settlement_name} grow bit by bit. Every new building means someone decided to stay.",
       "details": [
-        "That's the best compliment a place can get: someone looked around and said this is where I'll be."
+        "That's the best compliment a place can get: someone looked around and said this is where I'll be.",
+        "I remember when the row near the field was just bare ground. Now there are three families there."
       ],
       "reactions": [
         "Growth is good as long as we don't lose what made people come in the first place."
@@ -735,7 +740,7 @@
       "intro": "Whenever someone from {other_settlement} visits, they always ask where our tavern is.",
       "details": [
         "We don't have one. We just drink at each other's houses.",
-        "It's less formal and more honest. Also cheaper."
+        "You show up with a bottle, someone else has bread, and before long you've got a proper evening going."
       ],
       "reactions": [
         "A tavern would change the feel of {settlement_name}. I'm not sure we need that."
@@ -772,7 +777,8 @@
       "id": 39,
       "intro": "The steps by the {poi_type} are crumbling. Someone's going to twist an ankle.",
       "details": [
-        "I've mentioned it three times now. Everyone agrees it's a problem, nobody agrees whose job it is to fix it."
+        "I've mentioned it three times now. Everyone agrees it's a problem, nobody agrees whose job it is to fix it.",
+        "The mortar's gone to powder in places and the top step wobbles when you put weight on it."
       ],
       "reactions": [
         "I'll probably just do it myself and complain about it for a month."
@@ -851,7 +857,8 @@
       "id": 43,
       "intro": "I like that {settlement_name} doesn't try to impress anyone. What you see is what you get.",
       "details": [
-        "No painted facades or fancy arches. Just solid walls and roofs that keep the rain out."
+        "No painted facades or fancy arches. Just solid walls and roofs that keep the rain out.",
+        "The buildings look the way they look because they were built to work, not to be admired."
       ],
       "reactions": [
         "Honest buildings for honest people. I'll take it."
@@ -1342,8 +1349,8 @@
       "id": 68,
       "intro": "I heard someone from {other_settlement} called {settlement_name} a backwater. Let them.",
       "details": [
-        "We sleep well, eat well, and don't owe anyone anything.",
-        "If that's a backwater then I'll stay right where I am."
+        "We sleep well, eat well, and don't owe anyone anything. I'd call that doing fine.",
+        "Nobody here is scrambling to impress outsiders. We've got everything we need already."
       ],
       "reactions": [
         "People who insult small places usually can't manage to build one themselves."
@@ -1423,7 +1430,7 @@
       "intro": "We grow more than we eat in {settlement_name}. That's something to be proud of.",
       "details": [
         "Surplus means we can trade, means we can store for bad seasons, means we're not desperate.",
-        "A lot of places can't say that. We can."
+        "Last harvest we had enough left over to send a cart to a settlement that came up short. Felt good doing that."
       ],
       "reactions": [
         "Self-sufficiency isn't exciting. But it's the foundation for everything else."
@@ -1860,7 +1867,8 @@
       "id": 94,
       "intro": "There's a spot by the {poi_type} where the morning sun comes through just right. I sit there when I can.",
       "details": [
-        "Warm on your face, quiet everywhere. Five minutes there and the day feels manageable."
+        "Warm on your face, quiet everywhere. Five minutes there and the day feels manageable.",
+        "I've seen other people discover the same spot on their own. They always look a little surprised, like they found a secret."
       ],
       "reactions": [
         "Everyone should have a spot like that. Mine happens to be here in {settlement_name}."
@@ -2335,7 +2343,8 @@
       "id": 118,
       "intro": "I trust the people in {settlement_name} with my life. Not a phrase I use lightly.",
       "details": [
-        "When my roof leaked last winter, three neighbors were there before I even asked. Worked through the cold to fix it."
+        "When my roof leaked last winter, three neighbors were there before I even asked. Worked through the cold to fix it.",
+        "I've left my door open while I was gone for days. Not because I forgot: because I didn't need to worry."
       ],
       "reactions": [
         "You can live somewhere for years and not trust anyone. Or you can live here."
@@ -2730,7 +2739,8 @@
       "id": 138,
       "intro": "Somebody carved a little face into the post by the well in {settlement_name}. Nobody knows who.",
       "details": [
-        "It's just a simple thing: two dots and a curve. But it makes me smile every time I draw water."
+        "It's just a simple thing: two dots and a curve. But it makes me smile every time I draw water.",
+        "Someone else added a hat to it a few weeks later. It's become a little collaboration nobody talks about."
       ],
       "reactions": [
         "The best parts of a place are the ones nobody planned."
@@ -2811,7 +2821,8 @@
       "id": 142,
       "intro": "If {settlement_name} was a person, it'd be the kind who doesn't say much but is always there when it counts.",
       "details": [
-        "Not flashy, not loud. Just steady and real."
+        "Not flashy, not loud. Just steady and real.",
+        "The kind of place that doesn't need to convince you. You figure it out on your own after a while."
       ],
       "reactions": [
         "I've met a lot of flashy places. None of them made me want to stay."

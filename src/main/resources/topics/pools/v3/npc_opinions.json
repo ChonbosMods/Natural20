@@ -133,8 +133,8 @@
       "id": 6,
       "intro": "You'd think the {npc_role} would keep better hours. {npc_name}'s never around when you actually need them.",
       "details": [
-        "I went by three times last week. Closed every time.",
-        "Other folk have said the same. It's getting to be a pattern."
+        "I went by three times last week and it was closed every time. Other folk have said the same.",
+        "I once needed something urgent and had to walk to the next settlement over. That shouldn't happen."
       ],
       "reactions": [
         "I don't need much, but I need to be able to count on the basics."
@@ -213,7 +213,7 @@
       "intro": "I saw {npc_name} helping {npc_name_2} carry lumber this morning. Didn't even have to be asked.",
       "details": [
         "Just walked over, grabbed the other end, and got on with it. Not a word exchanged.",
-        "That's the kind of thing people don't notice, but it keeps a place running."
+        "{npc_name_2} looked surprised at first, then just nodded. They had the whole stack moved in half the time."
       ],
       "reactions": [
         "More of that and less of the bickering, if you ask me."
@@ -596,8 +596,8 @@
       "id": 29,
       "intro": "I owe {npc_name} for what they did during the last bad winter. Not everyone stepped up like that.",
       "details": [
-        "They went door to door checking on people without anyone asking them to.",
-        "Never mentioned it afterward either. That's the part that matters."
+        "They went door to door checking on people without anyone asking them to. Never mentioned it afterward either.",
+        "I saw {npc_name} hauling firewood to the elderly couple's doorstep in knee-deep snow. Didn't even stop to warm up."
       ],
       "reactions": [
         "You learn who people really are when things get hard."
@@ -776,8 +776,8 @@
       "id": 38,
       "intro": "I've never seen anyone eat as fast as {npc_name}. It's almost impressive.",
       "details": [
-        "A whole bowl of stew gone in the time it takes me to find my spoon.",
-        "They don't even seem to chew. It just vanishes."
+        "A whole bowl of stew gone in the time it takes me to find my spoon. They don't even seem to chew.",
+        "I sat across from them at supper and tried to keep pace. Nearly choked twice before giving up."
       ],
       "reactions": [
         "I'm not judging. I'm just fascinated."
@@ -898,7 +898,7 @@
       "intro": "{npc_name} remembered my birthday when I'd forgotten it myself.",
       "details": [
         "Left a little bundle of dried herbs on my doorstep with a note. Nothing big, but thoughtful.",
-        "I didn't even know they knew when it was."
+        "The note said something simple about hoping the year treats me well. I've read it three times now."
       ],
       "reactions": [
         "It's the noticing that matters more than the gift."
@@ -1054,7 +1054,7 @@
       "intro": "{npc_name} volunteered to take my night watch shift so I could rest. Didn't want anything for it.",
       "details": [
         "I'd been up two nights running and it must have shown. They just said 'go sleep, I've got it.'",
-        "Came back in the morning and everything was in order. No fuss."
+        "I slept better that night than I had in weeks. Knowing someone's covering for you does that."
       ],
       "reactions": [
         "I won't forget that."
@@ -1135,8 +1135,8 @@
       "id": 56,
       "intro": "I've noticed {npc_name} always makes sure the elderly folk have what they need. Quietly, without anyone asking.",
       "details": [
-        "Carrying water, stacking wood by their doors, checking in after storms.",
-        "Most people around here barely notice. But I see it."
+        "Carrying water, stacking wood by their doors, checking in after storms. It's a routine for them.",
+        "I watched {npc_name} spend half a morning fixing a shutter for old Maren. Didn't even stop for water."
       ],
       "reactions": [
         "That tells you everything about a person's character."
@@ -1155,7 +1155,7 @@
       "intro": "{npc_name} has a habit of standing too close when they talk to you.",
       "details": [
         "I take a step back, they take a step forward. We've crossed entire rooms this way.",
-        "I don't think they realize they're doing it."
+        "Even outdoors with all the space in the world, they end up close enough to count your freckles."
       ],
       "reactions": [
         "I've started having conversations near walls. Nowhere left to advance."
@@ -1174,7 +1174,7 @@
       "intro": "{npc_name} told {npc_name_2} something I said in confidence. I found out the hard way.",
       "details": [
         "{npc_name_2} brought it up casually like everyone already knew. My stomach dropped.",
-        "It wasn't anything terrible, but that's not the point."
+        "I keep going over what else I might have told {npc_name} over the years. Wondering what else got passed along."
       ],
       "reactions": [
         "Trust broken is trust broken, no matter how small the secret."
@@ -1470,8 +1470,8 @@
       "id": 73,
       "intro": "{npc_name} takes everything personally. You can't give the mildest feedback without it becoming a crisis.",
       "details": [
-        "I suggested a different way to hang the lanterns and you'd have thought I insulted their family.",
-        "Spent the rest of the day barely speaking to anyone."
+        "I suggested a different way to hang the lanterns and you'd have thought I insulted their family. Spent the rest of the day barely speaking to anyone.",
+        "Someone complimented their bread but mentioned the crust was a bit thick. You could see the mood drop like a stone."
       ],
       "reactions": [
         "I've learned to phrase things very, very carefully around them."
@@ -1531,7 +1531,7 @@
       "intro": "{npc_name} walked me home in the dark last week when the path was icy. Wouldn't let me go alone.",
       "details": [
         "I said I'd be fine and they said 'probably, but I'm going that way anyway.' They weren't.",
-        "We walked in comfortable silence most of the way."
+        "They kept between me and the steep side the whole way. Didn't say a word about it, but I noticed."
       ],
       "reactions": [
         "Small kindnesses like that stick with you."
@@ -1609,8 +1609,8 @@
       "id": 80,
       "intro": "{npc_name} taught me how to tie a proper knot last month. I still use it.",
       "details": [
-        "Showed me three times. Patient about it, which I didn't expect.",
-        "It's one of those things: simple once you know it, but someone has to show you."
+        "Showed me three times, patient about it. Didn't make me feel slow for not getting it right away.",
+        "I used it yesterday to lash down a load and it held through the whole trip. I thought of {npc_name} the entire time."
       ],
       "reactions": [
         "Funny how a small skill from a random afternoon sticks around longer than most conversations."
@@ -1651,7 +1651,7 @@
       "intro": "{npc_name} gave me advice once that completely changed how I approach my work.",
       "details": [
         "It was offhand, not even a proper conversation. But it solved a problem I'd been wrestling with for weeks.",
-        "I don't think they even remember saying it."
+        "I use that advice almost every day now. Such a small thing from their side, but it stuck with me."
       ],
       "reactions": [
         "Funny how the biggest insights come from the smallest moments."
@@ -1790,7 +1790,7 @@
       "intro": "{npc_name} sided with {npc_name_2} over me during the path dispute, and I haven't forgotten.",
       "details": [
         "I laid out my reasoning clear as day. {npc_name} just nodded along and then voted the other way.",
-        "It's not about the path. It's about not being heard."
+        "What bothers me most is {npc_name} never explained why. Just smiled at {npc_name_2} and that was it."
       ],
       "reactions": [
         "We're civil. But there's a distance now that wasn't there before."
@@ -1889,7 +1889,7 @@
       "intro": "{npc_name} defended me when people were talking behind my back. I only heard about it later.",
       "details": [
         "Someone was saying unfair things and {npc_name} shut it down. Didn't even tell me they'd done it.",
-        "I found out through someone else who was there."
+        "Apparently {npc_name} said something firm but fair, and the whole conversation stopped cold. I wish I'd been there to see it."
       ],
       "reactions": [
         "That's loyalty. The real kind, not the kind that needs an audience."
@@ -2151,7 +2151,7 @@
         "I don't know for certain it was them, but I saw dirt on their hands at breakfast."
       ],
       "reactions": [
-        "I noticed it. Wasn't sure what to make of it."
+        "It brightened the room more than I expected. Funny what a few flowers can do to a dull morning."
       ],
       "statCheck": null,
       "valence": "neutral",
@@ -2167,7 +2167,7 @@
       "intro": "{npc_name} makes promises like they're free. I've learned to wait and see.",
       "details": [
         "'I'll be there.' 'I'll take care of it.' 'You can count on me.' All said with total confidence.",
-        "Maybe half of them actually happen."
+        "Last week alone I counted three promises and only one got kept. The other two just evaporated."
       ],
       "reactions": [
         "I judge people by what they do, not what they say they'll do."
@@ -2505,7 +2505,7 @@
       "intro": "I think {npc_name} is smarter than they let on. They play it down on purpose.",
       "details": [
         "They'll say something offhand that cuts right to the heart of a problem nobody else has solved.",
-        "Then they shrug it off like anyone could have seen it."
+        "I watched them figure out the irrigation timing in their head while everyone else was still arguing about it on paper."
       ],
       "reactions": [
         "I don't know why they hide it. Maybe it's easier than dealing with expectations."
@@ -2958,7 +2958,7 @@
       "intro": "{npc_name} picks wildflowers on walks and lines them up on the windowsill. Been doing it all season.",
       "details": [
         "Different ones each time, arranged in some order I can't figure out.",
-        "Nobody asked them to. I don't think they've explained it to anyone either."
+        "The colors shift week to week. Right now it's all purples and whites, like they're following the blooms."
       ],
       "reactions": [
         "Everyone's got their rituals, I suppose."
@@ -3693,7 +3693,7 @@
       "intro": "{npc_name} has been giving me the cold shoulder ever since I disagreed with them about the water route.",
       "details": [
         "It was a practical discussion. I had a different view. That should be allowed.",
-        "Apparently not. Three days of silence over irrigation."
+        "Three days now and they walk past me like I'm not there. Over where to dig a ditch."
       ],
       "reactions": [
         "If a relationship can't survive a disagreement, it wasn't much of one."
@@ -3887,7 +3887,7 @@
       "id": 195,
       "intro": "{npc_name} mended my coat and left it on the hook without a word. I only noticed because the stitching style was different.",
       "details": [
-        "Neat work too. Better than I could have done myself.",
+        "Neat work too, tight and even. The tear had been bothering me for weeks and now it's stronger than the rest of the seam.",
         "I thanked them and they looked embarrassed, like they'd been caught doing something silly."
       ],
       "reactions": [
@@ -3907,7 +3907,7 @@
       "intro": "I think {npc_name} resents how much work I get done. I've seen the looks.",
       "details": [
         "When someone mentions my progress, their jaw tightens. Barely noticeable, but it's there.",
-        "They've never said a hostile word. They don't have to."
+        "Last week I finished the frame early and {npc_name} found a reason to leave the room. Didn't say a word, just walked out."
       ],
       "reactions": [
         "I'm not going to slow down to make someone else comfortable. But it makes things awkward."

@@ -32,7 +32,7 @@
         "Keeps everyone in work, which keeps everyone in a decent mood."
       ],
       "reactions": [
-        "Long may it last."
+        "I hope they can keep it up. A good run like this makes the lean stretches easier to swallow."
       ],
       "statCheck": {
         "pass": "The vein they're working is deeper than the last one. Richer material down there, takes more effort to get at it but the yield is worth it.",
@@ -280,7 +280,8 @@
       "id": 13,
       "intro": "Someone left a cart outside the {poi_type} for three days. Just sitting there blocking the way.",
       "details": [
-        "Nobody claimed it, nobody moved it. We all just walked around it like it belonged there."
+        "Nobody claimed it, nobody moved it. We all just walked around it like it belonged there.",
+        "It had mud on the wheels and nothing in the bed. Just an empty cart, taking up space."
       ],
       "reactions": [
         "Eventually it disappeared. I still don't know whose it was."
@@ -456,10 +457,11 @@
       "id": 22,
       "intro": "I keep meaning to stop by the {poi_type} and I keep putting it off. No real reason.",
       "details": [
-        "It's not far. I just never get around to it before the day runs out."
+        "It's not far. I just never get around to it before the day runs out.",
+        "I walk past the turnoff every morning and think 'today's the day.' Then I keep walking."
       ],
       "reactions": [
-        "Tomorrow, probably. I keep saying that."
+        "It's become a running joke with myself at this point. Tomorrow, always tomorrow."
       ],
       "statCheck": null,
       "valence": "neutral",
@@ -497,10 +499,10 @@
       "intro": "The {poi_type} smells like woodsmoke today. They must be burning something different.",
       "details": [
         "Usually it's a sharper smell, more like pine. This is heavier, almost sweet.",
-        "I don't mind it. Reminds me of autumn."
+        "It clings to your clothes if you stand near the door. I caught a whiff of it on my sleeve hours later."
       ],
       "reactions": [
-        "You learn to read a place by its smoke."
+        "You start to read a place by its smoke after a while. Each season has its own scent."
       ],
       "statCheck": {
         "pass": "That's applewood or cherry: burns slower and cooler than pine. Better for steady work, worse for quick heat.",
@@ -677,7 +679,7 @@
       "intro": "The {poi_type} is the first place I check when I need to know what kind of day it's going to be.",
       "details": [
         "If it's busy and noisy, it's a good day. If it's quiet and the door's shut, something's off.",
-        "It's like a weathervane for the whole settlement's mood."
+        "I've done it so long that the day feels wrong if I don't pass by. Like I missed something important."
       ],
       "reactions": [
         "I don't even think about it anymore. I just look and I know."
@@ -696,7 +698,7 @@
       "intro": "The {resource_type} from the {poi_type} hasn't been great lately. Thinner than it should be.",
       "details": [
         "People are making do, but you can tell it's not up to the usual standard.",
-        "When the basics slip, everything downstream suffers."
+        "A few people have started going to other sources for their {resource_type}. That's never a good sign."
       ],
       "reactions": [
         "Hopefully it's a rough patch and not a trend."
@@ -737,7 +739,7 @@
       "intro": "I can always tell when the {poi_type} is shutting down for the day. The sounds change.",
       "details": [
         "Tools being put away, doors closing, the clatter fading out. It's a specific rhythm.",
-        "Then it goes quiet and you hear the birds again."
+        "The last worker out always checks the latch twice. I've watched them do it a hundred times."
       ],
       "reactions": [
         "There's something satisfying about the end-of-day quiet."
@@ -800,7 +802,7 @@
         "Nobody explained why, and I didn't ask. I just carried what they pointed at."
       ],
       "reactions": [
-        "Not my business, but it was a lot."
+        "Whatever they're preparing for, they're serious about it. That's either reassuring or worrying."
       ],
       "statCheck": null,
       "valence": "neutral",
@@ -1091,7 +1093,7 @@
       "intro": "I watched them unloading {resource_type} at the {poi_type} this morning. Must have been a big haul.",
       "details": [
         "Cart after cart, and the workers were grinning. That's always a good sign.",
-        "Haven't seen a delivery that size in months."
+        "They had to stack {resource_type} outside because the storage was already full. Good problem to have."
       ],
       "reactions": [
         "The settlement eats when the {poi_type} produces. Simple as that."
@@ -1391,7 +1393,7 @@
         "I've heard people say the place is haunted, but it's not. Old buildings just creak."
       ],
       "reactions": [
-        "Everything sounds bigger in the quiet."
+        "Everything sounds bigger in the quiet. You hear things at night you'd never notice by day."
       ],
       "statCheck": null,
       "valence": "neutral",
@@ -1609,7 +1611,7 @@
         "The people there now are younger and faster. Good for them."
       ],
       "reactions": [
-        "I did my time. No regrets."
+        "I did my time there and I'm glad I did. Wouldn't trade the experience, but I'm glad it's behind me."
       ],
       "statCheck": null,
       "valence": "neutral",
@@ -1745,7 +1747,7 @@
       "intro": "I heard singing coming from the {poi_type} the other day. Someone in there has a nice voice.",
       "details": [
         "It was faint, just carrying on the breeze. One of the workers humming while they went about it.",
-        "I stopped walking just to listen for a minute."
+        "I couldn't place the tune, but it had a steady rhythm. The kind of song you'd sing to match your hands."
       ],
       "reactions": [
         "People who sing while they work are doing all right."
@@ -1938,7 +1940,7 @@
       "intro": "The {poi_type} draws the best workers in the settlement. People want to be assigned there.",
       "details": [
         "It's not the easiest post, but the people who run it treat their crew fairly.",
-        "That makes a difference. Word gets around."
+        "I've heard folks turn down other offers just to stay on at the {poi_type}. That says something."
       ],
       "reactions": [
         "Good leadership pulls good people. It's that simple."
@@ -2074,7 +2076,7 @@
       "intro": "The {poi_type} was the first place I visited when I moved here. First impression of the whole settlement.",
       "details": [
         "I remember thinking: if this place takes care of its {poi_type}, it takes care of its people.",
-        "I wasn't wrong, as it turned out."
+        "The workers noticed me staring and waved me over. That kind of welcome sticks with you."
       ],
       "reactions": [
         "You can tell a lot about a community by the state of its working buildings."
@@ -2175,7 +2177,7 @@
       "intro": "The {poi_type} produces enough {resource_type} to keep us comfortable. Not rich, but comfortable.",
       "details": [
         "There's always enough to go around, with a little left over for trade.",
-        "That's all you can really ask for from a place this size."
+        "Nobody's going without, and nobody's hoarding. The balance feels right."
       ],
       "reactions": [
         "Comfortable is underrated. People always want more, but comfortable is plenty."
@@ -2507,7 +2509,7 @@
       "intro": "I offered to bring {resource_type} to the {poi_type} and they turned me down. Said they were full up.",
       "details": [
         "First time I can remember them refusing a delivery. Storage must be packed.",
-        "That's a good problem to have, I suppose."
+        "I peeked inside and every shelf was stacked. {resource_type} floor to ceiling."
       ],
       "reactions": [
         "Better to have too much than too little."
@@ -2847,7 +2849,7 @@
       "id": 143,
       "intro": "The {poi_type} always gets a breeze from the {direction}. Even on still days there's air moving through.",
       "details": [
-        "In summer it's a blessing. In winter it's a curse.",
+        "In summer it's a blessing: keeps the air moving and the heat bearable. In winter it cuts right through you.",
         "The building's positioned right in a natural wind channel. Nothing to be done about it."
       ],
       "reactions": [

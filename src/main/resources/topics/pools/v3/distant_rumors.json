@@ -214,11 +214,11 @@
       "id": 10,
       "intro": "I used to envy people from {other_settlement}. Bigger market, wider roads, more of everything.",
       "details": [
-        "Then I thought about what I'd actually miss if I left. The answer was: most of it.",
-        "It's easy to want what you don't have. Harder to notice what you do."
+        "Then I thought about what I'd actually miss if I left. Turns out it was most of it: the faces, the rhythm of the days.",
+        "A trader from there told me their market's bigger but the people are colder. Size isn't everything."
       ],
       "reactions": [
-        "I'm content. It took a while to get here, but I am."
+        "I've made my peace with what we've got here. Took a while, but this place grew on me."
       ],
       "statCheck": null,
       "valence": "positive",
@@ -274,7 +274,8 @@
       "id": 13,
       "intro": "I heard {other_settlement} started a communal bakery. Everyone pitches in flour, everyone gets bread.",
       "details": [
-        "Sounds nice in theory. I wonder how long before someone starts complaining about portions."
+        "Sounds nice in theory. I wonder how long before someone starts complaining about portions.",
+        "A trader who tried their bread said it was decent. Nothing fancy, but warm and free counts for a lot."
       ],
       "reactions": [
         "I like the idea. Whether it works is another question."
@@ -312,7 +313,7 @@
       "intro": "A merchant told me {other_settlement} has been buying up all the {resource_type} they can find. Prices are climbing.",
       "details": [
         "Whatever they're building over there, it must be big. They're paying above market and not haggling.",
-        "Our own supply is getting thinner because of it."
+        "Our own suppliers are feeling the squeeze. A few have started holding back stock, waiting for the price to climb even higher."
       ],
       "reactions": [
         "I don't mind competition, but I do mind paying more for what I need."
@@ -374,7 +375,7 @@
       "id": 18,
       "intro": "A trader mentioned that {other_settlement} has been real quiet lately. Fewer people at the market, fewer lights at night.",
       "details": [
-        "Could be nothing. Could be a bad season. Could be worse.",
+        "The trader said he walked through midday and barely saw a dozen people out. Usually the square is packed.",
         "He said even the tavern was half empty, which is the part that worried him."
       ],
       "reactions": [
@@ -511,7 +512,7 @@
       "intro": "Word is a family from {other_settlement} is thinking about moving here. Looking for a quieter life.",
       "details": [
         "They sent word ahead asking about land and trade. Seems serious, not just idle talk.",
-        "We could use more hands around here, honestly."
+        "From what I hear, they've got a few kids and know their way around livestock. That's the kind of family a place like this needs."
       ],
       "reactions": [
         "Fresh faces would be welcome. This place could do with some new energy."
@@ -852,10 +853,10 @@
       "intro": "A trader told me {other_settlement} has more children than they know what to do with. Place is overrun with them.",
       "details": [
         "He said you can't walk through their market without tripping over a kid. Sounded chaotic.",
-        "But honestly, a settlement full of children is a settlement with a future."
+        "A settlement full of children is a settlement with a future. Their school can barely keep up, from what he said."
       ],
       "reactions": [
-        "Noisy problem to have, but a good one."
+        "Noisy problem to have, but a good one. I'd rather hear kids shouting than silence any day."
       ],
       "statCheck": null,
       "valence": "neutral",
@@ -931,7 +932,7 @@
       "intro": "I heard {other_settlement} has a new cobbled road running through the center of town. Proper stonework.",
       "details": [
         "A traveler said it makes the whole place feel different. More put-together.",
-        "Our paths are still dirt and mud, for reference."
+        "Apparently the stone came from a quarry half a day's walk away. They hauled it in cart by cart over the summer."
       ],
       "reactions": [
         "A good road's not glamorous, but it matters more than people think."
@@ -1642,7 +1643,7 @@
       "intro": "Word is {other_settlement} and another village nearby have stopped speaking. Some kind of falling out.",
       "details": [
         "A peddler said it started with a trade dispute and turned personal. Now neither side will deal with the other.",
-        "It's making things awkward for anyone caught in the middle."
+        "Traders passing between the two have to pretend they don't visit the other place. It's exhausting for everyone involved."
       ],
       "reactions": [
         "Settlements need each other. Cutting ties hurts both sides, even if neither will admit it."
@@ -2094,7 +2095,7 @@
       "intro": "Word from a traveler is that {other_settlement} looks rougher than it used to. Buildings need paint, fences are sagging.",
       "details": [
         "She said it's not abandoned or anything, just tired-looking. Like nobody has the energy to keep up appearances.",
-        "Could be a bad year. Could be longer than that."
+        "The market there was half-empty when she passed through. Fewer stalls, fewer goods on display than she remembered."
       ],
       "reactions": [
         "When a place stops maintaining itself, it usually means people are too busy surviving to care about looks."
@@ -2169,7 +2170,7 @@
       "id": 109,
       "intro": "A traveler said {other_settlement} has put up markers along the paths to their place. Carved stones at every fork.",
       "details": [
-        "Used to be easy to get lost heading there: the trails all look the same.",
+        "The traveler said he'd gotten lost twice before on that route. This time every fork had a clear marker pointing the way.",
         "Now anyone can find them, which means more visitors and more trade."
       ],
       "reactions": [
@@ -2265,7 +2266,7 @@
       "intro": "Word is {other_settlement} has agreed to share their seed stock with us next planting season. Fair trade, no strings.",
       "details": [
         "Their crops do better in clay soil, which is what we've got on the south side.",
-        "It was {npc_name}'s idea to ask, and I'm glad they did."
+        "Apparently {npc_name} went over there personally and worked the deal out. Came back with a handshake and a sample bag."
       ],
       "reactions": [
         "That's the kind of deal that makes both places better off. How it should work."
@@ -2303,7 +2304,7 @@
       "intro": "I heard {other_settlement} has been experimenting with drying {resource_type} in a new way. Getting more use out of less.",
       "details": [
         "A merchant said their dried goods weigh less and keep longer. Smart if it works.",
-        "Could change how far they can trade without spoilage."
+        "He brought some back with him to show. The quality was noticeably better than what we're used to seeing."
       ],
       "reactions": [
         "Solving small problems well is how places get ahead. Not everything has to be dramatic."

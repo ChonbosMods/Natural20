@@ -114,8 +114,8 @@
       "id": 6,
       "intro": "I traded some eggs for a new belt buckle with a traveler the other day. Felt like I came out ahead.",
       "details": [
-        "They seemed confused that I didn't want coins. But what am I going to do with coins out here?",
-        "Nice buckle too. Solid bronze, doesn't tarnish."
+        "They seemed confused that I didn't want coins, but what am I going to do with coins out here? Nice buckle too, solid bronze.",
+        "The traveler said they picked it up two settlements back. It had been sitting there for months because nobody wanted to trade for eggs."
       ],
       "reactions": [
         "That's how trade should work. Both people walk away happy."
@@ -595,7 +595,7 @@
         "When they show up with a full load, it means they expect to do real business here."
       ],
       "reactions": [
-        "Small thing, but it matters to me."
+        "We're not on anyone's main route, so when a trader bothers to fill up before coming here, it says something."
       ],
       "statCheck": null,
       "valence": "neutral",
@@ -1264,8 +1264,8 @@
       "id": 71,
       "intro": "I traded some {resource_type} with a merchant from {other_settlement} and we both walked away satisfied.",
       "details": [
-        "No haggling, no games. They named a price, I countered once, we shook on it.",
-        "That's how every deal should go."
+        "No haggling, no games. They named a price, I countered once, and we shook on it.",
+        "The {resource_type} was exactly the quality they described. No surprises, no need to inspect twice."
       ],
       "reactions": [
         "When both sides are fair, trade doesn't have to be a fight."
@@ -1355,8 +1355,8 @@
       "id": 76,
       "intro": "A traveler gave me a recipe they'd picked up in {other_settlement}. Turns out it's delicious.",
       "details": [
-        "It uses ingredients we already have, just combined differently. I'd never thought to do it that way.",
-        "I've made it three times this week already."
+        "It uses ingredients we already have, just combined differently. I've made it three times this week already.",
+        "The traveler said everyone in {other_settlement} makes it. Funny how a common dish there is a revelation here."
       ],
       "reactions": [
         "Sometimes the best thing a stranger brings isn't goods. It's ideas."
@@ -1765,7 +1765,7 @@
         "We gave them flowers from the garden. Seemed like the thing to do."
       ],
       "reactions": [
-        "Hope it works out for them."
+        "They were so happy it rubbed off on everyone here for the rest of the day."
       ],
       "statCheck": null,
       "valence": "positive",
@@ -1798,8 +1798,8 @@
       "id": 101,
       "intro": "I asked a traveler what people in {other_settlement} think of us. They hesitated, which says enough.",
       "details": [
-        "Eventually they said people don't think about us much at all. We're just a name on the road.",
-        "That's worse than being disliked, somehow."
+        "Eventually they said people don't think about us much at all. That's worse than being disliked, somehow.",
+        "We're just a name on the road to them. A place you pass through on the way to somewhere that matters."
       ],
       "reactions": [
         "I'd rather be thought of badly than not thought of at all."
@@ -1994,8 +1994,8 @@
       "id": 112,
       "intro": "A trader offered to take a letter to {other_settlement} for me. Charged me two eggs for the trouble.",
       "details": [
-        "I've been meaning to write to someone there for months. Never had a way to send it.",
-        "Two eggs is a bargain for peace of mind."
+        "I've been meaning to write to someone there for months. Two eggs to finally get it off my mind felt like nothing.",
+        "The trader said they carry letters all the time. Half the settlements along the route use them for the same thing."
       ],
       "reactions": [
         "The little services matter as much as the big ones."
@@ -2031,8 +2031,8 @@
       "id": 114,
       "intro": "The last thing we need from outside is {resource_type}, and if we could source that locally, we'd be nearly self-sufficient.",
       "details": [
-        "Everything else we produce ourselves, one way or another.",
-        "But that one thing keeps us tied to the trade routes."
+        "Everything else we produce ourselves, one way or another. But that one thing keeps us tied to the trade routes.",
+        "I've looked into whether we could produce {resource_type} here. The short answer is no, not with what we have."
       ],
       "reactions": [
         "Independence is always just one problem away."
@@ -2264,8 +2264,8 @@
       "id": 127,
       "intro": "The rope that came in from {other_settlement} is excellent this year. Tough, well-braided.",
       "details": [
-        "Last year's batch frayed in weeks. This stuff feels like it'll outlast me.",
-        "The trader said they switched suppliers. Smart move."
+        "Last year's batch frayed in weeks, but this stuff feels like it'll outlast me. The trader said they switched suppliers.",
+        "I bought extra coils while I could. Good rope at a fair price doesn't come around often out here."
       ],
       "reactions": [
         "Good rope might not sound exciting, but when you need it, nothing matters more."
@@ -2528,8 +2528,8 @@
       "id": 142,
       "intro": "Overheard two traders arguing about whose route was more profitable. Ours didn't come up.",
       "details": [
-        "They were debating the merits of the northern and southern roads. We're on neither.",
-        "Just stood there filling my water jug, pretending I wasn't listening."
+        "They were debating the merits of the northern and southern roads. We're on neither, apparently not worth mentioning.",
+        "You'd think we don't exist the way traders talk when they forget you're standing right there."
       ],
       "reactions": [
         "You learn to accept that you're a footnote in other people's plans."
