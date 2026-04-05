@@ -128,17 +128,17 @@
     },
     {
       "id": 6,
-      "intro": "A {mob_type} got into the livestock pen last week. Didn't kill anything: just panicked the animals and knocked over a trough.",
+      "intro": "Some {mob_type} got into the livestock pen last week. Didn't kill anything: just panicked the animals and knocked over a trough.",
       "details": [
-        "By the time I got outside it was already gone. The goats were just standing there looking offended.",
-        "I found the hole in the fence where it got in. Chewed straight through a post like it was nothing."
+        "By the time I got outside they were already gone. The goats were just standing there looking offended.",
+        "I found the hole in the fence where they got in. Chewed straight through a post like it was nothing."
       ],
       "reactions": [
         "More annoying than scary, honestly. Spent the afternoon fixing the fence instead of doing what I'd planned."
       ],
       "statCheck": {
         "pass": "The chew marks were low on the post: young one, probably. Adults go over fences, not through them.",
-        "fail": "I couldn't tell you how old it was or where it went. Just that it made a mess."
+        "fail": "I couldn't tell you how many there were or where they went. Just that they made a mess."
       },
       "valence": "neutral",
       "topic_category": "creature_complaints",
@@ -216,17 +216,17 @@
     },
     {
       "id": 10,
-      "intro": "A {mob_type} chased me around a tree for ten minutes last week. Just going in circles, both of us.",
+      "intro": "Some {mob_type} chased me around a tree for ten minutes last week. Just going in circles, both of us.",
       "details": [
         "I don't know who looked more ridiculous. Probably me, since I was the one screaming.",
-        "It eventually got bored and wandered off. I sat down and didn't move for a while."
+        "They eventually got bored and wandered off. I sat down and didn't move for a while."
       ],
       "reactions": [
         "I can laugh about it now. Couldn't at the time."
       ],
       "statCheck": {
         "pass": "{mob_type} chase in straight lines and give up once they lose sight of you. Circling a tree is actually a decent strategy if you keep the trunk between you.",
-        "fail": "I don't know why it stopped. Maybe it got dizzy."
+        "fail": "I don't know why they stopped. Maybe they got dizzy."
       },
       "valence": "negative",
       "topic_category": "creature_complaints",
@@ -318,7 +318,7 @@
     },
     {
       "id": 15,
-      "intro": "The {wildlife_type} around here have gotten so bold. One walked right up to my table while I was eating outside.",
+      "intro": "The {wildlife_type} around here has gotten so bold. One walked right up to my table while I was eating outside.",
       "details": [
         "Just stood there looking at my plate like it was waiting to be served.",
         "I shooed it off and it went about three steps, then turned around and came back."
@@ -373,7 +373,7 @@
     },
     {
       "id": 18,
-      "intro": "{wildlife_type} have been nesting in my firewood stack. Found a whole family in there yesterday.",
+      "intro": "A {wildlife_type} has been nesting in my firewood stack. Found a whole family in there yesterday.",
       "details": [
         "I went to grab a log and nearly put my hand right on top of one. We both screamed, I think.",
         "They've been building in there for a while, judging by the mess."
@@ -548,7 +548,7 @@
     },
     {
       "id": 27,
-      "intro": "I swear the {wildlife_type} around here are getting fatter every season. They're eating better than I am.",
+      "intro": "I swear the {wildlife_type} around here is getting fatter every season. Eating better than I am.",
       "details": [
         "Saw one yesterday that could barely run. Just waddled off when I came outside.",
         "Between the gardens and the grain stores, they've got an all-you-can-eat situation going."
@@ -587,17 +587,17 @@
     },
     {
       "id": 29,
-      "intro": "A {mob_type} walked right through the middle of the settlement yesterday. Broad daylight.",
+      "intro": "I saw {mob_type} walk right through the middle of the settlement yesterday. Broad daylight.",
       "details": [
-        "Everyone just froze and watched it go. It didn't seem bothered by us at all.",
-        "It walked past three houses, sniffed at a cart, and kept going toward the woods."
+        "Everyone just froze and watched them go. They didn't seem bothered by us at all.",
+        "They walked past three houses, sniffed at a cart, and kept going toward the woods."
       ],
       "reactions": [
         "That was too close for comfort. Even the people who say not to worry looked shaken."
       ],
       "statCheck": {
-        "pass": "Daylight boldness usually means it's been pushed out of its territory by a bigger predator. It's desperate, not aggressive.",
-        "fail": "I have no explanation for why it came through here. It shouldn't have."
+        "pass": "Daylight boldness usually means they've been pushed out of their territory by a bigger predator. They're desperate, not aggressive.",
+        "fail": "I have no explanation for why they came through here. They shouldn't have."
       },
       "valence": "negative",
       "topic_category": "creature_complaints",
@@ -667,10 +667,10 @@
     },
     {
       "id": 33,
-      "intro": "{wildlife_type} have been digging up the garden beds again. Every seedling I planted last week is gone.",
+      "intro": "A {wildlife_type} has been digging up the garden beds again. Every seedling I planted last week is gone.",
       "details": [
-        "They don't even eat the roots: they just dig them up and leave them on the surface to dry out.",
-        "I've tried burying the seeds deeper. They just dig deeper."
+        "It doesn't even eat the roots: just digs them up and leaves them on the surface to dry out.",
+        "I've tried burying the seeds deeper. It just digs deeper."
       ],
       "reactions": [
         "I'm replanting for the third time this season. My enthusiasm is running thin."
@@ -778,16 +778,16 @@
     },
     {
       "id": 39,
-      "intro": "{wildlife_type} keep getting into the grain silo through that crack in the foundation.",
+      "intro": "A {wildlife_type} keeps getting into the grain silo through that crack in the foundation.",
       "details": [
-        "I've patched it three times now. They chew through whatever I use within a week.",
-        "At this point they've probably eaten more of this year's harvest than we have."
+        "I've patched it three times now. It chews through whatever I use within a week.",
+        "At this point it's probably eaten more of this year's harvest than we have."
       ],
       "reactions": [
         "I need to replace the whole foundation stone and that's not a one-person job."
       ],
       "statCheck": {
-        "pass": "Try mixing crusite powder into the mortar. The taste deters them and it hardens like iron.",
+        "pass": "Try mixing crusite powder into the mortar. The taste deters it and it hardens like iron.",
         "fail": "I'm out of ideas. If anyone has a suggestion, I'm listening."
       },
       "valence": "negative",
@@ -906,7 +906,7 @@
     },
     {
       "id": 46,
-      "intro": "There's a {mob_type} den somewhere near the {poi_type}. You can smell it when the wind's right.",
+      "intro": "There's a den of {mob_type} somewhere near the {poi_type}. You can smell it when the wind's right.",
       "details": [
         "That musky, sour smell that gets in your clothes. Unmistakable once you've smelled it before.",
         "A few of us have been avoiding the area. Takes longer to go around, but at least you can breathe."
@@ -983,9 +983,9 @@
     },
     {
       "id": 50,
-      "intro": "{wildlife_type} have been drinking from the horse trough again. The horses don't seem to mind.",
+      "intro": "There's a {wildlife_type} that keeps drinking from the horse trough. The horses don't seem to mind.",
       "details": [
-        "I'll come out and there'll be three or four of them lined up alongside the mare, all drinking together.",
+        "I'll come out and it'll be right there alongside the mare, both drinking together.",
         "The mare just looks at me like I'm the odd one out."
       ],
       "reactions": [
@@ -1017,9 +1017,9 @@
     },
     {
       "id": 52,
-      "intro": "A {mob_type} tried to get into the chicken coop last night. The rooster fought it off, somehow.",
+      "intro": "Some {mob_type} tried to get into the chicken coop last night. The rooster fought them off, somehow.",
       "details": [
-        "I heard the commotion and by the time I got out there, the {mob_type} was already retreating.",
+        "I heard the commotion and by the time I got out there, the {mob_type} were already retreating.",
         "The rooster was standing in the doorway puffed up to twice his size, absolutely furious."
       ],
       "reactions": [
@@ -1097,10 +1097,10 @@
     },
     {
       "id": 56,
-      "intro": "Every spring the {wildlife_type} come back like they never left. Right on schedule, right in my yard.",
+      "intro": "Every spring the {wildlife_type} comes back like it never left. Right on schedule, right in my yard.",
       "details": [
         "You'd think I'd be used to it by now. Six years of the same thing.",
-        "They make a mess, they eat what they can, and by summer they've moved on."
+        "It makes a mess, eats what it can, and by summer it's moved on."
       ],
       "reactions": [
         "It's seasonal damage at this point. I plan for it the way I plan for weather."
@@ -1133,10 +1133,10 @@
     },
     {
       "id": 58,
-      "intro": "I heard scratching under the floorboards last night. Pretty sure {wildlife_type} have moved in under the house.",
+      "intro": "I heard scratching under the floorboards last night. Pretty sure a {wildlife_type} has moved in under the house.",
       "details": [
         "Little feet pattering back and forth. Right under where I sleep, of course.",
-        "I tapped on the floor and they went quiet for about ten seconds, then started right back up."
+        "I tapped on the floor and it went quiet for about ten seconds, then started right back up."
       ],
       "reactions": [
         "I'll deal with it this weekend. For now we're cohabiting, whether I like it or not."
@@ -1191,10 +1191,10 @@
     },
     {
       "id": 61,
-      "intro": "The {wildlife_type} have been unusually loud at dawn lately. I'm awake before I want to be every single morning.",
+      "intro": "The {wildlife_type} has been unusually loud at dawn lately. I'm awake before I want to be every single morning.",
       "details": [
         "It starts before sunrise and goes on for an hour. Right outside the window.",
-        "I've tried closing the shutters. They don't care."
+        "I've tried closing the shutters. It doesn't care."
       ],
       "reactions": [
         "I love nature. I just wish nature would start at a more reasonable hour."
@@ -1413,17 +1413,17 @@
     },
     {
       "id": 73,
-      "intro": "I found a {mob_type} sleeping behind the hay bales in the barn this morning.",
+      "intro": "I found {mob_type} sleeping behind the hay bales in the barn this morning.",
       "details": [
-        "Just curled up like it belonged there. Didn't even wake up when I opened the door.",
+        "Just curled up like they belonged there. Didn't even wake up when I opened the door.",
         "I backed out very slowly and very quietly. My hands were shaking the whole time."
       ],
       "reactions": [
-        "I left the barn door open and waited. It wandered out an hour later on its own."
+        "I left the barn door open and waited. They wandered out an hour later on their own."
       ],
       "statCheck": {
-        "pass": "If it was sleeping that deeply near people, it's probably old or sick. Healthy ones don't let their guard down like that.",
-        "fail": "I don't care why it was sleeping there. I just care that it's gone."
+        "pass": "If they were sleeping that deeply near people, they're probably exhausted or sick. Healthy ones don't let their guard down like that.",
+        "fail": "I don't care why they were sleeping there. I just care that they're gone."
       },
       "valence": "negative",
       "topic_category": "creature_complaints",
@@ -1435,7 +1435,7 @@
     },
     {
       "id": 74,
-      "intro": "The {wildlife_type} have completely taken over the abandoned shed at the edge of town.",
+      "intro": "A {wildlife_type} has completely taken over the abandoned shed at the edge of town.",
       "details": [
         "Nobody's used that shed in years, but now it's like a whole colony in there.",
         "You can hear them from the path. Scratching, chittering, general chaos."
@@ -1549,10 +1549,10 @@
     },
     {
       "id": 80,
-      "intro": "A {mob_type} charged at me while I was gathering firewood near the tree line. Stopped about ten paces short and just stood there.",
+      "intro": "Some {mob_type} charged at me while I was gathering firewood near the tree line. Stopped about ten paces short and just stood there.",
       "details": [
         "My heart was going so fast I could hear it in my ears. We just stared at each other.",
-        "Then it snorted and turned around. Walked away like nothing happened."
+        "Then they snorted and turned around. Walked away like nothing happened."
       ],
       "reactions": [
         "I dropped the firewood and didn't go back for it. Someone else can get it."
@@ -1626,10 +1626,10 @@
     },
     {
       "id": 84,
-      "intro": "{wildlife_type} keep getting tangled in the fishing nets I leave out to dry. Third time this month.",
+      "intro": "A {wildlife_type} keeps getting tangled in the fishing nets I leave out to dry. Third time this month.",
       "details": [
-        "By the time I find them, they've thrashed around enough to ruin a good section of net.",
-        "It takes hours to mend. Meanwhile they just wriggle free and run off."
+        "By the time I find it, it's thrashed around enough to ruin a good section of net.",
+        "It takes hours to mend. Meanwhile the thing just wriggles free and runs off."
       ],
       "reactions": [
         "I'm spending more time fixing nets than actually fishing."
@@ -1884,13 +1884,13 @@
     },
     {
       "id": 98,
-      "intro": "I think the {wildlife_type} actually help keep the insect population down around here. The mosquitoes are worse in years when we don't see as many.",
+      "intro": "I think the {wildlife_type} actually helps keep the insect population down around here. The mosquitoes are worse in years when we don't see as many.",
       "details": [
         "Last summer we had hardly any {wildlife_type} around and the bugs were unbearable.",
-        "This year they're back in force and I haven't been bitten in weeks."
+        "This year it's back in force and I haven't been bitten in weeks."
       ],
       "reactions": [
-        "They eat the garden, sure. But they eat the things that eat me, so it balances out."
+        "It eats the garden, sure. But it eats the things that eat me, so it balances out."
       ],
       "statCheck": null,
       "valence": "positive",
