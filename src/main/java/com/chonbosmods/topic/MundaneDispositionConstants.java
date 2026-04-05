@@ -14,8 +14,13 @@ public final class MundaneDispositionConstants {
     /** Chance a stat check is included at all when the pool entry has one. */
     public static final double STAT_CHECK_INCLUSION_CHANCE = 0.60;
 
-    /** Per-beat chance the stat check first appears (if approved at build time). */
-    public static final double STAT_CHECK_PER_BEAT_CHANCE = 0.30;
+    /** Probability of showing exactly 1 additional beat (2 total). */
+    public static final double BEAT_COUNT_1_CHANCE = 0.65;
+
+    /** Probability of showing exactly 2 additional beats (3 total). */
+    public static final double BEAT_COUNT_2_CHANCE = 0.30;
+
+    // Remaining probability (0.05) shows all 3 additional beats (4 total).
 
     // --- Disposition deltas ---
 
