@@ -7,7 +7,7 @@
   "ParticleRotationInfluence": "Billboard",
   "LightInfluence": 0.8,
   "MaxConcurrentParticles": 1,
-  "ParticleLifeSpan": { "Min": 0.8, "Max": 1.2 },
+  "ParticleLifeSpan": { "Min": 0.6, "Max": 0.8 },
   "SpawnRate": { "Min": 3, "Max": 5 },
   "ParticleRotateWithSpawner": false,
   "Attractors": [
