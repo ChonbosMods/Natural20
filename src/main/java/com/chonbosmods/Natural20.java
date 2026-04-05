@@ -152,13 +152,14 @@ public class Natural20 extends JavaPlugin {
                 if (npcRef == null) continue;
                 Nat20NpcData npcData = store.getComponent(npcRef, getNpcDataType());
                 if (npcData == null) continue;
+                // Use evaluateAndApply for particle map (respects existing turn-in state)
+                QuestMarkerManager.INSTANCE.evaluateAndApply(npc.getEntityUUID(), npc);
+                // Sync NpcData component: preserve QUEST_TURN_IN if active
                 if (npc.getPreGeneratedQuest() != null) {
                     npcData.setQuestMarkerState(Nat20NpcData.QuestMarkerState.QUEST_AVAILABLE);
-                } else {
+                } else if (npcData.getQuestMarkerState() == Nat20NpcData.QuestMarkerState.QUEST_AVAILABLE) {
                     npcData.setQuestMarkerState(Nat20NpcData.QuestMarkerState.NONE);
                 }
-                // Register quest marker state for particle indicator
-                QuestMarkerManager.INSTANCE.syncMarker(npc.getEntityUUID(), npcData.getQuestMarkerState());
             }
         });
     }

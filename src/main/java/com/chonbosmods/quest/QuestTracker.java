@@ -2,6 +2,11 @@ package com.chonbosmods.quest;
 
 import com.chonbosmods.Natural20;
 import com.chonbosmods.data.Nat20PlayerData;
+import com.chonbosmods.data.Nat20NpcData;
+import com.chonbosmods.marker.QuestMarkerManager;
+import com.chonbosmods.settlement.NpcRecord;
+import com.chonbosmods.settlement.SettlementRecord;
+import com.chonbosmods.settlement.SettlementRegistry;
 import com.chonbosmods.waypoint.QuestMarkerProvider;
 import com.google.common.flogger.FluentLogger;
 import com.hypixel.hytale.component.Ref;
@@ -74,6 +79,36 @@ public class QuestTracker {
             com.hypixel.hytale.server.core.entity.entities.Player.getComponentType())
             .getPlayerRef().getUuid();
         QuestMarkerProvider.refreshMarkers(playerUuid, playerData);
+
+        // Set QUEST_TURN_IN particle on the source NPC
+        setTurnInParticle(quest, store);
+    }
+
+    /**
+     * Set QUEST_TURN_IN particle on the quest's source NPC.
+     */
+    private void setTurnInParticle(QuestInstance quest, Store<EntityStore> store) {
+        SettlementRegistry settlements = Natural20.getInstance().getSettlementRegistry();
+        if (settlements == null || quest.getSourceSettlementId() == null) return;
+
+        SettlementRecord settlement = settlements.getByCell(quest.getSourceSettlementId());
+        if (settlement == null) return;
+
+        NpcRecord npcRecord = settlement.getNpcByName(quest.getSourceNpcId());
+        if (npcRecord == null || npcRecord.getEntityUUID() == null) return;
+
+        QuestMarkerManager.INSTANCE.syncMarker(
+            npcRecord.getEntityUUID(), Nat20NpcData.QuestMarkerState.QUEST_TURN_IN);
+
+        // Also update NPC data component if entity is loaded
+        Ref<EntityStore> npcRef = Natural20.getInstance().getDefaultWorld()
+            .getEntityRef(npcRecord.getEntityUUID());
+        if (npcRef != null) {
+            Nat20NpcData npcData = store.getComponent(npcRef, Natural20.getNpcDataType());
+            if (npcData != null) {
+                npcData.setQuestMarkerState(Nat20NpcData.QuestMarkerState.QUEST_TURN_IN);
+            }
+        }
     }
 
     private boolean matchesTarget(ObjectiveInstance obj, String targetId) {

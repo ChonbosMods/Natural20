@@ -1,6 +1,7 @@
 package com.chonbosmods.marker;
 
 import com.chonbosmods.data.Nat20NpcData.QuestMarkerState;
+import com.chonbosmods.settlement.NpcRecord;
 import com.hypixel.hytale.component.Ref;
 import com.hypixel.hytale.component.Store;
 import com.hypixel.hytale.logger.HytaleLogger;
@@ -46,8 +47,29 @@ public class QuestMarkerManager {
     public void syncMarker(UUID npcUuid, QuestMarkerState state) {
         if (state == QuestMarkerState.NONE) {
             activeMarkers.remove(npcUuid);
+        } else if (state == QuestMarkerState.QUEST_AVAILABLE
+                   && activeMarkers.get(npcUuid) == QuestMarkerState.QUEST_TURN_IN) {
+            // Turn-in takes priority over available: ignore
+            return;
         } else {
             activeMarkers.put(npcUuid, state);
+        }
+    }
+
+    /**
+     * Re-evaluate an NPC's marker state from its NpcRecord baseline and apply directly.
+     * Bypasses the priority guard: call this when the previous state has been consumed
+     * (e.g., after turn-in completes) and the NPC needs a fresh evaluation.
+     */
+    public void evaluateAndApply(UUID npcUuid, NpcRecord record) {
+        if (record == null) {
+            activeMarkers.remove(npcUuid);
+            return;
+        }
+        if (record.getPreGeneratedQuest() != null) {
+            activeMarkers.put(npcUuid, QuestMarkerState.QUEST_AVAILABLE);
+        } else {
+            activeMarkers.remove(npcUuid);
         }
     }
 

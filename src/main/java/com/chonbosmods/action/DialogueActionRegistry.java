@@ -3,7 +3,9 @@ package com.chonbosmods.action;
 import com.chonbosmods.Natural20;
 import com.chonbosmods.cave.CaveVoidRecord;
 import com.chonbosmods.cave.CaveVoidRegistry;
+import com.chonbosmods.data.Nat20NpcData;
 import com.chonbosmods.data.Nat20PlayerData;
+import com.chonbosmods.marker.QuestMarkerManager;
 import com.chonbosmods.quest.ObjectiveInstance;
 import com.chonbosmods.quest.ObjectiveType;
 import com.chonbosmods.quest.PhaseInstance;
@@ -309,43 +311,110 @@ public class DialogueActionRegistry {
                 questSystem.getStateManager().markQuestCompleted(ctx.playerData(), quest.getQuestId());
                 questSystem.getReferenceManager().cleanupQuestReferences(ctx.playerData(), quest);
                 ctx.systemLogger().accept("Quest completed: " + quest.getSituationId());
+
+                // Re-evaluate source NPC particle (may have a new quest to give)
+                SettlementRegistry settlements = Natural20.getInstance().getSettlementRegistry();
+                if (settlements != null && quest.getSourceSettlementId() != null) {
+                    SettlementRecord settlement = settlements.getByCell(quest.getSourceSettlementId());
+                    if (settlement != null) {
+                        NpcRecord sourceNpc = settlement.getNpcByName(quest.getSourceNpcId());
+                        if (sourceNpc != null && sourceNpc.getEntityUUID() != null) {
+                            QuestMarkerManager.INSTANCE.evaluateAndApply(
+                                sourceNpc.getEntityUUID(), sourceNpc);
+                        }
+                    }
+                }
+
+                // Refresh waypoint markers
+                QuestMarkerProvider.refreshMarkers(
+                    ctx.player().getPlayerRef().getUuid(), ctx.playerData());
             } else {
                 quest.advancePhase();
 
-                // Reset POI mob state for the new phase so proximity system spawns fresh mobs
-                if ("true".equals(quest.getVariableBindings().get("poi_available"))) {
-                    quest.getVariableBindings().put("poi_mob_state", "PENDING");
-                    quest.getVariableBindings().put("poi_mob_uuids", "");
-                    quest.getVariableBindings().remove("poi_detached_uuids");
+                PhaseInstance newPhase = quest.getCurrentPhase();
+                Map<String, String> bindings = quest.getVariableBindings();
+
+                // --- Auto-complete for 0-objective phases (resolution) ---
+                boolean autoCompleted = false;
+                if (newPhase != null && newPhase.isComplete()) {
+                    bindings.put("phase_objectives_complete", "true");
+                    autoCompleted = true;
                 }
 
-                // Build objective summary for the new phase
-                PhaseInstance newPhase = quest.getCurrentPhase();
+                // --- POI re-resolution based on new phase's objective type ---
+                ObjectiveType newObjType = null;
+                if (newPhase != null && !newPhase.getObjectives().isEmpty()) {
+                    newObjType = newPhase.getObjectives().getFirst().getType();
+                }
+
+                if (newObjType == ObjectiveType.KILL_MOBS
+                        || (newObjType == ObjectiveType.FETCH_ITEM
+                            && "hostile".equals(bindings.get("fetch_variant")))) {
+                    // Hostile POI: try to find a new cave void
+                    resolveNewHostilePoi(quest, ctx.store(), ctx.playerRef(), bindings);
+                } else {
+                    // Non-hostile objective or no objectives: clear POI bindings
+                    bindings.put("poi_available", "false");
+                    bindings.remove("marker_offset_x");
+                    bindings.remove("marker_offset_z");
+                    bindings.remove("poi_mob_state");
+                    bindings.remove("poi_mob_uuids");
+                    bindings.remove("poi_detached_uuids");
+
+                    // TALK_TO_NPC: set "!" particle on target NPC
+                    if (newObjType == ObjectiveType.TALK_TO_NPC) {
+                        setTargetNpcParticle(bindings, ctx.store());
+                    }
+                }
+
+                // --- Build objective summary for the new phase ---
                 if (newPhase != null && !newPhase.getObjectives().isEmpty()) {
                     ObjectiveInstance obj = newPhase.getObjectives().getFirst();
                     String summary = switch (obj.getType()) {
                         case KILL_MOBS -> "kill " + obj.getRequiredCount() + " " + obj.getEffectiveLabel();
                         case COLLECT_RESOURCES -> "collect " + obj.getRequiredCount() + " " + obj.getEffectiveLabel();
-                        case FETCH_ITEM -> "hostile".equals(quest.getVariableBindings().get("fetch_variant"))
-                            ? "retrieve " + obj.getTargetLabel() + " from " + quest.getVariableBindings().getOrDefault("subject_name", "the area")
+                        case FETCH_ITEM -> "hostile".equals(bindings.get("fetch_variant"))
+                            ? "retrieve " + obj.getTargetLabel() + " from " + bindings.getOrDefault("subject_name", "the area")
                             : "recover " + obj.getTargetLabel();
                         case TALK_TO_NPC -> "speak with " + obj.getTargetLabel();
                     };
-                    quest.getVariableBindings().put("quest_objective_summary", summary);
+                    bindings.put("quest_objective_summary", summary);
                 }
 
-                // Save with the modified quest re-inserted (getActiveQuests deserializes fresh)
+                // --- Particle updates on source NPC ---
+                SettlementRegistry settlements = Natural20.getInstance().getSettlementRegistry();
+                if (settlements != null && quest.getSourceSettlementId() != null) {
+                    SettlementRecord settlement = settlements.getByCell(quest.getSourceSettlementId());
+                    if (settlement != null) {
+                        NpcRecord sourceNpc = settlement.getNpcByName(quest.getSourceNpcId());
+                        if (sourceNpc != null && sourceNpc.getEntityUUID() != null) {
+                            if (autoCompleted) {
+                                // Resolution auto-complete: source NPC shows "?" immediately
+                                QuestMarkerManager.INSTANCE.syncMarker(
+                                    sourceNpc.getEntityUUID(),
+                                    Nat20NpcData.QuestMarkerState.QUEST_TURN_IN);
+                            } else {
+                                // Objectives pending: re-evaluate baseline (AVAILABLE or NONE)
+                                QuestMarkerManager.INSTANCE.evaluateAndApply(
+                                    sourceNpc.getEntityUUID(), sourceNpc);
+                            }
+                        }
+                    }
+                }
+
+                // --- Save quest state ---
                 Map<String, QuestInstance> allQuests = questSystem.getStateManager().getActiveQuests(ctx.playerData());
                 allQuests.put(quest.getQuestId(), quest);
                 questSystem.getStateManager().saveActiveQuests(ctx.playerData(), allQuests);
 
-                LOGGER.atInfo().log("TURN_IN_PHASE: quest %s advanced to phase %d: %s",
-                    quest.getQuestId(), quest.getCurrentPhaseIndex(), quest.getCurrentPhase().getType());
-            }
+                LOGGER.atInfo().log("TURN_IN_PHASE: quest %s advanced to phase %d: %s (autoComplete: %s)",
+                    quest.getQuestId(), quest.getCurrentPhaseIndex(),
+                    quest.getCurrentPhase().getType(), autoCompleted);
 
-            // Refresh markers
-            QuestMarkerProvider.refreshMarkers(
-                ctx.player().getPlayerRef().getUuid(), ctx.playerData());
+                // Refresh waypoint markers
+                QuestMarkerProvider.refreshMarkers(
+                    ctx.player().getPlayerRef().getUuid(), ctx.playerData());
+            }
         });
 
         register(COMPLETE_TALK_TO_NPC, (ctx, params) -> {
@@ -377,7 +446,40 @@ public class DialogueActionRegistry {
             allQuests.put(quest.getQuestId(), quest);
             questSystem.getStateManager().saveActiveQuests(ctx.playerData(), allQuests);
 
-            // Refresh markers: TARGET_NPC marker disappears, RETURN marker appears
+            // Re-evaluate target NPC's particle (may have own quest to give)
+            String targetSettlement = quest.getVariableBindings().get("target_npc_settlement");
+            String targetNpcName = quest.getVariableBindings().get("target_npc");
+            if (targetSettlement != null && targetNpcName != null) {
+                SettlementRegistry settlements = Natural20.getInstance().getSettlementRegistry();
+                if (settlements != null) {
+                    SettlementRecord settlement = settlements.getByCell(targetSettlement);
+                    if (settlement != null) {
+                        NpcRecord targetNpc = settlement.getNpcByName(targetNpcName);
+                        if (targetNpc != null && targetNpc.getEntityUUID() != null) {
+                            QuestMarkerManager.INSTANCE.evaluateAndApply(
+                                targetNpc.getEntityUUID(), targetNpc);
+                        }
+                    }
+                }
+            }
+
+            // Set QUEST_TURN_IN on source NPC (phase objectives complete, return to quest giver)
+            if (phase.isComplete()) {
+                SettlementRegistry settlements = Natural20.getInstance().getSettlementRegistry();
+                if (settlements != null && quest.getSourceSettlementId() != null) {
+                    SettlementRecord sourceSettlement = settlements.getByCell(quest.getSourceSettlementId());
+                    if (sourceSettlement != null) {
+                        NpcRecord sourceNpc = sourceSettlement.getNpcByName(quest.getSourceNpcId());
+                        if (sourceNpc != null && sourceNpc.getEntityUUID() != null) {
+                            QuestMarkerManager.INSTANCE.syncMarker(
+                                sourceNpc.getEntityUUID(),
+                                Nat20NpcData.QuestMarkerState.QUEST_TURN_IN);
+                        }
+                    }
+                }
+            }
+
+            // Refresh waypoint markers
             QuestMarkerProvider.refreshMarkers(
                 ctx.player().getPlayerRef().getUuid(), ctx.playerData());
 
@@ -565,6 +667,102 @@ public class DialogueActionRegistry {
         } catch (Exception e) {
             LOGGER.atWarning().withCause(e).log("Error consuming fetch item %s", itemTypeId);
             return false;
+        }
+    }
+
+    /**
+     * Attempt to find a new cave void for a hostile POI phase.
+     * If no void is found, auto-complete the phase (graceful degradation).
+     */
+    private void resolveNewHostilePoi(QuestInstance quest, Store<EntityStore> store,
+                                       Ref<EntityStore> playerRef,
+                                       Map<String, String> bindings) {
+        CaveVoidRegistry voidRegistry = Natural20.getInstance().getCaveVoidRegistry();
+        if (voidRegistry == null) {
+            LOGGER.atWarning().log("resolveNewHostilePoi: no void registry, auto-completing phase");
+            bindings.put("phase_objectives_complete", "true");
+            bindings.put("poi_available", "false");
+            return;
+        }
+
+        double npcX = 0, npcZ = 0;
+        try {
+            npcX = Double.parseDouble(bindings.getOrDefault("npc_x", "0"));
+            npcZ = Double.parseDouble(bindings.getOrDefault("npc_z", "0"));
+        } catch (NumberFormatException ignored) {}
+
+        var newVoid = voidRegistry.findNearbyVoid(npcX, npcZ, 200, 600);
+        if (newVoid == null) {
+            LOGGER.atWarning().log("resolveNewHostilePoi: no unclaimed void found for quest %s, auto-completing phase",
+                quest.getQuestId());
+            bindings.put("phase_objectives_complete", "true");
+            bindings.put("poi_available", "false");
+            bindings.remove("marker_offset_x");
+            bindings.remove("marker_offset_z");
+            return;
+        }
+
+        // Claim the void so triggerPOIPlacement finds the same one
+        voidRegistry.claimVoid(newVoid, quest.getSourceSettlementId());
+
+        // Update POI bindings to the new void
+        bindings.put("poi_available", "true");
+        bindings.put("poi_center_x", String.valueOf(newVoid.getCenterX()));
+        bindings.put("poi_center_y", String.valueOf(newVoid.getCenterY()));
+        bindings.put("poi_center_z", String.valueOf(newVoid.getCenterZ()));
+        bindings.put("poi_mob_state", "PENDING");
+        bindings.put("poi_mob_uuids", "");
+        bindings.remove("poi_detached_uuids");
+
+        // Parse population spec for the new phase
+        String popSpec = bindings.get("poi_population_spec");
+        String mobRole = null;
+        int mobCount = 0;
+        if (popSpec != null && !popSpec.equals("NONE")) {
+            try {
+                int firstColon = popSpec.indexOf(':');
+                int lastColon = popSpec.lastIndexOf(':');
+                if (firstColon > 0 && lastColon > firstColon) {
+                    mobRole = popSpec.substring(firstColon + 1, lastColon);
+                    mobCount = Integer.parseInt(popSpec.substring(lastColon + 1));
+                }
+            } catch (NumberFormatException e) {
+                LOGGER.atWarning().log("resolveNewHostilePoi: malformed population spec '%s'", popSpec);
+            }
+        }
+
+        triggerPOIPlacement(quest, store, playerRef, mobRole, mobCount);
+    }
+
+    /**
+     * Set QUEST_AVAILABLE ("!") particle on the target NPC for a TALK_TO_NPC objective.
+     */
+    private static void setTargetNpcParticle(Map<String, String> bindings, Store<EntityStore> store) {
+        String targetSettlement = bindings.get("target_npc_settlement");
+        String targetNpcName = bindings.get("target_npc");
+        if (targetSettlement == null || targetNpcName == null) return;
+
+        SettlementRegistry settlements = Natural20.getInstance().getSettlementRegistry();
+        if (settlements == null) return;
+
+        SettlementRecord settlement = settlements.getByCell(targetSettlement);
+        if (settlement == null) return;
+
+        NpcRecord targetNpc = settlement.getNpcByName(targetNpcName);
+        if (targetNpc == null || targetNpc.getEntityUUID() == null) return;
+
+        QuestMarkerManager.INSTANCE.syncMarker(
+            targetNpc.getEntityUUID(),
+            Nat20NpcData.QuestMarkerState.QUEST_AVAILABLE);
+
+        // Update NPC data component if entity is loaded
+        World world = Natural20.getInstance().getDefaultWorld();
+        if (world == null) return;
+        Ref<EntityStore> npcRef = world.getEntityRef(targetNpc.getEntityUUID());
+        if (npcRef == null) return;
+        Nat20NpcData npcData = store.getComponent(npcRef, Natural20.getNpcDataType());
+        if (npcData != null) {
+            npcData.setQuestMarkerState(Nat20NpcData.QuestMarkerState.QUEST_AVAILABLE);
         }
     }
 
