@@ -48,13 +48,15 @@ Hard constraints for pool entry authoring. These are not suggestions. Every entr
 
 17. **Reactions do not call to action.** A reaction is "Makes me tired just thinking about it" or "I suppose that's just how it goes." NOT "Someone should do something about this" or "If you're brave enough, you could investigate."
 
+18. **Each beat must carry its own weight.** The runtime system may show only one of the three additional beats after the intro. Each detail and reaction must work as a satisfying standalone follow-up to its intro, not a continuation of another beat. If a beat reads thin on its own, give it more substance. Two solid sentences beat one wispy one.
+
 ---
 
 ## Valence Rules
 
-18. **Tag honestly.** Classify each entry as `positive`, `negative`, or `neutral` based on the dominant emotional weight of the intro line. A complaint is negative. Contentment is positive. Observation without strong feeling is neutral.
+19. **Tag honestly.** Classify each entry as `positive`, `negative`, or `neutral` based on the dominant emotional weight of the intro line. A complaint is negative. Contentment is positive. Observation without strong feeling is neutral.
 
-19. **Category valence targets:**
+20. **Category valence targets:**
     - `mundane_daily_life`: ~70% neutral, ~15% positive, ~15% negative
     - `npc_opinions`: ~35% positive, ~35% negative, ~30% neutral
     - `settlement_pride`: ~40% positive, ~30% negative, ~30% neutral
@@ -66,23 +68,23 @@ Hard constraints for pool entry authoring. These are not suggestions. Every entr
 
 ## Template Variable Rules
 
-20. **Use existing variable syntax.** Variables use `{curly_brace}` syntax: `{npc_name}`, `{npc_role}`, `{self_role}`, `{poi_type}`, `{mob_type}`, `{settlement_name}`, `{other_settlement}`, `{food_type}`, `{crop_type}`, `{wildlife_type}`, `{resource_type}`. See `entity_registry_template.json` for the full list.
+21. **Use existing variable syntax.** Variables use `{curly_brace}` syntax: `{npc_name}`, `{npc_role}`, `{self_role}`, `{poi_type}`, `{mob_type}`, `{settlement_name}`, `{other_settlement}`, `{food_type}`, `{crop_type}`, `{wildlife_type}`, `{resource_type}`. See `entity_registry_template.json` for the full list.
 
-21. **Do not use `{subject_focus}` or any subject focus variables.** Pool entries must be fully self-contained text. No `{subject_focus}`, `{subject_focus_the}`, `{subject_focus_The}`, `{subject_focus_is}`, `{subject_focus_has}`, or `{subject_focus_was}`.
+22. **Do not use `{subject_focus}` or any subject focus variables.** Pool entries must be fully self-contained text. No `{subject_focus}`, `{subject_focus_the}`, `{subject_focus_The}`, `{subject_focus_is}`, `{subject_focus_has}`, or `{subject_focus_was}`.
 
-22. **`{npc_name}` is for other NPCs.** Never use `{npc_name}` as self-reference. The NPC speaking is "I" or "me." `{npc_name}` refers to someone else in the settlement.
+23. **`{npc_name}` is for other NPCs.** Never use `{npc_name}` as self-reference. The NPC speaking is "I" or "me." `{npc_name}` refers to someone else in the settlement.
 
-23. **POI and mob types are common nouns.** Write "the {poi_type}" and "{mob_type}" as common nouns in natural speech. "The mine's been busy" not "Mine is experiencing increased activity."
+24. **POI and mob types are common nouns.** Write "the {poi_type}" and "{mob_type}" as common nouns in natural speech. "The mine's been busy" not "Mine is experiencing increased activity."
 
-24. **Variable limit per line.** Maximum 2 template variables per intro/detail/reaction line. Variables in different lines of the same entry are fine. Three or more variables in a single line produces mad-libs.
+25. **Variable limit per line.** Maximum 2 template variables per intro/detail/reaction line. Variables in different lines of the same entry are fine. Three or more variables in a single line produces mad-libs.
 
-25. **Wildlife vs. mob distinction.** `{wildlife_type}` is for passive animals (deer, fox, owl). `{mob_type}` is for hostile creatures (goblins, wolves, skeletons). Do not use hostile framing with `{wildlife_type}` or peaceful framing with `{mob_type}`.
+26. **Wildlife vs. mob distinction.** `{wildlife_type}` is for passive animals (deer, fox, owl). `{mob_type}` is for hostile creatures (goblins, wolves, skeletons). Do not use hostile framing with `{wildlife_type}` or peaceful framing with `{mob_type}`.
 
-26. **Resource-POI coherence.** When an entry uses both `{resource_type}` and `{poi_type}`, the resource should make sense for the POI. The system handles this via filtered pools, but authors should be aware: a mine produces ore, a farm produces crops, a blacksmith works metal.
+27. **Resource-POI coherence.** When an entry uses both `{resource_type}` and `{poi_type}`, the resource should make sense for the POI. The system handles this via filtered pools, but authors should be aware: a mine produces ore, a farm produces crops, a blacksmith works metal.
 
-27. **Role variable restraint.** `{self_role}` works when the NPC is reflecting on their own work life: "I've been {self_role} long enough to know..." `{npc_role}` works only when the role is the point of the observation: "You'd think the {npc_role} would keep better order." Do NOT use `{npc_role}` as an appositive label stapled to a name: "{npc_name} borrowed my saw" is better than "{npc_name}, the {npc_role}, borrowed my saw." The player already knows who that NPC is. Most `npc_opinions` entries should use `{npc_name}` alone and let the opinion speak for itself.
+28. **Role variable restraint.** `{self_role}` works when the NPC is reflecting on their own work life: "I've been {self_role} long enough to know..." `{npc_role}` works only when the role is the point of the observation: "You'd think the {npc_role} would keep better order." Do NOT use `{npc_role}` as an appositive label stapled to a name: "{npc_name} borrowed my saw" is better than "{npc_name}, the {npc_role}, borrowed my saw." The player already knows who that NPC is. Most `npc_opinions` entries should use `{npc_name}` alone and let the opinion speak for itself.
 
-28. **Mundane daily life is variable-sparse.** Most `mundane_daily_life` entries should have zero template variables. This category is about universal human experience: sleep, weather, aches, boredom, small victories. A few entries per batch can use `{food_type}` or `{self_role}`, but these are the exception. If every daily life entry references a food item or a job title, you've replaced dramatic over-specificity with lifestyle narration. The plainest entries in the pool are the ones that make the richer entries stand out.
+29. **Mundane daily life is variable-sparse.** Most `mundane_daily_life` entries should have zero template variables. This category is about universal human experience: sleep, weather, aches, boredom, small victories. A few entries per batch can use `{food_type}` or `{self_role}`, but these are the exception. If every daily life entry references a food item or a job title, you've replaced dramatic over-specificity with lifestyle narration. The plainest entries in the pool are the ones that make the richer entries stand out.
 
 ---
 
@@ -105,8 +107,9 @@ Hard constraints for pool entry authoring. These are not suggestions. Every entr
 | 13 | Dramatic creature framing | "Something is driving the wolves down from the mountains" | Quest hook (R13), event invention (R3) |
 | 14 | Escalating detail | Intro: "mine is busy" → Detail: "explosion in the lower tunnels" | Detail escalation (R16) |
 | 15 | Call-to-action reaction | "If you're brave enough, you could look into it." | Reaction rule (R17) |
-| 16 | Role as appositive label | "{npc_name}, the {npc_role}, borrowed my saw" | Role restraint (R27): role adds nothing |
-| 17 | Over-decorated mundane entry | "Had {food_type} after being a {self_role} all day. Saw a {wildlife_type}." | Mundane sparseness (R28): too many variables |
-| 18 | Subject focus variable | "{subject_focus_the} near the {poi_type}" | Forbidden variable (R21) |
+| 16 | Role as appositive label | "{npc_name}, the {npc_role}, borrowed my saw" | Role restraint (R28): role adds nothing |
+| 17 | Over-decorated mundane entry | "Had {food_type} after being a {self_role} all day. Saw a {wildlife_type}." | Mundane sparseness (R29): too many variables |
+| 18 | Subject focus variable | "{subject_focus_the} near the {poi_type}" | Forbidden variable (R22) |
 | 19 | Invented food/drink name | "dragonberry wine," "honeycake," "moonbrew ale" | Entity grounding (R1): use {food_type} pool |
-| 20 | Hostile framing on wildlife | "A {wildlife_type} attacked the livestock" | Wildlife/mob distinction (R25) |
+| 20 | Hostile framing on wildlife | "A {wildlife_type} attacked the livestock" | Wildlife/mob distinction (R26) |
+| 21 | Thin standalone beat | Detail: "The neighbors agree." | Beat weight (R18): reads thin as the only follow-up to an intro |
