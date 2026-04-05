@@ -107,44 +107,50 @@ public class TopicGraphBuilder {
         List<ResponseOption> entryResponses = new ArrayList<>();
 
         if (!assignment.hasQuest()) {
-            // --- Simplified mundane flow: linear CONTINUE chain ---
+            // --- Simplified mundane flow: variable-length CONTINUE chain ---
 
-            // 1. Collect ALL detail and reaction lines (no probabilistic filtering)
-            List<String> remainingBeats = new ArrayList<>();
+            // 1. Collect ALL detail and reaction lines
+            List<String> allBeats = new ArrayList<>();
             for (String detail : entry.details()) {
-                remainingBeats.add(DialogueResolver.resolve(detail, bindings));
+                allBeats.add(DialogueResolver.resolve(detail, bindings));
             }
             for (String reaction : entry.reactions()) {
-                remainingBeats.add(DialogueResolver.resolve(reaction, bindings));
+                allBeats.add(DialogueResolver.resolve(reaction, bindings));
             }
 
             // 2. Shuffle with deterministic seed
             long shuffleSeed = Objects.hash(npcId, entry.id(), "shuffle");
-            Collections.shuffle(remainingBeats, new Random(shuffleSeed));
+            Collections.shuffle(allBeats, new Random(shuffleSeed));
 
-            // 3. Determine stat check timing (if entry has one and skill is available)
+            // 3. Select how many beats to show (deterministic per NPC/entry)
+            Random beatCountRng = new Random(Objects.hash(npcId, entry.id(), "beatcount"));
+            double beatRoll = beatCountRng.nextDouble();
+            int beatsToShow;
+            if (beatRoll < MundaneDispositionConstants.BEAT_COUNT_1_CHANCE) {
+                beatsToShow = 1;
+            } else if (beatRoll < MundaneDispositionConstants.BEAT_COUNT_1_CHANCE
+                    + MundaneDispositionConstants.BEAT_COUNT_2_CHANCE) {
+                beatsToShow = 2;
+            } else {
+                beatsToShow = 3;
+            }
+            beatsToShow = Math.min(beatsToShow, allBeats.size());
+
+            List<String> remainingBeats = allBeats.subList(0, beatsToShow);
+
+            // 4. Determine stat check placement (uniform random among displayed beats)
             boolean statCheckApproved = entry.statCheck() != null
                     && assignment.skill() != null
                     && random.nextDouble() < MundaneDispositionConstants.STAT_CHECK_INCLUSION_CHANCE;
 
-            int statCheckFirstBeat = -1; // -1 means no stat check
+            int statCheckBeat = -1; // -1 means no stat check
             if (statCheckApproved) {
-                int totalBeats = 1 + remainingBeats.size(); // intro + shuffled
-                Random timingRng = new Random(Objects.hash(npcId, entry.id(), "statcheck"));
-                for (int b = 0; b < totalBeats; b++) {
-                    if (b == totalBeats - 1) {
-                        // Guaranteed on last beat if not yet shown
-                        statCheckFirstBeat = b;
-                        break;
-                    }
-                    if (timingRng.nextDouble() < MundaneDispositionConstants.STAT_CHECK_PER_BEAT_CHANCE) {
-                        statCheckFirstBeat = b;
-                        break;
-                    }
-                }
+                int totalDisplayedBeats = 1 + remainingBeats.size(); // intro + selected beats
+                statCheckBeat = new Random(Objects.hash(npcId, entry.id(), "statcheck"))
+                        .nextInt(totalDisplayedBeats);
             }
 
-            // 4. Build stat check side-branch nodes (if approved)
+            // 5. Build stat check side-branch nodes (if approved)
             String checkNodeId = null;
             if (statCheckApproved) {
                 Skill skill = assignment.skill();
@@ -178,7 +184,7 @@ public class TopicGraphBuilder {
                 ));
             }
 
-            // 5. Build the linear chain: intro -> shuffled[0] -> shuffled[1] -> ...
+            // 6. Build the linear chain: intro -> shuffled[0] -> shuffled[1] -> ...
             List<String> chainNodeIds = new ArrayList<>();
             chainNodeIds.add(entryNodeId);
 
@@ -191,7 +197,7 @@ public class TopicGraphBuilder {
                 ));
             }
 
-            // 6. Wire CONTINUE responses and stat check responses
+            // 7. Wire CONTINUE responses and stat check responses
             for (int i = 0; i < chainNodeIds.size(); i++) {
                 boolean isLastBeat = (i == chainNodeIds.size() - 1);
                 List<ResponseOption> responses;
@@ -216,8 +222,8 @@ public class TopicGraphBuilder {
                     ));
                 }
 
-                // Stat check response (persists from first appearance onwards)
-                if (statCheckApproved && i >= statCheckFirstBeat) {
+                // Stat check response (on exactly one beat)
+                if (statCheckApproved && i == statCheckBeat) {
                     Skill skill = assignment.skill();
                     Stat stat = skill.getStat();
                     responses.add(new ResponseOption(
