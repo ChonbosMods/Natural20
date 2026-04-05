@@ -136,7 +136,7 @@ public class TopicGraphBuilder {
             }
             beatsToShow = Math.min(beatsToShow, allBeats.size());
 
-            List<String> remainingBeats = allBeats.subList(0, beatsToShow);
+            List<String> remainingBeats = new ArrayList<>(allBeats.subList(0, beatsToShow));
 
             // 4. Determine stat check placement (uniform random among displayed beats)
             boolean statCheckApproved = entry.statCheck() != null
