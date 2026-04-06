@@ -68,58 +68,53 @@ public class CollectResourceTrackingSystem extends EntityEventSystem<EntityStore
         boolean dirty = false;
 
         for (QuestInstance quest : quests.values()) {
-            PhaseInstance phase = quest.getCurrentPhase();
-            if (phase == null) continue;
+            if (quest.getState() != QuestState.ACTIVE_OBJECTIVE) continue;
 
-            for (ObjectiveInstance obj : phase.getObjectives()) {
-                if (obj.getType() != ObjectiveType.COLLECT_RESOURCES) continue;
+            ObjectiveInstance obj = quest.getCurrentObjective();
+            if (obj == null || obj.getType() != ObjectiveType.COLLECT_RESOURCES) continue;
 
-                String targetItemId = obj.getTargetId();
-                if (targetItemId == null) continue;
+            String targetItemId = obj.getTargetId();
+            if (targetItemId == null) continue;
 
-                // Count ALL matching items in hotbar (not just changed slots)
-                int totalCount = 0;
-                short capacity = hotbar.getCapacity();
-                for (short slot = 0; slot < capacity; slot++) {
-                    ItemStack stack = hotbar.getItemStack(slot);
-                    if (stack == null || stack.isEmpty()) continue;
-                    if (targetItemId.equals(stack.getItemId())) {
-                        totalCount += stack.getQuantity();
-                    }
+            // Count ALL matching items in hotbar (not just changed slots)
+            int totalCount = 0;
+            short capacity = hotbar.getCapacity();
+            for (short slot = 0; slot < capacity; slot++) {
+                ItemStack stack = hotbar.getItemStack(slot);
+                if (stack == null || stack.isEmpty()) continue;
+                if (targetItemId.equals(stack.getItemId())) {
+                    totalCount += stack.getQuantity();
                 }
+            }
 
-                // Update objective progress
-                int oldCount = obj.getCurrentCount();
-                if (totalCount != oldCount) {
-                    obj.setCurrentCount(totalCount);
-                    dirty = true;
-                    LOGGER.atInfo().log("COLLECT_RESOURCES: quest %s tracking %s: %d -> %d (need %d)",
-                        quest.getQuestId(), targetItemId, oldCount, totalCount, obj.getRequiredCount());
-                }
+            // Update objective progress
+            int oldCount = obj.getCurrentCount();
+            if (totalCount != oldCount) {
+                obj.setCurrentCount(totalCount);
+                dirty = true;
+                LOGGER.atInfo().log("COLLECT_RESOURCES: quest %s tracking %s: %d -> %d (need %d)",
+                    quest.getQuestId(), targetItemId, oldCount, totalCount, obj.getRequiredCount());
+            }
 
-                // Check threshold transitions
-                boolean wasComplete = "true".equals(quest.getVariableBindings().get("phase_objectives_complete"));
-                boolean nowComplete = totalCount >= obj.getRequiredCount();
+            // Check threshold transitions
+            boolean wasReady = quest.getState() == QuestState.READY_FOR_TURN_IN;
+            boolean nowComplete = totalCount >= obj.getRequiredCount();
 
-                if (nowComplete && !wasComplete) {
-                    obj.markComplete();
-                    quest.getVariableBindings().put("phase_objectives_complete", "true");
-                    dirty = true;
-                    LOGGER.atInfo().log("COLLECT_RESOURCES: player %s reached %d/%d %s for quest %s",
-                        player.getPlayerRef().getUuid(), totalCount, obj.getRequiredCount(),
-                        targetItemId, quest.getQuestId());
-
-                    // Set QUEST_TURN_IN particle on source NPC
-                    setTurnInParticle(quest);
-                } else if (!nowComplete && wasComplete) {
-                    // Player dropped below threshold: un-complete
-                    obj.uncomplete();
-                    quest.getVariableBindings().remove("phase_objectives_complete");
-                    dirty = true;
-                    LOGGER.atInfo().log("COLLECT_RESOURCES: player %s dropped to %d/%d %s for quest %s",
-                        player.getPlayerRef().getUuid(), totalCount, obj.getRequiredCount(),
-                        targetItemId, quest.getQuestId());
-                }
+            if (nowComplete && !wasReady) {
+                obj.markComplete();
+                quest.setState(QuestState.READY_FOR_TURN_IN);
+                dirty = true;
+                LOGGER.atInfo().log("COLLECT_RESOURCES: player %s reached %d/%d %s for quest %s",
+                    player.getPlayerRef().getUuid(), totalCount, obj.getRequiredCount(),
+                    targetItemId, quest.getQuestId());
+                setTurnInParticle(quest);
+            } else if (!nowComplete && wasReady) {
+                obj.uncomplete();
+                quest.setState(QuestState.ACTIVE_OBJECTIVE);
+                dirty = true;
+                LOGGER.atInfo().log("COLLECT_RESOURCES: player %s dropped to %d/%d %s for quest %s",
+                    player.getPlayerRef().getUuid(), totalCount, obj.getRequiredCount(),
+                    targetItemId, quest.getQuestId());
             }
         }
 

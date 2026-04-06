@@ -65,44 +65,36 @@ public class FetchItemTrackingSystem extends EntityEventSystem<EntityStore, Inve
         ItemContainer changedContainer = event.getItemContainer();
 
         for (QuestInstance quest : quests.values()) {
-            // Skip quests that already have objectives complete (awaiting turn-in)
-            if ("true".equals(quest.getVariableBindings().get("phase_objectives_complete"))) continue;
+            if (quest.getState() != QuestState.ACTIVE_OBJECTIVE) continue;
 
             String fetchItemType = quest.getVariableBindings().get("fetch_item_type");
             if (fetchItemType == null) continue;
 
-            PhaseInstance phase = quest.getCurrentPhase();
-            if (phase == null) continue;
+            ObjectiveInstance obj = quest.getCurrentObjective();
+            if (obj == null || obj.getType() != ObjectiveType.FETCH_ITEM || obj.isComplete()) continue;
 
-            for (ObjectiveInstance obj : phase.getObjectives()) {
-                if (obj.getType() != ObjectiveType.FETCH_ITEM || obj.isComplete()) continue;
+            // Check if any modified slot now contains the quest item
+            short capacity = changedContainer.getCapacity();
+            for (short slot = 0; slot < capacity; slot++) {
+                if (!transaction.wasSlotModified(slot)) continue;
 
-                // Check if any modified slot now contains the quest item
-                short capacity = changedContainer.getCapacity();
-                for (short slot = 0; slot < capacity; slot++) {
-                    if (!transaction.wasSlotModified(slot)) continue;
+                ItemStack stack = changedContainer.getItemStack(slot);
+                if (stack == null || stack.isEmpty()) continue;
 
-                    ItemStack stack = changedContainer.getItemStack(slot);
-                    if (stack == null || stack.isEmpty()) continue;
+                if (fetchItemType.equals(stack.getItemId())) {
+                    obj.markComplete();
+                    quest.setState(QuestState.READY_FOR_TURN_IN);
 
-                    if (fetchItemType.equals(stack.getItemId())) {
-                        // Quest item found in inventory
-                        obj.markComplete();
-                        quest.getVariableBindings().put("phase_objectives_complete", "true");
+                    quests.put(quest.getQuestId(), quest);
+                    questSystem.getStateManager().saveActiveQuests(playerData, quests);
+                    QuestMarkerProvider.refreshMarkers(
+                        player.getPlayerRef().getUuid(), playerData);
 
-                        // Save and refresh markers
-                        quests.put(quest.getQuestId(), quest);
-                        questSystem.getStateManager().saveActiveQuests(playerData, quests);
-                        QuestMarkerProvider.refreshMarkers(
-                            player.getPlayerRef().getUuid(), playerData);
+                    setTurnInParticle(quest);
 
-                        // Set QUEST_TURN_IN particle on source NPC
-                        setTurnInParticle(quest);
-
-                        LOGGER.atInfo().log("FETCH_ITEM: player %s picked up %s for quest %s",
-                            player.getPlayerRef().getUuid(), fetchItemType, quest.getQuestId());
-                        return; // Done: one pickup per event
-                    }
+                    LOGGER.atInfo().log("FETCH_ITEM: player %s picked up %s for quest %s",
+                        player.getPlayerRef().getUuid(), fetchItemType, quest.getQuestId());
+                    return;
                 }
             }
         }

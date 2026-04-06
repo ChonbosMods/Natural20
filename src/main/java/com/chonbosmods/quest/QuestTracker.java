@@ -37,23 +37,21 @@ public class QuestTracker {
         boolean changed = false;
 
         for (QuestInstance quest : quests.values()) {
-            PhaseInstance phase = quest.getCurrentPhase();
-            if (phase == null) continue;
+            if (quest.getState() != QuestState.ACTIVE_OBJECTIVE) continue;
 
-            for (ObjectiveInstance obj : phase.getObjectives()) {
-                if (obj.isComplete()) continue;
-                if (obj.getType() != type) continue;
-                if (!matchesTarget(obj, targetId)) continue;
+            ObjectiveInstance obj = quest.getCurrentObjective();
+            if (obj == null || obj.isComplete()) continue;
+            if (obj.getType() != type) continue;
+            if (!matchesTarget(obj, targetId)) continue;
 
-                obj.incrementProgress(amount);
-                changed = true;
+            obj.incrementProgress(amount);
+            changed = true;
 
-                LOGGER.atInfo().log("Quest %s: objective %s progress %d/%d",
-                    quest.getQuestId(), obj.getType(), obj.getCurrentCount(), obj.getRequiredCount());
-            }
+            LOGGER.atInfo().log("Quest %s: objective %s progress %d/%d",
+                quest.getQuestId(), obj.getType(), obj.getCurrentCount(), obj.getRequiredCount());
 
-            if (phase.isComplete()) {
-                onPhaseComplete(playerRef, store, playerData, quest);
+            if (obj.isComplete()) {
+                onObjectiveComplete(playerRef, store, playerData, quest);
             }
         }
 
@@ -67,20 +65,17 @@ public class QuestTracker {
         reportProgress(playerRef, store, type, targetId, 1);
     }
 
-    private void onPhaseComplete(Ref<EntityStore> playerRef, Store<EntityStore> store,
+    private void onObjectiveComplete(Ref<EntityStore> playerRef, Store<EntityStore> store,
                                   Nat20PlayerData playerData, QuestInstance quest) {
-        // Set flag instead of advancing: player must return to NPC for turn-in
-        quest.getVariableBindings().put("phase_objectives_complete", "true");
-        LOGGER.atInfo().log("Quest %s phase %d objectives complete: awaiting turn-in",
-            quest.getQuestId(), quest.getCurrentPhaseIndex());
+        quest.setState(QuestState.READY_FOR_TURN_IN);
+        LOGGER.atInfo().log("Quest %s objective complete (conflict %d): awaiting turn-in",
+            quest.getQuestId(), quest.getConflictCount());
 
-        // Refresh markers: swaps POI marker → return marker at settlement
         UUID playerUuid = store.getComponent(playerRef,
             com.hypixel.hytale.server.core.entity.entities.Player.getComponentType())
             .getPlayerRef().getUuid();
         QuestMarkerProvider.refreshMarkers(playerUuid, playerData);
 
-        // Set QUEST_TURN_IN particle on the source NPC
         setTurnInParticle(quest, store);
     }
 

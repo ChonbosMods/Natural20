@@ -136,41 +136,33 @@ public class POIKillTrackingSystem extends DamageEventSystem {
             }
 
             // Normal kill: credit progress
-            PhaseInstance phase = quest.getCurrentPhase();
-            if (phase == null) continue;
+            ObjectiveInstance obj = quest.getCurrentObjective();
+            if (obj == null || obj.isComplete()) continue;
+            if (obj.getLocationId() == null || !obj.getLocationId().startsWith("poi:")) continue;
+            if (obj.getType() != ObjectiveType.KILL_MOBS) continue;
 
-            for (ObjectiveInstance obj : phase.getObjectives()) {
-                if (obj.isComplete()) continue;
-                if (obj.getLocationId() == null || !obj.getLocationId().startsWith("poi:")) continue;
-                if (obj.getType() != ObjectiveType.KILL_MOBS) continue;
+            obj.incrementProgress(1);
+            LOGGER.atInfo().log("POI kill tracked: quest=%s victim=%s progress=%d/%d",
+                quest.getQuestId(), victimUUID, obj.getCurrentCount(), obj.getRequiredCount());
 
-                obj.incrementProgress(1);
-                LOGGER.atInfo().log("POI kill tracked: quest=%s victim=%s progress=%d/%d",
-                    quest.getQuestId(), victimUUID, obj.getCurrentCount(), obj.getRequiredCount());
+            if (obj.isComplete()) {
+                LOGGER.atInfo().log("SUCCESS: POI kill objective complete for quest %s (%d/%d kills)",
+                    quest.getQuestId(), obj.getCurrentCount(), obj.getRequiredCount());
 
-                if (obj.isComplete()) {
-                    LOGGER.atInfo().log("SUCCESS: POI kill objective complete for quest %s (%d/%d kills)",
-                        quest.getQuestId(), obj.getCurrentCount(), obj.getRequiredCount());
+                quest.setState(QuestState.READY_FOR_TURN_IN);
+                LOGGER.atInfo().log("Quest %s objective complete via POI kill (conflict %d): awaiting turn-in",
+                    quest.getQuestId(), quest.getConflictCount());
+                stateManager.saveActiveQuests(playerData, quests);
+
+                // Refresh markers: swaps POI marker -> return marker at settlement
+                Player player = store.getComponent(playerRef, Player.getComponentType());
+                if (player != null) {
+                    QuestMarkerProvider.refreshMarkers(player.getPlayerRef().getUuid(), playerData);
                 }
-
-                // Save and check phase completion
-                if (phase.isComplete()) {
-                    // Set flag instead of advancing: player must return to NPC for turn-in
-                    b.put("phase_objectives_complete", "true");
-                    LOGGER.atInfo().log("Quest %s phase %d objectives complete via POI kill: awaiting turn-in",
-                        quest.getQuestId(), quest.getCurrentPhaseIndex());
-                    stateManager.saveActiveQuests(playerData, quests);
-
-                    // Refresh markers: swaps POI marker -> return marker at settlement
-                    Player player = store.getComponent(playerRef, Player.getComponentType());
-                    if (player != null) {
-                        QuestMarkerProvider.refreshMarkers(player.getPlayerRef().getUuid(), playerData);
-                    }
-                } else {
-                    stateManager.saveActiveQuests(playerData, quests);
-                }
-                return true;
+            } else {
+                stateManager.saveActiveQuests(playerData, quests);
             }
+            return true;
         }
         return false;
     }
