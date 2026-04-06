@@ -116,12 +116,15 @@ public class DialogueManager {
         // Inject talk-to-NPC topics for any quests targeting this NPC
         injectTalkToNpcTopics(graph, npcId, playerData);
 
-        // Clear exhaustion for all quest topics so declined quests reappear fresh.
-        // Quest topics are re-injected each session, so any prior HIDDEN/GRAYED
-        // state from a previous decline should not persist.
+        // Clear exhaustion for quest topics that should reappear fresh.
+        // Only clear for the original quest hook topic if the NPC still has a quest to give.
+        // Injected topics (turnin_, talknpc_) are always cleared since they're rebuilt each session.
+        boolean npcHasQuest = hasPreGeneratedQuest(npcData);
         for (TopicDefinition topic : graph.topics()) {
-            if (topic.questTopic()) {
-                playerData.removeTopicExhaustion(npcId, topic.id());
+            if (!topic.questTopic()) continue;
+            String tid = topic.id();
+            if (tid.startsWith("turnin_") || tid.startsWith("talknpc_") || npcHasQuest) {
+                playerData.removeTopicExhaustion(npcId, tid);
             }
         }
 
@@ -246,6 +249,16 @@ public class DialogueManager {
      * Uses the current settlement registry so {other_settlement} etc. resolve to real data
      * even if the NPC's settlement was the first created.
      */
+    private static boolean hasPreGeneratedQuest(Nat20NpcData npcData) {
+        if (npcData == null || npcData.getSettlementCellKey() == null) return false;
+        var registry = Natural20.getInstance().getSettlementRegistry();
+        if (registry == null) return false;
+        var settlement = registry.getByCell(npcData.getSettlementCellKey());
+        if (settlement == null) return false;
+        var npcRecord = settlement.getNpcByName(npcData.getGeneratedName());
+        return npcRecord != null && npcRecord.getPreGeneratedQuest() != null;
+    }
+
     private Map<String, String> buildLateBindings(Nat20NpcData npcData) {
         Map<String, String> bindings = new HashMap<>();
         var registry = Natural20.getInstance().getSettlementRegistry();

@@ -28,7 +28,7 @@
         "FrameIndex": { "Min": 0, "Max": 0 },
         "Opacity": 1,
         "Scale": { "X": { "Min": 4, "Max": 4 } },
-        "Color": "#47bb52",
+        "Color": "#4a9ef5",
         "Rotation": { "Z": { "Min": 0, "Max": 0 } }
       },
       "5": {
@@ -41,19 +41,19 @@
       "85": {
         "Opacity": 1,
         "Scale": { "X": { "Min": 4, "Max": 4 } },
-        "Color": "#5bef6b"
+        "Color": "#3b8de0"
       },
       "100": {
         "Opacity": 0,
         "Scale": { "X": { "Min": 4, "Max": 4 } },
-        "Color": "#6bff7b"
+        "Color": "#2a7cd4"
       }
     },
     "InitialAnimationFrame": {
       "Rotation": { "Z": { "Min": -8, "Max": 8 } },
       "Scale": { "X": { "Min": 0.1, "Max": 0.1 } },
       "Opacity": 1,
-      "Color": "#47bb52",
+      "Color": "#4a9ef5",
       "FrameIndex": { "Min": 0, "Max": 0 }
     }
   },

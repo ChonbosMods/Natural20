@@ -94,7 +94,7 @@ public class QuestMarkerManager {
 
             Ref<EntityStore> npcRef = world.getEntityRef(npcUuid);
             if (npcRef == null) {
-                it.remove();
+                // NPC entity not loaded (chunk unloaded): skip this tick but keep the marker
                 continue;
             }
 
