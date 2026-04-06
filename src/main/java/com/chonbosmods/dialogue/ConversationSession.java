@@ -860,6 +860,7 @@ public class ConversationSession {
     public Player getPlayer() { return player; }
     public Ref<EntityStore> getPlayerRef() { return playerRef; }
     public Ref<EntityStore> getNpcRef() { return npcRef; }
+    public Nat20PlayerData getPlayerData() { return playerData; }
     public int getDisposition() { return disposition; }
     public boolean isTopicsLocked() { return topicsLocked; }
     public List<LogEntry> getConversationLog() { return Collections.unmodifiableList(conversationLog); }

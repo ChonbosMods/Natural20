@@ -218,6 +218,8 @@ public class DialogueManager {
             session.endDialogue();
         }
         if (session != null) {
+            // Activate any pending quest objectives now that the dialogue session is over
+            activatePendingObjectives(session.getPlayerData());
             LOGGER.atFine().log("Ended dialogue session for player %s", playerUuid);
         }
     }
@@ -246,6 +248,28 @@ public class DialogueManager {
      * Uses the current settlement registry so {other_settlement} etc. resolve to real data
      * even if the NPC's settlement was the first created.
      */
+    /**
+     * Flip any OBJECTIVE_PENDING quests to ACTIVE_OBJECTIVE now that the dialogue session ended.
+     * This prevents tracking systems from auto-completing objectives while the player is still
+     * in the dialogue that assigned them.
+     */
+    private void activatePendingObjectives(Nat20PlayerData playerData) {
+        QuestSystem questSystem = Natural20.getInstance().getQuestSystem();
+        if (questSystem == null || playerData == null) return;
+
+        Map<String, QuestInstance> quests = questSystem.getStateManager().getActiveQuests(playerData);
+        boolean changed = false;
+        for (QuestInstance quest : quests.values()) {
+            if (quest.getState() == com.chonbosmods.quest.QuestState.OBJECTIVE_PENDING) {
+                quest.setState(com.chonbosmods.quest.QuestState.ACTIVE_OBJECTIVE);
+                changed = true;
+            }
+        }
+        if (changed) {
+            questSystem.getStateManager().saveActiveQuests(playerData, quests);
+        }
+    }
+
     private static boolean hasPreGeneratedQuest(Nat20NpcData npcData) {
         if (npcData == null || npcData.getSettlementCellKey() == null) return false;
         var registry = Natural20.getInstance().getSettlementRegistry();

@@ -169,7 +169,7 @@ public class DialogueActionRegistry {
             }
 
             // Set state BEFORE saving so it persists correctly
-            quest.setState(com.chonbosmods.quest.QuestState.ACTIVE_OBJECTIVE);
+            quest.setState(com.chonbosmods.quest.QuestState.OBJECTIVE_PENDING);
 
             // Add quest to player's active quests
             questSystem.getStateManager().addQuest(ctx.playerData(), quest);
@@ -265,7 +265,7 @@ public class DialogueActionRegistry {
             // Deterministic: conflict count was decided at generation time
             if (quest.hasMoreConflicts()) {
                 quest.incrementConflictCount();
-                quest.setState(com.chonbosmods.quest.QuestState.ACTIVE_OBJECTIVE);
+                quest.setState(com.chonbosmods.quest.QuestState.OBJECTIVE_PENDING);
 
                 // Resolve POI for new objective if needed
                 ObjectiveInstance newObj = quest.getCurrentObjective();
