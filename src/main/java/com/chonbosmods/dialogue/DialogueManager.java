@@ -117,11 +117,10 @@ public class DialogueManager {
         // Clear exhaustion for quest topics that should reappear fresh.
         // Only clear for the original quest hook topic if the NPC still has a quest to give.
         // Clear exhaustion for all injected quest topics (rebuilt fresh each session).
-        // v2 quest topics use "quest_" prefix, talk-to-NPC uses "talknpc_" prefix.
         for (TopicDefinition topic : graph.topics()) {
             if (!topic.questTopic()) continue;
             String tid = topic.id();
-            if (tid.startsWith("quest_") || tid.startsWith("talknpc_")) {
+            if (tid.startsWith("questoffer_") || tid.startsWith("questturnin_") || tid.startsWith("talknpc_")) {
                 playerData.removeTopicExhaustion(npcId, tid);
             }
         }
@@ -331,11 +330,10 @@ public class DialogueManager {
         String declineText = DialogueResolver.resolve(
             b.getOrDefault("quest_decline_text", "I understand. Perhaps another time."), b);
 
-        String topicId = "quest_" + questId;
+        String topicId = "questoffer_" + questId;
         String entryNodeId = topicId + "_expo";
         String acceptNodeId = topicId + "_accept";
         String declineNodeId = topicId + "_decline";
-        String giveQuestNodeId = topicId + "_give";
 
         // Accept node: shows accept text, fires GIVE_QUEST, exhausts topic (no continue button)
         graph.nodes().put(acceptNodeId, new DialogueNode.DialogueTextNode(
@@ -415,9 +413,9 @@ public class DialogueManager {
             String topicHeader = DialogueResolver.resolve(
                 b.getOrDefault("quest_topic_header", quest.getSituationId()), b);
 
-            String topicId = "quest_" + questId;
-            String entryNodeId = topicId + "_turnin";
-            String actionNodeId = topicId + "_turnin_action";
+            String topicId = "questturnin_" + questId;
+            String entryNodeId = topicId + "_entry";
+            String actionNodeId = topicId + "_action";
             String conflictNodeId = topicId + "_conflict";
             String resolutionNodeId = topicId + "_resolution";
 
