@@ -144,8 +144,15 @@ public class DialogueActionRegistry {
             questSystem.getStateManager().addQuest(ctx.playerData(), quest);
             ctx.dispositionUpdater().accept(QuestDispositionConstants.QUEST_ACCEPTED);
 
-            // Trigger POI placement if applicable
-            if ("true".equals(quest.getVariableBindings().get("poi_available"))) {
+            // Trigger POI placement only for objectives that need a hostile location
+            PhaseInstance firstPhase = quest.getCurrentPhase();
+            ObjectiveType firstObjType = (firstPhase != null && !firstPhase.getObjectives().isEmpty())
+                ? firstPhase.getObjectives().getFirst().getType() : null;
+            boolean needsPoi = firstObjType == ObjectiveType.KILL_MOBS
+                || (firstObjType == ObjectiveType.FETCH_ITEM
+                    && "hostile".equals(quest.getVariableBindings().get("fetch_variant")));
+
+            if (needsPoi && "true".equals(quest.getVariableBindings().get("poi_available"))) {
                 String popSpec = quest.getVariableBindings().get("poi_population_spec");
                 String mobRole = null;
                 int mobCount = 0;
@@ -158,6 +165,11 @@ public class DialogueActionRegistry {
                     }
                 }
                 triggerPOIPlacement(quest, ctx.store(), ctx.playerRef(), mobRole, mobCount);
+            } else if (!needsPoi) {
+                // Clear POI flag for non-hostile objectives so markers work correctly
+                quest.getVariableBindings().put("poi_available", "false");
+                quest.getVariableBindings().remove("marker_offset_x");
+                quest.getVariableBindings().remove("marker_offset_z");
             }
 
             String questLabel = quest.getVariableBindings().getOrDefault("quest_objective_summary",
