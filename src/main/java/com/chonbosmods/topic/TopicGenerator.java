@@ -140,22 +140,31 @@ public class TopicGenerator {
         int minQuests = Math.max(MIN_QUEST_FLOOR, (int) Math.floor(npcCount * MIN_QUEST_RATIO));
         int maxQuests = Math.max(MAX_QUEST_FLOOR, (int) Math.floor(npcCount * MAX_QUEST_RATIO));
 
+        // Select quest candidates, ensuring 1 per NPC (duplicates don't count toward quota)
+        Set<String> assignedNpcs = new HashSet<>();
         List<Integer> questCandidates = new ArrayList<>();
         for (int i = 0; i < allSubjects.size(); i++) {
-            if (random.nextDouble() < QUEST_CHANCE_PER_SUBJECT) {
+            String owner = subjectOwners.get(i);
+            if (random.nextDouble() < QUEST_CHANCE_PER_SUBJECT && !assignedNpcs.contains(owner)) {
                 questCandidates.add(i);
+                assignedNpcs.add(owner);
             }
         }
 
         while (questCandidates.size() < minQuests && questCandidates.size() < allSubjects.size()) {
             int qi = random.nextInt(allSubjects.size());
-            if (!questCandidates.contains(qi)) {
+            String owner = subjectOwners.get(qi);
+            if (!questCandidates.contains(qi) && !assignedNpcs.contains(owner)) {
                 questCandidates.add(qi);
+                assignedNpcs.add(owner);
             }
         }
 
         while (questCandidates.size() > maxQuests) {
-            questCandidates.remove(random.nextInt(questCandidates.size()));
+            int removeIdx = random.nextInt(questCandidates.size());
+            String removed = subjectOwners.get(questCandidates.get(removeIdx));
+            questCandidates.remove(removeIdx);
+            assignedNpcs.remove(removed);
         }
 
         // Quest subjects must use quest-eligible values: swap out non-eligible entries
@@ -175,7 +184,7 @@ public class TopicGenerator {
             }
         }
 
-        // Generate quests: bearer is the NPC who owns the subject
+        // Generate quests: bearer is the NPC who owns the subject (1 quest per NPC max)
         for (int qi : questCandidates) {
             SubjectFocus focus = allSubjects.get(qi);
             String bearer = subjectOwners.get(qi);
