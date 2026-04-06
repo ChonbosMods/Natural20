@@ -666,7 +666,7 @@ def compute_stats(settlements):
 # ===========================================================================
 
 def main():
-    num_settlements = 20
+    num_settlements = int(sys.argv[1]) if len(sys.argv) > 1 else 20
     print(f"Loaded {len(data.v3_pools)} v3 pools, "
           f"{sum(len(p) for p in data.v3_pools.values())} entries, "
           f"{len(data.templates)} templates", file=sys.stderr)
@@ -681,7 +681,7 @@ def main():
               file=sys.stderr)
 
     out = []
-    out.append("# V3 Dialogue Dry-Run: 20 Settlements")
+    out.append(f"# V3 Dialogue Dry-Run: {num_settlements} Settlements")
     out.append(f"**Beat selection: 65% 2-beat / 30% 3-beat / 5% 4-beat**")
     out.append(f"**Stat check: 60% inclusion, uniform random placement**")
     out.append("")
@@ -690,7 +690,7 @@ def main():
     for s in settlements:
         out.append(format_settlement(s))
 
-    output_path = BASE / "devserver" / "dry_run_v3_20_settlements.md"
+    output_path = BASE / "devserver" / f"dry_run_v3_{num_settlements}_settlements.md"
     output_path.write_text("\n".join(out))
     print(f"\nOutput written to {output_path}", file=sys.stderr)
 
