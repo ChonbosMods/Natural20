@@ -116,11 +116,9 @@ public class ReferenceManager {
     public void cleanupQuestReferences(Nat20PlayerData playerData, QuestInstance quest) {
         Map<String, ReferenceState> refs = stateManager.getActiveReferences(playerData);
         boolean changed = false;
-        for (PhaseInstance phase : quest.getPhases()) {
-            if (phase.getReferenceId() != null && refs.remove(phase.getReferenceId()) != null) {
-                changed = true;
-            }
-        }
+        // v2: no per-phase references; clean up any quest-level references
+        String refKey = "ref_" + quest.getQuestId();
+        if (refs.remove(refKey) != null) changed = true;
         if (changed) {
             stateManager.saveActiveReferences(playerData, refs);
         }

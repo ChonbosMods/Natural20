@@ -35,13 +35,7 @@ public class QuestRewardManager {
     }
 
     public boolean shouldGiveMidChainReward(QuestInstance quest) {
-        if (quest.getPhases().size() <= 4) return false;
-        int midpoint = quest.getPhases().size() / 2;
-        int current = quest.getCurrentPhaseIndex();
-        PhaseInstance phase = quest.getCurrentPhase();
-        return current == midpoint
-            && phase != null
-            && phase.getType() == PhaseType.RESOLUTION
-            && !quest.hasClaimedReward(current);
+        // v2: reward scaling is based on conflictCount, handled in TURN_IN_V2
+        return false;
     }
 }

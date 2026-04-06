@@ -1,0 +1,26 @@
+{
+  "situation": "LossOfLovedOnes",
+  "topicHeader": "A Missing Loved One",
+  "expositionText": "My {quest_focus} has been missing for days now. I fear the worst. The last anyone saw, they were heading {location_hint}.",
+  "acceptText": "Thank you. Please, collect {gather_count} {quest_item} from the area. It may help us track where they went.",
+  "declineText": "I... I understand. Not everyone can help. I'll keep searching alone.",
+  "skillcheckTypes": ["WIS", "INT"],
+  "skillcheckPassText": "You notice signs of a struggle near the settlement. This won't be a simple search.",
+  "skillcheckFailText": "You look around but nothing stands out. Still, you can help.",
+  "expositionTurnInText": "You found these? Then they were definitely out there. But something feels wrong.",
+  "conflict1Text": "I've heard rumors of {enemy_type_plural} lurking {location_hint}. Kill {gather_count} of them. They may have something to do with this.",
+  "conflict1TurnInText": "Those creatures... they were guarding something. I knew it.",
+  "conflict2Text": "There's one more thing. Speak with {target_npc}. They saw something the night my {quest_focus} disappeared.",
+  "conflict2TurnInText": "So that's what happened. At least now we know the truth.",
+  "resolutionText": "I can finally grieve properly. Or perhaps... hope. You've done more than I could have asked. Thank you, truly.",
+  "objectives": [
+    { "type": "COLLECT_RESOURCES" },
+    { "type": "KILL_MOBS", "countMin": 2, "countMax": 4 },
+    { "type": "TALK_TO_NPC" }
+  ],
+  "npcWeights": {
+    "civilian": 2.0,
+    "merchant": 1.0,
+    "guard": 0.5
+  }
+}

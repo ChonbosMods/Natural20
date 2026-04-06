@@ -217,13 +217,10 @@ public class POIProximitySystem {
     }
 
     private int getKillProgress(QuestInstance quest) {
-        PhaseInstance phase = quest.getCurrentPhase();
-        if (phase == null) return 0;
-        for (ObjectiveInstance obj : phase.getObjectives()) {
-            if (obj.getType() == ObjectiveType.KILL_MOBS
-                    && obj.getLocationId() != null && obj.getLocationId().startsWith("poi:")) {
-                return obj.getCurrentCount();
-            }
+        ObjectiveInstance obj = quest.getCurrentObjective();
+        if (obj != null && obj.getType() == ObjectiveType.KILL_MOBS
+                && obj.getLocationId() != null && obj.getLocationId().startsWith("poi:")) {
+            return obj.getCurrentCount();
         }
         return 0;
     }
