@@ -433,8 +433,8 @@ public class DialogueManager {
 
             // TURN_IN_V2 action: the action handler decides conflict vs resolution
             graph.nodes().put(actionNodeId, new DialogueNode.ActionNode(
-                List.of(Map.of("type", "TURN_IN_V2", "questId", questId,
-                    "conflictNode", conflictNodeId, "resolutionNode", resolutionNodeId)),
+                List.of(new HashMap<>(Map.of("type", "TURN_IN_V2", "questId", questId,
+                    "conflictNode", conflictNodeId, "resolutionNode", resolutionNodeId))),
                 resolutionNodeId, // default next (action may override via params)
                 List.of(), true
             ));
