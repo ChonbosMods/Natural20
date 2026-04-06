@@ -15,6 +15,12 @@ import com.hypixel.hytale.server.core.inventory.container.ItemContainer;
 import com.hypixel.hytale.server.core.inventory.transaction.Transaction;
 import com.hypixel.hytale.server.core.universe.world.storage.EntityStore;
 
+import com.chonbosmods.data.Nat20NpcData;
+import com.chonbosmods.marker.QuestMarkerManager;
+import com.chonbosmods.settlement.NpcRecord;
+import com.chonbosmods.settlement.SettlementRecord;
+import com.chonbosmods.settlement.SettlementRegistry;
+
 import java.util.Map;
 
 /**
@@ -56,6 +62,8 @@ public class CollectResourceTrackingSystem extends EntityEventSystem<EntityStore
         if (questSystem == null) return;
 
         Map<String, QuestInstance> quests = questSystem.getStateManager().getActiveQuests(playerData);
+        if (quests.isEmpty()) return;
+
         ItemContainer hotbar = event.getItemContainer();
         boolean dirty = false;
 
@@ -74,7 +82,8 @@ public class CollectResourceTrackingSystem extends EntityEventSystem<EntityStore
                 short capacity = hotbar.getCapacity();
                 for (short slot = 0; slot < capacity; slot++) {
                     ItemStack stack = hotbar.getItemStack(slot);
-                    if (stack != null && !stack.isEmpty() && targetItemId.equals(stack.getItemId())) {
+                    if (stack == null || stack.isEmpty()) continue;
+                    if (targetItemId.equals(stack.getItemId())) {
                         totalCount += stack.getQuantity();
                     }
                 }
@@ -84,6 +93,8 @@ public class CollectResourceTrackingSystem extends EntityEventSystem<EntityStore
                 if (totalCount != oldCount) {
                     obj.setCurrentCount(totalCount);
                     dirty = true;
+                    LOGGER.atInfo().log("COLLECT_RESOURCES: quest %s tracking %s: %d -> %d (need %d)",
+                        quest.getQuestId(), targetItemId, oldCount, totalCount, obj.getRequiredCount());
                 }
 
                 // Check threshold transitions
@@ -97,6 +108,9 @@ public class CollectResourceTrackingSystem extends EntityEventSystem<EntityStore
                     LOGGER.atInfo().log("COLLECT_RESOURCES: player %s reached %d/%d %s for quest %s",
                         player.getPlayerRef().getUuid(), totalCount, obj.getRequiredCount(),
                         targetItemId, quest.getQuestId());
+
+                    // Set QUEST_TURN_IN particle on source NPC
+                    setTurnInParticle(quest);
                 } else if (!nowComplete && wasComplete) {
                     // Player dropped below threshold: un-complete
                     obj.uncomplete();
@@ -113,5 +127,16 @@ public class CollectResourceTrackingSystem extends EntityEventSystem<EntityStore
             questSystem.getStateManager().saveActiveQuests(playerData, quests);
             QuestMarkerProvider.refreshMarkers(player.getPlayerRef().getUuid(), playerData);
         }
+    }
+
+    private static void setTurnInParticle(QuestInstance quest) {
+        SettlementRegistry settlements = Natural20.getInstance().getSettlementRegistry();
+        if (settlements == null || quest.getSourceSettlementId() == null) return;
+        SettlementRecord settlement = settlements.getByCell(quest.getSourceSettlementId());
+        if (settlement == null) return;
+        NpcRecord npcRecord = settlement.getNpcByName(quest.getSourceNpcId());
+        if (npcRecord == null || npcRecord.getEntityUUID() == null) return;
+        QuestMarkerManager.INSTANCE.syncMarker(
+            npcRecord.getEntityUUID(), Nat20NpcData.QuestMarkerState.QUEST_TURN_IN);
     }
 }

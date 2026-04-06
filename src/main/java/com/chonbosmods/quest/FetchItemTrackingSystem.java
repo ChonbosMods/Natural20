@@ -15,6 +15,12 @@ import com.hypixel.hytale.server.core.inventory.container.ItemContainer;
 import com.hypixel.hytale.server.core.inventory.transaction.Transaction;
 import com.hypixel.hytale.server.core.universe.world.storage.EntityStore;
 
+import com.chonbosmods.data.Nat20NpcData;
+import com.chonbosmods.marker.QuestMarkerManager;
+import com.chonbosmods.settlement.NpcRecord;
+import com.chonbosmods.settlement.SettlementRecord;
+import com.chonbosmods.settlement.SettlementRegistry;
+
 import java.util.Map;
 
 /**
@@ -90,6 +96,9 @@ public class FetchItemTrackingSystem extends EntityEventSystem<EntityStore, Inve
                         QuestMarkerProvider.refreshMarkers(
                             player.getPlayerRef().getUuid(), playerData);
 
+                        // Set QUEST_TURN_IN particle on source NPC
+                        setTurnInParticle(quest);
+
                         LOGGER.atInfo().log("FETCH_ITEM: player %s picked up %s for quest %s",
                             player.getPlayerRef().getUuid(), fetchItemType, quest.getQuestId());
                         return; // Done: one pickup per event
@@ -97,5 +106,16 @@ public class FetchItemTrackingSystem extends EntityEventSystem<EntityStore, Inve
                 }
             }
         }
+    }
+
+    private static void setTurnInParticle(QuestInstance quest) {
+        SettlementRegistry settlements = Natural20.getInstance().getSettlementRegistry();
+        if (settlements == null || quest.getSourceSettlementId() == null) return;
+        SettlementRecord settlement = settlements.getByCell(quest.getSourceSettlementId());
+        if (settlement == null) return;
+        NpcRecord npcRecord = settlement.getNpcByName(quest.getSourceNpcId());
+        if (npcRecord == null || npcRecord.getEntityUUID() == null) return;
+        QuestMarkerManager.INSTANCE.syncMarker(
+            npcRecord.getEntityUUID(), Nat20NpcData.QuestMarkerState.QUEST_TURN_IN);
     }
 }
