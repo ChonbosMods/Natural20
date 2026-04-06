@@ -281,7 +281,9 @@ public class TopicGenerator {
         TopicTemplate template = templateRegistry.randomTemplateForSubject(
             focus.getCategories(), focus.isConcrete(), random);
 
-        boolean isQuestBearer = focus.hasQuest();
+        // v2: quest topics are injected by DialogueManager.injectQuestAvailableTopics,
+        // not baked into the dialogue graph. Treat quest bearers as normal topics.
+        boolean isQuestBearer = false;
 
         // Draw coherent entry from template's pool
         List<PoolEntry> pool = topicPool.getCoherentPool(template.id());
