@@ -507,32 +507,30 @@ public class DialogueActionRegistry {
     }
 
     /**
-     * Remove up to 'count' items of the given type from the player's hotbar.
+     * Remove up to 'count' items of the given type from the player's inventory.
      * Returns the number actually removed.
      */
     @SuppressWarnings("unchecked")
     private static int consumeResources(ActionContext ctx, String itemTypeId, int requiredCount) {
         try {
-            CombinedItemContainer hotbar = InventoryComponent.getCombined(
+            CombinedItemContainer inventory = InventoryComponent.getCombined(
                     ctx.store(), ctx.playerRef(),
-                    new ComponentType[]{InventoryComponent.Hotbar.getComponentType()});
-            if (hotbar == null) return 0;
-            short capacity = hotbar.getCapacity();
+                    InventoryComponent.ARMOR_HOTBAR_UTILITY_STORAGE);
+            if (inventory == null) return 0;
+            short capacity = inventory.getCapacity();
             int remaining = requiredCount;
 
             for (short slot = 0; slot < capacity && remaining > 0; slot++) {
-                ItemStack stack = hotbar.getItemStack(slot);
+                ItemStack stack = inventory.getItemStack(slot);
                 if (stack == null || stack.isEmpty()) continue;
                 if (!itemTypeId.equals(stack.getItemId())) continue;
 
                 int qty = stack.getQuantity();
                 if (qty <= remaining) {
-                    // Take entire stack
-                    hotbar.setItemStackForSlot(slot, null);
+                    inventory.setItemStackForSlot(slot, null);
                     remaining -= qty;
                 } else {
-                    // Take partial stack: leave the remainder
-                    hotbar.setItemStackForSlot(slot, new ItemStack(itemTypeId, qty - remaining));
+                    inventory.setItemStackForSlot(slot, new ItemStack(itemTypeId, qty - remaining));
                     remaining = 0;
                 }
             }
@@ -547,15 +545,15 @@ public class DialogueActionRegistry {
     @SuppressWarnings("unchecked")
     private static boolean consumeFetchItem(ActionContext ctx, String itemTypeId) {
         try {
-            CombinedItemContainer hotbar = InventoryComponent.getCombined(
+            CombinedItemContainer inventory = InventoryComponent.getCombined(
                     ctx.store(), ctx.playerRef(),
-                    new ComponentType[]{InventoryComponent.Hotbar.getComponentType()});
-            if (hotbar == null) return false;
-            short capacity = hotbar.getCapacity();
+                    InventoryComponent.ARMOR_HOTBAR_UTILITY_STORAGE);
+            if (inventory == null) return false;
+            short capacity = inventory.getCapacity();
             for (short slot = 0; slot < capacity; slot++) {
-                ItemStack stack = hotbar.getItemStack(slot);
+                ItemStack stack = inventory.getItemStack(slot);
                 if (stack != null && !stack.isEmpty() && itemTypeId.equals(stack.getItemId())) {
-                    hotbar.setItemStackForSlot(slot, null);
+                    inventory.setItemStackForSlot(slot, null);
                     return true;
                 }
             }

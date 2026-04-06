@@ -11,6 +11,7 @@ import com.hypixel.hytale.server.core.entity.entities.Player;
 import com.hypixel.hytale.server.core.inventory.InventoryChangeEvent;
 import com.hypixel.hytale.server.core.inventory.InventoryComponent;
 import com.hypixel.hytale.server.core.inventory.ItemStack;
+import com.hypixel.hytale.server.core.inventory.container.CombinedItemContainer;
 import com.hypixel.hytale.server.core.inventory.container.ItemContainer;
 import com.hypixel.hytale.server.core.inventory.transaction.Transaction;
 import com.hypixel.hytale.server.core.universe.world.storage.EntityStore;
@@ -52,8 +53,8 @@ public class CollectResourceTrackingSystem extends EntityEventSystem<EntityStore
         Transaction transaction = event.getTransaction();
         if (!transaction.succeeded()) return;
 
-        // Only process hotbar changes
-        if (event.getComponentType() != InventoryComponent.Hotbar.getComponentType()) return;
+        // Skip armor changes (not relevant for quest items)
+        if (event.getComponentType() == InventoryComponent.Armor.getComponentType()) return;
 
         Nat20PlayerData playerData = store.getComponent(ref, Natural20.getPlayerDataType());
         if (playerData == null) return;
@@ -64,11 +65,15 @@ public class CollectResourceTrackingSystem extends EntityEventSystem<EntityStore
         Map<String, QuestInstance> quests = questSystem.getStateManager().getActiveQuests(playerData);
         if (quests.isEmpty()) return;
 
-        ItemContainer hotbar = event.getItemContainer();
+        // Count across ALL inventory components (hotbar + backpack + utility)
+        @SuppressWarnings("unchecked")
+        CombinedItemContainer allInventory = InventoryComponent.getCombined(
+            store, ref, InventoryComponent.ARMOR_HOTBAR_UTILITY_STORAGE);
         boolean dirty = false;
 
         for (QuestInstance quest : quests.values()) {
-            if (quest.getState() != QuestState.ACTIVE_OBJECTIVE) continue;
+            QuestState state = quest.getState();
+            if (state != QuestState.ACTIVE_OBJECTIVE && state != QuestState.READY_FOR_TURN_IN) continue;
 
             ObjectiveInstance obj = quest.getCurrentObjective();
             if (obj == null || obj.getType() != ObjectiveType.COLLECT_RESOURCES) continue;
@@ -76,14 +81,16 @@ public class CollectResourceTrackingSystem extends EntityEventSystem<EntityStore
             String targetItemId = obj.getTargetId();
             if (targetItemId == null) continue;
 
-            // Count ALL matching items in hotbar (not just changed slots)
+            // Count ALL matching items across full inventory
             int totalCount = 0;
-            short capacity = hotbar.getCapacity();
-            for (short slot = 0; slot < capacity; slot++) {
-                ItemStack stack = hotbar.getItemStack(slot);
-                if (stack == null || stack.isEmpty()) continue;
-                if (targetItemId.equals(stack.getItemId())) {
-                    totalCount += stack.getQuantity();
+            if (allInventory != null) {
+                short capacity = allInventory.getCapacity();
+                for (short slot = 0; slot < capacity; slot++) {
+                    ItemStack stack = allInventory.getItemStack(slot);
+                    if (stack == null || stack.isEmpty()) continue;
+                    if (targetItemId.equals(stack.getItemId())) {
+                        totalCount += stack.getQuantity();
+                    }
                 }
             }
 
@@ -97,7 +104,7 @@ public class CollectResourceTrackingSystem extends EntityEventSystem<EntityStore
             }
 
             // Check threshold transitions
-            boolean wasReady = quest.getState() == QuestState.READY_FOR_TURN_IN;
+            boolean wasReady = state == QuestState.READY_FOR_TURN_IN;
             boolean nowComplete = totalCount >= obj.getRequiredCount();
 
             if (nowComplete && !wasReady) {
@@ -112,9 +119,10 @@ public class CollectResourceTrackingSystem extends EntityEventSystem<EntityStore
                 obj.uncomplete();
                 quest.setState(QuestState.ACTIVE_OBJECTIVE);
                 dirty = true;
-                LOGGER.atInfo().log("COLLECT_RESOURCES: player %s dropped to %d/%d %s for quest %s",
+                LOGGER.atInfo().log("COLLECT_RESOURCES: player %s dropped to %d/%d %s for quest %s (reverting to active)",
                     player.getPlayerRef().getUuid(), totalCount, obj.getRequiredCount(),
                     targetItemId, quest.getQuestId());
+                clearTurnInParticle(quest);
             }
         }
 
@@ -136,6 +144,20 @@ public class CollectResourceTrackingSystem extends EntityEventSystem<EntityStore
         if (npcRecord.getEntityUUID() != null) {
             QuestMarkerManager.INSTANCE.syncMarker(
                 npcRecord.getEntityUUID(), Nat20NpcData.QuestMarkerState.QUEST_TURN_IN);
+        }
+    }
+
+    private static void clearTurnInParticle(QuestInstance quest) {
+        SettlementRegistry settlements = Natural20.getInstance().getSettlementRegistry();
+        if (settlements == null || quest.getSourceSettlementId() == null) return;
+        SettlementRecord settlement = settlements.getByCell(quest.getSourceSettlementId());
+        if (settlement == null) return;
+        NpcRecord npcRecord = settlement.getNpcByName(quest.getSourceNpcId());
+        if (npcRecord == null) return;
+        npcRecord.setMarkerState(null);
+        settlements.saveAsync();
+        if (npcRecord.getEntityUUID() != null) {
+            QuestMarkerManager.INSTANCE.evaluateAndApply(npcRecord.getEntityUUID(), npcRecord);
         }
     }
 }
