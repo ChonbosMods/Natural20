@@ -7,15 +7,12 @@ import com.chonbosmods.data.Nat20PlayerData;
 import com.chonbosmods.dialogue.model.*;
 import com.chonbosmods.quest.DialogueResolver;
 import com.chonbosmods.quest.ObjectiveInstance;
-import com.chonbosmods.quest.PhaseInstance;
 import com.chonbosmods.quest.ObjectiveType;
-import com.chonbosmods.quest.PhaseType;
 import com.chonbosmods.quest.QuestInstance;
-import com.chonbosmods.quest.QuestPoolRegistry;
 import com.chonbosmods.quest.QuestSystem;
-import com.chonbosmods.quest.QuestTemplateRegistry;
-import com.chonbosmods.quest.model.DialogueChunks;
-import com.chonbosmods.quest.model.QuestVariant;
+import com.chonbosmods.settlement.NpcRecord;
+import com.chonbosmods.settlement.SettlementRecord;
+import com.chonbosmods.settlement.SettlementRegistry;
 import com.chonbosmods.topic.PostureResolver;
 import com.chonbosmods.ui.EntityHighlight;
 import com.google.gson.JsonParser;
@@ -111,8 +108,9 @@ public class DialogueManager {
         // (e.g., {other_settlement} when no neighbors existed yet).
         graph.lateResolve(buildLateBindings(npcData));
 
-        // Inject turn-in topics for any quests this NPC gave that have completed objectives
-        injectTurnInTopics(graph, npcId, playerData);
+        // Inject quest topics: available quests (from NPC's preGeneratedQuest) and turn-in topics
+        injectQuestAvailableTopics(graph, npcId, npcData);
+        injectQuestTurnInTopics(graph, npcId, playerData);
         // Inject talk-to-NPC topics for any quests targeting this NPC
         injectTalkToNpcTopics(graph, npcId, playerData);
 
@@ -306,214 +304,176 @@ public class DialogueManager {
      * phase objectives are complete. Adds nodes and a priority topic directly
      * into the mutable graph so the conversation session picks them up.
      */
-    private void injectTurnInTopics(DialogueGraph graph, String npcId, Nat20PlayerData playerData) {
+    /**
+     * Inject quest available topic for NPCs with a preGeneratedQuest.
+     * Builds the exposition -> accept/decline/skillcheck chain.
+     */
+    private void injectQuestAvailableTopics(DialogueGraph graph, String npcId, Nat20NpcData npcData) {
+        if (!hasPreGeneratedQuest(npcData)) return;
+
+        SettlementRegistry settlements = Natural20.getInstance().getSettlementRegistry();
+        if (settlements == null || npcData.getSettlementCellKey() == null) return;
+        SettlementRecord settlement = settlements.getByCell(npcData.getSettlementCellKey());
+        if (settlement == null) return;
+        NpcRecord npcRecord = settlement.getNpcByName(npcId);
+        if (npcRecord == null || npcRecord.getPreGeneratedQuest() == null) return;
+
+        QuestInstance quest = npcRecord.getPreGeneratedQuest();
+        Map<String, String> b = quest.getVariableBindings();
+        String questId = quest.getQuestId();
+
+        String topicHeader = DialogueResolver.resolve(
+            b.getOrDefault("quest_topic_header", quest.getSituationId()), b);
+        String expositionText = DialogueResolver.resolve(
+            b.getOrDefault("quest_exposition_text", "I need your help with something."), b);
+        String acceptText = DialogueResolver.resolve(
+            b.getOrDefault("quest_accept_text", "Thank you. Here's what I need."), b);
+        String declineText = DialogueResolver.resolve(
+            b.getOrDefault("quest_decline_text", "I understand. Perhaps another time."), b);
+
+        String topicId = "quest_" + questId;
+        String entryNodeId = topicId + "_expo";
+        String acceptNodeId = topicId + "_accept";
+        String declineNodeId = topicId + "_decline";
+        String giveQuestNodeId = topicId + "_give";
+
+        // GIVE_QUEST action node
+        graph.nodes().put(giveQuestNodeId, new DialogueNode.ActionNode(
+            List.of(Map.of("type", "GIVE_QUEST")),
+            null, List.of(), true
+        ));
+
+        // Accept node: accept text then give quest
+        graph.nodes().put(acceptNodeId, new DialogueNode.DialogueTextNode(
+            acceptText, null,
+            List.of(new ResponseOption(
+                topicId + "_accept_resp", "[Continue]", null, giveQuestNodeId,
+                ResponseMode.DECISIVE, null, null, null, null
+            )),
+            List.of(), false, false, ValenceType.POSITIVE
+        ));
+
+        // Decline node: decline text, exhausts topic, locks conversation (force close)
+        graph.nodes().put(declineNodeId, new DialogueNode.DialogueTextNode(
+            declineText, null, List.of(), List.of(), true, true, ValenceType.NEGATIVE
+        ));
+
+        // Entry node: exposition text with accept/decline options
+        List<ResponseOption> responses = new ArrayList<>();
+        responses.add(new ResponseOption(
+            topicId + "_accept_opt", "I'll help.", null, acceptNodeId,
+            ResponseMode.DECISIVE, null, null, null, null
+        ));
+        responses.add(new ResponseOption(
+            topicId + "_decline_opt", "Not interested.", null, declineNodeId,
+            ResponseMode.DECISIVE, null, null, null, null
+        ));
+        // TODO: skill check option (deferred)
+
+        graph.nodes().put(entryNodeId, new DialogueNode.DialogueTextNode(
+            expositionText, null, responses, List.of(), false, false, ValenceType.NEUTRAL
+        ));
+
+        // Topic: priority sort, always visible, quest-flagged
+        graph.topics().addFirst(new TopicDefinition(
+            topicId, topicHeader, entryNodeId,
+            TopicScope.LOCAL, null, true, null, -1, null, true
+        ));
+
+        LOGGER.atInfo().log("Injected quest available topic '%s' for quest %s on NPC %s",
+            topicHeader, questId, npcId);
+    }
+
+    /**
+     * Inject turn-in topic for quests in READY_FOR_TURN_IN state.
+     * Builds: turn-in text -> [Turn in] -> TURN_IN_V2 action -> conflict text or resolution text.
+     */
+    private void injectQuestTurnInTopics(DialogueGraph graph, String npcId, Nat20PlayerData playerData) {
         QuestSystem questSystem = Natural20.getInstance().getQuestSystem();
         if (questSystem == null) return;
-
-        QuestTemplateRegistry templateRegistry = questSystem.getTemplateRegistry();
 
         Map<String, QuestInstance> quests = questSystem.getStateManager().getActiveQuests(playerData);
         for (QuestInstance quest : quests.values()) {
             if (!npcId.equals(quest.getSourceNpcId())) continue;
-            if (!"true".equals(quest.getVariableBindings().get("phase_objectives_complete"))) continue;
+            if (quest.getState() != com.chonbosmods.quest.QuestState.READY_FOR_TURN_IN) continue;
 
             String questId = quest.getQuestId();
             Map<String, String> b = quest.getVariableBindings();
-            PhaseInstance currentPhase = quest.getCurrentPhase();
-            PhaseType phaseType = currentPhase != null ? currentPhase.getType() : PhaseType.EXPOSITION;
-            boolean isFinalPhase = quest.getCurrentPhaseIndex() >= quest.getPhases().size() - 1;
+            int cc = quest.getConflictCount();
 
-            ValenceType turnInValence = switch (phaseType) {
-                case EXPOSITION, CONFLICT -> ValenceType.NEGATIVE;
-                case RESOLUTION -> ValenceType.POSITIVE;
+            // Select turn-in text based on conflict count
+            String turnInTextKey = switch (cc) {
+                case 0 -> "quest_exposition_turnin_text";
+                case 1 -> "quest_conflict1_turnin_text";
+                default -> "quest_conflict2_turnin_text";
             };
+            String turnInText = DialogueResolver.resolve(
+                b.getOrDefault(turnInTextKey, "You're back. Tell me what happened."), b);
 
-            // Try to load variant dialogueChunks for richer narrative
-            QuestVariant variant = null;
-            if (currentPhase != null && currentPhase.getVariantId() != null) {
-                variant = templateRegistry.getVariant(
-                    quest.getSituationId(), phaseType, currentPhase.getVariantId());
-            }
-            DialogueChunks chunks = variant != null ? variant.dialogueChunks() : null;
+            // Conflict text (for the NEXT conflict, if triggered)
+            String conflictTextKey = switch (cc) {
+                case 0 -> "quest_conflict1_text";
+                default -> "quest_conflict2_text";
+            };
+            String conflictText = DialogueResolver.resolve(
+                b.getOrDefault(conflictTextKey, ""), b);
 
-            // Entry node text: variant intro or hardcoded fallback
-            String turnInText = resolveChunkOrFallback(
-                chunks != null ? chunks.intro() : null, b,
-                buildTurnInText(phaseType, isFinalPhase, b));
+            String resolutionText = DialogueResolver.resolve(
+                b.getOrDefault("quest_resolution_text", "Thank you. You've done well."), b);
 
-            String topicLabel = "Report: " + b.getOrDefault("quest_title", quest.getSituationId());
-            String topicId = "turnin_" + questId;
-            String entryNodeId = topicId + "_entry";
-            String actionNodeId = topicId + "_action";
-            String plotNodeId = topicId + "_plot";
-            String bridgeNodeId = topicId + "_bridge";
-            String transitionNodeId = topicId + "_transition";
+            String topicHeader = DialogueResolver.resolve(
+                b.getOrDefault("quest_topic_header", quest.getSituationId()), b);
 
-            // Build the post-action narrative from variant chunks
-            // plotStep: narrative advancement after turn-in action
-            String plotStepText = resolveChunkOrFallback(
-                chunks != null ? chunks.plotStep() : null, b,
-                isFinalPhase
-                    ? "Your efforts won't be forgotten. Well done."
-                    : "Good. " + buildNextPhaseBriefing(quest));
+            String topicId = "quest_" + questId;
+            String entryNodeId = topicId + "_turnin";
+            String actionNodeId = topicId + "_turnin_action";
+            String conflictNodeId = topicId + "_conflict";
+            String resolutionNodeId = topicId + "_resolution";
 
-            // Append a tone-keyed closer phrase on final phase turn-in
-            if (isFinalPhase) {
-                QuestPoolRegistry poolRegistry = questSystem.getPoolRegistry();
-                String tone = poolRegistry.getToneForSituation(quest.getSituationId());
-                String closer = poolRegistry.randomCloser(tone, new Random());
-                if (closer != null && !closer.isEmpty()) {
-                    plotStepText = plotStepText + " " + closer;
-                }
-            }
-
-            // outro: transition to next phase (only for mid-quest)
-            String outroText = null;
-            if (!isFinalPhase && chunks != null && chunks.outro() != null && !chunks.outro().isBlank()) {
-                outroText = DialogueResolver.resolve(chunks.outro(), b);
-                if (outroText.isBlank()) outroText = null;
-            }
-
-            // Determine the node after the action node
-            // If we have both plotStep and outro, chain: action -> plot -> bridge -> transition
-            // If only plotStep (final phase or no outro), chain: action -> plot
-            String afterActionNodeId;
-            if (outroText != null) {
-                // Chain: action -> plot -> bridge (no-op action) -> transition
-                afterActionNodeId = plotNodeId;
-
-                // Transition node: outro text + next-phase briefing (exhausts topic)
-                String briefing = buildNextPhaseBriefing(quest);
-                String transitionText = outroText + " " + briefing;
-
-                graph.nodes().put(transitionNodeId, new DialogueNode.DialogueTextNode(
-                    transitionText, null, List.of(), List.of(), true, false, turnInValence
-                ));
-
-                // Bridge node: no-op action that auto-advances from plot to transition
-                graph.nodes().put(bridgeNodeId, new DialogueNode.ActionNode(
-                    List.of(), transitionNodeId, List.of(), false
-                ));
-
-                // Plot node: plotStep text with a continue response leading to bridge
-                graph.nodes().put(plotNodeId, new DialogueNode.DialogueTextNode(
-                    plotStepText, null,
-                    List.of(new ResponseOption(
-                        topicId + "_continue", "[Continue]", null, bridgeNodeId,
-                        ResponseMode.DECISIVE, null, null, null, null
-                    )),
-                    List.of(), false, false, ValenceType.POSITIVE
-                ));
-            } else {
-                // No outro: action goes straight to plot (which serves as confirm)
-                afterActionNodeId = plotNodeId;
-
-                // Append next-phase briefing to plotStep for mid-quest if using fallback
-                String confirmText;
-                if (isFinalPhase) {
-                    confirmText = plotStepText;
-                } else if (chunks == null) {
-                    // Fallback path: plotStepText already contains "Good. " + briefing
-                    confirmText = plotStepText;
-                } else {
-                    // Variant plotStep but no outro: append briefing
-                    String briefing = buildNextPhaseBriefing(quest);
-                    confirmText = plotStepText + " " + briefing;
-                }
-
-                graph.nodes().put(plotNodeId, new DialogueNode.DialogueTextNode(
-                    confirmText, null, List.of(), List.of(), true, false, ValenceType.POSITIVE
-                ));
-            }
-
-            // Action node: TURN_IN_PHASE
-            graph.nodes().put(actionNodeId, new DialogueNode.ActionNode(
-                List.of(Map.of("type", "TURN_IN_PHASE", "questId", questId)),
-                afterActionNodeId, List.of(), true
+            // Resolution node: quest complete, exhausts topic
+            graph.nodes().put(resolutionNodeId, new DialogueNode.DialogueTextNode(
+                resolutionText, null, List.of(), List.of(), true, false, ValenceType.POSITIVE
             ));
 
-            // Entry node: NPC acknowledges return, player confirms turn-in
+            // Conflict node: new objective text, exhausts topic (player goes to do objective)
+            if (!conflictText.isEmpty()) {
+                graph.nodes().put(conflictNodeId, new DialogueNode.DialogueTextNode(
+                    conflictText, null, List.of(), List.of(), true, false, ValenceType.NEGATIVE
+                ));
+            }
+
+            // TURN_IN_V2 action: the action handler decides conflict vs resolution
+            graph.nodes().put(actionNodeId, new DialogueNode.ActionNode(
+                List.of(Map.of("type", "TURN_IN_V2", "questId", questId,
+                    "conflictNode", conflictNodeId, "resolutionNode", resolutionNodeId)),
+                resolutionNodeId, // default next (action may override via params)
+                List.of(), true
+            ));
+
+            // Entry node: turn-in text with [Turn in] button
             graph.nodes().put(entryNodeId, new DialogueNode.DialogueTextNode(
                 turnInText, null,
                 List.of(new ResponseOption(
-                    topicId + "_resp", "[Turn in] Yes, it's done.", null, actionNodeId,
+                    topicId + "_turnin_resp", "[Turn in]", null, actionNodeId,
                     ResponseMode.DECISIVE, null, null, null, null
                 )),
-                List.of(), false, false, turnInValence
+                List.of(), false, false, ValenceType.NEUTRAL
             ));
 
-            // Topic definition: priority (sortOrder -1), always visible, quest-flagged
+            // Topic: same header as the quest, priority sort, quest-flagged
             graph.topics().addFirst(new TopicDefinition(
-                topicId, topicLabel, entryNodeId,
+                topicId, topicHeader, entryNodeId,
                 TopicScope.LOCAL, null, true, null, -1, null, true
             ));
 
-            LOGGER.atInfo().log("Injected turn-in topic for quest %s (phase: %s, final: %s, variant: %s)",
-                questId, phaseType, isFinalPhase,
-                variant != null ? variant.id() : "fallback");
+            LOGGER.atInfo().log("Injected turn-in topic for quest %s (conflict %d) on NPC %s",
+                questId, cc, npcId);
         }
-    }
-
-    private static String buildNextPhaseBriefing(QuestInstance quest) {
-        int nextIndex = quest.getCurrentPhaseIndex() + 1;
-        if (nextIndex >= quest.getPhases().size()) return "We'll see what comes next.";
-
-        PhaseInstance nextPhase = quest.getPhases().get(nextIndex);
-
-        // Try to load the next variant's intro for narrative continuity
-        QuestSystem questSystem = Natural20.getInstance().getQuestSystem();
-        if (questSystem != null && nextPhase.getVariantId() != null) {
-            QuestTemplateRegistry templateRegistry = questSystem.getTemplateRegistry();
-            var nextVariant = templateRegistry.getVariant(
-                quest.getSituationId(), nextPhase.getType(), nextPhase.getVariantId());
-            if (nextVariant != null && nextVariant.dialogueChunks() != null
-                    && nextVariant.dialogueChunks().intro() != null
-                    && !nextVariant.dialogueChunks().intro().isBlank()) {
-                return DialogueResolver.resolve(
-                    nextVariant.dialogueChunks().intro(), quest.getVariableBindings());
-            }
-        }
-
-        // Fallback to hardcoded objective-type text
-        if (nextPhase.getObjectives().isEmpty()) return "There's still work ahead.";
-
-        ObjectiveInstance obj = nextPhase.getObjectives().getFirst();
-        String task = switch (obj.getType()) {
-            case KILL_MOBS -> "You'll need to kill " + obj.getRequiredCount() + " " + obj.getEffectiveLabel() + ".";
-            case COLLECT_RESOURCES -> "I need you to collect " + obj.getRequiredCount() + " " + obj.getEffectiveLabel() + ".";
-            case FETCH_ITEM -> "I need you to find " + obj.getTargetLabel() + ".";
-            case TALK_TO_NPC -> "Go speak with " + obj.getTargetLabel() + ".";
-        };
-
-        return switch (nextPhase.getType()) {
-            case EXPOSITION -> "But first, I need more information. " + task;
-            case CONFLICT -> "The real work starts now. " + task;
-            case RESOLUTION -> "We're close to the end. " + task;
-        };
-    }
-
-    private static String buildTurnInText(PhaseType phaseType, boolean isFinalPhase,
-                                           Map<String, String> bindings) {
-        String focus = bindings.getOrDefault("quest_focus", "the task");
-        return switch (phaseType) {
-            case EXPOSITION -> "You're back. Did you find out what you needed about " + focus + "?";
-            case CONFLICT -> isFinalPhase
-                ? "I can see it in your eyes: the threat is dealt with. Tell me everything."
-                : "You've handled it, then? Good. But I don't think we're done yet.";
-            case RESOLUTION -> "You've done it. I wasn't sure you would, but here you are. You've earned this.";
-        };
-    }
-
-    private static String resolveChunkOrFallback(String chunkText, Map<String, String> bindings,
-                                                  String fallback) {
-        if (chunkText == null || chunkText.isBlank()) return fallback;
-        String resolved = DialogueResolver.resolve(chunkText, bindings);
-        return resolved.isBlank() ? fallback : resolved;
     }
 
     /**
      * If this NPC is the target of a TALK_TO_NPC objective, inject a quest dialogue topic
-     * that, when selected, marks the objective complete and sets phase_objectives_complete.
+     * that, when selected, marks the objective complete.
      */
     private void injectTalkToNpcTopics(DialogueGraph graph, String npcId, Nat20PlayerData playerData) {
         QuestSystem questSystem = Natural20.getInstance().getQuestSystem();
@@ -521,23 +481,17 @@ public class DialogueManager {
 
         Map<String, QuestInstance> quests = questSystem.getStateManager().getActiveQuests(playerData);
         for (QuestInstance quest : quests.values()) {
-            Map<String, String> b = quest.getVariableBindings();
+            if (quest.getState() != com.chonbosmods.quest.QuestState.ACTIVE_OBJECTIVE) continue;
 
-            // Skip if objectives already complete (awaiting turn-in at quest giver)
-            if ("true".equals(b.get("phase_objectives_complete"))) continue;
+            ObjectiveInstance obj = quest.getCurrentObjective();
+            if (obj == null || obj.getType() != ObjectiveType.TALK_TO_NPC || obj.isComplete()) continue;
 
-            PhaseInstance phase = quest.getCurrentPhase();
-            if (phase == null) continue;
-
-            for (ObjectiveInstance obj : phase.getObjectives()) {
-                if (obj.getType() != ObjectiveType.TALK_TO_NPC) continue;
-                if (obj.isComplete()) continue;
-
-                // Match: targetId is the NPC's generated name
-                if (!npcId.equals(obj.getTargetId())) continue;
+            // Match: targetId is the NPC's generated name
+            if (!npcId.equals(obj.getTargetId())) continue;
 
                 // This NPC is the target. Inject a quest dialogue topic.
                 String questId = quest.getQuestId();
+                Map<String, String> b = quest.getVariableBindings();
                 String targetDialogue = b.getOrDefault("target_npc_dialogue",
                     "You're looking into the situation? I can tell you what I know.");
                 String questTitle = b.getOrDefault("quest_title", quest.getSituationId());
@@ -577,9 +531,8 @@ public class DialogueManager {
                     TopicScope.LOCAL, null, true, null, 0, null, true
                 ));
 
-                LOGGER.atInfo().log("Injected TALK_TO_NPC topic for quest %s on NPC %s",
-                    questId, npcId);
-            }
+            LOGGER.atInfo().log("Injected TALK_TO_NPC topic for quest %s on NPC %s",
+                questId, npcId);
         }
     }
 }
