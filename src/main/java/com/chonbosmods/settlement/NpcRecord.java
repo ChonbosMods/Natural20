@@ -26,6 +26,7 @@ public class NpcRecord {
     private String dialogueState;
     private Map<String, String> flags = new HashMap<>();
     private QuestInstance preGeneratedQuest;
+    private String markerState;
 
     /** No-arg constructor for Gson deserialization. */
     public NpcRecord() {}
@@ -81,4 +82,11 @@ public class NpcRecord {
 
     public QuestInstance getPreGeneratedQuest() { return preGeneratedQuest; }
     public void setPreGeneratedQuest(QuestInstance quest) { this.preGeneratedQuest = quest; }
+
+    /**
+     * Persisted marker state: "QUEST_AVAILABLE", "QUEST_TURN_IN", or null (NONE).
+     * Survives entity UUID changes on chunk reload/NPC respawn.
+     */
+    public String getMarkerState() { return markerState; }
+    public void setMarkerState(String markerState) { this.markerState = markerState; }
 }

@@ -233,12 +233,14 @@ public class Nat20NpcManager {
         npcData.setDialogueState(record.getDialogueState());
         npcData.setFlags(record.getFlags());
 
-        // Sync quest marker state: evaluateAndApply for particle map, then sync NpcData component
-        QuestMarkerManager.INSTANCE.evaluateAndApply(npcEntity.getUuid(), record);
-        if (record.getPreGeneratedQuest() != null) {
+        // Sync quest marker state from persisted NpcRecord (survives chunk reload/respawn)
+        QuestMarkerManager.INSTANCE.syncFromRecord(npcEntity.getUuid(), record);
+        String persisted = record.getMarkerState();
+        if ("QUEST_TURN_IN".equals(persisted)) {
+            npcData.setQuestMarkerState(Nat20NpcData.QuestMarkerState.QUEST_TURN_IN);
+        } else if (record.getPreGeneratedQuest() != null) {
             npcData.setQuestMarkerState(Nat20NpcData.QuestMarkerState.QUEST_AVAILABLE);
-        } else if (npcData.getQuestMarkerState() == Nat20NpcData.QuestMarkerState.QUEST_AVAILABLE) {
-            // Clear stale QUEST_AVAILABLE, but preserve QUEST_TURN_IN if set by active quest
+        } else {
             npcData.setQuestMarkerState(Nat20NpcData.QuestMarkerState.NONE);
         }
 

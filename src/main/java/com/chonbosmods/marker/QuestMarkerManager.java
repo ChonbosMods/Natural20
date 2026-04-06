@@ -20,10 +20,11 @@ import java.util.concurrent.ConcurrentHashMap;
 /**
  * Manages floating quest marker particles above NPCs.
  * Uses custom particle systems based on Hytale's NPC emotion particles:
- * gold "!" (Quest_Available) for quest available, green "?" (Quest_TurnIn) for turn-in.
+ * gold "!" (Quest_Available) for quest available, blue "?" (Quest_TurnIn) for turn-in.
  *
- * Particles have a 5s system lifespan and are re-spawned every 5s.
- * Markers are hidden when the NPC is in a busy state (combat, alerted, interaction).
+ * Marker state is persisted on NpcRecord.markerState so it survives entity UUID
+ * changes on chunk reload/NPC respawn. The in-memory activeMarkers map is synced
+ * from NpcRecord during applyNpcComponents.
  */
 public class QuestMarkerManager {
 
@@ -35,14 +36,15 @@ public class QuestMarkerManager {
     private static final String PARTICLE_QUEST_TURN_IN = "Quest_TurnIn";
     private static final int TICK_INTERVAL = 1;
 
-    /** NPC entity UUID → quest marker state */
+    /** NPC entity UUID -> quest marker state (used by tickMarkers for particle rendering) */
     private final Map<UUID, QuestMarkerState> activeMarkers = new ConcurrentHashMap<>();
     private int tickCounter;
 
     private QuestMarkerManager() {}
 
     /**
-     * Register or clear quest marker state for an NPC.
+     * Register or clear quest marker state for an NPC by entity UUID.
+     * Priority guard: QUEST_TURN_IN cannot be overwritten by QUEST_AVAILABLE.
      */
     public void syncMarker(UUID npcUuid, QuestMarkerState state) {
         if (state == QuestMarkerState.NONE) {
@@ -53,6 +55,25 @@ public class QuestMarkerManager {
             return;
         } else {
             activeMarkers.put(npcUuid, state);
+        }
+    }
+
+    /**
+     * Re-evaluate an NPC's marker from its persisted NpcRecord.markerState.
+     * Call on NPC spawn/chunk reload to sync the in-memory map from persisted state.
+     */
+    public void syncFromRecord(UUID npcUuid, NpcRecord record) {
+        if (record == null) {
+            activeMarkers.remove(npcUuid);
+            return;
+        }
+        String persisted = record.getMarkerState();
+        if ("QUEST_TURN_IN".equals(persisted)) {
+            activeMarkers.put(npcUuid, QuestMarkerState.QUEST_TURN_IN);
+        } else if (record.getPreGeneratedQuest() != null) {
+            activeMarkers.put(npcUuid, QuestMarkerState.QUEST_AVAILABLE);
+        } else {
+            activeMarkers.remove(npcUuid);
         }
     }
 

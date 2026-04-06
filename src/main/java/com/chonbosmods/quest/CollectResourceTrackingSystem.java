@@ -135,8 +135,12 @@ public class CollectResourceTrackingSystem extends EntityEventSystem<EntityStore
         SettlementRecord settlement = settlements.getByCell(quest.getSourceSettlementId());
         if (settlement == null) return;
         NpcRecord npcRecord = settlement.getNpcByName(quest.getSourceNpcId());
-        if (npcRecord == null || npcRecord.getEntityUUID() == null) return;
-        QuestMarkerManager.INSTANCE.syncMarker(
-            npcRecord.getEntityUUID(), Nat20NpcData.QuestMarkerState.QUEST_TURN_IN);
+        if (npcRecord == null) return;
+        npcRecord.setMarkerState("QUEST_TURN_IN");
+        settlements.saveAsync();
+        if (npcRecord.getEntityUUID() != null) {
+            QuestMarkerManager.INSTANCE.syncMarker(
+                npcRecord.getEntityUUID(), Nat20NpcData.QuestMarkerState.QUEST_TURN_IN);
+        }
     }
 }

@@ -333,9 +333,13 @@ public class DialogueActionRegistry {
                     SettlementRecord settlement = settlements.getByCell(quest.getSourceSettlementId());
                     if (settlement != null) {
                         NpcRecord sourceNpc = settlement.getNpcByName(quest.getSourceNpcId());
-                        if (sourceNpc != null && sourceNpc.getEntityUUID() != null) {
-                            QuestMarkerManager.INSTANCE.evaluateAndApply(
-                                sourceNpc.getEntityUUID(), sourceNpc);
+                        if (sourceNpc != null) {
+                            sourceNpc.setMarkerState(null); // Clear turn-in state
+                            settlements.saveAsync();
+                            if (sourceNpc.getEntityUUID() != null) {
+                                QuestMarkerManager.INSTANCE.evaluateAndApply(
+                                    sourceNpc.getEntityUUID(), sourceNpc);
+                            }
                         }
                     }
                 }
@@ -402,17 +406,24 @@ public class DialogueActionRegistry {
                     SettlementRecord settlement = settlements.getByCell(quest.getSourceSettlementId());
                     if (settlement != null) {
                         NpcRecord sourceNpc = settlement.getNpcByName(quest.getSourceNpcId());
-                        if (sourceNpc != null && sourceNpc.getEntityUUID() != null) {
+                        if (sourceNpc != null) {
                             if (autoCompleted) {
                                 // Resolution auto-complete: source NPC shows "?" immediately
-                                QuestMarkerManager.INSTANCE.syncMarker(
-                                    sourceNpc.getEntityUUID(),
-                                    Nat20NpcData.QuestMarkerState.QUEST_TURN_IN);
+                                sourceNpc.setMarkerState("QUEST_TURN_IN");
+                                if (sourceNpc.getEntityUUID() != null) {
+                                    QuestMarkerManager.INSTANCE.syncMarker(
+                                        sourceNpc.getEntityUUID(),
+                                        Nat20NpcData.QuestMarkerState.QUEST_TURN_IN);
+                                }
                             } else {
-                                // Objectives pending: re-evaluate baseline (AVAILABLE or NONE)
-                                QuestMarkerManager.INSTANCE.evaluateAndApply(
-                                    sourceNpc.getEntityUUID(), sourceNpc);
+                                // Objectives pending: clear turn-in, re-evaluate baseline
+                                sourceNpc.setMarkerState(null);
+                                if (sourceNpc.getEntityUUID() != null) {
+                                    QuestMarkerManager.INSTANCE.evaluateAndApply(
+                                        sourceNpc.getEntityUUID(), sourceNpc);
+                                }
                             }
+                            settlements.saveAsync();
                         }
                     }
                 }
@@ -485,10 +496,15 @@ public class DialogueActionRegistry {
                     SettlementRecord sourceSettlement = settlements.getByCell(quest.getSourceSettlementId());
                     if (sourceSettlement != null) {
                         NpcRecord sourceNpc = sourceSettlement.getNpcByName(quest.getSourceNpcId());
-                        if (sourceNpc != null && sourceNpc.getEntityUUID() != null) {
-                            QuestMarkerManager.INSTANCE.syncMarker(
-                                sourceNpc.getEntityUUID(),
-                                Nat20NpcData.QuestMarkerState.QUEST_TURN_IN);
+                        if (sourceNpc != null) {
+                            sourceNpc.setMarkerState("QUEST_TURN_IN");
+                            sourceSettlement.getNpcs(); // trigger dirty
+                            Natural20.getInstance().getSettlementRegistry().saveAsync();
+                            if (sourceNpc.getEntityUUID() != null) {
+                                QuestMarkerManager.INSTANCE.syncMarker(
+                                    sourceNpc.getEntityUUID(),
+                                    Nat20NpcData.QuestMarkerState.QUEST_TURN_IN);
+                            }
                         }
                     }
                 }

@@ -152,12 +152,14 @@ public class Natural20 extends JavaPlugin {
                 if (npcRef == null) continue;
                 Nat20NpcData npcData = store.getComponent(npcRef, getNpcDataType());
                 if (npcData == null) continue;
-                // Use evaluateAndApply for particle map (respects existing turn-in state)
-                QuestMarkerManager.INSTANCE.evaluateAndApply(npc.getEntityUUID(), npc);
-                // Sync NpcData component: preserve QUEST_TURN_IN if active
-                if (npc.getPreGeneratedQuest() != null) {
+                // Sync marker from persisted NpcRecord state
+                QuestMarkerManager.INSTANCE.syncFromRecord(npc.getEntityUUID(), npc);
+                String persisted = npc.getMarkerState();
+                if ("QUEST_TURN_IN".equals(persisted)) {
+                    npcData.setQuestMarkerState(Nat20NpcData.QuestMarkerState.QUEST_TURN_IN);
+                } else if (npc.getPreGeneratedQuest() != null) {
                     npcData.setQuestMarkerState(Nat20NpcData.QuestMarkerState.QUEST_AVAILABLE);
-                } else if (npcData.getQuestMarkerState() == Nat20NpcData.QuestMarkerState.QUEST_AVAILABLE) {
+                } else {
                     npcData.setQuestMarkerState(Nat20NpcData.QuestMarkerState.NONE);
                 }
             }
@@ -228,6 +230,9 @@ public class Natural20 extends JavaPlugin {
     @Override
     protected void setup() {
         getLogger().atInfo().log("Natural 20 setting up...");
+
+        // Load server config
+        com.chonbosmods.config.Nat20ServerConfig.load(getDataDirectory());
 
         // Register custom ECS components
         npcDataType = getEntityStoreRegistry().registerComponent(

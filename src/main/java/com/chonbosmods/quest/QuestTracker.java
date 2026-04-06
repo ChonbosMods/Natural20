@@ -95,19 +95,15 @@ public class QuestTracker {
         if (settlement == null) return;
 
         NpcRecord npcRecord = settlement.getNpcByName(quest.getSourceNpcId());
-        if (npcRecord == null || npcRecord.getEntityUUID() == null) return;
+        if (npcRecord == null) return;
 
-        QuestMarkerManager.INSTANCE.syncMarker(
-            npcRecord.getEntityUUID(), Nat20NpcData.QuestMarkerState.QUEST_TURN_IN);
+        // Persist to NpcRecord so it survives entity UUID changes on chunk reload
+        npcRecord.setMarkerState("QUEST_TURN_IN");
+        settlements.saveAsync();
 
-        // Also update NPC data component if entity is loaded
-        Ref<EntityStore> npcRef = Natural20.getInstance().getDefaultWorld()
-            .getEntityRef(npcRecord.getEntityUUID());
-        if (npcRef != null) {
-            Nat20NpcData npcData = store.getComponent(npcRef, Natural20.getNpcDataType());
-            if (npcData != null) {
-                npcData.setQuestMarkerState(Nat20NpcData.QuestMarkerState.QUEST_TURN_IN);
-            }
+        if (npcRecord.getEntityUUID() != null) {
+            QuestMarkerManager.INSTANCE.syncMarker(
+                npcRecord.getEntityUUID(), Nat20NpcData.QuestMarkerState.QUEST_TURN_IN);
         }
     }
 
