@@ -337,20 +337,11 @@ public class DialogueManager {
         String declineNodeId = topicId + "_decline";
         String giveQuestNodeId = topicId + "_give";
 
-        // GIVE_QUEST action node
-        graph.nodes().put(giveQuestNodeId, new DialogueNode.ActionNode(
-            List.of(Map.of("type", "GIVE_QUEST")),
-            null, List.of(), true
-        ));
-
-        // Accept node: accept text then give quest
+        // Accept node: shows accept text, fires GIVE_QUEST, exhausts topic (no continue button)
         graph.nodes().put(acceptNodeId, new DialogueNode.DialogueTextNode(
-            acceptText, null,
-            List.of(new ResponseOption(
-                topicId + "_accept_resp", "[Continue]", null, giveQuestNodeId,
-                ResponseMode.DECISIVE, null, null, null, null
-            )),
-            List.of(), false, false, ValenceType.POSITIVE
+            acceptText, null, List.of(),
+            List.of(Map.of("type", "GIVE_QUEST")),
+            true, false, ValenceType.POSITIVE
         ));
 
         // Decline node: decline text, exhausts topic, locks conversation (force close)
@@ -358,14 +349,14 @@ public class DialogueManager {
             declineText, null, List.of(), List.of(), true, true, ValenceType.NEGATIVE
         ));
 
-        // Entry node: exposition text with accept/decline options
+        // Entry node: exposition text with ACCEPT/DECLINE options
         List<ResponseOption> responses = new ArrayList<>();
         responses.add(new ResponseOption(
-            topicId + "_accept_opt", "I'll help.", null, acceptNodeId,
+            topicId + "_accept_opt", "ACCEPT", null, acceptNodeId,
             ResponseMode.DECISIVE, null, null, null, null
         ));
         responses.add(new ResponseOption(
-            topicId + "_decline_opt", "Not interested.", null, declineNodeId,
+            topicId + "_decline_opt", "DECLINE", null, declineNodeId,
             ResponseMode.DECISIVE, null, null, null, null
         ));
         // TODO: skill check option (deferred)
