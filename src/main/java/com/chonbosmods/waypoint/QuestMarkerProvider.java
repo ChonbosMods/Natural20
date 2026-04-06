@@ -107,7 +107,7 @@ public class QuestMarkerProvider implements WorldMapManager.MarkerProvider {
 
         for (QuestInstance quest : quests.values()) {
             Map<String, String> b = quest.getVariableBindings();
-            boolean objectivesComplete = "true".equals(b.get("phase_objectives_complete"));
+            boolean objectivesComplete = quest.getState() == com.chonbosmods.quest.QuestState.READY_FOR_TURN_IN;
             boolean hasPoi = "true".equals(b.get("poi_available"));
             // Use named POI subject as waypoint label, fall back to objective summary
             String questName = b.getOrDefault("subject_name",

@@ -154,6 +154,9 @@ public class POIKillTrackingSystem extends DamageEventSystem {
                     quest.getQuestId(), quest.getConflictCount());
                 stateManager.saveActiveQuests(playerData, quests);
 
+                // Set turn-in particle on source NPC
+                setTurnInParticle(quest);
+
                 // Refresh markers: swaps POI marker -> return marker at settlement
                 Player player = store.getComponent(playerRef, Player.getComponentType());
                 if (player != null) {
@@ -170,6 +173,22 @@ public class POIKillTrackingSystem extends DamageEventSystem {
     /**
      * Remove a single mob UUID from the comma-separated poi_mob_uuids binding.
      */
+    private static void setTurnInParticle(QuestInstance quest) {
+        com.chonbosmods.settlement.SettlementRegistry settlements = Natural20.getInstance().getSettlementRegistry();
+        if (settlements == null || quest.getSourceSettlementId() == null) return;
+        com.chonbosmods.settlement.SettlementRecord settlement = settlements.getByCell(quest.getSourceSettlementId());
+        if (settlement == null) return;
+        com.chonbosmods.settlement.NpcRecord npcRecord = settlement.getNpcByName(quest.getSourceNpcId());
+        if (npcRecord == null) return;
+        npcRecord.setMarkerState("QUEST_TURN_IN");
+        settlements.saveAsync();
+        if (npcRecord.getEntityUUID() != null) {
+            com.chonbosmods.marker.QuestMarkerManager.INSTANCE.syncMarker(
+                npcRecord.getEntityUUID(),
+                com.chonbosmods.data.Nat20NpcData.QuestMarkerState.QUEST_TURN_IN);
+        }
+    }
+
     private void removeMobUUID(Map<String, String> b, String uuid) {
         String uuids = b.getOrDefault("poi_mob_uuids", "");
         List<String> list = new ArrayList<>(Arrays.asList(uuids.split(",")));
