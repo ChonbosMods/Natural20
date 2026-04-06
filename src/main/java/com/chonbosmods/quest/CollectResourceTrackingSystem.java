@@ -65,10 +65,11 @@ public class CollectResourceTrackingSystem extends EntityEventSystem<EntityStore
         Map<String, QuestInstance> quests = questSystem.getStateManager().getActiveQuests(playerData);
         if (quests.isEmpty()) return;
 
-        // Count across ALL inventory components (hotbar + backpack + utility)
+        // Count across inventory: try full inventory, fall back to event container
         @SuppressWarnings("unchecked")
-        CombinedItemContainer allInventory = InventoryComponent.getCombined(
+        CombinedItemContainer fullInventory = InventoryComponent.getCombined(
             store, ref, InventoryComponent.ARMOR_HOTBAR_UTILITY_STORAGE);
+        ItemContainer scanContainer = fullInventory != null ? fullInventory : event.getItemContainer();
         boolean dirty = false;
 
         for (QuestInstance quest : quests.values()) {
@@ -81,16 +82,14 @@ public class CollectResourceTrackingSystem extends EntityEventSystem<EntityStore
             String targetItemId = obj.getTargetId();
             if (targetItemId == null) continue;
 
-            // Count ALL matching items across full inventory
+            // Count ALL matching items in inventory
             int totalCount = 0;
-            if (allInventory != null) {
-                short capacity = allInventory.getCapacity();
-                for (short slot = 0; slot < capacity; slot++) {
-                    ItemStack stack = allInventory.getItemStack(slot);
-                    if (stack == null || stack.isEmpty()) continue;
-                    if (targetItemId.equals(stack.getItemId())) {
-                        totalCount += stack.getQuantity();
-                    }
+            short capacity = scanContainer.getCapacity();
+            for (short slot = 0; slot < capacity; slot++) {
+                ItemStack stack = scanContainer.getItemStack(slot);
+                if (stack == null || stack.isEmpty()) continue;
+                if (targetItemId.equals(stack.getItemId())) {
+                    totalCount += stack.getQuantity();
                 }
             }
 

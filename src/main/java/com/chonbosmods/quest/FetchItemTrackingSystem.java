@@ -17,6 +17,7 @@ import com.hypixel.hytale.server.core.inventory.InventoryChangeEvent;
 import com.hypixel.hytale.server.core.inventory.InventoryComponent;
 import com.hypixel.hytale.server.core.inventory.ItemStack;
 import com.hypixel.hytale.server.core.inventory.container.CombinedItemContainer;
+import com.hypixel.hytale.server.core.inventory.container.ItemContainer;
 import com.hypixel.hytale.server.core.inventory.transaction.Transaction;
 import com.hypixel.hytale.server.core.universe.world.storage.EntityStore;
 
@@ -62,10 +63,11 @@ public class FetchItemTrackingSystem extends EntityEventSystem<EntityStore, Inve
         Map<String, QuestInstance> quests = questSystem.getStateManager().getActiveQuests(playerData);
         boolean dirty = false;
 
-        // Scan full inventory for quest items
+        // Scan inventory: try full, fall back to event container
         @SuppressWarnings("unchecked")
-        CombinedItemContainer allInventory = InventoryComponent.getCombined(
+        CombinedItemContainer fullInventory = InventoryComponent.getCombined(
             store, ref, InventoryComponent.ARMOR_HOTBAR_UTILITY_STORAGE);
+        ItemContainer scanContainer = fullInventory != null ? fullInventory : event.getItemContainer();
 
         for (QuestInstance quest : quests.values()) {
             QuestState state = quest.getState();
@@ -79,14 +81,12 @@ public class FetchItemTrackingSystem extends EntityEventSystem<EntityStore, Inve
 
             // Check if fetch item exists anywhere in inventory
             boolean hasItem = false;
-            if (allInventory != null) {
-                short capacity = allInventory.getCapacity();
-                for (short slot = 0; slot < capacity; slot++) {
-                    ItemStack stack = allInventory.getItemStack(slot);
-                    if (stack != null && !stack.isEmpty() && fetchItemType.equals(stack.getItemId())) {
-                        hasItem = true;
-                        break;
-                    }
+            short capacity = scanContainer.getCapacity();
+            for (short slot = 0; slot < capacity; slot++) {
+                ItemStack stack = scanContainer.getItemStack(slot);
+                if (stack != null && !stack.isEmpty() && fetchItemType.equals(stack.getItemId())) {
+                    hasItem = true;
+                    break;
                 }
             }
 
