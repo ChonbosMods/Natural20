@@ -168,6 +168,9 @@ public class DialogueActionRegistry {
                 quest.getVariableBindings().remove("marker_offset_z");
             }
 
+            // Set state BEFORE saving so it persists correctly
+            quest.setState(com.chonbosmods.quest.QuestState.ACTIVE_OBJECTIVE);
+
             // Add quest to player's active quests
             questSystem.getStateManager().addQuest(ctx.playerData(), quest);
             ctx.dispositionUpdater().accept(QuestDispositionConstants.QUEST_ACCEPTED);
@@ -193,9 +196,6 @@ public class DialogueActionRegistry {
             ctx.systemLogger().accept("Quest accepted: " + questLabel);
             LOGGER.atInfo().log("GIVE_QUEST: player %s received quest '%s' from NPC %s",
                 ctx.player().getPlayerRef().getUuid(), quest.getQuestId(), npcName);
-
-            // Set quest state to active
-            quest.setState(com.chonbosmods.quest.QuestState.ACTIVE_OBJECTIVE);
 
             // Consume the pre-generated quest so it can't be given again
             npcRecord.setPreGeneratedQuest(null);
