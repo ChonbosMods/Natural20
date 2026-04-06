@@ -8,7 +8,7 @@
   "skillcheckPassText": "You look capable enough. I'll throw in a little extra for your trouble.",
   "skillcheckFailText": "You don't look like much, but beggars can't be choosers.",
   "expositionTurnInText": "Perfect. These will do nicely. The venture can begin.",
-  "conflict1Text": "There's a problem. {enemy_type_plural} have set up camp near our route. Clear out at least {gather_count} of them so we can pass safely.",
+  "conflict1Text": "There's a problem. {enemy_type_plural} have set up camp near our route. Clear out {gather_count} of them so we can pass safely.",
   "conflict1TurnInText": "The path is clear. Good work.",
   "conflict2Text": "One last complication. {target_npc} has information about an alternate route. Go speak with them.",
   "conflict2TurnInText": "An alternate route. Clever. This changes everything.",
