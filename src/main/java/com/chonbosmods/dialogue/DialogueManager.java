@@ -116,12 +116,12 @@ public class DialogueManager {
 
         // Clear exhaustion for quest topics that should reappear fresh.
         // Only clear for the original quest hook topic if the NPC still has a quest to give.
-        // Injected topics (turnin_, talknpc_) are always cleared since they're rebuilt each session.
-        boolean npcHasQuest = hasPreGeneratedQuest(npcData);
+        // Clear exhaustion for all injected quest topics (rebuilt fresh each session).
+        // v2 quest topics use "quest_" prefix, talk-to-NPC uses "talknpc_" prefix.
         for (TopicDefinition topic : graph.topics()) {
             if (!topic.questTopic()) continue;
             String tid = topic.id();
-            if (tid.startsWith("turnin_") || tid.startsWith("talknpc_") || npcHasQuest) {
+            if (tid.startsWith("quest_") || tid.startsWith("talknpc_")) {
                 playerData.removeTopicExhaustion(npcId, tid);
             }
         }
