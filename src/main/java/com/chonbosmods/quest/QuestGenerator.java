@@ -16,13 +16,7 @@ import java.util.concurrent.atomic.AtomicLong;
 public class QuestGenerator {
 
     private static final FluentLogger LOGGER = FluentLogger.forEnclosingClass();
-    private static final int MAX_PHASES = 4;
-    private static final double CONFLICT_EXTEND_CHANCE = 0.25;
-    private static final double RESOLUTION_EXTEND_CHANCE = 0.10;
-    private static final double REFERENCE_INJECT_CHANCE = 0.20;
-    private static final double QUEST_ALLY_TOPIC_CHANCE = 0.35;
     private static final double STAKES_EQUALS_FOCUS_CHANCE = 0.15;
-    private static final double SHORT_QUEST_CHANCE = 0.25;
     private static final double TALK_NPC_HANDOFF_CHANCE = 0.75;
     private static final Set<String> INVESTIGATION_SITUATIONS = Set.of(
         "DiscoveryOfDishonor", "ErroneousJudgment", "TheEnigma", "RivalryOfSuperiorVsInferior"
@@ -49,172 +43,75 @@ public class QuestGenerator {
                                              String subjectValue) {
         Random random = new Random();
 
-        QuestSituation situation = templateRegistry.selectForRole(npcRole, random);
-        if (situation == null) {
-            LOGGER.atWarning().log("No quest situations available for role: %s", npcRole);
+        QuestTemplateV2 template = templateRegistry.selectV2ForRole(npcRole, random);
+        if (template == null) {
+            LOGGER.atWarning().log("No v2 quest templates available for role: %s", npcRole);
             return null;
         }
 
-        List<PhaseType> phaseSequence = rollPhaseSequence(random);
-
-        // Step 3: Pick variants per phase
-        List<QuestVariant> selectedVariants = new ArrayList<>();
-        for (PhaseType phase : phaseSequence) {
-            List<QuestVariant> pool = switch (phase) {
-                case EXPOSITION -> situation.getExpositionVariants();
-                case CONFLICT -> situation.getConflictVariants();
-                case RESOLUTION -> situation.getResolutionVariants();
-            };
-            if (pool.isEmpty()) {
-                LOGGER.atWarning().log("No variants for phase %s in situation %s", phase, situation.getId());
-                return null;
-            }
-            selectedVariants.add(pool.get(random.nextInt(pool.size())));
-        }
-
-        // Step 4a: Resolve world bindings
-        Map<String, String> bindings = resolveWorldBindings(npcX, npcZ, npcSettlementCellKey, npcId, situation.getId(), random);
+        // Resolve world bindings (gather items, enemy mobs, target NPC, POI)
+        Map<String, String> bindings = resolveWorldBindings(npcX, npcZ, npcSettlementCellKey, npcId, template.situation(), random);
         bindings.put("subject_poi_type", subjectPoiType != null ? subjectPoiType : "unknown");
         bindings.put("subject_name", subjectValue != null ? subjectValue : npcId);
 
-        // Step 4b: Resolve narrative bindings from exposition variant
-        QuestVariant expositionVariant = selectedVariants.getFirst();
-        resolveNarrativeBindings(bindings, expositionVariant, situation, npcSettlementCellKey, npcId, random);
+        // Store all template text in bindings for dialogue node construction
+        bindings.put("quest_topic_header", template.topicHeader());
+        bindings.put("quest_exposition_text", template.expositionText());
+        bindings.put("quest_accept_text", template.acceptText());
+        bindings.put("quest_decline_text", template.declineText());
+        bindings.put("quest_skillcheck_pass_text", template.skillcheckPassText() != null ? template.skillcheckPassText() : "");
+        bindings.put("quest_skillcheck_fail_text", template.skillcheckFailText() != null ? template.skillcheckFailText() : "");
+        bindings.put("quest_exposition_turnin_text", template.expositionTurnInText());
+        bindings.put("quest_conflict1_text", template.conflict1Text() != null ? template.conflict1Text() : "");
+        bindings.put("quest_conflict1_turnin_text", template.conflict1TurnInText() != null ? template.conflict1TurnInText() : "");
+        bindings.put("quest_conflict2_text", template.conflict2Text() != null ? template.conflict2Text() : "");
+        bindings.put("quest_conflict2_turnin_text", template.conflict2TurnInText() != null ? template.conflict2TurnInText() : "");
+        bindings.put("quest_resolution_text", template.resolutionText());
 
-        // Step 5: Build phase instances with objectives
-        List<PhaseInstance> phases = new ArrayList<>();
-        for (int i = 0; i < phaseSequence.size(); i++) {
-            QuestVariant variant = selectedVariants.get(i);
-            PhaseType phaseType = phaseSequence.get(i);
+        // Pick a skillcheck type from the template's pool
+        if (template.skillcheckTypes() != null && !template.skillcheckTypes().isEmpty()) {
+            bindings.put("quest_skillcheck_type",
+                template.skillcheckTypes().get(random.nextInt(template.skillcheckTypes().size())));
+        }
 
-            // Select objective type from variant's pool, filtered by subject affinities
-            List<ObjectiveType> variantPool = variant.objectivePool();
-            List<ObjectiveType> validTypes;
-            if (subjectAffinities != null && !subjectAffinities.isEmpty()) {
-                Set<String> affinitySet = new HashSet<>(subjectAffinities);
-                validTypes = variantPool.stream()
-                    .filter(t -> affinitySet.contains(t.name()))
-                    .toList();
-                if (validTypes.isEmpty()) {
-                    // Fallback: use any subject affinity that has a config
-                    validTypes = subjectAffinities.stream()
-                        .map(a -> { try { return ObjectiveType.valueOf(a); } catch (Exception e) { return null; } })
-                        .filter(Objects::nonNull)
-                        .toList();
-                }
-            } else {
-                validTypes = variantPool;
-            }
-            String referenceId = null;
-            if ((phaseType == PhaseType.CONFLICT || phaseType == PhaseType.RESOLUTION)
-                    && random.nextDouble() < REFERENCE_INJECT_CHANCE) {
-                referenceId = "ref_" + questCounter.incrementAndGet();
-            }
+        // Build 3 objectives (exposition, conflict 1, conflict 2)
+        List<ObjectiveInstance> objectives = new ArrayList<>();
+        List<ObjectiveConfig> objConfigs = template.objectives();
+        if (objConfigs == null || objConfigs.isEmpty()) {
+            LOGGER.atWarning().log("V2 template %s has no objective configs", template.situation());
+            return null;
+        }
 
-            if (validTypes.isEmpty()) {
-                // Dialogue-only phase (e.g., resolution): no objectives
-                phases.add(new PhaseInstance(phaseType, variant.id(), List.of(), referenceId));
-                continue;
-            }
-
-            ObjectiveType selectedType = validTypes.size() == 1
-                ? validTypes.getFirst()
-                : validTypes.get(random.nextInt(validTypes.size()));
-
-            ObjectiveConfig config = variant.objectiveConfig().getOrDefault(
-                selectedType, new ObjectiveConfig(null, null, null));
-            ObjectiveInstance obj = createObjective(selectedType, config, bindings, random);
+        boolean poiAvailable = "true".equals(bindings.get("poi_available"));
+        for (int i = 0; i < 3; i++) {
+            ObjectiveConfig config = i < objConfigs.size() ? objConfigs.get(i) : objConfigs.getLast();
+            ObjectiveType type = config.type() != null ? config.type() : ObjectiveType.COLLECT_RESOURCES;
+            ObjectiveInstance obj = createObjective(type, config, bindings, random);
             if (obj == null) {
-                LOGGER.atInfo().log("Skipping quest: objective type %s not yet fully implemented for subject %s (poiType: %s)",
-                    selectedType, npcId, bindings.getOrDefault("subject_poi_type", "unknown"));
-                return null;
+                // Fallback: create a collect resources objective
+                obj = createObjective(ObjectiveType.COLLECT_RESOURCES,
+                    new ObjectiveConfig(null, null, null), bindings, random);
             }
-            List<ObjectiveInstance> objectives = List.of(obj);
-
-            phases.add(new PhaseInstance(phaseType, variant.id(), objectives, referenceId));
+            if (obj != null) objectives.add(obj);
         }
 
-        // Store exposition variant's dialogueChunks for multi-node quest dialogue
-        if (expositionVariant.dialogueChunks() != null) {
-            String plotStep = expositionVariant.dialogueChunks().plotStep();
-            if (plotStep != null && !plotStep.isBlank()) {
-                bindings.put("quest_plot_step", plotStep);
-            }
-            String outro = expositionVariant.dialogueChunks().outro();
-            if (outro != null && !outro.isBlank()) {
-                bindings.put("quest_outro", outro);
-            }
+        if (objectives.isEmpty()) {
+            LOGGER.atWarning().log("Failed to create any objectives for v2 template %s", template.situation());
+            return null;
         }
 
-        // Build objective summary from exposition phase for dialogue templates
-        buildObjectiveSummary(phases.getFirst(), bindings);
+        // Build objective summary for exposition objective
+        buildObjectiveSummary(objectives.getFirst(), bindings);
 
-        String questId = "quest_" + situation.getId().toLowerCase() + "_" + Long.toHexString(questCounter.incrementAndGet());
+        String questId = "quest_" + template.situation().toLowerCase() + "_" + Long.toHexString(questCounter.incrementAndGet());
 
         QuestInstance quest = new QuestInstance(
-            questId, situation.getId(), npcId, npcSettlementCellKey, phases, bindings
+            questId, template.situation(), npcId, npcSettlementCellKey, objectives, bindings
         );
 
-        LOGGER.atInfo().log("Generated quest %s: situation=%s, phases=%d, for NPC %s",
-            questId, situation.getId(), phases.size(), npcId);
+        LOGGER.atInfo().log("Generated v2 quest %s: situation=%s, objectives=%d, for NPC %s",
+            questId, template.situation(), objectives.size(), npcId);
         return quest;
-    }
-
-    /**
-     * Check if quest ally should get a topic unlocked (35% chance).
-     * Called after quest completion. Returns the ally NPC name or null.
-     */
-    public @Nullable String rollAllyTopic(QuestInstance quest, Random random) {
-        String ally = quest.getVariableBindings().get("quest_ally");
-        if (ally != null && !ally.isEmpty() && random.nextDouble() < QUEST_ALLY_TOPIC_CHANCE) {
-            return ally;
-        }
-        return null;
-    }
-
-    private List<PhaseType> rollPhaseSequence(Random random) {
-        List<PhaseType> sequence = new ArrayList<>();
-        sequence.add(PhaseType.EXPOSITION);
-
-        // 10% chance: short quest (exposition -> resolution, no conflict)
-        if (random.nextDouble() < SHORT_QUEST_CHANCE) {
-            sequence.add(PhaseType.RESOLUTION);
-            return sequence;
-        }
-
-        PhaseType current = PhaseType.EXPOSITION;
-        while (sequence.size() < MAX_PHASES) {
-            if (current == PhaseType.EXPOSITION || current == PhaseType.CONFLICT) {
-                sequence.add(PhaseType.CONFLICT);
-                current = PhaseType.CONFLICT;
-
-                if (sequence.size() < MAX_PHASES && random.nextDouble() < CONFLICT_EXTEND_CHANCE) {
-                    continue;
-                }
-                sequence.add(PhaseType.RESOLUTION);
-                current = PhaseType.RESOLUTION;
-            } else {
-                if (random.nextDouble() < RESOLUTION_EXTEND_CHANCE) {
-                    current = PhaseType.RESOLUTION;
-                    continue;
-                }
-                break;
-            }
-
-            if (current == PhaseType.RESOLUTION) {
-                break;
-            }
-        }
-
-        if (sequence.getLast() != PhaseType.RESOLUTION) {
-            if (sequence.size() >= MAX_PHASES) {
-                sequence.set(sequence.size() - 1, PhaseType.RESOLUTION);
-            } else {
-                sequence.add(PhaseType.RESOLUTION);
-            }
-        }
-
-        return sequence;
     }
 
     private Map<String, String> resolveWorldBindings(double npcX, double npcZ, String npcCellKey,
@@ -431,17 +328,8 @@ public class QuestGenerator {
         return nearest;
     }
 
-    /**
-     * Build a human-readable objective summary from the first phase's objectives.
-     * Stored as {quest_objective_summary} for use in dialogue templates.
-     * Examples: "kill 5 Trorks"
-     *           "collect 10 Wood Logs"
-     *           "speak with Elara"
-     */
-    private void buildObjectiveSummary(PhaseInstance phase, Map<String, String> bindings) {
-        if (phase.getObjectives().isEmpty()) return;
-        ObjectiveInstance obj = phase.getObjectives().getFirst();
-
+    private void buildObjectiveSummary(ObjectiveInstance obj, Map<String, String> bindings) {
+        if (obj == null) return;
         String summary = switch (obj.getType()) {
             case KILL_MOBS -> "kill " + obj.getRequiredCount() + " " + obj.getEffectiveLabel();
             case COLLECT_RESOURCES -> "collect " + obj.getRequiredCount() + " " + obj.getEffectiveLabel();
@@ -450,16 +338,7 @@ public class QuestGenerator {
                 : "recover " + obj.getTargetLabel();
             case TALK_TO_NPC -> "speak with " + obj.getTargetLabel();
         };
-
         bindings.put("quest_objective_summary", summary);
-    }
-
-    private ObjectiveType pickObjectiveType(List<ObjectiveType> pool, @Nullable ObjectiveType lastType, Random random) {
-        if (pool.size() == 1) return pool.getFirst();
-        List<ObjectiveType> filtered = new ArrayList<>(pool);
-        if (lastType != null) filtered.remove(lastType);
-        if (filtered.isEmpty()) filtered = pool;
-        return filtered.get(random.nextInt(filtered.size()));
     }
 
     private @Nullable ObjectiveInstance createObjective(ObjectiveType type, ObjectiveConfig config,

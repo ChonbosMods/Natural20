@@ -4,6 +4,7 @@ import com.chonbosmods.quest.model.DialogueChunks;
 import com.chonbosmods.quest.model.ObjectiveConfig;
 import com.chonbosmods.quest.model.QuestReferenceTemplate;
 import com.chonbosmods.quest.model.QuestSituation;
+import com.chonbosmods.quest.model.QuestTemplateV2;
 import com.chonbosmods.quest.model.QuestVariant;
 import com.google.common.flogger.FluentLogger;
 import com.google.gson.*;
@@ -24,6 +25,8 @@ public class QuestTemplateRegistry {
     private static final String CLASSPATH_PREFIX = "quests/";
 
     private final Map<String, QuestSituation> situations = new LinkedHashMap<>();
+    private final List<QuestTemplateV2> v2Templates = new ArrayList<>();
+    private static final Gson GSON = new GsonBuilder().create();
 
     public void loadAll(@Nullable Path overrideDir) {
         // Load from classpath first (bundled resources)
@@ -37,6 +40,9 @@ public class QuestTemplateRegistry {
                 LOGGER.atSevere().withCause(e).log("Failed to list quest directories in %s", overrideDir);
             }
         }
+        // Load v2 templates
+        loadV2Templates(overrideDir);
+
         LOGGER.atFine().log("Loaded %d quest situation(s)", situations.size());
     }
 
@@ -315,5 +321,63 @@ public class QuestTemplateRegistry {
 
     public int getLoadedCount() {
         return situations.size();
+    }
+
+    private void loadV2Templates(@Nullable Path questDataDir) {
+        loadV2FromClasspath();
+        if (questDataDir != null) {
+            Path v2Dir = questDataDir.resolve("v2");
+            if (Files.isDirectory(v2Dir)) {
+                try (Stream<Path> files = Files.list(v2Dir)) {
+                    files.filter(p -> p.toString().endsWith(".json"))
+                         .filter(p -> !p.getFileName().toString().equals("index.json"))
+                         .forEach(this::loadV2Template);
+                } catch (IOException e) {
+                    LOGGER.atSevere().withCause(e).log("Failed to list v2 templates in %s", v2Dir);
+                }
+            }
+        }
+        LOGGER.atInfo().log("Loaded %d v2 quest template(s)", v2Templates.size());
+    }
+
+    private void loadV2FromClasspath() {
+        try (InputStream is = getClass().getClassLoader().getResourceAsStream("quests/v2/index.json")) {
+            if (is == null) return;
+            JsonObject root = JsonParser.parseReader(new InputStreamReader(is, StandardCharsets.UTF_8)).getAsJsonObject();
+            JsonArray templates = root.getAsJsonArray("templates");
+            if (templates == null) return;
+            for (JsonElement el : templates) {
+                String filename = el.getAsString();
+                try (InputStream tis = getClass().getClassLoader().getResourceAsStream("quests/v2/" + filename)) {
+                    if (tis == null) continue;
+                    QuestTemplateV2 template = GSON.fromJson(
+                        new InputStreamReader(tis, StandardCharsets.UTF_8), QuestTemplateV2.class);
+                    if (template != null) v2Templates.add(template);
+                }
+            }
+        } catch (Exception e) {
+            LOGGER.atSevere().withCause(e).log("Failed to load v2 templates from classpath");
+        }
+    }
+
+    private void loadV2Template(Path path) {
+        try (var reader = Files.newBufferedReader(path)) {
+            QuestTemplateV2 template = GSON.fromJson(reader, QuestTemplateV2.class);
+            if (template != null) v2Templates.add(template);
+        } catch (Exception e) {
+            LOGGER.atSevere().withCause(e).log("Failed to load v2 template: %s", path);
+        }
+    }
+
+    public List<QuestTemplateV2> getV2Templates() { return v2Templates; }
+
+    public @Nullable QuestTemplateV2 selectV2ForRole(String npcRole, Random random) {
+        List<QuestTemplateV2> weighted = new ArrayList<>();
+        for (QuestTemplateV2 t : v2Templates) {
+            double weight = t.npcWeights() != null ? t.npcWeights().getOrDefault(npcRole, 1.0) : 1.0;
+            if (weight > 0) weighted.add(t);
+        }
+        if (weighted.isEmpty()) return null;
+        return weighted.get(random.nextInt(weighted.size()));
     }
 }

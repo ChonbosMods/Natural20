@@ -12,22 +12,25 @@ public class QuestInstance {
     private String situationId;
     private String sourceNpcId;
     private String sourceSettlementId;
-    private List<PhaseInstance> phases = new ArrayList<>();
-    private int currentPhaseIndex;
+    private QuestState state = QuestState.AVAILABLE;
+    private int conflictCount;
+    private List<ObjectiveInstance> objectives = new ArrayList<>();
     private Map<String, String> variableBindings = new HashMap<>();
     private Set<Integer> rewardsClaimed = new HashSet<>();
+    private boolean skillcheckPassed;
 
     public QuestInstance() {}
 
     public QuestInstance(String questId, String situationId, String sourceNpcId,
-                         String sourceSettlementId, List<PhaseInstance> phases,
+                         String sourceSettlementId, List<ObjectiveInstance> objectives,
                          Map<String, String> variableBindings) {
         this.questId = questId;
         this.situationId = situationId;
         this.sourceNpcId = sourceNpcId;
         this.sourceSettlementId = sourceSettlementId;
-        this.phases = phases;
-        this.currentPhaseIndex = 0;
+        this.objectives = objectives;
+        this.state = QuestState.AVAILABLE;
+        this.conflictCount = 0;
         this.variableBindings = variableBindings;
     }
 
@@ -35,34 +38,27 @@ public class QuestInstance {
     public String getSituationId() { return situationId; }
     public String getSourceNpcId() { return sourceNpcId; }
     public String getSourceSettlementId() { return sourceSettlementId; }
-    public List<PhaseInstance> getPhases() { return phases; }
-    public int getCurrentPhaseIndex() { return currentPhaseIndex; }
+    public QuestState getState() { return state; }
+    public void setState(QuestState state) { this.state = state; }
+    public int getConflictCount() { return conflictCount; }
+    public void incrementConflictCount() { this.conflictCount++; }
+    public List<ObjectiveInstance> getObjectives() { return objectives; }
     public Map<String, String> getVariableBindings() { return variableBindings; }
     public Set<Integer> getRewardsClaimed() { return rewardsClaimed; }
+    public boolean isSkillcheckPassed() { return skillcheckPassed; }
+    public void setSkillcheckPassed(boolean passed) { this.skillcheckPassed = passed; }
 
-    public PhaseInstance getCurrentPhase() {
-        if (currentPhaseIndex < phases.size()) return phases.get(currentPhaseIndex);
+    /** Current objective based on conflictCount: index 0 = exposition, 1 = conflict 1, 2 = conflict 2 */
+    public ObjectiveInstance getCurrentObjective() {
+        if (conflictCount < objectives.size()) return objectives.get(conflictCount);
         return null;
     }
 
-    public boolean advancePhase() {
-        if (currentPhaseIndex < phases.size() - 1) {
-            currentPhaseIndex++;
-            return true;
-        }
-        return false;
+    public void claimReward(int conflictIndex) {
+        rewardsClaimed.add(conflictIndex);
     }
 
-    public boolean isComplete() {
-        return currentPhaseIndex >= phases.size() - 1
-            && phases.get(phases.size() - 1).isComplete();
-    }
-
-    public void claimReward(int phaseIndex) {
-        rewardsClaimed.add(phaseIndex);
-    }
-
-    public boolean hasClaimedReward(int phaseIndex) {
-        return rewardsClaimed.contains(phaseIndex);
+    public boolean hasClaimedReward(int conflictIndex) {
+        return rewardsClaimed.contains(conflictIndex);
     }
 }
