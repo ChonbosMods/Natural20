@@ -16,6 +16,8 @@ import java.util.concurrent.atomic.AtomicLong;
 public class QuestGenerator {
 
     private static final FluentLogger LOGGER = FluentLogger.forEnclosingClass();
+    private static final double CONFLICT_1_CHANCE = 0.40;
+    private static final double CONFLICT_2_CHANCE = 0.10;
     private static final double STAKES_EQUALS_FOCUS_CHANCE = 0.15;
     private static final double TALK_NPC_HANDOFF_CHANCE = 0.75;
     private static final Set<String> INVESTIGATION_SITUATIONS = Set.of(
@@ -74,7 +76,17 @@ public class QuestGenerator {
                 template.skillcheckTypes().get(random.nextInt(template.skillcheckTypes().size())));
         }
 
-        // Build 3 objectives (exposition, conflict 1, conflict 2)
+        // Roll conflict count upfront: the quest is fully deterministic from creation
+        int maxConflicts = 0;
+        if (random.nextDouble() < CONFLICT_1_CHANCE) {
+            maxConflicts = 1;
+            if (random.nextDouble() < CONFLICT_2_CHANCE) {
+                maxConflicts = 2;
+            }
+        }
+
+        // Build objectives: 1 (exposition) + maxConflicts
+        int totalObjectives = 1 + maxConflicts;
         List<ObjectiveInstance> objectives = new ArrayList<>();
         List<ObjectiveConfig> objConfigs = template.objectives();
         if (objConfigs == null || objConfigs.isEmpty()) {
@@ -83,12 +95,11 @@ public class QuestGenerator {
         }
 
         boolean poiAvailable = "true".equals(bindings.get("poi_available"));
-        for (int i = 0; i < 3; i++) {
+        for (int i = 0; i < totalObjectives; i++) {
             ObjectiveConfig config = i < objConfigs.size() ? objConfigs.get(i) : objConfigs.getLast();
             ObjectiveType type = config.type() != null ? config.type() : ObjectiveType.COLLECT_RESOURCES;
             ObjectiveInstance obj = createObjective(type, config, bindings, random);
             if (obj == null) {
-                // Fallback: create a collect resources objective
                 obj = createObjective(ObjectiveType.COLLECT_RESOURCES,
                     new ObjectiveConfig(null, null, null), bindings, random);
             }
@@ -108,6 +119,7 @@ public class QuestGenerator {
         QuestInstance quest = new QuestInstance(
             questId, template.situation(), npcId, npcSettlementCellKey, objectives, bindings
         );
+        quest.setMaxConflicts(maxConflicts);
 
         LOGGER.atInfo().log("Generated v2 quest %s: situation=%s, objectives=%d, for NPC %s",
             questId, template.situation(), objectives.size(), npcId);

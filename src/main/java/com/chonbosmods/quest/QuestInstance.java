@@ -14,6 +14,7 @@ public class QuestInstance {
     private String sourceSettlementId;
     private QuestState state = QuestState.AVAILABLE;
     private int conflictCount;
+    private int maxConflicts;
     private List<ObjectiveInstance> objectives = new ArrayList<>();
     private Map<String, String> variableBindings = new HashMap<>();
     private Set<Integer> rewardsClaimed = new HashSet<>();
@@ -42,6 +43,9 @@ public class QuestInstance {
     public void setState(QuestState state) { this.state = state; }
     public int getConflictCount() { return conflictCount; }
     public void incrementConflictCount() { this.conflictCount++; }
+    public int getMaxConflicts() { return maxConflicts; }
+    public void setMaxConflicts(int maxConflicts) { this.maxConflicts = maxConflicts; }
+    public boolean hasMoreConflicts() { return conflictCount < maxConflicts; }
     public List<ObjectiveInstance> getObjectives() { return objectives; }
     public Map<String, String> getVariableBindings() { return variableBindings; }
     public Set<Integer> getRewardsClaimed() { return rewardsClaimed; }

@@ -431,12 +431,11 @@ public class DialogueManager {
                 ));
             }
 
-            // TURN_IN_V2 action: the action handler decides conflict vs resolution
+            // TURN_IN_V2 action: next node is deterministic (decided at quest generation)
+            String afterTurnIn = quest.hasMoreConflicts() ? conflictNodeId : resolutionNodeId;
             graph.nodes().put(actionNodeId, new DialogueNode.ActionNode(
-                List.of(new HashMap<>(Map.of("type", "TURN_IN_V2", "questId", questId,
-                    "conflictNode", conflictNodeId, "resolutionNode", resolutionNodeId))),
-                resolutionNodeId, // default next (action may override via params)
-                List.of(), true
+                List.of(Map.of("type", "TURN_IN_V2", "questId", questId)),
+                afterTurnIn, List.of(), true
             ));
 
             // Entry node: turn-in text with [Turn in] button

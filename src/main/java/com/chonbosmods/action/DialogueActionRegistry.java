@@ -258,16 +258,12 @@ public class DialogueActionRegistry {
             if (quest.isSkillcheckPassed()) multiplier += SKILLCHECK_PASS_REWARD_BONUS;
             quest.claimReward(quest.getConflictCount());
             ctx.dispositionUpdater().accept(QuestDispositionConstants.QUEST_PHASE_TURNED_IN);
-            LOGGER.atInfo().log("TURN_IN_V2: quest %s turn-in at conflict %d (multiplier %.2f)",
-                quest.getQuestId(), quest.getConflictCount(), multiplier);
-
-            // Roll for conflict
-            boolean conflictTriggered = rollConflict(quest);
 
             // Clear source NPC turn-in marker
             clearSourceNpcMarker(quest);
 
-            if (conflictTriggered) {
+            // Deterministic: conflict count was decided at generation time
+            if (quest.hasMoreConflicts()) {
                 quest.incrementConflictCount();
                 quest.setState(com.chonbosmods.quest.QuestState.ACTIVE_OBJECTIVE);
 
@@ -304,20 +300,15 @@ public class DialogueActionRegistry {
                     bindings.put("quest_objective_summary", summary);
                 }
 
-                // Save and set dialogue continuation to conflict node
                 saveQuest(questSystem, ctx.playerData(), quest);
-                params.put("nextNode", params.get("conflictNode"));
-                LOGGER.atInfo().log("TURN_IN_V2: quest %s conflict %d triggered",
-                    quest.getQuestId(), quest.getConflictCount());
+                LOGGER.atInfo().log("TURN_IN_V2: quest %s advanced to conflict %d/%d",
+                    quest.getQuestId(), quest.getConflictCount(), quest.getMaxConflicts());
             } else {
                 quest.setState(com.chonbosmods.quest.QuestState.COMPLETED);
                 ctx.dispositionUpdater().accept(QuestDispositionConstants.QUEST_COMPLETED);
                 questSystem.getStateManager().markQuestCompleted(ctx.playerData(), quest.getQuestId());
                 ctx.systemLogger().accept("Quest completed: " + quest.getSituationId());
-
-                // Set dialogue continuation to resolution node
-                params.put("nextNode", params.get("resolutionNode"));
-                LOGGER.atInfo().log("TURN_IN_V2: quest %s completed (no conflict)", quest.getQuestId());
+                LOGGER.atInfo().log("TURN_IN_V2: quest %s completed", quest.getQuestId());
             }
 
             QuestMarkerProvider.refreshMarkers(
@@ -658,15 +649,6 @@ public class DialogueActionRegistry {
         if (npcData != null) {
             npcData.setQuestMarkerState(Nat20NpcData.QuestMarkerState.QUEST_AVAILABLE);
         }
-    }
-
-    private boolean rollConflict(QuestInstance quest) {
-        if (quest.getConflictCount() >= MAX_CONFLICTS) return false;
-        double chance = quest.getConflictCount() == 0 ? CONFLICT_1_CHANCE : CONFLICT_2_CHANCE;
-        boolean result = new Random().nextDouble() < chance;
-        LOGGER.atInfo().log("rollConflict: quest %s conflict %d, chance %.0f%%, result: %s",
-            quest.getQuestId(), quest.getConflictCount(), chance * 100, result);
-        return result;
     }
 
     private void clearSourceNpcMarker(QuestInstance quest) {
