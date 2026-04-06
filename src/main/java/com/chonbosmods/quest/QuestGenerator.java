@@ -352,6 +352,7 @@ public class QuestGenerator {
                 } else {
                     count = config.rollCount(random);
                 }
+                bindings.put("gather_count", String.valueOf(count));
                 ObjectiveInstance collectObj = new ObjectiveInstance(
                     type, bindings.get("gather_item_id"), bindings.get("quest_item"),
                     count, null, null
@@ -451,6 +452,7 @@ public class QuestGenerator {
             case KILL_MOBS -> 2;
             default -> 1; // FETCH_ITEM
         };
+        bindings.put("gather_count", String.valueOf(requiredCount));
 
         String targetLabel = switch (type) {
             case KILL_MOBS -> bindings.get("enemy_type");
