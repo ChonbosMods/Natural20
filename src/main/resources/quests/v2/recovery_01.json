@@ -1,0 +1,26 @@
+{
+  "situation": "RecoveryOfALostOne",
+  "topicHeader": "A Lost Heirloom",
+  "expositionText": "My family's heirloom was stolen weeks ago. I've heard it ended up somewhere {location_hint}, locked away underground.",
+  "acceptText": "Find the heirloom. It should be in a chest somewhere in the caves {location_hint}. Bring it back to me.",
+  "declineText": "I see. Another person who can't be bothered. I'll find it myself.",
+  "skillcheckTypes": ["DEX", "WIS"],
+  "skillcheckPassText": "You move quietly. That'll help you down there.",
+  "skillcheckFailText": "You'll manage. Just be careful.",
+  "expositionTurnInText": "You found it. I can't believe it. After all this time.",
+  "conflict1Text": "There's a complication. {enemy_type_plural} have moved into the caves since the theft. Kill {gather_count} of them so the path stays clear.",
+  "conflict1TurnInText": "Good. No one else will lose their belongings to those things.",
+  "conflict2Text": "One more thing. Collect {gather_count} {quest_item} for me. I need to repair the damage they did to the heirloom's case.",
+  "conflict2TurnInText": "Perfect. The case is restored. It looks almost new.",
+  "resolutionText": "My family's legacy is whole again, thanks to you. I won't forget this kindness.",
+  "objectives": [
+    { "type": "FETCH_ITEM" },
+    { "type": "KILL_MOBS", "countMin": 2, "countMax": 4 },
+    { "type": "COLLECT_RESOURCES" }
+  ],
+  "npcWeights": {
+    "civilian": 2.0,
+    "merchant": 1.5,
+    "guard": 0.5
+  }
+}
