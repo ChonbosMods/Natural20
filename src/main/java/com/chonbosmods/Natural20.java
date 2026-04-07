@@ -411,12 +411,25 @@ public class Natural20 extends JavaPlugin {
         dialogueManager.setPostureResolver(
             new PostureResolver(questSystem.getPostureGroupRegistry()));
 
-        // Generate procedural topics for all existing settlements
-        for (SettlementRecord settlement : settlementRegistry.getAll().values()) {
+        // Generate procedural topics for all existing settlements. Iterate in
+        // chronological placedAt order (tiebreak on cellKey) so the shared
+        // per-world dedup evolves identically to how it did during original
+        // world-gen: this is what makes dialogue regeneration restart-stable.
+        List<SettlementRecord> orderedSettlements = new ArrayList<>(
+            settlementRegistry.getAll().values());
+        orderedSettlements.sort(
+            java.util.Comparator.comparingLong(SettlementRecord::getPlacedAt)
+                .thenComparing(SettlementRecord::getCellKey));
+        java.util.Set<UUID> resetWorlds = new java.util.HashSet<>();
+        for (SettlementRecord settlement : orderedSettlements) {
+            UUID worldId = settlement.getWorldUUID();
+            if (worldId != null && resetWorlds.add(worldId)) {
+                questSystem.getTopicGenerator().resetDedupForWorld(worldId);
+            }
             var topicGraphs = questSystem.getTopicGenerator().generate(settlement, deriveNearbyNames(settlement));
             dialogueLoader.registerGeneratedGraphs(topicGraphs);
         }
-        getLogger().atInfo().log("Generated procedural topics for %d settlement(s)", settlementRegistry.getAll().size());
+        getLogger().atInfo().log("Generated procedural topics for %d settlement(s)", orderedSettlements.size());
 
         // Periodic NPC state sync (every 60s)
         npcSyncExecutor = Executors.newSingleThreadScheduledExecutor(r -> {

@@ -42,10 +42,16 @@ OPENER_BIAS = {
     "friendly": 0.35, "loyal": 0.20,
 }
 
-# TopicConstants
+# TopicConstants — mirrors Java TopicConstants. Total topics per NPC
+# (smalltalk + runtime-injected quest topic) must never exceed MAX_TOTAL_TOPICS.
+# This Python dry-run does not simulate quests, so it shows smalltalk counts
+# before any quest cap.
+MAX_TOTAL_TOPICS = 3
+GUARD_ROLES = {"Guard"}
 SOCIAL_ROLES = {"TavernKeeper", "ArtisanAlchemist", "ArtisanBlacksmith", "ArtisanCook", "Traveler"}
-SOCIAL_MIN, SOCIAL_MAX = 2, 4
-FUNCTIONAL_MIN, FUNCTIONAL_MAX = 0, 2
+GUARD_MIN, GUARD_MAX = 0, 1
+FUNCTIONAL_MIN, FUNCTIONAL_MAX = 1, 2
+SOCIAL_MIN, SOCIAL_MAX = 2, 3
 
 LABEL_CATEGORIES = {
     "Local":   ["poi_awareness", "settlement_pride", "creature_complaints", "mundane_daily_life"],
@@ -90,15 +96,23 @@ LAST_NAMES = [
     "Nighthollow", "Oakveil", "Pinecrest", "Ravenscroft", "Stonebrow", "Thornwall",
 ]
 
-# Settlement flavor
-SETTLEMENT_NAMES = [
-    "Ashenmoor", "Briarhollow", "Crestfall", "Dawnmeadow", "Elkridge",
-    "Frostpine", "Greenhollow", "Hearthstone", "Irondale", "Juniper Crossing",
-    "Kestrelwatch", "Larchwood", "Millhaven", "Northwall", "Oakshade",
-    "Pinecrest", "Quartzfield", "Ravenford", "Silverbrook", "Thornvale",
-]
+# Settlement flavor: load the same place_names.json that the live mod uses
+# (Nat20PlaceNameGenerator) so dry-run name distribution mirrors production.
+PLACE_NAMES_FILE = BASE / "src/main/resources/names/place_names.json"
+with open(PLACE_NAMES_FILE) as _f:
+    SETTLEMENT_NAMES = json.load(_f)
 POI_TYPES = ["mine", "farm", "blacksmith", "tavern", "mill", "market", "chapel", "well"]
 MOB_TYPES = ["goblins", "wolves", "skeletons", "bandits", "spiders", "troglodytes"]
+
+
+def pick_place_name(seed, used_names):
+    """Mirror of Java Nat20PlaceNameGenerator.generate(seed, usedNames):
+    pick a name not yet in used_names; reset to full pool if exhausted."""
+    available = [n for n in SETTLEMENT_NAMES if n not in used_names]
+    if not available:
+        available = SETTLEMENT_NAMES
+    rng = random.Random(seed)
+    return available[rng.randrange(len(available))]
 
 # ===========================================================================
 # Data Loading
@@ -191,6 +205,14 @@ class PercentageDedup:
         idx = self.draw(pool_name, len(pool_list), rng)
         return pool_list[idx]
 
+    # Mirrors Java PercentageDedup.snapshot() / restore() so we can sanity-check
+    # the serialization helpers used by tests / debug tooling.
+    def snapshot(self):
+        return {k: sorted(v) for k, v in self.seen.items()}
+
+    def restore(self, snap):
+        self.seen = {k: set(v) for k, v in (snap or {}).items()}
+
 # ===========================================================================
 # DialogueResolver (mirrors Java DialogueResolver.resolve)
 # ===========================================================================
@@ -260,6 +282,26 @@ def random_tone(pool_map, bracket, valence, rng):
         return ""
     return rng.choice(lane)
 
+
+def random_tone_deduped(kind, pool_map, bracket, valence, dedup, rng):
+    """Dedup-aware mirror of Java TopicPoolRegistry.selectFromTonePoolDeduped.
+    Namespaces the dedup key by the actual lane drawn from so fallbacks don't
+    pollute the requested lane's seen-state."""
+    bracket_pool = pool_map.get(bracket, {})
+    valence_key = valence if valence else "neutral"
+    lane = bracket_pool.get(valence_key, [])
+    if lane:
+        return dedup.draw_from(f"{kind}_{bracket}_{valence_key}", lane, rng)
+    neutral = bracket_pool.get("neutral", [])
+    if neutral:
+        return dedup.draw_from(f"{kind}_{bracket}_neutral", neutral, rng)
+    all_lines = []
+    for v in bracket_pool.values():
+        all_lines.extend(v)
+    if not all_lines:
+        return ""
+    return dedup.draw_from(f"{kind}_{bracket}_all", all_lines, rng)
+
 # ===========================================================================
 # Build bindings (mirrors TopicGenerator.buildBindings for non-quest)
 # ===========================================================================
@@ -315,12 +357,12 @@ def build_bindings(entry, npc_name, npc_role, disposition, other_npcs,
         res_pool = [item for lst in data.resource_types.values() if isinstance(lst, list) for item in lst]
     b["resource_type"] = dedup.draw_from("resource_types_" + poi_key, res_pool, rng)
 
-    # Tone framing
+    # Tone framing — dedup-aware, mirrors Java TopicGenerator.buildBindings
     bracket = disposition_bracket(disposition)
     has_opener, has_closer = roll_framing(bracket, rng)
     valence = entry.get("valence", "neutral")
-    b["tone_opener"] = (random_tone(data.tone_openers, bracket, valence, rng) + " ") if has_opener else ""
-    b["tone_closer"] = (" " + random_tone(data.tone_closers, bracket, valence, rng)) if has_closer else ""
+    b["tone_opener"] = (random_tone_deduped("tone_opener", data.tone_openers, bracket, valence, dedup, rng) + " ") if has_opener else ""
+    b["tone_closer"] = (" " + random_tone_deduped("tone_closer", data.tone_closers, bracket, valence, dedup, rng)) if has_closer else ""
 
     # Entry content pre-resolution
     b["entry_intro"] = resolve(entry["intro"], b)
@@ -412,9 +454,14 @@ def build_beat_chain(npc_id, entry, bindings, skill, rng):
 # Settlement generation (mirrors TopicGenerator.generate)
 # ===========================================================================
 
-def generate_settlement(seed, settlement_idx):
+def generate_settlement(seed, settlement_idx, dedup, used_place_names):
     rng = random.Random(seed)
-    settlement_name = SETTLEMENT_NAMES[settlement_idx % len(SETTLEMENT_NAMES)]
+    # Mirror live mod: derive name via Nat20PlaceNameGenerator-equivalent
+    # uniqueness against the running set of used names. The name seed mirrors
+    # SettlementWorldGenListener: cellKey.hashCode() (here, the per-settlement
+    # `seed` already plays the role of cellKey.hashCode() ^ worldEntropy).
+    settlement_name = pick_place_name(seed, used_place_names)
+    used_place_names.add(settlement_name)
 
     # Generate NPCs
     npc_count = rng.randint(4, 7)
@@ -434,21 +481,30 @@ def generate_settlement(seed, settlement_idx):
         disposition = rng.randint(40, 70)  # Typical starting range
         npcs.append({"name": name, "role": role, "disposition": disposition})
 
-    # Roll topic budgets
+    # Roll topic budgets — mirrors Java TopicGenerator.generate Step 2 with
+    # three role tiers (guard / functional / social). Quest cap is NOT applied
+    # here because the Python dry-run doesn't simulate quest bearers; use the
+    # live mod to verify the quest + cap interaction.
     budgets = {}
     for npc in npcs:
-        if npc["role"] in SOCIAL_ROLES:
+        if npc["role"] in GUARD_ROLES:
+            budget = GUARD_MIN + rng.randint(0, GUARD_MAX - GUARD_MIN)
+        elif npc["role"] in SOCIAL_ROLES:
             budget = SOCIAL_MIN + rng.randint(0, SOCIAL_MAX - SOCIAL_MIN)
         else:
             budget = FUNCTIONAL_MIN + rng.randint(0, FUNCTIONAL_MAX - FUNCTIONAL_MIN)
+        if budget > MAX_TOTAL_TOPICS:
+            budget = MAX_TOTAL_TOPICS
         budgets[npc["name"]] = budget
 
-    # Assign topics per NPC (label round-robin -> category draw)
-    dedup = PercentageDedup()
+    # Assign topics per NPC (label round-robin -> category draw). Dedup is
+    # shared across all settlements in the world by the caller.
     poi_types = rng.sample(POI_TYPES, min(3, len(POI_TYPES)))
     mob_types = rng.sample(MOB_TYPES, min(2, len(MOB_TYPES)))
-    other_idx = (settlement_idx + 1) % len(SETTLEMENT_NAMES)
-    nearby = [SETTLEMENT_NAMES[other_idx]]
+    # "Nearby settlement" reference for the {other_settlement} variable. Pick
+    # any other name from the live pool that isn't this settlement.
+    nearby_pool = [n for n in SETTLEMENT_NAMES if n != settlement_name]
+    nearby = [nearby_pool[rng.randrange(len(nearby_pool))]]
 
     result = {
         "seed": seed,
@@ -465,7 +521,7 @@ def generate_settlement(seed, settlement_idx):
             result["npcs"].append({
                 "name": npc_name, "role": npc["role"],
                 "disposition": npc["disposition"],
-                "greeting": rng.choice(data.greetings),
+                "greeting": dedup.draw_from("greetings", data.greetings, rng),
                 "topics": [],
             })
             continue
@@ -481,7 +537,7 @@ def generate_settlement(seed, settlement_idx):
             "name": npc_name,
             "role": npc["role"],
             "disposition": npc["disposition"],
-            "greeting": rng.choice(data.greetings),
+            "greeting": dedup.draw_from("greetings", data.greetings, rng),
             "topics": [],
         }
 
@@ -667,14 +723,43 @@ def compute_stats(settlements):
 
 def main():
     num_settlements = int(sys.argv[1]) if len(sys.argv) > 1 else 20
+    # Optional second arg: synthetic world id (default "world_a"). Mirrors how
+    # the live mod mixes worldUUID into the per-cell seed so the same cell in
+    # different worlds produces distinct dialogue.
+    world_id = sys.argv[2] if len(sys.argv) > 2 else "world_a"
+    world_entropy = hash(world_id) & 0xFFFFFFFFFFFFFFFF
+
     print(f"Loaded {len(data.v3_pools)} v3 pools, "
           f"{sum(len(p) for p in data.v3_pools.values())} entries, "
           f"{len(data.templates)} templates", file=sys.stderr)
+    print(f"World id: {world_id} (entropy=0x{world_entropy:016x})", file=sys.stderr)
+
+    # Sanity-check PercentageDedup snapshot/restore round-trip via JSON.
+    # This catches serialization edge cases (set->list, int keys, etc.) before
+    # they hit any debug tooling that uses the snapshot helpers.
+    sanity = PercentageDedup()
+    rng_sanity = random.Random(42)
+    for _ in range(10):
+        sanity.draw("test_pool", 20, rng_sanity)
+    snap_json = json.dumps(sanity.snapshot())
+    restored = PercentageDedup()
+    restored.restore(json.loads(snap_json))
+    assert restored.snapshot() == sanity.snapshot(), \
+        "PercentageDedup snapshot/restore JSON round-trip mismatch"
+    print(f"PercentageDedup snapshot/restore round-trip OK ({len(snap_json)} bytes)",
+          file=sys.stderr)
+
+    # Shared per-world dedup: state evolves across all settlements in this run.
+    dedup = PercentageDedup()
+    # Used place names: mirror live mod's per-world uniqueness against
+    # SettlementRegistry.getUsedNames(). Hard dedup, not percentage-based.
+    used_place_names = set()
 
     settlements = []
     for i in range(num_settlements):
-        seed = 1000 + i * 37
-        s = generate_settlement(seed, i)
+        # Mirror Java: baseSeed = cellKey.hashCode() ^ worldEntropy
+        seed = (1000 + i * 37) ^ world_entropy
+        s = generate_settlement(seed, i, dedup, used_place_names)
         settlements.append(s)
         topic_count = sum(len(n["topics"]) for n in s["npcs"])
         print(f"  Settlement {i+1} ({s['name']}): {s['npc_count']} NPCs, {topic_count} topics",

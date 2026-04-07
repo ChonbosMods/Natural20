@@ -17,15 +17,24 @@ import java.util.*;
 
 /**
  * Settlement-level orchestrator that generates all topics for every NPC in a settlement.
- * Seeds deterministically from the settlement's cell key so the same topics regenerate
- * on server restart.
+ * Seeds deterministically from the settlement's cell key mixed with the world's
+ * stable UUID so each world produces distinct dialogue for the same cell.
+ *
+ * <p>Maintains a per-world {@link PercentageDedup} shared across settlements so
+ * that template entries, greetings and tone openers/closers don't repeat across
+ * the world until ~80% of each pool has been exhausted. Restart-determinism is
+ * provided by iterating settlements in {@code placedAt} order during bulk
+ * regeneration (see {@code Natural20.startup}); no on-disk persistence is
+ * required since the dedup is a pure function of seed + iteration order.
  */
 public class TopicGenerator {
 
     private static final FluentLogger LOGGER = FluentLogger.forEnclosingClass();
 
-    // Quest tuning (not shared with dry run)
-    private static final double QUEST_CHANCE_PER_SUBJECT = 0.40;
+    // Quest tuning (not shared with dry run). Quest bearer selection is now
+    // per-NPC (not per-subject) so the smalltalk budget can be capped to leave
+    // room for the runtime-injected quest topic.
+    private static final double QUEST_CHANCE_PER_NPC = 0.40;
     private static final double MIN_QUEST_RATIO = 0.25;
     private static final double MAX_QUEST_RATIO = 0.50;
     private static final int MIN_QUEST_FLOOR = 1;
@@ -35,12 +44,39 @@ public class TopicGenerator {
     private final QuestPoolRegistry questPool;
     private final QuestGenerator questGenerator;
 
+    /** Shared dedup state, one per world. World-gen is single-threaded per world. */
+    private final Map<UUID, PercentageDedup> dedupByWorld = new HashMap<>();
+
     public TopicGenerator(TopicPoolRegistry topicPool, TopicTemplateRegistry templateRegistry,
                           QuestPoolRegistry questPool, QuestGenerator questGenerator) {
         this.topicPool = topicPool;
         this.templateRegistry = templateRegistry;
         this.questPool = questPool;
         this.questGenerator = questGenerator;
+    }
+
+    /**
+     * Reset the in-memory dedup state for the given world. Called by the
+     * bulk-regeneration path on startup before iterating settlements in
+     * placedAt order, so the dedup evolves identically to its original
+     * chronological order.
+     */
+    public void resetDedupForWorld(UUID worldUUID) {
+        dedupByWorld.remove(worldUUID);
+    }
+
+    private PercentageDedup dedupFor(UUID worldUUID) {
+        return dedupByWorld.computeIfAbsent(worldUUID, k -> new PercentageDedup());
+    }
+
+    /**
+     * Mix the world's stable UUID into the per-cell seed so the same cell in
+     * different worlds produces distinct RNG streams. Returns 0 for a null
+     * UUID to preserve behavior in tests / dry runs that lack a world.
+     */
+    private static long worldEntropy(@javax.annotation.Nullable UUID worldUUID) {
+        if (worldUUID == null) return 0L;
+        return worldUUID.getMostSignificantBits() ^ worldUUID.getLeastSignificantBits();
     }
 
     /**
@@ -55,7 +91,10 @@ public class TopicGenerator {
             return Map.of();
         }
 
-        Random random = new Random(settlement.getCellKey().hashCode());
+        UUID worldUUID = settlement.getWorldUUID();
+        long baseSeed = ((long) settlement.getCellKey().hashCode()) ^ worldEntropy(worldUUID);
+        Random random = new Random(baseSeed);
+        PercentageDedup dedup = dedupFor(worldUUID);
 
         // Build settlement context for template variable resolution
         List<SettlementContext.NpcRef> npcRefs = new ArrayList<>();
@@ -72,11 +111,42 @@ public class TopicGenerator {
 
         int npcCount = npcs.size();
 
-        // Step 1: Roll topic budgets per NPC (role-based ranges)
+        // Step 1: Decide quest bearer NPCs up front. Done BEFORE topic budgets
+        // so each bearer's smalltalk budget can be reduced by 1 to leave room
+        // for the runtime-injected quest topic (total topics per NPC <= 3).
+        int minQuests = Math.max(MIN_QUEST_FLOOR, (int) Math.floor(npcCount * MIN_QUEST_RATIO));
+        int maxQuests = Math.max(MAX_QUEST_FLOOR, (int) Math.floor(npcCount * MAX_QUEST_RATIO));
+        minQuests = Math.min(minQuests, npcCount);
+        maxQuests = Math.min(maxQuests, npcCount);
+
+        LinkedHashSet<String> questBearerNpcs = new LinkedHashSet<>();
+        for (NpcRecord npc : npcs) {
+            if (random.nextDouble() < QUEST_CHANCE_PER_NPC) {
+                questBearerNpcs.add(npc.getGeneratedName());
+            }
+        }
+        while (questBearerNpcs.size() < minQuests) {
+            NpcRecord pick = npcs.get(random.nextInt(npcCount));
+            questBearerNpcs.add(pick.getGeneratedName());
+        }
+        while (questBearerNpcs.size() > maxQuests) {
+            String[] names = questBearerNpcs.toArray(new String[0]);
+            questBearerNpcs.remove(names[random.nextInt(names.length)]);
+        }
+
+        // Step 2: Roll smalltalk topic budgets per NPC. Role-based ranges with
+        // guard / functional / social tiers. Quest bearers get their budget
+        // capped so total topics (smalltalk + quest) <= MAX_TOTAL_TOPICS_PER_NPC;
+        // they also get a floor of 1 so the quest generator has a subject to
+        // read affinities from.
         Map<String, Integer> topicBudgets = new LinkedHashMap<>();
         for (NpcRecord npc : npcs) {
             int min, max;
-            if (isSocialRole(npc.getRole())) {
+            String role = npc.getRole();
+            if (TopicConstants.GUARD_ROLES.contains(role)) {
+                min = TopicConstants.GUARD_MIN_TOPICS;
+                max = TopicConstants.GUARD_MAX_TOPICS;
+            } else if (isSocialRole(role)) {
                 min = TopicConstants.SOCIAL_MIN_TOPICS;
                 max = TopicConstants.SOCIAL_MAX_TOPICS;
             } else {
@@ -84,10 +154,14 @@ public class TopicGenerator {
                 max = TopicConstants.FUNCTIONAL_MAX_TOPICS;
             }
             int budget = min + random.nextInt(max - min + 1);
+            boolean isQuestBearer = questBearerNpcs.contains(npc.getGeneratedName());
+            int maxSmalltalk = TopicConstants.MAX_TOTAL_TOPICS_PER_NPC - (isQuestBearer ? 1 : 0);
+            if (budget > maxSmalltalk) budget = maxSmalltalk;
+            if (isQuestBearer && budget < 1) budget = 1;
             topicBudgets.put(npc.getGeneratedName(), budget);
         }
 
-        // Step 2: Each NPC gets 2-3 topic labels based on role, then draws
+        // Step 3: Each NPC gets 2-3 topic labels based on role, then draws
         // categories from those labels to fill their topic budget.
         List<SubjectFocus> allSubjects = new ArrayList<>();
         Map<String, List<SubjectFocus>> npcSubjects = new LinkedHashMap<>();
@@ -100,7 +174,7 @@ public class TopicGenerator {
             int budget = topicBudgets.get(npcName);
 
             // Per-NPC seeded random for deterministic label/category selection
-            Random deckRandom = new Random(settlement.getCellKey().hashCode() ^ ((long) npcIdx * 31));
+            Random deckRandom = new Random(baseSeed ^ ((long) npcIdx * 31));
 
             // Select 2-3 labels based on role
             List<String> roleLabels = TopicConstants.ROLE_LABELS.getOrDefault(
@@ -127,71 +201,32 @@ public class TopicGenerator {
             npcSubjects.put(npcName, npcTopics);
         }
 
-        // Step 3: Roll quest placement (40% per subject, clamped by settlement size)
-        // Build a mapping from subject index to owning NPC for quest generation
-        Map<Integer, String> subjectOwners = new LinkedHashMap<>();
-        int idx = 0;
-        for (var entry : npcSubjects.entrySet()) {
-            for (SubjectFocus ignored : entry.getValue()) {
-                subjectOwners.put(idx++, entry.getKey());
+        // Step 4: Generate quests for pre-selected bearers. Each bearer's
+        // first subject is used as the affinity hook; if that subject is not
+        // quest-eligible, swap it for one that is. Quest bearers were chosen
+        // in Step 1 and always have >=1 smalltalk subject due to the budget
+        // floor in Step 2.
+        for (String bearerName : questBearerNpcs) {
+            List<SubjectFocus> ownerTopics = npcSubjects.get(bearerName);
+            if (ownerTopics == null || ownerTopics.isEmpty()) {
+                LOGGER.atWarning().log("Quest bearer %s has no subjects; skipping quest generation", bearerName);
+                continue;
             }
-        }
-
-        int minQuests = Math.max(MIN_QUEST_FLOOR, (int) Math.floor(npcCount * MIN_QUEST_RATIO));
-        int maxQuests = Math.max(MAX_QUEST_FLOOR, (int) Math.floor(npcCount * MAX_QUEST_RATIO));
-
-        // Select quest candidates, ensuring 1 per NPC (duplicates don't count toward quota)
-        Set<String> assignedNpcs = new HashSet<>();
-        List<Integer> questCandidates = new ArrayList<>();
-        for (int i = 0; i < allSubjects.size(); i++) {
-            String owner = subjectOwners.get(i);
-            if (random.nextDouble() < QUEST_CHANCE_PER_SUBJECT && !assignedNpcs.contains(owner)) {
-                questCandidates.add(i);
-                assignedNpcs.add(owner);
-            }
-        }
-
-        while (questCandidates.size() < minQuests && questCandidates.size() < allSubjects.size()) {
-            int qi = random.nextInt(allSubjects.size());
-            String owner = subjectOwners.get(qi);
-            if (!questCandidates.contains(qi) && !assignedNpcs.contains(owner)) {
-                questCandidates.add(qi);
-                assignedNpcs.add(owner);
-            }
-        }
-
-        while (questCandidates.size() > maxQuests) {
-            int removeIdx = random.nextInt(questCandidates.size());
-            String removed = subjectOwners.get(questCandidates.get(removeIdx));
-            questCandidates.remove(removeIdx);
-            assignedNpcs.remove(removed);
-        }
-
-        // Quest subjects must use quest-eligible values: swap out non-eligible entries
-        for (int qi : questCandidates) {
-            SubjectFocus focus = allSubjects.get(qi);
+            SubjectFocus focus = ownerTopics.get(0);
             if (!focus.isQuestEligible()) {
                 TopicPoolRegistry.SubjectEntry eligible = topicPool.randomQuestEligibleSubject(random);
-                String newId = "subj_" + qi + "_" + sanitize(eligible.value());
+                String newId = "subj_" + sanitize(bearerName) + "_" + sanitize(eligible.value());
                 SubjectFocus replacement = new SubjectFocus(newId, eligible.value(), eligible.plural(),
                     eligible.proper(), eligible.questEligible(), eligible.concrete(),
                     eligible.categories(), eligible.poiType(), eligible.questAffinities());
-                allSubjects.set(qi, replacement);
-                // Update the NPC's subject list too
-                String ownerNpc = subjectOwners.get(qi);
-                List<SubjectFocus> ownerTopics = npcSubjects.get(ownerNpc);
-                ownerTopics.set(ownerTopics.indexOf(focus), replacement);
+                ownerTopics.set(0, replacement);
+                int allIdx = allSubjects.indexOf(focus);
+                if (allIdx >= 0) allSubjects.set(allIdx, replacement);
+                focus = replacement;
             }
-        }
-
-        // Generate quests: bearer is the NPC who owns the subject (1 quest per NPC max)
-        for (int qi : questCandidates) {
-            SubjectFocus focus = allSubjects.get(qi);
-            String bearer = subjectOwners.get(qi);
-            NpcRecord bearerRecord = npcByName.get(bearer);
-
+            NpcRecord bearerRecord = npcByName.get(bearerName);
             QuestInstance preQuest = questGenerator.generate(
-                bearerRecord.getRole(), bearer,
+                bearerRecord.getRole(), bearerName,
                 settlement.getCellKey(),
                 bearerRecord.getSpawnX(), bearerRecord.getSpawnZ(),
                 Set.of(),
@@ -202,26 +237,24 @@ public class TopicGenerator {
 
             if (preQuest != null) {
                 bearerRecord.setPreGeneratedQuest(preQuest);
-                focus.setQuestBearer(bearer, preQuest.getSituationId());
+                focus.setQuestBearer(bearerName, preQuest.getSituationId());
                 focus.setQuestBindings(preQuest.getVariableBindings());
                 LOGGER.atInfo().log("  QUEST BEARER: %s (%s) quest=%s | /tp %d %d %d",
-                    bearer, bearerRecord.getRole(),
+                    bearerName, bearerRecord.getRole(),
                     preQuest.getSituationId(),
                     (int) bearerRecord.getSpawnX(),
                     (int) bearerRecord.getSpawnY(),
                     (int) bearerRecord.getSpawnZ());
             } else {
                 focus.setQuestBearer(null, null);
-                LOGGER.atWarning().log("  QUEST BEARER: %s failed to generate quest, demoting to normal topic", bearer);
+                LOGGER.atWarning().log("  QUEST BEARER: %s failed to generate quest, demoting to normal topic", bearerName);
             }
         }
 
-        // Step 4: Build assignments per NPC. No settlement-wide label dedup:
-        // generated topics use template-derived labels (e.g. "Around Town", "Trade")
-        // and different NPCs can independently have topics with the same label
-        // since they'll draw different pool entries.
+        // Step 5: Build assignments per NPC. Dedup state is shared across all
+        // settlements within the world (see dedupFor), so template entries,
+        // greetings, and tone openers/closers stay varied beyond a single town.
         Map<String, List<TopicGraphBuilder.TopicAssignment>> npcAssignments = new LinkedHashMap<>();
-        PercentageDedup dedup = new PercentageDedup();
 
         for (NpcRecord npc : npcs) {
             String npcName = npc.getGeneratedName();
@@ -238,8 +271,8 @@ public class TopicGenerator {
             String npcName = npc.getGeneratedName();
             List<TopicGraphBuilder.TopicAssignment> assignments = npcAssignments.get(npcName);
 
-            String greeting = topicPool.randomGreeting(random);
-            String returnGreeting = topicPool.randomReturnGreeting(random);
+            String greeting = topicPool.randomGreeting(dedup, random);
+            String returnGreeting = topicPool.randomReturnGreeting(dedup, random);
 
             TopicGraphBuilder builder = new TopicGraphBuilder(
                 npcName, npc.getDisposition(), greeting, returnGreeting, assignments, topicPool, random
@@ -255,7 +288,7 @@ public class TopicGenerator {
         }
 
         LOGGER.atFine().log("Generated %d dialogue graphs for settlement %s (%d subjects, %d quests)",
-            results.size(), settlement.getCellKey(), allSubjects.size(), questCandidates.size());
+            results.size(), settlement.getCellKey(), allSubjects.size(), questBearerNpcs.size());
 
         // Debug: log per-NPC subject assignments
         for (var npcEntry : npcSubjects.entrySet()) {
@@ -413,15 +446,16 @@ public class TopicGenerator {
             topicPool.getResourceTypes(poiKey),
             random));
 
-        // Tone framing (valence-aware)
+        // Tone framing (valence-aware): dedup-aware so the same opener/closer
+        // is not reused across the world until ~80% of the lane is exhausted.
         String bracket = dispositionBracket(disposition);
         FramingShape shape = isQuestBearer ? FramingShape.BARE : FramingShape.roll(bracket, random);
         ValenceType entryValence = entry.valence();
         bindings.put("tone_opener", shape.hasOpener()
-            ? topicPool.randomToneOpener(bracket, entryValence, random) + " "
+            ? topicPool.randomToneOpener(bracket, entryValence, dedup, random) + " "
             : "");
         bindings.put("tone_closer", shape.hasCloser()
-            ? " " + topicPool.randomToneCloser(bracket, entryValence, random)
+            ? " " + topicPool.randomToneCloser(bracket, entryValence, dedup, random)
             : "");
 
         // Entry content: pre-resolve variables in pool text so nested tokens
@@ -501,14 +535,10 @@ public class TopicGenerator {
 
     /**
      * Map internal role name to lowercase natural-language display string.
+     * Delegates to {@link com.chonbosmods.settlement.NpcRecord#displayRole(String)}
+     * which is the single source of truth for this mapping.
      */
     public static String roleDisplayName(String role) {
-        return switch (role) {
-            case "ArtisanBlacksmith" -> "blacksmith";
-            case "ArtisanAlchemist" -> "alchemist";
-            case "ArtisanCook" -> "cook";
-            case "TavernKeeper" -> "tavern keeper";
-            default -> role.toLowerCase();
-        };
+        return com.chonbosmods.settlement.NpcRecord.displayRole(role);
     }
 }

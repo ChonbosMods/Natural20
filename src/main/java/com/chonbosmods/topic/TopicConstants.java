@@ -11,10 +11,19 @@ public final class TopicConstants {
     private TopicConstants() {}
 
     // --- Role-based topic budgets ---
-    public static final int SOCIAL_MIN_TOPICS = 2;
-    public static final int SOCIAL_MAX_TOPICS = 4;
-    public static final int FUNCTIONAL_MIN_TOPICS = 0;
+    // Total topics per NPC (smalltalk + injected quest topic) must never exceed
+    // MAX_TOTAL_TOPICS_PER_NPC. TopicGenerator caps smalltalk budgets against
+    // this when an NPC is selected as a quest bearer.
+    public static final int MAX_TOTAL_TOPICS_PER_NPC = 3;
+
+    public static final int GUARD_MIN_TOPICS = 0;
+    public static final int GUARD_MAX_TOPICS = 1;
+    public static final int FUNCTIONAL_MIN_TOPICS = 1;
     public static final int FUNCTIONAL_MAX_TOPICS = 2;
+    public static final int SOCIAL_MIN_TOPICS = 2;
+    public static final int SOCIAL_MAX_TOPICS = 3;
+
+    public static final Set<String> GUARD_ROLES = Set.of("Guard");
     public static final Set<String> SOCIAL_ROLES = Set.of(
         "TavernKeeper", "ArtisanAlchemist", "ArtisanBlacksmith", "ArtisanCook", "Traveler"
     );

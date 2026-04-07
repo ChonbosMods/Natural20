@@ -323,6 +323,20 @@ public class TopicPoolRegistry {
         return returnGreetingLines.get(random.nextInt(returnGreetingLines.size()));
     }
 
+    /**
+     * Dedup-aware greeting draw: routes through {@link PercentageDedup} so the
+     * same line is not picked again until ~80% of the pool has been used.
+     */
+    public String randomGreeting(PercentageDedup dedup, Random random) {
+        if (greetingLines.isEmpty()) return "Well met, traveler.";
+        return dedup.drawFrom("greetings", greetingLines, random);
+    }
+
+    public String randomReturnGreeting(PercentageDedup dedup, Random random) {
+        if (returnGreetingLines.isEmpty()) return "Back again, I see.";
+        return dedup.drawFrom("return_greetings", returnGreetingLines, random);
+    }
+
     public String randomPerspectiveDetail(Random random) {
         if (perspectiveDetails.isEmpty()) return "it's been on my mind lately";
         return perspectiveDetails.get(random.nextInt(perspectiveDetails.size()));
@@ -364,6 +378,21 @@ public class TopicPoolRegistry {
         return randomToneCloser(bracket, ValenceType.NEUTRAL, random);
     }
 
+    /**
+     * Dedup-aware tone opener selection. The dedup key is namespaced by the
+     * actual lane the entry was drawn from so that fallbacks to the neutral
+     * lane don't pollute the deduplication state of the requested lane.
+     */
+    public String randomToneOpener(String bracket, ValenceType valence,
+                                    PercentageDedup dedup, Random random) {
+        return selectFromTonePoolDeduped("tone_opener", toneOpeners, bracket, valence, dedup, random);
+    }
+
+    public String randomToneCloser(String bracket, ValenceType valence,
+                                    PercentageDedup dedup, Random random) {
+        return selectFromTonePoolDeduped("tone_closer", toneClosers, bracket, valence, dedup, random);
+    }
+
     private String selectFromTonePool(Map<String, Map<String, List<String>>> pool,
                                        String bracket, ValenceType valence, Random random) {
         Map<String, List<String>> lanes = pool.get(bracket);
@@ -387,6 +416,36 @@ public class TopicPoolRegistry {
         for (List<String> l : lanes.values()) all.addAll(l);
         if (all.isEmpty()) return "";
         return all.get(random.nextInt(all.size()));
+    }
+
+    /**
+     * Dedup-aware variant of {@link #selectFromTonePool}. The dedup key is
+     * namespaced as {@code <kind>_<bracket>_<lane>} where {@code lane} reflects
+     * the actual lane drawn from after fallback resolution. This prevents the
+     * neutral fallback lane from sharing dedup state with the requested lane.
+     */
+    private String selectFromTonePoolDeduped(String kind,
+                                              Map<String, Map<String, List<String>>> pool,
+                                              String bracket, ValenceType valence,
+                                              PercentageDedup dedup, Random random) {
+        Map<String, List<String>> lanes = pool.get(bracket);
+        if (lanes == null) return "";
+
+        String valenceKey = valence.name().toLowerCase();
+        List<String> lane = lanes.get(valenceKey);
+        if (lane != null && !lane.isEmpty()) {
+            return dedup.drawFrom(kind + "_" + bracket + "_" + valenceKey, lane, random);
+        }
+
+        List<String> neutralLane = lanes.get("neutral");
+        if (neutralLane != null && !neutralLane.isEmpty()) {
+            return dedup.drawFrom(kind + "_" + bracket + "_neutral", neutralLane, random);
+        }
+
+        List<String> all = new ArrayList<>();
+        for (List<String> l : lanes.values()) all.addAll(l);
+        if (all.isEmpty()) return "";
+        return dedup.drawFrom(kind + "_" + bracket + "_all", all, random);
     }
 
     // --- Coherent triplet pool methods ---
