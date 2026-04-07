@@ -1132,42 +1132,31 @@
           ]
         },
         {
-          "$Comment": "=== $INTERACTION STATE: stand still during dialogue ===",
+          "$Comment": "=== $INTERACTION STATE: stand still and watch player during dialogue ===",
           "Sensor": {
             "Type": "State",
             "State": "$Interaction"
           },
           "Instructions": [
             {
-              "$Comment": "Stand still and watch the player. Java releaseNpc callback transitions back to Idle when dialogue ends.",
+              "$Comment": "Track the locked interaction target with the head. Sensor: Target binds the target context that HeadMotion.Watch needs.",
+              "Continue": true,
+              "Sensor": {
+                "Type": "Target",
+                "Range": 10
+              },
+              "HeadMotion": {
+                "Type": "Watch"
+              }
+            },
+            {
+              "$Comment": "Stand still. Java releaseNpc callback is the sole source of truth for transitioning back to Idle when dialogue ends.",
               "Sensor": {
                 "Type": "Any"
               },
               "BodyMotion": {
                 "Type": "Nothing"
-              },
-              "HeadMotion": {
-                "Type": "Watch"
-              },
-              "ActionsBlocking": true,
-              "Actions": [
-                {
-                  "Type": "Timeout",
-                  "Delay": [60, 60],
-                  "Action": {
-                    "Type": "Sequence",
-                    "Actions": [
-                      {
-                        "Type": "ReleaseTarget"
-                      },
-                      {
-                        "Type": "State",
-                        "State": "Idle"
-                      }
-                    ]
-                  }
-                }
-              ]
+              }
             }
           ]
         }
