@@ -1,0 +1,277 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "title": "Quest Template (V2 Authoring Schema)",
+  "description": "Schema for a single quest template in the Natural 20 quest system. Each template defines a complete quest arc: exposition, accept/decline, 1-4 conflict phases, and resolution. Templates are authored against a specific dramatic situation from Polti's 36 and resolved at runtime by QuestGenerator and DialogueResolver.",
+
+  "type": "object",
+  "required": [
+    "id",
+    "situation",
+    "objectives",
+    "expositionText",
+    "acceptText",
+    "declineText",
+    "expositionTurnInText",
+    "conflict1Text",
+    "conflict1TurnInText",
+    "resolutionText",
+    "rewardText",
+    "valence"
+  ],
+  "properties": {
+
+    "id": {
+      "type": "string",
+      "description": "Unique template identifier. Format: situation_slug_nn (e.g., 'supplication_01', 'vengeance_03'). Must be unique across the entire quest catalog.",
+      "pattern": "^[a-z_]+_[0-9]{2}$"
+    },
+
+    "situation": {
+      "type": "string",
+      "description": "Which of the 22 MVP dramatic situations this template belongs to. Determines the emotional frame, tone arc, and authoring constraints. See the corresponding situation document in quest_authoring/situations/.",
+      "enum": [
+        "supplication",
+        "deliverance",
+        "recovery",
+        "daring_enterprise",
+        "pursuit",
+        "disaster",
+        "obtaining",
+        "enigma",
+        "vengeance",
+        "conflict_with_fate",
+        "rivalry_of_kinsmen",
+        "madness",
+        "self_sacrifice_for_an_ideal",
+        "self_sacrifice_for_kindred",
+        "necessity_of_sacrificing_loved_ones",
+        "loss_of_loved_ones",
+        "ambition",
+        "mistaken_jealousy",
+        "erroneous_judgment",
+        "remorse",
+        "involuntary_crimes_of_love",
+        "obstacles_to_love"
+      ]
+    },
+
+    "objectives": {
+      "type": "array",
+      "description": "Ordered list of objective types for the quest chain. objectives[0] is the exposition objective, objectives[1] is conflict1, etc. Minimum 2 (exposition + 1 conflict), maximum 5 (exposition + 4 conflicts). The system selects specific parameters (enemy type, item, count, target NPC) at generation time based on the objective type and settlement context.",
+      "items": {
+        "type": "object",
+        "required": ["type"],
+        "properties": {
+          "type": {
+            "type": "string",
+            "enum": ["KILL_MOBS", "COLLECT_RESOURCES", "FETCH_ITEM", "TALK_TO_NPC"],
+            "description": "Objective type. Determines which per-objective variables are valid in the corresponding text field."
+          },
+          "countMin": {
+            "type": "integer",
+            "description": "Minimum count for KILL_MOBS or COLLECT_RESOURCES. Generator picks a value between countMin and countMax.",
+            "minimum": 1
+          },
+          "countMax": {
+            "type": "integer",
+            "description": "Maximum count for KILL_MOBS or COLLECT_RESOURCES.",
+            "minimum": 1
+          }
+        }
+      },
+      "minItems": 2,
+      "maxItems": 5
+    },
+
+    "expositionText": {
+      "type": "string",
+      "description": "Establishes the problem. Shown when the player first talks to the quest giver. Bound to objectives[0] for per-objective variable resolution. Max 4 sentences.",
+      "maxLength": 600
+    },
+
+    "acceptText": {
+      "type": "string",
+      "description": "NPC's reaction to the player accepting. An emotional beat, not an instruction. Max 4 sentences.",
+      "maxLength": 400
+    },
+
+    "declineText": {
+      "type": "string",
+      "description": "NPC's reaction to the player declining. Tone is situation-dependent. Max 4 sentences.",
+      "maxLength": 400
+    },
+
+    "expositionTurnInText": {
+      "type": "string",
+      "description": "NPC reacts to the first objective being completed. Bridges into conflict1. Bound to objectives[0]. Max 4 sentences.",
+      "maxLength": 600
+    },
+
+    "conflict1Text": {
+      "type": "string",
+      "description": "Introduces the second objective. Bound to objectives[1]. Max 4 sentences.",
+      "maxLength": 600
+    },
+
+    "conflict1TurnInText": {
+      "type": "string",
+      "description": "NPC reacts to conflict1 completion. Bridges into conflict2 or resolution. Bound to objectives[1]. Max 4 sentences.",
+      "maxLength": 600
+    },
+
+    "conflict2Text": {
+      "type": "string",
+      "description": "Optional. Introduces the third objective. Bound to objectives[2]. Max 4 sentences.",
+      "maxLength": 600
+    },
+
+    "conflict2TurnInText": {
+      "type": "string",
+      "description": "Optional. NPC reacts to conflict2 completion. Bound to objectives[2]. Max 4 sentences.",
+      "maxLength": 600
+    },
+
+    "conflict3Text": {
+      "type": "string",
+      "description": "Optional. Introduces the fourth objective. Bound to objectives[3]. Max 4 sentences.",
+      "maxLength": 600
+    },
+
+    "conflict3TurnInText": {
+      "type": "string",
+      "description": "Optional. NPC reacts to conflict3 completion. Bound to objectives[3]. Max 4 sentences.",
+      "maxLength": 600
+    },
+
+    "conflict4Text": {
+      "type": "string",
+      "description": "Optional. Introduces the fifth objective. Bound to objectives[4]. Max 4 sentences.",
+      "maxLength": 600
+    },
+
+    "conflict4TurnInText": {
+      "type": "string",
+      "description": "Optional. NPC reacts to conflict4 completion. Bound to objectives[4]. Max 4 sentences.",
+      "maxLength": 600
+    },
+
+    "resolutionText": {
+      "type": "string",
+      "description": "Final dialogue. Closes the emotional arc. Must reference {quest_reward} naturally. Must feel like an ending. Max 4 sentences.",
+      "maxLength": 600
+    },
+
+    "skillCheck": {
+      "type": ["object", "null"],
+      "description": "Optional skill check at the accept/decline phase. The skill type must be coherent with the pass/fail text content.",
+      "properties": {
+        "skill": {
+          "type": "string",
+          "enum": ["PERCEPTION", "INSIGHT", "PERSUASION", "INVESTIGATION", "NATURE", "HISTORY"],
+          "description": "Which skill is tested. Must match the emotional context of the pass/fail text."
+        },
+        "dc": {
+          "type": "integer",
+          "description": "Difficulty class for the check.",
+          "minimum": 5,
+          "maximum": 20
+        },
+        "passText": {
+          "type": "string",
+          "description": "NPC reveals a deeper layer when the player passes. Must read coherently for the specified skill. Max 4 sentences.",
+          "maxLength": 500
+        },
+        "failText": {
+          "type": "string",
+          "description": "NPC deflects naturally when the player fails. No 'you failed' language. Max 2 sentences.",
+          "maxLength": 300
+        }
+      },
+      "required": ["skill", "dc", "passText", "failText"]
+    },
+
+    "rewardText": {
+      "type": "string",
+      "description": "Free text that populates {quest_reward}. Should be voiced and proportionate, not an inventory list. Falls back to 'a fair reward' if omitted.",
+      "maxLength": 200
+    },
+
+    "valence": {
+      "type": "string",
+      "enum": ["positive", "negative", "neutral"],
+      "description": "Dominant emotional weight of the quest as a whole. Should align with the situation's tone arc starting point."
+    },
+
+    "roleAffinity": {
+      "type": "array",
+      "description": "Optional. NPC roles this template works best for. If empty or omitted, the template is eligible for any role. Used by the generator to prefer templates that fit the quest giver's profession.",
+      "items": {
+        "type": "string",
+        "enum": ["Villager", "Guard", "TavernKeeper", "ArtisanAlchemist", "ArtisanBlacksmith", "ArtisanCook", "Traveler"]
+      }
+    }
+  },
+
+  "_variable_reference": {
+    "description": "Quick reference for which variables are valid where. Full documentation in quest_v2_variable_review.md.",
+    "always_available": [
+      "{quest_giver_name}",
+      "{settlement_name}",
+      "{settlement_type}",
+      "{self_role}",
+      "{settlement_npc}",
+      "{settlement_npc_role}",
+      "{other_settlement}",
+      "{quest_reward}"
+    ],
+    "requires_talk_to_npc_objective": [
+      "{target_npc}",
+      "{target_npc_role}",
+      "{target_npc_settlement}"
+    ],
+    "per_objective_overlay": {
+      "KILL_MOBS": ["{kill_count}", "{enemy_type}", "{enemy_type_plural}"],
+      "COLLECT_RESOURCES": ["{quest_item}", "{gather_count}"],
+      "FETCH_ITEM": ["{quest_item}"],
+      "TALK_TO_NPC": ["{target_npc}", "{target_npc_role}", "{target_npc_settlement}"]
+    },
+    "field_to_objective_binding": {
+      "expositionText": "objectives[0]",
+      "expositionTurnInText": "objectives[0]",
+      "conflict1Text": "objectives[1]",
+      "conflict1TurnInText": "objectives[1]",
+      "conflict2Text": "objectives[2]",
+      "conflict2TurnInText": "objectives[2]",
+      "conflict3Text": "objectives[3]",
+      "conflict3TurnInText": "objectives[3]",
+      "conflict4Text": "objectives[4]",
+      "conflict4TurnInText": "objectives[4]",
+      "resolutionText": "current objective"
+    }
+  },
+
+  "_example_template": {
+    "id": "supplication_01",
+    "situation": "supplication",
+    "objectives": [
+      { "type": "KILL_MOBS", "countMin": 3, "countMax": 6 },
+      { "type": "COLLECT_RESOURCES", "countMin": 5, "countMax": 10 }
+    ],
+    "expositionText": "I wouldn't ask if I had another choice. {enemy_type_plural} have been coming every night this week. We've lost stock, we've lost sleep, and I'm out of ideas. I need {kill_count} of them dealt with before they take what's left.",
+    "acceptText": "Thank you. I mean that. I wasn't sure anyone would say yes.",
+    "declineText": "I see. I suppose I'll figure something out. I always do, one way or another.",
+    "expositionTurnInText": "You came back. That alone means more than you know. But the damage they did — I still need {gather_count} {quest_item} to patch what's broken.",
+    "conflict1Text": "The {enemy_type_plural} are handled, but the mess they left behind isn't. I need {gather_count} {quest_item} to get us through the next few weeks. Can you manage that?",
+    "conflict1TurnInText": "Every time you come back, things are a little better than when you left. I can feel it settling.",
+    "resolutionText": "I don't know what we would have done. Take {quest_reward} — I wish it were more. You've given us a chance to breathe again.",
+    "skillCheck": {
+      "skill": "INSIGHT",
+      "dc": 12,
+      "passText": "Honestly? I haven't slept in three days. Every sound outside the wall and I'm up, grabbing whatever's closest. My hands shake in the morning now.",
+      "failText": "It's been hard. That's all I'll say about it."
+    },
+    "rewardText": "what silver I have and a debt I won't forget",
+    "valence": "negative",
+    "roleAffinity": []
+  }
+}
