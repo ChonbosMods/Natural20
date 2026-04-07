@@ -49,6 +49,24 @@ public class NpcRecord {
 
     public String getRole() { return role; }
 
+    /**
+     * Display name for an NPC role string. Centralized so quest, smalltalk,
+     * and any other dialogue surface render roles consistently.
+     */
+    public static String displayRole(String role) {
+        if (role == null) return "";
+        return switch (role) {
+            case "ArtisanBlacksmith" -> "blacksmith";
+            case "ArtisanAlchemist" -> "alchemist";
+            case "ArtisanCook" -> "cook";
+            case "TavernKeeper" -> "tavern keeper";
+            default -> role.toLowerCase();
+        };
+    }
+
+    /** Convenience: this NPC's role as a display string. */
+    public String getDisplayRole() { return displayRole(role); }
+
     public UUID getEntityUUID() { return entityUUID; }
 
     public void setEntityUUID(UUID entityUUID) { this.entityUUID = entityUUID; }
