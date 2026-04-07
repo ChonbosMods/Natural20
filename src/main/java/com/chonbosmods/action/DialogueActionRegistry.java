@@ -461,17 +461,19 @@ public class DialogueActionRegistry {
                         yield false;
                     }
 
-                    // Resolve: pick a random NPC from the nearest settlement
+                    // Resolve: pick a random NPC from the nearest settlement.
+                    // The target_npc trio (name, role, settlement) must always describe
+                    // the same NPC and the same settlement, so authors can write
+                    // "{target_npc}, the {target_npc_role} from {target_npc_settlement}".
                     NpcRecord targetNpc = nearest.getNpcs().get(
                         new Random(quest.getQuestId().hashCode()).nextInt(nearest.getNpcs().size()));
                     objective.setTargetId(targetNpc.getGeneratedName());
                     objective.setTargetLabel(targetNpc.getGeneratedName());
                     objective.setLocationId(nearest.getCellKey());
                     bindings.put("target_npc", targetNpc.getGeneratedName());
-                    bindings.put("target_npc_role", targetNpc.getRole());
-                    bindings.put("target_npc_settlement", nearest.getCellKey());
-                    bindings.put("location_hint", DirectionUtil.computeHint(npcX, npcZ,
-                        nearest.getPosX(), nearest.getPosZ()));
+                    bindings.put("target_npc_role", targetNpc.getDisplayRole());
+                    bindings.put("target_npc_settlement", nearest.deriveName());
+                    bindings.put("target_npc_settlement_key", nearest.getCellKey());
 
                     LOGGER.atInfo().log("tryResolveObjective: TALK_TO_NPC resolved at runtime: " +
                         "target=%s in settlement %s for quest %s",

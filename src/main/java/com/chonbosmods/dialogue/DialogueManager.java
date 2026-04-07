@@ -346,14 +346,19 @@ public class DialogueManager {
         Map<String, String> b = quest.getVariableBindings();
         String questId = quest.getQuestId();
 
+        // The exposition objective is index 0; its values back gather_count, kill_count,
+        // quest_item, enemy_type, target_npc when those tokens appear in offer text.
+        ObjectiveInstance expositionObj = !quest.getObjectives().isEmpty()
+            ? quest.getObjectives().getFirst() : null;
+
         String topicHeader = DialogueResolver.resolve(
             b.getOrDefault("quest_topic_header", quest.getSituationId()), b);
-        String expositionText = DialogueResolver.resolve(
-            b.getOrDefault("quest_exposition_text", "I need your help with something."), b);
-        String acceptText = DialogueResolver.resolve(
-            b.getOrDefault("quest_accept_text", "Thank you. Here's what I need."), b);
-        String declineText = DialogueResolver.resolve(
-            b.getOrDefault("quest_decline_text", "I understand. Perhaps another time."), b);
+        String expositionText = DialogueResolver.resolveQuestText(
+            b.getOrDefault("quest_exposition_text", "I need your help with something."), b, expositionObj);
+        String acceptText = DialogueResolver.resolveQuestText(
+            b.getOrDefault("quest_accept_text", "Thank you. Here's what I need."), b, expositionObj);
+        String declineText = DialogueResolver.resolveQuestText(
+            b.getOrDefault("quest_decline_text", "I understand. Perhaps another time."), b, null);
 
         String topicId = "questoffer_" + questId;
         String entryNodeId = topicId + "_expo";
@@ -415,25 +420,31 @@ public class DialogueManager {
             Map<String, String> b = quest.getVariableBindings();
             int cc = quest.getConflictCount();
 
+            // The current objective backs the turn-in text; the NEXT objective (if a
+            // conflict is queued) backs the inline conflict text shown after [Turn in].
+            List<ObjectiveInstance> objs = quest.getObjectives();
+            ObjectiveInstance currentObj = cc < objs.size() ? objs.get(cc) : null;
+            ObjectiveInstance nextObj = (cc + 1) < objs.size() ? objs.get(cc + 1) : null;
+
             // Select turn-in text based on conflict count
             String turnInTextKey = switch (cc) {
                 case 0 -> "quest_exposition_turnin_text";
                 case 1 -> "quest_conflict1_turnin_text";
                 default -> "quest_conflict2_turnin_text";
             };
-            String turnInText = DialogueResolver.resolve(
-                b.getOrDefault(turnInTextKey, "You're back. Tell me what happened."), b);
+            String turnInText = DialogueResolver.resolveQuestText(
+                b.getOrDefault(turnInTextKey, "You're back. Tell me what happened."), b, currentObj);
 
             // Conflict text (for the NEXT conflict, if triggered)
             String conflictTextKey = switch (cc) {
                 case 0 -> "quest_conflict1_text";
                 default -> "quest_conflict2_text";
             };
-            String conflictText = DialogueResolver.resolve(
-                b.getOrDefault(conflictTextKey, ""), b);
+            String conflictText = DialogueResolver.resolveQuestText(
+                b.getOrDefault(conflictTextKey, ""), b, nextObj);
 
-            String resolutionText = DialogueResolver.resolve(
-                b.getOrDefault("quest_resolution_text", "Thank you. You've done well."), b);
+            String resolutionText = DialogueResolver.resolveQuestText(
+                b.getOrDefault("quest_resolution_text", "Thank you. You've done well."), b, currentObj);
 
             String topicHeader = DialogueResolver.resolve(
                 b.getOrDefault("quest_topic_header", quest.getSituationId()), b);
@@ -505,8 +516,10 @@ public class DialogueManager {
                 // This NPC is the target. Inject a quest dialogue topic.
                 String questId = quest.getQuestId();
                 Map<String, String> b = quest.getVariableBindings();
-                String targetDialogue = b.getOrDefault("target_npc_dialogue",
-                    "You're looking into the situation? I can tell you what I know.");
+                String targetDialogue = DialogueResolver.resolveQuestText(
+                    b.getOrDefault("target_npc_dialogue",
+                        "You're looking into the situation? I can tell you what I know."),
+                    b, obj);
                 String questTitle = b.getOrDefault("quest_title", quest.getSituationId());
                 String questGiver = quest.getSourceNpcId();
 
@@ -521,8 +534,10 @@ public class DialogueManager {
                     confirmNodeId, List.of(), true
                 ));
 
-                // Confirm: direct player back to quest giver
-                String confirmText = "Tell " + questGiver + " what I've told you. They'll want to hear it.";
+                // Confirm: direct player back to quest giver. Wrap the giver name in
+                // entity highlight markers so it renders in the entity color.
+                String confirmText = "Tell " + EntityHighlight.wrap(questGiver)
+                    + " what I've told you. They'll want to hear it.";
                 graph.nodes().put(confirmNodeId, new DialogueNode.DialogueTextNode(
                     confirmText, null, List.of(), List.of(), true, false, ValenceType.NEUTRAL
                 ));

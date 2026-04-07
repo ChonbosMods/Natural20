@@ -52,4 +52,18 @@ public enum SettlementType {
     public List<NpcSpawnDef> getNpcSpawns() { return npcSpawns; }
     public List<String> getPoiTypes() { return poiTypes; }
     public List<String> getMobTypes() { return mobTypes; }
+
+    /**
+     * Lowercase noun used in dialogue text for {settlement_type}. Vocabulary is
+     * outpost / village / town / city. The current world only ships OUTPOST and
+     * TOWN as enum values; once settlement-size differentiation lands, larger
+     * TOWN settlements should map to "town" or "city" instead of "village".
+     */
+    public String getDisplayLabel() {
+        return switch (this) {
+            case OUTPOST -> "outpost";
+            case TOWN -> "village";
+            case CART -> "outpost";
+        };
+    }
 }

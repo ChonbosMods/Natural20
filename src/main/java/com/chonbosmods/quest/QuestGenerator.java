@@ -18,11 +18,14 @@ public class QuestGenerator {
     private static final FluentLogger LOGGER = FluentLogger.forEnclosingClass();
     private static final double CONFLICT_1_CHANCE = 0.40;
     private static final double CONFLICT_2_CHANCE = 0.10;
-    private static final double STAKES_EQUALS_FOCUS_CHANCE = 0.15;
-    private static final double TALK_NPC_HANDOFF_CHANCE = 0.75;
-    private static final Set<String> INVESTIGATION_SITUATIONS = Set.of(
-        "DiscoveryOfDishonor", "ErroneousJudgment", "TheEnigma", "RivalryOfSuperiorVsInferior"
-    );
+    /** Extra mobs spawned at a KILL_MOBS POI beyond the required kill count, so the
+     *  player always finds enough live targets even after wandering wildlife eats them. */
+    private static final int KILL_MOB_SPAWN_BUFFER = 2;
+    /** Default KILL_MOBS bounds when an ObjectiveConfig omits countMin/countMax. */
+    private static final int KILL_MOB_DEFAULT_MIN = 2;
+    private static final int KILL_MOB_DEFAULT_MAX = 4;
+    /** Fallback when a template omits rewardText. */
+    private static final String DEFAULT_REWARD_TEXT = "a fair reward";
 
     private final QuestTemplateRegistry templateRegistry;
     private final SettlementRegistry settlementRegistry;
@@ -51,10 +54,13 @@ public class QuestGenerator {
             return null;
         }
 
-        // Resolve world bindings (gather items, enemy mobs, target NPC, POI)
-        Map<String, String> bindings = resolveWorldBindings(npcX, npcZ, npcSettlementCellKey, npcId, template.situation(), random);
-        bindings.put("subject_poi_type", subjectPoiType != null ? subjectPoiType : "unknown");
-        bindings.put("subject_name", subjectValue != null ? subjectValue : npcId);
+        // Resolve world bindings (settlement, target NPC, gather items, enemy mobs, POI)
+        Map<String, String> bindings = resolveWorldBindings(npcRole, npcX, npcZ, npcSettlementCellKey, npcId, random);
+
+        // Per-template author-defined reward flavor (e.g. "a pouch of silver and a hot meal")
+        bindings.put("quest_reward",
+            template.rewardText() != null && !template.rewardText().isEmpty()
+                ? template.rewardText() : DEFAULT_REWARD_TEXT);
 
         // Store all template text in bindings for dialogue node construction
         bindings.put("quest_topic_header", template.topicHeader());
@@ -122,25 +128,57 @@ public class QuestGenerator {
         return quest;
     }
 
-    private Map<String, String> resolveWorldBindings(double npcX, double npcZ, String npcCellKey,
-                                                      String npcId, String situationId, Random random) {
+    /**
+     * Build the binding map a quest needs at generation time. Two classes of values:
+     *
+     * <ol>
+     *   <li><b>World context</b> tied to the quest giver and their settlement:
+     *       {@code settlement_name}, {@code settlement_type}, {@code self_role},
+     *       {@code settlement_npc}, {@code settlement_npc_role}.
+     *   <li><b>Cross-settlement context</b> for TALK_TO_NPC and references to elsewhere:
+     *       {@code other_settlement}, {@code target_npc}, {@code target_npc_role},
+     *       {@code target_npc_settlement} (the trio always describes the same NPC).
+     * </ol>
+     *
+     * <p>Plus the gather/enemy item bindings used by per-objective overlay in
+     * {@link DialogueResolver#resolveQuestText}.
+     */
+    private Map<String, String> resolveWorldBindings(String npcRole, double npcX, double npcZ,
+                                                      String npcCellKey, String npcId, Random random) {
         Map<String, String> bindings = new HashMap<>();
         bindings.put("quest_giver_name", npcId);
-        bindings.put("player_name", "Traveler"); // Placeholder; resolved to actual name at display time if available
         bindings.put("npc_x", String.valueOf(npcX));
         bindings.put("npc_z", String.valueOf(npcZ));
         bindings.put("npc_settlement_key", npcCellKey);
 
-        // v2: always use real gatherable items for collect resources
+        // ----- Speaker / settlement -----
+        bindings.put("self_role", NpcRecord.displayRole(npcRole));
+
+        SettlementRecord settlement = settlementRegistry.getByCell(npcCellKey);
+        if (settlement != null) {
+            bindings.put("settlement_name", settlement.deriveName());
+            bindings.put("settlement_type", settlement.getSettlementType().getDisplayLabel());
+
+            // Pick one settlement-mate (not the speaker) for {settlement_npc} flavor reference
+            List<NpcRecord> mates = new ArrayList<>();
+            for (NpcRecord npc : settlement.getNpcs()) {
+                if (!npc.getGeneratedName().equals(npcId)) mates.add(npc);
+            }
+            if (!mates.isEmpty()) {
+                NpcRecord mate = mates.get(random.nextInt(mates.size()));
+                bindings.put("settlement_npc", mate.getGeneratedName());
+                bindings.put("settlement_npc_role", mate.getDisplayRole());
+            }
+        }
+
+        // ----- Per-objective fallbacks (overlaid by DialogueResolver per phase) -----
+        // These globals exist so smalltalk-side quest commentary still has *something*
+        // to read. The per-objective overlay in resolveQuestText wins for actual quest text.
         QuestPoolRegistry.ItemEntry gatherItem = poolRegistry.randomCollectResource(random);
         bindings.put("quest_item", gatherItem.label());
         bindings.put("gather_item_id", gatherItem.id());
         if (gatherItem.category() != null) {
             bindings.put("gather_category", gatherItem.category());
-        }
-        if (gatherItem.countMin() > 0 && gatherItem.countMax() > 0) {
-            bindings.put("gather_count_min", String.valueOf(gatherItem.countMin()));
-            bindings.put("gather_count_max", String.valueOf(gatherItem.countMax()));
         }
 
         QuestPoolRegistry.ItemEntry enemyMob = poolRegistry.randomHostileMob(random);
@@ -148,156 +186,30 @@ public class QuestGenerator {
         bindings.put("enemy_type_plural", enemyMob.labelPlural());
         bindings.put("enemy_type_id", enemyMob.id());
 
+        // ----- Cross-settlement context: target_npc trio + other_settlement -----
+        // The three target_npc bindings always describe the same NPC: an author can
+        // safely write "{target_npc}, the {target_npc_role} from {target_npc_settlement}"
+        // and it will resolve consistently.
         SettlementRecord nearestOther = findNearestOtherSettlement(npcX, npcZ, npcCellKey);
         if (nearestOther != null) {
-            bindings.put("location", nearestOther.getCellKey());
-            bindings.put("location_hint", DirectionUtil.computeHint(npcX, npcZ,
-                nearestOther.getPosX(), nearestOther.getPosZ()));
+            bindings.put("other_settlement", nearestOther.deriveName());
+            // Internal binding (NOT a template variable): used by createObjective for waypoint
+            // and locationId, kept separate from the display-name {target_npc_settlement}.
+            bindings.put("target_npc_settlement_key", nearestOther.getCellKey());
 
             if (!nearestOther.getNpcs().isEmpty()) {
-                NpcRecord targetNpc = nearestOther.getNpcs().get(random.nextInt(nearestOther.getNpcs().size()));
+                NpcRecord targetNpc = nearestOther.getNpcs().get(
+                    random.nextInt(nearestOther.getNpcs().size()));
                 bindings.put("target_npc", targetNpc.getGeneratedName());
-                bindings.put("target_npc_role", targetNpc.getRole());
-                bindings.put("target_npc_settlement", nearestOther.getCellKey());
+                bindings.put("target_npc_role", targetNpc.getDisplayRole());
+                bindings.put("target_npc_settlement", nearestOther.deriveName());
             }
-        } else {
-            bindings.put("location_hint", "far away");
         }
         if (!bindings.containsKey("target_npc")) {
             bindings.put("target_npc", "someone who might know more");
         }
 
-        // POI voids are now claimed per-objective in createPOIObjective
         return bindings;
-    }
-
-    private void resolveNarrativeBindings(Map<String, String> bindings, QuestVariant expositionVariant,
-                                           QuestSituation situation, String npcCellKey,
-                                           String npcId, Random random) {
-        // Pull narrative variables from pools (article-free, with plural flags)
-        bindings.put("quest_action", poolRegistry.randomAction(random));
-
-        QuestPoolRegistry.NarrativeEntry focus = poolRegistry.randomFocus(random);
-        bindings.put("quest_focus", focus.value());
-        bindings.put("quest_focus_is", focus.plural() ? "are" : "is");
-        bindings.put("quest_focus_has", focus.plural() ? "have" : "has");
-        bindings.put("quest_focus_was", focus.plural() ? "were" : "was");
-
-        QuestPoolRegistry.NarrativeEntry threat = poolRegistry.randomThreat(random);
-        bindings.put("quest_threat", threat.value());
-        bindings.put("quest_threat_is", threat.plural() ? "are" : "is");
-        bindings.put("quest_threat_has", threat.plural() ? "have" : "has");
-        bindings.put("quest_threat_was", threat.plural() ? "were" : "was");
-
-        // 25% chance: quest_stakes = quest_focus
-        QuestPoolRegistry.NarrativeEntry stakes;
-        if (random.nextDouble() < STAKES_EQUALS_FOCUS_CHANCE) {
-            stakes = focus;
-        } else {
-            stakes = poolRegistry.randomStakes(random);
-        }
-        bindings.put("quest_stakes", stakes.value());
-        bindings.put("quest_stakes_is", stakes.plural() ? "are" : "is");
-        bindings.put("quest_stakes_has", stakes.plural() ? "have" : "has");
-        bindings.put("quest_stakes_was", stakes.plural() ? "were" : "was");
-
-        // Animate threat: for templates using agent verbs ("is regrouping", "retaliated")
-        QuestPoolRegistry.NarrativeEntry animateThreat = poolRegistry.randomAnimateThreat(random);
-        bindings.put("quest_threat_animate", animateThreat.value());
-        bindings.put("quest_threat_animate_is", animateThreat.plural() ? "are" : "is");
-        bindings.put("quest_threat_animate_has", animateThreat.plural() ? "have" : "has");
-        bindings.put("quest_threat_animate_the", animateThreat.proper() ? animateThreat.value() : "the " + animateThreat.value());
-        bindings.put("quest_threat_animate_The", animateThreat.proper() ? animateThreat.value() : "The " + animateThreat.value());
-        bindings.put("quest_threat_animate_was", animateThreat.plural() ? "were" : "was");
-
-        // Human stakes: for templates using human verbs ("can rest", "will sleep soundly")
-        QuestPoolRegistry.NarrativeEntry humanStakes = poolRegistry.randomHumanStakes(random);
-        bindings.put("quest_stakes_human", humanStakes.value());
-        bindings.put("quest_stakes_human_is", humanStakes.plural() ? "are" : "is");
-        bindings.put("quest_stakes_human_has", humanStakes.plural() ? "have" : "has");
-        bindings.put("quest_stakes_human_was", humanStakes.plural() ? "were" : "was");
-        bindings.put("quest_stakes_human_the", humanStakes.proper() ? humanStakes.value() : "the " + humanStakes.value());
-        bindings.put("quest_stakes_human_The", humanStakes.proper() ? humanStakes.value() : "The " + humanStakes.value());
-
-        // Article-prefixed variants: "the old watchtower" vs bare proper nouns
-        bindings.put("quest_focus_the", focus.proper() ? focus.value() : "the " + focus.value());
-        bindings.put("quest_focus_The", focus.proper() ? focus.value() : "The " + focus.value());
-        bindings.put("quest_threat_the", threat.proper() ? threat.value() : "the " + threat.value());
-        bindings.put("quest_threat_The", threat.proper() ? threat.value() : "The " + threat.value());
-        bindings.put("quest_stakes_the", stakes.proper() ? stakes.value() : "the " + stakes.value());
-        bindings.put("quest_stakes_The", stakes.proper() ? stakes.value() : "The " + stakes.value());
-
-        // Optional narrative pools (probability-gated, with fallbacks for template safety)
-        String origin = poolRegistry.randomOrigin(random);
-        if (origin != null && random.nextDouble() < 0.7) {
-            bindings.put("quest_origin", origin);
-        } else {
-            bindings.put("quest_origin", "what happened before");
-        }
-
-        String timePressure = poolRegistry.randomTimePressure(random);
-        if (timePressure != null && random.nextDouble() < 0.5) {
-            bindings.put("quest_time_pressure", timePressure);
-        } else {
-            bindings.put("quest_time_pressure", "time runs out");
-        }
-
-        String rewardHint = poolRegistry.randomRewardHint(random);
-        if (rewardHint != null && random.nextDouble() < 0.4) {
-            bindings.put("quest_reward_hint", rewardHint);
-        } else {
-            bindings.put("quest_reward_hint", "something worth your while");
-        }
-
-        // Override with any exposition-defined bindings (template author can still force specific values)
-        if (expositionVariant.bindings() != null) {
-            bindings.putAll(expositionVariant.bindings());
-        }
-
-        // Resolve quest_ally from same settlement
-        SettlementRecord settlement = settlementRegistry.getByCell(npcCellKey);
-        if (settlement != null && settlement.getNpcs().size() > 1) {
-            List<NpcRecord> candidates = new ArrayList<>();
-            for (NpcRecord npc : settlement.getNpcs()) {
-                if (!npc.getGeneratedName().equals(npcId)) {
-                    candidates.add(npc);
-                }
-            }
-            if (!candidates.isEmpty()) {
-                NpcRecord ally = candidates.get(random.nextInt(candidates.size()));
-                bindings.put("quest_ally", ally.getGeneratedName());
-                bindings.put("quest_ally_role", ally.getRole());
-            }
-        }
-        if (!bindings.containsKey("quest_ally")) {
-            bindings.put("quest_ally", "a trusted friend");
-        }
-
-        bindings.put("quest_location_name", bindings.getOrDefault("quest_focus", "the area"));
-
-        // Resolve player responses and NPC counter-responses
-        String tone = poolRegistry.getToneForSituation(situation.getId());
-        bindings.put("response_accept", poolRegistry.randomAcceptResponse(situation.getId(), tone, random));
-        bindings.put("response_decline", poolRegistry.randomDeclineResponse(situation.getId(), tone, random));
-        bindings.put("counter_accept", poolRegistry.randomCounterAccept(situation.getId(), tone, random));
-        bindings.put("counter_decline", poolRegistry.randomCounterDecline(situation.getId(), tone, random));
-
-        // Target NPC dialogue for TALK_TO_NPC objectives
-        bindings.put("send_to_npc_dialogue", poolRegistry.randomSendToNpcDialogue(situation.getId(), tone, random));
-        boolean talkHandoff = random.nextDouble() < TALK_NPC_HANDOFF_CHANCE;
-        bindings.put("talk_npc_is_handoff", talkHandoff ? "true" : "false");
-        if (talkHandoff) {
-            bindings.put("target_npc_dialogue", poolRegistry.randomTargetNpcHandoff(situation.getId(), tone, random));
-        } else {
-            bindings.put("target_npc_dialogue", poolRegistry.randomTargetNpcInfo(situation.getId(), tone, random));
-        }
-
-        // Stat-gated response option
-        String statType = poolRegistry.randomStatType(random);
-        bindings.put("stat_check_type", statType);
-        bindings.put("response_stat_check", poolRegistry.randomStatCheckResponse(statType, random));
-        bindings.put("counter_stat_pass", poolRegistry.randomCounterStatPass(tone, random));
-        bindings.put("counter_stat_fail", poolRegistry.randomCounterStatFail(tone, random));
     }
 
     private @Nullable SettlementRecord findNearestOtherSettlement(double x, double z, String excludeCellKey) {
@@ -335,23 +247,32 @@ public class QuestGenerator {
 
         return switch (type) {
             case COLLECT_RESOURCES -> {
-                // Use per-item count range from pool if available, otherwise fall back to variant config
+                // Each COLLECT objective draws its OWN gather item so a multi-collect quest
+                // doesn't show the same item label across phases.
+                QuestPoolRegistry.ItemEntry collectItem = poolRegistry.randomCollectResource(random);
+
+                // Use per-item count range from the pool if available, otherwise the variant config.
                 int count;
-                String minStr = bindings.get("gather_count_min");
-                String maxStr = bindings.get("gather_count_max");
-                if (minStr != null && maxStr != null) {
-                    int min = Integer.parseInt(minStr);
-                    int max = Integer.parseInt(maxStr);
+                if (collectItem.countMin() > 0 && collectItem.countMax() > 0) {
+                    int min = collectItem.countMin();
+                    int max = collectItem.countMax();
                     count = min + random.nextInt(max - min + 1);
                 } else {
                     count = config.rollCount(random);
                 }
+
+                // Update global bindings as a back-compat fallback for smalltalk pool entries
+                // that reference {quest_item} / {gather_count}. Per-objective resolveQuestText
+                // will overlay these correctly for the actual quest dialogue.
+                bindings.put("quest_item", collectItem.label());
+                bindings.put("gather_item_id", collectItem.id());
                 bindings.put("gather_count", String.valueOf(count));
+
                 ObjectiveInstance collectObj = new ObjectiveInstance(
-                    type, bindings.get("gather_item_id"), bindings.get("quest_item"),
+                    type, collectItem.id(), collectItem.label(),
                     count, null, null
                 );
-                collectObj.setTargetLabelPlural(bindings.get("quest_item"));
+                collectObj.setTargetLabelPlural(collectItem.labelPlural());
                 yield collectObj;
             }
             case KILL_MOBS -> {
@@ -360,8 +281,8 @@ public class QuestGenerator {
                 ObjectiveInstance killObj = createPOIObjective(type, bindings, config, random);
                 if (killObj == null) {
                     LOGGER.atInfo().log("KILL_MOBS for %s: no void at generation, deferring POI to runtime", npcId);
-                    int killCount = 2;
-                    bindings.put("gather_count", String.valueOf(killCount));
+                    int killCount = rollKillCount(config, random);
+                    bindings.put("kill_count", String.valueOf(killCount));
                     killObj = new ObjectiveInstance(type, "deferred_poi", bindings.get("enemy_type"),
                         killCount, null, null);
                     killObj.setTargetLabelPlural(bindings.get("enemy_type_plural"));
@@ -378,19 +299,15 @@ public class QuestGenerator {
                 ObjectiveInstance fetchObj = createPOIObjective(type, bindings, config, random);
                 if (fetchObj != null) yield fetchObj;
 
-                // Peaceful fetch: target a nearby settlement
+                // Peaceful fetch: target the nearby settlement we already picked for the
+                // target_npc trio. The cell key lives in target_npc_settlement_key (internal,
+                // not a template variable).
                 bindings.put("fetch_variant", "peaceful");
-                String targetSettlement = bindings.get("location");
-                if (targetSettlement != null) {
-                    SettlementRecord target = settlementRegistry.getByCell(targetSettlement);
-                    if (target != null) {
-                        bindings.put("poi_type", "settlement");
-                    }
-                }
+                String targetSettlementKey = bindings.get("target_npc_settlement_key");
 
                 yield new ObjectiveInstance(
                     type, bindings.get("gather_item_id"), bindings.get("quest_item"),
-                    1, bindings.get("location_hint"), bindings.get("location")
+                    1, null, targetSettlementKey
                 );
             }
             case TALK_TO_NPC -> {
@@ -404,8 +321,8 @@ public class QuestGenerator {
                     hasTarget ? targetNpc : "deferred_npc",
                     hasTarget ? targetNpc : "someone nearby",
                     1,
-                    bindings.get("location_hint"),
-                    bindings.get("target_npc_settlement")
+                    null,
+                    bindings.get("target_npc_settlement_key")
                 );
             }
         };
@@ -437,17 +354,26 @@ public class QuestGenerator {
         String poiLocationId = "poi:" + cx + "," + cy + "," + cz;
         String hint = DirectionUtil.computeHint(npcX, npcZ, cx, cz);
 
-        // Build population spec for this objective
-        String populationSpec = "KILL_MOBS:" + bindings.get("enemy_type_id") + ":" + switch (type) {
-            case KILL_MOBS -> "4";
-            default -> "3"; // FETCH_ITEM
-        };
-
+        // Required count: KILL_MOBS reads countMin/countMax from the template (with a
+        // default if omitted); FETCH_ITEM is always 1 because the chest contains the item.
         int requiredCount = switch (type) {
-            case KILL_MOBS -> 2;
+            case KILL_MOBS -> rollKillCount(config, random);
             default -> 1; // FETCH_ITEM
         };
-        bindings.put("gather_count", String.valueOf(requiredCount));
+
+        // Spawn count: KILL_MOBS spawns required + buffer so the player always finds
+        // enough live targets at the POI even after wandering wildlife eats them.
+        int spawnCount = switch (type) {
+            case KILL_MOBS -> requiredCount + KILL_MOB_SPAWN_BUFFER;
+            default -> 3; // FETCH_ITEM guards
+        };
+        String populationSpec = "KILL_MOBS:" + bindings.get("enemy_type_id") + ":" + spawnCount;
+
+        if (type == ObjectiveType.KILL_MOBS) {
+            bindings.put("kill_count", String.valueOf(requiredCount));
+        } else {
+            bindings.put("gather_count", String.valueOf(requiredCount));
+        }
 
         String targetLabel = switch (type) {
             case KILL_MOBS -> bindings.get("enemy_type");
@@ -464,8 +390,17 @@ public class QuestGenerator {
             poiObj.setTargetLabelPlural(bindings.get("quest_item"));
         }
 
-        LOGGER.atInfo().log("createPOIObjective: claimed void at (%d,%d,%d) for %s objective",
-            cx, cy, cz, type);
+        LOGGER.atInfo().log("createPOIObjective: claimed void at (%d,%d,%d) for %s objective (required=%d spawn=%d)",
+            cx, cy, cz, type, requiredCount, spawnCount);
         return poiObj;
+    }
+
+    /** Roll the required kill count for a KILL_MOBS objective, respecting countMin/countMax
+     *  from the template config and falling back to default bounds when omitted. */
+    private int rollKillCount(ObjectiveConfig config, Random random) {
+        int min = (config != null && config.countMin() != null) ? config.countMin() : KILL_MOB_DEFAULT_MIN;
+        int max = (config != null && config.countMax() != null) ? config.countMax() : KILL_MOB_DEFAULT_MAX;
+        if (max < min) max = min;
+        return min + random.nextInt(max - min + 1);
     }
 }

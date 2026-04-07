@@ -6,6 +6,11 @@ import java.util.Map;
 /**
  * Complete v2 quest template: one template = one full quest narrative.
  * Loaded from quests/v2/*.json.
+ *
+ * <p>{@code rewardText} is a free-form description of what the player receives on
+ * completion (e.g. "a pouch of silver and a hot meal at the tavern"). It is bound
+ * to the {@code {quest_reward}} variable so authors can reference it in any text
+ * field. When omitted, the variable falls back to a generic placeholder.
  */
 public record QuestTemplateV2(
     String situation,
@@ -22,6 +27,7 @@ public record QuestTemplateV2(
     String conflict2Text,
     String conflict2TurnInText,
     String resolutionText,
+    String rewardText,
     List<ObjectiveConfig> objectives,
     Map<String, Double> npcWeights
 ) {}

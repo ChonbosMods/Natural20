@@ -50,8 +50,10 @@ public class NpcRecord {
     public String getRole() { return role; }
 
     /**
-     * Display name for an NPC role string. Centralized so quest, smalltalk,
-     * and any other dialogue surface render roles consistently.
+     * Lowercase natural-language form of an internal role identifier, suitable for
+     * dialogue text. Strips the "Artisan" prefix and splits camelCase compound roles.
+     * Centralized so quest, smalltalk, and any other dialogue surface render roles
+     * consistently.
      */
     public static String displayRole(String role) {
         if (role == null) return "";
