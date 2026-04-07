@@ -114,14 +114,15 @@ public class DialogueManager {
         // Inject talk-to-NPC topics for any quests targeting this NPC
         injectTalkToNpcTopics(graph, npcId, playerData);
 
-        // Clear exhaustion for quest topics that should reappear fresh.
-        // Only clear for the original quest hook topic if the NPC still has a quest to give.
-        // Clear exhaustion for all injected quest topics (rebuilt fresh each session).
+        // Clear exhaustion and consumed decisives for quest topics (rebuilt fresh each session).
+        // Consumed decisives must be cleared so [Turn in] buttons work across conflict phases
+        // (same topic ID reused for exposition and conflict turn-ins).
         for (TopicDefinition topic : graph.topics()) {
             if (!topic.questTopic()) continue;
             String tid = topic.id();
             if (tid.startsWith("questoffer_") || tid.startsWith("questturnin_") || tid.startsWith("talknpc_")) {
                 playerData.removeTopicExhaustion(npcId, tid);
+                playerData.clearConsumedDecisivesForTopic(npcId, tid);
             }
         }
 
@@ -437,7 +438,7 @@ public class DialogueManager {
             String topicHeader = DialogueResolver.resolve(
                 b.getOrDefault("quest_topic_header", quest.getSituationId()), b);
 
-            String topicId = "questturnin_" + questId;
+            String topicId = "questturnin_" + questId + "_c" + cc;
             String entryNodeId = topicId + "_entry";
             String actionNodeId = topicId + "_action";
             String conflictNodeId = topicId + "_conflict";

@@ -138,16 +138,36 @@ public class QuestMarkerProvider implements WorldMapManager.MarkerProvider {
                     entries.add(new MarkerEntry(quest.getQuestId(), questName, mx, mz, MarkerType.POI));
                 } catch (NumberFormatException ignored) {}
             } else {
-                // TARGET_NPC marker for TALK_TO_NPC objectives: "!" at target settlement
-                String targetSettlement = b.get("target_npc_settlement");
-                if (targetSettlement != null && b.containsKey("target_npc")) {
-                    SettlementRegistry settlements = Natural20.getInstance().getSettlementRegistry();
-                    if (settlements != null) {
-                        SettlementRecord target = settlements.getByCell(targetSettlement);
-                        if (target != null) {
-                            String targetLabel = "Speak with " + b.get("target_npc");
-                            entries.add(new MarkerEntry(quest.getQuestId(), targetLabel,
-                                target.getPosX(), target.getPosZ(), MarkerType.TARGET_NPC));
+                // Non-POI active objectives: TALK_TO_NPC or peaceful FETCH_ITEM
+                com.chonbosmods.quest.ObjectiveInstance currentObj = quest.getCurrentObjective();
+                if (currentObj == null || currentObj.isComplete()) continue;
+
+                com.chonbosmods.quest.ObjectiveType objType = currentObj.getType();
+                if (objType == com.chonbosmods.quest.ObjectiveType.TALK_TO_NPC) {
+                    String targetSettlement = b.get("target_npc_settlement");
+                    if (targetSettlement != null && b.containsKey("target_npc")) {
+                        SettlementRegistry settlements = Natural20.getInstance().getSettlementRegistry();
+                        if (settlements != null) {
+                            SettlementRecord target = settlements.getByCell(targetSettlement);
+                            if (target != null) {
+                                String targetLabel = "Speak with " + b.get("target_npc");
+                                entries.add(new MarkerEntry(quest.getQuestId(), targetLabel,
+                                    target.getPosX(), target.getPosZ(), MarkerType.TARGET_NPC));
+                            }
+                        }
+                    }
+                } else if (objType == com.chonbosmods.quest.ObjectiveType.FETCH_ITEM) {
+                    // Peaceful FETCH_ITEM: marker at target settlement
+                    String locationId = currentObj.getLocationId();
+                    if (locationId != null) {
+                        SettlementRegistry settlements = Natural20.getInstance().getSettlementRegistry();
+                        if (settlements != null) {
+                            SettlementRecord target = settlements.getByCell(locationId);
+                            if (target != null) {
+                                String fetchLabel = "Find " + currentObj.getTargetLabel();
+                                entries.add(new MarkerEntry(quest.getQuestId(), fetchLabel,
+                                    target.getPosX(), target.getPosZ(), MarkerType.TARGET_NPC));
+                            }
                         }
                     }
                 }

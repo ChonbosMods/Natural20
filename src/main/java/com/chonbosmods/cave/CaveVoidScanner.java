@@ -1,6 +1,7 @@
 package com.chonbosmods.cave;
 
 import com.hypixel.hytale.logger.HytaleLogger;
+import com.hypixel.hytale.math.util.ChunkUtil;
 import com.hypixel.hytale.protocol.BlockMaterial;
 import com.hypixel.hytale.server.core.asset.type.blocktype.config.BlockType;
 import com.hypixel.hytale.server.core.universe.world.World;
@@ -40,7 +41,11 @@ public class CaveVoidScanner {
      * @param chunkBlockZ the block Z coordinate of the chunk's north edge
      */
     public void scanChunk(World world, int chunkBlockX, int chunkBlockZ) {
-        long chunkKey = ((long) chunkBlockX << 32) | (chunkBlockZ & 0xFFFFFFFFL);
+        // Skip unloaded chunks: getBlockType returns null for unloaded blocks,
+        // which the scanner treats as air, creating bogus 50k-volume voids
+        long chunkKey = ChunkUtil.indexChunk(
+            ChunkUtil.chunkCoordinate(chunkBlockX), ChunkUtil.chunkCoordinate(chunkBlockZ));
+        if (world.getChunkIfLoaded(chunkKey) == null) return;
 
         for (int x = chunkBlockX; x < chunkBlockX + CHUNK_SIZE; x += SAMPLE_STEP) {
             for (int z = chunkBlockZ; z < chunkBlockZ + CHUNK_SIZE; z += SAMPLE_STEP) {

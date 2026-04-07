@@ -34,9 +34,9 @@
     { "id": "Ingredient_Strap_Leather", "label": "leather straps", "category": "textiles", "countMin": 3, "countMax": 6 },
     { "id": "Ingredient_Stud_Iron", "label": "iron studs", "category": "smithing", "countMin": 3, "countMax": 6 },
 
-    { "id": "Ingredient_Crystal_Blue", "label": "blue crystals", "category": "mining", "countMin": 2, "countMax": 4 },
-    { "id": "Ingredient_Crystal_Green", "label": "green crystals", "category": "mining", "countMin": 2, "countMax": 4 },
-    { "id": "Ingredient_Crystal_Red", "label": "red crystals", "category": "mining", "countMin": 2, "countMax": 4 },
+    { "id": "Ingredient_Crystal_Blue", "label": "blue crystal shards", "category": "mining", "countMin": 2, "countMax": 4 },
+    { "id": "Ingredient_Crystal_Green", "label": "green crystal shards", "category": "mining", "countMin": 2, "countMax": 4 },
+    { "id": "Ingredient_Crystal_Red", "label": "red crystal shards", "category": "mining", "countMin": 2, "countMax": 4 },
     { "id": "Ingredient_Motes_Light", "label": "motes of light", "category": "mining", "countMin": 3, "countMax": 6 },
     { "id": "Ingredient_Powder_Boom", "label": "blast powder", "category": "mining", "countMin": 2, "countMax": 4 },
 

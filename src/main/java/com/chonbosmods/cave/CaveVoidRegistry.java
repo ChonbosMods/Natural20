@@ -137,6 +137,23 @@ public class CaveVoidRegistry {
     }
 
     /**
+     * Find a void by its exact center coordinates, regardless of claim status.
+     * Used to look up pre-claimed voids at placement time.
+     */
+    public @Nullable CaveVoidRecord findVoidAt(int cx, int cy, int cz) {
+        for (List<CaveVoidRecord> cell : voidsByCell.values()) {
+            synchronized (cell) {
+                for (CaveVoidRecord v : cell) {
+                    if (v.getCenterX() == cx && v.getCenterY() == cy && v.getCenterZ() == cz) {
+                        return v;
+                    }
+                }
+            }
+        }
+        return null;
+    }
+
+    /**
      * Claim a void for a settlement, mark dirty, and trigger an async save.
      */
     public void claimVoid(CaveVoidRecord record, String settlementCellKey) {

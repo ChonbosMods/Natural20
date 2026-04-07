@@ -28,9 +28,9 @@ public class DialogueTypewriter {
 
     // Timing constants (milliseconds)
     private static final long DELAY_DEFAULT = 30;
-    private static final long DELAY_COMMA = 200;
-    private static final long DELAY_SENTENCE_END = 350;
-    private static final long DELAY_ELLIPSIS = 500;
+    private static final long DELAY_COMMA = 250;
+    private static final long DELAY_SENTENCE_END = 400;
+    private static final long DELAY_ELLIPSIS = 400;
 
     private final String fullText;
     private final String color;
@@ -87,7 +87,10 @@ public class DialogueTypewriter {
         String stripped = EntityHighlight.stripMarkers(fullText);
         int revealedIndex = visibleRevealed - 1;
 
-        // Skip past spaces: consume them instantly so words don't start with a gap
+        // Skip past spaces: consume them instantly so words don't start with a gap.
+        // Keep the pre-skip index for delay calculation so punctuation pauses
+        // aren't swallowed by the trailing space.
+        int delayIndex = revealedIndex;
         while (visibleRevealed < totalVisible && revealedIndex + 1 < stripped.length()
                 && stripped.charAt(revealedIndex + 1) == ' ') {
             visibleRevealed++;
@@ -111,8 +114,8 @@ public class DialogueTypewriter {
             return;
         }
 
-        // Determine delay based on the visible character just revealed
-        long delay = computeDelayFromStripped(stripped, revealedIndex);
+        // Determine delay based on the visible character revealed (before space skip)
+        long delay = computeDelayFromStripped(stripped, delayIndex);
         pendingFuture = SCHEDULER.schedule(this::tick, delay, TimeUnit.MILLISECONDS);
     }
 

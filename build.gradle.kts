@@ -16,4 +16,18 @@ tasks.matching { it.name == "runServer" }.configureEach {
     if (this is JavaExec) {
         args("--accept-early-plugins")
     }
+
+    // Pre-seed AuthCredentialStore so player login persists across devServer runs
+    doFirst {
+        val configFile = file("devserver/config.json")
+        if (configFile.exists()) {
+            val text = configFile.readText()
+            if (!text.contains("\"AuthCredentialStore\"")) {
+                val patched = text.trimEnd().removeSuffix("}") +
+                    ",\n  \"AuthCredentialStore\": {\n    \"Type\": \"Encrypted\",\n    \"Path\": \"auth.enc\"\n  }\n}"
+                configFile.writeText(patched)
+                logger.lifecycle("Injected AuthCredentialStore into devserver/config.json")
+            }
+        }
+    }
 }

@@ -171,6 +171,16 @@ public class Natural20 extends JavaPlugin {
      * Generates procedural topic dialogue graphs and scans for nearby cave voids.
      */
     public void onSettlementCreated(SettlementRecord settlement, World world) {
+        // Scan for cave voids BEFORE quest generation so POI objectives can claim them
+        if (caveVoidScanner != null && world != null) {
+            scanVoidsAroundSettlement(settlement, world);
+        }
+
+        // Pre-place surface fallback POI prefabs near the settlement
+        if (world != null) {
+            placeSurfaceFallbackPois(settlement, world);
+        }
+
         if (questSystem != null) {
             var topicGraphs = questSystem.getTopicGenerator().generate(settlement, deriveNearbyNames(settlement));
             dialogueLoader.registerGeneratedGraphs(topicGraphs);
@@ -178,45 +188,74 @@ public class Natural20 extends JavaPlugin {
 
         // Update NPC nameplates AFTER quest generation completes
         updateSettlementNameplates(settlement, world);
-
-        // Scan for cave voids near the settlement so POI quests have targets
-        // Batched on the world thread: scans one row of chunks per tick to avoid blocking
-        if (caveVoidScanner != null && world != null) {
-            int centerX = (int) settlement.getPosX();
-            int centerZ = (int) settlement.getPosZ();
-            String cellKey = settlement.getCellKey();
-            int scanRadius = 150;
-            int chunkRadius = scanRadius / 32;
-            int centerChunkX = Math.floorDiv(centerX, 32);
-            int centerChunkZ = Math.floorDiv(centerZ, 32);
-            int startCX = centerChunkX - chunkRadius;
-            int endCX = centerChunkX + chunkRadius;
-            int startCZ = centerChunkZ - chunkRadius;
-            int endCZ = centerChunkZ + chunkRadius;
-            int beforeCount = caveVoidRegistry.getCount();
-            int maxVoids = 3;
-            scanChunkRow(world, cellKey, startCX, endCX, startCX, startCZ, endCZ, beforeCount, maxVoids);
-        }
     }
 
     /**
-     * Scans one row of chunks (one X value, all Z) for cave voids, then defers the next row
-     * to the next world tick. Stops early if maxVoids new voids have been found.
+     * Synchronously scan for cave voids in the 200-600 block range around a settlement.
+     * Runs all at once (not batched) so voids are available for quest generation.
+     * Stops early once maxVoids are found.
      */
-    private void scanChunkRow(World world, String cellKey, int cx, int endCX,
-                               int startCX, int startCZ, int endCZ,
-                               int beforeCount, int maxVoids) {
-        if (cx > endCX || caveVoidRegistry.getCount() - beforeCount >= maxVoids) {
-            int found = caveVoidRegistry.getCount() - beforeCount;
-            getLogger().atInfo().log("Cave void scan near settlement %s: found %d void(s)", cellKey, found);
-            return;
-        }
-        for (int cz = startCZ; cz <= endCZ; cz++) {
-            caveVoidScanner.scanChunk(world, cx * 32, cz * 32);
+    private void scanVoidsAroundSettlement(SettlementRecord settlement, World world) {
+        int centerX = (int) settlement.getPosX();
+        int centerZ = (int) settlement.getPosZ();
+        int scanRadius = 600;
+        int chunkRadius = scanRadius / 32;
+        int centerChunkX = Math.floorDiv(centerX, 32);
+        int centerChunkZ = Math.floorDiv(centerZ, 32);
+        int startCX = centerChunkX - chunkRadius;
+        int endCX = centerChunkX + chunkRadius;
+        int startCZ = centerChunkZ - chunkRadius;
+        int endCZ = centerChunkZ + chunkRadius;
+        int beforeCount = caveVoidRegistry.getCount();
+        int maxVoids = 8;
+
+        for (int cx = startCX; cx <= endCX; cx++) {
+            for (int cz = startCZ; cz <= endCZ; cz++) {
+                caveVoidScanner.scanChunk(world, cx * 32, cz * 32);
+                if (caveVoidRegistry.getCount() - beforeCount >= maxVoids) break;
+            }
             if (caveVoidRegistry.getCount() - beforeCount >= maxVoids) break;
         }
-        // Defer next row to next tick so we don't hog the world thread
-        world.execute(() -> scanChunkRow(world, cellKey, cx + 1, endCX, startCX, startCZ, endCZ, beforeCount, maxVoids));
+
+        int found = caveVoidRegistry.getCount() - beforeCount;
+        getLogger().atInfo().log("Cave void scan near settlement %s: found %d void(s) (scanned %d-block radius)",
+            settlement.getCellKey(), found, scanRadius);
+    }
+
+    /**
+     * Pre-place 2 surface fallback POI prefabs 200-400 blocks from the settlement.
+     * These are placed at settlement creation so they exist before players arrive.
+     * Positions are stored on the SettlementRecord and consumed by quests that can't find a cave void.
+     */
+    private void placeSurfaceFallbackPois(SettlementRecord settlement, World world) {
+        int count = 2;
+        int centerX = (int) settlement.getPosX();
+        int centerZ = (int) settlement.getPosZ();
+        java.util.Random rng = new java.util.Random(settlement.getCellKey().hashCode());
+
+        Store<EntityStore> store = world.getEntityStore().getStore();
+
+        for (int i = 0; i < count; i++) {
+            final int poiIndex = i;
+            double angle = rng.nextDouble() * 2 * Math.PI;
+            double dist = 200 + rng.nextDouble() * 200;
+            int targetX = centerX + (int) (dist * Math.cos(angle));
+            int targetZ = centerZ + (int) (dist * Math.sin(angle));
+
+            getStructurePlacer().placeAtSurface(world, targetX, targetZ, store)
+                .whenComplete((entrance, error) -> {
+                    if (error != null || entrance == null) {
+                        getLogger().atWarning().log("Surface fallback POI %d failed near settlement %s at (%d, %d)",
+                            poiIndex, settlement.getCellKey(), targetX, targetZ);
+                        return;
+                    }
+                    settlement.addSurfaceFallbackPoi(entrance.getX(), entrance.getY(), entrance.getZ());
+                    getLogger().atInfo().log("Surface fallback POI placed at (%d, %d, %d) for settlement %s",
+                        entrance.getX(), entrance.getY(), entrance.getZ(), settlement.getCellKey());
+                    // Save settlement with updated POI list
+                    settlementRegistry.saveAsync();
+                });
+        }
     }
 
     public static ComponentType<EntityStore, Nat20NpcData> getNpcDataType() {
@@ -230,9 +269,6 @@ public class Natural20 extends JavaPlugin {
     @Override
     protected void setup() {
         getLogger().atInfo().log("Natural 20 setting up...");
-
-        // Load server config
-        com.chonbosmods.config.Nat20ServerConfig.load(getDataDirectory());
 
         // Register custom ECS components
         npcDataType = getEntityStoreRegistry().registerComponent(

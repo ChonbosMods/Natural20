@@ -94,20 +94,16 @@ public class QuestGenerator {
             return null;
         }
 
-        boolean poiAvailable = "true".equals(bindings.get("poi_available"));
         for (int i = 0; i < totalObjectives; i++) {
             ObjectiveConfig config = i < objConfigs.size() ? objConfigs.get(i) : objConfigs.getLast();
             ObjectiveType type = config.type() != null ? config.type() : ObjectiveType.COLLECT_RESOURCES;
             ObjectiveInstance obj = createObjective(type, config, bindings, random);
-            if (obj == null) {
-                obj = createObjective(ObjectiveType.COLLECT_RESOURCES,
-                    new ObjectiveConfig(null, null, null), bindings, random);
-            }
             if (obj != null) objectives.add(obj);
         }
 
         if (objectives.isEmpty()) {
-            LOGGER.atWarning().log("Failed to create any objectives for v2 template %s", template.situation());
+            LOGGER.atWarning().log("Failed to create any objectives for v2 template %s, npc=%s",
+                template.situation(), npcId);
             return null;
         }
 
@@ -133,6 +129,7 @@ public class QuestGenerator {
         bindings.put("player_name", "Traveler"); // Placeholder; resolved to actual name at display time if available
         bindings.put("npc_x", String.valueOf(npcX));
         bindings.put("npc_z", String.valueOf(npcZ));
+        bindings.put("npc_settlement_key", npcCellKey);
 
         // v2: always use real gatherable items for collect resources
         QuestPoolRegistry.ItemEntry gatherItem = poolRegistry.randomCollectResource(random);
@@ -170,21 +167,7 @@ public class QuestGenerator {
             bindings.put("target_npc", "someone who might know more");
         }
 
-        // Resolve POI: find nearby cave void for hostile location quests
-        CaveVoidRegistry voidRegistry = Natural20.getInstance().getCaveVoidRegistry();
-        if (voidRegistry != null) {
-            CaveVoidRecord poi = voidRegistry.findNearbyVoid(npcX, npcZ, 200, 600);
-            if (poi != null) {
-                bindings.put("poi_available", "true");
-                bindings.put("poi_center_x", String.valueOf(poi.getCenterX()));
-                bindings.put("poi_center_y", String.valueOf(poi.getCenterY()));
-                bindings.put("poi_center_z", String.valueOf(poi.getCenterZ()));
-            }
-        }
-        if (!bindings.containsKey("poi_available")) {
-            bindings.put("poi_available", "false");
-        }
-
+        // POI voids are now claimed per-objective in createPOIObjective
         return bindings;
     }
 
@@ -348,7 +331,6 @@ public class QuestGenerator {
 
     private @Nullable ObjectiveInstance createObjective(ObjectiveType type, ObjectiveConfig config,
                                                          Map<String, String> bindings, Random random) {
-        boolean poiAvailable = "true".equals(bindings.get("poi_available"));
         String npcId = bindings.getOrDefault("quest_giver_name", "unknown");
 
         return switch (type) {
@@ -373,23 +355,28 @@ public class QuestGenerator {
                 yield collectObj;
             }
             case KILL_MOBS -> {
-                if (poiAvailable) {
-                    yield createPOIObjective(type, bindings, config, random);
+                // Try to pre-claim a cave void; if unavailable, create objective without POI
+                // and let resolveAndPlacePoi handle it at runtime (void discovery or surface fallback)
+                ObjectiveInstance killObj = createPOIObjective(type, bindings, config, random);
+                if (killObj == null) {
+                    LOGGER.atInfo().log("KILL_MOBS for %s: no void at generation, deferring POI to runtime", npcId);
+                    int killCount = 2;
+                    bindings.put("gather_count", String.valueOf(killCount));
+                    killObj = new ObjectiveInstance(type, "deferred_poi", bindings.get("enemy_type"),
+                        killCount, null, null);
+                    killObj.setTargetLabelPlural(bindings.get("enemy_type_plural"));
                 }
-                // KILL_MOBS requires a POI for spawning hostile mobs
-                LOGGER.atInfo().log("Skipping KILL_MOBS objective for %s: no POI available (poiType: %s)",
-                    npcId, bindings.getOrDefault("subject_poi_type", "unknown"));
-                yield null;
+                yield killObj;
             }
             case FETCH_ITEM -> {
                 // Store quest item base type for chest spawning
                 bindings.put("fetch_item_type", QuestPoolRegistry.getBaseItemType(bindings.get("gather_item_id")));
                 bindings.put("fetch_item_label", bindings.getOrDefault("quest_item", "a quest item"));
 
-                if (poiAvailable) {
-                    bindings.put("fetch_variant", "hostile");
-                    yield createPOIObjective(type, bindings, config, random);
-                }
+                // Try hostile fetch (cave void) first
+                bindings.put("fetch_variant", "hostile");
+                ObjectiveInstance fetchObj = createPOIObjective(type, bindings, config, random);
+                if (fetchObj != null) yield fetchObj;
 
                 // Peaceful fetch: target a nearby settlement
                 bindings.put("fetch_variant", "peaceful");
@@ -397,15 +384,6 @@ public class QuestGenerator {
                 if (targetSettlement != null) {
                     SettlementRecord target = settlementRegistry.getByCell(targetSettlement);
                     if (target != null) {
-                        bindings.put("poi_available", "true");
-                        bindings.put("poi_center_x", String.valueOf(target.getPosX()));
-                        bindings.put("poi_center_z", String.valueOf(target.getPosZ()));
-                        bindings.put("marker_offset_x", "0");
-                        bindings.put("marker_offset_z", "0");
-                        bindings.put("poi_x", String.valueOf(target.getPosX()));
-                        bindings.put("poi_y", String.valueOf(target.getPosY()));
-                        bindings.put("poi_z", String.valueOf(target.getPosZ()));
-                        bindings.put("poi_mob_state", "PENDING");
                         bindings.put("poi_type", "settlement");
                     }
                 }
@@ -417,14 +395,17 @@ public class QuestGenerator {
             }
             case TALK_TO_NPC -> {
                 String targetNpc = bindings.get("target_npc");
-                if (targetNpc == null || "someone who might know more".equals(targetNpc)) {
-                    LOGGER.atInfo().log("Skipping TALK_TO_NPC objective for %s: no valid target NPC found",
-                        npcId);
-                    yield null;
+                boolean hasTarget = targetNpc != null && !"someone who might know more".equals(targetNpc);
+                if (!hasTarget) {
+                    LOGGER.atInfo().log("TALK_TO_NPC for %s: no target at generation, deferring to runtime", npcId);
                 }
                 yield new ObjectiveInstance(
-                    type, targetNpc, targetNpc,
-                    1, bindings.get("location_hint"), bindings.get("target_npc_settlement")
+                    type,
+                    hasTarget ? targetNpc : "deferred_npc",
+                    hasTarget ? targetNpc : "someone nearby",
+                    1,
+                    bindings.get("location_hint"),
+                    bindings.get("target_npc_settlement")
                 );
             }
         };
@@ -432,33 +413,35 @@ public class QuestGenerator {
 
     private ObjectiveInstance createPOIObjective(ObjectiveType type, Map<String, String> bindings,
                                                   ObjectiveConfig config, Random random) {
-        String poiX = bindings.get("poi_center_x");
-        String poiY = bindings.get("poi_center_y");
-        String poiZ = bindings.get("poi_center_z");
-        String poiLocationId = "poi:" + poiX + "," + poiY + "," + poiZ;
-
-        // Compute direction hint from NPC to POI
+        // Find and claim a unique void for this objective
         double npcX = 0, npcZ = 0;
         try {
             npcX = Double.parseDouble(bindings.getOrDefault("npc_x", "0"));
             npcZ = Double.parseDouble(bindings.getOrDefault("npc_z", "0"));
         } catch (NumberFormatException ignored) {}
-        String hint = DirectionUtil.computeHint(npcX, npcZ,
-                Double.parseDouble(poiX), Double.parseDouble(poiZ));
 
-        // Store POI metadata in quest bindings for population later
-        bindings.put("poi_type", "hostile_location");
-        bindings.put("poi_populated", "false");
-        bindings.put("poi_x", poiX);
-        bindings.put("poi_y", poiY);
-        bindings.put("poi_z", poiZ);
+        CaveVoidRegistry voidRegistry = Natural20.getInstance().getCaveVoidRegistry();
+        if (voidRegistry == null) return null;
 
-        // All POI quests spawn hostile mobs in the dungeon
+        CaveVoidRecord void_ = voidRegistry.findNearbyVoid(npcX, npcZ, 200, 600);
+        if (void_ == null) {
+            LOGGER.atInfo().log("createPOIObjective: no unclaimed void in range for %s objective", type);
+            return null;
+        }
+
+        // Claim immediately so subsequent objectives get different voids
+        String settlementKey = bindings.getOrDefault("npc_settlement_key", "unknown");
+        voidRegistry.claimVoid(void_, settlementKey);
+
+        int cx = void_.getCenterX(), cy = void_.getCenterY(), cz = void_.getCenterZ();
+        String poiLocationId = "poi:" + cx + "," + cy + "," + cz;
+        String hint = DirectionUtil.computeHint(npcX, npcZ, cx, cz);
+
+        // Build population spec for this objective
         String populationSpec = "KILL_MOBS:" + bindings.get("enemy_type_id") + ":" + switch (type) {
             case KILL_MOBS -> "4";
             default -> "3"; // FETCH_ITEM
         };
-        bindings.put("poi_population_spec", populationSpec);
 
         int requiredCount = switch (type) {
             case KILL_MOBS -> 2;
@@ -474,11 +457,15 @@ public class QuestGenerator {
 
         ObjectiveInstance poiObj = new ObjectiveInstance(type, poiLocationId, targetLabel,
                 requiredCount, hint, poiLocationId);
+        poiObj.setPoi(cx, cy, cz, populationSpec);
         if (type == ObjectiveType.KILL_MOBS) {
             poiObj.setTargetLabelPlural(bindings.get("enemy_type_plural"));
         } else if (type == ObjectiveType.FETCH_ITEM) {
             poiObj.setTargetLabelPlural(bindings.get("quest_item"));
         }
+
+        LOGGER.atInfo().log("createPOIObjective: claimed void at (%d,%d,%d) for %s objective",
+            cx, cy, cz, type);
         return poiObj;
     }
 }

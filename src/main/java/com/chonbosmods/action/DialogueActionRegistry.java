@@ -6,6 +6,7 @@ import com.chonbosmods.cave.CaveVoidRegistry;
 import com.chonbosmods.data.Nat20NpcData;
 import com.chonbosmods.data.Nat20PlayerData;
 import com.chonbosmods.marker.QuestMarkerManager;
+import com.chonbosmods.quest.DirectionUtil;
 import com.chonbosmods.quest.ObjectiveInstance;
 import com.chonbosmods.quest.ObjectiveType;
 import com.chonbosmods.quest.PhaseInstance;
@@ -21,6 +22,7 @@ import com.hypixel.hytale.component.Ref;
 import com.google.common.flogger.FluentLogger;
 import com.hypixel.hytale.component.Store;
 import com.hypixel.hytale.server.core.Message;
+import com.hypixel.hytale.math.vector.Vector3i;
 import com.hypixel.hytale.server.core.universe.world.World;
 import com.hypixel.hytale.server.core.universe.world.storage.EntityStore;
 
@@ -154,20 +156,6 @@ public class DialogueActionRegistry {
                 return;
             }
 
-            // Determine if the exposition objective needs a hostile POI
-            ObjectiveInstance firstObj = quest.getCurrentObjective();
-            ObjectiveType firstObjType = firstObj != null ? firstObj.getType() : null;
-            boolean needsPoi = firstObjType == ObjectiveType.KILL_MOBS
-                || (firstObjType == ObjectiveType.FETCH_ITEM
-                    && "hostile".equals(quest.getVariableBindings().get("fetch_variant")));
-
-            // Clear POI bindings BEFORE saving if objective doesn't need a hostile location
-            if (!needsPoi) {
-                quest.getVariableBindings().put("poi_available", "false");
-                quest.getVariableBindings().remove("marker_offset_x");
-                quest.getVariableBindings().remove("marker_offset_z");
-            }
-
             // Set state BEFORE saving so it persists correctly
             quest.setState(com.chonbosmods.quest.QuestState.OBJECTIVE_PENDING);
 
@@ -175,20 +163,15 @@ public class DialogueActionRegistry {
             questSystem.getStateManager().addQuest(ctx.playerData(), quest);
             ctx.dispositionUpdater().accept(QuestDispositionConstants.QUEST_ACCEPTED);
 
-            // Trigger POI placement only for objectives that need a hostile location
-            if (needsPoi && "true".equals(quest.getVariableBindings().get("poi_available"))) {
-                String popSpec = quest.getVariableBindings().get("poi_population_spec");
-                String mobRole = null;
-                int mobCount = 0;
-                if (popSpec != null && !popSpec.equals("NONE")) {
-                    int firstColon = popSpec.indexOf(':');
-                    int lastColon = popSpec.lastIndexOf(':');
-                    if (firstColon > 0 && lastColon > firstColon) {
-                        mobRole = popSpec.substring(firstColon + 1, lastColon);
-                        mobCount = Integer.parseInt(popSpec.substring(lastColon + 1));
-                    }
+            // Set up first objective: POI placement, markers, or particles
+            ObjectiveInstance firstObj = quest.getCurrentObjective();
+            if (firstObj != null) {
+                ObjectiveType firstType = firstObj.getType();
+                if (firstType == ObjectiveType.KILL_MOBS || firstType == ObjectiveType.FETCH_ITEM) {
+                    resolveAndPlacePoi(quest, firstObj, ctx.store(), ctx.playerRef());
+                } else if (firstType == ObjectiveType.TALK_TO_NPC) {
+                    setTargetNpcParticle(quest.getVariableBindings(), ctx.store());
                 }
-                triggerPOIPlacement(quest, ctx.store(), ctx.playerRef(), mobRole, mobCount);
             }
 
             String questLabel = quest.getVariableBindings().getOrDefault("quest_objective_summary",
@@ -262,43 +245,61 @@ public class DialogueActionRegistry {
             // Clear source NPC turn-in marker
             clearSourceNpcMarker(quest);
 
-            // Deterministic: conflict count was decided at generation time
+            // Try to advance to next conflict, or complete the quest
+            boolean advanceToConflict = false;
             if (quest.hasMoreConflicts()) {
+                // Peek at next objective and try to resolve it before committing
+                int nextIndex = quest.getConflictCount() + 1;
+                ObjectiveInstance nextObj = nextIndex < quest.getObjectives().size()
+                    ? quest.getObjectives().get(nextIndex) : null;
+                if (nextObj != null) {
+                    advanceToConflict = tryResolveObjective(quest, nextObj, ctx);
+                }
+                if (!advanceToConflict) {
+                    LOGGER.atWarning().log(
+                        "TURN_IN_V2: conflict %d objective unresolvable for quest %s " +
+                        "(type=%s, targetId=%s, hasPoi=%s). Skipping to resolution.",
+                        nextIndex, quest.getQuestId(),
+                        nextObj != null ? nextObj.getType() : "null",
+                        nextObj != null ? nextObj.getTargetId() : "null",
+                        nextObj != null ? nextObj.hasPoi() : "n/a");
+                }
+            }
+
+            if (advanceToConflict) {
                 quest.incrementConflictCount();
                 quest.setState(com.chonbosmods.quest.QuestState.OBJECTIVE_PENDING);
 
-                // Resolve POI for new objective if needed
                 ObjectiveInstance newObj = quest.getCurrentObjective();
-                if (newObj != null) {
-                    ObjectiveType newType = newObj.getType();
-                    Map<String, String> bindings = quest.getVariableBindings();
-                    boolean needsPoi = newType == ObjectiveType.KILL_MOBS
-                        || (newType == ObjectiveType.FETCH_ITEM
-                            && "hostile".equals(bindings.get("fetch_variant")));
-                    if (needsPoi) {
-                        resolveNewHostilePoi(quest, ctx.store(), ctx.playerRef(), bindings);
-                    } else {
-                        bindings.put("poi_available", "false");
-                        bindings.remove("marker_offset_x");
-                        bindings.remove("marker_offset_z");
-                        bindings.remove("poi_mob_state");
-                        bindings.remove("poi_mob_uuids");
-                        bindings.remove("poi_detached_uuids");
-                        if (newType == ObjectiveType.TALK_TO_NPC) {
-                            setTargetNpcParticle(bindings, ctx.store());
-                        }
+                ObjectiveType newType = newObj.getType();
+                Map<String, String> bindings = quest.getVariableBindings();
+
+                // Clear stale POI bindings from previous objective
+                bindings.remove("marker_offset_x");
+                bindings.remove("marker_offset_z");
+                bindings.remove("poi_mob_state");
+                bindings.remove("poi_mob_uuids");
+                bindings.remove("poi_detached_uuids");
+
+                if (newType == ObjectiveType.KILL_MOBS || newType == ObjectiveType.FETCH_ITEM) {
+                    resolveAndPlacePoi(quest, newObj, ctx.store(), ctx.playerRef());
+                } else {
+                    bindings.put("poi_available", "false");
+                    if (newType == ObjectiveType.TALK_TO_NPC) {
+                        setTargetNpcParticle(bindings, ctx.store());
                     }
-                    // Build objective summary
-                    String summary = switch (newType) {
-                        case KILL_MOBS -> "kill " + newObj.getRequiredCount() + " " + newObj.getEffectiveLabel();
-                        case COLLECT_RESOURCES -> "collect " + newObj.getRequiredCount() + " " + newObj.getEffectiveLabel();
-                        case FETCH_ITEM -> "hostile".equals(bindings.get("fetch_variant"))
-                            ? "retrieve " + newObj.getTargetLabel() + " from " + bindings.getOrDefault("subject_name", "the area")
-                            : "recover " + newObj.getTargetLabel();
-                        case TALK_TO_NPC -> "speak with " + newObj.getTargetLabel();
-                    };
-                    bindings.put("quest_objective_summary", summary);
                 }
+
+                String summary = switch (newType) {
+                    case KILL_MOBS -> "kill " + newObj.getRequiredCount() + " " + newObj.getEffectiveLabel();
+                    case COLLECT_RESOURCES -> "collect " + newObj.getRequiredCount() + " " + newObj.getEffectiveLabel();
+                    case FETCH_ITEM -> "hostile".equals(bindings.get("fetch_variant"))
+                        ? "retrieve " + newObj.getTargetLabel() + " from " + bindings.getOrDefault("subject_name", "the area")
+                        : "recover " + newObj.getTargetLabel();
+                    case TALK_TO_NPC -> "speak with " + newObj.getTargetLabel();
+                };
+                bindings.put("quest_objective_summary", summary);
+                ctx.systemLogger().accept("New objective: " + summary);
 
                 saveQuest(questSystem, ctx.playerData(), quest);
                 LOGGER.atInfo().log("TURN_IN_V2: quest %s advanced to conflict %d/%d",
@@ -406,95 +407,288 @@ public class DialogueActionRegistry {
         });
     }
 
-    private void triggerPOIPlacement(QuestInstance quest, Store<EntityStore> store,
-                                     Ref<EntityStore> playerRef,
-                                     String mobRole, int mobCount) {
+    /**
+     * Validate and resolve an objective before advancing into it.
+     * For TALK_TO_NPC with deferred target: try to find a real NPC now.
+     * For KILL_MOBS/FETCH_ITEM: always resolvable (void or surface fallback).
+     * For COLLECT_RESOURCES: always resolvable.
+     * Returns true if the objective can be activated, false to skip to resolution.
+     */
+    private boolean tryResolveObjective(QuestInstance quest, ObjectiveInstance objective,
+                                         ActionContext ctx) {
+        ObjectiveType type = objective.getType();
         Map<String, String> bindings = quest.getVariableBindings();
+
+        return switch (type) {
+            case COLLECT_RESOURCES -> true;
+            case KILL_MOBS, FETCH_ITEM -> true; // resolveAndPlacePoi handles void + surface fallback
+            case TALK_TO_NPC -> {
+                // If target was deferred at generation, try to resolve now
+                if ("deferred_npc".equals(objective.getTargetId())) {
+                    double npcX = 0, npcZ = 0;
+                    try {
+                        npcX = Double.parseDouble(bindings.getOrDefault("npc_x", "0"));
+                        npcZ = Double.parseDouble(bindings.getOrDefault("npc_z", "0"));
+                    } catch (NumberFormatException ignored) {}
+
+                    SettlementRegistry settlements = Natural20.getInstance().getSettlementRegistry();
+                    if (settlements == null) {
+                        LOGGER.atWarning().log("tryResolveObjective: TALK_TO_NPC deferred but no settlement registry");
+                        yield false;
+                    }
+
+                    // Find nearest other settlement with NPCs
+                    SettlementRecord nearest = null;
+                    double nearestDist = Double.MAX_VALUE;
+                    for (SettlementRecord r : settlements.getAll().values()) {
+                        if (r.getCellKey().equals(quest.getSourceSettlementId())) continue;
+                        if (r.getNpcs().isEmpty()) continue;
+                        double dx = r.getPosX() - npcX;
+                        double dz = r.getPosZ() - npcZ;
+                        double dist = dx * dx + dz * dz;
+                        if (dist < nearestDist) {
+                            nearestDist = dist;
+                            nearest = r;
+                        }
+                    }
+
+                    if (nearest == null || nearest.getNpcs().isEmpty()) {
+                        LOGGER.atWarning().log(
+                            "tryResolveObjective: TALK_TO_NPC still unresolvable for quest %s: " +
+                            "no other settlements with NPCs found near (%.0f, %.0f). " +
+                            "Total settlements: %d",
+                            quest.getQuestId(), npcX, npcZ, settlements.getAll().size());
+                        yield false;
+                    }
+
+                    // Resolve: pick a random NPC from the nearest settlement
+                    NpcRecord targetNpc = nearest.getNpcs().get(
+                        new Random(quest.getQuestId().hashCode()).nextInt(nearest.getNpcs().size()));
+                    objective.setTargetId(targetNpc.getGeneratedName());
+                    objective.setTargetLabel(targetNpc.getGeneratedName());
+                    objective.setLocationId(nearest.getCellKey());
+                    bindings.put("target_npc", targetNpc.getGeneratedName());
+                    bindings.put("target_npc_role", targetNpc.getRole());
+                    bindings.put("target_npc_settlement", nearest.getCellKey());
+                    bindings.put("location_hint", DirectionUtil.computeHint(npcX, npcZ,
+                        nearest.getPosX(), nearest.getPosZ()));
+
+                    LOGGER.atInfo().log("tryResolveObjective: TALK_TO_NPC resolved at runtime: " +
+                        "target=%s in settlement %s for quest %s",
+                        targetNpc.getGeneratedName(), nearest.getCellKey(), quest.getQuestId());
+                }
+                yield true;
+            }
+        };
+    }
+
+    /**
+     * Unified POI resolution: finds a cave void and places a dungeon.
+     * - If the objective has pre-claimed POI data, looks up that void directly.
+     * - Otherwise, finds the nearest unclaimed void at runtime and claims it.
+     * - If no void is found at all, auto-completes the objective (graceful degradation).
+     * The void record is passed directly to placement: no re-search, no double-claim.
+     */
+    /**
+     * Unified POI resolution: finds a cave void or surface location and places a dungeon.
+     * 1. Pre-claimed void (from generation): look up by coords
+     * 2. Runtime void: find nearest unclaimed, claim, pass directly to placement
+     * 3. Surface fallback: pick random point 200-400 blocks away, paste prefab at surface
+     * No re-search, no double-claim. Void record always passed directly.
+     */
+    private void resolveAndPlacePoi(QuestInstance quest, ObjectiveInstance objective,
+                                     Store<EntityStore> store, Ref<EntityStore> playerRef) {
+        Map<String, String> bindings = quest.getVariableBindings();
+
+        double npcX = 0, npcZ = 0;
+        try {
+            npcX = Double.parseDouble(bindings.getOrDefault("npc_x", "0"));
+            npcZ = Double.parseDouble(bindings.getOrDefault("npc_z", "0"));
+        } catch (NumberFormatException ignored) {}
+
+        // --- Strategy 1: pre-claimed void from generation ---
+        CaveVoidRecord void_ = null;
         CaveVoidRegistry voidRegistry = Natural20.getInstance().getCaveVoidRegistry();
-        if (voidRegistry == null) return;
-
-        String rawX = bindings.get("poi_center_x");
-        String rawZ = bindings.get("poi_center_z");
-        if (rawX == null || rawZ == null) {
-            LOGGER.atWarning().log("POI placement: missing center coordinates in bindings");
-            bindings.put("poi_available", "false");
-            return;
+        if (objective.hasPoi() && voidRegistry != null) {
+            void_ = voidRegistry.findVoidAt(
+                objective.getPoiCenterX(), objective.getPoiCenterY(), objective.getPoiCenterZ());
+            if (void_ == null) {
+                LOGGER.atWarning().log("resolveAndPlacePoi: pre-claimed void not found at (%d,%d,%d), trying runtime",
+                    objective.getPoiCenterX(), objective.getPoiCenterY(), objective.getPoiCenterZ());
+            }
         }
-        int poiX = Integer.parseInt(rawX);
-        int poiZ = Integer.parseInt(rawZ);
 
-        // Find and claim the void
-        CaveVoidRecord void_ = voidRegistry.findAnyVoid(poiX, poiZ);
+        // --- Strategy 2: runtime void discovery ---
+        if (void_ == null && voidRegistry != null) {
+            void_ = voidRegistry.findNearbyVoid(npcX, npcZ, 200, 600);
+            if (void_ != null) {
+                voidRegistry.claimVoid(void_, quest.getSourceSettlementId());
+                String enemyTypeId = bindings.getOrDefault("enemy_type_id", "Skeleton");
+                int spawnCount = objective.getType() == ObjectiveType.KILL_MOBS ? 4 : 3;
+                objective.setPoi(void_.getCenterX(), void_.getCenterY(), void_.getCenterZ(),
+                    "KILL_MOBS:" + enemyTypeId + ":" + spawnCount);
+                LOGGER.atInfo().log("resolveAndPlacePoi: runtime void at (%d,%d,%d) for quest %s",
+                    void_.getCenterX(), void_.getCenterY(), void_.getCenterZ(), quest.getQuestId());
+            }
+        }
+
+        // --- Strategy 3: surface fallback ---
         if (void_ == null) {
-            LOGGER.atWarning().log("POI placement: no void found near (%d, %d)", poiX, poiZ);
-            bindings.put("poi_available", "false");
+            LOGGER.atInfo().log("resolveAndPlacePoi: no void found, using surface fallback for quest %s",
+                quest.getQuestId());
+            placeSurfacePoi(quest, objective, store, playerRef, npcX, npcZ);
             return;
         }
-        voidRegistry.claimVoid(void_, quest.getSourceSettlementId());
 
-        // Place the dungeon prefab
+        // --- Place dungeon at void (strategies 1 & 2) ---
+        placePoiAtVoid(quest, objective, void_, store, playerRef);
+    }
+
+    /**
+     * Place dungeon at a cave void. Void record is passed directly: no re-search.
+     */
+    private void placePoiAtVoid(QuestInstance quest, ObjectiveInstance objective,
+                                 CaveVoidRecord void_, Store<EntityStore> store,
+                                 Ref<EntityStore> playerRef) {
+        Map<String, String> bindings = quest.getVariableBindings();
+        bindings.put("poi_available", "true");
+        bindings.put("poi_center_x", String.valueOf(void_.getCenterX()));
+        bindings.put("poi_center_z", String.valueOf(void_.getCenterZ()));
+
         World world = Natural20.getInstance().getDefaultWorld();
-        if (world == null) {
-            LOGGER.atWarning().log("POI placement: no default world");
-            return;
-        }
+        if (world == null) return;
 
         Natural20.getInstance().getStructurePlacer()
             .placeAtVoid(world, void_, store)
             .whenComplete((entrance, error) -> {
                 if (error != null || entrance == null) {
                     if (error != null) {
-                        LOGGER.atWarning().withCause(error).log("POI placement failed for quest %s", quest.getQuestId());
-                    } else {
-                        LOGGER.atWarning().log("POI placement returned no entrance for quest %s", quest.getQuestId());
+                        LOGGER.atWarning().withCause(error).log("POI void placement failed for quest %s", quest.getQuestId());
                     }
                     world.execute(() -> bindings.put("poi_available", "false"));
                     return;
                 }
-                // Update bindings and spawn mobs on the world thread (chunks are loaded from prefab paste)
-                world.execute(() -> {
-                    bindings.put("poi_x", String.valueOf(entrance.getX()));
-                    bindings.put("poi_y", String.valueOf(entrance.getY()));
-                    bindings.put("poi_z", String.valueOf(entrance.getZ()));
-
-                    // Compute marker offset relative to actual entrance (0-80 blocks away)
-                    // The center marker sits at entrance + offset; the 100-block ring circles it.
-                    // Since offset max is 80 and ring radius is 100, the entrance is always inside the ring.
-                    bindings.put("poi_center_x", String.valueOf(entrance.getX()));
-                    bindings.put("poi_center_z", String.valueOf(entrance.getZ()));
-                    Random rng = new Random(quest.getQuestId().hashCode());
-                    double angle = rng.nextDouble() * 2 * Math.PI;
-                    double dist = rng.nextDouble() * 80;
-                    bindings.put("marker_offset_x", String.valueOf(dist * Math.cos(angle)));
-                    bindings.put("marker_offset_z", String.valueOf(dist * Math.sin(angle)));
-
-                    // Write spawn descriptor: mobs will spawn when player approaches
-                    if (mobRole != null && mobCount > 0) {
-                        Natural20.getInstance().getPOIPopulationListener().writeSpawnDescriptor(
-                            quest, entrance.getX(), entrance.getY(), entrance.getZ(),
-                            mobRole, mobCount);
-                    }
-
-                    // Save the modified quest bindings back to storage.
-                    // getActiveQuests() deserializes fresh, so we must re-insert our modified quest.
-                    Nat20PlayerData pd = store.getComponent(playerRef, Natural20.getPlayerDataType());
-                    if (pd != null) {
-                        QuestStateManager sm = Natural20.getInstance().getQuestSystem().getStateManager();
-                        Map<String, QuestInstance> allQuests = sm.getActiveQuests(pd);
-                        allQuests.put(quest.getQuestId(), quest);
-                        sm.saveActiveQuests(pd, allQuests);
-
-                        // Refresh markers now that we have the real entrance-relative offset
-                        com.hypixel.hytale.server.core.entity.entities.Player player =
-                            store.getComponent(playerRef, com.hypixel.hytale.server.core.entity.entities.Player.getComponentType());
-                        if (player != null) {
-                            QuestMarkerProvider.refreshMarkers(player.getPlayerRef().getUuid(), pd);
-                        }
-                    }
-                });
-                LOGGER.atInfo().log("POI placed for quest %s at (%d, %d, %d)",
-                    quest.getQuestId(), entrance.getX(), entrance.getY(), entrance.getZ());
+                world.execute(() -> finalizePlacement(quest, objective, entrance, store, playerRef));
             });
+    }
+
+    /**
+     * Surface POI fallback: use a pre-placed fallback POI from the settlement if available,
+     * otherwise place the surfaceFallbackPrefab at a random point 200-400 blocks away.
+     */
+    private void placeSurfacePoi(QuestInstance quest, ObjectiveInstance objective,
+                                  Store<EntityStore> store, Ref<EntityStore> playerRef,
+                                  double npcX, double npcZ) {
+        Map<String, String> bindings = quest.getVariableBindings();
+        World world = Natural20.getInstance().getDefaultWorld();
+        if (world == null) return;
+
+        // Build population spec if not already set
+        if (objective.getPopulationSpec() == null) {
+            String enemyTypeId = bindings.getOrDefault("enemy_type_id", "Skeleton");
+            int spawnCount = objective.getType() == ObjectiveType.KILL_MOBS ? 4 : 3;
+            objective.setPoi(0, 0, 0, "KILL_MOBS:" + enemyTypeId + ":" + spawnCount);
+        }
+
+        // Try to claim a pre-placed surface fallback POI from the settlement
+        SettlementRegistry settlements = Natural20.getInstance().getSettlementRegistry();
+        if (settlements != null && quest.getSourceSettlementId() != null) {
+            SettlementRecord settlement = settlements.getByCell(quest.getSourceSettlementId());
+            if (settlement != null) {
+                int[] prePlaced = settlement.claimSurfaceFallbackPoi();
+                if (prePlaced != null) {
+                    LOGGER.atInfo().log("placeSurfacePoi: using pre-placed fallback at (%d,%d,%d) for quest %s",
+                        prePlaced[0], prePlaced[1], prePlaced[2], quest.getQuestId());
+                    settlements.saveAsync();
+                    Vector3i entrance = new Vector3i(prePlaced[0], prePlaced[1], prePlaced[2]);
+                    objective.setPoi(prePlaced[0], prePlaced[1], prePlaced[2], objective.getPopulationSpec());
+                    bindings.put("poi_available", "true");
+                    bindings.put("poi_center_x", String.valueOf(prePlaced[0]));
+                    bindings.put("poi_center_z", String.valueOf(prePlaced[2]));
+                    finalizePlacement(quest, objective, entrance, store, playerRef);
+                    return;
+                }
+            }
+        }
+
+        // No pre-placed POI available: place one now at a random surface point
+        Random rng = new Random(quest.getQuestId().hashCode() + quest.getConflictCount());
+        double angle = rng.nextDouble() * 2 * Math.PI;
+        double dist = 200 + rng.nextDouble() * 200;
+        int targetX = (int) (npcX + dist * Math.cos(angle));
+        int targetZ = (int) (npcZ + dist * Math.sin(angle));
+
+        objective.setPoi(targetX, 0, targetZ, objective.getPopulationSpec());
+        bindings.put("poi_available", "true");
+        bindings.put("poi_center_x", String.valueOf(targetX));
+        bindings.put("poi_center_z", String.valueOf(targetZ));
+
+        Natural20.getInstance().getStructurePlacer()
+            .placeAtSurface(world, targetX, targetZ, store)
+            .whenComplete((entrance, error) -> {
+                if (error != null || entrance == null) {
+                    if (error != null) {
+                        LOGGER.atWarning().withCause(error).log("Surface POI placement failed for quest %s", quest.getQuestId());
+                    }
+                    world.execute(() -> bindings.put("poi_available", "false"));
+                    return;
+                }
+                world.execute(() -> finalizePlacement(quest, objective, entrance, store, playerRef));
+            });
+    }
+
+    /**
+     * Shared post-placement logic: set bindings, compute marker offset, write spawn descriptor, save.
+     */
+    private void finalizePlacement(QuestInstance quest, ObjectiveInstance objective,
+                                    Vector3i entrance, Store<EntityStore> store,
+                                    Ref<EntityStore> playerRef) {
+        Map<String, String> bindings = quest.getVariableBindings();
+        bindings.put("poi_x", String.valueOf(entrance.getX()));
+        bindings.put("poi_y", String.valueOf(entrance.getY()));
+        bindings.put("poi_z", String.valueOf(entrance.getZ()));
+        bindings.put("poi_center_x", String.valueOf(entrance.getX()));
+        bindings.put("poi_center_z", String.valueOf(entrance.getZ()));
+
+        Random rng = new Random(quest.getQuestId().hashCode() + quest.getConflictCount());
+        double angle = rng.nextDouble() * 2 * Math.PI;
+        double dist = rng.nextDouble() * 80;
+        bindings.put("marker_offset_x", String.valueOf(dist * Math.cos(angle)));
+        bindings.put("marker_offset_z", String.valueOf(dist * Math.sin(angle)));
+
+        // Parse population spec and write spawn descriptor
+        String popSpec = objective.getPopulationSpec();
+        if (popSpec != null && !popSpec.equals("NONE")) {
+            int firstColon = popSpec.indexOf(':');
+            int lastColon = popSpec.lastIndexOf(':');
+            if (firstColon > 0 && lastColon > firstColon) {
+                String mobRole = popSpec.substring(firstColon + 1, lastColon);
+                int mobCount = Integer.parseInt(popSpec.substring(lastColon + 1));
+                if (mobCount > 0) {
+                    Natural20.getInstance().getPOIPopulationListener().writeSpawnDescriptor(
+                        quest, entrance.getX(), entrance.getY(), entrance.getZ(),
+                        mobRole, mobCount);
+                }
+            }
+        }
+
+        // Save modified quest bindings
+        Nat20PlayerData pd = store.getComponent(playerRef, Natural20.getPlayerDataType());
+        if (pd != null) {
+            QuestStateManager sm = Natural20.getInstance().getQuestSystem().getStateManager();
+            Map<String, QuestInstance> allQuests = sm.getActiveQuests(pd);
+            allQuests.put(quest.getQuestId(), quest);
+            sm.saveActiveQuests(pd, allQuests);
+
+            com.hypixel.hytale.server.core.entity.entities.Player player =
+                store.getComponent(playerRef, com.hypixel.hytale.server.core.entity.entities.Player.getComponentType());
+            if (player != null) {
+                QuestMarkerProvider.refreshMarkers(player.getPlayerRef().getUuid(), pd);
+            }
+        }
+
+        LOGGER.atInfo().log("POI placed for quest %s at (%d, %d, %d)",
+            quest.getQuestId(), entrance.getX(), entrance.getY(), entrance.getZ());
     }
 
     /**
@@ -555,72 +749,10 @@ public class DialogueActionRegistry {
         }
     }
 
-    /**
-     * Attempt to find a new cave void for a hostile POI phase.
-     * If no void is found, auto-complete the phase (graceful degradation).
-     */
-    private void resolveNewHostilePoi(QuestInstance quest, Store<EntityStore> store,
-                                       Ref<EntityStore> playerRef,
-                                       Map<String, String> bindings) {
-        CaveVoidRegistry voidRegistry = Natural20.getInstance().getCaveVoidRegistry();
-        if (voidRegistry == null) {
-            LOGGER.atWarning().log("resolveNewHostilePoi: no void registry, auto-completing phase");
-            bindings.put("phase_objectives_complete", "true");
-            bindings.put("poi_available", "false");
-            return;
-        }
-
-        double npcX = 0, npcZ = 0;
-        try {
-            npcX = Double.parseDouble(bindings.getOrDefault("npc_x", "0"));
-            npcZ = Double.parseDouble(bindings.getOrDefault("npc_z", "0"));
-        } catch (NumberFormatException ignored) {}
-
-        var newVoid = voidRegistry.findNearbyVoid(npcX, npcZ, 200, 600);
-        if (newVoid == null) {
-            LOGGER.atWarning().log("resolveNewHostilePoi: no unclaimed void found for quest %s, auto-completing phase",
-                quest.getQuestId());
-            bindings.put("phase_objectives_complete", "true");
-            bindings.put("poi_available", "false");
-            bindings.remove("marker_offset_x");
-            bindings.remove("marker_offset_z");
-            return;
-        }
-
-        // Claim the void so triggerPOIPlacement finds the same one
-        voidRegistry.claimVoid(newVoid, quest.getSourceSettlementId());
-
-        // Update POI bindings to the new void
-        bindings.put("poi_available", "true");
-        bindings.put("poi_center_x", String.valueOf(newVoid.getCenterX()));
-        bindings.put("poi_center_y", String.valueOf(newVoid.getCenterY()));
-        bindings.put("poi_center_z", String.valueOf(newVoid.getCenterZ()));
-        bindings.put("poi_mob_state", "PENDING");
-        bindings.put("poi_mob_uuids", "");
-        bindings.remove("poi_detached_uuids");
-
-        // Parse population spec for the new phase
-        String popSpec = bindings.get("poi_population_spec");
-        String mobRole = null;
-        int mobCount = 0;
-        if (popSpec != null && !popSpec.equals("NONE")) {
-            try {
-                int firstColon = popSpec.indexOf(':');
-                int lastColon = popSpec.lastIndexOf(':');
-                if (firstColon > 0 && lastColon > firstColon) {
-                    mobRole = popSpec.substring(firstColon + 1, lastColon);
-                    mobCount = Integer.parseInt(popSpec.substring(lastColon + 1));
-                }
-            } catch (NumberFormatException e) {
-                LOGGER.atWarning().log("resolveNewHostilePoi: malformed population spec '%s'", popSpec);
-            }
-        }
-
-        triggerPOIPlacement(quest, store, playerRef, mobRole, mobCount);
-    }
 
     /**
-     * Set QUEST_AVAILABLE ("!") particle on the target NPC for a TALK_TO_NPC objective.
+     * Set QUEST_TURN_IN ("?") particle on the target NPC for a TALK_TO_NPC objective.
+     * Persists to NpcRecord so marker survives chunk reload.
      */
     private static void setTargetNpcParticle(Map<String, String> bindings, Store<EntityStore> store) {
         String targetSettlement = bindings.get("target_npc_settlement");
@@ -634,20 +766,16 @@ public class DialogueActionRegistry {
         if (settlement == null) return;
 
         NpcRecord targetNpc = settlement.getNpcByName(targetNpcName);
-        if (targetNpc == null || targetNpc.getEntityUUID() == null) return;
+        if (targetNpc == null) return;
 
-        QuestMarkerManager.INSTANCE.syncMarker(
-            targetNpc.getEntityUUID(),
-            Nat20NpcData.QuestMarkerState.QUEST_AVAILABLE);
+        // Persist marker state on NpcRecord so it survives chunk reload
+        targetNpc.setMarkerState("QUEST_TURN_IN");
+        settlements.saveAsync();
 
-        // Update NPC data component if entity is loaded
-        World world = Natural20.getInstance().getDefaultWorld();
-        if (world == null) return;
-        Ref<EntityStore> npcRef = world.getEntityRef(targetNpc.getEntityUUID());
-        if (npcRef == null) return;
-        Nat20NpcData npcData = store.getComponent(npcRef, Natural20.getNpcDataType());
-        if (npcData != null) {
-            npcData.setQuestMarkerState(Nat20NpcData.QuestMarkerState.QUEST_AVAILABLE);
+        if (targetNpc.getEntityUUID() != null) {
+            QuestMarkerManager.INSTANCE.syncMarker(
+                targetNpc.getEntityUUID(),
+                Nat20NpcData.QuestMarkerState.QUEST_TURN_IN);
         }
     }
 

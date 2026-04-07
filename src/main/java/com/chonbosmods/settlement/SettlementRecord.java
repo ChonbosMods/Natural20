@@ -22,6 +22,8 @@ public class SettlementRecord {
     private String type;
     private long placedAt;
     private List<NpcRecord> npcs = new ArrayList<>();
+    // Pre-placed surface fallback POI positions: [x, y, z] for each prefab placed at settlement creation
+    private List<int[]> surfaceFallbackPois = new ArrayList<>();
 
     /** No-arg constructor for Gson deserialization. */
     public SettlementRecord() {}
@@ -78,6 +80,18 @@ public class SettlementRecord {
 
     public String getName() { return name; }
     public void setName(String name) { this.name = name; }
+
+    public List<int[]> getSurfaceFallbackPois() { return surfaceFallbackPois; }
+
+    /** Claim the next available surface fallback POI, or null if none remain. */
+    public @Nullable int[] claimSurfaceFallbackPoi() {
+        if (surfaceFallbackPois.isEmpty()) return null;
+        return surfaceFallbackPois.remove(0);
+    }
+
+    public void addSurfaceFallbackPoi(int x, int y, int z) {
+        surfaceFallbackPois.add(new int[]{x, y, z});
+    }
 
     /**
      * Get the settlement's display name. Uses the stored name if present,

@@ -32,6 +32,7 @@ public class UndergroundStructurePlacer {
 
     private static final HytaleLogger LOGGER = HytaleLogger.get("Nat20|CavePlacer");
     private static final String TEST_PREFAB_KEY = "Nat20/dungeon/Dungeon2Test";
+    private static final String SURFACE_FALLBACK_PREFAB_KEY = "Nat20/dungeon/Dungeon2Test"; // TODO: replace with small surface POI prefab
     private static final int TUNNEL_WIDTH = 3;
     private static final int TUNNEL_HEIGHT = 4;
     private static final int DEFER_TICKS = 5;
@@ -264,8 +265,16 @@ public class UndergroundStructurePlacer {
      * up the filesystem from the plugin file to find assets/Server/Prefabs/.
      */
     private Path findPrefabPath() {
+        return findPrefabPath(TEST_PREFAB_KEY);
+    }
+
+    private Path findSurfaceFallbackPrefabPath() {
+        return findPrefabPath(SURFACE_FALLBACK_PREFAB_KEY);
+    }
+
+    private Path findPrefabPath(String prefabKey) {
         // Try asset pack lookup first
-        Path assetPath = PrefabStore.get().findAssetPrefabPath(TEST_PREFAB_KEY);
+        Path assetPath = PrefabStore.get().findAssetPrefabPath(prefabKey);
         if (assetPath != null) {
             return assetPath;
         }
@@ -276,14 +285,13 @@ public class UndergroundStructurePlacer {
             Path candidate = pluginFile;
             for (int i = 0; i < 4; i++) {
                 Path assetsDir = candidate.resolve("assets").resolve("Server").resolve("Prefabs")
-                        .resolve(TEST_PREFAB_KEY + ".prefab.json");
+                        .resolve(prefabKey + ".prefab.json");
                 if (Files.exists(assetsDir)) {
                     LOGGER.atFine().log("Found prefab via fallback path: %s", assetsDir);
                     return assetsDir;
                 }
-                // Also check Server/Prefabs directly (in case plugin root IS the assets dir)
                 Path directDir = candidate.resolve("Server").resolve("Prefabs")
-                        .resolve(TEST_PREFAB_KEY + ".prefab.json");
+                        .resolve(prefabKey + ".prefab.json");
                 if (Files.exists(directDir)) {
                     LOGGER.atFine().log("Found prefab via direct path: %s", directDir);
                     return directDir;
@@ -415,6 +423,101 @@ public class UndergroundStructurePlacer {
             cz += dz;
         }
         return count;
+    }
+
+    /**
+     * Place the test prefab at surface level at the given x/z position.
+     * Finds the surface Y by scanning downward, then pastes with no rotation.
+     *
+     * @return a future that completes with the surface position, or null on failure
+     */
+    public CompletableFuture<Vector3i> placeAtSurface(World world, int targetX, int targetZ,
+                                                        Store<EntityStore> store) {
+        CompletableFuture<Vector3i> result = new CompletableFuture<>();
+
+        Path prefabPath = findSurfaceFallbackPrefabPath();
+        if (prefabPath == null) {
+            LOGGER.atSevere().log("Surface placement: surfaceFallbackPrefab not found: %s", SURFACE_FALLBACK_PREFAB_KEY);
+            result.complete(null);
+            return result;
+        }
+
+        IPrefabBuffer buffer;
+        try {
+            buffer = PrefabBufferUtil.getCached(prefabPath);
+        } catch (Exception e) {
+            LOGGER.atSevere().withCause(e).log("Surface placement: failed to load prefab buffer");
+            result.complete(null);
+            return result;
+        }
+
+        // Pre-load the chunk at target position to scan surface height
+        long targetChunkKey = ChunkUtil.indexChunk(
+            ChunkUtil.chunkCoordinate(targetX), ChunkUtil.chunkCoordinate(targetZ));
+        world.getNonTickingChunkAsync(targetChunkKey)
+            .orTimeout(30, TimeUnit.SECONDS)
+            .whenComplete((chunk, err) -> {
+                if (err != null) {
+                    LOGGER.atWarning().withCause(err).log("Surface placement: chunk load failed");
+                    result.complete(null);
+                    return;
+                }
+                world.execute(() -> {
+                    // Find surface Y: scan downward from Y=200 to first solid block
+                    int foundY = -1;
+                    for (int y = 200; y > 10; y--) {
+                        BlockType bt = world.getBlockType(targetX, y, targetZ);
+                        if (bt != null && bt.getMaterial() == BlockMaterial.Solid) {
+                            foundY = y + 1; // place ON TOP of the solid block
+                            break;
+                        }
+                    }
+                    if (foundY < 0) {
+                        LOGGER.atWarning().log("Surface placement: no solid ground at (%d, %d)", targetX, targetZ);
+                        result.complete(null);
+                        return;
+                    }
+
+                    final int surfaceY = foundY;
+                    Vector3i pastePos = new Vector3i(targetX, surfaceY, targetZ);
+
+                    // Pre-load all chunks covering the prefab footprint
+                    int minCX = ChunkUtil.chunkCoordinate(targetX + buffer.getMinX());
+                    int minCZ = ChunkUtil.chunkCoordinate(targetZ + buffer.getMinZ());
+                    int maxCX = ChunkUtil.chunkCoordinate(targetX + buffer.getMaxX());
+                    int maxCZ = ChunkUtil.chunkCoordinate(targetZ + buffer.getMaxZ());
+
+                    List<CompletableFuture<?>> chunkFutures = new ArrayList<>();
+                    for (int cx = minCX; cx <= maxCX; cx++) {
+                        for (int cz = minCZ; cz <= maxCZ; cz++) {
+                            chunkFutures.add(world.getNonTickingChunkAsync(ChunkUtil.indexChunk(cx, cz)));
+                        }
+                    }
+
+                    CompletableFuture.allOf(chunkFutures.toArray(new CompletableFuture[0]))
+                        .orTimeout(30, TimeUnit.SECONDS)
+                        .whenComplete((ignored, error) -> {
+                            if (error != null) {
+                                LOGGER.atSevere().withCause(error).log("Surface placement: chunk loading timed out");
+                                result.complete(null);
+                                return;
+                            }
+                            deferTicks(world, DEFER_TICKS, () -> {
+                                try {
+                                    Random random = new Random();
+                                    PrefabUtil.paste(buffer, world, pastePos, Rotation.None, true, random, 0, store);
+                                    LOGGER.atInfo().log("Surface POI placed at (%d, %d, %d)", targetX, surfaceY, targetZ);
+                                    result.complete(pastePos);
+                                } catch (Exception e) {
+                                    LOGGER.atSevere().withCause(e).log("Surface placement: paste failed");
+                                    result.complete(null);
+                                }
+                            });
+                        });
+                });
+            });
+
+        return result;
     }
 
     private void deferTicks(World world, int ticks, Runnable action) {

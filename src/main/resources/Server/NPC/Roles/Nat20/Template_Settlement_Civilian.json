@@ -83,7 +83,7 @@
       "Description": "How long the NPC stands alert before giving up."
     },
     "FleeTimeRange": {
-      "Value": [ 50, 70 ],
+      "Value": [ 8, 15 ],
       "Description": "How long (seconds) the NPC flees randomly before returning home."
     },
     "DisableDamageGroups": {
