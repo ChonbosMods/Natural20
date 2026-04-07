@@ -537,12 +537,15 @@
           },
           "Instructions": [
             {
-              "$Comment": "Stand still. No target sensors to avoid player-targeting bleed.",
+              "$Comment": "Stand still and watch the player. Java releaseNpc callback transitions back to Idle when dialogue ends.",
               "Sensor": {
                 "Type": "Any"
               },
               "BodyMotion": {
                 "Type": "Nothing"
+              },
+              "HeadMotion": {
+                "Type": "Watch"
               },
               "ActionsBlocking": true,
               "Actions": [
