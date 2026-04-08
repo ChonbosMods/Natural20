@@ -6,171 +6,249 @@ Your goal: make quest givers feel like people with real problems, not quest disp
 
 ---
 
+## Entity Grounding — READ THIS FIRST
+
+Entity grounding is the single most important discipline in quest authoring. Variable scoping is mechanical and checkable. Entity grounding requires judgment. **Every template that fails grounding is rejected, regardless of how good the writing is.**
+
+### The Litmus Test
+
+For every spatial noun in your quest text, ask:
+
+> **"Does the player need to reach this place to complete an objective in the chain?"**
+
+- **No** → the spatial reference is descriptive context and can stay.
+- **Yes** → the spatial reference must resolve to a settlement variable (`{settlement_name}`, `{target_npc_settlement}`, `{other_settlement}`) or be removed. There are no POI variables in the quest palette.
+
+This test applies to every text field in every template. Run it on every spatial noun before outputting.
+
+### Right vs. Wrong
+
+**ALLOWED — descriptive context (player doesn't go there):**
+
+> "I ran out of supplies at my workshop and can't make my deliveries this week. I need {gather_count} {quest_item} so I can finish the order."
+
+The workshop explains WHY the NPC needs help. The player gathers resources somewhere in the world — the system picks the location. The workshop is the NPC's frame, not a destination.
+
+**NOT ALLOWED — targetable invented location (player must go there):**
+
+> "{enemy_type_plural} took my workshop. I need {kill_count} of them cleared so I can get back inside."
+
+Now the workshop is WHERE the player kills the enemies. The system does not generate workshops. The player will get a KILL_MOBS objective whose enemies spawn somewhere unrelated. The text promises a place the game can't deliver.
+
+**NOT ALLOWED — invented fetch location:**
+
+> "She always kept a {quest_item} at the little shrine we built out past the pasture."
+
+The shrine and the pasture are invented. The {quest_item} will spawn generically. The player will never find a shrine past a pasture.
+
+**NOT ALLOWED — directional landmark as target:**
+
+> "My son was killed by {enemy_type_plural} on the north trail. Clear {kill_count} of them from where it happened."
+
+"The north trail" is an invented location being used as a spawn point. The game has no north trail.
+
+**ALLOWED — generic area reference:**
+
+> "{enemy_type_plural} have been getting closer every night. I need {kill_count} of them dealt with before they reach {settlement_name}."
+
+"Getting closer" is atmospheric. The player kills enemies wherever the system spawns them. No invented location is promised.
+
+### Safe Spatial Vocabulary
+
+When you need spatial context, use these:
+
+**Always safe (no conditions):**
+- `{settlement_name}`, `{target_npc_settlement}`, `{other_settlement}`
+- "the area," "around here," "out there," "nearby," "in the region"
+- "lately," "for weeks now," "every night," "this season"
+- "the road," "the roads," "the path" (generic, no directional modifiers)
+- "the woods," "the fields," "the hills" (generic terrain, never as objective targets)
+
+**Safe in descriptive context only (NPC explaining their life, never as objective targets):**
+- Speaker-owned spaces: "my workshop," "my forge," "my kitchen," "my home," "my house"
+- Speaker-owned interiors: "my workbench," "my back room," "my shelf"
+- Settlement-implicit features: "the gate," "the wall," "the well"
+- Family references: "my brother," "my daughter," "my partner," "my father"
+
+**Never safe:**
+- Named or directional landmarks: "the north trail," "the eastern ridge," "the old bridge"
+- Specific unnamed structures: "the homestead," "the kennel," "the shrine," "the meeting hall," "the hunting camp," "the roadhouse"
+- POI interior details: "the collapsed tunnel," "the back room of the tavern," "the deep shaft," "the rafters"
+- Any spatial noun that functions as an objective target location
+
+### The Core Rule
+
+The game generates **settlements with NPCs** and **enemies in the world**. It does not generate homesteads, kennels, shrines, trails, camps, halls, ridges, pastures, or any other specific spatial feature. When the player receives a KILL_MOBS objective, enemies spawn in the world near the settlement. When the player receives a FETCH_ITEM objective, the item spawns generically. Your text must never promise a specific location for these spawns.
+
+**Write the WHY, not the WHERE.** The NPC tells the player why they need help and how they feel about it. The game handles where the player goes.
+
+---
+
 ## Your Inputs
 
 You receive:
 
-1. **A dramatic situation** — one of 22 situations adapted from Polti's 36. Each situation has its own authoring document in `quest_authoring/situations/` defining the emotional frame, tone arc, per-field guidance, skill check advice, and anti-patterns. Read the situation document before writing.
+1. **A dramatic situation** — one of 22 situations adapted from Polti's 36. Each has its own authoring document defining the emotional frame, tone arc, per-field guidance, skill check advice, and anti-patterns. Read the situation document before writing.
 
-2. **A batch size N** — how many templates to produce for this situation. Each template in the batch should feel distinct: different NPC voices, different specific problems, different objective combinations.
+2. **A batch size N** — how many templates to produce for each situation.
 
-3. **The quest authoring rules** in `quest_authoring/quest_authoring_rules.md`. Every template you produce must pass every rule. There are no soft rules.
+3. **The quest authoring rules** in `quest_authoring_rules.md`. Every template must pass every rule.
 
-4. **The text field definitions** in `quest_authoring/quest_text_field_definitions.md`. Each text field has a specific structural role and variable binding. Read this before writing.
+4. **The text field definitions** in `quest_text_field_definitions.md`. Each text field has a specific structural role and variable binding.
 
-5. **The quest template schema** in `quest_authoring/quest_template_schema.json`. Your output must match this schema exactly.
+5. **The quest template schema** in `quest_template_schema.json`. Your output must match this schema.
 
-6. **The quest variable palette** in `quest_v2_variable_review.md`. This is the canonical reference for which variables exist, which are highlighted, and which are scoped to specific objective types.
+6. **The quest variable palette** in `quest_variable_palette.md`. The canonical reference for available variables and scoping.
 
 ---
 
 ## Your Output
 
-A JSON array of quest template objects, each matching `quest_template_schema.json`. IDs follow the format `situation_slug_nn` (e.g., `supplication_01`, `vengeance_03`), sequential within the batch.
+A JSON array of quest template objects matching `quest_template_schema.json`. IDs follow the format `situation_slug_nn` (e.g., `supplication_01`, `vengeance_03`).
 
 ---
 
-## The Voice You Are Writing
+## Voice
 
 Quest dialogue shares the same voice principles as smalltalk — first person, conversational, passes the briefing test — but with key differences:
 
-- **Quest NPCs have urgency that smalltalk NPCs don't.** A quest giver can be worried, desperate, angry, bitter, grieving, excited. The emotional ceiling is higher. But they are still people talking, not mission briefing terminals.
-
-- **Quest NPCs invent the narrative event.** Unlike smalltalk (which forbids invented events), the quest IS the event. "{enemy_type_plural} raided our stores" is a valid invented event because the quest has an objective to address it. But the event must stay within objective scope — don't describe events that no objective can deliver.
-
-- **Quest text escalates across phases.** Unlike smalltalk (which stays flat), quest text builds: exposition establishes, conflict phases deepen, resolution pays off. The emotional arc should be traceable through the text fields.
-
-- **Quest NPCs react to the player's choices.** acceptText, declineText, and turn-in texts are reactions. They should feel like a human responding to what just happened, not a system confirming an action.
+- **Quest NPCs have urgency that smalltalk NPCs don't.** They can be worried, desperate, angry, bitter, grieving, excited. But they are still people talking, not mission terminals.
+- **Quest NPCs invent the narrative event.** The quest IS the event. "{enemy_type_plural} have been raiding us every night" is valid. But the event must stay within objective scope.
+- **Quest text escalates across phases.** Exposition establishes, conflict phases deepen, resolution pays off.
+- **Quest NPCs react to the player's choices.** acceptText, declineText, and turn-in texts should feel like a human responding.
+- **Max 4 sentences per text field.** Most should use 2-3.
+- **No mechanical references.** No "accept this quest," "return when complete," "quest log."
+- **Reward text is voiced.** "What silver I have" — not "50 silver, 3 iron bars."
 
 ---
 
-## Critical Constraints
+## Variable Scoping
 
-These are the constraints most likely to cause rejections. Internalize them before writing.
+Per-objective variables are field-locked. This table is the law:
 
-### Entity Grounding
+| Variable | Valid only in fields bound to... |
+|---|---|
+| `{kill_count}`, `{enemy_type}`, `{enemy_type_plural}` | KILL_MOBS objectives |
+| `{quest_item}`, `{gather_count}` | COLLECT_RESOURCES or FETCH_ITEM objectives |
 
-**Every promise must map to an available objective.** If the NPC says "go kill them," a KILL_MOBS objective must exist. If the NPC says "bring me iron," a COLLECT_RESOURCES or FETCH_ITEM objective must exist. If the NPC says "talk to the blacksmith in Ashenmoor," a TALK_TO_NPC objective must exist. Text that implies actions the player cannot perform is a grounding violation.
+| Text field | Bound to |
+|---|---|
+| `expositionText`, `expositionTurnInText` | `objectives[0]` |
+| `conflict1Text`, `conflict1TurnInText` | `objectives[1]` |
+| `conflict2Text`, `conflict2TurnInText` | `objectives[2]` |
+| `conflict3Text`, `conflict3TurnInText` | `objectives[3]` |
+| `conflict4Text`, `conflict4TurnInText` | `objectives[4]` |
+| `resolutionText` | current objective |
 
-**No invented locations.** "The area has been dangerous" is fine. "The storehouse on the eastern ridge" is not. There is no storehouse POI type and the game does not generate ridges, buildings, landmarks, or any spatial feature not in the POI registry.
+**`{target_npc}`, `{target_npc_role}`, `{target_npc_settlement}`** — only available when a TALK_TO_NPC objective exists in the chain.
 
-**No spatial modification of POIs.** "The mine" is fine. "The collapsed eastern shaft of the mine" is not.
+**`{settlement_npc}`** — flavor only. Never frame as an objective target. "Even {settlement_npc} is worried" is fine. "Go talk to {settlement_npc}" is not.
 
-**No unnamed-but-specific characters.** No "the old hermit," no "a mysterious stranger." Generic unnamed references ("people around here," "the traders who come through") are permitted.
+**`{other_settlement}`** — always available as worldbuilding flavor.
 
-### Variable Scoping
+**`{quest_reward}`** — always available. Must appear in resolutionText.
 
-**Per-objective variables are field-locked.** `{kill_count}`, `{enemy_type}`, `{quest_item}`, `{gather_count}` resolve against the objective bound to their text field. Using `{kill_count}` in conflict1Text is only correct if objectives[1] is KILL_MOBS.
+**Forbidden variables** (these are smalltalk-only): `{mob_type}`, `{npc_name}`, `{npc_name_2}`, `{npc_role}`, `{poi_type}`, `{food_type}`, `{crop_type}`, `{wildlife_type}`, `{resource_type}`, `{direction}`, `{location_hint}`, `{time_ref}`, `{tone_opener}`, `{tone_closer}`, `{subject_focus}` and all variants.
 
-**Target NPC variables require a TALK_TO_NPC objective.** `{target_npc}`, `{target_npc_role}`, `{target_npc_settlement}` are only available when the quest chain includes a TALK_TO_NPC objective. `{target_npc_role}` and `{target_npc_settlement}` may only appear in text fields where a TALK_TO_NPC objective is referenced.
+---
 
-**`{settlement_npc}` is flavor only.** It references a random other NPC in the quest giver's settlement. It has no gameplay effect. Do not frame `{settlement_npc}` as someone the player should interact with.
+## Skill Checks
 
-**`{other_settlement}` is always available** as worldbuilding flavor regardless of objective types.
+- Occur at **accept/decline phase only** (MVP).
+- Author specifies a skill type. The pass/fail text must be coherent with that skill:
 
-### Voice
+| Skill | Pass text reveals... |
+|---|---|
+| PERCEPTION | A physical detail the NPC glossed over |
+| INSIGHT | An emotional truth or personal motivation |
+| PERSUASION | Something the NPC was reluctant to share |
+| INVESTIGATION | A fuller picture from probing gaps |
+| NATURE | Practical knowledge about creatures/terrain |
+| HISTORY | Context from past events or patterns |
 
-**Max 4 sentences per text field.** Most fields should use 2-3. Use 4 only when the emotional beat requires it.
-
-**First person or direct address.** The NPC speaks as themselves to the player. Always.
-
-**No mechanical references.** No "accept this quest," no "return when you've completed the objective," no "check your quest log." The NPC speaks in-world.
-
-**Reward text is voiced, not listed.** "What silver I have and a debt I won't forget" — not "50 silver, 2 iron ingots."
-
-### Skill Checks
-
-**Skill checks occur at accept/decline phase only (MVP).** passText and failText are shown during the exposition interaction, before the player has done anything.
-
-**The skill type must match the text.** If passText reveals an emotional truth, the skill is INSIGHT, not NATURE. If passText reveals a physical detail, the skill is PERCEPTION, not PERSUASION. See the skill-to-context mapping in `quest_authoring_rules.md`.
-
-**passText reveals a deeper layer.** A fear, a personal stake, a tactical detail, an emotional cost the NPC wasn't going to mention.
-
-**failText deflects naturally.** The NPC pulls back. No "you failed" language. One to two sentences.
+- **passText** reveals a deeper layer. A fear, a personal stake, a cost the NPC wasn't going to mention.
+- **failText** deflects naturally. Max 2 sentences. No "you failed" language.
 
 ---
 
 ## Situation-Specific Guidance
 
-Before writing any template, read the full situation document for the assigned situation. Each document defines:
+Before writing any template, read the full situation document. It defines:
 
-- **Emotional frame** — what makes this situation unique and what distinguishes it from similar situations
-- **Per-field emotional guidance** — what each text field should accomplish for this specific situation
-- **Skill check guidance** — which skills fit this situation's emotional context
-- **Anti-patterns** — what makes a template fail for this specific situation
+- Emotional frame and what distinguishes it from similar situations
+- Per-field emotional guidance
+- Skill check advice with best-fit skills
+- Anti-patterns specific to that situation
 
-The situation document is authoritative for tone. If the situation document says "decline text should be hostile" (Vengeance) or "decline text should be a shrug" (Enigma), follow that guidance over any general instinct about how decline text should read.
-
----
-
-## Objective Selection
-
-Each template defines its own objective chain. When selecting objectives:
-
-- Check the situation's **Available objectives** list. Only use objective types listed for that situation.
-- The chain must have at minimum 2 objectives (exposition + 1 conflict) and at maximum 5 (exposition + 4 conflicts).
-- Vary objective types across templates in the same batch. A batch of 5 Supplication templates should not all be KILL_MOBS → COLLECT_RESOURCES.
-- For KILL_MOBS and COLLECT_RESOURCES, set reasonable countMin/countMax ranges. Small quests: 2-5. Medium quests: 4-8. Large quests: 6-12. Don't set a countMax of 50.
-- Every objective in the chain must be referenced by the text in its corresponding field. An objective that exists in the JSON but is never mentioned in the dialogue is a dead objective.
+The situation document is authoritative for tone. If it says "decline text should be hostile" (Vengeance) or "decline text should be a shrug" (Enigma), follow it.
 
 ---
 
-## Anti-Patterns
+## Anti-Patterns — Immediate Rejection
 
-These cause immediate rejection. Do not produce templates that contain:
-
-| Anti-Pattern | Why It Fails |
-|---|---|
-| Invented location ("the storehouse on the ridge") | Entity grounding: no such POI exists |
-| POI interior detail ("the collapsed tunnel") | Entity grounding: game generates POI types, not interiors |
-| Undeliverable promise ("escort them to safety") | No ESCORT objective type exists |
-| Briefing voice ("eliminate hostiles in the area") | NPC speaks as a person, not a mission terminal |
-| Lore dump ("for centuries, our people have...") | NPCs tell you their problem, not regional history |
-| Variable in wrong field (`{kill_count}` in a field bound to TALK_TO_NPC) | Per-objective variable scoping |
-| Target NPC without TALK_TO_NPC objective | Variable requires a matching objective |
-| Mechanical reference ("accept the quest") | NPC speaks in-world |
-| Cliffhanger resolution ("but was it really the end?") | Resolution must close the arc |
-| Inventory reward ("50 silver, 3 iron bars") | Reward text is voiced, not listed |
-| Skill type mismatch (emotional reveal tagged as NATURE) | Skill must match the text's content |
-| `{settlement_npc}` framed as objective target ("go talk to {settlement_npc}") | settlement_npc is flavor only |
-| Named character not from a variable ("Old Marek told me...") | Entity grounding: no invented characters |
-| Event outside objective scope ("ever since the earthquake...") | Invented events must map to objectives |
-| Generic/interchangeable text across situations | Each template must reflect its specific situation's emotional frame |
+| # | Anti-Pattern | Why It Fails |
+|---|---|---|
+| 1 | Invented location as objective target | "Kill them at the storehouse" — no storehouse exists |
+| 2 | POI interior detail | "The collapsed tunnel in the mine" — game generates POI types, not interiors |
+| 3 | Undeliverable promise | "Escort them to safety" — no ESCORT objective exists |
+| 4 | Briefing voice | "Eliminate hostiles in the designated area" |
+| 5 | Lore dump | "For centuries, our ancestors have..." |
+| 6 | Variable in wrong field | `{kill_count}` in a field bound to TALK_TO_NPC |
+| 7 | Target NPC without TALK_TO_NPC | `{target_npc}` with no TALK_TO_NPC in chain |
+| 8 | Mechanical reference | "Accept the quest and return when complete" |
+| 9 | Cliffhanger resolution | "But was it really the end?" |
+| 10 | Inventory reward | "50 silver, 3 iron bars, leather boots" |
+| 11 | Skill type mismatch | Emotional reveal tagged as NATURE |
+| 12 | settlement_npc as target | "Go talk to {settlement_npc}" |
+| 13 | Named invented character | "Old Marek told me..." |
+| 14 | Event outside objective scope | "Ever since the earthquake..." with no earthquake objective |
+| 15 | Directional landmark | "On the north trail" / "past the eastern ridge" |
+| 16 | Invented structure as fetch location | "The item is in the old kennel" / "at the shrine past the pasture" |
 
 ---
 
-## Self-Check
+## Mandatory Pre-Output Self-Check
 
-Before outputting each template, verify:
+Run every check on every template before outputting. Do not skip any step.
 
-- [ ] Template ID follows format: `situation_slug_nn`
-- [ ] `situation` field matches the assigned situation
-- [ ] Every objective type in the chain is listed as available for this situation
-- [ ] objectives array length matches the number of conflict phases written (objectives.length = 1 + number of conflict phases)
-- [ ] Per-objective variables in each text field match the objective bound to that field
-- [ ] `{target_npc}`, `{target_npc_role}`, `{target_npc_settlement}` only appear when a TALK_TO_NPC objective exists
-- [ ] `{settlement_npc}` is never framed as an objective target
-- [ ] No invented locations, POI interiors, or unnamed-but-specific characters
-- [ ] Every text field is max 4 sentences
-- [ ] acceptText, declineText, and resolutionText reflect the situation's tone arc
-- [ ] declineText matches the situation document's guidance (hostile for Vengeance, shrug for Enigma, guilt for Supplication, etc.)
-- [ ] resolutionText closes the arc with no loose threads
-- [ ] resolutionText references `{quest_reward}` naturally
-- [ ] If skillCheck is present: skill type matches the passText content
-- [ ] If skillCheck is present: failText is a natural deflection, max 2 sentences
-- [ ] rewardText is voiced, not an inventory list
-- [ ] No mechanical references ("accept," "objective," "quest log")
-- [ ] The template would sound different from other templates in the same batch
-- [ ] Reading the text fields in order (exposition → accept → expositionTurnIn → conflict1 → conflict1TurnIn → ... → resolution) produces a coherent emotional arc matching the situation's tone arc
+**Entity grounding (run the litmus test on every spatial noun):**
+- [ ] List every spatial noun in every text field of this template
+- [ ] For each: does the player need to reach this place to complete an objective?
+- [ ] If yes: is it a settlement variable? If not → REWRITE. Remove the spatial noun and reframe the text around WHY, not WHERE.
+- [ ] No invented structures function as objective targets (homesteads, kennels, shrines, halls, camps, roadhouses)
+- [ ] No directional landmarks (north trail, eastern ridge, old bridge, south road)
+- [ ] No POI interior details (collapsed tunnel, back room of tavern, rafters, deep shaft)
+- [ ] Family references ("my brother") are descriptive only, never objective targets
+- [ ] Speaker-owned spaces ("my workshop") are descriptive only, never objective targets
+
+**Variable scoping:**
+- [ ] Per-objective variables only appear in their bound text field
+- [ ] `{target_npc}` trio only appears when TALK_TO_NPC objective exists
+- [ ] `{settlement_npc}` never framed as objective target
+- [ ] `{quest_reward}` appears in resolutionText
+- [ ] No forbidden smalltalk variables anywhere
+
+**Structure:**
+- [ ] objectives array length = 1 + number of conflict phases
+- [ ] Every objective in the chain is referenced in its corresponding text field
+- [ ] Only objective types available for this situation are used
+- [ ] All text fields max 4 sentences
+- [ ] resolutionText closes the arc — no loose threads
+
+**Situation fidelity:**
+- [ ] Tone arc matches the situation document
+- [ ] declineText matches situation-specific guidance
+- [ ] Template could not be trivially re-tagged as a different situation
 
 ---
 
 ## Batch Diversity
 
-Within a single batch of N templates for one situation:
+Within a single batch for one situation:
 
 - **Vary objective combinations.** Don't repeat the same chain.
-- **Vary the specific problem.** Five Supplication templates should describe five different problems, not five phrasings of the same one.
-- **Vary NPC voice.** Some quest givers are eloquent, some are terse, some ramble, some get straight to the point. A batch should include multiple personality types.
-- **Vary chain length.** Mix 2-objective templates with 3-objective and occasional 4-5 objective templates.
-- **Vary skill types** when including skill checks. Don't tag every template with INSIGHT.
+- **Vary the specific problem.** Each template should describe a different problem.
+- **Vary NPC voice.** Some terse, some eloquent, some rambling.
+- **Vary chain length.** Mix 2-objective with 3-objective and occasional 4-5.
+- **Vary skill types** across templates with skill checks.
+- **Include skill checks on at least 2 of every 3 templates.**
