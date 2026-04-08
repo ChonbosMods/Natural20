@@ -1,0 +1,218 @@
+[
+  {
+    "id": "necessity_of_sacrificing_loved_ones_01",
+    "situation": "necessity_of_sacrificing_loved_ones",
+    "objectives": [
+      { "type": "KILL_MOBS", "countMin": 3, "countMax": 5 },
+      { "type": "FETCH_ITEM" }
+    ],
+    "expositionText": "My brother won't leave the old homestead. He's sick, and moving him would kill him faster than staying. The {enemy_type_plural} that took the place have been growing bolder, and I need {kill_count} of them cleared so I can sit with him one last time. I've stopped pretending there's a version of this where he comes home.",
+    "acceptText": "Thank you. I wasn't asking you to save him. I was asking for the chance to say goodbye properly, and you're giving me that.",
+    "declineText": "I understand. It's a lot to ask of a stranger, and I don't blame you for walking away from it.",
+    "expositionTurnInText": "You did what I couldn't. I've been standing at this doorway for three days working up the courage to cross it, and now there's nothing left standing between me and him.",
+    "conflict1Text": "There's one more thing. He kept a {quest_item} by the bed, something our mother gave him when we were boys. If I'm going to sit with him, I want him holding it. Please bring it to me before I go in.",
+    "conflict1TurnInText": "That's it. That's the one. He used to fall asleep with this in his hand when we were small. I can do the rest myself now.",
+    "resolutionText": "He went quiet while I was holding his hand. It was the ending he deserved, and you helped me give it to him. Take {quest_reward}: I don't have much use for it now, and you carried part of this with me when I couldn't carry it alone.",
+    "skillCheck": {
+      "skill": "INSIGHT",
+      "dc": 13,
+      "passText": "I keep thinking about what I'll do after. Who I talk to in the morning. Who knows the stories only the two of us knew. I haven't let myself sit with that yet, because if I do I won't get up again.",
+      "failText": "It's what needs doing. That's as far as I've let myself think."
+    },
+    "rewardText": "the silver he was saving for a trip we'll never take",
+    "valence": "negative",
+    "roleAffinity": []
+  },
+  {
+    "id": "necessity_of_sacrificing_loved_ones_02",
+    "situation": "necessity_of_sacrificing_loved_ones",
+    "objectives": [
+      { "type": "TALK_TO_NPC" },
+      { "type": "FETCH_ITEM" },
+      { "type": "KILL_MOBS", "countMin": 4, "countMax": 6 }
+    ],
+    "expositionText": "My daughter's been promised to a household in {other_settlement} since she was a child. It was the only way to settle a debt I couldn't pay, and the time has come. I need you to go to {target_npc_settlement} and tell {target_npc}, the {target_npc_role}, that I'm ready to send her. I've been putting this off for a year and I can't put it off any longer.",
+    "acceptText": "Then it's done. The moment you walk out that door, I stop being the man who was still hoping something would change.",
+    "declineText": "I understand. Some errands shouldn't fall to strangers, and this is one of the heaviest I could ask.",
+    "expositionTurnInText": "You told them. Good. I heard myself planning around her for so long that saying it out loud was the part I couldn't do. Now the road is open and there's no turning back.",
+    "conflict1Text": "I've been holding onto a {quest_item} that belonged to her mother. I want her to have it before she goes: it's the one thing from this house worth taking with her. Bring it up from where I hid it. I couldn't bear to look at it myself.",
+    "conflict1TurnInText": "She'll know what it means when she sees it. That's more than I could give her in words, and I'm grateful it's going with her instead of staying here to gather dust.",
+    "conflict2Text": "The road between here and {other_settlement} has {enemy_type_plural} on it. I won't send her through that. Clear {kill_count} of them from the stretch near the crossing so her cart passes safely. It's the last thing I can do for her as her father.",
+    "conflict2TurnInText": "The road's clear enough. I rode out to the edge of the fields to see for myself, and I could breathe for the first time in a week. She'll get there.",
+    "resolutionText": "The cart left this morning. I watched it go until it was smaller than my thumb and then I watched the place where it had been. Take {quest_reward}: you made sure she left with her dignity and her mother's things, and that's more than I deserved to give her.",
+    "rewardText": "the coin I'd been setting aside for her wedding, which I won't see",
+    "valence": "negative",
+    "roleAffinity": []
+  },
+  {
+    "id": "necessity_of_sacrificing_loved_ones_03",
+    "situation": "necessity_of_sacrificing_loved_ones",
+    "objectives": [
+      { "type": "FETCH_ITEM" },
+      { "type": "KILL_MOBS", "countMin": 3, "countMax": 5 }
+    ],
+    "expositionText": "My husband's hound has turned. Not sick, not rabid: something crueler than that, where he still looks at me like he knows me but there's nothing behind it. I can't do what needs doing myself, and I can't ask my husband to do it either. I need a {quest_item} from the old kennel to put him down gently, not in pain.",
+    "acceptText": "Then bring it quickly. I want this over before my husband comes back from the fields and has to see it happen.",
+    "declineText": "No: you're right to refuse. It's a private grief and I shouldn't have tried to hand it to someone who never knew him.",
+    "expositionTurnInText": "You found it. Thank you. I'll do it myself, in the shed, where my husband won't have to stand in the doorway and watch. He deserves to remember the dog as he was.",
+    "conflict1Text": "There's one more thing. A pack of {enemy_type_plural} has been circling the property since the hound turned, like they can smell what's wrong. Deal with {kill_count} of them so my husband isn't walking back to something worse than what I'm about to do. I need this house to be safe when he gets home.",
+    "conflict1TurnInText": "The yard's quiet again. I can hear the wind instead of them, and it's the first quiet thing I've heard all week.",
+    "resolutionText": "It's done. I buried him under the tree where he used to sleep in summer, and when my husband came home he sat there for a long time without saying anything. Take {quest_reward}. You let me give him one good ending, and that mattered more than you'll ever know.",
+    "skillCheck": {
+      "skill": "PERCEPTION",
+      "dc": 12,
+      "passText": "You're looking at my hands. Yes, they're shaking. They've been shaking since yesterday morning and I can't make them stop. I'm not as steady for this as I'm pretending to be.",
+      "failText": "It has to be done. That's the only thing I'm letting myself think about."
+    },
+    "rewardText": "a worked leather bridle my husband made, the best thing in the house",
+    "valence": "negative",
+    "roleAffinity": []
+  },
+  {
+    "id": "loss_of_loved_ones_01",
+    "situation": "loss_of_loved_ones",
+    "objectives": [
+      { "type": "FETCH_ITEM" },
+      { "type": "TALK_TO_NPC" }
+    ],
+    "expositionText": "My wife passed in the winter. She always kept a {quest_item} at the little shrine we built out past the pasture, and in the weeks after she died I couldn't bring myself to visit it. Now I can, but I can't bring myself to walk out there alone. Would you fetch it for me so I can finally hold it again?",
+    "acceptText": "Thank you. That's a small thing to ask and a large thing to have done for me. I'm grateful.",
+    "declineText": "Of course. It's not really a task for a stranger, is it. I'll get out there myself one of these mornings.",
+    "expositionTurnInText": "There it is. I haven't touched it since she set it there, and the weight of it is exactly like I remember. I can almost hear her telling me off for taking so long.",
+    "conflict1Text": "There's one more thing I've been carrying. Her sister lives in {target_npc_settlement}, and she doesn't know. I wrote a letter and I could never send it. I need you to find {target_npc}, the {target_npc_role}, and tell her in person. A letter isn't right for news like this.",
+    "conflict1TurnInText": "You told her. I've been dreading that conversation for months, and knowing it's done is like setting down a stone I didn't realize I'd been carrying. Thank you for speaking the words I couldn't.",
+    "resolutionText": "I slept last night. First time through the whole night since she went. I put the {quest_item} back where she had it, and I think I'll be able to visit it on my own now. Take {quest_reward}: it isn't much, but it comes from a man who can breathe again.",
+    "skillCheck": {
+      "skill": "HISTORY",
+      "dc": 11,
+      "passText": "We were married forty-one years. I met her when her family stopped here on a trade caravan and she talked back to me so sharply I thought I'd never see her again. I was wrong about that, and I was lucky to be wrong.",
+      "failText": "She was a good woman. That's about as much as I can say in a single breath."
+    },
+    "rewardText": "a carved pendant she made me in the year we were courting",
+    "valence": "negative",
+    "roleAffinity": []
+  },
+  {
+    "id": "loss_of_loved_ones_02",
+    "situation": "loss_of_loved_ones",
+    "objectives": [
+      { "type": "KILL_MOBS", "countMin": 4, "countMax": 7 },
+      { "type": "FETCH_ITEM" },
+      { "type": "TALK_TO_NPC" }
+    ],
+    "expositionText": "My son was killed last autumn by {enemy_type_plural} on the north trail. I've been avoiding that stretch of road ever since, but I can't keep avoiding it forever. Clear {kill_count} of them from where it happened: I need to walk that ground without flinching before I can move on.",
+    "acceptText": "Thank you. I was afraid I'd have to do it myself, and I don't think I could have kept my hands steady.",
+    "declineText": "All right. I'll find my own way to that trail when I'm ready. It's been a year already, it can wait a little longer.",
+    "expositionTurnInText": "It's quiet there now. I walked out this morning and stood on the spot. I cried, but not the way I've been crying: this was different. This felt like letting go of something.",
+    "conflict1Text": "I left his {quest_item} on the trail the night we carried him home. I couldn't think straight enough to pick it up. If it's still out there, I'd like it back before the rain takes it for good.",
+    "conflict1TurnInText": "You found it. Look at that: still in one piece, even after all this weather. He had this since he was a boy. I want to give it to someone who'll understand what it meant.",
+    "conflict2Text": "His closest friend moved to {target_npc_settlement} after the funeral because he couldn't stand to stay here. I've been meaning to give the {quest_item} to him, but I never managed the trip. Find {target_npc}, the {target_npc_role}, and put it in his hands for me.",
+    "conflict2TurnInText": "He took it? Good. He was the one who taught my son to fish, you know. I wanted him to have the piece of my boy he'd understand best.",
+    "resolutionText": "I went back to the trail one more time yesterday. The spot doesn't own me anymore: it's just a place where something happened, and now it's quiet. Take {quest_reward}. You helped me give him the ending he deserved, and I'll remember that as long as I remember him.",
+    "skillCheck": {
+      "skill": "INSIGHT",
+      "dc": 13,
+      "passText": "The worst part isn't the missing. It's that some mornings I forget for a few seconds, and then I remember, and it's like losing him all over again. I've been trying to outlast those mornings.",
+      "failText": "It's been a hard year. I'm getting through it a day at a time."
+    },
+    "rewardText": "his fishing knife and whatever coin I can spare, which is more than I'd keep for myself",
+    "valence": "negative",
+    "roleAffinity": []
+  },
+  {
+    "id": "loss_of_loved_ones_03",
+    "situation": "loss_of_loved_ones",
+    "objectives": [
+      { "type": "FETCH_ITEM" },
+      { "type": "FETCH_ITEM" }
+    ],
+    "expositionText": "My mother passed two seasons back. She was a wanderer before she settled here, and her things are scattered across every place she ever lived. I'd like to bring them home. There's a {quest_item} in the old hunting camp east of {settlement_name}, and I think it's still where she left it.",
+    "acceptText": "Thank you. I've been making lists in my head for months and finally someone's going to do more than listen to me read them.",
+    "declineText": "That's all right. These are old errands, and old errands can keep a little longer.",
+    "expositionTurnInText": "You brought it. She used this every morning, and I can almost smell the tea she made with it. I'd forgotten how small it was in her hands.",
+    "conflict1Text": "There's another piece. A {quest_item} she kept on a shelf in the roadhouse where she worked before she met my father. I don't know if it's still there after all these years, but I'd like to know either way. If you can find it, it's the last thing I'd ask for.",
+    "conflict1TurnInText": "That's the one. I thought it might be gone for good. Putting these two things on the same shelf in my house is more of a homecoming than I ever managed to give her while she was alive.",
+    "resolutionText": "I set them both on the mantel this morning. I sat with them for a while and I didn't cry: I just looked. She's more here now than she's been since the funeral. Take {quest_reward}. She would have liked you, and that's worth saying.",
+    "skillCheck": {
+      "skill": "PERSUASION",
+      "dc": 12,
+      "passText": "The truth is I wasn't there when she died. I was out on a trip I didn't need to be on, and I've been trying to make up for it ever since by gathering her back to me piece by piece. I know it doesn't undo it. But it feels like something.",
+      "failText": "I just want her things together in one place. That's all I can say about it right now."
+    },
+    "rewardText": "a cup she drank from every day of my childhood, and some coin besides",
+    "valence": "negative",
+    "roleAffinity": []
+  },
+  {
+    "id": "conflict_with_fate_01",
+    "situation": "conflict_with_fate",
+    "objectives": [
+      { "type": "KILL_MOBS", "countMin": 4, "countMax": 7 },
+      { "type": "COLLECT_RESOURCES", "countMin": 6, "countMax": 10 }
+    ],
+    "expositionText": "Nothing's been right around {settlement_name} for weeks. The {enemy_type_plural} come from directions they shouldn't, in numbers they shouldn't, and I've stopped trying to figure out why. Clear {kill_count} of them off our fields so we can finish the planting without watching the tree line the whole time. I don't need answers, I just need a day of peace.",
+    "acceptText": "Good luck out there. I don't know if it'll help for long, but I'm glad someone's trying.",
+    "declineText": "Fair enough. I wasn't expecting help, and hearing no just puts me back where I started.",
+    "expositionTurnInText": "That's the most of them I've seen dealt with in one go since this all started. Maybe it's just luck, but I'll take luck right now. I haven't had much of it.",
+    "conflict1Text": "The crops that are coming in are stunted. We need {gather_count} {quest_item} to get through until the next harvest, and the usual sources aren't giving what they used to. I don't know why. I've stopped asking why. Just bring what you can find.",
+    "conflict1TurnInText": "That'll stretch further than you'd think. I've been rationing for so long that a proper stack of it in the larder looks like wealth. Thank you.",
+    "resolutionText": "Things are a little better. I'm not going to say it's over, because I don't understand it well enough to say anything is over. But the fields are quieter, the larder's full enough, and that's more than I expected a month ago. Take {quest_reward}: I saved it for when things made sense again, and this is as close as I'm likely to get.",
+    "skillCheck": {
+      "skill": "NATURE",
+      "dc": 12,
+      "passText": "You're right: the fields do smell wrong this year. I thought I was imagining it. If a traveler notices it too, then at least I'm not losing my mind, even if I still don't know what it means.",
+      "failText": "I've stopped trying to make sense of any of it. I just deal with what's in front of me."
+    },
+    "rewardText": "what coin I'd set aside for a better year, which this will have to count as",
+    "valence": "negative",
+    "roleAffinity": []
+  },
+  {
+    "id": "conflict_with_fate_02",
+    "situation": "conflict_with_fate",
+    "objectives": [
+      { "type": "COLLECT_RESOURCES", "countMin": 5, "countMax": 9 },
+      { "type": "KILL_MOBS", "countMin": 3, "countMax": 6 },
+      { "type": "FETCH_ITEM" }
+    ],
+    "expositionText": "The wells in {settlement_name} have been going bad one at a time. Not all at once, not in any pattern I can see: just one, and then another, and then a third. I need {gather_count} {quest_item} to seal them properly while we figure out what's drinkable. I've run out of ideas that I trust.",
+    "acceptText": "Thank you. I don't know if sealing them will help, but doing nothing clearly isn't helping either.",
+    "declineText": "I understand. It's a strange errand and a stranger problem. I'll keep at it on my own.",
+    "expositionTurnInText": "That's enough to start with. I sealed the worst one this morning and the air over it already smells less wrong. I'd like to believe that means something.",
+    "conflict1Text": "Something drew {enemy_type_plural} to the dry wells last night. They were pacing around them like the bad water was calling them. Thin out {kill_count} of them before they work up the nerve to come closer to the houses. I don't like how they move.",
+    "conflict1TurnInText": "Quieter tonight than it's been in a week. I'll take quiet even if I can't explain why it came.",
+    "conflict2Text": "There's one more thing. The old diviner's {quest_item} is somewhere in the rafters of the meeting hall, left there by a traveler years ago. I'm not superstitious, but I'm out of practical ideas, and I want to hold the thing in my hands and see if it tells me anything my gut can't.",
+    "conflict2TurnInText": "I don't know what I was expecting. I held it, and I didn't feel wiser, but I felt less alone with this. That might be all I was really asking for.",
+    "resolutionText": "Two of the wells are clean again. One still isn't, and I don't know if it ever will be. But people are drinking and the fields are watered and the worst of it seems to have passed for now. Take {quest_reward}: I was saving it for an emergency, and this was one, even if I still can't name it.",
+    "rewardText": "a ring of brass coins I'd been keeping against worse days",
+    "valence": "negative",
+    "roleAffinity": []
+  },
+  {
+    "id": "conflict_with_fate_03",
+    "situation": "conflict_with_fate",
+    "objectives": [
+      { "type": "KILL_MOBS", "countMin": 5, "countMax": 8 },
+      { "type": "COLLECT_RESOURCES", "countMin": 4, "countMax": 8 },
+      { "type": "COLLECT_RESOURCES", "countMin": 3, "countMax": 6 }
+    ],
+    "expositionText": "The livestock have been spooking at nothing for a month. They bolt in the middle of the day over things that aren't there, and then the {enemy_type_plural} come at dusk like they were waiting for the animals to wear themselves out. Take care of {kill_count} of them so the herd can rest. It won't fix whatever's underneath it, but it'll buy me a night's sleep.",
+    "acceptText": "Bless you for trying. I've been afraid of dusk for so long I forgot what the sky looks like at that hour.",
+    "declineText": "That's all right. I stopped expecting help a while ago, so hearing no just puts things back the way they were.",
+    "expositionTurnInText": "The herd settled for the first time in weeks last night. I stood in the pasture and listened to them breathe and it almost broke me. I haven't heard that sound in so long.",
+    "conflict1Text": "The grain stores are lower than they should be. Not stolen, not spoiled: just less, like something's slowly taking from them. I need {gather_count} {quest_item} to rebuild a buffer before the next lean stretch. I can't watch the larder empty itself anymore.",
+    "conflict1TurnInText": "Look at that stack. The larder hasn't looked that full since spring. I don't know how long it'll last, but right now I'll take the sight of it.",
+    "conflict2Text": "One more thing. The salt pile by the barn has been going soft out of nowhere, and salt shouldn't do that. I need {gather_count} {quest_item} to replace what I've lost, and a dry place to keep it. Please just bring what you can, I've stopped trying to make sense of it.",
+    "conflict2TurnInText": "That's plenty. I put it in a sealed crock this time, up off the floor, and I'm watching it like a hawk. If it goes soft in there too, at least I'll know it wasn't just the weather.",
+    "resolutionText": "The herd's calm, the larder's full, the salt's holding. I don't know why any of it went wrong and I don't know if it'll stay right, but tonight things are quieter than they've been in a long time. Take {quest_reward}: I put it aside for a day when I could believe we'd make it, and I almost believe it today.",
+    "skillCheck": {
+      "skill": "INSIGHT",
+      "dc": 13,
+      "passText": "I haven't been sleeping. Not properly. I jump at every sound the way the livestock do, and I'm starting to feel like I'm one of them. I don't know how long a person can live like that.",
+      "failText": "I'm managing. That's as honest as I can be about it right now."
+    },
+    "rewardText": "a pair of worked silver bracelets from better years, which I'd rather see used than hoarded",
+    "valence": "negative",
+    "roleAffinity": []
+  }
+]

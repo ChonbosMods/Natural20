@@ -1,0 +1,281 @@
+[
+  {
+    "id": "supplication_01",
+    "situation": "supplication",
+    "objectives": [
+      { "type": "KILL_MOBS", "countMin": 3, "countMax": 6 },
+      { "type": "COLLECT_RESOURCES", "countMin": 5, "countMax": 10 }
+    ],
+    "expositionText": "I've been putting off asking anyone, hoping it would sort itself out, but it hasn't. {enemy_type_plural} keep creeping in at the edge of {settlement_name} every few nights, and I can't keep chasing them off by myself. If you could put down {kill_count} of them, I might actually sleep for once.",
+    "acceptText": "Thank you. Honestly, I didn't think I'd get that far into the sentence before you turned me down.",
+    "declineText": "No, I understand. I'll figure something out. I've been figuring things out for weeks now, what's another few.",
+    "expositionTurnInText": "You actually did it. I heard the quiet from across the yard and I didn't know what to do with it at first. There's one more thing though, if you can stand me asking.",
+    "conflict1Text": "The {enemy_type_plural} tore through half of what I had put aside for winter. I need {gather_count} {quest_item} to patch the worst of it before the cold gets serious. I wouldn't ask if I had another pair of hands.",
+    "conflict1TurnInText": "That's the last of what I needed. I can look at the storeroom without wanting to sit down and give up. You've no idea.",
+    "resolutionText": "I was so close to walking away from {settlement_name} entirely, you know. Take {quest_reward}. It isn't much but it's honest, and I'll remember this the next time someone here tells me strangers can't be trusted.",
+    "skillCheck": {
+      "skill": "INSIGHT",
+      "dc": 12,
+      "passText": "Truth is, my hands haven't stopped shaking since the second week. I've been eating standing up because if I sit down I don't get back up. I don't tell the others because there's no point in all of us falling apart.",
+      "failText": "It's been a rough stretch. That's the short of it."
+    },
+    "rewardText": "what coin I've managed to hold on to and my honest thanks",
+    "valence": "negative",
+    "roleAffinity": ["Villager", "ArtisanCook"]
+  },
+  {
+    "id": "supplication_02",
+    "situation": "supplication",
+    "objectives": [
+      { "type": "FETCH_ITEM" },
+      { "type": "TALK_TO_NPC" },
+      { "type": "COLLECT_RESOURCES", "countMin": 4, "countMax": 8 }
+    ],
+    "expositionText": "I hate asking. I've been a {self_role} here longer than most and I've never had to beg a stranger for a favor before. But I lost my {quest_item} and without it I can't do any of the work people are counting on me for. If you could bring me one, I'd be in your debt before you'd even put it in my hand.",
+    "acceptText": "Oh. Oh, thank you. I'd almost convinced myself it wasn't worth saying out loud.",
+    "declineText": "I see. Well. I'll keep asking around, I suppose. Someone has to say yes eventually.",
+    "expositionTurnInText": "You found one. I'd forgotten what it felt like to hold something I needed. There's more to this, though, and I should have told you before: I can't manage the rest on my own either.",
+    "conflict1Text": "{target_npc} over in {target_npc_settlement} owes me a conversation we've been putting off for months. They're the only {target_npc_role} I trust with what I'm facing. Go and tell them I've finally asked for help, would you? They'll know what that means.",
+    "conflict1TurnInText": "{target_npc} sent you back. That's the first good sign I've had in weeks. They said they'd send what they could, but we still need the raw stock ourselves.",
+    "conflict2Text": "The last piece is {gather_count} {quest_item}. With that, I can actually finish what's been half-done on my workbench since everything went wrong. I hate that it's still your problem to solve, but I'm out of ways to solve it myself.",
+    "conflict2TurnInText": "That'll do it. I can already picture getting the first piece off the bench and out the door. You've no idea what that means to me.",
+    "resolutionText": "I didn't think anyone was coming. I'd made a kind of peace with that, which is an ugly peace to make. Take {quest_reward}: it's the least I owe you, and I know it.",
+    "rewardText": "a worked piece from my own hand and whatever coin I've set by",
+    "valence": "negative",
+    "roleAffinity": ["ArtisanBlacksmith", "ArtisanAlchemist"]
+  },
+  {
+    "id": "supplication_03",
+    "situation": "supplication",
+    "objectives": [
+      { "type": "COLLECT_RESOURCES", "countMin": 6, "countMax": 10 },
+      { "type": "KILL_MOBS", "countMin": 2, "countMax": 5 }
+    ],
+    "expositionText": "I'm sorry to stop you. Truly, I am. But I've been standing out here half the morning hoping someone would walk past who looked like they knew what they were doing. I need {gather_count} {quest_item}, and I can't leave {settlement_name} long enough to gather it myself. Even {settlement_npc} couldn't spare the time, and they've tried.",
+    "acceptText": "Thank you. That's two kind things someone's said to me this week and I wasn't counting on either.",
+    "declineText": "Of course. I shouldn't have expected otherwise. Go on, then: don't let me keep you.",
+    "expositionTurnInText": "You brought all of it. All of it. I'm going to sit down for a moment because I don't trust my knees. There's one more thing I haven't told you, and I'm ashamed I didn't mention it up front.",
+    "conflict1Text": "The reason I couldn't gather it myself is that {enemy_type_plural} have been circling the place where it grows. Two of them would be bad enough, but there are more than that now. If you could put down {kill_count} of them, I could at least walk those fields again.",
+    "conflict1TurnInText": "You went back out there for me. After everything. I don't know what I did to deserve a day like today, but I'm not going to question it.",
+    "resolutionText": "I feel like I can stand up straight for the first time in a long while. {quest_reward} is yours, with my thanks and a promise that if you ever come back through {settlement_name}, there's a meal and a bed waiting. That's not a polite offer. That's a standing one.",
+    "skillCheck": {
+      "skill": "PERCEPTION",
+      "dc": 13,
+      "passText": "You're looking at my hands, aren't you. Yes, they're bad. I haven't been able to grip anything smaller than a cup for three days now, and I've been hiding them in my apron when people come by. That's how far gone I am.",
+      "failText": "It's just been a long week. I'm sure I look it."
+    },
+    "rewardText": "the last of my savings and a roof whenever you need one",
+    "valence": "negative",
+    "roleAffinity": ["Villager", "ArtisanCook", "TavernKeeper"]
+  },
+  {
+    "id": "deliverance_01",
+    "situation": "deliverance",
+    "objectives": [
+      { "type": "KILL_MOBS", "countMin": 3, "countMax": 6 },
+      { "type": "FETCH_ITEM" }
+    ],
+    "expositionText": "Please, please tell me you have a minute. {settlement_npc} is out at the edge of our land and they can't get back: {enemy_type_plural} are prowling the whole stretch between here and there. I'd go myself, but I can't even get past the gate without being seen. If you could clear {kill_count} of them off, I might finally be able to reach my friend.",
+    "acceptText": "Thank you. Thank you. I'm trusting you with someone I can't afford to lose.",
+    "declineText": "Please. Please don't walk away. If no one goes, they're not coming back, and I'll have to live with the sound of me asking and you saying no.",
+    "expositionTurnInText": "You cut a path through. I could hear the difference in the air before you even came back to tell me. But when you were out there, did you see how they're holding up? I need one more thing, and it can't wait.",
+    "conflict1Text": "{settlement_npc} can't walk out on their own: they've been hurt, or weakened, or something worse, I don't know. There's a {quest_item} in the old caches that I need you to bring them. It'll get them moving. Please, bring it fast.",
+    "conflict1TurnInText": "They took it. I watched from the wall and I saw them take it, and I saw them stand up. I've been holding my breath for two days and I didn't even realize it.",
+    "resolutionText": "They're home. They're home and they're safe and they're sitting by the fire right now where I can see them. Take {quest_reward}: I would give you every coin in {settlement_name} if I had them to give, but this is what's mine and I want you to have it.",
+    "skillCheck": {
+      "skill": "INSIGHT",
+      "dc": 13,
+      "passText": "We grew up together, you know. Same roof, same table, for more years than I can count. If something happened to them out there, I wouldn't know what to do with myself. I'd probably follow them out there and get myself killed trying.",
+      "failText": "They matter to me. That's all I can say right now without losing it."
+    },
+    "rewardText": "everything I have saved and a gratitude I won't know how to repay",
+    "valence": "negative",
+    "roleAffinity": ["Villager", "Guard"]
+  },
+  {
+    "id": "deliverance_02",
+    "situation": "deliverance",
+    "objectives": [
+      { "type": "TALK_TO_NPC" },
+      { "type": "FETCH_ITEM" },
+      { "type": "KILL_MOBS", "countMin": 2, "countMax": 4 }
+    ],
+    "expositionText": "I need you to go find {target_npc} in {target_npc_settlement}, fast. They're the only {target_npc_role} who'll know what to do for someone in the state we've got on our hands here in {settlement_name}. I can't leave, and no one else I trust is fit for the road right now. Please: go, and don't stop for anything.",
+    "acceptText": "Go. Ride hard if you can. Thank you: I'll remember this for however long I've got left in me.",
+    "declineText": "No, please, no. You don't understand what's at stake here. I'm begging you, and I don't beg anyone.",
+    "expositionTurnInText": "{target_npc} came through for us. They always do, bless them. But there's something they need you to bring them before they can do what needs doing, and we don't have much daylight left.",
+    "conflict1Text": "They need a {quest_item}, and it's the kind of thing I can't just pull out of the storeroom. {target_npc} said you'd know where to look. Bring it back to me, not to them: I'm closer to where it's needed, and every minute matters.",
+    "conflict1TurnInText": "You found it. You actually found it. I'm going to hand this off right now and I want you to know there's one more thing, and I hate that there is.",
+    "conflict2Text": "The road they'll need to take out again is crawling with {enemy_type_plural}. They can't make that trip back with the threat still there. Please, put down {kill_count} of them so the path is clear. I can't lose them too, not after all of this.",
+    "conflict2TurnInText": "The road's quiet now. I can finally stop staring at the gate waiting for bad news. You've carried all of it today and I don't know how to thank you enough.",
+    "resolutionText": "They made it. They're resting, they're going to be alright, and {target_npc} says the worst of it is behind us. Take {quest_reward}: it's all I can give, and it's yours with a heart I thought I'd lost hours ago.",
+    "rewardText": "coin, bread for the road, and a welcome whenever you come back this way",
+    "valence": "negative",
+    "roleAffinity": ["Villager", "TavernKeeper"]
+  },
+  {
+    "id": "deliverance_03",
+    "situation": "deliverance",
+    "objectives": [
+      { "type": "KILL_MOBS", "countMin": 4, "countMax": 7 },
+      { "type": "FETCH_ITEM" },
+      { "type": "FETCH_ITEM" }
+    ],
+    "expositionText": "{settlement_npc} went out this morning before anyone could stop them and now they're pinned down somewhere past the treeline. {enemy_type_plural} are everywhere out there: more than I've ever seen. I need you to thin them out, at least {kill_count}, before I can even start hoping to bring my friend home.",
+    "acceptText": "Go, fast. Every breath you waste here is one they don't have out there.",
+    "declineText": "Please. Please. I will get on my knees if it helps. Don't make me watch this happen.",
+    "expositionTurnInText": "You cleared enough of them that I can think again. But {settlement_npc} is hurt, I know it, and I need you to get them what they need to hold on.",
+    "conflict1Text": "There's a {quest_item} I keep for bad days like this. I hid it away for fear it'd be lost, and now I can't remember exactly where I put it. Find it, and bring it back to me: I'll know what to do with it.",
+    "conflict1TurnInText": "That's it, that's the one. I'm breathing easier already knowing we have this in our hands. There's one more thing and then I promise I'll let you rest.",
+    "conflict2Text": "They'll need a {quest_item} too, to make the walk back in one piece. I'm sending you because I trust your pace and because {settlement_npc} won't last much longer without it.",
+    "conflict2TurnInText": "You brought it. I'm going out the gate right now: stay here, drink something, you've earned a moment off your feet.",
+    "resolutionText": "They're back. They're wrapped up by the fire and they're complaining about the tea, which is how I know they're going to be fine. Take {quest_reward}: I don't know what I would have done if you hadn't stopped when I called out to you.",
+    "skillCheck": {
+      "skill": "PERCEPTION",
+      "dc": 12,
+      "passText": "You're looking at the wall by the door, aren't you. Yes, that's their coat, and yes, there's blood on the collar. That's what I found this morning, and I've been staring at it ever since. I can't take it down. I'm afraid of what it'll mean.",
+      "failText": "I've been better, but that's not what matters right now. Please, just go."
+    },
+    "rewardText": "whatever I can put in your pack and my word that you're welcome here as long as I draw breath",
+    "valence": "negative",
+    "roleAffinity": ["Villager", "Guard"]
+  },
+  {
+    "id": "disaster_01",
+    "situation": "disaster",
+    "objectives": [
+      { "type": "COLLECT_RESOURCES", "countMin": 6, "countMax": 12 },
+      { "type": "COLLECT_RESOURCES", "countMin": 4, "countMax": 8 }
+    ],
+    "expositionText": "Bad season doesn't cover it. Half of what we'd put away for {settlement_name} is gone: spoiled, broken, or dragged off. We're picking up the pieces and there aren't enough hands. If you could bring us {gather_count} {quest_item}, it'd be the start of something that looks like a floor under our feet.",
+    "acceptText": "Much obliged. I'd thank you louder if I had the energy for it.",
+    "declineText": "Right. Can't say I blame you. We'll get through: we always do, more or less, and we'll be lighter on the other side.",
+    "expositionTurnInText": "That's a weight off, more than you know. I'm going to have people eating proper meals tonight for the first time in a week. But we're still not whole, not by a long stretch.",
+    "conflict1Text": "The other thing we lost was our working stock: {gather_count} {quest_item} would get the shops here in {settlement_name} up and running again. I'd go myself but I'm needed here to keep people sorting what's left. Whatever you can bring, we'll make it stretch.",
+    "conflict1TurnInText": "That's what we needed. I can see the shape of things coming back together now, piece by piece. We're not where we were, but we're where we can work from.",
+    "resolutionText": "We'll be alright. Won't be the same as before, won't even be close, but we'll be alright, and that's more than I let myself believe a week ago. Take {quest_reward}: it's our thanks, humble as it is, and it comes from a place that means it.",
+    "skillCheck": {
+      "skill": "INVESTIGATION",
+      "dc": 13,
+      "passText": "You're asking the right questions. Truth is, we saw the signs two weeks before anything went wrong and none of us said it out loud. Everyone was hoping they were wrong. Everyone was wrong together. That's the part I'm having trouble living with.",
+      "failText": "It happened the way these things happen. No use going back over it now."
+    },
+    "rewardText": "a share of what we've got left and the settlement's thanks",
+    "valence": "negative",
+    "roleAffinity": ["Villager", "ArtisanCook"]
+  },
+  {
+    "id": "disaster_02",
+    "situation": "disaster",
+    "objectives": [
+      { "type": "KILL_MOBS", "countMin": 3, "countMax": 6 },
+      { "type": "COLLECT_RESOURCES", "countMin": 5, "countMax": 10 },
+      { "type": "TALK_TO_NPC" }
+    ],
+    "expositionText": "{enemy_type_plural} came through {settlement_name} two nights ago and what they didn't break, they scared off. We're still counting what's left. Some of them are still lingering in the outskirts: {kill_count} of them need to be put down before we can even start cleaning up properly.",
+    "acceptText": "Appreciated. I'll tell the others we've got somebody on it. Might even get a few of them to sleep tonight.",
+    "declineText": "Understood. We'll keep at it with what we have. There's nothing else to do, is there.",
+    "expositionTurnInText": "That's the stragglers handled, then. I can walk the perimeter now without looking over my shoulder every step. Now comes the slower work, and I'm afraid I'm going to ask you to keep at it with us.",
+    "conflict1Text": "We need {gather_count} {quest_item} to rebuild what they tore through. It's the kind of thing you just have to go out and gather, and I haven't got anyone spare to send. Whatever you can haul in, we'll use every bit of it.",
+    "conflict1TurnInText": "That's a real start. I can see {settlement_name} starting to look like itself again in pieces. There's one more thing I've been putting off, and I can't put it off anymore.",
+    "conflict2Text": "{target_npc} over in {target_npc_settlement} is the only {target_npc_role} I'd trust to help us plan what comes next. I need you to go and tell them what happened here: tell them plainly, don't soften it. Ask them to come when they can.",
+    "conflict2TurnInText": "You told them the way I asked. {target_npc} sent word that they're on their way, and that's the last piece I was waiting on. I can actually let my shoulders down now.",
+    "resolutionText": "We came through it. Not untouched, but through. {settlement_name} will rebuild, slowly, and the people here will remember that a stranger stopped and helped when they didn't have to. Take {quest_reward}: it's quiet and it's ours, same as we are.",
+    "rewardText": "what the settlement put together in a small purse and a place at the table",
+    "valence": "negative",
+    "roleAffinity": ["Guard", "Villager"]
+  },
+  {
+    "id": "disaster_03",
+    "situation": "disaster",
+    "objectives": [
+      { "type": "FETCH_ITEM" },
+      { "type": "COLLECT_RESOURCES", "countMin": 5, "countMax": 9 }
+    ],
+    "expositionText": "We took a beating this season. I've been walking around {settlement_name} counting losses and trying not to look too grim while I do it. The thing we need most right now is a {quest_item}: without it, we can't even start mending the worst of the damage. If you can find one, bring it to me and I'll put it straight to use.",
+    "acceptText": "Good. Thank you. I'll tell {settlement_npc} we've got hope walking in the door: they could use the sound of it.",
+    "declineText": "No, I understand. Everyone's got their own road. We'll keep at it with what we have, same as we've been doing.",
+    "expositionTurnInText": "That's exactly what I needed. I'm going to put this to use before the light goes. But there's one more thing I'll ask you for, if you've still got it in you.",
+    "conflict1Text": "I need {gather_count} {quest_item} to finish what this one started. It's not the urgent kind of work anymore: it's the kind that decides whether we're rebuilding or just scraping by until the next bad turn. I'd rather be rebuilding.",
+    "conflict1TurnInText": "That's the difference right there. With this, we can start thinking about next season instead of just getting through this one. I don't think you understand yet how much that matters.",
+    "resolutionText": "We're standing. That's the whole story. {settlement_name} is standing, and come spring we'll plant and build and forget the worst of this, because that's what people do. Take {quest_reward}: it's given with the kind of thanks that lasts longer than the giving.",
+    "skillCheck": {
+      "skill": "HISTORY",
+      "dc": 14,
+      "passText": "You've seen this before somewhere, haven't you. That's what I'm afraid of. This is the second time in my life and I remember what the first one cost us. I haven't told anyone in {settlement_name}, because they don't need another thing to worry about.",
+      "failText": "It's a rough patch. They come and go. We'll weather it."
+    },
+    "rewardText": "a fair cut of what the settlement has left to give",
+    "valence": "negative",
+    "roleAffinity": ["ArtisanBlacksmith", "Villager"]
+  },
+  {
+    "id": "self_sacrifice_for_kindred_01",
+    "situation": "self_sacrifice_for_kindred",
+    "objectives": [
+      { "type": "FETCH_ITEM" },
+      { "type": "FETCH_ITEM" }
+    ],
+    "expositionText": "I don't know how to say this without sounding pathetic, so I'll just say it: {settlement_npc} has been sick for a week and I can't leave them long enough to fetch what they need. A {quest_item} is the first thing on the list, and I've been staring at the door for two days working up the nerve to ask someone to get it for me.",
+    "acceptText": "Thank you. I was so close to leaving them alone today to go myself, and I didn't want to. I really didn't want to.",
+    "declineText": "I understand. I'll go tonight, once they're asleep. They'll probably be alright for a few hours on their own. They'll have to be.",
+    "expositionTurnInText": "Oh, good. Good. I'm going to take this to them right now and then I'm coming back to you, because there's one more thing and I should have mentioned it up front.",
+    "conflict1Text": "There's a {quest_item} they need as well: it's the one that actually helps, not just the one that keeps them comfortable. I meant to fetch it yesterday, but I got scared to step away from their bedside. Please, if you can find one, it'd mean everything.",
+    "conflict1TurnInText": "I gave it to them and they held it like they knew what it was. They're going to be alright. I can feel it now, in a way I couldn't this morning.",
+    "resolutionText": "They're sitting up today. They asked for soup, can you imagine, actual soup. I'm going to cry later when no one's looking. Take {quest_reward}: I wish it were more, but I've poured everything I have into the person you just helped me save, and I know you understand.",
+    "skillCheck": {
+      "skill": "INSIGHT",
+      "dc": 12,
+      "passText": "I haven't slept in a real bed in four nights. I've been sitting in the chair next to them, listening to them breathe, and every time the breathing changes I jolt awake like someone threw water on me. That's where I've been all week. That's where I was going to be all week, until you walked past.",
+      "failText": "I'm holding up. Thanks for asking."
+    },
+    "rewardText": "what I can spare from the household and the warmest thanks you'll get all season",
+    "valence": "negative",
+    "roleAffinity": ["Villager", "ArtisanCook"]
+  },
+  {
+    "id": "self_sacrifice_for_kindred_02",
+    "situation": "self_sacrifice_for_kindred",
+    "objectives": [
+      { "type": "KILL_MOBS", "countMin": 3, "countMax": 5 },
+      { "type": "FETCH_ITEM" },
+      { "type": "TALK_TO_NPC" }
+    ],
+    "expositionText": "My little one won't stop crying about the {enemy_type_plural} outside the fence. I've told them a hundred times that we're safe in {settlement_name}, but the noise at night is scaring them into a state I can't fix. If you could put down {kill_count} of them, the nights would go quiet, and I could finally get them to sleep through one.",
+    "acceptText": "Thank you. You don't know what that quiet is going to mean to a small person in my house tonight.",
+    "declineText": "Alright. I'll keep singing them to sleep the way I've been doing. My voice is nearly gone but that's what parents do, I suppose.",
+    "expositionTurnInText": "The fences are quiet tonight for the first time in weeks. My little one is actually asleep right now, and I don't want to wake them. But there's something else I need, and I hate that there is.",
+    "conflict1Text": "They need a {quest_item}: it's something a healer would normally bring to the door, but we haven't had one through {settlement_name} in a month. Please, bring it to me, and I'll take care of the rest.",
+    "conflict1TurnInText": "They've got it in their hands and they're already calmer. I don't know how to thank you properly: I keep trying to find the words and the words aren't coming.",
+    "conflict2Text": "The last thing I need is for {target_npc} in {target_npc_settlement} to know what's been going on with us. They're the kind of {target_npc_role} who can actually help with the long road ahead, not just the crisis. Go and tell them, please, with my name attached.",
+    "conflict2TurnInText": "{target_npc} is sending what they can, and they're coming through next week themselves. I can finally plan further than tomorrow morning. That's a gift you don't understand yet.",
+    "resolutionText": "They're going to be alright. They're going to grow up and not remember any of this, and I'll carry it for both of us, gladly. Take {quest_reward}: it's all I have to give without taking from them, and I wouldn't take from them for anything, but you I'll give to with my whole heart.",
+    "rewardText": "a mother's coin purse and a promise you'll never be a stranger here",
+    "valence": "negative",
+    "roleAffinity": ["Villager"]
+  },
+  {
+    "id": "self_sacrifice_for_kindred_03",
+    "situation": "self_sacrifice_for_kindred",
+    "objectives": [
+      { "type": "KILL_MOBS", "countMin": 2, "countMax": 4 },
+      { "type": "FETCH_ITEM" }
+    ],
+    "expositionText": "My older brother can't work anymore: his hands gave out last winter and they haven't come back. I've been covering for both of us and it's catching up to me. {enemy_type_plural} have been driving off what little game we can catch to eat, and I need {kill_count} of them gone before I can even think about the rest.",
+    "acceptText": "That'd give me back a day I thought I'd already lost. Thank you: I mean that in a way I don't usually bother meaning things.",
+    "declineText": "Right. Well, I'll get to it when I can. He'll understand. He always does. That's what makes it harder, honestly.",
+    "expositionTurnInText": "That's them sorted, and I can feel the whole week get a little lighter in my chest. I haven't told you the worst part yet, and I've been putting it off because I didn't want to scare you away.",
+    "conflict1Text": "He needs a {quest_item}. I've been telling him I'd find one for weeks and making excuses every time I came home without it. I can't keep lying to him, and I can't go far enough to find one while also being home to help him through the days. Please, bring me one, and I'll finally keep my promise.",
+    "conflict1TurnInText": "I gave it to him and he didn't say anything for a long moment, and then he said my name in a way I haven't heard in a long while. We're going to be alright. Both of us.",
+    "resolutionText": "He's already doing better, just knowing someone cared enough to help. He told me to thank you personally, so: thank you, on his behalf and mine. Take {quest_reward}: it's the two of us together giving what we can, and it comes with more weight than the coins suggest.",
+    "skillCheck": {
+      "skill": "PERSUASION",
+      "dc": 13,
+      "passText": "Alright, here's what I haven't told anyone. I've been skipping meals so he doesn't notice we're running low. I tell him I ate earlier, or that I'm not hungry, and he believes me because he wants to. I'm not managing as well as I pretend to. I just can't let him see that.",
+      "failText": "We get by. That's what family does."
+    },
+    "rewardText": "what two brothers can scrape together, given gladly",
+    "valence": "negative",
+    "roleAffinity": ["Villager", "Traveler"]
+  }
+]

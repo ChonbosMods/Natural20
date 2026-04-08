@@ -1,0 +1,287 @@
+[
+  {
+    "id": "enigma_01",
+    "situation": "enigma",
+    "objectives": [
+      { "type": "TALK_TO_NPC" },
+      { "type": "FETCH_ITEM" },
+      { "type": "KILL_MOBS", "countMin": 3, "countMax": 6 }
+    ],
+    "expositionText": "Something keeps getting into my stores at night and it's not adding up. Nothing's broken, nothing forced, just a little less every morning than there was the day before. {target_npc} over in {target_npc_settlement} dealt with something like this a few seasons back, or so I've heard. Could you go ask them what they figured out?",
+    "acceptText": "Good. I've been turning this over for a week and getting nowhere, and it's nice to have someone else thinking about it.",
+    "declineText": "Fair enough. I'll keep puzzling at it on my own time, I suppose.",
+    "expositionTurnInText": "So {target_npc} thinks they know what we're dealing with? That actually fits with what I've been seeing. I had a theory but I wasn't sure I could trust it.",
+    "conflict1Text": "If {target_npc} is right, there's a way to be certain. Bring me a {quest_item}: I want to set it out tonight and see what happens. Either I'll feel like a fool in the morning or I'll finally know what's been making off with my supplies.",
+    "conflict1TurnInText": "The {quest_item} did exactly what I hoped it would. I sat up half the night and watched them slip in like they owned the place. Mystery solved: now I just have a problem to handle.",
+    "conflict2Text": "Now that I know what they are, I'd rather not share my stores with them anymore. Could you handle {kill_count} of the {enemy_type_plural}? They won't be hard to find now that we know what we're looking for.",
+    "conflict2TurnInText": "That's the lot of them, I'd wager. The stores were untouched this morning for the first time in weeks, and I can finally stop counting sacks before bed.",
+    "resolutionText": "I'm going to sleep properly tonight, and I have you to thank for it. Take {quest_reward}: it's not much, but it's the difference between knowing and wondering, and I owe you for that.",
+    "skillCheck": {
+      "skill": "INVESTIGATION",
+      "dc": 12,
+      "passText": "There's one detail I left out because it sounded silly. The losses only happen on nights when the wind comes from a particular direction, and I think whatever it is can smell the grain from a long way off. That's the part that tipped me off this isn't just bad counting.",
+      "failText": "It's probably nothing dramatic. I just hate not knowing."
+    },
+    "rewardText": "what coin I can spare and a sack of the grain you helped me save",
+    "valence": "neutral",
+    "roleAffinity": []
+  },
+  {
+    "id": "enigma_02",
+    "situation": "enigma",
+    "objectives": [
+      { "type": "TALK_TO_NPC" },
+      { "type": "COLLECT_RESOURCES", "countMin": 4, "countMax": 8 }
+    ],
+    "expositionText": "There's a patch of ground near {settlement_name} where nothing has grown right for two seasons now. Same soil as everywhere else, same water, same sun: just dead. {target_npc} in {target_npc_settlement} keeps a closer eye on this kind of thing than anyone I know, and I'd love to hear what they make of it.",
+    "acceptText": "Good. I was starting to think I was the only one who cared about a piece of dirt, and it's a relief to know I'm not.",
+    "declineText": "No matter. I'll keep wondering on my own and probably die wondering. Dirt is patient.",
+    "expositionTurnInText": "{target_npc} said that? Huh. I would never have put those two things together, but now that you say it out loud, I can see exactly how it might fit.",
+    "conflict1Text": "If {target_npc}'s thinking lines up with mine, there's a way to test it. I need {gather_count} {quest_item} so I can try the idea out properly. Whatever's been killing the patch, this should either prove or kill the theory before nightfall.",
+    "conflict1TurnInText": "That's plenty. I'll set it up myself: by the time the sun's down I'll know whether I owe {target_npc} an apology or a thank you, and probably both.",
+    "resolutionText": "It worked. Two seasons of staring at dead ground and the answer was so simple I'm a little embarrassed. Take {quest_reward}: you saved me from staring at it for a third season, and that's worth more than I'm letting on.",
+    "skillCheck": {
+      "skill": "NATURE",
+      "dc": 13,
+      "passText": "I'll tell you what nobody else around here would believe. The animals avoid that patch too, even the bold ones. Whatever's wrong with the ground, they figured it out before I did, and that's the part that's been keeping me up.",
+      "failText": "I just want to understand it. That's all."
+    },
+    "rewardText": "a share of whatever I manage to grow once the patch is fixed",
+    "valence": "neutral",
+    "roleAffinity": []
+  },
+  {
+    "id": "enigma_03",
+    "situation": "enigma",
+    "objectives": [
+      { "type": "FETCH_ITEM" },
+      { "type": "KILL_MOBS", "countMin": 2, "countMax": 5 }
+    ],
+    "expositionText": "I keep finding the same kind of mark scratched into things around {settlement_name}: my fence, the side of the well, the post by my door. It's not vandalism, it's too careful for that. Bring me a {quest_item} so I can compare what's been left here against the real thing, and then maybe I can stop guessing.",
+    "acceptText": "Thank you. I've been going in circles with this one and a fresh pair of hands will help me finally pin it down.",
+    "declineText": "Suit yourself. I'll keep collecting little oddities and adding them to my pile of unanswered questions.",
+    "expositionTurnInText": "That's it. That's exactly the shape. I knew I'd seen it before but I couldn't place where, and now I know what made the marks: I don't love what I know.",
+    "conflict1Text": "{enemy_type_plural} leave that mark when they're scouting a place. They've been studying us, and they'll be back in numbers if we don't make ourselves unpleasant company. I'd feel a lot better if {kill_count} of them never made the report. Can you handle that?",
+    "conflict1TurnInText": "That should be enough to make them think twice. The marks won't matter once the scouts stop coming home, and I can finally stop staring at my own fence post like it owes me an explanation.",
+    "resolutionText": "I'm putting this one to bed. The mystery had teeth, but you took them out before they bit anyone. Take {quest_reward} with my thanks: I'd rather know what was coming and stop it than wake up to find out the hard way.",
+    "rewardText": "the small store of coin I keep for trouble, since this counted",
+    "valence": "neutral",
+    "roleAffinity": []
+  },
+  {
+    "id": "rivalry_of_kinsmen_01",
+    "situation": "rivalry_of_kinsmen",
+    "objectives": [
+      { "type": "TALK_TO_NPC" },
+      { "type": "FETCH_ITEM" },
+      { "type": "COLLECT_RESOURCES", "countMin": 5, "countMax": 10 }
+    ],
+    "expositionText": "My brother and I haven't spoken properly in months, all over a tool he says I borrowed and never returned: I didn't, but the move to {target_npc_settlement} has made him remember things wrong. Could you go talk to {target_npc} there? They're his closest neighbor now and they'll know what version of the story he's telling.",
+    "acceptText": "Thank you. I want to fix this, I just don't know how to do it without one of us having to admit we're wrong first, and neither of us is ready for that.",
+    "declineText": "So I'm on my own with him, then. I should have known better than to expect anyone else to wade into family business.",
+    "expositionTurnInText": "{target_npc} said that? So he's been telling people I broke it on purpose. That's worse than I thought, and somehow easier, because at least now I know what I'm actually arguing against.",
+    "conflict1Text": "If he thinks I broke his tool, the only way to settle this is to bring him the {quest_item} and let him see it for himself. I don't even know if he kept the original. Bring me one and I'll figure out what to do with it.",
+    "conflict1TurnInText": "Holding this in my hands, I feel ridiculous. We've been writing each other off for months over something I could have replaced in an afternoon, if either of us had the sense to ask.",
+    "conflict2Text": "I want to do this properly. Could you bring me {gather_count} {quest_item} as well? I'll bundle it all together: the replacement, the makings of a meal, an offering. If I show up empty-handed he'll just slam the door, but if I show up with too much, even he won't be able to say no.",
+    "conflict2TurnInText": "That should be enough to get me through his door. I'm nervous, which is stupid: he's my brother. But I'm also feeling something that might be hope, which is less stupid.",
+    "resolutionText": "We talked. Properly, for the first time since the harvest. Neither of us was right and neither of us was wrong, and we both knew it the moment we sat down. Take {quest_reward}: you got me to stop being a coward about my own family.",
+    "skillCheck": {
+      "skill": "INSIGHT",
+      "dc": 12,
+      "passText": "The truth is I don't even care about the tool. I miss him. We used to work side by side every day and now I see him twice a year if I'm lucky, and I let a stupid argument become an excuse not to admit how much that hurts.",
+      "failText": "He's stubborn and I'm stubborn. That's all there is to say about it."
+    },
+    "rewardText": "a meal at my table and the return of a brother I'd half given up on",
+    "valence": "negative",
+    "roleAffinity": []
+  },
+  {
+    "id": "rivalry_of_kinsmen_02",
+    "situation": "rivalry_of_kinsmen",
+    "objectives": [
+      { "type": "TALK_TO_NPC" },
+      { "type": "KILL_MOBS", "countMin": 4, "countMax": 8 },
+      { "type": "COLLECT_RESOURCES", "countMin": 6, "countMax": 12 }
+    ],
+    "expositionText": "There's a partner I used to work with, and we had a falling out so bitter that we swore we'd never share a road again. The trouble is the road is the same one we both still need. {target_npc} in {target_npc_settlement} knows us both: would you start there and see whether they think there's any way back from this?",
+    "acceptText": "I appreciate you not asking why. The whole story would take all night and most of it doesn't make me look good.",
+    "declineText": "I see. I suppose we'll keep avoiding each other and pretending the road isn't long enough for us both. It's a poor way to live.",
+    "expositionTurnInText": "{target_npc} says he's been struggling? That's not what I expected to hear, and it changes things. I was ready to keep being angry forever, and now I find out he's been quietly losing ground while I sulked.",
+    "conflict1Text": "{target_npc} mentioned that {enemy_type_plural} have been making the area between us dangerous for both of us. If I go to him and ask his help with it, he'll think it's a trap. But if you handle {kill_count} of them first, I can show up with proof that I cleared the way to see him.",
+    "conflict1TurnInText": "It's safer than it's been all season. I can't believe it took {enemy_type_plural} to make me consider walking that road again. I'm starting to wonder if I should have gone to him a long time ago.",
+    "conflict2Text": "I want to bring him something useful, not just words. Could you gather {gather_count} {quest_item}? It's the kind of thing he always needed and could never get enough of. If I show up with that on top of clearing the way, he'll know I mean it.",
+    "conflict2TurnInText": "That's perfect. I'm going to pack tonight and walk over in the morning. Whatever happens between us, I'll know I tried, and that's more than I could have said yesterday.",
+    "resolutionText": "We didn't fix everything. We're not going back to the way it was, and I think we both knew that the moment we sat down. But we shook hands, and we'll share the road, and that's enough. Take {quest_reward}: you gave me back something I didn't think I could get back.",
+    "skillCheck": {
+      "skill": "HISTORY",
+      "dc": 13,
+      "passText": "It's not the first time I've let pride do this to me. There was an old friend, years ago, and I let her walk away the same way I've been letting him walk away. I never made it right with her and she's gone now, and I can't make that mistake twice in one lifetime.",
+      "failText": "It's complicated. I'd rather not get into it."
+    },
+    "rewardText": "what little coin I have and a story I'll tell properly someday",
+    "valence": "negative",
+    "roleAffinity": []
+  },
+  {
+    "id": "rivalry_of_kinsmen_03",
+    "situation": "rivalry_of_kinsmen",
+    "objectives": [
+      { "type": "FETCH_ITEM" },
+      { "type": "TALK_TO_NPC" }
+    ],
+    "expositionText": "{settlement_npc} and I have been at each other's throats over an heirloom that belonged to our grandmother, and the fight has gotten louder than the heirloom is worth. The only way I can think to settle it is to find a {quest_item} like the one we're fighting over. If I can show {settlement_npc} that the thing itself isn't rare, maybe we can stop pretending this is about the object.",
+    "acceptText": "Thank you. I know it sounds petty from the outside, and from the inside it sort of is too, but I don't know how else to start undoing this.",
+    "declineText": "So we keep yelling at each other across the well, then. {settlement_npc} will be delighted. I won't.",
+    "expositionTurnInText": "Holding this in my hand, I feel like an idiot. We've been at each other for weeks over something I could replace in an afternoon. The fight was never about the heirloom, was it.",
+    "conflict1Text": "Now I have to go talk to {target_npc} in {target_npc_settlement}: they knew our grandmother better than either of us did, and they'll remember who she actually meant to leave it to. I want to walk into the next argument with the truth instead of just my version of it.",
+    "conflict1TurnInText": "{target_npc} told me what I needed to hear and what I didn't want to hear, in equal measure. It turns out neither of us was right about grandmother's wishes, which is humbling and also a relief: we can't both lose if neither of us was supposed to win.",
+    "resolutionText": "We sat down together. We didn't hug, we didn't cry, but we agreed to share the heirloom and the responsibility for it, and that's the closest thing to peace we've had in a year. Take {quest_reward}: you stopped two grown people from making fools of themselves over a keepsake.",
+    "rewardText": "a small token from the heirloom set, since I have one to spare now",
+    "valence": "negative",
+    "roleAffinity": []
+  },
+  {
+    "id": "mistaken_jealousy_01",
+    "situation": "mistaken_jealousy",
+    "objectives": [
+      { "type": "TALK_TO_NPC" },
+      { "type": "FETCH_ITEM" },
+      { "type": "TALK_TO_NPC" }
+    ],
+    "expositionText": "{settlement_npc} has been slipping out before dawn three times this week, and won't say a word about where they go. I think they're up to something they don't want the rest of us to know about. {target_npc} in {target_npc_settlement} grew up alongside them: would you start there? If anyone knows what {settlement_npc}'s hiding, it'll be {target_npc}.",
+    "acceptText": "Thank you. I knew I wasn't being paranoid. I've been watching long enough to know when someone's keeping a secret, and this has all the signs.",
+    "declineText": "Fine. I see how it is. I'll keep my eyes open on my own and you can pretend none of this is happening.",
+    "expositionTurnInText": "{target_npc} said that? That doesn't sound like {settlement_npc} at all. Or it sounds exactly like them, depending on how you read it. I'm not letting this go yet, there's something we're missing.",
+    "conflict1Text": "If {target_npc} is even half right, then there should be a {quest_item} that proves what {settlement_npc} has actually been doing all those mornings. Find me one, and I'll know whether to apologize or to be angrier than I already am.",
+    "conflict1TurnInText": "Oh. Oh no. This is not what I thought I was going to be holding right now. I owe someone an apology, and it isn't you.",
+    "conflict2Text": "I need you to go back to {target_npc} one more time. I want them to tell me, plainly, that I've been wrong about {settlement_npc} this whole time. I think I need to hear it from someone other than my own embarrassment before I can face the person I've been spying on.",
+    "conflict2TurnInText": "{target_npc} was kinder about it than I deserved. I've been building a case against someone who was just trying to do something thoughtful, and I feel about as small as a person can feel.",
+    "resolutionText": "I went and apologized to {settlement_npc} this morning. They laughed at me, which I deserved, and then they hugged me, which I didn't but I'll take it. Please take {quest_reward}, and please, please don't tell anyone what I had you do.",
+    "skillCheck": {
+      "skill": "INSIGHT",
+      "dc": 12,
+      "passText": "I'll tell you the truth I haven't said out loud. I'm scared they're tired of me. We've been through everything together and lately I feel like I'm losing them, and watching them sneak around is easier than admitting I think they don't want me anymore.",
+      "failText": "I just need to know what they're doing. That's all."
+    },
+    "rewardText": "what coin I can spare and a promise that I'll never ask you to do this again",
+    "valence": "negative",
+    "roleAffinity": []
+  },
+  {
+    "id": "mistaken_jealousy_02",
+    "situation": "mistaken_jealousy",
+    "objectives": [
+      { "type": "FETCH_ITEM" },
+      { "type": "TALK_TO_NPC" }
+    ],
+    "expositionText": "Someone's been leaving small gifts on my partner's workbench, and I'd like to know who. There's no note, no explanation, just objects: pretty ones, thoughtful ones, the kind of thing someone gives when they want to be noticed. Bring me a {quest_item} like the ones being left, and I'll know whether I'm imagining a pattern or staring straight at one.",
+    "acceptText": "Thank you for not laughing. I know how this sounds. I know exactly how this sounds and I'm asking anyway.",
+    "declineText": "Right. Forget I said anything, then. I'll figure out for myself whether I'm losing my mind or losing something else.",
+    "expositionTurnInText": "Holding this next to the others, I can see they're nothing alike. The pattern I was so sure of isn't there at all. I feel a little ridiculous and a lot relieved, but I'm not done yet.",
+    "conflict1Text": "I still need to know who's been leaving them, and I'd rather not ask my partner directly. Could you go to {target_npc} in {target_npc_settlement}? They notice everything that happens around here, and if anyone's been seen near my partner lately, {target_npc} will know who.",
+    "conflict1TurnInText": "It was a child. {target_npc} says it was one of the children, leaving little treasures because my partner once helped them find a lost toy. I have been losing sleep over a six-year-old's gratitude.",
+    "resolutionText": "I went home and told my partner the whole stupid story. They thought it was the funniest thing they'd heard all month, and I'm choosing to take that as forgiveness. Take {quest_reward}, and please understand if I never speak of this to anyone, ever again.",
+    "skillCheck": {
+      "skill": "PERCEPTION",
+      "dc": 11,
+      "passText": "You're looking at me like you can tell I'm shaking. I am. This isn't me being suspicious, this is me being terrified, and I would rather you knew that than think I'm a bitter person.",
+      "failText": "I'm fine. I just need to know."
+    },
+    "rewardText": "a small bundle of what I can spare and your discretion, more than anything",
+    "valence": "negative",
+    "roleAffinity": []
+  },
+  {
+    "id": "mistaken_jealousy_03",
+    "situation": "mistaken_jealousy",
+    "objectives": [
+      { "type": "TALK_TO_NPC" },
+      { "type": "FETCH_ITEM" }
+    ],
+    "expositionText": "{settlement_npc} has been getting praise lately for work I'm fairly sure I taught them, and I don't like the way it's making me feel. I think they're letting people believe they came up with my methods on their own. Go talk to {target_npc} in {target_npc_settlement}: they were here when I was teaching {settlement_npc}, and they'll remember whose hands shaped what.",
+    "acceptText": "Good. I'm not asking to be petty, I just want to know whether I've been forgotten on purpose or by accident. Either is bad, but one is worse.",
+    "declineText": "Of course. Why would you care about whose work is whose, when nobody else seems to either. I'll keep my mouth shut about it like a good little teacher.",
+    "expositionTurnInText": "{target_npc} said that? So {settlement_npc} has been giving me credit, just not in earshot of me. That's not what I was expecting, and now I feel a little ill about how I've been thinking of them.",
+    "conflict1Text": "I want to be sure before I let myself off the hook. Could you bring me a {quest_item}, the kind {settlement_npc} has been making lately? If I see it for myself, I'll know whether they're using my methods or something they figured out on their own. Either way I want to stop guessing.",
+    "conflict1TurnInText": "This isn't my work at all. They've moved past what I taught them and built something new on top of it, and here I was being jealous of someone who was honoring me by doing better than me. I don't know whether to laugh or to hide.",
+    "resolutionText": "I went and told {settlement_npc} I was proud of them, which is the conversation I should have had three weeks ago instead of stewing. They cried, which means I had hurt them more than I knew, and I hate that. Take {quest_reward}: you saved a friendship I was too small to save myself.",
+    "rewardText": "the best piece of my own work, since I'd like someone to remember how it looks",
+    "valence": "negative",
+    "roleAffinity": []
+  },
+  {
+    "id": "erroneous_judgment_01",
+    "situation": "erroneous_judgment",
+    "objectives": [
+      { "type": "TALK_TO_NPC" },
+      { "type": "FETCH_ITEM" },
+      { "type": "TALK_TO_NPC" }
+    ],
+    "expositionText": "A friend of mine has been accused of stealing from a neighbor, and I know in my bones it wasn't them. They don't have it in them, and the timing doesn't add up no matter how I look at it. Would you go to {target_npc} in {target_npc_settlement}? They were trading in {settlement_name} the day this all supposedly happened, and they'd know who was where.",
+    "acceptText": "Thank you. People around here have already made up their minds, and I was starting to feel like the only one willing to say wait a moment.",
+    "declineText": "So my friend gets to wear this for the rest of their life, then. I had hoped you of all people would understand why that matters, but I suppose I'll find someone else.",
+    "expositionTurnInText": "{target_npc} confirmed it. My friend wasn't anywhere near it when it happened, and they've got the trading partner to vouch for it. That's a start, but a witness from another settlement isn't going to be enough on its own.",
+    "conflict1Text": "I need physical proof. There should be a {quest_item} that ties the actual thief to what they took: bring me one, and I'll have something concrete to show the people who've been pointing fingers. Right now it's word against word, and word is losing.",
+    "conflict1TurnInText": "This is exactly what I needed. Holding this, I can see how it all fits together, and now I know who actually did it. I almost wish I didn't, because the truth is going to upset some people who don't want to be upset.",
+    "conflict2Text": "I need {target_npc} to come back here and say what they told you, in front of the people who matter. Could you go ask them to make the trip? They won't want to: they'd rather stay out of our business. But they'll come if you tell them I'm asking and that I have proof now.",
+    "conflict2TurnInText": "{target_npc} agreed to come. That's everything. With their testimony and the evidence you found, there's no version of this where my friend stays accused. The truth is finally going to get its turn to speak.",
+    "resolutionText": "It's done. My friend's name is clear, and the people who were so quick to accuse them have been just as quick to look at their own boots. That's how it should be. Take {quest_reward}: you stood up for someone you'd never even met, and that's the kind of thing I want to remember about people.",
+    "skillCheck": {
+      "skill": "INVESTIGATION",
+      "dc": 13,
+      "passText": "There's a piece I haven't told anyone yet. The person who first pointed at my friend had reasons of their own to want them gone, and I think the accusation was the lever, not the cause. I haven't said it out loud because I don't have proof, but I will by the time this is over.",
+      "failText": "It's a complicated story and I don't have it all straight in my head yet."
+    },
+    "rewardText": "what coin I have set aside and a friendship that owes you one too",
+    "valence": "negative",
+    "roleAffinity": []
+  },
+  {
+    "id": "erroneous_judgment_02",
+    "situation": "erroneous_judgment",
+    "objectives": [
+      { "type": "FETCH_ITEM" },
+      { "type": "TALK_TO_NPC" }
+    ],
+    "expositionText": "People in {settlement_name} have decided I'm the one who broke a promise I never made, and I'm running out of ways to defend myself. There's a {quest_item} I gave away weeks ago, the same kind I'm now accused of hoarding: bring me one as proof that I never had what they say I had. I need something solid in my hand before anyone will listen to me.",
+    "acceptText": "Thank you. I've been talking myself hoarse and getting nowhere, and a stranger's word might land where mine can't.",
+    "declineText": "Of course. Why would anyone help me when the whole settlement has already decided who I am. Forget I asked. I'll keep shouting at walls until my voice gives out.",
+    "expositionTurnInText": "Holding this is the first piece of evidence anyone has given me a chance to show. I feel like I can breathe a little. But evidence alone won't fix what people have been telling each other about me.",
+    "conflict1Text": "I need {target_npc} in {target_npc_settlement} to vouch for me. They were the one I gave the original to, weeks ago, and they can tell anyone who'll listen that the story being passed around is wrong. Could you ask them to speak up for me? They don't owe me anything, but they're a fair person, and that's what I'm counting on.",
+    "conflict1TurnInText": "{target_npc} is willing to come and say it plainly. I almost wept when you told me. I haven't had someone in my corner in weeks, and now I've got two of you, and that's more than I had any right to expect.",
+    "resolutionText": "{target_npc} came and said their piece, and the people who'd been so sure of themselves had nothing to say back. My name is mine again. Take {quest_reward}: you and {target_npc} gave me something I didn't think I'd get back, and I'm going to remember who showed up when nobody else would.",
+    "skillCheck": {
+      "skill": "PERSUASION",
+      "dc": 13,
+      "passText": "I'll tell you what I haven't told anyone. I almost left {settlement_name} last week. I had my pack at the door and I was going to walk out and let them think whatever they wanted. The only reason I'm still here is that I decided I'd rather be cleared than be free.",
+      "failText": "It's been a hard few weeks. I'd rather not get into it."
+    },
+    "rewardText": "a share of my own stores and the kind of thanks I don't usually give freely",
+    "valence": "negative",
+    "roleAffinity": []
+  },
+  {
+    "id": "erroneous_judgment_03",
+    "situation": "erroneous_judgment",
+    "objectives": [
+      { "type": "TALK_TO_NPC" },
+      { "type": "FETCH_ITEM" },
+      { "type": "FETCH_ITEM" },
+      { "type": "TALK_TO_NPC" }
+    ],
+    "expositionText": "Someone I care about has been blamed for damage they couldn't possibly have done, and the case against them keeps getting louder while no one stops to check the facts. Would you start by talking to {target_npc} in {target_npc_settlement}? They saw the damage before anyone else did, and they noticed something the rest of us missed.",
+    "acceptText": "Thank you. I've been carrying this alone for days and the weight of it was about to crush me. Knowing someone else thinks it's worth looking into is more than I can say.",
+    "declineText": "So we let it stand. We let everyone go on believing the easy story because the true one is too much work. I expected better, frankly, and I'm not going to pretend I didn't.",
+    "expositionTurnInText": "{target_npc} told you about the marks on the wood? I knew there was something off about how the damage looked, and now I have a name for what made it. This was never something a person could have done.",
+    "conflict1Text": "I need to show people, not just tell them. Bring me a {quest_item}: it's the kind of thing that would have been left behind if my version of events is right. If we can put it in front of the accusers, the story falls apart on its own.",
+    "conflict1TurnInText": "This is exactly what I was hoping for. Anyone who looks at this and still wants to blame my friend is choosing to be wrong, and I can work with that.",
+    "conflict2Text": "I need one more piece. There should also be a {quest_item} that points to how the damage actually happened: that'll prove the cause, not just that my friend wasn't there. I want this airtight before I bring it to the people who matter.",
+    "conflict2TurnInText": "Now I have the whole picture. The damage, the cause, the timeline: it all fits, and none of it points at the person they've been blaming. I'm almost looking forward to the conversation I get to have next.",
+    "conflict3Text": "Last thing. I need {target_npc} to come back to {settlement_name} with me and say what they saw, in person, in front of everyone who's been spreading the wrong story. Could you ask them once more? With everything we've gathered, they'll know it's worth the trip.",
+    "conflict3TurnInText": "{target_npc} is on their way. Between their testimony and what we've gathered, this is going to be the cleanest exoneration anyone in {settlement_name} has ever seen. My friend deserves nothing less.",
+    "resolutionText": "It's over. My friend has their good name back, and the people who were so eager to take it have learned to be slower with their accusations next time. That's the part I'm proudest of. Take {quest_reward}: you didn't just help me, you helped this place be a little fairer than it was yesterday.",
+    "rewardText": "what I can give from my own stores and the lasting thanks of the person you cleared",
+    "valence": "negative",
+    "roleAffinity": []
+  }
+]

@@ -1,0 +1,26 @@
+[
+  {
+    "id": "enigma_01",
+    "situation": "enigma",
+    "objectives": [
+      { "type": "TALK_TO_NPC" },
+      { "type": "FETCH_ITEM" }
+    ],
+    "expositionText": "Something's been nagging at me for a week now. {settlement_npc} keeps slipping out the back gate at odd hours and coming home with dirt on their hands, and when I ask about it they change the subject. I'm not worried, exactly. I just can't stop thinking about it. Would you ride over to {target_npc_settlement} and ask {target_npc} about it? They knew {settlement_npc} back before any of us did.",
+    "acceptText": "Thank you. It's good to know I'm not the only one who thinks it's a little odd.",
+    "declineText": "Fair enough. I'll keep chewing on it myself, I suppose.",
+    "expositionTurnInText": "So {target_npc} actually had something to say? Huh. That's not what I expected at all. It lines up with a few things I'd dismissed, though.",
+    "conflict1Text": "Here's where it gets strange. {target_npc_role} mentioned {settlement_npc} used to keep a small carved token from their mother: something they thought they'd lost years ago. If that's what they've been digging for, I'd like to see it for myself. See if you can track down the {quest_item} out where they've been going.",
+    "conflict1TurnInText": "Well. That answers it. They weren't hiding anything sinister at all: they were trying to find a piece of the past they thought was gone. I feel like a fool for letting my imagination run.",
+    "resolutionText": "Mystery solved, and nothing to worry about after all. I'll find a quiet way to give this back without making it awkward. Here: {quest_reward}. Honestly, the peace of mind is worth more than that.",
+    "skillCheck": {
+      "skill": "INSIGHT",
+      "dc": 12,
+      "passText": "Truth is, I've been imagining the worst because my last neighbor in {other_settlement} disappeared without a word and I never knew why. I don't want to lose another one the same way.",
+      "failText": "It's probably nothing. I just don't like loose ends."
+    },
+    "rewardText": "a few coins and a cup of the good tea I usually save for myself",
+    "valence": "neutral",
+    "roleAffinity": []
+  }
+]

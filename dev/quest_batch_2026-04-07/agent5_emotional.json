@@ -1,0 +1,284 @@
+[
+  {
+    "id": "remorse_01",
+    "situation": "remorse",
+    "objectives": [
+      { "type": "FETCH_ITEM" },
+      { "type": "TALK_TO_NPC" }
+    ],
+    "expositionText": "I said something to my sister that I shouldn't have, and I said it where everyone could hear. She hasn't spoken to me since, and she has every right. I want to make it right, but I can't just walk up to her empty-handed after what I did. If you can find me a {quest_item}, something with a little weight to it, I'll know how to use it.",
+    "acceptText": "Thank you. I don't deserve the help, but I'll take it and try to be worth it.",
+    "declineText": "No, that's fair. I made this mess. I shouldn't expect anyone else to wade into it.",
+    "expositionTurnInText": "You actually found one. That's a {quest_item} I can put in someone's hands and mean it. Thank you: now I have to do the harder part.",
+    "conflict1Text": "I can't bring this to her myself. Not yet. I need you to find {target_npc} in {target_npc_settlement}: they used to know us both, before all this. If anyone can tell her I'm trying, it's them.",
+    "conflict1TurnInText": "You spoke to {target_npc}? And they didn't laugh you out of the room? That's more than I had any right to hope for.",
+    "resolutionText": "She came by this morning. Didn't say much. Just sat with me for a while, and that was more than I'd had in weeks. Take {quest_reward}: I owe you something I can't really name.",
+    "skillCheck": {
+      "skill": "INSIGHT",
+      "dc": 12,
+      "passText": "The truth is, I knew exactly what I was doing when I said it. I wanted to hurt her in that moment, and I succeeded. That's the part I can't sleep on.",
+      "failText": "It's complicated. Family things usually are."
+    },
+    "rewardText": "what coin I've been setting aside, and a quiet thank-you I won't forget",
+    "valence": "negative",
+    "roleAffinity": []
+  },
+  {
+    "id": "remorse_02",
+    "situation": "remorse",
+    "objectives": [
+      { "type": "TALK_TO_NPC" },
+      { "type": "FETCH_ITEM" },
+      { "type": "TALK_TO_NPC" }
+    ],
+    "expositionText": "There was a man who passed through last winter, and I turned him away when he asked for shelter. I had room. I just didn't want the trouble. I heard later he'd been a friend of someone I cared about, and I've carried it ever since. Please find {target_npc} in {target_npc_settlement}: I think they knew him, and I need to know if he came through alright.",
+    "acceptText": "Thank you for not asking me to justify it. I couldn't if I tried.",
+    "declineText": "I understand. It's a strange thing to ask of a stranger. I'll keep carrying it, same as before.",
+    "expositionTurnInText": "{target_npc} told you he made it through? I wasn't sure I wanted to know either way: knowing makes it real, but not knowing was eating me. Thank you for bringing me the truth.",
+    "conflict1Text": "Now I want to do something for him, even if he never hears about it. There's a {quest_item} I'd like to send back through {target_npc_settlement}: something practical, something that says I should have done better. Can you find one for me?",
+    "conflict1TurnInText": "That's exactly the kind of {quest_item} I had in mind. He'll know it cost something to send. That matters.",
+    "conflict2Text": "Last thing: would you take it back to {target_npc} for me? I want them to give it to him, in their own words. I'm not ready to stand in front of him, but I can stand behind a gesture.",
+    "conflict2TurnInText": "You did it. You actually did it. I think I can breathe a little easier tonight.",
+    "resolutionText": "{target_npc} sent word back. He didn't say much, but he kept the gift, and that's all I asked for. Take {quest_reward}: you carried something for me that I couldn't carry alone.",
+    "rewardText": "the best of what I have left from that hard winter, and my honest thanks",
+    "valence": "negative",
+    "roleAffinity": []
+  },
+  {
+    "id": "remorse_03",
+    "situation": "remorse",
+    "objectives": [
+      { "type": "FETCH_ITEM" },
+      { "type": "FETCH_ITEM" }
+    ],
+    "expositionText": "I broke something that wasn't mine to break. It belonged to my father, and I let my temper get the better of me, and now there's a hole in my home where it used to sit. He's gone, so I can't apologize to him. The least I can do is replace it: bring me a {quest_item} and I'll start there.",
+    "acceptText": "You're being kinder than I've earned. I'll try to make this matter.",
+    "declineText": "I don't blame you. It's my mess. I'll get to it eventually, or I won't.",
+    "expositionTurnInText": "That's a fine {quest_item}. He would have approved of the craftsmanship, at least. Holding it makes the empty spot on the shelf feel like something I'm filling, not just hiding.",
+    "conflict1Text": "There's one more thing I need. He always kept a {quest_item} alongside it: said the two belonged together. If you can find one of those too, then the set will be whole again, the way he had it.",
+    "conflict1TurnInText": "Both pieces, side by side. That's how he kept them. That's how I'll keep them. Thank you for not asking me why this mattered so much.",
+    "resolutionText": "I put them up tonight, in the same spot. It's not the same: they're not his. But the hole is gone, and that's something. Take {quest_reward}: it's the kind of thing he would have given you, if he were the one standing here.",
+    "skillCheck": {
+      "skill": "PERCEPTION",
+      "dc": 11,
+      "passText": "You're looking at the marks on my hand, aren't you? Yes, that was the same night. I haven't forgiven myself for that part either, but at least it heals.",
+      "failText": "It's an old story. Not worth dragging through the mud again."
+    },
+    "rewardText": "a small purse and the quiet thanks of a man trying to be better",
+    "valence": "negative",
+    "roleAffinity": []
+  },
+  {
+    "id": "involuntary_crimes_of_love_01",
+    "situation": "involuntary_crimes_of_love",
+    "objectives": [
+      { "type": "TALK_TO_NPC" },
+      { "type": "FETCH_ITEM" }
+    ],
+    "expositionText": "My oldest friend won't see me, and I don't know why. I thought I was helping when I spoke to her family on her behalf, but something I said made everything worse. I've been turning it over in my head for days and I can't find the moment it broke. Please, talk to {target_npc} in {target_npc_settlement}: she trusts them, and they might tell you what I did.",
+    "acceptText": "Thank you. Maybe a fresh pair of eyes will see what I keep missing.",
+    "declineText": "Of course. It's a tangle, and you have your own life. I'll just keep going in circles, I suppose.",
+    "expositionTurnInText": "{target_npc} actually told you? Oh: oh, that's what she heard. I never meant it that way, not even close. But I see now how it sounded, and I can't unsay it.",
+    "conflict1Text": "Now that I know, I want to make it right. There's a {quest_item} she always loved, the kind we used to find together when we were small. If you can bring me one, I'll take it to her myself, and I'll have something to say with my hands when the words won't be enough.",
+    "conflict1TurnInText": "That's perfect. She'll know what it means the moment she sees it. Thank you for understanding why this had to be the right one.",
+    "resolutionText": "She let me sit with her this morning. We didn't talk about the thing I said, not yet, but she took the gift and she didn't put it down. That's a beginning. Take {quest_reward}: you gave me back something I was sure I'd lost.",
+    "skillCheck": {
+      "skill": "INSIGHT",
+      "dc": 13,
+      "passText": "The honest part is, I was trying to protect her from her family, because I'd seen them be cruel to her before. I wasn't being a busybody. I was being scared for her, and I overstepped because of it.",
+      "failText": "I'd rather not pick at it any more than I already have. It hurts enough."
+    },
+    "rewardText": "a gift I'd been saving for a better day, and my honest gratitude",
+    "valence": "negative",
+    "roleAffinity": []
+  },
+  {
+    "id": "involuntary_crimes_of_love_02",
+    "situation": "involuntary_crimes_of_love",
+    "objectives": [
+      { "type": "FETCH_ITEM" },
+      { "type": "TALK_TO_NPC" }
+    ],
+    "expositionText": "I gave my brother some advice last month that I really thought would help him, and instead it cost him work and pride and probably his patience with me. I still don't understand all of it. What I do know is that I owe him something more than another conversation about it. Find me a {quest_item}: something useful, something he'll actually want.",
+    "acceptText": "I appreciate it. I keep wanting to fix this with words, but words are what got me here.",
+    "declineText": "Yeah. I figured I'd have to muddle through this on my own. That's probably how it should be anyway.",
+    "expositionTurnInText": "That's a fine {quest_item}, and exactly the kind of thing he'd never buy for himself. He's stubborn that way. Holding it actually makes me feel like I might be able to face him.",
+    "conflict1Text": "But I can't just hand it over without help. I need you to find {target_npc} in {target_npc_settlement} first: they were there when I gave him the advice, and they know what really happened. If they can tell me what I missed, I'll know what to say when I see him.",
+    "conflict1TurnInText": "So that's what he heard me saying. I thought I was offering options, and he heard me telling him he wasn't capable. {target_npc} did me a kindness telling you that. Now I know the apology I owe.",
+    "resolutionText": "I went to him last night. Brought the gift, said the right thing for once, and he laughed: a tired laugh, but a real one. We're not all the way back, but we're talking. Take {quest_reward}: this would have stayed broken without you.",
+    "skillCheck": {
+      "skill": "PERSUASION",
+      "dc": 12,
+      "passText": "I'll tell you what I haven't told anyone: I'm afraid he'll never trust my word again. He used to come to me first when something was hard, and he hasn't since. That's the part that's breaking me.",
+      "failText": "It's between brothers. I shouldn't have laid it all out like this."
+    },
+    "rewardText": "a portion of what I've put aside this season, and a brother's thanks",
+    "valence": "negative",
+    "roleAffinity": []
+  },
+  {
+    "id": "involuntary_crimes_of_love_03",
+    "situation": "involuntary_crimes_of_love",
+    "objectives": [
+      { "type": "TALK_TO_NPC" },
+      { "type": "FETCH_ITEM" },
+      { "type": "TALK_TO_NPC" }
+    ],
+    "expositionText": "My daughter has been quiet around me for two weeks now and I don't know which thing I did wrong. I've replayed every conversation and there are three or four moments where I might have hurt her without seeing it. I can't ask her: she'll just say it's nothing. Please, find {target_npc} in {target_npc_settlement}, the friend she writes to: she'll have told them the truth.",
+    "acceptText": "Thank you. I'd rather know than keep guessing wrong.",
+    "declineText": "I understand. It's a parent's mess, and parents are supposed to figure these things out themselves. I'll keep trying.",
+    "expositionTurnInText": "{target_npc} told you it was the comment about her work? I thought I was encouraging her. She heard it as me saying she wasn't enough. Of course that's what she heard: I should have known.",
+    "conflict1Text": "I want to show her I see her differently than she thinks I do. There's a {quest_item} she's been wanting for a long time, and I kept telling her it wasn't practical. That was wrong of me. Bring me one, and I'll give it to her without a single condition attached.",
+    "conflict1TurnInText": "Look at this. She'll know what it cost me to choose this for her, and she'll know it's not about being practical. That's the whole point. Thank you.",
+    "conflict2Text": "One more favor. Would you take word back to {target_npc} that I'm grateful, and that I'm trying? They've been a better friend to my daughter than I knew, and they should hear it from someone besides me.",
+    "conflict2TurnInText": "{target_npc} took the message well? Good. I want her friend to know I'm not the kind of mother who'd resent her for being honest with you.",
+    "resolutionText": "She opened the gift in front of me. She didn't say much, but she sat down next to me, and she stayed. That's the most I've had from her in weeks. Take {quest_reward}: you walked through something with me that I couldn't have walked alone.",
+    "rewardText": "a parcel of good food from my pantry and a mother's quiet thanks",
+    "valence": "negative",
+    "roleAffinity": []
+  },
+  {
+    "id": "obstacles_to_love_01",
+    "situation": "obstacles_to_love",
+    "objectives": [
+      { "type": "FETCH_ITEM" },
+      { "type": "TALK_TO_NPC" }
+    ],
+    "expositionText": "There's someone I think about more than I should admit, and I have never been able to put it into words around them. Every time I try, my tongue ties itself in knots. I think if I had something to give them, the right thing, I could let the gift do the talking. Please, find me a {quest_item}: nothing flashy, just something that means something.",
+    "acceptText": "Oh, that's a relief. And also kind of terrifying, now that I've actually said it out loud.",
+    "declineText": "No, I get it. It's a silly thing for a grown person to be tangled up over. I'll keep tying my own knots, then.",
+    "expositionTurnInText": "Look at it. That's exactly the kind of {quest_item} I was picturing without knowing how to picture it. Now I just have to not drop it on the way there.",
+    "conflict1Text": "One more thing, and this one I really can't do alone. They moved to {target_npc_settlement} last spring, and I haven't worked up the nerve to visit. Could you go to {target_npc} for me and just: tell them I've been thinking about them? Pass the gift along if it feels right.",
+    "conflict1TurnInText": "{target_npc} smiled? You're sure? You're not just being kind to me? That's: that's more than I let myself hope for, walking out the door this morning.",
+    "resolutionText": "{target_npc} sent word back. They asked when I was coming to visit, and they used the word 'when,' not 'if.' I've already started rehearsing what I'll say. Take {quest_reward}: I won't forget that you're the reason I get to be this nervous about something this good.",
+    "skillCheck": {
+      "skill": "INSIGHT",
+      "dc": 11,
+      "passText": "I've been carrying a folded note in my pocket for three months. It's the words I would say if I could ever get them out. I haven't shown it to anyone, but I can tell you it exists.",
+      "failText": "Let's just say it's been on my mind for a while. That's all there is to it."
+    },
+    "rewardText": "a basket of the good things from my kitchen, and the biggest grin you've seen all week",
+    "valence": "positive",
+    "roleAffinity": []
+  },
+  {
+    "id": "obstacles_to_love_02",
+    "situation": "obstacles_to_love",
+    "objectives": [
+      { "type": "TALK_TO_NPC" },
+      { "type": "FETCH_ITEM" },
+      { "type": "TALK_TO_NPC" }
+    ],
+    "expositionText": "My partner's mother does not approve of me, and she has made that very clear over the years. I want to ask for her blessing properly, before we take the next step, and I don't know how to begin. Please, would you talk to {target_npc} in {target_npc_settlement}? They've known her since she was young, and they might tell you what would actually move her.",
+    "acceptText": "Thank you. I've been bracing myself for this for a year. It helps to have someone else in my corner.",
+    "declineText": "I see. Well, I appreciate you hearing me out, even if you can't help. Maybe I just need to find the courage on my own.",
+    "expositionTurnInText": "{target_npc} said she once turned away a suitor over a slight nobody else even noticed? That tracks. But it also tells me she pays attention to gestures, even small ones, and that's something I can work with.",
+    "conflict1Text": "If she values gestures, then I need a real one. Find me a {quest_item}: the kind of thing you bring when you want someone to know you've thought about them, not just shown up. I'll present it when I make my case.",
+    "conflict1TurnInText": "That's just right. Not flashy, not cheap, just considered. Holding this, I almost feel like I might survive the conversation.",
+    "conflict2Text": "Last thing. Could you let {target_npc} know I'm coming to ask her properly next week? I'd rather she hear it from a friend first than be ambushed by me on her doorstep. It might soften the ground a little.",
+    "conflict2TurnInText": "{target_npc} agreed to put in a word? That's a kindness I won't forget. Now all I have to do is the actual asking, which somehow feels easier knowing the door isn't shut.",
+    "resolutionText": "She didn't say yes. She didn't say no, either: she said 'we'll see how you carry yourself this season,' and that's the most generous thing she's ever offered me. I'll take it. Please take {quest_reward}: you helped me get to a 'we'll see,' and that's a whole new horizon.",
+    "skillCheck": {
+      "skill": "HISTORY",
+      "dc": 13,
+      "passText": "You're right to ask: yes, my own parents had to win over an unwilling family. I grew up hearing the story, and I think part of why this one matters so much is because I know it can be done.",
+      "failText": "It's an old family thing. I don't want to bore you with it."
+    },
+    "rewardText": "a fine bottle I've been saving for the right occasion, and a hopeful heart",
+    "valence": "positive",
+    "roleAffinity": []
+  },
+  {
+    "id": "obstacles_to_love_03",
+    "situation": "obstacles_to_love",
+    "objectives": [
+      { "type": "FETCH_ITEM" },
+      { "type": "FETCH_ITEM" }
+    ],
+    "expositionText": "There's a tradition in my family for asking someone to share a life: you give two gifts, one practical and one foolish. My grandmother told me about it when I was a child, and now I finally have someone I want to use it for. I've been gathering the courage for a year. Please bring me a {quest_item}: something useful, something they'll reach for every day.",
+    "acceptText": "Thank you. It feels real now, in a way it hasn't before.",
+    "declineText": "That's all right. It's a private kind of help to ask for. I'll get there: I always meant to.",
+    "expositionTurnInText": "Yes. Yes, that's the practical half. Every time they pick this up, they'll think of me, and I want that very much.",
+    "conflict1Text": "Now the foolish half. Find me a {quest_item} that has no practical purpose at all: pretty, strange, the kind of thing that just makes someone smile. The whole point of the tradition is that you give one thing they need and one thing they'd never ask for.",
+    "conflict1TurnInText": "Oh, that's wonderful. That is perfectly, perfectly foolish. They'll laugh, and that's exactly what my grandmother said the foolish gift was supposed to do.",
+    "resolutionText": "I haven't asked them yet: I will tomorrow morning, with both gifts in hand. But I already feel different than I did a week ago. Whatever they say, I tried, and that's a thing I never thought I'd be able to say. Take {quest_reward}: you gave me back a tradition I almost talked myself out of honoring.",
+    "rewardText": "a share of the good things I've been saving for my own celebration, whenever it comes",
+    "valence": "positive",
+    "roleAffinity": []
+  },
+  {
+    "id": "madness_01",
+    "situation": "madness",
+    "objectives": [
+      { "type": "FETCH_ITEM" },
+      { "type": "TALK_TO_NPC" }
+    ],
+    "expositionText": "My husband has stopped sleeping. He sits up by the window all night and watches nothing, and when I ask him what he's looking for he says he doesn't know yet. He used to love a particular kind of warm drink his mother made him as a boy, and I think if I could put a {quest_item} in his hands again, it might reach him in a way I can't. Please find me one.",
+    "acceptText": "Thank you. I haven't known what to do with my hands all week. At least now they're holding hope.",
+    "declineText": "I understand. He's not your problem to carry. I'll keep sitting up with him, and we'll be alright, one way or another.",
+    "expositionTurnInText": "You found one. He'll know what this is the moment he sees it: I just need to find the right moment to give it to him. Thank you for not asking me to explain why a small thing like this matters so much.",
+    "conflict1Text": "He drank a little of it, and then he talked for the first time in days. He told me he wants to hear from {target_npc} in {target_npc_settlement}, an old friend he hasn't seen in years. I think he's trying to put pieces of himself back together. Could you go to {target_npc} and tell them he's been asking?",
+    "conflict1TurnInText": "{target_npc} is going to write to him? That's exactly what he needed to hear. Already he looks like a man who remembers he has a name.",
+    "resolutionText": "He slept last night. Not all the way through, but more than he has in weeks. He's not back yet, and I don't know if he's going to be the same when he is, but he's reachable now, and that's everything. Please take {quest_reward}: you brought my husband one step closer to home.",
+    "skillCheck": {
+      "skill": "INSIGHT",
+      "dc": 12,
+      "passText": "The thing I haven't said out loud is that I think I missed the early signs. He was quieter for months before this, and I told myself it was just the season. I should have asked him sooner.",
+      "failText": "I just need someone to help me try something. That's all."
+    },
+    "rewardText": "a portion of our small savings and a wife's deepest thanks",
+    "valence": "negative",
+    "roleAffinity": []
+  },
+  {
+    "id": "madness_02",
+    "situation": "madness",
+    "objectives": [
+      { "type": "TALK_TO_NPC" },
+      { "type": "FETCH_ITEM" }
+    ],
+    "expositionText": "My neighbor has been giving away her belongings, one piece at a time, to anyone who'll take them. She smiles when she does it. I don't think she means harm by it, but she's almost out of things, and she still seems to think she has too much. I need someone to talk to her sister: please find {target_npc} in {target_npc_settlement} and ask if this has happened before.",
+    "acceptText": "Thank you. I've been afraid to make this real by saying it to anyone. Now it's real, and at least we can do something.",
+    "declineText": "That's alright. I'll try to talk to her myself, even though she doesn't really hear me. Some things you just have to keep at.",
+    "expositionTurnInText": "{target_npc} said she did this once before, after losing someone? Then I think I understand what she's doing now. She lost her partner this winter and she's been pretending it didn't break her. The giving-away is the breaking finally showing.",
+    "conflict1Text": "If she's grieving, then she needs something back, not more emptiness. Find me a {quest_item} that feels like a beginning: something a person uses when they're starting again, not finishing. I'll bring it to her and tell her it's from someone who cares about her.",
+    "conflict1TurnInText": "She held it for a long time without saying anything, and then she put it on her shelf instead of handing it back. That's the first thing she's kept in weeks. I want to cry just telling you about it.",
+    "resolutionText": "She came over for tea this morning. She didn't talk about her partner, but she didn't talk about giving things away either, and she sat with me for an hour. That's not better, not all the way, but it's not worse anymore. Take {quest_reward}: you helped me reach her when I couldn't reach her on my own.",
+    "skillCheck": {
+      "skill": "PERCEPTION",
+      "dc": 11,
+      "passText": "You're noticing that I haven't been sleeping much either, aren't you? It's hard to watch someone you love disappear in slow motion. I've been carrying her grief on top of my own.",
+      "failText": "It's been a long week. I'd rather just focus on her right now."
+    },
+    "rewardText": "the best of what little I have, and a thank-you I'll mean for a long time",
+    "valence": "negative",
+    "roleAffinity": []
+  },
+  {
+    "id": "madness_03",
+    "situation": "madness",
+    "objectives": [
+      { "type": "FETCH_ITEM" },
+      { "type": "TALK_TO_NPC" },
+      { "type": "FETCH_ITEM" }
+    ],
+    "expositionText": "My uncle hasn't left his home in nearly a month. He says the world outside is too loud, too fast, too much. He won't eat much of what I cook, but he used to love a particular {quest_item}, the kind that takes him back to when he was younger and steadier. Please bring me one: it's the only thing I can think to try.",
+    "acceptText": "Thank you. It's such a small thing to put my hope on, but small is all I have right now.",
+    "declineText": "I understand. He's not the easiest thing to explain, and you have your own life. I'll keep cooking and waiting, the way I have been.",
+    "expositionTurnInText": "He ate the whole thing. He didn't say much, but he ate the whole thing, and then he asked for a little more. That's the most I've gotten from him in weeks, and it's because of the {quest_item} you found.",
+    "conflict1Text": "He told me he wants to send word to {target_npc} in {target_npc_settlement}, an old friend who used to visit. I don't know if he's ready to see anyone, but I think he's ready to know someone is still out there waiting for him. Could you go and tell {target_npc} my uncle was asking after them?",
+    "conflict1TurnInText": "{target_npc} took the news well? And they're going to write back? I almost don't recognize my uncle today: he asked me twice this morning if a letter had come yet.",
+    "conflict2Text": "There's one more thing he asked me for, quietly, like he was embarrassed. He wants a {quest_item}: something he used to keep on his table when he was younger and felt like himself. I think he's trying to remember who he was. Could you find one?",
+    "conflict2TurnInText": "He set it on the table exactly where he used to keep it. He just stared at it for a while, and then he smiled, just a little. I haven't seen that smile in a year.",
+    "resolutionText": "He went outside this morning. Only as far as the doorway, only for a few minutes, but he stood in the sun and he closed his eyes and he said it felt good. He's not all the way back, and I don't know if he ever will be, but he's still in there, and now I know how to reach him. Take {quest_reward}: you gave my uncle back to me one piece at a time.",
+    "skillCheck": {
+      "skill": "PERSUASION",
+      "dc": 13,
+      "passText": "The truth is, I've been thinking I caused this. I pushed him to come to family gatherings he wasn't ready for, and after the last one he just went quiet. I'm afraid I'm the reason he stopped trying.",
+      "failText": "He's family. That's the long and short of it."
+    },
+    "rewardText": "a share of what my uncle and I can spare, and a niece's heartfelt thanks",
+    "valence": "negative",
+    "roleAffinity": []
+  }
+]

@@ -1,0 +1,308 @@
+[
+  {
+    "id": "pursuit_01",
+    "situation": "pursuit",
+    "objectives": [
+      { "type": "KILL_MOBS", "countMin": 4, "countMax": 7 },
+      { "type": "FETCH_ITEM" }
+    ],
+    "expositionText": "I'm done waiting them out. {enemy_type_plural} have been picking at us for weeks now: livestock one night, fences the next, and last night they got bold enough to come right up to the wall. I want {kill_count} of them put down before this turns into something we can't walk back from. It's time someone settled this properly.",
+    "acceptText": "Good. I was hoping you'd say that. Let's get it handled.",
+    "declineText": "Then I'll keep waiting for someone with a spine. Don't be surprised when the problem gets worse.",
+    "expositionTurnInText": "That's the kind of work I wanted to see. The pressure on us has eased already: I can feel it. But I don't think we're done yet.",
+    "conflict1Text": "I want to be sure they don't come back. There's a {quest_item} I need: it'll let me know we've actually pulled the source out, not just trimmed the edges. Bring me that and I'll sleep easy for the first time in weeks.",
+    "conflict1TurnInText": "That's it. That's exactly what I needed to see. It's really over now.",
+    "resolutionText": "I can hear myself think again. Take {quest_reward}: it's the least I owe you for finishing what I should have started a month ago. Go on, you've earned it.",
+    "skillCheck": {
+      "skill": "NATURE",
+      "dc": 12,
+      "passText": "You'd know better than me, then: they always come from the same direction, always at the same hour. They're not random. Something's drawing them, and that's what I want broken.",
+      "failText": "Just trust me when I say it's a pattern. I've been watching long enough to know."
+    },
+    "rewardText": "the silver I've been setting aside for exactly this and a clean handshake",
+    "valence": "negative",
+    "roleAffinity": []
+  },
+  {
+    "id": "pursuit_02",
+    "situation": "pursuit",
+    "objectives": [
+      { "type": "TALK_TO_NPC" },
+      { "type": "KILL_MOBS", "countMin": 5, "countMax": 8 }
+    ],
+    "expositionText": "I've had enough of guessing. {target_npc} over in {target_npc_settlement} is a {target_npc_role}, and they've been keeping notes on the same trouble that's been hounding us. Go talk to them first: I'd rather act on facts than hunches. Once we know what we're dealing with, we end it.",
+    "acceptText": "That's the right order of things. Find out what they know, then come back to me.",
+    "declineText": "Suit yourself. Meanwhile the rest of us keep losing sleep, I suppose.",
+    "expositionTurnInText": "Good. So {target_npc} was right: it's worse than I let myself believe. That settles any doubt I had about doing this.",
+    "conflict1Text": "Now we put it down. {kill_count} of those {enemy_type_plural} should be enough to break their numbers and make them think twice about coming this way again. I want this finished, not delayed.",
+    "conflict1TurnInText": "That's the work, right there. Feels like the air around {settlement_name} got lighter the moment you walked back through.",
+    "resolutionText": "I won't have to keep one eye on the road from now on, and that's worth more than I can properly say. Take {quest_reward}: spend it however you like. We're square, and the trouble is gone.",
+    "skillCheck": {
+      "skill": "INVESTIGATION",
+      "dc": 13,
+      "passText": "Since you're asking the right questions: the timing isn't random. They came right after the last caravan from {other_settlement} stopped running. I think the two are connected, and {target_npc} can fill in the rest.",
+      "failText": "It's complicated. Easier if you just hear it from {target_npc} directly."
+    },
+    "rewardText": "good coin and a meal at my table whenever you pass through",
+    "valence": "negative",
+    "roleAffinity": []
+  },
+  {
+    "id": "pursuit_03",
+    "situation": "pursuit",
+    "objectives": [
+      { "type": "KILL_MOBS", "countMin": 3, "countMax": 5 },
+      { "type": "TALK_TO_NPC" },
+      { "type": "KILL_MOBS", "countMin": 4, "countMax": 6 }
+    ],
+    "expositionText": "I've been patient long enough. The {enemy_type_plural} have made a habit of testing us, and I want that habit broken. Start by thinning them out: {kill_count} should make them notice. Then we'll trace this back to wherever it actually starts.",
+    "acceptText": "Now we're getting somewhere. I'll be waiting right here when the first part is done.",
+    "declineText": "Of course. Walk away. I'll just add this to the list of times I had to do it myself.",
+    "expositionTurnInText": "Good work. They'll feel that. But knocking them back isn't the same as ending it: I want to know who else has been seeing what we're seeing.",
+    "conflict1Text": "{target_npc} in {target_npc_settlement} has been losing more than we have. They're a {target_npc_role}, and they've been keeping count. Go hear them out, then come back. We'll decide the next step together.",
+    "conflict1TurnInText": "So {target_npc} has been bleeding even worse than us. That's it then: we're not the only target, and that means the source is bigger than I thought.",
+    "conflict2Text": "We finish this together. There's a stronger group of {enemy_type_plural} out there, the ones actually driving the rest, and I want {kill_count} of them dealt with. End the pattern, not just the symptoms.",
+    "conflict2TurnInText": "That's done, then. Feels strange to say it out loud. The pattern is broken.",
+    "resolutionText": "Three weeks ago I'd given up on seeing this resolved in my lifetime. Take {quest_reward} and know it's the cleanest thing I've handed anyone in a long time. Whatever happens next, this part is over.",
+    "skillCheck": {
+      "skill": "PERCEPTION",
+      "dc": 14,
+      "passText": "You've got a good eye. I didn't say it before, but I've been finding tracks I don't recognize: bigger ones, mixed in with the rest. Whatever's leading them isn't the same as what's been hitting us.",
+      "failText": "It's just the same trouble, week after week. Nothing more to it than that."
+    },
+    "rewardText": "a proper purse and what's left of my stash of good ale",
+    "valence": "negative",
+    "roleAffinity": []
+  },
+  {
+    "id": "vengeance_01",
+    "situation": "vengeance",
+    "objectives": [
+      { "type": "KILL_MOBS", "countMin": 5, "countMax": 8 },
+      { "type": "KILL_MOBS", "countMin": 4, "countMax": 7 }
+    ],
+    "expositionText": "I've been counting them for nine years. {enemy_type_plural}, the same kind that drove my family off everything we'd built. I'm old now and my hands aren't what they were. I want {kill_count} of them dead by yours: that's where this finally gets to begin.",
+    "acceptText": "Good. I'd started thinking I'd die with the count still in my head, and that would have been worse than anything they did to us.",
+    "declineText": "Then walk. I've been waiting nine years already, and I can wait nine more for someone with steadier hands than yours.",
+    "expositionTurnInText": "That's the first wave. The lingering ones, the ones that got comfortable. I felt the count drop in my chest the moment you came back, and it was lighter than I expected.",
+    "conflict1Text": "The rest are harder. The ones that remember why they came in the first place, the ones who'd recognize my name if anyone said it out loud. I want {kill_count} more {enemy_type_plural} put down: don't come back until the count is what I've been carrying.",
+    "conflict1TurnInText": "You finished it. Finished. I haven't said that word about anything in nine years, and I almost don't recognize my own voice saying it.",
+    "resolutionText": "I thought I'd want to celebrate when this was done. Instead I just want to sit. Take {quest_reward}: it's what I set aside the day I started counting, and I don't have any other use for it now.",
+    "skillCheck": {
+      "skill": "HISTORY",
+      "dc": 14,
+      "passText": "You recognize the kind of work this is, don't you. Old grudges run in this region. Mine isn't the first and it won't be the last, but it's mine, and I've kept the count cleaner than most ever do.",
+      "failText": "It's an old story. You don't need the details to do the work."
+    },
+    "rewardText": "the silver I've been setting aside since the year it happened",
+    "valence": "negative",
+    "roleAffinity": []
+  },
+  {
+    "id": "vengeance_02",
+    "situation": "vengeance",
+    "objectives": [
+      { "type": "FETCH_ITEM" },
+      { "type": "KILL_MOBS", "countMin": 4, "countMax": 6 }
+    ],
+    "expositionText": "They burned the workshop my father left me. Years of his work, gone in a night. There's a {quest_item} I need first: bring it to me and I'll explain what comes after. I've been waiting a long time to make this right.",
+    "acceptText": "Then we have an arrangement. I won't forget who answered when no one else would.",
+    "declineText": "Of course. Why would a stranger care. Move along: I've got a list of people to be disappointed in and you just made it longer.",
+    "expositionTurnInText": "You actually brought it. I half thought you wouldn't bother. Good: now I can finish what I've been planning.",
+    "conflict1Text": "Now the part that matters. I want {kill_count} of those {enemy_type_plural} put down: the same kind that came that night. I don't care which ones. They all share the same blood as far as I'm concerned.",
+    "conflict1TurnInText": "It's done. I should feel lighter, and I don't, but I'm not going to pretend that means I was wrong. It just means it cost more than I thought.",
+    "resolutionText": "I won't be lighting a fire in that workshop again, but at least I can walk past it without flinching. Take {quest_reward}. I'm closing the books on this, and on a lot of other things while I'm at it.",
+    "skillCheck": {
+      "skill": "INSIGHT",
+      "dc": 14,
+      "passText": "You see right through me, don't you. The truth is I've been rehearsing this for almost a year. Every morning I wake up and I think about what I'd do if I had the chance. Now I have it, and that scares me almost as much as the night they came.",
+      "failText": "I've said what I'm going to say. The rest is mine."
+    },
+    "rewardText": "the last of what my father saved and a debt I'll honor in person",
+    "valence": "negative",
+    "roleAffinity": []
+  },
+  {
+    "id": "vengeance_03",
+    "situation": "vengeance",
+    "objectives": [
+      { "type": "KILL_MOBS", "countMin": 3, "countMax": 5 },
+      { "type": "FETCH_ITEM" },
+      { "type": "KILL_MOBS", "countMin": 5, "countMax": 8 }
+    ],
+    "expositionText": "I lost my partner to those things last winter. I haven't spoken her name out loud since, and I'm not about to start now. I want {kill_count} of those {enemy_type_plural} dead by your hand: that's where this starts.",
+    "acceptText": "Then it's settled. I don't want to hear how you feel about it. Just bring me word when it's done.",
+    "declineText": "Spare me the apologies. You'll find I'm very good at remembering the faces of people who chose to walk away.",
+    "expositionTurnInText": "Good. Don't tell me what they looked like at the end: I don't want it in my head. There's more to this and I'm going to need you to see it through.",
+    "conflict1Text": "There's a {quest_item} I need next. She kept things. I want it back in my hands: not for sentiment, for proof that this was real and that I'm not the only one who remembers. Bring it to me.",
+    "conflict1TurnInText": "That's hers. I haven't touched anything of hers in months. I almost can't look at it. Almost. Now finish what we started.",
+    "conflict2Text": "The rest of them. {kill_count} more of those {enemy_type_plural}: I won't be satisfied until their numbers are broken. I know what that makes me. I don't care.",
+    "conflict2TurnInText": "Then it's over. I'm not going to say thank you the way other people would. But I see what you did and I won't forget it.",
+    "resolutionText": "I expected this to feel like a door closing. Instead it feels like a room that's just gone quiet. Take {quest_reward}. Go live a life that doesn't end up like mine, if you can manage it.",
+    "skillCheck": {
+      "skill": "PERSUASION",
+      "dc": 15,
+      "passText": "All right. Since you're asking, and since you're not going to use it against me: I've already tried to do this myself, twice. Both times I lost my nerve at the last moment. That's the real reason I need you. I can't be the one to do it.",
+      "failText": "I've told you what I want done. The why is mine to keep."
+    },
+    "rewardText": "what coin I have left and the only thing of value I haven't already buried",
+    "valence": "negative",
+    "roleAffinity": []
+  },
+  {
+    "id": "daring_enterprise_01",
+    "situation": "daring_enterprise",
+    "objectives": [
+      { "type": "FETCH_ITEM" },
+      { "type": "KILL_MOBS", "countMin": 3, "countMax": 5 }
+    ],
+    "expositionText": "I've had an idea I can't shake, and I'm finally ready to chase it. There's a {quest_item} I need to get my hands on: it won't be easy, and I'd be a fool to pretend otherwise. But if we can pull this off, I think it changes things for me. For all of us, maybe.",
+    "acceptText": "Excellent. I knew the right person would come along: I just didn't think it would be today. Let's do this properly.",
+    "declineText": "Ah, well. The idea isn't going anywhere, and neither am I. I'll keep looking for the right hands.",
+    "expositionTurnInText": "You actually brought it. I'm holding it and I still half don't believe it. We're past the easy part now, but we're not turning back.",
+    "conflict1Text": "Here's where it gets thorny. There's {kill_count} {enemy_type_plural} between us and finishing this, and they aren't going to step aside politely. I won't ask you to do anything I wouldn't do myself: but you're better at it than I am.",
+    "conflict1TurnInText": "That's it. That's the last thing standing in our way. I can hardly believe we got this far without it falling apart.",
+    "resolutionText": "We did it. We actually did it: and it's better than I let myself imagine. Take {quest_reward}, and know that you didn't just help me, you helped me believe I could finish something this big.",
+    "skillCheck": {
+      "skill": "INSIGHT",
+      "dc": 12,
+      "passText": "All right, here's the truth: this isn't really about the project. It's about proving to myself that I can still chase a thing and catch it. I haven't felt that way in a long time, and I'm not letting it slip past me.",
+      "failText": "It's a project. A good one. That's enough reason on its own."
+    },
+    "rewardText": "a proper share of what we make together and my honest gratitude",
+    "valence": "positive",
+    "roleAffinity": []
+  },
+  {
+    "id": "daring_enterprise_02",
+    "situation": "daring_enterprise",
+    "objectives": [
+      { "type": "TALK_TO_NPC" },
+      { "type": "COLLECT_RESOURCES", "countMin": 6, "countMax": 12 },
+      { "type": "FETCH_ITEM" }
+    ],
+    "expositionText": "I'm putting together something I've never tried before, and I need help getting it off the ground. First thing: go talk to {target_npc} in {target_npc_settlement}. They're a {target_npc_role}, and if anyone has done something like this before, it's them. I want their blessing on the plan before I commit any further.",
+    "acceptText": "Wonderful. I've been waiting for someone willing to take the first step with me. We'll see this through.",
+    "declineText": "All right. The idea will keep, even if it stings to set it down for now. I'll find someone else eventually.",
+    "expositionTurnInText": "You actually got {target_npc} to take it seriously? That's more than I dared hope for. Now I know the plan holds water: time to commit.",
+    "conflict1Text": "Now the work begins. I need {gather_count} {quest_item} to even start the build. It's a lot, I know. But I've sketched this out a hundred times and I'm not going in half-prepared.",
+    "conflict1TurnInText": "That's a real pile. I can almost see the shape of the thing already. We're closer than I thought we'd be at this stage.",
+    "conflict2Text": "There's one more piece I can't make myself: a {quest_item}, and a tricky one to come by. Bring me that and we cross the line from planning into doing. I'm so close I can taste it.",
+    "conflict2TurnInText": "Look at this. Look at it. We have everything. I haven't been this excited about anything in years.",
+    "resolutionText": "It's done, and it's better than I imagined. I dared to try and it actually worked. Take {quest_reward}: you weren't a hired hand on this, you were a partner, and I want you to feel like one.",
+    "skillCheck": {
+      "skill": "PERCEPTION",
+      "dc": 13,
+      "passText": "You noticed the drawings, didn't you. Yes: I've been planning this for the better part of a year. I just needed the courage to ask out loud, and that took longer than the planning did.",
+      "failText": "It's a fresh idea. I've been tossing it around for a while, that's all."
+    },
+    "rewardText": "a fair cut of what comes from this and an open door whenever you visit",
+    "valence": "positive",
+    "roleAffinity": []
+  },
+  {
+    "id": "daring_enterprise_03",
+    "situation": "daring_enterprise",
+    "objectives": [
+      { "type": "COLLECT_RESOURCES", "countMin": 5, "countMax": 10 },
+      { "type": "KILL_MOBS", "countMin": 4, "countMax": 6 },
+      { "type": "TALK_TO_NPC" },
+      { "type": "FETCH_ITEM" }
+    ],
+    "expositionText": "I'm finally doing it: the thing I've been talking about for two years and never had the guts to start. To get rolling I need {gather_count} {quest_item}: the foundation of the whole undertaking. It's not glamorous, but every great venture starts with the unglamorous part.",
+    "acceptText": "You won't regret this. I've been waiting for the right person to share the first step with: now we're moving.",
+    "declineText": "Suppose I should have expected that. People hear ambitious and they hear trouble. I'll keep at it on my own, then.",
+    "expositionTurnInText": "That's the foundation laid. I feel steadier already: like I'm finally allowed to believe I can do this.",
+    "conflict1Text": "Here's the part I was dreading. There's {kill_count} {enemy_type_plural} that have been getting in the way of everything I'm trying to do. I need them gone: I can't focus on the work with that hanging over me.",
+    "conflict1TurnInText": "That's a weight off. I can actually picture finishing now, instead of just hoping I might. We're past the hardest part, I think.",
+    "conflict2Text": "Now I need expertise I don't have. {target_npc} in {target_npc_settlement} is a {target_npc_role} and they've done something like this before: go ask them to teach me what they can. I'd rather learn from someone who's lived it than guess my way through.",
+    "conflict2TurnInText": "{target_npc} actually agreed to share what they know? That's the last piece of doubt gone. Now let's finish this.",
+    "conflict3Text": "Last thing, I promise. There's a {quest_item} I need to make this real: the centerpiece of the whole thing. Bring me that and I'll have everything I need to finally see this through.",
+    "conflict3TurnInText": "There it is. The last piece. I'm holding the future of this whole project in my hands and it feels exactly the way I dreamed it would.",
+    "resolutionText": "I dared to start something I wasn't sure I could finish, and look at it now. Take {quest_reward}: you've been more than help, you've been the reason I didn't give up halfway. I won't forget that.",
+    "skillCheck": {
+      "skill": "PERSUASION",
+      "dc": 14,
+      "passText": "All right, since you've been straight with me, I'll be straight with you. I'm scared of this. Every step. I've been pretending I'm not because I knew if I admitted it I'd never start. So thank you for not letting me see how foolish I look.",
+      "failText": "I've got my plan. I just need the help to make it real."
+    },
+    "rewardText": "a generous share of what the project earns and a name on whatever it becomes",
+    "valence": "positive",
+    "roleAffinity": []
+  },
+  {
+    "id": "ambition_01",
+    "situation": "ambition",
+    "objectives": [
+      { "type": "COLLECT_RESOURCES", "countMin": 6, "countMax": 12 },
+      { "type": "FETCH_ITEM" }
+    ],
+    "expositionText": "I've been dreaming about this for ages and I'm finally putting it into motion. I want to make something the people here will actually remember: not just useful, but special. I need {gather_count} {quest_item} to even start, and I want to start today.",
+    "acceptText": "Yes! Oh, this is going to be so good. I can already see it coming together in my head.",
+    "declineText": "Oh. Well, the dream isn't going anywhere: I'll get there eventually, even if it takes me twice as long alone.",
+    "expositionTurnInText": "Look at all this. This is real now: I'm not just talking about it anymore. We're actually building toward something.",
+    "conflict1Text": "Now I need the showpiece. There's a {quest_item} that would make the whole thing sing: nothing else will do. If you can find me that, I promise I'll make something worth the trouble.",
+    "conflict1TurnInText": "It's perfect. It's exactly what I pictured. You've got no idea how long I've been waiting to hold one of these in my own hands.",
+    "resolutionText": "Look at it. I made this. I actually made this, and it's better than I let myself believe it could be. Take {quest_reward}: you helped me prove something to myself that I needed to prove for years.",
+    "skillCheck": {
+      "skill": "INSIGHT",
+      "dc": 12,
+      "passText": "All right, I'll tell you. My mother used to say I had a head full of clouds and no hands to match. I've been trying to prove her wrong since the day she said it. This is going to be the thing that finally does it.",
+      "failText": "It's a dream of mine, that's all. Some dreams are worth chasing even when you can't explain them."
+    },
+    "rewardText": "the first piece I make and a generous share of coin from my own savings",
+    "valence": "positive",
+    "roleAffinity": []
+  },
+  {
+    "id": "ambition_02",
+    "situation": "ambition",
+    "objectives": [
+      { "type": "TALK_TO_NPC" },
+      { "type": "COLLECT_RESOURCES", "countMin": 5, "countMax": 10 }
+    ],
+    "expositionText": "I want to be the best at what I do. Not just decent: the best. I need to learn from someone who's already there. {target_npc} in {target_npc_settlement} is a {target_npc_role}, and from what I've heard, they're the one I should be talking to. Go ask them if they'd share what they know.",
+    "acceptText": "Yes! Thank you for taking me seriously. I know it sounds grand, but I mean it.",
+    "declineText": "That's a shame. I'll keep working at it the slow way, then. I won't stop, even if it takes years longer.",
+    "expositionTurnInText": "{target_npc} actually agreed to share their knowledge? I could cry. That's exactly what I needed to hear today: validation that this isn't a foolish dream after all.",
+    "conflict1Text": "Now I need to put it into practice. {gather_count} {quest_item}: that's what they recommended I start with. Bring me that and I'll make something worthy of what they taught me.",
+    "conflict1TurnInText": "This is everything I needed. I can already feel my hands itching to get to work. I haven't been this excited in I don't know how long.",
+    "resolutionText": "I'm not the same person I was a week ago. I know more, I can do more, and for the first time I really believe I'll get where I want to go. Take {quest_reward}: it's the start of what I hope becomes a long friendship.",
+    "skillCheck": {
+      "skill": "HISTORY",
+      "dc": 13,
+      "passText": "You've heard of {target_npc}'s reputation, then? Good: then you understand why I'm willing to send a stranger across the region just for a conversation. There's no one else within reach who's at that level. Not in {settlement_name}, not in {other_settlement}, not anywhere I know of.",
+      "failText": "They're someone worth listening to. That's the short of it."
+    },
+    "rewardText": "a fair purse and an open invitation to come watch me work whenever you're nearby",
+    "valence": "positive",
+    "roleAffinity": []
+  },
+  {
+    "id": "ambition_03",
+    "situation": "ambition",
+    "objectives": [
+      { "type": "COLLECT_RESOURCES", "countMin": 4, "countMax": 8 },
+      { "type": "KILL_MOBS", "countMin": 3, "countMax": 5 },
+      { "type": "FETCH_ITEM" }
+    ],
+    "expositionText": "I've got a vision and I'm tired of keeping it inside my own head. I want to make {settlement_name} better than it was when I got here: not just patched up, actually better. To begin I need {gather_count} {quest_item}: that's the seed of the whole idea.",
+    "acceptText": "You don't know what this means to me. I've been waiting for someone willing to start this with me, and here you are.",
+    "declineText": "Ah. Well, dreams keep, and so do I. I'll find another way: I always do.",
+    "expositionTurnInText": "Look at that. The first piece of something I've been picturing for months. I can see it now: the rest of it, I mean. It's all going to come together.",
+    "conflict1Text": "There's a snag, though. {kill_count} {enemy_type_plural} have been making themselves a nuisance and slowing every honest project in the area to a crawl. I need them dealt with so the rest of us can actually get on with creating things.",
+    "conflict1TurnInText": "That's a relief I didn't even know I was waiting for. The whole place feels lighter: like the future just opened up a little wider.",
+    "conflict2Text": "Last thing, and it's the one I'm most excited about. There's a {quest_item} that would be the heart of everything I'm trying to do. It's the one piece I can't substitute. Bring it to me and I can finally say I've done what I set out to do.",
+    "conflict2TurnInText": "It's exactly what I dreamed of. I'm going to put it right at the center where everyone can see it. People are going to talk about this for a long time.",
+    "resolutionText": "I look around now and I see something I made happen: not alone, but I started it, and that counts. Take {quest_reward}, with my real and lasting thanks. I get to be proud of myself today, and that's a feeling I want to share.",
+    "skillCheck": {
+      "skill": "PERCEPTION",
+      "dc": 13,
+      "passText": "You noticed I've been at this already, didn't you. Yes: I've been quietly putting pieces in place for weeks. I didn't want to ask for help until I knew the bones of the idea would actually hold up. Now I know they do.",
+      "failText": "It's just an idea I've been turning over for a while. Nothing fancier than that."
+    },
+    "rewardText": "a generous purse from what I've been saving for this and a story I'll tell about you for years",
+    "valence": "positive",
+    "roleAffinity": []
+  }
+]

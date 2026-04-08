@@ -1,0 +1,215 @@
+[
+  {
+    "id": "obtaining_01",
+    "situation": "obtaining",
+    "objectives": [
+      { "type": "FETCH_ITEM" },
+      { "type": "KILL_MOBS", "countMin": 3, "countMax": 5 }
+    ],
+    "expositionText": "I'm running low on {quest_item} and I can't make my usual rounds without it. Anything you can scrounge up would save me a lot of trouble. I'd go myself, but my hands aren't what they used to be.",
+    "acceptText": "Bless you for that. I'll get the kettle on while you're out.",
+    "declineText": "Ah well. I'll dig around tomorrow and see what I can turn up.",
+    "expositionTurnInText": "There it is — exactly what I needed. You've got a good eye for the right thing. There's one more piece to this, though, if you've still got the patience.",
+    "conflict1Text": "The reason I couldn't fetch it myself is the {enemy_type_plural} that have settled in around here. I don't dare cross the area until someone thins them out. Could you handle {kill_count} of them for me?",
+    "conflict1TurnInText": "Good. That should make the walk safer for the rest of us, too. I owe you for both pieces of this, not just the one.",
+    "resolutionText": "That's me set for the season, thanks to you. Take {quest_reward} — it's the least I can offer for the time you've spent on this. You've made my work possible again.",
+    "skillCheck": {
+      "skill": "PERSUASION",
+      "dc": 12,
+      "passText": "Truth is, I've been making do with scraps for nearly a month and pretending I wasn't. Pride's a stubborn thing in folks my age. You're the first person I've actually told.",
+      "failText": "Oh, it's nothing dire. Just a bit of an inconvenience, you know how it is."
+    },
+    "rewardText": "what coin I've put aside and a meal whenever you're back this way",
+    "valence": "neutral",
+    "roleAffinity": ["ArtisanCook", "TavernKeeper"]
+  },
+  {
+    "id": "obtaining_02",
+    "situation": "obtaining",
+    "objectives": [
+      { "type": "TALK_TO_NPC" },
+      { "type": "FETCH_ITEM" },
+      { "type": "KILL_MOBS", "countMin": 4, "countMax": 7 }
+    ],
+    "expositionText": "I've got an order I can't finish without the right pattern, and I never learned it properly myself. There's a {target_npc_role} called {target_npc} over in {target_npc_settlement} who knows the work. Would you mind asking them on my behalf?",
+    "acceptText": "Appreciated. Tell them I sent you and they'll know who you mean.",
+    "declineText": "Fair enough. I'll send word the next time a traveler passes through.",
+    "expositionTurnInText": "{target_npc} pointed you in the right direction? Good. They've always been straight with me. Now I just need the materials to actually do the work.",
+    "conflict1Text": "I need {quest_item} to follow the pattern through. It's not exotic, but I haven't had a chance to gather it myself. Bring me what you can find.",
+    "conflict1TurnInText": "Perfect. This is the right grade — I can feel it. There's one more thing pinching me, and then I can finally get to the bench.",
+    "conflict2Text": "I won't lie, the {enemy_type_plural} prowling near {settlement_name} have me uneasy about leaving the workshop at all. If you could clear out {kill_count} of them, I'd breathe a lot easier while I work.",
+    "conflict2TurnInText": "That's a weight off. I can hear myself think for the first time in days. Come back and let me settle up.",
+    "resolutionText": "Order's done, on time, and better than I'd have managed alone. {quest_reward} — I insist. You earned every bit of it doing what I couldn't.",
+    "skillCheck": {
+      "skill": "INVESTIGATION",
+      "dc": 13,
+      "passText": "Why didn't I learn it myself? Because the person who used to teach it stopped coming around years ago, and I never got the nerve to ask anyone else. {target_npc} is the last one I know who still does it the old way.",
+      "failText": "It's a long story. Just trust me that I need the help."
+    },
+    "rewardText": "a fair share of what the order pays me, and a proper handshake",
+    "valence": "neutral",
+    "roleAffinity": ["ArtisanBlacksmith", "ArtisanAlchemist"]
+  },
+  {
+    "id": "obtaining_03",
+    "situation": "obtaining",
+    "objectives": [
+      { "type": "KILL_MOBS", "countMin": 5, "countMax": 8 },
+      { "type": "FETCH_ITEM" }
+    ],
+    "expositionText": "I've been wanting to restock properly for weeks now, but the {enemy_type_plural} have made it more bother than it's worth. If you took care of {kill_count} of them, I could actually get on with what I need to do.",
+    "acceptText": "Right then. I'll have something hot waiting when you're back.",
+    "declineText": "Suit yourself. I'll keep ducking around them like I have been.",
+    "expositionTurnInText": "That's a relief. The whole place feels lighter knowing they're handled. Now for the actual reason I needed them gone in the first place.",
+    "conflict1Text": "I need {quest_item} to keep things running properly here. It's not glamorous work, but it's what I'd be doing myself if the path weren't a problem. Bring me what you can.",
+    "conflict1TurnInText": "Just what I needed. You've saved me a couple of long days of grumbling. Sit down a minute and I'll fetch your due.",
+    "resolutionText": "Now I can actually get back to the work I'm supposed to be doing. Take {quest_reward} with my thanks. It's good to feel caught up for once.",
+    "rewardText": "a few coins from the till and a warm cup whenever you're passing through",
+    "valence": "neutral",
+    "roleAffinity": ["TavernKeeper", "Villager"]
+  },
+  {
+    "id": "recovery_01",
+    "situation": "recovery",
+    "objectives": [
+      { "type": "KILL_MOBS", "countMin": 4, "countMax": 7 },
+      { "type": "COLLECT_RESOURCES", "countMin": 6, "countMax": 12 }
+    ],
+    "expositionText": "{enemy_type_plural} tore through what we'd set aside for the cold months. Gone, just like that. I want {kill_count} of them put down before they come back to finish the job.",
+    "acceptText": "Finally. I've been waiting for someone to take this seriously.",
+    "declineText": "Of course. I'll deal with it, the way I deal with everything else.",
+    "expositionTurnInText": "That's a start. I can already feel the knot in my chest loosening. But knocking them down doesn't put back what they took.",
+    "conflict1Text": "I need {gather_count} {quest_item} to replace what we lost. It's the same thing they ruined, and I won't feel right until the shelves look the way they should. Help me put it back.",
+    "conflict1TurnInText": "Look at that. Almost like it never happened. Almost. Come inside, I want to settle this properly.",
+    "resolutionText": "We're whole again. That's what matters. Take {quest_reward} — you didn't just fix the problem, you gave me back the feeling that someone in this world cares whether things stay where they belong.",
+    "skillCheck": {
+      "skill": "INSIGHT",
+      "dc": 13,
+      "passText": "It's not really about the supplies, is it? I built that store with my own two hands over the last three years. Watching it disappear in one night made me feel like I'd never had it at all.",
+      "failText": "It's a practical loss. Practical losses need practical solutions."
+    },
+    "rewardText": "what little I have left in coin and a debt I'll remember",
+    "valence": "negative",
+    "roleAffinity": ["Villager", "ArtisanCook"]
+  },
+  {
+    "id": "recovery_02",
+    "situation": "recovery",
+    "objectives": [
+      { "type": "FETCH_ITEM" },
+      { "type": "TALK_TO_NPC" },
+      { "type": "KILL_MOBS", "countMin": 3, "countMax": 5 }
+    ],
+    "expositionText": "Something of mine went missing, and I need it back. {quest_item} — it doesn't sound like much, but it's been in my family longer than I have. If you spot one out there, please bring it to me.",
+    "acceptText": "Thank you. I've been sick over this for days. It means something to have help.",
+    "declineText": "I see how it is. I'll keep looking on my own, then.",
+    "expositionTurnInText": "That's it. That's actually it. I almost can't believe I'm holding it again. But I need to know how it ended up out there in the first place.",
+    "conflict1Text": "There's a {target_npc_role} in {target_npc_settlement} called {target_npc} who was around when it disappeared. They might know more than they let on. Would you go ask them what they remember?",
+    "conflict1TurnInText": "So {target_npc} told you the truth of it. I had a feeling. At least now I know what really happened, and I know what needs doing about it.",
+    "conflict2Text": "The {enemy_type_plural} that took advantage of all this are still out there. I want {kill_count} of them dealt with so I can stop looking over my shoulder every time I open the door.",
+    "conflict2TurnInText": "Good. That's the last piece. I can finally let myself rest about this.",
+    "resolutionText": "It's back where it belongs, and I know the full story for the first time. Take {quest_reward} — I want you to have it. You gave me back more than just an object.",
+    "skillCheck": {
+      "skill": "HISTORY",
+      "dc": 14,
+      "passText": "You recognize the make? Then you know it's older than this settlement. My grandmother carried it when there was nothing here but the road and a promise. Losing it felt like losing her again.",
+      "failText": "It's old. That's all anyone needs to know."
+    },
+    "rewardText": "the small purse I keep for emergencies and my honest thanks",
+    "valence": "negative",
+    "roleAffinity": ["Villager", "Traveler"]
+  },
+  {
+    "id": "recovery_03",
+    "situation": "recovery",
+    "objectives": [
+      { "type": "COLLECT_RESOURCES", "countMin": 8, "countMax": 14 },
+      { "type": "KILL_MOBS", "countMin": 3, "countMax": 6 }
+    ],
+    "expositionText": "I lost a full season's worth of {quest_item} to a single bad night. Years of effort, gone. I need {gather_count} of it brought back to me so I can pretend the disaster didn't happen.",
+    "acceptText": "Then I'm not entirely on my own with this. Good.",
+    "declineText": "Of course you'd say no. Why would today be any different.",
+    "expositionTurnInText": "That's most of what I'd lost. Looking at it stacked up again, I almost feel like myself. Almost — there's still the matter of what caused all this.",
+    "conflict1Text": "The {enemy_type_plural} that did this are still out there acting like they own the place. I want {kill_count} of them put down. Not for revenge — for the simple fact that I shouldn't have to live with the worry.",
+    "conflict1TurnInText": "There. Now I can sleep without expecting to wake up to another mess. I won't forget this.",
+    "resolutionText": "I'm whole again. Took longer than I'd have liked, but here we are. Take {quest_reward} — you helped me get back what I'd already mourned, and that's worth more than what I'm offering.",
+    "rewardText": "the silver I'd been saving for a better year and my deepest thanks",
+    "valence": "negative",
+    "roleAffinity": ["Villager", "ArtisanAlchemist"]
+  },
+  {
+    "id": "self_sacrifice_for_an_ideal_01",
+    "situation": "self_sacrifice_for_an_ideal",
+    "objectives": [
+      { "type": "COLLECT_RESOURCES", "countMin": 8, "countMax": 15 },
+      { "type": "KILL_MOBS", "countMin": 4, "countMax": 7 },
+      { "type": "FETCH_ITEM" }
+    ],
+    "expositionText": "I've been trying to keep things together for {settlement_name}, and I'm running out of {quest_item}. Bring me {gather_count} and I won't see this through without your help. I won't pretend it isn't a lot to ask.",
+    "acceptText": "That means more than you know. I haven't had someone in this with me for a long time.",
+    "declineText": "I understand. I'll keep at it the way I have been. The work doesn't stop just because I'm the only one doing it.",
+    "expositionTurnInText": "Look at all that. I haven't seen the supply this full in months. It's a real start, and it's all because you said yes.",
+    "conflict1Text": "The hardest part is that the {enemy_type_plural} keep undoing what we manage to put together. I need {kill_count} of them dealt with, or none of this matters by the end of the week.",
+    "conflict1TurnInText": "That should buy us some peace. I can already feel the difference in the way folks here are walking around. You gave them that.",
+    "conflict2Text": "There's one thing I've been needing for ages and could never lay hands on — {quest_item}. With that, I can finish what I set out to do. Could you find one for me?",
+    "conflict2TurnInText": "You actually found it. I want you to know I'd given up on ever holding one of these again. Come back tonight and let me give you what's owed.",
+    "resolutionText": "It's done. The thing I've been working toward all this time is finally where it should be. Take {quest_reward} — it isn't much, but it's everything I have, and the cause was always more important than what I kept for myself.",
+    "skillCheck": {
+      "skill": "INSIGHT",
+      "dc": 14,
+      "passText": "I haven't slept properly in months. Not because I'm afraid — because I keep thinking if I close my eyes too long, the whole effort will unravel. It's a foolish way to live, I know.",
+      "failText": "I'm doing what needs doing. There's not much more to say about it."
+    },
+    "rewardText": "what coin I haven't already given to the cause and a place at my table",
+    "valence": "neutral",
+    "roleAffinity": ["Villager", "Guard"]
+  },
+  {
+    "id": "self_sacrifice_for_an_ideal_02",
+    "situation": "self_sacrifice_for_an_ideal",
+    "objectives": [
+      { "type": "COLLECT_RESOURCES", "countMin": 6, "countMax": 12 },
+      { "type": "KILL_MOBS", "countMin": 5, "countMax": 9 },
+      { "type": "COLLECT_RESOURCES", "countMin": 4, "countMax": 8 },
+      { "type": "TALK_TO_NPC" }
+    ],
+    "expositionText": "I made a promise to watch over {settlement_name} when no one else would, and I've kept it. But I can't do it alone any longer. I need {gather_count} {quest_item} to keep going through the next stretch.",
+    "acceptText": "Thank you. Truly. You've just shouldered something I've been carrying alone.",
+    "declineText": "Then I keep going alone. The promise doesn't bend just because help didn't come today.",
+    "expositionTurnInText": "Every bit of this matters. I can feel the slack going out of the rope. There's still more to handle before I can call it good.",
+    "conflict1Text": "The {enemy_type_plural} keep testing us. I need {kill_count} of them dealt with so the rest of what we're doing here isn't undone in a single night.",
+    "conflict1TurnInText": "That's the kind of help I prayed for and stopped expecting. The folks here can rest a little easier tonight because of you.",
+    "conflict2Text": "There's one more thing I need from you, and then I think we're close. I'm short {gather_count} {quest_item} — bring it back and we can finish this properly.",
+    "conflict2TurnInText": "Good. That's the last of what I needed from out there. There's only one piece left, and it isn't something I can fetch with my own hands.",
+    "conflict3Text": "I need word sent to a {target_npc_role} called {target_npc} in {target_npc_settlement}. They've helped me before and they'll know what to do once they hear how far we've come. Would you carry the message?",
+    "conflict3TurnInText": "You spoke to {target_npc}? Then it's really happening. I can hardly believe I'm saying that out loud after all this time.",
+    "resolutionText": "I gave everything I had to this and it was almost not enough. You made the difference. Take {quest_reward} — I held it back for the worst day, and instead I get to give it to you on the best one.",
+    "skillCheck": {
+      "skill": "PERCEPTION",
+      "dc": 13,
+      "passText": "You see the way I'm favoring my left side? An old injury I never had time to let heal properly. I'll get to it eventually. Maybe when this is finally done.",
+      "failText": "I'm fine. Just tired in the way anyone my age would be."
+    },
+    "rewardText": "the coin I set aside for myself and never spent, and my word as long as I have one",
+    "valence": "neutral",
+    "roleAffinity": ["Guard", "Villager"]
+  },
+  {
+    "id": "self_sacrifice_for_an_ideal_03",
+    "situation": "self_sacrifice_for_an_ideal",
+    "objectives": [
+      { "type": "FETCH_ITEM" },
+      { "type": "KILL_MOBS", "countMin": 4, "countMax": 7 }
+    ],
+    "expositionText": "I keep this place running because somebody has to, and lately that somebody is only me. I'm short on {quest_item}, and without it I won't be able to keep my doors open by week's end. Help me find one.",
+    "acceptText": "I appreciate it more than I can say. Folks here need somewhere to come in out of the dark.",
+    "declineText": "I'll keep looking on my own. The work doesn't end because one person walked away from it.",
+    "expositionTurnInText": "There it is. That'll keep me going for a good while yet. There's one more thing I need handled before I can settle into the work properly.",
+    "conflict1Text": "The {enemy_type_plural} have been making the road in unsafe for travelers and locals alike. I need {kill_count} of them put down — not for me, for everyone who counts on this place being a refuge.",
+    "conflict1TurnInText": "That's the kind of thing that lets people sleep without their boots on. You've done more than you know.",
+    "resolutionText": "I can keep doing what I set out to do, and that's because of you. Take {quest_reward} — it's what I'd have spent on the work anyway, and I'd rather it go to the person who made the work possible.",
+    "rewardText": "the modest purse I keep for hard days and a bed here whenever you need one",
+    "valence": "neutral",
+    "roleAffinity": ["TavernKeeper", "Villager"]
+  }
+]
