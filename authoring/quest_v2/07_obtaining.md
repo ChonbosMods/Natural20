@@ -46,11 +46,11 @@ Practical satisfaction. The NPC is getting what they need, step by step. The app
 
 Satisfied. The NPC has what they needed and life can proceed. The tone is warm and even — a completed transaction between people who helped each other out. The reward should feel fair and appropriate, not grand.
 
-### `skillcheckPassText`
+### `skillCheck.passText`
 
 The NPC reveals why this particular need matters more than it seems — a personal reason, a time pressure, or a consequence of not having it that they downplayed. Best fit skills: INSIGHT (the need is emotionally loaded in a way the NPC didn't let on), PERSUASION (NPC admits they've been trying to get this for a while and are more frustrated than they showed), PERCEPTION (player notices the NPC's current workaround for not having the thing and it's clearly inadequate), INVESTIGATION (player asks why they can't get it themselves and the answer reveals a complication).
 
-### `skillcheckFailText`
+### `skillCheck.failText`
 
 The NPC keeps it simple. The need is what it is.
 

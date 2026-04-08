@@ -52,11 +52,11 @@ Pieces clicking together. The NPC is processing the answer or near-answer. Their
 
 Clarity. The NPC's question has been answered. The emotional landing depends on the answer's nature, but the NPC should feel *settled* — the itch has been scratched, the nagging thought has been put to rest. Even if the answer is disappointing or sad, knowing is better than wondering. The NPC should sound like someone who can finally stop thinking about this. The reward should feel like genuine appreciation for intellectual partnership, not payment for services.
 
-### `skillcheckPassText`
+### `skillCheck.passText`
 
 The NPC shares a hunch they've been holding back — a suspicion too specific or too strange to voice without knowing if the other person would take it seriously. The passed check means the player seems sharp enough to hear it. The hunch should add texture to the mystery without giving away the answer. Best fit skills: INVESTIGATION (player asks the right probing question), INSIGHT (NPC trusts the player's judgment enough to speculate openly), PERCEPTION (player notices a detail that confirms the NPC's unspoken theory), NATURE (if the mystery involves animal behavior or environmental patterns the NPC has observed but can't explain), HISTORY (player recognizes the pattern from something that happened before in the region).
 
-### `skillcheckFailText`
+### `skillCheck.failText`
 
 The hunch stays private. The NPC gives the surface-level version of their concern. The deflection should feel like the NPC self-editing — they were about to say something more specific and decided against it.
 

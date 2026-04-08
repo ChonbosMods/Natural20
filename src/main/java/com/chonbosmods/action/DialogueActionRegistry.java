@@ -54,7 +54,16 @@ public class DialogueActionRegistry {
     public static final String GIVE_QUEST = "GIVE_QUEST";
     public static final String COMPLETE_QUEST = "COMPLETE_QUEST";
     public static final String TURN_IN_PHASE = "TURN_IN_PHASE";
+    /** First half of the v2 turn-in flow: consumes objective items, claims the reward,
+     *  and parks the quest in {@link com.chonbosmods.quest.QuestState#AWAITING_CONTINUATION}.
+     *  Idempotent: re-firing in AWAITING_CONTINUATION is a no-op so closing the dialog
+     *  mid-flow and re-clicking the topic doesn't double-consume or double-reward. */
     public static final String TURN_IN_V2 = "TURN_IN_V2";
+    /** Second half of the v2 turn-in flow: advances {@code conflictCount}, sets up the
+     *  next objective (POI placement, markers), and either transitions to OBJECTIVE_PENDING
+     *  for the next conflict or COMPLETED. Fired by the [CONTINUE] response after the
+     *  turn-in narration is shown. */
+    public static final String CONTINUE_QUEST = "CONTINUE_QUEST";
     public static final String SKILL_CHECK = "SKILL_CHECK";
     public static final String FORCE_CLOSE = "FORCE_CLOSE";
     public static final String COMPLETE_TALK_TO_NPC = "COMPLETE_TALK_TO_NPC";
@@ -62,17 +71,15 @@ public class DialogueActionRegistry {
     public static final String CHANGE_REPUTATION = "CHANGE_REPUTATION";
     public static final String EXHAUST_TOPIC = "EXHAUST_TOPIC";
     public static final String REACTIVATE_TOPIC = "REACTIVATE_TOPIC";
+    /** Stamps the {@code skillcheckPassed} flag on an NPC's pre-generated quest before
+     *  GIVE_QUEST fires, so TURN_IN_V2 can apply the skillcheck pass reward bonus.
+     *  Fired from the pass branch of a quest's accept-phase skill check. */
+    public static final String MARK_SKILLCHECK_PASSED = "MARK_SKILLCHECK_PASSED";
 
     // v2 quest flow constants
-    private static final double CONFLICT_1_CHANCE = 0.40;
-    private static final double CONFLICT_2_CHANCE = 0.10;
-    private static final int MAX_CONFLICTS = 2;
     private static final double BASE_REWARD_MULTIPLIER = 1.0;
     private static final double CONFLICT_REWARD_BONUS = 0.5;
     private static final double SKILLCHECK_PASS_REWARD_BONUS = 0.25;
-    private static final double SKILLCHECK_PASS_CHANCE = 0.50;
-    private static final int SKILLCHECK_PASS_DISPOSITION_BONUS = 5;
-    private static final int SKILLCHECK_FAIL_DISPOSITION_PENALTY = -2;
 
     private final Map<String, DialogueAction> actions = new HashMap<>();
 
@@ -201,6 +208,11 @@ public class DialogueActionRegistry {
         });
 
         register(TURN_IN_V2, (ctx, params) -> {
+            // Phase 1 of the v2 turn-in flow: irreversibly consume objective items,
+            // claim the reward, and park the quest in AWAITING_CONTINUATION. The
+            // dialog then displays the turn-in narration and offers [CONTINUE].
+            // Re-firing in AWAITING_CONTINUATION is a no-op so closing the dialog
+            // mid-flow and re-clicking the topic doesn't double-consume.
             QuestSystem questSystem = Natural20.getInstance().getQuestSystem();
             if (questSystem == null) return;
 
@@ -219,8 +231,21 @@ public class DialogueActionRegistry {
                 }
             }
 
-            if (quest == null || quest.getState() != com.chonbosmods.quest.QuestState.READY_FOR_TURN_IN) {
-                LOGGER.atWarning().log("TURN_IN_V2: no quest ready for turn-in from NPC %s", ctx.npcId());
+            if (quest == null) {
+                LOGGER.atWarning().log("TURN_IN_V2: no quest found for NPC %s", ctx.npcId());
+                return;
+            }
+
+            // Idempotency guard: only the first call (READY_FOR_TURN_IN) consumes
+            // items and claims the reward. Re-clicks in AWAITING_CONTINUATION fall
+            // through silently so the player can re-read the turn-in text.
+            if (quest.getState() == com.chonbosmods.quest.QuestState.AWAITING_CONTINUATION) {
+                LOGGER.atFine().log("TURN_IN_V2: quest %s already in AWAITING_CONTINUATION, skipping consume/reward", quest.getQuestId());
+                return;
+            }
+            if (quest.getState() != com.chonbosmods.quest.QuestState.READY_FOR_TURN_IN) {
+                LOGGER.atWarning().log("TURN_IN_V2: quest %s not in READY_FOR_TURN_IN (state=%s)",
+                    quest.getQuestId(), quest.getState());
                 return;
             }
 
@@ -242,13 +267,47 @@ public class DialogueActionRegistry {
             quest.claimReward(quest.getConflictCount());
             ctx.dispositionUpdater().accept(QuestDispositionConstants.QUEST_PHASE_TURNED_IN);
 
-            // Clear source NPC turn-in marker
+            // Park in AWAITING_CONTINUATION. Marker stays on the source NPC and the
+            // return waypoint stays on the map until CONTINUE_QUEST runs.
+            quest.setState(com.chonbosmods.quest.QuestState.AWAITING_CONTINUATION);
+            saveQuest(questSystem, ctx.playerData(), quest);
+            LOGGER.atInfo().log("TURN_IN_V2: quest %s phase %d turned in (multiplier=%.2f), awaiting continuation",
+                quest.getQuestId(), quest.getConflictCount(), multiplier);
+        });
+
+        register(CONTINUE_QUEST, (ctx, params) -> {
+            // Phase 2 of the v2 turn-in flow: advance conflictCount and set up the
+            // next objective (POI, markers), or finalize the quest if no more
+            // conflicts remain. Only valid in AWAITING_CONTINUATION.
+            QuestSystem questSystem = Natural20.getInstance().getQuestSystem();
+            if (questSystem == null) return;
+
+            String questId = params.get("questId");
+            QuestInstance quest;
+            if (questId != null) {
+                quest = questSystem.getStateManager().getQuest(ctx.playerData(), questId);
+            } else {
+                quest = null;
+                for (QuestInstance q : questSystem.getStateManager().getActiveQuests(ctx.playerData()).values()) {
+                    if (ctx.npcId().equals(q.getSourceNpcId())
+                            && q.getState() == com.chonbosmods.quest.QuestState.AWAITING_CONTINUATION) {
+                        quest = q;
+                        break;
+                    }
+                }
+            }
+
+            if (quest == null || quest.getState() != com.chonbosmods.quest.QuestState.AWAITING_CONTINUATION) {
+                LOGGER.atWarning().log("CONTINUE_QUEST: no quest awaiting continuation from NPC %s", ctx.npcId());
+                return;
+            }
+
+            // Clear source NPC turn-in marker now that the player is moving on
             clearSourceNpcMarker(quest);
 
             // Try to advance to next conflict, or complete the quest
             boolean advanceToConflict = false;
             if (quest.hasMoreConflicts()) {
-                // Peek at next objective and try to resolve it before committing
                 int nextIndex = quest.getConflictCount() + 1;
                 ObjectiveInstance nextObj = nextIndex < quest.getObjectives().size()
                     ? quest.getObjectives().get(nextIndex) : null;
@@ -257,7 +316,7 @@ public class DialogueActionRegistry {
                 }
                 if (!advanceToConflict) {
                     LOGGER.atWarning().log(
-                        "TURN_IN_V2: conflict %d objective unresolvable for quest %s " +
+                        "CONTINUE_QUEST: conflict %d objective unresolvable for quest %s " +
                         "(type=%s, targetId=%s, hasPoi=%s). Skipping to resolution.",
                         nextIndex, quest.getQuestId(),
                         nextObj != null ? nextObj.getType() : "null",
@@ -302,14 +361,14 @@ public class DialogueActionRegistry {
                 ctx.systemLogger().accept("New objective: " + summary);
 
                 saveQuest(questSystem, ctx.playerData(), quest);
-                LOGGER.atInfo().log("TURN_IN_V2: quest %s advanced to conflict %d/%d",
+                LOGGER.atInfo().log("CONTINUE_QUEST: quest %s advanced to conflict %d/%d",
                     quest.getQuestId(), quest.getConflictCount(), quest.getMaxConflicts());
             } else {
                 quest.setState(com.chonbosmods.quest.QuestState.COMPLETED);
                 ctx.dispositionUpdater().accept(QuestDispositionConstants.QUEST_COMPLETED);
                 questSystem.getStateManager().markQuestCompleted(ctx.playerData(), quest.getQuestId());
                 ctx.systemLogger().accept("Quest completed: " + quest.getSituationId());
-                LOGGER.atInfo().log("TURN_IN_V2: quest %s completed", quest.getQuestId());
+                LOGGER.atInfo().log("CONTINUE_QUEST: quest %s completed", quest.getQuestId());
             }
 
             QuestMarkerProvider.refreshMarkers(
@@ -404,6 +463,32 @@ public class DialogueActionRegistry {
                 ctx.playerData().setTopicEntryOverride(ctx.npcId(), topicId, newEntryNodeId);
             }
             ctx.topicReactivator().accept(topicId);
+        });
+
+        register(MARK_SKILLCHECK_PASSED, (ctx, params) -> {
+            // Look up the NPC's pre-generated quest and stamp the passed flag.
+            // Fired from the pass branch of an accept-phase skill check, before
+            // GIVE_QUEST adds the quest to the player's active list. The flag rides
+            // along on the same QuestInstance reference, so TURN_IN_V2's reward
+            // multiplier applies SKILLCHECK_PASS_REWARD_BONUS automatically.
+            String cellKey = ctx.npcData() != null ? ctx.npcData().getSettlementCellKey() : "";
+            SettlementRegistry settlements = Natural20.getInstance().getSettlementRegistry();
+            if (settlements == null || cellKey == null || cellKey.isEmpty()) {
+                LOGGER.atWarning().log("MARK_SKILLCHECK_PASSED: no settlement registry or cell key for NPC %s", ctx.npcId());
+                return;
+            }
+            SettlementRecord settlement = settlements.getByCell(cellKey);
+            if (settlement == null) {
+                LOGGER.atWarning().log("MARK_SKILLCHECK_PASSED: settlement not found for cell %s", cellKey);
+                return;
+            }
+            NpcRecord npcRecord = settlement.getNpcByName(ctx.npcId());
+            if (npcRecord == null || npcRecord.getPreGeneratedQuest() == null) {
+                LOGGER.atWarning().log("MARK_SKILLCHECK_PASSED: no pre-generated quest for NPC %s", ctx.npcId());
+                return;
+            }
+            npcRecord.getPreGeneratedQuest().setSkillcheckPassed(true);
+            LOGGER.atInfo().log("MARK_SKILLCHECK_PASSED: stamped pass flag on pre-generated quest for NPC %s", ctx.npcId());
         });
     }
 

@@ -52,11 +52,11 @@ Not gratitude — acknowledgment. The NPC respects what was done. Still cold. Bu
 
 The defining field. The NPC got what they wanted. The tone is "settled" — not triumphant, not joyful, not relieved. The anger has gone somewhere but it didn't become something positive. The NPC might feel hollow, quiet, or grimly at peace. They are not worse off, but they are not healed. The reward should feel like a transaction being closed, not a gift being given. The player should walk away thinking about the NPC's state of mind.
 
-### `skillcheckPassText`
+### `skillCheck.passText`
 
 The real wound. Underneath the cold anger is something the NPC will not volunteer: the specific moment of loss, betrayal, or humiliation that started this. A passed check peels back the bitterness and shows the hurt. For one beat, the NPC is not vengeful — they are wounded. Best fit skills: INSIGHT (emotional truth under the anger), PERSUASION (NPC trusts you enough to stop performing toughness), PERCEPTION (player notices physical signs of grief the NPC is hiding), HISTORY (player recognizes the pattern — this isn't the first time this has happened to the NPC or their people), INVESTIGATION (player catches an inconsistency in the NPC's account that reveals the grievance is more personal than stated).
 
-### `skillcheckFailText`
+### `skillCheck.failText`
 
 The armor stays up. The NPC gives you the mission, not the reason. The deflection should feel like a wall going up — deliberate, practiced. The NPC does not want your understanding. They want your sword.
 

@@ -46,11 +46,11 @@ Growing satisfaction. The NPC sees the problem being systematically addressed. T
 
 Clean satisfaction. The threat is handled. The NPC sounds like someone who can finally stop worrying about this and get back to their life. Not triumphant — just done. The problem existed, it was dealt with, life continues. The reward is practical and proportionate.
 
-### `skillcheckPassText`
+### `skillCheck.passText`
 
 The NPC reveals the specific incident that was the last straw, or shares tactical knowledge about the threat they've gathered from experience. Best fit skills: NATURE (player demonstrates knowledge of the threat's behavior or patterns), PERCEPTION (player notices signs of the threat the NPC has been tracking), INVESTIGATION (player asks about the pattern and the NPC reveals more detail), INSIGHT (the NPC admits this is about more than just the threat — it's about feeling safe again), HISTORY (player recognizes this type of threat and how it was dealt with before).
 
-### `skillcheckFailText`
+### `skillCheck.failText`
 
 The NPC stays tactical. The personal dimension or the deeper intel stays private.
 

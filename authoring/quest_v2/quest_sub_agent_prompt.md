@@ -122,6 +122,22 @@ Quest dialogue shares the same voice principles as smalltalk — first person, c
 
 ---
 
+## Topic Headers
+
+Every template must include a `topicHeader` — a short label (recommended 2-4 words, max 6) that serves as the topic button text in the dialogue UI, the quest title in the journal, and the waypoint marker label. It must work in all of those contexts across every quest phase.
+
+**Rules:**
+- **Recommended 2-4 words; max 6.** Fits on a button, a journal entry, and a waypoint. Two to four is the sweet spot, six is the hard ceiling.
+- **No template variables.** Static string — no `{enemy_type}`, `{settlement_name}`, or anything resolved at runtime.
+- **Evocative, not descriptive.** "Troubled Waters" not "Kill The Goblins." Hints at tone without revealing content.
+- **Feels like a conversation topic.** Something you'd bring up with a neighbor, not a quest log entry.
+- **Reflects the situation's emotional register.** Vengeance headers feel cold ("What's Owed"). Supplication headers feel heavy ("No Other Choice"). Obtaining headers feel light ("A Small Favor").
+- **No spoilers.** The player sees this before the exposition.
+- **Works across all phases.** Same label for initiation, every turn-in, and the waypoint throughout. Test: does this still make sense when the player returns to turn in the final objective?
+- **Unique within the catalog.** No two templates share a header.
+
+---
+
 ## Variable Scoping
 
 Per-objective variables are field-locked. This table is the law:
@@ -229,6 +245,8 @@ Run every check on every template before outputting. Do not skip any step.
 - [ ] No forbidden smalltalk variables anywhere
 
 **Structure:**
+- [ ] `topicHeader` is recommended 2-4 words (max 6), no variables, evocative not mechanical, works across all phases
+- [ ] `topicHeader` is unique — not reused from another template in this batch
 - [ ] objectives array length = 1 + number of conflict phases
 - [ ] Every objective in the chain is referenced in its corresponding text field
 - [ ] Only objective types available for this situation are used

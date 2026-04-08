@@ -48,11 +48,11 @@ The NPC processes each piece of recovery with growing satisfaction. Not celebrat
 
 Vindication. The NPC has what was theirs again, or has rebuilt what was lost. The world is back in balance. The tone is satisfaction and restored dignity, not triumph. The NPC should sound like someone who can finally move on. The reward is offered with the sense of "you helped me set things right."
 
-### `skillcheckPassText`
+### `skillCheck.passText`
 
 The NPC reveals why the lost thing matters more than its practical value — a personal connection, a memory, a principle. Or the NPC admits the loss exposed a vulnerability they don't want others to know about. Best fit skills: INSIGHT (the emotional weight behind the material loss), INVESTIGATION (player pieces together how the loss happened and it's more embarrassing or concerning than the NPC let on), PERSUASION (NPC admits the loss has shaken their confidence), PERCEPTION (player notices the NPC has been compensating for the loss in visible ways), HISTORY (the lost item has history the NPC didn't mention).
 
-### `skillcheckFailText`
+### `skillCheck.failText`
 
 The NPC keeps it practical. The loss is stated as a material problem, not a personal one.
 

@@ -48,11 +48,11 @@ The NPC processes disconfirming evidence. Early turn-ins show denial or reinterp
 
 Sheepish and relieved. The NPC has accepted they were wrong. The dominant emotion is embarrassment with an undercurrent of genuine relief — the person they suspected is innocent, the threat they imagined doesn't exist, and the world is less sinister than they feared. The NPC might ask the player not to mention this to anyone. The reward should feel like an apology offering as much as a payment.
 
-### `skillcheckPassText`
+### `skillCheck.passText`
 
 The NPC reveals what's actually driving the suspicion — insecurity, fear of being left out, a past experience with betrayal that has nothing to do with the current situation. The jealousy has a root, and it's personal, not rational. Best fit skills: INSIGHT (the emotional root of the jealousy), PERSUASION (NPC admits they want to be wrong), PERCEPTION (player notices the NPC is more anxious than angry — this is fear, not conviction), INVESTIGATION (player probes the evidence and the NPC realizes it's thinner than they thought), HISTORY (the NPC reveals a past betrayal that made them hypervigilant).
 
-### `skillcheckFailText`
+### `skillCheck.failText`
 
 The NPC stays in accusation mode. The personal root of the suspicion stays buried.
 

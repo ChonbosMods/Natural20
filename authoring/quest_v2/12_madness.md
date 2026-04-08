@@ -50,11 +50,11 @@ The NPC processes each new piece of understanding. Their worry shifts form — f
 
 Relieved or bittersweet. The person in crisis is better, or at least understood. The NPC may not have a neat answer — "they're going to be okay" or "they needed space, and now I understand why." The resolution should honor the complexity of the situation. The reward should feel like a deeply personal thank-you.
 
-### `skillcheckPassText`
+### `skillCheck.passText`
 
 The NPC reveals their own fear — that they somehow caused the person's crisis, or that they should have noticed sooner, or that they're afraid of losing the relationship. The passed check shows the NPC's vulnerability about their own role. Best fit skills: INSIGHT (NPC's self-blame or deeper fear), PERSUASION (NPC trusts enough to admit feeling helpless), PERCEPTION (player notices the NPC is more affected than they're showing), INVESTIGATION (player asks about the timeline and the NPC realizes they missed early signs), NATURE (if the behavior relates to seasonal patterns or environmental stress the NPC hadn't considered).
 
-### `skillcheckFailText`
+### `skillCheck.failText`
 
 The NPC stays focused on the other person. Their own emotional stake remains private.
 

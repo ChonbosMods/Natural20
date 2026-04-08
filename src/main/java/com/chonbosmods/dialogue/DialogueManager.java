@@ -377,7 +377,11 @@ public class DialogueManager {
             declineText, null, List.of(), List.of(), true, true, ValenceType.NEGATIVE
         ));
 
-        // Entry node: exposition text with ACCEPT/DECLINE options
+        // Entry node: exposition text with ACCEPT/DECLINE options. If the template
+        // defines a skill check, a third option is appended that routes through a
+        // SkillCheckNode -> pass/fail node, where the player can still ACCEPT/DECLINE
+        // after the reveal. The pass branch additionally fires MARK_SKILLCHECK_PASSED
+        // (via onEnter) so TURN_IN_V2's reward multiplier picks up the bonus.
         List<ResponseOption> responses = new ArrayList<>();
         responses.add(new ResponseOption(
             topicId + "_accept_opt", "ACCEPT", null, acceptNodeId,
@@ -387,7 +391,74 @@ public class DialogueManager {
             topicId + "_decline_opt", "DECLINE", null, declineNodeId,
             ResponseMode.DECISIVE, null, null, null, null
         ));
-        // TODO: skill check option (deferred)
+
+        String skillName = b.get("quest_skillcheck_skill");
+        String dcRaw = b.get("quest_skillcheck_dc");
+        if (skillName != null && dcRaw != null) {
+            try {
+                com.chonbosmods.stats.Skill skill = com.chonbosmods.stats.Skill.valueOf(skillName);
+                int dc = Integer.parseInt(dcRaw);
+                String passText = DialogueResolver.resolveQuestText(
+                    b.getOrDefault("quest_skillcheck_pass_text", ""), b, expositionObj);
+                String failText = DialogueResolver.resolveQuestText(
+                    b.getOrDefault("quest_skillcheck_fail_text", ""), b, expositionObj);
+
+                String checkNodeId = topicId + "_check";
+                String passNodeId  = topicId + "_check_pass";
+                String failNodeId  = topicId + "_check_fail";
+
+                // Pass node: reveals deeper layer, then offers ACCEPT/DECLINE again so
+                // the player chooses with the new information. onEnter stamps the
+                // skillcheck-passed flag on the NPC's pre-generated quest.
+                List<ResponseOption> passResponses = new ArrayList<>();
+                passResponses.add(new ResponseOption(
+                    topicId + "_pass_accept_opt", "ACCEPT", null, acceptNodeId,
+                    ResponseMode.DECISIVE, null, null, null, null
+                ));
+                passResponses.add(new ResponseOption(
+                    topicId + "_pass_decline_opt", "DECLINE", null, declineNodeId,
+                    ResponseMode.DECISIVE, null, null, null, null
+                ));
+                graph.nodes().put(passNodeId, new DialogueNode.DialogueTextNode(
+                    passText, null, passResponses,
+                    List.of(Map.of("type", DialogueActionRegistry.MARK_SKILLCHECK_PASSED)),
+                    false, false, ValenceType.POSITIVE
+                ));
+
+                // Fail node: NPC deflects; player still gets ACCEPT/DECLINE.
+                List<ResponseOption> failResponses = new ArrayList<>();
+                failResponses.add(new ResponseOption(
+                    topicId + "_fail_accept_opt", "ACCEPT", null, acceptNodeId,
+                    ResponseMode.DECISIVE, null, null, null, null
+                ));
+                failResponses.add(new ResponseOption(
+                    topicId + "_fail_decline_opt", "DECLINE", null, declineNodeId,
+                    ResponseMode.DECISIVE, null, null, null, null
+                ));
+                graph.nodes().put(failNodeId, new DialogueNode.DialogueTextNode(
+                    failText, null, failResponses, List.of(), false, false, ValenceType.NEUTRAL
+                ));
+
+                // Skill check node: routes pass/fail.
+                graph.nodes().put(checkNodeId, new DialogueNode.SkillCheckNode(
+                    skill, null, dc, false, passNodeId, failNodeId, List.of()
+                ));
+
+                // Third response option on the entry node: triggers the check.
+                // Uses skillCheckRef instead of targetNodeId; ConversationSession
+                // routes selections with skillCheckRef directly to the SkillCheckNode.
+                responses.add(new ResponseOption(
+                    topicId + "_check_opt",
+                    skill.buttonText(),
+                    null, null,
+                    ResponseMode.DECISIVE, null,
+                    checkNodeId, null, null
+                ));
+            } catch (IllegalArgumentException e) {
+                LOGGER.atWarning().log("Quest %s skill check has invalid skill='%s' or dc='%s', skipping check option",
+                    questId, skillName, dcRaw);
+            }
+        }
 
         graph.nodes().put(entryNodeId, new DialogueNode.DialogueTextNode(
             expositionText, null, responses, List.of(), false, false, ValenceType.NEUTRAL
@@ -404,8 +475,20 @@ public class DialogueManager {
     }
 
     /**
-     * Inject turn-in topic for quests in READY_FOR_TURN_IN state.
-     * Builds: turn-in text -> [Turn in] -> TURN_IN_V2 action -> conflict text or resolution text.
+     * Inject turn-in topic for quests in READY_FOR_TURN_IN or AWAITING_CONTINUATION state.
+     *
+     * <p>Flow: clicking the topic enters an entry node whose {@code onEnter} fires
+     * TURN_IN_V2 (consumes items, claims reward, parks in AWAITING_CONTINUATION). The
+     * entry node's speech is the turn-in narration the player reads as a result of
+     * the action. A single [CONTINUE] response then routes through a CONTINUE_QUEST
+     * action node which advances {@code conflictCount}, sets up the next objective,
+     * and lands on the conflict-text or resolution node.
+     *
+     * <p>The two-phase split exists so that closing the dialog after seeing the
+     * turn-in text but before clicking [CONTINUE] is safe: the consume/reward work
+     * is already done (and TURN_IN_V2 no-ops on re-fire), but the next objective
+     * isn't placed until the player explicitly continues. Re-opening the dialog
+     * re-injects the topic with the same turn-in text and the same [CONTINUE] route.
      */
     private void injectQuestTurnInTopics(DialogueGraph graph, String npcId, Nat20PlayerData playerData) {
         QuestSystem questSystem = Natural20.getInstance().getQuestSystem();
@@ -414,7 +497,9 @@ public class DialogueManager {
         Map<String, QuestInstance> quests = questSystem.getStateManager().getActiveQuests(playerData);
         for (QuestInstance quest : quests.values()) {
             if (!npcId.equals(quest.getSourceNpcId())) continue;
-            if (quest.getState() != com.chonbosmods.quest.QuestState.READY_FOR_TURN_IN) continue;
+            com.chonbosmods.quest.QuestState qs = quest.getState();
+            if (qs != com.chonbosmods.quest.QuestState.READY_FOR_TURN_IN
+                    && qs != com.chonbosmods.quest.QuestState.AWAITING_CONTINUATION) continue;
 
             String questId = quest.getQuestId();
             Map<String, String> b = quest.getVariableBindings();
@@ -430,7 +515,10 @@ public class DialogueManager {
             String turnInTextKey = switch (cc) {
                 case 0 -> "quest_exposition_turnin_text";
                 case 1 -> "quest_conflict1_turnin_text";
-                default -> "quest_conflict2_turnin_text";
+                case 2 -> "quest_conflict2_turnin_text";
+                case 3 -> "quest_conflict3_turnin_text";
+                case 4 -> "quest_conflict4_turnin_text";
+                default -> "quest_exposition_turnin_text";
             };
             String turnInText = DialogueResolver.resolveQuestText(
                 b.getOrDefault(turnInTextKey, "You're back. Tell me what happened."), b, currentObj);
@@ -438,7 +526,10 @@ public class DialogueManager {
             // Conflict text (for the NEXT conflict, if triggered)
             String conflictTextKey = switch (cc) {
                 case 0 -> "quest_conflict1_text";
-                default -> "quest_conflict2_text";
+                case 1 -> "quest_conflict2_text";
+                case 2 -> "quest_conflict3_text";
+                case 3 -> "quest_conflict4_text";
+                default -> "";
             };
             String conflictText = DialogueResolver.resolveQuestText(
                 b.getOrDefault(conflictTextKey, ""), b, nextObj);
@@ -451,7 +542,7 @@ public class DialogueManager {
 
             String topicId = "questturnin_" + questId + "_c" + cc;
             String entryNodeId = topicId + "_entry";
-            String actionNodeId = topicId + "_action";
+            String continueNodeId = topicId + "_continue";
             String conflictNodeId = topicId + "_conflict";
             String resolutionNodeId = topicId + "_resolution";
 
@@ -467,21 +558,30 @@ public class DialogueManager {
                 ));
             }
 
-            // TURN_IN_V2 action: next node is deterministic (decided at quest generation)
-            String afterTurnIn = quest.hasMoreConflicts() ? conflictNodeId : resolutionNodeId;
-            graph.nodes().put(actionNodeId, new DialogueNode.ActionNode(
-                List.of(Map.of("type", "TURN_IN_V2", "questId", questId)),
-                afterTurnIn, List.of(), true
+            // [CONTINUE] target is deterministic (decided at quest generation): next
+            // conflict node if more conflicts are queued, otherwise the resolution.
+            String afterContinue = quest.hasMoreConflicts() ? conflictNodeId : resolutionNodeId;
+
+            // Continue action node: fires CONTINUE_QUEST (advances conflictCount,
+            // sets up next objective POI/markers) and lands on the conflict or
+            // resolution text node.
+            graph.nodes().put(continueNodeId, new DialogueNode.ActionNode(
+                List.of(Map.of("type", DialogueActionRegistry.CONTINUE_QUEST, "questId", questId)),
+                afterContinue, List.of(), false
             ));
 
-            // Entry node: turn-in text with [Turn in] button
+            // Entry node: TURN_IN_V2 fires onEnter (items consumed, reward stamped,
+            // state parked in AWAITING_CONTINUATION) so the turn-in text reads as
+            // the narration of the action that just occurred. [CONTINUE] then routes
+            // through the action node above.
             graph.nodes().put(entryNodeId, new DialogueNode.DialogueTextNode(
                 turnInText, null,
                 List.of(new ResponseOption(
-                    topicId + "_turnin_resp", "[Turn in]", null, actionNodeId,
+                    topicId + "_continue_resp", "[CONTINUE]", null, continueNodeId,
                     ResponseMode.DECISIVE, null, null, null, null
                 )),
-                List.of(), false, false, ValenceType.NEUTRAL
+                List.of(Map.of("type", DialogueActionRegistry.TURN_IN_V2, "questId", questId)),
+                false, false, ValenceType.NEUTRAL
             ));
 
             // Topic: same header as the quest, priority sort, quest-flagged

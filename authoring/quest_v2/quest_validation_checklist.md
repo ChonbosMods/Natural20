@@ -76,6 +76,18 @@ Human-review checklist for spot-checking sub-agent quest template output. For ea
 - [ ] failText does not reveal the same information as passText in reduced form
 - [ ] DC is reasonable for the situation (not trivially easy, not impossibly hard)
 
+## Topic Header
+
+- [ ] `topicHeader` field is present
+- [ ] Recommended 2-4 words; maximum 6
+- [ ] No template variables
+- [ ] Evocative, not descriptive or mechanical ("A Debt Unpaid" not "Kill Goblins")
+- [ ] Does not spoil the quest plot
+- [ ] Reads naturally as a conversation topic label
+- [ ] Reflects the situation's emotional register
+- [ ] Works as both an initiation label and a turn-in label
+- [ ] Unique across the catalog — no other template shares this header
+
 ## Objective Chain
 
 - [ ] Every objective type used is listed as available for this situation (check the situation document)
@@ -120,3 +132,7 @@ If you see any of these, the template should be rejected or rewritten:
 | Same objective chain as another template in the batch | Insufficient variety. |
 | "Old Garm who lives past the hill told me..." | Invented character (unless "Old Garm" is `{settlement_npc}`). |
 | NPC says "escort" / "deliver" / "protect" | Objective types that don't exist yet. |
+| Topic header > 6 words | Too long for UI and waypoint. (2-4 recommended.) |
+| Topic header contains `{variable}` | Headers are static strings. |
+| Topic header is mechanical ("Kill Quest") | Must feel like a conversation topic. |
+| Topic header duplicates another template | Must be unique across catalog. |

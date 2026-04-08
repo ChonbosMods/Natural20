@@ -50,11 +50,11 @@ Gratitude building. The NPC can see progress. If another conflict follows, the N
 
 Full gratitude. The NPC acknowledges what was at stake and what the player prevented. This should not be a simple "thanks" — the NPC should articulate, briefly, what their life looks like now that the crisis is over. The reward reference should feel humble and sincere — they're giving what they can, and they know it's not enough.
 
-### `skillcheckPassText`
+### `skillCheck.passText`
 
 The NPC reveals the personal stakes they were holding back. Not just "bandits are a problem" but the fear underneath — for their family, their livelihood, their future. A passed check lets the player see the person behind the request. Best fit skills: INSIGHT (emotional truth), PERCEPTION (physical signs of how bad things are), PERSUASION (NPC trusts you enough to stop performing composure), INVESTIGATION (player probes the timeline and realizes it's worse than stated), HISTORY (player recognizes this has happened before and the NPC has been through it already).
 
-### `skillcheckFailText`
+### `skillCheck.failText`
 
 The NPC stays on the surface. The practical problem is stated; the personal cost is not. The deflection should feel like the NPC choosing to keep it together, not a game punishing the player.
 

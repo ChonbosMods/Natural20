@@ -37,6 +37,10 @@ public class Nat20DialoguePage extends InteractiveCustomUIPage<Nat20DialoguePage
     private static final int MAX_FOLLOW_UPS = 6;
     private static final int MAX_LOG_LABELS = 30;
     private static final int TOPIC_WRAP_CHARS = 22;
+    /** Max visible characters per line in the conversation log before forcing a
+     *  word-boundary newline. Hytale's renderer character-wraps multi-span Messages
+     *  (any line that contains an entity highlight), so we pre-wrap defensively. */
+    private static final int LOG_WRAP_CHARS = 72;
 
     // Log rendering colors (per visual polish guide)
     private static final String COLOR_TOPIC_HEADER = "#666666";
@@ -163,7 +167,9 @@ public class Nat20DialoguePage extends InteractiveCustomUIPage<Nat20DialoguePage
     private void buildLog(UICommandBuilder cmd) {
         cancelTypewriter();
 
-        // Collect renderable log entries
+        // Collect renderable log entries. Long body text (NPC speech, system text,
+        // return greetings) is pre-wrapped at word boundaries so Hytale's TextSpans
+        // renderer doesn't character-wrap multi-span (highlighted) lines.
         List<LogLine> lines = new ArrayList<>();
         for (LogEntry entry : log) {
             switch (entry) {
@@ -178,7 +184,8 @@ public class Nat20DialoguePage extends InteractiveCustomUIPage<Nat20DialoguePage
                     }
                 }
                 case LogEntry.NpcSpeech s ->
-                    lines.add(new LogLine(s.text(), COLOR_NPC_SPEECH, true));
+                    lines.add(new LogLine(EntityHighlight.wrapMarkedText(s.text(), LOG_WRAP_CHARS),
+                            COLOR_NPC_SPEECH, true));
                 case LogEntry.SelectedResponse s -> {
                     String clean = cleanText(s.displayText());
                     if (s.statPrefix() != null) {
@@ -189,9 +196,11 @@ public class Nat20DialoguePage extends InteractiveCustomUIPage<Nat20DialoguePage
                     }
                 }
                 case LogEntry.SystemText s ->
-                    lines.add(new LogLine(s.text(), COLOR_SYSTEM_TEXT, false));
+                    lines.add(new LogLine(EntityHighlight.wrapMarkedText(s.text(), LOG_WRAP_CHARS),
+                            COLOR_SYSTEM_TEXT, false));
                 case LogEntry.ReturnGreeting r ->
-                    lines.add(new LogLine(r.text(), COLOR_RETURN_GREETING, true));
+                    lines.add(new LogLine(EntityHighlight.wrapMarkedText(r.text(), LOG_WRAP_CHARS),
+                            COLOR_RETURN_GREETING, true));
                 case LogEntry.ReturnDivider ignored ->
                     lines.add(new LogLine("---", "#555555", false));
                 case LogEntry.SkillCheckResult r -> {

@@ -63,8 +63,8 @@ Quest chains support 2-5 objectives (exposition + 1-4 conflicts). All conflict p
 | `expositionText` | `objectives[0]` |
 | `acceptText` | — (no per-objective overlay) |
 | `declineText` | — (no per-objective overlay) |
-| `skillcheckPassText` | — (no per-objective overlay) |
-| `skillcheckFailText` | — (no per-objective overlay) |
+| `skillCheck.passText` | — (no per-objective overlay) |
+| `skillCheck.failText` | — (no per-objective overlay) |
 | `expositionTurnInText` | `objectives[0]` |
 | `conflict1Text` | `objectives[1]` |
 | `conflict1TurnInText` | `objectives[1]` |
@@ -102,7 +102,7 @@ Quick reference for what's available where:
 
 ## 3. Skill checks (MVP)
 
-Skill checks occur at the **accept/decline phase only** for MVP. The `skillcheckPassText` and `skillcheckFailText` fields are shown during the exposition interaction, before the player has acted on any objective.
+Skill checks occur at the **accept/decline phase only** for MVP. The `skillCheck.passText` and `skillCheck.failText` fields are shown during the exposition interaction, before the player has acted on any objective. They live inside the template's nested `skillCheck` object alongside `skillCheck.skill` and `skillCheck.dc`.
 
 The author specifies a skill type per template. The skill must be coherent with the pass/fail text content:
 

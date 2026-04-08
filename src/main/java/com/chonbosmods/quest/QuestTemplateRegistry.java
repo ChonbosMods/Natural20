@@ -326,58 +326,103 @@ public class QuestTemplateRegistry {
     private void loadV2Templates(@Nullable Path questDataDir) {
         loadV2FromClasspath();
         if (questDataDir != null) {
-            Path v2Dir = questDataDir.resolve("v2");
-            if (Files.isDirectory(v2Dir)) {
-                try (Stream<Path> files = Files.list(v2Dir)) {
-                    files.filter(p -> p.toString().endsWith(".json"))
-                         .filter(p -> !p.getFileName().toString().equals("index.json"))
-                         .forEach(this::loadV2Template);
-                } catch (IOException e) {
-                    LOGGER.atSevere().withCause(e).log("Failed to list v2 templates in %s", v2Dir);
-                }
+            Path v2Index = questDataDir.resolve("v2").resolve("index.json");
+            if (Files.isRegularFile(v2Index)) {
+                loadV2FromFile(v2Index);
             }
         }
         LOGGER.atInfo().log("Loaded %d v2 quest template(s)", v2Templates.size());
     }
 
+    /**
+     * Load v2 templates from a single combined catalog at {@code quests/v2/index.json}.
+     * The file format is {@code { "templates": [ <inline template object>, ... ] }}.
+     * Each entry must match the {@link QuestTemplateV2} record shape.
+     */
     private void loadV2FromClasspath() {
         try (InputStream is = getClass().getClassLoader().getResourceAsStream("quests/v2/index.json")) {
-            if (is == null) return;
-            JsonObject root = JsonParser.parseReader(new InputStreamReader(is, StandardCharsets.UTF_8)).getAsJsonObject();
-            JsonArray templates = root.getAsJsonArray("templates");
-            if (templates == null) return;
-            for (JsonElement el : templates) {
-                String filename = el.getAsString();
-                try (InputStream tis = getClass().getClassLoader().getResourceAsStream("quests/v2/" + filename)) {
-                    if (tis == null) continue;
-                    QuestTemplateV2 template = GSON.fromJson(
-                        new InputStreamReader(tis, StandardCharsets.UTF_8), QuestTemplateV2.class);
-                    if (template != null) v2Templates.add(template);
-                }
+            if (is == null) {
+                LOGGER.atWarning().log("No quests/v2/index.json found on classpath");
+                return;
             }
+            parseV2Catalog(JsonParser.parseReader(
+                new InputStreamReader(is, StandardCharsets.UTF_8)).getAsJsonObject(), "classpath");
         } catch (Exception e) {
             LOGGER.atSevere().withCause(e).log("Failed to load v2 templates from classpath");
         }
     }
 
-    private void loadV2Template(Path path) {
+    private void loadV2FromFile(Path path) {
         try (var reader = Files.newBufferedReader(path)) {
-            QuestTemplateV2 template = GSON.fromJson(reader, QuestTemplateV2.class);
-            if (template != null) v2Templates.add(template);
+            parseV2Catalog(JsonParser.parseReader(reader).getAsJsonObject(), path.toString());
         } catch (Exception e) {
-            LOGGER.atSevere().withCause(e).log("Failed to load v2 template: %s", path);
+            LOGGER.atSevere().withCause(e).log("Failed to load v2 template catalog from %s", path);
         }
+    }
+
+    private void parseV2Catalog(JsonObject root, String source) {
+        JsonArray templates = root.getAsJsonArray("templates");
+        if (templates == null) {
+            LOGGER.atWarning().log("v2 catalog at %s has no 'templates' array", source);
+            return;
+        }
+        Set<String> seenIds = new HashSet<>();
+        for (QuestTemplateV2 existing : v2Templates) {
+            if (existing.id() != null) seenIds.add(existing.id());
+        }
+        int loaded = 0, skipped = 0;
+        for (JsonElement el : templates) {
+            QuestTemplateV2 template;
+            try {
+                template = GSON.fromJson(el, QuestTemplateV2.class);
+            } catch (Exception e) {
+                LOGGER.atSevere().withCause(e).log("Failed to parse v2 template entry from %s", source);
+                skipped++;
+                continue;
+            }
+            if (template == null || template.id() == null || template.id().isEmpty()) {
+                LOGGER.atWarning().log("v2 template missing 'id' from %s, skipping", source);
+                skipped++;
+                continue;
+            }
+            if (template.topicHeader() == null || template.topicHeader().isEmpty()) {
+                LOGGER.atWarning().log("v2 template '%s' missing 'topicHeader', skipping", template.id());
+                skipped++;
+                continue;
+            }
+            if (template.objectives() == null || template.objectives().size() < 2) {
+                LOGGER.atWarning().log("v2 template '%s' has fewer than 2 objectives, skipping", template.id());
+                skipped++;
+                continue;
+            }
+            if (!seenIds.add(template.id())) {
+                LOGGER.atWarning().log("v2 template id '%s' duplicated in %s, skipping", template.id(), source);
+                skipped++;
+                continue;
+            }
+            v2Templates.add(template);
+            loaded++;
+        }
+        LOGGER.atFine().log("Loaded %d v2 templates from %s (%d skipped)", loaded, source, skipped);
     }
 
     public List<QuestTemplateV2> getV2Templates() { return v2Templates; }
 
+    /**
+     * Select a v2 template eligible for the given NPC role. Eligibility is a hard
+     * filter on {@link QuestTemplateV2#roleAffinity()}: empty/null = any role,
+     * non-empty = only roles in the list. Among eligible templates the choice is
+     * uniform random.
+     */
     public @Nullable QuestTemplateV2 selectV2ForRole(String npcRole, Random random) {
-        List<QuestTemplateV2> weighted = new ArrayList<>();
+        List<QuestTemplateV2> eligible = new ArrayList<>();
         for (QuestTemplateV2 t : v2Templates) {
-            double weight = t.npcWeights() != null ? t.npcWeights().getOrDefault(npcRole, 1.0) : 1.0;
-            if (weight > 0) weighted.add(t);
+            List<String> aff = t.roleAffinity();
+            if (aff == null || aff.isEmpty() || aff.contains(npcRole)) {
+                eligible.add(t);
+            }
         }
-        if (weighted.isEmpty()) return null;
-        return weighted.get(random.nextInt(weighted.size()));
+        if (eligible.isEmpty()) return null;
+        return eligible.get(random.nextInt(eligible.size()));
     }
 }

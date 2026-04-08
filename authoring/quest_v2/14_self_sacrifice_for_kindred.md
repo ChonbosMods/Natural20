@@ -48,11 +48,11 @@ The NPC processes each step with visible relief tied to the family member. Their
 
 Relieved. The NPC's family member has what they need and the NPC can stop being stretched in two directions. The gratitude should feel personal and intimate — this wasn't a favor, it was a kindness that touched someone's family. The reward should feel like what the NPC can spare after putting family first.
 
-### `skillcheckPassText`
+### `skillCheck.passText`
 
 The NPC reveals how close to breaking they were — how long they've been running on devotion alone, how much they've been hiding from the family member to keep them from worrying. Or they admit a fear about the family member's future they haven't voiced. Best fit skills: INSIGHT (emotional exhaustion the NPC is hiding), PERSUASION (NPC trusts enough to drop the "I'm managing fine" front), PERCEPTION (player notices physical signs of the NPC's exhaustion or stress), INVESTIGATION (player probes the timeline and realizes this has been going on much longer than implied), NATURE (if the family member's need involves health or environmental factors the NPC doesn't fully understand).
 
-### `skillcheckFailText`
+### `skillCheck.failText`
 
 The NPC stays strong. The "I'm managing" performance continues.
 

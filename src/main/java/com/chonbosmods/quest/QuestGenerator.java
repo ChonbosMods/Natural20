@@ -16,8 +16,6 @@ import java.util.concurrent.atomic.AtomicLong;
 public class QuestGenerator {
 
     private static final FluentLogger LOGGER = FluentLogger.forEnclosingClass();
-    private static final double CONFLICT_1_CHANCE = 0.40;
-    private static final double CONFLICT_2_CHANCE = 0.10;
     /** Extra mobs spawned at a KILL_MOBS POI beyond the required kill count, so the
      *  player always finds enough live targets even after wandering wildlife eats them. */
     private static final int KILL_MOB_SPAWN_BUFFER = 2;
@@ -63,45 +61,46 @@ public class QuestGenerator {
                 ? template.rewardText() : DEFAULT_REWARD_TEXT);
 
         // Store all template text in bindings for dialogue node construction
+        bindings.put("quest_template_id", template.id());
         bindings.put("quest_topic_header", template.topicHeader());
         bindings.put("quest_exposition_text", template.expositionText());
         bindings.put("quest_accept_text", template.acceptText());
         bindings.put("quest_decline_text", template.declineText());
-        bindings.put("quest_skillcheck_pass_text", template.skillcheckPassText() != null ? template.skillcheckPassText() : "");
-        bindings.put("quest_skillcheck_fail_text", template.skillcheckFailText() != null ? template.skillcheckFailText() : "");
         bindings.put("quest_exposition_turnin_text", template.expositionTurnInText());
         bindings.put("quest_conflict1_text", template.conflict1Text() != null ? template.conflict1Text() : "");
         bindings.put("quest_conflict1_turnin_text", template.conflict1TurnInText() != null ? template.conflict1TurnInText() : "");
         bindings.put("quest_conflict2_text", template.conflict2Text() != null ? template.conflict2Text() : "");
         bindings.put("quest_conflict2_turnin_text", template.conflict2TurnInText() != null ? template.conflict2TurnInText() : "");
+        bindings.put("quest_conflict3_text", template.conflict3Text() != null ? template.conflict3Text() : "");
+        bindings.put("quest_conflict3_turnin_text", template.conflict3TurnInText() != null ? template.conflict3TurnInText() : "");
+        bindings.put("quest_conflict4_text", template.conflict4Text() != null ? template.conflict4Text() : "");
+        bindings.put("quest_conflict4_turnin_text", template.conflict4TurnInText() != null ? template.conflict4TurnInText() : "");
         bindings.put("quest_resolution_text", template.resolutionText());
 
-        // Pick a skillcheck type from the template's pool
-        if (template.skillcheckTypes() != null && !template.skillcheckTypes().isEmpty()) {
-            bindings.put("quest_skillcheck_type",
-                template.skillcheckTypes().get(random.nextInt(template.skillcheckTypes().size())));
+        // Skill check (optional). When present, DialogueManager builds a SkillCheckNode
+        // and a third response option on the entry node. The pass branch fires
+        // MARK_SKILLCHECK_PASSED before the accept node so TURN_IN_V2 picks up the bonus.
+        if (template.skillCheck() != null) {
+            QuestTemplateV2.SkillCheck sc = template.skillCheck();
+            bindings.put("quest_skillcheck_skill", sc.skill().name());
+            bindings.put("quest_skillcheck_dc", String.valueOf(sc.dc()));
+            bindings.put("quest_skillcheck_pass_text", sc.passText());
+            bindings.put("quest_skillcheck_fail_text", sc.failText());
         }
 
-        // Roll conflict count upfront: the quest is fully deterministic from creation
-        int maxConflicts = 0;
-        if (random.nextDouble() < CONFLICT_1_CHANCE) {
-            maxConflicts = 1;
-            if (random.nextDouble() < CONFLICT_2_CHANCE) {
-                maxConflicts = 2;
-            }
-        }
-
-        // Build objectives: 1 (exposition) + maxConflicts
-        int totalObjectives = 1 + maxConflicts;
-        List<ObjectiveInstance> objectives = new ArrayList<>();
+        // Conflict count is template-driven: a 2-objective template has 1 conflict, a
+        // 5-objective template has 4 conflicts. The roll-vs-cap model from v1 is gone.
         List<ObjectiveConfig> objConfigs = template.objectives();
-        if (objConfigs == null || objConfigs.isEmpty()) {
-            LOGGER.atWarning().log("V2 template %s has no objective configs", template.situation());
+        if (objConfigs == null || objConfigs.size() < 2) {
+            LOGGER.atWarning().log("V2 template %s has fewer than 2 objective configs", template.id());
             return null;
         }
+        int maxConflicts = objConfigs.size() - 1;
+        int totalObjectives = objConfigs.size();
 
+        List<ObjectiveInstance> objectives = new ArrayList<>();
         for (int i = 0; i < totalObjectives; i++) {
-            ObjectiveConfig config = i < objConfigs.size() ? objConfigs.get(i) : objConfigs.getLast();
+            ObjectiveConfig config = objConfigs.get(i);
             ObjectiveType type = config.type() != null ? config.type() : ObjectiveType.COLLECT_RESOURCES;
             ObjectiveInstance obj = createObjective(type, config, bindings, random);
             if (obj != null) objectives.add(obj);

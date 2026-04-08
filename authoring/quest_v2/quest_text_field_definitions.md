@@ -27,8 +27,8 @@ Variables like `{kill_count}`, `{enemy_type}`, `{quest_item}`, and `{gather_coun
 | `expositionText` | `objectives[0]` | Player first talks to quest giver |
 | `acceptText` | — | Player accepts the quest |
 | `declineText` | — | Player declines the quest |
-| `skillcheckPassText` | — | Player passes stat check at accept/decline |
-| `skillcheckFailText` | — | Player fails stat check at accept/decline |
+| `skillCheck.passText` | — | Player passes stat check at accept/decline |
+| `skillCheck.failText` | — | Player fails stat check at accept/decline |
 | `expositionTurnInText` | `objectives[0]` | Player returns after completing exposition objective |
 | `conflict1Text` | `objectives[1]` | Shown after exposition turn-in |
 | `conflict1TurnInText` | `objectives[1]` | Player returns after completing conflict 1 |
@@ -178,7 +178,7 @@ Variables like `{kill_count}`, `{enemy_type}`, `{quest_item}`, and `{gather_coun
 
 ---
 
-### `skillcheckPassText`
+### `skillCheck.passText`
 
 **Structural role:** Shown during the accept/decline phase when the player passes the stat check. The NPC reveals a deeper layer — a fear, a personal stake, tactical context, or emotional vulnerability they wouldn't have volunteered.
 
@@ -196,7 +196,7 @@ Variables like `{kill_count}`, `{enemy_type}`, `{quest_item}`, and `{gather_coun
 
 ---
 
-### `skillcheckFailText`
+### `skillCheck.failText`
 
 **Structural role:** Shown during the accept/decline phase when the player fails the stat check. The NPC pulls back. The deeper layer stays hidden.
 

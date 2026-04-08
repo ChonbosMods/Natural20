@@ -48,11 +48,11 @@ The NPC processes progress toward rescue. Relief builds incrementally. If the en
 
 Relief and deep gratitude. The NPC should express what the endangered person means to them — not in a speech, but in the way the gratitude comes out. This is someone who almost lost someone they care about. The reward should feel secondary to the emotional payoff.
 
-### `skillcheckPassText`
+### `skillCheck.passText`
 
 The NPC reveals the depth of the relationship with the endangered person, or shares a detail about the situation they were too frightened to mention. The passed check shows the player the emotional stakes behind the practical request. Best fit skills: INSIGHT (NPC reveals how terrified they really are), PERCEPTION (player notices signs the NPC has been in distress — haven't slept, hands shaking), PERSUASION (NPC trusts enough to admit they feel responsible for the situation), NATURE (player assesses the threat and gives the NPC realistic hope), INVESTIGATION (player asks about the timeline and realizes urgency is greater than stated).
 
-### `skillcheckFailText`
+### `skillCheck.failText`
 
 The NPC stays focused on the practical. The emotional depth remains hidden behind the urgency of the request.
 

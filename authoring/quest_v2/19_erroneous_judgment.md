@@ -50,11 +50,11 @@ The NPC reacts to each new piece of evidence with growing vindication. The pictu
 
 Justice restored. The truth is out. The accused is cleared. The NPC should sound satisfied in a clean, righteous way — this is one of the few situations where the resolution can feel simply good. The reward should reflect genuine gratitude for standing up for what's right.
 
-### `skillcheckPassText`
+### `skillCheck.passText`
 
 The NPC reveals additional context that strengthens the case — something they were reluctant to share because it's personal, embarrassing, or implicates someone else. Or they reveal their personal connection to the accused that makes this about more than abstract fairness. Best fit skills: INVESTIGATION (player identifies a logical gap in the accusation), INSIGHT (NPC reveals personal stakes in clearing the accused), PERSUASION (NPC shares information they were holding back out of caution), PERCEPTION (player notices something about the NPC's demeanor that reveals the depth of their investment), HISTORY (player recognizes this kind of false accusation has happened before in the community).
 
-### `skillcheckFailText`
+### `skillCheck.failText`
 
 The NPC makes the case with available facts only. The personal dimension and the withheld details stay private.
 

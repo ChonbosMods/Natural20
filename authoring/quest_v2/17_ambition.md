@@ -48,11 +48,11 @@ The NPC reacts to each step with growing pride and excitement. They should comme
 
 Proud. The ambition has been realized or meaningfully advanced. The NPC should sound like someone who is genuinely proud of what was accomplished — not just grateful for help, but fulfilled by the achievement itself. The reward should feel generous and freely given — the NPC is in a good mood and wants to share.
 
-### `skillcheckPassText`
+### `skillCheck.passText`
 
 The NPC reveals why this specific ambition matters — a personal history, a promise they made, a need to prove something to themselves or someone else. Or they share a fear that the ambition isn't good enough, that they're reaching beyond their ability. Best fit skills: INSIGHT (personal meaning behind the ambition), PERSUASION (NPC admits self-doubt under the enthusiasm), PERCEPTION (player notices preparatory work the NPC has already done, revealing how long they've been dreaming about this), INVESTIGATION (player asks about the vision's origin and uncovers a personal story), HISTORY (the ambition connects to a tradition or legacy the NPC wants to continue or surpass).
 
-### `skillcheckFailText`
+### `skillCheck.failText`
 
 The NPC stays on the surface. The enthusiasm is real but the deeper motivation remains private.
 

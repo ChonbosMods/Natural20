@@ -48,11 +48,11 @@ The NPC reacts to each phase with growing confidence. The plan is working. There
 
 Triumph. The enterprise succeeded. The NPC should sound proud — not arrogant, but genuinely fulfilled. They dared to try something difficult and it worked. The reward should feel like a share of the spoils or a well-earned payment for partnership, not charity.
 
-### `skillcheckPassText`
+### `skillCheck.passText`
 
 The NPC reveals the real reason they want this — not just the practical goal, but why it matters personally. Or they share tactical knowledge about the danger that makes the player better prepared. Best fit skills: INSIGHT (personal motivation behind the ambition), PERCEPTION (player notices the NPC has been preparing for this longer than they let on), PERSUASION (NPC admits their confidence is partly performance), NATURE (player assesses the danger and confirms the NPC's plan is sound), INVESTIGATION (player spots a flaw in the plan the NPC overlooked), HISTORY (player recognizes this kind of enterprise has been tried before and offers context).
 
-### `skillcheckFailText`
+### `skillCheck.failText`
 
 The NPC stays on the practical surface. The plan is presented without the personal dimension or the deeper tactical detail.
 

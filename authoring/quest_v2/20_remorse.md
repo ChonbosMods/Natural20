@@ -48,11 +48,11 @@ The NPC processes each step with gradually lightening guilt. They're not absolve
 
 Lightened. Not absolved — the NPC doesn't get to decide if they're forgiven. But they've done what they could, and the act of making amends has lifted something. The NPC should sound like someone who can look the wronged person in the eye again, even if the relationship is permanently changed. The reward should feel like the NPC paying forward — giving because they've been reminded of what generosity means.
 
-### `skillcheckPassText`
+### `skillCheck.passText`
 
 The NPC reveals the full weight of what they did — the part they didn't mention, the consequence they're most ashamed of, or the moment they realized they'd crossed a line. Best fit skills: INSIGHT (the NPC reveals deeper shame than shown), PERSUASION (NPC admits the worst part of what they did), PERCEPTION (player notices signs of sleeplessness, distraction, or self-punishment), INVESTIGATION (player asks about the timeline and the NPC reveals they've been carrying this longer than they let on), HISTORY (the NPC reveals a pattern — this isn't the first time they've hurt someone this way, and that's what scares them).
 
-### `skillcheckFailText`
+### `skillCheck.failText`
 
 The NPC gives the surface version. The deeper shame stays hidden.
 

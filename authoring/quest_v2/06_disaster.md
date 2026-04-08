@@ -48,11 +48,11 @@ The NPC processes each step of recovery. The weariness lifts incrementally. By t
 
 Stabilized. The community will survive. The NPC is not celebrating — they're acknowledging that the worst is over and the future is manageable again. The tone is quiet, grounded, forward-looking. The reward should feel like what the community can spare, offered with an awareness that they're giving from limited resources.
 
-### `skillcheckPassText`
+### `skillCheck.passText`
 
 The NPC reveals the full scope of the damage — worse than they publicly admitted. Or they share a personal cost of the disaster they've been hiding to maintain morale for others. Best fit skills: INSIGHT (the NPC admits how scared they were, or still are), PERCEPTION (player notices the disaster damage is more extensive than described), INVESTIGATION (player probes the timeline and the NPC reveals the disaster had warning signs they missed), PERSUASION (NPC drops the "we'll manage" front and admits how close to collapse things actually got), HISTORY (player recognizes this happened before and the NPC confirms it — they're afraid of the pattern), NATURE (player assesses the environmental impact and the NPC admits the recovery timeline is longer than they've told people).
 
-### `skillcheckFailText`
+### `skillCheck.failText`
 
 The NPC maintains the practical front. The scope of the damage stays at the official version.
 

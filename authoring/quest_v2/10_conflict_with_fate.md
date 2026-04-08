@@ -50,11 +50,11 @@ Measured hope building. The NPC starts to believe that sustained effort might be
 
 Cautiously hopeful. The immediate crisis has been weathered. The NPC does not claim to understand what happened or why — but they're still standing. The tone is "we made it through this one." Not triumphant, not fully relieved. The NPC is aware that what they don't understand might return. But for now, things are better. The reward should feel like an offering of thanks from someone who wasn't sure thanks would ever be warranted.
 
-### `skillcheckPassText`
+### `skillCheck.passText`
 
 The NPC shares their private theory — not an explanation, but a pattern they've noticed that they haven't told anyone because it sounds strange. Or they reveal how deeply the uncertainty has affected them emotionally. Best fit skills: NATURE (player recognizes a natural pattern behind the seemingly inexplicable events), PERCEPTION (player notices environmental details that give shape to the undefined threat), INSIGHT (NPC reveals the psychological toll of fighting something they don't understand), HISTORY (player recognizes this pattern from regional lore or past events), INVESTIGATION (player asks the right questions and the NPC's scattered observations start to form a picture).
 
-### `skillcheckFailText`
+### `skillCheck.failText`
 
 The NPC stays in practical mode. The confusion and the fear remain private.
 

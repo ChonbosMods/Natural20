@@ -48,11 +48,11 @@ The NPC processes growing clarity. Early turn-ins show the pieces falling into p
 
 Resolved. The NPC understands what happened and has taken steps to address it. The relationship may not be fully repaired, but the confusion is gone and the path forward is clear. The NPC should sound like someone who has learned something about themselves — not just the specific mistake, but something about how they affect others. The reward should feel earnest and personal.
 
-### `skillcheckPassText`
+### `skillCheck.passText`
 
 The NPC reveals what they were actually trying to do — the good intention behind the harm. Understanding the intent adds complexity: the NPC wasn't careless, they were trying to help and got it wrong. Or they reveal a fear about the relationship that made them act the way they did. Best fit skills: INSIGHT (the good intention behind the bad outcome), PERSUASION (NPC admits they're afraid the relationship is permanently damaged), PERCEPTION (player notices the NPC has been trying to compensate in other ways), INVESTIGATION (player asks about the NPC's reasoning and the misunderstanding becomes clearer), HISTORY (the NPC reveals a previous misunderstanding that made them overcorrect into this one).
 
-### `skillcheckFailText`
+### `skillCheck.failText`
 
 The NPC stays confused. The underlying intention and fear remain inarticulate.
 

@@ -48,11 +48,11 @@ The NPC processes each development with visible emotional investment. Good news 
 
 Hopeful. Not a wedding — a step forward. The NPC has done what they could and the future looks brighter. They might not have the person yet, but the obstacle is smaller or gone. The NPC should sound like someone who is glad they tried, regardless of the ultimate outcome. The reward should feel like a gesture of shared joy — the NPC is in a good emotional place and wants to express it.
 
-### `skillcheckPassText`
+### `skillCheck.passText`
 
 The NPC reveals the depth of their feelings — not just "I like them" but what specifically they love about the person, or how long they've felt this way, or what it would mean to them if it worked out. The passed check lets the player see the sincerity underneath the nervousness. Best fit skills: INSIGHT (the depth of feeling the NPC is understating), PERSUASION (NPC trusts enough to be fully honest about how much this matters), PERCEPTION (player notices something — a kept letter, a worn token, a glance in a specific direction — that reveals the NPC's devotion), INVESTIGATION (player asks about the obstacle's history and the NPC reveals they've tried before and failed), HISTORY (the NPC connects this to a family pattern — their parents faced similar obstacles).
 
-### `skillcheckFailText`
+### `skillCheck.failText`
 
 The NPC keeps the deeper feelings private. The request stays practical rather than vulnerable.
 

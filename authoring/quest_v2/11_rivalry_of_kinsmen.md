@@ -48,11 +48,11 @@ The NPC processes each development. They may soften, harden, or reconsider depen
 
 Resigned or reconciled. The NPC has accepted the outcome, whatever it is. If reconciled: cautious warmth, acknowledgment that the other party had a point. If resigned: acceptance that the relationship has changed but life goes on. Neither extreme is triumphant. The reward should feel personal — the NPC appreciating help with something that mattered to them socially, not materially.
 
-### `skillcheckPassText`
+### `skillCheck.passText`
 
 The NPC admits their own role in the conflict — something they contributed that they haven't acknowledged. Or they reveal what they're actually afraid of losing (the relationship, not the fence line). Best fit skills: INSIGHT (the NPC's real fear underneath the surface complaint), PERSUASION (NPC trusts enough to admit fault), PERCEPTION (player notices signs the NPC misses the other person), INVESTIGATION (player asks about the history and the NPC reveals the rivalry started over something different than claimed), HISTORY (the dispute echoes a previous one the NPC went through).
 
-### `skillcheckFailText`
+### `skillCheck.failText`
 
 The NPC stays entrenched in their version. No self-reflection surfaces.
 

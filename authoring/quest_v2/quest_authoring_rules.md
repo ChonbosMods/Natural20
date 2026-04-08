@@ -58,7 +58,7 @@ Hard constraints for quest template authoring. These are not suggestions. Every 
 
 ## Skill Check Rules
 
-20. **Skill checks occur at the accept/decline phase only (MVP).** For the current implementation, `skillcheckPassText` and `skillcheckFailText` are shown during the exposition/accept-decline interaction. They do not appear during conflict phases or resolution. Author pass/fail text accordingly — the player hasn't done anything yet. They're still deciding whether to help.
+20. **Skill checks occur at the accept/decline phase only (MVP).** For the current implementation, `skillCheck.passText` and `skillCheck.failText` are shown during the exposition/accept-decline interaction. They do not appear during conflict phases or resolution. Author pass/fail text accordingly — the player hasn't done anything yet. They're still deciding whether to help.
 
 21. **The author must specify a skill type.** Each skill check is tied to a specific skill. The pass/fail text must read coherently for the chosen skill. If the pass text reads like the NPC revealed an emotional truth, the skill should be INSIGHT, not NATURE. If the pass text reads like the player noticed a physical detail, the skill should be PERCEPTION, not PERSUASION.
 
@@ -99,6 +99,26 @@ Hard constraints for quest template authoring. These are not suggestions. Every 
 
 ---
 
+## Topic Header Rules
+
+31. **Every template must include a `topicHeader`.** This is the short label players see as the topic button in the dialogue UI, the quest title in the journal, and the waypoint marker label. It must work in all of those contexts across every phase of the quest.
+
+32. **Recommended 2-4 words; maximum 6.** Two to four words is the sweet spot — short enough to fit a topic button, a journal entry, and a waypoint tag without truncation. Six words is the hard ceiling. One word is too terse to be informative.
+
+33. **No template variables.** The header is a static string baked into the template JSON. It is not resolved at runtime. Do not use `{enemy_type}`, `{settlement_name}`, or any other variable.
+
+34. **Evocative, not descriptive — and never spoilery.** The header should hint at the emotional register without revealing the quest's content. "A Debt Unpaid" is evocative. "Kill The Goblins" is descriptive. "Fetch Iron For The Blacksmith" is a quest log entry. The player sees this before hearing the exposition, so it must not reveal the quest's outcome, the twist (for Enigma/Mistaken Jealousy), or the specific objective.
+
+35. **Feels like a conversation topic.** The player is clicking this in a Morrowind-style topic list. It should read like something you'd bring up in conversation: "Troubled Waters," "An Old Grudge," "A Favor Owed." Not a chapter title, mission briefing name, or quest log entry.
+
+36. **Reflects the situation's emotional register.** A Vengeance header should feel cold or bitter ("Settling Scores," "What's Owed"). A Supplication header should feel heavy or urgent ("A Desperate Ask," "No Other Choice"). An Obtaining header should feel light and practical ("A Small Favor," "Materials Needed"). An Obstacles to Love header should feel tender. The header is the player's first impression of the quest's tone.
+
+37. **Works across all phases.** The same header is used for initiation, every turn-in, and the waypoint throughout the quest's life. Test: does it still make sense when the player returns to turn in the final objective? "The Missing Stores" works at exposition and at the final turn-in. "Help Me Please" works for exposition but reads strangely as a turn-in label.
+
+38. **Unique within the catalog.** No two templates may share the same `topicHeader`. The header is how the player distinguishes this quest from others in their topic list. Within a batch for one situation, headers must also be distinct from each other.
+
+---
+
 ## Anti-Pattern Catalog
 
 | # | Anti-Pattern | Example | Rule violated |
@@ -117,3 +137,8 @@ Hard constraints for quest template authoring. These are not suggestions. Every 
 | 12 | Settlement NPC as objective | "Go talk to {settlement_npc} and ask what they know" | R17: settlement_npc is flavor only |
 | 13 | Unnamed-but-specific character | "The old woman who lives by the gate told me..." | R5: no unnamed-but-specific characters |
 | 14 | Unscoped invented event | "Ever since the earthquake last year..." with no earthquake-related objective | R6: events must stay within objective scope |
+| 15 | Mechanical topic header | "Kill Goblins Quest" / "Side Quest 3" | R34-35: evocative, not descriptive; conversation topic, not quest log |
+| 16 | Variable in topic header | "Trouble in {settlement_name}" | R33: no template variables in headers |
+| 17 | Spoilery topic header | "My Brother's Death" / "The Jealous Accusation" | R34: hints at tone, doesn't reveal plot |
+| 18 | Topic header too long | "The Ongoing Problem With The Night Raids Out East" | R32: 6 words max (recommended 2-4) |
+| 19 | Duplicate topic header | Same header as another template in the catalog | R38: must be unique |

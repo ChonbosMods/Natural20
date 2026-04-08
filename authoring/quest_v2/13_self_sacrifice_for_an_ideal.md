@@ -46,11 +46,11 @@ The NPC sees the cause advancing. Their weariness gives way to something like ho
 
 Fulfilled. The ideal has been served. The NPC should sound like someone who can rest — not because they're giving up, but because the work is done. The reward should feel like the NPC sharing what they have because the cause was always more important than personal wealth.
 
-### `skillcheckPassText`
+### `skillCheck.passText`
 
 The NPC reveals what the ideal has cost them personally — relationships, health, comfort, other opportunities. They don't regret it, but the cost is real. Or they reveal why this specific cause matters to them so deeply — a personal connection that elevates it beyond abstract principle. Best fit skills: INSIGHT (personal cost of the commitment), PERSUASION (NPC trusts enough to admit doubt — not about the cause, but about their own ability to see it through), PERCEPTION (player notices signs of the toll on the NPC), HISTORY (the ideal connects to something from the NPC's past that gives it personal weight), INVESTIGATION (player asks what happens if the ideal fails and the NPC reveals stakes they downplayed).
 
-### `skillcheckFailText`
+### `skillCheck.failText`
 
 The NPC stays focused on the cause. The personal cost remains private.
 

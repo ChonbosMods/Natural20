@@ -107,7 +107,11 @@ public class QuestMarkerProvider implements WorldMapManager.MarkerProvider {
 
         for (QuestInstance quest : quests.values()) {
             Map<String, String> b = quest.getVariableBindings();
-            boolean objectivesComplete = quest.getState() == com.chonbosmods.quest.QuestState.READY_FOR_TURN_IN;
+            // Return-to-NPC marker stays up through AWAITING_CONTINUATION so the player
+            // can find their way back if they closed the dialog mid turn-in flow.
+            com.chonbosmods.quest.QuestState qs = quest.getState();
+            boolean objectivesComplete = qs == com.chonbosmods.quest.QuestState.READY_FOR_TURN_IN
+                    || qs == com.chonbosmods.quest.QuestState.AWAITING_CONTINUATION;
             boolean hasPoi = "true".equals(b.get("poi_available"));
             // Use named POI subject as waypoint label, fall back to objective summary
             String questName = b.getOrDefault("subject_name",

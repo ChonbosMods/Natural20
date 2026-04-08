@@ -48,11 +48,11 @@ The NPC absorbs each development. They do not become hopeful — they become mor
 
 Somber acceptance. The NPC has made their choice and lived with it. They are not okay — they are enduring. The resolution should not pretend this was a good outcome, only a necessary one. The reward should feel like the NPC acknowledging what the player helped them bear, not celebrating what was accomplished.
 
-### `skillcheckPassText`
+### `skillCheck.passText`
 
 The NPC reveals what they stand to lose personally — not the abstract stakes, but the specific, intimate cost. A memory of the person they're affecting, a fear about what the relationship will look like after. Best fit skills: INSIGHT (the NPC's private grief about the choice), PERSUASION (NPC trusts enough to express doubt — not about the decision, but about their strength to follow through), PERCEPTION (player notices the NPC is barely holding together), HISTORY (the NPC reveals this choice echoes something from their past), INVESTIGATION (player asks what happens after and the NPC admits they haven't thought that far because they can't).
 
-### `skillcheckFailText`
+### `skillCheck.failText`
 
 The NPC stays composed. The private cost remains invisible.
 

@@ -46,11 +46,11 @@ The NPC processes each piece of closure. The mourning doesn't disappear — it t
 
 Bittersweet peace. The NPC has taken a step forward. They are not over the loss — they never will be — but they have done what they needed to do. The tone is quiet and grateful. The NPC should sound like someone who can sleep tonight. The reward should feel like a deeply personal thank-you for helping with something no amount of money could buy.
 
-### `skillcheckPassText`
+### `skillCheck.passText`
 
 The NPC shares a memory of the person they lost — something specific, intimate, and revealing of the relationship. Or they admit a regret they've been carrying. Best fit skills: INSIGHT (the specific nature of the NPC's grief — what they miss most), PERSUASION (NPC trusts enough to share the memory they've been holding privately), PERCEPTION (player notices something the NPC is carrying — a token, a habit, a mark of the loss), HISTORY (the NPC reveals the relationship's history and what made it special), INVESTIGATION (player asks the right question and the NPC reveals the loss was more complicated than stated — guilt, unfinished business, words unsaid).
 
-### `skillcheckFailText`
+### `skillCheck.failText`
 
 The NPC keeps the intimate details private. The grief is visible but the memories stay guarded.
 

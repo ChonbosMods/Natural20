@@ -49,6 +49,61 @@ public final class EntityHighlight {
     }
 
     /**
+     * Insert explicit {@code \n} at the last word boundary before {@code maxLineWidth}
+     * visible characters, repeatedly, so the marked text wraps cleanly when rendered
+     * via {@link #toMessage}. Necessary because Hytale's TextSpans renderer wraps
+     * multi-{@code Message} chains at chain-element boundaries (character precision)
+     * instead of word boundaries — single-span text wraps fine, but anything containing
+     * a highlighted span breaks mid-word.
+     *
+     * <p>Marker characters ({@link #MARK_START} / {@link #MARK_END}) are preserved
+     * verbatim and don't count toward line width. Existing newlines reset the line
+     * counter. Words longer than {@code maxLineWidth} fall through unbroken.
+     */
+    public static String wrapMarkedText(String text, int maxLineWidth) {
+        if (text == null || text.isEmpty() || maxLineWidth <= 0) return text;
+        StringBuilder out = new StringBuilder(text.length() + 8);
+        int lineWidth = 0;
+        int lastSpaceOut = -1;
+        int lineWidthAtLastSpace = 0;
+
+        for (int i = 0; i < text.length(); i++) {
+            char c = text.charAt(i);
+
+            if (c == MARK_START || c == MARK_END) {
+                out.append(c);
+                continue;
+            }
+
+            if (c == '\n') {
+                out.append(c);
+                lineWidth = 0;
+                lastSpaceOut = -1;
+                lineWidthAtLastSpace = 0;
+                continue;
+            }
+
+            out.append(c);
+            lineWidth++;
+
+            if (c == ' ') {
+                lastSpaceOut = out.length() - 1;
+                lineWidthAtLastSpace = lineWidth;
+            }
+
+            if (lineWidth > maxLineWidth && lastSpaceOut >= 0) {
+                // Replace the most recent space with a newline; the chars after it
+                // become the start of the new line.
+                out.setCharAt(lastSpaceOut, '\n');
+                lineWidth = lineWidth - lineWidthAtLastSpace;
+                lastSpaceOut = -1;
+                lineWidthAtLastSpace = 0;
+            }
+        }
+        return out.toString();
+    }
+
+    /**
      * Find the visible-character index that corresponds to the given raw string index.
      * Used by the typewriter to map visible character count to substring positions.
      */

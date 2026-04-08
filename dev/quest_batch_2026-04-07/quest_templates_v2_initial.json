@@ -4,6 +4,7 @@
   "templates": [
     {
       "id": "supplication_01",
+      "topicHeader": "A Desperate Need",
       "situation": "supplication",
       "objectives": [
         {
@@ -36,6 +37,7 @@
     },
     {
       "id": "supplication_02",
+      "topicHeader": "Nowhere Else to Turn",
       "situation": "supplication",
       "objectives": [
         {
@@ -77,6 +79,7 @@
     },
     {
       "id": "supplication_03",
+      "topicHeader": "More Than I Can Bear",
       "situation": "supplication",
       "objectives": [
         {
@@ -110,6 +113,7 @@
     },
     {
       "id": "deliverance_01",
+      "topicHeader": "Someone in Danger",
       "situation": "deliverance",
       "objectives": [
         {
@@ -138,6 +142,7 @@
     },
     {
       "id": "deliverance_02",
+      "topicHeader": "Before It's Too Late",
       "situation": "deliverance",
       "objectives": [
         {
@@ -168,6 +173,7 @@
     },
     {
       "id": "deliverance_03",
+      "topicHeader": "A Life at Stake",
       "situation": "deliverance",
       "objectives": [
         {
@@ -197,6 +203,7 @@
     },
     {
       "id": "disaster_01",
+      "topicHeader": "What's Left Standing",
       "situation": "disaster",
       "objectives": [
         {
@@ -236,6 +243,7 @@
     },
     {
       "id": "disaster_02",
+      "topicHeader": "After the Damage",
       "situation": "disaster",
       "objectives": [
         {
@@ -271,6 +279,7 @@
     },
     {
       "id": "disaster_03",
+      "topicHeader": "Picking Up the Pieces",
       "situation": "disaster",
       "objectives": [
         {
@@ -309,6 +318,7 @@
     },
     {
       "id": "self_sacrifice_for_kindred_01",
+      "topicHeader": "For My Family",
       "situation": "self_sacrifice_for_kindred",
       "objectives": [
         {
@@ -339,6 +349,7 @@
     },
     {
       "id": "self_sacrifice_for_kindred_02",
+      "topicHeader": "What They Need",
       "situation": "self_sacrifice_for_kindred",
       "objectives": [
         {
@@ -374,6 +385,7 @@
     },
     {
       "id": "self_sacrifice_for_kindred_03",
+      "topicHeader": "A Parent's Burden",
       "situation": "self_sacrifice_for_kindred",
       "objectives": [
         {
@@ -396,6 +408,7 @@
     },
     {
       "id": "pursuit_01",
+      "topicHeader": "Enough Is Enough",
       "situation": "pursuit",
       "objectives": [
         {
@@ -426,6 +439,7 @@
     },
     {
       "id": "pursuit_02",
+      "topicHeader": "The Source of It",
       "situation": "pursuit",
       "objectives": [
         {
@@ -456,6 +470,7 @@
     },
     {
       "id": "pursuit_03",
+      "topicHeader": "Time to Act",
       "situation": "pursuit",
       "objectives": [
         {
@@ -493,6 +508,7 @@
     },
     {
       "id": "vengeance_01",
+      "topicHeader": "Nine Years Counting",
       "situation": "vengeance",
       "objectives": [
         {
@@ -525,6 +541,7 @@
     },
     {
       "id": "vengeance_02",
+      "topicHeader": "A Score to Settle",
       "situation": "vengeance",
       "objectives": [
         {
@@ -555,6 +572,7 @@
     },
     {
       "id": "vengeance_03",
+      "topicHeader": "What Is Owed",
       "situation": "vengeance",
       "objectives": [
         {
@@ -592,6 +610,7 @@
     },
     {
       "id": "daring_enterprise_01",
+      "topicHeader": "A Bold Venture",
       "situation": "daring_enterprise",
       "objectives": [
         {
@@ -622,6 +641,7 @@
     },
     {
       "id": "daring_enterprise_02",
+      "topicHeader": "Worth the Risk",
       "situation": "daring_enterprise",
       "objectives": [
         {
@@ -657,6 +677,7 @@
     },
     {
       "id": "daring_enterprise_03",
+      "topicHeader": "Into the Unknown",
       "situation": "daring_enterprise",
       "objectives": [
         {
@@ -699,6 +720,7 @@
     },
     {
       "id": "ambition_01",
+      "topicHeader": "A Grand Idea",
       "situation": "ambition",
       "objectives": [
         {
@@ -729,6 +751,7 @@
     },
     {
       "id": "ambition_02",
+      "topicHeader": "Something Worth Building",
       "situation": "ambition",
       "objectives": [
         {
@@ -759,6 +782,7 @@
     },
     {
       "id": "ambition_03",
+      "topicHeader": "The Craft Ahead",
       "situation": "ambition",
       "objectives": [
         {
@@ -796,6 +820,7 @@
     },
     {
       "id": "obtaining_01",
+      "topicHeader": "A Simple Favor",
       "situation": "obtaining",
       "objectives": [
         {
@@ -829,6 +854,7 @@
     },
     {
       "id": "obtaining_02",
+      "topicHeader": "What I'm Missing",
       "situation": "obtaining",
       "objectives": [
         {
@@ -867,6 +893,7 @@
     },
     {
       "id": "obtaining_03",
+      "topicHeader": "A Practical Matter",
       "situation": "obtaining",
       "objectives": [
         {
@@ -894,6 +921,7 @@
     },
     {
       "id": "recovery_01",
+      "topicHeader": "What Was Taken",
       "situation": "recovery",
       "objectives": [
         {
@@ -929,6 +957,7 @@
     },
     {
       "id": "recovery_02",
+      "topicHeader": "Getting It Back",
       "situation": "recovery",
       "objectives": [
         {
@@ -967,6 +996,7 @@
     },
     {
       "id": "recovery_03",
+      "topicHeader": "Setting Things Right",
       "situation": "recovery",
       "objectives": [
         {
@@ -996,6 +1026,7 @@
     },
     {
       "id": "self_sacrifice_for_an_ideal_01",
+      "topicHeader": "The Work Remains",
       "situation": "self_sacrifice_for_an_ideal",
       "objectives": [
         {
@@ -1036,6 +1067,7 @@
     },
     {
       "id": "self_sacrifice_for_an_ideal_02",
+      "topicHeader": "A Cause Worth Keeping",
       "situation": "self_sacrifice_for_an_ideal",
       "objectives": [
         {
@@ -1083,6 +1115,7 @@
     },
     {
       "id": "self_sacrifice_for_an_ideal_03",
+      "topicHeader": "What Must Be Done",
       "situation": "self_sacrifice_for_an_ideal",
       "objectives": [
         {
@@ -1110,6 +1143,7 @@
     },
     {
       "id": "enigma_01",
+      "topicHeader": "Something Isn't Right",
       "situation": "enigma",
       "objectives": [
         {
@@ -1145,6 +1179,7 @@
     },
     {
       "id": "enigma_02",
+      "topicHeader": "A Nagging Question",
       "situation": "enigma",
       "objectives": [
         {
@@ -1175,6 +1210,7 @@
     },
     {
       "id": "enigma_03",
+      "topicHeader": "Pieces That Don't Fit",
       "situation": "enigma",
       "objectives": [
         {
@@ -1199,6 +1235,7 @@
     },
     {
       "id": "rivalry_of_kinsmen_01",
+      "topicHeader": "Bad Blood",
       "situation": "rivalry_of_kinsmen",
       "objectives": [
         {
@@ -1234,6 +1271,7 @@
     },
     {
       "id": "rivalry_of_kinsmen_02",
+      "topicHeader": "A Line Between Us",
       "situation": "rivalry_of_kinsmen",
       "objectives": [
         {
@@ -1271,6 +1309,7 @@
     },
     {
       "id": "rivalry_of_kinsmen_03",
+      "topicHeader": "Words Left Unsaid",
       "situation": "rivalry_of_kinsmen",
       "objectives": [
         {
@@ -1293,6 +1332,7 @@
     },
     {
       "id": "mistaken_jealousy_01",
+      "topicHeader": "A Growing Suspicion",
       "situation": "mistaken_jealousy",
       "objectives": [
         {
@@ -1326,6 +1366,7 @@
     },
     {
       "id": "mistaken_jealousy_02",
+      "topicHeader": "Not What It Seems",
       "situation": "mistaken_jealousy",
       "objectives": [
         {
@@ -1354,6 +1395,7 @@
     },
     {
       "id": "mistaken_jealousy_03",
+      "topicHeader": "Behind My Back",
       "situation": "mistaken_jealousy",
       "objectives": [
         {
@@ -1376,6 +1418,7 @@
     },
     {
       "id": "erroneous_judgment_01",
+      "topicHeader": "Wrongly Accused",
       "situation": "erroneous_judgment",
       "objectives": [
         {
@@ -1409,6 +1452,7 @@
     },
     {
       "id": "erroneous_judgment_02",
+      "topicHeader": "The Truth of It",
       "situation": "erroneous_judgment",
       "objectives": [
         {
@@ -1437,6 +1481,7 @@
     },
     {
       "id": "erroneous_judgment_03",
+      "topicHeader": "A Name to Clear",
       "situation": "erroneous_judgment",
       "objectives": [
         {
@@ -1469,6 +1514,7 @@
     },
     {
       "id": "remorse_01",
+      "topicHeader": "A Wrong to Mend",
       "situation": "remorse",
       "objectives": [
         {
@@ -1497,6 +1543,7 @@
     },
     {
       "id": "remorse_02",
+      "topicHeader": "What I Did",
       "situation": "remorse",
       "objectives": [
         {
@@ -1524,6 +1571,7 @@
     },
     {
       "id": "remorse_03",
+      "topicHeader": "Making It Right",
       "situation": "remorse",
       "objectives": [
         {
@@ -1552,6 +1600,7 @@
     },
     {
       "id": "involuntary_crimes_of_love_01",
+      "topicHeader": "Where It Went Wrong",
       "situation": "involuntary_crimes_of_love",
       "objectives": [
         {
@@ -1580,6 +1629,7 @@
     },
     {
       "id": "involuntary_crimes_of_love_02",
+      "topicHeader": "The Harm I Meant",
       "situation": "involuntary_crimes_of_love",
       "objectives": [
         {
@@ -1608,6 +1658,7 @@
     },
     {
       "id": "involuntary_crimes_of_love_03",
+      "topicHeader": "A Misunderstanding",
       "situation": "involuntary_crimes_of_love",
       "objectives": [
         {
@@ -1635,6 +1686,7 @@
     },
     {
       "id": "obstacles_to_love_01",
+      "topicHeader": "A Distant Hope",
       "situation": "obstacles_to_love",
       "objectives": [
         {
@@ -1663,6 +1715,7 @@
     },
     {
       "id": "obstacles_to_love_02",
+      "topicHeader": "The Courage to Ask",
       "situation": "obstacles_to_love",
       "objectives": [
         {
@@ -1696,6 +1749,7 @@
     },
     {
       "id": "obstacles_to_love_03",
+      "topicHeader": "What Stands Between",
       "situation": "obstacles_to_love",
       "objectives": [
         {
@@ -1718,6 +1772,7 @@
     },
     {
       "id": "madness_01",
+      "topicHeader": "A Worried Heart",
       "situation": "madness",
       "objectives": [
         {
@@ -1746,6 +1801,7 @@
     },
     {
       "id": "madness_02",
+      "topicHeader": "Not Themselves Lately",
       "situation": "madness",
       "objectives": [
         {
@@ -1774,6 +1830,7 @@
     },
     {
       "id": "madness_03",
+      "topicHeader": "Someone I Care About",
       "situation": "madness",
       "objectives": [
         {
@@ -1807,6 +1864,7 @@
     },
     {
       "id": "necessity_of_sacrificing_loved_ones_01",
+      "topicHeader": "The Hardest Choice",
       "situation": "necessity_of_sacrificing_loved_ones",
       "objectives": [
         {
@@ -1842,6 +1900,7 @@
     },
     {
       "id": "necessity_of_sacrificing_loved_ones_02",
+      "topicHeader": "No Good Answer",
       "situation": "necessity_of_sacrificing_loved_ones",
       "objectives": [
         {
@@ -1872,6 +1931,7 @@
     },
     {
       "id": "necessity_of_sacrificing_loved_ones_03",
+      "topicHeader": "What Must Be Lost",
       "situation": "necessity_of_sacrificing_loved_ones",
       "objectives": [
         {
@@ -1901,6 +1961,7 @@
     },
     {
       "id": "loss_of_loved_ones_01",
+      "topicHeader": "What Remains",
       "situation": "loss_of_loved_ones",
       "objectives": [
         {
@@ -1929,6 +1990,7 @@
     },
     {
       "id": "loss_of_loved_ones_02",
+      "topicHeader": "A Final Kindness",
       "situation": "loss_of_loved_ones",
       "objectives": [
         {
@@ -1964,6 +2026,7 @@
     },
     {
       "id": "loss_of_loved_ones_03",
+      "topicHeader": "Unfinished Mourning",
       "situation": "loss_of_loved_ones",
       "objectives": [
         {
@@ -1988,6 +2051,7 @@
     },
     {
       "id": "conflict_with_fate_01",
+      "topicHeader": "Troubled Ground",
       "situation": "conflict_with_fate",
       "objectives": [
         {
@@ -2027,6 +2091,7 @@
     },
     {
       "id": "conflict_with_fate_02",
+      "topicHeader": "Things Gone Wrong",
       "situation": "conflict_with_fate",
       "objectives": [
         {
@@ -2059,6 +2124,7 @@
     },
     {
       "id": "conflict_with_fate_03",
+      "topicHeader": "Against the Tide",
       "situation": "conflict_with_fate",
       "objectives": [
         {
