@@ -1,13 +1,60 @@
 {
   "TranslationProperties": {
-    "Name": "server.items.Quest_Scroll.name",
-    "Description": "server.items.Quest_Scroll.description"
+    "Name": "server.items.Quest_Scroll.name"
   },
   "Icon": "Icons/ItemsGenerated/Quest_Scroll.png",
   "Categories": [
-    "Items.Ingredients"
+    "Blocks.Deco"
   ],
-  "Model": "Items/Quest/Quest_Scroll.blockymodel",
-  "Texture": "Items/Quest/Quest_Scroll_Texture.png",
-  "PlayerAnimationsId": "Item"
+  "Interactions": {
+    "Primary": "Block_Primary",
+    "Secondary": "Block_Secondary"
+  },
+  "BlockType": {
+    "DrawType": "Model",
+    "Opacity": "Transparent",
+    "CustomModel": "Items/Quest/Quest_Scroll.blockymodel",
+    "CustomModelTexture": [
+      {
+        "Texture": "Items/Quest/Quest_Scroll_Texture.png",
+        "Weight": 1
+      }
+    ],
+    "Flags": {},
+    "RandomRotation": "YawStep1",
+    "Gathering": {
+      "Soft": {
+        "IsWeaponBreakable": false
+      }
+    },
+    "BlockParticleSetId": "Stone",
+    "HitboxType": "Food_Medium",
+    "Material": "Empty",
+    "Support": {
+      "Down": [
+        {
+          "FaceType": "Full"
+        }
+      ]
+    }
+  },
+  "PlayerAnimationsId": "Item",
+  "IconProperties": {
+    "Scale": 0.7,
+    "Translation": [
+      0,
+      -8
+    ],
+    "Rotation": [
+      22.5,
+      45,
+      22.5
+    ]
+  },
+  "Tags": {
+    "Type": [
+      "Deco"
+    ]
+  },
+  "ItemSoundSetId": "ISS_Blocks_Wood"
 }
