@@ -535,6 +535,20 @@ public class DialogueManager {
             ObjectiveInstance currentObj = cc < objs.size() ? objs.get(cc) : null;
             ObjectiveInstance nextObj = (cc + 1) < objs.size() ? objs.get(cc + 1) : null;
 
+            // Late-bind deferred TALK_TO_NPC on nextObj before resolving conflict
+            // text that references {target_npc}/{target_npc_settlement}. Without
+            // this the overlay writes "someone nearby" and the settlement stays
+            // literal, even though CONTINUE_QUEST resolves the objective later.
+            if (nextObj != null
+                    && nextObj.getType() == ObjectiveType.TALK_TO_NPC
+                    && "deferred_npc".equals(nextObj.getTargetId())) {
+                SettlementRegistry settlements = Natural20.getInstance().getSettlementRegistry();
+                if (DialogueActionRegistry.tryResolveDeferredTalkToNpc(quest, nextObj)
+                        && settlements != null) {
+                    settlements.saveAsync();
+                }
+            }
+
             // Select turn-in text based on conflict count
             String turnInTextKey = switch (cc) {
                 case 0 -> "quest_exposition_turnin_text";
