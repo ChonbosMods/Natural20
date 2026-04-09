@@ -12,11 +12,11 @@
       ],
       "reactions": [
         "The elders say the stones have always been quiet. This is new, and new things from old stones make people nervous.",
-        "Some folks have started leaving offerings at the base: bread, coins, flowers. Can't hurt, I suppose."
+        "Some folks have started leaving offerings at the base. Bread, coins, flowers. Can't hurt, I suppose."
       ],
       "statCheck": {
-        "pass": "I pressed my ear to the stone at midnight. Underneath the hum, there's a rhythm: three short, one long, repeating. It's not random. It's a pattern.",
-        "fail": "It all sounds the same: just a low drone with no variation anyone can detect. I have listened for hours myself."
+        "pass": "I pressed my ear to the stone at midnight. Underneath the hum, there's a rhythm. Three short, one long, repeating. It's not random. It's a pattern.",
+        "fail": "It all sounds the same. Just a low drone with no variation anyone can detect. I have listened for hours myself."
       },
       "valence": "negative"
     },
@@ -54,7 +54,7 @@
     },
     {
       "id": 3,
-      "intro": "The moon was the wrong color near {subject_focus_the} two nights ago. Not red like a blood moon: green. Faint, but unmistakable.",
+      "intro": "The moon was the wrong color near {subject_focus_the} two nights ago. Not red like a blood moon. Green. Faint, but unmistakable.",
       "details": [
         "It lasted about an hour, starting just after midnight. Then it faded back to normal like nothing happened.",
         "The air smelled different while it lasted. Sweet, like overripe fruit, but colder than the night air should have been.",
@@ -65,7 +65,7 @@
         "The old records keeper is digging through the archives. She says there might be mention of something similar from centuries ago."
       ],
       "statCheck": {
-        "pass": "The records keeper found it: a passage describing a green moon that appeared before the founding of the old watchtower. The text calls it \"the herald's lantern\" and says it marked the opening of something.",
+        "pass": "The records keeper found it. A passage describing a green moon that appeared before the founding of the old watchtower. The text calls it \"the herald's lantern\" and says it marked the opening of something.",
         "fail": "The old texts are faded and written in a dialect that is hard to parse. She is still working through them, but no clear answers yet."
       },
       "valence": "negative"
@@ -86,7 +86,7 @@
     },
     {
       "id": 5,
-      "intro": "The shadows near {subject_focus_the} have been falling the wrong direction. Not all of them: just mine, and only when I'm standing near the old wall.",
+      "intro": "The shadows near {subject_focus_the} have been falling the wrong direction. Not all of them. Just mine, and only when I'm standing near the old wall.",
       "details": [
         "The sun is behind me, but the shadow stretches toward it instead of away. Clear as day, plain as anything.",
         "I brought a friend to see it. His shadow fell normally. Mine didn't. We stood side by side.",
@@ -97,14 +97,14 @@
         "People say it's a trick of the light, an angle thing. But light doesn't bend for one person and not the other."
       ],
       "statCheck": {
-        "pass": "You've heard of shadow binding? The old texts describe it: a ward that anchors a person's shadow to a fixed point, usually as a marker. Someone or something has marked you for a reason.",
+        "pass": "You've heard of shadow binding? The old texts describe it. A ward that anchors a person's shadow to a fixed point, usually as a marker. Someone or something has marked you for a reason.",
         "fail": "Shadows do strange things near tall structures. I wouldn't read too much into it without more to go on."
       },
       "valence": "negative"
     },
     {
       "id": 6,
-      "intro": "Water won't boil near {subject_focus_the}. I don't mean it's slow: I mean you can hold a pot over a full blaze and the water sits there, flat and still, not even steaming.",
+      "intro": "Water won't boil near {subject_focus_the}. I don't mean it's slow. I mean you can hold a pot over a full blaze and the water sits there, flat and still, not even steaming.",
       "details": [
         "It started four days ago. Before that, everything was normal. Same well, same pots, same firewood.",
         "If you carry the water far enough from the area, maybe a hundred paces, it boils fine. Bring it back and it goes still again.",
@@ -115,7 +115,7 @@
         "My neighbor says it's the well. I say it's the ground itself. Something underneath is holding things still."
       ],
       "statCheck": {
-        "pass": "There is a concept in the old ward-texts called a stilling circle: a zone where natural transitions are suspended. Water won't boil, bread won't rise, wounds won't close. If that is what this is, the boundary will keep shrinking.",
+        "pass": "There is a concept in the old ward-texts called a stilling circle. A zone where natural transitions are suspended. Water won't boil, bread won't rise, wounds won't close. If that is what this is, the boundary will keep shrinking.",
         "fail": "It could be something in the water, or something in the soil. Without a way to test it properly, all we can do is haul pots and wait."
       },
       "valence": "negative"
@@ -124,7 +124,7 @@
       "id": 7,
       "intro": "Every candle in the meeting hall near {subject_focus_the} burned upside down last night. The flame pointed straight at the floor instead of up.",
       "details": [
-        "We relit them twice. Same thing: the flame catches, burns strong, and then bends downward like it's being pulled.",
+        "We relit them twice. Same thing. The flame catches, burns strong, and then bends downward like it's being pulled.",
         "The heat still rises. You can feel it above the candle. But the light goes down, into the stone floor.",
         "It only happened in the hall. Candles in the houses, the storehouse, everywhere else burned normally."
       ],
@@ -134,8 +134,8 @@
         "A few people are saying it's nothing. Those people didn't see it. I did."
       ],
       "statCheck": {
-        "pass": "Inverted flame is mentioned in the old sealing rites: it marks a point where something was bound beneath the surface. Whatever is under that hall, the binding may be weakening.",
-        "fail": "I've asked around and nobody has a good explanation. Drafts, bad wax, damp wicks: none of it holds up when you actually think about it."
+        "pass": "Inverted flame is mentioned in the old sealing rites. It marks a point where something was bound beneath the surface. Whatever is under that hall, the binding may be weakening.",
+        "fail": "I've asked around and nobody has a good explanation. Drafts, bad wax, damp wicks. None of it holds up when you actually think about it."
       },
       "valence": "negative"
     },
@@ -145,21 +145,21 @@
       "details": [
         "A field of white flowers under a black sky, with a single figure standing at the center, facing away. That's what all three described.",
         "One was a farmer on the eastern road. One was a merchant passing through. The third was a child who woke up screaming.",
-        "They each drew the figure when asked. The drawings are nearly identical: tall, thin, arms at its sides."
+        "They each drew the figure when asked. The drawings are nearly identical. Tall, thin, arms at its sides."
       ],
       "reactions": [
         "One bad dream is a bad dream. Three of the same dream on the same night from strangers is something else entirely.",
         "The child's mother won't let her sleep alone now. I don't blame her. I wouldn't either."
       ],
       "statCheck": {
-        "pass": "Shared dreaming appears in the old consecration texts. It's described as a summons: not to the dreamers, but through them. Someone is using their sleep as a channel to reach something else.",
+        "pass": "Shared dreaming appears in the old consecration texts. It's described as a summons. Not to the dreamers, but through them. Someone is using their sleep as a channel to reach something else.",
         "fail": "Dreams travel through stories. Someone tells a vivid one at market, and suddenly half the village has the same nightmare. It happens."
       },
       "valence": "negative"
     },
     {
       "id": 9,
-      "intro": "The goats near {subject_focus_the} have started kneeling. Not lying down to rest: kneeling, all facing the same direction, like they're bowing toward something none of us can see.",
+      "intro": "The goats near {subject_focus_the} have started kneeling. Not lying down to rest. Kneeling, all facing the same direction, like they're bowing toward something none of us can see.",
       "details": [
         "It happens at dusk, every evening for the last five days. They stop what they're doing and kneel in unison.",
         "They face the old foundation stones on the hill. The ones nobody remembers building.",
@@ -170,17 +170,17 @@
         "The herder tried turning them away from the hill before dusk. They turned back on their own. Every one of them."
       ],
       "statCheck": {
-        "pass": "In the old devotional texts, animal prostration is called a recognition: a response to the presence of something sacred or something that once was sacred. Those foundation stones may be what remains of a shrine.",
+        "pass": "In the old devotional texts, animal prostration is called a recognition. A response to the presence of something sacred or something that once was sacred. Those foundation stones may be what remains of a shrine.",
         "fail": "Herd animals do strange things sometimes. They follow each other without thinking. It could be one goat started and the rest copied."
       },
       "valence": "negative"
     },
     {
       "id": 10,
-      "intro": "A patch of wildflowers near {subject_focus_the} bloomed overnight. The problem is they were dead. Dried stalks, brown petals, dead for weeks. And then one morning: full bloom, bright as summer.",
+      "intro": "A patch of wildflowers near {subject_focus_the} bloomed overnight. The problem is they were dead. Dried stalks, brown petals, dead for weeks. And then one morning. Full bloom, bright as summer.",
       "details": [
         "The petals are a color I've never seen on that species. Deep violet, almost black at the center. They should be yellow.",
-        "They don't smell like flowers. They smell like rain on hot stone: that sharp, mineral scent.",
+        "They don't smell like flowers. They smell like rain on hot stone. That sharp, mineral scent.",
         "Nobody planted them, nobody watered them. The soil around them is still cracked and dry."
       ],
       "reactions": [
@@ -188,14 +188,14 @@
         "I picked one and brought it inside. It hasn't wilted in four days. My wife wants it out of the house."
       ],
       "statCheck": {
-        "pass": "There is a passage in the old rites about death-blooming: when the boundary between states becomes thin, dead things resume their last living act. It's not the flowers that matter. It's what thinned the boundary.",
+        "pass": "There is a passage in the old rites about death-blooming. When the boundary between states becomes thin, dead things resume their last living act. It's not the flowers that matter. It's what thinned the boundary.",
         "fail": "Strange soil, strange weather, strange results. I'm no herbalist, so I can't say what would cause a dead plant to flower again."
       },
       "valence": "negative"
     },
     {
       "id": 11,
-      "intro": "The mirror in the inn near {subject_focus_the} has been showing the wrong reflection. Not a different person: you, but a moment behind. Like it's reflecting what you did a few seconds ago.",
+      "intro": "The mirror in the inn near {subject_focus_the} has been showing the wrong reflection. Not a different person. You, but a moment behind. Like it's reflecting what you did a few seconds ago.",
       "details": [
         "I raised my hand and watched. The reflection raised its hand after a pause, long enough to count to three.",
         "The innkeeper covered it with a cloth. When he pulled the cloth away an hour later, the reflection was standing in a different position than anyone in the room.",
@@ -207,14 +207,14 @@
         "Some of the regulars have started drinking at home instead. Can't say I blame them."
       ],
       "statCheck": {
-        "pass": "Delayed reflections appear in the old binding catalogs. The mirror isn't broken: it's become a window. Something on the other side is learning to mimic what it sees, and it's getting better at it.",
+        "pass": "Delayed reflections appear in the old binding catalogs. The mirror isn't broken. It's become a window. Something on the other side is learning to mimic what it sees, and it's getting better at it.",
         "fail": "Old glass warps. Light bends. There's probably a simple explanation, but I'll admit I haven't found one that makes me feel better."
       },
       "valence": "negative"
     },
     {
       "id": 12,
-      "intro": "Bread won't rise near {subject_focus_the}. Every baker in the area has tried: different flour, different yeast, different ovens. The dough just sits there, flat and heavy.",
+      "intro": "Bread won't rise near {subject_focus_the}. Every baker in the area has tried. Different flour, different yeast, different ovens. The dough just sits there, flat and heavy.",
       "details": [
         "It started the same morning the birds went quiet. I don't know if that matters, but it's what I noticed.",
         "The yeast is alive. You can see it bubble in the jar. But the moment it goes into the dough, nothing. Like something is stopping the process.",
@@ -222,10 +222,10 @@
       ],
       "reactions": [
         "People are eating flatbread and pretending it's fine. It's not fine. Something is wrong with this place right now.",
-        "The oldest baker says her grandmother told stories about this. She called it a settling: the land holding its breath before something arrives."
+        "The oldest baker says her grandmother told stories about this. She called it a settling. The land holding its breath before something arrives."
       ],
       "statCheck": {
-        "pass": "A settling is more than a story. The old ritual texts describe it as a suppression field: living processes slow near a threshold event. Fermentation, growth, healing. If bread won't rise, check whether cuts are taking longer to close.",
+        "pass": "A settling is more than a story. The old ritual texts describe it as a suppression field. Living processes slow near a threshold event. Fermentation, growth, healing. If bread won't rise, check whether cuts are taking longer to close.",
         "fail": "Bad yeast, bad weather, bad luck. It happens in clusters sometimes. I wouldn't know what else to look for."
       },
       "valence": "negative"
@@ -234,7 +234,7 @@
       "id": 13,
       "intro": "The smith near {subject_focus_the} says metal won't hold an edge anymore. He's been sharpening the same blade for three days and it goes dull within the hour.",
       "details": [
-        "It's not just his forge. A tinker passing through tried his own tools and whetstones. Same result: sharp for a few minutes, then flat.",
+        "It's not just his forge. A tinker passing through tried his own tools and whetstones. Same result. Sharp for a few minutes, then flat.",
         "The metal doesn't look different. No rust, no pitting. It just refuses to stay keen.",
         "He tested an old blade he's had for years, one that's always held. Same thing. Went dull overnight sitting on the rack."
       ],
@@ -243,7 +243,7 @@
         "The smith is taking it personally. He shouldn't. Whatever this is, it's not about his skill."
       ],
       "statCheck": {
-        "pass": "There are old accounts of this in texts about consecrated ground. Near certain sacred sites, worked metal loses its purpose: edges dull, locks won't hold, chains go slack. It's not decay. It's rejection.",
+        "pass": "There are old accounts of this in texts about consecrated ground. Near certain sacred sites, worked metal loses its purpose. Edges dull, locks won't hold, chains go slack. It's not decay. It's rejection.",
         "fail": "Could be something in the water they're quenching with, or the air near the forge. I'm not a smith, so I can only repeat what he told me."
       },
       "valence": "negative"
@@ -253,7 +253,7 @@
       "intro": "The bell in the watchtower near {subject_focus_the} rang three times at midnight. Nobody was in the tower. The rope wasn't even attached.",
       "details": [
         "The bell hasn't been used in years. The clapper was removed after the last keeper left. It rang anyway.",
-        "Three clear tones, evenly spaced. Not a clang, not rattling: proper rings, like someone struck it with intent.",
+        "Three clear tones, evenly spaced. Not a clang, not rattling. Proper rings, like someone struck it with intent.",
         "A guard climbed up to check. The bell was still, the tower was empty, and the dust on the floor was undisturbed."
       ],
       "reactions": [
@@ -268,9 +268,9 @@
     },
     {
       "id": 15,
-      "intro": "Frost near {subject_focus_the} has been forming in patterns. Not random crystals: straight lines, right angles, shapes that look deliberate. Like writing nobody can read.",
+      "intro": "Frost near {subject_focus_the} has been forming in patterns. Not random crystals. Straight lines, right angles, shapes that look deliberate. Like writing nobody can read.",
       "details": [
-        "It appears on the ground, on walls, on the inside of windows. Always the same shapes: sharp angles, repeating sequences.",
+        "It appears on the ground, on walls, on the inside of windows. Always the same shapes. Sharp angles, repeating sequences.",
         "The patterns are different each morning but follow the same style. Like someone is writing a new message every night.",
         "I traced one of the shapes on parchment. The herbalist looked at it and went quiet. She wouldn't say why."
       ],
@@ -279,7 +279,7 @@
         "People have started scraping the patterns off their windows before dawn. As if not seeing them makes them not real."
       ],
       "statCheck": {
-        "pass": "I showed the tracings to a traveling scholar. She recognized the angles: they're fragments of old ward notation, the kind used to mark boundaries. Something is writing warnings on every surface it can reach.",
+        "pass": "I showed the tracings to a traveling scholar. She recognized the angles. They're fragments of old ward notation, the kind used to mark boundaries. Something is writing warnings on every surface it can reach.",
         "fail": "The shapes could mean anything or nothing. Ice crystals follow the grain of the surface they form on. Without someone who can read old scripts, it's just frost."
       },
       "valence": "negative"
@@ -295,10 +295,10 @@
       "reactions": [
         "One man can't be in three places at once. Either three people are lying, or we aren't dealing with one man.",
         "The guard tried to follow him past the gate. He turned a corner and was gone. No footprints, no trail.",
-        "I don't want to say what I think it is. But I will say this: I lock my door now."
+        "I don't want to say what I think it is. But I will say this. I lock my door now."
       ],
       "statCheck": {
-        "pass": "Simultaneous sightings of the same figure are described in the old annals as echo-walking: a projection sent out by something testing the boundaries of a place. It's not a person. It's a survey.",
+        "pass": "Simultaneous sightings of the same figure are described in the old annals as echo-walking. A projection sent out by something testing the boundaries of a place. It's not a person. It's a survey.",
         "fail": "Travelers pass through all the time. People see what they expect to see, and three similar-looking strangers on the same day isn't impossible. Just unlikely."
       },
       "valence": "negative"
@@ -309,24 +309,24 @@
       "details": [
         "A tall shape with no face, standing in a circle of smaller shapes. All three used the same dark color for the figure and left the circle empty.",
         "The children don't know each other. One lives on the east side, one near the market, one at the edge of the settlement.",
-        "When asked what they drew, each one said the same thing: the visitor. None of them could say where they heard that word."
+        "When asked what they drew, each one said the same thing. The visitor. None of them could say where they heard that word."
       ],
       "reactions": [
         "Children pick things up. Stories, songs, games. But this isn't a game they're playing. They didn't learn this from each other.",
         "One of the mothers burned the drawing. Her daughter drew it again the next morning, identical. She stopped burning them after that."
       ],
       "statCheck": {
-        "pass": "Synchronized imagery in children appears in the old texts as a resonance event: a signal strong enough that unguarded minds receive it directly. Whatever the children are drawing, it's broadcasting.",
+        "pass": "Synchronized imagery in children appears in the old texts as a resonance event. A signal strong enough that unguarded minds receive it directly. Whatever the children are drawing, it's broadcasting.",
         "fail": "Children share stories at market, in the fields, wherever they gather. A striking image gets passed around and everyone draws the same thing. It's unsettling, but it could be ordinary."
       },
       "valence": "negative"
     },
     {
       "id": 18,
-      "intro": "Every compass near {subject_focus_the} has started pointing down. Not north, not south: the needle dips straight toward the ground and holds there.",
+      "intro": "Every compass near {subject_focus_the} has started pointing down. Not north, not south. The needle dips straight toward the ground and holds there.",
       "details": [
         "A merchant had three compasses of different make. All three did the same thing the moment he crossed the bridge.",
-        "If you carry one far enough away, it rights itself. Come back, and it drops again. The boundary is sharp: one step and it changes.",
+        "If you carry one far enough away, it rights itself. Come back, and it drops again. The boundary is sharp. One step and it changes.",
         "The needle doesn't wobble. It points down with conviction, like it found what it was looking for."
       ],
       "reactions": [
@@ -334,17 +334,17 @@
         "A compass should find north. If it's finding something else, I'd rather not know what's down there."
       ],
       "statCheck": {
-        "pass": "The old texts describe compass deviation near what they call lodestone wells: places where something buried exerts a pull stronger than the poles. These wells are usually dormant. If the compasses are responding, it woke up.",
+        "pass": "The old texts describe compass deviation near what they call lodestone wells. Places where something buried exerts a pull stronger than the poles. These wells are usually dormant. If the compasses are responding, it woke up.",
         "fail": "Iron deposits in the ground can pull a needle. Could be an ore vein nobody knew about. That's the most comfortable explanation, anyway."
       },
       "valence": "negative"
     },
     {
       "id": 19,
-      "intro": "Wounds won't close on certain days near {subject_focus_the}. Not every day: just the third and seventh of each week. Cuts stay open, bruises don't fade, and healing salves do nothing.",
+      "intro": "Wounds won't close on certain days near {subject_focus_the}. Not every day. Just the third and seventh of each week. Cuts stay open, bruises don't fade, and healing salves do nothing.",
       "details": [
         "A woodcutter nicked his hand on the third day. Wrapped it tight, kept it clean. It didn't start healing until the fourth day, as if someone flipped a switch.",
-        "The herbalist tested it with small cuts on her own arm on different days. She confirmed the pattern: third and seventh, nothing heals.",
+        "The herbalist tested it with small cuts on her own arm on different days. She confirmed the pattern. Third and seventh, nothing heals.",
         "Animals are affected too. A goat cut on the wire fence bled steadily all day. The next morning it had scabbed over normally."
       ],
       "reactions": [
@@ -353,7 +353,7 @@
         "The herbalist won't say what she thinks it means. She just told everyone to stay careful and left it at that."
       ],
       "statCheck": {
-        "pass": "Cyclical suppression is documented in the old ritual texts. Certain wards operate on intervals: active, dormant, active. If healing fails on a pattern, something nearby is cycling through states. On the active days, living processes near it are paused.",
+        "pass": "Cyclical suppression is documented in the old ritual texts. Certain wards operate on intervals. Active, dormant, active. If healing fails on a pattern, something nearby is cycling through states. On the active days, living processes near it are paused.",
         "fail": "The herbalist has theories but won't share them. She says she needs more data. I think she has enough data and doesn't like what it tells her."
       },
       "valence": "negative"
@@ -363,7 +363,7 @@
       "intro": "Ink changes color after it dries near {subject_focus_the}. You write in black, walk away, come back, and the words are dark red. Every time.",
       "details": [
         "The records keeper noticed it first. A full page of accounts she wrote in the morning was crimson by afternoon. The numbers were still legible, but the color was wrong.",
-        "She tried different inks: oak gall, charcoal, even a trader's imported blue. All of them turn the same shade of red once dry.",
+        "She tried different inks. Oak gall, charcoal, even a trader's imported blue. All of them turn the same shade of red once dry.",
         "The parchment itself is unchanged. It's only the ink. As if something in the air is reacting with it after it leaves the pen."
       ],
       "reactions": [
@@ -371,7 +371,7 @@
         "Red ink used to mean a death notice in the old traditions. A whole village writing in red by accident makes people uneasy."
       ],
       "statCheck": {
-        "pass": "Chromatic shift in written marks is listed among the signs of a thinning: the boundary between here and somewhere else wearing down. The old texts say that when ink changes, the air itself is carrying trace elements from the other side.",
+        "pass": "Chromatic shift in written marks is listed among the signs of a thinning. The boundary between here and somewhere else wearing down. The old texts say that when ink changes, the air itself is carrying trace elements from the other side.",
         "fail": "Humidity, mineral dust, something in the local water they mix the ink with. The records keeper has tried everything obvious and none of it explains it, but there could be a mundane cause we're missing."
       },
       "valence": "negative"
@@ -389,25 +389,25 @@
         "The elders called a meeting after that. They wouldn't say what they discussed, but they haven't called one since."
       ],
       "statCheck": {
-        "pass": "A false celestial body is called a beacon in the old astrological texts. It's not the moon: it's a projection, a signal fire for something traveling a long distance. It marks a destination. This place was the destination.",
+        "pass": "A false celestial body is called a beacon in the old astrological texts. It's not the moon. It's a projection, a signal fire for something traveling a long distance. It marks a destination. This place was the destination.",
         "fail": "Atmospheric tricks can make the moon appear at odd times or in odd colors. I'm no astronomer, but I know enough to know the sky doesn't always behave the way we expect."
       },
       "valence": "negative"
     },
     {
       "id": 22,
-      "intro": "The stars near {subject_focus_the} were in the wrong positions two nights ago. Not missing: rearranged. Constellations I've known my whole life were shifted, like someone moved them.",
+      "intro": "The stars near {subject_focus_the} were in the wrong positions two nights ago. Not missing. Rearranged. Constellations I've known my whole life were shifted, like someone moved them.",
       "details": [
         "The hunter's bow was pointing the wrong direction. The crown was inverted. The wanderer's star was a full hand's width from where it should be.",
         "It lasted the whole night. By dawn the sky was overcast, and the next clear night everything was back to normal.",
         "A traveling navigator saw it too. She checked her charts three times and said the sky didn't match any season, any year, any hemisphere she knew."
       ],
       "reactions": [
-        "People who don't look at the sky didn't notice. But anyone who's ever steered by the stars felt it in their gut: something was wrong up there.",
+        "People who don't look at the sky didn't notice. But anyone who's ever steered by the stars felt it in their gut. Something was wrong up there.",
         "The navigator left the next morning. Said she'd rather trust her feet than a sky that rearranges itself."
       ],
       "statCheck": {
-        "pass": "The old texts call it a sky-shift: a momentary alignment with a different sphere. For one night, you weren't seeing your sky. You were seeing someone else's. The question is whose.",
+        "pass": "The old texts call it a sky-shift. A momentary alignment with a different sphere. For one night, you weren't seeing your sky. You were seeing someone else's. The question is whose.",
         "fail": "Stars drift over centuries. Maybe something sped up a process we usually can't perceive. I'm reaching, I know. But what else can I say?"
       },
       "valence": "negative"
@@ -416,7 +416,7 @@
       "id": 23,
       "intro": "Echoes near {subject_focus_the} have been saying different words than what was spoken. You shout a name, and what comes back is a different name entirely.",
       "details": [
-        "A herder called for his dog near the old ruin. The echo came back with a word he didn't recognize: not a name, not any language he knows.",
+        "A herder called for his dog near the old ruin. The echo came back with a word he didn't recognize. Not a name, not any language he knows.",
         "I tried it myself. Said my own name toward the cliff face. What came back sounded like a question, with rising pitch at the end.",
         "The timing is wrong too. The echo returns before it should, almost overlapping with the original shout."
       ],
@@ -425,7 +425,7 @@
         "An echo is just sound bouncing off stone. When it starts answering in words you didn't say, it's not an echo anymore."
       ],
       "statCheck": {
-        "pass": "What you're describing is called a responsive boundary in the old ward literature. The echo isn't reflecting sound: something on the other side is hearing you and replying. It's been listening long enough to start forming responses.",
+        "pass": "What you're describing is called a responsive boundary in the old ward literature. The echo isn't reflecting sound. Something on the other side is hearing you and replying. It's been listening long enough to start forming responses.",
         "fail": "Wind currents, rock formations, overlapping sound waves. There are acoustic explanations for strange echoes. Whether they apply here, I honestly don't know."
       },
       "valence": "negative"
@@ -443,14 +443,14 @@
         "I know this sounds foolish, but it feels like something nearby is pulling time in the wrong direction. I don't know how else to say it."
       ],
       "statCheck": {
-        "pass": "Reversed time-markers appear in the old records as symptoms of what the texts call an unwinding: a process or entity moving against the current of time. The sundial isn't broken. It's responding to a different flow.",
+        "pass": "Reversed time-markers appear in the old records as symptoms of what the texts call an unwinding. A process or entity moving against the current of time. The sundial isn't broken. It's responding to a different flow.",
         "fail": "A tilted base could cause odd shadow behavior. Maybe the ground shifted. I'm not sure that explains it moving backward, but I don't have a better answer."
       },
       "valence": "negative"
     },
     {
       "id": 25,
-      "intro": "A well near {subject_focus_the} has started whispering. Not the wind in the shaft, not water dripping: a voice, low and steady, speaking words just too quiet to make out.",
+      "intro": "A well near {subject_focus_the} has started whispering. Not the wind in the shaft, not water dripping. A voice, low and steady, speaking words just too quiet to make out.",
       "details": [
         "You have to lean over the edge to hear it. It's coming from deep down, well below the water line.",
         "The voice never stops. Day and night, the same low murmur. People who listen too long say they start to understand fragments, but they can't repeat what they heard.",
@@ -462,17 +462,17 @@
         "Some people say it's comforting. That worries me more than the people who are afraid of it."
       ],
       "statCheck": {
-        "pass": "A voice from deep water is called a summons-through-stone in the old liturgical texts. The well shaft acts as a channel. Whatever is speaking isn't in the water: it's beneath the bedrock, and it's patient enough to speak continuously.",
+        "pass": "A voice from deep water is called a summons-through-stone in the old liturgical texts. The well shaft acts as a channel. Whatever is speaking isn't in the water. It's beneath the bedrock, and it's patient enough to speak continuously.",
         "fail": "Underground water creates strange acoustics. Air pockets, resonance, vibrations from distant sources. The mind fills in patterns and hears words that aren't there."
       },
       "valence": "negative"
     },
     {
       "id": 26,
-      "intro": "A single footprint appeared in solid stone near {subject_focus_the}. Not carved: pressed in, the way a boot sinks into mud. But the stone is granite.",
+      "intro": "A single footprint appeared in solid stone near {subject_focus_the}. Not carved. Pressed in, the way a boot sinks into mud. But the stone is granite.",
       "details": [
         "The impression is about a hand's length deep. Clean edges, no tool marks, no cracks radiating outward. As if the stone was soft when it happened.",
-        "The sole pattern doesn't match any boot the cobbler recognizes. The tread is geometric: perfect circles and lines.",
+        "The sole pattern doesn't match any boot the cobbler recognizes. The tread is geometric. Perfect circles and lines.",
         "There's only one print. No trail leading to it, no trail leading away. One step, in solid stone, and nothing else."
       ],
       "reactions": [
@@ -480,7 +480,7 @@
         "People keep coming to look at it, touching the edges. I wish they'd stop. It feels like we're drawing attention to something we should leave alone."
       ],
       "statCheck": {
-        "pass": "The old texts describe impression marks at sites where something crossed between planes: the stone was briefly malleable because the boundary was open. One step through, one mark left behind. The geometry of the sole isn't decorative. It's structural: part of a seal.",
+        "pass": "The old texts describe impression marks at sites where something crossed between planes. The stone was briefly malleable because the boundary was open. One step through, one mark left behind. The geometry of the sole isn't decorative. It's structural. Part of a seal.",
         "fail": "Natural erosion can create patterns that look deliberate. Wind, water, freezing and thawing. It could be a natural formation that happens to resemble a print."
       },
       "valence": "negative"
@@ -498,17 +498,17 @@
         "Nobody is sleeping well. You learn to ignore a rooster at sunrise. At midnight, it stops your heart."
       ],
       "statCheck": {
-        "pass": "The old watchkeeper texts describe false-dawn responses in animals near sites of emergence. The roosters aren't confused: they're reacting to a pulse of energy that passes through the area at midnight. To them, it registers as light. To us, it's invisible.",
+        "pass": "The old watchkeeper texts describe false-dawn responses in animals near sites of emergence. The roosters aren't confused. They're reacting to a pulse of energy that passes through the area at midnight. To them, it registers as light. To us, it's invisible.",
         "fail": "Animals have their own rhythms. Stress, weather changes, disturbances in the night. A spooked rooster sets off the rest, and suddenly the whole village is awake."
       },
       "valence": "negative"
     },
     {
       "id": 28,
-      "intro": "Every lock near {subject_focus_the} opened on the same night. Doors, chests, strongboxes: all of them found standing open by morning. No damage, no picks, no force.",
+      "intro": "Every lock near {subject_focus_the} opened on the same night. Doors, chests, strongboxes. All of them found standing open by morning. No damage, no picks, no force.",
       "details": [
         "The smith checked three of the locks. The mechanisms are fine. Tumblers intact, no tampering. They just opened.",
-        "Nothing was taken. Every chest, every room, every strongbox: open, undisturbed, contents exactly where they were.",
+        "Nothing was taken. Every chest, every room, every strongbox. Open, undisturbed, contents exactly where they were.",
         "The locks work normally now. You can turn the key and they hold. But people are checking them twice before bed."
       ],
       "reactions": [
@@ -516,17 +516,17 @@
         "The smith spent the whole next day refitting every lock he could reach. I think it was more for his own peace of mind than anything."
       ],
       "statCheck": {
-        "pass": "Mass unlocking is described in the old texts as a release event: an echo of a seal breaking somewhere deep. Every bound thing in the area responds in sympathy. The locks didn't fail. Something else opened, and they answered.",
+        "pass": "Mass unlocking is described in the old texts as a release event. An echo of a seal breaking somewhere deep. Every bound thing in the area responds in sympathy. The locks didn't fail. Something else opened, and they answered.",
         "fail": "A bad batch of metal, thermal expansion on a cold night, old mechanisms giving way. Any one lock opening is explainable. All of them at once is harder, but stranger things have happened."
       },
       "valence": "negative"
     },
     {
       "id": 29,
-      "intro": "The shadows of buildings near {subject_focus_the} have been moving on their own. Not with the sun: independently, sliding across the ground like they've detached from whatever cast them.",
+      "intro": "The shadows of buildings near {subject_focus_the} have been moving on their own. Not with the sun. Independently, sliding across the ground like they've detached from whatever cast them.",
       "details": [
-        "It happens in the late afternoon. The shadows stretch the way they normally do, and then they keep going: past where the light should stop them, across paths, up walls.",
-        "They don't move fast. You can walk alongside one and keep pace. But they move with purpose, always in the same direction: toward the center of the settlement.",
+        "It happens in the late afternoon. The shadows stretch the way they normally do, and then they keep going. Past where the light should stop them, across paths, up walls.",
+        "They don't move fast. You can walk alongside one and keep pace. But they move with purpose, always in the same direction. Toward the center of the settlement.",
         "By nightfall, when everything is shadow, you can't tell what's normal and what isn't. But during the day, when you can see them moving against the sun, it's unmistakable."
       ],
       "reactions": [
@@ -534,7 +534,7 @@
         "The children think it's funny. They chase the shadows. I don't think it's funny at all."
       ],
       "statCheck": {
-        "pass": "Autonomous shadow movement is described in the old texts as convergence: shadows drawn to a focal point by something that feeds on darkness or uses it as a medium. The fact that they're gathering at the center of the settlement means whatever is drawing them is already here.",
+        "pass": "Autonomous shadow movement is described in the old texts as convergence. Shadows drawn to a focal point by something that feeds on darkness or uses it as a medium. The fact that they're gathering at the center of the settlement means whatever is drawing them is already here.",
         "fail": "Heat shimmer, atmospheric refraction, the way tired eyes play tricks in the late afternoon. I keep telling myself that, but I'm running out of conviction."
       },
       "valence": "negative"

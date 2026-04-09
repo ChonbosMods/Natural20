@@ -77,6 +77,14 @@ public class QuestGenerator {
         bindings.put("quest_conflict4_turnin_text", template.conflict4TurnInText() != null ? template.conflict4TurnInText() : "");
         bindings.put("quest_resolution_text", template.resolutionText());
 
+        // Target NPC dialogue for TALK_TO_NPC phases
+        if (template.targetNpcOpener() != null) {
+            bindings.put("target_npc_opener", template.targetNpcOpener());
+        }
+        if (template.targetNpcCloser() != null) {
+            bindings.put("target_npc_closer", template.targetNpcCloser());
+        }
+
         // Skill check (optional). When present, DialogueManager builds a SkillCheckNode
         // and a third response option on the entry node. The pass branch fires
         // MARK_SKILLCHECK_PASSED before the accept node so TURN_IN_V2 picks up the bonus.

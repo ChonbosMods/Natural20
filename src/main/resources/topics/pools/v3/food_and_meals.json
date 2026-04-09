@@ -98,7 +98,7 @@
         "I'll try again next week. Can't get worse."
       ],
       "statCheck": {
-        "pass": "I think the issue was heat: too high, too early. The outside cooked before the inside had a chance.",
+        "pass": "I think the issue was heat. Too high, too early. The outside cooked before the inside had a chance.",
         "fail": "Honestly I just guessed at most of it. No real method."
       },
       "valence": "neutral",
@@ -129,7 +129,7 @@
       "intro": "The {crop_type} came in beautifully this season. I'm eating better than I have in months.",
       "details": [
         "Big, healthy, full of flavor. Some years you just get lucky with the growing conditions.",
-        "I've been putting them in everything: soups, roasts, even just eating them raw."
+        "I've been putting them in everything. Soups, roasts, even just eating them raw."
       ],
       "reactions": [
         "A good harvest changes your whole mood. You feel rich in the way that actually matters."
@@ -166,7 +166,7 @@
         "I asked for the recipe but they just shrugged and said they didn't measure anything."
       ],
       "reactions": [
-        "That's the most frustrating kind of good cook: the kind that can't teach you."
+        "That's the most frustrating kind of good cook. The kind that can't teach you."
       ],
       "statCheck": null,
       "valence": "positive",
@@ -231,7 +231,7 @@
     },
     {
       "id": 13,
-      "intro": "I can't stand {food_type}: the texture alone makes me uneasy.",
+      "intro": "I can't stand {food_type}. The texture alone makes me uneasy.",
       "details": [
         "People act like I'm being difficult, but some foods just don't agree with you.",
         "I've tried it cooked different ways. Doesn't matter. My mouth knows and it says no."
@@ -254,7 +254,7 @@
         "The kids ate first and then ran off. The rest of us just sat and talked until the candles burned down."
       ],
       "reactions": [
-        "That's what meals are supposed to be. Not just food: an excuse to sit together."
+        "That's what meals are supposed to be. Not just food. An excuse to sit together."
       ],
       "statCheck": null,
       "valence": "positive",
@@ -291,7 +291,7 @@
         "Fresh herbs are one of those small things that make life noticeably better."
       ],
       "statCheck": {
-        "pass": "Timing matters more than quantity: add them at the end of cooking, not the start. Heat kills the flavor.",
+        "pass": "Timing matters more than quantity. Add them at the end of cooking, not the start. Heat kills the flavor.",
         "fail": "I just throw them in whenever. Seems to work out."
       },
       "valence": "positive",
@@ -336,7 +336,7 @@
     },
     {
       "id": 19,
-      "intro": "I cook the same three meals in rotation. It's not laziness: it's efficiency.",
+      "intro": "I cook the same three meals in rotation. It's not laziness. It's efficiency.",
       "details": [
         "I know the portions, I know the timing, I know exactly what to buy. No waste, no guessing.",
         "People give me a hard time about it, but my meals are consistently decent. Can they say the same?"
@@ -355,7 +355,7 @@
       "id": 20,
       "intro": "Roasted some {crop_type} with just salt and a bit of fat. Sometimes that's all you need.",
       "details": [
-        "I used to think good food had to be complicated. Hot, crisp on the outside, soft in the middle: turns out simple is usually better.",
+        "I used to think good food had to be complicated. Hot, crisp on the outside, soft in the middle. Turns out simple is usually better.",
         "I made a whole tray and ate most of it before it even cooled down. Barely left enough for tomorrow."
       ],
       "reactions": [
@@ -410,7 +410,7 @@
       "intro": "I don't understand people who eat in a hurry. What's the rush?",
       "details": [
         "Meals are the one time of day you're supposed to sit down and just exist for a while.",
-        "I take my time. Chew properly. Look out the window. It's not wasting time: it's using it."
+        "I take my time. Chew properly. Look out the window. It's not wasting time. It's using it."
       ],
       "reactions": [
         "If you can't enjoy a meal, what exactly are you working so hard for?"
@@ -592,7 +592,7 @@
         "One of these days I'll figure out what I'm doing wrong. Or I'll just give up and enjoy the longing."
       ],
       "statCheck": {
-        "pass": "I think the trick is the fat content. More butter than you'd expect: that's what gives it the richness.",
+        "pass": "I think the trick is the fat content. More butter than you'd expect. That's what gives it the richness.",
         "fail": "I'm no expert. I just know what I like and this isn't it yet."
       },
       "valence": "neutral",
@@ -707,7 +707,7 @@
       "id": 40,
       "intro": "I found my grandmother's recipe for {food_type} written on a scrap of cloth. Almost threw it away.",
       "details": [
-        "The measurements are all wrong by modern standards: 'a handful of this, a pinch of that.'",
+        "The measurements are all wrong by modern standards, 'a handful of this, a pinch of that.'",
         "But I followed it as best I could, and the taste brought back a room I haven't been in for twenty years."
       ],
       "reactions": [
@@ -741,7 +741,7 @@
       "id": 42,
       "intro": "I keep meaning to learn how to bake properly, but I never get around to it.",
       "details": [
-        "Cooking I can do: you adjust as you go. Baking is exact, and I don't have the temperament for that kind of precision.",
+        "Cooking I can do. You adjust as you go. Baking is exact, and I don't have the temperament for that kind of precision.",
         "I tried a simple flatbread last month and even that fought me. The dough stuck to everything and I ran out of flour just dusting the surface."
       ],
       "reactions": [
@@ -966,7 +966,7 @@
     },
     {
       "id": 55,
-      "intro": "I don't care what anyone says: cold leftover stew for breakfast is perfectly acceptable.",
+      "intro": "I don't care what anyone says. Cold leftover stew for breakfast is perfectly acceptable.",
       "details": [
         "It's already made, it's already seasoned, and I'm already hungry. The logic is airtight.",
         "I've eaten cold stew four mornings this week and every one of them was better than standing over a fire making porridge."
@@ -989,7 +989,7 @@
         "I hide the jar in the back of the shelf so I don't eat it all at once in a moment of weakness."
       ],
       "reactions": [
-        "Having something to look forward to at the end of a meal: that's worth more than a full plate."
+        "Having something to look forward to at the end of a meal. That's worth more than a full plate."
       ],
       "statCheck": null,
       "valence": "positive",
@@ -1060,7 +1060,7 @@
         "The tools matter. People who say they don't haven't cooked with good ones."
       ],
       "statCheck": {
-        "pass": "The angle matters: about fifteen degrees on each side. Too steep and the edge chips, too shallow and it won't hold.",
+        "pass": "The angle matters. About fifteen degrees on each side. Too steep and the edge chips, too shallow and it won't hold.",
         "fail": "I just drag it across the stone until it bites. Works for me."
       },
       "valence": "neutral",
@@ -1131,7 +1131,7 @@
         "Surviving winter with your taste buds intact is an underrated achievement."
       ],
       "statCheck": {
-        "pass": "Dried herbs saved from summer make a real difference: rosemary and thyme can make the same root soup taste new each time.",
+        "pass": "Dried herbs saved from summer make a real difference. Rosemary and thyme can make the same root soup taste new each time.",
         "fail": "I just eat what's there. Variety is a luxury I can't always manage in the cold months."
       },
       "valence": "neutral",
@@ -1144,7 +1144,7 @@
       "id": 65,
       "intro": "I forgot about a pot on the fire and the whole bottom scorched. The smell lingered for days.",
       "details": [
-        "That acrid, burned-food smell gets into everything: the curtains, your clothes, even the wood.",
+        "That acrid, burned-food smell gets into everything. The curtains, your clothes, even the wood.",
         "I've scrubbed the pot three times and there's still a dark stain at the bottom."
       ],
       "reactions": [
@@ -1198,7 +1198,7 @@
       "id": 68,
       "intro": "Cheese is the most underappreciated food there is. I will defend this position.",
       "details": [
-        "Good cheese on decent bread with maybe an apple: that's a meal. You don't need more.",
+        "Good cheese on decent bread with maybe an apple. That's a meal. You don't need more.",
         "The variety alone proves my point. Hard, soft, sharp, mild. There's one for every mood."
       ],
       "reactions": [
@@ -1236,7 +1236,7 @@
         "I've been frying them with a bit of fat and some bread on the side. Nothing else needed."
       ],
       "reactions": [
-        "Simple food done right: that's the quiet luxury nobody talks about."
+        "Simple food done right. That's the quiet luxury nobody talks about."
       ],
       "statCheck": null,
       "valence": "positive",
@@ -1273,7 +1273,7 @@
         "Practice, I suppose. Years of making the same thing until your hands just know."
       ],
       "statCheck": {
-        "pass": "I think it's the order of operations: they add the seasoning at a specific point in the process that changes how it absorbs.",
+        "pass": "I think it's the order of operations. They add the seasoning at a specific point in the process that changes how it absorbs.",
         "fail": "Maybe it's just experience. You can't shortcut years of doing the same thing."
       },
       "valence": "neutral",
@@ -1429,7 +1429,7 @@
         "I could eat plain bread after a day like that and it would feel like a feast."
       ],
       "reactions": [
-        "Hunger is the best seasoning. That's not clever: it's just true."
+        "Hunger is the best seasoning. That's not clever. It's just true."
       ],
       "statCheck": null,
       "valence": "positive",
@@ -1449,7 +1449,7 @@
         "Good food doesn't always come from pleasant processes."
       ],
       "statCheck": {
-        "pass": "You need to keep it submerged in its own brine: any exposure to air invites mold. Weight it down with a clean stone.",
+        "pass": "You need to keep it submerged in its own brine. Any exposure to air invites mold. Weight it down with a clean stone.",
         "fail": "I just pack it in, seal it, and hope. It's worked so far."
       },
       "valence": "neutral",
@@ -1557,7 +1557,7 @@
         "Getting every last bit of use from your food feels like a small victory."
       ],
       "statCheck": {
-        "pass": "The bones give the best flavor if you crack them before boiling: the marrow adds richness you can't get otherwise.",
+        "pass": "The bones give the best flavor if you crack them before boiling. The marrow adds richness you can't get otherwise.",
         "fail": "I just throw everything in the pot and see what comes out. Usually works."
       },
       "valence": "positive",
@@ -1571,7 +1571,7 @@
       "intro": "The milk went sour before I could use it. Should've been more careful.",
       "details": [
         "Left it too close to the fire and by the time I noticed, the smell told me everything. Poured it out and the jar stank for two days.",
-        "I had plans for it too: was going to make a proper sauce for dinner. Instead I ate dry bread and regret."
+        "I had plans for it too. Was going to make a proper sauce for dinner. Instead I ate dry bread and regret."
       ],
       "reactions": [
         "Small mistakes, small losses. But they add up when you're not paying attention."
@@ -1591,7 +1591,7 @@
         "It wasn't perfect, but it was mine in a way that following instructions never is."
       ],
       "reactions": [
-        "Cooking by feel is a skill. You don't learn it from recipes: you learn it from failures."
+        "Cooking by feel is a skill. You don't learn it from recipes. You learn it from failures."
       ],
       "statCheck": null,
       "valence": "neutral",
@@ -1750,7 +1750,7 @@
         "I had it for dinner last night and thought about how grateful I am to anonymous cooks throughout history."
       ],
       "reactions": [
-        "The best recipes are the ones nobody invented: they just happened."
+        "The best recipes are the ones nobody invented. They just happened."
       ],
       "statCheck": null,
       "valence": "positive",
@@ -1804,7 +1804,7 @@
         "First attempts are never supposed to work. They're supposed to teach."
       ],
       "statCheck": {
-        "pass": "Lower heat and longer time: that's the fix. High heat cooks the surface too fast and the center never catches up.",
+        "pass": "Lower heat and longer time. That's the fix. High heat cooks the surface too fast and the center never catches up.",
         "fail": "I'll figure it out eventually. For now I'm just guessing."
       },
       "valence": "neutral",
@@ -1875,7 +1875,7 @@
         "Understanding vinegar might be the difference between decent cooking and good cooking."
       ],
       "statCheck": {
-        "pass": "Acid balances richness: that's the principle. If a dish tastes flat but has enough salt, it probably needs acid, not more seasoning.",
+        "pass": "Acid balances richness. That's the principle. If a dish tastes flat but has enough salt, it probably needs acid, not more seasoning.",
         "fail": "I just know it tastes better. I couldn't tell you the science behind it."
       },
       "valence": "neutral",
@@ -1946,7 +1946,7 @@
         "Recipes travel further than the people who carry them. That's a nice thought."
       ],
       "statCheck": {
-        "pass": "They mentioned resting the dough overnight in a cool place: that develops flavor you can't rush.",
+        "pass": "They mentioned resting the dough overnight in a cool place. That develops flavor you can't rush.",
         "fail": "I took notes but I'm not sure I got all the details right. Trial and error from here."
       },
       "valence": "positive",
@@ -2045,13 +2045,13 @@
       "intro": "I salted and dried some fish last week. It's ready now and it's exactly what I hoped.",
       "details": [
         "Firm, savory, keeps for ages. Perfect for when I don't feel like cooking a proper meal.",
-        "A few pieces with bread and some pickled vegetables: that's a meal that takes no effort."
+        "A few pieces with bread and some pickled vegetables. That's a meal that takes no effort."
       ],
       "reactions": [
         "Planning ahead pays off. Especially when the payoff is not having to cook."
       ],
       "statCheck": {
-        "pass": "The thickness of the cut matters: too thin and it dries to leather, too thick and the center doesn't cure properly.",
+        "pass": "The thickness of the cut matters. Too thin and it dries to leather, too thick and the center doesn't cure properly.",
         "fail": "I followed the method a fisherman showed me. Can't say I fully understand it."
       },
       "valence": "positive",
@@ -2098,7 +2098,7 @@
       "id": 119,
       "intro": "I believe that the person who cooks should never have to clean up. That's the rule.",
       "details": [
-        "You spend all that time and effort making food for people: the least they can do is wash a plate.",
+        "You spend all that time and effort making food for people. The least they can do is wash a plate.",
         "When I cook for others, I make a point of sitting down after serving. The kitchen is someone else's problem."
       ],
       "reactions": [
@@ -2122,7 +2122,7 @@
         "Trust the recipe, at least the first time. You can improvise later."
       ],
       "statCheck": {
-        "pass": "The resting step in the middle is what makes the difference: lets the flavors meld before the final cook.",
+        "pass": "The resting step in the middle is what makes the difference. Lets the flavors meld before the final cook.",
         "fail": "I'm not sure which step was the important one. I'll just do all of them again next time."
       },
       "valence": "positive",
@@ -2156,7 +2156,7 @@
         "The freshness changes everything. You can taste the soil, the sun, all of it."
       ],
       "reactions": [
-        "That connection between growing and eating: that's something you can't buy."
+        "That connection between growing and eating. That's something you can't buy."
       ],
       "statCheck": null,
       "valence": "positive",
@@ -2170,13 +2170,13 @@
       "intro": "Leftovers are an art form. Anyone who throws them away is a fool.",
       "details": [
         "Yesterday's roast becomes today's stew. Tonight's vegetables become tomorrow's filling.",
-        "A good cook wastes nothing. That's not thrift: it's respect for the food."
+        "A good cook wastes nothing. That's not thrift. It's respect for the food."
       ],
       "reactions": [
         "The second life of a meal is often better than the first."
       ],
       "statCheck": {
-        "pass": "The trick is adding a fresh element to old ingredients: fresh herbs, a squeeze of something acidic. It bridges the gap.",
+        "pass": "The trick is adding a fresh element to old ingredients. Fresh herbs, a squeeze of something acidic. It bridges the gap.",
         "fail": "I just heat everything up and hope for the best. Usually decent."
       },
       "valence": "neutral",
@@ -2189,7 +2189,7 @@
       "id": 124,
       "intro": "I had to cook for eight people with barely enough food for three. It was stressful.",
       "details": [
-        "Made a lot of soup. Soup is forgiving: you can stretch it further than almost anything.",
+        "Made a lot of soup. Soup is forgiving. You can stretch it further than almost anything.",
         "Added extra bread and nobody complained. But I was counting portions the entire time."
       ],
       "reactions": [
@@ -2204,7 +2204,7 @@
     },
     {
       "id": 125,
-      "intro": "Hot food on a cold day, cold food on a hot day: that's the whole philosophy.",
+      "intro": "Hot food on a cold day, cold food on a hot day. That's the whole philosophy.",
       "details": [
         "People overthink meals. Match the weather and you're already halfway to a good one.",
         "Stew in winter, fresh salad in summer. It's not complicated."
@@ -2278,7 +2278,7 @@
       "intro": "There's a satisfaction to a clean kitchen after cooking. Everything put away, surfaces wiped, pot scrubbed.",
       "details": [
         "The meal is done, the mess is gone, and the room smells like soap and lingering spices.",
-        "That quiet moment when you've cooked, eaten, and cleaned: that's completeness."
+        "That quiet moment when you've cooked, eaten, and cleaned. That's completeness."
       ],
       "reactions": [
         "A clean kitchen means the day is properly finished."
@@ -2311,7 +2311,7 @@
       "id": 131,
       "intro": "I keep a small stock of {food_type} for when I need something quick. It's a lifesaver on busy days.",
       "details": [
-        "No cooking, no prep: just grab it and eat. Sometimes that's all you have time for.",
+        "No cooking, no prep. Just grab it and eat. Sometimes that's all you have time for.",
         "It's not a meal I'd choose if I had time, but it keeps me going."
       ],
       "reactions": [
@@ -2379,7 +2379,7 @@
       "id": 135,
       "intro": "Made a meal tonight that I wished someone else was there to share. It was too good for just me.",
       "details": [
-        "Everything came together perfectly: the timing, the flavor, even the way it looked on the plate.",
+        "Everything came together perfectly. The timing, the flavor, even the way it looked on the plate.",
         "I sat there alone, eating something wonderful, and felt oddly hollow about it."
       ],
       "reactions": [
@@ -2403,7 +2403,7 @@
         "I'll call it a preserve and pretend I meant to do that."
       ],
       "statCheck": {
-        "pass": "The pectin continues to set as it cools: so you pull it off the heat when it's still slightly runny. Counter-intuitive, but that's the trick.",
+        "pass": "The pectin continues to set as it cools. So you pull it off the heat when it's still slightly runny. Counter-intuitive, but that's the trick.",
         "fail": "I don't really understand the chemistry. I just cooked until it looked thick and overshot."
       },
       "valence": "neutral",
@@ -2416,7 +2416,7 @@
       "id": 137,
       "intro": "I cooked {food_type} tonight and the whole house smelled incredible for hours afterward.",
       "details": [
-        "That lingering aroma: spices, fat, heat. It soaks into the walls.",
+        "That lingering aroma. Spices, fat, heat. It soaks into the walls.",
         "I opened the window and I'm sure the neighbors could smell it too."
       ],
       "reactions": [
@@ -2501,7 +2501,7 @@
       "id": 142,
       "intro": "I eat with my hands more often than I probably should. Fork seems like unnecessary ceremony sometimes.",
       "details": [
-        "Bread, cheese, dried meat: none of that needs a utensil.",
+        "Bread, cheese, dried meat. None of that needs a utensil.",
         "There's something honest about eating with your hands. Direct. No pretension."
       ],
       "reactions": [
@@ -2525,7 +2525,7 @@
         "A year of practice for one perfect meal. Somehow that feels like a fair trade."
       ],
       "statCheck": {
-        "pass": "The final adjustment was salt timing: early in the cooking, not at the end. It penetrates deeper and the flavor is rounder.",
+        "pass": "The final adjustment was salt timing. Early in the cooking, not at the end. It penetrates deeper and the flavor is rounder.",
         "fail": "I couldn't point to any single change. It was the accumulation of all the small ones."
       },
       "valence": "positive",
@@ -2553,7 +2553,7 @@
     },
     {
       "id": 145,
-      "intro": "I think about food more than most people. It's not obsession: it's appreciation.",
+      "intro": "I think about food more than most people. It's not obsession. It's appreciation.",
       "details": [
         "I plan meals in my head while I work. Think about flavors, combinations, what would go well tonight.",
         "By the time I get to the kitchen, I've already cooked the meal three times in my imagination."
@@ -2579,7 +2579,7 @@
         "Equipment matters. I can admit that without it being an excuse."
       ],
       "statCheck": {
-        "pass": "Consistent heat is the real advantage: their oven holds temperature where mine spikes and drops. That's why baking is unreliable for me at home.",
+        "pass": "Consistent heat is the real advantage. Their oven holds temperature where mine spikes and drops. That's why baking is unreliable for me at home.",
         "fail": "Their oven is just better. I don't know the technical reasons, but you can taste the difference."
       },
       "valence": "positive",
@@ -2610,7 +2610,7 @@
       "intro": "The first warm meal after days of travel hits different. Nothing in the world tastes that good.",
       "details": [
         "Doesn't matter what it is. Could be the plainest stew ever made. If you've been cold and moving for days, it's a revelation.",
-        "I sat down, took one spoonful, and nearly cried. That's not dramatic: that's just what exhaustion does."
+        "I sat down, took one spoonful, and nearly cried. That's not dramatic. That's just what exhaustion does."
       ],
       "reactions": [
         "You don't understand comfort food until you've genuinely needed comfort."
@@ -2626,14 +2626,14 @@
       "id": 149,
       "intro": "I taught myself to cook out of necessity. Somewhere along the way it became something I actually love.",
       "details": [
-        "Started with survival: boiling things until they were edible. No skill, no care, just feeding myself.",
+        "Started with survival. Boiling things until they were edible. No skill, no care, just feeding myself.",
         "Now I think about presentation, about timing, about balance. I became a cook without meaning to."
       ],
       "reactions": [
         "The things you're forced to learn often become the things you're grateful for."
       ],
       "statCheck": {
-        "pass": "The turning point was understanding heat: that a gentle simmer does what a hard boil can't. Control changed everything.",
+        "pass": "The turning point was understanding heat. That a gentle simmer does what a hard boil can't. Control changed everything.",
         "fail": "I can't point to when it clicked. One day I just realized I was enjoying it."
       },
       "valence": "positive",
@@ -2646,7 +2646,7 @@
       "id": 150,
       "intro": "I eat the same breakfast every morning and I never get bored of it. Some people find that strange.",
       "details": [
-        "It's not about excitement: it's about starting the day with something familiar. I know how it tastes, I know how it sits, I know how long it keeps me going.",
+        "It's not about excitement. It's about starting the day with something familiar. I know how it tastes, I know how it sits, I know how long it keeps me going.",
         "I tried switching it up once. Felt off the whole morning."
       ],
       "reactions": [
@@ -2663,7 +2663,7 @@
       "id": 151,
       "intro": "I love the sound of something frying in a pan. That sizzle is the sound of good things coming.",
       "details": [
-        "The moment you drop something into hot fat and it crackles: that's when the meal starts being real.",
+        "The moment you drop something into hot fat and it crackles. That's when the meal starts being real.",
         "I could stand at the fire just listening to it. There's a rhythm to it."
       ],
       "reactions": [
@@ -2710,7 +2710,7 @@
         "Next time I'll measure. Or at least pretend to."
       ],
       "statCheck": {
-        "pass": "Next time I'll bloom the pepper in the fat first: low heat, just a few seconds. Tempers the bite without killing the flavor.",
+        "pass": "Next time I'll bloom the pepper in the fat first. Low heat, just a few seconds. Tempers the bite without killing the flavor.",
         "fail": "I probably just grabbed too much. My hands don't know restraint."
       },
       "valence": "negative",
@@ -2730,7 +2730,7 @@
         "Stock is the foundation of real cooking. Everything else is just building on top of it."
       ],
       "statCheck": {
-        "pass": "A splash of vinegar early on pulls more goodness out of the bones. Not enough to taste: just enough to work.",
+        "pass": "A splash of vinegar early on pulls more goodness out of the bones. Not enough to taste. Just enough to work.",
         "fail": "I just let the bones simmer and hope for the best. It usually turns out fine."
       },
       "valence": "positive",
@@ -2765,14 +2765,14 @@
       "id": 156,
       "intro": "I've started eating more vegetables and less meat. My body seems to prefer it.",
       "details": [
-        "I didn't plan it: just started noticing I felt better on the lighter meals.",
+        "I didn't plan it. Just started noticing I felt better on the lighter meals.",
         "Meat's still good, but I don't need it every night like I used to."
       ],
       "reactions": [
         "You learn what your body wants if you pay attention. Took me long enough."
       ],
       "statCheck": {
-        "pass": "Honestly, the heavy meals were making me sluggish at work. I wasn't just listening to my body: I was getting complaints about slowing down.",
+        "pass": "Honestly, the heavy meals were making me sluggish at work. I wasn't just listening to my body. I was getting complaints about slowing down.",
         "fail": "No real reason behind it. Just felt like a change."
       },
       "valence": "neutral",
@@ -2802,14 +2802,14 @@
       "id": 158,
       "intro": "I cooked dinner for {npc_name} last night and they didn't say a word about it. Not one.",
       "details": [
-        "I spent the whole afternoon on it: chopping, seasoning, watching the fire. They just ate and left.",
+        "I spent the whole afternoon on it. Chopping, seasoning, watching the fire. They just ate and left.",
         "Maybe it was fine and they're just not the type to comment. Or maybe it was terrible and they were being polite."
       ],
       "reactions": [
         "Cooking for someone who doesn't acknowledge it is its own kind of disappointment."
       ],
       "statCheck": {
-        "pass": "I think it wasn't great, honestly: the {food_type} was underseasoned and I know it. I just wanted them to say something.",
+        "pass": "I think it wasn't great, honestly. The {food_type} was underseasoned and I know it. I just wanted them to say something.",
         "fail": "I don't know what they thought. They're hard to read."
       },
       "valence": "negative",
@@ -2871,7 +2871,7 @@
         "Gravy separates people who can cook from people who can almost cook. I'm in the second group."
       ],
       "statCheck": {
-        "pass": "A little flour mixed into the drippings before adding liquid: that's what keeps it smooth. You make a paste first, then add liquid slowly.",
+        "pass": "A little flour mixed into the drippings before adding liquid. That's what keeps it smooth. You make a paste first, then add liquid slowly.",
         "fail": "I clearly don't know the method. Next time I'll ask someone."
       },
       "valence": "negative",
@@ -2901,7 +2901,7 @@
       "id": 163,
       "intro": "{npc_name} invited me over for a meal and I'm still thinking about the {food_type} they served.",
       "details": [
-        "It was nothing fancy: good ingredients, proper cooking, that's all it took.",
+        "It was nothing fancy. Good ingredients, proper cooking, that's all it took.",
         "We talked for a while after, but I kept circling back to the food. I think they noticed."
       ],
       "reactions": [
@@ -2964,7 +2964,7 @@
         "Rancid butter teaches you to smell things before you commit to them."
       ],
       "statCheck": {
-        "pass": "The nose knows before the eyes do. If butter smells even slightly sharp or sour, it's gone: don't wait for the taste to confirm.",
+        "pass": "The nose knows before the eyes do. If butter smells even slightly sharp or sour, it's gone. Don't wait for the taste to confirm.",
         "fail": "I should pay more attention to smells. Lesson learned."
       },
       "valence": "negative",
@@ -2977,14 +2977,14 @@
       "id": 167,
       "intro": "I've been experimenting with onions. They go with almost everything if you cook them right.",
       "details": [
-        "Low heat, plenty of time: they go sweet and soft and nothing else gives you that flavor.",
+        "Low heat, plenty of time. They go sweet and soft and nothing else gives you that flavor.",
         "I put them in soups, on bread, mixed with roasted meat. They improve everything they touch."
       ],
       "reactions": [
         "Onions are the most loyal ingredient. They never let you down."
       ],
       "statCheck": {
-        "pass": "The real secret is cooking them until they're almost brown: past translucent, past soft, right to the edge of caramelizing. That's where the sweetness lives.",
+        "pass": "The real secret is cooking them until they're almost brown. Past translucent, past soft, right to the edge of caramelizing. That's where the sweetness lives.",
         "fail": "I just cook them until they look right. No real science to it."
       },
       "valence": "positive",
@@ -3005,7 +3005,7 @@
       ],
       "statCheck": {
         "pass": "If you're desperate, you can add a pinch of baking powder to unsoaked beans. It softens them faster, though the texture isn't quite the same.",
-        "fail": "I sat there and waited. That's all I had: patience and an empty stomach."
+        "fail": "I sat there and waited. That's all I had. Patience and an empty stomach."
       },
       "valence": "negative",
       "topic_category": "food_and_meals",
@@ -3034,14 +3034,14 @@
       "id": 170,
       "intro": "I keep snacking between meals and I'm never actually hungry when dinner comes.",
       "details": [
-        "A handful of this, a bite of that: it adds up. By evening I've already eaten a full meal in pieces.",
+        "A handful of this, a bite of that. It adds up. By evening I've already eaten a full meal in pieces.",
         "Then I make dinner anyway because the ritual of it matters, and I eat half."
       ],
       "reactions": [
         "I either need to stop snacking or stop making dinner. Both seem unacceptable."
       ],
       "statCheck": {
-        "pass": "I think the snacking is how I cope with boredom. It's not hunger: it's restlessness looking for something to do with my hands.",
+        "pass": "I think the snacking is how I cope with boredom. It's not hunger. It's restlessness looking for something to do with my hands.",
         "fail": "I'm just a grazer, I suppose. No deeper reason."
       },
       "valence": "neutral",
@@ -3078,7 +3078,7 @@
         "Sharing food with someone you don't know has a strange honesty to it."
       ],
       "statCheck": {
-        "pass": "They had a look about them that said they hadn't eaten in a while. I didn't ask and they didn't offer: some things are better left unsaid over a shared plate.",
+        "pass": "They had a look about them that said they hadn't eaten in a while. I didn't ask and they didn't offer. Some things are better left unsaid over a shared plate.",
         "fail": "It was just a meal. Nothing more to it."
       },
       "valence": "positive",
@@ -3112,7 +3112,7 @@
         "Something about holding a warm bowl between your hands while it's cold outside. That's medicine."
       ],
       "reactions": [
-        "Most problems feel smaller after a good meal. That's not wisdom: that's just soup."
+        "Most problems feel smaller after a good meal. That's not wisdom. That's just soup."
       ],
       "statCheck": {
         "pass": "I think the warmth of the food matters as much as what's in it. Your body reads heat as safety, and everything else follows from there.",
@@ -3185,7 +3185,7 @@
     },
     {
       "id": 178,
-      "intro": "I keep forgetting to eat until my hands start shaking. Then I remember: oh, food.",
+      "intro": "I keep forgetting to eat until my hands start shaking. Then I remember. Oh, food.",
       "details": [
         "I get so caught up in work that hunger just becomes background noise until it isn't.",
         "By the time I eat, I inhale whatever's closest. Taste is optional at that point."
@@ -3224,7 +3224,7 @@
       "id": 180,
       "intro": "I grilled {food_type} over the fire last night and it came out perfectly.",
       "details": [
-        "The coals were just right: low, steady heat with no flame. That's the difference.",
+        "The coals were just right. Low, steady heat with no flame. That's the difference.",
         "I ate it with my fingers, standing by the fire. Couldn't even wait to sit down."
       ],
       "reactions": [
@@ -3248,7 +3248,7 @@
         "Variety at the table isn't a luxury. It's how I stay interested in eating at all."
       ],
       "statCheck": {
-        "pass": "It's not really about the food being the same: it's about the feeling. Leftovers remind me of yesterday, and I'd rather feel like today is its own thing.",
+        "pass": "It's not really about the food being the same. It's about the feeling. Leftovers remind me of yesterday, and I'd rather feel like today is its own thing.",
         "fail": "Just a preference. I like fresh meals."
       },
       "valence": "negative",
@@ -3278,7 +3278,7 @@
       "id": 183,
       "intro": "I tried to make {food_type} the way my mother used to. Wasn't even close.",
       "details": [
-        "Same ingredients, same method: at least I think so. But something fundamental was missing.",
+        "Same ingredients, same method. At least I think so. But something fundamental was missing.",
         "Maybe it's one of those things where the memory makes it better than it ever actually was."
       ],
       "reactions": [
@@ -3374,7 +3374,7 @@
       "id": 188,
       "intro": "I roasted {crop_type} with garlic and it was the best thing I've made all week.",
       "details": [
-        "The garlic goes soft and sweet when you give it enough time. Spread it on bread afterward: incredible.",
+        "The garlic goes soft and sweet when you give it enough time. Spread it on bread afterward. Incredible.",
         "Simple food, no fuss. Just hot, savory, and exactly what I needed."
       ],
       "reactions": [
@@ -3448,7 +3448,7 @@
       "id": 192,
       "intro": "I tasted the stew halfway through and it was perfect. Then I added something and ruined it.",
       "details": [
-        "I don't know what possessed me: it was already good and I should've stopped.",
+        "I don't know what possessed me. It was already good and I should've stopped.",
         "The final version was edible but a shadow of what it was before my interference."
       ],
       "reactions": [
@@ -3489,7 +3489,7 @@
         "Living near a good cook who doesn't share is a specific kind of suffering."
       ],
       "statCheck": {
-        "pass": "I actually know what they're making most nights from the spices alone. I just can't bring myself to ask for the recipes: that feels like admitting defeat.",
+        "pass": "I actually know what they're making most nights from the spices alone. I just can't bring myself to ask for the recipes. That feels like admitting defeat.",
         "fail": "I don't know what they cook. I just know it smells good."
       },
       "valence": "negative",
@@ -3563,7 +3563,7 @@
         "Eating things out of their time never works. The season knows better than we do."
       ],
       "statCheck": {
-        "pass": "Stored produce loses its sugars first. That's why off-season food tastes flat: the sweetness has gone and left only the starch behind.",
+        "pass": "Stored produce loses its sugars first. That's why off-season food tastes flat. The sweetness has gone and left only the starch behind.",
         "fail": "I can't explain the science. It just doesn't taste right."
       },
       "valence": "negative",
@@ -3600,7 +3600,7 @@
         "Every cook has a graveyard of failed experiments. Mine got a new resident last night."
       ],
       "statCheck": {
-        "pass": "I tried to do too many things at once: three separate techniques I'd never done before, all in one dish. Should've mastered them one at a time.",
+        "pass": "I tried to do too many things at once. Three separate techniques I'd never done before, all in one dish. Should've mastered them one at a time.",
         "fail": "It just didn't work. Sometimes food wins."
       },
       "valence": "negative",
@@ -3689,7 +3689,7 @@
       "id": 205,
       "intro": "I had to throw out a whole pot of soup because a fly landed in it. I couldn't get past it.",
       "details": [
-        "I know, I know: one fly, big pot. But once I saw it floating there, the soup was dead to me.",
+        "I know, I know. One fly, big pot. But once I saw it floating there, the soup was dead to me.",
         "Some people would've fished it out and kept eating. I'm not that person."
       ],
       "reactions": [
@@ -3706,7 +3706,7 @@
       "id": 206,
       "intro": "I made a meal last night that I wish I could eat again for the first time.",
       "details": [
-        "Everything was right: the seasoning, the temperature, the timing. I didn't even plan it that way.",
+        "Everything was right. The seasoning, the temperature, the timing. I didn't even plan it that way.",
         "I sat there after finishing and just felt grateful. A strange thing to feel about dinner."
       ],
       "reactions": [
@@ -3794,7 +3794,7 @@
       "id": 211,
       "intro": "I spent the whole afternoon making a meal that took ten minutes to eat. Seems unbalanced.",
       "details": [
-        "Hours of chopping, stirring, tasting, adjusting: then gone, plate clean.",
+        "Hours of chopping, stirring, tasting, adjusting. Then gone, plate clean.",
         "The kitchen was a disaster and I was already thinking about what to make tomorrow."
       ],
       "reactions": [
@@ -3821,7 +3821,7 @@
         "The bread you learn to make through dozens of mistakes is the sweetest bread there is."
       ],
       "statCheck": {
-        "pass": "The key was the dough temperature: I started keeping it in a warm spot overnight instead of a cold one. Everything changed after that.",
+        "pass": "The key was the dough temperature. I started keeping it in a warm spot overnight instead of a cold one. Everything changed after that.",
         "fail": "I changed a few things this time but I couldn't tell you exactly which one made the difference."
       },
       "valence": "positive",
@@ -3861,7 +3861,7 @@
         "Cooking is just a long series of experiments. Some work, some teach."
       ],
       "statCheck": {
-        "pass": "Dark beer works better than light: the malt sweetness cooks down into something almost savory, while light beer just disappears.",
+        "pass": "Dark beer works better than light. The malt sweetness cooks down into something almost savory, while light beer just disappears.",
         "fail": "I tried it once and it worked. That's the extent of my expertise."
       },
       "valence": "neutral",
@@ -3872,7 +3872,7 @@
     },
     {
       "id": 215,
-      "intro": "A cold morning and a hot meal: that combination never fails.",
+      "intro": "A cold morning and a hot meal. That combination never fails.",
       "details": [
         "I don't care if it's eggs, porridge, or leftover stew. If it's warm, the morning is saved.",
         "There's a moment when you take the first bite and the cold retreats a little. That's the whole point."
@@ -3898,7 +3898,7 @@
         "Some kitchen disasters are so complete that anger doesn't even show up. Just exhaustion."
       ],
       "statCheck": {
-        "pass": "The handle was wet and I was rushing: every spill I've ever had came from hurrying. The food doesn't care about your schedule.",
+        "pass": "The handle was wet and I was rushing. Every spill I've ever had came from hurrying. The food doesn't care about your schedule.",
         "fail": "It just slipped. Bad luck."
       },
       "valence": "negative",
@@ -3912,7 +3912,7 @@
       "intro": "I discovered that toasting bread over the fire instead of just eating it plain changes everything.",
       "details": [
         "The outside gets crisp and the inside stays soft. It's the same bread, but better in every way.",
-        "I toast everything now: leftover bread, fresh bread, bread that's gone slightly stale. All improved."
+        "I toast everything now. Leftover bread, fresh bread, bread that's gone slightly stale. All improved."
       ],
       "reactions": [
         "It's embarrassing how late in life I figured this out."
@@ -3928,7 +3928,7 @@
       "id": 218,
       "intro": "{npc_name} eats at strange hours. I've seen them eating a full meal well past midnight.",
       "details": [
-        "Not a snack: a proper plate, with a fire going and everything. In the middle of the night.",
+        "Not a snack. A proper plate, with a fire going and everything. In the middle of the night.",
         "I don't judge. But I do wonder when they sleep."
       ],
       "reactions": [
@@ -3988,7 +3988,7 @@
         "Sometimes the side act outshines the main event. That's cooking for you."
       ],
       "statCheck": {
-        "pass": "I think it was the bit of acid at the end: just a splash of vinegar. It woke the whole thing up and balanced the richness.",
+        "pass": "I think it was the bit of acid at the end. Just a splash of vinegar. It woke the whole thing up and balanced the richness.",
         "fail": "I honestly couldn't recreate it if I tried. It just happened."
       },
       "valence": "positive",
@@ -4008,7 +4008,7 @@
         "Not everything needs to be cooked. Some things are better left alone."
       ],
       "statCheck": {
-        "pass": "People think raw vegetables are peasant food, but the flavor is purer. Cooking changes things: sometimes for better, sometimes just for different.",
+        "pass": "People think raw vegetables are peasant food, but the flavor is purer. Cooking changes things. Sometimes for better, sometimes just for different.",
         "fail": "I just like the crunch. Not much more to it."
       },
       "valence": "neutral",
@@ -4045,7 +4045,7 @@
         "Old methods work for a reason. Nobody improved on cooking in the coals."
       ],
       "statCheck": {
-        "pass": "You need thick leaves: the big waxy ones hold up to the heat. Thin ones burn through and your food dries out.",
+        "pass": "You need thick leaves. The big waxy ones hold up to the heat. Thin ones burn through and your food dries out.",
         "fail": "I just grabbed some big leaves and it worked. No real method to it."
       },
       "valence": "positive",
@@ -4082,7 +4082,7 @@
         "Cooking is never truly the same twice. The ingredients have opinions of their own."
       ],
       "statCheck": {
-        "pass": "I think it was the fire: it was burning hotter than usual because of drier wood. Even a small temperature change shifts how everything cooks.",
+        "pass": "I think it was the fire. It was burning hotter than usual because of drier wood. Even a small temperature change shifts how everything cooks.",
         "fail": "Could be anything. The kitchen has its moods."
       },
       "valence": "neutral",
@@ -4114,7 +4114,7 @@
       "id": 228,
       "intro": "I made fried eggs this morning and both yolks broke. Day's off to a poor start.",
       "details": [
-        "It shouldn't matter: they taste the same. But there's a principle involved.",
+        "It shouldn't matter. They taste the same. But there's a principle involved.",
         "I ate my broken-yolk eggs in defeat and moved on. What else can you do?"
       ],
       "reactions": [
@@ -4131,7 +4131,7 @@
       "id": 229,
       "intro": "I brought a plate of food to {npc_name} yesterday. They looked like they needed it.",
       "details": [
-        "Nothing fancy: just some {food_type} and bread. But their face lit up.",
+        "Nothing fancy. Just some {food_type} and bread. But their face lit up.",
         "Sometimes feeding someone is the easiest way to tell them you noticed they're struggling."
       ],
       "reactions": [
@@ -4194,7 +4194,7 @@
         "Fermentation is either science or faith. Right now I'm leaning toward faith."
       ],
       "statCheck": {
-        "pass": "A strong smell during fermentation doesn't mean it's gone bad: the lactic acid is doing its work. Once it settles, the flavor mellows out.",
+        "pass": "A strong smell during fermentation doesn't mean it's gone bad. The lactic acid is doing its work. Once it settles, the flavor mellows out.",
         "fail": "I have no idea if it's working or not. I'm just waiting and hoping."
       },
       "valence": "neutral",
@@ -4361,7 +4361,7 @@
         "Appetite is proof that you're alive and doing things. I wouldn't trade it."
       ],
       "statCheck": {
-        "pass": "I think people who say they're never hungry are just too distracted to notice. The body always wants fuel: some people have stopped listening.",
+        "pass": "I think people who say they're never hungry are just too distracted to notice. The body always wants fuel. Some people have stopped listening.",
         "fail": "Maybe some people are just built different. Who knows."
       },
       "valence": "neutral",
@@ -4398,7 +4398,7 @@
         "Summer meals should be cold and quick. Anyone firing up a roast in the heat is a braver soul than me."
       ],
       "statCheck": {
-        "pass": "The heat actually changes what my body craves: in summer I want acid and crunch, cold things, sharp things. My whole palate shifts with the temperature.",
+        "pass": "The heat actually changes what my body craves. In summer I want acid and crunch, cold things, sharp things. My whole palate shifts with the temperature.",
         "fail": "Heat just kills my appetite. Nothing more to it."
       },
       "valence": "negative",
@@ -4489,7 +4489,7 @@
         "Preserved food is a gift from your past self to your future self. Both selves appreciate it."
       ],
       "statCheck": {
-        "pass": "Air exposure is the enemy: every surface needs full salt contact, and the container should be sealed. Any gap is where the rot starts.",
+        "pass": "Air exposure is the enemy. Every surface needs full salt contact, and the container should be sealed. Any gap is where the rot starts.",
         "fail": "I follow the same steps I was shown and hope for the best."
       },
       "valence": "neutral",
@@ -4526,7 +4526,7 @@
         "Waking up to finished food is the closest thing to magic I'll ever experience."
       ],
       "statCheck": {
-        "pass": "The coals need to be just right: a thick bed of embers with no open flame. The heat should be steady and low, not flickering and hot.",
+        "pass": "The coals need to be just right. A thick bed of embers with no open flame. The heat should be steady and low, not flickering and hot.",
         "fail": "I banked the fire and hoped for the best. It worked out."
       },
       "valence": "positive",
@@ -4582,7 +4582,7 @@
         "A well-used pot has its own memory. A new one has to earn its place."
       ],
       "statCheck": {
-        "pass": "A new pot needs to be seasoned with fat: cook with a generous amount of oil several times before you use it for real. Builds up a layer that nothing sticks to.",
+        "pass": "A new pot needs to be seasoned with fat. Cook with a generous amount of oil several times before you use it for real. Builds up a layer that nothing sticks to.",
         "fail": "I'm just waiting for the pot to settle in. These things take time."
       },
       "valence": "neutral",
@@ -4630,7 +4630,7 @@
       "intro": "I made a meal from whatever was left in the pantry. No plan, no recipe, just survival.",
       "details": [
         "A bit of this, the last of that. Nothing that belonged together, but somehow it worked.",
-        "Desperation meals have their own category. Not good, not bad: just resourceful."
+        "Desperation meals have their own category. Not good, not bad. Just resourceful."
       ],
       "reactions": [
         "The meals you improvise from nothing teach you more about cooking than any recipe."
@@ -4690,7 +4690,7 @@
         "A silent meal is an underrated thing. The food gets your full attention for once."
       ],
       "statCheck": {
-        "pass": "I realized I've been eating with distractions for years: conversation, chores, thinking about work. Silence lets the food actually reach you.",
+        "pass": "I realized I've been eating with distractions for years. Conversation, chores, thinking about work. Silence lets the food actually reach you.",
         "fail": "It was just a quiet evening. Nothing intentional."
       },
       "valence": "neutral",
@@ -4703,14 +4703,14 @@
       "id": 260,
       "intro": "I gave {npc_name} my honest opinion about their cooking and I think they're still upset.",
       "details": [
-        "They asked: they specifically asked. I thought they wanted the truth.",
+        "They asked. They specifically asked. I thought they wanted the truth.",
         "Turns out 'it needs work' was not what they were hoping to hear."
       ],
       "reactions": [
         "Never answer honestly when someone asks about their cooking. That's a lesson I learned too late."
       ],
       "statCheck": {
-        "pass": "Honestly, the seasoning was fine: it was the cook time, since everything was underdone. But I wasn't going to give a whole critique when 'it needs work' already wounded them.",
+        "pass": "Honestly, the seasoning was fine. It was the cook time, since everything was underdone. But I wasn't going to give a whole critique when 'it needs work' already wounded them.",
         "fail": "I've said enough on the subject. No need to dig the hole deeper."
       },
       "valence": "negative",
@@ -4763,7 +4763,7 @@
       "intro": "A good meal makes me talkative. Something about a full stomach loosens my tongue.",
       "details": [
         "Hungry, I'm quiet and focused. Fed, I'll talk to anyone about anything.",
-        "My neighbors know: if I'm chatty, I've eaten well. If I'm silent, leave me alone."
+        "My neighbors know. If I'm chatty, I've eaten well. If I'm silent, leave me alone."
       ],
       "reactions": [
         "Food doesn't just fuel the body. It changes the mood entirely."
@@ -4794,7 +4794,7 @@
     },
     {
       "id": 265,
-      "intro": "I like my food plain: meat, bread, vegetables. None of this layering and combining business.",
+      "intro": "I like my food plain. Meat, bread, vegetables. None of this layering and combining business.",
       "details": [
         "I want to taste each thing as itself. Mixed together, it all becomes one flavor.",
         "People think I'm unsophisticated. I think I know what I like."
@@ -4803,7 +4803,7 @@
         "Simple eating isn't a lack of taste. It's a commitment to it."
       ],
       "statCheck": {
-        "pass": "I watched a cook once pile twelve ingredients onto one plate and none of them could be tasted on their own. That's when I decided: separate and simple, always.",
+        "pass": "I watched a cook once pile twelve ingredients onto one plate and none of them could be tasted on their own. That's when I decided. Separate and simple, always.",
         "fail": "It's just how I eat. No particular philosophy."
       },
       "valence": "neutral",
@@ -4890,7 +4890,7 @@
       "id": 270,
       "intro": "I've been collecting recipes from people passing through. Got a whole stack of them now.",
       "details": [
-        "Most of them I'll never try: too complicated or ingredients I can't get. But it's nice to have them.",
+        "Most of them I'll never try. Too complicated or ingredients I can't get. But it's nice to have them.",
         "Every now and then one jumps out at me and I give it a go. Some work, some don't."
       ],
       "reactions": [
@@ -4931,10 +4931,10 @@
         "The taste takes me back to a time when things were simpler. That's worth more than flavor."
       ],
       "reactions": [
-        "Everyone has a comfort meal. It's not about the food: it's about what the food remembers."
+        "Everyone has a comfort meal. It's not about the food. It's about what the food remembers."
       ],
       "statCheck": {
-        "pass": "It's my father's soup recipe: onion, salt, bread soaked in the broth, nothing else. He made it every time I was sick as a child.",
+        "pass": "It's my father's soup recipe. Onion, salt, bread soaked in the broth, nothing else. He made it every time I was sick as a child.",
         "fail": "I'd rather not say what it is. It's personal."
       },
       "valence": "positive",
@@ -4968,7 +4968,7 @@
         "By the time I sit down with the actual plate, my appetite's already dented."
       ],
       "reactions": [
-        "The cook eats first. Not at the table: standing over the pot with a wooden spoon."
+        "The cook eats first. Not at the table. Standing over the pot with a wooden spoon."
       ],
       "statCheck": null,
       "valence": "neutral",
@@ -4988,7 +4988,7 @@
         "Cheese is just milk that refused to give up. I relate to that."
       ],
       "statCheck": {
-        "pass": "Temperature control is everything: too hot and the curds go rubbery. You want it warm, not hot, like bathwater.",
+        "pass": "Temperature control is everything. Too hot and the curds go rubbery. You want it warm, not hot, like bathwater.",
         "fail": "I'm still figuring out the basics. It's more guesswork than craft at this point."
       },
       "valence": "neutral",
@@ -5002,7 +5002,7 @@
       "intro": "The fire went out in the middle of baking and the bread collapsed. Just deflated like a sigh.",
       "details": [
         "I stared at the flat, pale loaf and felt personally defeated.",
-        "I ate it anyway: dense, gummy, joyless. But I ate it."
+        "I ate it anyway. Dense, gummy, joyless. But I ate it."
       ],
       "reactions": [
         "A collapsed loaf is a lesson in humility. The fire doesn't care about your plans."
@@ -5025,7 +5025,7 @@
         "Your mood seasons the food as much as anything from a jar."
       ],
       "statCheck": {
-        "pass": "I've noticed the food actually tastes different too: not just how I make it, but how I experience it. A bad mood dulls everything, even good food.",
+        "pass": "I've noticed the food actually tastes different too. Not just how I make it, but how I experience it. A bad mood dulls everything, even good food.",
         "fail": "It's probably just my imagination. Moods and food are separate things."
       },
       "valence": "neutral",
@@ -5168,7 +5168,7 @@
       "intro": "I've been meaning to clean out the pantry for weeks. Things are growing in there that I don't recognize.",
       "details": [
         "There's a jar in the back that might have been vegetables once. Hard to say now.",
-        "I know exactly what I'll find if I look: guilt and expired food. So I keep the door closed."
+        "I know exactly what I'll find if I look. Guilt and expired food. So I keep the door closed."
       ],
       "reactions": [
         "A messy pantry is a mirror of your intentions versus your follow-through."
@@ -5191,7 +5191,7 @@
         "A successfully roasted chicken is proof that the basics, done well, are enough."
       ],
       "statCheck": {
-        "pass": "The secret is drying the skin completely before it goes over the fire: wet skin steams instead of crisping. I let it sit uncovered overnight.",
+        "pass": "The secret is drying the skin completely before it goes over the fire. Wet skin steams instead of crisping. I let it sit uncovered overnight.",
         "fail": "I just cooked it and it worked. Sometimes you get lucky."
       },
       "valence": "positive",
@@ -5205,7 +5205,7 @@
       "intro": "I put {crop_type} in the stew and they dissolved completely. Just vanished into the broth.",
       "details": [
         "I kept waiting for them to show up on my spoon and they never did.",
-        "The stew tasted good though. They're in there somewhere: just in spirit now."
+        "The stew tasted good though. They're in there somewhere. Just in spirit now."
       ],
       "reactions": [
         "Some ingredients give everything they have to the dish and leave nothing behind. I can respect that."
@@ -5298,7 +5298,7 @@
       "id": 292,
       "intro": "{npc_name} brought me soup when I was feeling poorly. Didn't ask, just showed up with it.",
       "details": [
-        "It was exactly what I needed: hot, simple, and handed to me by someone who cared.",
+        "It was exactly what I needed. Hot, simple, and handed to me by someone who cared.",
         "I barely managed to thank them before they were already walking away."
       ],
       "reactions": [
@@ -5338,7 +5338,7 @@
         "I tried to fix it by adding more of everything else. The result was chaotic."
       ],
       "reactions": [
-        "Label your jars: that's the lesson I took from it."
+        "Label your jars. That's the lesson I took from it."
       ],
       "statCheck": null,
       "valence": "negative",
@@ -5371,7 +5371,7 @@
       "id": 296,
       "intro": "I fried up some {food_type} with butter and it was absurdly good for how little effort it took.",
       "details": [
-        "Five minutes of work: hot pan, butter, done. Sometimes cooking doesn't need to be a project.",
+        "Five minutes of work. Hot pan, butter, done. Sometimes cooking doesn't need to be a project.",
         "I ate it straight from the pan with a piece of bread. Perfect."
       ],
       "reactions": [
@@ -5395,7 +5395,7 @@
         "Presentation is half the battle. The other half is keeping a straight face."
       ],
       "statCheck": {
-        "pass": "I'd run out of a key ingredient halfway through and substituted something I hoped nobody would notice. They didn't: confidence covers a lot of sins.",
+        "pass": "I'd run out of a key ingredient halfway through and substituted something I hoped nobody would notice. They didn't. Confidence covers a lot of sins.",
         "fail": "It was just a modest meal. Nothing to confess."
       },
       "valence": "neutral",
@@ -5433,7 +5433,7 @@
       ],
       "statCheck": {
         "pass": "It adds a subtle bitterness that balances the sweetness of long-cooked vegetables. You'd miss it if it wasn't there, even if you can't name what's missing.",
-        "fail": "I genuinely don't know what it does. It just goes in: that's the rule."
+        "fail": "I genuinely don't know what it does. It just goes in. That's the rule."
       },
       "valence": "neutral",
       "topic_category": "food_and_meals",
@@ -5480,7 +5480,7 @@
       "intro": "I forgot I had something in the oven. By the time I remembered, the kitchen was full of smoke.",
       "details": [
         "Opened the door and the smell hit me like a wall. Took hours to air out.",
-        "The food was black: not dark, not charred, but truly black. I threw it out without a second look."
+        "The food was black. Not dark, not charred, but truly black. I threw it out without a second look."
       ],
       "reactions": [
         "Forgetting food in the oven should come with a louder warning than smoke."
@@ -5545,7 +5545,7 @@
     },
     {
       "id": 306,
-      "intro": "{npc_name} insists on putting honey in everything. Soup, meat, bread: everything.",
+      "intro": "{npc_name} insists on putting honey in everything. Soup, meat, bread. Everything.",
       "details": [
         "I've tried telling them it doesn't belong in every dish. They look at me like I'm the problem.",
         "Ate at their place last week and the vegetables were glistening. Sweet vegetables."
@@ -5620,7 +5620,7 @@
       "id": 310,
       "intro": "I made a meal entirely from things I grew myself. Every ingredient came from my own soil.",
       "details": [
-        "It wasn't fancy: vegetables, herbs, a few roots. But the satisfaction was enormous.",
+        "It wasn't fancy. Vegetables, herbs, a few roots. But the satisfaction was enormous.",
         "Knowing exactly where every bite came from changes the way you chew."
       ],
       "reactions": [
@@ -5671,7 +5671,7 @@
       "id": 313,
       "intro": "I tried making bread with a new flour and it came out dense as a brick.",
       "details": [
-        "The dough felt wrong from the start: too heavy, wouldn't rise no matter how long I waited.",
+        "The dough felt wrong from the start. Too heavy, wouldn't rise no matter how long I waited.",
         "I baked it anyway and used the loaf as a doorstop for two days before I threw it out."
       ],
       "reactions": [
@@ -5712,7 +5712,7 @@
       "intro": "{npc_name} ate my last piece of cheese and didn't say a word. I noticed, though.",
       "details": [
         "I'd been saving it for a meal I had planned. Went to the shelf and found an empty cloth.",
-        "They probably didn't even know I was saving it. But still: that was my cheese."
+        "They probably didn't even know I was saving it. But still. That was my cheese."
       ],
       "reactions": [
         "Small food grievances live longer than they should. I'm still thinking about that cheese."
@@ -5750,7 +5750,7 @@
       "id": 317,
       "intro": "I discovered that a pinch of vinegar in soup makes the whole thing brighter. I've been adding it to everything.",
       "details": [
-        "It doesn't taste sour: it just lifts the other flavors and makes them sharper.",
+        "It doesn't taste sour. It just lifts the other flavors and makes them sharper.",
         "I wish someone had told me this years ago. So many flat soups I could have saved."
       ],
       "reactions": [
@@ -5768,7 +5768,7 @@
     },
     {
       "id": 318,
-      "intro": "I've been eating a lot of eggs lately. Fried, boiled, scrambled: they're all I want.",
+      "intro": "I've been eating a lot of eggs lately. Fried, boiled, scrambled. They're all I want.",
       "details": [
         "They're quick, they're cheap, and they go with everything. I don't know why I ever bothered with anything else.",
         "My neighbor asked if everything was all right because of how many eggs I've been buying."
@@ -5794,7 +5794,7 @@
         "A perfect pie is proof that patience and timing exist for a reason."
       ],
       "statCheck": {
-        "pass": "Cold fat in the dough is the whole secret: if the butter melts before it hits the heat, the crust goes flat. I keep the dough cold until the last moment.",
+        "pass": "Cold fat in the dough is the whole secret. If the butter melts before it hits the heat, the crust goes flat. I keep the dough cold until the last moment.",
         "fail": "The pie just worked this time. I couldn't tell you exactly why."
       },
       "valence": "positive",
@@ -5860,14 +5860,14 @@
       "id": 323,
       "intro": "I've been drying {food_type} for the winter months. The house smells incredible.",
       "details": [
-        "Got strings of it hanging everywhere: over the fire, by the window, near the door.",
+        "Got strings of it hanging everywhere. Over the fire, by the window, near the door.",
         "Visitors keep asking if they can take some. I let them think I'm generous but I've hidden the best pieces."
       ],
       "reactions": [
         "Preserving food feels like storing up little promises to your future self."
       ],
       "statCheck": {
-        "pass": "The key is airflow: hang them where the air moves, not in a still corner. Moisture trapped against the surface breeds mold before it dries.",
+        "pass": "The key is airflow. Hang them where the air moves, not in a still corner. Moisture trapped against the surface breeds mold before it dries.",
         "fail": "I just hang them up and wait. So far it's been working."
       },
       "valence": "positive",
@@ -5881,13 +5881,13 @@
       "intro": "I used to think I was a good cook until I tasted what {npc_name} makes. Now I'm not sure.",
       "details": [
         "Same ingredients, same fire, completely different results. It's humbling.",
-        "I came home and tried to replicate what they'd made. Mine was fine: theirs was art."
+        "I came home and tried to replicate what they'd made. Mine was fine. Theirs was art."
       ],
       "reactions": [
         "There's a gap between competent and gifted, and I now know which side I'm on."
       ],
       "statCheck": {
-        "pass": "I think the difference is patience: they let things cook slowly and don't rush any step, while I'm always trying to get it done faster.",
+        "pass": "I think the difference is patience. They let things cook slowly and don't rush any step, while I'm always trying to get it done faster.",
         "fail": "They're just better at it. Some people are."
       },
       "valence": "neutral",
@@ -5902,7 +5902,7 @@
       "id": 325,
       "intro": "I left food out overnight and something got into it. Found tooth marks in the cheese.",
       "details": [
-        "I should have covered it: I know better, but I was tired and careless.",
+        "I should have covered it. I know better, but I was tired and careless.",
         "Now I've got half a wheel of cheese with little bites taken out of it. I trimmed the edges and ate the rest."
       ],
       "reactions": [
@@ -5917,7 +5917,7 @@
     },
     {
       "id": 326,
-      "intro": "I made porridge this morning and it was perfect: thick, hot, and just sweet enough.",
+      "intro": "I made porridge this morning and it was perfect. Thick, hot, and just sweet enough.",
       "details": [
         "Stirred it the whole time so it wouldn't stick. The patience paid off.",
         "I added a drizzle of honey at the end and the warmth spread through me like a second blanket."
@@ -5953,7 +5953,7 @@
       "id": 328,
       "intro": "I discovered that adding a bit of fat to the pan before anything else changes everything.",
       "details": [
-        "Butter, lard, whatever you have: the food doesn't stick and the flavor deepens.",
+        "Butter, lard, whatever you have. The food doesn't stick and the flavor deepens.",
         "I used to cook on a dry pan like a fool. Those days are behind me."
       ],
       "reactions": [
@@ -6041,7 +6041,7 @@
       "id": 333,
       "intro": "The {crop_type} came in so well this year that I've been eating them with every meal.",
       "details": [
-        "Roasted, boiled, raw, mashed: I've tried every way I can think of.",
+        "Roasted, boiled, raw, mashed. I've tried every way I can think of.",
         "I'm grateful for the harvest but I'll be equally grateful when they're gone."
       ],
       "reactions": [
@@ -6097,7 +6097,7 @@
       "id": 336,
       "intro": "I ate cold leftovers for breakfast and felt no guilt. They were better cold anyway.",
       "details": [
-        "Some foods transform overnight: the flavors settle and concentrate.",
+        "Some foods transform overnight. The flavors settle and concentrate.",
         "I stood at the counter eating stew with a spoon at dawn and it was the best part of the day."
       ],
       "reactions": [
@@ -6151,14 +6151,14 @@
       "id": 339,
       "intro": "The soup I made tonight was so bland I considered pouring it out. I added salt and ate it out of spite.",
       "details": [
-        "Everything was in there: vegetables, herbs, time. But the flavor just never showed up.",
+        "Everything was in there. Vegetables, herbs, time. But the flavor just never showed up.",
         "I ate the whole bowl like I was proving a point. To whom, I'm not sure."
       ],
       "reactions": [
         "A bland soup is more disappointing than a bad one. At least bad is memorable."
       ],
       "statCheck": {
-        "pass": "I think the herbs were old: dried too long and dusty. Fresh herbs carry the flavor. Old ones just take up space.",
+        "pass": "I think the herbs were old. Dried too long and dusty. Fresh herbs carry the flavor. Old ones just take up space.",
         "fail": "Something was off. I don't know what."
       },
       "valence": "negative",
@@ -6169,7 +6169,7 @@
     },
     {
       "id": 340,
-      "intro": "I shared a meal with a stranger passing through. Didn't plan to: it just happened.",
+      "intro": "I shared a meal with a stranger passing through. Didn't plan to. It just happened.",
       "details": [
         "They looked hungry and I had more than I needed. Seemed like the obvious thing.",
         "We ate in comfortable silence and they nodded thanks when they left."
@@ -6188,7 +6188,7 @@
       "id": 341,
       "intro": "I tried a new spice and now I can't stop using it. Every pot gets a pinch.",
       "details": [
-        "I went from never tasting it to putting it in stew, soup, roasted vegetables: everything.",
+        "I went from never tasting it to putting it in stew, soup, roasted vegetables. Everything.",
         "My meals all taste slightly different now and I think it's an improvement."
       ],
       "reactions": [
@@ -6205,14 +6205,14 @@
       "id": 342,
       "intro": "I undercooked the meat and realized halfway through the meal. Set the fork down and stared at it.",
       "details": [
-        "The inside was pink and cold. Everything around it was fine: the vegetables, the gravy. Just not the meat.",
+        "The inside was pink and cold. Everything around it was fine. The vegetables, the gravy. Just not the meat.",
         "I put it back over the fire and waited, but the mood was already ruined."
       ],
       "reactions": [
         "Undercooked meat turns a meal into a disappointment and a second cooking session."
       ],
       "statCheck": {
-        "pass": "Thicker cuts need to rest by the fire before going on it: taking the chill off means the heat reaches the center. Cold meat from the store goes straight to the pan and stays raw inside.",
+        "pass": "Thicker cuts need to rest by the fire before going on it. Taking the chill off means the heat reaches the center. Cold meat from the store goes straight to the pan and stays raw inside.",
         "fail": "I just didn't cook it long enough. Simple as that."
       },
       "valence": "negative",
@@ -6246,7 +6246,7 @@
         "A meal without cheese feels unfinished to me, like a sentence without an ending."
       ],
       "reactions": [
-        "Cheese is not a topping: it's a commitment. I commit to it fully and without regret."
+        "Cheese is not a topping. It's a commitment. I commit to it fully and without regret."
       ],
       "statCheck": null,
       "valence": "neutral",
@@ -6263,10 +6263,10 @@
         "They've been sitting in the jars for days now. I'm afraid to taste them but also curious."
       ],
       "reactions": [
-        "Pickling is an act of faith: you set it up, walk away, and hope the jar agrees with you later."
+        "Pickling is an act of faith. You set it up, walk away, and hope the jar agrees with you later."
       ],
       "statCheck": {
-        "pass": "The brine needs to be strong enough that nothing can grow in it: if it doesn't sting your nose, it's too weak to preserve anything.",
+        "pass": "The brine needs to be strong enough that nothing can grow in it. If it doesn't sting your nose, it's too weak to preserve anything.",
         "fail": "I followed someone else's instructions. No idea if I got it right."
       },
       "valence": "neutral",
@@ -6313,7 +6313,7 @@
       "id": 348,
       "intro": "I've noticed I cook better when I'm alone. No audience, no pressure, just me and the fire.",
       "details": [
-        "With people watching, I second-guess everything: the heat, the seasoning, the timing.",
+        "With people watching, I second-guess everything. The heat, the seasoning, the timing.",
         "Alone, I trust my instincts. The food tastes like mine instead of like an attempt."
       ],
       "reactions": [
@@ -6352,14 +6352,14 @@
       "id": 350,
       "intro": "I grilled {food_type} over open coals and the char on it was perfect. Smoky, crisp, slightly bitter.",
       "details": [
-        "The fire was just right: white coals, no flame. I turned it once and left it alone.",
+        "The fire was just right. White coals, no flame. I turned it once and left it alone.",
         "I ate it with nothing but salt and a piece of bread. Didn't need a single thing more."
       ],
       "reactions": [
         "Fire and salt are the oldest seasonings and still the best."
       ],
       "statCheck": {
-        "pass": "The mistake most people make is grilling over flame. Flame burns the outside before the inside cooks. You want embers: steady heat, no flare.",
+        "pass": "The mistake most people make is grilling over flame. Flame burns the outside before the inside cooks. You want embers. Steady heat, no flare.",
         "fail": "The fire was just at the right stage. Good timing, I suppose."
       },
       "valence": "positive",
@@ -6392,7 +6392,7 @@
       "id": 352,
       "intro": "I've been saving bacon drippings in a jar. It flavors everything better than butter.",
       "details": [
-        "A spoonful in a pot of beans, a smear on bread before toasting: it goes in everything now.",
+        "A spoonful in a pot of beans, a smear on bread before toasting. It goes in everything now.",
         "The jar sits by the fire and every time I cook bacon the jar gets a little fuller."
       ],
       "reactions": [
@@ -6409,7 +6409,7 @@
       "id": 353,
       "intro": "The water here tastes different than where I used to live. I notice it most in tea and soup.",
       "details": [
-        "It's not bad: just different. There's a mineral edge that changes how everything brews.",
+        "It's not bad. Just different. There's a mineral edge that changes how everything brews.",
         "I've adjusted, but sometimes I still miss the taste of water from home."
       ],
       "reactions": [
@@ -6443,7 +6443,7 @@
       "id": 355,
       "intro": "I forgot to add salt to the dough and the bread came out tasting like nothing.",
       "details": [
-        "It looked fine: golden, risen, good shape. But the first bite was pure emptiness.",
+        "It looked fine. Golden, risen, good shape. But the first bite was pure emptiness.",
         "I ate it anyway because I'd put the time in. Every slice was a reminder of my mistake."
       ],
       "reactions": [
@@ -6461,7 +6461,7 @@
       "intro": "I cleaned my kitchen properly for the first time in weeks and then cooked the best meal I've had in a while.",
       "details": [
         "Turns out a clean workspace changes how you cook. I could find everything I needed without hunting.",
-        "The whole process was calmer: no digging through clutter, no discovering old messes."
+        "The whole process was calmer. No digging through clutter, no discovering old messes."
       ],
       "reactions": [
         "A clean kitchen cooks better food. I can't explain the science but I felt the difference."
@@ -6550,7 +6550,7 @@
       "id": 361,
       "intro": "I put {food_type} and cheese together on the same plate and it was a combination I'll be repeating.",
       "details": [
-        "They balanced each other in a way I didn't expect: one rich, the other sharp.",
+        "They balanced each other in a way I didn't expect. One rich, the other sharp.",
         "I tried it on a whim and now it's part of my regular rotation."
       ],
       "reactions": [
@@ -6591,7 +6591,7 @@
         "Making something beautiful from foraged ingredients is one of the most satisfying things I do."
       ],
       "statCheck": {
-        "pass": "The secret is knowing when to stop cooking: when the syrup sheets off the spoon instead of dripping. Pull it off the heat right then or it turns to candy.",
+        "pass": "The secret is knowing when to stop cooking. When the syrup sheets off the spoon instead of dripping. Pull it off the heat right then or it turns to candy.",
         "fail": "I cooked it until it looked right. Guesswork, but it paid off."
       },
       "valence": "positive",
@@ -6624,7 +6624,7 @@
       "id": 365,
       "intro": "I've been growing herbs in a little pot by the window. Fresh ones make all the difference.",
       "details": [
-        "Just a few leaves torn off and dropped into the pot: the smell alone changes the room.",
+        "Just a few leaves torn off and dropped into the pot. The smell alone changes the room.",
         "They cost me nothing but water and a bit of sunlight. Best investment I've made."
       ],
       "reactions": [
@@ -6658,7 +6658,7 @@
       "id": 367,
       "intro": "I taught myself to crack eggs with one hand. Took about twenty eggs to get it right.",
       "details": [
-        "The first dozen were disasters: shell fragments everywhere, yolks broken on the counter.",
+        "The first dozen were disasters. Shell fragments everywhere, yolks broken on the counter.",
         "But now I can do it clean every time and the satisfaction is deeply unreasonable."
       ],
       "reactions": [
@@ -6745,7 +6745,7 @@
       "id": 372,
       "intro": "I ate too much at dinner and spent the rest of the evening regretting every second helping.",
       "details": [
-        "The food was good, which is the problem: I kept going past the point of sense.",
+        "The food was good, which is the problem. I kept going past the point of sense.",
         "I lay down and the food lay there with me, heavy and unforgiving."
       ],
       "reactions": [
@@ -6760,7 +6760,7 @@
     },
     {
       "id": 373,
-      "intro": "I made a meal from memory: my mother's recipe, no measurements, just feel.",
+      "intro": "I made a meal from memory. My mother's recipe, no measurements, just feel.",
       "details": [
         "A pinch of this, a handful of that, cook until it looks right. Her instructions were impressions, not numbers.",
         "It came out close enough that the first bite took me somewhere else entirely."
@@ -6786,7 +6786,7 @@
         "My nose ran, my eyes watered, and I made a noise that startled the cat."
       ],
       "reactions": [
-        "Spice is a liar: it introduces itself gently and then overstays with violence."
+        "Spice is a liar. It introduces itself gently and then overstays with violence."
       ],
       "statCheck": null,
       "valence": "negative",
@@ -6800,13 +6800,13 @@
       "intro": "I've figured out the exact moment to pull bread from the oven. It took me months.",
       "details": [
         "Two minutes too early and it's doughy. Two minutes too late and the crust goes hard.",
-        "Now I know the sound it makes when I tap it: a hollow thump that means it's done."
+        "Now I know the sound it makes when I tap it. A hollow thump that means it's done."
       ],
       "reactions": [
         "Mastering one small thing in the kitchen is more satisfying than getting lucky with a whole feast."
       ],
       "statCheck": {
-        "pass": "The crust needs to be a deep golden, not light. And when you knock the bottom, it should sound hollow like a drum: that means the moisture's out.",
+        "pass": "The crust needs to be a deep golden, not light. And when you knock the bottom, it should sound hollow like a drum. That means the moisture's out.",
         "fail": "I just know when it looks right now. Practice, I guess."
       },
       "valence": "positive",
@@ -6877,7 +6877,7 @@
         "I'd been putting off using it and that delay cost me."
       ],
       "reactions": [
-        "Milk waits for nobody. You use it or you lose it: that's the agreement."
+        "Milk waits for nobody. You use it or you lose it. That's the agreement."
       ],
       "statCheck": null,
       "valence": "negative",
@@ -6891,13 +6891,13 @@
       "intro": "I smoked some meat over the weekend and the whole neighborhood came to see what the smell was.",
       "details": [
         "Built a slow fire and hung the meat over it for hours. The smoke did all the work.",
-        "I ended up giving away a third of it. You can't smoke meat quietly: the smell is an invitation."
+        "I ended up giving away a third of it. You can't smoke meat quietly. The smell is an invitation."
       ],
       "reactions": [
         "Smoking meat is the most generous way to cook because the smell shares it before you do."
       ],
       "statCheck": {
-        "pass": "The wood matters: fruit wood gives a sweeter smoke, hardwood gives a deeper one. I use whatever's on hand, but fruit wood is always my first choice.",
+        "pass": "The wood matters. Fruit wood gives a sweeter smoke, hardwood gives a deeper one. I use whatever's on hand, but fruit wood is always my first choice.",
         "fail": "I just built a fire and let the smoke do its thing. Nothing complicated."
       },
       "valence": "positive",
@@ -7034,7 +7034,7 @@
       "id": 388,
       "intro": "I can't stop snacking between meals. By the time dinner arrives I've already eaten half a day's worth.",
       "details": [
-        "A handful of this, a piece of that: it adds up faster than you'd think.",
+        "A handful of this, a piece of that. It adds up faster than you'd think.",
         "I sit down to a proper meal and can barely finish it because I've been grazing all day."
       ],
       "reactions": [
@@ -7068,7 +7068,7 @@
       "id": 390,
       "intro": "I made {food_type} for {npc_name} and they said it was the best they'd ever had. I think they were being kind.",
       "details": [
-        "It was decent: not my worst, not my best. But their face lit up when they said it.",
+        "It was decent. Not my worst, not my best. But their face lit up when they said it.",
         "Maybe they were sincere. Maybe kindness and honesty were the same thing in that moment."
       ],
       "reactions": [
@@ -7108,7 +7108,7 @@
         "Now everything I eat for the next two days is going to taste muted."
       ],
       "reactions": [
-        "Impatience and hot soup: a combination that has taught me nothing, because I keep doing it."
+        "Impatience and hot soup. A combination that has taught me nothing, because I keep doing it."
       ],
       "statCheck": null,
       "valence": "negative",
@@ -7119,7 +7119,7 @@
     },
     {
       "id": 393,
-      "intro": "I fried an egg perfectly this morning: crispy edges, runny yolk, not a second over. It's the little things.",
+      "intro": "I fried an egg perfectly this morning. Crispy edges, runny yolk, not a second over. It's the little things.",
       "details": [
         "Hot pan, a bit of fat, and thirty seconds of total focus. The yolk stayed golden and trembling.",
         "I put it on bread and the yolk ran into the crust like it was meant to."
@@ -7145,7 +7145,7 @@
         "Your plate reflects your mood more honestly than your face does."
       ],
       "statCheck": {
-        "pass": "It's not just laziness: when I'm anxious, my stomach tightens and only bland, soft food appeals. Anything with strong flavor feels like too much.",
+        "pass": "It's not just laziness. When I'm anxious, my stomach tightens and only bland, soft food appeals. Anything with strong flavor feels like too much.",
         "fail": "I've just been busy. That's why the meals have been simple."
       },
       "valence": "negative",
@@ -7165,7 +7165,7 @@
         "Desperation cooking sometimes produces results that ambition never would."
       ],
       "statCheck": {
-        "pass": "The key is sealing the dough tightly: any gap and the juices leak out into the oven instead of staying inside. Pinch it shut and don't be gentle.",
+        "pass": "The key is sealing the dough tightly. Any gap and the juices leak out into the oven instead of staying inside. Pinch it shut and don't be gentle.",
         "fail": "I just wrapped it up and hoped. It worked."
       },
       "valence": "positive",
@@ -7221,7 +7221,7 @@
         "Trying to fix a sauce by cooking it longer is a trap that I fall into every time."
       ],
       "statCheck": {
-        "pass": "A bit of flour mixed into cold water before adding it to the pot thickens without changing the flavor. But you have to mix the paste smooth: lumps of raw flour are worse than a thin sauce.",
+        "pass": "A bit of flour mixed into cold water before adding it to the pot thickens without changing the flavor. But you have to mix the paste smooth. Lumps of raw flour are worse than a thin sauce.",
         "fail": "I just kept boiling it and it never cooperated."
       },
       "valence": "negative",
@@ -7251,14 +7251,14 @@
       "id": 400,
       "intro": "I've been keeping a sourdough starter alive for weeks. It's become a responsibility I didn't expect.",
       "details": [
-        "Feeding it, checking on it, worrying about it: it's like a pet that makes bread.",
+        "Feeding it, checking on it, worrying about it. It's like a pet that makes bread.",
         "If I forget to feed it for a day, guilt settles in like I've neglected a friend."
       ],
       "reactions": [
         "A sourdough starter is the closest a jar of paste will ever come to being a dependent."
       ],
       "statCheck": {
-        "pass": "The bubble pattern tells you everything: small, even bubbles mean it's healthy. Big, sparse bubbles mean it's hungry. No bubbles mean you've killed it.",
+        "pass": "The bubble pattern tells you everything. Small, even bubbles mean it's healthy. Big, sparse bubbles mean it's hungry. No bubbles mean you've killed it.",
         "fail": "I just feed it and hope. It seems to be alive, so I must be doing something right."
       },
       "valence": "neutral",
@@ -7269,7 +7269,7 @@
     },
     {
       "id": 401,
-      "intro": "I made tea the way someone taught me when I was young: boiled with milk and a bit of honey. Tasted like a memory.",
+      "intro": "I made tea the way someone taught me when I was young. Boiled with milk and a bit of honey. Tasted like a memory.",
       "details": [
         "It's not the way most people make it around here, but it's the way I learned.",
         "The first sip took me back so fast it was disorienting."
@@ -7286,7 +7286,7 @@
     },
     {
       "id": 402,
-      "intro": "I made {food_type} and it was perfectly fine. Not great, not bad: perfectly, aggressively fine.",
+      "intro": "I made {food_type} and it was perfectly fine. Not great, not bad. Perfectly, aggressively fine.",
       "details": [
         "No mistakes, no surprises, no flavor that stood out. Just a meal that existed.",
         "I ate it and felt nothing. The most neutral eating experience of my life."
@@ -7305,7 +7305,7 @@
       "id": 403,
       "intro": "I've been grinding my own grain by hand and my arms are paying for it.",
       "details": [
-        "The flour is better: finer, fresher, and the bread rises higher.",
+        "The flour is better. Finer, fresher, and the bread rises higher.",
         "But the effort is enormous. I grind for twenty minutes and get enough for one loaf."
       ],
       "reactions": [
@@ -7337,7 +7337,7 @@
     },
     {
       "id": 405,
-      "intro": "I made a meal for someone who was having a bad day. Didn't say much: just cooked and handed it over.",
+      "intro": "I made a meal for someone who was having a bad day. Didn't say much. Just cooked and handed it over.",
       "details": [
         "They ate without talking and the color came back to their face by the second bowl.",
         "Sometimes words don't help. Food does."
@@ -7354,7 +7354,7 @@
     },
     {
       "id": 406,
-      "intro": "The onions I bought were all rotten inside. Looked fine on the outside: completely hollow within.",
+      "intro": "The onions I bought were all rotten inside. Looked fine on the outside. Completely hollow within.",
       "details": [
         "Cut into the first one and the smell was foul. Checked the rest and every single one was the same.",
         "I paid good money for a bag of lies dressed as onions."
@@ -7485,7 +7485,7 @@
         "Lumpy gravy is a failure of patience. The flour needs mixing before it hits the heat."
       ],
       "statCheck": {
-        "pass": "The trick is to mix the flour with cold liquid first: a smooth paste before it touches the hot drippings. Adding dry flour to a hot pot is the recipe for lumps.",
+        "pass": "The trick is to mix the flour with cold liquid first. A smooth paste before it touches the hot drippings. Adding dry flour to a hot pot is the recipe for lumps.",
         "fail": "I just poured it in wrong. Next time I'll stir more."
       },
       "valence": "negative",
@@ -7536,7 +7536,7 @@
         "After that, every one came out fine. The pan needed the first failure to find its temperature."
       ],
       "reactions": [
-        "The first pancake always fails. It's not a mistake: it's a toll you pay the pan."
+        "The first pancake always fails. It's not a mistake. It's a toll you pay the pan."
       ],
       "statCheck": null,
       "valence": "neutral",
@@ -7658,7 +7658,7 @@
         "Over-risen dough has given up on itself. All you can do is bake the defeat."
       ],
       "statCheck": {
-        "pass": "The yeast exhausts its food if you wait too long: the gas escapes and the structure can't hold. Better to shape it early and let it do its final rise in the pan.",
+        "pass": "The yeast exhausts its food if you wait too long. The gas escapes and the structure can't hold. Better to shape it early and let it do its final rise in the pan.",
         "fail": "I left it too long. Simple as that."
       },
       "valence": "negative",
@@ -7722,7 +7722,7 @@
       "id": 427,
       "intro": "I seasoned the {food_type} perfectly and I need someone to know. It was flawless.",
       "details": [
-        "Salt, heat, timing: everything aligned. The flavor was exactly what I intended.",
+        "Salt, heat, timing. Everything aligned. The flavor was exactly what I intended.",
         "I stood at the fire feeling like the most capable person alive. Over seasoning."
       ],
       "reactions": [
@@ -7889,7 +7889,7 @@
         "Overnight beans are the most patient form of cooking and the most rewarding."
       ],
       "statCheck": {
-        "pass": "Soak them the day before and they cook more evenly: dry beans straight into the pot take twice as long and some stay hard while others turn to mush.",
+        "pass": "Soak them the day before and they cook more evenly. Dry beans straight into the pot take twice as long and some stay hard while others turn to mush.",
         "fail": "I just let them cook all night. Time did the work."
       },
       "valence": "positive",
@@ -7920,7 +7920,7 @@
       "intro": "Someone brought a dish to the communal table that nobody touched. I felt sorry for whoever made it.",
       "details": [
         "It sat there full while everything around it emptied. The contrast was cruel.",
-        "I took some out of solidarity. It wasn't bad: just unfortunate placement next to better options."
+        "I took some out of solidarity. It wasn't bad. Just unfortunate placement next to better options."
       ],
       "reactions": [
         "An untouched dish at a shared table is one of the saddest sights in a kitchen."
@@ -7953,7 +7953,7 @@
       "id": 440,
       "intro": "I tried to copy a meal I had at {npc_name}'s and it came out completely wrong.",
       "details": [
-        "Same general idea, different result in every way. Theirs was rich: mine was thin.",
+        "Same general idea, different result in every way. Theirs was rich. Mine was thin.",
         "I asked them what I was missing and they said 'time.' Infuriatingly vague and probably right."
       ],
       "reactions": [
@@ -8125,14 +8125,14 @@
       "id": 450,
       "intro": "I woke up thinking about the meal I had last night. That's how you know it was a good one.",
       "details": [
-        "Nothing special about it on paper: just roasted vegetables and bread. But everything came together.",
+        "Nothing special about it on paper. Just roasted vegetables and bread. But everything came together.",
         "I even cleaned the plate with the last bit of crust. Didn't leave a trace."
       ],
       "reactions": [
         "When a meal sticks with you into the next morning, you did something right."
       ],
       "statCheck": {
-        "pass": "The secret was the fat I used: I rendered it myself from the roast the night before. It changed everything.",
+        "pass": "The secret was the fat I used. I rendered it myself from the roast the night before. It changed everything.",
         "fail": "I think it was just a lucky night. Couldn't tell you what made it work."
       },
       "valence": "positive",
@@ -8169,7 +8169,7 @@
         "When you find an ingredient that works everywhere, you ride that discovery as long as it lasts."
       ],
       "statCheck": {
-        "pass": "It's the sweetness that does it: {food_type} has a natural sugar that balances savory dishes in a way that salt alone can't.",
+        "pass": "It's the sweetness that does it. {food_type} has a natural sugar that balances savory dishes in a way that salt alone can't.",
         "fail": "I just keep adding it and it keeps working. Don't ask me why."
       },
       "valence": "positive",
@@ -8262,7 +8262,7 @@
         "If three ingredients can make you this happy, maybe the kitchen doesn't need to be complicated."
       ],
       "statCheck": {
-        "pass": "The trick is cold butter in a hot pan: it sizzles immediately and the eggs cook in the foam where the flavor lives.",
+        "pass": "The trick is cold butter in a hot pan. It sizzles immediately and the eggs cook in the foam where the flavor lives.",
         "fail": "I just cooked them the way I always do. Got lucky, I think."
       },
       "valence": "positive",
@@ -8273,7 +8273,7 @@
     },
     {
       "id": 458,
-      "intro": "I've been eating standing up all week. Not on purpose: I just keep forgetting to sit down.",
+      "intro": "I've been eating standing up all week. Not on purpose. I just keep forgetting to sit down.",
       "details": [
         "I grab a piece of bread, eat it walking, and an hour later realize that was lunch.",
         "My chair at the table has a thin layer of dust on it. That's probably a sign."
@@ -8392,7 +8392,7 @@
         "Homemade butter on fresh bread might be the purest form of satisfaction."
       ],
       "statCheck": {
-        "pass": "The trick is stopping at exactly the right moment: over-churn and it gets grainy, under-churn and it's still cream.",
+        "pass": "The trick is stopping at exactly the right moment. Over-churn and it gets grainy, under-churn and it's still cream.",
         "fail": "I mostly just keep going until it looks right. Sometimes it is, sometimes it isn't."
       },
       "valence": "positive",
@@ -8429,7 +8429,7 @@
         "Preserving food is really just writing a letter to your future self. This one was a kind letter."
       ],
       "statCheck": {
-        "pass": "The seal is what matters most: you have to flip the jar while it's still hot so the heat creates a vacuum. That's what keeps air out.",
+        "pass": "The seal is what matters most. You have to flip the jar while it's still hot so the heat creates a vacuum. That's what keeps air out.",
         "fail": "I just followed the steps someone showed me. It worked, but I couldn't explain why."
       },
       "valence": "positive",
@@ -8481,7 +8481,7 @@
       "id": 469,
       "intro": "I bit into something that was still raw in the middle. The outside looked perfect.",
       "details": [
-        "Beautiful crust, golden color, all the visual signs of done. Inside: cold and pink.",
+        "Beautiful crust, golden color, all the visual signs of done. Inside. Cold and pink.",
         "I put it back over the fire and waited another twenty minutes feeling betrayed."
       ],
       "reactions": [
@@ -8525,7 +8525,7 @@
         "Pepper is one of those things where the line between enough and too much is invisible until you cross it."
       ],
       "statCheck": {
-        "pass": "Pepper's heat comes from a compound that binds to your tongue and stays there. Fat breaks it down faster than water: a spoonful of butter would have helped more than all that water.",
+        "pass": "Pepper's heat comes from a compound that binds to your tongue and stays there. Fat breaks it down faster than water. A spoonful of butter would have helped more than all that water.",
         "fail": "I don't know the science. I just know I'm in pain."
       },
       "valence": "negative",
@@ -8545,7 +8545,7 @@
         "Good cooking often starts with something that doesn't sound glamorous at all."
       ],
       "statCheck": {
-        "pass": "The flavor depends on what the fat came from: different meats give different character, and pork fat is the most versatile.",
+        "pass": "The flavor depends on what the fat came from. Different meats give different character, and pork fat is the most versatile.",
         "fail": "Fat is fat, as far as I'm concerned. It all does the same job."
       },
       "valence": "neutral",
@@ -8559,13 +8559,13 @@
       "intro": "I made enough stew to feed five people and I'm the only one here.",
       "details": [
         "My hands just default to large portions. I couldn't make a small batch if I tried.",
-        "I'll be eating this for three days: resentful by day two, grateful by day three."
+        "I'll be eating this for three days. Resentful by day two, grateful by day three."
       ],
       "reactions": [
         "Overcooking for one is either wasteful or efficient. Depends which day you ask me."
       ],
       "statCheck": {
-        "pass": "Stew actually improves with reheating: the starches break down further and thicken the broth. Day three is the peak.",
+        "pass": "Stew actually improves with reheating. The starches break down further and thicken the broth. Day three is the peak.",
         "fail": "I just eat it until it's gone. Don't overthink it."
       },
       "valence": "neutral",
@@ -8632,7 +8632,7 @@
       "id": 477,
       "intro": "Ate a meal that was so bland I had to check if I'd remembered to season it. I had.",
       "details": [
-        "Salt, pepper, herbs: all present. The flavor just didn't show up.",
+        "Salt, pepper, herbs. All present. The flavor just didn't show up.",
         "I went back and added more of everything, but the food was actively resisting taste."
       ],
       "reactions": [
@@ -8671,8 +8671,8 @@
       "id": 479,
       "intro": "I love the sound of something sizzling in a pan. That first contact with the oil is pure anticipation.",
       "details": [
-        "Everything about cooking has a sound: chopping, simmering, sizzling. My kitchen is a noisy place.",
-        "You can tell how hot the pan is by the sound alone: a hiss means ready, silence means wait."
+        "Everything about cooking has a sound. Chopping, simmering, sizzling. My kitchen is a noisy place.",
+        "You can tell how hot the pan is by the sound alone. A hiss means ready, silence means wait."
       ],
       "reactions": [
         "Cooking with your ears is almost as important as cooking with your hands."
@@ -8695,7 +8695,7 @@
         "Bread has a mind of its own. All you can do is set the conditions and hope."
       ],
       "statCheck": {
-        "pass": "I think the room was too cold. Yeast needs warmth to activate properly: near the fire, not across the room from it.",
+        "pass": "I think the room was too cold. Yeast needs warmth to activate properly. Near the fire, not across the room from it.",
         "fail": "I honestly don't know what went wrong. Bread just doesn't cooperate with me."
       },
       "valence": "negative",
@@ -8772,7 +8772,7 @@
         "Storage is a race against nature and nature always has the advantage."
       ],
       "statCheck": {
-        "pass": "Sprouted vegetables aren't ruined if you catch them early: the sprout itself is bitter, but the root is still usable if you trim it.",
+        "pass": "Sprouted vegetables aren't ruined if you catch them early. The sprout itself is bitter, but the root is still usable if you trim it.",
         "fail": "I don't know which ones are still good. I'm just cooking everything and hoping."
       },
       "valence": "negative",
@@ -8823,7 +8823,7 @@
         "My actual dinner portion barely matters because I've already eaten half of it one spoonful at a time."
       ],
       "reactions": [
-        "The cook's tax: tasting so much during preparation that the meal itself is an afterthought."
+        "The cook's tax. Tasting so much during preparation that the meal itself is an afterthought."
       ],
       "statCheck": {
         "pass": "The real risk is that your palate adjusts as you taste and you stop noticing when things are off. Fresh eyes, or a fresh tongue, catch what yours can't.",
@@ -8896,14 +8896,14 @@
       "id": 491,
       "intro": "I toasted bread over the fire until it was almost black. Some people hate it that dark, but I love it.",
       "details": [
-        "The bitterness of the char against the sweetness of the bread underneath: it's a balance.",
+        "The bitterness of the char against the sweetness of the bread underneath. It's a balance.",
         "I spread butter on it while it's still hot and the whole thing becomes something greater than its parts."
       ],
       "reactions": [
         "Dark toast is a matter of conviction. You're either with me or against me on this."
       ],
       "statCheck": {
-        "pass": "The Maillard reaction happens right at the edge of burning: that's where the deepest flavors develop. A few seconds past dark is bitter, but right at dark is perfect.",
+        "pass": "The Maillard reaction happens right at the edge of burning. That's where the deepest flavors develop. A few seconds past dark is bitter, but right at dark is perfect.",
         "fail": "I like it charred. That's about all I can say about it."
       },
       "valence": "positive",
@@ -8992,11 +8992,11 @@
       "id": 496,
       "intro": "Leftover soup is better than fresh soup. I will not be taking questions.",
       "details": [
-        "Something happens overnight: the flavors merge and deepen into a different dish by morning.",
+        "Something happens overnight. The flavors merge and deepen into a different dish by morning.",
         "I've started making soup a day ahead on purpose. Today's effort, tomorrow's reward."
       ],
       "reactions": [
-        "Patience and soup: the two things that always improve with time."
+        "Patience and soup. The two things that always improve with time."
       ],
       "statCheck": null,
       "valence": "positive",
@@ -9087,7 +9087,7 @@
         "Half of cooking well is just keeping your supplies in order."
       ],
       "statCheck": {
-        "pass": "The moisture is the real problem: damp salt clumps and you can't control how much you're adding. One wet pinch can ruin a whole pot.",
+        "pass": "The moisture is the real problem. Damp salt clumps and you can't control how much you're adding. One wet pinch can ruin a whole pot.",
         "fail": "I just keep it near the fire. Seems to stay dry enough."
       },
       "valence": "neutral",
@@ -9163,7 +9163,7 @@
         "Hanging herbs from the ceiling is the easiest way to make a home feel alive."
       ],
       "statCheck": {
-        "pass": "The key is drying them slowly in shade, not sun: sun dries too fast and the oils evaporate, destroying the volatile compounds that carry flavor.",
+        "pass": "The key is drying them slowly in shade, not sun. Sun dries too fast and the oils evaporate, destroying the volatile compounds that carry flavor.",
         "fail": "I just hang them up and wait. They dry out and I use them."
       },
       "valence": "positive",
@@ -9191,7 +9191,7 @@
     },
     {
       "id": 507,
-      "intro": "I cooked a proper roast dinner with all the trimmings. No occasion: I just wanted one.",
+      "intro": "I cooked a proper roast dinner with all the trimmings. No occasion. I just wanted one.",
       "details": [
         "Took most of the afternoon. The house was warm and steamy and smelled incredible by evening.",
         "I sat down to eat and felt like I'd earned something, even though the only effort was cooking."
@@ -9248,7 +9248,7 @@
       "intro": "I slow-cooked some meat with {crop_type} and the flavors melded into something wonderful.",
       "details": [
         "Low heat for hours. By the end, everything was soft and rich and inseparable.",
-        "I didn't season it heavily: the time did the work that spices usually do."
+        "I didn't season it heavily. The time did the work that spices usually do."
       ],
       "reactions": [
         "Slow cooking is an act of faith. You commit hours and hope for the best."
@@ -9274,7 +9274,7 @@
         "Familiarity breeds contempt, especially in the kitchen."
       ],
       "statCheck": {
-        "pass": "I think the problem is that I season the same way every time: same salt, same timing, same herbs. My hand has memorized one profile and won't let go.",
+        "pass": "I think the problem is that I season the same way every time. Same salt, same timing, same herbs. My hand has memorized one profile and won't let go.",
         "fail": "I'm just bored of my own food. There's no deeper insight than that."
       },
       "valence": "negative",
@@ -9333,7 +9333,7 @@
         "The ingredients you don't taste are often the ones doing the most work."
       ],
       "statCheck": {
-        "pass": "Acid and fat balance each other: a heavy, rich dish needs a sour note to keep it from feeling flat, and that's what vinegar provides.",
+        "pass": "Acid and fat balance each other. A heavy, rich dish needs a sour note to keep it from feeling flat, and that's what vinegar provides.",
         "fail": "I just splash some in and it seems to help. Couldn't explain the science."
       },
       "valence": "neutral",
@@ -9353,7 +9353,7 @@
         "Desperation is the mother of some surprisingly decent food."
       ],
       "statCheck": {
-        "pass": "Frying in hot oil creates new flavors even from stale ingredients: the browning reaction gives everything a second chance.",
+        "pass": "Frying in hot oil creates new flavors even from stale ingredients. The browning reaction gives everything a second chance.",
         "fail": "I just fried everything together and got lucky."
       },
       "valence": "neutral",
@@ -9367,7 +9367,7 @@
       "intro": "I shared some {food_type} with a neighbor and they asked me to teach them how to make it.",
       "details": [
         "I've never taught anyone to cook before. It made me realize how many things I do without thinking.",
-        "Half the steps I couldn't explain: my hands know but my mouth doesn't."
+        "Half the steps I couldn't explain. My hands know but my mouth doesn't."
       ],
       "reactions": [
         "Knowing how to cook and knowing how to explain cooking are two completely different skills."
@@ -9427,7 +9427,7 @@
         "Some kitchen errors turn into generosity by accident."
       ],
       "statCheck": {
-        "pass": "Extra dough keeps well in the cold for a day or two. Shape it, cover it, and bake it fresh the next morning: it actually develops more flavor overnight.",
+        "pass": "Extra dough keeps well in the cold for a day or two. Shape it, cover it, and bake it fresh the next morning. It actually develops more flavor overnight.",
         "fail": "I just baked all of it at once. Seemed like the only option."
       },
       "valence": "neutral",
@@ -9447,7 +9447,7 @@
         "Sharp tools make every job easier. That applies beyond the kitchen too."
       ],
       "statCheck": {
-        "pass": "A sharp knife is also safer: it goes where you point it. A dull knife slips and cuts things you didn't intend.",
+        "pass": "A sharp knife is also safer. It goes where you point it. A dull knife slips and cuts things you didn't intend.",
         "fail": "I just know it works better sharp. That's enough for me."
       },
       "valence": "positive",
@@ -9486,7 +9486,7 @@
         "Years of mediocre bread explained by one storage mistake. I'm relieved and embarrassed."
       ],
       "statCheck": {
-        "pass": "Flour absorbs humidity from the air and changes its weight: the same cup of flour can vary by a lot depending on the conditions. Consistent storage is the only fix.",
+        "pass": "Flour absorbs humidity from the air and changes its weight. The same cup of flour can vary by a lot depending on the conditions. Consistent storage is the only fix.",
         "fail": "I just moved it to a drier spot and things improved. Don't know the details."
       },
       "valence": "neutral",
@@ -9500,7 +9500,7 @@
       "intro": "Dinner was so good tonight I actually said 'thank you' to the empty kitchen.",
       "details": [
         "It just came out. The first bite was so satisfying that gratitude was the only response.",
-        "I'm not sure who I was thanking: the fire, the vegetables, my own hands. All of them, I think."
+        "I'm not sure who I was thanking. The fire, the vegetables, my own hands. All of them, I think."
       ],
       "reactions": [
         "When food surprises you in your own home, something has gone beautifully right."
@@ -9537,7 +9537,7 @@
         "It wasn't bad. It just wasn't what I set out to make."
       ],
       "reactions": [
-        "Substitution in cooking is a gamble: sometimes you invent something new, sometimes you invent a problem."
+        "Substitution in cooking is a gamble. Sometimes you invent something new, sometimes you invent a problem."
       ],
       "statCheck": null,
       "valence": "neutral",
@@ -9574,7 +9574,7 @@
         "There's comfort in having a dish you've mastered. One thing in life you can count on."
       ],
       "statCheck": {
-        "pass": "The consistency comes from muscle memory, but also from tasting at the same point every time: right after the first simmer. That's when you catch problems early.",
+        "pass": "The consistency comes from muscle memory, but also from tasting at the same point every time. Right after the first simmer. That's when you catch problems early.",
         "fail": "I don't think about it anymore. My hands just do it."
       },
       "valence": "neutral",
@@ -9679,7 +9679,7 @@
       "intro": "My food stores are getting low. I'll need to be creative for the next few weeks.",
       "details": [
         "Plenty of grain, but not much else. I'll be stretching everything with bread and broth.",
-        "It's not desperate: just lean. The kind of lean that makes you plan every meal three days ahead."
+        "It's not desperate. Just lean. The kind of lean that makes you plan every meal three days ahead."
       ],
       "reactions": [
         "Running low teaches you to appreciate full shelves in a way that full shelves never could."
@@ -9741,7 +9741,7 @@
         "People overlook onions because they're common. That's exactly why they're essential."
       ],
       "statCheck": {
-        "pass": "Low heat is everything with onions. High heat browns them fast but doesn't draw out the sweetness: twenty minutes on gentle heat is the real method.",
+        "pass": "Low heat is everything with onions. High heat browns them fast but doesn't draw out the sweetness. Twenty minutes on gentle heat is the real method.",
         "fail": "I just cook them until they look done. It seems to work."
       },
       "valence": "neutral",
@@ -9758,7 +9758,7 @@
         "Cleaned it up, made a sandwich, and lowered my ambitions for the evening."
       ],
       "reactions": [
-        "Two trips to the table: that's the lesson I keep refusing to learn."
+        "Two trips to the table. That's the lesson I keep refusing to learn."
       ],
       "statCheck": null,
       "valence": "negative",
@@ -9769,7 +9769,7 @@
     },
     {
       "id": 538,
-      "intro": "I made soup from scratch today: peeled, chopped, simmered. The whole process took hours and I enjoyed every one.",
+      "intro": "I made soup from scratch today. Peeled, chopped, simmered. The whole process took hours and I enjoyed every one.",
       "details": [
         "There's a rhythm to making soup properly. The kitchen fills with steam and smell and time slows down.",
         "I tasted it at the end and it was exactly right. That doesn't happen often enough."
@@ -9788,7 +9788,7 @@
       "id": 539,
       "intro": "I've started keeping a small pot of stew simmering most days. It's become the heartbeat of my kitchen.",
       "details": [
-        "I add whatever I have: vegetables, bones, herbs. It changes every day but it's always good.",
+        "I add whatever I have. Vegetables, bones, herbs. It changes every day but it's always good.",
         "There's comfort in knowing that food is always ready. I just ladle a bowl whenever I want."
       ],
       "reactions": [
@@ -9806,7 +9806,7 @@
     },
     {
       "id": 540,
-      "intro": "I'm convinced eggs are the most versatile thing in any kitchen. Fried, boiled, scrambled: always good.",
+      "intro": "I'm convinced eggs are the most versatile thing in any kitchen. Fried, boiled, scrambled. Always good.",
       "details": [
         "You can put them in soup, bake them into bread, eat them plain. They're never wrong.",
         "When I don't know what to make, eggs are the answer. They've never let me down."
@@ -9849,7 +9849,7 @@
         "Some people have a feel for cooking that no recipe can teach."
       ],
       "statCheck": {
-        "pass": "I think they're actually measuring: they've just done it so many times that their hands remember the amounts. It looks like guessing but it's really deep practice.",
+        "pass": "I think they're actually measuring. They've just done it so many times that their hands remember the amounts. It looks like guessing but it's really deep practice.",
         "fail": "I don't understand how they do it. Talent, I suppose."
       },
       "valence": "neutral",
@@ -9888,7 +9888,7 @@
         "I ate it out of obligation, not enjoyment. A very different experience from the night before."
       ],
       "reactions": [
-        "Leftovers are a gamble: sometimes they improve, sometimes they remind you to cook fresh."
+        "Leftovers are a gamble. Sometimes they improve, sometimes they remind you to cook fresh."
       ],
       "statCheck": null,
       "valence": "negative",
@@ -9916,7 +9916,7 @@
     },
     {
       "id": 546,
-      "intro": "I get unreasonably frustrated when a meal doesn't turn out. It's just food: I shouldn't care this much.",
+      "intro": "I get unreasonably frustrated when a meal doesn't turn out. It's just food. I shouldn't care this much.",
       "details": [
         "But when you spend an hour cooking and the result is disappointing, it feels personal.",
         "I take it out on the pot. The pot is innocent but it's the nearest thing to blame."
@@ -9959,7 +9959,7 @@
         "Silent meals are honest. There's nothing to hide behind."
       ],
       "statCheck": {
-        "pass": "I've started to notice that I eat differently when it's quiet: slower, more carefully. The silence makes every bite more present.",
+        "pass": "I've started to notice that I eat differently when it's quiet. Slower, more carefully. The silence makes every bite more present.",
         "fail": "It's just quiet. Nothing to say about it, really."
       },
       "valence": "neutral",
@@ -10050,7 +10050,7 @@
         "Success in pickling is the sweetest kind of revenge against your past failures."
       ],
       "statCheck": {
-        "pass": "The brine ratio is everything: too little salt and bacteria win, too much and the food is inedible. I measured by weight this time instead of guessing.",
+        "pass": "The brine ratio is everything. Too little salt and bacteria win, too much and the food is inedible. I measured by weight this time instead of guessing.",
         "fail": "I just measured more carefully. It worked out."
       },
       "valence": "positive",
@@ -10083,13 +10083,13 @@
       "intro": "I've been roasting everything lately. Vegetables, meat, bread, whatever fits on the tray.",
       "details": [
         "The oven does the work and I just wait. It's the laziest form of cooking and I'm committed to it.",
-        "Everything comes out golden and slightly caramelized. I don't need fancy technique: just heat and time."
+        "Everything comes out golden and slightly caramelized. I don't need fancy technique. Just heat and time."
       ],
       "reactions": [
         "Roasting is cooking for people who want results without effort. I'm those people."
       ],
       "statCheck": {
-        "pass": "The key is not crowding the tray: air needs to circulate around each piece for proper browning. Touching pieces steam instead of roast.",
+        "pass": "The key is not crowding the tray. Air needs to circulate around each piece for proper browning. Touching pieces steam instead of roast.",
         "fail": "I just put everything on the tray and wait. Works fine."
       },
       "valence": "positive",
@@ -10117,7 +10117,7 @@
     },
     {
       "id": 557,
-      "intro": "I found a way to use stale bread that actually makes it better than fresh: thick slices soaked in egg and fried.",
+      "intro": "I found a way to use stale bread that actually makes it better than fresh. Thick slices soaked in egg and fried.",
       "details": [
         "Crispy outside, soft and custardy inside. It's transformed into something the original bread never was.",
         "I save old bread on purpose now. The staler it gets, the better it soaks."
@@ -10126,7 +10126,7 @@
         "The best discoveries come from trying to salvage something you almost threw away."
       ],
       "statCheck": {
-        "pass": "Day-old bread soaks better because it's drier: fresh bread falls apart in the egg, so the staleness isn't a flaw but a requirement.",
+        "pass": "Day-old bread soaks better because it's drier. Fresh bread falls apart in the egg, so the staleness isn't a flaw but a requirement.",
         "fail": "I don't know why it works better with old bread. It just does."
       },
       "valence": "positive",
@@ -10156,7 +10156,7 @@
       "id": 559,
       "intro": "I've been eating {food_type} cold because I'm too tired to reheat it. It's not as bad as it sounds.",
       "details": [
-        "Some things lose very little when they cool down. The flavor is still there: just quieter.",
+        "Some things lose very little when they cool down. The flavor is still there. Just quieter.",
         "It saves time and firewood, and honestly, I'm past the point of caring about temperature."
       ],
       "reactions": [
@@ -10234,7 +10234,7 @@
         "Eating slowly is a discipline I'm not naturally good at, but the food rewards me when I manage it."
       ],
       "statCheck": {
-        "pass": "Chewing longer actually releases more flavor from the food: the enzymes in your mouth break down starches into sugars. Fast eaters literally taste less.",
+        "pass": "Chewing longer actually releases more flavor from the food. The enzymes in your mouth break down starches into sugars. Fast eaters literally taste less.",
         "fail": "I'm trying to slow down but I don't have a method. Just willpower."
       },
       "valence": "neutral",
@@ -10247,7 +10247,7 @@
       "id": 564,
       "intro": "I made {food_type} and it came out perfectly. I stood there a little stunned, honestly.",
       "details": [
-        "Everything aligned: the seasoning, the timing, the texture. Not a single thing I'd change.",
+        "Everything aligned. The seasoning, the timing, the texture. Not a single thing I'd change.",
         "I almost didn't want to eat it. It felt like destroying evidence of a miracle."
       ],
       "reactions": [
@@ -10271,7 +10271,7 @@
         "First attempts at anything are rarely the final version. I'll get there."
       ],
       "statCheck": {
-        "pass": "Distance from the fire matters more than time: too close and the smoke overwhelms, but gentle heat with thin steady smoke is what you want.",
+        "pass": "Distance from the fire matters more than time. Too close and the smoke overwhelms, but gentle heat with thin steady smoke is what you want.",
         "fail": "I'm not sure what I did wrong, maybe everything. I'll try again next week."
       },
       "valence": "neutral",
@@ -10301,7 +10301,7 @@
       "id": 567,
       "intro": "The eggs I bought were bad. Every single one of them.",
       "details": [
-        "Cracked the first one and the smell told me everything. Checked the rest: same story.",
+        "Cracked the first one and the smell told me everything. Checked the rest. Same story.",
         "A whole morning's meal plan, gone. I stood in the kitchen holding an empty pan and a grudge."
       ],
       "reactions": [
@@ -10318,8 +10318,8 @@
       "id": 568,
       "intro": "I added a bit of apple to a savory stew and the sweetness lifted the whole pot.",
       "details": [
-        "It shouldn't work: sweet in a meat stew sounds wrong, but the acidity cuts the richness perfectly.",
-        "I'd never have thought of it on my own: someone mentioned it once and I finally tried it."
+        "It shouldn't work. Sweet in a meat stew sounds wrong, but the acidity cuts the richness perfectly.",
+        "I'd never have thought of it on my own. Someone mentioned it once and I finally tried it."
       ],
       "reactions": [
         "The best cooking advice always sounds wrong until you taste it."
@@ -10370,7 +10370,7 @@
     },
     {
       "id": 571,
-      "intro": "I cook differently depending on the weather: cold days get thick stews, warm days get light meals.",
+      "intro": "I cook differently depending on the weather. Cold days get thick stews, warm days get light meals.",
       "details": [
         "My body knows what it wants before my brain figures it out.",
         "Hot soup on a hot day feels wrong in the same way cold porridge on a winter morning does."
@@ -10379,7 +10379,7 @@
         "Eating with the weather is instinct, not a choice. Your appetite adjusts before your mind does."
       ],
       "statCheck": {
-        "pass": "Your body adjusts its metabolism with the temperature: cold increases calorie burn, so you crave denser food. It's not preference, it's biology.",
+        "pass": "Your body adjusts its metabolism with the temperature. Cold increases calorie burn, so you crave denser food. It's not preference, it's biology.",
         "fail": "I just eat what feels right. My body seems to know."
       },
       "valence": "neutral",
@@ -10427,13 +10427,13 @@
       "intro": "I keep a list in my head of the best meals I've ever eaten. It's short, and every entry earned its place.",
       "details": [
         "Some were fancy, some were just bread at the right moment. Quality isn't about complexity.",
-        "The one I think about most was the simplest: warm broth on a cold night when I really needed it."
+        "The one I think about most was the simplest. Warm broth on a cold night when I really needed it."
       ],
       "reactions": [
         "The meals that matter most are usually defined by the moment, not the food."
       ],
       "statCheck": {
-        "pass": "The best meals on that list share one thing: I was genuinely hungry when I ate them. Real hunger makes everything taste better.",
+        "pass": "The best meals on that list share one thing. I was genuinely hungry when I ate them. Real hunger makes everything taste better.",
         "fail": "I just remember them fondly. Can't explain why some stayed with me."
       },
       "valence": "neutral",
@@ -10465,7 +10465,7 @@
       "id": 576,
       "intro": "Honey in warm milk before bed. That's been my ritual for years.",
       "details": [
-        "It's not about the taste: it's about the signal it sends. Hot milk means the day is done.",
+        "It's not about the taste. It's about the signal it sends. Hot milk means the day is done.",
         "My mother did the same thing, and I didn't choose the habit so much as it chose me."
       ],
       "reactions": [
@@ -10542,7 +10542,7 @@
         "Thrift and flavor don't always agree, but in this case they're perfect partners."
       ],
       "statCheck": {
-        "pass": "The starch from the grain acts as a natural thickener: it absorbs liquid and swells, turning thin broth into something with body. A handful per pot is enough.",
+        "pass": "The starch from the grain acts as a natural thickener. It absorbs liquid and swells, turning thin broth into something with body. A handful per pot is enough.",
         "fail": "I just toss some grain in. It thickens up on its own."
       },
       "valence": "neutral",
@@ -10579,7 +10579,7 @@
         "The same food tastes different under an open sky. I'm convinced of it."
       ],
       "statCheck": {
-        "pass": "I think it's the fresh air: oxygen heightens your sense of smell, and most of what you taste is actually smell. Indoor air is stale by comparison.",
+        "pass": "I think it's the fresh air. Oxygen heightens your sense of smell, and most of what you taste is actually smell. Indoor air is stale by comparison.",
         "fail": "I just like eating outside. It feels better."
       },
       "valence": "positive",
@@ -10599,7 +10599,7 @@
         "Being outcooked is motivating and devastating in equal measure."
       ],
       "statCheck": {
-        "pass": "I think they layered the seasoning in stages: some at the start, some during, some at the end. Each addition serves a different purpose.",
+        "pass": "I think they layered the seasoning in stages. Some at the start, some during, some at the end. Each addition serves a different purpose.",
         "fail": "Whatever they did, I can't figure it out. Some people just have the touch."
       },
       "valence": "neutral",
@@ -10797,7 +10797,7 @@
         "I tried to scoop some out but salt dissolves fast. The damage was instant and total."
       ],
       "reactions": [
-        "Always check the lid: that's the lesson I should've learned years ago."
+        "Always check the lid. That's the lesson I should've learned years ago."
       ],
       "statCheck": null,
       "valence": "negative",
@@ -10817,7 +10817,7 @@
         "Growing your own food connects the meal to something larger than just eating."
       ],
       "statCheck": {
-        "pass": "Food you grew yourself tastes better partly because you ate it sooner: every hour after harvest, flavor compounds start to fade.",
+        "pass": "Food you grew yourself tastes better partly because you ate it sooner. Every hour after harvest, flavor compounds start to fade.",
         "fail": "I don't know why it tastes better. It just does."
       },
       "valence": "positive",
@@ -10856,7 +10856,7 @@
         "A well-used pot is like a well-used tool. The wear is what makes it work."
       ],
       "statCheck": {
-        "pass": "A well-seasoned pot has a layer of polymerized oil that acts as a natural coating. That's what makes things not stick: years of use built it up.",
+        "pass": "A well-seasoned pot has a layer of polymerized oil that acts as a natural coating. That's what makes things not stick. Years of use built it up.",
         "fail": "I just know it works. New pots don't cook the same."
       },
       "valence": "neutral",
@@ -10886,7 +10886,7 @@
       "id": 599,
       "intro": "I ate the last of my stored {food_type} today. The pantry is looking bare.",
       "details": [
-        "It was the good stuff: the jar I'd been saving for when I needed a lift.",
+        "It was the good stuff. The jar I'd been saving for when I needed a lift.",
         "Now that it's gone, the shelf feels emptier than it should. It was just one jar."
       ],
       "reactions": [
@@ -10961,7 +10961,7 @@
         "People were going back for seconds before the first round was even finished."
       ],
       "reactions": [
-        "Credit where it's due: that was a proper meal."
+        "Credit where it's due. That was a proper meal."
       ],
       "statCheck": null,
       "valence": "positive",
@@ -11000,7 +11000,7 @@
         "I lose track of time when I'm doing it. Look up and an hour's gone."
       ],
       "reactions": [
-        "I think that's why I cook: not for the food, but for the quiet in the middle of making it."
+        "I think that's why I cook. Not for the food, but for the quiet in the middle of making it."
       ],
       "statCheck": {
         "pass": "I think the quiet focus of cooking calms me down more than the food itself. It's the one time my mind isn't racing.",
@@ -11093,7 +11093,7 @@
       "id": 610,
       "intro": "I made {food_type} and it came out perfectly. Might be the best thing I've ever cooked.",
       "details": [
-        "Everything just worked: the timing, the heat, the seasoning. All of it landed.",
+        "Everything just worked. The timing, the heat, the seasoning. All of it landed.",
         "I ate it slowly, savoring every bite. Didn't want it to end."
       ],
       "reactions": [
@@ -11211,7 +11211,7 @@
       "id": 616,
       "intro": "I'm tired of cooking every night. Some days I just want someone else to handle it.",
       "details": [
-        "It's not the cooking itself: it's the deciding. Figuring out what to make is the hard part.",
+        "It's not the cooking itself. It's the deciding. Figuring out what to make is the hard part.",
         "I stare at the pantry for ten minutes and then make the same thing I always make."
       ],
       "reactions": [
@@ -11320,7 +11320,7 @@
     },
     {
       "id": 622,
-      "intro": "Made a proper breakfast this morning: eggs, bread, a bit of {food_type} on the side.",
+      "intro": "Made a proper breakfast this morning. Eggs, bread, a bit of {food_type} on the side.",
       "details": [
         "I don't usually take the time, but today I woke up early and had nowhere to be.",
         "Sat by the window and ate slowly. Watched the light change while I chewed."
@@ -11329,7 +11329,7 @@
         "A slow breakfast is one of the great luxuries. Better than most things money buys."
       ],
       "statCheck": {
-        "pass": "I think the slow pace is what made it good: eating without rushing changes how everything tastes.",
+        "pass": "I think the slow pace is what made it good. Eating without rushing changes how everything tastes.",
         "fail": "It was just a good morning. Can't say more than that."
       },
       "valence": "positive",
@@ -11383,7 +11383,7 @@
         "I'll probably try again. The learning is half the point."
       ],
       "statCheck": {
-        "pass": "I think the heat was too high: it cooked the outside before the inside had time to catch up.",
+        "pass": "I think the heat was too high. It cooked the outside before the inside had time to catch up.",
         "fail": "Something was off but I couldn't pin it down."
       },
       "valence": "neutral",
@@ -11442,7 +11442,7 @@
         "Once you've made your own, the prepared stuff doesn't compare."
       ],
       "statCheck": {
-        "pass": "The trick is patience: low heat and constant stirring. Rush it and the whole thing breaks.",
+        "pass": "The trick is patience. Low heat and constant stirring. Rush it and the whole thing breaks.",
         "fail": "I just kept going until it looked right. Can't explain it better than that."
       },
       "valence": "positive",
@@ -11456,7 +11456,7 @@
       "intro": "I keep forgetting to eat lunch. Get busy and then suddenly it's evening.",
       "details": [
         "By the time I notice, I'm shaky and irritable and too hungry to make anything decent.",
-        "I end up just grabbing whatever's closest: a heel of bread, a cold potato, whatever."
+        "I end up just grabbing whatever's closest. A heel of bread, a cold potato, whatever."
       ],
       "reactions": [
         "I should set a routine, but I've been saying that for years."
@@ -11470,7 +11470,7 @@
     },
     {
       "id": 630,
-      "intro": "Soup is my answer to everything: cold, tired, no plan for dinner.",
+      "intro": "Soup is my answer to everything. Cold, tired, no plan for dinner.",
       "details": [
         "You throw things in water, add heat, and eventually it's food. What's not to love?",
         "I probably eat soup four days out of seven. My pot gets more use than my plate."
@@ -11479,7 +11479,7 @@
         "People who overthink cooking haven't discovered the freedom of a good stockpot."
       ],
       "statCheck": {
-        "pass": "The real secret to good soup is time: the longer it simmers, the more the flavors knit together.",
+        "pass": "The real secret to good soup is time. The longer it simmers, the more the flavors knit together.",
         "fail": "I just throw things in and wait. No technique to speak of."
       },
       "valence": "positive",
@@ -11538,7 +11538,7 @@
         "I think about that apple more than I should. It set an unreasonable standard."
       ],
       "statCheck": {
-        "pass": "I think it was the variety: late-season ones have more sugar in them because the tree puts everything it has left into the fruit.",
+        "pass": "I think it was the variety. Late-season ones have more sugar in them because the tree puts everything it has left into the fruit.",
         "fail": "It was just a good apple. Sometimes that's all there is to it."
       },
       "valence": "positive",
@@ -11555,7 +11555,7 @@
         "I go through honey faster now than I ever expected. Might need to find a steady supply."
       ],
       "reactions": [
-        "Small improvements to daily habits: that's where the real quality of life is."
+        "Small improvements to daily habits. That's where the real quality of life is."
       ],
       "statCheck": {
         "pass": "A little warmth in the honey before you stir it in helps it dissolve instead of sinking to the bottom.",
@@ -11669,7 +11669,7 @@
         "There's nothing wrong with eating like a caveman if the food's good enough."
       ],
       "statCheck": {
-        "pass": "Hot fire, dry fish, skin-side down first: that's the whole method. Don't touch it until the skin releases on its own.",
+        "pass": "Hot fire, dry fish, skin-side down first. That's the whole method. Don't touch it until the skin releases on its own.",
         "fail": "I just put it on the fire and hoped for the best."
       },
       "valence": "positive",
@@ -11815,11 +11815,11 @@
       "id": 648,
       "intro": "I opened a jar of preserves I made last season and it had gone off. Smell hit me before I even looked.",
       "details": [
-        "The seal must have been bad: whole jar wasted, all that work for nothing.",
+        "The seal must have been bad. Whole jar wasted, all that work for nothing.",
         "I'm going to have to check the rest of the batch now. Dreading what I'll find."
       ],
       "reactions": [
-        "That's the worst kind of loss: slow, quiet, and you don't know until it's too late."
+        "That's the worst kind of loss. Slow, quiet, and you don't know until it's too late."
       ],
       "statCheck": null,
       "valence": "negative",
@@ -11851,14 +11851,14 @@
       "id": 650,
       "intro": "I've been eating the same thing every morning for a month. I'm not tired of it yet.",
       "details": [
-        "It's efficient: I know how long it takes, I know what I need, and I know it works.",
+        "It's efficient. I know how long it takes, I know what I need, and I know it works.",
         "People call it boring. I call it solved."
       ],
       "reactions": [
         "Variety is overrated when what you have already works."
       ],
       "statCheck": {
-        "pass": "The truth is it's not just efficiency: I'm afraid if I change things I'll lose the one meal I'm actually good at.",
+        "pass": "The truth is it's not just efficiency. I'm afraid if I change things I'll lose the one meal I'm actually good at.",
         "fail": "It works, so I stick with it. That's really all there is to it."
       },
       "valence": "neutral",
@@ -11895,7 +11895,7 @@
         "People chase elaborate flavors when the simplest combination already won."
       ],
       "statCheck": {
-        "pass": "The bread has to be fresh: still warm, still soft. Cold bread with butter is a different thing entirely, and lesser.",
+        "pass": "The bread has to be fresh. Still warm, still soft. Cold bread with butter is a different thing entirely, and lesser.",
         "fail": "I don't know why it works so well. Some things just do."
       },
       "valence": "positive",
@@ -12004,14 +12004,14 @@
       "id": 658,
       "intro": "I've been eating more fish lately. It's lighter than meat and I feel better for it.",
       "details": [
-        "A piece of grilled fish with herbs: that's a meal that doesn't weigh you down afterward.",
+        "A piece of grilled fish with herbs. That's a meal that doesn't weigh you down afterward.",
         "I used to think fish was boring. Turns out I was just cooking it badly."
       ],
       "reactions": [
         "Changing what you eat changes how you feel. Took me longer than it should have to figure that out."
       ],
       "statCheck": {
-        "pass": "I think the lightness matters: heavy meals make me sluggish, and I noticed the difference within a week of switching.",
+        "pass": "I think the lightness matters. Heavy meals make me sluggish, and I noticed the difference within a week of switching.",
         "fail": "I just felt like a change. Can't say more than that."
       },
       "valence": "positive",
@@ -12061,14 +12061,14 @@
       "id": 661,
       "intro": "I love the sound of food sizzling in a hot pan. It means something good is about to happen.",
       "details": [
-        "That first hiss when the food hits the fat: it wakes up the whole kitchen.",
+        "That first hiss when the food hits the fat. It wakes up the whole kitchen.",
         "I sometimes just stand there listening to it before I do anything else."
       ],
       "reactions": [
         "Cooking speaks to more senses than people give it credit for."
       ],
       "statCheck": {
-        "pass": "I think the sizzle tells you the pan temperature: high sizzle means the fat is hot enough for a good sear.",
+        "pass": "I think the sizzle tells you the pan temperature. High sizzle means the fat is hot enough for a good sear.",
         "fail": "It's just a nice sound. I don't read much into it."
       },
       "valence": "positive",
@@ -12082,7 +12082,7 @@
       "intro": "I opened a jar of something I preserved and couldn't remember what was in it.",
       "details": [
         "No label, same jar as everything else. I had to smell it and guess.",
-        "Turns out it was fine: some kind of vegetable relish. But the uncertainty was unsettling."
+        "Turns out it was fine. Some kind of vegetable relish. But the uncertainty was unsettling."
       ],
       "reactions": [
         "I'm labeling every jar from now on. The mystery is not part of the fun."
@@ -12181,7 +12181,7 @@
         "Hunger and the right setting can turn anything into the best meal of your life."
       ],
       "statCheck": {
-        "pass": "I think hunger changes your perception of flavor: everything tastes richer when your body truly needs it.",
+        "pass": "I think hunger changes your perception of flavor. Everything tastes richer when your body truly needs it.",
         "fail": "It was just a good moment. Hard to explain beyond that."
       },
       "valence": "positive",
@@ -12275,7 +12275,7 @@
         "The best alarm in the world is the smell of bread you didn't bake."
       ],
       "statCheck": {
-        "pass": "Baking smells travel farthest in cool air: the warmth from the oven creates a current that pulls the scent outward.",
+        "pass": "Baking smells travel farthest in cool air. The warmth from the oven creates a current that pulls the scent outward.",
         "fail": "It just drifts over. I don't know how."
       },
       "valence": "positive",
@@ -12345,14 +12345,14 @@
       "id": 676,
       "intro": "I made a roast that fell right off the bone. Couldn't believe it came out of my kitchen.",
       "details": [
-        "Low heat, long time: just letting the fire do the work.",
+        "Low heat, long time. Just letting the fire do the work.",
         "I kept checking on it obsessively, but really it was cooking itself."
       ],
       "reactions": [
         "Sometimes the best thing a cook can do is get out of the way."
       ],
       "statCheck": {
-        "pass": "Patience is the actual ingredient: the low temperature breaks down the tough fibers slowly instead of seizing them with high heat.",
+        "pass": "Patience is the actual ingredient. The low temperature breaks down the tough fibers slowly instead of seizing them with high heat.",
         "fail": "I just left it alone and it turned out. Luck, mostly."
       },
       "valence": "positive",
@@ -12408,7 +12408,7 @@
         "A clean pantry is a fresh start. I might actually know what I'm cooking this week."
       ],
       "statCheck": {
-        "pass": "I found some things in there I'd been avoiding: a jar from a bad batch I didn't want to face. Felt better after tossing it.",
+        "pass": "I found some things in there I'd been avoiding. A jar from a bad batch I didn't want to face. Felt better after tossing it.",
         "fail": "It was just cluttered. Nothing interesting in there."
       },
       "valence": "neutral",
@@ -12428,7 +12428,7 @@
         "Small victories in the kitchen feel bigger than they should."
       ],
       "statCheck": {
-        "pass": "Cold butter is the whole secret: if the fat melts before the oven, the crust goes dense.",
+        "pass": "Cold butter is the whole secret. If the fat melts before the oven, the crust goes dense.",
         "fail": "Something just clicked this time. I'm afraid to analyze it in case the magic goes away."
       },
       "valence": "positive",
@@ -12482,7 +12482,7 @@
         "The simplest trades are the most satisfying."
       ],
       "statCheck": {
-        "pass": "The arrangement works because neither of us has to ask: it's on a schedule now and nobody keeps score.",
+        "pass": "The arrangement works because neither of us has to ask. It's on a schedule now and nobody keeps score.",
         "fail": "We just swap things. It's simple."
       },
       "valence": "positive",
@@ -12582,14 +12582,14 @@
       "id": 689,
       "intro": "There's a particular way my kitchen smells after a big cooking day. Warm, rich, lived-in.",
       "details": [
-        "It's layers of everything I cooked: the fat, the herbs, the bread, all mingled together.",
+        "It's layers of everything I cooked. The fat, the herbs, the bread, all mingled together.",
         "I'll sometimes just sit in there after everything's cleaned up and soak it in."
       ],
       "reactions": [
         "A kitchen that smells like it's been used is the heart of any home."
       ],
       "statCheck": {
-        "pass": "I think the layered smell is what makes a kitchen feel alive: each meal adds to the one before until the room has its own character.",
+        "pass": "I think the layered smell is what makes a kitchen feel alive. Each meal adds to the one before until the room has its own character.",
         "fail": "It just smells like cooking. I don't think about it much."
       },
       "valence": "positive",
@@ -12620,7 +12620,7 @@
       "intro": "I love cooking for other people. Everything tastes better when someone else is enjoying it too.",
       "details": [
         "I try harder when it's not just for me. Better seasoning, better presentation, more attention.",
-        "The look on someone's face when they take the first bite and it's good: that's the payoff."
+        "The look on someone's face when they take the first bite and it's good. That's the payoff."
       ],
       "reactions": [
         "Cooking alone feeds you. Cooking for someone feeds something else entirely."
@@ -12663,7 +12663,7 @@
         "Good bread is physical work. I'm always surprised by how much effort goes into something so basic."
       ],
       "statCheck": {
-        "pass": "The windowpane test is how you know: stretch a small piece thin and if light comes through without it tearing, the gluten's developed.",
+        "pass": "The windowpane test is how you know. Stretch a small piece thin and if light comes through without it tearing, the gluten's developed.",
         "fail": "I just keep going until it feels right. Can't explain it better than that."
       },
       "valence": "positive",
@@ -12700,7 +12700,7 @@
         "Baking is the closest thing I have to meditation."
       ],
       "statCheck": {
-        "pass": "I think it's the repetitive motion that does it: folding, pressing, turning. Your body calms down when your hands have a pattern.",
+        "pass": "I think it's the repetitive motion that does it. Folding, pressing, turning. Your body calms down when your hands have a pattern.",
         "fail": "It just relaxes me. I don't know the reason."
       },
       "valence": "positive",
@@ -12713,7 +12713,7 @@
       "id": 696,
       "intro": "{npc_name} told me my cooking was 'interesting.' I'm still not sure what that means.",
       "details": [
-        "They didn't say good, didn't say bad: just interesting. Ate the whole plate, though.",
+        "They didn't say good, didn't say bad. Just interesting. Ate the whole plate, though.",
         "I've been replaying the way they said it. The pause before the word was suspicious."
       ],
       "reactions": [
@@ -12732,7 +12732,7 @@
       "id": 697,
       "intro": "I ate my dinner on the doorstep tonight. Watched the last of the light fade while I chewed.",
       "details": [
-        "The food was nothing special: just soup and bread. But the evening made it feel like more.",
+        "The food was nothing special. Just soup and bread. But the evening made it feel like more.",
         "I sat there long after I finished, just because I didn't want to go inside yet."
       ],
       "reactions": [
@@ -12881,10 +12881,10 @@
         "When I'm frustrated, I rush everything and it all comes out worse."
       ],
       "reactions": [
-        "Cooking is honest: it reflects whatever you bring to it."
+        "Cooking is honest. It reflects whatever you bring to it."
       ],
       "statCheck": {
-        "pass": "I think the mood changes how much I taste while cooking: happy, I sample and adjust. Frustrated, I just want it done.",
+        "pass": "I think the mood changes how much I taste while cooking. Happy, I sample and adjust. Frustrated, I just want it done.",
         "fail": "Could be my imagination. Hard to say."
       },
       "valence": "neutral",
@@ -12904,7 +12904,7 @@
         "There's a narrow window between safe and sawdust. I missed it."
       ],
       "statCheck": {
-        "pass": "Next time I'll cover it while it cooks: the steam keeps the moisture trapped.",
+        "pass": "Next time I'll cover it while it cooks. The steam keeps the moisture trapped.",
         "fail": "I've never been great with roasting. Might just stick to stews."
       },
       "valence": "negative",
@@ -12924,7 +12924,7 @@
         "Some cooking traditions get passed down without anyone ever writing them down."
       ],
       "statCheck": {
-        "pass": "The fat carries flavor better than oil does: it coats the tongue differently, makes everything linger.",
+        "pass": "The fat carries flavor better than oil does. It coats the tongue differently, makes everything linger.",
         "fail": "I just use what my grandmother used. No real reason beyond that."
       },
       "valence": "neutral",
@@ -13008,7 +13008,7 @@
       "intro": "I made a batch of flatbread on a hot stone and it turned out beautifully.",
       "details": [
         "Quick, simple, and the char on the bottom gave it a smoky flavor I wasn't expecting.",
-        "I made too many and ate them all anyway. Some warm, some cold: all good."
+        "I made too many and ate them all anyway. Some warm, some cold. All good."
       ],
       "reactions": [
         "The oldest way of making bread is still one of the best."
@@ -13065,7 +13065,7 @@
         "I wish I could eat like this every day, but the season's short."
       ],
       "reactions": [
-        "The best ingredient is time: as little of it as possible between the ground and the plate."
+        "The best ingredient is time. As little of it as possible between the ground and the plate."
       ],
       "statCheck": {
         "pass": "Within the first hour after picking, the sugars start to break down. That's why fresh tastes so much brighter.",
@@ -13105,7 +13105,7 @@
         "When the simple meals land, the whole day starts better."
       ],
       "statCheck": {
-        "pass": "The ratio is more water than you'd think: almost drowning the oats at first. They absorb it and turn creamy.",
+        "pass": "The ratio is more water than you'd think. Almost drowning the oats at first. They absorb it and turn creamy.",
         "fail": "I don't measure. Just pour and watch."
       },
       "valence": "positive",
@@ -13159,7 +13159,7 @@
         "Nobody ever talks about gravy, but it quietly makes half the meals worth eating."
       ],
       "statCheck": {
-        "pass": "The secret is scraping the fond from the bottom of the pan: those brown bits are where all the deep flavor lives.",
+        "pass": "The secret is scraping the fond from the bottom of the pan. Those brown bits are where all the deep flavor lives.",
         "fail": "I just stirred everything together. Nothing fancy."
       },
       "valence": "positive",
@@ -13213,7 +13213,7 @@
         "Necessity is the mother of some surprisingly good meals."
       ],
       "statCheck": {
-        "pass": "I think desperation removes overthinking: you stop planning and just cook with what's there, and sometimes that's better.",
+        "pass": "I think desperation removes overthinking. You stop planning and just cook with what's there, and sometimes that's better.",
         "fail": "Got lucky. I doubt I could do it again."
       },
       "valence": "positive",
@@ -13267,7 +13267,7 @@
         "Feels like throwing away the effort it took to grow it, buy it, bring it home."
       ],
       "reactions": [
-        "Food waste sits wrong with me. It's not just the food: it's the work behind it."
+        "Food waste sits wrong with me. It's not just the food. It's the work behind it."
       ],
       "statCheck": null,
       "valence": "negative",
@@ -13284,7 +13284,7 @@
         "It's become the thing I look forward to most. Funny how a meal can do that."
       ],
       "reactions": [
-        "Regular meals with someone you like: that's as good as it gets."
+        "Regular meals with someone you like. That's as good as it gets."
       ],
       "statCheck": null,
       "valence": "positive",
@@ -13316,14 +13316,14 @@
       "id": 729,
       "intro": "I've gotten good at cooking with one pot. Fewer dishes, fewer decisions, same result.",
       "details": [
-        "Everything goes in the same vessel: meat, vegetables, broth. It sorts itself out.",
+        "Everything goes in the same vessel. Meat, vegetables, broth. It sorts itself out.",
         "Cleaning up takes five minutes instead of thirty. That alone is worth the method."
       ],
       "reactions": [
         "Simplicity in the kitchen isn't laziness. It's intelligence."
       ],
       "statCheck": {
-        "pass": "The order matters: sear the meat first, then add the aromatics, then the liquid. Each layer builds on the last.",
+        "pass": "The order matters. Sear the meat first, then add the aromatics, then the liquid. Each layer builds on the last.",
         "fail": "I just throw everything in and let time do the work."
       },
       "valence": "positive",
@@ -13353,7 +13353,7 @@
       "id": 731,
       "intro": "I found that adding a splash of vinegar at the end brightens up a flat stew.",
       "details": [
-        "It doesn't taste like vinegar: it just lifts everything. Makes the other flavors sharper.",
+        "It doesn't taste like vinegar. It just lifts everything. Makes the other flavors sharper.",
         "I've been doing it all week and the difference is noticeable every time."
       ],
       "reactions": [
@@ -13397,7 +13397,7 @@
         "Slow food on a cold day is one of life's uncomplicated gifts."
       ],
       "statCheck": {
-        "pass": "The trick is not soaking the beans beforehand: cooking them dry in the liquid makes them creamier because they absorb the broth directly.",
+        "pass": "The trick is not soaking the beans beforehand. Cooking them dry in the liquid makes them creamier because they absorb the broth directly.",
         "fail": "I just left them on the fire all day. Nothing special about it."
       },
       "valence": "positive",
@@ -13427,7 +13427,7 @@
       "id": 735,
       "intro": "I've been eating more fruit lately. A ripe pear after dinner feels like dessert enough.",
       "details": [
-        "No preparation needed: just wash it and bite in. The juice runs down your hand.",
+        "No preparation needed. Just wash it and bite in. The juice runs down your hand.",
         "I used to think I needed something elaborate after a meal. Turns out nature already figured it out."
       ],
       "reactions": [
@@ -13501,13 +13501,13 @@
       "intro": "I keep a bowl of salt by the stove and pinch from it constantly while I cook.",
       "details": [
         "My fingers know the amount by feel now. I don't even think about it.",
-        "It goes in at every stage: the searing, the simmering, the finishing. Each pinch does something different."
+        "It goes in at every stage. The searing, the simmering, the finishing. Each pinch does something different."
       ],
       "reactions": [
         "Salt is the one thing you can't cook without. Everything else is negotiable."
       ],
       "statCheck": {
-        "pass": "Salting early draws out moisture and builds a flavor base. Salting at the end is just surface seasoning: you need both.",
+        "pass": "Salting early draws out moisture and builds a flavor base. Salting at the end is just surface seasoning. You need both.",
         "fail": "I just add it until it tastes right. No science to it."
       },
       "valence": "neutral",
@@ -13558,7 +13558,7 @@
       "intro": "I've discovered that a handful of nuts improves almost any dish. Texture does a lot of work.",
       "details": [
         "A soft stew with a crunchy topping is a completely different experience than the stew alone.",
-        "I've been adding them to everything: soups, salads, roasted vegetables. It always helps."
+        "I've been adding them to everything. Soups, salads, roasted vegetables. It always helps."
       ],
       "reactions": [
         "Contrast is what turns good food into food you remember."
@@ -13594,7 +13594,7 @@
       "id": 744,
       "intro": "{npc_name} eats with such enjoyment it makes me hungry just watching them.",
       "details": [
-        "Every bite gets their full attention: they close their eyes sometimes. It's contagious.",
+        "Every bite gets their full attention. They close their eyes sometimes. It's contagious.",
         "I've started enjoying my own meals more just from eating around them."
       ],
       "reactions": [
@@ -13650,14 +13650,14 @@
       "id": 747,
       "intro": "I finally tried making bread without kneading it. Just mixed it and waited overnight.",
       "details": [
-        "The texture was different: more holes, chewier, almost like a different food.",
+        "The texture was different. More holes, chewier, almost like a different food.",
         "It took less effort but more patience. Trade-offs in everything."
       ],
       "reactions": [
         "Sometimes doing less is doing it differently, not doing it worse."
       ],
       "statCheck": {
-        "pass": "The long rise does the work that kneading does: develops the gluten slowly. You trade arm strength for time.",
+        "pass": "The long rise does the work that kneading does. Develops the gluten slowly. You trade arm strength for time.",
         "fail": "I don't know the reason. I just know the bread was good."
       },
       "valence": "neutral",
@@ -13668,7 +13668,7 @@
     },
     {
       "id": 748,
-      "intro": "I cooked dinner for myself tonight and set the table properly: plate, cup, napkin, the works.",
+      "intro": "I cooked dinner for myself tonight and set the table properly. Plate, cup, napkin, the works.",
       "details": [
         "Usually I eat out of the pot with a spoon. But tonight felt like it deserved more.",
         "The food tasted the same, but the experience was different. More deliberate."
@@ -13802,7 +13802,7 @@
         "Some meals just need a night to think about what they want to be."
       ],
       "statCheck": {
-        "pass": "The starches break down further overnight and thicken the broth naturally. It's not just your imagination: it genuinely improves.",
+        "pass": "The starches break down further overnight and thicken the broth naturally. It's not just your imagination. It genuinely improves.",
         "fail": "Could be my imagination. Or maybe I was just hungrier."
       },
       "valence": "positive",
@@ -13858,7 +13858,7 @@
         "An almost-good meal is more frustrating than a clearly bad one."
       ],
       "statCheck": {
-        "pass": "I think it was acid: a splash of vinegar or a squeeze of something sour. The soup was flat because nothing cut through the richness.",
+        "pass": "I think it was acid. A splash of vinegar or a squeeze of something sour. The soup was flat because nothing cut through the richness.",
         "fail": "I don't have the palate to diagnose it. Just knew it wasn't there."
       },
       "valence": "negative",
@@ -13869,9 +13869,9 @@
     },
     {
       "id": 759,
-      "intro": "I've been making the same breakfast for years: oats, water, a little honey. Never gets old.",
+      "intro": "I've been making the same breakfast for years. Oats, water, a little honey. Never gets old.",
       "details": [
-        "People ask how I don't get bored of it. I don't know: it just works.",
+        "People ask how I don't get bored of it. I don't know. It just works.",
         "There's a comfort in routine. My hands do it while my mind wakes up."
       ],
       "reactions": [
@@ -13892,7 +13892,7 @@
         "The result wasn't perfect, but it was mine. That counted for something."
       ],
       "reactions": [
-        "First attempts that work are dangerous: they make you think cooking is easy."
+        "First attempts that work are dangerous. They make you think cooking is easy."
       ],
       "statCheck": null,
       "valence": "positive",
@@ -13963,7 +13963,7 @@
         "By the time I finished I was warm all the way through."
       ],
       "reactions": [
-        "Warm broth in cold hands: there's no more basic comfort than that."
+        "Warm broth in cold hands. There's no more basic comfort than that."
       ],
       "statCheck": null,
       "valence": "positive",
@@ -14022,7 +14022,7 @@
         "Fish punishes every small error. It has no forgiveness in it."
       ],
       "statCheck": {
-        "pass": "The pan has to be properly hot and the fish completely dry before it goes in. Moisture is the enemy: it steams instead of searing.",
+        "pass": "The pan has to be properly hot and the fish completely dry before it goes in. Moisture is the enemy. It steams instead of searing.",
         "fail": "I'm just not good with fish. Never have been."
       },
       "valence": "negative",
@@ -14035,14 +14035,14 @@
       "id": 768,
       "intro": "I love the smell of bread baking more than I love eating the bread itself.",
       "details": [
-        "That warm, yeasty smell that fills the whole house: it makes everything feel right.",
+        "That warm, yeasty smell that fills the whole house. It makes everything feel right.",
         "By the time I actually eat it, the anticipation was already the best part."
       ],
       "reactions": [
         "Some foods exist more in the promise than the eating."
       ],
       "statCheck": {
-        "pass": "I think the smell triggers something deeper than taste does: memory, comfort, safety. The eating is just confirmation.",
+        "pass": "I think the smell triggers something deeper than taste does. Memory, comfort, safety. The eating is just confirmation.",
         "fail": "I just like the smell. Nothing more to it than that."
       },
       "valence": "positive",
@@ -14072,7 +14072,7 @@
       "id": 770,
       "intro": "I've been trying to use up what's in the pantry before buying anything new.",
       "details": [
-        "The meals have been strange: odd pairings, half-portions, creative substitutions.",
+        "The meals have been strange. Odd pairings, half-portions, creative substitutions.",
         "Some turned out well. Others were edible and nothing more."
       ],
       "reactions": [
@@ -14113,7 +14113,7 @@
         "Not tasting as you go is the fastest way to miss the mark."
       ],
       "statCheck": {
-        "pass": "You have to taste at every stage: after searing, after adding liquid, before serving. Each one is a chance to adjust before it's too late.",
+        "pass": "You have to taste at every stage. After searing, after adding liquid, before serving. Each one is a chance to adjust before it's too late.",
         "fail": "I just forgot. It happens when I'm distracted."
       },
       "valence": "negative",
@@ -14206,13 +14206,13 @@
       "intro": "I dipped bread in olive oil and salt and it was one of the best things I've eaten this week.",
       "details": [
         "Three ingredients, no cooking, and it beat everything I've made in days.",
-        "There's a lesson in that: effort doesn't always equal quality."
+        "There's a lesson in that. Effort doesn't always equal quality."
       ],
       "reactions": [
         "Simple food done right will always outperform complicated food done carelessly."
       ],
       "statCheck": {
-        "pass": "Good oil makes all the difference: it should taste green and peppery on its own, not just slick.",
+        "pass": "Good oil makes all the difference. It should taste green and peppery on its own, not just slick.",
         "fail": "Oil and bread. Not much to explain there."
       },
       "valence": "positive",
@@ -14286,7 +14286,7 @@
         "Fire cooking is unpredictable, and that's what makes it exciting."
       ],
       "statCheck": {
-        "pass": "The sugars in the food caramelize at high heat. That's where the smoky sweetness comes from: it's not the flame, it's the reaction.",
+        "pass": "The sugars in the food caramelize at high heat. That's where the smoky sweetness comes from. It's not the flame, it's the reaction.",
         "fail": "Just tasted better over fire. Couldn't say why."
       },
       "valence": "positive",
@@ -14316,7 +14316,7 @@
       "id": 783,
       "intro": "I've started adding a spoonful of honey to my morning drink. Makes the whole cup better.",
       "details": [
-        "Not too much: just enough to round out the bitterness. The balance is delicate.",
+        "Not too much. Just enough to round out the bitterness. The balance is delicate.",
         "It's become a small ritual. The honey, the stirring, the first warm sip."
       ],
       "reactions": [
@@ -14473,7 +14473,7 @@
         "Ate it with my fingers, standing by the fire. Didn't need a plate or a table."
       ],
       "reactions": [
-        "Outdoor cooking strips away everything unnecessary: the food, the fire, and you."
+        "Outdoor cooking strips away everything unnecessary. The food, the fire, and you."
       ],
       "statCheck": null,
       "valence": "positive",
@@ -14527,7 +14527,7 @@
         "Preserved food is cooking in slow motion. You do the work once and eat well for a month."
       ],
       "statCheck": {
-        "pass": "The salt draws water out of the vegetables and creates a brine that naturally ferments. You're not just preserving: you're building flavor over time.",
+        "pass": "The salt draws water out of the vegetables and creates a brine that naturally ferments. You're not just preserving. You're building flavor over time.",
         "fail": "I just pack them in salt and wait. Works every time."
       },
       "valence": "positive",
@@ -14600,7 +14600,7 @@
         "I've been using spices wrong my whole life. At least I know now."
       ],
       "statCheck": {
-        "pass": "Heat activates the essential oils trapped inside the seeds. That's the aroma you smell: it means the flavor is unlocking.",
+        "pass": "Heat activates the essential oils trapped inside the seeds. That's the aroma you smell. It means the flavor is unlocking.",
         "fail": "They just smell better when heated. I don't know the science."
       },
       "valence": "positive",
@@ -14637,7 +14637,7 @@
         "When baking goes right, it feels like you've unlocked something."
       ],
       "statCheck": {
-        "pass": "Cold butter creates steam pockets when it hits the heat: that's what separates the layers and makes the crust flaky instead of dense.",
+        "pass": "Cold butter creates steam pockets when it hits the heat. That's what separates the layers and makes the crust flaky instead of dense.",
         "fail": "I just followed what someone told me. Got lucky, I suppose."
       },
       "valence": "positive",
@@ -14722,13 +14722,13 @@
       "intro": "I made {food_type} the way my mother used to make it. Got close, but not quite.",
       "details": [
         "The taste brought back memories even though something was slightly off.",
-        "I think the missing ingredient is time: the years between now and then."
+        "I think the missing ingredient is time. The years between now and then."
       ],
       "reactions": [
         "Childhood meals carry a flavor that recipes alone can't reproduce."
       ],
       "statCheck": {
-        "pass": "I think memory seasons food in ways we can't replicate. The dish was probably the same: I'm the one who changed.",
+        "pass": "I think memory seasons food in ways we can't replicate. The dish was probably the same. I'm the one who changed.",
         "fail": "Just couldn't get it right. Close, but close isn't the same."
       },
       "valence": "neutral",
@@ -14759,7 +14759,7 @@
       "intro": "I seared meat until it had a proper crust and the difference was night and day.",
       "details": [
         "Brown, caramelized, almost crispy on the outside. Tender inside.",
-        "I've been cooking meat too timidly my whole life. High heat and confidence: that was all it needed."
+        "I've been cooking meat too timidly my whole life. High heat and confidence. That was all it needed."
       ],
       "reactions": [
         "Boldness at the stove gets rewarded. Timidity gets bland food."
@@ -14841,7 +14841,7 @@
         "Good food shared is better than great food alone."
       ],
       "statCheck": {
-        "pass": "It's not just about someone tasting it: I wanted someone to see me enjoy it. Joy witnessed feels more real.",
+        "pass": "It's not just about someone tasting it. I wanted someone to see me enjoy it. Joy witnessed feels more real.",
         "fail": "Just would've been nice to have company. Nothing deep."
       },
       "valence": "neutral",
@@ -14878,7 +14878,7 @@
         "Smoked meat is proof that the best things demand the most time."
       ],
       "statCheck": {
-        "pass": "Low temperature and steady smoke is the whole secret: if the fire gets too hot you're just cooking, not smoking.",
+        "pass": "Low temperature and steady smoke is the whole secret. If the fire gets too hot you're just cooking, not smoking.",
         "fail": "I just kept the fire low and waited. Took forever but it worked."
       },
       "valence": "positive",
@@ -14908,14 +14908,14 @@
       "id": 815,
       "intro": "I've noticed I cook better when I'm not trying to impress anyone.",
       "details": [
-        "When it's just for me, I relax: I taste, adjust, take risks. No pressure.",
+        "When it's just for me, I relax. I taste, adjust, take risks. No pressure.",
         "The moment someone else is eating it, I second-guess everything."
       ],
       "reactions": [
         "Performance anxiety in the kitchen is a real thing."
       ],
       "statCheck": {
-        "pass": "I think self-consciousness makes you overthink: you season to what you think they want instead of what the food needs.",
+        "pass": "I think self-consciousness makes you overthink. You season to what you think they want instead of what the food needs.",
         "fail": "I just get nervous. Makes me worse at everything, not just cooking."
       },
       "valence": "neutral",
@@ -14952,7 +14952,7 @@
         "I tried to rescue it with more water and heat but it turned to glue instead."
       ],
       "reactions": [
-        "Rice gives you two options: crunchy or mush. The middle ground is vanishingly narrow."
+        "Rice gives you two options. Crunchy or mush. The middle ground is vanishingly narrow."
       ],
       "statCheck": null,
       "valence": "negative",
@@ -15025,7 +15025,7 @@
         "Speed is the enemy of enjoyment at the table."
       ],
       "statCheck": {
-        "pass": "I think the first few bites are when your palate is sharpest: after that it dulls. Slowing down lets you catch more before it fades.",
+        "pass": "I think the first few bites are when your palate is sharpest. After that it dulls. Slowing down lets you catch more before it fades.",
         "fail": "It just feels better to take my time. Nothing scientific."
       },
       "valence": "positive",
@@ -15055,7 +15055,7 @@
       "id": 823,
       "intro": "I ate a meal that was perfectly adequate and felt nothing about it. Just fuel.",
       "details": [
-        "Not good, not bad: just food entering my body. I chewed, swallowed, and moved on.",
+        "Not good, not bad. Just food entering my body. I chewed, swallowed, and moved on.",
         "Sometimes meals are just maintenance. I shouldn't expect every one to be meaningful."
       ],
       "reactions": [
@@ -15072,14 +15072,14 @@
       "id": 824,
       "intro": "I made jam from overripe fruit and it turned out sweeter than anything I could have planned.",
       "details": [
-        "The fruit was soft and ugly: past eating raw, but perfect for cooking down.",
+        "The fruit was soft and ugly. Past eating raw, but perfect for cooking down.",
         "Two jars from what I almost threw away. The sweetness concentrated beautifully."
       ],
       "reactions": [
         "The best preserves come from fruit that's past its prime. There's something nice about that."
       ],
       "statCheck": {
-        "pass": "Overripe fruit has more sugar because the starches have fully converted. That's why it's sweeter: the ripeness did the work for you.",
+        "pass": "Overripe fruit has more sugar because the starches have fully converted. That's why it's sweeter. The ripeness did the work for you.",
         "fail": "I just used what I had. Turned out well enough."
       },
       "valence": "positive",
@@ -15133,7 +15133,7 @@
         "A slow roast turns an ordinary cut into something worth remembering."
       ],
       "statCheck": {
-        "pass": "Low temperature over a long time breaks down the tough fibers into gelatin. That's why it falls apart: the collagen melts and bastes the meat from inside.",
+        "pass": "Low temperature over a long time breaks down the tough fibers into gelatin. That's why it falls apart. The collagen melts and bastes the meat from inside.",
         "fail": "I just kept it in the oven a long time. Nothing complicated."
       },
       "valence": "positive",
@@ -15180,14 +15180,14 @@
       "id": 830,
       "intro": "I used the wrong fat for frying and everything tasted slightly off. Not terrible, just wrong.",
       "details": [
-        "The flavor didn't match the dish. Like wearing someone else's clothes: close but not yours.",
+        "The flavor didn't match the dish. Like wearing someone else's clothes. Close but not yours.",
         "I ate it but I knew the whole time it could have been better."
       ],
       "reactions": [
         "The fat you cook with flavors everything it touches. Choose carefully."
       ],
       "statCheck": {
-        "pass": "Different fats have different smoke points and flavors: some are neutral, some are heavy. Matching the fat to the dish matters more than most people realize.",
+        "pass": "Different fats have different smoke points and flavors. Some are neutral, some are heavy. Matching the fat to the dish matters more than most people realize.",
         "fail": "I just grabbed what was closest. My mistake."
       },
       "valence": "negative",
@@ -15207,7 +15207,7 @@
         "Good fermentation smells terrible and tastes wonderful. That's the trade."
       ],
       "statCheck": {
-        "pass": "The sour smell means the good bacteria are winning: sharp and tangy is what you want. If it smells truly rotten or moldy, that's when something went wrong.",
+        "pass": "The sour smell means the good bacteria are winning. Sharp and tangy is what you want. If it smells truly rotten or moldy, that's when something went wrong.",
         "fail": "If it smells bad and tastes good, I figure it's fine."
       },
       "valence": "neutral",
@@ -15254,7 +15254,7 @@
       "id": 834,
       "intro": "I've been adding a knob of butter at the very end of cooking and it transforms everything.",
       "details": [
-        "Just before serving: one piece of cold butter stirred in. The sauce turns glossy and rich.",
+        "Just before serving. One piece of cold butter stirred in. The sauce turns glossy and rich.",
         "It's indulgent, but it makes the difference between good and something that makes you close your eyes."
       ],
       "reactions": [
@@ -15327,7 +15327,7 @@
       "id": 838,
       "intro": "I thickened a stew with a bit of mashed root and it gave the broth real body.",
       "details": [
-        "No flour, no fuss: just crushed some of the softer pieces into the liquid and stirred.",
+        "No flour, no fuss. Just crushed some of the softer pieces into the liquid and stirred.",
         "It turned silky. The texture changed everything without changing the flavor."
       ],
       "reactions": [
@@ -15345,7 +15345,7 @@
     },
     {
       "id": 839,
-      "intro": "My food has been tasting flat lately and I think I know why: I haven't been cooking with any joy.",
+      "intro": "My food has been tasting flat lately and I think I know why. I haven't been cooking with any joy.",
       "details": [
         "I've been treating meals as a chore instead of something I'm making for myself.",
         "The ingredients and effort are the same. The spirit behind it is missing."
@@ -15502,7 +15502,7 @@
         "A day of planning makes ten minutes of cooking look like genius."
       ],
       "statCheck": {
-        "pass": "The dry surface is the key: moisture is the enemy of browning. The salt does double duty: flavors the interior and dries the exterior.",
+        "pass": "The dry surface is the key. Moisture is the enemy of browning. The salt does double duty. Flavors the interior and dries the exterior.",
         "fail": "I just salted it early and it turned out better. Simple as that."
       },
       "valence": "positive",
@@ -15642,7 +15642,7 @@
       "id": 855,
       "intro": "I bit into something and found a piece of grit. The crunch was very wrong.",
       "details": [
-        "Sand or a small stone: something that had no business in the food.",
+        "Sand or a small stone. Something that had no business in the food.",
         "Killed my appetite instantly. I pushed the plate away and went without."
       ],
       "reactions": [
@@ -15659,14 +15659,14 @@
       "id": 856,
       "intro": "I cooked a meal from memory without looking at anything written down. Nailed it.",
       "details": [
-        "My hands just knew: how much salt, how long to wait, when to pull it off the heat.",
+        "My hands just knew. How much salt, how long to wait, when to pull it off the heat.",
         "It's the first time I felt like cooking was instinct instead of effort."
       ],
       "reactions": [
         "When a recipe lives in your hands instead of on a page, you've truly learned it."
       ],
       "statCheck": {
-        "pass": "I think the body learns faster than the mind does with cooking: muscle memory stores the ratios before you can explain them.",
+        "pass": "I think the body learns faster than the mind does with cooking. Muscle memory stores the ratios before you can explain them.",
         "fail": "It just came together. I've made it enough times."
       },
       "valence": "positive",
@@ -15696,7 +15696,7 @@
       "id": 858,
       "intro": "I tried a new combination of spices and it tasted like nothing I've had before.",
       "details": [
-        "Not better or worse than my usual: just different. Like hearing a familiar tune in a new key.",
+        "Not better or worse than my usual. Just different. Like hearing a familiar tune in a new key.",
         "I'm still deciding what I think. The novelty is either exciting or unsettling."
       ],
       "reactions": [
@@ -15765,7 +15765,7 @@
       "intro": "{npc_name} gave me a jar of something preserved and I've been putting it on everything.",
       "details": [
         "I don't know exactly what's in it. Some kind of pickled relish, sharp and tangy.",
-        "It goes with bread, meat, cheese, vegetables: I haven't found anything it ruins."
+        "It goes with bread, meat, cheese, vegetables. I haven't found anything it ruins."
       ],
       "reactions": [
         "The best condiments are the ones that work on everything."
@@ -15810,7 +15810,7 @@
         "Time is the ingredient you can't buy more of. Aged cheese proves that."
       ],
       "statCheck": {
-        "pass": "As cheese ages, the proteins break down into amino acids. That's what gives the sharp, savory depth: it's literally more complex than younger cheese.",
+        "pass": "As cheese ages, the proteins break down into amino acids. That's what gives the sharp, savory depth. It's literally more complex than younger cheese.",
         "fail": "Old cheese tastes stronger. I don't know the details."
       },
       "valence": "positive",
@@ -15823,7 +15823,7 @@
       "id": 865,
       "intro": "I heated up last night's dinner and it was worse the second time. Not everything keeps.",
       "details": [
-        "The texture had changed: soft things got softer, crispy things got limp.",
+        "The texture had changed. Soft things got softer, crispy things got limp.",
         "I ate it out of obligation. It was a shadow of what it had been."
       ],
       "reactions": [
@@ -15884,7 +15884,7 @@
         "A good egg is one of those quiet markers of quality. You know it when you see it."
       ],
       "statCheck": {
-        "pass": "The color comes from what the hen eats: greens, insects, variety. A pale yolk means a grain-only diet with no range.",
+        "pass": "The color comes from what the hen eats. Greens, insects, variety. A pale yolk means a grain-only diet with no range.",
         "fail": "Some eggs are just better. Couldn't say why."
       },
       "valence": "positive",
@@ -15988,7 +15988,7 @@
       "id": 874,
       "intro": "{npc_name} invited me for a meal and the conversation was better than the food.",
       "details": [
-        "The food was fine: nothing remarkable. But we talked for hours and I forgot to notice.",
+        "The food was fine. Nothing remarkable. But we talked for hours and I forgot to notice.",
         "It's the company that turns a meal into an evening."
       ],
       "reactions": [
@@ -16025,7 +16025,7 @@
       "intro": "I bought {food_type} from a trader passing through and it tasted different from what I'm used to.",
       "details": [
         "Not worse, just unfamiliar. A different hand made it, and you could tell.",
-        "It made me appreciate my own cooking more: not because it's better, but because it's mine."
+        "It made me appreciate my own cooking more. Not because it's better, but because it's mine."
       ],
       "reactions": [
         "Tasting someone else's version reminds you that there's never just one way."
@@ -16041,14 +16041,14 @@
       "id": 877,
       "intro": "I charred bread over an open flame and ate it with cheese. Simple and perfect.",
       "details": [
-        "The crunch of the char against the softness of melted cheese: that contrast is everything.",
+        "The crunch of the char against the softness of melted cheese. That contrast is everything.",
         "Made it in under five minutes and it was the best thing I ate all day."
       ],
       "reactions": [
         "The quickest meals are sometimes the most honest."
       ],
       "statCheck": {
-        "pass": "The char adds a bitterness that balances the fat in the cheese. That's why it works: opposites in the same bite.",
+        "pass": "The char adds a bitterness that balances the fat in the cheese. That's why it works. Opposites in the same bite.",
         "fail": "Fire and cheese. Hard to go wrong with that combination."
       },
       "valence": "positive",
@@ -16062,7 +16062,7 @@
       "intro": "I miscounted portions and there wasn't enough for everyone at the table.",
       "details": [
         "I took less for myself and hoped nobody noticed. A couple of them did.",
-        "It wasn't a disaster: just an awkward silence and slightly smaller plates."
+        "It wasn't a disaster. Just an awkward silence and slightly smaller plates."
       ],
       "reactions": [
         "Running short when you're feeding others is a specific kind of embarrassment."
@@ -16085,7 +16085,7 @@
         "Thrift and good cooking are closer friends than most people realize."
       ],
       "statCheck": {
-        "pass": "Animal fat carries the flavors of what was cooked in it: using it again is like seasoning with the memory of the last meal.",
+        "pass": "Animal fat carries the flavors of what was cooked in it. Using it again is like seasoning with the memory of the last meal.",
         "fail": "It just makes things taste better. I don't overthink it."
       },
       "valence": "positive",
@@ -16116,7 +16116,7 @@
       "intro": "I caramelized onions for the first time and I can't believe how long it actually takes.",
       "details": [
         "I kept expecting them to be done and they kept needing more time. True caramelization is an hour of patience.",
-        "But the result: sweet, deep, dark gold. Worth every tedious minute."
+        "But the result. Sweet, deep, dark gold. Worth every tedious minute."
       ],
       "reactions": [
         "Real caramelized onions can't be rushed. The patience is the ingredient."
@@ -16152,7 +16152,7 @@
       "id": 883,
       "intro": "I've been eating the same lunch every day and I've stopped noticing what it tastes like.",
       "details": [
-        "My mouth goes through the motions: chew, swallow, repeat. No thought involved.",
+        "My mouth goes through the motions. Chew, swallow, repeat. No thought involved.",
         "I wonder if this is contentment or just giving up."
       ],
       "reactions": [
@@ -16173,7 +16173,7 @@
         "I've been settling for less without realizing it."
       ],
       "reactions": [
-        "Fresh ingredients don't just taste better: they remind you what food is supposed to be."
+        "Fresh ingredients don't just taste better. They remind you what food is supposed to be."
       ],
       "statCheck": null,
       "valence": "positive",
@@ -16213,7 +16213,7 @@
         "Seasonal food carries a weight that year-round food never does."
       ],
       "statCheck": {
-        "pass": "The first fruit of the season always tastes sweeter than it is: your memory of missing it amplifies the flavor.",
+        "pass": "The first fruit of the season always tastes sweeter than it is. Your memory of missing it amplifies the flavor.",
         "fail": "It was just a good berry. That's enough."
       },
       "valence": "positive",
@@ -16261,7 +16261,7 @@
       "intro": "I opened a jar of something I pickled last season and the smell nearly knocked me over.",
       "details": [
         "The brine was aggressive. Vinegar and garlic hit me before I got the lid halfway off.",
-        "Tasted it cautiously: sharp, sour, crunchy. Not for everyone, but perfect for me."
+        "Tasted it cautiously. Sharp, sour, crunchy. Not for everyone, but perfect for me."
       ],
       "reactions": [
         "Pickles are an acquired taste, and I've fully acquired it."
@@ -16303,7 +16303,7 @@
         "Cheap cuts with long cooking beat expensive cuts with short cooking. Always."
       ],
       "statCheck": {
-        "pass": "The long braise converts the tough connective tissue into gelatin. That's why the broth is so rich: the meat donated its structure to the liquid.",
+        "pass": "The long braise converts the tough connective tissue into gelatin. That's why the broth is so rich. The meat donated its structure to the liquid.",
         "fail": "I just left it on the fire for a long time. That's the whole method."
       },
       "valence": "positive",
@@ -16370,7 +16370,7 @@
       "id": 895,
       "intro": "I made a simple broth and sipped it through the evening like a drink. Warm and comforting.",
       "details": [
-        "No solids, no effort: just clear, hot, salty liquid. It was exactly what I needed.",
+        "No solids, no effort. Just clear, hot, salty liquid. It was exactly what I needed.",
         "I held the cup in both hands and felt the warmth spread from my fingers inward."
       ],
       "reactions": [
@@ -16426,7 +16426,7 @@
       "id": 898,
       "intro": "I made enough soup to last the week and the satisfaction of a full shelf is real.",
       "details": [
-        "Row after row of covered pots: tonight, tomorrow, the day after. All sorted.",
+        "Row after row of covered pots. Tonight, tomorrow, the day after. All sorted.",
         "It's the closest I get to feeling like I have my life in order."
       ],
       "reactions": [

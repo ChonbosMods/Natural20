@@ -6,7 +6,7 @@
       "id": 0,
       "intro": "I've been trying to fix this shelf for two days now. The wood keeps splitting on me.",
       "details": [
-        "I think the grain's wrong. You can't force a joint against the grain: it'll fight you every time.",
+        "I think the grain's wrong. You can't force a joint against the grain. It'll fight you every time.",
         "My father would've had this done in an hour. He had a feel for wood I never quite picked up."
       ],
       "reactions": [
@@ -41,14 +41,14 @@
         "A bad repair is worse than no repair. Now somebody has to redo the whole thing."
       ],
       "statCheck": {
-        "pass": "The mix needs to be about one part lime to three parts sand, and you can't rush the slaking. That wall was done with cold lime: it never set properly.",
+        "pass": "The mix needs to be about one part lime to three parts sand, and you can't rush the slaking. That wall was done with cold lime. It never set properly.",
         "fail": "I wouldn't know the right mix myself. I just know that one's wrong."
       },
       "valence": "negative"
     },
     {
       "id": 3,
-      "intro": "I spent the morning sharpening every blade in the house. Knives, shears, the hatchet: all of them.",
+      "intro": "I spent the morning sharpening every blade in the house. Knives, shears, the hatchet. All of them.",
       "details": [
         "You don't notice how dull things get until you sharpen one. Then the rest feel like butter knives.",
         "My whetstone is getting thin. I've had it for years and it's worn into a curve in the middle."
@@ -57,7 +57,7 @@
         "There's something satisfying about a sharp edge. Makes every job feel easier."
       ],
       "statCheck": {
-        "pass": "The trick is keeping the angle steady: about twenty degrees for a kitchen knife, steeper for an axe. Most people roll the edge by pressing too hard.",
+        "pass": "The trick is keeping the angle steady. About twenty degrees for a kitchen knife, steeper for an axe. Most people roll the edge by pressing too hard.",
         "fail": "I just do it by feel. Couldn't tell you if there's a proper method."
       },
       "valence": "positive"
@@ -66,7 +66,7 @@
       "id": 4,
       "intro": "I watched the smith working at his forge yesterday. Stood there a good half hour just watching.",
       "details": [
-        "He makes it look easy: three strikes and a hinge pin comes out perfect. I'd bend the thing sideways.",
+        "He makes it look easy. Three strikes and a hinge pin comes out perfect. I'd bend the thing sideways.",
         "The heat has to be right or the metal won't move. He can tell the temperature by the color, doesn't even think about it."
       ],
       "reactions": [
@@ -76,7 +76,7 @@
     },
     {
       "id": 5,
-      "intro": "My stool broke again: same leg, same spot. Third time I've glued it.",
+      "intro": "My stool broke again. Same leg, same spot. Third time I've glued it.",
       "details": [
         "The tenon joint is just worn out. Glue won't hold where the wood's already chewed up.",
         "I should make a new leg. I keep saying that and then I just glue it again."
@@ -97,7 +97,7 @@
         "It's a good feeling when something finally clicks. Even if it took longer than it should have."
       ],
       "statCheck": {
-        "pass": "Muscle memory only builds through repetition: there's no shortcut. A hundred bad ones before you get one good one.",
+        "pass": "Muscle memory only builds through repetition. There's no shortcut. A hundred bad ones before you get one good one.",
         "fail": "I don't know how to explain it. You just keep doing it until it works."
       },
       "valence": "neutral"
@@ -107,7 +107,7 @@
       "intro": "The potter's apprentice dropped a whole rack of bowls yesterday. Every single one of them.",
       "details": [
         "She was carrying them to the kiln and caught her foot on a stone. Weeks of work, gone.",
-        "The potter just looked at the pile and said: now you know why we don't rush."
+        "The potter just looked at the pile and said. Now you know why we don't rush."
       ],
       "reactions": [
         "I felt bad for her, but that's how you learn. The lessons that hurt are the ones that stick."

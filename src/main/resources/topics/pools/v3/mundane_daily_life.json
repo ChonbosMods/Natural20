@@ -311,7 +311,7 @@
       "intro": "Being a {self_role} means you learn to live with sore hands. Comes with the work.",
       "details": [
         "Some mornings I can barely close my fist until I've been moving for an hour.",
-        "You get used to it, or you stop noticing: same thing, really."
+        "You get used to it, or you stop noticing. Same thing, really."
       ],
       "reactions": [
         "Wouldn't trade it, though. Idle hands would drive me mad."
@@ -334,7 +334,7 @@
         "I sat down to rest halfway through and almost didn't get back up. The ground felt too comfortable."
       ],
       "reactions": [
-        "It'll pass. It always does: just takes longer than it used to."
+        "It'll pass. It always does. Just takes longer than it used to."
       ],
       "statCheck": null,
       "valence": "neutral",
@@ -351,10 +351,10 @@
         "I tried warm milk, counting breaths, walking until my legs gave out. Nothing works."
       ],
       "reactions": [
-        "I'll sleep eventually: you always do. It just makes the days feel longer in the meantime."
+        "I'll sleep eventually. You always do. It just makes the days feel longer in the meantime."
       ],
       "statCheck": {
-        "pass": "It's usually when my routine changes. New season, different light: the body takes a while to adjust.",
+        "pass": "It's usually when my routine changes. New season, different light. The body takes a while to adjust.",
         "fail": "Wish I knew the trick to it. If you figure it out, tell me."
       },
       "valence": "negative",
@@ -367,7 +367,7 @@
       "id": 20,
       "intro": "I've been putting off mending the back fence for three weeks now. Every morning I look at it and say tomorrow.",
       "details": [
-        "It's not even hard work: two posts and a cracked rail, an afternoon at most.",
+        "It's not even hard work. Two posts and a cracked rail, an afternoon at most.",
         "The longer I wait, the more I dread it, which makes me wait longer. It's a perfect little trap I've built for myself."
       ],
       "reactions": [
@@ -382,7 +382,7 @@
     },
     {
       "id": 21,
-      "intro": "I sat outside last night just watching the sky. No reason: just felt like it.",
+      "intro": "I sat outside last night just watching the sky. No reason. Just felt like it.",
       "details": [
         "There was no moon, so the stars were out in full. I don't know most of their names but I like looking anyway.",
         "It was cold enough that I could see my breath, but I stayed out longer than I meant to."
@@ -405,7 +405,7 @@
       "intro": "I finished patching the hole in my roof this morning. Took all week, but it's done.",
       "details": [
         "I kept finding more rot once I pulled the first board. One thing always leads to another with old buildings.",
-        "Tested it by dumping a bucket of water over the spot: dry underneath, best feeling I've had all month."
+        "Tested it by dumping a bucket of water over the spot. Dry underneath, best feeling I've had all month."
       ],
       "reactions": [
         "It's a small thing, but finishing it feels like setting down something heavy."
@@ -573,7 +573,7 @@
         "Routines aren't a rut. They're a choice you've already made."
       ],
       "statCheck": {
-        "pass": "Habits reduce the number of decisions you have to make. It's not mindless: it's efficient.",
+        "pass": "Habits reduce the number of decisions you have to make. It's not mindless. It's efficient.",
         "fail": "I don't have a reason for it. It's just what I do."
       },
       "valence": "neutral",
@@ -667,7 +667,7 @@
         "I don't get up early on purpose. But when it happens, I don't mind it."
       ],
       "statCheck": {
-        "pass": "The first singers are always the ones with the biggest eyes: they can see in lower light. The small-eyed ones wait until it's brighter.",
+        "pass": "The first singers are always the ones with the biggest eyes. They can see in lower light. The small-eyed ones wait until it's brighter.",
         "fail": "I don't know why some start before others. They've got their own schedule, I suppose."
       },
       "valence": "positive",
@@ -968,7 +968,7 @@
         "Ignorance isn't always bliss, but sometimes it's close enough."
       ],
       "statCheck": {
-        "pass": "If it's not growing, the leak probably dried up on its own. Seasonal condensation most likely: not structural.",
+        "pass": "If it's not growing, the leak probably dried up on its own. Seasonal condensation most likely. Not structural.",
         "fail": "I don't know what causes ceiling stains. I just know I don't want to deal with it."
       },
       "valence": "neutral",
@@ -1277,13 +1277,13 @@
       "intro": "The water from the well tasted different today. Not bad, just different.",
       "details": [
         "A bit earthier, maybe. Like the ground shifted something around down there.",
-        "It's probably fine: water changes with the seasons. I've been drawing from the same well for years and it never tastes exactly the same twice."
+        "It's probably fine. Water changes with the seasons. I've been drawing from the same well for years and it never tastes exactly the same twice."
       ],
       "reactions": [
         "I drank it anyway. If it kills me, at least I won't have to mend the fence."
       ],
       "statCheck": {
-        "pass": "Rain seeps through different soil layers depending on the season. Changes the mineral content slightly: that's what you're tasting.",
+        "pass": "Rain seeps through different soil layers depending on the season. Changes the mineral content slightly. That's what you're tasting.",
         "fail": "I'm no expert on wells. Water is water, mostly."
       },
       "valence": "neutral",
@@ -1476,7 +1476,7 @@
         "Makes me wonder what else I've stopped noticing just because it changed slowly."
       ],
       "statCheck": {
-        "pass": "Your eyes adjust to dimming light over time: the pupils open wider to compensate. You don't notice the glass darkening because your brain corrects for it.",
+        "pass": "Your eyes adjust to dimming light over time. The pupils open wider to compensate. You don't notice the glass darkening because your brain corrects for it.",
         "fail": "I just know it was dirtier than I thought. That's about as deep as my understanding goes."
       },
       "valence": "neutral",
@@ -1530,7 +1530,7 @@
         "Nobody needs to know what I eat at dawn. That's between me and the pot."
       ],
       "statCheck": {
-        "pass": "Slow-cooked flavors deepen overnight as the ingredients continue to absorb. Leftover stew is genuinely better: it's not just hunger talking.",
+        "pass": "Slow-cooked flavors deepen overnight as the ingredients continue to absorb. Leftover stew is genuinely better. It's not just hunger talking.",
         "fail": "I don't know why it tasted better. I was just glad it did."
       },
       "valence": "neutral",
@@ -1615,7 +1615,7 @@
         "They always seem like they know where they're going. Must be nice."
       ],
       "reactions": [
-        "I watched them until they disappeared. Don't know why: just felt like I should."
+        "I watched them until they disappeared. Don't know why. Just felt like I should."
       ],
       "statCheck": {
         "pass": "The ones at the front of the formation break the wind for the rest. They rotate positions so no single bird bears the strain too long.",
@@ -1649,7 +1649,7 @@
       "intro": "There's a loose floorboard near the door that groans every time you step on it.",
       "details": [
         "I've learned to step over it at night so I don't wake myself up. Guests always hit it though.",
-        "It sounds worse than it is. The board's fine: it just wants attention."
+        "It sounds worse than it is. The board's fine. It just wants attention."
       ],
       "reactions": [
         "Every house has a spot like that. It's character, not damage."
@@ -1700,7 +1700,7 @@
       "intro": "I cut my finger on a piece of parchment. It's absurd how much such a tiny cut stings.",
       "details": [
         "Can barely see the cut, but I feel it every time I pick something up. Every time.",
-        "It's right on the tip of my index finger: the worst possible location for something so small."
+        "It's right on the tip of my index finger. The worst possible location for something so small."
       ],
       "reactions": [
         "It'll heal by tomorrow and I'll forget it existed. But right now it's my whole personality."
@@ -1723,7 +1723,7 @@
         "I've made peace with the draft. It lives here too, apparently."
       ],
       "statCheck": {
-        "pass": "Drafts follow pressure differences. Sealing from outside works better than inside: the wind pushes sealant into the gap instead of pulling it out.",
+        "pass": "Drafts follow pressure differences. Sealing from outside works better than inside. The wind pushes sealant into the gap instead of pulling it out.",
         "fail": "I've tried everything I can think of. The wind's just smarter than me."
       },
       "valence": "neutral",
@@ -1740,7 +1740,7 @@
         "Lasted maybe fifteen minutes before it faded. But those fifteen minutes were something."
       ],
       "reactions": [
-        "Days are ordinary. It's the edges: dawn and dusk: where the beauty hides."
+        "Days are ordinary. It's the edges. Dawn and dusk. Where the beauty hides."
       ],
       "statCheck": null,
       "valence": "positive",
@@ -1777,7 +1777,7 @@
         "I went back to my chores feeling like I wasn't working hard enough."
       ],
       "statCheck": {
-        "pass": "They leave scent trails for the others to follow. The whole colony operates on chemical signals: no leader, just chemistry.",
+        "pass": "They leave scent trails for the others to follow. The whole colony operates on chemical signals. No leader, just chemistry.",
         "fail": "I don't understand how they organize. They just seem to know."
       },
       "valence": "neutral",
@@ -1876,7 +1876,7 @@
     },
     {
       "id": 105,
-      "intro": "Somebody left flowers on the path today. Not for me: just there, for anyone.",
+      "intro": "Somebody left flowers on the path today. Not for me. Just there, for anyone.",
       "details": [
         "A little bundle tied with string, sitting on a fencepost. Wild ones, not garden flowers.",
         "I don't know who put them there. But it made the walk nicer."
@@ -1970,7 +1970,7 @@
         "Fog makes the world smaller. Sometimes that's not so bad."
       ],
       "statCheck": {
-        "pass": "Fog bends sound downward. That's why footsteps seem closer: the sound curves toward the damp ground instead of scattering upward.",
+        "pass": "Fog bends sound downward. That's why footsteps seem closer. The sound curves toward the damp ground instead of scattering upward.",
         "fail": "I just know things sound different in fog. Couldn't tell you why."
       },
       "valence": "neutral",
@@ -2055,7 +2055,7 @@
     },
     {
       "id": 115,
-      "intro": "I haven't left the house in two days. Not for any reason: just haven't needed to.",
+      "intro": "I haven't left the house in two days. Not for any reason. Just haven't needed to.",
       "details": [
         "There's enough food, enough water, enough firewood. No errands pressing enough to put boots on.",
         "By the end of the second day the walls start feeling closer. Not in a bad way. Just noticeable."
@@ -2074,7 +2074,7 @@
       "id": 116,
       "intro": "I split firewood this morning and got into a rhythm. Lost myself in it for an hour.",
       "details": [
-        "There's something about the repetition: lift, swing, split, stack. Your mind empties out.",
+        "There's something about the repetition. Lift, swing, split, stack. Your mind empties out.",
         "Didn't think about a single thing the whole time. Just the wood and the axe."
       ],
       "reactions": [
@@ -2203,7 +2203,7 @@
         "It tastes exactly the same either way, obviously. But my hand has opinions."
       ],
       "reactions": [
-        "The things you do without thinking: those are the truest habits."
+        "The things you do without thinking. Those are the truest habits."
       ],
       "statCheck": null,
       "valence": "neutral",
@@ -2336,7 +2336,7 @@
     },
     {
       "id": 131,
-      "intro": "I haven't talked to anyone in two days. Not avoiding people: just didn't happen.",
+      "intro": "I haven't talked to anyone in two days. Not avoiding people. Just didn't happen.",
       "details": [
         "It's strange when you notice it. The sound of your own voice startles you when you finally use it.",
         "I said good morning to myself this morning just to check it still worked."
@@ -2387,7 +2387,7 @@
     },
     {
       "id": 134,
-      "intro": "I watched the clouds move for a while today. No shapes this time: just big, slow, gray ones.",
+      "intro": "I watched the clouds move for a while today. No shapes this time. Just big, slow, gray ones.",
       "details": [
         "When I was younger I could find animals and faces in any cloud. Now I just see weather.",
         "I tried to find a shape. Stared for ten minutes. Nothing. Just clouds being clouds."
@@ -2443,7 +2443,7 @@
       "id": 137,
       "intro": "I pulled a weed and the whole root system came out in one piece. Incredibly satisfying.",
       "details": [
-        "It was long: twisted and pale and covered in dirt. Like pulling a secret out of the ground.",
+        "It was long. Twisted and pale and covered in dirt. Like pulling a secret out of the ground.",
         "Most of the time they snap off and you know they'll be back. But this one came out whole."
       ],
       "reactions": [
@@ -2460,7 +2460,7 @@
       "id": 138,
       "intro": "I woke up with a crease on my face from the pillow. Deep enough to last until midday.",
       "details": [
-        "People kept looking at me funny. I thought I had something on my face: turns out my face had something on it.",
+        "People kept looking at me funny. I thought I had something on my face. Turns out my face had something on it.",
         "There's something humbling about your own pillow leaving a mark on you."
       ],
       "reactions": [
@@ -2478,13 +2478,13 @@
       "intro": "The ground is frozen solid today. My heels feel every step.",
       "details": [
         "There's no give in the earth at all. It's like walking on stone.",
-        "Everything crunches underfoot: frost on the grass, thin ice on the puddles. The world sounds brittle."
+        "Everything crunches underfoot. Frost on the grass, thin ice on the puddles. The world sounds brittle."
       ],
       "reactions": [
         "Winter's not playing around. It arrived and it means business."
       ],
       "statCheck": {
-        "pass": "Water in the soil expands when it freezes. That's why the ground lifts and cracks: the frost is literally pushing the earth apart from the inside.",
+        "pass": "Water in the soil expands when it freezes. That's why the ground lifts and cracks. The frost is literally pushing the earth apart from the inside.",
         "fail": "I don't know why frozen ground is so hard. It just is."
       },
       "valence": "neutral",
@@ -2572,7 +2572,7 @@
         "It'll fade by tomorrow. Everything fades by tomorrow."
       ],
       "statCheck": {
-        "pass": "Rubbing your hands on something metal breaks down the sulfur compounds. A spoon or a knife handle works: just rub it like soap under cold water.",
+        "pass": "Rubbing your hands on something metal breaks down the sulfur compounds. A spoon or a knife handle works. Just rub it like soap under cold water.",
         "fail": "I've never found a trick that works. I just wait it out."
       },
       "valence": "neutral",
@@ -2592,7 +2592,7 @@
         "I don't know why I found it so fascinating. But I did."
       ],
       "statCheck": {
-        "pass": "The blades curl because the ice forms on one side first: the exposed side. When it melts, the tension releases and the blade springs straight.",
+        "pass": "The blades curl because the ice forms on one side first. The exposed side. When it melts, the tension releases and the blade springs straight.",
         "fail": "I couldn't tell you why grass curls like that in the frost. Nature does its thing."
       },
       "valence": "neutral",
@@ -2657,7 +2657,7 @@
     },
     {
       "id": 149,
-      "intro": "I heard an owl last night. Close by, too: right outside the window.",
+      "intro": "I heard an owl last night. Close by, too. Right outside the window.",
       "details": [
         "That low call that carries through the dark. It went on for a while, then just stopped.",
         "I lay there waiting for it to start again, but it was done. Off hunting, probably."
@@ -2679,14 +2679,14 @@
       "id": 150,
       "intro": "My blanket's getting thin. I can see light through it if I hold it up.",
       "details": [
-        "It's the same blanket I've had for years. Soft now, almost too soft: like it's given everything it had.",
+        "It's the same blanket I've had for years. Soft now, almost too soft. Like it's given everything it had.",
         "I need a new one, but this one knows the shape of me. Hard to replace that."
       ],
       "reactions": [
         "I'll use it until it falls apart. Comfort's worth more than appearances."
       ],
       "statCheck": {
-        "pass": "Wool thins because the fibers break from friction over time. A thin blanket actually breathes better: layer two thin ones and you'll sleep warmer than with one thick one.",
+        "pass": "Wool thins because the fibers break from friction over time. A thin blanket actually breathes better. Layer two thin ones and you'll sleep warmer than with one thick one.",
         "fail": "I don't know much about cloth. I just know this one's wearing out."
       },
       "valence": "neutral",
@@ -2767,14 +2767,14 @@
       "id": 155,
       "intro": "The smell of wet earth after the rain this morning was so strong I just stood outside breathing it in.",
       "details": [
-        "It's that deep, rich smell: half soil, half something alive underneath. You can taste it almost.",
+        "It's that deep, rich smell. Half soil, half something alive underneath. You can taste it almost.",
         "Everything was dripping and green and the air felt clean in a way it usually doesn't."
       ],
       "reactions": [
         "Some mornings remind you that the world is doing just fine without your help."
       ],
       "statCheck": {
-        "pass": "That smell has a name: petrichor. It's oils from plants mixing with compounds in the soil, released by rain. The drier the ground was before, the stronger it is.",
+        "pass": "That smell has a name. Petrichor. It's oils from plants mixing with compounds in the soil, released by rain. The drier the ground was before, the stronger it is.",
         "fail": "I don't know what causes the smell. Just know I like it."
       },
       "valence": "positive",
@@ -2865,7 +2865,7 @@
         "A stubborn fire in the morning sets a stubborn tone for the whole day."
       ],
       "statCheck": {
-        "pass": "Feather the damp sticks with a knife: thin curls dry in seconds from the heat of even a small flame. That's how you bridge from tinder to kindling in wet conditions.",
+        "pass": "Feather the damp sticks with a knife. Thin curls dry in seconds from the heat of even a small flame. That's how you bridge from tinder to kindling in wet conditions.",
         "fail": "I just kept trying until something worked. There's no art to it for me."
       },
       "valence": "negative",
@@ -2878,7 +2878,7 @@
       "id": 161,
       "intro": "I noticed how different the air smells at night. Cooler, earthier, like the ground is breathing.",
       "details": [
-        "During the day everything smells like work: dust, smoke, cooking. At night it's just the land.",
+        "During the day everything smells like work. Dust, smoke, cooking. At night it's just the land.",
         "I stepped outside before bed just to fill my lungs with it."
       ],
       "reactions": [
@@ -2899,7 +2899,7 @@
         "If I miss it, the sun's moved on and the spot's just another cold bit of wall."
       ],
       "reactions": [
-        "Forty minutes of sun on your face: that's worth defending."
+        "Forty minutes of sun on your face. That's worth defending."
       ],
       "statCheck": null,
       "valence": "positive",
@@ -2930,7 +2930,7 @@
       "intro": "I accidentally left the lid off the flour and now everything in the cupboard has a light dusting of white.",
       "details": [
         "I don't know how flour spreads like that. It was contained. It shouldn't have migrated.",
-        "Every jar, every plate, every surface in there: powdered. Like a tiny snowfall happened inside my cupboard."
+        "Every jar, every plate, every surface in there. Powdered. Like a tiny snowfall happened inside my cupboard."
       ],
       "reactions": [
         "Flour has ambition. I'll give it that."
@@ -3032,7 +3032,7 @@
       "intro": "I sat outside and just listened to the wind move through the trees for a while.",
       "details": [
         "It's a rushing sound, then a pause, then another rush. Like the forest breathing.",
-        "You can hear it change direction. Comes from one side, then the other: never steady."
+        "You can hear it change direction. Comes from one side, then the other. Never steady."
       ],
       "reactions": [
         "Wind in the trees is one of those sounds that makes everything else fade out."
@@ -3083,7 +3083,7 @@
     },
     {
       "id": 173,
-      "intro": "The leather on my belt cracked today. Right through the middle hole: the one I use.",
+      "intro": "The leather on my belt cracked today. Right through the middle hole. The one I use.",
       "details": [
         "I've had this belt longer than some friendships. It's been punched with extra holes twice.",
         "The other holes are fine. Just the one that gets used every day gave out."
@@ -3123,7 +3123,7 @@
         "It's been two hours and I can still taste it in the air."
       ],
       "reactions": [
-        "My house and I smell the same right now: regretful."
+        "My house and I smell the same right now. Regretful."
       ],
       "statCheck": null,
       "valence": "negative",
@@ -3194,7 +3194,7 @@
         "We live inside these little patterns and never notice them until we're bored enough to look."
       ],
       "statCheck": {
-        "pass": "People used to tell time by exactly this: marks on the floor or a stick in the ground. The shadow moves at about a hand's width per hour near midday.",
+        "pass": "People used to tell time by exactly this. Marks on the floor or a stick in the ground. The shadow moves at about a hand's width per hour near midday.",
         "fail": "I can see it moving, but I've no sense of how fast or why."
       },
       "valence": "neutral",
@@ -3224,7 +3224,7 @@
       "id": 181,
       "intro": "There's a creaky step on the stairs that I always skip. Second from the top.",
       "details": [
-        "I've been stepping over it so long that I do it automatically now: even in the dark.",
+        "I've been stepping over it so long that I do it automatically now. Even in the dark.",
         "A visitor hit it last week and I flinched. Like hearing someone mispronounce a word you've known your whole life."
       ],
       "reactions": [
@@ -3339,7 +3339,7 @@
         "They only come for a few weeks. Makes them feel more special, I think."
       ],
       "statCheck": {
-        "pass": "Each species has its own flash pattern: the rhythm and color are like a signature. The females watch from the grass and only respond to the right code.",
+        "pass": "Each species has its own flash pattern. The rhythm and color are like a signature. The females watch from the grass and only respond to the right code.",
         "fail": "I don't know why they flash like that. Just that it's lovely to watch."
       },
       "valence": "positive",
@@ -3352,7 +3352,7 @@
       "id": 188,
       "intro": "The table wobbles when I write. It never bothered me before, but now I can't unnotice it.",
       "details": [
-        "I put my hand flat on it and it rocks: just barely, but enough. Every letter I write has a tremor in it.",
+        "I put my hand flat on it and it rocks. Just barely, but enough. Every letter I write has a tremor in it.",
         "I wedged a bit of wood under the leg. Now it wobbles the other direction."
       ],
       "reactions": [
@@ -3420,14 +3420,14 @@
       "id": 192,
       "intro": "I spent too long staring at the fire tonight. Now everywhere I look there's a green spot.",
       "details": [
-        "It floats in the center of my vision. Follows me everywhere: door, window, ceiling.",
+        "It floats in the center of my vision. Follows me everywhere. Door, window, ceiling.",
         "I know it'll fade, but right now the world has a permanent green decoration I didn't ask for."
       ],
       "reactions": [
         "Fire is mesmerizing right up until it blinds you a little. Then it's just regret."
       ],
       "statCheck": {
-        "pass": "Bright light bleaches the photoreceptors temporarily. The afterimage is the opposite color of what you stared at: fire is orange, so you see blue-green.",
+        "pass": "Bright light bleaches the photoreceptors temporarily. The afterimage is the opposite color of what you stared at. Fire is orange, so you see blue-green.",
         "fail": "I don't know why it does that. Just know I should look away sooner."
       },
       "valence": "neutral",
@@ -3813,7 +3813,7 @@
     },
     {
       "id": 214,
-      "intro": "The wind changed direction overnight. You can feel it: the air's coming from somewhere different.",
+      "intro": "The wind changed direction overnight. You can feel it. The air's coming from somewhere different.",
       "details": [
         "Yesterday it was warm and steady from the south. Now it's got that sharp edge that means the weather's turning.",
         "The trees are all leaning the wrong way compared to yesterday. It's disorienting."
@@ -3924,7 +3924,7 @@
       "intro": "I tried cutting my own hair this morning. Mistake.",
       "details": [
         "The back is uneven and there's a patch near my ear that's shorter than I intended. Significantly shorter.",
-        "I figured: how hard can it be? The answer is: harder than it looks."
+        "I figured. How hard can it be? The answer is. Harder than it looks."
       ],
       "reactions": [
         "It'll grow back. In the meantime, I'm wearing a hat."
@@ -3975,7 +3975,7 @@
       "intro": "I sneezed four times in a row this morning. Right in the middle of breakfast.",
       "details": [
         "Each one louder than the last. By the fourth, I'd knocked my spoon off the table.",
-        "I'm not getting sick: at least I don't think so. Just dust, probably."
+        "I'm not getting sick. At least I don't think so. Just dust, probably."
       ],
       "reactions": [
         "At least nobody was watching. Dignified, it was not."
@@ -4063,7 +4063,7 @@
     },
     {
       "id": 228,
-      "intro": "I've been drinking more water lately. Not because anyone told me to: just thirsty.",
+      "intro": "I've been drinking more water lately. Not because anyone told me to. Just thirsty.",
       "details": [
         "Maybe it's the warmer days, or maybe I've been working harder without realizing it.",
         "I refilled my cup four times before midday. That's unusual for me."
@@ -4225,7 +4225,7 @@
       "intro": "My neck is sunburned. Just the back, where I forgot to cover up.",
       "details": [
         "It's that angry red that you know is going to peel in a couple of days.",
-        "Everything brushes against it: my collar, my hair, the wind. Each one a small reminder."
+        "Everything brushes against it. My collar, my hair, the wind. Each one a small reminder."
       ],
       "reactions": [
         "I know better. And yet, every year."
@@ -4281,7 +4281,7 @@
       "id": 240,
       "intro": "I sliced onions this morning and my eyes are still burning two hours later.",
       "details": [
-        "I tried every trick: cold water, breathing through my mouth, cutting near the window. None of it helped.",
+        "I tried every trick. Cold water, breathing through my mouth, cutting near the window. None of it helped.",
         "By the end I couldn't see what I was cutting. Just aiming and hoping."
       ],
       "reactions": [
@@ -4426,7 +4426,7 @@
       "id": 248,
       "intro": "I've been {self_role} long enough that I can tell a good day from a bad one before breakfast.",
       "details": [
-        "It's in the little things: how the light hits, how the air feels, whether the morning goes smooth or fights you.",
+        "It's in the little things. How the light hits, how the air feels, whether the morning goes smooth or fights you.",
         "When everything lines up easy, you know to lean into it. Those days don't come every time."
       ],
       "reactions": [
@@ -4569,7 +4569,7 @@
       "intro": "I noticed a hole in my pocket today because I lost a coin through it.",
       "details": [
         "I heard the clink on the ground and reached into my pocket to find the hole. The coin was already gone.",
-        "I found it eventually: it had rolled under a crate. But who knows how many I've lost before noticing."
+        "I found it eventually. It had rolled under a crate. But who knows how many I've lost before noticing."
       ],
       "reactions": [
         "Time to mend pockets. Another thing I never thought I'd say about my week."
@@ -4619,7 +4619,7 @@
       "id": 259,
       "intro": "I went to bed at a reasonable hour, woke up on time, and feel completely rested. It's suspicious.",
       "details": [
-        "Usually something goes wrong: too hot, too cold, bad dream, strange noise. Last night was just smooth.",
+        "Usually something goes wrong. Too hot, too cold, bad dream, strange noise. Last night was just smooth.",
         "I keep waiting for the catch. Good mornings like this don't just happen to me."
       ],
       "reactions": [
@@ -4634,7 +4634,7 @@
     },
     {
       "id": 260,
-      "intro": "My throat's been scratchy all day. Not sore: just that dry, tickly feeling at the back.",
+      "intro": "My throat's been scratchy all day. Not sore. Just that dry, tickly feeling at the back.",
       "details": [
         "I've been drinking tea nonstop trying to soothe it. All it does is make me need to relieve myself constantly.",
         "It's probably nothing. Dry air, dust. The usual suspects."
@@ -4731,7 +4731,7 @@
         "I finally got it out by guiding it with a cloth toward the door. Felt like herding a very angry cloud."
       ],
       "reactions": [
-        "We both wanted the same thing: for it to be outside. It just took us a while to agree on how."
+        "We both wanted the same thing. For it to be outside. It just took us a while to agree on how."
       ],
       "statCheck": null,
       "valence": "neutral",
@@ -4759,7 +4759,7 @@
     },
     {
       "id": 267,
-      "intro": "I've had {food_type} three days running. Not because I love it: because I made too much.",
+      "intro": "I've had {food_type} three days running. Not because I love it. Because I made too much.",
       "details": [
         "The first day it was good. The second day it was fine. Today it's penance.",
         "I refuse to throw food away, so I'll keep eating it until it's gone or I am."
@@ -4795,7 +4795,7 @@
       "id": 269,
       "intro": "I bit into something hard in my food today and now my tooth is aching.",
       "details": [
-        "Don't know what it was: a stone, a seed, a bit of shell. Whatever it was, my molar felt it.",
+        "Don't know what it was. A stone, a seed, a bit of shell. Whatever it was, my molar felt it.",
         "It's that deep, dull ache that comes and goes. Fine one moment, throbbing the next."
       ],
       "reactions": [
@@ -4827,7 +4827,7 @@
     },
     {
       "id": 271,
-      "intro": "I felt the first real chill of autumn today. Not in the air, but in the ground: you can feel it through your boots.",
+      "intro": "I felt the first real chill of autumn today. Not in the air, but in the ground. You can feel it through your boots.",
       "details": [
         "The grass is still green, the leaves haven't turned yet. But the earth knows what's coming.",
         "I noticed I was walking faster without meaning to. The body knows too."
@@ -4847,7 +4847,7 @@
     },
     {
       "id": 272,
-      "intro": "I had a coughing fit this morning that just wouldn't stop. Nothing wrong with me: just swallowed air the wrong way.",
+      "intro": "I had a coughing fit this morning that just wouldn't stop. Nothing wrong with me. Just swallowed air the wrong way.",
       "details": [
         "It went on so long my eyes were watering and my ribs ached from the effort.",
         "Two people stopped to ask if I was all right. I couldn't answer because I was still coughing."
@@ -4921,7 +4921,7 @@
       "intro": "I'm running low on candles and the evenings are getting darker. Bad combination.",
       "details": [
         "I've been going to bed earlier just to save them. It's either that or sit in the dark.",
-        "I rationed the last few: one per evening, no more. Makes you appreciate what light you've got."
+        "I rationed the last few. One per evening, no more. Makes you appreciate what light you've got."
       ],
       "reactions": [
         "I'll get more soon. But for now, early nights it is."
@@ -4941,7 +4941,7 @@
       "intro": "I got a splinter under my thumbnail and I can't get it out. It's deep.",
       "details": [
         "I've been picking at it with a needle for half an hour. It's in there sideways.",
-        "Everything I touch sends a little jolt through the thumb. Turning a latch, buttoning a shirt: agony."
+        "Everything I touch sends a little jolt through the thumb. Turning a latch, buttoning a shirt. Agony."
       ],
       "reactions": [
         "It'll work its way out eventually. In the meantime, I'm suffering."
@@ -5008,7 +5008,7 @@
       "id": 281,
       "intro": "I trimmed the wick on the lantern too short and spent the evening in half-darkness.",
       "details": [
-        "The flame was barely there: a tiny, flickering thing that threw more shadow than light.",
+        "The flame was barely there. A tiny, flickering thing that threw more shadow than light.",
         "I couldn't read, couldn't mend, couldn't do anything that required seeing clearly."
       ],
       "reactions": [
@@ -5025,7 +5025,7 @@
       "id": 282,
       "intro": "I caught a whiff of something rotting in the pantry and spent the afternoon hunting for it.",
       "details": [
-        "Moved every jar, every sack, checked every corner. Found it at the very back: an onion that had given up on life.",
+        "Moved every jar, every sack, checked every corner. Found it at the very back. An onion that had given up on life.",
         "The smell had gotten into the wood. I scrubbed the shelf down twice and it still lingers."
       ],
       "reactions": [
@@ -5043,7 +5043,7 @@
       "intro": "I have a callus on my palm that's harder than leather. Been building up for months.",
       "details": [
         "It's in exactly the spot where the tool handle sits. A perfect imprint of my grip.",
-        "It doesn't hurt: if anything, it helps. Like my hand made its own glove."
+        "It doesn't hurt. If anything, it helps. Like my hand made its own glove."
       ],
       "reactions": [
         "It's not attractive, but it's useful. I'll take useful."
@@ -5143,7 +5143,7 @@
         "The food was good, so I consider it a fair trade."
       ],
       "statCheck": {
-        "pass": "Rubbing your hands on steel takes the smell out. A knife blade, a pot handle: anything metal. Don't ask me why it works.",
+        "pass": "Rubbing your hands on steel takes the smell out. A knife blade, a pot handle. Anything metal. Don't ask me why it works.",
         "fail": "I've tried everything. The garlic wins every time."
       },
       "valence": "neutral",
@@ -5339,10 +5339,10 @@
         "It's a strange feeling, finding pieces of someone else in the things your hands do without thinking."
       ],
       "reactions": [
-        "I suppose that's how most things get passed down. Not taught: just repeated until they stick."
+        "I suppose that's how most things get passed down. Not taught. Just repeated until they stick."
       ],
       "statCheck": {
-        "pass": "There's more of my parents in my daily habits than I'd probably admit. The way I fold a cloth, how I stack firewood: all borrowed.",
+        "pass": "There's more of my parents in my daily habits than I'd probably admit. The way I fold a cloth, how I stack firewood. All borrowed.",
         "fail": "I don't think about it much. It's just how I do things."
       },
       "valence": "neutral",
@@ -5356,7 +5356,7 @@
       "intro": "My pillow smells like the lavender I dried last summer. Must have gotten into the fabric.",
       "details": [
         "I hung the bundles in the same room and the scent must have settled into everything.",
-        "It's faint: you only catch it when you first lie down. Then it fades, or you stop noticing."
+        "It's faint. You only catch it when you first lie down. Then it fades, or you stop noticing."
       ],
       "reactions": [
         "It's a nice accident. I'll take it over what my pillow usually smells like."
@@ -5427,13 +5427,13 @@
       "intro": "There's a patch of wall in my house where the plaster's coming away. Bit by bit, every week.",
       "details": [
         "I keep finding little flakes of it on the floor underneath. One day the whole section will come down.",
-        "I press on it sometimes to test how solid it still is. The answer is: not very."
+        "I press on it sometimes to test how solid it still is. The answer is. Not very."
       ],
       "reactions": [
         "Replastering a wall is one of those jobs that sounds simple and absolutely isn't."
       ],
       "statCheck": {
-        "pass": "Moisture behind the plaster is usually the cause. The wall itself might be fine: it's the seal between the layers that's failed.",
+        "pass": "Moisture behind the plaster is usually the cause. The wall itself might be fine. It's the seal between the layers that's failed.",
         "fail": "I don't know why plaster falls off. It just decides it's done."
       },
       "valence": "neutral",
@@ -5554,7 +5554,7 @@
       "id": 311,
       "intro": "The air is so dry my lips are cracking. No matter how much water I drink.",
       "details": [
-        "I've been licking them, which I know makes it worse. Can't help it: they feel like sandpaper.",
+        "I've been licking them, which I know makes it worse. Can't help it. They feel like sandpaper.",
         "Even my knuckles are splitting. Everything feels tight and parched."
       ],
       "reactions": [
@@ -5611,7 +5611,7 @@
       "id": 314,
       "intro": "I accidentally knocked over a candle and spent five frantic seconds stamping out the tablecloth.",
       "details": [
-        "The burn mark is small: about the size of a coin. Could have been much worse.",
+        "The burn mark is small. About the size of a coin. Could have been much worse.",
         "My heart's still going. That little rush of panic takes a while to fade."
       ],
       "reactions": [
@@ -5660,7 +5660,7 @@
     },
     {
       "id": 317,
-      "intro": "I swept the path outside my door this morning. Not because it needed it: just because.",
+      "intro": "I swept the path outside my door this morning. Not because it needed it. Just because.",
       "details": [
         "The rhythm of sweeping is mindless in the best way. Your arms move and your head empties.",
         "I went further than I meant to. Ended up clearing the whole stretch."
@@ -5679,7 +5679,7 @@
       "id": 318,
       "intro": "There's a draft under the door that I've been ignoring for weeks. Tonight the cold got through.",
       "details": [
-        "I could feel it on my ankles while I sat by the fire. Cold from below, warm from in front: very confusing.",
+        "I could feel it on my ankles while I sat by the fire. Cold from below, warm from in front. Very confusing.",
         "I stuffed a rolled-up cloth along the gap. Crude, but it stopped the worst of it."
       ],
       "reactions": [
@@ -5751,7 +5751,7 @@
       "intro": "My tea has been going cold before I finish it every morning. I keep getting distracted.",
       "details": [
         "I make it, set it down, think of one thing I need to do first, and by the time I come back it's lukewarm.",
-        "I've tried making it hotter. Doesn't help: I just find bigger distractions."
+        "I've tried making it hotter. Doesn't help. I just find bigger distractions."
       ],
       "reactions": [
         "I should just drink the tea first and do everything else second. Revolutionary idea."
@@ -5785,7 +5785,7 @@
     },
     {
       "id": 324,
-      "intro": "I had a conversation today that I've been replaying in my head all evening. Nothing important: just a nice talk.",
+      "intro": "I had a conversation today that I've been replaying in my head all evening. Nothing important. Just a nice talk.",
       "details": [
         "We weren't solving anything. Just standing around talking about nothing in particular.",
         "It's the easy conversations that stay with you. The ones that don't need a point."
@@ -5927,7 +5927,7 @@
       "intro": "I made the fire just right tonight. Not too big, not too small. The room is exactly the temperature I want.",
       "details": [
         "Usually I overshoot and end up sweating, or undershoot and add more wood and overshoot anyway.",
-        "Tonight: balance. I'm not touching it. It's perfect and I refuse to ruin it."
+        "Tonight. Balance. I'm not touching it. It's perfect and I refuse to ruin it."
       ],
       "reactions": [
         "Getting a fire right feels like a genuine accomplishment when you've been getting it wrong all week."
@@ -6200,7 +6200,7 @@
         "A tidy woodpile says something about a person. I'm not sure what, but it says something."
       ],
       "statCheck": {
-        "pass": "Bark out actually does help: it sheds rain better and keeps the cut faces dry. So there is a reason.",
+        "pass": "Bark out actually does help. It sheds rain better and keeps the cut faces dry. So there is a reason.",
         "fail": "I just like the way it looks. No science to it."
       },
       "valence": "neutral",
@@ -6234,7 +6234,7 @@
         "The actual work takes less time than the preparation and the waiting combined."
       ],
       "reactions": [
-        "I've made peace with it. Patience isn't a talent: it's something you practice whether you like it or not."
+        "I've made peace with it. Patience isn't a talent. It's something you practice whether you like it or not."
       ],
       "statCheck": null,
       "valence": "neutral",
@@ -6315,7 +6315,7 @@
       "id": 354,
       "intro": "My knee pops every time I stand up now. Started a few weeks ago and shows no signs of stopping.",
       "details": [
-        "It doesn't hurt, exactly: it's more of an announcement that my knee is letting the room know I'm getting up.",
+        "It doesn't hurt, exactly. It's more of an announcement that my knee is letting the room know I'm getting up.",
         "People have started looking over when they hear it. That's how loud it's gotten."
       ],
       "reactions": [
@@ -6478,7 +6478,7 @@
         "I keep trying to figure out what I did differently so I can repeat it. Nothing comes to mind."
       ],
       "reactions": [
-        "A gift sleep: you don't earn them and you can't summon them, you just appreciate them."
+        "A gift sleep. You don't earn them and you can't summon them, you just appreciate them."
       ],
       "statCheck": null,
       "valence": "positive",
@@ -6543,7 +6543,7 @@
       "intro": "I overcooked the eggs again. Hard as stones.",
       "details": [
         "I stepped away for just a moment. One moment. Came back and they were little rubber balls.",
-        "I ate them anyway. They don't taste bad: they just resist being eaten."
+        "I ate them anyway. They don't taste bad. They just resist being eaten."
       ],
       "reactions": [
         "Eggs don't forgive a lapse in attention. Not even a short one."
@@ -6755,14 +6755,14 @@
       "id": 379,
       "intro": "I've been putting off cleaning the chimney. Every day I say tomorrow.",
       "details": [
-        "The smoke's been backing up into the room. Not a lot: just enough to make your eyes water.",
+        "The smoke's been backing up into the room. Not a lot. Just enough to make your eyes water.",
         "I know what needs doing. I just don't want to be the one covered in soot doing it."
       ],
       "reactions": [
         "Tomorrow. Definitely tomorrow. I've been very convincing about this for two weeks."
       ],
       "statCheck": {
-        "pass": "Buildup in the flue is more than a nuisance: it can ignite if it gets thick enough. That's how chimney fires start.",
+        "pass": "Buildup in the flue is more than a nuisance. It can ignite if it gets thick enough. That's how chimney fires start.",
         "fail": "I don't know what happens if you wait too long. Probably nothing good."
       },
       "valence": "neutral",
@@ -6793,7 +6793,7 @@
       "intro": "I sneezed four times in a row this morning. Each one bigger than the last.",
       "details": [
         "By the fourth one I was braced against the table. My whole body was involved.",
-        "Then: nothing. Completely fine. Like it never happened."
+        "Then. Nothing. Completely fine. Like it never happened."
       ],
       "reactions": [
         "Four sneezes in a row is the body clearing something it won't tell you about."
@@ -7065,7 +7065,7 @@
       "intro": "The candle sputtered out right as I was about to go to bed. Good timing for once.",
       "details": [
         "Usually it goes out too early and I'm stumbling around in the dark. Or I wake up and it's burned down to nothing.",
-        "Tonight: perfect. I finished what I was reading, stood up, and the flame died on cue."
+        "Tonight. Perfect. I finished what I was reading, stood up, and the flame died on cue."
       ],
       "reactions": [
         "A candle with good timing is a rare and underappreciated thing."
@@ -7116,7 +7116,7 @@
     },
     {
       "id": 400,
-      "intro": "I had {food_type} for breakfast and lunch today. Not by choice: it's all I had left.",
+      "intro": "I had {food_type} for breakfast and lunch today. Not by choice. It's all I had left.",
       "details": [
         "By lunch I was thoroughly sick of it. The thought of eating it again for supper made me want to scream.",
         "I've never resented a food so quickly. We were fine this morning. Now we're enemies."
@@ -7156,7 +7156,7 @@
         "The relief was instant. I could stand up straight without that tight feeling between my shoulders."
       ],
       "reactions": [
-        "A good back crack is one of life's simple pleasures. You can't plan them: they just happen."
+        "A good back crack is one of life's simple pleasures. You can't plan them. They just happen."
       ],
       "statCheck": null,
       "valence": "positive",
@@ -7403,7 +7403,7 @@
         "Scrambled eggs it is, then. Again."
       ],
       "statCheck": {
-        "pass": "Low heat and a cold pan to start: that's the secret. Let the egg set on its own terms before you touch it.",
+        "pass": "Low heat and a cold pan to start. That's the secret. Let the egg set on its own terms before you touch it.",
         "fail": "I don't have the patience for egg technique. They come out how they come out."
       },
       "valence": "neutral",
@@ -7450,7 +7450,7 @@
       "id": 419,
       "intro": "I slept so deeply last night that the pillow has a perfect imprint of my face in it.",
       "details": [
-        "I woke up and there it was: nose, cheek, the whole profile pressed into the fabric.",
+        "I woke up and there it was. Nose, cheek, the whole profile pressed into the fabric.",
         "Apparently I didn't move at all. Just lay there like a stone for eight hours."
       ],
       "reactions": [
@@ -7539,7 +7539,7 @@
       "intro": "The chair I always sit in has developed a wobble. A subtle lean to the left.",
       "details": [
         "I've been compensating with my weight without realizing it. Now my back hurts on one side.",
-        "One leg is shorter than the others. I can see it when I kneel down: a gap about the width of a coin."
+        "One leg is shorter than the others. I can see it when I kneel down. A gap about the width of a coin."
       ],
       "reactions": [
         "I should fix the chair. Instead I'll keep leaning. The body adapts faster than the will."
@@ -7556,7 +7556,7 @@
     },
     {
       "id": 425,
-      "intro": "I haven't left the house today. Not out of laziness: there's just nothing that needs me out there.",
+      "intro": "I haven't left the house today. Not out of laziness. There's just nothing that needs me out there.",
       "details": [
         "The pantry's stocked, the chores are indoor ones, the weather's grey. No reason to open the door.",
         "It's strange how a day indoors can feel both restful and slightly wrong."
@@ -7684,7 +7684,7 @@
         "The moon at the horizon is a different thing entirely from the moon overhead. Bigger. More personal."
       ],
       "statCheck": {
-        "pass": "The orange is the atmosphere bending the light. Same reason sunsets are red. The moon isn't actually closer: it just looks it because your eye compares it to the horizon.",
+        "pass": "The orange is the atmosphere bending the light. Same reason sunsets are red. The moon isn't actually closer. It just looks it because your eye compares it to the horizon.",
         "fail": "I don't know why it looks so different near the ground. It just does."
       },
       "valence": "positive",
@@ -7797,7 +7797,7 @@
     },
     {
       "id": 439,
-      "intro": "The first warm rain of the season came today. Not cold, not punishing: just warm and gentle.",
+      "intro": "The first warm rain of the season came today. Not cold, not punishing. Just warm and gentle.",
       "details": [
         "I stood in it for a minute on purpose. It felt like the sky was rinsing the winter away.",
         "My clothes were wet through before I went inside. Worth it."
@@ -7816,7 +7816,7 @@
       "id": 440,
       "intro": "I spent the morning doing nothing and the afternoon feeling guilty about it.",
       "details": [
-        "I sat, I paced, I looked out the window. Productive activities: none.",
+        "I sat, I paced, I looked out the window. Productive activities. None.",
         "The guilt doesn't help either. It just adds anxiety to the laziness."
       ],
       "reactions": [
@@ -7833,7 +7833,7 @@
       "id": 441,
       "intro": "My hands smelled like onions for the rest of the day. Couldn't wash it off no matter what I tried.",
       "details": [
-        "Soap, vinegar, rubbing them on the metal pail: nothing. The onion had claimed my hands.",
+        "Soap, vinegar, rubbing them on the metal pail. Nothing. The onion had claimed my hands.",
         "I could smell them every time I brought my hand near my face. Which is surprisingly often."
       ],
       "reactions": [
@@ -7891,7 +7891,7 @@
         "My hands are stained with polish and my cloth is ruined, but the boots are magnificent."
       ],
       "reactions": [
-        "Good boots deserve care. They carry you everywhere: the least you can do is clean them once in a while."
+        "Good boots deserve care. They carry you everywhere. The least you can do is clean them once in a while."
       ],
       "statCheck": null,
       "valence": "neutral",
@@ -7922,7 +7922,7 @@
       "intro": "The {food_type} I made last night tasted better cold this morning than it did hot last night.",
       "details": [
         "I ate the leftovers standing by the pantry, straight from the dish. No ceremony.",
-        "Some foods just need time for the flavors to settle. Last night was preparation: this morning was the reward."
+        "Some foods just need time for the flavors to settle. Last night was preparation. This morning was the reward."
       ],
       "reactions": [
         "Leftovers don't get the respect they deserve."
@@ -7956,7 +7956,7 @@
       "intro": "I counted the coins in my savings today. Same number as last time I checked.",
       "details": [
         "I don't know what I expected. Nobody's been adding to it but me, and I haven't added anything.",
-        "I put them back in the jar and closed the lid. The jar is patient: I am less so."
+        "I put them back in the jar and closed the lid. The jar is patient. I am less so."
       ],
       "reactions": [
         "Money grows slowly when the only gardener is someone who forgets to tend it."
@@ -7972,7 +7972,7 @@
       "id": 449,
       "intro": "I heard a strange sound in the house and it turned out to be a cricket. One cricket, enormous noise.",
       "details": [
-        "I spent ten minutes tracking it by ear. Under the shelf, behind the wall, no: in the corner by the hearth.",
+        "I spent ten minutes tracking it by ear. Under the shelf, behind the wall, no. In the corner by the hearth.",
         "I scooted it outside with a broom. It went grudgingly."
       ],
       "reactions": [
@@ -8200,7 +8200,7 @@
         "I sat there until the water went cold. Then I sat there a bit longer because I didn't want to get up."
       ],
       "reactions": [
-        "Some remedies are too simple to seem real. Warm water and tired feet: that's the whole recipe."
+        "Some remedies are too simple to seem real. Warm water and tired feet. That's the whole recipe."
       ],
       "statCheck": null,
       "valence": "positive",
@@ -8281,7 +8281,7 @@
       "id": 467,
       "intro": "I heated water for washing and it was the perfect temperature. Not a degree too hot or too cold.",
       "details": [
-        "Usually I get it wrong and add cold water or wait for it to cool. Today: perfection on the first try.",
+        "Usually I get it wrong and add cold water or wait for it to cool. Today. Perfection on the first try.",
         "The wash itself was ordinary. But that water temperature elevated the whole experience."
       ],
       "reactions": [
@@ -8347,7 +8347,7 @@
     },
     {
       "id": 471,
-      "intro": "My throat's been scratchy since yesterday. Not sore: just that tickle that makes you cough for no reason.",
+      "intro": "My throat's been scratchy since yesterday. Not sore. Just that tickle that makes you cough for no reason.",
       "details": [
         "It catches at the worst moments. Mid-conversation, mid-bite, right as you're about to say something important.",
         "Drinking water helps for about a minute. Then the tickle creeps back."
@@ -8438,7 +8438,7 @@
     },
     {
       "id": 476,
-      "intro": "My eyes are tired. Not sleepy tired: strained. Like they've been working harder than the rest of me.",
+      "intro": "My eyes are tired. Not sleepy tired. Strained. Like they've been working harder than the rest of me.",
       "details": [
         "Everything's slightly blurry at the edges if I look too fast. Need to focus deliberately.",
         "I keep rubbing them, which I know makes it worse. Can't help it."
@@ -8576,7 +8576,7 @@
       "id": 484,
       "intro": "I heard a woodpecker this morning. That sharp, rapid drumming echoing off the trees.",
       "details": [
-        "I tried to spot it but couldn't. Just the sound: rhythmic, insistent, coming from somewhere high.",
+        "I tried to spot it but couldn't. Just the sound. Rhythmic, insistent, coming from somewhere high.",
         "It went on for a good ten minutes. A determined little worker."
       ],
       "reactions": [
@@ -8593,7 +8593,7 @@
       "id": 485,
       "intro": "I've been sleeping with an extra blanket this week and it makes all the difference.",
       "details": [
-        "One blanket: too cold. Two blankets: perfect. The math is simple but I suffered for a week before solving it.",
+        "One blanket. Too cold. Two blankets. Perfect. The math is simple but I suffered for a week before solving it.",
         "The weight of it is part of the comfort. Heavier feels safer somehow."
       ],
       "reactions": [
@@ -8682,7 +8682,7 @@
         "It gets in your nose, your hair, between your teeth. The air itself feels gritty."
       ],
       "reactions": [
-        "It'll pass when the rains come. Until then: grit."
+        "It'll pass when the rains come. Until then. Grit."
       ],
       "statCheck": {
         "pass": "A wet cloth hung over the window catches most of the dust before it drifts in. Damp air holds the particles down. The old houses used to have shutters with soaked fabric stretched across them for this.",
@@ -8767,7 +8767,7 @@
       "intro": "I put my shirt on inside out and didn't realize until midday. Walked around like that for hours.",
       "details": [
         "The seams were showing and the tag was out front. I only noticed when I looked down for something else.",
-        "I fixed it right there. Not in private: just pulled it off and turned it. Efficiency over modesty."
+        "I fixed it right there. Not in private. Just pulled it off and turned it. Efficiency over modesty."
       ],
       "reactions": [
         "If nobody pointed it out, either nobody noticed or everyone was being kind. I'll assume the latter."
@@ -8841,7 +8841,7 @@
         "It lasted maybe ten minutes. Then the sun dropped below the trees and the room went back to ordinary."
       ],
       "reactions": [
-        "The light does that a few times a year. I never catch it on purpose: it always catches me."
+        "The light does that a few times a year. I never catch it on purpose. It always catches me."
       ],
       "statCheck": null,
       "valence": "positive",
@@ -9312,7 +9312,7 @@
     },
     {
       "id": 526,
-      "intro": "I haven't been sleeping well. Keeps happening: I fall asleep fine, then wake at the darkest hour.",
+      "intro": "I haven't been sleeping well. Keeps happening. I fall asleep fine, then wake at the darkest hour.",
       "details": [
         "The middle of the night is a terrible time to be awake. Every problem feels worse and every sound is louder.",
         "I lie there and bargain with my own brain to shut up. It rarely listens."
@@ -9366,7 +9366,7 @@
     },
     {
       "id": 529,
-      "intro": "The well water tastes different today. Not bad: just not the usual.",
+      "intro": "The well water tastes different today. Not bad. Just not the usual.",
       "details": [
         "There's a mineral edge to it that wasn't there yesterday. Like the water found a new path underground.",
         "I drank it anyway. If the water's been fine for years, one odd day won't kill me."
@@ -9460,7 +9460,7 @@
       "intro": "I got a splinter in my palm and can't get it out. I can see it under the skin but my fingers can't reach it.",
       "details": [
         "I've been picking at it with a needle for ten minutes. The skin around it is red from the attempt.",
-        "It's tiny, but my hand keeps reminding me it's there. Every time I grip something: a little stab."
+        "It's tiny, but my hand keeps reminding me it's there. Every time I grip something. A little stab."
       ],
       "reactions": [
         "A splinter the size of a hair can ruin an entire hand's ability to function normally."
@@ -9607,7 +9607,7 @@
       "id": 542,
       "intro": "I sat down at the end of the day and my body made sounds I didn't know it could make.",
       "details": [
-        "Knees, back, hips: all cracking and popping like a fire catching. The full orchestra.",
+        "Knees, back, hips. All cracking and popping like a fire catching. The full orchestra.",
         "It felt good, actually. Like everything settling into its resting position."
       ],
       "reactions": [
@@ -9770,7 +9770,7 @@
     },
     {
       "id": 551,
-      "intro": "I've been sneezing all day. Not sick: just the dust, or the pollen, or whatever's in the air.",
+      "intro": "I've been sneezing all day. Not sick. Just the dust, or the pollen, or whatever's in the air.",
       "details": [
         "One sneeze leads to three. Three leads to five. My head is buzzing from the force of them.",
         "My eyes are watering and my nose is raw. I look worse than I feel."
@@ -9841,7 +9841,7 @@
     },
     {
       "id": 555,
-      "intro": "I woke up with a headache. Not terrible: just a dull press behind my eyes that won't lift.",
+      "intro": "I woke up with a headache. Not terrible. Just a dull press behind my eyes that won't lift.",
       "details": [
         "Everything's slightly too bright and slightly too loud. The world is turned up one notch too high.",
         "I've been drinking water and squinting. Neither is a cure, but both feel productive."
@@ -9915,7 +9915,7 @@
     },
     {
       "id": 559,
-      "intro": "I sat by the fire tonight and just watched the embers. No thoughts: just the glow.",
+      "intro": "I sat by the fire tonight and just watched the embers. No thoughts. Just the glow.",
       "details": [
         "The coals shift and crack and reshape themselves. Tiny caves of light open and collapse.",
         "I lost track of time. When I looked up, an hour had passed."
@@ -10395,7 +10395,7 @@
     },
     {
       "id": 586,
-      "intro": "I went the whole day without sitting down. Didn't plan it: just kept moving from one task to the next.",
+      "intro": "I went the whole day without sitting down. Didn't plan it. Just kept moving from one task to the next.",
       "details": [
         "My feet let me know about it at the end. That deep, radiating ache from sole to shin.",
         "When I finally sat, the relief was so profound I made a sound I'm not proud of."
@@ -10500,7 +10500,7 @@
     },
     {
       "id": 592,
-      "intro": "The house smells like old smoke. Not fresh fire smoke: the stale kind that clings to everything.",
+      "intro": "The house smells like old smoke. Not fresh fire smoke. The stale kind that clings to everything.",
       "details": [
         "I've opened every window but it's stubborn. Soaked into the curtains and the wood.",
         "It'll fade in a day or two. Until then, everything tastes faintly of last night's fire."
@@ -10775,7 +10775,7 @@
       "id": 607,
       "intro": "I sat down to eat and realized I'd forgotten to cook. Sat there with an empty plate and a confused expression.",
       "details": [
-        "I'd done all the preparation: table set, utensils out, cup filled. Just forgot the main step.",
+        "I'd done all the preparation. Table set, utensils out, cup filled. Just forgot the main step.",
         "My body went through the routine while my brain skipped the critical part."
       ],
       "reactions": [
@@ -10827,7 +10827,7 @@
     },
     {
       "id": 610,
-      "intro": "I ate standing up today. Not by choice: I just never sat down.",
+      "intro": "I ate standing up today. Not by choice. I just never sat down.",
       "details": [
         "One task led to the next and I kept eating between jobs, plate in one hand, work in the other.",
         "The meal was gone before I registered eating it. A shame, really. I think it was good."
@@ -10992,7 +10992,7 @@
     },
     {
       "id": 619,
-      "intro": "I had the strangest dream. Can't remember details: just a feeling. Like I was somewhere important.",
+      "intro": "I had the strangest dream. Can't remember details. Just a feeling. Like I was somewhere important.",
       "details": [
         "I woke up with my heart beating fast and a sense that something had mattered. But the details were smoke.",
         "I tried to hold onto it over breakfast and it dissolved. Dreams don't survive daylight."
@@ -11063,7 +11063,7 @@
     },
     {
       "id": 623,
-      "intro": "I've been eating the same thing for three days in a row. Not because I like it: because it's what I have.",
+      "intro": "I've been eating the same thing for three days in a row. Not because I like it. Because it's what I have.",
       "details": [
         "The first day it was fine. The second day it was acceptable. By the third, we're enemies.",
         "Tomorrow I'll figure out something different even if it takes extra effort."
@@ -11085,7 +11085,7 @@
       "id": 624,
       "intro": "I opened the door and a gust blew the ashes from the fireplace across the room.",
       "details": [
-        "A grey cloud rolled across the floor like a tiny sandstorm. Everything in its path: dusted.",
+        "A grey cloud rolled across the floor like a tiny sandstorm. Everything in its path. Dusted.",
         "The cleaning took longer than the fire had been burning. A cruel exchange rate."
       ],
       "reactions": [
@@ -11242,7 +11242,7 @@
     },
     {
       "id": 633,
-      "intro": "I was lying in bed and heard a drip somewhere. Couldn't find it. Just: drip. Drip. Drip.",
+      "intro": "I was lying in bed and heard a drip somewhere. Couldn't find it. Just. Drip. Drip. Drip.",
       "details": [
         "I checked every pot, every bucket, every window. Nothing. The sound seemed to come from nowhere.",
         "Eventually it stopped on its own. No explanation, no source. Just silence."
@@ -11382,7 +11382,7 @@
         "Pepper is the only ingredient that punishes overconfidence."
       ],
       "statCheck": {
-        "pass": "A bit of fat cuts the heat. Butter, cream, drippings: anything rich. Dilutes the burn without ruining the flavor.",
+        "pass": "A bit of fat cuts the heat. Butter, cream, drippings. Anything rich. Dilutes the burn without ruining the flavor.",
         "fail": "I just suffered through it. Lesson learned. Temporarily."
       },
       "valence": "neutral",
@@ -11629,7 +11629,7 @@
         "I'm going to forget how I did it by tomorrow. These discoveries never survive the night."
       ],
       "reactions": [
-        "A good sitting position is like a good night's sleep: you can't force it. It just happens."
+        "A good sitting position is like a good night's sleep. You can't force it. It just happens."
       ],
       "statCheck": null,
       "valence": "neutral",
@@ -12071,7 +12071,7 @@
       "id": 679,
       "intro": "I forgot what I was going to say mid-sentence. Just stopped, mouth open, nothing there.",
       "details": [
-        "The thought was there a second ago. Clear, formed, ready to go. Then: gone. Like a fish slipping a hook.",
+        "The thought was there a second ago. Clear, formed, ready to go. Then. Gone. Like a fish slipping a hook.",
         "I stood there smiling awkwardly for a few seconds before giving up. Whatever it was, it'll come back."
       ],
       "reactions": [
@@ -12183,7 +12183,7 @@
         "Baking bread is mostly failure management. When it works, the relief is enormous."
       ],
       "statCheck": {
-        "pass": "The trick is the water temperature. Too hot kills the yeast, too cold and it sleeps. I finally got it right: warm enough to be comfortable on the wrist, no hotter.",
+        "pass": "The trick is the water temperature. Too hot kills the yeast, too cold and it sleeps. I finally got it right. Warm enough to be comfortable on the wrist, no hotter.",
         "fail": "Honestly, I don't know what I did differently. I just got lucky."
       },
       "valence": "positive",
@@ -12194,7 +12194,7 @@
     },
     {
       "id": 686,
-      "intro": "I woke up to absolute silence: no wind, no birds, no anything.",
+      "intro": "I woke up to absolute silence. No wind, no birds, no anything.",
       "details": [
         "The kind of silence that has a presence. You notice it the way you'd notice a sound.",
         "I lay still and listened to nothing for a while. Even my breathing felt loud."
@@ -12213,7 +12213,7 @@
       "id": 687,
       "intro": "I stretched this morning and something in my shoulder clicked into place. Instant relief.",
       "details": [
-        "A tension I'd been carrying for days just: gone. Like a locked door swinging open.",
+        "A tension I'd been carrying for days just. Gone. Like a locked door swinging open.",
         "I didn't even know I was tight until it released. My whole left side feels different."
       ],
       "reactions": [
@@ -12237,7 +12237,7 @@
         "Losing count of the days is either freedom or monotony. Depends on your outlook."
       ],
       "statCheck": {
-        "pass": "I think the sameness is getting to me. I need a change of some kind: a project, a trip, anything. The routine is comfortable but it's swallowing the weeks.",
+        "pass": "I think the sameness is getting to me. I need a change of some kind. A project, a trip, anything. The routine is comfortable but it's swallowing the weeks.",
         "fail": "Days are days. I don't need to number them."
       },
       "valence": "neutral",
@@ -12284,7 +12284,7 @@
       "id": 691,
       "intro": "I got hiccups in the middle of a conversation and couldn't stop them.",
       "details": [
-        "Every few seconds: a sharp little spasm that interrupted whatever I was trying to say.",
+        "Every few seconds. A sharp little spasm that interrupted whatever I was trying to say.",
         "I tried holding my breath, drinking water, even getting startled. Nothing worked. They left on their own."
       ],
       "reactions": [
@@ -12469,11 +12469,11 @@
       "id": 701,
       "intro": "I heard birds arguing outside my window at dawn. A real disagreement, loud and shrill.",
       "details": [
-        "Two of them going at it over something invisible. Territory, food, principle: who knows.",
+        "Two of them going at it over something invisible. Territory, food, principle. Who knows.",
         "They were at it for ten minutes and then both flew off. Unresolved, apparently."
       ],
       "reactions": [
-        "Bird arguments are just like people arguments: loud, pointless, and somebody always flies off."
+        "Bird arguments are just like people arguments. Loud, pointless, and somebody always flies off."
       ],
       "statCheck": null,
       "valence": "neutral",
@@ -12800,7 +12800,7 @@
         "Physical work that produces a visible result is the most honest kind of tiredness."
       ],
       "statCheck": {
-        "pass": "I needed it. Not the wood: the exertion. Some days you have to burn through something physical to quiet whatever's churning inside.",
+        "pass": "I needed it. Not the wood. The exertion. Some days you have to burn through something physical to quiet whatever's churning inside.",
         "fail": "Just getting the wood in before the weather turns."
       },
       "valence": "neutral",
@@ -13086,7 +13086,7 @@
       "id": 735,
       "intro": "I've been making {food_type} the same way for years. Today I tried something different and it was terrible.",
       "details": [
-        "I changed one thing: just one. And the whole balance fell apart. Inedible.",
+        "I changed one thing. Just one. And the whole balance fell apart. Inedible.",
         "Went back to the old method for the second attempt and it was perfect. Lesson learned."
       ],
       "reactions": [
@@ -13135,7 +13135,7 @@
     },
     {
       "id": 738,
-      "intro": "I had a nosebleed out of nowhere. Standing there, minding my own business, and suddenly: blood.",
+      "intro": "I had a nosebleed out of nowhere. Standing there, minding my own business, and suddenly. Blood.",
       "details": [
         "I tilted my head back and pinched until it stopped. About five minutes of standing like a fool.",
         "The dry air does it, I think. Cracks the skin inside and gravity does the rest."
@@ -13154,7 +13154,7 @@
       "id": 739,
       "intro": "I found a comfortable spot in the shade and sat there until the shade moved and the sun found me.",
       "details": [
-        "I'd been so relaxed I didn't notice the light creeping in. Then: heat on my arm and the spell was broken.",
+        "I'd been so relaxed I didn't notice the light creeping in. Then. Heat on my arm and the spell was broken.",
         "I moved to the next patch of shade. A slow chase that I'm always losing."
       ],
       "reactions": [
@@ -13186,7 +13186,7 @@
     },
     {
       "id": 741,
-      "intro": "The well water tasted different today: not bad, just different, like the season changed underground.",
+      "intro": "The well water tasted different today. Not bad, just different, like the season changed underground.",
       "details": [
         "A mineral taste that wasn't there last week. Faint, but I noticed it.",
         "It's still clear and cold. Whatever changed, it's subtle."
@@ -13206,7 +13206,7 @@
     },
     {
       "id": 742,
-      "intro": "I spent the whole evening by the fire doing nothing. Not lazy: just empty of tasks.",
+      "intro": "I spent the whole evening by the fire doing nothing. Not lazy. Just empty of tasks.",
       "details": [
         "Everything was done, everything was clean, nothing needed mending. A rare state.",
         "I sat with my hands idle and my thoughts quiet. Not sure I liked it."
@@ -13283,7 +13283,7 @@
         "I'm favoring the other foot so much that now both legs hurt. An elegant spiral of compensations."
       ],
       "reactions": [
-        "A twisted ankle teaches you how many steps you take in a day. The answer is: too many."
+        "A twisted ankle teaches you how many steps you take in a day. The answer is. Too many."
       ],
       "statCheck": null,
       "valence": "negative",
@@ -13294,7 +13294,7 @@
     },
     {
       "id": 747,
-      "intro": "I sat and watched a fire burn down to embers. Not warming myself: just watching.",
+      "intro": "I sat and watched a fire burn down to embers. Not warming myself. Just watching.",
       "details": [
         "The coals shift and settle. Orange fading to grey at the edges, still bright at the center.",
         "There's something about a dying fire that holds your attention. The last act is always the longest."
@@ -13391,7 +13391,7 @@
         "Starting a fire with wet wood is the most frustrating task you can't skip."
       ],
       "statCheck": {
-        "pass": "You shave the wet outer layer off with a knife and the dry wood underneath catches just fine. Most people blow on it: bad idea. Steady air from below, not gusts from above.",
+        "pass": "You shave the wet outer layer off with a knife and the dry wood underneath catches just fine. Most people blow on it. Bad idea. Steady air from below, not gusts from above.",
         "fail": "I just kept at it until something caught. No trick to it, just stubbornness."
       },
       "valence": "neutral",
@@ -13441,7 +13441,7 @@
       "id": 755,
       "intro": "A butterfly landed on my hand and stayed for a full minute. I held very still.",
       "details": [
-        "Its wings opened and closed slowly. I could see the patterns: tiny scales like colored dust.",
+        "Its wings opened and closed slowly. I could see the patterns. Tiny scales like colored dust.",
         "When it flew off, my hand felt lighter. Which makes no sense, but there it is."
       ],
       "reactions": [
@@ -13482,7 +13482,7 @@
         "Organization is not a state you achieve. It's a fight you lose slowly."
       ],
       "statCheck": {
-        "pass": "I only clean when I'm avoiding something harder. The tools didn't need organizing: I needed an excuse not to think about what's actually bothering me.",
+        "pass": "I only clean when I'm avoiding something harder. The tools didn't need organizing. I needed an excuse not to think about what's actually bothering me.",
         "fail": "Just needed to tidy up. Long overdue."
       },
       "valence": "neutral",
@@ -13496,7 +13496,7 @@
       "intro": "The clouds looked like rain all day but nothing came. Hours of empty threat.",
       "details": [
         "I carried everything inside to be safe and then carried it all back out when the sky cleared.",
-        "The clouds just: sat there. Sulking. Deciding against it."
+        "The clouds just. Sat there. Sulking. Deciding against it."
       ],
       "reactions": [
         "Clouds that don't deliver are the sky's version of an idle promise."
@@ -13549,7 +13549,7 @@
       "id": 761,
       "intro": "I kept smelling lavender all afternoon but couldn't find the source.",
       "details": [
-        "In the house, outside, walking around: the same faint, sweet smell following me.",
+        "In the house, outside, walking around. The same faint, sweet smell following me.",
         "Turns out I'd brushed against a bush earlier and it was on my sleeve the whole time."
       ],
       "reactions": [
@@ -13604,7 +13604,7 @@
       "intro": "I had a dream where I was doing chores. Woke up and still had to do them.",
       "details": [
         "The dream was realistic enough that I felt like I'd already swept the floor. I hadn't.",
-        "Working twice: once in sleep and once in life. The cruelest kind of overtime."
+        "Working twice. Once in sleep and once in life. The cruelest kind of overtime."
       ],
       "reactions": [
         "If chores are following you into your dreams, you either have too many or too few thoughts."
@@ -13635,9 +13635,9 @@
     },
     {
       "id": 766,
-      "intro": "I ate a meal that was perfect: every flavor right, every bite good.",
+      "intro": "I ate a meal that was perfect. Every flavor right, every bite good.",
       "details": [
-        "Same ingredients as always. Same pot, same fire, same amount of time. But somehow: perfect.",
+        "Same ingredients as always. Same pot, same fire, same amount of time. But somehow. Perfect.",
         "I'll try to repeat it tomorrow and it'll be ordinary. That's how cooking works."
       ],
       "reactions": [
@@ -13686,7 +13686,7 @@
     },
     {
       "id": 769,
-      "intro": "I noticed a crack in my favorite cup: not broken, just a warning from the future.",
+      "intro": "I noticed a crack in my favorite cup. Not broken, just a warning from the future.",
       "details": [
         "A fine line running from the rim to the handle. It still holds water. For now.",
         "I could stop using it. But it's my favorite cup and I'd rather it die in service."
@@ -13885,7 +13885,7 @@
     },
     {
       "id": 780,
-      "intro": "I tried to whistle and couldn't: just air, like my lips have forgotten how.",
+      "intro": "I tried to whistle and couldn't. Just air, like my lips have forgotten how.",
       "details": [
         "I used to whistle while I worked. Now all I get is a breathy nothing.",
         "I've been practicing in private but the sound won't come back. Frustrating for a skill I didn't think you could lose."
@@ -14172,7 +14172,7 @@
         "A chair that holds you hostage is just a comfortable chair doing its job too well."
       ],
       "statCheck": {
-        "pass": "I'm running on less than I should be. The tiredness catches up in moments like that: you sit down and the debt comes due.",
+        "pass": "I'm running on less than I should be. The tiredness catches up in moments like that. You sit down and the debt comes due.",
         "fail": "I just got comfortable. Happens to everyone."
       },
       "valence": "neutral",
@@ -14183,7 +14183,7 @@
     },
     {
       "id": 797,
-      "intro": "I watched the sunrise this morning. Not by choice: I just happened to be up.",
+      "intro": "I watched the sunrise this morning. Not by choice. I just happened to be up.",
       "details": [
         "The sky went from black to deep blue to orange in stages. Like someone slowly turning up a lamp.",
         "I stood there holding a cold cup and watching. The show was better than the drink."
@@ -14246,7 +14246,7 @@
         "A house at night has its own language. I'm learning it whether I want to or not."
       ],
       "statCheck": {
-        "pass": "It's been happening more often. I wake up and the quiet feels too big. The house sounds aren't comforting: they're reminders that I'm the only one awake.",
+        "pass": "It's been happening more often. I wake up and the quiet feels too big. The house sounds aren't comforting. They're reminders that I'm the only one awake.",
         "fail": "Just one of those nights. Happens to everyone."
       },
       "valence": "neutral",
@@ -14294,10 +14294,10 @@
     },
     {
       "id": 803,
-      "intro": "I spent the whole afternoon doing nothing. Not resting: nothing. Just sitting.",
+      "intro": "I spent the whole afternoon doing nothing. Not resting. Nothing. Just sitting.",
       "details": [
         "I had things to do but my body and my will disagreed. The body won by forfeit.",
-        "The hours passed like clouds: slow, shapeless, and indifferent to my plans."
+        "The hours passed like clouds. Slow, shapeless, and indifferent to my plans."
       ],
       "reactions": [
         "Sometimes a day does nothing with you and you just have to let it."
@@ -14334,7 +14334,7 @@
       "intro": "The fog this morning was so thick I couldn't see ten paces ahead.",
       "details": [
         "Everything beyond arm's reach was gone. The world shrank to a small grey circle around me.",
-        "Sounds carried strangely: footsteps from nowhere, voices with no faces."
+        "Sounds carried strangely. Footsteps from nowhere, voices with no faces."
       ],
       "reactions": [
         "Fog makes every walk feel like you're the only person left and everyone else was borrowed."
@@ -14348,7 +14348,7 @@
     },
     {
       "id": 806,
-      "intro": "I woke up well-rested for no reason. Same bed, same hour, same everything: but today I feel good.",
+      "intro": "I woke up well-rested for no reason. Same bed, same hour, same everything. But today I feel good.",
       "details": [
         "There's no explaining it. Some nights the sleep just takes and you wake up repaired.",
         "I have energy I didn't earn and I'm trying not to question it."
@@ -14506,7 +14506,7 @@
       "id": 815,
       "intro": "My knee clicks when I go down stairs now. Every step, a little announcement.",
       "details": [
-        "It doesn't hurt. It just: clicks. Like a hinge that needs oil but won't accept any.",
+        "It doesn't hurt. It just. Clicks. Like a hinge that needs oil but won't accept any.",
         "People behind me on stairs can hear it. I pretend they can't."
       ],
       "reactions": [
@@ -14526,7 +14526,7 @@
       "id": 816,
       "intro": "I found a spider in my boot this morning. We were both unhappy about the discovery.",
       "details": [
-        "I shook the boot out and the spider fled. Can't blame it: I'd flee too if a foot appeared in my house.",
+        "I shook the boot out and the spider fled. Can't blame it. I'd flee too if a foot appeared in my house.",
         "I checked the other boot twice. Once for spiders, once for my nerves."
       ],
       "reactions": [
@@ -14685,7 +14685,7 @@
       "id": 825,
       "intro": "I've been putting off a chore for so long it's become a fixture. Part of the scenery now.",
       "details": [
-        "I see it every day. I acknowledge it. We have an understanding: it stays, I ignore it.",
+        "I see it every day. I acknowledge it. We have an understanding. It stays, I ignore it.",
         "At this point doing it would feel like losing a companion. The undone task and I have history."
       ],
       "reactions": [
@@ -14739,7 +14739,7 @@
       "id": 828,
       "intro": "I stretched this morning and every joint popped at once. Sounded like a bag of walnuts.",
       "details": [
-        "Knees, back, ankles, shoulders: a full percussion section. Alarming but satisfying.",
+        "Knees, back, ankles, shoulders. A full percussion section. Alarming but satisfying.",
         "I felt two inches taller after. Looser, lighter, like someone had aired me out."
       ],
       "reactions": [
@@ -14763,7 +14763,7 @@
         "Losing track of the day is harmless until someone asks you and you freeze."
       ],
       "statCheck": {
-        "pass": "The sameness is the problem. Nothing new happens, nothing changes. I'm not bored exactly: I just can't tell the days apart anymore and that bothers me more than it should.",
+        "pass": "The sameness is the problem. Nothing new happens, nothing changes. I'm not bored exactly. I just can't tell the days apart anymore and that bothers me more than it should.",
         "fail": "Time gets away from you. Not a big deal."
       },
       "valence": "neutral",
@@ -14867,7 +14867,7 @@
       "id": 835,
       "intro": "I sat by the fire until my front was scorching and my back was still cold.",
       "details": [
-        "The divide was sharp: one side roasting, the other shivering. I kept turning like meat on a spit.",
+        "The divide was sharp. One side roasting, the other shivering. I kept turning like meat on a spit.",
         "You can't warm your whole body by a fire without constant rotation. A design flaw in people."
       ],
       "reactions": [
@@ -14956,7 +14956,7 @@
       "intro": "I ate lunch standing up because sitting felt like too much commitment.",
       "details": [
         "Leaned against the counter, food in one hand, the day pulling at me with the other.",
-        "Finished in five minutes. Not a meal: a refueling. The chair went unused."
+        "Finished in five minutes. Not a meal. A refueling. The chair went unused."
       ],
       "reactions": [
         "Eating standing up means you're either very busy or very bad at slowing down."
@@ -15050,7 +15050,7 @@
       "intro": "I {self_role} all morning and barely noticed the hours passing. Good sign.",
       "details": [
         "When the work flows, time vanishes. I looked up and half the day was gone.",
-        "The opposite of boredom: that feeling where your hands know what to do and the mind follows."
+        "The opposite of boredom. That feeling where your hands know what to do and the mind follows."
       ],
       "reactions": [
         "Work that eats time without you noticing is work that fits."
@@ -15090,7 +15090,7 @@
         "A draft you can't find is the house keeping a secret from you."
       ],
       "statCheck": {
-        "pass": "I think it's coming up through the floor. The boards are old and the gaps have widened over the years. Fixing it means pulling up the whole floor: not a winter project.",
+        "pass": "I think it's coming up through the floor. The boards are old and the gaps have widened over the years. Fixing it means pulling up the whole floor. Not a winter project.",
         "fail": "Could be anywhere. Old houses are full of gaps."
       },
       "valence": "neutral",
@@ -15191,7 +15191,7 @@
       "id": 853,
       "intro": "My back went out while I was bending over to pick up something light. A cruel joke.",
       "details": [
-        "Not a heavy load: a dropped cloth. The back chose that moment to betray me.",
+        "Not a heavy load. A dropped cloth. The back chose that moment to betray me.",
         "I straightened up in stages, hands on hips, making sounds. Very dignified."
       ],
       "reactions": [
@@ -15215,10 +15215,10 @@
         "Cleaning is just resetting a timer. The mess knows where it lives and it always comes home."
       ],
       "reactions": [
-        "A clean house is a temporary state. You don't maintain it: you just visit it sometimes."
+        "A clean house is a temporary state. You don't maintain it. You just visit it sometimes."
       ],
       "statCheck": {
-        "pass": "I clean when I'm anxious. The mess isn't the problem: it's the need to control something, anything, when everything else feels out of reach.",
+        "pass": "I clean when I'm anxious. The mess isn't the problem. It's the need to control something, anything, when everything else feels out of reach.",
         "fail": "Just overdue for a tidy. The dust was getting bold."
       },
       "valence": "neutral",
@@ -15289,7 +15289,7 @@
         "Forgetting your purpose in a room is the mind's way of hitting pause on productivity."
       ],
       "statCheck": {
-        "pass": "It's been happening more often and it worries me a little. Not the forgetting itself: the fact that I notice it now. I didn't used to notice.",
+        "pass": "It's been happening more often and it worries me a little. Not the forgetting itself. The fact that I notice it now. I didn't used to notice.",
         "fail": "Just lost my train of thought. The room distracted me."
       },
       "valence": "neutral",
@@ -15326,7 +15326,7 @@
         "Sleep debt doesn't send reminders. It just collects interest until you collapse."
       ],
       "statCheck": {
-        "pass": "There's something on my mind that I haven't dealt with: it waits until the house is quiet and then it starts. I know what it is, but I'm not ready to face it.",
+        "pass": "There's something on my mind that I haven't dealt with. It waits until the house is quiet and then it starts. I know what it is, but I'm not ready to face it.",
         "fail": "Just one of those stretches. It'll pass."
       },
       "valence": "negative",
@@ -15339,7 +15339,7 @@
       "id": 861,
       "intro": "The creek froze over and I stood on it to test. Held solid. Made a satisfying creak.",
       "details": [
-        "Clear ice: I could see the water still moving underneath, dark and slow.",
+        "Clear ice. I could see the water still moving underneath, dark and slow.",
         "I put more weight on it and it groaned. I stepped off. Discretion won over curiosity."
       ],
       "reactions": [
@@ -15371,7 +15371,7 @@
     },
     {
       "id": 863,
-      "intro": "I burned dinner. Not a little: completely. Smoke, char, and regret.",
+      "intro": "I burned dinner. Not a little. Completely. Smoke, char, and regret.",
       "details": [
         "I walked away for what I thought was a minute. It was not a minute.",
         "The pot is stained, the food is gone, and I'm eating bread tonight."
@@ -15447,14 +15447,14 @@
       "id": 867,
       "intro": "I walked somewhere with purpose and energy, then forgot why halfway there.",
       "details": [
-        "Full stride, clear intention: and then nothing. The destination was there but the reason had vanished.",
+        "Full stride, clear intention. And then nothing. The destination was there but the reason had vanished.",
         "I turned around, walked back, and remembered the instant I got home."
       ],
       "reactions": [
         "A purposeful walk with no purpose is a lap of honor for your forgetfulness."
       ],
       "statCheck": {
-        "pass": "I've been scattered. Too many things competing for the same attention. The walk wasn't the problem: the overloaded mind was.",
+        "pass": "I've been scattered. Too many things competing for the same attention. The walk wasn't the problem. The overloaded mind was.",
         "fail": "Just one of those moments. Got halfway and blanked."
       },
       "valence": "neutral",
@@ -15535,14 +15535,14 @@
       "id": 872,
       "intro": "I sharpened a knife until it could split a hair. Spent way more time on it than necessary.",
       "details": [
-        "The stone, the angle, the rhythm: I got lost in it. Sharpening is meditative if you let it be.",
+        "The stone, the angle, the rhythm. I got lost in it. Sharpening is meditative if you let it be.",
         "The knife didn't need to be that sharp. But I needed to do something with my hands."
       ],
       "reactions": [
         "Over-sharpening a knife is productive procrastination. You avoid real work while improving a tool."
       ],
       "statCheck": {
-        "pass": "I sharpen things when I'm restless. The repetition calms me down. It's not about the knife: it's about needing something to focus on that isn't what's bothering me.",
+        "pass": "I sharpen things when I'm restless. The repetition calms me down. It's not about the knife. It's about needing something to focus on that isn't what's bothering me.",
         "fail": "Just like a sharp blade. Nothing more to it."
       },
       "valence": "neutral",
@@ -15596,7 +15596,7 @@
         "Staring at nothing is the mind taking an unauthorized break. Sometimes it needs one."
       ],
       "statCheck": {
-        "pass": "It's happening more than it used to: I drift off mid-task and the time just goes. I'm not worried exactly, but I'm noticing.",
+        "pass": "It's happening more than it used to. I drift off mid-task and the time just goes. I'm not worried exactly, but I'm noticing.",
         "fail": "Just daydreaming. My mind wanders sometimes."
       },
       "valence": "neutral",
@@ -15752,7 +15752,7 @@
       "intro": "I stood up too fast and the room went dark for a moment. Stars behind my eyes.",
       "details": [
         "That rush of dizziness where the floor tilts and you grab whatever's closest.",
-        "It passed in seconds but the lesson lingered: stand up like you mean it, not like you're racing."
+        "It passed in seconds but the lesson lingered. Stand up like you mean it, not like you're racing."
       ],
       "reactions": [
         "Standing up too fast is the body's way of reminding you it runs on blood pressure, not enthusiasm."
@@ -15792,7 +15792,7 @@
         "Talking to yourself is fine until you have an audience. Then it's a performance you didn't audition for."
       ],
       "statCheck": {
-        "pass": "I talk to myself because the quiet gets too heavy sometimes. It's not madness: it's just the sound of someone who spends too much time alone.",
+        "pass": "I talk to myself because the quiet gets too heavy sometimes. It's not madness. It's just the sound of someone who spends too much time alone.",
         "fail": "Just thinking out loud. Didn't realize anyone was nearby."
       },
       "valence": "neutral",
@@ -15893,7 +15893,7 @@
       "id": 892,
       "intro": "I noticed the shadow of a bird pass over me and looked up. Nothing there. Already gone.",
       "details": [
-        "Just a flicker of darkness across the ground: a presence already past.",
+        "Just a flicker of darkness across the ground. A presence already past.",
         "I stood there looking at an empty sky, wondering what kind of bird casts that big a shadow."
       ],
       "reactions": [
@@ -15917,7 +15917,7 @@
         "Walking in rain without fighting it is a different experience entirely. The rain becomes company."
       ],
       "statCheck": {
-        "pass": "I did it because I needed to feel something simple. Everything lately has been complicated and the rain was the opposite: direct, honest, cold.",
+        "pass": "I did it because I needed to feel something simple. Everything lately has been complicated and the rain was the opposite. Direct, honest, cold.",
         "fail": "Just felt like getting wet. It was warm enough."
       },
       "valence": "neutral",
@@ -15930,7 +15930,7 @@
       "id": 894,
       "intro": "I've had the same dull ache in my wrist for three days now. It won't get worse and won't get better.",
       "details": [
-        "Not sharp enough to stop me. Just present: a low, constant note of complaint.",
+        "Not sharp enough to stop me. Just present. A low, constant note of complaint.",
         "I wrap it when I work and unwrap it when I rest. The routine is becoming second nature."
       ],
       "reactions": [
@@ -15994,7 +15994,7 @@
         "Watching a candle die is peaceful in a way that sneaks up on you."
       ],
       "statCheck": {
-        "pass": "I think about endings more than I used to: not in a dark way, just the quiet kind where candles and seasons and years run down. Watching it happen is different from having it happen to you.",
+        "pass": "I think about endings more than I used to. Not in a dark way, just the quiet kind where candles and seasons and years run down. Watching it happen is different from having it happen to you.",
         "fail": "I just forgot to light a new one. Got caught watching."
       },
       "valence": "neutral",
@@ -16082,7 +16082,7 @@
         "A day of yawning is the body's petition for more sleep. Filed repeatedly."
       ],
       "statCheck": {
-        "pass": "I haven't slept properly in a week. The yawning is the part people can see. The rest: the foggy thinking, the short temper, that's the part I hide.",
+        "pass": "I haven't slept properly in a week. The yawning is the part people can see. The rest. The foggy thinking, the short temper, that's the part I hide.",
         "fail": "Just tired. Didn't sleep great last night."
       },
       "valence": "neutral",
@@ -16102,7 +16102,7 @@
         "A junk drawer is a museum of intentions. Each item was saved for a purpose that expired."
       ],
       "statCheck": {
-        "pass": "I keep things because getting rid of them feels like admitting I'll never need them. It's not hoarding: it's optimism with a storage problem.",
+        "pass": "I keep things because getting rid of them feels like admitting I'll never need them. It's not hoarding. It's optimism with a storage problem.",
         "fail": "Just needed to tidy up. Things accumulate."
       },
       "valence": "neutral",
@@ -16115,7 +16115,7 @@
       "id": 904,
       "intro": "I sat outside at dusk and watched the bats come out. Quick, dark shapes against the fading sky.",
       "details": [
-        "They appeared from nowhere: one, then three, then a dozen, zipping and diving in silence.",
+        "They appeared from nowhere. One, then three, then a dozen, zipping and diving in silence.",
         "I lost track of them against the dark. One moment visible, the next just part of the night."
       ],
       "reactions": [
@@ -16238,7 +16238,7 @@
       "intro": "I went to bed early and lay awake longer than if I'd stayed up. The irony.",
       "details": [
         "In bed by dark, staring at the ceiling by the first hour. The body was tired but the mind disagreed.",
-        "I tried all the tricks: counting, deep breathing, lying very still. The mind won."
+        "I tried all the tricks. Counting, deep breathing, lying very still. The mind won."
       ],
       "reactions": [
         "Going to bed early with the intent to rest is the surest way to guarantee you won't."
@@ -16363,7 +16363,7 @@
       "intro": "I caught a fly buzzing around the room and spent ten minutes chasing it. The fly won.",
       "details": [
         "It landed on every surface, waited for me to get close, and moved at the last second.",
-        "Eventually I opened the window and it left on its own terms. I didn't catch it: I negotiated its departure."
+        "Eventually I opened the window and it left on its own terms. I didn't catch it. I negotiated its departure."
       ],
       "reactions": [
         "Chasing a fly is a contest of reflexes you will lose with dignity or without it."
@@ -16433,14 +16433,14 @@
       "id": 922,
       "intro": "I smelled bread baking somewhere and it stopped me mid-stride. Couldn't move until I'd placed it.",
       "details": [
-        "Warm, yeasty, golden: a smell that goes straight to the stomach and bypasses the brain.",
+        "Warm, yeasty, golden. A smell that goes straight to the stomach and bypasses the brain.",
         "I followed my nose for a few paces before catching myself. I was hunting bread like an animal."
       ],
       "reactions": [
         "The smell of baking bread has the power to derail any errand and justify the detour."
       ],
       "statCheck": {
-        "pass": "It reminded me of home: not this home, the one before, where someone used to bake in the mornings. I haven't smelled that smell in years and it nearly broke me.",
+        "pass": "It reminded me of home. Not this home, the one before, where someone used to bake in the mornings. I haven't smelled that smell in years and it nearly broke me.",
         "fail": "Just a good smell. Made me hungry."
       },
       "valence": "neutral",
@@ -16615,7 +16615,7 @@
       "id": 932,
       "intro": "I had a muscle twitch in my eyelid that lasted all day. A tiny, maddening flutter.",
       "details": [
-        "Not visible to anyone else, apparently. But I could feel it: a rapid, shallow pulse under the skin.",
+        "Not visible to anyone else, apparently. But I could feel it. A rapid, shallow pulse under the skin.",
         "I pressed on it, rubbed it, closed my eye. The twitch ignored all interventions."
       ],
       "reactions": [
@@ -16656,7 +16656,7 @@
         "Dreaming you're late is the mind rehearsing a disaster it doesn't need to prepare for."
       ],
       "statCheck": {
-        "pass": "I've been feeling behind on everything lately. Not just in dreams: in life. The dream is honest about what I won't say during the day.",
+        "pass": "I've been feeling behind on everything lately. Not just in dreams. In life. The dream is honest about what I won't say during the day.",
         "fail": "Just a bad dream. Took a minute to shake off."
       },
       "valence": "neutral",
@@ -16775,7 +16775,7 @@
     },
     {
       "id": 941,
-      "intro": "I watched the fire for an hour last night. Not for warmth: just the movement.",
+      "intro": "I watched the fire for an hour last night. Not for warmth. Just the movement.",
       "details": [
         "The flames never make the same shape twice. You can stare and stare and it never repeats.",
         "I didn't think about anything in particular. The fire did the thinking for me."
@@ -16784,7 +16784,7 @@
         "Watching fire is the oldest entertainment. It's held up better than most."
       ],
       "statCheck": {
-        "pass": "I do this more often now: sit alone, watch the fire, let the quiet settle. It's not loneliness, it's a need for stillness that I didn't have when I was younger.",
+        "pass": "I do this more often now. Sit alone, watch the fire, let the quiet settle. It's not loneliness, it's a need for stillness that I didn't have when I was younger.",
         "fail": "Just zoned out. The fire's hypnotic like that."
       },
       "valence": "neutral",
@@ -16821,7 +16821,7 @@
         "An owl outside your window is a neighbor who keeps different hours and doesn't care."
       ],
       "statCheck": {
-        "pass": "I was already awake when the owl started. The call didn't wake me: it just filled the silence I was already sitting in.",
+        "pass": "I was already awake when the owl started. The call didn't wake me. It just filled the silence I was already sitting in.",
         "fail": "Just a noisy bird. Kept me up for a bit."
       },
       "valence": "neutral",
@@ -16875,7 +16875,7 @@
         "A nighttime worry about something you already handled is the brain charging overtime for nothing."
       ],
       "statCheck": {
-        "pass": "I check things more than I used to: doors, latches, the fire, and the checking is getting worse. I know it's not rational but knowing doesn't stop it.",
+        "pass": "I check things more than I used to. Doors, latches, the fire, and the checking is getting worse. I know it's not rational but knowing doesn't stop it.",
         "fail": "Just one of those half-awake worries. Gone by morning."
       },
       "valence": "neutral",
@@ -16888,7 +16888,7 @@
       "id": 947,
       "intro": "I sat in the shade on a hot day and the temperature difference was startling. Two steps between worlds.",
       "details": [
-        "Sun to shade: a ten-degree drop. The cool air felt like stepping into water.",
+        "Sun to shade. A ten-degree drop. The cool air felt like stepping into water.",
         "I stayed put. The sun could wait. The shade had everything I needed."
       ],
       "reactions": [
@@ -16926,7 +16926,7 @@
         "A week ago dusk was an hour later. The shift is subtle until you notice it, then it's obvious."
       ],
       "reactions": [
-        "The changing light is the truest calendar. No numbers, no names: just longer or shorter."
+        "The changing light is the truest calendar. No numbers, no names. Just longer or shorter."
       ],
       "statCheck": {
         "pass": "I watch for it every year. The exact evening when the light tips. Most people don't notice until the cold comes, but I know it by the angle of the shadows weeks before.",

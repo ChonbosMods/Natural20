@@ -29,6 +29,8 @@ Variables like `{kill_count}`, `{enemy_type}`, `{quest_item}`, and `{gather_coun
 | `declineText` | — | Player declines the quest |
 | `skillCheck.passText` | — | Player passes stat check at accept/decline |
 | `skillCheck.failText` | — | Player fails stat check at accept/decline |
+| `targetNpcOpener` | TALK_TO_NPC objective | Player selects quest topic on target NPC |
+| `targetNpcCloser` | TALK_TO_NPC objective | After player presses [CONTINUE] on opener |
 | `expositionTurnInText` | `objectives[0]` | Player returns after completing exposition objective |
 | `conflict1Text` | `objectives[1]` | Shown after exposition turn-in |
 | `conflict1TurnInText` | `objectives[1]` | Player returns after completing conflict 1 |
@@ -175,6 +177,42 @@ Variables like `{kill_count}`, `{enemy_type}`, `{quest_item}`, and `{gather_coun
 - Introduce new information or new problems
 
 **Length guidance:** 2-4 sentences. This is the payoff — give it room to land.
+
+---
+
+### `targetNpcOpener`
+
+**Structural role:** What the target NPC says when the player selects the quest topic during a TALK_TO_NPC objective. This is a different NPC from the quest giver. They are providing their perspective on the situation the quest giver described.
+
+**What it must do:**
+- Sound like a different person from the quest giver. The target NPC has their own voice, opinions, and relationship to the situation.
+- Provide information, context, or perspective that the quest giver couldn't provide themselves.
+- Make the player feel like the trip to find this NPC was worthwhile.
+
+**What it must NOT do:**
+- Repeat information the quest giver already conveyed.
+- Use the quest giver's emotional register. The target NPC has their own feelings about the situation.
+- Reference the player's quest objectives mechanically.
+
+**Length guidance:** 2-4 sentences.
+
+**Variable binding:** Only available when the quest chain includes a TALK_TO_NPC objective. Uses the same always-available variables. Per-objective variables from the TALK_TO_NPC phase are valid.
+
+---
+
+### `targetNpcCloser`
+
+**Structural role:** After the player presses [CONTINUE] on the opener, the target NPC delivers a closing remark. This wraps up the target NPC's side of the conversation before the player can choose "I'll pass that along."
+
+**What it must do:**
+- Close the target NPC's contribution naturally.
+- Give the player something concrete to carry back (advice, confirmation, a perspective).
+
+**What it must NOT do:**
+- Introduce new problems or quests.
+- Repeat the opener's content.
+
+**Length guidance:** 1-2 sentences. This is a closer, not a second speech.
 
 ---
 

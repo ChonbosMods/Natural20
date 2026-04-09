@@ -8,14 +8,14 @@
       "details": [
         "He showed a sliver of it to the blacksmith. She said it scratched her best steel without leaving a mark on itself.",
         "He wouldn't say where the vein was, but he was coming from the northwest and his boots were caked in red clay.",
-        "The sliver he kept glows faintly at night. Not bright: just a blue-green shimmer you can see if the room is dark enough. He keeps it wrapped in cloth now."
+        "The sliver he kept glows faintly at night. Not bright. Just a blue-green shimmer you can see if the room is dark enough. He keeps it wrapped in cloth now."
       ],
       "reactions": [
         "Three different people have offered to buy the location off him. He turned them all down flat.",
         "He left town the next day heading back the way he came. Haven't seen him since."
       ],
       "statCheck": {
-        "pass": "Red clay like that only sits in one stretch of the northwest hills: the old river gorge near the collapsed bridge. Narrows it down considerably.",
+        "pass": "Red clay like that only sits in one stretch of the northwest hills. The old river gorge near the collapsed bridge. Narrows it down considerably.",
         "fail": "Half the northwestern hills have clay deposits. Could be anywhere up there."
       },
       "valence": "neutral"
@@ -47,7 +47,7 @@
         "Personally, I'm more interested in where it came from than what the coins are worth. Someone sealed that chest and put it in the water on purpose."
       ],
       "statCheck": {
-        "pass": "The wax seal had a pattern pressed into it: a wave over a mountain. That's the old mark of the river traders who disappeared two centuries ago.",
+        "pass": "The wax seal had a pattern pressed into it. A wave over a mountain. That's the old mark of the river traders who disappeared two centuries ago.",
         "fail": "The markings are worn and the metal is unfamiliar. Nothing clicks, no matter how long I look at them."
       },
       "valence": "neutral"
@@ -56,7 +56,7 @@
       "id": 3,
       "intro": "An old cellar collapsed near {subject_focus_the} after the rains, and it opened up a chamber underneath that nobody knew was there.",
       "details": [
-        "The chamber has carved walls. Not rough: precise, with repeating geometric patterns that go floor to ceiling.",
+        "The chamber has carved walls. Not rough. Precise, with repeating geometric patterns that go floor to ceiling.",
         "There's a stone table in the center with slots cut into the surface. Five slots, evenly spaced, each one shaped differently.",
         "The air down there is dry and still. No dust, no cobwebs. Like it's been sealed perfectly for a very long time."
       ],
@@ -68,7 +68,7 @@
     },
     {
       "id": 4,
-      "intro": "Someone found a map scratched into the bark of a dead tree near {subject_focus_the}. Not carved recently: the bark healed over it, then the tree died.",
+      "intro": "Someone found a map scratched into the bark of a dead tree near {subject_focus_the}. Not carved recently. The bark healed over it, then the tree died.",
       "details": [
         "The lines show a path from the old well to something marked with three circles. Nobody knows what the circles mean.",
         "There are symbols along the path that match no writing I've seen, but they repeat at regular intervals.",
@@ -79,8 +79,8 @@
         "Could be nothing. Could be some shepherd's joke from fifty years ago. But those symbols looked deliberate."
       ],
       "statCheck": {
-        "pass": "The three circles match a symbol I've seen in old survey records: it was used to mark underground water sources. Whatever's at the end of that path, it's below ground.",
-        "fail": "The symbols could be anything: trail markers, property boundaries, or just idle carving. Hard to say without more context."
+        "pass": "The three circles match a symbol I've seen in old survey records. It was used to mark underground water sources. Whatever's at the end of that path, it's below ground.",
+        "fail": "The symbols could be anything. Trail markers, property boundaries, or just idle carving. Hard to say without more context."
       },
       "valence": "neutral"
     },
@@ -89,7 +89,7 @@
       "intro": "A sealed stone vault was found beneath the old foundation near {subject_focus_the}. The door is fitted so tight you can't slide a blade between the stones.",
       "details": [
         "The mason looked at the joints and said whoever built it used a technique nobody around here knows. No mortar, just precision cutting.",
-        "There's a circular depression in the door: about palm-sized, smooth, clearly meant to receive something.",
+        "There's a circular depression in the door. About palm-sized, smooth, clearly meant to receive something.",
         "The walls around the vault are ordinary fieldstone. The vault itself is a completely different grade of work, like someone built it first and the rest was piled on top."
       ],
       "reactions": [
@@ -97,7 +97,7 @@
         "It's been there longer than the building above it. That's the part that keeps me thinking."
       ],
       "statCheck": {
-        "pass": "That circular depression isn't decorative: it's a lock plate. I've read about those in old survey journals. They used a specific stone disc as a key, ground to fit exactly one door.",
+        "pass": "That circular depression isn't decorative. It's a lock plate. I've read about those in old survey journals. They used a specific stone disc as a key, ground to fit exactly one door.",
         "fail": "The depression could be damage, could be a handle, could be anything. Hard to tell with stonework this old."
       },
       "valence": "neutral"
@@ -106,16 +106,16 @@
       "id": 6,
       "intro": "The creek near {subject_focus_the} dropped low after the dry stretch, and someone spotted a metal container wedged between the rocks at the bottom.",
       "details": [
-        "It's iron, riveted, about the size of a small crate. The rivets are set in a pattern I've never seen: clustered in threes.",
+        "It's iron, riveted, about the size of a small crate. The rivets are set in a pattern I've never seen. Clustered in threes.",
         "The container is corroded shut but it rattles when you shake it. Something solid is moving around inside.",
         "It was wedged deep between two boulders. Took three people to shift it, and even then it barely moved."
       ],
       "reactions": [
-        "A few people want to pry it open. The elder says to leave it alone: if someone went to the trouble of sinking it in a creek, maybe there's a reason.",
+        "A few people want to pry it open. The elder says to leave it alone. If someone went to the trouble of sinking it in a creek, maybe there's a reason.",
         "Funny thing is, the creek has been running over that spot for as long as anyone remembers. It only showed because the water dropped to nothing."
       ],
       "statCheck": {
-        "pass": "Rivets clustered in threes like that are an old military pattern. That's not a merchant's lockbox: it's a field cache. Whatever's inside, someone meant to come back for it.",
+        "pass": "Rivets clustered in threes like that are an old military pattern. That's not a merchant's lockbox. It's a field cache. Whatever's inside, someone meant to come back for it.",
         "fail": "Rivets are rivets. I can't tell a soldier's work from a tinker's just by looking at them."
       },
       "valence": "neutral"
@@ -133,16 +133,16 @@
         "I keep wondering what kind of person walls something up and never comes back for it. Something must have stopped them."
       ],
       "statCheck": {
-        "pass": "The cloth wrapping uses a specific fold pattern: overlapping corners sealed with tallow. That's a preservation method used by the old trade guilds for high-value goods in transit. Whoever packed those bundles knew what they were protecting.",
+        "pass": "The cloth wrapping uses a specific fold pattern. Overlapping corners sealed with tallow. That's a preservation method used by the old trade guilds for high-value goods in transit. Whoever packed those bundles knew what they were protecting.",
         "fail": "It's oiled cloth. People wrap all sorts of things in oiled cloth. Doesn't narrow it down much."
       },
       "valence": "neutral"
     },
     {
       "id": 8,
-      "intro": "Someone brought a strange key into {subject_focus_the} last week. Not iron, not bronze: something darker, heavier, and the teeth are shaped like nothing any locksmith here has seen.",
+      "intro": "Someone brought a strange key into {subject_focus_the} last week. Not iron, not bronze. Something darker, heavier, and the teeth are shaped like nothing any locksmith here has seen.",
       "details": [
-        "The bow of the key has a symbol cast into it: two crossed lines inside a circle. Clean casting, no file marks.",
+        "The bow of the key has a symbol cast into it. Two crossed lines inside a circle. Clean casting, no file marks.",
         "It doesn't rust. A locksmith soaked it in vinegar for a day as a test and it came out looking exactly the same.",
         "The person who found it says it was buried under a flat stone near a collapsed wall. Just the key, nothing else."
       ],
@@ -151,25 +151,25 @@
         "A key without a lock is either a promise or a warning. I haven't decided which."
       ],
       "statCheck": {
-        "pass": "That symbol: two crossed lines in a circle. I've seen it once before, on a keystone over a sealed doorway in the hills. If this key goes to that door, someone hid the key a long way from the lock on purpose.",
+        "pass": "That symbol. Two crossed lines in a circle. I've seen it once before, on a keystone over a sealed doorway in the hills. If this key goes to that door, someone hid the key a long way from the lock on purpose.",
         "fail": "The symbol doesn't match anything I can place. Could be a maker's mark, could be a house seal. Without more context it's just a shape."
       },
       "valence": "neutral"
     },
     {
       "id": 9,
-      "intro": "A farmer near {subject_focus_the} was digging a new root cellar and hit cut stone about four feet down. Not natural bedrock: shaped blocks with tool marks.",
+      "intro": "A farmer near {subject_focus_the} was digging a new root cellar and hit cut stone about four feet down. Not natural bedrock. Shaped blocks with tool marks.",
       "details": [
         "The blocks are fitted together without mortar, and the surface is smooth on the top face but rough on the sides. Someone meant the top to be a floor.",
         "He dug along the edge for about ten paces and it kept going. Whatever's down there is bigger than his plot.",
-        "There are grooves cut into the stone at regular intervals: narrow, straight, like channels for something to flow through."
+        "There are grooves cut into the stone at regular intervals. Narrow, straight, like channels for something to flow through."
       ],
       "reactions": [
         "He filled the hole back in and planted over it. Says he doesn't need that kind of attention on his land.",
         "I don't blame him. Last thing a farmer wants is people trampling his fields looking for buried treasure that may not exist."
       ],
       "statCheck": {
-        "pass": "Channels like that in old stonework served two purposes: drainage or guiding light from above. If they're drainage, there's a cistern somewhere below. If they're for light, there's a chamber with an opening that's since been buried.",
+        "pass": "Channels like that in old stonework served two purposes. Drainage or guiding light from above. If they're drainage, there's a cistern somewhere below. If they're for light, there's a chamber with an opening that's since been buried.",
         "fail": "Old stonework has grooves for all sorts of reasons. Could be structural, could be decorative. I wouldn't read too much into them."
       },
       "valence": "neutral"
@@ -178,12 +178,12 @@
       "id": 10,
       "intro": "A trader passing through {subject_focus_the} was carrying a set of tools that our smith couldn't explain. The steel was too fine, the handles too precisely weighted.",
       "details": [
-        "Our smith held one of the chisels up to the light and said the grain of the steel was wrong: layered in a way she's never managed to reproduce.",
+        "Our smith held one of the chisels up to the light and said the grain of the steel was wrong. Layered in a way she's never managed to reproduce.",
         "The trader said he found the tools in a collapsed structure about three days east. Just sitting in a stone niche, wrapped in dry straw.",
         "He tried to sell them but nobody would meet his price. He's convinced they're worth more than anything in his cart."
       ],
       "reactions": [
-        "The smith offered to buy just one chisel to study the metalwork. He refused: says the set has to stay together.",
+        "The smith offered to buy just one chisel to study the metalwork. He refused. Says the set has to stay together.",
         "Tools don't survive like that unless someone stored them with care. Whoever left them expected to come back."
       ],
       "statCheck": {
@@ -194,7 +194,7 @@
     },
     {
       "id": 11,
-      "intro": "Gemstones turned up in the stream bed near {subject_focus_the} after the last flood. Small ones, but clear and well-shaped: not the kind of thing that just washes downstream.",
+      "intro": "Gemstones turned up in the stream bed near {subject_focus_the} after the last flood. Small ones, but clear and well-shaped. Not the kind of thing that just washes downstream.",
       "details": [
         "A child found the first three. Then an older woman found two more about twenty paces upstream. All in the same stretch of water.",
         "They're pale blue, faceted naturally or cut so long ago the edges have softened. Hard to tell which.",
@@ -205,16 +205,16 @@
         "I'd rather know where they came from than keep the stones. Five gemstones washing out of nowhere is a clue, not a payday."
       ],
       "statCheck": {
-        "pass": "If the flood opened a deposit, it would scatter stones randomly. These were clustered in a thirty-pace stretch, which means they came from the same container: a pouch, a box, something that broke apart. That's not a natural deposit. Someone stashed them upstream.",
+        "pass": "If the flood opened a deposit, it would scatter stones randomly. These were clustered in a thirty-pace stretch, which means they came from the same container. A pouch, a box, something that broke apart. That's not a natural deposit. Someone stashed them upstream.",
         "fail": "Floods move things around. They could have come from anywhere between here and the headwaters."
       },
       "valence": "neutral"
     },
     {
       "id": 12,
-      "intro": "An abandoned camp was found off the main road near {subject_focus_the}. Whoever left it behind didn't take their cargo: three sealed crates stacked under a lean-to.",
+      "intro": "An abandoned camp was found off the main road near {subject_focus_the}. Whoever left it behind didn't take their cargo. Three sealed crates stacked under a lean-to.",
       "details": [
-        "The crates are heavy, well-made, and marked with a stamp nobody recognizes: a diamond shape with a line through the center.",
+        "The crates are heavy, well-made, and marked with a stamp nobody recognizes. A diamond shape with a line through the center.",
         "The lean-to is old but the crates aren't weathered. Someone built the shelter first and moved the crates in later.",
         "There's a cold fire pit and a bedroll that's been chewed by animals, but the crates are untouched. Whatever's inside, even the wildlife left it alone."
       ],
@@ -223,7 +223,7 @@
         "Three crates under a lean-to in the middle of nowhere. Either someone is coming back for them, or something stopped them from coming back."
       ],
       "statCheck": {
-        "pass": "That diamond-and-line stamp is a waypoint marker. It was used by couriers who moved high-value goods in stages: one person carries to a cache point, a different person picks up and carries to the next. If nobody collected, the chain broke somewhere.",
+        "pass": "That diamond-and-line stamp is a waypoint marker. It was used by couriers who moved high-value goods in stages. One person carries to a cache point, a different person picks up and carries to the next. If nobody collected, the chain broke somewhere.",
         "fail": "It's a stamp I haven't seen before. Without knowing the source, I can't tell you what's in them or who they belong to."
       },
       "valence": "neutral"
@@ -232,9 +232,9 @@
       "id": 13,
       "intro": "A carved bone turned up near {subject_focus_the}. Flat, about the length of a hand, with markings on both sides that look like directions.",
       "details": [
-        "One side has notches along the edge: evenly spaced, twelve of them. The other side has what looks like a river with branches scratched into the surface.",
+        "One side has notches along the edge. Evenly spaced, twelve of them. The other side has what looks like a river with branches scratched into the surface.",
         "The bone itself is old. Yellowed, dense, too heavy to be from anything common. A hunter says it might be from something large that doesn't live around here anymore.",
-        "The river on the back doesn't match any waterway nearby. But there's a mark at one of the branches: a small X scratched deep."
+        "The river on the back doesn't match any waterway nearby. But there's a mark at one of the branches. A small X scratched deep."
       ],
       "reactions": [
         "The person who found it is carrying it around showing everyone. Personally I'd keep something like that quiet.",
@@ -242,7 +242,7 @@
       ],
       "statCheck": {
         "pass": "Twelve notches could be distance markers. If each notch represents a day's travel on foot, the X mark is about nine days from here. That lines up with the old trade route that was abandoned when the pass collapsed.",
-        "fail": "Notches on bone could mean anything: tally marks, a counting system, decoration. Without a reference point, the map is just a drawing."
+        "fail": "Notches on bone could mean anything. Tally marks, a counting system, decoration. Without a reference point, the map is just a drawing."
       },
       "valence": "neutral"
     },
@@ -250,8 +250,8 @@
       "id": 14,
       "intro": "A locked iron chest washed up on the bank downstream of {subject_focus_the}. The lock is rusted solid, but the chest itself is intact.",
       "details": [
-        "The iron is thick: thicker than you'd use for ordinary storage. This was built to survive exactly what happened to it.",
-        "There's a maker's mark on the bottom: a small hammer inside a shield. The metalwork is careful, professional.",
+        "The iron is thick. Thicker than you'd use for ordinary storage. This was built to survive exactly what happened to it.",
+        "There's a maker's mark on the bottom. A small hammer inside a shield. The metalwork is careful, professional.",
         "The chest weighs more than its size suggests. Whatever's inside adds real weight, and it shifts when you tilt it."
       ],
       "reactions": [
@@ -259,7 +259,7 @@
         "A chest that heavy, built that well, locked that tight, and put somewhere it could be carried by water. Somebody planned for this."
       ],
       "statCheck": {
-        "pass": "A hammer inside a shield: that's the mark of the garrison smiths from the old border posts. They made strongboxes for payroll transport. If this is one of those, it was lost in transit and the river carried it here over years.",
+        "pass": "A hammer inside a shield. That's the mark of the garrison smiths from the old border posts. They made strongboxes for payroll transport. If this is one of those, it was lost in transit and the river carried it here over years.",
         "fail": "A smith's mark tells you who made it, not what's inside. Could be coins, could be tools, could be records. No way to know without opening it."
       },
       "valence": "neutral"
@@ -268,12 +268,12 @@
       "id": 15,
       "intro": "There's a shrine near {subject_focus_the} that people used to leave offerings at. Nobody's gone there in years, but someone finally did, and the offering stones are covered in old valuables.",
       "details": [
-        "Rings, brooches, small blades: all tarnished but intact. Laid out in neat rows on the stone shelf, not piled or thrown.",
+        "Rings, brooches, small blades. All tarnished but intact. Laid out in neat rows on the stone shelf, not piled or thrown.",
         "Some of the pieces have settings where gems used to be, but the gems are gone. Pried out carefully, not broken.",
         "The shrine itself is overgrown and half-collapsed, but the shelf where the offerings sit is perfectly dry. The stone above it channels water away like a gutter."
       ],
       "reactions": [
-        "Nobody wants to take them. Old offerings at a forgotten shrine: that's the kind of thing that comes with a price nobody can name.",
+        "Nobody wants to take them. Old offerings at a forgotten shrine. That's the kind of thing that comes with a price nobody can name.",
         "I respect the caution, but I also think a pile of good metalwork sitting there for decades is just waste."
       ],
       "statCheck": {
@@ -284,10 +284,10 @@
     },
     {
       "id": 16,
-      "intro": "A merchant's strongbox was found bricked into a wall near {subject_focus_the} during repairs. The brickwork around it was newer than the rest of the wall: someone added it after the building was finished.",
+      "intro": "A merchant's strongbox was found bricked into a wall near {subject_focus_the} during repairs. The brickwork around it was newer than the rest of the wall. Someone added it after the building was finished.",
       "details": [
         "The strongbox is iron-banded wood with three separate locks. Two are still locked. The third was forced at some point, but the box didn't open because the other two held.",
-        "Inside the brickwork, packed around the box, were layers of straw and clay. Insulation: someone was protecting the contents from moisture and temperature changes.",
+        "Inside the brickwork, packed around the box, were layers of straw and clay. Insulation. Someone was protecting the contents from moisture and temperature changes.",
         "The wall it was hidden in faces north, which is the coolest side of the building. Deliberate placement."
       ],
       "reactions": [
@@ -295,7 +295,7 @@
         "The forced lock bothers me. Someone knew it was there and tried once. They failed, but the fact that they knew is the real question."
       ],
       "statCheck": {
-        "pass": "Three locks on a single box usually means three different keyholders. It's a safeguarding practice: no one person can open it alone. That tells you this belonged to a group, not an individual. A council, a guild, a partnership.",
+        "pass": "Three locks on a single box usually means three different keyholders. It's a safeguarding practice. No one person can open it alone. That tells you this belonged to a group, not an individual. A council, a guild, a partnership.",
         "fail": "Three locks is unusual, but some merchants are just cautious. Without the keys, it's hard to say whether it means anything."
       },
       "valence": "neutral"
@@ -304,8 +304,8 @@
       "id": 17,
       "intro": "Burial goods started surfacing in the field east of {subject_focus_the} after the plowing. Clay jars, bone fragments, and a bronze disc that caught the light from fifty paces.",
       "details": [
-        "The bronze disc is engraved with a figure holding something overhead: a sun, maybe, or a wheel. The detail is fine enough that you can count the fingers.",
-        "The clay jars were sealed with pitch. One cracked during plowing and a dark powder spilled out: fine, dry, with a sharp smell like old herbs.",
+        "The bronze disc is engraved with a figure holding something overhead. A sun, maybe, or a wheel. The detail is fine enough that you can count the fingers.",
+        "The clay jars were sealed with pitch. One cracked during plowing and a dark powder spilled out. Fine, dry, with a sharp smell like old herbs.",
         "The farmer found them in a line running north to south. Five jars, evenly spaced, like they mark a boundary or a path."
       ],
       "reactions": [
@@ -313,7 +313,7 @@
         "I don't love the idea of farming over someone's grave goods. But nobody alive knows who's down there or what they'd want done about it."
       ],
       "statCheck": {
-        "pass": "Five jars in a line is a boundary marker tradition. Each jar would contain something representative: grain, ash, metal filings, herb powder, salt. They weren't burial goods. They were defining the edge of something. Whatever's significant is on one side of that line, not under it.",
+        "pass": "Five jars in a line is a boundary marker tradition. Each jar would contain something representative. Grain, ash, metal filings, herb powder, salt. They weren't burial goods. They were defining the edge of something. Whatever's significant is on one side of that line, not under it.",
         "fail": "Old jars in a field usually mean someone buried them to preserve the contents. Could be stores, could be ritual. Without more finds, it's guesswork."
       },
       "valence": "neutral"
@@ -323,8 +323,8 @@
       "intro": "A collapsed cellar near {subject_focus_the} turned out to still have intact goods on the shelves. Sealed jars with contents nobody can identify.",
       "details": [
         "The jars are ceramic, glazed with a blue-green finish that hasn't cracked or flaked. The seals are wax over cork, still tight after all this time.",
-        "One jar was opened carefully. Inside was a thick, amber liquid that smells faintly sweet. Not honey, not oil: something else entirely.",
-        "There are markings on each jar: a different symbol scratched into the glaze before firing. Whatever system it is, there are eight distinct marks across the collection."
+        "One jar was opened carefully. Inside was a thick, amber liquid that smells faintly sweet. Not honey, not oil. Something else entirely.",
+        "There are markings on each jar. A different symbol scratched into the glaze before firing. Whatever system it is, there are eight distinct marks across the collection."
       ],
       "reactions": [
         "The herbalist tasted a drop of the amber liquid and said it tingled on her tongue and numbed her lips for an hour. She hasn't tried again.",
@@ -338,10 +338,10 @@
     },
     {
       "id": 19,
-      "intro": "Carved waymarkers were found along a trail near {subject_focus_the}: stone posts with directional arrows and notched tops. Nobody put them there recently.",
+      "intro": "Carved waymarkers were found along a trail near {subject_focus_the}. Stone posts with directional arrows and notched tops. Nobody put them there recently.",
       "details": [
         "There are four of them, each about knee height, spaced roughly a quarter hour's walk apart. The arrows on each one point to the next.",
-        "The notches on top are different on each post: one notch, two notches, three, four. Counting up toward wherever the path leads.",
+        "The notches on top are different on each post. One notch, two notches, three, four. Counting up toward wherever the path leads.",
         "The trail they follow doesn't match any current road or path. It cuts across terrain that's been unused for as long as anyone can remember."
       ],
       "reactions": [
@@ -358,7 +358,7 @@
       "id": 20,
       "intro": "An underwater glint near {subject_focus_the} has been catching people's attention. Something at the bottom of the pool is reflecting light, and it's too bright to be natural stone.",
       "details": [
-        "A boy tried to dive for it and said it's deeper than it looks: the bottom drops off sharply about six feet from the edge.",
+        "A boy tried to dive for it and said it's deeper than it looks. The bottom drops off sharply about six feet from the edge.",
         "On clear days you can see the shape. It's flat, rectangular, about the size of a shield. Whatever it is, it's sitting on a ledge just above the true bottom.",
         "The water is cold year-round in that pool. Spring-fed, people say. Nobody swims there long enough to reach the bottom comfortably."
       ],
@@ -367,7 +367,7 @@
         "Could be a piece of polished stone that fell in years ago. Could be something worth getting cold and wet for. Nobody knows because nobody's tried."
       ],
       "statCheck": {
-        "pass": "A flat, rectangular shape sitting on a ledge, not the bottom: that's not something that fell in. Things that fall settle at the lowest point. Something placed on a ledge was put there deliberately, and the cold spring-fed water would preserve metal almost indefinitely.",
+        "pass": "A flat, rectangular shape sitting on a ledge, not the bottom. That's not something that fell in. Things that fall settle at the lowest point. Something placed on a ledge was put there deliberately, and the cold spring-fed water would preserve metal almost indefinitely.",
         "fail": "Shiny things in water look more interesting than they usually are. Wet stone, mica, even certain types of clay can catch light from the right angle."
       },
       "valence": "neutral"
@@ -376,7 +376,7 @@
       "id": 21,
       "intro": "Foundation stones were pulled up during construction near {subject_focus_the}, and several of them had hollowed-out compartments inside. Small cavities, roughly carved, sealed with plugs of different stone.",
       "details": [
-        "Three stones out of about forty had compartments. The rest were solid. No pattern to which ones were hollow: they were scattered through the foundation at random.",
+        "Three stones out of about forty had compartments. The rest were solid. No pattern to which ones were hollow. They were scattered through the foundation at random.",
         "The plugs were ground to fit snugly and sealed with pitch. One compartment held a coil of thin wire. Another held a folded sheet of metal with scratched markings.",
         "The wire is a dark alloy that bends without breaking. The smith tested it against her tools and says it's harder than anything she works with."
       ],
@@ -385,25 +385,25 @@
         "Hiding things inside foundation stones is clever. You'd have to tear down the building and break the stones to find them. Whoever did this was thinking long-term."
       ],
       "statCheck": {
-        "pass": "That folded metal sheet with scratched markings: if it's soft enough to fold and hard enough to survive centuries, it might be a record. Some old builders used thin metal sheets instead of parchment for anything that needed to outlast a building. Those scratches could be readable with the right light.",
+        "pass": "That folded metal sheet with scratched markings. If it's soft enough to fold and hard enough to survive centuries, it might be a record. Some old builders used thin metal sheets instead of parchment for anything that needed to outlast a building. Those scratches could be readable with the right light.",
         "fail": "Old foundations turn up all sorts of things. People have been building on the same ground for generations. Not everything hidden was hidden for a reason."
       },
       "valence": "neutral"
     },
     {
       "id": 22,
-      "intro": "A hidden room was discovered behind a wall in an old building near {subject_focus_the}. Not a compartment: a full room, with a door that had been plastered over and a window that was bricked shut.",
+      "intro": "A hidden room was discovered behind a wall in an old building near {subject_focus_the}. Not a compartment. A full room, with a door that had been plastered over and a window that was bricked shut.",
       "details": [
         "The room is small, about eight paces square, with a flagstone floor and bare walls. There's a stone bench along one side and iron hooks set into the ceiling.",
         "The door was sealed from the outside. Whoever closed it up didn't want anyone getting in, or didn't want whatever was inside getting out.",
-        "In the corner there's a drain set into the floor: a proper one, cut through the foundation. The room was built with plumbing, which means it was meant to be used."
+        "In the corner there's a drain set into the floor. A proper one, cut through the foundation. The room was built with plumbing, which means it was meant to be used."
       ],
       "reactions": [
         "The building has changed hands four times in living memory. None of the owners knew about the room.",
         "A room with hooks, a bench, a drain, and a sealed door. I can think of a few purposes, and none of them are cheerful."
       ],
       "statCheck": {
-        "pass": "Iron hooks in the ceiling and a drain in the floor: that's a curing room. For preserving meat, treating hides, or drying herbs in bulk. The sealed door and bricked window kept the temperature constant. It wasn't sinister: it was practical, and whatever was stored in there last might still be in the drain channel.",
+        "pass": "Iron hooks in the ceiling and a drain in the floor. That's a curing room. For preserving meat, treating hides, or drying herbs in bulk. The sealed door and bricked window kept the temperature constant. It wasn't sinister. It was practical, and whatever was stored in there last might still be in the drain channel.",
         "fail": "An old room behind a wall could have been anything. Storage, a workshop, living space. Without more to go on, the purpose is anyone's guess."
       },
       "valence": "neutral"
@@ -413,7 +413,7 @@
       "intro": "Someone near {subject_focus_the} found a set of engraved stones half-buried on a hillside. Four flat pieces, each with lines and symbols that seem to fit together like a puzzle.",
       "details": [
         "When you lay them side by side in the right arrangement, the lines connect and form what looks like a layout of rooms or corridors.",
-        "One of the stones has a mark that the others don't: a small circle with a dot in the center, placed at the end of a long corridor line.",
+        "One of the stones has a mark that the others don't. A small circle with a dot in the center, placed at the end of a long corridor line.",
         "The stones are a uniform thickness and size, cut to match. Whoever made them wanted the set to be portable and reassemblable."
       ],
       "reactions": [
@@ -421,7 +421,7 @@
         "If it's a map of corridors, it's a map of someplace underground. You don't draw corridors for open ground."
       ],
       "statCheck": {
-        "pass": "A circle with a dot at the end of a corridor: that's a universal symbol for a destination or a terminus. It marks where you're meant to end up. The multiple valid arrangements might be intentional: the map shows different routes to the same point, depending on which entrance you use.",
+        "pass": "A circle with a dot at the end of a corridor. That's a universal symbol for a destination or a terminus. It marks where you're meant to end up. The multiple valid arrangements might be intentional. The map shows different routes to the same point, depending on which entrance you use.",
         "fail": "Lines on stones could be a map, could be a game board, could be an artist's exercise. Without knowing what it's a map of, the arrangement doesn't tell us much."
       },
       "valence": "neutral"
@@ -430,7 +430,7 @@
       "id": 24,
       "intro": "A traveler came through {subject_focus_the} selling what she called a direction stone. A flat rock with a needle of dark metal embedded in one face that always points the same way, even when you spin it.",
       "details": [
-        "The needle is set flush with the surface, seated in a tiny groove so it can rotate freely. The craftsmanship is exact: there's no wobble, no friction.",
+        "The needle is set flush with the surface, seated in a tiny groove so it can rotate freely. The craftsmanship is exact. There's no wobble, no friction.",
         "The strange part is, it doesn't point north. It points toward the hills to the east, consistently, no matter where you stand.",
         "She says she found it in a cairn near a dried-up riverbed. The cairn had three stones stacked with spaces between them, like shelves, and the direction stone was on the middle shelf."
       ],
@@ -439,18 +439,18 @@
         "She wanted a good price for it, and nobody paid. Now she's moved on and the stone with her. Might regret letting that one walk."
       ],
       "statCheck": {
-        "pass": "A needle that always points the same direction regardless of position: it's not magnetic, or it would drift near iron. Something at the destination is pulling it. If you could get hold of that stone and walk the direction it points, you'd walk right to whatever it was made to find.",
+        "pass": "A needle that always points the same direction regardless of position. It's not magnetic, or it would drift near iron. Something at the destination is pulling it. If you could get hold of that stone and walk the direction it points, you'd walk right to whatever it was made to find.",
         "fail": "Some metals behave strangely near certain kinds of rock. Could be a natural oddity dressed up to look deliberate."
       },
       "valence": "neutral"
     },
     {
       "id": 25,
-      "intro": "A hunter near {subject_focus_the} found a cave entrance behind a rockfall. The rocks hadn't fallen naturally: they'd been stacked, deliberately, to block the opening.",
+      "intro": "A hunter near {subject_focus_the} found a cave entrance behind a rockfall. The rocks hadn't fallen naturally. They'd been stacked, deliberately, to block the opening.",
       "details": [
-        "The stacking was careful: large stones at the base, smaller ones wedged in to fill gaps, with mud packed over the whole thing. Someone spent days on this.",
+        "The stacking was careful. Large stones at the base, smaller ones wedged in to fill gaps, with mud packed over the whole thing. Someone spent days on this.",
         "Through the gaps you can feel air moving outward. The cave breathes, which means it connects to another opening somewhere deeper.",
-        "The hunter pulled one stone loose and shone a light inside. She said the floor past the entrance is smooth: worn flat, like a path that's been walked for years."
+        "The hunter pulled one stone loose and shone a light inside. She said the floor past the entrance is smooth. Worn flat, like a path that's been walked for years."
       ],
       "reactions": [
         "She put the stone back and told only a few people. Smart. An open cave with a worn floor attracts the wrong kind of attention.",
@@ -467,51 +467,51 @@
       "intro": "An old trade cache turned up near {subject_focus_the} when a section of path gave way underfoot. A lined pit, covered with timber and earth, with goods still inside.",
       "details": [
         "The pit is about chest-deep, lined with flat stones and packed clay. Dry inside despite the soil around it being damp. Good engineering.",
-        "The goods are wrapped in waxed canvas: bolts of cloth, coils of cordage, and a set of bronze weights still in their fitted case.",
-        "The timber cover was solid until foot traffic finally broke through it. It was designed to bear weight: someone expected people and carts to pass over without knowing the cache was there."
+        "The goods are wrapped in waxed canvas. Bolts of cloth, coils of cordage, and a set of bronze weights still in their fitted case.",
+        "The timber cover was solid until foot traffic finally broke through it. It was designed to bear weight. Someone expected people and carts to pass over without knowing the cache was there."
       ],
       "reactions": [
         "The weights are stamped with a measurement system nobody around here uses. Wherever these goods came from, it wasn't close.",
-        "A cache like that is a trader's insurance: a supply stash along a route in case the main cargo was lost. The route must have moved, and the cache was forgotten."
+        "A cache like that is a trader's insurance. A supply stash along a route in case the main cargo was lost. The route must have moved, and the cache was forgotten."
       ],
       "statCheck": {
-        "pass": "Those bronze weights in a fitted case: that's a standard trading kit, but the stamps use an older measurement standard that fell out of use when the trade roads shifted. This cache predates the current road system entirely. The path above it isn't the original route: it was built later, right on top, without anyone knowing.",
+        "pass": "Those bronze weights in a fitted case. That's a standard trading kit, but the stamps use an older measurement standard that fell out of use when the trade roads shifted. This cache predates the current road system entirely. The path above it isn't the original route. It was built later, right on top, without anyone knowing.",
         "fail": "Traders stash goods along their routes all the time. Some get forgotten. It's useful to have, but it doesn't point to anything larger."
       },
       "valence": "neutral"
     },
     {
       "id": 27,
-      "intro": "A deep crack opened in the ground near {subject_focus_the} after the tremor last month. Down inside, about fifteen feet, there's worked stone: arches, fitted blocks, something built.",
+      "intro": "A deep crack opened in the ground near {subject_focus_the} after the tremor last month. Down inside, about fifteen feet, there's worked stone. Arches, fitted blocks, something built.",
       "details": [
         "The arches are intact despite the collapse above them. Whoever built down there used a different grade of stone than anything on the surface.",
         "Through the crack you can see what looks like a passageway running horizontal. It continues in both directions past where the light reaches.",
-        "There's water trickling along the bottom of the passage: not standing water, running water, like the passage was built to channel it somewhere."
+        "There's water trickling along the bottom of the passage. Not standing water, running water, like the passage was built to channel it somewhere."
       ],
       "reactions": [
         "Nobody's gone down there. The crack isn't wide enough for a person, and widening it could bring the whole edge down.",
         "A passageway with arches and water channels doesn't get built by accident. That's infrastructure. Someone built a system down there, and we've been living right on top of it."
       ],
       "statCheck": {
-        "pass": "Arched passages with water channels are aqueduct construction. The water isn't a leak: the passage was built to carry it. If you can trace where the channel leads, you'll find either a cistern or a collection basin. And wherever that is, there will be more construction around it.",
-        "fail": "Old stonework underground could be anything: a collapsed building, a buried wall, foundations from something that used to stand here. Without getting down there, all you've got is what you can see from above."
+        "pass": "Arched passages with water channels are aqueduct construction. The water isn't a leak. The passage was built to carry it. If you can trace where the channel leads, you'll find either a cistern or a collection basin. And wherever that is, there will be more construction around it.",
+        "fail": "Old stonework underground could be anything. A collapsed building, a buried wall, foundations from something that used to stand here. Without getting down there, all you've got is what you can see from above."
       },
       "valence": "neutral"
     },
     {
       "id": 28,
-      "intro": "A stone carver near {subject_focus_the} was hired to cut blocks from a hillside quarry and found a seam of polished stone running through the rock: smooth, glassy, deliberately shaped.",
+      "intro": "A stone carver near {subject_focus_the} was hired to cut blocks from a hillside quarry and found a seam of polished stone running through the rock. Smooth, glassy, deliberately shaped.",
       "details": [
         "The seam runs about a hand's width and goes deep into the hillside. It's perfectly straight, which is the part that doesn't make sense naturally.",
         "The surface of the seam is polished to a mirror finish. You can see your reflection in it, even through the dust.",
-        "Where the carver chipped away the surrounding rock, the seam continues at the same width and angle. It doesn't narrow, doesn't branch: it just keeps going."
+        "Where the carver chipped away the surrounding rock, the seam continues at the same width and angle. It doesn't narrow, doesn't branch. It just keeps going."
       ],
       "reactions": [
         "The carver stopped cutting near it. He says you don't break apart something you don't understand, especially when it's been in the rock longer than anyone can account for.",
         "A polished seam in raw stone doesn't occur in nature. Not like that. Something made it, or something left it there."
       ],
       "statCheck": {
-        "pass": "If the seam maintains its width and polish deep into the hillside, it may be the edge of something larger: a slab, a wall, a sealed face. The polish could be a finished surface that was buried when the hill formed around it. What's behind the seam is the real question.",
+        "pass": "If the seam maintains its width and polish deep into the hillside, it may be the edge of something larger. A slab, a wall, a sealed face. The polish could be a finished surface that was buried when the hill formed around it. What's behind the seam is the real question.",
         "fail": "Unusual mineral veins crop up in quarries sometimes. Quartz forms straight lines under the right conditions. I'd need to see it myself before drawing conclusions."
       },
       "valence": "neutral"
@@ -521,15 +521,15 @@
       "intro": "A group of children playing near {subject_focus_the} found a narrow staircase going down behind a collapsed retaining wall. The stairs are intact, each step worn smooth in the center from use.",
       "details": [
         "The staircase spirals as it descends. After about twenty steps the light from above gives out and you can't see what's at the bottom.",
-        "The walls of the stairwell are close: barely shoulder-width apart. There are sconces set into the stone every ten steps, empty now, but cut with purpose.",
+        "The walls of the stairwell are close. Barely shoulder-width apart. There are sconces set into the stone every ten steps, empty now, but cut with purpose.",
         "The air coming up from below is cool and dry. No dampness, no mold. Whatever's down there has been sealed from moisture."
       ],
       "reactions": [
         "The children said they started down the steps and lost their nerve at the dark. I'm not sure I'd have been braver.",
-        "A spiral staircase with sconces built into the walls. Somebody went up and down those stairs often enough to wear grooves into the stone. That's not a one-time construction: it's a route."
+        "A spiral staircase with sconces built into the walls. Somebody went up and down those stairs often enough to wear grooves into the stone. That's not a one-time construction. It's a route."
       ],
       "statCheck": {
-        "pass": "Steps worn smooth in the center but not at the edges: that tells you single-file traffic, in one direction more than the other. The wear is heaviest on the downward-facing side of each step. More people went down than came back up. Either they left by another exit, or whatever's at the bottom was worth staying for.",
+        "pass": "Steps worn smooth in the center but not at the edges. That tells you single-file traffic, in one direction more than the other. The wear is heaviest on the downward-facing side of each step. More people went down than came back up. Either they left by another exit, or whatever's at the bottom was worth staying for.",
         "fail": "Old stairs go to old rooms. Could be a cellar, could be a cistern, could be a root store. Without going down, there's no telling."
       },
       "valence": "neutral"

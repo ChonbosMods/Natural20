@@ -64,7 +64,7 @@
         "I don't like it when people ask questions without answering any."
       ],
       "statCheck": {
-        "pass": "Could be a tax assessor. They do that: count heads, estimate what a place is worth. Never means anything good for us.",
+        "pass": "Could be a tax assessor. They do that. Count heads, estimate what a place is worth. Never means anything good for us.",
         "fail": "I don't know what they were after. Just gave me an uneasy feeling."
       },
       "valence": "negative",
@@ -84,7 +84,7 @@
         "You don't realize how much you depend on someone until they stop showing up."
       ],
       "statCheck": {
-        "pass": "Regular traders who break pattern usually have a reason: road trouble, illness, or they've found a more profitable route. If it's the last one, they're not coming back.",
+        "pass": "Regular traders who break pattern usually have a reason. Road trouble, illness, or they've found a more profitable route. If it's the last one, they're not coming back.",
         "fail": "Could be anything. No way to know from here."
       },
       "valence": "negative",
@@ -342,7 +342,7 @@
     },
     {
       "id": 19,
-      "intro": "I recognized one of the traders who came through: used to live here years ago.",
+      "intro": "I recognized one of the traders who came through. Used to live here years ago.",
       "details": [
         "Left to make something of themselves, I suppose. Came back with a full cart and new clothes.",
         "Didn't stay long. Sold what they had and moved on before sundown."
@@ -919,7 +919,7 @@
         "We'll see how it shakes out. Nothing to do but wait."
       ],
       "statCheck": {
-        "pass": "New leaders usually consolidate first: tighten what they control, then slowly open up trade once they're secure. We should expect a quiet period before things normalize.",
+        "pass": "New leaders usually consolidate first. Tighten what they control, then slowly open up trade once they're secure. We should expect a quiet period before things normalize.",
         "fail": "Politics aren't my area. I just hope the prices stay reasonable."
       },
       "valence": "neutral",
@@ -990,7 +990,7 @@
         "When something's too good to be true out here, it usually is."
       ],
       "statCheck": {
-        "pass": "They probably needed to offload it fast. Stolen goods or debts: either way, buying it makes you part of someone else's problem.",
+        "pass": "They probably needed to offload it fast. Stolen goods or debts. Either way, buying it makes you part of someone else's problem.",
         "fail": "My gut said no. That's enough for me."
       },
       "valence": "negative",
@@ -2665,7 +2665,7 @@
     },
     {
       "id": 150,
-      "intro": "A trader showed up with a cart full of candles. Good ones, too: beeswax, not tallow.",
+      "intro": "A trader showed up with a cart full of candles. Good ones, too. Beeswax, not tallow.",
       "details": [
         "We've been using tallow for so long I forgot what a proper candle smells like. The whole room changes.",
         "Bought a dozen. Probably should've bought more, but I wasn't sure when I'd see coins again."
@@ -2702,7 +2702,7 @@
     },
     {
       "id": 152,
-      "intro": "I counted the traders who came through this season: twelve, two more than last year.",
+      "intro": "I counted the traders who came through this season. Twelve, two more than last year.",
       "details": [
         "Doesn't sound like much, but each one brings something we need. Two extra visits adds up.",
         "I started keeping track a few years back. The numbers tell you which way things are heading."
@@ -2796,7 +2796,7 @@
     },
     {
       "id": 157,
-      "intro": "There's a trader who only deals in dried herbs. Nothing else: just herbs.",
+      "intro": "There's a trader who only deals in dried herbs. Nothing else. Just herbs.",
       "details": [
         "You'd think that's too narrow to make a living, but they seem to do fine. Every settlement needs them.",
         "They know more about plants than anyone I've met. Can tell you what each one does just by smelling it."
@@ -2842,7 +2842,7 @@
         "Bad nails waste more time than no nails. At least with nothing, you know to wait."
       ],
       "statCheck": {
-        "pass": "Soft nails usually mean they skipped the hardening step: forged fast and sold cheap. Ask for a sample nail next time and test it yourself.",
+        "pass": "Soft nails usually mean they skipped the hardening step. Forged fast and sold cheap. Ask for a sample nail next time and test it yourself.",
         "fail": "I just know they don't work right. That's all that matters to me."
       },
       "valence": "negative",
@@ -3081,7 +3081,7 @@
         "I'd be mad if I didn't wish I'd thought of it first."
       ],
       "statCheck": {
-        "pass": "{npc_name} is playing the same game every market town has figured out: information advantage. The person who knows the inventory first controls the best deals.",
+        "pass": "{npc_name} is playing the same game every market town has figured out. Information advantage. The person who knows the inventory first controls the best deals.",
         "fail": "Clever, I suppose. I just wish I'd thought of it."
       },
       "valence": "neutral",
@@ -3118,7 +3118,7 @@
         "I'll take dust over mud, but only just."
       ],
       "statCheck": {
-        "pass": "Dust season is actually good for dried goods: less moisture damage in transit. The traders who come now bring better-preserved stock than the ones who come after the rains.",
+        "pass": "Dust season is actually good for dried goods. Less moisture damage in transit. The traders who come now bring better-preserved stock than the ones who come after the rains.",
         "fail": "I just wish it wasn't so gritty. Gets into everything."
       },
       "valence": "neutral",
@@ -3155,7 +3155,7 @@
         "You don't appreciate the basics until you almost lose them."
       ],
       "statCheck": {
-        "pass": "Any supply you can't produce locally and can't substitute should be double-stocked at all times. Salt, oil, and medicine: those are the three you never let run low.",
+        "pass": "Any supply you can't produce locally and can't substitute should be double-stocked at all times. Salt, oil, and medicine. Those are the three you never let run low.",
         "fail": "I just know we can't let it happen again."
       },
       "valence": "negative",
@@ -3168,7 +3168,7 @@
       "id": 177,
       "intro": "A merchant from {other_settlement} was surprised we grow our own vegetables. Said most settlements his size don't bother.",
       "details": [
-        "We started because we had to: nobody was bringing them. Now it's just what we do.",
+        "We started because we had to. Nobody was bringing them. Now it's just what we do.",
         "He said the quality was better than what he sells. I think he was being kind, but it felt good."
       ],
       "reactions": [
@@ -3189,7 +3189,7 @@
         "Eventually {npc_name} scooped them up and put them toward communal supplies. Seemed fair."
       ],
       "reactions": [
-        "Still don't know what that was about. Generosity or forgetfulness: either way, we ate better that week."
+        "Still don't know what that was about. Generosity or forgetfulness. Either way, we ate better that week."
       ],
       "statCheck": null,
       "valence": "neutral",
@@ -3209,7 +3209,7 @@
         "Reliability is the rarest thing a trader can offer. Rarer than good prices."
       ],
       "statCheck": {
-        "pass": "A trader who keeps their schedule does so because their whole route depends on it. The reliable ones aren't being kind: they're being professional.",
+        "pass": "A trader who keeps their schedule does so because their whole route depends on it. The reliable ones aren't being kind. They're being professional.",
         "fail": "Some come back, some don't. That's all I've learned."
       },
       "valence": "neutral",
@@ -3354,7 +3354,7 @@
         "The wood was already seasoned and split, ready to burn. Saved me a day's work."
       ],
       "reactions": [
-        "That's the trade I like best: no coins, no haggling, just exchanging surplus."
+        "That's the trade I like best. No coins, no haggling, just exchanging surplus."
       ],
       "statCheck": null,
       "valence": "positive",
@@ -3401,7 +3401,7 @@
       "id": 190,
       "intro": "There's a trader who always brings bad news along with decent goods. Hard to enjoy the purchase.",
       "details": [
-        "Every visit it's something: prices going up, another settlement struggling, roads getting worse.",
+        "Every visit it's something. Prices going up, another settlement struggling, roads getting worse.",
         "I think they genuinely mean well, but the doom talk wears on you."
       ],
       "reactions": [
@@ -3419,7 +3419,7 @@
     },
     {
       "id": 191,
-      "intro": "A group of travelers pitched in and helped us move a fallen tree off the road. Didn't even ask: just started lifting.",
+      "intro": "A group of travelers pitched in and helped us move a fallen tree off the road. Didn't even ask. Just started lifting.",
       "details": [
         "It had been blocking the path for days. We didn't have enough hands to shift it ourselves.",
         "Took about ten minutes with all of us working together. Would've taken us a full morning."
@@ -3445,7 +3445,7 @@
         "Always weigh in front of the buyer. Saves arguments and exposes the ones looking for free grain."
       ],
       "statCheck": {
-        "pass": "It's a common pressure tactic: accuse the seller of shorting, and a nervous one will over-deliver to keep the peace. They count on people not wanting confrontation.",
+        "pass": "It's a common pressure tactic. Accuse the seller of shorting, and a nervous one will over-deliver to keep the peace. They count on people not wanting confrontation.",
         "fail": "Maybe they made an honest mistake. Didn't feel like one, though."
       },
       "valence": "negative",
@@ -3532,7 +3532,7 @@
       "id": 197,
       "intro": "The last trader who came through was also a dentist. Pulled a tooth for {npc_name} between selling onions.",
       "details": [
-        "Had a little kit: pliers, a pick, and something that smelled sharp. Done in two minutes.",
+        "Had a little kit. Pliers, a pick, and something that smelled sharp. Done in two minutes.",
         "{npc_name} paid with a sack of flour and looked more relieved than I've ever seen them."
       ],
       "reactions": [
@@ -3567,7 +3567,7 @@
     },
     {
       "id": 199,
-      "intro": "A merchant gave me a tip: wrap {resource_type} in damp cloth for storage. Keeps it from drying out.",
+      "intro": "A merchant gave me a tip. Wrap {resource_type} in damp cloth for storage. Keeps it from drying out.",
       "details": [
         "I've been storing it wrong for years, apparently. Just tossing it in the cellar and hoping for the best.",
         "Tried the damp cloth method and the difference after a week is obvious."
@@ -3593,7 +3593,7 @@
         "Manners don't cost anything. That's what makes it worse when people skip them."
       ],
       "statCheck": {
-        "pass": "People who take without acknowledging are used to impersonal trade: wells, troughs, public resources. Where they're from, those things belong to everyone.",
+        "pass": "People who take without acknowledging are used to impersonal trade. Wells, troughs, public resources. Where they're from, those things belong to everyone.",
         "fail": "I just think a nod costs nothing."
       },
       "valence": "negative",
@@ -3606,7 +3606,7 @@
       "id": 201,
       "intro": "A caravan came through with goods from so far away the labels were in a language nobody could read.",
       "details": [
-        "Sealed clay pots with wax lids. We had to open one to find out what was inside: ground pepper.",
+        "Sealed clay pots with wax lids. We had to open one to find out what was inside. Ground pepper.",
         "The merchant charged a fortune, but the pepper is incredible. A pinch goes further than I expected."
       ],
       "reactions": [
@@ -3641,7 +3641,7 @@
       "intro": "I've been teaching myself to mend harness leather so we can help traders who stop here.",
       "details": [
         "If we can fix their gear while they rest, they'll remember us. Maybe stop more often.",
-        "It's not hard work: just stitching and oiling. The trick is having the right awl."
+        "It's not hard work. Just stitching and oiling. The trick is having the right awl."
       ],
       "reactions": [
         "Being useful to the people you depend on is just good sense."
@@ -3684,7 +3684,7 @@
         "When the road goes quiet that long, you start to understand how much of your life depends on it."
       ],
       "statCheck": {
-        "pass": "Three weeks without traffic usually means a disruption somewhere upstream: a washed-out crossing, a closed pass, or a settlement that's stopped producing.",
+        "pass": "Three weeks without traffic usually means a disruption somewhere upstream. A washed-out crossing, a closed pass, or a settlement that's stopped producing.",
         "fail": "No way to know from here. We just waited."
       },
       "valence": "negative",
@@ -3752,7 +3752,7 @@
       "intro": "We found out a trader's been charging us more than they charge {other_settlement} for the same goods.",
       "details": [
         "A traveler from there mentioned the price offhandedly. It was noticeably lower than what we pay.",
-        "When I brought it up, the trader said the distance accounts for the difference. It doesn't: it's the same road."
+        "When I brought it up, the trader said the distance accounts for the difference. It doesn't. It's the same road."
       ],
       "reactions": [
         "Now I know, and they know I know. We'll see if the price changes."
@@ -3886,7 +3886,7 @@
         "Being last on the route means living one season behind everyone else."
       ],
       "statCheck": {
-        "pass": "Seasonal inventory rotation is deliberate: summer goods have higher margins, so they go to settlements that buy in volume. We get the stable, boring stock because that's what's left.",
+        "pass": "Seasonal inventory rotation is deliberate. Summer goods have higher margins, so they go to settlements that buy in volume. We get the stable, boring stock because that's what's left.",
         "fail": "I don't understand how they decide what goes where."
       },
       "valence": "negative",
@@ -4102,7 +4102,7 @@
         "I bought extra for {npc_name} too. They've been mending with a bone awl."
       ],
       "reactions": [
-        "The small necessities are what trade is actually for. Not luxuries: needles."
+        "The small necessities are what trade is actually for. Not luxuries. Needles."
       ],
       "statCheck": null,
       "valence": "neutral",
@@ -4122,7 +4122,7 @@
         "We're at the end of the chain. Every bump along the way lands on us."
       ],
       "statCheck": {
-        "pass": "It's called cost pass-through: each handler adds their increase, and by the final buyer, a small change at the source has multiplied. The further you are from the source, the more you pay for someone else's problem.",
+        "pass": "It's called cost pass-through. Each handler adds their increase, and by the final buyer, a small change at the source has multiplied. The further you are from the source, the more you pay for someone else's problem.",
         "fail": "I don't fully understand it. I just know everything costs more than it should."
       },
       "valence": "negative",
@@ -4159,7 +4159,7 @@
         "Preserved food isn't supposed to be good. It's supposed to exist when you need it."
       ],
       "statCheck": {
-        "pass": "Over-salting preserved meat is a storage trick: it lasts indefinitely but needs soaking before eating. The trader probably bought old military surplus and is reselling it.",
+        "pass": "Over-salting preserved meat is a storage trick. It lasts indefinitely but needs soaking before eating. The trader probably bought old military surplus and is reselling it.",
         "fail": "I don't know why it's so salty. I just know my tongue disagrees with it."
       },
       "valence": "negative",
@@ -4395,7 +4395,7 @@
         "After a day of wearing it, the ache was half what it was. I asked them to write down the recipe."
       ],
       "reactions": [
-        "Trade isn't just goods. Remedies, recipes, tricks: the knowledge is just as valuable."
+        "Trade isn't just goods. Remedies, recipes, tricks. The knowledge is just as valuable."
       ],
       "statCheck": null,
       "valence": "positive",
@@ -4556,14 +4556,14 @@
       "id": 253,
       "intro": "A merchant brought news that {other_settlement} has been trading with someone further out that we've never dealt with.",
       "details": [
-        "New goods are flowing in: metals, fabrics, things that didn't used to be available in the region.",
+        "New goods are flowing in. Metals, fabrics, things that didn't used to be available in the region.",
         "If some of that reaches us, it could change what's possible here."
       ],
       "reactions": [
         "Trade routes are like rivers. New ones open up and everything downstream shifts."
       ],
       "statCheck": {
-        "pass": "When a new trade connection opens, prices drop temporarily as the market adjusts to the surplus. The window to buy cheap is short: a season at most before the new normal sets in.",
+        "pass": "When a new trade connection opens, prices drop temporarily as the market adjusts to the surplus. The window to buy cheap is short. A season at most before the new normal sets in.",
         "fail": "I don't know enough about how these things ripple out."
       },
       "valence": "positive",
@@ -4628,7 +4628,7 @@
     },
     {
       "id": 257,
-      "intro": "A merchant asked if we'd be interested in a standing order: same goods, same amount, delivered every six weeks.",
+      "intro": "A merchant asked if we'd be interested in a standing order. Same goods, same amount, delivered every six weeks.",
       "details": [
         "The price is slightly higher than buying ad hoc, but the certainty is worth something.",
         "We'd know exactly when things arrive and plan accordingly."
@@ -4637,7 +4637,7 @@
         "Predictability has a value. I'm not sure everyone here understands that yet."
       ],
       "statCheck": {
-        "pass": "Standing orders lock in a relationship: guaranteed revenue for them, guaranteed supply for us. The premium is the cost of removing uncertainty.",
+        "pass": "Standing orders lock in a relationship. Guaranteed revenue for them, guaranteed supply for us. The premium is the cost of removing uncertainty.",
         "fail": "I think it's a good idea, but I'm not the one making the decision."
       },
       "valence": "neutral",
@@ -4667,14 +4667,14 @@
       "id": 259,
       "intro": "I've started keeping a tally of which traders cheat and which ones are fair. Short list on the fair side.",
       "details": [
-        "Not that most are outright dishonest. It's more the little things: light weights, rounded-up prices, vague counts.",
+        "Not that most are outright dishonest. It's more the little things. Light weights, rounded-up prices, vague counts.",
         "The truly fair ones stand out because they don't do any of that."
       ],
       "reactions": [
         "I don't need perfect, I just need honest. It's a lower bar than you'd think."
       ],
       "statCheck": {
-        "pass": "The little tricks add up: light weights, rounded prices, fast counting. Over a year, a dishonest trader takes ten percent more from every buyer without anyone noticing.",
+        "pass": "The little tricks add up. Light weights, rounded prices, fast counting. Over a year, a dishonest trader takes ten percent more from every buyer without anyone noticing.",
         "fail": "I can't prove any of it. It's just a feeling from years of watching."
       },
       "valence": "negative",
@@ -4799,7 +4799,7 @@
         "Summer blend. I'll file that next to all the other creative excuses."
       ],
       "statCheck": {
-        "pass": "Diluting lamp oil with water or cheap seed oil is one of the oldest tricks in trade. You test it by putting a drop on cloth: pure oil soaks in slowly, cut oil beads up.",
+        "pass": "Diluting lamp oil with water or cheap seed oil is one of the oldest tricks in trade. You test it by putting a drop on cloth. Pure oil soaks in slowly, cut oil beads up.",
         "fail": "I don't know how they do it. I just know what I'm seeing when I light a lamp."
       },
       "valence": "negative",
@@ -4812,7 +4812,7 @@
       "id": 267,
       "intro": "We pooled our coin with the next settlement over and placed a joint order for {resource_type}. First time we've cooperated like that.",
       "details": [
-        "The larger order got us a better rate. The trader was happy too: one stop instead of two.",
+        "The larger order got us a better rate. The trader was happy too. One stop instead of two.",
         "Splitting it evenly was a bit of work, but the savings made it worthwhile."
       ],
       "reactions": [
@@ -4853,7 +4853,7 @@
         "A shirt that paints you when it rains isn't a shirt. It's a prank."
       ],
       "statCheck": {
-        "pass": "Unfixed dye is a sign of cheap processing: proper fixing requires mordant and time, which costs the dyer money. Skipping it passes the problem to the buyer.",
+        "pass": "Unfixed dye is a sign of cheap processing. Proper fixing requires mordant and time, which costs the dyer money. Skipping it passes the problem to the buyer.",
         "fail": "All I know is I looked ridiculous and the shirt is ruined."
       },
       "valence": "negative",
@@ -4884,7 +4884,7 @@
       "intro": "A trader told me the route to {other_settlement} is being used by more merchants than ever.",
       "details": [
         "They said some of the overflow might start coming our way if the main road gets congested.",
-        "We're the side road: not the destination, but a possible detour."
+        "We're the side road. Not the destination, but a possible detour."
       ],
       "reactions": [
         "Even being a detour would be an upgrade for us."
@@ -4941,7 +4941,7 @@
         "Nobody asked them to stop. When they finished, someone brought out a second plate without being asked."
       ],
       "reactions": [
-        "Music and food: the two oldest currencies. Both still work."
+        "Music and food. The two oldest currencies. Both still work."
       ],
       "statCheck": null,
       "valence": "positive",
@@ -4961,7 +4961,7 @@
         "I've started bringing my own scale to every deal. The looks I get are priceless."
       ],
       "statCheck": {
-        "pass": "Consistent short-weighing isn't accidental: that trader has calibrated their scale to read heavy. Over a route of twenty stops, skimming a fraction at each one adds up to a whole extra sale's worth of profit.",
+        "pass": "Consistent short-weighing isn't accidental. That trader has calibrated their scale to read heavy. Over a route of twenty stops, skimming a fraction at each one adds up to a whole extra sale's worth of profit.",
         "fail": "I can't prove how they do it. I just know the bags are light."
       },
       "valence": "negative",
@@ -5117,7 +5117,7 @@
     },
     {
       "id": 284,
-      "intro": "A merchant offered to buy something I wasn't selling: an old iron pot I use as a doorstop.",
+      "intro": "A merchant offered to buy something I wasn't selling. An old iron pot I use as a doorstop.",
       "details": [
         "They said it's a forge style that's not made anymore. Collectors want them.",
         "I said no. It holds the door better than anything else I've tried."
@@ -5180,7 +5180,7 @@
         "Maybe they're right. But I'm not sure I want what comes with trying to be special."
       ],
       "statCheck": {
-        "pass": "The settlements that attract trade do it by being a reliable stop: good water, safe rest, honest people. You don't need a famous product if your reputation for fairness travels.",
+        "pass": "The settlements that attract trade do it by being a reliable stop. Good water, safe rest, honest people. You don't need a famous product if your reputation for fairness travels.",
         "fail": "I don't know what would make us stand out. I'm not a merchant."
       },
       "valence": "neutral",
@@ -5194,13 +5194,13 @@
       "intro": "We tried sending {npc_name} with our goods to sell at {other_settlement} instead of waiting for traders.",
       "details": [
         "They got better prices than we've ever been offered here. Turns out cutting out the middleman makes a real difference.",
-        "The trip is long, though: two days there, two back, four days of labor lost."
+        "The trip is long, though. Two days there, two back, four days of labor lost."
       ],
       "reactions": [
         "Better money, worse time. The math only works if you have someone to spare."
       ],
       "statCheck": {
-        "pass": "The middleman's margin on our goods is probably thirty percent or more. If {npc_name} can make the trip regularly, the savings compound: it's whether you value time or coin more.",
+        "pass": "The middleman's margin on our goods is probably thirty percent or more. If {npc_name} can make the trip regularly, the savings compound. It's whether you value time or coin more.",
         "fail": "I just know we got more there than we get here. The details are for someone better with numbers."
       },
       "valence": "neutral",
@@ -5392,7 +5392,7 @@
       "id": 299,
       "intro": "I've been watching the road more than usual lately. Just sitting and watching for movement.",
       "details": [
-        "Every dust cloud gets my attention now: is it a cart, a traveler, or just the wind?",
+        "Every dust cloud gets my attention now. Is it a cart, a traveler, or just the wind?",
         "Most of the time it's nothing. But the times it's something make the watching worth it."
       ],
       "reactions": [
@@ -5450,7 +5450,7 @@
         "Next time I'm watching, delicate scale or not."
       ],
       "statCheck": {
-        "pass": "Hidden weighing is the simplest cheat there is: a thumb on the scale, a heavier pan, a rigged fulcrum. If you can't watch, you can't verify.",
+        "pass": "Hidden weighing is the simplest cheat there is. A thumb on the scale, a heavier pan, a rigged fulcrum. If you can't watch, you can't verify.",
         "fail": "Maybe I'm being suspicious. But the bag was light."
       },
       "valence": "negative",
@@ -5470,7 +5470,7 @@
         "You don't plan for reliability to just stop."
       ],
       "statCheck": {
-        "pass": "When a regular trader drops off, it usually means they've rerouted for profit: a new customer on a different path who pays better. We're not worth the detour anymore.",
+        "pass": "When a regular trader drops off, it usually means they've rerouted for profit. A new customer on a different path who pays better. We're not worth the detour anymore.",
         "fail": "I've been watching the road, but I can't tell you why they stopped coming."
       },
       "valence": "negative",
@@ -5572,10 +5572,10 @@
         "My old knife was plain but it worked. Now I've got a pretty handle and a useless blade."
       ],
       "reactions": [
-        "Lesson learned: test steel before you trade for it."
+        "Lesson learned. Test steel before you trade for it."
       ],
       "statCheck": {
-        "pass": "Soft steel is a sign of low-carbon smelting: cheaper to produce, looks the same, but it folds instead of cutting. Traders who carry it know exactly what they're selling.",
+        "pass": "Soft steel is a sign of low-carbon smelting. Cheaper to produce, looks the same, but it folds instead of cutting. Traders who carry it know exactly what they're selling.",
         "fail": "I just know it won't cut. The why doesn't matter much to me right now."
       },
       "valence": "negative",
@@ -5649,7 +5649,7 @@
         "Hoarding isn't the word I'd use. I call it sensible caution."
       ],
       "statCheck": {
-        "pass": "Irregular supply usually means the source is having trouble: labor issues, equipment failure, or they're splitting output between more buyers than they can serve.",
+        "pass": "Irregular supply usually means the source is having trouble. Labor issues, equipment failure, or they're splitting output between more buyers than they can serve.",
         "fail": "I don't know what's causing it. I just deal with the results."
       },
       "valence": "negative",
@@ -5788,7 +5788,7 @@
     },
     {
       "id": 321,
-      "intro": "I spotted a family moving through: two adults, three children, everything they own on one cart.",
+      "intro": "I spotted a family moving through. Two adults, three children, everything they own on one cart.",
       "details": [
         "They stopped to water the animals and the children ran around like they hadn't been out of the cart in days.",
         "The parents looked tired in a way that's more than sleep. They didn't say where they were heading."
@@ -5848,7 +5848,7 @@
         "Being remote has its costs. Literally."
       ],
       "statCheck": {
-        "pass": "Traders charge what the market will bear: isolated settlements pay more because there's no competition. The only fix is another supplier, and right now there isn't one.",
+        "pass": "Traders charge what the market will bear. Isolated settlements pay more because there's no competition. The only fix is another supplier, and right now there isn't one.",
         "fail": "I can't argue with prices when there's only one seller."
       },
       "valence": "negative",
@@ -6021,7 +6021,7 @@
         "Traders complaining about business is like farmers complaining about weather. It's just what they do."
       ],
       "statCheck": {
-        "pass": "A trader who says business is bad to every settlement is negotiating before you even start: if you think times are hard, you expect less and accept lower offers.",
+        "pass": "A trader who says business is bad to every settlement is negotiating before you even start. If you think times are hard, you expect less and accept lower offers.",
         "fail": "Maybe things really are bad. I've got no way to check."
       },
       "valence": "neutral",
@@ -6068,7 +6068,7 @@
       "id": 337,
       "intro": "A traveler drew a picture of the settlement as they saw it from the road. Gave it to us before leaving.",
       "details": [
-        "It's rough charcoal on paper, but you can see everything: the buildings, the fields, the smoke from the fires.",
+        "It's rough charcoal on paper, but you can see everything. The buildings, the fields, the smoke from the fires.",
         "I've never seen this place from the outside before. It looks smaller than it feels."
       ],
       "reactions": [
@@ -6194,7 +6194,7 @@
     },
     {
       "id": 344,
-      "intro": "A stranger asked if we'd seen another traveler: tall, red cloak, carrying a staff. We hadn't.",
+      "intro": "A stranger asked if we'd seen another traveler. Tall, red cloak, carrying a staff. We hadn't.",
       "details": [
         "They seemed worried but wouldn't say why. Just thanked us and kept moving.",
         "I watched them take the south road. Walked fast, didn't look back."
@@ -6248,7 +6248,7 @@
     },
     {
       "id": 347,
-      "intro": "A merchant gave me a tip: never buy {resource_type} after a long dry spell. The quality drops.",
+      "intro": "A merchant gave me a tip. Never buy {resource_type} after a long dry spell. The quality drops.",
       "details": [
         "Something about the dryness affecting how it's processed or stored. I didn't follow all of it.",
         "But I tested it against what I bought last month and the difference was noticeable."
@@ -6413,7 +6413,7 @@
         "When there's only one seller, the word 'price' is just a polite way of saying 'demand.'"
       ],
       "statCheck": {
-        "pass": "A sole supplier raising prices three times in a year isn't responding to costs: they're testing how high they can go before we stop buying. The answer is high, because we need the goods.",
+        "pass": "A sole supplier raising prices three times in a year isn't responding to costs. They're testing how high they can go before we stop buying. The answer is high, because we need the goods.",
         "fail": "I don't know the economics. I just know it hurts more every time."
       },
       "valence": "negative",
@@ -6475,7 +6475,7 @@
     },
     {
       "id": 360,
-      "intro": "A traveler brought a game: small stones on a scratched board. Taught me the rules in ten minutes.",
+      "intro": "A traveler brought a game. Small stones on a scratched board. Taught me the rules in ten minutes.",
       "details": [
         "It's deceptively simple. Move your stones, block the other player, get across first.",
         "I lost eight times before I won once. They said that's fast for a beginner."
@@ -6492,7 +6492,7 @@
     },
     {
       "id": 361,
-      "intro": "We got a delivery of nails and half of them are bent. Not from shipping: they were bent before they were packed.",
+      "intro": "We got a delivery of nails and half of them are bent. Not from shipping. They were bent before they were packed.",
       "details": [
         "Someone sold their rejects and the trader didn't check before buying.",
         "I'm straightening what I can on the anvil, but it's slow work."
@@ -6724,7 +6724,7 @@
       "id": 374,
       "intro": "A trader's guard dog got loose and chased our chickens. Lost three to sheer panic before they caught it.",
       "details": [
-        "The dog didn't kill any: the chickens ran into things trying to escape.",
+        "The dog didn't kill any. The chickens ran into things trying to escape.",
         "The trader offered to pay for the birds. At least they were honest about it."
       ],
       "reactions": [
@@ -6935,7 +6935,7 @@
         "A deal where nobody's happy is still a deal, I suppose."
       ],
       "reactions": [
-        "Maybe that's what fair actually looks like: both sides a little disappointed."
+        "Maybe that's what fair actually looks like. Both sides a little disappointed."
       ],
       "statCheck": null,
       "valence": "neutral",
@@ -7087,7 +7087,7 @@
       "id": 395,
       "intro": "A traveler said they heard of us by name in {other_settlement}. Someone mentioned our settlement specifically.",
       "details": [
-        "They couldn't remember the context: whether it was good or bad. Just that the name came up.",
+        "They couldn't remember the context. Whether it was good or bad. Just that the name came up.",
         "The fact that anyone out there knows we exist was enough to make my day."
       ],
       "reactions": [
@@ -7111,7 +7111,7 @@
         "If we became a regular relay point, that's a service we could build on."
       ],
       "statCheck": {
-        "pass": "Relay stations earn small fees from many traders over time. The real value isn't the fee: it's that every trader has a reason to stop here. That drives other business.",
+        "pass": "Relay stations earn small fees from many traders over time. The real value isn't the fee. It's that every trader has a reason to stop here. That drives other business.",
         "fail": "I don't know if it'll happen again. But the idea makes sense."
       },
       "valence": "positive",
@@ -7216,7 +7216,7 @@
         "They said they add extra padding just for our stretch. That padding costs, and it goes into our prices."
       ],
       "reactions": [
-        "We're paying for a bad road twice: once in broken goods, once in higher prices."
+        "We're paying for a bad road twice. Once in broken goods, once in higher prices."
       ],
       "statCheck": null,
       "valence": "negative",
@@ -7253,7 +7253,7 @@
         "Knowing your worth and getting your price are two different things."
       ],
       "statCheck": {
-        "pass": "Traders who tell you you're overpriced are negotiating. If your goods genuinely weren't worth it, they wouldn't bother bargaining: they'd just leave.",
+        "pass": "Traders who tell you you're overpriced are negotiating. If your goods genuinely weren't worth it, they wouldn't bother bargaining. They'd just leave.",
         "fail": "Maybe they're right. Maybe we are asking too much."
       },
       "valence": "negative",
@@ -7344,7 +7344,7 @@
         "Next time I'm writing the order down and making them sign it."
       ],
       "statCheck": {
-        "pass": "Over-delivery and insistence is a trick: deliver more than ordered, claim it was the agreement, and force the buyer to pay or send it back at their own cost. Most people just pay.",
+        "pass": "Over-delivery and insistence is a trick. Deliver more than ordered, claim it was the agreement, and force the buyer to pay or send it back at their own cost. Most people just pay.",
         "fail": "Could have been a real mistake. Doesn't matter now. We paid."
       },
       "valence": "negative",
@@ -7374,7 +7374,7 @@
       "id": 411,
       "intro": "We got cheated on weight again. The {resource_type} bag was supposed to be full and it's a quarter short.",
       "details": [
-        "I weighed it on our own scale this time. No question: they're skimming.",
+        "I weighed it on our own scale this time. No question. They're skimming.",
         "The problem is they're our only source right now, so we either accept it or go without."
       ],
       "reactions": [
@@ -7395,7 +7395,7 @@
       "intro": "A traveler fell asleep under a tree and missed the trader they were supposed to meet. Found them still snoring at noon.",
       "details": [
         "They were furious with themselves. Kicked the tree, which didn't help anything.",
-        "The trader had come and gone. Left a note scratched in the dirt: 'waited, left.'"
+        "The trader had come and gone. Left a note scratched in the dirt, 'waited, left.'"
       ],
       "reactions": [
         "Missing a deal because of a nap. There's a parable in there somewhere."
@@ -7466,7 +7466,7 @@
         "We wasted a whole batch of pots before figuring that out."
       ],
       "reactions": [
-        "Not everything that works somewhere else works here. Soil, fire, water: they're all local."
+        "Not everything that works somewhere else works here. Soil, fire, water. They're all local."
       ],
       "statCheck": null,
       "valence": "negative",
@@ -7477,7 +7477,7 @@
     },
     {
       "id": 417,
-      "intro": "A merchant brought writing supplies: ink, quills, and paper. Most of us don't read, but we bought them anyway.",
+      "intro": "A merchant brought writing supplies. Ink, quills, and paper. Most of us don't read, but we bought them anyway.",
       "details": [
         "I bought ink because I've always wanted to try drawing. Never had the means before.",
         "The paper feels too precious to use. I keep picking it up and putting it back down."
@@ -7709,7 +7709,7 @@
       "id": 430,
       "intro": "A merchant's loaded cart spooked our goats and they scattered. Took an hour to round them up.",
       "details": [
-        "Something on the cart was clanking: loose pots, I think. The noise set them off.",
+        "Something on the cart was clanking. Loose pots, I think. The noise set them off.",
         "One goat got halfway to the next field before we caught it."
       ],
       "reactions": [
@@ -7863,7 +7863,7 @@
     },
     {
       "id": 439,
-      "intro": "The last delivery included something we didn't order: a sack of dried mushrooms. Nobody wants them.",
+      "intro": "The last delivery included something we didn't order. A sack of dried mushrooms. Nobody wants them.",
       "details": [
         "They're gritty and taste like bark. I tried cooking them three different ways.",
         "The trader must have thrown them in to get rid of stock. We're stuck with them now."
@@ -7974,7 +7974,7 @@
         "Reputation travels the road faster than any cart. Good thing ours is decent."
       ],
       "statCheck": {
-        "pass": "Every trader keeps a list, even if they don't say so. Fair dealing, honest counts, water for the animals: those small things determine what you get offered and what skips you entirely.",
+        "pass": "Every trader keeps a list, even if they don't say so. Fair dealing, honest counts, water for the animals. Those small things determine what you get offered and what skips you entirely.",
         "fail": "I'll take their word for it. Being liked by the people who feed you isn't a bad position."
       },
       "valence": "positive",
@@ -8028,7 +8028,7 @@
         "We'll grow what grows. Let the merchants figure out how to sell it."
       ],
       "statCheck": {
-        "pass": "Specialization advice from traders is self-serving: they want unique product they can mark up at other stops. The settlement that grows what the trader asks for is farming for the trader's profit, not their own.",
+        "pass": "Specialization advice from traders is self-serving. They want unique product they can mark up at other stops. The settlement that grows what the trader asks for is farming for the trader's profit, not their own.",
         "fail": "I don't have the farming knowledge to evaluate what they're suggesting."
       },
       "valence": "negative",
@@ -8065,7 +8065,7 @@
         "When a trader drops a stop, they know something we don't."
       ],
       "statCheck": {
-        "pass": "Traders cut stops when the margin disappears: either the settlement stopped buying or the roads got bad enough to cost more than the profit.",
+        "pass": "Traders cut stops when the margin disappears. Either the settlement stopped buying or the roads got bad enough to cost more than the profit.",
         "fail": "Not my route, not my problem. But it makes you think."
       },
       "valence": "neutral",
@@ -8112,7 +8112,7 @@
       "id": 453,
       "intro": "Nobody's come through in over a week. Starting to wonder if the road is blocked somewhere.",
       "details": [
-        "Usually there's at least someone passing: a trader, a courier, a family moving on.",
+        "Usually there's at least someone passing. A trader, a courier, a family moving on.",
         "The silence makes you feel more cut off than you realize you are."
       ],
       "reactions": [
@@ -8190,7 +8190,7 @@
         "Low prices don't last. I've learned that the expensive way."
       ],
       "statCheck": {
-        "pass": "A sudden surplus usually means a new source opened up or a big buyer cancelled an order. Either way, it's temporary: once the market absorbs the excess, prices snap right back.",
+        "pass": "A sudden surplus usually means a new source opened up or a big buyer cancelled an order. Either way, it's temporary. Once the market absorbs the excess, prices snap right back.",
         "fail": "I don't question cheap prices. I just buy fast."
       },
       "valence": "positive",
@@ -8244,7 +8244,7 @@
         "Cheap today means no options tomorrow. But try telling that to someone counting their coin."
       ],
       "statCheck": {
-        "pass": "Undercutting is a tactic, not a kindness: once the competition quits, the prices go right back up. The cheap supplier becomes the only supplier and sets whatever rate they want.",
+        "pass": "Undercutting is a tactic, not a kindness. Once the competition quits, the prices go right back up. The cheap supplier becomes the only supplier and sets whatever rate they want.",
         "fail": "I don't follow the business side of it. Just know prices keep shifting."
       },
       "valence": "negative",
@@ -8277,7 +8277,7 @@
       "id": 462,
       "intro": "Two merchants arrived on the same day. Both carrying {resource_type}, both wanting to sell.",
       "details": [
-        "They didn't know each other was coming. You could see the moment they realized: faces fell at the same time.",
+        "They didn't know each other was coming. You could see the moment they realized. Faces fell at the same time.",
         "We played it straight and bought from both at the going rate. No sense taking advantage."
       ],
       "reactions": [
@@ -8335,7 +8335,7 @@
         "Small differences in how you make something add up to big differences in how long it lasts."
       ],
       "statCheck": {
-        "pass": "The trick isn't just the wick: they dip their candles multiple times in thin layers instead of pouring. Each layer hardens before the next, and the result burns even and slow.",
+        "pass": "The trick isn't just the wick. They dip their candles multiple times in thin layers instead of pouring. Each layer hardens before the next, and the result burns even and slow.",
         "fail": "I've tried copying what the trader described but mine still come out uneven."
       },
       "valence": "neutral",
@@ -8409,7 +8409,7 @@
         "We'll remember the face. That's the only ledger that matters out here."
       ],
       "statCheck": {
-        "pass": "Shorting the count on departure is easier than rigging a scale: you agree on a number, they unload fast, and by the time you count properly they're a day away. Always count before they leave.",
+        "pass": "Shorting the count on departure is easier than rigging a scale. You agree on a number, they unload fast, and by the time you count properly they're a day away. Always count before they leave.",
         "fail": "I should have counted right there. My own fault as much as theirs."
       },
       "valence": "negative",
@@ -8437,7 +8437,7 @@
     },
     {
       "id": 471,
-      "intro": "A traveler left behind a cloak: good wool, barely worn. Nobody came back for it.",
+      "intro": "A traveler left behind a cloak. Good wool, barely worn. Nobody came back for it.",
       "details": [
         "We kept it by the road for a few days in case they returned. They didn't.",
         "Now it's mine. Fits well enough and the wool is thicker than anything we make."
@@ -8476,7 +8476,7 @@
       "id": 473,
       "intro": "A traveler's dog followed me around for a whole afternoon. The traveler didn't seem to mind.",
       "details": [
-        "Good dog: calm, friendly, didn't beg. Just walked next to me like we'd known each other forever.",
+        "Good dog. Calm, friendly, didn't beg. Just walked next to me like we'd known each other forever.",
         "When they left, the dog looked back at me twice before following. That stuck with me."
       ],
       "reactions": [
@@ -8520,7 +8520,7 @@
         "A promise from a stranger on the road isn't currency. It's air."
       ],
       "statCheck": {
-        "pass": "A trader who offers credit to a small settlement is testing whether you'll accept it. Once you do, they own the leverage: they decide when to collect and what the terms become.",
+        "pass": "A trader who offers credit to a small settlement is testing whether you'll accept it. Once you do, they own the leverage. They decide when to collect and what the terms become.",
         "fail": "I just don't trust people who have the coin but want to hold onto it."
       },
       "valence": "negative",
@@ -8607,7 +8607,7 @@
       "id": 480,
       "intro": "We pooled coin together and placed a bulk order for {resource_type}. First time we've done that.",
       "details": [
-        "Buying together means better rates. The trader was happier too: one big sale instead of ten small ones.",
+        "Buying together means better rates. The trader was happier too. One big sale instead of ten small ones.",
         "The hard part was agreeing on what to order. Everyone has opinions."
       ],
       "reactions": [
@@ -8762,7 +8762,7 @@
         "Packed to look good from the top. That takes more effort than just selling honest goods."
       ],
       "statCheck": {
-        "pass": "Layered packing is the oldest fraud in trade: good on top, reject underneath. The only defense is to empty the entire lot before paying, because anyone who objects to that is hiding something.",
+        "pass": "Layered packing is the oldest fraud in trade. Good on top, reject underneath. The only defense is to empty the entire lot before paying, because anyone who objects to that is hiding something.",
         "fail": "I should have checked the whole bag. I know better than to trust the surface."
       },
       "valence": "negative",
@@ -8907,7 +8907,7 @@
         "Bad seasons pass. But the stock you're holding when things get worse is what carries you."
       ],
       "statCheck": {
-        "pass": "Broad quality drops usually trace back to a shared upstream cause: a bad harvest season for raw materials, or a sudden demand spike that pushes production faster than quality can keep up.",
+        "pass": "Broad quality drops usually trace back to a shared upstream cause. A bad harvest season for raw materials, or a sudden demand spike that pushes production faster than quality can keep up.",
         "fail": "I just take what the trader tells me at face value. Don't know enough to question it."
       },
       "valence": "negative",
@@ -8941,7 +8941,7 @@
         "I'm not sure how often I meet someone heading that way, but I'll hold onto it."
       ],
       "reactions": [
-        "Smart way to drum up business: make every customer a salesman."
+        "Smart way to drum up business. Make every customer a salesman."
       ],
       "statCheck": null,
       "valence": "neutral",
@@ -9018,7 +9018,7 @@
         "Trade isn't fair. It's favorable, and some people are better at getting there."
       ],
       "statCheck": {
-        "pass": "{npc_name} probably offered something the trader actually wanted instead of something the trader could get anywhere. Barter isn't about equal value: it's about what the other person needs right now.",
+        "pass": "{npc_name} probably offered something the trader actually wanted instead of something the trader could get anywhere. Barter isn't about equal value. It's about what the other person needs right now.",
         "fail": "I don't know what {npc_name} has that I don't. Just bothers me."
       },
       "valence": "negative",
@@ -9055,7 +9055,7 @@
         "A product that costs us nothing but time and we have plenty of that."
       ],
       "statCheck": {
-        "pass": "The markup on dried herbs between us and the final buyer is enormous: what we sell for a few coins, they sell for many times that. But it's still income we didn't have before.",
+        "pass": "The markup on dried herbs between us and the final buyer is enormous. What we sell for a few coins, they sell for many times that. But it's still income we didn't have before.",
         "fail": "I don't know what they sell for down the road. We're just happy to have something to trade."
       },
       "valence": "positive",
@@ -9112,7 +9112,7 @@
         "A bridge nobody fixes is a road nobody uses. Eventually."
       ],
       "statCheck": {
-        "pass": "Bridges rot from underneath first: the supports that sit in water weaken before the planks show damage. By the time the deck is bad, the structure below is worse.",
+        "pass": "Bridges rot from underneath first. The supports that sit in water weaken before the planks show damage. By the time the deck is bad, the structure below is worse.",
         "fail": "I haven't crossed it recently. I'll take their word for it."
       },
       "valence": "negative",
@@ -9297,7 +9297,7 @@
         "Their convenience is our shortage. That's the reality when you're at the end of the route."
       ],
       "statCheck": {
-        "pass": "A smaller cart isn't about the road: it's about cutting costs with fewer animals, less feed, and a lighter load. The trader is tightening their operation and we're absorbing the impact.",
+        "pass": "A smaller cart isn't about the road. It's about cutting costs with fewer animals, less feed, and a lighter load. The trader is tightening their operation and we're absorbing the impact.",
         "fail": "I don't know their reasons. I just see less on the cart."
       },
       "valence": "negative",
@@ -9550,7 +9550,7 @@
         "At least they didn't argue. Just quietly admitted they'd been caught."
       ],
       "statCheck": {
-        "pass": "Old stock that hasn't moved is a carrying cost for the trader: they'd rather sell it for less than haul it another stop. The third they dropped is what it was worth to begin with.",
+        "pass": "Old stock that hasn't moved is a carrying cost for the trader. They'd rather sell it for less than haul it another stop. The third they dropped is what it was worth to begin with.",
         "fail": "I just knew it was old. The price drop told me everything else."
       },
       "valence": "negative",
@@ -9561,7 +9561,7 @@
     },
     {
       "id": 532,
-      "intro": "A traveler pointed out that we have something {other_settlement} doesn't: open space. Said they're packed in tight over there.",
+      "intro": "A traveler pointed out that we have something {other_settlement} doesn't. Open space. Said they're packed in tight over there.",
       "details": [
         "They said you can hear your neighbor's conversations through the walls.",
         "Our houses are spread apart enough to have quiet. I never thought of that as valuable."
@@ -9615,7 +9615,7 @@
     },
     {
       "id": 535,
-      "intro": "A merchant brought a mirror: small, round, polished metal. First one anyone here has owned.",
+      "intro": "A merchant brought a mirror. Small, round, polished metal. First one anyone here has owned.",
       "details": [
         "I looked at myself for the first time in ages. I look older than I expected.",
         "Three people have already asked to borrow it."
@@ -9634,7 +9634,7 @@
       "id": 536,
       "intro": "A trader said the {resource_type} we sold them last visit got top marks at {other_settlement}. People were asking for more.",
       "details": [
-        "Apparently our product has something others don't: consistency. Same quality every time.",
+        "Apparently our product has something others don't. Consistency. Same quality every time.",
         "The trader wants to double the order next visit."
       ],
       "reactions": [
@@ -9709,7 +9709,7 @@
         "When a trader tells you they're doing you a favor by showing up, the clock is ticking."
       ],
       "statCheck": {
-        "pass": "A trader warning about viability is asking for more business, not sympathy: they want you to consolidate orders and increase volume. It's a negotiation dressed as a warning.",
+        "pass": "A trader warning about viability is asking for more business, not sympathy. They want you to consolidate orders and increase volume. It's a negotiation dressed as a warning.",
         "fail": "I believe them. We're small and the road is long."
       },
       "valence": "negative",
@@ -9763,7 +9763,7 @@
         "Credit sounds generous until you realize the trader controls the terms."
       ],
       "statCheck": {
-        "pass": "Credit creates dependency: once you owe a trader, you can't switch to a competitor without settling the debt first. The credit is the chain and the goods are just the bait.",
+        "pass": "Credit creates dependency. Once you owe a trader, you can't switch to a competitor without settling the debt first. The credit is the chain and the goods are just the bait.",
         "fail": "I just don't like owing people. Simple as that."
       },
       "valence": "negative",
@@ -9817,7 +9817,7 @@
         "The price stays the same but the value shrinks. That's the quiet way to cheat someone."
       ],
       "statCheck": {
-        "pass": "Changing weight-to-volume without changing price is the oldest inflation trick in trade: the product looks the same but delivers less. If nobody weighs it, nobody notices.",
+        "pass": "Changing weight-to-volume without changing price is the oldest inflation trick in trade. The product looks the same but delivers less. If nobody weighs it, nobody notices.",
         "fail": "I notice the difference. I just don't know what to do about it."
       },
       "valence": "negative",
@@ -9888,7 +9888,7 @@
         "Stealing from people who fed you. That's a special kind of low."
       ],
       "statCheck": {
-        "pass": "A traveler who steals food they could have asked for isn't hungry: they're hoarding. They're building supply for a long stretch where they can't stop.",
+        "pass": "A traveler who steals food they could have asked for isn't hungry. They're hoarding. They're building supply for a long stretch where they can't stop.",
         "fail": "I don't care why they did it. They did it."
       },
       "valence": "negative",
@@ -9993,7 +9993,7 @@
         "I still think ours is bad, but maybe less bad than I assumed."
       ],
       "reactions": [
-        "Perspective from someone who sees every road: ours is average, and somehow that's comforting."
+        "Perspective from someone who sees every road. Ours is average, and somehow that's comforting."
       ],
       "statCheck": null,
       "valence": "neutral",
@@ -10030,7 +10030,7 @@
         "When someone floods the market, the rest of us just tread water."
       ],
       "statCheck": {
-        "pass": "A settlement dumping surplus is usually burning through a windfall: new equipment, a lucky season, or labor they can't sustain. The glut is temporary, but it can crush smaller producers in the meantime.",
+        "pass": "A settlement dumping surplus is usually burning through a windfall. New equipment, a lucky season, or labor they can't sustain. The glut is temporary, but it can crush smaller producers in the meantime.",
         "fail": "I don't know why they have so much. I just know it's squeezing the rest of us."
       },
       "valence": "negative",
@@ -10097,7 +10097,7 @@
       "id": 562,
       "intro": "A merchant said they won't carry {resource_type} anymore. Not enough profit for the weight.",
       "details": [
-        "They're switching to lighter goods: cloth, spices, dye. Things that pack small and sell high.",
+        "They're switching to lighter goods. Cloth, spices, dye. Things that pack small and sell high.",
         "Makes sense for them, but it means one fewer source for the heavy stuff we actually need."
       ],
       "reactions": [
@@ -10141,7 +10141,7 @@
         "The distance tax is real and there's nothing we can do about it."
       ],
       "statCheck": {
-        "pass": "The markup isn't just distance: it's leverage because {other_settlement} has competing suppliers and we don't. One source means the trader charges whatever they want.",
+        "pass": "The markup isn't just distance. It's leverage because {other_settlement} has competing suppliers and we don't. One source means the trader charges whatever they want.",
         "fail": "I know we pay more. I just don't know how to change it."
       },
       "valence": "negative",
@@ -10152,7 +10152,7 @@
     },
     {
       "id": 565,
-      "intro": "A merchant showed me a trick for testing metal quality: scratch it with a harder metal and look at the color of the mark.",
+      "intro": "A merchant showed me a trick for testing metal quality. Scratch it with a harder metal and look at the color of the mark.",
       "details": [
         "Good iron leaves a clean grey line. Bad iron leaves brown or flaky residue.",
         "I've been buying iron for years without knowing this."
@@ -10212,7 +10212,7 @@
         "Bundling is just rounding up with extra steps."
       ],
       "statCheck": {
-        "pass": "Bundle pricing works because the brain averages instead of adding: one great deal makes the whole package feel fair, even if half the items are overpriced. Always break it down.",
+        "pass": "Bundle pricing works because the brain averages instead of adding. One great deal makes the whole package feel fair, even if half the items are overpriced. Always break it down.",
         "fail": "I just know bundles make me nervous. Simpler to see each price on its own."
       },
       "valence": "neutral",
@@ -10232,7 +10232,7 @@
         "People passing through without stopping. That's restlessness, not travel."
       ],
       "statCheck": {
-        "pass": "Frequent abandoned camps without trade stops means displaced people, not merchants: they're moving because they have to, not because they want to. That kind of movement brings need, not business.",
+        "pass": "Frequent abandoned camps without trade stops means displaced people, not merchants. They're moving because they have to, not because they want to. That kind of movement brings need, not business.",
         "fail": "I don't know what it means. Just sounds unsettling."
       },
       "valence": "negative",
@@ -10297,7 +10297,7 @@
     },
     {
       "id": 573,
-      "intro": "A traveler told me about a settlement that makes everything from clay: cups, tools, pipes, tiles, all of it.",
+      "intro": "A traveler told me about a settlement that makes everything from clay. Cups, tools, pipes, tiles, all of it.",
       "details": [
         "They said the whole place looks like it grew out of the ground. Every surface has a warm, earthy color.",
         "We don't have good clay here, but it made me wonder what we could specialize in if we tried."
@@ -10323,7 +10323,7 @@
         "More traders today, fewer tomorrow. The road sorts them out."
       ],
       "statCheck": {
-        "pass": "A surge of new traders usually means hard times elsewhere: people who lost land or work turning to the road as a last option. They trade until their savings run out, then they settle wherever they stop.",
+        "pass": "A surge of new traders usually means hard times elsewhere. People who lost land or work turning to the road as a last option. They trade until their savings run out, then they settle wherever they stop.",
         "fail": "I don't know why there are more of them. Just noticed the numbers."
       },
       "valence": "neutral",
@@ -10451,7 +10451,7 @@
         "When a trader warns you about a shortage and offers to sell you extra in the same breath, you have to wonder who benefits."
       ],
       "statCheck": {
-        "pass": "Traders who announce coming shortages and then offer to sell extra are creating urgency to move stock. If the shortage were real and confirmed, they wouldn't be offering surplus: they'd be hoarding it.",
+        "pass": "Traders who announce coming shortages and then offer to sell extra are creating urgency to move stock. If the shortage were real and confirmed, they wouldn't be offering surplus. They'd be hoarding it.",
         "fail": "I don't know if it's real or a sales tactic. Either way, we do need salt."
       },
       "valence": "negative",
@@ -10464,7 +10464,7 @@
       "id": 582,
       "intro": "A traveler said they carry a journal and write about every place they stop. I asked what they wrote about us.",
       "details": [
-        "They said: 'Quiet, kind, practical.' Three words.",
+        "They said, 'Quiet, kind, practical.' Three words.",
         "I thought about it the rest of the day. Three words and somehow it felt right."
       ],
       "reactions": [
@@ -10542,7 +10542,7 @@
         "Fix the road, get more trade. Simple on paper, impossible in practice."
       ],
       "statCheck": {
-        "pass": "A trader who asks you to improve the road is telling you you're on the margin of their route: the road is the tiebreaker between visiting and skipping. Even a small improvement might keep them coming.",
+        "pass": "A trader who asks you to improve the road is telling you you're on the margin of their route. The road is the tiebreaker between visiting and skipping. Even a small improvement might keep them coming.",
         "fail": "I know the road needs work. Don't need a trader to tell me that."
       },
       "valence": "neutral",
@@ -10630,7 +10630,7 @@
         "Dependence on the road is the price of not being able to do everything ourselves."
       ],
       "statCheck": {
-        "pass": "The honest answer is that the worst part isn't the waiting: it's knowing that if the traders stopped coming, we'd last maybe two seasons before we couldn't sustain ourselves.",
+        "pass": "The honest answer is that the worst part isn't the waiting. It's knowing that if the traders stopped coming, we'd last maybe two seasons before we couldn't sustain ourselves.",
         "fail": "The waiting is bad enough. I don't like to think past that."
       },
       "valence": "neutral",
@@ -10677,7 +10677,7 @@
       "id": 594,
       "intro": "A merchant said they've stopped carrying luxury goods to small settlements. Nobody buys them.",
       "details": [
-        "Dyes, fine cloth, spices: all cut from the cart for our route.",
+        "Dyes, fine cloth, spices. All cut from the cart for our route.",
         "They said it's not worth the weight when essentials are what sell."
       ],
       "reactions": [
@@ -10695,7 +10695,7 @@
     },
     {
       "id": 595,
-      "intro": "A traveler showed me a coin trick: flipping it off the back of the hand to land in a cup from three paces.",
+      "intro": "A traveler showed me a coin trick. Flipping it off the back of the hand to land in a cup from three paces.",
       "details": [
         "They said they practiced it every night by the fire. Thousand tries before they got consistent.",
         "I tried fifty times and hit the cup once. They laughed but said that's a good start."
@@ -10712,7 +10712,7 @@
     },
     {
       "id": 596,
-      "intro": "A merchant offered us a deal: take all the odds and ends nobody else wanted at a flat rate. We took it.",
+      "intro": "A merchant offered us a deal. Take all the odds and ends nobody else wanted at a flat rate. We took it.",
       "details": [
         "Mismatched nails, half-rolls of twine, a few cracked jars still good for storage.",
         "Individually they're not worth much. Together they fill a dozen small needs."
@@ -10755,7 +10755,7 @@
         "Salt is for preserving, not for hiding. There's a line and they crossed it."
       ],
       "statCheck": {
-        "pass": "Excess salt on cured meat means the meat was already spoiling when they salted it: they packed it heavy to mask the taste and the smell. It's concealment, not preservation.",
+        "pass": "Excess salt on cured meat means the meat was already spoiling when they salted it. They packed it heavy to mask the taste and the smell. It's concealment, not preservation.",
         "fail": "I know over-salted when I taste it. The rest is obvious."
       },
       "valence": "negative",
@@ -10769,13 +10769,13 @@
       "intro": "A traveler said this is the last settlement before the road gets truly empty. We're the edge of familiar ground.",
       "details": [
         "Past us, it's open country with no regular stops for days.",
-        "They filled up on everything: water, food, rest. Like they were preparing for something harder."
+        "They filled up on everything. Water, food, rest. Like they were preparing for something harder."
       ],
       "reactions": [
         "Being the last stop before the unknown. I suppose there's a kind of importance in that."
       ],
       "statCheck": {
-        "pass": "Last-stop settlements have more leverage than they realize: travelers heading into open country will pay a premium because the alternative is going without. That's a position worth using wisely.",
+        "pass": "Last-stop settlements have more leverage than they realize. Travelers heading into open country will pay a premium because the alternative is going without. That's a position worth using wisely.",
         "fail": "I didn't think about what being last on the road means for us. Maybe it matters more than I assumed."
       },
       "valence": "neutral",
@@ -10795,7 +10795,7 @@
         "Being an afterthought on someone's route isn't great, but it beats being dropped entirely."
       ],
       "statCheck": {
-        "pass": "When a trader tells you they almost skipped you, they're negotiating: they want you to buy more next time so the detour stays justified. It's a warning dressed as honesty.",
+        "pass": "When a trader tells you they almost skipped you, they're negotiating. They want you to buy more next time so the detour stays justified. It's a warning dressed as honesty.",
         "fail": "I just hope they keep coming. We don't have many options."
       },
       "valence": "negative",
@@ -10832,7 +10832,7 @@
         "Someone else's toll, our coin. That's how the chain works."
       ],
       "statCheck": {
-        "pass": "Settlements that raise tolls are usually trying to fix a budget gap, but the cost rolls downhill: every stop past them pays a little more for everything. The settlements at the end of the route get squeezed the hardest.",
+        "pass": "Settlements that raise tolls are usually trying to fix a budget gap, but the cost rolls downhill. Every stop past them pays a little more for everything. The settlements at the end of the route get squeezed the hardest.",
         "fail": "I don't understand who sets these things. I just pay more."
       },
       "valence": "negative",
@@ -10852,7 +10852,7 @@
         "Nice to be good at something, even if it's wrapping things in cloth."
       ],
       "statCheck": {
-        "pass": "Good packing is leverage: a trader who knows your goods survive the road intact will pay a premium because they lose less to breakage. We could be charging more.",
+        "pass": "Good packing is leverage. A trader who knows your goods survive the road intact will pay a premium because they lose less to breakage. We could be charging more.",
         "fail": "I don't think about it as a selling point. Just how we do things."
       },
       "valence": "positive",
@@ -10886,7 +10886,7 @@
         "We planned around that delivery. Now we're adjusting everything."
       ],
       "reactions": [
-        "Counting on a shipment that doesn't come: you'd think I'd learn."
+        "Counting on a shipment that doesn't come. You'd think I'd learn."
       ],
       "statCheck": {
         "pass": "A missed delivery without notice usually means someone outbid us on the road. Traders sell to the best offer, and verbal agreements with small settlements get broken first.",
@@ -10926,7 +10926,7 @@
         "Can't blame them, but it means we'll go without until we have the coin in hand."
       ],
       "statCheck": {
-        "pass": "A trader cutting off credit means their own margins are thin: they need the coin to buy stock for the next leg. When credit dries up for us, it's because someone above them tightened the chain.",
+        "pass": "A trader cutting off credit means their own margins are thin. They need the coin to buy stock for the next leg. When credit dries up for us, it's because someone above them tightened the chain.",
         "fail": "We pay when we can. That used to be enough."
       },
       "valence": "negative",
@@ -10976,14 +10976,14 @@
       "id": 610,
       "intro": "A merchant told me prices in {other_settlement} are climbing for everything. Not just one thing, everything.",
       "details": [
-        "Food, tools, cloth, fuel: all up. The merchant said the mood there is tense.",
+        "Food, tools, cloth, fuel. All up. The merchant said the mood there is tense.",
         "When everything costs more and pay stays the same, people get short with each other."
       ],
       "reactions": [
-        "Rising prices everywhere: at least it's not just us."
+        "Rising prices everywhere. At least it's not just us."
       ],
       "statCheck": {
-        "pass": "Broad price increases across a whole settlement usually mean their leadership imposed new taxes or fees that get passed to buyers. It's not supply problems: it's policy problems.",
+        "pass": "Broad price increases across a whole settlement usually mean their leadership imposed new taxes or fees that get passed to buyers. It's not supply problems. It's policy problems.",
         "fail": "I don't know why everything's more expensive. It just is."
       },
       "valence": "negative",
@@ -11020,7 +11020,7 @@
         "Selling diluted goods and getting angry when caught. That takes nerve."
       ],
       "statCheck": {
-        "pass": "A trader who cuts their product and sells at full price isn't struggling: they're testing you. If you buy it without noticing, they'll bring worse next time.",
+        "pass": "A trader who cuts their product and sells at full price isn't struggling. They're testing you. If you buy it without noticing, they'll bring worse next time.",
         "fail": "I don't know if it's common. I just know it was obvious."
       },
       "valence": "negative",
@@ -11057,7 +11057,7 @@
         "A quiet market and closed mouths. Something's off, but it's not my problem to solve."
       ],
       "statCheck": {
-        "pass": "Settlements that go quiet and stop trading openly are usually dealing with internal disputes: leadership problems, resource fights, or debts that split the community. It passes, but it can take a season.",
+        "pass": "Settlements that go quiet and stop trading openly are usually dealing with internal disputes. Leadership problems, resource fights, or debts that split the community. It passes, but it can take a season.",
         "fail": "Could be anything. I try not to worry about places I can't see."
       },
       "valence": "negative",
@@ -11094,7 +11094,7 @@
         "Small theft, repeated often enough, is still theft."
       ],
       "statCheck": {
-        "pass": "Weight-skimming merchants rely on small settlements not having calibrated scales to check. The fix is owning standard weights and testing every purchase: they stop skimming when they know you verify.",
+        "pass": "Weight-skimming merchants rely on small settlements not having calibrated scales to check. The fix is owning standard weights and testing every purchase. They stop skimming when they know you verify.",
         "fail": "I don't know how to prove it. We just have to be more careful."
       },
       "valence": "negative",
@@ -11142,7 +11142,7 @@
     },
     {
       "id": 619,
-      "intro": "A merchant brought soap from {other_settlement}: real soap, not the rough stuff we make here.",
+      "intro": "A merchant brought soap from {other_settlement}. Real soap, not the rough stuff we make here.",
       "details": [
         "It lathers properly and doesn't leave your skin feeling raw.",
         "I bought a block and the whole house smells better now."
@@ -11168,7 +11168,7 @@
         "An empty road makes you realize how much life comes in from the outside."
       ],
       "statCheck": {
-        "pass": "A two-week gap in all traffic usually means something is blocking the route further out: a washout, a toll dispute, or a bridge down. Traders don't skip stops by choice because empty runs lose money.",
+        "pass": "A two-week gap in all traffic usually means something is blocking the route further out. A washout, a toll dispute, or a bridge down. Traders don't skip stops by choice because empty runs lose money.",
         "fail": "Could be nothing, could be something. I just want to see a cart."
       },
       "valence": "negative",
@@ -11205,7 +11205,7 @@
         "Someone else's tokens are just shaped metal to me."
       ],
       "statCheck": {
-        "pass": "Trade tokens only hold value inside the issuing settlement's network. Accepting them ties you to that network and their terms: it's a control mechanism dressed as convenience.",
+        "pass": "Trade tokens only hold value inside the issuing settlement's network. Accepting them ties you to that network and their terms. It's a control mechanism dressed as convenience.",
         "fail": "I don't know what they're worth there. I just know they're worthless here."
       },
       "valence": "neutral",
@@ -11225,7 +11225,7 @@
         "Paying more for less. That's just the way the route works when supply tightens."
       ],
       "statCheck": {
-        "pass": "When a trader says 'the source dried up,' it often means they lost their supplier to a competitor who offered better terms. The resource exists: it's just going somewhere else first.",
+        "pass": "When a trader says 'the source dried up,' it often means they lost their supplier to a competitor who offered better terms. The resource exists. It's just going somewhere else first.",
         "fail": "I take them at their word. I don't have eyes on the source."
       },
       "valence": "negative",
@@ -11270,7 +11270,7 @@
     },
     {
       "id": 626,
-      "intro": "A trader brought needles: real steel ones, not the bone splinters we've been using.",
+      "intro": "A trader brought needles. Real steel ones, not the bone splinters we've been using.",
       "details": [
         "Thin, strong, and they hold an edge on the eye so thread slides through clean.",
         "I bought a set. My fingers already thank me."
@@ -11313,7 +11313,7 @@
         "Clean on top, rotten underneath. A metaphor for that merchant's whole operation."
       ],
       "statCheck": {
-        "pass": "Layered sacks with clean grain on top and infested grain below is deliberate staging: the seller knows and packs accordingly. They count on buyers not digging until they're home.",
+        "pass": "Layered sacks with clean grain on top and infested grain below is deliberate staging. The seller knows and packs accordingly. They count on buyers not digging until they're home.",
         "fail": "Maybe they didn't know, or maybe they did. Either way, I'm stuck with weevils."
       },
       "valence": "negative",
@@ -11343,7 +11343,7 @@
       "id": 630,
       "intro": "A merchant said they're seeing the same faces on the road more often. The same people, traveling more frequently.",
       "details": [
-        "Not new traders: existing ones making tighter loops with smaller loads.",
+        "Not new traders. Existing ones making tighter loops with smaller loads.",
         "They said it means margins are thin. You have to move faster to make the same coin."
       ],
       "reactions": [
@@ -11370,7 +11370,7 @@
         "Sometimes a place is more valuable as a rest stop than a trade stop."
       ],
       "statCheck": {
-        "pass": "Travelers who stop for three days are usually running from something or recovering from it. Either way, the rest isn't optional: it's the difference between finishing the route and collapsing on it.",
+        "pass": "Travelers who stop for three days are usually running from something or recovering from it. Either way, the rest isn't optional. It's the difference between finishing the route and collapsing on it.",
         "fail": "They needed rest. I didn't ask why."
       },
       "valence": "neutral",
@@ -11447,7 +11447,7 @@
         "Distance makes every promise easier to break."
       ],
       "statCheck": {
-        "pass": "A trader who renegotiates on arrival is counting on your inability to verify: they tell the buyer the seller wanted more, tell the seller the buyer paid less, and pocket the gap. It's the oldest move on the road.",
+        "pass": "A trader who renegotiates on arrival is counting on your inability to verify. They tell the buyer the seller wanted more, tell the seller the buyer paid less, and pocket the gap. It's the oldest move on the road.",
         "fail": "I don't know if we got cheated or if the market really moved. There's no way to check."
       },
       "valence": "negative",
@@ -11501,7 +11501,7 @@
         "End of the line. Every route has to end somewhere, and it ends here."
       ],
       "statCheck": {
-        "pass": "End-of-route settlements have the least bargaining power because the trader has already made their profit. Anything sold here is bonus: they don't need our business, we need theirs.",
+        "pass": "End-of-route settlements have the least bargaining power because the trader has already made their profit. Anything sold here is bonus. They don't need our business, we need theirs.",
         "fail": "We're just far from things. Not much to do about that."
       },
       "valence": "negative",
@@ -11637,7 +11637,7 @@
     },
     {
       "id": 646,
-      "intro": "A traveler shared their fire-starting method: a steel striker and a bit of charred cloth. Sparks every time.",
+      "intro": "A traveler shared their fire-starting method. A steel striker and a bit of charred cloth. Sparks every time.",
       "details": [
         "I've been rubbing sticks together like I learned as a kid. This was embarrassingly faster.",
         "They gave me a spare striker. Said everyone should have one."
@@ -11657,13 +11657,13 @@
       "intro": "A merchant told me they've stopped visiting a settlement on the route because the people there started demanding goods on credit and never paying.",
       "details": [
         "After the third unpaid delivery, the merchant wrote them off. No more visits.",
-        "That settlement is now a gap on the route: traders pass by without stopping."
+        "That settlement is now a gap on the route. Traders pass by without stopping."
       ],
       "reactions": [
         "A settlement that burned its credit burned its only trade line. That's a warning for the rest of us."
       ],
       "statCheck": {
-        "pass": "Traders share blacklists: once one merchant drops a settlement, the others hear about it within a season. Burning one relationship burns them all.",
+        "pass": "Traders share blacklists. Once one merchant drops a settlement, the others hear about it within a season. Burning one relationship burns them all.",
         "fail": "I don't know the details. Just know we don't want to end up like that."
       },
       "valence": "neutral",
@@ -11734,7 +11734,7 @@
         "We lost the flour and the coin we paid for it."
       ],
       "reactions": [
-        "Sawdust in the flour. That's not carelessness: that's a choice."
+        "Sawdust in the flour. That's not carelessness. That's a choice."
       ],
       "statCheck": {
         "pass": "Cutting flour with sawdust is an old trick for stretching supply. A merchant who does it is planning to never come back, because one bad sale ends a customer relationship.",
@@ -11774,7 +11774,7 @@
         "Our buying pattern is our biography. I just didn't realize everyone could read it."
       ],
       "statCheck": {
-        "pass": "A merchant who reads a settlement's health through purchases adjusts their inventory accordingly: they bring us less variety because they assume we can't afford it, which means we never see the options that could help us grow.",
+        "pass": "A merchant who reads a settlement's health through purchases adjusts their inventory accordingly. They bring us less variety because they assume we can't afford it, which means we never see the options that could help us grow.",
         "fail": "They probably see things I don't. Doesn't mean I want to hear it."
       },
       "valence": "negative",
@@ -11811,7 +11811,7 @@
         "When a fifteen-year trader talks about quitting, the rest of us should listen."
       ],
       "statCheck": {
-        "pass": "Veteran traders leaving the road means the economics have fundamentally shifted: the route can't sustain the same number of merchants anymore. Fewer traders means less competition and higher prices for everyone still buying.",
+        "pass": "Veteran traders leaving the road means the economics have fundamentally shifted. The route can't sustain the same number of merchants anymore. Fewer traders means less competition and higher prices for everyone still buying.",
         "fail": "I hope they stick it out. We need them more than they need us."
       },
       "valence": "negative",
@@ -11848,7 +11848,7 @@
         "Taxes that look like theft, or theft that calls itself a tax. Hard to tell the difference."
       ],
       "statCheck": {
-        "pass": "Informal tolls that take goods instead of coin are usually unsanctioned: individuals skimming the road for themselves. Legitimate tolls are coin-based and recorded.",
+        "pass": "Informal tolls that take goods instead of coin are usually unsanctioned. Individuals skimming the road for themselves. Legitimate tolls are coin-based and recorded.",
         "fail": "I don't know the politics of it. Just sounds like robbery with a name."
       },
       "valence": "negative",
@@ -11967,7 +11967,7 @@
     },
     {
       "id": 664,
-      "intro": "A trader brought leather goods from {other_settlement}: softer, stronger, and properly treated. Better than anything we can make here.",
+      "intro": "A trader brought leather goods from {other_settlement}. Softer, stronger, and properly treated. Better than anything we can make here.",
       "details": [
         "Our leather cracks in the cold. This stuff bends like it's alive.",
         "I bought a belt and a pair of gloves. The difference is immediate."
@@ -12027,10 +12027,10 @@
         "I don't know who they promised, but I'm grateful someone's word still holds."
       ],
       "reactions": [
-        "A trader who keeps coming at a loss because of a promise. Not a business decision: a character one."
+        "A trader who keeps coming at a loss because of a promise. Not a business decision. A character one."
       ],
       "statCheck": {
-        "pass": "A merchant who visits at a loss to keep a promise is building something that doesn't show on a ledger: trust. When things improve, we'll trade with them first because they showed up when it didn't pay to.",
+        "pass": "A merchant who visits at a loss to keep a promise is building something that doesn't show on a ledger. Trust. When things improve, we'll trade with them first because they showed up when it didn't pay to.",
         "fail": "I hope they can afford to keep their word. Not everyone can."
       },
       "valence": "neutral",
@@ -12084,7 +12084,7 @@
         "Taking our time costs us nothing but a trader's impatience. I can live with that."
       ],
       "statCheck": {
-        "pass": "Traders who pressure you to hurry are hoping you'll skip the inspection. Slow buyers catch defects and short counts: the impatience is the tell.",
+        "pass": "Traders who pressure you to hurry are hoping you'll skip the inspection. Slow buyers catch defects and short counts. The impatience is the tell.",
         "fail": "I just like to see what I'm paying for. Nothing wrong with that."
       },
       "valence": "neutral",
@@ -12104,7 +12104,7 @@
         "Someone else's stockpile, our shortage. Connected by a road and squeezed by the same chain."
       ],
       "statCheck": {
-        "pass": "Stockpiling is usually a sign that {other_settlement} expects trouble: either a disruption in supply they've heard about before us, or they're cornering the market to resell at a premium later.",
+        "pass": "Stockpiling is usually a sign that {other_settlement} expects trouble. Either a disruption in supply they've heard about before us, or they're cornering the market to resell at a premium later.",
         "fail": "I don't know why they're hoarding. I just feel the price going up."
       },
       "valence": "negative",
@@ -12151,14 +12151,14 @@
       "id": 674,
       "intro": "A trader told me they've started carrying medicine alongside their usual goods. Said there's too much need on the route to ignore.",
       "details": [
-        "Basic things: poultices, fever remedies, bandage linen. Not cures, but helps.",
+        "Basic things. Poultices, fever remedies, bandage linen. Not cures, but helps.",
         "They said every settlement asks for it now. That wasn't true a few years ago."
       ],
       "reactions": [
         "When a trader starts carrying medicine because everyone needs it, that tells you something about the road."
       ],
       "statCheck": {
-        "pass": "Medicine demand climbing along a route means health conditions are worsening across multiple settlements at once: usually a sign of poor harvests leading to weaker people. The trader sees the pattern before any single settlement does.",
+        "pass": "Medicine demand climbing along a route means health conditions are worsening across multiple settlements at once. Usually a sign of poor harvests leading to weaker people. The trader sees the pattern before any single settlement does.",
         "fail": "People getting sick more. That's all I know."
       },
       "valence": "negative",
@@ -12195,7 +12195,7 @@
         "Uninsurable. That's a word I didn't want associated with where I live."
       ],
       "statCheck": {
-        "pass": "When insurers drop a route, it means the losses outpace the premiums. It's a calculation, not personal, but the effect is personal: fewer traders willing to take the risk.",
+        "pass": "When insurers drop a route, it means the losses outpace the premiums. It's a calculation, not personal, but the effect is personal. Fewer traders willing to take the risk.",
         "fail": "I don't understand how trading insurance works. I just know we might lose a trader over it."
       },
       "valence": "negative",
@@ -12232,7 +12232,7 @@
         "Settlements going quiet. That puts pressure on the rest of us to pick up the slack."
       ],
       "statCheck": {
-        "pass": "Settlements that stop trading entirely are usually in a spiral: they ran out of coin, then credit, then the will to negotiate. By the time the trader shows up, there's nothing left to trade with.",
+        "pass": "Settlements that stop trading entirely are usually in a spiral. They ran out of coin, then credit, then the will to negotiate. By the time the trader shows up, there's nothing left to trade with.",
         "fail": "I don't know why they stopped. I just hope it doesn't happen here."
       },
       "valence": "negative",
@@ -12283,7 +12283,7 @@
         "We can't match the rates. We don't have the coin for bidding wars over merchant visits."
       ],
       "reactions": [
-        "A settlement buying a trader's loyalty with coin. That's not trade: that's a contract we can't compete with."
+        "A settlement buying a trader's loyalty with coin. That's not trade. That's a contract we can't compete with."
       ],
       "statCheck": {
         "pass": "Settlements that pay premiums for merchant frequency are betting that reliable supply drives growth fast enough to cover the cost. If it doesn't work, they burn through reserves for nothing.",
@@ -12331,7 +12331,7 @@
     },
     {
       "id": 684,
-      "intro": "A trader told me the {resource_type} market is splitting: high-quality commands a premium, and low-quality barely sells at all.",
+      "intro": "A trader told me the {resource_type} market is splitting. High-quality commands a premium, and low-quality barely sells at all.",
       "details": [
         "There's no middle anymore. Either it's the best and someone will pay well, or it's the worst and nobody wants it.",
         "We fall somewhere in between, which is the worst place to be."
@@ -12340,7 +12340,7 @@
         "The middle is disappearing. Either get better or get left behind."
       ],
       "statCheck": {
-        "pass": "Market splitting happens when buyers with coin chase quality and buyers without coin drop out entirely. The middle-tier producers like us lose both audiences: too expensive for the poor, too rough for the rich.",
+        "pass": "Market splitting happens when buyers with coin chase quality and buyers without coin drop out entirely. The middle-tier producers like us lose both audiences. Too expensive for the poor, too rough for the rich.",
         "fail": "I just know our stuff isn't selling like it used to."
       },
       "valence": "negative",
@@ -12414,7 +12414,7 @@
         "A woodpile as a competitive advantage. The bar is low, but we're above it."
       ],
       "statCheck": {
-        "pass": "Small comforts compound: a woodpile, clean water, and a warm greeting add up to a reputation that brings traders back. Each one costs us almost nothing but together they're worth more than a discount.",
+        "pass": "Small comforts compound. A woodpile, clean water, and a warm greeting add up to a reputation that brings traders back. Each one costs us almost nothing but together they're worth more than a discount.",
         "fail": "We just do what feels right. Didn't know it was unusual."
       },
       "valence": "neutral",
@@ -12556,7 +12556,7 @@
         "Everyone thinks they're last. At least our complaint is shared."
       ],
       "statCheck": {
-        "pass": "The merchant told me, privately, that we actually are near the end. Most settlements just think they are: we're right about it.",
+        "pass": "The merchant told me, privately, that we actually are near the end. Most settlements just think they are. We're right about it.",
         "fail": "Maybe we're all wrong. Maybe nobody's last."
       },
       "valence": "neutral",
@@ -12701,7 +12701,7 @@
         "A monopoly not by ambition but by attrition. Same result, though."
       ],
       "statCheck": {
-        "pass": "A last-remaining trader on a route will inevitably raise prices because the competition that kept them fair is gone. It's not greed: it's economics without a counterweight.",
+        "pass": "A last-remaining trader on a route will inevitably raise prices because the competition that kept them fair is gone. It's not greed. It's economics without a counterweight.",
         "fail": "We're stuck with one trader. I try not to think about what that means."
       },
       "valence": "negative",
@@ -12715,7 +12715,7 @@
       "intro": "A traveler asked if we'd ever considered sending someone to learn a trade in {other_settlement}. Said it could change what we're able to do here.",
       "details": [
         "The idea isn't bad, but we can't spare anyone for that long.",
-        "Losing a pair of hands for a season to gain a skill: that's a gamble not everyone agrees on."
+        "Losing a pair of hands for a season to gain a skill. That's a gamble not everyone agrees on."
       ],
       "reactions": [
         "Trading a person's time now for the settlement's future. Easier said than agreed upon."
@@ -12785,7 +12785,7 @@
       "id": 709,
       "intro": "A traveler said they measure time by settlements, not days. We're three settlements from {other_settlement} by their count.",
       "details": [
-        "Days are abstract on the road. Settlements are concrete: you can picture them, plan for them.",
+        "Days are abstract on the road. Settlements are concrete. You can picture them, plan for them.",
         "I've never thought about distance that way. Makes the world feel smaller."
       ],
       "reactions": [
@@ -12860,7 +12860,7 @@
         "A settlement cutting out the middleman. Good for them, uncertain for the rest of us who depend on the middleman."
       ],
       "statCheck": {
-        "pass": "Self-trained merchants serve their home settlement's interests first: they'll prioritize filling orders for {other_settlement} and sell leftovers to the rest of the route. We go from customer to afterthought.",
+        "pass": "Self-trained merchants serve their home settlement's interests first. They'll prioritize filling orders for {other_settlement} and sell leftovers to the rest of the route. We go from customer to afterthought.",
         "fail": "I don't know how it'll play out. Change on the route always takes time to reach us."
       },
       "valence": "negative",
@@ -12914,7 +12914,7 @@
         "Robbed twice and still walking. Either brave or out of options, probably both."
       ],
       "statCheck": {
-        "pass": "Travelers who get robbed repeatedly on the same route and keep going are usually carrying nothing of value anymore: they've switched to trades that fit in a pocket. The big loads move to guarded caravans and the solo walkers carry knowledge instead of goods.",
+        "pass": "Travelers who get robbed repeatedly on the same route and keep going are usually carrying nothing of value anymore. They've switched to trades that fit in a pocket. The big loads move to guarded caravans and the solo walkers carry knowledge instead of goods.",
         "fail": "I just hope it doesn't happen near here."
       },
       "valence": "negative",
@@ -12951,7 +12951,7 @@
         "Someone else's struggle becoming our shortage. The road connects everything, including the bad."
       ],
       "statCheck": {
-        "pass": "When a settlement stops exporting, it usually means they had a production failure and are consuming their reserves. The length of the export freeze tells you how bad it is: one season is a bad year, two seasons is structural.",
+        "pass": "When a settlement stops exporting, it usually means they had a production failure and are consuming their reserves. The length of the export freeze tells you how bad it is. One season is a bad year, two seasons is structural.",
         "fail": "I don't know what happened there. I just know we're not getting what we used to."
       },
       "valence": "negative",
@@ -12965,7 +12965,7 @@
       "intro": "A traveler told me they've visited over a hundred settlements in their lifetime. Said each one teaches them something.",
       "details": [
         "They said the smallest settlements often have the best solutions to common problems because they can't afford waste.",
-        "I asked what we taught them and they said: patience."
+        "I asked what we taught them and they said. Patience."
       ],
       "reactions": [
         "Patience. I suppose that's what you learn in a place where you wait for everything."
@@ -12979,7 +12979,7 @@
     },
     {
       "id": 720,
-      "intro": "A merchant from {other_settlement} brought nails: straight, uniform, and they don't bend when you hammer them.",
+      "intro": "A merchant from {other_settlement} brought nails. Straight, uniform, and they don't bend when you hammer them.",
       "details": [
         "Our homemade nails bend every third strike. These went in clean every time.",
         "I bought a whole pouch. Good nails save time on every project."
@@ -12998,11 +12998,11 @@
       "id": 721,
       "intro": "A traveler said they won't travel alone after dark anymore. Too many close calls.",
       "details": [
-        "Not with people: with the terrain. Holes, roots, loose ground, and no light to see them.",
+        "Not with people. With the terrain. Holes, roots, loose ground, and no light to see them.",
         "They said a twisted ankle on the road with nobody around is as dangerous as anything else out there."
       ],
       "reactions": [
-        "The road at night. It's not the dark that's dangerous: it's the ground underneath it."
+        "The road at night. It's not the dark that's dangerous. It's the ground underneath it."
       ],
       "statCheck": null,
       "valence": "neutral",
@@ -13123,14 +13123,14 @@
       "id": 728,
       "intro": "A merchant said they're raising all their prices next visit. Flat increase, no exceptions.",
       "details": [
-        "Said their own costs have gone up: food, tolls, cart repair. Everything costs more so everything they sell costs more.",
+        "Said their own costs have gone up. Food, tolls, cart repair. Everything costs more so everything they sell costs more.",
         "I can't argue with the logic, but the numbers are going to hurt."
       ],
       "reactions": [
         "Prices going up because costs went up. The explanation doesn't make the coin stretch any further."
       ],
       "statCheck": {
-        "pass": "A flat increase across all goods is usually larger than the actual cost increase: the trader rounds up on every item and the rounding becomes profit. Real cost increases hit different goods differently.",
+        "pass": "A flat increase across all goods is usually larger than the actual cost increase. The trader rounds up on every item and the rounding becomes profit. Real cost increases hit different goods differently.",
         "fail": "Costs go up, prices go up. I don't know enough to argue."
       },
       "valence": "negative",
@@ -13141,7 +13141,7 @@
     },
     {
       "id": 729,
-      "intro": "A traveler told me they carry a repair kit for everything: cloth, leather, wood, metal. Fixes anything on the road.",
+      "intro": "A traveler told me they carry a repair kit for everything. Cloth, leather, wood, metal. Fixes anything on the road.",
       "details": [
         "Needle, thread, wax, a small file, a strip of rawhide, and a hammer that folds flat.",
         "They said the kit weighs almost nothing and saves them a stop at every other settlement."
@@ -13158,7 +13158,7 @@
     },
     {
       "id": 730,
-      "intro": "A trader told me the route between us and {other_settlement} is the quietest stretch they travel. Not good quiet: empty quiet.",
+      "intro": "A trader told me the route between us and {other_settlement} is the quietest stretch they travel. Not good quiet. Empty quiet.",
       "details": [
         "No other travelers, no camps, no signs of recent movement. Just road.",
         "They said an empty road between settlements means the connection is weakening."
@@ -13167,7 +13167,7 @@
         "An empty road between two settlements. That's isolation measured in footprints."
       ],
       "statCheck": {
-        "pass": "When a road goes empty between two settlements, it means neither has enough to offer the other to justify the trip. Trade dies before roads do: the path stays but the reason to walk it disappears.",
+        "pass": "When a road goes empty between two settlements, it means neither has enough to offer the other to justify the trip. Trade dies before roads do. The path stays but the reason to walk it disappears.",
         "fail": "I noticed the road's been quiet. Didn't think about what it means."
       },
       "valence": "negative",
@@ -13292,7 +13292,7 @@
         "Coin only. Easy for them to say when we have more to trade than to spend."
       ],
       "statCheck": {
-        "pass": "A trader switching from barter to coin-only is standardizing their operation: coin spends anywhere, barter goods only sell where someone wants them. It's efficient for the trader but punishes settlements that are asset-rich and coin-poor.",
+        "pass": "A trader switching from barter to coin-only is standardizing their operation. Coin spends anywhere, barter goods only sell where someone wants them. It's efficient for the trader but punishes settlements that are asset-rich and coin-poor.",
         "fail": "I understand the logic. I just can't easily follow it."
       },
       "valence": "negative",
@@ -13359,14 +13359,14 @@
       "id": 741,
       "intro": "A merchant told me they lost a customer settlement this year because it simply ceased to function. People drifted away one by one.",
       "details": [
-        "No disaster, no conflict: just attrition. Fewer people each visit until there was nobody left to trade with.",
+        "No disaster, no conflict. Just attrition. Fewer people each visit until there was nobody left to trade with.",
         "The merchant said the last time they went, the buildings were still standing but nobody was inside them."
       ],
       "reactions": [
         "A settlement that emptied slowly. That's a quieter kind of ending than most."
       ],
       "statCheck": {
-        "pass": "Settlements that lose population by attrition are usually ones where young people leave for better opportunities and the old can't maintain things alone. It's a cycle: as people leave, conditions worsen, which drives more to leave.",
+        "pass": "Settlements that lose population by attrition are usually ones where young people leave for better opportunities and the old can't maintain things alone. It's a cycle. As people leave, conditions worsen, which drives more to leave.",
         "fail": "Sad to think about. I hope it doesn't happen here."
       },
       "valence": "negative",
@@ -13396,7 +13396,7 @@
       "id": 743,
       "intro": "A merchant asked us what we'd want if they could bring anything. We couldn't agree on a single answer.",
       "details": [
-        "Everyone wanted something different: better tools, cloth, medicine, lamp oil, fresh seeds.",
+        "Everyone wanted something different. Better tools, cloth, medicine, lamp oil, fresh seeds.",
         "The merchant said our inability to prioritize is our biggest weakness as customers."
       ],
       "reactions": [
@@ -13464,7 +13464,7 @@
       "id": 747,
       "intro": "A traveler told me they don't sleep well in settlements anymore. Too used to the quiet of the open road.",
       "details": [
-        "They said the sounds of other people: coughing, doors, footsteps, keep them awake.",
+        "They said the sounds of other people. Coughing, doors, footsteps, keep them awake.",
         "After years of sleeping alone under the sky, a roof feels like a cage."
       ],
       "reactions": [
@@ -13488,7 +13488,7 @@
         "Getting the leftovers of the leftovers. Our position on the route summed up in one visit."
       ],
       "statCheck": {
-        "pass": "Pre-ordering is how larger settlements lock in supply: they pay upfront and guarantee volume, which pushes smaller settlements to the back of the line. The system rewards who can pay first, not who needs it most.",
+        "pass": "Pre-ordering is how larger settlements lock in supply. They pay upfront and guarantee volume, which pushes smaller settlements to the back of the line. The system rewards who can pay first, not who needs it most.",
         "fail": "We take what comes. That's all we can do."
       },
       "valence": "negative",
@@ -13525,7 +13525,7 @@
         "One less route on the map. The world feels a little smaller when that happens."
       ],
       "statCheck": {
-        "pass": "When a merchant drops a stop, it's because the margin collapsed: either the settlement stopped buying or the road got too expensive. Either way, that settlement's supply just dried up.",
+        "pass": "When a merchant drops a stop, it's because the margin collapsed. Either the settlement stopped buying or the road got too expensive. Either way, that settlement's supply just dried up.",
         "fail": "I just know they're not going there anymore. That's all I heard."
       },
       "valence": "negative",
@@ -13562,7 +13562,7 @@
         "Undercut by someone who can afford to sell for less. Not much to do about that."
       ],
       "statCheck": {
-        "pass": "Dumping cheap goods on the route is usually temporary: they're burning through a surplus or trying to crush competition. The question is whether anyone else can hold out long enough to survive it.",
+        "pass": "Dumping cheap goods on the route is usually temporary. They're burning through a surplus or trying to crush competition. The question is whether anyone else can hold out long enough to survive it.",
         "fail": "I don't understand how they can sell so low. Maybe they know something we don't."
       },
       "valence": "negative",
@@ -13612,7 +13612,7 @@
       "id": 755,
       "intro": "A traveler taught one of the kids how to tie a knot that holds under strain. The kid's been tying everything to everything since.",
       "details": [
-        "Fence posts, barrel lids, tool handles: all knotted with the same loop and pull.",
+        "Fence posts, barrel lids, tool handles. All knotted with the same loop and pull.",
         "The traveler laughed when they saw what they'd started."
       ],
       "reactions": [
@@ -13636,7 +13636,7 @@
         "Too much road for one person. I understand the feeling, even without a cart."
       ],
       "statCheck": {
-        "pass": "I thought about volunteering, honestly: half a route, regular income, a reason to see what's out there. But leaving here means leaving everything I know.",
+        "pass": "I thought about volunteering, honestly. Half a route, regular income, a reason to see what's out there. But leaving here means leaving everything I know.",
         "fail": "Nobody around here has the time or the courage for the road."
       },
       "valence": "neutral",
@@ -13710,7 +13710,7 @@
         "Two settlements racing to the bottom. Someone wins and both lose."
       ],
       "statCheck": {
-        "pass": "A price war between producers always ends the same way: one gives up, raises prices, and the survivor raises theirs even higher to recoup losses. Everyone pays more in the end than they would have without the fight.",
+        "pass": "A price war between producers always ends the same way. One gives up, raises prices, and the survivor raises theirs even higher to recoup losses. Everyone pays more in the end than they would have without the fight.",
         "fail": "I just know the prices keep changing. Can't keep track of why."
       },
       "valence": "negative",
@@ -13760,7 +13760,7 @@
       "id": 763,
       "intro": "A traveler told me they carry a small stone from every settlement they've slept in. Their pouch must weigh a fortune by now.",
       "details": [
-        "They pulled out ours: a flat grey one from the path near the well.",
+        "They pulled out ours. A flat grey one from the path near the well.",
         "Said each stone is a night they survived. I thought that was a heavy way to think about it."
       ],
       "reactions": [
@@ -13804,7 +13804,7 @@
         "Middle of the road. Honest feedback, even if it doesn't feel like a compliment."
       ],
       "statCheck": {
-        "pass": "Middle of the road means the trader charges us mid-range prices too. If we cleaned and sorted better, we'd move up the list: the gap between average and good is mostly effort.",
+        "pass": "Middle of the road means the trader charges us mid-range prices too. If we cleaned and sorted better, we'd move up the list. The gap between average and good is mostly effort.",
         "fail": "We do what we can with what we have."
       },
       "valence": "neutral",
@@ -13832,7 +13832,7 @@
     },
     {
       "id": 767,
-      "intro": "A merchant said they've been overcharged at every stop this season. Everyone blaming the same excuse: hard times.",
+      "intro": "A merchant said they've been overcharged at every stop this season. Everyone blaming the same excuse. Hard times.",
       "details": [
         "Hard times for everyone means higher prices for the trader, which means higher prices for us.",
         "They said the whole route is squeezing them from both ends."
@@ -14046,7 +14046,7 @@
         "A merchant robbed on the road and we're the ones picking through the leftovers. Nobody won that day."
       ],
       "statCheck": {
-        "pass": "I haggled harder than I should have: they were desperate and I knew it. I'm not proud of that, but the goods were there and the price was right.",
+        "pass": "I haggled harder than I should have. They were desperate and I knew it. I'm not proud of that, but the goods were there and the price was right.",
         "fail": "Terrible luck for them. We did what we could."
       },
       "valence": "negative",
@@ -14083,7 +14083,7 @@
         "Their name on it makes it worth more. Reputation is its own kind of currency."
       ],
       "statCheck": {
-        "pass": "Named-source demand is self-reinforcing: once buyers start asking for it, the price rises, which funds better production, which increases the quality gap. We'd need years of investment to compete.",
+        "pass": "Named-source demand is self-reinforcing. Once buyers start asking for it, the price rises, which funds better production, which increases the quality gap. We'd need years of investment to compete.",
         "fail": "I'm sure they're doing something we're not. Can't say what."
       },
       "valence": "negative",
@@ -14096,7 +14096,7 @@
       "id": 781,
       "intro": "A traveler told me they always carry extra socks. Said dry feet are the difference between making the next settlement and not.",
       "details": [
-        "They showed me their pack: three extra pairs, each rolled tight and wrapped in waxed cloth.",
+        "They showed me their pack. Three extra pairs, each rolled tight and wrapped in waxed cloth.",
         "Simple thing, but after walking all day in wet boots, I understood completely."
       ],
       "reactions": [
@@ -14165,7 +14165,7 @@
     },
     {
       "id": 785,
-      "intro": "A trader said they've heard complaints about our {resource_type} from three different settlements. All saying the same thing: inconsistent quality.",
+      "intro": "A trader said they've heard complaints about our {resource_type} from three different settlements. All saying the same thing. Inconsistent quality.",
       "details": [
         "One batch good, the next poor. Buyers don't like surprises.",
         "The merchant said if we don't sort it out, they'll source from somewhere else."
@@ -14174,7 +14174,7 @@
         "Three settlements, same complaint. That's a pattern we can't ignore."
       ],
       "statCheck": {
-        "pass": "Inconsistent quality is worse than consistently poor quality in trade: a buyer who knows what to expect can plan around it. A buyer who gets surprised starts looking for a new source immediately.",
+        "pass": "Inconsistent quality is worse than consistently poor quality in trade. A buyer who knows what to expect can plan around it. A buyer who gets surprised starts looking for a new source immediately.",
         "fail": "I hear the complaint. I just don't know how to fix it from my end."
       },
       "valence": "negative",
@@ -14225,7 +14225,7 @@
       "intro": "A traveler told me they never carry more than they can run with. Said it's the one rule that's kept them alive.",
       "details": [
         "Everything they own fits in one pack and weighs less than a child.",
-        "They said comfort on the road is not about having enough: it's about having only what matters."
+        "They said comfort on the road is not about having enough. It's about having only what matters."
       ],
       "reactions": [
         "Travel light, move fast. A philosophy that doesn't translate to settlement life, but I respect it."
@@ -14265,7 +14265,7 @@
         "A settlement choosing its partners. Makes sense for them, but it locks the rest of us out."
       ],
       "statCheck": {
-        "pass": "Approved merchant lists are how a settlement centralizes control over its trade: the real power isn't in what they sell, it's in who they let sell it. Unapproved traders either comply with their terms or find another source.",
+        "pass": "Approved merchant lists are how a settlement centralizes control over its trade. The real power isn't in what they sell, it's in who they let sell it. Unapproved traders either comply with their terms or find another source.",
         "fail": "I don't understand the politics. I just know fewer merchants means fewer choices for us."
       },
       "valence": "negative",
@@ -14296,13 +14296,13 @@
       "intro": "A merchant told me they found our {resource_type} mixed in with another settlement's stock at a market. Someone had rebundled it.",
       "details": [
         "Our marks were still on the wrapping underneath. The outer label was someone else's.",
-        "The merchant said it happens more than you'd think: settlements resell under their own name."
+        "The merchant said it happens more than you'd think. Settlements resell under their own name."
       ],
       "reactions": [
         "Our goods under someone else's name. I'm not sure whether to be flattered or annoyed."
       ],
       "statCheck": {
-        "pass": "Relabeling goods is a margin game: buy cheap from the source, slap your own name on it, sell at a premium. It only works because the end buyer doesn't know where things actually come from.",
+        "pass": "Relabeling goods is a margin game. Buy cheap from the source, slap your own name on it, sell at a premium. It only works because the end buyer doesn't know where things actually come from.",
         "fail": "I just thought it was strange seeing our wrapping somewhere it shouldn't be."
       },
       "valence": "neutral",
@@ -14316,7 +14316,7 @@
       "intro": "A traveler told me they've been walking the route for thirty years. Started as a young person with nothing and now they know every settlement by name.",
       "details": [
         "Thirty years of the same road, and they said it's never the same twice. Seasons change, settlements grow or shrink.",
-        "They said the road is the only honest thing: it's always there, it always goes both ways."
+        "They said the road is the only honest thing. It's always there, it always goes both ways."
       ],
       "reactions": [
         "Thirty years on one road. A lifetime of walking and they don't seem tired of it."
@@ -14430,7 +14430,7 @@
         "Families walking the road. That's never a cheerful sign."
       ],
       "statCheck": {
-        "pass": "Mass movement of families along a trade route means a settlement failed: either its economy collapsed or living conditions dropped below what people would tolerate. The receiving settlements get the labor but also the burden.",
+        "pass": "Mass movement of families along a trade route means a settlement failed. Either its economy collapsed or living conditions dropped below what people would tolerate. The receiving settlements get the labor but also the burden.",
         "fail": "I don't know where they're coming from. I just hope they find what they need."
       },
       "valence": "negative",
@@ -14504,7 +14504,7 @@
         "A merchant who knows us better than we know ourselves. That's either excellent service or too much attention."
       ],
       "statCheck": {
-        "pass": "A trader who knows your patterns also knows your weaknesses: what you'll overpay for, what you're desperate for, and when you're most likely to buy impulsively. That knowledge is leverage.",
+        "pass": "A trader who knows your patterns also knows your weaknesses. What you'll overpay for, what you're desperate for, and when you're most likely to buy impulsively. That knowledge is leverage.",
         "fail": "Good service, I suppose. Nothing more to it."
       },
       "valence": "neutral",
@@ -14518,13 +14518,13 @@
       "intro": "A trader said {other_settlement} just started producing their own {resource_type}. They used to buy ours.",
       "details": [
         "Losing a buyer means our surplus has nowhere to go.",
-        "The trader said it happens every few years: a settlement invests in producing what it used to import."
+        "The trader said it happens every few years. A settlement invests in producing what it used to import."
       ],
       "reactions": [
         "One less customer. We'll need to find another or produce less."
       ],
       "statCheck": {
-        "pass": "When a settlement starts producing what it used to buy, the transition period is the dangerous time: their quality is low but they subsidize it to build capacity. Meanwhile, the original producer loses the customer permanently.",
+        "pass": "When a settlement starts producing what it used to buy, the transition period is the dangerous time. Their quality is low but they subsidize it to build capacity. Meanwhile, the original producer loses the customer permanently.",
         "fail": "I guess they don't need us anymore. That's the way of things."
       },
       "valence": "negative",
@@ -14537,7 +14537,7 @@
       "id": 805,
       "intro": "A traveler told me our well water is the best they've tasted on the route. Made a point of filling every container they had.",
       "details": [
-        "They said most settlement water has a taste to it: mineral, mud, or stale. Ours is clean and sweet.",
+        "They said most settlement water has a taste to it. Mineral, mud, or stale. Ours is clean and sweet.",
         "We never think about our water. It's just water."
       ],
       "reactions": [
@@ -14686,7 +14686,7 @@
       "intro": "A trader said they brought extra {resource_type} because the last three settlements on the route were all short. Demand is outpacing supply.",
       "details": [
         "Everyone wants the same thing and there isn't enough to go around.",
-        "The trader's rationing now: smaller portions at each stop to make the cart last the full route."
+        "The trader's rationing now. Smaller portions at each stop to make the cart last the full route."
       ],
       "reactions": [
         "Rationed supply on the route. We get some, but not as much as we need."
@@ -14742,7 +14742,7 @@
       "id": 816,
       "intro": "A traveler told me they judge a settlement by its bread. Ours passed.",
       "details": [
-        "They said you can tell a lot from the crust: how well the ovens work, how good the flour is, how much people care.",
+        "They said you can tell a lot from the crust. How well the ovens work, how good the flour is, how much people care.",
         "I handed them a second piece and they didn't refuse."
       ],
       "reactions": [
@@ -14760,13 +14760,13 @@
       "intro": "A trader said {other_settlement} is stockpiling goods and not selling. Driving scarcity on the route.",
       "details": [
         "If they're holding back, it's because they expect prices to climb. Everyone else suffers in the meantime.",
-        "The trader said they've seen this before: one settlement hoards, the rest scramble."
+        "The trader said they've seen this before. One settlement hoards, the rest scramble."
       ],
       "reactions": [
         "Someone else's strategy, our shortage. The route doesn't let anyone act alone without affecting everyone."
       ],
       "statCheck": {
-        "pass": "Stockpiling is a bet: hold supply, wait for scarcity to peak, then release at maximum price. It only fails if another source appears before they sell, and right now there's no other source.",
+        "pass": "Stockpiling is a bet. Hold supply, wait for scarcity to peak, then release at maximum price. It only fails if another source appears before they sell, and right now there's no other source.",
         "fail": "I don't know enough about their thinking. I just see the empty shelves."
       },
       "valence": "negative",
@@ -14814,7 +14814,7 @@
       "intro": "A trader told me they've started sleeping with their goods instead of leaving them on the cart overnight. Trust on the route has dropped.",
       "details": [
         "They said two stops ago someone opened their cart during the night. Nothing taken, but the message was clear.",
-        "Sleeping on your goods. That's not a trade route: that's a guard posting."
+        "Sleeping on your goods. That's not a trade route. That's a guard posting."
       ],
       "reactions": [
         "A merchant sleeping on their cart. The route is harder than it used to be."
@@ -14833,8 +14833,8 @@
       "id": 821,
       "intro": "A traveler told me they've been to settlements where nobody under twenty remembers a time before trade routes. They think merchants have always come.",
       "details": [
-        "The older folks remember isolation: no outside goods, no news, no variety. The young ones can't imagine it.",
-        "The traveler said that's the surest sign a route is established: when nobody remembers life without it."
+        "The older folks remember isolation. No outside goods, no news, no variety. The young ones can't imagine it.",
+        "The traveler said that's the surest sign a route is established. When nobody remembers life without it."
       ],
       "reactions": [
         "A generation that's never known isolation. I suppose that's what stability looks like."
@@ -14874,7 +14874,7 @@
         "The last profitable stop. Better than being past the cutoff, I suppose."
       ],
       "statCheck": {
-        "pass": "Being the last stop on a profitable stretch gives us leverage: the trader needs us to justify the trip length. But if we ever shrink enough to stop being worth it, the turnaround point moves closer and we lose the route entirely.",
+        "pass": "Being the last stop on a profitable stretch gives us leverage. The trader needs us to justify the trip length. But if we ever shrink enough to stop being worth it, the turnaround point moves closer and we lose the route entirely.",
         "fail": "At least they still come here. That's what matters."
       },
       "valence": "neutral",
@@ -14928,7 +14928,7 @@
         "First stop takes all. Our position on the route decides what we get."
       ],
       "statCheck": {
-        "pass": "Route position determines access: first stops get first pick, last stops get remainders. The only way to change it is to offer enough to make the trader save some for you, which means paying a premium for the privilege of being served last.",
+        "pass": "Route position determines access. First stops get first pick, last stops get remainders. The only way to change it is to offer enough to make the trader save some for you, which means paying a premium for the privilege of being served last.",
         "fail": "We just don't get there first. Simple as that."
       },
       "valence": "negative",
@@ -14982,7 +14982,7 @@
         "A route that goes around us. Talk for now, but talk becomes road eventually."
       ],
       "statCheck": {
-        "pass": "New route surveys are expensive and settlements don't commission them idly. If {other_settlement} is surveying a bypass, they've already decided we're not worth the detour: the survey is the final step before commitment, not the first.",
+        "pass": "New route surveys are expensive and settlements don't commission them idly. If {other_settlement} is surveying a bypass, they've already decided we're not worth the detour. The survey is the final step before commitment, not the first.",
         "fail": "I try not to worry about things that haven't happened yet. Doesn't always work."
       },
       "valence": "negative",
@@ -14995,7 +14995,7 @@
       "id": 830,
       "intro": "A traveler told me they've noticed that every settlement has one thing they're proud of. They asked what ours is.",
       "details": [
-        "I had to think about it: we're not the best at anything specific, but we're dependable.",
+        "I had to think about it. We're not the best at anything specific, but we're dependable.",
         "The traveler said dependable is rarer than exceptional. Most settlements are neither."
       ],
       "reactions": [
@@ -15027,13 +15027,13 @@
     },
     {
       "id": 832,
-      "intro": "A trader told me they've noticed a pattern: settlements that invest in storage always do better than ones that don't.",
+      "intro": "A trader told me they've noticed a pattern. Settlements that invest in storage always do better than ones that don't.",
       "details": [
         "Good storage means you can buy when prices are low and use when prices are high. It's a buffer against bad timing.",
         "They said we'd benefit from better storage. I know they're right."
       ],
       "reactions": [
-        "Storage as strategy. We use ours for keeping things dry: they're saying we should use it for keeping prices fair."
+        "Storage as strategy. We use ours for keeping things dry. They're saying we should use it for keeping prices fair."
       ],
       "statCheck": {
         "pass": "Settlements with surplus storage can stockpile when traders bring oversupply and sell when there's scarcity, turning a passive stop into an active trader. The investment pays for itself within two seasons.",
@@ -15073,7 +15073,7 @@
         "Falling demand for what we make. Not a crisis, but a worry."
       ],
       "statCheck": {
-        "pass": "A route-wide demand drop usually means a substitute has appeared or a major buyer has changed suppliers. The drop rarely reverses on its own: you either find new buyers or produce something else.",
+        "pass": "A route-wide demand drop usually means a substitute has appeared or a major buyer has changed suppliers. The drop rarely reverses on its own. You either find new buyers or produce something else.",
         "fail": "I just hope it picks back up. We don't have a lot of alternatives."
       },
       "valence": "negative",
@@ -15086,7 +15086,7 @@
       "id": 835,
       "intro": "A traveler told me they learned to read the sky for weather on the road. Said it's the first skill any traveler masters.",
       "details": [
-        "Red in the morning means rain by afternoon, high thin clouds mean clear for two days: they rattled it off like a list.",
+        "Red in the morning means rain by afternoon, high thin clouds mean clear for two days. They rattled it off like a list.",
         "I know some of it from farming, but they had a precision to it that comes from sleeping outdoors every night."
       ],
       "reactions": [
@@ -15130,7 +15130,7 @@
         "Holding out for a better deal that never came. A lesson we should remember."
       ],
       "statCheck": {
-        "pass": "We almost did the same thing last season: turned down a fair price hoping to negotiate, and the trader left. We ended up buying worse goods from the next cart at a markup.",
+        "pass": "We almost did the same thing last season. Turned down a fair price hoping to negotiate, and the trader left. We ended up buying worse goods from the next cart at a markup.",
         "fail": "Other settlements' mistakes. Nothing to do with us."
       },
       "valence": "neutral",
@@ -15144,7 +15144,7 @@
       "intro": "A traveler told me they collect seeds from every region they pass through. Started a little garden at a settlement that let them stay.",
       "details": [
         "Plants from ten different stretches of road, all growing in one patch of dirt. Some of them took, some didn't.",
-        "They said it's the closest they have to a home: a garden they visit once a year."
+        "They said it's the closest they have to a home. A garden they visit once a year."
       ],
       "reactions": [
         "A garden tended once a year by a traveler who can't stay. There's something beautiful and sad about that."
@@ -15184,7 +15184,7 @@
         "A new merchant shaking up the route. Good for us now, uncertain for later."
       ],
       "statCheck": {
-        "pass": "New merchants undercutting established ones is a cycle: the newcomer runs at a loss to build the route, the veterans drop out, and the survivor raises prices above where they started. The customer celebrates twice and pays three times.",
+        "pass": "New merchants undercutting established ones is a cycle. The newcomer runs at a loss to build the route, the veterans drop out, and the survivor raises prices above where they started. The customer celebrates twice and pays three times.",
         "fail": "Cheaper prices. I'm not going to argue with that."
       },
       "valence": "neutral",
@@ -15271,7 +15271,7 @@
       "id": 845,
       "intro": "A merchant brought a jar of preserved plums from a settlement none of us have heard of. Tasted like nothing I've had before.",
       "details": [
-        "Sweet, tart, and something else: a flavor I don't have a word for.",
+        "Sweet, tart, and something else. A flavor I don't have a word for.",
         "One jar. The merchant said they only bring them when they find them, which is rare."
       ],
       "reactions": [
@@ -15295,7 +15295,7 @@
         "Inspections at the gate. Quality control that costs everyone time."
       ],
       "statCheck": {
-        "pass": "Mandatory inspections are a power move: the settlement sets the standard and the trader either meets it or leaves empty-handed. The real effect is that traders bring their best goods there and dump the rejects on less demanding stops like ours.",
+        "pass": "Mandatory inspections are a power move. The settlement sets the standard and the trader either meets it or leaves empty-handed. The real effect is that traders bring their best goods there and dump the rejects on less demanding stops like ours.",
         "fail": "I know it slows things down. Beyond that, I don't know."
       },
       "valence": "negative",
@@ -15363,13 +15363,13 @@
       "intro": "A merchant said they've started offering {resource_type} on credit to settlements that can't pay up front. We're one of them.",
       "details": [
         "Credit means we get what we need now and owe next visit. It also means we start the next visit in debt.",
-        "The merchant said it's not charity: the interest is baked into the next price."
+        "The merchant said it's not charity. The interest is baked into the next price."
       ],
       "reactions": [
         "Buying on credit. Feels like relief now but I know it's tomorrow's problem."
       ],
       "statCheck": {
-        "pass": "Credit from a trader is a trap that looks like a favor: each visit starts with debt, so you never negotiate from a position of strength. After a few cycles, you're buying at the trader's price because you can't afford to say no.",
+        "pass": "Credit from a trader is a trap that looks like a favor. Each visit starts with debt, so you never negotiate from a position of strength. After a few cycles, you're buying at the trader's price because you can't afford to say no.",
         "fail": "We needed the goods. The terms are the terms."
       },
       "valence": "negative",
@@ -15382,7 +15382,7 @@
       "id": 851,
       "intro": "A traveler told me they always check on the children of settlements they visit. Said it tells them more than anything else about how a place is doing.",
       "details": [
-        "Happy children, fed children, children playing: that's a settlement doing well. Quiet, thin children are the other kind.",
+        "Happy children, fed children, children playing. That's a settlement doing well. Quiet, thin children are the other kind.",
         "They said ours are doing fine. I was glad to hear it from an outside eye."
       ],
       "reactions": [
@@ -15457,7 +15457,7 @@
         "Our old supplier can't compete. They're losing customers one settlement at a time."
       ],
       "reactions": [
-        "Cheaper wins and quality loses. The route doesn't reward the best: it rewards the cheapest."
+        "Cheaper wins and quality loses. The route doesn't reward the best. It rewards the cheapest."
       ],
       "statCheck": {
         "pass": "When cheap goods drive out quality goods, the market adjusts permanently. Buyers forget what good quality felt like, the quality producer goes under, and when the cheap goods eventually fail, there's nobody left making the good ones.",
@@ -15490,7 +15490,7 @@
       "id": 857,
       "intro": "A merchant said they won't carry anything fragile anymore. Too many breaks on the road, too many losses.",
       "details": [
-        "Pottery, glass, anything that shatters: gone from the cart. Only goods that survive rough roads.",
+        "Pottery, glass, anything that shatters. Gone from the cart. Only goods that survive rough roads.",
         "It means we can't get fine goods through the route anymore. Only the sturdy stuff makes it."
       ],
       "reactions": [
@@ -15537,7 +15537,7 @@
         "A backup stop. Not first choice, but at least we're on the map."
       ],
       "statCheck": {
-        "pass": "Being on the emergency route means they think their primary route might actually fail: they're not being cautious, they're planning for collapse. That should worry us more than it reassures us.",
+        "pass": "Being on the emergency route means they think their primary route might actually fail. They're not being cautious, they're planning for collapse. That should worry us more than it reassures us.",
         "fail": "Backup plan. Better than nothing, I suppose."
       },
       "valence": "neutral",
@@ -15585,7 +15585,7 @@
     },
     {
       "id": 862,
-      "intro": "A traveler said they met an elderly traveler on the road who gave them a piece of advice: always carry more water than you think you need.",
+      "intro": "A traveler said they met an elderly traveler on the road who gave them a piece of advice. Always carry more water than you think you need.",
       "details": [
         "Simple advice, but they said it saved them twice in dry stretches where springs were empty.",
         "An extra waterskin weighs a lot at the start and nothing at the end."
@@ -15682,7 +15682,7 @@
         "Merchants pairing up. Practical, but it says something about the road that they feel they need to."
       ],
       "statCheck": {
-        "pass": "Paired merchants also coordinate prices: two traders traveling together won't undercut each other, which means the competition that kept prices fair just disappeared. Safety for them, higher costs for us.",
+        "pass": "Paired merchants also coordinate prices. Two traders traveling together won't undercut each other, which means the competition that kept prices fair just disappeared. Safety for them, higher costs for us.",
         "fail": "I suppose the road is rougher than it used to be."
       },
       "valence": "neutral",
@@ -15693,16 +15693,16 @@
     },
     {
       "id": 868,
-      "intro": "A traveler told me they've started carrying a small mirror. Said it's the most traded item on the road: everyone wants a look at themselves.",
+      "intro": "A traveler told me they've started carrying a small mirror. Said it's the most traded item on the road. Everyone wants a look at themselves.",
       "details": [
         "A quick look in a mirror is worth a meal in most settlements. People are vain even when they're hungry.",
         "They lent it to half the settlement before they left. Nobody wanted to give it back."
       ],
       "reactions": [
-        "A mirror on the road: vanity as currency. Can't say I blame anyone."
+        "A mirror on the road. Vanity as currency. Can't say I blame anyone."
       ],
       "statCheck": {
-        "pass": "I looked in it myself and didn't recognize the face staring back: you forget what you look like when there's no mirror around. That shook me more than I expected.",
+        "pass": "I looked in it myself and didn't recognize the face staring back. You forget what you look like when there's no mirror around. That shook me more than I expected.",
         "fail": "Interesting thing to carry. I suppose people want what they can't easily get."
       },
       "valence": "neutral",
@@ -15733,7 +15733,7 @@
     },
     {
       "id": 870,
-      "intro": "A traveler told me they always leave a mark on the road near good settlements. Nothing obvious: just a scratch on a particular stone.",
+      "intro": "A traveler told me they always leave a mark on the road near good settlements. Nothing obvious. Just a scratch on a particular stone.",
       "details": [
         "Other travelers know to look for it. A scratch means safe rest, fair people, clean water.",
         "They said our stone has a mark. I didn't know whether to be touched or worried that strangers mark our roads."
@@ -15753,7 +15753,7 @@
       "intro": "A merchant said they're considering raising their minimum order. Stops that buy too little aren't worth the time.",
       "details": [
         "Minimum orders mean we either buy more than we need or don't buy at all.",
-        "The trader said it's about efficiency: small sales take the same time as large ones but earn a fraction."
+        "The trader said it's about efficiency. Small sales take the same time as large ones but earn a fraction."
       ],
       "reactions": [
         "Buy more or get nothing. A choice that doesn't feel like a choice."
@@ -15813,7 +15813,7 @@
         "Forced to choose sides on a trade route. Nobody asked us, but we'll feel the result."
       ],
       "statCheck": {
-        "pass": "Exclusive trade networks are how powerful settlements build dependency: once a merchant commits to the network, every settlement outside it becomes unreachable. The network grows by absorbing options until there's no alternative.",
+        "pass": "Exclusive trade networks are how powerful settlements build dependency. Once a merchant commits to the network, every settlement outside it becomes unreachable. The network grows by absorbing options until there's no alternative.",
         "fail": "I just hope the merchants don't have to choose. We'd come up short."
       },
       "valence": "negative",
@@ -15850,7 +15850,7 @@
         "Slow payers, last served. A connection I should have made sooner."
       ],
       "statCheck": {
-        "pass": "We pay slow because we argue about who owes what internally, and by the time we sort ourselves out, the merchant's already moved on. It's not poverty: it's disorganization.",
+        "pass": "We pay slow because we argue about who owes what internally, and by the time we sort ourselves out, the merchant's already moved on. It's not poverty. It's disorganization.",
         "fail": "We do our best. Not everyone has coin sitting ready."
       },
       "valence": "negative",
@@ -15863,7 +15863,7 @@
       "id": 877,
       "intro": "A traveler told me they sleep lighter every year on the road. Said they wake at the smallest sound now.",
       "details": [
-        "A branch snapping, an animal moving, rain starting: everything wakes them.",
+        "A branch snapping, an animal moving, rain starting. Everything wakes them.",
         "They said they haven't had a full night's sleep in years but they've never been caught off guard."
       ],
       "reactions": [
@@ -15880,7 +15880,7 @@
       "id": 878,
       "intro": "A merchant said they've started keeping a record of every settlement's {resource_type} quality over time. Ours has been improving.",
       "details": [
-        "Slow improvement over three years. They showed me the notes: consistent upward trend.",
+        "Slow improvement over three years. They showed me the notes. Consistent upward trend.",
         "I didn't notice the improvement because it happened gradually. Takes an outside eye to see patterns."
       ],
       "reactions": [
@@ -15952,13 +15952,13 @@
       "intro": "A trader told me a dispute between two settlements on the route has spilled over into trade. Each one refuses to sell to the other's allies.",
       "details": [
         "We're not allied with either, but the disruption affects what's available on the cart.",
-        "The merchant said they're caught in the middle: carry goods for one side and lose the other."
+        "The merchant said they're caught in the middle. Carry goods for one side and lose the other."
       ],
       "reactions": [
         "Someone else's argument, our missing goods. The route doesn't care about neutrality."
       ],
       "statCheck": {
-        "pass": "Trade disputes between settlements are proxy conflicts: the real issue is usually territorial or personal, but the weapon is supply restriction. Every neutral settlement on the route takes collateral damage.",
+        "pass": "Trade disputes between settlements are proxy conflicts. The real issue is usually territorial or personal, but the weapon is supply restriction. Every neutral settlement on the route takes collateral damage.",
         "fail": "I don't understand what they're fighting about. I just notice the cart's lighter."
       },
       "valence": "negative",
@@ -16012,7 +16012,7 @@
         "A single source of truth on the route. That's a lot of influence for one person with a cart."
       ],
       "statCheck": {
-        "pass": "A sole news carrier controls the narrative between settlements: they can inflate demand for goods they carry, talk down competitors, or shape perceptions of settlements they don't like. Information monopoly is the most invisible kind of power.",
+        "pass": "A sole news carrier controls the narrative between settlements. They can inflate demand for goods they carry, talk down competitors, or shape perceptions of settlements they don't like. Information monopoly is the most invisible kind of power.",
         "fail": "I just listen to what they say. Haven't thought much about whether it's all true."
       },
       "valence": "neutral",
@@ -16060,7 +16060,7 @@
     },
     {
       "id": 888,
-      "intro": "A traveler said they once walked into a settlement at exactly the right moment: a feast day. Best luck they ever had.",
+      "intro": "A traveler said they once walked into a settlement at exactly the right moment. A feast day. Best luck they ever had.",
       "details": [
         "Free food, music, and a warm bed for the night. They didn't know the occasion and nobody cared.",
         "They said timing on the road is everything. A day earlier, they'd have slept in the rain."
@@ -16103,7 +16103,7 @@
         "A shifting market and we're slow to shift with it. That's the risk of relying on one thing."
       ],
       "statCheck": {
-        "pass": "Market shifts on a trade route rarely reverse: once settlements find an alternative source or a substitute good, the original demand doesn't come back. The smart move is to pivot early, but most settlements wait until the old product is worthless.",
+        "pass": "Market shifts on a trade route rarely reverse. Once settlements find an alternative source or a substitute good, the original demand doesn't come back. The smart move is to pivot early, but most settlements wait until the old product is worthless.",
         "fail": "Things change. We'll figure it out."
       },
       "valence": "negative",
@@ -16134,7 +16134,7 @@
       "intro": "A merchant told me they're switching from a cart to a pack animal. Less capacity but faster travel.",
       "details": [
         "Faster means more stops per season. Less on the animal but more frequent visits.",
-        "They said the math works out better: speed over volume."
+        "They said the math works out better. Speed over volume."
       ],
       "reactions": [
         "Less goods, more visits. A different rhythm for the route."
@@ -16160,7 +16160,7 @@
         "Stamps of origin. A smart idea we should probably copy."
       ],
       "statCheck": {
-        "pass": "Stamping is accountability that cuts both ways: when your goods are good, the stamp sells them faster. When your goods are bad, the stamp makes sure everyone knows exactly who to blame.",
+        "pass": "Stamping is accountability that cuts both ways. When your goods are good, the stamp sells them faster. When your goods are bad, the stamp makes sure everyone knows exactly who to blame.",
         "fail": "Seems like a good idea. I don't know the details."
       },
       "valence": "neutral",
@@ -16197,7 +16197,7 @@
         "A fire somewhere else and an empty cart here. The route connects the consequences."
       ],
       "statCheck": {
-        "pass": "Centralized storage for a whole route is efficient but fragile: one fire wipes out supply for every settlement downstream. The smarter approach is smaller stocks at multiple points, but nobody wants to pay for that.",
+        "pass": "Centralized storage for a whole route is efficient but fragile. One fire wipes out supply for every settlement downstream. The smarter approach is smaller stocks at multiple points, but nobody wants to pay for that.",
         "fail": "A fire and an empty cart. That's all I know about it."
       },
       "valence": "negative",
@@ -16267,7 +16267,7 @@
       "id": 899,
       "intro": "A traveler told me they keep a mental map of every clean water source between settlements. Said it's more valuable than any physical map.",
       "details": [
-        "Springs, streams, wells at abandoned homesteads: they know them all by feel and distance.",
+        "Springs, streams, wells at abandoned homesteads. They know them all by feel and distance.",
         "They said they'd share the knowledge if we had travelers of our own to send out. We don't."
       ],
       "reactions": [

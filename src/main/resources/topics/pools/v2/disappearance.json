@@ -4,7 +4,7 @@
   "entries": [
     {
       "id": 0,
-      "intro": "Someone's been helping themselves to eggs around here. Three mornings in a row now: coop's half empty.",
+      "intro": "Someone's been helping themselves to eggs around here. Three mornings in a row now. Coop's half empty.",
       "details": [
         "No broken shells, no feathers. Just fewer eggs than there should be.",
         "I asked around and a couple of other folks said the same thing. So it's not just me."
@@ -13,7 +13,7 @@
         "Could be a fox, could be a kid with quick hands. Either way, I'm annoyed."
       ],
       "statCheck": {
-        "pass": "No tracks around the coop and no damage to the wire. That rules out most animals: probably a snake getting in through the gap underneath.",
+        "pass": "No tracks around the coop and no damage to the wire. That rules out most animals. Probably a snake getting in through the gap underneath.",
         "fail": "Beats me who's doing it. Eggs don't just walk off on their own."
       },
       "valence": "negative"
@@ -32,7 +32,7 @@
     },
     {
       "id": 2,
-      "intro": "Food's been going missing from the storehouse. Just a little at a time: a sack of grain here, some dried meat there.",
+      "intro": "Food's been going missing from the storehouse. Just a little at a time. A sack of grain here, some dried meat there.",
       "details": [
         "Nobody noticed at first. It's the kind of thing you only catch when you do a proper count.",
         "The lock's not broken and there's no sign of a mess. Whoever it is, they're tidy about it."
@@ -41,14 +41,14 @@
         "It's not a disaster, but it adds up. People are starting to keep closer count of their own stores."
       ],
       "statCheck": {
-        "pass": "Small amounts taken neatly: that's usually someone desperate, not greedy. Taking just enough to get by.",
+        "pass": "Small amounts taken neatly. That's usually someone desperate, not greedy. Taking just enough to get by.",
         "fail": "I've got no idea who it is. Could be anyone."
       },
       "valence": "negative"
     },
     {
       "id": 3,
-      "intro": "Some rope and a few stakes went missing the other day. Not valuable stuff: that's what's odd about it.",
+      "intro": "Some rope and a few stakes went missing the other day. Not valuable stuff. That's what's odd about it.",
       "details": [
         "Who steals rope? You can buy it for next to nothing. It's more puzzling than anything.",
         "A couple of buckets disappeared around the same time. Someone's setting something up out there."

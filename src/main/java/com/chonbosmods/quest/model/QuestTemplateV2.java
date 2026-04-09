@@ -50,7 +50,9 @@ public record QuestTemplateV2(
     @Nullable SkillCheck skillCheck,
     String rewardText,
     String valence,
-    @Nullable List<String> roleAffinity
+    @Nullable List<String> roleAffinity,
+    @Nullable String targetNpcOpener,
+    @Nullable String targetNpcCloser
 ) {
     /**
      * Optional skill check at the accept/decline phase. The skill type must be

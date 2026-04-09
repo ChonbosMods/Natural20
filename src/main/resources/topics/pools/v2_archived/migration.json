@@ -4,7 +4,7 @@
   "entries": [
     {
       "id": 0,
-      "intro": "The deer herds near {subject_focus_the} are moving east, weeks ahead of schedule. Not a gradual drift: a full migration, all at once.",
+      "intro": "The deer herds near {subject_focus_the} are moving east, weeks ahead of schedule. Not a gradual drift. A full migration, all at once.",
       "details": [
         "Usually they stay through the end of the warm season. This year they broke camp, so to speak, right in the middle of it.",
         "They're not following their usual routes either. They're cutting through farmland, straight-line, like something's pushing them.",
@@ -33,18 +33,18 @@
         "It's beautiful to watch, honestly. But beautiful things that don't make sense tend to be warnings."
       ],
       "statCheck": {
-        "pass": "Fish don't fight a strong current unless what's behind them is worse than exhaustion. This is a flight response: something downstream changed the water chemistry, and they're running from it the only way a fish can.",
+        "pass": "Fish don't fight a strong current unless what's behind them is worse than exhaustion. This is a flight response. Something downstream changed the water chemistry, and they're running from it the only way a fish can.",
         "fail": "I've watched them for hours and I can't make sense of it. Fish are fish. They do what they do and I'm just guessing at the rest."
       },
       "valence": "negative"
     },
     {
       "id": 2,
-      "intro": "Swarms of insects have been moving through {subject_focus_the} for the past three days. Not attacking anything: just passing through in enormous clouds.",
+      "intro": "Swarms of insects have been moving through {subject_focus_the} for the past three days. Not attacking anything. Just passing through in enormous clouds.",
       "details": [
         "They're some kind of beetle I've never seen. Black shells with a green stripe. Thousands of them, maybe more.",
         "They follow the road, which is the strangest part. They stick to the path like they know where they're going.",
-        "At night the swarms settle on the ground in dense mats. By morning they lift all at once and continue. No stragglers, no scouts: just the whole mass moving as one."
+        "At night the swarms settle on the ground in dense mats. By morning they lift all at once and continue. No stragglers, no scouts. Just the whole mass moving as one."
       ],
       "reactions": [
         "The children think it's fascinating. The farmers are terrified they'll eat the crops. So far they haven't touched a leaf.",
@@ -52,7 +52,7 @@
       ],
       "statCheck": {
         "pass": "I caught a few and showed them to the old naturalist. She said they're a deep-forest species that never comes to open ground. Something drove them out of the canopy.",
-        "fail": "They move fast and do not hold still. Not much to tell beyond the obvious: there are a lot of them."
+        "fail": "They move fast and do not hold still. Not much to tell beyond the obvious. There are a lot of them."
       },
       "valence": "negative"
     },
@@ -69,7 +69,7 @@
         "The wolves kept the rabbit and rodent population in check. We're going to see the consequences in our grain stores soon enough."
       ],
       "statCheck": {
-        "pass": "I visited one of the abandoned dens. The ground around the entrance is saturated with a smell I can't place: sharp, chemical, not natural. Something contaminated their home ground.",
+        "pass": "I visited one of the abandoned dens. The ground around the entrance is saturated with a smell I can't place. Sharp, chemical, not natural. Something contaminated their home ground.",
         "fail": "The dens just look like holes in a hillside. Whatever drove the wolves out, it is not something I can see."
       },
       "valence": "negative"
@@ -78,7 +78,7 @@
       "id": 4,
       "intro": "Birds near {subject_focus_the} have changed their nesting patterns. Species that usually spread out are all clustering together in one grove.",
       "details": [
-        "Hawks, songbirds, crows: all in the same stand of oaks. Normally they'd drive each other off, but they're tolerating the proximity.",
+        "Hawks, songbirds, crows. All in the same stand of oaks. Normally they'd drive each other off, but they're tolerating the proximity.",
         "The noise is incredible. You can hear the grove from half a mile away.",
         "Every other tree in the area is empty. They all chose the same spot, and I'd give a lot to know why."
       ],
@@ -87,14 +87,14 @@
         "A traveling scholar said he'd seen this behavior once before, near a fault line, a week before the ground shook. I hope he's wrong."
       ],
       "statCheck": {
-        "pass": "I noticed something at the grove's center: the bark on the oldest oak has fresh scratch marks from dozens of species. They're not just clustering. They're using the tree as a marker. Birds do this when they're establishing a shared refuge point: it means every other territory has been abandoned.",
+        "pass": "I noticed something at the grove's center. The bark on the oldest oak has fresh scratch marks from dozens of species. They're not just clustering. They're using the tree as a marker. Birds do this when they're establishing a shared refuge point. It means every other territory has been abandoned.",
         "fail": "They're all in one place and I can't explain why. Could be food, could be shelter, could be something else entirely."
       },
       "valence": "negative"
     },
     {
       "id": 5,
-      "intro": "Rats have been pouring out of the ground near {subject_focus_the}. Not a few: hundreds, from every burrow and crack in the earth, all heading the same direction.",
+      "intro": "Rats have been pouring out of the ground near {subject_focus_the}. Not a few. Hundreds, from every burrow and crack in the earth, all heading the same direction.",
       "details": [
         "It started at dawn three days ago. A steady stream, running along the ditch line toward higher ground.",
         "They're not aggressive. They don't even scatter when you walk among them. They just keep moving, like nothing matters but getting somewhere else.",
@@ -102,10 +102,10 @@
       ],
       "reactions": [
         "The granary master is relieved, honestly. Fewer rats, fewer losses. But I don't think he's thinking about what drove them out.",
-        "My grandmother used to say: when the rats run, follow them. They always know first."
+        "My grandmother used to say. When the rats run, follow them. They always know first."
       ],
       "statCheck": {
-        "pass": "I put my ear to the ground near one of the collapsed burrows. There's a vibration down there, faint but constant. Not footsteps, not digging: more like a low hum, coming from deep below.",
+        "pass": "I put my ear to the ground near one of the collapsed burrows. There's a vibration down there, faint but constant. Not footsteps, not digging. More like a low hum, coming from deep below.",
         "fail": "The burrows are too narrow to see into, and too many of them have collapsed. Whatever's happening underground, I cannot get to it from up here."
       },
       "valence": "negative"
@@ -114,7 +114,7 @@
       "id": 6,
       "intro": "Snakes have been crossing the main road near {subject_focus_the} in waves. Dozens at a time, all heading away from the lowlands.",
       "details": [
-        "Different species, all mixed together. That alone is wrong: you don't see constrictors and vipers traveling side by side.",
+        "Different species, all mixed together. That alone is wrong. You don't see constrictors and vipers traveling side by side.",
         "The crossings happen right around midday. They lie still on the warm stones for a few minutes, then push on.",
         "They're avoiding the ditches, which is the opposite of what snakes normally do. They want to be on open ground."
       ],
@@ -123,7 +123,7 @@
         "There's a feeling you get when you see predators ignoring each other. Like the rules have been suspended."
       ],
       "statCheck": {
-        "pass": "You know your animals. Snakes don't migrate like this unless the ground itself becomes unlivable: flooding, contamination, something deep. The soil on the far side of the road smells clean. The soil they're leaving has a sour tang to it.",
+        "pass": "You know your animals. Snakes don't migrate like this unless the ground itself becomes unlivable. Flooding, contamination, something deep. The soil on the far side of the road smells clean. The soil they're leaving has a sour tang to it.",
         "fail": "Snakes are snakes. I can tell you which ones will bite, but beyond that, their reasons are their own."
       },
       "valence": "negative"
@@ -141,7 +141,7 @@
         "It's more eerie than dangerous. But walking through a curtain of web every time you step outside wears on you."
       ],
       "statCheck": {
-        "pass": "Those flat sheet webs aren't hunting webs: they're sensing webs. Spiders use them to detect vibrations across a wide area. The spiders aren't trying to catch anything. They're listening. Something is putting out a vibration they want to track.",
+        "pass": "Those flat sheet webs aren't hunting webs. They're sensing webs. Spiders use them to detect vibrations across a wide area. The spiders aren't trying to catch anything. They're listening. Something is putting out a vibration they want to track.",
         "fail": "Spiders build webs. That's what they do. Why they changed the shape and then left, I couldn't begin to tell you."
       },
       "valence": "negative"
@@ -152,32 +152,32 @@
       "details": [
         "They come out around midmorning and fly in wide loops above the tree line until dusk. Then they go back in, but only for a few hours before coming out again.",
         "Some of them are crashing into things. Walls, branches, each other. They're not blind exactly, but they're disoriented.",
-        "A few dead ones were found on the ground near the cave mouth. No injuries: they just fell out of the air mid-flight, like their strength gave out all at once."
+        "A few dead ones were found on the ground near the cave mouth. No injuries. They just fell out of the air mid-flight, like their strength gave out all at once."
       ],
       "reactions": [
         "I've never seen bats in sunlight before this. They looked wrong up there, like fish flopping on dry land.",
         "The cave used to echo with them at night. Now the echo is during the day, outside, and that unsettles people."
       ],
       "statCheck": {
-        "pass": "I went into the cave mouth after they left. There's a new smell in there: damp and metallic, like wet iron. Something changed in the cave itself, and whatever it is, the bats can't tolerate it.",
+        "pass": "I went into the cave mouth after they left. There's a new smell in there. Damp and metallic, like wet iron. Something changed in the cave itself, and whatever it is, the bats can't tolerate it.",
         "fail": "I don't go into caves. Whatever is driving the bats out, I'll let someone braver than me investigate."
       },
       "valence": "negative"
     },
     {
       "id": 9,
-      "intro": "Earthworms have surfaced across the fields near {subject_focus_the}. Not after rain: the ground is bone dry, and they're crawling out by the thousands.",
+      "intro": "Earthworms have surfaced across the fields near {subject_focus_the}. Not after rain. The ground is bone dry, and they're crawling out by the thousands.",
       "details": [
         "The topsoil is writhing with them. Every furrow, every bare patch. You can't set foot in the south field without stepping on them.",
         "They're not dying on the surface like they do after a heavy rain. They're alive, moving, all crawling in the same direction.",
         "The soil they left behind has a strange texture. Crumbly and pale, like the life's been drained out of it."
       ],
       "reactions": [
-        "The farmers don't know what to make of it. Worms leaving soil is like blood leaving a body: it means something underneath went wrong.",
+        "The farmers don't know what to make of it. Worms leaving soil is like blood leaving a body. It means something underneath went wrong.",
         "The birds are having the feast of their lives. But the farmers are watching the soil, not the birds."
       ],
       "statCheck": {
-        "pass": "You've got a sharp eye for this. The worms are all surfacing from the same depth: about two hands down. Whatever they're fleeing, it's in a specific layer of soil, not the surface and not the bedrock. That narrows it.",
+        "pass": "You've got a sharp eye for this. The worms are all surfacing from the same depth. About two hands down. Whatever they're fleeing, it's in a specific layer of soil, not the surface and not the bedrock. That narrows it.",
         "fail": "Worms are worms. I know they matter for the soil, but I can't tell you why they do what they do."
       },
       "valence": "negative"
@@ -186,7 +186,7 @@
       "id": 10,
       "intro": "The frogs near {subject_focus_the} have gone completely silent. Every pond, every ditch. Not a single croak in over a week.",
       "details": [
-        "During breeding season, you can hear them from the village. This year: nothing. Like someone snuffed out every voice at once.",
+        "During breeding season, you can hear them from the village. This year. Nothing. Like someone snuffed out every voice at once.",
         "They're still there. You can see them sitting on the banks, mouths closed, staring at the water. They just won't call.",
         "Even the toads in the garden ditches are quiet. Whatever shut them up, it wasn't selective."
       ],
@@ -195,7 +195,7 @@
         "The old herbalist says frogs go quiet before quakes. I asked her how long before. She said she didn't want to guess."
       ],
       "statCheck": {
-        "pass": "I noticed something the others missed: the water in the ponds has the faintest vibration on the surface, like something deep below is humming at a frequency too low to hear. The frogs can feel it. That's why they've stopped.",
+        "pass": "I noticed something the others missed. The water in the ponds has the faintest vibration on the surface, like something deep below is humming at a frequency too low to hear. The frogs can feel it. That's why they've stopped.",
         "fail": "Frogs are hard to read. They call when they want to, and they stop when they want to. I can't tell you what changed."
       },
       "valence": "negative"
@@ -205,7 +205,7 @@
       "intro": "A fox and three rabbits were spotted walking side by side near {subject_focus_the}. No chase, no fear. Just moving together like it was the most natural thing in the world.",
       "details": [
         "The hunter who saw it first thought he was dreaming. He followed them for a quarter mile and they never broke formation.",
-        "Other people have reported similar things: a hawk perched next to a field mouse on a fence post, both facing the same way.",
+        "Other people have reported similar things. A hawk perched next to a field mouse on a fence post, both facing the same way.",
         "The animals aren't tame or sick. They seem alert. They've just stopped seeing each other as threats."
       ],
       "reactions": [
@@ -213,14 +213,14 @@
         "People keep calling it charming. I find it deeply wrong. The natural order doesn't just suspend itself for no reason."
       ],
       "statCheck": {
-        "pass": "I tracked the group to a hilltop where they all stopped and faced the same direction: toward the lowlands. Whatever they're sensing, the source is down there. Every animal in this area seems to know it except us.",
+        "pass": "I tracked the group to a hilltop where they all stopped and faced the same direction. Toward the lowlands. Whatever they're sensing, the source is down there. Every animal in this area seems to know it except us.",
         "fail": "By the time I got to where the hunter said he saw them, they'd moved on. Nothing left but a jumble of prints."
       },
       "valence": "negative"
     },
     {
       "id": 12,
-      "intro": "Travelers coming through {subject_focus_the} from three different roads are all telling the same story: the animals along the way were moving against the road, heading this direction.",
+      "intro": "Travelers coming through {subject_focus_the} from three different roads are all telling the same story. The animals along the way were moving against the road, heading this direction.",
       "details": [
         "A merchant from the east said deer crossed his path in a line that took five minutes to pass. A courier from the south reported the same with smaller game.",
         "The third traveler came from the north and said the birds were flying low, all heading this way, so many they darkened the road for a stretch.",
@@ -241,7 +241,7 @@
       "intro": "Three families near {subject_focus_the} packed up and left without telling anyone. No arguments, no debts, no warning. Just empty houses one morning.",
       "details": [
         "They left food on the table. Clothes hanging to dry. The garden gate was still open. Whatever moved them, it moved them fast.",
-        "A neighbor saw one of the families loading their cart before dawn. She said they were quiet, methodical: not panicked, but absolutely determined.",
+        "A neighbor saw one of the families loading their cart before dawn. She said they were quiet, methodical. Not panicked, but absolutely determined.",
         "The three families aren't related and don't socialize much. Whatever convinced them, it reached each household separately."
       ],
       "reactions": [
@@ -249,7 +249,7 @@
         "The council is pretending it didn't happen. That worries me more than the empty houses."
       ],
       "statCheck": {
-        "pass": "I found a note in one of the houses, tucked under a loose board. Just four words: 'The ground is wrong.' I don't know what it means, but they thought it was worth writing down before they ran.",
+        "pass": "I found a note in one of the houses, tucked under a loose board. Just four words. 'The ground is wrong.' I don't know what it means, but they thought it was worth writing down before they ran.",
         "fail": "I looked through the houses myself. They cleaned out everything personal. Whatever their reason was, they took it with them."
       },
       "valence": "negative"
@@ -264,10 +264,10 @@
       ],
       "reactions": [
         "Traders follow profit. When profit tells them to take a longer road, something on the short road has gotten expensive in a way that doesn't show up on a ledger.",
-        "We depend on those caravans for salt, iron, cloth: things we can't make ourselves. This isn't just strange. It's dangerous if it continues."
+        "We depend on those caravans for salt, iron, cloth. Things we can't make ourselves. This isn't just strange. It's dangerous if it continues."
       ],
       "statCheck": {
-        "pass": "I checked the ruts on the old trade road. The last caravan that came through left tracks that veered sharply off the path at one point, then corrected. Something on the road startled the draft animals badly enough to spook the whole team. Traders don't reroute over inconvenience: they reroute over risk.",
+        "pass": "I checked the ruts on the old trade road. The last caravan that came through left tracks that veered sharply off the path at one point, then corrected. Something on the road startled the draft animals badly enough to spook the whole team. Traders don't reroute over inconvenience. They reroute over risk.",
         "fail": "Traders are secretive about their routes for competitive reasons. Could be danger, could be business. I have no way to tell from here."
       },
       "valence": "negative"
@@ -303,14 +303,14 @@
         "We're going to feel this in the markets. Less grazing means thinner animals means higher prices for everyone."
       ],
       "statCheck": {
-        "pass": "Livestock won't graze where the ground gives off the wrong scent. I walked the ridge line and the grass below it has a faint yellowish tinge at the base of the blades: not dead, but stressed. Something in the soil changed, and the animals smelled it before anyone saw it.",
+        "pass": "Livestock won't graze where the ground gives off the wrong scent. I walked the ridge line and the grass below it has a faint yellowish tinge at the base of the blades. Not dead, but stressed. Something in the soil changed, and the animals smelled it before anyone saw it.",
         "fail": "Animals are stubborn. Once they decide they don't like a spot, good luck changing their minds. I couldn't tell you what set them off."
       },
       "valence": "negative"
     },
     {
       "id": 17,
-      "intro": "Something is driving creatures up from underground near {subject_focus_the}. Moles, blind salamanders, cave crickets: things that never see daylight are showing up on the surface.",
+      "intro": "Something is driving creatures up from underground near {subject_focus_the}. Moles, blind salamanders, cave crickets. Things that never see daylight are showing up on the surface.",
       "details": [
         "The moles are the most obvious. Dozens of them, blinking in the light, trying to dig new burrows in the topsoil and failing because it's too hard and dry.",
         "I found a salamander on the road that was pure white, no pigment at all. That means it lived deep, where there's no light. It should never be above ground.",
@@ -321,7 +321,7 @@
         "The children keep picking up the salamanders. I told them to put them back, but back where? The underground isn't safe for them either."
       ],
       "statCheck": {
-        "pass": "I went into the root cellar and followed the tunnel as far as I dared. The air about fifty paces in has a warmth to it that shouldn't be there: not hot, but blood-warm, and it pulses. Like breathing.",
+        "pass": "I went into the root cellar and followed the tunnel as far as I dared. The air about fifty paces in has a warmth to it that shouldn't be there. Not hot, but blood-warm, and it pulses. Like breathing.",
         "fail": "I'm not going underground to find out. Whatever chased those creatures up is welcome to stay down there as far as I'm concerned."
       },
       "valence": "negative"
@@ -330,7 +330,7 @@
       "id": 18,
       "intro": "The bees near {subject_focus_the} have abandoned their hives. Every colony, all within a few days. The flowers are blooming and nothing is visiting them.",
       "details": [
-        "The hives aren't dead: no disease, no mites, no collapsed combs. The bees just left. Flew off and didn't come back.",
+        "The hives aren't dead. No disease, no mites, no collapsed combs. The bees just left. Flew off and didn't come back.",
         "The wildflowers in the meadow are thick this year, better than I've seen in a decade. And not a single pollinator on any of them.",
         "Even the wild nests in the old walls are empty. Whatever drove the kept bees out drove the wild ones out too."
       ],
@@ -339,7 +339,7 @@
         "It's the silence that gets me. The meadow used to hum. Now it's just wind and flowers standing there waiting for visitors that won't come."
       ],
       "statCheck": {
-        "pass": "I tracked a straggler swarm about two miles out. They'd settled on a dead branch, barely moving, like they were exhausted. The interesting part: every swarm I could find had fled in the same direction. They weren't scattered. They were retreating.",
+        "pass": "I tracked a straggler swarm about two miles out. They'd settled on a dead branch, barely moving, like they were exhausted. The interesting part. Every swarm I could find had fled in the same direction. They weren't scattered. They were retreating.",
         "fail": "Bees are beyond me. I know they're important, but I couldn't tell you why one hive thrives and another empties."
       },
       "valence": "negative"
@@ -349,7 +349,7 @@
       "intro": "Nocturnal animals near {subject_focus_the} are showing up during the day. Owls perching in open sunlight, badgers foraging at noon, foxes trotting down the road like it's normal.",
       "details": [
         "An owl sat on a fence post for three hours yesterday in full sun. Didn't hunt, didn't sleep. Just sat there with its eyes half-closed, like it was enduring something.",
-        "The foxes are the boldest. Walking right through the village, past dogs, past people. Not aggressive, not sick: just out of place.",
+        "The foxes are the boldest. Walking right through the village, past dogs, past people. Not aggressive, not sick. Just out of place.",
         "A trapper said he checked his night lines and nothing had touched them. Everything that used to hunt at night is hunting during the day instead."
       ],
       "reactions": [
@@ -357,7 +357,7 @@
         "People think it's amusing. An owl in the sunshine, how charming. But an owl in the sunshine is an owl that can't go home."
       ],
       "statCheck": {
-        "pass": "I sat out after dark to see what was different. Around midnight, there was a faint pressure in the air: not a sound exactly, but something you feel behind your eyes. The kind of thing animals would be more sensitive to than we are.",
+        "pass": "I sat out after dark to see what was different. Around midnight, there was a faint pressure in the air. Not a sound exactly, but something you feel behind your eyes. The kind of thing animals would be more sensitive to than we are.",
         "fail": "I'm not much for staying up all night. Whatever's happening after dark, I'll leave that to someone with more patience."
       },
       "valence": "negative"
@@ -367,7 +367,7 @@
       "intro": "The crows near {subject_focus_the} have stopped scavenging. They gather on rooftops and fence posts every morning, sit perfectly still, and then all fly west at the same time around noon.",
       "details": [
         "I timed it three days in a row. They leave within a minute of each other, every day, like a signal goes out that only they hear.",
-        "They don't come back until the next morning. Where they go, what they're doing: nobody knows.",
+        "They don't come back until the next morning. Where they go, what they're doing. Nobody knows.",
         "Other birds are still behaving normally. It's only the crows. Whatever this is, it's specific to them."
       ],
       "reactions": [
@@ -375,32 +375,32 @@
         "The old stories say crows are messengers. If that's true, someone is sending a lot of messages lately."
       ],
       "statCheck": {
-        "pass": "I followed them on horseback once, as far as I could. They converge on a point about three miles west: a rocky outcrop with nothing on it. They land, sit silent for hours, then disperse. I couldn't see what they were gathering around, but the ground beneath them was warm.",
+        "pass": "I followed them on horseback once, as far as I could. They converge on a point about three miles west. A rocky outcrop with nothing on it. They land, sit silent for hours, then disperse. I couldn't see what they were gathering around, but the ground beneath them was warm.",
         "fail": "They fly too fast and too high to follow on foot. I lose them over the first ridge every time."
       },
       "valence": "negative"
     },
     {
       "id": 21,
-      "intro": "A merchant told me {time_ref} that the river near {subject_focus_the} was full of dead fish floating downstream. Not dozens: thousands, all belly-up, stretching as far as he could see.",
+      "intro": "A merchant told me {time_ref} that the river near {subject_focus_the} was full of dead fish floating downstream. Not dozens. Thousands, all belly-up, stretching as far as he could see.",
       "details": [
         "He said they were all the same species, and they weren't rotting. Fresh dead, like they'd all expired at the same moment.",
         "The water itself looked clear. No discoloration, no smell. Whatever killed them left the river untouched.",
-        "He turned his cart around and took the long road. Said the silence along that stretch of river was the worst part: no birds, no insects, nothing living near the banks."
+        "He turned his cart around and took the long road. Said the silence along that stretch of river was the worst part. No birds, no insects, nothing living near the banks."
       ],
       "reactions": [
         "Rivers don't just empty like that. Something upstream either poisoned them or scared them to death, and neither answer is good.",
         "I keep thinking about what's downstream from us. If whatever did that is moving with the current, we're in its path."
       ],
       "statCheck": {
-        "pass": "The merchant mentioned one more thing that he didn't tell anyone else: the fish were all pointed upstream. Not drifting with the current. Facing against it, as if they died still trying to swim away from whatever was behind them.",
+        "pass": "The merchant mentioned one more thing that he didn't tell anyone else. The fish were all pointed upstream. Not drifting with the current. Facing against it, as if they died still trying to swim away from whatever was behind them.",
         "fail": "It's secondhand. I trust the man, but I wasn't there to see it myself. Could be worse than he said, could be less."
       },
       "valence": "negative"
     },
     {
       "id": 22,
-      "intro": "Every stray dog and cat near {subject_focus_the} has vanished. Not dead, not adopted: just gone. All of them, within a few days.",
+      "intro": "Every stray dog and cat near {subject_focus_the} has vanished. Not dead, not adopted. Just gone. All of them, within a few days.",
       "details": [
         "The strays used to sleep behind the storehouse and scavenge around the butcher's scraps. The butcher said they stopped coming four days ago.",
         "A boy who used to feed them followed their usual paths. He found scratching marks on the outside of the settlement wall, concentrated near the western gate. Like they were all trying to get out at once.",
@@ -411,7 +411,7 @@
         "I miss them, honestly. The old tom used to sit on my fence every evening. The place feels emptier without them."
       ],
       "statCheck": {
-        "pass": "The scratch marks at the western gate all face outward and they're deep: claws digging in for traction, not sharpening. These animals were running, not wandering. And every set of marks points the same direction. They knew exactly where they needed to go.",
+        "pass": "The scratch marks at the western gate all face outward and they're deep. Claws digging in for traction, not sharpening. These animals were running, not wandering. And every set of marks points the same direction. They knew exactly where they needed to go.",
         "fail": "Strays come and go. I noticed they were gone, but I could not tell you when exactly or why. They just weren't there anymore."
       },
       "valence": "negative"
@@ -422,7 +422,7 @@
       "details": [
         "A farmer kicked one of the mounds apart. They had it rebuilt by the next morning, higher than before. He's never seen them work that fast.",
         "The mounds are all on high ground. The colonies that were in the low fields moved uphill first, then started building.",
-        "Inside the exposed mound, the tunnels were structured differently than usual. Deeper, more layered: like fortifications rather than a normal nest."
+        "Inside the exposed mound, the tunnels were structured differently than usual. Deeper, more layered. Like fortifications rather than a normal nest."
       ],
       "reactions": [
         "Ants prepare. They don't guess, they don't worry, they don't hope for the best. They just respond to what's coming. I'd love to know what they're responding to.",
@@ -436,9 +436,9 @@
     },
     {
       "id": 24,
-      "intro": "The livestock near {subject_focus_the} won't face south anymore. Every pen, every pasture: the animals stand with their backs to the south wind, staring north, for hours at a time.",
+      "intro": "The livestock near {subject_focus_the} won't face south anymore. Every pen, every pasture. The animals stand with their backs to the south wind, staring north, for hours at a time.",
       "details": [
-        "Cattle, goats, sheep: all the same. They eat facing north, sleep facing north. Try to lead one of them southward and it plants its hooves and won't budge.",
+        "Cattle, goats, sheep. All the same. They eat facing north, sleep facing north. Try to lead one of them southward and it plants its hooves and won't budge.",
         "A farmer turned her entire herd around by dragging them one at a time. Within an hour, every animal had rotated back.",
         "It's been going on for six days. The animals aren't distressed. They just have a direction now, and they won't let go of it."
       ],
@@ -456,7 +456,7 @@
       "id": 25,
       "intro": "A column of caterpillars near {subject_focus_the} has been crossing the road in a single file line for two straight days. Thousands of them, nose to tail, moving without stopping.",
       "details": [
-        "The line stretches as far as you can see in both directions. They don't break formation for anything: carts, feet, puddles.",
+        "The line stretches as far as you can see in both directions. They don't break formation for anything. Carts, feet, puddles.",
         "If you lift one out and set it down a pace away, it circles back and rejoins the line. They're locked onto a path.",
         "They're moving uphill, toward the ridge. No food source up there, no habitat that suits them. Nothing but bare rock and wind."
       ],
@@ -465,14 +465,14 @@
         "The children have been watching them for hours. They treat it like a parade. I don't have the heart to tell them parades usually have a destination."
       ],
       "statCheck": {
-        "pass": "Processionary caterpillars follow pheromone trails laid by the leader. But this line has no leader: I watched the front for an hour and they rotate. They're following a chemical gradient in the soil itself, not each other. Something underground is drawing them uphill.",
+        "pass": "Processionary caterpillars follow pheromone trails laid by the leader. But this line has no leader. I watched the front for an hour and they rotate. They're following a chemical gradient in the soil itself, not each other. Something underground is drawing them uphill.",
         "fail": "Caterpillars follow each other. Beyond that I could not tell you what decides their path. Insects are a mystery to me."
       },
       "valence": "negative"
     },
     {
       "id": 26,
-      "intro": "Fireflies near {subject_focus_the} have been flashing in unison. Not the usual scattered blinking: every single one lights up at the same moment, holds it, then goes dark together.",
+      "intro": "Fireflies near {subject_focus_the} have been flashing in unison. Not the usual scattered blinking. Every single one lights up at the same moment, holds it, then goes dark together.",
       "details": [
         "It happens every few seconds, like a heartbeat. The whole meadow pulses with light, then drops into complete darkness.",
         "The rhythm has been getting faster each night. When it started, the interval was about five seconds. Last night it was closer to three.",
@@ -483,17 +483,17 @@
         "The children want to go catch them. I told them to stay inside. I can't explain why. I just don't want them out there when the meadow is doing that."
       ],
       "statCheck": {
-        "pass": "I watched the pattern for a full hour and noticed something: the pulses aren't random. There's a short-long-short sequence that repeats. Whatever is driving the synchronization, it's structured. That isn't natural behavior: that's a signal.",
+        "pass": "I watched the pattern for a full hour and noticed something. The pulses aren't random. There's a short-long-short sequence that repeats. Whatever is driving the synchronization, it's structured. That isn't natural behavior. That's a signal.",
         "fail": "Fireflies do strange things sometimes. I've seen them swarm before, though never quite like this. Could just be the season."
       },
       "valence": "negative"
     },
     {
       "id": 27,
-      "intro": "The guard dogs near {subject_focus_the} have all started howling at the same time each night. Not barking: howling, long and low, exactly when the moon clears the ridge.",
+      "intro": "The guard dogs near {subject_focus_the} have all started howling at the same time each night. Not barking. Howling, long and low, exactly when the moon clears the ridge.",
       "details": [
         "It lasts about ten minutes. Every dog in the settlement, including the ones that normally don't howl, all joining in like they practiced.",
-        "Between the howls, they're perfectly calm. No agitation, no restlessness. They eat, sleep, and behave normally: except for those ten minutes.",
+        "Between the howls, they're perfectly calm. No agitation, no restlessness. They eat, sleep, and behave normally. Except for those ten minutes.",
         "A traveling hunter said his own hound started joining in the moment they arrived. The behavior is contagious, or the trigger is local."
       ],
       "reactions": [
@@ -501,7 +501,7 @@
         "I've started closing my shutters before it begins. Not because I'm scared. Because I don't want to hear it and wonder."
       ],
       "statCheck": {
-        "pass": "I timed the howling against the moon's position over several nights. It doesn't start when the moon clears the ridge: it starts about two minutes before. The dogs are reacting to something that precedes the moonrise. A vibration, a pressure change, something we can't perceive that arrives just ahead of the light.",
+        "pass": "I timed the howling against the moon's position over several nights. It doesn't start when the moon clears the ridge. It starts about two minutes before. The dogs are reacting to something that precedes the moonrise. A vibration, a pressure change, something we can't perceive that arrives just ahead of the light.",
         "fail": "Dogs howl at the moon. It's what dogs do. I can't pretend to know what makes this time different from any other."
       },
       "valence": "negative"
@@ -519,22 +519,22 @@
         "Someone suggested we dig at the spot. Nobody has volunteered."
       ],
       "statCheck": {
-        "pass": "I went up there at night and held my hand over the center of the circle. There's warmth rising from the ground: faint, but steady. And my palm tingled afterward for about an hour. Whatever is down there, the moths can sense it and we almost can't.",
+        "pass": "I went up there at night and held my hand over the center of the circle. There's warmth rising from the ground. Faint, but steady. And my palm tingled afterward for about an hour. Whatever is down there, the moths can sense it and we almost can't.",
         "fail": "I stood there for a while and felt nothing unusual. Maybe you have to be a moth to understand what the attraction is."
       },
       "valence": "negative"
     },
     {
       "id": 29,
-      "intro": "The songbirds near {subject_focus_the} have changed their calls. Not stopped singing: changed the actual song. Every species is making the same unfamiliar sound.",
+      "intro": "The songbirds near {subject_focus_the} have changed their calls. Not stopped singing. Changed the actual song. Every species is making the same unfamiliar sound.",
       "details": [
-        "Wrens, larks, finches: all producing the same three-note phrase. Over and over, from dawn to dusk. I've never heard them make this sound before.",
+        "Wrens, larks, finches. All producing the same three-note phrase. Over and over, from dawn to dusk. I've never heard them make this sound before.",
         "The old calls are gone completely. No territory songs, no mating calls. Just this new phrase, repeated by everything with feathers.",
-        "A hunter recorded the timing. The phrase repeats every eight seconds, exactly. Not roughly: exactly. No natural bird call has that kind of precision."
+        "A hunter recorded the timing. The phrase repeats every eight seconds, exactly. Not roughly. Exactly. No natural bird call has that kind of precision."
       ],
       "reactions": [
         "It's unsettling in a way I can't quite name. Like hearing a child speak in a voice that isn't theirs.",
-        "The quiet used to bother me when the frogs stopped calling. This is worse. They're still singing: they're just not singing their own song anymore."
+        "The quiet used to bother me when the frogs stopped calling. This is worse. They're still singing. They're just not singing their own song anymore."
       ],
       "statCheck": {
         "pass": "I hummed the three-note phrase to the old herbalist. She went very still and said it matches a fragment of a melody carved into a standing stone about two days' walk from here. A stone that predates the settlement by centuries.",

@@ -178,7 +178,7 @@
         "Some people carry their bad days around like a sack of rocks. Best to give them room."
       ],
       "statCheck": {
-        "pass": "I think it started after the roof leak. Spent three nights mopping up water: that'd sour anyone.",
+        "pass": "I think it started after the roof leak. Spent three nights mopping up water. That'd sour anyone.",
         "fail": "No idea what set it off. Not my place to pry."
       },
       "valence": "negative",
@@ -332,7 +332,7 @@
     },
     {
       "id": 16,
-      "intro": "I don't care what anyone says about {npc_name}: I think highly of them. Always have.",
+      "intro": "I don't care what anyone says about {npc_name}. I think highly of them. Always have.",
       "details": [
         "People talk because {npc_name} doesn't do things the way everyone expects. That's not a flaw in my book.",
         "When I needed help last winter, {npc_name} showed up without being asked. That tells you everything."
@@ -439,7 +439,7 @@
         "I admire people who are good at what they do and don't make a show of it."
       ],
       "statCheck": {
-        "pass": "You can tell by the way {npc_name} holds the tools: loose grip, lets the weight do the work. That takes years to learn.",
+        "pass": "You can tell by the way {npc_name} holds the tools. Loose grip, lets the weight do the work. That takes years to learn.",
         "fail": "I can see it's good work, even if I couldn't explain what makes it good."
       },
       "valence": "positive",
@@ -454,7 +454,7 @@
       "id": 22,
       "intro": "{npc_name} has been telling the same story for a month now. Every time like it's the first time.",
       "details": [
-        "It's about a fish, or maybe a bird: the details change but the punchline never does.",
+        "It's about a fish, or maybe a bird. The details change but the punchline never does.",
         "I've started mouthing the ending along with them. I don't think {npc_name} has noticed yet."
       ],
       "reactions": [
@@ -495,7 +495,7 @@
       "id": 24,
       "intro": "{npc_name} is the most generous person I know, and I mean that in the most exhausting way possible.",
       "details": [
-        "Every time you see them they're giving you something: food, advice, their opinion on your shoes.",
+        "Every time you see them they're giving you something. Food, advice, their opinion on your shoes.",
         "I once told them I didn't need any help and they helped me anyway while I was still talking."
       ],
       "reactions": [
@@ -581,7 +581,7 @@
         "Maybe the nod is the important thing. Who knows."
       ],
       "statCheck": {
-        "pass": "Some people process things internally before they speak. It's not shyness: it's deliberation.",
+        "pass": "Some people process things internally before they speak. It's not shyness. It's deliberation.",
         "fail": "I can't tell if they're deep or just distracted."
       },
       "valence": "neutral",
@@ -675,7 +675,7 @@
       "id": 33,
       "intro": "{npc_name} has the best laugh in {settlement_name}. You can hear it from three houses away.",
       "details": [
-        "It's not loud on purpose: it's just genuine. The kind that makes you smile even when you don't know the joke.",
+        "It's not loud on purpose. It's just genuine. The kind that makes you smile even when you don't know the joke.",
         "I've seen strangers stop in the road just because they heard it."
       ],
       "reactions": [
@@ -701,7 +701,7 @@
         "I'll think twice before volunteering next time."
       ],
       "statCheck": {
-        "pass": "I don't think it's rudeness exactly. Some people show gratitude through actions later: I just haven't seen it yet.",
+        "pass": "I don't think it's rudeness exactly. Some people show gratitude through actions later. I just haven't seen it yet.",
         "fail": "I don't know what to make of it. I just know how it felt."
       },
       "valence": "negative",
@@ -742,7 +742,7 @@
         "I'm not going to confront anyone without proof. But I'm watching."
       ],
       "statCheck": {
-        "pass": "{npc_name} does this with everyone: talks freely behind backs but clams up face to face. It's a pattern.",
+        "pass": "{npc_name} does this with everyone. Talks freely behind backs but clams up face to face. It's a pattern.",
         "fail": "Could be in my head. Hard to tell gossip from coincidence."
       },
       "valence": "negative",
@@ -876,13 +876,13 @@
       "intro": "{npc_name} complains about everything, and I mean everything.",
       "details": [
         "Too hot, too cold, too early, too late. The bread's too dry, the water's too wet.",
-        "I timed it once: four complaints before finishing a cup of tea."
+        "I timed it once. Four complaints before finishing a cup of tea."
       ],
       "reactions": [
         "I've started treating it like weather. It's just background noise at this point."
       ],
       "statCheck": {
-        "pass": "I think complaining is how they process the world. It's not anger: it's narration. Everything gets a critique.",
+        "pass": "I think complaining is how they process the world. It's not anger. It's narration. Everything gets a critique.",
         "fail": "I have no idea why they do it. Some people just run on grievance."
       },
       "valence": "negative",
@@ -955,7 +955,7 @@
       "intro": "I asked {npc_name} a simple yes-or-no question and got a twenty-minute answer.",
       "details": [
         "By the end I'd forgotten what I asked. I think they had too.",
-        "It's not that they're boring: they just can't find the off switch once they get going."
+        "It's not that they're boring. They just can't find the off switch once they get going."
       ],
       "reactions": [
         "Next time I'll ask when I'm already walking somewhere."
@@ -999,7 +999,7 @@
         "I've started keeping things to myself. It's just easier."
       ],
       "statCheck": {
-        "pass": "I think they're insecure and overcompensate. It's not malice: it's a need to feel capable.",
+        "pass": "I think they're insecure and overcompensate. It's not malice. It's a need to feel capable.",
         "fail": "I don't know why they do it. Maybe they just can't help themselves."
       },
       "valence": "negative",
@@ -1120,8 +1120,8 @@
         "I'm putting my name on my tools from now on. All of them."
       ],
       "statCheck": {
-        "pass": "They were using it to pry something: I can tell from the nick pattern on the edge. That's not what a knife is for.",
-        "fail": "I don't know what they did to it. Doesn't matter: the damage is done."
+        "pass": "They were using it to pry something. I can tell from the nick pattern on the edge. That's not what a knife is for.",
+        "fail": "I don't know what they did to it. Doesn't matter. The damage is done."
       },
       "valence": "negative",
       "topic_category": "npc_opinions",
@@ -1193,7 +1193,7 @@
       "id": 59,
       "intro": "{npc_name} takes tea very seriously. I've never seen someone put that much thought into a cup.",
       "details": [
-        "There's something about the way they brew it: slow, patient, always the right temperature.",
+        "There's something about the way they brew it. Slow, patient, always the right temperature.",
         "I've tried to copy it at home and it's never the same."
       ],
       "reactions": [
@@ -1302,7 +1302,7 @@
         "I've started second-guessing myself before I even open my mouth around them."
       ],
       "statCheck": {
-        "pass": "It's a habit from their upbringing, I think. Where they grew up, sighing was just how people expressed thought: not disapproval.",
+        "pass": "It's a habit from their upbringing, I think. Where they grew up, sighing was just how people expressed thought. Not disapproval.",
         "fail": "No idea if it's intentional. Either way, the effect is the same."
       },
       "valence": "negative",
@@ -1492,7 +1492,7 @@
       "id": 74,
       "intro": "There's something steady about {npc_name}. Like a tree that's been there longer than the path.",
       "details": [
-        "They don't get rattled. Good news, bad news: same calm face, same measured response.",
+        "They don't get rattled. Good news, bad news. Same calm face, same measured response.",
         "When everyone else is running around in circles, {npc_name} is the one standing still and thinking."
       ],
       "reactions": [
@@ -1571,7 +1571,7 @@
       "id": 78,
       "intro": "I genuinely look forward to seeing {npc_name} each day. They brighten the place up.",
       "details": [
-        "Always a kind word, always interested in how you're doing. And they mean it: you can tell.",
+        "Always a kind word, always interested in how you're doing. And they mean it. You can tell.",
         "Some mornings just hearing them say 'good morning' properly resets my whole mood."
       ],
       "reactions": [
@@ -1635,7 +1635,7 @@
         "Fair treatment shouldn't depend on who you eat lunch with."
       ],
       "statCheck": {
-        "pass": "It's not deliberate cruelty: it's just that some people are in the inner circle and some aren't. Doesn't make it fair.",
+        "pass": "It's not deliberate cruelty. It's just that some people are in the inner circle and some aren't. Doesn't make it fair.",
         "fail": "Maybe I'm reading too much into it. Hard to know from the outside."
       },
       "valence": "negative",
@@ -1729,7 +1729,7 @@
       "id": 86,
       "intro": "I used to keep my distance from {npc_name}. Now I'd call them a friend.",
       "details": [
-        "Took a while. We rubbed each other wrong at first: different habits, different rhythms.",
+        "Took a while. We rubbed each other wrong at first. Different habits, different rhythms.",
         "Then one day we ended up stuck waiting out rain under the same overhang, and something shifted."
       ],
       "reactions": [
@@ -1809,7 +1809,7 @@
       "id": 90,
       "intro": "{npc_name} shares their harvest without keeping score. I've never seen them ask for anything back.",
       "details": [
-        "Good season, bad season: there's always something at your door if you need it.",
+        "Good season, bad season. There's always something at your door if you need it.",
         "I've tried to repay them and they wave it off like it's nothing."
       ],
       "reactions": [
@@ -1914,7 +1914,7 @@
         "I'm not starting a fight over fence boards. But I'm watching."
       ],
       "statCheck": {
-        "pass": "Their goat gets out at night: I've seen the tracks. It's probably the goat, not {npc_name} themselves.",
+        "pass": "Their goat gets out at night. I've seen the tracks. It's probably the goat, not {npc_name} themselves.",
         "fail": "Could be weather, could be animals. Could be carelessness. I just don't know."
       },
       "valence": "negative",
@@ -1936,7 +1936,7 @@
         "Part of me finds it comforting. Part of me finds it alarming."
       ],
       "statCheck": {
-        "pass": "They watch body language closely: the way you walk, how you hold your shoulders. That's how they do it.",
+        "pass": "They watch body language closely. The way you walk, how you hold your shoulders. That's how they do it.",
         "fail": "I have no idea how they know. Some people are just perceptive."
       },
       "valence": "neutral",
@@ -1992,7 +1992,7 @@
       "id": 99,
       "intro": "{npc_name} and I don't agree on much, but I respect them all the same.",
       "details": [
-        "We see things differently on almost everything: how to run things, what matters, what doesn't.",
+        "We see things differently on almost everything. How to run things, what matters, what doesn't.",
         "But they're honest about where they stand and they don't play games. That counts for a lot."
       ],
       "reactions": [
@@ -2056,7 +2056,7 @@
         "One day someone less patient than me is going to call them on it."
       ],
       "statCheck": {
-        "pass": "I think they used to teach younger folk wherever they came from. The habit stuck: they talk to everyone like students.",
+        "pass": "I think they used to teach younger folk wherever they came from. The habit stuck. They talk to everyone like students.",
         "fail": "No idea where it comes from. Maybe they just think they're the smartest person in the room."
       },
       "valence": "negative",
@@ -2129,7 +2129,7 @@
       "intro": "I'm starting to think {npc_name} enjoys arguing more than being right.",
       "details": [
         "They'll take the opposite side of anything you say, just to see where it goes.",
-        "I tested it once: changed my position halfway through. They changed theirs too."
+        "I tested it once. Changed my position halfway through. They changed theirs too."
       ],
       "reactions": [
         "It's sport to them. I find it tiring."
@@ -2409,7 +2409,7 @@
         "In a small settlement, everyone sees who's pulling their weight. Everyone."
       ],
       "statCheck": {
-        "pass": "They position themselves where the visible work is. Not the important work: the visible work. It's calculated.",
+        "pass": "They position themselves where the visible work is. Not the important work. The visible work. It's calculated.",
         "fail": "Maybe they just don't see the problem. Some people genuinely don't."
       },
       "valence": "negative",
@@ -2450,7 +2450,7 @@
         "It's hard to trust someone who gives different answers to different people."
       ],
       "statCheck": {
-        "pass": "They tailor their version to what each person wants to hear. It's people-pleasing, not dishonesty: but the effect is the same.",
+        "pass": "They tailor their version to what each person wants to hear. It's people-pleasing, not dishonesty. But the effect is the same.",
         "fail": "I don't understand why they'd do it. Seems like more trouble than being straight."
       },
       "valence": "negative",
@@ -2466,7 +2466,7 @@
       "id": 123,
       "intro": "{npc_name} always makes sure there's enough for everyone before they take their share.",
       "details": [
-        "Food, supplies, seats by the fire: they always serve themselves last.",
+        "Food, supplies, seats by the fire. They always serve themselves last.",
         "I've watched people not even notice because it's so quiet and consistent."
       ],
       "reactions": [
@@ -2704,7 +2704,7 @@
       "intro": "{npc_name} said something kind about me to {npc_name_2}, and {npc_name_2} passed it along.",
       "details": [
         "It wasn't anything big. Just that I'd been doing good work and they'd noticed.",
-        "But hearing that someone says nice things about you behind your back: that's different from hearing it to your face."
+        "But hearing that someone says nice things about you behind your back. That's different from hearing it to your face."
       ],
       "reactions": [
         "I've been smiling about it all week."
@@ -2784,7 +2784,7 @@
       "intro": "{npc_name} remembers things about me that I've forgotten I ever told them.",
       "details": [
         "Last week they asked about something I mentioned in passing months ago. I had to think hard to even recall saying it.",
-        "It's not just me: they do it with everyone. Like they file away every conversation."
+        "It's not just me. They do it with everyone. Like they file away every conversation."
       ],
       "reactions": [
         "Being remembered that well is either flattering or slightly worrying. I choose flattering."
@@ -2802,7 +2802,7 @@
       "id": 140,
       "intro": "{npc_name} is the quiet backbone of this place. Most people don't even see it.",
       "details": [
-        "They handle the unglamorous work: scheduling, supplies, making sure things don't run out.",
+        "They handle the unglamorous work. Scheduling, supplies, making sure things don't run out.",
         "Nobody thanks them because nobody notices what doesn't break."
       ],
       "reactions": [
@@ -2974,7 +2974,7 @@
     },
     {
       "id": 149,
-      "intro": "{npc_name} has been short with everyone lately. Not just me: everyone.",
+      "intro": "{npc_name} has been short with everyone lately. Not just me. Everyone.",
       "details": [
         "One-word answers, clipped tone, walks away mid-conversation.",
         "I asked {npc_name_2} if they knew what was going on. They didn't."
@@ -3003,7 +3003,7 @@
         "I tried organizing mine the same way once. Lasted three hours."
       ],
       "reactions": [
-        "Some people's minds work like that: everything in its place. I'm quietly jealous."
+        "Some people's minds work like that. Everything in its place. I'm quietly jealous."
       ],
       "statCheck": null,
       "valence": "neutral",
@@ -3038,7 +3038,7 @@
       "intro": "{npc_name} uses up shared supplies and doesn't replace them. I've noticed.",
       "details": [
         "The oil was low yesterday. The salt was out last week. Always after {npc_name} has been through.",
-        "It's not malicious: they just take what they need and don't think about what comes next."
+        "It's not malicious. They just take what they need and don't think about what comes next."
       ],
       "reactions": [
         "Living together means thinking about the person who comes after you. That's the whole deal."
@@ -3078,7 +3078,7 @@
       "id": 154,
       "intro": "{npc_name} scratches the back of their neck when they're lying. I've confirmed it three times now.",
       "details": [
-        "Every single time. Ask them something they don't want to answer honestly: hand goes to neck.",
+        "Every single time. Ask them something they don't want to answer honestly. Hand goes to neck.",
         "I haven't told anyone else. Feels like useful information to keep."
       ],
       "reactions": [
@@ -3104,7 +3104,7 @@
         "I didn't interrupt. Didn't want to ruin whatever was going on in their head."
       ],
       "reactions": [
-        "People are strange sometimes. Not in a bad way: just strange."
+        "People are strange sometimes. Not in a bad way. Just strange."
       ],
       "statCheck": null,
       "valence": "neutral",
@@ -3164,7 +3164,7 @@
         "I'm debating whether to mention it to the owner. That's a conversation I don't look forward to."
       ],
       "statCheck": {
-        "pass": "Could be a misunderstanding: maybe they were asked to trade it on someone's behalf. But the way they dodged my eye says otherwise.",
+        "pass": "Could be a misunderstanding. Maybe they were asked to trade it on someone's behalf. But the way they dodged my eye says otherwise.",
         "fail": "I might be wrong about whose it is. I'd hate to accuse someone over a mistake."
       },
       "valence": "negative",
@@ -3221,7 +3221,7 @@
         "I didn't even realize how much I needed it until I had it."
       ],
       "reactions": [
-        "Recognizing when someone needs rest before they ask: that's a gift."
+        "Recognizing when someone needs rest before they ask. That's a gift."
       ],
       "statCheck": null,
       "valence": "positive",
@@ -3236,7 +3236,7 @@
       "id": 162,
       "intro": "{npc_name} points out problems but never offers solutions. It's exhausting.",
       "details": [
-        "'The path's eroding. The well cap is loose. The woodpile's low.' Yes: we know.",
+        "'The path's eroding. The well cap is loose. The woodpile's low.' Yes. We know.",
         "Identifying the issue takes ten seconds. Fixing it takes hours. I know which part {npc_name} prefers."
       ],
       "reactions": [
@@ -3259,7 +3259,7 @@
         "Next day they check in like nothing happened. No guilt, no questions."
       ],
       "reactions": [
-        "Respecting someone's space without being told: that's real emotional skill."
+        "Respecting someone's space without being told. That's real emotional skill."
       ],
       "statCheck": null,
       "valence": "positive",
@@ -3294,7 +3294,7 @@
       "intro": "{npc_name} and {npc_name_2} have started finishing each other's sentences. It's either sweet or terrifying.",
       "details": [
         "One starts a thought and the other lands it. Perfectly. Without hesitation.",
-        "I've been watching for cracks in it: signals, looks. Nothing. They're just that in sync."
+        "I've been watching for cracks in it. Signals, looks. Nothing. They're just that in sync."
       ],
       "reactions": [
         "I don't know whether to be impressed or concerned."
@@ -3399,7 +3399,7 @@
         "Waste like that is hard to stomach when you know what scarcity feels like."
       ],
       "statCheck": {
-        "pass": "I think they got sick from old food once and overcorrect now. Fear does that: makes you throw out what's still good.",
+        "pass": "I think they got sick from old food once and overcorrect now. Fear does that. Makes you throw out what's still good.",
         "fail": "I don't understand the logic. Food is food."
       },
       "valence": "negative",
@@ -3478,7 +3478,7 @@
       "intro": "{npc_name} has this ability to calm an argument just by walking into the room.",
       "details": [
         "I've seen it happen twice. Voices raised, tension thick, and then they show up and everyone lowers their volume.",
-        "It's not authority: it's presence. They just carry themselves in a way that cools things down."
+        "It's not authority. It's presence. They just carry themselves in a way that cools things down."
       ],
       "reactions": [
         "I wish I had that. Some people are just peacemakers by nature."
@@ -3598,7 +3598,7 @@
         "Some people have green hands. The rest of us just have dirt."
       ],
       "statCheck": {
-        "pass": "I've watched their routine: it's the timing. They water at dawn and mulch at specific intervals. Precision makes the difference.",
+        "pass": "I've watched their routine. It's the timing. They water at dawn and mulch at specific intervals. Precision makes the difference.",
         "fail": "I swear it's sorcery. Nothing else explains it."
       },
       "valence": "neutral",
@@ -3677,7 +3677,7 @@
         "When we were done they looked at the rows and said 'that'll do nicely.' Understatement of the year."
       ],
       "reactions": [
-        "People who show up with their hands, not just their words: those are the ones you keep."
+        "People who show up with their hands, not just their words. Those are the ones you keep."
       ],
       "statCheck": null,
       "valence": "positive",
@@ -3709,7 +3709,7 @@
     },
     {
       "id": 186,
-      "intro": "{npc_name} keeps finding excuses to walk past {npc_name_2}'s place. I've counted: three times today.",
+      "intro": "{npc_name} keeps finding excuses to walk past {npc_name_2}'s place. I've counted. Three times today.",
       "details": [
         "Once could be a coincidence. Twice is a stretch. Three times is a route change.",
         "I haven't said anything to either of them. It's more fun to watch."
@@ -3729,7 +3729,7 @@
     },
     {
       "id": 187,
-      "intro": "{npc_name} is the most consistently kind person I know. Not flashy about it: just steady.",
+      "intro": "{npc_name} is the most consistently kind person I know. Not flashy about it. Just steady.",
       "details": [
         "Every day, every interaction. A kind word, a small gesture, an offered hand. Without exception.",
         "I've watched for a bad day, a slip, anything. It doesn't come."
@@ -3748,7 +3748,7 @@
     },
     {
       "id": 188,
-      "intro": "{npc_name} laughed at something I said in front of everyone. Not with me: at me.",
+      "intro": "{npc_name} laughed at something I said in front of everyone. Not with me. At me.",
       "details": [
         "I'd mispronounced something and they repeated it loudly like it was the funniest thing they'd heard all week.",
         "The table went quiet and {npc_name} didn't seem to notice or care."
@@ -3788,8 +3788,8 @@
       "id": 190,
       "intro": "When I was going through a hard stretch, {npc_name} left food at my door every morning for a week.",
       "details": [
-        "I never saw them do it. Just woke up and it was there: bread, fruit, sometimes a jar of something warm.",
-        "I cried the third morning. Not from sadness: from being looked after."
+        "I never saw them do it. Just woke up and it was there. Bread, fruit, sometimes a jar of something warm.",
+        "I cried the third morning. Not from sadness. From being looked after."
       ],
       "reactions": [
         "Some debts you repay by passing them on."
@@ -3814,7 +3814,7 @@
         "Information is power, and some people hoard it. {npc_name} is one of them."
       ],
       "statCheck": {
-        "pass": "They build a circle of trust and use it to control the flow of news. It's not accidental: it's how they stay central.",
+        "pass": "They build a circle of trust and use it to control the flow of news. It's not accidental. It's how they stay central.",
         "fail": "Maybe it's not deliberate. Maybe some people are just better at being in the right place."
       },
       "valence": "negative",
@@ -3913,7 +3913,7 @@
         "I'm not going to slow down to make someone else comfortable. But it makes things awkward."
       ],
       "statCheck": {
-        "pass": "They measure themselves against everyone around them. It's not about me specifically: I just happen to be visible.",
+        "pass": "They measure themselves against everyone around them. It's not about me specifically. I just happen to be visible.",
         "fail": "I could be wrong. Body language is easy to misread."
       },
       "valence": "negative",
@@ -3954,7 +3954,7 @@
         "I'm telling myself it's not about me. Mostly I believe that."
       ],
       "statCheck": {
-        "pass": "I think they're planning something for the settlement: possibly a surprise for someone. The secrecy has that flavor.",
+        "pass": "I think they're planning something for the settlement. Possibly a surprise for someone. The secrecy has that flavor.",
         "fail": "I have no clue. Could be anything from a gift to a grievance."
       },
       "valence": "neutral",
@@ -3990,7 +3990,7 @@
       "intro": "{npc_name} always smells like woodsmoke. Even indoors, even in summer.",
       "details": [
         "I asked about it once and they shrugged like they hadn't noticed. I think it's just part of them at this point.",
-        "It's not unpleasant, honestly: just distinctive. You always know when {npc_name} has been in a room."
+        "It's not unpleasant, honestly. Just distinctive. You always know when {npc_name} has been in a room."
       ],
       "reactions": [
         "Funny how you start associating a smell with a person after long enough."
@@ -4037,7 +4037,7 @@
         "We've all got burdens. Some of us just carry them quieter."
       ],
       "statCheck": {
-        "pass": "I think {npc_name} genuinely doesn't realize they do it. It's not malice: it's a blind spot the size of a barn.",
+        "pass": "I think {npc_name} genuinely doesn't realize they do it. It's not malice. It's a blind spot the size of a barn.",
         "fail": "I try not to hold it against them. We all have our flaws."
       },
       "valence": "negative",
@@ -4059,7 +4059,7 @@
         "Small courtesies like that say more about a person than big gestures."
       ],
       "statCheck": {
-        "pass": "I think it's deliberate: {npc_name} once told me they believe small courtesies keep a place civilized.",
+        "pass": "I think it's deliberate. {npc_name} once told me they believe small courtesies keep a place civilized.",
         "fail": "I couldn't tell you if it's habit or intention. Either way, it's nice."
       },
       "valence": "neutral",
@@ -4159,7 +4159,7 @@
       "id": 208,
       "intro": "{npc_name} never puts anything back where they found it. Not once, not ever.",
       "details": [
-        "Chairs, tools, baskets: everything ends up three feet from where it started. Consistently.",
+        "Chairs, tools, baskets. Everything ends up three feet from where it started. Consistently.",
         "I reorganized the storehouse last month. Took {npc_name} two days to undo all of it."
       ],
       "reactions": [
@@ -4179,7 +4179,7 @@
       "intro": "I overheard {npc_name} say something nice about me to someone else. Made my whole week.",
       "details": [
         "They didn't know I was around the corner. That's how I know they meant it.",
-        "It wasn't anything big: just that I was dependable. But coming from {npc_name}, that carries weight."
+        "It wasn't anything big. Just that I was dependable. But coming from {npc_name}, that carries weight."
       ],
       "reactions": [
         "The best compliments are the ones you're not meant to hear."
@@ -4265,7 +4265,7 @@
         "Generosity with strings attached isn't really generosity."
       ],
       "statCheck": {
-        "pass": "I think they learned it young: never give anything without knowing what you'll get back. Sad, when you think about it.",
+        "pass": "I think they learned it young. Never give anything without knowing what you'll get back. Sad, when you think about it.",
         "fail": "Maybe I'm being unfair. Not everyone shows kindness the same way."
       },
       "valence": "negative",
@@ -4363,7 +4363,7 @@
       "id": 218,
       "intro": "{npc_name} laughs at their own jokes before they even finish telling them.",
       "details": [
-        "You can see it building: the shoulders start shaking before the punchline is halfway out.",
+        "You can see it building. The shoulders start shaking before the punchline is halfway out.",
         "The jokes aren't even that funny most of the time. But the laugh is infectious, so you end up laughing anyway."
       ],
       "reactions": [
@@ -4408,7 +4408,7 @@
       "intro": "{npc_name} has the steadiest hands of anyone I've seen. Never a tremble, never a slip.",
       "details": [
         "I watched them thread a needle on the first try in dim light. I can barely do it in broad daylight.",
-        "They're the same way with everything: measured, precise, unhurried."
+        "They're the same way with everything. Measured, precise, unhurried."
       ],
       "reactions": [
         "I envy that kind of control. My hands shake if I've had too much tea."
@@ -4433,7 +4433,7 @@
         "I just assume everything I say near them will travel."
       ],
       "statCheck": {
-        "pass": "I tested it once: told {npc_name} something made up. Heard it from someone else three days later.",
+        "pass": "I tested it once. Told {npc_name} something made up. Heard it from someone else three days later.",
         "fail": "I can't prove anything. Just a pattern I've noticed."
       },
       "valence": "negative",
@@ -4455,7 +4455,7 @@
         "People like that make everything run a little smoother without anyone noticing."
       ],
       "statCheck": {
-        "pass": "I think they plan their day around other people's routines. It's not luck: it's attention.",
+        "pass": "I think they plan their day around other people's routines. It's not luck. It's attention.",
         "fail": "Maybe they're just observant. Hard to say."
       },
       "valence": "positive",
@@ -4601,7 +4601,7 @@
         "I think they're trying to be considerate, but it's had the opposite effect."
       ],
       "reactions": [
-        "Just make a choice: any choice. I'm begging."
+        "Just make a choice. Any choice. I'm begging."
       ],
       "statCheck": {
         "pass": "I think it started after someone accused them of being bossy. Now they overcompensate in the other direction.",
@@ -4665,7 +4665,7 @@
         "I've learned to pause and think before answering {npc_name}. That helps."
       ],
       "statCheck": {
-        "pass": "I watched them do it to someone else last week. Same technique: questions that feel casual but aren't.",
+        "pass": "I watched them do it to someone else last week. Same technique. Questions that feel casual but aren't.",
         "fail": "Could be I'm overthinking it. Some people are just good talkers."
       },
       "valence": "negative",
@@ -4726,7 +4726,7 @@
       "intro": "{npc_name} left a thank-you note tucked under my door after I helped with the fence.",
       "details": [
         "Wasn't expecting it. I'd forgotten I'd even helped until I read it.",
-        "It was short: just a few lines. But they took the time to write it by hand and that says something."
+        "It was short. Just a few lines. But they took the time to write it by hand and that says something."
       ],
       "reactions": [
         "I keep it on the shelf. Nice to be reminded that small things get noticed."
@@ -4742,7 +4742,7 @@
     },
     {
       "id": 236,
-      "intro": "{npc_name} is one of those people who hears everything. Walls, distance: doesn't matter.",
+      "intro": "{npc_name} is one of those people who hears everything. Walls, distance. Doesn't matter.",
       "details": [
         "I mentioned something to a friend across the yard and {npc_name} brought it up an hour later.",
         "It's not that they're eavesdropping on purpose. They just have ears like a fox."
@@ -4789,7 +4789,7 @@
         "I don't have sympathy for self-inflicted exhaustion. Get some sleep."
       ],
       "statCheck": {
-        "pass": "I think they can't sleep even when they try. The staying up isn't a choice: it's a pattern they can't break.",
+        "pass": "I think they can't sleep even when they try. The staying up isn't a choice. It's a pattern they can't break.",
         "fail": "Maybe they're a night person. Not everyone runs on the same clock."
       },
       "valence": "negative",
@@ -4879,7 +4879,7 @@
         "I owe them one. And I intend to pay it back properly."
       ],
       "statCheck": {
-        "pass": "I think {npc_name} has gone without before: real hunger, not just skipping a meal. You can tell by how carefully they handle food.",
+        "pass": "I think {npc_name} has gone without before. Real hunger, not just skipping a meal. You can tell by how carefully they handle food.",
         "fail": "I don't know their history. Just that it was a generous thing to do."
       },
       "valence": "positive",
@@ -5137,7 +5137,7 @@
     },
     {
       "id": 255,
-      "intro": "{npc_name} leaves crumbs everywhere they eat. Not just their spot: the path getting there too.",
+      "intro": "{npc_name} leaves crumbs everywhere they eat. Not just their spot. The path getting there too.",
       "details": [
         "I followed a trail of bread bits once and it led straight to their door. Like a riddle with no mystery.",
         "I'm not sure they're even eating the food or just carrying it around for decoration."
@@ -5280,7 +5280,7 @@
       "id": 262,
       "intro": "{npc_name} somehow always picks the worst time to start a conversation.",
       "details": [
-        "Arms full of supplies, halfway up a ladder, elbow-deep in a repair: that's when {npc_name} wants to chat.",
+        "Arms full of supplies, halfway up a ladder, elbow-deep in a repair. That's when {npc_name} wants to chat.",
         "And it's never a quick question. It's always something that needs a thoughtful answer."
       ],
       "reactions": [
@@ -5302,7 +5302,7 @@
       "id": 263,
       "intro": "{npc_name} is the reason I started taking better care of my tools. Their example shamed me into it.",
       "details": [
-        "I saw their workspace once: everything oiled, sharpened, in its place. Mine looked like a disaster by comparison.",
+        "I saw their workspace once. Everything oiled, sharpened, in its place. Mine looked like a disaster by comparison.",
         "They didn't say a word about mine, but they didn't have to. I went home and reorganized that evening."
       ],
       "reactions": [
@@ -5357,7 +5357,7 @@
     },
     {
       "id": 266,
-      "intro": "{npc_name} borrows ideas the way some people borrow tools: quietly, without attribution.",
+      "intro": "{npc_name} borrows ideas the way some people borrow tools. Quietly, without attribution.",
       "details": [
         "I suggested a way to improve the drainage last month. Two weeks later {npc_name} proposed the exact same thing as their own.",
         "I wouldn't mind if they'd said 'I heard this idea.' It's the pretending that stings."
@@ -5388,7 +5388,7 @@
         "Useful, honestly. Saves me from walking into a bad conversation."
       ],
       "statCheck": {
-        "pass": "There's a third tune I've only heard once: very slow, almost a dirge. I think that's the one to really worry about.",
+        "pass": "There's a third tune I've only heard once. Very slow, almost a dirge. I think that's the one to really worry about.",
         "fail": "I couldn't tell you what the different tunes mean exactly. Just a feeling."
       },
       "valence": "neutral",
@@ -5445,7 +5445,7 @@
       "id": 270,
       "intro": "I thought {npc_name} was strange at first. Now I think they might be the most interesting person here.",
       "details": [
-        "They see things differently than the rest of us. Not wrong: just at an angle nobody else thinks to look from.",
+        "They see things differently than the rest of us. Not wrong. Just at an angle nobody else thinks to look from.",
         "Once you get past the surface, their observations are surprisingly sharp."
       ],
       "reactions": [
@@ -5468,7 +5468,7 @@
       "intro": "{npc_name} never closes the gate behind them. The animals get out every time because of it.",
       "details": [
         "I've put a sign up, reminded them in person, and stood right there pointing at the gate. Nothing works.",
-        "The next morning: gate open, chickens in the road. It's like talking to the wind."
+        "The next morning. Gate open, chickens in the road. It's like talking to the wind."
       ],
       "reactions": [
         "I've accepted that my mornings now include a chicken roundup."
@@ -5715,8 +5715,8 @@
       "id": 283,
       "intro": "{npc_name} forgets names constantly. Called me the wrong name twice last week.",
       "details": [
-        "I don't take it personally anymore: they do it to everyone. I've heard them get {npc_name_2}'s name wrong too.",
-        "The odd thing is they remember every other detail about you: what you said, what you were doing. Just not the name."
+        "I don't take it personally anymore. They do it to everyone. I've heard them get {npc_name_2}'s name wrong too.",
+        "The odd thing is they remember every other detail about you. What you said, what you were doing. Just not the name."
       ],
       "reactions": [
         "I've started answering to whatever they call me. Easier for everyone."
@@ -5783,7 +5783,7 @@
         "I should return the favor. I don't even know what {npc_name} prefers."
       ],
       "statCheck": {
-        "pass": "{npc_name} keeps notes about everyone: preferences, dislikes, allergies. I saw the list once and it's remarkably detailed.",
+        "pass": "{npc_name} keeps notes about everyone. Preferences, dislikes, allergies. I saw the list once and it's remarkably detailed.",
         "fail": "I don't know how they keep track of it all. Impressive memory, I suppose."
       },
       "valence": "positive",
@@ -5856,7 +5856,7 @@
     },
     {
       "id": 290,
-      "intro": "{npc_name} asked me how I really was the other day. Not the usual greeting: actually meant it.",
+      "intro": "{npc_name} asked me how I really was the other day. Not the usual greeting. Actually meant it.",
       "details": [
         "I started to give the standard 'fine' and they just waited, like they knew there was more.",
         "I ended up telling them about the week I'd been having. Felt lighter afterward."
@@ -5919,11 +5919,11 @@
       "id": 293,
       "intro": "{npc_name} sharpens their tools obsessively every evening. {npc_name_2} finally asked them to stop.",
       "details": [
-        "Scrape, scrape, scrape: sometimes for an hour straight. {npc_name_2} lives closest and bears the worst of it.",
+        "Scrape, scrape, scrape. Sometimes for an hour straight. {npc_name_2} lives closest and bears the worst of it.",
         "{npc_name} agreed to do it earlier in the day. That lasted exactly one evening."
       ],
       "reactions": [
-        "I've gotten used to it. The way you get used to any persistent noise: reluctantly."
+        "I've gotten used to it. The way you get used to any persistent noise. Reluctantly."
       ],
       "statCheck": null,
       "valence": "negative",
@@ -5939,14 +5939,14 @@
       "id": 294,
       "intro": "I've been watching {npc_name} and I think they do more for this place than anyone realizes.",
       "details": [
-        "Little things: a loose board nailed down, a leaky barrel patched, weeds pulled from the common paths.",
+        "Little things. A loose board nailed down, a leaky barrel patched, weeds pulled from the common paths.",
         "Never mentions it, never takes credit. You just notice the place looking better and eventually trace it back to them."
       ],
       "reactions": [
         "I mentioned it to them once and they just shrugged. That's how you know it's genuine."
       ],
       "statCheck": {
-        "pass": "I've been paying attention: {npc_name} does at least three maintenance tasks a day that aren't assigned to anyone. Completely self-directed.",
+        "pass": "I've been paying attention. {npc_name} does at least three maintenance tasks a day that aren't assigned to anyone. Completely self-directed.",
         "fail": "I can't say for sure how much they do. I just notice the results."
       },
       "valence": "positive",
@@ -6021,7 +6021,7 @@
       "id": 298,
       "intro": "{npc_name} brought me my favorite kind of bread out of nowhere. Said they'd been experimenting.",
       "details": [
-        "The fact that they knew it was my favorite without me ever saying so: that's what got me.",
+        "The fact that they knew it was my favorite without me ever saying so. That's what got me.",
         "It was good too. Better than what I make myself, and I'll deny saying that if asked."
       ],
       "reactions": [
@@ -6044,7 +6044,7 @@
       "intro": "{npc_name} has this habit of giving you a task and then hovering while you do it.",
       "details": [
         "Asked me to sort some supplies and then stood three feet away watching the entire time.",
-        "Every few minutes: 'You might want to try it this way.' I know how to sort crates."
+        "Every few minutes, 'You might want to try it this way.' I know how to sort crates."
       ],
       "reactions": [
         "I'd rather do it wrong alone than right with someone breathing down my neck."
@@ -6062,7 +6062,7 @@
       "id": 300,
       "intro": "{npc_name} calls everyone 'friend.' I used to think it was generic until I realized they mean it.",
       "details": [
-        "They use it the way other people use your name: naturally, without thinking about it.",
+        "They use it the way other people use your name. Naturally, without thinking about it.",
         "I tested it once by being a bit rude. They still called me 'friend.' Not a flinch."
       ],
       "reactions": [
@@ -6189,7 +6189,7 @@
       "id": 306,
       "intro": "{npc_name} says 'good morning' to absolutely everyone. Even when it's clearly not a good morning.",
       "details": [
-        "Pouring rain, freezing wind, mud everywhere: 'good morning!' Same tone, same warmth.",
+        "Pouring rain, freezing wind, mud everywhere, 'good morning!' Same tone, same warmth.",
         "I've tried being grumpy back and it has no effect. The cheerfulness is impenetrable."
       ],
       "reactions": [
@@ -6355,7 +6355,7 @@
       "id": 314,
       "intro": "{npc_name} chews their lip when they're lying. I've confirmed it enough times to be certain.",
       "details": [
-        "I asked who ate the last of the smoked fish and there it was: the lip chew. Dead giveaway.",
+        "I asked who ate the last of the smoked fish and there it was. The lip chew. Dead giveaway.",
         "I almost feel bad knowing about it. Like I've found a key to a door I shouldn't open."
       ],
       "reactions": [
@@ -6398,7 +6398,7 @@
       "intro": "{npc_name} gave me a warning about a loose step on the common path. Saved me a nasty fall.",
       "details": [
         "They'd already fixed it by the time I went back to look. Just mentioned it so I'd be careful in the meantime.",
-        "That kind of unprompted attentiveness: you can't teach it. You either have it or you don't."
+        "That kind of unprompted attentiveness. You can't teach it. You either have it or you don't."
       ],
       "reactions": [
         "I thanked them and meant it. Small things save big problems."
@@ -6523,7 +6523,7 @@
       ],
       "statCheck": {
         "pass": "{npc_name} told me they never break a promise because someone they cared about broke one to them. Changed how they see commitment.",
-        "fail": "I don't know what drives it: integrity, I suppose. The old-fashioned kind."
+        "fail": "I don't know what drives it. Integrity, I suppose. The old-fashioned kind."
       },
       "valence": "positive",
       "topic_category": "npc_opinions",
@@ -6576,7 +6576,7 @@
       "id": 325,
       "intro": "{npc_name} sends their regards even when they can't visit. Always through someone, always specific.",
       "details": [
-        "Got a message yesterday through a neighbor: '{npc_name} hopes your knee is better.' They remembered.",
+        "Got a message yesterday through a neighbor, '{npc_name} hopes your knee is better.' They remembered.",
         "It takes effort to keep track of people like that. Most of us don't bother."
       ],
       "reactions": [
@@ -6599,7 +6599,7 @@
         "I think they keep a mental ledger of every time they felt wronged. Must be exhausting to carry."
       ],
       "reactions": [
-        "I've stopped engaging. A shrug and a subject change: that's my new approach."
+        "I've stopped engaging. A shrug and a subject change. That's my new approach."
       ],
       "statCheck": null,
       "valence": "negative",
@@ -6614,7 +6614,7 @@
       "id": 327,
       "intro": "{npc_name} leaves notes for people. Little things tucked under doors or left on workbenches.",
       "details": [
-        "I found one on my bench yesterday: 'Nice work on the gate.' Four words. Made my afternoon.",
+        "I found one on my bench yesterday, 'Nice work on the gate.' Four words. Made my afternoon.",
         "Not everyone gets them. It's like a quiet recognition that you can't buy or earn on purpose."
       ],
       "reactions": [
@@ -6633,7 +6633,7 @@
       "id": 328,
       "intro": "{npc_name} cleared their throat seventeen times during the last meeting. I counted.",
       "details": [
-        "Not sick, not speaking: just clearing their throat into the silence at regular intervals.",
+        "Not sick, not speaking. Just clearing their throat into the silence at regular intervals.",
         "The person next to me started mouthing the count after the tenth one. We're losing our minds."
       ],
       "reactions": [
@@ -6650,7 +6650,7 @@
     },
     {
       "id": 329,
-      "intro": "{npc_name} gives feedback the way you'd want it: honest, private, and without making you feel small.",
+      "intro": "{npc_name} gives feedback the way you'd want it. Honest, private, and without making you feel small.",
       "details": [
         "They pulled me aside after a job I'd botched and walked me through what went wrong. Calmly, clearly.",
         "Didn't bring it up again after that. Didn't mention it to anyone else."
@@ -6738,7 +6738,7 @@
         "{npc_name_2} told me they've given up trying to get an acknowledgment. Apparently it's a pattern."
       ],
       "reactions": [
-        "I don't need a grand apology. Just a nod or a shrug: something."
+        "I don't need a grand apology. Just a nod or a shrug. Something."
       ],
       "statCheck": null,
       "valence": "negative",
@@ -6797,7 +6797,7 @@
       "intro": "{npc_name} caught me struggling with a stuck lid and opened it without a word. Just handed it back.",
       "details": [
         "Didn't laugh, didn't make it a thing. Just fixed it and kept walking.",
-        "It's the kind of small dignity you don't forget: someone could have made a joke, but they chose not to."
+        "It's the kind of small dignity you don't forget. Someone could have made a joke, but they chose not to."
       ],
       "reactions": [
         "Grace in the small moments. I try to do the same for others."
@@ -6899,7 +6899,7 @@
       "id": 341,
       "intro": "{npc_name} and {npc_name_2} bicker like they've been married for thirty years. It's relentless.",
       "details": [
-        "Who left the gate open, whose turn it was to sweep, which way the wind was blowing: all of it is an argument.",
+        "Who left the gate open, whose turn it was to sweep, which way the wind was blowing. All of it is an argument.",
         "And then an hour later they're sharing a meal like nothing happened. Every time."
       ],
       "reactions": [
@@ -6961,7 +6961,7 @@
       "id": 344,
       "intro": "{npc_name} cracks a joke when tension's building and it always works. Every time.",
       "details": [
-        "There was a real argument brewing at the last gathering and they said one thing: the whole mood shifted.",
+        "There was a real argument brewing at the last gathering and they said one thing. The whole mood shifted.",
         "It's never mean-spirited either. Just the right observation at the right moment."
       ],
       "reactions": [
@@ -6983,7 +6983,7 @@
       "id": 345,
       "intro": "{npc_name} peels fruit so slowly it borders on performance art. I've watched in disbelief.",
       "details": [
-        "One continuous strip of peel, not a single break. I timed it once: nearly five minutes for a single apple.",
+        "One continuous strip of peel, not a single break. I timed it once. Nearly five minutes for a single apple.",
         "They're proud of it too. Held up the finished peel like a trophy."
       ],
       "reactions": [
@@ -7005,14 +7005,14 @@
       "id": 346,
       "intro": "{npc_name} invited me to eat with them when I was clearly having a bad day. Didn't pry into why.",
       "details": [
-        "We just ate in comfortable quiet. They talked about normal things: the weather, what they were working on.",
+        "We just ate in comfortable quiet. They talked about normal things. The weather, what they were working on.",
         "By the end of the meal I felt better, and I don't think I said more than twenty words the whole time."
       ],
       "reactions": [
-        "That's what good company looks like: knowing when to just be there."
+        "That's what good company looks like. Knowing when to just be there."
       ],
       "statCheck": {
-        "pass": "{npc_name} mentioned later that they've been in that exact spot before: too low to talk, just needing someone near.",
+        "pass": "{npc_name} mentioned later that they've been in that exact spot before. Too low to talk, just needing someone near.",
         "fail": "I don't know how they read the situation so well. Some people just can."
       },
       "valence": "positive",
@@ -7207,7 +7207,7 @@
       "intro": "{npc_name} lent me their coat without being asked when the weather turned. Just draped it over my shoulders.",
       "details": [
         "I started to protest and they waved me off like it was nothing. They walked home in the cold.",
-        "The coat smelled like their home: warm, a bit smoky. I gave it back clean the next day."
+        "The coat smelled like their home. Warm, a bit smoky. I gave it back clean the next day."
       ],
       "reactions": [
         "That kind of automatic generosity is harder to find than people think."
@@ -7229,7 +7229,7 @@
       "intro": "{npc_name} interrupts constantly. I can't get through a single thought without them jumping in.",
       "details": [
         "I counted four interruptions in one conversation yesterday. Four. And none of them were urgent.",
-        "The worst part is they seem to think they're helping: finishing my point before I've made it."
+        "The worst part is they seem to think they're helping. Finishing my point before I've made it."
       ],
       "reactions": [
         "I've started holding up a finger when I'm talking. Seems to help, barely."
@@ -7258,7 +7258,7 @@
       ],
       "statCheck": {
         "pass": "{npc_name} told me they taught themselves because they couldn't afford to replace things growing up. Every repair was necessity.",
-        "fail": "I don't know where they learned it. Natural talent or years of practice: either way, impressive."
+        "fail": "I don't know where they learned it. Natural talent or years of practice. Either way, impressive."
       },
       "valence": "positive",
       "topic_category": "npc_opinions",
@@ -7272,7 +7272,7 @@
       "id": 359,
       "intro": "{npc_name} talks about the weather like it's a personal insult directed at them specifically.",
       "details": [
-        "Rain isn't just rain: it's the sky conspiring to ruin their plans. Wind is a targeted attack.",
+        "Rain isn't just rain. It's the sky conspiring to ruin their plans. Wind is a targeted attack.",
         "I tried agreeing that it was windy once and they corrected me. 'This isn't windy. This is hostile.'"
       ],
       "reactions": [
@@ -7291,7 +7291,7 @@
       "id": 360,
       "intro": "{npc_name} and {npc_name_2} split firewood together every week. Neither of them needs to, but they do it anyway.",
       "details": [
-        "They've got a rhythm to it: one splits, one stacks, and they switch halfway through without a word.",
+        "They've got a rhythm to it. One splits, one stacks, and they switch halfway through without a word.",
         "I watched them once and it looked more like a routine than a chore. Comfortable, practiced."
       ],
       "reactions": [
@@ -7540,7 +7540,7 @@
       "intro": "{npc_name} told me something in confidence last week. I haven't told a soul and I won't.",
       "details": [
         "It wasn't anything dramatic, just personal. The kind of thing you only share when you trust someone.",
-        "The fact that they chose me to tell: that means something."
+        "The fact that they chose me to tell. That means something."
       ],
       "reactions": [
         "Trust is built in small moments like that. I won't waste it."
@@ -7632,7 +7632,7 @@
         "I drink it. Every time. The gesture matters more than the taste."
       ],
       "statCheck": {
-        "pass": "I found out the recipe was their mother's. That's why they make it exactly that way: changing it would feel like letting go.",
+        "pass": "I found out the recipe was their mother's. That's why they make it exactly that way. Changing it would feel like letting go.",
         "fail": "I don't question the recipe. It's clearly important to them."
       },
       "valence": "neutral",
@@ -7651,7 +7651,7 @@
         "That's the kind of help that doesn't need an audience. Rare thing."
       ],
       "reactions": [
-        "I owe them one. And I intend to pay it back the same way: quietly."
+        "I owe them one. And I intend to pay it back the same way. Quietly."
       ],
       "statCheck": {
         "pass": "{npc_name} told someone they do it because being sick and alone was the worst thing they ever went through. They won't let that happen to someone else.",
@@ -7733,7 +7733,7 @@
       "intro": "{npc_name} tells the same stories and somehow they get funnier every time.",
       "details": [
         "I've heard the one about the stuck cart wheel at least six times. Still laughed last night.",
-        "They add a new detail each telling: a pause here, a face there. It's craft, not repetition."
+        "They add a new detail each telling. A pause here, a face there. It's craft, not repetition."
       ],
       "reactions": [
         "I'd listen to the same ten stories from {npc_name} for the rest of my life and not complain."
@@ -7796,7 +7796,7 @@
       "id": 384,
       "intro": "{npc_name} tracks mud everywhere they go. I could follow their path with my eyes closed.",
       "details": [
-        "From the gate to the storehouse to the fire pit: a perfect trail of boot prints.",
+        "From the gate to the storehouse to the fire pit. A perfect trail of boot prints.",
         "I cleaned the floor two days ago and it was muddy again by noon. I know exactly whose boots did it."
       ],
       "reactions": [
@@ -7837,7 +7837,7 @@
       "id": 386,
       "intro": "{npc_name} critiques everyone else's cooking but won't cook a meal themselves.",
       "details": [
-        "I've heard opinions on salt levels, timing, texture: the full critique. Never seen them hold a ladle.",
+        "I've heard opinions on salt levels, timing, texture. The full critique. Never seen them hold a ladle.",
         "I offered them the kitchen once and they said they 'prefer to advise.' Advise."
       ],
       "reactions": [
@@ -7860,7 +7860,7 @@
       "intro": "{npc_name} has this way of making everyone feel included, even the quiet ones.",
       "details": [
         "At the last gathering they made a point of pulling me into a conversation I'd been hovering outside of.",
-        "They do it naturally: not forced, not performative. Just a 'what do you think?' aimed your way at the right moment."
+        "They do it naturally. Not forced, not performative. Just a 'what do you think?' aimed your way at the right moment."
       ],
       "reactions": [
         "I think they notice who's on the edges because they've been there themselves."
@@ -7905,7 +7905,7 @@
         "People have started lending to {npc_name} on purpose just to get their things improved."
       ],
       "reactions": [
-        "That's how you earn trust: by returning things better than you found them."
+        "That's how you earn trust. By returning things better than you found them."
       ],
       "statCheck": {
         "pass": "{npc_name} mentioned they were taught that borrowing something is a promise to return it better. Apparently their parent drilled it into them.",
@@ -8069,7 +8069,7 @@
       "id": 397,
       "intro": "I told {npc_name} a secret and they've kept it. Months now. Not a whisper.",
       "details": [
-        "I've watched for signs: odd looks from neighbors, knowing glances. Nothing. They're a vault.",
+        "I've watched for signs. Odd looks from neighbors, knowing glances. Nothing. They're a vault.",
         "In a place where gossip moves fast, that kind of silence is worth more than gold."
       ],
       "reactions": [
@@ -8092,7 +8092,7 @@
       "intro": "{npc_name} asks for favors the way other people give orders. Always has.",
       "details": [
         "'Can you move this for me' doesn't sound like a question when they say it. It sounds like a schedule update.",
-        "The tone is polite but the implication is clear: this is happening, with or without your agreement."
+        "The tone is polite but the implication is clear. This is happening, with or without your agreement."
       ],
       "reactions": [
         "I've started saying no occasionally. Just to remind us both that it's an option."
@@ -8215,14 +8215,14 @@
       "id": 404,
       "intro": "{npc_name} lied to me about something small and I can't stop thinking about it.",
       "details": [
-        "It wasn't important: just whether they'd finished a chore or not. But the lie was smooth, practiced.",
+        "It wasn't important. Just whether they'd finished a chore or not. But the lie was smooth, practiced.",
         "If they'll lie about a chore, what else comes that easy?"
       ],
       "reactions": [
         "I haven't confronted them. I'm just more careful now about what I believe."
       ],
       "statCheck": {
-        "pass": "I mentioned it to a neighbor and they said {npc_name} does this often: small lies to avoid small confrontations.",
+        "pass": "I mentioned it to a neighbor and they said {npc_name} does this often. Small lies to avoid small confrontations.",
         "fail": "Maybe I misread the situation. People have off days."
       },
       "valence": "negative",
@@ -8237,7 +8237,7 @@
       "id": 405,
       "intro": "{npc_name} cracks their knuckles before starting any task. Every time, without fail.",
       "details": [
-        "It's become a signal now: you hear the cracking and you know {npc_name} is about to do something.",
+        "It's become a signal now. You hear the cracking and you know {npc_name} is about to do something.",
         "I've tried it myself and it just hurts. They make it look natural."
       ],
       "reactions": [
@@ -8260,7 +8260,7 @@
         "We talked about nothing important. That was the point, I think."
       ],
       "reactions": [
-        "Choosing discomfort so someone else doesn't have to be alone: that's character."
+        "Choosing discomfort so someone else doesn't have to be alone. That's character."
       ],
       "statCheck": {
         "pass": "{npc_name} told me once they hated being alone in bad weather when they were young. Now they make sure nobody else has to be.",
@@ -8400,7 +8400,7 @@
       "intro": "{npc_name} sighs before answering any question. Even easy ones.",
       "details": [
         "I asked what they wanted for dinner and got a sigh deep enough to fill a sail.",
-        "It's not that they're annoyed: it's more like every question requires a moment of existential preparation."
+        "It's not that they're annoyed. It's more like every question requires a moment of existential preparation."
       ],
       "reactions": [
         "I've stopped asking and started guessing. Fewer sighs that way."
@@ -8521,7 +8521,7 @@
       "intro": "{npc_name} talks about themselves in every conversation. Every topic becomes about them eventually.",
       "details": [
         "I mentioned my sore shoulder and within two sentences we were discussing their sore shoulder, their recovery, their approach.",
-        "I've tested it: start with any subject and count how long before it circles back. Usually three sentences."
+        "I've tested it. Start with any subject and count how long before it circles back. Usually three sentences."
       ],
       "reactions": [
         "I don't think they realize they do it. But I've stopped sharing personal things."
@@ -8584,7 +8584,7 @@
         "Nobody complained, nobody dragged their feet. The mood was better because {npc_name} was in it."
       ],
       "reactions": [
-        "I request to work alongside them now. Not for the help: for the company."
+        "I request to work alongside them now. Not for the help. For the company."
       ],
       "statCheck": {
         "pass": "{npc_name} mentioned they learned that from years of doing terrible jobs. Said if you can't change the work, change the mood.",
@@ -8753,7 +8753,7 @@
         "I'd rather hear an honest no. At least then I can make other plans."
       ],
       "statCheck": {
-        "pass": "I pushed once and got a real answer: they're afraid of committing and failing. 'We'll see' leaves an exit open.",
+        "pass": "I pushed once and got a real answer. They're afraid of committing and failing. 'We'll see' leaves an exit open.",
         "fail": "Could be they're just undecided. Hard to tell."
       },
       "valence": "negative",
@@ -8850,7 +8850,7 @@
       "id": 435,
       "intro": "{npc_name} talks about {npc_name_2} behind their back but is sweet as honey to their face.",
       "details": [
-        "I've heard two different versions of how {npc_name} feels about {npc_name_2}: one for public, one for me.",
+        "I've heard two different versions of how {npc_name} feels about {npc_name_2}. One for public, one for me.",
         "The gap between the two is wide enough to drive a cart through."
       ],
       "reactions": [
@@ -8873,7 +8873,7 @@
       "id": 436,
       "intro": "{npc_name} always takes the worst job on the rotation without being asked.",
       "details": [
-        "Hauling, scrubbing, the jobs nobody volunteers for: they just put their name down first.",
+        "Hauling, scrubbing, the jobs nobody volunteers for. They just put their name down first.",
         "I asked why once and they said 'someone has to.' As if that explained everything."
       ],
       "reactions": [
@@ -9042,7 +9042,7 @@
         "We finished before noon. Would have taken me three days on my own."
       ],
       "reactions": [
-        "That kind of follow-through on a casual mention: that's rare. I won't forget it."
+        "That kind of follow-through on a casual mention. That's rare. I won't forget it."
       ],
       "statCheck": {
         "pass": "{npc_name} said they show up because someone did that for them once, when they had nobody. They're paying it forward.",
@@ -9429,7 +9429,7 @@
         "I don't expect equal affection from everyone. But consistency would be nice."
       ],
       "statCheck": {
-        "pass": "Someone told me {npc_name} gravitates toward people who remind them of someone from before they lived here. The favoritism isn't personal: it's nostalgia.",
+        "pass": "Someone told me {npc_name} gravitates toward people who remind them of someone from before they lived here. The favoritism isn't personal. It's nostalgia.",
         "fail": "Maybe they just click with certain people. Can't force chemistry."
       },
       "valence": "negative",
@@ -9651,7 +9651,7 @@
       "id": 474,
       "intro": "{npc_name} introduced me to someone new and made sure I felt included. A small thing that meant a lot.",
       "details": [
-        "They didn't just say my name: they added context. 'This is someone you'd want to know.'",
+        "They didn't just say my name. They added context. 'This is someone you'd want to know.'",
         "I went from standing on the outside to being part of the conversation in seconds."
       ],
       "reactions": [
@@ -9671,7 +9671,7 @@
       "intro": "{npc_name} made promises at the last meeting that everyone knew wouldn't happen. Including {npc_name_2}.",
       "details": [
         "Grand plans, ambitious timelines. {npc_name_2} caught my eye and shook their head slightly.",
-        "Sure enough, a week later: nothing. Not even a mention of why."
+        "Sure enough, a week later. Nothing. Not even a mention of why."
       ],
       "reactions": [
         "I've learned to judge people by their follow-through, not their proposals."
@@ -9991,7 +9991,7 @@
       "id": 491,
       "intro": "{npc_name} scratches their chin before saying anything important. I've learned to read it.",
       "details": [
-        "Quick scratch: small observation. Long scratch: something they've been thinking about for a while.",
+        "Quick scratch. Small observation. Long scratch. Something they've been thinking about for a while.",
         "I mentioned this to someone else and now they watch for it too. It's remarkably consistent."
       ],
       "reactions": [
@@ -10017,7 +10017,7 @@
         "My suggestion wasn't even that useful, but they listened like it was."
       ],
       "reactions": [
-        "Being included when you don't have to be: that's how you make people feel they matter."
+        "Being included when you don't have to be. That's how you make people feel they matter."
       ],
       "statCheck": null,
       "valence": "positive",
@@ -10093,7 +10093,7 @@
       "id": 496,
       "intro": "{npc_name} closes drawers loudly. Not slamming, just with more force than any drawer requires.",
       "details": [
-        "Every morning: thud, thud, thud. Like a three-beat alarm clock I didn't sign up for.",
+        "Every morning. Thud, thud, thud. Like a three-beat alarm clock I didn't sign up for.",
         "I've thought about padding the drawers somehow. But then they'd just push harder."
       ],
       "reactions": [
@@ -10226,7 +10226,7 @@
         "I don't fight it anymore. I just know, and that's enough."
       ],
       "statCheck": {
-        "pass": "I think admitting fault was never safe for them growing up. The stubbornness isn't pride: it's protection.",
+        "pass": "I think admitting fault was never safe for them growing up. The stubbornness isn't pride. It's protection.",
         "fail": "Some people just don't like being wrong. Nothing deeper than that."
       },
       "valence": "negative",
@@ -10306,7 +10306,7 @@
         "When I asked {npc_name} about it they said 'I knew you'd want to help.' They assumed correctly, but that's not the point."
       ],
       "reactions": [
-        "I'd like to be asked, that's all: the answer would probably be yes."
+        "I'd like to be asked, that's all. The answer would probably be yes."
       ],
       "statCheck": {
         "pass": "{npc_name} admitted they do it because saying yes is easier than explaining why they can't. They dread the conversation more than the extra work.",
@@ -10473,7 +10473,7 @@
       "id": 514,
       "intro": "{npc_name} noticed I was having a bad day and just sat beside me without saying a word.",
       "details": [
-        "No questions, no advice, just presence: they stayed until I felt like talking and then they listened.",
+        "No questions, no advice, just presence. They stayed until I felt like talking and then they listened.",
         "I didn't realize how much I needed someone to just be there until they were."
       ],
       "reactions": [
@@ -10555,7 +10555,7 @@
       "id": 518,
       "intro": "{npc_name} talks over people constantly. They don't even realize they're doing it.",
       "details": [
-        "Three times in one conversation yesterday: my sentences don't get endings anymore.",
+        "Three times in one conversation yesterday. My sentences don't get endings anymore.",
         "I've tried pausing to let them finish, but the pause just invites more interruption."
       ],
       "reactions": [
@@ -10578,7 +10578,7 @@
       "intro": "{npc_name} and {npc_name_2} finish each other's sentences. It's unsettling how often they get it right.",
       "details": [
         "{npc_name} starts a thought, trails off, and {npc_name_2} completes it without missing a beat.",
-        "I tried guessing once to join in and got it completely wrong: it's a two-person trick."
+        "I tried guessing once to join in and got it completely wrong. It's a two-person trick."
       ],
       "reactions": [
         "That kind of shorthand only comes from spending a lot of time together."
@@ -10661,7 +10661,7 @@
       "intro": "{npc_name} uses silence as a weapon. They just go quiet and let you fill the gap with your own guilt.",
       "details": [
         "I said something mildly inconsiderate and got thirty seconds of dead air. By the end I'd apologized twice.",
-        "They don't yell or argue, just wait: it's more effective than any shouting match."
+        "They don't yell or argue, just wait. It's more effective than any shouting match."
       ],
       "reactions": [
         "I choose my words carefully around them now. The silence teaches you that."
@@ -10724,8 +10724,8 @@
       "id": 526,
       "intro": "{npc_name} snores and everyone knows it. Including people who live three doors down.",
       "details": [
-        "I brought it up gently and they denied it: 'I breathe heavily,' they said, as if that covers it.",
-        "The walls don't help, and I've tried putting cloth in my ears: the snoring gets through."
+        "I brought it up gently and they denied it, 'I breathe heavily,' they said, as if that covers it.",
+        "The walls don't help, and I've tried putting cloth in my ears. The snoring gets through."
       ],
       "reactions": [
         "I've adjusted my schedule to fall asleep first. If I'm already out, it doesn't wake me."
@@ -10794,7 +10794,7 @@
         "I stick to compliments and weather around them. Even weather is risky, apparently."
       ],
       "statCheck": {
-        "pass": "Someone told me {npc_name} was criticized a lot when they were younger. The defensiveness isn't about now: it's about then.",
+        "pass": "Someone told me {npc_name} was criticized a lot when they were younger. The defensiveness isn't about now. It's about then.",
         "fail": "Some people are just sensitive. You learn to tread lightly."
       },
       "valence": "negative",
@@ -10937,7 +10937,7 @@
         "I've moved their things twice. Both times they were back in the same spots by evening."
       ],
       "reactions": [
-        "I've accepted it: the bench is theirs now and I use a different one."
+        "I've accepted it. The bench is theirs now and I use a different one."
       ],
       "statCheck": {
         "pass": "{npc_name} admitted they grew up alone and never learned to account for others in shared spaces.",
@@ -10996,7 +10996,7 @@
       "id": 539,
       "intro": "{npc_name} and {npc_name_2} have been teaching each other things, trading skills back and forth.",
       "details": [
-        "I've watched the exchange happen over weeks. Neither seems to keep score: they just share what they know.",
+        "I've watched the exchange happen over weeks. Neither seems to keep score. They just share what they know.",
         "The settlement benefits because both of them are more capable now than they were a month ago."
       ],
       "reactions": [
@@ -11014,7 +11014,7 @@
     },
     {
       "id": 540,
-      "intro": "{npc_name} chews loudly when they eat dried anything: jerky, nuts, bread crusts.",
+      "intro": "{npc_name} chews loudly when they eat dried anything. Jerky, nuts, bread crusts.",
       "details": [
         "I've tried sitting across the room but the jaw has power I didn't expect.",
         "They seem completely unaware. Once offered me some jerky mid-crunch and I declined out of self-preservation."
@@ -11096,7 +11096,7 @@
     },
     {
       "id": 544,
-      "intro": "{npc_name} laughs at inappropriate times. Not at anything funny: just when things go wrong.",
+      "intro": "{npc_name} laughs at inappropriate times. Not at anything funny. Just when things go wrong.",
       "details": [
         "Something fell and broke yesterday and they burst out laughing while the rest of us groaned.",
         "It's a nervous laugh, I think. But the timing makes it look like joy at misfortune."
@@ -11166,7 +11166,7 @@
         "Being seen without asking to be seen. That's what good neighbors do."
       ],
       "statCheck": {
-        "pass": "{npc_name} mentioned they went hungry once and swore nobody near them would again if they could help it. The food isn't charity: it's a promise they made.",
+        "pass": "{npc_name} mentioned they went hungry once and swore nobody near them would again if they could help it. The food isn't charity. It's a promise they made.",
         "fail": "They're just a generous cook. Some people show caring through food."
       },
       "valence": "positive",
@@ -11182,7 +11182,7 @@
       "intro": "{npc_name} corrects people in front of others. Facts, pronunciation, anything that's slightly off.",
       "details": [
         "I said something approximately right and got an immediate and very public correction. Felt about two inches tall.",
-        "It's always accurate, and that's the frustrating part: they're never wrong, just badly timed."
+        "It's always accurate, and that's the frustrating part. They're never wrong, just badly timed."
       ],
       "reactions": [
         "Being right isn't enough. You have to be right at the right moment, and that's a lesson they haven't learned."
@@ -11220,7 +11220,7 @@
     },
     {
       "id": 550,
-      "intro": "{npc_name} fidgets constantly: tapping, bouncing, shifting, like sitting still isn't in their nature.",
+      "intro": "{npc_name} fidgets constantly. Tapping, bouncing, shifting, like sitting still isn't in their nature.",
       "details": [
         "If it's not a foot it's a finger. If it's not a finger it's something in their hands being turned over and over.",
         "I sat next to them for an hour once. By the end I was fidgeting too."
@@ -11347,7 +11347,7 @@
       "intro": "{npc_name} takes forever to make decisions. Choosing what to eat takes longer than eating it.",
       "details": [
         "I watched them deliberate over two options for so long the first one went cold.",
-        "They weigh everything like it matters equally. A rope or a meal: same level of consideration."
+        "They weigh everything like it matters equally. A rope or a meal. Same level of consideration."
       ],
       "reactions": [
         "I've learned to decide for both of us when time is short. They don't seem to mind."
@@ -11387,7 +11387,7 @@
       "id": 558,
       "intro": "{npc_name} shared something with me that they clearly hadn't told anyone else. I could hear it in their voice.",
       "details": [
-        "They spoke lower, slower, and kept glancing around. It wasn't a big thing: just a private one.",
+        "They spoke lower, slower, and kept glancing around. It wasn't a big thing. Just a private one.",
         "I'm holding onto it. Not because anyone asked me to, but because it deserves to stay where it was put."
       ],
       "reactions": [
@@ -11452,7 +11452,7 @@
       "intro": "{npc_name} clears their throat before every sentence like they're about to give a speech.",
       "details": [
         "Even 'pass the salt' gets a preparatory ahem. The salt does not require ceremony.",
-        "I've started counting: seven throat-clearings in one conversation, a new record."
+        "I've started counting. Seven throat-clearings in one conversation, a new record."
       ],
       "reactions": [
         "It's harmless. I just wish my brain would stop noticing it."
@@ -11492,7 +11492,7 @@
       "id": 563,
       "intro": "{npc_name} borrows things and returns them slightly worse. Just enough to notice.",
       "details": [
-        "A bowl came back with a chip, a cloth came back stained: nothing ruined, just diminished.",
+        "A bowl came back with a chip, a cloth came back stained. Nothing ruined, just diminished.",
         "I can't prove it's carelessness because none of it is bad enough to mention. Which is the problem."
       ],
       "reactions": [
@@ -11555,8 +11555,8 @@
       "id": 566,
       "intro": "{npc_name} checks on me after bad weather, every time, without fail.",
       "details": [
-        "Wind, rain, cold snap: they're at my door the next morning asking if everything held together.",
-        "I've told them I'm fine and they still check. It's not about whether I need help: it's about showing up."
+        "Wind, rain, cold snap. They're at my door the next morning asking if everything held together.",
+        "I've told them I'm fine and they still check. It's not about whether I need help. It's about showing up."
       ],
       "reactions": [
         "Consistency is how you know someone actually cares. {npc_name} is consistent."
@@ -11679,7 +11679,7 @@
       "id": 572,
       "intro": "{npc_name} carves little shapes from scraps of wood during idle moments. Leaves them around the settlement.",
       "details": [
-        "I found one on a post near my place, small and rough, clearly done in a few minutes: a bird, I think.",
+        "I found one on a post near my place, small and rough, clearly done in a few minutes. A bird, I think.",
         "I've seen others pick them up and look around to see who left them. Nobody claims it."
       ],
       "reactions": [
@@ -11741,7 +11741,7 @@
     },
     {
       "id": 575,
-      "intro": "{npc_name} makes excuses for everything. Nothing is ever their fault: always circumstances.",
+      "intro": "{npc_name} makes excuses for everything. Nothing is ever their fault. Always circumstances.",
       "details": [
         "The task wasn't done because the tools weren't right, and the tools weren't right because someone moved them, and so on.",
         "You follow the chain of blame long enough and it loops back to the start without touching {npc_name}."
@@ -11750,7 +11750,7 @@
         "I've stopped asking why things aren't done. I just note that they aren't."
       ],
       "statCheck": {
-        "pass": "I think accountability scares them: {npc_name} told me once they grew up being blamed for everything, and now they defend against it before it starts.",
+        "pass": "I think accountability scares them. {npc_name} told me once they grew up being blamed for everything, and now they defend against it before it starts.",
         "fail": "Maybe they just see things differently. Everyone has a version of events."
       },
       "valence": "negative",
@@ -11784,8 +11784,8 @@
       "id": 577,
       "intro": "{npc_name} thanked me for something I did months ago. Out of nowhere, completely unprompted.",
       "details": [
-        "I had forgotten doing it, but they hadn't: the delay made the thanks land harder.",
-        "They said they'd been meaning to say something and finally did. That's not late gratitude: that's the real kind."
+        "I had forgotten doing it, but they hadn't. The delay made the thanks land harder.",
+        "They said they'd been meaning to say something and finally did. That's not late gratitude. That's the real kind."
       ],
       "reactions": [
         "Late thanks are sometimes the truest kind. The feeling stuck with them long enough to speak."
@@ -11803,7 +11803,7 @@
       "id": 578,
       "intro": "{npc_name} whistles the same three notes every time they pass my place. I can time my day by it.",
       "details": [
-        "Morning: three notes going out, evening: three notes coming back, rain or shine.",
+        "Morning. Three notes going out, evening. Three notes coming back, rain or shine.",
         "I've started looking forward to it. If the whistle's late, something feels off about the whole day."
       ],
       "reactions": [
@@ -11829,7 +11829,7 @@
         "I tried to give it back and they waved me off. 'I run warm,' they said."
       ],
       "reactions": [
-        "Generosity that arrives before you ask for it: that's the kind that stays with you."
+        "Generosity that arrives before you ask for it. That's the kind that stays with you."
       ],
       "statCheck": null,
       "valence": "neutral",
@@ -11924,7 +11924,7 @@
       "id": 584,
       "intro": "{npc_name} pulled me aside and said something encouraging when no one else was around.",
       "details": [
-        "Not a public show, just a quiet word between two people: it hit different because it was private.",
+        "Not a public show, just a quiet word between two people. It hit different because it was private.",
         "They could have said nothing and no one would have known. That's what makes it matter."
       ],
       "reactions": [
@@ -11963,7 +11963,7 @@
     },
     {
       "id": 586,
-      "intro": "{npc_name} squints at people when they're talking. Not suspiciously: more like they're reading your face very carefully.",
+      "intro": "{npc_name} squints at people when they're talking. Not suspiciously. More like they're reading your face very carefully.",
       "details": [
         "It's disconcerting at first. Feels like they're looking for something behind your words.",
         "After a while you realize they're just paying very close attention. The squint is just how they focus."
@@ -11982,7 +11982,7 @@
     },
     {
       "id": 587,
-      "intro": "{npc_name} made something for me with their own hands. Didn't cost them money: just time and thought.",
+      "intro": "{npc_name} made something for me with their own hands. Didn't cost them money. Just time and thought.",
       "details": [
         "It's not perfect. The edges are rough and one side is slightly uneven.",
         "But someone sat down, thought about what I needed, and made it. I wouldn't trade it for a perfect version."
@@ -12045,11 +12045,11 @@
       "id": 590,
       "intro": "{npc_name} noticed I'd been quiet and checked in without making a fuss.",
       "details": [
-        "Just a 'you alright?' as they passed by, low voice, no audience: perfect delivery.",
+        "Just a 'you alright?' as they passed by, low voice, no audience. Perfect delivery.",
         "I wasn't entirely alright. But knowing someone noticed helped more than they'll ever know."
       ],
       "reactions": [
-        "Two words: that's all it took, and some people know exactly how much is enough."
+        "Two words. That's all it took, and some people know exactly how much is enough."
       ],
       "statCheck": null,
       "valence": "positive",
@@ -12093,7 +12093,7 @@
         "Quiet sacrifice is the hardest kind to repay because you're not supposed to know about it."
       ],
       "statCheck": {
-        "pass": "{npc_name} confessed they'd rather go without than see someone else do the same: it's not heroism, it's compulsion.",
+        "pass": "{npc_name} confessed they'd rather go without than see someone else do the same. It's not heroism, it's compulsion.",
         "fail": "I think they're just generous. Some people give without keeping count."
       },
       "valence": "positive",
@@ -12249,9 +12249,9 @@
     },
     {
       "id": 600,
-      "intro": "{npc_name} taps their foot when they're waiting. Not impatiently: rhythmically, like there's music only they hear.",
+      "intro": "{npc_name} taps their foot when they're waiting. Not impatiently. Rhythmically, like there's music only they hear.",
       "details": [
-        "It's a steady beat, same tempo every time: I've started associating it with {npc_name} the way you'd associate a song with a place.",
+        "It's a steady beat, same tempo every time. I've started associating it with {npc_name} the way you'd associate a song with a place.",
         "I asked what they're tapping to. They looked at their foot, surprised, and said 'I didn't know I was.'"
       ],
       "reactions": [
@@ -12271,10 +12271,10 @@
       "intro": "{npc_name} picked up a skill I thought was hard and learned it in half the time it took me.",
       "details": [
         "I spent weeks struggling with it. They watched once, tried twice, and had it.",
-        "I wasn't jealous: well, maybe a little, but mostly impressed."
+        "I wasn't jealous. Well, maybe a little, but mostly impressed."
       ],
       "reactions": [
-        "Some people just learn fast. It's not about effort: it's wiring."
+        "Some people just learn fast. It's not about effort. It's wiring."
       ],
       "statCheck": null,
       "valence": "neutral",
@@ -12309,7 +12309,7 @@
       "id": 603,
       "intro": "{npc_name} leaves conversations without saying goodbye. Just turns and walks off mid-topic.",
       "details": [
-        "I was still talking when they started walking away. Not rude exactly: just done.",
+        "I was still talking when they started walking away. Not rude exactly. Just done.",
         "I've learned to watch for the signs. When their weight shifts to one foot, the departure is imminent."
       ],
       "reactions": [
@@ -12348,7 +12348,7 @@
     },
     {
       "id": 605,
-      "intro": "{npc_name} said they'd help and then forgot. Not once: three separate times.",
+      "intro": "{npc_name} said they'd help and then forgot. Not once. Three separate times.",
       "details": [
         "Each time they seemed genuinely surprised I reminded them, always an 'oh, right, I meant to' with no follow-through.",
         "I've stopped asking and started handling things myself. Faster than waiting."
@@ -12376,10 +12376,10 @@
         "They looked satisfied at the end, like knowing the number completed something."
       ],
       "reactions": [
-        "I've started counting things too: it's calming, and I understand the appeal now."
+        "I've started counting things too. It's calming, and I understand the appeal now."
       ],
       "statCheck": {
-        "pass": "{npc_name} told me counting is how they keep their mind steady, and without it, thoughts scatter: the numbers are an anchor.",
+        "pass": "{npc_name} told me counting is how they keep their mind steady, and without it, thoughts scatter. The numbers are an anchor.",
         "fail": "Some people just like numbers. Not everything has a deep reason."
       },
       "valence": "neutral",
@@ -12414,7 +12414,7 @@
       "intro": "{npc_name} takes compliments like they're accusations. Every nice thing I say gets deflected.",
       "details": [
         "'You did good work.' 'It was nothing.' 'You look rested.' 'I barely slept.' It's a pattern.",
-        "I've tried different angles: direct, indirect, casual, and all bounced back."
+        "I've tried different angles. Direct, indirect, casual, and all bounced back."
       ],
       "reactions": [
         "I keep saying the kind things anyway. Maybe one will land eventually."
@@ -12458,7 +12458,7 @@
         "I've started eating with one arm around my plate like a barrier. It works about half the time."
       ],
       "reactions": [
-        "I don't think they see it as stealing: they see it as communal, but the problem is nobody else does."
+        "I don't think they see it as stealing. They see it as communal, but the problem is nobody else does."
       ],
       "statCheck": null,
       "valence": "negative",
@@ -12477,7 +12477,7 @@
         "I don't know who apologized first. I suspect it was both, at the same time."
       ],
       "reactions": [
-        "That's how it should work: disagreement, resolution, move on, no lingering."
+        "That's how it should work. Disagreement, resolution, move on, no lingering."
       ],
       "statCheck": null,
       "valence": "positive",
@@ -12491,7 +12491,7 @@
     },
     {
       "id": 612,
-      "intro": "{npc_name} sniffs loudly and constantly. Not sick: just always sniffing.",
+      "intro": "{npc_name} sniffs loudly and constantly. Not sick. Just always sniffing.",
       "details": [
         "It's a sharp, rhythmic sniff every few seconds. I've tried to time my breathing to it and can't.",
         "I offered them a cloth once. They looked at it, confused, and said 'what for?'"
@@ -12551,7 +12551,7 @@
     },
     {
       "id": 615,
-      "intro": "{npc_name} smiles when they greet you. Not the polite kind: the kind that reaches the eyes.",
+      "intro": "{npc_name} smiles when they greet you. Not the polite kind. The kind that reaches the eyes.",
       "details": [
         "It's warm every time, like they're genuinely glad to see you. Even if you just saw them an hour ago.",
         "I've started smiling back before I even think about it. It's involuntary at this point."
@@ -12615,7 +12615,7 @@
     },
     {
       "id": 618,
-      "intro": "{npc_name} waved at me from across the way today: small thing, but it made my whole morning better.",
+      "intro": "{npc_name} waved at me from across the way today. Small thing, but it made my whole morning better.",
       "details": [
         "Just a hand up and a quick nod. Took maybe two seconds of their day.",
         "I spent the rest of the morning in a noticeably better mood and traced it back to that wave."
@@ -12634,7 +12634,7 @@
     },
     {
       "id": 619,
-      "intro": "{npc_name} always seems to be chewing on something: a twig, a bit of grass, a straw.",
+      "intro": "{npc_name} always seems to be chewing on something. A twig, a bit of grass, a straw.",
       "details": [
         "I asked what they were chewing once and they pulled out a stick and looked at it like they'd forgotten it was there.",
         "It doesn't bother anyone. It's just a detail you notice and can never un-notice."
@@ -12684,7 +12684,7 @@
         "The asking is a ritual, not a consultation. I've accepted my role as audience."
       ],
       "statCheck": {
-        "pass": "{npc_name} confessed they ask for validation, not input. The decision is already made: the asking is about feeling less alone in it.",
+        "pass": "{npc_name} confessed they ask for validation, not input. The decision is already made. The asking is about feeling less alone in it.",
         "fail": "Maybe they just process decisions by talking them through. The outcome was never in doubt."
       },
       "valence": "negative",
@@ -12755,7 +12755,7 @@
     },
     {
       "id": 625,
-      "intro": "{npc_name} leans against things: walls, posts, fences, people, always leaning.",
+      "intro": "{npc_name} leans against things. Walls, posts, fences, people, always leaning.",
       "details": [
         "I'm not sure I've seen them stand unsupported. There's always something nearby taking part of their weight.",
         "They leaned on me once during a conversation, literally just slowly shifted over until I was bearing load."
@@ -12774,10 +12774,10 @@
     },
     {
       "id": 626,
-      "intro": "{npc_name} is the kind of person who makes hard work look easy. It isn't: I've tried.",
+      "intro": "{npc_name} is the kind of person who makes hard work look easy. It isn't. I've tried.",
       "details": [
         "I watched them do in one afternoon what would take me two days. Same tools, same conditions.",
-        "It's not speed, it's efficiency: every movement counts and nothing's wasted."
+        "It's not speed, it's efficiency. Every movement counts and nothing's wasted."
       ],
       "reactions": [
         "I'd be jealous if I wasn't so busy being impressed."
@@ -12901,10 +12901,10 @@
       "intro": "{npc_name} included me in something when they didn't have to. Went out of their way.",
       "details": [
         "They walked across the settlement to tell me about something they thought I'd enjoy. Took effort.",
-        "Nobody asked them to: they just thought of me, and that's worth more than most gestures."
+        "Nobody asked them to. They just thought of me, and that's worth more than most gestures."
       ],
       "reactions": [
-        "Being thought of without being present: that's how you know you matter to someone."
+        "Being thought of without being present. That's how you know you matter to someone."
       ],
       "statCheck": null,
       "valence": "positive",
@@ -12961,7 +12961,7 @@
       "intro": "{npc_name} and {npc_name_2} have private conversations they stop the moment someone walks up.",
       "details": [
         "I approached and the talking switched to weather so fast I nearly got whiplash.",
-        "I'm not offended: everyone needs private words, but the speed of the switch is comedic."
+        "I'm not offended. Everyone needs private words, but the speed of the switch is comedic."
       ],
       "reactions": [
         "Whatever they discuss, it's not my business. The weather updates are getting creative though."
@@ -13107,10 +13107,10 @@
     },
     {
       "id": 642,
-      "intro": "{npc_name} one-ups every story: tell them about your bad day and theirs was worse, always.",
+      "intro": "{npc_name} one-ups every story. Tell them about your bad day and theirs was worse, always.",
       "details": [
         "I mentioned I barely slept and they launched into a tale of three sleepless nights. Immediately.",
-        "It's not competition in their mind, I think: it's how they try to relate, but it doesn't feel that way."
+        "It's not competition in their mind, I think. It's how they try to relate, but it doesn't feel that way."
       ],
       "reactions": [
         "I've started keeping things vague around them. Less to one-up."
@@ -13219,7 +13219,7 @@
         "I keep my head down and do my own work. That's all I can control."
       ],
       "statCheck": {
-        "pass": "I've heard the {npc_role} didn't want the position, and was given it because nobody else would take it: hard to blame someone for being average at something they never chose.",
+        "pass": "I've heard the {npc_role} didn't want the position, and was given it because nobody else would take it. Hard to blame someone for being average at something they never chose.",
         "fail": "Maybe I expect too much. Not everyone grows into a role."
       },
       "valence": "negative",
@@ -13232,7 +13232,7 @@
     },
     {
       "id": 648,
-      "intro": "{npc_name} keeps a consistent mood. Good days, bad days: same steady presence.",
+      "intro": "{npc_name} keeps a consistent mood. Good days, bad days. Same steady presence.",
       "details": [
         "You never have to guess which version of them you're going to get. It's always the same one.",
         "In a place where everyone's mood swings with the weather, that steadiness is an anchor."
@@ -13241,7 +13241,7 @@
         "Reliability in temperament is underrated. I seek them out on the hard days because of it."
       ],
       "statCheck": {
-        "pass": "{npc_name} told me the evenness is work. They feel the swings like anyone else: they just don't show them.",
+        "pass": "{npc_name} told me the evenness is work. They feel the swings like anyone else. They just don't show them.",
         "fail": "Some people are just built steady. It's a gift."
       },
       "valence": "positive",
@@ -13256,7 +13256,7 @@
       "id": 649,
       "intro": "{npc_name} and {npc_name_2} share tools without tracking who owns what anymore. It just works.",
       "details": [
-        "A saw moves between them as needed: neither asks, neither thanks, it's just there when it's needed.",
+        "A saw moves between them as needed. Neither asks, neither thanks, it's just there when it's needed.",
         "I tried joining the arrangement and immediately got confused about whose hammer I had."
       ],
       "reactions": [
@@ -13276,8 +13276,8 @@
       "id": 650,
       "intro": "{npc_name} walked past me this morning like I wasn't there. Eyes forward, no greeting, nothing.",
       "details": [
-        "I was standing right in the path. Not hidden, not off to the side: right there.",
-        "Other people have mentioned the same thing. It's not personal, apparently: they do it to everyone."
+        "I was standing right in the path. Not hidden, not off to the side. Right there.",
+        "Other people have mentioned the same thing. It's not personal, apparently. They do it to everyone."
       ],
       "reactions": [
         "I've stopped expecting acknowledgment. Makes the rare nod feel like a holiday."
@@ -13324,7 +13324,7 @@
         "I've learned to talk faster. It's the only defense."
       ],
       "statCheck": {
-        "pass": "{npc_name} told me they finish sentences because their mind races ahead of conversation and they can't stop it. It's not impatience: it's overflow.",
+        "pass": "{npc_name} told me they finish sentences because their mind races ahead of conversation and they can't stop it. It's not impatience. It's overflow.",
         "fail": "Maybe they just get excited. Some people's mouths outrun the room."
       },
       "valence": "negative",
@@ -13419,7 +13419,7 @@
       "id": 657,
       "intro": "{npc_name} eats with their mouth open. I can hear it from three seats away.",
       "details": [
-        "It's rhythmic: chew, smack, chew, smack. Like a percussion section nobody wanted.",
+        "It's rhythmic. Chew, smack, chew, smack. Like a percussion section nobody wanted.",
         "I've tried sitting further away but the sound carries. It has range."
       ],
       "reactions": [
@@ -13436,13 +13436,13 @@
     },
     {
       "id": 658,
-      "intro": "{npc_name} remembers birthdays. Not just mine: everyone's.",
+      "intro": "{npc_name} remembers birthdays. Not just mine. Everyone's.",
       "details": [
         "I don't know how they keep track. Nobody tells them, they just know.",
         "A quiet word in the morning, maybe something small they made. Never a fuss, just recognition."
       ],
       "reactions": [
-        "Being remembered on a day that matters to you: that's worth more than most gifts."
+        "Being remembered on a day that matters to you. That's worth more than most gifts."
       ],
       "statCheck": {
         "pass": "{npc_name} told me they keep a list because forgetting someone's day once made them feel terrible. The list started with one name and grew.",
@@ -13461,7 +13461,7 @@
       "intro": "{npc_name} never admits they're wrong. Even when the proof is standing right in front of them.",
       "details": [
         "I showed them exactly where they'd made the mistake and they found a way to blame the materials.",
-        "It's not even stubbornness at this point: it's a reflex. The word 'sorry' simply doesn't exist in their vocabulary."
+        "It's not even stubbornness at this point. It's a reflex. The word 'sorry' simply doesn't exist in their vocabulary."
       ],
       "reactions": [
         "I've stopped correcting them. The argument costs more than the mistake."
@@ -13504,7 +13504,7 @@
       "id": 661,
       "intro": "{npc_name} and {npc_name_2} split a task between them so cleanly it looked rehearsed.",
       "details": [
-        "No discussion, no negotiation: {npc_name} started on one end, {npc_name_2} on the other, met in the middle.",
+        "No discussion, no negotiation. {npc_name} started on one end, {npc_name_2} on the other, met in the middle.",
         "The rest of us were still figuring out who does what while they were already halfway done."
       ],
       "reactions": [
@@ -13522,7 +13522,7 @@
     },
     {
       "id": 662,
-      "intro": "{npc_name} stares when they're thinking. Not at anything: through you.",
+      "intro": "{npc_name} stares when they're thinking. Not at anything. Through you.",
       "details": [
         "I waved a hand in front of their face once and got no response for a full three seconds.",
         "When they came back they had the answer to something nobody had asked yet."
@@ -13547,7 +13547,7 @@
         "They never mentioned it. I only know because the person they corrected told me."
       ],
       "reactions": [
-        "Having someone stand up for you when you're not in the room: that's real."
+        "Having someone stand up for you when you're not in the room. That's real."
       ],
       "statCheck": {
         "pass": "{npc_name} told me they defend people because nobody defended them when they needed it. The correction is for the past as much as the present.",
@@ -13715,7 +13715,7 @@
       "intro": "{npc_name} and {npc_name_2} have been bickering about the same thing for as long as I can remember.",
       "details": [
         "I don't even think they know what the original disagreement was. It's just tradition at this point.",
-        "The rest of us have stopped intervening. It's like weather: predictable and unavoidable."
+        "The rest of us have stopped intervening. It's like weather. Predictable and unavoidable."
       ],
       "reactions": [
         "Honestly, I think they'd miss the arguing if it stopped."
@@ -13754,7 +13754,7 @@
       "intro": "{npc_name} interrupts constantly. I haven't finished a thought around them in weeks.",
       "details": [
         "I get maybe four words in before they launch off on whatever my sentence reminded them of.",
-        "It's not hostile: they're just bursting with thoughts and mine trigger theirs."
+        "It's not hostile. They're just bursting with thoughts and mine trigger theirs."
       ],
       "reactions": [
         "I've taken to holding up a finger when I'm mid-sentence. It works about half the time."
@@ -13775,8 +13775,8 @@
       "id": 674,
       "intro": "{npc_name} keeps their word without exception. If they say they'll do something, it's done.",
       "details": [
-        "I've tested this without meaning to. Offhand mentions, half-serious requests: all followed through.",
-        "It's not showy about it either: no announcements, just quiet delivery."
+        "I've tested this without meaning to. Offhand mentions, half-serious requests. All followed through.",
+        "It's not showy about it either. No announcements, just quiet delivery."
       ],
       "reactions": [
         "Reliability shouldn't be this unusual. But it is, and I value it."
@@ -13804,7 +13804,7 @@
         "Talking to them is like a performance I didn't audition for."
       ],
       "statCheck": {
-        "pass": "{npc_name} told me they squint because they're hard of hearing and read lips to fill in the gaps. The intensity isn't judgment: it's concentration.",
+        "pass": "{npc_name} told me they squint because they're hard of hearing and read lips to fill in the gaps. The intensity isn't judgment. It's concentration.",
         "fail": "Maybe they're just an intense listener. Not everyone has a casual face."
       },
       "valence": "negative",
@@ -13921,7 +13921,7 @@
       "id": 681,
       "intro": "{npc_name} makes things by hand and gives them away. Never keeps what they make.",
       "details": [
-        "Small things: a carved spoon, a braided cord, a mended strap. All given to whoever needs them.",
+        "Small things. A carved spoon, a braided cord, a mended strap. All given to whoever needs them.",
         "I got one last month and it's better made than anything I could buy."
       ],
       "reactions": [
@@ -13962,7 +13962,7 @@
       "id": 683,
       "intro": "{npc_name} told me I looked tired and meant it as genuine concern, not an insult.",
       "details": [
-        "It was the way they said it: quiet, without judgment, and followed by an offer to help.",
+        "It was the way they said it. Quiet, without judgment, and followed by an offer to help.",
         "Most people who say 'you look tired' are telling you to fix your face. This was different."
       ],
       "reactions": [
@@ -14027,7 +14027,7 @@
         "I asked about it once and they said they keep a fire going year-round for comfort."
       ],
       "reactions": [
-        "It's not unpleasant, just distinctive: I'd know them blindfolded by smell alone."
+        "It's not unpleasant, just distinctive. I'd know them blindfolded by smell alone."
       ],
       "statCheck": null,
       "valence": "neutral",
@@ -14059,7 +14059,7 @@
     },
     {
       "id": 688,
-      "intro": "{npc_name} gossips. And not the harmless kind: the kind that changes how people see each other.",
+      "intro": "{npc_name} gossips. And not the harmless kind. The kind that changes how people see each other.",
       "details": [
         "They told me something about someone else that I wish I didn't know. True or not, it's in my head now.",
         "I've noticed they always start with 'don't tell anyone, but...' which means everyone already knows."
@@ -14128,7 +14128,7 @@
         "I've been taught things badly enough times to recognize when someone does it well."
       ],
       "reactions": [
-        "Good teachers don't just know things: they know how to share them."
+        "Good teachers don't just know things. They know how to share them."
       ],
       "statCheck": null,
       "valence": "positive",
@@ -14141,7 +14141,7 @@
     },
     {
       "id": 692,
-      "intro": "{npc_name} and {npc_name_2} pass each other without a word most days. Not cold: just parallel.",
+      "intro": "{npc_name} and {npc_name_2} pass each other without a word most days. Not cold. Just parallel.",
       "details": [
         "They nod if their eyes meet, but they don't seek each other out. Two lives running side by side.",
         "I've never seen them argue or laugh together. Just a quiet, mutual acknowledgment."
@@ -14227,7 +14227,7 @@
       "intro": "{npc_name} and {npc_name_2} cook for each other on alternate days. It's a good system.",
       "details": [
         "One cooks while the other rests, then they swap. Neither seems to mind the other's cooking.",
-        "I ate with them once: the food was plain but the company was warm."
+        "I ate with them once. The food was plain but the company was warm."
       ],
       "reactions": [
         "Simple arrangements like that make living here easier for everyone involved."
@@ -14269,10 +14269,10 @@
       "intro": "{npc_name} waited for me so we could walk together. I didn't expect that.",
       "details": [
         "I came out late and they were leaning against a post, in no hurry, like they had all morning.",
-        "We walked in comfortable silence most of the way. They didn't need conversation: just company."
+        "We walked in comfortable silence most of the way. They didn't need conversation. Just company."
       ],
       "reactions": [
-        "Small gestures like that remind me I'm not just a neighbor: I'm a friend."
+        "Small gestures like that remind me I'm not just a neighbor. I'm a friend."
       ],
       "statCheck": {
         "pass": "{npc_name} told me they waited because they noticed I'd been walking alone too much lately and wanted to change that.",
@@ -14291,7 +14291,7 @@
       "intro": "{npc_name} criticizes everything but offers nothing better. All complaint, no solution.",
       "details": [
         "I fixed something the best I could and got told three things wrong with it and zero suggestions for improvement.",
-        "They see flaws the way a hawk sees movement: instantly and from a distance."
+        "They see flaws the way a hawk sees movement. Instantly and from a distance."
       ],
       "reactions": [
         "I've started asking 'so what would you do?' The silence that follows is informative."
@@ -14313,7 +14313,7 @@
       "intro": "{npc_name} laughs at their own jokes before anyone else can. It's infectious despite itself.",
       "details": [
         "The joke lands and they're already wheezing. You laugh because they're laughing, not because the joke was good.",
-        "I've tried keeping a straight face, but it's impossible: the laughter is too honest."
+        "I've tried keeping a straight face, but it's impossible. The laughter is too honest."
       ],
       "reactions": [
         "People who enjoy their own humor are easier to be around than people who don't enjoy anything."
@@ -14331,7 +14331,7 @@
       "id": 701,
       "intro": "{npc_name} stopped to fix something that wasn't their responsibility. Nobody asked.",
       "details": [
-        "A loose board that everyone walks past every day: {npc_name} just bent down and fixed it.",
+        "A loose board that everyone walks past every day. {npc_name} just bent down and fixed it.",
         "Took them five minutes. The rest of us had been stepping over it for weeks."
       ],
       "reactions": [
@@ -14353,8 +14353,8 @@
       "id": 702,
       "intro": "{npc_name} has never once said 'thank you.' Not once that I've heard.",
       "details": [
-        "I did them a solid last week and got a nod: that's it, just a nod.",
-        "Other people have noticed the same thing. It's not hostility: the gratitude just doesn't have words."
+        "I did them a solid last week and got a nod. That's it, just a nod.",
+        "Other people have noticed the same thing. It's not hostility. The gratitude just doesn't have words."
       ],
       "reactions": [
         "I still help them because it's the right thing to do. But I won't pretend the silence isn't noticeable."
@@ -14375,8 +14375,8 @@
       "id": 703,
       "intro": "{npc_name} and {npc_name_2} look out for each other in small ways that add up.",
       "details": [
-        "One saves a seat, the other brings extra water: little things, done without discussion.",
-        "It's not dramatic loyalty: it's the daily kind, the kind that actually keeps people close."
+        "One saves a seat, the other brings extra water. Little things, done without discussion.",
+        "It's not dramatic loyalty. It's the daily kind, the kind that actually keeps people close."
       ],
       "reactions": [
         "Grand gestures get the attention, but the small ones hold the weight."
@@ -14415,9 +14415,9 @@
     },
     {
       "id": 705,
-      "intro": "{npc_name} called me by my name in a way that made me feel known. Not recognized: known.",
+      "intro": "{npc_name} called me by my name in a way that made me feel known. Not recognized. Known.",
       "details": [
-        "It wasn't the name itself: everyone uses my name. It was the weight they put behind it.",
+        "It wasn't the name itself. Everyone uses my name. It was the weight they put behind it.",
         "Like it meant something specific to them, not just a label they'd memorized."
       ],
       "reactions": [
@@ -14437,7 +14437,7 @@
       "intro": "{npc_name} talks behind people's backs and then acts sweet to their faces. I've seen both sides.",
       "details": [
         "They were complaining about someone and the moment that person appeared, all smiles and warmth.",
-        "The switch was instant: no transition, no hesitation. Like flipping a coin."
+        "The switch was instant. No transition, no hesitation. Like flipping a coin."
       ],
       "reactions": [
         "I wonder what they say when I'm the one who's not in the room."
@@ -14539,7 +14539,7 @@
       "intro": "{npc_name} keeps asking how things should be done instead of trying. Every single task.",
       "details": [
         "I explained it once, then again, then a third time, and eventually just did it myself.",
-        "The questions aren't about learning: they're about avoiding the risk of doing it wrong."
+        "The questions aren't about learning. They're about avoiding the risk of doing it wrong."
       ],
       "reactions": [
         "I have patience for most things, but this one is wearing thin."
@@ -14560,7 +14560,7 @@
       "id": 712,
       "intro": "{npc_name} complimented my work in front of other people. I didn't know how much I needed that.",
       "details": [
-        "It wasn't grand: just a matter-of-fact 'good job' said where others could hear it.",
+        "It wasn't grand. Just a matter-of-fact 'good job' said where others could hear it.",
         "The public part mattered. Private praise is nice but public recognition changes how people see you."
       ],
       "reactions": [
@@ -14577,7 +14577,7 @@
     },
     {
       "id": 713,
-      "intro": "{npc_name} fidgets with anything within reach. Buttons, straps, loose threads: nothing is safe.",
+      "intro": "{npc_name} fidgets with anything within reach. Buttons, straps, loose threads. Nothing is safe.",
       "details": [
         "I watched them unravel the edge of a cloth without looking at it while we talked. Completely unconscious.",
         "They left and I found a pile of tiny torn bits where they'd been sitting."
@@ -14659,7 +14659,7 @@
       "id": 717,
       "intro": "{npc_name} has a way of making you feel like the only person who matters when they're listening.",
       "details": [
-        "Everything else drops away. Their focus is complete: no glancing around, no half-attention.",
+        "Everything else drops away. Their focus is complete. No glancing around, no half-attention.",
         "I talked to them for ten minutes and felt like I'd been heard for the first time in weeks."
       ],
       "reactions": [
@@ -14745,7 +14745,7 @@
         "It's loyalty over correctness. I'm not sure I agree with the approach, but I admire the solidarity."
       ],
       "reactions": [
-        "Having someone who backs you even when they have reservations: that's a bond worth keeping."
+        "Having someone who backs you even when they have reservations. That's a bond worth keeping."
       ],
       "statCheck": null,
       "valence": "positive",
@@ -14781,7 +14781,7 @@
       "intro": "{npc_name} brings calm to tense situations without raising their voice or taking charge.",
       "details": [
         "I've seen tempers flare and then {npc_name} says one quiet thing and the room settles.",
-        "It's not authority: it's presence. They don't lead the room, they steady it."
+        "It's not authority. It's presence. They don't lead the room, they steady it."
       ],
       "reactions": [
         "Some people defuse things just by being there. That's a talent you can't teach."
@@ -14828,7 +14828,7 @@
         "There's something steady about a person with a daily ritual that asks nothing of anyone."
       ],
       "reactions": [
-        "I watched one with them once: neither of us spoke and it was a good evening."
+        "I watched one with them once. Neither of us spoke and it was a good evening."
       ],
       "statCheck": {
         "pass": "{npc_name} told me watching sunsets is the only time their mind goes quiet. The rest of the day, it never stops.",
@@ -14944,7 +14944,7 @@
     },
     {
       "id": 731,
-      "intro": "{npc_name} is impossible to read. Happy, angry, tired: same face for all of it.",
+      "intro": "{npc_name} is impossible to read. Happy, angry, tired. Same face for all of it.",
       "details": [
         "I've seen them receive good news and bad news with identical expressions. Completely neutral.",
         "The only tell is a slight pause before they respond. The longer the pause, the bigger the feeling."
@@ -14968,7 +14968,7 @@
       "id": 732,
       "intro": "{npc_name} remembered a promise from weeks ago and followed through today. I'd completely forgotten.",
       "details": [
-        "They mentioned it like it was obvious: 'I said I'd take care of it, so I did.'",
+        "They mentioned it like it was obvious, 'I said I'd take care of it, so I did.'",
         "I was the one who forgot the promise. They were the one who kept it."
       ],
       "reactions": [
@@ -15026,7 +15026,7 @@
     },
     {
       "id": 735,
-      "intro": "{npc_name} takes credit for ideas that weren't theirs. Smoothly, too: you almost don't notice.",
+      "intro": "{npc_name} takes credit for ideas that weren't theirs. Smoothly, too. You almost don't notice.",
       "details": [
         "Someone suggested something yesterday and today {npc_name} presented it as their own thought.",
         "The original person was right there. The look on their face was a study in restraint."
@@ -15051,7 +15051,7 @@
       "intro": "{npc_name} and {npc_name_2} cover for each other so seamlessly I can never tell who actually did what.",
       "details": [
         "If one makes a mistake, the other's already patching it before anyone looks.",
-        "It's not dishonest: it's partnership. The work gets done and the seams don't show."
+        "It's not dishonest. It's partnership. The work gets done and the seams don't show."
       ],
       "reactions": [
         "I wish I had someone I could work that smoothly with."
@@ -15070,7 +15070,7 @@
       "id": 737,
       "intro": "{npc_name} always has to have the last word. Every conversation is a competition to them.",
       "details": [
-        "I said goodbye once and they said it back, then I waved, then they waved: it went on.",
+        "I said goodbye once and they said it back, then I waved, then they waved. It went on.",
         "If you stop engaging, they'll wait a beat and then add one more thing. Guaranteed."
       ],
       "reactions": [
@@ -15090,13 +15090,13 @@
       "intro": "{npc_name} offered me something they clearly valued. I tried to refuse and they insisted.",
       "details": [
         "It wasn't big, but I could tell it mattered to them. That's what made the giving meaningful.",
-        "The way they pressed it into my hands: firmly, no room for argument. This was happening."
+        "The way they pressed it into my hands. Firmly, no room for argument. This was happening."
       ],
       "reactions": [
         "Accepting a gift gracefully is its own kindness. I kept it."
       ],
       "statCheck": {
-        "pass": "{npc_name} told me the giving is selfish in a way: holding onto things they care about makes them anxious, and letting go brings relief.",
+        "pass": "{npc_name} told me the giving is selfish in a way. Holding onto things they care about makes them anxious, and letting go brings relief.",
         "fail": "They're just generous. Some people show care through objects."
       },
       "valence": "positive",
@@ -15118,7 +15118,7 @@
         "I don't need to be everyone's favorite. But the transparency of it does sting."
       ],
       "statCheck": {
-        "pass": "{npc_name} admitted they gravitate toward people who remind them of someone they used to know. The favoritism isn't about worth: it's about memory.",
+        "pass": "{npc_name} admitted they gravitate toward people who remind them of someone they used to know. The favoritism isn't about worth. It's about memory.",
         "fail": "Some people just click with certain folk and not others. It's human nature."
       },
       "valence": "negative",
@@ -15152,7 +15152,7 @@
       "id": 741,
       "intro": "{npc_name} is the kind of person who points out problems but never pitches in to solve them.",
       "details": [
-        "'That's going to fall over.' Yes, thank you: would you like to help hold it?",
+        "'That's going to fall over.' Yes, thank you. Would you like to help hold it?",
         "They stand back, arms crossed, full of observations and empty of assistance."
       ],
       "reactions": [
@@ -15194,8 +15194,8 @@
       "id": 743,
       "intro": "{npc_name} stretches before every task like they're preparing for battle. Even the small ones.",
       "details": [
-        "Picking up a crate: stretch; walking somewhere: stretch; conversation: oddly, no stretch.",
-        "It's methodical: arms, back, neck, always in the same order."
+        "Picking up a crate. Stretch; walking somewhere. Stretch; conversation. Oddly, no stretch.",
+        "It's methodical. Arms, back, neck, always in the same order."
       ],
       "reactions": [
         "I tried their routine once and pulled something. They make it look easier than it is."
@@ -15236,7 +15236,7 @@
         "I've walked away from conversations feeling wrong even though they said I was correct."
       ],
       "reactions": [
-        "It's a talent: agreement that undermines. I still can't explain how they do it."
+        "It's a talent. Agreement that undermines. I still can't explain how they do it."
       ],
       "statCheck": null,
       "valence": "negative",
@@ -15251,7 +15251,7 @@
       "id": 746,
       "intro": "{npc_name} and {npc_name_2} both insist they owe the other a favor. Neither will let it go.",
       "details": [
-        "Who helped first depends on who you ask: {npc_name} says it was them, {npc_name_2} says otherwise.",
+        "Who helped first depends on who you ask. {npc_name} says it was them, {npc_name_2} says otherwise.",
         "They've been trading favors back and forth trying to even the score. The score will never be even."
       ],
       "reactions": [
@@ -15331,7 +15331,7 @@
       "id": 750,
       "intro": "{npc_name} asked me a question about myself that nobody else has thought to ask.",
       "details": [
-        "Not personal in a prying way: personal in a 'you see me as a person, not just a neighbor' way.",
+        "Not personal in a prying way. Personal in a 'you see me as a person, not just a neighbor' way.",
         "I answered more honestly than I expected to. The question earned it."
       ],
       "reactions": [
@@ -15389,9 +15389,9 @@
     },
     {
       "id": 753,
-      "intro": "{npc_name} slams things down when they're upset. Cups, tools, doors: all victims.",
+      "intro": "{npc_name} slams things down when they're upset. Cups, tools, doors. All victims.",
       "details": [
-        "You can track their mood by the volume of their handling. Gentle means good: percussive means bad.",
+        "You can track their mood by the volume of their handling. Gentle means good. Percussive means bad.",
         "A cup hit a table so hard yesterday that everyone in earshot stopped mid-sentence."
       ],
       "reactions": [
@@ -15411,7 +15411,7 @@
     },
     {
       "id": 754,
-      "intro": "{npc_name} walks their own pace through life. Doesn't rush, doesn't drag: just moves at their own rhythm.",
+      "intro": "{npc_name} walks their own pace through life. Doesn't rush, doesn't drag. Just moves at their own rhythm.",
       "details": [
         "Everyone around them is hurrying or dawdling and there's {npc_name}, untouched by the current.",
         "I've tried to match their pace. It's surprisingly hard to move at a speed that isn't yours."
@@ -15471,7 +15471,7 @@
       "id": 757,
       "intro": "{npc_name} talks about themselves like they're not worth much. I disagree strongly.",
       "details": [
-        "Little comments: 'I'm not good at that,' 'you don't want my help,' 'anyone else would be better.'",
+        "Little comments, 'I'm not good at that,' 'you don't want my help,' 'anyone else would be better.'",
         "Every one of those statements is wrong, but saying so doesn't seem to change the script."
       ],
       "reactions": [
@@ -15493,7 +15493,7 @@
       "id": 758,
       "intro": "{npc_name} brought up something I said a long time ago as if it mattered. Because to them, it did.",
       "details": [
-        "I barely remembered saying it. They remembered it exactly: words, tone, the day.",
+        "I barely remembered saying it. They remembered it exactly. Words, tone, the day.",
         "It changed something for them, and I had no idea until they told me."
       ],
       "reactions": [
@@ -15696,7 +15696,7 @@
       "id": 768,
       "intro": "{npc_name} always tilts their head to one side when listening. Like a curious bird.",
       "details": [
-        "The tilt is consistent: always the same side, always at the same angle.",
+        "The tilt is consistent. Always the same side, always at the same angle.",
         "It makes you feel heard, oddly. Something about the posture says 'I'm giving this my full attention.'"
       ],
       "reactions": [
@@ -15716,7 +15716,7 @@
       "intro": "{npc_name} trusted me with something fragile and I didn't break it. Felt like passing a test.",
       "details": [
         "They handed it over without instructions, just a steady look that said 'be careful with this.'",
-        "The weight of being trusted with something someone values: that's its own kind of responsibility."
+        "The weight of being trusted with something someone values. That's its own kind of responsibility."
       ],
       "reactions": [
         "Trust given freely is the kind worth protecting."
@@ -15732,10 +15732,10 @@
     },
     {
       "id": 770,
-      "intro": "{npc_name} complains about everything: the weather, the food, the work, all of it.",
+      "intro": "{npc_name} complains about everything. The weather, the food, the work, all of it.",
       "details": [
         "I've never heard them say a positive thing about anything. Not once.",
-        "Even good news gets reframed: 'nice day today' becomes 'won't last' within seconds."
+        "Even good news gets reframed, 'nice day today' becomes 'won't last' within seconds."
       ],
       "reactions": [
         "Being around that level of negativity is tiring. I limit my exposure."
@@ -15776,7 +15776,7 @@
       "id": 772,
       "intro": "{npc_name} stands with their arms crossed most of the time. Makes them look closed off even when they're not.",
       "details": [
-        "I used to think they were angry. Turns out it's just how they stand: comfortable, not defensive.",
+        "I used to think they were angry. Turns out it's just how they stand. Comfortable, not defensive.",
         "The arms uncross when they laugh, briefly, and then fold right back."
       ],
       "reactions": [
@@ -15795,7 +15795,7 @@
       "id": 773,
       "intro": "{npc_name} said something kind about me to someone else. Word got back.",
       "details": [
-        "It was specific: not vague pleasantries but something about a quality of mine they'd noticed.",
+        "It was specific. Not vague pleasantries but something about a quality of mine they'd noticed.",
         "The person who told me seemed almost jealous. That's how genuine the praise was."
       ],
       "reactions": [
@@ -15815,7 +15815,7 @@
       "intro": "{npc_name} makes plans and then cancels at the last moment. Every single time.",
       "details": [
         "I've stopped rearranging my day for their commitments. The pattern is too reliable.",
-        "The excuse is always different but the result is always the same: no show."
+        "The excuse is always different but the result is always the same. No show."
       ],
       "reactions": [
         "I like them well enough. I just don't count on them for anything time-sensitive."
@@ -15836,7 +15836,7 @@
       "id": 775,
       "intro": "{npc_name} keeps a steady rhythm to their days. Same routines, same pace, same calm.",
       "details": [
-        "You could set a clock by their habits. Morning walk, midday rest, evening work: never varies.",
+        "You could set a clock by their habits. Morning walk, midday rest, evening work. Never varies.",
         "There's a reassurance in watching someone live so deliberately. It makes the days feel ordered."
       ],
       "reactions": [
@@ -15859,7 +15859,7 @@
         "I offered to repay them and they looked at me like the suggestion was absurd."
       ],
       "reactions": [
-        "Sharing what you have without thinking about it: that's character showing itself."
+        "Sharing what you have without thinking about it. That's character showing itself."
       ],
       "statCheck": null,
       "valence": "neutral",
@@ -15893,11 +15893,11 @@
       "id": 778,
       "intro": "{npc_name} and {npc_name_2} give each other a look before either speaks in a group. A quick check.",
       "details": [
-        "It's subtle: a glance, a tiny nod or shake, and then one of them talks. The other waits.",
+        "It's subtle. A glance, a tiny nod or shake, and then one of them talks. The other waits.",
         "I don't think they're aware they do it. It's a coordination that runs below the surface."
       ],
       "reactions": [
-        "Two people with a private channel in a public room: that's deep familiarity."
+        "Two people with a private channel in a public room. That's deep familiarity."
       ],
       "statCheck": null,
       "valence": "neutral",
@@ -15961,7 +15961,7 @@
         "People who read others that well are either very attentive or have needed to be. Maybe both."
       ],
       "statCheck": {
-        "pass": "{npc_name} told me they learned to read moods because missing someone's shift used to have consequences. It's not intuition: it's survival turned skill.",
+        "pass": "{npc_name} told me they learned to read moods because missing someone's shift used to have consequences. It's not intuition. It's survival turned skill.",
         "fail": "They just pay attention. Not everyone looks, but the ones who do see a lot."
       },
       "valence": "positive",
@@ -16040,11 +16040,11 @@
       "id": 785,
       "intro": "{npc_name} nods like they understand and then asks the same question five minutes later.",
       "details": [
-        "The nod is convincing. Full engagement, eye contact: you'd swear the information landed.",
-        "Five minutes later: 'wait, what did you say about that?' Every time."
+        "The nod is convincing. Full engagement, eye contact. You'd swear the information landed.",
+        "Five minutes later, 'wait, what did you say about that?' Every time."
       ],
       "reactions": [
-        "I've started asking 'does that make sense?' after key points: it helps, a little."
+        "I've started asking 'does that make sense?' after key points. It helps, a little."
       ],
       "statCheck": {
         "pass": "{npc_name} told me the nodding is genuine but the information doesn't stick because they're focused on making the other person feel heard, not on retaining the words.",
@@ -16063,7 +16063,7 @@
       "intro": "{npc_name} handles disagreements with a directness I wish I had.",
       "details": [
         "No passive-aggression, no lingering resentment. Just 'I disagree, here's why,' and then it's done.",
-        "The conversation stays clean: no personal attacks, no dragging in old grievances."
+        "The conversation stays clean. No personal attacks, no dragging in old grievances."
       ],
       "reactions": [
         "Honest disagreement is refreshing when so many people choose polite dishonesty instead."
@@ -16165,7 +16165,7 @@
       "intro": "{npc_name} winks when they're making a joke. It's the only warning you get.",
       "details": [
         "The deadpan delivery is perfect and without the wink I'd never know they weren't serious.",
-        "I've started watching for it. The wink is the punctuation: everything before it is the setup."
+        "I've started watching for it. The wink is the punctuation. Everything before it is the setup."
       ],
       "reactions": [
         "People with a tell for their humor are doing you a favor. {npc_name}'s tell is well-timed."
@@ -16271,7 +16271,7 @@
       ],
       "statCheck": {
         "pass": "{npc_name} told me the indecision comes from making a bad choice once that they've never forgiven themselves for. Every decision since carries that weight.",
-        "fail": "Some people are just deliberate. They'll get there: slowly."
+        "fail": "Some people are just deliberate. They'll get there. Slowly."
       },
       "valence": "negative",
       "topic_category": "npc_opinions",
@@ -16289,7 +16289,7 @@
         "Neither has said a word about it. The family doesn't know who left it."
       ],
       "reactions": [
-        "Anonymous kindness between neighbors: that's what makes a place worth living in."
+        "Anonymous kindness between neighbors. That's what makes a place worth living in."
       ],
       "statCheck": null,
       "valence": "positive",
@@ -16325,7 +16325,7 @@
       "intro": "{npc_name} made time for me when they didn't have any. I could tell it cost them.",
       "details": [
         "They were clearly busy, had a dozen things waiting, but they stopped and listened.",
-        "Not a rushed listen either: a proper, full-attention listen. Their tasks could wait."
+        "Not a rushed listen either. A proper, full-attention listen. Their tasks could wait."
       ],
       "reactions": [
         "Time is the most honest gift. When someone gives it knowing they'll pay for it later, that's real."
@@ -16350,7 +16350,7 @@
         "I've accepted that my past lives rent-free in {npc_name}'s head."
       ],
       "statCheck": {
-        "pass": "{npc_name} told me they bring up old things because those moments feel vivid and real. They don't mean it unkindly: they just can't tell which memories hurt.",
+        "pass": "{npc_name} told me they bring up old things because those moments feel vivid and real. They don't mean it unkindly. They just can't tell which memories hurt.",
         "fail": "Maybe they just have a good memory and a poor filter."
       },
       "valence": "negative",
@@ -16382,7 +16382,7 @@
     },
     {
       "id": 802,
-      "intro": "{npc_name} doesn't gossip. I've tried: they just change the subject.",
+      "intro": "{npc_name} doesn't gossip. I've tried. They just change the subject.",
       "details": [
         "Everyone else has opinions about everyone. {npc_name} keeps theirs locked up tight.",
         "I respect it. I also find it slightly frustrating when I really want to vent."
@@ -16407,7 +16407,7 @@
         "I've started lending them things on purpose just to get the upgrade."
       ],
       "reactions": [
-        "That's the kind of borrower you want: the kind that improves what they touch."
+        "That's the kind of borrower you want. The kind that improves what they touch."
       ],
       "statCheck": {
         "pass": "{npc_name} told me they fix things they borrow because returning something worse than you found it is a debt they can't stand carrying.",
@@ -16471,7 +16471,7 @@
         "The energy is constant. Even standing in one place, they're somehow in motion."
       ],
       "reactions": [
-        "It's not rude: it's just how they're built. The stillness gene passed them by."
+        "It's not rude. It's just how they're built. The stillness gene passed them by."
       ],
       "statCheck": null,
       "valence": "neutral",
@@ -16486,7 +16486,7 @@
       "id": 807,
       "intro": "{npc_name} told me something honest about myself that nobody else would say. It stung, but it helped.",
       "details": [
-        "Not cruel, not gentle either. Just direct, like pulling a splinter: quick and necessary.",
+        "Not cruel, not gentle either. Just direct, like pulling a splinter. Quick and necessary.",
         "I spent two days annoyed and then realized they were right."
       ],
       "reactions": [
@@ -16528,7 +16528,7 @@
       "intro": "{npc_name} always offers to carry things for people. Doesn't matter how heavy or how far.",
       "details": [
         "I've seen them loaded down with other people's burdens, cheerful about it, arms full.",
-        "Nobody asks: they just offer before you can manage it yourself."
+        "Nobody asks. They just offer before you can manage it yourself."
       ],
       "reactions": [
         "Kindness like that either comes from deep generosity or deep need to be useful. Maybe both."
@@ -16607,7 +16607,7 @@
       "id": 813,
       "intro": "{npc_name} promises things and then conveniently forgets. The pattern is getting old.",
       "details": [
-        "Three times this month alone. Each promise delivered with full sincerity: each one forgotten by the next day.",
+        "Three times this month alone. Each promise delivered with full sincerity. Each one forgotten by the next day.",
         "I've started saying 'I'll believe it when I see it' and they look hurt every time."
       ],
       "reactions": [
@@ -16615,7 +16615,7 @@
       ],
       "statCheck": {
         "pass": "{npc_name} admitted they promise in the moment because saying no feels wrong. They know they overcommit and hate themselves for it.",
-        "fail": "People who mean well but deliver nothing: I know the type."
+        "fail": "People who mean well but deliver nothing. I know the type."
       },
       "valence": "negative",
       "topic_category": "npc_opinions",
@@ -16633,7 +16633,7 @@
         "The checking-in is never performative. They actually want to know."
       ],
       "reactions": [
-        "Having someone who notices when you're low and cares enough to show up: that's not common."
+        "Having someone who notices when you're low and cares enough to show up. That's not common."
       ],
       "statCheck": null,
       "valence": "positive",
@@ -16670,11 +16670,11 @@
       "id": 816,
       "intro": "{npc_name} remembered my preference for something I mentioned once, months ago.",
       "details": [
-        "I didn't even remember telling them. But there it was: exactly right, without me having to say a word.",
+        "I didn't even remember telling them. But there it was. Exactly right, without me having to say a word.",
         "That kind of attention feels deliberate. You don't remember small things about people you don't care about."
       ],
       "reactions": [
-        "Being remembered in the small details: that's how you know someone's paying attention."
+        "Being remembered in the small details. That's how you know someone's paying attention."
       ],
       "statCheck": {
         "pass": "{npc_name} told me they remember small things about people because being forgotten is the thing they fear most.",
@@ -16692,7 +16692,7 @@
       "id": 817,
       "intro": "{npc_name} sighs constantly. Loud, theatrical sighs at everything, all day.",
       "details": [
-        "Morning sigh, midday sigh, evening sigh: each one heavy enough to carry the weight of the world.",
+        "Morning sigh, midday sigh, evening sigh. Each one heavy enough to carry the weight of the world.",
         "I asked once if something was wrong and they said 'no, why?' then immediately sighed again."
       ],
       "reactions": [
@@ -16711,7 +16711,7 @@
       "id": 818,
       "intro": "{npc_name} and {npc_name_2} walk everywhere together. I don't think I've seen one without the other.",
       "details": [
-        "Morning errands, evening strolls, even just standing around: always side by side.",
+        "Morning errands, evening strolls, even just standing around. Always side by side.",
         "It's not clingy. It's just a preference so strong it looks like a rule."
       ],
       "reactions": [
@@ -16801,7 +16801,7 @@
         "I've stopped sharing things that matter with them. The space for it just isn't there."
       ],
       "statCheck": {
-        "pass": "{npc_name} admitted they redirect because other people's struggles trigger their own. It's not dismissal: it's overflow.",
+        "pass": "{npc_name} admitted they redirect because other people's struggles trigger their own. It's not dismissal. It's overflow.",
         "fail": "They might not realize they do it. Self-awareness isn't everyone's strong suit."
       },
       "valence": "negative",
@@ -16856,7 +16856,7 @@
       "intro": "{npc_name} squints when they think you're wrong but won't say it outright.",
       "details": [
         "The squint is unmistakable. One eye narrows just slightly and the nod becomes slower.",
-        "I've tested this: I'll say something deliberately wrong and watch the squint arrive on cue."
+        "I've tested this. I'll say something deliberately wrong and watch the squint arrive on cue."
       ],
       "reactions": [
         "I'd prefer the direct correction, but the squint is honest in its own way."
@@ -16874,7 +16874,7 @@
       "id": 826,
       "intro": "{npc_name} waits for everyone to finish eating before they start. Old-fashioned, but it means something.",
       "details": [
-        "Their plate sits untouched while others are halfway done. They don't make a point of it: they just wait.",
+        "Their plate sits untouched while others are halfway done. They don't make a point of it. They just wait.",
         "It's the kind of small courtesy that says a lot about how someone was raised."
       ],
       "reactions": [
@@ -16956,7 +16956,7 @@
       "id": 830,
       "intro": "{npc_name} and {npc_name_2} cook for each other without being asked. There's always an extra portion.",
       "details": [
-        "One makes something in the morning: the other shows up with something in the evening. Unplanned, consistent.",
+        "One makes something in the morning. The other shows up with something in the evening. Unplanned, consistent.",
         "It's not a trade. It's just two people who think of each other around mealtime."
       ],
       "reactions": [
@@ -16976,7 +16976,7 @@
       "id": 831,
       "intro": "{npc_name} talks about themselves in a way that makes me feel bad for them without them asking me to.",
       "details": [
-        "Little mentions: 'I'm used to it' or 'nobody expects much from me.' Dropped casually into conversation.",
+        "Little mentions, 'I'm used to it' or 'nobody expects much from me.' Dropped casually into conversation.",
         "It's not a plea. It's more like a fact they've accepted and I haven't."
       ],
       "reactions": [
@@ -17002,7 +17002,7 @@
         "The timing was too perfect to be coincidence. They were paying attention."
       ],
       "reactions": [
-        "Anticipating what someone needs before they ask: that takes real care."
+        "Anticipating what someone needs before they ask. That takes real care."
       ],
       "statCheck": null,
       "valence": "positive",
@@ -17062,7 +17062,7 @@
         "They peeled off at their own door with a wave, like it was the most natural thing."
       ],
       "reactions": [
-        "Small acts of looking out for someone: that's the backbone of being neighbors."
+        "Small acts of looking out for someone. That's the backbone of being neighbors."
       ],
       "statCheck": null,
       "valence": "positive",
@@ -17101,7 +17101,7 @@
       "intro": "{npc_name} keeps their workspace immaculate. Everything has a place and nothing wanders.",
       "details": [
         "I looked at their setup once and felt immediate shame about my own.",
-        "The order isn't rigid: it's comfortable. Like someone who genuinely thinks in straight lines."
+        "The order isn't rigid. It's comfortable. Like someone who genuinely thinks in straight lines."
       ],
       "reactions": [
         "I tried to copy the system. Lasted three days before chaos reclaimed its territory."
@@ -17167,7 +17167,7 @@
         "The defense was more passionate than my cooking deserved, honestly."
       ],
       "reactions": [
-        "Having someone stand on your side without being asked: that's loyalty showing itself."
+        "Having someone stand on your side without being asked. That's loyalty showing itself."
       ],
       "statCheck": null,
       "valence": "positive",
@@ -17189,7 +17189,7 @@
         "I've adjusted my lending expectations accordingly. 'A day' means 'a week' in {npc_name} time."
       ],
       "statCheck": {
-        "pass": "{npc_name} told me the lateness with returns isn't forgetfulness: they keep things because having something of someone else's feels like a connection they're not ready to let go of.",
+        "pass": "{npc_name} told me the lateness with returns isn't forgetfulness. They keep things because having something of someone else's feels like a connection they're not ready to let go of.",
         "fail": "Probably just disorganized. Some people lose track of borrowed things."
       },
       "valence": "negative",
@@ -17208,7 +17208,7 @@
         "I've watched this cycle for months. It never tips, never sours."
       ],
       "reactions": [
-        "That's what trust looks like in practice: generosity without arithmetic."
+        "That's what trust looks like in practice. Generosity without arithmetic."
       ],
       "statCheck": null,
       "valence": "positive",
@@ -17282,7 +17282,7 @@
     },
     {
       "id": 846,
-      "intro": "{npc_name} has a habit of one-upping every story. You climbed a hill: they climbed a mountain.",
+      "intro": "{npc_name} has a habit of one-upping every story. You climbed a hill. They climbed a mountain.",
       "details": [
         "I shared something I was proud of and before I finished they'd already topped it with their version.",
         "The competition isn't hostile, but it makes you stop wanting to share."
@@ -17291,7 +17291,7 @@
         "I've learned to keep my small victories to myself around them."
       ],
       "statCheck": {
-        "pass": "{npc_name} told me the one-upping is how they relate: they share something similar to show they understand, not to compete. The effect is the opposite of the intent.",
+        "pass": "{npc_name} told me the one-upping is how they relate. They share something similar to show they understand, not to compete. The effect is the opposite of the intent.",
         "fail": "Some people just can't let someone else have the spotlight. It's reflex, not malice."
       },
       "valence": "negative",
@@ -17307,7 +17307,7 @@
       "intro": "{npc_name} gave me a compliment that was so specific it had to be true.",
       "details": [
         "Not a vague 'good job.' They named the exact thing I'd done well and why it mattered.",
-        "Generic praise slides off, but specific praise sticks: that one stuck."
+        "Generic praise slides off, but specific praise sticks. That one stuck."
       ],
       "reactions": [
         "I'm still thinking about it days later. {npc_name} probably has no idea."
@@ -17326,7 +17326,7 @@
     },
     {
       "id": 848,
-      "intro": "{npc_name} shows up late to everything. Not a little late: consistently, reliably late.",
+      "intro": "{npc_name} shows up late to everything. Not a little late. Consistently, reliably late.",
       "details": [
         "I've started telling them things start earlier than they do. The buffer helps, sometimes.",
         "They always have a reason, and the reason is always different, and it's always delivered with genuine surprise that time passed."
@@ -17347,7 +17347,7 @@
       "id": 849,
       "intro": "{npc_name} and {npc_name_2} have their own way of greeting each other. A little gesture nobody else uses.",
       "details": [
-        "It's quick: a hand motion and a nod. Over in half a second, but it carries weight.",
+        "It's quick. A hand motion and a nod. Over in half a second, but it carries weight.",
         "I asked about it and they both laughed without explaining. Some things are private."
       ],
       "reactions": [
@@ -17450,7 +17450,7 @@
       "intro": "I trust {npc_name}'s judgment about people more than my own. They read others better than I do.",
       "details": [
         "Every time they've told me to be careful around someone, they turned out to be right.",
-        "It's not gossip: it's observation. They watch and they remember and they draw conclusions that hold up."
+        "It's not gossip. It's observation. They watch and they remember and they draw conclusions that hold up."
       ],
       "reactions": [
         "Having a good judge of character nearby is like having a compass you didn't bring yourself."
@@ -17514,7 +17514,7 @@
         "Honestly, it improves every gathering. A big laugh makes other people braver about their own."
       ],
       "statCheck": {
-        "pass": "{npc_name} told me they used to be embarrassed by the laugh. Now they see it as a gift: people know when the joy is real.",
+        "pass": "{npc_name} told me they used to be embarrassed by the laugh. Now they see it as a gift. People know when the joy is real.",
         "fail": "Big laughs just happen to some people. Not much philosophy behind it."
       },
       "valence": "neutral",
@@ -17529,7 +17529,7 @@
       "id": 858,
       "intro": "{npc_name} snaps when they're stressed and apologizes after. Every time, same cycle.",
       "details": [
-        "The snap is sharp and unexpected: a harsh word out of nowhere over nothing.",
+        "The snap is sharp and unexpected. A harsh word out of nowhere over nothing.",
         "Then an hour later, a quiet 'I'm sorry, I didn't mean that.' And they mean the apology."
       ],
       "reactions": [
@@ -17612,14 +17612,14 @@
       "id": 862,
       "intro": "{npc_name} keeps to themselves so completely that I forget they're here sometimes.",
       "details": [
-        "Days go by without a sighting. Then I'll catch a glimpse and remember: right, they live here.",
+        "Days go by without a sighting. Then I'll catch a glimpse and remember. Right, they live here.",
         "It's not unfriendly. It's more like they occupy a different version of the same place."
       ],
       "reactions": [
         "Some people just need less of other people. I try not to take it personally."
       ],
       "statCheck": {
-        "pass": "{npc_name} told me the isolation isn't preference: it's protection. Being around people drains something they can't replenish quickly.",
+        "pass": "{npc_name} told me the isolation isn't preference. It's protection. Being around people drains something they can't replenish quickly.",
         "fail": "Private people are private. Not much more to it than that."
       },
       "valence": "neutral",
@@ -17676,7 +17676,7 @@
       "intro": "{npc_name} makes everyone feel included. Nobody sits alone when they're around.",
       "details": [
         "I've watched them notice someone on the edge of a group and pull them in without making it obvious.",
-        "The skill is in the subtlety. You don't see the work: you just see the result."
+        "The skill is in the subtlety. You don't see the work. You just see the result."
       ],
       "reactions": [
         "People like that change the shape of a room just by being in it."
@@ -17695,7 +17695,7 @@
     },
     {
       "id": 866,
-      "intro": "{npc_name} leaves messes for others to clean. Not their messes: shared spaces.",
+      "intro": "{npc_name} leaves messes for others to clean. Not their messes. Shared spaces.",
       "details": [
         "They use something, set it down wherever, and walk away like gravity will sort it out.",
         "I've cleaned up after them more times than I can count. They've never noticed."
@@ -17720,7 +17720,7 @@
         "They don't report it to each other. The defense is for its own sake, not for credit."
       ],
       "reactions": [
-        "Defending someone who isn't there to hear it: that's loyalty without an audience."
+        "Defending someone who isn't there to hear it. That's loyalty without an audience."
       ],
       "statCheck": null,
       "valence": "positive",
@@ -17774,7 +17774,7 @@
       "id": 870,
       "intro": "{npc_name} compares everything to how it was before. Nothing is ever as good as it used to be.",
       "details": [
-        "The food was better, the weather was milder, the people were friendlier: all in some golden past.",
+        "The food was better, the weather was milder, the people were friendlier. All in some golden past.",
         "I've lived here the same amount of time. I don't remember this paradise they keep describing."
       ],
       "reactions": [
@@ -17794,7 +17794,7 @@
     },
     {
       "id": 871,
-      "intro": "{npc_name} puts food out for the animals. Not pets: just whatever comes by.",
+      "intro": "{npc_name} puts food out for the animals. Not pets. Just whatever comes by.",
       "details": [
         "A little bowl near the door, filled each morning, empty each evening.",
         "They never talk about it. I only know because I've seen them refill it."
@@ -17858,7 +17858,7 @@
       "intro": "{npc_name} chews with their mouth open and I've run out of polite ways to not notice.",
       "details": [
         "Mealtimes are a performance of sound and spectacle. I've changed where I sit.",
-        "They're completely unaware. The enjoyment is genuine: the volume is a side effect."
+        "They're completely unaware. The enjoyment is genuine. The volume is a side effect."
       ],
       "reactions": [
         "Small things shouldn't bother me this much. And yet."
@@ -17877,7 +17877,7 @@
       "intro": "{npc_name} works hard without expecting thanks. The work is the point, not the recognition.",
       "details": [
         "I thanked them once and they looked confused, like the concept of gratitude for effort didn't compute.",
-        "The work gets done because it needs to: that's the whole motivation."
+        "The work gets done because it needs to. That's the whole motivation."
       ],
       "reactions": [
         "More people should have that attitude. Less noise, more results."
@@ -17915,7 +17915,7 @@
     },
     {
       "id": 877,
-      "intro": "{npc_name} smiles at people like they actually mean it. Not the polite kind: the real kind.",
+      "intro": "{npc_name} smiles at people like they actually mean it. Not the polite kind. The real kind.",
       "details": [
         "You can see it in the eyes. The mouth follows, but the eyes start it.",
         "I catch myself smiling back before I've even decided to."
@@ -17965,7 +17965,7 @@
         "I'd be more forgiving if the position didn't come with an expectation of patience."
       ],
       "statCheck": {
-        "pass": "The {npc_role} told me they're burned out on people asking the same things repeatedly. The impatience isn't personal: it's cumulative.",
+        "pass": "The {npc_role} told me they're burned out on people asking the same things repeatedly. The impatience isn't personal. It's cumulative.",
         "fail": "Maybe they're just not suited to dealing with people. Some roles don't match the person."
       },
       "valence": "negative",
@@ -17980,7 +17980,7 @@
       "id": 880,
       "intro": "{npc_name} and {npc_name_2} had a quiet conversation that left both of them looking lighter afterward.",
       "details": [
-        "I couldn't hear what was said, but the body language changed: shoulders dropped, pace slowed.",
+        "I couldn't hear what was said, but the body language changed. Shoulders dropped, pace slowed.",
         "Whatever words passed between them, they were the right ones at the right time."
       ],
       "reactions": [
@@ -18007,7 +18007,7 @@
         "Agreement reached through fatigue isn't really agreement. But it's quieter."
       ],
       "statCheck": {
-        "pass": "{npc_name} told me the volume is unintentional: when they care about something, the heat rises before they realize it. They wish they could modulate better.",
+        "pass": "{npc_name} told me the volume is unintentional. When they care about something, the heat rises before they realize it. They wish they could modulate better.",
         "fail": "Loud people don't always know they're loud. It's just their normal."
       },
       "valence": "negative",
@@ -18023,7 +18023,7 @@
       "intro": "{npc_name} makes time to talk even when they're clearly busy. That choice says something.",
       "details": [
         "I can see the pile of things waiting for them, and they still stop to give me their full attention.",
-        "The unhurried conversation in the middle of a hurried day: that's a gift of time they don't have."
+        "The unhurried conversation in the middle of a hurried day. That's a gift of time they don't have."
       ],
       "reactions": [
         "People who prioritize other people over their tasks are the ones worth knowing."
@@ -18102,7 +18102,7 @@
       "intro": "{npc_name} has steady hands and a steadier temperament. Nothing rattles them.",
       "details": [
         "I've seen situations that would fray anyone else and {npc_name} barely blinks.",
-        "The calm isn't apathy: it's control. There's a difference."
+        "The calm isn't apathy. It's control. There's a difference."
       ],
       "reactions": [
         "Being near someone unshakable makes the shakable things feel smaller."
@@ -18121,7 +18121,7 @@
     },
     {
       "id": 887,
-      "intro": "{npc_name} uses guilt like a tool. 'After everything I've done for you': that kind of thing.",
+      "intro": "{npc_name} uses guilt like a tool. 'After everything I've done for you'. That kind of thing.",
       "details": [
         "The ledger of past favors gets opened whenever they need something. Every kindness was apparently a loan.",
         "I've started declining favors from them. The interest rate is too high."
@@ -18163,10 +18163,10 @@
     },
     {
       "id": 889,
-      "intro": "{npc_name} is funny in a quiet way. Not loud jokes: just observations that catch you off guard.",
+      "intro": "{npc_name} is funny in a quiet way. Not loud jokes. Just observations that catch you off guard.",
       "details": [
         "They'll say something under their breath that's funnier than anything said out loud all day.",
-        "The humor requires proximity: from a distance they look serious, but up close they're hilarious."
+        "The humor requires proximity. From a distance they look serious, but up close they're hilarious."
       ],
       "reactions": [
         "Quiet humor is the best kind. It rewards attention."
@@ -18206,7 +18206,7 @@
       "id": 891,
       "intro": "{npc_name} treats strangers with the same warmth they give people they've known for years.",
       "details": [
-        "I've watched them welcome newcomers with genuine openness: no sizing up, no holding back.",
+        "I've watched them welcome newcomers with genuine openness. No sizing up, no holding back.",
         "It's not naivety. It's a choice to assume the best until proven otherwise."
       ],
       "reactions": [
@@ -18225,7 +18225,7 @@
       "id": 892,
       "intro": "{npc_name} and {npc_name_2} try to outdo each other in generosity. It's escalated into a quiet war of kindness.",
       "details": [
-        "One brought extra food for a neighbor: the other brought twice as much the next day.",
+        "One brought extra food for a neighbor. The other brought twice as much the next day.",
         "Neither will admit they're competing. Both insist they're just being thoughtful."
       ],
       "reactions": [
@@ -18274,7 +18274,7 @@
         "I've stopped sharing things I'm proud of with them. The pride doesn't survive the review."
       ],
       "statCheck": {
-        "pass": "{npc_name} told me they criticize first because that's how they were taught: fix the problem, then appreciate the rest. They genuinely don't see it as unkind.",
+        "pass": "{npc_name} told me they criticize first because that's how they were taught. Fix the problem, then appreciate the rest. They genuinely don't see it as unkind.",
         "fail": "Some people are wired to find fault first. It's just their default setting."
       },
       "valence": "negative",
@@ -18289,7 +18289,7 @@
       "id": 895,
       "intro": "{npc_name} asked how I was and then waited for a real answer instead of a polite one.",
       "details": [
-        "The pause after the question was deliberate. They weren't moving on: they were making space.",
+        "The pause after the question was deliberate. They weren't moving on. They were making space.",
         "I gave the real answer for once. The space they made demanded honesty."
       ],
       "reactions": [
@@ -18344,10 +18344,10 @@
     },
     {
       "id": 898,
-      "intro": "{npc_name} talks to everyone the same way: direct, plain, no adjustment for audience.",
+      "intro": "{npc_name} talks to everyone the same way. Direct, plain, no adjustment for audience.",
       "details": [
         "Whether it's me or a stranger, the tone doesn't shift. The words are the same.",
-        "Some find it rude, but I find it refreshing: you always know exactly what you're getting."
+        "Some find it rude, but I find it refreshing. You always know exactly what you're getting."
       ],
       "reactions": [
         "Consistency of character is underrated. {npc_name} is the same person in every room."
@@ -18368,11 +18368,11 @@
       "id": 899,
       "intro": "{npc_name} cried in front of me once. It changed how I see them.",
       "details": [
-        "Not dramatically: just quietly, unexpectedly, like a wall came down for a moment.",
+        "Not dramatically. Just quietly, unexpectedly, like a wall came down for a moment.",
         "They composed themselves quickly and we never spoke of it. But I remember."
       ],
       "reactions": [
-        "Seeing someone's guard drop, even briefly, is a kind of trust: whether they meant to give it or not."
+        "Seeing someone's guard drop, even briefly, is a kind of trust. Whether they meant to give it or not."
       ],
       "statCheck": {
         "pass": "{npc_name} told me that moment slipped through a crack they usually keep sealed. They weren't ready for me to see it, but they don't regret it.",
@@ -18388,9 +18388,9 @@
     },
     {
       "id": 900,
-      "intro": "{npc_name} and {npc_name_2} always sit next to each other. Not across: beside.",
+      "intro": "{npc_name} and {npc_name_2} always sit next to each other. Not across. Beside.",
       "details": [
-        "The seating is automatic. Neither checks: they just end up side by side.",
+        "The seating is automatic. Neither checks. They just end up side by side.",
         "I sat in one of their usual spots once and the confusion was genuine. I'd disrupted a natural law."
       ],
       "reactions": [
@@ -18410,7 +18410,7 @@
       "id": 901,
       "intro": "{npc_name} holds doors, carries loads, offers seats. The small courtesies that most people forget.",
       "details": [
-        "It's automatic. They don't think about it: the helping is as natural as breathing.",
+        "It's automatic. They don't think about it. The helping is as natural as breathing.",
         "I've watched people walk past the same opportunities without blinking. {npc_name} never does."
       ],
       "reactions": [
@@ -18433,7 +18433,7 @@
         "Nobody addresses it because addressing it makes it worse."
       ],
       "reactions": [
-        "I give the mood space to pass. It always does: it just takes its time."
+        "I give the mood space to pass. It always does. It just takes its time."
       ],
       "statCheck": {
         "pass": "{npc_name} told me the sulking is the only way they know how to process disappointment. Talking about it makes the feeling bigger, not smaller.",
@@ -18451,11 +18451,11 @@
       "id": 903,
       "intro": "{npc_name} brought up a conversation we had weeks ago and built on it. They'd been thinking about it the whole time.",
       "details": [
-        "I'd forgotten what I'd said. They hadn't: they'd taken it seriously and followed the thought.",
+        "I'd forgotten what I'd said. They hadn't. They'd taken it seriously and followed the thought.",
         "The continuation was better than the original. They'd added depth I hadn't considered."
       ],
       "reactions": [
-        "Being taken seriously like that: it makes you want to bring better thoughts next time."
+        "Being taken seriously like that. It makes you want to bring better thoughts next time."
       ],
       "statCheck": {
         "pass": "{npc_name} told me they hold onto conversations because most people don't take theirs seriously. When someone does, the thought gets carried carefully.",
@@ -18531,13 +18531,13 @@
     },
     {
       "id": 907,
-      "intro": "{npc_name} and {npc_name_2} have a habit of bringing each other small things. Nothing valuable: just tokens.",
+      "intro": "{npc_name} and {npc_name_2} have a habit of bringing each other small things. Nothing valuable. Just tokens.",
       "details": [
         "A smooth stone, an interesting leaf, something found and thought worth sharing.",
         "The objects aren't the point. The 'I thought of you' is the point."
       ],
       "reactions": [
-        "Little gifts with no occasion behind them: that's affection in its simplest form."
+        "Little gifts with no occasion behind them. That's affection in its simplest form."
       ],
       "statCheck": null,
       "valence": "positive",
@@ -18553,7 +18553,7 @@
       "id": 908,
       "intro": "{npc_name} stretches the truth so often I've stopped knowing where the line is.",
       "details": [
-        "Small exaggerations mostly: a fish gets bigger, a walk gets longer, a wait gets more dramatic.",
+        "Small exaggerations mostly. A fish gets bigger, a walk gets longer, a wait gets more dramatic.",
         "None of it matters much, but the habit makes you question the parts that do."
       ],
       "reactions": [
@@ -18572,11 +18572,11 @@
       "id": 909,
       "intro": "{npc_name} is the kind of person who notices when something's different and says so.",
       "details": [
-        "A haircut, a change of pace, a quiet mood: they see it and name it without making it awkward.",
+        "A haircut, a change of pace, a quiet mood. They see it and name it without making it awkward.",
         "Being observed by someone who mentions it gently is different from being watched."
       ],
       "reactions": [
-        "Observation paired with kindness: that's the combination that makes people feel seen."
+        "Observation paired with kindness. That's the combination that makes people feel seen."
       ],
       "statCheck": {
         "pass": "{npc_name} told me they name changes out loud because they spent a long time being invisible. Seeing others clearly is the opposite of what they experienced.",
@@ -18613,7 +18613,7 @@
       "id": 911,
       "intro": "{npc_name} called me by a nickname I didn't know I had. Apparently everyone uses it.",
       "details": [
-        "They said it so casually I almost didn't notice. Then I realized: that's what they call me when I'm not around.",
+        "They said it so casually I almost didn't notice. Then I realized. That's what they call me when I'm not around.",
         "It's not unkind. Actually, I sort of like it."
       ],
       "reactions": [
@@ -18630,7 +18630,7 @@
     },
     {
       "id": 912,
-      "intro": "{npc_name} and {npc_name_2} share tools without needing to ask. One puts something down: the other picks it up.",
+      "intro": "{npc_name} and {npc_name_2} share tools without needing to ask. One puts something down. The other picks it up.",
       "details": [
         "The handoff is seamless, like a practiced routine that neither remembers learning.",
         "I tried to borrow one of those tools once and got confused looks from both, as if the tool was in perpetual shared use."
@@ -18693,7 +18693,7 @@
       "id": 915,
       "intro": "{npc_name} went out of their way to introduce me to people when I was new here.",
       "details": [
-        "Not just names: proper introductions with context. 'You'd get along' and 'you should talk about' this or that.",
+        "Not just names. Proper introductions with context. 'You'd get along' and 'you should talk about' this or that.",
         "It saved me weeks of awkward first conversations. {npc_name} bridged every gap."
       ],
       "reactions": [
@@ -18776,7 +18776,7 @@
       "intro": "{npc_name} can read a room better than anyone I've met. They know when to speak and when to be still.",
       "details": [
         "I've watched them adjust their approach based on who's listening and what the mood is.",
-        "It's not manipulation. It's awareness: knowing that different moments need different things."
+        "It's not manipulation. It's awareness. Knowing that different moments need different things."
       ],
       "reactions": [
         "Social skill at that level is invisible. You only notice it when it's absent."
@@ -18821,7 +18821,7 @@
         "Everyone has their coping mechanism. {npc_name}'s just happens to be visible."
       ],
       "statCheck": {
-        "pass": "{npc_name} told me the rearranging gives their hands something to do while their mind won't settle. The objects don't matter: the movement does.",
+        "pass": "{npc_name} told me the rearranging gives their hands something to do while their mind won't settle. The objects don't matter. The movement does.",
         "fail": "Maybe they're just restless. Idle hands and all that."
       },
       "valence": "neutral",
@@ -18875,10 +18875,10 @@
     },
     {
       "id": 924,
-      "intro": "{npc_name} blames the weather, the timing, the tools: anything but themselves when things go wrong.",
+      "intro": "{npc_name} blames the weather, the timing, the tools. Anything but themselves when things go wrong.",
       "details": [
         "I've heard a different excuse for every failure and none of them start with 'I.'",
-        "The creativity of the blame is almost impressive. The sources are endless: the responsibility is always elsewhere."
+        "The creativity of the blame is almost impressive. The sources are endless. The responsibility is always elsewhere."
       ],
       "reactions": [
         "Everybody stumbles. The difference is who owns the stumble and who points at the ground."
@@ -18921,14 +18921,14 @@
       "id": 926,
       "intro": "{npc_name} and {npc_name_2} were close once. Something shifted and now there's a careful politeness between them.",
       "details": [
-        "They still talk, but the warmth is gone. Replaced by courtesy: correct but thin.",
+        "They still talk, but the warmth is gone. Replaced by courtesy. Correct but thin.",
         "I don't know what happened and neither seems willing to explain."
       ],
       "reactions": [
         "The gap between how people used to be and how they are now is sometimes the saddest distance."
       ],
       "statCheck": {
-        "pass": "I heard one of them said something during a hard time that the other couldn't forgive. Not cruelty: just the wrong words at the wrong moment.",
+        "pass": "I heard one of them said something during a hard time that the other couldn't forgive. Not cruelty. Just the wrong words at the wrong moment.",
         "fail": "People grow apart sometimes. Not every distance has a story behind it."
       },
       "valence": "negative",
@@ -18944,7 +18944,7 @@
       "id": 927,
       "intro": "{npc_name} straightens their clothes before talking to anyone. A quick adjustment, then they're ready.",
       "details": [
-        "It's unconscious: a tug at the collar, a smoothing of the front. The preparation takes two seconds.",
+        "It's unconscious. A tug at the collar, a smoothing of the front. The preparation takes two seconds.",
         "I've started noticing it every time now. The tiny ritual before every social encounter."
       ],
       "reactions": [
@@ -18963,7 +18963,7 @@
       "id": 928,
       "intro": "{npc_name} found me struggling and helped without making me feel small about it.",
       "details": [
-        "The help arrived sideways: 'mind if I give you a hand with that?' not 'you're doing it wrong.'",
+        "The help arrived sideways, 'mind if I give you a hand with that?' not 'you're doing it wrong.'",
         "By the time it was done, I felt capable rather than rescued."
       ],
       "reactions": [
@@ -18989,7 +18989,7 @@
         "I've stopped trying to pin down what they actually think. The real opinion might not exist."
       ],
       "statCheck": {
-        "pass": "{npc_name} told me they mirror the people around them because disagreement costs more energy than they have. The shifting isn't deception: it's exhaustion.",
+        "pass": "{npc_name} told me they mirror the people around them because disagreement costs more energy than they have. The shifting isn't deception. It's exhaustion.",
         "fail": "Some people just bend with the wind. You learn not to build on their words."
       },
       "valence": "negative",
@@ -19021,7 +19021,7 @@
     },
     {
       "id": 931,
-      "intro": "{npc_name} holds grudges quietly. No outward anger: just a long, cold patience.",
+      "intro": "{npc_name} holds grudges quietly. No outward anger. Just a long, cold patience.",
       "details": [
         "They'll be polite to your face while the debt sits in a ledger you can't see.",
         "I wronged them once, small thing, and the temperature between us has never fully recovered."
@@ -19030,7 +19030,7 @@
         "I'd prefer the argument. At least arguments end."
       ],
       "statCheck": {
-        "pass": "{npc_name} told me the grudges aren't deliberate: they just can't let certain things go, even when they want to. The feeling outlasts the reason.",
+        "pass": "{npc_name} told me the grudges aren't deliberate. They just can't let certain things go, even when they want to. The feeling outlasts the reason.",
         "fail": "Some people just have long memories for slights. Time doesn't soften everything."
       },
       "valence": "negative",
@@ -19046,7 +19046,7 @@
       "intro": "{npc_name} and {npc_name_2} laugh at things nobody else finds funny. Their own frequency.",
       "details": [
         "The joke lands for two people in the room and those two are already doubled over.",
-        "I've tried to understand the humor but I can't: it's a shared wavelength I'm not on."
+        "I've tried to understand the humor but I can't. It's a shared wavelength I'm not on."
       ],
       "reactions": [
         "Inside humor is impenetrable and honestly a little enviable."
@@ -19069,7 +19069,7 @@
         "Everyone knows it was them. The denial just makes the kindness slightly funnier."
       ],
       "reactions": [
-        "Anonymous generosity from someone whose identity is an open secret: that's {npc_name} all over."
+        "Anonymous generosity from someone whose identity is an open secret. That's {npc_name} all over."
       ],
       "statCheck": {
         "pass": "{npc_name} told me the denial protects the act. Once something is acknowledged, it becomes an expectation, and expectations turn kindness into obligation.",
@@ -19087,7 +19087,7 @@
       "id": 934,
       "intro": "{npc_name} tells you what you want to hear and it's obvious every time.",
       "details": [
-        "The flattery is layered on so thick that it insults both of us: me for hearing it, them for saying it.",
+        "The flattery is layered on so thick that it insults both of us. Me for hearing it, them for saying it.",
         "I'd rather hear a hard truth than a comfortable fiction."
       ],
       "reactions": [
@@ -19110,7 +19110,7 @@
         "I've received that pat on hard days and it did more than a long conversation would have."
       ],
       "reactions": [
-        "Physical encouragement from the right person at the right time: there's no substitute."
+        "Physical encouragement from the right person at the right time. There's no substitute."
       ],
       "statCheck": null,
       "valence": "neutral",
@@ -19125,7 +19125,7 @@
       "id": 936,
       "intro": "{npc_name} wakes everyone else up when they're up early. Banging around, no awareness of volume.",
       "details": [
-        "The morning routine is percussive. Doors, boots, something falling over: every day.",
+        "The morning routine is percussive. Doors, boots, something falling over. Every day.",
         "I've asked them to be quieter and they tried for exactly one morning."
       ],
       "reactions": [
@@ -19145,7 +19145,7 @@
       "intro": "I've been {self_role} long enough to know most people, but {npc_name} still surprises me.",
       "details": [
         "Just when I think I've figured them out, they do something I wouldn't have predicted.",
-        "The unpredictability isn't chaos. It's depth: there's always another layer."
+        "The unpredictability isn't chaos. It's depth. There's always another layer."
       ],
       "reactions": [
         "People who can still surprise you after years are the interesting ones."
@@ -19170,7 +19170,7 @@
         "They didn't ask for gratitude or even mention it. I only know because I traced the correction."
       ],
       "reactions": [
-        "That kind of silent support: you don't forget it."
+        "That kind of silent support. You don't forget it."
       ],
       "statCheck": null,
       "valence": "positive",
@@ -19204,7 +19204,7 @@
       "id": 940,
       "intro": "{npc_name} and {npc_name_2} have been talking more recently. Good to see.",
       "details": [
-        "They weren't unfriendly before: just distant. Something bridged the gap.",
+        "They weren't unfriendly before. Just distant. Something bridged the gap.",
         "Small conversations at first, now they linger. The warmth is growing visibly."
       ],
       "reactions": [
@@ -19291,7 +19291,7 @@
         "The acknowledgment is tiny but it makes you feel like part of the place."
       ],
       "reactions": [
-        "Little recognitions from people who don't owe you attention: that's what makes a neighborhood."
+        "Little recognitions from people who don't owe you attention. That's what makes a neighborhood."
       ],
       "statCheck": null,
       "valence": "neutral",
@@ -19307,7 +19307,7 @@
       "intro": "{npc_name} and {npc_name_2} speak about each other warmly when the other isn't around. The respect is real.",
       "details": [
         "I've heard {npc_name} praise {npc_name_2} without prompting, unprompted and specific.",
-        "The same goes the other way. The words match: steady mutual regard."
+        "The same goes the other way. The words match. Steady mutual regard."
       ],
       "reactions": [
         "When two people say good things about each other in absence, that's the genuine article."
@@ -19333,7 +19333,7 @@
         "I've stopped reading into it. Some people just run hot and cold."
       ],
       "statCheck": {
-        "pass": "{npc_name} told me the cold days are when everything inside is too heavy to perform warmth. It's not about me: it's about what they're carrying.",
+        "pass": "{npc_name} told me the cold days are when everything inside is too heavy to perform warmth. It's not about me. It's about what they're carrying.",
         "fail": "Mood swings happen. Not every cold shoulder means something."
       },
       "valence": "negative",
@@ -19352,7 +19352,7 @@
         "The quiet voice commands more attention than most people's shouting."
       ],
       "reactions": [
-        "People who speak softly and carry weight in their words: those are the ones worth listening to."
+        "People who speak softly and carry weight in their words. Those are the ones worth listening to."
       ],
       "statCheck": null,
       "valence": "positive",
@@ -19365,7 +19365,7 @@
     },
     {
       "id": 948,
-      "intro": "{npc_name} looks tired lately. Not the 'bad sleep' kind: the 'carrying something' kind.",
+      "intro": "{npc_name} looks tired lately. Not the 'bad sleep' kind. The 'carrying something' kind.",
       "details": [
         "The eyes have that distant quality. Present but not entirely here.",
         "I've asked if they're alright and they said yes, but the 'yes' was thin."
@@ -19389,7 +19389,7 @@
       "id": 949,
       "intro": "{npc_name} and {npc_name_2} have this quiet understanding that doesn't need explaining to each other.",
       "details": [
-        "They navigate shared space without collisions: a step left, a step right, never in each other's way.",
+        "They navigate shared space without collisions. A step left, a step right, never in each other's way.",
         "The coordination is wordless and practiced, like two people who've been at this a long time."
       ],
       "reactions": [

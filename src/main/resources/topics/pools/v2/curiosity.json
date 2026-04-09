@@ -16,16 +16,16 @@
     },
     {
       "id": 1,
-      "intro": "I found a stone with a perfect hole through the middle the other day. Not cracked: smooth, like water made it.",
+      "intro": "I found a stone with a perfect hole through the middle the other day. Not cracked. Smooth, like water made it.",
       "details": [
-        "I've been carrying it in my pocket for a week. No reason: I just like it.",
+        "I've been carrying it in my pocket for a week. No reason. I just like it.",
         "My wife says I'm like a crow, picking up shiny things and bringing them home."
       ],
       "reactions": [
         "There's something satisfying about finding a thing like that. Like the ground gave you a little gift."
       ],
       "statCheck": {
-        "pass": "Water bores through soft stone over years: finds a weak spot and just keeps at it. That hole probably took longer to form than I've been alive.",
+        "pass": "Water bores through soft stone over years. Finds a weak spot and just keeps at it. That hole probably took longer to form than I've been alive.",
         "fail": "No idea how a hole ends up in a stone like that. Just one of those things."
       },
       "valence": "positive"
@@ -34,7 +34,7 @@
       "id": 2,
       "intro": "Why does the cat always sit in the one spot of sunlight? You'd think the whole warm floor would do.",
       "details": [
-        "I moved a chair into the sunbeam once and the cat sat on the chair. Moved the chair back: cat went back to the floor.",
+        "I moved a chair into the sunbeam once and the cat sat on the chair. Moved the chair back. Cat went back to the floor.",
         "It's not even a good spot. Right in the middle of the doorway where everyone trips over it."
       ],
       "reactions": [
@@ -46,7 +46,7 @@
       "id": 3,
       "intro": "I've been noticing little things that don't add up if you look closely.",
       "details": [
-        "Like how things are always a bit different from how I remember them. Small differences: a post that seems taller, a path that curves more.",
+        "Like how things are always a bit different from how I remember them. Small differences. A post that seems taller, a path that curves more.",
         "My neighbor says I'm overthinking it and should find a hobby. He might be right."
       ],
       "reactions": [
@@ -62,7 +62,7 @@
       "id": 4,
       "intro": "I can never sleep on a full moon. Wide awake, staring at the ceiling every single time.",
       "details": [
-        "I've tried closing the shutters, covering my head, drinking tea: nothing works.",
+        "I've tried closing the shutters, covering my head, drinking tea. Nothing works.",
         "My father was the same way. He used to get up and go for walks in the middle of the night."
       ],
       "reactions": [
@@ -78,7 +78,7 @@
       "id": 5,
       "intro": "You ever lose something and find it in a place you already checked? Happened to me twice this week.",
       "details": [
-        "I lost my good knife and tore the whole house apart. Found it on the table: the first place I looked.",
+        "I lost my good knife and tore the whole house apart. Found it on the table. The first place I looked.",
         "My wife says I don't actually look, I just glance. She's probably got a point."
       ],
       "reactions": [
@@ -97,7 +97,7 @@
         "I could learn something from ants. Or I could just keep watching them instead of working."
       ],
       "statCheck": {
-        "pass": "They follow a scent trail the first ones laid down. It's not about the shortest path: it's the one they all agree on.",
+        "pass": "They follow a scent trail the first ones laid down. It's not about the shortest path. It's the one they all agree on.",
         "fail": "I don't know why they do it. They just seem to know where they're going."
       },
       "valence": "positive"

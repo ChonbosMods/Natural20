@@ -7,7 +7,7 @@
       "intro": "Prices have gone up again. I paid twice what I used to for the same sack of flour.",
       "details": [
         "The merchants say it's the roads. Harder to move goods, so everything costs more.",
-        "I've started buying less and stretching what I have. Not the worst thing: I was probably wasteful before."
+        "I've started buying less and stretching what I have. Not the worst thing. I was probably wasteful before."
       ],
       "reactions": [
         "You tighten your belt and you carry on. What else can you do?"
@@ -22,7 +22,7 @@
       "id": 1,
       "intro": "A new merchant set up near the square selling dried herbs and spices. Hadn't seen half of them before.",
       "details": [
-        "I bought some kind of pepper that nearly took my head off. Good stuff though: a pinch goes a long way.",
+        "I bought some kind of pepper that nearly took my head off. Good stuff though. A pinch goes a long way.",
         "The merchant's friendly enough. Knows the name and use for everything on the table without looking."
       ],
       "reactions": [
@@ -62,21 +62,21 @@
       "id": 4,
       "intro": "Trade around here has been good lately. Lots of people coming through, lots of goods moving.",
       "details": [
-        "I saw leather, iron stock, bolts of cloth: more variety than we usually get.",
+        "I saw leather, iron stock, bolts of cloth. More variety than we usually get.",
         "The baker's been selling twice as many loaves. Travelers need to eat, and her bread is the best around."
       ],
       "reactions": [
         "A busy market means a healthy settlement. I like hearing the noise."
       ],
       "statCheck": {
-        "pass": "The trade road got cleared up recently: that's what brought the traffic back. Good road means good business.",
+        "pass": "The trade road got cleared up recently. That's what brought the traffic back. Good road means good business.",
         "fail": "No idea why it picked up. I'm just glad it did."
       },
       "valence": "positive"
     },
     {
       "id": 5,
-      "intro": "Couldn't find salt anywhere today: nobody had any.",
+      "intro": "Couldn't find salt anywhere today. Nobody had any.",
       "details": [
         "The last trader who carried it said his supplier stopped delivering. Didn't say why.",
         "I've still got a bit at home, but it won't last the month if I'm curing meat."
@@ -107,7 +107,7 @@
       "intro": "The fruit at the market looked sorry this week. Bruised, small, not worth what they're asking.",
       "details": [
         "I picked one up and it was soft enough to squeeze juice out of right there. Not in a good way.",
-        "The seller blamed the weather: too much rain, too little sun. Could be true, I suppose."
+        "The seller blamed the weather. Too much rain, too little sun. Could be true, I suppose."
       ],
       "reactions": [
         "I'll wait a week and check again. No point paying good coin for bad fruit."

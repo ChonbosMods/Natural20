@@ -6,14 +6,14 @@
       "id": 0,
       "intro": "Saw something big moving through the trees past the ridge. Too far off to tell what it was.",
       "details": [
-        "It was tall: taller than a deer. Moved slow, though. Didn't seem to be in a hurry.",
+        "It was tall. Taller than a deer. Moved slow, though. Didn't seem to be in a hurry.",
         "By the time I squinted hard enough it was gone behind the ridge."
       ],
       "reactions": [
         "Probably an elk or something. My eyes aren't what they used to be."
       ],
       "statCheck": {
-        "pass": "The shape was wrong for a deer: too broad in the shoulders. Might've been a bear coming out of its den early.",
+        "pass": "The shape was wrong for a deer. Too broad in the shoulders. Might've been a bear coming out of its den early.",
         "fail": "Could've been anything, honestly. At that distance, a tall bush looks like a creature."
       },
       "valence": "neutral"
@@ -30,7 +30,7 @@
       ],
       "statCheck": {
         "pass": "Sometimes a nesting predator will clear out the smaller birds from an area. Hawk, maybe, or a large owl.",
-        "fail": "I don't know the first thing about birds. They fly: that's about all I've got."
+        "fail": "I don't know the first thing about birds. They fly. That's about all I've got."
       },
       "valence": "neutral"
     },
@@ -57,7 +57,7 @@
         "I believe she saw something. I just don't think it's as strange as she wants it to be."
       ],
       "statCheck": {
-        "pass": "Foxfire does that: rotting wood glows sometimes. Especially after wet weather when the fungus is active.",
+        "pass": "Foxfire does that. Rotting wood glows sometimes. Especially after wet weather when the fungus is active.",
         "fail": "Couldn't tell you what it was. Lights are lights."
       },
       "valence": "negative"

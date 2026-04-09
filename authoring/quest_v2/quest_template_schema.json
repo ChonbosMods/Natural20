@@ -217,6 +217,18 @@
         "type": "string",
         "enum": ["Villager", "Guard", "TavernKeeper", "ArtisanAlchemist", "ArtisanBlacksmith", "ArtisanCook", "Traveler"]
       }
+    },
+
+    "targetNpcOpener": {
+      "type": ["string", "null"],
+      "description": "Optional. What the target NPC says when the player selects the quest topic during a TALK_TO_NPC objective. This is the target NPC's opening dialogue about the situation. Only used when the quest chain includes a TALK_TO_NPC objective. Max 4 sentences.",
+      "maxLength": 600
+    },
+
+    "targetNpcCloser": {
+      "type": ["string", "null"],
+      "description": "Optional. What the target NPC says after the player presses [CONTINUE] on the opener. This is the target NPC's closing remark before the player can choose 'I'll pass that along.' Only used when the quest chain includes a TALK_TO_NPC objective. Max 2 sentences.",
+      "maxLength": 400
     }
   },
 

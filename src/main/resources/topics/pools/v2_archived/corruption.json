@@ -15,21 +15,21 @@
         "I'm not brave enough to say it louder than a whisper. Last person who complained found their stall shut down."
       ],
       "statCheck": {
-        "pass": "I did some quiet asking around. His appointment came with a letter from someone high up, but the seal on the letter was wrong: slightly different from the real one.",
+        "pass": "I did some quiet asking around. His appointment came with a letter from someone high up, but the seal on the letter was wrong. Slightly different from the real one.",
         "fail": "His guards keep a tight circle. Believe me, others have tried to get a look at those ledgers."
       },
       "valence": "negative"
     },
     {
       "id": 1,
-      "intro": "The council near {subject_focus_the} voted to redirect the irrigation channel last month. Funny thing: it now waters the chairman's fields first and everyone else gets what's left.",
+      "intro": "The council near {subject_focus_the} voted to redirect the irrigation channel last month. Funny thing. It now waters the chairman's fields first and everyone else gets what's left.",
       "details": [
         "Three families downstream have had their crops wilt. The chairman's wheat is the tallest it's ever been.",
         "The vote was five to two. The three who swung it all got new fences built the week after. Paid for by nobody in particular, apparently.",
         "The channel used to split evenly at the fork. Someone dug out the chairman's side wider and packed stones into the other branch to narrow it. Professional work, done overnight."
       ],
       "reactions": [
-        "It's not even subtle. That's the part that gets me: they don't bother hiding it because they don't think anyone will push back.",
+        "It's not even subtle. That's the part that gets me. They don't bother hiding it because they don't think anyone will push back.",
         "The downstream families are talking about pooling coin to dig their own channel. Shouldn't have to come to that."
       ],
       "valence": "negative"
@@ -40,14 +40,14 @@
       "details": [
         "He targets anyone who owes money to the mill or the grain store. Waits until they're desperate, then makes his offer.",
         "Three families sold this season alone. He's got more acreage now than the village commons.",
-        "I heard he's got an arrangement with the grain store: they call in debts early when he picks a target."
+        "I heard he's got an arrangement with the grain store. They call in debts early when he picks a target."
       ],
       "reactions": [
         "The families don't talk about it. They're ashamed, and he knows that keeps them quiet.",
         "I tried to warn the last family before they signed. The merchant sent someone to have a word with me. Polite, but the message was clear."
       ],
       "statCheck": {
-        "pass": "I got hold of one of the sale contracts. There's a clause buried at the bottom: the merchant gets mineral rights too. He's not after the farmland. He's after what's underneath it.",
+        "pass": "I got hold of one of the sale contracts. There's a clause buried at the bottom. The merchant gets mineral rights too. He's not after the farmland. He's after what's underneath it.",
         "fail": "The families who sold won't share the details. Too embarrassed or too scared, I think."
       },
       "valence": "negative"
@@ -75,8 +75,8 @@
       "intro": "The healer near {subject_focus_the} used to treat everyone for what they could afford. Then someone from the capital visited, and now she charges triple and only sees certain people.",
       "details": [
         "The visitor left her a supply of rare herbs. The kind you can't get without connections. Now she's dependent on his shipments.",
-        "She won't treat anyone who's spoken against the trade guild. It's not official policy: she just always seems to be busy when they come by.",
-        "She looks tired. Not greedy: tired. Like she's doing something she doesn't want to do."
+        "She won't treat anyone who's spoken against the trade guild. It's not official policy. She just always seems to be busy when they come by.",
+        "She looks tired. Not greedy. Tired. Like she's doing something she doesn't want to do."
       ],
       "reactions": [
         "I don't blame her entirely. When someone has leverage over your livelihood, your choices narrow fast.",
@@ -115,7 +115,7 @@
         "If it gets worse, I don't think locks and guards will stop what happens next. Hunger makes people brave in ways they wouldn't choose."
       ],
       "statCheck": {
-        "pass": "I noticed the grain sacks in his warehouse have a stamp from the communal harvest. Those are supposed to be public stores. He didn't buy that grain: he diverted it.",
+        "pass": "I noticed the grain sacks in his warehouse have a stamp from the communal harvest. Those are supposed to be public stores. He didn't buy that grain. He diverted it.",
         "fail": "The warehouse has no windows and only one door. Whatever is in there, he's made sure nobody gets a clear look."
       },
       "valence": "negative"
@@ -133,14 +133,14 @@
         "The honest guards on the other shifts are frustrated. They do their jobs properly and get treated the same as the ones shaking people down."
       ],
       "statCheck": {
-        "pass": "I kept count for a month. The morning shift processes half as many carts but reports no delays. The numbers don't lie: they're throttling traffic on purpose to create demand for the shortcut.",
+        "pass": "I kept count for a month. The morning shift processes half as many carts but reports no delays. The numbers don't lie. They're throttling traffic on purpose to create demand for the shortcut.",
         "fail": "It's all done with a nod and a quiet word. Nothing written, nothing witnessed by anyone who would talk. Very tidy."
       },
       "valence": "negative"
     },
     {
       "id": 8,
-      "intro": "The elder near {subject_focus_the} has been shutting down anyone who questions the new trade agreement. Not with arguments: with consequences.",
+      "intro": "The elder near {subject_focus_the} has been shutting down anyone who questions the new trade agreement. Not with arguments. With consequences.",
       "details": [
         "A potter spoke against the agreement at the last assembly. Within a week his kiln permit was revoked for a code violation nobody had heard of before.",
         "The blacksmith asked to see the full text of the agreement. She was told it's only available for review by council members. Since when?",
@@ -151,14 +151,14 @@
         "Dissent used to be tolerated here. Maybe not welcomed, but tolerated. Now it has a price tag."
       ],
       "statCheck": {
-        "pass": "You can read people, I'll give you that. The elder isn't acting alone. He has a backer outside town who benefits from this agreement. The elder gets a cut: I've seen the courier who brings it.",
+        "pass": "You can read people, I'll give you that. The elder isn't acting alone. He has a backer outside town who benefits from this agreement. The elder gets a cut. I've seen the courier who brings it.",
         "fail": "The elder's been careful. He never threatens anyone directly. Everything happens through channels, through process, through timing. Nothing you could point to and call proof."
       },
       "valence": "negative"
     },
     {
       "id": 9,
-      "intro": "Someone near {subject_focus_the} has been tampering with the public records. Land boundaries, harvest tallies, water rights: small changes, but they always favor the same people.",
+      "intro": "Someone near {subject_focus_the} has been tampering with the public records. Land boundaries, harvest tallies, water rights. Small changes, but they always favor the same people.",
       "details": [
         "A family checked their deed last month and found their eastern boundary had shifted ten paces on the official map. It used to run to the stream. Now it stops short.",
         "The harvest tallies for two seasons ago were rewritten. The original numbers don't match what's in the ledger now, and nobody authorized the change.",
@@ -183,7 +183,7 @@
         "The treasurer has a new cellar being dug behind his house. Hired laborers from two towns over to do it. Doesn't want local hands, apparently."
       ],
       "reactions": [
-        "People gave what they could spare because that bridge matters. Farmers, fishers, tradespeople: everyone put in. And now they're being told the money is gone with nothing to show for it.",
+        "People gave what they could spare because that bridge matters. Farmers, fishers, tradespeople. Everyone put in. And now they're being told the money is gone with nothing to show for it.",
         "Nobody wants to accuse the treasurer directly. He's been here his whole life. But good people can do bad things when the opportunity is easy enough."
       ],
       "statCheck": {
@@ -196,7 +196,7 @@
       "id": 11,
       "intro": "There's a family near {subject_focus_the} that always gets first pick of the best market stalls, the best plots in the commons, the best seats at council. And nobody elected them to anything.",
       "details": [
-        "Their patriarch lends money to half the village. Not a lot: just enough that people owe him something. And when people owe him something, they tend to agree with him.",
+        "Their patriarch lends money to half the village. Not a lot. Just enough that people owe him something. And when people owe him something, they tend to agree with him.",
         "The market steward assigns stalls. The steward owes the patriarch for his daughter's wedding feast. Funny how the best corner stall is always available for the family.",
         "Anyone who's crossed them finds their life getting quietly harder. Deliveries delayed, permits stalled, invitations lost. Nothing dramatic. Just friction."
       ],
@@ -215,7 +215,7 @@
       "id": 12,
       "intro": "A trader near {subject_focus_the} has been spreading rumors about her competitors. Every season a different rival gets accused of selling spoiled goods or cheating on weight, and every season that rival loses their customers.",
       "details": [
-        "The dyer lost half his business after word spread that he was using cheap pigment. I tested his dye myself: it's fine. Better than fine.",
+        "The dyer lost half his business after word spread that he was using cheap pigment. I tested his dye myself. It's fine. Better than fine.",
         "The leather seller before him got accused of selling thinned hides. She left town out of shame. A month later, the trader expanded into leather goods.",
         "The accusations never come from the trader directly. They start with people who owe her favors, spread through the market, and by the time anyone checks, the damage is done."
       ],
@@ -238,7 +238,7 @@
         "The workers talk about it at the tavern but won't say a word near the worksite. The foreman has a man who watches and listens."
       ],
       "reactions": [
-        "These are people with families. They take the abuse because the next meal depends on it. That's not loyalty: that's a trap.",
+        "These are people with families. They take the abuse because the next meal depends on it. That's not loyalty. That's a trap.",
         "I told one of the workers to bring it to the council. He laughed. Said the foreman's cousin sits on the council. Same blood, same pocket."
       ],
       "statCheck": {
@@ -274,7 +274,7 @@
         "The leader of the group used to work for the guard. He knows exactly how patrols run and when certain streets are unwatched."
       ],
       "reactions": [
-        "Everyone pays because the alternative is worse. That's not a community fund: that's a threat wearing a polite name.",
+        "Everyone pays because the alternative is worse. That's not a community fund. That's a threat wearing a polite name.",
         "The guards know. I'm almost certain. But the leader has friends among them, and complaints have a way of going nowhere."
       ],
       "statCheck": {
@@ -288,7 +288,7 @@
       "intro": "The well master near {subject_focus_the} controls who draws water and when. It used to be open access. Now there's a schedule, and the schedule favors those who bring him gifts.",
       "details": [
         "Families who leave a basket at his door get the morning slot when the water is cleanest and coolest. Everyone else draws in the afternoon heat.",
-        "He justifies the schedule by saying the well needs rest periods to refill. I've drawn from that well my entire life: it has never needed rest.",
+        "He justifies the schedule by saying the well needs rest periods to refill. I've drawn from that well my entire life. It has never needed rest.",
         "A widow with three children was moved to the last slot of the day. By the time she draws, the bucket comes up half mud. She can't afford the baskets he expects."
       ],
       "reactions": [
@@ -296,7 +296,7 @@
         "Some of the men want to dig a new well. The well master convinced the council it would weaken the water table. Convenient opinion from the man who profits from scarcity."
       ],
       "statCheck": {
-        "pass": "Here's something most people don't realize: the well master's appointment was supposed to be temporary. The original charter says the position rotates yearly. He's been in it for six years. Nobody's enforced the rotation because nobody remembers the rule.",
+        "pass": "Here's something most people don't realize. The well master's appointment was supposed to be temporary. The original charter says the position rotates yearly. He's been in it for six years. Nobody's enforced the rotation because nobody remembers the rule.",
         "fail": "He runs that well like it's his personal property, and nobody with the authority to overrule him seems interested in doing so. The system protects its own."
       },
       "valence": "negative"
@@ -332,7 +332,7 @@
         "I stopped attending guild meetings. Half the room is afraid to speak and the other half is paid to clap."
       ],
       "statCheck": {
-        "pass": "One of the struck members kept her original enrollment receipt. It's dated, signed, and stamped. Her removal from the rolls happened the day before the election: not a clerical error. A deliberate act.",
+        "pass": "One of the struck members kept her original enrollment receipt. It's dated, signed, and stamped. Her removal from the rolls happened the day before the election. Not a clerical error. A deliberate act.",
         "fail": "Guild records are internal. Unless you're a member in good standing, you don't get to see the rolls, the ballots, or the minutes. And good standing is whatever the guild leader says it is."
       },
       "valence": "negative"
@@ -346,11 +346,11 @@
         "People have started being careful about what they say and to whom. Conversations at the tavern have gotten shorter and quieter."
       ],
       "reactions": [
-        "It's a terrible feeling: not knowing who in your own village is selling your words to strangers.",
+        "It's a terrible feeling. Not knowing who in your own village is selling your words to strangers.",
         "Trust holds a community together. Someone is pulling out the threads, and we can't even see whose hand is doing it."
       ],
       "statCheck": {
-        "pass": "I started feeding different information to different people to see where it surfaced. Only one version made it outside: the one I told to the courier's assistant. She's been passing messages both directions.",
+        "pass": "I started feeding different information to different people to see where it surfaced. Only one version made it outside. The one I told to the courier's assistant. She's been passing messages both directions.",
         "fail": "I've been watching, but whoever it is, they're careful. The leaks keep happening and I can't narrow it down. Everyone looks guilty when you're suspicious enough."
       },
       "valence": "negative"
@@ -378,7 +378,7 @@
       "intro": "The magistrate near {subject_focus_the} has been settling disputes in favor of whoever brings the larger gift to his office the day before the hearing.",
       "details": [
         "A farmer lost a boundary dispute to his neighbor last month. The neighbor brought the magistrate a cask of aged wine the evening before. The farmer brought his case on its merits.",
-        "Three rulings in a row have gone against the poorer party. Not unusual on its own, but the gifts arriving the night before each ruling: that's a pattern.",
+        "Three rulings in a row have gone against the poorer party. Not unusual on its own, but the gifts arriving the night before each ruling. That's a pattern.",
         "The magistrate's clerk keeps a separate log of visitors. I've seen him writing in it. It never appears in the official record of proceedings."
       ],
       "reactions": [
@@ -386,7 +386,7 @@
         "I have a dispute coming before him next season. I'm already dreading it. I can't afford to compete with gifts, and I can't afford to lose."
       ],
       "statCheck": {
-        "pass": "You're perceptive. The clerk's visitor log: I got a glimpse of it once. Every ruling correlates with a visit the night before from the winning party. Every single one. That's not coincidence. That's a price list.",
+        "pass": "You're perceptive. The clerk's visitor log. I got a glimpse of it once. Every ruling correlates with a visit the night before from the winning party. Every single one. That's not coincidence. That's a price list.",
         "fail": "The magistrate is careful to justify every ruling with proper precedent. On paper, each decision looks sound. You'd need access to records he keeps very private to prove otherwise."
       },
       "valence": "negative"
@@ -404,7 +404,7 @@
         "The assembly has gotten very agreeable lately. Unanimous votes on everything. That should worry people more than it does."
       ],
       "statCheck": {
-        "pass": "I noticed she receives a sealed letter every few weeks from a courier who doesn't stop anywhere else in town. Someone outside is feeding her the information. She's not the source: she's the instrument.",
+        "pass": "I noticed she receives a sealed letter every few weeks from a courier who doesn't stop anywhere else in town. Someone outside is feeding her the information. She's not the source. She's the instrument.",
         "fail": "She keeps her leverage private and her methods quiet. The people she's pressuring won't talk about it, and she certainly won't. It's a closed circle."
       },
       "valence": "negative"
@@ -414,15 +414,15 @@
       "intro": "Witnesses near {subject_focus_the} have been pressured to change their stories before disputes reach the council. People who saw something start remembering differently after a certain visitor comes calling.",
       "details": [
         "A woman saw the surveyor moving a boundary marker and reported it. Two days later she told the council she must have been mistaken about what she saw. She wasn't mistaken.",
-        "The visitor is always the same man: quiet, polite, never threatening. He just asks people to reconsider what they remember. And then he mentions something about their family.",
+        "The visitor is always the same man. Quiet, polite, never threatening. He just asks people to reconsider what they remember. And then he mentions something about their family.",
         "Three separate testimonies have been retracted this season. All three involved complaints against the same merchant house."
       ],
       "reactions": [
-        "When witnesses stop telling the truth, the truth stops mattering. That's the point. You don't need everyone to lie: you just need enough doubt.",
+        "When witnesses stop telling the truth, the truth stops mattering. That's the point. You don't need everyone to lie. You just need enough doubt.",
         "I was almost a witness myself once. A friend told me to keep quiet for my own good. I did. I'm not proud of it."
       ],
       "statCheck": {
-        "pass": "The man who does the visiting? He's not from here. I followed him after his last visit. He reports to someone at the merchant house directly: walked in the back entrance like he belonged there.",
+        "pass": "The man who does the visiting? He's not from here. I followed him after his last visit. He reports to someone at the merchant house directly. Walked in the back entrance like he belonged there.",
         "fail": "The witnesses won't admit they were pressured. They've been made to feel like recanting was their own decision. Without them willing to say otherwise, there's nothing to work with."
       },
       "valence": "negative"
@@ -458,7 +458,7 @@
         "I wouldn't mind if the work was good. But the storehouse roof they repaired leaked again within two months. We paid for a fix and got a patch."
       ],
       "statCheck": {
-        "pass": "I compared the winning bids to the actual costs of materials. Her brother's bids are impossibly low: lower than material costs alone. They're underbidding to win, then billing overruns after the fact. The final cost always ends up higher than the second-lowest bid.",
+        "pass": "I compared the winning bids to the actual costs of materials. Her brother's bids are impossibly low. Lower than material costs alone. They're underbidding to win, then billing overruns after the fact. The final cost always ends up higher than the second-lowest bid.",
         "fail": "The bidding records are filed with the council and she's the one who reviews them. Asking to audit her own decisions hasn't gotten anyone very far."
       },
       "valence": "negative"
@@ -494,7 +494,7 @@
         "The parents who object are in a difficult position. Pull their children out and they miss the schooling. Keep them in and they absorb the message."
       ],
       "statCheck": {
-        "pass": "I asked around about his previous posting. He was let go from a school two settlements over for the same thing: using the classroom to promote the interests of whoever was paying him. The council chair knew this when he appointed him.",
+        "pass": "I asked around about his previous posting. He was let go from a school two settlements over for the same thing. Using the classroom to promote the interests of whoever was paying him. The council chair knew this when he appointed him.",
         "fail": "He's careful with his words in front of adults. The bias shows in the classroom, but a visitor sitting in wouldn't catch it. You'd have to hear what the children say to each other afterward."
       },
       "valence": "negative"
@@ -504,11 +504,11 @@
       "intro": "A group of merchants near {subject_focus_the} have carved up the trade routes between them. If you're not part of their arrangement, your goods don't reach market.",
       "details": [
         "An independent trader tried to sell his wool at the crossroads market last season. His cart was turned away by men who said the route was spoken for. No law gives them that right.",
-        "The merchants set prices together. Nobody competes because the routes are divided: one handles grain, another handles cloth, another handles metals. If you want to sell, you sell through them at their price.",
+        "The merchants set prices together. Nobody competes because the routes are divided. One handles grain, another handles cloth, another handles metals. If you want to sell, you sell through them at their price.",
         "They pay the road wardens enough to report any independent carts heading to market. If a competitor shows up, they know before the competitor arrives."
       ],
       "reactions": [
-        "A free market requires, at minimum, that it actually be free. This isn't trade: it's a toll booth with extra steps.",
+        "A free market requires, at minimum, that it actually be free. This isn't trade. It's a toll booth with extra steps.",
         "The worst part is the prices for us. With no competition, they charge what they want. And what they want is always a little more than last season."
       ],
       "statCheck": {
@@ -521,16 +521,16 @@
       "id": 29,
       "intro": "The night council near {subject_focus_the} is something people whisper about but won't discuss openly. A handful of influential people meet after the official council adjourns, and the real decisions get made then.",
       "details": [
-        "The official council votes on motions, but the motions always pass or fail exactly the way certain members predicted. The votes are a performance: the outcome was settled the night before.",
+        "The official council votes on motions, but the motions always pass or fail exactly the way certain members predicted. The votes are a performance. The outcome was settled the night before.",
         "They meet at the back of the guild hall after the lamps are turned down. I've seen four or five figures go in, and they don't come out until well past midnight.",
         "A junior council member tried to attend once. She was told it was a private supper among friends. Friends who happen to control every significant decision in the settlement."
       ],
       "reactions": [
         "We hold elections and debates and assemblies, and none of it matters if the decisions are already made in a dark room by people nobody voted for.",
-        "I don't know what scares me more: that it's happening, or that everyone seems to know and nobody does anything about it."
+        "I don't know what scares me more. That it's happening, or that everyone seems to know and nobody does anything about it."
       ],
       "statCheck": {
-        "pass": "I matched the dates of the night meetings with the council agenda. Every contentious vote was preceded by a meeting the night before. And every one of those votes went the same direction: in favor of the merchant families who attend that back room.",
+        "pass": "I matched the dates of the night meetings with the council agenda. Every contentious vote was preceded by a meeting the night before. And every one of those votes went the same direction. In favor of the merchant families who attend that back room.",
         "fail": "It's hard to prove a meeting happened when everyone involved says they were home in bed. Without someone who was in that room willing to talk, it's just my suspicion against their word."
       },
       "valence": "negative"

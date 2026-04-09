@@ -682,38 +682,38 @@ public class DialogueManager {
                 // This NPC is the target. Inject a quest dialogue topic.
                 String questId = quest.getQuestId();
                 Map<String, String> b = quest.getVariableBindings();
-                String targetDialogue = DialogueResolver.resolveQuestText(
-                    b.getOrDefault("target_npc_dialogue",
+                String openerText = DialogueResolver.resolveQuestText(
+                    b.getOrDefault("target_npc_opener",
                         "You're looking into the situation? I can tell you what I know."),
                     b, obj);
-                String questTitle = b.getOrDefault("quest_title", quest.getSituationId());
+                String closerText = DialogueResolver.resolveQuestText(
+                    b.getOrDefault("target_npc_closer",
+                        "That's all I can tell you. Pass it along."),
+                    b, obj);
+                String topicLabel = b.getOrDefault("quest_topic_header", quest.getSituationId());
                 String questGiver = quest.getSourceNpcId();
 
                 String topicId = "talknpc_" + questId;
                 String entryNodeId = topicId + "_entry";
+                String closerNodeId = topicId + "_closer";
                 String actionNodeId = topicId + "_action";
-                String confirmNodeId = topicId + "_confirm";
 
-                // Action: COMPLETE_TALK_TO_NPC
+                // Action: COMPLETE_TALK_TO_NPC, then show closer text
                 graph.nodes().put(actionNodeId, new DialogueNode.ActionNode(
                     List.of(Map.of("type", "COMPLETE_TALK_TO_NPC", "questId", questId)),
-                    confirmNodeId, List.of(), true
+                    closerNodeId, List.of(), true
                 ));
 
-                // Confirm: direct player back to quest giver. Wrap the giver name in
-                // entity highlight markers so it renders in the entity color.
-                String confirmText = "Tell " + EntityHighlight.wrap(questGiver)
-                    + " what I've told you. They'll want to hear it.";
-                graph.nodes().put(confirmNodeId, new DialogueNode.DialogueTextNode(
-                    confirmText, null, List.of(), List.of(), true, false, ValenceType.NEUTRAL
+                // Closer: target NPC wraps up (no response options, terminal node)
+                graph.nodes().put(closerNodeId, new DialogueNode.DialogueTextNode(
+                    closerText, null, List.of(), List.of(), true, false, ValenceType.NEUTRAL
                 ));
 
-                // Entry: target NPC delivers their dialogue
-                String topicLabel = "About " + questTitle;
+                // Entry: target NPC opens the conversation, [CONTINUE] completes the objective
                 graph.nodes().put(entryNodeId, new DialogueNode.DialogueTextNode(
-                    targetDialogue, null,
+                    openerText, null,
                     List.of(new ResponseOption(
-                        topicId + "_resp", "I'll pass that along.", null, actionNodeId,
+                        topicId + "_continue", "[CONTINUE]", null, actionNodeId,
                         ResponseMode.DECISIVE, null, null, null, null
                     )),
                     List.of(), false, false, ValenceType.NEUTRAL

@@ -15,7 +15,7 @@
         "I keep expecting to see him roll in any day now with a story. But each week that passes makes that harder to believe."
       ],
       "statCheck": {
-        "pass": "I went up to where the cart was found. His footprints lead off the road to the east, toward the ravine, and they were spaced far apart: he was running.",
+        "pass": "I went up to where the cart was found. His footprints lead off the road to the east, toward the ravine, and they were spaced far apart. He was running.",
         "fail": "The trail has been rained on twice since then. I went up there myself and nothing useful remains."
       },
       "valence": "negative"
@@ -25,7 +25,7 @@
       "intro": "Two children from {subject_focus_the} wandered off three days ago. They told their mother they were going to pick wildflowers by the creek.",
       "details": [
         "We found the flowers they'd already picked, bundled neatly and left on a rock by the water. Like they set them down and meant to come back.",
-        "The dogs tracked them to the edge of the old orchard and then lost the scent completely. Not gradually: just gone.",
+        "The dogs tracked them to the edge of the old orchard and then lost the scent completely. Not gradually. Just gone.",
         "One of the children's shoes was found at the orchard gate, sitting upright on the fence post. Placed there, not dropped."
       ],
       "reactions": [
@@ -56,7 +56,7 @@
       "id": 3,
       "intro": "An herbalist who lived alone near {subject_focus_the} hasn't been seen in over a week. Her door was open, her fire was out, and her cat was starving.",
       "details": [
-        "She had a routine: gather in the morning, dry herbs in the afternoon, sell at the market every third day. She never missed a market day in ten years.",
+        "She had a routine. Gather in the morning, dry herbs in the afternoon, sell at the market every third day. She never missed a market day in ten years.",
         "Her journal was open on the table. The last entry mentions a plant she found that she couldn't identify, growing in a place she'd never explored before.",
         "Her gathering basket was still hanging by the door with dried cuttings in it. Whatever she went looking for, she left in the middle of her usual work."
       ],
@@ -65,8 +65,8 @@
         "I've been feeding her cat. Feels wrong to do anything else with it."
       ],
       "statCheck": {
-        "pass": "The journal mentions a landmark: a split boulder shaped like a hand. I know that spot. It's near the old mine shaft that caved in years ago. Or was supposed to have caved in.",
-        "fail": "Her descriptions are vague: she used personal shorthand that does not mean much to an outsider. I could not make sense of it either."
+        "pass": "The journal mentions a landmark. A split boulder shaped like a hand. I know that spot. It's near the old mine shaft that caved in years ago. Or was supposed to have caved in.",
+        "fail": "Her descriptions are vague. She used personal shorthand that does not mean much to an outsider. I could not make sense of it either."
       },
       "valence": "negative"
     },
@@ -90,21 +90,21 @@
       "details": [
         "The fences weren't broken, the gates were still latched. Whatever took them didn't come through the normal way.",
         "No blood, no fur caught on the posts, no drag marks. It's like they were lifted straight out.",
-        "The other animals don't seem spooked. That's the strangest part: normally if a predator comes through, everything panics for days."
+        "The other animals don't seem spooked. That's the strangest part. Normally if a predator comes through, everything panics for days."
       ],
       "reactions": [
         "A wolf or a big cat leaves evidence. Torn earth, claw marks, something. This leaves nothing.",
         "I've started sleeping in the barn. Haven't caught anything yet, but I'm not ready to lose another animal."
       ],
       "statCheck": {
-        "pass": "I looked at the pen more carefully after the last one. The ground inside the fence is pressed flat in a circle, about four paces wide. Not hoofprints: something pushed the dirt down evenly, all at once.",
+        "pass": "I looked at the pen more carefully after the last one. The ground inside the fence is pressed flat in a circle, about four paces wide. Not hoofprints. Something pushed the dirt down evenly, all at once.",
         "fail": "The pen is just dirt and straw. I've looked a dozen times and there's nothing to read in it."
       },
       "valence": "negative"
     },
     {
       "id": 6,
-      "intro": "Tools have been going missing from the workshop near {subject_focus_the}. Not valuable ones: common things. Hammers, chisels, rope. Gone overnight.",
+      "intro": "Tools have been going missing from the workshop near {subject_focus_the}. Not valuable ones. Common things. Hammers, chisels, rope. Gone overnight.",
       "details": [
         "The door is always locked in the morning. Whoever is taking them either has a key or isn't using the door.",
         "It's never everything. One or two items at a time, always hand tools, never raw materials. Selective.",
@@ -112,7 +112,7 @@
       ],
       "reactions": [
         "If someone needed tools, they could have asked. We'd lend them. The secrecy is what bothers me.",
-        "People are locking everything down now. It's changed the feeling around here: everyone watching their own things instead of trusting each other."
+        "People are locking everything down now. It's changed the feeling around here. Everyone watching their own things instead of trusting each other."
       ],
       "statCheck": {
         "pass": "I dusted the workbench with fine ash before closing up. In the morning, two punches were gone but the ash was undisturbed. No hand touched that bench.",
@@ -126,7 +126,7 @@
       "details": [
         "It's not spoilage. The grain isn't rotting, it's just gone. Sacks that were full at last count are half-empty days later.",
         "The cellar is locked and only two people have the key. Both swear they haven't touched anything between counts.",
-        "It started small: a few handfuls here and there. Now it's whole sacks disappearing. Whatever's taking it is getting bolder."
+        "It started small. A few handfuls here and there. Now it's whole sacks disappearing. Whatever's taking it is getting bolder."
       ],
       "reactions": [
         "We can't afford to lose stores like this. Winter provisions are already tight without something siphoning off the top.",
@@ -143,7 +143,7 @@
       "intro": "Two scouts were sent out from {subject_focus_the} toward the eastern ridge six days ago. Standard patrol, two days out and back. They haven't returned.",
       "details": [
         "They were experienced. Both had run that route a dozen times without incident.",
-        "We sent a second pair to trace their path. They found the scouts' camp from the first night: fire pit, bedrolls laid out, gear stacked neatly. Everything in order, but no sign of the scouts themselves.",
+        "We sent a second pair to trace their path. They found the scouts' camp from the first night. Fire pit, bedrolls laid out, gear stacked neatly. Everything in order, but no sign of the scouts themselves.",
         "Their weapons were still at the camp. Both swords, both bows. Whatever happened, they didn't fight."
       ],
       "reactions": [
@@ -151,7 +151,7 @@
         "The captain wants to send a larger group. Nobody's volunteering. I can't blame them."
       ],
       "statCheck": {
-        "pass": "The second pair noticed something I missed when they told me: the bedrolls were laid out for sleep, but neither had been slept in. They made camp and then left everything behind before nightfall.",
+        "pass": "The second pair noticed something I missed when they told me. The bedrolls were laid out for sleep, but neither had been slept in. They made camp and then left everything behind before nightfall.",
         "fail": "The camp was clean. Too clean, maybe. But I don't know what to make of that."
       },
       "valence": "negative"
@@ -160,7 +160,7 @@
       "id": 9,
       "intro": "A fishing boat was found drifting near {subject_focus_the}, empty. Oars shipped, nets cast, catch still in the bottom. No fisherman.",
       "details": [
-        "The boat was in good shape. No holes, no damage, no sign it had capsized and righted. The catch was fresh: he couldn't have been gone long.",
+        "The boat was in good shape. No holes, no damage, no sign it had capsized and righted. The catch was fresh. He couldn't have been gone long.",
         "His hat was on the seat, his pipe still warm in the cup holder he carved himself. He stopped mid-task.",
         "The net was half-hauled, tangled on something below the surface. But when they pulled it up, there was nothing caught in it."
       ],
@@ -169,7 +169,7 @@
         "His daughter keeps going to the shore and watching the water. Nobody knows what to say to her."
       ],
       "statCheck": {
-        "pass": "You're right to look at the net. The strands aren't torn: they're cut. Clean cuts, evenly spaced, like something sharp passed through them deliberately.",
+        "pass": "You're right to look at the net. The strands aren't torn. They're cut. Clean cuts, evenly spaced, like something sharp passed through them deliberately.",
         "fail": "The boat's been brought in and picked over by half the village. Anything that might have told us something is long gone."
       },
       "valence": "negative"
@@ -178,7 +178,7 @@
       "id": 10,
       "intro": "Someone near {subject_focus_the} left all their belongings behind, arranged neatly on the table. Clothes folded, tools lined up, coin stacked. Then they walked out and never came back.",
       "details": [
-        "It wasn't packed for travel. It was organized for display: everything laid out like they wanted it found exactly that way.",
+        "It wasn't packed for travel. It was organized for display. Everything laid out like they wanted it found exactly that way.",
         "The neighbors saw her leave at dawn, walking calmly toward the ridge. She waved to the baker on her way out. Didn't say a word.",
         "She'd been quiet for weeks before. Stopped coming to the market, stopped answering her door. People assumed she just wanted to be left alone."
       ],
@@ -187,7 +187,7 @@
         "People keep saying she'll turn up. I've stopped arguing about it."
       ],
       "statCheck": {
-        "pass": "There was a note under the coin stack, just two words in her handwriting: \"it called.\" Nobody knows what it refers to.",
+        "pass": "There was a note under the coin stack, just two words in her handwriting, \"it called.\" Nobody knows what it refers to.",
         "fail": "Her house is exactly as she left it. Nothing out of place, nothing to suggest where or why. Just absence."
       },
       "valence": "negative"
@@ -196,7 +196,7 @@
       "id": 11,
       "intro": "Three dogs near {subject_focus_the} stopped barking one evening. Completely silent, all at once. By morning they were gone.",
       "details": [
-        "They didn't howl, didn't whine. The silence was sudden: one moment barking at the usual sounds, the next, nothing.",
+        "They didn't howl, didn't whine. The silence was sudden. One moment barking at the usual sounds, the next, nothing.",
         "No chains were broken, no ropes chewed through. The collars were still fastened, lying flat on the ground like the dogs shrank out of them.",
         "Other animals were restless that night. The horses wouldn't settle, and a cat hid under the cellar stairs and wouldn't come out for two days."
       ],
@@ -205,17 +205,17 @@
         "My neighbor says it's just strays running off. Those weren't strays. They were trained, loyal animals that had never wandered."
       ],
       "statCheck": {
-        "pass": "I checked the collars. They weren't unbuckled or broken: the leather was intact, still fastened at the same notch. Nothing pulled free of them. The dogs just weren't inside them anymore.",
+        "pass": "I checked the collars. They weren't unbuckled or broken. The leather was intact, still fastened at the same notch. Nothing pulled free of them. The dogs just weren't inside them anymore.",
         "fail": "Dogs wander, collars slip. There are a dozen explanations and none of them satisfy me, but I can't point to anything specific."
       },
       "valence": "negative"
     },
     {
       "id": 12,
-      "intro": "The offerings left at the old shrine near {subject_focus_the} keep disappearing overnight. Bread, dried fruit, small carvings: gone every morning.",
+      "intro": "The offerings left at the old shrine near {subject_focus_the} keep disappearing overnight. Bread, dried fruit, small carvings. Gone every morning.",
       "details": [
         "The shrine has been there longer than anyone remembers. People leave gifts out of habit more than belief. But something is taking them now.",
-        "It's not animals. The food is taken cleanly: no crumbs, no scraps, no tooth marks. Even the cloth they wrap the bread in is gone.",
+        "It's not animals. The food is taken cleanly. No crumbs, no scraps, no tooth marks. Even the cloth they wrap the bread in is gone.",
         "One of the elders left a bowl of milk there. In the morning, the bowl was empty and placed upside down on the stone. Deliberately."
       ],
       "reactions": [
@@ -230,7 +230,7 @@
     },
     {
       "id": 13,
-      "intro": "The well near {subject_focus_the} has been dropping. Not drying up slowly the way wells do in summer: dropping fast, inches a day, and nobody can explain it.",
+      "intro": "The well near {subject_focus_the} has been dropping. Not drying up slowly the way wells do in summer. Dropping fast, inches a day, and nobody can explain it.",
       "details": [
         "It's a deep well, dug down through solid stone. It hasn't gone low like this in living memory, not even in the worst drought.",
         "The water level drops overnight and holds steady during the day. Every morning, lower than the evening before.",
@@ -252,14 +252,14 @@
       "details": [
         "He'd walk in every market day, buy the same things, sit on the same bench, talk to the same people. Never missed a week in as long as I've been here.",
         "Someone rode out to his homestead to check on him. The place was empty. Fire cold, animals turned loose, door standing open.",
-        "His things were still there: furniture, clothes, a half-written letter on the table. But the letter just stops mid-sentence."
+        "His things were still there. Furniture, clothes, a half-written letter on the table. But the letter just stops mid-sentence."
       ],
       "reactions": [
         "He was old, yes. But he was steady. The kind of man who would send word if he was ill and dig his own grave if he was dying.",
         "I keep his bench clear for him at the market. Habit, I suppose. Or hope."
       ],
       "statCheck": {
-        "pass": "I looked at the letter. The last line reads: \"The sound from the cellar has not stopped for three days and I believe it knows I am here.\" The cellar was empty when they checked.",
+        "pass": "I looked at the letter. The last line reads, \"The sound from the cellar has not stopped for three days and I believe it knows I am here.\" The cellar was empty when they checked.",
         "fail": "The letter was personal and nobody felt right reading past the first few lines. I cannot say what it contained."
       },
       "valence": "negative"
@@ -268,7 +268,7 @@
       "id": 15,
       "intro": "A set of clothes was found by the water near {subject_focus_the}. Folded neatly on the bank, boots beside them, nobody in sight.",
       "details": [
-        "They belonged to the miller's apprentice. Everyone recognized his coat: he wore it every day, patched at the elbows.",
+        "They belonged to the miller's apprentice. Everyone recognized his coat. He wore it every day, patched at the elbows.",
         "The water isn't deep there. You can see the bottom, all the way across. He wasn't in the water.",
         "His footprints lead to the bank and stop at the clothes. No prints leading away in any direction."
       ],
@@ -277,16 +277,16 @@
         "I don't like how careful the folding was. If someone went into the water in a hurry, they'd drop their things, not stack them."
       ],
       "statCheck": {
-        "pass": "You're sharp to notice: the footprints aren't sinking in like someone walking normally. They get lighter with each step, like he was weighing less as he approached the water. The last print barely dented the mud.",
+        "pass": "You're sharp to notice. The footprints aren't sinking in like someone walking normally. They get lighter with each step, like he was weighing less as he approached the water. The last print barely dented the mud.",
         "fail": "The bank has been walked over by too many people since then. Whatever the mud might have shown is gone."
       },
       "valence": "negative"
     },
     {
       "id": 16,
-      "intro": "A door in {subject_focus_the} was found standing open three mornings ago. The house was empty. Not ransacked, not packed up: just empty. Like the people inside evaporated.",
+      "intro": "A door in {subject_focus_the} was found standing open three mornings ago. The house was empty. Not ransacked, not packed up. Just empty. Like the people inside evaporated.",
       "details": [
-        "Supper was on the table. Two bowls, two cups, bread broken between them. The food was cold but not spoiled: they'd left that same evening.",
+        "Supper was on the table. Two bowls, two cups, bread broken between them. The food was cold but not spoiled. They'd left that same evening.",
         "The hearth was still warm when the neighbor checked. Candles had burned down to nubs. Nobody had snuffed them.",
         "Their bed was turned down but not slept in. Whatever pulled them out happened between supper and sleep."
       ],
@@ -295,14 +295,14 @@
         "We've locked their door and left everything as it was, in case they come back. But every day that passes makes that less likely."
       ],
       "statCheck": {
-        "pass": "I went inside myself. On the floor by the back door, there are scuff marks: two sets of heels dragged toward the threshold. They didn't walk out. They were pulled.",
-        "fail": "The house is undisturbed. That is the problem: there is nothing wrong in there, which means there is nothing to learn from it."
+        "pass": "I went inside myself. On the floor by the back door, there are scuff marks. Two sets of heels dragged toward the threshold. They didn't walk out. They were pulled.",
+        "fail": "The house is undisturbed. That is the problem. There is nothing wrong in there, which means there is nothing to learn from it."
       },
       "valence": "negative"
     },
     {
       "id": 17,
-      "intro": "Someone has been removing maps and journals from the archive near {subject_focus_the}. Specific ones, not random: anything showing the old boundaries or the land before the roads were built.",
+      "intro": "Someone has been removing maps and journals from the archive near {subject_focus_the}. Specific ones, not random. Anything showing the old boundaries or the land before the roads were built.",
       "details": [
         "The archivist noticed gaps on the shelves two weeks ago. At first she thought they'd been misfiled. Then she found the catalog entries scratched out too.",
         "It's only the oldest records. Surveys, boundary stones, land grants from before the current settlement was built. Everything recent is untouched.",
@@ -310,10 +310,10 @@
       ],
       "reactions": [
         "Old maps don't have trade value. Someone wants to know what was here before us, and they don't want anyone else knowing the same thing.",
-        "The archivist is furious. Those records are irreplaceable: handwritten, some of them older than the walls."
+        "The archivist is furious. Those records are irreplaceable. Handwritten, some of them older than the walls."
       ],
       "statCheck": {
-        "pass": "The archivist remembered one detail: all the missing documents reference the same area, a stretch of land east of here that the old surveys labeled 'yielded ground.' She doesn't know what that means. Neither do I.",
+        "pass": "The archivist remembered one detail. All the missing documents reference the same area, a stretch of land east of here that the old surveys labeled 'yielded ground.' She doesn't know what that means. Neither do I.",
         "fail": "The catalog is incomplete and the archivist's memory is only so precise. She knows what is missing but not what pattern connects it."
       },
       "valence": "negative"
@@ -322,8 +322,8 @@
       "id": 18,
       "intro": "The medicine stores in {subject_focus_the} were emptied overnight. Every jar, every pouch, every bundle of dried herbs. Shelves picked clean.",
       "details": [
-        "The healer locked up at sunset and found the shelves bare at dawn. The lock wasn't forced: it was still latched from inside.",
-        "They took everything: common remedies, rare compounds, even the bitter root nobody uses because it tastes foul. No selection, no preference.",
+        "The healer locked up at sunset and found the shelves bare at dawn. The lock wasn't forced. It was still latched from inside.",
+        "They took everything. Common remedies, rare compounds, even the bitter root nobody uses because it tastes foul. No selection, no preference.",
         "Three days' worth of prepared tinctures were cooling on the back shelf. The jars were still there, empty, with the lids placed back on."
       ],
       "reactions": [
@@ -331,7 +331,7 @@
         "The healer is rattled, and she's not someone who rattles. She says she felt watched in the days before, but never saw anyone."
       ],
       "statCheck": {
-        "pass": "The healer told me something she hasn't shared with others: the empty jars don't smell like the tinctures that were in them. They smell like clean glass. Whatever removed the contents didn't pour them out: it undid them.",
+        "pass": "The healer told me something she hasn't shared with others. The empty jars don't smell like the tinctures that were in them. They smell like clean glass. Whatever removed the contents didn't pour them out. It undid them.",
         "fail": "An empty shelf is an empty shelf. Without knowing who took it or how, there is nothing to work from."
       },
       "valence": "negative"
@@ -349,7 +349,7 @@
         "His father won't go near that path now. I don't blame him."
       ],
       "statCheck": {
-        "pass": "I picked up the lantern. The stone underneath was cold on every side except where the lantern sat: that spot was warm, but not from the flame. The heat was coming up from the ground, not down from the fire.",
+        "pass": "I picked up the lantern. The stone underneath was cold on every side except where the lantern sat. That spot was warm, but not from the flame. The heat was coming up from the ground, not down from the fire.",
         "fail": "A lantern on a rock. I've turned it over in my head a dozen times and I can't make it tell me anything more than what I've already said."
       },
       "valence": "negative"
@@ -359,7 +359,7 @@
       "intro": "Footprints near {subject_focus_the} walk straight into an open field and stop. No turn, no scuffle, no continuation. They just end, mid-stride.",
       "details": [
         "The prints are even and steady. Normal walking pace, normal depth. Nothing about the gait suggests running or stumbling.",
-        "The ground beyond the last print is undisturbed. Soft earth, no wind that day: if they'd kept walking, there would be marks.",
+        "The ground beyond the last print is undisturbed. Soft earth, no wind that day. If they'd kept walking, there would be marks.",
         "The boot pattern matches a farmhand who went out to check the fences that morning and never came back for breakfast."
       ],
       "reactions": [
@@ -367,8 +367,8 @@
         "People have started walking around that field. Nobody says why. Nobody has to."
       ],
       "statCheck": {
-        "pass": "I knelt at the final print and noticed: the toe is pressed deeper than the heel. Like he was leaning forward, shifting his weight to take the next step. He didn't stop. His foot just never came down.",
-        "fail": "It is a clear print in soft earth. I cannot tell you more than what it looks like: a man walking who was suddenly not walking."
+        "pass": "I knelt at the final print and noticed. The toe is pressed deeper than the heel. Like he was leaning forward, shifting his weight to take the next step. He didn't stop. His foot just never came down.",
+        "fail": "It is a clear print in soft earth. I cannot tell you more than what it looks like. A man walking who was suddenly not walking."
       },
       "valence": "negative"
     },
@@ -385,7 +385,7 @@
         "The hunter's brother wants to go up there himself and look. Everyone is trying to talk him out of it."
       ],
       "statCheck": {
-        "pass": "I walked the path myself. At the spot where his pack was found, the trail feels wrong: the air is heavy there, like before a storm, but only for about ten paces. Before and after, nothing.",
+        "pass": "I walked the path myself. At the spot where his pack was found, the trail feels wrong. The air is heavy there, like before a storm, but only for about ten paces. Before and after, nothing.",
         "fail": "It is a hill with a path on it. I have walked it myself and nothing about it stands out. Whatever happened there didn't leave a mark I can read."
       },
       "valence": "negative"
@@ -395,7 +395,7 @@
       "intro": "A patrol that runs the northern route past {subject_focus_the} has lost two members on separate nights. Both vanished from the middle of the group without anyone noticing.",
       "details": [
         "The first time, they assumed the man had fallen behind and gotten lost. It happens. But the second time, the woman in front of him turned around and he was simply not there.",
-        "Both disappearances happened on the same stretch of trail: a narrow path between two old walls. The group enters with four and exits with three.",
+        "Both disappearances happened on the same stretch of trail. A narrow path between two old walls. The group enters with four and exits with three.",
         "Nobody hears anything. No shout, no stumble, no sound of someone being taken. The person behind them doesn't even notice until the group stops to rest."
       ],
       "reactions": [
@@ -403,14 +403,14 @@
         "Two people from the same stretch of path is not coincidence. Something there is taking them, and it's patient enough to wait between meals."
       ],
       "statCheck": {
-        "pass": "I walked that stretch in daylight and counted my steps: forty-two paces between the walls. The patrol leader says his count from the same walk was thirty-eight. The path shouldn't change length.",
+        "pass": "I walked that stretch in daylight and counted my steps. Forty-two paces between the walls. The patrol leader says his count from the same walk was thirty-eight. The path shouldn't change length.",
         "fail": "In daylight it looks like any other trail. Walls, packed earth, a few weeds. Nothing that explains what happens there at night."
       },
       "valence": "negative"
     },
     {
       "id": 23,
-      "intro": "Grain sacks in the storehouse near {subject_focus_the} have been found empty with the ties still knotted. Not cut, not loosened: tied exactly as they were when full.",
+      "intro": "Grain sacks in the storehouse near {subject_focus_the} have been found empty with the ties still knotted. Not cut, not loosened. Tied exactly as they were when full.",
       "details": [
         "The sacks are intact. No holes, no tears, no sign of anything chewing through. The grain is simply not inside them anymore.",
         "It happens to two or three sacks each night. Always from the same corner of the storehouse, working inward like something is methodical about it.",
@@ -421,7 +421,7 @@
         "The keeper has started sleeping in the storehouse. He says he hasn't seen anything, but he keeps waking up with dirt under his fingernails that wasn't there when he went to sleep."
       ],
       "statCheck": {
-        "pass": "I opened one of the empties and turned it inside out. The inner cloth has a faint residue: not grain dust, something darker, almost like soot. But it doesn't wipe off. It's in the weave itself.",
+        "pass": "I opened one of the empties and turned it inside out. The inner cloth has a faint residue. Not grain dust, something darker, almost like soot. But it doesn't wipe off. It's in the weave itself.",
         "fail": "An empty sack is an empty sack. I cannot tell you where the grain went by staring at the cloth."
       },
       "valence": "negative"
@@ -436,38 +436,38 @@
       ],
       "reactions": [
         "Her sister is the one who worries me most. She says the woman's eyes were open but empty. Like she was asleep on her feet.",
-        "Some people are saying she chose to leave. I saw the look on her face that morning: she was fine. Happy, even. This wasn't a choice."
+        "Some people are saying she chose to leave. I saw the look on her face that morning. She was fine. Happy, even. This wasn't a choice."
       ],
       "statCheck": {
-        "pass": "I went to the collapsed section. The rubble everyone says blocks the path has been moved: not cleared, but rearranged, with a narrow gap just wide enough for one person to slip through. It wasn't there before.",
+        "pass": "I went to the collapsed section. The rubble everyone says blocks the path has been moved. Not cleared, but rearranged, with a narrow gap just wide enough for one person to slip through. It wasn't there before.",
         "fail": "The ruins are unstable and I was told not to go poking around in them. The rubble is too heavy to shift without a crew."
       },
       "valence": "negative"
     },
     {
       "id": 25,
-      "intro": "Blankets and bedrolls have been vanishing from homes near {subject_focus_the}. Not stolen in the usual way: taken from beds while people are sleeping in them.",
+      "intro": "Blankets and bedrolls have been vanishing from homes near {subject_focus_the}. Not stolen in the usual way. Taken from beds while people are sleeping in them.",
       "details": [
         "Three households so far. Each one woke up on a bare mattress with no memory of the blanket being pulled away.",
         "The doors were barred from inside. The windows were latched. Nobody heard anything, nobody woke during the night.",
         "One woman says she went to sleep clutching her blanket because she'd heard about the others. She woke with her hands still closed, gripping nothing."
       ],
       "reactions": [
-        "Losing a blanket is nothing. Losing it while you're under it and never waking up: that's what keeps me from sleeping.",
+        "Losing a blanket is nothing. Losing it while you're under it and never waking up. That's what keeps me from sleeping.",
         "People are joking about it during the day. But nobody laughs about it at night."
       ],
       "statCheck": {
-        "pass": "I noticed something the families didn't think to mention: in every case, the bedroom was colder than it should have been. Not drafty cold. Still cold. Like the warmth had been taken along with the blanket.",
+        "pass": "I noticed something the families didn't think to mention. In every case, the bedroom was colder than it should have been. Not drafty cold. Still cold. Like the warmth had been taken along with the blanket.",
         "fail": "I asked around but the details are so strange that everyone tells the story differently. I cannot sort the facts from the embellishments."
       },
       "valence": "negative"
     },
     {
       "id": 26,
-      "intro": "A stone marker on the trail near {subject_focus_the} vanished overnight. Not toppled, not buried: gone. It had stood there since before anyone alive was born.",
+      "intro": "A stone marker on the trail near {subject_focus_the} vanished overnight. Not toppled, not buried. Gone. It had stood there since before anyone alive was born.",
       "details": [
         "The stone weighed more than two men could lift. It was set deep, with a foundation of packed gravel around the base.",
-        "The hole where it stood is clean. Not dug out: the gravel is still packed smooth at the bottom, undisturbed. Like the stone was never there.",
+        "The hole where it stood is clean. Not dug out. The gravel is still packed smooth at the bottom, undisturbed. Like the stone was never there.",
         "That marker was the boundary between two old land claims. Without it, nobody can agree on where the line falls."
       ],
       "reactions": [
@@ -475,7 +475,7 @@
         "The elder says there used to be seven markers on that trail. She counted last week and there are four."
       ],
       "statCheck": {
-        "pass": "You noticed: four remaining, not six. I went and checked the others. Two more are gone and nobody realized it because they're further out. Whatever is taking them is working from the edges in.",
+        "pass": "You noticed. Four remaining, not six. I went and checked the others. Two more are gone and nobody realized it because they're further out. Whatever is taking them is working from the edges in.",
         "fail": "It is a hole where a stone used to be. The ground tells me nothing I haven't already said."
       },
       "valence": "negative"
@@ -484,26 +484,26 @@
       "id": 27,
       "intro": "Two boats near {subject_focus_the} were found pulled up on shore, gear stowed, sails furled. Their crews are gone. Both boats came in on the same tide.",
       "details": [
-        "The boats were handled properly: anchored, tied off, gear cleaned and packed. Whoever brought them in knew what they were doing.",
+        "The boats were handled properly. Anchored, tied off, gear cleaned and packed. Whoever brought them in knew what they were doing.",
         "Seven people between the two crews. All experienced, all local. Not one has been seen or heard from.",
-        "The holds were empty. Not just of cargo: of personal effects. No jackets, no flasks, no carved tokens. Every trace of the crews was removed."
+        "The holds were empty. Not just of cargo. Of personal effects. No jackets, no flasks, no carved tokens. Every trace of the crews was removed."
       ],
       "reactions": [
         "Seven people don't vanish together without a reason. Either they found something out there or something found them.",
         "The harbor master won't assign those boats to anyone new. He says they feel wrong, though he can't explain what he means by that."
       ],
       "statCheck": {
-        "pass": "I checked the log slates both captains keep lashed to the tiller. One was blank: wiped clean, not just unused. The other had a single mark scratched into the wax, over and over: a circle with a line through it. Neither captain used that symbol before.",
-        "fail": "The boats are in order. Nothing broken, nothing out of place. That is the whole problem: there is too much order and not enough explanation."
+        "pass": "I checked the log slates both captains keep lashed to the tiller. One was blank. Wiped clean, not just unused. The other had a single mark scratched into the wax, over and over. A circle with a line through it. Neither captain used that symbol before.",
+        "fail": "The boats are in order. Nothing broken, nothing out of place. That is the whole problem. There is too much order and not enough explanation."
       },
       "valence": "negative"
     },
     {
       "id": 28,
-      "intro": "Shadows near {subject_focus_the} have been wrong. Not the shapes: the count. People walking in pairs cast three shadows. It started about a week ago.",
+      "intro": "Shadows near {subject_focus_the} have been wrong. Not the shapes. The count. People walking in pairs cast three shadows. It started about a week ago.",
       "details": [
         "It doesn't happen every time. But when the light hits a certain angle, late afternoon mostly, there's an extra shadow between the others. Shorter, thinner, moving on its own.",
-        "I watched my own shadow yesterday afternoon. When I stopped, it stopped. But the third shadow: it kept going for two more steps before it stopped too.",
+        "I watched my own shadow yesterday afternoon. When I stopped, it stopped. But the third shadow. It kept going for two more steps before it stopped too.",
         "The weaver's apprentice pointed it out first. Nobody believed him until the blacksmith saw it happening behind her own shop."
       ],
       "reactions": [
@@ -520,16 +520,16 @@
       "id": 29,
       "intro": "Someone has been entering homes near {subject_focus_the} at night and rearranging small things. A cup moved to the wrong shelf. A chair turned to face the wall. Keys placed in the lock from the inside.",
       "details": [
-        "Nothing is taken. Nothing is damaged. Things are just moved: slightly, deliberately. You wouldn't notice unless you knew where you left them.",
+        "Nothing is taken. Nothing is damaged. Things are just moved. Slightly, deliberately. You wouldn't notice unless you knew where you left them.",
         "It's happened to four homes that I know of. Always on clear nights, always when the household was asleep. Nobody has woken during it.",
         "In one home, every portrait and mirror had been turned to face the wall. The family found them that way at dawn and couldn't explain who had done it."
       ],
       "reactions": [
-        "A thief I can understand. Someone who enters your home and moves your cup but takes nothing: I don't know how to feel about that.",
+        "A thief I can understand. Someone who enters your home and moves your cup but takes nothing. I don't know how to feel about that.",
         "My wife found our kettle on the windowsill last week. I told her she must have left it there. But I know she didn't, and she knows I know."
       ],
       "statCheck": {
-        "pass": "I spoke to all four families separately. In every case, the rearranged items were things associated with memory: portraits, heirlooms, gifts from the dead. Nothing practical was touched. Whoever is doing this knows what things mean to people.",
+        "pass": "I spoke to all four families separately. In every case, the rearranged items were things associated with memory. Portraits, heirlooms, gifts from the dead. Nothing practical was touched. Whoever is doing this knows what things mean to people.",
         "fail": "People misremember where they leave things. I cannot say for certain that anything was moved at all, only that people believe it was."
       },
       "valence": "negative"

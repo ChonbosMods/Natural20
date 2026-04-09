@@ -15,7 +15,7 @@
         "She's more bothered than pleased. A craftsman who can't explain their own work is a craftsman who can't repeat it."
       ],
       "statCheck": {
-        "pass": "I examined the clay she used that day. It had a streak of something different mixed in: a thin vein of reddish mineral that isn't in her normal supply. It must have washed into the clay pit during the last rain.",
+        "pass": "I examined the clay she used that day. It had a streak of something different mixed in. A thin vein of reddish mineral that isn't in her normal supply. It must have washed into the clay pit during the last rain.",
         "fail": "The clay and glaze look identical to her normal work. I have compared them side by side myself. Whatever is different is beyond what the eye can see."
       },
       "valence": "neutral"
@@ -33,7 +33,7 @@
         "Generous stranger or not, I'd like to know who he was. Nobody works that well and travels alone without a reputation."
       ],
       "statCheck": {
-        "pass": "Those interlocking joints without pins: that's a technique from the old guild halls, before the trade routes collapsed. The smiths who used it trained for years on puzzle joinery. This man didn't just learn blacksmithing: he learned a tradition that most people think died out two generations ago.",
+        "pass": "Those interlocking joints without pins. That's a technique from the old guild halls, before the trade routes collapsed. The smiths who used it trained for years on puzzle joinery. This man didn't just learn blacksmithing. He learned a tradition that most people think died out two generations ago.",
         "fail": "Fine metalwork is fine metalwork. I can see it's exceptional, but I could not tell you what school or method produced it."
       },
       "valence": "positive"
@@ -43,7 +43,7 @@
       "intro": "The weaver near {subject_focus_the} found a loom pattern in her late mother's trunk. She tried it, and the cloth it produces repels water completely.",
       "details": [
         "Pour a bucket on it and every drop rolls right off. The fibers stay bone dry.",
-        "It's the same wool she always uses. The pattern is the difference: a tight, complex weave that takes three times as long to produce.",
+        "It's the same wool she always uses. The pattern is the difference. A tight, complex weave that takes three times as long to produce.",
         "Her mother never mentioned it. There are notes alongside the pattern, but they're in a shorthand nobody can read."
       ],
       "reactions": [
@@ -51,7 +51,7 @@
         "I offered to help her decode the notes. Some of the symbols look like the marks on the old bridge stones, which is odd."
       ],
       "statCheck": {
-        "pass": "I studied the notes more carefully. They're not shorthand: they're an old technical notation for tension and twist. The water resistance comes from the specific angle of each thread crossing. It's engineering, not magic.",
+        "pass": "I studied the notes more carefully. They're not shorthand. They're an old technical notation for tension and twist. The water resistance comes from the specific angle of each thread crossing. It's engineering, not magic.",
         "fail": "The symbols do not match any writing system I have seen. Could be personal notation or could be something older."
       },
       "valence": "positive"
@@ -61,7 +61,7 @@
       "intro": "The carpenter near {subject_focus_the} has been building with a wood nobody can identify. Says he found a fallen tree after the last storm and the timber is unlike anything he's worked before.",
       "details": [
         "The grain is so tight you can barely see it. Takes an edge like metal and holds a joint without glue.",
-        "It's heavy: heavier than oak, almost as heavy as stone. But it shapes easily under a sharp blade.",
+        "It's heavy. Heavier than oak, almost as heavy as stone. But it shapes easily under a sharp blade.",
         "The sawdust smells like honey and copper. Strange combination, but not unpleasant."
       ],
       "reactions": [
@@ -69,7 +69,7 @@
         "He went back to where the tree fell to look for more. Found the stump, but no roots. Like the tree had been placed there, not grown."
       ],
       "statCheck": {
-        "pass": "I took a sliver and burned it. The flame was green and the ash was metalite: dense and black. This wood has mineral content woven through its fibers. It grew somewhere with very unusual soil.",
+        "pass": "I took a sliver and burned it. The flame was green and the ash was metalite. Dense and black. This wood has mineral content woven through its fibers. It grew somewhere with very unusual soil.",
         "fail": "It looks and feels like extremely high-quality hardwood, nothing more. Without proper tools, there is no telling what makes it special."
       },
       "valence": "positive"
@@ -78,7 +78,7 @@
       "id": 4,
       "intro": "An apprentice glassblower near {subject_focus_the} accidentally created a lens that lets you see things that aren't there. Or things that are there but shouldn't be visible.",
       "details": [
-        "Look through it at the old foundation stones and you can see markings that aren't visible to the naked eye: carved lines that glow faintly blue.",
+        "Look through it at the old foundation stones and you can see markings that aren't visible to the naked eye. Carved lines that glow faintly blue.",
         "Look through it at the sky at dusk and you can see thin threads of light connecting the hilltops, like a web.",
         "The apprentice tried to make another one. Same sand, same temperature. The second lens is just normal glass."
       ],
@@ -87,7 +87,7 @@
         "I looked through it once. I saw enough to know I don't want to look again. Some things are invisible for a reason."
       ],
       "statCheck": {
-        "pass": "The master's reaction tells me more than the lens itself. He's not angry because it's flawed: he's angry because he recognizes what it does. I think he's seen one before and he knows what kind of attention it draws. His fear isn't about the glass: it's about who comes looking for it.",
+        "pass": "The master's reaction tells me more than the lens itself. He's not angry because it's flawed. He's angry because he recognizes what it does. I think he's seen one before and he knows what kind of attention it draws. His fear isn't about the glass. It's about who comes looking for it.",
         "fail": "Strange glass, strange effects. I do not know enough about lenswork to say whether it is a fluke or something intentional."
       },
       "valence": "neutral"
@@ -97,15 +97,15 @@
       "intro": "The ore coming out of the quarry near {subject_focus_the} has changed. It used to smelt clean and bright, but the last few loads come out brittle and full of slag.",
       "details": [
         "The smith tried adjusting the temperature, the timing, the flux. Nothing helps. The metal cracks when you try to draw it out.",
-        "It started about a month ago. The quarry crew says they haven't changed their dig site, but the rock looks different: darker veins running through it.",
+        "It started about a month ago. The quarry crew says they haven't changed their dig site, but the rock looks different. Darker veins running through it.",
         "We've had to set aside half the last shipment. Can't sell brittle iron, and you certainly can't build with it."
       ],
       "reactions": [
-        "It's not just an inconvenience. People depend on good iron. Tools, nails, hinges: everything that holds a settlement together.",
+        "It's not just an inconvenience. People depend on good iron. Tools, nails, hinges. Everything that holds a settlement together.",
         "The quarry master swears the seam is fine. The smith swears the ore is bad. I've given up trying to referee."
       ],
       "statCheck": {
-        "pass": "I looked at the reject pieces closely. The dark veining isn't iron at all: it's some kind ofite that melts at a lower temperature and poisons the rest of the pour. The seam must have shifted into a mixed deposit.",
+        "pass": "I looked at the reject pieces closely. The dark veining isn't iron at all. It's some kind ofite that melts at a lower temperature and poisons the rest of the pour. The seam must have shifted into a mixed deposit.",
         "fail": "Bad ore is bad ore. Could be a hundred reasons. Without a proper assay there is no way to know what changed underground."
       },
       "valence": "negative"
@@ -115,15 +115,15 @@
       "intro": "I've been through four chisels this season. They dull in half the time they used to, and I haven't changed how I sharpen them.",
       "details": [
         "The steel is softer. You can feel it when the edge folds instead of holding. Used to get a week of carving out of a fresh edge, now I'm lucky to get three days.",
-        "I sent one back to the smith who made them. She said the steel is the same grade she's always sold. But it isn't: I can tell by how the shavings curl.",
+        "I sent one back to the smith who made them. She said the steel is the same grade she's always sold. But it isn't. I can tell by how the shavings curl.",
         "Other folks are noticing too. The farrier says his rasps are wearing down twice as fast."
       ],
       "reactions": [
         "When your tools go soft, your work goes slow. And slow work means hungry weeks.",
-        "I don't blame the smith. She's working with what she can get. The problem is upstream: whoever is supplying her stock."
+        "I don't blame the smith. She's working with what she can get. The problem is upstream. Whoever is supplying her stock."
       ],
       "statCheck": {
-        "pass": "I looked at the grain structure on a broken edge. The steel has larger crystals than it should: it was cooled too quickly after forging. The supplier is rushing the quench to push out more stock. Faster production, weaker blades.",
+        "pass": "I looked at the grain structure on a broken edge. The steel has larger crystals than it should. It was cooled too quickly after forging. The supplier is rushing the quench to push out more stock. Faster production, weaker blades.",
         "fail": "Steel quality is hard to judge by eye. It all looks the same until it fails, and by then it is too late."
       },
       "valence": "negative"
@@ -141,7 +141,7 @@
         "I feel for the master. Training someone while keeping the shop running is like building a boat while you're already at sea."
       ],
       "statCheck": {
-        "pass": "The new charcoal is denser than the old supply: burns hotter because there's less air trapped in it. The apprentice isn't wrong. Same bellows rhythm produces a different fire. The master needs to adjust, not just the boy.",
+        "pass": "The new charcoal is denser than the old supply. Burns hotter because there's less air trapped in it. The apprentice isn't wrong. Same bellows rhythm produces a different fire. The master needs to adjust, not just the boy.",
         "fail": "Charcoal is charcoal, as far as I can tell. Some batches burn longer, some shorter. I would not know why."
       },
       "valence": "negative"
@@ -152,14 +152,14 @@
       "details": [
         "He won't say what he's using. Just that it's a plant extract he found growing wild near the river. The results are remarkable, but his neighbors are furious.",
         "The leather bends like cloth and holds water better than anything he's made before. A saddler tested a piece and said it was the best hide she'd ever worked with.",
-        "The smell lingers for days after curing. Not just in the workshop: it seeps into every house within a stone's throw."
+        "The smell lingers for days after curing. Not just in the workshop. It seeps into every house within a stone's throw."
       ],
       "reactions": [
         "He's made the best leather anyone around here has ever seen, and half the settlement wants him gone for it. That's craftsmanship for you.",
         "His wife told him to figure out the smell or find somewhere else to sleep. I think that's all the motivation he needs."
       ],
       "statCheck": {
-        "pass": "I recognized the plant he's using. It grows where old waste pits used to be: the soil there is rich in compounds that break down fiber without destroying it. The smell is the plant's defense. If he dried the extract before mixing it in, he'd keep the softening effect and lose most of the odor.",
+        "pass": "I recognized the plant he's using. It grows where old waste pits used to be. The soil there is rich in compounds that break down fiber without destroying it. The smell is the plant's defense. If he dried the extract before mixing it in, he'd keep the softening effect and lose most of the odor.",
         "fail": "Plants and leather are not my area. He says the extract works, and the results speak for themselves. The smell is the problem to solve, not the method."
       },
       "valence": "neutral"
@@ -168,7 +168,7 @@
       "id": 9,
       "intro": "I found my grandfather's old draw knife in the back of the workshop. The handle is cracked, but the blade is still sharp after forty years.",
       "details": [
-        "The steel has a pattern in it I've never seen before: wavy lines that catch the light differently depending on the angle. Not etched. It's in the metal itself.",
+        "The steel has a pattern in it I've never seen before. Wavy lines that catch the light differently depending on the angle. Not etched. It's in the metal itself.",
         "My grandfather never said where he got it. He had other tools from the same maker, but this is the only one that survived the fire.",
         "I tried matching the edge angle on a new blade. Couldn't hold it. Whatever steel this is, it takes a finer edge than anything I can buy today."
       ],
@@ -177,7 +177,7 @@
         "I wish I'd asked him about his tools when he was alive. You never think to ask the important questions until it's too late."
       ],
       "statCheck": {
-        "pass": "That pattern in the steel: it's a layered forging technique. Folding two different metals together, over and over. The old smiths used it because the layers give you a hard edge backed by flexible steel. Nobody around here does it anymore because it takes ten times the labor.",
+        "pass": "That pattern in the steel. It's a layered forging technique. Folding two different metals together, over and over. The old smiths used it because the layers give you a hard edge backed by flexible steel. Nobody around here does it anymore because it takes ten times the labor.",
         "fail": "Old tools are sometimes better than new ones. Could be better steel, could be better craftsmanship. Hard to say without knowing who made it."
       },
       "valence": "positive"
@@ -187,7 +187,7 @@
       "intro": "The mason rebuilding the wall near {subject_focus_the} discovered the original mortar is harder than the stone around it. She can't chip it out without cracking the blocks.",
       "details": [
         "Modern mortar crumbles after twenty years. This stuff has been there for who knows how long and it's stronger than the day it was set.",
-        "She ground a piece down and said it has flecks of something in it: not sand, notite. Something she's never worked with.",
+        "She ground a piece down and said it has flecks of something in it. Not sand, notite. Something she's never worked with.",
         "The color is wrong too. Standard mortar dries gray. This is almost white, with a faint blue tint when the light hits it."
       ],
       "reactions": [
@@ -195,7 +195,7 @@
         "There's a lesson in it. We assume we're better at everything than the people who came before. Sometimes we just lost what they knew."
       ],
       "statCheck": {
-        "pass": "I've seen that blue tint before: in the aggregate near old riverbeds where the water runs through mineral deposits. Whoever mixed that mortar used river gravel from a specific stretch. The mineralsite into something harder than stone when they cure.",
+        "pass": "I've seen that blue tint before. In the aggregate near old riverbeds where the water runs through mineral deposits. Whoever mixed that mortar used river gravel from a specific stretch. The mineralsite into something harder than stone when they cure.",
         "fail": "Old construction techniques are full of surprises. Without knowing what they mixed in, there is no way to replicate it."
       },
       "valence": "neutral"
@@ -205,15 +205,15 @@
       "intro": "A cooper near {subject_focus_the} took on a commission for six barrels and every single one leaked. Same staves, same hooping technique he's used for years.",
       "details": [
         "The wood swelled unevenly. Some staves expanded tight, others stayed loose and let water seep through the joints.",
-        "He stripped one down and checked the grain. The rings are uneven: wide growth one year, tight the next. The wood didn't dry consistently because it didn't grow consistently.",
+        "He stripped one down and checked the grain. The rings are uneven. Wide growth one year, tight the next. The wood didn't dry consistently because it didn't grow consistently.",
         "His supplier swears the timber came from the same stand as always. But something has changed about how those trees are growing."
       ],
       "reactions": [
         "Six barrels is two weeks of work. Having to start over with new wood is bad enough. Losing the customer's trust is worse.",
-        "He's a good cooper. This isn't a skill problem: it's a material problem. But try explaining that to someone with a wet cellar floor."
+        "He's a good cooper. This isn't a skill problem. It's a material problem. But try explaining that to someone with a wet cellar floor."
       ],
       "statCheck": {
-        "pass": "I split a stave lengthwise and looked at the growth pattern. The rings aren't just uneven: they alternate sharply between wet-season and dry-season growth. That timber came from trees at the edge of a shifting water source. The wood absorbs and releases moisture at different rates across the grain. You can't make watertight barrels from it because the staves will never swell uniformly.",
+        "pass": "I split a stave lengthwise and looked at the growth pattern. The rings aren't just uneven. They alternate sharply between wet-season and dry-season growth. That timber came from trees at the edge of a shifting water source. The wood absorbs and releases moisture at different rates across the grain. You can't make watertight barrels from it because the staves will never swell uniformly.",
         "fail": "Wood quality varies from tree to tree. I cannot tell what makes one batch swell properly and another fail. That is the cooper's expertise, not mine."
       },
       "valence": "negative"
@@ -231,7 +231,7 @@
         "She won't sell brown cloth as red cloth. I respect that. Some people would just call it 'russet' and charge the same."
       ],
       "statCheck": {
-        "pass": "The soil near those roots has changed. I checked: the water table shifted after the last heavy season, and the bank where she digs is drier than it used to be. The roots are stressed. They're still alive, but they're not producing the same compounds.",
+        "pass": "The soil near those roots has changed. I checked. The water table shifted after the last heavy season, and the bank where she digs is drier than it used to be. The roots are stressed. They're still alive, but they're not producing the same compounds.",
         "fail": "Dyes are fickle. Could be the water, could be the season, could be the roots themselves. I do not know enough about the craft to say."
       },
       "valence": "negative"
@@ -242,14 +242,14 @@
       "details": [
         "The carpenter measures in hand-spans and notch marks. The mason measures with a knotted cord. Their numbers never line up.",
         "They've cut three sets of crossbeams so far. Each one was either a finger too long or a finger too short where wood meets stone.",
-        "The bridge needs both skills: stone piers and timber decking. Neither can do it alone, and together they just argue."
+        "The bridge needs both skills. Stone piers and timber decking. Neither can do it alone, and together they just argue."
       ],
       "reactions": [
         "It would be funny if the bridge wasn't actually falling apart. People need to cross it every day.",
         "I told them to make one measuring stick and both use it. They looked at me like I'd suggested they share a wife."
       ],
       "statCheck": {
-        "pass": "The problem isn't their skill: it's their units. The mason's knotted cord stretches when it's damp. On a dry day their measurements nearly agree. On a wet day they're off by a full finger per length. If the mason switches to a rigid rod, the disagreement disappears.",
+        "pass": "The problem isn't their skill. It's their units. The mason's knotted cord stretches when it's damp. On a dry day their measurements nearly agree. On a wet day they're off by a full finger per length. If the mason switches to a rigid rod, the disagreement disappears.",
         "fail": "Measurement disputes are above my head. They both seem competent. I suppose they will sort it out eventually."
       },
       "valence": "negative"
@@ -258,7 +258,7 @@
       "id": 14,
       "intro": "The forge near {subject_focus_the} has been running cold. The smith says she can't get the temperature right no matter how much fuel she uses.",
       "details": [
-        "The metal comes out under-worked: still stiff where it should be shaped, with cold spots that won't take a hammer properly.",
+        "The metal comes out under-worked. Still stiff where it should be shaped, with cold spots that won't take a hammer properly.",
         "She checked the chimney draw, replaced the firebrick, even rebuilt the air channel. Nothing changed.",
         "Other smiths she's talked to aren't having the same problem. It's just her forge, which makes it harder to explain."
       ],
@@ -267,7 +267,7 @@
         "A smith without a working forge is a farmer without soil. She's losing commissions to the smith two settlements over."
       ],
       "statCheck": {
-        "pass": "I spent time watching the fire closely. The draft pulls sideways before it goes up. Something below the forge floor is channeling air where it shouldn't go: maybe an old cellar or a collapsed passage underneath. The heat is being stolen before it reaches the metal.",
+        "pass": "I spent time watching the fire closely. The draft pulls sideways before it goes up. Something below the forge floor is channeling air where it shouldn't go. Maybe an old cellar or a collapsed passage underneath. The heat is being stolen before it reaches the metal.",
         "fail": "Forges are temperamental. Could be the fuel, could be the weather, could be the chimney. I have watched her work and nothing obvious stood out."
       },
       "valence": "negative"
@@ -276,7 +276,7 @@
       "id": 15,
       "intro": "The stonecutter near {subject_focus_the} pulled a block from the old quarry face and found tool marks inside it. Someone carved channels into the rock and then the stone grew over them.",
       "details": [
-        "The channels are precise: evenly spaced, smooth-walled, about a finger's width. Not natural cracks. Someone cut those with intention.",
+        "The channels are precise. Evenly spaced, smooth-walled, about a finger's width. Not natural cracks. Someone cut those with intention.",
         "The stone layer that sealed them over is at least a hand's thickness. That kind of growth takes a very long time.",
         "When water runs through the channels, it flows in a spiral pattern toward the center of the block. Like it was designed to collect something."
       ],
@@ -285,17 +285,17 @@
         "Whoever carved those channels knew the stone would grow back over them. That means they planned for no one to find them. We just got lucky."
       ],
       "statCheck": {
-        "pass": "The spiral pattern isn't random: it matches the old water-collection channels I've read about in foundation ruins elsewhere. Someone was using the living rock as a filtration system. The stone itself purifies whatever passes through it.",
+        "pass": "The spiral pattern isn't random. It matches the old water-collection channels I've read about in foundation ruins elsewhere. Someone was using the living rock as a filtration system. The stone itself purifies whatever passes through it.",
         "fail": "Old tool marks in old stone. Could have been quarried before and abandoned. Without knowing who worked that face originally, there is no way to say why."
       },
       "valence": "neutral"
     },
     {
       "id": 16,
-      "intro": "I tried a different joint on a cabinet last week. Dovetail variation I'd never seen before: found a sketch of it on a scrap of paper stuffed inside an old workbench I bought.",
+      "intro": "I tried a different joint on a cabinet last week. Dovetail variation I'd never seen before. Found a sketch of it on a scrap of paper stuffed inside an old workbench I bought.",
       "details": [
         "The joint uses a hidden wedge that tightens when the wood swells in damp air. Most joints loosen when it's humid. This one gets stronger.",
-        "It took me three attempts to cut it right. The angles are counterintuitive: you have to cut against what feels natural, and trust the geometry.",
+        "It took me three attempts to cut it right. The angles are counterintuitive. You have to cut against what feels natural, and trust the geometry.",
         "The scrap had other sketches too, but they're damaged. Water stains took most of the detail. This was the only one clear enough to follow."
       ],
       "reactions": [
@@ -303,7 +303,7 @@
         "I'm keeping that scrap of paper safer than anything else in my workshop. There might be more to recover if I can find someone who restores old documents."
       ],
       "statCheck": {
-        "pass": "The wedge geometry isn't just clever: it's mathematical. The angles correspond to the natural expansion ratio of hardwood across the grain. Whoever drew this understood the material at a level most woodworkers never reach. This is engineering hidden inside a craft technique.",
+        "pass": "The wedge geometry isn't just clever. It's mathematical. The angles correspond to the natural expansion ratio of hardwood across the grain. Whoever drew this understood the material at a level most woodworkers never reach. This is engineering hidden inside a craft technique.",
         "fail": "Unusual joint, well made. Beyond that I could not tell you what makes it special. Joinery is not my area."
       },
       "valence": "positive"
@@ -318,10 +318,10 @@
       ],
       "reactions": [
         "She knew the patch was temporary. Everyone told her to rebuild then. But rebuilding means a month of no income, and she couldn't afford the gap.",
-        "Now the gap is bigger than a month. That's the thing about putting off repairs: the cost only goes up."
+        "Now the gap is bigger than a month. That's the thing about putting off repairs. The cost only goes up."
       ],
       "statCheck": {
-        "pass": "The crack didn't just follow the old repair: it followed a line of original bricks that were laid with the grain running the wrong way. Kiln bricks need to be oriented so the thermal expansion goes lengthwise. Whoever built the kiln originally set that row crosswise. Every repair since has been patching a flaw that was there from day one.",
+        "pass": "The crack didn't just follow the old repair. It followed a line of original bricks that were laid with the grain running the wrong way. Kiln bricks need to be oriented so the thermal expansion goes lengthwise. Whoever built the kiln originally set that row crosswise. Every repair since has been patching a flaw that was there from day one.",
         "fail": "Kilns crack. Fire and clay are always fighting each other. Without seeing the original construction, I could not say what went wrong first."
       },
       "valence": "negative"
@@ -348,16 +348,16 @@
       "id": 19,
       "intro": "A tinker came through {subject_focus_the} last month and offered to fix anything for a meal and a place to sleep. Fixed more in one night than I'd seen done in a year.",
       "details": [
-        "The latch on the storehouse that's been sticking for three seasons: fixed. The pump handle that wobbled: fixed. The weathervane that pointed the wrong way: fixed and balanced.",
+        "The latch on the storehouse that's been sticking for three seasons. Fixed. The pump handle that wobbled. Fixed. The weathervane that pointed the wrong way. Fixed and balanced.",
         "She worked fast but not rushed. Took each thing apart, understood it, put it back better than it was. Didn't say much while she worked.",
         "She had tools I've never seen before. Small, precise, made of a dark metal that didn't reflect light. She made them herself, she said."
       ],
       "reactions": [
         "People kept bringing things out to her. A broken hinge here, a stuck lock there. She fixed everything until she ran out of daylight.",
-        "She was gone before dawn. Didn't leave a name. I wish she'd stayed: we could use someone who sees broken things as problems worth solving."
+        "She was gone before dawn. Didn't leave a name. I wish she'd stayed. We could use someone who sees broken things as problems worth solving."
       ],
       "statCheck": {
-        "pass": "Those dark tools she carried: I got a close look while she was working. The metal had no forge marks, no file lines, no grinding pattern. They were cast in a single pour, which means she has access to molds precise enough to produce finished tools without shaping. That level of toolmaking hasn't been common since the old foundries closed.",
+        "pass": "Those dark tools she carried. I got a close look while she was working. The metal had no forge marks, no file lines, no grinding pattern. They were cast in a single pour, which means she has access to molds precise enough to produce finished tools without shaping. That level of toolmaking hasn't been common since the old foundries closed.",
         "fail": "She worked too fast for me to learn anything from watching. By the time I understood what she was doing, she had already moved on to the next repair."
       },
       "valence": "positive"
@@ -375,7 +375,7 @@
         "The farmers say the straw is fine for their purposes. But what's fine for bedding isn't fine for roofing. Different standards."
       ],
       "statCheck": {
-        "pass": "The straw isn't just shorter: it's thinner-walled. I broke a few stems and compared them to old stock. The cell structure is looser, like the plants grew faster but weaker. Something about the growing conditions changed: likely the soil losing nutrients after too many seasons without rest.",
+        "pass": "The straw isn't just shorter. It's thinner-walled. I broke a few stems and compared them to old stock. The cell structure is looser, like the plants grew faster but weaker. Something about the growing conditions changed. Likely the soil losing nutrients after too many seasons without rest.",
         "fail": "Straw quality varies year to year. Whether this is a bad season or a lasting change, I could not tell you."
       },
       "valence": "negative"
@@ -384,7 +384,7 @@
       "id": 21,
       "intro": "The blacksmith near {subject_focus_the} poured an ingot last week that came out with a pattern in it. Swirls and lines in the metal that she didn't put there.",
       "details": [
-        "The pattern looks almost like wood grain: flowing curves that ripple across the surface when you polish it. The metal itself is sound, but the markings are strange.",
+        "The pattern looks almost like wood grain. Flowing curves that ripple across the surface when you polish it. The metal itself is sound, but the markings are strange.",
         "She melted the same batch of scrap she always uses. Same crucible, same temperature. Nothing in the process explains it.",
         "She poured two more ingots from the same melt. Both came out plain. Whatever caused the pattern, it only happened once."
       ],
@@ -393,25 +393,25 @@
         "A few people have offered to buy it as a curiosity. She won't sell. For a smith, an unexplained result is a question, not a product."
       ],
       "statCheck": {
-        "pass": "I've seen those patterns described in old metalworking texts: they appear when two metals with different cooling rates are present in the same pour. There's something in her scrap pile that isn't what she thinks it is. A fragment of something unusual that melted in with the rest.",
+        "pass": "I've seen those patterns described in old metalworking texts. They appear when two metals with different cooling rates are present in the same pour. There's something in her scrap pile that isn't what she thinks it is. A fragment of something unusual that melted in with the rest.",
         "fail": "Patterns in cast metal happen sometimes. Cooling irregularities, air pockets, impurities. Without testing the ingot properly, there is no way to know."
       },
       "valence": "neutral"
     },
     {
       "id": 22,
-      "intro": "The woodworker near {subject_focus_the} cut into a plank and found the grain spiraling inward toward the center. Not curving with growth rings: spiraling, like a whirlpool frozen in wood.",
+      "intro": "The woodworker near {subject_focus_the} cut into a plank and found the grain spiraling inward toward the center. Not curving with growth rings. Spiraling, like a whirlpool frozen in wood.",
       "details": [
         "Normal grain runs parallel or curves gently with the tree's growth. This grain turns inward in a tight spiral. She's never seen anything like it in thirty years of milling.",
         "The wood at the spiral's center is darker and denser. Her chisel barely marks it. The outer wood planes normally, but the closer you get to the center, the harder it becomes.",
         "She's cut three more planks from the same log. Every one has the same spiral, centered in the same place relative to the heartwood."
       ],
       "reactions": [
-        "She's fascinated and frustrated in equal measure. The spiral makes the wood nearly impossible to join: nothing sits flat against it.",
+        "She's fascinated and frustrated in equal measure. The spiral makes the wood nearly impossible to join. Nothing sits flat against it.",
         "She set one piece on the workbench as a display. Customers keep touching it. Something about the spiral pulls the eye."
       ],
       "statCheck": {
-        "pass": "The spiral follows a precise mathematical ratio: each turn tightens by the same proportion. That doesn't happen naturally. The tree grew around something that was guiding it. Whatever was at the center is gone now, but the wood remembers the shape.",
+        "pass": "The spiral follows a precise mathematical ratio. Each turn tightens by the same proportion. That doesn't happen naturally. The tree grew around something that was guiding it. Whatever was at the center is gone now, but the wood remembers the shape.",
         "fail": "Wood grows in strange patterns sometimes. Burls, knots, twisted grain. Unusual, but without knowing the tree's history there is not much to conclude."
       },
       "valence": "neutral"
@@ -421,15 +421,15 @@
       "intro": "I've been training my niece at the workbench. She's got steady hands and a good eye, but she rushes. Every piece she makes is almost right.",
       "details": [
         "Almost right is the hardest thing to fix. If she made ugly joints, I could show her the technique. But her joints look fine until you test them, and then they shift.",
-        "She measures once and cuts. I've told her a dozen times: measure, mark, check, then cut. She nods and then does exactly the same thing.",
+        "She measures once and cuts. I've told her a dozen times. Measure, mark, check, then cut. She nods and then does exactly the same thing.",
         "Last week she made a box that looked beautiful. Square corners, clean edges. I set a weight on the lid and the whole thing racked sideways."
       ],
       "reactions": [
-        "Patience isn't something you can teach. She has to learn it the hard way: by ruining enough pieces that she starts dreading the waste.",
+        "Patience isn't something you can teach. She has to learn it the hard way. By ruining enough pieces that she starts dreading the waste.",
         "She'll be good. Maybe better than me, eventually. But right now she's in the valley where enthusiasm outpaces skill, and that's a painful place to be."
       ],
       "statCheck": {
-        "pass": "I watched her work. Her technique is actually sound: the problem is she's not letting the wood tell her where to cut. She reads the grain too fast and misses the direction changes. If she slowed down at the marking stage, the rest of her process would produce perfect joints. The speed isn't the root issue: it's that she's skipping the reading step.",
+        "pass": "I watched her work. Her technique is actually sound. The problem is she's not letting the wood tell her where to cut. She reads the grain too fast and misses the direction changes. If she slowed down at the marking stage, the rest of her process would produce perfect joints. The speed isn't the root issue. It's that she's skipping the reading step.",
         "fail": "Training someone takes patience on both sides. I would not presume to judge her progress without seeing her work myself."
       },
       "valence": "neutral"
@@ -447,7 +447,7 @@
         "Three generations of the same recipe, and now it fails on his watch. He feels like he's letting his father and grandfather down, which is harder on him than the lost glass."
       ],
       "statCheck": {
-        "pass": "The recipe hasn't failed: the chalk has changed. I crushed a piece between my fingers and it's grittier than proper glazing chalk should be. His supplier is cutting it with groundite to stretch the supply. The oil can't bind with adulterated chalk. The recipe is fine: the ingredient is dishonest.",
+        "pass": "The recipe hasn't failed. The chalk has changed. I crushed a piece between my fingers and it's grittier than proper glazing chalk should be. His supplier is cutting it with groundite to stretch the supply. The oil can't bind with adulterated chalk. The recipe is fine. The ingredient is dishonest.",
         "fail": "Putty recipes are particular. One wrong proportion and the whole batch goes bad. I would not know which ingredient to blame."
       },
       "valence": "negative"
@@ -456,7 +456,7 @@
       "id": 25,
       "intro": "The cobbler near {subject_focus_the} was resoling a pair of old boots and found a layer of metal mesh between the leather and the sole. She's never seen construction like it.",
       "details": [
-        "The mesh is finer than chainmail: tiny interlocking rings, each no bigger than a grain of wheat. Flexible enough to bend with the sole, but tough enough that her awl barely dents it.",
+        "The mesh is finer than chainmail. Tiny interlocking rings, each no bigger than a grain of wheat. Flexible enough to bend with the sole, but tough enough that her awl barely dents it.",
         "The boots are old but not ancient. Maybe twenty, thirty years. Whoever made them intended the mesh to be hidden. It's stitched between layers with thread she can't identify.",
         "She pulled a single ring free and tried to cut it with her shears. The shears lost their edge. The ring is unmarked."
       ],
@@ -465,7 +465,7 @@
         "The owner didn't know about the mesh. He inherited the boots from an uncle and just wanted new soles. Now he has questions about the uncle."
       ],
       "statCheck": {
-        "pass": "I've handled that kind of mesh once before, in a piece of old armor brought in for scrap. It's drawn wire, not cast: each ring pulled through a die until it's hair-thin but dense. The technique takes months for a single sheet. Whoever made those boots had resources and reasons that go well beyond cobbling.",
+        "pass": "I've handled that kind of mesh once before, in a piece of old armor brought in for scrap. It's drawn wire, not cast. Each ring pulled through a die until it's hair-thin but dense. The technique takes months for a single sheet. Whoever made those boots had resources and reasons that go well beyond cobbling.",
         "fail": "Fine metalwork stitched into leather. Beyond noting that it is very well made, I could not tell you much about the technique or origin."
       },
       "valence": "neutral"
@@ -476,14 +476,14 @@
       "details": [
         "She heats it to yellow and it still fights the curve. The metal moves a fraction and springs back. She's never worked stock this stubborn.",
         "The iron came from the same supplier she's used for years. Same stamps on the bars, same weight per length. But it doesn't behave the same.",
-        "She tried welding a test piece and the joint held: the metal fuses fine. It just won't bend. Like it remembers being straight."
+        "She tried welding a test piece and the joint held. The metal fuses fine. It just won't bend. Like it remembers being straight."
       ],
       "reactions": [
-        "She's behind on the commission now. The customer doesn't care why the iron won't bend: they care when the railings arrive.",
+        "She's behind on the commission now. The customer doesn't care why the iron won't bend. They care when the railings arrive.",
         "A material that welds but won't shape is backwards from everything she knows. Her master would have called it contrary iron and charged double for the trouble."
       ],
       "statCheck": {
-        "pass": "That spring-back behavior: I've seen it in metal that's been work-hardened before it reaches the smith. Someone at the supplier is drawing the bars through a die to get consistent dimensions, and the drawing process is stiffening the iron. She needs to anneal it before shaping: heat it past red and let it cool slowly. The hardness will come out.",
+        "pass": "That spring-back behavior. I've seen it in metal that's been work-hardened before it reaches the smith. Someone at the supplier is drawing the bars through a die to get consistent dimensions, and the drawing process is stiffening the iron. She needs to anneal it before shaping. Heat it past red and let it cool slowly. The hardness will come out.",
         "fail": "Iron is iron, as far as I know. Some batches cooperate and some do not. I would not know what makes the difference."
       },
       "valence": "negative"
@@ -493,7 +493,7 @@
       "intro": "The basket weaver near {subject_focus_the} has been getting requests she doesn't know how to fill. People want shapes she's never woven before.",
       "details": [
         "Tall and narrow with a sealed bottom, like a tube. Flat and wide with a raised rim, like a tray but deeper. Shapes that don't follow how reed naturally bends.",
-        "She can make round, oval, and square. Always has. But these new shapes need the reed to do things it doesn't want to do: sharp angles, tight curves in the wrong direction.",
+        "She can make round, oval, and square. Always has. But these new shapes need the reed to do things it doesn't want to do. Sharp angles, tight curves in the wrong direction.",
         "She broke more reed last week than she's broken in a year. Each failed attempt is material wasted and time lost."
       ],
       "reactions": [
@@ -501,7 +501,7 @@
         "I admire that she hasn't just said no. A lot of craftspeople would turn away work they can't do. She's teaching herself something new instead."
       ],
       "statCheck": {
-        "pass": "Those shapes she's been asked for: they're not random requests. The tall tube is a scroll case, the deep tray is a document sorter. Someone is setting up an archive or a records office. Whoever placed the order knows exactly what they need and is sourcing locally to avoid attention. That's deliberate.",
+        "pass": "Those shapes she's been asked for. They're not random requests. The tall tube is a scroll case, the deep tray is a document sorter. Someone is setting up an archive or a records office. Whoever placed the order knows exactly what they need and is sourcing locally to avoid attention. That's deliberate.",
         "fail": "People want what they want. I have no idea why anyone would need a basket shaped like a tube, but it is not my place to question the customer."
       },
       "valence": "positive"
@@ -519,7 +519,7 @@
         "We need to pick one and commit. Doesn't matter which, as long as everyone uses the same standard. That argument has been going on for two weeks."
       ],
       "statCheck": {
-        "pass": "Neither rod is wrong: the old one shrank. Hardwood loses length over decades as the fibers dry and compress. I've seen this in old survey stakes at boundary disputes. The buildings were accurate when they were built. The measuring rod aged and the buildings didn't. The new rod is true: the old one is a record of what 'true' used to be.",
+        "pass": "Neither rod is wrong. The old one shrank. Hardwood loses length over decades as the fibers dry and compress. I've seen this in old survey stakes at boundary disputes. The buildings were accurate when they were built. The measuring rod aged and the buildings didn't. The new rod is true. The old one is a record of what 'true' used to be.",
         "fail": "Two rods, two answers. I cannot tell you which is correct without a third reference, and nobody seems to have one."
       },
       "valence": "negative"
@@ -529,7 +529,7 @@
       "intro": "The potter near {subject_focus_the} fired a batch of storage jars and every one came out a different color. Same clay, same glaze, same kiln position.",
       "details": [
         "One is deep blue, another is green verging on black, a third is a pale amber she's never produced before. The glazes shouldn't be capable of that range.",
-        "She kept careful notes on everything: temperature, firing time, how long she let the kiln cool. All identical. The only variable she can't control is the kiln atmosphere.",
+        "She kept careful notes on everything. Temperature, firing time, how long she let the kiln cool. All identical. The only variable she can't control is the kiln atmosphere.",
         "The jars are structurally perfect. Sound walls, good seals, no cracks. Whatever happened, it only affected the surface."
       ],
       "reactions": [
@@ -538,7 +538,7 @@
       ],
       "statCheck": {
         "pass": "The kiln draws air from below the floor. If something in the ground is releasing different gases at different times during the firing, it would change the atmosphere inside the kiln zone by zone. Each jar got a slightly different chemical environment. The ground beneath that kiln is venting something.",
-        "fail": "Kiln results vary. Temperature gradients, draft shifts, glaze thickness: any of those could produce color differences. Without monitoring the entire firing, there is no way to isolate the cause."
+        "fail": "Kiln results vary. Temperature gradients, draft shifts, glaze thickness. Any of those could produce color differences. Without monitoring the entire firing, there is no way to isolate the cause."
       },
       "valence": "positive"
     }

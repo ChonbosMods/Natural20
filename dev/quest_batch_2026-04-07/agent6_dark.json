@@ -3,15 +3,23 @@
     "id": "necessity_of_sacrificing_loved_ones_01",
     "situation": "necessity_of_sacrificing_loved_ones",
     "objectives": [
-      { "type": "KILL_MOBS", "countMin": 4, "countMax": 7 },
-      { "type": "FETCH_ITEM" },
-      { "type": "TALK_TO_NPC" }
+      {
+        "type": "KILL_MOBS",
+        "countMin": 4,
+        "countMax": 7
+      },
+      {
+        "type": "FETCH_ITEM"
+      },
+      {
+        "type": "TALK_TO_NPC"
+      }
     ],
     "expositionText": "My brother is dying. I haven't been able to get to him because the {enemy_type_plural} have been thick around here and I'm not the fighter I used to be. I need {kill_count} of them dealt with. I want to spend his last days at his side, not stuck in {settlement_name} listening to the wind.",
     "acceptText": "Thank you. I won't pretend this is easy to ask. Knowing you said yes makes the next part possible.",
     "declineText": "I understand. It's a heavy thing to put on a stranger. I'll find another way, or I won't, and either way I'll live with it.",
     "expositionTurnInText": "It's quieter now. I can hear myself think for the first time in days. There's something else I need before I can go to him, and I can't bring myself to face the looking.",
-    "conflict1Text": "He always kept a {quest_item} on him. I'd like one in my hand when I sit down beside him: something familiar, something he'd recognize even now. If one turns up out there, bring it to me. I can't go searching myself.",
+    "conflict1Text": "He always kept a {quest_item} on him. I'd like one in my hand when I sit down beside him. Something familiar, something he'd recognize even now. If one turns up out there, bring it to me. I can't go searching myself.",
     "conflict1TurnInText": "That's the one. Or close enough that he'll know what I meant by it. I can feel my hands stop shaking just holding it.",
     "conflict2Text": "There's one more thing, and it's the hardest. {target_npc} in {target_npc_settlement} should know. They were close to him once, before everything got complicated between them. Tell {target_npc_role} what's happening, in person. Don't soften it.",
     "conflict2TurnInText": "Then it's done. They know, and that's what mattered. I owed them that much, even if it cost something to send.",
@@ -30,8 +38,14 @@
     "id": "necessity_of_sacrificing_loved_ones_02",
     "situation": "necessity_of_sacrificing_loved_ones",
     "objectives": [
-      { "type": "KILL_MOBS", "countMin": 5, "countMax": 8 },
-      { "type": "TALK_TO_NPC" }
+      {
+        "type": "KILL_MOBS",
+        "countMin": 5,
+        "countMax": 8
+      },
+      {
+        "type": "TALK_TO_NPC"
+      }
     ],
     "expositionText": "I have to send my daughter away. There's nothing left for her in {settlement_name}, and the {enemy_type_plural} prowling out there make any road north a death sentence as it stands. I need {kill_count} of them gone before I can even think about putting her on a wagon. Every day I wait makes the choice harder, and I'm already barely holding to it.",
     "acceptText": "Then it's settled. I've been postponing this with every excuse I could find. Now I can't.",
@@ -39,7 +53,7 @@
     "expositionTurnInText": "Word came back that the way is clearer. I almost wish it weren't. There's still one more piece I can't manage from here, and it's the part I've been dreading most.",
     "conflict1Text": "I can't be the one to arrange it. {target_npc}, the {target_npc_role} in {target_npc_settlement}, agreed years ago to take her in if it ever came to this. I need you to go and tell {target_npc} the time has come. They'll understand what to prepare.",
     "conflict1TurnInText": "Then it's real. I've been pretending this day was theoretical for so long, and now it's just a date on a calendar. I'd ask you to leave me a moment if you didn't already know I needed it.",
-    "resolutionText": "She leaves at the end of the week. I won't see her again for a long time, maybe ever, but she'll be safe and that has to be enough. Take {quest_reward}: it isn't much against what you helped me face, but I want you to have it.",
+    "resolutionText": "She leaves at the end of the week. I won't see her again for a long time, maybe ever, but she'll be safe and that has to be enough. Take {quest_reward}. It isn't much against what you helped me face, but I want you to have it.",
     "skillCheck": {
       "skill": "PERSUASION",
       "dc": 14,
@@ -54,9 +68,17 @@
     "id": "necessity_of_sacrificing_loved_ones_03",
     "situation": "necessity_of_sacrificing_loved_ones",
     "objectives": [
-      { "type": "FETCH_ITEM" },
-      { "type": "KILL_MOBS", "countMin": 3, "countMax": 6 },
-      { "type": "TALK_TO_NPC" }
+      {
+        "type": "FETCH_ITEM"
+      },
+      {
+        "type": "KILL_MOBS",
+        "countMin": 3,
+        "countMax": 6
+      },
+      {
+        "type": "TALK_TO_NPC"
+      }
     ],
     "expositionText": "My wife asked me for one thing before she goes. A {quest_item}, the kind she used to keep when we were younger. I haven't been able to put one in her hand because I haven't been able to leave her side, and she doesn't have many days left. If you could find one for me, it would mean I kept my word at the end.",
     "acceptText": "Thank you. I'll tell her tonight that someone is looking. She'll smile, and that will be worth whatever this costs you to do.",
@@ -75,8 +97,12 @@
     "id": "loss_of_loved_ones_01",
     "situation": "loss_of_loved_ones",
     "objectives": [
-      { "type": "FETCH_ITEM" },
-      { "type": "TALK_TO_NPC" }
+      {
+        "type": "FETCH_ITEM"
+      },
+      {
+        "type": "TALK_TO_NPC"
+      }
     ],
     "expositionText": "My husband passed last winter. I've made my peace with most of it, but there's a thing I can't quite let go of. He always wore a {quest_item}, and I lost the one he had on him in all the hurry afterward. If one turns up out there, even one that isn't his, I'd like to hold it again.",
     "acceptText": "Thank you. It sounds like such a small thing to ask for, but it isn't, and I think you already know that.",
@@ -84,7 +110,7 @@
     "expositionTurnInText": "Oh. I haven't held one of these since the morning before he left. It even smells the same, which I know it shouldn't, but it does. There's one more thing left undone, and I think I can finally face it now.",
     "conflict1Text": "His oldest friend {target_npc} lives in {target_npc_settlement}. I sent word back when it happened, but a letter isn't the same as someone telling you. I'd like {target_npc_role} to hear how it really went, from a person who can answer questions. Would you bring the news?",
     "conflict1TurnInText": "Thank you. I should have done that myself, but I couldn't bear telling the story over and over to people who needed to ask. You carried that for me, and it was kind.",
-    "resolutionText": "I think I'll sleep tonight. Properly, for the first time in a while. Take {quest_reward}: it isn't payment, it's a thank-you for something that doesn't have a price.",
+    "resolutionText": "I think I'll sleep tonight. Properly, for the first time in a while. Take {quest_reward}. It isn't payment, it's a thank-you for something that doesn't have a price.",
     "skillCheck": {
       "skill": "INSIGHT",
       "dc": 12,
@@ -99,11 +125,19 @@
     "id": "loss_of_loved_ones_02",
     "situation": "loss_of_loved_ones",
     "objectives": [
-      { "type": "KILL_MOBS", "countMin": 4, "countMax": 7 },
-      { "type": "FETCH_ITEM" },
-      { "type": "TALK_TO_NPC" }
+      {
+        "type": "KILL_MOBS",
+        "countMin": 4,
+        "countMax": 7
+      },
+      {
+        "type": "FETCH_ITEM"
+      },
+      {
+        "type": "TALK_TO_NPC"
+      }
     ],
-    "expositionText": "I lost my son to {enemy_type_plural} a season ago. I'm not asking for revenge: I'm past that. But every time I see another one of them slinking around {settlement_name}, I feel like the world hasn't moved on, and I need it to. Take {kill_count} of them down for me. Not for him. For me.",
+    "expositionText": "I lost my son to {enemy_type_plural} a season ago. I'm not asking for revenge. I'm past that. But every time I see another one of them slinking around {settlement_name}, I feel like the world hasn't moved on, and I need it to. Take {kill_count} of them down for me. Not for him. For me.",
     "acceptText": "Thank you. I knew when I asked that this wouldn't bring him back. That isn't what I'm looking for anymore.",
     "declineText": "I understand. I shouldn't have made my grief into someone else's task. I'll keep trying to look the other way when I see them.",
     "expositionTurnInText": "It's a different quiet now. Not better, exactly, but different. I caught myself thinking about something other than him for a whole afternoon, and that felt like a small mercy. There's something else I'd like to ask, while I still have the courage.",
@@ -111,7 +145,7 @@
     "conflict1TurnInText": "That's enough. That's the one I'll keep. Looking at it doesn't hurt the way I thought it would, which is its own kind of strange.",
     "conflict2Text": "There's one more thread. His old hunting partner {target_npc} lives over in {target_npc_settlement}, and I never told {target_npc_role} how it happened. They deserved better than the rumor that reached them. Go and tell {target_npc} the truth, if you would.",
     "conflict2TurnInText": "Thank you. They needed to hear it, and I needed to know they did. That's the last thing I was holding onto.",
-    "resolutionText": "I think I'm going to plant something this spring. I hadn't even thought about spring until today. {quest_reward} is yours, and I mean every bit of it: you helped me set down something I'd been carrying for too long.",
+    "resolutionText": "I think I'm going to plant something this spring. I hadn't even thought about spring until today. {quest_reward} is yours, and I mean every bit of it. You helped me set down something I'd been carrying for too long.",
     "skillCheck": {
       "skill": "HISTORY",
       "dc": 13,
@@ -126,16 +160,22 @@
     "id": "loss_of_loved_ones_03",
     "situation": "loss_of_loved_ones",
     "objectives": [
-      { "type": "FETCH_ITEM" },
-      { "type": "KILL_MOBS", "countMin": 3, "countMax": 6 }
+      {
+        "type": "FETCH_ITEM"
+      },
+      {
+        "type": "KILL_MOBS",
+        "countMin": 3,
+        "countMax": 6
+      }
     ],
-    "expositionText": "My mother passed two years ago this month. I've been meaning to mark the day properly and I keep putting it off. She used to carry a {quest_item} everywhere she went: said it brought her luck. I'd like to hold one again, just for the day. If one finds its way to you, bring it to me.",
+    "expositionText": "My mother passed two years ago this month. I've been meaning to mark the day properly and I keep putting it off. She used to carry a {quest_item} everywhere she went. Said it brought her luck. I'd like to hold one again, just for the day. If one finds its way to you, bring it to me.",
     "acceptText": "Thank you. It's small. It matters more than it should, and I think you understand that.",
     "declineText": "That's all right. I've been carrying this on my own for a while. I can keep doing it.",
     "expositionTurnInText": "There it is. She would have laughed at me for getting sentimental over something so plain. I'm going to set it on the table tonight and have a meal with her, the way we used to. There's one other thing, if you're willing.",
     "conflict1Text": "The {enemy_type_plural} have been close to {settlement_name} more often lately, and I can't sit with her memory in peace when I'm flinching at every sound outside. Take {kill_count} of them down. I want one quiet evening, that's all.",
     "conflict1TurnInText": "It's the first quiet night I've had in weeks. I lit a candle for her and just sat with it. Nothing grand, but it was what I needed.",
-    "resolutionText": "I'll mark the day properly tomorrow. I haven't been able to do that in two years, and now I think I can. Take {quest_reward}: she would have wanted me to give something back to whoever helped.",
+    "resolutionText": "I'll mark the day properly tomorrow. I haven't been able to do that in two years, and now I think I can. Take {quest_reward}. She would have wanted me to give something back to whoever helped.",
     "rewardText": "the silver clasp she left me, which is no use sitting in a drawer",
     "valence": "negative",
     "roleAffinity": []
@@ -144,11 +184,23 @@
     "id": "conflict_with_fate_01",
     "situation": "conflict_with_fate",
     "objectives": [
-      { "type": "KILL_MOBS", "countMin": 5, "countMax": 8 },
-      { "type": "COLLECT_RESOURCES", "countMin": 6, "countMax": 12 },
-      { "type": "KILL_MOBS", "countMin": 3, "countMax": 6 }
+      {
+        "type": "KILL_MOBS",
+        "countMin": 5,
+        "countMax": 8
+      },
+      {
+        "type": "COLLECT_RESOURCES",
+        "countMin": 6,
+        "countMax": 12
+      },
+      {
+        "type": "KILL_MOBS",
+        "countMin": 3,
+        "countMax": 6
+      }
     ],
-    "expositionText": "Something is wrong this season and I can't tell you what. The {enemy_type_plural} are showing up in numbers we haven't seen in years, in places they shouldn't even be. I'm not asking anyone to figure out why: I'm past that. I just need {kill_count} of them dealt with so we have a little room to breathe in {settlement_name}.",
+    "expositionText": "Something is wrong this season and I can't tell you what. The {enemy_type_plural} are showing up in numbers we haven't seen in years, in places they shouldn't even be. I'm not asking anyone to figure out why. I'm past that. I just need {kill_count} of them dealt with so we have a little room to breathe in {settlement_name}.",
     "acceptText": "All right. I won't pretend I think it'll fix the bigger thing. But it's something, and something is more than I had this morning.",
     "declineText": "I figured. Nobody knows what to make of any of this, and I can't blame you for not wanting to wade into it. We'll keep doing what we can on our own.",
     "expositionTurnInText": "That's a real difference. I almost forgot what it felt like to walk to the well without watching the treeline. But the strangeness hasn't lifted, and we're running short on what we need to keep going.",
@@ -156,7 +208,7 @@
     "conflict1TurnInText": "That'll hold us. I don't understand why what used to take an afternoon now takes weeks, but I'm grateful you went out anyway. There's one more thing pressing on me, and I'd be a fool not to ask while you're here.",
     "conflict2Text": "The {enemy_type_plural} have been creeping back in, the same ones I thought we'd cleared. I don't know if it's the same group or a new one, and I've stopped trying to make sense of it. Take down {kill_count} more. We just need another stretch of quiet.",
     "conflict2TurnInText": "Better. I won't say it's over, because I'm not sure anything is over, but it's better than it was. That counts for something tonight.",
-    "resolutionText": "I don't understand half of what's been happening this season, and I've stopped expecting to. But we're still standing, and that's more than I'd have wagered a month ago. Take {quest_reward}: I want you to have it before the next strange thing finds us.",
+    "resolutionText": "I don't understand half of what's been happening this season, and I've stopped expecting to. But we're still standing, and that's more than I'd have wagered a month ago. Take {quest_reward}. I want you to have it before the next strange thing finds us.",
     "skillCheck": {
       "skill": "NATURE",
       "dc": 14,
@@ -171,8 +223,16 @@
     "id": "conflict_with_fate_02",
     "situation": "conflict_with_fate",
     "objectives": [
-      { "type": "COLLECT_RESOURCES", "countMin": 8, "countMax": 14 },
-      { "type": "KILL_MOBS", "countMin": 4, "countMax": 7 }
+      {
+        "type": "COLLECT_RESOURCES",
+        "countMin": 8,
+        "countMax": 14
+      },
+      {
+        "type": "KILL_MOBS",
+        "countMin": 4,
+        "countMax": 7
+      }
     ],
     "expositionText": "Things have been off for weeks and I can't put a name to it. Crops are thinner, the well rope frayed twice in a month, and I can't get my hands on anything I need. We need {gather_count} {quest_item} or we won't make it to the next harvest in {settlement_name}. I'd go myself, but I'm one person against a whole lot of nothing-going-right.",
     "acceptText": "All right. Maybe with someone else trying, things will turn. They haven't yet, but maybe.",
@@ -180,7 +240,7 @@
     "expositionTurnInText": "That's more than I've been able to gather in a fortnight. I don't know what's been blocking me when it comes so easy to you, but I've stopped trying to puzzle it. There's one more thing pressing, and it's gotten worse while you were out.",
     "conflict1Text": "The {enemy_type_plural} have been showing up where they shouldn't, and I don't know if it's connected to the rest of it or just bad luck on top of bad luck. Take down {kill_count} of them so I can sleep without one ear open. That's all I'm asking for tonight.",
     "conflict1TurnInText": "I slept four hours straight. I haven't done that since this whole strange stretch began. Whatever's behind any of it, you've given me a piece of myself back.",
-    "resolutionText": "I won't tell you we're past it: I don't think I'd believe me if I said it. But things look a little less crooked than they did. Take {quest_reward}, and know that an ordinary stretch of days is the most I'm hoping for now.",
+    "resolutionText": "I won't tell you we're past it. I don't think I'd believe me if I said it. But things look a little less crooked than they did. Take {quest_reward}, and know that an ordinary stretch of days is the most I'm hoping for now.",
     "skillCheck": {
       "skill": "PERCEPTION",
       "dc": 12,
@@ -195,22 +255,36 @@
     "id": "conflict_with_fate_03",
     "situation": "conflict_with_fate",
     "objectives": [
-      { "type": "KILL_MOBS", "countMin": 3, "countMax": 6 },
-      { "type": "FETCH_ITEM" },
-      { "type": "COLLECT_RESOURCES", "countMin": 5, "countMax": 10 },
-      { "type": "KILL_MOBS", "countMin": 4, "countMax": 7 }
+      {
+        "type": "KILL_MOBS",
+        "countMin": 3,
+        "countMax": 6
+      },
+      {
+        "type": "FETCH_ITEM"
+      },
+      {
+        "type": "COLLECT_RESOURCES",
+        "countMin": 5,
+        "countMax": 10
+      },
+      {
+        "type": "KILL_MOBS",
+        "countMin": 4,
+        "countMax": 7
+      }
     ],
     "expositionText": "I've stopped trying to make sense of any of it. {enemy_type_plural} where there shouldn't be, tools breaking that have lasted decades, the well tasting wrong for a week. I need {kill_count} of those things cleared out as a start. Just so I can stop bracing every time I open the door in {settlement_name}.",
     "acceptText": "Thank you. I don't know if it'll help with the rest, but it'll help with this. I'll take what I can get this season.",
     "declineText": "Fair enough. I've gotten used to expecting nothing. It's easier than the alternative.",
     "expositionTurnInText": "That's a start. I won't pretend it's a solution, but the air feels less crowded. There's something else I've been chasing for weeks and getting nowhere with.",
-    "conflict1Text": "There's a {quest_item} I've been trying to find since this stretch started. I can't tell you why I can never get my hands on one anymore: they used to be everywhere. If you find one, bring it to me. It would be the first thing this month that went the way I wanted.",
+    "conflict1Text": "There's a {quest_item} I've been trying to find since this stretch started. I can't tell you why I can never get my hands on one anymore. They used to be everywhere. If you find one, bring it to me. It would be the first thing this month that went the way I wanted.",
     "conflict1TurnInText": "There it is. I don't know whether to laugh or sit down. The smallest thing feels enormous when you've been failing at everything for so long.",
     "conflict2Text": "We need to lay in {gather_count} {quest_item} too, while we have the chance. The way things have been going, I don't trust that we'll be able to get them next week. I'd rather have too much and look foolish than have nothing and be right.",
     "conflict2TurnInText": "That's the most we've had on hand since this whole stretch began. I might actually breathe easy tonight, which would be a change worth marking.",
     "conflict3Text": "And one more. The {enemy_type_plural} are creeping back in already, the same as before, and I don't know if they ever really left. Take {kill_count} more down. I keep thinking each round will be the last one, and I keep being wrong.",
     "conflict3TurnInText": "Better. Quieter. I'm starting to wonder if sustained pushing back is the only answer when you can't see what you're pushing against. It's not understanding, but it's something.",
-    "resolutionText": "I don't know what made any of this happen and I don't think I ever will. But we're standing, and the next stretch of days might even feel ordinary. Take {quest_reward}: I wasn't sure I'd ever have anything to give back, and it feels good to be wrong about that.",
+    "resolutionText": "I don't know what made any of this happen and I don't think I ever will. But we're standing, and the next stretch of days might even feel ordinary. Take {quest_reward}. I wasn't sure I'd ever have anything to give back, and it feels good to be wrong about that.",
     "skillCheck": {
       "skill": "INSIGHT",
       "dc": 13,

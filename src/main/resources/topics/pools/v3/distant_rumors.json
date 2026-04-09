@@ -73,7 +73,7 @@
         "Makes you grateful for what you've got, even on the lean days."
       ],
       "statCheck": {
-        "pass": "Monoculture does that: the land needs variety or it gives out. A few seasons of clover would bring it back.",
+        "pass": "Monoculture does that. The land needs variety or it gives out. A few seasons of clover would bring it back.",
         "fail": "Farming's not my area. I just hope they sort it out."
       },
       "valence": "negative",
@@ -114,7 +114,7 @@
         "Good for them. A proper gathering place changes how a community feels about itself."
       ],
       "statCheck": {
-        "pass": "A common hall doubles as shelter in emergencies: practical, not just morale. Smart investment.",
+        "pass": "A common hall doubles as shelter in emergencies. Practical, not just morale. Smart investment.",
         "fail": "I've never built anything that big. Must've been quite an effort."
       },
       "valence": "positive",
@@ -136,7 +136,7 @@
         "I'll believe whatever I see with my own eyes, if I ever bother to go."
       ],
       "statCheck": {
-        "pass": "Both could be true: a place can grow in one quarter and shrink in another. Depends on which road you come in on.",
+        "pass": "Both could be true. A place can grow in one quarter and shrink in another. Depends on which road you come in on.",
         "fail": "I've never been, so I can't sort the truth from the talk."
       },
       "valence": "neutral",
@@ -177,7 +177,7 @@
         "If it keeps up we'll have to find another source. Nobody wants to, but quality matters."
       ],
       "statCheck": {
-        "pass": "Thread count's dropped noticeably. They're probably using a coarser fiber to cut costs: same loom, cheaper wool.",
+        "pass": "Thread count's dropped noticeably. They're probably using a coarser fiber to cut costs. Same loom, cheaper wool.",
         "fail": "I'm no weaver. I just know it doesn't feel the same as it used to."
       },
       "valence": "negative",
@@ -192,7 +192,7 @@
       "id": 9,
       "intro": "A trader from {other_settlement} told me their harvest was twice ours this year. I'm not sure I believe that.",
       "details": [
-        "Traders exaggerate. It's how they set prices: make their home sound like paradise so their goods seem worth more.",
+        "Traders exaggerate. It's how they set prices. Make their home sound like paradise so their goods seem worth more.",
         "I've talked to three different people from {other_settlement} and gotten three different stories."
       ],
       "reactions": [
@@ -214,7 +214,7 @@
       "id": 10,
       "intro": "I used to envy people from {other_settlement}. Bigger market, wider roads, more of everything.",
       "details": [
-        "Then I thought about what I'd actually miss if I left. Turns out it was most of it: the faces, the rhythm of the days.",
+        "Then I thought about what I'd actually miss if I left. Turns out it was most of it. The faces, the rhythm of the days.",
         "A trader from there told me their market's bigger but the people are colder. Size isn't everything."
       ],
       "reactions": [
@@ -319,7 +319,7 @@
         "I don't mind competition, but I do mind paying more for what I need."
       ],
       "statCheck": {
-        "pass": "That kind of buying pattern usually means a public works project: a wall or a bridge. Bulk demand like that stabilizes after a few months.",
+        "pass": "That kind of buying pattern usually means a public works project. A wall or a bridge. Bulk demand like that stabilizes after a few months.",
         "fail": "I don't understand trade well enough to guess what they're up to."
       },
       "valence": "negative",
@@ -432,7 +432,7 @@
       "id": 21,
       "intro": "A traveler said {other_settlement} lost their healer. Moved on to somewhere bigger.",
       "details": [
-        "That's the trouble with small places: you can't always keep the people you need most.",
+        "That's the trouble with small places. You can't always keep the people you need most.",
         "Apparently they've been making do with herb teas and old remedies since."
       ],
       "reactions": [
@@ -458,7 +458,7 @@
         "If they feel like they need a watchtower, maybe we should be paying more attention too."
       ],
       "statCheck": {
-        "pass": "A watchtower makes sense at their elevation: you can see two valleys from that ridge. It's practical, not paranoid.",
+        "pass": "A watchtower makes sense at their elevation. You can see two valleys from that ridge. It's practical, not paranoid.",
         "fail": "I've never been out that way, so I can't say if it's warranted."
       },
       "valence": "neutral",
@@ -553,7 +553,7 @@
         "They were already clearing rubble and talking about rebuilding when he left."
       ],
       "reactions": [
-        "That's the thing about fire: it doesn't care how hard you worked on what it takes."
+        "That's the thing about fire. It doesn't care how hard you worked on what it takes."
       ],
       "statCheck": {
         "pass": "If they packed storage sheds tight against houses, that was inevitable. You need firebreaks between structures, even small gaps help.",
@@ -597,7 +597,7 @@
         "Something's going on over there. People don't shut their doors for no reason."
       ],
       "statCheck": {
-        "pass": "Could be quarantine: if sickness went through, closing trade routes is the right move even if it looks hostile.",
+        "pass": "Could be quarantine. If sickness went through, closing trade routes is the right move even if it looks hostile.",
         "fail": "I can't figure it out from this far away."
       },
       "valence": "negative",
@@ -916,7 +916,7 @@
         "Debt catches up with you. It always does."
       ],
       "statCheck": {
-        "pass": "Sounds like they overextended after a bad harvest: took on credit expecting the next season to cover it. Risky, but understandable if they had no reserves.",
+        "pass": "Sounds like they overextended after a bad harvest. Took on credit expecting the next season to cover it. Risky, but understandable if they had no reserves.",
         "fail": "I'm not one to judge someone else's finances."
       },
       "valence": "negative",
@@ -1065,13 +1065,13 @@
       "intro": "A traveler mentioned that {other_settlement} has started taxing traders passing through. Just a small toll, but still.",
       "details": [
         "The traders are furious about it. Some are threatening to bypass the settlement entirely.",
-        "It's a risky move: you want trade, you don't charge for the privilege of showing up."
+        "It's a risky move. You want trade, you don't charge for the privilege of showing up."
       ],
       "reactions": [
         "I understand needing coin, but taxing trade is a good way to kill it."
       ],
       "statCheck": {
-        "pass": "Small tolls work if the settlement offers something you can't get elsewhere: a safe crossing, a good market. Otherwise traders just route around you.",
+        "pass": "Small tolls work if the settlement offers something you can't get elsewhere. A safe crossing, a good market. Otherwise traders just route around you.",
         "fail": "I don't know enough about trade policy to judge."
       },
       "valence": "negative",
@@ -1128,7 +1128,7 @@
         "This year they reinforced it properly. Should hold."
       ],
       "reactions": [
-        "Learning from mistakes: what a concept. More places should try it."
+        "Learning from mistakes. What a concept. More places should try it."
       ],
       "statCheck": null,
       "valence": "positive",
@@ -1210,7 +1210,7 @@
         "If it's real, I wouldn't mind getting a look at one."
       ],
       "statCheck": {
-        "pass": "An angled iron share would do it: cuts under the root layer instead of scraping over it. Simple change, big difference if nobody had thought of it before.",
+        "pass": "An angled iron share would do it. Cuts under the root layer instead of scraping over it. Simple change, big difference if nobody had thought of it before.",
         "fail": "I wouldn't know a good plow from a bad one."
       },
       "valence": "neutral",
@@ -1270,7 +1270,7 @@
         "There's competing and then there's sabotage. This feels closer to the second."
       ],
       "statCheck": {
-        "pass": "Selling below cost is a short-term strategy: they're trying to establish dominance in the market and bank on loyalty once they raise prices later. Classic move.",
+        "pass": "Selling below cost is a short-term strategy. They're trying to establish dominance in the market and bank on loyalty once they raise prices later. Classic move.",
         "fail": "I don't understand why anyone would sell at a loss on purpose."
       },
       "valence": "negative",
@@ -1305,7 +1305,7 @@
       "intro": "A peddler told me half the young people in {other_settlement} want to leave. Not enough to keep them there.",
       "details": [
         "He said the older folk are worried. Once the young ones go, who does the heavy work?",
-        "It's the same story everywhere: small places struggle to hold onto their next generation."
+        "It's the same story everywhere. Small places struggle to hold onto their next generation."
       ],
       "reactions": [
         "You can't make people stay. You can only make the place worth staying in."
@@ -1409,7 +1409,7 @@
         "Rats are the kind of problem that's embarrassing and serious at the same time."
       ],
       "statCheck": {
-        "pass": "You need to seal at the foundation level: copper mesh in the gaps. Cats handle scouts, but a real colony needs to be cut off from food, not chased.",
+        "pass": "You need to seal at the foundation level. Copper mesh in the gaps. Cats handle scouts, but a real colony needs to be cut off from food, not chased.",
         "fail": "I'm no expert on pest control. I just know it's a miserable situation."
       },
       "valence": "negative",
@@ -1424,7 +1424,7 @@
       "id": 71,
       "intro": "Word is the midwife in {other_settlement} has delivered every baby born there for thirty years. Still going strong.",
       "details": [
-        "A traveler mentioned it casually, but think about that: thirty years of being the person everyone relies on.",
+        "A traveler mentioned it casually, but think about that. Thirty years of being the person everyone relies on.",
         "She's apparently training a replacement, which is smart. Can't do it forever."
       ],
       "reactions": [
@@ -1469,7 +1469,7 @@
         "If it works for them, maybe we should ask for some seed. Never hurts to have options."
       ],
       "statCheck": {
-        "pass": "Hardy grain varieties trade yield for reliability: less per acre, but it survives drought and frost better. Worth having in reserve even if you don't plant it every year.",
+        "pass": "Hardy grain varieties trade yield for reliability. Less per acre, but it survives drought and frost better. Worth having in reserve even if you don't plant it every year.",
         "fail": "I don't know much about grain varieties. If it makes bread, it's fine by me."
       },
       "valence": "neutral",
@@ -1605,7 +1605,7 @@
         "Hay isn't exciting until you don't have it. Then it's the only thing that matters."
       ],
       "statCheck": {
-        "pass": "Wet hay doesn't just rot: it generates heat as it breaks down. If it was packed tight, they're lucky the barn didn't catch fire.",
+        "pass": "Wet hay doesn't just rot. It generates heat as it breaks down. If it was packed tight, they're lucky the barn didn't catch fire.",
         "fail": "Farming problems aren't my strength. I just know it's serious."
       },
       "valence": "negative",
@@ -1744,7 +1744,7 @@
         "That's the kind of work that doesn't look heroic but changes everything."
       ],
       "statCheck": {
-        "pass": "An irrigation channel on even a slight grade will flow by gravity alone: no pumps, no upkeep beyond clearing debris. If they got the angle right, it'll serve them for decades.",
+        "pass": "An irrigation channel on even a slight grade will flow by gravity alone. No pumps, no upkeep beyond clearing debris. If they got the angle right, it'll serve them for decades.",
         "fail": "Digging's digging. I'm sure it was a lot of work."
       },
       "valence": "positive",
@@ -1959,7 +1959,7 @@
         "It's funny what matters. Good water changes how your whole day feels."
       ],
       "statCheck": {
-        "pass": "Limestone filtration: if they punched through to a deeper aquifer that passes through chalk, the water's naturally cleaned and mineralized. Lucky strike.",
+        "pass": "Limestone filtration. If they punched through to a deeper aquifer that passes through chalk, the water's naturally cleaned and mineralized. Lucky strike.",
         "fail": "Water tastes like water to me. But I'll take their word for it."
       },
       "valence": "positive",
@@ -1981,7 +1981,7 @@
         "Bugs are small but their damage isn't. That's a lot of work to recover from."
       ],
       "statCheck": {
-        "pass": "Roof beetles lay eggs in damp thatch. Once they're in, you have to strip the whole layer and replace it with dried material: no half measures work.",
+        "pass": "Roof beetles lay eggs in damp thatch. Once they're in, you have to strip the whole layer and replace it with dried material. No half measures work.",
         "fail": "I've never dealt with roof beetles. Sounds miserable though."
       },
       "valence": "negative",
@@ -1997,7 +1997,7 @@
       "intro": "A peddler told me {other_settlement} has the most organized storage he's ever seen. Everything labeled, everything counted.",
       "details": [
         "He said you could ask for any item and they'd know exactly how much they had and where it was.",
-        "Our storage room has a system too: it's called 'look until you find it.'"
+        "Our storage room has a system too. It's called 'look until you find it.'"
       ],
       "reactions": [
         "Organization sounds boring until you're looking for something in a crisis."
@@ -2038,7 +2038,7 @@
         "The idea came from their healer, who got tired of foraging alone."
       ],
       "reactions": [
-        "Practical and pleasant: that's the best kind of idea."
+        "Practical and pleasant. That's the best kind of idea."
       ],
       "statCheck": null,
       "valence": "positive",
@@ -2079,7 +2079,7 @@
         "If they can trade on it, good for them. Everybody needs an edge."
       ],
       "statCheck": {
-        "pass": "Probably a different wood for the smoke: fruitwood or birch instead of pine. The sugar in the wood changes the preservation chemistry and the taste.",
+        "pass": "Probably a different wood for the smoke. Fruitwood or birch instead of pine. The sugar in the wood changes the preservation chemistry and the taste.",
         "fail": "I eat smoked fish, I don't make it. Whatever they're doing, it works."
       },
       "valence": "positive",
@@ -2133,10 +2133,10 @@
       "intro": "I heard a tree fell on one of the houses in {other_settlement} during a storm. Went right through the roof.",
       "details": [
         "The family got out in time, but the house is wrecked. Whole settlement's helping them rebuild.",
-        "A merchant said it was the biggest tree near the settlement: everyone had said it should be cut down, but nobody wanted to do it."
+        "A merchant said it was the biggest tree near the settlement. Everyone had said it should be cut down, but nobody wanted to do it."
       ],
       "reactions": [
-        "That's the thing about obvious problems: they wait until ignoring them stops being an option."
+        "That's the thing about obvious problems. They wait until ignoring them stops being an option."
       ],
       "statCheck": null,
       "valence": "negative",
@@ -2155,7 +2155,7 @@
         "A trader said the quality is consistent, which matters more than people think."
       ],
       "reactions": [
-        "Working with what the land gives you instead of fighting it: that's good thinking."
+        "Working with what the land gives you instead of fighting it. That's good thinking."
       ],
       "statCheck": null,
       "valence": "neutral",
@@ -2363,14 +2363,14 @@
       "id": 119,
       "intro": "I heard {other_settlement} has been having trouble with flooding in their lower fields. Third year in a row.",
       "details": [
-        "A farmer there told a trader it's getting worse: the creek changes course a little more each spring.",
+        "A farmer there told a trader it's getting worse. The creek changes course a little more each spring.",
         "They're losing good soil every time it happens."
       ],
       "reactions": [
         "At some point you have to accept the water's winning and plant somewhere else."
       ],
       "statCheck": {
-        "pass": "Creeks meander naturally: you can slow it with bank stabilization, but you can't stop it. Moving the fields is cheaper than fighting the river long-term.",
+        "pass": "Creeks meander naturally. You can slow it with bank stabilization, but you can't stop it. Moving the fields is cheaper than fighting the river long-term.",
         "fail": "I'm no expert on water management. I just know flooding's bad for crops."
       },
       "valence": "negative",
@@ -2465,7 +2465,7 @@
         "They dug it into the hillside behind the settlement. Smart use of the terrain."
       ],
       "reactions": [
-        "Planning for bad times when things are good: that's how you survive the leans."
+        "Planning for bad times when things are good. That's how you survive the leans."
       ],
       "statCheck": null,
       "valence": "positive",
@@ -2481,13 +2481,13 @@
       "intro": "I heard the {resource_type} we've been sending to {other_settlement} isn't selling anymore. They found a closer source.",
       "details": [
         "A trader broke the news gently, but it stings. That was steady income for a few of our people.",
-        "Can't fault them for buying closer: shorter haul means cheaper goods."
+        "Can't fault them for buying closer. Shorter haul means cheaper goods."
       ],
       "reactions": [
         "Losing a trade partner hurts, but clinging to it won't help. We'll find other buyers."
       ],
       "statCheck": {
-        "pass": "This is how regional markets shift: when a new source opens closer to the buyer, distance becomes your biggest cost. We'd need to compete on quality, not proximity.",
+        "pass": "This is how regional markets shift. When a new source opens closer to the buyer, distance becomes your biggest cost. We'd need to compete on quality, not proximity.",
         "fail": "Trade isn't really my thing. I just know it means less coin coming in."
       },
       "valence": "negative",
@@ -2528,7 +2528,7 @@
         "Water you can't trust makes everything harder. You don't think about it until it's gone wrong."
       ],
       "statCheck": {
-        "pass": "Heavy rain dislodges upstream sediment: clay deposits, silt, sometimes mineral runoff. If it cleared on its own, it was likely erosion, not contamination. But testing wouldn't hurt.",
+        "pass": "Heavy rain dislodges upstream sediment. Clay deposits, silt, sometimes mineral runoff. If it cleared on its own, it was likely erosion, not contamination. But testing wouldn't hurt.",
         "fail": "Muddy water could mean anything. I wouldn't know what to look for."
       },
       "valence": "negative",
@@ -2544,7 +2544,7 @@
       "intro": "Word from {other_settlement} is they've worked out a trade agreement with a place even further out. Expanding their reach.",
       "details": [
         "A peddler said it means goods we've never seen before are starting to show up in their market.",
-        "Some of it's interesting: spices, dyed fabric, tools with different designs."
+        "Some of it's interesting. Spices, dyed fabric, tools with different designs."
       ],
       "reactions": [
         "Connections bring variety. If their market grows, some of that trade will trickle our way too."
@@ -2585,7 +2585,7 @@
         "Most of us can barely read, but having that knowledge available matters more than you'd think."
       ],
       "reactions": [
-        "Books are like good tools: useless if nobody picks them up, but invaluable when someone does."
+        "Books are like good tools. Useless if nobody picks them up, but invaluable when someone does."
       ],
       "statCheck": null,
       "valence": "positive",
@@ -2724,7 +2724,7 @@
         "Ambition without planning is just a mess with extra steps."
       ],
       "statCheck": {
-        "pass": "You can't just dam a creek without calculating the watershed volume upstream. The water goes somewhere: if you don't control where, it decides for you.",
+        "pass": "You can't just dam a creek without calculating the watershed volume upstream. The water goes somewhere. If you don't control where, it decides for you.",
         "fail": "I don't know anything about dams. But flooding your own fields sounds like a lesson learned."
       },
       "valence": "negative",
@@ -2737,7 +2737,7 @@
     },
     {
       "id": 138,
-      "intro": "A trader from {other_settlement} said their evenings are the best part: people gather, talk, share food. Every night.",
+      "intro": "A trader from {other_settlement} said their evenings are the best part. People gather, talk, share food. Every night.",
       "details": [
         "He said it's not organized. People just drift toward the center when the work's done.",
         "We used to do something like that here. I'm not sure when it stopped."
@@ -2765,7 +2765,7 @@
         "Knowing when rain's coming is worth more than most skills. Especially to farmers."
       ],
       "statCheck": {
-        "pass": "Cloud patterns and barometric pressure changes are readable if you know what to look for. It's not magic: it's attention and experience.",
+        "pass": "Cloud patterns and barometric pressure changes are readable if you know what to look for. It's not magic. It's attention and experience.",
         "fail": "I look up, see clouds or no clouds, and go from there. Anything more is beyond me."
       },
       "valence": "neutral",
@@ -2787,7 +2787,7 @@
         "Lucky that's all it was. Snow load is no joke on old timber."
       ],
       "statCheck": {
-        "pass": "Softwood beams in a damp climate rot from the inside: they look solid until they're not. Annual inspection with a probe would've caught it before the failure.",
+        "pass": "Softwood beams in a damp climate rot from the inside. They look solid until they're not. Annual inspection with a probe would've caught it before the failure.",
         "fail": "I don't know much about building. But a collapse is a clear sign something was neglected."
       },
       "valence": "negative",
@@ -2806,7 +2806,7 @@
         "A farmer there came up with the idea after watching swallows hunt over his field."
       ],
       "reactions": [
-        "Working with nature instead of against it: that's the kind of thinking I like."
+        "Working with nature instead of against it. That's the kind of thinking I like."
       ],
       "statCheck": null,
       "valence": "positive",
@@ -2825,7 +2825,7 @@
         "When he can't do it anymore, they'll have to import every nail and horseshoe."
       ],
       "reactions": [
-        "Losing a trade because nobody learned it: that's a failure of planning, not just bad luck."
+        "Losing a trade because nobody learned it. That's a failure of planning, not just bad luck."
       ],
       "statCheck": null,
       "valence": "negative",
@@ -2844,7 +2844,7 @@
         "A trader saw them heading back at dusk, moving fast."
       ],
       "reactions": [
-        "Desperation or determination: hard to tell the difference sometimes."
+        "Desperation or determination. Hard to tell the difference sometimes."
       ],
       "statCheck": null,
       "valence": "neutral",
@@ -2866,7 +2866,7 @@
         "Beekeeping takes patience and a tolerance for getting stung. Not for everyone."
       ],
       "statCheck": {
-        "pass": "First-year colonies rarely produce surplus honey: the bees need it themselves. Second year is when the real harvest starts, if the queen's strong and the flowers are plentiful.",
+        "pass": "First-year colonies rarely produce surplus honey. The bees need it themselves. Second year is when the real harvest starts, if the queen's strong and the flowers are plentiful.",
         "fail": "I don't know much about bees beyond staying away from them."
       },
       "valence": "positive",
@@ -2945,7 +2945,7 @@
         "Light's one of those things you don't value until the sun goes down and you're out of candles."
       ],
       "statCheck": {
-        "pass": "A slower-burning candle usually means a thicker wick and harder wax: the flame's smaller but steadier. Trade-off is less light, but more hours of it.",
+        "pass": "A slower-burning candle usually means a thicker wick and harder wax. The flame's smaller but steadier. Trade-off is less light, but more hours of it.",
         "fail": "Candles are candles to me. If it burns, I'm happy."
       },
       "valence": "neutral",
@@ -3003,7 +3003,7 @@
         "I suppose there are worse things to be known for than goats."
       ],
       "statCheck": {
-        "pass": "Goat herding's a smart pivot for thin soil: the animals fertilize the fields while they graze. If they keep at it, they'll outpace us in a few years.",
+        "pass": "Goat herding's a smart pivot for thin soil. The animals fertilize the fields while they graze. If they keep at it, they'll outpace us in a few years.",
         "fail": "I don't know much about livestock. Goats are goats."
       },
       "valence": "neutral",
@@ -3199,7 +3199,7 @@
       "intro": "A traveler said the wind in {other_settlement} never stops. Constant, day and night, all year round.",
       "details": [
         "He said doors slam shut on their own and everyone walks slightly hunched. You adapt, but it takes a toll.",
-        "Apparently they've learned to build with it: low roofs, heavy shutters, nothing tall enough to catch the gusts."
+        "Apparently they've learned to build with it. Low roofs, heavy shutters, nothing tall enough to catch the gusts."
       ],
       "reactions": [
         "I'd go crazy. A calm evening with no breeze is one of life's small gifts."
@@ -3242,7 +3242,7 @@
         "I've been chased by a goose before. It's not funny when it's happening to you."
       ],
       "statCheck": {
-        "pass": "A territorial goose is actually practical: they're loud, they're mean, and they don't sleep through anything. Cheaper than a guard dog.",
+        "pass": "A territorial goose is actually practical. They're loud, they're mean, and they don't sleep through anything. Cheaper than a guard dog.",
         "fail": "I just know I wouldn't want to live near one."
       },
       "valence": "neutral",
@@ -3309,7 +3309,7 @@
       "id": 168,
       "intro": "A merchant said {other_settlement} holds a bonfire every full moon. The whole settlement stays up late.",
       "details": [
-        "He timed a visit to see it once. Said it was mostly people sitting around, eating, telling stories: nothing grand.",
+        "He timed a visit to see it once. Said it was mostly people sitting around, eating, telling stories. Nothing grand.",
         "But the sense of community was obvious. Everyone knew everyone, and they liked being together."
       ],
       "reactions": [
@@ -3350,7 +3350,7 @@
         "Nobody knows how she does it. She says it's just a feeling in her knees and the color of the clouds."
       ],
       "reactions": [
-        "I believe it. Old knowledge like that gets passed down and refined: not magic, just attention."
+        "I believe it. Old knowledge like that gets passed down and refined. Not magic, just attention."
       ],
       "statCheck": null,
       "valence": "positive",
@@ -3455,7 +3455,7 @@
     },
     {
       "id": 176,
-      "intro": "Word is {other_settlement} has ants in everything: pantries, bedding, walls. Can't get rid of them.",
+      "intro": "Word is {other_settlement} has ants in everything. Pantries, bedding, walls. Can't get rid of them.",
       "details": [
         "A peddler said he found them in his pack after one night sleeping there. Tiny red ones, relentless.",
         "They've tried vinegar, smoke, even pulling up floorboards. Nothing sticks."
@@ -3464,7 +3464,7 @@
         "Ants are patient. You can win a battle, but they always come back."
       ],
       "statCheck": {
-        "pass": "Red ants that size usually nest under foundations. Pulling up floorboards won't help: you'd need to find the colony entrance outside and block it.",
+        "pass": "Red ants that size usually nest under foundations. Pulling up floorboards won't help. You'd need to find the colony entrance outside and block it.",
         "fail": "I've never dealt with ants that bad. No advice to give."
       },
       "valence": "negative",
@@ -3521,7 +3521,7 @@
         "Bad air is a slow problem. You don't notice until your lungs remind you."
       ],
       "statCheck": {
-        "pass": "Valley settlements always risk that: cold air sinks and holds the smoke down. The only real fix is burning cleaner wood, and that's expensive.",
+        "pass": "Valley settlements always risk that. Cold air sinks and holds the smoke down. The only real fix is burning cleaner wood, and that's expensive.",
         "fail": "I don't know much about chimneys. Just glad we don't have that problem."
       },
       "valence": "negative",
@@ -3703,7 +3703,7 @@
         "Pigs are worth the trouble if you know what you're doing. Most people don't."
       ],
       "statCheck": {
-        "pass": "Pigs need fencing they can't root under. Most people underestimate how strong a pig's nose is: they'll lift a fence post right out of soft ground.",
+        "pass": "Pigs need fencing they can't root under. Most people underestimate how strong a pig's nose is. They'll lift a fence post right out of soft ground.",
         "fail": "I've heard pigs are smart. Beyond that, I'm useless."
       },
       "valence": "neutral",
@@ -3794,7 +3794,7 @@
         "A surplus is a good problem to have. Better than the alternative."
       ],
       "statCheck": {
-        "pass": "A root vegetable surplus is a gift if they store it right: sand layering in a cool cellar and those turnips will last through winter.",
+        "pass": "A root vegetable surplus is a gift if they store it right. Sand layering in a cool cellar and those turnips will last through winter.",
         "fail": "I eat what grows. I don't know much about storing it."
       },
       "valence": "positive",
@@ -3814,7 +3814,7 @@
         "Everyone's got their way. I like a roof, but I can respect the choice."
       ],
       "statCheck": {
-        "pass": "Sleeping outdoors year-round actually tells you something about the climate there: mild enough that exposure isn't a real risk.",
+        "pass": "Sleeping outdoors year-round actually tells you something about the climate there. Mild enough that exposure isn't a real risk.",
         "fail": "To each their own. Not my business how someone sleeps."
       },
       "valence": "neutral",
@@ -4016,7 +4016,7 @@
         "That's a conversation every settlement has eventually. Nobody ever agrees, and nobody ever drops it."
       ],
       "statCheck": {
-        "pass": "The 'keep things as they are' crowd usually wins by default: doing nothing requires no vote. But that's how places stagnate.",
+        "pass": "The 'keep things as they are' crowd usually wins by default. Doing nothing requires no vote. But that's how places stagnate.",
         "fail": "I can see it both ways. Not my settlement, not my call."
       },
       "valence": "neutral",
@@ -4046,7 +4046,7 @@
       "id": 208,
       "intro": "A peddler told me {other_settlement} has a rooster nobody can catch. It escapes every pen they put it in.",
       "details": [
-        "He said they've tried everything: higher fences, covered pens, bribing it with grain. Nothing works.",
+        "He said they've tried everything. Higher fences, covered pens, bribing it with grain. Nothing works.",
         "At this point the rooster has become a sort of local mascot. People root for it."
       ],
       "reactions": [
@@ -4086,7 +4086,7 @@
       "id": 210,
       "intro": "I heard {other_settlement} has an old man who carves walking sticks and leaves them by the road for travelers. Just gives them away.",
       "details": [
-        "A merchant said he picked one up on his last trip: good balance, smooth grip, better than anything he'd buy.",
+        "A merchant said he picked one up on his last trip. Good balance, smooth grip, better than anything he'd buy.",
         "The old man apparently does it because his hands need the work. Says sitting still makes his joints stiff."
       ],
       "reactions": [
@@ -4144,7 +4144,7 @@
         "When the fungus moves in, the wood's already dying. Scraping's just cosmetic at that point."
       ],
       "statCheck": {
-        "pass": "Mushrooms in the walls mean the timber wasn't cured properly before building. Replacing individual boards won't help: the spores are in every piece.",
+        "pass": "Mushrooms in the walls mean the timber wasn't cured properly before building. Replacing individual boards won't help. The spores are in every piece.",
         "fail": "I know mushrooms don't belong on walls. Beyond that, I'm out of my depth."
       },
       "valence": "negative",
@@ -4221,7 +4221,7 @@
         "Bad bread ruins morale faster than most things. People can endure a lot, but not bad bread."
       ],
       "statCheck": {
-        "pass": "Flat bread is usually a yeast problem, not flour. If the yeast got too hot or too old, it dies and nothing rises: fresh starter would fix it.",
+        "pass": "Flat bread is usually a yeast problem, not flour. If the yeast got too hot or too old, it dies and nothing rises. Fresh starter would fix it.",
         "fail": "I eat bread. I don't bake it."
       },
       "valence": "negative",
@@ -4295,7 +4295,7 @@
         "Indecision costs more than a bad decision, most of the time."
       ],
       "statCheck": {
-        "pass": "Storehouse placement is political: whoever's closest to it has the easiest access. The fight isn't about location, it's about convenience and power.",
+        "pass": "Storehouse placement is political. Whoever's closest to it has the easiest access. The fight isn't about location, it's about convenience and power.",
         "fail": "Building decisions are above my head."
       },
       "valence": "negative",
@@ -4389,7 +4389,7 @@
         "Different way of doing things. I'm used to eating heavy at night, but maybe they've got it right."
       ],
       "statCheck": {
-        "pass": "Eating heavy at midday makes sense if the work is physical: you burn it off in the afternoon instead of sleeping on a full stomach.",
+        "pass": "Eating heavy at midday makes sense if the work is physical. You burn it off in the afternoon instead of sleeping on a full stomach.",
         "fail": "People eat when they eat. I'm not one to judge schedules."
       },
       "valence": "neutral",
@@ -4443,7 +4443,7 @@
         "I wake when I wake. A bell telling me it's time to get up would not improve my mornings."
       ],
       "statCheck": {
-        "pass": "A dawn bell isn't just timekeeping: it's social control. Whoever decides when the bell rings decides when the day starts for everyone.",
+        "pass": "A dawn bell isn't just timekeeping. It's social control. Whoever decides when the bell rings decides when the day starts for everyone.",
         "fail": "I wake up on my own. Can't imagine being told when to start my day."
       },
       "valence": "neutral",
@@ -4605,7 +4605,7 @@
         "People will compete over anything if you give them long enough. At least this one produces cheese."
       ],
       "statCheck": {
-        "pass": "Cheese rivalries are actually good for both sides: competition pushes quality up. The moment one settlement stops trying, the other gets lazy too.",
+        "pass": "Cheese rivalries are actually good for both sides. Competition pushes quality up. The moment one settlement stops trying, the other gets lazy too.",
         "fail": "I like cheese. That's as far as my expertise goes."
       },
       "valence": "neutral",
@@ -4662,7 +4662,7 @@
         "Transparency sounds good until it shows you something you didn't want to see."
       ],
       "statCheck": {
-        "pass": "Written records change the social contract: generosity stops being voluntary and starts being scored. That shifts a community.",
+        "pass": "Written records change the social contract. Generosity stops being voluntary and starts being scored. That shifts a community.",
         "fail": "I can see both sides. It's not my problem, thankfully."
       },
       "valence": "negative",
@@ -4693,7 +4693,7 @@
     },
     {
       "id": 243,
-      "intro": "I heard {other_settlement} built a shelter for travelers right at their entrance: roof, bench, and water, free to use.",
+      "intro": "I heard {other_settlement} built a shelter for travelers right at their entrance. Roof, bench, and water, free to use.",
       "details": [
         "A merchant said it's the first thing you see when you arrive. Makes you feel welcome before anyone says a word.",
         "They keep it stocked and clean. Someone checks it every morning."
@@ -4878,7 +4878,7 @@
         "Not every plan works out. The ground doesn't care about your intentions."
       ],
       "statCheck": {
-        "pass": "Hitting rock doesn't mean there's no water: it means they need to find a fault line in the stone. Water follows cracks, not the drill.",
+        "pass": "Hitting rock doesn't mean there's no water. It means they need to find a fault line in the stone. Water follows cracks, not the drill.",
         "fail": "I've never dug a well. The ground gives what it gives."
       },
       "valence": "negative",
@@ -4952,7 +4952,7 @@
         "Pricing yourself out of the market is a slow way to learn a fast lesson."
       ],
       "statCheck": {
-        "pass": "They're probably trying to build a reserve after a bad season. Short-term price hikes to cover a shortfall: risky but understandable.",
+        "pass": "They're probably trying to build a reserve after a bad season. Short-term price hikes to cover a shortfall. Risky but understandable.",
         "fail": "I don't pretend to understand their reasoning."
       },
       "valence": "negative",
@@ -5016,7 +5016,7 @@
       "id": 261,
       "intro": "I heard the elder of {other_settlement} gives a short speech every morning before work starts. Every single morning.",
       "details": [
-        "A carter said it's never more than a few words: what needs doing, who's doing it, any trade expected.",
+        "A carter said it's never more than a few words. What needs doing, who's doing it, any trade expected.",
         "Some people love the structure. Others stand there half-asleep wishing they could just start working."
       ],
       "reactions": [
@@ -5077,7 +5077,7 @@
         "People get used to problems faster than they fix them. That's human nature."
       ],
       "statCheck": {
-        "pass": "The drainage problem is probably a clay layer under the topsoil: water sits on it instead of draining through. A gravel trench to the nearest slope would fix it.",
+        "pass": "The drainage problem is probably a clay layer under the topsoil. Water sits on it instead of draining through. A gravel trench to the nearest slope would fix it.",
         "fail": "Water goes where it wants. I'm no engineer."
       },
       "valence": "negative",
@@ -5236,7 +5236,7 @@
       "intro": "I heard {other_settlement} has taken to planting flowers between their vegetable rows. Says it draws the bees in better.",
       "details": [
         "A merchant said their yields went up noticeably once the bees had more to work with.",
-        "It looks nice too. A working field that's also pretty: not something you see often."
+        "It looks nice too. A working field that's also pretty. Not something you see often."
       ],
       "reactions": [
         "Practical and pleasant. That's a combination more people should aim for."
@@ -5259,7 +5259,7 @@
         "Entertainment is worth paying for, even if the fortune is nonsense."
       ],
       "statCheck": {
-        "pass": "Palm reading is just cold reading with a prop. She's watching their face, not their hand: good read of people, that's all.",
+        "pass": "Palm reading is just cold reading with a prop. She's watching their face, not their hand. Good read of people, that's all.",
         "fail": "I don't believe in that sort of thing. But I'm not paying a cup of flour to find out."
       },
       "valence": "neutral",
@@ -5296,7 +5296,7 @@
         "A shared meal only works if the meal is worth sharing. Otherwise it's just obligation."
       ],
       "statCheck": {
-        "pass": "When the communal meal fails, you lose more than the food: you lose the one time everyone was in the same room. That's hard to get back.",
+        "pass": "When the communal meal fails, you lose more than the food. You lose the one time everyone was in the same room. That's hard to get back.",
         "fail": "Cooking's harder than it looks. I'm not one to judge."
       },
       "valence": "negative",
@@ -5333,7 +5333,7 @@
         "Every place has its inner circle. It only becomes a problem when it starts excluding people from decisions."
       ],
       "statCheck": {
-        "pass": "Tight groups like that usually form around shared hardship: same trade, same struggles. They're not being unfriendly, they're being comfortable.",
+        "pass": "Tight groups like that usually form around shared hardship. Same trade, same struggles. They're not being unfriendly, they're being comfortable.",
         "fail": "People group up. It's just what they do."
       },
       "valence": "negative",
@@ -5384,10 +5384,10 @@
       "intro": "Word is {other_settlement} has a woman who makes soap from tallow and ash. Best soap in the region, they claim.",
       "details": [
         "A merchant said it actually lathers properly, which most homemade soap doesn't. She's figured something out.",
-        "She trades it for just about anything: food, cloth, tools. Everyone needs soap."
+        "She trades it for just about anything. Food, cloth, tools. Everyone needs soap."
       ],
       "reactions": [
-        "Clean hands and good soap: you don't think about it until you don't have it."
+        "Clean hands and good soap. You don't think about it until you don't have it."
       ],
       "statCheck": null,
       "valence": "positive",
@@ -5400,7 +5400,7 @@
       "id": 282,
       "intro": "I heard {other_settlement} put a young person in charge of organizing the storehouse and everything actually makes sense now.",
       "details": [
-        "A traveler said the old system was chaos: barrels on top of sacks, nothing labeled, nothing sorted.",
+        "A traveler said the old system was chaos. Barrels on top of sacks, nothing labeled, nothing sorted.",
         "The young one reorganized it in a week and suddenly people could find what they needed without asking."
       ],
       "reactions": [
@@ -5619,7 +5619,7 @@
       "id": 294,
       "intro": "I heard {other_settlement} had two traders arrive at the same time selling the same thing. Undercut each other until neither made money.",
       "details": [
-        "A peddler said the people there loved it: cheap goods, two desperate sellers. A buyer's paradise.",
+        "A peddler said the people there loved it. Cheap goods, two desperate sellers. A buyer's paradise.",
         "The traders left annoyed, each blaming the other for ruining the trip."
       ],
       "reactions": [
@@ -6163,7 +6163,7 @@
       "intro": "A merchant told me {other_settlement} has ants that farm fungus inside their grain stores. Organized little colonies.",
       "details": [
         "He said the ants carry grain crumbs into the walls and grow something on them. Efficient, in a horrifying way.",
-        "The settlement's tried everything: smoke, ash, boiling water. The ants rebuild overnight."
+        "The settlement's tried everything. Smoke, ash, boiling water. The ants rebuild overnight."
       ],
       "reactions": [
         "When ants are more organized than the people fighting them, you've already lost."
@@ -6199,7 +6199,7 @@
       "id": 326,
       "intro": "I heard {other_settlement} has a stretch of path where the ground buzzes underfoot. Some kind of insect nest below the surface.",
       "details": [
-        "A traveler said it's unnerving: you feel the vibration through your boots before you hear it.",
+        "A traveler said it's unnerving. You feel the vibration through your boots before you hear it.",
         "People there walk around it out of habit. Visitors usually stop and stare."
       ],
       "reactions": [
@@ -6307,7 +6307,7 @@
       "id": 332,
       "intro": "I heard {other_settlement} traded a full cart of {resource_type} for a pair of breeding geese. Seems like a lot.",
       "details": [
-        "A peddler said the geese are supposed to be a rare breed: bigger eggs, more meat, hardier in winter.",
+        "A peddler said the geese are supposed to be a rare breed. Bigger eggs, more meat, hardier in winter.",
         "Whether that's true or just good salesmanship, the seller got the better end of that deal for now."
       ],
       "reactions": [
@@ -6421,7 +6421,7 @@
         "Grief takes its own shape. If keeping a workshop tidy is hers, who's to say otherwise."
       ],
       "statCheck": {
-        "pass": "She's not keeping a workshop: she's keeping a memory alive. The day she lets it go will be harder than the day she lost him.",
+        "pass": "She's not keeping a workshop. She's keeping a memory alive. The day she lets it go will be harder than the day she lost him.",
         "fail": "People mourn in their own way. It's not for me to judge."
       },
       "valence": "neutral",
@@ -6526,7 +6526,7 @@
         "Frost doesn't care about your plans. One cold night and the whole season shifts."
       ],
       "statCheck": {
-        "pass": "A late frost usually hits low-lying fields first: cold air sinks. The people with plots on higher ground probably kept most of their crop.",
+        "pass": "A late frost usually hits low-lying fields first. Cold air sinks. The people with plots on higher ground probably kept most of their crop.",
         "fail": "Bad luck with weather. Not much anyone can do about it."
       },
       "valence": "negative",
@@ -6755,7 +6755,7 @@
       "id": 357,
       "intro": "A merchant said {other_settlement} had their entire onion crop come up tiny this year. Bulbs the size of marbles.",
       "details": [
-        "He said they planted at the wrong time: too late, not enough growing days before the heat set in.",
+        "He said they planted at the wrong time. Too late, not enough growing days before the heat set in.",
         "They're using the tiny onions anyway. A small onion is still an onion."
       ],
       "reactions": [
@@ -6848,7 +6848,7 @@
       "id": 362,
       "intro": "I heard {other_settlement} has a problem with slugs eating their greens. Every morning, fresh holes in every leaf.",
       "details": [
-        "A carter said the gardeners there have tried ash, salt, crushed shells: nothing works for long.",
+        "A carter said the gardeners there have tried ash, salt, crushed shells. Nothing works for long.",
         "They've accepted it and just plant more than they need. The slugs get their share."
       ],
       "reactions": [
@@ -6987,7 +6987,7 @@
       "id": 370,
       "intro": "Word is {other_settlement} trained a dog to fetch specific tools by name. Point at the bench and say the word, the dog brings it.",
       "details": [
-        "A merchant said the dog knows at least ten tools. Hammer, awl, chisel, plane: all of them.",
+        "A merchant said the dog knows at least ten tools. Hammer, awl, chisel, plane. All of them.",
         "The owner claims it took years. Everyone else claims the dog is smarter than most people."
       ],
       "reactions": [
@@ -7019,7 +7019,7 @@
     },
     {
       "id": 372,
-      "intro": "A peddler said {other_settlement} has a child who asks every visitor the same question: where did you sleep last night?",
+      "intro": "A peddler said {other_settlement} has a child who asks every visitor the same question. Where did you sleep last night?",
       "details": [
         "He said the child is genuinely curious about how other people live. Not suspicious, just fascinated.",
         "Most visitors find it charming. A few find it oddly personal from a six-year-old."
@@ -7155,7 +7155,7 @@
         "Stubbornness about maintenance always costs more in the end."
       ],
       "statCheck": {
-        "pass": "Chimney fires are creosote buildup: thick, tarry residue from burning unseasoned wood. The fix is simple: burn dry wood and clean the flue twice a year.",
+        "pass": "Chimney fires are creosote buildup. Thick, tarry residue from burning unseasoned wood. The fix is simple. Burn dry wood and clean the flue twice a year.",
         "fail": "Fire is fire. Keep your chimney clean, that's all I know."
       },
       "valence": "negative",
@@ -7263,7 +7263,7 @@
         "Fermentation has a mind of its own. You can follow the recipe and still get vinegar."
       ],
       "statCheck": {
-        "pass": "Temperature controls fermentation. The batches that went sour were probably stored in a warmer spot: even a few degrees changes the outcome.",
+        "pass": "Temperature controls fermentation. The batches that went sour were probably stored in a warmer spot. Even a few degrees changes the outcome.",
         "fail": "I drink what I'm handed and don't ask questions about the process."
       },
       "valence": "neutral",
@@ -7362,7 +7362,7 @@
       "intro": "Word is {other_settlement} has had three different people try to organize their storage room and all three gave up.",
       "details": [
         "A peddler said every system lasts about a week before people go back to piling things wherever they fit.",
-        "The storage room has layers: each organizer's system buried under the next person's chaos."
+        "The storage room has layers. Each organizer's system buried under the next person's chaos."
       ],
       "reactions": [
         "Organizing a communal space is a war nobody wins. Entropy always has the numbers."
@@ -7803,7 +7803,7 @@
       "id": 416,
       "intro": "I heard {other_settlement} has a man who walks the perimeter of the settlement every evening before bed. Same route, same time.",
       "details": [
-        "A peddler said it's not a guard duty: he's just checking that everything looks right. Fences, gates, animals.",
+        "A peddler said it's not a guard duty. He's just checking that everything looks right. Fences, gates, animals.",
         "He's been doing it for years. The settlement sleeps better knowing someone looked."
       ],
       "reactions": [
@@ -7871,11 +7871,11 @@
       "id": 420,
       "intro": "A carter mentioned that {other_settlement} can't agree on the color to paint their meeting hall. It's been bare wood for a year.",
       "details": [
-        "He said four factions have formed: red, blue, green, and leave-it-as-is. Meetings about it go nowhere.",
+        "He said four factions have formed. Red, blue, green, and leave-it-as-is. Meetings about it go nowhere.",
         "The building gets more weathered every month they argue. The wood is making the decision for them."
       ],
       "reactions": [
-        "Democracy at its finest: argue about the color until the building rots."
+        "Democracy at its finest. Argue about the color until the building rots."
       ],
       "statCheck": null,
       "valence": "negative",
@@ -7895,7 +7895,7 @@
         "Nature does what it wants. Sometimes what it wants is surprising."
       ],
       "statCheck": {
-        "pass": "Some apple varieties bloom twice when the climate is mild enough. It's rare but not impossible: the tree found its perfect spot.",
+        "pass": "Some apple varieties bloom twice when the climate is mild enough. It's rare but not impossible. The tree found its perfect spot.",
         "fail": "I don't know trees well enough to explain it. Strange things grow."
       },
       "valence": "positive",
@@ -7996,7 +7996,7 @@
       "id": 427,
       "intro": "Word is {other_settlement} tried to train a crow to carry messages. The crow learned to fly away and not come back.",
       "details": [
-        "A trader said they spent weeks feeding it, naming it, teaching it routes. First real flight: gone.",
+        "A trader said they spent weeks feeding it, naming it, teaching it routes. First real flight. Gone.",
         "The trainer insists the next one will work. Nobody shares the optimism."
       ],
       "reactions": [
@@ -8020,7 +8020,7 @@
         "The ground does things we don't always understand. Doesn't mean it's doing anything dangerous."
       ],
       "statCheck": {
-        "pass": "Underground water flowing through narrow stone channels creates resonance: the stone amplifies the vibration. It's common near limestone beds.",
+        "pass": "Underground water flowing through narrow stone channels creates resonance. The stone amplifies the vibration. It's common near limestone beds.",
         "fail": "Ground noises are ground noises. I'm not a geologist."
       },
       "valence": "neutral",
@@ -8074,7 +8074,7 @@
         "Twenty years of patience. Even if the system is imperfect, the commitment is impressive."
       ],
       "statCheck": {
-        "pass": "Long-term weather records are invaluable for farming: patterns over twenty years reveal cycles you'd never notice year to year.",
+        "pass": "Long-term weather records are invaluable for farming. Patterns over twenty years reveal cycles you'd never notice year to year.",
         "fail": "Keeping track of weather sounds tedious. But some people like that sort of thing."
       },
       "valence": "neutral",
@@ -8338,7 +8338,7 @@
         "Getting cheated once makes you careful forever. That's the silver lining of being taken advantage of."
       ],
       "statCheck": {
-        "pass": "Isolated settlements without trade experience are easy marks. The fix isn't suspicion, it's knowledge: learn what things cost before someone tells you.",
+        "pass": "Isolated settlements without trade experience are easy marks. The fix isn't suspicion, it's knowledge. Learn what things cost before someone tells you.",
         "fail": "Salt's expensive. Or it isn't. I don't follow prices."
       },
       "valence": "negative",
@@ -8537,7 +8537,7 @@
         "New resources change a settlement's prospects. Even something as simple as clay."
       ],
       "statCheck": {
-        "pass": "Good clay is about the mineral content: too much sand and it crumbles, too much calcium and it won't fire evenly. Smooth clay like that fires well.",
+        "pass": "Good clay is about the mineral content. Too much sand and it crumbles, too much calcium and it won't fire evenly. Smooth clay like that fires well.",
         "fail": "Clay is clay to me. I couldn't tell good from bad."
       },
       "valence": "positive",
@@ -8665,7 +8665,7 @@
         "Boundary disputes outlast fences. The wind just made it everyone's problem."
       ],
       "statCheck": {
-        "pass": "Boundary disputes like that usually have a solution: measure equal distances from both houses and split the difference. Pride is what keeps them from trying.",
+        "pass": "Boundary disputes like that usually have a solution. Measure equal distances from both houses and split the difference. Pride is what keeps them from trying.",
         "fail": "Property lines aren't my area. I'd stay out of it."
       },
       "valence": "negative",
@@ -8702,7 +8702,7 @@
         "Crows are smarter than most people give them credit for. You don't outwit a crow, you just outlast one."
       ],
       "statCheck": {
-        "pass": "Crows learn by watching: if one crow solves the deterrent, the rest copy it. You need to change your approach every few days to stay ahead.",
+        "pass": "Crows learn by watching. If one crow solves the deterrent, the rest copy it. You need to change your approach every few days to stay ahead.",
         "fail": "I've never had to fight crows for my food. Can't help you there."
       },
       "valence": "negative",
@@ -8753,7 +8753,7 @@
         "The roof now has a bald patch. The goat has a full belly and no regrets."
       ],
       "reactions": [
-        "Goats go where goats want to go. Fences, walls, roofs: none of it matters to a goat."
+        "Goats go where goats want to go. Fences, walls, roofs. None of it matters to a goat."
       ],
       "statCheck": null,
       "valence": "neutral",
@@ -8884,7 +8884,7 @@
         "Good sharpening is an art, and most people who think they can do it are wrong."
       ],
       "statCheck": {
-        "pass": "The stone matters more than the hand: certain river stones have the right grit to hone a fine edge. She found a good one and learned how to use it.",
+        "pass": "The stone matters more than the hand. Certain river stones have the right grit to hone a fine edge. She found a good one and learned how to use it.",
         "fail": "I sharpen my own tools and they're adequate. That's the best I can say."
       },
       "valence": "positive",
@@ -9006,7 +9006,7 @@
       "intro": "A carter told me {other_settlement} has started putting aside a portion of every harvest for lean times. Communal reserve.",
       "details": [
         "He said people grumbled at first, but last winter's shortage convinced the holdouts.",
-        "It's not much: a tenth of the yield. But a tenth adds up over a good year."
+        "It's not much. A tenth of the yield. But a tenth adds up over a good year."
       ],
       "reactions": [
         "Saving when times are good is the hardest kind of discipline. Easy to spend, hard to store."
@@ -9026,10 +9026,10 @@
         "Locals say it's been that way as long as anyone remembers. They don't question it."
       ],
       "reactions": [
-        "The ground has its own rules. Warm spots, cold spots: you learn where things are and live with it."
+        "The ground has its own rules. Warm spots, cold spots. You learn where things are and live with it."
       ],
       "statCheck": {
-        "pass": "Geothermal heat from deep rock can warm the surface in small areas. Nothing alarming: it just means there's hot stone far below.",
+        "pass": "Geothermal heat from deep rock can warm the surface in small areas. Nothing alarming. It just means there's hot stone far below.",
         "fail": "Warm ground in winter? Sounds odd, but animals seem to know what's safe."
       },
       "valence": "neutral",
@@ -9120,7 +9120,7 @@
         "Some people understand animals in a way the rest of us never will."
       ],
       "statCheck": {
-        "pass": "Calm movement and no fear scent: bees sting when they sense a threat. If she's genuinely relaxed, the bees have no reason to attack.",
+        "pass": "Calm movement and no fear scent. Bees sting when they sense a threat. If she's genuinely relaxed, the bees have no reason to attack.",
         "fail": "Bees sting me. That's all I know about bees."
       },
       "valence": "positive",
@@ -9177,7 +9177,7 @@
         "The locals wear wrapped foot coverings and step carefully. Visitors don't get warned."
       ],
       "reactions": [
-        "Mud defines a place as much as anything else. Some settlements are known for their views: that one's known for its mud."
+        "Mud defines a place as much as anything else. Some settlements are known for their views. That one's known for its mud."
       ],
       "statCheck": {
         "pass": "Clay-heavy soil makes the worst mud because it holds water and sticks to everything. Sand mixed into the paths would improve drainage and reduce the suction.",
@@ -9217,7 +9217,7 @@
         "The body knows things the mind doesn't. Joints and bones have their own kind of wisdom."
       ],
       "statCheck": {
-        "pass": "Joint pain responds to air pressure changes before a storm: the cartilage swells as pressure drops. It's not folklore, there's real cause and effect.",
+        "pass": "Joint pain responds to air pressure changes before a storm. The cartilage swells as pressure drops. It's not folklore, there's real cause and effect.",
         "fail": "Old joints ache. Whether that means rain or not, I couldn't say."
       },
       "valence": "neutral",
@@ -9237,7 +9237,7 @@
         "Water goes where it wants. You can redirect it, but you can't argue with it."
       ],
       "statCheck": {
-        "pass": "A root cellar below a water table will always seep. They need to line the walls with clay or raise the floor: fighting the water head-on won't work.",
+        "pass": "A root cellar below a water table will always seep. They need to line the walls with clay or raise the floor. Fighting the water head-on won't work.",
         "fail": "Wet cellars are a headache. I'm glad ours is dry."
       },
       "valence": "negative",
@@ -9248,7 +9248,7 @@
     },
     {
       "id": 496,
-      "intro": "Word is {other_settlement} has a child who asks every visitor the same question: where did you come from and what did you eat there.",
+      "intro": "Word is {other_settlement} has a child who asks every visitor the same question. Where did you come from and what did you eat there.",
       "details": [
         "A trader said the child has an entire mental catalog of settlements and their food. Impressive memory.",
         "The parents are embarrassed. The visitors are charmed."
@@ -9291,7 +9291,7 @@
         "A craftsman's secrets are earned, not owed. If the smith won't share, that's the smith's right."
       ],
       "statCheck": {
-        "pass": "Better tempering usually means better heat control: knowing exactly when to quench. It's feel, not formula, and you can't teach it in words.",
+        "pass": "Better tempering usually means better heat control. Knowing exactly when to quench. It's feel, not formula, and you can't teach it in words.",
         "fail": "Metalwork is beyond me. I just use the tools."
       },
       "valence": "positive",
@@ -9311,7 +9311,7 @@
         "Cats choose where they live. If a settlement doesn't suit them, no amount of feeding will change their mind."
       ],
       "statCheck": {
-        "pass": "Cats leave when their territory feels wrong: too much noise, wrong smells, or another animal dominating the area. Something about that settlement drives them off.",
+        "pass": "Cats leave when their territory feels wrong. Too much noise, wrong smells, or another animal dominating the area. Something about that settlement drives them off.",
         "fail": "Cats are mysterious. I've given up understanding them."
       },
       "valence": "negative",
@@ -9324,7 +9324,7 @@
       "id": 500,
       "intro": "I heard a trader who visits {other_settlement} regularly said the place always smells like fresh bread. Every time, no matter the hour.",
       "details": [
-        "He said the baker there works in shifts: one batch cooling as the next goes in.",
+        "He said the baker there works in shifts. One batch cooling as the next goes in.",
         "The smell draws people to the common area. It's the social center of the settlement because of the bread."
       ],
       "reactions": [
@@ -9382,7 +9382,7 @@
       "intro": "I heard {other_settlement} has a pair of sisters who finish each other's sentences. Been doing it their whole lives.",
       "details": [
         "A merchant said talking to them is disorienting. One starts, the other finishes, seamlessly.",
-        "They work together too: one cuts and the other sews, like a single person with four hands."
+        "They work together too. One cuts and the other sews, like a single person with four hands."
       ],
       "reactions": [
         "That kind of closeness is rare. Most siblings can barely agree on dinner."
@@ -9455,7 +9455,7 @@
       "id": 507,
       "intro": "A traveler told me {other_settlement} has a man who carved a set of wooden cups so beautiful that nobody uses them. They just sit on a shelf.",
       "details": [
-        "He said the carvings are intricate: leaves, vines, animals. Each cup is different.",
+        "He said the carvings are intricate. Leaves, vines, animals. Each cup is different.",
         "The man made them to be used. He's annoyed that people treat them like decorations."
       ],
       "reactions": [
@@ -9476,7 +9476,7 @@
         "The trees on both sides have grown together overhead. It's like walking through a tunnel of branches."
       ],
       "reactions": [
-        "Shade is a blessing or a hazard depending on the season. The road doesn't change: you do."
+        "Shade is a blessing or a hazard depending on the season. The road doesn't change. You do."
       ],
       "statCheck": null,
       "valence": "neutral",
@@ -9530,7 +9530,7 @@
         "Children treat it gently. It's become a kind of settlement mascot."
       ],
       "reactions": [
-        "A goat that old has outlived its purpose and become something better: a landmark."
+        "A goat that old has outlived its purpose and become something better. A landmark."
       ],
       "statCheck": null,
       "valence": "neutral",
@@ -9550,7 +9550,7 @@
         "Good rope is one of those things you never think about until you need it. Then it's the most important thing in the world."
       ],
       "statCheck": {
-        "pass": "The twist direction and tension during braiding determine strength: a tighter lay means more fiber contact per length. Simple physics, but the feel takes years to learn.",
+        "pass": "The twist direction and tension during braiding determine strength. A tighter lay means more fiber contact per length. Simple physics, but the feel takes years to learn.",
         "fail": "Rope is rope to me. I tie knots and hope they hold."
       },
       "valence": "positive",
@@ -9583,7 +9583,7 @@
       "id": 514,
       "intro": "Word is {other_settlement} has a stretch of wall where children have been drawing on the stones with charcoal. Little pictures everywhere.",
       "details": [
-        "A merchant said the drawings are charming: stick people, animals, suns, stars. A timeline of childhoods.",
+        "A merchant said the drawings are charming. Stick people, animals, suns, stars. A timeline of childhoods.",
         "The adults can't decide whether to clean it off or leave it. The wall is more interesting now."
       ],
       "reactions": [
@@ -9601,7 +9601,7 @@
       "intro": "I heard {other_settlement} had a month where three different families all had babies within the same week. Busiest the settlement's ever been.",
       "details": [
         "A carter said the noise was incredible. Crying all night from three different directions.",
-        "Everyone's been helping out: bringing food, watching older children, fetching water."
+        "Everyone's been helping out. Bringing food, watching older children, fetching water."
       ],
       "reactions": [
         "Three new lives in a week. That's a settlement investing in its future, whether they planned it or not."
@@ -9618,7 +9618,7 @@
       "intro": "A merchant told me {other_settlement} can't agree on what to do with a large flat stone in their common area. Table, bench, or leave it alone.",
       "details": [
         "He said the stone's been there longer than the settlement. Removing it would take ten people and a cart.",
-        "For now it's all three: people eat on it, sit on it, and ignore it depending on their mood."
+        "For now it's all three. People eat on it, sit on it, and ignore it depending on their mood."
       ],
       "reactions": [
         "When a thing has no clear purpose, it serves every purpose. The stone is fine as it is."
@@ -9638,10 +9638,10 @@
         "The disputed strip is about two paces wide. Three generations of anger over two paces."
       ],
       "reactions": [
-        "Old grudges shrink over time but get heavier. The land hasn't changed: the stubbornness has grown."
+        "Old grudges shrink over time but get heavier. The land hasn't changed. The stubbornness has grown."
       ],
       "statCheck": {
-        "pass": "Property disputes that last generations usually aren't about the property anymore: it's about who blinks first. Pride is more expensive than land.",
+        "pass": "Property disputes that last generations usually aren't about the property anymore. It's about who blinks first. Pride is more expensive than land.",
         "fail": "I stay out of property disputes. Nothing good comes from getting involved."
       },
       "valence": "negative",
@@ -9765,7 +9765,7 @@
       "id": 524,
       "intro": "I heard {other_settlement} has a child who collects smooth stones from the river and gives them to people as gifts. Very earnest about it.",
       "details": [
-        "A trader said the child picks specific stones for specific people. Shape, color, size: all chosen deliberately.",
+        "A trader said the child picks specific stones for specific people. Shape, color, size. All chosen deliberately.",
         "Most adults keep them. A few have small collections of stones from this one child."
       ],
       "reactions": [
@@ -9802,7 +9802,7 @@
       "id": 526,
       "intro": "Word is {other_settlement} holds a simple gathering every full moon where people share what they're grateful for. No fuss, just talking.",
       "details": [
-        "A peddler said it usually lasts half an hour. People mention small things: a good meal, a repaired tool, a healthy child.",
+        "A peddler said it usually lasts half an hour. People mention small things. A good meal, a repaired tool, a healthy child.",
         "The mood in the settlement is better for it. Gratitude spoken aloud is different from gratitude kept private."
       ],
       "reactions": [
@@ -9914,7 +9914,7 @@
       "intro": "Word is {other_settlement} has the quietest evenings of any place around. No dogs barking, no arguments, just crickets.",
       "details": [
         "A carter said it's almost unsettling at first. You expect noise from a settlement.",
-        "The people there are just calm: low voices, early nights. Peaceful in a way that takes adjustment."
+        "The people there are just calm. Low voices, early nights. Peaceful in a way that takes adjustment."
       ],
       "reactions": [
         "Quiet is underrated until you've lived somewhere loud. Then you'd trade anything for it."
@@ -9948,7 +9948,7 @@
       "intro": "A merchant told me {other_settlement} had a well bucket come up with a frog in it last week. Alive and unimpressed.",
       "details": [
         "He said the frog sat in the bucket, blinked once, and jumped back into the well when they tipped the water.",
-        "It's happened before: the frog or one of its relatives lives down there. Nobody's bothered by it."
+        "It's happened before. The frog or one of its relatives lives down there. Nobody's bothered by it."
       ],
       "reactions": [
         "A frog in the well means clean water, or so they say. I'd rather not share my water with a frog, personally."
@@ -10062,7 +10062,7 @@
         "A good-enough solution lasts forever because nobody wants to find a better one."
       ],
       "statCheck": {
-        "pass": "A wet log bridge needs cross-cuts every hand span for grip. Notches alone aren't enough: you need channels that break the water film.",
+        "pass": "A wet log bridge needs cross-cuts every hand span for grip. Notches alone aren't enough. You need channels that break the water film.",
         "fail": "Slippery bridges are dangerous. I watch my step."
       },
       "valence": "neutral",
@@ -10093,7 +10093,7 @@
       "intro": "I heard {other_settlement} is known among traders for always offering a meal before doing business. Good food, too.",
       "details": [
         "A merchant said he plans his route so {other_settlement} falls around lunchtime. Worth the detour.",
-        "The hospitality isn't calculated: they genuinely like feeding people. But it helps trade."
+        "The hospitality isn't calculated. They genuinely like feeding people. But it helps trade."
       ],
       "reactions": [
         "Feed a trader and the trader remembers. It's the simplest way to build a good reputation."
@@ -10312,7 +10312,7 @@
         "If they can move the surplus before winter, it'll be a very profitable year for them."
       ],
       "reactions": [
-        "Abundance is a good problem to have, but it's still a problem. Storage, transport, timing: it all costs."
+        "Abundance is a good problem to have, but it's still a problem. Storage, transport, timing. It all costs."
       ],
       "statCheck": null,
       "valence": "positive",
@@ -10329,7 +10329,7 @@
         "The chimney was built too short. Raising it would mean dismantling half the roof."
       ],
       "reactions": [
-        "A bad chimney makes winter miserable. Cold or smoke: that's not a choice, it's a punishment."
+        "A bad chimney makes winter miserable. Cold or smoke. That's not a choice, it's a punishment."
       ],
       "statCheck": {
         "pass": "A short chimney doesn't create enough draw because there's not enough column height to pull the smoke up. They need another three feet of stone.",
@@ -10524,7 +10524,7 @@
       "id": 566,
       "intro": "I heard {other_settlement} has a girl who braids straw into little figures and lines them up on fences. Dozens of them.",
       "details": [
-        "A peddler said the figures are small but detailed: people, animals, birds. Each one different.",
+        "A peddler said the figures are small but detailed. People, animals, birds. Each one different.",
         "Wind knocks them down and she puts them back. Patient child."
       ],
       "reactions": [
@@ -10548,7 +10548,7 @@
         "Good soil is worth more than good tools. You can replace tools."
       ],
       "statCheck": {
-        "pass": "Rich soil like that usually means decades of natural composting: leaf litter, animal activity, the right drainage. It's years of nature's work in one spot.",
+        "pass": "Rich soil like that usually means decades of natural composting. Leaf litter, animal activity, the right drainage. It's years of nature's work in one spot.",
         "fail": "Some dirt grows things better than other dirt. I don't know why."
       },
       "valence": "positive",
@@ -10814,8 +10814,8 @@
       "id": 582,
       "intro": "A traveler told me {other_settlement} has a river stone wall around their common area that took two years to build. Every stone placed by hand.",
       "details": [
-        "He said the wall is beautiful: rounded stones fitted together without mortar.",
-        "The effort was communal: every family contributed days of labor, and it shows in the craftsmanship."
+        "He said the wall is beautiful. Rounded stones fitted together without mortar.",
+        "The effort was communal. Every family contributed days of labor, and it shows in the craftsmanship."
       ],
       "reactions": [
         "A thing built slowly and together lasts longer than anything built fast and alone."
@@ -10922,7 +10922,7 @@
       "id": 588,
       "intro": "A peddler told me {other_settlement} has a grove of fruit trees that bloomed early this year. The whole settlement smells like blossoms.",
       "details": [
-        "He said the petals drift into everything: hair, food, water buckets. Pretty, but messy.",
+        "He said the petals drift into everything. Hair, food, water buckets. Pretty, but messy.",
         "If the weather holds, they'll have a bumper fruit crop. If it frosts, they'll have nothing."
       ],
       "reactions": [
@@ -11205,7 +11205,7 @@
         "Finding something worth trading that costs nothing but time and patience is smart work."
       ],
       "statCheck": {
-        "pass": "The trick to drying herbs is hanging them upside down in a warm, dry spot with good airflow. Too much sun and the oils evaporate: that's where the flavor lives.",
+        "pass": "The trick to drying herbs is hanging them upside down in a warm, dry spot with good airflow. Too much sun and the oils evaporate. That's where the flavor lives.",
         "fail": "Dried herbs are useful. I don't know the technique."
       },
       "valence": "positive",
@@ -11242,7 +11242,7 @@
       "id": 605,
       "intro": "I heard {other_settlement} has someone who carves spoons from scrap wood and gives them away. Every household has a few.",
       "details": [
-        "A peddler said the spoons are surprisingly good: smooth, balanced, comfortable to hold.",
+        "A peddler said the spoons are surprisingly good. Smooth, balanced, comfortable to hold.",
         "The carver doesn't sell them. Says they're practice, and practice is free."
       ],
       "reactions": [
@@ -11525,7 +11525,7 @@
     },
     {
       "id": 619,
-      "intro": "Word is {other_settlement} has been having trouble with their communal oven. Cooks unevenly: hot on one side, cold on the other.",
+      "intro": "Word is {other_settlement} has been having trouble with their communal oven. Cooks unevenly. Hot on one side, cold on the other.",
       "details": [
         "A trader said people have to rotate their bread halfway through baking. Tedious but necessary.",
         "The oven was fine for years. Something shifted in the firebox and nobody can work out what."
@@ -11566,7 +11566,7 @@
     },
     {
       "id": 621,
-      "intro": "A carter said {other_settlement} lost three chickens in one week. Not to predators: the birds just disappeared.",
+      "intro": "A carter said {other_settlement} lost three chickens in one week. Not to predators. The birds just disappeared.",
       "details": [
         "He said they searched everywhere. No feathers, no tracks, no sign of a struggle.",
         "People suspect the chickens found a gap in the fence and wandered off. Simple answer, probably the right one."
@@ -11975,7 +11975,7 @@
     },
     {
       "id": 641,
-      "intro": "I heard {other_settlement} has had their best year for {resource_type} in a long time. Everything lined up: weather, timing, effort.",
+      "intro": "I heard {other_settlement} has had their best year for {resource_type} in a long time. Everything lined up. Weather, timing, effort.",
       "details": [
         "A merchant said the whole settlement's mood is better when production is up. People smile more.",
         "A good year makes last year's struggles feel worth enduring."
@@ -12014,7 +12014,7 @@
     },
     {
       "id": 643,
-      "intro": "Word is {other_settlement} built a bench near the road for travelers to rest. Simple: just a plank on two stumps.",
+      "intro": "Word is {other_settlement} built a bench near the road for travelers to rest. Simple. Just a plank on two stumps.",
       "details": [
         "A peddler said it's the first thing you see coming in. A small gesture that says you're welcome.",
         "Traders stop there to rest their legs. A few minutes' rest changes your impression of a place."
@@ -12241,7 +12241,7 @@
       "id": 654,
       "intro": "A carter mentioned {other_settlement} has a family that cooks for the whole settlement once a month. Everyone brings something, one family does the cooking.",
       "details": [
-        "He said the meals are uneven: sometimes excellent, sometimes questionable. Depends on who's cooking that month.",
+        "He said the meals are uneven. Sometimes excellent, sometimes questionable. Depends on who's cooking that month.",
         "Nobody complains because next month it's their turn. Criticism has a way of coming back."
       ],
       "reactions": [
@@ -12573,7 +12573,7 @@
         "One dishonest visitor makes the next honest one answer for it. That's the cost of being cheated."
       ],
       "statCheck": {
-        "pass": "Settlements that host travelers should ask for a token deposit on arrival. Not much: just enough that leaving without settling the bill costs something.",
+        "pass": "Settlements that host travelers should ask for a token deposit on arrival. Not much. Just enough that leaving without settling the bill costs something.",
         "fail": "People take advantage sometimes. Not much you can do after the fact."
       },
       "valence": "negative",
@@ -12715,7 +12715,7 @@
         "Running out of candles sounds minor until you live through a month of dark evenings."
       ],
       "statCheck": {
-        "pass": "Rush lights work as a candle substitute: dried rushes dipped in any available fat burn for about twenty minutes each. Not ideal, but it's light when you need it.",
+        "pass": "Rush lights work as a candle substitute. Dried rushes dipped in any available fat burn for about twenty minutes each. Not ideal, but it's light when you need it.",
         "fail": "No candles means dark evenings. I feel for them."
       },
       "valence": "negative",
@@ -12750,7 +12750,7 @@
       "intro": "Word is {other_settlement} has someone who makes rope by hand that's stronger than anything you can buy from a traveling merchant.",
       "details": [
         "A merchant said the rope doesn't fray or stretch. Holds knots well and lasts for years.",
-        "The man works slowly: one good rope takes days. But nobody who's used one goes back to cheaper rope."
+        "The man works slowly. One good rope takes days. But nobody who's used one goes back to cheaper rope."
       ],
       "reactions": [
         "Quality work at a slow pace beats fast work that falls apart."
@@ -13048,7 +13048,7 @@
       "intro": "Word is {other_settlement} has a woman who bakes bread so good that traders detour through the settlement just to buy a loaf.",
       "details": [
         "A peddler said the crust cracks when you break it and the inside is soft and airy. Perfect every time.",
-        "She won't share the recipe. Says it's not a recipe: it's the feel of the dough."
+        "She won't share the recipe. Says it's not a recipe. It's the feel of the dough."
       ],
       "reactions": [
         "Bread that brings people to your door is the kind of skill that builds a settlement's reputation."
@@ -13070,10 +13070,10 @@
         "The clay soil holds water instead of draining. Every rain makes the same mess."
       ],
       "reactions": [
-        "Mud is a small misery that affects everything: movement, mood, cleanliness."
+        "Mud is a small misery that affects everything. Movement, mood, cleanliness."
       ],
       "statCheck": {
-        "pass": "Clay soil needs coarse material mixed in to drain: gravel, crushed stone, even bark chips. Without it, water sits on the surface because clay is essentially waterproof.",
+        "pass": "Clay soil needs coarse material mixed in to drain. Gravel, crushed stone, even bark chips. Without it, water sits on the surface because clay is essentially waterproof.",
         "fail": "Mud is mud. Some places just have it worse than others."
       },
       "valence": "negative",
@@ -13089,7 +13089,7 @@
       "intro": "A carter said {other_settlement} has a shared garden where everyone grows what they're best at. One person does root vegetables, another does leafy greens.",
       "details": [
         "He said the variety is better than any one person could manage alone.",
-        "They trade within the settlement: my carrots for your lettuce. Nobody goes without."
+        "They trade within the settlement. My carrots for your lettuce. Nobody goes without."
       ],
       "reactions": [
         "Specialization works in gardens the same way it works in everything else."
@@ -13189,7 +13189,7 @@
       "id": 701,
       "intro": "I heard {other_settlement} recently traded a large amount of {resource_type} for building supplies. Investing in infrastructure.",
       "details": [
-        "A carter said the deal was favorable: they had surplus and the other party had excess timber.",
+        "A carter said the deal was favorable. They had surplus and the other party had excess timber.",
         "Both sides walked away satisfied. That's the best kind of trade."
       ],
       "reactions": [
@@ -13393,7 +13393,7 @@
         "Good production with bad timing means the effort goes to waste."
       ],
       "reactions": [
-        "Making more than people need isn't productivity: it's wishful thinking."
+        "Making more than people need isn't productivity. It's wishful thinking."
       ],
       "statCheck": {
         "pass": "Oversupply drops prices, but storing the surplus for a lean season elsewhere could turn it into leverage. The trick is finding someone who'll need it later.",
@@ -13768,7 +13768,7 @@
         "Sharing water requires trust, and trust is always in shorter supply than water."
       ],
       "statCheck": {
-        "pass": "Upstream users always have leverage because gravity is on their side. The only fair system is measured allocation: agreed amounts at agreed times. Without structure, the upstream side always wins.",
+        "pass": "Upstream users always have leverage because gravity is on their side. The only fair system is measured allocation. Agreed amounts at agreed times. Without structure, the upstream side always wins.",
         "fail": "Water arguments are hard to resolve. I don't have the answer."
       },
       "valence": "negative",
@@ -13828,7 +13828,7 @@
         "Visitors hear the singing from the road before they see the settlement."
       ],
       "reactions": [
-        "Working in rhythm together is faster than working separately. The singing isn't decoration: it's coordination."
+        "Working in rhythm together is faster than working separately. The singing isn't decoration. It's coordination."
       ],
       "statCheck": null,
       "valence": "positive",
@@ -14119,7 +14119,7 @@
     },
     {
       "id": 748,
-      "intro": "Word is {other_settlement} has a child who asks every visitor the same question: where's the most beautiful place you've ever been.",
+      "intro": "Word is {other_settlement} has a child who asks every visitor the same question. Where's the most beautiful place you've ever been.",
       "details": [
         "A peddler said the child listens carefully to every answer and remembers them all.",
         "Some travelers are caught off guard by the question. It makes them think in ways they don't expect."
@@ -14311,7 +14311,7 @@
         "Soft ground under a fence post is a problem that only gets worse with time."
       ],
       "statCheck": {
-        "pass": "Setting posts in gravel instead of bare soil solves it: the gravel drains water away and doesn't shift when wet. More digging upfront, but you only do it once.",
+        "pass": "Setting posts in gravel instead of bare soil solves it. The gravel drains water away and doesn't shift when wet. More digging upfront, but you only do it once.",
         "fail": "Fences and rain don't get along. I know that much."
       },
       "valence": "negative",
@@ -14396,7 +14396,7 @@
         "A bad chimney makes an entire building miserable. You can't ignore smoke."
       ],
       "statCheck": {
-        "pass": "The flue is probably too short or too wide: a chimney needs enough height to create a strong draft, and a narrow flue pulls air better than a wide one. Extending it a few feet would likely fix the draw.",
+        "pass": "The flue is probably too short or too wide. A chimney needs enough height to create a strong draft, and a narrow flue pulls air better than a wide one. Extending it a few feet would likely fix the draw.",
         "fail": "Smoky chimneys are a nuisance. I'm glad it's not my problem."
       },
       "valence": "negative",
@@ -14576,7 +14576,7 @@
         "Half a season's worth of preserves lost. They're making do with what's left."
       ],
       "reactions": [
-        "Losing preserved food is losing twice: the food and the time that went into preparing it."
+        "Losing preserved food is losing twice. The food and the time that went into preparing it."
       ],
       "statCheck": {
         "pass": "Wax needs to be layered thick enough that temperature changes don't crack it. Two coats with drying time between them seals better than one thick pour.",
@@ -14620,7 +14620,7 @@
         "A quiet settlement isn't necessarily a troubled one. Sometimes things just slow down."
       ],
       "statCheck": {
-        "pass": "Quiet spells often follow a bad trade season: if the settlement's main product didn't sell well, everything else slows with it. They're probably tightening belts and waiting for things to turn.",
+        "pass": "Quiet spells often follow a bad trade season. If the settlement's main product didn't sell well, everything else slows with it. They're probably tightening belts and waiting for things to turn.",
         "fail": "Quiet places make me uneasy, but that might just be me."
       },
       "valence": "neutral",
@@ -14705,7 +14705,7 @@
         "Bad sleep spreads like a mood. One person yawning makes the whole settlement tired."
       ],
       "statCheck": {
-        "pass": "Shared insomnia often traces to a shared cause: a change in water source, a seasonal plant blooming nearby, or even a shift in routine that throws everyone off at once.",
+        "pass": "Shared insomnia often traces to a shared cause. A change in water source, a seasonal plant blooming nearby, or even a shift in routine that throws everyone off at once.",
         "fail": "Bad sleep happens. Could be anything."
       },
       "valence": "negative",
@@ -15216,7 +15216,7 @@
         "Losing cloth to moths is maddening. You don't even notice until the holes appear."
       ],
       "statCheck": {
-        "pass": "Cedar works for a while but the oils fade: hanging dried herbs in the storage space keeps moths away longer. The strong scent confuses their sense of smell.",
+        "pass": "Cedar works for a while but the oils fade. Hanging dried herbs in the storage space keeps moths away longer. The strong scent confuses their sense of smell.",
         "fail": "Moths are persistent little things. I keep my good cloth wrapped tight."
       },
       "valence": "negative",
@@ -15276,7 +15276,7 @@
         "One loud animal can make life miserable for an entire settlement. It's impressive in a terrible way."
       ],
       "statCheck": {
-        "pass": "A rooster that crows at odd hours is usually responding to light sources: a fire, a lantern, even moonlight on a clear night. Covering the coop after dark would likely stop the midnight crowing.",
+        "pass": "A rooster that crows at odd hours is usually responding to light sources. A fire, a lantern, even moonlight on a clear night. Covering the coop after dark would likely stop the midnight crowing.",
         "fail": "Roosters crow when they want. I don't pretend to understand them."
       },
       "valence": "negative",
@@ -15339,7 +15339,7 @@
         "Rats are a problem you manage, never a problem you solve."
       ],
       "statCheck": {
-        "pass": "Stone foundations deter rats better than wood: they can gnaw through boards but not through mortared stone. Raising the grain storage off the ground on stone pillars would cut the problem significantly.",
+        "pass": "Stone foundations deter rats better than wood. They can gnaw through boards but not through mortared stone. Raising the grain storage off the ground on stone pillars would cut the problem significantly.",
         "fail": "Rats get into everything. I don't think there's a real solution."
       },
       "valence": "negative",
@@ -15412,7 +15412,7 @@
     },
     {
       "id": 811,
-      "intro": "Word is {other_settlement} has a goat that climbs onto everything: carts, fences, woodpiles, nothing is safe.",
+      "intro": "Word is {other_settlement} has a goat that climbs onto everything. Carts, fences, woodpiles, nothing is safe.",
       "details": [
         "A merchant said the goat got on top of someone's roof and wouldn't come down for a full day.",
         "The owner has given up trying to contain it. The goat goes where the goat wants."
@@ -15738,7 +15738,7 @@
         "Dull tools make hard work harder. There's no shortcut around good material."
       ],
       "statCheck": {
-        "pass": "If the metal is too soft, mixing it with a harder alloy during forging would help: even a small amount of carbon hardens the edge significantly. The technique matters more than the source material.",
+        "pass": "If the metal is too soft, mixing it with a harder alloy during forging would help. Even a small amount of carbon hardens the edge significantly. The technique matters more than the source material.",
         "fail": "Bad tools are frustrating. I hope they find better material."
       },
       "valence": "negative",
@@ -15818,7 +15818,7 @@
         "A howling dog at midnight tests the patience of an entire settlement."
       ],
       "statCheck": {
-        "pass": "Dogs hear things people can't: animals moving through the area at night, distant sounds carried by wind. The dog is probably right that something's out there, just nothing worth worrying about.",
+        "pass": "Dogs hear things people can't. Animals moving through the area at night, distant sounds carried by wind. The dog is probably right that something's out there, just nothing worth worrying about.",
         "fail": "Dogs howl. I don't know why and I've stopped guessing."
       },
       "valence": "negative",
@@ -15840,7 +15840,7 @@
         "A good root cellar is quiet infrastructure. Nobody notices it until the food lasts longer."
       ],
       "statCheck": {
-        "pass": "The principle is simple: warm air rises and escapes through the top vent, pulling cooler underground air in through the bottom. The temperature difference drives constant circulation without any effort.",
+        "pass": "The principle is simple. Warm air rises and escapes through the top vent, pulling cooler underground air in through the bottom. The temperature difference drives constant circulation without any effort.",
         "fail": "Keeping food cool in summer is always a challenge. Sounds like they found something that works."
       },
       "valence": "positive",
@@ -15900,7 +15900,7 @@
         "A close call changes habits faster than any advice."
       ],
       "statCheck": {
-        "pass": "A handle that cracks usually had a hidden check in the grain from drying too fast. You can spot it by flexing the handle before use: a sound handle bends evenly, a flawed one gives at one point.",
+        "pass": "A handle that cracks usually had a hidden check in the grain from drying too fast. You can spot it by flexing the handle before use. A sound handle bends evenly, a flawed one gives at one point.",
         "fail": "Handles crack. You can't always tell when one's about to go."
       },
       "valence": "negative",
@@ -16337,7 +16337,7 @@
         "Mosquitoes are nature's way of reminding you that comfort is temporary."
       ],
       "statCheck": {
-        "pass": "Standing water is where mosquitoes breed: if they drain or cover any still water near the settlement, the population drops within a week. The adults die off quickly without new ones hatching.",
+        "pass": "Standing water is where mosquitoes breed. If they drain or cover any still water near the settlement, the population drops within a week. The adults die off quickly without new ones hatching.",
         "fail": "Mosquitoes are terrible. I just keep covered and hope for wind."
       },
       "valence": "negative",
@@ -16419,7 +16419,7 @@
         "Bad leather is worse than no leather. You waste time working it before realizing it won't hold up."
       ],
       "statCheck": {
-        "pass": "If the soaking time changed, that's likely the cause: too short and the hide doesn't soften evenly, too long and the fibers break down. Getting the timing right is the whole craft.",
+        "pass": "If the soaking time changed, that's likely the cause. Too short and the hide doesn't soften evenly, too long and the fibers break down. Getting the timing right is the whole craft.",
         "fail": "Bad leather happens. I don't know enough about curing to say why."
       },
       "valence": "negative",
@@ -16479,7 +16479,7 @@
         "The ground keeps its own secrets. A warm spot is a gift you don't need to understand."
       ],
       "statCheck": {
-        "pass": "Probably geothermal activity deep below: hot rock heats groundwater, which warms the surface above it. Harmless and quite useful if they build anything on it.",
+        "pass": "Probably geothermal activity deep below. Hot rock heats groundwater, which warms the surface above it. Harmless and quite useful if they build anything on it.",
         "fail": "Warm ground in winter is unusual but it sounds more helpful than harmful."
       },
       "valence": "neutral",
@@ -16542,7 +16542,7 @@
         "Preserved fruit in winter is worth the effort of figuring it out."
       ],
       "statCheck": {
-        "pass": "The key is airflow and consistent heat: slicing thin and drying in a warm spot with moving air prevents mold. If the air is stagnant, moisture has nowhere to go and mold takes hold before the fruit dries through.",
+        "pass": "The key is airflow and consistent heat. Slicing thin and drying in a warm spot with moving air prevents mold. If the air is stagnant, moisture has nowhere to go and mold takes hold before the fruit dries through.",
         "fail": "Drying fruit sounds tricky. I just eat what's in season."
       },
       "valence": "neutral",
@@ -16801,7 +16801,7 @@
         "Saving on materials upfront costs more in the long run. That lesson never sticks until it hurts."
       ],
       "statCheck": {
-        "pass": "Oven clay needs to withstand thermal cycling: heating and cooling repeatedly without cracking. The right clay has a higher ratio of fire-resistant minerals, while cheaper clay fractures under stress.",
+        "pass": "Oven clay needs to withstand thermal cycling. Heating and cooling repeatedly without cracking. The right clay has a higher ratio of fire-resistant minerals, while cheaper clay fractures under stress.",
         "fail": "Ovens crack sometimes. Bad luck or bad clay, hard to say."
       },
       "valence": "negative",
@@ -16960,7 +16960,7 @@
         "Cutting corners on materials saves time now and costs more later. Same story, different material."
       ],
       "statCheck": {
-        "pass": "Thatch needs to be harvested when the stems are fully hardened: young straw is softer and compresses under its own weight, opening gaps. Mature straw holds its shape and sheds water properly.",
+        "pass": "Thatch needs to be harvested when the stems are fully hardened. Young straw is softer and compresses under its own weight, opening gaps. Mature straw holds its shape and sheds water properly.",
         "fail": "Bad thatch means a leaky roof. I hope they get better straw next season."
       },
       "valence": "negative",
@@ -17170,7 +17170,7 @@
     },
     {
       "id": 899,
-      "intro": "I heard {other_settlement} has a boy who counts everything: stones, birds, steps between buildings. Can't help himself.",
+      "intro": "I heard {other_settlement} has a boy who counts everything. Stones, birds, steps between buildings. Can't help himself.",
       "details": [
         "A trader said the boy knows how many steps it takes to walk between any two points in the settlement.",
         "People ask him numbers for fun and he always has an answer ready. Never seems tired of it."

@@ -6,14 +6,14 @@
       "id": 0,
       "intro": "More new faces around here than I've seen in years. Not sure if that's good or bad.",
       "details": [
-        "Three families moved in last season alone. Came from somewhere east: didn't say much about why.",
+        "Three families moved in last season alone. Came from somewhere east. Didn't say much about why.",
         "The market's busier, which is nice. But the inn's packed every night and the prices show it."
       ],
       "reactions": [
         "Change comes whether you invite it or not. Might as well get used to it."
       ],
       "statCheck": {
-        "pass": "People move toward trade and safety: always have. If this place is drawing folk, it means things are going well enough here.",
+        "pass": "People move toward trade and safety. Always have. If this place is drawing folk, it means things are going well enough here.",
         "fail": "I don't know why everyone's showing up now. Just feels different."
       },
       "valence": "neutral"
@@ -26,7 +26,7 @@
         "Their neighbor said they had people somewhere south. Wanted to be closer to kin, apparently."
       ],
       "reactions": [
-        "I understand it: family pulls you places. But it's strange seeing their house sit empty."
+        "I understand it. Family pulls you places. But it's strange seeing their house sit empty."
       ],
       "valence": "negative"
     },
@@ -47,13 +47,13 @@
       "intro": "Half the young folk around here have left for bigger settlements. Can't blame them, but it stings.",
       "details": [
         "There's not much work here for someone with ambition. They go where the opportunities are.",
-        "My own nephew left two seasons ago. Sends letters sometimes: says he's doing well enough."
+        "My own nephew left two seasons ago. Sends letters sometimes. Says he's doing well enough."
       ],
       "reactions": [
         "A place gets quiet when the young ones leave. You feel it in the evenings especially."
       ],
       "statCheck": {
-        "pass": "It happens in cycles: they leave when they're young and some come back when they're older and want the quiet. Just takes time.",
+        "pass": "It happens in cycles. They leave when they're young and some come back when they're older and want the quiet. Just takes time.",
         "fail": "I don't know if they'll come back. I hope so."
       },
       "valence": "negative"
@@ -62,7 +62,7 @@
       "id": 4,
       "intro": "There's been a steady trickle of travelers passing through lately. More than usual.",
       "details": [
-        "Most of them don't stop long: a night or two, then they move on. Heading west, mostly.",
+        "Most of them don't stop long. A night or two, then they move on. Heading west, mostly.",
         "A few asked about work, but there's not much to offer. They seemed decent enough."
       ],
       "reactions": [

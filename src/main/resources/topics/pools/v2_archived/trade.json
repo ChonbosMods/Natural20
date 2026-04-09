@@ -15,7 +15,7 @@
         "If the caravans don't come back soon, we'll have to send our own people to the trading post. That's a five-day journey each way."
       ],
       "statCheck": {
-        "pass": "I spoke with a peddler who still travels the route. He said the merchants aren't afraid of bandits: they're afraid of something at the river crossing. He wouldn't elaborate, but he's been fording upstream instead.",
+        "pass": "I spoke with a peddler who still travels the route. He said the merchants aren't afraid of bandits. They're afraid of something at the river crossing. He wouldn't elaborate, but he's been fording upstream instead.",
         "fail": "Everyone has a different theory about the caravans and none of them have firsthand information. I have asked around plenty myself."
       },
       "valence": "negative"
@@ -33,7 +33,7 @@
         "The old merchants are furious. They're calling for the council to inspect his goods, but nobody can find anything actually wrong with them."
       ],
       "statCheck": {
-        "pass": "I watched him unpack one morning. The crates he pulls from are deeper than they look: false bottoms, hidden compartments. And the goods he takes out are cold to the touch, even in full sun. Wherever that stock comes from, it's not any workshop I know of.",
+        "pass": "I watched him unpack one morning. The crates he pulls from are deeper than they look. False bottoms, hidden compartments. And the goods he takes out are cold to the touch, even in full sun. Wherever that stock comes from, it's not any workshop I know of.",
         "fail": "I've looked at his goods up and down. They're well-made, well-priced, and I can't find a single thing wrong with them. If there's a trick, it's a good one."
       },
       "valence": "neutral"
@@ -44,7 +44,7 @@
       "details": [
         "Three wagons of grain left the village heading north two days apart. Bought at market rate, sold at who knows what.",
         "The buyer is a woman nobody recognizes. She pays in gold, not silver. Nobody around here uses gold for grain.",
-        "She's not hoarding it locally: the wagons don't come back. The grain is going somewhere else."
+        "She's not hoarding it locally. The wagons don't come back. The grain is going somewhere else."
       ],
       "reactions": [
         "We'll have enough if we're careful, but the poorer families are already feeling the squeeze.",
@@ -60,17 +60,17 @@
       "id": 3,
       "intro": "The blacksmith near {subject_focus_the} received a shipment of ore she didn't order. Arrived on a cart with no driver, no invoice, no markings.",
       "details": [
-        "The ore is high quality: better than anything she normally gets from her suppliers. Practically smelts itself.",
-        "There's a symbol stamped on each ingot: a hammer inside a circle. She doesn't recognize the maker's mark.",
-        "She's used some of it already. Says the metal works differently: holds an edge longer, takes less heat to shape."
+        "The ore is high quality. Better than anything she normally gets from her suppliers. Practically smelts itself.",
+        "There's a symbol stamped on each ingot. A hammer inside a circle. She doesn't recognize the maker's mark.",
+        "She's used some of it already. Says the metal works differently. Holds an edge longer, takes less heat to shape."
       ],
       "reactions": [
         "Free materials sound good until you wonder who wants a blacksmith in their debt.",
         "She's half-grateful and half-suspicious. Smart woman. I'd feel the same way."
       ],
       "statCheck": {
-        "pass": "I asked around the forge district two towns over. That hammer-in-a-circle mark belongs to a smithing guild that disbanded years ago: supposedly. But someone is still using their stamp, and the quality matches their old work exactly. Whoever sent that ore wants her to know who they are, without saying it outright.",
-        "fail": "The mark could be anything: a family crest, a forge stamp, a merchant's label. Without knowing the maker, there's no way to trace it."
+        "pass": "I asked around the forge district two towns over. That hammer-in-a-circle mark belongs to a smithing guild that disbanded years ago. Supposedly. But someone is still using their stamp, and the quality matches their old work exactly. Whoever sent that ore wants her to know who they are, without saying it outright.",
+        "fail": "The mark could be anything. A family crest, a forge stamp, a merchant's label. Without knowing the maker, there's no way to trace it."
       },
       "valence": "neutral"
     },
@@ -78,7 +78,7 @@
       "id": 4,
       "intro": "Trade at {subject_focus_the} has shifted to barter because nobody trusts the coin anymore. Three people found their silver pieces turning black overnight.",
       "details": [
-        "It's not tarnish: the metal itself is changing. The coins lose weight and become brittle.",
+        "It's not tarnish. The metal itself is changing. The coins lose weight and become brittle.",
         "Only coins from the last few months are affected. Older silver is fine.",
         "The assayer tested a bad coin and said the silver content is less than half what it should be. Someone's been debasing the mint."
       ],
@@ -87,7 +87,7 @@
         "Whoever debased the coins made a lot of money in the short term. The rest of us pay for it now."
       ],
       "statCheck": {
-        "pass": "I compared the bad coins closely. They all have a tiny notch on the rim that the good coins don't: a filing mark. Someone is swapping real coins for counterfeits and marking which ones they've touched.",
+        "pass": "I compared the bad coins closely. They all have a tiny notch on the rim that the good coins don't. A filing mark. Someone is swapping real coins for counterfeits and marking which ones they've touched.",
         "fail": "The bad coins look identical to the good ones except for the discoloration. Whatever the difference is, it is not visible to the eye."
       },
       "valence": "negative"
@@ -96,7 +96,7 @@
       "id": 5,
       "intro": "Salt has been short near {subject_focus_the} for over a month now. The salt traders say their source dried up, but they won't say which one.",
       "details": [
-        "We use salt for everything: curing meat, preserving fish, tanning hides. Without it, half the winter stores won't keep.",
+        "We use salt for everything. Curing meat, preserving fish, tanning hides. Without it, half the winter stores won't keep.",
         "The price has gone from reasonable to outrageous. A pouch that cost two coppers now costs eight.",
         "One of the traveling merchants offered to sell salt at the old price, but only in bulk. Nobody here has that kind of coin lying around."
       ],
@@ -105,8 +105,8 @@
         "Salt shouldn't be a luxury. When basic supplies get expensive, it's the families with the least who suffer first."
       ],
       "statCheck": {
-        "pass": "I cornered one of the salt traders after a few drinks. He admitted the source didn't dry up: the mine owners raised their prices because a single buyer offered to take the entire output at a premium. Someone is cornering the salt market on purpose, and the traders are just playing along because the coin is better.",
-        "fail": "The salt traders have their story and they're sticking to it. I've pressed a few of them, but they all say the same thing: source dried up, nothing they can do."
+        "pass": "I cornered one of the salt traders after a few drinks. He admitted the source didn't dry up. The mine owners raised their prices because a single buyer offered to take the entire output at a premium. Someone is cornering the salt market on purpose, and the traders are just playing along because the coin is better.",
+        "fail": "The salt traders have their story and they're sticking to it. I've pressed a few of them, but they all say the same thing. Source dried up, nothing they can do."
       },
       "valence": "negative"
     },
@@ -116,14 +116,14 @@
       "details": [
         "A cart that used to pay one copper now pays four. The toll collectors won't say who set the new rates.",
         "Small traders are skipping the main road entirely. They'd rather take the longer route than pay tolls that eat their margins.",
-        "The toll post itself got a new fence and a second guard. That's where the money is going: not the road, the toll station."
+        "The toll post itself got a new fence and a second guard. That's where the money is going. Not the road, the toll station."
       ],
       "reactions": [
         "Higher tolls mean higher prices at market. The collectors don't pay for bread, so they don't notice.",
         "When the small traders stop coming, we'll have nobody to buy from except the big outfits. And they'll charge whatever they want."
       ],
       "statCheck": {
-        "pass": "I looked at the toll ledger: the collector left it open on the table while he stepped away. The new rates weren't set by the road council. They were set by a private contract, signed by someone who also owns the only inn on the main route. Same person profits from the toll and from the travelers who have to stop overnight. Neat arrangement.",
+        "pass": "I looked at the toll ledger. The collector left it open on the table while he stepped away. The new rates weren't set by the road council. They were set by a private contract, signed by someone who also owns the only inn on the main route. Same person profits from the toll and from the travelers who have to stop overnight. Neat arrangement.",
         "fail": "The toll collectors say the rates come from above. Who 'above' is, they won't say, and the paperwork isn't public."
       },
       "valence": "negative"
@@ -133,7 +133,7 @@
       "intro": "The tanner's apprentice left {subject_focus_the} last week. Packed up in the night without a word. She's the third apprentice to leave a workshop this season.",
       "details": [
         "The tanner spent four years training her. She was nearly ready to work on her own. Now he's back to doing everything himself.",
-        "The weaver lost his apprentice a month before that. Same thing: gone overnight, no explanation.",
+        "The weaver lost his apprentice a month before that. Same thing. Gone overnight, no explanation.",
         "Nobody's applying to replace them. The young ones want merchant work, not craft work. Better coin, less sweat."
       ],
       "reactions": [
@@ -142,7 +142,7 @@
         "The masters are tired. You can see it. Working alone at their age, knowing there's nobody to hand the tools to."
       ],
       "statCheck": {
-        "pass": "I talked to the weaver's former apprentice before she left. She didn't leave for better coin: she left because a merchant from outside offered her a finished workshop, tools, and clients in another settlement. Someone is actively recruiting trained apprentices away from here. It's not natural drift: it's poaching.",
+        "pass": "I talked to the weaver's former apprentice before she left. She didn't leave for better coin. She left because a merchant from outside offered her a finished workshop, tools, and clients in another settlement. Someone is actively recruiting trained apprentices away from here. It's not natural drift. It's poaching.",
         "fail": "Young people leave for all sorts of reasons. I've asked a few, but nobody gave me a straight answer about what pulled them away."
       },
       "valence": "negative"
@@ -160,7 +160,7 @@
         "People are starting to keep their own supplies at home instead of the communal storehouse. That defeats the whole purpose of having one."
       ],
       "statCheck": {
-        "pass": "I looked at the barrels more carefully. The newer ones have a slightly different seal: same maker's mark, but the wax is softer and the grain of the wood is coarser. Someone switched suppliers for the cooperage, and the barrels aren't holding.",
+        "pass": "I looked at the barrels more carefully. The newer ones have a slightly different seal. Same maker's mark, but the wax is softer and the grain of the wood is coarser. Someone switched suppliers for the cooperage, and the barrels aren't holding.",
         "fail": "The barrels look the same as they always have. If there's a difference, I can't spot it."
       },
       "valence": "negative"
@@ -169,7 +169,7 @@
       "id": 9,
       "intro": "A trade fair is supposed to come through near {subject_focus_the} next month. First one in three years, and people are already arguing about stall placement.",
       "details": [
-        "The last fair brought in merchants from six different regions. Spices, fabrics, tools, seeds: things we can't get any other way.",
+        "The last fair brought in merchants from six different regions. Spices, fabrics, tools, seeds. Things we can't get any other way.",
         "The council wants to charge stall fees this time. The merchants are threatening to skip us entirely if the fees are too high.",
         "Local crafters are stockpiling their best work to sell. The potter has been firing pieces for weeks. The weaver won't sell anything until the fair."
       ],
@@ -178,7 +178,7 @@
         "If the council overcharges and the merchants skip us, we won't get another chance for years. Fairs go where the welcome is warm."
       ],
       "statCheck": {
-        "pass": "I spoke with one of the visiting advance scouts for the fair. She told me the stall fee dispute is a front: the real issue is that two council members want exclusive first-pick rights on incoming goods before the public sees them. The merchants caught wind and that's why they're threatening to skip us.",
+        "pass": "I spoke with one of the visiting advance scouts for the fair. She told me the stall fee dispute is a front. The real issue is that two council members want exclusive first-pick rights on incoming goods before the public sees them. The merchants caught wind and that's why they're threatening to skip us.",
         "fail": "The council says it's about fees. The merchants say it's about fees. Whatever the real sticking point is, nobody's sharing it with the likes of me."
       },
       "valence": "positive"
@@ -192,11 +192,11 @@
         "The quality on both sides is slipping. When you're cutting prices, you start cutting corners. The stitching on the last belt I bought came apart in a week."
       ],
       "reactions": [
-        "Competition is fine. This isn't competition: it's a feud with leather. Someone's going to go under, and the one left standing will double the prices.",
+        "Competition is fine. This isn't competition. It's a feud with leather. Someone's going to go under, and the one left standing will double the prices.",
         "I feel for the old craftsman. He built his reputation over decades. Now he's racing to the bottom against someone with nothing to lose."
       ],
       "statCheck": {
-        "pass": "I bought pieces from both and compared them side by side. The new leatherworker's material is identical to the old one's: same hide source, same tanning method, same tool marks. She didn't just set up a competing shop: she's using his techniques. Either she trained under someone who trained under him, or she got hold of his methods another way.",
+        "pass": "I bought pieces from both and compared them side by side. The new leatherworker's material is identical to the old one's. Same hide source, same tanning method, same tool marks. She didn't just set up a competing shop. She's using his techniques. Either she trained under someone who trained under him, or she got hold of his methods another way.",
         "fail": "Leather is leather, and I'm no craftsman. They both look fine to me, when they bother to do it properly."
       },
       "valence": "negative"
@@ -211,10 +211,10 @@
       ],
       "reactions": [
         "When strangers buy up a basic supply without blinking at the cost, it's not for lighting reading rooms. Something's going on.",
-        "Oil is oil. People need it. Selling the whole stock to outsiders and leaving the locals in the dark isn't good business: it's short-sighted."
+        "Oil is oil. People need it. Selling the whole stock to outsiders and leaving the locals in the dark isn't good business. It's short-sighted."
       ],
       "statCheck": {
-        "pass": "I got talking to one of the buyers while he loaded his cart. Offered to help. He let slip they're supplying a work camp further out: something being built underground that needs constant light. He clammed up after that.",
+        "pass": "I got talking to one of the buyers while he loaded his cart. Offered to help. He let slip they're supplying a work camp further out. Something being built underground that needs constant light. He clammed up after that.",
         "fail": "The buyers don't linger and they don't chat. I've tried catching one for a conversation, but they pay and leave before you can get a word in."
       },
       "valence": "negative"
@@ -223,7 +223,7 @@
       "id": 12,
       "intro": "Foreign-made tools have been showing up at the market near {subject_focus_the}. Good quality, strange designs, and nobody knows who's importing them.",
       "details": [
-        "The hammer heads are shaped differently: flatter, wider, with a ridge along the back. Works well, but it's not a design I've seen before.",
+        "The hammer heads are shaped differently. Flatter, wider, with a ridge along the back. Works well, but it's not a design I've seen before.",
         "There are no maker's marks, no stamps, no origin labels. Just clean metalwork with an unusual finish.",
         "The local smith examined one and said the alloy is something she's never worked with. Lighter than iron, harder than bronze."
       ],
@@ -232,7 +232,7 @@
         "The smith is more bothered than anyone. She takes pride in being the best metalworker around, and these tools outclass her stock."
       ],
       "statCheck": {
-        "pass": "I examined one of the chisel heads under good light. There's a pattern in the metal: a faint ripple, almost like wood grain. That's a folding technique I've only heard about from smiths far to the east. Whoever made these has access to methods that haven't been practiced in this region for generations.",
+        "pass": "I examined one of the chisel heads under good light. There's a pattern in the metal. A faint ripple, almost like wood grain. That's a folding technique I've only heard about from smiths far to the east. Whoever made these has access to methods that haven't been practiced in this region for generations.",
         "fail": "Good tools are good tools. I turned one over in my hands for a while, but I couldn't spot anything that would tell me where it was forged."
       },
       "valence": "neutral"
@@ -246,11 +246,11 @@
         "The supplier blames transport costs. Says it's not worth shipping small quantities when the roads charge more in tolls than the goods are worth."
       ],
       "reactions": [
-        "Medicine shouldn't be a luxury. When the herbalist runs out of remedies, it's not a trade problem: it's a health problem.",
+        "Medicine shouldn't be a luxury. When the herbalist runs out of remedies, it's not a trade problem. It's a health problem.",
         "People are already trying to forage their own. Most of them don't know what they're picking. That's how someone gets poisoned."
       ],
       "statCheck": {
-        "pass": "I checked the supplier's books when he wasn't looking. The transport costs he's quoting don't add up: the toll increases are real, but they only account for a fraction of the markup. He's padding the numbers and pocketing the difference. The herbalist is paying three times what the actual cost justifies.",
+        "pass": "I checked the supplier's books when he wasn't looking. The transport costs he's quoting don't add up. The toll increases are real, but they only account for a fraction of the markup. He's padding the numbers and pocketing the difference. The herbalist is paying three times what the actual cost justifies.",
         "fail": "The supplier gave me his cost breakdown and it all looked reasonable enough. Tolls, cart hire, losses on the road. I'm no bookkeeper, so I can't say if the numbers are fair."
       },
       "valence": "negative"
@@ -268,7 +268,7 @@
         "The weavers are talking about pooling their coin and sending someone to find him. That tells you how much we depend on one man's route."
       ],
       "statCheck": {
-        "pass": "I spoke to a peddler who passed through that crossroads village. He said the wool merchant isn't stuck: he's negotiating. A buyer from the north offered to take his entire season's stock at double the price, but only if he stops supplying the smaller settlements. He's been sitting there for a week, trying to decide.",
+        "pass": "I spoke to a peddler who passed through that crossroads village. He said the wool merchant isn't stuck. He's negotiating. A buyer from the north offered to take his entire season's stock at double the price, but only if he stops supplying the smaller settlements. He's been sitting there for a week, trying to decide.",
         "fail": "The crossroads village is a good distance from here. By the time anyone gets there and back, the situation will have changed. I don't know more than what the peddler said."
       },
       "valence": "negative"
@@ -278,15 +278,15 @@
       "intro": "Someone has been buying up all the rope and chain near {subject_focus_the}. The smith and the ropemaker are both sold out.",
       "details": [
         "The orders came in over a single week. Enough rope and chain to rig a dozen carts, and it all went to the same buyer.",
-        "The buyer paid a premium: above asking price, no negotiation. That kind of spending raises questions.",
-        "The smith said the chain order was specific: heavy gauge, short links, built for load-bearing. Not the kind you use for gates or livestock."
+        "The buyer paid a premium. Above asking price, no negotiation. That kind of spending raises questions.",
+        "The smith said the chain order was specific. Heavy gauge, short links, built for load-bearing. Not the kind you use for gates or livestock."
       ],
       "reactions": [
         "Rope and chain in that quantity means construction, mining, or something you don't want to think about too hard.",
         "The smith and the ropemaker are happy with the coin. I'd be happier if I knew what it was all for."
       ],
       "statCheck": {
-        "pass": "I asked the smith about the order details. She mentioned the buyer also wanted iron brackets in a pattern she recognized: they're used for securing heavy loads to walls. Cages, counterweights, or anchors for something very large.",
+        "pass": "I asked the smith about the order details. She mentioned the buyer also wanted iron brackets in a pattern she recognized. They're used for securing heavy loads to walls. Cages, counterweights, or anchors for something very large.",
         "fail": "The buyer was polite, paid well, and didn't leave a name. That's all anyone knows."
       },
       "valence": "neutral"
@@ -301,10 +301,10 @@
       ],
       "reactions": [
         "Good pottery is something people take for granted until they can't get it. Try storing grain without sound jars.",
-        "The potter is losing sleep over it. He's been at this for thirty years and suddenly his craft is failing him. It's not the man: it's the material."
+        "The potter is losing sleep over it. He's been at this for thirty years and suddenly his craft is failing him. It's not the man. It's the material."
       ],
       "statCheck": {
-        "pass": "I visited the clay pit myself and took a handful from the source. There's a layer of chalite mixed in now: a mineral that expands when heated. It wasn't there last season. Something upstream is washing new sediment into the deposit, and it's contaminating the clay at the source.",
+        "pass": "I visited the clay pit myself and took a handful from the source. There's a layer of chalite mixed in now. A mineral that expands when heated. It wasn't there last season. Something upstream is washing new sediment into the deposit, and it's contaminating the clay at the source.",
         "fail": "Clay is clay to me. The potter says it's different, and I believe him, but I couldn't tell you what changed or why."
       },
       "valence": "negative"
@@ -319,11 +319,11 @@
       ],
       "reactions": [
         "When it costs more to move something than the thing is worth, only the wealthy can afford deliveries. Everyone else makes do.",
-        "The merchants aren't villains for charging more. Their costs went up too. It's a chain: everything pulls on everything else."
+        "The merchants aren't villains for charging more. Their costs went up too. It's a chain. Everything pulls on everything else."
       ],
       "statCheck": {
-        "pass": "I compared the feed prices across three different suppliers. Two of them are charging the same as last season: the increase is only coming from the one supplier that most cart drivers use, because he's the closest to the main road. He's exploiting the convenience and the drivers aren't shopping around. The whole price chain is being inflated by one bottleneck.",
-        "fail": "Feed costs, tolls, wear on the carts: it all adds up. I don't know enough about the hauling trade to say where the real problem sits."
+        "pass": "I compared the feed prices across three different suppliers. Two of them are charging the same as last season. The increase is only coming from the one supplier that most cart drivers use, because he's the closest to the main road. He's exploiting the convenience and the drivers aren't shopping around. The whole price chain is being inflated by one bottleneck.",
+        "fail": "Feed costs, tolls, wear on the carts. It all adds up. I don't know enough about the hauling trade to say where the real problem sits."
       },
       "valence": "negative"
     },
@@ -340,7 +340,7 @@
         "A bad harvest hurts. A great harvest hurts differently. There's a bitter lesson in that."
       ],
       "statCheck": {
-        "pass": "I noticed something odd about the timing. Three of the farmers planted the same high-yield seed stock that a traveling seller pushed through here last spring. He sold it cheap and promised double the harvest. He was right about the yield, but he sold the same seed to every settlement within a week's ride. The glut isn't an accident: someone engineered it.",
+        "pass": "I noticed something odd about the timing. Three of the farmers planted the same high-yield seed stock that a traveling seller pushed through here last spring. He sold it cheap and promised double the harvest. He was right about the yield, but he sold the same seed to every settlement within a week's ride. The glut isn't an accident. Someone engineered it.",
         "fail": "Good weather, good soil, and everyone planted a lot. That's all there is to it, far as I can tell."
       },
       "valence": "negative"
@@ -349,16 +349,16 @@
       "id": 19,
       "intro": "Counterfeit leather goods have been turning up in the market near {subject_focus_the}. They look right, but they fall apart within weeks.",
       "details": [
-        "The stitching is neat and the dye is even, but the leather itself is thin: half the proper thickness, stretched and treated to look full.",
+        "The stitching is neat and the dye is even, but the leather itself is thin. Half the proper thickness, stretched and treated to look full.",
         "A dozen people bought belts, pouches, and satchels from the same stall. Every one of them split along the seams within a month.",
         "The seller is long gone. Packed up after two market days and hasn't been seen since."
       ],
       "reactions": [
-        "It's not the coin that stings: it's the trust. People will be suspicious of every new seller for a season at least.",
+        "It's not the coin that stings. It's the trust. People will be suspicious of every new seller for a season at least.",
         "The real leatherworkers are furious. Their reputation gets tarnished because some cheat sold garbage under the same name."
       ],
       "statCheck": {
-        "pass": "I kept one of the bad pouches and compared it to the real thing. The grain pattern is wrong: it's been pressed with a stamp to mimic cow hide, but the base material is closer to pig skin. Whoever made these has access to a workshop and knows what they're imitating.",
+        "pass": "I kept one of the bad pouches and compared it to the real thing. The grain pattern is wrong. It's been pressed with a stamp to mimic cow hide, but the base material is closer to pig skin. Whoever made these has access to a workshop and knows what they're imitating.",
         "fail": "The fakes look convincing until they start falling apart. By then the seller is three towns over."
       },
       "valence": "negative"
@@ -372,11 +372,11 @@
         "Three merchants stored their inventory there. One of them is ruined. The other two had insurance arrangements with the guild, but those take months to settle."
       ],
       "reactions": [
-        "A fire like that doesn't just destroy goods: it destroys trust. People are asking where to store things now, and nobody has a good answer.",
+        "A fire like that doesn't just destroy goods. It destroys trust. People are asking where to store things now, and nobody has a good answer.",
         "The merchant who lost everything has been sitting in the square looking at nothing. Twenty years of work, gone in a night."
       ],
       "statCheck": {
-        "pass": "I talked to the watchman privately. He didn't doze off: he was paid to leave the back door unbarred. Someone gave him a week's wages to look the other way for one hour. He's terrified now, won't say who paid him.",
+        "pass": "I talked to the watchman privately. He didn't doze off. He was paid to leave the back door unbarred. Someone gave him a week's wages to look the other way for one hour. He's terrified now, won't say who paid him.",
         "fail": "Fires happen. The oil barrels were always a risk. If there's more to it, nobody's talking."
       },
       "valence": "negative"
@@ -394,14 +394,14 @@
         "Both sides have a point, which is why it's so hard to settle. Affordable prices are good for buyers. Fair margins are good for sellers. Balancing those is the whole job, and they can't do it."
       ],
       "statCheck": {
-        "pass": "I sat through one of their meetings. The loudest voice against price caps is a merchant who also supplies goods to the guild members at a markup. If caps go in, his wholesale prices get scrutinized too. He's not fighting for principle: he's protecting his margins on both ends of the deal.",
+        "pass": "I sat through one of their meetings. The loudest voice against price caps is a merchant who also supplies goods to the guild members at a markup. If caps go in, his wholesale prices get scrutinized too. He's not fighting for principle. He's protecting his margins on both ends of the deal.",
         "fail": "Guild politics are messy and I try not to get involved. Both sides make good arguments and I honestly couldn't tell you who's in the right."
       },
       "valence": "negative"
     },
     {
       "id": 22,
-      "intro": "A rare shipment of dyestuff came through {subject_focus_the} last week. Colors nobody's seen in years: deep blue, true crimson, a green like new leaves.",
+      "intro": "A rare shipment of dyestuff came through {subject_focus_the} last week. Colors nobody's seen in years. Deep blue, true crimson, a green like new leaves.",
       "details": [
         "The dyer bought every ounce she could afford and locked it in her workshop. She says colors like these haven't been available since the old trade routes were open.",
         "The fabrics she's produced since are stunning. People are coming from neighboring settlements just to see them.",
@@ -412,8 +412,8 @@
         "Rare supply and high demand means those dyes will get expensive fast. The first batch is art. The second batch is a luxury only some can afford."
       ],
       "statCheck": {
-        "pass": "I got a look at the dye residue on the trader's hands. Those stains are distinctive: the deep blue comes from a shellfish extract that's only harvested on the western coast, past the marshes. The old trade routes didn't go there. Whoever this middleman is, he's opened a path that hasn't been used in years, and he's keeping it to himself.",
-        "fail": "Dyes come from all sorts of sources: plants, minerals, shells. I wouldn't know where to begin tracing these, and the trader certainly isn't volunteering the information."
+        "pass": "I got a look at the dye residue on the trader's hands. Those stains are distinctive. The deep blue comes from a shellfish extract that's only harvested on the western coast, past the marshes. The old trade routes didn't go there. Whoever this middleman is, he's opened a path that hasn't been used in years, and he's keeping it to himself.",
+        "fail": "Dyes come from all sorts of sources. Plants, minerals, shells. I wouldn't know where to begin tracing these, and the trader certainly isn't volunteering the information."
       },
       "valence": "positive"
     },
@@ -439,7 +439,7 @@
       "id": 24,
       "intro": "Barter has replaced coin for small trades near {subject_focus_the}. People are swapping eggs for candles, flour for firewood, labor for meals.",
       "details": [
-        "It works for neighbors who trust each other. But try bartering with a stranger: nobody can agree on what a chicken is worth in nails.",
+        "It works for neighbors who trust each other. But try bartering with a stranger. Nobody can agree on what a chicken is worth in nails.",
         "The merchant stalls still want coin, which means barter only works for local exchanges. Anything from outside still costs money nobody has.",
         "Some people have started using tally sticks to track debts. It's an old system, but it keeps things honest when the coin is short."
       ],
@@ -448,7 +448,7 @@
         "There's something honest about trading a day's work for a sack of flour. No middlemen, no margins. Just two people agreeing."
       ],
       "statCheck": {
-        "pass": "I've been watching the tally stick system closely. One person is running a quiet racket: he takes on debts in tallies from multiple families, then trades those tallies to wealthier neighbors at a discount. He's basically buying debt cheap and collecting the full value later. It's coin lending without the coin, and some families don't realize they owe him instead of their neighbor now.",
+        "pass": "I've been watching the tally stick system closely. One person is running a quiet racket. He takes on debts in tallies from multiple families, then trades those tallies to wealthier neighbors at a discount. He's basically buying debt cheap and collecting the full value later. It's coin lending without the coin, and some families don't realize they owe him instead of their neighbor now.",
         "fail": "The barter system works well enough for people who know each other. I don't have the head for tracking who owes what to whom."
       },
       "valence": "neutral"
@@ -457,7 +457,7 @@
       "id": 25,
       "intro": "The honey supply near {subject_focus_the} has dropped to almost nothing. Three beekeepers say their colonies collapsed at the same time.",
       "details": [
-        "The bees didn't die in the hives. They left. Every hive was empty: no bodies, no queen, just abandoned comb.",
+        "The bees didn't die in the hives. They left. Every hive was empty. No bodies, no queen, just abandoned comb.",
         "Honey is used for more than sweetening. The herbalist needs it for poultices, the brewer for mead, the baker for half her recipes.",
         "One beekeeper tried starting a new colony from a wild swarm. They settled in for a week, then left the same way the others did."
       ],
@@ -466,7 +466,7 @@
         "The beekeepers are baffled. They've done this work their whole lives and never seen anything like it."
       ],
       "statCheck": {
-        "pass": "I checked the abandoned hives myself. There's a residue on the inner walls: faint, slightly sweet, not from the bees. Someone coated the hive frames with something. The bees didn't leave on their own: they were driven out. Whoever did it knew exactly how to make it look natural.",
+        "pass": "I checked the abandoned hives myself. There's a residue on the inner walls. Faint, slightly sweet, not from the bees. Someone coated the hive frames with something. The bees didn't leave on their own. They were driven out. Whoever did it knew exactly how to make it look natural.",
         "fail": "Bees are mysterious creatures. The keepers say sometimes colonies just leave, and there's no rhyme or reason to it. I'm not in a position to argue."
       },
       "valence": "negative"
@@ -475,7 +475,7 @@
       "id": 26,
       "intro": "Somebody has been smuggling goods past the market inspectors near {subject_focus_the}. Twice now, unlicensed crates have turned up in merchants' back rooms.",
       "details": [
-        "The crates had no tax stamps and no origin marks. Inside: spices, fine cloth, and a few bottles of something the inspector couldn't identify.",
+        "The crates had no tax stamps and no origin marks. Inside. Spices, fine cloth, and a few bottles of something the inspector couldn't identify.",
         "The merchants who were caught with them swear they didn't know the goods were untaxed. They say a middleman sold them at bulk rates, no questions asked.",
         "The inspectors are threatening to fine every stall in the market if the source isn't found. That's punishing everyone for one person's scheme."
       ],
@@ -484,7 +484,7 @@
         "The inspectors are heavy-handed, but I understand the frustration. If smuggled goods flood the market, the whole system breaks down."
       ],
       "statCheck": {
-        "pass": "I noticed the crates all have the same woodgrain pattern: same sawmill, same batch. And the nails are square-cut, not round. That's an older style, only used by one cooperage I know of, and they're a long way from here. Whoever is running this operation has a specific supply chain.",
+        "pass": "I noticed the crates all have the same woodgrain pattern. Same sawmill, same batch. And the nails are square-cut, not round. That's an older style, only used by one cooperage I know of, and they're a long way from here. Whoever is running this operation has a specific supply chain.",
         "fail": "The crates look like any other crates. If there are identifying marks, the inspectors haven't found them either."
       },
       "valence": "negative"
@@ -495,14 +495,14 @@
       "details": [
         "The butchers used to sell tallow locally as a matter of course. Now someone is offering twice the going rate and hauling it out by the cartload.",
         "The chandler can't match the price. She'd have to charge more for candles than people are willing to pay.",
-        "Some families have gone back to rushlight: dried reeds dipped in whatever grease they can scrape together. It smells terrible and gives half the light."
+        "Some families have gone back to rushlight. Dried reeds dipped in whatever grease they can scrape together. It smells terrible and gives half the light."
       ],
       "reactions": [
         "Darkness is a real problem, not a small inconvenience. People need light to work, to cook, to keep their children from tripping down stairs.",
-        "The butchers aren't doing anything wrong: they're selling to the highest bidder. But when a basic need becomes someone else's raw material, the community pays the difference."
+        "The butchers aren't doing anything wrong. They're selling to the highest bidder. But when a basic need becomes someone else's raw material, the community pays the difference."
       ],
       "statCheck": {
-        "pass": "I followed the tallow cart to its first stop. The buyer isn't using it for candles either: they're rendering it down and mixing it with something else. The barrels they produce smell sharp, almost like pitch. Whatever they're making, it's not for lighting homes. It's an industrial supply for something larger.",
+        "pass": "I followed the tallow cart to its first stop. The buyer isn't using it for candles either. They're rendering it down and mixing it with something else. The barrels they produce smell sharp, almost like pitch. Whatever they're making, it's not for lighting homes. It's an industrial supply for something larger.",
         "fail": "The tallow goes out on a cart and doesn't come back. Where it ends up, I couldn't tell you. The buyer doesn't exactly invite questions."
       },
       "valence": "negative"
@@ -513,21 +513,21 @@
       "details": [
         "The agreement guaranteed fair prices and priority delivery for both sides. Without it, every deal has to be negotiated from scratch.",
         "The neighboring settlement's council says our terms were too generous to our side. Our council says the opposite. Neither has proposed new terms.",
-        "In the meantime, independent traders are filling the gap: and charging a premium for the privilege."
+        "In the meantime, independent traders are filling the gap. And charging a premium for the privilege."
       ],
       "reactions": [
         "Pride is expensive. Two settlements that traded fairly for years are now paying middlemen because nobody wants to be the first to compromise.",
-        "The merchants don't care about the politics. They just want to know: can I buy, can I sell, and at what price? Right now, nobody can tell them."
+        "The merchants don't care about the politics. They just want to know. Can I buy, can I sell, and at what price? Right now, nobody can tell them."
       ],
       "statCheck": {
-        "pass": "I read through the old agreement when the council clerk wasn't watching. The terms were actually quite balanced. The real issue is a clause at the bottom: whoever renews the agreement gets to appoint the trade inspector for both settlements. That's the power both councils want, and neither will concede it.",
+        "pass": "I read through the old agreement when the council clerk wasn't watching. The terms were actually quite balanced. The real issue is a clause at the bottom. Whoever renews the agreement gets to appoint the trade inspector for both settlements. That's the power both councils want, and neither will concede it.",
         "fail": "Trade agreements are long documents full of clauses and conditions. I don't have the patience or the expertise to sort out who's being unreasonable."
       },
       "valence": "negative"
     },
     {
       "id": 29,
-      "intro": "The communal grain reserve near {subject_focus_the} is lower than it should be. The ledger says one thing: the bins say another.",
+      "intro": "The communal grain reserve near {subject_focus_the} is lower than it should be. The ledger says one thing. The bins say another.",
       "details": [
         "According to the records, there should be twelve barrels in store. I counted nine. Someone's numbers are wrong, or someone's been taking.",
         "The granary keeper insists his tallies are correct. He showed me the ledger himself. Clean entries, proper dates, no corrections.",
@@ -538,7 +538,7 @@
         "The granary is trust. Everyone contributes, everyone draws. If that system is being gamed, the whole arrangement falls apart."
       ],
       "statCheck": {
-        "pass": "I looked at the delivery logs more carefully. The entries for the missing grain are in a different hand than the rest: same ink, same style, but a slightly different slant on the letters. Someone added those entries after the fact to make the numbers look right.",
+        "pass": "I looked at the delivery logs more carefully. The entries for the missing grain are in a different hand than the rest. Same ink, same style, but a slightly different slant on the letters. Someone added those entries after the fact to make the numbers look right.",
         "fail": "The ledger is tidy and consistent. If there's been tampering, it was done by someone who knows how to keep books."
       },
       "valence": "negative"

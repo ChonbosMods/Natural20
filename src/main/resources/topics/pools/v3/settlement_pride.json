@@ -83,7 +83,7 @@
     },
     {
       "id": 4,
-      "intro": "I wake up some mornings and just think: I'm glad I ended up in {settlement_name}.",
+      "intro": "I wake up some mornings and just think. I'm glad I ended up in {settlement_name}.",
       "details": [
         "It's not perfect, but the people look out for each other. That counts for a lot.",
         "I've lived in places where you didn't know your neighbor's name after a year. This isn't that."
@@ -111,7 +111,7 @@
         "I'd rather live with a fixable problem than move somewhere with unfixable ones."
       ],
       "statCheck": {
-        "pass": "A graded channel toward the east slope would handle most of it. The grade is already there: just needs digging.",
+        "pass": "A graded channel toward the east slope would handle most of it. The grade is already there. Just needs digging.",
         "fail": "I'm no engineer. I just know water shouldn't be where I sleep."
       },
       "valence": "negative",
@@ -143,7 +143,7 @@
     },
     {
       "id": 7,
-      "intro": "There's a smell in {settlement_name} when the wind comes right: woodsmoke and something sweet from the ovens. I never get tired of it.",
+      "intro": "There's a smell in {settlement_name} when the wind comes right. Woodsmoke and something sweet from the ovens. I never get tired of it.",
       "details": [
         "My first morning here, that smell is what made me think I could stay.",
         "You don't notice it after a while, but when you come back from traveling it hits you all at once."
@@ -181,7 +181,7 @@
     },
     {
       "id": 9,
-      "intro": "Every visitor who comes through {settlement_name} says the same thing: it's smaller than they expected.",
+      "intro": "Every visitor who comes through {settlement_name} says the same thing. It's smaller than they expected.",
       "details": [
         "Then they stay a night, eat a meal, and suddenly they're asking how much a plot of land costs.",
         "Size was never the point. We've got what we need and not much that we don't."
@@ -203,7 +203,7 @@
       "intro": "The well in {settlement_name} has needed a new winch for months. Nobody wants to pay for it.",
       "details": [
         "Everyone uses it, nobody wants to fund it. That's the eternal problem with shared things.",
-        "There was a meeting about it last week that lasted an hour: no decision, typical."
+        "There was a meeting about it last week that lasted an hour. No decision, typical."
       ],
       "reactions": [
         "We'll fix it when the rope finally snaps. That's how decisions get made around here."
@@ -307,7 +307,7 @@
         "Let them think what they want. We're doing fine."
       ],
       "statCheck": {
-        "pass": "Building styles follow local materials and terrain. What works in one place fails in another: that's not ignorance, it's adaptation.",
+        "pass": "Building styles follow local materials and terrain. What works in one place fails in another. That's not ignorance, it's adaptation.",
         "fail": "I don't know the technical reasons. I just know our way holds up."
       },
       "valence": "negative",
@@ -389,7 +389,7 @@
         "We'll deal with it when someone falls through. That's how things work here."
       ],
       "statCheck": {
-        "pass": "The joists underneath are still solid. It's just the decking that needs replacing: pull the old boards and lay new ones in a day.",
+        "pass": "The joists underneath are still solid. It's just the decking that needs replacing. Pull the old boards and lay new ones in a day.",
         "fail": "I'm no carpenter. I just know it doesn't feel right underfoot."
       },
       "valence": "negative",
@@ -698,7 +698,7 @@
       "id": 35,
       "intro": "The smokehouse needs a new vent. It's been backing up and everything comes out tasting like char.",
       "details": [
-        "I used to love smoked fish from there. Now it all tastes the same: burned.",
+        "I used to love smoked fish from there. Now it all tastes the same. Burned.",
         "Someone mentioned fixing it but nobody's gotten around to it."
       ],
       "reactions": [
@@ -720,7 +720,7 @@
       "id": 36,
       "intro": "I've watched {settlement_name} grow bit by bit. Every new building means someone decided to stay.",
       "details": [
-        "That's the best compliment a place can get: someone looked around and said this is where I'll be.",
+        "That's the best compliment a place can get. Someone looked around and said this is where I'll be.",
         "I remember when the row near the field was just bare ground. Now there are three families there."
       ],
       "reactions": [
@@ -877,7 +877,7 @@
       "intro": "The noise from the {poi_type} carries all the way to my place. Every morning, without fail.",
       "details": [
         "I've learned to sleep through most of it, but some mornings it's like they're doing it right outside my window.",
-        "I wouldn't ask them to stop: it's their livelihood. I just wish I lived one house further."
+        "I wouldn't ask them to stop. It's their livelihood. I just wish I lived one house further."
       ],
       "reactions": [
         "You pick your neighbors when you pick your home. I chose poorly on distance."
@@ -1020,7 +1020,7 @@
         "Nothing makes a place feel unkempt faster than vermin walking around like they pay rent."
       ],
       "statCheck": {
-        "pass": "They're nesting in the grain stores: I've seen the droppings. Seal the gaps at floor level and cut off their food source, and the population drops fast.",
+        "pass": "They're nesting in the grain stores. I've seen the droppings. Seal the gaps at floor level and cut off their food source, and the population drops fast.",
         "fail": "I don't know where they come from. They're just everywhere all of a sudden."
       },
       "valence": "negative",
@@ -1033,10 +1033,10 @@
     },
     {
       "id": 52,
-      "intro": "I measured it once: you can walk from one end of {settlement_name} to the other in about five minutes.",
+      "intro": "I measured it once. You can walk from one end of {settlement_name} to the other in about five minutes.",
       "details": [
         "That's not a complaint. I like knowing everything is close.",
-        "Need something? Walk there, grab it, walk back: no wasted time."
+        "Need something? Walk there, grab it, walk back. No wasted time."
       ],
       "reactions": [
         "Big places waste your life on walking. Here you spend it on living."
@@ -1093,7 +1093,7 @@
     },
     {
       "id": 55,
-      "intro": "I think {settlement_name} is at that awkward size: too big to know everyone, too small to ignore anyone.",
+      "intro": "I think {settlement_name} is at that awkward size. Too big to know everyone, too small to ignore anyone.",
       "details": [
         "There are faces I recognize but names I've never learned. That feels wrong somehow.",
         "When I first came here I knew everyone by name inside a week. Can't say that anymore."
@@ -1134,7 +1134,7 @@
       "intro": "The shared tools in {settlement_name} are in terrible shape. Somebody broke the good axe and didn't say anything.",
       "details": [
         "I went to borrow it and the head was cracked clean through. Just left hanging on the rack.",
-        "That's the problem with shared things: everyone uses them, nobody maintains them."
+        "That's the problem with shared things. Everyone uses them, nobody maintains them."
       ],
       "reactions": [
         "If I find out who did it, I won't be angry. I'll just hand them the bill for a new one."
@@ -1505,7 +1505,7 @@
       "id": 76,
       "intro": "I love that I can hear the rain coming before it arrives in {settlement_name}.",
       "details": [
-        "The sound rolls across the fields: you hear it hitting the grass before it reaches the rooftops.",
+        "The sound rolls across the fields. You hear it hitting the grass before it reaches the rooftops.",
         "Gives you about thirty seconds to get inside. It's like a warning bell made of water."
       ],
       "reactions": [
@@ -1670,7 +1670,7 @@
         "We need a fair split. I've said it before and I'll say it again."
       ],
       "statCheck": {
-        "pass": "A communal woodlot with a rotation: each household takes a set amount per week based on size. Fair, trackable, and nobody hoards.",
+        "pass": "A communal woodlot with a rotation. Each household takes a set amount per week based on size. Fair, trackable, and nobody hoards.",
         "fail": "I don't know how to organize it. I just know the current way isn't fair."
       },
       "valence": "negative",
@@ -2043,7 +2043,7 @@
     },
     {
       "id": 103,
-      "intro": "The arguments in {settlement_name} are always about the same three things: water, paths, and fences.",
+      "intro": "The arguments in {settlement_name} are always about the same three things. Water, paths, and fences.",
       "details": [
         "Every meeting circles back to one of those eventually. You could set a clock by it.",
         "We never fully resolve any of them. We just argue until everyone's tired and go home."
@@ -2090,7 +2090,7 @@
         "We'll get there slowly, like everything here."
       ],
       "statCheck": {
-        "pass": "The west side has the best water table: I've seen the ground stay damp there even in dry seasons. That's where to dig.",
+        "pass": "The west side has the best water table. I've seen the ground stay damp there even in dry seasons. That's where to dig.",
         "fail": "I don't know where the water is underground. I just know we need more of it up here."
       },
       "valence": "negative",
@@ -2170,7 +2170,7 @@
         "Storm damage is nobody's fault, but leaving it unfixed is everybody's fault."
       ],
       "statCheck": {
-        "pass": "The posts held: it's the cross-members that snapped. Peg new rails to the existing posts and you've got a fence again in half a day.",
+        "pass": "The posts held. It's the cross-members that snapped. Peg new rails to the existing posts and you've got a fence again in half a day.",
         "fail": "I'm not sure how to fix it. I just know the goats keep ending up in my garden."
       },
       "valence": "negative",
@@ -2265,7 +2265,7 @@
     },
     {
       "id": 114,
-      "intro": "I've been to enough places to know that {settlement_name} has something rare: contentment.",
+      "intro": "I've been to enough places to know that {settlement_name} has something rare. Contentment.",
       "details": [
         "People here aren't chasing something they don't have. They're tending what they do.",
         "That's not laziness or lack of ambition. It's wisdom."
@@ -2322,7 +2322,7 @@
     },
     {
       "id": 117,
-      "intro": "We get more wind than {other_settlement} does. You can always tell when you're approaching {settlement_name}: your hat tries to leave.",
+      "intro": "We get more wind than {other_settlement} does. You can always tell when you're approaching {settlement_name}. Your hat tries to leave.",
       "details": [
         "Something about the terrain funnels it right through here. Open ground on both sides.",
         "Good for drying laundry. Terrible for everything else."
@@ -2344,7 +2344,7 @@
       "intro": "I trust the people in {settlement_name} with my life. Not a phrase I use lightly.",
       "details": [
         "When my roof leaked last winter, three neighbors were there before I even asked. Worked through the cold to fix it.",
-        "I've left my door open while I was gone for days. Not because I forgot: because I didn't need to worry."
+        "I've left my door open while I was gone for days. Not because I forgot. Because I didn't need to worry."
       ],
       "reactions": [
         "You can live somewhere for years and not trust anyone. Or you can live here."
@@ -2486,7 +2486,7 @@
         "One good day of everyone pitching in would transform this place. Just one."
       ],
       "statCheck": {
-        "pass": "Start with the gutters. Blocked drainage causes half the other problems: standing water, mud, rot. Clear those and the rest follows naturally.",
+        "pass": "Start with the gutters. Blocked drainage causes half the other problems. Standing water, mud, rot. Clear those and the rest follows naturally.",
         "fail": "I wouldn't know where to start. Maybe everywhere at once."
       },
       "valence": "negative",
@@ -2501,7 +2501,7 @@
       "id": 126,
       "intro": "When the wind is calm, the smoke from all the chimneys in {settlement_name} just hangs in the air like a blanket.",
       "details": [
-        "It settles into a layer above the rooftops. You can see it from the fields: a flat gray line.",
+        "It settles into a layer above the rooftops. You can see it from the fields. A flat gray line.",
         "Smells like home though. Even if it makes my eyes water."
       ],
       "reactions": [
@@ -2565,7 +2565,7 @@
         "It's a metaphor for {settlement_name}, honestly. Held together by stubbornness and hope."
       ],
       "statCheck": {
-        "pass": "Alternate the direction of each layer: north-south, then east-west. Creates a self-bracing structure that won't lean.",
+        "pass": "Alternate the direction of each layer. North-south, then east-west. Creates a self-bracing structure that won't lean.",
         "fail": "I don't know the trick to stacking wood. Mine always falls over too."
       },
       "valence": "negative",
@@ -2578,7 +2578,7 @@
     },
     {
       "id": 130,
-      "intro": "I'll say this for {settlement_name}: nobody here goes hungry. Nobody.",
+      "intro": "I'll say this for {settlement_name}. Nobody here goes hungry. Nobody.",
       "details": [
         "If someone's short on food, their neighbor covers them. No questions, no shame.",
         "I've been on both ends of that. Neither one feels like charity."
@@ -2739,7 +2739,7 @@
       "id": 138,
       "intro": "Somebody carved a little face into the post by the well in {settlement_name}. Nobody knows who.",
       "details": [
-        "It's just a simple thing: two dots and a curve. But it makes me smile every time I draw water.",
+        "It's just a simple thing. Two dots and a curve. But it makes me smile every time I draw water.",
         "Someone else added a hat to it a few weeks later. It's become a little collaboration nobody talks about."
       ],
       "reactions": [
@@ -2784,7 +2784,7 @@
         "My life and this place are synced up. I don't have to think about the pattern anymore."
       ],
       "reactions": [
-        "That's comfort. Not the lazy kind: the earned kind."
+        "That's comfort. Not the lazy kind. The earned kind."
       ],
       "statCheck": null,
       "valence": "positive",
@@ -3016,7 +3016,7 @@
       "id": 152,
       "intro": "I think the thing I'd miss about {settlement_name} is the sounds at night. Crickets, the wind, someone's fire popping.",
       "details": [
-        "It's not quiet exactly: just the right kind of noise. Nothing urgent, nothing harsh.",
+        "It's not quiet exactly. Just the right kind of noise. Nothing urgent, nothing harsh.",
         "I stayed in {other_settlement} for a week once and the nighttime silence felt wrong. Too empty."
       ],
       "reactions": [
@@ -3077,7 +3077,7 @@
     },
     {
       "id": 155,
-      "intro": "We share meals more than most places. If you're cooking, you make extra: that's just how it is.",
+      "intro": "We share meals more than most places. If you're cooking, you make extra. That's just how it is.",
       "details": [
         "I've never gone a full week without someone handing me a bowl of something. Never asked for it.",
         "It's not generosity in the way people talk about it. It's just habit."
@@ -3086,7 +3086,7 @@
         "The day that stops is the day this isn't the same place anymore."
       ],
       "statCheck": {
-        "pass": "The sharing isn't always equal: some give more than they get. I've noticed who and I don't say anything.",
+        "pass": "The sharing isn't always equal. Some give more than they get. I've noticed who and I don't say anything.",
         "fail": "It's just how things are. Nothing more to it."
       },
       "valence": "positive",
@@ -3119,7 +3119,7 @@
       "intro": "I wake up and I know where I am. That might sound obvious, but it matters.",
       "details": [
         "I spent years moving from place to place. Waking up confused, trying to remember which roof was over me.",
-        "Here there's no confusion: this is my place. I know the ceiling, the light, the sounds."
+        "Here there's no confusion. This is my place. I know the ceiling, the light, the sounds."
       ],
       "reactions": [
         "Belonging somewhere is the opposite of being stuck. It took me a while to learn that."
@@ -3158,13 +3158,13 @@
       "intro": "I'm tired of the same view every day. Same rooftops, same sky, same stretch of ground.",
       "details": [
         "I know I'm supposed to find comfort in that. Some days I just find boredom.",
-        "It's not the place's fault: it's my own restlessness. Knowing that doesn't fix it."
+        "It's not the place's fault. It's my own restlessness. Knowing that doesn't fix it."
       ],
       "reactions": [
-        "I'll get over it: I always do. Then I'll feel guilty for wanting to leave."
+        "I'll get over it. I always do. Then I'll feel guilty for wanting to leave."
       ],
       "statCheck": {
-        "pass": "Honestly, I think I just need a week away. Not to leave for good: just to remember why I came back.",
+        "pass": "Honestly, I think I just need a week away. Not to leave for good. Just to remember why I came back.",
         "fail": "It's nothing. Everyone gets restless sometimes."
       },
       "valence": "negative",
@@ -3221,7 +3221,7 @@
       "id": 162,
       "intro": "I like that nobody in {settlement_name} cares what you used to be. Only what you do now.",
       "details": [
-        "I've seen people come here with nothing: no name, no history. And within a season they're just neighbors.",
+        "I've seen people come here with nothing. No name, no history. And within a season they're just neighbors.",
         "That's not something you can force. It's just how the place is."
       ],
       "reactions": [
@@ -3301,7 +3301,7 @@
     },
     {
       "id": 166,
-      "intro": "People argue a lot in {settlement_name}: about everything, loudly.",
+      "intro": "People argue a lot in {settlement_name}. About everything, loudly.",
       "details": [
         "You'd think we were at war with each other the way some meetings go.",
         "But an hour later the same people are sharing a fire and laughing about it."
@@ -3310,7 +3310,7 @@
         "Arguing means people care. It's when nobody says anything that you should worry."
       ],
       "statCheck": {
-        "pass": "The arguments used to scare me when I first arrived: I thought the place was falling apart. Took me a year to realize it's just how people here communicate.",
+        "pass": "The arguments used to scare me when I first arrived. I thought the place was falling apart. Took me a year to realize it's just how people here communicate.",
         "fail": "People argue. That's all there is to it."
       },
       "valence": "neutral",
@@ -3368,7 +3368,7 @@
         "It's the small things that define living near people. I've made my peace with wet shirts."
       ],
       "statCheck": {
-        "pass": "I could move the drying line myself: it'd take five minutes. But then I wouldn't have anything to complain about, and I'd miss that.",
+        "pass": "I could move the drying line myself. It'd take five minutes. But then I wouldn't have anything to complain about, and I'd miss that.",
         "fail": "It's a minor thing. Not worth a real conversation."
       },
       "valence": "negative",
@@ -3501,14 +3501,14 @@
       "id": 176,
       "intro": "The roof over my place leaks when the wind blows sideways. Only then, but it's still annoying.",
       "details": [
-        "I've patched it twice and it holds fine in normal rain. But when the gusts come at the right angle: drip drip drip.",
+        "I've patched it twice and it holds fine in normal rain. But when the gusts come at the right angle. Drip drip drip.",
         "I've started putting a pot under the spot out of habit. It's become part of the furniture."
       ],
       "reactions": [
         "I'll fix it for real one of these days. Or I'll get used to the pot."
       ],
       "statCheck": {
-        "pass": "It's the join where the roof meets the wall on the windward side: the pitch doesn't overlap far enough. Another handspan of overhang would stop it.",
+        "pass": "It's the join where the roof meets the wall on the windward side. The pitch doesn't overlap far enough. Another handspan of overhang would stop it.",
         "fail": "I don't really understand roofing. I just know where the drip lands."
       },
       "valence": "negative",
@@ -3521,7 +3521,7 @@
       "id": 177,
       "intro": "Sometimes I think {settlement_name} is too small to matter. Then I look around at the people and change my mind.",
       "details": [
-        "Every person here is doing something real: growing, building, fixing, feeding. None of it is wasted.",
+        "Every person here is doing something real. Growing, building, fixing, feeding. None of it is wasted.",
         "That's more than I can say for bigger places where half the work is just noise."
       ],
       "reactions": [
@@ -3639,7 +3639,7 @@
       "intro": "The ground near the center of {settlement_name} is packed so hard nothing grows there anymore.",
       "details": [
         "Years of foot traffic turned it into something harder than stone. Even weeds give up on it.",
-        "It's practical, I suppose: no mud, no dust, no mess. Just bare hard earth."
+        "It's practical, I suppose. No mud, no dust, no mess. Just bare hard earth."
       ],
       "reactions": [
         "A worn path means a living place. I'll take packed dirt over grass any day."
@@ -3694,7 +3694,7 @@
     },
     {
       "id": 186,
-      "intro": "I feel safe in {settlement_name}: not because of walls or guards, but because of the people.",
+      "intro": "I feel safe in {settlement_name}. Not because of walls or guards, but because of the people.",
       "details": [
         "If something happened to me, a dozen people would notice before nightfall.",
         "That's not surveillance. It's just what happens when people give a damn about each other."
@@ -3782,7 +3782,7 @@
         "A handshake that means something is worth more than any contract."
       ],
       "statCheck": {
-        "pass": "I've seen someone break their word here once: just once. The way people treated them after was cold, not cruel, but cold.",
+        "pass": "I've seen someone break their word here once. Just once. The way people treated them after was cold, not cruel, but cold.",
         "fail": "People are honest. It's simple."
       },
       "valence": "positive",
@@ -3882,7 +3882,7 @@
       "id": 195,
       "intro": "I don't need to travel to know {settlement_name} is a good place. I can tell by who stays.",
       "details": [
-        "Nobody's trapped here: the road goes both ways. The people who are here chose to be.",
+        "Nobody's trapped here. The road goes both ways. The people who are here chose to be.",
         "That's the best recommendation any place can have."
       ],
       "reactions": [
@@ -3944,7 +3944,7 @@
         "Unwritten rules work until they don't. Then everybody wishes they'd been written down."
       ],
       "statCheck": {
-        "pass": "The unwritten rules favor the people who've been here longest: newcomers don't know the rules until they break one. I learned that the hard way.",
+        "pass": "The unwritten rules favor the people who've been here longest. Newcomers don't know the rules until they break one. I learned that the hard way.",
         "fail": "It works well enough. No need to overthink it."
       },
       "valence": "neutral",
@@ -3959,14 +3959,14 @@
       "id": 199,
       "intro": "I get defensive when outsiders joke about {settlement_name}. Can't help it.",
       "details": [
-        "I can criticize it all day: that's my right, I live here. But when a stranger does it, something in me bristles.",
+        "I can criticize it all day. That's my right, I live here. But when a stranger does it, something in me bristles.",
         "It's like family. I can call my brother an idiot, but you'd better not."
       ],
       "reactions": [
         "I know it's not rational and I don't care. It's mine."
       ],
       "statCheck": {
-        "pass": "The defensiveness is because I know they're partly right: we could be doing better. But hearing it from someone who doesn't live here stings.",
+        "pass": "The defensiveness is because I know they're partly right. We could be doing better. But hearing it from someone who doesn't live here stings.",
         "fail": "I just don't like outsiders running their mouths. That's all."
       },
       "valence": "neutral",
@@ -4020,7 +4020,7 @@
     },
     {
       "id": 202,
-      "intro": "I won't lie: some mornings I wake up and wish I was anywhere but here.",
+      "intro": "I won't lie. Some mornings I wake up and wish I was anywhere but here.",
       "details": [
         "Same walls, same routine, same faces. It can feel like being stuck in a rut.",
         "Then I have a good day and I can't imagine being anywhere else. It goes back and forth."
@@ -4042,7 +4042,7 @@
     },
     {
       "id": 203,
-      "intro": "I measured: there are more cats than people in {settlement_name}. That's a fact.",
+      "intro": "I measured. There are more cats than people in {settlement_name}. That's a fact.",
       "details": [
         "They just showed up over the years and nobody turned them away. Now they run the place.",
         "You can't leave food unattended for a second. They're bold and they know the territory."
@@ -4103,7 +4103,7 @@
       "intro": "We've got no lock on the supply room in {settlement_name}. Honor system.",
       "details": [
         "Take what you need, put back what you can. That's the whole policy.",
-        "It works because everybody watches everybody. Not out of suspicion: out of habit."
+        "It works because everybody watches everybody. Not out of suspicion. Out of habit."
       ],
       "reactions": [
         "The day we need a lock is the day something important changed."
@@ -4180,13 +4180,13 @@
       "intro": "Some days {settlement_name} feels like it's shrinking. Like the world is closing in.",
       "details": [
         "Same few faces, same few paths, same handful of buildings. It can feel tight.",
-        "I know it's in my head: the place hasn't changed. But some weeks it wears on me."
+        "I know it's in my head. The place hasn't changed. But some weeks it wears on me."
       ],
       "reactions": [
         "I go for a long walk when it gets like that. Usually helps."
       ],
       "statCheck": {
-        "pass": "The truth is I miss variety: not better things, just different ones. A new face, a new voice, a new problem.",
+        "pass": "The truth is I miss variety. Not better things, just different ones. A new face, a new voice, a new problem.",
         "fail": "It's just cabin fever. Passes on its own."
       },
       "valence": "negative",
@@ -4343,7 +4343,7 @@
         "Maybe the bigger thing was learning to be content. That took more effort than any adventure."
       ],
       "statCheck": {
-        "pass": "The plans weren't real: they were just a way to avoid committing to anything. This place forced me to stop running.",
+        "pass": "The plans weren't real. They were just a way to avoid committing to anything. This place forced me to stop running.",
         "fail": "Plans change. That's all there is to it."
       },
       "valence": "neutral",
@@ -4414,7 +4414,7 @@
     },
     {
       "id": 222,
-      "intro": "There's a certain look people get when they've lived in {settlement_name} long enough: steady and unhurried.",
+      "intro": "There's a certain look people get when they've lived in {settlement_name} long enough. Steady and unhurried.",
       "details": [
         "You can spot it on the newcomers after their first year. Something in the shoulders relaxes.",
         "This place slows you down whether you want it to or not. Most people end up grateful."
@@ -4442,7 +4442,7 @@
         "Water's the one thing you can't fake or substitute. When it's low, nothing else matters."
       ],
       "statCheck": {
-        "pass": "A cistern to catch rainwater would give us a buffer. The rooftops already collect plenty: we just let it run off.",
+        "pass": "A cistern to catch rainwater would give us a buffer. The rooftops already collect plenty. We just let it run off.",
         "fail": "I don't have an answer. I just know the problem."
       },
       "valence": "negative",
@@ -4455,7 +4455,7 @@
     },
     {
       "id": 224,
-      "intro": "What I tell travelers about {settlement_name}: don't judge it by what you see. Judge it by how you're treated.",
+      "intro": "What I tell travelers about {settlement_name}. Don't judge it by what you see. Judge it by how you're treated.",
       "details": [
         "The buildings aren't much and the roads aren't either. But the welcome is real.",
         "I've yet to see a stranger leave here with a bad word to say about the people."
@@ -4519,7 +4519,7 @@
         "I've made peace with sweat. It's a permanent condition here."
       ],
       "statCheck": {
-        "pass": "The buildings are oriented wrong for the sun: maximum heat in summer, minimum in winter. Someone didn't think it through.",
+        "pass": "The buildings are oriented wrong for the sun. Maximum heat in summer, minimum in winter. Someone didn't think it through.",
         "fail": "I don't understand building placement. I just know it's hot."
       },
       "valence": "negative",
@@ -4551,7 +4551,7 @@
     },
     {
       "id": 229,
-      "intro": "One thing I'll never get tired of: stepping outside first thing in the morning and seeing open sky.",
+      "intro": "One thing I'll never get tired of. Stepping outside first thing in the morning and seeing open sky.",
       "details": [
         "No tall buildings, no walls blocking the view. Just land and air and distance.",
         "I breathe deeper here than I ever have. Like my lungs know there's room."
@@ -4568,7 +4568,7 @@
     },
     {
       "id": 230,
-      "intro": "We've got a leak problem in {settlement_name} that nobody wants to talk about: the privy roof.",
+      "intro": "We've got a leak problem in {settlement_name} that nobody wants to talk about. The privy roof.",
       "details": [
         "It rains, and suddenly using the privy requires an umbrella. Dignity takes a hit.",
         "Everyone knows and nobody volunteers to fix it. Can't blame them, honestly."
@@ -4627,7 +4627,7 @@
       "id": 233,
       "intro": "The best conversations in {settlement_name} happen while doing chores. Hands busy, mouth free.",
       "details": [
-        "Sorting grain, stacking wood, mending anything: that's when people actually talk.",
+        "Sorting grain, stacking wood, mending anything. That's when people actually talk.",
         "Something about having a task makes the talking easier. Less pressure."
       ],
       "reactions": [
@@ -4675,7 +4675,7 @@
         "We built on the ground we have, not the ground we wished for."
       ],
       "statCheck": {
-        "pass": "The soil underneath is likely two different types meeting: one holds water, one doesn't. The gap is where they shift against each other.",
+        "pass": "The soil underneath is likely two different types meeting. One holds water, one doesn't. The gap is where they shift against each other.",
         "fail": "I'm not a geologist. I just know the crack is getting wider."
       },
       "valence": "neutral",
@@ -4751,7 +4751,7 @@
     },
     {
       "id": 239,
-      "intro": "I've got my routine in {settlement_name} down to the minute: wake, work, eat, rest. Same order, same spots.",
+      "intro": "I've got my routine in {settlement_name} down to the minute. Wake, work, eat, rest. Same order, same spots.",
       "details": [
         "It sounds dull when I say it out loud. But each piece of it is something I chose.",
         "Nobody assigned me a schedule. This is just how I settled into the shape of this place."
@@ -4798,7 +4798,7 @@
         "Flat ground is apparently a luxury. We didn't get it."
       ],
       "statCheck": {
-        "pass": "The slope actually helps with drainage: we never flood the way flat settlements do. I'd take a tilted floor over a wet one.",
+        "pass": "The slope actually helps with drainage. We never flood the way flat settlements do. I'd take a tilted floor over a wet one.",
         "fail": "It's annoying. That's the whole story."
       },
       "valence": "negative",
@@ -4820,7 +4820,7 @@
         "The road teaches you what home is. That's its real purpose."
       ],
       "statCheck": {
-        "pass": "One person came back and admitted they left because they thought they were better than this place. Turns out they weren't: that kind of honesty is rare.",
+        "pass": "One person came back and admitted they left because they thought they were better than this place. Turns out they weren't. That kind of honesty is rare.",
         "fail": "People come and go. The ones who matter come back."
       },
       "valence": "positive",
@@ -4842,7 +4842,7 @@
         "There's a point where frugal turns into foolish. We might be there."
       ],
       "statCheck": {
-        "pass": "Replacing the handles alone would make a huge difference. The metal on most of them is still good: it's the wood that's failing.",
+        "pass": "Replacing the handles alone would make a huge difference. The metal on most of them is still good. It's the wood that's failing.",
         "fail": "I'm not a smith. I just know a tired tool when I see one."
       },
       "valence": "negative",
@@ -4883,7 +4883,7 @@
         "A full store and a clear sky. That's all the pride I need."
       ],
       "statCheck": {
-        "pass": "Autumn also means looking at the stores and wondering if it's enough: the pride and the worry arrive together. I don't talk about the worry part.",
+        "pass": "Autumn also means looking at the stores and wondering if it's enough. The pride and the worry arrive together. I don't talk about the worry part.",
         "fail": "It's a good season. That's all."
       },
       "valence": "positive",
@@ -4938,7 +4938,7 @@
       "intro": "I'm worried we're getting complacent in {settlement_name}. Too comfortable to improve.",
       "details": [
         "Things that need fixing stay broken because we've gotten used to working around them.",
-        "Comfort is the enemy of progress. We've got plenty of both: comfort and stagnation."
+        "Comfort is the enemy of progress. We've got plenty of both. Comfort and stagnation."
       ],
       "reactions": [
         "Good enough is a trap when it keeps you from getting better."
@@ -4960,7 +4960,7 @@
       "intro": "I know {settlement_name} by its sounds the way a musician knows a song.",
       "details": [
         "The clang from the work area, the children, the creak of the gate, the rhythm of footsteps on packed earth.",
-        "When something's off: a missing sound, a new one: I notice immediately."
+        "When something's off. A missing sound, a new one. I notice immediately."
       ],
       "reactions": [
         "That's what it means to belong to a place. It becomes part of how you hear the world."
@@ -5036,13 +5036,13 @@
       "intro": "I keep thinking about moving to {other_settlement}. Better opportunities, more going on.",
       "details": [
         "But every time I get serious about it, I think about everything I'd have to leave behind here.",
-        "It's not the stuff: it's the knowing, the being known."
+        "It's not the stuff. It's the knowing, the being known."
       ],
       "reactions": [
         "So I stay and keep thinking about it. And I'll probably stay forever."
       ],
       "statCheck": {
-        "pass": "The truth is I'm scared: not of {other_settlement}, but of starting over. Of being nobody again.",
+        "pass": "The truth is I'm scared. Not of {other_settlement}, but of starting over. Of being nobody again.",
         "fail": "It's just idle thoughts. Everybody wonders about different paths."
       },
       "valence": "neutral",
@@ -5134,7 +5134,7 @@
     },
     {
       "id": 258,
-      "intro": "The one thing {settlement_name} has that nowhere else does: the way it smells after the first warm day of spring.",
+      "intro": "The one thing {settlement_name} has that nowhere else does. The way it smells after the first warm day of spring.",
       "details": [
         "The ground thaws and everything that was frozen starts to breathe again. Mud, green shoots, wet bark.",
         "It's not a pleasant smell exactly. But it's the smell of things starting over."
@@ -5155,14 +5155,14 @@
       "id": 259,
       "intro": "I don't like how dependent we are on the one trader who comes through. If they stop coming, we're in trouble.",
       "details": [
-        "Salt, iron, cloth: everything we can't make ourselves comes from that one person.",
+        "Salt, iron, cloth. Everything we can't make ourselves comes from that one person.",
         "One bad road or one broken cart and our whole supply line vanishes."
       ],
       "reactions": [
         "Independence means nothing if it breaks down every time the road does."
       ],
       "statCheck": {
-        "pass": "We should be stockpiling essentials when we can: three months' reserve at minimum. Nobody plans that far ahead here.",
+        "pass": "We should be stockpiling essentials when we can. Three months' reserve at minimum. Nobody plans that far ahead here.",
         "fail": "I don't have a solution. I just see the risk."
       },
       "valence": "negative",
@@ -5230,7 +5230,7 @@
     },
     {
       "id": 263,
-      "intro": "We've got mice: everyone in {settlement_name} has mice. It's just how things are.",
+      "intro": "We've got mice. Everyone in {settlement_name} has mice. It's just how things are.",
       "details": [
         "You hear them at night in the walls, in the floor, in places you'd swear are solid wood.",
         "The cats help, but there's always more mice than cats are interested in."
@@ -5331,7 +5331,7 @@
       "id": 268,
       "intro": "People in {settlement_name} remember favors. Do something for someone and it comes back around.",
       "details": [
-        "Not right away, and never in a way that feels transactional. Just: your turn comes and you're not forgotten.",
+        "Not right away, and never in a way that feels transactional. Just. Your turn comes and you're not forgotten.",
         "I helped with a roof six months ago and last week extra firewood appeared at my door."
       ],
       "reactions": [
@@ -5392,7 +5392,7 @@
       "intro": "I brought seeds with me when I came to {settlement_name}. Most of them took.",
       "details": [
         "I've got things growing here that weren't here before I arrived. My small mark on the place.",
-        "Every time I see those plants I think: I added something. I didn't just take."
+        "Every time I see those plants I think. I added something. I didn't just take."
       ],
       "reactions": [
         "Leaving a place better than you found it, even by a little. That's enough."
@@ -5408,7 +5408,7 @@
     },
     {
       "id": 272,
-      "intro": "We need a proper place to dry things in {settlement_name}. Herbs, meat, clothes: everything fights for space.",
+      "intro": "We need a proper place to dry things in {settlement_name}. Herbs, meat, clothes. Everything fights for space.",
       "details": [
         "Right now it's all hung wherever there's room. Lines between buildings, racks leaning on walls.",
         "It looks chaotic because it is chaotic."
@@ -5468,7 +5468,7 @@
     },
     {
       "id": 275,
-      "intro": "I'd describe {settlement_name} as sturdy: not pretty, not grand, not impressive. Just sturdy.",
+      "intro": "I'd describe {settlement_name} as sturdy. Not pretty, not grand, not impressive. Just sturdy.",
       "details": [
         "It's taken everything thrown at it and it's still standing. Every building, every person.",
         "That's not exciting but it's real. You can't fake endurance."
@@ -5496,7 +5496,7 @@
         "A steady community is good, but a stagnant one is trouble. The line between them is thin."
       ],
       "statCheck": {
-        "pass": "I worry that we're becoming insular: comfortable with each other and suspicious of anyone new. That's a slow kind of decline.",
+        "pass": "I worry that we're becoming insular. Comfortable with each other and suspicious of anyone new. That's a slow kind of decline.",
         "fail": "New people come when they come. Can't force it."
       },
       "valence": "neutral",
@@ -5511,8 +5511,8 @@
       "id": 277,
       "intro": "I sat on my step last evening and counted the things I could hear. Got to fourteen before I lost track.",
       "details": [
-        "Wind, birds, a gate somewhere, someone laughing, pots clinking, fire crackling: all layered together.",
-        "In a bigger place you'd hear noise, but here you hear sounds: specific, identifiable, real."
+        "Wind, birds, a gate somewhere, someone laughing, pots clinking, fire crackling. All layered together.",
+        "In a bigger place you'd hear noise, but here you hear sounds. Specific, identifiable, real."
       ],
       "reactions": [
         "That's a rich place, even if it doesn't look like one."
@@ -5576,7 +5576,7 @@
         "Summer here comes with a mandatory pest tax. No way around it."
       ],
       "statCheck": {
-        "pass": "The waste pit is too close to the living areas: the flies breed there and spread out. Moving it farther would cut the swarm in half.",
+        "pass": "The waste pit is too close to the living areas. The flies breed there and spread out. Moving it farther would cut the swarm in half.",
         "fail": "Flies happen in summer. Nothing to be done."
       },
       "valence": "negative",
@@ -5589,7 +5589,7 @@
     },
     {
       "id": 281,
-      "intro": "Nobody writes anything down in {settlement_name}. Agreements, debts, schedules: all kept in our heads.",
+      "intro": "Nobody writes anything down in {settlement_name}. Agreements, debts, schedules. All kept in our heads.",
       "details": [
         "It works because everyone remembers the same version. Mostly.",
         "When they don't, there's a very loud conversation and eventually someone backs down."
@@ -5611,7 +5611,7 @@
       "intro": "I love that {settlement_name} is ugly. Genuinely ugly, and nobody cares.",
       "details": [
         "Nothing matches, nothing's planned, the colors clash, and the proportions are all wrong.",
-        "But it works: everything functions. And there's an honesty in that I find beautiful."
+        "But it works. Everything functions. And there's an honesty in that I find beautiful."
       ],
       "reactions": [
         "Give me an honest mess over a pretty lie."
@@ -5689,7 +5689,7 @@
       "id": 286,
       "intro": "I get a lump in my throat sometimes looking at {settlement_name}. That's embarrassing to admit.",
       "details": [
-        "It's not a grand place: there's nothing sentimental about it on the surface. But it's mine.",
+        "It's not a grand place. There's nothing sentimental about it on the surface. But it's mine.",
         "I built things here, fixed things, made friends. That adds up to something you can feel in your chest."
       ],
       "reactions": [
@@ -5708,7 +5708,7 @@
       "id": 287,
       "intro": "There's a puddle in {settlement_name} that never dries. Even in the driest weeks, it's there.",
       "details": [
-        "It's become a landmark at this point: people give directions by it. Turn left at the puddle.",
+        "It's become a landmark at this point. People give directions by it. Turn left at the puddle.",
         "I've stepped in it every day for months and I still haven't learned to go around."
       ],
       "reactions": [
@@ -5753,7 +5753,7 @@
         "Darkness is cheaper than fighting the wind. I've made peace with early bedtimes."
       ],
       "statCheck": {
-        "pass": "Recessing the candle into a niche cut in the wall blocks most of the draft. I figured it out after ruining a dozen candles: simple once you see it.",
+        "pass": "Recessing the candle into a niche cut in the wall blocks most of the draft. I figured it out after ruining a dozen candles. Simple once you see it.",
         "fail": "I just go to bed when the candle dies. Simpler that way."
       },
       "valence": "negative",
@@ -5847,7 +5847,7 @@
       "id": 294,
       "intro": "I think our biggest weakness in {settlement_name} is that we don't plan ahead.",
       "details": [
-        "Everything's reactive: something breaks, we fix it. Something runs out, we scramble.",
+        "Everything's reactive. Something breaks, we fix it. Something runs out, we scramble.",
         "It works because we're resilient, but it'd work better if we thought two steps ahead."
       ],
       "reactions": [
@@ -5888,7 +5888,7 @@
       "id": 296,
       "intro": "The thing about living in {settlement_name} is that you have to be useful. There's no room for passengers.",
       "details": [
-        "Everyone does something: if you can't do one thing, you learn another. Nobody sits idle.",
+        "Everyone does something. If you can't do one thing, you learn another. Nobody sits idle.",
         "It's demanding, but it means everyone here has earned their place."
       ],
       "reactions": [
@@ -5947,7 +5947,7 @@
     },
     {
       "id": 299,
-      "intro": "The thing I'd change about {settlement_name}? The wind: if I could move one mountain to block it, I would.",
+      "intro": "The thing I'd change about {settlement_name}? The wind. If I could move one mountain to block it, I would.",
       "details": [
         "It comes through at all hours, all seasons, from the same direction. Relentless.",
         "You learn to walk leaning into it. Visitors think we all have the same posture problem."
@@ -5978,7 +5978,7 @@
         "Knowing a place by its sounds is the quietest kind of belonging."
       ],
       "statCheck": {
-        "pass": "The third board from the kitchen groans louder when it's going to rain. I've tested it: more reliable than the sky.",
+        "pass": "The third board from the kitchen groans louder when it's going to rain. I've tested it. More reliable than the sky.",
         "fail": "Old buildings make noise. That's about all I know."
       },
       "valence": "positive",
@@ -6070,7 +6070,7 @@
     },
     {
       "id": 305,
-      "intro": "Half the fences in {settlement_name} lean. Not dangerously: just enough to notice.",
+      "intro": "Half the fences in {settlement_name} lean. Not dangerously. Just enough to notice.",
       "details": [
         "They all lean the same direction too, from the wind. Gives the whole place a tilted look.",
         "Nobody fixes them because they still work. A leaning fence is still a fence."
@@ -6120,7 +6120,7 @@
         "A settlement that can't store properly is one that's always a little behind."
       ],
       "statCheck": {
-        "pass": "We could dig root cellars if we coordinated: the soil's right for it. But coordination is exactly what we're worst at.",
+        "pass": "We could dig root cellars if we coordinated. The soil's right for it. But coordination is exactly what we're worst at.",
         "fail": "Space is space. We work with what we've got."
       },
       "valence": "negative",
@@ -6155,16 +6155,16 @@
     },
     {
       "id": 309,
-      "intro": "The wind never stops in {settlement_name}. I don't mean it's windy: I mean it never stops.",
+      "intro": "The wind never stops in {settlement_name}. I don't mean it's windy. I mean it never stops.",
       "details": [
         "It changes direction, it changes strength, but there's always something moving through.",
-        "You learn to do everything: eating, talking, working: leaning slightly into it."
+        "You learn to do everything. Eating, talking, working. Leaning slightly into it."
       ],
       "reactions": [
         "You don't fight the wind here. You just become part of its routine."
       ],
       "statCheck": {
-        "pass": "Some days the wind makes me want to scream. I've done it, actually: out where nobody can hear. Felt better after.",
+        "pass": "Some days the wind makes me want to scream. I've done it, actually. Out where nobody can hear. Felt better after.",
         "fail": "You get used to it. Mostly."
       },
       "valence": "negative",
@@ -6304,7 +6304,7 @@
         "When you know a place that well, you don't need clocks."
       ],
       "statCheck": {
-        "pass": "The shadow hits a particular stone at midday exactly. I use it to time bread in the oven: never fails.",
+        "pass": "The shadow hits a particular stone at midday exactly. I use it to time bread in the oven. Never fails.",
         "fail": "I just pay attention. Nothing clever about it."
       },
       "valence": "positive",
@@ -6341,7 +6341,7 @@
       "id": 318,
       "intro": "I bet {other_settlement} doesn't have sunsets like ours.",
       "details": [
-        "The way the light catches the rooftops here: I don't think you can get that angle anywhere else.",
+        "The way the light catches the rooftops here. I don't think you can get that angle anywhere else.",
         "I'm biased, of course. But biased people are right sometimes."
       ],
       "reactions": [
@@ -6358,7 +6358,7 @@
     },
     {
       "id": 319,
-      "intro": "I wish {settlement_name} had one more building. Doesn't matter what kind: just one more.",
+      "intro": "I wish {settlement_name} had one more building. Doesn't matter what kind. Just one more.",
       "details": [
         "Something about the layout feels unfinished. Like there's a gap where something should be.",
         "Some say we need a hall, some say storage. I just want the gap filled."
@@ -6399,10 +6399,10 @@
     },
     {
       "id": 321,
-      "intro": "We've got a good well: clean water, reliable depth. That alone makes {settlement_name} worth living in.",
+      "intro": "We've got a good well. Clean water, reliable depth. That alone makes {settlement_name} worth living in.",
       "details": [
         "You don't appreciate clean water until you've had the other kind. I've had the other kind.",
-        "Everything else can be rough: the roads, the buildings, the weather. But good water covers a lot of flaws."
+        "Everything else can be rough. The roads, the buildings, the weather. But good water covers a lot of flaws."
       ],
       "reactions": [
         "A settlement is its water supply. Everything else is decoration."
@@ -6570,7 +6570,7 @@
         "I brought it up to a trader once and they laughed. But I'm serious."
       ],
       "reactions": [
-        "Living under a sky like that: you can forgive a lot of other shortcomings."
+        "Living under a sky like that. You can forgive a lot of other shortcomings."
       ],
       "statCheck": {
         "pass": "I come out late some nights and just lie on the ground looking up. It's the only time I feel like the world is bigger than my worries.",
@@ -6588,7 +6588,7 @@
       "id": 330,
       "intro": "There's a persistent leak somewhere in {settlement_name} that nobody can find.",
       "details": [
-        "Every time it rains, water pools in the same spot. We've checked every roof and every gutter: nothing.",
+        "Every time it rains, water pools in the same spot. We've checked every roof and every gutter. Nothing.",
         "It's become a kind of game now. People bet on where the water's actually coming from."
       ],
       "reactions": [
@@ -6632,14 +6632,14 @@
       "id": 332,
       "intro": "I feel safe in {settlement_name}. Not because of walls or guards, but because I know everyone.",
       "details": [
-        "Strangers stand out immediately. Not in a hostile way: just in a 'that's new' way.",
+        "Strangers stand out immediately. Not in a hostile way. Just in a 'that's new' way.",
         "When everyone knows everyone, trouble has a harder time sneaking in."
       ],
       "reactions": [
         "Safety built on familiarity is the oldest kind. Still works."
       ],
       "statCheck": {
-        "pass": "The safety comes with a cost: if someone here turned on you, there'd be nowhere to go. Trust is all-or-nothing at this size.",
+        "pass": "The safety comes with a cost. If someone here turned on you, there'd be nowhere to go. Trust is all-or-nothing at this size.",
         "fail": "I feel safe. I don't overthink it."
       },
       "valence": "positive",
@@ -6674,10 +6674,10 @@
     },
     {
       "id": 334,
-      "intro": "I walked through {other_settlement} once: bigger, busier, louder. I couldn't wait to leave.",
+      "intro": "I walked through {other_settlement} once. Bigger, busier, louder. I couldn't wait to leave.",
       "details": [
         "Too many strangers, too much happening at once. I felt invisible and exposed at the same time.",
-        "Made me appreciate what we have here: the scale of things, the knowability of it."
+        "Made me appreciate what we have here. The scale of things, the knowability of it."
       ],
       "reactions": [
         "Some people thrive in crowds. I'm not one of them."
@@ -6754,9 +6754,9 @@
     },
     {
       "id": 338,
-      "intro": "We share tools in {settlement_name}. Not because we're generous: because nobody can afford a full set.",
+      "intro": "We share tools in {settlement_name}. Not because we're generous. Because nobody can afford a full set.",
       "details": [
-        "You need a saw, you ask around: need a hammer, same thing. Everything circulates.",
+        "You need a saw, you ask around. Need a hammer, same thing. Everything circulates.",
         "It works until two people need the same tool on the same day. Then it gets interesting."
       ],
       "reactions": [
@@ -6775,7 +6775,7 @@
       "id": 339,
       "intro": "I planted a row of herbs outside my door. First thing I've done here that's purely for pleasure.",
       "details": [
-        "Everything else has been survival: fixing, building, storing. This was just because I wanted something green.",
+        "Everything else has been survival. Fixing, building, storing. This was just because I wanted something green.",
         "They're small and a bit scraggly, but they're mine and they smell wonderful."
       ],
       "reactions": [
@@ -6793,7 +6793,7 @@
     },
     {
       "id": 340,
-      "intro": "I've started dreaming about {settlement_name}. Not about leaving it: about being in it.",
+      "intro": "I've started dreaming about {settlement_name}. Not about leaving it. About being in it.",
       "details": [
         "Walking the same paths, seeing the same faces, hearing the same sounds. Even asleep I'm here.",
         "A place gets into your bones eventually. Then it shows up in your sleep."
@@ -6824,7 +6824,7 @@
         "The difference between a problem and a tradition is how many times you've ignored it."
       ],
       "statCheck": {
-        "pass": "A ditch running downhill to the east would drain the whole area: two days of labor for three people. But try getting three people to agree on two days.",
+        "pass": "A ditch running downhill to the east would drain the whole area. Two days of labor for three people. But try getting three people to agree on two days.",
         "fail": "Water collects in low spots. That's just what water does."
       },
       "valence": "negative",
@@ -6900,13 +6900,13 @@
       "intro": "I'm tired of carrying water. That's the complaint I come back to most in {settlement_name}.",
       "details": [
         "Every day, same trip, same weight, same sore arms. It adds up over the months.",
-        "It's not a hardship: it's an inconvenience that never ends, and those wear you down differently."
+        "It's not a hardship. It's an inconvenience that never ends, and those wear you down differently."
       ],
       "reactions": [
         "The things that exhaust you aren't the big ones. They're the small ones you do a thousand times."
       ],
       "statCheck": {
-        "pass": "I've timed it: the trip costs me forty minutes a day. That's nearly five hours a week spent carrying water. I try not to think about what I'd do with those hours.",
+        "pass": "I've timed it. The trip costs me forty minutes a day. That's nearly five hours a week spent carrying water. I try not to think about what I'd do with those hours.",
         "fail": "Water's heavy. That's the whole story."
       },
       "valence": "negative",
@@ -6962,14 +6962,14 @@
       "id": 348,
       "intro": "I tried describing {settlement_name} to someone once. I made it sound worse than it is.",
       "details": [
-        "All the facts are unflattering: small, rough, remote. But the feeling of being here doesn't fit into facts.",
+        "All the facts are unflattering. Small, rough, remote. But the feeling of being here doesn't fit into facts.",
         "How do you describe the way a place feels to someone who's never felt it?"
       ],
       "reactions": [
         "Some things don't translate into words. You have to be here."
       ],
       "statCheck": {
-        "pass": "The word I keep coming back to is 'mine.' Not impressive, not beautiful: mine. But that sounds possessive, not proud.",
+        "pass": "The word I keep coming back to is 'mine.' Not impressive, not beautiful. Mine. But that sounds possessive, not proud.",
         "fail": "Some places are hard to describe. This is one of them."
       },
       "valence": "neutral",
@@ -6984,7 +6984,7 @@
       "id": 349,
       "intro": "I've heard {other_settlement} is growing fast. New people, new buildings.",
       "details": [
-        "Part of me thinks: good for them. The other part thinks: I hope they don't lose what made them good.",
+        "Part of me thinks. Good for them. The other part thinks. I hope they don't lose what made them good.",
         "Growth changes a place. Not always for the better."
       ],
       "reactions": [
@@ -7070,7 +7070,7 @@
       "intro": "Dust gets into everything in {settlement_name} during the dry months. Food, water, clothes, lungs.",
       "details": [
         "You sweep it out and it comes back before you've put the broom down.",
-        "I've stopped thinking of clean as the default: dusty is the default. Clean is a temporary achievement."
+        "I've stopped thinking of clean as the default. Dusty is the default. Clean is a temporary achievement."
       ],
       "reactions": [
         "Dust is patient. More patient than any of us."
@@ -7114,10 +7114,10 @@
         "You leave something out and it's there when you come back. That's a rare thing."
       ],
       "reactions": [
-        "The freedom of not worrying about your things: I'd miss that if I left."
+        "The freedom of not worrying about your things. I'd miss that if I left."
       ],
       "statCheck": {
-        "pass": "The real reason nobody locks up is that everyone would know who took something. It's not trust: it's accountability by proximity.",
+        "pass": "The real reason nobody locks up is that everyone would know who took something. It's not trust. It's accountability by proximity.",
         "fail": "Nothing worth stealing. That's the simple answer."
       },
       "valence": "positive",
@@ -7158,7 +7158,7 @@
         "In bigger places, buildings are anonymous. Here, they're somebody's story."
       ],
       "reactions": [
-        "Living alongside the people who built your world: that's something special."
+        "Living alongside the people who built your world. That's something special."
       ],
       "statCheck": null,
       "valence": "positive",
@@ -7243,7 +7243,7 @@
         "Some risks you live with because the alternative is not living here at all."
       ],
       "statCheck": {
-        "pass": "We need fire breaks between the buildings: even just cleared ground would help. But nobody wants to give up the space.",
+        "pass": "We need fire breaks between the buildings. Even just cleared ground would help. But nobody wants to give up the space.",
         "fail": "We're careful with fire. That's all you can be."
       },
       "valence": "negative",
@@ -7369,7 +7369,7 @@
         "In bigger places people live in one corner and never see the rest. Here, I see everything every day."
       ],
       "reactions": [
-        "A place you can hold in your head all at once: there's comfort in that."
+        "A place you can hold in your head all at once. There's comfort in that."
       ],
       "statCheck": null,
       "valence": "positive",
@@ -7423,7 +7423,7 @@
     },
     {
       "id": 370,
-      "intro": "I keep meaning to fix the step outside my door: it wobbles. Been meaning to for about a year now.",
+      "intro": "I keep meaning to fix the step outside my door. It wobbles. Been meaning to for about a year now.",
       "details": [
         "Every day I step on it, think 'I should fix that,' and keep walking. Every single day.",
         "It's become a ritual at this point. The wobble is practically a greeting."
@@ -7509,7 +7509,7 @@
         "You don't warm up in winter here. You just find degrees of cold you can tolerate."
       ],
       "reactions": [
-        "Winter here isn't a season: it's a negotiation."
+        "Winter here isn't a season. It's a negotiation."
       ],
       "statCheck": {
         "pass": "The trick is heating stones during the day and putting them under the blankets at night. Keeps you warm for a few hours at least.",
@@ -7593,8 +7593,8 @@
       "id": 378,
       "intro": "There's nothing in {settlement_name} I'd call beautiful. Except the people, in their own rough way.",
       "details": [
-        "Weathered, stubborn, tired, kind. Not beautiful like a painting: beautiful like a worn tool that still works.",
-        "The buildings are ugly, the paths are ugly, but the people doing their best: that's worth something."
+        "Weathered, stubborn, tired, kind. Not beautiful like a painting. Beautiful like a worn tool that still works.",
+        "The buildings are ugly, the paths are ugly, but the people doing their best. That's worth something."
       ],
       "reactions": [
         "Beauty in effort. That's the only kind this place produces."
@@ -7615,7 +7615,7 @@
       "id": 379,
       "intro": "The bugs in {settlement_name} at dusk are unreal. Step outside and you're wearing a coat of gnats.",
       "details": [
-        "Your options are: stay inside, walk fast, or accept your fate.",
+        "Your options are. Stay inside, walk fast, or accept your fate.",
         "Most of us have chosen acceptance. It's faster."
       ],
       "reactions": [
@@ -7716,7 +7716,7 @@
       "id": 384,
       "intro": "I wouldn't describe {settlement_name} as thriving. More like persisting.",
       "details": [
-        "We're not growing, not shrinking: just continuing. Day by day, season by season.",
+        "We're not growing, not shrinking. Just continuing. Day by day, season by season.",
         "Persistence isn't glamorous, but it's more than a lot of places can say."
       ],
       "reactions": [
@@ -7761,7 +7761,7 @@
         "You learn to keep things off the ground and hope for dry stretches."
       ],
       "reactions": [
-        "Our real adversary isn't creatures or weather: it's humidity."
+        "Our real adversary isn't creatures or weather. It's humidity."
       ],
       "statCheck": {
         "pass": "Better ventilation under the buildings would help. The air sits still beneath the floorboards and the damp has nowhere to go.",
@@ -7779,7 +7779,7 @@
       "id": 387,
       "intro": "If {other_settlement} is doing better than us, I'd genuinely like to know how.",
       "details": [
-        "Not to compete: to learn. We're too proud sometimes to ask what's working elsewhere.",
+        "Not to compete. To learn. We're too proud sometimes to ask what's working elsewhere.",
         "Maybe they've solved problems we're still fighting. That's not weakness to admit."
       ],
       "reactions": [
@@ -7820,11 +7820,11 @@
       "id": 389,
       "intro": "There's a dip in the path through {settlement_name} that fills with water every time it rains.",
       "details": [
-        "Everyone walks around it the same way: two steps left, back to center. Like a dance we all learned.",
+        "Everyone walks around it the same way. Two steps left, back to center. Like a dance we all learned.",
         "A stranger would step right in it. That puddle is our unofficial newcomer test."
       ],
       "reactions": [
-        "Shared knowledge of where the puddles are: that's community."
+        "Shared knowledge of where the puddles are. That's community."
       ],
       "statCheck": {
         "pass": "I once watched a newcomer step in it three days in a row. By the fourth day they had the dodge. That's when I knew they'd stay.",
@@ -7849,7 +7849,7 @@
         "Resilience doesn't look heroic. It looks like Tuesday followed by Wednesday."
       ],
       "statCheck": {
-        "pass": "The speed of recovery hides something: nobody processes what went wrong. We fix and move on without ever asking why it broke.",
+        "pass": "The speed of recovery hides something. Nobody processes what went wrong. We fix and move on without ever asking why it broke.",
         "fail": "We handle problems. That's just what you do."
       },
       "valence": "positive",
@@ -7887,10 +7887,10 @@
         "There's a dignity in that kind of plainness. It doesn't apologize for itself."
       ],
       "reactions": [
-        "A place that's honest about what it is: that's rarer than you'd think."
+        "A place that's honest about what it is. That's rarer than you'd think."
       ],
       "statCheck": {
-        "pass": "I've lived in places that performed for visitors: sprucing up, putting on a face. The exhaustion of pretending was worse than any real hardship here.",
+        "pass": "I've lived in places that performed for visitors. Sprucing up, putting on a face. The exhaustion of pretending was worse than any real hardship here.",
         "fail": "What you see is what you get. I like that."
       },
       "valence": "positive",
@@ -7989,7 +7989,7 @@
         "Sometimes a place survives because leaving is harder than staying. That's enough."
       ],
       "statCheck": {
-        "pass": "I stay partly because I'm afraid of what would happen to the others if I left. Not that I'm essential: just that one departure can start a chain.",
+        "pass": "I stay partly because I'm afraid of what would happen to the others if I left. Not that I'm essential. Just that one departure can start a chain.",
         "fail": "I stay because I stay. No grand reason."
       },
       "valence": "neutral",
@@ -8008,7 +8008,7 @@
         "You stop seeing what's always in front of you. Takes a stranger's eyes to remind you."
       ],
       "reactions": [
-        "I should look up more. The scenery didn't go anywhere: I just stopped noticing."
+        "I should look up more. The scenery didn't go anywhere. I just stopped noticing."
       ],
       "statCheck": null,
       "valence": "neutral",
@@ -8084,7 +8084,7 @@
       "intro": "I could draw a map of {settlement_name} from memory, down to every stone and post.",
       "details": [
         "Not because I'm observant. Because there isn't that much to remember.",
-        "Still, knowing a place completely: there's a satisfaction in that. Even if the place is small."
+        "Still, knowing a place completely. There's a satisfaction in that. Even if the place is small."
       ],
       "reactions": [
         "A small map drawn well is more useful than a vast one drawn poorly."
@@ -8112,7 +8112,7 @@
         "Thinking about a place's future is either planning or grieving. I'm not sure which I'm doing."
       ],
       "statCheck": {
-        "pass": "We need something to offer the next generation: work, purpose, a reason to stay. Right now all we have is 'it's quiet,' and that's not enough for young people.",
+        "pass": "We need something to offer the next generation. Work, purpose, a reason to stay. Right now all we have is 'it's quiet,' and that's not enough for young people.",
         "fail": "I'm probably worrying for nothing. Places outlast the people who worry about them."
       },
       "valence": "negative",
@@ -8127,7 +8127,7 @@
       "id": 404,
       "intro": "I brought a cutting from my old home when I moved to {settlement_name}. It's growing well.",
       "details": [
-        "Seeing something from my old life thriving in the new one: it made me feel like I could too.",
+        "Seeing something from my old life thriving in the new one. It made me feel like I could too.",
         "It's just a plant. But some days it's proof that transplanting works."
       ],
       "reactions": [
@@ -8166,7 +8166,7 @@
     },
     {
       "id": 406,
-      "intro": "I've noticed that nobody in {settlement_name} is in a hurry: ever, about anything.",
+      "intro": "I've noticed that nobody in {settlement_name} is in a hurry. Ever, about anything.",
       "details": [
         "Things get done, but they get done at a pace that would drive a city person mad.",
         "We move at the speed of 'eventually' and somehow everything turns out fine."
@@ -8305,7 +8305,7 @@
       "id": 413,
       "intro": "The first thing I did when I got to {settlement_name} was walk the boundary. Took about ten minutes.",
       "details": [
-        "I thought: this is it? This is the whole place?",
+        "I thought. This is it? This is the whole place?",
         "Now I've been here long enough to know that a place's size says nothing about what it holds."
       ],
       "reactions": [
@@ -8344,7 +8344,7 @@
     },
     {
       "id": 415,
-      "intro": "I keep a small fire going every evening. Not for warmth: for the light.",
+      "intro": "I keep a small fire going every evening. Not for warmth. For the light.",
       "details": [
         "There's something about firelight that makes {settlement_name} feel warmer than it is. Safer.",
         "I think half the settlement looks at my fire from their windows. Nobody's said so, but I suspect."
@@ -8390,7 +8390,7 @@
       "id": 417,
       "intro": "I wouldn't trade my life in {settlement_name} for anything. And I've been offered.",
       "details": [
-        "A trader once said I could work for them: better pay, more travel, warmer winters.",
+        "A trader once said I could work for them. Better pay, more travel, warmer winters.",
         "I thought about it for exactly one evening. Then I looked around and the answer was obvious."
       ],
       "reactions": [
@@ -8416,7 +8416,7 @@
         "You accept it or you go mad. I chose acceptance somewhere around month three."
       ],
       "reactions": [
-        "Damp feet: the unofficial uniform of living here."
+        "Damp feet. The unofficial uniform of living here."
       ],
       "statCheck": null,
       "valence": "negative",
@@ -8472,7 +8472,7 @@
       "id": 421,
       "intro": "We run out of firewood every winter. Every year we say we'll collect more, and every year we don't.",
       "details": [
-        "The last weeks of cold are always a scramble: rationing, burning whatever's dry, borrowing from neighbors.",
+        "The last weeks of cold are always a scramble. Rationing, burning whatever's dry, borrowing from neighbors.",
         "It's a predictable crisis we refuse to prevent."
       ],
       "reactions": [
@@ -8490,7 +8490,7 @@
     },
     {
       "id": 422,
-      "intro": "There's an old saying: {settlement_name} keeps the honest folk. I believe that.",
+      "intro": "There's an old saying. {settlement_name} keeps the honest folk. I believe that.",
       "details": [
         "Nothing to steal, nothing to fake, nothing to hide behind. This place strips you down to who you really are.",
         "People who can't handle that leave. The ones who stay are genuine."
@@ -8499,7 +8499,7 @@
         "Simplicity is a filter. What passes through it is real."
       ],
       "statCheck": {
-        "pass": "The dishonest ones don't leave because they're caught: they leave because there's nobody worth deceiving. No profit in lying to people who have nothing.",
+        "pass": "The dishonest ones don't leave because they're caught. They leave because there's nobody worth deceiving. No profit in lying to people who have nothing.",
         "fail": "Good people stick around. That's been my experience."
       },
       "valence": "positive",
@@ -8534,7 +8534,7 @@
     },
     {
       "id": 424,
-      "intro": "The one thing I'd change about {settlement_name}: better doors. Every door here fits poorly.",
+      "intro": "The one thing I'd change about {settlement_name}. Better doors. Every door here fits poorly.",
       "details": [
         "Gaps at the bottom, warped frames, hinges that screech. Closing a door is a whole production.",
         "You'd think after all this time someone would've figured out doors."
@@ -8553,7 +8553,7 @@
     },
     {
       "id": 425,
-      "intro": "I feel useful here: in a bigger place I'd be replaceable. In {settlement_name}, I matter.",
+      "intro": "I feel useful here. In a bigger place I'd be replaceable. In {settlement_name}, I matter.",
       "details": [
         "Everyone's role is visible and necessary. Skip a day and people notice.",
         "It can be pressure, sure. But it also means what I do has weight."
@@ -8581,7 +8581,7 @@
         "Time moves differently when you're living close to the ground."
       ],
       "statCheck": {
-        "pass": "I realized I couldn't tell you what day of the week it is half the time. The days don't matter: only what needs doing matters.",
+        "pass": "I realized I couldn't tell you what day of the week it is half the time. The days don't matter. Only what needs doing matters.",
         "fail": "Time passes differently out here. That's all."
       },
       "valence": "neutral",
@@ -8603,7 +8603,7 @@
         "The weather doesn't respect our schedule. Never has."
       ],
       "statCheck": {
-        "pass": "A simple lean-to over the main work area would pay for itself in one season: I've sketched it out. But materials are always earmarked for something else.",
+        "pass": "A simple lean-to over the main work area would pay for itself in one season. I've sketched it out. But materials are always earmarked for something else.",
         "fail": "Rain stops work. Not much more to it."
       },
       "valence": "negative",
@@ -8635,8 +8635,8 @@
       "id": 429,
       "intro": "{settlement_name} at dawn and {settlement_name} at dusk are two different places.",
       "details": [
-        "Dawn is all possibility: cool air, fresh light, energy you haven't spent yet.",
-        "Dusk is all satisfaction: warm glow, tiredness earned, a day used up properly."
+        "Dawn is all possibility. Cool air, fresh light, energy you haven't spent yet.",
+        "Dusk is all satisfaction. Warm glow, tiredness earned, a day used up properly."
       ],
       "reactions": [
         "I love both versions. But I live in the dusk one more honestly."
@@ -8661,7 +8661,7 @@
         "At this point I consider the birds a tax. An annoying, feathered tax."
       ],
       "statCheck": {
-        "pass": "Netting over the openings would solve it: simple mesh, nothing fancy. But we don't have the material and it's never urgent enough to trade for.",
+        "pass": "Netting over the openings would solve it. Simple mesh, nothing fancy. But we don't have the material and it's never urgent enough to trade for.",
         "fail": "Birds are clever. We're slower."
       },
       "valence": "negative",
@@ -8754,10 +8754,10 @@
     },
     {
       "id": 435,
-      "intro": "The thing about {settlement_name} that surprises people: we laugh a lot.",
+      "intro": "The thing about {settlement_name} that surprises people. We laugh a lot.",
       "details": [
         "From the outside it probably looks grim. Hard life, rough buildings, not much to celebrate.",
-        "But the laughing: that never stops. You can hear it at every meal and most of the time in between."
+        "But the laughing. That never stops. You can hear it at every meal and most of the time in between."
       ],
       "reactions": [
         "People who think hardship kills joy have never spent an evening with us."
@@ -8782,7 +8782,7 @@
         "Visible flaws are more honest than invisible ones."
       ],
       "statCheck": {
-        "pass": "A trader who's been to both told me their drainage is worse than ours: they just built over it. That's not fixing, that's decorating.",
+        "pass": "A trader who's been to both told me their drainage is worse than ours. They just built over it. That's not fixing, that's decorating.",
         "fail": "I don't know enough about {other_settlement} to compare properly."
       },
       "valence": "neutral",
@@ -8797,11 +8797,11 @@
       "id": 437,
       "intro": "I've got a spot where I can lean against the wall and feel the sun on my face. That's my reward for the day.",
       "details": [
-        "Five minutes in that spot and every ache, every frustration: gone. Just warmth and quiet.",
+        "Five minutes in that spot and every ache, every frustration. Gone. Just warmth and quiet.",
         "I don't tell people about it because I don't want competition for the wall."
       ],
       "reactions": [
-        "The best things in life aren't free: they're secret."
+        "The best things in life aren't free. They're secret."
       ],
       "statCheck": null,
       "valence": "positive",
@@ -8836,7 +8836,7 @@
       "id": 439,
       "intro": "I chose {settlement_name}. That's the difference between me and people who were born here.",
       "details": [
-        "They didn't choose: they inherited. I looked around, weighed my options, and said yes.",
+        "They didn't choose. They inherited. I looked around, weighed my options, and said yes.",
         "That choice makes me protective in a way that natives might not understand."
       ],
       "reactions": [
@@ -8853,7 +8853,7 @@
     },
     {
       "id": 440,
-      "intro": "The thing about living in {settlement_name}: you can't avoid anyone. For better or worse.",
+      "intro": "The thing about living in {settlement_name}. You can't avoid anyone. For better or worse.",
       "details": [
         "If you've got a disagreement, you're going to see that person tomorrow. And the day after.",
         "It forces you to work things out. Or at least learn to nod politely while seething."
@@ -8903,7 +8903,7 @@
         "Nature's priorities and ours don't always align. Mostly they don't."
       ],
       "statCheck": {
-        "pass": "I've started eating some of them. Turns out half the weeds are edible if you know which ones. The land's been feeding us all along: we were just pulling up the food.",
+        "pass": "I've started eating some of them. Turns out half the weeds are edible if you know which ones. The land's been feeding us all along. We were just pulling up the food.",
         "fail": "Weeds are weeds. I pull them and they come back."
       },
       "valence": "negative",
@@ -8918,7 +8918,7 @@
       "id": 443,
       "intro": "I think the thing I'd miss most about {settlement_name} is the silence between conversations.",
       "details": [
-        "Not awkward silence: comfortable silence. The kind where you're both watching the sky and that's enough.",
+        "Not awkward silence. Comfortable silence. The kind where you're both watching the sky and that's enough.",
         "In busier places, silence is an accident. Here it's a feature."
       ],
       "reactions": [
@@ -8937,7 +8937,7 @@
       "id": 444,
       "intro": "I can hear the rain coming before it arrives. The sound builds in the trees, then hits {settlement_name} all at once.",
       "details": [
-        "That two-second warning: just long enough to grab something off the line, never long enough to grab everything.",
+        "That two-second warning. Just long enough to grab something off the line, never long enough to grab everything.",
         "It's the same scramble every time. You'd think we'd learn to bring things in sooner."
       ],
       "reactions": [
@@ -8954,10 +8954,10 @@
     },
     {
       "id": 445,
-      "intro": "I've got calluses from this place: hands, feet, heart. Everything's a little tougher than it used to be.",
+      "intro": "I've got calluses from this place. Hands, feet, heart. Everything's a little tougher than it used to be.",
       "details": [
         "The physical ones I earned through work. The emotional ones through winters and setbacks.",
-        "I'm not complaining: calluses protect you. That's their whole purpose."
+        "I'm not complaining. Calluses protect you. That's their whole purpose."
       ],
       "reactions": [
         "A life that gives you calluses is a life that's testing you. Passing the test is optional but recommended."
@@ -8973,7 +8973,7 @@
       "id": 446,
       "intro": "I love that everyone in {settlement_name} says good morning. Every single person, every single day.",
       "details": [
-        "It's not performative: it's habit. Nobody thinks about it, they just do it.",
+        "It's not performative. It's habit. Nobody thinks about it, they just do it.",
         "Skip it once and someone will ask if you're feeling alright. That's how baked in it is."
       ],
       "reactions": [
@@ -9040,7 +9040,7 @@
         "Too much daylight is a problem I'll gladly take over too little."
       ],
       "statCheck": {
-        "pass": "Those extra hours of light are when I do my real thinking. The work day fills my hands: the long evenings fill my head.",
+        "pass": "Those extra hours of light are when I do my real thinking. The work day fills my hands. The long evenings fill my head.",
         "fail": "Long days are nice. Nothing complicated about it."
       },
       "valence": "positive",
@@ -9056,7 +9056,7 @@
       "intro": "The thing about {settlement_name} is that nothing changes fast. I find that reassuring.",
       "details": [
         "You can leave for a week and come back to the same conversations, same chores, same arguments about the well.",
-        "There's a rhythm to it. Predictable doesn't mean boring: it means stable."
+        "There's a rhythm to it. Predictable doesn't mean boring. It means stable."
       ],
       "reactions": [
         "I've lived in places that changed too fast. You never got your footing."
@@ -9081,7 +9081,7 @@
         "It's mud, it's always been mud, and I'll probably die complaining about it."
       ],
       "statCheck": {
-        "pass": "Crushed stone on the main paths would fix the worst of it. We've got the stone: nobody wants to do the hauling.",
+        "pass": "Crushed stone on the main paths would fix the worst of it. We've got the stone. Nobody wants to do the hauling.",
         "fail": "I don't know how to fix mud. I just know how to walk through it."
       },
       "valence": "negative",
@@ -9160,7 +9160,7 @@
         "I'll take bickering neighbors who show up over polite ones who don't."
       ],
       "statCheck": {
-        "pass": "The bickering is actually how we process decisions: it sounds bad, but it means everyone feels heard.",
+        "pass": "The bickering is actually how we process decisions. It sounds bad, but it means everyone feels heard.",
         "fail": "We argue a lot. It works out, though."
       },
       "valence": "positive",
@@ -9197,7 +9197,7 @@
       "id": 457,
       "intro": "I've started recognizing people by the sound of their footsteps. That's how long I've been in {settlement_name}.",
       "details": [
-        "Heavy boot on gravel: that's one of the builders. Quick shuffle: someone in a hurry to the well.",
+        "Heavy boot on gravel. That's one of the builders. Quick shuffle. Someone in a hurry to the well.",
         "It's not something I set out to learn. It just happened from years of listening."
       ],
       "reactions": [
@@ -9219,7 +9219,7 @@
       "id": 458,
       "intro": "Compared to {other_settlement}, we don't have much. But what we have, we actually use.",
       "details": [
-        "I've been there: half their buildings sit empty. Nice buildings, nobody inside.",
+        "I've been there. Half their buildings sit empty. Nice buildings, nobody inside.",
         "Here every room has a purpose, every tool has a hand on it. That's efficiency, not poverty."
       ],
       "reactions": [
@@ -9264,7 +9264,7 @@
         "Trust like that doesn't come from rules. It comes from knowing each other."
       ],
       "statCheck": {
-        "pass": "I do wonder if that trust would survive a stranger moving in: it's easy to leave doors open when you know everyone.",
+        "pass": "I do wonder if that trust would survive a stranger moving in. It's easy to leave doors open when you know everyone.",
         "fail": "We don't lock doors. That's just how it is here."
       },
       "valence": "positive",
@@ -9356,7 +9356,7 @@
       "id": 465,
       "intro": "The best meals I've ever had were here in {settlement_name}. Simple food, but made right.",
       "details": [
-        "Nothing fancy: just fresh ingredients and someone who knows what they're doing with a pot.",
+        "Nothing fancy. Just fresh ingredients and someone who knows what they're doing with a pot.",
         "I ate at a proper table in {other_settlement} once and the food had no soul. Pretty plate, empty taste."
       ],
       "reactions": [
@@ -9382,7 +9382,7 @@
         "The communal responsibility problem in one convenient puddle."
       ],
       "statCheck": {
-        "pass": "It's just leaves and silt: a half hour of work would clear it, but the real blockage is stubbornness.",
+        "pass": "It's just leaves and silt. A half hour of work would clear it, but the real blockage is stubbornness.",
         "fail": "I don't know ditches. I just know water shouldn't be there."
       },
       "valence": "negative",
@@ -9399,7 +9399,7 @@
         "It's the same pattern every day with small variations. Like a song with the same melody."
       ],
       "reactions": [
-        "Living by sound instead of schedule: that's when you know you belong somewhere."
+        "Living by sound instead of schedule. That's when you know you belong somewhere."
       ],
       "statCheck": null,
       "valence": "positive",
@@ -9421,7 +9421,7 @@
         "The soil here tests your patience. But what grows in it grows strong."
       ],
       "statCheck": {
-        "pass": "The rocks go deeper than anyone admits: I think we're gardening on top of a shelf of solid stone.",
+        "pass": "The rocks go deeper than anyone admits. I think we're gardening on top of a shelf of solid stone.",
         "fail": "Rocks are rocks. You work around them."
       },
       "valence": "negative",
@@ -9453,7 +9453,7 @@
     },
     {
       "id": 470,
-      "intro": "There's an unspoken rule in {settlement_name}: if you borrow a tool, you return it sharper than you found it.",
+      "intro": "There's an unspoken rule in {settlement_name}. If you borrow a tool, you return it sharper than you found it.",
       "details": [
         "Nobody wrote it down, it's just what people do. Borrow a saw, bring it back oiled.",
         "I've gotten back tools in better shape than I lent them. That's the kind of people we are."
@@ -9475,7 +9475,7 @@
       "intro": "{settlement_name} has too many dogs and not enough shade. Those are my two complaints.",
       "details": [
         "The dogs aren't bad, just everywhere. You can't eat outdoors without an audience.",
-        "And the shade: whoever laid out this place didn't think about where the sun hits at midday."
+        "And the shade. Whoever laid out this place didn't think about where the sun hits at midday."
       ],
       "reactions": [
         "Two complaints in a whole settlement. I suppose that's not terrible."
@@ -9515,7 +9515,7 @@
       "id": 473,
       "intro": "A trader from {other_settlement} told me they feel sorry for us. Sorry for us.",
       "details": [
-        "I didn't bother correcting them: what would I even say?",
+        "I didn't bother correcting them. What would I even say?",
         "People see what they want to see. They see small, they think sad."
       ],
       "reactions": [
@@ -9643,7 +9643,7 @@
         "Fixing that gate has become a community pastime. Someday someone will actually succeed."
       ],
       "statCheck": {
-        "pass": "The hinge pin is worn oval: replace it with a fresh rod and the latch would seat again in ten minutes.",
+        "pass": "The hinge pin is worn oval. Replace it with a fresh rod and the latch would seat again in ten minutes.",
         "fail": "I'm no smith. The gate does what it wants."
       },
       "valence": "negative",
@@ -9675,7 +9675,7 @@
       "id": 481,
       "intro": "Nobody in {settlement_name} agrees on the best way to stack firewood. It's practically a philosophy.",
       "details": [
-        "Bark up, bark down, crisscrossed, straight rows: everyone has a theory and everyone's sure theirs is right.",
+        "Bark up, bark down, crisscrossed, straight rows. Everyone has a theory and everyone's sure theirs is right.",
         "I've tried three methods and they all season about the same. But don't tell anyone I said that."
       ],
       "reactions": [
@@ -9692,7 +9692,7 @@
     },
     {
       "id": 482,
-      "intro": "I worry about {settlement_name} sometimes. Not about big things: about the small things we keep putting off.",
+      "intro": "I worry about {settlement_name} sometimes. Not about big things. About the small things we keep putting off.",
       "details": [
         "The little repairs, the paths, the shared tools getting duller. It adds up.",
         "No single thing is urgent, but together they paint a picture of a place that's slipping."
@@ -9701,7 +9701,7 @@
         "I'd rather worry now and act than wait until the worry's justified."
       ],
       "statCheck": {
-        "pass": "It's not decline: it's deferred maintenance. One good week of coordinated effort would catch us up, but organizing that is its own problem.",
+        "pass": "It's not decline. It's deferred maintenance. One good week of coordinated effort would catch us up, but organizing that is its own problem.",
         "fail": "Maybe I'm overthinking it. Things are fine, probably."
       },
       "valence": "negative",
@@ -9757,14 +9757,14 @@
       "id": 485,
       "intro": "There's a puddle in front of the storehouse that never dries. It's been there since I arrived.",
       "details": [
-        "Rain or shine, it's always there: like it's fed by something underground.",
+        "Rain or shine, it's always there. Like it's fed by something underground.",
         "People step around it without thinking now. It's part of the landscape."
       ],
       "reactions": [
         "At this point I'd miss it if it dried up. That's how long it's been."
       ],
       "statCheck": {
-        "pass": "The foundation of the storehouse is weeping: the mortar's cracked somewhere and that puddle is a symptom, not the problem.",
+        "pass": "The foundation of the storehouse is weeping. The mortar's cracked somewhere and that puddle is a symptom, not the problem.",
         "fail": "It's a puddle. It's always been a puddle."
       },
       "valence": "neutral",
@@ -9822,7 +9822,7 @@
         "Charm fades, but function endures."
       ],
       "statCheck": {
-        "pass": "Sometimes I think a little charm would go a long way: a painted door, a flower box. But I'd never be the first.",
+        "pass": "Sometimes I think a little charm would go a long way. A painted door, a flower box. But I'd never be the first.",
         "fail": "It is what it is. No complaints."
       },
       "valence": "neutral",
@@ -9951,13 +9951,13 @@
     },
     {
       "id": 495,
-      "intro": "I remember when I first came to {settlement_name}: I thought I'd stay a season, and that was years ago.",
+      "intro": "I remember when I first came to {settlement_name}. I thought I'd stay a season, and that was years ago.",
       "details": [
         "There's something about this place that makes leaving harder the longer you stay.",
         "It's not that anything dramatic happened. I just gradually stopped wanting to be anywhere else."
       ],
       "reactions": [
-        "The best places don't grab you: they just quietly make everywhere else feel wrong."
+        "The best places don't grab you. They just quietly make everywhere else feel wrong."
       ],
       "statCheck": {
         "pass": "I had reasons to leave that I won't get into. Staying meant giving those up, and I don't regret it, but I think about it.",
@@ -10015,10 +10015,10 @@
         "We talked about replacing the well rope for two months before someone just did it."
       ],
       "reactions": [
-        "Democracy among neighbors: effective, but never quick."
+        "Democracy among neighbors. Effective, but never quick."
       ],
       "statCheck": {
-        "pass": "The delays aren't from indifference: it's that everyone has strong opinions and nobody yields easily. Three stubborn people can stall a whole settlement.",
+        "pass": "The delays aren't from indifference. It's that everyone has strong opinions and nobody yields easily. Three stubborn people can stall a whole settlement.",
         "fail": "Things take time here. Not much else to say."
       },
       "valence": "negative",
@@ -10031,10 +10031,10 @@
     },
     {
       "id": 499,
-      "intro": "Kids in {settlement_name} grow up knowing how to do things. Real things: mend, build, cook.",
+      "intro": "Kids in {settlement_name} grow up knowing how to do things. Real things. Mend, build, cook.",
       "details": [
         "By the time they can reach a workbench they've already held every tool in the shed.",
-        "That's not pressure: it's opportunity. There's always someone willing to teach."
+        "That's not pressure. It's opportunity. There's always someone willing to teach."
       ],
       "reactions": [
         "A place that teaches its children well is a place with a future."
@@ -10059,7 +10059,7 @@
         "Bad soil builds good habits. You learn not to waste anything."
       ],
       "statCheck": {
-        "pass": "The topsoil's barely a hand deep before you hit clay: one bad erosion event and we're growing in stone.",
+        "pass": "The topsoil's barely a hand deep before you hit clay. One bad erosion event and we're growing in stone.",
         "fail": "The soil is thin. We work with what we've got."
       },
       "valence": "negative",
@@ -10091,7 +10091,7 @@
     },
     {
       "id": 502,
-      "intro": "We share more than we own in {settlement_name}. Tools, labor, meals: it all circulates.",
+      "intro": "We share more than we own in {settlement_name}. Tools, labor, meals. It all circulates.",
       "details": [
         "My saw is at someone else's place half the time. Their rope is at mine.",
         "You stop thinking in terms of 'mine' and start thinking in terms of 'available.' It works."
@@ -10116,7 +10116,7 @@
       "intro": "The outhouse situation in {settlement_name} is embarrassing. There's no polite way to put it.",
       "details": [
         "One shared facility for too many people. The wait in the morning is absurd.",
-        "And the state of it: I won't describe it, but your imagination is probably close."
+        "And the state of it. I won't describe it, but your imagination is probably close."
       ],
       "reactions": [
         "A settlement's dignity is only as strong as its worst shared amenity."
@@ -10156,7 +10156,7 @@
       "id": 505,
       "intro": "I've been here long enough that {settlement_name}'s problems feel like my problems. That's either loyalty or foolishness.",
       "details": [
-        "When the path floods I worry, and when the fence breaks I notice: none of it is mine but all of it matters.",
+        "When the path floods I worry, and when the fence breaks I notice. None of it is mine but all of it matters.",
         "There's no line between my life and this place anymore. We're the same thing."
       ],
       "reactions": [
@@ -10336,7 +10336,7 @@
       "intro": "I walked the whole perimeter of {settlement_name} yesterday. Took less time than I expected.",
       "details": [
         "We're compact. Everything's within shouting distance of everything else.",
-        "That's not a complaint: it means nothing's ever far away when you need it."
+        "That's not a complaint. It means nothing's ever far away when you need it."
       ],
       "reactions": [
         "A small footprint with everything you need is better than a big one with wasted space."
@@ -10354,8 +10354,8 @@
       "id": 515,
       "intro": "Whenever it storms, you can hear {settlement_name} holding itself together. Timbers groaning, shutters straining.",
       "details": [
-        "It sounds worse than it is: most of it holds.",
-        "The morning after is always an inventory: what broke, what shifted, what needs attention."
+        "It sounds worse than it is. Most of it holds.",
+        "The morning after is always an inventory. What broke, what shifted, what needs attention."
       ],
       "reactions": [
         "A place that survives its weather earns a kind of respect. Ours has earned plenty."
@@ -10456,13 +10456,13 @@
       "intro": "We don't have enough hands in {settlement_name} for the work that needs doing.",
       "details": [
         "Every person here is doing two jobs at least. Three if you count the chores nobody talks about.",
-        "It's not that we're lazy: there just aren't enough of us for what this place demands."
+        "It's not that we're lazy. There just aren't enough of us for what this place demands."
       ],
       "reactions": [
         "We manage. But managing isn't thriving, and I'd like to thrive sometime."
       ],
       "statCheck": {
-        "pass": "What we really need is three more people who know how to work with their hands. Not leaders, not thinkers: just capable, willing workers.",
+        "pass": "What we really need is three more people who know how to work with their hands. Not leaders, not thinkers. Just capable, willing workers.",
         "fail": "We're stretched thin. That's obvious to anyone paying attention."
       },
       "valence": "negative",
@@ -10477,7 +10477,7 @@
       "id": 521,
       "intro": "I've never felt unsafe in {settlement_name}. Not once.",
       "details": [
-        "Day or night, rain or shine: I can walk anywhere here and feel fine.",
+        "Day or night, rain or shine. I can walk anywhere here and feel fine.",
         "That's not something you can say about every place. It's not something I take lightly."
       ],
       "reactions": [
@@ -10503,10 +10503,10 @@
         "Everyone's careful, but careful can only stretch so far."
       ],
       "reactions": [
-        "Water anxiety: the invisible tax of living somewhere with thin supply."
+        "Water anxiety. The invisible tax of living somewhere with thin supply."
       ],
       "statCheck": {
-        "pass": "A cistern to catch rainwater would give us a buffer. We've got the stone and the pitch: just need to dig and line it.",
+        "pass": "A cistern to catch rainwater would give us a buffer. We've got the stone and the pitch. Just need to dig and line it.",
         "fail": "Water's tricky. I just know we don't have enough of it."
       },
       "valence": "negative",
@@ -10576,7 +10576,7 @@
       "id": 526,
       "intro": "Someone from {other_settlement} asked me why I don't move somewhere with more opportunities. I didn't know what to say.",
       "details": [
-        "I've got work, people, and a roof: what exactly am I missing?",
+        "I've got work, people, and a roof. What exactly am I missing?",
         "I think 'opportunity' is code for 'more stuff.' I've got enough stuff."
       ],
       "reactions": [
@@ -10687,7 +10687,7 @@
         "It's like a rhythm we all fell into without discussing it."
       ],
       "reactions": [
-        "Routine without enforcement: that's what trust looks like in practice."
+        "Routine without enforcement. That's what trust looks like in practice."
       ],
       "statCheck": null,
       "valence": "positive",
@@ -10720,7 +10720,7 @@
       "intro": "People in {other_settlement} seem to work harder than us for the same result.",
       "details": [
         "They've got more people, more tools, more everything, and they're still scrambling.",
-        "Maybe it's not about what you have: it's about how you use what you've got."
+        "Maybe it's not about what you have. It's about how you use what you've got."
       ],
       "reactions": [
         "Efficiency born from scarcity. We didn't choose it, but it serves us."
@@ -10739,7 +10739,7 @@
       "intro": "I helped dig the foundations for the newest building in {settlement_name}. My hands were raw for a week.",
       "details": [
         "Every swing of the pick hit rock or root. The ground fought us the whole way.",
-        "But when the first wall went up, I felt something I don't usually feel: pride."
+        "But when the first wall went up, I felt something I don't usually feel. Pride."
       ],
       "reactions": [
         "Building something with your own hands changes how you see a place."
@@ -10798,14 +10798,14 @@
       "id": 537,
       "intro": "The thing about {settlement_name} that surprised me most is how quiet the arguments are.",
       "details": [
-        "People disagree, sure, but it's low voices and firm looks: not shouting.",
+        "People disagree, sure, but it's low voices and firm looks. Not shouting.",
         "I think everyone knows the walls are thin enough that the whole settlement would hear."
       ],
       "reactions": [
         "Restraint bred by proximity. It works better than manners."
       ],
       "statCheck": {
-        "pass": "The quiet doesn't mean the anger is small: some of the quietest arguments I've overheard here were the bitterest.",
+        "pass": "The quiet doesn't mean the anger is small. Some of the quietest arguments I've overheard here were the bitterest.",
         "fail": "People keep things civil. Not much else to say about it."
       },
       "valence": "neutral",
@@ -10846,7 +10846,7 @@
         "The building's stubbornness matches ours. Neither will give in first."
       ],
       "statCheck": {
-        "pass": "The center purlin is cracked: replace that one timber and the whole roof straightens.",
+        "pass": "The center purlin is cracked. Replace that one timber and the whole roof straightens.",
         "fail": "Roofs sag. That's old buildings for you."
       },
       "valence": "negative",
@@ -10865,7 +10865,7 @@
         "I make a point to stop working and just look at it. You only get so many autumns."
       ],
       "reactions": [
-        "Beauty that arrives on a schedule: reliable and still surprising every time."
+        "Beauty that arrives on a schedule. Reliable and still surprising every time."
       ],
       "statCheck": null,
       "valence": "positive",
@@ -10941,7 +10941,7 @@
       "intro": "My neighbor's chimney smokes badly and the wind carries it straight into my window.",
       "details": [
         "I've mentioned it twice. Both times I got a shrug and a 'sorry about that.'",
-        "It's not malice: it's a bad chimney. But my eyes sting every evening."
+        "It's not malice. It's a bad chimney. But my eyes sting every evening."
       ],
       "reactions": [
         "Small irritations in small places stay small. That's the saving grace."
@@ -10961,10 +10961,10 @@
       "intro": "I've seen every season change in {settlement_name} and the transition from winter to spring is the best one.",
       "details": [
         "Everything wakes up at once. The ground softens, the birds return, people start lingering outside again.",
-        "There's an energy to it: a collective exhale after months of being shut in."
+        "There's an energy to it. A collective exhale after months of being shut in."
       ],
       "reactions": [
-        "That first warm day where everyone's outside and smiling: I live for that."
+        "That first warm day where everyone's outside and smiling. I live for that."
       ],
       "statCheck": null,
       "valence": "positive",
@@ -11018,10 +11018,10 @@
       "intro": "The well rope frays a little more every time I pull it. We're borrowing time.",
       "details": [
         "I've mentioned it three times. Everyone nods, everyone agrees, nobody buys new rope.",
-        "We'll act when it snaps. That's the {settlement_name} way: reactive, not proactive."
+        "We'll act when it snaps. That's the {settlement_name} way. Reactive, not proactive."
       ],
       "reactions": [
-        "I've accepted it: we fix what breaks and ignore what hasn't broken yet."
+        "I've accepted it. We fix what breaks and ignore what hasn't broken yet."
       ],
       "statCheck": null,
       "valence": "negative",
@@ -11056,7 +11056,7 @@
       "intro": "Nobody in {settlement_name} wastes food. Not a crumb.",
       "details": [
         "Scraps go to animals or compost, bones to broth, stale bread gets soaked and fried.",
-        "It's not poverty: it's respect. You don't throw away what the ground worked hard to give you."
+        "It's not poverty. It's respect. You don't throw away what the ground worked hard to give you."
       ],
       "reactions": [
         "Waste is a luxury of abundance. We have just enough, so we use all of it."
@@ -11097,7 +11097,7 @@
       "intro": "I've never heard anyone from {settlement_name} complain about silence. That tells you who lives here.",
       "details": [
         "People who need noise left a long time ago. The ones who stayed are the quiet types.",
-        "We're not antisocial: we just don't need to fill every gap with words."
+        "We're not antisocial. We just don't need to fill every gap with words."
       ],
       "reactions": [
         "Self-selection. The place shapes the people and the people shape the place."
@@ -11118,7 +11118,7 @@
       "id": 553,
       "intro": "I've been thinking about what makes {settlement_name} feel like home. I think it's the predictability.",
       "details": [
-        "I know what tomorrow looks like because it looks like today. That's not boring: that's safe.",
+        "I know what tomorrow looks like because it looks like today. That's not boring. That's safe.",
         "Surprises are overrated. I'll take the comfort of knowing what comes next."
       ],
       "reactions": [
@@ -11179,10 +11179,10 @@
         "I've gotten creative with seasoning, but there's a limit to how exciting root vegetables can be."
       ],
       "reactions": [
-        "Monotony of diet: the unglamorous cost of living small."
+        "Monotony of diet. The unglamorous cost of living small."
       ],
       "statCheck": {
-        "pass": "I've been craving something I can't even name: a taste from somewhere else, something I had once and can't replicate with what we grow.",
+        "pass": "I've been craving something I can't even name. A taste from somewhere else, something I had once and can't replicate with what we grow.",
         "fail": "The food is fine. I'm not complaining."
       },
       "valence": "negative",
@@ -11197,7 +11197,7 @@
       "id": 557,
       "intro": "When something good happens in {settlement_name}, everyone knows by sundown. Good news travels fast here.",
       "details": [
-        "A successful hunt, a good harvest, a healthy birth: word spreads like warmth.",
+        "A successful hunt, a good harvest, a healthy birth. Word spreads like warmth.",
         "By evening everyone's smiling about something they didn't do but feel part of."
       ],
       "reactions": [
@@ -11223,7 +11223,7 @@
         "Bad roads are the price of being off the main routes. We pay it in inconvenience."
       ],
       "statCheck": {
-        "pass": "The worst section is only about fifty paces long. Fill the ruts with packed gravel and tamp it down: the rest of the road is passable.",
+        "pass": "The worst section is only about fifty paces long. Fill the ruts with packed gravel and tamp it down. The rest of the road is passable.",
         "fail": "I don't know road repair. I just know the bumps are getting worse."
       },
       "valence": "negative",
@@ -11242,7 +11242,7 @@
         "I plan my chores around the shadows. Work in the shade, rest in the sun."
       ],
       "reactions": [
-        "Knowing where the light falls at every hour: that's the mark of someone who lives here, not visits."
+        "Knowing where the light falls at every hour. That's the mark of someone who lives here, not visits."
       ],
       "statCheck": null,
       "valence": "neutral",
@@ -11264,7 +11264,7 @@
         "Growth is a solution to a problem we don't have."
       ],
       "statCheck": {
-        "pass": "What I really fear is losing what makes this place work: the trust, the knowing, the ease. More people might bring more hands, but they'd also bring more strangers.",
+        "pass": "What I really fear is losing what makes this place work. The trust, the knowing, the ease. More people might bring more hands, but they'd also bring more strangers.",
         "fail": "We're fine as is. Nothing more to it."
       },
       "valence": "neutral",
@@ -11298,7 +11298,7 @@
       "id": 562,
       "intro": "The winters in {settlement_name} test you. Not everyone's cut out for them.",
       "details": [
-        "It's not just the cold: it's the isolation. Shorter days, longer nights, less to do.",
+        "It's not just the cold. It's the isolation. Shorter days, longer nights, less to do.",
         "By the end of it you're either closer to your neighbors or sick of them."
       ],
       "reactions": [
@@ -11321,7 +11321,7 @@
       "intro": "I'm proud that {settlement_name} feeds itself. Not many places can say that.",
       "details": [
         "What we grow and what we trade for covers the year. Nothing imported that we can't do without.",
-        "It's tight sometimes, but we've never gone hungry. That's not luck: that's effort."
+        "It's tight sometimes, but we've never gone hungry. That's not luck. That's effort."
       ],
       "reactions": [
         "Self-sufficiency is the quiet kind of pride. The kind nobody boasts about."
@@ -11368,7 +11368,7 @@
         "In a small place, every person matters. That's burden and blessing both."
       ],
       "statCheck": {
-        "pass": "There's a fear nobody voices: what if someone leaves and doesn't come back? We're already stretched thin enough that one fewer person might be the tipping point.",
+        "pass": "There's a fear nobody voices. What if someone leaves and doesn't come back? We're already stretched thin enough that one fewer person might be the tipping point.",
         "fail": "People come and go. We manage."
       },
       "valence": "neutral",
@@ -11425,7 +11425,7 @@
         "Everything's damp. The walls, the clothes, the mood."
       ],
       "reactions": [
-        "A humid place builds patience or frustration: I'm still working on which."
+        "A humid place builds patience or frustration. I'm still working on which."
       ],
       "statCheck": null,
       "valence": "negative",
@@ -11507,7 +11507,7 @@
         "You can love a place and still wish it were a little more."
       ],
       "statCheck": {
-        "pass": "Sometimes I wonder if I stayed here because it's easy, not because it's right. Then I look around and the answer's obvious: it's both.",
+        "pass": "Sometimes I wonder if I stayed here because it's easy, not because it's right. Then I look around and the answer's obvious. It's both.",
         "fail": "Every place has tradeoffs. This one's fine."
       },
       "valence": "negative",
@@ -11520,13 +11520,13 @@
     },
     {
       "id": 573,
-      "intro": "The thing I'd tell anyone thinking of moving to {settlement_name}: bring patience.",
+      "intro": "The thing I'd tell anyone thinking of moving to {settlement_name}. Bring patience.",
       "details": [
         "Nothing happens fast here. Not repairs, not decisions, not friendships.",
         "But what does happen is solid. Worth the wait."
       ],
       "reactions": [
-        "Quick things break and slow things hold: that's the {settlement_name} philosophy."
+        "Quick things break and slow things hold. That's the {settlement_name} philosophy."
       ],
       "statCheck": null,
       "valence": "neutral",
@@ -11701,7 +11701,7 @@
         "There's no malice in it, but there's no privacy either."
       ],
       "reactions": [
-        "Transparency: the gift nobody asked for."
+        "Transparency. The gift nobody asked for."
       ],
       "statCheck": {
         "pass": "I've had things said about me that started as a fact and ended as fiction. The speed of gossip here means corrections never catch up.",
@@ -11759,7 +11759,7 @@
         "It's instinct at this point. We've been doing it so long it doesn't even feel like charity."
       ],
       "reactions": [
-        "Mutual care that doesn't need a name: that's the real infrastructure of this place."
+        "Mutual care that doesn't need a name. That's the real infrastructure of this place."
       ],
       "statCheck": null,
       "valence": "positive",
@@ -11778,7 +11778,7 @@
         "Everyone agrees it needs doing, but nobody's organized the effort."
       ],
       "reactions": [
-        "Agreement without action: the defining feature of our governance."
+        "Agreement without action. The defining feature of our governance."
       ],
       "statCheck": null,
       "valence": "negative",
@@ -11857,7 +11857,7 @@
         "Tradition is just a habit old enough to feel important."
       ],
       "statCheck": {
-        "pass": "The real resistance isn't laziness: it's identity. People feel like changing how things are done is a personal criticism of how things were done.",
+        "pass": "The real resistance isn't laziness. It's identity. People feel like changing how things are done is a personal criticism of how things were done.",
         "fail": "Old habits die hard. That's about all there is to say."
       },
       "valence": "negative",
@@ -11872,7 +11872,7 @@
       "id": 591,
       "intro": "I keep a count of the sunrises I've seen from {settlement_name}. Not exactly, but roughly.",
       "details": [
-        "Hundreds by now. Each one slightly different: the color, the speed, the clouds.",
+        "Hundreds by now. Each one slightly different. The color, the speed, the clouds.",
         "I never planned to stay this long. The sunrises didn't give me a reason to leave."
       ],
       "reactions": [
@@ -11889,7 +11889,7 @@
     },
     {
       "id": 592,
-      "intro": "The noise from the animals in {settlement_name} is constant. Chickens, goats, dogs: all day.",
+      "intro": "The noise from the animals in {settlement_name} is constant. Chickens, goats, dogs. All day.",
       "details": [
         "You'd think you'd go deaf, but you actually stop hearing it after a while.",
         "Visitors always comment on it. I have to think for a moment before I realize what they mean."
@@ -11913,7 +11913,7 @@
       "id": 593,
       "intro": "We should be prouder of what we've done with {settlement_name}. We built this from nothing.",
       "details": [
-        "Every wall, every path, every garden: all of it was just empty ground before people showed up and tried.",
+        "Every wall, every path, every garden. All of it was just empty ground before people showed up and tried.",
         "Not everything worked. But what's standing now was earned."
       ],
       "reactions": [
@@ -11936,7 +11936,7 @@
         "The young ones don't feel it yet. Give them ten years."
       ],
       "reactions": [
-        "Damp air: the slow tax this place levies on your body."
+        "Damp air. The slow tax this place levies on your body."
       ],
       "statCheck": {
         "pass": "I've thought about moving somewhere drier for my health. But uprooting for comfort feels like giving up on something I've built.",
@@ -11977,7 +11977,7 @@
         "I've stopped caring. If it doesn't affect us directly, it can wait."
       ],
       "reactions": [
-        "Delayed news is filtered news: only the things that actually matter reach us."
+        "Delayed news is filtered news. Only the things that actually matter reach us."
       ],
       "statCheck": {
         "pass": "Sometimes I worry we'd be the last to know if something serious were happening nearby. By the time word reached us, it might be too late to prepare.",
@@ -12034,7 +12034,7 @@
       "intro": "What strikes me about {settlement_name} is how much we rely on each other without admitting it.",
       "details": [
         "Everyone acts independent, but the whole thing falls apart if one person stops doing their part.",
-        "We're interdependent and proud: a strange combination, but it works."
+        "We're interdependent and proud. A strange combination, but it works."
       ],
       "reactions": [
         "Needing each other isn't weakness. It's the whole point of living together."
@@ -12094,7 +12094,7 @@
     },
     {
       "id": 602,
-      "intro": "People in {other_settlement} always seem busy. Not productive busy: just busy.",
+      "intro": "People in {other_settlement} always seem busy. Not productive busy. Just busy.",
       "details": [
         "Running around, shouting, making noise about how much there is to do.",
         "We do just as much here with half the fuss."
@@ -12119,7 +12119,7 @@
         "Everything here works. It doesn't need to look good while doing it."
       ],
       "reactions": [
-        "Function over form: the only honest architecture."
+        "Function over form. The only honest architecture."
       ],
       "statCheck": {
         "pass": "I didn't always feel that way. When I first arrived I was embarrassed to tell people where I lived, but that shame faded once I understood what mattered.",
@@ -12220,7 +12220,7 @@
         "You ask to borrow a saw and get told it's at someone else's house. Then they say someone else has it."
       ],
       "reactions": [
-        "Communal ownership by accident: not ideal, but functional."
+        "Communal ownership by accident. Not ideal, but functional."
       ],
       "statCheck": {
         "pass": "I've started hiding my best chisel so nobody borrows it. I feel guilty about it, but I got tired of getting it back dull.",
@@ -12340,7 +12340,7 @@
         "People who argue about small things have no big things to worry about. I'll take it."
       ],
       "statCheck": {
-        "pass": "Sometimes the arguments aren't about the topic at all: they're old tensions wearing new clothes. Nobody's ready to address the real thing underneath.",
+        "pass": "Sometimes the arguments aren't about the topic at all. They're old tensions wearing new clothes. Nobody's ready to address the real thing underneath.",
         "fail": "We bicker. It's what we do."
       },
       "valence": "neutral",
@@ -12362,7 +12362,7 @@
         "An unlocked door is the highest compliment you can pay your neighbors."
       ],
       "statCheck": {
-        "pass": "Something did go missing once: a jar of preserved fruit from my shelf. I know who took it and I never said a word because they needed it more than I did.",
+        "pass": "Something did go missing once. A jar of preserved fruit from my shelf. I know who took it and I never said a word because they needed it more than I did.",
         "fail": "No reason to lock up. Never has been."
       },
       "valence": "positive",
@@ -12396,7 +12396,7 @@
       "id": 617,
       "intro": "What I like about {settlement_name} is that nobody pretends to be something they're not.",
       "details": [
-        "You can't fake it here: everyone sees you every day. The act would collapse in a week.",
+        "You can't fake it here. Everyone sees you every day. The act would collapse in a week.",
         "We're honest because lying takes too much effort in a place this small."
       ],
       "reactions": [
@@ -12523,7 +12523,7 @@
       "id": 623,
       "intro": "I've gotten so used to {settlement_name} that I can tell who's walking past my house by the sound of their steps.",
       "details": [
-        "Heavy boots dragging: that's the morning shift. Light quick steps: that's the neighbor's kid.",
+        "Heavy boots dragging. That's the morning shift. Light quick steps. That's the neighbor's kid.",
         "When you know people by their footfalls, you've been somewhere long enough."
       ],
       "reactions": [
@@ -12688,7 +12688,7 @@
         "Moving through here is automatic. My feet know things my head forgot."
       ],
       "reactions": [
-        "When a place is in your muscle memory, you're not just living there: you're part of it."
+        "When a place is in your muscle memory, you're not just living there. You're part of it."
       ],
       "statCheck": null,
       "valence": "positive",
@@ -12729,7 +12729,7 @@
         "Contentment isn't the absence of problems. It's deciding the problems are yours and you're keeping them."
       ],
       "statCheck": {
-        "pass": "That's not entirely true: I'd change how we handle disagreements, but I'm not brave enough to be the one who pushes for that.",
+        "pass": "That's not entirely true. I'd change how we handle disagreements, but I'm not brave enough to be the one who pushes for that.",
         "fail": "I'm happy with things as they are. Nothing else to say."
       },
       "valence": "positive",
@@ -12786,7 +12786,7 @@
       "intro": "I wish we had a proper gathering spot in {settlement_name}. Somewhere everyone could sit together.",
       "details": [
         "We cluster in doorways and lean against walls when we talk. It works, but it's not comfortable.",
-        "A table big enough for everyone: that's the luxury I dream about."
+        "A table big enough for everyone. That's the luxury I dream about."
       ],
       "reactions": [
         "The things you miss most are the things you can't build alone."
@@ -12890,7 +12890,7 @@
       "intro": "The older buildings in {settlement_name} are settling. You can see the lean if you look closely.",
       "details": [
         "Door frames that used to be square aren't anymore. Floors slope where they used to be flat.",
-        "It's slow: barely noticeable year to year. But over time the drift adds up."
+        "It's slow. Barely noticeable year to year. But over time the drift adds up."
       ],
       "reactions": [
         "Everything leans eventually. Buildings, people, settlements."
@@ -12909,7 +12909,7 @@
     },
     {
       "id": 642,
-      "intro": "I've started a small garden outside my door. Nothing special: just herbs and a few flowers.",
+      "intro": "I've started a small garden outside my door. Nothing special. Just herbs and a few flowers.",
       "details": [
         "It takes five minutes a day and gives me something green to look at.",
         "A couple of neighbors have started doing the same. I like that it's spreading."
@@ -12966,7 +12966,7 @@
       "id": 645,
       "intro": "We don't mark graves in {settlement_name} the way larger places do. There's no separate ground for it.",
       "details": [
-        "People are remembered by the things they left: a wall they built, a tree they planted.",
+        "People are remembered by the things they left. A wall they built, a tree they planted.",
         "The memorial is the settlement itself, not a stone with a name."
       ],
       "reactions": [
@@ -12992,7 +12992,7 @@
         "It works until it doesn't. But so far it's mostly worked."
       ],
       "reactions": [
-        "Avoidance as a conflict strategy: not noble, but surprisingly effective."
+        "Avoidance as a conflict strategy. Not noble, but surprisingly effective."
       ],
       "statCheck": {
         "pass": "There are a couple of old grudges simmering here that nobody deals with. They've been going for years, and one day one of them will boil over.",
@@ -13033,7 +13033,7 @@
         "Privacy here means choosing not to acknowledge what you overheard."
       ],
       "reactions": [
-        "The social contract of a small place: I pretend not to hear, you pretend not to hear, and we all manage."
+        "The social contract of a small place. I pretend not to hear, you pretend not to hear, and we all manage."
       ],
       "statCheck": {
         "pass": "There are days I need solitude so badly I walk until the settlement is out of sight. I never tell anyone because admitting you need distance feels like a betrayal.",
@@ -13077,7 +13077,7 @@
         "We buy what we need and send them on their way. No browsing, no haggling for fun."
       ],
       "reactions": [
-        "We're not a market: we're a destination. People come here on purpose or not at all."
+        "We're not a market. We're a destination. People come here on purpose or not at all."
       ],
       "statCheck": null,
       "valence": "neutral",
@@ -13137,7 +13137,7 @@
         "A fence that doesn't fence is just a decoration with ambition."
       ],
       "statCheck": {
-        "pass": "The fences aren't really about keeping animals out: they're about marking what's yours. Without them, boundaries get fuzzy and people get tense.",
+        "pass": "The fences aren't really about keeping animals out. They're about marking what's yours. Without them, boundaries get fuzzy and people get tense.",
         "fail": "Fences lean. That's just how they are here."
       },
       "valence": "negative",
@@ -13152,7 +13152,7 @@
       "id": 654,
       "intro": "I've tried to explain {settlement_name} to outsiders. It never works.",
       "details": [
-        "On paper it sounds like nothing: a few buildings, some fields, a handful of people.",
+        "On paper it sounds like nothing. A few buildings, some fields, a handful of people.",
         "You have to live it to understand why it holds people. The words aren't big enough."
       ],
       "reactions": [
@@ -13197,7 +13197,7 @@
         "Even the animals find shade and stay there. The whole settlement slows to a crawl."
       ],
       "reactions": [
-        "Summer heat is the great equalizer: it makes everyone equally miserable and equally slow."
+        "Summer heat is the great equalizer. It makes everyone equally miserable and equally slow."
       ],
       "statCheck": {
         "pass": "I've started working before dawn just to avoid the worst of it. By the time the sun's high I'm done for the day, but I'm exhausted before noon.",
@@ -13372,7 +13372,7 @@
       "id": 665,
       "intro": "The mud in {settlement_name} has a personality. It clings, it sucks, it doesn't let go.",
       "details": [
-        "I've lost a boot to it: just stepped and the mud said no. Had to pull it out with both hands.",
+        "I've lost a boot to it. Just stepped and the mud said no. Had to pull it out with both hands.",
         "After rain, the paths are an obstacle course. You pick your steps like a heron in a marsh."
       ],
       "reactions": [
@@ -13391,7 +13391,7 @@
       "id": 666,
       "intro": "I brought a cutting from my old home and planted it here in {settlement_name}. It took root.",
       "details": [
-        "It's not much: just a small bush with white flowers in spring. But it ties me to where I came from.",
+        "It's not much. Just a small bush with white flowers in spring. But it ties me to where I came from.",
         "Every time it blooms, I think of my mother's garden. That's enough."
       ],
       "reactions": [
@@ -13414,7 +13414,7 @@
         "Decisions happen slowly and usually only when everyone's tired of debating."
       ],
       "reactions": [
-        "Governance by exhaustion: not what the philosophers recommend, but it works for us."
+        "Governance by exhaustion. Not what the philosophers recommend, but it works for us."
       ],
       "statCheck": {
         "pass": "The problem is when someone actually needs to make a quick decision and nobody wants the responsibility. We've had moments where waiting for consensus nearly cost us.",
@@ -13554,10 +13554,10 @@
         "They work, but they work hard. And so do we because of it."
       ],
       "reactions": [
-        "Old tools and stubborn people: the foundation of every small settlement."
+        "Old tools and stubborn people. The foundation of every small settlement."
       ],
       "statCheck": {
-        "pass": "I broke a good blade last month and almost cried. Not from pain: from knowing it'll take months of trading before I can replace it.",
+        "pass": "I broke a good blade last month and almost cried. Not from pain. From knowing it'll take months of trading before I can replace it.",
         "fail": "Old tools still work. That's enough."
       },
       "valence": "negative",
@@ -13708,7 +13708,7 @@
       "id": 682,
       "intro": "I heard they have a market day in {other_settlement}. A whole day just for buying and selling.",
       "details": [
-        "We don't have the numbers for that here. A market with five stalls isn't a market: it's a yard sale.",
+        "We don't have the numbers for that here. A market with five stalls isn't a market. It's a yard sale.",
         "Still, the idea of browsing instead of just buying what's available sounds appealing."
       ],
       "reactions": [
@@ -13845,7 +13845,7 @@
       "id": 689,
       "intro": "I think {settlement_name} has gotten prettier without anyone trying. Plants growing over walls, paths wearing smooth.",
       "details": [
-        "Time and weather have done what no gardener could: softened all the hard edges.",
+        "Time and weather have done what no gardener could. Softened all the hard edges.",
         "It looks like it belongs here now. Like the land accepted it."
       ],
       "reactions": [
@@ -13890,7 +13890,7 @@
         "I think I'm more proud of this place than I realized."
       ],
       "reactions": [
-        "Defensive pride is still pride: just with more energy behind it."
+        "Defensive pride is still pride. Just with more energy behind it."
       ],
       "statCheck": null,
       "valence": "positive",
@@ -13924,7 +13924,7 @@
       "id": 693,
       "intro": "The sound of hammering carries through all of {settlement_name}. When someone's building, everyone knows.",
       "details": [
-        "It's reassuring. Hammering means progress: something new, something fixed.",
+        "It's reassuring. Hammering means progress. Something new, something fixed.",
         "When it stops, you notice the silence and wonder if they're done or just resting."
       ],
       "reactions": [
@@ -13950,7 +13950,7 @@
         "Drafty houses build character. Or at least that's what I tell myself at three in the morning."
       ],
       "statCheck": {
-        "pass": "The honest problem is the construction: we built fast when we settled here and never went back to do it properly. The gaps are the price of haste.",
+        "pass": "The honest problem is the construction. We built fast when we settled here and never went back to do it properly. The gaps are the price of haste.",
         "fail": "Cold mornings. You learn to layer."
       },
       "valence": "negative",
@@ -13969,7 +13969,7 @@
         "That balance doesn't happen by accident. It's the result of people choosing to stay."
       ],
       "reactions": [
-        "The right size isn't a number: it's a feeling. We have it."
+        "The right size isn't a number. It's a feeling. We have it."
       ],
       "statCheck": {
         "pass": "The truth is I'm a little afraid of new people moving in. Not because they'd be bad, but because they'd change the number and the feeling might shift.",
@@ -14004,7 +14004,7 @@
       "id": 697,
       "intro": "When the wind comes from the south, {settlement_name} smells like grass and warm earth. I love those days.",
       "details": [
-        "The air feels different: lighter, sweeter, like the land to the south is sending us a gift.",
+        "The air feels different. Lighter, sweeter, like the land to the south is sending us a gift.",
         "Those are the days when everyone's mood lifts without knowing why."
       ],
       "reactions": [
@@ -14064,7 +14064,7 @@
       "id": 700,
       "intro": "I don't think people from {other_settlement} understand what we're doing out here. They think we're just surviving.",
       "details": [
-        "We're not surviving: we're living. There's a difference they'd recognize if they slowed down.",
+        "We're not surviving. We're living. There's a difference they'd recognize if they slowed down.",
         "Their busyness looks like purpose from the inside and panic from the outside."
       ],
       "reactions": [
@@ -14084,7 +14084,7 @@
       "intro": "The thing I tell myself when {settlement_name} frustrates me is that I chose this. Nobody made me stay.",
       "details": [
         "The inconveniences are part of the package. I accepted them along with the good parts.",
-        "Complaining about the mud is fine: just don't pretend you didn't know about the mud."
+        "Complaining about the mud is fine. Just don't pretend you didn't know about the mud."
       ],
       "reactions": [
         "Choosing discomfort is different from enduring it. The first has dignity."
@@ -14122,7 +14122,7 @@
       "id": 703,
       "intro": "Rats got into my flour stores. Third time this season.",
       "details": [
-        "I've tried everything: stone lids, wrapped cloth, sealed jars. They find a way.",
+        "I've tried everything. Stone lids, wrapped cloth, sealed jars. They find a way.",
         "It's a war of attrition and the rats are winning on patience."
       ],
       "reactions": [
@@ -14139,7 +14139,7 @@
       "id": 704,
       "intro": "I've been in {settlement_name} long enough to remember when half these buildings weren't here.",
       "details": [
-        "Watching a settlement grow from bare ground is like watching a child grow: gradual until suddenly it isn't.",
+        "Watching a settlement grow from bare ground is like watching a child grow. Gradual until suddenly it isn't.",
         "Every building is a decision someone made to stay. That's a lot of accumulated commitment."
       ],
       "reactions": [
@@ -14184,7 +14184,7 @@
         "Scarcity is a mirror. It shows you exactly who your neighbors are."
       ],
       "statCheck": {
-        "pass": "The people who hoarded know I noticed. I've never said anything, but the trust shifted: quietly and permanently.",
+        "pass": "The people who hoarded know I noticed. I've never said anything, but the trust shifted. Quietly and permanently.",
         "fail": "We managed. Not much more to say about it."
       },
       "valence": "neutral",
@@ -14214,7 +14214,7 @@
     },
     {
       "id": 708,
-      "intro": "The wells in {other_settlement} are deeper than ours. They have to be: the water table's lower there.",
+      "intro": "The wells in {other_settlement} are deeper than ours. They have to be. The water table's lower there.",
       "details": [
         "We got lucky with our water. It's close to the surface and plentiful.",
         "That one fact probably saved this settlement. Without easy water, nobody would have stayed."
@@ -14401,7 +14401,7 @@
         "There's a sharpness to it that wakes you up faster than any drink."
       ],
       "reactions": [
-        "First frost is a boundary: everything before it was summer, everything after is preparation."
+        "First frost is a boundary. Everything before it was summer, everything after is preparation."
       ],
       "statCheck": null,
       "valence": "neutral",
@@ -14459,7 +14459,7 @@
         "When everyone's at the same level, competition turns into cooperation."
       ],
       "reactions": [
-        "Equality by modesty: not a political choice, just the result of everyone having exactly enough."
+        "Equality by modesty. Not a political choice, just the result of everyone having exactly enough."
       ],
       "statCheck": {
         "pass": "I say 'fair' but what I mean is 'nobody makes me feel inadequate here.' I've lived in places where comparison ate me alive. This is the cure for that.",
@@ -14477,7 +14477,7 @@
       "id": 721,
       "intro": "We don't have a single straight wall in {settlement_name}. Everything curves or leans.",
       "details": [
-        "The builders did their best with what they had. Perfection wasn't the goal: shelter was.",
+        "The builders did their best with what they had. Perfection wasn't the goal. Shelter was.",
         "I've grown attached to the crooked lines. They have more character than straight ones."
       ],
       "reactions": [
@@ -14503,7 +14503,7 @@
         "Staying through the hard parts earns you something that leaving never can."
       ],
       "statCheck": {
-        "pass": "There were nights in the first year when I almost packed my things. What kept me wasn't love of the place: it was stubbornness, and the love came later.",
+        "pass": "There were nights in the first year when I almost packed my things. What kept me wasn't love of the place. It was stubbornness, and the love came later.",
         "fail": "I stayed because it suited me. Nothing dramatic."
       },
       "valence": "positive",
@@ -14537,7 +14537,7 @@
       "id": 724,
       "intro": "We lost a good family from {settlement_name} last year. Moved to {other_settlement}.",
       "details": [
-        "Can't blame them: they wanted more for their children. Opportunities we can't offer.",
+        "Can't blame them. They wanted more for their children. Opportunities we can't offer.",
         "The gap they left hasn't filled. Their house sits half-empty and their chores got spread around."
       ],
       "reactions": [
@@ -14596,7 +14596,7 @@
       "intro": "I've helped build three houses in {settlement_name}. Watched them go from stakes in the ground to walls and a roof.",
       "details": [
         "There's nothing like the feeling of standing inside something you helped raise.",
-        "Even when it's someone else's home, you look at it and think: my hands did that."
+        "Even when it's someone else's home, you look at it and think. My hands did that."
       ],
       "reactions": [
         "Contributing to someone's shelter is the most concrete way to belong somewhere."
@@ -14631,7 +14631,7 @@
     },
     {
       "id": 729,
-      "intro": "I think the thing that keeps me in {settlement_name} is the sense of being known. Not famous: just known.",
+      "intro": "I think the thing that keeps me in {settlement_name} is the sense of being known. Not famous. Just known.",
       "details": [
         "People remember what I said last week. They ask about things I mentioned in passing.",
         "Being tracked by kindness instead of suspicion is rare. I don't take it lightly."
@@ -14814,8 +14814,8 @@
       "id": 738,
       "intro": "We don't get many visitors in {settlement_name}. When one shows up, the whole settlement notices.",
       "details": [
-        "There's a ripple: a glance, a word, a shift in attention. Everyone tracks the newcomer without staring.",
-        "It's not hostility: it's curiosity from people who've run out of new things to look at."
+        "There's a ripple. A glance, a word, a shift in attention. Everyone tracks the newcomer without staring.",
+        "It's not hostility. It's curiosity from people who've run out of new things to look at."
       ],
       "reactions": [
         "Visitors are entertainment and disruption in equal measure."
@@ -14857,7 +14857,7 @@
         "There's a discipline to darkness that I've grown to appreciate."
       ],
       "reactions": [
-        "Enforced rest: the one gift of short days."
+        "Enforced rest. The one gift of short days."
       ],
       "statCheck": null,
       "valence": "positive",
@@ -14876,7 +14876,7 @@
         "The difference is care, I think. Or stubbornness about method."
       ],
       "reactions": [
-        "A hundred meals from the same pantry: that's the real measure of a cook."
+        "A hundred meals from the same pantry. That's the real measure of a cook."
       ],
       "statCheck": {
         "pass": "There's one person here whose cooking is genuinely bad. We all eat it when invited and say nothing because the effort behind it is so sincere it would be cruel to criticize.",
@@ -14915,7 +14915,7 @@
         "Turns out the silence was the thing that was missing."
       ],
       "reactions": [
-        "Quiet is not emptiness: it's the space where you can finally hear yourself."
+        "Quiet is not emptiness. It's the space where you can finally hear yourself."
       ],
       "statCheck": null,
       "valence": "positive",
@@ -14950,9 +14950,9 @@
     },
     {
       "id": 745,
-      "intro": "The ground around {settlement_name} is good for one thing: it dries fast after rain.",
+      "intro": "The ground around {settlement_name} is good for one thing. It dries fast after rain.",
       "details": [
-        "Sandy and loose: water goes right through it. No standing puddles, no lingering mud.",
+        "Sandy and loose. Water goes right through it. No standing puddles, no lingering mud.",
         "Makes for poor farming but excellent footing."
       ],
       "reactions": [
@@ -14972,7 +14972,7 @@
       "intro": "I think {settlement_name} is the kind of place people describe as 'a nice place to visit, but...' I'd flip that.",
       "details": [
         "Visiting here shows you nothing. Living here shows you everything.",
-        "The good parts reveal themselves slowly: on the second month, not the second day."
+        "The good parts reveal themselves slowly. On the second month, not the second day."
       ],
       "reactions": [
         "We're a slow burn. The people who stay long enough to feel it never leave."
@@ -14994,10 +14994,10 @@
         "At some point 'temporary' became 'this is where I live.' I'm not sure when."
       ],
       "reactions": [
-        "Home isn't always a decision: sometimes it's just what happens when you stop leaving."
+        "Home isn't always a decision. Sometimes it's just what happens when you stop leaving."
       ],
       "statCheck": {
-        "pass": "I still keep a bag half-packed under my bed. I don't know what I'm waiting for, but I can't bring myself to fully unpack: maybe admitting permanence is the last step.",
+        "pass": "I still keep a bag half-packed under my bed. I don't know what I'm waiting for, but I can't bring myself to fully unpack. Maybe admitting permanence is the last step.",
         "fail": "I've been here a while. That's all there is to say."
       },
       "valence": "neutral",
@@ -15036,7 +15036,7 @@
         "A settlement that's been repaired more than it was built is a settlement that refuses to quit."
       ],
       "statCheck": {
-        "pass": "The foundation of my house has someone else's tool marks in the stone. I think about that person sometimes: what they hoped this place would become.",
+        "pass": "The foundation of my house has someone else's tool marks in the stone. I think about that person sometimes. What they hoped this place would become.",
         "fail": "It's been around a while. That's about all I know."
       },
       "valence": "neutral",
@@ -15052,7 +15052,7 @@
       "intro": "I know every crack in the path between my door and the well. That's how long I've been here.",
       "details": [
         "The big one near the corner shifts in winter. I step over it without thinking.",
-        "Knowing a path that well means it's not just a path anymore: it's a habit."
+        "Knowing a path that well means it's not just a path anymore. It's a habit."
       ],
       "reactions": [
         "Familiarity like that is either a comfort or a cage, depending on the day."
@@ -15072,10 +15072,10 @@
         "It's not perfect, but it's mine. That makes the imperfections bearable."
       ],
       "reactions": [
-        "Loyalty to a place doesn't need reasons: it just needs time."
+        "Loyalty to a place doesn't need reasons. It just needs time."
       ],
       "statCheck": {
-        "pass": "The truth is I tried leaving once and got as far as the next ridge before I turned around. That's when I knew it wasn't about the place: it was about who I am in it.",
+        "pass": "The truth is I tried leaving once and got as far as the next ridge before I turned around. That's when I knew it wasn't about the place. It was about who I am in it.",
         "fail": "It suits me here. Not much more to it."
       },
       "valence": "positive",
@@ -15183,7 +15183,7 @@
       "intro": "The mud in {settlement_name} has a personality. It grabs your boots and holds on.",
       "details": [
         "I've seen people lose a shoe to it. Just walked right out and left it stuck in the ground.",
-        "You learn a certain walk after a while: flat-footed and deliberate."
+        "You learn a certain walk after a while. Flat-footed and deliberate."
       ],
       "reactions": [
         "A place that tries to keep your boots is a place with commitment."
@@ -15201,14 +15201,14 @@
       "id": 758,
       "intro": "I think people from {other_settlement} look down on us. They're polite about it, but I can tell.",
       "details": [
-        "It's in the way they ask questions: carefully, like they're talking to someone who doesn't know better.",
+        "It's in the way they ask questions. Carefully, like they're talking to someone who doesn't know better.",
         "We're not ignorant. We just chose different things to care about."
       ],
       "reactions": [
         "Condescension dressed up as curiosity is still condescension."
       ],
       "statCheck": {
-        "pass": "The worst part is that sometimes they're right: we are behind on some things. But having someone point it out by being overly kind about it is worse than just being told.",
+        "pass": "The worst part is that sometimes they're right. We are behind on some things. But having someone point it out by being overly kind about it is worse than just being told.",
         "fail": "They've got their ways, we've got ours."
       },
       "valence": "negative",
@@ -15243,7 +15243,7 @@
       "intro": "I've started keeping a tally of sunny days. We've had more this season than last.",
       "details": [
         "It sounds pointless, but patterns make me feel like I understand this place.",
-        "If I can predict the weather, I'm not just living here: I'm reading it."
+        "If I can predict the weather, I'm not just living here. I'm reading it."
       ],
       "reactions": [
         "Counting good days is a hobby for people who've decided to stay."
@@ -15263,10 +15263,10 @@
         "I've gotten creative with seasoning, but there's only so far salt and herbs can take you."
       ],
       "reactions": [
-        "A simple pantry teaches patience, or resignation: depends on the night."
+        "A simple pantry teaches patience, or resignation. Depends on the night."
       ],
       "statCheck": {
-        "pass": "I dream about meals I had before I came here: rich, layered, full of things I can't get now. I don't talk about it because it sounds ungrateful, but the craving never fully goes away.",
+        "pass": "I dream about meals I had before I came here. Rich, layered, full of things I can't get now. I don't talk about it because it sounds ungrateful, but the craving never fully goes away.",
         "fail": "We eat well enough. No sense dwelling on what we don't have."
       },
       "valence": "negative",
@@ -15286,7 +15286,7 @@
         "Recognizing people by their walk means you've run out of strangers."
       ],
       "statCheck": {
-        "pass": "I've started worrying that I recognize them too well: that I'm tracking people instead of just living near them. The line between familiar and watchful is thinner than I'd like.",
+        "pass": "I've started worrying that I recognize them too well. That I'm tracking people instead of just living near them. The line between familiar and watchful is thinner than I'd like.",
         "fail": "Small place. You notice things."
       },
       "valence": "neutral",
@@ -15325,7 +15325,7 @@
         "Contentment with less is either wisdom or giving up. I go back and forth."
       ],
       "statCheck": {
-        "pass": "I catch myself making lists of things I'd buy if I could: not luxuries, just options. Different flavors, different fabrics, different anything.",
+        "pass": "I catch myself making lists of things I'd buy if I could. Not luxuries, just options. Different flavors, different fabrics, different anything.",
         "fail": "We have what we need. That's enough for most people."
       },
       "valence": "negative",
@@ -15388,7 +15388,7 @@
         "Choosing your own pace is a freedom most people don't realize they've given up."
       ],
       "statCheck": {
-        "pass": "The honest version is that I'm not choosing boredom: I'm avoiding something. The slowness isn't peace, it's a place to hide from the speed I couldn't keep up with.",
+        "pass": "The honest version is that I'm not choosing boredom. I'm avoiding something. The slowness isn't peace, it's a place to hide from the speed I couldn't keep up with.",
         "fail": "I like it slow. That's all."
       },
       "valence": "positive",
@@ -15410,7 +15410,7 @@
         "Watching a slow problem and saying nothing is a particular kind of discomfort."
       ],
       "statCheck": {
-        "pass": "I'd fix it myself if I thought they'd accept. But some people take help as an insult: like you're saying they can't manage on their own.",
+        "pass": "I'd fix it myself if I thought they'd accept. But some people take help as an insult. Like you're saying they can't manage on their own.",
         "fail": "Roofs sag. It'll get dealt with eventually."
       },
       "valence": "negative",
@@ -15445,7 +15445,7 @@
       "id": 770,
       "intro": "I wonder if {other_settlement} worries about us the way we worry about them.",
       "details": [
-        "We spend time comparing ourselves: are they doing better, are we falling behind.",
+        "We spend time comparing ourselves. Are they doing better, are we falling behind.",
         "For all I know, they're doing the same thing in reverse."
       ],
       "reactions": [
@@ -15462,13 +15462,13 @@
     },
     {
       "id": 771,
-      "intro": "I fixed the latch on my gate this morning: took ten minutes. Should have done it weeks ago.",
+      "intro": "I fixed the latch on my gate this morning. Took ten minutes. Should have done it weeks ago.",
       "details": [
         "It had been rattling in the wind every night. I just kept putting it off.",
         "Funny how the things you put off are always the things that take no time at all."
       ],
       "reactions": [
-        "A fixed latch and a quiet night: that's a good trade for ten minutes."
+        "A fixed latch and a quiet night. That's a good trade for ten minutes."
       ],
       "statCheck": null,
       "valence": "positive",
@@ -15485,7 +15485,7 @@
         "It's tiring. Not the work itself, but the switching between tasks all day."
       ],
       "reactions": [
-        "Overstretched people don't burn out suddenly: they wear down slowly, and that's harder to notice."
+        "Overstretched people don't burn out suddenly. They wear down slowly, and that's harder to notice."
       ],
       "statCheck": {
         "pass": "I've been doing my neighbor's share of the heavier work because they're getting older and won't admit it. I don't mind, but someone should notice before I'm the one who can't keep up.",
@@ -15503,7 +15503,7 @@
       "id": 773,
       "intro": "The thing about {settlement_name} is that it rewards patience. Nothing good here comes fast.",
       "details": [
-        "Relationships, trust, a sense of belonging: all of it takes seasons, not weeks.",
+        "Relationships, trust, a sense of belonging. All of it takes seasons, not weeks.",
         "The people who stay long enough figure that out. The ones who don't leave puzzled."
       ],
       "reactions": [
@@ -15526,7 +15526,7 @@
       "intro": "My door sticks in the wet and swings free in the dry. The wood can't decide what shape it wants to be.",
       "details": [
         "I've shaved it down twice and it still swells when the rain comes.",
-        "At this point the door and I have an understanding: I push, it resists, we get through the day."
+        "At this point the door and I have an understanding. I push, it resists, we get through the day."
       ],
       "reactions": [
         "Living with a stubborn door is preparation for living with stubborn people."
@@ -15578,14 +15578,14 @@
       "id": 777,
       "intro": "We had a bad storm blow through {settlement_name}. Took a few fence posts and scattered some thatch.",
       "details": [
-        "By the next afternoon everything was patched. No meetings, no discussions: people just fixed things.",
+        "By the next afternoon everything was patched. No meetings, no discussions. People just fixed things.",
         "That's the kind of response you don't get in bigger places."
       ],
       "reactions": [
         "A storm that tests a settlement and finds it holding is the best proof of community."
       ],
       "statCheck": {
-        "pass": "What scared me about the storm wasn't the damage: it was how fast things could have been worse. One more hour of wind and we'd have been rebuilding, not patching.",
+        "pass": "What scared me about the storm wasn't the damage. It was how fast things could have been worse. One more hour of wind and we'd have been rebuilding, not patching.",
         "fail": "Storms happen. We handled it."
       },
       "valence": "positive",
@@ -15621,7 +15621,7 @@
       "intro": "I trust my neighbors in {settlement_name} with my life. I mean that literally.",
       "details": [
         "If I fell ill tomorrow, three people would be at my door before sunset.",
-        "That kind of certainty doesn't come from promises: it comes from years of proving it."
+        "That kind of certainty doesn't come from promises. It comes from years of proving it."
       ],
       "reactions": [
         "Trust earned by action is the most valuable thing a settlement can produce."
@@ -15685,7 +15685,7 @@
         "A place with good water is a place worth defending."
       ],
       "statCheck": {
-        "pass": "I've tasted the water in other settlements and it's not the same. I think our water is the reason people stay longer than they planned: it gets into you.",
+        "pass": "I've tasted the water in other settlements and it's not the same. I think our water is the reason people stay longer than they planned. It gets into you.",
         "fail": "Good water. Can't complain."
       },
       "valence": "positive",
@@ -15700,8 +15700,8 @@
       "id": 783,
       "intro": "I've been here long enough that the settlement feels like an extension of my house.",
       "details": [
-        "I walk to the well the way I walk to my own kitchen: without thinking.",
-        "The paths, the corners, the sounds: all as familiar as my own rooms."
+        "I walk to the well the way I walk to my own kitchen. Without thinking.",
+        "The paths, the corners, the sounds. All as familiar as my own rooms."
       ],
       "reactions": [
         "When the whole settlement feels like home, the walls stop mattering."
@@ -15717,7 +15717,7 @@
       "id": 784,
       "intro": "The dogs in {settlement_name} are better fed than the people some weeks. Nobody complains about that.",
       "details": [
-        "They earn their keep: companionship, warnings, and the occasional rat.",
+        "They earn their keep. Companionship, warnings, and the occasional rat.",
         "A settlement without dogs would be quieter, but also lonelier."
       ],
       "reactions": [
@@ -15776,7 +15776,7 @@
         "There's something about shared smoke that makes the settlement feel connected."
       ],
       "reactions": [
-        "Shared air, shared smoke, shared problems: that's what a settlement is."
+        "Shared air, shared smoke, shared problems. That's what a settlement is."
       ],
       "statCheck": null,
       "valence": "neutral",
@@ -15791,14 +15791,14 @@
       "id": 788,
       "intro": "I can't sleep when it's too quiet. The silence in {settlement_name} at night is almost aggressive.",
       "details": [
-        "No wind, no voices, no creaking: just nothing. It presses on the ears.",
+        "No wind, no voices, no creaking. Just nothing. It presses on the ears.",
         "I've taken to humming myself to sleep just to fill the space."
       ],
       "reactions": [
         "Silence is only peaceful if you're at peace. Otherwise it's an audience."
       ],
       "statCheck": {
-        "pass": "The quiet is when the thinking gets loudest. Every mistake, every regret: they all wait for the silence to remind me.",
+        "pass": "The quiet is when the thinking gets loudest. Every mistake, every regret. They all wait for the silence to remind me.",
         "fail": "It's just quiet out here. You get used to it."
       },
       "valence": "negative",
@@ -15811,7 +15811,7 @@
     },
     {
       "id": 789,
-      "intro": "We share tools in {settlement_name}. Not by rule: just by habit.",
+      "intro": "We share tools in {settlement_name}. Not by rule. Just by habit.",
       "details": [
         "If you need a saw, you ask; if someone needs yours, you lend. It circulates.",
         "I couldn't tell you who actually owns half the tools I've used."
@@ -15836,13 +15836,13 @@
       "intro": "The worst part about {settlement_name} is the isolation. Some weeks nobody comes or goes.",
       "details": [
         "You start to feel like the world ended and forgot to tell you.",
-        "It's not loneliness exactly: it's more like being passed over."
+        "It's not loneliness exactly. It's more like being passed over."
       ],
       "reactions": [
         "Being forgotten by the wider world is peaceful until you realize it's also permanent."
       ],
       "statCheck": {
-        "pass": "There are moments when I wonder if anyone beyond this settlement knows my name. Not fame: just acknowledgment that I exist somewhere in someone's awareness.",
+        "pass": "There are moments when I wonder if anyone beyond this settlement knows my name. Not fame. Just acknowledgment that I exist somewhere in someone's awareness.",
         "fail": "It's quiet out here. That's how we like it."
       },
       "valence": "negative",
@@ -15916,7 +15916,7 @@
       "intro": "The winters here are long. By the end of it, you've run out of things to say to people you see every day.",
       "details": [
         "Conversations get shorter, silences get longer, tempers get thinner.",
-        "Spring isn't just a change of weather: it's a reset on patience."
+        "Spring isn't just a change of weather. It's a reset on patience."
       ],
       "reactions": [
         "Surviving winter together is easier than surviving each other through winter."
@@ -16000,7 +16000,7 @@
         "Real darkness is a gift most people have never received."
       ],
       "statCheck": {
-        "pass": "The first few nights the darkness terrified me: I lay awake convinced something was standing outside my door. It took months before the dark felt safe instead of threatening.",
+        "pass": "The first few nights the darkness terrified me. I lay awake convinced something was standing outside my door. It took months before the dark felt safe instead of threatening.",
         "fail": "You sleep well out here. The dark helps."
       },
       "valence": "positive",
@@ -16072,7 +16072,7 @@
       "id": 802,
       "intro": "My hands are rougher since I moved to {settlement_name}. Calluses on calluses.",
       "details": [
-        "Wood, stone, rope, dirt: everything here demands grip.",
+        "Wood, stone, rope, dirt. Everything here demands grip.",
         "I used to care about that. Now I see rough hands as a record of useful days."
       ],
       "reactions": [
@@ -16113,7 +16113,7 @@
       "id": 804,
       "intro": "I appreciate that nobody here asks what you're worth. They ask what you can do.",
       "details": [
-        "Skill matters. Wealth doesn't: there's nowhere to spend it anyway.",
+        "Skill matters. Wealth doesn't. There's nowhere to spend it anyway.",
         "The currency here is competence and willingness."
       ],
       "reactions": [
@@ -16152,7 +16152,7 @@
       "id": 806,
       "intro": "I've memorized the way {settlement_name} sounds at noon. It's different from morning and night.",
       "details": [
-        "Noon is all work noise: chopping, hammering, the scrape of tools. Busy but steady.",
+        "Noon is all work noise. Chopping, hammering, the scrape of tools. Busy but steady.",
         "It means everyone's occupied, and an occupied settlement is a healthy one."
       ],
       "reactions": [
@@ -16172,7 +16172,7 @@
       "intro": "We don't lock our doors in {settlement_name}. There's no need.",
       "details": [
         "Everyone knows everyone. Theft would be obvious before sunset.",
-        "The trust is so routine that it doesn't even feel like trust anymore: just normal."
+        "The trust is so routine that it doesn't even feel like trust anymore. Just normal."
       ],
       "reactions": [
         "Not needing locks is a luxury no amount of money can buy."
@@ -16213,7 +16213,7 @@
       "intro": "I like that {settlement_name} is small enough that a kind act is noticed. Nothing good goes unseen.",
       "details": [
         "You help someone with their firewood and three people mention it by evening.",
-        "The visibility works both ways: kindness is seen, but so is stinginess."
+        "The visibility works both ways. Kindness is seen, but so is stinginess."
       ],
       "reactions": [
         "Being watched while you're generous is annoying. Being watched while you're selfish is worse."
@@ -16252,7 +16252,7 @@
       "intro": "People in {other_settlement} have choices we don't. I try not to resent that.",
       "details": [
         "More traders, more variety, more options for everything. That's just geography.",
-        "Resenting geography is like resenting the weather: pointless but hard to stop."
+        "Resenting geography is like resenting the weather. Pointless but hard to stop."
       ],
       "reactions": [
         "Accepting what you can't change is supposed to bring peace. I'm still waiting."
@@ -16357,7 +16357,7 @@
         "By morning the house is the same temperature as outside. Might as well sleep in the yard."
       ],
       "reactions": [
-        "Cold houses build character: or at least that's what I tell my knees."
+        "Cold houses build character. Or at least that's what I tell my knees."
       ],
       "statCheck": null,
       "valence": "negative",
@@ -16370,7 +16370,7 @@
       "id": 817,
       "intro": "The thing about {settlement_name} is that everyone's story is visible. You can see who's struggling.",
       "details": [
-        "The state of someone's garden, their fences, their roof: it tells you everything.",
+        "The state of someone's garden, their fences, their roof. It tells you everything.",
         "You can't hide hardship here, and that means help arrives faster."
       ],
       "reactions": [
@@ -16396,7 +16396,7 @@
         "Every settlement needs an escape within walking distance."
       ],
       "statCheck": {
-        "pass": "I go up there more than I let on: sometimes twice a day. The need to see beyond this place is stronger than I'd like to admit.",
+        "pass": "I go up there more than I let on. Sometimes twice a day. The need to see beyond this place is stronger than I'd like to admit.",
         "fail": "Nice view up there. Worth the walk."
       },
       "valence": "positive",
@@ -16451,7 +16451,7 @@
         "We might need to let some plots rest, but nobody wants to be the one who grows nothing for a year."
       ],
       "reactions": [
-        "Listening to the land is easy: acting on what it says is the hard part."
+        "Listening to the land is easy. Acting on what it says is the hard part."
       ],
       "statCheck": {
         "pass": "I've tried rotating what I grow, but most people here just plant the same thing every season because it's what they know. Nobody wants to experiment when food is at stake.",
@@ -16476,7 +16476,7 @@
         "Slow living is something you earn through enough failed attempts at fast living."
       ],
       "statCheck": {
-        "pass": "Some days the slowness isn't appreciation: it's exhaustion disguised as philosophy. I move slowly because I'm tired, and I call it intentional living.",
+        "pass": "Some days the slowness isn't appreciation. It's exhaustion disguised as philosophy. I move slowly because I'm tired, and I call it intentional living.",
         "fail": "Slow pace suits me. Always has."
       },
       "valence": "positive",
@@ -16498,7 +16498,7 @@
         "Anonymous generosity is the purest kind."
       ],
       "statCheck": {
-        "pass": "I know who it is: I've seen them picking flowers in the early morning when they think nobody's watching. I'll never say anything because knowing would ruin it.",
+        "pass": "I know who it is. I've seen them picking flowers in the early morning when they think nobody's watching. I'll never say anything because knowing would ruin it.",
         "fail": "Someone likes flowers. Nice enough."
       },
       "valence": "positive",
@@ -16511,7 +16511,7 @@
       "id": 824,
       "intro": "We need new blood in {settlement_name}. The same faces year after year start to feel stale.",
       "details": [
-        "Not that I dislike anyone: I just miss the surprise of a new perspective.",
+        "Not that I dislike anyone. I just miss the surprise of a new perspective.",
         "Fresh people bring fresh ideas, and we've been recycling the same ones for too long."
       ],
       "reactions": [
@@ -16537,7 +16537,7 @@
         "When the marks outnumber the seasons you can remember clearly, you've been somewhere a while."
       ],
       "reactions": [
-        "Counting time in marks is honest: it doesn't pretend each season was meaningful."
+        "Counting time in marks is honest. It doesn't pretend each season was meaningful."
       ],
       "statCheck": null,
       "valence": "neutral",
@@ -16605,14 +16605,14 @@
       "id": 829,
       "intro": "I love the way {settlement_name} looks from a distance when you're coming home. Small and solid against the land.",
       "details": [
-        "It doesn't impose on the landscape: it sits in it, like it grew there.",
+        "It doesn't impose on the landscape. It sits in it, like it grew there.",
         "Every time I crest that last rise and see it, something in me relaxes."
       ],
       "reactions": [
         "The view of home after time away is worth the trip just for the return."
       ],
       "statCheck": {
-        "pass": "I've cried coming over that last rise more than once. Not sadness: just the relief of return hitting a nerve I didn't know was exposed.",
+        "pass": "I've cried coming over that last rise more than once. Not sadness. Just the relief of return hitting a nerve I didn't know was exposed.",
         "fail": "It's a nice view coming home. That's all."
       },
       "valence": "positive",
@@ -16703,7 +16703,7 @@
       "intro": "I've noticed the older folks in {settlement_name} never complain about the hardships. Only the younger ones do.",
       "details": [
         "They've been through worse and don't see the point in discussing it.",
-        "Their silence isn't contentment: it's just a deeper kind of endurance."
+        "Their silence isn't contentment. It's just a deeper kind of endurance."
       ],
       "reactions": [
         "Complaining is a luxury of people who still believe things should be better."
@@ -16748,7 +16748,7 @@
         "Words that could be either kind or cruel are the cruelest kind."
       ],
       "statCheck": {
-        "pass": "I think it was pity: the way they looked around while saying it, quick, like they were cataloguing what we lacked. I smiled anyway because what else can you do?",
+        "pass": "I think it was pity. The way they looked around while saying it, quick, like they were cataloguing what we lacked. I smiled anyway because what else can you do?",
         "fail": "People say things. I try not to read into it."
       },
       "valence": "negative",
@@ -16787,7 +16787,7 @@
         "Long dark hours are either restful or suffocating, and the difference is mood."
       ],
       "statCheck": {
-        "pass": "The early bedtimes aren't really about the dark: they're about having nothing to look forward to after sundown. That's harder to admit than it should be.",
+        "pass": "The early bedtimes aren't really about the dark. They're about having nothing to look forward to after sundown. That's harder to admit than it should be.",
         "fail": "Early to bed out here. You get used to it."
       },
       "valence": "negative",
@@ -16819,7 +16819,7 @@
       "id": 840,
       "intro": "I made a friend here my first week. That was five years ago and we still talk every day.",
       "details": [
-        "Not deep conversations, usually. Just checking in: how's the roof, did you sleep well, need anything.",
+        "Not deep conversations, usually. Just checking in. How's the roof, did you sleep well, need anything.",
         "The consistency of it is the friendship. Not the words."
       ],
       "reactions": [
@@ -16899,7 +16899,7 @@
         "A shared tune nobody chose is more honest than any anthem."
       ],
       "statCheck": {
-        "pass": "I started the tune, actually: I was humming it without thinking and it spread. I've never told anyone because owning it would change it somehow.",
+        "pass": "I started the tune, actually. I was humming it without thinking and it spread. I've never told anyone because owning it would change it somehow.",
         "fail": "Someone started it. These things happen."
       },
       "valence": "positive",
@@ -16918,7 +16918,7 @@
         "The ground is soupy, the sky is grey, and everyone's temper is short."
       ],
       "reactions": [
-        "Transition seasons are the settlement's bad moods: everyone just waits them out."
+        "Transition seasons are the settlement's bad moods. Everyone just waits them out."
       ],
       "statCheck": null,
       "valence": "negative",
@@ -16972,7 +16972,7 @@
       "id": 848,
       "intro": "I've gotten stronger since I came to {settlement_name}. The work demands it.",
       "details": [
-        "Carrying, lifting, chopping: every day asks something physical from you.",
+        "Carrying, lifting, chopping. Every day asks something physical from you.",
         "I don't miss the softness. This feels more like what a body is supposed to do."
       ],
       "reactions": [
@@ -17032,7 +17032,7 @@
       "id": 851,
       "intro": "We don't have a proper gathering place in {settlement_name}. Just the space between buildings.",
       "details": [
-        "People cluster wherever there's room: near the well, by the woodpile, under the overhang when it rains.",
+        "People cluster wherever there's room. Near the well, by the woodpile, under the overhang when it rains.",
         "It works, but a real common space would make the place feel intentional instead of accidental."
       ],
       "reactions": [
@@ -17049,7 +17049,7 @@
     },
     {
       "id": 852,
-      "intro": "I made something useful with my own hands last week: a shelf. Simple, but it holds weight.",
+      "intro": "I made something useful with my own hands last week. A shelf. Simple, but it holds weight.",
       "details": [
         "Took me most of a day and three attempts. The first two wobbled.",
         "It's not pretty, but it does what I needed. That's enough."
@@ -17068,7 +17068,7 @@
       "id": 853,
       "intro": "I miss rain that's gentle. Here it either pours or it doesn't come at all.",
       "details": [
-        "There's no in-between: just dry spells and deluges.",
+        "There's no in-between. Just dry spells and deluges.",
         "The ground can't absorb the heavy rains fast enough, so it runs off and we lose it."
       ],
       "reactions": [
@@ -17143,7 +17143,7 @@
       "id": 857,
       "intro": "I burned dinner last night and the whole settlement could smell it. Privacy is an illusion here.",
       "details": [
-        "Two people asked what happened: one offered leftovers, one just laughed.",
+        "Two people asked what happened. One offered leftovers, one just laughed.",
         "You can't make a mistake in {settlement_name} without an audience."
       ],
       "reactions": [
@@ -17169,7 +17169,7 @@
         "Knowing what's next is the opposite of boredom if you've had enough chaos."
       ],
       "statCheck": {
-        "pass": "The predictability is also a kind of trap: I know exactly what tomorrow looks like because nothing will ever be different. Peace and resignation wear the same face.",
+        "pass": "The predictability is also a kind of trap. I know exactly what tomorrow looks like because nothing will ever be different. Peace and resignation wear the same face.",
         "fail": "I know what to expect. That's enough for me."
       },
       "valence": "positive",
@@ -17227,7 +17227,7 @@
         "Dependence on traders who come when they feel like it is a precarious way to live."
       ],
       "statCheck": {
-        "pass": "I've started setting things aside in case the traders stop coming altogether. Not hoarding: just being realistic about how thin the thread is that connects us to the outside.",
+        "pass": "I've started setting things aside in case the traders stop coming altogether. Not hoarding. Just being realistic about how thin the thread is that connects us to the outside.",
         "fail": "The traders come when they come. We make do."
       },
       "valence": "negative",
@@ -17301,7 +17301,7 @@
       "intro": "Every now and then someone in {settlement_name} makes something beautiful. A carved handle, a woven border, something extra.",
       "details": [
         "Not practical, not necessary. Just beautiful for the sake of it.",
-        "It always surprises me: beauty sneaking in between the functional."
+        "It always surprises me. Beauty sneaking in between the functional."
       ],
       "reactions": [
         "People who make beautiful things in hard places are the ones keeping the spirit alive."
@@ -17358,13 +17358,13 @@
       "intro": "I thought about what I'd take if I had to leave {settlement_name} tomorrow. The list was shorter than expected.",
       "details": [
         "Most of what matters here isn't the kind of thing you can carry.",
-        "Routines, relationships, the specific way the morning smells: none of that fits in a bag."
+        "Routines, relationships, the specific way the morning smells. None of that fits in a bag."
       ],
       "reactions": [
         "The things that make a place home are the things you can't pack."
       ],
       "statCheck": {
-        "pass": "I scared myself with how little I'd miss that wasn't a person: the stuff is replaceable, the people aren't. That realization changed what I value.",
+        "pass": "I scared myself with how little I'd miss that wasn't a person. The stuff is replaceable, the people aren't. That realization changed what I value.",
         "fail": "I'm not going anywhere. Just a passing thought."
       },
       "valence": "neutral",
@@ -17377,7 +17377,7 @@
     },
     {
       "id": 869,
-      "intro": "We had a good harvest this year: not great, but good. That's enough to celebrate.",
+      "intro": "We had a good harvest this year. Not great, but good. That's enough to celebrate.",
       "details": [
         "Enough to eat, enough to store, enough to stop worrying for a season.",
         "The relief was visible on everyone's face the day we counted it up."
@@ -17414,7 +17414,7 @@
       "intro": "I like that nothing in {settlement_name} is wasted. Everything gets used until it can't be used anymore.",
       "details": [
         "Clothes become rags, rags become stuffing, bones become tools. The cycle has no end.",
-        "The cycle of reuse is automatic: nobody thinks about it, they just do it."
+        "The cycle of reuse is automatic. Nobody thinks about it, they just do it."
       ],
       "reactions": [
         "Waste is a concept for people with more than they need."
@@ -17454,7 +17454,7 @@
       "id": 873,
       "intro": "I've learned more practical skills here in two years than I did in ten years anywhere else.",
       "details": [
-        "Patching, mending, building, growing: necessity is the only teacher that doesn't give up on you.",
+        "Patching, mending, building, growing. Necessity is the only teacher that doesn't give up on you.",
         "I can fix things now that I wouldn't have known where to start with before."
       ],
       "reactions": [
@@ -17491,7 +17491,7 @@
       "intro": "We've got one person in {settlement_name} who tells the same stories over and over. I still listen every time.",
       "details": [
         "Not because the stories change, but because the way they tell them does. Small shifts each time.",
-        "I think the retelling is the point: it keeps the memories alive for them."
+        "I think the retelling is the point. It keeps the memories alive for them."
       ],
       "reactions": [
         "Listening to a story you know by heart is a kindness that costs nothing."
@@ -17512,7 +17512,7 @@
       "id": 876,
       "intro": "If {other_settlement} ever fell on hard times, I think we'd help. Even though they've never offered us the same.",
       "details": [
-        "It's not about reciprocity: it's about who we are.",
+        "It's not about reciprocity. It's about who we are.",
         "You help because you can, not because it'll be returned."
       ],
       "reactions": [
@@ -17593,7 +17593,7 @@
         "This is what I have. Making peace with that freed up a surprising amount of energy."
       ],
       "reactions": [
-        "Acceptance isn't giving up: it's choosing where to spend your fight."
+        "Acceptance isn't giving up. It's choosing where to spend your fight."
       ],
       "statCheck": {
         "pass": "It took me years to stop looking elsewhere. The day I managed it felt like setting down something heavy I forgot I was carrying.",
@@ -17611,7 +17611,7 @@
       "id": 881,
       "intro": "I heard birds in the eaves this morning. They've built a nest in the gap under my roof.",
       "details": [
-        "Tiny sounds: scratching, chirping, the flutter of small wings.",
+        "Tiny sounds. Scratching, chirping, the flutter of small wings.",
         "I could seal the gap, but the company is nice."
       ],
       "reactions": [
@@ -17649,7 +17649,7 @@
       "intro": "There's something about working outside in {settlement_name} that makes the hours disappear. Good work, honest tiredness.",
       "details": [
         "I look up and the sun has moved and I don't know where the time went.",
-        "It's the best kind of being lost: busy and useful."
+        "It's the best kind of being lost. Busy and useful."
       ],
       "reactions": [
         "Hours that vanish into work are the ones you remember least and value most."
@@ -17671,7 +17671,7 @@
         "We're good at surviving. We're less good at improving."
       ],
       "reactions": [
-        "Loving a place and criticizing it aren't opposites: they're the same impulse."
+        "Loving a place and criticizing it aren't opposites. They're the same impulse."
       ],
       "statCheck": {
         "pass": "I think we've settled for 'good enough' in places where good enough isn't. But saying that out loud makes people defensive, so I keep it to myself.",
@@ -17689,7 +17689,7 @@
       "id": 885,
       "intro": "I found a spot where wild herbs grow near {settlement_name}. The smell alone is worth the walk.",
       "details": [
-        "I pick a little when I need it. Never too much: I want it there next time.",
+        "I pick a little when I need it. Never too much. I want it there next time.",
         "It's my secret pantry. The land providing without being asked."
       ],
       "reactions": [
@@ -17712,7 +17712,7 @@
       "intro": "Some mornings I wake up and forget where I am. Then I hear {settlement_name} starting up and it comes back.",
       "details": [
         "The clatter of a pail, a door opening, someone coughing. The familiar sequence.",
-        "It's like the settlement shakes me gently and says: still here."
+        "It's like the settlement shakes me gently and says. Still here."
       ],
       "reactions": [
         "Being woken by the sounds of a community is its own kind of alarm."
@@ -17730,7 +17730,7 @@
       "id": 887,
       "intro": "I wish the nights in {settlement_name} weren't so dark. Sometimes I can't see my own hand.",
       "details": [
-        "Cloudy nights are the worst: no moon, no stars, just black.",
+        "Cloudy nights are the worst. No moon, no stars, just black.",
         "Moving around after dark means trusting your memory of where things are."
       ],
       "reactions": [
@@ -17749,7 +17749,7 @@
       "id": 888,
       "intro": "We eat together sometimes in {settlement_name}. Someone brings a pot and the rest bring what they have.",
       "details": [
-        "The food is always mismatched: bread from one house, stew from another, pickles from a third.",
+        "The food is always mismatched. Bread from one house, stew from another, pickles from a third.",
         "Nobody cares about the presentation. The company is the meal."
       ],
       "reactions": [
@@ -17807,7 +17807,7 @@
     },
     {
       "id": 891,
-      "intro": "I brought a cutting from my old home and planted it here. It's thriving: better than I am, some days.",
+      "intro": "I brought a cutting from my old home and planted it here. It's thriving. Better than I am, some days.",
       "details": [
         "It's a piece of where I came from growing in where I live now.",
         "Watching it root and spread feels like proof that transplanting can work."
@@ -17826,14 +17826,14 @@
       "id": 892,
       "intro": "I don't think anyone from {other_settlement} could last a week here. They're too used to comfort.",
       "details": [
-        "The cold, the work, the lack of variety: it would break them by day three.",
+        "The cold, the work, the lack of variety. It would break them by day three.",
         "We've been toughened by this place in ways they can't see from where they stand."
       ],
       "reactions": [
         "Hardship that doesn't kill you becomes an identity. Maybe too much of one."
       ],
       "statCheck": {
-        "pass": "I know that sounds like bitterness wearing a tough face, and it partly is. But the toughness is real too: I just wish it hadn't been necessary.",
+        "pass": "I know that sounds like bitterness wearing a tough face, and it partly is. But the toughness is real too. I just wish it hadn't been necessary.",
         "fail": "Different places, different people. That's all."
       },
       "valence": "negative",
@@ -17867,7 +17867,7 @@
       "id": 894,
       "intro": "I hate that we have to depend on {other_settlement} for things we can't make ourselves.",
       "details": [
-        "Tools, fabrics, medicines: all things we need and can't produce.",
+        "Tools, fabrics, medicines. All things we need and can't produce.",
         "It gives them leverage they're mostly too polite to use. Mostly."
       ],
       "reactions": [
@@ -17889,7 +17889,7 @@
       "id": 895,
       "intro": "The best part of my day is the walk home. Seeing {settlement_name} ahead of me and knowing I'm almost there.",
       "details": [
-        "That feeling of approaching the place that's yours: tired, ready, glad.",
+        "That feeling of approaching the place that's yours. Tired, ready, glad.",
         "It doesn't matter what kind of day it was. The walk home fixes most of it."
       ],
       "reactions": [
@@ -17935,7 +17935,7 @@
         "Some choices only make sense from the inside."
       ],
       "statCheck": {
-        "pass": "The honest answer is that I needed somewhere that would be patient with me while I figured things out. This place didn't ask questions: it just let me be.",
+        "pass": "The honest answer is that I needed somewhere that would be patient with me while I figured things out. This place didn't ask questions. It just let me be.",
         "fail": "It suits me here. That's reason enough."
       },
       "valence": "neutral",

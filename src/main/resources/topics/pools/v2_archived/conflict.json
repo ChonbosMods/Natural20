@@ -15,7 +15,7 @@
         "The elder tried to mediate. They both told him to mind his own business. Politely, but firmly."
       ],
       "statCheck": {
-        "pass": "I checked the ground around the stone. The drag marks come from the south, not from either family's property. Someone else moved it: someone who wants them fighting.",
+        "pass": "I checked the ground around the stone. The drag marks come from the south, not from either family's property. Someone else moved it. Someone who wants them fighting.",
         "fail": "Too many boots trampling the ground from all the arguing. If there was anything to find, it is long gone."
       },
       "valence": "negative"
@@ -33,7 +33,7 @@
         "I'm worried it'll go beyond shouting. There are axes on both sides of this argument."
       ],
       "statCheck": {
-        "pass": "Here's what I haven't told anyone: the lead woodcutter's been selling timber to a buyer outside the settlement. He doesn't need to push deeper for village supply: he's doing it for his own profit. The hunters know something's off but they can't prove it.",
+        "pass": "Here's what I haven't told anyone. The lead woodcutter's been selling timber to a buyer outside the settlement. He doesn't need to push deeper for village supply. He's doing it for his own profit. The hunters know something's off but they can't prove it.",
         "fail": "Both sides have their reasons and neither side is budging. I wish I could point you to something useful, but it's just two groups who need the same forest."
       },
       "valence": "negative"
@@ -69,7 +69,7 @@
         "It's going to come to a head soon. People are already choosing sides."
       ],
       "statCheck": {
-        "pass": "You're sharp. The newcomers didn't just pick that land by chance. Their leader used to live here, years ago. He was pushed out over a dispute with the elder's family. That fence isn't about farming: it's about settling an old score.",
+        "pass": "You're sharp. The newcomers didn't just pick that land by chance. Their leader used to live here, years ago. He was pushed out over a dispute with the elder's family. That fence isn't about farming. It's about settling an old score.",
         "fail": "New people, old land, no easy answers. I've heard both sides and they're both making fair points. Hard to know where the right of it falls."
       },
       "valence": "negative"
@@ -87,7 +87,7 @@
         "Someone needs to knock their heads together. But that someone will make an enemy of whichever side feels slighted."
       ],
       "statCheck": {
-        "pass": "You can see it too, can't you? The newer one doesn't even want the shop. His wife's family pressured him into it: they loaned him the setup money and they expect a return. He'd walk away tomorrow if he could, but the debt keeps him competing.",
+        "pass": "You can see it too, can't you? The newer one doesn't even want the shop. His wife's family pressured him into it. They loaned him the setup money and they expect a return. He'd walk away tomorrow if he could, but the debt keeps him competing.",
         "fail": "Two proud men, one street, not enough customers for both. I don't think there's much to uncover beyond that."
       },
       "valence": "negative"
@@ -123,7 +123,7 @@
         "Everyone in the village has an opinion, which only makes it worse. Too many people whispering in too many ears."
       ],
       "statCheck": {
-        "pass": "You're reading the family right. The eldest isn't fighting for the house: they already have land of their own. They're fighting because the old man changed his mind near the end and told the youngest to stay and keep the place. The eldest can't accept being passed over.",
+        "pass": "You're reading the family right. The eldest isn't fighting for the house. They already have land of their own. They're fighting because the old man changed his mind near the end and told the youngest to stay and keep the place. The eldest can't accept being passed over.",
         "fail": "Family matters are tangled by nature. Everyone heard something different from the old man, and he's not around to settle it. I couldn't tell you who's right."
       },
       "valence": "negative"
@@ -133,7 +133,7 @@
       "intro": "A master craftsman near {subject_focus_the} lost his best apprentice to a rival workshop in another settlement. He's furious, and he's not keeping it quiet.",
       "details": [
         "The rival offered double wages and better tools. The apprentice left in the middle of a commission, taking techniques he learned here.",
-        "The master says the apprentice had an obligation: three years agreed, only two served. The apprentice says the agreement was spoken, not written.",
+        "The master says the apprentice had an obligation. Three years agreed, only two served. The apprentice says the agreement was spoken, not written.",
         "Now the master won't take new apprentices. Says he won't train someone just to have them poached."
       ],
       "reactions": [
@@ -160,7 +160,7 @@
         "The council told both sides to be patient. That was a month ago, and patience ran out about three weeks back."
       ],
       "statCheck": {
-        "pass": "I'll tell you something I noticed: the smith doesn't need to start that early. His forge holds heat fine until midmorning. He starts before dawn because that's when his supplier delivers charcoal, and the supplier won't change the route. The noise problem is really a supply chain problem.",
+        "pass": "I'll tell you something I noticed. The smith doesn't need to start that early. His forge holds heat fine until midmorning. He starts before dawn because that's when his supplier delivers charcoal, and the supplier won't change the route. The noise problem is really a supply chain problem.",
         "fail": "Hammers are loud, walls are thin, and nobody has the coin to fix either one. I'm not sure what more there is to say about it."
       },
       "valence": "negative"
@@ -196,7 +196,7 @@
         "Neither family will back down. They'd rather spend a month building fences than an hour talking."
       ],
       "statCheck": {
-        "pass": "You picked up on it. The second family didn't drive those animals into the gully out of anger: they did it on purpose. They've been trying to buy the first family's grazing rights for a year. If the first family loses enough livestock, they'll have to sell.",
+        "pass": "You picked up on it. The second family didn't drive those animals into the gully out of anger. They did it on purpose. They've been trying to buy the first family's grazing rights for a year. If the first family loses enough livestock, they'll have to sell.",
         "fail": "Animals wandered, fences broke, tempers flared. It's grazing land trouble, same as it's always been. I don't think there's a deeper thread to pull."
       },
       "valence": "negative"
@@ -205,7 +205,7 @@
       "id": 11,
       "intro": "A shared tool shed near {subject_focus_the} has become the center of a bitter argument. Half the users say tools are being taken and not returned. The other half says they're being hoarded.",
       "details": [
-        "The shed was built as a community resource: saws, hammers, rope, tackle. Anyone could borrow what they needed and bring it back.",
+        "The shed was built as a community resource. Saws, hammers, rope, tackle. Anyone could borrow what they needed and bring it back.",
         "Someone started keeping a ledger of who took what. That caused its own fight, because the ledger-keeper was accused of playing favorites.",
         "Last week, the shed was found locked with a chain nobody recognizes. Nobody's claimed responsibility, and nobody has the key."
       ],
@@ -232,7 +232,7 @@
         "I feel for them, honestly. They're caught between love and loyalty, and nobody's offering them a way to have both."
       ],
       "statCheck": {
-        "pass": "Here's what nobody's saying openly: the groom's family is in debt. They couldn't afford the dowry, but admitting that would shame them publicly. So they tried to renegotiate and made it worse.",
+        "pass": "Here's what nobody's saying openly. The groom's family is in debt. They couldn't afford the dowry, but admitting that would shame them publicly. So they tried to renegotiate and made it worse.",
         "fail": "Both sides have told me their version. The stories don't match in the middle, and I'm not sure pushing harder would change that."
       },
       "valence": "negative"
@@ -250,7 +250,7 @@
         "What worries me is that they've stopped talking to each other entirely. Decisions are being made in two rooms instead of one."
       ],
       "statCheck": {
-        "pass": "You can see what's really driving this. The orchard wasn't a whim: the young ones planted it on the shrine land deliberately to force a confrontation. They knew the elders would never let it stand, and they wanted the whole village to see the elders tear out food-bearing trees for the sake of tradition.",
+        "pass": "You can see what's really driving this. The orchard wasn't a whim. The young ones planted it on the shrine land deliberately to force a confrontation. They knew the elders would never let it stand, and they wanted the whole village to see the elders tear out food-bearing trees for the sake of tradition.",
         "fail": "Old versus young, tradition versus progress. It's the same argument every village has eventually. I don't think there's a simple answer hiding underneath it."
       },
       "valence": "negative"
@@ -268,7 +268,7 @@
         "The rest of us are paying for their stubbornness. Goods cost more because the haulers take the longer route."
       ],
       "statCheck": {
-        "pass": "You're asking the right questions. The first family didn't build that road themselves: they hired laborers and paid them from a loan they still haven't repaid. The toll isn't about recouping costs, it's about servicing that debt before the lender comes calling. They're more desperate than they let on.",
+        "pass": "You're asking the right questions. The first family didn't build that road themselves. They hired laborers and paid them from a loan they still haven't repaid. The toll isn't about recouping costs, it's about servicing that debt before the lender comes calling. They're more desperate than they let on.",
         "fail": "Two families, one road, too much pride. I've watched it play out for months and I still couldn't tell you whose claim is stronger."
       },
       "valence": "negative"
@@ -304,7 +304,7 @@
         "The real problem is we can't afford both. And nobody wants to admit how tight things actually are."
       ],
       "statCheck": {
-        "pass": "You've got a sharp eye. The elder didn't break the tie because he thinks the bridge matters more: his son-in-law runs the largest trading stall. A repaired bridge means more merchants, and more merchants mean more coin in his family's pocket. The farming families suspect it, but they can't prove the connection.",
+        "pass": "You've got a sharp eye. The elder didn't break the tie because he thinks the bridge matters more. His son-in-law runs the largest trading stall. A repaired bridge means more merchants, and more merchants mean more coin in his family's pocket. The farming families suspect it, but they can't prove the connection.",
         "fail": "Bridge or granary, trade or food. The council made its choice and half the village is unhappy. I'm not sure what anyone could do differently at this point."
       },
       "valence": "negative"
@@ -322,7 +322,7 @@
         "The guards aren't the enemy here. They're stretched thin and being blamed for a problem the council should have solved seasons ago."
       ],
       "statCheck": {
-        "pass": "You're perceptive. The storehouses in the east aren't being robbed by outsiders. The guard captain's own records show the break-ins happen on nights when one particular guard is on duty: and that guard is the market overseer's cousin. Someone on the inside is looking the other way.",
+        "pass": "You're perceptive. The storehouses in the east aren't being robbed by outsiders. The guard captain's own records show the break-ins happen on nights when one particular guard is on duty. And that guard is the market overseer's cousin. Someone on the inside is looking the other way.",
         "fail": "Not enough guards, too many streets, and everybody wants to be the priority. I don't have any special insight into how the patrols are run."
       },
       "valence": "negative"
@@ -340,8 +340,8 @@
         "The rest of us just want to buy our supplies without stepping around a feud."
       ],
       "statCheck": {
-        "pass": "I'll tell you what nobody else will: the stall that was wrecked? The overseer's nephew was seen near the market before dawn. The overseer has been favoring one family over the other from the start.",
-        "fail": "Everyone's pointing fingers and nobody saw anything useful. Market feuds are like that: a lot of noise and very little proof."
+        "pass": "I'll tell you what nobody else will. The stall that was wrecked? The overseer's nephew was seen near the market before dawn. The overseer has been favoring one family over the other from the start.",
+        "fail": "Everyone's pointing fingers and nobody saw anything useful. Market feuds are like that. A lot of noise and very little proof."
       },
       "valence": "negative"
     },
@@ -355,10 +355,10 @@
       ],
       "reactions": [
         "Four families can't manage a rope and a bucket. It would be funny if we didn't all need water to live.",
-        "Pride is doing what pride always does: making a small problem into a permanent one."
+        "Pride is doing what pride always does. Making a small problem into a permanent one."
       ],
       "statCheck": {
-        "pass": "You can read people well. The family that fixed the rope isn't angry about the cost: they're trying to establish ownership. If they can prove they've maintained the well long enough, local custom gives them a claim over it. The sign wasn't about fairness: it was the first step toward taking the well for themselves.",
+        "pass": "You can read people well. The family that fixed the rope isn't angry about the cost. They're trying to establish ownership. If they can prove they've maintained the well long enough, local custom gives them a claim over it. The sign wasn't about fairness. It was the first step toward taking the well for themselves.",
         "fail": "Four families arguing over a rope. It sounds simple but feelings are running high and nobody wants to be the one who bends first. I don't know what else to tell you."
       },
       "valence": "negative"
@@ -372,7 +372,7 @@
         "Someone left a dead animal on the first family's doorstep last week. Nobody claims it, but the message was clear."
       ],
       "reactions": [
-        "Two years of silence, and now suddenly it matters again. Something else triggered this: the debt is just the weapon they're using.",
+        "Two years of silence, and now suddenly it matters again. Something else triggered this. The debt is just the weapon they're using.",
         "The worst part is the children. They don't understand why their friends won't play with them anymore."
       ],
       "statCheck": {
@@ -386,7 +386,7 @@
       "intro": "A rumor near {subject_focus_the} split the community down the middle. Someone claimed the herbalist was watering down her remedies, and now half the village won't buy from her.",
       "details": [
         "It started when a sick child didn't improve after taking her tonic. The mother told three people. By the next day, the whole village had heard a different version.",
-        "The herbalist tested her stock in front of witnesses. Everything was properly made. But the damage was done: trust doesn't come back with a demonstration.",
+        "The herbalist tested her stock in front of witnesses. Everything was properly made. But the damage was done. Trust doesn't come back with a demonstration.",
         "The family that started the rumor hasn't apologized. They say the child's illness proves something was wrong, even though the herbalist says some sicknesses simply take time."
       ],
       "reactions": [
@@ -412,7 +412,7 @@
         "If they'd split it the first day, they'd both be ahead. Now they're spending more on the argument than the salvage is worth."
       ],
       "statCheck": {
-        "pass": "You noticed it too. The second family wasn't excavating randomly: they knew the structure was there because they found an old survey map in their grandfather's belongings. They've been quietly digging for weeks. The collapse wasn't natural: they undermined the foundation trying to reach the cache faster.",
+        "pass": "You noticed it too. The second family wasn't excavating randomly. They knew the structure was there because they found an old survey map in their grandfather's belongings. They've been quietly digging for weeks. The collapse wasn't natural. They undermined the foundation trying to reach the cache faster.",
         "fail": "Two families, one pile of salvage, and two stories that don't line up. I wasn't there when either one arrived, so I couldn't say who has the stronger claim."
       },
       "valence": "negative"
@@ -431,7 +431,7 @@
       ],
       "statCheck": {
         "pass": "You've got a good ear for what's underneath. The loudest voice against the merchant is the tanner. And the merchant's best goods? Leather. This isn't about outsiders. It's about one man protecting his trade.",
-        "fail": "Everybody's got a reason and nobody's wrong, exactly. That's the trouble with these things: there's no clean answer to point at."
+        "fail": "Everybody's got a reason and nobody's wrong, exactly. That's the trouble with these things. There's no clean answer to point at."
       },
       "valence": "negative"
     },
@@ -440,12 +440,12 @@
       "intro": "An old grudge near {subject_focus_the} came roaring back to life. Two families that hadn't spoken in years started fighting again after their grandchildren got into a scrap.",
       "details": [
         "The original falling-out was over a broken plow, if you can believe it. Twenty years ago. The families split and never reconciled.",
-        "The grandchildren didn't even know about the feud. They got into an ordinary scuffle: kids being kids. But the parents saw it through the old lens.",
+        "The grandchildren didn't even know about the feud. They got into an ordinary scuffle. Kids being kids. But the parents saw it through the old lens.",
         "Now both families are digging up every slight from the last two decades. Borrowed tools never returned, fences built a hand too far, favors that went unacknowledged."
       ],
       "reactions": [
         "The children gave them an excuse. They've been waiting for a reason to fight again, and any reason would have done.",
-        "Twenty years of silence, and nobody healed. They just stored it up. That's the thing about grudges: quiet isn't the same as gone."
+        "Twenty years of silence, and nobody healed. They just stored it up. That's the thing about grudges. Quiet isn't the same as gone."
       ],
       "statCheck": {
         "pass": "You can see what the rest of us pretend not to. The original fight was never about the plow. One family's eldest was courting someone from the other family, and the match was refused. The plow was just the excuse they used to break ties without admitting the real reason.",
@@ -457,7 +457,7 @@
       "id": 25,
       "intro": "The council near {subject_focus_the} expelled a family for breaking the rationing agreement. Now half the village thinks the punishment was too harsh, and the other half says it wasn't harsh enough.",
       "details": [
-        "The family took more than their share from the winter stores. Not a little more: twice what they were allotted. They say their children were starving.",
+        "The family took more than their share from the winter stores. Not a little more. Twice what they were allotted. They say their children were starving.",
         "The council voted to cut them off entirely. No more access to communal stores, no more market privileges. Essentially pushed out.",
         "They're camped just outside the village boundary now. Close enough to see the smoke from their old house. Some people have been sneaking food to them."
       ],
@@ -481,10 +481,10 @@
       ],
       "reactions": [
         "Two skilled people who've done good work for years, and now neither one can admit they might have contributed to the problem.",
-        "The family sleeping in a neighbor's spare room while their house sits unfinished: they're the ones paying for this argument."
+        "The family sleeping in a neighbor's spare room while their house sits unfinished. They're the ones paying for this argument."
       ],
       "statCheck": {
-        "pass": "I took a closer look at that wall myself. The crack follows the mortar line perfectly, but it also runs right along where the framing meets the stone. The truth is both of them cut corners: the mason used river sand instead of quarry sand, and the carpenter used green timber that was still shrinking. Neither one wants to admit their part.",
+        "pass": "I took a closer look at that wall myself. The crack follows the mortar line perfectly, but it also runs right along where the framing meets the stone. The truth is both of them cut corners. The mason used river sand instead of quarry sand, and the carpenter used green timber that was still shrinking. Neither one wants to admit their part.",
         "fail": "Stone cracked, both men are pointing at each other, and the house sits unfinished. I'm no builder, so I couldn't tell you whose work failed."
       },
       "valence": "negative"
@@ -502,7 +502,7 @@
         "It wouldn't be so heated if both sides hadn't started treating it like a matter of principle instead of a practical problem."
       ],
       "statCheck": {
-        "pass": "You've got a good sense for what's underneath. The burial ground families aren't just upset about the path: they're worried about what's buried under the newer stones. Some of those graves predate the settlement, and the families believe disturbing the ground could unearth something that was put there deliberately. Something that was meant to stay buried.",
+        "pass": "You've got a good sense for what's underneath. The burial ground families aren't just upset about the path. They're worried about what's buried under the newer stones. Some of those graves predate the settlement, and the families believe disturbing the ground could unearth something that was put there deliberately. Something that was meant to stay buried.",
         "fail": "Graves on one side, convenience on the other. Both matter, and I don't think either group is being unreasonable. It's just one of those problems without a clean solution."
       },
       "valence": "negative"
@@ -538,7 +538,7 @@
         "But the herbalist didn't fail. She kept that child stable for two weeks while the fever ran its course. Nobody's giving her credit for that."
       ],
       "statCheck": {
-        "pass": "You're looking at this the right way. The visiting healer isn't just passing through: she's been asking about property near the village. She's planning to settle here permanently, and every patient she takes from the herbalist builds her reputation while eroding the herbalist's. This isn't charity: it's a calculated takeover.",
+        "pass": "You're looking at this the right way. The visiting healer isn't just passing through. She's been asking about property near the village. She's planning to settle here permanently, and every patient she takes from the herbalist builds her reputation while eroding the herbalist's. This isn't charity. It's a calculated takeover.",
         "fail": "One healer's been here for years, another showed up with fresh methods. People are choosing with their feet, and I can't say I blame either side for feeling how they feel."
       },
       "valence": "negative"

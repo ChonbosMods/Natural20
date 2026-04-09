@@ -53,7 +53,7 @@ public class Nat20DialoguePage extends InteractiveCustomUIPage<Nat20DialoguePage
     private static final String COLOR_SELECTED_FOLLOW_UP = "#888888";
     private static final String COLOR_SYSTEM_TEXT = "#66BB77";
     private static final String COLOR_RETURN_GREETING = "#FFCC00";
-    private static final String COLOR_QUEST_BRACKET = "#55CCCC";
+    private static final String COLOR_QUEST_BRACKET = "#FFD700";
 
     public static final BuilderCodec<PageEventData> EVENT_CODEC = BuilderCodec.builder(PageEventData.class, PageEventData::new)
             .addField(new KeyedCodec<>("Type", Codec.STRING), PageEventData::setType, PageEventData::getType)
@@ -138,7 +138,7 @@ public class Nat20DialoguePage extends InteractiveCustomUIPage<Nat20DialoguePage
                 } else if (rt.topic().questTopic()) {
                     cmd.set(selector + ".Text", wrapTopicLabel(rt.topic().label()));
                     cmd.set(selector + ".Style.Default.LabelStyle.TextColor", COLOR_QUEST_BRACKET);
-                    cmd.set(selector + ".Style.Hovered.LabelStyle.TextColor", "#77DDDD");
+                    cmd.set(selector + ".Style.Hovered.LabelStyle.TextColor", "#FFE44D");
                 } else {
                     cmd.set(selector + ".Text", wrapTopicLabel(rt.topic().label()));
                 }

@@ -765,7 +765,7 @@
       "intro": "I helped tear down a wall last season that my own grandfather helped build. That felt strange.",
       "details": [
         "The stones were solid. Could have lasted another hundred years, but it was in the way of the new road.",
-        "I recognized his mortar work: he had a way of pressing the joints flat with his thumb, and you could see it on every seam."
+        "I recognized his mortar work. He had a way of pressing the joints flat with his thumb, and you could see it on every seam."
       ],
       "reactions": [
         "I kept one of the stones. It's in my garden now. Holding down nothing."
@@ -920,7 +920,7 @@
       "id": 52,
       "intro": "My mother used to say the weather in {settlement_name} had a rhythm you could feel in your bones.",
       "details": [
-        "She planned her whole year around it. Planting, preserving, mending: all tied to what the sky was doing.",
+        "She planned her whole year around it. Planting, preserving, mending. All tied to what the sky was doing.",
         "She could tell a frost was coming two days before it hit. I follow a calendar and still get caught off guard."
       ],
       "reactions": [
@@ -1324,7 +1324,7 @@
     },
     {
       "id": 75,
-      "intro": "I keep thinking about something my father said: that every settlement gets the shape its people give it.",
+      "intro": "I keep thinking about something my father said. That every settlement gets the shape its people give it.",
       "details": [
         "He meant that {settlement_name} looks the way it does because of who lived here and what they needed.",
         "The new parts are different because the new people are different. It's not wrong, it's just visible."
@@ -1446,7 +1446,7 @@
     },
     {
       "id": 82,
-      "intro": "We used to have a storyteller. Not officially: just an old man who sat by the fire and talked.",
+      "intro": "We used to have a storyteller. Not officially. Just an old man who sat by the fire and talked.",
       "details": [
         "Same stories every year, but somehow different each time. He'd add details, change the ending, make you the hero if he liked you.",
         "Kids would beg for the scary ones. Adults pretended they weren't listening. Everyone was."
@@ -2124,14 +2124,14 @@
       "id": 120,
       "intro": "My grandmother kept every letter she ever received. Stacked in a box under her bed, tied with string.",
       "details": [
-        "After she died we read them. Mostly ordinary things: weather reports, birth announcements, small news.",
+        "After she died we read them. Mostly ordinary things. Weather reports, birth announcements, small news.",
         "But together they told the story of a whole life in a way no single letter could."
       ],
       "reactions": [
         "Nobody writes letters anymore. I wonder what we'll leave behind instead."
       ],
       "statCheck": {
-        "pass": "Written correspondence preserves the voice of the writer in a way oral memory can't. The word choices, the phrasing, the things they thought worth mentioning: it's a direct window.",
+        "pass": "Written correspondence preserves the voice of the writer in a way oral memory can't. The word choices, the phrasing, the things they thought worth mentioning. It's a direct window.",
         "fail": "They were just letters. But reading them felt like hearing her talk again."
       },
       "valence": "negative",
@@ -2273,7 +2273,7 @@
         "I do the same thing now. Pretend I know, then figure it out quietly."
       ],
       "statCheck": {
-        "pass": "Decision-making under uncertainty is a skill you get better at with practice. The confidence wasn't fake: it was earned through a lifetime of making choices and surviving the wrong ones.",
+        "pass": "Decision-making under uncertainty is a skill you get better at with practice. The confidence wasn't fake. It was earned through a lifetime of making choices and surviving the wrong ones.",
         "fail": "They seemed sure. That was enough for me as a kid."
       },
       "valence": "neutral",
@@ -2303,7 +2303,7 @@
       "id": 130,
       "intro": "I wonder sometimes if the people who built {settlement_name} would recognize it. Probably not.",
       "details": [
-        "The bones are the same: the hill, the stream, the way the road curves. But everything on top has changed.",
+        "The bones are the same. The hill, the stream, the way the road curves. But everything on top has changed.",
         "My grandmother said that's how it should be. A place that doesn't change is a place that's dying."
       ],
       "reactions": [
@@ -2318,7 +2318,7 @@
     },
     {
       "id": 131,
-      "intro": "There was a couple here who'd been married so long they finished each other's sentences. Not in a cute way: in an efficient way.",
+      "intro": "There was a couple here who'd been married so long they finished each other's sentences. Not in a cute way. In an efficient way.",
       "details": [
         "One would start talking and the other would wave them off and deliver the second half. Like a relay.",
         "They bickered constantly and were inseparable. I never understood it and I never needed to."
@@ -2358,7 +2358,7 @@
       "intro": "My grandmother never wasted water. Not a drop. She'd reuse wash water on the garden, save rain in barrels.",
       "details": [
         "She grew up during a drought that nearly emptied {settlement_name}. The habit stuck for life.",
-        "She had a system for everything: rinse water became wash water, wash water went on the vegetables. Nothing left the house unused."
+        "She had a system for everything. Rinse water became wash water, wash water went on the vegetables. Nothing left the house unused."
       ],
       "reactions": [
         "Her generation carried their hardships in their habits. You could read their history in the small things they did."
@@ -2489,7 +2489,7 @@
         "Objects hold the shape of the people who used them. That's not superstition, it's just wear."
       ],
       "statCheck": {
-        "pass": "Lens prescriptions tell you about the person's vision. His were for farsightedness, which worsens with age. The wear pattern on the nose bridge shows he pushed them up constantly: a habit I remember.",
+        "pass": "Lens prescriptions tell you about the person's vision. His were for farsightedness, which worsens with age. The wear pattern on the nose bridge shows he pushed them up constantly. A habit I remember.",
         "fail": "They're just old spectacles. But they sat on his face every day for decades. That means something."
       },
       "valence": "neutral",
@@ -2750,7 +2750,7 @@
     },
     {
       "id": 155,
-      "intro": "I remember my first real chore: carrying water. I thought I'd never been so tired in my life.",
+      "intro": "I remember my first real chore. Carrying water. I thought I'd never been so tired in my life.",
       "details": [
         "Two buckets, both too heavy, sloshing everywhere. I got maybe half the water home.",
         "By the end of that summer I could carry both without spilling a drop."
@@ -2773,7 +2773,7 @@
       "intro": "My grandmother had hands that were never still. If she was sitting, she was knitting or shelling or mending.",
       "details": [
         "She said idle hands made her nervous, but I think she just didn't know how to stop.",
-        "The last time I visited her, she was still at it: slower, but the hands were moving."
+        "The last time I visited her, she was still at it. Slower, but the hands were moving."
       ],
       "reactions": [
         "I fidget the same way now, but not as usefully."
@@ -2853,7 +2853,7 @@
         "I miss that kind of slowness. Nobody stands around long enough to talk anymore."
       ],
       "statCheck": {
-        "pass": "She was lonely, I think: my father was gone all day and we children were off playing. The clothesline was how she stayed connected.",
+        "pass": "She was lonely, I think. My father was gone all day and we children were off playing. The clothesline was how she stayed connected.",
         "fail": "She just liked talking to people. Nothing deeper to it than that."
       },
       "valence": "negative",
@@ -2996,7 +2996,7 @@
       "id": 168,
       "intro": "People used to mend their clothes until they fell apart. I've got a shirt of my father's that's more patch than cloth.",
       "details": [
-        "Every patch tells you something: the elbow wore through from leaning on his workbench, the shoulder from carrying loads.",
+        "Every patch tells you something. The elbow wore through from leaning on his workbench, the shoulder from carrying loads.",
         "I wore it once out of sentiment; didn't fit at all, but I kept it anyway."
       ],
       "reactions": [
@@ -3048,7 +3048,7 @@
     },
     {
       "id": 171,
-      "intro": "There's a taste I've been chasing my whole life: something my grandmother made that I can't reproduce.",
+      "intro": "There's a taste I've been chasing my whole life. Something my grandmother made that I can't reproduce.",
       "details": [
         "I've tried every combination I can think of, and it's close sometimes, but never right.",
         "I think she used something that grew near her old house, something I've never been able to find."
@@ -3057,7 +3057,7 @@
         "Maybe it's not the recipe I'm missing. Maybe it's her kitchen and being seven years old."
       ],
       "statCheck": {
-        "pass": "I think it was the water: different wells have different mineral tastes, and you don't notice until you try to cook the same thing somewhere else.",
+        "pass": "I think it was the water. Different wells have different mineral tastes, and you don't notice until you try to cook the same thing somewhere else.",
         "fail": "I've given up figuring it out. Some things just belong to the past."
       },
       "valence": "negative",
@@ -3091,7 +3091,7 @@
         "Kids ran between the tables stealing bites off every plate, and nobody minded."
       ],
       "reactions": [
-        "We stopped doing it gradually, no argument, no decision: people just started eating inside."
+        "We stopped doing it gradually, no argument, no decision. People just started eating inside."
       ],
       "statCheck": null,
       "valence": "negative",
@@ -3159,7 +3159,7 @@
       "intro": "My mother's hands were rough as wood, but they were the gentlest hands I've ever known.",
       "details": [
         "She'd braid my hair with those hands and never once pulled too hard.",
-        "I looked at my own hands yesterday: getting there, same kind of roughness starting."
+        "I looked at my own hands yesterday. Getting there, same kind of roughness starting."
       ],
       "reactions": [
         "Working hands don't mean a hard person. She proved that every day."
@@ -3227,7 +3227,7 @@
     },
     {
       "id": 181,
-      "intro": "People in {settlement_name} used to tell time by the bells: morning, noon, evening, three beats to the day.",
+      "intro": "People in {settlement_name} used to tell time by the bells. Morning, noon, evening, three beats to the day.",
       "details": [
         "You didn't need to think about it. The bells told your body when to eat and when to rest.",
         "Now everyone keeps their own schedule and half the time nobody knows what hour it is."
@@ -3270,7 +3270,7 @@
         "Teaching by doing is slower, but it sticks. Books can't teach your hands."
       ],
       "statCheck": {
-        "pass": "The angle is everything: too steep and you roll the edge, too shallow and you just polish it. There's a window of maybe two degrees where the stone really bites.",
+        "pass": "The angle is everything. Too steep and you roll the edge, too shallow and you just polish it. There's a window of maybe two degrees where the stone really bites.",
         "fail": "I can still do it, but I couldn't explain the technique. My hands know it even if my words don't."
       },
       "valence": "positive",
@@ -3321,7 +3321,7 @@
       "intro": "There was a time when the first warm day of spring felt like a miracle, every year without fail.",
       "details": [
         "People came out of their houses blinking like they'd forgotten the sun existed.",
-        "That first warm breeze carried something: hope, maybe, or just relief."
+        "That first warm breeze carried something. Hope, maybe, or just relief."
       ],
       "reactions": [
         "I still notice it. First warm day, I stop what I'm doing and stand in it for a minute."
@@ -3337,14 +3337,14 @@
       "id": 187,
       "intro": "My father could tell a tree's age by looking at it, no need to count rings.",
       "details": [
-        "The bark pattern, the crown shape, the way the branches grew: he read them like a face.",
+        "The bark pattern, the crown shape, the way the branches grew. He read them like a face.",
         "I asked him once if he was ever wrong. He said probably, but the tree never corrected him."
       ],
       "reactions": [
         "Quiet knowledge like that doesn't announce itself. You just notice it's gone when it's gone."
       ],
       "statCheck": {
-        "pass": "Crown spread is the key: a tree adds maybe a foot of canopy per decade in open ground, and he adjusted for spacing without thinking about it.",
+        "pass": "Crown spread is the key. A tree adds maybe a foot of canopy per decade in open ground, and he adjusted for spacing without thinking about it.",
         "fail": "He'd just look up, squint, and say a number. I never figured out what he was actually looking at."
       },
       "valence": "positive",
@@ -3355,7 +3355,7 @@
     },
     {
       "id": 188,
-      "intro": "We had a rule when I was growing up: no shoes indoors. My mother would have your hide.",
+      "intro": "We had a rule when I was growing up. No shoes indoors. My mother would have your hide.",
       "details": [
         "Didn't matter if it was freezing, didn't matter if you were in a rush.",
         "I do the same thing now, and my kids hate it just as much as I did."
@@ -3398,7 +3398,7 @@
         "Some people drift apart so gently you don't feel it until they're far away."
       ],
       "statCheck": {
-        "pass": "If I'm honest, I could have tried harder: written more, visited more. But I let it slip and now too much time has passed to start again.",
+        "pass": "If I'm honest, I could have tried harder. Written more, visited more. But I let it slip and now too much time has passed to start again.",
         "fail": "That's just how it goes, I suppose. People change."
       },
       "valence": "negative",
@@ -3409,7 +3409,7 @@
     },
     {
       "id": 191,
-      "intro": "My mother always said the best conversations happened while doing something else: peeling, chopping, sorting.",
+      "intro": "My mother always said the best conversations happened while doing something else. Peeling, chopping, sorting.",
       "details": [
         "People talk more freely when their hands are busy and they're not making eye contact.",
         "I've had my deepest conversations over a pile of potatoes, which sounds silly, but it's true."
@@ -3428,7 +3428,7 @@
       "id": 192,
       "intro": "I used to collect interesting stones as a child and kept a whole box of them under my bed.",
       "details": [
-        "Every one was special for a reason only I understood: this one had the right shape, that one sparkled.",
+        "Every one was special for a reason only I understood. This one had the right shape, that one sparkled.",
         "I found the box a few years ago. They're just rocks, but I couldn't throw them out."
       ],
       "reactions": [
@@ -3455,7 +3455,7 @@
         "I complain about a sore knee for a week. He carried a limp for sixty years without a word."
       ],
       "statCheck": {
-        "pass": "He told me once, late at night: a fall from a roof when he was sixteen. Set wrong and never healed right, but he wasn't bitter about it.",
+        "pass": "He told me once, late at night. A fall from a roof when he was sixteen. Set wrong and never healed right, but he wasn't bitter about it.",
         "fail": "Whatever happened, he kept it to himself. That generation was like that."
       },
       "valence": "neutral",
@@ -3506,7 +3506,7 @@
         "I never learned where the tune came from. Maybe his father whistled it too."
       ],
       "reactions": [
-        "I whistle something different, but I catch myself doing it the same way: when things are going right."
+        "I whistle something different, but I catch myself doing it the same way. When things are going right."
       ],
       "statCheck": null,
       "valence": "neutral",
@@ -3543,7 +3543,7 @@
         "Knowing your own kitchen is a small kind of mastery, and she had it completely."
       ],
       "statCheck": {
-        "pass": "She arranged them by how often she needed them, not by type: the most-used hung closest to the stove. It was her own system and nobody else could follow it.",
+        "pass": "She arranged them by how often she needed them, not by type. The most-used hung closest to the stove. It was her own system and nobody else could follow it.",
         "fail": "I never figured out her system. She just knew where things were."
       },
       "valence": "positive",
@@ -3554,7 +3554,7 @@
     },
     {
       "id": 199,
-      "intro": "I used to dread the end of summer: that last week when you could feel autumn waiting.",
+      "intro": "I used to dread the end of summer. That last week when you could feel autumn waiting.",
       "details": [
         "The light changed first, golden and low, like the sun was already on its way out.",
         "Now I like that week best of all. The relief of cooler air and longer shadows."
@@ -3588,7 +3588,7 @@
     },
     {
       "id": 201,
-      "intro": "My grandmother used to say that worry was like a rocking chair: it gives you something to do but gets you nowhere.",
+      "intro": "My grandmother used to say that worry was like a rocking chair. It gives you something to do but gets you nowhere.",
       "details": [
         "She had a dozen sayings like that, and most landed better than any advice I've heard since.",
         "I catch myself repeating her words to people who never met her."
@@ -3622,7 +3622,7 @@
     },
     {
       "id": 203,
-      "intro": "People used to greet each other properly: a full stop, a few words, real eye contact.",
+      "intro": "People used to greet each other properly. A full stop, a few words, real eye contact.",
       "details": [
         "My father would spend ten minutes saying hello to someone on the road. Just hello, and it was an art form.",
         "Now people walk past each other like they're afraid of being slowed down."
@@ -3639,7 +3639,7 @@
     },
     {
       "id": 204,
-      "intro": "I remember the first time I ate something I'd grown myself: just a carrot, and I was twelve.",
+      "intro": "I remember the first time I ate something I'd grown myself. Just a carrot, and I was twelve.",
       "details": [
         "It was small and crooked and I'd pulled it too early, but I grew it, so it was the best thing I'd ever tasted.",
         "My mother ate one too and made a big deal of it. Looking back, she'd been watching that row fail for weeks."
@@ -3658,7 +3658,7 @@
       "id": 205,
       "intro": "We used to have a neighbor who could fix anything with rope and stubbornness.",
       "details": [
-        "Broken cart, sagging fence, leaking barrel: somehow, rope was always the answer.",
+        "Broken cart, sagging fence, leaking barrel. Somehow, rope was always the answer.",
         "Nothing he fixed was pretty, but it held. Sometimes that's enough."
       ],
       "reactions": [
@@ -3682,7 +3682,7 @@
         "The house you grow up in writes itself into your bones. Everything after is just a place you live."
       ],
       "statCheck": {
-        "pass": "I went past it last year and almost didn't recognize it: someone had changed the windows and painted the door. Felt like seeing a friend in someone else's clothes.",
+        "pass": "I went past it last year and almost didn't recognize it. Someone had changed the windows and painted the door. Felt like seeing a friend in someone else's clothes.",
         "fail": "I don't visit anymore. It's someone else's house now."
       },
       "valence": "neutral",
@@ -3719,7 +3719,7 @@
         "The ties between places unravel so quietly you forget they were ever there."
       ],
       "statCheck": {
-        "pass": "It was the mineral content in the water: something about the local stone made the colors bind deeper. Nobody understood the chemistry, they just knew it worked.",
+        "pass": "It was the mineral content in the water. Something about the local stone made the colors bind deeper. Nobody understood the chemistry, they just knew it worked.",
         "fail": "I'm told the water had something to do with it, but I couldn't explain the specifics."
       },
       "valence": "neutral",
@@ -3732,7 +3732,7 @@
       "id": 209,
       "intro": "I used to sneak out of bed to listen to the adults talk after they thought we were asleep.",
       "details": [
-        "They talked differently when the children were gone: quieter, more honest.",
+        "They talked differently when the children were gone. Quieter, more honest.",
         "That's how I learned my parents were worried about things they never showed us during the day."
       ],
       "reactions": [
@@ -3769,7 +3769,7 @@
       "id": 211,
       "intro": "We used to trade seeds with people from {other_settlement} every spring. Different soil grows different things.",
       "details": [
-        "It was a good arrangement: their root vegetables were stronger, our grains were heartier.",
+        "It was a good arrangement. Their root vegetables were stronger, our grains were heartier.",
         "The trade stopped at some point and nobody thought to restart it."
       ],
       "reactions": [
@@ -3838,9 +3838,9 @@
     },
     {
       "id": 215,
-      "intro": "My father had one good coat and he wore it for everything: work, celebrations, travel.",
+      "intro": "My father had one good coat and he wore it for everything. Work, celebrations, travel.",
       "details": [
-        "It was dark wool, heavy, and it smelled like him: woodsmoke and sweat and something I can't name.",
+        "It was dark wool, heavy, and it smelled like him. Woodsmoke and sweat and something I can't name.",
         "I was offered it after he passed. Didn't fit, and it hung in my closet for years before I gave it away."
       ],
       "reactions": [
@@ -3897,7 +3897,7 @@
       "id": 218,
       "intro": "There was a summer when I was young that lasted forever. I know it didn't, but in my memory it has no end.",
       "details": [
-        "Every day was the same: wake up, run outside, come home when it got dark.",
+        "Every day was the same. Wake up, run outside, come home when it got dark.",
         "I've never been that free since. I didn't even know to appreciate it at the time."
       ],
       "reactions": [
@@ -3914,7 +3914,7 @@
       "id": 219,
       "intro": "My mother could read my mood the moment I walked in the door, before I said a word.",
       "details": [
-        "She'd have the right response ready: tea if I was sad, space if I was angry, a joke if I was sulking.",
+        "She'd have the right response ready. Tea if I was sad, space if I was angry, a joke if I was sulking.",
         "I thought it was magic, but it was just years and years of paying attention."
       ],
       "reactions": [
@@ -3938,7 +3938,7 @@
         "You only realize the good times were good after they're over."
       ],
       "statCheck": {
-        "pass": "We didn't know we were happy. That's the cruelest part of it: happiness doesn't announce itself until it's leaving.",
+        "pass": "We didn't know we were happy. That's the cruelest part of it. Happiness doesn't announce itself until it's leaving.",
         "fail": "Simple times. That's all I can say about it."
       },
       "valence": "neutral",
@@ -3978,7 +3978,7 @@
         "My whole life exists because of a conversation I wasn't part of."
       ],
       "statCheck": {
-        "pass": "She told me she was scared too: scared of staying, scared of him leaving. They were both afraid of the same thing from opposite sides.",
+        "pass": "She told me she was scared too. Scared of staying, scared of him leaving. They were both afraid of the same thing from opposite sides.",
         "fail": "I don't know the details. Some stories belong to the people in them."
       },
       "valence": "neutral",
@@ -4023,7 +4023,7 @@
     },
     {
       "id": 225,
-      "intro": "I had an aunt who laughed at everything: good news, bad news, burned dinner.",
+      "intro": "I had an aunt who laughed at everything. Good news, bad news, burned dinner.",
       "details": [
         "People thought she was simple, but she'd just decided early that laughing beat most alternatives.",
         "When things went really wrong, she was the calmest person in the room."
@@ -4076,7 +4076,7 @@
       "id": 228,
       "intro": "My father smelled like pine sap, not on purpose. It just got into his skin from years of working with wood.",
       "details": [
-        "Even after a bath, if you hugged him: pine sap. It was just his smell.",
+        "Even after a bath, if you hugged him. Pine sap. It was just his smell.",
         "I catch the scent sometimes near fresh-cut wood, and it stops me dead."
       ],
       "reactions": [
@@ -4148,7 +4148,7 @@
     },
     {
       "id": 232,
-      "intro": "My mother told me I was a difficult child: not badly behaved, just full of questions she couldn't answer.",
+      "intro": "My mother told me I was a difficult child. Not badly behaved, just full of questions she couldn't answer.",
       "details": [
         "Where does the river go, why do people die, all before breakfast every morning.",
         "She'd answer what she could and make up the rest. I believed every word."
@@ -4182,7 +4182,7 @@
     },
     {
       "id": 234,
-      "intro": "People used to walk to {other_settlement} just to see friends: a full day each way, and nobody thought twice.",
+      "intro": "People used to walk to {other_settlement} just to see friends. A full day each way, and nobody thought twice.",
       "details": [
         "You'd leave at dawn, arrive by supper, stay the night, and walk back the next day.",
         "Now that seems like an impossible amount of effort for a visit."
@@ -4225,7 +4225,7 @@
         "I'm the same way, and recognizing it doesn't help."
       ],
       "statCheck": {
-        "pass": "My grandmother told me it was fear, not confidence: he was afraid of being wrong, so he never admitted it.",
+        "pass": "My grandmother told me it was fear, not confidence. He was afraid of being wrong, so he never admitted it.",
         "fail": "He was just set in his ways. Not much you can do about that."
       },
       "valence": "neutral",
@@ -4270,7 +4270,7 @@
     },
     {
       "id": 239,
-      "intro": "There's a smell to old houses that new ones don't have: decades of smoke and cooking soaked into the walls.",
+      "intro": "There's a smell to old houses that new ones don't have. Decades of smoke and cooking soaked into the walls.",
       "details": [
         "You can't fake it. A house has to earn that smell by being lived in long enough.",
         "New houses smell like fresh wood and nothing else. Clean, but empty."
@@ -4324,7 +4324,7 @@
     },
     {
       "id": 242,
-      "intro": "My father carved our initials into the underside of the kitchen table: a secret only the family knew.",
+      "intro": "My father carved our initials into the underside of the kitchen table. A secret only the family knew.",
       "details": [
         "Every few years he'd add a new one. Visitors, births, people who mattered.",
         "I flipped the table once and counted nineteen sets of initials. Nineteen lives that sat there."
@@ -4361,7 +4361,7 @@
     },
     {
       "id": 244,
-      "intro": "There's a way of waving goodbye that my mother did: both hands, high over her head, until you were out of sight.",
+      "intro": "There's a way of waving goodbye that my mother did. Both hands, high over her head, until you were out of sight.",
       "details": [
         "She'd stand at the gate no matter how far you were going, even if it was just to the next field.",
         "I turned around every time, and every time she was still waving."
@@ -4378,7 +4378,7 @@
     },
     {
       "id": 245,
-      "intro": "People used to take their time with meals: sat down, talked, passed things around with no rush.",
+      "intro": "People used to take their time with meals. Sat down, talked, passed things around with no rush.",
       "details": [
         "Supper could last an hour if the conversation was good. The food got cold and nobody cared.",
         "Now I eat standing up half the time. My mother would be appalled."
@@ -4397,7 +4397,7 @@
       "id": 246,
       "intro": "My grandmother had a chair that was hers and nobody else's. You didn't sit in it.",
       "details": [
-        "It wasn't comfortable: the cushion was flat, the arm was loose, and it tilted slightly left.",
+        "It wasn't comfortable. The cushion was flat, the arm was loose, and it tilted slightly left.",
         "But it was hers, and she'd earned it by sitting in it every day for forty years."
       ],
       "reactions": [
@@ -4506,7 +4506,7 @@
     },
     {
       "id": 252,
-      "intro": "The road through {settlement_name} used to be dirt: muddy in spring, dusty in summer, frozen in winter.",
+      "intro": "The road through {settlement_name} used to be dirt. Muddy in spring, dusty in summer, frozen in winter.",
       "details": [
         "You tracked the season by what the road did to your boots.",
         "The new road is better in every practical way. I just don't feel the seasons in it."
@@ -4582,7 +4582,7 @@
       "id": 256,
       "intro": "My grandmother always said you could tell a person's character by how they behaved when nobody was watching.",
       "details": [
-        "She lived that way too: generous when there was no audience, careful when there was no one to judge.",
+        "She lived that way too. Generous when there was no audience, careful when there was no one to judge.",
         "I try to live up to that. Some days I manage it."
       ],
       "reactions": [
@@ -4606,7 +4606,7 @@
         "Permanence is an illusion. We just happened to live during the stable part."
       ],
       "statCheck": {
-        "pass": "I almost left too, that same year: packed a bag and everything, then unpacked it and never mentioned it to anyone.",
+        "pass": "I almost left too, that same year. Packed a bag and everything, then unpacked it and never mentioned it to anyone.",
         "fail": "People leave when they need to. Not much more to say."
       },
       "valence": "negative",
@@ -4617,7 +4617,7 @@
     },
     {
       "id": 258,
-      "intro": "I used to think my parents' marriage was boring: same routine, same conversations, same walks.",
+      "intro": "I used to think my parents' marriage was boring. Same routine, same conversations, same walks.",
       "details": [
         "Now I see it differently. That wasn't boredom, that was a rhythm they'd found together.",
         "They fit into each other's lives so completely that it looked effortless from the outside."
@@ -4643,7 +4643,7 @@
         "Muscle memory doesn't transfer between people. Your hands still have to learn it fresh."
       ],
       "statCheck": {
-        "pass": "The trick is the second loop goes under, not over: it creates a self-tightening lock when weight pulls on it.",
+        "pass": "The trick is the second loop goes under, not over. It creates a self-tightening lock when weight pulls on it.",
         "fail": "I can do it if I think hard enough, but it'll never be automatic the way it was for him."
       },
       "valence": "neutral",
@@ -4717,7 +4717,7 @@
         "Time stretches when you're young because everything is new."
       ],
       "statCheck": {
-        "pass": "I think it's because children don't measure time against anything: no deadline, no schedule, just now. That's why it lasts.",
+        "pass": "I think it's because children don't measure time against anything. No deadline, no schedule, just now. That's why it lasts.",
         "fail": "Time just works differently when you're young. Couldn't tell you why."
       },
       "valence": "neutral",
@@ -4782,7 +4782,7 @@
     },
     {
       "id": 267,
-      "intro": "The winters here used to bring everyone closer. Not out of affection: out of necessity.",
+      "intro": "The winters here used to bring everyone closer. Not out of affection. Out of necessity.",
       "details": [
         "You'd share firewood, share meals, share space. Nobody could afford to be proud when it was that cold.",
         "Now everyone has enough to get through on their own, which is better but lonelier."
@@ -4791,7 +4791,7 @@
         "I wonder what we lost when we stopped needing each other."
       ],
       "statCheck": {
-        "pass": "The real loss isn't warmth or food. It's the excuse to be together: hardship forces connection, and comfort lets you choose isolation.",
+        "pass": "The real loss isn't warmth or food. It's the excuse to be together. Hardship forces connection, and comfort lets you choose isolation.",
         "fail": "We're all fine on our own now. That's progress, I'm told."
       },
       "valence": "negative",
@@ -4811,7 +4811,7 @@
         "Some people have senses the rest of us don't, or maybe they just pay attention to ones we ignore."
       ],
       "statCheck": {
-        "pass": "It's probably the sun: even on cloudy days, there's a warmth differential between directions. If you grew up outdoors, your skin learns to feel it.",
+        "pass": "It's probably the sun. Even on cloudy days, there's a warmth differential between directions. If you grew up outdoors, your skin learns to feel it.",
         "fail": "I never figured out how he did it, and he couldn't really explain it either."
       },
       "valence": "positive",
@@ -4839,7 +4839,7 @@
     },
     {
       "id": 270,
-      "intro": "There's a type of cloud that only forms in autumn here: thin, stretched, like someone dragged a brush across the sky.",
+      "intro": "There's a type of cloud that only forms in autumn here. Thin, stretched, like someone dragged a brush across the sky.",
       "details": [
         "My father used to call them the goodbye clouds and said they were summer leaving.",
         "I look for them every year. When I see them, I know the warm days are numbered."
@@ -4848,7 +4848,7 @@
         "He named a lot of things that don't have names. They were better for it."
       ],
       "statCheck": {
-        "pass": "He had names for dozens of things: the way wind sounds before rain, the color the hills turn at dusk. His world was richer than mine because he named it.",
+        "pass": "He had names for dozens of things. The way wind sounds before rain, the color the hills turn at dusk. His world was richer than mine because he named it.",
         "fail": "He was observant like that. I don't have the same eye."
       },
       "valence": "neutral",
@@ -4861,7 +4861,7 @@
       "id": 271,
       "intro": "I haven't been able to find the recipe for my grandmother's jam. She kept it in her head.",
       "details": [
-        "I've tried guessing: too sweet, too tart, too thick, never right.",
+        "I've tried guessing. Too sweet, too tart, too thick, never right.",
         "She always said she'd write it down. She always said there was time."
       ],
       "reactions": [
@@ -4879,7 +4879,7 @@
     },
     {
       "id": 272,
-      "intro": "My father had a temper like summer lightning: flash, crack, and then it was over.",
+      "intro": "My father had a temper like summer lightning. Flash, crack, and then it was over.",
       "details": [
         "You'd think the house was going to collapse, and five minutes later he'd be humming and making tea.",
         "I inherited the temper but not the recovery speed. I stew for days."
@@ -4899,7 +4899,7 @@
       "intro": "We used to count the days until harvest by cutting notches in a stick. The whole house watched that stick.",
       "details": [
         "When the last notch was cut, it meant we'd made it. Another year, another crop.",
-        "My mother kept every stick, a shelf of them, one per year: a calendar made of patience."
+        "My mother kept every stick, a shelf of them, one per year. A calendar made of patience."
       ],
       "reactions": [
         "Waiting used to be something you did together. Now everyone waits alone."
@@ -4950,7 +4950,7 @@
     },
     {
       "id": 276,
-      "intro": "I remember the smell of my grandfather's pipe: sweet and heavy, like burning autumn leaves.",
+      "intro": "I remember the smell of my grandfather's pipe. Sweet and heavy, like burning autumn leaves.",
       "details": [
         "He'd smoke it on the porch after dinner, and the whole front of the house smelled like him.",
         "I found the pipe after he passed, and when I held it to my nose, I could still smell it."
@@ -5007,7 +5007,7 @@
       "intro": "My mother had a quilt made from pieces of every outfit the family had worn out.",
       "details": [
         "She could point to any square and tell you whose shirt it was, what year, and probably what happened when it tore.",
-        "I slept under it for years: warm, heavy, and full of other people's lives."
+        "I slept under it for years. Warm, heavy, and full of other people's lives."
       ],
       "reactions": [
         "You can read a family's whole history in a quilt if you know how to look."
@@ -5083,7 +5083,7 @@
       "id": 283,
       "intro": "My grandmother used to save every piece of string, no matter how short. Wound into a ball the size of your head.",
       "details": [
-        "She'd use it for everything: tying bundles, mending, hanging herbs.",
+        "She'd use it for everything. Tying bundles, mending, hanging herbs.",
         "I asked her once why she bothered, and she looked at me like I'd asked why she bothered breathing."
       ],
       "reactions": [
@@ -5101,7 +5101,7 @@
       "intro": "People from {other_settlement} and people from here used to play a game with stones and a circle in the dirt.",
       "details": [
         "Nobody remembers the rules anymore. Everyone remembers playing it, but nobody can explain how.",
-        "It's gone: a whole game that existed for generations, just evaporated."
+        "It's gone. A whole game that existed for generations, just evaporated."
       ],
       "reactions": [
         "Not everything that vanishes was written down. Some things lived only in the doing."
@@ -5144,7 +5144,7 @@
         "Talent doesn't transfer with the instrument. I learned that the hard way."
       ],
       "statCheck": {
-        "pass": "It's about breath control, not the fingers: he could hold a note so steady it seemed like the air itself was singing.",
+        "pass": "It's about breath control, not the fingers. He could hold a note so steady it seemed like the air itself was singing.",
         "fail": "He made it look effortless. I suspect it wasn't."
       },
       "valence": "neutral",
@@ -5157,7 +5157,7 @@
       "id": 287,
       "intro": "I miss the weight of wooden plates. Everything was heavier when I was young.",
       "details": [
-        "We ate off the same set my grandmother had used: dark wood, smooth from washing, each one slightly different.",
+        "We ate off the same set my grandmother had used. Dark wood, smooth from washing, each one slightly different.",
         "One cracked during a cold snap and my mother glued it back together rather than replace it."
       ],
       "reactions": [
@@ -5178,7 +5178,7 @@
         "Nobody said anything directly. You'd just find extra firewood outside their door one morning."
       ],
       "reactions": [
-        "Help was quieter then: no announcements, no credit taken, just firewood and silence."
+        "Help was quieter then. No announcements, no credit taken, just firewood and silence."
       ],
       "statCheck": {
         "pass": "The trick was making it anonymous. If they knew who left it, pride would make them refuse.",
@@ -5201,7 +5201,7 @@
         "Losing your faith in your parents' omniscience is the first real growing up you do."
       ],
       "statCheck": {
-        "pass": "I was scared, but what scared me most wasn't being lost: it was seeing fear on his face for the first time.",
+        "pass": "I was scared, but what scared me most wasn't being lost. It was seeing fear on his face for the first time.",
         "fail": "We found our way. Wasn't a big deal."
       },
       "valence": "neutral",
@@ -5252,7 +5252,7 @@
       "intro": "I used to hate the taste of turnips. My mother served them twice a week because that's what we had.",
       "details": [
         "I swore I'd never eat another one after I left home, and kept that promise for years.",
-        "Had one last winter out of curiosity: tasted exactly like childhood, and I didn't mind at all."
+        "Had one last winter out of curiosity. Tasted exactly like childhood, and I didn't mind at all."
       ],
       "reactions": [
         "The things you hated as a child become the things you seek out when you want to feel young."
@@ -5266,7 +5266,7 @@
     },
     {
       "id": 293,
-      "intro": "My father walked the same way every morning: slow, deliberate, looking at everything like he was seeing it fresh.",
+      "intro": "My father walked the same way every morning. Slow, deliberate, looking at everything like he was seeing it fresh.",
       "details": [
         "I used to rush ahead, impatient, and he never sped up.",
         "Now I walk the same way, slow and deliberate, and I understand what he was doing."
@@ -5322,7 +5322,7 @@
       "id": 296,
       "intro": "I was the fastest kid in {settlement_name} for two whole summers. Then someone taller moved in.",
       "details": [
-        "Two summers of glory: every race, every chase, I was first.",
+        "Two summers of glory. Every race, every chase, I was first.",
         "Being second-fastest felt like losing even though I hadn't slowed down at all."
       ],
       "reactions": [
@@ -5479,7 +5479,7 @@
     },
     {
       "id": 305,
-      "intro": "My grandmother could walk into a room and tell you exactly what was wrong. Not with a person: with the room.",
+      "intro": "My grandmother could walk into a room and tell you exactly what was wrong. Not with a person. With the room.",
       "details": [
         "Draft from a bad window seal, moisture in a corner, a beam settling unevenly. She just saw it.",
         "She'd fix half of it herself and tell you how to fix the rest."
@@ -5569,14 +5569,14 @@
       "id": 310,
       "intro": "My father told me once that he could hear the seasons change. I thought he was being poetic.",
       "details": [
-        "He meant the insects: different ones at different times of year. The chorus shifts gradually.",
+        "He meant the insects. Different ones at different times of year. The chorus shifts gradually.",
         "I listened for it last autumn and he was right. The sound is completely different by October."
       ],
       "reactions": [
         "Paying attention is a kind of inheritance. He gave me his ears."
       ],
       "statCheck": {
-        "pass": "The key is the crickets: they slow their chirping as the temperature drops. If you count the chirps per minute, you can estimate the temperature within a few degrees.",
+        "pass": "The key is the crickets. They slow their chirping as the temperature drops. If you count the chirps per minute, you can estimate the temperature within a few degrees.",
         "fail": "I hear the difference now, but I couldn't tell you what's making it."
       },
       "valence": "positive",
@@ -5657,7 +5657,7 @@
       "id": 315,
       "intro": "My mother used to hang herbs from the ceiling beams to dry. The house smelled like a garden year-round.",
       "details": [
-        "You'd walk in from outside and the smell would hit you: rosemary, thyme, something sweet I never identified.",
+        "You'd walk in from outside and the smell would hit you. Rosemary, thyme, something sweet I never identified.",
         "My house smells like dust and cooking smoke. I keep meaning to hang herbs, but I never do."
       ],
       "reactions": [
@@ -5715,7 +5715,7 @@
         "Good bread takes patience, and patience takes pride. He was reading the whole place through one loaf."
       ],
       "statCheck": {
-        "pass": "It's about the starter and the timing: both require commitment. A lazy baker cuts corners on the rise, and you can taste the shortcuts.",
+        "pass": "It's about the starter and the timing. Both require commitment. A lazy baker cuts corners on the rise, and you can taste the shortcuts.",
         "fail": "I just know what good bread tastes like. Couldn't tell you why one place gets it right and another doesn't."
       },
       "valence": "positive",
@@ -5745,8 +5745,8 @@
       "id": 320,
       "intro": "I remember the exact spot where I was standing when I decided I'd never leave {settlement_name}.",
       "details": [
-        "It was a nothing moment: just a warm afternoon, the smell of cooking, someone laughing nearby.",
-        "Something clicked, and I thought: this is enough, this is where I belong."
+        "It was a nothing moment. Just a warm afternoon, the smell of cooking, someone laughing nearby.",
+        "Something clicked, and I thought. This is enough, this is where I belong."
       ],
       "reactions": [
         "Not every big decision comes with drama. Some just arrive quietly and stay."
@@ -5769,7 +5769,7 @@
         "Nobody makes their own soap anymore. I'm not sure I blame them."
       ],
       "statCheck": {
-        "pass": "The trick is the lye concentration: too strong and it burns skin, too weak and it won't cut grease. He tested it by touching a drop to his tongue.",
+        "pass": "The trick is the lye concentration. Too strong and it burns skin, too weak and it won't cut grease. He tested it by touching a drop to his tongue.",
         "fail": "I watched him make it once. Seemed like a lot of effort for soap."
       },
       "valence": "neutral",
@@ -5891,7 +5891,7 @@
         "Privacy is what you get when community thins out. It's not all gain."
       ],
       "statCheck": {
-        "pass": "It wasn't nosiness: it was survival. In a small settlement, one person sick or hurt affects everyone. Watching out was practical, not intrusive.",
+        "pass": "It wasn't nosiness. It was survival. In a small settlement, one person sick or hurt affects everyone. Watching out was practical, not intrusive.",
         "fail": "People just paid attention to each other more. I can't say why that changed."
       },
       "valence": "negative",
@@ -5908,7 +5908,7 @@
         "Every time I sharpen it, there's a little less of him left."
       ],
       "reactions": [
-        "Objects wear down the same way memories do: slowly, and you don't notice until you compare."
+        "Objects wear down the same way memories do. Slowly, and you don't notice until you compare."
       ],
       "statCheck": null,
       "valence": "negative",
@@ -5945,7 +5945,7 @@
         "Some knowledge lives in the hands, not the head. When the hands are gone, so is the recipe."
       ],
       "statCheck": {
-        "pass": "She adjusted the salt based on humidity: more on dry days because the ingredients lost moisture. She never said that out loud, but I watched her do it.",
+        "pass": "She adjusted the salt based on humidity. More on dry days because the ingredients lost moisture. She never said that out loud, but I watched her do it.",
         "fail": "I just know it tasted better when she made it. I've stopped trying to figure out why."
       },
       "valence": "negative",
@@ -5992,7 +5992,7 @@
       "id": 334,
       "intro": "We used to wash clothes in the stream with everyone else. The whole morning was just scrubbing and talking.",
       "details": [
-        "You heard everything at the stream: who was courting whom, who owed what, who said what to whom.",
+        "You heard everything at the stream. Who was courting whom, who owed what, who said what to whom.",
         "It was exhausting work, but the gossip made the hours fly."
       ],
       "reactions": [
@@ -6033,7 +6033,7 @@
         "Resourcefulness born from necessity is a different thing from resourcefulness by choice."
       ],
       "statCheck": {
-        "pass": "She had a system: the most filling ingredients went in first, the most flavorful last. Your stomach was satisfied before your tongue noticed the thinness.",
+        "pass": "She had a system. The most filling ingredients went in first, the most flavorful last. Your stomach was satisfied before your tongue noticed the thinness.",
         "fail": "She just had a gift for it. I never figured out how she managed."
       },
       "valence": "neutral",
@@ -6223,7 +6223,7 @@
         "Some skills are half knowledge and half time. You can't rush the time part."
       ],
       "statCheck": {
-        "pass": "The pitch changes when you hit the correct angle: there's a sweet spot where the stone sings. Too steep and it grinds. Too shallow and it slides.",
+        "pass": "The pitch changes when you hit the correct angle. There's a sweet spot where the stone sings. Too steep and it grinds. Too shallow and it slides.",
         "fail": "I listen for the sound he described, but I'm never quite sure I'm hearing it right."
       },
       "valence": "positive",
@@ -6290,7 +6290,7 @@
       "id": 351,
       "intro": "I used to think the sound of rain on a thatched roof was the most boring sound in the world.",
       "details": [
-        "I'd lie awake as a kid wishing for anything else: wind, thunder, voices.",
+        "I'd lie awake as a kid wishing for anything else. Wind, thunder, voices.",
         "Now it's the one sound I can't get back. Our roof is tile now. The rain sounds sharp."
       ],
       "reactions": [
@@ -6356,7 +6356,7 @@
     },
     {
       "id": 355,
-      "intro": "There was a time when everyone in {settlement_name} helped with the planting. Not just the farmers: everyone.",
+      "intro": "There was a time when everyone in {settlement_name} helped with the planting. Not just the farmers. Everyone.",
       "details": [
         "You'd close your shop, leave your workshop, and go put seeds in the ground for a week.",
         "Nobody asked. It was just understood that the planting was everyone's business."
@@ -6365,7 +6365,7 @@
         "Somewhere along the way, other people's crops stopped being our problem."
       ],
       "statCheck": {
-        "pass": "There was an unspoken insurance in it: if my shop needs repairs, the farmers help me. If the crops need planting, I help them. The whole system ran on reciprocity.",
+        "pass": "There was an unspoken insurance in it. If my shop needs repairs, the farmers help me. If the crops need planting, I help them. The whole system ran on reciprocity.",
         "fail": "It just made sense when the settlement was smaller. Hard to explain why it stopped."
       },
       "valence": "neutral",
@@ -6378,7 +6378,7 @@
       "id": 356,
       "intro": "My father could fix anything with rope and patience. Those were his two best tools.",
       "details": [
-        "A broken fence, a sagging gate, a cracked handle: rope, a few knots, and it held for years.",
+        "A broken fence, a sagging gate, a cracked handle. Rope, a few knots, and it held for years.",
         "He'd always say it was temporary. The temporary fixes are still holding."
       ],
       "reactions": [
@@ -6538,7 +6538,7 @@
         "Reliability like that is invisible until it's gone."
       ],
       "statCheck": {
-        "pass": "I think she needed those quiet minutes alone before the house woke up. The early rising wasn't sacrifice: it was the only peace she got.",
+        "pass": "I think she needed those quiet minutes alone before the house woke up. The early rising wasn't sacrifice. It was the only peace she got.",
         "fail": "She was just an early riser. Some people are."
       },
       "valence": "positive",
@@ -6653,7 +6653,7 @@
       "id": 372,
       "intro": "We used to mark the height of every child in the family on the doorframe. Lines and initials and dates.",
       "details": [
-        "You could see the growth spurts: a gap, then a sudden jump, then slow and steady.",
+        "You could see the growth spurts. A gap, then a sudden jump, then slow and steady.",
         "The doorframe was replaced a few years ago. All those marks, gone."
       ],
       "reactions": [
@@ -6670,7 +6670,7 @@
       "id": 373,
       "intro": "My mother had a laugh that carried. You could hear it from three houses away.",
       "details": [
-        "She wasn't loud on purpose; it just came out big. She laughed the way some people sneeze: unstoppably.",
+        "She wasn't loud on purpose; it just came out big. She laughed the way some people sneeze. Unstoppably.",
         "I inherited the volume but not the frequency. She laughed at everything."
       ],
       "reactions": [
@@ -6728,7 +6728,7 @@
         "Staying put takes a different kind of courage than leaving."
       ],
       "statCheck": {
-        "pass": "She told me once that she'd had chances to leave: a young man from far away, a cousin with a business opportunity. She chose here each time, eyes open.",
+        "pass": "She told me once that she'd had chances to leave. A young man from far away, a cousin with a business opportunity. She chose here each time, eyes open.",
         "fail": "She was content. That's all I really know about it."
       },
       "valence": "neutral",
@@ -6758,7 +6758,7 @@
       "id": 378,
       "intro": "My father told me that the first thing you should do in a new place is find the water.",
       "details": [
-        "He meant the well, the stream, the spring: wherever people gather to drink and wash.",
+        "He meant the well, the stream, the spring. Wherever people gather to drink and wash.",
         "He said you can learn more about a place in an hour at the water than a week anywhere else."
       ],
       "reactions": [
@@ -6776,7 +6776,7 @@
       "intro": "There was a year when the harvest was so good that people didn't know what to do with the surplus.",
       "details": [
         "We gave food to {other_settlement}, stored what we could, and still had more.",
-        "My grandmother said to enjoy it and remember it. She was right: it never happened again."
+        "My grandmother said to enjoy it and remember it. She was right. It never happened again."
       ],
       "reactions": [
         "Abundance teaches you what enough looks like. Scarcity teaches you what it feels like."
@@ -6843,7 +6843,7 @@
       "id": 383,
       "intro": "My first pair of new boots was the greatest thing I'd ever owned. Everything before was hand-me-downs.",
       "details": [
-        "They were too big: my mother bought them a size up so I'd grow into them.",
+        "They were too big. My mother bought them a size up so I'd grow into them.",
         "I stuffed the toes with cloth for a year. Didn't care. They were mine."
       ],
       "reactions": [
@@ -6867,7 +6867,7 @@
         "Some things are private even between people who love each other."
       ],
       "statCheck": {
-        "pass": "It was the night after his mother died. He'd been solid all day: made arrangements, comforted everyone else. The grief waited for the dark.",
+        "pass": "It was the night after his mother died. He'd been solid all day. Made arrangements, comforted everyone else. The grief waited for the dark.",
         "fail": "I don't know what it was about. Some grief is private."
       },
       "valence": "negative",
@@ -6898,7 +6898,7 @@
       "intro": "My grandfather planted a garden every spring, the same layout, the same crops, for as long as anyone remembered.",
       "details": [
         "People suggested he try something new, and he'd smile and plant the same beans in the same rows.",
-        "I understand him now. When you've found what works, changing it isn't improvement: it's restlessness."
+        "I understand him now. When you've found what works, changing it isn't improvement. It's restlessness."
       ],
       "reactions": [
         "Consistency gets mistaken for stubbornness by people who haven't found their own rhythm yet."
@@ -6929,7 +6929,7 @@
     },
     {
       "id": 388,
-      "intro": "There was a smell in autumn: wood smoke, fallen leaves, and something cold coming. It meant the year was winding down.",
+      "intro": "There was a smell in autumn. Wood smoke, fallen leaves, and something cold coming. It meant the year was winding down.",
       "details": [
         "We'd start preparing without being told. Firewood stacked, shutters checked, blankets aired.",
         "The body knows winter is coming before the mind does."
@@ -6965,7 +6965,7 @@
       "id": 390,
       "intro": "My mother's handwriting was beautiful. Neat, even, like the letters were standing at attention.",
       "details": [
-        "She wrote everything that way: lists, notes, reminders. Even the grocery list looked like a document.",
+        "She wrote everything that way. Lists, notes, reminders. Even the grocery list looked like a document.",
         "I found a note she left in a coat pocket years after she died. It just said to buy salt."
       ],
       "reactions": [
@@ -7034,7 +7034,7 @@
     },
     {
       "id": 394,
-      "intro": "My father could read the sky the way other people read a book. Clouds, wind, color: he saw a forecast in all of it.",
+      "intro": "My father could read the sky the way other people read a book. Clouds, wind, color. He saw a forecast in all of it.",
       "details": [
         "He was wrong sometimes, but less often than anyone else.",
         "I look at the sky and I just see the sky. Whatever literacy he had, it skipped me."
@@ -7043,7 +7043,7 @@
         "The older generation saw the world in higher detail. We've traded that for other things."
       ],
       "statCheck": {
-        "pass": "It's the high thin clouds that tell you the most: if they're moving fast, the weather's changing within a day. Slow and steady means you've got time.",
+        "pass": "It's the high thin clouds that tell you the most. If they're moving fast, the weather's changing within a day. Slow and steady means you've got time.",
         "fail": "He tried to teach me. I just never had the eye for it."
       },
       "valence": "neutral",
@@ -7090,7 +7090,7 @@
       "id": 397,
       "intro": "I found an old pair of gloves in a trunk that belonged to my grandfather. The leather's still soft.",
       "details": [
-        "They're shaped to his hands: wider than mine, shorter in the fingers, worn thin at the thumbs.",
+        "They're shaped to his hands. Wider than mine, shorter in the fingers, worn thin at the thumbs.",
         "I tried them on. They don't fit. But holding them feels like holding his hand."
       ],
       "reactions": [
@@ -7219,7 +7219,7 @@
         "Maybe love is an ingredient. I know how that sounds."
       ],
       "statCheck": {
-        "pass": "I think it was the water temperature: she pulled it off the heat just before a full boil. Most people let it roil. She didn't.",
+        "pass": "I think it was the water temperature. She pulled it off the heat just before a full boil. Most people let it roil. She didn't.",
         "fail": "I've given up trying to match it. Some things belong to the person who made them."
       },
       "valence": "positive",
@@ -7283,7 +7283,7 @@
       "id": 408,
       "intro": "I once asked my grandmother what the most important thing in life was. She said a good night's sleep.",
       "details": [
-        "I was disappointed. I wanted something grand: love, honor, adventure.",
+        "I was disappointed. I wanted something grand. Love, honor, adventure.",
         "Twenty years later, I agree with her completely."
       ],
       "reactions": [
@@ -7315,7 +7315,7 @@
     },
     {
       "id": 410,
-      "intro": "My mother named everything: the house, the garden tools, the stubborn pot that wouldn't hang straight.",
+      "intro": "My mother named everything. The house, the garden tools, the stubborn pot that wouldn't hang straight.",
       "details": [
         "She said if you name a thing, you treat it better.",
         "I called her superstitious then. Now I name my own tools and don't admit it."
@@ -7419,7 +7419,7 @@
       "id": 416,
       "intro": "I used to be faster, stronger, and dumber. Two out of three of those are worth missing.",
       "details": [
-        "Youth is wasted on the young: everyone says that, and everyone's right.",
+        "Youth is wasted on the young. Everyone says that, and everyone's right.",
         "I'd trade the wisdom for the knees, honestly."
       ],
       "reactions": [
@@ -7443,7 +7443,7 @@
         "I don't know if it's true. But the ritual matters more than the accuracy."
       ],
       "statCheck": {
-        "pass": "There's actually something to it: trees produce more when conditions are good, and the same conditions that fatten acorns tend to mean a gentler season ahead.",
+        "pass": "There's actually something to it. Trees produce more when conditions are good, and the same conditions that fatten acorns tend to mean a gentler season ahead.",
         "fail": "Could be an old wives' tale. Could be real. I've never kept careful enough count to know."
       },
       "valence": "neutral",
@@ -7547,7 +7547,7 @@
       "id": 423,
       "intro": "I used to know the names of every kind of cloud. My father taught me one summer.",
       "details": [
-        "I've forgotten most of them. I still know the big ones: the anvil-shaped ones that mean trouble.",
+        "I've forgotten most of them. I still know the big ones. The anvil-shaped ones that mean trouble.",
         "He'd quiz me while we worked, and I'd get them right because I wanted to impress him."
       ],
       "reactions": [
@@ -7836,14 +7836,14 @@
       "id": 440,
       "intro": "My grandmother could identify any bird by its song alone. She'd close her eyes and tell you what was out there.",
       "details": [
-        "Thrush, sparrow, finch, wren: she knew them all and could tell them apart at a distance.",
+        "Thrush, sparrow, finch, wren. She knew them all and could tell them apart at a distance.",
         "She tried teaching me. I can manage three or four, but the rest sound the same."
       ],
       "reactions": [
         "The world is richer for people who can name what they hear. I'm not one of them."
       ],
       "statCheck": {
-        "pass": "She told me the trick is to listen for rhythm, not pitch: each bird has a pattern, like a signature. Once you learn the pattern, the identity follows.",
+        "pass": "She told me the trick is to listen for rhythm, not pitch. Each bird has a pattern, like a signature. Once you learn the pattern, the identity follows.",
         "fail": "It was just a talent she had. I never really picked it up."
       },
       "valence": "positive",
@@ -8018,7 +8018,7 @@
       "id": 450,
       "intro": "I used to sleep so deeply that my mother had to shake me awake. Now the wind changes direction and I'm up.",
       "details": [
-        "Sleep was a solid thing when I was young: dark, warm, total. Like falling into a well.",
+        "Sleep was a solid thing when I was young. Dark, warm, total. Like falling into a well.",
         "I'd give a lot to have one of those nights back. Just one."
       ],
       "reactions": [
@@ -8042,7 +8042,7 @@
         "Repetition over decades makes something more than skill. It becomes part of the person."
       ],
       "statCheck": {
-        "pass": "It's the pressure that matters most: barely any on the final passes. Most people press too hard at the end and roll the edge.",
+        "pass": "It's the pressure that matters most. Barely any on the final passes. Most people press too hard at the end and roll the edge.",
         "fail": "He just had the touch. Some things can't be explained."
       },
       "valence": "neutral",
@@ -8119,7 +8119,7 @@
         "We stopped doing the simplest thing and I don't think anyone decided to stop. It just happened."
       ],
       "statCheck": {
-        "pass": "The jars weren't really about food: they were about proving she could protect us from a bad season. Control was her way of loving.",
+        "pass": "The jars weren't really about food. They were about proving she could protect us from a bad season. Control was her way of loving.",
         "fail": "She liked having plenty stored up. That was just her nature."
       },
       "valence": "negative",
@@ -8156,7 +8156,7 @@
         "That honesty was the most useful thing he ever gave me."
       ],
       "statCheck": {
-        "pass": "He said the secret to looking confident is doing something before the doubt catches up. Decide fast and adjust later: that's all authority ever was.",
+        "pass": "He said the secret to looking confident is doing something before the doubt catches up. Decide fast and adjust later. That's all authority ever was.",
         "fail": "He had his own way of seeing things. I took what I could from it."
       },
       "valence": "neutral",
@@ -8196,7 +8196,7 @@
         "Imperfect gifts made with care outlast everything else."
       ],
       "statCheck": {
-        "pass": "He spent a whole afternoon on it: I watched him carve and recarve the head until it looked almost like a bird. The trying was the tenderness.",
+        "pass": "He spent a whole afternoon on it. I watched him carve and recarve the head until it looked almost like a bird. The trying was the tenderness.",
         "fail": "He wasn't much for carving. It was a kind gesture."
       },
       "valence": "positive",
@@ -8224,7 +8224,7 @@
     },
     {
       "id": 461,
-      "intro": "We had a rule growing up: if you broke it, you fixed it. No exceptions.",
+      "intro": "We had a rule growing up. If you broke it, you fixed it. No exceptions.",
       "details": [
         "I broke a chair once and spent two days trying to glue it back together with my father watching.",
         "He could've fixed it in an hour. That wasn't the point."
@@ -8254,7 +8254,7 @@
       ],
       "statCheck": {
         "pass": "My father told me the traders from {other_settlement} used to be the only source of certain spices. We'd ration them all year.",
-        "fail": "It was just the market: people came and went. Nothing special really."
+        "fail": "It was just the market. People came and went. Nothing special really."
       },
       "valence": "neutral",
       "topic_category": "old_times",
@@ -8307,7 +8307,7 @@
         "Hospitality is partly generosity and partly sleight of hand."
       ],
       "statCheck": {
-        "pass": "She had a rule: a guest never sees you adjust, and everything extra happens before they sit down. The illusion of abundance is as important as the food itself.",
+        "pass": "She had a rule. A guest never sees you adjust, and everything extra happens before they sit down. The illusion of abundance is as important as the food itself.",
         "fail": "She was just good at feeding people. Natural talent."
       },
       "valence": "positive",
@@ -8394,7 +8394,7 @@
       "id": 470,
       "intro": "I remember my mother's hands more clearly than her face. Flour-dusted, cracked at the knuckles, always moving.",
       "details": [
-        "She was never still: kneading, folding, mending, cleaning. Her hands were always at work.",
+        "She was never still. Kneading, folding, mending, cleaning. Her hands were always at work.",
         "When she did stop, it meant something was wrong. Still hands meant worry."
       ],
       "reactions": [
@@ -8418,7 +8418,7 @@
         "Scarcity made closeness necessary, and abundance made it optional. I'm not sure that's an improvement."
       ],
       "statCheck": {
-        "pass": "My mother told me once that the closeness wasn't always comfortable: you could hear every argument, every cough. But you were never alone.",
+        "pass": "My mother told me once that the closeness wasn't always comfortable. You could hear every argument, every cough. But you were never alone.",
         "fail": "We just gathered where the light was. Practical, nothing more."
       },
       "valence": "negative",
@@ -8429,16 +8429,16 @@
     },
     {
       "id": 472,
-      "intro": "I used to climb everything: trees, fences, rooftops. I had no fear of falling.",
+      "intro": "I used to climb everything. Trees, fences, rooftops. I had no fear of falling.",
       "details": [
         "My mother would find me sitting on places I had no business being and just sigh.",
         "Somewhere along the way, heights started meaning something different. Now I grip the railing on stairs."
       ],
       "reactions": [
-        "Fear grows as you accumulate things worth protecting: bones, mostly."
+        "Fear grows as you accumulate things worth protecting. Bones, mostly."
       ],
       "statCheck": {
-        "pass": "It's not the height that changed: it's the awareness of falling. As a child, the ground doesn't seem real until you hit it.",
+        "pass": "It's not the height that changed. It's the awareness of falling. As a child, the ground doesn't seem real until you hit it.",
         "fail": "I just got more careful. That's what growing up does."
       },
       "valence": "neutral",
@@ -8451,7 +8451,7 @@
       "id": 473,
       "intro": "My grandfather told stories that took so long the candle would burn down before he finished.",
       "details": [
-        "He'd get sidetracked by details nobody asked for: what someone was wearing, what the weather was like, what he had for lunch that day.",
+        "He'd get sidetracked by details nobody asked for. What someone was wearing, what the weather was like, what he had for lunch that day.",
         "The story was never the point. The sitting and listening was."
       ],
       "reactions": [
@@ -8468,14 +8468,14 @@
       "id": 474,
       "intro": "There was an understanding that if someone's crop was failing, the neighbors helped. No questions.",
       "details": [
-        "You didn't ask for help: people just showed up with tools. Asking would have been an insult to everyone.",
+        "You didn't ask for help. People just showed up with tools. Asking would have been an insult to everyone.",
         "It went both ways. When your turn came, you showed up the same way."
       ],
       "reactions": [
         "Obligation and generosity used to be the same thing."
       ],
       "statCheck": {
-        "pass": "The real currency was reputation. If you didn't show up when someone needed you, it was remembered: not spoken, not punished, just remembered.",
+        "pass": "The real currency was reputation. If you didn't show up when someone needed you, it was remembered. Not spoken, not punished, just remembered.",
         "fail": "People helped because they helped. I don't know what else to say about it."
       },
       "valence": "positive",
@@ -8583,7 +8583,7 @@
         "Some lessons can only be taught by experience. Words aren't enough."
       ],
       "statCheck": {
-        "pass": "He told me that grief doesn't come on schedule: it shows up when you're doing something ordinary, like the person who's gone decided to remind you.",
+        "pass": "He told me that grief doesn't come on schedule. It shows up when you're doing something ordinary, like the person who's gone decided to remind you.",
         "fail": "It was a hard time. We got through it the way you get through anything."
       },
       "valence": "negative",
@@ -8596,7 +8596,7 @@
       "id": 481,
       "intro": "There used to be a bell that rang at sundown. Nobody remembers when it stopped or why.",
       "details": [
-        "It was part of the day's rhythm: you'd hear it and know the work was done.",
+        "It was part of the day's rhythm. You'd hear it and know the work was done.",
         "I still feel a shift in the air around that time, like something should be happening but isn't."
       ],
       "reactions": [
@@ -8665,7 +8665,7 @@
     },
     {
       "id": 485,
-      "intro": "I remember the sound of rain on a thatched roof: different from any other material, softer and closer.",
+      "intro": "I remember the sound of rain on a thatched roof. Different from any other material, softer and closer.",
       "details": [
         "It was like the rain was part of the house, soaking in slowly instead of bouncing off.",
         "The new roof is sturdier. The rain sounds like pebbles being thrown now."
@@ -8684,7 +8684,7 @@
       "id": 486,
       "intro": "My mother's remedy for everything was hot broth and rest. It didn't matter what ailed you.",
       "details": [
-        "Headache, cough, broken heart: broth was the answer to all of them. Extra salt for the heartbreak.",
+        "Headache, cough, broken heart. Broth was the answer to all of them. Extra salt for the heartbreak.",
         "It didn't cure anything, but the act of someone making it for you was half the medicine."
       ],
       "reactions": [
@@ -8836,7 +8836,7 @@
         "Trust is the first thing to grow in a small place and the first thing to thin when it gets bigger."
       ],
       "statCheck": {
-        "pass": "The system depended on shame, honestly. Take without giving and the whole settlement adjusted: not punishment, just distance.",
+        "pass": "The system depended on shame, honestly. Take without giving and the whole settlement adjusted. Not punishment, just distance.",
         "fail": "It was just the way we did things. Hard to explain to anyone who wasn't there."
       },
       "valence": "negative",
@@ -8893,7 +8893,7 @@
         "Precision by instinct beats precision by measurement, but only after a lifetime of practice."
       ],
       "statCheck": {
-        "pass": "She told me once that the dough tells you what it needs: if it's too sticky, more flour; if it cracks, more water. You learn to listen with your hands.",
+        "pass": "She told me once that the dough tells you what it needs. If it's too sticky, more flour; if it cracks, more water. You learn to listen with your hands.",
         "fail": "I just never had her touch. You either develop it or you don't."
       },
       "valence": "positive",
@@ -8906,7 +8906,7 @@
       "id": 498,
       "intro": "There was a time when I could name every bird that visited our yard. My mother taught me each one.",
       "details": [
-        "We'd sit at the window and she'd point them out: this one builds mud nests, that one sings before rain.",
+        "We'd sit at the window and she'd point them out. This one builds mud nests, that one sings before rain.",
         "I've forgotten most of the names. But when I see a bird I recognize, her voice comes back for a second."
       ],
       "reactions": [
@@ -8958,7 +8958,7 @@
     },
     {
       "id": 501,
-      "intro": "My father had a saying: never start a day angry and never end one without eating.",
+      "intro": "My father had a saying. Never start a day angry and never end one without eating.",
       "details": [
         "He wasn't a philosopher. He just knew that hunger makes everything worse.",
         "I've broken the first rule plenty. The second one I follow religiously."
@@ -8977,7 +8977,7 @@
       "id": 502,
       "intro": "There was a woman here who sang while she worked. You could hear her from two houses away.",
       "details": [
-        "She wasn't performing. She just sang the way other people breathe: constantly and without thinking about it.",
+        "She wasn't performing. She just sang the way other people breathe. Constantly and without thinking about it.",
         "When she passed, the silence where her voice used to be was the loudest thing in the neighborhood."
       ],
       "reactions": [
@@ -8985,7 +8985,7 @@
       ],
       "statCheck": {
         "pass": "She told me once that the singing kept the loneliness away. She lived alone for years and the sound of her own voice was company.",
-        "fail": "She just sang: some people do. I didn't ask why."
+        "fail": "She just sang. Some people do. I didn't ask why."
       },
       "valence": "negative",
       "topic_category": "old_times",
@@ -9017,7 +9017,7 @@
       "id": 504,
       "intro": "I used to think adults had all the answers. That there was a moment when everything clicked and you just knew.",
       "details": [
-        "I kept waiting for that moment: thirty, forty, fifty. Still waiting.",
+        "I kept waiting for that moment. Thirty, forty, fifty. Still waiting.",
         "My father admitted he was guessing most of the time. That was oddly comforting."
       ],
       "reactions": [
@@ -9098,7 +9098,7 @@
         "Trust is built in childhood and chipped away by experience. You never get back to the original amount."
       ],
       "statCheck": {
-        "pass": "It was my uncle who broke it: promised he'd take me fishing and never showed. A small thing, but it changed how I heard promises forever.",
+        "pass": "It was my uncle who broke it. Promised he'd take me fishing and never showed. A small thing, but it changed how I heard promises forever.",
         "fail": "It was a long time ago. Just one of those things that sticks with you."
       },
       "valence": "negative",
@@ -9112,7 +9112,7 @@
       "intro": "I remember the taste of water from the old well. Cold, clean, with a mineral edge that tasted like stone.",
       "details": [
         "We'd haul up a bucket after playing and drink straight from the ladle. Best water I've ever had.",
-        "The new well is deeper and the water is fine. Fine, not good: there's a difference."
+        "The new well is deeper and the water is fine. Fine, not good. There's a difference."
       ],
       "reactions": [
         "Nostalgia can flavor anything. But I swear that water was actually better."
@@ -9155,7 +9155,7 @@
         "Being the last one standing means carrying everyone else's stories alone."
       ],
       "statCheck": {
-        "pass": "She told me she felt a duty to remember: names, faces, events that no one else could confirm anymore. She said forgetting them felt like killing them a second time.",
+        "pass": "She told me she felt a duty to remember. Names, faces, events that no one else could confirm anymore. She said forgetting them felt like killing them a second time.",
         "fail": "She didn't talk about it much. She just got quieter as the years went on."
       },
       "valence": "negative",
@@ -9192,7 +9192,7 @@
         "Sacrifice is loudest when it pretends to be preference."
       ],
       "statCheck": {
-        "pass": "My mother told me he'd been hungry as a boy and never got over it. The worst part wasn't the heel: it was that he'd trained himself to prefer it.",
+        "pass": "My mother told me he'd been hungry as a boy and never got over it. The worst part wasn't the heel. It was that he'd trained himself to prefer it.",
         "fail": "He just liked those pieces. Or so he said."
       },
       "valence": "positive",
@@ -9206,7 +9206,7 @@
       "intro": "I haven't thought about this in years, but we used to catch frogs after rain. Buckets full of them.",
       "details": [
         "We'd count them, name the biggest ones, and let them all go by supper. Same ritual every time it rained hard.",
-        "The naming was important: you can't keep something you've named, so you have to let it go."
+        "The naming was important. You can't keep something you've named, so you have to let it go."
       ],
       "reactions": [
         "Childhood is full of ceremonies nobody teaches you. You just invent them."
@@ -9240,7 +9240,7 @@
     },
     {
       "id": 516,
-      "intro": "We used to trade things back and forth with {other_settlement}: cloth for grain, tools for leather.",
+      "intro": "We used to trade things back and forth with {other_settlement}. Cloth for grain, tools for leather.",
       "details": [
         "The same traders made the trip for years. You'd know them by name, share a drink, swap gossip.",
         "Now it's different faces every time. More efficient, I'm told."
@@ -9283,7 +9283,7 @@
         "The body is generous with energy when you're young and stingy with it later. Fair's fair."
       ],
       "statCheck": {
-        "pass": "My father said age isn't the body wearing out: it's the body remembering every demand you ever made on it. It keeps a ledger.",
+        "pass": "My father said age isn't the body wearing out. It's the body remembering every demand you ever made on it. It keeps a ledger.",
         "fail": "You slow down as you get older. That's the whole story."
       },
       "valence": "negative",
@@ -9303,7 +9303,7 @@
         "A thing you've worn through hard times becomes a companion. Losing it feels personal."
       ],
       "statCheck": {
-        "pass": "He told me the coat was the first thing he bought with money he earned himself. Everything after it was obligation: that coat was choice.",
+        "pass": "He told me the coat was the first thing he bought with money he earned himself. Everything after it was obligation. That coat was choice.",
         "fail": "It was just a coat he was attached to. People get attached to things."
       },
       "valence": "negative",
@@ -9385,7 +9385,7 @@
     },
     {
       "id": 524,
-      "intro": "People used to mend things here in {settlement_name}: pots, clothes, tools. Now we replace them.",
+      "intro": "People used to mend things here in {settlement_name}. Pots, clothes, tools. Now we replace them.",
       "details": [
         "There was a woman who could sew a tear so you'd never find it. She charged almost nothing.",
         "She stopped because nobody brought her anything anymore. Easier to get new."
@@ -9499,7 +9499,7 @@
       "intro": "There was a hollow tree near {settlement_name} where kids left messages for each other. Little scraps of bark with scratches on them.",
       "details": [
         "We had our own code. Meaningless symbols that we were convinced were secret and important.",
-        "The tree's still there: I checked once. No messages."
+        "The tree's still there. I checked once. No messages."
       ],
       "reactions": [
         "The infrastructure of childhood dissolves when the children outgrow it."
@@ -9547,7 +9547,7 @@
     },
     {
       "id": 533,
-      "intro": "My grandmother had a remedy for everything: different tea for different ailments. Some of it actually worked.",
+      "intro": "My grandmother had a remedy for everything. Different tea for different ailments. Some of it actually worked.",
       "details": [
         "Willow bark for pain, mint for the stomach, chamomile for sleep. The basics were sound.",
         "The more exotic ones were probably useless, but the ritual of preparing them helped as much as any herb."
@@ -9567,7 +9567,7 @@
     },
     {
       "id": 534,
-      "intro": "I had a favorite cup as a child: chipped, ugly, and mine. Nobody else was allowed to use it.",
+      "intro": "I had a favorite cup as a child. Chipped, ugly, and mine. Nobody else was allowed to use it.",
       "details": [
         "It broke eventually. I was devastated for days.",
         "Looking back, it was just a cup. But it was my first experience of losing something irreplaceable."
@@ -9587,7 +9587,7 @@
     },
     {
       "id": 535,
-      "intro": "My mother always said: clean hands, clean conscience. She washed hers constantly.",
+      "intro": "My mother always said. Clean hands, clean conscience. She washed hers constantly.",
       "details": [
         "Her hands were raw from the soap sometimes, especially in winter.",
         "It was about control for her. She couldn't fix everything, but she could keep things clean."
@@ -9677,7 +9677,7 @@
       "id": 540,
       "intro": "The stars used to feel close when I was a child. Like I could reach up and touch one.",
       "details": [
-        "I'd lie on my back and pick the one I wanted: always the brightest, always out of reach.",
+        "I'd lie on my back and pick the one I wanted. Always the brightest, always out of reach.",
         "The sky hasn't moved. I've just stopped looking up."
       ],
       "reactions": [
@@ -9694,7 +9694,7 @@
       "id": 541,
       "intro": "My father's laugh was the loudest sound in any room. You could hear it from the street.",
       "details": [
-        "He laughed at everything: his own jokes, bad weather, burned food, stubbed toes.",
+        "He laughed at everything. His own jokes, bad weather, burned food, stubbed toes.",
         "I have his laugh. I hear it come out of my mouth sometimes and it stops me cold."
       ],
       "reactions": [
@@ -9739,7 +9739,7 @@
       ],
       "statCheck": {
         "pass": "He told me once that the knee remembered every injury it had ever taken, and each one responded to different weather. Rain was the left side, cold was the right.",
-        "fail": "Bad knees and weather: everyone knows the connection but nobody can explain it."
+        "fail": "Bad knees and weather. Everyone knows the connection but nobody can explain it."
       },
       "valence": "neutral",
       "topic_category": "old_times",
@@ -9752,7 +9752,7 @@
       "intro": "My mother always packed more food than we needed when we traveled. Always.",
       "details": [
         "We'd arrive with half the pack still full. She'd say better too much than too little.",
-        "She was right: the one time someone forgot to pack extra was the one time it mattered."
+        "She was right. The one time someone forgot to pack extra was the one time it mattered."
       ],
       "reactions": [
         "Caution looks excessive until the day it saves you."
@@ -9805,7 +9805,7 @@
       "id": 547,
       "intro": "My father used to say that a good neighbor is worth more than a distant relative.",
       "details": [
-        "He proved it every time someone needed help: he was there, no asking, no bargaining.",
+        "He proved it every time someone needed help. He was there, no asking, no bargaining.",
         "His neighbors came to his funeral. Not all of his relatives did."
       ],
       "reactions": [
@@ -9863,7 +9863,7 @@
       "intro": "I remember being afraid of the dark as a child. Truly afraid, not the pretend kind.",
       "details": [
         "Every shadow was something and every sound was a threat. The imagination is crueler than reality at that age.",
-        "My father would sit with me until I fell asleep. He never told me there was nothing there: he just sat."
+        "My father would sit with me until I fell asleep. He never told me there was nothing there. He just sat."
       ],
       "reactions": [
         "He didn't dismiss the fear; he absorbed it by being present. That was enough."
@@ -9877,7 +9877,7 @@
     },
     {
       "id": 551,
-      "intro": "My grandfather always wore the same hat: rain, sun, indoors, outdoors. It was part of his head.",
+      "intro": "My grandfather always wore the same hat. Rain, sun, indoors, outdoors. It was part of his head.",
       "details": [
         "It was shapeless, stained, and perfect. He'd have worn it to bed if my grandmother let him.",
         "When he died, my grandmother put it on his shelf and left it there. Nobody touched it."
@@ -9903,7 +9903,7 @@
         "Informal agreements depend entirely on the character of the people making them."
       ],
       "statCheck": {
-        "pass": "The real glue was social cost: cheat on a labor trade and the whole area hears about it within a week. Reputation was the contract.",
+        "pass": "The real glue was social cost. Cheat on a labor trade and the whole area hears about it within a week. Reputation was the contract.",
         "fail": "It was trust, pure and simple. That's all I can tell you."
       },
       "valence": "neutral",
@@ -9953,14 +9953,14 @@
       "id": 555,
       "intro": "I used to walk barefoot everywhere until the cold came. My feet were tougher than boot leather.",
       "details": [
-        "I could step on anything and not flinch: stones, thorns, hot ground. My soles were armor.",
+        "I could step on anything and not flinch. Stones, thorns, hot ground. My soles were armor.",
         "I wear boots now and my feet are soft as a baby's. The toughness left with the habit."
       ],
       "reactions": [
         "The body adapts to what you ask of it and softens when you stop asking."
       ],
       "statCheck": {
-        "pass": "My grandmother said bare feet teach you to read the ground: temperature, texture, moisture. Boots make you blind from the ankle down.",
+        "pass": "My grandmother said bare feet teach you to read the ground. Temperature, texture, moisture. Boots make you blind from the ankle down.",
         "fail": "Kids just run around barefoot. It's not complicated."
       },
       "valence": "positive",
@@ -9997,7 +9997,7 @@
         "Hard work under a good moon doesn't feel like hardship. It feels like partnership."
       ],
       "statCheck": {
-        "pass": "My father said those harvest moons were brighter because the air was drier in autumn: less moisture, less haze, more light reaching the ground.",
+        "pass": "My father said those harvest moons were brighter because the air was drier in autumn. Less moisture, less haze, more light reaching the ground.",
         "fail": "Full moons are just brighter some months. I don't know the reason."
       },
       "valence": "positive",
@@ -10079,7 +10079,7 @@
       "intro": "My father never wasted food. He'd eat the last cold bite of anything rather than see it thrown away.",
       "details": [
         "He grew up hungry. That kind of memory lives in the stomach, not the head.",
-        "I catch myself doing the same thing: finishing plates that aren't mine, eating things I don't even want."
+        "I catch myself doing the same thing. Finishing plates that aren't mine, eating things I don't even want."
       ],
       "reactions": [
         "Hunger in childhood shapes your relationship with food for the rest of your life."
@@ -10189,7 +10189,7 @@
       "id": 568,
       "intro": "My father told me I could be anything I wanted, and I believed him completely. That belief was the real gift.",
       "details": [
-        "The world narrowed as I grew up: options closed and paths settled.",
+        "The world narrowed as I grew up. Options closed and paths settled.",
         "I became what I became, and it's fine. But the feeling of infinite possibility was something."
       ],
       "reactions": [
@@ -10206,11 +10206,11 @@
       "id": 569,
       "intro": "I remember the last conversation I had with my grandmother. I didn't know it was the last one at the time.",
       "details": [
-        "We talked about nothing: the weather, what she'd eaten, whether it would rain. Ordinary words.",
+        "We talked about nothing. The weather, what she'd eaten, whether it would rain. Ordinary words.",
         "I'd give anything to have paid more attention. But you never know which conversation is the final one."
       ],
       "reactions": [
-        "Every conversation could be the last. That's not a reason to be solemn: it's a reason to be present."
+        "Every conversation could be the last. That's not a reason to be solemn. It's a reason to be present."
       ],
       "statCheck": null,
       "valence": "negative",
@@ -10230,7 +10230,7 @@
         "He saw a forest as individuals where I see it as one thing. His way was richer."
       ],
       "statCheck": {
-        "pass": "He told me that bark tells you the tree's age, health, and history: disease leaves marks, drought leaves rings, lightning leaves scars.",
+        "pass": "He told me that bark tells you the tree's age, health, and history. Disease leaves marks, drought leaves rings, lightning leaves scars.",
         "fail": "He just had an eye for it. I never developed the same attention."
       },
       "valence": "neutral",
@@ -10267,7 +10267,7 @@
         "Beauty and usefulness in equal measure. She was right about most things."
       ],
       "statCheck": {
-        "pass": "She told me the flowers weren't decoration: they drew the bees that pollinated the food plants. Beauty serving function was her whole philosophy.",
+        "pass": "She told me the flowers weren't decoration. They drew the bees that pollinated the food plants. Beauty serving function was her whole philosophy.",
         "fail": "She just liked flowers alongside her vegetables. I never asked the reasoning."
       },
       "valence": "positive",
@@ -10304,7 +10304,7 @@
         "Melodies outlive lyrics. The feeling carries when the meaning fades."
       ],
       "statCheck": {
-        "pass": "She told me once that the lullaby was her mother's too, and her mother's before that. She didn't know who wrote it or when: it just traveled.",
+        "pass": "She told me once that the lullaby was her mother's too, and her mother's before that. She didn't know who wrote it or when. It just traveled.",
         "fail": "It was just a song. Every mother has one."
       },
       "valence": "positive",
@@ -10358,7 +10358,7 @@
         "Crisis brings out the best in small places. Normal times bring out the average."
       ],
       "statCheck": {
-        "pass": "The man who organized it was my father: he went door to door before dawn and told everyone to bring tools. Nobody questioned it because he'd never asked for anything before.",
+        "pass": "The man who organized it was my father. He went door to door before dawn and told everyone to bring tools. Nobody questioned it because he'd never asked for anything before.",
         "fail": "People just helped. That's what small places do."
       },
       "valence": "positive",
@@ -10388,7 +10388,7 @@
       "id": 579,
       "intro": "I learned to cook by watching my mother and guessing. She never wrote anything down.",
       "details": [
-        "I'd ask how much salt, and she'd say enough. How long to cook it: until it's done.",
+        "I'd ask how much salt, and she'd say enough. How long to cook it. Until it's done.",
         "Her recipes died with her because they only existed in her hands."
       ],
       "reactions": [
@@ -10480,7 +10480,7 @@
       "intro": "My grandmother always opened her windows in the morning, even in winter. She said the house needed to breathe.",
       "details": [
         "We'd shiver for ten minutes while she stood at the window breathing in cold air with satisfaction.",
-        "I keep my windows shut all winter: warm and stale. She'd disapprove."
+        "I keep my windows shut all winter. Warm and stale. She'd disapprove."
       ],
       "reactions": [
         "Her generation had a different relationship with discomfort. They invited it in small doses."
@@ -10537,7 +10537,7 @@
         "I realize now that lifting a child after a day like that was its own kind of love letter."
       ],
       "reactions": [
-        "Strength spent on tenderness at the end of a hard day: that's what devotion looks like."
+        "Strength spent on tenderness at the end of a hard day. That's what devotion looks like."
       ],
       "statCheck": null,
       "valence": "positive",
@@ -10548,7 +10548,7 @@
     },
     {
       "id": 588,
-      "intro": "We had a rule at our house: whoever finished eating last did the washing up.",
+      "intro": "We had a rule at our house. Whoever finished eating last did the washing up.",
       "details": [
         "My brother and I ate like it was a competition, food gone in minutes. My mother took her time and always lost.",
         "Looking back, I think she ate slowly on purpose so we'd never have to do it."
@@ -10605,7 +10605,7 @@
     },
     {
       "id": 591,
-      "intro": "There was a game we played as children: see who could be silent the longest. I always lost.",
+      "intro": "There was a game we played as children. See who could be silent the longest. I always lost.",
       "details": [
         "My friend once lasted an entire afternoon. I broke in under ten minutes every time.",
         "I'm still no good at silence. Some things don't improve with age."
@@ -10639,7 +10639,7 @@
     },
     {
       "id": 593,
-      "intro": "My mother never complained about anything: not the cold, not the work, not the worry. She just did what needed doing.",
+      "intro": "My mother never complained about anything. Not the cold, not the work, not the worry. She just did what needed doing.",
       "details": [
         "I complained about everything and she'd listen without comment.",
         "Her silence wasn't disapproval. She just didn't see the point in narrating your own suffering."
@@ -10661,7 +10661,7 @@
       "id": 594,
       "intro": "I remember lying in the grass as a child, watching clouds move so slowly they seemed painted on.",
       "details": [
-        "I could spend an entire afternoon doing nothing but looking up. No boredom, no restlessness: just sky.",
+        "I could spend an entire afternoon doing nothing but looking up. No boredom, no restlessness. Just sky.",
         "I tried it last week. Lasted about five minutes before I started thinking about what I should be doing."
       ],
       "reactions": [
@@ -10678,7 +10678,7 @@
       "id": 595,
       "intro": "My grandmother believed in making do. If she didn't have something, she found a way without it.",
       "details": [
-        "No butter: use dripping. No thread: unravel something else.",
+        "No butter. Use dripping. No thread. Unravel something else.",
         "She never saw a problem without a workaround. Her solutions weren't elegant, but they worked."
       ],
       "reactions": [
@@ -10719,7 +10719,7 @@
         "By his measure, we were always rich. There was always something in the pot."
       ],
       "reactions": [
-        "Generosity as a measure of worth: it's not a bad system."
+        "Generosity as a measure of worth. It's not a bad system."
       ],
       "statCheck": null,
       "valence": "positive",
@@ -10739,7 +10739,7 @@
         "A house remembers the sounds of the people who gave it life, even if only in the ears of those who listened."
       ],
       "statCheck": {
-        "pass": "I catch myself stepping on her floorboards sometimes: the ones she wore thin. They creak differently now, like the wood misses the weight it's used to.",
+        "pass": "I catch myself stepping on her floorboards sometimes. The ones she wore thin. They creak differently now, like the wood misses the weight it's used to.",
         "fail": "Old floors sound different as they age. That's just wood."
       },
       "valence": "negative",
@@ -10793,7 +10793,7 @@
         "Measuring growth was his way of marking time. Both moved faster than either of us expected."
       ],
       "statCheck": {
-        "pass": "He told me the first notch was crooked because his hands were shaking: he was so excited to start the tradition. I never knew that until he was gone.",
+        "pass": "He told me the first notch was crooked because his hands were shaking. He was so excited to start the tradition. I never knew that until he was gone.",
         "fail": "He measured everything carefully. That's just how he was."
       },
       "valence": "positive",
@@ -10823,14 +10823,14 @@
       "id": 603,
       "intro": "My grandfather walked everywhere. Never rode a cart if he could help it.",
       "details": [
-        "He said you miss everything from the back of a cart: the smells, the ground under your feet, the way the light changes.",
+        "He said you miss everything from the back of a cart. The smells, the ground under your feet, the way the light changes.",
         "He walked to {other_settlement} and back once, just because someone told him it couldn't be done in a day."
       ],
       "reactions": [
         "Stubbornness and endurance look the same from the outside. He had both."
       ],
       "statCheck": {
-        "pass": "He told me the real reason he walked: he was afraid of horses, had been since childhood. The philosophy about walking was just good cover.",
+        "pass": "He told me the real reason he walked. He was afraid of horses, had been since childhood. The philosophy about walking was just good cover.",
         "fail": "He was a walker. That's all there was to it."
       },
       "valence": "positive",
@@ -10904,7 +10904,7 @@
         "I tried to make it from memory once, but it wasn't right. The missing ingredient was probably her."
       ],
       "reactions": [
-        "Recipes are instructions. The taste is something else: the hands, the timing, the years of doing it."
+        "Recipes are instructions. The taste is something else. The hands, the timing, the years of doing it."
       ],
       "statCheck": null,
       "valence": "positive",
@@ -10918,7 +10918,7 @@
       "intro": "I remember when the road to {other_settlement} was just a dirt track. You'd come home covered in dust or mud depending on the season.",
       "details": [
         "My father said the road improved when trade picked up. More carts meant harder ground.",
-        "The road's proper now: flat and wide. I miss the dust, which is a foolish thing to miss."
+        "The road's proper now. Flat and wide. I miss the dust, which is a foolish thing to miss."
       ],
       "reactions": [
         "Improvement erases what came before. Sometimes what came before had its own charm."
@@ -10941,7 +10941,7 @@
         "The difference between good enough and excellent is the effort nobody sees."
       ],
       "statCheck": {
-        "pass": "He said the angle matters more than the pressure: thirty degrees for a chopping tool, fifteen for a cutting one. Most people push too hard and ruin the bevel.",
+        "pass": "He said the angle matters more than the pressure. Thirty degrees for a chopping tool, fifteen for a cutting one. Most people push too hard and ruin the bevel.",
         "fail": "He had a knack for it. Some people just do."
       },
       "valence": "neutral",
@@ -10974,7 +10974,7 @@
       "id": 611,
       "intro": "My mother could knit without looking. She'd hold a conversation, eyes on you the whole time, and the needles never stopped.",
       "details": [
-        "Her fingers moved like they belonged to a separate person: steady, automatic, tireless.",
+        "Her fingers moved like they belonged to a separate person. Steady, automatic, tireless.",
         "I tried to learn, but my fingers never got the independence hers had. I have to watch every stitch."
       ],
       "reactions": [
@@ -10989,13 +10989,13 @@
     },
     {
       "id": 612,
-      "intro": "I remember the taste of water from the old well: cold, mineral, slightly sweet. Nothing from a bucket tastes like that.",
+      "intro": "I remember the taste of water from the old well. Cold, mineral, slightly sweet. Nothing from a bucket tastes like that.",
       "details": [
         "We'd lower the pail and bring it up dripping and freezing even in summer.",
         "The well's been covered over for years. Nobody needs it anymore, but I remember every drink."
       ],
       "reactions": [
-        "The things you had to work for tasted better. That's not just nostalgia: effort seasons everything."
+        "The things you had to work for tasted better. That's not just nostalgia. Effort seasons everything."
       ],
       "statCheck": null,
       "valence": "positive",
@@ -11015,7 +11015,7 @@
         "A lifetime of paying attention produces knowledge that looks like superstition to anyone who didn't put in the time."
       ],
       "statCheck": {
-        "pass": "Spiders feel the humidity in the air and build lower when it's damp because the silk loses tension. It's not magic: it's engineering.",
+        "pass": "Spiders feel the humidity in the air and build lower when it's damp because the silk loses tension. It's not magic. It's engineering.",
         "fail": "She just knew things about the weather. I never figured out how."
       },
       "valence": "neutral",
@@ -11028,7 +11028,7 @@
       "id": 614,
       "intro": "I used to climb the tallest tree I could find just to see what the world looked like from up there.",
       "details": [
-        "Everything seemed simpler from above: the fields laid out flat, the roofs in a row, people small and purposeful.",
+        "Everything seemed simpler from above. The fields laid out flat, the roofs in a row, people small and purposeful.",
         "I haven't climbed a tree in years. My arms remember how, but my knees have opinions now."
       ],
       "reactions": [
@@ -11068,7 +11068,7 @@
       "id": 616,
       "intro": "There was a cat that lived in our neighborhood for years. Nobody owned it and everybody fed it.",
       "details": [
-        "It had a circuit: our door in the morning, the next house by noon, three more before dark.",
+        "It had a circuit. Our door in the morning, the next house by noon, three more before dark.",
         "When it stopped coming, nobody said anything, but everyone left food out for a week, just in case."
       ],
       "reactions": [
@@ -11083,7 +11083,7 @@
     },
     {
       "id": 617,
-      "intro": "My grandmother stored everything in jars: herbs, buttons, coins, seeds. Her shelves were a museum of small things.",
+      "intro": "My grandmother stored everything in jars. Herbs, buttons, coins, seeds. Her shelves were a museum of small things.",
       "details": [
         "She could find anything instantly. The system made sense only to her.",
         "After she died, we opened every jar. Half of them held things nobody could identify anymore."
@@ -11106,10 +11106,10 @@
         "I went back years later and the creek was barely a trickle. My ocean had shrunk."
       ],
       "reactions": [
-        "Everything is enormous when you're small. That's not a flaw of childhood: it's the gift of it."
+        "Everything is enormous when you're small. That's not a flaw of childhood. It's the gift of it."
       ],
       "statCheck": {
-        "pass": "My father admitted later he was terrified the whole time: the current was stronger than it looked. He stood where he stood because that's where he could grab me fastest.",
+        "pass": "My father admitted later he was terrified the whole time. The current was stronger than it looked. He stood where he stood because that's where he could grab me fastest.",
         "fail": "It was just a creek. Nothing dangerous about it."
       },
       "valence": "positive",
@@ -11183,7 +11183,7 @@
         "Long hardship makes normal feel miraculous. We were grateful for mud that year."
       ],
       "statCheck": {
-        "pass": "My father told me the real fear wasn't the cold: it was that we'd run through the food stores before the thaw. He counted portions every night and never told us.",
+        "pass": "My father told me the real fear wasn't the cold. It was that we'd run through the food stores before the thaw. He counted portions every night and never told us.",
         "fail": "It was a hard winter. They happen."
       },
       "valence": "negative",
@@ -11230,7 +11230,7 @@
       "id": 625,
       "intro": "I remember the smell of bread baking when I came home from playing. My mother timed it perfectly.",
       "details": [
-        "Warm bread and cold hands: that combination is childhood in a single moment.",
+        "Warm bread and cold hands. That combination is childhood in a single moment.",
         "She baked every other day. I took it for granted completely."
       ],
       "reactions": [
@@ -11254,7 +11254,7 @@
         "He believed every word, even the parts he'd clearly invented. Conviction was his gift."
       ],
       "reactions": [
-        "A good storyteller doesn't repeat a story: they perform it. The audience gets a new show every time."
+        "A good storyteller doesn't repeat a story. They perform it. The audience gets a new show every time."
       ],
       "statCheck": {
         "pass": "My mother told me later that most of his stories happened to other people. He just absorbed them and retold them as his own over enough years that he forgot the difference.",
@@ -11307,7 +11307,7 @@
       "id": 629,
       "intro": "I remember the first time I stayed up past midnight. I thought I'd discovered a secret world that only existed after dark.",
       "details": [
-        "The house sounded different: creaking, settling, breathing almost. Everything that's silent during the day.",
+        "The house sounded different. Creaking, settling, breathing almost. Everything that's silent during the day.",
         "I was exhausted the next morning, but the thrill of stolen time was worth it."
       ],
       "reactions": [
@@ -11348,7 +11348,7 @@
         "Childhood places shrink when you return. The memory was always bigger than the thing."
       ],
       "statCheck": {
-        "pass": "My father told me the hill is actually the same height: the trees grew up around it over decades. The view didn't shrink: it was swallowed.",
+        "pass": "My father told me the hill is actually the same height. The trees grew up around it over decades. The view didn't shrink. It was swallowed.",
         "fail": "It was just a hill. I was smaller then, that's all."
       },
       "valence": "negative",
@@ -11362,7 +11362,7 @@
       "intro": "My father never raised his voice. When he was angry, he got quieter.",
       "details": [
         "The quieter he got, the more serious it was. We learned to read volume in reverse.",
-        "I yell when I'm angry. His way was better: silence commands attention that shouting never earns."
+        "I yell when I'm angry. His way was better. Silence commands attention that shouting never earns."
       ],
       "reactions": [
         "Some of the most useful things my parents taught me are the ones I failed to inherit."
@@ -11382,7 +11382,7 @@
         "Her family moved away and we never kept in touch. The friendship just dissolved."
       ],
       "reactions": [
-        "Some people are essential for a chapter of your life and then gone completely. That's not sad: it's how chapters work."
+        "Some people are essential for a chapter of your life and then gone completely. That's not sad. It's how chapters work."
       ],
       "statCheck": null,
       "valence": "negative",
@@ -11402,7 +11402,7 @@
         "Mimicking the gesture without the understanding is the story of half the things I do."
       ],
       "statCheck": {
-        "pass": "She said a hollow sound means it's pulled away from the rind inside: ripe and full of juice. A dull thud means it's still clinging.",
+        "pass": "She said a hollow sound means it's pulled away from the rind inside. Ripe and full of juice. A dull thud means it's still clinging.",
         "fail": "She just had a feel for it. Years of practice, I'd guess."
       },
       "valence": "neutral",
@@ -11415,7 +11415,7 @@
       "id": 635,
       "intro": "My mother always put a sprig of something green on the table, even in winter. She said a house needs life in it.",
       "details": [
-        "A branch, a weed, dried herbs: anything that once grew. The table was never bare.",
+        "A branch, a weed, dried herbs. Anything that once grew. The table was never bare.",
         "I eat at a bare table most nights and don't think twice. She'd notice."
       ],
       "reactions": [
@@ -11484,7 +11484,7 @@
     },
     {
       "id": 639,
-      "intro": "My grandfather could fix anything with rope. Broken chair, loose gate, sagging shelf: rope was his answer to everything.",
+      "intro": "My grandfather could fix anything with rope. Broken chair, loose gate, sagging shelf. Rope was his answer to everything.",
       "details": [
         "Half his house was held together with knots. It worked, even if it didn't look pretty.",
         "He knew more knots than I know words. Each one had a purpose and he remembered them all."
@@ -11493,7 +11493,7 @@
         "A solution doesn't need to be elegant. It needs to hold."
       ],
       "statCheck": {
-        "pass": "He told me a knot is a way of thinking: you're solving a problem in three dimensions with one piece of material. Most people only think in straight lines.",
+        "pass": "He told me a knot is a way of thinking. You're solving a problem in three dimensions with one piece of material. Most people only think in straight lines.",
         "fail": "He was handy with rope. That's the short version."
       },
       "valence": "positive",
@@ -11506,7 +11506,7 @@
       "id": 640,
       "intro": "I used to think adults knew everything. The day I realized they were guessing was terrifying.",
       "details": [
-        "My father hesitated over a decision and I saw it: the uncertainty he'd always hidden.",
+        "My father hesitated over a decision and I saw it. The uncertainty he'd always hidden.",
         "After that, every confident adult looked different to me. I could see the performance."
       ],
       "reactions": [
@@ -11530,7 +11530,7 @@
         "A small light in a window says more about the person inside than the person it's meant for."
       ],
       "statCheck": {
-        "pass": "My father told me once that the candle wasn't for finding the way: it was so whoever was out late knew that someone was still up, still thinking about them.",
+        "pass": "My father told me once that the candle wasn't for finding the way. It was so whoever was out late knew that someone was still up, still thinking about them.",
         "fail": "She just liked having a candle in the window. A habit."
       },
       "valence": "positive",
@@ -11541,7 +11541,7 @@
     },
     {
       "id": 642,
-      "intro": "I used to be faster. Not just at running: at thinking, deciding, starting things.",
+      "intro": "I used to be faster. Not just at running. At thinking, deciding, starting things.",
       "details": [
         "Decisions that take me a week now took me a heartbeat at twenty.",
         "I'm more careful, but I'm slower. Whether that's a trade or a loss depends on the day."
@@ -11614,14 +11614,14 @@
       "id": 646,
       "intro": "I remember rain sounding different when I was young. Louder on the roof, softer on the ground.",
       "details": [
-        "Our roof was thinner then: tin or something close. Every drop had a voice.",
+        "Our roof was thinner then. Tin or something close. Every drop had a voice.",
         "The new roof is solid and quiet. Better in every way except the music."
       ],
       "reactions": [
         "Improvements fix problems and sometimes steal character in the process."
       ],
       "statCheck": {
-        "pass": "My father told me the old roof wasn't just thin: it was made from salvaged metal his grandfather carried from another settlement. Every drop that hit it was a reminder of where we came from.",
+        "pass": "My father told me the old roof wasn't just thin. It was made from salvaged metal his grandfather carried from another settlement. Every drop that hit it was a reminder of where we came from.",
         "fail": "It was an old roof. They all sound different."
       },
       "valence": "neutral",
@@ -11632,9 +11632,9 @@
     },
     {
       "id": 647,
-      "intro": "My grandmother saved every piece of cloth. Scraps, rags, worn-through garments: nothing was thrown away.",
+      "intro": "My grandmother saved every piece of cloth. Scraps, rags, worn-through garments. Nothing was thrown away.",
       "details": [
-        "She turned old clothes into quilts, rags into patches, patches into stuffing. Nothing ended: it just changed shape.",
+        "She turned old clothes into quilts, rags into patches, patches into stuffing. Nothing ended. It just changed shape.",
         "I throw things away without thinking. She'd watch me do it and wince."
       ],
       "reactions": [
@@ -11695,7 +11695,7 @@
         "Patience isn't a skill you can practice. It's a relationship with time, and his was different from mine."
       ],
       "statCheck": {
-        "pass": "He told me he wasn't patient at all: he was watching. He said most people call observation laziness because they've forgotten how to look at anything for more than a moment.",
+        "pass": "He told me he wasn't patient at all. He was watching. He said most people call observation laziness because they've forgotten how to look at anything for more than a moment.",
         "fail": "He was just a calm man. Some people are."
       },
       "valence": "neutral",
@@ -11712,7 +11712,7 @@
         "The flowers are still there. I just see them from behind a list of chores."
       ],
       "reactions": [
-        "Adulthood replaces noticing with planning. The world doesn't change: your attention does."
+        "Adulthood replaces noticing with planning. The world doesn't change. Your attention does."
       ],
       "statCheck": null,
       "valence": "negative",
@@ -11817,10 +11817,10 @@
     },
     {
       "id": 657,
-      "intro": "I remember a period when everyone helped everyone. No asking, no owing: just hands appearing where they were needed.",
+      "intro": "I remember a period when everyone helped everyone. No asking, no owing. Just hands appearing where they were needed.",
       "details": [
         "If someone was building, people showed up. If someone was sick, food appeared at their door.",
-        "I don't know when we stopped. It wasn't a decision: it just thinned out gradually."
+        "I don't know when we stopped. It wasn't a decision. It just thinned out gradually."
       ],
       "reactions": [
         "Community is a habit, not a structure. When the habit fades, the structure means nothing."
@@ -11860,7 +11860,7 @@
         "I'm a grown adult and I still see rabbits when I tie my boots. Some lessons embed permanently."
       ],
       "reactions": [
-        "The best teaching is invisible: it becomes reflex and stays forever."
+        "The best teaching is invisible. It becomes reflex and stays forever."
       ],
       "statCheck": null,
       "valence": "positive",
@@ -11873,7 +11873,7 @@
       "id": 660,
       "intro": "There used to be more silence. Real silence, not the absence of one noise replaced by another.",
       "details": [
-        "In winter especially: the snow muffled everything and you could hear your own heartbeat if you stood still.",
+        "In winter especially. The snow muffled everything and you could hear your own heartbeat if you stood still.",
         "I don't think I've heard true silence in years. There's always something humming."
       ],
       "reactions": [
@@ -11930,7 +11930,7 @@
       "id": 663,
       "intro": "My mother told me that a clean floor means a clean mind. I mopped a lot growing up.",
       "details": [
-        "Her floor was spotless: you could eat off it. Mine has boot prints on it right now.",
+        "Her floor was spotless. You could eat off it. Mine has boot prints on it right now.",
         "If she's right about the floor-mind connection, that explains a few things about me."
       ],
       "reactions": [
@@ -11948,7 +11948,7 @@
       "intro": "I remember the way firelight moved on the walls at night. Like the room was breathing.",
       "details": [
         "Before lamps, the fire was the only light. Shadows stretched and shrank and everything felt alive.",
-        "Lamp light is steady and flat. Better for reading: worse for everything else."
+        "Lamp light is steady and flat. Better for reading. Worse for everything else."
       ],
       "reactions": [
         "We traded atmosphere for convenience without a second thought."
@@ -11962,9 +11962,9 @@
     },
     {
       "id": 665,
-      "intro": "My father had hands like leather. Cracked, scarred, calloused: a map of everything he'd ever done.",
+      "intro": "My father had hands like leather. Cracked, scarred, calloused. A map of everything he'd ever done.",
       "details": [
-        "Each mark had a story: this one from a saw, that one from a burn, this one from holding a rope too long.",
+        "Each mark had a story. This one from a saw, that one from a burn, this one from holding a rope too long.",
         "My hands are soft by comparison. I've done different work, and my hands show it."
       ],
       "reactions": [
@@ -12005,7 +12005,7 @@
         "Some people are tuned to frequencies the rest of us have lost."
       ],
       "statCheck": {
-        "pass": "She told me later she wasn't reading the room: she was reading the person. Red eyes, a certain stillness, the way someone positions their hands told her everything.",
+        "pass": "She told me later she wasn't reading the room. She was reading the person. Red eyes, a certain stillness, the way someone positions their hands told her everything.",
         "fail": "She had a sense for things. I don't know how to explain it better than that."
       },
       "valence": "neutral",
@@ -12036,13 +12036,13 @@
       "intro": "My mother always made extra food. She said you never know who might stop by.",
       "details": [
         "Nine times out of ten, nobody came. We ate the leftovers the next day.",
-        "But that tenth time: a neighbor, a traveler, someone in need. She was always ready."
+        "But that tenth time. A neighbor, a traveler, someone in need. She was always ready."
       ],
       "reactions": [
-        "Preparedness for generosity: that's a kind of optimism I admire."
+        "Preparedness for generosity. That's a kind of optimism I admire."
       ],
       "statCheck": {
-        "pass": "She told me once that the extra food wasn't optimism: it was guilt. She'd been turned away hungry as a girl, and she swore no one would leave her door unfed.",
+        "pass": "She told me once that the extra food wasn't optimism. It was guilt. She'd been turned away hungry as a girl, and she swore no one would leave her door unfed.",
         "fail": "She cooked a lot. That was just her way."
       },
       "valence": "positive",
@@ -12072,14 +12072,14 @@
       "id": 671,
       "intro": "My grandfather said he'd never been bored a day in his life. I believed him because he always seemed occupied.",
       "details": [
-        "He'd whittle, mend, sort things, oil tools: always some small task that needed doing.",
+        "He'd whittle, mend, sort things, oil tools. Always some small task that needed doing.",
         "I get bored surrounded by unfinished work. The difference is he saw opportunity and I see obligation."
       ],
       "reactions": [
         "Boredom is about attitude, not activity. He proved that every day."
       ],
       "statCheck": {
-        "pass": "He told me once that boredom is just unfocused energy. He said if you're bored, your eyes are closed: open them and there's always something that needs you.",
+        "pass": "He told me once that boredom is just unfocused energy. He said if you're bored, your eyes are closed. Open them and there's always something that needs you.",
         "fail": "He was a busy man. That's the simple answer."
       },
       "valence": "positive",
@@ -12093,7 +12093,7 @@
       "intro": "My mother always smelled like soap and something floral. I can't name the flower, but I'd recognize it instantly.",
       "details": [
         "She used the same soap her whole life. Bought it from the same person every time.",
-        "I've smelled it once or twice since she died: in a market, on a stranger. It stops me cold every time."
+        "I've smelled it once or twice since she died. In a market, on a stranger. It stops me cold every time."
       ],
       "reactions": [
         "Scent is the cruelest trigger for memory. It arrives without warning and carries everything with it."
@@ -12107,7 +12107,7 @@
     },
     {
       "id": 673,
-      "intro": "There was a game we played as children: throwing stones at a post. Closest one wins.",
+      "intro": "There was a game we played as children. Throwing stones at a post. Closest one wins.",
       "details": [
         "We played it for hours, every day, for an entire summer. The simplest game imaginable.",
         "I can still throw accurately because of those hours. Skills hide inside play."
@@ -12129,7 +12129,7 @@
       "id": 674,
       "intro": "My father said a man who can't cook will always depend on someone else for his survival. He taught all of us.",
       "details": [
-        "Not fancy cooking: survival cooking. How to make something edible from almost nothing.",
+        "Not fancy cooking. Survival cooking. How to make something edible from almost nothing.",
         "His food was plain and filling. He said anything beyond that was showing off."
       ],
       "reactions": [
@@ -12186,8 +12186,8 @@
       "id": 677,
       "intro": "We used to eat together as a family every single night. No exceptions.",
       "details": [
-        "My mother set the table the same way: same seats, same order, same prayer before eating.",
-        "I eat alone most nights now, not out of necessity: just the wrong kind of habit."
+        "My mother set the table the same way. Same seats, same order, same prayer before eating.",
+        "I eat alone most nights now, not out of necessity. Just the wrong kind of habit."
       ],
       "reactions": [
         "A shared table is the simplest form of belonging, and I walked away from it without noticing."
@@ -12203,7 +12203,7 @@
       "id": 678,
       "intro": "My father measured twice and cut once. He applied that to everything, not just wood.",
       "details": [
-        "Decisions, conversations, spending: he thought everything through twice before acting.",
+        "Decisions, conversations, spending. He thought everything through twice before acting.",
         "I cut first and measure later, usually while swearing. His patience was a foreign language to me."
       ],
       "reactions": [
@@ -12220,7 +12220,7 @@
       "id": 679,
       "intro": "There was a summer when the berries came in so thick the bushes looked painted. We ate them until our fingers were stained purple.",
       "details": [
-        "My mother filled every container in the house. Pots, jars, bowls, cups: all full of berries.",
+        "My mother filled every container in the house. Pots, jars, bowls, cups. All full of berries.",
         "We ate berries for weeks and I was sick of them by autumn. Now I'd give anything for a bowl of them."
       ],
       "reactions": [
@@ -12274,11 +12274,11 @@
       "id": 682,
       "intro": "My mother always said you should leave a place better than you found it. Even if it's just picking up one thing.",
       "details": [
-        "She'd tidy other people's messes without comment. Not angrily: just automatically.",
+        "She'd tidy other people's messes without comment. Not angrily. Just automatically.",
         "I've adopted the habit for rooms and not for much else. She applied it to everything."
       ],
       "reactions": [
-        "Small improvements compounded over a lifetime: that was her entire philosophy."
+        "Small improvements compounded over a lifetime. That was her entire philosophy."
       ],
       "statCheck": null,
       "valence": "positive",
@@ -12292,7 +12292,7 @@
       "intro": "I used to collect stones as a child. Smooth ones, colored ones, ones with interesting shapes.",
       "details": [
         "I kept them in a box under my bed like treasures. To me, they were.",
-        "I found the box recently: just rocks, but I couldn't throw them out."
+        "I found the box recently. Just rocks, but I couldn't throw them out."
       ],
       "reactions": [
         "The value a child assigns to things doesn't survive into adulthood, but the attachment does."
@@ -12308,7 +12308,7 @@
       "id": 684,
       "intro": "My grandmother knew every person in {settlement_name} by name, family, and temperament.",
       "details": [
-        "She had a mental map of everyone's business, not for gossip: for navigation. She knew who to ask for what.",
+        "She had a mental map of everyone's business, not for gossip. For navigation. She knew who to ask for what.",
         "That kind of social knowledge took decades to build. Nobody has it now because nobody stays in one place long enough."
       ],
       "reactions": [
@@ -12365,8 +12365,8 @@
       "id": 687,
       "intro": "My mother always tucked the blankets tight around me at night. So tight I could barely move.",
       "details": [
-        "I hated it at the time: too hot, too confined. I wriggled free the moment she left.",
-        "I'd give anything to feel that tightness again. Not the blankets: the intention behind them."
+        "I hated it at the time. Too hot, too confined. I wriggled free the moment she left.",
+        "I'd give anything to feel that tightness again. Not the blankets. The intention behind them."
       ],
       "reactions": [
         "The things we resisted as children become the things we miss most."
@@ -12433,7 +12433,7 @@
       "id": 691,
       "intro": "My father always walked me halfway to where I was going, then turned back. He never explained why.",
       "details": [
-        "It wasn't protection: I was old enough to walk alone. It was companionship without intrusion.",
+        "It wasn't protection. I was old enough to walk alone. It was companionship without intrusion.",
         "I do the same thing now when someone visits. Walk them halfway, then turn back."
       ],
       "reactions": [
@@ -12453,7 +12453,7 @@
       "id": 692,
       "intro": "There was an apple tree in our yard that produced fruit so sour nobody else wanted it. We loved it.",
       "details": [
-        "My mother turned those apples into everything: sauce, preserves, filling. The sourness was the flavor.",
+        "My mother turned those apples into everything. Sauce, preserves, filling. The sourness was the flavor.",
         "The tree's been gone for years. I've never found apples that taste the same."
       ],
       "reactions": [
@@ -12470,14 +12470,14 @@
       "id": 693,
       "intro": "My father always checked the sky before leaving the house. Quick glance up, then out the door.",
       "details": [
-        "Wind direction, cloud height, light quality: he read it all in a second.",
+        "Wind direction, cloud height, light quality. He read it all in a second.",
         "I check the sky too. I don't read it half as well, but the habit is lodged in me."
       ],
       "reactions": [
         "Inherited routines are like songs you know the melody to but not the words."
       ],
       "statCheck": {
-        "pass": "He told me that checking the sky isn't about weather: it's about grounding yourself in the world before you step into it. A glance up reminds you that everything below is small.",
+        "pass": "He told me that checking the sky isn't about weather. It's about grounding yourself in the world before you step into it. A glance up reminds you that everything below is small.",
         "fail": "He was a practical man. He liked to know what the weather was doing."
       },
       "valence": "neutral",
@@ -12488,13 +12488,13 @@
     },
     {
       "id": 694,
-      "intro": "I remember the sound of a house settling at night. Clicks, groans, creaks: the building talking to itself.",
+      "intro": "I remember the sound of a house settling at night. Clicks, groans, creaks. The building talking to itself.",
       "details": [
-        "I knew every sound: which was the stair, which was the beam, which was the wind finding a crack.",
+        "I knew every sound. Which was the stair, which was the beam, which was the wind finding a crack.",
         "I live somewhere different now and the sounds are unfamiliar. It makes me sleep lighter."
       ],
       "reactions": [
-        "Home isn't just a place: it's a catalog of sounds you've made peace with."
+        "Home isn't just a place. It's a catalog of sounds you've made peace with."
       ],
       "statCheck": null,
       "valence": "negative",
@@ -12507,14 +12507,14 @@
       "id": 695,
       "intro": "My mother said manners cost nothing and pay for everything. She drilled them into us like a soldier would.",
       "details": [
-        "Please, thank you, excuse me: she heard every missed one and corrected it instantly.",
+        "Please, thank you, excuse me. She heard every missed one and corrected it instantly.",
         "I'm polite without thinking now. Her training stuck, even if I resented it at the time."
       ],
       "reactions": [
         "Discipline that feels harsh during childhood becomes gratitude in adulthood."
       ],
       "statCheck": {
-        "pass": "She told me the manners weren't for other people: they were for me. She said politeness is a discipline that teaches you to think of others before yourself, and that habit solves most problems.",
+        "pass": "She told me the manners weren't for other people. They were for me. She said politeness is a discipline that teaches you to think of others before yourself, and that habit solves most problems.",
         "fail": "She was strict about manners. That generation was."
       },
       "valence": "neutral",
@@ -12534,7 +12534,7 @@
         "Grief begins the moment you acknowledge it. She held it off for one last quiet hour."
       ],
       "statCheck": {
-        "pass": "She told me she talked to him during that hour: about the weather, dinner, nothing important. She said the silence hadn't arrived yet, so she filled it while she could.",
+        "pass": "She told me she talked to him during that hour. About the weather, dinner, nothing important. She said the silence hadn't arrived yet, so she filled it while she could.",
         "fail": "They were married a long time. I can't imagine what that moment was like."
       },
       "valence": "negative",
@@ -12547,7 +12547,7 @@
       "id": 697,
       "intro": "I remember when the path to school felt like an expedition. Every stone, every turn, every puddle was significant.",
       "details": [
-        "I had landmarks only I knew about: the flat rock, the bent fence post, the spot where the mud was deepest.",
+        "I had landmarks only I knew about. The flat rock, the bent fence post, the spot where the mud was deepest.",
         "The path is shorter than I remembered. My legs were smaller, and the world was bigger."
       ],
       "reactions": [
@@ -12562,7 +12562,7 @@
     },
     {
       "id": 698,
-      "intro": "My grandmother made a poultice for every injury. Scrapes, bruises, splinters: she had a paste for each one.",
+      "intro": "My grandmother made a poultice for every injury. Scrapes, bruises, splinters. She had a paste for each one.",
       "details": [
         "I don't know what was in any of them. They smelled terrible and worked instantly.",
         "The pain went away and so did the paste. She wiped both clean and sent you back outside."
@@ -12571,7 +12571,7 @@
         "Her medicine cabinet was a garden, a mortar, and fifty years of trial and error."
       ],
       "statCheck": {
-        "pass": "She told me most of her remedies worked because of one or two active ingredients: the rest was filler and tradition. She said the ritual of applying it was half the cure.",
+        "pass": "She told me most of her remedies worked because of one or two active ingredients. The rest was filler and tradition. She said the ritual of applying it was half the cure.",
         "fail": "She knew what she was doing. That's more than I can say for myself when I get hurt."
       },
       "valence": "positive",
@@ -12638,7 +12638,7 @@
       "id": 702,
       "intro": "My grandmother always said the worst thing you can do to someone is ignore them. She never ignored anyone.",
       "details": [
-        "She spoke to every person she passed: a word, a nod, a wave. Nobody was invisible to her.",
+        "She spoke to every person she passed. A word, a nod, a wave. Nobody was invisible to her.",
         "I walk past people without seeing them. She'd consider that a kind of cruelty."
       ],
       "reactions": [
@@ -12670,7 +12670,7 @@
     },
     {
       "id": 704,
-      "intro": "My father could tell what hour it was by the shadows. He didn't need the sun: just the angle of light on the floor.",
+      "intro": "My father could tell what hour it was by the shadows. He didn't need the sun. Just the angle of light on the floor.",
       "details": [
         "He was accurate to within a quarter hour most days. The room was his clock.",
         "I own a clock and still lose track of time. His method was free and apparently more reliable."
@@ -12679,7 +12679,7 @@
         "The skills we've replaced with objects were often better than the objects."
       ],
       "statCheck": {
-        "pass": "He told me he calibrated it by watching where the light hit at mealtimes: morning, noon, evening. Everything else was interpolation.",
+        "pass": "He told me he calibrated it by watching where the light hit at mealtimes. Morning, noon, evening. Everything else was interpolation.",
         "fail": "He had a sense for time. I've never managed the same."
       },
       "valence": "neutral",
@@ -12692,11 +12692,11 @@
       "id": 705,
       "intro": "My mother could make anything taste good with enough salt and patience. Those were her two ingredients.",
       "details": [
-        "She'd cook something for hours: low heat, steady stirring, salt by instinct. Time was the seasoning.",
+        "She'd cook something for hours. Low heat, steady stirring, salt by instinct. Time was the seasoning.",
         "I cook fast and eat fast. Her way was slower and better in every respect."
       ],
       "reactions": [
-        "Patience improves food the same way it improves everything else: invisibly, completely."
+        "Patience improves food the same way it improves everything else. Invisibly, completely."
       ],
       "statCheck": null,
       "valence": "neutral",
@@ -12726,11 +12726,11 @@
       "id": 707,
       "intro": "My grandmother could sew a button back on so fast you'd swear it never fell off.",
       "details": [
-        "She kept a needle threaded at all times: tucked in her collar, ready. Always ready.",
+        "She kept a needle threaded at all times. Tucked in her collar, ready. Always ready.",
         "I've lost three buttons this month and haven't fixed any of them."
       ],
       "reactions": [
-        "The gap between her competence and mine isn't skill: it's priority."
+        "The gap between her competence and mine isn't skill. It's priority."
       ],
       "statCheck": null,
       "valence": "neutral",
@@ -12798,7 +12798,7 @@
       "intro": "My grandmother always finished what was on her plate and treated leftovers like an insult.",
       "details": [
         "She'd rather take less and eat it all than take more and leave a scrap.",
-        "Waste was the one thing she couldn't tolerate. Everything else: mess, noise, children: she endured with grace."
+        "Waste was the one thing she couldn't tolerate. Everything else. Mess, noise, children. She endured with grace."
       ],
       "reactions": [
         "Her generation learned that lesson the hard way, and it never loosened its grip."
@@ -12838,7 +12838,7 @@
         "Her mornings were a fortress. Mine are a negotiation."
       ],
       "statCheck": {
-        "pass": "She told me the early mornings weren't discipline: they were her only time alone. Before the house woke up, she belonged to herself.",
+        "pass": "She told me the early mornings weren't discipline. They were her only time alone. Before the house woke up, she belonged to herself.",
         "fail": "She was an early riser. Some people just are."
       },
       "valence": "neutral",
@@ -12902,14 +12902,14 @@
       "id": 717,
       "intro": "My grandmother said a good neighbor is worth more than a bag of gold. She measured wealth in people.",
       "details": [
-        "She'd share anything she had without hesitating: food, time, tools, advice.",
+        "She'd share anything she had without hesitating. Food, time, tools, advice.",
         "People repaid her in kind, though she never kept score. The generosity just circulated."
       ],
       "reactions": [
         "Her economy ran on goodwill, and it worked better than most systems run on coin."
       ],
       "statCheck": {
-        "pass": "She told me once that the sharing wasn't generosity: it was insurance. She said if you feed the street when you can, the street feeds you when you can't.",
+        "pass": "She told me once that the sharing wasn't generosity. It was insurance. She said if you feed the street when you can, the street feeds you when you can't.",
         "fail": "She was generous by nature. That's the whole story."
       },
       "valence": "positive",
@@ -12922,7 +12922,7 @@
       "id": 718,
       "intro": "I used to hide when visitors came. I'd watch from behind a door and listen to adult conversation like it was a foreign language.",
       "details": [
-        "Half the words made no sense. The laughter was mysterious: what could they possibly find funny?",
+        "Half the words made no sense. The laughter was mysterious. What could they possibly find funny?",
         "Now I am the boring adult talking about nothing. The children have probably stopped listening."
       ],
       "reactions": [
@@ -12943,7 +12943,7 @@
         "He shimmed one leg with a folded piece of leather. That shim outlasted him."
       ],
       "reactions": [
-        "Imperfection in something handmade isn't a flaw: it's proof a person made it."
+        "Imperfection in something handmade isn't a flaw. It's proof a person made it."
       ],
       "statCheck": null,
       "valence": "positive",
@@ -12960,7 +12960,7 @@
         "I probably still do it. There's just nobody standing in the doorway to hear it now."
       ],
       "reactions": [
-        "Being overheard in your most unguarded state: that's a kind of love only family can give."
+        "Being overheard in your most unguarded state. That's a kind of love only family can give."
       ],
       "statCheck": null,
       "valence": "neutral",
@@ -12990,7 +12990,7 @@
       "id": 722,
       "intro": "My grandmother had a rocking chair that creaked with every motion. You could hear her thinking.",
       "details": [
-        "The rhythm changed with her mood: fast when she was working something out, slow when she was at peace.",
+        "The rhythm changed with her mood. Fast when she was working something out, slow when she was at peace.",
         "The chair is still in the house, but nobody sits in it. It would feel wrong."
       ],
       "reactions": [
@@ -13008,10 +13008,10 @@
       "intro": "I remember being carried to bed half-asleep. The world going dark and warm, and trusting completely that I'd wake up safe.",
       "details": [
         "The last thing I'd feel was my father's arms shifting me, then the blanket, then nothing.",
-        "That total trust in being held: I've never felt it since. It only exists in childhood."
+        "That total trust in being held. I've never felt it since. It only exists in childhood."
       ],
       "reactions": [
-        "Safety isn't a thought for a child: it's a sensation. Warm arms, soft bed, done."
+        "Safety isn't a thought for a child. It's a sensation. Warm arms, soft bed, done."
       ],
       "statCheck": null,
       "valence": "positive",
@@ -13024,14 +13024,14 @@
       "id": 724,
       "intro": "My mother kept a list of things she wanted to do before she died. She never showed it to anyone.",
       "details": [
-        "I found it after she passed, and half the items were checked off. The other half were all about us: her children.",
+        "I found it after she passed, and half the items were checked off. The other half were all about us. Her children.",
         "She wanted to see us settled, happy, self-sufficient. She got most of it."
       ],
       "reactions": [
         "A parent's ambitions are disguised as hopes for their children. Her list proved that."
       ],
       "statCheck": {
-        "pass": "The last item on the list wasn't checked: it just said 'Rest.' She was working right up until the end.",
+        "pass": "The last item on the list wasn't checked. It just said 'Rest.' She was working right up until the end.",
         "fail": "She was a planner. She kept things to herself."
       },
       "valence": "negative",
@@ -13048,7 +13048,7 @@
         "Decisions are heavier now. I miss when the worst outcome was soggy boots."
       ],
       "reactions": [
-        "Simple choices with low stakes: that's what childhood freedom actually means."
+        "Simple choices with low stakes. That's what childhood freedom actually means."
       ],
       "statCheck": null,
       "valence": "positive",
@@ -13061,7 +13061,7 @@
       "id": 726,
       "intro": "My father always stood when a woman entered the room. He said it was respect, not show.",
       "details": [
-        "He did it automatically: mid-sentence, mid-meal, mid-thought.",
+        "He did it automatically. Mid-sentence, mid-meal, mid-thought.",
         "I do it sometimes, but other times I forget. His consistency was superhuman."
       ],
       "reactions": [
@@ -13105,7 +13105,7 @@
         "A sincere apology from a proud person carries more weight than a hundred casual ones."
       ],
       "statCheck": {
-        "pass": "My grandmother told me he practiced it for a full day before saying it: wrote it down, crossed it out, rewrote it. She found the paper afterward.",
+        "pass": "My grandmother told me he practiced it for a full day before saying it. Wrote it down, crossed it out, rewrote it. She found the paper afterward.",
         "fail": "He wasn't the apologizing kind. That's all I know."
       },
       "valence": "neutral",
@@ -13118,8 +13118,8 @@
       "id": 729,
       "intro": "I used to think every family was like mine. The shock of learning otherwise was one of the first real lessons.",
       "details": [
-        "I visited a friend's house and nothing was the same: the food, the rules, the noise level. Different world.",
-        "After that, home looked different. Not better or worse: just one version among many."
+        "I visited a friend's house and nothing was the same. The food, the rules, the noise level. Different world.",
+        "After that, home looked different. Not better or worse. Just one version among many."
       ],
       "reactions": [
         "Realizing your normal isn't normal is the beginning of perspective."
@@ -13142,7 +13142,7 @@
         "A parent who sees through you is annoying at ten and a blessing in hindsight."
       ],
       "statCheck": {
-        "pass": "She told me her trick was simple: I blinked more when I lied. Every child has a tell, and most parents find it by the time the child is five.",
+        "pass": "She told me her trick was simple. I blinked more when I lied. Every child has a tell, and most parents find it by the time the child is five.",
         "fail": "She just knew. Mothers have that ability."
       },
       "valence": "neutral",
@@ -13155,7 +13155,7 @@
       "id": 731,
       "intro": "There was a pond near where I grew up that froze solid every winter. We'd slide across it screaming with joy.",
       "details": [
-        "No skates: just boots, momentum, and faith. The falls were spectacular.",
+        "No skates. Just boots, momentum, and faith. The falls were spectacular.",
         "It doesn't freeze hard enough anymore, or maybe we're just heavier. Either way, the sliding is over."
       ],
       "reactions": [
@@ -13172,7 +13172,7 @@
       "id": 732,
       "intro": "My father kept a single coin in his pocket at all times. He said a person should never be completely empty-handed.",
       "details": [
-        "It wasn't for spending: it was for knowing it was there. A weight in the pocket that meant something.",
+        "It wasn't for spending. It was for knowing it was there. A weight in the pocket that meant something.",
         "I do the same thing. I can't explain why, except that he did it and that's reason enough."
       ],
       "reactions": [
@@ -13207,10 +13207,10 @@
     },
     {
       "id": 734,
-      "intro": "I remember the feeling of a sunburn as a child: the sting, the heat, the peeling. I wore it like a badge.",
+      "intro": "I remember the feeling of a sunburn as a child. The sting, the heat, the peeling. I wore it like a badge.",
       "details": [
-        "A sunburn meant a good day: long, outdoor, unsupervised. Worth every itch.",
-        "My mother would scold me and apply something cold. The scolding was ritual: she knew I'd do it again."
+        "A sunburn meant a good day. Long, outdoor, unsupervised. Worth every itch.",
+        "My mother would scold me and apply something cold. The scolding was ritual. She knew I'd do it again."
       ],
       "reactions": [
         "Pain that comes from joy is different from ordinary pain. Children know the difference instinctively."
@@ -13243,7 +13243,7 @@
       "id": 736,
       "intro": "I used to press my ear against the wall at night and listen to my parents talk in the next room.",
       "details": [
-        "I couldn't make out words: just the rise and fall of voices. It was the sound of safety.",
+        "I couldn't make out words. Just the rise and fall of voices. It was the sound of safety.",
         "When the talking stopped, it meant sleep. When it continued, it meant the world was working."
       ],
       "reactions": [
@@ -13278,10 +13278,10 @@
     },
     {
       "id": 738,
-      "intro": "I remember the last day of summer as a child feeling like a genuine tragedy. The cold was coming, and with it: indoors.",
+      "intro": "I remember the last day of summer as a child feeling like a genuine tragedy. The cold was coming, and with it. Indoors.",
       "details": [
         "We'd squeeze every last hour out of the daylight, refusing to go in until it was truly dark.",
-        "Summer always ended the same way: my mother calling my name twice, then three times with increasing volume."
+        "Summer always ended the same way. My mother calling my name twice, then three times with increasing volume."
       ],
       "reactions": [
         "Every season felt permanent as a child. The transitions hit like betrayals."
@@ -13314,11 +13314,11 @@
       "id": 740,
       "intro": "My grandfather carved animals from scraps of wood. Every grandchild had a collection.",
       "details": [
-        "He'd whittle while he talked: a horse, a dog, a bird. By the end of the conversation, you had a gift.",
+        "He'd whittle while he talked. A horse, a dog, a bird. By the end of the conversation, you had a gift.",
         "I still have three of them on my shelf. The paint is gone but the shapes are perfect."
       ],
       "reactions": [
-        "A gift made by hand during conversation is three gifts at once: the object, the time, and the attention."
+        "A gift made by hand during conversation is three gifts at once. The object, the time, and the attention."
       ],
       "statCheck": {
         "pass": "He told me once that the carving was how he listened. His hands needed to be busy before his ears could open, so the animals were what attention looked like.",
@@ -13338,7 +13338,7 @@
         "Now someone makes the same trip every week. What was an event is just an errand."
       ],
       "reactions": [
-        "Accessibility killed the adventure. The destination is the same: the journey is empty."
+        "Accessibility killed the adventure. The destination is the same. The journey is empty."
       ],
       "statCheck": null,
       "valence": "neutral",
@@ -13351,8 +13351,8 @@
       "id": 742,
       "intro": "My father taught me to apologize by looking the person in the eye and meaning it. He said anything less is an insult.",
       "details": [
-        "I watched him apologize to a neighbor once: straight-backed, direct, no excuses. It took ten seconds.",
-        "The neighbor shook his hand and they never spoke of it again: done, clean, over."
+        "I watched him apologize to a neighbor once. Straight-backed, direct, no excuses. It took ten seconds.",
+        "The neighbor shook his hand and they never spoke of it again. Done, clean, over."
       ],
       "reactions": [
         "A real apology is quick, sincere, and leaves nothing to pick at later."
@@ -13375,7 +13375,7 @@
         "She treated rest as part of the work, not a break from it. I've never managed that balance."
       ],
       "statCheck": {
-        "pass": "She told me the rest wasn't laziness: it was maintenance. She said a machine that runs without stopping wears out twice as fast, and she intended to last.",
+        "pass": "She told me the rest wasn't laziness. It was maintenance. She said a machine that runs without stopping wears out twice as fast, and she intended to last.",
         "fail": "She napped in the afternoon. Plenty of people do."
       },
       "valence": "neutral",
@@ -13443,7 +13443,7 @@
       "intro": "There was a year when everyone's garden produced more than anyone could eat. Vegetables everywhere.",
       "details": [
         "People left baskets on each other's doorsteps. You'd wake up to more food than you'd gone to bed with.",
-        "We preserved what we could and still threw some away. The guilt of wasting food in a good year: that's a strange problem."
+        "We preserved what we could and still threw some away. The guilt of wasting food in a good year. That's a strange problem."
       ],
       "reactions": [
         "Abundance is its own kind of challenge, and we handled it worse than scarcity."
@@ -13460,7 +13460,7 @@
       "intro": "My grandmother said she knew she was getting old when the children she'd held as babies started holding her arm on walks.",
       "details": [
         "The reversal happened so gradually that neither side noticed the handoff.",
-        "She said it wasn't sad: it was the proof the system works. You raise them, they steady you."
+        "She said it wasn't sad. It was the proof the system works. You raise them, they steady you."
       ],
       "reactions": [
         "The cycle of care is the closest thing to a perfect circle in nature."
@@ -13503,7 +13503,7 @@
         "His rules were his own, and he applied them without bending. I respected that, even when I didn't follow."
       ],
       "statCheck": {
-        "pass": "He told me the real reason was guilt: he'd been idle as a young man and it nearly cost him everything. The work rule was his way of never going back.",
+        "pass": "He told me the real reason was guilt. He'd been idle as a young man and it nearly cost him everything. The work rule was his way of never going back.",
         "fail": "He had his ways. Couldn't sit still, I suppose."
       },
       "valence": "neutral",
@@ -13543,7 +13543,7 @@
         "Observation was its own kind of knowledge, and it died with the people who practiced it."
       ],
       "statCheck": {
-        "pass": "She told me once it wasn't the sky she was reading: it was the wind direction and the smell of the soil. She said the ground tells you what the clouds are planning.",
+        "pass": "She told me once it wasn't the sky she was reading. It was the wind direction and the smell of the soil. She said the ground tells you what the clouds are planning.",
         "fail": "She had a knack for weather. Some people just do."
       },
       "valence": "neutral",
@@ -13563,7 +13563,7 @@
         "Forgetting a path you used to know by heart is a small, specific kind of loss."
       ],
       "statCheck": {
-        "pass": "My mother told me the paths were how she met my father: they used the same shortcut through the fields every morning, and one day he waited for her.",
+        "pass": "My mother told me the paths were how she met my father. They used the same shortcut through the fields every morning, and one day he waited for her.",
         "fail": "I used to walk a lot. Feet remember even when the mind doesn't."
       },
       "valence": "negative",
@@ -13574,7 +13574,7 @@
     },
     {
       "id": 754,
-      "intro": "My mother kept flowers on the table no matter what. Even in winter, she'd find something: a branch, a dried sprig, anything.",
+      "intro": "My mother kept flowers on the table no matter what. Even in winter, she'd find something. A branch, a dried sprig, anything.",
       "details": [
         "She said a bare table is a sad table. The effort was small and the difference was real.",
         "I eat at a bare table most nights. She'd consider that a failure of imagination."
@@ -13594,7 +13594,7 @@
       "intro": "I used to count stars as a child. I'd pick a patch of sky and try to number every one I could see.",
       "details": [
         "I always lost count around forty and had to start over. The sky was patient with me.",
-        "I don't look up much anymore. The stars are still there: I'm just not."
+        "I don't look up much anymore. The stars are still there. I'm just not."
       ],
       "reactions": [
         "Looking up used to be automatic. Now it takes a conscious decision, and I rarely make it."
@@ -13667,7 +13667,7 @@
       "id": 759,
       "intro": "I remember the weight of my father's coat when he draped it over me. Too big, too warm, and perfect.",
       "details": [
-        "It smelled like him: smoke, leather, sweat. I'd pull it up to my chin and disappear inside it.",
+        "It smelled like him. Smoke, leather, sweat. I'd pull it up to my chin and disappear inside it.",
         "I outgrew the need for it long before I outgrew the comfort. Some things you never outgrow."
       ],
       "reactions": [
@@ -13742,7 +13742,7 @@
       "intro": "My grandmother always set one extra place at the table. She said you never know who might come by.",
       "details": [
         "Most nights the chair stayed empty. But when someone did show up, they had a place waiting.",
-        "The gesture said more than the food. It said: you're expected, even if you're not."
+        "The gesture said more than the food. It said. You're expected, even if you're not."
       ],
       "reactions": [
         "Hospitality prepared in advance is a form of faith in other people."
@@ -13778,7 +13778,7 @@
       "id": 765,
       "intro": "My mother's hands were never still. If she wasn't cooking, she was mending, and if she wasn't mending, she was cleaning.",
       "details": [
-        "She sat down to rest exactly once a day: after the evening meal, for the length of one cup of tea.",
+        "She sat down to rest exactly once a day. After the evening meal, for the length of one cup of tea.",
         "I rest constantly and accomplish half of what she did. Her energy was from another world."
       ],
       "reactions": [
@@ -13822,7 +13822,7 @@
         "Knowing when to stop is the skill nobody teaches because nobody profits from it."
       ],
       "statCheck": {
-        "pass": "He told me he learned that lesson the hard way: he worked himself sick in his twenties chasing something he couldn't name. When he recovered, he stopped chasing.",
+        "pass": "He told me he learned that lesson the hard way. He worked himself sick in his twenties chasing something he couldn't name. When he recovered, he stopped chasing.",
         "fail": "He was a moderate man. Simple as that."
       },
       "valence": "neutral",
@@ -13833,7 +13833,7 @@
     },
     {
       "id": 768,
-      "intro": "I remember the taste of water from the well behind our house: cold, mineral, slightly sweet. Nothing tastes like that now.",
+      "intro": "I remember the taste of water from the well behind our house. Cold, mineral, slightly sweet. Nothing tastes like that now.",
       "details": [
         "We'd haul the bucket up and drink straight from the ladle, dripping wet and out of breath.",
         "Water from anywhere else is just water. That well made it something more."
@@ -13892,14 +13892,14 @@
       "id": 771,
       "intro": "I remember the first time I stayed out after dark without permission. The thrill was indescribable.",
       "details": [
-        "Everything looked different at night: the same places made unfamiliar by shadow and silence.",
+        "Everything looked different at night. The same places made unfamiliar by shadow and silence.",
         "The scolding I got when I came home was worth every minute. Some rules need breaking once."
       ],
       "reactions": [
         "The first act of defiance is always the most vivid. Everything after that is repetition."
       ],
       "statCheck": {
-        "pass": "My mother told me she'd done the same thing as a girl. She said the scolding was theater: she wanted us to feel the thrill of rule-breaking because she remembered her own.",
+        "pass": "My mother told me she'd done the same thing as a girl. She said the scolding was theater. She wanted us to feel the thrill of rule-breaking because she remembered her own.",
         "fail": "Children push boundaries. That's what they do."
       },
       "valence": "positive",
@@ -13966,7 +13966,7 @@
       "id": 775,
       "intro": "I used to climb the tallest thing I could find and just sit there. The world looked better from above.",
       "details": [
-        "Rooftops, walls, tall rocks: anything that gave me height. I'd stay up there for hours.",
+        "Rooftops, walls, tall rocks. Anything that gave me height. I'd stay up there for hours.",
         "My knees don't allow that anymore. The view from ground level is all I've got."
       ],
       "reactions": [
@@ -14007,7 +14007,7 @@
         "Completion was a principle for him. The quality mattered less than the commitment."
       ],
       "statCheck": {
-        "pass": "He told me once that he was terrified of half-finished things because his own father left everything incomplete: projects, promises, his family. Finishing was his rebellion.",
+        "pass": "He told me once that he was terrified of half-finished things because his own father left everything incomplete. Projects, promises, his family. Finishing was his rebellion.",
         "fail": "He believed in finishing what you start. Old-fashioned, but consistent."
       },
       "valence": "neutral",
@@ -14021,7 +14021,7 @@
       "intro": "I remember the long evenings before winter, when the light lasted just a little longer than expected. We'd stretch those hours thin.",
       "details": [
         "My mother would keep us outside until the last trace of blue left the sky, then call us in.",
-        "The shift to darkness always felt sudden, like a door closing: one minute light, and then lamps."
+        "The shift to darkness always felt sudden, like a door closing. One minute light, and then lamps."
       ],
       "reactions": [
         "The last warm evenings of the year carry a sweetness that comes from knowing they're numbered."
@@ -14057,7 +14057,7 @@
       "id": 780,
       "intro": "We had a neighbor who played an instrument badly every evening. The whole street could hear it.",
       "details": [
-        "Nobody told him to stop. I think we all secretly looked forward to it: the same wrong notes, the same pause where he lost his place.",
+        "Nobody told him to stop. I think we all secretly looked forward to it. The same wrong notes, the same pause where he lost his place.",
         "When he stopped playing one winter, the evenings felt hollow. You miss a thing you thought annoyed you."
       ],
       "reactions": [
@@ -14095,7 +14095,7 @@
     },
     {
       "id": 782,
-      "intro": "I remember helping my father stack firewood. He had a system: bark facing out, nothing touching the wall.",
+      "intro": "I remember helping my father stack firewood. He had a system. Bark facing out, nothing touching the wall.",
       "details": [
         "If I put a piece wrong, he'd take it out and wait for me to try again. Patient but immovable.",
         "I stack my firewood in a pile now, no system. He'd consider it an insult to the wood."
@@ -14208,7 +14208,7 @@
       "id": 788,
       "intro": "I remember being afraid of the dark as a child and my mother leaving the door open a crack. That strip of light was everything.",
       "details": [
-        "The light said: I'm still here, the world is still there, nothing has changed since you closed your eyes.",
+        "The light said. I'm still here, the world is still there, nothing has changed since you closed your eyes.",
         "I sleep in full darkness now and think nothing of it. Fear leaves so gradually you don't notice it going."
       ],
       "reactions": [
@@ -14246,7 +14246,7 @@
       "intro": "There was a tree I used to sit under when I wanted to be alone. Everyone knew that was my spot.",
       "details": [
         "Nobody bothered me there. An unspoken agreement between the whole family.",
-        "The tree is gone now: split by lightning or age, I'm not sure. My solitude lost its address."
+        "The tree is gone now. Split by lightning or age, I'm not sure. My solitude lost its address."
       ],
       "reactions": [
         "Having a place that's yours requires no ownership. Just consistent presence and a silent agreement."
@@ -14286,7 +14286,7 @@
         "Every person who dies with unnamed knowledge takes a small library with them."
       ],
       "statCheck": {
-        "pass": "She told me her mother taught her by walking her through the fields every spring. The lessons were seasonal: you learned the flowers when they bloomed, not before.",
+        "pass": "She told me her mother taught her by walking her through the fields every spring. The lessons were seasonal. You learned the flowers when they bloomed, not before.",
         "fail": "She knew plants. Country woman, that's how it was."
       },
       "valence": "negative",
@@ -14374,13 +14374,13 @@
     },
     {
       "id": 797,
-      "intro": "There was a smell in our house in autumn: dried herbs, wood smoke, and something sweet my mother was always simmering.",
+      "intro": "There was a smell in our house in autumn. Dried herbs, wood smoke, and something sweet my mother was always simmering.",
       "details": [
         "The smell met you at the door and wrapped around you. It was the smell of being home.",
         "I've tried to recreate it in my own house. I get close but never quite right."
       ],
       "reactions": [
-        "Home has a scent, and you can't build it: it builds itself over years."
+        "Home has a scent, and you can't build it. It builds itself over years."
       ],
       "statCheck": null,
       "valence": "positive",
@@ -14505,13 +14505,13 @@
     },
     {
       "id": 804,
-      "intro": "My mother always made too much food. It wasn't accidental: she cooked for the possibility of guests.",
+      "intro": "My mother always made too much food. It wasn't accidental. She cooked for the possibility of guests.",
       "details": [
         "Leftovers went to neighbors, to anyone passing through, to the dog if nobody else appeared.",
         "Her kitchen operated on abundance as a policy. Scarcity was something she refused to practice."
       ],
       "reactions": [
-        "Cooking extra is a small act of optimism: it assumes the world will bring someone to your table."
+        "Cooking extra is a small act of optimism. It assumes the world will bring someone to your table."
       ],
       "statCheck": null,
       "valence": "positive",
@@ -14544,7 +14544,7 @@
       "id": 806,
       "intro": "My grandmother kept a jar of honey that lasted years. She used it a drop at a time, for medicine, not for taste.",
       "details": [
-        "A sore throat, a burn, a sleepless night: honey was the answer to everything.",
+        "A sore throat, a burn, a sleepless night. Honey was the answer to everything.",
         "I eat honey on bread by the spoonful. She'd call that reckless and wasteful."
       ],
       "reactions": [
@@ -14576,7 +14576,7 @@
     },
     {
       "id": 808,
-      "intro": "We used to draw pictures in the dirt with sticks: grand scenes of battles, houses, and animals. All gone by the next rain.",
+      "intro": "We used to draw pictures in the dirt with sticks. Grand scenes of battles, houses, and animals. All gone by the next rain.",
       "details": [
         "We didn't care that they'd vanish. The making was the point, not the keeping.",
         "I can't remember the last time I made something with no intention of it lasting."
@@ -14602,7 +14602,7 @@
         "Some people change the atmosphere just by being in it. Her absence is a draft I can't find."
       ],
       "statCheck": {
-        "pass": "My father told me the warmth wasn't imagined: she moved through a room straightening, adjusting, opening, and the activity itself stirred the air. Her presence was physical.",
+        "pass": "My father told me the warmth wasn't imagined. She moved through a room straightening, adjusting, opening, and the activity itself stirred the air. Her presence was physical.",
         "fail": "She was a warm person. People like that make a house feel different."
       },
       "valence": "negative",
@@ -14707,7 +14707,7 @@
       "intro": "We used to walk to {other_settlement} for the market. The walk was half the fun.",
       "details": [
         "My father would point out plants, tracks, and cloud shapes the whole way. A walking lesson in everything.",
-        "The walk back was quieter: tired legs, full packs, and the satisfaction of a day spent well."
+        "The walk back was quieter. Tired legs, full packs, and the satisfaction of a day spent well."
       ],
       "reactions": [
         "A journey that's too easy isn't really a journey. The effort made the arrival worthwhile."
@@ -14795,7 +14795,7 @@
     },
     {
       "id": 820,
-      "intro": "My father taught me to shake hands properly: firm, brief, with eye contact. He drilled it like combat training.",
+      "intro": "My father taught me to shake hands properly. Firm, brief, with eye contact. He drilled it like combat training.",
       "details": [
         "Too soft meant weak, too long meant desperate, and too hard meant showing off. The balance was everything.",
         "I still judge people by their handshake. His training runs deeper than I'd like to admit."
@@ -14815,9 +14815,9 @@
     },
     {
       "id": 821,
-      "intro": "There was a sound our front door made when it closed: a particular clunk that meant someone was home.",
+      "intro": "There was a sound our front door made when it closed. A particular clunk that meant someone was home.",
       "details": [
-        "I could tell who it was by how hard the door shut: my father firm, my mother gentle, my brother careless.",
+        "I could tell who it was by how hard the door shut. My father firm, my mother gentle, my brother careless.",
         "The door is gone but the sound lives in my memory. A vocabulary of arrivals."
       ],
       "reactions": [
@@ -14852,10 +14852,10 @@
     },
     {
       "id": 823,
-      "intro": "I remember my first tool. A small knife my father gave me with a warning and a look that said: don't make me regret this.",
+      "intro": "I remember my first tool. A small knife my father gave me with a warning and a look that said. Don't make me regret this.",
       "details": [
         "I cut myself within the hour. He bandaged it without comment and handed the knife back.",
-        "That was his teaching method: give the thing, let the thing teach."
+        "That was his teaching method. Give the thing, let the thing teach."
       ],
       "reactions": [
         "Trust from a parent is a sharper tool than anything made of metal."
@@ -14889,7 +14889,7 @@
       "intro": "We used to mark our heights on the doorframe every year. A ladder of notches climbing upward.",
       "details": [
         "My mother made the marks with a knife and wrote the date. Each one a record of growing.",
-        "The doorframe is long gone but I remember where my last notch was: just below my father's chin."
+        "The doorframe is long gone but I remember where my last notch was. Just below my father's chin."
       ],
       "reactions": [
         "Growth is invisible until you measure it against something fixed."
@@ -14932,7 +14932,7 @@
         "Planning for the next season while still in this one was her way of insisting the future was worth having."
       ],
       "statCheck": {
-        "pass": "She told me keeping seeds was how she survived a hard year when she was young. The bags weren't planning: they were fear, domesticated into habit.",
+        "pass": "She told me keeping seeds was how she survived a hard year when she was young. The bags weren't planning. They were fear, domesticated into habit.",
         "fail": "She was practical. Didn't like waste."
       },
       "valence": "neutral",
@@ -14945,7 +14945,7 @@
       "id": 828,
       "intro": "I remember the first time I earned something with my own work. The feeling was different from being given things.",
       "details": [
-        "It wasn't much: a few coins for a day's labor. But they sat in my hand like they weighed more than they should.",
+        "It wasn't much. A few coins for a day's labor. But they sat in my hand like they weighed more than they should.",
         "The difference between given and earned is invisible from outside. From inside, it's enormous."
       ],
       "reactions": [
@@ -14960,7 +14960,7 @@
     },
     {
       "id": 829,
-      "intro": "My mother said you could tell the character of a household by its doorstep. Clean step: clean conscience.",
+      "intro": "My mother said you could tell the character of a household by its doorstep. Clean step. Clean conscience.",
       "details": [
         "She swept ours every morning before anyone was awake. It was the face of the family, she said.",
         "My doorstep has a crack in it and a scuff I've never cleaned. She'd make conclusions."
@@ -14969,7 +14969,7 @@
         "She read the world through details most people step over without seeing."
       ],
       "statCheck": {
-        "pass": "She told me she'd judged a household by its step once and been wrong: the cleanest doorstep on the street belonged to the cruelest family. After that, she swept hers twice as hard, as if cleanliness could cancel what she'd learned.",
+        "pass": "She told me she'd judged a household by its step once and been wrong. The cleanest doorstep on the street belonged to the cruelest family. After that, she swept hers twice as hard, as if cleanliness could cancel what she'd learned.",
         "fail": "She kept a clean step. Took pride in it."
       },
       "valence": "neutral",
@@ -14983,7 +14983,7 @@
       "intro": "We used to know everyone's business because there wasn't enough space not to. Privacy was a polite fiction.",
       "details": [
         "You heard arguments through walls and celebrations through floors. Life was a shared experience, wanted or not.",
-        "People keep to themselves more now: quieter, maybe, but lonelier for certain."
+        "People keep to themselves more now. Quieter, maybe, but lonelier for certain."
       ],
       "reactions": [
         "Trading privacy for isolation was a bargain we didn't know we were making."
@@ -15020,7 +15020,7 @@
       "intro": "My grandmother patched things with whatever was at hand. Function over beauty, always.",
       "details": [
         "A pot fixed with wire, a chair leg replaced with a branch, a blanket mended with a flour sack. All ugly, all solid.",
-        "Her repairs were visible and proud. She didn't hide the fix: she displayed it."
+        "Her repairs were visible and proud. She didn't hide the fix. She displayed it."
       ],
       "reactions": [
         "There's an honesty in a visible repair that perfection can't match."
@@ -15060,7 +15060,7 @@
         "Consistency without an audience is the hardest kind of integrity."
       ],
       "statCheck": {
-        "pass": "He told me the real reason was fear: he'd once done something dishonest when no one was watching and the shame followed him for years. His consistency was penance, not principle.",
+        "pass": "He told me the real reason was fear. He'd once done something dishonest when no one was watching and the shame followed him for years. His consistency was penance, not principle.",
         "fail": "He was an honest man. Same in public and private."
       },
       "valence": "neutral",
@@ -15122,7 +15122,7 @@
     },
     {
       "id": 838,
-      "intro": "I remember my mother crying exactly once: she went outside, stood in the yard, and came back with dry eyes.",
+      "intro": "I remember my mother crying exactly once. She went outside, stood in the yard, and came back with dry eyes.",
       "details": [
         "She thought nobody saw. I watched from the window and knew something had broken and been repaired in five minutes.",
         "Her composure afterward was flawless. Whatever it was, she carried it alone."
@@ -15181,7 +15181,7 @@
       "id": 841,
       "intro": "My grandmother measured fabric against her own body. No tools, just her arm span and her eye.",
       "details": [
-        "She was accurate every time: the fabric fell exactly where she said it would.",
+        "She was accurate every time. The fabric fell exactly where she said it would.",
         "She distrusted rulers and measuring sticks. She said the body knows its own measurements better than any tool."
       ],
       "reactions": [
@@ -15216,7 +15216,7 @@
     },
     {
       "id": 843,
-      "intro": "My mother always put us before herself. The last portion, the thinnest blanket, the earliest rising: all hers.",
+      "intro": "My mother always put us before herself. The last portion, the thinnest blanket, the earliest rising. All hers.",
       "details": [
         "She made sacrifice look like preference. As if she wanted the smallest piece.",
         "I didn't see it as a child. Now I see it every time I feed someone before myself."
@@ -15238,7 +15238,7 @@
       "id": 844,
       "intro": "My father could identify a tree by its bark alone, in the dark, by touch. He ran his hand along it and just knew.",
       "details": [
-        "Rough or smooth, ridged or flat: each species had a texture he'd memorized through years of working with them.",
+        "Rough or smooth, ridged or flat. Each species had a texture he'd memorized through years of working with them.",
         "I can name three kinds of tree, but he could name thirty by feel. The world was richer in his hands."
       ],
       "reactions": [
@@ -15255,7 +15255,7 @@
       "id": 845,
       "intro": "There was always someone singing somewhere in the evening when I was young. The air carried it between houses.",
       "details": [
-        "You'd hear a voice from three doors down, faint and careless. Nobody performed: they just sang.",
+        "You'd hear a voice from three doors down, faint and careless. Nobody performed. They just sang.",
         "Evenings are quieter now. People keep their voices inside, or they've stopped singing altogether."
       ],
       "reactions": [
@@ -15290,7 +15290,7 @@
     },
     {
       "id": 847,
-      "intro": "I remember the particular silence of a house after everyone has gone to sleep. Not empty silence: full silence.",
+      "intro": "I remember the particular silence of a house after everyone has gone to sleep. Not empty silence. Full silence.",
       "details": [
         "The breathing, the settling of wood, the wind outside. All the sounds that silence is made of.",
         "I'd lie awake and listen to the house being alive around me. It was company without conversation."
@@ -15329,7 +15329,7 @@
       "id": 849,
       "intro": "{settlement_name} had a different feel when I was growing up. Smaller, tighter, more like a family than a place.",
       "details": [
-        "Everyone pitched in when something needed doing. You didn't have to ask: people just showed up.",
+        "Everyone pitched in when something needed doing. You didn't have to ask. People just showed up.",
         "We still help each other, but it takes longer to organize. The instinct faded into politeness."
       ],
       "reactions": [
@@ -15361,7 +15361,7 @@
     },
     {
       "id": 851,
-      "intro": "We used to have longer meals: not more food, just more time. Conversation was part of the course.",
+      "intro": "We used to have longer meals. Not more food, just more time. Conversation was part of the course.",
       "details": [
         "My father would talk through the second helping and my mother would add stories from her day. The food was the frame, not the painting.",
         "I eat in silence most nights, quickly, and clear the plate. The meal is fuel now, not an event."
@@ -15383,7 +15383,7 @@
       "id": 852,
       "intro": "My mother had a remedy for everything. Warm cloth for aches, cold water for fever, honey for the throat.",
       "details": [
-        "She wasn't a healer: she was a mother with a system that worked often enough to be trusted.",
+        "She wasn't a healer. She was a mother with a system that worked often enough to be trusted.",
         "Half of the cure was probably the confidence in her voice. She told you it would help and it did."
       ],
       "reactions": [
@@ -15420,7 +15420,7 @@
       "id": 854,
       "intro": "I remember the first heavy snow of winter making everything look new. The world repainted itself overnight.",
       "details": [
-        "Familiar shapes became unknown. The well, the fence, the path: all buried under white, waiting to be rediscovered.",
+        "Familiar shapes became unknown. The well, the fence, the path. All buried under white, waiting to be rediscovered.",
         "We'd break trails through it with our boots, claiming routes like explorers in our own yard."
       ],
       "reactions": [
@@ -15458,7 +15458,7 @@
         "I take shortcuts and rush. He walked slowly because the walking was the point, not the arrival."
       ],
       "reactions": [
-        "Speed erases detail. His pace let the world in: mine keeps it at arm's length."
+        "Speed erases detail. His pace let the world in. Mine keeps it at arm's length."
       ],
       "statCheck": {
         "pass": "He told me he started walking after a year of being confined with a broken leg. He said he'd promised himself he'd never take movement for granted again.",
@@ -15474,14 +15474,14 @@
       "id": 857,
       "intro": "There was a way the house creaked in winter when the cold got into the wood. Every night, the same groans in the same order.",
       "details": [
-        "I knew the sequence by heart: the beam above the kitchen, then the floor near the door, then the window frame.",
+        "I knew the sequence by heart. The beam above the kitchen, then the floor near the door, then the window frame.",
         "I found it frightening at first. Then it became the house talking, and I stopped being afraid."
       ],
       "reactions": [
         "Familiar sounds turn frightening things into companions. Repetition is the cure for fear."
       ],
       "statCheck": {
-        "pass": "My mother told me she gave the creaks names: the Kitchen, the Door, the Window. She said naming them turned the house from something that groaned into something that spoke.",
+        "pass": "My mother told me she gave the creaks names. The Kitchen, the Door, the Window. She said naming them turned the house from something that groaned into something that spoke.",
         "fail": "Old houses creak. You get used to it."
       },
       "valence": "neutral",
@@ -15492,7 +15492,7 @@
     },
     {
       "id": 858,
-      "intro": "My mother could make a celebration out of nothing. A clear night, a good harvest, a child's loose tooth: all worthy of fuss.",
+      "intro": "My mother could make a celebration out of nothing. A clear night, a good harvest, a child's loose tooth. All worthy of fuss.",
       "details": [
         "She'd light an extra candle and call it a feast. The food was the same but the occasion was invented and real.",
         "I let good things pass without marking them. She knew that celebration is a choice, not a reaction."
@@ -15560,7 +15560,7 @@
     },
     {
       "id": 862,
-      "intro": "We used to trade food with neighbors without keeping track: my mother brought stew and they brought bread. Nobody tallied.",
+      "intro": "We used to trade food with neighbors without keeping track. My mother brought stew and they brought bread. Nobody tallied.",
       "details": [
         "The exchanges happened so naturally that nobody thought of them as transactions. Just living near each other.",
         "People keep to their own kitchens now. The sharing stopped so gradually I can't say when."
@@ -15597,7 +15597,7 @@
     },
     {
       "id": 864,
-      "intro": "I remember hating chores as a child and not understanding why they mattered. Now I understand: they were the shape of the day.",
+      "intro": "I remember hating chores as a child and not understanding why they mattered. Now I understand. They were the shape of the day.",
       "details": [
         "Sweep, carry, wash, stack. The rhythm was the structure that held everything else up.",
         "Without chores, the day had no spine. I know that now because my aimless days prove it."
@@ -15634,7 +15634,7 @@
     },
     {
       "id": 866,
-      "intro": "My mother believed in thank-you notes for everything. A favor, a gift, a kind word: all required written acknowledgment.",
+      "intro": "My mother believed in thank-you notes for everything. A favor, a gift, a kind word. All required written acknowledgment.",
       "details": [
         "She'd sit me down with ink and paper and not let me leave until the words were right.",
         "I barely thank people out loud now. She built a habit in me that I let crumble."
@@ -15651,9 +15651,9 @@
     },
     {
       "id": 867,
-      "intro": "I remember the first time I beat my father at something: a foot race, of all things. He looked surprised and then proud.",
+      "intro": "I remember the first time I beat my father at something. A foot race, of all things. He looked surprised and then proud.",
       "details": [
-        "He didn't let me win: I could tell because he tried to catch up and couldn't.",
+        "He didn't let me win. I could tell because he tried to catch up and couldn't.",
         "That was the day I realized he was getting slower and I was getting faster. A bittersweet crossing point."
       ],
       "reactions": [
@@ -15687,7 +15687,7 @@
       "id": 869,
       "intro": "We used to know {npc_name}'s family well. Shared meals, shared work, the kind of closeness that doesn't need arranging.",
       "details": [
-        "Our doors were always open to each other. You didn't knock: you just walked in and sat down.",
+        "Our doors were always open to each other. You didn't knock. You just walked in and sat down.",
         "That kind of familiarity takes years to build and minutes to lose. One move, one disagreement, and it fades."
       ],
       "reactions": [
@@ -15747,7 +15747,7 @@
         "I throw out food I've forgotten in the back of the shelf. She'd consider that a kind of betrayal."
       ],
       "reactions": [
-        "Her relationship with food was personal and reciprocal: she respected it and it sustained her fully."
+        "Her relationship with food was personal and reciprocal. She respected it and it sustained her fully."
       ],
       "statCheck": null,
       "valence": "neutral",
@@ -15780,11 +15780,11 @@
       "id": 874,
       "intro": "My father kept a journal but never let anyone read it. He wrote by candlelight after we were asleep.",
       "details": [
-        "I don't know what was in it. I imagine it was ordinary things: the day's work, the weather, what we said.",
+        "I don't know what was in it. I imagine it was ordinary things. The day's work, the weather, what we said.",
         "The journal was buried with him. His thoughts, sealed and private, exactly as he wanted."
       ],
       "reactions": [
-        "A private record kept consistently says: my days mattered, even if only to me."
+        "A private record kept consistently says. My days mattered, even if only to me."
       ],
       "statCheck": {
         "pass": "My mother told me he started the journal the day I was born. He wanted a record of the family we were building, in case his memory failed.",
@@ -15817,7 +15817,7 @@
       "id": 876,
       "intro": "I remember helping my mother wash clothes in a basin. Arms deep in water, wringing until my hands were red.",
       "details": [
-        "She made it look easy: the scrubbing, the twisting, the hanging. Her arms were stronger than mine at twice my age.",
+        "She made it look easy. The scrubbing, the twisting, the hanging. Her arms were stronger than mine at twice my age.",
         "Wash day was an all-day affair, and now it's an afterthought. Something was lost when the labor went away."
       ],
       "reactions": [
@@ -15875,7 +15875,7 @@
       "intro": "We never locked the shed. Everything in it was available to anyone who needed something.",
       "details": [
         "Neighbors would borrow a shovel and return it the next day, sometimes with a loaf of bread as thanks.",
-        "The trust required to leave things unlocked for others seems impossible now. It wasn't: it was just normal."
+        "The trust required to leave things unlocked for others seems impossible now. It wasn't. It was just normal."
       ],
       "reactions": [
         "Trust is a muscle that weakens when it's not used, and we stopped exercising it somewhere along the way."
@@ -15948,7 +15948,7 @@
       "id": 883,
       "intro": "My mother had a laugh reserved for my father. I never heard her use it with anyone else.",
       "details": [
-        "It was quieter than her regular laugh: more private, more real. The laugh she wore when nobody was performing.",
+        "It was quieter than her regular laugh. More private, more real. The laugh she wore when nobody was performing.",
         "I heard it through walls and around corners. It meant everything was fine between them."
       ],
       "reactions": [
@@ -16022,7 +16022,7 @@
       "id": 887,
       "intro": "I remember the texture of my mother's apron when I hugged her waist. Flour-dusted, rough, warm from her body.",
       "details": [
-        "That apron was my eye-level world for years: the fabric, the stains, the pocket she kept a rag in.",
+        "That apron was my eye-level world for years. The fabric, the stains, the pocket she kept a rag in.",
         "I can conjure the feeling of that cloth against my cheek faster than I can conjure her face. The body remembers what the mind loses."
       ],
       "reactions": [
@@ -16060,7 +16060,7 @@
       "intro": "There was a spot where the road to {other_settlement} crested a hill, and you could see for miles. We always stopped there.",
       "details": [
         "My father would stand and look out like he was cataloging the whole view. The rest of us just breathed.",
-        "I pass that same spot now and don't slow down. The view hasn't changed: my attention has."
+        "I pass that same spot now and don't slow down. The view hasn't changed. My attention has."
       ],
       "reactions": [
         "Stopping to look at something beautiful used to be automatic. Now it's something I have to remember to do."
@@ -16096,7 +16096,7 @@
       "id": 891,
       "intro": "I remember the exact color of the sky the evening my father taught me to tie my first knot. Orange fading to purple.",
       "details": [
-        "The lesson itself was simple: loop, wrap, pull. But the sky was extraordinary and it burned the moment into me.",
+        "The lesson itself was simple. Loop, wrap, pull. But the sky was extraordinary and it burned the moment into me.",
         "The skill I learned that evening is forgettable, but the sky isn't. Memory chooses what to keep for strange reasons."
       ],
       "reactions": [
@@ -16148,9 +16148,9 @@
     },
     {
       "id": 894,
-      "intro": "I remember the last conversation I had with my grandfather: it was about the weather. Perfectly ordinary.",
+      "intro": "I remember the last conversation I had with my grandfather. It was about the weather. Perfectly ordinary.",
       "details": [
-        "He said it might rain and I said I hoped not: that was it, the last words between us, and neither of us knew.",
+        "He said it might rain and I said I hoped not. That was it, the last words between us, and neither of us knew.",
         "I wish it had been something grander, but he would have hated a dramatic farewell. The weather was right."
       ],
       "reactions": [
@@ -16167,7 +16167,7 @@
       "id": 895,
       "intro": "My mother said sleep cures half of what ails you and the other half looks better in the morning. She was mostly right.",
       "details": [
-        "Her answer to every worry was: go to sleep. The morning will sort it out.",
+        "Her answer to every worry was. Go to sleep. The morning will sort it out.",
         "I lie awake sorting problems she would have slept through. Her faith in the dawn was something I never acquired."
       ],
       "reactions": [
@@ -16188,7 +16188,7 @@
       "intro": "My father could walk into a room and know who'd been arguing. He read tension like a book.",
       "details": [
         "He'd look at the faces, pause, and change the subject to something harmless. A natural diplomat.",
-        "I walk into tension and make it worse by asking what's wrong. His instinct was to dissolve it: mine is to name it."
+        "I walk into tension and make it worse by asking what's wrong. His instinct was to dissolve it. Mine is to name it."
       ],
       "reactions": [
         "The ability to defuse without acknowledging is a social skill that requires both awareness and restraint."
@@ -16224,7 +16224,7 @@
       "id": 898,
       "intro": "My grandmother said everyone carries a sorrow they don't talk about. She treated every person as if they might be carrying theirs.",
       "details": [
-        "Her gentleness wasn't weakness: it was a policy based on the assumption that everyone is fighting something.",
+        "Her gentleness wasn't weakness. It was a policy based on the assumption that everyone is fighting something.",
         "I judge people quickly and harshly. Her grace came from a premise I haven't adopted."
       ],
       "reactions": [

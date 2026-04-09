@@ -32,7 +32,7 @@
     },
     {
       "id": 2,
-      "intro": "Someone always drinks too much at the celebration. Last time it was the carpenter: fell asleep on a hay bale and nobody noticed until morning.",
+      "intro": "Someone always drinks too much at the celebration. Last time it was the carpenter. Fell asleep on a hay bale and nobody noticed until morning.",
       "details": [
         "He said the ale was stronger than he expected. It's the same ale every year.",
         "His wife wasn't pleased. I could hear her all the way from my house."
@@ -58,8 +58,8 @@
       "id": 4,
       "intro": "I skipped the festival this year. Just wasn't in the mood for all the noise and commotion.",
       "details": [
-        "I could hear it from my house: the laughing, the music, the shouting. Sounded like a good time, honestly.",
-        "My neighbor brought me a plate of food afterward. Didn't ask why I wasn't there: just left it at the door."
+        "I could hear it from my house. The laughing, the music, the shouting. Sounded like a good time, honestly.",
+        "My neighbor brought me a plate of food afterward. Didn't ask why I wasn't there. Just left it at the door."
       ],
       "reactions": [
         "Maybe next time. Some years you just want the quiet."
@@ -78,13 +78,13 @@
       ],
       "statCheck": {
         "pass": "They built it too close to the trees this time. A good ten paces farther and it wouldn't have been a problem.",
-        "fail": "I don't know much about building fires. It looked big: that's about all I can say."
+        "fail": "I don't know much about building fires. It looked big. That's about all I can say."
       },
       "valence": "negative"
     },
     {
       "id": 6,
-      "intro": "The competitions are my favorite part of any celebration. Nothing serious: just people showing off and having a laugh.",
+      "intro": "The competitions are my favorite part of any celebration. Nothing serious. Just people showing off and having a laugh.",
       "details": [
         "There's always an arm-wrestling contest. The smith wins every year and acts surprised about it every year.",
         "Someone organized a foot race last time. Half the runners tripped over each other at the start."

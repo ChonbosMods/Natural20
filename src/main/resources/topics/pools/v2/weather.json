@@ -13,7 +13,7 @@
         "At least the garden needed it. Silver lining, I suppose."
       ],
       "statCheck": {
-        "pass": "Rain like that usually comes from the south this time of year. Warm front pushing in: we'll get a few more days of it.",
+        "pass": "Rain like that usually comes from the south this time of year. Warm front pushing in. We'll get a few more days of it.",
         "fail": "Couldn't tell you why it rained so hard. Weather does what it wants."
       },
       "valence": "neutral"
@@ -22,7 +22,7 @@
       "id": 1,
       "intro": "This heat is something else. I've been sweating since I woke up and I haven't done a thing.",
       "details": [
-        "The dog won't leave the shade. Can't blame him: I wouldn't either if I didn't have work to do.",
+        "The dog won't leave the shade. Can't blame him. I wouldn't either if I didn't have work to do.",
         "I drank a whole pitcher of water before noon. Still thirsty."
       ],
       "reactions": [
@@ -32,7 +32,7 @@
     },
     {
       "id": 2,
-      "intro": "Beautiful morning today: cool air, clear sky, not a cloud anywhere. Days like this make up for the rest.",
+      "intro": "Beautiful morning today. Cool air, clear sky, not a cloud anywhere. Days like this make up for the rest.",
       "details": [
         "I actually sat outside and had my breakfast for once. Usually I'm rushing, but today I just sat.",
         "The light hits the valley just right in the mornings. Everything looks golden for about an hour."
@@ -44,7 +44,7 @@
     },
     {
       "id": 3,
-      "intro": "The mud out there is unbelievable. I lost a boot in it yesterday: had to dig it out with my hands.",
+      "intro": "The mud out there is unbelievable. I lost a boot in it yesterday. Had to dig it out with my hands.",
       "details": [
         "The main path is basically a river right now. Everyone's walking on the grass instead.",
         "My neighbor laid planks across the worst part. Decent of him, but they sank by afternoon."
@@ -53,7 +53,7 @@
         "You just learn to live with it. Scrape your boots, hang your trousers, do it again tomorrow."
       ],
       "statCheck": {
-        "pass": "Ground's been saturated for weeks now. Won't dry out until we get a solid stretch of sun: three days at least.",
+        "pass": "Ground's been saturated for weeks now. Won't dry out until we get a solid stretch of sun. Three days at least.",
         "fail": "Beats me when it'll dry up. Mud's mud."
       },
       "valence": "negative"
@@ -69,14 +69,14 @@
         "Nothing to do but wait it out. Wind stops when it stops."
       ],
       "statCheck": {
-        "pass": "Comes in gusts from the northwest: that means it'll blow itself out by tomorrow. Ridge breaks it up eventually.",
+        "pass": "Comes in gusts from the northwest. That means it'll blow itself out by tomorrow. Ridge breaks it up eventually.",
         "fail": "I'm no good at reading wind. Could be another day, could be a week."
       },
       "valence": "neutral"
     },
     {
       "id": 5,
-      "intro": "Frost this morning: went outside and the whole garden was white. Wasn't expecting that this late in the season.",
+      "intro": "Frost this morning. Went outside and the whole garden was white. Wasn't expecting that this late in the season.",
       "details": [
         "The beans I just planted are probably done for. I should've waited another week.",
         "My water trough had a skin of ice on it. The goats just stood there staring at it like they'd been personally insulted."
@@ -85,16 +85,16 @@
         "That's farming for you. The weather doesn't check your schedule."
       ],
       "statCheck": {
-        "pass": "Clear night, no wind, low ground: that's exactly when frost sneaks in. Should've covered the beds.",
+        "pass": "Clear night, no wind, low ground. That's exactly when frost sneaks in. Should've covered the beds.",
         "fail": "Frost in spring is frost in spring. Not much more to say about it."
       },
       "valence": "neutral"
     },
     {
       "id": 6,
-      "intro": "It's been gray and drizzly for a week now. Not real rain: just enough to keep everything damp and miserable.",
+      "intro": "It's been gray and drizzly for a week now. Not real rain. Just enough to keep everything damp and miserable.",
       "details": [
-        "Everything smells like wet wool: my house, my clothes, all of it.",
+        "Everything smells like wet wool. My house, my clothes, all of it.",
         "The cats are furious about it. They sit by the door, look outside, and then look at me like it's my fault."
       ],
       "reactions": [

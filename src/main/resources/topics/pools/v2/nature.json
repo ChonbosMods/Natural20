@@ -20,7 +20,7 @@
     },
     {
       "id": 1,
-      "intro": "The birds have been loud this week. I mean really loud: starts before dawn.",
+      "intro": "The birds have been loud this week. I mean really loud. Starts before dawn.",
       "details": [
         "There's one in particular that sounds like it's screaming a question over and over. No answer ever comes.",
         "I used to like birdsong. Now I just want five more minutes of sleep."
@@ -34,7 +34,7 @@
       "id": 2,
       "intro": "I found a patch of wild berries along the trail the other day. Ate so many I made myself sick.",
       "details": [
-        "They were perfect: dark, sweet, stained my fingers purple. The kind you only find once a season.",
+        "They were perfect. Dark, sweet, stained my fingers purple. The kind you only find once a season.",
         "I meant to pick some to bring home but I just kept eating them on the spot."
       ],
       "reactions": [
@@ -53,7 +53,7 @@
         "It always comes back eventually, but the waiting makes you nervous."
       ],
       "statCheck": {
-        "pass": "The water table drops when we get a dry spring. The creek's fed by runoff: it'll come back once we get a few good rains.",
+        "pass": "The water table drops when we get a dry spring. The creek's fed by runoff. It'll come back once we get a few good rains.",
         "fail": "I don't understand where water comes from or where it goes. It just does."
       },
       "valence": "neutral"
@@ -63,7 +63,7 @@
       "intro": "There's a fox that comes through every evening along the fence line. Same time, same path.",
       "details": [
         "It walks right along the fence like it owns the place. Doesn't even look at me anymore.",
-        "I've started leaving a bit of meat out. My wife says I'm encouraging it: she's probably right."
+        "I've started leaving a bit of meat out. My wife says I'm encouraging it. She's probably right."
       ],
       "reactions": [
         "I like having it around. Makes the evening a little less dull."
@@ -78,7 +78,7 @@
       "id": 5,
       "intro": "The flies have been unbearable lately. I can't eat outside without swallowing one.",
       "details": [
-        "I've tried herbs, smoke, waving my arms like a fool: nothing works.",
+        "I've tried herbs, smoke, waving my arms like a fool. Nothing works.",
         "They're worse this year than I ever remember. Must be something rotting nearby that I can't find."
       ],
       "reactions": [
@@ -97,7 +97,7 @@
         "I almost didn't want to eat it. Almost."
       ],
       "statCheck": {
-        "pass": "Carrots fork when the taproot meets resistance: a stone, hard clay, even another root. The soil around here is rocky, so it happens a lot.",
+        "pass": "Carrots fork when the taproot meets resistance. A stone, hard clay, even another root. The soil around here is rocky, so it happens a lot.",
         "fail": "No idea why they grow like that. Just one of those things."
       },
       "valence": "neutral"
