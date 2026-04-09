@@ -28,9 +28,10 @@ public class QuestPoolRegistry {
     private static final String CLASSPATH_PREFIX = "quests/pools/";
 
     /** Entry with id + label + optional plural label for items/mobs. */
-    public record ItemEntry(String id, String label, String labelPlural, String category, int countMin, int countMax) {
+    public record ItemEntry(String id, String label, String labelPlural, String category,
+                             int countMin, int countMax, @Nullable String fetchItemType) {
         public ItemEntry(String id, String label, String labelPlural) {
-            this(id, label, labelPlural, null, 0, 0);
+            this(id, label, labelPlural, null, 0, 0, null);
         }
     }
 
@@ -270,7 +271,8 @@ public class QuestPoolRegistry {
             String category = obj.has("category") ? obj.get("category").getAsString() : null;
             int countMin = obj.has("countMin") ? obj.get("countMin").getAsInt() : 0;
             int countMax = obj.has("countMax") ? obj.get("countMax").getAsInt() : 0;
-            target.add(new ItemEntry(id, label, labelPlural, category, countMin, countMax));
+            String fetchItemType = obj.has("fetchItemType") ? obj.get("fetchItemType").getAsString() : null;
+            target.add(new ItemEntry(id, label, labelPlural, category, countMin, countMax, fetchItemType));
         }
     }
 
@@ -596,18 +598,41 @@ public class QuestPoolRegistry {
     }
 
     /**
-     * Map a quest pool item ID to its base Nat20 item type for chest spawning.
+     * Resolve the Hytale item type for a quest pool entry.
+     * Prefers the per-entry fetchItemType; falls back to category-based defaults.
      */
-    public static String getBaseItemType(String poolItemId) {
-        if (poolItemId == null) return "nat20:quest_document";
-        if (poolItemId.startsWith("keepsake_")) return "nat20:quest_keepsake";
+    public static String getBaseItemType(@Nullable ItemEntry entry) {
+        if (entry != null && entry.fetchItemType() != null) {
+            return "nat20:" + capitalize(entry.fetchItemType());
+        }
+        return getBaseItemType(entry != null ? entry.id() : null);
+    }
+
+    /**
+     * Legacy: map a pool item ID to its base Nat20 item type.
+     */
+    public static String getBaseItemType(@Nullable String poolItemId) {
+        if (poolItemId == null) return "nat20:Quest_Document";
+        if (poolItemId.startsWith("keepsake_")) return "nat20:Quest_Keepsake";
         if ("evidence_letter".equals(poolItemId) || "evidence_correspondence".equals(poolItemId))
-            return "nat20:quest_letter";
+            return "nat20:Quest_Letter";
         if ("evidence_signet".equals(poolItemId) || "evidence_token".equals(poolItemId)
                 || "evidence_map".equals(poolItemId))
-            return "nat20:quest_treasure";
-        if (poolItemId.startsWith("evidence_")) return "nat20:quest_document";
-        return "nat20:quest_document";
+            return "nat20:Quest_Treasure";
+        if (poolItemId.startsWith("evidence_")) return "nat20:Quest_Document";
+        return "nat20:Quest_Document";
+    }
+
+    static String capitalize(String s) {
+        if (s == null || s.isEmpty()) return s;
+        StringBuilder sb = new StringBuilder();
+        for (String part : s.split("_")) {
+            if (!part.isEmpty()) {
+                if (!sb.isEmpty()) sb.append('_');
+                sb.append(Character.toUpperCase(part.charAt(0))).append(part.substring(1));
+            }
+        }
+        return sb.toString();
     }
 
     private void loadSituationTones(Path file) {
@@ -619,5 +644,24 @@ public class QuestPoolRegistry {
         } catch (IOException e) {
             LOGGER.atSevere().withCause(e).log("Failed to load situation tones: %s", file);
         }
+    }
+
+    public @Nullable ItemEntry findKeepsakeById(String id) {
+        for (ItemEntry entry : keepsakeItems) {
+            if (entry.id().equals(id)) return entry;
+        }
+        return null;
+    }
+
+    public @Nullable ItemEntry findEvidenceById(String id) {
+        for (ItemEntry entry : evidenceItems) {
+            if (entry.id().equals(id)) return entry;
+        }
+        return null;
+    }
+
+    public @Nullable ItemEntry findFetchItemById(String id) {
+        ItemEntry entry = findKeepsakeById(id);
+        return entry != null ? entry : findEvidenceById(id);
     }
 }
