@@ -390,8 +390,8 @@ public class QuestTemplateRegistry {
                 skipped++;
                 continue;
             }
-            if (template.objectives() == null || template.objectives().size() < 2) {
-                LOGGER.atWarning().log("v2 template '%s' has fewer than 2 objectives, skipping", template.id());
+            if (template.objectives() == null || template.objectives().isEmpty()) {
+                LOGGER.atWarning().log("v2 template '%s' has no objectives, skipping", template.id());
                 skipped++;
                 continue;
             }

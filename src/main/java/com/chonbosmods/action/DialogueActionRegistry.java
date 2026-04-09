@@ -185,6 +185,8 @@ public class DialogueActionRegistry {
                     resolveAndPlacePoi(quest, firstObj, ctx.store(), ctx.playerRef());
                 } else if (firstType == ObjectiveType.TALK_TO_NPC) {
                     setTargetNpcParticle(quest.getVariableBindings(), ctx.store());
+                } else {
+                    quest.getVariableBindings().put("poi_available", "false");
                 }
             }
 
