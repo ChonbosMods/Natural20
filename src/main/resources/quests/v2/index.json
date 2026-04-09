@@ -75,7 +75,9 @@
         "ArtisanBlacksmith",
         "ArtisanAlchemist",
         "ArtisanCook"
-      ]
+      ],
+      "targetNpcOpener": "They sent you? Good. I've been expecting this for a while, honestly. They helped me through a bad stretch years ago and wouldn't let me repay it, so I promised instead. Tell them the answer is yes, and it's been yes since before they asked.",
+      "targetNpcCloser": "I should have gone to them first. I could see the trouble building from over here."
     },
     {
       "id": "supplication_03",
@@ -138,7 +140,9 @@
       },
       "rewardText": "what little I've saved for the children's clothes and a debt I'll never forget",
       "valence": "negative",
-      "roleAffinity": []
+      "roleAffinity": [],
+      "targetNpcOpener": "Her sister sent you? I'm glad someone finally came. She's been holding on, but the fever keeps circling back, and I've been doing everything I know. She asks about home every morning when she wakes.",
+      "targetNpcCloser": "Tell her family she's in good hands. I won't leave her side."
     },
     {
       "id": "deliverance_02",
@@ -199,7 +203,9 @@
       "resolutionText": "{settlement_npc} sat up this morning and asked for soup. Soup. I don't think you understand what that means to me after the week I've had. Take {quest_reward}. I'd give you the roof over my head if you asked. They're going to live.",
       "rewardText": "the coin I'd been saving for the planting season and a friend for life",
       "valence": "negative",
-      "roleAffinity": []
+      "roleAffinity": [],
+      "targetNpcOpener": "They need me? I should have checked on them sooner. I heard things were rough but I didn't realize how bad it had gotten. I'll pack what I need and come with you.",
+      "targetNpcCloser": "Don't let them give up before I get there. I've pulled people through worse."
     },
     {
       "id": "disaster_01",
@@ -314,7 +320,9 @@
       "resolutionText": "We're going to be all right. Smaller, lighter, with more empty seats at the table than I'd like, but all right. {quest_reward}. It's what the settlement could put together, and every piece of it was given on purpose. You came when you didn't have to. We won't forget that here.",
       "rewardText": "the coin the households pooled and a standing welcome in {settlement_name}",
       "valence": "negative",
-      "roleAffinity": []
+      "roleAffinity": [],
+      "targetNpcOpener": "A fire? And they're calling in the arrangement? Then things are worse than anyone told me. We made that pact because we both knew a day like this might come. I'll gather what we have and send it.",
+      "targetNpcCloser": "Tell them I'll have people on the road within the week. That's a promise."
     },
     {
       "id": "self_sacrifice_for_kindred_01",
@@ -381,7 +389,9 @@
       },
       "rewardText": "what little I've put aside and a place at our table whenever you pass through",
       "valence": "negative",
-      "roleAffinity": []
+      "roleAffinity": [],
+      "targetNpcOpener": "He's still going? I've thought about him more than I'll admit. The roads kept me away, but that's a poor excuse and I know it. Tell his daughter I'll come, and I'll bring something warm for the both of them.",
+      "targetNpcCloser": "She's carrying too much alone. I can see that without being told."
     },
     {
       "id": "self_sacrifice_for_kindred_03",
@@ -466,7 +476,9 @@
       },
       "rewardText": "good coin and a meal at my table whenever you pass through",
       "valence": "negative",
-      "roleAffinity": []
+      "roleAffinity": [],
+      "targetNpcOpener": "You've come from {settlement_name}? Then they've finally noticed what I've been tracking for weeks. The short version is that we're both right to be worried, and the long version would take all night. I've written it all down.",
+      "targetNpcCloser": "Go back and tell them what I told you. We need to move on this soon."
     },
     {
       "id": "pursuit_03",
@@ -504,7 +516,9 @@
       },
       "rewardText": "a proper purse and what's left of my stash of good ale",
       "valence": "negative",
-      "roleAffinity": []
+      "roleAffinity": [],
+      "targetNpcOpener": "Someone from {settlement_name}, finally. We've been hit harder than you have, I'd wager. I stopped counting after the second week because the numbers were scaring people more than the actual threat. But I have it all written down.",
+      "targetNpcCloser": "Whatever you're planning next, count us in. We can't keep absorbing this alone."
     },
     {
       "id": "vengeance_01",
@@ -673,7 +687,9 @@
       },
       "rewardText": "a fair cut of what comes from this and an open door whenever you visit",
       "valence": "positive",
-      "roleAffinity": []
+      "roleAffinity": [],
+      "targetNpcOpener": "Someone's actually attempting it? I tried something similar years ago and I'll tell you straight, the plan matters less than the person behind it. If they're stubborn enough to send you across the region for my opinion, they might actually pull it off.",
+      "targetNpcCloser": "Tell them I said go. And tell them the first month is the worst part."
     },
     {
       "id": "daring_enterprise_03",
@@ -716,7 +732,9 @@
       },
       "rewardText": "a generous share of what the project earns and a name on whatever it becomes",
       "valence": "positive",
-      "roleAffinity": []
+      "roleAffinity": [],
+      "targetNpcOpener": "They want to learn from me? That's flattering, and a little terrifying, because what I know came from getting it wrong a dozen times first. But I'll share what I can. Better they learn from my mistakes than make new ones.",
+      "targetNpcCloser": "Tell them I'll put together everything I wish someone had told me at the start."
     },
     {
       "id": "ambition_01",
@@ -778,7 +796,9 @@
       },
       "rewardText": "a fair purse and an open invitation to come watch me work whenever you're nearby",
       "valence": "positive",
-      "roleAffinity": []
+      "roleAffinity": [],
+      "targetNpcOpener": "They want to learn from me? I've had people ask before, and most of them quit after the first real lesson. If they're serious, truly serious, then I'll teach them everything I know. I don't waste time on people who aren't ready to work.",
+      "targetNpcCloser": "Tell them to start with the basics and not to skip anything. The boring parts are what make the rest possible."
     },
     {
       "id": "ambition_03",
@@ -889,7 +909,9 @@
       "roleAffinity": [
         "ArtisanBlacksmith",
         "ArtisanAlchemist"
-      ]
+      ],
+      "targetNpcOpener": "They sent you about the pattern? I wondered when someone would come asking. Nobody else does the work this way anymore, and I've been half expecting the knowledge to die with me. I'll write it down for them.",
+      "targetNpcCloser": "Tell them to take their time with the first attempt. It looks simple on paper but the hands need to learn it separately."
     },
     {
       "id": "obtaining_03",
@@ -992,7 +1014,9 @@
       "roleAffinity": [
         "Villager",
         "Traveler"
-      ]
+      ],
+      "targetNpcOpener": "I was hoping nobody would come asking about that. I saw more than I said at the time because I didn't want to make trouble. But you're here now, and I'll tell you the truth of it.",
+      "targetNpcCloser": "Take that back to them. They deserve to know what really happened, even if it stings a little."
     },
     {
       "id": "recovery_03",
@@ -1111,7 +1135,9 @@
       "roleAffinity": [
         "Guard",
         "Villager"
-      ]
+      ],
+      "targetNpcOpener": "They've gotten this far? I half expected to hear they'd given up by now, and I mean that with respect. What they're doing out there takes more than most people have. Tell me what they need.",
+      "targetNpcCloser": "Tell them they're not as alone in this as they think. Some of us just took too long to say so."
     },
     {
       "id": "self_sacrifice_for_an_ideal_03",
@@ -1175,7 +1201,9 @@
       },
       "rewardText": "what coin I can spare and a sack of the grain you helped me save",
       "valence": "neutral",
-      "roleAffinity": []
+      "roleAffinity": [],
+      "targetNpcOpener": "Stores going missing with nothing broken? I had the exact same problem two seasons ago. It drove me half mad until I figured out the trick. You set out bait that looks like a mistake, not a trap, and you watch.",
+      "targetNpcCloser": "They'll figure it out once they see it for themselves. That's always the hardest part, believing what's right in front of you."
     },
     {
       "id": "enigma_02",
@@ -1206,7 +1234,9 @@
       },
       "rewardText": "a share of whatever I manage to grow once the patch is fixed",
       "valence": "neutral",
-      "roleAffinity": []
+      "roleAffinity": [],
+      "targetNpcOpener": "Dead ground near {settlement_name}? I've been wondering about that. Something underneath has been drawing the life out of the soil, and the pattern lines up with the old drainage channels from before anyone was living there.",
+      "targetNpcCloser": "Have them test it the way I described. If I'm right, they'll see results within the week."
     },
     {
       "id": "enigma_03",
@@ -1267,7 +1297,9 @@
       },
       "rewardText": "a meal at my table and the return of a brother I'd half given up on",
       "valence": "negative",
-      "roleAffinity": []
+      "roleAffinity": [],
+      "targetNpcOpener": "I know exactly what he's been telling people. He says the tool was broken on purpose. I don't think he even believes it himself anymore, but the story has taken on a life of its own and he's too proud to walk it back.",
+      "targetNpcCloser": "The two of them need to sit in a room and talk. This won't fix itself through messengers."
     },
     {
       "id": "rivalry_of_kinsmen_02",
@@ -1305,7 +1337,9 @@
       },
       "rewardText": "what little coin I have and a story I'll tell properly someday",
       "valence": "negative",
-      "roleAffinity": []
+      "roleAffinity": [],
+      "targetNpcOpener": "You're asking if there's a way back? I've been wondering when one of them would break first. They're both miserable, and neither will admit it. He's been struggling, if that matters, and he's too proud to say it where anyone might hear.",
+      "targetNpcCloser": "Tell them the road between them isn't as closed as they think. But someone has to walk it first."
     },
     {
       "id": "rivalry_of_kinsmen_03",
@@ -1328,7 +1362,9 @@
       "resolutionText": "We sat down together. We didn't hug, we didn't cry, but we agreed to share the heirloom and the responsibility for it, and that's the closest thing to peace we've had in a year. Take {quest_reward}. You stopped two grown people from making fools of themselves over a keepsake.",
       "rewardText": "a small token from the heirloom set, since I have one to spare now",
       "valence": "negative",
-      "roleAffinity": []
+      "roleAffinity": [],
+      "targetNpcOpener": "Their grandmother's heirloom? I remember the conversation like it was yesterday. She told me once, near the end, that she never wanted either of them to have it alone. She wanted them to share it, because she knew they'd drift apart without a reason to keep meeting.",
+      "targetNpcCloser": "Tell them both. The truth should end this, not keep it going."
     },
     {
       "id": "mistaken_jealousy_01",
@@ -1362,7 +1398,9 @@
       },
       "rewardText": "what coin I can spare and a promise that I'll never ask you to do this again",
       "valence": "negative",
-      "roleAffinity": []
+      "roleAffinity": [],
+      "targetNpcOpener": "{settlement_npc} slipping out before dawn? That doesn't surprise me at all. They used to do the same thing when we were young, always working on something they didn't want anyone seeing before it was finished. Whatever they're up to, I'd bet good coin it's well meant.",
+      "targetNpcCloser": "I wouldn't worry about it. {settlement_npc} has always been better at surprises than at explaining themselves."
     },
     {
       "id": "mistaken_jealousy_02",
@@ -1391,7 +1429,9 @@
       },
       "rewardText": "a small bundle of what I can spare and your discretion, more than anything",
       "valence": "negative",
-      "roleAffinity": []
+      "roleAffinity": [],
+      "targetNpcOpener": "Gifts on the workbench? Oh, I know exactly who that is. I've been watching one of the little ones leave things there for weeks. Your partner helped them find a lost toy, and they've been bringing thank-you presents ever since. Quite sweet, really.",
+      "targetNpcCloser": "Go home and tell your partner. You'll both laugh about this, I promise."
     },
     {
       "id": "mistaken_jealousy_03",
@@ -1414,7 +1454,9 @@
       "resolutionText": "I went and told {settlement_npc} I was proud of them, which is the conversation I should have had three weeks ago instead of stewing. They cried, which means I had hurt them more than I knew, and I hate that. Take {quest_reward}. You saved a friendship I was too small to save myself.",
       "rewardText": "the best piece of my own work, since I'd like someone to remember how it looks",
       "valence": "negative",
-      "roleAffinity": []
+      "roleAffinity": [],
+      "targetNpcOpener": "Of course I remember the teaching, but here's what I've also seen. {settlement_npc} has been singing your friend's praises to anyone who'll listen. They haven't been quiet about it at all. Maybe the praise just hasn't reached the right ears yet.",
+      "targetNpcCloser": "Go back and tell them what I said. I think they need to hear it from someone besides me."
     },
     {
       "id": "erroneous_judgment_01",
@@ -1448,7 +1490,9 @@
       },
       "rewardText": "what coin I have set aside and a friendship that owes you one too",
       "valence": "negative",
-      "roleAffinity": []
+      "roleAffinity": [],
+      "targetNpcOpener": "I was there that day, and your friend was with me most of the afternoon. We were going over stock and comparing notes. There's no way they could have been where people are saying they were.",
+      "targetNpcCloser": "If someone needs me to say this in front of people, I will. The truth shouldn't be this hard to get heard."
     },
     {
       "id": "erroneous_judgment_02",
@@ -1477,7 +1521,9 @@
       },
       "rewardText": "a share of my own stores and the kind of thanks I don't usually give freely",
       "valence": "negative",
-      "roleAffinity": []
+      "roleAffinity": [],
+      "targetNpcOpener": "I still have what they gave me, right here. They handed it to me freely, weeks before any of this started. Whoever's been spreading the other story either doesn't know the truth or doesn't want to.",
+      "targetNpcCloser": "I'll come to {settlement_name} myself if that's what it takes. Nobody should have to live under a lie."
     },
     {
       "id": "erroneous_judgment_03",
@@ -1510,7 +1556,9 @@
       "resolutionText": "It's over. My friend has their good name back, and the people who were so eager to take it have learned to be slower with their accusations next time. That's the part I'm proudest of. Take {quest_reward}. You didn't just help me, you helped this place be a little fairer than it was yesterday.",
       "rewardText": "what I can give from my own stores and the lasting thanks of the person you cleared",
       "valence": "negative",
-      "roleAffinity": []
+      "roleAffinity": [],
+      "targetNpcOpener": "I was first on the scene, and what I saw doesn't match what people have been saying. The marks were too deep, too even, and in places nobody could have reached without help. Something else did this.",
+      "targetNpcCloser": "Bring me the evidence and I'll stand beside you when you present it. This needs to be set right."
     },
     {
       "id": "remorse_01",
@@ -1539,7 +1587,9 @@
       },
       "rewardText": "what coin I've been setting aside, and a quiet thank-you I won't forget",
       "valence": "negative",
-      "roleAffinity": []
+      "roleAffinity": [],
+      "targetNpcOpener": "They sent you? I'd started to wonder if they'd ever try to fix things. She's been hurting, and she won't say it out loud, but I can see it every time someone brings their name up. The fact that they're making the effort matters more than they realize.",
+      "targetNpcCloser": "I'll talk to her. I can't promise she'll be ready, but I'll make sure she knows the effort is real."
     },
     {
       "id": "remorse_02",
@@ -1567,7 +1617,9 @@
       "resolutionText": "{target_npc} sent word back. He didn't say much, but he kept the gift, and that's all I asked for. Take {quest_reward}. You carried something for me that I couldn't carry alone.",
       "rewardText": "the best of what I have left from that hard winter, and my honest thanks",
       "valence": "negative",
-      "roleAffinity": []
+      "roleAffinity": [],
+      "targetNpcOpener": "The man who passed through last winter? He made it, barely. He didn't say much about what happened on the road, but I could tell someone had turned him away. He carries things quietly, that one.",
+      "targetNpcCloser": "Whatever your friend is feeling about it, tell them it's not too late to make a gesture. He'd notice."
     },
     {
       "id": "remorse_03",
@@ -1625,7 +1677,9 @@
       },
       "rewardText": "a gift I'd been saving for a better day, and my honest gratitude",
       "valence": "negative",
-      "roleAffinity": []
+      "roleAffinity": [],
+      "targetNpcOpener": "So they finally want to know what happened. She told me everything. Your friend meant well, I can see that, but what she heard was someone going over her head, speaking for her when she'd never asked anyone to. That's the wound.",
+      "targetNpcCloser": "Tell them not to explain. Just show up, and let her decide when she's ready to hear it."
     },
     {
       "id": "involuntary_crimes_of_love_02",
@@ -1654,7 +1708,9 @@
       },
       "rewardText": "a portion of what I've put aside this season, and a brother's thanks",
       "valence": "negative",
-      "roleAffinity": []
+      "roleAffinity": [],
+      "targetNpcOpener": "I was sitting right there when it happened. Your friend was trying to lay out options, but what landed was the feeling that he couldn't handle his own choices. It hit hard, and he's been carrying it since.",
+      "targetNpcCloser": "The apology needs to name exactly what went wrong. Anything vague will sound like more advice."
     },
     {
       "id": "involuntary_crimes_of_love_03",
@@ -1682,7 +1738,9 @@
       "resolutionText": "She opened the gift in front of me. She didn't say much, but she sat down next to me, and she stayed. That's the most I've had from her in weeks. Take {quest_reward}. You walked through something with me that I couldn't have walked alone.",
       "rewardText": "a parcel of good food from my pantry and a mother's quiet thanks",
       "valence": "negative",
-      "roleAffinity": []
+      "roleAffinity": [],
+      "targetNpcOpener": "Her mother sent you? She's been afraid of that. The comment about her work hit harder than her mother probably knows. What landed was the feeling that she still isn't enough, no matter how hard she tries.",
+      "targetNpcCloser": "Tell her mother the reaction goes deeper than one comment. She's been carrying a longer pattern than just that."
     },
     {
       "id": "obstacles_to_love_01",
@@ -1711,7 +1769,9 @@
       },
       "rewardText": "a basket of the good things from my kitchen, and the biggest grin you've seen all week",
       "valence": "positive",
-      "roleAffinity": []
+      "roleAffinity": [],
+      "targetNpcOpener": "They've been thinking about me? I was starting to wonder if I'd been forgotten after the move. I didn't want to leave, you know. The hardest part was walking away without knowing if it mattered to anyone there.",
+      "targetNpcCloser": "Tell them I'd like that visit. And tell them I mean it."
     },
     {
       "id": "obstacles_to_love_02",
@@ -1745,7 +1805,9 @@
       },
       "rewardText": "a fine bottle I've been saving for the right occasion, and a hopeful heart",
       "valence": "positive",
-      "roleAffinity": []
+      "roleAffinity": [],
+      "targetNpcOpener": "You want to know how to win her over? I've known that woman since we were children, and she values intention over everything. She once turned away a suitor who brought plenty but no sincerity. Whatever your friend brings, it needs to feel considered.",
+      "targetNpcCloser": "Come back when it's time. I'll put in a good word and make sure she's in a listening mood."
     },
     {
       "id": "obstacles_to_love_03",
@@ -1797,7 +1859,9 @@
       },
       "rewardText": "a portion of our small savings and a wife's deepest thanks",
       "valence": "negative",
-      "roleAffinity": []
+      "roleAffinity": [],
+      "targetNpcOpener": "He's asking for me? I haven't heard from him in so long I'd started to fear the worst. If he's reaching out, even through someone else, it means he remembers who he was before all this. That's everything.",
+      "targetNpcCloser": "I'll write to him tonight. And I'll keep writing until he writes back."
     },
     {
       "id": "madness_02",
@@ -1826,7 +1890,9 @@
       },
       "rewardText": "the best of what little I have, and a thank-you I'll mean for a long time",
       "valence": "negative",
-      "roleAffinity": []
+      "roleAffinity": [],
+      "targetNpcOpener": "She's giving things away again? She did the same thing after our mother passed. It's how the grief finds its way out when she won't let it through any other door. She lost her partner this winter, and this is what happens when she won't let herself grieve properly.",
+      "targetNpcCloser": "She needs something given back, not more taken away. Something small that says the world isn't done with her yet."
     },
     {
       "id": "madness_03",
@@ -1860,7 +1926,9 @@
       },
       "rewardText": "a share of what my uncle and I can spare, and a niece's heartfelt thanks",
       "valence": "negative",
-      "roleAffinity": []
+      "roleAffinity": [],
+      "targetNpcOpener": "He won't come outside? I've been worried about him for months, but he stopped answering when I sent word. I thought he'd asked everyone to leave him be. If he's the one reaching out, that changes things. The door is cracked open.",
+      "targetNpcCloser": "I'll write to him first and give him time to sit with it. Then I'll come, if he'll have me."
     },
     {
       "id": "necessity_of_sacrificing_loved_ones_01",
@@ -1896,7 +1964,9 @@
       },
       "rewardText": "what coin I've set aside and a quiet thanks I won't take back",
       "valence": "negative",
-      "roleAffinity": []
+      "roleAffinity": [],
+      "targetNpcOpener": "I know why you're here, and I appreciate you telling me in person. I always thought there'd be more time to fix things between us. We let something get in the way and I kept telling myself I'd handle it later.",
+      "targetNpcCloser": "Thank you for coming. A letter would have been easier to set aside, and I've done too much of that already."
     },
     {
       "id": "necessity_of_sacrificing_loved_ones_02",
@@ -1927,7 +1997,9 @@
       },
       "rewardText": "a small purse and a piece of bread for the road",
       "valence": "negative",
-      "roleAffinity": []
+      "roleAffinity": [],
+      "targetNpcOpener": "The time has come, then. I made that promise years ago and hoped it would never be needed, but I meant every word. I'll have a room ready and a meal waiting when she arrives. She won't feel like a burden here.",
+      "targetNpcCloser": "Tell her father I'll look after her the way I'd want someone looking after mine."
     },
     {
       "id": "necessity_of_sacrificing_loved_ones_03",
@@ -1957,7 +2029,9 @@
       "resolutionText": "We have what time we have left, and now we can spend it without anything unsaid hanging over the room. {quest_reward} is yours, with my thanks. You gave us an ending I can live with.",
       "rewardText": "a wood-carved keepsake from my workbench and a few coins beside",
       "valence": "negative",
-      "roleAffinity": []
+      "roleAffinity": [],
+      "targetNpcOpener": "She's that far gone? I didn't know. I should have known, and the fact that I didn't is something I'll carry for a long time. We stopped talking over something I can't even name anymore.",
+      "targetNpcCloser": "I'm coming. Tell him I'm coming, and tell her to wait for me if she can."
     },
     {
       "id": "loss_of_loved_ones_01",
@@ -1986,7 +2060,9 @@
       },
       "rewardText": "a small ring of his that I have no use for now and won't see wasted",
       "valence": "negative",
-      "roleAffinity": []
+      "roleAffinity": [],
+      "targetNpcOpener": "I knew something was wrong. I hadn't heard from him in too long, and he was never the quiet type. Hearing it spoken is different from fearing it, though. Give me a moment.",
+      "targetNpcCloser": "Thank you for telling me properly. He deserved better than a rumor reaching me too late."
     },
     {
       "id": "loss_of_loved_ones_02",
@@ -2022,7 +2098,9 @@
       },
       "rewardText": "a few of his things that should belong to someone who'll use them",
       "valence": "negative",
-      "roleAffinity": []
+      "roleAffinity": [],
+      "targetNpcOpener": "So that's the truth of it. I heard a version from someone passing through, but I couldn't make myself believe it. We walked every trail around here together. I keep catching myself saving things to tell him.",
+      "targetNpcCloser": "Thank the one who sent you. I needed to hear this from someone who could look me in the eye."
     },
     {
       "id": "loss_of_loved_ones_03",
