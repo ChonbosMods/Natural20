@@ -111,9 +111,14 @@ public class POIProximitySystem {
                                         QuestInstance quest, Map<String, String> b) {
         boolean anySpawned = false;
 
-        // Spawn quest chest for FETCH_ITEM objectives
+        // Spawn quest chest only when the current objective is actually FETCH_ITEM.
+        // fetch_item_type lives in global bindings so it persists across phases:
+        // without the type guard a KILL_MOBS phase would incorrectly place a chest.
+        ObjectiveInstance currentObj = quest.getCurrentObjective();
         String fetchItemType = b.get("fetch_item_type");
-        if (fetchItemType != null && !"true".equals(b.get("poi_chest_placed"))) {
+        if (fetchItemType != null
+                && currentObj != null && currentObj.getType() == ObjectiveType.FETCH_ITEM
+                && !"true".equals(b.get("poi_chest_placed"))) {
             try {
                 int poiX = (int) Double.parseDouble(b.get("poi_x"));
                 int poiY = (int) Double.parseDouble(b.get("poi_y"));

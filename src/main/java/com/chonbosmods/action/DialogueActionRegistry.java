@@ -346,6 +346,7 @@ public class DialogueActionRegistry {
                 bindings.remove("poi_mob_state");
                 bindings.remove("poi_mob_uuids");
                 bindings.remove("poi_detached_uuids");
+                bindings.remove("poi_chest_placed");
 
                 if (newType == ObjectiveType.KILL_MOBS || newType == ObjectiveType.FETCH_ITEM) {
                     resolveAndPlacePoi(quest, newObj, ctx.store(), ctx.playerRef());
