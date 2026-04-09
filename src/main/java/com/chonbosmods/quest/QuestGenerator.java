@@ -84,6 +84,12 @@ public class QuestGenerator {
         if (template.targetNpcCloser() != null) {
             bindings.put("target_npc_closer", template.targetNpcCloser());
         }
+        if (template.targetNpcOpener2() != null) {
+            bindings.put("target_npc_opener_2", template.targetNpcOpener2());
+        }
+        if (template.targetNpcCloser2() != null) {
+            bindings.put("target_npc_closer_2", template.targetNpcCloser2());
+        }
 
         // Skill check (optional). When present, DialogueManager builds a SkillCheckNode
         // and a third response option on the entry node. The pass branch fires

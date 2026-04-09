@@ -76,7 +76,7 @@
         "ArtisanAlchemist",
         "ArtisanCook"
       ],
-      "targetNpcOpener": "They sent you? Good. I've been expecting this for a while, honestly. They helped me through a bad stretch years ago and wouldn't let me repay it, so I promised instead. Tell them the answer is yes, and it's been yes since before they asked.",
+      "targetNpcOpener": "They sent you? I've been expecting this for a while, honestly. They helped me through a bad stretch years ago and wouldn't let me repay it, so I promised instead. Tell them the answer is yes, and it's been yes since before they asked.",
       "targetNpcCloser": "I should have gone to them first. I could see the trouble building from over here."
     },
     {
@@ -321,7 +321,7 @@
       "rewardText": "the coin the households pooled and a standing welcome in {settlement_name}",
       "valence": "negative",
       "roleAffinity": [],
-      "targetNpcOpener": "A fire? And they're calling in the arrangement? Then things are worse than anyone told me. We made that pact because we both knew a day like this might come. I'll gather what we have and send it.",
+      "targetNpcOpener": "A fire, and they're calling in the arrangement? Then things are worse than anyone told me. We made that pact because we both knew a day like this might come. I'll gather what we have and send it.",
       "targetNpcCloser": "Tell them I'll have people on the road within the week. That's a promise."
     },
     {
@@ -1400,7 +1400,9 @@
       "valence": "negative",
       "roleAffinity": [],
       "targetNpcOpener": "{settlement_npc} slipping out before dawn? That doesn't surprise me at all. They used to do the same thing when we were young, always working on something they didn't want anyone seeing before it was finished. Whatever they're up to, I'd bet good coin it's well meant.",
-      "targetNpcCloser": "I wouldn't worry about it. {settlement_npc} has always been better at surprises than at explaining themselves."
+      "targetNpcCloser": "I wouldn't worry about it. {settlement_npc} has always been better at surprises than at explaining themselves.",
+      "targetNpcOpener2": "I figured you'd be back. There's no shame in getting this wrong. {settlement_npc} has always been the type to act first and explain later, and anyone watching from the outside would have wondered. Your friend just needs to hear it was never what they thought.",
+      "targetNpcCloser2": "Tell them I said so without laughing. They'll know what that's worth."
     },
     {
       "id": "mistaken_jealousy_02",
@@ -1430,7 +1432,7 @@
       "rewardText": "a small bundle of what I can spare and your discretion, more than anything",
       "valence": "negative",
       "roleAffinity": [],
-      "targetNpcOpener": "Gifts on the workbench? Oh, I know exactly who that is. I've been watching one of the little ones leave things there for weeks. Your partner helped them find a lost toy, and they've been bringing thank-you presents ever since. Quite sweet, really.",
+      "targetNpcOpener": "Gifts on the workbench? Oh, I know exactly who that is. I've been watching one of the little ones leave things there for weeks, ever since your partner helped them find a lost toy. Quite sweet, really.",
       "targetNpcCloser": "Go home and tell your partner. You'll both laugh about this, I promise."
     },
     {
@@ -1492,7 +1494,9 @@
       "valence": "negative",
       "roleAffinity": [],
       "targetNpcOpener": "I was there that day, and your friend was with me most of the afternoon. We were going over stock and comparing notes. There's no way they could have been where people are saying they were.",
-      "targetNpcCloser": "If someone needs me to say this in front of people, I will. The truth shouldn't be this hard to get heard."
+      "targetNpcCloser": "If someone needs me to say this in front of people, I will. The truth shouldn't be this hard to get heard.",
+      "targetNpcOpener2": "You need me to come in person? I figured it might come to that. I don't enjoy being in the middle of someone else's trouble, but I was there, and I know what I saw. If my word is what clears this up, I'll make the trip.",
+      "targetNpcCloser2": "Tell them to have everyone together when I arrive. I only want to say this once."
     },
     {
       "id": "erroneous_judgment_02",
@@ -1558,7 +1562,9 @@
       "valence": "negative",
       "roleAffinity": [],
       "targetNpcOpener": "I was first on the scene, and what I saw doesn't match what people have been saying. The marks were too deep, too even, and in places nobody could have reached without help. Something else did this.",
-      "targetNpcCloser": "Bring me the evidence and I'll stand beside you when you present it. This needs to be set right."
+      "targetNpcCloser": "Bring me the evidence and I'll stand beside you when you present it. This needs to be set right.",
+      "targetNpcOpener2": "You've gathered everything? I've been hoping this would reach the point where proof does the talking. I'll come back to {settlement_name} and say what I saw. I never wanted to get involved, but standing aside felt worse.",
+      "targetNpcCloser2": "Have the evidence ready when I get there. I'll do the talking."
     },
     {
       "id": "remorse_01",
@@ -1619,7 +1625,9 @@
       "valence": "negative",
       "roleAffinity": [],
       "targetNpcOpener": "The man who passed through last winter? He made it, barely. He didn't say much about what happened on the road, but I could tell someone had turned him away. He carries things quietly, that one.",
-      "targetNpcCloser": "Whatever your friend is feeling about it, tell them it's not too late to make a gesture. He'd notice."
+      "targetNpcCloser": "Whatever your friend is feeling about it, tell them it's not too late to make a gesture. He'd notice.",
+      "targetNpcOpener2": "You want me to give this to him? I can do that. It's a good gesture, and he'll know it cost something to send. I'll find the right words when the time comes.",
+      "targetNpcCloser2": "I'll make sure he knows it came from the heart, even if it came through my hands."
     },
     {
       "id": "remorse_03",
@@ -1740,7 +1748,9 @@
       "valence": "negative",
       "roleAffinity": [],
       "targetNpcOpener": "Her mother sent you? She's been afraid of that. The comment about her work hit harder than her mother probably knows. What landed was the feeling that she still isn't enough, no matter how hard she tries.",
-      "targetNpcCloser": "Tell her mother the reaction goes deeper than one comment. She's been carrying a longer pattern than just that."
+      "targetNpcCloser": "Tell her mother the reaction goes deeper than one comment. She's been carrying a longer pattern than just that.",
+      "targetNpcOpener2": "She's grateful? That's the last thing I expected to hear. I was worried she'd resent me for telling you the truth about her daughter's feelings. Knowing she tried to make it right means more than she probably realizes.",
+      "targetNpcCloser2": "Tell her she's doing the hard part. That's all any of us can do."
     },
     {
       "id": "obstacles_to_love_01",
@@ -1807,7 +1817,9 @@
       "valence": "positive",
       "roleAffinity": [],
       "targetNpcOpener": "You want to know how to win her over? I've known that woman since we were children, and she values intention over everything. She once turned away a suitor who brought plenty but no sincerity. Whatever your friend brings, it needs to feel considered.",
-      "targetNpcCloser": "Come back when it's time. I'll put in a good word and make sure she's in a listening mood."
+      "targetNpcCloser": "Come back when it's time. I'll put in a good word and make sure she's in a listening mood.",
+      "targetNpcOpener2": "So the time has come? I was hoping they'd find the nerve. I'll talk to her before they arrive and make sure she's willing to sit down and listen. That's the most I can promise.",
+      "targetNpcCloser2": "Tell them to bring the gift and bring their best manners. She'll be watching everything."
     },
     {
       "id": "obstacles_to_love_03",
@@ -1927,7 +1939,7 @@
       "rewardText": "a share of what my uncle and I can spare, and a niece's heartfelt thanks",
       "valence": "negative",
       "roleAffinity": [],
-      "targetNpcOpener": "He won't come outside? I've been worried about him for months, but he stopped answering when I sent word. I thought he'd asked everyone to leave him be. If he's the one reaching out, that changes things. The door is cracked open.",
+      "targetNpcOpener": "He won't come outside? I've been worried about him for months, but he stopped answering when I sent word. I thought he'd asked everyone to leave him be. If he's the one reaching out, that changes things.",
       "targetNpcCloser": "I'll write to him first and give him time to sit with it. Then I'll come, if he'll have me."
     },
     {

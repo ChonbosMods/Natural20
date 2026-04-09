@@ -680,15 +680,22 @@ public class DialogueManager {
             if (!npcId.equals(obj.getTargetId())) continue;
 
                 // This NPC is the target. Inject a quest dialogue topic.
+                // For templates with multiple TALK_TO_NPC objectives, pick the
+                // opener/closer pair matching this occurrence (1st vs 2nd visit).
                 String questId = quest.getQuestId();
                 Map<String, String> b = quest.getVariableBindings();
+                int talkOccurrence = countTalkToNpcBefore(quest);
+                String openerKey = talkOccurrence >= 2 ? "target_npc_opener_2" : "target_npc_opener";
+                String closerKey = talkOccurrence >= 2 ? "target_npc_closer_2" : "target_npc_closer";
                 String openerText = DialogueResolver.resolveQuestText(
-                    b.getOrDefault("target_npc_opener",
-                        "You're looking into the situation? I can tell you what I know."),
+                    b.getOrDefault(openerKey,
+                        b.getOrDefault("target_npc_opener",
+                            "You're looking into the situation? I can tell you what I know.")),
                     b, obj);
                 String closerText = DialogueResolver.resolveQuestText(
-                    b.getOrDefault("target_npc_closer",
-                        "That's all I can tell you. Pass it along."),
+                    b.getOrDefault(closerKey,
+                        b.getOrDefault("target_npc_closer",
+                            "That's all I can tell you. Pass it along.")),
                     b, obj);
                 String topicLabel = b.getOrDefault("quest_topic_header", quest.getSituationId());
                 String questGiver = quest.getSourceNpcId();
@@ -728,5 +735,21 @@ public class DialogueManager {
             LOGGER.atInfo().log("Injected TALK_TO_NPC topic for quest %s on NPC %s",
                 questId, npcId);
         }
+    }
+
+    /**
+     * Count how many TALK_TO_NPC objectives exist at or before the current objective
+     * index. Returns 1 for the first occurrence, 2 for the second, etc.
+     */
+    private int countTalkToNpcBefore(QuestInstance quest) {
+        int currentIdx = quest.getConflictCount();
+        int count = 0;
+        List<ObjectiveInstance> objectives = quest.getObjectives();
+        for (int i = 0; i <= currentIdx && i < objectives.size(); i++) {
+            if (objectives.get(i).getType() == ObjectiveType.TALK_TO_NPC) {
+                count++;
+            }
+        }
+        return count;
     }
 }
