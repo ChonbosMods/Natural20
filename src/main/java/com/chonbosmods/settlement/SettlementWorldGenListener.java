@@ -11,6 +11,9 @@ import com.hypixel.hytale.protocol.BlockMaterial;
 import com.hypixel.hytale.server.core.universe.world.storage.EntityStore;
 import com.hypixel.hytale.server.core.asset.type.blocktype.config.BlockType;
 import com.hypixel.hytale.server.core.asset.type.blocktype.config.Rotation;
+import com.hypixel.hytale.server.core.modules.entity.component.Invulnerable;
+import com.hypixel.hytale.server.core.modules.entitystats.EntityStatMap;
+import com.hypixel.hytale.server.core.modules.entitystats.asset.EntityStatType;
 import com.hypixel.hytale.server.core.universe.world.World;
 
 import java.util.List;
@@ -182,7 +185,17 @@ public class SettlementWorldGenListener {
                         if (ok) {
                             reattached++;
                         } else {
-                            // Reattach failed: actually respawn as fallback
+                            // Reattach failed: kill the old entity to prevent naked ghost,
+                            // then respawn with a new entity
+                            npc.setEntityUUID(null);
+                            try {
+                                store.tryRemoveComponent(npcRef, Invulnerable.getComponentType());
+                                EntityStatMap oldStats = store.getComponent(npcRef, EntityStatMap.getComponentType());
+                                if (oldStats != null) {
+                                    int hi = EntityStatType.getAssetMap().getIndex("Health");
+                                    if (hi >= 0) oldStats.minimizeStatValue(hi);
+                                }
+                            } catch (Exception ignored) {}
                             UUID newUUID = Natural20.getInstance().getNpcManager()
                                 .respawnNpc(store, world, npc, cellKey);
                             if (newUUID != null) respawned++;
