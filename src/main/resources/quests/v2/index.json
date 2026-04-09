@@ -1347,7 +1347,8 @@
       "situation": "rivalry_of_kinsmen",
       "objectives": [
         {
-          "type": "FETCH_ITEM"
+          "type": "FETCH_ITEM",
+          "fetchItem": "quest_keepsake"
         },
         {
           "type": "TALK_TO_NPC"
@@ -4184,7 +4185,8 @@
       "situation": "recovery",
       "objectives": [
         {
-          "type": "FETCH_ITEM"
+          "type": "FETCH_ITEM",
+          "fetchItem": "quest_document"
         },
         {
           "type": "COLLECT_RESOURCES",
@@ -5966,7 +5968,8 @@
       "situation": "madness",
       "objectives": [
         {
-          "type": "FETCH_ITEM"
+          "type": "FETCH_ITEM",
+          "fetchItem": "quest_vial"
         },
         {
           "type": "TALK_TO_NPC"
@@ -6000,7 +6003,8 @@
           "type": "TALK_TO_NPC"
         },
         {
-          "type": "FETCH_ITEM"
+          "type": "FETCH_ITEM",
+          "fetchItem": "quest_vial"
         }
       ],
       "expositionText": "My partner has been drawing the same symbol on every surface they can reach, walls, tables, the dirt outside. They can't explain it and they get agitated when I try to cover them. {target_npc} in {target_npc_settlement} is a {target_npc_role} who studies old patterns. Go ask them what it means.",
@@ -6028,7 +6032,8 @@
       "situation": "madness",
       "objectives": [
         {
-          "type": "FETCH_ITEM"
+          "type": "FETCH_ITEM",
+          "fetchItem": "quest_vial"
         },
         {
           "type": "TALK_TO_NPC"
@@ -7446,7 +7451,8 @@
       "situation": "erroneous_judgment",
       "objectives": [
         {
-          "type": "FETCH_ITEM"
+          "type": "FETCH_ITEM",
+          "fetchItem": "quest_vial"
         },
         {
           "type": "TALK_TO_NPC"
