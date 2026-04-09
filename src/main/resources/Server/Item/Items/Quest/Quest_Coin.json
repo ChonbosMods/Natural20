@@ -6,5 +6,8 @@
   "Icon": "Icons/ItemsGenerated/Quest_Coin.png",
   "Categories": [
     "Items"
-  ]
+  ],
+  "Model": "Items/Quest/Quest_Coin.blockymodel",
+  "Texture": "Items/Quest/Quest_Coin_Texture.png",
+  "PlayerAnimationsId": "Item"
 }

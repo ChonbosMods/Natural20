@@ -6,5 +6,8 @@
   "Icon": "Icons/ItemsGenerated/Quest_Lockbox.png",
   "Categories": [
     "Items"
-  ]
+  ],
+  "Model": "Items/Quest/Quest_Lockbox.blockymodel",
+  "Texture": "Items/Quest/Quest_Lockbox_Texture.png",
+  "PlayerAnimationsId": "Item"
 }

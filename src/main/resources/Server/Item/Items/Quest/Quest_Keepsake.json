@@ -6,5 +6,8 @@
   "Icon": "Icons/ItemsGenerated/Quest_Keepsake.png",
   "Categories": [
     "Items"
-  ]
+  ],
+  "Model": "Items/Quest/Quest_Keepsake.blockymodel",
+  "Texture": "Items/Quest/Quest_Keepsake_Texture.png",
+  "PlayerAnimationsId": "Item"
 }

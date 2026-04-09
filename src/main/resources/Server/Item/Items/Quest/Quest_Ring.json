@@ -6,5 +6,8 @@
   "Icon": "Icons/ItemsGenerated/Quest_Ring.png",
   "Categories": [
     "Items"
-  ]
+  ],
+  "Model": "Items/Quest/Quest_Ring.blockymodel",
+  "Texture": "Items/Quest/Quest_Ring_Texture.png",
+  "PlayerAnimationsId": "Item"
 }
