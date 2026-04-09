@@ -1,0 +1,74 @@
+[
+  {
+    "id": "rivalry_of_kinsmen_04",
+    "index": 84,
+    "new_skill": "INSIGHT",
+    "dc": 12,
+    "passText": "You can see it, can't you. This was never about the boundary. We used to play in these fields as children, and the thought that we've become two people who argue over where one yard ends and the other begins makes me sick. Drawing a line between us just made the distance feel permanent.",
+    "failText": "It's a property matter. We'll sort it out eventually."
+  },
+  {
+    "id": "rivalry_of_kinsmen_07",
+    "index": 167,
+    "new_skill": "INVESTIGATION",
+    "dc": 13,
+    "passText": "You're right, those two things don't add up. He didn't just leave over a disagreement about the farm. I told him our father would have been ashamed of him. I said it in front of his children, and that's why there's a gap in the fence and no conversation about fixing it.",
+    "failText": "He left. That's all there is to it."
+  },
+  {
+    "id": "madness_05",
+    "index": 87,
+    "new_skill": "INSIGHT",
+    "dc": 13,
+    "passText": "You noticed, didn't you. I've been acting like everything is fine when I visit him, keeping it light, keeping it casual, and it's exhausting. I haven't told him I'm worried because he'd force himself out the door just to prove he's all right and then feel worse when he couldn't manage it. I thought I was hiding the strain better than that.",
+    "failText": "He's a good man going through a rough patch. That's all I'll say."
+  },
+  {
+    "id": "madness_06",
+    "index": 172,
+    "new_skill": "INVESTIGATION",
+    "dc": 12,
+    "passText": "You're asking the right question. Why would it come on like this, all at once, if there's no history of it. It runs in their family. Their mother went the same way when I was young enough to watch, and I've been dreading this for years, telling myself the signs meant something else every time one appeared.",
+    "failText": "It came on suddenly. That's all I know for certain."
+  },
+  {
+    "id": "self_sacrifice_for_an_ideal_06",
+    "index": 178,
+    "new_skill": "INVESTIGATION",
+    "dc": 11,
+    "passText": "You caught the part that doesn't add up. Nobody maintains ditches for free without a reason. My daughter died in a flood three years ago, upstream, because the channels there weren't maintained. That's the piece I leave out when I tell the story, because saying it out loud means admitting I couldn't save her by digging faster.",
+    "failText": "Somebody has to tend them. I've got the time and the back for it."
+  },
+  {
+    "id": "self_sacrifice_for_an_ideal_09",
+    "index": 181,
+    "new_skill": "INVESTIGATION",
+    "dc": 13,
+    "passText": "You're wondering why someone would rebuild a bridge nobody asked for. My brother drowned in the river below it, trying to ford the crossing after the old bridge collapsed. If it had been standing, he'd have walked across and come home for dinner. That's the piece I leave out when I tell the story.",
+    "failText": "It needs fixing. That's reason enough for me."
+  },
+  {
+    "id": "self_sacrifice_for_kindred_05",
+    "index": 91,
+    "new_skill": "INSIGHT",
+    "dc": 12,
+    "passText": "You can see what I've been doing, can't you. Keeping it quiet, keeping it invisible, making sure he never notices how much I'm carrying so he doesn't feel like a burden. The hardest part isn't the work, it's smiling through it so he still feels like himself. I didn't think anyone could tell.",
+    "failText": "He's mending. That's the important part."
+  },
+  {
+    "id": "self_sacrifice_for_kindred_07",
+    "index": 185,
+    "new_skill": "INVESTIGATION",
+    "dc": 13,
+    "passText": "You noticed the story doesn't hold together. Away on business with no word and no return date, that's not a trip. He left, packed a bag and walked out without saying when or whether he'd come back. I've been telling people the version that sounds less awful.",
+    "failText": "He's traveling for work. She's managing fine."
+  },
+  {
+    "id": "self_sacrifice_for_kindred_08",
+    "index": 186,
+    "new_skill": "INVESTIGATION",
+    "dc": 12,
+    "passText": "You can tell the numbers don't work, can't you. If I'm getting by, why am I this desperate for help from a stranger. I sold my workshop tools last month to pay for remedies that didn't work. I have no trade left and no savings, and 'getting by' is the story I tell so people don't look at me with pity.",
+    "failText": "We're getting by. That's the important thing."
+  }
+]

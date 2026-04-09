@@ -1,0 +1,86 @@
+[
+  {
+    "id": "supplication_07",
+    "index": 107,
+    "passText": "Oh, you've dealt with {settlement_npc} before? Then you know how they get about the rotation. The debt is really from medicine I bought for my daughter last winter, and {target_npc} would forgive the whole thing if they knew, but then I'd owe them pity instead of coin. Pity is a debt you never pay off.",
+    "failText": "That's a lot of questions about my finances for someone I just met. Let's keep this about the {quest_item}."
+  },
+  {
+    "id": "recovery_07",
+    "index": 119,
+    "passText": "Right, so you've seen how tight storage gets around here, that's actually the whole problem. The stores they hit weren't just mine, I was holding supplies for three other families who trusted me to keep them safe. I've been trying to replace everything before any of them check. If they find out I lost what they gave me, I lose more than goods.",
+    "failText": "I appreciate the help, but I don't need anyone digging into the details. Just handle the {enemy_type_plural}."
+  },
+  {
+    "id": "pursuit_06",
+    "index": 130,
+    "passText": "Ha, you've scouted near there too? Funny, because I've actually been out there twice already and both times I turned back before I got close enough to matter. I've been calling it patience, telling people I was waiting for the right moment, but the truth is I was afraid. Hiring you is the only way this gets done.",
+    "failText": "I've watched them long enough to know the pattern. That's all there is to tell."
+  },
+  {
+    "id": "pursuit_07",
+    "index": 131,
+    "passText": "Sure, everyone's worried about the livestock, it's a community problem. Well, two of those three farms are mine, so maybe I'm a little more worried than most. I've been framing this as a public service because if people knew how much of the loss was mine, they'd call it self-interest and start dragging their feet.",
+    "failText": "You seem awfully curious about which farms are affected. The animals are dying, and that should be enough."
+  },
+  {
+    "id": "disaster_06",
+    "index": 136,
+    "passText": "You're from around here, so you probably heard the rumors already. The fire wasn't random, someone left a lantern burning near the grain, and I know who. They're young and terrified, and if it gets out their life here is over. So I've been saying it was bad luck and carrying the rest alone.",
+    "failText": "Fires happen and nobody did anything wrong. Can we focus on the supplies?"
+  },
+  {
+    "id": "enigma_06",
+    "index": 148,
+    "passText": "Oh, you've seen marks like these before? Then maybe you'll understand why I'm not sleeping. I saw the same kind near my old home before I came to {settlement_name}, and a season of attacks followed that drove my family out. I've been downplaying the urgency because I don't want to start a panic, but I know what these marks mean.",
+    "failText": "Interesting theory, but I think they're just old scratches. Nothing to get worked up about."
+  },
+  {
+    "id": "conflict_with_fate_05",
+    "index": 160,
+    "passText": "It's funny you put it that way, because that's exactly how it feels, like I cause it. Not rationally, but in that part of your mind that keeps count. Everything I touch seems to sour eventually and I've stopped starting new things because I'm afraid I'll ruin them the way I've ruined everything else. Saying it out loud sounds foolish, but there it is.",
+    "failText": "That's a strange way to ask about someone's luck. I'll manage, just bring me the {quest_item}."
+  },
+  {
+    "id": "rivalry_of_kinsmen_06",
+    "index": 166,
+    "passText": "Oh, people have told you about the argument already? Then you probably heard a nicer version. The property line wasn't really what started it, I said something about their mother at a gathering, something I knew would cut, and I said it on purpose. The land dispute was just the excuse we both grabbed so we wouldn't have to talk about the real wound.",
+    "failText": "You're asking a lot of questions about something that's between family. It was about the property line, and that's the version."
+  },
+  {
+    "id": "necessity_of_sacrificing_loved_ones_06",
+    "index": 190,
+    "passText": "Honestly, the deciding part is already done, I made the call two days ago. The reason I haven't moved on it is that I keep hoping something will change so I don't have to live with being the one who chose. But nothing is going to change, is it.",
+    "failText": "You're pushing pretty hard on this. It's a hard choice and I'll make it when the path is clear."
+  },
+  {
+    "id": "necessity_of_sacrificing_loved_ones_07",
+    "index": 191,
+    "passText": "I mean, you know how these trade negotiations go, somebody has to bend. The thing is, she didn't give it away willingly. I told her it was the only option and framed the whole deal so she'd feel like she was choosing, but really I'd already decided for her. That's the part I can't sit with.",
+    "failText": "You seem very interested in the details of how it happened. It was a family decision, and that's enough."
+  },
+  {
+    "id": "loss_of_loved_ones_06",
+    "index": 196,
+    "passText": "It is nice having the list, you're right, gives you something to do in the morning. That's the part I don't say out loud. I've spent so many years thinking in pairs that I've forgotten how to want things on my own, and the errands keep me moving. I'm afraid of what happens when I run out of them.",
+    "failText": "That's a kind thought, but I'd rather not go deeper into it. The errand is what matters."
+  },
+  {
+    "id": "ambition_06",
+    "index": 202,
+    "passText": "Ha, yeah, everyone talks big around here, right? Honestly though, between you and me, I'm not as confident as I sound. I've failed at two things already this year and both times I smiled like it didn't sting. This one has to work because I'm running out of chances to be taken seriously, and that scares me more than the {enemy_type_plural} do.",
+    "failText": "That's a funny question, I know what I'm doing. Let's leave it there."
+  },
+  {
+    "id": "erroneous_judgment_06",
+    "index": 214,
+    "passText": "Well, since you've heard what happened at the council, I might as well be straight with you. I knew the evidence was thin when I filed the complaint. I didn't like {settlement_npc} personally, and I let that feeling dress itself up as righteousness. The council trusted my word and I spent that trust on a grudge.",
+    "failText": "That's an odd angle to come at this from. I made a mistake, and that's the whole story."
+  },
+  {
+    "id": "erroneous_judgment_07",
+    "index": 215,
+    "passText": "You trade with the storehouse too? Then you know how things work over there, the security, who comes and goes. The reason I stayed quiet is that the storehouse manager is a friend of mine and I didn't want to suggest his security failed. I let a child take the fall to protect a grown man's reputation.",
+    "failText": "You're asking questions that sound friendly but feel pointed. I said I should have spoken up, and that's all I've got."
+  }
+]

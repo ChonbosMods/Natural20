@@ -175,8 +175,8 @@
       "properties": {
         "skill": {
           "type": "string",
-          "enum": ["PERCEPTION", "INSIGHT", "PERSUASION", "INVESTIGATION", "NATURE", "HISTORY"],
-          "description": "Which skill is tested. Must match the emotional context of the pass/fail text."
+          "enum": ["PERSUASION", "DECEPTION", "INTIMIDATION", "PERFORMANCE", "INSIGHT", "PERCEPTION", "INVESTIGATION", "NATURE", "HISTORY", "ARCANA", "RELIGION"],
+          "description": "Which skill is tested. Must match the emotional context of the pass/fail text. CHA skills: PERSUASION, DECEPTION, INTIMIDATION, PERFORMANCE. WIS skills: INSIGHT, PERCEPTION. INT skills: INVESTIGATION, NATURE, HISTORY, ARCANA, RELIGION."
         },
         "dc": {
           "type": "integer",

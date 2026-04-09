@@ -62,13 +62,41 @@ Hard constraints for pool entry authoring. These are not suggestions. Every entr
 
 22. **Pass text reveals, fail text deflects.** The `pass` line should deliver the hidden insight, opinion, or admission. The `fail` line should show the NPC pulling back: deflecting, shrugging it off, or changing the subject. Both must be 1-2 sentences and stay on-topic with the entry's intro.
 
+23. **Available skills for stat checks.** The skill type must match the emotional or situational context of the pass/fail text. Choose from any of the following:
+
+**Charisma (CHA) skills:**
+
+| Skill | Good fit when... | Pass text reads like... |
+|---|---|---|
+| PERSUASION | The NPC is reluctant, guarded, or testing whether the player is trustworthy | The player earned the NPC's trust and got the fuller story |
+| DECEPTION | The NPC would respond to a well-placed bluff, or the player needs to read between the lines of the NPC's own evasions | The player called out what the NPC was avoiding, or got them to drop their guard with a leading question |
+| INTIMIDATION | The NPC is withholding out of stubbornness, cowardice, or self-interest, and would crack under pressure | The NPC gave up something they were protecting because the player made the cost of silence clear |
+| PERFORMANCE | The NPC responds to showmanship, charm, or social display, or the situation involves a public-facing moment | The player's presence or delivery made the NPC feel seen, impressed, or willing to share in return |
+
+**Wisdom (WIS) skills:**
+
+| Skill | Good fit when... | Pass text reads like... |
+|---|---|---|
+| INSIGHT | The NPC is hiding their real feelings, personal stakes, or deeper motivation | The NPC opened up about something vulnerable |
+| PERCEPTION | The NPC is hiding or glossing over a physical detail, damage, tracks, or signs of a problem | The player noticed something the NPC didn't point out |
+
+**Intelligence (INT) skills:**
+
+| Skill | Good fit when... | Pass text reads like... |
+|---|---|---|
+| INVESTIGATION | The NPC's account has gaps, inconsistencies, or missing context | The player asked the right question and got a more complete picture |
+| NATURE | The threat or problem involves creature behavior, terrain, weather, or survival knowledge | The player demonstrated practical knowledge about the situation |
+| HISTORY | The situation connects to past events, old knowledge, traditions, or regional context | The player recognized a pattern or precedent |
+| ARCANA | The situation involves strange phenomena, unusual materials, or something that defies ordinary explanation | The player recognized something arcane or unnatural about the situation |
+| RELIGION | The situation touches on beliefs, sacred traditions, burial customs, or spiritual significance | The player understood a cultural or spiritual dimension the NPC assumed outsiders wouldn't grasp |
+
 ---
 
 ## Valence Rules
 
-23. **Tag honestly.** Classify each entry as `positive`, `negative`, or `neutral` based on the dominant emotional weight of the intro line. A complaint is negative. Contentment is positive. Observation without strong feeling is neutral.
+24. **Tag honestly.** Classify each entry as `positive`, `negative`, or `neutral` based on the dominant emotional weight of the intro line. A complaint is negative. Contentment is positive. Observation without strong feeling is neutral.
 
-24. **Category valence targets:**
+25. **Category valence targets:**
     - `mundane_daily_life`: ~70% neutral, ~15% positive, ~15% negative
     - `npc_opinions`: ~35% positive, ~35% negative, ~30% neutral
     - `settlement_pride`: ~40% positive, ~30% negative, ~30% neutral
@@ -80,25 +108,25 @@ Hard constraints for pool entry authoring. These are not suggestions. Every entr
 
 ## Template Variable Rules
 
-25. **Use existing variable syntax.** Variables use `{curly_brace}` syntax: `{npc_name}`, `{npc_role}`, `{self_role}`, `{poi_type}`, `{mob_type}`, `{settlement_name}`, `{other_settlement}`, `{food_type}`, `{crop_type}`, `{wildlife_type}`, `{resource_type}`. See `entity_registry_template.json` for the full list.
+26. **Use existing variable syntax.** Variables use `{curly_brace}` syntax: `{npc_name}`, `{npc_role}`, `{self_role}`, `{poi_type}`, `{mob_type}`, `{settlement_name}`, `{other_settlement}`, `{food_type}`, `{crop_type}`, `{wildlife_type}`, `{resource_type}`. See `entity_registry_template.json` for the full list.
 
-26. **Do not use `{subject_focus}` or any subject focus variables.** Pool entries must be fully self-contained text. No `{subject_focus}`, `{subject_focus_the}`, `{subject_focus_The}`, `{subject_focus_is}`, `{subject_focus_has}`, or `{subject_focus_was}`.
+27. **Do not use `{subject_focus}` or any subject focus variables.** Pool entries must be fully self-contained text. No `{subject_focus}`, `{subject_focus_the}`, `{subject_focus_The}`, `{subject_focus_is}`, `{subject_focus_has}`, or `{subject_focus_was}`.
 
-27. **`{npc_name}` is for other NPCs.** Never use `{npc_name}` as self-reference. The NPC speaking is "I" or "me." `{npc_name}` refers to someone else in the settlement.
+28. **`{npc_name}` is for other NPCs.** Never use `{npc_name}` as self-reference. The NPC speaking is "I" or "me." `{npc_name}` refers to someone else in the settlement.
 
-28. **POI and mob types are common nouns.** Write "the {poi_type}" and "{mob_type}" as common nouns in natural speech. "The mine's been busy" not "Mine is experiencing increased activity."
+29. **POI and mob types are common nouns.** Write "the {poi_type}" and "{mob_type}" as common nouns in natural speech. "The mine's been busy" not "Mine is experiencing increased activity."
 
-29. **Variable limit per line.** Maximum 2 template variables per intro/detail/reaction line. Variables in different lines of the same entry are fine. Three or more variables in a single line produces mad-libs.
+30. **Variable limit per line.** Maximum 2 template variables per intro/detail/reaction line. Variables in different lines of the same entry are fine. Three or more variables in a single line produces mad-libs.
 
-30. **Wildlife vs. mob distinction and grammatical number.** `{wildlife_type}` resolves to a **singular** noun (deer, fox, owl): use singular verbs and articles ("a {wildlife_type} has been", not "{wildlife_type} have been"). `{mob_type}` resolves to a **plural** noun (goblins, wolves, skeletons): use plural verbs and no singular articles ("some {mob_type} got into", not "a {mob_type} got into"). Do not use hostile framing with `{wildlife_type}` or peaceful framing with `{mob_type}`.
+31. **Wildlife vs. mob distinction and grammatical number.** `{wildlife_type}` resolves to a **singular** noun (deer, fox, owl): use singular verbs and articles ("a {wildlife_type} has been", not "{wildlife_type} have been"). `{mob_type}` resolves to a **plural** noun (goblins, wolves, skeletons): use plural verbs and no singular articles ("some {mob_type} got into", not "a {mob_type} got into"). Do not use hostile framing with `{wildlife_type}` or peaceful framing with `{mob_type}`.
 
-31. **No hardcoded names for variable-sourced entities.** If an entry uses `{wildlife_type}`, `{mob_type}`, `{npc_name}`, or any entity variable, do not also hardcode a specific name for the same entity elsewhere in the entry. "He said 'deer' ... sure enough, a {wildlife_type} crossed the path" breaks when `{wildlife_type}` resolves to "owl." Either use the variable everywhere or don't use it at all.
+32. **No hardcoded names for variable-sourced entities.** If an entry uses `{wildlife_type}`, `{mob_type}`, `{npc_name}`, or any entity variable, do not also hardcode a specific name for the same entity elsewhere in the entry. "He said 'deer' ... sure enough, a {wildlife_type} crossed the path" breaks when `{wildlife_type}` resolves to "owl." Either use the variable everywhere or don't use it at all.
 
-32. **Resource-POI coherence.** When an entry uses both `{resource_type}` and `{poi_type}`, the resource should make sense for the POI. The system handles this via filtered pools, but authors should be aware: a mine produces ore, a farm produces crops, a blacksmith works metal.
+33. **Resource-POI coherence.** When an entry uses both `{resource_type}` and `{poi_type}`, the resource should make sense for the POI. The system handles this via filtered pools, but authors should be aware: a mine produces ore, a farm produces crops, a blacksmith works metal.
 
-33. **Role variable restraint.** `{self_role}` works when the NPC is reflecting on their own work life: "I've been {self_role} long enough to know..." `{npc_role}` works only when the role is the point of the observation: "You'd think the {npc_role} would keep better order." Do NOT use `{npc_role}` as an appositive label stapled to a name: "{npc_name} borrowed my saw" is better than "{npc_name}, the {npc_role}, borrowed my saw." The player already knows who that NPC is. Most `npc_opinions` entries should use `{npc_name}` alone and let the opinion speak for itself.
+34. **Role variable restraint.** `{self_role}` works when the NPC is reflecting on their own work life: "I've been {self_role} long enough to know..." `{npc_role}` works only when the role is the point of the observation: "You'd think the {npc_role} would keep better order." Do NOT use `{npc_role}` as an appositive label stapled to a name: "{npc_name} borrowed my saw" is better than "{npc_name}, the {npc_role}, borrowed my saw." The player already knows who that NPC is. Most `npc_opinions` entries should use `{npc_name}` alone and let the opinion speak for itself.
 
-34. **Mundane daily life is variable-sparse.** Most `mundane_daily_life` entries should have zero template variables. This category is about universal human experience: sleep, weather, aches, boredom, small victories. A few entries per batch can use `{food_type}` or `{self_role}`, but these are the exception. If every daily life entry references a food item or a job title, you've replaced dramatic over-specificity with lifestyle narration. The plainest entries in the pool are the ones that make the richer entries stand out.
+35. **Mundane daily life is variable-sparse.** Most `mundane_daily_life` entries should have zero template variables. This category is about universal human experience: sleep, weather, aches, boredom, small victories. A few entries per batch can use `{food_type}` or `{self_role}`, but these are the exception. If every daily life entry references a food item or a job title, you've replaced dramatic over-specificity with lifestyle narration. The plainest entries in the pool are the ones that make the richer entries stand out.
 
 ---
 
@@ -121,15 +149,15 @@ Hard constraints for pool entry authoring. These are not suggestions. Every entr
 | 13 | Dramatic creature framing | "Something is driving the wolves down from the mountains" | Quest hook (R15), event invention (R3) |
 | 14 | Escalating detail | Intro: "mine is busy" → Detail: "explosion in the lower tunnels" | Detail escalation (R18) |
 | 15 | Call-to-action reaction | "If you're brave enough, you could look into it." | Reaction rule (R19) |
-| 16 | Role as appositive label | "{npc_name}, the {npc_role}, borrowed my saw" | Role restraint (R33): role adds nothing |
-| 17 | Over-decorated mundane entry | "Had {food_type} after being a {self_role} all day. Saw a {wildlife_type}." | Mundane sparseness (R34): too many variables |
-| 18 | Subject focus variable | "{subject_focus_the} near the {poi_type}" | Forbidden variable (R26) |
+| 16 | Role as appositive label | "{npc_name}, the {npc_role}, borrowed my saw" | Role restraint (R34): role adds nothing |
+| 17 | Over-decorated mundane entry | "Had {food_type} after being a {self_role} all day. Saw a {wildlife_type}." | Mundane sparseness (R35): too many variables |
+| 18 | Subject focus variable | "{subject_focus_the} near the {poi_type}" | Forbidden variable (R27) |
 | 19 | Invented food/drink name | "dragonberry wine," "honeycake," "moonbrew ale" | Entity grounding (R1): use {food_type} pool |
-| 20 | Hostile framing on wildlife | "A {wildlife_type} attacked the livestock" | Wildlife/mob distinction (R30) |
+| 20 | Hostile framing on wildlife | "A {wildlife_type} attacked the livestock" | Wildlife/mob distinction (R31) |
 | 21 | Thin standalone beat | Detail: "The neighbors agree." | Beat weight (R20): reads thin as the only follow-up to an intro |
 | 22 | Stat check with nothing to hide | Pass: "The weather has been nice lately." | Guarded truths (R21): nothing worth revealing behind the check |
-| 23 | Singular article + plural mob_type | "A {mob_type} got into the pen" | Grammatical number (R30): mob_type is plural, use "some {mob_type}" |
-| 24 | Plural verb + singular wildlife_type | "{wildlife_type} have been nesting" | Grammatical number (R30): wildlife_type is singular, use "a {wildlife_type} has been" |
-| 25 | Hardcoded name + variable for same entity | "He said 'deer' ... a {wildlife_type} crossed" | Variable coherence (R31): hardcoded name conflicts with variable |
+| 23 | Singular article + plural mob_type | "A {mob_type} got into the pen" | Grammatical number (R31): mob_type is plural, use "some {mob_type}" |
+| 24 | Plural verb + singular wildlife_type | "{wildlife_type} have been nesting" | Grammatical number (R31): wildlife_type is singular, use "a {wildlife_type} has been" |
+| 25 | Hardcoded name + variable for same entity | "He said 'deer' ... a {wildlife_type} crossed" | Variable coherence (R32): hardcoded name conflicts with variable |
 | 26 | Colon or dash in dialogue | "the real problem: nobody talks about it" / "it's a long walk — worth it though" | No colons or dashes (R13) |
 | 27 | Corrective reframing | "It wasn't just a gesture, it was something real" / "You didn't just help, you saved us" | No corrective reframing (R14) |

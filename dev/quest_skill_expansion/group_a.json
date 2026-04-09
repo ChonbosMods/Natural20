@@ -1,0 +1,1064 @@
+[
+  {
+    "id": "supplication_06",
+    "topicHeader": "The Last Thread",
+    "situation": "supplication",
+    "objectives": [
+      {
+        "type": "KILL_MOBS",
+        "countMin": 4,
+        "countMax": 7
+      },
+      {
+        "type": "COLLECT_RESOURCES",
+        "countMin": 5,
+        "countMax": 9
+      }
+    ],
+    "expositionText": "I've been lying to people about how bad it is. Telling {settlement_npc} that the stores are fine, that the {enemy_type_plural} haven't been as close as they have. But they're right outside now, and I need {kill_count} of them gone before someone gets hurt and everyone finds out I've been covering it up.",
+    "acceptText": "Thank you. I'll stop pretending once this is handled. I just need to get through it first.",
+    "declineText": "Then I'll keep lying. What else can I do? The moment people here find out how thin things are, there'll be panic, and panic is worse than {enemy_type_plural}.",
+    "expositionTurnInText": "I felt the pressure ease the moment you came back. But the damage is already done to our supplies, and I still need to cover that before anyone notices.",
+    "conflict1Text": "I need {gather_count} {quest_item} put away before {settlement_npc} checks the stores. If they see how low we really are, I'll have to explain everything, and I'd rather fix it first and explain never.",
+    "conflict1TurnInText": "That's enough to fill the gaps. Nobody will know how close we came. Maybe that's cowardly, but right now I'll take cowardly over chaos.",
+    "resolutionText": "The stores are full, the {enemy_type_plural} are gone, and {settlement_npc} still thinks I had it all under control. Take {quest_reward}. You saved me from a mess that was half my own making, and I won't forget that.",
+    "skillCheck": {
+      "skill": "DECEPTION",
+      "dc": 12,
+      "passText": "You could tell, couldn't you, that the numbers I gave {settlement_npc} didn't add up. The truth is I've been skimming from my own rations to keep the public count looking right. I haven't eaten a full meal in four days.",
+      "failText": "It's tight, that's all. Every settlement has lean stretches."
+    },
+    "rewardText": "a pouch of coin I kept hidden for exactly this kind of trouble",
+    "valence": "negative",
+    "roleAffinity": []
+  },
+  {
+    "id": "supplication_07",
+    "topicHeader": "Swallowed Pride",
+    "situation": "supplication",
+    "objectives": [
+      {
+        "type": "FETCH_ITEM"
+      },
+      {
+        "type": "TALK_TO_NPC"
+      }
+    ],
+    "expositionText": "I need a {quest_item} and I need it soon. I hurt my back three days ago and I've been hiding it because if {settlement_npc} finds out they'll pull me from the work rotation, and I can't afford that. Not with what I owe.",
+    "acceptText": "You're a good soul. I'm not used to asking and I'm not good at it. But thank you.",
+    "declineText": "All right. I'll drag myself out there and get it done before my body gives out entirely. Don't worry about me.",
+    "expositionTurnInText": "Oh, that's exactly what I needed. I can already feel the pressure letting up. But there's something else, and it's the part I've been dreading.",
+    "conflict1Text": "I owe {target_npc} in {target_npc_settlement} a debt I've been dodging for two months. They're a {target_npc_role}, and every week I don't face them it gets harder to look at myself. Go tell them I'm ready to settle up. I just couldn't bring myself to walk in there on my own.",
+    "conflict1TurnInText": "{target_npc} didn't hold it against me? I was sure they'd be furious. I suppose I've been building up the worst case in my head for so long that I forgot people can be decent.",
+    "targetNpcOpener": "So they finally sent word. Honestly, I'd half given up on hearing from them. The debt isn't the issue, what bothered me was the silence. People disappear on you and you start thinking the worst.",
+    "targetNpcCloser": "Tell them it's fine, the money can wait. I just wanted to know they were still alive.",
+    "resolutionText": "My back's getting better, the debt is settled, and I can look at myself in a mirror again without wincing. Take {quest_reward}. You did the hard parts I couldn't face, and I mean that literally and otherwise.",
+    "skillCheck": {
+      "skill": "DECEPTION",
+      "dc": 13,
+      "passText": "You picked up on the timing, didn't you. It just any debt. I borrowed the money for medicine for my daughter last winter. If {target_npc} knew it was for that, they'd forgive the whole thing, but then I'd owe them pity, and I'd rather owe them coin.",
+      "failText": "It's a debt, everyone has them. Mine is just overdue."
+    },
+    "rewardText": "a handful of silver and my word that I'll pay it forward",
+    "valence": "negative",
+    "roleAffinity": []
+  },
+  {
+    "id": "supplication_08",
+    "topicHeader": "Teeth and Walls",
+    "situation": "supplication",
+    "objectives": [
+      {
+        "type": "KILL_MOBS",
+        "countMin": 3,
+        "countMax": 6
+      },
+      {
+        "type": "COLLECT_RESOURCES",
+        "countMin": 4,
+        "countMax": 8
+      },
+      {
+        "type": "TALK_TO_NPC"
+      }
+    ],
+    "expositionText": "I've patched the fence three times this week and they keep tearing through it. {enemy_type_plural}, every night. I need {kill_count} of them dealt with or I'm going to lose everything I've penned up out there.",
+    "acceptText": "I don't know how to thank you properly. I've been out of proper words for days. Just come back safe.",
+    "declineText": "I'll keep patching, then. That's what I do. Patch and patch and patch until there's nothing left to patch with.",
+    "expositionTurnInText": "The fence held last night. First time in a week. But half of it is barely standing, and I need materials to rebuild before they come back.",
+    "conflict1Text": "I need {gather_count} {quest_item} for the repairs. The real repairs, not the twine and prayer I've been using. If I can get the perimeter solid again I might actually sleep tonight.",
+    "conflict1TurnInText": "The fence looks like a fence again instead of a suggestion. But I need one more thing, and I hate myself for asking.",
+    "conflict2Text": "{target_npc} in {target_npc_settlement} used to keep livestock in worse territory than this. They're a {target_npc_role}, and they figured out how to ward off the worst of it. Go ask them what I'm doing wrong, because clearly I'm doing something wrong.",
+    "conflict2TurnInText": "That's advice I can actually use. I was leaving feed scraps too close to the perimeter. Drawing them in without knowing it. No wonder they kept coming back.",
+    "targetNpcOpener": "Predators at the fence line? That's almost always a bait problem. Something close to the perimeter smells good enough to draw them in, and once they learn the pattern they'll keep testing it. Move the feeding area to the center of the enclosure and bury the scraps deep.",
+    "targetNpcCloser": "It's a common mistake. The fix is simple once you know what to look for.",
+    "resolutionText": "I moved the feed, rebuilt the fence, and last night was the quietest I can remember. Take {quest_reward}. You gave me answers on top of help, and that's worth more than either one alone.",
+    "skillCheck": {
+      "skill": "INTIMIDATION",
+      "dc": 11,
+      "passText": "Fine, you want the whole picture? I've been sleeping in the pen with them, with a club, because if I lose these animals I lose the only income I have. That's what's actually at stake here, and I haven't told anyone because I don't want their pity.",
+      "failText": "It's just a pest problem. A bad one, but that's all."
+    },
+    "rewardText": "the coin I've been hiding under the floorboard and a debt I intend to repay",
+    "valence": "negative",
+    "roleAffinity": []
+  },
+  {
+    "id": "supplication_09",
+    "topicHeader": "No Floor Left",
+    "situation": "supplication",
+    "objectives": [
+      {
+        "type": "COLLECT_RESOURCES",
+        "countMin": 6,
+        "countMax": 10
+      },
+      {
+        "type": "KILL_MOBS",
+        "countMin": 3,
+        "countMax": 5
+      }
+    ],
+    "expositionText": "I've been putting a good face on things, but I'm out. Completely out. I need {gather_count} {quest_item} and I needed it three days ago. If I don't get the stock back up, {settlement_npc} is going to realize I've been burning through reserves I wasn't supposed to touch.",
+    "acceptText": "You have no idea what a relief it is to hear someone say yes. I was starting to plan which of my things I could sell.",
+    "declineText": "Then I'll start selling. The chair first, then the tools. I'll get back to even if it takes everything I own.",
+    "expositionTurnInText": "I can fill the shelves again. That's the first time in weeks I've been able to say that. But the reason the reserves ran low in the first place is still out there.",
+    "conflict1Text": "{enemy_type_plural} have been raiding what I put aside, and every time I restock they take another piece. {kill_count} of them gone and I can finally stop losing ground. Please.",
+    "conflict1TurnInText": "Quiet. Real quiet. I keep walking to the window expecting to see them and there's nothing there. It's strange how much relief feels like confusion.",
+    "resolutionText": "The shelves are stocked, the {enemy_type_plural} are handled, and I still have my tools and my chair. Take {quest_reward}. I was ready to sell everything I had, and you kept me from having to.",
+    "skillCheck": {
+      "skill": "INTIMIDATION",
+      "dc": 12,
+      "passText": "All right, stop looking at me like that. The real problem is that I spent the emergency fund on a gift for my partner's birthday two months ago and thought I'd earn it back before anyone noticed. Everything that's gone wrong since has been piling on top of that one stupid decision.",
+      "failText": "Supplies run out, it happens. I'd rather fix it than talk about it."
+    },
+    "rewardText": "every coin I can scrape together and a promise I mean to keep",
+    "valence": "negative",
+    "roleAffinity": []
+  },
+  {
+    "id": "supplication_10",
+    "topicHeader": "Singing for Scraps",
+    "situation": "supplication",
+    "objectives": [
+      {
+        "type": "FETCH_ITEM"
+      },
+      {
+        "type": "COLLECT_RESOURCES",
+        "countMin": 5,
+        "countMax": 8
+      }
+    ],
+    "expositionText": "I used to be able to charm my way through anything, a good word here, a smile there. That stopped working about a month ago when the real trouble started. I need a {quest_item}, and I can't talk my way into one. I've tried.",
+    "acceptText": "Genuinely, thank you. I was running out of performances and starting to run out of hope.",
+    "declineText": "I suppose I'll find another audience. I always do. It's just getting harder to find one that hasn't already heard the act.",
+    "expositionTurnInText": "You actually brought it. I'm not going to pretend I'm not emotional about that. I've asked six people this week and you're the first one who came through.",
+    "conflict1Text": "While I'm being honest with you, I'm also short on {quest_item}. {gather_count} would get me back to something resembling stable. I know I'm stacking favors, and I know what that looks like. But I'm asking anyway.",
+    "conflict1TurnInText": "That's enough. That's actually enough. I keep counting it over because I'm not used to having enough of anything.",
+    "resolutionText": "I can stand on my own feet again, at least for a while. Take {quest_reward}. I'd write you a song about it if I thought you'd want one, but coin is probably more useful.",
+    "skillCheck": {
+      "skill": "PERFORMANCE",
+      "dc": 13,
+      "passText": "You caught that, did you, the way I frame everything like a story. It's a habit from years of busking, making my problems sound charming because that's the only way anyone ever listens. The truth underneath all the polish is that I haven't eaten properly in a week and I'm scared.",
+      "failText": "Everyone has hard stretches. Mine happens to be now."
+    },
+    "rewardText": "the last of my performance earnings and a song in your name if you ever want it",
+    "valence": "negative",
+    "roleAffinity": []
+  },
+  {
+    "id": "supplication_11",
+    "topicHeader": "Old Rites Forgotten",
+    "situation": "supplication",
+    "objectives": [
+      {
+        "type": "KILL_MOBS",
+        "countMin": 4,
+        "countMax": 6
+      },
+      {
+        "type": "FETCH_ITEM"
+      },
+      {
+        "type": "TALK_TO_NPC"
+      }
+    ],
+    "expositionText": "My grandmother always said that when the {enemy_type_plural} come close to a settlement it means something has fallen out of balance. I used to dismiss that. But they've been getting bolder every night, and I need {kill_count} of them driven back before I can even think about why.",
+    "acceptText": "Thank you. I know it sounds like an old woman's worry, but something feels wrong here beyond the usual trouble.",
+    "declineText": "I'll sit with it, then. The old stories say patience is a virtue. They also say so is not getting eaten in your sleep.",
+    "expositionTurnInText": "The pressure has eased, and I'm grateful. But something still feels off, and I think I know what to look for.",
+    "conflict1Text": "There's a {quest_item} that my grandmother kept for the rites she used to perform at the turn of each season. We stopped doing them years ago. I think we need to start again, and I need that to begin.",
+    "conflict1TurnInText": "Holding this feels like holding a piece of her. I think she'd be glad someone remembered. Now I need to talk to someone who actually knows the old words.",
+    "conflict2Text": "{target_npc} in {target_npc_settlement} is a {target_npc_role} who still practices the old ways. Ask them if they'd be willing to teach me the seasonal rite. I'd go myself, but I can't leave {settlement_name} right now.",
+    "conflict2TurnInText": "{target_npc} agreed to send me the words? My grandmother would have wept. I'll learn them tonight.",
+    "targetNpcOpener": "The seasonal rite? It's rare that anyone asks about it anymore, most settlements stopped observing it two generations back. But the practice itself is sound, and I've kept the tradition alive here. I'll write down the invocations and the offerings list.",
+    "targetNpcCloser": "Tell them the balance doesn't restore itself, someone has to tend it. I'm glad someone remembers that.",
+    "resolutionText": "I performed the rite last night, the first time anyone has done it in {settlement_name} in twenty years. The air felt different this morning. Take {quest_reward}. You helped me find something I didn't know I'd lost.",
+    "skillCheck": {
+      "skill": "RELIGION",
+      "dc": 13,
+      "passText": "You know the old calendar. Then you understand what I mean when I say we're two seasons overdue. My grandmother never missed an observance in her life, and the year after she died is when the trouble started. I don't think that's a coincidence, and I've been too ashamed of my own neglect to say so until now.",
+      "failText": "It's an old tradition. I won't bore you with the details."
+    },
+    "rewardText": "the coin my grandmother left me and a blessing spoken in the old way",
+    "valence": "negative",
+    "roleAffinity": []
+  },
+  {
+    "id": "deliverance_06",
+    "topicHeader": "Stolen Hours",
+    "situation": "deliverance",
+    "objectives": [
+      {
+        "type": "KILL_MOBS",
+        "countMin": 4,
+        "countMax": 7
+      },
+      {
+        "type": "TALK_TO_NPC"
+      }
+    ],
+    "expositionText": "My cousin went out to check the traps yesterday and hasn't come back. {enemy_type_plural} have been thick out there all week. I need {kill_count} of them cleared before I can even begin to search, because right now the path is a death sentence for anyone who isn't armed.",
+    "acceptText": "Go now, please. Every hour matters and I've already wasted too many of them being afraid.",
+    "declineText": "Then I'll go myself and hope I'm luckier than I am brave. Don't think about it too hard.",
+    "expositionTurnInText": "The path is open again. That's something. But I still don't know where my cousin is, and I need someone who knows the area better than I do.",
+    "conflict1Text": "{target_npc} in {target_npc_settlement} is a {target_npc_role} who runs the same traplines. They'll know the shelters, the fallback spots, the places a person would go if they were cut off. Tell them it's urgent.",
+    "conflict1TurnInText": "{target_npc} knew exactly where to look. My cousin is alive, holed up in an old blind two miles out. They're sending someone to bring them home right now.",
+    "targetNpcOpener": "Cut off on the trapline? I know three places someone would shelter if they couldn't make it back. The old blind at the fork is the most likely, it's got a roof and it's off the main track. I'll get my people moving.",
+    "targetNpcCloser": "We'll have them home before dark. Tell the family to keep a light burning.",
+    "resolutionText": "My cousin walked through the door an hour ago, dirty and shaken but whole. I've never been so relieved in my life. Take {quest_reward}. You cleared the way and found the right person to finish it, and I owe you everything.",
+    "skillCheck": {
+      "skill": "DECEPTION",
+      "dc": 12,
+      "passText": "You can see through me, can't you. I told everyone here that I'm sure my cousin is fine, that they're just delayed. The truth is I found blood on the trail this morning, and I cleaned it up before anyone else saw it because I couldn't bear the look on my aunt's face if she knew.",
+      "failText": "They're overdue, that's all. People get delayed out there sometimes."
+    },
+    "rewardText": "the coin my aunt pressed into my hands and my own besides",
+    "valence": "negative",
+    "roleAffinity": []
+  },
+  {
+    "id": "deliverance_07",
+    "topicHeader": "Burning Window",
+    "situation": "deliverance",
+    "objectives": [
+      {
+        "type": "FETCH_ITEM"
+      },
+      {
+        "type": "KILL_MOBS",
+        "countMin": 3,
+        "countMax": 5
+      },
+      {
+        "type": "TALK_TO_NPC"
+      }
+    ],
+    "expositionText": "{settlement_npc} has been getting weaker by the day and nobody here knows what's wrong. There's a {quest_item} that might help, something I read about once but could never get my hands on. Please find one. We're running out of time.",
+    "acceptText": "Hurry. I mean that. Hurry. Every morning I check on them and expect the worst.",
+    "declineText": "I can't make you care. But if you change your mind, the door is open, and so is the window we're losing them through.",
+    "expositionTurnInText": "You found one. I got it to {settlement_npc} within the hour and there's color in their face for the first time in days. But we need to keep them safe while they recover.",
+    "conflict1Text": "The {enemy_type_plural} outside have been making a racket every night and {settlement_npc} needs rest. Real rest, not the fitful kind you get when something's scratching at the walls. {kill_count} of them dealt with and maybe they can sleep through a whole night.",
+    "conflict1TurnInText": "{settlement_npc} slept six hours straight. I counted. I sat by the door and counted every single one. Now I need someone who can tell me if they're truly out of danger.",
+    "conflict2Text": "Find {target_npc} in {target_npc_settlement}. They're a {target_npc_role}, and they've seen this kind of sickness before. I need to know if {settlement_npc} is recovering or just resting before it gets worse. I need to hear it from someone who knows.",
+    "conflict2TurnInText": "{target_npc} says the worst has passed. They said it plainly, without hedging, and I trust them. I can breathe again.",
+    "targetNpcOpener": "I've seen this ailment before. The recovery is slow but it's real once it starts. If they're eating and sleeping on their own, the danger has passed. The body just needs time to remember what normal feels like.",
+    "targetNpcCloser": "Keep them warm and fed, and in two weeks you won't remember how scared you were. They'll be fine.",
+    "resolutionText": "{settlement_npc} sat up at the table this morning and complained about the soup being too salty. I nearly knocked the bowl over hugging them. Take {quest_reward}. You gave them back to us.",
+    "skillCheck": {
+      "skill": "DECEPTION",
+      "dc": 13,
+      "passText": "You noticed I said 'read about' and not 'heard about,' didn't you. I found a journal in my mother's things after she died, and she had the same illness years ago. The {quest_item} was underlined three times. She didn't make it, but she wrote that it gave her more time, and I'm hoping more time is all {settlement_npc} needs.",
+      "failText": "I heard it helps. That's enough reason to try."
+    },
+    "rewardText": "the silver I had saved and a meal at our table for as long as you want one",
+    "valence": "negative",
+    "roleAffinity": []
+  },
+  {
+    "id": "deliverance_08",
+    "topicHeader": "Against the Clock",
+    "situation": "deliverance",
+    "objectives": [
+      {
+        "type": "TALK_TO_NPC"
+      },
+      {
+        "type": "FETCH_ITEM"
+      }
+    ],
+    "expositionText": "The well dried up two days ago and nobody here knows why. We've been rationing what's left in the barrels, but that won't last the week. {target_npc} in {target_npc_settlement} is a {target_npc_role} who dealt with something like this before. Go ask them what went wrong and how to fix it.",
+    "acceptText": "Thank you. I've been trying not to panic in front of the children, but this is as close to desperate as I've ever been.",
+    "declineText": "I see. We'll stretch what we have and pray for rain, then. It a plan, but it's what I've got.",
+    "expositionTurnInText": "So {target_npc} knows what happened? Good. I can work with an answer, even a bad one. What do we need?",
+    "conflict1Text": "{target_npc} said we need a {quest_item} to clear the blockage. Without it, the water stays cut off and we start walking to the river, which is a half day's trip each way with a child on your hip. Please find one.",
+    "conflict1TurnInText": "It's flowing again. I can hear it from here. That's the most beautiful sound I've heard in three days.",
+    "targetNpcOpener": "A dry well? That happens when sediment shifts underground and blocks the channel. I've cleared two of them myself, you need a specific tool and about an hour of careful work. The fix isn't complicated, but it won't resolve on its own.",
+    "targetNpcCloser": "Get the tool and I'll walk you through the rest. The longer the channel sits blocked, the harder it is to clear.",
+    "resolutionText": "The children drank their fill this morning without me measuring the cups. I didn't realize how tense I'd been until I stopped. Take {quest_reward}. You kept this from becoming the kind of story people tell about settlements that didn't make it.",
+    "skillCheck": {
+      "skill": "INTIMIDATION",
+      "dc": 11,
+      "passText": "Fine, I'll tell you what I haven't told anyone else. I checked the backup cistern yesterday and it was bone dry too. I'd been telling people we had three days of reserve when we had one, because I thought the truth would start a fight over what was left.",
+      "failText": "We're short on water. That's all you need to know to understand why I'm asking."
+    },
+    "rewardText": "the coin we collected and a jug of the first clean water from the well",
+    "valence": "negative",
+    "roleAffinity": []
+  },
+  {
+    "id": "deliverance_09",
+    "topicHeader": "Fraying Rope",
+    "situation": "deliverance",
+    "objectives": [
+      {
+        "type": "KILL_MOBS",
+        "countMin": 5,
+        "countMax": 8
+      },
+      {
+        "type": "FETCH_ITEM"
+      }
+    ],
+    "expositionText": "The bridge on the east road is barely holding and {enemy_type_plural} have been nesting underneath it. Nobody can cross to get supplies from {other_settlement}, and we're starting to feel it. I need {kill_count} of them driven out before the bridge gives way entirely.",
+    "acceptText": "Please be careful out there. The footing is bad and they know the ground better than we do.",
+    "declineText": "Then we'll go the long way around and add two days to every supply run. We'll manage. We always manage, until we don't.",
+    "expositionTurnInText": "The bridge is clear underneath. I can hear the boards creaking from here, but at least nothing's chewing on the supports anymore. Now we need to shore it up before someone tries to cross and falls through.",
+    "conflict1Text": "I need a {quest_item} to make the repairs. The kind of repair that lasts, not the kind I've been doing with rope and optimism. Bring me that and the road opens up again.",
+    "conflict1TurnInText": "Solid. It feels solid under my feet again. I walked across it twice just to be sure, and the second time I didn't hold my breath.",
+    "resolutionText": "The first supply cart from {other_settlement} came through this morning, and the driver didn't even know the bridge had been out. Take {quest_reward}. You reopened a lifeline and I won't forget it.",
+    "skillCheck": {
+      "skill": "INTIMIDATION",
+      "dc": 12,
+      "passText": "Since you're pressing. Last week a child tried to cross before I could stop them, and the boards cracked under their feet. I caught them by the collar and pulled them back. I didn't report it because I was afraid they'd close the bridge entirely and we'd starve waiting for a fix.",
+      "failText": "The bridge is in bad shape. That's reason enough to act."
+    },
+    "rewardText": "the toll money we'd been collecting and a standing offer of shelter",
+    "valence": "negative",
+    "roleAffinity": []
+  },
+  {
+    "id": "deliverance_10",
+    "topicHeader": "Thin Air",
+    "situation": "deliverance",
+    "objectives": [
+      {
+        "type": "FETCH_ITEM"
+      },
+      {
+        "type": "KILL_MOBS",
+        "countMin": 3,
+        "countMax": 6
+      }
+    ],
+    "expositionText": "Something's wrong with the air near the lower fields. People who work down there come back dizzy and sick, and last week {settlement_npc} collapsed and had to be carried home. I think there's a {quest_item} that could help us figure out what's happening. I've heard of one being used for exactly this.",
+    "acceptText": "Thank you. I've been too afraid to go down there myself since {settlement_npc} fell, and I hate admitting that.",
+    "declineText": "Then we'll fence it off and lose the lower fields entirely. We needed that harvest, but we need people more.",
+    "expositionTurnInText": "You found one. Let me see. I think the bad air is coming from a fissure the {enemy_type_plural} opened up when they were digging. If that's the case, we need them gone before we can seal it.",
+    "conflict1Text": "Clear out {kill_count} of those {enemy_type_plural} so we can get to the fissure and close it up. They've been burrowing deeper and making the whole thing worse. Once they're gone, we plug the hole and the air clears.",
+    "conflict1TurnInText": "I can smell the difference already. The wind off the lower field doesn't make my eyes water anymore. We can plant there again.",
+    "resolutionText": "The fields are safe, the air is clean, and {settlement_npc} is back on their feet and grumbling about the weeds, which means everything is normal again. Take {quest_reward}. You figured out something that had us terrified for weeks.",
+    "skillCheck": {
+      "skill": "ARCANA",
+      "dc": 14,
+      "passText": "You can sense it too, can't you. There's something unnatural about the way the air moves down there. It doesn't just smell wrong, it feels wrong, like the ground is exhaling something that shouldn't exist this close to the surface. I've been telling people it's just gas from the rocks, but I don't believe that anymore.",
+      "failText": "Something's making people sick down there. That's all I know for certain."
+    },
+    "rewardText": "the coin we saved by not abandoning the lower fields and our deepest thanks",
+    "valence": "negative",
+    "roleAffinity": []
+  },
+  {
+    "id": "deliverance_11",
+    "topicHeader": "Night Chorus",
+    "situation": "deliverance",
+    "objectives": [
+      {
+        "type": "KILL_MOBS",
+        "countMin": 4,
+        "countMax": 7
+      },
+      {
+        "type": "TALK_TO_NPC"
+      }
+    ],
+    "expositionText": "Nobody's sleeping. The {enemy_type_plural} come right up to the walls every night and the noise they make is unbearable. The children cry, the livestock panic, and I can see people starting to crack. I need {kill_count} of them driven back far enough that we can hear ourselves think.",
+    "acceptText": "Please. I keep telling people it'll stop on its own, and I'm running out of conviction.",
+    "declineText": "Then we'll stuff rags in our ears and pretend it's fine. That's been working so far, in the sense that nothing has actually been working.",
+    "expositionTurnInText": "Quiet. Genuine quiet. I forgot what that sounds like. But I want to make sure this doesn't start again next month.",
+    "conflict1Text": "Go see {target_npc} in {target_npc_settlement}. They're a {target_npc_role} who dealt with this exact problem in their own settlement last year. I want to know what they did to keep them from coming back. A permanent fix, not another temporary reprieve.",
+    "conflict1TurnInText": "{target_npc} told you the trick? Good. I'll start on it tomorrow morning while the memory of those noises is still fresh enough to motivate me.",
+    "targetNpcOpener": "The nightly chorus? We had the same problem. They're territorial and they vocalize to claim ground, so the trick is denying them the perch points they use. Cut back the treeline within bowshot of your walls and remove any elevated debris they can stand on.",
+    "targetNpcCloser": "It takes about a week of clearing to see results, but once it's done, it's done. The silence is worth every swing of the axe.",
+    "resolutionText": "Three quiet nights in a row. The children are sleeping through, the livestock have calmed down, and I caught {settlement_npc} humming this morning, which hasn't happened in a month. Take {quest_reward}. You gave us back the night.",
+    "skillCheck": {
+      "skill": "PERFORMANCE",
+      "dc": 12,
+      "passText": "You have a good ear, then you understand what I mean when I say the sound was breaking us. There's a particular pitch they hit that gets into your bones, and after a week of it you can't tell if the ringing is outside or inside your own head. That's when I knew I had to ask for help.",
+      "failText": "It's just noise, terrible noise. That's what I keep telling myself."
+    },
+    "rewardText": "the coin we pooled together and the first quiet evening we've had in weeks",
+    "valence": "negative",
+    "roleAffinity": []
+  },
+  {
+    "id": "recovery_06",
+    "topicHeader": "The Short End",
+    "situation": "recovery",
+    "objectives": [
+      {
+        "type": "FETCH_ITEM"
+      },
+      {
+        "type": "TALK_TO_NPC"
+      }
+    ],
+    "expositionText": "Someone in {other_settlement} sold me a {quest_item} that turned out to be worthless. Half the weight, wrong material, and they knew exactly what they were doing. I need the real thing, and then I need someone who can confirm what I already know so I have proof when I go back to confront them.",
+    "acceptText": "Thank you. I've been stewing on this for a week and getting angrier by the day. Having someone else involved keeps me honest.",
+    "declineText": "Fine. I'll handle it alone, which is probably how they expected me to. Easier to cheat someone who has no one backing them up.",
+    "expositionTurnInText": "That's the genuine article. I can feel the difference in my hands. Now I need a witness who can tell the good from the bad on record.",
+    "conflict1Text": "{target_npc} in {target_npc_settlement} is a {target_npc_role} who knows materials. Show them both pieces and ask them to confirm what I'm telling you. Once I have their word, I can take this to the trade council and get my money back.",
+    "conflict1TurnInText": "{target_npc} confirmed it on sight, didn't even hesitate. I've been second-guessing myself for days, wondering if I was wrong. That's a relief and an insult at the same time.",
+    "targetNpcOpener": "Let me see those. Yes, this is obvious, the original is short on weight and the alloy is wrong. Whoever made this swap knew the buyer wouldn't check right away. It's a common trick in bulk trades, and it works because most people are too embarrassed to complain.",
+    "targetNpcCloser": "I'll put my assessment in writing. Nobody should get away with this kind of dealing.",
+    "resolutionText": "The trade council ruled in my favor and I got every coin back. The look on that merchant's face when {target_npc}'s letter was read aloud was almost worth the trouble. Take {quest_reward}. You helped me prove what I already knew, and sometimes that's the hardest part.",
+    "skillCheck": {
+      "skill": "DECEPTION",
+      "dc": 12,
+      "passText": "You caught that, didn't you. I almost didn't bring this to anyone because the truth is I should have checked the goods before I paid. I was in a rush and I cut corners, and the merchant saw someone careless and took advantage. That's the part that burns.",
+      "failText": "I was cheated, it's straightforward. I just need the proof to make it official."
+    },
+    "rewardText": "a share of the refund and my word as a fair dealer",
+    "valence": "negative",
+    "roleAffinity": [
+      "ArtisanBlacksmith",
+      "ArtisanAlchemist"
+    ]
+  },
+  {
+    "id": "recovery_07",
+    "topicHeader": "What They Took",
+    "situation": "recovery",
+    "objectives": [
+      {
+        "type": "KILL_MOBS",
+        "countMin": 4,
+        "countMax": 7
+      },
+      {
+        "type": "COLLECT_RESOURCES",
+        "countMin": 5,
+        "countMax": 9
+      }
+    ],
+    "expositionText": "The {enemy_type_plural} raided my stores last week and I'm still finding the mess they made. I want {kill_count} of them dealt with, and I want it done thoroughly. I'm not interested in chasing them off. I want them to stop coming.",
+    "acceptText": "Good. I was getting tired of being angry about it without doing anything. This feels like progress.",
+    "declineText": "Then I'll board up the windows and keep losing things one night at a time. That's been working beautifully so far.",
+    "expositionTurnInText": "That's a start. A real one. But the stores are still half empty and I can't trade what I don't have. The damage they did set me back weeks.",
+    "conflict1Text": "I need {gather_count} {quest_item} to replace what they destroyed. Not what they ate. What they destroyed, purely out of spite, as far as I can tell. There was food they didn't even want scattered across the floor and trampled.",
+    "conflict1TurnInText": "Shelves are full again. The room doesn't look like a battlefield anymore. I can walk in there without my stomach dropping.",
+    "resolutionText": "I'm back where I was before they came through, and this time the doors are reinforced and the windows are boarded properly. Take {quest_reward}. You helped me reclaim something that felt like it had been taken permanently, and I needed that feeling more than the supplies themselves.",
+    "skillCheck": {
+      "skill": "DECEPTION",
+      "dc": 13,
+      "passText": "You can tell there's more to it, can't you. The stores they hit weren't just mine, I was holding supplies for three other families who trusted me to keep them safe. I haven't told any of them what happened because I'm trying to replace everything before they find out. If they learn I failed them, I lose more than goods.",
+      "failText": "They made a mess and I want it fixed. That covers it."
+    },
+    "rewardText": "the payment I set aside from the last trade run and my honest thanks",
+    "valence": "negative",
+    "roleAffinity": []
+  },
+  {
+    "id": "recovery_08",
+    "topicHeader": "Crooked Scales",
+    "situation": "recovery",
+    "objectives": [
+      {
+        "type": "TALK_TO_NPC"
+      },
+      {
+        "type": "FETCH_ITEM"
+      },
+      {
+        "type": "KILL_MOBS",
+        "countMin": 3,
+        "countMax": 5
+      }
+    ],
+    "expositionText": "I've been getting shortchanged on every trade I make with {other_settlement}, and I'm done pretending it's accidental. {target_npc} in {target_npc_settlement} is a {target_npc_role} who handles the weights and measures there. Go ask them, directly, whether the scales have been adjusted. I want an honest answer.",
+    "acceptText": "Thank you. I've been too angry to go myself without saying something I'd regret. You'll get a straighter answer than I would.",
+    "declineText": "Then I'll keep eating the losses and grinding my teeth at night. It's a living, if you can call it that.",
+    "expositionTurnInText": "So {target_npc} admitted the scales were off? Interesting that it took a stranger asking for them to suddenly remember. But at least now it's on the record.",
+    "conflict1Text": "I want proof I can hold up. There's a {quest_item} that would let me verify my own measurements against theirs. Bring me one, and the next time they try to short me, I'll have numbers instead of suspicions.",
+    "conflict1TurnInText": "Perfect. The numbers don't lie, and neither do I. But there's one more problem that's been making everything worse.",
+    "conflict2Text": "{enemy_type_plural} have been hitting the supply carts between here and {other_settlement}. Every shipment arrives lighter than it left, and I've been blamed for the difference. {kill_count} of them cleared off the road and my goods arrive intact, which means the theft shows up where it actually is.",
+    "conflict2TurnInText": "The last cart arrived with every piece accounted for. First time in months. Now the only losses are the ones happening at their end, and everyone can see it.",
+    "targetNpcOpener": "The scales? I've had complaints before, and I'll be honest with you, they were last calibrated over a year ago and they've drifted. Whether anyone took advantage of that drift on purpose I can't say. But the traders from {settlement_name} have been getting less than they should.",
+    "targetNpcCloser": "I'll recalibrate them this week. Tell your person that the next weigh-in will be fair.",
+    "resolutionText": "Fair trades, full carts, and no more arguments about who's cheating whom. Take {quest_reward}. You gave me back something I'd stopped believing I'd see, which is a level field.",
+    "skillCheck": {
+      "skill": "INTIMIDATION",
+      "dc": 13,
+      "passText": "All right, I'll say the part I've been leaving out. I know exactly who's been tilting the scales, and It some accident of calibration. {settlement_npc} told me months ago who was doing it, and I was too afraid of losing the trade relationship to confront them. Being robbed politely felt safer than being cut off entirely.",
+      "failText": "The scales are wrong and I want them fixed. That's the whole of it."
+    },
+    "rewardText": "the difference I've been losing on trades and a fair handshake",
+    "valence": "negative",
+    "roleAffinity": [
+      "ArtisanBlacksmith",
+      "ArtisanCook"
+    ]
+  },
+  {
+    "id": "recovery_09",
+    "topicHeader": "Ghost of a Garden",
+    "situation": "recovery",
+    "objectives": [
+      {
+        "type": "COLLECT_RESOURCES",
+        "countMin": 6,
+        "countMax": 10
+      },
+      {
+        "type": "KILL_MOBS",
+        "countMin": 3,
+        "countMax": 6
+      }
+    ],
+    "expositionText": "My garden was the best in {settlement_name} until the blight hit, and now it looks like a grave. I need {gather_count} {quest_item} to start replanting, because what's in the ground now is dead or dying and I can't stand to look at it anymore.",
+    "acceptText": "Thank you. I know it's just a garden to most people. It meant more to me than I can explain.",
+    "declineText": "I'll dig it out myself, then. Slowly. One dead plant at a time, in between everything else I'm supposed to be doing.",
+    "expositionTurnInText": "I can feel the soil coming back to life. That's not poetry, I can actually feel the difference in my hands. But the blight didn't come from nowhere.",
+    "conflict1Text": "The {enemy_type_plural} have been burrowing through the root systems and carrying the rot with them. {kill_count} of them cleared out and the new growth has a chance. Otherwise I'm just planting into the same poison.",
+    "conflict1TurnInText": "No more tunnels, no more rot spreading underground. For the first time since this started, I planted something and believed it would actually grow.",
+    "resolutionText": "The first new shoot came up this morning. Small and pale and perfect. Take {quest_reward}. You helped me take back something that was mine, and you helped me believe it was worth taking back.",
+    "skillCheck": {
+      "skill": "INTIMIDATION",
+      "dc": 12,
+      "passText": "You want the real reason I'm so upset about a garden? My mother planted the original beds, and every season I tended them was a conversation with her. When the blight took them I didn't just lose vegetables, I lost the closest thing I had to her voice. I haven't told anyone that because I know how it sounds.",
+      "failText": "It's a garden that fed my family. That should be reason enough."
+    },
+    "rewardText": "the first harvest from the new beds and the coin I saved by not giving up",
+    "valence": "negative",
+    "roleAffinity": []
+  },
+  {
+    "id": "recovery_10",
+    "topicHeader": "Ink and Ash",
+    "situation": "recovery",
+    "objectives": [
+      {
+        "type": "FETCH_ITEM"
+      },
+      {
+        "type": "COLLECT_RESOURCES",
+        "countMin": 4,
+        "countMax": 7
+      },
+      {
+        "type": "TALK_TO_NPC"
+      }
+    ],
+    "expositionText": "A fire got into my workshop and took most of my records with it. Years of notes, measurements, recipes, all gone. There's a {quest_item} I need to start rebuilding the archive. The knowledge is still in my head, but without something to write it down in, it's just noise.",
+    "acceptText": "Good. The longer I wait, the more I forget, and I can already feel the edges going soft.",
+    "declineText": "Then the knowledge dies with me whenever that happens to be. I hope It soon, but I've never been lucky.",
+    "expositionTurnInText": "I've already started writing. My hand is shaking and my spelling is worse than it used to be, but the formulas are coming back. Now I need the raw materials to test whether I've remembered them correctly.",
+    "conflict1Text": "I need {gather_count} {quest_item} to run the first set of tests. If the results match what I remember, I'll know the records are accurate. If they don't, I'll know which parts my memory has warped.",
+    "conflict1TurnInText": "Three out of four matched perfectly. The fourth was close enough that I know where the error is. My records are alive again.",
+    "conflict2Text": "There's one last thing. {target_npc} in {target_npc_settlement} is a {target_npc_role} who studied under the same teacher I did, years ago. They'll have notes on the techniques I'm struggling to reconstruct. I'm not too proud to ask, though I would have been a year ago.",
+    "conflict2TurnInText": "{target_npc} sent their notes along with a kind word. I'd forgotten they could be generous. The gaps in my archive are filled.",
+    "targetNpcOpener": "A workshop fire? That's every craftsperson's worst fear. I still have my notes from our training years, and they're welcome to copy whatever they need. Some of it will be outdated, but the foundations don't change.",
+    "targetNpcCloser": "Tell them I'm sorry about the fire. And tell them their work was too good to lose.",
+    "resolutionText": "The archive is rebuilt, the formulas are tested, and I can work again without second-guessing every measurement. Take {quest_reward}. You helped me recover something that fire couldn't kill, only scatter.",
+    "skillCheck": {
+      "skill": "PERFORMANCE",
+      "dc": 14,
+      "passText": "You have an artist's eye, then you understand what it means to lose a body of work. Those records weren't just recipes, they were the conversation I had with my craft over twenty years, every mistake and discovery in my own handwriting. Rebuilding them isn't just practical, it's an act of remembering who I am.",
+      "failText": "I need my records back to do my job. That's the practical reality."
+    },
+    "rewardText": "the first piece made from the restored formulas and a craftsman's gratitude",
+    "valence": "negative",
+    "roleAffinity": [
+      "ArtisanAlchemist",
+      "ArtisanBlacksmith",
+      "ArtisanCook"
+    ]
+  },
+  {
+    "id": "recovery_11",
+    "topicHeader": "Hollow Ground",
+    "situation": "recovery",
+    "objectives": [
+      {
+        "type": "KILL_MOBS",
+        "countMin": 4,
+        "countMax": 6
+      },
+      {
+        "type": "FETCH_ITEM"
+      },
+      {
+        "type": "COLLECT_RESOURCES",
+        "countMin": 5,
+        "countMax": 8
+      }
+    ],
+    "expositionText": "The {enemy_type_plural} that moved into the old mine have been there for months, and it's costing us. That was our best source of material, and without it we've been paying double for everything from {other_settlement}. I need {kill_count} of them cleared out. I'm done paying someone else for what's under our own feet.",
+    "acceptText": "Good. I've been waiting for someone willing to go in there. The longer we wait, the more they dig in.",
+    "declineText": "Then we keep paying through the nose and pretending it's fine. I'm getting very good at pretending.",
+    "expositionTurnInText": "You cleared them out? I can already hear the difference from up here. The echo is different when nothing's moving down there. But the entrance needs work before anyone can go back in safely.",
+    "conflict1Text": "There's a {quest_item} I need to shore up the main tunnel. They weakened the supports when they were nesting, and I won't send anyone down there until I know the ceiling will hold.",
+    "conflict1TurnInText": "Solid. I tested every beam myself and none of them so much as creaked. We can start working the seam again.",
+    "conflict2Text": "One last thing. I need {gather_count} {quest_item} to get the operation running again. Tools, supplies, the things we stripped out when we abandoned the site. It feels good to be restocking instead of retreating.",
+    "conflict2TurnInText": "The mine is operational. I sent the first crew down this morning and they came back grinning. I'd forgotten what that looked like.",
+    "resolutionText": "We pulled our first proper load today and it's better quality than what we've been buying. Take {quest_reward}. You gave us back our livelihood, and the look on the {other_settlement} merchant's face when I cancelled the next order was a reward all its own.",
+    "skillCheck": {
+      "skill": "ARCANA",
+      "dc": 13,
+      "passText": "You noticed it too, the way they nested, the patterns on the walls. That's not normal territorial behavior, something drew them there specifically. I've seen markings on the deeper stones that don't match any natural formation, and I don't know what it means, but I know It just animals claiming empty space.",
+      "failText": "They moved in because it was empty. That's what animals do."
+    },
+    "rewardText": "the first profits from the reopened mine and a standing account in my name",
+    "valence": "negative",
+    "roleAffinity": []
+  },
+  {
+    "id": "daring_enterprise_06",
+    "topicHeader": "The Map Ahead",
+    "situation": "daring_enterprise",
+    "objectives": [
+      {
+        "type": "TALK_TO_NPC"
+      },
+      {
+        "type": "COLLECT_RESOURCES",
+        "countMin": 5,
+        "countMax": 9
+      },
+      {
+        "type": "KILL_MOBS",
+        "countMin": 3,
+        "countMax": 5
+      }
+    ],
+    "expositionText": "I've been planning a trade route to {other_settlement} that nobody's tried before, shorter and faster, and if it works it changes everything for {settlement_name}. But I need information first. {target_npc} in {target_npc_settlement} is a {target_npc_role} who traveled the region years ago. They'll know if the path is viable.",
+    "acceptText": "I knew someone would see the potential. This could be the beginning of something real.",
+    "declineText": "The route will still be there tomorrow. I'll find another partner, even if it takes a while.",
+    "expositionTurnInText": "{target_npc} says it's doable? I could jump. I literally could. All right, now we make it real.",
+    "conflict1Text": "I need {gather_count} {quest_item} to mark and supply the trail. Rest points, cache spots, the kind of infrastructure that turns a path into a route. This is the part that separates an idea from an enterprise.",
+    "conflict1TurnInText": "The trail is marked and stocked. I walked the first section myself and it's exactly what I pictured. We're close now.",
+    "conflict2Text": "There's just one problem. {enemy_type_plural} have been using the same corridor we want to route through. {kill_count} of them cleared and the path is safe for regular traffic. This is the last obstacle between us and something nobody in {settlement_name} has done before.",
+    "conflict2TurnInText": "The path is clear. I can see it stretching out ahead of us, and for the first time it doesn't end in a question mark.",
+    "targetNpcOpener": "A new route to {other_settlement}? I surveyed that ground years ago and gave up because the terrain was too rough for carts. But if you're talking about foot traffic and pack animals, there's a saddle between the ridges that would cut the distance in half. Nobody's maintained it, but the ground is solid.",
+    "targetNpcCloser": "If they're serious about this, tell them to start from the eastern fork. That's where the terrain gets cooperative.",
+    "resolutionText": "The first supply run went through this morning and arrived a full day ahead of the old schedule. I'm standing here watching the carts roll in and I can't stop smiling. Take {quest_reward}. You helped build something that will outlast both of us.",
+    "skillCheck": {
+      "skill": "DECEPTION",
+      "dc": 12,
+      "passText": "You picked up on it, didn't you. I told the council the route was practically proven, but it wasn't. I had sketches and hunches and a desperate wish for it to work. If {target_npc} had said no, I'd have been standing in front of the council with nothing.",
+      "failText": "It's a new route. All new routes involve some uncertainty."
+    },
+    "rewardText": "the first profits from the new trade route and a full partnership if you want it",
+    "valence": "positive",
+    "roleAffinity": [
+      "Traveler"
+    ]
+  },
+  {
+    "id": "daring_enterprise_07",
+    "topicHeader": "Breaking New Ground",
+    "situation": "daring_enterprise",
+    "objectives": [
+      {
+        "type": "COLLECT_RESOURCES",
+        "countMin": 6,
+        "countMax": 10
+      },
+      {
+        "type": "FETCH_ITEM"
+      }
+    ],
+    "expositionText": "I want to build a kiln. A proper one, not the pit fire I've been using. Every craftworker in {settlement_name} has to send their glazework to {other_settlement} because we can't fire it here, and I'm tired of watching our coin leave with every shipment. I need {gather_count} {quest_item} for the foundation.",
+    "acceptText": "This is happening. I can feel it. By this time next month, we'll fire our own pieces and keep our own coin.",
+    "declineText": "I'll gather it myself, then. Slower, but the kiln isn't going anywhere. Neither is my stubbornness.",
+    "expositionTurnInText": "The foundation is laid and it looks exactly the way I drew it. I keep walking past it and touching the stones to make sure they're real. One more piece and we fire the first batch.",
+    "conflict1Text": "I need a {quest_item} for the chimney assembly. It's the piece that makes the whole thing draw properly. Without it, the kiln smokes instead of fires and everything I've built is decoration.",
+    "conflict1TurnInText": "It fits. I tested the draw three times and it pulls clean every time. We are ready to fire.",
+    "resolutionText": "The first batch came out perfect. I held one of the pieces up to the light and I could see my own reflection in the glaze, and behind it, every doubt I ever had about whether I could do this. Take {quest_reward}. You helped me build something I'll be proud of for the rest of my life.",
+    "skillCheck": {
+      "skill": "DECEPTION",
+      "dc": 11,
+      "passText": "You're wondering why I didn't mention this to the council first. Because {settlement_npc} told me the council would say no. Too expensive, too risky, not enough demand. So I'm building it on my own plot with my own materials, and I'll present them with a working kiln instead of a proposal they can reject.",
+      "failText": "It's a project I've been meaning to start. The timing finally felt right."
+    },
+    "rewardText": "the first fired piece from the new kiln and a share of what it earns",
+    "valence": "positive",
+    "roleAffinity": [
+      "ArtisanBlacksmith",
+      "ArtisanCook"
+    ]
+  },
+  {
+    "id": "daring_enterprise_08",
+    "topicHeader": "What Lies Beyond",
+    "situation": "daring_enterprise",
+    "objectives": [
+      {
+        "type": "KILL_MOBS",
+        "countMin": 4,
+        "countMax": 6
+      },
+      {
+        "type": "TALK_TO_NPC"
+      },
+      {
+        "type": "FETCH_ITEM"
+      }
+    ],
+    "expositionText": "There's a stretch of land past the eastern ridge that nobody from {settlement_name} has surveyed in living memory. I want to be the first. But {enemy_type_plural} have claimed the approach, and I need {kill_count} of them driven off before I can even begin.",
+    "acceptText": "I've been dreaming about this for months. You just turned it from a dream into a plan.",
+    "declineText": "The ridge will wait for me. It's been waiting this long. But I can feel my nerve cooling every day I don't act.",
+    "expositionTurnInText": "The approach is clear. I stood at the ridgeline this morning and looked east, and the land just kept going. We're doing this.",
+    "conflict1Text": "Before I commit, I want counsel from someone who's actually explored uncharted territory. {target_npc} in {target_npc_settlement} is a {target_npc_role} who mapped the western valleys years ago. Ask them what I should expect and what mistakes to avoid.",
+    "conflict1TurnInText": "{target_npc} gave you real field notes? I'm reading these and my hands are shaking from pure excitement. They confirmed what I suspected, and there's good ground out there.",
+    "conflict2Text": "One last thing. I need a {quest_item} for the survey work itself. Proper equipment, not guesswork. If I'm going to claim I found something, I want the measurements to back it up.",
+    "conflict2TurnInText": "Everything's ready. Maps, tools, provisions. I'm leaving at first light and I've never been more certain about anything.",
+    "targetNpcOpener": "Surveying past the eastern ridge? The geography is promising if you approach from the northern slope, and I mapped the drainage patterns from a distance. There's a valley that looked fertile. Take my field notes and improve on them.",
+    "targetNpcCloser": "If they find what I think is out there, the whole region benefits. Tell them to be thorough and be careful.",
+    "resolutionText": "I found a valley with water, good soil, and more space than {settlement_name} has used in a generation. I came back with a map and a grin I couldn't wipe off my face for three days. Take {quest_reward}. You made this possible, every step of it.",
+    "skillCheck": {
+      "skill": "INTIMIDATION",
+      "dc": 12,
+      "passText": "All right, I'll level with you since you're not the type to accept a polished version. Everyone I've told about this has called me reckless, my partner thinks I've lost my mind, and {settlement_npc} told me to my face that I was going to get myself killed. But I'd rather die finding something than live wondering what was out there.",
+      "failText": "It's a survey expedition. Some risk is expected."
+    },
+    "rewardText": "a cut of whatever the new territory yields and my name on the map beside yours",
+    "valence": "positive",
+    "roleAffinity": [
+      "Traveler"
+    ]
+  },
+  {
+    "id": "daring_enterprise_09",
+    "topicHeader": "First Forge",
+    "situation": "daring_enterprise",
+    "objectives": [
+      {
+        "type": "FETCH_ITEM"
+      },
+      {
+        "type": "COLLECT_RESOURCES",
+        "countMin": 5,
+        "countMax": 8
+      },
+      {
+        "type": "TALK_TO_NPC"
+      }
+    ],
+    "expositionText": "I want to build a forge. Not inherit one, not borrow one, build my own from the ground up. There's a {quest_item} I need for the bellows mechanism. Everyone keeps telling me I should apprentice somewhere else, but I want to learn by doing, right here.",
+    "acceptText": "You believe in me. That means more than you know, because right now I'm the only one who does.",
+    "declineText": "I'll manage without help. I've managed without support this long, what's a little longer.",
+    "expositionTurnInText": "The bellows work. I tested them this morning and the air flow is clean and steady. One step closer to proving everyone wrong.",
+    "conflict1Text": "Now I need {gather_count} {quest_item} for the hearth and the anvil foundation. The heavy work. The part that turns a pile of plans into something that stands on its own.",
+    "conflict1TurnInText": "The hearth is set and the anvil rings true. I struck it once just to hear the sound, and it was everything I'd imagined.",
+    "conflict2Text": "Last piece. I need advice from someone who's done this before, even though asking makes me feel like I'm admitting I can't do it alone. {target_npc} in {target_npc_settlement} is a {target_npc_role}, so ask them about tempering technique, the one thing I can't teach myself from trial and error.",
+    "conflict2TurnInText": "{target_npc} sent instructions? Detailed ones? I was expecting a paragraph and I got a manual. I'll study every word.",
+    "targetNpcOpener": "Building a forge from nothing? I respect that, most people want shortcuts. The tempering is where most self-taught smiths run into trouble, heat too fast and the metal remembers, cool too slow and it forgets. I'll write down what I know, because there's no reason someone else should spend years figuring it out.",
+    "targetNpcCloser": "Tell them to start with simple stock and work up. Patience is the only shortcut in this trade.",
+    "resolutionText": "I tempered my first blade this morning, and it held. Clean edge, no warping, and a ring that says I got the carbon right. Take {quest_reward}. You helped me build the place where I'll spend the rest of my working life, and that's not something I'll ever forget.",
+    "skillCheck": {
+      "skill": "PERFORMANCE",
+      "dc": 13,
+      "passText": "You saw the drawings on the wall, didn't you. Those aren't just plans. They're dreams I've been sketching since I was twelve years old, sitting in the back of someone else's forge and wondering if I'd ever have my own. I didn't tell you that because I wanted you to see the ambition, not the longing.",
+      "failText": "It's a forge. Every smith needs one eventually."
+    },
+    "rewardText": "the first blade from my forge and a standing offer to craft whatever you need",
+    "valence": "positive",
+    "roleAffinity": [
+      "ArtisanBlacksmith"
+    ]
+  },
+  {
+    "id": "daring_enterprise_10",
+    "topicHeader": "Long Odds",
+    "situation": "daring_enterprise",
+    "objectives": [
+      {
+        "type": "KILL_MOBS",
+        "countMin": 3,
+        "countMax": 6
+      },
+      {
+        "type": "COLLECT_RESOURCES",
+        "countMin": 6,
+        "countMax": 10
+      }
+    ],
+    "expositionText": "I'm going to grow something that nobody in {settlement_name} has ever tried before. A crop from {other_settlement} that's supposed to be impossible in this soil. But I've been studying, and I think I've figured out how. First I need {kill_count} {enemy_type_plural} cleared from the lower field, because that's the only plot with the right drainage.",
+    "acceptText": "Let's find out if I'm brilliant or just stubborn. Either way, we'll have a story.",
+    "declineText": "I'll figure out the {enemy_type_plural} myself. Might take longer, but the growing season waits for no one's schedule.",
+    "expositionTurnInText": "The field is clear and ready. I walked every row this morning imagining what it'll look like in three months. Now I need the materials to prepare the soil.",
+    "conflict1Text": "The soil needs amendment before anything exotic will take root. I need {gather_count} {quest_item} to treat the beds properly. If I skip this step, I'm just planting expensive seeds in dirt that hates them.",
+    "conflict1TurnInText": "The soil smells different already. Rich, alive, ready to grow something it's never grown before. I planted the first seeds an hour ago and I swear I can feel them thinking about it.",
+    "resolutionText": "The first shoots are up. Green and strong and completely impossible according to everyone who told me it couldn't be done. Take {quest_reward}. You were part of proving something that mattered to me, even if the rest of {settlement_name} thinks I'm eccentric.",
+    "skillCheck": {
+      "skill": "ARCANA",
+      "dc": 12,
+      "passText": "You can sense it too, can't you, the soil in that lower field isn't just well-drained. There's some quality in the mineral content that shouldn't occur naturally this far from the coast, and whatever it is, it's the reason I think this will work when everyone else says it won't. I haven't published my findings because I don't want anyone else claiming the plot.",
+      "failText": "The soil is right for what I'm trying to do. I've done my homework."
+    },
+    "rewardText": "the first harvest of something nobody believed could grow here",
+    "valence": "positive",
+    "roleAffinity": []
+  },
+  {
+    "id": "daring_enterprise_11",
+    "topicHeader": "A Bridge Between",
+    "situation": "daring_enterprise",
+    "objectives": [
+      {
+        "type": "TALK_TO_NPC"
+      },
+      {
+        "type": "FETCH_ITEM"
+      },
+      {
+        "type": "KILL_MOBS",
+        "countMin": 4,
+        "countMax": 7
+      }
+    ],
+    "expositionText": "I want to build a real bridge across the ravine west of {settlement_name}, one that carts can actually use. The first step is getting buy-in from the other side. {target_npc} in {target_npc_settlement} is a {target_npc_role}, and if they're willing to share the cost, we can make this happen.",
+    "acceptText": "This is the kind of thing people remember a generation later. We're going to build something that matters.",
+    "declineText": "The ravine will keep us divided, then. Another year of the long way around. Another year of watching the old rope fray.",
+    "expositionTurnInText": "{target_npc} is in? They'll cover half the materials? This is the best news I've had all year. Now we build.",
+    "conflict1Text": "I need a {quest_item} for the keystone. The centerpiece that holds the span together. Everything else is timber and sweat, but the keystone has to be right or the whole thing is a monument to bad engineering.",
+    "conflict1TurnInText": "The keystone is perfect. I can already see how the span will sit. We're so close now that I can feel the weight of the first cart crossing.",
+    "conflict2Text": "There's a camp of {enemy_type_plural} in the ravine that have been scavenging our building materials. {kill_count} of them cleared out and we can start construction without losing every other timber to theft.",
+    "conflict2TurnInText": "The ravine is clear and the first pilings are going in. I stood on the edge this morning and for the first time I could see the other side as close instead of far away.",
+    "targetNpcOpener": "A bridge? We've been talking about one for years but nobody wanted to be the first to commit resources. If {settlement_name} is ready to go halves, we're in, because the traffic alone would pay for itself in two seasons. Send me the plans and I'll start organizing our end.",
+    "targetNpcCloser": "Tell them we'll match whatever they put in. This is overdue and we both know it.",
+    "resolutionText": "The bridge opened today, and I walked across it with nothing to hold onto and nothing to fear. I could see people on both sides watching. Take {quest_reward}. You helped connect two settlements that have been staring at each other across a gap for too long.",
+    "skillCheck": {
+      "skill": "INTIMIDATION",
+      "dc": 13,
+      "passText": "All right, fine. The real reason nobody's built this bridge before is that the landowner on the other side has been blocking proposals for years to protect his ferry toll. I know because he told me to my face that he'd undercut anyone who tried. I've been too afraid of his influence to push back, but if you're backing me, I'm not afraid anymore.",
+      "failText": "It's infrastructure. The region needs it and we're the ones in a position to build it."
+    },
+    "rewardText": "a share of the first season's toll revenue and a plaque with your name at the crossing",
+    "valence": "positive",
+    "roleAffinity": []
+  },
+  {
+    "id": "pursuit_06",
+    "topicHeader": "End of the Leash",
+    "situation": "pursuit",
+    "objectives": [
+      {
+        "type": "KILL_MOBS",
+        "countMin": 4,
+        "countMax": 7
+      },
+      {
+        "type": "FETCH_ITEM"
+      }
+    ],
+    "expositionText": "I know where they den. I've known for weeks. The {enemy_type_plural} that have been raiding us aren't scattered, they're organized, and they come from the same hollow every time. I want {kill_count} of them put down at the source, not chased off to come back tomorrow.",
+    "acceptText": "Finally. Someone who doesn't tell me to be patient. I'm out of patience. Let's finish this.",
+    "declineText": "Then I'll go myself, and if I don't come back, at least I went doing something instead of nothing.",
+    "expositionTurnInText": "The den is broken. I can feel the difference in the air. But I want certainty, not hope.",
+    "conflict1Text": "Bring me a {quest_item} from the site. Something that proves the den is empty and staying empty. I'm not declaring victory until I can hold the proof in my hand.",
+    "conflict1TurnInText": "There it is. Evidence that can't argue back. The den is dead and we're done with them.",
+    "resolutionText": "I slept with the door unlocked last night. First time in months. Take {quest_reward}. You finished what I've been circling for weeks, and you did it without flinching.",
+    "skillCheck": {
+      "skill": "DECEPTION",
+      "dc": 13,
+      "passText": "You figured out what I wasn't saying. I've already gone out there twice on my own, and both times I lost my nerve before I got close enough to matter. I've been selling this as strategic patience, but the truth is I was afraid. Putting the job on you is the only way it gets done.",
+      "failText": "I've been watching them, studying the pattern. Now it's time to act on what I've learned."
+    },
+    "rewardText": "the coin I'd set aside for mercenaries and a drink at my table",
+    "valence": "negative",
+    "roleAffinity": []
+  },
+  {
+    "id": "pursuit_07",
+    "topicHeader": "Trail of Teeth",
+    "situation": "pursuit",
+    "objectives": [
+      {
+        "type": "TALK_TO_NPC"
+      },
+      {
+        "type": "KILL_MOBS",
+        "countMin": 5,
+        "countMax": 8
+      }
+    ],
+    "expositionText": "Something has been killing livestock across three farms, and nobody can agree on what it is. I'm done guessing. {target_npc} in {target_npc_settlement} is a {target_npc_role} who tracks predators. Go ask them what's doing this, and then we end it.",
+    "acceptText": "Good. I want answers first and blood second. In that order, and soon.",
+    "declineText": "Then we keep losing animals and keep arguing about why. That's been working brilliantly so far.",
+    "expositionTurnInText": "{target_npc} identified it? Good. Now I know what we're hunting and I know it bleeds. That changes everything.",
+    "conflict1Text": "{kill_count} of those {enemy_type_plural}. {target_npc} said they hunt in groups, so hitting them hard and fast is the only approach that sticks. I don't want survivors. Survivors learn, and I'm done being their classroom.",
+    "conflict1TurnInText": "That's the last of them. I checked the count twice. The farms can breathe again, and so can I.",
+    "targetNpcOpener": "Livestock kills across multiple farms? That's coordinated hunting behavior, not scavenging. From the bite patterns you're describing, I'd say you have a pack that's shifted its territory. Hit them where they rest during the day and hit them together.",
+    "targetNpcCloser": "Don't half-measure it. A broken pack scatters and you end up with three smaller problems instead of one big one.",
+    "resolutionText": "Three nights in a row with no kills. The farmers stopped sleeping in their barns and started sleeping in their beds. Take {quest_reward}. You turned a mystery into a solved problem, and this whole valley is better for it.",
+    "skillCheck": {
+      "skill": "DECEPTION",
+      "dc": 12,
+      "passText": "All right, since you're sharp enough to ask. The reason I'm pushing so hard is that two of those farms are mine. I've been telling people I'm coordinating this for the community, and I am, but I'm also watching my own livelihood get eaten one night at a time. If I'd said that from the start, people would call it self-interest and drag their feet.",
+      "failText": "The farms are losing animals. That's everyone's problem."
+    },
+    "rewardText": "good coin from the three farms that can keep their stock now",
+    "valence": "negative",
+    "roleAffinity": []
+  },
+  {
+    "id": "pursuit_08",
+    "topicHeader": "Down to the Root",
+    "situation": "pursuit",
+    "objectives": [
+      {
+        "type": "KILL_MOBS",
+        "countMin": 3,
+        "countMax": 5
+      },
+      {
+        "type": "FETCH_ITEM"
+      },
+      {
+        "type": "KILL_MOBS",
+        "countMin": 4,
+        "countMax": 7
+      }
+    ],
+    "expositionText": "I'm done trimming branches. Every month we clear a few {enemy_type_plural} and every month more show up, and there's a source I want found and cut off. Start by thinning {kill_count} of the ones closest to {settlement_name} to buy us room to work.",
+    "acceptText": "Now we're approaching this the right way. Not just reacting, but actually solving it.",
+    "declineText": "Fine. We'll keep trimming branches until we're buried under them. Some of us were born for half measures, I suppose.",
+    "expositionTurnInText": "Breathing room. Good. Now let's find what's drawing them here in the first place.",
+    "conflict1Text": "There's a {quest_item} out there that I think is acting as a lure. Something left behind by whoever was here before us, maybe on purpose, maybe by accident. Find it and bring it to me. If I'm right, removing it changes the equation entirely.",
+    "conflict1TurnInText": "Look at this. I was right. This is what's been pulling them toward {settlement_name} season after season. With it gone, the pattern should break.",
+    "conflict2Text": "One last push. The {enemy_type_plural} that are already entrenched won't just wander off because the lure is gone. They've made this territory theirs. {kill_count} more of them dealt with and the root and the branches are both cut.",
+    "conflict2TurnInText": "Done. Truly, finally done. The scouts report nothing moving within a half day's walk. I haven't heard that in over a year.",
+    "resolutionText": "The pattern is broken, the source is removed, and for the first time in memory, {settlement_name} isn't bracing for the next wave. Take {quest_reward}. You ended something that nobody else was willing to finish, and that's a different thing entirely.",
+    "skillCheck": {
+      "skill": "INTIMIDATION",
+      "dc": 14,
+      "passText": "You want me to stop dancing around it? Fine. I know exactly who left that lure behind, a trader from {other_settlement} who planted it two years ago to drive the {enemy_type_plural} toward us and away from their own routes. I've been too cautious to accuse them without proof, and the proof is sitting out there in the dirt.",
+      "failText": "Something's drawing them. Find it and the rest sorts itself out."
+    },
+    "rewardText": "a serious purse from the settlement fund and the satisfaction of a clean ending",
+    "valence": "negative",
+    "roleAffinity": []
+  },
+  {
+    "id": "pursuit_09",
+    "topicHeader": "No More Warnings",
+    "situation": "pursuit",
+    "objectives": [
+      {
+        "type": "FETCH_ITEM"
+      },
+      {
+        "type": "KILL_MOBS",
+        "countMin": 4,
+        "countMax": 6
+      },
+      {
+        "type": "TALK_TO_NPC"
+      }
+    ],
+    "expositionText": "I've sent three warnings to the {enemy_type_plural} nesting near our supply road, noise, fire, traps, and they've ignored all of it. I'm done being polite, but first I need a {quest_item} that will tell me exactly how many we're dealing with. I'm not going in blind.",
+    "acceptText": "Smart and angry is a good combination. Let's put it to work.",
+    "declineText": "Then the warnings will keep being ignored and the road will keep being dangerous. I'll handle it eventually, but eventually keeps getting further away.",
+    "expositionTurnInText": "Now I know the numbers. More than I hoped, fewer than I feared. We can do this.",
+    "conflict1Text": "{kill_count} {enemy_type_plural}. That's the core group, the ones that taught the others it was safe to ignore us. Put them down and the rest will scatter. I want this road open and I want it to stay open.",
+    "conflict1TurnInText": "The road is clear. I watched the first cart go through without an escort and it felt like winning something I'd been losing for months. One more thing to lock it down.",
+    "conflict2Text": "{target_npc} in {target_npc_settlement} is a {target_npc_role} who maintains the boundary markers on the other end. Tell them the road is clear and ask them to set their markers again. If both sides are watched, nothing moves in without being noticed.",
+    "conflict2TurnInText": "{target_npc} has the markers back up? Good. Now the road is watched from both ends and the {enemy_type_plural} have nowhere to settle without being seen.",
+    "targetNpcOpener": "The road is clear again? That's the best thing I've heard all month. I pulled my markers two weeks ago because there was no point watching a road nobody could use. I'll have them reset by tomorrow morning and I'll keep eyes on our end.",
+    "targetNpcCloser": "Tell them the road is ours again. Both sides of it.",
+    "resolutionText": "Two weeks of clean traffic and counting, and the supply prices have already dropped back to normal. Take {quest_reward}. You turned warnings into results, and that's the only language that matters out here.",
+    "skillCheck": {
+      "skill": "INTIMIDATION",
+      "dc": 13,
+      "passText": "You want the truth about the warnings? Two of the three were bluffs. I didn't have the resources for real deterrence, so I made noise and hoped. I've been performing strength I didn't have, and now that someone with actual strength is here, I can stop pretending.",
+      "failText": "I've tried everything short of direct action. Now it's time for direct action."
+    },
+    "rewardText": "the toll revenue we lost during the blockade and a grateful handshake",
+    "valence": "negative",
+    "roleAffinity": []
+  },
+  {
+    "id": "pursuit_10",
+    "topicHeader": "Old Smoke",
+    "situation": "pursuit",
+    "objectives": [
+      {
+        "type": "KILL_MOBS",
+        "countMin": 5,
+        "countMax": 8
+      },
+      {
+        "type": "TALK_TO_NPC"
+      }
+    ],
+    "expositionText": "I've been tracking these {enemy_type_plural} for six weeks. They burned a friend's homestead outside {other_settlement} and I promised I'd see it answered. {kill_count} of them is where it starts, and this is a promise I made to someone who lost everything.",
+    "acceptText": "Then let's keep the promise. I've been carrying it long enough.",
+    "declineText": "I'll keep tracking, then. The trail doesn't go cold as long as I'm still walking it.",
+    "expositionTurnInText": "That's the first payment on what they owe. But I want to make sure my friend knows it's been handled, and I want to know they're rebuilding.",
+    "conflict1Text": "Find {target_npc} in {target_npc_settlement}. They're a {target_npc_role} there, and they've been helping my friend since the fire. Tell them what we did. I want my friend to hear it from someone who was there, not just a letter.",
+    "conflict1TurnInText": "{target_npc} said my friend smiled for the first time since the fire. That's worth more to me than anything I could hold in my hands.",
+    "targetNpcOpener": "You're here about the homestead that burned? I've been helping the family rebuild, slowly, because they lost almost everything. When I told them what was done on their behalf, the look on their face was something I won't forget.",
+    "targetNpcCloser": "Tell the one who sent you that the family is standing again. Shaky, but standing.",
+    "resolutionText": "The promise is kept. My friend is rebuilding, the things that burned them out are dealt with, and I can finally stop waking up at night thinking about what I owed. Take {quest_reward}. You helped me close a book I've been writing in for too long.",
+    "skillCheck": {
+      "skill": "PERFORMANCE",
+      "dc": 12,
+      "passText": "You noticed the way I tell this story, clean, heroic, the loyal friend riding to justice. The truth is I wasn't there when the homestead burned, and I was supposed to visit that week but I put it off. The promise isn't just about justice, it's about guilt I'm trying to work off.",
+      "failText": "A friend was wronged and I said I'd see it answered. That's the long and short of it."
+    },
+    "rewardText": "the bounty my friend insisted on paying and a bond between us that fire couldn't break",
+    "valence": "negative",
+    "roleAffinity": []
+  },
+  {
+    "id": "pursuit_11",
+    "topicHeader": "Settled Dust",
+    "situation": "pursuit",
+    "objectives": [
+      {
+        "type": "TALK_TO_NPC"
+      },
+      {
+        "type": "KILL_MOBS",
+        "countMin": 3,
+        "countMax": 6
+      },
+      {
+        "type": "FETCH_ITEM"
+      }
+    ],
+    "expositionText": "I know who's responsible for the blight that hit our orchards, and it wasn't nature. Someone in {target_npc_settlement} tipped me off months ago. I need you to talk to {target_npc} there, a {target_npc_role}, and get the full story. Once I have the picture, I'm going to act on it.",
+    "acceptText": "Good. I've been building this case quietly and I'm ready for the last piece.",
+    "declineText": "Then I'll keep building the case alone, one slow fact at a time, until even the patient part of me runs out.",
+    "expositionTurnInText": "So {target_npc} confirmed it. The blight wasn't random. Someone introduced it deliberately to undercut our harvest and force us to buy from their fields instead. Now we fix the damage.",
+    "conflict1Text": "The pests they seeded are still breeding in the blighted trees. {kill_count} of those {enemy_type_plural} cleared out and we can start treating what's left. I want the orchard back, and I want it back healthy.",
+    "conflict1TurnInText": "The trees are clean. I can see new growth on two of them already, which means the root systems survived. We're going to recover.",
+    "conflict2Text": "One last thing. I need a {quest_item} to present to the trade council as evidence of the sabotage. With {target_npc}'s testimony and physical proof, I can get the council to sanction the person responsible and protect the next harvest.",
+    "conflict2TurnInText": "The case is complete. Evidence, testimony, and motive. The council will hear it next week, and I don't intend to lose.",
+    "targetNpcOpener": "I've been expecting someone to come asking about this. I saw the shipments that came through here, and the timing was too convenient. The blight showed up in your orchards exactly one week after a specific trader passed through with unmarked crates. I kept records because something felt wrong.",
+    "targetNpcCloser": "I'll testify if they need me to. What was done to those orchards was deliberate, and the person who did it should answer for it.",
+    "resolutionText": "The council ruled in our favor. Sanctions, restitution, and a formal warning that will follow that trader to every market in the region. Take {quest_reward}. You helped me prove something everyone suspected but nobody could pin down, and the orchard will bear fruit again because of it.",
+    "skillCheck": {
+      "skill": "RELIGION",
+      "dc": 14,
+      "passText": "You understand why the orchards matter beyond the harvest, don't you. My family planted those trees three generations ago, and in the old tradition, a family orchard is a living covenant with the land. Poisoning It's desecration. That's why I need the response to be complete.",
+      "failText": "The orchards were sabotaged and I want justice. The details are for the council."
+    },
+    "rewardText": "the restitution payment from the council and the first clean apples from the recovering trees",
+    "valence": "negative",
+    "roleAffinity": []
+  }
+]

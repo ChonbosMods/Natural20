@@ -1,0 +1,74 @@
+[
+  {
+    "id": "erroneous_judgment_04",
+    "index": 100,
+    "new_skill": "INSIGHT",
+    "dc": 13,
+    "passText": "You noticed, didn't you. Everyone else sees someone angry and fighting back, but you saw the part underneath. The truth is I stopped sleeping the week it started, not because I was afraid of the accusation, but because I realized how alone I was in it. Years of neighbors and not one of them came to my door to ask if it was true before deciding it was.",
+    "failText": "I appreciate the concern, but I'm handling it. Some things you just work through on your own."
+  },
+  {
+    "id": "erroneous_judgment_05",
+    "index": 101,
+    "new_skill": "INSIGHT",
+    "dc": 12,
+    "passText": "You can see it on me, can't you. I keep saying I'm angry on their behalf, but the truth is I'm terrified. My apprentice offered to confess to it just to make the pressure stop, and I had to talk them out of it. That's what false accusations do to a young person who did nothing wrong.",
+    "failText": "I'm fine. It's them I'm worried about, not me."
+  },
+  {
+    "id": "erroneous_judgment_10",
+    "index": 218,
+    "new_skill": "INVESTIGATION",
+    "dc": 12,
+    "passText": "You caught the part I was hoping nobody would question. I said people started talking, like it happened on its own, but it didn't. I was the first voice, the one who saw the patient getting worse and said it out loud, and the rest of the settlement followed my lead because I sounded certain.",
+    "failText": "I made assumptions I shouldn't have. The details don't change what needs to happen now."
+  },
+  {
+    "id": "remorse_01",
+    "index": 45,
+    "new_skill": "INVESTIGATION",
+    "dc": 12,
+    "passText": "You're right, those two things don't fit together. I said it slipped out, but you can hear that the words were too precise for an accident. I chose them because I knew exactly where she was vulnerable, and calling it a slip is the story I've been telling myself so I can sleep.",
+    "failText": "It's complicated. Family things usually are."
+  },
+  {
+    "id": "remorse_06",
+    "index": 220,
+    "new_skill": "INVESTIGATION",
+    "dc": 12,
+    "passText": "You picked up on something I left out, didn't you. I called it an argument, like we were both fighting, but I wasn't angry. I was calm when I said it and the words were chosen, not thrown. That's the part that doesn't fit the version I've been telling, because there was no heat and I just wanted to win.",
+    "failText": "I said something I regret. That's where I'd like to leave it."
+  },
+  {
+    "id": "involuntary_crimes_of_love_04",
+    "index": 104,
+    "new_skill": "INVESTIGATION",
+    "dc": 13,
+    "passText": "You've put your finger on the thing that doesn't add up. I said I was trying to help, but my cousin never asked me to speak and the council never invited outside voices, so I pushed my way in. When you line those facts up it stops looking like concern and starts looking like what it was. I wanted to feel useful more than I wanted to help.",
+    "failText": "I was only trying to help. That's really all there is to say about it."
+  },
+  {
+    "id": "involuntary_crimes_of_love_05",
+    "index": 226,
+    "new_skill": "INVESTIGATION",
+    "dc": 13,
+    "passText": "You've found the gap in my story, haven't you. I said I took over when they were struggling, but they started recovering months before I let go, and the timeline doesn't hold up if my motive was really concern. The truth is I enjoyed being in charge because it made me feel competent and needed. My sibling's crisis gave me a role I didn't want to give back.",
+    "failText": "I overstepped and I'm correcting it. That's the whole of it."
+  },
+  {
+    "id": "involuntary_crimes_of_love_07",
+    "index": 228,
+    "new_skill": "INSIGHT",
+    "dc": 12,
+    "passText": "You can see it, can't you. I keep calling it an honest mistake, but something in my face is telling you otherwise. The truth is I was careless because part of me didn't want my friend's attention going to someone new, and we've been close for years. When I heard a rumor about someone with a similar name I didn't bother checking because I wanted it to be true.",
+    "failText": "I mixed up two people and spoke too soon. That's really all there is to it."
+  },
+  {
+    "id": "obstacles_to_love_07",
+    "index": 234,
+    "new_skill": "HISTORY",
+    "dc": 12,
+    "passText": "You know about families bending the old rules? I stopped bringing it up because nobody here remembers a time when it actually happened, and hearing you say it changes something. The truth is I almost surrendered last month when my family introduced me to someone suitable, and I nearly said yes just to end the fight. I was ready to give up everything I wanted to avoid a battle nobody remembers anyone winning.",
+    "failText": "It's a tradition that goes back a long way. I don't think the history changes what I'm dealing with now."
+  }
+]

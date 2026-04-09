@@ -1,0 +1,797 @@
+[
+  {
+    "id": "necessity_of_sacrificing_loved_ones_06",
+    "topicHeader": "The Weight of Choosing",
+    "situation": "necessity_of_sacrificing_loved_ones",
+    "objectives": [
+      {
+        "type": "KILL_MOBS",
+        "countMin": 3,
+        "countMax": 5
+      },
+      {
+        "type": "TALK_TO_NPC"
+      }
+    ],
+    "expositionText": "There are {kill_count} {enemy_type_plural} closing on the only route out of here, and if I send the supplies that way, my brother won't have enough to last the week. But if I keep them, the people in {other_settlement} lose everything. I need those things cleared before I have to decide who goes without.",
+    "acceptText": "Thank you. I've been standing here turning it over and over and getting nowhere. At least this buys me time.",
+    "declineText": "I understand. It your weight to carry. I just thought asking might make the choosing easier.",
+    "expositionTurnInText": "The road is open again, and that means the decision is real now. I've made my choice. The supplies go to {other_settlement}. But I need you to tell my brother why.",
+    "conflict1Text": "Find {target_npc} in {target_npc_settlement}. They're a {target_npc_role}, and they'll know how to reach my brother. Tell them what I've done and that I'm not asking forgiveness, just understanding. I couldn't look him in the eye and say it myself.",
+    "conflict1TurnInText": "{target_npc} said my brother already guessed what I'd choose. He told them he would have done the same. I don't know if that makes it better or worse.",
+    "targetNpcOpener": "I had a feeling this was coming. The family has been splitting itself in half over this for days. I'll get word to him. He won't be surprised, and he won't hold it against anyone.",
+    "targetNpcCloser": "Tell them the message will reach him by morning. That's the best I can do.",
+    "resolutionText": "The supplies reached {other_settlement}, and my brother sent word that he's managing, which is the best either of us can say right now. Take {quest_reward}. I owe you for carrying the message I couldn't.",
+    "skillCheck": {
+      "skill": "DECEPTION",
+      "dc": 12,
+      "passText": "You caught that, did you. I already decided two days ago. The reason I haven't acted is that I keep hoping something will change so I don't have to be the one who chose. Nothing is going to change.",
+      "failText": "It's a hard choice. I'll make it when the time comes."
+    },
+    "rewardText": "the coin I'd set aside for the shipment and a family's quiet thanks",
+    "valence": "negative",
+    "roleAffinity": []
+  },
+  {
+    "id": "necessity_of_sacrificing_loved_ones_07",
+    "topicHeader": "What Cannot Stay",
+    "situation": "necessity_of_sacrificing_loved_ones",
+    "objectives": [
+      {
+        "type": "FETCH_ITEM"
+      },
+      {
+        "type": "KILL_MOBS",
+        "countMin": 4,
+        "countMax": 6
+      }
+    ],
+    "expositionText": "I need a {quest_item}. My daughter gave it away last season to buy peace with the traders from {other_settlement}, and I let her, because the alternative was worse. Now the deal has fallen through and I need it back before anyone realizes what we traded for nothing.",
+    "acceptText": "Thank you. I've been sick over this since the day she handed it over. At least now there's a chance to undo it.",
+    "declineText": "All right. I'll find another way. She doesn't know yet that the deal collapsed, and I'd like to keep it that way a little longer.",
+    "expositionTurnInText": "You found it. Holding it again feels like borrowing time I already spent. But there's more trouble between here and putting things right.",
+    "conflict1Text": "{enemy_type_plural} have settled along the path my daughter takes to the market. {kill_count} of them dealt with and she can move freely again. I can't protect her from everything I've done, but I can protect her from that.",
+    "conflict1TurnInText": "The road is clear. She walked it this morning without knowing what you did, and that's exactly how I want it.",
+    "resolutionText": "I put the {quest_item} back where it belongs, and my daughter hasn't asked any questions. The deal is dead and we're no worse for it, thanks to you. Take {quest_reward}. It's the least of what I owe.",
+    "skillCheck": {
+      "skill": "DECEPTION",
+      "dc": 13,
+      "passText": "You see through the story, don't you. She didn't give it away willingly, I told her it was the only option and framed the whole thing so she'd feel like she was choosing. Really I'd already chosen for her, and that's the part I can't forgive myself for.",
+      "failText": "It was a family decision. That's all I'll say about how it happened."
+    },
+    "rewardText": "what I kept hidden from the traders and a father's honest gratitude",
+    "valence": "negative",
+    "roleAffinity": []
+  },
+  {
+    "id": "necessity_of_sacrificing_loved_ones_08",
+    "topicHeader": "No Clean Hands",
+    "situation": "necessity_of_sacrificing_loved_ones",
+    "objectives": [
+      {
+        "type": "TALK_TO_NPC"
+      },
+      {
+        "type": "FETCH_ITEM"
+      }
+    ],
+    "expositionText": "I sent my son to work for {target_npc} in {target_npc_settlement} because we couldn't feed everyone through the winter. He's been there for months and I need to know if he's all right. {target_npc} is a {target_npc_role} who took him on as a favor to me, and I need to hear that the favor was worth what it cost.",
+    "acceptText": "Thank you. I haven't slept properly since the day he left. Even knowing would be enough.",
+    "declineText": "I see. I'll keep waiting, then. I'm getting very good at waiting.",
+    "expositionTurnInText": "{target_npc} says he's healthy and earning his keep. That's more than I let myself hope for. But there's something I need to send him, and I can't go myself.",
+    "conflict1Text": "Bring me a {quest_item}. It's small, but it belonged to his mother, and he'll know what it means. I want him to have something that tells him I didn't send him away because I stopped caring. I sent him away because I had no other answer.",
+    "conflict1TurnInText": "He'll have it by the end of the week. I keep imagining his face when he opens it, and I can't tell if it helps or makes it worse.",
+    "targetNpcOpener": "You're here about the boy? He's doing well, works hard, eats enough, doesn't complain. I can see he misses home, but he doesn't talk about it, got his mother's stubbornness about that.",
+    "targetNpcCloser": "Tell them the boy is safe. That's the word that matters.",
+    "resolutionText": "He's safe and he has something of his mother's. That's the best I can do from here, and it will have to be enough. Take {quest_reward}. You bridged a distance I've been too ashamed to cross myself.",
+    "skillCheck": {
+      "skill": "INTIMIDATION",
+      "dc": 11,
+      "passText": "Fine. You want the truth that keeps me up at night? I had a choice between my son and my daughter, and I picked him because he's older and I thought he'd survive it better. I don't know if I was right, and I never will.",
+      "failText": "Times were hard, and we did what we had to."
+    },
+    "rewardText": "the little I've saved since he left and a parent's lasting debt",
+    "valence": "negative",
+    "roleAffinity": []
+  },
+  {
+    "id": "necessity_of_sacrificing_loved_ones_09",
+    "topicHeader": "The Quiet Surrender",
+    "situation": "necessity_of_sacrificing_loved_ones",
+    "objectives": [
+      {
+        "type": "KILL_MOBS",
+        "countMin": 3,
+        "countMax": 5
+      },
+      {
+        "type": "FETCH_ITEM"
+      },
+      {
+        "type": "TALK_TO_NPC"
+      }
+    ],
+    "expositionText": "The {enemy_type_plural} that have been circling {settlement_name} aren't going away, and every night they stay is a night closer to someone getting killed. I need {kill_count} of them put down. That part I can ask for plainly. The rest of what I need is harder to say.",
+    "acceptText": "Thank you. I'll explain the rest when you come back. I promise it will make sense.",
+    "declineText": "I understand. I wouldn't want this on my shoulders either, and I've had it on mine for weeks.",
+    "expositionTurnInText": "The perimeter is quiet again, and now for the part I've been dreading. My wife and I have been arguing about whether to send our youngest to stay with relatives in {other_settlement}. She wants to keep him close, but I think the danger here is too real.",
+    "conflict1Text": "Bring me a {quest_item}. Something I can pack for him that will make the journey bearable. If I'm going to do this, if I'm going to be the one who sends him away, I want him to have something good to hold onto.",
+    "conflict1TurnInText": "That's perfect. He'll like having something of his own for the road. Now I just need one more thing before I can let him go.",
+    "conflict2Text": "Go to {target_npc} in {target_npc_settlement}. They're a {target_npc_role}, and they've agreed to take him in. Tell them he's coming, and tell them he's scared even if he pretends he isn't. I want them to be ready for him.",
+    "conflict2TurnInText": "{target_npc} is expecting him. They said they'd make a bed and keep the lamp lit. I don't know why that detail is the one that broke me, but it did.",
+    "targetNpcOpener": "I've been waiting to hear. The boy is welcome here, and I'll treat him like my own until things settle down. I've got room, and I've got patience, which is what he'll need most.",
+    "targetNpcCloser": "Send him when he's ready. We'll be here.",
+    "resolutionText": "He left this morning. He waved from the road and I waved back and then I sat down in the doorway and didn't move for an hour. Take {quest_reward}. You helped me do the thing I knew was right but couldn't face alone.",
+    "skillCheck": {
+      "skill": "INTIMIDATION",
+      "dc": 13,
+      "passText": "You want me to stop circling it, fine. My wife told me if I send him away she won't forgive me, and I'm going to do it anyway because forgiveness won't mean much if he's dead. That's the choice I've made, and I'm making it with my eyes open.",
+      "failText": "It's a family matter. We'll sort it out between ourselves."
+    },
+    "rewardText": "the savings I'd kept for his schooling and a father's word that it mattered",
+    "valence": "negative",
+    "roleAffinity": []
+  },
+  {
+    "id": "necessity_of_sacrificing_loved_ones_10",
+    "topicHeader": "Before the Silence",
+    "situation": "necessity_of_sacrificing_loved_ones",
+    "objectives": [
+      {
+        "type": "FETCH_ITEM"
+      },
+      {
+        "type": "TALK_TO_NPC"
+      }
+    ],
+    "expositionText": "My mother asked me to find her a {quest_item}. She says it's for the house, but I know what it's really for. She's been putting her affairs in order for weeks, giving things away, tidying accounts. She's decided it's her time, and she's arranging things so the rest of us can carry on without her.",
+    "acceptText": "Thank you. I know what I'm going to find when I come home one of these days, and I'd rather spend the time between now and then doing what she asks.",
+    "declineText": "It's all right. I'll find it myself. She's patient, and I have a little time left to use.",
+    "expositionTurnInText": "She smiled when I gave it to her. That calm, knowing smile she gets when things are going according to her plan. There's one more thing she asked for, and I think it's the last.",
+    "conflict1Text": "She wants to see {target_npc} in {target_npc_settlement} one more time. They're a {target_npc_role}, and they go back further than I do. Tell them she's asking and that she'd like it to be soon, but don't explain why. They'll understand.",
+    "conflict1TurnInText": "{target_npc} didn't ask questions. Just said they'd come. I think they already know, the same way I do.",
+    "targetNpcOpener": "I had a feeling I'd hear from her soon. We've known each other since before you were born, and there are some things old friends just sense. I'll come. Tell her I'll bring the good tea, the kind she always pretended not to like.",
+    "targetNpcCloser": "I'll be there within the week. She has my word.",
+    "resolutionText": "They sat together all afternoon and laughed about things I've never heard either of them mention before. She looked peaceful afterward, really peaceful, for the first time in months. Take {quest_reward}. You gave her something no amount of coin could buy, and she wanted you to know it.",
+    "skillCheck": {
+      "skill": "PERFORMANCE",
+      "dc": 12,
+      "passText": "You have a way of putting people at ease, and I suppose that's why I'm telling you this. The hardest part isn't losing her. The hardest part is that she's choosing to go, and I have to respect that, because she earned the right to decide. I just wish she'd chosen differently.",
+      "failText": "She's old, and she's tired. That's as much as I want to say about it."
+    },
+    "rewardText": "a keepsake she set aside for whoever helped and my family's gratitude",
+    "valence": "negative",
+    "roleAffinity": []
+  },
+  {
+    "id": "necessity_of_sacrificing_loved_ones_11",
+    "topicHeader": "A Measured Farewell",
+    "situation": "necessity_of_sacrificing_loved_ones",
+    "objectives": [
+      {
+        "type": "KILL_MOBS",
+        "countMin": 4,
+        "countMax": 7
+      },
+      {
+        "type": "FETCH_ITEM"
+      }
+    ],
+    "expositionText": "The {enemy_type_plural} have been pressing closer, and I've made a decision I haven't told anyone yet. I'm giving up the homestead, letting it go so my family can resettle somewhere safer. But first I need {kill_count} of those things cleared so the road out is passable, because I'm not losing the house and my family on the same day.",
+    "acceptText": "Thank you. The decision is made. I just need the path clear to carry it out.",
+    "declineText": "All right. I'll find another way to get them out. I always do, somehow.",
+    "expositionTurnInText": "The road is open, and my wife doesn't know yet, but I'll tell her tonight. There's one more thing I need before we go.",
+    "conflict1Text": "Bring me a {quest_item}. There's something buried under the floorboards my grandfather left behind, and I need the right tool to get it out. I'm not leaving without it. Everything else can stay, but that comes with us.",
+    "conflict1TurnInText": "I have it. I can feel the weight of four generations in my hand, and it's lighter than I thought it would be. We can leave now.",
+    "resolutionText": "We're going. The house will stand empty or it won't, and either way we'll be alive somewhere else. Take {quest_reward}. It's from the life I'm leaving behind, and I'd rather it go to someone who helped than sit in a house nobody comes back to.",
+    "skillCheck": {
+      "skill": "RELIGION",
+      "dc": 14,
+      "passText": "You understand, then. The homestead isn't just a house, my family consecrated that ground when they first built here. Leaving means breaking a promise my grandmother made to this land. I've spent every night since the decision asking whether the ancestors will forgive me, and I still don't have an answer.",
+      "failText": "It's just a house. A hard one to leave, but just a house."
+    },
+    "rewardText": "my grandfather's coin purse and the thanks of a family starting over",
+    "valence": "negative",
+    "roleAffinity": []
+  },
+  {
+    "id": "loss_of_loved_ones_06",
+    "topicHeader": "After the Empty Chair",
+    "situation": "loss_of_loved_ones",
+    "objectives": [
+      {
+        "type": "FETCH_ITEM"
+      },
+      {
+        "type": "TALK_TO_NPC"
+      }
+    ],
+    "expositionText": "My husband passed three weeks ago, and the house still smells like his workshop. I found a list he left of things he meant to finish, and one of them was finding a {quest_item} for {settlement_npc}. I'd like to see it done. It won't bring him back, but it would mean one less promise he left broken.",
+    "acceptText": "Thank you. I know it's a strange request. Finishing a dead man's errands. But it matters to me in a way I can't fully explain.",
+    "declineText": "I understand. It your burden. I just thought if someone else finished what he started, it might feel less like he left in the middle of something.",
+    "expositionTurnInText": "You found it. He would have been pleased. That's one thing crossed off his list, and it feels like a small door closing gently. There's one more thing I'd like to do, if you're willing.",
+    "conflict1Text": "My husband had a friend in {target_npc_settlement}, {target_npc}, a {target_npc_role}, and they don't know yet. I've been putting off sending word because saying it to someone who knew him makes it more real. Would you tell them? I can't do it in a letter.",
+    "conflict1TurnInText": "{target_npc} knows now. They sent back a message for me, and I'm not ready to read it yet, but I will be. Someday soon.",
+    "targetNpcOpener": "I wondered why he hadn't written. We'd been exchanging letters since before the frost, and when they stopped I told myself he was just busy. I'm glad someone came in person. He deserved better than a rumor reaching me months from now.",
+    "targetNpcCloser": "Tell her I'll come visit when the roads allow. She shouldn't sit in that house alone too long.",
+    "resolutionText": "His list is a little shorter, and his friend knows the truth. That's what I have to show for today, and it's more than I had yesterday. Take {quest_reward}. He'd have wanted to pay properly for the help, and I'd like to honor that.",
+    "skillCheck": {
+      "skill": "DECEPTION",
+      "dc": 12,
+      "passText": "You noticed I keep talking about what he would have wanted. The truth is I don't know what I want anymore. I've spent so many years thinking in pairs that I've forgotten how to want things alone. The errands give me a reason to get out of the chair in the morning, and I'm afraid of what happens when the list runs out.",
+      "failText": "I miss him. That's the simple version, and it's true enough."
+    },
+    "rewardText": "the payment he'd set aside for the job and my lasting thanks",
+    "valence": "negative",
+    "roleAffinity": []
+  },
+  {
+    "id": "loss_of_loved_ones_07",
+    "topicHeader": "The Unvisited Grave",
+    "situation": "loss_of_loved_ones",
+    "objectives": [
+      {
+        "type": "KILL_MOBS",
+        "countMin": 3,
+        "countMax": 5
+      },
+      {
+        "type": "FETCH_ITEM"
+      }
+    ],
+    "expositionText": "My sister is buried past the ridge, and I haven't been able to visit since the {enemy_type_plural} moved in. I need {kill_count} of them cleared before I can get up there safely. It's been too long already, and the guilt of staying away is worse than the grief.",
+    "acceptText": "Thank you. She always said I worried too much. She'd probably say the same thing about this.",
+    "declineText": "I'll go eventually. When it's safe, or when I can't stand the waiting anymore. Whichever comes first.",
+    "expositionTurnInText": "I went up this morning. The stone is still standing, and someone, maybe the wind, had scattered wildflowers across the base. I sat there for an hour and didn't say anything. There's one more thing I'd like to bring her.",
+    "conflict1Text": "She used to keep a {quest_item} on her windowsill. Said it reminded her of the good parts. I'd like to leave one at the grave. Something that says I still remember the same things she did.",
+    "conflict1TurnInText": "I set it next to the stone where the light hits in the afternoon. She would have liked that.",
+    "resolutionText": "I feel lighter. Not happier, exactly, but like something that was pressing on my chest has eased just enough to breathe around. Take {quest_reward}. She would have insisted on paying for the help, and I'm not about to argue with her, even now.",
+    "skillCheck": {
+      "skill": "DECEPTION",
+      "dc": 11,
+      "passText": "You caught the part I was leaving out. I haven't visited because of the {enemy_type_plural}, that's true. But even before they came, I was finding excuses. I'm afraid that one of these visits I'll realize I'm starting to forget her voice, and I don't want to be standing at her grave when that happens.",
+      "failText": "I just miss her. The rest is my own business."
+    },
+    "rewardText": "what she left me that I can bear to part with and a sibling's honest thanks",
+    "valence": "negative",
+    "roleAffinity": []
+  },
+  {
+    "id": "loss_of_loved_ones_08",
+    "topicHeader": "Still Setting Two Plates",
+    "situation": "loss_of_loved_ones",
+    "objectives": [
+      {
+        "type": "TALK_TO_NPC"
+      },
+      {
+        "type": "KILL_MOBS",
+        "countMin": 4,
+        "countMax": 6
+      }
+    ],
+    "expositionText": "My boy died in the spring, and I still set two plates at supper without thinking. His teacher, {target_npc} in {target_npc_settlement}, doesn't know yet. They're a {target_npc_role} who cared about him, and I need someone to carry the news because I can't say it one more time.",
+    "acceptText": "Thank you. I've told so many people now that the words don't feel like words anymore. They feel like stones I keep having to pick up.",
+    "declineText": "I'll manage. I always manage. That's the cruelest part, how capable grief leaves you when it takes everything else.",
+    "expositionTurnInText": "{target_npc} knows. I can feel it in the air, the way the world shifts a little when someone new carries the weight. There's something else, though. Something I've been putting off.",
+    "conflict1Text": "The {enemy_type_plural} that have been prowling near the house, they've been getting into his things. The shed where he kept his projects, his carvings, all of it. I need {kill_count} of them gone. I won't let them have the last pieces of him.",
+    "conflict1TurnInText": "The shed is untouched. His carvings are still on the shelf, exactly where he left them. I can close the door now and know they'll stay that way.",
+    "targetNpcOpener": "I could tell by the way you walked in. You don't bring that kind of quiet for good news. Tell me what happened. I'd rather hear it plainly than wonder.",
+    "targetNpcCloser": "I'll write to the family when I can find the right words. Give me a few days.",
+    "resolutionText": "The shed is safe, and his teacher knows. That's two things done, and neither of them will bring him back, but they let me set one plate at supper tonight and mean it. Take {quest_reward}. He would have been embarrassed by the fuss, which is exactly why I'm making it.",
+    "skillCheck": {
+      "skill": "INTIMIDATION",
+      "dc": 12,
+      "passText": "You want the part nobody asks about, fine. I'm angry, not at anyone in particular, just angry at the way it happened, angry at the season for turning, angry at the plate for being empty. Grief is supposed to be sad, and it is, but underneath that it's the angriest I've ever been in my life and I have nowhere to put it.",
+      "failText": "I'm getting by. Some days are longer than others."
+    },
+    "rewardText": "the coins he'd saved in a jar by his bed and a parent's solemn thanks",
+    "valence": "negative",
+    "roleAffinity": []
+  },
+  {
+    "id": "loss_of_loved_ones_09",
+    "topicHeader": "What the Hands Remember",
+    "situation": "loss_of_loved_ones",
+    "objectives": [
+      {
+        "type": "FETCH_ITEM"
+      },
+      {
+        "type": "KILL_MOBS",
+        "countMin": 3,
+        "countMax": 5
+      },
+      {
+        "type": "TALK_TO_NPC"
+      }
+    ],
+    "expositionText": "My wife passed last month, and I've been going through her things slowly, one drawer at a time. She had a {quest_item} she'd been meaning to return to someone, and I'd like to see it found and sent back. She hated leaving things unfinished, and I hate it on her behalf.",
+    "acceptText": "I appreciate it. She kept everything organized. I'm just following the order she left behind.",
+    "declineText": "No need to explain. I'll get to it myself when I'm able. She was patient with me in life, and I expect she still is.",
+    "expositionTurnInText": "That's the one. I can see her handwriting on the note pinned to it. She'd labeled everything, even the things she was giving back. The path to return it will take some figuring out, though.",
+    "conflict1Text": "There are {kill_count} {enemy_type_plural} between here and where this needs to go. I can't make the trip with those things out there, and I won't risk someone else going until the way is safe.",
+    "conflict1TurnInText": "The road is open again. Good. Now I can finish what she started.",
+    "conflict2Text": "Take it to {target_npc} in {target_npc_settlement}. They're a {target_npc_role}. She borrowed it years ago and kept meaning to bring it back. Tell them it comes with her apology for the delay, and that the apology is mine now.",
+    "conflict2TurnInText": "{target_npc} said they'd forgotten about it entirely, but they were glad to have it back. They asked about her, and I suppose you told them.",
+    "targetNpcOpener": "This is the piece she borrowed? I told her to keep it, but that was never her way, she always returned everything, even kindnesses. I'm sorry to hear she's gone. She was one of the careful ones.",
+    "targetNpcCloser": "Tell him I remember her fondly. That's the truth, and it's what he needs to hear.",
+    "resolutionText": "Her list is one item shorter, and her name was spoken kindly by someone who knew her. That's a good day, by the measure I use now. Take {quest_reward}. She'd have paid you properly and probably fed you too, and I'm doing my best to be as generous as she was.",
+    "skillCheck": {
+      "skill": "INTIMIDATION",
+      "dc": 13,
+      "passText": "All right, you pressed and I'll answer. The real reason I'm doing this isn't for her, it's because going through her things is the only way I can still spend time with her. Every drawer I open is another conversation, and when the last one is empty I don't know what I'll do with my hands.",
+      "failText": "She left things in order, and I'm following it."
+    },
+    "rewardText": "what she'd set aside for exactly this purpose and a widower's quiet thanks",
+    "valence": "negative",
+    "roleAffinity": []
+  },
+  {
+    "id": "loss_of_loved_ones_10",
+    "topicHeader": "Songs She Knew",
+    "situation": "loss_of_loved_ones",
+    "objectives": [
+      {
+        "type": "KILL_MOBS",
+        "countMin": 4,
+        "countMax": 7
+      },
+      {
+        "type": "FETCH_ITEM"
+      }
+    ],
+    "expositionText": "My grandmother used to sing while she worked, and when she died the house went quiet in a way I still haven't gotten used to. The {enemy_type_plural} around the property have made everything worse. I need {kill_count} of them gone so I can walk the grounds without jumping at every sound.",
+    "acceptText": "Thank you. The quiet is hard enough without adding fear to it.",
+    "declineText": "I understand. I'll get used to both the silence and the noise eventually.",
+    "expositionTurnInText": "It's calmer now. I went out to her garden this morning and stood there without looking over my shoulder. That felt like progress. But there's something else I've been meaning to do.",
+    "conflict1Text": "She had a {quest_item} she kept on the mantle, said it reminded her of the village where she grew up. It broke during the last storm and I want to find a replacement. Not the same one, obviously, but something close enough that the mantle doesn't look so bare.",
+    "conflict1TurnInText": "That's close. Not the same, but she'd have understood the gesture. I put it where hers used to sit, and the room feels less empty now.",
+    "resolutionText": "The grounds are safe and the mantle has something on it again. Small things, both of them, but she lived in small things, and I think that's where I'll keep finding her. Take {quest_reward}. She would have made you sit down for pie first, but I'm not the baker she was.",
+    "skillCheck": {
+      "skill": "PERFORMANCE",
+      "dc": 14,
+      "passText": "You understand the weight of the small things, don't you. Everyone told me the big moments would be the hardest, the holidays, the anniversaries, but they were wrong. Every morning I come downstairs expecting to hear her humming, and every morning the kitchen is just a kitchen. That's the part that's killing me slowly.",
+      "failText": "I miss her, and the house is quiet."
+    },
+    "rewardText": "her favorite coin purse and the thanks of a granddaughter who isn't done remembering",
+    "valence": "negative",
+    "roleAffinity": []
+  },
+  {
+    "id": "loss_of_loved_ones_11",
+    "topicHeader": "The Kept Promise",
+    "situation": "loss_of_loved_ones",
+    "objectives": [
+      {
+        "type": "TALK_TO_NPC"
+      },
+      {
+        "type": "FETCH_ITEM"
+      }
+    ],
+    "expositionText": "My brother asked me to do something before he died, and I promised I would. He wanted me to visit {target_npc} in {target_npc_settlement}, a {target_npc_role} they had unfinished business with. I don't know the details and I don't need to. I just need to keep my word.",
+    "acceptText": "Thank you. I made the promise in his last hour, and I've been carrying it around like a stone ever since.",
+    "declineText": "All right. I'll find a way. A promise to a dying man doesn't expire because the road is long.",
+    "expositionTurnInText": "So {target_npc} and my brother had an old debt between them, and {target_npc} considers it settled now that word has been delivered. My brother would have been relieved. There's one more thing that would close this chapter.",
+    "conflict1Text": "Find me a {quest_item}. My brother wanted one placed at the crossroads where he and {target_npc} first met. Said it would mark the spot so neither of them would forget, even after. Especially after.",
+    "conflict1TurnInText": "I placed it there myself, at the crossroads, where the path splits. The wind was blowing east, which was his favorite direction. I know that doesn't mean anything, but it felt right.",
+    "targetNpcOpener": "His brother sent you. I've been expecting this visit for longer than I'd like to admit. We had words between us, old ones, and he wanted them resolved before the end. Tell his brother the matter is closed, and that I wish I'd said so while there was still time to say it in person.",
+    "targetNpcCloser": "The debt is paid, both sides of it. Tell him I'm sorry it took this long.",
+    "resolutionText": "The promise is kept, the debt is settled, and there's a marker at the crossroads that will outlast both of us. Take {quest_reward}. My brother left it with instructions, and you were the hands that carried it through.",
+    "skillCheck": {
+      "skill": "ARCANA",
+      "dc": 13,
+      "passText": "You noticed the mark on the stone he wanted placed. My brother believed the crossroads held a kind of memory, that places where paths split could hold the echo of the people who stood there and chose. I don't know if he was right, but I know he believed it completely, and I'm not going to let that belief go unhonored.",
+      "failText": "It was important to him. That's reason enough for me."
+    },
+    "rewardText": "what my brother set aside for this exact purpose and a family's word kept",
+    "valence": "negative",
+    "roleAffinity": []
+  },
+  {
+    "id": "ambition_06",
+    "topicHeader": "The Proving Ground",
+    "situation": "ambition",
+    "objectives": [
+      {
+        "type": "KILL_MOBS",
+        "countMin": 4,
+        "countMax": 7
+      },
+      {
+        "type": "COLLECT_RESOURCES",
+        "countMin": 5,
+        "countMax": 9
+      }
+    ],
+    "expositionText": "I've been telling people in {settlement_name} that I can handle more than they give me credit for, and I'm tired of hearing my own words without proof behind them. There are {kill_count} {enemy_type_plural} out there that everyone's been stepping around, and I want them dealt with. By me, through you, however it gets done. The point is it gets done and my name is on it.",
+    "acceptText": "Excellent. When this is over, nobody will be able to say I only talk. Let's move.",
+    "declineText": "Fine. I'll find another way to prove my point. I always do.",
+    "expositionTurnInText": "That's the kind of result people notice. Word is already getting around that the {enemy_type_plural} are handled. Now I want to build on it before the momentum fades.",
+    "conflict1Text": "I need {gather_count} {quest_item} to finish a project I've been planning. Something visible, something that shows I can follow through on the big ideas, not just the small ones. Help me stockpile and I'll do the rest.",
+    "conflict1TurnInText": "Look at this. I have everything I need to start building. This time next month, people will walk past and know who put it together.",
+    "resolutionText": "It's happening. The project is underway, the {enemy_type_plural} are handled, and {settlement_name} is looking at me differently. Take {quest_reward}. You helped me earn something I couldn't buy, and I won't forget who was there at the beginning.",
+    "skillCheck": {
+      "skill": "DECEPTION",
+      "dc": 12,
+      "passText": "You see through the bluster, don't you. I'm not as confident as I sound, I've failed at two things already this year and both times I smiled and pretended it didn't sting. This one has to work because I'm running out of chances to be taken seriously, and I'm more scared of that than I am of the {enemy_type_plural}.",
+      "failText": "I know what I'm doing. That's all you need to know."
+    },
+    "rewardText": "a proper share of the profits and my word that your name goes on the record",
+    "valence": "positive",
+    "roleAffinity": []
+  },
+  {
+    "id": "ambition_07",
+    "topicHeader": "The Larger Table",
+    "situation": "ambition",
+    "objectives": [
+      {
+        "type": "FETCH_ITEM"
+      },
+      {
+        "type": "TALK_TO_NPC"
+      },
+      {
+        "type": "COLLECT_RESOURCES",
+        "countMin": 6,
+        "countMax": 10
+      }
+    ],
+    "expositionText": "I want to expand, not just my shop but my whole operation. I've been running at capacity for months and turning away customers, and I refuse to keep doing that when the fix is sitting right in front of me. I need a {quest_item} to get the plans moving, something I can show to the people whose support I need.",
+    "acceptText": "Good. I've been waiting for someone who moves at my pace. This is going to be worth it for both of us.",
+    "declineText": "Your loss, honestly. This is going to happen with or without you. I'd just rather it happen faster.",
+    "expositionTurnInText": "Perfect. I can already see the pitch coming together. But plans on paper don't mean anything without backing from the right people.",
+    "conflict1Text": "Talk to {target_npc} in {target_npc_settlement}. They're a {target_npc_role} with connections I need. Tell them what I'm building and ask if they want in. If they say yes, that opens doors I can't open alone.",
+    "conflict1TurnInText": "{target_npc} said yes. Just like that. I knew they would if they heard it from someone besides me. Partners never sound credible pitching their own work.",
+    "conflict2Text": "Now the real build starts. I need {gather_count} {quest_item} to begin the expansion properly. No shortcuts. I want this done right so nobody can say I cut corners when it matters.",
+    "conflict2TurnInText": "That's everything I need to break ground. I can feel the shape of it already. This is going to change things in {settlement_name}.",
+    "targetNpcOpener": "Someone finally made the pitch. I've been hearing about this plan secondhand for weeks, and I was wondering when they'd get serious enough to send a proper messenger. Tell them I'm interested. The numbers make sense, and I like ambition that comes with a materials list.",
+    "targetNpcCloser": "I'll send my terms by the end of the week. This could work.",
+    "resolutionText": "The foundation is laid, the partners are signed, and I can finally stop talking about what I'm going to do and start showing people what I've done. Take {quest_reward}. You weren't just running errands. You helped build something that's going to last.",
+    "skillCheck": {
+      "skill": "DECEPTION",
+      "dc": 13,
+      "passText": "You caught the part I'm not saying out loud. My father ran this same shop for thirty years and never once tried to make it bigger, and people told me I'd end up the same way, steady but small. Every board I lay is an answer to that prediction, and some mornings I'm not sure if I'm building something real or just building spite into a storefront.",
+      "failText": "It's a good opportunity. I don't need a deeper reason than that."
+    },
+    "rewardText": "a founding partner's share and my guarantee that your name stays on the door",
+    "valence": "positive",
+    "roleAffinity": [
+      "ArtisanBlacksmith",
+      "ArtisanAlchemist",
+      "ArtisanCook",
+      "TavernKeeper"
+    ]
+  },
+  {
+    "id": "ambition_08",
+    "topicHeader": "The Long Climb",
+    "situation": "ambition",
+    "objectives": [
+      {
+        "type": "TALK_TO_NPC"
+      },
+      {
+        "type": "KILL_MOBS",
+        "countMin": 3,
+        "countMax": 6
+      }
+    ],
+    "expositionText": "I've been working toward something for a long time, and I'm close enough now to taste it. But I need a favor from {target_npc} in {target_npc_settlement} before I can take the next step. They're a {target_npc_role}, and they owe me one from years back. Go remind them, politely, that it's time to pay up.",
+    "acceptText": "Wonderful. I've been patient long enough, and patience has done its job. Now it's time for action.",
+    "declineText": "Disappointing. But not surprising. Most people don't recognize momentum when they see it.",
+    "expositionTurnInText": "{target_npc} agreed? Good. That clears the political side of things. Now there's the practical matter standing between me and the finish line.",
+    "conflict1Text": "There are {kill_count} {enemy_type_plural} camped along the route I need for supply runs. Can't build an empire if the roads to it are blocked. Clear them out, and the last obstacle falls.",
+    "conflict1TurnInText": "The route is open, the backing is secured, and I'm standing where I've been imagining myself for years. It looks even better from here.",
+    "targetNpcOpener": "I had a feeling this day would come. They've been building toward something for years, and they've earned the right to call in what I owe. Consider the debt settled. I'll send word and the resources they need.",
+    "targetNpcCloser": "Tell them it's done, and that I wish them well. They'll need it where they're headed.",
+    "resolutionText": "Everything is in motion. The favor is called, the road is clear, and I'm finally doing the thing I've been planning since I was old enough to plan. Take {quest_reward}. You arrived at the exact right moment, and I believe in rewarding good timing.",
+    "skillCheck": {
+      "skill": "INTIMIDATION",
+      "dc": 12,
+      "passText": "You want the real talk, fine. I've been told no so many times in my life that I stopped counting and started collecting, because every refusal is fuel. The people who laughed at this idea are going to watch it succeed, and I want them to feel exactly what I felt every time they dismissed me.",
+      "failText": "I see an opportunity and I'm taking it. Simple as that."
+    },
+    "rewardText": "a generous bonus from the first profits and my personal endorsement",
+    "valence": "positive",
+    "roleAffinity": []
+  },
+  {
+    "id": "ambition_09",
+    "topicHeader": "The Name They'll Know",
+    "situation": "ambition",
+    "objectives": [
+      {
+        "type": "COLLECT_RESOURCES",
+        "countMin": 7,
+        "countMax": 12
+      },
+      {
+        "type": "FETCH_ITEM"
+      }
+    ],
+    "expositionText": "I've decided I'm going to be the best {self_role} this region has ever seen, not one of the best, the best. That starts with materials, and I need {gather_count} {quest_item} of the finest quality I can get. No excuses, no substitutions.",
+    "acceptText": "Now we're moving. I can already feel the shape of what this is going to become.",
+    "declineText": "I expected more, honestly. Not everyone can see what I'm building. That's fine. I'll remember who showed up and who didn't.",
+    "expositionTurnInText": "Real quality, exactly what I've been looking for. But materials alone don't make a masterwork. I need one more piece.",
+    "conflict1Text": "There's a {quest_item} that would make this project something people remember for years. It's rare, and it's out there somewhere, and I need someone willing to track it down. Bring it to me and watch what I do with it.",
+    "conflict1TurnInText": "Do you see this? Do you see what we have? This is the piece that turns good into exceptional. I'm going to start tonight.",
+    "resolutionText": "It's done, and it's the finest thing I've ever made. People are already talking about it, and they're using my name in the same breath as the old masters. Take {quest_reward}. You helped me make something that proves I belong at the top of this craft.",
+    "skillCheck": {
+      "skill": "INTIMIDATION",
+      "dc": 14,
+      "passText": "You see the edge in me, and you're not wrong. There's a {self_role} in {other_settlement} who's been called the finest in the region for years, and their work is competent while mine is inspired. I've been watching them collect praise for mediocrity until it ate at me so badly I couldn't sit still anymore, and this piece is my answer.",
+      "failText": "I take my craft seriously. That's all anyone needs to know."
+    },
+    "rewardText": "a handsome payment and a piece of my best work, signed",
+    "valence": "positive",
+    "roleAffinity": [
+      "ArtisanBlacksmith",
+      "ArtisanAlchemist",
+      "ArtisanCook"
+    ]
+  },
+  {
+    "id": "ambition_10",
+    "topicHeader": "What Gets Remembered",
+    "situation": "ambition",
+    "objectives": [
+      {
+        "type": "KILL_MOBS",
+        "countMin": 5,
+        "countMax": 8
+      },
+      {
+        "type": "TALK_TO_NPC"
+      }
+    ],
+    "expositionText": "I want to do something that outlasts me. Something {settlement_name} will still talk about in fifty years. That starts with clearing the {enemy_type_plural} that have been keeping everyone afraid to build beyond the walls. {kill_count} of them put down, and suddenly the land past the gate is ours again.",
+    "acceptText": "This is exactly the energy I needed. Let's make something people remember.",
+    "declineText": "Small thinking. I'll find someone with a longer view.",
+    "expositionTurnInText": "The perimeter is clear and people are already looking at the open land with new eyes. That's the beginning. Now I need someone with influence to see what I see.",
+    "conflict1Text": "Go to {target_npc} in {target_npc_settlement}, a {target_npc_role} who's built the kind of thing I'm talking about. Ask them what it took, and ask them if they'll lend their name to what I'm starting. That kind of endorsement turns an idea into a movement.",
+    "conflict1TurnInText": "{target_npc} said yes. They actually said yes. I can see the whole thing unfolding now, every step of it, clear as morning.",
+    "targetNpcOpener": "I've heard the name mentioned a few times recently, and I was curious what they were after. Building something lasting for {settlement_name}? That takes nerve and materials in equal measure, and I respect anyone willing to put both on the table. I'll lend my support.",
+    "targetNpcCloser": "Tell them they have my backing. Now let's see if they can deliver.",
+    "resolutionText": "The land is clear, the backing is real, and the first stones are going down this week. Take {quest_reward}. Fifty years from now, someone will ask who helped build this, and your name will be in the answer.",
+    "skillCheck": {
+      "skill": "PERFORMANCE",
+      "dc": 12,
+      "passText": "You have a presence about you, and I think that's why I'm being honest. I'm terrified of being forgotten, not dying, that's just mechanics, but being forgotten. The idea that I'll pass through this world and leave no mark at all has kept me awake more nights than I'll ever admit, and this project is my answer to that fear.",
+      "failText": "I want to build something. That's reason enough."
+    },
+    "rewardText": "a founder's share and a place of honor in the record books",
+    "valence": "positive",
+    "roleAffinity": []
+  },
+  {
+    "id": "ambition_11",
+    "topicHeader": "The Seat at the Top",
+    "situation": "ambition",
+    "objectives": [
+      {
+        "type": "FETCH_ITEM"
+      },
+      {
+        "type": "COLLECT_RESOURCES",
+        "countMin": 4,
+        "countMax": 8
+      },
+      {
+        "type": "TALK_TO_NPC"
+      }
+    ],
+    "expositionText": "I've been passed over for leadership in {settlement_name} twice now, and both times they picked someone safer. I'm done being safe. I need a {quest_item} to present at the next council meeting, something that proves I've been doing the work nobody else was willing to do.",
+    "acceptText": "Perfect. When I walk into that room, I want them to see someone who solves problems, not someone who asks permission.",
+    "declineText": "I'll find another way. I didn't get this far by needing anyone's approval.",
+    "expositionTurnInText": "That's the proof I needed. The council meets next week, and I'll have something in my hands instead of just words in my mouth. But I'm not going in half-prepared.",
+    "conflict1Text": "I need {gather_count} {quest_item} to fund the proposal I'm bringing. Not gifts, investments. I want the council to see that I've already started the work, that I'm not asking for the seat, I'm showing them I've already been sitting in it.",
+    "conflict1TurnInText": "The resources are secured. The proposal is real. Now I need one more piece to make this airtight.",
+    "conflict2Text": "{target_npc} in {target_npc_settlement} is a {target_npc_role} who's been through this kind of push before. Ask them to speak on my behalf at the meeting, or at least to send a letter of support. Their word carries weight I haven't earned yet.",
+    "conflict2TurnInText": "{target_npc} agreed to write the letter. When they read that name at the council table, every head in the room will turn.",
+    "targetNpcOpener": "So they're making their move. I've been watching from a distance, and I think they've got the right instincts for it. The question was always whether they'd follow through, and sending you here tells me the answer. I'll write the letter.",
+    "targetNpcCloser": "It'll be in their hands before the meeting. Tell them to use it well.",
+    "resolutionText": "The meeting is set, the proposal is funded, and I have a letter from {target_npc} that will make them take me seriously for the first time. Take {quest_reward}. Win or lose, you helped me step into the room as someone who belongs there, and that changes everything.",
+    "skillCheck": {
+      "skill": "RELIGION",
+      "dc": 13,
+      "passText": "You understand tradition, then, so you'll understand this. The council has always chosen its leaders from the same three families, and my family isn't one of them. That's not written anywhere but it's understood, and breaking that understanding scares them more than anything I might actually do. I'm breaking a rule nobody will admit exists.",
+      "failText": "It's politics. Straightforward enough if you know the game."
+    },
+    "rewardText": "a generous purse and my promise that I remember the people who helped me climb",
+    "valence": "positive",
+    "roleAffinity": []
+  },
+  {
+    "id": "mistaken_jealousy_06",
+    "topicHeader": "The Second Ledger",
+    "situation": "mistaken_jealousy",
+    "objectives": [
+      {
+        "type": "FETCH_ITEM"
+      },
+      {
+        "type": "TALK_TO_NPC"
+      }
+    ],
+    "expositionText": "I found a second set of books hidden in {settlement_npc}'s desk. Different numbers, different names, and none of it matches what they've been showing me. I need a {quest_item} to compare the entries properly, something that will tell me whether the discrepancy is real or if I'm reading it wrong.",
+    "acceptText": "I appreciate it. I'd rather discover I'm wrong about this than discover I'm right.",
+    "declineText": "I'll figure it out myself. I always do, even when the answer is one I don't want.",
+    "expositionTurnInText": "I compared everything line by line, and the numbers don't lie, but apparently I do, to myself. The second ledger is a gift record, {settlement_npc} has been tracking charity donations they didn't want anyone to know about. I feel like a fool, but I still want to be sure.",
+    "conflict1Text": "{target_npc} in {target_npc_settlement} is a {target_npc_role} who handles the other side of those donations. Go ask them about it, casually, without mentioning the ledger. If the story matches, I'll put this down and never bring it up again.",
+    "conflict1TurnInText": "It matches. Every entry. {settlement_npc} has been giving away coin to families who need it and keeping it secret because they didn't want the attention. I almost accused them of stealing, and they were doing the opposite.",
+    "targetNpcOpener": "You're asking about the donations? I wondered when someone would notice. Every month, regular as sunrise, a contribution arrives with no name attached, and I know exactly who it's from. Since you're asking directly, yes, it's genuine and it's been going on for over a year.",
+    "targetNpcCloser": "Don't make a fuss about it. They're doing it for the right reasons, and embarrassing them would defeat the purpose.",
+    "resolutionText": "I owe {settlement_npc} an apology I'll probably never give, because giving it would mean admitting I searched their desk. So instead I'll just be a better partner and stop looking for betrayal in every shadow. Take {quest_reward}. You kept me from making an accusation that would have cost me the best person I know.",
+    "skillCheck": {
+      "skill": "DECEPTION",
+      "dc": 13,
+      "passText": "You see what I was doing, don't you. I wasn't investigating, I was building a case, going looking for proof of something I'd already decided was true. Every ambiguous detail fed the story I wanted to tell. I've done this before, and every time the answer turns out to be innocent, and every time I promise I'll stop.",
+      "failText": "I just want the facts. That's all."
+    },
+    "rewardText": "a fair sum and my word that I'll try to see straight from now on",
+    "valence": "negative",
+    "roleAffinity": []
+  },
+  {
+    "id": "mistaken_jealousy_07",
+    "topicHeader": "The Late Arrival",
+    "situation": "mistaken_jealousy",
+    "objectives": [
+      {
+        "type": "TALK_TO_NPC"
+      },
+      {
+        "type": "FETCH_ITEM"
+      }
+    ],
+    "expositionText": "{settlement_npc} has been coming home late almost every night for two weeks, and the excuses change each time. I don't want to believe what I'm starting to believe, but the pattern is hard to ignore. {target_npc} in {target_npc_settlement} is a {target_npc_role} who lives near where {settlement_npc} claims to be spending the evenings. Go ask them what they've seen.",
+    "acceptText": "Thank you. I know how this sounds. I know I might be wrong. But not knowing is worse than either answer.",
+    "declineText": "I understand. It's an ugly thing to ask someone to look into. I'll handle it myself.",
+    "expositionTurnInText": "So {target_npc} says {settlement_npc} has been helping repair a neighbor's roof every evening after work. The old woman there can't afford to hire anyone, and {settlement_npc} didn't want me to worry about the extra labor. The changing excuses were because they were embarrassed about how tired the work made them. I feel sick with relief.",
+    "conflict1Text": "I want to make this right without letting on what I suspected. Bring me a {quest_item}, something I can give {settlement_npc} as a gift. Something that says I appreciate them without explaining why. If I tell them what I was thinking, it'll hurt them, and they don't deserve that.",
+    "conflict1TurnInText": "That's perfect. Simple enough not to raise questions, generous enough to mean something. I'll give it to them tonight and let the whole ugly chapter close.",
+    "targetNpcOpener": "You're asking about {settlement_npc}? I see them most evenings, up on the widow Margel's roof patching holes before the rain season. Hard work, and they never mention it to anyone. I assumed the family knew.",
+    "targetNpcCloser": "There's nothing to worry about. They're just doing a kindness and being quiet about it.",
+    "resolutionText": "I gave {settlement_npc} the gift, and they looked at me like I'd said something they needed to hear without either of us speaking. Take {quest_reward}. You saved me from myself, and that's not a debt I take lightly.",
+    "skillCheck": {
+      "skill": "DECEPTION",
+      "dc": 11,
+      "passText": "You can tell I already know I'm wrong, can't you. The truth is I knew three days ago. I checked the mud on their boots and it matched the clay near Margel's house, not the road to {other_settlement}. But knowing wasn't enough to stop the feeling, and the feeling has its own logic that ignores evidence entirely.",
+      "failText": "I just need someone to confirm what I'm hoping is true."
+    },
+    "rewardText": "what I can put together quickly and my honest thanks for the discretion",
+    "valence": "negative",
+    "roleAffinity": []
+  },
+  {
+    "id": "mistaken_jealousy_08",
+    "topicHeader": "The Locked Room",
+    "situation": "mistaken_jealousy",
+    "objectives": [
+      {
+        "type": "FETCH_ITEM"
+      },
+      {
+        "type": "TALK_TO_NPC"
+      }
+    ],
+    "expositionText": "{settlement_npc} has been keeping the back room locked, and when I asked about it they changed the subject so fast I could hear the conversation snap. I've never been shut out of any part of this house before. There's a {quest_item} I need to understand what's in there. Bring me one so I can make sense of what I'm seeing.",
+    "acceptText": "I appreciate it. I know it might be nothing. I know. But the lock is new and the silence around it is loud.",
+    "declineText": "All right. I'll sit with the not-knowing a while longer. I'm getting practiced at it.",
+    "expositionTurnInText": "I compared what I found to what you brought me, and the pieces fit together in a way I didn't expect. The locked room is full of supplies for a surprise renovation of the kitchen. {settlement_npc} has been planning it for months and keeping it hidden because my birthday is next week. I've been losing sleep over a gift.",
+    "conflict1Text": "Now I need to fix what my suspicion nearly broke. {target_npc} in {target_npc_settlement} is a {target_npc_role}, and {settlement_npc} asked them to source some of the materials. I need you to go there and make sure my snooping hasn't ruined the surprise. If {target_npc} knows I was asking questions, the whole thing falls apart.",
+    "conflict1TurnInText": "{target_npc} doesn't suspect a thing. The secret is safe, the renovation will go ahead, and I'll act surprised on my birthday with a guilt that nobody will ever see on my face.",
+    "targetNpcOpener": "Looking for materials for the {settlement_name} order? Everything is on track, I've got the last pieces coming in by week's end. Tell them not to worry about the timeline, it'll be ready.",
+    "targetNpcCloser": "We're right on schedule. Nothing to report but good news.",
+    "resolutionText": "The kitchen will be beautiful, and {settlement_npc} will never know how close I came to ruining it with my own paranoia. Take {quest_reward}. You helped me step back from the edge of something I would have regretted for years.",
+    "skillCheck": {
+      "skill": "INTIMIDATION",
+      "dc": 14,
+      "passText": "You're right that I should just ask them directly, and the fact that I won't tells you something about me I'd rather you didn't know. I'm afraid of the conversation, not because of what they might say but because of what my asking would reveal about me. I don't trust the person I love most in the world, and the distrust comes from nowhere they caused, and I'd rather investigate in secret than face it in the open.",
+      "failText": "I just need to understand what's going on. That's all."
+    },
+    "rewardText": "a fair payment and my promise to think before I doubt next time",
+    "valence": "negative",
+    "roleAffinity": []
+  },
+  {
+    "id": "mistaken_jealousy_09",
+    "topicHeader": "The Friendly Stranger",
+    "situation": "mistaken_jealousy",
+    "objectives": [
+      {
+        "type": "TALK_TO_NPC"
+      },
+      {
+        "type": "FETCH_ITEM"
+      }
+    ],
+    "expositionText": "A traveler from {other_settlement} has been spending a lot of time around {settlement_npc}, and every time I walk in they stop talking. I'm not the jealous type, except apparently I am, because I can't think about anything else. {target_npc} in {target_npc_settlement} is a {target_npc_role} who knows the traveler. Go ask them who this person is and what they're after.",
+    "acceptText": "Thank you. I hate that I'm asking. I hate it. But the alternative is standing here imagining things that are probably worse than the truth.",
+    "declineText": "I understand. I'll let it go. Or I'll try. That's the best I can promise right now.",
+    "expositionTurnInText": "So the traveler is {settlement_npc}'s cousin, visiting from the south, and they've been planning a family gathering that was meant to be a surprise. The whispering, the secrecy, all of it was for a celebration I was never supposed to know about. I've been torturing myself over a party invitation.",
+    "conflict1Text": "I need to do something to settle my conscience. Bring me a {quest_item}, something I can contribute to the gathering without letting on that I know. I want to show up with something generous and pretend the suspicion never happened. They deserve that much from me.",
+    "conflict1TurnInText": "That'll be my contribution to the celebration. Anonymous, generous, and motivated entirely by guilt. Which is fine, because the result is the same.",
+    "targetNpcOpener": "You're asking about the visitor? That's family business, the good kind. The cousin has been planning a gathering for months, and they came to {settlement_name} to work out the details in person. It's meant to be a surprise for several people in the family, which is why all the secrecy.",
+    "targetNpcCloser": "Tell whoever sent you that there's nothing to worry about. It's a happy occasion.",
+    "resolutionText": "The gathering happened, and it was wonderful, and I sat there surrounded by people who love {settlement_npc} and felt ashamed of every dark thought I'd entertained. Take {quest_reward}. You stopped me from saying something at exactly the wrong moment, and I owe you for that silence.",
+    "skillCheck": {
+      "skill": "INTIMIDATION",
+      "dc": 12,
+      "passText": "Fine, you want the unvarnished version. I wasn't just suspicious, I was rehearsing the confrontation with the words lined up, the accusations organized, the whole performance ready to go. If you hadn't agreed to check first I would have walked in there tonight and blown apart my marriage over a family reunion. That's how close it was.",
+      "failText": "I'm probably overreacting. I just want to be sure."
+    },
+    "rewardText": "a fair sum and the deepest thanks of someone who nearly ruined their own happiness",
+    "valence": "negative",
+    "roleAffinity": []
+  },
+  {
+    "id": "mistaken_jealousy_10",
+    "topicHeader": "The Quiet Comparison",
+    "situation": "mistaken_jealousy",
+    "objectives": [
+      {
+        "type": "FETCH_ITEM"
+      },
+      {
+        "type": "TALK_TO_NPC"
+      }
+    ],
+    "expositionText": "There's a new {settlement_npc_role} in {settlement_name} who does the same work I do, and everyone has been going to them instead of me. I found out they've been sourcing a {quest_item} I can't get, and I want to know where it comes from. Bring me one so I can see what I'm competing against.",
+    "acceptText": "Thank you. I know it sounds petty. But watching your livelihood walk out the door smiling is a particular kind of pain.",
+    "declineText": "Fine. I'll keep watching the traffic go past my door and pretending it doesn't bother me.",
+    "expositionTurnInText": "I've looked at it carefully, and it's good work, but It the miracle I'd built it up to be in my head. The truth is they're doing the same quality I do, just with a fresher face and more enthusiasm. I stopped believing in my own work somewhere along the way, and I want to hear it from someone outside {settlement_name}.",
+    "conflict1Text": "Talk to {target_npc} in {target_npc_settlement}, a {target_npc_role} who's seen both our work. I want an honest assessment from someone who has no reason to spare my feelings. If they say I've fallen behind I'll accept it, and if they say I haven't I'll stop punishing myself.",
+    "conflict1TurnInText": "{target_npc} said my work is excellent and always has been, and that losing customers to a newcomer is normal and temporary. They also said the new person has been sending people my way for jobs they can't handle. I didn't know that. I didn't know any of that.",
+    "targetNpcOpener": "I know both operations, and I'll tell you straight. The work from {settlement_name} has always been reliable, and that hasn't changed. Newcomers draw attention because they're new, and it always settles down. Between you and me, the new one has been referring overflow work back to the original shop for weeks.",
+    "targetNpcCloser": "Tell them to keep doing what they're doing. The quality speaks for itself.",
+    "resolutionText": "I walked over to the new {settlement_npc_role}'s shop this morning and introduced myself properly. We talked for an hour, and by the end of it I felt foolish for every unkind thought I'd had. Take {quest_reward}. You showed me that the competition I was afraid of was entirely in my own head.",
+    "skillCheck": {
+      "skill": "PERFORMANCE",
+      "dc": 12,
+      "passText": "You have a way of making people drop their guard, so all right. I was good once, really good, and somewhere in the last few years I stopped trying to be excellent and started just being adequate. I let my customers go by being too comfortable to fight for them, and that's what the jealousy is really about.",
+      "failText": "It's a business matter. I'll sort it out."
+    },
+    "rewardText": "a sample of my best recent work and fair coin for your time",
+    "valence": "negative",
+    "roleAffinity": [
+      "ArtisanBlacksmith",
+      "ArtisanAlchemist",
+      "ArtisanCook"
+    ]
+  },
+  {
+    "id": "mistaken_jealousy_11",
+    "topicHeader": "The Unsigned Letter",
+    "situation": "mistaken_jealousy",
+    "objectives": [
+      {
+        "type": "FETCH_ITEM"
+      },
+      {
+        "type": "TALK_TO_NPC"
+      }
+    ],
+    "expositionText": "I found a letter in {settlement_npc}'s coat, unsigned, written in a hand I don't recognize, and it reads like a love letter. My stomach hasn't unclenched since I opened it. I need a {quest_item} to compare the ink and paper. I know that sounds desperate, but I need to do something with my hands besides shaking.",
+    "acceptText": "Thank you. I keep rereading the letter looking for something I missed, and every time I find a new way to make it worse.",
+    "declineText": "All right. I'll sit with it. Maybe by morning the words will have rearranged themselves into something I can live with.",
+    "expositionTurnInText": "I compared everything, the ink, the paper, the way the letters sit on the page, and it matches the stationery from the old schoolhouse. The handwriting belongs to {settlement_npc}'s mother, who writes to them every season and never signs because she says family shouldn't need signatures. It's a letter from a mother to a child, and I read it as a betrayal.",
+    "conflict1Text": "I need to do something right after doing so much wrong in my own head. {target_npc} in {target_npc_settlement} is a {target_npc_role} who carries mail from the old schoolhouse district. Ask them to confirm the handwriting so I can put this to rest completely and stop torturing myself with a dead woman's penmanship.",
+    "conflict1TurnInText": "{target_npc} confirmed it immediately. Said they'd recognize that handwriting anywhere, and that she writes the same way to all her children. I feel smaller than I've felt in years, and I earned every inch of it.",
+    "targetNpcOpener": "That handwriting? I'd know it blind, she writes to all her children the same way, long, warm, and never signed. Says putting a name at the bottom makes it feel like business instead of love. I've carried those letters for years.",
+    "targetNpcCloser": "Whoever is worried can stop. It's just a mother's love on paper.",
+    "resolutionText": "I put the letter back in the coat pocket and I'll never mention that I read it. {settlement_npc} deserves their mother's words without my fingerprints on them. Take {quest_reward}. You helped me see the shape of my own worst instinct before it did any real damage.",
+    "skillCheck": {
+      "skill": "ARCANA",
+      "dc": 12,
+      "passText": "You noticed the pressed flower in the envelope. I noticed it too and thought it was a token of something romantic, but you're right that it's silverveil, and it only grows near old family plots. She sends them pressed into every letter because it connects the words to the family ground. I was so busy looking for a betrayal that I missed a blessing sitting right in front of me.",
+      "failText": "I just need to know who wrote it. That's all."
+    },
+    "rewardText": "what coin I can spare and the thanks of someone learning to trust better",
+    "valence": "negative",
+    "roleAffinity": []
+  }
+]

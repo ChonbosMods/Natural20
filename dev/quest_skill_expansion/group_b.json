@@ -1,0 +1,1029 @@
+[
+  {
+    "id": "disaster_06",
+    "topicHeader": "Ash and Afterthought",
+    "situation": "disaster",
+    "objectives": [
+      {
+        "type": "COLLECT_RESOURCES",
+        "countMin": 6,
+        "countMax": 10
+      },
+      {
+        "type": "KILL_MOBS",
+        "countMin": 3,
+        "countMax": 6
+      }
+    ],
+    "expositionText": "The fire went through the storehouse before anyone even smelled smoke. We pulled what we could, but most of it is gone. I need {gather_count} {quest_item} to start replacing what burned, and I need it before people here start making decisions out of panic.",
+    "acceptText": "That helps. I've been running on fumes and borrowed calm for three days straight.",
+    "declineText": "I'll figure it out. I always figure it out. It just costs more every time.",
+    "expositionTurnInText": "That's a start I can work with. The panic has settled down a notch, which is everything right now. But we've got another problem that showed up while I was putting out the last one.",
+    "conflict1Text": "{enemy_type_plural} moved in the night after the fire, drawn by the smoke or the chaos or both. They've been picking through the ruins and getting bolder. I need {kill_count} of them dealt with before they make a bad week into a catastrophe.",
+    "conflict1TurnInText": "The yard is quiet again. I stood in it this morning and didn't hear anything that shouldn't be there, and I almost cried from the relief of it.",
+    "resolutionText": "We're not rebuilt, but we're standing, and that's something I couldn't have said three days ago. Take {quest_reward}. Every bit of it was set aside for exactly this kind of trouble, and I can't think of anyone who earned it more.",
+    "skillCheck": {
+      "skill": "DECEPTION",
+      "dc": 12,
+      "passText": "You're right to press me on what I've been leaving out. The fire wasn't random. Someone left a lantern burning near the grain, and I know who, and I've been covering for them because they're young and terrified. I can't let that out without ruining a life, so I've been carrying it alone.",
+      "failText": "It was just bad luck. Sometimes fires happen and there's nobody to blame."
+    },
+    "rewardText": "what the households could pull together and a standing place at our table",
+    "valence": "negative",
+    "roleAffinity": []
+  },
+  {
+    "id": "disaster_07",
+    "topicHeader": "The Weight of Rubble",
+    "situation": "disaster",
+    "objectives": [
+      {
+        "type": "FETCH_ITEM"
+      },
+      {
+        "type": "COLLECT_RESOURCES",
+        "countMin": 5,
+        "countMax": 9
+      },
+      {
+        "type": "KILL_MOBS",
+        "countMin": 4,
+        "countMax": 7
+      }
+    ],
+    "expositionText": "The wall on the east side came down in the night and took half the workshop with it. I need a {quest_item} before I can even begin shoring up what's left. Without it, the rest of the structure follows within a week.",
+    "acceptText": "Thank you. I've been staring at the wreckage since dawn and not knowing where to start was the worst part.",
+    "declineText": "All right. I'll keep propping it up with what I have. It won't hold forever, but it doesn't have to hold forever, just long enough.",
+    "expositionTurnInText": "Good. I can brace the main beam now, which means the rest of the roof stays up. But the supplies I had stored inside are gone, and we're short on everything.",
+    "conflict1Text": "I need {gather_count} {quest_item} to replace what was crushed. Food, materials, the things that make tomorrow possible. I wouldn't ask if the shelves weren't empty.",
+    "conflict1TurnInText": "That'll keep us going. I can actually think past today for the first time since the wall fell. There's one more thing, and I wish there weren't.",
+    "conflict2Text": "The collapse opened a gap in our perimeter that {enemy_type_plural} have been using to get in. {kill_count} of them cleared out and I can patch the gap without worrying about what's coming through it while I work.",
+    "conflict2TurnInText": "The gap is clear and I'm already filling it in. By nightfall we'll have a wall again, even if it's an ugly one.",
+    "resolutionText": "The workshop is standing. Not pretty, not finished, but standing. Take {quest_reward}. You showed up when the ground was still shaking and that's the kind of thing a person remembers for a long time.",
+    "skillCheck": {
+      "skill": "DECEPTION",
+      "dc": 13,
+      "passText": "Since you're asking the question I've been dodging. I knew the wall was weakening for months and I kept putting off the repair. Every time I looked at it I told myself it would hold through one more season. I was wrong, and now everyone here is paying for my hesitation.",
+      "failText": "Walls come down. It's the nature of old buildings. Nothing more to it."
+    },
+    "rewardText": "the emergency fund I kept in a jar that survived the collapse",
+    "valence": "negative",
+    "roleAffinity": []
+  },
+  {
+    "id": "disaster_08",
+    "topicHeader": "What the Flood Left",
+    "situation": "disaster",
+    "objectives": [
+      {
+        "type": "KILL_MOBS",
+        "countMin": 4,
+        "countMax": 7
+      },
+      {
+        "type": "TALK_TO_NPC"
+      },
+      {
+        "type": "COLLECT_RESOURCES",
+        "countMin": 5,
+        "countMax": 8
+      }
+    ],
+    "expositionText": "The river overran the banks three nights ago and swallowed the lower fields. The water's gone now, but it drove {enemy_type_plural} up from wherever they shelter, and they've been roaming the outskirts since. I need {kill_count} of them handled before we can even get to the damage underneath.",
+    "acceptText": "Good. I can finally stop watching the treeline and start looking at what needs fixing.",
+    "declineText": "Then I'll keep one eye on the field and one on the creatures. It's a poor way to rebuild, but it's what I have.",
+    "expositionTurnInText": "That's a real relief. The edges of {settlement_name} feel passable again. But the flood hit more than just us, and I need to know how bad it is elsewhere.",
+    "conflict1Text": "{target_npc} in {target_npc_settlement} sits downstream from where the worst of it came through. They're a {target_npc_role} and they'd know whether the source has settled or whether we should brace for more. Go ask them what they've seen.",
+    "conflict1TurnInText": "So {target_npc} says the worst is past. That's the first time in days I've believed something might actually get better instead of worse. Now we can focus on recovery.",
+    "conflict2Text": "I need {gather_count} {quest_item} to replace what the water ruined. The silt got into everything, and half of what looked salvageable turned out to be ruined underneath. Bring what you can and we'll make it work.",
+    "conflict2TurnInText": "That's enough. We can stretch it. I looked at the field this morning and it almost looked like a field again instead of a mudflat.",
+    "resolutionText": "The water came and it went and we're still here. Take {quest_reward}. I didn't think I'd have anything left to give, and the fact that I do feels like proof we came through the worst of it.",
+    "skillCheck": {
+      "skill": "INTIMIDATION",
+      "dc": 12,
+      "passText": "All right. Since you're making it clear I should stop dancing around it. I'd been warned the bank was weak months ago and I told the council it would hold because I didn't want to spend the coin to reinforce it. That decision is why three families are sleeping in the hall tonight instead of their own homes.",
+      "failText": "The river does what it wants. Nobody could have predicted the timing."
+    },
+    "rewardText": "what the settlement pulled from the mud, cleaned up and honestly offered",
+    "valence": "negative",
+    "roleAffinity": [],
+    "targetNpcOpener": "The flooding downstream? It was bad here too, but the water's been dropping steadily since yesterday. The feeder stream that caused the surge is back within its banks. I'd say the danger of a second wave is past.",
+    "targetNpcCloser": "Tell them to focus on cleanup. The water isn't coming back this season."
+  },
+  {
+    "id": "disaster_09",
+    "topicHeader": "Scavenged Ground",
+    "situation": "disaster",
+    "objectives": [
+      {
+        "type": "COLLECT_RESOURCES",
+        "countMin": 7,
+        "countMax": 12
+      },
+      {
+        "type": "FETCH_ITEM"
+      }
+    ],
+    "expositionText": "Landslide took the root cellar and everything in it. Three seasons of preserved food, gone under a wall of mud. We've already dug out what we could, but most of it was crushed or spoiled. I need {gather_count} {quest_item} to bridge the gap until we can grow or trade for more.",
+    "acceptText": "Thank you. I've been rationing portions at the table and pretending nobody notices.",
+    "declineText": "I understand. It's a lot to ask. I'll stretch what's left and hope the stretch is long enough.",
+    "expositionTurnInText": "That'll see us through the next few weeks without anyone going hungry. I can ease up on the portions and stop lying about it. But there's something else I need to close this chapter properly.",
+    "conflict1Text": "The root cellar had a {quest_item} in it that belonged to my grandmother. It was buried with everything else. I know it's just a thing, and food matters more, but I'd sleep easier knowing it was back where it belongs. If you find one, bring it to me.",
+    "conflict1TurnInText": "There it is. Smaller than the one I lost, but it's the right kind, and holding it feels like holding her hand again for a moment.",
+    "resolutionText": "We're fed, we're sheltered, and I have a piece of her back. Take {quest_reward}. I was ready to lose everything, and you stopped that from being the whole story.",
+    "skillCheck": {
+      "skill": "INTIMIDATION",
+      "dc": 11,
+      "passText": "Fine, you want the part I've been keeping to myself? The cellar was overloaded because I'd been hoarding, so afraid of running short that I packed it beyond what the ground could support. The weight is what made the slope give way. The disaster I'm recovering from is one I built with my own caution.",
+      "failText": "Landslides happen. The hill was always unstable."
+    },
+    "rewardText": "the coins I buried separately, which is the one thing that survived",
+    "valence": "negative",
+    "roleAffinity": []
+  },
+  {
+    "id": "disaster_10",
+    "topicHeader": "Smoke and Silence",
+    "situation": "disaster",
+    "objectives": [
+      {
+        "type": "KILL_MOBS",
+        "countMin": 3,
+        "countMax": 5
+      },
+      {
+        "type": "COLLECT_RESOURCES",
+        "countMin": 6,
+        "countMax": 10
+      }
+    ],
+    "expositionText": "Lightning hit the barn two nights ago and the fire spread to the fence line before we got it under control. Nobody was hurt, but the {enemy_type_plural} that came sniffing around the char have been getting bolder every night since. I need {kill_count} of them gone before they realize we're too tired to fight back.",
+    "acceptText": "Thank you. I've been sitting up every night with a bucket and a stick, and I'm about done pretending that counts as a plan.",
+    "declineText": "Then I keep sitting up. At least the fire's out. That's one thing I can say.",
+    "expositionTurnInText": "I slept last night. Not well, but I slept, and that's more than I've managed since the strike. Now I need to deal with what the fire actually destroyed.",
+    "conflict1Text": "The barn held our winter supplies and most of it is ash now. I need {gather_count} {quest_item} to start rebuilding the stock. If we don't replace it before the cold sets in, the fire will have done its damage twice.",
+    "conflict1TurnInText": "That's a solid start. Looking at the shelves filling up again, I can almost remember what it felt like before the lightning hit.",
+    "resolutionText": "We lost the barn but we kept the house, we kept each other, and now we have enough to face the winter. Take {quest_reward}. You turned a story about losing everything into a story about keeping what matters.",
+    "skillCheck": {
+      "skill": "PERFORMANCE",
+      "dc": 13,
+      "passText": "Hearing you say it like that, with that kind of confidence, I almost believe we'll come out of this all right. Nobody here has talked to me like I'm capable of handling it. You just treated me like a person with a problem, not a person who is the problem. I needed that more than the supplies.",
+      "failText": "It's been a long couple of days. I'm managing the way anyone would."
+    },
+    "rewardText": "the jar of coin I buried behind the house years ago for exactly this kind of night",
+    "valence": "negative",
+    "roleAffinity": []
+  },
+  {
+    "id": "disaster_11",
+    "topicHeader": "Shaken Foundations",
+    "situation": "disaster",
+    "objectives": [
+      {
+        "type": "FETCH_ITEM"
+      },
+      {
+        "type": "KILL_MOBS",
+        "countMin": 4,
+        "countMax": 6
+      },
+      {
+        "type": "COLLECT_RESOURCES",
+        "countMin": 5,
+        "countMax": 9
+      }
+    ],
+    "expositionText": "The ground shook two days ago and cracked the main well casing. Water's been seeping in dirty, and without a {quest_item} to seal the crack, we'll be hauling from the river by week's end. That's a trip nobody wants to make right now.",
+    "acceptText": "Good. I've been boiling every drop and it's eating through our firewood faster than I can split it.",
+    "declineText": "Then we keep boiling and keep splitting. It a solution, but it's what we have until someone comes along who can help.",
+    "expositionTurnInText": "The seal is holding. Clean water again, which sounds like nothing until you've spent two days without it. But the tremor stirred up more than just the well.",
+    "conflict1Text": "The shaking drove {enemy_type_plural} out of wherever they were sheltering, and they've been aggressive in a way I've never seen before. {kill_count} of them put down and we can stop bracing for the next attack.",
+    "conflict1TurnInText": "The pressure is off. I can hear the settlement breathing again instead of holding its breath. One more thing, and then I think we're through the worst.",
+    "conflict2Text": "The tremor knocked stores off shelves and cracked a few containers. We lost more than I first thought. I need {gather_count} {quest_item} to fill the gaps before anyone realizes how thin we've gotten.",
+    "conflict2TurnInText": "The shelves look right again. Nobody needs to know how close we came to empty.",
+    "resolutionText": "The ground shook and we shook with it, but we didn't fall. Take {quest_reward}. You were the steadiest thing in {settlement_name} for three very unsteady days, and I won't forget it.",
+    "skillCheck": {
+      "skill": "ARCANA",
+      "dc": 13,
+      "passText": "You noticed something about the tremor too, then. It wasn't natural. The vibration had a rhythm to it, a pulse, like something underneath was breathing. I've been afraid to say that out loud because I don't know what it means, and I'd rather patch the well than think about what might be under the ground.",
+      "failText": "The earth shakes sometimes. It shook, and now we're dealing with it."
+    },
+    "rewardText": "the coin we keep for emergencies, because this was certainly one",
+    "valence": "negative",
+    "roleAffinity": []
+  },
+  {
+    "id": "obtaining_06",
+    "topicHeader": "Clearing the Shelf",
+    "situation": "obtaining",
+    "objectives": [
+      {
+        "type": "FETCH_ITEM"
+      },
+      {
+        "type": "KILL_MOBS",
+        "countMin": 3,
+        "countMax": 6
+      }
+    ],
+    "expositionText": "I've been meaning to restock a particular {quest_item} that I've run through completely. I use it more than anything else in my work, and going without has meant cutting corners I don't like cutting. If you could track one down, I'd be grateful.",
+    "acceptText": "Good. I've been making do with substitutes and none of them are right.",
+    "declineText": "No trouble. I'll keep improvising. It ideal, but it's what I've been doing.",
+    "expositionTurnInText": "That's the real thing. I can feel the difference just holding it. There's one more piece to getting things running properly again, though.",
+    "conflict1Text": "The {enemy_type_plural} near {settlement_name} have been making the supply route unreliable. If you handle {kill_count} of them, I won't have to worry about running dry again next month.",
+    "conflict1TurnInText": "That route should hold now. I can plan ahead again instead of scrambling every time I run low.",
+    "resolutionText": "My bench is stocked, my route is clear, and I can actually do the work the way it's meant to be done. Take {quest_reward}. Simple help deserves a simple thanks, and this is both.",
+    "skillCheck": {
+      "skill": "DECEPTION",
+      "dc": 12,
+      "passText": "You're good at finding the thing nobody says out loud. The real reason I'm out of stock is that I gave most of it away to a family that was struggling, and I didn't charge them for it. I told everyone I used it up in a bad batch. I'd rather they think I'm careless than know I can't say no to someone in need.",
+      "failText": "I just ran through it faster than expected. These things happen."
+    },
+    "rewardText": "a fair payment and a discount on my work whenever you need it",
+    "valence": "neutral",
+    "roleAffinity": []
+  },
+  {
+    "id": "obtaining_07",
+    "topicHeader": "A Standing Order",
+    "situation": "obtaining",
+    "objectives": [
+      {
+        "type": "TALK_TO_NPC"
+      },
+      {
+        "type": "FETCH_ITEM"
+      }
+    ],
+    "expositionText": "I've had a deal with {target_npc} in {target_npc_settlement} for months now, a regular supply arrangement that's kept my shelves full. They've gone quiet on me and I don't know why. Would you go talk to them and find out what's happening? They're a {target_npc_role} and they'll know you're coming on my behalf.",
+    "acceptText": "Good. I'd rather get ahead of the problem than wait until the shelves are bare.",
+    "declineText": "I'll send a letter, then. Slower, but it'll get there.",
+    "expositionTurnInText": "So {target_npc} says the delay was on their end, nothing personal. That's a relief. I was starting to wonder if I'd done something to sour the arrangement. Now I just need to fill the gap that built up while I was waiting.",
+    "conflict1Text": "I need a {quest_item} to cover what should have arrived two weeks ago. The customers don't care about supply chain problems, they just care that the shelf is empty when they come to me. Bring it back and I'll have everything sorted.",
+    "conflict1TurnInText": "There it is. Back to normal, or close enough. The regulars won't notice the gap.",
+    "resolutionText": "Shelves are full, the arrangement is back on, and I can stop worrying about the next delivery. Take {quest_reward}. You kept a good thing from falling apart over a misunderstanding.",
+    "skillCheck": {
+      "skill": "DECEPTION",
+      "dc": 11,
+      "passText": "You caught me avoiding the obvious question. I was afraid {target_npc} had found a better buyer, because my operation is small and theirs has been growing. I didn't want to ask directly in case the answer was yes and I'd have to hear it. Turns out the fear was louder than the facts.",
+      "failText": "Arrangements get delayed sometimes. I'm sure it's nothing."
+    },
+    "rewardText": "a fair sum and the promise of first pick whenever something good comes through",
+    "valence": "neutral",
+    "roleAffinity": [],
+    "targetNpcOpener": "The {self_role} in {settlement_name} is wondering about the delay? It's entirely on my end. I had a supplier problem that backed everything up, and I should have sent word sooner. The order is ready now, I just hadn't had a chance to arrange transport.",
+    "targetNpcCloser": "Tell them the arrangement stands. I value the partnership and I'm sorry for the silence."
+  },
+  {
+    "id": "obtaining_08",
+    "topicHeader": "The Long Way Around",
+    "situation": "obtaining",
+    "objectives": [
+      {
+        "type": "KILL_MOBS",
+        "countMin": 4,
+        "countMax": 7
+      },
+      {
+        "type": "TALK_TO_NPC"
+      },
+      {
+        "type": "FETCH_ITEM"
+      }
+    ],
+    "expositionText": "I've been taking a longer route to avoid the {enemy_type_plural} that have settled along my usual path. It's costing me half a day every trip and I can't keep it up. {kill_count} of them cleared would give me my road back.",
+    "acceptText": "That would change my whole week. I appreciate it.",
+    "declineText": "I'll keep taking the long way, then. My legs don't love it, but they'll manage.",
+    "expositionTurnInText": "The road is open again. I can hardly believe how much time I was losing to that detour. Now that I have my route back, there's something else I've been putting off.",
+    "conflict1Text": "I need to check in with {target_npc} over in {target_npc_settlement}. They're a {target_npc_role} who's been holding something for me, and the route being blocked was my excuse for not picking it up. Now I've run out of excuses. Would you go ahead and let them know I'm finally coming through?",
+    "conflict1TurnInText": "Good. {target_npc} has it ready? Then I'll head out tomorrow. One last thing, though.",
+    "conflict2Text": "While you're out that way, I need a {quest_item} from the same area. I've been telling myself I'd get it on the next trip for weeks now, and the next trip kept not happening. Bring it back and I'm fully caught up.",
+    "conflict2TurnInText": "Everything I've been putting off is now sitting on my workbench where it should have been a month ago. That's a good feeling.",
+    "resolutionText": "My route is clear, my contacts are current, and my bench is stocked. Take {quest_reward}. You broke a cycle of avoidance I'd built up around myself.",
+    "skillCheck": {
+      "skill": "INTIMIDATION",
+      "dc": 12,
+      "passText": "All right, you've made it clear I should be honest about why this has been dragging on. The truth is I was embarrassed to face {target_npc} after leaving them waiting so long. The {enemy_type_plural} were real, but they were also convenient. I let a problem stay a problem because it gave me a reason not to deal with something harder.",
+      "failText": "The road was blocked. That's the whole of it."
+    },
+    "rewardText": "proper payment and a good word passed along the trade route",
+    "valence": "neutral",
+    "roleAffinity": [],
+    "targetNpcOpener": "The {self_role} from {settlement_name}? I was starting to wonder if they'd forgotten about our arrangement. Everything's been set aside and waiting. No hard feelings about the delay.",
+    "targetNpcCloser": "Tell them to come when they're ready. The door is open."
+  },
+  {
+    "id": "obtaining_09",
+    "topicHeader": "Filling the Gap",
+    "situation": "obtaining",
+    "objectives": [
+      {
+        "type": "FETCH_ITEM"
+      },
+      {
+        "type": "KILL_MOBS",
+        "countMin": 3,
+        "countMax": 5
+      }
+    ],
+    "expositionText": "There's a {quest_item} I need for a project I've been circling around for weeks. I know what I want to build, I just haven't had the key piece to start. If you come across one out there, I'd pay well for it.",
+    "acceptText": "Wonderful. I've been sketching plans and staring at an empty workbench long enough.",
+    "declineText": "Fair enough. The project will wait. It's been waiting already.",
+    "expositionTurnInText": "That's the one. I can almost hear the project clicking into place in my head. There's just one more thing between me and getting started.",
+    "conflict1Text": "I need the area around {settlement_name} quieter before I can focus properly. The {enemy_type_plural} have been distracting everyone, and noise carries when you're trying to do careful work. {kill_count} of them handled would give me the peace I need.",
+    "conflict1TurnInText": "That's the quiet I was hoping for. I can actually think straight now.",
+    "resolutionText": "Everything is in place. The piece, the plan, the quiet. Take {quest_reward}. You gave me the push I needed to stop planning and start doing.",
+    "skillCheck": {
+      "skill": "INTIMIDATION",
+      "dc": 13,
+      "passText": "Fine, I'll tell you. I've been stalling because the project means a lot to me and I'm afraid that once I start, I'll find out I'm not good enough to finish it. The missing piece wasn't really the problem, my confidence was. You showing up and making things happen shamed me into admitting I was hiding behind excuses.",
+      "failText": "I'm just careful about getting everything lined up before I commit. That's all."
+    },
+    "rewardText": "a generous payment and first look at whatever I end up making",
+    "valence": "neutral",
+    "roleAffinity": []
+  },
+  {
+    "id": "obtaining_10",
+    "topicHeader": "Borrowed Time",
+    "situation": "obtaining",
+    "objectives": [
+      {
+        "type": "TALK_TO_NPC"
+      },
+      {
+        "type": "KILL_MOBS",
+        "countMin": 4,
+        "countMax": 6
+      }
+    ],
+    "expositionText": "I owe {target_npc} in {target_npc_settlement} a favor from last season, and I need to make good on it before I lose their trust entirely. They're a {target_npc_role} and they asked me for a simple thing that I've been too busy to deliver. Would you go explain the delay and assure them it's coming?",
+    "acceptText": "Appreciated. I've been dreading that conversation, and having someone else open it takes the edge off.",
+    "declineText": "Then I'll write them. Again. A third letter probably won't make things better, but at least It silence.",
+    "expositionTurnInText": "{target_npc} is still willing to wait? That's more patience than I deserve. Now let me take care of the reason I've been delayed in the first place.",
+    "conflict1Text": "The {enemy_type_plural} around here have been chewing through my schedule. Every time I set out to finish something, they're in the way. {kill_count} of them cleared and I can finally follow through on every promise I've been making.",
+    "conflict1TurnInText": "That opens everything up. I can move freely again, and the first thing I'm doing is making good on that favor.",
+    "resolutionText": "The favor is repaid, {target_npc} is satisfied, and my reputation is intact. Take {quest_reward}. You helped me keep a relationship I was about to lose through neglect, and that's worth more than the coin.",
+    "skillCheck": {
+      "skill": "PERFORMANCE",
+      "dc": 14,
+      "passText": "The way you put that, I couldn't help but laugh. You're right. I've been treating a simple favor like it was some impossible burden, and the longer I waited, the bigger it grew in my head. Hearing someone describe my situation with that kind of lightness made me realize how absurd I've been about the whole thing.",
+      "failText": "I just got behind. It happens to everyone eventually."
+    },
+    "rewardText": "honest coin and a friendship worth more than the amount",
+    "valence": "neutral",
+    "roleAffinity": [],
+    "targetNpcOpener": "The {self_role} in {settlement_name} sent you? I was beginning to think they'd forgotten. I'm not upset, just surprised it took this long. The favor itself was never a big ask.",
+    "targetNpcCloser": "Tell them we're fine. I'd rather they show up late than not at all."
+  },
+  {
+    "id": "obtaining_11",
+    "topicHeader": "An Overdue Arrangement",
+    "situation": "obtaining",
+    "objectives": [
+      {
+        "type": "FETCH_ITEM"
+      },
+      {
+        "type": "KILL_MOBS",
+        "countMin": 3,
+        "countMax": 5
+      },
+      {
+        "type": "TALK_TO_NPC"
+      }
+    ],
+    "expositionText": "I promised {settlement_npc} a {quest_item} two weeks ago and I still haven't delivered. It's that I kept choosing to do easier things first. If you could find one for me, I'd stop lying awake about it.",
+    "acceptText": "Good. The guilt has been worse than the errand would have been.",
+    "declineText": "Then I'll go myself tomorrow. Or the day after. Or whenever I run out of other excuses.",
+    "expositionTurnInText": "That's the one. I feel lighter already. But before I hand it over, there's something else I should have dealt with while I was procrastinating.",
+    "conflict1Text": "The {enemy_type_plural} near the south path have been a nuisance for everyone, and I volunteered to organize a response and then never did. {kill_count} of them taken care of would let me stop dodging {settlement_npc}'s questions about that too.",
+    "conflict1TurnInText": "Done. I can actually make eye contact with the neighbors again. One more thing, and then I'm caught up on everything.",
+    "conflict2Text": "{target_npc} in {target_npc_settlement} asked me to pass along a message weeks ago, and I forgot until just now. Would you go see them and let them know the message was received, even if the delivery was shamefully late? They're a {target_npc_role} and they won't hold it against you.",
+    "conflict2TurnInText": "{target_npc} took it well? Good. That's the last thread hanging, and it's finally tied off.",
+    "resolutionText": "Every promise kept, every favor returned, every loose end dealt with. Take {quest_reward}. You did in three days what I spent two weeks avoiding, and the relief alone is worth twice what I'm paying you.",
+    "skillCheck": {
+      "skill": "RELIGION",
+      "dc": 12,
+      "passText": "You're right that there's a pattern in how I've been behaving. My grandmother used to say that avoiding small duties invites larger failures, and she meant it as a spiritual warning, not just practical advice. I've been ignoring that teaching and the guilt isn't just about the errand. It's about becoming the kind of person she warned me not to become.",
+      "failText": "I just got behind on a few things. It a crisis, just a backlog."
+    },
+    "rewardText": "a fair payment and the relief of a clear conscience",
+    "valence": "neutral",
+    "roleAffinity": [],
+    "targetNpcOpener": "A message from {settlement_name}? I sent that weeks ago and heard nothing back. I assumed it got lost on the road, honestly. Good to know it arrived, even late.",
+    "targetNpcCloser": "No harm done. Tell them I appreciate the follow-up."
+  },
+  {
+    "id": "enigma_06",
+    "topicHeader": "Strange Markings",
+    "situation": "enigma",
+    "objectives": [
+      {
+        "type": "FETCH_ITEM"
+      },
+      {
+        "type": "KILL_MOBS",
+        "countMin": 3,
+        "countMax": 6
+      }
+    ],
+    "expositionText": "I found marks on the trees near {settlement_name} that I can't identify. They're too regular to be animal scratches and too old to be recent. There's a {quest_item} that might help me compare them against known patterns. If you could find one, I'd have something to work with besides staring and guessing.",
+    "acceptText": "Good. I've been losing sleep trying to make sense of them on my own.",
+    "declineText": "I'll keep studying them with what I have. Puzzles don't solve themselves, but they don't expire either.",
+    "expositionTurnInText": "The patterns match up in ways I didn't expect. The marks are territorial, left by something that considers this area claimed. That changes things, because whatever left them is still out there.",
+    "conflict1Text": "Now that I know what we're dealing with, I need {kill_count} of the {enemy_type_plural} in the area handled. They're the ones leaving the marks, and their claim on this territory is going to become a real problem if it goes unanswered.",
+    "conflict1TurnInText": "The marks will fade in time, and nothing is leaving fresh ones. Mystery solved and problem handled in the same stroke.",
+    "resolutionText": "I can walk past those trees now without that nagging feeling in my chest. Take {quest_reward}. You helped me find the answer and then deal with what the answer meant, and both parts mattered.",
+    "skillCheck": {
+      "skill": "DECEPTION",
+      "dc": 13,
+      "passText": "You found the gap in what I was telling you. I've seen these marks before, years ago, near my old home before I came to {settlement_name}. The same kind of marks preceded a season of attacks that drove my family out. I've been downplaying the urgency because I didn't want to start a panic, but I'm not wrong about what they mean.",
+      "failText": "They're just marks. Probably old, probably harmless. I'm curious, that's all."
+    },
+    "rewardText": "what I can pull together and a story I'll tell properly if you ask",
+    "valence": "neutral",
+    "roleAffinity": []
+  },
+  {
+    "id": "enigma_07",
+    "topicHeader": "The Quiet Below",
+    "situation": "enigma",
+    "objectives": [
+      {
+        "type": "COLLECT_RESOURCES",
+        "countMin": 4,
+        "countMax": 7
+      },
+      {
+        "type": "TALK_TO_NPC"
+      }
+    ],
+    "expositionText": "The ground near the old well has been humming, not loudly, just enough to feel it through your boots if you stand still. Nobody believes me because it stops when they come to listen. Bring me {gather_count} {quest_item} and I can set up a proper comparison between the well site and normal ground.",
+    "acceptText": "Thank you. I was starting to think I'd imagined it, and that's worse than any answer would be.",
+    "declineText": "I'll keep standing there with my boots on, then, waiting for someone to believe me.",
+    "expositionTurnInText": "The samples confirm it. The soil near the well has a different composition, almost like something changed it from underneath. This isn't my imagination, but I need someone who understands this kind of thing.",
+    "conflict1Text": "{target_npc} in {target_npc_settlement} is a {target_npc_role} who has dealt with ground disturbances before. Take the samples to them and ask what they make of it. I need an answer I can bring to the council without sounding like I've lost my mind.",
+    "conflict1TurnInText": "So {target_npc} says it's a mineral deposit shifting under pressure. Natural, nothing sinister, and it'll settle on its own within a season. I'm relieved, embarrassed, and grateful in roughly equal measure.",
+    "resolutionText": "The humming has already lessened, exactly the way {target_npc} said it would. Take {quest_reward}. You helped me prove I wasn't hearing things, and then you helped me learn the things weren't dangerous. Both parts mattered.",
+    "skillCheck": {
+      "skill": "DECEPTION",
+      "dc": 12,
+      "passText": "You're right that I've been leaving out the part that scares me most. I hear it at night too, through the floor of my house. I moved my bed to the far wall and I haven't told anyone because once you say 'I hear the ground humming in my sleep,' people stop taking you seriously about anything.",
+      "failText": "It's just a curiosity. I'd like it explained, that's all."
+    },
+    "rewardText": "a modest sum and the gratitude of someone who can finally sleep without wondering",
+    "valence": "neutral",
+    "roleAffinity": [],
+    "targetNpcOpener": "Interesting samples. The mineral composition tells me there's a deposit underneath that's been subjected to seasonal pressure changes. The humming your friend described is the deposit settling, like a bone joint popping. Harmless, but unsettling if you don't know what it is.",
+    "targetNpcCloser": "Tell them to wait a season and it should quiet down on its own. Nothing to worry about."
+  },
+  {
+    "id": "enigma_08",
+    "topicHeader": "Vanishing Stores",
+    "situation": "enigma",
+    "objectives": [
+      {
+        "type": "TALK_TO_NPC"
+      },
+      {
+        "type": "KILL_MOBS",
+        "countMin": 3,
+        "countMax": 5
+      },
+      {
+        "type": "COLLECT_RESOURCES",
+        "countMin": 4,
+        "countMax": 7
+      }
+    ],
+    "expositionText": "I've been losing small amounts from my stores every few days, grain and dried goods, a little at a time. The amounts are too regular to be spoilage and too small to be theft. {target_npc} in {target_npc_settlement} noticed something similar last year. Would you ask them what they learned?",
+    "acceptText": "Good. I'd rather know than keep counting sacks every morning.",
+    "declineText": "I'll keep counting, then. At least the mystery gives me something to think about.",
+    "expositionTurnInText": "So {target_npc} says it was {enemy_type_plural} getting in through small gaps and carrying away what they could hold. The amounts would be exactly right for that kind of creature. Now I know what to look for.",
+    "conflict1Text": "If they've been coming in through gaps, they've got a route established. I need {kill_count} of the {enemy_type_plural} dealt with before they bring in more. Once the path is clear, I can seal the entry points.",
+    "conflict1TurnInText": "That should break the trail. No new losses this morning, which is the first time in weeks. But I want to replace what they've taken before anyone else notices the shortfall.",
+    "conflict2Text": "Bring me {gather_count} {quest_item} to top off what's missing. I don't want {settlement_npc} asking why the stores look thinner than they should. The fewer questions, the better.",
+    "conflict2TurnInText": "Full again. Nobody will know the difference, and the entry points are sealed.",
+    "resolutionText": "The mystery is solved, the stores are whole, and nothing is getting in anymore. Take {quest_reward}. You saved me from weeks more of counting and wondering.",
+    "skillCheck": {
+      "skill": "INTIMIDATION",
+      "dc": 12,
+      "passText": "All right, since you're pressing. I was afraid to investigate too hard because I thought it might be a person, one of the families here that's been struggling. I was prepared to let it continue if someone was taking what they needed and too ashamed to ask. Learning it's creatures is actually a relief, because now I can stop feeling guilty about wanting to fix it.",
+      "failText": "I don't have a theory. That's why I need help."
+    },
+    "rewardText": "a share of the stores and a few coins from my personal savings",
+    "valence": "neutral",
+    "roleAffinity": [],
+    "targetNpcOpener": "Losing small amounts from the stores? I had the same problem last year. Turned out to be a type of {enemy_type} that moves in family groups, comes in through gaps you wouldn't think big enough, and carries away just enough to avoid being noticed. Very methodical creatures.",
+    "targetNpcCloser": "Find the entry points, clear the group, and seal the gaps. Problem solves itself after that."
+  },
+  {
+    "id": "enigma_09",
+    "topicHeader": "Displaced Things",
+    "situation": "enigma",
+    "objectives": [
+      {
+        "type": "FETCH_ITEM"
+      },
+      {
+        "type": "COLLECT_RESOURCES",
+        "countMin": 3,
+        "countMax": 6
+      },
+      {
+        "type": "KILL_MOBS",
+        "countMin": 3,
+        "countMax": 5
+      }
+    ],
+    "expositionText": "Objects around {settlement_name} keep ending up in places they shouldn't be. Fence posts moved ten paces overnight, a water bucket found on a rooftop, tools rearranged in patterns. Bring me a {quest_item} that might help identify what kind of creature has the strength and the temperament for this kind of mischief.",
+    "acceptText": "Thank you. I've been feeling like I'm losing my grip, and having someone take it seriously helps more than you know.",
+    "declineText": "Fine. I'll keep finding my tools in new arrangements every morning. At least the mystery keeps life interesting.",
+    "expositionTurnInText": "Comparing the {quest_item} to the evidence, I can see the marks now. Specific grip patterns, the way things were set down rather than dropped. Whatever's doing this has hands and a sense of humor. Or a sense of territory.",
+    "conflict1Text": "I want to test something. If I leave out {gather_count} {quest_item} in a particular arrangement, and they get moved the same way, I'll know the pattern is deliberate. Bring them to me and I'll set the trap tonight.",
+    "conflict1TurnInText": "Every single piece was moved. Same style, same direction. It's definitely the same creature, and now I know its route. The jokes are over.",
+    "conflict2Text": "The route leads to a cluster of {enemy_type_plural} that have been nesting just out of sight. {kill_count} of them removed should put a stop to the nightly rearrangements. I'd like my fence posts to stay where I put them.",
+    "conflict2TurnInText": "Everything was exactly where I left it this morning. First time in weeks. The relief is extraordinary.",
+    "resolutionText": "No more surprises at dawn, no more tools on rooftops. Take {quest_reward}. You took something that was making me question my own sanity and turned it into a problem with a solution.",
+    "skillCheck": {
+      "skill": "ARCANA",
+      "dc": 14,
+      "passText": "You think the behavior isn't random? The patterns they arrange things in are too consistent to be play, almost like territory marking expressed through objects instead of scent. I've never heard of creatures doing that. The fact that you recognized it as unusual rather than just mischievous tells me there's something deeper here than pest control.",
+      "failText": "It's strange behavior. I just want it to stop."
+    },
+    "rewardText": "a fair payment and the satisfaction of my fence posts finally staying put",
+    "valence": "neutral",
+    "roleAffinity": []
+  },
+  {
+    "id": "enigma_10",
+    "topicHeader": "Sounds Without Source",
+    "situation": "enigma",
+    "objectives": [
+      {
+        "type": "COLLECT_RESOURCES",
+        "countMin": 5,
+        "countMax": 8
+      },
+      {
+        "type": "KILL_MOBS",
+        "countMin": 3,
+        "countMax": 6
+      }
+    ],
+    "expositionText": "There's been a sound at night near the old foundation, a low scraping that comes and goes. Nobody can find the source, and it's got half the settlement jumping at shadows. Bring me {gather_count} {quest_item} and I'll set up a proper survey of the ground where the sound is loudest.",
+    "acceptText": "Good. I'd rather have answers than another sleepless night spent listening and wondering.",
+    "declineText": "I'll keep listening, then. Maybe it'll explain itself eventually.",
+    "expositionTurnInText": "The survey shows disturbance in the soil, consistent with burrowing. Something's been digging tunnels under the old foundation, and the scraping is the sound of it working through packed earth. Now I just need to deal with what's doing the digging.",
+    "conflict1Text": "I'm certain it's {enemy_type_plural} tunneling in from the nearby ridge. {kill_count} of them cleared out should collapse their access and stop the noise for good.",
+    "conflict1TurnInText": "Silence. Actual silence. I stood by the foundation last night and heard nothing but the wind, and it was the most beautiful sound I've ever not heard.",
+    "resolutionText": "The mystery is solved and the nights are quiet again. Take {quest_reward}. You gave {settlement_name} back its peace, and that's worth more than any of us were willing to admit.",
+    "skillCheck": {
+      "skill": "INTIMIDATION",
+      "dc": 13,
+      "passText": "All right, I'll tell you the part I've been leaving out. I've known what the sound is for a week, but the last time I raised an alarm about something underground I was wrong and people still remind me of it. I needed someone else to confirm it so they'd actually listen this time. You've given me that.",
+      "failText": "I genuinely don't know what it is. That's why I need help."
+    },
+    "rewardText": "the coin I'd set aside for the survey and a quiet night's thanks",
+    "valence": "neutral",
+    "roleAffinity": []
+  },
+  {
+    "id": "enigma_11",
+    "topicHeader": "Fading Colors",
+    "situation": "enigma",
+    "objectives": [
+      {
+        "type": "TALK_TO_NPC"
+      },
+      {
+        "type": "FETCH_ITEM"
+      }
+    ],
+    "expositionText": "The dyes I've been using have been losing color within days of setting. Same batch, same technique I've used for years, but the results are washing out like I've never done this before. {target_npc} in {target_npc_settlement} is a {target_npc_role} who works with similar materials. Would you ask them if they've had the same trouble?",
+    "acceptText": "Good. I need to know if it's my hands or something else before I waste another batch.",
+    "declineText": "I'll keep experimenting, then. The answer is in the process somewhere, even if I can't find it today.",
+    "expositionTurnInText": "So {target_npc} says the water source is the issue. A change in mineral content upstream can strip the binding agent right out of the dye. That explains everything, and it means there's a fix.",
+    "conflict1Text": "I need a {quest_item} to filter the minerals out of the water before I use it. {target_npc} said this particular method works best for the kind of contamination we're dealing with. Bring me one and I'll test it on the next batch.",
+    "conflict1TurnInText": "The batch held its color overnight, and it's still bright this morning. That's the first time in a month. The problem is solved and I feel like a craftsperson again instead of a fraud.",
+    "resolutionText": "My work is my work again, and I know why it stopped being. Take {quest_reward}. You helped me find an answer I was too close to see, and that's the kind of help that lasts.",
+    "skillCheck": {
+      "skill": "PERFORMANCE",
+      "dc": 13,
+      "passText": "The way you described the problem back to me, with real interest, like the craft itself mattered to you. Nobody here talks about dye work like that, they see the finished cloth and shrug. You looked at the process and treated it like it was worth understanding, and that made me feel like an artisan again instead of someone failing at a chore.",
+      "failText": "It's a craft problem. I just want to fix it."
+    },
+    "rewardText": "a piece of my best work and honest coin besides",
+    "valence": "neutral",
+    "roleAffinity": [],
+    "targetNpcOpener": "Fading dyes? I had the same problem two seasons back. The water source shifted upstream, picking up minerals that react with the binding agent. The dye sets fine but the color leaches out within days.",
+    "targetNpcCloser": "Filter the water before use and the problem disappears. I can tell you which method works best."
+  },
+  {
+    "id": "vengeance_05",
+    "topicHeader": "Cold Reckoning",
+    "situation": "vengeance",
+    "objectives": [
+      {
+        "type": "KILL_MOBS",
+        "countMin": 4,
+        "countMax": 7
+      },
+      {
+        "type": "FETCH_ITEM"
+      }
+    ],
+    "expositionText": "Three months ago, {enemy_type_plural} killed my dog, the best animal I ever had and the only living thing in this house that was glad to see me come home. I've been waiting for someone capable, and now you're here. I want {kill_count} of them dead. That's where this begins.",
+    "acceptText": "Good. I'll sit here and wait the way I've been waiting, but this time I'll know something is actually happening.",
+    "declineText": "I didn't expect you to understand. She was a dog. People always say that like it's supposed to make it smaller.",
+    "expositionTurnInText": "That's {kill_count} fewer of them in the world. I felt something shift in my chest when you told me, and I'm not sure yet if it's relief or if I'm just tired. There's one more piece to this.",
+    "conflict1Text": "She had a collar I made her myself, and it's still out there somewhere. I know it's just leather and metal, but it's the last thing I made with my own hands that she wore. Bring me a {quest_item} like it, and I'll hang it by the door where she used to sleep.",
+    "conflict1TurnInText": "That's close enough. I hung it on the hook and stood there for a while. She would have scratched at it, probably. She scratched at everything I made.",
+    "resolutionText": "The account is closed. I won't pretend it brought her back or made the house less quiet, but it's done, and done matters. Take {quest_reward}. It's what I would have spent on her this winter.",
+    "skillCheck": {
+      "skill": "DECEPTION",
+      "dc": 12,
+      "passText": "You noticed I haven't said her name. Every time I try, my voice does something I'm not ready for anyone to hear. I told the neighbors I was upset about property damage, because a grown adult crying over a dog gets a certain look in this settlement. She was more than property, she was the only friend who never needed me to explain myself.",
+      "failText": "She was a good dog. There's nothing else to say about it."
+    },
+    "rewardText": "the coin I saved for her and a firm, honest handshake",
+    "valence": "negative",
+    "roleAffinity": []
+  },
+  {
+    "id": "vengeance_06",
+    "topicHeader": "What I Planted",
+    "situation": "vengeance",
+    "objectives": [
+      {
+        "type": "FETCH_ITEM"
+      },
+      {
+        "type": "KILL_MOBS",
+        "countMin": 5,
+        "countMax": 8
+      }
+    ],
+    "expositionText": "I've been carrying this for a long time. The {enemy_type_plural} that destroyed my orchard took ten years of careful work in a single night. I need a {quest_item} first. Something to mark the boundary of what was mine, so when I settle this, I can see exactly what they took from me.",
+    "acceptText": "Then we have a deal. I'm not in a hurry, but I'm not patient either. That distinction matters to me.",
+    "declineText": "Walk away, then. I'll find another. There's always someone willing to do necessary work.",
+    "expositionTurnInText": "I set it at the edge of where the oldest tree used to stand. Funny how marking what's gone makes you feel it more clearly, not less. Now comes the part I've been holding in my teeth for months.",
+    "conflict1Text": "I want {kill_count} of those {enemy_type_plural} put down. Not pushed back, not scared off, put down. Every one of them that falls is a year of work acknowledged. I planted those trees as a young person and I watched them grow, and something owes me for what I lost.",
+    "conflict1TurnInText": "That's the number. I counted them the way I counted the trees. It doesn't balance, because nothing would, but it's as close as the world is going to let me get.",
+    "resolutionText": "The marker stands and the debt is as paid as it can be. Take {quest_reward}. I won't pretend I feel whole, but I feel finished, and that's the next best thing.",
+    "skillCheck": {
+      "skill": "DECEPTION",
+      "dc": 14,
+      "passText": "You caught the thing I've been hiding from everyone, including myself. I failed to reinforce the fence when I knew it was weak, and the creatures got in because of my neglect. The rage I feel isn't just at them, it's at myself for giving them the opening. Directing it outward is the only way I know to keep moving.",
+      "failText": "They destroyed what I built. The rest is between me and the trees."
+    },
+    "rewardText": "the savings I'd meant for the replanting I'll never do",
+    "valence": "negative",
+    "roleAffinity": []
+  },
+  {
+    "id": "vengeance_07",
+    "topicHeader": "Ashes Remembered",
+    "situation": "vengeance",
+    "objectives": [
+      {
+        "type": "KILL_MOBS",
+        "countMin": 3,
+        "countMax": 6
+      },
+      {
+        "type": "KILL_MOBS",
+        "countMin": 4,
+        "countMax": 7
+      }
+    ],
+    "expositionText": "My sister's grave was desecrated by {enemy_type_plural} two weeks ago, the cairn dug through and the stones I'd placed there scattered. I want {kill_count} of them killed. Not for safety, not for prevention. For her.",
+    "acceptText": "Thank you. I won't ask you to feel what I feel about this. I just need the work done.",
+    "declineText": "I see. Then I'll rebuild the cairn and keep rebuilding it until they stop, or I stop. Either way.",
+    "expositionTurnInText": "Good. I rebuilt the stones this morning and they're still standing. But the ones that scattered them aren't the only group in the area, and I want to be thorough.",
+    "conflict1Text": "There are more of them nearby, the same kind, and I won't rest easy knowing they're within reach of her resting place. {kill_count} more {enemy_type_plural} dealt with, and I can visit her without watching the ground.",
+    "conflict1TurnInText": "The area is clear. I walked out there just now and it was quiet the way it should be quiet. Like a place that's been left in peace.",
+    "resolutionText": "She's resting properly again, and nothing is going to disturb that as long as I'm breathing. Take {quest_reward}. It's what she would have wanted me to give someone who helped keep her memory whole.",
+    "skillCheck": {
+      "skill": "INTIMIDATION",
+      "dc": 14,
+      "passText": "You want to know why I'm this angry? I promised her I would take care of that spot, stood there the day we placed the stones and said it out loud, and I meant it the way you mean a thing you'll never break. When I found the cairn torn apart, I didn't just fail to protect ground. I broke my word to someone who can never hear me make it right.",
+      "failText": "She was my sister. That's all the reason I need, and all the reason I'll give."
+    },
+    "rewardText": "the coin I kept beside her stone and a debt I'll carry with dignity",
+    "valence": "negative",
+    "roleAffinity": []
+  },
+  {
+    "id": "vengeance_08",
+    "topicHeader": "Still Waters",
+    "situation": "vengeance",
+    "objectives": [
+      {
+        "type": "FETCH_ITEM"
+      },
+      {
+        "type": "KILL_MOBS",
+        "countMin": 4,
+        "countMax": 6
+      },
+      {
+        "type": "FETCH_ITEM"
+      }
+    ],
+    "expositionText": "The {enemy_type_plural} poisoned our fishing spot last autumn. They fouled the water so thoroughly that the fish haven't come back, and neither has the income I depended on. I need a {quest_item} to test whether the water is recovering. That's the first step.",
+    "acceptText": "I appreciate that you didn't try to tell me to move on. Moving on isn't what I'm doing here.",
+    "declineText": "Then I sit by dead water and wait for something to change on its own. I've been good at that.",
+    "expositionTurnInText": "The water is cleaner than I expected, which means the damage can be undone. But the creatures that caused it are still in the area, and as long as they are, recovery means nothing.",
+    "conflict1Text": "I want {kill_count} of those {enemy_type_plural} dealt with. Every one of them that stays is a threat to whatever comes back. I'm not watching this get ruined twice.",
+    "conflict1TurnInText": "Good. The water has a chance now. There's one more thing I need before I can call this settled.",
+    "conflict2Text": "Bring me a {quest_item}. Something to mark the waterline, so I can track the recovery over the coming weeks. I want to see the numbers change with my own eyes. I've earned that much.",
+    "conflict2TurnInText": "The marker is set. I'll check it every morning. The first time the line moves in the right direction, I'll know this was worth it.",
+    "resolutionText": "The water is coming back, slowly, but it's coming. Take {quest_reward}. I sat by that bank for months with nothing but anger, and now I have proof that things can get better.",
+    "skillCheck": {
+      "skill": "INTIMIDATION",
+      "dc": 13,
+      "passText": "Fine. The part I haven't said is that I was warned this could happen. Someone told me the creatures were moving into the watershed and I dismissed it because I didn't want to spend the season building barriers instead of fishing. My livelihood was destroyed by my own stubbornness, and the anger I feel at those creatures is really anger I can't bear to aim at myself.",
+      "failText": "They fouled the water. That's the fact, and that's what I'm settling."
+    },
+    "rewardText": "the last of my savings and the first catch when the fish return",
+    "valence": "negative",
+    "roleAffinity": []
+  },
+  {
+    "id": "vengeance_09",
+    "topicHeader": "What the Dark Took",
+    "situation": "vengeance",
+    "objectives": [
+      {
+        "type": "KILL_MOBS",
+        "countMin": 5,
+        "countMax": 8
+      },
+      {
+        "type": "FETCH_ITEM"
+      }
+    ],
+    "expositionText": "A year ago, {enemy_type_plural} came through in the night and took something I can't get back. No witnesses, no story, just the aftermath. I've been stacking that anger carefully, like firewood, and now I'm ready to burn it. {kill_count} of them, start there.",
+    "acceptText": "Good. I don't need sympathy from you. I need results.",
+    "declineText": "Then the fire keeps building. I'll find someone else, or I'll go myself and regret the outcome either way.",
+    "expositionTurnInText": "They're down. I thought I'd feel victorious, and instead I just feel like the room got a little less loud inside my head. There's one more thing.",
+    "conflict1Text": "Bring me a {quest_item}. I'm going to set it where the thing I lost used to sit, not as a replacement, but as proof that the space doesn't have to stay empty. That's the closest I'll get to peace, and I want to get there.",
+    "conflict1TurnInText": "I placed it this morning. Stood there looking at it for a long time. It doesn't fill the gap. But it occupies the space, and that's different from empty.",
+    "resolutionText": "The work is done and the space has something in it again. Take {quest_reward}. I'm not going to call it closure, because I don't believe in the word. But the weight shifted, and I can stand a little straighter under it now.",
+    "skillCheck": {
+      "skill": "PERFORMANCE",
+      "dc": 13,
+      "passText": "The way you said that, so easily, like grief is something you can just name and set down. I've been trying to do that for a year and couldn't manage the first part. Nobody here talks about loss that directly, they circle it and whisper around it. You just walked up to it and called it what it is, and something in me unclenched.",
+      "failText": "It's old anger. I don't need it explained to me, just answered."
+    },
+    "rewardText": "the coin I've been keeping in the empty space since it happened",
+    "valence": "negative",
+    "roleAffinity": []
+  },
+  {
+    "id": "vengeance_10",
+    "topicHeader": "A Slow Burn",
+    "situation": "vengeance",
+    "objectives": [
+      {
+        "type": "FETCH_ITEM"
+      },
+      {
+        "type": "KILL_MOBS",
+        "countMin": 4,
+        "countMax": 7
+      }
+    ],
+    "expositionText": "I had a garden that my mother planted the year I was born. {enemy_type_plural} trampled it flat last spring and I've been quiet about it because nobody here thinks a garden is worth getting angry over. They're wrong. I need a {quest_item} to take a cutting from what survived, before even the roots give up.",
+    "acceptText": "Thank you. I know it sounds small. It matters to me more than I've let on.",
+    "declineText": "I'll keep watering the dirt, then. Maybe something will come back on its own. Things do, sometimes.",
+    "expositionTurnInText": "The cutting took. There's green where there was nothing, and I stared at it for ten minutes before I trusted my own eyes. Now for the part that's been burning in me since spring.",
+    "conflict1Text": "I want {kill_count} of those {enemy_type_plural} gone. They'll come back otherwise, and they'll do to the new growth what they did to the old. I am not watching that happen twice. Not with her garden.",
+    "conflict1TurnInText": "They're gone. The ground around the garden is quiet, and the cutting is still standing. I checked it three times today. I'll probably check it three more times tonight.",
+    "resolutionText": "Something is growing again where my mother's hands put the first seeds in the ground. Take {quest_reward}. You helped me save the one thing in this world I can't replace and can't explain the value of to anyone who didn't know her.",
+    "skillCheck": {
+      "skill": "RELIGION",
+      "dc": 12,
+      "passText": "You understand what a garden like that means, then. My mother planted it following the old seasonal rites, the way her mother taught her, putting the first seeds in on the morning her tradition marked as the beginning of growth. It was her way of keeping faith with something larger. Watching it get destroyed felt like watching her prayers get answered with silence.",
+      "failText": "It's a garden. It was my mother's. That's reason enough."
+    },
+    "rewardText": "the savings she left me, spent on exactly the kind of thing she'd approve of",
+    "valence": "negative",
+    "roleAffinity": []
+  },
+  {
+    "id": "conflict_with_fate_05",
+    "topicHeader": "Borrowed Luck",
+    "situation": "conflict_with_fate",
+    "objectives": [
+      {
+        "type": "COLLECT_RESOURCES",
+        "countMin": 5,
+        "countMax": 9
+      },
+      {
+        "type": "KILL_MOBS",
+        "countMin": 4,
+        "countMax": 7
+      }
+    ],
+    "expositionText": "I've always been the person things go wrong for, not dramatically, just reliably. This season the pattern held with thin crops, a leaning shed, and now I can't get enough {quest_item} to keep the household running. I need {gather_count} of it, and I need someone whose luck runs better than mine to go looking.",
+    "acceptText": "Maybe your luck is changing. Someone showed up who said yes, and that hasn't happened in a while.",
+    "declineText": "About what I expected. The pattern holds. I'll manage, the way I always manage, which is to say barely.",
+    "expositionTurnInText": "You actually found enough. I counted it twice because I don't trust good outcomes on the first pass. Now there's the other shoe, and I know it's coming because it always does.",
+    "conflict1Text": "{enemy_type_plural} have been pressing in closer to {settlement_name}, and naturally they chose my side of the settlement to settle nearest to. {kill_count} of them handled would give me a stretch of ordinary days, which is all I've ever asked for.",
+    "conflict1TurnInText": "Quiet. Genuinely quiet. I keep waiting for the next thing to go wrong and it hasn't yet. I almost don't know what to do with a day that just works.",
+    "resolutionText": "I won't say the pattern is broken, I've been disappointed too many times for that. But today was good, and yesterday was good, and I'll take two good days in a row as a sign. Take {quest_reward}. You showed me what it looks like when things go right for a change.",
+    "skillCheck": {
+      "skill": "DECEPTION",
+      "dc": 12,
+      "passText": "You read past what I was saying, didn't you. The truth is I've started to believe I cause it, not rationally, but in that part of your mind that keeps count. Everything I touch seems to sour eventually, and I've stopped starting new things because I'm afraid I'll ruin them the way I've ruined everything else. Saying it out loud sounds foolish, but living with it doesn't.",
+      "failText": "It's just a bad stretch. Stretches end."
+    },
+    "rewardText": "what I'd set aside for a worse day, since today turned out to be a better one",
+    "valence": "negative",
+    "roleAffinity": []
+  },
+  {
+    "id": "conflict_with_fate_06",
+    "topicHeader": "The Pattern Holds",
+    "situation": "conflict_with_fate",
+    "objectives": [
+      {
+        "type": "KILL_MOBS",
+        "countMin": 3,
+        "countMax": 5
+      },
+      {
+        "type": "COLLECT_RESOURCES",
+        "countMin": 6,
+        "countMax": 10
+      },
+      {
+        "type": "FETCH_ITEM"
+      }
+    ],
+    "expositionText": "Every time I fix one thing, another breaks. I patched the roof and the well chain snapped. I fixed the chain and {enemy_type_plural} moved in along the road. I need {kill_count} of them dealt with so I can focus on the next disaster without looking over my shoulder at this one.",
+    "acceptText": "All right. Maybe having someone else take one problem means the chain reaction stops. That's the hope, anyway.",
+    "declineText": "Then the list grows by one more item. I've gotten very good at lists.",
+    "expositionTurnInText": "One down. The road is clear, and nothing new broke while you were gone, which I'm counting as a minor miracle. Now for the thing I've been dreading.",
+    "conflict1Text": "The stores are low because every spare moment has gone to repairs instead of gathering. I need {gather_count} {quest_item} to catch up. It feels like running to stand still, but at least standing still is better than falling behind.",
+    "conflict1TurnInText": "That puts us even. Not ahead, but even, and even feels luxurious after the month I've had. There's one last piece, and then maybe I can stop bracing for impact.",
+    "conflict2Text": "I need a {quest_item} to finish the last repair properly. Without it I'll jury-rig something that holds for a week and then we're back to the same cycle. I want to break the pattern for real this time.",
+    "conflict2TurnInText": "The repair is solid. For the first time in months, everything I look at is in working order. I keep checking, expecting to find something new that's broken, and there's nothing.",
+    "resolutionText": "Nothing is broken. I've said that three times today and it keeps being true. Take {quest_reward}. You helped me step off a wheel I'd been running on so long I forgot what solid ground felt like.",
+    "skillCheck": {
+      "skill": "DECEPTION",
+      "dc": 13,
+      "passText": "All right. The thing I haven't admitted to anyone is that some of these problems are cascading because I cut corners on early repairs. I was so tired from the previous fix that I rushed the next one, which made it fail sooner, which meant another fix sooner. I built the cycle myself, and admitting that is harder than any of the repairs.",
+      "failText": "Things break. I fix them. That's the whole story."
+    },
+    "rewardText": "the coin I keep in the toolbox for exactly this kind of reckoning",
+    "valence": "negative",
+    "roleAffinity": []
+  },
+  {
+    "id": "conflict_with_fate_07",
+    "topicHeader": "Wrong Season",
+    "situation": "conflict_with_fate",
+    "objectives": [
+      {
+        "type": "COLLECT_RESOURCES",
+        "countMin": 7,
+        "countMax": 11
+      },
+      {
+        "type": "KILL_MOBS",
+        "countMin": 3,
+        "countMax": 6
+      }
+    ],
+    "expositionText": "The season turned early and caught us with half the work undone. Plants that should have had another month are wilting. Stores that should be full are thin. I need {gather_count} {quest_item} to plug the gap before the shortfall becomes a crisis.",
+    "acceptText": "Thank you. I've been watching the calendar like it owes me something, and it's a relief to have help instead of just time.",
+    "declineText": "I'll stretch what's left, then. Stretching is what this season is for, apparently.",
+    "expositionTurnInText": "That'll hold us through the rough patch. The timing still makes no sense to me, but at least we won't go hungry while I puzzle over it. There's one more thing the early turn brought with it.",
+    "conflict1Text": "The {enemy_type_plural} are moving earlier too, pushed out by the same shift that caught us. {kill_count} of them cleared and we can ride out the rest of this wrong-footed season without adding danger on top of shortage.",
+    "conflict1TurnInText": "That's better. The pressure from outside has eased, even if the pressure from above hasn't. I can deal with bad weather. Bad weather and bad creatures at the same time was more than I could hold.",
+    "resolutionText": "We came through a season that had no business being this hard, and we're still standing. Take {quest_reward}. I can't control the weather or the calendar, but I can recognize someone who showed up when both turned against us.",
+    "skillCheck": {
+      "skill": "INTIMIDATION",
+      "dc": 12,
+      "passText": "Since you're making me say it plainly. I ignored the early signs because I was too proud to admit the season was turning before I was ready. The old farmers warned me and I waved them off, and now everyone here is paying for my stubbornness. The weather didn't betray us, I did, by not listening when I should have.",
+      "failText": "Nobody predicted this. It just happened."
+    },
+    "rewardText": "what we managed to save from the early harvest and honest gratitude",
+    "valence": "negative",
+    "roleAffinity": []
+  },
+  {
+    "id": "conflict_with_fate_08",
+    "topicHeader": "Stubborn Ground",
+    "situation": "conflict_with_fate",
+    "objectives": [
+      {
+        "type": "FETCH_ITEM"
+      },
+      {
+        "type": "KILL_MOBS",
+        "countMin": 4,
+        "countMax": 7
+      },
+      {
+        "type": "COLLECT_RESOURCES",
+        "countMin": 5,
+        "countMax": 8
+      }
+    ],
+    "expositionText": "I planted in the same field I've used for twelve years and nothing came up. Not thin growth, not poor yield. Nothing. I need a {quest_item} to test the soil and find out whether the ground has given up on me or whether something else is at work.",
+    "acceptText": "Thank you. I've been staring at empty rows for three weeks and I needed someone to help me look at them differently.",
+    "declineText": "Then I keep staring. Maybe the dirt will explain itself eventually.",
+    "expositionTurnInText": "The test shows the soil has been leached of everything it needs. Something drained it, and not gradually. Now I need to find out what's been doing the draining and stop it before next season is a repeat.",
+    "conflict1Text": "The {enemy_type_plural} burrowing under the field are the most likely cause. Their nesting behavior disrupts root systems and draws nutrients out of the surrounding soil. {kill_count} of them removed should let the ground start recovering.",
+    "conflict1TurnInText": "The tunnels are collapsing on their own now that the creatures are gone. I can already see earthworms returning, which is the first sign of recovery. But I still need to feed the soil back to health.",
+    "conflict2Text": "I need {gather_count} {quest_item} to amend the field. Good compost, the kind of material that puts back what was taken out. It won't fix everything in one season, but it'll give next year's planting a fighting chance.",
+    "conflict2TurnInText": "The field smells like earth again instead of dust. I'd forgotten what healthy soil looks like, and now I'm looking at it.",
+    "resolutionText": "Twelve years of good harvests, one bad one, and now the start of recovery. Take {quest_reward}. I was ready to believe the land had turned against me, and you showed me it was just sick, not hostile. That difference matters more than you know.",
+    "skillCheck": {
+      "skill": "PERFORMANCE",
+      "dc": 14,
+      "passText": "The confidence in your voice when you said the field could recover. I needed to hear someone say it like they believed it. My neighbors have been giving me the look people give when they think you should cut your losses, and I was starting to agree with them. But the way you talked about it, like the ground and I still had a future together, that's what kept me from walking away.",
+      "failText": "It's a field problem. I just want it solved."
+    },
+    "rewardText": "the savings I'd kept for seed and a promise of first harvest when it comes back",
+    "valence": "negative",
+    "roleAffinity": []
+  },
+  {
+    "id": "conflict_with_fate_09",
+    "topicHeader": "Worn Through",
+    "situation": "conflict_with_fate",
+    "objectives": [
+      {
+        "type": "KILL_MOBS",
+        "countMin": 3,
+        "countMax": 6
+      },
+      {
+        "type": "COLLECT_RESOURCES",
+        "countMin": 6,
+        "countMax": 9
+      }
+    ],
+    "expositionText": "Everything I own is wearing out at the same time. Tools, boots, the hinges on every door, and the {enemy_type_plural} moved in while I was too busy repairing to notice. {kill_count} of them handled, and I can at least face the rest of my problems without an audience.",
+    "acceptText": "That's one problem with someone else's name on it, and that alone makes the day better.",
+    "declineText": "Then I add it to the pile. The pile is getting impressive, honestly. Not in a good way.",
+    "expositionTurnInText": "Better. The outside threat is handled, which means I can turn my attention inward without feeling like I'm ignoring something with teeth. Now for the slow emergency.",
+    "conflict1Text": "I need {gather_count} {quest_item} to replace the most critical things that have worn through. Not everything, just enough that the house holds together for another season while I catch up on the rest.",
+    "conflict1TurnInText": "That covers the worst of it. The doors close, the tools work, and I can get through a day without something falling apart in my hands. It a victory, but it's stability, and stability has been in short supply.",
+    "resolutionText": "I'm holding steady. Not gaining, but not losing ground anymore, and after the month I've had, that feels like a triumph. Take {quest_reward}. You helped me stop the bleeding, and that's the thing that had to happen before anything else could.",
+    "skillCheck": {
+      "skill": "INTIMIDATION",
+      "dc": 13,
+      "passText": "All right, since you're not going to let me brush it off. I've been telling people I'm handling it because I didn't want anyone to see how far behind I've fallen. The truth is I nearly gave up last week, sat down in the middle of the floor with a broken hinge in my hand and couldn't stand up for an hour. You making me say it is the first time I've admitted out loud that I'm drowning.",
+      "failText": "Things wear out. It's just happening all at once, which is my particular luck."
+    },
+    "rewardText": "what I've managed to keep in one piece, offered with real gratitude",
+    "valence": "negative",
+    "roleAffinity": []
+  },
+  {
+    "id": "conflict_with_fate_10",
+    "topicHeader": "Nothing Stays Fixed",
+    "situation": "conflict_with_fate",
+    "objectives": [
+      {
+        "type": "FETCH_ITEM"
+      },
+      {
+        "type": "COLLECT_RESOURCES",
+        "countMin": 5,
+        "countMax": 8
+      },
+      {
+        "type": "KILL_MOBS",
+        "countMin": 3,
+        "countMax": 5
+      }
+    ],
+    "expositionText": "I fixed the irrigation channel last week and it collapsed again yesterday. Same spot, same failure. I need a {quest_item} to reinforce it properly this time, because whatever I've been doing clearly isn't working and I'm tired of repeating myself to the dirt.",
+    "acceptText": "Good. At least with the right materials I can build something that argues with the ground and wins.",
+    "declineText": "Then I patch it again with what I have, and I expect to be patching it again next week, and the week after that.",
+    "expositionTurnInText": "The channel is holding. I walked the full length this morning and found no cracks, no seepage, nothing. That's the first time in three attempts, and I almost don't trust it. But there's more to deal with before I can rest.",
+    "conflict1Text": "While I was focused on the channel, the supply situation got away from me. I need {gather_count} {quest_item} to get back to where I should have been if the irrigation hadn't eaten all my time and energy.",
+    "conflict1TurnInText": "Stocked again. I can look at the shelves without doing mental arithmetic about how many days we have left. There's one last thing pressing on me.",
+    "conflict2Text": "The {enemy_type_plural} have been taking advantage of my distraction. {kill_count} of them put down and I can stop treating every problem as urgent and start treating some of them as solved.",
+    "conflict2TurnInText": "Solved. Actually solved, not patched, not postponed. The channel holds, the shelves are full, and the road is safe. I keep waiting for the next thing to fail and it hasn't.",
+    "resolutionText": "For the first time in what feels like forever, I'm not fixing something. I'm just standing here in a place where everything works, and it feels strange and wonderful. Take {quest_reward}. You helped me believe that fixed could actually mean finished.",
+    "skillCheck": {
+      "skill": "ARCANA",
+      "dc": 13,
+      "passText": "You noticed something about the failure pattern, didn't you. The collapse keeps happening in the same spot because there's something in the ground there that rejects normal construction. I've dug it up twice and both times there was a residue I couldn't identify, almost crystalline, and warm to the touch. I don't know what it is, but It natural, and pretending it's just bad soil hasn't been working.",
+      "failText": "The ground is difficult. That's all I know and all I need to know right now."
+    },
+    "rewardText": "the coin I kept setting aside for the next repair, which I finally don't need",
+    "valence": "negative",
+    "roleAffinity": []
+  }
+]
