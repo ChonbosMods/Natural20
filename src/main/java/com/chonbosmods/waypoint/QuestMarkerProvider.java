@@ -148,11 +148,13 @@ public class QuestMarkerProvider implements WorldMapManager.MarkerProvider {
 
                 com.chonbosmods.quest.ObjectiveType objType = currentObj.getType();
                 if (objType == com.chonbosmods.quest.ObjectiveType.TALK_TO_NPC) {
-                    String targetSettlement = b.get("target_npc_settlement");
-                    if (targetSettlement != null && b.containsKey("target_npc")) {
+                    // target_npc_settlement is the display name; cell-key lookup
+                    // uses target_npc_settlement_key.
+                    String targetSettlementKey = b.get("target_npc_settlement_key");
+                    if (targetSettlementKey != null && b.containsKey("target_npc")) {
                         SettlementRegistry settlements = Natural20.getInstance().getSettlementRegistry();
                         if (settlements != null) {
-                            SettlementRecord target = settlements.getByCell(targetSettlement);
+                            SettlementRecord target = settlements.getByCell(targetSettlementKey);
                             if (target != null) {
                                 String targetLabel = "Speak with " + b.get("target_npc");
                                 entries.add(new MarkerEntry(quest.getQuestId(), targetLabel,

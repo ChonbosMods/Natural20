@@ -351,6 +351,21 @@ public class DialogueManager {
         ObjectiveInstance expositionObj = !quest.getObjectives().isEmpty()
             ? quest.getObjectives().getFirst() : null;
 
+        // Late-bind a deferred TALK_TO_NPC target before resolving exposition text.
+        // At quest generation, the registry may have had no other settlements yet
+        // (e.g., player teleported to a fresh quest giver). By the time the player
+        // opens dialogue, more settlements may exist, so try again now. The
+        // resolution mutates `quest.getVariableBindings()` and the objective in
+        // place, so subsequent text resolution and the eventual GIVE_QUEST handler
+        // both pick up the resolved trio. Persist so the choice survives restart.
+        if (expositionObj != null
+                && expositionObj.getType() == ObjectiveType.TALK_TO_NPC
+                && "deferred_npc".equals(expositionObj.getTargetId())) {
+            if (DialogueActionRegistry.tryResolveDeferredTalkToNpc(quest, expositionObj)) {
+                settlements.saveAsync();
+            }
+        }
+
         String topicHeader = DialogueResolver.resolve(
             b.getOrDefault("quest_topic_header", quest.getSituationId()), b);
         String expositionText = DialogueResolver.resolveQuestText(
@@ -377,21 +392,21 @@ public class DialogueManager {
             declineText, null, List.of(), List.of(), true, true, ValenceType.NEGATIVE
         ));
 
-        // Entry node: exposition text with ACCEPT/DECLINE options. If the template
-        // defines a skill check, a third option is appended that routes through a
-        // SkillCheckNode -> pass/fail node, where the player can still ACCEPT/DECLINE
+        // Entry node: exposition text with options. If the template defines a
+        // skill check, a check option is prepended above ACCEPT that routes through
+        // a SkillCheckNode -> pass/fail node, where the player can still ACCEPT/DECLINE
         // after the reveal. The pass branch additionally fires MARK_SKILLCHECK_PASSED
         // (via onEnter) so TURN_IN_V2's reward multiplier picks up the bonus.
-        List<ResponseOption> responses = new ArrayList<>();
-        responses.add(new ResponseOption(
+        ResponseOption acceptOption = new ResponseOption(
             topicId + "_accept_opt", "ACCEPT", null, acceptNodeId,
             ResponseMode.DECISIVE, null, null, null, null
-        ));
-        responses.add(new ResponseOption(
+        );
+        ResponseOption declineOption = new ResponseOption(
             topicId + "_decline_opt", "DECLINE", null, declineNodeId,
             ResponseMode.DECISIVE, null, null, null, null
-        ));
+        );
 
+        ResponseOption checkOption = null;
         String skillName = b.get("quest_skillcheck_skill");
         String dcRaw = b.get("quest_skillcheck_dc");
         if (skillName != null && dcRaw != null) {
@@ -444,21 +459,30 @@ public class DialogueManager {
                     skill, null, dc, false, passNodeId, failNodeId, List.of()
                 ));
 
-                // Third response option on the entry node: triggers the check.
-                // Uses skillCheckRef instead of targetNodeId; ConversationSession
-                // routes selections with skillCheckRef directly to the SkillCheckNode.
-                responses.add(new ResponseOption(
+                // Skill check option: triggers the check. Uses skillCheckRef instead
+                // of targetNodeId; ConversationSession routes selections with
+                // skillCheckRef directly to the SkillCheckNode. displayText is the
+                // bare skill name and statPrefix carries the stat code so
+                // Nat20DialoguePage paints the [STAT] bracket in the stat color,
+                // matching how authored skill-check responses render.
+                checkOption = new ResponseOption(
                     topicId + "_check_opt",
-                    skill.buttonText(),
+                    skill.displayName(),
                     null, null,
                     ResponseMode.DECISIVE, null,
-                    checkNodeId, null, null
-                ));
+                    checkNodeId, skill.getStat().name(), null
+                );
             } catch (IllegalArgumentException e) {
                 LOGGER.atWarning().log("Quest %s skill check has invalid skill='%s' or dc='%s', skipping check option",
                     questId, skillName, dcRaw);
             }
         }
+
+        // Order: skill check (if any), ACCEPT, DECLINE.
+        List<ResponseOption> responses = new ArrayList<>();
+        if (checkOption != null) responses.add(checkOption);
+        responses.add(acceptOption);
+        responses.add(declineOption);
 
         graph.nodes().put(entryNodeId, new DialogueNode.DialogueTextNode(
             expositionText, null, responses, List.of(), false, false, ValenceType.NEUTRAL

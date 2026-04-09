@@ -34,7 +34,9 @@ import com.hypixel.hytale.server.core.inventory.InventoryComponent;
 import com.hypixel.hytale.server.core.inventory.container.CombinedItemContainer;
 import com.hypixel.hytale.server.core.inventory.ItemStack;
 
+import java.util.ArrayList;
 import java.util.HashMap;
+import java.util.List;
 import java.util.Map;
 import java.util.Random;
 import java.util.Set;
@@ -170,9 +172,14 @@ public class DialogueActionRegistry {
             questSystem.getStateManager().addQuest(ctx.playerData(), quest);
             ctx.dispositionUpdater().accept(QuestDispositionConstants.QUEST_ACCEPTED);
 
-            // Set up first objective: POI placement, markers, or particles
+            // Set up first objective: late-bind a deferred TALK_TO_NPC target if
+            // needed (the registry may have new settlements since generation), then
+            // do POI placement / particles for the chosen type. If late-binding
+            // still fails (single-settlement world with only the quest giver),
+            // setTargetNpcParticle will no-op gracefully.
             ObjectiveInstance firstObj = quest.getCurrentObjective();
             if (firstObj != null) {
+                tryResolveObjective(quest, firstObj);
                 ObjectiveType firstType = firstObj.getType();
                 if (firstType == ObjectiveType.KILL_MOBS || firstType == ObjectiveType.FETCH_ITEM) {
                     resolveAndPlacePoi(quest, firstObj, ctx.store(), ctx.playerRef());
@@ -312,7 +319,7 @@ public class DialogueActionRegistry {
                 ObjectiveInstance nextObj = nextIndex < quest.getObjectives().size()
                     ? quest.getObjectives().get(nextIndex) : null;
                 if (nextObj != null) {
-                    advanceToConflict = tryResolveObjective(quest, nextObj, ctx);
+                    advanceToConflict = tryResolveObjective(quest, nextObj);
                 }
                 if (!advanceToConflict) {
                     LOGGER.atWarning().log(
@@ -392,13 +399,14 @@ public class DialogueActionRegistry {
             // Save
             saveQuest(questSystem, ctx.playerData(), quest);
 
-            // Re-evaluate target NPC's particle
-            String targetSettlement = quest.getVariableBindings().get("target_npc_settlement");
+            // Re-evaluate target NPC's particle. target_npc_settlement is the
+            // display name; cell-key lookup uses target_npc_settlement_key.
+            String targetSettlementKey = quest.getVariableBindings().get("target_npc_settlement_key");
             String targetNpcName = quest.getVariableBindings().get("target_npc");
-            if (targetSettlement != null && targetNpcName != null) {
+            if (targetSettlementKey != null && targetNpcName != null) {
                 SettlementRegistry settlements = Natural20.getInstance().getSettlementRegistry();
                 if (settlements != null) {
-                    SettlementRecord settlement = settlements.getByCell(targetSettlement);
+                    SettlementRecord settlement = settlements.getByCell(targetSettlementKey);
                     if (settlement != null) {
                         NpcRecord targetNpc = settlement.getNpcByName(targetNpcName);
                         if (targetNpc != null && targetNpc.getEntityUUID() != null) {
@@ -499,74 +507,113 @@ public class DialogueActionRegistry {
      * For COLLECT_RESOURCES: always resolvable.
      * Returns true if the objective can be activated, false to skip to resolution.
      */
-    private boolean tryResolveObjective(QuestInstance quest, ObjectiveInstance objective,
-                                         ActionContext ctx) {
+    public static boolean tryResolveObjective(QuestInstance quest, ObjectiveInstance objective) {
         ObjectiveType type = objective.getType();
-        Map<String, String> bindings = quest.getVariableBindings();
 
         return switch (type) {
             case COLLECT_RESOURCES -> true;
             case KILL_MOBS, FETCH_ITEM -> true; // resolveAndPlacePoi handles void + surface fallback
-            case TALK_TO_NPC -> {
-                // If target was deferred at generation, try to resolve now
-                if ("deferred_npc".equals(objective.getTargetId())) {
-                    double npcX = 0, npcZ = 0;
-                    try {
-                        npcX = Double.parseDouble(bindings.getOrDefault("npc_x", "0"));
-                        npcZ = Double.parseDouble(bindings.getOrDefault("npc_z", "0"));
-                    } catch (NumberFormatException ignored) {}
-
-                    SettlementRegistry settlements = Natural20.getInstance().getSettlementRegistry();
-                    if (settlements == null) {
-                        LOGGER.atWarning().log("tryResolveObjective: TALK_TO_NPC deferred but no settlement registry");
-                        yield false;
-                    }
-
-                    // Find nearest other settlement with NPCs
-                    SettlementRecord nearest = null;
-                    double nearestDist = Double.MAX_VALUE;
-                    for (SettlementRecord r : settlements.getAll().values()) {
-                        if (r.getCellKey().equals(quest.getSourceSettlementId())) continue;
-                        if (r.getNpcs().isEmpty()) continue;
-                        double dx = r.getPosX() - npcX;
-                        double dz = r.getPosZ() - npcZ;
-                        double dist = dx * dx + dz * dz;
-                        if (dist < nearestDist) {
-                            nearestDist = dist;
-                            nearest = r;
-                        }
-                    }
-
-                    if (nearest == null || nearest.getNpcs().isEmpty()) {
-                        LOGGER.atWarning().log(
-                            "tryResolveObjective: TALK_TO_NPC still unresolvable for quest %s: " +
-                            "no other settlements with NPCs found near (%.0f, %.0f). " +
-                            "Total settlements: %d",
-                            quest.getQuestId(), npcX, npcZ, settlements.getAll().size());
-                        yield false;
-                    }
-
-                    // Resolve: pick a random NPC from the nearest settlement.
-                    // The target_npc trio (name, role, settlement) must always describe
-                    // the same NPC and the same settlement, so authors can write
-                    // "{target_npc}, the {target_npc_role} from {target_npc_settlement}".
-                    NpcRecord targetNpc = nearest.getNpcs().get(
-                        new Random(quest.getQuestId().hashCode()).nextInt(nearest.getNpcs().size()));
-                    objective.setTargetId(targetNpc.getGeneratedName());
-                    objective.setTargetLabel(targetNpc.getGeneratedName());
-                    objective.setLocationId(nearest.getCellKey());
-                    bindings.put("target_npc", targetNpc.getGeneratedName());
-                    bindings.put("target_npc_role", targetNpc.getDisplayRole());
-                    bindings.put("target_npc_settlement", nearest.deriveName());
-                    bindings.put("target_npc_settlement_key", nearest.getCellKey());
-
-                    LOGGER.atInfo().log("tryResolveObjective: TALK_TO_NPC resolved at runtime: " +
-                        "target=%s in settlement %s for quest %s",
-                        targetNpc.getGeneratedName(), nearest.getCellKey(), quest.getQuestId());
-                }
-                yield true;
-            }
+            case TALK_TO_NPC -> tryResolveDeferredTalkToNpc(quest, objective);
         };
+    }
+
+    /**
+     * Late-bind a deferred TALK_TO_NPC target. Tries the nearest other settlement
+     * first; if none has NPCs (e.g., single-settlement world), falls back to a
+     * different NPC in the source settlement so the quest is still completable.
+     *
+     * <p>The target_npc trio (name, role, settlement) and the internal
+     * target_npc_settlement_key are always written together so authors can safely
+     * write "{target_npc}, the {target_npc_role} from {target_npc_settlement}" and
+     * downstream lookups by cell key always succeed.
+     *
+     * <p>Returns true if the objective is resolved (or was already resolved),
+     * false if no candidate NPC could be found at all (source settlement only
+     * contains the quest giver and no other settlements have NPCs).
+     */
+    public static boolean tryResolveDeferredTalkToNpc(QuestInstance quest, ObjectiveInstance objective) {
+        if (!"deferred_npc".equals(objective.getTargetId())) {
+            return true; // already resolved at generation time
+        }
+
+        Map<String, String> bindings = quest.getVariableBindings();
+        double npcX = 0, npcZ = 0;
+        try {
+            npcX = Double.parseDouble(bindings.getOrDefault("npc_x", "0"));
+            npcZ = Double.parseDouble(bindings.getOrDefault("npc_z", "0"));
+        } catch (NumberFormatException ignored) {}
+
+        SettlementRegistry settlements = Natural20.getInstance().getSettlementRegistry();
+        if (settlements == null) {
+            LOGGER.atWarning().log("tryResolveDeferredTalkToNpc: no settlement registry for quest %s",
+                quest.getQuestId());
+            return false;
+        }
+
+        // 1. Try nearest OTHER settlement with NPCs.
+        SettlementRecord nearest = null;
+        double nearestDist = Double.MAX_VALUE;
+        for (SettlementRecord r : settlements.getAll().values()) {
+            if (r.getCellKey().equals(quest.getSourceSettlementId())) continue;
+            if (r.getNpcs().isEmpty()) continue;
+            double dx = r.getPosX() - npcX;
+            double dz = r.getPosZ() - npcZ;
+            double dist = dx * dx + dz * dz;
+            if (dist < nearestDist) {
+                nearestDist = dist;
+                nearest = r;
+            }
+        }
+
+        SettlementRecord chosenSettlement = nearest;
+        NpcRecord chosenNpc = null;
+
+        if (chosenSettlement != null) {
+            // Pick deterministically from the nearest other settlement.
+            chosenNpc = chosenSettlement.getNpcs().get(
+                new Random(quest.getQuestId().hashCode()).nextInt(chosenSettlement.getNpcs().size()));
+        } else {
+            // 2. Fallback: pick a non-quest-giver NPC in the source settlement so
+            // single-settlement worlds (e.g., player teleported in before others
+            // generated) still produce a completable TALK_TO_NPC objective.
+            SettlementRecord source = settlements.getByCell(quest.getSourceSettlementId());
+            if (source != null) {
+                List<NpcRecord> candidates = new ArrayList<>();
+                for (NpcRecord n : source.getNpcs()) {
+                    if (!n.getGeneratedName().equals(quest.getSourceNpcId())) {
+                        candidates.add(n);
+                    }
+                }
+                if (!candidates.isEmpty()) {
+                    chosenNpc = candidates.get(
+                        new Random(quest.getQuestId().hashCode()).nextInt(candidates.size()));
+                    chosenSettlement = source;
+                }
+            }
+        }
+
+        if (chosenSettlement == null || chosenNpc == null) {
+            LOGGER.atWarning().log(
+                "tryResolveDeferredTalkToNpc: no candidate NPC for quest %s: " +
+                "no other settlement with NPCs near (%.0f, %.0f) and source settlement has no other NPCs. " +
+                "Total settlements: %d",
+                quest.getQuestId(), npcX, npcZ, settlements.getAll().size());
+            return false;
+        }
+
+        objective.setTargetId(chosenNpc.getGeneratedName());
+        objective.setTargetLabel(chosenNpc.getGeneratedName());
+        objective.setLocationId(chosenSettlement.getCellKey());
+        bindings.put("target_npc", chosenNpc.getGeneratedName());
+        bindings.put("target_npc_role", chosenNpc.getDisplayRole());
+        bindings.put("target_npc_settlement", chosenSettlement.deriveName());
+        bindings.put("target_npc_settlement_key", chosenSettlement.getCellKey());
+
+        boolean fellBackToSource = chosenSettlement.getCellKey().equals(quest.getSourceSettlementId());
+        LOGGER.atInfo().log("tryResolveDeferredTalkToNpc: resolved quest %s target=%s settlement=%s%s",
+            quest.getQuestId(), chosenNpc.getGeneratedName(), chosenSettlement.getCellKey(),
+            fellBackToSource ? " (same-settlement fallback)" : "");
+        return true;
     }
 
     /**
@@ -842,14 +889,16 @@ public class DialogueActionRegistry {
      * Persists to NpcRecord so marker survives chunk reload.
      */
     private static void setTargetNpcParticle(Map<String, String> bindings, Store<EntityStore> store) {
-        String targetSettlement = bindings.get("target_npc_settlement");
+        // target_npc_settlement is the human-readable display name; the cell key
+        // (used for registry lookup) lives in target_npc_settlement_key.
+        String targetSettlementKey = bindings.get("target_npc_settlement_key");
         String targetNpcName = bindings.get("target_npc");
-        if (targetSettlement == null || targetNpcName == null) return;
+        if (targetSettlementKey == null || targetNpcName == null) return;
 
         SettlementRegistry settlements = Natural20.getInstance().getSettlementRegistry();
         if (settlements == null) return;
 
-        SettlementRecord settlement = settlements.getByCell(targetSettlement);
+        SettlementRecord settlement = settlements.getByCell(targetSettlementKey);
         if (settlement == null) return;
 
         NpcRecord targetNpc = settlement.getNpcByName(targetNpcName);
