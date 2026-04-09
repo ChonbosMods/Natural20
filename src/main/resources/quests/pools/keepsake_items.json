@@ -1,16 +1,16 @@
 {
   "values": [
     {"id": "keepsake_journal", "label": "a worn leather journal", "labelPlural": "worn leather journals", "fetchItemType": "quest_book"},
-    {"id": "keepsake_figurine", "label": "a clay figurine they always carried", "labelPlural": "clay figurines", "fetchItemType": "quest_keepsake"},
+    {"id": "keepsake_doll", "label": "a stuffed toy they slept with every night", "labelPlural": "stuffed toys", "fetchItemType": "quest_keepsake"},
     {"id": "keepsake_ring", "label": "a ring that never left their hand", "labelPlural": "rings", "fetchItemType": "quest_treasure"},
-    {"id": "keepsake_tool", "label": "a tool with their initials carved into the handle", "labelPlural": "tools", "fetchItemType": "quest_keepsake"},
+    {"id": "keepsake_plush", "label": "a hand-stitched plushie they carried everywhere", "labelPlural": "plushies", "fetchItemType": "quest_keepsake"},
     {"id": "keepsake_pendant", "label": "a carved pendant on a leather cord", "labelPlural": "carved pendants", "fetchItemType": "quest_treasure"},
-    {"id": "keepsake_scarf", "label": "a hand-woven scarf", "labelPlural": "hand-woven scarves", "fetchItemType": "quest_keepsake"},
-    {"id": "keepsake_comb", "label": "a wooden comb with a flower pattern", "labelPlural": "wooden combs", "fetchItemType": "quest_keepsake"},
+    {"id": "keepsake_toy", "label": "a child's toy they could never throw away", "labelPlural": "old toys", "fetchItemType": "quest_keepsake"},
+    {"id": "keepsake_charm", "label": "a lucky charm they always kept close", "labelPlural": "lucky charms", "fetchItemType": "quest_keepsake"},
     {"id": "keepsake_portrait", "label": "a small portrait wrapped in cloth", "labelPlural": "small portraits", "fetchItemType": "quest_document"},
     {"id": "keepsake_compass", "label": "a battered compass that still points true", "labelPlural": "battered compasses", "fetchItemType": "quest_treasure"},
-    {"id": "keepsake_knife", "label": "a folding knife with a bone handle", "labelPlural": "folding knives", "fetchItemType": "quest_remains"},
+    {"id": "keepsake_bones", "label": "the last remains of someone they lost", "labelPlural": "remains", "fetchItemType": "quest_remains"},
     {"id": "keepsake_locket", "label": "a tin locket with a lock of hair inside", "labelPlural": "tin lockets", "fetchItemType": "quest_treasure"},
-    {"id": "keepsake_pipe", "label": "a clay pipe they never went anywhere without", "labelPlural": "clay pipes", "fetchItemType": "quest_vial"}
+    {"id": "keepsake_tonic", "label": "a tonic they brewed every morning without fail", "labelPlural": "tonics", "fetchItemType": "quest_vial"}
   ]
 }
