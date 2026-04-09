@@ -35,10 +35,7 @@ import com.hypixel.hytale.component.ComponentType;
 import com.hypixel.hytale.component.Ref;
 import com.hypixel.hytale.component.Store;
 import com.hypixel.hytale.server.core.HytaleServer;
-import com.hypixel.hytale.server.core.modules.entity.component.Invulnerable;
-import com.hypixel.hytale.server.core.modules.entity.player.PlayerSkinComponent;
-import com.hypixel.hytale.server.core.modules.entitystats.EntityStatMap;
-import com.hypixel.hytale.server.core.modules.entitystats.asset.EntityStatType;
+import com.hypixel.hytale.server.core.util.TargetUtil;
 import com.hypixel.hytale.server.core.event.events.player.PlayerDisconnectEvent;
 import com.hypixel.hytale.server.core.event.events.player.PlayerReadyEvent;
 import com.hypixel.hytale.server.core.universe.world.World;
@@ -47,15 +44,19 @@ import com.hypixel.hytale.server.core.universe.world.events.ChunkPreLoadProcessE
 import com.hypixel.hytale.server.core.plugin.JavaPlugin;
 import com.hypixel.hytale.server.core.plugin.JavaPluginInit;
 import com.hypixel.hytale.server.npc.NPCPlugin;
+import com.hypixel.hytale.server.npc.entities.NPCEntity;
 import com.hypixel.hytale.server.core.universe.world.storage.EntityStore;
 import com.hypixel.hytale.server.core.util.Config;
+import com.hypixel.hytale.component.RemoveReason;
+import com.hypixel.hytale.math.vector.Vector3d;
 
 import javax.annotation.Nonnull;
 import java.nio.file.Path;
 import java.util.ArrayList;
-import java.util.HashMap;
+import java.util.HashSet;
 import java.util.List;
 import java.util.Map;
+import java.util.Set;
 import java.util.UUID;
 import java.util.concurrent.Executors;
 import java.util.concurrent.TimeUnit;
@@ -444,7 +445,7 @@ public class Natural20 extends JavaPlugin {
         });
         npcSyncExecutor.scheduleAtFixedRate(() -> {
             syncAllNpcState();
-            cleanupDuplicateNpcs();
+            cleanupGhostNpcs();
         }, 60, 60, TimeUnit.SECONDS);
 
         getLogger().atInfo().log("Natural 20 v" + getManifest().getVersion() + " started!");
@@ -482,11 +483,13 @@ public class Natural20 extends JavaPlugin {
     }
 
     /**
-     * Scan all settlements for duplicate NPCs (same generatedName within a settlement).
-     * Keeps the one with a PlayerSkinComponent (properly skinned) and kills the naked duplicate.
-     * This handles ghost entities from native persistence that weren't cleaned up.
+     * Spatial sweep for ghost NPC entities: world entities with Nat20NpcData that
+     * aren't tracked in the settlement registry. These are left behind by native
+     * chunk persistence when a respawn created a new entity with a different UUID.
+     * Uses TargetUtil.getAllEntitiesInSphere to find entities near each settlement,
+     * then removes any whose UUID doesn't match a registry entry.
      */
-    private void cleanupDuplicateNpcs() {
+    private void cleanupGhostNpcs() {
         SettlementRegistry registry = getSettlementRegistry();
         if (registry == null) return;
 
@@ -495,85 +498,43 @@ public class Natural20 extends JavaPlugin {
             World world = registry.getCachedWorld(worldUUID);
             if (world == null) continue;
 
+            String cellKey = settlement.getCellKey();
+
             world.execute(() -> {
                 Store<EntityStore> store = world.getEntityStore().getStore();
-                List<NpcRecord> npcs = settlement.getNpcs();
 
-                // Group records by generated name
-                Map<String, List<NpcRecord>> byName = new HashMap<>();
-                for (NpcRecord npc : npcs) {
-                    String name = npc.getGeneratedName();
-                    if (name != null) {
-                        byName.computeIfAbsent(name, k -> new ArrayList<>()).add(npc);
-                    }
+                // Collect all valid UUIDs for this settlement
+                Set<UUID> validUUIDs = new HashSet<>();
+                for (NpcRecord npc : settlement.getNpcs()) {
+                    if (npc.getEntityUUID() != null) validUUIDs.add(npc.getEntityUUID());
                 }
 
-                List<NpcRecord> toRemove = new ArrayList<>();
-                for (var entry : byName.entrySet()) {
-                    List<NpcRecord> dupes = entry.getValue();
-                    if (dupes.size() <= 1) continue;
+                // Spatial sweep around settlement center
+                Vector3d center = new Vector3d(
+                        settlement.getPosX(), settlement.getPosY(), settlement.getPosZ());
+                try {
+                    var nearby = TargetUtil.getAllEntitiesInSphere(center, 60.0, store);
+                    for (Ref<EntityStore> ref : nearby) {
+                        if (!ref.isValid()) continue;
 
-                    // Find the best keeper: live entity with a PlayerSkinComponent
-                    NpcRecord keeper = null;
-                    for (NpcRecord npc : dupes) {
-                        if (npc.getEntityUUID() == null) continue;
-                        try {
-                            Ref<EntityStore> ref = world.getEntityRef(npc.getEntityUUID());
-                            if (ref == null) continue;
-                            PlayerSkinComponent skin = store.getComponent(ref,
-                                    PlayerSkinComponent.getComponentType());
-                            if (skin != null) {
-                                keeper = npc;
-                                break;
-                            }
-                        } catch (Exception ignored) {}
-                    }
+                        Nat20NpcData data = store.getComponent(ref, getNpcDataType());
+                        if (data == null) continue;
+                        if (!cellKey.equals(data.getSettlementCellKey())) continue;
 
-                    // Fallback: first record with a live entity
-                    if (keeper == null) {
-                        for (NpcRecord npc : dupes) {
-                            if (npc.getEntityUUID() == null) continue;
-                            try {
-                                Ref<EntityStore> ref = world.getEntityRef(npc.getEntityUUID());
-                                if (ref != null) {
-                                    keeper = npc;
-                                    break;
-                                }
-                            } catch (Exception ignored) {}
+                        NPCEntity npcEntity = store.getComponent(ref,
+                                NPCEntity.getComponentType());
+                        if (npcEntity == null) continue;
+
+                        if (!validUUIDs.contains(npcEntity.getUuid())) {
+                            store.removeEntity(ref, RemoveReason.REMOVE);
+                            getLogger().atInfo().log("Removed ghost NPC: %s (%s) UUID %s in %s",
+                                    data.getGeneratedName(), data.getRoleName(),
+                                    npcEntity.getUuid(), cellKey);
                         }
                     }
-
-                    // Last resort: keep first record
-                    if (keeper == null) keeper = dupes.get(0);
-
-                    for (NpcRecord npc : dupes) {
-                        if (npc == keeper) continue;
-                        // Kill the duplicate entity
-                        if (npc.getEntityUUID() != null) {
-                            try {
-                                Ref<EntityStore> ref = world.getEntityRef(npc.getEntityUUID());
-                                if (ref != null) {
-                                    store.tryRemoveComponent(ref, Invulnerable.getComponentType());
-                                    EntityStatMap statMap = store.getComponent(ref,
-                                            EntityStatMap.getComponentType());
-                                    if (statMap != null) {
-                                        int hi = EntityStatType.getAssetMap().getIndex("Health");
-                                        if (hi >= 0) statMap.minimizeStatValue(hi);
-                                    }
-                                }
-                            } catch (Exception ignored) {}
-                        }
-                        toRemove.add(npc);
-                    }
-                }
-
-                if (!toRemove.isEmpty()) {
-                    npcs.removeAll(toRemove);
-                    getLogger().atInfo().log("Removed %d duplicate NPC(s) in settlement %s: %s",
-                            toRemove.size(), settlement.getCellKey(),
-                            toRemove.stream().map(NpcRecord::getGeneratedName)
-                                    .collect(java.util.stream.Collectors.joining(", ")));
-                    registry.saveAsync();
+                } catch (Exception e) {
+                    getLogger().atWarning().withCause(e).log(
+                            "Error during ghost NPC sweep for settlement %s", cellKey);
                 }
             });
         }
