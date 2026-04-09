@@ -303,8 +303,29 @@ public class QuestGenerator {
                 yield killObj;
             }
             case FETCH_ITEM -> {
-                // Store quest item base type for chest spawning
-                bindings.put("fetch_item_type", QuestPoolRegistry.getBaseItemType(bindings.get("gather_item_id")));
+                // Determine which fetch item type to use.
+                // Priority: template-pinned fetchItem > pool entry's fetchItemType > legacy fallback
+                String fetchItemType;
+                if (config.fetchItem() != null) {
+                    // Template author pinned a specific trinket (e.g., "quest_vial")
+                    fetchItemType = "nat20:" + QuestPoolRegistry.capitalize(config.fetchItem());
+                    // Still draw a random item for the narrative label
+                    QuestPoolRegistry.ItemEntry narrativeItem = random.nextBoolean()
+                        ? poolRegistry.randomKeepsakeItem(random)
+                        : poolRegistry.randomEvidenceItem(random);
+                    bindings.put("quest_item", narrativeItem.label());
+                    bindings.put("gather_item_id", narrativeItem.id());
+                } else {
+                    // Draw a random keepsake or evidence item with its per-entry mapping
+                    QuestPoolRegistry.ItemEntry fetchEntry = random.nextBoolean()
+                        ? poolRegistry.randomKeepsakeItem(random)
+                        : poolRegistry.randomEvidenceItem(random);
+                    bindings.put("quest_item", fetchEntry.label());
+                    bindings.put("gather_item_id", fetchEntry.id());
+                    fetchItemType = QuestPoolRegistry.getBaseItemType(fetchEntry);
+                }
+
+                bindings.put("fetch_item_type", fetchItemType);
                 bindings.put("fetch_item_label", bindings.getOrDefault("quest_item", "a quest item"));
 
                 // Try hostile fetch (cave void) first
@@ -312,9 +333,7 @@ public class QuestGenerator {
                 ObjectiveInstance fetchObj = createPOIObjective(type, bindings, config, random);
                 if (fetchObj != null) yield fetchObj;
 
-                // Peaceful fetch: target the nearby settlement we already picked for the
-                // target_npc trio. The cell key lives in target_npc_settlement_key (internal,
-                // not a template variable).
+                // Peaceful fetch fallback
                 bindings.put("fetch_variant", "peaceful");
                 String targetSettlementKey = bindings.get("target_npc_settlement_key");
 
