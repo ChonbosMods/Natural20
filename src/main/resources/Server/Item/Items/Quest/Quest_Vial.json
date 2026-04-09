@@ -1,11 +1,13 @@
 {
   "TranslationProperties": {
-    "Name": "server.items.Quest_Vial.name"
+    "Name": "server.items.Quest_Vial.name",
+    "Description": "server.items.Quest_Vial.description"
   },
   "Icon": "Icons/ItemsGenerated/Quest_Vial.png",
   "Categories": [
     "Blocks.Deco"
   ],
+  "Quality": "Uncommon",
   "Interactions": {
     "Primary": "Block_Primary",
     "Secondary": "Block_Secondary"

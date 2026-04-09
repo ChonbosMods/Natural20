@@ -1,11 +1,13 @@
 {
   "TranslationProperties": {
-    "Name": "server.items.Quest_Remains.name"
+    "Name": "server.items.Quest_Remains.name",
+    "Description": "server.items.Quest_Remains.description"
   },
   "Icon": "Icons/ItemsGenerated/Quest_Remains.png",
   "Categories": [
     "Blocks.Deco"
   ],
+  "Quality": "Uncommon",
   "Interactions": {
     "Primary": "Block_Primary",
     "Secondary": "Block_Secondary"

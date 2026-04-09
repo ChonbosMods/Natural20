@@ -1,11 +1,13 @@
 {
   "TranslationProperties": {
-    "Name": "server.items.Quest_Treasure.name"
+    "Name": "server.items.Quest_Treasure.name",
+    "Description": "server.items.Quest_Treasure.description"
   },
   "Icon": "Icons/ItemsGenerated/Quest_Treasure.png",
   "Categories": [
     "Blocks.Deco"
   ],
+  "Quality": "Uncommon",
   "Interactions": {
     "Primary": "Block_Primary",
     "Secondary": "Block_Secondary"

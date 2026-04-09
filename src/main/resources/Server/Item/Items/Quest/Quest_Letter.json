@@ -1,11 +1,13 @@
 {
   "TranslationProperties": {
-    "Name": "server.items.Quest_Letter.name"
+    "Name": "server.items.Quest_Letter.name",
+    "Description": "server.items.Quest_Letter.description"
   },
   "Icon": "Icons/ItemsGenerated/Quest_Letter.png",
   "Categories": [
     "Blocks.Deco"
   ],
+  "Quality": "Uncommon",
   "Interactions": {
     "Primary": "Block_Primary",
     "Secondary": "Block_Secondary"
