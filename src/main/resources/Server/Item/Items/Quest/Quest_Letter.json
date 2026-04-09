@@ -13,10 +13,10 @@
   "BlockType": {
     "DrawType": "Model",
     "Opacity": "Transparent",
-    "CustomModel": "Items/Quest/Quest_Letter.blockymodel",
+    "CustomModel": "Blocks/Miscellaneous/Map.blockymodel",
     "CustomModelTexture": [
       {
-        "Texture": "Items/Quest/Quest_Letter_Texture.png",
+        "Texture": "Blocks/Miscellaneous/Map_Texture.png",
         "Weight": 1
       }
     ],
@@ -28,7 +28,7 @@
       }
     },
     "BlockParticleSetId": "Stone",
-    "HitboxType": "Food_Medium",
+    "HitboxType": "Window",
     "Material": "Empty",
     "Support": {
       "Down": [
@@ -40,14 +40,14 @@
   },
   "PlayerAnimationsId": "Item",
   "IconProperties": {
-    "Scale": 0.7,
+    "Scale": 0.695,
     "Translation": [
-      0,
-      -8
+      -0.895,
+      -3.895
     ],
     "Rotation": [
-      22.5,
-      45,
+      30.945,
+      51.195,
       22.5
     ]
   },

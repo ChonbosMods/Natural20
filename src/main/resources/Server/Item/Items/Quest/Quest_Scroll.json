@@ -13,10 +13,10 @@
   "BlockType": {
     "DrawType": "Model",
     "Opacity": "Transparent",
-    "CustomModel": "Items/Quest/Quest_Scroll.blockymodel",
+    "CustomModel": "Blocks/Miscellaneous/Scrolls.blockymodel",
     "CustomModelTexture": [
       {
-        "Texture": "Items/Quest/Quest_Scroll_Texture.png",
+        "Texture": "Blocks/Miscellaneous/Scrolls_Texture.png",
         "Weight": 1
       }
     ],
@@ -40,10 +40,10 @@
   },
   "PlayerAnimationsId": "Item",
   "IconProperties": {
-    "Scale": 0.7,
+    "Scale": 0.735,
     "Translation": [
       0,
-      -8
+      -7.495
     ],
     "Rotation": [
       22.5,

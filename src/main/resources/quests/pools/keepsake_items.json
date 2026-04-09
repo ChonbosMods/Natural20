@@ -2,7 +2,7 @@
   "values": [
     {"id": "keepsake_journal", "label": "a worn leather journal", "labelPlural": "worn leather journals", "fetchItemType": "quest_document"},
     {"id": "keepsake_figurine", "label": "a clay figurine they always carried", "labelPlural": "clay figurines", "fetchItemType": "quest_statue"},
-    {"id": "keepsake_ring", "label": "a ring that never left their hand", "labelPlural": "rings", "fetchItemType": "quest_ring"},
+    {"id": "keepsake_ring", "label": "a ring that never left their hand", "labelPlural": "rings", "fetchItemType": "quest_treasure"},
     {"id": "keepsake_tool", "label": "a tool with their initials carved into the handle", "labelPlural": "tools", "fetchItemType": "quest_keepsake"},
     {"id": "keepsake_pendant", "label": "a carved pendant on a leather cord", "labelPlural": "carved pendants", "fetchItemType": "quest_coin"},
     {"id": "keepsake_scarf", "label": "a hand-woven scarf", "labelPlural": "hand-woven scarves", "fetchItemType": "quest_keepsake"},

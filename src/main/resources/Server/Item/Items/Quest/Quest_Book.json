@@ -1,8 +1,8 @@
 {
   "TranslationProperties": {
-    "Name": "server.items.Quest_Ring.name"
+    "Name": "server.items.Quest_Book.name"
   },
-  "Icon": "Icons/ItemsGenerated/Quest_Ring.png",
+  "Icon": "Icons/ItemsGenerated/Quest_Book.png",
   "Categories": [
     "Blocks.Deco"
   ],
@@ -13,10 +13,10 @@
   "BlockType": {
     "DrawType": "Model",
     "Opacity": "Transparent",
-    "CustomModel": "Items/Quest/Quest_Ring.blockymodel",
+    "CustomModel": "Blocks/Dungeons/Book.blockymodel",
     "CustomModelTexture": [
       {
-        "Texture": "Items/Quest/Quest_Ring_Texture.png",
+        "Texture": "Blocks/Dungeons/Book_Brown.png",
         "Weight": 1
       }
     ],
@@ -28,7 +28,7 @@
       }
     },
     "BlockParticleSetId": "Stone",
-    "HitboxType": "Food_Medium",
+    "HitboxType": "Book",
     "Material": "Empty",
     "Support": {
       "Down": [
@@ -40,10 +40,10 @@
   },
   "PlayerAnimationsId": "Item",
   "IconProperties": {
-    "Scale": 0.7,
+    "Scale": 0.695,
     "Translation": [
-      0,
-      -8
+      0.7,
+      -4.1
     ],
     "Rotation": [
       22.5,

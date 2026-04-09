@@ -13,7 +13,7 @@
     {"id": "evidence_correspondence", "label": "encoded correspondence", "labelPlural": "encoded correspondence", "fetchItemType": "quest_letter"},
     {"id": "evidence_deed", "label": "the original deed", "labelPlural": "original deeds", "fetchItemType": "quest_scroll"},
     {"id": "evidence_blueprint", "label": "a set of stolen plans", "labelPlural": "sets of stolen plans", "fetchItemType": "quest_scroll"},
-    {"id": "evidence_signet", "label": "a signet ring", "labelPlural": "signet rings", "fetchItemType": "quest_ring"},
+    {"id": "evidence_signet", "label": "a signet ring", "labelPlural": "signet rings", "fetchItemType": "quest_treasure"},
     {"id": "evidence_logbook", "label": "the guard's logbook", "labelPlural": "guard logbooks", "fetchItemType": "quest_document"}
   ]
 }

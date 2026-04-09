@@ -13,10 +13,10 @@
   "BlockType": {
     "DrawType": "Model",
     "Opacity": "Transparent",
-    "CustomModel": "Items/Quest/Quest_Vial.blockymodel",
+    "CustomModel": "Blocks/Miscellaneous/Potion.blockymodel",
     "CustomModelTexture": [
       {
-        "Texture": "Items/Quest/Quest_Vial_Texture.png",
+        "Texture": "Blocks/Miscellaneous/Potion_Texture.png",
         "Weight": 1
       }
     ],
@@ -36,14 +36,15 @@
           "FaceType": "Full"
         }
       ]
-    }
+    },
+    "CustomModelScale": 0.5
   },
   "PlayerAnimationsId": "Item",
   "IconProperties": {
-    "Scale": 0.7,
+    "Scale": 0.835,
     "Translation": [
-      0,
-      -8
+      0.305,
+      -6.895
     ],
     "Rotation": [
       22.5,
@@ -56,5 +57,6 @@
       "Deco"
     ]
   },
-  "ItemSoundSetId": "ISS_Blocks_Wood"
+  "ItemSoundSetId": "ISS_Blocks_Wood",
+  "Scale": 2
 }

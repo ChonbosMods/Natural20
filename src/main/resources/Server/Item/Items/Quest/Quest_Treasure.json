@@ -13,10 +13,14 @@
   "BlockType": {
     "DrawType": "Model",
     "Opacity": "Transparent",
-    "CustomModel": "Items/Quest/Quest_Treasure.blockymodel",
+    "CustomModel": "Blocks/Dungeons/Treasure_Object.blockymodel",
     "CustomModelTexture": [
       {
-        "Texture": "Items/Quest/Quest_Treasure_Texture.png",
+        "Texture": "Blocks/Dungeons/Treasure_Pile_Texture.png",
+        "Weight": 1
+      },
+      {
+        "Texture": "Blocks/Dungeons/Treasure_Pile_Texture2.png",
         "Weight": 1
       }
     ],
@@ -28,7 +32,7 @@
       }
     },
     "BlockParticleSetId": "Stone",
-    "HitboxType": "Food_Medium",
+    "HitboxType": "Rubble",
     "Material": "Empty",
     "Support": {
       "Down": [
@@ -40,15 +44,15 @@
   },
   "PlayerAnimationsId": "Item",
   "IconProperties": {
-    "Scale": 0.7,
-    "Translation": [
-      0,
-      -8
-    ],
+    "Scale": 0.6,
     "Rotation": [
-      22.5,
-      45,
-      22.5
+      358,
+      265,
+      341
+    ],
+    "Translation": [
+      -1,
+      -10
     ]
   },
   "Tags": {
