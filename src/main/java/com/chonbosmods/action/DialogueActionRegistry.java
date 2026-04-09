@@ -396,6 +396,12 @@ public class DialogueActionRegistry {
             obj.markComplete();
             quest.setState(com.chonbosmods.quest.QuestState.READY_FOR_TURN_IN);
 
+            // Defer the completion banner until the dialogue UI closes so it doesn't
+            // render on top of the active dialogue. The flag flip happens in
+            // DialogueManager.endSession via QuestInstance.markPhaseReadyForTurnIn().
+            Natural20.getInstance().getDialogueManager()
+                .queueBannerOnSessionEnd(ctx.player().getPlayerRef().getUuid(), quest);
+
             // Save
             saveQuest(questSystem, ctx.playerData(), quest);
 

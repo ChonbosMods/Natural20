@@ -20,6 +20,12 @@ public class QuestInstance {
     private Set<Integer> rewardsClaimed = new HashSet<>();
     private boolean skillcheckPassed;
 
+    /** True once the completion banner has fired for the current phase.
+     *  Reset to false on phase advance (incrementConflictCount).
+     *  Prevents re-firing when revertable objectives (FETCH_ITEM, COLLECT_RESOURCES)
+     *  oscillate between ACTIVE_OBJECTIVE and READY_FOR_TURN_IN. */
+    private boolean bannerShownForCurrentPhase;
+
     public QuestInstance() {}
 
     public QuestInstance(String questId, String situationId, String sourceNpcId,
@@ -41,8 +47,27 @@ public class QuestInstance {
     public String getSourceSettlementId() { return sourceSettlementId; }
     public QuestState getState() { return state; }
     public void setState(QuestState state) { this.state = state; }
+
+    /**
+     * Sets state to {@link QuestState#READY_FOR_TURN_IN} and reports whether
+     * this is the first time the current phase has entered that state.
+     *
+     * @return true if the caller should fire the completion banner (first time
+     *         this phase reached READY_FOR_TURN_IN); false on subsequent
+     *         re-entries within the same phase
+     */
+    public boolean markPhaseReadyForTurnIn() {
+        this.state = QuestState.READY_FOR_TURN_IN;
+        if (bannerShownForCurrentPhase) return false;
+        bannerShownForCurrentPhase = true;
+        return true;
+    }
+
     public int getConflictCount() { return conflictCount; }
-    public void incrementConflictCount() { this.conflictCount++; }
+    public void incrementConflictCount() {
+        this.conflictCount++;
+        this.bannerShownForCurrentPhase = false;
+    }
     public int getMaxConflicts() { return maxConflicts; }
     public void setMaxConflicts(int maxConflicts) { this.maxConflicts = maxConflicts; }
     public boolean hasMoreConflicts() { return conflictCount < maxConflicts; }

@@ -8,6 +8,7 @@ import com.chonbosmods.dialogue.model.*;
 import com.chonbosmods.quest.DialogueResolver;
 import com.chonbosmods.quest.ObjectiveInstance;
 import com.chonbosmods.quest.ObjectiveType;
+import com.chonbosmods.quest.QuestCompletionBanner;
 import com.chonbosmods.quest.QuestInstance;
 import com.chonbosmods.quest.QuestSystem;
 import com.chonbosmods.settlement.NpcRecord;
@@ -37,6 +38,9 @@ public class DialogueManager {
     private final DialogueActionRegistry actionRegistry;
     private final ConditionEvaluator conditionEvaluator;
     private final Map<UUID, ConversationSession> activeSessions = new ConcurrentHashMap<>();
+    /** Quests waiting to fire their completion banner once the player's dialogue session ends.
+     *  Used by TALK_TO_NPC objectives so the banner doesn't render on top of the dialogue UI. */
+    private final Map<UUID, List<QuestInstance>> pendingBanners = new ConcurrentHashMap<>();
     private PostureResolver postureResolver;
 
     public DialogueManager(DialogueLoader dialogueLoader, DialogueActionRegistry actionRegistry) {
@@ -221,7 +225,31 @@ public class DialogueManager {
         if (session != null) {
             // Activate any pending quest objectives now that the dialogue session is over
             activatePendingObjectives(session.getPlayerData());
+            // Fire any banners deferred during the session (e.g. TALK_TO_NPC completions)
+            firePendingBanners(playerUuid, session);
             LOGGER.atFine().log("Ended dialogue session for player %s", playerUuid);
+        }
+    }
+
+    /**
+     * Queue a quest's completion banner to fire once the player's current dialogue
+     * session ends. Used by TALK_TO_NPC completion so the banner doesn't render on
+     * top of the dialogue UI. The banner respects the per-phase first-fire rule
+     * via {@link QuestInstance#markPhaseReadyForTurnIn()}.
+     */
+    public void queueBannerOnSessionEnd(UUID playerUuid, QuestInstance quest) {
+        pendingBanners.computeIfAbsent(playerUuid, k -> new ArrayList<>()).add(quest);
+    }
+
+    private void firePendingBanners(UUID playerUuid, ConversationSession session) {
+        List<QuestInstance> queued = pendingBanners.remove(playerUuid);
+        if (queued == null || queued.isEmpty()) return;
+        Player player = session.getPlayer();
+        if (player == null) return;
+        for (QuestInstance quest : queued) {
+            if (quest.markPhaseReadyForTurnIn()) {
+                QuestCompletionBanner.show(player.getPlayerRef(), quest);
+            }
         }
     }
 

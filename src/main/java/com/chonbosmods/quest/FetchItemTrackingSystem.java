@@ -95,7 +95,9 @@ public class FetchItemTrackingSystem extends EntityEventSystem<EntityStore, Inve
             if (hasItem && !wasReady) {
                 // Picked up quest item
                 obj.markComplete();
-                quest.setState(QuestState.READY_FOR_TURN_IN);
+                if (quest.markPhaseReadyForTurnIn()) {
+                    QuestCompletionBanner.show(player.getPlayerRef(), quest);
+                }
                 dirty = true;
                 setTurnInParticle(quest);
                 LOGGER.atInfo().log("FETCH_ITEM: player %s picked up %s for quest %s",

@@ -108,7 +108,9 @@ public class CollectResourceTrackingSystem extends EntityEventSystem<EntityStore
 
             if (nowComplete && !wasReady) {
                 obj.markComplete();
-                quest.setState(QuestState.READY_FOR_TURN_IN);
+                if (quest.markPhaseReadyForTurnIn()) {
+                    QuestCompletionBanner.show(player.getPlayerRef(), quest);
+                }
                 dirty = true;
                 LOGGER.atInfo().log("COLLECT_RESOURCES: player %s reached %d/%d %s for quest %s",
                     player.getPlayerRef().getUuid(), totalCount, obj.getRequiredCount(),

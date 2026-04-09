@@ -149,7 +149,7 @@ public class POIKillTrackingSystem extends DamageEventSystem {
                 LOGGER.atInfo().log("SUCCESS: POI kill objective complete for quest %s (%d/%d kills)",
                     quest.getQuestId(), obj.getCurrentCount(), obj.getRequiredCount());
 
-                quest.setState(QuestState.READY_FOR_TURN_IN);
+                boolean firstReady = quest.markPhaseReadyForTurnIn();
                 LOGGER.atInfo().log("Quest %s objective complete via POI kill (conflict %d): awaiting turn-in",
                     quest.getQuestId(), quest.getConflictCount());
                 stateManager.saveActiveQuests(playerData, quests);
@@ -157,10 +157,13 @@ public class POIKillTrackingSystem extends DamageEventSystem {
                 // Set turn-in particle on source NPC
                 setTurnInParticle(quest);
 
-                // Refresh markers: swaps POI marker -> return marker at settlement
+                // Refresh markers + show banner: swaps POI marker -> return marker at settlement
                 Player player = store.getComponent(playerRef, Player.getComponentType());
                 if (player != null) {
                     QuestMarkerProvider.refreshMarkers(player.getPlayerRef().getUuid(), playerData);
+                    if (firstReady) {
+                        QuestCompletionBanner.show(player.getPlayerRef(), quest);
+                    }
                 }
             } else {
                 stateManager.saveActiveQuests(playerData, quests);
