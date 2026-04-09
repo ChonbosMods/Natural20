@@ -1,6 +1,6 @@
 {
   "values": [
-    {"id": "keepsake_journal", "label": "a worn leather journal", "labelPlural": "worn leather journals", "fetchItemType": "quest_document"},
+    {"id": "keepsake_journal", "label": "a worn leather journal", "labelPlural": "worn leather journals", "fetchItemType": "quest_book"},
     {"id": "keepsake_figurine", "label": "a clay figurine they always carried", "labelPlural": "clay figurines", "fetchItemType": "quest_keepsake"},
     {"id": "keepsake_ring", "label": "a ring that never left their hand", "labelPlural": "rings", "fetchItemType": "quest_treasure"},
     {"id": "keepsake_tool", "label": "a tool with their initials carved into the handle", "labelPlural": "tools", "fetchItemType": "quest_keepsake"},
@@ -9,8 +9,8 @@
     {"id": "keepsake_comb", "label": "a wooden comb with a flower pattern", "labelPlural": "wooden combs", "fetchItemType": "quest_keepsake"},
     {"id": "keepsake_portrait", "label": "a small portrait wrapped in cloth", "labelPlural": "small portraits", "fetchItemType": "quest_document"},
     {"id": "keepsake_compass", "label": "a battered compass that still points true", "labelPlural": "battered compasses", "fetchItemType": "quest_treasure"},
-    {"id": "keepsake_knife", "label": "a folding knife with a bone handle", "labelPlural": "folding knives", "fetchItemType": "quest_keepsake"},
+    {"id": "keepsake_knife", "label": "a folding knife with a bone handle", "labelPlural": "folding knives", "fetchItemType": "quest_remains"},
     {"id": "keepsake_locket", "label": "a tin locket with a lock of hair inside", "labelPlural": "tin lockets", "fetchItemType": "quest_treasure"},
-    {"id": "keepsake_pipe", "label": "a clay pipe they never went anywhere without", "labelPlural": "clay pipes", "fetchItemType": "quest_keepsake"}
+    {"id": "keepsake_pipe", "label": "a clay pipe they never went anywhere without", "labelPlural": "clay pipes", "fetchItemType": "quest_vial"}
   ]
 }
