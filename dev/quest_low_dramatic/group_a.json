@@ -1,0 +1,438 @@
+[
+  {
+    "id": "supplication_04",
+    "topicHeader": "Steady Hands Needed",
+    "situation": "supplication",
+    "objectives": [
+      {
+        "type": "KILL_MOBS",
+        "countMin": 3,
+        "countMax": 6
+      },
+      {
+        "type": "COLLECT_RESOURCES",
+        "countMin": 5,
+        "countMax": 9
+      }
+    ],
+    "expositionText": "I've got {enemy_type_plural} coming around most nights now, and it's getting to be more than I can handle on my own. Not a crisis yet, but it will be if nobody deals with {kill_count} of them soon. I could use a hand if you've got the time.",
+    "acceptText": "Appreciated. I'll keep things in order here while you're out.",
+    "declineText": "Fair enough. I'll sort it out eventually. Always do.",
+    "expositionTurnInText": "That's taken care of, then. Good. There's one more thing I should mention while you're here. The stores took a hit during all that trouble.",
+    "conflict1Text": "I'm short on {quest_item}. Not dangerously so, but enough that I'd rather get ahead of it now than scramble later. {gather_count} would put me right.",
+    "conflict1TurnInText": "That'll do it. Shelves look the way they should again. Come on inside.",
+    "resolutionText": "Everything's back where it ought to be, and I've got you to thank for it. Take {quest_reward}. You've earned it, and I'd rather pay a debt when it's fresh.",
+    "skillCheck": {
+      "skill": "PERSUASION",
+      "dc": 11,
+      "passText": "I suppose if I'm being honest, it's been wearing on me more than I let on. I've been sleeping with a chair against the door for two weeks. Not the kind of habit I want to keep.",
+      "failText": "It's been a nuisance. Nothing I can't manage, given time."
+    },
+    "rewardText": "a fair day's wage and a standing offer of supper",
+    "valence": "negative",
+    "roleAffinity": []
+  },
+  {
+    "id": "supplication_05",
+    "topicHeader": "Running Low",
+    "situation": "supplication",
+    "objectives": [
+      {
+        "type": "FETCH_ITEM"
+      },
+      {
+        "type": "TALK_TO_NPC"
+      },
+      {
+        "type": "COLLECT_RESOURCES",
+        "countMin": 4,
+        "countMax": 8
+      }
+    ],
+    "expositionText": "I need a {quest_item} and I haven't been able to get one myself. The work's piling up and I'm falling behind. It's the kind of problem that gets worse the longer you leave it.",
+    "acceptText": "Good. That's one less thing on my mind.",
+    "declineText": "All right. I'll work around it somehow. Wouldn't be the first time.",
+    "expositionTurnInText": "That's exactly what I needed. Now there's a related matter. Someone in {target_npc_settlement} should know about the situation here.",
+    "conflict1Text": "Find {target_npc} for me. They're a {target_npc_role} in {target_npc_settlement}, and we have an arrangement. Let them know I'm behind and could use what they promised. They'll understand.",
+    "conflict1TurnInText": "They agreed? Good. I figured they would. That takes a weight off going forward.",
+    "conflict2Text": "One more thing, if you're willing. I need {gather_count} {quest_item} to fill out what's been running thin. After that I'll be properly caught up.",
+    "conflict2TurnInText": "That does it. I can stop rationing and start working normally again.",
+    "resolutionText": "I'm back on my feet, and it didn't take half as long as I expected. Take {quest_reward}. You made a hard stretch considerably shorter.",
+    "skillCheck": {
+      "skill": "PERSUASION",
+      "dc": 12,
+      "passText": "If I'm honest, I've been putting off asking anyone for help for weeks. Pride, mostly. It's a poor substitute for supplies, but it's hard to let go of.",
+      "failText": "I've just been busy. It happens."
+    },
+    "targetNpcOpener": "So you're here on behalf of the {self_role} in {settlement_name}. I'd been expecting word sooner, to be honest. The arrangement still holds. I'll send what I can by week's end.",
+    "targetNpcCloser": "Tell them it's coming. No need to worry about it further.",
+    "rewardText": "what I can spare from the stores and my thanks",
+    "valence": "negative",
+    "roleAffinity": [
+      "ArtisanBlacksmith",
+      "ArtisanAlchemist",
+      "ArtisanCook"
+    ]
+  },
+  {
+    "id": "deliverance_04",
+    "topicHeader": "An Overdue Errand",
+    "situation": "deliverance",
+    "objectives": [
+      {
+        "type": "TALK_TO_NPC"
+      },
+      {
+        "type": "FETCH_ITEM"
+      }
+    ],
+    "expositionText": "I've been meaning to check in on {target_npc} in {target_npc_settlement}. They're a {target_npc_role}, and they were in a rough spot last I heard. I haven't been able to get away. If you're heading that direction, I'd appreciate you looking in on them.",
+    "acceptText": "Thank you. It'll ease my mind to know how they're doing.",
+    "declineText": "Understood. I'll send word another way when I can.",
+    "expositionTurnInText": "So they're still struggling. I was afraid of that. There's something that might help, if I can get it to them in time.",
+    "conflict1Text": "Bring me a {quest_item}. I know it would make a difference for their situation. Once I have it, I'll figure out the rest.",
+    "conflict1TurnInText": "That's the one. I'll have this sent over by tomorrow. It won't cover everything they need, but it's a start.",
+    "resolutionText": "Word came back that they're doing better. That's all I needed to hear. Take {quest_reward}. You saved me a trip I couldn't afford to make, and you did it properly.",
+    "skillCheck": {
+      "skill": "PERSUASION",
+      "dc": 12,
+      "passText": "The truth is I feel responsible for not going sooner. We grew up together, and I let the distance become an excuse. That's been sitting with me for a while now.",
+      "failText": "They're a friend. I'd like to see them through this stretch."
+    },
+    "targetNpcOpener": "Someone sent you from {settlement_name}? That's kind of them. Things have been difficult here, but I'm managing. It helps to know people remember.",
+    "targetNpcCloser": "Tell them I'm holding on. That's the honest answer.",
+    "rewardText": "a few coins I had set aside and my genuine thanks",
+    "valence": "negative",
+    "roleAffinity": []
+  },
+  {
+    "id": "deliverance_05",
+    "topicHeader": "Clear the Way",
+    "situation": "deliverance",
+    "objectives": [
+      {
+        "type": "KILL_MOBS",
+        "countMin": 4,
+        "countMax": 7
+      },
+      {
+        "type": "FETCH_ITEM"
+      },
+      {
+        "type": "TALK_TO_NPC"
+      }
+    ],
+    "expositionText": "The road to {other_settlement} has been blocked by {enemy_type_plural} for about a week now. People here need that route open, and it won't clear itself. {kill_count} of them dealt with should make it passable again.",
+    "acceptText": "Good. The sooner it's done, the sooner things can move again.",
+    "declineText": "Right. We'll wait it out, then. It'll open up eventually, one way or another.",
+    "expositionTurnInText": "I can already see the difference. People are talking about making the trip again. But while the road was down, something else came up.",
+    "conflict1Text": "We've been waiting on a {quest_item} that should have come through days ago. It's probably sitting at a dead drop somewhere between here and there. See if you can track it down.",
+    "conflict1TurnInText": "That's the one. Good condition, too. We can put this to use right away.",
+    "conflict2Text": "One last thing. {target_npc} in {target_npc_settlement} needs to know the road is open again. They're a {target_npc_role}, and they've been holding off on sending supplies until it was safe. Let them know it's clear.",
+    "conflict2TurnInText": "{target_npc} is sending a cart? That settles everything. We're back to normal.",
+    "resolutionText": "The road is open, the supplies are moving, and {settlement_name} can breathe again. Take {quest_reward}. You kept a bad week from becoming a bad month.",
+    "skillCheck": {
+      "skill": "PERSUASION",
+      "dc": 13,
+      "passText": "Between you and me, I was starting to worry about the children. We had enough food for maybe three more days at the rate things were going. I didn't see any reason to announce that to everyone.",
+      "failText": "It's an inconvenience we need dealt with. That's the sum of it."
+    },
+    "targetNpcOpener": "The road from {settlement_name} is clear? About time. I've had a full cart sitting here for days with nowhere to send it. I'll have it loaded and moving by morning.",
+    "targetNpcCloser": "Good work getting it sorted. Tell them we'll be on schedule from here.",
+    "rewardText": "what the households put together for the trouble and a meal whenever you pass through",
+    "valence": "negative",
+    "roleAffinity": []
+  },
+  {
+    "id": "recovery_04",
+    "topicHeader": "Back to Even",
+    "situation": "recovery",
+    "objectives": [
+      {
+        "type": "COLLECT_RESOURCES",
+        "countMin": 6,
+        "countMax": 10
+      },
+      {
+        "type": "KILL_MOBS",
+        "countMin": 3,
+        "countMax": 5
+      },
+      {
+        "type": "TALK_TO_NPC"
+      }
+    ],
+    "expositionText": "I'm missing {gather_count} {quest_item} that I had put aside for the season. Gone overnight. Not the end of the world, but I'd like to replace it before anyone notices the gap.",
+    "acceptText": "I appreciate it. This will go faster with help.",
+    "declineText": "No trouble. I'll gather it myself over the next few days.",
+    "expositionTurnInText": "That fills the gap nicely. Now, the reason the supply disappeared in the first place.",
+    "conflict1Text": "{enemy_type_plural} have been getting into things. {kill_count} of them removed would keep this from happening again. I'd rather solve the problem than keep replacing what they take.",
+    "conflict1TurnInText": "That should put a stop to it. I can stop checking the stores every morning. There's one more loose end, though.",
+    "conflict2Text": "{target_npc} in {target_npc_settlement} was the one who warned me something was off. They're a {target_npc_role}. I'd like you to let them know we handled it. They worry.",
+    "conflict2TurnInText": "Good. {target_npc} can stop keeping an eye out on our behalf. Everything's accounted for.",
+    "resolutionText": "Stores are full, the problem is solved, and the people who were concerned have been told. Take {quest_reward}. It's what I'd have spent on the trouble anyway, and this way I got it done properly.",
+    "skillCheck": {
+      "skill": "PERSUASION",
+      "dc": 11,
+      "passText": "I should tell you it wasn't just supplies. There was something in there from my late wife. A small thing, but I found it in the mess afterward, and that's when I decided I was done tolerating the situation.",
+      "failText": "Just a supply issue. Nothing more complicated than that."
+    },
+    "targetNpcOpener": "You're here about the trouble at {settlement_name}? I'm glad they took it seriously. I noticed the signs a while back and figured I should say something before it got out of hand.",
+    "targetNpcCloser": "Glad it's resolved. Tell them the offer to help stands if anything else comes up.",
+    "rewardText": "a fair sum and my word that I won't forget the help",
+    "valence": "negative",
+    "roleAffinity": [
+      "Villager",
+      "ArtisanCook"
+    ]
+  },
+  {
+    "id": "recovery_05",
+    "topicHeader": "Putting It Right",
+    "situation": "recovery",
+    "objectives": [
+      {
+        "type": "FETCH_ITEM"
+      },
+      {
+        "type": "COLLECT_RESOURCES",
+        "countMin": 5,
+        "countMax": 8
+      }
+    ],
+    "expositionText": "I had a {quest_item} that went missing about a week ago. I can work around it for now, but I need it back to keep things running properly. If you come across one, I'd be grateful.",
+    "acceptText": "Thank you. I'll put the time to good use here while you're looking.",
+    "declineText": "All right. I'll keep an ear out for one through other channels.",
+    "expositionTurnInText": "That's the one. Or close enough. Good. Now there's the matter of what fell behind while I was without it.",
+    "conflict1Text": "I need {gather_count} {quest_item} to make up for lost ground. A week without my usual setup means a week of backlog. Nothing dramatic, just honest work that needs doing.",
+    "conflict1TurnInText": "That puts me right where I should have been all along. Like the interruption never happened.",
+    "resolutionText": "Everything is back in order, and I can stop thinking about what went wrong and start thinking about what comes next. Take {quest_reward}. It's a fair trade for the peace of mind.",
+    "skillCheck": {
+      "skill": "INSIGHT",
+      "dc": 12,
+      "passText": "It bothers me more than it should, losing things. My father ran this operation before me and he never lost a single day to disorganization. I measure myself against that, probably more than is healthy.",
+      "failText": "Things go missing. It's just the way of it sometimes."
+    },
+    "rewardText": "what I can spare from the till and a solid handshake",
+    "valence": "negative",
+    "roleAffinity": [
+      "ArtisanBlacksmith",
+      "ArtisanAlchemist"
+    ]
+  },
+  {
+    "id": "daring_enterprise_04",
+    "topicHeader": "The Next Step",
+    "situation": "daring_enterprise",
+    "objectives": [
+      {
+        "type": "COLLECT_RESOURCES",
+        "countMin": 5,
+        "countMax": 10
+      },
+      {
+        "type": "KILL_MOBS",
+        "countMin": 3,
+        "countMax": 5
+      },
+      {
+        "type": "TALK_TO_NPC"
+      }
+    ],
+    "expositionText": "I've been planning something for a while now, and I think it's time to move on it. The first step is practical. I need {gather_count} {quest_item} to lay the groundwork. Nothing fancy, just the foundation.",
+    "acceptText": "Good. I was hoping someone would see the sense in this. Let's get started.",
+    "declineText": "All right. I'll move at my own pace. It'll take longer, but the plan is sound.",
+    "expositionTurnInText": "That's exactly what I needed. The shape of the thing is starting to come together. There is a complication, though.",
+    "conflict1Text": "{enemy_type_plural} have been occupying the area I need to work in. {kill_count} of them cleared out would let me set up without interruption. A small obstacle in the larger picture.",
+    "conflict1TurnInText": "Clean and clear. That's the workspace sorted. One more piece and we're there.",
+    "conflict2Text": "I'd like {target_npc} in {target_npc_settlement} to weigh in before I commit fully. They're a {target_npc_role}, and their opinion would confirm whether I'm on the right track. Would you ask them?",
+    "conflict2TurnInText": "{target_npc} thinks it'll work? That's all the confirmation I needed. Time to finish what I started.",
+    "resolutionText": "It's done, and it turned out exactly as I'd planned. Take {quest_reward}. You helped me turn an idea into something real, and I value that.",
+    "skillCheck": {
+      "skill": "PERSUASION",
+      "dc": 12,
+      "passText": "I'll level with you. I've had this idea for two years and I've talked myself out of starting it at least a dozen times. Having someone else involved makes it harder to back out. That's partly why I asked.",
+      "failText": "It's a solid plan. I just need the help to execute it."
+    },
+    "targetNpcOpener": "The {self_role} from {settlement_name} wants my assessment? I've heard bits about this project. The approach is sound from what I can tell. I'd say go ahead with it.",
+    "targetNpcCloser": "Tell them they have my approval. It's a good use of their time and resources.",
+    "rewardText": "a fair share of the proceeds and an open door at my workshop",
+    "valence": "positive",
+    "roleAffinity": []
+  },
+  {
+    "id": "daring_enterprise_05",
+    "topicHeader": "Building Forward",
+    "situation": "daring_enterprise",
+    "objectives": [
+      {
+        "type": "FETCH_ITEM"
+      },
+      {
+        "type": "COLLECT_RESOURCES",
+        "countMin": 4,
+        "countMax": 8
+      }
+    ],
+    "expositionText": "I've got a project in mind that could benefit the whole settlement, and I'm ready to start. I need a {quest_item} first. It's the kind of thing you plan around, not improvise.",
+    "acceptText": "Good. I appreciate someone taking this seriously. This will be worth the effort.",
+    "declineText": "Understood. I'll find another way to get it moving. The idea isn't going anywhere.",
+    "expositionTurnInText": "That's the key piece. I can already see how the rest fits together. Now I just need the materials to build it out.",
+    "conflict1Text": "I need {gather_count} {quest_item} for the construction. It's straightforward work, but there's more of it than I can manage alone while keeping everything else running.",
+    "conflict1TurnInText": "That's everything I needed. I can start putting it together this afternoon.",
+    "resolutionText": "It's finished, and it looks exactly the way I pictured it. Take {quest_reward}. You helped me build something I've been carrying around in my head for months, and now it's standing right there in front of me.",
+    "skillCheck": {
+      "skill": "PERSUASION",
+      "dc": 11,
+      "passText": "Honestly, I wasn't sure I could pull this off. I've started projects before that fizzled out halfway through. Having someone reliable involved from the start made all the difference this time.",
+      "failText": "It's a project I believe in. That's reason enough."
+    },
+    "rewardText": "a proper payment and the satisfaction of seeing it built",
+    "valence": "positive",
+    "roleAffinity": [
+      "ArtisanBlacksmith",
+      "Villager"
+    ]
+  },
+  {
+    "id": "pursuit_04",
+    "topicHeader": "Settling the Matter",
+    "situation": "pursuit",
+    "objectives": [
+      {
+        "type": "KILL_MOBS",
+        "countMin": 4,
+        "countMax": 6
+      },
+      {
+        "type": "TALK_TO_NPC"
+      }
+    ],
+    "expositionText": "The {enemy_type_plural} near {settlement_name} have become a recurring problem, and I'd like to put an end to it. {kill_count} of them removed should break the pattern. I've watched long enough to know this won't resolve on its own.",
+    "acceptText": "Good. I'd rather deal with it now than keep managing around it.",
+    "declineText": "All right. I'll find someone else, or handle it when the opportunity comes. It won't fix itself, but it can wait a little longer.",
+    "expositionTurnInText": "That's the immediate pressure off. But I want to make sure we're not just pushing the problem down the road.",
+    "conflict1Text": "{target_npc} in {target_npc_settlement} is a {target_npc_role} who's dealt with this kind of thing before. Go ask them what they'd recommend to keep it from coming back. I'd rather do this once and do it right.",
+    "conflict1TurnInText": "{target_npc} had advice? Good. I'll put it to use. That's the difference between fixing something and actually solving it.",
+    "resolutionText": "The problem is handled and I know it won't circle back around. That's worth a lot to me. Take {quest_reward}. It's a fair exchange for work that was done properly.",
+    "skillCheck": {
+      "skill": "PERSUASION",
+      "dc": 13,
+      "passText": "The real reason I want this finished is that I promised {settlement_npc} things would get better. I've been saying that for three weeks now and my word is starting to wear thin. I'd like to be the kind of person who follows through.",
+      "failText": "It's a problem that needs solving. I'm just the one who decided to act on it."
+    },
+    "targetNpcOpener": "You're from {settlement_name}? I know the issue you're talking about. I've seen it play out in other settlements. There are steps you can take to discourage them from returning.",
+    "targetNpcCloser": "Pass that along. If they follow through, they shouldn't see the same trouble again.",
+    "rewardText": "a solid purse and the knowledge that it's done right",
+    "valence": "negative",
+    "roleAffinity": []
+  },
+  {
+    "id": "pursuit_05",
+    "topicHeader": "Tracking It Down",
+    "situation": "pursuit",
+    "objectives": [
+      {
+        "type": "FETCH_ITEM"
+      },
+      {
+        "type": "KILL_MOBS",
+        "countMin": 3,
+        "countMax": 6
+      }
+    ],
+    "expositionText": "Something's been causing problems and I've narrowed it down. I need a {quest_item} to confirm what I suspect. Bring me that and I'll know for certain where the trouble is coming from.",
+    "acceptText": "Appreciated. I've been piecing this together for a while and I'd like to finish it.",
+    "declineText": "Fine. I'll get there on my own. Slower, but I'll get there.",
+    "expositionTurnInText": "That confirms it. The picture is clear now, and I know exactly what needs to happen next.",
+    "conflict1Text": "The source of the problem is a group of {enemy_type_plural} that have dug in nearby. {kill_count} of them taken care of ends this. No more guessing, no more waiting.",
+    "conflict1TurnInText": "That's finished. Properly finished. I can stop thinking about it and move on to something else.",
+    "resolutionText": "The problem is identified, addressed, and closed. Take {quest_reward}. Clean work deserves a clean payment.",
+    "skillCheck": {
+      "skill": "PERSUASION",
+      "dc": 12,
+      "passText": "I'll tell you why I care about this so much. {settlement_npc} got hurt last month because of the same trouble and wouldn't tell anyone. I found out by accident. I decided then that I was going to fix this whether anyone asked me to or not.",
+      "failText": "I've been watching the situation closely. That's all."
+    },
+    "rewardText": "fair coin for honest work",
+    "valence": "negative",
+    "roleAffinity": [
+      "Guard",
+      "Traveler"
+    ]
+  },
+  {
+    "id": "disaster_04",
+    "topicHeader": "What Needs Doing",
+    "situation": "disaster",
+    "objectives": [
+      {
+        "type": "COLLECT_RESOURCES",
+        "countMin": 7,
+        "countMax": 12
+      },
+      {
+        "type": "KILL_MOBS",
+        "countMin": 3,
+        "countMax": 6
+      }
+    ],
+    "expositionText": "We had a bad night and lost most of our stores. Nobody's hurt, which is the important thing. I need {gather_count} {quest_item} to start putting things back together. Standing around won't fix it.",
+    "acceptText": "Much appreciated. Every pair of hands counts right now.",
+    "declineText": "Understood. We'll manage with what we have. It'll just take more time.",
+    "expositionTurnInText": "That's a solid start. We can work with this. There's one more problem that needs attention before we can settle in.",
+    "conflict1Text": "{enemy_type_plural} have been drawn in by the damage, poking around the wreckage for whatever they can find. {kill_count} of them cleared off and we can focus on rebuilding without watching our backs.",
+    "conflict1TurnInText": "Good. That's the last obstacle. We can get to work without interruption now.",
+    "resolutionText": "We're going to come through this just fine. Slower than I'd like, but standing. Take {quest_reward}. The settlement put it together and I was asked to make sure you got it.",
+    "skillCheck": {
+      "skill": "PERSUASION",
+      "dc": 12,
+      "passText": "I won't pretend it doesn't weigh on me. I'm the one people look to when things go wrong, and some mornings I wake up not sure I have the answers they need. But I show up anyway, because that's the job.",
+      "failText": "It's a setback. We've had them before and we'll have them again."
+    },
+    "rewardText": "what the households could gather and the thanks of everyone here",
+    "valence": "negative",
+    "roleAffinity": [
+      "Villager",
+      "Guard"
+    ]
+  },
+  {
+    "id": "disaster_05",
+    "topicHeader": "The Practical Side",
+    "situation": "disaster",
+    "objectives": [
+      {
+        "type": "FETCH_ITEM"
+      },
+      {
+        "type": "COLLECT_RESOURCES",
+        "countMin": 5,
+        "countMax": 9
+      },
+      {
+        "type": "TALK_TO_NPC"
+      }
+    ],
+    "expositionText": "The flooding took out our tool shed and most of what was in it. I need a {quest_item} before I can start any of the repair work. Without the right equipment, all I'm doing is staring at the problem.",
+    "acceptText": "Thank you. That gets us past the first hurdle.",
+    "declineText": "All right. I'll improvise something in the meantime.",
+    "expositionTurnInText": "Now I can actually get to work. But the tools were only part of the issue. The materials for repair are another matter entirely.",
+    "conflict1Text": "I need {gather_count} {quest_item} for the rebuild. It's unglamorous work, but it's what stands between us and getting back to normal.",
+    "conflict1TurnInText": "That's enough to make real progress. The framework's already going up. One more thing would put us properly ahead.",
+    "conflict2Text": "{target_npc} in {target_npc_settlement} is a {target_npc_role} who has experience with this sort of damage. I'd like their input before I commit to the full repair plan. Would you go ask them?",
+    "conflict2TurnInText": "{target_npc} had suggestions? I expected as much. That saves us from making expensive mistakes.",
+    "resolutionText": "We're rebuilt, we're sound, and we did it without cutting corners. Take {quest_reward}. You turned a bad situation into a clean recovery, and I'd rather you know that than wonder.",
+    "skillCheck": {
+      "skill": "INSIGHT",
+      "dc": 13,
+      "passText": "You can tell it's not my first time through something like this, can't you. The last flood was worse, and we lost people then. I've been calm because panic doesn't keep water out. But I'm tired of rebuilding the same things.",
+      "failText": "We've had weather before. This one just hit harder than most."
+    },
+    "targetNpcOpener": "Flooding in {settlement_name}? That section of the valley is prone to it. I can sketch out a few things that would help with the rebuild and reduce the risk next time around.",
+    "targetNpcCloser": "Take these notes back. They should save considerable effort if followed properly.",
+    "rewardText": "the settlement's pooled funds and a warm welcome whenever you return",
+    "valence": "negative",
+    "roleAffinity": []
+  }
+]

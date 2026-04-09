@@ -1,0 +1,218 @@
+[
+  {
+    "id": "mistaken_jealousy_04",
+    "topicHeader": "Quiet Doubts",
+    "situation": "mistaken_jealousy",
+    "objectives": [
+      { "type": "FETCH_ITEM" },
+      { "type": "TALK_TO_NPC" }
+    ],
+    "expositionText": "I noticed {settlement_npc} has been trading privately with someone outside {settlement_name}, and they haven't mentioned a word of it to me. We share everything about our dealings, or at least we used to. I found a {quest_item} among their things that doesn't match anything local. Bring me one like it so I can compare.",
+    "acceptText": "I appreciate it. I'd rather be wrong about this than right.",
+    "declineText": "That's fine. I'll sort it out on my own, the way I usually do.",
+    "expositionTurnInText": "Interesting. Holding yours next to the one I found, they're clearly the same kind, and neither of them is rare. I was reading too much into it. But I still want to know why the secrecy.",
+    "conflict1Text": "There's someone who would know the full story. {target_npc} in {target_npc_settlement} does a lot of the same trade as {settlement_npc}, and they'd recognize this kind of dealing. Go ask them if there's a reason someone might keep it quiet.",
+    "conflict1TurnInText": "So {settlement_npc} was arranging a gift for me and needed to keep it hidden until it was finished. That's what all the quiet meetings were about. I feel foolish, but I'd rather feel foolish than suspicious.",
+    "targetNpcOpener": "You're asking about {settlement_npc}'s trading? I know exactly what that's about. They came to me weeks ago looking for something specific, and they asked me not to say anything because it was meant as a surprise. Seemed harmless enough, so I kept it to myself.",
+    "targetNpcCloser": "Tell them they can stop worrying. The surprise is a kind one.",
+    "resolutionText": "I told {settlement_npc} what I'd been thinking, and they just shook their head and handed me the thing they'd been working on. It was exactly the kind of gesture I should have expected from them. Take {quest_reward}. You kept me from ruining something good with my own suspicion.",
+    "skillCheck": {
+      "skill": "PERSUASION",
+      "dc": 12,
+      "passText": "I'll be honest with you. I've been told before that I read too much into things, and every time I promise myself I'll stop, I find a new pattern to worry about. This time I was so sure I was right that I didn't stop to ask whether I wanted to be.",
+      "failText": "I'd rather just get the facts and move on."
+    },
+    "rewardText": "a fair trade's worth and my word that I'll think twice next time",
+    "valence": "negative",
+    "roleAffinity": []
+  },
+  {
+    "id": "mistaken_jealousy_05",
+    "topicHeader": "What I Overheard",
+    "situation": "mistaken_jealousy",
+    "objectives": [
+      { "type": "TALK_TO_NPC" },
+      { "type": "FETCH_ITEM" }
+    ],
+    "expositionText": "I overheard {settlement_npc} talking about me to someone from {other_settlement}, and the parts I caught didn't sound charitable. I wasn't close enough to hear everything, but I'd like to know before I let it sit any longer. Would you talk to {target_npc} in {target_npc_settlement}? They were there for the conversation.",
+    "acceptText": "Good. I'd rather know what was actually said than keep filling in the gaps myself.",
+    "declineText": "Understood. I'll let it go, or try to.",
+    "expositionTurnInText": "So {target_npc} says {settlement_npc} was actually defending me to that trader, and the harsh tone I heard was directed at the other person. I had the whole thing backwards. I should have asked sooner instead of letting it fester.",
+    "conflict1Text": "I want to make this right. {settlement_npc} went to bat for me and I've been walking around assuming the worst of them. Bring me a {quest_item}, something I can give them so they know I value what they did, even if I'm too embarrassed to explain why.",
+    "conflict1TurnInText": "That's a good {quest_item}. Simple enough that it won't raise questions, and honest enough that they'll know I mean it.",
+    "targetNpcOpener": "I remember that conversation clearly. {settlement_npc} was telling a trader from outside that they'd better stop spreading rumors about people in {settlement_name}. It got heated, but {settlement_npc} held their ground. They were standing up for someone they care about.",
+    "targetNpcCloser": "If you're asking because someone took it the wrong way, you can set their mind at ease.",
+    "resolutionText": "I gave {settlement_npc} the gift and told them I'd heard them that day, and that I was grateful. They seemed surprised anyone had noticed. Take {quest_reward}. You stopped me from holding a grudge against someone who deserved the opposite.",
+    "skillCheck": {
+      "skill": "PERSUASION",
+      "dc": 11,
+      "passText": "The part I haven't admitted is that I expected the worst because I've been feeling like an outsider here for months. When you already feel unwanted, it's easy to hear confirmation in every conversation you're not part of.",
+      "failText": "It's nothing worth going into. I just want clarity."
+    },
+    "rewardText": "what I can put together on short notice and my honest thanks",
+    "valence": "negative",
+    "roleAffinity": []
+  },
+  {
+    "id": "erroneous_judgment_04",
+    "topicHeader": "A Record to Set Straight",
+    "situation": "erroneous_judgment",
+    "objectives": [
+      { "type": "FETCH_ITEM" },
+      { "type": "TALK_TO_NPC" }
+    ],
+    "expositionText": "Someone accused me of selling poor goods to a family in {other_settlement}, and the accusation has spread faster than I can correct it. My work speaks for itself, but apparently that's not enough when the story is better than the truth. I need a {quest_item}, the same kind I supposedly sold them. Bring me one and I'll show anyone who looks that what I make holds up.",
+    "acceptText": "I appreciate it. I've been patient about this, but patience has a limit.",
+    "declineText": "I'll manage. I've weathered worse, though I shouldn't have to weather this at all.",
+    "expositionTurnInText": "Good. This is exactly the quality I put out, and anyone who compares it to what that family received will see the difference immediately. The piece they got wasn't mine. Now I need someone who can confirm that.",
+    "conflict1Text": "{target_npc} in {target_npc_settlement} handled the original shipment. They saw what went out and they saw what arrived, and they'll know if something was swapped along the way. Ask them to tell you plainly what happened.",
+    "conflict1TurnInText": "So {target_npc} says the goods were switched after they left my hands. That's what I've been saying, and now there's someone besides me who can prove it. I can finally stop defending myself and let the facts do the talking.",
+    "targetNpcOpener": "I remember that shipment. I handled it personally, and what I packed was solid work. What arrived at the other end was not the same goods. Someone made a switch between here and there, and it wasn't the person everyone's been blaming.",
+    "targetNpcCloser": "I'll say it to anyone who asks. The work that left this table was sound.",
+    "resolutionText": "The family in {other_settlement} heard the real story and sent word that they don't hold it against me. That's all I wanted. Take {quest_reward}. I'm glad there are still people willing to look at evidence instead of just listening to gossip.",
+    "skillCheck": {
+      "skill": "PERSUASION",
+      "dc": 13,
+      "passText": "What bothers me most is that nobody came to me first. They heard a story and decided it was true without once walking through my door to ask. I've lived here for years and apparently that counts for nothing when the rumor is interesting enough.",
+      "failText": "The facts will speak for themselves. They always do, eventually."
+    },
+    "rewardText": "a sample of my best work and a fair bit of coin",
+    "valence": "negative",
+    "roleAffinity": []
+  },
+  {
+    "id": "erroneous_judgment_05",
+    "topicHeader": "The Wrong Name",
+    "situation": "erroneous_judgment",
+    "objectives": [
+      { "type": "TALK_TO_NPC" },
+      { "type": "FETCH_ITEM" }
+    ],
+    "expositionText": "My apprentice has been blamed for a fire that started near the workshop last week, and I know for a fact they weren't responsible because they were with me the entire evening. The people who saw the smoke needed someone to point at, and a young apprentice is an easy target. Go to {target_npc} in {target_npc_settlement}. They were passing through that night and may have seen how it actually started.",
+    "acceptText": "Thank you. I've been calm about this, but my apprentice hasn't, and they deserve better than what they're getting.",
+    "declineText": "I see. Then I'll keep saying what I know and hoping someone eventually listens.",
+    "expositionTurnInText": "{target_npc} saw the fire start from a knocked lantern near the old fence. Nobody was near it. It was the wind, plain and simple. That should be enough to clear my apprentice, but I want to be thorough.",
+    "conflict1Text": "Bring me a {quest_item}. The lantern that started the fire would have left a mark on whatever it landed on, and the {quest_item} will help me prove the burn pattern doesn't match anything a person would have done. I want this settled so completely that nobody brings it up again.",
+    "conflict1TurnInText": "That confirms it. The pattern is exactly what you'd expect from a fallen lantern, and nothing like what you'd see from someone setting a fire on purpose. My apprentice can hold their head up again.",
+    "targetNpcOpener": "I was on the road that evening and I saw the whole thing. A gust caught a lantern on the fence post and it went over. Nobody was within fifty paces of it. I would have said something sooner, but I didn't know anyone was being blamed until now.",
+    "targetNpcCloser": "I'll put my name behind what I saw. The young one had nothing to do with it.",
+    "resolutionText": "I showed the evidence to the people who mattered, and {target_npc}'s account put it to rest. My apprentice came to work this morning without that hunted look they've been wearing all week, and that alone was worth everything. Take {quest_reward}. You helped me protect someone who couldn't protect themselves.",
+    "skillCheck": {
+      "skill": "PERSUASION",
+      "dc": 12,
+      "passText": "I'll tell you what I've been keeping quiet. My apprentice offered to confess to it, just to make the pressure stop, and I had to talk them out of it. That's what false accusations do to a young person. They start believing them.",
+      "failText": "I'd rather focus on clearing their name than talking about how it feels."
+    },
+    "rewardText": "a fair day's wages and the gratitude of a mentor and their apprentice",
+    "valence": "negative",
+    "roleAffinity": []
+  },
+  {
+    "id": "remorse_04",
+    "topicHeader": "What I Left Undone",
+    "situation": "remorse",
+    "objectives": [
+      { "type": "TALK_TO_NPC" },
+      { "type": "FETCH_ITEM" }
+    ],
+    "expositionText": "A neighbor asked me for help last month and I turned them down because I was busy. Turned out they needed it badly, and by the time I realized, the damage was done and I haven't been able to look them in the eye since. Would you talk to {target_npc} in {target_npc_settlement}? They know my neighbor well, and I'd like to understand how much harm my refusal actually caused.",
+    "acceptText": "I appreciate it. I've been carrying this around and it's time I did something about it instead of just thinking about it.",
+    "declineText": "Fair enough. It's my problem to sort out. I just thought an outside perspective might help.",
+    "expositionTurnInText": "So {target_npc} says the damage wasn't as bad as I feared, but that my neighbor felt abandoned by it. That's the part that stings. They didn't need me to fix everything, they just needed me to show up, and I didn't.",
+    "conflict1Text": "I want to do something concrete. My neighbor lost a {quest_item} during all of that, and replacing it won't undo what I did, but it'll show them I was paying attention even when I wasn't there. Bring me one.",
+    "conflict1TurnInText": "That's exactly right. They'll know it's a replacement for what they lost, and they'll know I remembered. Sometimes that's what an apology looks like when words aren't enough.",
+    "targetNpcOpener": "Your neighbor told me about that. They weren't angry, mostly just hurt. They'd counted on someone being there, and when nobody came, they handled it alone. It worked out, but the feeling of being on your own like that sticks with a person.",
+    "targetNpcCloser": "If someone wants to make it right, a small gesture would go a long way. They're not the type to hold a grudge.",
+    "resolutionText": "I brought the {quest_item} over and sat with them for a while. We didn't talk about what happened, but they set it on the shelf where the old one used to be, and that felt like enough. Take {quest_reward}. You helped me stop putting off something I should have done weeks ago.",
+    "skillCheck": {
+      "skill": "PERSUASION",
+      "dc": 11,
+      "passText": "The truth is I wasn't just busy. I was tired of being the person everyone comes to, and I chose the wrong moment to draw that line. It's one thing to set boundaries and another thing entirely to abandon someone.",
+      "failText": "I'd rather not get into the reasons. The result is what matters."
+    },
+    "rewardText": "a portion of my stores and my honest gratitude",
+    "valence": "negative",
+    "roleAffinity": []
+  },
+  {
+    "id": "remorse_05",
+    "topicHeader": "An Old Debt",
+    "situation": "remorse",
+    "objectives": [
+      { "type": "FETCH_ITEM" },
+      { "type": "TALK_TO_NPC" }
+    ],
+    "expositionText": "Years ago I borrowed a {quest_item} from someone and never returned it. At the time I told myself it didn't matter, that they had plenty, but they didn't, and I've known that for a long time now. I can't give back the original, but I can replace it. Bring me one, and I'll stop pretending this isn't something I need to fix.",
+    "acceptText": "Thank you. It's a small thing to most people, but it hasn't been small to me.",
+    "declineText": "I understand. It's an old story and nobody's life depends on it. But it's been on my mind longer than I'd like to admit.",
+    "expositionTurnInText": "That's a good one. Better than the original, honestly, which makes me feel worse and better at the same time. Now comes the harder part.",
+    "conflict1Text": "The person I took it from moved to {target_npc_settlement} a while back. I need you to find {target_npc} there. They'll know where to find them, or they might be the person I need to talk to. I'd go myself, but I think it's better if someone explains first, before I show up with a replacement and a decade of guilt.",
+    "conflict1TurnInText": "{target_npc} remembers the whole thing, and they said they'd given up expecting to hear about it again. That's fair. I gave them no reason to expect anything from me. But they're willing to accept the replacement, and that's more than I deserve.",
+    "targetNpcOpener": "I remember that {quest_item}. I noticed it was gone a long time ago, and I had a good idea who took it. I decided it wasn't worth a fight, so I let it go. But I never forgot, and knowing someone finally came to make it right does mean something.",
+    "targetNpcCloser": "Tell them the door's open. I'd rather have the friendship back than the thing itself.",
+    "resolutionText": "I sent the {quest_item} along with a letter, the first honest one I've written in years. {target_npc} sent a short reply, just a few words, but kind ones. Take {quest_reward}. You helped me close something I'd been keeping open far too long.",
+    "skillCheck": {
+      "skill": "INSIGHT",
+      "dc": 12,
+      "passText": "The real weight of it isn't the thing I took. It's that I let myself become the kind of person who could take it and walk away. Every year I didn't return it, I proved that version of myself right, and I'm tired of proving it right.",
+      "failText": "It's just time I dealt with it. Nothing more to say about it."
+    },
+    "rewardText": "what I can spare and the relief of a lighter conscience",
+    "valence": "negative",
+    "roleAffinity": []
+  },
+  {
+    "id": "involuntary_crimes_of_love_04",
+    "topicHeader": "Good Intentions Gone Sideways",
+    "situation": "involuntary_crimes_of_love",
+    "objectives": [
+      { "type": "TALK_TO_NPC" },
+      { "type": "FETCH_ITEM" }
+    ],
+    "expositionText": "I tried to help my cousin by speaking to the council on their behalf about a land dispute, and somehow I made the whole thing worse. They won't explain what I said wrong, and the council won't revisit the decision. I keep going over it and I can't find the mistake. Would you talk to {target_npc} in {target_npc_settlement}, since they sit on the same council?",
+    "acceptText": "I appreciate that. I'm not upset, just confused, and confused is harder to fix than upset.",
+    "declineText": "I understand. It's a tangled situation and I shouldn't expect anyone else to untangle it for me.",
+    "expositionTurnInText": "So {target_npc} says the council took my comments as me claiming my cousin couldn't speak for themselves. I was trying to support them, but it sounded like I was taking over. I can see how that would have hurt the case and hurt my cousin at the same time.",
+    "conflict1Text": "Now that I understand what went wrong, I want to do something that puts the focus back on my cousin where it belongs. There's a {quest_item} that would strengthen their original claim, something the council values as evidence of good faith. Bring me one, and I'll let my cousin present it themselves this time.",
+    "conflict1TurnInText": "Perfect. I'll hand it to my cousin and step back. That's what I should have done the first time. Support from behind, not from in front.",
+    "targetNpcOpener": "I was at that council meeting. Your cousin's family member meant well, I could see that. But speaking over someone in a land dispute makes the council wonder who really wants the land. It raised questions nobody had before, and that's what did the damage.",
+    "targetNpcCloser": "The council would hear the case again if the cousin brought new evidence themselves. That door isn't closed.",
+    "resolutionText": "My cousin went before the council with the {quest_item} and spoke clearly and well, and the decision was reversed. They thanked me afterward, which surprised me, because I was the one who nearly cost them everything. Take {quest_reward}. You helped me see the line between helping and overstepping.",
+    "skillCheck": {
+      "skill": "PERSUASION",
+      "dc": 13,
+      "passText": "If I'm honest, I think I spoke up because I wanted to feel useful more than I wanted to help. My cousin is perfectly capable, and somewhere in the back of my mind I knew that. I just wanted to be the one who fixed it.",
+      "failText": "I was only trying to help. That's really all there is to it."
+    },
+    "rewardText": "a fair share from my cousin's stores and my own, combined",
+    "valence": "negative",
+    "roleAffinity": []
+  },
+  {
+    "id": "obstacles_to_love_04",
+    "topicHeader": "A Slow Bridge",
+    "situation": "obstacles_to_love",
+    "objectives": [
+      { "type": "TALK_TO_NPC" },
+      { "type": "FETCH_ITEM" }
+    ],
+    "expositionText": "There's someone in {other_settlement} I've been writing to for nearly a year, though we've never met in person. I think it's time to change that, but I don't know if they feel the same way. Would you talk to {target_npc} in {target_npc_settlement}? They've been carrying our letters, and they'd know better than anyone whether I'm reading the signs correctly.",
+    "acceptText": "Thank you. I've been going back and forth on this for weeks, and having someone else's eyes on it will help me decide.",
+    "declineText": "That's alright. I'll keep writing and see what happens on its own. Some things take the time they take.",
+    "expositionTurnInText": "{target_npc} says the letters coming back have been getting longer and warmer with every exchange, and that the last one asked about the road to {settlement_name}. They're thinking about visiting. That's more than I let myself hope for.",
+    "conflict1Text": "If they're considering the trip, I want to send something along with the next letter. Something that says the visit would be welcome without saying too much too soon. Find me a {quest_item}. The kind of thing that's thoughtful without being heavy.",
+    "conflict1TurnInText": "That's exactly right. Not too much, not too little. They'll understand what it means, and if they don't, it's still a nice thing to receive. Either way, I've said what I needed to say.",
+    "targetNpcOpener": "I've been carrying letters between those two for months now, and I'll tell you, the handwriting on both sides has gotten more careful over time. That's how you know someone is choosing their words. The last letter I carried had a pressed flower tucked inside the fold.",
+    "targetNpcCloser": "If you ask me, the bridge is already halfway built. Someone just needs to take the next step.",
+    "resolutionText": "I sent the {quest_item} with my letter, and the reply came faster than any before it. They're coming to visit next month, and they used the word 'looking forward' twice, which I read three times to be sure. Take {quest_reward}. You helped me stop waiting and start moving, and that was the part I couldn't do alone.",
+    "skillCheck": {
+      "skill": "INSIGHT",
+      "dc": 10,
+      "passText": "I've been cautious because I lost someone before, a long time ago, and I told myself I wouldn't put that much weight on another person's feelings again. But here I am, reading letters by candlelight and caring about every word. Caution only works if you're not already invested, and I passed that point months ago.",
+      "failText": "It's just something I've been thinking about. We'll see how it goes."
+    },
+    "rewardText": "the good preserves I've been saving and a hopeful heart's thanks",
+    "valence": "positive",
+    "roleAffinity": []
+  }
+]
