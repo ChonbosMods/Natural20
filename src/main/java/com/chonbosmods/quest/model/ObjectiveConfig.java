@@ -9,12 +9,13 @@ public record ObjectiveConfig(
     @Nullable ObjectiveType type,
     @Nullable Integer countMin,
     @Nullable Integer countMax,
-    @Nullable String locationPreference
+    @Nullable String locationPreference,
+    @Nullable String fetchItem
 ) {
     /** Legacy 3-arg constructor for existing code that doesn't specify type. */
     public ObjectiveConfig(@Nullable Integer countMin, @Nullable Integer countMax,
                            @Nullable String locationPreference) {
-        this(null, countMin, countMax, locationPreference);
+        this(null, countMin, countMax, locationPreference, null);
     }
 
     public int rollCount(Random random) {
