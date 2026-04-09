@@ -105,8 +105,8 @@ public class QuestGenerator {
         // Conflict count is template-driven: a 2-objective template has 1 conflict, a
         // 5-objective template has 4 conflicts. The roll-vs-cap model from v1 is gone.
         List<ObjectiveConfig> objConfigs = template.objectives();
-        if (objConfigs == null || objConfigs.size() < 2) {
-            LOGGER.atWarning().log("V2 template %s has fewer than 2 objective configs", template.id());
+        if (objConfigs == null || objConfigs.isEmpty()) {
+            LOGGER.atWarning().log("V2 template %s has no objective configs", template.id());
             return null;
         }
         int maxConflicts = objConfigs.size() - 1;
@@ -249,6 +249,7 @@ public class QuestGenerator {
             case FETCH_ITEM -> "hostile".equals(bindings.get("fetch_variant"))
                 ? "retrieve " + obj.getTargetLabel() + " from " + bindings.getOrDefault("subject_name", "the area")
                 : "recover " + obj.getTargetLabel();
+            case PEACEFUL_FETCH -> "pick up " + obj.getTargetLabel();
             case TALK_TO_NPC -> "speak with " + obj.getTargetLabel();
         };
         bindings.put("quest_objective_summary", summary);
@@ -339,6 +340,23 @@ public class QuestGenerator {
 
                 yield new ObjectiveInstance(
                     type, bindings.get("gather_item_id"), bindings.get("quest_item"),
+                    1, null, targetSettlementKey
+                );
+            }
+            case PEACEFUL_FETCH -> {
+                // Draw a random keepsake item for the narrative
+                QuestPoolRegistry.ItemEntry fetchEntry = poolRegistry.randomKeepsakeItem(random);
+                bindings.put("quest_item", fetchEntry.label());
+                bindings.put("gather_item_id", fetchEntry.id());
+                String fetchItemType = QuestPoolRegistry.getBaseItemType(fetchEntry);
+                bindings.put("fetch_item_type", fetchItemType);
+                bindings.put("fetch_item_label", fetchEntry.label());
+                bindings.put("fetch_variant", "peaceful");
+
+                String targetSettlementKey = bindings.get("target_npc_settlement_key");
+
+                yield new ObjectiveInstance(
+                    type, fetchEntry.id(), fetchEntry.label(),
                     1, null, targetSettlementKey
                 );
             }

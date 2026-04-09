@@ -77,7 +77,8 @@ public class FetchItemTrackingSystem extends EntityEventSystem<EntityStore, Inve
             if (fetchItemType == null) continue;
 
             ObjectiveInstance obj = quest.getCurrentObjective();
-            if (obj == null || obj.getType() != ObjectiveType.FETCH_ITEM) continue;
+            if (obj == null || (obj.getType() != ObjectiveType.FETCH_ITEM
+                    && obj.getType() != ObjectiveType.PEACEFUL_FETCH)) continue;
 
             // Check if fetch item exists anywhere in inventory
             boolean hasItem = false;

@@ -162,7 +162,8 @@ public class QuestMarkerProvider implements WorldMapManager.MarkerProvider {
                             }
                         }
                     }
-                } else if (objType == com.chonbosmods.quest.ObjectiveType.FETCH_ITEM) {
+                } else if (objType == com.chonbosmods.quest.ObjectiveType.FETCH_ITEM
+                        || objType == com.chonbosmods.quest.ObjectiveType.PEACEFUL_FETCH) {
                     // Peaceful FETCH_ITEM: marker at target settlement
                     String locationId = currentObj.getLocationId();
                     if (locationId != null) {

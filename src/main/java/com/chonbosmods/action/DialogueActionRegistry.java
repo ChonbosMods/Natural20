@@ -259,7 +259,8 @@ public class DialogueActionRegistry {
             // Consume items for the current objective
             ObjectiveInstance currentObj = quest.getCurrentObjective();
             if (currentObj != null) {
-                if (currentObj.getType() == ObjectiveType.FETCH_ITEM) {
+                if (currentObj.getType() == ObjectiveType.FETCH_ITEM
+                        || currentObj.getType() == ObjectiveType.PEACEFUL_FETCH) {
                     String fetchItemType = quest.getVariableBindings().get("fetch_item_type");
                     if (fetchItemType != null) consumeFetchItem(ctx, fetchItemType);
                 } else if (currentObj.getType() == ObjectiveType.COLLECT_RESOURCES) {
@@ -363,6 +364,7 @@ public class DialogueActionRegistry {
                     case FETCH_ITEM -> "hostile".equals(bindings.get("fetch_variant"))
                         ? "retrieve " + newObj.getTargetLabel() + " from " + bindings.getOrDefault("subject_name", "the area")
                         : "recover " + newObj.getTargetLabel();
+                    case PEACEFUL_FETCH -> "pick up " + newObj.getTargetLabel();
                     case TALK_TO_NPC -> "speak with " + newObj.getTargetLabel();
                 };
                 bindings.put("quest_objective_summary", summary);
@@ -520,6 +522,7 @@ public class DialogueActionRegistry {
         return switch (type) {
             case COLLECT_RESOURCES -> true;
             case KILL_MOBS, FETCH_ITEM -> true; // resolveAndPlacePoi handles void + surface fallback
+            case PEACEFUL_FETCH -> true;
             case TALK_TO_NPC -> tryResolveDeferredTalkToNpc(quest, objective);
         };
     }
