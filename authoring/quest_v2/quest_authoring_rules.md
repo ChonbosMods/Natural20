@@ -64,22 +64,27 @@ Hard constraints for quest template authoring. These are not suggestions. Every 
 
 22. **Skill checks occur at the accept/decline phase only (MVP).** For the current implementation, `skillCheck.passText` and `skillCheck.failText` are shown during the exposition/accept-decline interaction. They do not appear during conflict phases or resolution. Author pass/fail text accordingly — the player hasn't done anything yet. They're still deciding whether to help.
 
-23. **The author must specify a skill type.** Each skill check is tied to a specific skill. The pass/fail text must read coherently for the chosen skill. If the pass text reads like the NPC revealed an emotional truth, the skill should be INSIGHT, not NATURE. If the pass text reads like the player noticed a physical detail, the skill should be PERCEPTION, not PERSUASION.
+23. **The author must specify a skill type.** Each skill check is tied to a specific skill. The pass/fail text must read coherently for the chosen skill. The full authoring guidance for skill checks — including the emotional dynamic, NPC mental state, logical structure, critical distinctions between similar skills, and anti-patterns — lives in `authoring/skill_check_authoring_guidance.md`. That document is the canonical reference for writing pass and fail text. Do not author skill check text without reading it.
 
-24. **Skill-to-context mapping:**
+24. **Quick skill-selection reference.** Use the table below to pick the right skill for the situation. For guidance on *how to write the pass/fail text* for that skill, see `authoring/skill_check_authoring_guidance.md`.
 
-| Skill | Good fit when... | Pass text reads like... |
-|---|---|---|
-| PERCEPTION | The NPC is hiding or glossing over a physical detail — damage, tracks, signs of a problem | The player noticed something the NPC didn't point out |
-| INSIGHT | The NPC is hiding their real feelings, personal stakes, or deeper motivation | The NPC opened up about something vulnerable |
-| PERSUASION | The NPC is reluctant, guarded, or testing whether the player is trustworthy | The player earned the NPC's trust and got the fuller story |
-| INVESTIGATION | The NPC's account has gaps, inconsistencies, or missing context | The player asked the right question and got a more complete picture |
-| NATURE | The threat or problem involves creature behavior, terrain, weather, or survival knowledge | The player demonstrated practical knowledge about the situation |
-| HISTORY | The situation connects to past events, old knowledge, traditions, or regional context | The player recognized a pattern or precedent |
+| Skill | Good fit when... |
+|---|---|
+| PERSUASION (CHA) | The NPC is reluctant, guarded, or testing whether the player is trustworthy |
+| DECEPTION (CHA) | The NPC would respond to a well-placed bluff, leading question, or casual misdirection |
+| INTIMIDATION (CHA) | The NPC is withholding out of stubbornness, cowardice, or self-interest and would crack under pressure |
+| PERFORMANCE (CHA) | The NPC responds to showmanship, charm, or social display |
+| INSIGHT (WIS) | The NPC is hiding their real feelings, personal stakes, or deeper motivation |
+| PERCEPTION (WIS) | The NPC is hiding or glossing over a physical detail, damage, tracks, or signs of a problem |
+| INVESTIGATION (INT) | The NPC's account has gaps, inconsistencies, or missing context |
+| NATURE (INT) | The threat or problem involves creature behavior, terrain, weather, or survival knowledge |
+| HISTORY (INT) | The situation connects to past events, old knowledge, traditions, or regional context |
+| ARCANA (INT) | The situation involves strange phenomena, unusual materials, or something that defies ordinary explanation |
+| RELIGION (INT) | The situation touches on beliefs, sacred traditions, burial customs, or spiritual significance |
 
-25. **Pass text reveals a deeper layer.** The NPC shares something they wouldn't have volunteered: a fear, a personal stake, a tactical observation, or context that reframes the quest. It must still be NPC speech — not a lore entry, not a narrator aside, not a tooltip.
+25. **Pass text reveals a deeper layer.** The NPC shares something they wouldn't have volunteered. It must be NPC speech. See `authoring/skill_check_authoring_guidance.md` for the emotional, mental, and logical framework that defines what "deeper layer" means for each skill.
 
-26. **Fail text deflects naturally.** The NPC pulls back. They don't say "you failed." They change the subject, give a vague answer, or stay surface-level. The player should feel like the NPC chose not to share, not like a game mechanic rejected them.
+26. **Fail text deflects naturally.** The NPC pulls back without signaling that a game mechanic occurred. See `authoring/skill_check_authoring_guidance.md` for per-skill fail dynamics.
 
 ---
 

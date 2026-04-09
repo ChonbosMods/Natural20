@@ -1,0 +1,58 @@
+[
+  {
+    "id": "necessity_of_sacrificing_loved_ones_04",
+    "index": 92,
+    "new_skill": "INVESTIGATION",
+    "dc": 13,
+    "passText": "You caught that, didn't you. I said I've made my peace with it, but the truth is I ran the numbers every season for two years and waited for them to come out differently. They never did. The harvest yields, the supply counts, the winters getting longer. It's arithmetic, and the arithmetic says he has to go. I kept hoping one column would change, and none of them changed.",
+    "failText": "It's the right call. That's enough for me."
+  },
+  {
+    "id": "necessity_of_sacrificing_loved_ones_05",
+    "index": 93,
+    "new_skill": "INVESTIGATION",
+    "dc": 12,
+    "passText": "You're right, that doesn't quite hold together. I said we talked it through, but what actually happened is I laid out the supply figures and the road conditions and the winter projections until she couldn't argue back. I didn't persuade her, I cornered her with facts. She agreed because I left no room to disagree, and calling that a conversation is the lie I tell myself so I can sleep.",
+    "failText": "We talked it through. The decision was made together."
+  },
+  {
+    "id": "necessity_of_sacrificing_loved_ones_10",
+    "index": 194,
+    "new_skill": "INSIGHT",
+    "dc": 12,
+    "passText": "You can see it, can't you. I keep saying the hardest part is letting her go, but that's not it. The hardest part is that she's choosing to leave, and she's right to, and I have to stand here and respect a decision that guts me. I'm not losing her. She's walking away with her eyes open, and I'm the one who can't look.",
+    "failText": "She's old, and she's tired. That's as much as I want to say about it."
+  },
+  {
+    "id": "loss_of_loved_ones_07",
+    "index": 197,
+    "new_skill": "INVESTIGATION",
+    "dc": 11,
+    "passText": "You noticed that the timing doesn't add up. You're right. The {enemy_type_plural} moved in three weeks ago, but I stopped visiting two months before that. I kept finding reasons, the weather, the path, my knees, and none of them were the real one. The real one is that I'm afraid I'll stand at her grave and realize I'm starting to forget her voice, and I don't want to be there when that happens.",
+    "failText": "I just miss her. The rest is my own business."
+  },
+  {
+    "id": "ambition_10",
+    "index": 206,
+    "new_skill": "INSIGHT",
+    "dc": 12,
+    "passText": "You see right through the big talk, don't you. I'm not building this because I love {settlement_name}. I'm terrified of being forgotten. Not dying, that's just mechanics, but passing through and leaving nothing behind. That fear has kept me awake more nights than I'll ever admit to anyone, and this project is the only answer I've found for it.",
+    "failText": "I want to build something. That's reason enough."
+  },
+  {
+    "id": "mistaken_jealousy_06",
+    "index": 208,
+    "new_skill": "INVESTIGATION",
+    "dc": 13,
+    "passText": "You see the problem with what I just told you, don't you. I said I found discrepancies, but I went looking for them. I started with the conclusion and worked backward through the ledger until the numbers confirmed what I'd already decided. Every ambiguous entry fed the story I wanted to tell. I've done this before, and every time the answer turns out to be innocent, and every time I promise I'll stop.",
+    "failText": "I just want the facts. That's all."
+  },
+  {
+    "id": "mistaken_jealousy_07",
+    "index": 209,
+    "new_skill": "INVESTIGATION",
+    "dc": 11,
+    "passText": "You noticed the hole in what I'm asking you to do. I already have the answer. I checked the mud on their boots three days ago and it matched the clay near Margel's house, not the road to {other_settlement}. The excuses don't hold up and I can see that plainly. But knowing wasn't enough to stop the feeling, and the feeling has its own logic that ignores evidence entirely.",
+    "failText": "I just need someone to confirm what I'm hoping is true."
+  }
+]

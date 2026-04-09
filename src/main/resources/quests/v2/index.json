@@ -1532,9 +1532,9 @@
       "conflict1TurnInText": "You spoke to {target_npc}? And they didn't laugh you out of the room? That's more than I had any right to hope for.",
       "resolutionText": "She came by this morning. Didn't say much. Just sat with me for a while, and that was more than I'd had in weeks. Take {quest_reward}. I owe you something I can't really name.",
       "skillCheck": {
-        "skill": "INSIGHT",
+        "skill": "INVESTIGATION",
         "dc": 12,
-        "passText": "The truth is, I knew exactly what I was doing when I said it. I wanted to hurt her in that moment, and I succeeded. That's the part I can't sleep on.",
+        "passText": "You're right, those two things don't fit together. I said it slipped out, but you can hear that the words were too precise for an accident. I chose them because I knew exactly where she was vulnerable, and calling it a slip is the story I've been telling myself so I can sleep.",
         "failText": "It's complicated. Family things usually are."
       },
       "rewardText": "what coin I've been setting aside, and a quiet thank-you I won't forget",
@@ -2191,10 +2191,10 @@
       "conflict1TurnInText": "That'll do it. Shelves look the way they should again. Come on inside.",
       "resolutionText": "Everything's back where it ought to be, and I've got you to thank for it. Take {quest_reward}. You've earned it, and I'd rather pay a debt when it's fresh.",
       "skillCheck": {
-        "skill": "PERSUASION",
+        "skill": "PERCEPTION",
         "dc": 11,
-        "passText": "I suppose if I'm being honest, it's been wearing on me more than I let on. I've been sleeping with a chair against the door for two weeks. Not the kind of habit I want to keep.",
-        "failText": "It's been a nuisance. Nothing I can't manage, given time."
+        "passText": "You noticed the chair, didn't you. I forgot I'd left it against the door. I've been barricading myself in every night for two weeks now, and this morning I realized I'd started doing it during the day too. That's when I knew I couldn't handle this alone anymore.",
+        "failText": "Everything's in order here. Just a rough stretch with the wildlife."
       },
       "rewardText": "a fair day's wage and a standing offer of supper",
       "valence": "negative",
@@ -2452,7 +2452,7 @@
       "skillCheck": {
         "skill": "PERSUASION",
         "dc": 11,
-        "passText": "Honestly, I wasn't sure I could pull this off. I've started projects before that fizzled out halfway through. Having someone reliable involved from the start made all the difference this time.",
+        "passText": "I've been carrying this plan around for two years and never once shown it to anyone. I was afraid that if someone I respected looked at it and shrugged, the dream would be over. Telling you about it is the first time I've let it be real outside my own head.",
         "failText": "It's a project I believe in. That's reason enough."
       },
       "rewardText": "a proper payment and the satisfaction of seeing it built",
@@ -2625,9 +2625,9 @@
       "conflict1TurnInText": "Quieter already. That should keep things manageable for a while.",
       "resolutionText": "That covers everything I needed. Take {quest_reward}. You've saved me a fair amount of time, and time is the one thing I never seem to have enough of.",
       "skillCheck": {
-        "skill": "PERSUASION",
+        "skill": "INSIGHT",
         "dc": 11,
-        "passText": "I suppose the honest version is that I've been putting it off because going out there alone isn't as easy as it used to be. My knees have opinions about the terrain now. It's easier to say I'm busy than to say I'm slower.",
+        "passText": "You can see it, can't you. I'm not busy, I'm slow. My knees have been getting worse for a year and I've been covering it by staying close to the house and calling it being careful. Admitting that I can't make the walk anymore feels like admitting I'm not the person I was, and I wasn't ready for someone to notice.",
         "failText": "It's just one of those chores that stacks up. You know how it goes."
       },
       "rewardText": "a fair day's wage for a fair day's work",
@@ -2839,9 +2839,9 @@
       "conflict2TurnInText": "That'll do. Practical and honest. She'll know what I mean by it.",
       "resolutionText": "We walked the line together this morning. She didn't agree with every post, but she agreed with enough of them, and we shook hands at the end. Take {quest_reward}. You helped two stubborn people find the middle of something they'd lost sight of.",
       "skillCheck": {
-        "skill": "PERSUASION",
+        "skill": "INSIGHT",
         "dc": 12,
-        "passText": "The real problem is that we used to be close. We played in these same fields as children, and now we can't stand in them without an argument. The boundary was never really about the land. It was about proving we still mattered to each other enough to fight over something.",
+        "passText": "You can see it, can't you. This was never about the boundary. We used to play in these fields as children, and the thought that we've become two people who argue over where one yard ends and the other begins makes me sick. Drawing a line between us just made the distance feel permanent.",
         "failText": "It's a property matter. We'll sort it out eventually."
       },
       "rewardText": "a fair sum and the satisfaction of two fewer people yelling across a fence",
@@ -2939,9 +2939,9 @@
       "conflict1TurnInText": "He took it from me and set it by the door. Then he stood there for a while, just looking out. He didn't step through, but he stood closer to it than he has in weeks. That's something.",
       "resolutionText": "He walked to the gate yesterday, not past it, but to it, and he said he might try the market next week. That's progress, and it started with you asking the right question of the right person. Take {quest_reward}. You helped me help someone I care about.",
       "skillCheck": {
-        "skill": "PERSUASION",
+        "skill": "INSIGHT",
         "dc": 13,
-        "passText": "I haven't told him I'm worried because I don't want to make it worse. He's the kind of person who would try to force himself out the door just to prove he's fine, and then feel worse when he couldn't manage it. So I've been pretending everything is casual, and it's tiring.",
+        "passText": "You noticed, didn't you. I've been acting like everything is fine when I visit him, keeping it light, keeping it casual, and it's exhausting. I haven't told him I'm worried because he'd force himself out the door just to prove he's all right and then feel worse when he couldn't manage it. I thought I was hiding the strain better than that.",
         "failText": "He's a good man going through a rough patch. That's all I'll say."
       },
       "rewardText": "what I can spare and the genuine thanks of a worried friend",
@@ -3074,9 +3074,9 @@
       "conflict2TurnInText": "{target_npc} is going to write? That'll mean more to him than he'd ever admit.",
       "resolutionText": "His hands are healing. He's complaining about being idle, which means he's almost himself again. Take {quest_reward}. You helped me keep my brother's life in one piece while he couldn't do it himself.",
       "skillCheck": {
-        "skill": "PERSUASION",
+        "skill": "INSIGHT",
         "dc": 12,
-        "passText": "He's proud, always has been. The hardest part isn't the work itself, it's doing it quietly enough that he doesn't feel diminished. I'd rather wear myself out than let him think he's a burden.",
+        "passText": "You can see what I've been doing, can't you. Keeping it quiet, keeping it invisible, making sure he never notices how much I'm carrying so he doesn't feel like a burden. The hardest part isn't the work, it's smiling through it so he still feels like himself. I didn't think anyone could tell.",
         "failText": "He's mending. That's the important part."
       },
       "rewardText": "what we can spare between us and honest thanks",
@@ -3107,9 +3107,9 @@
       "conflict1TurnInText": "Then it's settled. I thought I'd feel worse about it being real. Instead I just feel like I can finally stop planning and start doing.",
       "resolutionText": "He left this morning. Didn't look back, which is exactly what I told him to do. Take {quest_reward}. I'd rather he grow up somewhere safe than keep him here for my own comfort.",
       "skillCheck": {
-        "skill": "PERSUASION",
+        "skill": "INVESTIGATION",
         "dc": 13,
-        "passText": "I've known this was coming for two years. I watched this place get harder and I weighed it out every season. The numbers stopped working in his favor a while back. It's arithmetic, not emotion.",
+        "passText": "You caught that, didn't you. I said I've made my peace with it, but the truth is I ran the numbers every season for two years and waited for them to come out differently. They never did. The harvest yields, the supply counts, the winters getting longer. It's arithmetic, and the arithmetic says he has to go. I kept hoping one column would change, and none of them changed.",
         "failText": "It's the right call. That's enough for me."
       },
       "rewardText": "a fair sum I set aside for this day",
@@ -3145,9 +3145,9 @@
       "conflict2TurnInText": "{target_npc} is ready for her? Then there's nothing left to wait on.",
       "resolutionText": "She left at first light and we didn't make a scene of it. She said she'd write when she arrived, and I said I'd read it twice. Take {quest_reward}. This was always the practical choice, and you helped me make it cleanly.",
       "skillCheck": {
-        "skill": "PERSUASION",
+        "skill": "INVESTIGATION",
         "dc": 12,
-        "passText": "The truth is, she wanted to stay. I'm the one who insisted. It wasn't an argument, just a conversation where I had the worse facts and she couldn't answer them. That's a hard thing to be right about.",
+        "passText": "You're right, that doesn't quite hold together. I said we talked it through, but what actually happened is I laid out the supply figures and the road conditions and the winter projections until she couldn't argue back. I didn't persuade her, I cornered her with facts. She agreed because I left no room to disagree, and calling that a conversation is the lie I tell myself so I can sleep.",
         "failText": "We talked it through. The decision was made together."
       },
       "rewardText": "what I can spare and a handshake worth something",
@@ -3380,10 +3380,10 @@
       "targetNpcCloser": "I'll say it to anyone who asks. The work that left this table was sound.",
       "resolutionText": "The family in {other_settlement} heard the real story and sent word that they don't hold it against me. That's all I wanted. Take {quest_reward}. I'm glad there are still people willing to look at evidence instead of just listening to gossip.",
       "skillCheck": {
-        "skill": "PERSUASION",
+        "skill": "INSIGHT",
         "dc": 13,
-        "passText": "What bothers me most is that nobody came to me first. They heard a story and decided it was true without once walking through my door to ask. I've lived here for years and apparently that counts for nothing when the rumor is interesting enough.",
-        "failText": "The facts will speak for themselves. They always do, eventually."
+        "passText": "You noticed, didn't you. Everyone else sees someone angry and fighting back, but you saw the part underneath. The truth is I stopped sleeping the week it started, not because I was afraid of the accusation, but because I realized how alone I was in it. Years of neighbors and not one of them came to my door to ask if it was true before deciding it was.",
+        "failText": "I appreciate the concern, but I'm handling it. Some things you just work through on your own."
       },
       "rewardText": "a sample of my best work and a fair bit of coin",
       "valence": "negative",
@@ -3411,10 +3411,10 @@
       "targetNpcCloser": "I'll put my name behind what I saw. The young one had nothing to do with it.",
       "resolutionText": "I showed the evidence to the people who mattered, and {target_npc}'s account put it to rest. My apprentice came to work this morning without that hunted look they've been wearing all week, and that alone was worth everything. Take {quest_reward}. You helped me protect someone who couldn't protect themselves.",
       "skillCheck": {
-        "skill": "PERSUASION",
+        "skill": "INSIGHT",
         "dc": 12,
-        "passText": "I'll tell you what I've been keeping quiet. My apprentice offered to confess to it, just to make the pressure stop, and I had to talk them out of it. That's what false accusations do to a young person. They start believing them.",
-        "failText": "I'd rather focus on clearing their name than talking about how it feels."
+        "passText": "You can see it on me, can't you. I keep saying I'm angry on their behalf, but the truth is I'm terrified. My apprentice offered to confess to it just to make the pressure stop, and I had to talk them out of it. That's what false accusations do to a young person who did nothing wrong.",
+        "failText": "I'm fine. It's them I'm worried about, not me."
       },
       "rewardText": "a fair day's wages and the gratitude of a mentor and their apprentice",
       "valence": "negative",
@@ -3504,10 +3504,10 @@
       "targetNpcCloser": "The council would hear the case again if the cousin brought new evidence themselves. That door isn't closed.",
       "resolutionText": "My cousin went before the council with the {quest_item} and spoke clearly and well, and the decision was reversed. They thanked me afterward, which surprised me, because I was the one who nearly cost them everything. Take {quest_reward}. You helped me see the line between helping and overstepping.",
       "skillCheck": {
-        "skill": "PERSUASION",
+        "skill": "INVESTIGATION",
         "dc": 13,
-        "passText": "If I'm honest, I think I spoke up because I wanted to feel useful more than I wanted to help. My cousin is perfectly capable, and somewhere in the back of my mind I knew that. I just wanted to be the one who fixed it.",
-        "failText": "I was only trying to help. That's really all there is to it."
+        "passText": "You've put your finger on the thing that doesn't add up. I said I was trying to help, but my cousin never asked me to speak and the council never invited outside voices, so I pushed my way in. When you line those facts up it stops looking like concern and starts looking like what it was. I wanted to feel useful more than I wanted to help.",
+        "failText": "I was only trying to help. That's really all there is to say about it."
       },
       "rewardText": "a fair share from my cousin's stores and my own, combined",
       "valence": "negative",
@@ -3568,10 +3568,10 @@
       "conflict1TurnInText": "That's enough to fill the gaps. Nobody will know how close we came. Maybe that's cowardly, but right now I'll take cowardly over chaos.",
       "resolutionText": "The stores are full, the {enemy_type_plural} are gone, and {settlement_npc} still thinks I had it all under control. Take {quest_reward}. You saved me from a mess that was half my own making, and I won't forget that.",
       "skillCheck": {
-        "skill": "DECEPTION",
+        "skill": "INVESTIGATION",
         "dc": 12,
-        "passText": "You could tell, couldn't you, that the numbers I gave {settlement_npc} didn't add up. The truth is I've been skimming from my own rations to keep the public count looking right. I haven't eaten a full meal in four days.",
-        "failText": "It's tight, that's all. Every settlement has lean stretches."
+        "passText": "You're right, the numbers I gave {settlement_npc} don't hold together. I've been skimming from my own rations to keep the public count looking right, reporting what we should have instead of what we do. I haven't eaten a full meal in four days, and nobody questioned it until you.",
+        "failText": "The stores are where they are. I've given you the count."
       },
       "rewardText": "a pouch of coin I kept hidden for exactly this kind of trouble",
       "valence": "negative",
@@ -3601,8 +3601,8 @@
       "skillCheck": {
         "skill": "DECEPTION",
         "dc": 13,
-        "passText": "You picked up on the timing, didn't you. It just any debt. I borrowed the money for medicine for my daughter last winter. If {target_npc} knew it was for that, they'd forgive the whole thing, but then I'd owe them pity, and I'd rather owe them coin.",
-        "failText": "It's a debt, everyone has them. Mine is just overdue."
+        "passText": "Oh, you've dealt with {settlement_npc} before? Then you know how they get about the rotation. The debt is really from medicine I bought for my daughter last winter, and {target_npc} would forgive the whole thing if they knew, but then I'd owe them pity instead of coin. Pity is a debt you never pay off.",
+        "failText": "That's a lot of questions about my finances for someone I just met. Let's keep this about the {quest_item}."
       },
       "rewardText": "a handful of silver and my word that I'll pay it forward",
       "valence": "negative",
@@ -3639,10 +3639,10 @@
       "targetNpcCloser": "It's a common mistake. The fix is simple once you know what to look for.",
       "resolutionText": "I moved the feed, rebuilt the fence, and last night was the quietest I can remember. Take {quest_reward}. You gave me answers on top of help, and that's worth more than either one alone.",
       "skillCheck": {
-        "skill": "INTIMIDATION",
+        "skill": "NATURE",
         "dc": 11,
-        "passText": "Fine, you want the whole picture? I've been sleeping in the pen with them, with a club, because if I lose these animals I lose the only income I have. That's what's actually at stake here, and I haven't told anyone because I don't want their pity.",
-        "failText": "It's just a pest problem. A bad one, but that's all."
+        "passText": "You know what you're looking at, then. They're not just raiding, they're denning nearby, and the torn fence isn't random damage. They're testing the weak points and coming back to the same ones every night. I've been sleeping in the pen with a club because I can't afford to lose these animals, and I didn't know how to explain that to anyone who hadn't seen the pattern.",
+        "failText": "They keep getting through the fence. I don't know much about why they pick the spots they pick."
       },
       "rewardText": "the coin I've been hiding under the floorboard and a debt I intend to repay",
       "valence": "negative",
@@ -3774,10 +3774,10 @@
       "targetNpcCloser": "We'll have them home before dark. Tell the family to keep a light burning.",
       "resolutionText": "My cousin walked through the door an hour ago, dirty and shaken but whole. I've never been so relieved in my life. Take {quest_reward}. You cleared the way and found the right person to finish it, and I owe you everything.",
       "skillCheck": {
-        "skill": "DECEPTION",
+        "skill": "PERCEPTION",
         "dc": 12,
-        "passText": "You can see through me, can't you. I told everyone here that I'm sure my cousin is fine, that they're just delayed. The truth is I found blood on the trail this morning, and I cleaned it up before anyone else saw it because I couldn't bear the look on my aunt's face if she knew.",
-        "failText": "They're overdue, that's all. People get delayed out there sometimes."
+        "passText": "You saw the scrub marks on the trail stones, didn't you. I cleaned up what I found this morning before anyone else walked that path. There was blood, not much, but enough. I've been telling everyone my cousin is just delayed, and I need that to stay true for a little longer.",
+        "failText": "The trail looks the same as always. They're just running late."
       },
       "rewardText": "the coin my aunt pressed into my hands and my own besides",
       "valence": "negative",
@@ -3812,9 +3812,9 @@
       "targetNpcCloser": "Keep them warm and fed, and in two weeks you won't remember how scared you were. They'll be fine.",
       "resolutionText": "{settlement_npc} sat up at the table this morning and complained about the soup being too salty. I nearly knocked the bowl over hugging them. Take {quest_reward}. You gave them back to us.",
       "skillCheck": {
-        "skill": "DECEPTION",
+        "skill": "INVESTIGATION",
         "dc": 13,
-        "passText": "You noticed I said 'read about' and not 'heard about,' didn't you. I found a journal in my mother's things after she died, and she had the same illness years ago. The {quest_item} was underlined three times. She didn't make it, but she wrote that it gave her more time, and I'm hoping more time is all {settlement_npc} needs.",
+        "passText": "You caught that. I said 'read about' and not 'heard about.' I found a journal in my mother's things after she died, and she had the same illness years ago. The {quest_item} was underlined three times. She didn't make it, but she wrote that it gave her more time, and I'm hoping more time is all {settlement_npc} needs.",
         "failText": "I heard it helps. That's enough reason to try."
       },
       "rewardText": "the silver I had saved and a meal at our table for as long as you want one",
@@ -3969,10 +3969,10 @@
       "targetNpcCloser": "I'll put my assessment in writing. Nobody should get away with this kind of dealing.",
       "resolutionText": "The trade council ruled in my favor and I got every coin back. The look on that merchant's face when {target_npc}'s letter was read aloud was almost worth the trouble. Take {quest_reward}. You helped me prove what I already knew, and sometimes that's the hardest part.",
       "skillCheck": {
-        "skill": "DECEPTION",
+        "skill": "INVESTIGATION",
         "dc": 12,
-        "passText": "You caught that, didn't you. I almost didn't bring this to anyone because the truth is I should have checked the goods before I paid. I was in a rush and I cut corners, and the merchant saw someone careless and took advantage. That's the part that burns.",
-        "failText": "I was cheated, it's straightforward. I just need the proof to make it official."
+        "passText": "You spotted it too, the weight was wrong for the size. I should have checked before I paid, but I was in a rush and the merchant saw someone careless and took advantage. Half the weight, wrong material underneath the finish, and I handed over full price without a second look. That's the part that burns.",
+        "failText": "I was cheated. The details aren't complicated enough to be worth explaining."
       },
       "rewardText": "a share of the refund and my word as a fair dealer",
       "valence": "negative",
@@ -4007,8 +4007,8 @@
       "skillCheck": {
         "skill": "DECEPTION",
         "dc": 13,
-        "passText": "You can tell there's more to it, can't you. The stores they hit weren't just mine, I was holding supplies for three other families who trusted me to keep them safe. I haven't told any of them what happened because I'm trying to replace everything before they find out. If they learn I failed them, I lose more than goods.",
-        "failText": "They made a mess and I want it fixed. That covers it."
+        "passText": "Right, so you've seen how tight storage gets around here, that's actually the whole problem. The stores they hit weren't just mine, I was holding supplies for three other families who trusted me to keep them safe. I've been trying to replace everything before any of them check. If they find out I lost what they gave me, I lose more than goods.",
+        "failText": "I appreciate the help, but I don't need anyone digging into the details. Just handle the {enemy_type_plural}."
       },
       "rewardText": "the payment I set aside from the last trade run and my honest thanks",
       "valence": "negative",
@@ -4199,9 +4199,9 @@
       "targetNpcCloser": "If they're serious about this, tell them to start from the eastern fork. That's where the terrain gets cooperative.",
       "resolutionText": "The first supply run went through this morning and arrived a full day ahead of the old schedule. I'm standing here watching the carts roll in and I can't stop smiling. Take {quest_reward}. You helped build something that will outlast both of us.",
       "skillCheck": {
-        "skill": "DECEPTION",
+        "skill": "INVESTIGATION",
         "dc": 12,
-        "passText": "You picked up on it, didn't you. I told the council the route was practically proven, but it wasn't. I had sketches and hunches and a desperate wish for it to work. If {target_npc} had said no, I'd have been standing in front of the council with nothing.",
+        "passText": "You saw the gap in the plan, didn't you. I told the council the route was practically proven, but it wasn't. I had sketches and hunches and a desperate wish for it to work. If {target_npc} had said no, I'd have been standing in front of the council with nothing but confidence and a map full of guesses.",
         "failText": "It's a new route. All new routes involve some uncertainty."
       },
       "rewardText": "the first profits from the new trade route and a full partnership if you want it",
@@ -4273,10 +4273,10 @@
       "targetNpcCloser": "If they find what I think is out there, the whole region benefits. Tell them to be thorough and be careful.",
       "resolutionText": "I found a valley with water, good soil, and more space than {settlement_name} has used in a generation. I came back with a map and a grin I couldn't wipe off my face for three days. Take {quest_reward}. You made this possible, every step of it.",
       "skillCheck": {
-        "skill": "INTIMIDATION",
+        "skill": "INSIGHT",
         "dc": 12,
-        "passText": "All right, I'll level with you since you're not the type to accept a polished version. Everyone I've told about this has called me reckless, my partner thinks I've lost my mind, and {settlement_npc} told me to my face that I was going to get myself killed. But I'd rather die finding something than live wondering what was out there.",
-        "failText": "It's a survey expedition. Some risk is expected."
+        "passText": "You can see right through me, can't you. Everyone I've told about this has called me reckless, my partner thinks I've lost my mind, and {settlement_npc} told me to my face I was going to get myself killed. The truth underneath all the bravado is that I'd rather die finding something than live wondering what was out there. I haven't said that part out loud before.",
+        "failText": "I know what I'm getting into. I've weighed the risks and I'm comfortable with them."
       },
       "rewardText": "a cut of whatever the new territory yields and my name on the map beside yours",
       "valence": "positive",
@@ -4419,8 +4419,8 @@
       "skillCheck": {
         "skill": "DECEPTION",
         "dc": 13,
-        "passText": "You figured out what I wasn't saying. I've already gone out there twice on my own, and both times I lost my nerve before I got close enough to matter. I've been selling this as strategic patience, but the truth is I was afraid. Putting the job on you is the only way it gets done.",
-        "failText": "I've been watching them, studying the pattern. Now it's time to act on what I've learned."
+        "passText": "Ha, you've scouted near there too? Funny, because I've actually been out there twice already and both times I turned back before I got close enough to matter. I've been calling it patience, telling people I was waiting for the right moment, but the truth is I was afraid. Hiring you is the only way this gets done.",
+        "failText": "I've watched them long enough to know the pattern. That's all there is to tell."
       },
       "rewardText": "the coin I'd set aside for mercenaries and a drink at my table",
       "valence": "negative",
@@ -4452,8 +4452,8 @@
       "skillCheck": {
         "skill": "DECEPTION",
         "dc": 12,
-        "passText": "All right, since you're sharp enough to ask. The reason I'm pushing so hard is that two of those farms are mine. I've been telling people I'm coordinating this for the community, and I am, but I'm also watching my own livelihood get eaten one night at a time. If I'd said that from the start, people would call it self-interest and drag their feet.",
-        "failText": "The farms are losing animals. That's everyone's problem."
+        "passText": "Sure, everyone's worried about the livestock, it's a community problem. Well, two of those three farms are mine, so maybe I'm a little more worried than most. I've been framing this as a public service because if people knew how much of the loss was mine, they'd call it self-interest and start dragging their feet.",
+        "failText": "You seem awfully curious about which farms are affected. The animals are dying, and that should be enough."
       },
       "rewardText": "good coin from the three farms that can keep their stock now",
       "valence": "negative",
@@ -4559,10 +4559,10 @@
       "targetNpcCloser": "Tell the one who sent you that the family is standing again. Shaky, but standing.",
       "resolutionText": "The promise is kept. My friend is rebuilding, the things that burned them out are dealt with, and I can finally stop waking up at night thinking about what I owed. Take {quest_reward}. You helped me close a book I've been writing in for too long.",
       "skillCheck": {
-        "skill": "PERFORMANCE",
+        "skill": "INSIGHT",
         "dc": 12,
-        "passText": "You noticed the way I tell this story, clean, heroic, the loyal friend riding to justice. The truth is I wasn't there when the homestead burned, and I was supposed to visit that week but I put it off. The promise isn't just about justice, it's about guilt I'm trying to work off.",
-        "failText": "A friend was wronged and I said I'd see it answered. That's the long and short of it."
+        "passText": "You can see what I've been carrying, can't you. I wasn't there when the homestead burned, and I was supposed to visit that week but I put it off. Every time I tell the story I make it sound clean and righteous, but underneath all of that is a man trying to make up for not showing up when it mattered.",
+        "failText": "A friend was wronged and I said I'd see it answered. That's all there is to it."
       },
       "rewardText": "the bounty my friend insisted on paying and a bond between us that fire couldn't break",
       "valence": "negative",
@@ -4597,10 +4597,10 @@
       "targetNpcCloser": "I'll testify if they need me to. What was done to those orchards was deliberate, and the person who did it should answer for it.",
       "resolutionText": "The council ruled in our favor. Sanctions, restitution, and a formal warning that will follow that trader to every market in the region. Take {quest_reward}. You helped me prove something everyone suspected but nobody could pin down, and the orchard will bear fruit again because of it.",
       "skillCheck": {
-        "skill": "RELIGION",
+        "skill": "PERCEPTION",
         "dc": 14,
-        "passText": "You understand why the orchards matter beyond the harvest, don't you. My family planted those trees three generations ago, and in the old tradition, a family orchard is a living covenant with the land. Poisoning It's desecration. That's why I need the response to be complete.",
-        "failText": "The orchards were sabotaged and I want justice. The details are for the council."
+        "passText": "You saw the marks on the lower trunks, didn't you. The damage pattern isn't natural, it's too even, too deliberate, and it starts right at the boundary line where the property meets the road. Whoever did this walked the edge and worked inward. That's not blight, that's someone with a grudge and a steady hand.",
+        "failText": "The trees are dying. Could be any number of causes this time of year."
       },
       "rewardText": "the restitution payment from the council and the first clean apples from the recovering trees",
       "valence": "negative",
@@ -4632,8 +4632,8 @@
       "skillCheck": {
         "skill": "DECEPTION",
         "dc": 12,
-        "passText": "You're right to press me on what I've been leaving out. The fire wasn't random. Someone left a lantern burning near the grain, and I know who, and I've been covering for them because they're young and terrified. I can't let that out without ruining a life, so I've been carrying it alone.",
-        "failText": "It was just bad luck. Sometimes fires happen and there's nobody to blame."
+        "passText": "You're from around here, so you probably heard the rumors already. The fire wasn't random, someone left a lantern burning near the grain, and I know who. They're young and terrified, and if it gets out their life here is over. So I've been saying it was bad luck and carrying the rest alone.",
+        "failText": "Fires happen and nobody did anything wrong. Can we focus on the supplies?"
       },
       "rewardText": "what the households could pull together and a standing place at our table",
       "valence": "negative",
@@ -4668,9 +4668,9 @@
       "conflict2TurnInText": "The gap is clear and I'm already filling it in. By nightfall we'll have a wall again, even if it's an ugly one.",
       "resolutionText": "The workshop is standing. Not pretty, not finished, but standing. Take {quest_reward}. You showed up when the ground was still shaking and that's the kind of thing a person remembers for a long time.",
       "skillCheck": {
-        "skill": "DECEPTION",
+        "skill": "INVESTIGATION",
         "dc": 13,
-        "passText": "Since you're asking the question I've been dodging. I knew the wall was weakening for months and I kept putting off the repair. Every time I looked at it I told myself it would hold through one more season. I was wrong, and now everyone here is paying for my hesitation.",
+        "passText": "You're asking the question nobody else thought to ask. If the wall came down suddenly, why was I already clearing the room behind it the week before? Because I watched the cracks widening for months and kept telling myself one more season. The collapse wasn't a surprise to me, and that's the part I haven't been able to say out loud.",
         "failText": "Walls come down. It's the nature of old buildings. Nothing more to it."
       },
       "rewardText": "the emergency fund I kept in a jar that survived the collapse",
@@ -4841,9 +4841,9 @@
       "conflict1TurnInText": "That route should hold now. I can plan ahead again instead of scrambling every time I run low.",
       "resolutionText": "My bench is stocked, my route is clear, and I can actually do the work the way it's meant to be done. Take {quest_reward}. Simple help deserves a simple thanks, and this is both.",
       "skillCheck": {
-        "skill": "DECEPTION",
+        "skill": "INSIGHT",
         "dc": 12,
-        "passText": "You're good at finding the thing nobody says out loud. The real reason I'm out of stock is that I gave most of it away to a family that was struggling, and I didn't charge them for it. I told everyone I used it up in a bad batch. I'd rather they think I'm careless than know I can't say no to someone in need.",
+        "passText": "You saw right through the story, didn't you. I didn't use it all in a bad batch. I gave most of it to a family that was struggling, and I didn't charge them a thing. I told everyone I was careless because I'd rather be thought foolish than have people know I can't turn away someone in need.",
         "failText": "I just ran through it faster than expected. These things happen."
       },
       "rewardText": "a fair payment and a discount on my work whenever you need it",
@@ -4870,9 +4870,9 @@
       "conflict1TurnInText": "There it is. Back to normal, or close enough. The regulars won't notice the gap.",
       "resolutionText": "Shelves are full, the arrangement is back on, and I can stop worrying about the next delivery. Take {quest_reward}. You kept a good thing from falling apart over a misunderstanding.",
       "skillCheck": {
-        "skill": "DECEPTION",
+        "skill": "INVESTIGATION",
         "dc": 11,
-        "passText": "You caught me avoiding the obvious question. I was afraid {target_npc} had found a better buyer, because my operation is small and theirs has been growing. I didn't want to ask directly in case the answer was yes and I'd have to hear it. Turns out the fear was louder than the facts.",
+        "passText": "You're right, the arrangement was regular and reliable, so there's no reason for them to just stop unless something changed on their end. The truth I've been avoiding is that I was afraid to ask because the answer might be that my operation is too small to bother with anymore. It was easier to sit with the silence than to hear that confirmed.",
         "failText": "Arrangements get delayed sometimes. I'm sure it's nothing."
       },
       "rewardText": "a fair sum and the promise of first pick whenever something good comes through",
@@ -5045,8 +5045,8 @@
       "skillCheck": {
         "skill": "DECEPTION",
         "dc": 13,
-        "passText": "You found the gap in what I was telling you. I've seen these marks before, years ago, near my old home before I came to {settlement_name}. The same kind of marks preceded a season of attacks that drove my family out. I've been downplaying the urgency because I didn't want to start a panic, but I'm not wrong about what they mean.",
-        "failText": "They're just marks. Probably old, probably harmless. I'm curious, that's all."
+        "passText": "Oh, you've seen marks like these before? Then maybe you'll understand why I'm not sleeping. I saw the same kind near my old home before I came to {settlement_name}, and a season of attacks followed that drove my family out. I've been downplaying the urgency because I don't want to start a panic, but I know what these marks mean.",
+        "failText": "Interesting theory, but I think they're just old scratches. Nothing to get worked up about."
       },
       "rewardText": "what I can pull together and a story I'll tell properly if you ask",
       "valence": "neutral",
@@ -5074,9 +5074,9 @@
       "conflict1TurnInText": "So {target_npc} says it's a mineral deposit shifting under pressure. Natural, nothing sinister, and it'll settle on its own within a season. I'm relieved, embarrassed, and grateful in roughly equal measure.",
       "resolutionText": "The humming has already lessened, exactly the way {target_npc} said it would. Take {quest_reward}. You helped me prove I wasn't hearing things, and then you helped me learn the things weren't dangerous. Both parts mattered.",
       "skillCheck": {
-        "skill": "DECEPTION",
+        "skill": "PERCEPTION",
         "dc": 12,
-        "passText": "You're right that I've been leaving out the part that scares me most. I hear it at night too, through the floor of my house. I moved my bed to the far wall and I haven't told anyone because once you say 'I hear the ground humming in my sleep,' people stop taking you seriously about anything.",
+        "passText": "You felt it too, standing there just now? I watched your feet shift. That's the part nobody believes because they never stay still long enough. I feel it every night through the floor of my house. I moved my bed to the far wall weeks ago and I haven't told a soul, because once you say you feel the ground humming in your sleep, people stop taking you seriously about anything.",
         "failText": "It's just a curiosity. I'd like it explained, that's all."
       },
       "rewardText": "a modest sum and the gratitude of someone who can finally sleep without wondering",
@@ -5249,9 +5249,9 @@
       "conflict1TurnInText": "That's close enough. I hung it on the hook and stood there for a while. She would have scratched at it, probably. She scratched at everything I made.",
       "resolutionText": "The account is closed. I won't pretend it brought her back or made the house less quiet, but it's done, and done matters. Take {quest_reward}. It's what I would have spent on her this winter.",
       "skillCheck": {
-        "skill": "DECEPTION",
+        "skill": "INSIGHT",
         "dc": 12,
-        "passText": "You noticed I haven't said her name. Every time I try, my voice does something I'm not ready for anyone to hear. I told the neighbors I was upset about property damage, because a grown adult crying over a dog gets a certain look in this settlement. She was more than property, she was the only friend who never needed me to explain myself.",
+        "passText": "You noticed I haven't said her name. Every time I try, my voice does something I'm not ready for anyone to hear. I told the neighbors I was upset about property damage, because a grown adult grieving a dog gets a certain look in this settlement. She was more than that. She was the only friend who never needed me to explain myself.",
         "failText": "She was a good dog. There's nothing else to say about it."
       },
       "rewardText": "the coin I saved for her and a firm, honest handshake",
@@ -5280,9 +5280,9 @@
       "conflict1TurnInText": "That's the number. I counted them the way I counted the trees. It doesn't balance, because nothing would, but it's as close as the world is going to let me get.",
       "resolutionText": "The marker stands and the debt is as paid as it can be. Take {quest_reward}. I won't pretend I feel whole, but I feel finished, and that's the next best thing.",
       "skillCheck": {
-        "skill": "DECEPTION",
+        "skill": "INVESTIGATION",
         "dc": 14,
-        "passText": "You caught the thing I've been hiding from everyone, including myself. I failed to reinforce the fence when I knew it was weak, and the creatures got in because of my neglect. The rage I feel isn't just at them, it's at myself for giving them the opening. Directing it outward is the only way I know to keep moving.",
+        "passText": "You're asking how they got in, and you already know the answer, don't you. The fence line on the north side had been failing for two seasons and I kept patching over the weak spots instead of rebuilding. They didn't break through anything. They walked through a gap I'd been pretending wasn't there. The rage I feel isn't just at them. It's at the version of me that decided it could wait.",
         "failText": "They destroyed what I built. The rest is between me and the trees."
       },
       "rewardText": "the savings I'd meant for the replanting I'll never do",
@@ -5446,8 +5446,8 @@
       "skillCheck": {
         "skill": "DECEPTION",
         "dc": 12,
-        "passText": "You read past what I was saying, didn't you. The truth is I've started to believe I cause it, not rationally, but in that part of your mind that keeps count. Everything I touch seems to sour eventually, and I've stopped starting new things because I'm afraid I'll ruin them the way I've ruined everything else. Saying it out loud sounds foolish, but living with it doesn't.",
-        "failText": "It's just a bad stretch. Stretches end."
+        "passText": "It's funny you put it that way, because that's exactly how it feels, like I cause it. Not rationally, but in that part of your mind that keeps count. Everything I touch seems to sour eventually and I've stopped starting new things because I'm afraid I'll ruin them the way I've ruined everything else. Saying it out loud sounds foolish, but there it is.",
+        "failText": "That's a strange way to ask about someone's luck. I'll manage, just bring me the {quest_item}."
       },
       "rewardText": "what I'd set aside for a worse day, since today turned out to be a better one",
       "valence": "negative",
@@ -5482,9 +5482,9 @@
       "conflict2TurnInText": "The repair is solid. For the first time in months, everything I look at is in working order. I keep checking, expecting to find something new that's broken, and there's nothing.",
       "resolutionText": "Nothing is broken. I've said that three times today and it keeps being true. Take {quest_reward}. You helped me step off a wheel I'd been running on so long I forgot what solid ground felt like.",
       "skillCheck": {
-        "skill": "DECEPTION",
+        "skill": "INVESTIGATION",
         "dc": 13,
-        "passText": "All right. The thing I haven't admitted to anyone is that some of these problems are cascading because I cut corners on early repairs. I was so tired from the previous fix that I rushed the next one, which made it fail sooner, which meant another fix sooner. I built the cycle myself, and admitting that is harder than any of the repairs.",
+        "passText": "You see the pattern I was hoping nobody would piece together. Each repair failed because I rushed it to get to the next one. The roof leaked because I skipped the sealant, the chain snapped because I reused a worn link, and each shortcut made the next failure come sooner. I built this cycle with my own impatience, and admitting that is harder than any of the repairs.",
         "failText": "Things break. I fix them. That's the whole story."
       },
       "rewardText": "the coin I keep in the toolbox for exactly this kind of reckoning",
@@ -5655,8 +5655,8 @@
       "skillCheck": {
         "skill": "DECEPTION",
         "dc": 12,
-        "passText": "All right, you caught that. The property line wasn't really what started it. I said something about their mother at a gathering, something I knew would cut, and I said it on purpose. The land was just the excuse we both grabbed onto so we wouldn't have to talk about the real wound.",
-        "failText": "It was about the property. That's the version I'm sticking with."
+        "passText": "Oh, people have told you about the argument already? Then you probably heard a nicer version. The property line wasn't really what started it, I said something about their mother at a gathering, something I knew would cut, and I said it on purpose. The land dispute was just the excuse we both grabbed so we wouldn't have to talk about the real wound.",
+        "failText": "You're asking a lot of questions about something that's between family. It was about the property line, and that's the version."
       },
       "rewardText": "what I can spare and my word that it meant something",
       "valence": "negative",
@@ -5688,10 +5688,10 @@
       "conflict1TurnInText": "That's enough to hold things together for the season. I can finally stop counting what's missing and start working with what's here.",
       "resolutionText": "The place looks like a place again, instead of a ruin someone walked away from. Take {quest_reward}. I'm still angry at him, but at least now I'm angry from a position of having walls that stand up.",
       "skillCheck": {
-        "skill": "DECEPTION",
+        "skill": "INVESTIGATION",
         "dc": 13,
-        "passText": "You're right to push on that. He didn't just leave over a disagreement about the farm. I told him our father would have been ashamed of him. I said it in front of his children.",
-        "failText": "He left. That's all there is to it. People leave."
+        "passText": "You're right, those two things don't add up. He didn't just leave over a disagreement about the farm. I told him our father would have been ashamed of him. I said it in front of his children, and that's why there's a gap in the fence and no conversation about fixing it.",
+        "failText": "He left. That's all there is to it."
       },
       "rewardText": "the coin I kept hidden from the split and a fair handshake",
       "valence": "negative",
@@ -5859,9 +5859,9 @@
       "conflict1TurnInText": "You found one. I could weep. Their eyes were clearer this morning after I used it. They called me by name for the first time in a week.",
       "resolutionText": "They're not cured, but they're present again. They asked about the weather and meant it. Take {quest_reward}. You gave me back a person I was watching disappear, and I don't have words large enough for that.",
       "skillCheck": {
-        "skill": "DECEPTION",
+        "skill": "INVESTIGATION",
         "dc": 12,
-        "passText": "You're careful with your questions, and I appreciate that. The part I haven't told anyone is that it runs in their family. Their mother went the same way when I was young enough to watch. I've been dreading this for years, telling myself the signs meant something else every time one appeared.",
+        "passText": "You're asking the right question. Why would it come on like this, all at once, if there's no history of it. It runs in their family. Their mother went the same way when I was young enough to watch, and I've been dreading this for years, telling myself the signs meant something else every time one appeared.",
         "failText": "It came on suddenly. That's all I know for certain."
       },
       "rewardText": "everything I can spare and a gratitude that won't fade",
@@ -6047,9 +6047,9 @@
       "conflict1TurnInText": "{target_npc} said my changes were sound? I'll admit that matters to me more than it should. It's good to know the work holds up under someone else's eye.",
       "resolutionText": "The water runs clean and the channels are strong. Nobody will notice, and that's the mark of the job done right. Take {quest_reward}. The work continues regardless, but it's lighter knowing someone saw it.",
       "skillCheck": {
-        "skill": "DECEPTION",
+        "skill": "INVESTIGATION",
         "dc": 11,
-        "passText": "You ask questions like someone who already knows the answer. Fine. I'm not doing this purely out of civic duty. My daughter died in a flood three years ago, upstream, because the channels there weren't maintained.",
+        "passText": "You caught the part that doesn't add up. Nobody maintains ditches for free without a reason. My daughter died in a flood three years ago, upstream, because the channels there weren't maintained. That's the piece I leave out when I tell the story, because saying it out loud means admitting I couldn't save her by digging faster.",
         "failText": "Somebody has to tend them. I've got the time and the back for it."
       },
       "rewardText": "a day's honest wage and a drink from the cleanest water in the region",
@@ -6080,9 +6080,9 @@
       "conflict1TurnInText": "That's well made. It'll see me through another year of evenings, at least.",
       "resolutionText": "The perimeter is secure, my gear is sound, and {settlement_name} sleeps a little safer because of it. Take {quest_reward}. I set it aside for this kind of help, and I'm glad it went to someone who understood the purpose.",
       "skillCheck": {
-        "skill": "DECEPTION",
+        "skill": "INSIGHT",
         "dc": 12,
-        "passText": "You saw through the practical explanation, didn't you. The truth is my wife left me two years ago and the house is too quiet at night. Walking the perimeter gives me a reason to be outside and a reason to be tired enough to sleep when I get back. The fact that it helps people is real, but It the whole reason.",
+        "passText": "You saw through the practical explanation, didn't you. The truth is my wife left me two years ago and the house is too quiet at night. Walking the perimeter gives me a reason to be outside and a reason to be tired enough to sleep when I get back. The fact that it helps people is real, but it isn't the whole reason.",
         "failText": "I believe in the work. That's enough to keep me walking."
       },
       "rewardText": "what I've set aside from my own stores and a firm handshake",
@@ -6149,9 +6149,9 @@
       "conflict2TurnInText": "{target_npc} was pleased? Good. I didn't do it for the recognition, but knowing the original builder approves means the work is sound.",
       "resolutionText": "The bridge is open, and I walked across it this morning without a creak. People will use it and never think about who rebuilt it, and that's fine. Take {quest_reward}. You deserve something tangible for the work.",
       "skillCheck": {
-        "skill": "INTIMIDATION",
+        "skill": "INVESTIGATION",
         "dc": 13,
-        "passText": "You want to know why I really care about a bridge nobody asked me to fix. My brother drowned in the river below it, trying to ford the crossing after the bridge collapsed. If it had been standing, he'd have walked across it and come home for dinner. I can't bring him back, but I can make sure the next person doesn't have to choose between the crossing and their life.",
+        "passText": "You're wondering why someone would rebuild a bridge nobody asked for. My brother drowned in the river below it, trying to ford the crossing after the old bridge collapsed. If it had been standing, he'd have walked across and come home for dinner. That's the piece I leave out when I tell the story.",
         "failText": "It needs fixing. That's reason enough for me."
       },
       "rewardText": "what I've saved from honest work and a clear conscience",
@@ -6289,10 +6289,10 @@
       "conflict2TurnInText": "{target_npc} is coming? She'll be so relieved. I've been trying to fill a role I'm not equipped for, and now I don't have to.",
       "resolutionText": "She's calm for the first time since her husband left, truly calm. {target_npc} is nearby, the house is quiet, and she told me I could stop hovering. Take {quest_reward}. You helped me take care of the person I'd do anything for.",
       "skillCheck": {
-        "skill": "DECEPTION",
+        "skill": "INVESTIGATION",
         "dc": 13,
-        "passText": "You asked just the right question to make me drop the brave face. Her husband isn't away on business. He left. Packed a bag and left without saying when or if he'd come back.",
-        "failText": "He's traveling for work. She's managing. I'm helping where I can."
+        "passText": "You noticed the story doesn't hold together. Away on business with no word and no return date, that's not a trip. He left, packed a bag and walked out without saying when or whether he'd come back. I've been telling people the version that sounds less awful.",
+        "failText": "He's traveling for work. She's managing fine."
       },
       "rewardText": "what I've been saving and a promise from both of us",
       "valence": "negative",
@@ -6322,9 +6322,9 @@
       "conflict1TurnInText": "I checked every window and every door twice and heard nothing. That silence is the most beautiful thing I've experienced in months.",
       "resolutionText": "She stood up this morning, just for a moment, holding the chair, but she stood. I turned away so she wouldn't see my face. Take {quest_reward}. You gave her a chance and me a reason to believe in more good days.",
       "skillCheck": {
-        "skill": "INTIMIDATION",
+        "skill": "INVESTIGATION",
         "dc": 12,
-        "passText": "You're not going to let me pretend I'm handling this well, are you. Fine. I sold my workshop tools last month to pay for remedies that didn't work. I have no trade left and no savings.",
+        "passText": "You can tell the numbers don't work, can't you. If I'm getting by, why am I this desperate for help from a stranger. I sold my workshop tools last month to pay for remedies that didn't work. I have no trade left and no savings, and 'getting by' is the story I tell so people don't look at me with pity.",
         "failText": "We're getting by. That's the important thing."
       },
       "rewardText": "the last coins I have and a parent's deepest thanks",
@@ -6457,8 +6457,8 @@
       "skillCheck": {
         "skill": "DECEPTION",
         "dc": 12,
-        "passText": "You caught that, did you. I already decided two days ago. The reason I haven't acted is that I keep hoping something will change so I don't have to be the one who chose. Nothing is going to change.",
-        "failText": "It's a hard choice. I'll make it when the time comes."
+        "passText": "Honestly, the deciding part is already done, I made the call two days ago. The reason I haven't moved on it is that I keep hoping something will change so I don't have to live with being the one who chose. But nothing is going to change, is it.",
+        "failText": "You're pushing pretty hard on this. It's a hard choice and I'll make it when the path is clear."
       },
       "rewardText": "the coin I'd set aside for the shipment and a family's quiet thanks",
       "valence": "negative",
@@ -6488,8 +6488,8 @@
       "skillCheck": {
         "skill": "DECEPTION",
         "dc": 13,
-        "passText": "You see through the story, don't you. She didn't give it away willingly, I told her it was the only option and framed the whole thing so she'd feel like she was choosing. Really I'd already chosen for her, and that's the part I can't forgive myself for.",
-        "failText": "It was a family decision. That's all I'll say about how it happened."
+        "passText": "I mean, you know how these trade negotiations go, somebody has to bend. The thing is, she didn't give it away willingly. I told her it was the only option and framed the whole deal so she'd feel like she was choosing, but really I'd already decided for her. That's the part I can't sit with.",
+        "failText": "You seem very interested in the details of how it happened. It was a family decision, and that's enough."
       },
       "rewardText": "what I kept hidden from the traders and a father's honest gratitude",
       "valence": "negative",
@@ -6586,9 +6586,9 @@
       "targetNpcCloser": "I'll be there within the week. She has my word.",
       "resolutionText": "They sat together all afternoon and laughed about things I've never heard either of them mention before. She looked peaceful afterward, really peaceful, for the first time in months. Take {quest_reward}. You gave her something no amount of coin could buy, and she wanted you to know it.",
       "skillCheck": {
-        "skill": "PERFORMANCE",
+        "skill": "INSIGHT",
         "dc": 12,
-        "passText": "You have a way of putting people at ease, and I suppose that's why I'm telling you this. The hardest part isn't losing her. The hardest part is that she's choosing to go, and I have to respect that, because she earned the right to decide. I just wish she'd chosen differently.",
+        "passText": "You can see it, can't you. I keep saying the hardest part is letting her go, but that's not it. The hardest part is that she's choosing to leave, and she's right to, and I have to stand here and respect a decision that guts me. I'm not losing her. She's walking away with her eyes open, and I'm the one who can't look.",
         "failText": "She's old, and she's tired. That's as much as I want to say about it."
       },
       "rewardText": "a keepsake she set aside for whoever helped and my family's gratitude",
@@ -6650,8 +6650,8 @@
       "skillCheck": {
         "skill": "DECEPTION",
         "dc": 12,
-        "passText": "You noticed I keep talking about what he would have wanted. The truth is I don't know what I want anymore. I've spent so many years thinking in pairs that I've forgotten how to want things alone. The errands give me a reason to get out of the chair in the morning, and I'm afraid of what happens when the list runs out.",
-        "failText": "I miss him. That's the simple version, and it's true enough."
+        "passText": "It is nice having the list, you're right, gives you something to do in the morning. That's the part I don't say out loud. I've spent so many years thinking in pairs that I've forgotten how to want things on my own, and the errands keep me moving. I'm afraid of what happens when I run out of them.",
+        "failText": "That's a kind thought, but I'd rather not go deeper into it. The errand is what matters."
       },
       "rewardText": "the payment he'd set aside for the job and my lasting thanks",
       "valence": "negative",
@@ -6679,9 +6679,9 @@
       "conflict1TurnInText": "I set it next to the stone where the light hits in the afternoon. She would have liked that.",
       "resolutionText": "I feel lighter. Not happier, exactly, but like something that was pressing on my chest has eased just enough to breathe around. Take {quest_reward}. She would have insisted on paying for the help, and I'm not about to argue with her, even now.",
       "skillCheck": {
-        "skill": "DECEPTION",
+        "skill": "INVESTIGATION",
         "dc": 11,
-        "passText": "You caught the part I was leaving out. I haven't visited because of the {enemy_type_plural}, that's true. But even before they came, I was finding excuses. I'm afraid that one of these visits I'll realize I'm starting to forget her voice, and I don't want to be standing at her grave when that happens.",
+        "passText": "You noticed that the timing doesn't add up. You're right. The {enemy_type_plural} moved in three weeks ago, but I stopped visiting two months before that. I kept finding reasons, the weather, the path, my knees, and none of them were the real one. The real one is that I'm afraid I'll stand at her grave and realize I'm starting to forget her voice, and I don't want to be there when that happens.",
         "failText": "I just miss her. The rest is my own business."
       },
       "rewardText": "what she left me that I can bear to part with and a sibling's honest thanks",
@@ -6847,8 +6847,8 @@
       "skillCheck": {
         "skill": "DECEPTION",
         "dc": 12,
-        "passText": "You see through the bluster, don't you. I'm not as confident as I sound, I've failed at two things already this year and both times I smiled and pretended it didn't sting. This one has to work because I'm running out of chances to be taken seriously, and I'm more scared of that than I am of the {enemy_type_plural}.",
-        "failText": "I know what I'm doing. That's all you need to know."
+        "passText": "Ha, yeah, everyone talks big around here, right? Honestly though, between you and me, I'm not as confident as I sound. I've failed at two things already this year and both times I smiled like it didn't sting. This one has to work because I'm running out of chances to be taken seriously, and that scares me more than the {enemy_type_plural} do.",
+        "failText": "That's a funny question, I know what I'm doing. Let's leave it there."
       },
       "rewardText": "a proper share of the profits and my word that your name goes on the record",
       "valence": "positive",
@@ -6989,9 +6989,9 @@
       "targetNpcCloser": "Tell them they have my backing. Now let's see if they can deliver.",
       "resolutionText": "The land is clear, the backing is real, and the first stones are going down this week. Take {quest_reward}. Fifty years from now, someone will ask who helped build this, and your name will be in the answer.",
       "skillCheck": {
-        "skill": "PERFORMANCE",
+        "skill": "INSIGHT",
         "dc": 12,
-        "passText": "You have a presence about you, and I think that's why I'm being honest. I'm terrified of being forgotten, not dying, that's just mechanics, but being forgotten. The idea that I'll pass through this world and leave no mark at all has kept me awake more nights than I'll ever admit, and this project is my answer to that fear.",
+        "passText": "You see right through the big talk, don't you. I'm not building this because I love {settlement_name}. I'm terrified of being forgotten. Not dying, that's just mechanics, but passing through and leaving nothing behind. That fear has kept me awake more nights than I'll ever admit to anyone, and this project is the only answer I've found for it.",
         "failText": "I want to build something. That's reason enough."
       },
       "rewardText": "a founder's share and a place of honor in the record books",
@@ -7058,9 +7058,9 @@
       "targetNpcCloser": "Don't make a fuss about it. They're doing it for the right reasons, and embarrassing them would defeat the purpose.",
       "resolutionText": "I owe {settlement_npc} an apology I'll probably never give, because giving it would mean admitting I searched their desk. So instead I'll just be a better partner and stop looking for betrayal in every shadow. Take {quest_reward}. You kept me from making an accusation that would have cost me the best person I know.",
       "skillCheck": {
-        "skill": "DECEPTION",
+        "skill": "INVESTIGATION",
         "dc": 13,
-        "passText": "You see what I was doing, don't you. I wasn't investigating, I was building a case, going looking for proof of something I'd already decided was true. Every ambiguous detail fed the story I wanted to tell. I've done this before, and every time the answer turns out to be innocent, and every time I promise I'll stop.",
+        "passText": "You see the problem with what I just told you, don't you. I said I found discrepancies, but I went looking for them. I started with the conclusion and worked backward through the ledger until the numbers confirmed what I'd already decided. Every ambiguous entry fed the story I wanted to tell. I've done this before, and every time the answer turns out to be innocent, and every time I promise I'll stop.",
         "failText": "I just want the facts. That's all."
       },
       "rewardText": "a fair sum and my word that I'll try to see straight from now on",
@@ -7089,9 +7089,9 @@
       "targetNpcCloser": "There's nothing to worry about. They're just doing a kindness and being quiet about it.",
       "resolutionText": "I gave {settlement_npc} the gift, and they looked at me like I'd said something they needed to hear without either of us speaking. Take {quest_reward}. You saved me from myself, and that's not a debt I take lightly.",
       "skillCheck": {
-        "skill": "DECEPTION",
+        "skill": "INVESTIGATION",
         "dc": 11,
-        "passText": "You can tell I already know I'm wrong, can't you. The truth is I knew three days ago. I checked the mud on their boots and it matched the clay near Margel's house, not the road to {other_settlement}. But knowing wasn't enough to stop the feeling, and the feeling has its own logic that ignores evidence entirely.",
+        "passText": "You noticed the hole in what I'm asking you to do. I already have the answer. I checked the mud on their boots three days ago and it matched the clay near Margel's house, not the road to {other_settlement}. The excuses don't hold up and I can see that plainly. But knowing wasn't enough to stop the feeling, and the feeling has its own logic that ignores evidence entirely.",
         "failText": "I just need someone to confirm what I'm hoping is true."
       },
       "rewardText": "what I can put together quickly and my honest thanks for the discretion",
@@ -7250,8 +7250,8 @@
       "skillCheck": {
         "skill": "DECEPTION",
         "dc": 13,
-        "passText": "You're circling around the thing I'm not saying, so I'll just say it. I knew the evidence was thin when I filed the complaint. I didn't like {settlement_npc} personally, and I let that feeling dress itself up as righteousness. The council trusted me and I spent that trust on a grudge.",
-        "failText": "I made a mistake. That's the beginning and end of it."
+        "passText": "Well, since you've heard what happened at the council, I might as well be straight with you. I knew the evidence was thin when I filed the complaint. I didn't like {settlement_npc} personally, and I let that feeling dress itself up as righteousness. The council trusted my word and I spent that trust on a grudge.",
+        "failText": "That's an odd angle to come at this from. I made a mistake, and that's the whole story."
       },
       "rewardText": "what I owe and then some, because the debt is bigger than coin",
       "valence": "negative",
@@ -7281,8 +7281,8 @@
       "skillCheck": {
         "skill": "DECEPTION",
         "dc": 12,
-        "passText": "You're asking the right questions, so let me stop dancing around it. I stayed quiet because the storehouse manager is a friend of mine, and I didn't want to be the one suggesting his security failed. I let a child take the fall to protect a grown man's reputation.",
-        "failText": "I should have spoken up earlier. That's all I know for certain."
+        "passText": "You trade with the storehouse too? Then you know how things work over there, the security, who comes and goes. The reason I stayed quiet is that the storehouse manager is a friend of mine and I didn't want to suggest his security failed. I let a child take the fall to protect a grown man's reputation.",
+        "failText": "You're asking questions that sound friendly but feel pointed. I said I should have spoken up, and that's all I've got."
       },
       "rewardText": "a family's gratitude and everything I can put together",
       "valence": "negative",
@@ -7372,10 +7372,10 @@
       "targetNpcCloser": "If they're being questioned for this, the people doing the questioning should be ashamed of themselves.",
       "resolutionText": "I brought {target_npc}'s assessment to the settlement and read it aloud. The healer was there, standing at the back, and when I finished they nodded once and left without a word. Take {quest_reward}. You helped restore something I nearly destroyed with ignorance.",
       "skillCheck": {
-        "skill": "PERFORMANCE",
+        "skill": "INVESTIGATION",
         "dc": 12,
-        "passText": "I'll admit something, since you carry yourself like someone who knows how people work. I didn't just repeat the rumor. I started it. I saw the patient getting worse and I was the first to say it out loud, and everyone else followed my lead.",
-        "failText": "I made assumptions I shouldn't have. I'm correcting them now."
+        "passText": "You caught the part I was hoping nobody would question. I said people started talking, like it happened on its own, but it didn't. I was the first voice, the one who saw the patient getting worse and said it out loud, and the rest of the settlement followed my lead because I sounded certain.",
+        "failText": "I made assumptions I shouldn't have. The details don't change what needs to happen now."
       },
       "rewardText": "a careful measure of what I have and the healer's future goodwill, I hope",
       "valence": "negative",
@@ -7434,10 +7434,10 @@
       "targetNpcCloser": "An honest gesture would mean more than any words right now.",
       "resolutionText": "I brought the {quest_item} to {settlement_npc} and didn't say anything about the argument. They looked at it for a long time and then set it on the shelf next to a drawing their child made, where the important things go. Take {quest_reward}. You helped me take a step I'd been too ashamed to take alone.",
       "skillCheck": {
-        "skill": "DECEPTION",
+        "skill": "INVESTIGATION",
         "dc": 12,
-        "passText": "You're good at reading what people leave out, aren't you. The thing I said wasn't something I blurted out in the heat of the moment. I chose those words because I knew they would cut. I wanted to win the argument, and I did, and the cost of winning has been sitting on my chest ever since.",
-        "failText": "I said something I regret. Beyond that, I'd rather not go into details."
+        "passText": "You picked up on something I left out, didn't you. I called it an argument, like we were both fighting, but I wasn't angry. I was calm when I said it and the words were chosen, not thrown. That's the part that doesn't fit the version I've been telling, because there was no heat and I just wanted to win.",
+        "failText": "I said something I regret. That's where I'd like to leave it."
       },
       "rewardText": "what I can offer and the promise that I'll do better",
       "valence": "negative",
@@ -7620,10 +7620,10 @@
       "targetNpcCloser": "Give the reins back and say thank you for their patience. They've earned it.",
       "resolutionText": "I brought the {quest_item} and the ledgers and set them both on my sibling's table. They opened the books, found two mistakes, corrected them on the spot, and said we were even. Take {quest_reward}. You helped me see that protecting someone and respecting them aren't always the same thing.",
       "skillCheck": {
-        "skill": "DECEPTION",
+        "skill": "INVESTIGATION",
         "dc": 13,
-        "passText": "You're seeing through the version where I'm the concerned sibling, aren't you. The truth is I enjoyed being in charge of someone else's affairs because it made me feel competent and needed. My sibling's crisis gave me a role I didn't want to give back, and when they recovered I kept finding reasons to hold on. The help was real, but so was the selfishness underneath it.",
-        "failText": "I overstepped. That's the heart of it."
+        "passText": "You've found the gap in my story, haven't you. I said I took over when they were struggling, but they started recovering months before I let go, and the timeline doesn't hold up if my motive was really concern. The truth is I enjoyed being in charge because it made me feel competent and needed. My sibling's crisis gave me a role I didn't want to give back.",
+        "failText": "I overstepped and I'm correcting it. That's the whole of it."
       },
       "rewardText": "a fair trade and the beginning of a more honest partnership",
       "valence": "negative",
@@ -7682,10 +7682,10 @@
       "targetNpcCloser": "Whatever comes of it, the truth should reach everyone involved. Silence only protects the person who caused the harm.",
       "resolutionText": "I told my friend everything, the mistake, the confusion, all of it, and they listened without interrupting before taking the {quest_item} and saying they needed time. A week later they told me they'd delivered it and had a long conversation, and the truth is finally out. Take {quest_reward}. You helped me face a mistake I was too ashamed to name.",
       "skillCheck": {
-        "skill": "INTIMIDATION",
+        "skill": "INSIGHT",
         "dc": 12,
-        "passText": "Stop letting me soften this, you're right to press. I didn't confuse the two people by accident, I was careless because part of me didn't want my friend's attention going elsewhere. We've been close for years and I wasn't ready for that to change, so when I heard a rumor about someone with a similar name I didn't bother checking. I wanted it to be true.",
-        "failText": "I mixed up two people and spoke too soon. It's a simple mistake with bad consequences."
+        "passText": "You can see it, can't you. I keep calling it an honest mistake, but something in my face is telling you otherwise. The truth is I was careless because part of me didn't want my friend's attention going to someone new, and we've been close for years. When I heard a rumor about someone with a similar name I didn't bother checking because I wanted it to be true.",
+        "failText": "I mixed up two people and spoke too soon. That's really all there is to it."
       },
       "rewardText": "what I can gather and the hope that honesty still counts for something",
       "valence": "negative",
@@ -7868,10 +7868,10 @@
       "targetNpcCloser": "Bring the evidence of their craft. I'll make sure it gets a fair hearing.",
       "resolutionText": "I presented the {quest_item} to my family with {target_npc}'s precedent behind it, and my father held it in his hands for a long time before nodding. The person I love was waiting outside, and when I came to tell them they smiled like they'd known all along. Take {quest_reward}. You helped me prove that tradition and love don't have to be opposites.",
       "skillCheck": {
-        "skill": "INTIMIDATION",
+        "skill": "HISTORY",
         "dc": 12,
-        "passText": "You're pushing me to say the hard part, so here it is. I almost gave in last month when my family introduced me to someone within the circle, someone perfectly suitable, and I nearly said yes because it would have been so much easier. I was standing at the door ready to surrender everything I actually wanted just to avoid the fight. I walked away, but barely.",
-        "failText": "It's a matter of family and tradition. I'd rather keep it at that."
+        "passText": "You know about families bending the old rules? I stopped bringing it up because nobody here remembers a time when it actually happened, and hearing you say it changes something. The truth is I almost surrendered last month when my family introduced me to someone suitable, and I nearly said yes just to end the fight. I was ready to give up everything I wanted to avoid a battle nobody remembers anyone winning.",
+        "failText": "It's a tradition that goes back a long way. I don't think the history changes what I'm dealing with now."
       },
       "rewardText": "a craftworker's best piece and the courage that came from your help",
       "valence": "positive",

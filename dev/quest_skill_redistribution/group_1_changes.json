@@ -1,0 +1,66 @@
+[
+  {
+    "id": "disaster_07",
+    "index": 137,
+    "new_skill": "INVESTIGATION",
+    "dc": 13,
+    "passText": "You're asking the question nobody else thought to ask. If the wall came down suddenly, why was I already clearing the room behind it the week before? Because I watched the cracks widening for months and kept telling myself one more season. The collapse wasn't a surprise to me, and that's the part I haven't been able to say out loud.",
+    "failText": "Walls come down. It's the nature of old buildings. Nothing more to it."
+  },
+  {
+    "id": "obtaining_04",
+    "index": 78,
+    "new_skill": "INSIGHT",
+    "dc": 11,
+    "passText": "You can see it, can't you. I'm not busy, I'm slow. My knees have been getting worse for a year and I've been covering it by staying close to the house and calling it being careful. Admitting that I can't make the walk anymore feels like admitting I'm not the person I was, and I wasn't ready for someone to notice.",
+    "failText": "It's just one of those chores that stacks up. You know how it goes."
+  },
+  {
+    "id": "obtaining_06",
+    "index": 142,
+    "new_skill": "INSIGHT",
+    "dc": 12,
+    "passText": "You saw right through the story, didn't you. I didn't use it all in a bad batch. I gave most of it to a family that was struggling, and I didn't charge them a thing. I told everyone I was careless because I'd rather be thought foolish than have people know I can't turn away someone in need.",
+    "failText": "I just ran through it faster than expected. These things happen."
+  },
+  {
+    "id": "obtaining_07",
+    "index": 143,
+    "new_skill": "INVESTIGATION",
+    "dc": 11,
+    "passText": "You're right, the arrangement was regular and reliable, so there's no reason for them to just stop unless something changed on their end. The truth I've been avoiding is that I was afraid to ask because the answer might be that my operation is too small to bother with anymore. It was easier to sit with the silence than to hear that confirmed.",
+    "failText": "Arrangements get delayed sometimes. I'm sure it's nothing."
+  },
+  {
+    "id": "enigma_07",
+    "index": 149,
+    "new_skill": "PERCEPTION",
+    "dc": 12,
+    "passText": "You felt it too, standing there just now? I watched your feet shift. That's the part nobody believes because they never stay still long enough. I feel it every night through the floor of my house. I moved my bed to the far wall weeks ago and I haven't told a soul, because once you say you feel the ground humming in your sleep, people stop taking you seriously about anything.",
+    "failText": "It's just a curiosity. I'd like it explained, that's all."
+  },
+  {
+    "id": "vengeance_05",
+    "index": 154,
+    "new_skill": "INSIGHT",
+    "dc": 12,
+    "passText": "You noticed I haven't said her name. Every time I try, my voice does something I'm not ready for anyone to hear. I told the neighbors I was upset about property damage, because a grown adult grieving a dog gets a certain look in this settlement. She was more than that. She was the only friend who never needed me to explain myself.",
+    "failText": "She was a good dog. There's nothing else to say about it."
+  },
+  {
+    "id": "vengeance_06",
+    "index": 155,
+    "new_skill": "INVESTIGATION",
+    "dc": 14,
+    "passText": "You're asking how they got in, and you already know the answer, don't you. The fence line on the north side had been failing for two seasons and I kept patching over the weak spots instead of rebuilding. They didn't break through anything. They walked through a gap I'd been pretending wasn't there. The rage I feel isn't just at them. It's at the version of me that decided it could wait.",
+    "failText": "They destroyed what I built. The rest is between me and the trees."
+  },
+  {
+    "id": "conflict_with_fate_06",
+    "index": 161,
+    "new_skill": "INVESTIGATION",
+    "dc": 13,
+    "passText": "You see the pattern I was hoping nobody would piece together. Each repair failed because I rushed it to get to the next one. The roof leaked because I skipped the sealant, the chain snapped because I reused a worn link, and each shortcut made the next failure come sooner. I built this cycle with my own impatience, and admitting that is harder than any of the repairs.",
+    "failText": "Things break. I fix them. That's the whole story."
+  }
+]

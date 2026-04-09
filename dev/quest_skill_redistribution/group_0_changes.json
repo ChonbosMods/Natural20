@@ -1,0 +1,82 @@
+[
+  {
+    "id": "supplication_04",
+    "index": 66,
+    "new_skill": "PERCEPTION",
+    "dc": 11,
+    "passText": "You noticed the chair, didn't you. I forgot I'd left it against the door. I've been barricading myself in every night for two weeks now, and this morning I realized I'd started doing it during the day too. That's when I knew I couldn't handle this alone anymore.",
+    "failText": "Everything's in order here. Just a rough stretch with the wildlife."
+  },
+  {
+    "id": "supplication_06",
+    "index": 106,
+    "new_skill": "INVESTIGATION",
+    "dc": 12,
+    "passText": "You're right, the numbers I gave {settlement_npc} don't hold together. I've been skimming from my own rations to keep the public count looking right, reporting what we should have instead of what we do. I haven't eaten a full meal in four days, and nobody questioned it until you.",
+    "failText": "The stores are where they are. I've given you the count."
+  },
+  {
+    "id": "supplication_08",
+    "index": 108,
+    "new_skill": "NATURE",
+    "dc": 11,
+    "passText": "You know what you're looking at, then. They're not just raiding, they're denning nearby, and the torn fence isn't random damage. They're testing the weak points and coming back to the same ones every night. I've been sleeping in the pen with a club because I can't afford to lose these animals, and I didn't know how to explain that to anyone who hadn't seen the pattern.",
+    "failText": "They keep getting through the fence. I don't know much about why they pick the spots they pick."
+  },
+  {
+    "id": "deliverance_06",
+    "index": 112,
+    "new_skill": "PERCEPTION",
+    "dc": 12,
+    "passText": "You saw the scrub marks on the trail stones, didn't you. I cleaned up what I found this morning before anyone else walked that path. There was blood, not much, but enough. I've been telling everyone my cousin is just delayed, and I need that to stay true for a little longer.",
+    "failText": "The trail looks the same as always. They're just running late."
+  },
+  {
+    "id": "deliverance_07",
+    "index": 113,
+    "new_skill": "INVESTIGATION",
+    "dc": 13,
+    "passText": "You caught that. I said 'read about' and not 'heard about.' I found a journal in my mother's things after she died, and she had the same illness years ago. The {quest_item} was underlined three times. She didn't make it, but she wrote that it gave her more time, and I'm hoping more time is all {settlement_npc} needs.",
+    "failText": "I heard it helps. That's enough reason to try."
+  },
+  {
+    "id": "recovery_06",
+    "index": 118,
+    "new_skill": "INVESTIGATION",
+    "dc": 12,
+    "passText": "You spotted it too, the weight was wrong for the size. I should have checked before I paid, but I was in a rush and the merchant saw someone careless and took advantage. Half the weight, wrong material underneath the finish, and I handed over full price without a second look. That's the part that burns.",
+    "failText": "I was cheated. The details aren't complicated enough to be worth explaining."
+  },
+  {
+    "id": "daring_enterprise_06",
+    "index": 124,
+    "new_skill": "INVESTIGATION",
+    "dc": 12,
+    "passText": "You saw the gap in the plan, didn't you. I told the council the route was practically proven, but it wasn't. I had sketches and hunches and a desperate wish for it to work. If {target_npc} had said no, I'd have been standing in front of the council with nothing but confidence and a map full of guesses.",
+    "failText": "It's a new route. All new routes involve some uncertainty."
+  },
+  {
+    "id": "daring_enterprise_08",
+    "index": 126,
+    "new_skill": "INSIGHT",
+    "dc": 12,
+    "passText": "You can see right through me, can't you. Everyone I've told about this has called me reckless, my partner thinks I've lost my mind, and {settlement_npc} told me to my face I was going to get myself killed. The truth underneath all the bravado is that I'd rather die finding something than live wondering what was out there. I haven't said that part out loud before.",
+    "failText": "I know what I'm getting into. I've weighed the risks and I'm comfortable with them."
+  },
+  {
+    "id": "pursuit_10",
+    "index": 134,
+    "new_skill": "INSIGHT",
+    "dc": 12,
+    "passText": "You can see what I've been carrying, can't you. I wasn't there when the homestead burned, and I was supposed to visit that week but I put it off. Every time I tell the story I make it sound clean and righteous, but underneath all of that is a man trying to make up for not showing up when it mattered.",
+    "failText": "A friend was wronged and I said I'd see it answered. That's all there is to it."
+  },
+  {
+    "id": "pursuit_11",
+    "index": 135,
+    "new_skill": "PERCEPTION",
+    "dc": 14,
+    "passText": "You saw the marks on the lower trunks, didn't you. The damage pattern isn't natural, it's too even, too deliberate, and it starts right at the boundary line where the property meets the road. Whoever did this walked the edge and worked inward. That's not blight, that's someone with a grudge and a steady hand.",
+    "failText": "The trees are dying. Could be any number of causes this time of year."
+  }
+]
