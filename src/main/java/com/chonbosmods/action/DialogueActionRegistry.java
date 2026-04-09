@@ -360,9 +360,7 @@ public class DialogueActionRegistry {
                 String summary = switch (newType) {
                     case KILL_MOBS -> "kill " + newObj.getRequiredCount() + " " + newObj.getEffectiveLabel();
                     case COLLECT_RESOURCES -> "collect " + newObj.getRequiredCount() + " " + newObj.getEffectiveLabel();
-                    case FETCH_ITEM -> "hostile".equals(bindings.get("fetch_variant"))
-                        ? "retrieve " + newObj.getTargetLabel() + " from " + bindings.getOrDefault("subject_name", "the area")
-                        : "recover " + newObj.getTargetLabel();
+                    case FETCH_ITEM -> "retrieve " + newObj.getTargetLabel();
                     case TALK_TO_NPC -> "speak with " + newObj.getTargetLabel();
                 };
                 bindings.put("quest_objective_summary", summary);

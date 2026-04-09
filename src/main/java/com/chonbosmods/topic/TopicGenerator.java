@@ -482,9 +482,7 @@ public class TopicGenerator {
             }
 
             String rawExposition;
-            if ("peaceful".equals(qb.get("fetch_variant"))) {
-                rawExposition = questPool.randomPeacefulFetchExposition(random);
-            } else if (qb.containsKey("gather_category")) {
+            if (qb.containsKey("gather_category")) {
                 rawExposition = questPool.randomCollectExposition(qb.get("gather_category"), random);
             } else {
                 String situationId = focus.getQuestSituationId();

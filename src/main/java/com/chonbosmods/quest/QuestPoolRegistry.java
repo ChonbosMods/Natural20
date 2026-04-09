@@ -53,10 +53,6 @@ public class QuestPoolRegistry {
     private final List<String> questOrigins = new ArrayList<>();
     private final List<String> questTimePressures = new ArrayList<>();
     private final List<String> questRewardHints = new ArrayList<>();
-    private final List<String> peacefulFetchTheft = new ArrayList<>();
-    private final List<String> peacefulFetchReturn = new ArrayList<>();
-    private final List<String> peacefulFetchBorrowing = new ArrayList<>();
-    private final List<String> peacefulFetchMisplacement = new ArrayList<>();
     private final Map<String, List<String>> acceptResponses = new HashMap<>();
     private final Map<String, List<String>> declineResponses = new HashMap<>();
     private final Map<String, List<String>> counterAcceptResponses = new HashMap<>();
@@ -93,11 +89,6 @@ public class QuestPoolRegistry {
         loadStringPoolFromClasspath(CLASSPATH_PREFIX + "quest_origins.json", questOrigins);
         loadStringPoolFromClasspath(CLASSPATH_PREFIX + "quest_time_pressures.json", questTimePressures);
         loadStringPoolFromClasspath(CLASSPATH_PREFIX + "quest_reward_hints.json", questRewardHints);
-        loadStringPoolFromClasspath(CLASSPATH_PREFIX + "peaceful_fetch_theft.json", peacefulFetchTheft);
-        loadStringPoolFromClasspath(CLASSPATH_PREFIX + "peaceful_fetch_return.json", peacefulFetchReturn);
-        loadStringPoolFromClasspath(CLASSPATH_PREFIX + "peaceful_fetch_borrowing.json", peacefulFetchBorrowing);
-        loadStringPoolFromClasspath(CLASSPATH_PREFIX + "peaceful_fetch_misplacement.json", peacefulFetchMisplacement);
-
         for (String cat : List.of("farming", "hunting", "mining", "cooking", "woodcraft", "smithing", "textiles", "fishing")) {
             List<String> pool = new ArrayList<>();
             loadStringPoolFromClasspath(CLASSPATH_PREFIX + "collect_expo_" + cat + ".json", pool);
@@ -133,11 +124,6 @@ public class QuestPoolRegistry {
             loadStringPool(poolsDir.resolve("quest_origins.json"), questOrigins);
             loadStringPool(poolsDir.resolve("quest_time_pressures.json"), questTimePressures);
             loadStringPool(poolsDir.resolve("quest_reward_hints.json"), questRewardHints);
-            loadStringPool(poolsDir.resolve("peaceful_fetch_theft.json"), peacefulFetchTheft);
-            loadStringPool(poolsDir.resolve("peaceful_fetch_return.json"), peacefulFetchReturn);
-            loadStringPool(poolsDir.resolve("peaceful_fetch_borrowing.json"), peacefulFetchBorrowing);
-            loadStringPool(poolsDir.resolve("peaceful_fetch_misplacement.json"), peacefulFetchMisplacement);
-
             for (String cat : List.of("farming", "hunting", "mining", "cooking", "woodcraft", "smithing", "textiles", "fishing")) {
                 List<String> pool = collectExpoByCategory.computeIfAbsent(cat, k -> new ArrayList<>());
                 loadStringPool(poolsDir.resolve("collect_expo_" + cat + ".json"), pool);
@@ -419,20 +405,6 @@ public class QuestPoolRegistry {
     public @Nullable String randomRewardHint(Random random) {
         if (questRewardHints.isEmpty()) return null;
         return questRewardHints.get(random.nextInt(questRewardHints.size()));
-    }
-
-    /**
-     * Draw a random peaceful fetch exposition line. Picks one of the 4 thematic lanes
-     * (theft, return, borrowing, misplacement) randomly, then draws from that lane.
-     */
-    public String randomPeacefulFetchExposition(Random random) {
-        List<List<String>> lanes = List.of(peacefulFetchTheft, peacefulFetchReturn,
-            peacefulFetchBorrowing, peacefulFetchMisplacement);
-        // Filter to non-empty lanes
-        List<List<String>> available = lanes.stream().filter(l -> !l.isEmpty()).toList();
-        if (available.isEmpty()) return "Someone has something that isn't theirs";
-        List<String> lane = available.get(random.nextInt(available.size()));
-        return lane.get(random.nextInt(lane.size()));
     }
 
     /**

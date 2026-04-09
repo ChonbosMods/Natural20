@@ -246,9 +246,7 @@ public class QuestGenerator {
         String summary = switch (obj.getType()) {
             case KILL_MOBS -> "kill " + obj.getRequiredCount() + " " + obj.getEffectiveLabel();
             case COLLECT_RESOURCES -> "collect " + obj.getRequiredCount() + " " + obj.getEffectiveLabel();
-            case FETCH_ITEM -> "hostile".equals(bindings.get("fetch_variant"))
-                ? "retrieve " + obj.getTargetLabel() + " from " + bindings.getOrDefault("subject_name", "the area")
-                : "recover " + obj.getTargetLabel();
+            case FETCH_ITEM -> "retrieve " + obj.getTargetLabel();
             case TALK_TO_NPC -> "speak with " + obj.getTargetLabel();
         };
         bindings.put("quest_objective_summary", summary);
@@ -328,18 +326,14 @@ public class QuestGenerator {
                 bindings.put("fetch_item_type", fetchItemType);
                 bindings.put("fetch_item_label", bindings.getOrDefault("quest_item", "a quest item"));
 
-                // Try hostile fetch (cave void) first
-                bindings.put("fetch_variant", "hostile");
                 ObjectiveInstance fetchObj = createPOIObjective(type, bindings, config, random);
                 if (fetchObj != null) yield fetchObj;
 
-                // Peaceful fetch fallback
-                bindings.put("fetch_variant", "peaceful");
-                String targetSettlementKey = bindings.get("target_npc_settlement_key");
-
+                // No cave void available: create objective without POI,
+                // let resolveAndPlacePoi handle it at runtime
                 yield new ObjectiveInstance(
                     type, bindings.get("gather_item_id"), bindings.get("quest_item"),
-                    1, null, targetSettlementKey
+                    1, null, null
                 );
             }
             case TALK_TO_NPC -> {
