@@ -26,6 +26,7 @@ public class QuestTemplateRegistry {
 
     private final Map<String, QuestSituation> situations = new LinkedHashMap<>();
     private final List<QuestTemplateV2> v2Templates = new ArrayList<>();
+    private final List<QuestTemplateV2> mundaneTemplates = new ArrayList<>();
     private static final Gson GSON = new GsonBuilder().create();
 
     public void loadAll(@Nullable Path overrideDir) {
@@ -332,6 +333,7 @@ public class QuestTemplateRegistry {
             }
         }
         LOGGER.atInfo().log("Loaded %d v2 quest template(s)", v2Templates.size());
+        loadMundaneTemplates();
     }
 
     /**
@@ -357,6 +359,59 @@ public class QuestTemplateRegistry {
             parseV2Catalog(JsonParser.parseReader(reader).getAsJsonObject(), path.toString());
         } catch (Exception e) {
             LOGGER.atSevere().withCause(e).log("Failed to load v2 template catalog from %s", path);
+        }
+    }
+
+    private void loadMundaneTemplates() {
+        try (InputStream is = getClass().getClassLoader().getResourceAsStream("quests/mundane/index.json")) {
+            if (is == null) {
+                LOGGER.atInfo().log("No quests/mundane/index.json found on classpath, mundane quests disabled");
+                return;
+            }
+            JsonObject root = JsonParser.parseReader(
+                new InputStreamReader(is, StandardCharsets.UTF_8)).getAsJsonObject();
+            JsonArray templates = root.getAsJsonArray("templates");
+            if (templates == null) {
+                LOGGER.atWarning().log("Mundane catalog has no 'templates' array");
+                return;
+            }
+            Set<String> seenIds = new HashSet<>();
+            int loaded = 0, skipped = 0;
+            for (JsonElement el : templates) {
+                QuestTemplateV2 template;
+                try {
+                    template = GSON.fromJson(el, QuestTemplateV2.class);
+                } catch (Exception e) {
+                    LOGGER.atSevere().withCause(e).log("Failed to parse mundane template entry");
+                    skipped++;
+                    continue;
+                }
+                if (template == null || template.id() == null || template.id().isEmpty()) {
+                    LOGGER.atWarning().log("Mundane template missing 'id', skipping");
+                    skipped++;
+                    continue;
+                }
+                if (template.topicHeader() == null || template.topicHeader().isEmpty()) {
+                    LOGGER.atWarning().log("Mundane template '%s' missing 'topicHeader', skipping", template.id());
+                    skipped++;
+                    continue;
+                }
+                if (template.objectives() == null || template.objectives().isEmpty()) {
+                    LOGGER.atWarning().log("Mundane template '%s' has no objectives, skipping", template.id());
+                    skipped++;
+                    continue;
+                }
+                if (!seenIds.add(template.id())) {
+                    LOGGER.atWarning().log("Mundane template id '%s' duplicated, skipping", template.id());
+                    skipped++;
+                    continue;
+                }
+                mundaneTemplates.add(template);
+                loaded++;
+            }
+            LOGGER.atInfo().log("Loaded %d mundane quest template(s) (%d skipped)", loaded, skipped);
+        } catch (Exception e) {
+            LOGGER.atSevere().withCause(e).log("Failed to load mundane templates from classpath");
         }
     }
 
@@ -390,8 +445,8 @@ public class QuestTemplateRegistry {
                 skipped++;
                 continue;
             }
-            if (template.objectives() == null || template.objectives().size() < 2) {
-                LOGGER.atWarning().log("v2 template '%s' has fewer than 2 objectives, skipping", template.id());
+            if (template.objectives() == null || template.objectives().isEmpty()) {
+                LOGGER.atWarning().log("v2 template '%s' has no objectives, skipping", template.id());
                 skipped++;
                 continue;
             }
@@ -408,15 +463,25 @@ public class QuestTemplateRegistry {
 
     public List<QuestTemplateV2> getV2Templates() { return v2Templates; }
 
+    /** Probability [0.0, 1.0] that a quest rolls mundane instead of dramatic. */
+    private static final double MUNDANE_WEIGHT = 0.25;
+
     /**
-     * Select a v2 template eligible for the given NPC role. Eligibility is a hard
-     * filter on {@link QuestTemplateV2#roleAffinity()}: empty/null = any role,
-     * non-empty = only roles in the list. Among eligible templates the choice is
-     * uniform random.
+     * Select a v2 template eligible for the given NPC role. First rolls whether
+     * the quest should be mundane (default 25%) or dramatic. Within the chosen
+     * pool, eligibility is a hard filter on {@link QuestTemplateV2#roleAffinity()}.
      */
     public @Nullable QuestTemplateV2 selectV2ForRole(String npcRole, Random random) {
+        if (!mundaneTemplates.isEmpty() && random.nextDouble() < MUNDANE_WEIGHT) {
+            QuestTemplateV2 mundane = selectFromPool(mundaneTemplates, npcRole, random);
+            if (mundane != null) return mundane;
+        }
+        return selectFromPool(v2Templates, npcRole, random);
+    }
+
+    private @Nullable QuestTemplateV2 selectFromPool(List<QuestTemplateV2> pool, String npcRole, Random random) {
         List<QuestTemplateV2> eligible = new ArrayList<>();
-        for (QuestTemplateV2 t : v2Templates) {
+        for (QuestTemplateV2 t : pool) {
             List<String> aff = t.roleAffinity();
             if (aff == null || aff.isEmpty() || aff.contains(npcRole)) {
                 eligible.add(t);
@@ -425,4 +490,6 @@ public class QuestTemplateRegistry {
         if (eligible.isEmpty()) return null;
         return eligible.get(random.nextInt(eligible.size()));
     }
+
+    public List<QuestTemplateV2> getMundaneTemplates() { return mundaneTemplates; }
 }

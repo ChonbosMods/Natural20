@@ -114,7 +114,7 @@ public class DialogueResolver {
                     bindings.put("enemy_type_plural", objective.getTargetLabelPlural());
                 }
             }
-            case FETCH_ITEM -> {
+            case FETCH_ITEM, PEACEFUL_FETCH -> {
                 if (objective.getEffectiveLabel() != null) {
                     bindings.put("quest_item", objective.getEffectiveLabel());
                 }

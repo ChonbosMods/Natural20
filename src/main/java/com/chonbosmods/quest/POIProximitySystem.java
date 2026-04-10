@@ -117,7 +117,9 @@ public class POIProximitySystem {
         ObjectiveInstance currentObj = quest.getCurrentObjective();
         String fetchItemType = b.get("fetch_item_type");
         if (fetchItemType != null
-                && currentObj != null && currentObj.getType() == ObjectiveType.FETCH_ITEM
+                && currentObj != null
+                && (currentObj.getType() == ObjectiveType.FETCH_ITEM
+                    || currentObj.getType() == ObjectiveType.PEACEFUL_FETCH)
                 && !"true".equals(b.get("poi_chest_placed"))) {
             try {
                 int poiX = (int) Double.parseDouble(b.get("poi_x"));
