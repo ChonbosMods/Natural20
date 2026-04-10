@@ -5,6 +5,7 @@ import com.chonbosmods.loot.Nat20LootData;
 import com.chonbosmods.loot.Nat20LootSystem;
 import com.chonbosmods.loot.RolledAffix;
 import com.chonbosmods.loot.def.Nat20AffixDef;
+import com.chonbosmods.loot.def.Nat20RarityDef;
 import com.hypixel.hytale.component.Ref;
 import com.hypixel.hytale.component.Store;
 import com.hypixel.hytale.server.core.Message;
@@ -20,6 +21,7 @@ import com.hypixel.hytale.server.core.universe.world.storage.EntityStore;
 
 import javax.annotation.Nonnull;
 import java.util.List;
+import java.util.Random;
 
 public class TestWeaponCommand extends AbstractPlayerCommand {
 
@@ -48,22 +50,43 @@ public class TestWeaponCommand extends AbstractPlayerCommand {
             return;
         }
 
-        // Build loot data manually with exactly this one affix at max roll
-        Nat20LootData lootData = new Nat20LootData();
-        lootData.setRarity("Rare");
-        lootData.setLootLevel(0.8);
-        lootData.setAffixes(List.of(new RolledAffix(affixId, 0.8)));
-        lootData.setSockets(0);
+        // Generate through the pipeline to get proper unique ID, tooltip, and item registration
+        Nat20RarityDef rarityDef = lootSystem.getRarityRegistry().get("Rare");
+        if (rarityDef == null) {
+            context.sendMessage(Message.raw("Rare rarity not loaded."));
+            return;
+        }
+        int tier = rarityDef.qualityValue();
+        Random random = new Random();
+        Nat20LootData lootData = lootSystem.getPipeline().generate(
+            "Weapon_Sword_Iron", "Iron Sword", "melee_weapon", tier, tier, random);
+        if (lootData == null) {
+            context.sendMessage(Message.raw("Failed to generate base weapon."));
+            return;
+        }
 
-        // Name the weapon after the affix
-        String displayName = affixDef.displayName();
-        String cleanName = input.contains(":") ? input.substring(input.indexOf(':') + 1) : input;
-        String weaponName = capitalize(cleanName) + " Iron Sword";
-        lootData.setGeneratedName(weaponName);
+        // Override the affixes with exactly our desired affix
+        lootData.setAffixes(List.of(new RolledAffix(affixId, 0.8)));
         lootData.setNamePrefixSource(affixId);
 
-        // Create ItemStack with metadata
-        ItemStack stack = new ItemStack("Weapon_Sword_Iron", 1);
+        // Re-register with item registry so tooltip reflects the forced affix
+        String uniqueId = lootData.getUniqueItemId();
+        if (uniqueId == null) {
+            uniqueId = "Weapon_Sword_Iron";
+        }
+        // Update tooltip by re-registering (unregister old, register new)
+        if (lootData.getUniqueItemId() != null) {
+            lootSystem.getItemRegistry().unregisterItem(lootData.getUniqueItemId());
+            String newUniqueId = lootSystem.getItemRegistry().registerItem(
+                "Weapon_Sword_Iron", "Rare", lootData);
+            if (newUniqueId != null) {
+                lootData.setUniqueItemId(newUniqueId);
+                uniqueId = newUniqueId;
+            }
+        }
+
+        // Create ItemStack with the unique item ID and metadata
+        ItemStack stack = new ItemStack(uniqueId, 1);
         stack = stack.withMetadata(Nat20LootData.METADATA_KEY, lootData);
 
         Player player = store.getComponent(ref, Player.getComponentType());
@@ -73,11 +96,7 @@ public class TestWeaponCommand extends AbstractPlayerCommand {
         }
 
         player.giveItem(stack, ref, store);
-        context.sendMessage(Message.raw("Gave: " + weaponName + " [Rare] with affix " + affixId));
-    }
-
-    private static String capitalize(String s) {
-        if (s == null || s.isEmpty()) return s;
-        return Character.toUpperCase(s.charAt(0)) + s.substring(1);
+        context.sendMessage(Message.raw("Gave: " + lootData.getGeneratedName()
+            + " [Rare] with forced affix " + affixId));
     }
 }
