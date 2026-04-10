@@ -1,5 +1,6 @@
 package com.chonbosmods;
 
+import com.chonbosmods.combat.CombatDebugSystem;
 import com.chonbosmods.cave.CaveVoidRegistry;
 import com.chonbosmods.cave.CaveVoidScanner;
 import com.chonbosmods.cave.UndergroundStructurePlacer;
@@ -320,6 +321,9 @@ public class Natural20 extends JavaPlugin {
         // Register settlement threat detection system (marks attackers as hostile)
         getEntityStoreRegistry().registerSystem(new SettlementThreatSystem());
 
+        // Register combat debug logging system (post-damage inspection)
+        getEntityStoreRegistry().registerSystem(new CombatDebugSystem());
+
         // Clean up on player disconnect
         getEventRegistry().register(PlayerDisconnectEvent.class, event -> {
             UUID uuid = event.getPlayerRef().getUuid();
@@ -328,6 +332,7 @@ public class Natural20 extends JavaPlugin {
             QuestMarkerProvider.INSTANCE.removePlayer(uuid);
             if (poiProximitySystem != null) poiProximitySystem.removePlayer(uuid);
             if (settlementDiscoverySystem != null) settlementDiscoverySystem.removePlayer(uuid);
+            CombatDebugSystem.removePlayer(uuid);
         });
 
         // Restore quest waypoint markers on player connect and register for POI proximity tracking

@@ -24,5 +24,7 @@ public class Nat20Command extends AbstractCommandCollection {
         addSubCommand(new ItemNamesCommand());
         addSubCommand(new EventTitleTestCommand());
         addSubCommand(new QuestTpCommand());
+        addSubCommand(new SetStatsCommand());
+        addSubCommand(new DebugCommand());
     }
 }
