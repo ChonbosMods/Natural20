@@ -130,16 +130,15 @@ public final class EntityHighlight {
         if (spans.isEmpty()) return Message.raw("").color(baseColor);
 
         // Single span with no highlights: simple colored message
-        if (spans.size() == 1) {
-            return Message.raw(spans.getFirst().text)
-                .color(spans.getFirst().highlighted ? HIGHLIGHT_COLOR : baseColor);
+        if (spans.size() == 1 && !spans.getFirst().highlighted) {
+            return Message.raw(spans.getFirst().text).color(baseColor);
         }
 
-        // Multiple spans: build chain starting from the first span
-        Message msg = Message.raw(spans.getFirst().text)
-            .color(spans.getFirst().highlighted ? HIGHLIGHT_COLOR : baseColor);
-        for (int i = 1; i < spans.size(); i++) {
-            Span span = spans.get(i);
+        // Hytale's TextSpans renderer applies the label's default text color to
+        // the root Message, ignoring its explicit .color(). All visible text must
+        // therefore be inserted as children so each span's color is respected.
+        Message msg = Message.raw("").color(baseColor);
+        for (Span span : spans) {
             if (span.text.isEmpty()) continue;
             msg = msg.insert(Message.raw(span.text).color(span.highlighted ? HIGHLIGHT_COLOR : baseColor));
         }

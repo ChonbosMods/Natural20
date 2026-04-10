@@ -396,8 +396,19 @@ public class DialogueManager {
 
         String topicHeader = DialogueResolver.resolve(
             b.getOrDefault("quest_topic_header", quest.getSituationId()), b);
-        String expositionText = DialogueResolver.resolveQuestText(
-            b.getOrDefault("quest_exposition_text", "I need your help with something."), b, expositionObj);
+        String expositionTemplate = b.getOrDefault("quest_exposition_text", "I need your help with something.");
+        String expositionText = DialogueResolver.resolveQuestText(expositionTemplate, b, expositionObj);
+
+        // Diagnostic: trace highlight marker presence in exposition text
+        boolean expoHasMarkers = expositionText != null && expositionText.indexOf(EntityHighlight.MARK_START) >= 0;
+        LOGGER.atInfo().log(
+            "EXPO_DIAG quest=%s template_has_vars=%s resolved_has_markers=%s " +
+            "enemy_type_plural=%s expositionObj=%s",
+            questId, expositionTemplate.contains("{"),
+            expoHasMarkers,
+            b.containsKey("enemy_type_plural") ? b.get("enemy_type_plural") : "MISSING",
+            expositionObj != null ? expositionObj.getType() + ":" + expositionObj.getTargetLabel() : "null");
+
         String acceptText = DialogueResolver.resolveQuestText(
             b.getOrDefault("quest_accept_text", "Thank you. Here's what I need."), b, expositionObj);
         String declineText = DialogueResolver.resolveQuestText(
@@ -586,8 +597,20 @@ public class DialogueManager {
                 case 4 -> "quest_conflict4_turnin_text";
                 default -> "quest_exposition_turnin_text";
             };
-            String turnInText = DialogueResolver.resolveQuestText(
-                b.getOrDefault(turnInTextKey, "You're back. Tell me what happened."), b, currentObj);
+            String turnInTemplate = b.getOrDefault(turnInTextKey, "You're back. Tell me what happened.");
+            String turnInText = DialogueResolver.resolveQuestText(turnInTemplate, b, currentObj);
+
+            // Diagnostic: trace highlight marker presence in resolved turn-in text
+            boolean hasMarkers = turnInText != null && turnInText.indexOf(EntityHighlight.MARK_START) >= 0;
+            LOGGER.atInfo().log(
+                "TURNIN_DIAG quest=%s cc=%d template_key=%s has_target_npc=%s has_enemy_type=%s " +
+                "currentObj=%s template_has_vars=%s resolved_has_markers=%s",
+                questId, cc, turnInTextKey,
+                b.containsKey("target_npc") ? EntityHighlight.stripMarkers(b.get("target_npc")) : "MISSING",
+                b.containsKey("enemy_type") ? EntityHighlight.stripMarkers(b.get("enemy_type")) : "MISSING",
+                currentObj != null ? currentObj.getType() + ":" + currentObj.getTargetLabel() : "null",
+                turnInTemplate.contains("{"),
+                hasMarkers);
 
             // Conflict text (for the NEXT conflict, if triggered)
             String conflictTextKey = switch (cc) {
@@ -597,8 +620,20 @@ public class DialogueManager {
                 case 3 -> "quest_conflict4_text";
                 default -> "";
             };
-            String conflictText = DialogueResolver.resolveQuestText(
-                b.getOrDefault(conflictTextKey, ""), b, nextObj);
+            String conflictTemplate = b.getOrDefault(conflictTextKey, "");
+            String conflictText = DialogueResolver.resolveQuestText(conflictTemplate, b, nextObj);
+
+            // Diagnostic: trace conflict text too
+            boolean conflictHasMarkers = conflictText != null && conflictText.indexOf(EntityHighlight.MARK_START) >= 0;
+            if (!conflictTemplate.isEmpty()) {
+                LOGGER.atInfo().log(
+                    "CONFLICT_DIAG quest=%s cc=%d template_key=%s nextObj=%s " +
+                    "template_has_vars=%s resolved_has_markers=%s",
+                    questId, cc, conflictTextKey,
+                    nextObj != null ? nextObj.getType() + ":" + nextObj.getTargetLabel() : "null",
+                    conflictTemplate.contains("{"),
+                    conflictHasMarkers);
+            }
 
             String resolutionText = DialogueResolver.resolveQuestText(
                 b.getOrDefault("quest_resolution_text", "Thank you. You've done well."), b, currentObj);
