@@ -7,7 +7,6 @@ import com.chonbosmods.data.Nat20PlayerData;
 import com.chonbosmods.dialogue.model.*;
 import com.chonbosmods.dialogue.model.ActiveFollowUp;
 import com.chonbosmods.topic.MundaneDispositionConstants;
-import com.chonbosmods.topic.PostureSelection;
 import com.chonbosmods.dice.SkillCheckResult;
 import com.chonbosmods.stats.PlayerStats;
 import com.google.common.flogger.FluentLogger;
@@ -59,9 +58,6 @@ public class ConversationSession {
     private String activeTopicId;
     private boolean ended;
     private ValenceTracker valenceTracker;
-    private final List<String> recentPostures = new ArrayList<>();
-    private static final int MAX_RECENT_POSTURES = 5;
-
     // --- CONTINUE chain state (mundane topics only) ---
     private List<String> continueChainNodeIds;
     private int continueChainIndex;
@@ -350,46 +346,6 @@ public class ConversationSession {
             processNode(selected.targetNodeId());
             presenter.refreshTopics(resolveVisibleTopics());
             presenter.flushUpdates();
-        } finally {
-            lock.unlock();
-        }
-    }
-
-    /**
-     * Called by the presenter when a posture-type follow-up is selected.
-     * Applies disposition delta immediately and updates recency buffer.
-     * Must be called BEFORE handleFollowUpSelected for the same response.
-     */
-    public void onPostureSelected(PostureSelection.ResolvedPrompt prompt) {
-        lock.lock();
-        try {
-            int adjustedDelta = valenceTracker.computeDispositionDelta(
-                prompt.dispositionModifier(), prompt.groupName());
-            modifyDisposition(adjustedDelta);
-
-            recentPostures.add(prompt.groupName());
-            while (recentPostures.size() > MAX_RECENT_POSTURES) {
-                recentPostures.removeFirst();
-            }
-        } finally {
-            lock.unlock();
-        }
-    }
-
-    /**
-     * Override the display text of the most recently logged SelectedResponse.
-     * Used by the presenter to fill in posture-resolved text after the fact.
-     */
-    public void overrideLastResponseLogText(String resolvedText) {
-        lock.lock();
-        try {
-            for (int i = conversationLog.size() - 1; i >= 0; i--) {
-                if (conversationLog.get(i) instanceof LogEntry.SelectedResponse sr) {
-                    conversationLog.set(i, new LogEntry.SelectedResponse(
-                        sr.responseId(), resolvedText, sr.statPrefix()));
-                    break;
-                }
-            }
         } finally {
             lock.unlock();
         }
@@ -871,8 +827,6 @@ public class ConversationSession {
     public boolean isEnded() { return ended; }
     public DialogueGraph getGraph() { return graph; }
     public ValenceTracker getValenceTracker() { return valenceTracker; }
-    public List<String> getRecentPostures() { return Collections.unmodifiableList(recentPostures); }
-
     /** Seed the valence tracker with an opening valence derived from drift evaluation.
      *  Must be called before start() or startFromSaved(). */
     void seedValenceTracker(ValenceType openingValence) {

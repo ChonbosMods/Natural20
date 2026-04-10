@@ -14,7 +14,6 @@ import com.chonbosmods.quest.QuestSystem;
 import com.chonbosmods.settlement.NpcRecord;
 import com.chonbosmods.settlement.SettlementRecord;
 import com.chonbosmods.settlement.SettlementRegistry;
-import com.chonbosmods.topic.PostureResolver;
 import com.chonbosmods.ui.EntityHighlight;
 import com.google.gson.JsonParser;
 import com.hypixel.hytale.component.Ref;
@@ -41,16 +40,10 @@ public class DialogueManager {
     /** Quests waiting to fire their completion banner once the player's dialogue session ends.
      *  Used by TALK_TO_NPC objectives so the banner doesn't render on top of the dialogue UI. */
     private final Map<UUID, List<QuestInstance>> pendingBanners = new ConcurrentHashMap<>();
-    private PostureResolver postureResolver;
-
     public DialogueManager(DialogueLoader dialogueLoader, DialogueActionRegistry actionRegistry) {
         this.dialogueLoader = dialogueLoader;
         this.actionRegistry = actionRegistry;
         this.conditionEvaluator = new ConditionEvaluator();
-    }
-
-    public void setPostureResolver(PostureResolver postureResolver) {
-        this.postureResolver = postureResolver;
     }
 
     public void startSession(Ref<EntityStore> playerRef, Ref<EntityStore> npcRef, Store<EntityStore> store, Runnable onNpcRelease) {
@@ -136,8 +129,7 @@ public class DialogueManager {
         // Create presenter
         String displayName = npcData.getGeneratedName() != null ? npcData.getGeneratedName() : npcId;
         PageDialoguePresenter presenter = new PageDialoguePresenter(
-                player, player.getPlayerRef(), playerRef, store, this, displayName,
-                postureResolver);
+                player, player.getPlayerRef(), playerRef, store, this, displayName);
 
         // Create session
         ConversationSession session = new ConversationSession(

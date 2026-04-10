@@ -1,8 +1,6 @@
 package com.chonbosmods.dialogue;
 
 import com.chonbosmods.dialogue.model.*;
-import com.chonbosmods.topic.PostureResolver;
-import com.chonbosmods.topic.PostureSelection;
 import com.chonbosmods.dice.Nat20DiceRoller;
 import com.chonbosmods.dice.SkillCheckRequest;
 import com.chonbosmods.dice.SkillCheckResult;
@@ -48,9 +46,6 @@ public class PageDialoguePresenter implements DialoguePresenter {
     private final Store<EntityStore> store;
     private final DialogueManager manager;
     private final String npcName;
-    private final PostureResolver postureResolver;
-    private final Map<String, PostureSelection.ResolvedPrompt> postureCache = new HashMap<>();
-
     private Nat20DialoguePage dialoguePage;
     private Nat20DiceRollPage diceRollPage;
     private boolean hudHidden;
@@ -67,15 +62,13 @@ public class PageDialoguePresenter implements DialoguePresenter {
 
     public PageDialoguePresenter(Player player, PlayerRef playerRef,
                                   Ref<EntityStore> entityRef, Store<EntityStore> store,
-                                  DialogueManager manager, String npcName,
-                                  PostureResolver postureResolver) {
+                                  DialogueManager manager, String npcName) {
         this.player = player;
         this.playerRef = playerRef;
         this.entityRef = entityRef;
         this.store = store;
         this.manager = manager;
         this.npcName = npcName;
-        this.postureResolver = postureResolver;
     }
 
     // --- DialoguePresenter interface ---
@@ -91,46 +84,11 @@ public class PageDialoguePresenter implements DialoguePresenter {
 
     @Override
     public void refreshFollowUps(List<ActiveFollowUp> followUps) {
-        currentFollowUps = resolvePostureSlots(followUps);
+        currentFollowUps = followUps;
         if (dialoguePage != null) {
             dialoguePage.updateFollowUps(currentFollowUps);
             dirty = true;
         }
-    }
-
-    private List<ActiveFollowUp> resolvePostureSlots(List<ActiveFollowUp> followUps) {
-        postureCache.clear();
-
-        int postureCount = 0;
-        for (ActiveFollowUp f : followUps) {
-            if (f.responseType() == ResponseType.POSTURE) postureCount++;
-        }
-        if (postureCount == 0) return followUps;
-
-        ConversationSession session = manager.getSession(playerRef.getUuid());
-        List<String> recentPostures = session != null ? session.getRecentPostures() : List.of();
-        int disposition = session != null ? session.getDisposition() : currentDisposition;
-
-        String npcValence = session != null
-            ? session.getValenceTracker().getCurrentValence().name().toLowerCase()
-            : "neutral";
-        PostureSelection selection = postureResolver.resolve(
-            npcValence, disposition, recentPostures, postureCount);
-
-        List<ActiveFollowUp> resolved = new ArrayList<>();
-        int postureIdx = 0;
-        for (ActiveFollowUp f : followUps) {
-            if (f.responseType() == ResponseType.POSTURE && postureIdx < selection.prompts().size()) {
-                PostureSelection.ResolvedPrompt prompt = selection.prompts().get(postureIdx++);
-                postureCache.put(f.responseId(), prompt);
-                resolved.add(new ActiveFollowUp(
-                    f.responseId(), prompt.text(), null, f.statPrefix(),
-                    f.grayed(), ResponseType.POSTURE));
-            } else {
-                resolved.add(f);
-            }
-        }
-        return resolved;
     }
 
     @Override
@@ -249,27 +207,7 @@ public class PageDialoguePresenter implements DialoguePresenter {
             UUID uuid = playerRef.getUuid();
             switch (type) {
                 case "topic" -> manager.handleTopicSelected(uuid, id);
-                case "followup" -> {
-                    PostureSelection.ResolvedPrompt posture = postureCache.remove(id);
-                    if (posture != null) {
-                        ConversationSession session = manager.getSession(uuid);
-                        if (session != null) {
-                            session.onPostureSelected(posture);
-                        }
-                    }
-                    manager.handleFollowUpSelected(uuid, id);
-                    // Apply posture text override after the log entry is created.
-                    // Do NOT call refreshLog+flushUpdates here: handleFollowUpSelected
-                    // already flushed. A second flush restarts the typewriter and
-                    // truncates NPC text to one character. The override is picked up
-                    // on the next rebuild (next player interaction).
-                    if (posture != null) {
-                        ConversationSession session = manager.getSession(uuid);
-                        if (session != null) {
-                            session.overrideLastResponseLogText(posture.text());
-                        }
-                    }
-                }
+                case "followup" -> manager.handleFollowUpSelected(uuid, id);
                 case "goodbye" -> {
                     ConversationSession session = manager.getSession(uuid);
                     if (session != null && session.isTopicsLocked()) {

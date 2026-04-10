@@ -9,22 +9,6 @@ import java.util.*;
  */
 public class ValenceTracker {
 
-    /** Alignment multipliers: [valence ordinal][posture index] */
-    private static final double[][] ALIGNMENT_MATRIX = {
-        // POSITIVE:  attentive, cheerful, engaged, direct, skeptical, dismissive
-        {1.0, 1.5, 1.0, 1.0, 1.5, 1.0},
-        // NEGATIVE:  attentive, cheerful, engaged, direct, skeptical, dismissive
-        {1.5, 1.0, 1.0, 1.0, 1.0, 1.5},
-        // NEUTRAL:   attentive, cheerful, engaged, direct, skeptical, dismissive
-        {1.0, 1.0, 1.0, 1.0, 1.0, 1.0},
-    };
-
-    private static final List<String> POSTURE_GROUPS = List.of(
-        "attentive", "cheerful", "engaged", "direct", "skeptical", "dismissive"
-    );
-
-    private static final int DISPOSITION_DELTA_CLAMP = 5;
-
     /** Number of recent NPC lines considered for dominant valence calculation. */
     private static final int VALENCE_WINDOW_SIZE = 3;
     /** Minimum occurrences within the window to establish a dominant valence. */
@@ -144,29 +128,6 @@ public class ValenceTracker {
     /** Raw trajectory score for quest hook weighting. */
     public int getTrajectoryScore() {
         return trajectoryScore;
-    }
-
-    /**
-     * Compute disposition delta from a posture selection.
-     * Applies alignment matrix multiplier, rounds toward zero, clamps to [-5, +5].
-     *
-     * @param baseModifier the posture group's base disposition modifier
-     * @param postureGroup the selected posture group name (e.g., "attentive", "cheerful")
-     * @return the adjusted disposition delta
-     */
-    public int computeDispositionDelta(int baseModifier, String postureGroup) {
-        ValenceType valence = getCurrentValence();
-        int postureIndex = POSTURE_GROUPS.indexOf(postureGroup);
-        if (postureIndex < 0) return baseModifier;
-
-        double multiplier = ALIGNMENT_MATRIX[valence.ordinal()][postureIndex];
-        double raw = baseModifier * multiplier;
-
-        // Round toward zero (truncate)
-        int delta = (int) raw;
-
-        // Clamp
-        return Math.clamp(delta, -DISPOSITION_DELTA_CLAMP, DISPOSITION_DELTA_CLAMP);
     }
 
     // --- Static Pure Functions ---

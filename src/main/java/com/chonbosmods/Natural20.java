@@ -19,7 +19,6 @@ import com.chonbosmods.quest.POIKillTrackingSystem;
 import com.chonbosmods.quest.POIPopulationListener;
 import com.chonbosmods.quest.POIProximitySystem;
 import com.chonbosmods.quest.QuestSystem;
-import com.chonbosmods.topic.PostureResolver;
 import com.chonbosmods.npc.BuilderActionNat20StartDialogue;
 import com.chonbosmods.npc.Nat20NpcManager;
 import com.chonbosmods.settlement.NpcRecord;
@@ -414,9 +413,6 @@ public class Natural20 extends JavaPlugin {
         // Initialize quest system
         questSystem = new QuestSystem(settlementRegistry);
         questSystem.loadTemplates(getDataDirectory().resolve("quests"));
-        dialogueManager.setPostureResolver(
-            new PostureResolver(questSystem.getPostureGroupRegistry()));
-
         // Generate procedural topics for all existing settlements. Iterate in
         // chronological placedAt order (tiebreak on cellKey) so the shared
         // per-world dedup evolves identically to how it did during original

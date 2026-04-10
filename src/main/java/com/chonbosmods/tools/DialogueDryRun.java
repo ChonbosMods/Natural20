@@ -396,24 +396,6 @@ public class DialogueDryRun {
                 if (resp.skillCheckRef() != null) {
                     // This is a skill check response: render the check node inline
                     renderSkillCheckResponse(md, graph, resp, depth, visited);
-                } else if (resp.responseType() == ResponseType.POSTURE) {
-                    // Posture (explore) response
-                    md.append(indent).append("- *(explore)* ");
-                    String targetId = resp.targetNodeId();
-                    if (targetId != null && !visited.contains(targetId)) {
-                        visited.add(targetId);
-                        DialogueNode target = graph.getNode(targetId);
-                        if (target instanceof DialogueNode.DialogueTextNode targetText) {
-                            md.append("→ **Detail:**\n");
-                            renderNode(md, graph, targetText, depth + 1, visited);
-                        } else if (target != null) {
-                            md.append("→ *(node: ").append(targetId).append(")*\n");
-                        } else {
-                            md.append("\n");
-                        }
-                    } else {
-                        md.append("\n");
-                    }
                 } else {
                     // Authored/decisive response
                     String label = resp.displayText() != null ? resp.displayText() : "(continue)";
