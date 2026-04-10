@@ -27,5 +27,6 @@ public class Nat20Command extends AbstractCommandCollection {
         addSubCommand(new SetStatsCommand());
         addSubCommand(new DebugCommand());
         addSubCommand(new CombatTestCommand());
+        addSubCommand(new TestWeaponCommand());
     }
 }
