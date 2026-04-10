@@ -128,53 +128,52 @@ public class QuestMarkerProvider implements WorldMapManager.MarkerProvider {
                             settlement.getPosX(), settlement.getPosZ(), MarkerType.RETURN));
                     }
                 }
-            } else if (hasPoi) {
-                // POI marker at offset from center
-                String rawCx = b.get("poi_center_x");
-                String rawCz = b.get("poi_center_z");
-                String rawOx = b.get("marker_offset_x");
-                String rawOz = b.get("marker_offset_z");
-                if (rawCx == null || rawCz == null || rawOx == null || rawOz == null) continue;
-
-                try {
-                    double mx = Double.parseDouble(rawCx) + Double.parseDouble(rawOx);
-                    double mz = Double.parseDouble(rawCz) + Double.parseDouble(rawOz);
-                    entries.add(new MarkerEntry(quest.getQuestId(), questName, mx, mz, MarkerType.POI));
-                } catch (NumberFormatException ignored) {}
             } else {
-                // Non-POI active objectives: TALK_TO_NPC or peaceful FETCH_ITEM
+                // Check current objective type to decide marker style
                 com.chonbosmods.quest.ObjectiveInstance currentObj = quest.getCurrentObjective();
-                if (currentObj == null || currentObj.isComplete()) continue;
+                if (currentObj != null && !currentObj.isComplete()) {
+                    com.chonbosmods.quest.ObjectiveType objType = currentObj.getType();
 
-                com.chonbosmods.quest.ObjectiveType objType = currentObj.getType();
-                if (objType == com.chonbosmods.quest.ObjectiveType.TALK_TO_NPC) {
-                    // target_npc_settlement is the display name; cell-key lookup
-                    // uses target_npc_settlement_key.
-                    String targetSettlementKey = b.get("target_npc_settlement_key");
-                    if (targetSettlementKey != null && b.containsKey("target_npc")) {
-                        SettlementRegistry settlements = Natural20.getInstance().getSettlementRegistry();
-                        if (settlements != null) {
-                            SettlementRecord target = settlements.getByCell(targetSettlementKey);
-                            if (target != null) {
-                                String targetLabel = "Speak with " + b.get("target_npc");
-                                entries.add(new MarkerEntry(quest.getQuestId(), targetLabel,
-                                    target.getPosX(), target.getPosZ(), MarkerType.TARGET_NPC));
+                    if (objType == com.chonbosmods.quest.ObjectiveType.TALK_TO_NPC) {
+                        // Target NPC marker at their settlement
+                        String targetSettlementKey = b.get("target_npc_settlement_key");
+                        if (targetSettlementKey != null && b.containsKey("target_npc")) {
+                            SettlementRegistry settlements = Natural20.getInstance().getSettlementRegistry();
+                            if (settlements != null) {
+                                SettlementRecord target = settlements.getByCell(targetSettlementKey);
+                                if (target != null) {
+                                    String targetLabel = "Speak with " + b.get("target_npc");
+                                    entries.add(new MarkerEntry(quest.getQuestId(), targetLabel,
+                                        target.getPosX(), target.getPosZ(), MarkerType.TARGET_NPC));
+                                }
                             }
                         }
-                    }
-                } else if (objType == com.chonbosmods.quest.ObjectiveType.FETCH_ITEM
-                        || objType == com.chonbosmods.quest.ObjectiveType.PEACEFUL_FETCH) {
-                    // Peaceful FETCH_ITEM: marker at target settlement
-                    String locationId = currentObj.getLocationId();
-                    if (locationId != null) {
-                        SettlementRegistry settlements = Natural20.getInstance().getSettlementRegistry();
-                        if (settlements != null) {
-                            SettlementRecord target = settlements.getByCell(locationId);
-                            if (target != null) {
-                                String fetchLabel = "Find " + currentObj.getTargetLabel();
-                                entries.add(new MarkerEntry(quest.getQuestId(), fetchLabel,
-                                    target.getPosX(), target.getPosZ(), MarkerType.TARGET_NPC));
+                    } else if (objType == com.chonbosmods.quest.ObjectiveType.PEACEFUL_FETCH) {
+                        // Settlement marker at target settlement (same style as TALK_TO_NPC)
+                        String locationId = currentObj.getLocationId();
+                        if (locationId != null) {
+                            SettlementRegistry settlements = Natural20.getInstance().getSettlementRegistry();
+                            if (settlements != null) {
+                                SettlementRecord target = settlements.getByCell(locationId);
+                                if (target != null) {
+                                    String fetchLabel = "Find " + currentObj.getTargetLabel();
+                                    entries.add(new MarkerEntry(quest.getQuestId(), fetchLabel,
+                                        target.getPosX(), target.getPosZ(), MarkerType.TARGET_NPC));
+                                }
                             }
+                        }
+                    } else if (hasPoi) {
+                        // POI marker at offset from center (KILL_MOBS, FETCH_ITEM)
+                        String rawCx = b.get("poi_center_x");
+                        String rawCz = b.get("poi_center_z");
+                        String rawOx = b.get("marker_offset_x");
+                        String rawOz = b.get("marker_offset_z");
+                        if (rawCx != null && rawCz != null && rawOx != null && rawOz != null) {
+                            try {
+                                double mx = Double.parseDouble(rawCx) + Double.parseDouble(rawOx);
+                                double mz = Double.parseDouble(rawCz) + Double.parseDouble(rawOz);
+                                entries.add(new MarkerEntry(quest.getQuestId(), questName, mx, mz, MarkerType.POI));
+                            } catch (NumberFormatException ignored) {}
                         }
                     }
                 }
