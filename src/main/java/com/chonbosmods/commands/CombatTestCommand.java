@@ -1,10 +1,6 @@
 package com.chonbosmods.commands;
 
-import com.chonbosmods.Natural20;
 import com.chonbosmods.combat.CombatDebugSystem;
-import com.chonbosmods.loot.Nat20LootData;
-import com.chonbosmods.loot.Nat20LootSystem;
-import com.chonbosmods.loot.def.Nat20RarityDef;
 import com.hypixel.hytale.component.Ref;
 import com.hypixel.hytale.component.Store;
 import com.hypixel.hytale.math.vector.Vector3d;
@@ -12,13 +8,9 @@ import com.hypixel.hytale.math.vector.Vector3f;
 import com.hypixel.hytale.server.core.Message;
 import com.hypixel.hytale.server.core.asset.type.model.config.Model;
 import com.hypixel.hytale.server.core.command.system.CommandContext;
-import com.hypixel.hytale.server.core.command.system.arguments.system.OptionalArg;
-import com.hypixel.hytale.server.core.command.system.arguments.types.ArgTypes;
 import com.hypixel.hytale.server.core.command.system.basecommands.AbstractPlayerCommand;
 import com.hypixel.hytale.server.core.cosmetics.CosmeticsModule;
-import com.hypixel.hytale.server.core.entity.entities.Player;
 import com.hypixel.hytale.server.core.entity.nameplate.Nameplate;
-import com.hypixel.hytale.server.core.inventory.ItemStack;
 import com.hypixel.hytale.server.core.modules.entity.component.TransformComponent;
 import com.hypixel.hytale.server.core.universe.PlayerRef;
 import com.hypixel.hytale.server.core.universe.world.World;
@@ -32,13 +24,8 @@ import java.util.Random;
 
 public class CombatTestCommand extends AbstractPlayerCommand {
 
-    private final OptionalArg<String> affixArg =
-        withOptionalArg("affix", "Affix ID like mighty, vampiric", ArgTypes.STRING);
-    private final OptionalArg<String> rarityArg =
-        withOptionalArg("rarity", "Rarity like Rare, Epic (defaults to Rare)", ArgTypes.STRING);
-
     public CombatTestCommand() {
-        super("combattest", "Spawn combat dummies and optionally get a test weapon");
+        super("combattest", "Spawn combat dummies and enable debug logging. Use /nat20 loot for test weapons.");
     }
 
     @Override
@@ -68,18 +55,11 @@ public class CombatTestCommand extends AbstractPlayerCommand {
         // Enable combat debug logging for this player
         CombatDebugSystem.enable(playerRef.getUuid());
 
-        // Handle optional test weapon
-        if (context.provided(affixArg)) {
-            String affixId = affixArg.get(context);
-            giveTestWeapon(context, store, ref, affixId,
-                context.provided(rarityArg) ? rarityArg.get(context) : "Rare");
-        }
-
         // Confirmation message
         StringBuilder msg = new StringBuilder("Combat test setup:");
         msg.append(passiveSpawned ? " Combat Dummy spawned." : " Combat Dummy failed to spawn.");
         msg.append(attackerSpawned ? " Attacker Dummy spawned." : " Attacker Dummy failed to spawn.");
-        msg.append(" Debug logging enabled.");
+        msg.append(" Debug logging enabled. Use /nat20 loot for test weapons.");
         context.sendMessage(Message.raw(msg.toString()));
     }
 
@@ -112,45 +92,4 @@ public class CombatTestCommand extends AbstractPlayerCommand {
         return false;
     }
 
-    private void giveTestWeapon(CommandContext context, Store<EntityStore> store,
-                                Ref<EntityStore> ref, String affixId, String rarityName) {
-        Nat20LootSystem lootSystem = Natural20.getInstance().getLootSystem();
-
-        // Normalize affix ID with namespace prefix
-        String fullAffixId = affixId.contains(":") ? affixId : "nat20:" + affixId;
-        if (lootSystem.getAffixRegistry().get(fullAffixId) == null) {
-            context.sendMessage(Message.raw("Unknown affix: " + affixId));
-            return;
-        }
-
-        Nat20RarityDef rarityDef = lootSystem.getRarityRegistry().get(rarityName);
-        if (rarityDef == null) {
-            context.sendMessage(Message.raw("Unknown rarity: " + rarityName
-                + ". Valid: Common, Uncommon, Rare, Epic, Legendary"));
-            return;
-        }
-
-        int tier = rarityDef.qualityValue();
-        Random random = new Random();
-        Nat20LootData lootData = lootSystem.getPipeline().generate(
-            "Weapon_Sword_Iron", "Iron Sword", "melee_weapon", tier, tier, random);
-        if (lootData == null) {
-            context.sendMessage(Message.raw("Failed to generate test weapon."));
-            return;
-        }
-
-        String stackItemId = lootData.getUniqueItemId() != null ? lootData.getUniqueItemId() : "Weapon_Sword_Iron";
-        ItemStack stack = new ItemStack(stackItemId, 1);
-        stack = stack.withMetadata(Nat20LootData.METADATA_KEY, lootData);
-
-        Player player = store.getComponent(ref, Player.getComponentType());
-        if (player == null) {
-            context.sendMessage(Message.raw("Could not access player entity."));
-            return;
-        }
-
-        player.giveItem(stack, ref, store);
-        context.sendMessage(Message.raw("Gave test weapon: " + lootData.getGeneratedName()
-            + " [" + lootData.getRarity() + "]"));
-    }
 }
