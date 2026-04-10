@@ -46,28 +46,49 @@ Each affix type defines its own `k` in config JSON. Aggressive `k` for crit chan
 
 ---
 
-## Phase 1: Combat Test Harness
+## Phase 1: Combat Test Harness — COMPLETE (2026-04-10)
 
 **Goal**: a `/nat20 combattest` command that spawns a controlled test scenario, so every subsequent phase has instant feedback.
 
-### Deliverables
+**Status**: Merged to main. All smoke test criteria passed.
 
-1. **Passive combat dummy**: high-HP NPC spawned 5 blocks in front of the player. Doesn't fight back or flee. Visible nametag: "Combat Dummy". Uses a custom `nat20:combat_dummy` role with `"Attitude": "Passive"` and inflated health.
+### What Was Built
 
-2. **Aggressive combat dummy**: spawned beside the passive dummy. Predictable fixed-damage melee attacks, no abilities. Visible nametag: "Attacker Dummy". For testing incoming damage, Absorption, flinch resist, knockback resist.
+1. **Passive combat dummy** (`CombatDummy.json`): Variant of `Template_Settlement_Civilian`, 10k HP, no wander, ignores players and NPCs. Nametag "Combat Dummy".
 
-3. **Test weapon command**: `/nat20 combattest <affix_id> <level>` gives the player a weapon with the specified affix baked into BSON metadata at the given level.
+2. **Aggressive combat dummy** (`AttackerDummy.json`): Variant of `Template_Settlement_Guard`, 10k HP, Iron Sword, hostile to players. Nametag "Attacker Dummy".
 
-4. **Stat override command**: `/nat20 setstats STR 20 DEX 14 ...` sets ability scores in `Nat20PlayerData` and fires a `PlayerScoreChangeEvent`.
+3. **`/nat20 combattest`**: Spawns both dummies near player, auto-enables debug logging. No arguments (see divergences below).
 
-5. **Debug damage logger**: a `DamageEventSystem` in Inspect Group that logs to console on every damage event: raw damage, modified damage, active `nat20:` modifiers on attacker and target, active entity effects on target, mana/health/stamina snapshot. Togglable per-player via `/nat20 debug combat on|off`.
+4. **`/nat20 testweapon <affix>`**: Separate command giving an Iron Sword with a specific affix baked into BSON metadata. Affix is functionally active (stat modifiers apply on equip) but tooltip does not display it (see divergences below).
 
-### Test Criteria
+5. **`/nat20 setstats STR 20 DEX 14 ...`**: Sets ability scores on `Nat20PlayerData`. Auto-creates the component if it doesn't exist yet.
 
-- Run `/nat20 combattest`, see both dummies spawn
-- Hit passive dummy, see debug log with damage numbers
-- Get hit by attacker dummy, see debug log with incoming damage
-- `/nat20 setstats CON 20`, observe no visible change yet (persistent bonuses not wired until Phase 3)
+6. **`/nat20 debug on|off`**: Toggles per-player `CombatDebugSystem` logging.
+
+7. **`CombatDebugSystem`**: `DamageEventSystem` in Inspect Group. Logs cause, initial/final damage, HP/STA/MP, and D&D ability scores for attacker and target.
+
+### Files Created
+
+- `src/main/java/com/chonbosmods/combat/CombatDebugSystem.java`
+- `src/main/java/com/chonbosmods/commands/CombatTestCommand.java`
+- `src/main/java/com/chonbosmods/commands/SetStatsCommand.java`
+- `src/main/java/com/chonbosmods/commands/DebugCommand.java`
+- `src/main/java/com/chonbosmods/commands/TestWeaponCommand.java`
+- `src/main/resources/Server/NPC/Roles/Nat20/CombatDummy.json`
+- `src/main/resources/Server/NPC/Roles/Nat20/AttackerDummy.json`
+
+### Divergences from Plan
+
+1. **Test weapon is a separate command, not an arg on combattest.** Hytale's command parser doesn't support commands with only `OptionalArg`s and no `RequiredArg`. The original plan had `/nat20 combattest <affix> [rarity]` but this failed at runtime. Split into `/nat20 combattest` (no args) + `/nat20 testweapon <affix>` (required arg).
+
+2. **Test weapon has no tooltip display for forced affixes.** `Nat20ItemRegistry.registerItem()` acquires asset locks that deadlock on the ECS command thread. The test weapon builds `Nat20LootData` manually with BSON metadata, which the equipment listener reads correctly (modifiers ARE active), but the tooltip shows a plain Iron Sword. Acceptable for dev testing: the debug logger confirms modifiers are applied.
+
+3. **No `PlayerScoreChangeEvent` fired by setstats.** The plan called for a custom event. Not needed yet since no systems listen for it. Will add in Phase 3 when `AttributeDerivationSystem` needs it.
+
+4. **`Nat20PlayerData` lazy creation discovered.** The component is only created on first NPC dialogue or `/nat20 setstats`, not on player connect. `SetStatsCommand` was fixed to auto-create it. Phase 3 must handle this (either null check in derivation system or create on `PlayerReadyEvent`).
+
+5. **Hytale `OptionalArg` limitation discovered.** The existing `/nat20 loot` command's optional rarity arg also doesn't work (`/nat20 loot Weapon_Sword_Iron Rare` fails). This is a pre-existing SDK limitation, not new.
 
 ---
 
