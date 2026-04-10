@@ -307,7 +307,7 @@ public class QuestGenerator {
                 String fetchItemType;
                 if (config.fetchItem() != null) {
                     // Template author pinned a specific trinket (e.g., "quest_vial")
-                    fetchItemType = "nat20:" + QuestPoolRegistry.capitalize(config.fetchItem());
+                    fetchItemType = QuestPoolRegistry.capitalize(config.fetchItem());
                     // Still draw a random item for the narrative label
                     QuestPoolRegistry.ItemEntry narrativeItem = random.nextBoolean()
                         ? poolRegistry.randomKeepsakeItem(random)

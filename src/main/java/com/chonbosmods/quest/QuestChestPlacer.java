@@ -7,6 +7,7 @@ import com.hypixel.hytale.assetstore.map.BlockTypeAssetMap;
 import com.hypixel.hytale.component.Holder;
 import com.hypixel.hytale.logger.HytaleLogger;
 import com.hypixel.hytale.server.core.asset.type.blocktype.config.BlockType;
+import com.hypixel.hytale.server.core.asset.type.item.config.Item;
 import com.hypixel.hytale.math.util.ChunkUtil;
 import com.hypixel.hytale.server.core.universe.world.World;
 import com.hypixel.hytale.server.core.universe.world.chunk.WorldChunk;
@@ -26,6 +27,21 @@ public class QuestChestPlacer {
     public static boolean placeQuestChest(World world, int x, int y, int z,
                                            String itemTypeId, String itemLabel) {
         try {
+            // 0. Verify item type exists in asset registry
+            Item item = Item.getAssetMap().getAsset(itemTypeId);
+            if (item == null) {
+                // Find the actual key so we can fix the namespace
+                String baseName = itemTypeId.contains(":") ? itemTypeId.substring(itemTypeId.indexOf(':') + 1) : itemTypeId;
+                String matchedKey = null;
+                for (String key : Item.getAssetMap().getAssetMap().keySet()) {
+                    if (key.endsWith(baseName) || key.equalsIgnoreCase(baseName)) {
+                        matchedKey = key;
+                        break;
+                    }
+                }
+                LOGGER.atWarning().log("Item type '%s' not found in asset registry! Closest match: '%s'", itemTypeId, matchedKey);
+            }
+
             // 1. Resolve chest block type
             int blockId = BlockType.getBlockIdOrUnknown(
                 (BlockTypeAssetMap) BlockType.getAssetMap(),

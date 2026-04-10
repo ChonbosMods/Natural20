@@ -575,7 +575,7 @@ public class QuestPoolRegistry {
      */
     public static String getBaseItemType(@Nullable ItemEntry entry) {
         if (entry != null && entry.fetchItemType() != null) {
-            return "nat20:" + capitalize(entry.fetchItemType());
+            return capitalize(entry.fetchItemType());
         }
         return getBaseItemType(entry != null ? entry.id() : null);
     }
@@ -584,15 +584,15 @@ public class QuestPoolRegistry {
      * Legacy: map a pool item ID to its base Nat20 item type.
      */
     public static String getBaseItemType(@Nullable String poolItemId) {
-        if (poolItemId == null) return "nat20:Quest_Document";
-        if (poolItemId.startsWith("keepsake_")) return "nat20:Quest_Keepsake";
+        if (poolItemId == null) return "Quest_Document";
+        if (poolItemId.startsWith("keepsake_")) return "Quest_Keepsake";
         if ("evidence_letter".equals(poolItemId) || "evidence_correspondence".equals(poolItemId))
-            return "nat20:Quest_Letter";
+            return "Quest_Letter";
         if ("evidence_signet".equals(poolItemId) || "evidence_token".equals(poolItemId)
                 || "evidence_map".equals(poolItemId))
-            return "nat20:Quest_Treasure";
-        if (poolItemId.startsWith("evidence_")) return "nat20:Quest_Document";
-        return "nat20:Quest_Document";
+            return "Quest_Treasure";
+        if (poolItemId.startsWith("evidence_")) return "Quest_Document";
+        return "Quest_Document";
     }
 
     static String capitalize(String s) {
