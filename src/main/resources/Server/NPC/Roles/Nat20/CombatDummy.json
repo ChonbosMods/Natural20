@@ -1,0 +1,13 @@
+{
+  "Type": "Variant",
+  "Reference": "Template_Settlement_Civilian",
+  "Parameters": {
+    "MaxHealth": { "Value": 10000 },
+    "WanderRadius": { "Value": 0 },
+    "DefaultPlayerAttitude": { "Value": "Ignore" },
+    "DefaultNPCAttitude": { "Value": "Ignore" },
+    "LeashDistance": { "Value": 1 },
+    "HardLeashDistance": { "Value": 5 },
+    "NameTranslationKey": { "Value": "nat20.npc.combat_dummy" }
+  }
+}
