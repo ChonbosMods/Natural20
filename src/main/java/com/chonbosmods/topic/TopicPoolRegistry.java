@@ -278,32 +278,9 @@ public class TopicPoolRegistry {
 
     // --- Random selection methods ---
 
-    public SubjectEntry randomSubject(Random random) {
+    private SubjectEntry randomSubject(Random random) {
         if (subjectFocuses.isEmpty()) return new SubjectEntry("strange occurrence", false, false, false, true, List.of(), "narrative_only", List.of());
         return subjectFocuses.get(random.nextInt(subjectFocuses.size()));
-    }
-
-    public SubjectEntry randomSubjectForCategory(String targetCategory, Random random) {
-        List<SubjectEntry> matching = subjectFocuses.stream()
-            .filter(s -> s.categories().contains(targetCategory))
-            .toList();
-        if (matching.isEmpty()) return randomSubject(random);
-        return matching.get(random.nextInt(matching.size()));
-    }
-
-    public SubjectEntry randomSubjectForCategoryExcluding(String targetCategory, Set<String> usedValues, Random random) {
-        List<SubjectEntry> matching = subjectFocuses.stream()
-            .filter(s -> s.categories().contains(targetCategory))
-            .filter(s -> !usedValues.contains(s.value()))
-            .toList();
-        if (matching.isEmpty()) {
-            List<SubjectEntry> anyMatching = subjectFocuses.stream()
-                .filter(s -> s.categories().contains(targetCategory))
-                .toList();
-            if (anyMatching.isEmpty()) return randomSubject(random);
-            return anyMatching.get(random.nextInt(anyMatching.size()));
-        }
-        return matching.get(random.nextInt(matching.size()));
     }
 
     public SubjectEntry randomQuestEligibleSubject(Random random) {
@@ -343,16 +320,6 @@ public class TopicPoolRegistry {
     }
 
     // --- Drop-in pool accessors ---
-
-    public String randomTimeRef(Random random) {
-        if (timeRefs.isEmpty()) return "not long ago";
-        return timeRefs.get(random.nextInt(timeRefs.size()));
-    }
-
-    public String randomDirection(Random random) {
-        if (directions.isEmpty()) return "out that way";
-        return directions.get(random.nextInt(directions.size()));
-    }
 
     // --- Tone pool accessors (bracket + valence filtered) ---
 
@@ -540,17 +507,5 @@ public class TopicPoolRegistry {
         List<String> pool = resourceTypesByPoi.get(poiKey);
         return (pool != null && !pool.isEmpty()) ? pool : resourceTypesByPoi.getOrDefault("general", List.of());
     }
-    public List<String> getToneOpeners(String bracket) {
-        return flattenLanes(toneOpeners.get(bracket));
-    }
-    public List<String> getToneClosers(String bracket) {
-        return flattenLanes(toneClosers.get(bracket));
-    }
 
-    private List<String> flattenLanes(Map<String, List<String>> lanes) {
-        if (lanes == null) return List.of();
-        List<String> all = new ArrayList<>();
-        for (List<String> l : lanes.values()) all.addAll(l);
-        return all;
-    }
 }
