@@ -84,6 +84,15 @@ Variables like `{kill_count}`, `{enemy_type}`, `{quest_item}`, and `{gather_coun
 
 **Length guidance:** 1-2 sentences. This is a reaction, not a speech.
 
+**Anti-pattern: player voice.** The acceptText is the NPC speaking, not the player. If the line sounds like the player's decision ("I'll go ask around", "Sure, I'll grab some for you", "Leave it to me"), it's wrong. The player's decision is represented by the [ACCEPT] button itself. The acceptText is what the NPC says AFTER the player clicks it.
+
+```
+GOOD: "Oh, that's a relief. I've been worrying about it more than I should."
+BAD:  "I'll go ask around."       <- player talking, not the NPC
+BAD:  "Sure thing."               <- player acknowledgment, not NPC reaction
+BAD:  "Consider it done."         <- player commitment, not NPC emotion
+```
+
 ---
 
 ### `declineText`
@@ -100,6 +109,14 @@ Variables like `{kill_count}`, `{enemy_type}`, `{quest_item}`, and `{gather_coun
 - Threaten the player with gameplay consequences
 
 **Length guidance:** 1-3 sentences. Hostile or guilt-tripping declines can run longer. Indifferent ones should be short.
+
+**Anti-pattern: player voice.** The declineText is the NPC reacting to rejection, not the player declining. If it sounds like the player speaking ("Not right now, sorry", "I'm too busy"), it's wrong.
+
+```
+GOOD: "That's fine. The craving will pass. Probably."
+BAD:  "Not right now, sorry."     <- player speaking
+BAD:  "I've got my own things to do." <- player explaining themselves
+```
 
 ---
 
