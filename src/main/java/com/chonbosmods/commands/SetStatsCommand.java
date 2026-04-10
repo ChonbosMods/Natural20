@@ -33,8 +33,7 @@ public class SetStatsCommand extends AbstractPlayerCommand {
                            @Nonnull World world) {
         Nat20PlayerData data = store.getComponent(ref, Natural20.getPlayerDataType());
         if (data == null) {
-            context.sendMessage(Message.raw("Could not load player data."));
-            return;
+            data = store.addComponent(ref, Natural20.getPlayerDataType());
         }
 
         String raw = pairsArg.get(context);
