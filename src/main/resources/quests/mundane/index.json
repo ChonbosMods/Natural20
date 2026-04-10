@@ -1,0 +1,383 @@
+{
+  "version": 2,
+  "generated": "2026-04-09",
+  "mundane": true,
+  "templates": [
+
+    {
+      "id": "mundane_pantry_01",
+      "topicHeader": "A Craving",
+      "situation": "mundane_pantry",
+      "objectives": [
+        { "type": "COLLECT_RESOURCES" }
+      ],
+      "expositionText": "I've had this recipe stuck in my head for three days now and it won't leave me alone. I need {gather_count} {quest_item} to make it happen.",
+      "acceptText": "Sure, I'll grab some for you.",
+      "declineText": "Not right now, sorry.",
+      "expositionTurnInText": "Perfect: tonight I'm cooking.",
+      "resolutionText": "You're a lifesaver. Here: {quest_reward}.",
+      "rewardText": "a home-cooked meal and my thanks",
+      "valence": "positive",
+      "roleAffinity": []
+    },
+
+    {
+      "id": "mundane_pantry_02",
+      "topicHeader": "Something to Eat",
+      "situation": "mundane_pantry",
+      "objectives": [
+        { "type": "COLLECT_RESOURCES" }
+      ],
+      "expositionText": "I've been dying to eat some {quest_item} but I haven't had a chance to go out and get any. Could you bring me {gather_count}?",
+      "acceptText": "I'll see what I can find.",
+      "declineText": "You'll have to find someone else.",
+      "expositionTurnInText": "Oh, wonderful. I've been thinking about this all day.",
+      "resolutionText": "Thank you so much. Take this: {quest_reward}.",
+      "rewardText": "a jar of preserves from my cupboard",
+      "valence": "positive",
+      "roleAffinity": []
+    },
+
+    {
+      "id": "mundane_pantry_03",
+      "topicHeader": "An Empty Cupboard",
+      "situation": "mundane_pantry",
+      "objectives": [
+        { "type": "COLLECT_RESOURCES" }
+      ],
+      "expositionText": "I promised {settlement_npc} I'd bring something nice for dinner tonight, but my cupboard's bare. Would you get me {gather_count} {quest_item}?",
+      "acceptText": "Consider it done.",
+      "declineText": "I can't help right now.",
+      "expositionTurnInText": "Now I won't show up empty-handed. {settlement_npc} would never let me hear the end of it.",
+      "resolutionText": "You've saved my reputation. Here: {quest_reward}.",
+      "rewardText": "a pouch of dried herbs I've been saving",
+      "valence": "positive",
+      "roleAffinity": []
+    },
+
+    {
+      "id": "mundane_restock_01",
+      "topicHeader": "Running Low",
+      "situation": "mundane_restock",
+      "objectives": [
+        { "type": "COLLECT_RESOURCES" }
+      ],
+      "expositionText": "Workshop's running low. I need {gather_count} {quest_item} before I can get back to work.",
+      "acceptText": "I'll get them.",
+      "declineText": "Can't right now.",
+      "expositionTurnInText": "Good: that should keep me going for a while.",
+      "resolutionText": "Appreciate it. {quest_reward}.",
+      "rewardText": "a sturdy leather pouch, well-made",
+      "valence": "positive",
+      "roleAffinity": []
+    },
+
+    {
+      "id": "mundane_restock_02",
+      "topicHeader": "Supplies Needed",
+      "situation": "mundane_restock",
+      "objectives": [
+        { "type": "COLLECT_RESOURCES" }
+      ],
+      "expositionText": "I'm almost out of {quest_item} and I've got orders to fill. I could use {gather_count} if you're willing.",
+      "acceptText": "On it.",
+      "declineText": "Not today.",
+      "expositionTurnInText": "That'll do nicely. Back to it, then.",
+      "resolutionText": "Thanks. Here: {quest_reward}.",
+      "rewardText": "a set of polished bone buttons",
+      "valence": "positive",
+      "roleAffinity": []
+    },
+
+    {
+      "id": "mundane_restock_03",
+      "topicHeader": "Low Stock",
+      "situation": "mundane_restock",
+      "objectives": [
+        { "type": "COLLECT_RESOURCES" }
+      ],
+      "expositionText": "I went to grab {quest_item} this morning and the bin was empty. Could you round up {gather_count} for me?",
+      "acceptText": "Sure thing.",
+      "declineText": "Maybe later.",
+      "expositionTurnInText": "Perfect. I'll get these sorted right away.",
+      "resolutionText": "You've saved me a trip. {quest_reward}.",
+      "rewardText": "a small jar of beeswax salve",
+      "valence": "positive",
+      "roleAffinity": []
+    },
+
+    {
+      "id": "mundane_errand_01",
+      "topicHeader": "A Quick Errand",
+      "situation": "mundane_errand",
+      "objectives": [
+        { "type": "COLLECT_RESOURCES" }
+      ],
+      "expositionText": "Could you grab {gather_count} {quest_item} for me? My back's not what it was and the walk would do me in.",
+      "acceptText": "Happy to help.",
+      "declineText": "Sorry, I'm busy.",
+      "expositionTurnInText": "Ah, just what I needed. You're quicker than I'd have been.",
+      "resolutionText": "Much obliged. Take this: {quest_reward}.",
+      "rewardText": "a warm knitted scarf",
+      "valence": "positive",
+      "roleAffinity": []
+    },
+
+    {
+      "id": "mundane_errand_02",
+      "topicHeader": "A Small Favor",
+      "situation": "mundane_errand",
+      "objectives": [
+        { "type": "COLLECT_RESOURCES" }
+      ],
+      "expositionText": "I promised I'd have {quest_item} ready by this afternoon, but I can't leave the shop. Any chance you could bring me {gather_count}?",
+      "acceptText": "I'll take care of it.",
+      "declineText": "Not this time.",
+      "expositionTurnInText": "You're a natural. I'll have these put to use right away.",
+      "resolutionText": "Here: {quest_reward}. You've earned it.",
+      "rewardText": "a carved wooden trinket box",
+      "valence": "positive",
+      "roleAffinity": []
+    },
+
+    {
+      "id": "mundane_errand_03",
+      "topicHeader": "Too Busy to Go",
+      "situation": "mundane_errand",
+      "objectives": [
+        { "type": "COLLECT_RESOURCES" }
+      ],
+      "expositionText": "I've been meaning to gather {gather_count} {quest_item} all week, but things keep coming up. Would you mind?",
+      "acceptText": "Leave it to me.",
+      "declineText": "I've got my own things to do.",
+      "expositionTurnInText": "Finally. I've been putting this off for too long.",
+      "resolutionText": "You're a good sort. {quest_reward}.",
+      "rewardText": "a bundle of dried wildflowers",
+      "valence": "positive",
+      "roleAffinity": []
+    },
+
+    {
+      "id": "mundane_curiosity_01",
+      "topicHeader": "Just Curious",
+      "situation": "mundane_curiosity",
+      "objectives": [
+        { "type": "COLLECT_RESOURCES" }
+      ],
+      "expositionText": "I've always wanted to see what {quest_item} looks like up close. Bring me {gather_count} and let me have a proper look?",
+      "acceptText": "Why not? I'll find some.",
+      "declineText": "Maybe another time.",
+      "expositionTurnInText": "Oh, fascinating. I see why people make a fuss over these.",
+      "resolutionText": "Thanks for indulging me. Here: {quest_reward}.",
+      "rewardText": "an old coin with an unusual stamp",
+      "valence": "positive",
+      "roleAffinity": []
+    },
+
+    {
+      "id": "mundane_curiosity_02",
+      "topicHeader": "An Experiment",
+      "situation": "mundane_curiosity",
+      "objectives": [
+        { "type": "COLLECT_RESOURCES" }
+      ],
+      "expositionText": "I want to try something. Bring me {gather_count} {quest_item}: I've got an idea that might actually work.",
+      "acceptText": "Sounds fun. I'm in.",
+      "declineText": "I'll pass on this one.",
+      "expositionTurnInText": "Excellent. Let's see if this idea holds up.",
+      "resolutionText": "That was worth it. {quest_reward} for your trouble.",
+      "rewardText": "a smooth river stone, painted with care",
+      "valence": "positive",
+      "roleAffinity": []
+    },
+
+    {
+      "id": "mundane_curiosity_03",
+      "topicHeader": "Something I've Wondered About",
+      "situation": "mundane_curiosity",
+      "objectives": [
+        { "type": "COLLECT_RESOURCES" }
+      ],
+      "expositionText": "{settlement_npc} told me {quest_item} has all sorts of uses I never knew about. Could you get me {gather_count}? I want to find out for myself.",
+      "acceptText": "Sure, I'll bring some back.",
+      "declineText": "Ask someone else.",
+      "expositionTurnInText": "Let's see what all the talk is about.",
+      "resolutionText": "I learned something today. {quest_reward}: take it.",
+      "rewardText": "a small hand-drawn map of the area",
+      "valence": "positive",
+      "roleAffinity": []
+    },
+
+    {
+      "id": "mundane_lost_01",
+      "topicHeader": "Something I Misplaced",
+      "situation": "mundane_lost",
+      "objectives": [
+        { "type": "PEACEFUL_FETCH" }
+      ],
+      "expositionText": "I left my {quest_item} somewhere last week and I've been kicking myself ever since. I think {target_npc} over in {target_npc_settlement} might have found it.",
+      "acceptText": "I'll go check with them.",
+      "declineText": "I hope you find it.",
+      "expositionTurnInText": "You actually found it. I can't believe I let that wander off.",
+      "resolutionText": "Thank you: really. {quest_reward}.",
+      "rewardText": "a tin of hard candies I keep for special occasions",
+      "valence": "positive",
+      "roleAffinity": [],
+      "targetNpcOpener": "Oh, you're here about that {quest_item}? Yeah, I've got it right here. Figured someone would come looking eventually.",
+      "targetNpcCloser": "Tell them to keep better track of their things. Safe travels."
+    },
+
+    {
+      "id": "mundane_lost_02",
+      "topicHeader": "Where Did I Put It",
+      "situation": "mundane_lost",
+      "objectives": [
+        { "type": "PEACEFUL_FETCH" }
+      ],
+      "expositionText": "I can't find my {quest_item} anywhere. Last I remember, I had it when I visited {target_npc} in {target_npc_settlement}. Could you ask if they've seen it?",
+      "acceptText": "I'll go ask around.",
+      "declineText": "Sorry, I can't right now.",
+      "expositionTurnInText": "That's a relief. I was starting to think it was gone for good.",
+      "resolutionText": "You've got my gratitude. Here: {quest_reward}.",
+      "rewardText": "a spool of fine thread, hard to come by",
+      "valence": "positive",
+      "roleAffinity": [],
+      "targetNpcOpener": "The {quest_item}? It's been sitting on my shelf. I was wondering whose it was. Here you go.",
+      "targetNpcCloser": "Glad to get it off my hands, honestly. Take care."
+    },
+
+    {
+      "id": "mundane_lost_03",
+      "topicHeader": "A Forgetful Moment",
+      "situation": "mundane_lost",
+      "objectives": [
+        { "type": "PEACEFUL_FETCH" }
+      ],
+      "expositionText": "Embarrassing, but I left my {quest_item} at {target_npc}'s place in {target_npc_settlement}. I keep meaning to go back for it but I never get around to it.",
+      "acceptText": "I'll swing by and grab it.",
+      "declineText": "You should go get it yourself.",
+      "expositionTurnInText": "There it is. I missed this more than I expected.",
+      "resolutionText": "You did me a real kindness. {quest_reward}.",
+      "rewardText": "a jar of last season's honey",
+      "valence": "positive",
+      "roleAffinity": [],
+      "targetNpcOpener": "Right, the {quest_item}. I kept it safe: figured they'd want it back eventually. Here.",
+      "targetNpcCloser": "No trouble at all. See you around."
+    },
+
+    {
+      "id": "mundane_pickup_01",
+      "topicHeader": "A Pickup",
+      "situation": "mundane_pickup",
+      "objectives": [
+        { "type": "PEACEFUL_FETCH" }
+      ],
+      "expositionText": "I've been waiting on a {quest_item} from {target_npc} in {target_npc_settlement}. It should be ready by now. Would you mind picking it up?",
+      "acceptText": "I'll go get it.",
+      "declineText": "I'm headed the other way.",
+      "expositionTurnInText": "That's exactly what I was expecting. Looks good.",
+      "resolutionText": "Appreciate the legwork. {quest_reward}.",
+      "rewardText": "a pair of warm wool socks",
+      "valence": "positive",
+      "roleAffinity": [],
+      "targetNpcOpener": "You're picking up for someone in {settlement_name}? Right: the {quest_item}. It's all ready. Here you are.",
+      "targetNpcCloser": "Tell them I said hello."
+    },
+
+    {
+      "id": "mundane_pickup_02",
+      "topicHeader": "Waiting on an Order",
+      "situation": "mundane_pickup",
+      "objectives": [
+        { "type": "PEACEFUL_FETCH" }
+      ],
+      "expositionText": "{target_npc} was supposed to send over a {quest_item}, but it never showed up. Could you go to {target_npc_settlement} and grab it for me?",
+      "acceptText": "I'll sort it out.",
+      "declineText": "Not today, sorry.",
+      "expositionTurnInText": "Finally. I'd started to wonder if they forgot about me.",
+      "resolutionText": "Thanks for handling that. {quest_reward}.",
+      "rewardText": "a small block of scented soap",
+      "valence": "positive",
+      "roleAffinity": [],
+      "targetNpcOpener": "Oh: was I supposed to send that over? My mistake. Here's the {quest_item}. All yours.",
+      "targetNpcCloser": "Sorry about the wait. Safe trip back."
+    },
+
+    {
+      "id": "mundane_pickup_03",
+      "topicHeader": "Something on Hold",
+      "situation": "mundane_pickup",
+      "objectives": [
+        { "type": "PEACEFUL_FETCH" }
+      ],
+      "expositionText": "I asked {target_npc} to set aside a {quest_item} for me at their place in {target_npc_settlement}. I just haven't had the time to go get it. Could you?",
+      "acceptText": "No problem.",
+      "declineText": "I'm too busy right now.",
+      "expositionTurnInText": "Just what I needed. Thank you for making the trip.",
+      "resolutionText": "You saved me half a day's walk. Here: {quest_reward}.",
+      "rewardText": "a packet of roasted seeds for the road",
+      "valence": "positive",
+      "roleAffinity": [],
+      "targetNpcOpener": "Ah, you're here for the {quest_item}. I've had it set aside. Here, take it.",
+      "targetNpcCloser": "Happy to help. Have a good one."
+    },
+
+    {
+      "id": "mundane_borrowed_01",
+      "topicHeader": "Something I Lent Out",
+      "situation": "mundane_borrowed",
+      "objectives": [
+        { "type": "PEACEFUL_FETCH" }
+      ],
+      "expositionText": "I lent my {quest_item} to {target_npc} ages ago and I'd really like it back. They're over in {target_npc_settlement}: would you ask them for it?",
+      "acceptText": "I'll go talk to them.",
+      "declineText": "That's between you two.",
+      "expositionTurnInText": "There it is. Feels good to have it back.",
+      "resolutionText": "I owe you one. {quest_reward}.",
+      "rewardText": "a small clay figurine I made myself",
+      "valence": "positive",
+      "roleAffinity": [],
+      "targetNpcOpener": "The {quest_item}? Oh, right. I've been meaning to return that. Sorry it took so long: here you go.",
+      "targetNpcCloser": "Tell them no hard feelings, yeah? Take care."
+    },
+
+    {
+      "id": "mundane_borrowed_02",
+      "topicHeader": "Getting It Back",
+      "situation": "mundane_borrowed",
+      "objectives": [
+        { "type": "PEACEFUL_FETCH" }
+      ],
+      "expositionText": "{target_npc} borrowed my {quest_item} a while back. I don't think they realize how long it's been. Could you swing by {target_npc_settlement} and bring it home?",
+      "acceptText": "I'll handle it.",
+      "declineText": "You should ask them yourself.",
+      "expositionTurnInText": "Finally. I was starting to forget what it looked like.",
+      "resolutionText": "Thank you: I didn't want to make it awkward. {quest_reward}.",
+      "rewardText": "a bundle of cinnamon sticks",
+      "valence": "positive",
+      "roleAffinity": [],
+      "targetNpcOpener": "Has it really been that long? I completely lost track. Here's the {quest_item}: good as new. Mostly.",
+      "targetNpcCloser": "Give them my apologies. Safe travels."
+    },
+
+    {
+      "id": "mundane_borrowed_03",
+      "topicHeader": "Long Overdue",
+      "situation": "mundane_borrowed",
+      "objectives": [
+        { "type": "PEACEFUL_FETCH" }
+      ],
+      "expositionText": "I hate to be that person, but {target_npc} still has my {quest_item}. I lent it out meaning to get it back in a week. That was months ago. They're in {target_npc_settlement}.",
+      "acceptText": "I'll go fetch it.",
+      "declineText": "Maybe just write them a letter.",
+      "expositionTurnInText": "At last. I was running out of ways to politely not mention it.",
+      "resolutionText": "You're a diplomat. Here: {quest_reward}.",
+      "rewardText": "a pressed flower bookmark",
+      "valence": "positive",
+      "roleAffinity": [],
+      "targetNpcOpener": "Oh no: the {quest_item}. I kept telling myself I'd bring it back. I'm terrible. Here, please take it.",
+      "targetNpcCloser": "I feel awful. Tell them I'm sorry. Really."
+    }
+
+  ]
+}
