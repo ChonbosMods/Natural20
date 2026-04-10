@@ -1,6 +1,7 @@
 package com.chonbosmods;
 
 import com.chonbosmods.combat.CombatDebugSystem;
+import com.chonbosmods.combat.Nat20AbsorptionSystem;
 import com.chonbosmods.cave.CaveVoidRegistry;
 import com.chonbosmods.cave.CaveVoidScanner;
 import com.chonbosmods.cave.UndergroundStructurePlacer;
@@ -86,6 +87,7 @@ public class Natural20 extends JavaPlugin {
     private java.util.concurrent.ScheduledExecutorService poiProximityExecutor;
     private Config<Nat20GlobalData> globalConfig;
     private java.util.concurrent.ScheduledExecutorService npcSyncExecutor;
+    private Nat20AbsorptionSystem absorptionSystem;
 
     public Natural20(@Nonnull JavaPluginInit init) {
         super(init);
@@ -324,6 +326,10 @@ public class Natural20 extends JavaPlugin {
         // Register combat debug logging system (post-damage inspection)
         getEntityStoreRegistry().registerSystem(new CombatDebugSystem());
 
+        // Register absorption affix system (Filter Group: redirects damage to mana)
+        absorptionSystem = new Nat20AbsorptionSystem(lootSystem);
+        getEntityStoreRegistry().registerSystem(absorptionSystem);
+
         // Clean up on player disconnect
         getEventRegistry().register(PlayerDisconnectEvent.class, event -> {
             UUID uuid = event.getPlayerRef().getUuid();
@@ -333,6 +339,7 @@ public class Natural20 extends JavaPlugin {
             if (poiProximitySystem != null) poiProximitySystem.removePlayer(uuid);
             if (settlementDiscoverySystem != null) settlementDiscoverySystem.removePlayer(uuid);
             CombatDebugSystem.removePlayer(uuid);
+            if (absorptionSystem != null) absorptionSystem.removePlayer(uuid);
         });
 
         // Restore quest waypoint markers on player connect and register for POI proximity tracking

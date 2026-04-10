@@ -1,0 +1,21 @@
+{
+  "Id": "nat20:absorption",
+  "Type": "EFFECT",
+  "DisplayName": "server.nat20.affix.absorption",
+  "NamePosition": "PREFIX",
+  "Categories": ["armor", "melee_weapon"],
+  "StatRequirement": null,
+  "StatScaling": { "Primary": "WIS", "Factor": 0.15 },
+  "TargetStat": "DamageAbsorption",
+  "ModifierType": "MULTIPLICATIVE",
+  "ValuesPerRarity": {
+    "Common":    { "Min": 0.05, "Max": 0.10 },
+    "Uncommon":  { "Min": 0.08, "Max": 0.15 },
+    "Rare":      { "Min": 0.12, "Max": 0.22 },
+    "Epic":      { "Min": 0.18, "Max": 0.30 },
+    "Legendary": { "Min": 0.25, "Max": 0.40 }
+  },
+  "Description": "Redirects a portion of incoming damage to mana, reducing damage taken.",
+  "Cooldown": "3.0s",
+  "ProcChance": null
+}
