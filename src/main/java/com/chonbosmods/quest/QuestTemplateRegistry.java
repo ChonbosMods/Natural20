@@ -450,6 +450,15 @@ public class QuestTemplateRegistry {
                 skipped++;
                 continue;
             }
+            long talkCount = template.objectives().stream()
+                    .filter(o -> "TALK_TO_NPC".equals(o.type()))
+                    .count();
+            if (talkCount > 2) {
+                LOGGER.atWarning().log("v2 template '%s' has %d TALK_TO_NPC objectives (max 2), skipping",
+                        template.id(), talkCount);
+                skipped++;
+                continue;
+            }
             if (!seenIds.add(template.id())) {
                 LOGGER.atWarning().log("v2 template id '%s' duplicated in %s, skipping", template.id(), source);
                 skipped++;
