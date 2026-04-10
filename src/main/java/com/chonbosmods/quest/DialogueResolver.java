@@ -13,6 +13,9 @@ public class DialogueResolver {
 
     private static final Pattern VAR_PATTERN = Pattern.compile("\\{(\\w+)}");
     private static final Pattern DOUBLE_ARTICLE = Pattern.compile("\\b(the|a|an) \\1\\b", Pattern.CASE_INSENSITIVE);
+    private static final Pattern POSSESSIVE_ARTICLE = Pattern.compile(
+        "\\b(my|your|his|her|their|its|our|this|that|these|those|some|every|each|no|another) (a|an|the) ",
+        Pattern.CASE_INSENSITIVE);
     private static final Pattern DANGLING_PUNCT = Pattern.compile("\\s+([,.:;!?])");
     private static final Pattern DOUBLE_SPACE = Pattern.compile("  +");
     private static final Pattern EMPTY_PARENS = Pattern.compile("\\(\\s*\\)");
@@ -148,6 +151,8 @@ public class DialogueResolver {
         String result = sb.toString();
         // Collapse double articles: "the the old watchtower" -> "the old watchtower"
         result = DOUBLE_ARTICLE.matcher(result).replaceAll("$1");
+        // Strip articles after possessives: "my a journal" -> "my journal"
+        result = POSSESSIVE_ARTICLE.matcher(result).replaceAll("$1 ");
         // a/an correction: "a apple" -> "an apple", "A owl" -> "An owl"
         // Marker-aware so a wrapped entity name starting with a vowel still triggers conversion.
         result = A_VOWEL.matcher(result).replaceAll("an $1");
